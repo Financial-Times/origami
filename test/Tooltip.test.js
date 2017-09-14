@@ -284,15 +284,27 @@ describe("Tooltip", () => {
 			proclaim.isTrue(buttonEl.hasAttribute('role'));
 		});
 
-		it("Inserts in document body if it is not already a child", () => {
-			const appendStub = sinon.stub(document.body, 'appendChild');
+		it("Inserts adjacent to target element when target has no next sibling", () => {
+			const parent = document.getElementById('demo-tooltip-insertion-test-1');
+			sinon.stub(parent, 'appendChild');
 			new Tooltip(stubEl, {
 				target: 'demo-tooltip-insertion-test-1-target',
 				content: 'content'
 			});
-			document.body.appendChild.restore();
-			proclaim.isTrue(appendStub.called);
-			proclaim.isTrue(appendStub.args[0][0].textContent === "content");
+			proclaim.isTrue(parent.appendChild.called);
+			proclaim.isTrue(parent.appendChild.args[0][0].textContent === "content");
+		});
+
+		it("Inserts adjacent to target element when target has no next sibling", () => {
+			const parent = document.getElementById('demo-tooltip-insertion-test-2');
+			sinon.stub(parent, 'insertBefore');
+			new Tooltip(stubEl, {
+				target: 'demo-tooltip-insertion-test-2-target',
+				content: 'content'
+			});
+
+			proclaim.isTrue(parent.insertBefore.called);
+			proclaim.isTrue(parent.insertBefore.args[0][0].textContent === "content");
 		});
 
 	});
@@ -636,8 +648,8 @@ describe("Tooltip", () => {
 					testTooltip.drawTooltip();
 					proclaim.strictEqual(drawStub.firstCall.args[0], testTooltip.tooltipRect);
 				});
-			});
 		});
+	});
 
 		/* Unhappy path: If the tooltip is slightly offscreen when it is middle aligned, then it aligns
 		the tooltip with an extremity of the target (whichever is results in the tooltip
@@ -987,7 +999,6 @@ describe("Tooltip", () => {
 		});
 
 		afterEach(() => {
-			fixtures.reset();
 			outOfBoundsStub.restore();
 		});
 
@@ -1174,20 +1185,6 @@ describe("Tooltip", () => {
 		it("sets the style.left to the left value of the rect passed in", () => {
 			testTooltip._drawTooltip({top: 123, left: 456});
 			proclaim.strictEqual(testTooltip.tooltipEl.style.left, "456px");
-		});
-		it('sets the style.position to "absolute"', () => {
-			testTooltip._drawTooltip({top: 123, left: 456});
-			proclaim.strictEqual(testTooltip.tooltipEl.style.position, 'absolute');
-		});
-		describe('when the target element has a fixed position parent', () => {
-			beforeEach(() => {
-				fixtures.declarativeCode();
-				testTooltip = Tooltip.init('#tooltip-demo-5');
-			});
-			it('sets the style.position to "fixed"', () => {
-				testTooltip._drawTooltip({top: 123, left: 456});
-				proclaim.strictEqual(testTooltip.tooltipEl.style.position, 'fixed');
-			});
 		});
 	});
 

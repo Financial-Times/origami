@@ -27,7 +27,6 @@ describe("Tooltip", () => {
 	it("should not autoinitialize when the event is not dispached", () => {
 		const initSpy = sinon.spy(Tooltip, 'init');
 		proclaim.equal(initSpy.called, false);
-		initSpy.restore();
 	});
 
 	describe("should create a new", () => {

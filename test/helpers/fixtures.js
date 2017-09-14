@@ -83,19 +83,6 @@ function declarativeCode () {
 			<div></div>
 		</div>
 
-		<!-- Fixed parent tests -->
-		<div style="position: fixed;">
-			<div>
-				<div id="positioned-target-by-parent"></div>
-				<div id="positioned-target-by-self" style="position: fixed;"></div>
-			</div>
-		</div>
-		<div id="position-static-parent">
-			<div>
-				<div id="non-positioned-target"></div>
-			</div>
-		</div>
-
 	`;
 	insert(html);
 }

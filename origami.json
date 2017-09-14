@@ -62,18 +62,6 @@
 				"description": "relative parent position testcase"
 			},
 			{
-				"name": "absolute-position-test",
-				"template": "demos/src/absolute-position-test.mustache",
-				"hidden": true,
-				"description": "absolute parent position testcase"
-			},
-			{
-				"name": "fixed-position-test",
-				"template": "demos/src/fixed-position-test.mustache",
-				"hidden": true,
-				"description": "fixed position testcase"
-			},
-			{
 				"name": "pa11y",
 				"template": "demos/src/pa11y.mustache",
 				"hidden": true,
