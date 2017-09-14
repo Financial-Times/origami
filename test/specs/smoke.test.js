@@ -28,14 +28,20 @@ describe("smoke-tests (./overlay.js)", function() {
 			el.className = 'o-overlay-trigger';
 			document.body.appendChild(el);
 
+			const container = document.createElement('div');
+			container.className = 'js-container';
+			document.body.appendChild(container);
+
 			document.body.innerHTML += testContent;
 		});
 
 		afterEach(() => {
 			const testEl = document.querySelector('.test-overlay');
-			testEl.parentNode.removeChild(testEl);
+			if (testEl) testEl.parentNode.removeChild(testEl);
 			const triggerEl = document.querySelector('.o-overlay-trigger');
-			triggerEl.parentNode.removeChild(triggerEl);
+			if (triggerEl) triggerEl.parentNode.removeChild(triggerEl);
+			const containerEl = document.querySelector('.js-container');
+			if (containerEl) containerEl.parentNode.removeChild(containerEl);
 		});
 
 		it('should open with correct content when trigger is clicked', done => {
@@ -163,6 +169,31 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 
 			expect(Overlay.prototype.close.callCount).to.be(4);
+
+			Overlay.prototype.close = realCloseFunction;
+			currentOverlay.close();
+		});
+
+		it('should be closable in fewer ways when nested in the page', function() {
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
+			const trigger = document.querySelector('.o-overlay-trigger');
+			trigger.setAttribute('data-o-overlay-modal', 'false');
+			trigger.setAttribute('data-o-overlay-parentNode', '.js-container');
+
+			const overlays = Overlay.init();
+			const currentOverlay = overlays[0];
+
+			o.fireEvent(trigger, 'click');
+			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
+			o.fireEvent(document.body, 'keyup', {
+				keyCode: 27
+			});
+			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
+
+			expect(Overlay.prototype.close.callCount).to.be(1);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
