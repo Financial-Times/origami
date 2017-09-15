@@ -181,18 +181,23 @@ describe("smoke-tests (./overlay.js)", function() {
 
 			const trigger = document.querySelector('.o-overlay-trigger');
 			trigger.setAttribute('data-o-overlay-modal', 'false');
-			trigger.setAttribute('data-o-overlay-parentNode', '.js-container');
+			trigger.setAttribute('data-o-overlay-parentnode', '.js-container');
+			trigger.setAttribute('data-o-overlay-nested', 'true');
 
 			const overlays = Overlay.init();
 			const currentOverlay = overlays[0];
 
 			o.fireEvent(trigger, 'click');
-			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
+
 			o.fireEvent(document.body, 'keyup', {
 				keyCode: 27
 			});
-			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
+			expect(Overlay.prototype.close.callCount).to.be(0);
 
+			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
+			expect(Overlay.prototype.close.callCount).to.be(0);
+
+			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 			expect(Overlay.prototype.close.callCount).to.be(1);
 
 			Overlay.prototype.close = realCloseFunction;

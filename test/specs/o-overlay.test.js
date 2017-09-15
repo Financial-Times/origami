@@ -88,12 +88,12 @@ describe("Overlay", () => {
 			proclaim.strictEqual(oLayers.getLayerContext(document.getElementById('testTrigger')), testOverlay.context);
 		});
 
-		it("Sets the context to the parentNode if it's been set but the trigger hasn't", () => {
-			const testOverlay = new Overlay('myID', {html: 'hello', parentNode: '#element'});
+		it("Sets the context to the parentnode if it's been set but the trigger hasn't", () => {
+			const testOverlay = new Overlay('myID', {html: 'hello', parentnode: '#element'});
 			proclaim.strictEqual(document.querySelector('#element'), testOverlay.context);
 		});
 
-		it("Sets the context to the document body if there isn't a trigger or parentNode", () => {
+		it("Sets the context to the document body if there isn't a trigger or parentnode", () => {
 			const testOverlay = new Overlay('myID', {html: 'hello'});
 			proclaim.strictEqual(document.body, testOverlay.context);
 		});
