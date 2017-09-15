@@ -37,11 +37,11 @@ describe("smoke-tests (./overlay.js)", function() {
 
 		afterEach(() => {
 			const testEl = document.querySelector('.test-overlay');
-			if (testEl) testEl.parentNode.removeChild(testEl);
+			testEl.parentNode.removeChild(testEl);
 			const triggerEl = document.querySelector('.o-overlay-trigger');
-			if (triggerEl) triggerEl.parentNode.removeChild(triggerEl);
+			triggerEl.parentNode.removeChild(triggerEl);
 			const containerEl = document.querySelector('.js-container');
-			if (containerEl) containerEl.parentNode.removeChild(containerEl);
+			containerEl.parentNode.removeChild(containerEl);
 		});
 
 		it('should open with correct content when trigger is clicked', done => {
