@@ -37,3 +37,34 @@
 		}
 	}
 }
+
+.o-teaser--live {
+	padding: 26px 10px;
+	color: white;
+	background: oColorsGetPaletteColor('crimson');
+
+	.o-teaser__meta,
+	.o-teaser__heading,
+	.o-teaser__timestamp {
+		a, &:hover {
+			color: white;
+		}
+		color: white;
+	}
+	.o-teaser__heading {
+		display: flex;
+	}
+	.o-teaser__timestamp {
+		position: absolute;
+		top: 0;
+
+		time {
+			display: none;
+		}
+	}
+	.o-teaser__timestamp-prefix:before,
+	.o-teaser__timestamp--inprogress:before {
+		background-color: white;
+	}
+}
+
