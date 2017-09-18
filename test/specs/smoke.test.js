@@ -195,13 +195,80 @@ describe("smoke-tests (./overlay.js)", function() {
 			expect(Overlay.prototype.close.callCount).to.be(0);
 
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			expect(Overlay.prototype.close.callCount).to.be(0);
+			expect(Overlay.prototype.close.callCount).to.be(1);
 
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
+			expect(Overlay.prototype.close.callCount).to.be(2);
+
+			Overlay.prototype.close = realCloseFunction;
+			currentOverlay.close();
+		});
+
+		it('should act as a layer by default', () => {
+			let newLayers = 0;
+			let closedLayers = 0;
+			document.body.addEventListener('oLayers.new', () => {
+				newLayers++;
+			});
+			document.body.addEventListener('oLayers.close', () => {
+				closedLayers++;
+			});
+
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
+			const trigger = document.querySelector('.o-overlay-trigger');
+			let overlays = Overlay.init();
+			let currentOverlay = overlays[0];
+
+			o.fireEvent(trigger, 'click');
+
+			expect(newLayers).to.be(1);
+			expect(closedLayers).to.be(0);
+
+			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 			expect(Overlay.prototype.close.callCount).to.be(1);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
+
+			expect(newLayers).to.be(2);
+			expect(closedLayers).to.be(1);
+		});
+
+		it('should support having layer functionality disabled', () => {
+			let newLayers = 0;
+			let closedLayers = 0;
+			document.body.addEventListener('oLayers.new', () => {
+				newLayers++;
+			});
+			document.body.addEventListener('oLayers.close', () => {
+				closedLayers++;
+			});
+
+			const realCloseFunction = Overlay.prototype.close;
+			const stubbedCloseFunction = sinon.stub();
+			Overlay.prototype.close = stubbedCloseFunction;
+
+			const trigger = document.querySelector('.o-overlay-trigger');
+			trigger.setAttribute('data-o-overlay-layer', 'false');
+			let overlays = Overlay.init();
+			let currentOverlay = overlays[0];
+
+			o.fireEvent(trigger, 'click');
+
+			expect(newLayers).to.be(0);
+			expect(closedLayers).to.be(0);
+
+			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
+			expect(Overlay.prototype.close.callCount).to.be(0);
+
+			Overlay.prototype.close = realCloseFunction;
+			currentOverlay.close();
+
+			expect(newLayers).to.be(1);
+			expect(closedLayers).to.be(0);
 		});
 
 		it('should remove all traces on close', function() {

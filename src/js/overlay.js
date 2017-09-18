@@ -13,9 +13,12 @@ const checkOptions = function(opts) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
 	}
 
-	// Overlays should be modal by default
+	// Overlays should be modal and layers by default
 	if (typeof opts.modal === 'undefined') {
 		opts.modal = true;
+	}
+	if (typeof opts.layer === 'undefined') {
+		opts.layer = true;
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
@@ -254,13 +257,15 @@ Overlay.prototype.show = function() {
 		this.resizeListenerHandler = this.resizeListener.bind(this);
 		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
 
+		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
+	}
+
+	if (this.opts.layer) {
 		this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
 		this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
 
 		this.broadcast('new', 'oLayers');
-
-		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
-		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
 	}
 
 	if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
@@ -338,7 +343,11 @@ Overlay.prototype.close = function() {
 		this.opts.trigger.setAttribute('aria-pressed', 'false');
 	}
 	this.visible = false;
-	this.broadcast('close', 'oLayers');
+
+	if (this.opts.layer) {
+		this.broadcast('close', 'oLayers');
+	}
+
 	return false;
 };
 
