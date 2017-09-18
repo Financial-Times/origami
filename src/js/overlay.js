@@ -24,9 +24,11 @@ const checkOptions = function(opts) {
 
 	// Map old names for options
 	if (opts.parentNode) {
+		console.warn('Please change the instantation of o-overlay to use the `parentnode` option instead of `parentNode`. `parentNode` will be removed in a future major version.');
 		opts.parentnode = opts.parentNode;
 	}
 	if (opts.noFocus) {
+		console.warn('Please change the instantation of o-overlay to use the `nofocus` option instead of `noFocus`. `noFocus` will be removed in a future major version.');
 		opts.nofocus = opts.noFocus;
 	}
 
