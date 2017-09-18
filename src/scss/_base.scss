@@ -23,6 +23,34 @@
 		@include oColorsFor(o-table-header, color);
 	}
 
+	&[data-o-table--js] thead th {
+		cursor: pointer;
+		user-select: none;
+		padding-right: 20px;
+		&:after {
+			content: '';
+			margin-right: -20px;
+			@include oIconsGetIcon('arrows-up-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+			vertical-align: top;
+		}
+		// Show descending icon with DSC sort applied.
+		&[aria-sort='descending'] {
+			&:after {
+				@include oIconsGetIcon('arrow-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+				vertical-align: top;
+			}
+		}
+		// Show ascending icon with ASC sort applied or on hover with no sort.
+		&[aria-sort='none']:hover,
+		&:not([aria-sort]):hover,
+		&[aria-sort='ascending'] {
+			&:after {
+				@include oIconsGetIcon('arrow-up', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+				vertical-align: top;
+			}
+		}
+	}
+
 	td {
 		@include oTypographySans(1);
 		@include oColorsFor(o-table-data, color);

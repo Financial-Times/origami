@@ -3,6 +3,7 @@
     "dependencies": {
         "o-colors": "^4.0.0",
         "o-grid": "^4.0.6",
+        "o-icons": "^5.0.0",
         "o-typography": "^5.0.0"
     },
     "main": [
