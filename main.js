@@ -7,6 +7,8 @@ const formats = {
 	date: 'MMMM d, yyyy'
 };
 
+const updateEventName = 'oDate.update';
+
 const compiledTemplates = {};
 
 /**
@@ -59,16 +61,22 @@ function ODate(rootEl) {
 	}
 
 	if (this.el !== undefined) {
-		this.update = this.update.bind(this);
-		document.body.addEventListener('oDate.update', this.update);
+		document.body.addEventListener(updateEventName, this);
 
 		this.update();
 	}
 
 	if (!interval) {
 		interval = setInterval(function() {
-			document.body.dispatchEvent(new CustomEvent('oDate.update'));
+			document.body.dispatchEvent(new CustomEvent(updateEventName));
 		}, 60000);
+	}
+}
+
+// Use object-level event listener method so a new function doesn't need to be bound for each instance
+ODate.prototype.handleEvent = function(e) {
+	if (e.type === updateEventName) {
+		this.update();
 	}
 }
 
@@ -122,7 +130,7 @@ ODate.prototype.update = function() {
 };
 
 ODate.prototype.destroy = function() {
-	document.body.removeEventListener('oDate.update', this.update);
+	document.body.removeEventListener(updateEventName, this);
 	this.el = null;
 };
 
