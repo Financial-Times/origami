@@ -59,9 +59,8 @@ function ODate(rootEl) {
 	}
 
 	if (this.el !== undefined) {
-		document.body.addEventListener('oDate.update', () => {
-			this.update();
-		});
+		this.update = this.update.bind(this);
+		document.body.addEventListener('oDate.update', this.update);
 
 		this.update();
 	}
@@ -120,6 +119,11 @@ ODate.prototype.update = function() {
 	el.title = ODate.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
 	el.setAttribute('aria-label', dateString);
+};
+
+ODate.prototype.destroy = function() {
+	document.body.removeEventListener('oDate.update', this.update);
+	this.el = null;
 };
 
 function compile(format) {

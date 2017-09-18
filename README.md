@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 You can also run `require('o-date').init()` once the DOM has loaded if you don't want to initialise other modules at the same time.
 
-Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load.
+Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load, and if you keep a reference to the returned object you can clean them up with `oDateItem.destory()` to stop processing.
 
 #### o-date#format(date, tpl)
 
@@ -70,6 +70,12 @@ Returns `'yesterday'`, `'today'` or `''` for a given date. You can request this 
 Within a given container element, converts dates to ftTime (see above) and periodically updates their values. Within the container all `<time>` elements with `o-date` in `data-o-component` will be updated. If a given `<time>` element contains an element with the class `o-date__printer` the relative time will be output here, otherwise it will replace the contents of the entire `<time>` element. Once the `<time>` element has been formatted by o-date, the attribute `data-o-date-js` is added, enabling conditional styling and/or hiding the date until it is correctly formatted.
 
   * `el`: An `HTMLElement` within which to scan for `o-date` elements. If the element itself is a `<time>` element with `o-date` in `data-o-component`, then o-date will run directly on this element rather than querying for suitable elements within it.
+
+If the `el` is a valid `<time>` element, the resulting o-date instance will be returned; otherwise, an array of created instances will be returned.
+
+#### o-date#destroy()
+
+Call on any instances to stop processing date updates and release the item reference.
 
 ---
 
