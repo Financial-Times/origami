@@ -78,7 +78,7 @@ ODate.prototype.handleEvent = function(e) {
 	if (e.type === updateEventName) {
 		this.update();
 	}
-}
+};
 
 ODate.prototype.update = function() {
 	let el = this.el;
