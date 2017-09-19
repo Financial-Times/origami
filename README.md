@@ -61,9 +61,10 @@ var myOverlay = new Overlay('myOverlay', {
 * `zindex`: String. Value of the CSS z-index property of the overlay. _Default set via CSS_: '10'
 * `preventclosing`: Boolean. Prevents closure of overlay via standard x button or escape key. For use when you are directing the user to somewhere else. Only valid with modal set to true.
 * `customclose`: Boolean. If you do not use the header, but want to provide a close button in your html / src (with a class of `o-overlay__close`), setting customclose to true will attach o-overlay's close handler function to that button.
-* `parentNode`: String. Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the `body` will be used.
-* `nested`: Boolean. If set to true, the resize listeners will not be set up. This boolean should be used in conjunction with the `parentNode` setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. _Default_: false.
-* `noFocus`: Boolean. If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the `nested` and `parentNode` options. _Default_: false.
+* `parentnode`: String. Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the `body` will be used.
+* `nested`: Boolean. If set to true, the resize and escape key listeners will not be set up. This boolean should be used in conjunction with the `parentnode` setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. _Default_: false.
+* `nofocus`: Boolean. If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the `nested` and `parentnode` options. _Default_: false.
+* `layer`: Boolean. If set to true, the overlay will be treated as an o-layer, firing oLayers.new and oLayers.close events when created and destroyed, and closing itself when another oLayers.new event fires. You may want to set this to false if using a `nested` overlay. _Default_: true.
 
 The only option that must be set is either `src` or `html`. The `html` option can't be set as a `data-` attribute, and if you set both, the `html` one will override `src`.
 

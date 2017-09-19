@@ -13,13 +13,26 @@ const checkOptions = function(opts) {
 		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
 	}
 
-	// Overlays should be modal by default
+	// Overlays should be modal and layers by default
 	if (typeof opts.modal === 'undefined') {
 		opts.modal = true;
+	}
+	if (typeof opts.layer === 'undefined') {
+		opts.layer = true;
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
 		throw new Error('"o-overlay error": Compact overlays can\'t have a shaded header');
+	}
+
+	// Map old names for options
+	if (opts.parentNode) {
+		console.warn('Please change the instantation of o-overlay to use the `parentnode` option instead of `parentNode`. `parentNode` will be removed in a future major version.');
+		opts.parentnode = opts.parentNode;
+	}
+	if (opts.noFocus) {
+		console.warn('Please change the instantation of o-overlay to use the `nofocus` option instead of `noFocus`. `noFocus` will be removed in a future major version.');
+		opts.nofocus = opts.noFocus;
 	}
 
 	return opts;
@@ -70,9 +83,9 @@ const triggerClickHandler = function(id, ev) {
  * @param {String} opts.zindex - Value of the CSS z-index property of the overlay. Default set via CSS: '10'
  * @param {Boolean} opts.preventclosing - Prevents closure of overlay via standard x button or escape key. For use when you are directing the user to somewhere else. Only valid with modal set to true.
  * @param {Boolean} opts.customclose - If you do not use the heading, but want to provide a close button in your html / src (with a class of o-overlay__close), setting customclose to true will attach o-overlay's close handler function to that button.
- * @param {String} opts.parentNode - Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the body will be used.
- * @param {Boolean} opts.nested - If set to true, the resize listeners will not be set up. This boolean should be used in conjunction with the parentNode setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. Default: false.
- * @param {Boolean} opts.noFocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentNode options. Default: false.
+ * @param {String} opts.parentnode - Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the body will be used.
+ * @param {Boolean} opts.nested - If set to true, the resize, escape, and layer listeners will not be set up. This boolean should be used in conjunction with the parentnode setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. Default: false.
+ * @param {Boolean} opts.nofocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentnode options. Default: false.
 */
 const Overlay = function(id, opts) {
 	viewport.listenTo('resize');
@@ -99,8 +112,8 @@ const Overlay = function(id, opts) {
 		this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
 		this.context = oLayers.getLayerContext(this.opts.trigger);
 	} else {
-		if (document.querySelector(this.opts.parentNode)) {
-			this.context = document.querySelector(this.opts.parentNode);
+		if (document.querySelector(this.opts.parentnode)) {
+			this.context = document.querySelector(this.opts.parentnode);
 		} else {
 			this.context = document.body;
 		}
@@ -179,7 +192,7 @@ Overlay.prototype.render = function() {
 			button.setAttribute('href', '#void');
 			button.setAttribute('aria-label', 'Close');
 			button.setAttribute('title', 'Close');
-			if (!this.opts.noFocus) {
+			if (!this.opts.nofocus) {
 				button.setAttribute('tabindex', '0');
 			}
 			heading.appendChild(button);
@@ -204,7 +217,7 @@ Overlay.prototype.render = function() {
 		button.setAttribute('href', '#void');
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
-		if (!this.opts.noFocus) {
+		if (!this.opts.nofocus) {
 			button.setAttribute('tabindex', '0');
 		}
 
@@ -243,10 +256,17 @@ Overlay.prototype.show = function() {
 	if (!this.opts.nested) {
 		this.resizeListenerHandler = this.resizeListener.bind(this);
 		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+
+		this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
+		this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
 	}
 
-	this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
-	this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
+	if (this.opts.layer) {
+		this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
+		this.delegates.context.on('oLayers.new', this.closeOnNewLayerHandler);
+
+		this.broadcast('new', 'oLayers');
+	}
 
 	if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
 		this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
@@ -257,14 +277,10 @@ Overlay.prototype.show = function() {
 	this.delegates.doc.on('click', 'body', this.closeOnExternalClickHandler);
 	this.delegates.doc.on('touchend', 'body', this.closeOnExternalClickHandler);
 
-	this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
-	this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
-
-	this.broadcast('new', 'oLayers');
 	this.context.appendChild(this.wrapper);
 
 	// Give the overlay focus
-	if (!this.opts.noFocus) {
+	if (!this.opts.nofocus) {
 		this.wrapper.setAttribute('tabindex', '0');
 		this.wrapper.style.outline = 0;
 	}
@@ -327,7 +343,11 @@ Overlay.prototype.close = function() {
 		this.opts.trigger.setAttribute('aria-pressed', 'false');
 	}
 	this.visible = false;
-	this.broadcast('close', 'oLayers');
+
+	if (this.opts.layer) {
+		this.broadcast('close', 'oLayers');
+	}
+
 	return false;
 };
 
