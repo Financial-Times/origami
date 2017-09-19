@@ -39,32 +39,30 @@
 }
 
 .o-teaser--live {
-	padding: 26px 10px;
-	color: white;
+	// create white text red background
+	@include oTeaserInverse;
 	background: oColorsGetPaletteColor('crimson');
-
-	.o-teaser__meta,
-	.o-teaser__heading,
-	.o-teaser__timestamp {
-		a, &:hover {
-			color: white;
-		}
+	.o-teaser__content * {
 		color: white;
-	}
-	.o-teaser__heading {
-		display: flex;
-	}
-	.o-teaser__timestamp {
-		position: absolute;
-		top: 0;
-
-		time {
-			display: none;
+		&:hover {
+			color: white;
 		}
 	}
 	.o-teaser__timestamp-prefix:before,
 	.o-teaser__timestamp--inprogress:before {
 		background-color: white;
+	}
+
+	// move "LIVE" to the top without changing the HTML
+	.o-teaser__content {
+		display: flex;
+		flex-direction: column;
+	}
+	.o-teaser__timestamp {
+		order: -1;
+	}
+	.o-teaser__timestamp time {
+		display: none;
 	}
 }
 
