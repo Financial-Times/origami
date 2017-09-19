@@ -173,8 +173,6 @@
 
 		@include oTypographySans(3);
 		padding: 8px 18px 12px 0;
-		color: white;
-
 		@include oGridRespondTo($until: L) {
 			padding: 0;
 		}
