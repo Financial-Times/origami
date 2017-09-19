@@ -38,6 +38,17 @@
 	}
 }
 
+.o-teaser--small.o-teaser--live .o-teaser__content {
+	padding: 12px;
+}
+
+.o-teaser--small.o-teaser--live.o-teaser--has-image {
+	padding: 12px;
+	.o-teaser__content {
+		padding: 0px;
+	}
+}
+
 .o-teaser--live {
 	// create white text red background
 	@include oTeaserInverse;
