@@ -178,7 +178,7 @@ const runQueue = _ => {
 /*eslint-enable no-unused-vars*/
 
 const init = (category, elementsToTrack) => {
-	elementsToTrack = elementsToTrack || 'a, button, input'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
+	elementsToTrack = elementsToTrack || 'a, button, input, [role="button"]'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
 
 	// Note: `context` is the term o-tracking uses for the data that is sent to spoor
 	let eventData = {
