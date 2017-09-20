@@ -72,15 +72,15 @@ Alternatively, if you want to construct a tooltip imperatively, you can instanti
 
 ```js
 const oTooltip = require('o-tooltip');
-let targetElement = document.querySelector('.imperative-tooltip-target');
+let tooltipElement = document.querySelector('.imperative-tooltip-element');
 const opts = {
-	target: 'demo-tooltip-target-imperative',
+	target: 'tooltip-target-imperative',
 	content: 'Click to save to somewhere',
 	showOnConstruction: true,
 	position: 'right'
 }
 
-const oTooltip = new Tooltip(targetElement, opts);
+const oTooltip = new Tooltip(tooltipElement, opts);
 ```
 
 Since this creates the tooltip from scratch, it is important to include any declarative attributes (as listed above) in the options object, in addition to:
