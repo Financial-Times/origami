@@ -1,0 +1,40 @@
+@mixin oTeaserThemeLive {
+    .o-teaser--small.o-teaser--live .o-teaser__content {
+        padding: 12px;
+    }
+
+    .o-teaser--small.o-teaser--live.o-teaser--has-image {
+        padding: 12px;
+        .o-teaser__content {
+            padding: 0px;
+        }
+    }
+
+    .o-teaser--live {
+        // create white text red background
+        @include oTeaserInverse;
+        background: oColorsGetPaletteColor('crimson');
+        .o-teaser__content * {
+            color: white;
+            &:hover {
+                color: white;
+            }
+        }
+        .o-teaser__timestamp-prefix:before,
+        .o-teaser__timestamp--inprogress:before {
+            background-color: white;
+        }
+
+        // move "LIVE" to the top without changing the HTML
+        .o-teaser__content {
+            display: flex;
+            flex-direction: column;
+        }
+        .o-teaser__timestamp {
+            order: -1;
+        }
+        .o-teaser__timestamp time {
+            display: none;
+        }
+    }
+}

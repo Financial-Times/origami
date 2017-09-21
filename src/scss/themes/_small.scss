@@ -27,7 +27,7 @@
 /// image will appear 100% width at the top of the teaser
 @mixin oTeaserSmallStacked {
 	flex-direction: column;
-	
+
 	.o-teaser__content {
 		flex-basis: auto; // must override original .o-teaser__content flex-basis
 	}

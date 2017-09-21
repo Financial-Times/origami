@@ -37,6 +37,8 @@
 		@include oTeaserThemeVideo;
 	} @else if $theme == 'package' {
 		@include oTeaserThemePackage;
+	} @else if $theme == 'live' {
+		@include oTeaserThemeLive;
 	}
 }
 
