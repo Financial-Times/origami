@@ -17,6 +17,9 @@
 
 @mixin oBannerInner {
 	@include oTypographySans($scale: 2);
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	// sass-lint:enable no-vendor-prefixes
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -73,11 +76,6 @@
 	@include oGridRespondTo($from: M) {
 		display: none;
 	}
-}
-
-@mixin oBannerHeading {
-	@include oTypographySans($scale: 3);
-	-webkit-font-smoothing: antialiased;
 }
 
 @mixin oBannerActions {
