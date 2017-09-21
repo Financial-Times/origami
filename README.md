@@ -47,7 +47,7 @@ The different options are:
 The different social networks are (in the order suggested by the design team):
 
 * Twitter
-* Facebook (note: if Facebook isn't picking up the meta-data for your article properly [the Facebook debugging tool is very helpful](https://developers.facebook.com/tools/debug/sharing/))
+* Facebook (note: Facebook doesn't accept meta data attributes in the same way as the other sharing services, instead the [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler) uses internal heuristics to make a best guess about the title, description, and preview image for your content. You can provide specifics for these attributes to facebook by using [Open Graph meta tags](https://developers.facebook.com/docs/sharing/webmasters#markup))
 * Linkedin
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
 * Google+ (written as 'googleplus' in the `links` config option)
@@ -107,7 +107,7 @@ o-share v5 introduces a breaking change that you may need to update in your prod
 
 - buttons and anchor elements require an extra class (`o-share__action--icon`) to avoid specificity issues with other components that use `o-icons`
 ```diff
-<a 
+<a
 +class="o-share__action--icon"
 href="#"><i>Icon</i></a>
 <button
