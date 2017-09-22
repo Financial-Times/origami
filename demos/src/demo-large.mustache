@@ -17,7 +17,10 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
+			<div class="o-teaser__timestamp {{#is-live}}o-teaser__timestamp--inprogress{{/is-live}}">
+				{{#is-live}}<span class="o-teaser__timestamp-prefix">Live</span>{{/is-live}}
 				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			</div>
 			{{/article-timestamp}}
 		</div>
 
