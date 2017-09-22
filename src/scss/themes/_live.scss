@@ -10,7 +10,7 @@
         }
     }
 
-    .o-teaser--live {
+    .o-teaser--small.o-teaser--live {
         // create white text red background
         @include oTeaserInverse;
         background: oColorsGetPaletteColor('crimson');
