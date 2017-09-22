@@ -10,7 +10,7 @@
         }
     }
 
-    .o-teaser--live {
+    .o-teaser--small.o-teaser--live {
         // create white text red background
         @include oTeaserInverse;
         background: oColorsGetPaletteColor('crimson');
@@ -24,7 +24,8 @@
         .o-teaser__timestamp--inprogress:before {
             background-color: white;
         }
-
+    }
+    .o-teaser--live {
         // move "LIVE" to the top without changing the HTML
         .o-teaser__content {
             display: flex;

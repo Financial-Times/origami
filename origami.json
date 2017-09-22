@@ -287,6 +287,17 @@
 				}
 			},
 			{
+				"name": "large-live",
+				"description": "Large live teaser default theme",
+				"template": "demos/src/demo-large.mustache",
+				"data": {
+					"article-timestamp": "2016-02-29T12:35:48Z",
+					"article-heading": "Japan sells negative yield 10-year bonds",
+					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
+					"is-live": true
+				}
+			},
+			{
 				"name": "large-image",
 				"description": "Large teaser default theme with image",
 				"template": "demos/src/demo-large.mustache",
