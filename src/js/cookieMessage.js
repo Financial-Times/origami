@@ -75,7 +75,7 @@ class CookieMessage {
 
 		if (cookieConsent) {
 
-			const consentDate = parseInt(cookieConsent);
+			const consentDate = parseInt(cookieConsent, 10);
 
 			if (this.dateIsWithinLastThreeMonths(consentDate)) {
 				return true;
