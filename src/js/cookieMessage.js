@@ -21,7 +21,6 @@ class CookieMessage {
 		if (!CookieMessage.userHasConsentedToCookies()) {
 			this.CookieMessageEl.classList.add('o-cookie-message--active');
 			CookieMessage.setupMessage();
-			return;
 		}
 	}
 
