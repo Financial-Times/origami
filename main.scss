@@ -13,6 +13,9 @@
 	\*------------------------------------*/
 
 	.o-cookie-message {
+		@include oNormaliseBoxSizing;
+		@include oTypographyPadding($top: 4, $bottom: 4);
+
 		margin: 0;
 
 		text-rendering: optimizeLegibility;
@@ -27,8 +30,6 @@
 		display: none;
 		position: relative;
 		background-color: oColorsGetColorFor(o-cookie-message, background);
-		@include oNormaliseBoxSizing;
-		@include oTypographyPadding($top: 4, $bottom: 4);
 
 		&__container {
 			position: relative;
@@ -70,7 +71,7 @@
 			height: 1px;
 			overflow: hidden;
 			clip: rect(0 0 0 0); /* IE6, IE7 */
-			clip: rect(0, 0, 0, 0);
+			clip: rect(0, 0, 0, 0); // sass-lint:disable-line no-duplicate-properties
 			position: absolute;
 		}
 
@@ -88,8 +89,8 @@
 		}
 
 		a {
-			text-decoration: none;
 			@include oTypographyLink;
+			text-decoration: none;
 		}
 	}
 
