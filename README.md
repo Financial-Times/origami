@@ -58,7 +58,7 @@ o-expander fires the following events, which always fire before any repainting/l
     }
     ```
 
-  * Animation and other fancy behaviour can be added using css and by listening to events. See the demos for examples
+  * Animation and other fancy behaviour can be added using css and by listening to the events outlined above.
 
 ### Options
 
@@ -70,6 +70,9 @@ All the following can be passed in an options object in the second parameter of 
   * `collapsedToggleText` [`'more'`]: Text to show on toggle link or button when collapsed. Accepts empty strings
   * `toggleSelector`[`'.o-expander__toggle'`]: Selector for expand/collapse toggle link or button. When using the default selector some styling, with an arrow icon, will come for free. If the selector matches more than one element they will all have the ability to expand/collapse the expander
   * `toggleState`[`'all|aria|none'`]: Do you want the expander to update the link or button's text and `aria-pressed` attribute, just the aria attribute or neither (defaults to `all`)
+
+  The following options are only configurable via `oExpander#init()` (not by data-attributes)
+
   * `rootClassName` [`'o-expander'`]: Class name used in the root element of the component
   * `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
   * `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component

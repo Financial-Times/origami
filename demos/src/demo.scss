@@ -1,61 +1,11 @@
-$o-expander-is-silent: false;
-@import "../../main";
-
-.o-expander {
-	max-width: 420px;
+[data-o-expander-shrink-to="height"] .o-expander__content {
+	max-height: 72px;
+	overflow: hidden;
 }
 
-.o-expander__content {
-	background: white;
-	line-height: 18px;
-	margin: 0;
-	padding: 0;
-}
-
-.height .o-expander__content {
-	max-height: 36px;
-}
-
-.alert {
+.demo-alert {
 	color: red;
 }
 
+$o-expander-is-silent: false;
 @import "./../../main";
-
-.o-expander.layout {
-	.static-container {
-		position: relative;
-		margin-bottom: 33px;
-	}
-	.o-expander__content {
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-}
-
-.o-expander.animated {
-	.o-expander__content {
-		transition: max-height 0.5s;
-		&.o-expander__content--expanded {
-			max-height: 80px;
-		}
-	}
-}
-// temporary higher specicifity while having to work with the selector order
-// imposed by using extend. Eventually with mixins it won't be needed
-[data-o-expander-js] .custom-toggle {
-	background: green;
-	color: white;
-	i:after {
-		content: ' (open)';
-	}
-}
-
-.custom-toggle,
-.custom-toggle[aria-expanded="true"] {
-	background: red;
-	i:after {
-		content: ' (close)';
-	}
-}

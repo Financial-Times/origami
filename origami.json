@@ -20,23 +20,29 @@
 	},
 	"demos": [
 		{
-			"name": "Simple",
-			"description": "Simple use cases",
-			"template": "demos/src/simple.mustache",
-			"js": "demos/src/demo.js"
+			"name": "Collapsing List",
+			"description": "A list which collapses, hiding a number of items.",
+			"template": "demos/src/collapsing-list.mustache"
 		},
 		{
-			"name": "Variants",
-			"description": "More advanced configurations of the module",
-			"template": "demos/src/variants.mustache",
-			"js": "demos/src/variants.js",
-			"hidden": true
+			"name": "Collapsing Height",
+			"description": "Collapses based on the max-height of the content.",
+			"template": "demos/src/collapsing-height.mustache"
+		},
+		{
+			"name": "Collapsing Selector",
+			"description": "A selector is configured to hide paragraphs.",
+			"template": "demos/src/collapsing-selector.mustache"
+		},
+		{
+			"name": "Toggle State",
+			"description": "The toggle state is set to never update the toggle copy.",
+			"template": "demos/src/toggle.mustache"
 		},
 		{
 			"name": "pa11y",
 			"description": "Several use cases to test accessibility",
 			"template": "demos/src/pa11y.mustache",
-			"js": "demos/src/variants.js",
 			"hidden": true
 		}
 	]

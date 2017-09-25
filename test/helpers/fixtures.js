@@ -40,7 +40,6 @@ function simple () {
 		<a href='#' class="o-expander__toggle o--if-js"></a>
 	</div>
 
-
 	<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="hidden">
 		<h2>Hiding content</h2>
 		<div class="o-expander__content">
@@ -53,7 +52,24 @@ function simple () {
 	insert(html);
 }
 
+function manualInit () {
+	const html = `
+	<div id="expander" data-o-component="o-expander" class="o-expander">
+		<h2>Collapsing to number of items in a list</h2>
+		<ul id="expander-content" class="o-expander__content">
+			<li>item</li>
+			<li>item</li>
+			<li>item</li>
+			<li>item</li>
+		</ul>
+		<a href='#' id="expander-toggle" class="o-expander__toggle o--if-js">default</a>
+	</div>
+	`;
+	insert(html);
+}
+
 export {
+	manualInit,
 	simple,
 	reset
 };

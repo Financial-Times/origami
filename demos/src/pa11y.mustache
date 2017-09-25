@@ -1,72 +1,52 @@
-<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li">
-	<h2>Expanded on load, collapsing to nothing, with multiple links</h2>
-	<a href='#' class="o-expander__toggle o--if-js"></a>
-	<ul class="o-expander__content o-expander__content--expanded">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<a href='#' class="o-expander__toggle o--if-js"></a>
-</div>
-
-<div data-o-component="o-expander" class="o-expander items events" data-o-expander-shrink-to="2" data-o-expander-count-selector="li">
-	<h2>Hooking up to events </h2>
-	<span class="alert"></span>
-	<ul class="o-expander__content">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<a href='#' class="o-expander__toggle o--if-js"></a>
-</div>
-
-
-<div data-o-component="o-expander" class="o-expander height layout" data-o-expander-shrink-to="height">
-	<h2>Expand without affecting layout of siblings</h2>
-	<a href='#' class="o-expander__toggle o--if-js"></a>
-	<div class="static-container">
-		<div class="o-expander__content">
-			line<br>
-			line<br>
-			line<br>
-			line
-		</div>
-	</div>
-	<p>Don't move me, man!</p>
-</div>
-
-
-<div data-o-component="o-expander" class="o-expander items animated height" data-o-expander-shrink-to="height" data-o-expander-toggle-selector=".custom-toggle" data-o-expander-expanded-toggle-text="now you're boring me" data-o-expander-collapsed-toggle-text="tell me more">
-	<h2>Animated with custom link</h2>
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height" data-o-expander-collapsed-toggle-text="Toggle: Click To Expand" data-o-expander-expanded-toggle-text="Toggle: Click To Collapse">
 	<div class="o-expander__content">
-		line<br>
-		line<br>
-		line<br>
-		line
+		In this "collapsing height" demo we have set a maximum height and hidden overflow for the expander with custom demo CSS. The toggle will remain hidden unless this content overflows the expander. In this example it will overflow when viewed within a small viewport. Open this demo in a new tab and resize the window to see the toggle appear/disappear in a content-aware manner.
 	</div>
-	<a href='#' class="custom-toggle o--if-js"></a>
+	<button class="o-expander__toggle o--if-js">
+		Toggle
+	</button>
 </div>
 
-<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="none">
-	<h2>Don't change my link data</h2>
-	<ul class="o-expander__content o-expander__content--expanded">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="2">
+	<ul class="o-expander__content">
+		<li>item 1</li>
+		<li>item 2</li>
+		<li>item 3</li>
+		<li>item 4</li>
 	</ul>
-	<a href='#' class="o-expander__toggle o--if-js">This text ain't budging</a>
+	<button class="o-expander__toggle o--if-js">Toggle</button>
 </div>
 
-<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="0" data-o-expander-count-selector="li" data-o-expander-toggle-state="aria">
-	<h2>Oh, OK. You can update the aria-expanded attribute</h2>
-	<ul class="o-expander__content o-expander__content--expanded">
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
+
+<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-count-selector="p" data-o-expander-expanded-toggle-text="less">
+	<div class="o-expander__content">
+		<p>
+			In this demo we see an expander which hides based on the `p` selector, which we have configured using data attributes.
+		</p>
+		<p>
+			Here is a second paragraph.
+		</p>
+		<p>
+			And finally we see a third paragraph.
+		</p>
+	</div>
+	<a href="#" class="o-expander__toggle o--if-js">read more</a>
+</div>
+
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="hidden">
+	<h2>Hiding content</h2>
+	<div class="o-expander__content">
+		This content is completely visible/hidden with the toggle.
+	</div>
+	<button class="o-expander__toggle o--if-js">Toggle</button>
+</div>
+
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="2" data-o-expander-toggle-state="aria">
+	<ul class="o-expander__content">
+		<li>Toggle State: There are more options for `o-expander` such as this, where toggle copy is not updated on click but aria attributes still are.<br>See the Github readme to explore more options.</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>Item 4</li>
 	</ul>
-	<a href='#' class="o-expander__toggle o--if-js">But I still ain't budging<i></i></a>
+	<button class="o-expander__toggle o--if-js">Toggle</button>
 </div>
