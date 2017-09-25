@@ -1,8 +1,8 @@
-/*global describe, it, beforeEach, afterEach*/
+/* eslint-env mocha */
 
-const sinon = require('sinon/pkg/sinon');
+import sinon from 'sinon/pkg/sinon';
 import proclaim from 'proclaim';
-const Drawer = require('./../src/js/drawer');
+import Drawer from '../src/js/drawer';
 
 describe('Drawer instance', () => {
 

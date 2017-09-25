@@ -36,7 +36,7 @@ function insertTwo() {
 	insert(html);
 }
 
-export {
+export default {
 	insertOne,
 	insertTwo,
 	reset

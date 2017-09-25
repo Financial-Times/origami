@@ -1,7 +1,7 @@
-/*global describe, it, beforeEach, afterEach*/
+/* eslint-env mocha */
 
-const expect = require('expect.js');
-const mega = require('./../src/js/mega');
+import proclaim from 'proclaim';
+import mega from '../src/js/mega';
 
 function dispatch (target, type) {
 	target.dispatchEvent(new Event(type, { bubbles: true }));
@@ -49,9 +49,9 @@ describe('Mega', () => {
 		dispatch(parent, 'mouseenter');
 
 		return waitFor(containerEl, [ 'oHeader.MegaMenuShow' ]).then(() => {
-			expect(menu.getAttribute('aria-hidden')).to.equal('false');
-			expect(menu.getAttribute('aria-expanded')).to.equal('true');
-			expect(menu.classList.contains('o-header__mega--animation')).to.be(true);
+			proclaim.equal(menu.getAttribute('aria-hidden'), 'false');
+			proclaim.equal(menu.getAttribute('aria-expanded'), 'true');
+			proclaim.equal(menu.classList.contains('o-header__mega--animation'), true);
 		});
 	});
 
@@ -63,10 +63,10 @@ describe('Mega', () => {
 		dispatch(parent, 'mouseleave');
 
 		return waitFor(containerEl, [ 'oHeader.MegaMenuHide' ]).then(() => {
-			expect(menu.getAttribute('aria-hidden')).to.equal('true');
-			expect(menu.getAttribute('aria-expanded')).to.equal('false');
+			proclaim.equal(menu.getAttribute('aria-hidden'), 'true');
+			proclaim.equal(menu.getAttribute('aria-expanded'), 'false');
 
-			expect(menu.classList.contains('o-header__mega--animation')).to.be(false);
+			proclaim.equal(menu.classList.contains('o-header__mega--animation'), false);
 		});
 	});
 
@@ -80,7 +80,7 @@ describe('Mega', () => {
 		dispatch(parents[1], 'mouseenter');
 
 		return waitFor(containerEl, [ 'oHeader.MegaMenuShow', 'oHeader.MegaMenuHide' ]).then(() => {
-			expect(menus[1].classList.contains('o-header__mega--animation')).to.be(false);
+			proclaim.equal(menus[1].classList.contains('o-header__mega--animation'), false);
 		});
 	});
 });
