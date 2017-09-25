@@ -13,7 +13,7 @@
 	// sass-lint:enable no-duplicate-properties
 	background-repeat: no-repeat;
 	background-origin: border-box;
-	background-size: $_o-forms__select-iconsize;
+	background-size: $_o-forms__select-iconsize $_o-forms__select-iconsize;
 	padding-right: $_o-forms__select-iconsize;
 	padding-top: $_o-forms-field-default-padding-bottom - 2px;
 
