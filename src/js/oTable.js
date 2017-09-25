@@ -115,20 +115,20 @@ OTable.prototype.removeEventListeners = function () {
 	});
 };
 
-function ascendingSort (a, b) {
-	if (a < b) {
+function ascendingSort (a, b, isNumericValue) {
+	if (isNumericValue && isNaN(a) || a < b) {
 		return -1;
-	} else if (b < a) {
+	} else if (isNumericValue && isNaN(b) || b < a) {
 		return 1;
 	} else {
 		return 0;
 	}
 }
 
-function descendingSort (a, b) {
-	if (a < b) {
+function descendingSort (a, b, isNumericValue) {
+	if (isNumericValue && isNaN(a) || a < b) {
 		return 1;
-	} else if (b < a) {
+	} else if (isNumericValue && isNaN(b) || b < a) {
 		return -1;
 	} else {
 		return 0;
@@ -168,9 +168,9 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		}
 
 		if (sortAscending) {
-			return ascendingSort(aCol, bCol);
+			return ascendingSort(aCol, bCol, isNumericValue);
 		} else {
-			return descendingSort(aCol, bCol);
+			return descendingSort(aCol, bCol, isNumericValue);
 		}
 
 	});

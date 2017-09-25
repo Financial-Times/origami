@@ -54,6 +54,11 @@
 	td {
 		@include oTypographySans(1);
 		@include oColorsFor(o-table-data, color);
+		&:empty:before {
+			content: '';
+			@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
+			vertical-align: middle;
+		}
 	}
 
 	th,

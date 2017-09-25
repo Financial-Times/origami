@@ -124,6 +124,9 @@ describe('oTable sorting', () => {
 					<tr>
 						<td data-o-table-data-type="numeric">3</td>
 					</tr>
+					<tr>
+						<td data-o-table-data-type="numeric"></td>
+					</tr>
 				</tbody>
 			</table>
 		`);
@@ -136,9 +139,10 @@ describe('oTable sorting', () => {
 		oTableEl.querySelector('thead th').dispatchEvent(click);
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
-			proclaim.equal(rows[0].textContent, '1.2');
-			proclaim.equal(rows[1].textContent, '3');
-			proclaim.equal(rows[2].textContent, '12.03');
+			proclaim.equal(rows[0].textContent, '');
+			proclaim.equal(rows[1].textContent, '1.2');
+			proclaim.equal(rows[2].textContent, '3');
+			proclaim.equal(rows[3].textContent, '12.03');
 			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
