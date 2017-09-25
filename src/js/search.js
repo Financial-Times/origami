@@ -17,7 +17,9 @@ function init (headerEl) {
 			target.querySelector('[name="q"]').focus();
 		} else {
 			// re-focus opening control
-			opening.length && opening.pop().focus();
+			if (opening.length) {
+				opening.pop().focus();
+			}
 		}
 	};
 

@@ -36,9 +36,9 @@
 			display: block;
 
 			& ~ * {
-				// scss-lint:disable ImportantRule
+				// sass-lint:disable no-important
 				display: none !important;
-				// scss-lint:enable ImportantRule
+				// sass-lint:enable no-important
 			}
 		}
 	}

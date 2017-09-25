@@ -37,7 +37,9 @@ function init (headerEl) {
 	}
 
 	function stopLoop () {
-		lastAnimationFrame && window.cancelAnimationFrame(lastAnimationFrame);
+		if (lastAnimationFrame) {
+			window.cancelAnimationFrame(lastAnimationFrame);
+		}
 	}
 
 	function scrollStart () {
@@ -57,6 +59,6 @@ function init (headerEl) {
 	window.addEventListener('scroll', scrollStart);
 
 	handleFrame();
-};
+}
 
 export default { init };
