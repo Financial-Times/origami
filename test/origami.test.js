@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const oFooter = require('./../main');
+import oFooter from './../main';
 
 describe("oFooter", () => {
 	it('is defined', () => {
@@ -31,7 +31,7 @@ describe("oFooter", () => {
 
 	describe("initialisation", () => {
 		beforeEach(() => {
-				fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
