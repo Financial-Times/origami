@@ -163,8 +163,8 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		}
 
 		if (isNumericValue) {
-			aCol = parseFloat(aCol);
-			bCol = parseFloat(bCol);
+			aCol = parseFloat(aCol.replace(/,/g,''));
+			bCol = parseFloat(bCol.replace(/,/g,''));
 		}
 
 		if (sortAscending) {

@@ -119,10 +119,16 @@ describe('oTable sorting', () => {
 						<td data-o-table-data-type="numeric">12.03</td>
 					</tr>
 					<tr>
+						<td data-o-table-data-type="numeric">480,000</td>
+					</tr>
+					<tr>
 						<td data-o-table-data-type="numeric">1.2</td>
 					</tr>
 					<tr>
 						<td data-o-table-data-type="numeric">3</td>
+					</tr>
+					<tr>
+						<td data-o-table-data-type="numeric">1,216,000</td>
 					</tr>
 					<tr>
 						<td data-o-table-data-type="numeric"></td>
@@ -143,6 +149,8 @@ describe('oTable sorting', () => {
 			proclaim.equal(rows[1].textContent, '1.2');
 			proclaim.equal(rows[2].textContent, '3');
 			proclaim.equal(rows[3].textContent, '12.03');
+			proclaim.equal(rows[4].textContent, '480,000');
+			proclaim.equal(rows[5].textContent, '1,216,000');
 			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
