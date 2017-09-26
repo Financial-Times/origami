@@ -7,10 +7,6 @@
 
 		[role=tab] {
 			@include oButtons;
-
-			a {
-				pointer-events: none;
-			}
 		}
 
 		&.o-tabs--big [role=tab] {

@@ -12,6 +12,7 @@ class Tabs {
 
 
 		this.tabEls = this.rootEl.querySelectorAll('[role=tab]');
+		this.tabEls = [].slice.call(this.tabEls).filter(this.tabHasValidUrl);
 		this.tabpanelEls = this.getTabPanelEls(this.tabEls);
 
 		this.boundClickHandler = this.clickHandler.bind(this);
@@ -163,19 +164,19 @@ class Tabs {
 	};
 
 	clickHandler(ev) {
-		ev.preventDefault();
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
 
-		if (tabEl) {
+		if (tabEl && this.tabHasValidUrl(tabEl)) {
+			ev.preventDefault();
 			this.updateCurrentTab(tabEl);
 		}
 	};
 
 	keyPressHandler(ev) {
-		ev.preventDefault();
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
 		// Only update if key pressed is enter key
-		if (tabEl && ev.keyCode === 13) {
+		if (tabEl && ev.keyCode === 13 && this.tabHasValidUrl(tabEl)) {
+			ev.preventDefault();
 			this.updateCurrentTab(tabEl);
 		}
 	};
@@ -201,6 +202,14 @@ class Tabs {
 			tab: tabEl.textContent.trim()
 		}, 'oTracking');
 	};
+
+	tabHasValidUrl(tabEl) {
+		const linkEls = tabEl.getElementsByTagName('a');
+		if (! linkEls || ! linkEls[0].hash) {
+			return false;
+		}
+		return linkEls[0].pathname === location.pathname;
+	}
 
 	destroy() {
 		this.rootEl.removeEventListener('click', this.boundClickHandler, false);
