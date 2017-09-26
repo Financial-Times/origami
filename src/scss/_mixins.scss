@@ -82,9 +82,11 @@
 
 	// Standardise outline styles
 	:focus {
-		outline: thin dotted;
-		outline-offset: 1px;
+		background-color: oColorsGetPaletteColor('teal-100');
+		outline: 2px solid oColorsGetPaletteColor('teal-100');
+		color:  oColorsGetPaletteColor('black-80');
 	}
+
 }
 
 /// Adds normalising styles to link elements
