@@ -48,3 +48,20 @@
 		}
 	}
 }
+
+/// Base styling for buttons
+///
+/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
+/// @deprecated Use oButtonsIconBaseStyles
+@mixin oButtonsBaseStyles($buttonClass: $o-buttons-class) {
+	@warn "oButtonsBaseStyles has been deprecated. Use oButtonsIconBaseStyles instead.";
+	@include oButtonsIconBaseStyles();
+
+	&.#{$o-buttons-class}--big {
+		@include _oButtonsIconSize('big');
+	}
+
+	&.#{$o-buttons-class}-icon--icon-only {
+		@include _oButtonsIconIconOnly;
+	}
+}
