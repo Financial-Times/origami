@@ -44,7 +44,7 @@
 
 				@each $icon-name in $o-buttons-icons {
 					&.#{$o-buttons-class}-icon--#{$icon-name} {
-						@include _oButtonsIcon($icon-name, $theme);
+						@include _oButtonsIconBackgroundImage($icon-name, $theme);
 					}
 				}
 			}
@@ -64,36 +64,6 @@
 	padding-left: 0;
 	background-position: 50%;
 	min-width: 40px;
-}
-
-/// Get Button For Icon and Theme
-///
-/// Outputs background-image property for a given icon/theme at all states set
-/// in that theme's state list
-/// example:
-/// .my-button--left-arrow {
-///	 @include oButtonsGetButtonForIconAndTheme(left-arrow, standout);
-/// }
-///
-/// @param {String} $icon-name, any icon name found in o-ft-icons
-/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
-/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
-///
-@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {
-
-	&.#{$buttonClass}-icon--#{$icon-name} {
-
-		$theme-selector: null;
-		@if $theme == 'secondary' {
-			$theme-selector: '&';
-		} @else {
-			$theme-selector: '&.#{$buttonClass}--#{$theme}';
-		}
-
-		#{$theme-selector} {
-			@include _oButtonsIconBackgroundImage($icon-name, $theme);
-		}
-	}
 }
 
 /// oButtonsIconBackgroundImage

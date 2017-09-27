@@ -1,0 +1,50 @@
+/// Icon Buttons
+///
+/// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
+/// @param {String} $buttonClass - class to apply o-buttons styles to
+/// @deprecated This mixin has been deprecated
+@mixin oButtonsIcon($buttonClass: $o-buttons-class) {
+	@warn 'The function oButtonsIcon has been deprecated and will be removed in the next major release of oButtons';
+
+	// Browserhack to only apply these styles for IE7 and up. IE6 will get the
+	// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
+	html > body .#{$buttonClass}-icon {
+		@include oButtonsBaseStyles;
+
+		@each $theme, $properties in $o-buttons-themes {
+			@each $icon in $o-buttons-icons {
+				@include oButtonsGetButtonForIconAndTheme($icon, $theme);
+			}
+		}
+	}
+}
+
+/// Get Button For Icon and Theme
+///
+/// Outputs background-image property for a given icon/theme at all states set
+/// in that theme's state list
+/// example:
+/// .my-button--left-arrow {
+///	 @include oButtonsGetButtonForIconAndTheme(left-arrow, standout);
+/// }
+///
+/// @param {String} $icon-name, any icon name found in o-ft-icons
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
+/// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
+/// @deprecated
+@mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {
+	@warn 'The mixin oButtonsGetButtonForIconAndTheme has been deprecated. You can use oButtonsIconButton or _oButtonsGenerateIconButtons';
+	&.#{$buttonClass}-icon--#{$icon-name} {
+
+		$theme-selector: null;
+		@if $theme == 'secondary' {
+			$theme-selector: '&';
+		} @else {
+			$theme-selector: '&.#{$buttonClass}--#{$theme}';
+		}
+
+		#{$theme-selector} {
+			@include _oButtonsIconBackgroundImage($icon-name, $theme);
+		}
+	}
+}
