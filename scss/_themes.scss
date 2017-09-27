@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
-// @deprecated Set custom color white over slate @ 20%. 
+// @deprecated Set custom color white over slate @ 20%.
 // This originally used black rather than slate, hence the misleading name to avoid a breaking change.
 // Updating this with an abstract name on the next major release will remove ambiguity and be more flexible.
 @include oColorsSetColor('white-black-20', oColorsMix($color: 'white', $background: 'slate', $percentage: 20));
@@ -111,7 +111,9 @@ $o-buttons-themes__b2c: (
 		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
 	),
 	pressedselected: (
+		// sass-lint:disable no-important
 		background-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, background) !important,
+		// sass-lint:enable no-important
 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
 		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
 	),
