@@ -19,7 +19,7 @@
 		@include _oButtonsIconIconOnly;
 	}
 
-	@include _oButtonsIcon($icon-name, $theme);
+	@include _oButtonsIconBackgroundImage($icon-name, $theme);
 }
 
 /// Generate concrete classes icon buttons
