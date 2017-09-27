@@ -1,7 +1,9 @@
 const hasFired = {};
 
 function trigger(type) {
-	if (type in hasFired) return;
+	if (type in hasFired) {
+		return;
+	}
 	hasFired[type] = true;
 	document.dispatchEvent(new CustomEvent('o.'+type));
 }
