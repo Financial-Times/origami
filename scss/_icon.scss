@@ -1,3 +1,27 @@
+/// Icon Button
+///
+/// Outputs the CSS properties for an icon button for the given icon, theme and
+/// size
+///
+/// @param {String} $icon-name, any icon name found in the fticons image set
+/// http://registry.origami.ft.com/components/fticons
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes
+/// (primary, secondary, etc). Custom themes not supported. Defaults to "secondary"
+/// @param {String} $size, "big" or "default"
+/// @param {Boolean} $is-icon-only, if this icon has text accompaniment or is an
+/// icon only.
+///
+@mixin oButtonsIconButton($icon-name, $theme: "secondary", $size: "default", $is-icon-only: false) {
+	@include oButtonsBaseStyles;
+	@include _oButtonsIconSize($size);
+
+	@if $is-icon-only {
+		@include _oButtonsIconIconOnly;
+	}
+
+	@include _oButtonsIcon($icon-name, $theme);
+}
+
 /// Generate concrete classes icon buttons
 ///
 /// Outputs background-image property for all icons in all themes except custom
