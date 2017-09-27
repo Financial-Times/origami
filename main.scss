@@ -33,7 +33,7 @@
 		@include oButtonsPagination;
 	}
 
-	@include oButtonsIcon;
+	@include _oButtonsGenerateIconButtons;
 
 	.#{$o-buttons-class}-group {
 		@include oButtonsGroup;
