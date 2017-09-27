@@ -73,21 +73,26 @@
 
 /// Horizontal list item separator
 @mixin oHeaderItemSeparator() {
-	$border-width: 1px;
 
 	& + & {
-		position: relative;
-		margin-left: $_o-header-padding-x - $border-width;
-		padding-left: $_o-header-padding-x;
+		@include _oHeaderItemSeparatorContent();
+	}
+}
 
-		&:before {
-			content: '';
-			position: absolute;
-			top: 15%;
-			left: 0;
-			height: 70%;
-			border-left: $border-width solid oColorsGetColorFor('o-header', 'border');
-		}
+@mixin _oHeaderItemSeparatorContent() {
+	$border-width: 1px;
+
+	position: relative;
+	margin-left: $_o-header-padding-x - $border-width;
+	padding-left: $_o-header-padding-x;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 15%;
+		left: 0;
+		height: percentage($_o-header-item-separator-percentage-height);
+		border-left: $border-width solid oColorsGetColorFor('o-header', 'border');
 	}
 }
 
