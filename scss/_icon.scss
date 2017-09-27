@@ -41,34 +41,45 @@
 		}
 
 		#{$theme-selector} {
-			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
-
-			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-			&[aria-selected=true], // e.g. A selected tab or page number in pagination
-			&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, pressedselected);
-			}
-
-			&[disabled] {
-				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
-			}
-
-			&:not([disabled]) {
-				&:hover {
-					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
-				}
-				&:active {
-					@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
-				}
-			}
-
-			// Hack to get the active state colour svg to download to prevent FOIC
-			&:after {
-				@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
-				content: '';
-			}
+			@include _oButtonsIconBackgroundImage($icon-name, $theme);
 		}
+	}
+}
+
+/// oButtonsIconBackgroundImage
+///
+/// Outputs background image properties for icons in the different button states
+/// for the set theme.
+///
+/// @param {String} $icon-name, any icon name found in o-ft-icons
+/// @param {String} $theme, any theme name as defined in $o-buttons-themes (primary, secondary, etc). Custom themes not supported.
+///
+@mixin _oButtonsIconBackgroundImage($icon-name, $theme) {
+	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+	&[aria-selected=true], // e.g. A selected tab or page number in pagination
+	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, pressedselected);
+	}
+
+	&[disabled] {
+		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
+	}
+
+	&:not([disabled]) {
+		&:hover {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
+		}
+		&:active {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+		}
+	}
+
+	// Hack to get the active state colour svg to download to prevent FOIC
+	&:after {
+		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+		content: '';
 	}
 }
 
