@@ -1,19 +1,69 @@
-/// Icon Buttons
+/// Generate concrete classes icon buttons
 ///
-/// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
-/// @param {String} $buttonClass - class to apply o-buttons styles to
-@mixin oButtonsIcon($buttonClass: $o-buttons-class) {
+/// Outputs background-image property for all icons in all themes except custom
+/// themes.
+/// This mixin will iterate through every theme in $o-buttons-themes and every
+/// icon in $o-buttons-icons and create background images for each with the
+/// following class structure:
+/// ```
+/// .o-buttons-icon.o-buttons--primary.o-buttons-icon--warning {...}
+/// .o-buttons-icon.o-buttons--secondary.o-buttons-icon--warning {...}
+/// .o-buttons-icon.o-buttons--inverse.o-buttons-icon--warning {...}
+/// ... and so on...
+/// ```
+/// This mixin also styles for icon buttons where the .o-buttons--big class is present:
+/// ```
+/// .o-buttons-icon.o-buttons-big {...}
+/// ```
+@mixin _oButtonsGenerateIconButtons($o-buttons-class: $o-buttons-class) {
+
 	// Browserhack to only apply these styles for IE7 and up. IE6 will get the
 	// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
-	html > body .#{$buttonClass}-icon {
+	html > body .#{$o-buttons-class}-icon {
 		@include oButtonsBaseStyles;
+		@include _oButtonsIconSize('default');
+
+		&.#{$o-buttons-class}--big {
+			@include _oButtonsIconSize('big');
+		}
+
+		&.#{$o-buttons-class}-icon--icon-only {
+			@include _oButtonsIconIconOnly;
+		}
 
 		@each $theme, $properties in $o-buttons-themes {
-			@each $icon in $o-buttons-icons {
-				@include oButtonsGetButtonForIconAndTheme($icon, $theme);
+
+			$theme-selector: null;
+			@if $theme == 'secondary' {
+				$theme-selector: '&';
+			} @else {
+				$theme-selector: '&.#{$o-buttons-class}--#{$theme}';
+			}
+
+			#{$theme-selector} {
+
+				@each $icon-name in $o-buttons-icons {
+					&.#{$o-buttons-class}-icon--#{$icon-name} {
+						@include _oButtonsIcon($icon-name, $theme);
+					}
+				}
 			}
 		}
 	}
+}
+
+@mixin _oButtonsIconSize ($size) {
+	@if $size == big {
+		padding-left: 40px;
+	} @else {
+		padding-left: 22px;
+	}
+}
+
+@mixin _oButtonsIconIconOnly {
+	padding-left: 0;
+	background-position: 50%;
+	min-width: 40px;
 }
 
 /// Get Button For Icon and Theme
