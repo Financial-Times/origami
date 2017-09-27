@@ -51,7 +51,7 @@ function oColorsUseCases() {
 			button.addEventListener('click', oColorsShowUseCases, false);
 			elem.appendChild(button);
 		}
-	};
+	}
 }
 
 function oColorsShowUseCases() {
@@ -141,7 +141,9 @@ function oColorsCopy(event) {
 				parent.classList.remove('copied');
 			}, 2000);
 
-		} catch (err) {}
+		} catch (err) {
+			console.log('Can not copy text. ', err);
+		}
 	}
 }
 
