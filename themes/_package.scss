@@ -178,16 +178,11 @@
 		}
 
 		ul {
-			border-left: 1px solid;
-			padding-left: 32px;
 			margin: 0;
+			padding: 12px 12px 12px 32px;
 
-			@include oGridRespondTo($until: L) {
-				border: 0;
+			@include oGridRespondTo(M) {
 				padding: 12px 12px 12px 18px;
-			}
-			@include oGridRespondTo($until: M) {
-				padding: 12px 12px 12px 32px;
 			}
 		}
 
