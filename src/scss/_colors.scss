@@ -13,7 +13,9 @@
 @include oColorsSetUseCase('o-header-transparent-link-hover', 'text', 'white');
 @include oColorsSetUseCase('o-header-transparent-link-highlight', 'text', 'white');
 
+// @deprecated o-header-nav background no longer used
 @include oColorsSetUseCase('o-header-nav', 'background', 'white-60');
+// @deprecated o-header-nav background no longer used
 
 @include oColorsSetUseCase('o-header-search', 'border', 'teal-40');
 @include oColorsSetUseCase('o-header-search', 'background', 'black-20');

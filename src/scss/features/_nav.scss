@@ -6,7 +6,6 @@
 
 	.o-header__nav--mobile {
 		white-space: nowrap;
-		background-color: oColorsGetColorFor('o-header-nav', 'background');
 
 		@include oGridRespondTo('L') {
 			display: none;
