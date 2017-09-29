@@ -78,3 +78,18 @@ p {
 .demo_custom-theme-button--lemon-secondary {
 	@include oButtonsCustomTheme('slate', 'lemon', secondary);
 }
+
+.demo_custom-icon-button--book {
+	@include oButtons('big', 'secondary')
+	@include oButtonsIconButton('book', 'secondary', 'big');
+}
+
+.demo_custom-icon-button--book--primary {
+	@include oButtons('big', 'primary')
+	@include oButtonsIconButton('book', 'primary', 'big');
+}
+
+.demo_custom-icon-button--book--icon-only {
+	@include oButtons('big', 'primary')
+	@include oButtonsIconButton('book', 'primary', 'big', $is-icon-only: true);
+}

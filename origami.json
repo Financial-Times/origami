@@ -74,6 +74,12 @@
       "description": "Really big page of demos for all buttons for testing"
     },
     {
+      "name": "custom icon button",
+      "template": "/demos/src/custom-icon-button.mustache",
+      "hidden": true,
+      "description": "Visual tests for the icon buttons mixins"
+    },
+    {
       "name": "pa11y",
       "template": "/demos/src/pa11y.mustache",
       "hidden": true,
