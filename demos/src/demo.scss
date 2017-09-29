@@ -93,3 +93,17 @@ p {
 	@include oButtons('big', 'primary')
 	@include oButtonsIconButton('book', 'primary', 'big', $is-icon-only: true);
 }
+
+.demo_custom-theme-primary-icon-button--book {
+	@include oButtons(big);
+	@include oButtonsCustomTheme('slate', 'claret-100', primary);
+	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'primary');
+	@include oButtonsIconButton('book', $custom-theme, 'big');
+}
+
+.demo_custom-theme-secondary-icon-button--book {
+	@include oButtons(big);
+	@include oButtonsCustomTheme('slate', 'claret-100', secondary);
+	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'secondary');
+	@include oButtonsIconButton('book', $custom-theme, 'big');
+}
