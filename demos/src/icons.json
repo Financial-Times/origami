@@ -19,6 +19,18 @@
 		{
 			"name": "upload",
 			"text": "Upload"
+		},
+		{
+			"name": "warning",
+			"text": "Danger"
+		},
+		{
+			"name": "arrow-down",
+			"text": "Show"
+		},
+		{
+			"name": "arrow-up",
+			"text": "Hide"
 		}
 	],
 	"themes": [
