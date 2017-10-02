@@ -21,7 +21,7 @@ o-buttons provides styling for:
 - **Sizes**: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
 - **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
 - **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
-- **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right}` or `@include oButtonsGetButtonForIconAndTheme($icon-name, $theme);`
+- **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right | other supported icon}` or `@include oButtonsIconButton($icon-name, $size, $theme);`
 
 You can combine these styles.
 
@@ -33,11 +33,11 @@ For detailed documentation on this component's mixins, see the [Sassdoc](http://
 
 ### Markup
 
-The button CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intent to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
+The button CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
 
 ### Sass
 
-Mixins and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
+Mixins, Custom themes and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
 
 #### Default button
 
@@ -217,10 +217,9 @@ To create a `lemon` _filled_ button on a `slate` background, use the `colorizer`
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
 
 #### Icons
-o-buttons uses the [fticons](https://registry.origami.ft.com/components/fticons/) set via the [o-icons](https://github.com/Financial-Times/o-icons/) mixins for its icon-buttons.
+If you're using bower, you can create an icon button for **any** icon in [fticons](https://registry.origami.ft.com/components/fticons/).
 
 If you're using the Build Service, currently supported icons are defined in the `$o-buttons-icons` variable in `scss/_variables.scss`. Limiting the concrete classes keeps the compiled CSS bundle small, but if you need an icon button that we don't currently support then please open an issue.
-If you're using the mixins, all [fticons](https://registry.origami.ft.com/components/fticons/) will work.
 
 ```html
 // Icon and text button.
@@ -237,33 +236,25 @@ If you're using the mixins, all [fticons](https://registry.origami.ft.com/compon
 Or, using Sass:
 
 ```scss
-.my-button-class {
-	@include oButtons();
-}
-
 .my-button-class--icon {
-	// Generic sizing / padding for icon-buttons
-	@include oButtonsBaseStyles;
+ @include oButtons();
+ @include oButtonsIconButton(star);
 }
 
-.my-button-class--icon-star {
-	// icon here can be *any* icon tag (eg arrow-left) in fticons
-	@include oButtonsGetButtonForIconAndTheme(star, secondary);
-}
-
-.my-button-class-icon__label {
-	@include oButtonsIconButtonLabel;
+.my-button-class--icon-only {
+ @include oButtons();
+ @include oButtonsIconButton(star);
 }
 ```
 
 ```html
 // Icon and text button.
-<button class="my-button-class my-button-class--icon my-button-class--icon-star">star</button>
+<button class="my-button-class--icon">star</button>
 
 
 // Icon only button
-<button class="my-button-class my-button-class--icon my-button-class--icon-star">
-	// accessible text fallback for the button. Not visible, only required for icon only buttons.
+<button class="my-button-class--icon-only">
+	<!-- accessible text fallback for the button. Not visible, only required for icon only buttons. -->
 	<span class="my-button-class-icon__label">star</span>
 </button>
 ```
