@@ -80,23 +80,23 @@ p {
 }
 
 .demo_custom-icon-button--book {
-	@include oButtons('big', 'secondary')
+	@include oButtons('big', 'secondary');
 	@include oButtonsIconButton('book', 'big', 'secondary');
 }
 
 .demo_custom-icon-button--book--primary {
-	@include oButtons('big', 'primary')
+	@include oButtons('big', 'primary');
 	@include oButtonsIconButton('book', 'big', 'primary');
 }
 
 .demo_custom-icon-button--book--icon-only {
-	@include oButtons('big', 'primary')
+	@include oButtons('big', 'primary');
 	@include oButtonsIconButton('book', 'big', 'primary', $is-icon-only: true);
 }
 
 .demo_custom-theme-primary-icon-button--book {
-	@include oButtons(big);
-	@include oButtonsCustomTheme('slate', 'claret-100', primary);
+	@include oButtons('big');
+	@include oButtonsCustomTheme('slate', 'claret-100', 'primary');
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'primary');
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }
