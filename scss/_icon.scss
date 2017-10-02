@@ -147,7 +147,7 @@
 /// @param {String} $theme, one of $o-colors-theme
 /// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $theme, $state) {
-	$icon-color : 'mandarin';
+	$icon-color: 'paper';
 	@if type-of($theme) == 'map' {
 		@if map-get($theme, colorizer) == 'secondary' {
 			$icon-color: oColorsGetPaletteColor(map-get($theme, 'accent'));
