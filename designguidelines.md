@@ -5,6 +5,8 @@
 * __mono__: monochrome
 * __inverse__: for use on dark backgrounds
 * __b2c__: A theme for b2c products eg [http://help.ft.com](http://help.ft.com)
+* __custom theme primary__/__custom theme secondary__: Any color defined in [o-colors](http://registry.origami.ft.com/components/o-colors) can be used to set up custom color buttons
+
 
 and the following sizes:
 
@@ -30,6 +32,6 @@ and have the following states:
 
 * __grouped__: clustering buttons when choosing between options
 * __pagination__: for navigating through pages
-* __icon__: in some cases buttons have an icon instead of text
+* __icon__: in some cases buttons can have an icon instead of or in addition to text
 
 Button width is determined by its content.
