@@ -11,7 +11,7 @@
 /// @param {Boolean} $is-icon-only, if this icon has text accompaniment or is an
 /// icon only.
 ///
-@mixin oButtonsIconButton($icon-name, $theme: "secondary", $size: "default", $is-icon-only: false) {
+@mixin oButtonsIconButton($icon-name, $size: "default", $theme: "secondary", $is-icon-only: false) {
 	@include oButtonsIconBaseStyles;
 	@include _oButtonsIconSize($size);
 
