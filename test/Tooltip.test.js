@@ -1342,6 +1342,47 @@ describe("Tooltip", () => {
 			testTooltip.show();
 			testTooltip.close();
 		});
+
+
+		describe('when called with fireCloseEvent=false', function () {
+			it('skips emitting o.tooltipClosed event', function(done) {
+				this.timeout(1000);
+
+				const timer = setTimeout(() => {
+					done();
+				}, 500);
+
+				const tooltipEl = document.getElementById('tooltip-demo');
+				const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+				testTooltip.delegates.tooltip.on('o.tooltipClosed', () => {
+					clearTimeout(timer);
+					proclaim.fail('oTooltip.close event to not fire', 'oTooltip.close event did fire');
+				});
+
+				testTooltip.show();
+				testTooltip.close('', '', false);
+			});
+			
+			it('skips emitting oTooltip.close event', function(done) {
+				this.timeout(1000);
+
+				const timer = setTimeout(() => {
+					done();
+				}, 500);
+
+				const tooltipEl = document.getElementById('tooltip-demo');
+				const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
+				testTooltip.delegates.tooltip.on('oTooltip.close', () => {
+					clearTimeout(timer);
+					proclaim.fail('oTooltip.close event to not fire', 'oTooltip.close event did fire');
+				});
+
+				testTooltip.show();
+				testTooltip.close('', '', false);
+			});
+			
+		});
+
 	});
 
 	describe("#closeOnKeyUp", () => {
