@@ -265,9 +265,9 @@ Or you can set an attribute on the `<form>` element to declaratively set the tes
 ```
 
 #### Listening to a toggle change
-Listening for the `oTable.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
-```
-document.addEventListener('oTable.toggled', (event) => {
+Listening for the `oForms.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
+```html
+document.addEventListener('oForms.toggled', (event) => {
 	console.log(`${event.target.id} is ${(event.target.checked ? 'on' : 'off')}`);
 }, false);
 ```
