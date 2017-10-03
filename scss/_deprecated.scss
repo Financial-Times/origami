@@ -4,7 +4,7 @@
 /// @param {String} $buttonClass - class to apply o-buttons styles to
 /// @deprecated This mixin has been deprecated
 @mixin oButtonsIcon($buttonClass: $o-buttons-class) {
-	@warn 'The function oButtonsIcon has been deprecated and will be removed in the next major release of oButtons';
+	@warn 'The function oButtonsIcon has been deprecated and will be removed in the next major release of oButtons. You can use oButtonsIconButton to get a button for a specific icon, theme and size.';
 
 	// Browserhack to only apply these styles for IE7 and up. IE6 will get the
 	// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
@@ -33,7 +33,7 @@
 /// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 /// @deprecated
 @mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {
-	@warn 'The mixin oButtonsGetButtonForIconAndTheme has been deprecated. You can use oButtonsIconButton or _oButtonsGenerateIconButtons';
+	@warn 'The mixin oButtonsGetButtonForIconAndTheme has been deprecated. You can use oButtonsIconButton to get a button for a specific icon, theme and size.';
 	&.#{$buttonClass}-icon--#{$icon-name} {
 
 		$theme-selector: null;
