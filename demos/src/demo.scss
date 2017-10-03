@@ -43,65 +43,65 @@ p {
 	margin: 0;
 }
 
-.demo_custom-theme {
+.demo__custom-theme {
 	padding: 1em;
 }
 
-.demo_custom-theme--teal {
+.demo__custom-theme--teal {
 	background-color: oColorsGetPaletteColor(teal-60);
 	padding: 1em;
 }
-.demo_custom-theme--slate {
+.demo__custom-theme--slate {
 	background-color: oColorsGetPaletteColor(slate);
 	padding: 1em;
 }
-.demo_custom-theme--lemon {
+.demo__custom-theme--lemon {
 	background-color: oColorsGetPaletteColor(slate);
 	padding: 1em;
 }
 
-.demo_custom-theme-button--teal-primary {
+.demo__custom-theme-button--teal-primary {
 	@include oButtonsCustomTheme('teal-60', 'white', primary);
 }
-.demo_custom-theme-button--teal-secondary {
+.demo__custom-theme-button--teal-secondary {
 	@include oButtonsCustomTheme('teal-60', 'white', secondary);
 }
-.demo_custom-theme-button--slate-primary {
+.demo__custom-theme-button--slate-primary {
 	@include oButtonsCustomTheme('slate', 'white', primary);
 }
-.demo_custom-theme-button--slate-secondary {
+.demo__custom-theme-button--slate-secondary {
 	@include oButtonsCustomTheme('slate', 'white', secondary);
 }
-.demo_custom-theme-button--lemon-primary {
+.demo__custom-theme-button--lemon-primary {
 	@include oButtonsCustomTheme('slate', 'lemon', primary);
 }
-.demo_custom-theme-button--lemon-secondary {
+.demo__custom-theme-button--lemon-secondary {
 	@include oButtonsCustomTheme('slate', 'lemon', secondary);
 }
 
-.demo_custom-icon-button--book {
+.demo__custom-icon-button--book {
 	@include oButtons('big', 'secondary');
 	@include oButtonsIconButton('book', 'big', 'secondary');
 }
 
-.demo_custom-icon-button--book--primary {
+.demo__custom-icon-button--book--primary {
 	@include oButtons('big', 'primary');
 	@include oButtonsIconButton('book', 'big', 'primary');
 }
 
-.demo_custom-icon-button--book--icon-only {
+.demo__custom-icon-button--book--icon-only {
 	@include oButtons('big', 'primary');
 	@include oButtonsIconButton('book', 'big', 'primary', $is-icon-only: true);
 }
 
-.demo_custom-theme-primary-icon-button--book {
+.demo__custom-theme-primary-icon-button--book {
 	@include oButtons('big');
 	@include oButtonsCustomTheme('slate', 'claret-100', 'primary');
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'primary');
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }
 
-.demo_custom-theme-secondary-icon-button--book {
+.demo__custom-theme-secondary-icon-button--book {
 	@include oButtons(big);
 	@include oButtonsCustomTheme('slate', 'claret-100', secondary);
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'secondary');
