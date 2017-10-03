@@ -28,6 +28,14 @@
 
 	@include oFormsRadioCheckbox((radio: '.#{$class}__radio', checkbox: '.#{$class}__checkbox', label: '.#{$class}__label'));
 
+	.#{$class}__checkbox-toggle {
+		@include oFormsCheckboxToggle();
+	}
+
+	.#{$class}__checkbox-toggle--inverse {
+		@include oFormsCheckboxToggleInverse();
+	}
+
 	.#{$class}--error .#{$class}__text,
 	.#{$class}--error .#{$class}__select,
 	.#{$class}--error .#{$class}__textarea {

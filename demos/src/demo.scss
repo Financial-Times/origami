@@ -10,3 +10,9 @@ body {
 	margin: oGridGutter();
 	background-color: oColorsGetPaletteColor('paper');
 }
+
+.inverse-demo {
+	margin: - oGridGutter();
+	padding: oGridGutter();
+	background-color: oColorsGetPaletteColor('slate');
+}

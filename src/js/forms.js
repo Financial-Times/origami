@@ -30,6 +30,11 @@ class Forms {
 	}
 
 	listeners() {
+		// Setup checkbox toggle functionality.
+		// We listen for clicks as IE does not fire onchange until onblur.
+		this.FormEl.addEventListener('click', this.handleClickEvent.bind(this), false);
+
+		// Setup validity checks.
 		if (this.opts.testEvent === 'submit') {
 			// Safari reports the validity state, but doesn't
 			// prevent form submits, so this listens to submits and
@@ -92,6 +97,16 @@ class Forms {
 		const input = event.target;
 
 		this.validateInput(input);
+	}
+
+	handleClickEvent(event) {
+		const input = event.target;
+		// Fire an event when toggle checkboxes are clicked (toggled).
+		if (input && input.hasAttribute('data-o-form-toggle')) {
+			input.dispatchEvent(new CustomEvent('oForms.toggled', {
+				bubbles: true
+			}));
+		}
 	}
 
 	findInputs() {

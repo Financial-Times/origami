@@ -29,7 +29,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Text input examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/text-inputs.html)
+[Text input examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/text-inputs)
 
 #### Select boxes
 
@@ -45,7 +45,7 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Select boxes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/select-boxes.html)
+[Select boxes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/select-boxes)
 
 #### Textareas
 
@@ -56,11 +56,11 @@ Each form field is made up of at least 3 elements:
 </div>
 ```
 
-[Textarea examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/textareas.html)
+[Textarea examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/textareas)
 
 #### Checkboxes and radio controls
 
-Couple the checkboxes and radio controls with a label to obtain the desired styles:
+Couple the checkboxes and radio controls with a label to obtain the desired styles. Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles:
 
 ```html
 <!-- Radio -->
@@ -78,10 +78,26 @@ Couple the checkboxes and radio controls with a label to obtain the desired styl
 	<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
 	<label for="a">Checked</label>
 </div>
+
+<!-- Checkbox Toggles -->
+<form action="" data-o-component="o-forms">
+	<fieldset class="o-forms">
+		<legend class="o-forms__label">Checkbox Toggle</legend>
+		<div class="o-forms__checkbox-toggle">
+			<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
+			<label for="a" class="o-forms__label">Checkbox Toggle a</label>
+		</div>
+		<div class="o-forms__checkbox-toggle">
+			<input data-o-form-toggle type="checkbox" id="b" />
+			<label for="b" class="o-forms__label">Checkbox Toggle b</label>
+		</div>
+	</fieldset>
+</form>
 ```
 
-[Radio control examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/radios.html)
-[Checkbox examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/checkboxes.html)
+[Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
+[Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
+[Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkbox-toggle)
 
 #### Validation states
 
@@ -115,7 +131,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Wrapper examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/wrappers.html)
+[Wrapper examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/wrappers)
 
 #### Messages
 
@@ -129,7 +145,7 @@ You can wrap a group of fields to highlight it or show it is not valid:
 </div>
 ```
 
-[Messages examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/messages.html)
+[Messages examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/messages)
 
 #### Prefixes and suffixes
 
@@ -147,7 +163,7 @@ Prefixes and suffixes are used for prepending or appending static text to a form
 </div>
 ```
 
-[Prefixes and suffixes examples](https://origami-build.ft.com/v2/files/o-forms@%5E1/demos/prefix-suffix.html)
+[Prefixes and suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/prefix-suffix)
 
 #### "unskin" a form element
 
@@ -207,6 +223,8 @@ For more details on specific mixins [browse the SassDoc documentation of the mod
 
 By default, `o-forms` listens to the `blur` event of an input field, when a user leaves a field, the input will be validated and if an invalid input is found, the error class will be added to the input.
 
+Additionally `o-forms` fires an event `oForms.toggled` when a toggle checkbox is clicked.
+
 #### Constructing
 
 An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
@@ -246,6 +264,14 @@ Or you can set an attribute on the `<form>` element to declaratively set the tes
 </form>
 ```
 
+#### Listening to a toggle change
+Listening for the `oTable.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
+```
+document.addEventListener('oTable.toggled', (event) => {
+	console.log(`${event.target.id} is ${(event.target.checked ? 'on' : 'off')}`);
+}, false);
+```
+
 ## Troubleshooting:
 
 * Checkboxes and radio controls will not receive custom styling in IE =< 8, though they'll still receive default browser styling
@@ -260,7 +286,7 @@ There are a number of inconsistencies in how browsers handle form events, valida
 ## Migration Guide
 
 ## Upgrading from v3.x.x or v4.x.x
-- A dependency on [o-typography](http://github.com/financial-times/o-icons) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
+- A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
 - The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
 - The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
@@ -318,7 +344,7 @@ Solution: products must load webfonts themselves (tipically, with [o-fonts](http
 
 ```html
 <!-- Load web fonts and icons with @font-face declarations  -->
-<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-fonts@^1,o-ft-icons@^2.3.4" />
+<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-fonts@^3.0.0,o-icons@^5.0.0" />
 
 <!-- Set the font family on the whole document -->
 <style>

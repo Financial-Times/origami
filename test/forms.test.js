@@ -69,7 +69,34 @@ describe("Forms", () => {
 			testForms = new Forms(formEl);
 
 			proclaim.isTrue(inputSpy.calledOnce);
-			proclaim.isTrue(formSpy.calledOnce);
+			proclaim.isTrue(formSpy.withArgs('click').calledOnce);
+			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
+		});
+
+		it('fires an event for toggle checkboxes on click', (done) => {
+			const html = `
+				<form data-o-component="o-forms">
+					<div class="o-forms__checkbox-toggle">
+						<input data-o-form-toggle type="checkbox">
+					</div>
+				</form>
+			`;
+			fixtures.insert(html);
+
+			// Setup form
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			const checkboxToggle = document.querySelector('[data-o-form-toggle]');
+			testForms = new Forms(formEl);
+
+			// We expect an oForms toggled event.
+			formEl.addEventListener('oForms.toggled', (event) => {
+				event.preventDefault();
+				proclaim.isTrue(event.target.checked, 'The toggle checkbox should be checked on click.');
+				done();
+			}, false);
+
+			// Click the checkbox.
+			checkboxToggle.click();
 		});
 	});
 

@@ -47,6 +47,12 @@
             "description": "<strong>Usercase:</strong> This is for a check box with longer copy. NB Width should not extend text input box components."
         },
         {
+            "name": "checkbox-toggle",
+            "title": "A checkbox which acts as a toggle",
+            "template": "/demos/src/checkbox-toggle.mustache",
+            "description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
+        },
+        {
             "name": "prefix-suffix",
             "template": "/demos/src/prefix-suffix.mustache",
             "description": ""
