@@ -10,8 +10,8 @@
 /// IE 8: in this mixin we're using ::before and ::after (instead of :before and :after)
 /// so that IE 8 doesn't get enhanced checkboxes (which it wouldn't render correctly anyway)
 ///
-/// @param {map} $selectors [(radio: '.o-forms__radio', checkbox: '.o-forms__checkbo-toggle__checkbox', label: '.o-forms__label')]
-@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbo-toggle__checkbox', label: '.o-forms__label')) {
+/// @param {map} $selectors [(radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')]
+@mixin oFormsRadioCheckbox($selectors: (radio: '.o-forms__radio', checkbox: '.o-forms__checkbox', label: '.o-forms__label')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$radio: unquote(map-get($selectors, radio));
 	$label: unquote(map-get($selectors, label));
@@ -127,7 +127,7 @@
 	}
 }
 
-@mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox')) {
+@mixin oFormsCheckboxToggle($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox')) {
 	$checkbox: unquote(map-get($selectors, checkbox));
 	$label: unquote(map-get($selectors, label));
 	
@@ -157,7 +157,7 @@
 	}
 }
 
-@mixin oFormsCheckboxToggleInverse($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox')) {
+@mixin oFormsCheckboxToggleInverse($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox')) {
 	$label: unquote(map-get($selectors, label));
 	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
@@ -176,7 +176,7 @@
 	}
 }
 
-@mixin oFormsCheckboxToggleSize($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbo-toggle__checkbox'), $height: $_o-forms__radiocheckbox-default-size) {
+@mixin oFormsCheckboxToggleSize($selectors: (label: '.o-forms__label', checkbox: '.o-forms__checkbox-toggle__checkbox'), $height: $_o-forms__radiocheckbox-default-size) {
 	$label: unquote(map-get($selectors, label));
 	$checkbox: unquote(map-get($selectors, checkbox));
 	#{$label} {
