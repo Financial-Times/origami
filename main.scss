@@ -2,6 +2,7 @@
 @import 'o-colors/main';
 @import 'o-icons/main';
 
+@import 'scss/deprecated';
 @import 'scss/themes';
 @import 'scss/variables';
 @import 'scss/functions';
@@ -32,7 +33,7 @@
 		@include oButtonsPagination;
 	}
 
-	@include oButtonsIcon;
+	@include _oButtonsGenerateIconButtons;
 
 	.#{$o-buttons-class}-group {
 		@include oButtonsGroup;
