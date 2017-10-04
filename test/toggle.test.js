@@ -78,7 +78,7 @@ describe("oToggle", () => {
 			});
 
 			it("does not set up a toggle if it has the data-o-toggle--js class", () => {
-				toggleEl.setAttribute('data-o-toggle--js');
+				toggleEl.setAttribute('data-o-toggle--js', true);
 				let testToggle = new OToggle(toggleEl);
 
 				proclaim.isTypeOf(testToggle.callback, 'undefined');
