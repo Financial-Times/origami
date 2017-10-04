@@ -15,13 +15,10 @@
 			overflow: hidden;
 			// height *needs* setting so we can hide scrollbars.
 			// This is the content height of .o-header__subnav-content
-			height: 42px;
+			height: $_o-header-subhav-height-base;
 
 			@include oGridRespondTo('M') {
-				// at this size the grid becomes a fixed width so this will constrain
-				// any absolutely positioned elements to that.
-				position: relative;
-				height: 32px;
+				height: $_o-header-subhav-height-medium;
 			}
 		}
 	}
@@ -46,13 +43,33 @@
 	}
 
 	.o-header__subnav-list {
-		@include oHeaderItemSeparator();
 		display: inline-block;
 		padding: 0;
 		margin: 0;
+
+		// Separators for subnav lists are positioned relative to the subnavs first item
+		// to avoid positioning subnavs relative. This is so absolute childen of the subnav are
+		// positioned relative to their closest positioned ancestor `o-header__container`. 
+		// An example benefit is o-tooltip support against sub nav items.
+		& + & .o-header__subnav-item {
+			&:first-child {
+				@include _oHeaderItemSeparatorContent();
+				&:before {
+					top: 50%;
+					margin-top: - $_o-header-subhav-height-base * $_o-header-item-separator-percentage-height / 2;
+					height: $_o-header-subhav-height-base * $_o-header-item-separator-percentage-height;
+					@include oGridRespondTo('M') {
+						top: 50%;
+						margin-top: - $_o-header-subhav-height-medium * $_o-header-item-separator-percentage-height / 2;
+						height: $_o-header-subhav-height-medium * $_o-header-item-separator-percentage-height;
+					}
+				}
+			}	
+		}
 	}
 
 	.o-header__subnav-item {
+		position: relative;
 		display: inline;
 		padding-left: 6px;
 
