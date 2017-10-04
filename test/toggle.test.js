@@ -241,7 +241,7 @@ describe("oToggle", () => {
 		it("calls preventDefault on if an event is passed in", () => {
 			let target = new OToggle.Target(testToggle);
 			testToggle.target = target;
-			let event = new Event;
+			let event = new Event('click');
 			let eventSpy = sinon.spy(event, "preventDefault");
 
 			testToggle.toggle(event);
@@ -250,7 +250,7 @@ describe("oToggle", () => {
 		});
 
 		it("calls the callback if defined with the value 'open' if the target.isOpen is true", () => {
-			let event = new Event;
+			let event = new Event('click');
 			let target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(true);
@@ -282,7 +282,7 @@ describe("oToggle", () => {
 		});
 
 		it("calls the callback if defined with the value 'close' if the target.isOpen is false", () => {
-			let event = new Event;
+			let event = new Event('click');
 			let target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(false);
