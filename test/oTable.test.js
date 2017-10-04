@@ -3,8 +3,8 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
-const sandbox = require('./helpers/sandbox');
-const OTable = require('./../main');
+import * as sandbox from './helpers/sandbox';
+import OTable from './../main';
 
 describe("wrap()", () => {
 

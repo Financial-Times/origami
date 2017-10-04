@@ -1,8 +1,8 @@
 /* eslint-env mocha, proclaim */
 import proclaim from 'proclaim';
 
-const sandbox = require('./helpers/sandbox');
-const OTable = require('./../main');
+import * as sandbox from './helpers/sandbox';
+import OTable from './../main';
 
 describe('oTable sorting', () => {
 	let oTableEl;
