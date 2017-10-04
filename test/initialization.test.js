@@ -31,7 +31,7 @@ describe("Expander", () => {
 
 	describe("should create a new", () => {
 		beforeEach(() => {
-				fixtures.simple();
+			fixtures.simple();
 		});
 
 		afterEach(() => {

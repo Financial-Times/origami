@@ -24,14 +24,14 @@ describe("Expander", () => {
 		setTimeout(function(){
 			const expanderToggle = document.getElementById('expander-toggle');
 			proclaim.equal(
-				expanderToggle.getAttribute('aria-expanded'), 
+				expanderToggle.getAttribute('aria-expanded'),
 				'true',
 				'The aria-expanded attribute should "true" when "toggleState" is set to aria.'
 			);
 			proclaim.equal(
-				expanderToggle.innerText, 
+				expanderToggle.innerText,
 				'default',
-				'The toggle text should not be updated when "toggleState" is set to aria.'	
+				'The toggle text should not be updated when "toggleState" is set to aria.'
 			);
 			done();
 		}, 100);
@@ -51,13 +51,13 @@ describe("Expander", () => {
 			const ariaExpanded = expanderToggle.getAttribute('aria-expanded');
 			const innerText = expanderToggle.innerText;
 			proclaim.isNull(
-				ariaExpanded, 
+				ariaExpanded,
 				`The aria-expanded attribute was ${ariaExpanded} but should not be set when "toggleState" is set to none.`
 			);
 			proclaim.equal(
-				innerText, 
+				innerText,
 				'default',
-				`The toggle text was ${innerText} but should not be updated when "toggleState" is set to none.`	
+				`The toggle text was ${innerText} but should not be updated when "toggleState" is set to none.`
 			);
 			done();
 		}, 100);
@@ -76,14 +76,14 @@ describe("Expander", () => {
 			const ariaExpanded = expanderToggle.getAttribute('aria-expanded');
 			const innerText = expanderToggle.innerText;
 			proclaim.equal(
-				ariaExpanded, 
+				ariaExpanded,
 				'true',
 				`The aria-expanded attribute was ${ariaExpanded} but should update when "toggleState" is not set.`
 			);
 			proclaim.notEqual(
-				innerText, 
+				innerText,
 				'default',
-				`The toggle text was ${innerText} but should update on click when "toggleState" is not set.`	
+				`The toggle text was ${innerText} but should update on click when "toggleState" is not set.`
 			);
 			done();
 		}, 100);

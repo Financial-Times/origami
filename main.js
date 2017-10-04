@@ -92,7 +92,7 @@ const Expander = function (el, opts) {
 	}
 
 	if (typeof this.opts.shrinkTo === 'number' && !this.opts.countSelector) {
-		throw('when collapsing to a number of items specify a selector to identify how many items exist');
+		throw new Error('when collapsing to a number of items specify a selector to identify how many items exist');
 	}
 
 	this.contentEl = this.el.querySelector('.' + this.contentClassName);
@@ -178,11 +178,19 @@ Expander.prototype.ariaToggles = function () {
 };
 
 Expander.prototype.invertState = function () {
-	this.isCollapsed() ? this.expand() : this.collapse();
+	if (this.isCollapsed()) {
+		this.expand();
+	} else {
+		this.collapse();
+	}
 };
 
 Expander.prototype.displayState = function (isSilent) {
-	this.isCollapsed() ? this.collapse(isSilent) : this.expand(isSilent);
+	if (this.isCollapsed()) {
+		this.collapse(isSilent);
+	} else {
+		this.expand(isSilent);
+	}
 };
 
 
