@@ -18,11 +18,8 @@
     "mocha": "^2.4.5",
     "nightwatch": "^0.7.5",
     "phantomjs": "^1.9.16",
-    "proclaim": "^3.4.1",
+    "proclaim": "^3.4.6",
     "sinon": "^1.17.3",
     "webpack": "^1.12.2"
-  },
-  "dependencies": {
-    "expect.js": "^0.3.1"
   }
 }

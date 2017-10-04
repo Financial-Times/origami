@@ -1,12 +1,11 @@
-/* global require, afterEach, beforeEach, describe, it */
+/* eslint-env mocha */
 
-const o = require('../helpers/events');
-const Overlay = require('../../src/js/overlay');
+import o from '../helpers/events';
+import Overlay from '../../src/js/overlay';
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon';
+
 const testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
-
-const expect = require('expect.js');
-
-const sinon = require('sinon/pkg/sinon');
 
 describe("smoke-tests (./overlay.js)", function() {
 
@@ -48,7 +47,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			const trigger = document.querySelector('.o-overlay-trigger');
 			o.fireEvent(trigger, 'click');
 			const overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.equal(0);
+			proclaim.equal(overlays.length, 0);
 
 			Overlay.init();
 
@@ -60,12 +59,12 @@ describe("smoke-tests (./overlay.js)", function() {
 				const close = heading[0].querySelectorAll('.o-overlay__close');
 				const testBody = content[0].querySelectorAll('.test-overlay');
 
-				expect(wrapper.length).to.equal(1);
-				expect(content.length).to.equal(1);
-				expect(shadow.length).to.equal(1);
-				expect(heading.length).to.equal(1);
-				expect(close.length).to.equal(1);
-				expect(testBody.length).to.equal(1);
+				proclaim.equal(wrapper.length, 1);
+				proclaim.equal(content.length, 1);
+				proclaim.equal(shadow.length, 1);
+				proclaim.equal(heading.length, 1);
+				proclaim.equal(close.length, 1);
+				proclaim.equal(testBody.length, 1);
 
 				Overlay.getOverlays()['testOverlay'].close();
 				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
@@ -94,7 +93,7 @@ describe("smoke-tests (./overlay.js)", function() {
 					keyCode: 27
 				});
 				o.fireCustomEvent(document.body, 'oLayers.new');
-				expect(Overlay.prototype.close.callCount).to.be(3);
+				proclaim.equal(Overlay.prototype.close.callCount, 3);
 
 				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
@@ -130,11 +129,11 @@ describe("smoke-tests (./overlay.js)", function() {
 					keyCode: 27
 				});
 
-				expect(Overlay.prototype.close.callCount).to.be(0);
+				proclaim.equal(Overlay.prototype.close.callCount, 0);
 
 				o.fireCustomEvent(document.body, 'oLayers.new');
 
-				expect(Overlay.prototype.close.callCount).to.be(1);
+				proclaim.equal(Overlay.prototype.close.callCount, 1);
 
 				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
@@ -168,7 +167,7 @@ describe("smoke-tests (./overlay.js)", function() {
 			});
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 
-			expect(Overlay.prototype.close.callCount).to.be(4);
+			proclaim.equal(Overlay.prototype.close.callCount, 4);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
@@ -192,13 +191,13 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireEvent(document.body, 'keyup', {
 				keyCode: 27
 			});
-			expect(Overlay.prototype.close.callCount).to.be(0);
+			proclaim.equal(Overlay.prototype.close.callCount, 0);
 
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			expect(Overlay.prototype.close.callCount).to.be(1);
+			proclaim.equal(Overlay.prototype.close.callCount, 1);
 
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
-			expect(Overlay.prototype.close.callCount).to.be(2);
+			proclaim.equal(Overlay.prototype.close.callCount, 2);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
@@ -224,17 +223,17 @@ describe("smoke-tests (./overlay.js)", function() {
 
 			o.fireEvent(trigger, 'click');
 
-			expect(newLayers).to.be(1);
-			expect(closedLayers).to.be(0);
+			proclaim.equal(newLayers, 1);
+			proclaim.equal(closedLayers, 0);
 
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			expect(Overlay.prototype.close.callCount).to.be(1);
+			proclaim.equal(Overlay.prototype.close.callCount, 1);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
 
-			expect(newLayers).to.be(2);
-			expect(closedLayers).to.be(1);
+			proclaim.equal(newLayers, 2);
+			proclaim.equal(closedLayers, 1);
 		});
 
 		it('should support having layer functionality disabled', () => {
@@ -258,17 +257,17 @@ describe("smoke-tests (./overlay.js)", function() {
 
 			o.fireEvent(trigger, 'click');
 
-			expect(newLayers).to.be(0);
-			expect(closedLayers).to.be(0);
+			proclaim.equal(newLayers, 0);
+			proclaim.equal(closedLayers, 0);
 
 			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			expect(Overlay.prototype.close.callCount).to.be(0);
+			proclaim.equal(Overlay.prototype.close.callCount, 0);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
 
-			expect(newLayers).to.be(1);
-			expect(closedLayers).to.be(0);
+			proclaim.equal(newLayers, 1);
+			proclaim.equal(closedLayers, 0);
 		});
 
 		it('should remove all traces on close', function() {
@@ -280,12 +279,12 @@ describe("smoke-tests (./overlay.js)", function() {
 
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
 
-			expect(document.querySelectorAll('.o-overlay').length).to.be(0);
+			proclaim.equal(document.querySelectorAll('.o-overlay').length, 0);
 
 			Overlay.destroy();
 
 			o.fireEvent(trigger, 'click');
-			expect(document.querySelectorAll('.o-overlay').length).to.be(0);
+			proclaim.equal(document.querySelectorAll('.o-overlay').length, 0);
 
 			sinon.spy(Overlay.prototype, 'close');
 			sinon.spy(Overlay.prototype, 'realign');
@@ -298,11 +297,11 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireEvent(document.body, 'click');
 			o.fireEvent(document.body, 'keyup');
 
-			expect(Overlay.prototype.close.callCount).to.be(0);
-			expect(Overlay.prototype.realign.callCount).to.be(0);
-			expect(Overlay.prototype.resizeListener.callCount).to.be(0);
-			expect(Overlay.prototype.closeOnExternalClick.callCount).to.be(0);
-			expect(Overlay.prototype.closeOnEscapePress.callCount).to.be(0);
+			proclaim.equal(Overlay.prototype.close.callCount, 0);
+			proclaim.equal(Overlay.prototype.realign.callCount, 0);
+			proclaim.equal(Overlay.prototype.resizeListener.callCount, 0);
+			proclaim.equal(Overlay.prototype.closeOnExternalClick.callCount, 0);
+			proclaim.equal(Overlay.prototype.closeOnEscapePress.callCount, 0);
 
 			// Restore functions
 			Overlay.prototype.close.restore();
@@ -321,10 +320,10 @@ describe("smoke-tests (./overlay.js)", function() {
 			mod.open();
 
 			let overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.be(1);
+			proclaim.equal(overlays.length, 1);
 			mod.close();
 			overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.be(0);
+			proclaim.equal(overlays.length, 0);
 		});
 
 		it('should open and close with correct aria attributes', done => {
@@ -336,20 +335,20 @@ describe("smoke-tests (./overlay.js)", function() {
 			function overlayReadyHandler() {
 				const wrapper = document.querySelectorAll('.o-overlay');
 				const wrapperRole = wrapper[0].getAttribute('role');
-				expect(wrapperRole).to.contain('dialog');
+				proclaim.equal(wrapperRole, 'dialog');
 
 				const wrapperLabel = wrapper[0].getAttribute('aria-labelledby');
-				expect(wrapperLabel).to.be.ok();
-				expect(wrapperLabel).to.not.contain(' ');
+				proclaim.ok(wrapperLabel);
+				proclaim.notEqual(wrapperLabel, ' ');
 
 				let triggerPressed = trigger.getAttribute('aria-pressed');
-				expect(triggerPressed).to.contain('true');
+				proclaim.equal(triggerPressed, 'true');
 
 				Overlay.getOverlays()['testOverlay'].close();
 				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
 
 				triggerPressed = trigger.getAttribute('aria-pressed');
-				expect(triggerPressed).to.contain('false');
+				proclaim.equal(triggerPressed, 'false');
 
 				done();
 			}
@@ -375,10 +374,10 @@ describe("smoke-tests (./overlay.js)", function() {
 		mod.open();
 
 		let overlays = document.querySelectorAll('.o-overlay');
-		expect(overlays.length).to.be(1);
+		proclaim.equal(overlays.length, 1);
 		mod.close();
 		overlays = document.querySelectorAll('.o-overlay');
-		expect(overlays.length).to.be(0);
+		proclaim.equal(overlays.length, 0);
 		document.body.removeChild(scriptEl);
 	});
 
@@ -393,13 +392,13 @@ describe("smoke-tests (./overlay.js)", function() {
 
 		function overlayReadyHandler() {
 			let overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.be(1);
+			proclaim.equal(overlays.length, 1);
 
-			expect(mod.content.innerHTML).to.contain('<div class="o-card__container">');
+			proclaim.include(mod.content.innerHTML, '<div class="o-card__container">');
 
 			mod.close();
 			overlays = document.querySelectorAll('.o-overlay');
-			expect(overlays.length).to.be(0);
+			proclaim.equal(overlays.length, 0);
 			mod.context.removeEventListener('oOverlay.ready', overlayReadyHandler);
 			done();
 		}
@@ -417,7 +416,7 @@ describe("smoke-tests (./overlay.js)", function() {
 		mod.open();
 
 		const overlays = document.querySelectorAll('.o-overlay--test-overlay');
-		expect(overlays.length).to.be(1);
+		proclaim.equal(overlays.length, 1);
 
 		mod.close();
 	});

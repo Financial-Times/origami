@@ -1,10 +1,10 @@
-/* eslint-env mocha, sinon, proclaim */
+/* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from '../helpers/fixtures';
 
-const oLayers = require('o-layers');
-const Overlay = require('./../../main');
+import oLayers from 'o-layers';
+import Overlay from './../../main';
 
 describe("Overlay", () => {
 
