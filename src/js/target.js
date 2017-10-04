@@ -49,5 +49,6 @@ class Target {
 	isOpen() {
 		return this.targetEl.classList.contains('o-toggle--active');
 	}
-};
+}
+
 export default Target;
