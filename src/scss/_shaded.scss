@@ -8,7 +8,9 @@
 	background: oColorsGetColorFor(o-overlay-heading-shaded, background);
 	color: oColorsGetColorFor(o-overlay-heading-shaded, text);
 	font-weight: normal;
+	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
+	// sass-lint:disable no-vendor-prefixes
 }
 
 /// Add to the close icon for a shaded overlay

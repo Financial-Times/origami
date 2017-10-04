@@ -5,6 +5,7 @@
 
 /// Base overlay style
 @mixin oOverlay {
+	@include oVisualEffectsShadowsElevation($elevation: 'high');
 	position: fixed;
 	z-index: 10;
 	box-sizing: border-box;
@@ -14,7 +15,6 @@
 	background: oColorsGetColorFor(o-overlay, background);
 	border-radius: $o-normalise-border-radius;
 
-	@include oVisualEffectsShadowsElevation($elevation: 'high');
 }
 
 /// Base overlay modal shadow style
