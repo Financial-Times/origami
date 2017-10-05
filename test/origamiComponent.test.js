@@ -2,9 +2,9 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
-const sandbox = require('./helpers/sandbox');
+import * as sandbox from './helpers/sandbox';
 
-const oTable = require('./../main');
+import oTable from './../main';
 
 describe("oTable", () => {
 	beforeEach(() => {

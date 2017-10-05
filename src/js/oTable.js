@@ -153,9 +153,9 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		if (aCol.getAttribute('data-o-table-order') !== null) {
 			aCol = aCol.getAttribute('data-o-table-order');
 			bCol = bCol.getAttribute('data-o-table-order');
-			if (!isNaN(parseInt(aCol))) {
-				aCol = parseInt(aCol);
-				bCol = parseInt(bCol);
+			if (!isNaN(parseInt(aCol, 10))) {
+				aCol = parseInt(aCol, 10);
+				bCol = parseInt(bCol, 10);
 			}
 		} else {
 			aCol = aCol.textContent;
