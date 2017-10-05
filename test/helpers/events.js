@@ -3,9 +3,11 @@ const nativeNonBubblers = ['error', 'blur', 'focus', 'scroll', 'resize'];
 const fireEvent = function (el, event, data) {
 	const evt = document.createEvent('HTMLEvents');
 	evt.initEvent(event, !(nativeNonBubblers.indexOf(event) > -1), true); // jshint ignore:line
-	data && Object.keys(data).forEach(function (key) {
-		evt[key] = data[key];
-	});
+	if (data) {
+		Object.keys(data).forEach(function (key) {
+			evt[key] = data[key];
+		});
+	}
 	el.dispatchEvent(evt);
 };
 
