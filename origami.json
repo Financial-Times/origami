@@ -18,7 +18,6 @@
 			"data": {
 				"font": "metricweb"
 			},
-			"expanded": true,
 			"description": "Metric is used for utility text, eg categories, tags and navigation",
 			"display_html": false
 		},
@@ -27,7 +26,6 @@
 			"data": {
 				"font": "financierdisplayweb"
 			},
-			"expanded": true,
 			"description": "Financier Display is used for headlines and editorial content at large sizes.",
 			"display_html": false
 		}
