@@ -32,7 +32,6 @@ class Tooltip {
 		this.tooltipPosition = this.opts.position;
 		this.tooltipAlignment = null;
 		this.visible = false;
-		this.tooltipRect;
 
 		this.delegates = {
 			target: new Delegate(this.target.targetEl),
@@ -70,7 +69,7 @@ class Tooltip {
 				this.showAfter(this.opts.showAfter);
 			}
 		}
-	};
+	}
 
 
 	/**
@@ -82,7 +81,9 @@ class Tooltip {
 	static getOptions(tooltipEl) {
 		const dataset = tooltipEl.dataset;
 		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
-			if (key === 'oComponent') return col; // Bail on data-o-component
+			if (key === 'oComponent') {
+				return col; // Bail on data-o-component
+			}
 			const shortKey = key.replace(/^oTooltip(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 
 			try {
@@ -93,7 +94,7 @@ class Tooltip {
 
 			return col;
 		}, {});
-	};
+	}
 
 	/**
 	 * Check the options passed in are valid, and that the required option
@@ -119,7 +120,7 @@ class Tooltip {
 		}
 
 		return opts;
-	};
+	}
 
 	static constructElement(targetEl, opts) {
 		const element = document.createElement('div');
@@ -127,7 +128,7 @@ class Tooltip {
 		element.setAttribute('data-o-component', 'o-tooltip');
 		element.insertAdjacentHTML('afterbegin', `<div class='o-tooltip-content'>${opts.content}</div>`);
 		return element;
-	};
+	}
 
 	/**
 	 * Render the tooltip. Adds markup and attributes to this.tooltipEl in the DOM
@@ -158,7 +159,7 @@ class Tooltip {
 		button.setAttribute('aria-label', 'Close');
 		button.setAttribute('title', 'Close');
 		this.tooltipEl.appendChild(button);
-	};
+	}
 
 	/**
 	 * Show the tooltip. Adds event handlers for clicks, touches, keypresses and
@@ -197,7 +198,7 @@ class Tooltip {
 		this.tooltipEl.style.display = 'block';
 		this.tooltipEl.style.opacity = 1;
 		this.tooltipEl.classList.add('visible');
-	};
+	}
 
 
 	/**
@@ -247,7 +248,7 @@ class Tooltip {
 			Viewport.stopListeningTo('resize');
 			delete Tooltip._tooltips;
 		}
-	};
+	}
 
 	/**
 	 * Close the tooltip. (Visually hide it and remove event listeners)
@@ -287,7 +288,7 @@ class Tooltip {
 		}
 
 		return false;
-	};
+	}
 
 	/**
 	 * @param {Event} ev - calls close on the tooltip if the key is Esc
@@ -298,7 +299,7 @@ class Tooltip {
 		if (ev.keyCode === 27) {
 			this.close();
 		}
-	};
+	}
 
 
 	/**
@@ -312,7 +313,7 @@ class Tooltip {
 				this.drawTooltip();
 			});
 		}
-	};
+	}
 
 	/**
 	 * Calculates the best place to position the tooltip based on space around the
@@ -349,6 +350,8 @@ class Tooltip {
 				case 'left':
 					[tooltipSet, this.tooltipPosition] = this.resetPosition(this.tooltipRect.left, 'x');
 					break;
+				default:
+					throw new Error('drawTooltip entered the default case, which is not expected.');
 			}
 		}
 
@@ -384,7 +387,7 @@ class Tooltip {
 
 		this._drawTooltip(this.tooltipRect);
 		this._setArrow();
-	};
+	}
 
 	/**
 	 * @returns: the offset width of the tooltip element
@@ -443,7 +446,10 @@ class Tooltip {
 				rect.left = this.target.left - width - Tooltip.arrowDepth;
 				rect.top = this._getTopFor('middle');
 				break;
-		};
+
+			default:
+				throw new Error('drawTooltip entered the default case, which is not expected.');
+		}
 
 		rect.right = rect.left + width;
 		rect.bottom = rect.top + height;
@@ -451,7 +457,7 @@ class Tooltip {
 		this.tooltipRect = rect;
 	}
 
-	_getScrollPosition() {
+	_getScrollPosition() { // eslint-disable-line class-methods-use-this
 		return {
 			left: document.body.scrollLeft || document.documentElement.scrollLeft,
 			top: document.body.scrollTop || document.documentElement.scrollTop
@@ -466,7 +472,7 @@ class Tooltip {
 		} else if (alignment === "right") {
 			return this.target.right - this.width();
 		}
-	};
+	}
 
 	_getTopFor(alignment) {
 		if (alignment === "middle") {
@@ -482,24 +488,26 @@ class Tooltip {
 		const arrowClassRoot = 'o-tooltip--arrow-';
 		const alignmentClassRoot = 'o-tooltip-arrow--align-';
 
-		let classesToRemove = ["o-tooltip--arrow-left",
-		"o-tooltip--arrow-right",
-		"o-tooltip--arrow-above",
-		"o-tooltip--arrow-below",
-		"o-tooltip-arrow--align-top",
-		"o-tooltip-arrow--align-bottom",
-		"o-tooltip-arrow--align-left",
-		"o-tooltip-arrow--align-right"];
+		let classesToRemove = [
+			"o-tooltip--arrow-left",
+			"o-tooltip--arrow-right",
+			"o-tooltip--arrow-above",
+			"o-tooltip--arrow-below",
+			"o-tooltip-arrow--align-top",
+			"o-tooltip-arrow--align-bottom",
+			"o-tooltip-arrow--align-left",
+			"o-tooltip-arrow--align-right"
+		];
 
 		this.tooltipEl.classList.remove(...classesToRemove);
 		this.tooltipEl.classList.add(arrowClassRoot + Tooltip.positionToArrowPositionMap[this.tooltipPosition]);
 		this.tooltipEl.classList.add(alignmentClassRoot + this.tooltipAlignment);
-	};
+	}
 
 	_drawTooltip(rect) {
 		this.tooltipEl.style.top = rect.top + 'px';
 		this.tooltipEl.style.left = rect.left + 'px';
-	};
+	}
 
 	// the bounds here are the size of the client window to catch all cases
 	// where the tooltip may not realistically fit
@@ -528,7 +536,7 @@ class Tooltip {
 
 	static throwError(message) {
 		throw new Error('"o-tooltip error": '+ message);
-	};
+	}
 
 	static init (rootEl, opts) {
 		if (!rootEl) {
@@ -548,14 +556,16 @@ class Tooltip {
 
 		// If the rootEl wasn't itself a tooltip, then find ALL of the child things that have the data-o-component=oTooltip set
 		return Array.from(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
-	};
+	}
 }
 
 Tooltip.arrowDepth = 10;
-Tooltip.positionToArrowPositionMap = {"above": "below",
-																			"below": "above",
-																			"left": "right",
-																			"right": "left"};
+Tooltip.positionToArrowPositionMap = {
+	"above": "below",
+	"below": "above",
+	"left": "right",
+	"right": "left"
+};
 
 Tooltip.validArrowAlignments = ["top", "bottom", "left", "right"];
 Tooltip.validTooltipPositions = ["above", "below", "left", "right"];

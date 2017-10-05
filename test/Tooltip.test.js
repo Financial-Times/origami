@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 import createMockRaf from 'mock-raf';
-const Tooltip = require('./../main');
+import Tooltip from './../main';
 import Viewport from 'o-viewport';
 
 describe("Tooltip", () => {
@@ -648,8 +648,8 @@ describe("Tooltip", () => {
 					testTooltip.drawTooltip();
 					proclaim.strictEqual(drawStub.firstCall.args[0], testTooltip.tooltipRect);
 				});
+			});
 		});
-	});
 
 		/* Unhappy path: If the tooltip is slightly offscreen when it is middle aligned, then it aligns
 		the tooltip with an extremity of the target (whichever is results in the tooltip
@@ -1131,13 +1131,15 @@ describe("Tooltip", () => {
 
 		it('removes all the other arrow classes', () => {
 			testTooltip._setArrow();
-			let classesToRemove = ["o-tooltip--arrow-left",
-			"o-tooltip--arrow-right",
-			"o-tooltip--arrow-above",
-			"o-tooltip-arrow--align-top",
-			"o-tooltip-arrow--align-bottom",
-			"o-tooltip-arrow--align-left",
-			"o-tooltip-arrow--align-right"];
+			let classesToRemove = [
+				"o-tooltip--arrow-left",
+				"o-tooltip--arrow-right",
+				"o-tooltip--arrow-above",
+				"o-tooltip-arrow--align-top",
+				"o-tooltip-arrow--align-bottom",
+				"o-tooltip-arrow--align-left",
+				"o-tooltip-arrow--align-right"
+			];
 
 			classesToRemove.forEach((classname) => {
 				proclaim.isFalse(testTooltip.tooltipEl.classList.contains(classname));
@@ -1145,14 +1147,16 @@ describe("Tooltip", () => {
 		});
 
 		it('adds the arrow-position and alignment', () => {
-			let positionsAndAlignments = {"below": {arrowPosition: "above", alignments: ["left", "right", "middle"]},
-																		"above": {arrowPosition: "below", alignments: ["left", "right", "middle"]},
-																		"left": {arrowPosition: "right", alignments: ["top", "bottom", "middle"]},
-																		"right": {arrowPosition: "left", alignments: ["top", "bottom", "middle"]}};
+			let positionsAndAlignments = {
+				"below": { arrowPosition: "above", alignments: ["left", "right", "middle"] },
+				"above": { arrowPosition: "below", alignments: ["left", "right", "middle"] },
+				"left": { arrowPosition: "right", alignments: ["top", "bottom", "middle"] },
+				"right": { arrowPosition: "left", alignments: ["top", "bottom", "middle"] }
+			};
 
 			for (const position of Object.keys(positionsAndAlignments)) {
 				testTooltip.tooltipPosition = position;
-				positionsAndAlignments[position].alignments.forEach((alignment) => {
+				positionsAndAlignments[position].alignments.forEach((alignment) => { // eslint-disable-line no-loop-func
 					testTooltip.tooltipAlignment = alignment;
 
 					testTooltip._setArrow();
@@ -1249,7 +1253,7 @@ describe("Tooltip", () => {
 		it("redraws if triggered and if the tooltip is visible", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.visible = true;
-			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+			sinon.stub(window, 'requestAnimationFrame').callsFake(mockRaf.raf);
 
 			testTooltip.resizeListener();
 			mockRaf.step({ count: 1 });
@@ -1260,7 +1264,7 @@ describe("Tooltip", () => {
 		it("does not redraw if the tooltip is not visible", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.visible = false;
-			sinon.stub(window, 'requestAnimationFrame', mockRaf.raf);
+			sinon.stub(window, 'requestAnimationFrame').callsFake(mockRaf.raf);
 
 			testTooltip.resizeListener();
 			mockRaf.step({ count: 1 });
@@ -1362,7 +1366,7 @@ describe("Tooltip", () => {
 				testTooltip.show();
 				testTooltip.close('', '', false);
 			});
-			
+
 			it('skips emitting oTooltip.close event', function(done) {
 				this.timeout(1000);
 
@@ -1380,7 +1384,7 @@ describe("Tooltip", () => {
 				testTooltip.show();
 				testTooltip.close('', '', false);
 			});
-			
+
 		});
 
 	});

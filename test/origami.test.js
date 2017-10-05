@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const Tooltip = require('./../main');
+import Tooltip from './../main';
 
 describe("Tooltip", () => {
 	it('is defined', () => {
