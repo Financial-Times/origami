@@ -1,16 +1,18 @@
 const toggle = document.querySelector('.demo-toggle');
 const canvas = document.querySelector('.demo-canvas');
 
-toggle && canvas && toggle.addEventListener('click', function () {
-	const classes = ['demo-on', 'demo-off'];
-	const status = canvas.classList.contains(classes[0]);
+if (toggle && canvas) {
+	toggle.addEventListener('click', function () {
+		const classes = ['demo-on', 'demo-off'];
+		const status = canvas.classList.contains(classes[0]);
 
-	canvas.classList.add(classes[+status]);
-	canvas.classList.remove(classes[+!status]);
+		canvas.classList.add(classes[+status]);
+		canvas.classList.remove(classes[+!status]);
 
-	toggle.disabled = true;
+		toggle.disabled = true;
 
-	setTimeout(function () {
-		toggle.disabled = false;
-	}, 500);
-});
+		setTimeout(function () {
+			toggle.disabled = false;
+		}, 500);
+	});
+}
