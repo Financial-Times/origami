@@ -4,7 +4,7 @@ import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 import Toggle from 'o-toggle';
 
-import oFooter from './../main';
+const oFooter = require('./../main');
 
 describe("oFooter", () => {
 
