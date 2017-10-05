@@ -96,7 +96,9 @@ ODate.prototype.update = function() {
 		date = new Date();
 	}
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	let dateString;
 
@@ -148,7 +150,7 @@ function compile(format) {
 		return replacer ? '" + ' + replacer + ' + "' : match;
 	}) + '"';
 
-	return (compiledTemplates[format] = new Function('date', funcString));  // jshint ignore:line
+	return (compiledTemplates[format] = new Function('date', funcString)); // eslint-disable-line no-new-func
 }
 
 ODate.toDate = function(date) {
@@ -225,7 +227,9 @@ ODate.isYesterday = function(date, now, interval) {
 ODate.timeAgo = function(date, interval, options) {
 
 	date = ODate.toDate(date);
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	// Accept an interval argument for backwards compatibility
 	if (arguments.length === 2 && typeof interval === 'object') {
@@ -272,7 +276,9 @@ ODate.timeAgo = function(date, interval, options) {
 
 ODate.asTodayOrYesterdayOrNothing = function(date){
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	const now = new Date();
 	const interval = ODate.getSecondsBetween(now, date);
@@ -293,7 +299,9 @@ ODate.asTodayOrYesterdayOrNothing = function(date){
 
 ODate.timeAgoNoSeconds = function(date){
 
-	if (!date) return;
+	if (!date) {
+		return;
+	}
 
 	const now = new Date();
 	const interval = ODate.getSecondsBetween(now, date);
