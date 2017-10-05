@@ -37,7 +37,7 @@ class Toggle {
 
 		this.callback = config.callback;
 		if (typeof this.callback === 'string') {
-			this.callback = new Function(this.callback);
+			this.callback = new Function(this.callback); // eslint-disable-line no-new-func
 		}
 
 		this.toggleEl = toggleEl;
@@ -118,7 +118,7 @@ class Toggle {
 		}
 		return toggles;
 	}
-};
+}
 
 Toggle.Target = Target;
 export default Toggle;
