@@ -281,7 +281,6 @@ describe("Tooltip", () => {
 			proclaim.isDefined(buttonEl);
 			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
 			proclaim.isTrue(buttonEl.hasAttribute('title'));
-			proclaim.isTrue(buttonEl.hasAttribute('role'));
 		});
 
 		it("Inserts adjacent to target element when target has no next sibling", () => {
