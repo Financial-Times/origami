@@ -1,6 +1,6 @@
-/*global describe, it, before, after*/
+/* eslint-env mocha */
 
-const expect = require('expect.js');
+const proclaim = require('proclaim');
 const sinon = require('sinon/pkg/sinon');
 
 const oViewport = require('./../main.js');
@@ -13,11 +13,11 @@ function isPhantom() {
 describe('o-viewport utils', function () {
 
 	it('throttle should be exposed', function() {
-		expect(utils.throttle).to.be.a('function');
+		proclaim.isTypeOf(utils.throttle, 'function');
 	});
 
 	it('debounce should be exposed', function() {
-		expect(utils.debounce).to.be.a('function');
+		proclaim.isTypeOf(utils.debounce, 'function');
 	});
 });
 
@@ -42,10 +42,10 @@ describe('o-viewport', function() {
 	it('should listen to orientationchange event', function(done) {
 		oViewport.listenTo('orientation');
 		document.body.addEventListener('oViewport.orientation', function(ev) {
-			expect(ev.type).to.be('oViewport.orientation');
-			expect(ev.detail.viewport).to.not.be(undefined);
-			expect(ev.detail.orientation).to.not.be(undefined);
-			expect(ev.detail.originalEvent).to.not.be(undefined);
+			proclaim.equal(ev.type, 'oViewport.orientation');
+			proclaim.notEqual(ev.detail.viewport, undefined);
+			proclaim.notEqual(ev.detail.orientation, undefined);
+			proclaim.notEqual(ev.detail.originalEvent, undefined);
 			done();
 		});
 		window.dispatchEvent(new Event('orientationchange'));
@@ -54,9 +54,9 @@ describe('o-viewport', function() {
 	it('should listen to visibilitychange event', function(done) {
 		oViewport.listenTo('visibility');
 		document.body.addEventListener('oViewport.visibility', function(ev) {
-			expect(ev.type).to.be('oViewport.visibility');
-			expect(ev.detail.hidden).to.not.be(undefined);
-			expect(ev.detail.originalEvent).to.not.be(undefined);
+			proclaim.equal(ev.type, 'oViewport.visibility');
+			proclaim.notEqual(ev.detail.hidden, undefined);
+			proclaim.notEqual(ev.detail.originalEvent, undefined);
 			done();
 		});
 		window.dispatchEvent(new Event('visibilitychange'));
@@ -65,9 +65,9 @@ describe('o-viewport', function() {
 	it('should listen to resize event', function(done) {
 		oViewport.listenTo('resize');
 		document.body.addEventListener('oViewport.resize', function(ev) {
-			expect(ev.type).to.be('oViewport.resize');
-			expect(ev.detail.viewport).to.not.be(undefined);
-			expect(ev.detail.originalEvent).to.not.be(undefined);
+			proclaim.equal(ev.type, 'oViewport.resize');
+			proclaim.notEqual(ev.detail.viewport, undefined);
+			proclaim.notEqual(ev.detail.originalEvent, undefined);
 			done();
 		});
 		window.dispatchEvent(new Event('resize'));
@@ -76,13 +76,13 @@ describe('o-viewport', function() {
 	it('should listen to scroll event', function(done) {
 		oViewport.listenTo('scroll');
 		document.body.addEventListener('oViewport.scroll', function(ev) {
-			expect(ev.type).to.be('oViewport.scroll');
-			expect(ev.detail.viewport).to.not.be(undefined);
-			expect(ev.detail.scrollTop).to.not.be(undefined);
-			expect(ev.detail.scrollLeft).to.not.be(undefined);
-			expect(ev.detail.scrollWidth).to.not.be(undefined);
-			expect(ev.detail.scrollHeight).to.not.be(undefined);
-			expect(ev.detail.originalEvent).to.not.be(undefined);
+			proclaim.equal(ev.type, 'oViewport.scroll');
+			proclaim.notEqual(ev.detail.viewport, undefined);
+			proclaim.notEqual(ev.detail.scrollTop, undefined);
+			proclaim.notEqual(ev.detail.scrollLeft, undefined);
+			proclaim.notEqual(ev.detail.scrollWidth, undefined);
+			proclaim.notEqual(ev.detail.scrollHeight, undefined);
+			proclaim.notEqual(ev.detail.originalEvent, undefined);
 			done();
 		});
 		window.dispatchEvent(new Event('scroll'));
@@ -90,8 +90,8 @@ describe('o-viewport', function() {
 
 	it('should get size the size of the viewport', function() {
 		const viewportSize = oViewport.getSize();
-		expect(typeof viewportSize.width).to.be('number');
-		expect(typeof viewportSize.height).to.be('number');
+		proclaim.isTypeOf(viewportSize.width, 'number');
+		proclaim.isTypeOf(viewportSize.height, 'number');
 	});
 
 	it('should pass the flag to get width of the viewport without srollbars', function() {
@@ -99,22 +99,22 @@ describe('o-viewport', function() {
 		let heightSpy = sinon.spy(utils, 'getHeight');
 
 		const viewportSizeNoScrollbars = oViewport.getSize(true);
-		expect(typeof viewportSizeNoScrollbars.width).to.be('number');
-		expect(typeof viewportSizeNoScrollbars.height).to.be('number');
-		expect(widthSpy.calledWith(true)).to.be(true);
-		expect(heightSpy.calledWith(true)).to.be(true);
-		expect(widthSpy.calledWith(undefined)).to.be(false);
-		expect(heightSpy.calledWith(undefined)).to.be(false);
-		expect(widthSpy.callCount).to.be(1);
-		expect(heightSpy.callCount).to.be(1);
+		proclaim.isTypeOf(viewportSizeNoScrollbars.width, 'number');
+		proclaim.isTypeOf(viewportSizeNoScrollbars.height, 'number');
+		proclaim.isTrue(widthSpy.calledWith(true));
+		proclaim.isTrue(heightSpy.calledWith(true));
+		proclaim.isFalse(widthSpy.calledWith(undefined));
+		proclaim.isFalse(heightSpy.calledWith(undefined));
+		proclaim.equal(widthSpy.callCount, 1);
+		proclaim.equal(heightSpy.callCount, 1);
 
 		const viewportSize = oViewport.getSize();
-		expect(typeof viewportSize.width).to.be('number');
-		expect(typeof viewportSize.height).to.be('number');
-		expect(widthSpy.calledWith(undefined)).to.be(true);
-		expect(heightSpy.calledWith(undefined)).to.be(true);
-		expect(widthSpy.callCount).to.be(2);
-		expect(heightSpy.callCount).to.be(2);
+		proclaim.isTypeOf(viewportSize.width, 'number');
+		proclaim.isTypeOf(viewportSize.height, 'number');
+		proclaim.isTrue(widthSpy.calledWith(undefined));
+		proclaim.isTrue(heightSpy.calledWith(undefined));
+		proclaim.equal(widthSpy.callCount, 2);
+		proclaim.equal(heightSpy.callCount, 2);
 
 
 		widthSpy.restore();
@@ -122,11 +122,11 @@ describe('o-viewport', function() {
 	});
 
 	it('should get the orientation of the viewport', function() {
-		expect(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape').to.be(true);
+		proclaim.isTrue(oViewport.getOrientation() === 'portrait' || oViewport.getOrientation() === 'landscape');
 	});
 
 	it('should be able to get the visibility of the viewport', function() {
-		expect(oViewport.getVisibility()).to.be.a('boolean');
+		proclaim.isTypeOf(oViewport.getVisibility(), 'boolean');
 	});
 
 	it('should stop listening to scroll event', function(done) {
