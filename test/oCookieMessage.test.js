@@ -1,4 +1,4 @@
-/* eslint-env mocha, proclaim, sinon */
+/* eslint-env mocha */
 
 import sinon from 'sinon/pkg/sinon';
 import proclaim from 'proclaim';
@@ -7,7 +7,7 @@ import store from 'superstore-sync';
 import * as fixtures from './helpers/fixtures';
 
 
-const oCookieMessage = require('./../main');
+import oCookieMessage from './../main' ;
 
 describe("CookieMessage", () => {
 	beforeEach(() => {

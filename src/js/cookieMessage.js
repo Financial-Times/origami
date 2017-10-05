@@ -21,7 +21,6 @@ class CookieMessage {
 		if (!CookieMessage.userHasConsentedToCookies()) {
 			this.CookieMessageEl.classList.add('o-cookie-message--active');
 			CookieMessage.setupMessage();
-			return;
 		}
 	}
 
@@ -76,7 +75,7 @@ class CookieMessage {
 
 		if (cookieConsent) {
 
-			const consentDate = parseInt(cookieConsent);
+			const consentDate = parseInt(cookieConsent, 10);
 
 			if (this.dateIsWithinLastThreeMonths(consentDate)) {
 				return true;
