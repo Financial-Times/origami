@@ -7,11 +7,11 @@ Auto initalise Origami components
 - [Contact](#contact)
 - [Licence](#licence)
 
-# Usage
+## Usage
 
 This module comprises a standard way of firing the `o.DOMContentLoaded` and `o.load` events when their equivalent browser-native events fire, and will fire the Origami events even if the native ones have already been and gone, making this suitable for bundling with modules that are loaded asyncronously.
 
-## JavaScript
+### JavaScript
 
 ```javascript
 require('o-autoinit');
