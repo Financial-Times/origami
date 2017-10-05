@@ -16,7 +16,6 @@
 	"demos": [
 		{
 			"name": "declarative",
-			"expanded": false,
 			"template": "demos/src/declarative.mustache",
 			"description": "Declarative error tracking"
 			}
