@@ -1,7 +1,7 @@
-/* global afterEach, beforeEach, describe, it */
+/* eslint-env mocha */
 
 const Errors = require('../src/js/oErrors');
-const expect = require('expect.js');
+const proclaim = require('proclaim');
 
 describe("oErrors", function() {
 	let mockRavenClient = null;
@@ -21,10 +21,10 @@ describe("oErrors", function() {
 
 	describe("#init(raven, options)", function() {
 		it("should throw an exception if the sentryEndpoint option is missing", function() {
-			expect(function() {
+			proclaim.throws(function() {
 				new Errors().init({
 				}, mockRavenClient);
-			}).to.throwException();
+			});
 		});
 
 
@@ -34,7 +34,7 @@ describe("oErrors", function() {
 				sentryEndpoint: "//app.getsentry.com/123"
 			}, mockRavenClient);
 
-			expect(mockRavenClient.configOptions.release).to.equal("v1.0.0");
+			proclaim.equal(mockRavenClient.configOptions.release, "v1.0.0");
 		});
 
 		it("should configure the raven client with the environment if the environment option is configured", function() {
@@ -43,7 +43,7 @@ describe("oErrors", function() {
 				sentryEndpoint: "//app.getsentry.com/123"
 			}, mockRavenClient);
 
-			expect(mockRavenClient.configOptions.environment).to.equal("test");
+			proclaim.equal(mockRavenClient.configOptions.environment, "test");
 		});
 
 		it("should configure the raven client with tags if the tags option is configured", function() {
@@ -54,8 +54,8 @@ describe("oErrors", function() {
 				sentryEndpoint: "//app.getsentry.com/123"
 			}, mockRavenClient);
 
-			expect(mockRavenClient.configOptions.tags).to.be.an('object');
-			expect(mockRavenClient.configOptions.tags).to.include.keys('appName');
+			proclaim.isTypeOf(mockRavenClient.configOptions.tags, 'object');
+			proclaim.ok(mockRavenClient.configOptions.tags.appName);
 		});
 
 		it("should configure the log level according the the logLevel option", function() {
@@ -64,7 +64,7 @@ describe("oErrors", function() {
 				logLevel: "contextonly"
 			}, mockRavenClient);
 
-			expect(errors.logger._logLevel).to.be(1);
+			proclaim.equal(errors.logger._logLevel, 1);
 		});
 
 		it("should not configure the raven client if the log level is consoleonly", function() {
@@ -75,8 +75,8 @@ describe("oErrors", function() {
 				logLevel: "consoleonly"
 			}, mockRavenClient);
 
-			expect(mockRavenClient.configuredEndpoint).to.equal("");
-			expect(mockRavenClient.installed).to.eql("");
+			proclaim.equal(mockRavenClient.configuredEndpoint, "");
+			proclaim.equal(mockRavenClient.installed, "");
 		});
 
 		it("should not call raven client methods if configured to the consoleonly log level", function() {
@@ -86,7 +86,7 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			errors.report({ message: "Something failed" });
-			expect(mockRavenClient.lastCaptureMessageArgs[0]).to.be(undefined);
+			proclaim.isUndefined(mockRavenClient.lastCaptureMessageArgs[0]);
 		});
 
 		it("should configure itself from the DOM if no options are present", function() {
@@ -102,8 +102,8 @@ describe("oErrors", function() {
 
 			const errors = new Errors().init(null, mockRavenClient);
 
-			expect(mockRavenClient.configuredEndpoint).to.eql("http://abc@app.getsentry.com/appid");
-			expect(errors.logger._logLevel).to.eql(1);
+			proclaim.equal(mockRavenClient.configuredEndpoint, "http://abc@app.getsentry.com/appid");
+			proclaim.equal(errors.logger._logLevel, 1);
 
 			document.head.removeChild(sentryConfiguration);
 		});
@@ -116,8 +116,8 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			// This is a horrible hacky way to check the function is a noop
-			expect(errors.report(10)).to.be(10);
-			expect(errors.wrapWithContext(10)).to.be(10);
+			proclaim.equal(errors.report(10), 10);
+			proclaim.equal(errors.wrapWithContext(10), 10);
 
 		});
 
@@ -129,8 +129,8 @@ describe("oErrors", function() {
 
 
 			// This is a horrible hacky way to check the function is a noop
-			expect(errors.report.toString()).to.not.be("function () {}");
-			expect(errors.wrapWithContext.toString()).to.not.be("function () {}");
+			proclaim.notEqual(errors.report.toString(), "function () {}");
+			proclaim.notEqual(errors.wrapWithContext.toString(), "function () {}");
 		});
 
 		it("should be enabled if options.enabled is `true`", function() {
@@ -142,8 +142,8 @@ describe("oErrors", function() {
 
 
 			// This is a horrible hacky way to check the function is a noop
-			expect(errors.report.toString()).to.not.be("function () {}");
-			expect(errors.wrapWithContext.toString()).to.not.be("function () {}");
+			proclaim.notEqual(errors.report.toString(), "function () {}");
+			proclaim.notEqual(errors.wrapWithContext.toString(), "function () {}");
 		});
 
 		it("should accept a function that can be used to return a boolean which is used to decide whether an error should be reported", function() {
@@ -157,9 +157,9 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			errors.report({ shouldSend: false });
-			expect(mockRavenClient.lastCaptureMessageArgs[0]).to.be(undefined);
+			proclaim.isUndefined(mockRavenClient.lastCaptureMessageArgs[0]);
 			errors.report({ shouldSend: true });
-			expect(mockRavenClient.lastCaptureMessageArgs[0].shouldSend).to.be(true);
+			proclaim.isTrue(mockRavenClient.lastCaptureMessageArgs[0].shouldSend);
 		});
 
 		it("should accept a function that can be used to transform error data and add additional contextual information", function() {
@@ -175,8 +175,8 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			errors.report({ message: "Something failed" });
-			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
-			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
+			proclaim.equal(mockRavenClient.lastCaptureMessageArgs[0].test, "hello");
+			proclaim.equal(mockRavenClient.lastCaptureMessageArgs[1].test, "world");
 		});
 
 		it("should return the orignal error when transform error does not return an error object", function() {
@@ -191,14 +191,14 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			errors.report({ message: "Something failed" });
-			expect(mockRavenClient.lastCaptureMessageArgs[0].message).to.equal('Something failed');
+			proclaim.equal(mockRavenClient.lastCaptureMessageArgs[0].message, 'Something failed');
 		});
 
 		it("should accept an Array of existing error events that will be added to the internal error buffer", function(done) {
 			mockRavenClient.captureException = function(error, context) {
-				expect(error).to.be.an(Error);
-				expect(error.message).to.be("My test error");
-				expect(context).to.be.an('object');
+				proclaim.isInstanceOf(error, Error);
+				proclaim.equal(error.message, "My test error");
+				proclaim.isTypeOf(context, 'object');
 				done();
 			};
 
@@ -222,8 +222,8 @@ describe("oErrors", function() {
 			}, mockRavenClient);
 
 			errors.report({ message: "Something failed" });
-			expect(mockRavenClient.lastCaptureMessageArgs[0].test).to.be("hello");
-			expect(mockRavenClient.lastCaptureMessageArgs[1].test).to.be("world");
+			proclaim.equal(mockRavenClient.lastCaptureMessageArgs[0].test, "hello");
+			proclaim.equal(mockRavenClient.lastCaptureMessageArgs[1].test, "world");
 		});
 
 		it("should accept a function that overrides Sentry's data transport handler", function() {
@@ -233,7 +233,7 @@ describe("oErrors", function() {
 				transportFunction: function() {}
 			}, mockRavenClient);
 
-			expect(typeof mockRavenClient.configOptions.transport).to.be("function");
+			proclaim.isTypeOf(mockRavenClient.configOptions.transport, "function");
 		});
 	});
 
@@ -244,10 +244,10 @@ describe("oErrors", function() {
 			};
 
 			mockRavenClient.captureException = function(error, context) {
-				expect(error).to.be.an(Error);
-				expect(error.message).to.be("Test");
-				expect(context).to.be.an('object');
-				expect(context.extra.context).to.equal('object');
+				proclaim.isInstanceOf(error, Error);
+				proclaim.equal(error.message, "Test");
+				proclaim.isTypeOf(context, 'object');
+				proclaim.equal(context.extra.context, 'object');
 				done();
 			};
 
@@ -262,7 +262,7 @@ describe("oErrors", function() {
 		it("should return a function", function() {
 			const fn = function() {};
 			const wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
-			expect(wrappedFunction).to.be.a('function');
+			proclaim.isTypeOf(wrappedFunction, 'function');
 		});
 	});
 
@@ -275,9 +275,9 @@ describe("oErrors", function() {
 			const wrappedFunction = errors.wrap(fn);
 
 			mockRavenClient.captureException = function(error, context) {
-				expect(error).to.be.an(Error);
-				expect(error.message).to.be("Test");
-				expect(context).to.eql({ errormessage: "Test", extra: {} });
+				proclaim.isInstanceOf(error, Error);
+				proclaim.equal(error.message, "Test");
+				proclaim.deepEqual(context, { errormessage: "Test", extra: {} });
 				done();
 			};
 
@@ -288,14 +288,14 @@ describe("oErrors", function() {
 		it("should return a function", function() {
 			const fn = function() {};
 			const wrappedFunction = errors.wrap(fn);
-			expect(wrappedFunction).to.be.a('function');
+			proclaim.isTypeOf(wrappedFunction, 'function');
 		});
 	});
 
 	describe("#report(e, context)", function() {
 		it("should return the original error", function() {
 			const error = errors.report(new Error("Test"));
-			expect(error.message).to.eql("Test");
+			proclaim.equal(error.message, "Test");
 		});
 	});
 
@@ -306,11 +306,11 @@ describe("oErrors", function() {
 
 			function onClick(ev) {
 				const path = errors._getEventPath(ev);
-				expect(path[0]).to.be(firstLevelDiv);
-				expect(path[1]).to.be(topLevelDiv);
-				expect(path[2]).to.be(document.body);
-				expect(path[3]).to.be(document.documentElement);
-				expect(path[4]).to.be(undefined);
+				proclaim.deepEqual(path[0], firstLevelDiv);
+				proclaim.deepEqual(path[1], topLevelDiv);
+				proclaim.deepEqual(path[2], document.body);
+				proclaim.deepEqual(path[3], document.documentElement);
+				proclaim.isUndefined(path[4], undefined);
 
 				done();
 			}
@@ -340,7 +340,7 @@ describe("oErrors", function() {
 
 			const modifiedData = errors._updatePayloadBeforeSend(data);
 
-			expect(modifiedData.extra["context:log"]).to.eql("LOG: This is a LOG line\nWARN: This is a WARN line");
+			proclaim.equal(modifiedData.extra["context:log"], "LOG: This is a LOG line\nWARN: This is a WARN line");
 		});
 
 		it("should not add extra log data to the argument if logging is disabled", function() {
@@ -354,7 +354,7 @@ describe("oErrors", function() {
 
 			const data = { extra: {} };
 			const modifiedData = errors._updatePayloadBeforeSend(data);
-			expect(modifiedData.extra["context:log"]).to.equal(undefined);
+			proclaim.isUndefined(modifiedData.extra["context:log"], undefined);
 		});
 	});
 
@@ -363,10 +363,10 @@ describe("oErrors", function() {
 			const errors = new Errors();
 
 			mockRavenClient.captureException = function(error, context) {
-				expect(error).to.be.an(Error);
-				expect(error.message).to.be("My test error");
-				expect(context).to.be.an('object');
-				expect(context.extra.additional).to.equal('info');
+				proclaim.isInstanceOf(error, Error);
+				proclaim.equal(error.message, "My test error");
+				proclaim.isTypeOf(context, 'object');
+				proclaim.equal(context.extra.additional, 'info');
 				done();
 			};
 
@@ -380,9 +380,9 @@ describe("oErrors", function() {
 
 	it("should report errors on oErrors.log event", function(done) {
 		mockRavenClient.captureException = function(error, context) {
-			expect(error).to.be.an(Error);
-			expect(context).to.be.an('object');
-			expect(context.extra.info.additional).to.equal('info');
+			proclaim.isInstanceOf(error, Error);
+			proclaim.isTypeOf(context, 'object');
+			proclaim.equal(context.extra.info.additional, 'info');
 			done();
 		};
 
