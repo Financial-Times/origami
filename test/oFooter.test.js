@@ -6,7 +6,6 @@ import Toggle from 'o-toggle';
 
 const oFooter = require('./../main');
 
-
 describe("oFooter", () => {
 
 	beforeEach(() => {

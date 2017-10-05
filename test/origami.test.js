@@ -31,7 +31,7 @@ describe("oFooter", () => {
 
 	describe("initialisation", () => {
 		beforeEach(() => {
-				fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
