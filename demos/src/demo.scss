@@ -61,22 +61,24 @@ p {
 }
 
 .demo__custom-theme-button--teal-primary {
-	@include oButtonsCustomTheme('teal-60', 'white', primary);
+	// Test the deprecated mixin pattern still works
+	@include oButtonsCustomTheme('teal-60', 'white', 'primary');
 }
 .demo__custom-theme-button--teal-secondary {
-	@include oButtonsCustomTheme('teal-60', 'white', secondary);
+	// You may just use the oButtonsTheme mixin too
+	@include oButtonsTheme($theme: (background: 'teal-60', accent: 'white', colorizer: 'secondary'));
 }
 .demo__custom-theme-button--slate-primary {
-	@include oButtonsCustomTheme('slate', 'white', primary);
+	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'white', colorizer: 'primary'));
 }
 .demo__custom-theme-button--slate-secondary {
-	@include oButtonsCustomTheme('slate', 'white', secondary);
+	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'white', colorizer: 'secondary'));
 }
 .demo__custom-theme-button--lemon-primary {
-	@include oButtonsCustomTheme('slate', 'lemon', primary);
+	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 }
 .demo__custom-theme-button--lemon-secondary {
-	@include oButtonsCustomTheme('slate', 'lemon', secondary);
+	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'secondary'));
 }
 
 .demo__custom-icon-button--book {
@@ -96,14 +98,15 @@ p {
 
 .demo__custom-theme-primary-icon-button--book {
 	@include oButtons('big');
-	@include oButtonsCustomTheme('slate', 'claret-100', 'primary');
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'primary');
+	@include oButtonsCustomTheme($theme: $custom-theme);
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }
 
 .demo__custom-theme-secondary-icon-button--book {
 	@include oButtons(big);
-	@include oButtonsCustomTheme('slate', 'claret-100', secondary);
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'secondary');
+
+	@include oButtonsCustomTheme($theme: $custom-theme);
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }
