@@ -49,9 +49,9 @@ body {
 	@include oIconsGetIcon('lock');
 }
 .demo-icon-special--coloured {
-	@include oIconsGetIcon('lock', $color: #0000FF);
+	@include oIconsGetIcon('lock', $color: #0000ff);
 }
 
 .demo-icon-special--coloured--resized {
-	@include oIconsGetIcon('lock', #0000FF, 40);
+	@include oIconsGetIcon('lock', #0000ff, 40);
 }
