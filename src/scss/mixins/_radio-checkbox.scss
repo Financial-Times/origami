@@ -217,4 +217,12 @@
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	// sass-lint:enable no-vendor-prefixes
+
+	// When in a prefix/suffix, clear the margins
+	// and reduce the font size
+	.o-forms__prefix &,
+	.o-forms__suffix & {
+		margin: 0;
+		font-size: 12px;
+	}
 }
