@@ -1,9 +1,9 @@
 @mixin oFormsAffixWrapper($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
+		@include oTypographyMargin($top: 1);
 		display: table;
 		width: 100%;
 		box-sizing: border-box;
-		@include oTypographyMargin($top: 1);
 	}
 
 	.#{$class}__affix-wrapper .#{$class}__text,
@@ -89,10 +89,10 @@
 
 	.#{$class}__prefix,
 	.#{$class}__suffix {
+		@include oTypographyMargin($top: 1);
 		display: table-cell;
 		vertical-align: top;
 		box-sizing: border-box;
-		@include oTypographyMargin($top: 1);
 		width: 1%;
 		white-space: nowrap;
 		border-top: $_o-forms-field-border;
@@ -111,11 +111,11 @@
 	}
 
 	.#{$class}__prefix {
+		@include oTypographyMargin($top: 1);
 		border-left: $_o-forms-field-border;
 		border-right: 0;
 		border-top-left-radius: $_o-forms-field-border-radius;
 		border-bottom-left-radius: $_o-forms-field-border-radius;
-		@include oTypographyMargin($top: 1);
 	}
 
 	.#{$class}__suffix {

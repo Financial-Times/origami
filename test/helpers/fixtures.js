@@ -24,7 +24,7 @@ function htmlCode () {
 		<form data-o-component="o-forms" id="element">
 			<div class="o-forms">
 				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required />
+				<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required pattern="valid"/>
 			</div>
 
 			<div class="o-forms">

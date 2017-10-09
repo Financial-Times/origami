@@ -43,13 +43,11 @@ class Forms {
 
 			// All other browsers will report each item invalid on
 			// submit and prevent a form submission.
-			this.findInputs(this.FormEl).map(input => {
+			this.findInputs().forEach(input => {
 				input.addEventListener('invalid', this.handleInvalidEvent.bind(this), false);
 			});
-
-			return;
 		} else {
-			this.findInputs().map((input) => {
+			this.findInputs().forEach((input) => {
 				input.addEventListener('blur', this.handleBlurEvent.bind(this), false);
 			});
 		}
@@ -58,7 +56,7 @@ class Forms {
 	validateForm(event) {
 		event.preventDefault();
 
-		const checkedInputs = this.findInputs(this.FormEl).map(input => this.validateInput(input));
+		const checkedInputs = this.findInputs().map(input => this.validateInput(input));
 
 		if (checkedInputs.some((val) => val === false)) {
 			return;
@@ -83,7 +81,7 @@ class Forms {
 		return true;
 	}
 
-	invalidInput(input) {
+	invalidInput(input) { // eslint-disable-line class-methods-use-this
 		input.closest('.o-forms').classList.add('o-forms--error');
 	}
 
@@ -99,7 +97,7 @@ class Forms {
 		this.validateInput(input);
 	}
 
-	handleClickEvent(event) {
+	handleClickEvent(event) { // eslint-disable-line class-methods-use-this
 		const input = event.target;
 		// Fire an event when toggle checkboxes are clicked (toggled).
 		if (input && input.hasAttribute('data-o-form-toggle')) {
@@ -115,7 +113,7 @@ class Forms {
 
 	destroy() {
 		this.FormEl.removeEventListener('submit', this.validateForm.bind(this));
-		this.findInputs(this.FormEl).map(input => {
+		this.findInputs().forEach(input => {
 			input.removeEventListener('invalid', this.handleInvalidEvent.bind(this));
 			input.removeEventListener('blur', this.handleBlurEvent.bind(this));
 		});

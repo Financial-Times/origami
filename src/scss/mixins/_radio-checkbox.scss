@@ -29,13 +29,13 @@
 
 	#{$checkbox} + #{$label}::before,
 	#{$radio} + #{$label}::before {
+		@include oColorsFor(o-forms-field-focus);
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: $_o-forms__radiocheckbox-default-size;
 		height: $_o-forms__radiocheckbox-default-size;
 		border: 2px solid oColorsGetColorFor(o-forms-field-standard, border);
-		@include oColorsFor(o-forms-field-focus);
 		box-sizing: border-box;
 		content: '';
 		background-color: oColorsGetColorFor(o-forms-field-standard, background);
@@ -203,13 +203,13 @@
 }
 
 @mixin _oFormsRadioCheckboxLabel {
-	display: inline-block;
 	@include oTypographyMargin($top: 3, $bottom: 3);
+	@include oTypographySans($scale: -1);
+	display: inline-block;
 	margin-right: 15px;
 	padding-left: $_o-forms__radiocheckbox-default-size + $_o-forms__label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
 	position: relative;
 	cursor: pointer;
-	@include oTypographySans($scale: -1);
 	font-weight: oFontsWeight('normal');
 	padding-top: 4px; // To align the text with the center of the checkbox/radio
 	// sass-lint:disable no-vendor-prefixes

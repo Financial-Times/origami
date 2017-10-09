@@ -5,11 +5,11 @@
 
 /// Common field styles
 @mixin oFormsCommonFieldBase {
+	@include oTypographyMargin($top: 3);
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
 	height: $_o-forms-field-default-height;
-	@include oTypographyMargin($top: 3);
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
