@@ -1,10 +1,11 @@
-/* global describe, it */
-const supportedFormats = require('./../../src/js/helpers/supported-formats');
+/* eslint-env mocha */
+import supportedFormats from './../../src/js/helpers/supported-formats';
+import proclaim from 'proclaim';
 
 describe('Supported Formats', () => {
 
 	it('should exist', () => {
-		supportedFormats.should.exist;
+		proclaim.ok(supportedFormats);
 	});
 
 });

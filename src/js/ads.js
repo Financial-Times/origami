@@ -238,8 +238,10 @@ class VideoAds {
 		// Initialize the video. Must be done via a user action on mobile devices.
 		this.video.videoEl.load();
 
-		this.overlayEl && this.overlayEl.removeEventListener('click', this.playAdEventHandler);
-		this.overlayEl && this.video.containerEl.removeChild(this.overlayEl);
+		if (this.overlayEl) {
+			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
+			this.video.containerEl.removeChild(this.overlayEl);
+		}
 		delete this.overlayEl;
 	}
 
@@ -263,7 +265,7 @@ class VideoAds {
 		};
 
 		switch (adEvent.type) {
-			case google.ima.AdEvent.Type.LOADED:
+			case google.ima.AdEvent.Type.LOADED: {
 				// This is the first event sent for an ad - it is possible to
 				// determine whether the ad is a video ad or an overlay.
 				if (!ad.isLinear()) {
@@ -272,7 +274,8 @@ class VideoAds {
 					this.playUserVideo();
 				}
 				break;
-			case google.ima.AdEvent.Type.STARTED:
+			}
+			case google.ima.AdEvent.Type.STARTED: {
 				// This event indicates the ad has started - the video player
 				// can adjust the UI, for example display a pause button and
 				// remaining time.
@@ -288,7 +291,8 @@ class VideoAds {
 					// const remainingTime = this.adsManager.getRemainingTime();
 				}
 				break;
-			case google.ima.AdEvent.Type.COMPLETE:
+			}
+			case google.ima.AdEvent.Type.COMPLETE: {
 
 				options.detail.action = 'adComplete';
 				const endEvent = new CustomEvent('oTracking.event', options);
@@ -298,22 +302,28 @@ class VideoAds {
 					// Would be used to clear the interval
 				}
 				break;
+			}
 
 			// Add tracking for when an advert becomes skippable, and whether it's skipped
-			case google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED:
+			case google.ima.AdEvent.Type.SKIPPABLE_STATE_CHANGED: {
 				options.detail.action = 'adSkippable';
 				const skippableEvent = new CustomEvent('oTracking.event', options);
 				document.body.dispatchEvent(skippableEvent);
 				break;
-			case google.ima.AdEvent.Type.SKIPPED:
+			}
+			case google.ima.AdEvent.Type.SKIPPED: {
 				options.detail.action = 'adSkip';
 				const skipEvent = new CustomEvent('oTracking.event', options);
 				document.body.dispatchEvent(skipEvent);
 				break;
+			}
+			default: {
+				throw new Error('adEvent has type ' + adEvent.type + ', which is not handled by adEventHandler');
+			}
 		}
 	}
 
-	reportError(error) {
+	reportError(error) { // eslint-disable-line class-methods-use-this
 		document.body.dispatchEvent(new CustomEvent('oErrors.log', { bubbles: true, detail: { error: error } }));
 	}
 
@@ -325,14 +335,18 @@ class VideoAds {
 		const message = `${actualError.getErrorCode()}, ${actualError.getType()}, ${actualError.getMessage()}, ${actualError.getVastErrorCode()}`;
 		this.reportError(new Error(message));
 
-		this.adsManager && this.adsManager.destroy();
+		if (this.adsManager) {
+			this.adsManager.destroy();
+		}
 		this.video.containerEl.removeChild(this.adContainerEl);
 		if (this.overlayEl) {
 			this.overlayEl.removeEventListener('click', this.playAdEventHandler);
 			this.video.containerEl.removeChild(this.overlayEl);
 			delete this.overlayEl;
 		}
-		this.video.placeholderEl && this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
+		if (this.video.placeholderEl) {
+			this.video.placeholderEl.removeEventListener('click', this.playAdEventHandler);
+		}
 		this.video.opts.advertising = false;
 		this.startAds();
 	}

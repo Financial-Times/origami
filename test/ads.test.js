@@ -1,6 +1,10 @@
-/* global describe, it, beforeEach, afterEach, google */
-const Ads = require('./../src/js/ads');
-const sinon = require('sinon/pkg/sinon');
+/* global google */
+/* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
+
+import Ads from './../src/js/ads';
+import sinon from 'sinon/pkg/sinon';
+import proclaim from 'proclaim';
 
 describe('Ads', () => {
 
@@ -28,17 +32,17 @@ describe('Ads', () => {
 	});
 
 	it('should have all ad event handlers', () => {
-		Ads.prototype.adsManagerLoadedHandler.should.be.a('function');
-		Ads.prototype.adErrorHandler.should.be.a('function');
-		Ads.prototype.adEventHandler.should.be.a('function');
-		Ads.prototype.contentPauseRequestHandler.should.be.a('function');
-		Ads.prototype.contentResumeRequestHandler.should.be.a('function');
+		proclaim.isTypeOf(Ads.prototype.adsManagerLoadedHandler, 'function');
+		proclaim.isTypeOf(Ads.prototype.adErrorHandler, 'function');
+		proclaim.isTypeOf(Ads.prototype.adEventHandler, 'function');
+		proclaim.isTypeOf(Ads.prototype.contentPauseRequestHandler, 'function');
+		proclaim.isTypeOf(Ads.prototype.contentResumeRequestHandler, 'function');
 	});
 
 	it('should add the video advertising script if the configuration parameter is passed', () => {
 		return ads.loadAdsLibrary()
 			.then(() => {
-				document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]').should.exist;
+				proclaim.ok(document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]'));
 			});
 	});
 
@@ -46,9 +50,9 @@ describe('Ads', () => {
 		it('should set up ads', () => {
 			ads.setUpAds();
 
-			ads.adContainerEl.should.be.an('htmldivelement');
-			ads.adDisplayContainer.should.be.an('object');
-			ads.adsLoader.should.be.an('object');
+			proclaim.equal(ads.adContainerEl.nodeName, 'DIV');
+			proclaim.isTypeOf(ads.adDisplayContainer, 'object');
+			proclaim.isTypeOf(ads.adsLoader, 'object');
 		});
 
 		it('should set up event handlers', () => {
@@ -58,8 +62,8 @@ describe('Ads', () => {
 
 			ads.setUpAds();
 
-			google.ima.AdsLoader.prototype.addEventListener.calledWith(google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, ads.adsManagerLoadedHandler).should.equal(true);
-			google.ima.AdsLoader.prototype.addEventListener.calledWith(google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, ads.adsManagerLoadedHandler).should.equal(true);
+			proclaim.equal(google.ima.AdsLoader.prototype.addEventListener.calledWith(google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, ads.adsManagerLoadedHandler), true);
+			proclaim.equal(google.ima.AdsLoader.prototype.addEventListener.calledWith(google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, ads.adsManagerLoadedHandler), true);
 
 			google.ima.AdsLoader.prototype.addEventListener = realAddEventListener;
 		});
@@ -77,8 +81,8 @@ describe('Ads', () => {
 			};
 
 			ads.adsManagerLoadedHandler(adsManagerLoadedEvent);
-			ads.adsManager.should.be.an('object');
-			adsManagerLoadedEvent.getAdsManager.called.should.equal(true);
+			proclaim.isTypeOf(ads.adsManager, 'object');
+			proclaim.equal(adsManagerLoadedEvent.getAdsManager.called, true);
 		});
 	});
 
@@ -101,7 +105,7 @@ describe('Ads', () => {
 
 		it('should play ad', () => {
 			ads.playAdEventHandler();
-			ads.adContainerEl.classList.toString().should.contain('o-video__ad');
+			proclaim.include(ads.adContainerEl.classList.toString(), 'o-video__ad');
 		});
 	});
 
@@ -112,7 +116,7 @@ describe('Ads', () => {
 					name: 'Authers Note'
 				}
 			};
-			ads.getVideoBrand().should.equal('Authers Note');
+			proclaim.equal(ads.getVideoBrand(), 'Authers Note');
 		});
 	});
 
@@ -120,8 +124,8 @@ describe('Ads', () => {
 		it('should set state correctly at different phases', () => {
 			const realAddEventListener = google.ima.AdsLoader.prototype.addEventListener;
 
-			ads.adsLoaded.should.equal(false);
-			ads.adsCompleted.should.equal(false);
+			proclaim.equal(ads.adsLoaded, false);
+			proclaim.equal(ads.adsCompleted, false);
 
 			// Substitute in a mock addEventListener into the AdsLoader which captures
 			// listeners so they can be fed fake events
@@ -147,24 +151,24 @@ describe('Ads', () => {
 				handler(adsManagerLoadedEvent);
 			}
 
-			ads.adsLoaded.should.equal(true);
-			ads.adsCompleted.should.equal(false);
+			proclaim.equal(ads.adsLoaded, true);
+			proclaim.equal(ads.adsCompleted, false);
 
 			// Trigger the ads manager all-playing-done listener
 			for (const handler of mockAdsManager.eventListeners[google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED]) {
 				handler();
 			}
 
-			ads.adsLoaded.should.equal(true);
-			ads.adsCompleted.should.equal(true);
+			proclaim.equal(ads.adsLoaded, true);
+			proclaim.equal(ads.adsCompleted, true);
 
 			 // Trigger the ads manager another-ad-is-playing listener
 			for (const handler of mockAdsManager.eventListeners[google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED]) {
 				handler();
 			}
 
-			ads.adsLoaded.should.equal(true);
-			ads.adsCompleted.should.equal(false);
+			proclaim.equal(ads.adsLoaded, true);
+			proclaim.equal(ads.adsCompleted, false);
 
 			// Restore the original event listener
 			google.ima.AdsLoader.prototype.addEventListener = realAddEventListener;

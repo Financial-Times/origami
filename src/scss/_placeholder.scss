@@ -12,8 +12,10 @@
 	.o-video__placeholder {
 		background: oColorsGetPaletteColor('slate');
 		color: oColorsGetPaletteColor('white');
+		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+		// sass-lint:enable no-vendor-prefixes
 	}
 
 	.o-video__placeholder-image {

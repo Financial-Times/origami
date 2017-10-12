@@ -29,6 +29,6 @@ function getRendition(renditions, options) {
 	});
 
 	return appropriateRendition || orderedRenditions.pop();
-};
+}
 
 export default getRendition;

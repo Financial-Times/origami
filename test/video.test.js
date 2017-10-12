@@ -1,8 +1,11 @@
-/* global describe, context, it, beforeEach, afterEach, should */
-const Video = require('./../src/js/video');
-const mediaApiResponse1 = require('./fixtures/media-api-1.json');
-const mediaApiResponse2 = require('./fixtures/media-api-2.json');
-const sinon = require('sinon/pkg/sinon');
+/* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
+
+import Video from './../src/js/video';
+import mediaApiResponse1 from './fixtures/media-api-1.json';
+import mediaApiResponse2 from './fixtures/media-api-2.json';
+import sinon from 'sinon/pkg/sinon';
+import proclaim from 'proclaim';
 
 describe('Video', () => {
 
@@ -24,31 +27,31 @@ describe('Video', () => {
 	describe('constructor', () => {
 		it('should be able to instantiate', () => {
 			const video = new Video(containerEl);
-			video.should.be.an.instanceOf(Video);
+			proclaim.isInstanceOf(video, Video);
 
-			video.opts.should.exist;
-			video.opts.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+			proclaim.ok(video.opts);
+			proclaim.equal(video.opts.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
-			video.targeting.should.exist;
-			video.targeting.site.should.eql('/5887/ft.com');
-			video.targeting.position.should.eql('video');
-			video.targeting.sizes.should.eql('592x333|400x225');
-			video.targeting.videoId.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+			proclaim.ok(video.targeting);
+			proclaim.equal(video.targeting.site, '/5887/ft.com');
+			proclaim.equal(video.targeting.position, 'video');
+			proclaim.equal(video.targeting.sizes, '592x333|400x225');
+			proclaim.equal(video.targeting.videoId, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 
-			video.containerEl.should.eql(containerEl);
-			video.containerEl.hasAttribute('data-o-video-js').should.be.true;
+			proclaim.equal(video.containerEl, containerEl);
+			proclaim.isTrue(video.containerEl.hasAttribute('data-o-video-js'));
 		});
 
 		it('should set default options', () => {
 			const video = new Video(containerEl);
 
-			video.opts.advertising.should.eql(false);
-			video.opts.classes.should.be.an.instanceOf(Array);
-			video.opts.classes.should.contain('o-video__video');
-			should.equal(video.opts.optimumwidth, null);
-			video.opts.placeholder.should.eql(false);
-			video.opts.playsinline.should.eql(false);
-			should.equal(video.opts.data, null);
+			proclaim.equal(video.opts.advertising, false);
+			proclaim.isInstanceOf(video.opts.classes, Array);
+			proclaim.include(video.opts.classes, 'o-video__video');
+			proclaim.equal(video.opts.optimumwidth, null);
+			proclaim.equal(video.opts.placeholder, false);
+			proclaim.equal(video.opts.playsinline, false);
+			proclaim.equal(video.opts.data, null);
 		});
 
 		it('should allow setting options through attribute', () => {
@@ -59,27 +62,27 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-show-captions', true);
 
 			const video = new Video(containerEl);
-			video.opts.optimumwidth.should.eql(300);
-			video.opts.placeholder.should.eql(true);
-			video.opts.placeholderInfo.should.eql(['title', 'description']);
-			video.opts.classes.should.contain('a-class');
-			video.opts.classes.should.contain('another-class');
-			video.opts.showCaptions.should.eql(true);
+			proclaim.equal(video.opts.optimumwidth, 300);
+			proclaim.equal(video.opts.placeholder, true);
+			proclaim.deepEqual(video.opts.placeholderInfo, ['title', 'description']);
+			proclaim.include(video.opts.classes, 'a-class');
+			proclaim.include(video.opts.classes, 'another-class');
+			proclaim.equal(video.opts.showCaptions, true);
 		});
 	});
 
 	describe('#init', () => {
 		it('should return an array of video instances', () => {
 			const videos = Video.init();
-			videos.length.should.eql(1);
-			videos[0].should.be.an.instanceOf(Video);
+			proclaim.equal(videos.length, 1);
+			proclaim.isInstanceOf(videos[0], Video);
 		});
 
 		it('should create Video objects only once', () => {
 			const videos = Video.init();
-			videos.length.should.eql(1);
+			proclaim.equal(videos.length, 1);
 			const videos2 = Video.init();
-			videos2.length.should.eql(0);
+			proclaim.equal(videos2.length, 0);
 		});
 	});
 
@@ -105,8 +108,8 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 
 			return video.getData().then(() => {
-				fetchStub.calledWithMatch('4084879507001').should.eql(true);
-				video.videoData.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+				proclaim.equal(fetchStub.calledWithMatch('4084879507001'), true);
+				proclaim.equal(video.videoData.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 			});
 		});
 
@@ -115,8 +118,8 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 
 			return video.getData().then(() => {
-				fetchStub.calledWithMatch('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526').should.eql(true);
-				video.videoData.id.should.eql('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
+				proclaim.equal(fetchStub.calledWithMatch('eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526'), true);
+				proclaim.equal(video.videoData.id, 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 			});
 		});
 	});
@@ -130,12 +133,12 @@ describe('Video', () => {
 			video.posterImage = 'mockimage';
 			video.addVideo();
 
-			video.videoEl.should.be.an.instanceOf(HTMLElement);
-			video.videoEl.parentElement.should.equal(containerEl);
-			video.videoEl.poster.should.include('mockimage');
-			video.videoEl.src.should.equal('http://url.mock/');
-			video.videoEl.controls.should.equal(true);
-			video.videoEl.hasAttribute('playsinline').should.be.false;
+			proclaim.isInstanceOf(video.videoEl, HTMLElement);
+			proclaim.deepEqual(video.videoEl.parentElement, containerEl);
+			proclaim.include(video.videoEl.poster, 'mockimage');
+			proclaim.deepEqual(video.videoEl.src, 'http://url.mock/');
+			proclaim.deepEqual(video.videoEl.controls, true);
+			proclaim.isFalse(video.videoEl.hasAttribute('playsinline'));
 
 		});
 
@@ -146,7 +149,7 @@ describe('Video', () => {
 			});
 
 			video.addVideo();
-			video.videoEl.className.should.equal('class-one class-two o-video__video');
+			proclaim.deepEqual(video.videoEl.className, 'class-one class-two o-video__video');
 		});
 
 		it('should support the playsinline option set to true', () => {
@@ -156,8 +159,8 @@ describe('Video', () => {
 			});
 
 			video.addVideo();
-			video.videoEl.hasAttribute('playsinline').should.be.true;
-			video.videoEl.hasAttribute('webkit-playsinline').should.be.true;
+			proclaim.isTrue(video.videoEl.hasAttribute('playsinline'));
+			proclaim.isTrue(video.videoEl.hasAttribute('webkit-playsinline'));
 		});
 
 		it('should support the playsinline option set to false', () => {
@@ -167,8 +170,8 @@ describe('Video', () => {
 			});
 
 			video.addVideo();
-			video.videoEl.hasAttribute('playsinline').should.be.false;
-			video.videoEl.hasAttribute('webkit-playsinline').should.be.false;
+			proclaim.isFalse(video.videoEl.hasAttribute('playsinline'));
+			proclaim.isFalse(video.videoEl.hasAttribute('webkit-playsinline'));
 		});
 
 		it('should set event handlers', () => {
@@ -178,7 +181,7 @@ describe('Video', () => {
 			Element.prototype.addEventListener = addEventListenerSpy;
 
 			video.addVideo();
-			addEventListenerSpy.alwaysCalledOn(video.videoEl).should.equal(true);
+			proclaim.deepEqual(addEventListenerSpy.alwaysCalledOn(video.videoEl), true);
 			addEventListenerSpy.calledWith('playing', video.pauseOtherVideos);
 			addEventListenerSpy.calledWith('playing', video.markPlayStart);
 			addEventListenerSpy.calledWith('pause', video.updateAmountWatched);
@@ -223,8 +226,8 @@ describe('Video', () => {
 
 				return video.init().then(() => {
 					video.addVideo();
-					containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
-					containerEl.querySelector('video > track').getAttribute('src').should.equal('https://next-media-api.ft.com/v1/5393611350001.vtt');
+					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('kind'), 'captions');
+					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('src'), 'https://next-media-api.ft.com/v1/5393611350001.vtt');
 				});
 			});
 
@@ -233,7 +236,7 @@ describe('Video', () => {
 				containerEl.setAttribute('data-o-video-show-captions', 'true');
 				const video = new Video(containerEl);
 
-				video.addVideo.should.throw();
+				proclaim.throws(video.addVideo);
 			});
 
 			it('shouldn‘t add a track element if specified', () => {
@@ -242,7 +245,7 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 
 				video.addVideo();
-				should.equal(containerEl.querySelector('video > track'), null);
+				proclaim.equal(containerEl.querySelector('video > track'), null);
 			});
 
 			it('should use the captionsUrl from the API if not passed in directly', () => {
@@ -250,8 +253,8 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 
 				return video.init().then(() => {
-					containerEl.querySelector('video > track').getAttribute('kind').should.equal('captions');
-					containerEl.querySelector('video > track').getAttribute('src').should.equal('https://next-media-api.ft.com/v1/5393611350001.vtt');
+					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('kind'), 'captions');
+					proclaim.deepEqual(containerEl.querySelector('video > track').getAttribute('src'), 'https://next-media-api.ft.com/v1/5393611350001.vtt');
 				});
 			});
 
@@ -260,7 +263,7 @@ describe('Video', () => {
 				const video = new Video(containerEl);
 
 				return video.init().then(() => {
-					should.equal(containerEl.querySelector('video > track'), null);
+					proclaim.equal(containerEl.querySelector('video > track'), null);
 				});
 			});
 		});
@@ -310,8 +313,8 @@ describe('Video', () => {
 				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
-				eventDetail.amount.should.equal(1235);
-				eventDetail.amountPercentage.should.equal(16);
+				proclaim.deepEqual(eventDetail.amount, 1235);
+				proclaim.deepEqual(eventDetail.amountPercentage, 16);
 			});
 
 			it('should not include time watched if tab isn’t visible (while video playing)', () => {
@@ -332,8 +335,8 @@ describe('Video', () => {
 				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
-				eventDetail.amount.should.equal(10);
-				eventDetail.amountPercentage.should.equal(5);
+				proclaim.deepEqual(eventDetail.amount, 10);
+				proclaim.deepEqual(eventDetail.amountPercentage, 5);
 
 				clock.restore();
 			});
@@ -359,8 +362,8 @@ describe('Video', () => {
 				window.dispatchEvent(new Event(unloadEventName, { cancelable: true }));
 
 				const eventDetail = trackingSpy.lastCall.args[0].detail;
-				eventDetail.amount.should.equal(10);
-				eventDetail.amountPercentage.should.equal(5);
+				proclaim.deepEqual(eventDetail.amount, 10);
+				proclaim.deepEqual(eventDetail.amountPercentage, 5);
 
 				clock.restore();
 			});
@@ -391,14 +394,14 @@ describe('Video', () => {
 			video.posterImage = 'mockimage';
 			video.addPlaceholder();
 
-			video.placeholderEl.should.be.an.instanceOf(HTMLElement);
-			video.placeholderEl.parentElement.should.equal(containerEl);
-			video.placeholderEl.classList.contains('o-video__placeholder').should.equal(true);
+			proclaim.isInstanceOf(video.placeholderEl, HTMLElement);
+			proclaim.deepEqual(video.placeholderEl.parentElement, containerEl);
+			proclaim.deepEqual(video.placeholderEl.classList.contains('o-video__placeholder'), true);
 
-			video.placeholderImageEl.should.be.an.instanceOf(HTMLImageElement);
-			video.placeholderImageEl.parentElement.should.equal(video.placeholderEl);
-			video.placeholderImageEl.src.should.include('mockimage');
-			video.placeholderImageEl.classList.contains('o-video__placeholder-image').should.equal(true);
+			proclaim.isInstanceOf(video.placeholderImageEl, HTMLImageElement);
+			proclaim.deepEqual(video.placeholderImageEl.parentElement, video.placeholderEl);
+			proclaim.include(video.placeholderImageEl.src, 'mockimage');
+			proclaim.deepEqual(video.placeholderImageEl.classList.contains('o-video__placeholder-image'), true);
 		});
 
 		it('should be able to create a placeholder with an info panel', () => {
@@ -411,18 +414,18 @@ describe('Video', () => {
 			video.videoData = mediaApiResponse1;
 			video.addPlaceholder();
 
-			video.infoPanel.should.exist;
+			proclaim.ok(video.infoPanel);
 
-			video.infoPanel.infoEl.parentElement.should.equal(video.placeholderEl);
+			proclaim.deepEqual(video.infoPanel.infoEl.parentElement, video.placeholderEl);
 
-			video.infoPanel.titleEl.textContent.should.equal('Markets cautious, oil eases');
-			video.infoPanel.titleEl.parentElement.should.equal(video.infoPanel.infoEl);
+			proclaim.deepEqual(video.infoPanel.titleEl.textContent, 'Markets cautious, oil eases');
+			proclaim.deepEqual(video.infoPanel.titleEl.parentElement, video.infoPanel.infoEl);
 
-			video.infoPanel.descriptionEl.textContent.should.contain('Top stories in the markets');
-			video.infoPanel.descriptionEl.parentElement.should.equal(video.infoPanel.infoEl);
+			proclaim.include(video.infoPanel.descriptionEl.textContent, 'Top stories in the markets');
+			proclaim.deepEqual(video.infoPanel.descriptionEl.parentElement, video.infoPanel.infoEl);
 
-			video.infoPanel.brandEl.textContent.should.equal('Market Minute');
-			video.infoPanel.brandEl.parentElement.should.equal(video.infoPanel.infoEl);
+			proclaim.deepEqual(video.infoPanel.brandEl.textContent, 'Market Minute');
+			proclaim.deepEqual(video.infoPanel.brandEl.parentElement, video.infoPanel.infoEl);
 		});
 
 		it('should be able to create an info panel when there is no brand name', () => {
@@ -435,7 +438,7 @@ describe('Video', () => {
 			video.videoData = Object.assign({}, mediaApiResponse1, { brand: null });
 			video.addPlaceholder();
 
-			video.infoPanel.brandEl.textContent.should.equal('');
+			proclaim.deepEqual(video.infoPanel.brandEl.textContent, '');
 		});
 
 		it('should be able to create a placeholder with a play button', () => {
@@ -456,11 +459,11 @@ describe('Video', () => {
 			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
 			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
 
-			playButtonEl.should.exist;
-			playButtonTextEl.should.exist;
-			playIconEl.should.exist;
-			addEventListenerSpy.called.should.equal(true);
-			addEventListenerSpy.calledWith('click').should.equal(true);
+			proclaim.ok(playButtonEl);
+			proclaim.ok(playButtonTextEl);
+			proclaim.ok(playIconEl);
+			proclaim.deepEqual(addEventListenerSpy.called, true);
+			proclaim.deepEqual(addEventListenerSpy.calledWith('click'), true);
 			addEventListenerSpy.calledOn(playButtonEl);
 
 			Element.prototype.addEventListener = realAddEventListener;
@@ -514,20 +517,20 @@ describe('Video', () => {
 				const newOpts = { prop: 'new prop', id: mediaApiResponse2.id };
 
 				return video.update(newOpts).then(() => {
-					video.opts.prop.should.equal(newOpts.prop);
-					video.opts.id.should.equal(newOpts.id);
+					proclaim.deepEqual(video.opts.prop, newOpts.prop);
+					proclaim.deepEqual(video.opts.id, newOpts.id);
 				});
 			});
 
 			it('updates the placeholder image and title', () => {
 				const newOpts = { id: mediaApiResponse2.id };
 
-				video.placeholderImageEl.src.should.include('5393611350001');
-				video.infoPanel.titleEl.textContent.should.equal(mediaApiResponse1.title);
+				proclaim.include(video.placeholderImageEl.src, '5393611350001');
+				proclaim.deepEqual(video.infoPanel.titleEl.textContent, mediaApiResponse1.title);
 
 				return video.update(newOpts).then(() => {
-					video.placeholderImageEl.src.should.include('5394885102001');
-					video.infoPanel.titleEl.textContent.should.equal(mediaApiResponse2.title);
+					proclaim.include(video.placeholderImageEl.src, '5394885102001');
+					proclaim.deepEqual(video.infoPanel.titleEl.textContent, mediaApiResponse2.title);
 				});
 			});
 
@@ -543,10 +546,10 @@ describe('Video', () => {
 
 				const newOpts = { id: mediaApiResponse2.id };
 
-				video.infoPanel.brandEl.textContent.should.equal('Market Minute');
+				proclaim.deepEqual(video.infoPanel.brandEl.textContent, 'Market Minute');
 
 				return video.update(newOpts).then(() => {
-					video.infoPanel.brandEl.textContent.should.equal('');
+					proclaim.deepEqual(video.infoPanel.brandEl.textContent, '');
 				});
 			});
 		});
@@ -567,12 +570,12 @@ describe('Video', () => {
 
 			it('updates the video source and poster', () => {
 				const newOpts = { id: mediaApiResponse2.id };
-				video.videoEl.poster.should.include('5393611350001');
-				video.videoEl.src.should.include('/34/47628783001/201704/970/47628783001_5393625770001_5393611350001.mp4?pubId=47628783001&videoId=5393611350001');
+				proclaim.include(video.videoEl.poster, '5393611350001');
+				proclaim.include(video.videoEl.src, '/34/47628783001/201704/970/47628783001_5393625770001_5393611350001.mp4?pubId=47628783001&videoId=5393611350001');
 
 				return video.update(newOpts).then(() => {
-					video.videoEl.poster.should.include('5394885102001');
-					video.videoEl.src.should.include('/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
+					proclaim.include(video.videoEl.poster, '5394885102001');
+					proclaim.include(video.videoEl.src, '/34/47628783001/201704/873/47628783001_5394886872001_5394885102001.mp4?pubId=47628783001&videoId=5394885102001');
 				});
 			});
 
@@ -586,11 +589,11 @@ describe('Video', () => {
 				fetchStub.resetBehavior();
 				fetchStub.returns(Promise.resolve(resNoPoster));
 
-				video.videoEl.poster.should.include('5393611350001');
+				proclaim.include(video.videoEl.poster, '5393611350001');
 
 				const newOpts = { id: mediaApiResponse2.id };
 				return video.update(newOpts).then(() => {
-					video.videoEl.poster.should.equal('');
+					proclaim.deepEqual(video.videoEl.poster, '');
 				});
 			});
 
@@ -606,8 +609,8 @@ describe('Video', () => {
 				const newOpts = { id: mediaApiResponse2.id };
 				return video.update(newOpts).then(() => {
 					const tracks = document.querySelectorAll('track');
-					tracks.length.should.equal(1);
-					tracks[0].src.should.equal('https://next-media-api.ft.com/v1/5394885102001.vtt');
+					proclaim.deepEqual(tracks.length, 1);
+					proclaim.deepEqual(tracks[0].src, 'https://next-media-api.ft.com/v1/5394885102001.vtt');
 				});
 			});
 
@@ -624,7 +627,7 @@ describe('Video', () => {
 				const newOpts = { id: mediaApiResponse2.id };
 				return video.update(newOpts).then(() => {
 					const tracks = document.querySelectorAll('track');
-					tracks.length.should.equal(0);
+					proclaim.deepEqual(tracks.length, 0);
 				});
 			});
 		});
@@ -663,13 +666,13 @@ describe('Video', () => {
 		});
 
 		it('should return 0 if duration is not set', () => {
-			video.getProgress().should.equal(0);
+			proclaim.deepEqual(video.getProgress(), 0);
 		});
 
 		it('should return the progress of the video as a percentage', () => {
 			video.videoEl.duration = 200;
 			video.videoEl.currentTime = 50;
-			video.getProgress().should.equal(25);
+			proclaim.deepEqual(video.getProgress(), 25);
 		});
 
 	});
@@ -701,7 +704,7 @@ describe('Video', () => {
 
 			video.getData().then(() => {
 				video.addVideo();
-				video.getTrackMode().should.eventually.equal('disabled');
+				video.getTrackMode().then(mode => proclaim.equal(mode, 'disabled'));
 			});
 		});
 
@@ -711,7 +714,7 @@ describe('Video', () => {
 
 			video.getData().then(() => {
 				video.addVideo();
-				video.getTrackMode().should.eventually.equal(undefined);
+				video.getTrackMode().then(mode => proclaim.isUndefined(mode));
 			});
 		});
 
@@ -730,12 +733,12 @@ describe('Video', () => {
 		});
 
 		it('should return 0 if duration is not set', () => {
-			video.getDuration().should.equal(0);
+			proclaim.deepEqual(video.getDuration(), 0);
 		});
 
 		it('should return the duration of the video as a integer', () => {
 			video.videoEl.duration = 22.46324646;
-			video.getDuration().should.equal(22);
+			proclaim.deepEqual(video.getDuration(), 22);
 		});
 
 	});
@@ -768,7 +771,7 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 			return video.getData()
 				.then(() => {
-					video.posterImage.should.equal(
+					proclaim.deepEqual(video.posterImage,
 						'https://www.ft.com/__origami/service/image/v2/images/raw/' +
 						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201704%2F970%2F47628783001_5393625566001_5393611350001-vs.jpg%3FpubId%3D47628783001%26videoId%3D5393611350001' +
 						'?source=o-video&quality=low&fit=scale-down&width=300'
@@ -781,7 +784,7 @@ describe('Video', () => {
 			const video = new Video(containerEl);
 			return video.getData()
 				.then(() => {
-					video.rendition.pixelWidth.should.equal(480);
+					proclaim.deepEqual(video.rendition.pixelWidth, 480);
 				});
 		});
 
@@ -798,9 +801,9 @@ describe('Video', () => {
 			return video
 				.getData()
 				.then(() => {
-					video.videoData.prop.should.equal('val');
-					video.videoData.videoStillUrl.should.equal('abc');
-					video.videoData.renditions.length.should.equal(0);
+					proclaim.deepEqual(video.videoData.prop, 'val');
+					proclaim.deepEqual(video.videoData.videoStillUrl, 'abc');
+					proclaim.deepEqual(video.videoData.renditions.length, 0);
 				});
 		});
 
@@ -813,10 +816,10 @@ describe('Video', () => {
 			};
 
 			const videoDataShouldMatch = video => {
-				video.videoData.title.should.equal('Macron - What next?');
-				video.videoData.standfirst.should.equal('President-elect\'s "pro-EU" and trade agenda');
-				video.videoData.description.should.equal('Another \'great\' "quote here"');
-				video.videoData.renditions.length.should.equal(0);
+				proclaim.deepEqual(video.videoData.title, 'Macron - What next?');
+				proclaim.deepEqual(video.videoData.standfirst, 'President-elect\'s "pro-EU" and trade agenda');
+				proclaim.deepEqual(video.videoData.description, 'Another \'great\' "quote here"');
+				proclaim.deepEqual(video.videoData.renditions.length, 0);
 			};
 
 			it('can deal with quotes when data passed via constructor', () => {
@@ -840,3 +843,5 @@ describe('Video', () => {
 		});
 	});
 });
+
+/* eslint-enable no-unused-expressions */

@@ -24,8 +24,10 @@
 
 		> div,
 		> div > iframe {
+			// sass-lint:disable no-important
 			width: 100% !important;
 			height: 100% !important;
+			// sass-lint:enable no-important
 		}
 	}
 

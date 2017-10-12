@@ -66,7 +66,9 @@
 		background-color: oColorsGetPaletteColor('claret');
 		color: oColorsGetPaletteColor('white');
 		&:empty {
+			// sass-lint:disable no-important
 			display: none !important;
+			// sass-lint:enable no-important
 		}
 	}
 
