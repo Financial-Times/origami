@@ -18,7 +18,7 @@
         ]
     },
     "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header"
+        "circle": "https://circleci.com/gh/Financial-Times/o-header"
     },
     "demosDefaults": {
         "sass": "demos/src/main.scss",
