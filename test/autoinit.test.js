@@ -1,4 +1,4 @@
-/* eslint-env mocha, sinon, proclaim */
+/* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
