@@ -69,7 +69,7 @@ function handleCloseEvents (scope, callback) {
 }
 
 function addDrawerToggles (drawerEl) {
-	const controls = [...document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`)];
+	const controls = Array.from(document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
 
 	let handleClose;
 	let openingControl;
