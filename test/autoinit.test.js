@@ -5,7 +5,8 @@ import sinon from 'sinon/pkg/sinon';
 
 describe("o-autoinit", () => {
 	let addEventListenerStub;
-	let autoinit;
+	// autoinit is executed upon being required
+	let autoinit; // eslint-disable-line no-unused-vars
 	let docAddEventListenerStub;
 
 	beforeEach(() => {
