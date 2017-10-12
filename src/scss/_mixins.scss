@@ -82,8 +82,15 @@
 
 	// Standardise outline styles
 	:focus {
-		outline: thin dotted;
-		outline-offset: 1px;
+		/* TODO: In next major release, add a dependency on o-colors here. Should be
+		something like this:
+			background-color: oColorsGetPaletteColor('teal-100');
+			outline: 2px solid oColorsGetPaletteColor('teal-100');
+			color:  oColorsGetPaletteColor('black-80');
+		*/
+		background-color: #1aecff; //oColorsGetPaletteColor('teal-100');
+		outline: 2px solid #1aecff; //oColorsGetPaletteColor('teal-100');
+		color: #33302e; //oColorsGetPaletteColor('black-80');
 	}
 }
 
