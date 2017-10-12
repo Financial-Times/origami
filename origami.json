@@ -7,11 +7,18 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "customevent"
+            "CustomEvent",
+            "Array.from",
+            "Event",
+            "Element.prototype.classList",
+            "Array.prototype.forEach",
+            "Array.prototype.map",
+            "Array.prototype.filter",
+            "requestAnimationFrame"
         ]
     },
     "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-header"
+        "circle": "https://circleci.com/gh/Financial-Times/o-header"
     },
     "demosDefaults": {
         "sass": "demos/src/main.scss",

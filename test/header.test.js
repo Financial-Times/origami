@@ -1,11 +1,11 @@
-/*global describe, it, beforeEach, afterEach*/
+/* eslint-env mocha*/
 
-const expect = require('expect.js');
-const Header = require('./../src/js/header');
+import proclaim from 'proclaim';
+import Header from '../src/js/header';
 
 describe('Header API', () => {
 	it('is defined', () => {
-		expect(Header).to.be.a('function');
+		proclaim.isTypeOf(Header, 'function');
 	});
 });
 
@@ -30,8 +30,8 @@ describe('Header instance', () => {
 
 	it('constructor', () => {
 		const header = new Header(headerEl);
-		expect(header).to.be.a(Header);
-		expect(header.headerEl).to.equal(headerEl);
-		expect(headerEl.getAttribute('data-o-header--js')).to.not.be(null);
+		proclaim.isInstanceOf(header, Header);
+		proclaim.deepEqual(header.headerEl, headerEl);
+		proclaim.isNotNull(headerEl.getAttribute('data-o-header--js'));
 	});
 });

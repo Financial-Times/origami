@@ -115,10 +115,10 @@
 @mixin oHeaderBrandImage($logo-name, $color, $fallback-width) {
 	$base-url: "#{$o-header-image-base-url}/#{$o-header-image-service-version}/images/raw/ftlogo:";
 	$color: str-slice(ie-hex-str($color), 4);
-	// scss-lint:disable DuplicateProperty
+	// sass-lint:disable no-duplicate-properties
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=png&width=#{$fallback-width}") \9;
-	// scss-lint:enable DuplicateProperty
+	// sass-lint:enable no-duplicate-properties
 }
 
 /// Applies styles to hide an element accessibly,

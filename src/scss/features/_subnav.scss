@@ -28,7 +28,9 @@
 
 		[data-o-header--js] & {
 			// inertial scrolling for iOS Safari
+			// sass-lint:disable no-vendor-prefixes
 			-webkit-overflow-scrolling: touch;
+			// sass-lint:enable no-vendor-prefixes
 			// working draft
 			scroll-behavior: smooth;
 			// hide the scrollbar beneath the waves/many wrappers. 30px should be plenty.
