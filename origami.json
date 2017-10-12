@@ -7,7 +7,14 @@
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
-            "customevent"
+            "CustomEvent",
+            "Array.from",
+            "Event",
+            "Element.prototype.classList",
+            "Array.prototype.forEach",
+            "Array.prototype.map",
+            "Array.prototype.filter",
+            "requestAnimationFrame"
         ]
     },
     "ci": {
