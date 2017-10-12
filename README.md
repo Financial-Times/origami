@@ -35,7 +35,7 @@ html {
 
 Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
 
-## API
+## API
 
 ### JavaScript
 
@@ -74,7 +74,7 @@ $o-header-image-service-version: "v1";
 
 will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:...`.
 
-#### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
+#### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
 
 When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header.
 
@@ -135,4 +135,15 @@ V7 introduces new major versions of `o-colors`, `o-typography`, `o-buttons` and 
 
 This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
 
-Copyright (c) 2016 Financial Times Ltd. All rights reserved.
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-header/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+----
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
