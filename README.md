@@ -80,7 +80,7 @@ When using `o-header` in silent mode, we offer a series of helper mixins to outp
 
 ##### oHeader
 
-The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features.
+The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features as the first argument.
 
 The list of features is as follows:
 
@@ -92,6 +92,8 @@ The list of features is as follows:
 * `transparent`: Styles for a header with no background colour and white text and logos. For use on dark backgrounds only.
 * `subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
 * `megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
+
+To output styles for a feature only, excluding the core header styles, pass `false` as the second argument.
 
 ###### Example
 

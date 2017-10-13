@@ -3,9 +3,12 @@
 /// By default, will output all row styles.
 ///
 /// @param {List} $features
-@mixin oHeader($features: '') {
-	@include oHeaderBase;
-	@include oHeaderTop;
+@mixin oHeader($features: '', $include-base-styles: true) {
+
+	@if $include-base-styles == true {
+		@include oHeaderBase;
+		@include oHeaderTop;
+	}
 
 	// By default, output all rows
 	@if $features == '' {
