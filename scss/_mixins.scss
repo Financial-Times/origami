@@ -94,8 +94,8 @@
 /// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
 /// $accent - The accent color of the theme. Must be a color name from o-colors, $colorizer - One of primary or secondary (default)
 @mixin oButtonsCustomTheme($background: null, $accent: null, $colorizer: secondary, $theme: ()) {
-	@if ($background or $accent) {
-		@warn "oButtonsCustomTheme: $background and $accent params have now been deprecated and will be removed in the next major release. Pass these values in as a map instead.";
+	@if ($background or $accent or $colorizer) {
+		@warn "oButtonsCustomTheme: $background, $accent and $colorizer params have now been deprecated and will be removed in the next major release. Pass these values in as a map instead.";
 	} @else {
 
 		@if map-has-key($theme, "accent") {

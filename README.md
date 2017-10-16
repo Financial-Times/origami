@@ -203,14 +203,13 @@ Or, using Sass:
 
 oButtonsTheme also accepts a Map, which you can use to create your own themes. The Map can have the following keys:
 - `background`: [String] - the background o-colors colour for the place the button sits on.
-- `accent`: [String] - the accent -colors colour for the button
+- `accent`: [String] - the accent o-colors colour for the button
 - `colorizer`: [String] - an optional parameter for the button style. One of "primary" or "secondary". Defaults to secondary.
 
 To create a `lemon` accented button on a `slate` background:
 
 ```scss
-@include oButtonsCustomTheme(@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon'));
-);
+	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon'));
 ```
 
 This will output styles for a slate coloured button that has lemon text and border, with a slate/lemon mixed hover state.
@@ -218,7 +217,7 @@ This will output styles for a slate coloured button that has lemon text and bord
 To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
 
 ```scss
-@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'secondary'));
+@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 ```
 
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
