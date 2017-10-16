@@ -5,15 +5,15 @@
 
 /// Headline styles
 @mixin oTypographyHeadline {
-	@include oTypographyDisplay($scale: 6);
-	@include oTypographyMargin($top: 0, $bottom: 8);
+	@include oTypographyDisplay($scale: (default: 4, L: 6));
+	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400; // Browser default a h# to bold...
 }
 
 /// Large headline styles with an underline
 @mixin oTypographyHeadlineLarge {
-	@include oTypographyDisplayBold($scale: 8);
+	@include oTypographyDisplayBold($scale: (default: 5, S: 6, L: 7));
 	@include oTypographyMargin($top: 0, $bottom: 7);
 	@include oColorsFor('o-typography-headline');
 
@@ -26,18 +26,17 @@
 	}
 }
 
-
 /// Level 2 heading styles
 @mixin oTypographyHeadingLevel2 {
-	@include oTypographyDisplay($scale: 5);
+
+	@include oTypographySansBold($scale: 4);
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
 }
 
 /// Level 3 heading styles
 @mixin oTypographyHeadingLevel3 {
-	@include oTypographyDisplay($scale: 4);
+	@include oTypographySans($scale: 4);
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
@@ -45,7 +44,7 @@
 
 /// Level 4 heading styles
 @mixin oTypographyHeadingLevel4 {
-	@include oTypographyDisplay($scale: 3);
+	@include oTypographySans($scale: 3);
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
@@ -53,8 +52,10 @@
 
 /// Level 5 heading styles
 @mixin oTypographyHeadingLevel5 {
-	@include oTypographyDisplay($scale: 2);
+	@include oTypographySans($scale: 0);
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
