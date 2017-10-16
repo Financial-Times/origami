@@ -6,7 +6,7 @@ before_install:
   - npm install -g origami-build-tools@^7
   - obt install
 script:
-  - obt demo --demo-filter pa11y
+  - obt demo --demo-filter pa11y --suppress-errors
   - obt verify
   - obt test
 cache:
