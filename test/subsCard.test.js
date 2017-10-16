@@ -31,7 +31,7 @@ describe("SubsCard", () => {
 
 	describe("should create a new", () => {
 		beforeEach(() => {
-				fixtures.htmlCode();
+			fixtures.htmlCode();
 		});
 
 		afterEach(() => {
