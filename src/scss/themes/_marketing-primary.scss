@@ -12,8 +12,21 @@
 	@include oColorsFor(o-banner-marketing-primary, background);
 }
 
+@mixin oBannerThemePrimaryHeading {
+	&:after {
+		border-color: oColorsGetColorFor(o-banner-marketing-primary-heading-rule, background);
+	}
+}
+
 @mixin oBannerThemeMarketingPrimaryButton {
 	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-primary-button, background), oColorsGetUseCase(o-banner-marketing-primary-button, text), primary);
+	// This is a hack around the fact that custom buttons do not
+	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
+	&,
+	&:not([disabled]):active {
+		@include oColorsFor(o-banner-marketing-primary-button-active, text);
+	}
 }
 
 @mixin oBannerThemeMarketingPrimaryLink {
@@ -33,6 +46,9 @@
 	.#{$class}--marketing-primary {
 		.#{$class}__outer {
 			@include oBannerThemeMarketingPrimaryOuter;
+		}
+		.#{$class}__heading {
+			@include oBannerThemePrimaryHeading;
 		}
 		.#{$class}__button {
 			@include oBannerThemeMarketingPrimaryButton;

@@ -35,7 +35,7 @@
 
 	// Remove margins from typographic elements within
 	// the banner, as these mess with the spacing
-	> * {
+	* {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
@@ -75,6 +75,27 @@
 @mixin oBannerContentShort {
 	@include oGridRespondTo($from: M) {
 		display: none;
+	}
+}
+
+@mixin oBannerHeading {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0;
+	}
+	&:after {
+		@include oTypographyMargin($top: 3, $bottom: 3);
+		content: '';
+		display: block;
+		width: 100px;
+
+		// Color is set separately for easier overriding later
+		border-bottom: oTypographySpacingSize(2) solid;
+		border-color: oColorsGetColorFor(o-banner-heading-rule, background);
 	}
 }
 
@@ -152,6 +173,9 @@
 		}
 		&__content--short {
 			@include oBannerContentShort;
+		}
+		&__heading {
+			@include oBannerHeading;
 		}
 		&__actions {
 			@include oBannerActions;

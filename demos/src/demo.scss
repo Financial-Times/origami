@@ -16,5 +16,5 @@ body {
 }
 
 .o-banner--static {
-	position: static !important;
+	position: static !important; // sass-lint:disable-line no-important
 }

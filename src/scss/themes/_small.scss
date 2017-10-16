@@ -20,7 +20,7 @@
 	display: block;
 	margin: 0 $_o-banner-spacing / 2;
 	padding: $_o-banner-spacing;
-	max-width: oGridColspan(5);
+	max-width: oGridColspan(6);
 
 	@include oGridRespondTo($until: L) {
 		max-width: oGridColspan(7);
@@ -50,6 +50,30 @@
 	}
 }
 
+@mixin oBannerThemeSmallHeading {
+	@include oTypographySans($scale: 4);
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 4);
+		@include oTypographyBold($font: 'sans');
+	}
+	@include oGridRespondTo($until: M) {
+		&,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@include oTypographySans($scale: 2);
+		}
+	}
+}
+
 @mixin oBannerThemeSmallActions {
 	display: block;
 	margin-top: oTypographySpacingSize(6);
@@ -76,6 +100,9 @@
 		}
 		.#{$class}__content {
 			@include oBannerThemeSmallContent;
+		}
+		.#{$class}__heading {
+			@include oBannerThemeSmallHeading;
 		}
 		.#{$class}__actions {
 			@include oBannerThemeSmallActions;

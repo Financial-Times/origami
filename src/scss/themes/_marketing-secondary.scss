@@ -12,6 +12,12 @@
 	@include oColorsFor(o-banner-marketing-secondary, background);
 }
 
+@mixin oBannerThemeSecondaryHeading {
+	&:after {
+		border-color: oColorsGetColorFor(o-banner-marketing-secondary-heading-rule, background);
+	}
+}
+
 @mixin oBannerThemeMarketingSecondaryButton {
 	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-secondary-button, background), oColorsGetUseCase(o-banner-marketing-secondary-button, text), primary);
 	// This is a hack around the fact that custom buttons do not
@@ -40,6 +46,9 @@
 	.#{$class}--marketing-secondary {
 		.#{$class}__outer {
 			@include oBannerThemeMarketingSecondaryOuter;
+		}
+		.#{$class}__heading {
+			@include oBannerThemeSecondaryHeading;
 		}
 		.#{$class}__button {
 			@include oBannerThemeMarketingSecondaryButton;
