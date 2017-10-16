@@ -51,7 +51,9 @@ class Typography {
 	static getOptions(typographyEl) {
 		const dataset = Object(typographyEl.dataset);
 		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
-			if (key === 'oComponent') return col; // Bail on data-o-component
+			if (key === 'oComponent') {
+				return col; // Bail on data-o-component
+			}
 			const shortKey = key.replace(/^oTypography(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 
 			try {
