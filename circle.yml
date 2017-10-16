@@ -10,5 +10,6 @@ dependencies:
     - "node_modules"
 test:
   override:
+    - obt demo --demo-filter pa11y
     - obt verify
     - obt test
