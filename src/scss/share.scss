@@ -29,19 +29,6 @@
 		@include oGridRespondTo(S) {
 			margin-right: 10px;
 		}
-
-		a {
-			text-decoration: none;
-		}
-
-		button {
-			padding: 0;
-			background-color: transparent;
-		}
-
-		&:first-child a {
-			padding-left: 0;
-		}
 	}
 
 	.#{$classname}__text {
@@ -53,6 +40,7 @@
 		padding: 0;
 		width: 1px;
 		height: 1px;
+		white-space: nowrap;
 	}
 }
 
@@ -86,6 +74,8 @@
 		height: $o-share-icon-size;
 		border: 0;
 		cursor: pointer;
+		padding: 0;
+		background-color: transparent;
 
 		// Increase the hit target to improve a11y
 		&:after {
