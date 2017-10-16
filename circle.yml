@@ -2,7 +2,7 @@ machine:
   node:
     version: 6
   post:
-    - npm install -g origami-build-tools
+    - npm install -g origami-build-tools@^7
     - npm install -g whitesource
 dependencies:
   override:
@@ -12,6 +12,7 @@ dependencies:
     - "ff-release"
 test:
   override:
-    - obt test
+    - obt demo --demo-filter pa11y
     - obt verify
+    - obt test
     - make whitesource
