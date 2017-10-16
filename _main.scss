@@ -5,56 +5,22 @@
 }
 
 .topper__headline {
-	@include oTypographyDisplay(4, $progressive: true);
-	-webkit-font-smoothing: antialiased;
-	margin: 0 0 20px;
-	font-weight: 400;
-
-	.topper__slot-1 &,
-	.topper__slot-2 & {
-		font-weight: 600;
-	}
-
-	@include oGridRespondTo(L) {
-		@include oTypographySize(6);
-	}
+	@include oTypographyHeadline();
 
 	&--large {
-		@include oTypographyDisplayBold(6, $progressive: true);
-		@include headlineFontSize(32px);
+		@include oTypographyHeadlineLarge();
 
 		position: relative; //so it appears above the full width background
-		line-height: 1;
-		margin: 0;
-
-		&:after {
-			content: '';
-			display: block;
-			width: 120px;
-			margin: 20px 0 30px;
-			@include oGridRespondTo(S) {
-				width: 150px;
-				margin: 20px 0 40px;
-			}
-		}
-
-		@include oGridRespondTo(S) {
-			@include headlineFontSize(38px);
-		}
-
-		@include oGridRespondTo(L) {
-			@include headlineFontSize(52px);
-		}
 	}
 }
 
 .topper__standfirst {
-	@include oTypographySans((default: 1, L: 2));
+	@include oTypographyStandfirst();
+	margin-bottom: 0;
 	opacity: 0.8;
-	-webkit-font-smoothing: antialiased;
 
 	a {
-		font-size: 16px;
+		@include oTypographySize(0);
 	}
 
 	> p {
@@ -177,11 +143,8 @@
 	padding-bottom: 5px;
 	@include oTypographySize($scale: 0, $line-height: 28px);
 
-	.n-content-tag {
-
-		&:hover {
-			border-bottom-color: inherit;
-		}
+	.n-content-tag:hover {
+		border-bottom-color: inherit;
 	}
 
 	.o-tooltip {

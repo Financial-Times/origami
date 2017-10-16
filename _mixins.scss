@@ -31,7 +31,11 @@
 		} @else {
 			background-color: getColor('#{$bg-color}');
 		}
-		color: $text-color;
+		.topper__tags,
+		.topper__headline,
+		.topper__standfirst {
+			color: $text-color;
+		}
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
 			.topper__tags {
 				color: getColor('claret');
@@ -51,10 +55,6 @@ $colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'defau
 	} @else {
 		@include setColors($color);
 	}
-}
-
-@mixin headlineFontSize($size) {
-	font-size: $size;
 }
 
 @mixin alignText($position) {
