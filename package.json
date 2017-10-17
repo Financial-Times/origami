@@ -1,9 +1,8 @@
 {
   "name": "o-comments",
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "origami-build-tools": "^5.0.0",
+    "origami-build-tools": "^7.0.0",
     "gulp": "^3.8.10",
     "gulp-watch": "^1.1.0",
     "run-sequence": "^1.0.2",

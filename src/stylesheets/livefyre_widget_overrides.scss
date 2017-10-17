@@ -1,4 +1,4 @@
-// scss-lint:disable QualifyingElement
+// sass-lint:disable no-qualifying-elements nesting-depth no-important
 
 @import './variables';
 @import './mixins';
@@ -1529,4 +1529,4 @@ body {
 		}
 	}
 }
-// scss-lint:enable QualifyingElement
+// sass-lint:disable no-qualifying-elements nesting-depth no-important
