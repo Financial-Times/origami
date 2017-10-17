@@ -233,7 +233,7 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {"loadOnInit": false});
 
-			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.reject());
+			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.reject(new Error('Loading font failed')));
 
 			return typography.loadFonts();
 		});
