@@ -238,12 +238,12 @@ Or, using Sass:
 ```scss
 .my-button-class--icon {
  @include oButtons();
- @include oButtonsIconButton($icon: star);
+ @include oButtonsIconButton($icon-name: star);
 }
 
 .my-button-class--icon-only {
  @include oButtons();
- @include oButtonsIconButton($icon: star, $is-icon-only: true);
+ @include oButtonsIconButton($icon-name: star, $is-icon-only: true);
 }
 ```
 
