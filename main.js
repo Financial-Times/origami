@@ -22,7 +22,7 @@ function debounce(func, wait) {
 		clearTimeout(timeout);
 		timeout = setTimeout(later, wait);
 	};
-};
+}
 
 /**
 *
@@ -50,7 +50,7 @@ function throttle(func, wait) {
 
 		timeout = setTimeout(later, wait);
 	};
-};
+}
 
 export {
 	debounce,
