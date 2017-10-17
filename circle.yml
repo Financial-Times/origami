@@ -1,9 +1,8 @@
 machine:
   node:
     version: 6
-# use OBT v5 until https://github.com/sasstools/sass-lint/pull/957 is merged
   post:
-    - npm install -g origami-build-tools@^5
+    - npm install -g origami-build-tools@^7
 deployment:
   production:
     branch: master
@@ -23,5 +22,6 @@ dependencies:
     - "node_modules"
 test:
   override:
-    - obt test
+    - obt demo --demo-filter pa11y --suppress-errors
     - obt verify
+    - obt test
