@@ -1,12 +1,10 @@
 const standaloneName = 'oComments';
 
+const path = require('path');
 const gulp = require('gulp');
-const obt = require('origami-build-tools');
 const del = require('del');
 const runSequence = require('run-sequence');
 const run = require('gulp-run');
-
-
 
 gulp.task('bower_update', function (callback) {
 	run('bower update').exec(callback);
@@ -20,29 +18,24 @@ gulp.task('clean-build', function (callback) {
 	del(['./build'], callback);
 });
 
-gulp.task('verify', function() {
-	return obt.verify(gulp);
+gulp.task('verify', function(callback) {
+	run(path.join(__dirname, './node_modules/.bin/obt') + ' verify').exec(callback);
 });
 
-gulp.task('obt-build', function () {
-	obt.build(gulp, {
-		buildFolder: 'build',
-		standalone: standaloneName
-	});
+gulp.task('obt-build', function (callback) {
+	run(path.join(__dirname, './node_modules/.bin/obt') + ' build --build-folder build --standalone ' + standaloneName).exec(callback);
 });
 
 gulp.task('build', function (callback) {
 	runSequence('clean-build', 'obt-build', callback);
 });
 
-gulp.task('demo', function () {
-	obt.demo(gulp);
+gulp.task('demo', function (callback) {
+	run(path.join(__dirname, './node_modules/.bin/obt') + ' demo').exec(callback);
 });
 
-gulp.task('demo-local', function () {
-	obt.demo(gulp, {
-		local: true
-	});
+gulp.task('demo-local', function (callback) {
+	run(path.join(__dirname, './node_modules/.bin/obt') + ' demo').exec(callback);
 });
 
 gulp.task('obt', ['verify', 'build']);
@@ -51,5 +44,5 @@ gulp.task('default', function (callback) {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['./src/**', './main.js', './main.scss', './config.json'], ['obt-build']);
+	gulp.watch(['./src/**', './main.js', './main.scss', './config.js'], ['obt-build']);
 });
