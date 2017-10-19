@@ -114,7 +114,7 @@ function Share(rootEl, config) {
 			const liElement = document.createElement('li');
 			const spanElement = document.createElement('span');
 			const aElement = document.createElement('a');
-			
+
 			liElement.classList.add('o-share__action');
 			spanElement.classList.add('o-share__text');
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
