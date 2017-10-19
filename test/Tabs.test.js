@@ -29,13 +29,13 @@ describe('tabs', () => {
 	});
 
 	afterEach(() => {
-			testTabs = null;
-			tabsEl = null;
-			tabContentEl1 = null;
-			tabContentEl2 = null;
-			tabContentEl3 = null;
-			fixtures.reset();
-		});
+		testTabs = null;
+		tabsEl = null;
+		tabContentEl1 = null;
+		tabContentEl2 = null;
+		tabContentEl3 = null;
+		fixtures.reset();
+	});
 
 	it('destroy()', () => {
 		testTabs.destroy();
@@ -80,10 +80,10 @@ describe('tabs', () => {
 			proclaim.strictEqual(tabContentEl3.getAttribute('aria-labelledby'), 'tabContent3-label');
 
 			// Focusable elements
-			[].forEach.call(document.querySelectorAll('.should-be-focusable'), function(element) {
+			[].forEach.call(document.querySelectorAll('.should-be-focusable'), function (element) {
 				proclaim.equal(element.getAttribute('tabindex'), '0');
 			});
-			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function(element) {
+			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function (element) {
 				proclaim.equal(element.getAttribute('tabindex'), '-1');
 			});
 		});
@@ -164,7 +164,9 @@ describe('tabs', () => {
 			const rebuildTabs = (withUpdateUrl = true) => {
 				fixtures.reset();
 				fixtures.insertSimple();
-				withUpdateUrl && tabsEl.setAttribute('data-o-tabs-update-url', '');
+				if (withUpdateUrl) {
+					tabsEl.setAttribute('data-o-tabs-update-url', '');
+				}
 				tabsEl.setAttribute('data-o-tabs-disablefocus', 'false');
 				testTabs.destroy();
 				testTabs = new Tabs(tabsEl);

@@ -47,12 +47,12 @@ class Tabs {
 			tabs: this
 		});
 		this.selectTab(this.getSelectedTabIndex());
-	};
+	}
 
-	getTabTargetId(tabEl) {
+	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
 		const linkEls = tabEl.getElementsByTagName('a');
 		return (linkEls && linkEls[0]) ? linkEls[0].getAttribute('href').replace('#','') : '';
-	};
+	}
 
 	getTabPanelEls(tabEls) {
 		const panelEls = [];
@@ -77,34 +77,34 @@ class Tabs {
 		}
 
 		return panelEls;
-	};
+	}
 
 	getTabElementFromHash() {
 		const tabLink = this.rootEl.querySelector(`[href="${location.hash}"]`);
 		return tabLink && tabLink.parentNode ? tabLink.parentNode : null;
-	};
+	}
 
-	getTabIndexFromElement(el) {
+	getTabIndexFromElement(el) { // eslint-disable-line class-methods-use-this
 		return oDom.getIndex(el);
-	};
+	}
 
 	getSelectedTabElement() {
 		return this.rootEl.querySelector('[aria-selected=true]');
-	};
+	}
 
 	getSelectedTabIndex() {
 		const selectedTabElement = this.updateUrl && location.hash ? this.getTabElementFromHash() : this.getSelectedTabElement();
 		return selectedTabElement ? this.getTabIndexFromElement(selectedTabElement) : 0;
-	};
+	}
 
 	isValidTab(index) {
 		return (!isNaN(index) && index >= 0 && index < this.tabEls.length);
-	};
+	}
 
-	hidePanel(panelEl) {
+	hidePanel(panelEl) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'false');
 		panelEl.setAttribute('aria-hidden', 'true');
-	};
+	}
 
 	showPanel(panelEl, disableFocus) {
 		panelEl.setAttribute('aria-expanded', 'true');
@@ -132,14 +132,14 @@ class Tabs {
 
 		// Scroll back to the original position
 		window.scrollTo(x, y);
-	};
+	}
 
 	dispatchCustomEvent(event, data = {}, namespace = 'oTabs') {
 		this.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
 			detail: data,
 			bubbles: true
 		}));
-	};
+	}
 
 	selectTab(newIndex) {
 		if (this.isValidTab(newIndex) && newIndex !== this.selectedTabIndex) {
@@ -161,7 +161,7 @@ class Tabs {
 
 			this.selectedTabIndex = newIndex;
 		}
-	};
+	}
 
 	clickHandler(ev) {
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
@@ -170,7 +170,7 @@ class Tabs {
 			ev.preventDefault();
 			this.updateCurrentTab(tabEl);
 		}
-	};
+	}
 
 	keyPressHandler(ev) {
 		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
@@ -179,7 +179,7 @@ class Tabs {
 			ev.preventDefault();
 			this.updateCurrentTab(tabEl);
 		}
-	};
+	}
 
 	hashChangeHandler() {
 		if (!this.updateUrl) {
@@ -191,7 +191,7 @@ class Tabs {
 		if (tabEl) {
 			this.updateCurrentTab(tabEl);
 		}
-	};
+	}
 
 	updateCurrentTab(tabEl) {
 		const index = this.getTabIndexFromElement(tabEl);
@@ -201,9 +201,9 @@ class Tabs {
 			action: 'click',
 			tab: tabEl.textContent.trim()
 		}, 'oTracking');
-	};
+	}
 
-	tabHasValidUrl(tabEl) {
+	tabHasValidUrl(tabEl) { // eslint-disable-line class-methods-use-this
 		const linkEls = tabEl.getElementsByTagName('a');
 		if (! linkEls || ! linkEls[0].hash) {
 			return false;
@@ -232,7 +232,7 @@ class Tabs {
 		this.selectedTabIndex = undefined;
 		this.rootEl = undefined;
 		this.config = undefined;
-	};
+	}
 
 	static init(rootEl, config) {
 		if (!rootEl) {
@@ -257,7 +257,7 @@ class Tabs {
 				return new Tabs(tabEl, config);
 			});
 		}
-	};
+	}
 }
 
 export default Tabs;
