@@ -14,7 +14,6 @@
 			padding: 0;
 		}
 	}
-
 	.#{$classname}__action {
 		box-sizing: border-box;
 		float: left;
@@ -30,57 +29,18 @@
 		@include oGridRespondTo(S) {
 			margin-right: 10px;
 		}
+	}
 
-		i {
-			float: left;
-			background-size: 100% 100%;
-			width: $o-share-icon-size;
-			height: $o-share-icon-size;
-			text-indent: $o-share-icon-size;
-			overflow: hidden;
-		}
-
-		&--icon {
-			display: block;
-			position: relative;
-			top: -1px;
-			left: -1px;
-			width: $o-share-icon-size;
-			height: $o-share-icon-size;
-			border: 0;
-			cursor: pointer;
-
-			// Increase the hit target to improve a11y
-			&:after {
-				position: absolute;
-				display: block;
-				content: '';
-				width: $o-share-icon-size + 5;
-				height: $o-share-icon-size + 5;
-				top: -2px;
-				left: -2px;
-
-				@include oGridRespondTo(S) {
-					width: $o-share-icon-size + 10px;
-					height: $o-share-icon-size + 10px;
-					top: -5px;
-					left: -5px;
-				}
-			}
-		}
-
-		a {
-			text-decoration: none;
-		}
-
-		button {
-			padding: 0;
-			background-color: transparent;
-		}
-
-		&:first-child a {
-			padding-left: 0;
-		}
+	.#{$classname}__text {
+		position: absolute;
+		clip: rect(0 0 0 0);
+		margin: -1px;
+		border: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		white-space: nowrap;
 	}
 }
 
@@ -105,20 +65,55 @@
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
+	.#{$classname}__icon {
+		display: block;
+		position: relative;
+		top: -1px;
+		left: -1px;
+		width: $o-share-icon-size;
+		height: $o-share-icon-size;
+		border: 0;
+		cursor: pointer;
+		padding: 0;
+		background-color: transparent;
+
+		// Increase the hit target to improve a11y
+		&:after {
+			position: absolute;
+			display: block;
+			content: '';
+			width: $o-share-icon-size + 5;
+			height: $o-share-icon-size + 5;
+			top: -2px;
+			left: -2px;
+
+			@include oGridRespondTo(S) {
+				width: $o-share-icon-size + 10px;
+				height: $o-share-icon-size + 10px;
+				top: -5px;
+				left: -5px;
+			}
+		}
+	}
+
 	// scss-lint:disable DuplicateProperty
-	.#{$classname}__action--#{$icon-name} i {
+	.#{$classname}__icon--#{$icon-name}:before {
+		content: '';
+		display: block;
+		width: #{$o-share-icon-size};
+		height: #{$o-share-icon-size};
 		background-image: url($service-url + $query + "&format=svg");
 
 		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
 		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
 		background-image: url($service-url + $query + "&format=png&width=#{$o-share-icon-size}")\9;
-
+		
 		// Hack to load icon early to prevent FOIC on hover
 		&:after {
 			content: '';
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
-		}
+		}	
 	}
 
 	// Targets displays using any of Windows’ High Contrast Mode themes:
@@ -129,19 +124,19 @@
 		$hover-color: str-slice(ie-hex-str($hover-color), 4);
 		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-		.#{$classname}__action--#{$icon-name} i {
+		.#{$classname}__icon--#{$icon-name}:before {
 			background-color: oColorsGetPaletteColor('black');
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
 	}
 
-	.#{$classname}__action--#{$icon-name}:hover,
-	.#{$classname}__action--#{$icon-name}:focus {
+	.#{$classname}__icon--#{$icon-name}:hover,
+	.#{$classname}__icon--#{$icon-name}:focus {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
-		i {
+		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
@@ -178,10 +173,10 @@
 			$hover-color: str-slice(ie-hex-str($hover-color), 4);
 			$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-			.#{$classname}__action--#{$icon-name} {
+			.#{$classname}__icon--#{$icon-name} {
 				border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
-				i {
+				&:before {
 					background-image: url($service-url + $query + "&format=svg#{$tint}");
 					background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 

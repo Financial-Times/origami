@@ -17,11 +17,11 @@ $o-share-is-silent: false;
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-	&.o-share__action--#{$icon-name} {
+	&.o-share__icon--#{$icon-name} {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
-		i {
+		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}

@@ -43,7 +43,7 @@ describe('links', () => {
 		testShare = new Share(shareEl);
 		spy = newWindowSpy();
 		window.open = spy.func;
-		twitterLinkEl = document.querySelector('.o-share__action--twitter a');
+		twitterLinkEl = document.querySelector('.o-share__icon--twitter');
 		const ev = document.createEvent('Event');
 		ev.initEvent('click', true, true);
 		twitterLinkEl.dispatchEvent(ev);
@@ -87,16 +87,16 @@ describe('component', () => {
 	});
 
 	it('generates markup when instantiating a component', () => {
-		proclaim.instanceOf(document.querySelector('.o-share__action--twitter'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--facebook'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--linkedin'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--whatsapp'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--googleplus'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__action--pinterest'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--twitter'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--facebook'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--linkedin'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--whatsapp'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--googleplus'), HTMLElement);
+		proclaim.instanceOf(document.querySelector('.o-share__icon--pinterest'), HTMLElement);
 	});
 
 	it('responds correctly to twitter clicks in the component', () => {
-		const twitterLinkElement = document.querySelector('.o-share__action--twitter a');
+		const twitterLinkElement = document.querySelector('.o-share__icon--twitter');
 		const event = document.createEvent('Event');
 		event.initEvent('click', true, true);
 		twitterLinkElement.dispatchEvent(event);
@@ -115,7 +115,7 @@ describe('data normalisation', () => {
 		shareEl = document.querySelector('[data-o-component=o-share]');
 		new Share(shareEl);
 
-		const twitterLinkElement = document.querySelector('.o-share__action--twitter a');
+		const twitterLinkElement = document.querySelector('.o-share__icon--twitter');
 		proclaim.match(twitterLinkElement.getAttribute('href'), /url=https?:\/\/localhost:[\d]+\/content\/test/);
 	});
 });

@@ -112,11 +112,15 @@ function Share(rootEl, config) {
 		const ulElement = document.createElement('ul');
 		for (let i = 0; i < config.links.length; i++) {
 			const liElement = document.createElement('li');
-			liElement.classList.add('o-share__action');
-			liElement.classList.add('o-share__action--'+config.links[i]);
+			const spanElement = document.createElement('span');
 			const aElement = document.createElement('a');
+
+			liElement.classList.add('o-share__action');
+			spanElement.classList.add('o-share__text');
+			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
 			aElement.href = generateSocialUrl(config.links[i]);
-			aElement.appendChild(document.createElement('i'));
+
+			aElement.appendChild(spanElement);
 			liElement.appendChild(aElement);
 			ulElement.appendChild(liElement);
 		}

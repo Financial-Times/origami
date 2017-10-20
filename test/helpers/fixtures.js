@@ -23,11 +23,15 @@ function insertShareLinks() {
 	const html = `
 		<div data-o-component="o-share" class="o-share" id="element">
 			<ul>
-				<li class="o-share__action o-share__action--mail">
-					<button><i>Mail</i></button>
+				<li class="o-share__action">
+					<button class="o-share__icon o-share__icon--mail">
+						<span class="o-share__text">Mail</span>
+					</button>
 				</li>
-				<li class="o-share__action o-share__action--twitter">
-					<a href="https://twitter.com/intent/tweet?url=http:&#x2F;&#x2F;on.ft.com&#x2F;1mUdgA2&text=Pfizer+says+its+AstraZeneca+vow+over+big+UK+presence+is+binding&related=ftcompanies&via=FT"><i>Twitter</i></a>
+				<li class="o-share__action">
+					<a class="o-share__icon o-share__icon--twitter" href="https://twitter.com/intent/tweet?url=http:&#x2F;&#x2F;on.ft.com&#x2F;1mUdgA2&text=Pfizer+says+its+AstraZeneca+vow+over+big+UK+presence+is+binding&related=ftcompanies&via=FT">
+						<span class="o-share__text">Twitter</span>
+					</a>
 				</li>
 			</ul>
 		</div>
