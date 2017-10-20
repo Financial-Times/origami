@@ -55,7 +55,7 @@ The different social networks are (in the order suggested by the design team):
 
 #### Core experience
 
-To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/main.mustache) directly.
+To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/demos/src/main.mustache) directly.
 
 Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
 
@@ -108,7 +108,7 @@ o-share v6 introduces a breaking change that you may need to update in your prod
 It may help to look at the [changes made to the demo markup](https://github.com/Financial-Times/o-share/pull/100/commits/a7bb5de62d16bd4b4610d80e1c863e32335bf548#diff-bf0fb135efa69a14d71d3a973a919ad5)
 
 - CSS type selectors that were used to apply styles to the `<i>` tag have been removed so an additional class is required.
-- It is recommended you also use a semantically correct tag instead of the `<i>`.
+- We recommended you also use a semantically correct tag instead of the `<i>`.
 
 ```diff
 <a href="#">
