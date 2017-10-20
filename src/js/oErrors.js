@@ -185,6 +185,10 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 		ravenOptions.tags = options.tags;
 	}
 
+	if (isFunction(options.filterError)) {
+		ravenOptions.shouldSendCallback = options.filterError;
+	}
+
 	if (isFunction(options.transportFunction)) {
 		ravenOptions.transport = options.transportFunction;
 	}
