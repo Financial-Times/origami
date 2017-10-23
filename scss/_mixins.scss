@@ -101,18 +101,18 @@
 	} @else {
 
 		@if map-has-key($theme, accent) {
-			$accent : map-get($theme, accent);
+			$accent: map-get($theme, accent);
 		} @else {
 			@error "oButtonsCustomTheme: Please provide an accent color for the custom button theme";
 		}
 
 		@if map-has-key($theme, "background") {
-			$background : map-get($theme, "background");
+			$background: map-get($theme, "background");
 		} @else {
 			@error "oButtonsCustomTheme: Please provide a background color for the custom button theme";
 		}
 		@if map-has-key($theme, "colorizer") {
-			$colorizer : map-get($theme, "colorizer");
+			$colorizer: map-get($theme, "colorizer");
 		} @else {
 			$colorizer: secondary;
 		}
