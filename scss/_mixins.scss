@@ -54,22 +54,26 @@
 ///
 /// @param {String} $theme
 @mixin oButtonsTheme($theme) {
-	@include _oButtonsPropertiesForState($theme, normal);
+	@if type-of($theme) == 'map' {
+		@include oButtonsCustomTheme($theme: $theme);
+	} @else {
+		@include _oButtonsPropertiesForState($theme, normal);
 
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-	&[aria-selected=true], // e.g. A selected tab or page number in pagination
-	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-		@include _oButtonsPropertiesForState($theme, pressedselected);
-	}
-
-	&:not([disabled]) {
-		&:hover {
-			@include _oButtonsPropertiesForState($theme, hover);
-			text-decoration: none;
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&[aria-selected=true], // e.g. A selected tab or page number in pagination
+		&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+			@include _oButtonsPropertiesForState($theme, pressedselected);
 		}
-		&:active {
-			@include _oButtonsPropertiesForState($theme, active);
+
+		&:not([disabled]) {
+			&:hover {
+				@include _oButtonsPropertiesForState($theme, hover);
+				text-decoration: none;
+			}
+			&:active {
+				@include _oButtonsPropertiesForState($theme, active);
+			}
 		}
 	}
 }
@@ -83,10 +87,39 @@
 /// 	@include oButtonsTheme(black, paper);
 /// }
 ///
-/// @param {String} $background - The background color of the theme. Must be a color name from o-colors
-/// @param {String} $accent - The accent color of the theme. Must be a color name from o-colors
-/// @param {String} $colorizer - One of primary or secondary (default)
-@mixin oButtonsCustomTheme($background, $accent, $colorizer: secondary) {
+///
+/// @deprecated @param {String} $background - The background color of the theme. Must be a color name from o-colors
+/// @deprecated @param {String} $accent - The accent color of the theme. Must be a color name from o-colors
+/// @deprecated @param {String} $colorizer - One of primary or secondary (default)
+/// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
+/// $accent - The accent color of the theme. Must be a color name from o-colors, $colorizer - One of primary or secondary (default)
+@mixin oButtonsCustomTheme($background: null, $accent: null, $colorizer: null, $theme: ()) {
+	@if ($background or $accent or $colorizer) {
+		@warn "oButtonsCustomTheme: $background, $accent and $colorizer params have now been deprecated and will be removed in the next major release. Pass these values in as a map instead.";
+	} @else {
+
+		@if map-has-key($theme, accent) {
+			$accent : map-get($theme, accent);
+		} @else {
+			@error "oButtonsCustomTheme: Please provide an accent color for the custom button theme";
+		}
+
+		@if map-has-key($theme, "background") {
+			$background : map-get($theme, "background");
+		} @else {
+			@error "oButtonsCustomTheme: Please provide a background color for the custom button theme";
+		}
+		@if map-has-key($theme, "colorizer") {
+			$colorizer : map-get($theme, "colorizer");
+		} @else {
+			$colorizer: secondary;
+		}
+	}
+
+	@if ($colorizer == null) {
+		$colorizer: secondary;
+	}
+
 	$testContrast: oColorsCheckContrast(oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent));
 
 	border-color: oColorsGetPaletteColor($accent);

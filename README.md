@@ -163,6 +163,9 @@ Or, using Sass:
 ```
 
 #### Theme modifiers
+
+There are 5 named themes in oButtons. oButtons also allows developers to create custom themes using o-colors names.
+
 [View demos](http://registry.origami.ft.com/components/o-buttons)
 
 ```html
@@ -198,12 +201,16 @@ Or, using Sass:
 
 #### Custom themes
 
-You can use the `oButtonsCustomTheme` mixin to create custom coloured buttons using the oColors color variables.
+oButtonsTheme also accepts a Map, which you can use to create your own themes. The Map can have the following keys:
+- `background`: [String] - the background o-colors colour for the place the button sits on.
+- `accent`: [String] - the accent o-colors colour for the button
+- `colorizer`: [String] - an optional parameter for the button style. One of "primary" or "secondary". Defaults to secondary.
 
-E.g. to create a `lemon` accented button on a `slate` background:
+
+To create a `lemon` accented button on a `slate` background:
 
 ```scss
-@include oButtonsCustomTheme('slate', 'lemon');
+@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 ```
 
 This will output styles for a slate coloured button that has lemon text and border, with a slate/lemon mixed hover state.
