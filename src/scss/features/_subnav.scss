@@ -16,6 +16,7 @@
 			// height *needs* setting so we can hide scrollbars.
 			// This is the content height of .o-header__subnav-content
 			height: $_o-header-subhav-height-base;
+			margin-left: -$_o-header-sub-header-focus-margin;
 
 			@include oGridRespondTo('M') {
 				height: $_o-header-subhav-height-medium;
@@ -40,6 +41,7 @@
 
 	.o-header__subnav-content {
 		white-space: nowrap;
+		margin-left: $_o-header-sub-header-focus-margin;
 	}
 
 	.o-header__subnav-list {
