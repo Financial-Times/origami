@@ -33,7 +33,8 @@
 		}
 		.topper__tags,
 		.topper__headline,
-		.topper__standfirst {
+		.topper__standfirst,
+		.topper__summary {
 			color: $text-color;
 		}
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
