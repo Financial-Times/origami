@@ -28,9 +28,9 @@
 }
 
 @mixin oQuoteStandardCiteAuthor {
+	@include oTypographySansBold($scale: 0);
 	text-transform: uppercase;
 	display: block;
-	@include oTypographySansBold($scale: 0);
 }
 
 @mixin oQuoteStandardCiteSource {
