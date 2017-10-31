@@ -85,7 +85,9 @@
 		outline: 2px solid oColorsGetColorFor('o-normalise-focus', 'border');
 	}
 
-	input:focus, textarea:focus, select:focus {
+	input:focus,
+	textarea:focus,
+	select:focus {
 		box-shadow: 0 0 0 1px oColorsGetColorFor('o-normalise-focus', 'border');
 	}
 
