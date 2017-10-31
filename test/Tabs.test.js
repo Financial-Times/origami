@@ -29,13 +29,13 @@ describe('tabs', () => {
 	});
 
 	afterEach(() => {
-			testTabs = null;
-			tabsEl = null;
-			tabContentEl1 = null;
-			tabContentEl2 = null;
-			tabContentEl3 = null;
-			fixtures.reset();
-		});
+		testTabs = null;
+		tabsEl = null;
+		tabContentEl1 = null;
+		tabContentEl2 = null;
+		tabContentEl3 = null;
+		fixtures.reset();
+	});
 
 	it('destroy()', () => {
 		testTabs.destroy();
@@ -164,7 +164,9 @@ describe('tabs', () => {
 			const rebuildTabs = (withUpdateUrl = true) => {
 				fixtures.reset();
 				fixtures.insertSimple();
-				withUpdateUrl && tabsEl.setAttribute('data-o-tabs-update-url', '');
+				if (withUpdateUrl) {
+					tabsEl.setAttribute('data-o-tabs-update-url', '');
+				}
 				tabsEl.setAttribute('data-o-tabs-disablefocus', 'false');
 				testTabs.destroy();
 				testTabs = new Tabs(tabsEl);
@@ -181,7 +183,7 @@ describe('tabs', () => {
 			it('Should update the hash part of the url to the id of the active tab', () => {
 				rebuildTabs();
 				testTabs.selectTab(0);
-				let expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+				const expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
 				proclaim.strictEqual(location.hash, expectedHash);
 			});
 
