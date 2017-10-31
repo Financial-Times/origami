@@ -12,7 +12,7 @@
     "main.scss",
     "main.js"
   ],
-	"dependencies": {
+  "dependencies": {
     "o-colors": "^4.0.0"
   }
 }
