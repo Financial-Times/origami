@@ -1,6 +1,6 @@
 @mixin oTeaserCollectionNumbered() {
 	.o-teaser-collection__items {
-		counter: o-teaser-collection-items;
+		counter-reset: o-teaser-collection-items;
 	}
 
 	.o-teaser-collection__item {
