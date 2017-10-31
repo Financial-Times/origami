@@ -1,4 +1,7 @@
+@import 'o-colors/main';
+
 @import 'src/scss/variables';
+@import 'src/scss/colors';
 @import 'src/scss/mixins';
 
 @if ($o-normalise-is-silent == false) {

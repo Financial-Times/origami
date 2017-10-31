@@ -82,9 +82,28 @@
 
 	// Standardise outline styles
 	:focus {
-		outline: thin dotted;
-		outline-offset: 1px;
+		outline: 2px solid oColorsGetColorFor('o-normalise-focus', 'border');
 	}
+
+	input:focus,
+	textarea:focus,
+	select:focus {
+		box-shadow: 0 0 0 1px oColorsGetColorFor('o-normalise-focus', 'border');
+	}
+
+	a:focus {
+		@include oNormaliseLinkFocus()
+	}
+
+}
+
+// A focus style just for links
+@mixin oNormaliseLinkFocus {
+	outline: none;
+	background-color: oColorsGetColorFor('o-normalise-focus', 'background');
+	// In many cases, css precedence will mean that this is overidden. This mixin
+	// is provided so you can include it yourself at the right precedence
+	color: oColorsGetColorFor('o-normalise-focus', 'text');
 }
 
 /// Adds normalising styles to link elements
@@ -101,6 +120,7 @@
 	a:hover {
 		outline-width: 0;
 	}
+
 }
 
 /// Adds normalising styles to text related elements

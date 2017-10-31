@@ -1,2 +1,30 @@
 $o-normalise-is-silent: false;
 @import '../../main';
+
+body {
+	background: var(--o-colors-paper);
+}
+
+.demo-container {
+	margin: 1em 0;
+	padding: 1em;
+}
+
+.inverse {
+	background: var(--o-colors-slate);
+	color:  var(--o-colors-white);
+	a {
+		color: var(--o-colors-white);
+	}
+}
+
+.link {
+	padding-bottom: 1em;
+	display: inline-block;
+}
+
+.tabbable-container {
+	background: var(--o-colors-wheat);
+	display: inline-block;
+	padding: 1em;
+}
