@@ -89,7 +89,9 @@
 	.o-teaser-collection__heading--inverse {
 		z-index: 1;
 		position: absolute;
+		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
 
 		@include oGridRespondTo(L) {
 			width: 32.5%;
