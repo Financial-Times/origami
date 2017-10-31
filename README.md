@@ -188,7 +188,7 @@ When using the build service or importing the module with [silent mode](http://o
 ```
 
 
-### CSS Variables
+### CSS Variables
 
 When using the build service or importing the module with silent mode set to false, o-colors will output all the palette colors as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These will use the format `--o-colors-{name}` (e.g. `--o-colors-black` and `--o-colors-teal`).
 
