@@ -6,7 +6,9 @@
 	padding: 20px 0;
 	font-family: $o-typography-sans;
 	font-weight: normal;
+	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
+	// sass-lint:enable no-vendor-prefixes
 
 	a {
 		@include oTeaserCollectionHeadingLink;
