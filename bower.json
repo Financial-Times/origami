@@ -10,6 +10,6 @@
   ],
   "main": [
     "main.scss",
-	"main.js"
+    "main.js"
   ]
 }
