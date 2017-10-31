@@ -51,7 +51,7 @@ class Tabs {
 
 	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
 		const linkEls = tabEl.getElementsByTagName('a');
-		return linkEls && linkEls[0] ? linkEls[0].getAttribute('href').replace('#','') : '';
+		return (linkEls && linkEls[0]) ? linkEls[0].getAttribute('href').replace('#','') : '';
 	}
 
 	getTabPanelEls(tabEls) {
@@ -98,7 +98,7 @@ class Tabs {
 	}
 
 	isValidTab(index) {
-		return !isNaN(index) && index >= 0 && index < this.tabEls.length;
+		return (!isNaN(index) && index >= 0 && index < this.tabEls.length);
 	}
 
 	hidePanel(panelEl) { // eslint-disable-line class-methods-use-this

@@ -80,10 +80,10 @@ describe('tabs', () => {
 			proclaim.strictEqual(tabContentEl3.getAttribute('aria-labelledby'), 'tabContent3-label');
 
 			// Focusable elements
-			[].forEach.call(document.querySelectorAll('.should-be-focusable'), function(element) {
+			[].forEach.call(document.querySelectorAll('.should-be-focusable'), function (element) {
 				proclaim.equal(element.getAttribute('tabindex'), '0');
 			});
-			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function(element) {
+			[].forEach.call(document.querySelectorAll('.should-not-be-focusable'), function (element) {
 				proclaim.equal(element.getAttribute('tabindex'), '-1');
 			});
 		});
