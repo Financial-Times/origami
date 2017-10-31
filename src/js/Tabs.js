@@ -7,7 +7,7 @@ class Tabs {
 		this.rootEl = rootEl;
 		this.rootEl.setAttribute('data-o-tabs--js', '');
 
-		this.updateUrl = (rootEl.getAttribute('data-o-tabs-update-url') !== null);
+		this.updateUrl = rootEl.getAttribute('data-o-tabs-update-url') !== null;
 		this.selectedTabIndex = -1;
 
 
@@ -57,9 +57,9 @@ class Tabs {
 	getTabPanelEls(tabEls) {
 		const panelEls = [];
 
-		for (let tab of tabEls) {
+		for (const tab of tabEls) {
 			const tabTargetId = this.getTabTargetId(tab);
-			let targetEl = document.getElementById(tabTargetId);
+			const targetEl = document.getElementById(tabTargetId);
 
 			if (targetEl) {
 				tab.setAttribute('aria-controls', tabTargetId);
@@ -217,7 +217,7 @@ class Tabs {
 		window.removeEventListener('hashchange', this.boundHashChangeHandler, false);
 		this.rootEl.removeAttribute('data-o-tabs--js');
 
-		for (let tabPanelEl of this.tabpanelEls) {
+		for (const tabPanelEl of this.tabpanelEls) {
 			this.showPanel(tabPanelEl);
 		}
 

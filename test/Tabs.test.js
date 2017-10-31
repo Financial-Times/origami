@@ -183,7 +183,7 @@ describe('tabs', () => {
 			it('Should update the hash part of the url to the id of the active tab', () => {
 				rebuildTabs();
 				testTabs.selectTab(0);
-				let expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+				const expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
 				proclaim.strictEqual(location.hash, expectedHash);
 			});
 
