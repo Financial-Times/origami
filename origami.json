@@ -13,7 +13,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": ""
+		"dependencies": "o-colors,o-buttons,o-forms"
 	},
 	"demos": [
 		{
@@ -21,6 +21,12 @@
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": "Accessibility test will be run against this demo"
+		},
+		{
+			"name": "focus-styles",
+			"template": "demos/src/focus.mustache",
+			"hidden": true,
+			"description": "Focus styles on various elements"
 		}
 	]
 }
