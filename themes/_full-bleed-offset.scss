@@ -20,9 +20,9 @@
 		display: -ms-grid;
 		display: grid;
 		-ms-grid-columns: auto;
-		-ms-grid-rows: 20px min-content 60px min-content 0;
+		-ms-grid-rows: 20px min-content 60px min-content 20px;
 		grid-template-columns: auto;
-		grid-template-rows: 20px min-content 60px min-content 0;
+		grid-template-rows: 20px min-content 60px min-content 20px;
 		.topper__content {
 			-ms-grid-column: 1;
 			-ms-grid-row: 3;
@@ -37,6 +37,7 @@
 			grid-column: 1;
 			grid-row: 1 / span 3;
 		}
+
 	}
 
 	//Add extra 20px columns to get the space outside the content well
@@ -55,6 +56,16 @@
 			-ms-grid-column-span: 7;
 			grid-column: 1 / span 7;
 		}
+
+		.topper__background {
+			-ms-grid-column: 1;
+			-ms-grid-column-span: 7;
+			-ms-grid-row: 4;
+			-ms-grid-row-span: 2;
+			grid-column: 1 / span 7;
+			grid-row: 4 / span 2;
+		}
+
 	}
 
 	@include oGridRespondTo(XL) {

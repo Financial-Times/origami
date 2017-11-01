@@ -43,17 +43,3 @@
 		}
 	}
 }
-
-@supports (object-fit: cover) {
-	.topper__image {
-		height: 100%;
-		object-fit: cover;
-	}
-	.topper__picture {
-		height: 480px;
-		@include oGridRespondTo(L) {
-			height: 600px;
-		}
-	}
-
-}

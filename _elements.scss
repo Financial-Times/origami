@@ -41,6 +41,19 @@
 	width: 100%;
 }
 
+@supports (object-fit: cover) {
+	.topper__image {
+		height: 100%;
+		object-fit: cover;
+	}
+	.topper__visual {
+		height: 480px;
+		@include oGridRespondTo(L) {
+			height: 600px;
+		}
+	}
+}
+
 .topper__brand {
 	@include oTypographySans(0);
 	margin-right: 4px;
