@@ -1,0 +1,59 @@
+@import '../clean/grid-helpers';
+
+.topper {
+	//Basic topper uses the same grid columns as an article, so things can line up.
+	@include articleGrid();
+	margin-bottom: 20px;
+
+	@include oGridRespondTo(L) {
+		-ms-grid-rows: 20px min-content 60px min-content 20px;
+		grid-template-rows: 20px min-content 60px min-content 20px;
+	}
+}
+
+.topper--basic {
+	@include oGridRespondTo($until: L) {
+		margin-top: 10px;
+	}
+}
+
+//Default theme;
+
+.topper__content {
+	-ms-grid-row: 2;
+	-ms-grid-row-span: 4;
+	-ms-grid-column: 3;
+	grid-row: 2 / span 4;
+	grid-column: 3;
+	position: relative;
+	z-index: 1;
+}
+
+.topper__visual {
+	-ms-grid-row: 1;
+	-ms-grid-row-span: 5;
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 6;
+	grid-row: 1 / span 5;
+	grid-column: 1 / span 6;
+	width: 100vw;
+	margin-left: -50vw;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	position: relative;
+}
+
+.topper__read-next {
+	display: none;
+	@include oGridRespondTo(L) {
+		display: block;
+	}
+	position: relative;
+	-ms-grid-row: 2;
+	-ms-grid-row-span: 4;
+	-ms-grid-column: 5;
+	-ms-grid-column-span: 1;
+	grid-row: 2 / span 4;
+	grid-column: 5 / span 1;
+}

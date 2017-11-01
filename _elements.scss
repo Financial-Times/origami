@@ -1,0 +1,78 @@
+.topper__headline {
+	@include oTypographyHeadline();
+
+	&--large {
+		@include oTypographyHeadlineLarge();
+
+		position: relative; //so it appears above the full width background
+	}
+}
+
+
+.topper__standfirst {
+	@include oTypographyStandfirst();
+	margin-bottom: 0;
+	opacity: 0.8;
+
+	a {
+		@include oTypographySize(0);
+	}
+
+	> p {
+		margin: 0;
+	}
+
+}
+
+.topper__summary {
+	@include oTypographySans(1);
+	> ul {
+		padding: 0 oTypographySpacingSize(5);
+	}
+
+	> ul > li {
+		margin: oTypographySpacingSize(2) 0;
+	}
+}
+
+//IE9 support
+.topper__image {
+	position: relative;
+	width: 100%;
+}
+
+.topper__brand {
+	@include oTypographySans(0);
+	margin-right: 4px;
+	-webkit-font-smoothing: antialiased;
+	@include oGridRespondTo($until: S) {
+		display: block;
+	}
+}
+
+.topper__columnist {
+	@include oTypographyMargin($top: 4);
+	text-transform: uppercase;
+}
+
+.topper__tags {
+	display: flex;
+	padding-bottom: 5px;
+	@include oTypographySize($scale: 0, $line-height: 28px);
+
+	.n-content-tag:hover {
+		border-bottom-color: inherit;
+	}
+
+	.o-tooltip {
+		color: oColorsGetPaletteColor('black');
+		width: 275px;
+	}
+	.o-tooltip-close {
+		// Override this being set in n-ui-foundations for all links.
+		border-bottom: 0;
+	}
+	.o-tooltip-content {
+		@include oTypographySans($scale: 0);
+	}
+}

@@ -1,7 +1,30 @@
+.topper--branded {
+
+	.topper__content {
+		-ms-grid-row: 2;
+		-ms-grid-row-span: 3;
+		grid-row: 2 / span 3;
+		@include oGridRespondTo($until: L) {
+			padding: 20px 0;
+		}
+	}
+
+	.topper__read-next {
+		-ms-grid-row: 2;
+		-ms-grid-row-span: 3;
+		grid-row: 2 / span 3;
+	}
+
+	@include oGridRespondTo($until: L) {
+		.topper__visual {
+			position: absolute;
+		}
+	}
+}
+
 .topper--has-headshot {
 
 	.topper__tags,
-	.topper__brand,
 	.topper__standfirst {
 		box-sizing: border-box;
 		padding-right: 100px;
@@ -16,24 +39,26 @@
 			padding-right: 150px;
 		}
 	}
+}
 
-	.topper__brand {
-		min-height: 60px;
-
-		@include oGridRespondTo(M) {
-			min-height: 0;
-		}
+.topper--opinion {
+	.topper__tags,
+	.topper__columnist-name {
+		color: getColor('oxford');
 	}
 }
 
 .topper__headshot {
 	position: absolute;
-	bottom: -10px;
+	bottom: 0;
 	right: 0;
 	width: 100px;
 	overflow: hidden;
 	@include oGridRespondTo(M) {
 		width: 150px;
+	}
+	@include oGridRespondTo(L) {
+		bottom: -20px;
 	}
 }
 
@@ -41,28 +66,4 @@
 	max-width: 100%;
 	display: block;
 	margin-left: 8px;
-}
-
-.topper--branded .topper__brand {
-	position: relative;
-	margin-top: 8px;
-	@media screen {
-		&:before {
-			@include oIconsGetIcon('speech-left', getColor('claret'), 44, $iconset-version: 1);
-			content: '';
-			position: absolute;
-			top: -7px;
-			left: -9px;
-		}
-	}
-	@media print {
-		text-indent: -30px;
-	}
-}
-
-.topper__brand-title,
-.topper__brand-title.n-content-tag {
-	@include oTypographySerif(3, $progressive: true);
-	margin-left: 30px;
-	font-weight: 400;
 }

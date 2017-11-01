@@ -1,58 +1,64 @@
 .topper--full-bleed-offset {
-	@include alignText(left);
 
-	padding-top: 0;
-	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	@include oGridRespondTo($until: L) {
+		margin: 0 auto;
+		padding: 0;
+	}
 
-	@include oGridRespondTo(S) {
-		@include overlayText;
+	.topper__read-next {
+		display: none;
+	}
+
+	.topper__content {
+		padding: 20px 20px 0;
+		order: 2;
 	}
 
 	@include oGridRespondTo(M) {
-		.topper__offset-margin {
-			margin-left: -20px;
-			margin-right: -20px;
+		display: -ms-grid;
+		display: grid;
+		-ms-grid-columns: auto;
+		-ms-grid-rows: 20px min-content 60px min-content 0;
+		grid-template-columns: auto;
+		grid-template-rows: 20px min-content 60px min-content 0;
+		.topper__content {
+			-ms-grid-column: 1;
+			-ms-grid-row: 3;
+			-ms-grid-row-span: 2;
+			grid-column: 1;
+			grid-row: 3 / span 2;
+		}
+		.topper__visual {
+			-ms-grid-column: 1;
+			-ms-grid-row: 1;
+			-ms-grid-row-span: 3;
+			grid-column: 1;
+			grid-row: 1 / span 3;
 		}
 	}
 
-	.topper__visual {
-		width: 100%;
-	}
+	//Add extra 20px columns to get the space outside the content well
+	@include oGridRespondTo(L) {
+		-ms-grid-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
+		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
-	.topper__slot-1 {
-		@include oGridRespondTo($until: S) {
-			height: 0;
-			min-height: 0;
+		.topper__content {
+			-ms-grid-column: 4;
+			-ms-grid-column-span: 2;
+			grid-column: 4 / span 2;
+		}
+
+		.topper__visual {
+			-ms-grid-column: 1;
+			-ms-grid-column-span: 7;
+			grid-column: 1 / span 7;
 		}
 	}
 
-	.topper__text-wrapper {
-		position: relative;
-		padding: 20px 0;
-		@include oGridRespondTo(M) {
-			margin-top: -40px;
-			padding: 20px;
-		}
-		@include oGridRespondTo(L) {
-			margin-top: -45px;
-		}
+	@include oGridRespondTo(XL) {
+		-ms-grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
+		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
 	}
-
-	.topper__text-box {
-		display: block;
-		position: relative;
-		padding: 0;
-		&:before {
-			content: '';
-			position: absolute;
-			left: 50%;
-			width: 100vw; //go extra wide to ensure its always covered
-			margin-left: -50vw; //compensate for the offset on Xl
-			background: inherit;
-			top: 0;
-			height: 100%;
-		}
-	}
-
-
 }

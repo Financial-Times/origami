@@ -37,8 +37,7 @@
 
 	.topper__tags .n-content-tag,
 	.topper__headline {
-		@include oTypographySans(6, $progressive: true);
-		line-height: 1;
+		@include oTypographySans(6, $line-height: 1em);
 		font-weight: 400;
 
 		@include oGridRespondTo(L) {
@@ -90,105 +89,6 @@
 		}
 		&:hover {
 			color: darken(getColor('white'), 20%);
-		}
-	}
-}
-
-.topper--news-package {
-	padding: 24px 0px 0px;
-
-	.n-image {
-		width: 100%;
-		padding-bottom: 24px;
-	}
-
-	@include oGridRespondTo($until: M) {
-		.o-grid-container,
-		.topper__summary__wrapper {
-			padding: 0;
-			margin: 0;
-		}
-
-		.n-image {
-			padding-bottom: 0px;
-		}
-
-		.topper__headline {
-			padding: 0 oGridGutter();
-		}
-	}
-
-	.topper__headline {
-
-		.article-classifier__gap {
-			position: inherit;
-		}
-
-		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
-
-		&--large {
-			@include oTypographyDisplayBold(8, $progressive: true);
-		}
-	}
-
-	.topper__description,
-	.topper__standfirst {
-		padding: 0 oGridGutter() 20px;
-		opacity: 1;
-		@include oGridRespondTo(M) {
-			padding: 0 20px 20px 0;
-		}
-	}
-
-	.topper__summary {
-		&__wrapper {
-			display: inline-block; /* fix for ie */
-			display: flex;
-			width: 100%;
-
-			.o-grid-container {
-				width: 100%;
-			}
-
-			@include oGridRespondTo($until: L) {
-				.o-grid-container {
-					padding: 0;
-				}
-
-				.n-image {
-					width: 100%;
-					padding: 0 18px;
-				}
-			}
-			@include oGridRespondTo($until: M) {
-				.o-grid-container {
-					padding: 0;
-					max-width: inherit;
-				}
-				.n-image {
-					padding: 0;
-				}
-			}
-		}
-
-		@include oTypographySans(3);
-		padding: 8px 18px 12px 0;
-		@include oGridRespondTo($until: L) {
-			padding: 0;
-		}
-
-		ul {
-			margin: 0;
-			padding: 12px 12px 12px 32px;
-
-			@include oGridRespondTo(M) {
-				padding: 12px 12px 12px 18px;
-			}
-		}
-
-		li {
-			margin: 8px 0;
-			@include oTypographySans(1, $progressive: true);
 		}
 	}
 }

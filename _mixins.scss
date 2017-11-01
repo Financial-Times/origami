@@ -32,13 +32,15 @@
 			background-color: getColor('#{$bg-color}');
 		}
 		.topper__tags,
+		.topper__columnist-name,
 		.topper__headline,
 		.topper__standfirst,
 		.topper__summary {
 			color: $text-color;
 		}
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
-			.topper__tags {
+			.topper__tags,
+			.topper__columnist-name {
 				color: getColor('claret');
 			}
 		}
@@ -46,13 +48,10 @@
 }
 
 /// @param {list} $colors - colors available to editorial in methode for the background
-/// @param {map} $use-case - tentative options for default
-// default has yet to be determined by type of article (opinion? analysis?) so is paper for now
-$colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'default', 'crimson';
+$colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'default', 'crimson', 'sky', 'velvet';
 @each $color in $colors {
 	@if $color == 'default' {
-		$usecase: ('standard': 'paper', 'analysis': 'claret', 'opinion':'oxford');
-		@include setColors(map-get($usecase, 'standard'));
+		@include setColors('paper');
 	} @else {
 		@include setColors($color);
 	}
@@ -67,36 +66,13 @@ $colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'defau
 		margin-left: map-get($mleft, #{$position});
 		margin-right: map-get($mright, #{$position});
 	}
-	.topper__text-wrapper {
+	.topper__content {
 		text-align: $position;
 		align-self: map-get($value, #{$position});
 	}
 
 	.topper__tags {
 		justify-content: map-get($value, #{$position});
-	}
-}
-
-@mixin overlayText {
-	.topper__background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: inherit;
-		min-height: inherit;
-		width: 100%;
-	}
-}
-
-@mixin fullBleedImage {
-	.topper__text-box {
-		background: transparent;
-	}
-	.topper__visual {
-		width: 100%;
-	}
-	.topper__text-wrapper {
-		z-index: 1;
 	}
 }
 

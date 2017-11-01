@@ -1,43 +1,59 @@
 [class*="topper--full-bleed-image"] {
 
-	@include alignText(left);
+	.topper__read-next {
+		display: none;
+	}
 
-	padding: 0;
+	@include oGridRespondTo($until: M) {
+		.topper__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 20px;
+			min-height: 350px;
+		}
+		.topper__visual {
+			min-height: 350px;
+		}
+	}
 
-	@include oGridRespondTo(S) {
-		@include fullBleedImage;
-		@include overlayText;
+	@include oGridRespondTo(M) {
+		display: grid;
+		-ms-grid-columns: 1fr 1fr;
+		-ms-grid-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
 
-		.topper__text {
+		.topper__content {
+			-ms-grid-row: 1;
+			-ms-grid-column: 1;
+			-ms-grid-column-span: 2;
+			grid-row: 1;
+			grid-column: 1 / span 2;
 			width: 50%;
+			box-sizing: border-box;
+			-ms-grid-row-align: center;
+			align-self: center;
+			padding-right: 20px;
+			background: transparent;
+		}
+
+		.topper__visual {
+			grid-row: 1;
 		}
 	}
 }
 
-.topper--full-bleed-image-center {
-
-
-	@include oGridRespondTo(S) {
-		@include alignText(center);
-
-		.topper__text-wrapper {
-			width: 100%;
-			padding: 0;
-		}
-
-		.topper__headline {
-			margin-top: 20px;
-		}
-
-		.topper__standfirst {
-			@include oGridRespondTo(M) {
-				width: 50%;
-				margin: 0 auto;
-			}
+@supports (object-fit: cover) {
+	.topper__image {
+		height: 100%;
+		object-fit: cover;
+	}
+	.topper__picture {
+		height: 480px;
+		@include oGridRespondTo(L) {
+			height: 600px;
 		}
 	}
 
-	.topper__text {
-		width: inherit;
-	}
 }
