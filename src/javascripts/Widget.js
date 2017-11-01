@@ -480,7 +480,7 @@ function Widget () {
 
 	// init
 	if (this.config.autoInit !== false) {
-		this.init.call(this);
+		this.init();
 	}
 }
 oCommentUi.Widget.__extend(Widget, 'oComments', 'o-comments');
