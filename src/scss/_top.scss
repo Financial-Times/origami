@@ -14,11 +14,11 @@
 		margin: 8px 8px 8px 0;
 		float: left;
 		display: inline-block;
-		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
+		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
 
 		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
 		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:brand-ft-logo-square-coloured?source=o-header-services&format=png&width=55')\9;
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:brand-ft-logo-square-coloured?source=o-header-services&format=png&width=55')\9;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: 0;
