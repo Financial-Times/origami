@@ -279,11 +279,7 @@
 
 		.fyre-comment-head ,
 		.fyre-comment-body {
-			margin-left: 0;
 			padding: 0 0 10px;
-		}
-		.fyre-comment-body {
-			margin: 0;
 		}
 
 		.fyre-comment-footer {
@@ -327,8 +323,6 @@
 		}
 
 		.fyre-comment-divider {
-			margin: 0;
-
 			> span.fyre-comment-reply-wrapper {
 				color: $o-comments-link-color;
 				font-size: 15px;
@@ -341,7 +335,6 @@
 
 			> div.fyre-comment-divider {
 				background: oColorsGetPaletteColor('black-10');
-				margin: 0;
 			}
 		}
 
