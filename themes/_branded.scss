@@ -16,7 +16,8 @@
 	}
 
 	@include oGridRespondTo($until: L) {
-		.topper__visual {
+		//Make the background really full width
+		.topper__background {
 			position: absolute;
 		}
 	}

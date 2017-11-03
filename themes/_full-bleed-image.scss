@@ -42,4 +42,13 @@
 			grid-row: 1;
 		}
 	}
+
+	@supports (object-fit: cover) {
+		.topper__visual {
+			height: 480px;
+			@include oGridRespondTo(L) {
+				height: 600px;
+			}
+		}
+	}
 }

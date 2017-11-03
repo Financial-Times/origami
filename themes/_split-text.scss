@@ -45,6 +45,16 @@
 		.topper__picture {
 			width: 50%;
 			float: right;
+			height: 100%;
+		}
+	}
+
+	@supports (object-fit: cover) {
+		.topper__visual {
+			height: 480px;
+			@include oGridRespondTo(L) {
+				height: 600px;
+			}
 		}
 	}
 

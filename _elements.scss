@@ -46,12 +46,6 @@
 		height: 100%;
 		object-fit: cover;
 	}
-	.topper__visual {
-		height: 480px;
-		@include oGridRespondTo(L) {
-			height: 600px;
-		}
-	}
 }
 
 .topper__brand {
