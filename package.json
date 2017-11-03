@@ -5,7 +5,7 @@
     "origami-build-tools": "^7.0.0",
     "gulp": "^3.8.10",
     "gulp-watch": "^1.1.0",
-    "run-sequence": "^1.0.2",
+    "run-sequence": "^2.0.0",
     "del": "^1.1.1",
     "gulp-run": "^1.6.6"
   }
