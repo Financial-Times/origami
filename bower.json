@@ -13,6 +13,5 @@
     "main.js"
   ],
   "dependencies": {
-    "o-colors": "^4.0.0"
   }
 }
