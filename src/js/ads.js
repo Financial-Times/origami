@@ -317,6 +317,12 @@ class VideoAds {
 				document.body.dispatchEvent(skipEvent);
 				break;
 			}
+			case google.ima.AdEvent.Type.ALL_ADS_COMPLETED: {
+				options.detail.action = 'allAdsCompleted';
+				const allAdsCompletedEvent = new CustomEvent('oTracking.event', options);
+				document.body.dispatchEvent(allAdsCompletedEvent);
+				break;
+			}
 			default: {
 				throw new Error('adEvent has type ' + adEvent.type + ', which is not handled by adEventHandler');
 			}
