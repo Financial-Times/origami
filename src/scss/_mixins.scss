@@ -80,15 +80,24 @@
 		display: block;
 	}
 
-	// Standardise outline styles
+	// Standardise focus styles.
 	:focus {
 		outline: 2px solid $o-normalise-focus-color;
 	}
+
 
 	input:focus,
 	textarea:focus,
 	select:focus {
 		box-shadow: 0 0 0 1px $o-normalise-focus-color;
+	}
+
+	// Prevent IE from putting focus styles on the body or html. These selectors
+	// serve as a blacklist for "things we've found can have focus but we don't want"
+	html:focus,
+	body:focus,
+	[readonly]:focus {
+		outline: none;
 	}
 }
 
