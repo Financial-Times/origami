@@ -81,7 +81,7 @@
 	}
 
 	// Standardise focus styles.
-	&:focus {
+	:focus {
 		outline: 2px solid $o-normalise-focus-color;
 	}
 
