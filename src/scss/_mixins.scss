@@ -83,7 +83,7 @@
 	// Standardise focus styles. This is scoped because IE allows the body tag to have focus which is... odd
 	a,
 	button,
-	[tabindex]{
+	[tabindex] {
     		&:focus {
 			outline: 2px solid $o-normalise-focus-color;
 		}
