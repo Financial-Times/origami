@@ -1,5 +1,5 @@
 /*global require, describe, it, before, after, sinon */
-const setup = require('./setup');
+require('./setup');
 const assert = require("assert");
 const settings = require("../src/javascript/core/settings");
 const Queue = require("../src/javascript/core/queue");
