@@ -75,7 +75,6 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
-				console.log(dummyXHR.open.args[0]);
 				assert.equal(typeof dummyXHR.onerror, 'function');
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
@@ -99,7 +98,6 @@ describe('Core.Send', function () {
 				Send.init();
 				Send.addAndRun(request);
 				setTimeout(() => {
-					console.log(navigator.sendBeacon.args[0]);
 					assert.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
 					settings.destroy('config');
@@ -127,7 +125,6 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
-				console.log(dummyXHR.open.args[0]);
 				assert.equal(typeof dummyXHR.onerror, 'function');
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
@@ -159,8 +156,8 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				console.log(dummyImage.src);
-				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+
+				assert.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%3A%7B%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22data%22%3A%7B%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.addEventListener.args[0][0], 'error');
 				assert.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
 				assert.equal(dummyImage.addEventListener.args[1][0], 'load');
@@ -187,8 +184,7 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				console.log(dummyImage.src);
-				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				assert.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%3A%7B%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22data%22%3A%7B%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.attachEvent.args[0][0], 'onerror');
 				assert.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
 				assert.equal(dummyImage.attachEvent.args[1][0], 'onload');
