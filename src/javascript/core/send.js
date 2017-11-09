@@ -38,7 +38,7 @@ function should_use_sendBeacon() {
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
-	let path;
+
 	const transport = should_use_sendBeacon() ? transports.get('sendBeacon')() :
 		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
 			transports.get('image')();
@@ -66,9 +66,7 @@ function sendRequest(request, callback) {
 	utils.log('user_callback', user_callback);
 	utils.log('PreSend', request);
 
-	path = JSON.stringify(request);
-
-	utils.log('path', path);
+	const stringifiedData = JSON.stringify(request);
 
 	transport.complete(function (error) {
 		if (utils.is(user_callback, 'function')) {
@@ -90,10 +88,16 @@ function sendRequest(request, callback) {
 			callback();
 		}
 	});
+	let url = domain;
+
+	if (request && request.data && request.data.category && request.data.action) {
+		const type = `type=${request.data.category}:${request.data.action}`;
+		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`
+	}
 
 	// Both developer and noSend flags have to be set to stop the request sending.
 	if (!(settings.get('developer') && settings.get('no_send'))) {
-		transport.send(domain, path);
+		transport.send(url, stringifiedData);
 	}
 }
 

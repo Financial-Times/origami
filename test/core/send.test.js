@@ -60,7 +60,7 @@ describe('Core.Send', function () {
 			setup.mockTransport();
 		});
 
-		it('use xhr by default', function (done) {
+		it.only('use xhr by default', function (done) {
 			Send.init();
 			navigator.sendBeacon = navigator.sendBeacon || true;
 			const xhr = window.XMLHttpRequest;
@@ -79,8 +79,10 @@ describe('Core.Send', function () {
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
 				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
+				console.log(dummyXHR.open.args[0])
 				assert.ok(dummyXHR.withCredentials);
-				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif", true));
+
+				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true));
 				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
 				assert.ok(dummyXHR.send.calledOnce);
 				window.XMLHttpRequest = xhr;
@@ -98,6 +100,7 @@ describe('Core.Send', function () {
 				Send.init();
 				Send.addAndRun(request);
 				setTimeout(() => {
+					assert.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek')
 					assert.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
 					settings.destroy('config');
@@ -130,7 +133,7 @@ describe('Core.Send', function () {
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
 				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
 				assert.ok(dummyXHR.withCredentials, 'withCredentials');
-				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif", true), 'is POST');
+				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true), 'is POST');
 				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
 				assert.ok(dummyXHR.send.calledOnce, 'calledOnce');
 				window.XMLHttpRequest = xhr;

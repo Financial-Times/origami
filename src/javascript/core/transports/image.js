@@ -5,7 +5,7 @@ module.exports = function () {
 
 	return {
 		send: function (url, data) {
-			image.src = url + '?data=' + utils.encode(data);
+			image.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'data=' + utils.encode(data);
 		},
 		complete: function (callback) {
 			if (image.addEventListener) {

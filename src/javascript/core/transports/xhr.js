@@ -3,6 +3,11 @@ module.exports = function () {
 
 	return {
 		send: function (url, data) {
+			console.log(data);
+			if (data && data.data && data.data.category && data.data.action) {
+				const type = `type=${data.data.category}:${data.data.action}`;
+				url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`
+			}
 			xhr.open('POST', url, true);
 			xhr.withCredentials = true;
 			xhr.setRequestHeader('Content-type', 'application/json');
