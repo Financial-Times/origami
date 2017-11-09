@@ -47,6 +47,16 @@
 	.topper__columnist-name {
 		color: getColor('oxford');
 	}
+	.n-myft-ui--follow {
+		margin-left: 20px;
+	}
+	.topper__opinion-genre {
+		@include oTypographyStandfirst();
+		color: getColor('oxford');
+	}
+	.n-content-tag--with-follow {
+		vertical-align: baseline;
+	}
 }
 
 .topper__headshot {

@@ -35,7 +35,8 @@
 		.topper__columnist-name,
 		.topper__headline,
 		.topper__standfirst,
-		.topper__summary {
+		.topper__summary,
+		.topper__primary-theme .n-content-tag--brand {
 			color: $text-color;
 		}
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
