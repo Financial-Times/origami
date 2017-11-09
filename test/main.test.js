@@ -11,8 +11,8 @@ describe('main', function () {
 	let root_id;
 
 	before(function () {
-		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	after(function () {

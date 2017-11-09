@@ -79,7 +79,7 @@ function merge(target, options) {
 
 		// Gets rid of missing values too
 		if (typeof copy !== 'undefined' && copy !== null) {
-			target[name] = (src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy);
+			target[name] = src === Object(src) && !is(src, 'function') ? merge(src, copy) : copy;
 		}
 	}
 	/* jshint +W089 */
@@ -141,11 +141,11 @@ function addEvent(element, event, listener) {
 function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
 	try {
-        window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-            detail: detail,
-            bubbles: true
-        }));
-    } catch (error) {}
+		window.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
+			detail: detail,
+			bubbles: true
+		}));
+	} catch (error) {}
 }
 
 /**

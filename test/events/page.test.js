@@ -10,9 +10,9 @@ const event = require("../../src/javascript/events/custom.js");
 
 describe('page', function () {
 
-    beforeEach(function () {
-        settings.destroy('page_viewed');  // Empty settings.
-    });
+	beforeEach(function () {
+		settings.destroy('page_viewed'); // Empty settings.
+	});
 
 	before(function () {
 		session.init();
@@ -21,8 +21,8 @@ describe('page', function () {
 	});
 
 	after(function () {
-		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	it('should track a page', function () {

@@ -35,7 +35,7 @@ describe('Core.Send', function () {
 
 	after(function () {
 		(new Queue('requests')).replace([]);
-		settings.destroy('config');  // Empty settings.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	it('should init first', function () {
@@ -75,6 +75,7 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
+				console.log(dummyXHR.open.args[0]);
 				assert.equal(typeof dummyXHR.onerror, 'function');
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
@@ -98,6 +99,7 @@ describe('Core.Send', function () {
 				Send.init();
 				Send.addAndRun(request);
 				setTimeout(() => {
+					console.log(navigator.sendBeacon.args[0]);
 					assert.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
 					settings.destroy('config');
@@ -125,6 +127,7 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
+				console.log(dummyXHR.open.args[0]);
 				assert.equal(typeof dummyXHR.onerror, 'function');
 				assert.equal(typeof dummyXHR.onload, 'function');
 				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
@@ -156,6 +159,7 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
+				console.log(dummyImage.src);
 				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.addEventListener.args[0][0], 'error');
 				assert.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
@@ -183,6 +187,7 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
+				console.log(dummyImage.src);
 				assert.ok(dummyImage.src, 'https://spoor-api.ft.com/px.gif?data=%7B%22system%22%…1.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 				assert.equal(dummyImage.attachEvent.args[0][0], 'onerror');
 				assert.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
@@ -223,39 +228,39 @@ describe('Core.Send', function () {
 		});
 	});
 
-    it('should cope with the huge queue bug', function (done) {
-        const server = sinon.fakeServer.create(); // Catch AJAX requests
-        let queue = new Queue('requests');
+	it('should cope with the huge queue bug', function (done) {
+		const server = sinon.fakeServer.create(); // Catch AJAX requests
+		let queue = new Queue('requests');
 
-        queue.replace([]);
+		queue.replace([]);
 
-        for (let i=0; i<201; i++) {
-            queue.add({});
-        }
+		for (let i=0; i<201; i++) {
+			queue.add({});
+		}
 
-        queue.save();
+		queue.save();
 
-        // console.log(queue.all().length);
+		// console.log(queue.all().length);
 
-        server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
+		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
-        // Run the queue
-        Send.init();
+		// Run the queue
+		Send.init();
 
-        server.respond();
+		server.respond();
 
-        // Wait for localStorage
-        setTimeout(() => {
-            // Refresh our queue as it's kept in memory
-            queue = new Queue('requests');
+		// Wait for localStorage
+		setTimeout(() => {
+			// Refresh our queue as it's kept in memory
+			queue = new Queue('requests');
 
-            // Event added for the debugging info
-            assert.equal(queue.all().length, 0);
+			// Event added for the debugging info
+			assert.equal(queue.all().length, 0);
 
-            // console.log(queue.all());
-            server.restore();
-            done();
-        }, 200);
-    });
+			// console.log(queue.all());
+			server.restore();
+			done();
+		}, 200);
+	});
 
 });

@@ -12,7 +12,7 @@ describe('Core.Queue', function () {
 	describe('init()', function () {
 		it('should require a name', function () {
 			assert.throws(function () {
-				(new Queue());
+				new Queue();
 			}, /You must specify a name for the queue/);
 		});
 	});

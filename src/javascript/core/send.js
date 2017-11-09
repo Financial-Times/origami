@@ -25,7 +25,7 @@ let queue;
  * @return {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
-	return (navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon);
+	return navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon;
 }
 
 /**
@@ -40,8 +40,8 @@ function sendRequest(request, callback) {
 	const offlineLag = new Date().getTime() - queueTime;
 	let path;
 	const transport = should_use_sendBeacon() ? transports.get('sendBeacon')() :
-										window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
-										transports.get('image')();
+		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
+			transports.get('image')();
 	const user_callback = request.callback;
 
 	const core_system = settings.get('config') && settings.get('config').system || {};
@@ -54,7 +54,7 @@ function sendRequest(request, callback) {
 	request = utils.merge({ system: system }, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
-	if (offlineLag > 1000 && offlineLag < (12 * 30 * 24 * 60 * 60 * 1000)) {
+	if (offlineLag > 1000 && offlineLag < 12 * 30 * 24 * 60 * 60 * 1000) {
 		request.time = request.time || {};
 		request.time.offset = offlineLag;
 	}
@@ -86,8 +86,8 @@ function sendRequest(request, callback) {
 				error: error.message,
 				info: { module: 'o-tracking' }
 			});
-		} else {
-			callback && callback();
+		} else if (callback) {
+			callback();
 		}
 	});
 
@@ -124,36 +124,36 @@ function run(callback) {
 		callback = function () {};
 	}
 
-    // Investigate queue lengths bug
-    // https://jira.ft.com/browse/DTP-330
-    const all_events = queue.all();
+	// Investigate queue lengths bug
+	// https://jira.ft.com/browse/DTP-330
+	const all_events = queue.all();
 
-    if (all_events.length > 200) {
-        const counts = {};
+	if (all_events.length > 200) {
+		const counts = {};
 
-        all_events.forEach(function (event) {
-            const label = [event.category, event.action].join(':');
+		all_events.forEach(function (event) {
+			const label = [event.category, event.action].join(':');
 
-            if (!counts.hasOwnProperty(label)) {
-                counts[label] = 0;
-            }
+			if (!counts.hasOwnProperty(label)) {
+				counts[label] = 0;
+			}
 
-            counts[label] += 1;
-        });
+			counts[label] += 1;
+		});
 
-        queue.replace([]);
+		queue.replace([]);
 
-        queue.add({
-            category: 'o-tracking',
-            action: 'queue-bug',
-            context: {
-                url: document.url,
-                queue_length: all_events.length,
-                counts: counts,
-                storage: queue.storage.storage._type
-            }
-        });
-    }
+		queue.add({
+			category: 'o-tracking',
+			action: 'queue-bug',
+			context: {
+				url: document.url,
+				queue_length: all_events.length,
+				counts: counts,
+				storage: queue.storage.storage._type
+			}
+		});
+	}
 
 	const next = function () {
 		run();

@@ -48,7 +48,7 @@ function track(config, callback) {
 	const session = Session.session();
 
 	// Set up the base request object with some values which should always be sent.
-	let request = {
+	const request = {
 		async: true,
 		callback: callback || function() {},
 		context: {

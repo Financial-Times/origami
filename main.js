@@ -1,5 +1,5 @@
 /*global require, module */
-'use strict';  // eslint-disable-line strict
+'use strict'; // eslint-disable-line strict
 
 const settings = require('./src/javascript/core/settings');
 const user = require('./src/javascript/core/user');
@@ -113,7 +113,7 @@ Tracking.prototype.init = function(config) {
 		return this;
 	}
 
-	const hasDeclarativeConfig = !!this._getDeclarativeConfigElement();
+	const hasDeclarativeConfig = Boolean(this._getDeclarativeConfigElement());
 
 	config = config || {};
 	if (hasDeclarativeConfig) {
