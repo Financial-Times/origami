@@ -92,7 +92,7 @@ function sendRequest(request, callback) {
 
 	if (request && request.data && request.data.category && request.data.action) {
 		const type = `type=${request.data.category}:${request.data.action}`;
-		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`
+		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`;
 	}
 
 	// Both developer and noSend flags have to be set to stop the request sending.
