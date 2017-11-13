@@ -1,5 +1,5 @@
 /*global require, describe, it, before, after, sinon */
-
+require('./setup');
 const assert = require("assert");
 const settings = require("../src/javascript/core/settings");
 const Queue = require("../src/javascript/core/queue");
@@ -11,8 +11,8 @@ describe('main', function () {
 	let root_id;
 
 	before(function () {
-		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	after(function () {

@@ -8,3 +8,4 @@ demos/local
 .DS_Store
 ws-log-*
 whitesource.config.json
+package-lock.json
