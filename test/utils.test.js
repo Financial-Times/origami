@@ -21,8 +21,8 @@ describe('Utils', function () {
 			{ value: {}, answer: 'object' },
 			{ value: function () {}, answer: 'function' }
 		].forEach(function (test) {
-				assert.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
-			});
+			assert.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
+		});
 	});
 
 	it('should provide isUndefined functionality', function () {

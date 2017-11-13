@@ -1,5 +1,5 @@
 /*global require, describe, it, before, beforeEach, after, sinon */
-
+require('../setup');
 const assert = require("assert");
 const settings = require("../../src/javascript/core/settings");
 const send = require("../../src/javascript/core/send");
@@ -8,11 +8,12 @@ const Queue = require("../../src/javascript/core/queue");
 const page = require("../../src/javascript/events/page-view.js");
 const event = require("../../src/javascript/events/custom.js");
 
+
 describe('page', function () {
 
-    beforeEach(function () {
-        settings.destroy('page_viewed');  // Empty settings.
-    });
+	beforeEach(function () {
+		settings.destroy('page_viewed'); // Empty settings.
+	});
 
 	before(function () {
 		session.init();
@@ -21,8 +22,8 @@ describe('page', function () {
 	});
 
 	after(function () {
-		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	it('should track a page', function () {
@@ -32,7 +33,6 @@ describe('page', function () {
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
-
 		assert.ok(callback.called, 'Callback not called.');
 
 		sent_data = callback.getCall(0).thisValue;
@@ -49,7 +49,6 @@ describe('page', function () {
 		/*eslint-disable*/
 		assert.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
 		/*eslint-enable*/
-
 	});
 
 	it('should assign a unique root_id for each page', function () {

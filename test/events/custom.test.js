@@ -1,5 +1,5 @@
 /*global require, describe, it, before, after, sinon */
-
+require('../setup');
 const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");
 const settings = require("../../src/javascript/core/settings");
@@ -16,8 +16,8 @@ describe('event', function () {
 	});
 
 	after(function () {
-		new Queue('requests').replace([]);  // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
+		settings.destroy('config'); // Empty settings.
 	});
 
 	it('should track an event, adds custom component_id', function () {

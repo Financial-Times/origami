@@ -34,7 +34,7 @@ const Store = function (name, config) {
 		throw undefinedName;
 	}
 
-	this.config = utils.merge({ storage: 'best', expires: (10 * 365 * 24 * 60 * 60 * 1000) }, config);
+	this.config = utils.merge({ storage: 'best', expires: 10 * 365 * 24 * 60 * 60 * 1000 }, config);
 
 	/**
 	 * Store data.
@@ -44,7 +44,7 @@ const Store = function (name, config) {
 	/**
 	 * The key/name of this store.
 	 */
-	this.storageKey = (this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_'));
+	this.storageKey = this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_');
 
 	/**
 	 * The storage method to use. Determines best storage method.
@@ -64,9 +64,15 @@ const Store = function (name, config) {
 						window.localStorage.removeItem(test_key);
 						return {
 							_type: 'localStorage',
-							load: function (name) { return window.localStorage.getItem.call(window.localStorage, name); },
-							save: function (name, value) { return window.localStorage.setItem.call(window.localStorage, name, value); },
-							remove: function (name) { return window.localStorage.removeItem.call(window.localStorage, name); }
+							load: function (name) {
+								return window.localStorage.getItem(name);
+							},
+							save: function (name, value) {
+								return window.localStorage.setItem(name, value);
+							},
+							remove: function (name) {
+								return window.localStorage.removeItem(name);
+							}
 						};
 					}
 				}
@@ -170,7 +176,7 @@ Store.prototype.read = function () {
 Store.prototype.write = function (data) {
 	// Set this.data, in-case we're on a file:// domain and can't set cookies.
 	this.data = data;
-	this.storage.save(this.storageKey, (typeof this.data === 'string' ? this.data : JSON.stringify(this.data)), this.config.expires);
+	this.storage.save(this.storageKey, typeof this.data === 'string' ? this.data : JSON.stringify(this.data), this.config.expires);
 
 	return this;
 };

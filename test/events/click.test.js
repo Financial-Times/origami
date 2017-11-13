@@ -1,5 +1,5 @@
 /*global require, describe, it, before, after, sinon, document */
-
+require('../setup');
 const assert = require("assert");
 const Queue = require("../../src/javascript/core/queue");
 const settings = require("../../src/javascript/core/settings");
@@ -27,8 +27,8 @@ describe('click', function () {
 	});
 
 	after(function () {
-		new Queue('requests').replace([]);  // Empty the queue
-		settings.destroy('config');  // Empty settings.
+		new Queue('requests').replace([]); // Empty the queue
+		settings.destroy('config'); // Empty settings.
 	});
 
 	it('should track an event for a click', function (done) {
@@ -47,7 +47,7 @@ describe('click', function () {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		let event = new MouseEvent('click', {
+		const event = new MouseEvent('click', {
 			'view': window,
 			'bubbles': true,
 			'cancelable': true
@@ -66,7 +66,7 @@ describe('click', function () {
 		}, 10);
 
 	});
-	
+
 	it('should track custom event properties and send through in the context', (done) => {
 
 		sinon.spy(core, 'track');
@@ -84,7 +84,7 @@ describe('click', function () {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		let event = new MouseEvent('click', {
+		const event = new MouseEvent('click', {
 			'view': window,
 			'bubbles': true,
 			'cancelable': true
@@ -99,7 +99,7 @@ describe('click', function () {
 			core.track.restore();
 			done();
 		}, 10);
-		
+
 	});
 
 	it('should not track an event for a securedrop click', function (done) {
@@ -119,7 +119,7 @@ describe('click', function () {
 			e.preventDefault();
 		}); //we don't want the browser to follow click in test
 
-		let event = new MouseEvent('click', {
+		const event = new MouseEvent('click', {
 			'view': window,
 			'bubbles': true,
 			'cancelable': true

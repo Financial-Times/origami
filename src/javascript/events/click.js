@@ -1,5 +1,5 @@
 /*global module, require */
-'use strict';  // eslint-disable-line strict
+'use strict'; // eslint-disable-line strict
 
 const Delegate = require('ftdomdelegate');
 const Queue = require('../core/queue');
@@ -45,7 +45,7 @@ const track = eventData => {
 
 // Utility for trimming strings
 const sanitise = property => {
-	return (typeof property === 'string') ? property.trim() : property;
+	return typeof property === 'string' ? property.trim() : property;
 };
 
 // For a given container element, get the number of elements that match the
@@ -53,7 +53,7 @@ const sanitise = property => {
 const getSiblingsAndPosition = (el, clickedEl, selector) => {
 	const siblings = Array.from(el.querySelectorAll(selector));
 	const position = siblings.findIndex(item => item === clickedEl);
-	if(position === -1) return;
+	if(position === -1) {return;}
 	return {
 		siblings: siblings.length,
 		position,
@@ -78,25 +78,29 @@ const getAllElementProperties = el => {
 
 // Get some properties of a given element.
 const getElementProperties = el => {
-	let elementProperties = getAllElementProperties(el);
+	const elementProperties = getAllElementProperties(el);
 
 	// Collect any attribute that matches given strings.
 	Array.from(el.attributes)
 		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
-		.forEach(attribute => elementProperties[attribute.name] = attribute.value);
+		.forEach(attribute => {
+			elementProperties[attribute.name] = attribute.value;
+		});
 
 	return elementProperties;
 };
 
 // Get only the custom data-trackable-context-? properties of a given element
 const getCustomTrackableProperties = el => {
-	let elementProperties = getAllElementProperties(el);
+	const elementProperties = getAllElementProperties(el);
 
 	// Collect any attribute that matches given strings.
 	Array.from(el.attributes)
 		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
-		.forEach(attribute => elementProperties[attribute.name.replace('data-trackable-context-', '')] = attribute.value);
-	
+		.forEach(attribute => {
+			elementProperties[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
+		});
+
 	return elementProperties;
 };
 
@@ -105,7 +109,7 @@ const getTrace = el => {
 	const rootEl = document;
 	const clickedEl = el;
 	const selector = clickedEl.getAttribute('data-trackable') ? `[data-trackable="${clickedEl.getAttribute('data-trackable')}"]` : clickedEl.nodeName;
-	let trace = [];
+	const trace = [];
 	while (el && el !== rootEl) {
 		let elementProperties = getElementProperties(el);
 
@@ -126,9 +130,9 @@ const getTrace = el => {
 // Get properties for the event (as opposed to properties of the clicked element)
 // Available properties include mouse x- and y co-ordinates, for example.
 const getEventProperties = event => {
-	let eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
+	const eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
 		try {
-			if (event[property]) returnObject[property] = sanitise(event[property]);
+			if (event[property]) {returnObject[property] = sanitise(event[property]);}
 		}
 		catch (e) {
 			console.log(e);
@@ -141,20 +145,20 @@ const getEventProperties = event => {
 // Controller for handling click events
 const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	//we don't want to track clicks to anonymous services like securedrop
-	if (clickElement.getAttribute("data-o-tracking-do-not-track") === "true") return;
+	if (clickElement.getAttribute("data-o-tracking-do-not-track") === "true") {return;}
 	const context = getEventProperties(clickEvent);
 	const customTrackableProperties = getCustomTrackableProperties(clickElement);
 	context.domPathTokens = getTrace(clickElement);
 	context.url = window.document.location.href || null;
-	
-	for (let prop in customTrackableProperties) {
+
+	for (const prop in customTrackableProperties) {
 		if (!context[prop]) {
 			context[prop] = customTrackableProperties[prop];
 		} else {
 			console.warn(`You can't set a custom property called ${prop}`);
 		}
 	}
-	
+
 	eventData.context = context;
 
 	// Merge the event data into the "parent" config data
@@ -181,13 +185,13 @@ const init = (category, elementsToTrack) => {
 	elementsToTrack = elementsToTrack || 'a, button, input, [role="button"]'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
 
 	// Note: `context` is the term o-tracking uses for the data that is sent to spoor
-	let eventData = {
+	const eventData = {
 		action: 'click',
 		category: category || 'o-tracking'
 	};
 
 	// Activate the click event listener
-	let delegate = new Delegate(document.body);
+	const delegate = new Delegate(document.body);
 	delegate.on('click', elementsToTrack, handleClickEvent(eventData), true);
 
 	// Track any queued events

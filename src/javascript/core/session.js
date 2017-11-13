@@ -7,7 +7,7 @@ let store;
 const defaultSessionConfig = {
 	storage: 'best',
 	name: 'session',
-	expires: (30 * 60 * 1000) // 30 minutes
+	expires: 30 * 60 * 1000 // 30 minutes
 };
 
 const utils = require('../utils');
@@ -41,7 +41,7 @@ function getSession() {
 
 	if (s) {
 		const d = (new Date()).valueOf();
-		const exp = parseInt(s.expiry);
+		const exp = parseInt(s.expiry, 10);
 
 		// If current session is active.
 		if (exp >= d) {
