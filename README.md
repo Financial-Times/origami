@@ -2,6 +2,9 @@
 
 This module provides a decoupled events-based mechanism for modules to report errors and an API for products to report client-side errors.
 
+## Important note
+o-errors has an event driven API so it can be used without tightly coupling any application to using sentry & raven (which is a fairly large js library). When using o-errors within a component, prefer to use the event driven API over its methods. This leaves the decision about whether to include the library up to the application that consumes your component.
+
 ## Requirements
 
 Error tracking requires a project to be configured with
