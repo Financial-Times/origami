@@ -90,8 +90,8 @@ function sendRequest(request, callback) {
 	});
 	let url = domain;
 
-	if (request && request.data && request.data.category && request.data.action) {
-		const type = `type=${request.data.category}:${request.data.action}`;
+	if (request && request.category && request.action) {
+		const type = `type=${request.category}:${request.action}`;
 		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`;
 	}
 
