@@ -13,7 +13,8 @@
 	"support": "https://github.com/Financial-Times/o-expander/issues",
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
-		"sass": "demos/src/demo.scss"
+		"sass": "demos/src/demo.scss",
+		"dependencies": "o-normalise"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-expander"
