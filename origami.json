@@ -24,7 +24,7 @@
         "sass": "demos/src/main.scss",
         "js": "demos/src/main.js",
         "documentClasses": "core",
-        "dependencies": "o-colors@^4.0.0"
+        "dependencies": "o-colors,o-normalise"
     },
     "demos": [
         {
