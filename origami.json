@@ -14,7 +14,7 @@
 				"circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
 		},
 		"demosDefaults": {
-				"dependencies": ["o-fonts@^3.0.0"],
+				"dependencies": ["o-fonts@^3.0.0","o-normalise@1.0.0"],
 				"sass": "demos/src/main.scss",
 				"js": "demos/src/main.js",
 				"documentClasses": "core"
