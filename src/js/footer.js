@@ -39,6 +39,7 @@ class Footer {
 		Array.prototype.forEach.call(toggleEls, toggleEl => {
 			const target = document.getElementById(toggleEl.getAttribute('aria-controls'));
 			toggleEl.setAttribute('role', 'button');
+			toggleEl.setAttribute('tabindex', '0');
 			this._toggles.push(new Toggle(toggleEl, { target }));
 		});
 	}
