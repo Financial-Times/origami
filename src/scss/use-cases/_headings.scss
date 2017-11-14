@@ -5,7 +5,7 @@
 
 /// Headline styles
 @mixin oTypographyHeadline {
-	@include oTypographyDisplay($scale: (default: 4, L: 6));
+	@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400; // Browser default a h# to bold...
