@@ -10,7 +10,7 @@
 		// sass-lint:enable no-vendor-prefixes
 
 		.o-footer__external-link,
-		.o-footer__matrix-title[aria-expanded]{
+		.o-footer__matrix-title[aria-expanded] {
 			border-color: oColorsGetColorFor('o-footer-dark', 'border');
 		}
 
