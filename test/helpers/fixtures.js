@@ -63,4 +63,4 @@ export {
 	htmlCode,
 	allInputsHtmlCode,
 	reset
- };
+};
