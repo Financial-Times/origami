@@ -2,13 +2,12 @@
   "name": "eslint-config-origami-component",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "node ./test.js"
-  },
+  "main": "config.js",
   "author": "Jake Champion",
   "license": "MIT",
   "devDependencies": {
+    "@financial-times/origami-service-makefile": "^6.0.1",
+    "mocha": "^4.0.1",
     "proclaim": "^3.4.2"
   }
 }

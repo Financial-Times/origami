@@ -1,0 +1,7 @@
+{
+	"checkPolicies": true,
+	"projectName": "eslint-config-origami-component",
+	"productName": "origami services and node modules",
+	"devDep": false,
+	"failOnError": true
+}
