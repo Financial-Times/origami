@@ -25,13 +25,10 @@
 	width: 20px;
 	height: 20px;
 	padding: 0.25em;
-	// Equivalent to `50%`, but avoids a rendering bug in old WebKit
-	border-radius: 9999px;
 	cursor: pointer;
 	font-size: 8px;
 	line-height: 1;
 	user-select: none;
-	outline: none; // Remove focus ring (focus state is set below)
 
 	// Increase hit zone of the button around it for better usability
 	&:after {
