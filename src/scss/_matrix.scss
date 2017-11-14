@@ -77,7 +77,11 @@
 	}
 
 	.o-footer__matrix-link {
-		@include oTypographyPadding($bottom: 4);
+		@include oTypographyPadding($bottom: 2, $top:2);
 		display: block;
+
+		&:first-child {
+			margin-top: -(oTypographySpacingSize($units: 2));
+		}
 	}
 }
