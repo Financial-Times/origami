@@ -25,9 +25,16 @@ function OTable(rootEl) {
 		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
 		this.tableHeaders.forEach((th, columnIndex) => {
+			th.setAttribute('tabindex', "0");
+
 			const listener = this._sortByColumn(columnIndex);
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
+			th.addEventListener('keydown', (event) => {
+				if (event.code === "Space" || event.code === "Enter") {
+					listener(event);
+				}
+			});
 		});
 
 		// "o-table--responsive-flat" configuration only works when there is a
