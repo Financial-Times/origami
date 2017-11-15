@@ -9,8 +9,8 @@
 		-moz-osx-font-smoothing: grayscale;
 		// sass-lint:enable no-vendor-prefixes
 
-		.o-footer__matrix-title:before,
-		.o-footer__matrix-title:after {
+		.o-footer__external-link,
+		.o-footer__matrix-title[aria-expanded] {
 			border-color: oColorsGetColorFor('o-footer-dark', 'border');
 		}
 
@@ -51,8 +51,8 @@
 			color: oColorsGetColorFor('o-footer-light-title', 'text');
 		}
 
-		.o-footer__matrix-title:before,
-		.o-footer__matrix-title:after {
+		.o-footer__matrix-title,
+		.o-footer__matrix-title[aria-expanded] {
 			border-color: oColorsGetColorFor('o-footer-light', 'border');
 		}
 

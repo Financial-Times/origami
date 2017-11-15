@@ -37,7 +37,7 @@
 			$line-size: $o-footer-spacing-unit * 2;
 
 			position: relative;
-			border-top: 1px dotted;
+			border-top: 1px solid;
 			line-height: $line-size;
 			cursor: pointer;
 
@@ -77,7 +77,11 @@
 	}
 
 	.o-footer__matrix-link {
-		@include oTypographyPadding($bottom: 4);
+		@include oTypographyPadding($bottom: 2, $top: 2);
 		display: block;
+
+		&:first-child {
+			margin-top: -(oTypographySpacingSize($units: 2));
+		}
 	}
 }

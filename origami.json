@@ -20,7 +20,7 @@
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
-		"dependencies": "o-fonts"
+		"dependencies": "o-fonts,o-normalise"
 	},
 	"demos": [
 		{
