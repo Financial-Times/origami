@@ -7,7 +7,7 @@
   "dependencies": {
     "o-colors": "^4.0.0",
     "o-grid": "^4.0.0",
-    "o-normalise": "^1.2.0",
+    "o-normalise": "^1.5.1",
     "o-typography": "^5.0.1"
   }
 }

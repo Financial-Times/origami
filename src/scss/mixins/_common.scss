@@ -42,7 +42,7 @@
 /// Common field styles: focused state only
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
-	box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-focus-ring, border);
+	box-shadow: 0 0 0 2px $o-normalise-focus-color;
 }
 
 /// Common field styles: disabled state
