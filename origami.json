@@ -14,7 +14,7 @@
 			"sass": "demos/src/demo.scss",
 			"js": "demos/src/demo.js",
 			"documentClasses": "",
-			"dependencies": "o-date@^2.2.1"
+			"dependencies": "o-date@^2.2.1,o-normalise@^1.0.0"
 		},
 		"demos": [
 			{
@@ -25,16 +25,6 @@
 					"article-tag": "World",
 					"article-heading": "Japan sells negative yield 10-year bonds",
 					"article-timestamp": "2016-02-29T12:35:48Z"
-				}
-			},
-			{
-				"name": "small-live",
-				"description": "Small live teaser",
-				"template": "demos/src/demo.mustache",
-				"data": {
-					"article-heading": "Japan sells negative yield 10-year bonds",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"is-live": true
 				}
 			},
 			{
@@ -157,18 +147,6 @@
 				}
 			},
 			{
-				"name": "small-image-live",
-				"description": "Small live teaser with image",
-				"template": "demos/src/demo.mustache",
-				"data": {
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-heading": "Japan sells negative yield 10-year bonds",
-					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
-					"is-live": true
-				}
-			},
-			{
 				"name": "small-image-right",
 				"description": "Small teaser with image positioned to the right",
 				"template": "demos/src/demo.mustache",
@@ -182,20 +160,6 @@
 				}
 			},
 			{
-				"name": "small-headshot",
-				"description": "Small teaser with headshot",
-				"template": "demos/src/demo.mustache",
-				"data": {
-					"article-modifier": "has-headshot",
-					"article-tag-prefix": "The Long View",
-					"article-tag": "John Authers",
-					"article-headshot": "https://www.ft.com/__origami/service/image/v2/images/raw/fthead:john-authers?source=next&width=150&fit=scale-down&compression=best&tint=054593,d6d5d3",
-					"article-timestamp": "2017-08-30T11:05:48Z",
-					"article-heading": "There are better ways to boost an economy than war",
-					"article-standfirst": "The longer a conflict lasts, the heavier the toll on GDP growth"
-				}
-			},
-			{
 				"name": "small-image-stacked",
 				"description": "Small teaser with stacked image",
 				"template": "demos/src/demo.mustache",
@@ -206,19 +170,6 @@
 					"article-timestamp": "2016-02-29T12:35:48Z",
 					"article-heading": "Japan sells negative yield 10-year bonds",
 					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
-				}
-			},
-			{
-				"name": "small-image-stacked-live",
-				"description": "Small live teaser with stacked image",
-				"template": "demos/src/demo.mustache",
-				"data": {
-					"article-modifier": "stacked",
-					"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-heading": "Japan sells negative yield 10-year bonds",
-					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
-					"is-live": true
 				}
 			},
 			{
@@ -284,17 +235,6 @@
 					"article-timestamp": "2016-02-29T12:35:48Z",
 					"article-heading": "Japan sells negative yield 10-year bonds",
 					"article-standfirst": "Bondholders pay government for the privilege of lending it money"
-				}
-			},
-			{
-				"name": "large-live",
-				"description": "Large live teaser default theme",
-				"template": "demos/src/demo-large.mustache",
-				"data": {
-					"article-timestamp": "2016-02-29T12:35:48Z",
-					"article-heading": "Japan sells negative yield 10-year bonds",
-					"article-standfirst": "Bondholders pay government for the privilege of lending it money",
-					"is-live": true
 				}
 			},
 			{
