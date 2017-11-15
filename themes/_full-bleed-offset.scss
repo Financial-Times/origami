@@ -75,6 +75,7 @@
 
 	@supports (object-fit: cover) {
 		.topper__visual {
+			height: auto;
 			max-height: 480px;
 			@include oGridRespondTo(L) {
 				height: 600px;

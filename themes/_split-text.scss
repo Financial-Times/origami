@@ -47,15 +47,25 @@
 			width: 50%;
 			float: right;
 			height: 100%;
+			position: relative;
+		}
+
+		.topper__image {
+			position: absolute;
+			@include oGridRespondTo($until: M) {
+				max-height: 480px;
+			}
 		}
 	}
 
 	@supports (object-fit: cover) {
+
 		.topper__visual {
-			max-height: 480px;
+			@include oGridRespondTo(M) {
+				height: 480px;
+			}
 			@include oGridRespondTo(L) {
 				height: 600px;
-				max-height: 600px;
 			}
 		}
 	}
