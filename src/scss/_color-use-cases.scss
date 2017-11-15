@@ -5,3 +5,5 @@
 @include oColorsSetUseCase(o-typography-caption, text, 'black-80');
 @include oColorsSetUseCase(o-typography-list-prefix, text, 'claret');
 @include oColorsSetUseCase(o-typography-blockquote, border, 'claret');
+@include oColorsSetUseCase(o-typography-author, text, 'black-80');
+@include oColorsSetUseCase(o-typography-author-hover, text, 'claret');
