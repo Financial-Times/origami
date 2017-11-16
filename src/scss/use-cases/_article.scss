@@ -7,7 +7,7 @@
 
 /// Style for timestamps
 @mixin oTypographyTimestamp {
-  @include oTypographySans($scale: -1);
+  @include oTypographySans($scale: 0);
   @include oColorsFor(o-typography-timestamp);
   @include oTypographyMargin($bottom: 4);
   display: inline-block;
@@ -28,6 +28,7 @@
 @mixin oTypographyTag {
 	@include oColorsFor(tag-link, text);
 	text-decoration: none;
+	border: 0;
 	display: inline-block;
 
 	&:hover {
@@ -38,6 +39,10 @@
 		color: inherit;
 		cursor: pointer;
 		text-decoration: none;
+		border: 0;
+		&:hover {
+			color: inherit;
+		}
 	}
 
 	span {
@@ -48,13 +53,17 @@
 /// Article author styles - inherits from oTypographyTag mixin
 @mixin oTypographyAuthor {
 	@include oTypographyTag;
-	@include oTypographySansBold($scale: -1);
+	@include oTypographySansBold($scale: 0);
+	@include oColorsFor('o-typography-author', text);
+	&:hover {
+		@include oColorsFor('o-typography-author-hover', text);
+	}
 }
 
 /// Article Topic styles - inherits from oTypographyTag mixin
 @mixin oTypographyTopic {
 	@include oTypographyTag;
-	@include oTypographySansBold($scale: 1);
+	@include oTypographySansBold($scale: 0);
 }
 
 /// Style for <footer> tags
