@@ -33,6 +33,29 @@
 	> ul > li {
 		margin: oTypographySpacingSize(2) 0;
 	}
+	&--body {
+		background-color: getColor('black-5');
+		padding: 5px 20px;
+
+		.topper__summary__label {
+			@include oTypographySansBold(0);
+			margin: 5px 0 0;
+		}
+
+		ul {
+			@include oTypographyList;
+			@include oTypographyListUnordered();
+			padding-top: 4px;
+			margin: 0px 0px 4px;
+		}
+	}
+}
+
+.article-summary-feedback {
+	margin-bottom: 10px;
+	.feedback__invitation {
+		margin-top: 5px;
+	}
 }
 
 //IE9 support
