@@ -16,3 +16,7 @@ body {
 .demo-slim-collection {
 	width: 33%;
 }
+
+.demo-assassination {
+	@include oTeaserCollectionAssassination;
+}

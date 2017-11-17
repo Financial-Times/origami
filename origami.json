@@ -13,7 +13,7 @@
 		"demosDefaults": {
 			"sass": "demos/src/demo.scss",
 			"documentClasses": "",
-			"dependencies": "o-date@^2.2.1,o-teaser@^2.0.0"
+			"dependencies": "o-date@^2.2.1,o-teaser@^2.0.0,o-normalise@^1.0.0"
 		},
 		"demos": [
 			{

@@ -56,9 +56,10 @@
 	color: inherit;
 	text-decoration: none;
 	border: 0;
+	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		color: #777777;
+		@include oColorsFor('o-teaser-collection-heading', text, 55);
 	}
 
 	&:after {
