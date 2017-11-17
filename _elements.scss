@@ -37,7 +37,7 @@
 		background-color: getColor('black-5');
 		padding: 5px 20px;
 
-		.topper__summary__label {
+		h2 {
 			@include oTypographySansBold(0);
 			margin: 5px 0 0;
 		}
@@ -47,6 +47,11 @@
 			@include oTypographyListUnordered();
 			padding-top: 4px;
 			margin: 0px 0px 4px;
+
+			li {
+				@include oTypographySans(1);
+				@include oTypographyMargin(2, 0);
+			}
 		}
 	}
 }
