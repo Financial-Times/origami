@@ -43,15 +43,19 @@
 }
 
 .topper--opinion {
-	.topper__tags,
+	.topper__tags .n-content-tag,
 	.topper__columnist-name {
 		color: getColor('oxford');
+		&:hover {
+			color: getColor('black-80');
+		}
 	}
 	.n-myft-ui--follow {
 		margin-left: 20px;
 	}
 	.topper__opinion-genre {
-		@include oTypographyStandfirst();
+		@include oTypographySans(2);
+		font-weight: 200;
 		color: getColor('oxford');
 	}
 	.n-content-tag--with-follow {

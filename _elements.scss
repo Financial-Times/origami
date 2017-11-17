@@ -90,10 +90,6 @@
 	padding-bottom: 5px;
 	@include oTypographySize($scale: 0, $line-height: 28px);
 
-	.n-content-tag:hover {
-		border-bottom-color: inherit;
-	}
-
 	.o-tooltip {
 		color: oColorsGetPaletteColor('black');
 		width: 275px;

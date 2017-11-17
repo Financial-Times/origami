@@ -13,15 +13,17 @@
 @mixin setColors($bg-color) {
 	[data-textbox-background~='#{$bg-color}'] {
 		$text-color: black;
+		$hover-color: lighten($text-color, 40%);
 		$contrast: lightness(getColor($bg-color));
 		@if $contrast <= 50% {
 			$text-color: white;
+			$hover-color: darken($text-color, 20%);
 			.topper__standfirst a {
 				color: $text-color;
 				border-bottom-color: $text-color;
 				&:hover {
-					color: darken($text-color, 20%);
-					border-bottom-color: darken($text-color, 20%);
+					color: $hover-color;
+					border-bottom-color: $hover-color;
 				}
 			}
 		}
@@ -35,14 +37,24 @@
 		.topper__columnist-name,
 		.topper__headline,
 		.topper__standfirst,
-		.topper__summary,
-		.topper__primary-theme .n-content-tag--brand {
+		.topper__summary {
 			color: $text-color;
 		}
+
+		.topper__tags .n-content-tag {
+			color: $text-color;
+			&:hover {
+				color: oColorsMix($text-color, $bg-color, 73);
+			}
+		}
+
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
-			.topper__tags,
+			.topper__tags .n-content-tag:not(.n-content-tag--brand),
 			.topper__columnist-name {
-				color: getColor('claret');
+				@include oColorsFor(tag-link, text);
+				&:hover {
+					@include oColorsFor(tag-link-hover, text);
+				}
 			}
 		}
 	}
