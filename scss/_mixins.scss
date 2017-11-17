@@ -184,7 +184,6 @@
 	box-sizing: border-box;
 	vertical-align: middle;
 	margin: 0;
-	outline: 0;
 	border-style: solid;
 	text-align: center;
 	text-decoration: none;
@@ -217,17 +216,4 @@
 		cursor: default;
 	}
 
-	&:focus {
-		outline-color: oColorsGetPaletteColor('teal-100');
-		outline-style: solid;
-		outline-width: 2px;
-	}
-
-	// Remove extra padding in Firefox
-	// sass-lint:disable no-vendor-prefixes
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
-	// sass-lint:enable no-vendor-prefixes
 }
