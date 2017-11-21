@@ -313,7 +313,7 @@ describe('Destroying an oTable instance', () => {
 
 		const columnHead = document.querySelector('th');
 		proclaim.isTrue(addEventListenerSpy.calledOn(columnHead));
-		proclaim.isTrue(addEventListenerSpy.calledOnce);
+		proclaim.isTrue(addEventListenerSpy.calledTwice);
 
 		const columnHeadEventAndHandler = addEventListenerSpy.args[0];
 
@@ -324,7 +324,7 @@ describe('Destroying an oTable instance', () => {
 		testOTable.destroy();
 
 		proclaim.isTrue(removeEventListenerSpy.calledOn(columnHead));
-		proclaim.isTrue(removeEventListenerSpy.calledOnce);
+		proclaim.isTrue(removeEventListenerSpy.calledTwice);
 
 		proclaim.isTrue(removeEventListenerSpy.calledWith(...columnHeadEventAndHandler));
 
