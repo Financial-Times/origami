@@ -61,7 +61,7 @@ function declarativeCode () {
 			data-o-tooltip-show-on-hover="true">
 				Tooltip content
 		</div>
-		
+
 		<div class='tooltip-target' id="demo-tooltip-target-5" style='position:fixed'>
 				Thing to point the tooltip at.
 		</div>
@@ -72,7 +72,7 @@ function declarativeCode () {
 			data-o-tooltip-show-on-hover="true">
 				Tooltip content
 		</div>
-		 
+
 		<!-- note lack of whitespace is there to make sure there is no next sibling (otherwise text node :-O) -->
 		<div id="demo-tooltip-insertion-test-1"><div class='tooltip-target' id="demo-tooltip-insertion-test-1-target">Thing to point the tooltip at.</div></div>
 
@@ -99,4 +99,4 @@ export {
 	declarativeCode,
 	imperativeCode,
 	reset
- };
+};

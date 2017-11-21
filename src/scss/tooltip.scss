@@ -194,10 +194,4 @@
 	padding: 0;
 	margin: 5px 5px 15px 15px;
 	border: 0;
-
-	&:focus {
-		outline-color: oColorsGetPaletteColor('teal-100');
-		outline-style: solid;
-		outline-width: 2px;
-	}
 }
