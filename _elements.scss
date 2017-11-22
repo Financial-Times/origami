@@ -35,7 +35,6 @@
 	}
 	&--body {
 		background-color: getColor('black-5');
-		padding: 5px 20px;
 
 		h2 {
 			@include oTypographySansBold(0);
@@ -45,9 +44,12 @@
 		ul {
 			@include oTypographyList;
 			@include oTypographyListUnordered();
-			padding-top: 4px;
 			margin: 0px 0px 4px;
+			padding: 8px 12px;
 
+			li:first-child {
+				margin-top: 0px;
+			}
 			li {
 				@include oTypographySans(1);
 				@include oTypographyMargin(2, 0);
