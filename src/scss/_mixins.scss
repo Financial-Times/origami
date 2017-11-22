@@ -21,9 +21,7 @@
 	@if ($o-ft-affiliate-ribbon-use-local-assets) {
 		$url: '/src/img/service-from-ft.svg';
 	} @else {
-		$oAssetsUrl: oAssetsResolve("/src/img/service-from-ft.svg", o-ft-affiliate-ribbon);
-		$base-url: "#{$o-ft-affiliate-ribbon-image-base-url}/#{$o-ft-affiliate-ribbon-image-service-version}/images/raw/";
-		$url: $base-url + $oAssetsUrl;
+		$url: "https://www.ft.com/__origami/service/build/v2/files/o-ft-affiliate-ribbon/src/img/service-from-ft.svg";
 	}
 
 	// sass-lint:disable no-duplicate-properties
