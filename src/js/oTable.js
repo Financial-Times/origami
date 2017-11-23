@@ -25,9 +25,25 @@ function OTable(rootEl) {
 		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
 		this.tableHeaders.forEach((th, columnIndex) => {
+			th.setAttribute('tabindex', "0");
+
 			const listener = this._sortByColumn(columnIndex);
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
+			th.addEventListener('keydown', (event) => {
+				const ENTER = 13;
+				const SPACE = 32;
+				if ('code' in event) {
+					// event.code is not fully supported in the browsers we care about but
+					// use it if it exists
+					if (event.code === "Space" || event.code === "Enter") {
+						listener(event);
+					}
+				} else if (event.keyCode === ENTER || event.keyCode === SPACE) {
+					// event.keyCode has been deprecated but there is no alternative
+					listener(event);
+				}
+			});
 		});
 
 		// "o-table--responsive-flat" configuration only works when there is a
@@ -112,6 +128,7 @@ OTable.prototype.removeEventListeners = function () {
 
 	tableHeaders.forEach((th, columnIndex) => {
 		th.removeEventListener('click', this.listeners[columnIndex]);
+		th.removeEventListener('keydown', this.listeners[columnIndex]);
 	});
 };
 
