@@ -10,11 +10,11 @@
 		},
 		{
 			"name": "arrow-left",
-			"text": "Go forward"
+			"text": "Go back"
 		},
 		{
 			"name": "arrow-right",
-			"text": "Go back"
+			"text": "Go forward"
 		},
 		{
 			"name": "upload",
