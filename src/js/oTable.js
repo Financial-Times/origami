@@ -31,7 +31,16 @@ function OTable(rootEl) {
 			this.listeners.push(listener);
 			th.addEventListener('click', listener);
 			th.addEventListener('keydown', (event) => {
-				if (event.code === "Space" || event.code === "Enter") {
+				const ENTER = 13;
+				const SPACE = 32;
+				if ('code' in event) {
+					// event.code is not fully supported in the browsers we care about but
+					// use it if it exists
+					if (event.code === "Space" || event.code === "Enter") {
+						listener(event);
+					}
+				} else if (event.keyCode === ENTER || event.keyCode === SPACE) {
+					// event.keyCode has been deprecated but there is no alternative
 					listener(event);
 				}
 			});
@@ -119,6 +128,7 @@ OTable.prototype.removeEventListeners = function () {
 
 	tableHeaders.forEach((th, columnIndex) => {
 		th.removeEventListener('click', this.listeners[columnIndex]);
+		th.removeEventListener('keydown', this.listeners[columnIndex]);
 	});
 };
 
