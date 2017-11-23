@@ -77,31 +77,41 @@ const getAllElementProperties = el => {
 };
 
 // Get some properties of a given element.
-const getDomPathProps = elementProperties => {
-	const elementProperties = getAllElementProperties(el);
+const getDomPathProps = (attrs, props) => {
 
 	// Collect any attribute that matches given strings.
-	Array.from(el.attributes)
+	attrs
 		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
 		.forEach(attribute => {
-			elementProperties[attribute.name] = attribute.value;
+			props[attribute.name] = attribute.value;
 		});
 
-	return elementProperties;
+	return props;
 };
 
 // Get only the custom data-trackable-context-? properties of a given element
-const getContextProps = elementProperties => {
-	const elementProperties = getAllElementProperties(el);
+const getContextProps = (attrs, props, isClickedEl) => {
+
+
+	const customProps = {};
+
+	// for the clicked element collect properties like className, nodeName
+	if (isClickedEl) {
+		elementPropertiesToCollect.forEach(name => {
+			if (typeof props[name] !== 'undefined') {
+				customProps[name] = props[name];
+			}
+		});
+	}
 
 	// Collect any attribute that matches given strings.
-	Array.from(el.attributes)
+	attrs
 		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
 		.forEach(attribute => {
-			elementProperties[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
+			customProps[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
 		});
 
-	return elementProperties;
+	return customProps;
 };
 
 const assignIfUndefined = (subject, target) => {
@@ -112,8 +122,7 @@ const assignIfUndefined = (subject, target) => {
 			console.warn(`You can't set a custom property called ${prop}`);
 		}
 	}
-
-}
+};
 
 // Trace the clicked element and all of its parents, collecting properties as we go
 const getTrace = el => {
@@ -124,7 +133,8 @@ const getTrace = el => {
 	const customContext = {};
 	while (el && el !== rootEl) {
 		const props = getAllElementProperties(el);
-		let domPathProps = getDomPathProps(props);
+		const attrs = Array.from(el.attributes);
+		let domPathProps = getDomPathProps(attrs, props);
 
 		// If the element happens to have a data-trackable attribute, get the siblings
 		// and position of the clicked element (relative to the current element).
@@ -137,9 +147,9 @@ const getTrace = el => {
 
 		trace.push(domPathProps);
 
-		const contextProps = getContextProps(props);
+		const contextProps = getContextProps(attrs, props, el === clickedEl);
 
-		assignIfUndefined(contextProps, customContext)
+		assignIfUndefined(contextProps, customContext);
 
 		el = el.parentNode;
 	}
@@ -166,7 +176,6 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	//we don't want to track clicks to anonymous services like securedrop
 	if (clickElement.getAttribute("data-o-tracking-do-not-track") === "true") {return;}
 	const context = getEventProperties(clickEvent);
-	const customTrackableProperties = getCustomTrackableProperties(clickElement);
 	const { trace, customContext} = getTrace(clickElement);
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
