@@ -29,6 +29,10 @@
 			width: 263px;
 			height: 13px;
 		}
+
+		&__text {
+			@include oColorsFor('ribbon-text', 'text');
+		}
 	}
 
 }
