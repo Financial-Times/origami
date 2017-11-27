@@ -11,6 +11,13 @@
 	}
 }
 
+.topper--centered {
+	@include articleGridCentered();
+	.topper__read-next {
+		display: none;
+	}
+}
+
 .topper--basic {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
