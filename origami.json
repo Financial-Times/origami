@@ -5,6 +5,10 @@
 	"keywords": "colours, themes, schemes, pink, salmon, background, palette",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-colors/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
