@@ -10,7 +10,7 @@
 	}
 
 	.o-teaser__content:after {
-		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32);
+		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32, $iconset-version: 1);
 		content: '';
 		position: absolute;
 		top: 3px;
