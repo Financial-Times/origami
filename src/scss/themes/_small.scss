@@ -7,7 +7,7 @@
 	}
 }
 
-@mixin oBannerThemeSmallOuter() {
+@mixin oBannerThemeSmallOuter {
 	width: auto;
 	max-width: map-get($o-grid-layouts, XL);
 	margin: 0 auto;

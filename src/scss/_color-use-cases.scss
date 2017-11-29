@@ -8,6 +8,17 @@
 @include oColorsSetUseCase(o-banner-close, text, 'white');
 @include oColorsSetUseCase(o-banner-heading-rule, background, 'white');
 
+@include oColorsSetUseCase(o-banner-marketing, background, 'white');
+@include oColorsSetUseCase(o-banner-marketing, text, 'black');
+@include oColorsSetUseCase(o-banner-marketing-button, background, 'white');
+@include oColorsSetUseCase(o-banner-marketing-button, text, 'black');
+@include oColorsSetUseCase(o-banner-marketing-button-active, text, 'white');
+@include oColorsSetUseCase(o-banner-marketing-link, text, 'black');
+@include oColorsSetUseCase(o-banner-marketing-close, text, 'black');
+@include oColorsSetUseCase(o-banner-marketing-heading-rule, background, 'teal-80');
+
+// @deprecated The following colour use-cases have been deprecated, and
+// will be removed in the next major version of o-banner
 @include oColorsSetUseCase(o-banner-marketing-secondary, background, 'white');
 @include oColorsSetUseCase(o-banner-marketing-secondary, text, 'black');
 @include oColorsSetUseCase(o-banner-marketing-secondary-button, background, 'white');
@@ -15,8 +26,7 @@
 @include oColorsSetUseCase(o-banner-marketing-secondary-button-active, text, 'white');
 @include oColorsSetUseCase(o-banner-marketing-secondary-link, text, 'black');
 @include oColorsSetUseCase(o-banner-marketing-secondary-close, text, 'black');
-@include oColorsSetUseCase(o-banner-marketing-secondary-heading-rule, background, 'teal-90');
-
+@include oColorsSetUseCase(o-banner-marketing-secondary-heading-rule, background, 'teal-80');
 @include oColorsSetUseCase(o-banner-marketing-primary, background, 'teal-90');
 @include oColorsSetUseCase(o-banner-marketing-primary, text, 'black');
 @include oColorsSetUseCase(o-banner-marketing-primary-button, background, 'teal-90');
@@ -25,3 +35,4 @@
 @include oColorsSetUseCase(o-banner-marketing-primary-link, text, 'black');
 @include oColorsSetUseCase(o-banner-marketing-primary-close, text, 'black');
 @include oColorsSetUseCase(o-banner-marketing-primary-heading-rule, background, 'black');
+// @deprecated

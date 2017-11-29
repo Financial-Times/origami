@@ -141,7 +141,7 @@ o-tooltip includes mixins that you can use if you'd rather not have origami clas
 The `$themes` parameter can be either `all` or a list of [themes](#themes) to include:
 
 ```scss
-@include oBanner($themes: ('small', 'marketing-secondary'));
+@include oBanner($themes: ('small', 'marketing'));
 ```
 
 ### Themes
@@ -149,13 +149,12 @@ The `$themes` parameter can be either `all` or a list of [themes](#themes) to in
 o-banner is themeable, and has the following built-in themes, which can be used in combination with eachother:
 
   - `small`: Display the banner in the bottom left of the screen at a smaller size, rather than full width
-  - `marketing-secondary`: Use the secondary marketing colours for the banner
-  - `marketing-primary`: Use the primary marketing colours for the banner
+  - `marketing`: Use the marketing colours for the banner
 
 In the markup, these can be applied as classes alongside the `o-banner class`. They are exposed as modifiers:
 
 ```html
-<div class="o-banner o-banner--small o-banner--marketing-secondary">
+<div class="o-banner o-banner--small o-banner--marketing">
     ...
 </div>
 ```
@@ -164,7 +163,7 @@ In the JavaScript, use the `theme` [option](#options) and pass in the unprefixed
 
 ```js
 const myBanner = new oBanner({
-    theme: ['small', 'marketing-secondary']
+    theme: ['small', 'marketing']
 });
 ```
 

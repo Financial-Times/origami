@@ -1,18 +1,20 @@
+// @deprecated This theme has been deprecated, and will be removed in the
+// next major version of o-banner
 
-@mixin oBannerThemeMarketingPrimaryOuter() {
+@mixin oBannerThemeMarketingPrimaryOuter {
 	@include oColorsFor(o-banner-marketing-primary, text background);
 }
 
-@mixin oBannerThemeMarketingPrimarySmallOuter() {
+@mixin oBannerThemeMarketingPrimarySmallOuter {
 	@include oColorsFor(o-banner-marketing-primary, text);
 	background-color: transparent;
 }
 
-@mixin oBannerThemeMarketingPrimarySmallInner() {
+@mixin oBannerThemeMarketingPrimarySmallInner {
 	@include oColorsFor(o-banner-marketing-primary, background);
 }
 
-@mixin oBannerThemePrimaryHeading {
+@mixin oBannerThemeMarketingPrimaryHeading {
 	&:after {
 		border-color: oColorsGetColorFor(o-banner-marketing-primary-heading-rule, background);
 	}
@@ -43,12 +45,13 @@
 }
 
 @mixin oBannerThemeMarketingPrimary($class: 'o-banner') {
+	@warn "The marketing-primary theme has been deprecated and will be removed in the next major release. Please use the marketing theme instead";
 	.#{$class}--marketing-primary {
 		.#{$class}__outer {
 			@include oBannerThemeMarketingPrimaryOuter;
 		}
 		.#{$class}__heading {
-			@include oBannerThemePrimaryHeading;
+			@include oBannerThemeMarketingPrimaryHeading;
 		}
 		.#{$class}__button {
 			@include oBannerThemeMarketingPrimaryButton;

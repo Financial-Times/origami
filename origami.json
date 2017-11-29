@@ -32,14 +32,9 @@
 			"description": "Small banner theme"
 		},
 		{
-			"name": "marketing-secondary",
-			"template": "demos/src/marketing-secondary.mustache",
-			"description": "Secondary marketing banner theme"
-		},
-		{
-			"name": "marketing-primary",
-			"template": "demos/src/marketing-primary.mustache",
-			"description": "Primary marketing banner theme"
+			"name": "marketing",
+			"template": "demos/src/marketing.mustache",
+			"description": "Marketing banner theme"
 		},
 		{
 			"name": "imperative",

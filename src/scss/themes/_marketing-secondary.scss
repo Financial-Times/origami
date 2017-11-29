@@ -1,54 +1,42 @@
+// @deprecated This theme has been deprecated, and will be removed in the
+// next major version of o-banner
 
-@mixin oBannerThemeMarketingSecondaryOuter() {
-	@include oColorsFor(o-banner-marketing-secondary, text background);
+@mixin oBannerThemeMarketingSecondaryOuter {
+	@include oBannerThemeMarketingOuter;
 }
 
-@mixin oBannerThemeMarketingSecondarySmallOuter() {
-	@include oColorsFor(o-banner-marketing-secondary, text);
-	background-color: transparent;
+@mixin oBannerThemeMarketingSecondarySmallOuter {
+	@include oBannerThemeMarketingSmallOuter;
 }
 
-@mixin oBannerThemeMarketingSecondarySmallInner() {
-	@include oColorsFor(o-banner-marketing-secondary, background);
+@mixin oBannerThemeMarketingSecondarySmallInner {
+	@include oBannerThemeMarketingSmallInner;
 }
 
-@mixin oBannerThemeSecondaryHeading {
-	&:after {
-		border-color: oColorsGetColorFor(o-banner-marketing-secondary-heading-rule, background);
-	}
+@mixin oBannerThemeMarketingSecondaryHeading {
+	@include oBannerThemeMarketingHeading;
 }
 
 @mixin oBannerThemeMarketingSecondaryButton {
-	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-secondary-button, background), oColorsGetUseCase(o-banner-marketing-secondary-button, text), primary);
-	// This is a hack around the fact that custom buttons do not
-	// support buttons with three colours. TODO: add this to o-buttons
-	// https://github.com/Financial-Times/o-buttons/issues/128
-	&,
-	&:not([disabled]):active {
-		@include oColorsFor(o-banner-marketing-secondary-button-active, text);
-	}
+	@include oBannerThemeMarketingButton;
 }
 
 @mixin oBannerThemeMarketingSecondaryLink {
-	@include oTypographyLinkCustom(
-		$baseColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
-		$hoverColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
-		$outlineColor: oColorsGetUseCase(o-banner-marketing-secondary-link, text),
-		$backgroundColor: oColorsGetUseCase(o-banner-marketing-secondary, background)
-	);
+	@include oBannerThemeMarketingLink;
 }
 
 @mixin oBannerThemeMarketingSecondaryCloseButton {
-	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-secondary-close, text), $_o-banner-close-button-size);
+	@include oBannerThemeMarketingCloseButton;
 }
 
 @mixin oBannerThemeMarketingSecondary($class: 'o-banner') {
+	@warn "The marketing-secondary theme has been deprecated and will be removed in the next major release. Please use the marketing theme instead";
 	.#{$class}--marketing-secondary {
 		.#{$class}__outer {
 			@include oBannerThemeMarketingSecondaryOuter;
 		}
 		.#{$class}__heading {
-			@include oBannerThemeSecondaryHeading;
+			@include oBannerThemeMarketingSecondaryHeading;
 		}
 		.#{$class}__button {
 			@include oBannerThemeMarketingSecondaryButton;

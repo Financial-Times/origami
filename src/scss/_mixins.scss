@@ -1,9 +1,16 @@
 
 @mixin _oBannerGetThemeMixin($theme, $class) {
-	@if $theme == 'marketing-secondary' {
+	@if $theme == 'marketing' {
+		@include oBannerThemeMarketing($class);
+
+	// @deprecated The following themes have been deprecated, and will be
+	// removed in the next major version of o-banner
+	} @else if $theme == 'marketing-secondary' {
 		@include oBannerThemeMarketingSecondary($class);
 	} @else if $theme == 'marketing-primary' {
 		@include oBannerThemeMarketingPrimary($class);
+	// @deprecated
+
 	} @else if $theme == 'small' {
 		@include oBannerThemeSmall($class);
 	}

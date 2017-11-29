@@ -1,0 +1,73 @@
+
+@mixin oBannerThemeMarketingOuter() {
+	@include oColorsFor(o-banner-marketing, text background);
+}
+
+@mixin oBannerThemeMarketingSmallOuter() {
+	@include oColorsFor(o-banner-marketing, text);
+	background-color: transparent;
+}
+
+@mixin oBannerThemeMarketingSmallInner() {
+	@include oColorsFor(o-banner-marketing, background);
+}
+
+@mixin oBannerThemeMarketingHeading {
+	&:after {
+		border-color: oColorsGetColorFor(o-banner-marketing-heading-rule, background);
+	}
+}
+
+@mixin oBannerThemeMarketingButton {
+	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-marketing-button, background), oColorsGetUseCase(o-banner-marketing-button, text), primary);
+	// This is a hack around the fact that custom buttons do not
+	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
+	&,
+	&:not([disabled]):active {
+		@include oColorsFor(o-banner-marketing-button-active, text);
+	}
+}
+
+@mixin oBannerThemeMarketingLink {
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-marketing-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-marketing-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-marketing-link, text),
+		$backgroundColor: oColorsGetUseCase(o-banner-marketing, background)
+	);
+}
+
+@mixin oBannerThemeMarketingCloseButton {
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-close, text), $_o-banner-close-button-size);
+}
+
+@mixin oBannerThemeMarketing($class: 'o-banner') {
+	.#{$class}--marketing {
+		.#{$class}__outer {
+			@include oBannerThemeMarketingOuter;
+		}
+		.#{$class}__heading {
+			@include oBannerThemeMarketingHeading;
+		}
+		.#{$class}__button {
+			@include oBannerThemeMarketingButton;
+		}
+		.#{$class}__link {
+			@include oBannerThemeMarketingLink;
+		}
+		.#{$class}__close {
+			@include oBannerThemeMarketingCloseButton;
+		}
+
+		// When combined with the "small" theme
+		&.#{$class}--small {
+			.#{$class}__outer {
+				@include oBannerThemeMarketingSmallOuter;
+			}
+			.#{$class}__inner {
+				@include oBannerThemeMarketingSmallInner;
+			}
+		}
+	}
+}
