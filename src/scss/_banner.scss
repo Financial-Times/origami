@@ -13,6 +13,7 @@
 
 @mixin oBannerOuter {
 	@include oColorsFor(o-banner, background text);
+	@include oVisualEffectsShadowsElevation('high');
 }
 
 @mixin oBannerInner {

@@ -12,10 +12,12 @@
 	max-width: map-get($o-grid-layouts, XL);
 	margin: 0 auto;
 	background-color: transparent;
+	box-shadow: none;
 }
 
 @mixin oBannerThemeSmallInner {
 	@include oColorsFor(o-banner, background);
+	@include oVisualEffectsShadowsElevation('high');
 	@include oTypographySans($scale: 1);
 	display: block;
 	margin: 0 $_o-banner-spacing / 2;
