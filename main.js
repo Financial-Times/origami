@@ -17,7 +17,7 @@ const compiledTemplates = {};
  *Comments indicate the value returned for 3.05 pm on Tuesday 4th February 2014
 */
 const formatReplacementsMap = {
-	MMMM: 'months[date.getMonth()]',  // e.g. February
+	MMMM: 'months[date.getMonth()]', // e.g. February
 	MMM: 'months[date.getMonth()].substr(0,3)', // Feb
 	MM: 'pad2(date.getMonth() + 1, 2)', // 02
 	M: '(date.getMonth() + 1)', // 2

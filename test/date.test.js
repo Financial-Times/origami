@@ -413,7 +413,7 @@ describe('o-date', () => {
 			const publishDate = new Date('Jul 13 2016 10:02:49');
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:48', // 59 minutes and 59 seconds later
-				'Jul 13 2016 10:02:50'  // 1 second later
+				'Jul 13 2016 10:02:50' // 1 second later
 			];
 
 			for (let date of datesWithinLimit) {
@@ -428,7 +428,7 @@ describe('o-date', () => {
 			const datesWithinLimit = [
 				'Jul 13 2016 11:02:51', // 60 minutes, 2 seconds later
 				'Jul 13 2016 23:02:52', // 12 hours, 3 seconds later
-				'Jul 14 2016 10:02:49'  // the next day
+				'Jul 14 2016 10:02:49' // the next day
 			];
 
 			for (let date of datesWithinLimit) {
