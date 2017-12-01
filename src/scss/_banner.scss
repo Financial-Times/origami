@@ -148,6 +148,10 @@
 	position: absolute;
 	right: $close-button-position;
 	top: $close-button-position;
+
+	// Note: this is to combat the default link styles often
+	// provided by o-typography
+	border: 0;
 }
 
 @mixin oBanner($class: 'o-banner', $themes: 'all') {
