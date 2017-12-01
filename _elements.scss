@@ -34,8 +34,6 @@
 		margin: oTypographySpacingSize(2) 0;
 	}
 	&--body {
-		background-color: getColor('black-5');
-
 		h2 {
 			@include oTypographySansBold(0);
 			margin: 5px 0 0;
@@ -44,8 +42,7 @@
 		ul {
 			@include oTypographyList;
 			@include oTypographyListUnordered();
-			margin: 0px 0px 4px;
-			padding: 8px 12px;
+			margin: 0px;
 
 			li:first-child {
 				margin-top: 0px;
@@ -53,6 +50,7 @@
 			li {
 				@include oTypographySans(1);
 				@include oTypographyMargin(2, 0);
+				font-weight: 600;
 			}
 		}
 	}
