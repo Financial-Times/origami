@@ -34,12 +34,6 @@
 @mixin oBannerContent {
 	padding: 0 $_o-banner-spacing;
 
-	// Remove margins from typographic elements within
-	// the banner, as these mess with the spacing
-	* {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
 	h1,
 	h2,
 	h3,
@@ -48,15 +42,21 @@
 	h6 {
 		@include oTypographySans($scale: 3);
 		@include oTypographyBold($font: 'sans');
+		margin-top: 0;
 		margin-bottom: oTypographySpacingSize(1);
+	}
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 	b,
 	strong {
 		@include oTypographyBold($font: 'sans');
 	}
-	ul {
+	> ul {
 		@include oTypographyListUnordered;
 		margin-top: oTypographySpacingSize(3);
+		margin-bottom: 0;
 
 		li {
 			@include oTypographySans($scale: 2, $line-height: oTypographySpacingSize(7));
