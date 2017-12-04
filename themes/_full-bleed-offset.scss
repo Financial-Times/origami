@@ -46,8 +46,8 @@
 		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
 		&.topper--centered {
-			-ms-grid-columns: 40px 1fr 20px minmax(500px, 700px) 20px 1fr 40px;
-			grid-template-columns: 40px 1fr 20px minmax(500px, 700px) 20px 1fr 40px;
+			-ms-grid-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
+			grid-template-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
 		}
 		.topper__content {
 			-ms-grid-column: 4;
@@ -75,10 +75,6 @@
 	@include oGridRespondTo(XL) {
 		-ms-grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
 		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
-		&.topper--centered {
-			-ms-grid-columns: 40px 1fr 0px minmax(500px, 700px) 40px 1fr 40px;
-			grid-template-columns: 40px 1fr 0px minmax(500px, 700px) 40px 1fr 40px;
-		}
 	}
 
 	@supports (object-fit: cover) {
