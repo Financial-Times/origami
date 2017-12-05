@@ -1061,7 +1061,7 @@
 			height: auto;
 
 			.fyre-editor-locked {
-				@include oIconsGetIcon('padlock', oColorsGetPaletteColor("black-70"), 20, $iconset-version: 1);
+				@include oIconsGetIcon('lock', oColorsGetPaletteColor("black-70"), 20, $iconset-version: 1);
 
 				vertical-align: inherit;
 				margin-right: 0;
