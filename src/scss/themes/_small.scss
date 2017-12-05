@@ -18,7 +18,7 @@
 @mixin oBannerThemeSmallInner {
 	@include oColorsFor(o-banner, background);
 	@include oVisualEffectsShadowsElevation('high');
-	@include oTypographySans($scale: 1);
+	@include oTypographySans($scale: 2);
 	display: block;
 	margin: 0 $_o-banner-spacing / 2;
 	padding: $_o-banner-spacing;
@@ -44,11 +44,21 @@
 	h3,
 	h4,
 	h5,
-	h6 {
+	h6,
+	ul li {
 		@include oTypographySans($scale: 2);
 	}
-	ul li {
-		@include oTypographySans($scale: 1, $line-height: oTypographySpacingSize(6));
+	@include oGridRespondTo($until: M) {
+		&,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		ul li {
+			@include oTypographySans($scale: 0);
+		}
 	}
 }
 
