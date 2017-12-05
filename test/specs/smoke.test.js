@@ -381,7 +381,8 @@ describe("smoke-tests (./overlay.js)", function() {
 		document.body.removeChild(scriptEl);
 	});
 
-	it('should be able to inject content from a url', done => {
+	// Note: must not be an arrow function as we reference `this`
+	it('should be able to inject content from a url', function(done) {
 		// Increase the timeout of this function to allow for the fetching of the url
 		this.timeout(10000);
 
