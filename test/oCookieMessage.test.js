@@ -24,6 +24,13 @@ describe("CookieMessage", () => {
 		proclaim.equal(cookiemessage.CookieMessageEl.innerHTML, oCookieMessage.cookieHTML());
 	});
 
+	it('emits an oCookieMessage.ready event on initialisation', () => {
+		const eventListenerSpy = sinon.spy();
+		document.addEventListener('oCookieMessage.ready', eventListenerSpy);
+		oCookieMessage.init();
+		proclaim.isTrue(eventListenerSpy.called);
+	});
+
 	it("does not inject the FT legal cookie message if data-o-cookie-message-use-custom-html is present", () => {
 		/* remove the standard fixture and use the customCookieMessage fixture */
 		fixtures.reset();
@@ -54,40 +61,39 @@ describe("CookieMessage", () => {
 
 	describe("userHasConsentedToCookies", () => {
 		beforeEach(() => {
-			sinon.spy(oCookieMessage, 'flagUserAsConsentingToCookies');
+			sinon.spy(oCookieMessage, 'setConsentCookieAndHideMessage');
 			sinon.stub(oCookieMessage, "dateIsWithinLastThreeMonths").returns(true);
 		});
 
 		afterEach(() => {
 			oCookieMessage.dateIsWithinLastThreeMonths.restore();
-			oCookieMessage.flagUserAsConsentingToCookies.restore();
+			oCookieMessage.setConsentCookieAndHideMessage.restore();
 			store.local.get.restore();
 		});
 
-
-		it("calls flagUserAsConsentingToCookies if they have consented using the old o-cookies way", () => {
+		it("calls setConsentCookieAndHideMessage if they have consented using the old o-cookies way", () => {
 			/* 1 is the value of the old cookie consent */
 			sinon.stub(store.local, "get").returns("1");
 
 			oCookieMessage.userHasConsentedToCookies();
-			proclaim.isTrue(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+			proclaim.isTrue(oCookieMessage.setConsentCookieAndHideMessage.calledOnce);
 
 		});
 
-		it("does not call flagUserAsConsentingToCookies the user has never consented", () => {
+		it("does not call setConsentCookieAndHideMessage the user has never consented", () => {
 			/* null means the cookie message consent has never been set */
 			sinon.stub(store.local, "get").returns(null);
 
 			oCookieMessage.userHasConsentedToCookies();
-			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+			proclaim.isFalse(oCookieMessage.setConsentCookieAndHideMessage.calledOnce);
 		});
 
-		it("does not call flagUserAsConsentingToCookies the user has consented recently", () => {
+		it("does not call setConsentCookieAndHideMessage the user has consented recently", () => {
 			/* set it to 50 seconds ago */
 			sinon.stub(store.local, "get").returns(Date.now()-50);
 
 			oCookieMessage.userHasConsentedToCookies();
-			proclaim.isFalse(oCookieMessage.flagUserAsConsentingToCookies.calledOnce);
+			proclaim.isFalse(oCookieMessage.setConsentCookieAndHideMessage.calledOnce);
 		});
 
 		it("returns false if there is nothing in COOKIE_CONSENT", () => {
@@ -133,6 +139,13 @@ describe("CookieMessage", () => {
 			sinon.spy(oCookieMessage, "hideMessage");
 			oCookieMessage.flagUserAsConsentingToCookies();
 			proclaim.isTrue(oCookieMessage.hideMessage.calledOnce);
+		});
+
+		it('emits an oCookieMessage.accepted event when flagUserAsConsentingToCookies called', () => {
+			const eventListenerSpy = sinon.spy();
+			document.addEventListener('oCookieMessage.accepted', eventListenerSpy);
+			oCookieMessage.flagUserAsConsentingToCookies();
+			proclaim.isTrue(eventListenerSpy.called);
 		});
 	});
 

@@ -4,7 +4,7 @@ class CookieMessage {
 
 	constructor (CookieMessageEl) {
 		if (!CookieMessageEl) {
-			CookieMessageEl = document.querySelector('[data-o-component="o-cookie-message"]');
+			CookieMessageEl = CookieMessage.getMessageElement();
 		} else if (typeof CookieMessageEl === 'string') {
 			CookieMessageEl = document.querySelector(CookieMessageEl);
 		}
@@ -12,9 +12,7 @@ class CookieMessage {
 		this.CookieMessageEl = CookieMessageEl;
 
 		this.setup();
-		let e = new CustomEvent('oCookieMessage.ready', { bubbles: true });
-
-		this.CookieMessageEl.dispatchEvent(e);
+		CookieMessage.dispatchEvent('oCookieMessage.ready');
 	}
 
 	setup () {
@@ -22,6 +20,16 @@ class CookieMessage {
 			this.CookieMessageEl.classList.add('o-cookie-message--active');
 			CookieMessage.setupMessage();
 		}
+	}
+
+	static getMessageElement () {
+		return document.querySelector('[data-o-component="o-cookie-message"]');
+	}
+
+	static dispatchEvent (eventName) {
+		const message = CookieMessage.getMessageElement();
+		const e = new CustomEvent(eventName, { bubbles: true });
+		message.dispatchEvent(e);
 	}
 
 	static cookieHTML () {
@@ -45,12 +53,17 @@ class CookieMessage {
 	}
 
 	static hideMessage () {
-		const message = document.querySelector('[data-o-component="o-cookie-message"]');
+		const message = CookieMessage.getMessageElement();
 		message.classList.remove('o-cookie-message--active');
 		message.setAttribute('tabindex', '-1');
 	}
 
 	static flagUserAsConsentingToCookies () {
+		this.setConsentCookieAndHideMessage();
+		CookieMessage.dispatchEvent('oCookieMessage.accepted');
+	}
+
+	static setConsentCookieAndHideMessage () {
 		let now = Date.now();
 		store.local.set('COOKIE_CONSENT', now);
 		CookieMessage.hideMessage();
@@ -62,16 +75,18 @@ class CookieMessage {
 
 		// Update user to new cookie format, which reappears after three months
 		if (cookieConsent === '1') {
-			this.flagUserAsConsentingToCookies();
+			// Calls setConsentCookieAndHideMessage rather than flagUserAsConsentingToCookies so that
+			// this never generates an oCookieMessage.accepted event for users that have already accepted
+			// cookies - which might cause applications to incorrectly initialise tracking twice.
+			this.setConsentCookieAndHideMessage();
 			return true;
 		}
 
 		// HACK: Whilst FT.com is still around auto-opt user in if they have accepted over there.
 		if (/\bcookieconsent=accepted(?:;|$)/.test(document.cookie)){
-			this.flagUserAsConsentingToCookies();
+			this.setConsentCookieAndHideMessage();
 			return true;
 		}
-
 
 		if (cookieConsent) {
 
@@ -97,7 +112,7 @@ class CookieMessage {
 			rootEl = document.querySelector(rootEl);
 		}
 
-		const CookieMessageEl = rootEl.querySelector('[data-o-component="o-cookie-message"]');
+		const CookieMessageEl = CookieMessage.getMessageElement();
 
 		/* If the cookie message hasn't already been initialised */
 		if (!CookieMessageEl.hasAttribute('data-o-cookie-message--js')) {
