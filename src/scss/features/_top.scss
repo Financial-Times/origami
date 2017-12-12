@@ -132,7 +132,7 @@
 		display: block;
 		border: 0;
 		margin: 16px auto;
-		background-size: contain;
+		background-size: 100% 100%; // Edge SVG background clipped when scaled https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4705340/
 		background-position: 50%;
 		background-repeat: no-repeat;
 
