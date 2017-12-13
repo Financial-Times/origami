@@ -12,7 +12,7 @@
 	}
 
 	.topper__content {
-		padding: 20px 20px 0;
+		padding: 20px;
 		order: 2;
 	}
 
@@ -29,6 +29,7 @@
 			-ms-grid-row-span: 2;
 			grid-column: 1;
 			grid-row: 3 / span 2;
+			padding-bottom: 0;
 		}
 		.topper__visual {
 			-ms-grid-column: 1;
