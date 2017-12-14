@@ -56,6 +56,21 @@
 	}
 }
 
+.topper__image-credit {
+	color: oColorsGetPaletteColor('white');
+	@include oTypographySans(-2);
+	position: absolute;
+	right: 12px;
+	bottom: 2px;
+	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
+	.topper--full-bleed-offset & {
+		@include oGridRespondTo($from: M, $until: L) {
+			bottom: auto;
+			top: 0;
+		}
+	}
+}
+
 .article-summary-feedback {
 	margin-bottom: 10px;
 	.feedback__invitation {
@@ -65,6 +80,7 @@
 
 //IE9 support
 .topper__image {
+	display: block;
 	position: relative;
 	width: 100%;
 }
