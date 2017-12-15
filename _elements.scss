@@ -64,7 +64,7 @@
 	bottom: 2px;
 	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
 	.topper--full-bleed-offset & {
-		@include oGridRespondTo($from: M, $until: L) {
+		@include oGridRespondTo($from: M, $until: XL) {
 			bottom: auto;
 			top: 0;
 		}
