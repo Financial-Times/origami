@@ -45,6 +45,7 @@
 .topper--opinion {
 	.n-myft-ui--follow {
 		margin-left: 20px;
+		vertical-align: bottom;
 	}
 	.topper__opinion-genre {
 		@include oTypographySans(2);
