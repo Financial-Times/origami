@@ -45,7 +45,7 @@ This HTML is an example of the imperative alternative:
 
 Attributes can be set declaratively, or passed in on instantiation in an options object. A full list of data attributes:
 - `data-o-tooltip-target`: Required. An ID selector for the target of the tooltip (the thing it points to)
-- `data-o-tooltip-position`: Optional. The preferred position of the tooltip relative to the target. Can be one of `above`, `below`, `left`, `right`. If there isn't room to render the tooltip where the option passed in would render it, this value is flipped (above becomes below, left becomes right). Defaults to below.
+- `data-o-tooltip-position`: Optional. The preferred position of the tooltip relative to the target. Can be one of `above`, `below`, `left`, `right`. If there isn't room to render the tooltip where the option passed in would render it, this value is flipped (above becomes below, left becomes right). Defaults to below. You can also specify a different position per viewport width ('default', 'S', 'M', 'L', 'XL') eg data-o-tooltip-position-s="left". The position will fall back to the default in data-o-tooltip-position, otherwise 'below'.
 - `data-o-tooltip-show-on-construction`: Optional. Boolean value. Set to true if you want the tooltip to be rendered immediately after it is constructed. Defaults to false.
 - `data-o-tooltip-show-on-hover`: Optional. Boolean value. Set to true if you want to show and hide the tooltip based on the mouseover and mouseout events (respectively) of the target. Defaults to false.
 - `data-o-tooltip-show-on-click`: Optional. Boolean value. Set to true if you want to show the tooltip upon clicking the target element. Defaults to false.
@@ -100,6 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
 As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass before you've imported the o-tooltip Sass.
 
 ## Migration Guide
+
+### Updating from v2 to v3
+
+- V3 introduces a new dependency on `o-grid`. `o-grid` enables us to position `o-tooltip` dependent on the current breakpoint. To upgrade your project confirm your version of `o-grid`, if your project has one, is compatible. You may do this by installing V3 of `o-tooltip` and confirming there are no build failures. If your project is not compatible update the version of `o-grid` used in your project. Your current use of `o-grid` may be a direct dependency on the `o-grid` component or a sub-dependency of a different component.
+- The deprecated events `o.tooltipShown` and `o.tooltipClosed` are no longer fired. Use `oTooltip.show` and `oTooltip.close` instead.
+- The deprecated `rectObject` property and `getEdge` method of the `Target` object no longer exist.
 
 ### Updating from v1 to v2
 

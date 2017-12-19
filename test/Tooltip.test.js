@@ -423,23 +423,6 @@ describe("Tooltip", () => {
 			proclaim.isTrue(drawTooltipStub.called);
 		});
 
-		it('emits o.tooltipShown event', function (done) {
-			this.timeout(1000);
-
-			const timer = setTimeout(() => {
-				proclaim.fail('o.tooltipShown event to fire', 'o.tooltipShown event did not fire');
-			}, 500);
-
-			const tooltipEl = document.getElementById('tooltip-demo');
-			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
-			testTooltip.delegates.tooltip.on('o.tooltipShown', () => {
-				clearTimeout(timer);
-				done();
-			});
-
-			testTooltip.show();
-		});
-
 		it('emits oTooltip.show event', function(done) {
 			this.timeout(1000);
 
@@ -657,6 +640,7 @@ describe("Tooltip", () => {
 			let edgeStubValue;
 			let getLeftStub;
 			let getTopStub;
+			let getTooltipPositionStub;
 
 			beforeEach(() => {
 				testTooltip.tooltipRect = {top: 1, bottom: 2, left: 3, right: 4}; // we don't actually read these values
@@ -668,11 +652,13 @@ describe("Tooltip", () => {
 			afterEach(() => {
 				getTopStub.restore();
 				getLeftStub.restore();
+				getTooltipPositionStub.restore();
 			});
 
 			describe("when the tootip is positioned above", ()=> {
+
 				beforeEach(() => {
-					testTooltip.tooltipPosition = "above";
+					getTooltipPositionStub = sinon.stub(Tooltip.prototype, '_getTooltipPosition').returns("above");
 					resetPositionStub.withArgs(testTooltip.tooltipRect.top, 'y').returns([true, 'above']);
 				});
 
@@ -714,7 +700,7 @@ describe("Tooltip", () => {
 
 			describe("when the tootip is positioned below", ()=> {
 				beforeEach(() => {
-					testTooltip.tooltipPosition = "below";
+					getTooltipPositionStub = sinon.stub(Tooltip.prototype, '_getTooltipPosition').returns("below");
 					resetPositionStub.withArgs(testTooltip.tooltipRect.bottom, 'y').returns([true, 'below']);
 				});
 
@@ -756,7 +742,7 @@ describe("Tooltip", () => {
 
 			describe("when the tootip is positioned left", ()=> {
 				beforeEach(() => {
-					testTooltip.tooltipPosition = "left";
+					getTooltipPositionStub = sinon.stub(Tooltip.prototype, '_getTooltipPosition').returns("left");
 					resetPositionStub.withArgs(testTooltip.tooltipRect.left, 'x').returns([true, 'left']);
 				});
 
@@ -798,7 +784,7 @@ describe("Tooltip", () => {
 
 			describe("when the tootip is positioned right", ()=> {
 				beforeEach(() => {
-					testTooltip.tooltipPosition = "right";
+					getTooltipPositionStub = sinon.stub(Tooltip.prototype, '_getTooltipPosition').returns("right");
 					resetPositionStub.withArgs(testTooltip.tooltipRect.right, 'x').returns([true, 'right']);
 				});
 
@@ -1019,6 +1005,93 @@ describe("Tooltip", () => {
 		});
 	});
 
+	describe("_getTooltipPosition", () => {
+		let checkStub;
+		let getStub;
+		let targetStub;
+		let widthStub;
+		let heightStub;
+		let oGridStub;
+
+		let testTooltip;
+
+		beforeEach(() => {
+			getStub = sinon.stub(Tooltip, 'getOptions');
+			targetStub = sinon.stub(Tooltip, 'Target').returns({left: 0, right: 7, centrePoint: {x: 5}});
+			widthStub = sinon.stub(Tooltip.prototype, 'width').returns(100);
+			heightStub = sinon.stub(Tooltip.prototype, 'height').returns(500);
+		});
+
+		afterEach(() => {
+			oGridStub.restore();
+			getStub.restore();
+			checkStub.restore();
+			targetStub.restore();
+			heightStub.restore();
+			widthStub.restore();
+		});
+
+		const tooltipOptions = opts => { checkStub = sinon.stub(Tooltip, 'checkOptions').returns(opts); };
+		const createTooltip = () => new Tooltip(document.createElement('div'));
+		const setViewportWidth = width => { oGridStub = sinon.stub(Tooltip, '_getCurrentLayout').returns(width); };
+
+		it("returns default options position if there are no responsive overrides declared", () => {
+			tooltipOptions({'position': 'above'});
+			testTooltip = createTooltip();
+			setViewportWidth('default');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'above');
+		});
+
+		it("returns small options position if one is declared, and viewport is Small", () => {
+			tooltipOptions({'position': 'above', 'positionS': 'right'});
+			testTooltip = createTooltip();
+			setViewportWidth('S');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'right');
+		});
+
+		it("falls back to  small options position if one is declared, and viewport is Medium", () => {
+			tooltipOptions({'position': 'above', 'positionS': 'right'});
+			testTooltip = createTooltip();
+			setViewportWidth('M');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'right');
+		});
+
+		it("returns medium options position if one is declared, and viewport is Medium", () => {
+			tooltipOptions({'position': 'left', 'positionM': 'below'});
+			testTooltip = createTooltip();
+			setViewportWidth('M');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'below');
+		});
+
+		it("falls back to  medium options position if one is declared, and viewport is Large", () => {
+			tooltipOptions({'position': 'above', 'positionM': 'right'});
+			testTooltip = createTooltip();
+			setViewportWidth('L');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'right');
+		});
+
+		it("returns large options position if one is declared, and viewport is Large", () => {
+			tooltipOptions({'position': 'below', 'positionL': 'left'});
+			testTooltip = createTooltip();
+			setViewportWidth('L');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'left');
+		});
+
+		it("falls back to large options position if one is declared, and viewport is X-Large", () => {
+			tooltipOptions({'position': 'above', 'positionL': 'right'});
+			testTooltip = createTooltip();
+			setViewportWidth('XL');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'right');
+		});
+
+		it("returns x-large options position if one is declared, and viewport is X-Large", () => {
+			tooltipOptions({'position': 'below', 'positionXl': 'top'});
+			testTooltip = createTooltip();
+			setViewportWidth('XL');
+			proclaim.strictEqual(testTooltip._getTooltipPosition(), 'top');
+		});
+	});
+
 	describe("_getLeftFor", () => {
 		let checkStub;
 		let getStub;
@@ -1029,7 +1102,6 @@ describe("Tooltip", () => {
 		let testTooltip;
 
 		beforeEach(() => {
-
 			getStub = sinon.stub(Tooltip, 'getOptions');
 			checkStub = sinon.stub(Tooltip, 'checkOptions').returns({'position': 'above'});
 			targetStub = sinon.stub(Tooltip, 'Target').returns({left: 0, right: 7, centrePoint: {x: 5}});
@@ -1310,24 +1382,6 @@ describe("Tooltip", () => {
 			testTooltip.close();
 		});
 
-		it('emits o.tooltipClosed event', function(done) {
-			this.timeout(1000);
-
-			const timer = setTimeout(() => {
-				proclaim.fail('o.tooltipClosed event to fire', 'o.tooltipClosed event did not fire');
-			}, 500);
-
-			const tooltipEl = document.getElementById('tooltip-demo');
-			const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
-			testTooltip.delegates.tooltip.on('o.tooltipClosed', () => {
-				clearTimeout(timer);
-				done();
-			});
-
-			testTooltip.show();
-			testTooltip.close();
-		});
-
 		it('emits oTooltip.close event', function(done) {
 			this.timeout(1000);
 
@@ -1348,24 +1402,6 @@ describe("Tooltip", () => {
 
 
 		describe('when called with fireCloseEvent=false', function () {
-			it('skips emitting o.tooltipClosed event', function(done) {
-				this.timeout(1000);
-
-				const timer = setTimeout(() => {
-					done();
-				}, 500);
-
-				const tooltipEl = document.getElementById('tooltip-demo');
-				const testTooltip = new Tooltip(tooltipEl, {target: 'demo-tooltip-target'});
-				testTooltip.delegates.tooltip.on('o.tooltipClosed', () => {
-					clearTimeout(timer);
-					proclaim.fail('oTooltip.close event to not fire', 'oTooltip.close event did fire');
-				});
-
-				testTooltip.show();
-				testTooltip.close('', '', false);
-			});
-
 			it('skips emitting oTooltip.close event', function(done) {
 				this.timeout(1000);
 

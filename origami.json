@@ -54,6 +54,11 @@
 				"description": "Tooltip declared in js, with no markup"
 			},
 			{
+				"name": "responsive-positioning",
+				"template": "demos/src/responsive-positioning.mustache",
+				"description": "Responsive positioning"
+			},
+			{
 				"name": "scroll-test",
 				"template": "demos/src/scroll-test.mustache",
 				"hidden": true,

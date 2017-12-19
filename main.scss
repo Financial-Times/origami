@@ -2,7 +2,12 @@
 @import "o-visual-effects/main";
 @import "src/scss/variables";
 @import "src/scss/tooltip";
+@import "o-grid/main";
 
+@if $o-tooltip-is-silent == false {
+	@include oGridSurfaceCurrentLayout;
+	@include oGridSurfaceLayoutSizes;
+}
 
 @if ($o-tooltip-is-silent == false) {
 	 .o-tooltip {
