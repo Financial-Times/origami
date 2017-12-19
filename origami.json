@@ -1,6 +1,6 @@
 {
-		"description": "Component description",
-		"keywords": "component, keywords, for, the, registry, search",
+		"description": "A tooltip for annotating or drawing attention to other bits of UI",
+		"keywords": "tooltip, tool, tip, annotate, highlight",
 		"origamiType": "module",
 		"origamiCategory": "components",
 		"origamiVersion": 1,
