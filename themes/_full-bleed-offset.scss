@@ -12,24 +12,30 @@
 	}
 
 	.topper__content {
-		padding: 20px;
+		padding: 20px 10px;
 		order: 2;
+		&[data-textbox-background="paper"] {
+			padding-bottom: 0;
+		}
+		@include oGridRespondTo(M) {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
 	}
 
 	@include oGridRespondTo(M) {
 		display: -ms-grid;
 		display: grid;
 		-ms-grid-columns: auto;
-		-ms-grid-rows: 20px min-content 60px min-content 20px;
+		-ms-grid-rows: 20px min-content 60px min-content;
 		grid-template-columns: auto;
-		grid-template-rows: 20px min-content 60px min-content 20px;
+		grid-template-rows: 20px min-content 60px min-content;
 		.topper__content {
 			-ms-grid-column: 1;
 			-ms-grid-row: 3;
 			-ms-grid-row-span: 2;
 			grid-column: 1;
 			grid-row: 3 / span 2;
-			padding-bottom: 0;
 		}
 		.topper__visual {
 			-ms-grid-column: 1;
