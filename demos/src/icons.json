@@ -1,14 +1,6 @@
 {
 	"icons": [
 		{
-			"name": "plus",
-			"text": "Add to myFT"
-		},
-		{
-			"name": "tick",
-			"text": "Added"
-		},
-		{
 			"name": "arrow-left",
 			"text": "Go back"
 		},
