@@ -39,7 +39,7 @@
 }
 
 @mixin oBannerThemeMarketingCloseButton {
-	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-close, text), $_o-banner-close-button-size);
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 }
 
 @mixin oBannerThemeMarketing($class: 'o-banner') {

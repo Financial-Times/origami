@@ -143,7 +143,7 @@
 
 @mixin oBannerCloseButton {
 	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
-	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size);
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 	display: block;
 	position: absolute;
 	right: $close-button-position;
