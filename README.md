@@ -187,6 +187,37 @@ When using the build service or importing the module with [silent mode](http://o
 <p class="o-colors-body-text">Article text</p>
 ```
 
+This is a list of the use cases and their respective properties:
+
+`USECASE` | `PROPERTY` |
+---|---
+page |                  background
+box |                   background
+link |                  text
+link-hover |            text
+link-title |            text
+link-title-hover |      text
+tag-link |              text
+tag-link-hover |        text
+opinion-tag-link |      text
+opinion-tag-link-hover |text
+title |                 text
+body |                  text
+muted |                 text
+opinion |               background
+hero |                  background
+hero-opinion |          background
+hero-highlight |        background
+**Section colors** | 
+section-life-arts |     all
+section-life-arts-alt | all
+section-magazine |      all
+section-magazine-alt |  all
+section-house-home |    all
+section-house-home-alt |all
+section-money |         all
+section-money-alt |     all
+
 
 ### CSS Variables
 
