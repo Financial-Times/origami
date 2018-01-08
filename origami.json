@@ -41,12 +41,6 @@
 			"description": ""
 		},
 		{
-			"name": "manage-account",
-			"template": "demos/src/manage-account.mustache",
-			"description": "",
-			"hidden": true
-		},
-		{
 			"name": "all-styles",
 			"template": "demos/src/all-styles.mustache",
 			"description": "",
