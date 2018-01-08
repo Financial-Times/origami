@@ -46,6 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
+#### Events
+
+You may listen to two events that bubble out from the oCookieMessage DOM element:-
+
+- `oCookieMessage.ready` is emitted when the component has finished initialising.
+- `oCookieMessage.accepted` is emitted when the user accepts the cookie message. It is not emitted if the user has already accepted cookies. This is intended to be used to allow developers to initialise their tracking logic once the user has given consent.
+
 ### Sass
 
 As with all Origami components, o-cookie-message has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-cookie-message-is-silent : false;` in your Sass before you import the o-cookie-message Sass:
