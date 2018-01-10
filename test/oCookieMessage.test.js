@@ -6,8 +6,7 @@ import store from 'superstore-sync';
 
 import * as fixtures from './helpers/fixtures';
 
-
-import oCookieMessage from './../main' ;
+import oCookieMessage from './..//src/js/cookieMessage';
 
 describe("CookieMessage", () => {
 	beforeEach(() => {
@@ -16,6 +15,20 @@ describe("CookieMessage", () => {
 
 	afterEach(() => {
 		fixtures.reset();
+	});
+
+	it("can be dismissed", (done) => {
+		const cookieDom = document.querySelector('[data-o-component="o-cookie-message"]');
+		// test passes if the cookie message is accepted and hidden
+		cookieDom.addEventListener('oCookieMessage.accepted', function () {
+			done();
+		});
+		// simulate clicking
+		cookieDom.addEventListener('oCookieMessage.ready', function () {
+			const close = cookieDom.querySelector('[data-o-component="o-cookie-message-close"]');
+			close.click();
+		});
+		const cookiemessage = oCookieMessage.init();
 	});
 
 	it("injects the FT legal cookie message into itself", () => {
