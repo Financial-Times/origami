@@ -17,10 +17,11 @@ describe("CookieMessage", () => {
 		fixtures.reset();
 	});
 
-	it("can be dismissed", (done) => {
+	it("can be accepted", (done) => {
 		const cookieDom = document.querySelector('[data-o-component="o-cookie-message"]');
 		// test passes if the cookie message is accepted and hidden
 		cookieDom.addEventListener('oCookieMessage.accepted', function () {
+			proclaim.equal(cookieDom.classList.contains('o-cookie-message--active'), false, 'Cookie message still has active class when accepted.')
 			done();
 		});
 		// simulate clicking
@@ -29,6 +30,9 @@ describe("CookieMessage", () => {
 			close.click();
 		});
 		const cookiemessage = oCookieMessage.init();
+		setTimeout(() => {
+			proclaim.notOk(true, 'Failed to dismiss cookie message. `oCookieMessage.accepted` was not fired when clicking the close button.')
+		}, 500);
 	});
 
 	it("injects the FT legal cookie message into itself", () => {
