@@ -59,7 +59,7 @@ class CookieMessage {
 	}
 
 	static flagUserAsConsentingToCookies () {
-		this.setConsentCookieAndHideMessage();
+		CookieMessage.setConsentCookieAndHideMessage();
 		CookieMessage.dispatchEvent('oCookieMessage.accepted');
 	}
 
@@ -78,13 +78,13 @@ class CookieMessage {
 			// Calls setConsentCookieAndHideMessage rather than flagUserAsConsentingToCookies so that
 			// this never generates an oCookieMessage.accepted event for users that have already accepted
 			// cookies - which might cause applications to incorrectly initialise tracking twice.
-			this.setConsentCookieAndHideMessage();
+			CookieMessage.setConsentCookieAndHideMessage();
 			return true;
 		}
 
 		// HACK: Whilst FT.com is still around auto-opt user in if they have accepted over there.
 		if (/\bcookieconsent=accepted(?:;|$)/.test(document.cookie)){
-			this.setConsentCookieAndHideMessage();
+			CookieMessage.setConsentCookieAndHideMessage();
 			return true;
 		}
 
