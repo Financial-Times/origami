@@ -6,7 +6,7 @@ import store from 'superstore-sync';
 
 import * as fixtures from './helpers/fixtures';
 
-import oCookieMessage from './..//src/js/cookieMessage';
+import oCookieMessage from './../src/js/cookieMessage';
 
 describe("CookieMessage", () => {
 	beforeEach(() => {
