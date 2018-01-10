@@ -21,7 +21,7 @@ describe("CookieMessage", () => {
 		const cookieDom = document.querySelector('[data-o-component="o-cookie-message"]');
 		// test passes if the cookie message is accepted and hidden
 		cookieDom.addEventListener('oCookieMessage.accepted', function () {
-			proclaim.equal(cookieDom.classList.contains('o-cookie-message--active'), false, 'Cookie message still has active class when accepted.')
+			proclaim.equal(cookieDom.classList.contains('o-cookie-message--active'), false, 'Cookie message still has active class when accepted.');
 			done();
 		});
 		// simulate clicking
@@ -29,9 +29,9 @@ describe("CookieMessage", () => {
 			const close = cookieDom.querySelector('[data-o-component="o-cookie-message-close"]');
 			close.click();
 		});
-		const cookiemessage = oCookieMessage.init();
+		oCookieMessage.init();
 		setTimeout(() => {
-			proclaim.notOk(true, 'Failed to dismiss cookie message. `oCookieMessage.accepted` was not fired when clicking the close button.')
+			proclaim.notOk(true, 'Failed to dismiss cookie message. `oCookieMessage.accepted` was not fired when clicking the close button.');
 		}, 500);
 	});
 
