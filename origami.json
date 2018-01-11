@@ -1,0 +1,20 @@
+{
+	"description": "Article header styling",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-topper/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [],
+		"optional": []
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-topper"
+	},
+	"demos": []
+}
