@@ -1,0 +1,87 @@
+.topper--branded {
+
+	.topper__content {
+		-ms-grid-row: 2;
+		-ms-grid-row-span: 3;
+		grid-row: 2 / span 3;
+		@include oGridRespondTo($until: L) {
+			padding: 20px 0;
+		}
+	}
+
+	.topper__read-next {
+		-ms-grid-row: 2;
+		-ms-grid-row-span: 3;
+		grid-row: 2 / span 3;
+	}
+
+	@include oGridRespondTo($until: L) {
+		//Make the background really full width
+		.topper__background {
+			position: absolute;
+		}
+	}
+}
+
+.topper--has-headshot {
+
+	.topper__tags,
+	.topper__standfirst {
+		box-sizing: border-box;
+		padding-right: 100px;
+
+		@include oGridRespondTo(M) {
+			padding-right: 150px;
+		}
+	}
+
+	.topper__headline {
+		@include oGridRespondTo(M) {
+			padding-right: 150px;
+		}
+	}
+}
+
+.topper--opinion {
+	.n-myft-ui--follow {
+		margin-left: 20px;
+	}
+	.topper__opinion-genre {
+		@include oTypographySans(2);
+		font-weight: 200;
+		color: getColor('oxford');
+	}
+	.n-content-tag--with-follow {
+		vertical-align: baseline;
+	}
+}
+
+.topper--opinion[data-textbox-background="sky"] {
+	.topper__tags .n-content-tag,
+	.topper__columnist-name {
+		color: getColor('oxford');
+		&:hover {
+			color: getColor('black-80');
+		}
+	}
+}
+
+.topper__headshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100px;
+	overflow: hidden;
+	@include oGridRespondTo(M) {
+		width: 150px;
+	}
+	@include oGridRespondTo(L) {
+		bottom: -20px;
+	}
+}
+
+.topper__headshot-image {
+	max-width: 100%;
+	display: block;
+	margin-left: 8px;
+}
