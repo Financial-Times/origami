@@ -27,6 +27,11 @@
 			"name": "Basic",
 			"template": "/demos/src/basic.mustache",
 			"description": "This is the default topper that all articles get"
+		},
+		{
+			"name": "Opinion",
+			"template": "/demos/src/opinion.mustache",
+			"description": "This is used for articles with Opinion genre"
 		}
 	]
 }

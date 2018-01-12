@@ -49,7 +49,7 @@
 	.topper__opinion-genre {
 		@include oTypographySans(2);
 		font-weight: 200;
-		color: getColor('oxford');
+		color: oColorsGetPaletteColor('oxford');
 	}
 	.n-content-tag--with-follow {
 		vertical-align: baseline;
@@ -57,11 +57,11 @@
 }
 
 .topper--opinion[data-textbox-background="sky"] {
-	.topper__tags .n-content-tag,
+	.topper__tags .o-typography-topic,
 	.topper__columnist-name {
-		color: getColor('oxford');
+		color: oColorsGetPaletteColor('oxford');
 		&:hover {
-			color: getColor('black-80');
+			color: oColorsGetPaletteColor('black-80');
 		}
 	}
 }

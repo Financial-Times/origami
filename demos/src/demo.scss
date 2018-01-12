@@ -1,4 +1,5 @@
 $o-typography-is-silent: false;
+@import 'o-typography/main';
 
 @import '../../main';
-@import 'o-typography/main';
+@import '../../src/scss/themes';

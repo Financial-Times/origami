@@ -60,17 +60,17 @@
 .topper--package-extra-wide {
 	.topper__package-sequence-id,
 	&.topper--package .topper__headline {
-		color: getColor('lemon');
+		color: oColorsGetPaletteColor('lemon');
 	}
 
 	.topper__anchor-link {
-		color: getColor('lemon');
-		border-color: getColor('lemon');
+		color: oColorsGetPaletteColor('lemon');
+		border-color: oColorsGetPaletteColor('lemon');
 		&:after {
-			@include oIconsGetIcon('arrow-down', getColor('lemon'), 20, null, false, false);
+			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('lemon'), 20, null, false, false);
 		}
 		&:hover {
-			color: darken(getColor('lemon'), 20%);
+			color: darken(oColorsGetPaletteColor('lemon'), 20%);
 		}
 	}
 }
@@ -82,13 +82,13 @@
 	}
 
 	.topper__anchor-link {
-		border-color: getColor('white');
-		color: getColor('white');
+		border-color: oColorsGetPaletteColor('white');
+		color: oColorsGetPaletteColor('white');
 		&:after {
-			@include oIconsGetIcon('arrow-down', getColor('white'), 20, null, false, false);
+			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('white'), 20, null, false, false);
 		}
 		&:hover {
-			color: darken(getColor('white'), 20%);
+			color: darken(oColorsGetPaletteColor('white'), 20%);
 		}
 	}
 }
