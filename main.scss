@@ -4,6 +4,8 @@
 
 @import 'src/scss/main';
 
+$o-topper-is-silent: true !default;
+
 @if ($o-topper-is-silent == false) {
 	// TODO: convert to mixins, output classes here
 

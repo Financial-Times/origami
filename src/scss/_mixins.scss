@@ -14,7 +14,7 @@
 	[data-textbox-background~='#{$bg-color}'] {
 		$text-color: black;
 		$hover-color: lighten($text-color, 40%);
-		$contrast: lightness(getColor($bg-color));
+		$contrast: lightness(oColorsGetPaletteColor($bg-color));
 		@if $contrast <= 50% {
 			$text-color: white;
 			$hover-color: darken($text-color, 20%);
@@ -31,7 +31,7 @@
 		@if $bg-color == 'wheat' {
 			background-color: oColorsMix($color: 'wheat', $percentage: 40);
 		} @else {
-			background-color: getColor('#{$bg-color}');
+			background-color: oColorsGetPaletteColor('#{$bg-color}');
 		}
 		.topper__tags,
 		.topper__columnist-name,

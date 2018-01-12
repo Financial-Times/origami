@@ -16,5 +16,17 @@
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-topper"
 	},
-	"demos": []
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^1.4.0"
+		]
+	},
+	"demos": [
+		{
+			"name": "Basic",
+			"template": "/demos/src/basic.mustache",
+			"description": "This is the default topper that all articles get"
+		}
+	]
 }
