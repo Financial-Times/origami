@@ -46,12 +46,17 @@
 		&__close-btn {
 			position: relative;
 			padding: 0;
+			margin-right: 8px;
 			width: $_o-cookie-message-icon-size + 0px; // Hack to get a `px` at the end
 			height: $_o-cookie-message-icon-size + 0px;
 			border: 0;
 			background: none;
 			cursor: pointer;
 			opacity: 0.8;
+
+			@include oGridRespondTo(M) {
+				margin-right: 0;
+			};
 
 			&:before {
 				@include oIconsGetIcon(cross, oColorsGetColorFor(body, text), $_o-cookie-message-icon-size, $iconset-version: 1);
@@ -76,16 +81,20 @@
 		}
 
 		&__title {
-			@include oTypographySansBold($scale: 0);
+			@include oTypographySansBold($_o-cookie-message-font-scale);
 			color: oColorsGetColorFor(body, text);
 			margin: 0;
 		}
 
 		&__description {
-			@include oTypographySans($scale: 0);
-			padding-right: 15px;
+			@include oTypographySans($_o-cookie-message-font-scale);
+			padding: 0 20px 0 5px;
 			margin: 0;
 			color: oColorsGetColorFor(body, text);
+
+			@include oGridRespondTo(L) {
+				width: $_line-width;
+			}
 		}
 
 		a {
@@ -112,6 +121,7 @@
 
 		.o-cookie-message__container {
 			@include oGridContainer();
+
 			> div {
 				position: relative;
 			}
