@@ -75,6 +75,7 @@ function Share(rootEl, config) {
 				openWindows[url].focus();
 			} else {
 				openWindows[url] = window.open(url, '', 'width=646,height=436');
+				openWindows[url].opener = null;
 			}
 
 			dispatchCustomEvent('open', {
