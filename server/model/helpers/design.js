@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const isBrandSpecialReport = (
 	content => content.annotations.some(
-		concept => concept.id = '0c9a33dd-55db-4cd2-ab9a-ce287ed82172'
+		concept => concept.id === '0c9a33dd-55db-4cd2-ab9a-ce287ed82172'
 	)
 );
 
