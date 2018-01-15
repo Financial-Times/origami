@@ -1,4 +1,4 @@
-// .topper__headline {
+// .o-topper__headline {
 @mixin oTopperHeadline {
 	@include oTypographyHeadline();
 
@@ -9,7 +9,7 @@
 	}
 }
 
-// .topper__standfirst {
+// .o-topper__standfirst {
 @mixin oTopperStandfirst {
 	@include oTypographyStandfirst();
 	margin-bottom: 0;
@@ -24,7 +24,7 @@
 	}
 }
 
-// .topper__summary {
+// .o-topper__summary {
 @mixin oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
@@ -58,7 +58,7 @@
 	}
 }
 
-// .topper__image-credit {
+// .o-topper__image-credit {
 @mixin oTopperImageCredit {
 	color: oColorsGetPaletteColor('white');
 	@include oTypographySans(-2);
@@ -66,7 +66,7 @@
 	right: 12px;
 	bottom: 2px;
 	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
-	.topper--full-bleed-offset & {
+	.o-topper--full-bleed-offset & {
 		@include oGridRespondTo($from: M, $until: XL) {
 			bottom: auto;
 			top: 0;
@@ -83,7 +83,7 @@
 }
 
 //IE9 support
-// .topper__image {
+// .o-topper__image {
 @mixin oTopperImage {
 	display: block;
 	position: relative;
@@ -95,7 +95,7 @@
 	}
 }
 
-// .topper__brand {
+// .o-topper__brand {
 @mixin oTopperBrand {
 	@include oTypographySans(0);
 	margin-right: 4px;
@@ -106,18 +106,18 @@
 	}
 }
 
-// .topper__columnist {
+// .o-topper__columnist {
 @mixin oTopperColumnist {
 	@include oTypographyMargin($top: 4);
 	text-transform: uppercase;
 }
 
-// .topper__columnist-name {
+// .o-topper__columnist-name {
 @mixin oTopperColumnistName {
 	vertical-align: middle;
 }
 
-// .topper__tags {
+// .o-topper__tags {
 @mixin oTopperTags {
 	display: flex;
 	padding-bottom: 5px;

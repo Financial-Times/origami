@@ -9,29 +9,29 @@
 $o-topper-is-silent: true !default;
 
 @if ($o-topper-is-silent == false) {
-	.topper { @include oTopper; }
-	.topper--centered { @include oTopperCentered; }
-	.topper--basic { @include oTopperBasic; }
-	.topper__content { @include oTopperContent; }
-	.topper__visual { @include oTopperVisual; }
-	.topper__background { @include oTopperBackground; }
-	.topper__read-next { @include oTopperReadNext; }
+	.o-topper { @include oTopper; }
+	.o-topper--centered { @include oTopperCentered; }
+	.o-topper--basic { @include oTopperBasic; }
+	.o-topper__content { @include oTopperContent; }
+	.o-topper__visual { @include oTopperVisual; }
+	.o-topper__background { @include oTopperBackground; }
+	.o-topper__read-next { @include oTopperReadNext; }
 
-	.topper__headline { @include oTopperHeadline; }
-	.topper__standfirst { @include oTopperStandfirst; }
-	.topper__summary { @include oTopperSummary; }
-	.topper__image-credit { @include oTopperImageCredit; }
-	.topper__image { @include oTopperImage; }
-	.topper__brand { @include oTopperBrand; }
-	.topper__columnist { @include oTopperColumnist; }
-	.topper__columnist-name { @include oTopperColumnistName; }
-	.topper__tags { @include oTopperTags; }
+	.o-topper__headline { @include oTopperHeadline; }
+	.o-topper__standfirst { @include oTopperStandfirst; }
+	.o-topper__summary { @include oTopperSummary; }
+	.o-topper__image-credit { @include oTopperImageCredit; }
+	.o-topper__image { @include oTopperImage; }
+	.o-topper__brand { @include oTopperBrand; }
+	.o-topper__columnist { @include oTopperColumnist; }
+	.o-topper__columnist-name { @include oTopperColumnistName; }
+	.o-topper__tags { @include oTopperTags; }
 
-	.topper--branded { @include oTopperThemeBranded; }
-	.topper--has-headshot { @include oTopperHasHeadshot; }
-	.topper--opinion { @include oTopperOpinion; }
-	.topper__headshot { @include oTopperHeadshot; }
-	.topper__headshot-image { @include oTopperHeadshotImage; }
+	.o-topper--branded { @include oTopperThemeBranded; }
+	.o-topper--has-headshot { @include oTopperHasHeadshot; }
+	.o-topper--opinion { @include oTopperOpinion; }
+	.o-topper__headshot { @include oTopperHeadshot; }
+	.o-topper__headshot-image { @include oTopperHeadshotImage; }
 
 	$o-topper-is-silent: true !global;
 }

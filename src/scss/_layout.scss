@@ -12,15 +12,15 @@
 	}
 }
 
-// .topper--centered {
+// .o-topper--centered {
 @mixin oTopperCentered {
 	@include articleGridCentered();
-	.topper__read-next {
+	.o-topper__read-next {
 		display: none;
 	}
 }
 
-// .topper--basic {
+// .o-topper--basic {
 @mixin oTopperBasic {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
@@ -29,7 +29,7 @@
 
 //Default theme;
 
-// .topper__content {
+// .o-topper__content {
 @mixin oTopperContent {
 	-ms-grid-row: 2;
 	-ms-grid-row-span: 4;
@@ -40,8 +40,8 @@
 	z-index: 1;
 }
 
-// .topper__visual,
-// .topper__background {
+// .o-topper__visual,
+// .o-topper__background {
 @mixin oTopperBackground {
 	-ms-grid-row: 1;
 	-ms-grid-row-span: 5;
@@ -57,13 +57,13 @@
 	position: relative;
 }
 
-// .topper__visual {
+// .o-topper__visual {
 @mixin oTopperVisual {
 	@include oTopperBackground;
 	margin: 0;
 }
 
-// .topper__read-next {
+// .o-topper__read-next {
 @mixin oTopperReadNext {
 	display: none;
 	@include oGridRespondTo(L) {

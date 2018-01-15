@@ -1,12 +1,12 @@
 //TODO: mixinify
-[class*="topper--full-bleed-image"] {
+[class*="o-topper--full-bleed-image"] {
 
-	.topper__read-next {
+	.o-topper__read-next {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
-		.topper__content {
+		.o-topper__content {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -14,7 +14,7 @@
 			min-height: 350px;
 		}
 
-		.topper__visual {
+		.o-topper__visual {
 			min-height: 350px;
 		}
 	}
@@ -27,7 +27,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		.topper__content {
+		.o-topper__content {
 			-ms-grid-row: 1;
 			-ms-grid-column: 1;
 			-ms-grid-column-span: 2;
@@ -41,13 +41,13 @@
 			background: transparent;
 		}
 
-		.topper__visual {
+		.o-topper__visual {
 			grid-row: 1;
 		}
 	}
 
 	@supports (object-fit: cover) {
-		.topper__visual {
+		.o-topper__visual {
 			height: auto;
 			max-height: 480px;
 			@include oGridRespondTo(L) {

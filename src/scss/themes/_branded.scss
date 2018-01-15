@@ -1,6 +1,6 @@
-// .topper--branded
+// .o-topper--branded
 @mixin oTopperThemeBranded {
-	.topper__content {
+	.o-topper__content {
 		-ms-grid-row: 2;
 		-ms-grid-row-span: 3;
 		grid-row: 2 / span 3;
@@ -9,7 +9,7 @@
 		}
 	}
 
-	.topper__read-next {
+	.o-topper__read-next {
 		-ms-grid-row: 2;
 		-ms-grid-row-span: 3;
 		grid-row: 2 / span 3;
@@ -17,16 +17,16 @@
 
 	@include oGridRespondTo($until: L) {
 		//Make the background really full width
-		.topper__background {
+		.o-topper__background {
 			position: absolute;
 		}
 	}
 }
 
-// .topper--has-headshot
+// .o-topper--has-headshot
 @mixin oTopperHasHeadshot {
-	.topper__tags,
-	.topper__standfirst {
+	.o-topper__tags,
+	.o-topper__standfirst {
 		box-sizing: border-box;
 		padding-right: 100px;
 
@@ -35,20 +35,20 @@
 		}
 	}
 
-	.topper__headline {
+	.o-topper__headline {
 		@include oGridRespondTo(M) {
 			padding-right: 150px;
 		}
 	}
 }
 
-// .topper--opinion {
+// .o-topper--opinion {
 @mixin oTopperOpinion {
 	.n-myft-ui--follow {
 		margin-left: 20px;
 	}
 
-	.topper__opinion-genre {
+	.o-topper__opinion-genre {
 		@include oTypographySans(2);
 		font-weight: 200;
 		color: oColorsGetPaletteColor('oxford');
@@ -59,8 +59,8 @@
 	}
 
 	&[data-textbox-background="sky"] {
-		.topper__tags .o-typography-topic,
-		.topper__columnist-name {
+		.o-topper__tags .o-typography-topic,
+		.o-topper__columnist-name {
 			color: oColorsGetPaletteColor('oxford');
 			&:hover {
 				color: oColorsGetPaletteColor('black-80');
@@ -69,7 +69,7 @@
 	}
 }
 
-// .topper__headshot {
+// .o-topper__headshot {
 @mixin oTopperHeadshot {
 	position: absolute;
 	bottom: 0;
@@ -86,7 +86,7 @@
 	}
 }
 
-// .topper__headshot-image {
+// .o-topper__headshot-image {
 @mixin oTopperHeadshotImage {
 	max-width: 100%;
 	display: block;

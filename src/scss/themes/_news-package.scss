@@ -1,23 +1,23 @@
-.topper--news-package {
+.o-topper--news-package {
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
 	}
 
-	.topper__content {
+	.o-topper__content {
 		padding: oGridGutter();
 	}
 
-	.topper__tags,
-	.topper__read-next {
+	.o-topper__tags,
+	.o-topper__read-next {
 		display: none;
 	}
 
-	.topper__headline {
+	.o-topper__headline {
 		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
 	}
 
-	.topper__picture {
+	.o-topper__picture {
 		height: auto;
 	}
 
@@ -29,7 +29,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 20px 1fr 20px;
 
-		.topper__content {
+		.o-topper__content {
 			-ms-grid-column: 1;
 			-ms-grid-column-span: 2;
 			-ms-grid-row: 2;
@@ -40,7 +40,7 @@
 			padding: 0 20px 0 0;
 		}
 
-		.topper__visual {
+		.o-topper__visual {
 			-ms-grid-row: 2;
 			-ms-grid-row-span: 1;
 			-ms-grid-column: 2;

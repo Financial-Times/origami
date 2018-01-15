@@ -1,4 +1,4 @@
-// .topper--full-bleed-offset {
+// .o-topper--full-bleed-offset {
 @mixin oTopperThemeFullBleedOffset {
 
 	display: flex;
@@ -8,11 +8,11 @@
 		padding: 0;
 	}
 
-	.topper__read-next {
+	.o-topper__read-next {
 		display: none;
 	}
 
-	.topper__content {
+	.o-topper__content {
 		padding: 20px 10px;
 		order: 2;
 		&[data-textbox-background="paper"] {
@@ -31,14 +31,14 @@
 		-ms-grid-rows: 20px min-content 60px min-content;
 		grid-template-columns: auto;
 		grid-template-rows: 20px min-content 60px min-content;
-		.topper__content {
+		.o-topper__content {
 			-ms-grid-column: 1;
 			-ms-grid-row: 3;
 			-ms-grid-row-span: 2;
 			grid-column: 1;
 			grid-row: 3 / span 2;
 		}
-		.topper__visual {
+		.o-topper__visual {
 			-ms-grid-column: 1;
 			-ms-grid-row: 1;
 			-ms-grid-row-span: 3;
@@ -53,23 +53,23 @@
 		-ms-grid-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
-		&.topper--centered {
+		&.o-topper--centered {
 			-ms-grid-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
 			grid-template-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
 		}
-		.topper__content {
+		.o-topper__content {
 			-ms-grid-column: 4;
 			-ms-grid-column-span: 2;
 			grid-column: 4 / span 2;
 		}
 
-		.topper__visual {
+		.o-topper__visual {
 			-ms-grid-column: 1;
 			-ms-grid-column-span: 7;
 			grid-column: 1 / span 7;
 		}
 
-		.topper__background {
+		.o-topper__background {
 			-ms-grid-column: 1;
 			-ms-grid-column-span: 7;
 			-ms-grid-row: 4;
@@ -86,7 +86,7 @@
 	}
 
 	@supports (object-fit: cover) {
-		.topper__visual {
+		.o-topper__visual {
 			height: auto;
 			max-height: 480px;
 			@include oGridRespondTo(L) {
