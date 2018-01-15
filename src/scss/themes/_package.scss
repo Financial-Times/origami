@@ -1,4 +1,5 @@
-.topper__anchor-link {
+// .topper__anchor-link {
+@mixin oTopperAnchorLink {
 	@include oTypographySans(0, $progressive: true);
 	display: inline-block;
 	margin-top: 30px;
@@ -25,10 +26,8 @@
 	}
 }
 
-
-
-.topper--package {
-
+// .topper--package {
+@media oTopperPackage {
 	margin-bottom: 40px;
 
 	.n-myft-ui--follow {
@@ -43,7 +42,6 @@
 		@include oGridRespondTo(L) {
 			@include _oTypographyProgressiveFontFallbackSize('sans', 8);
 		}
-
 	}
 
 	.topper__headline:after {
@@ -76,7 +74,6 @@
 }
 
 .topper--package-special-report {
-
 	.topper__tags .n-content-tag {
 		opacity: 0.6;
 	}

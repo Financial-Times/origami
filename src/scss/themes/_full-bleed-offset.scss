@@ -1,4 +1,5 @@
-.topper--full-bleed-offset {
+// .topper--full-bleed-offset {
+@mixin oTopperThemeFullBleedOffset {
 
 	display: flex;
 	flex-direction: column;

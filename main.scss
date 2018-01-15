@@ -4,11 +4,34 @@
 @import 'o-icons/main';
 
 @import 'src/scss/main';
+@import 'src/scss/themes';
 
 $o-topper-is-silent: true !default;
 
 @if ($o-topper-is-silent == false) {
-	// TODO: convert to mixins, output classes here
+	.topper { @include oTopper; }
+	.topper--centered { @include oTopperCentered; }
+	.topper--basic { @include oTopperBasic; }
+	.topper__content { @include oTopperContent; }
+	.topper__visual { @include oTopperVisual; }
+	.topper__background { @include oTopperBackground; }
+	.topper__read-next { @include oTopperReadNext; }
+
+	.topper__headline { @include oTopperHeadline; }
+	.topper__standfirst { @include oTopperStandfirst; }
+	.topper__summary { @include oTopperSummary; }
+	.topper__image-credit { @include oTopperImageCredit; }
+	.topper__image { @include oTopperImage; }
+	.topper__brand { @include oTopperBrand; }
+	.topper__columnist { @include oTopperColumnist; }
+	.topper__columnist-name { @include oTopperColumnistName; }
+	.topper__tags { @include oTopperTags; }
+
+	.topper--branded { @include oTopperThemeBranded; }
+	.topper--has-headshot { @include oTopperHasHeadshot; }
+	.topper--opinion { @include oTopperOpinion; }
+	.topper__headshot { @include oTopperHeadshot; }
+	.topper__headshot-image { @include oTopperHeadshotImage; }
 
 	$o-topper-is-silent: true !global;
 }

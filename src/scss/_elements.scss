@@ -1,4 +1,5 @@
-.topper__headline {
+// .topper__headline {
+@mixin oTopperHeadline {
 	@include oTypographyHeadline();
 
 	&--large {
@@ -8,8 +9,8 @@
 	}
 }
 
-
-.topper__standfirst {
+// .topper__standfirst {
+@mixin oTopperStandfirst {
 	@include oTypographyStandfirst();
 	margin-bottom: 0;
 	opacity: 0.8;
@@ -21,10 +22,10 @@
 	> p {
 		margin: 0;
 	}
-
 }
 
-.topper__summary {
+// .topper__summary {
+@mixin oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
 		padding: 0 oTypographySpacingSize(5);
@@ -33,6 +34,7 @@
 	> ul > li {
 		margin: oTypographySpacingSize(2) 0;
 	}
+
 	&--body {
 		h2 {
 			@include oTypographySansBold(0);
@@ -56,7 +58,8 @@
 	}
 }
 
-.topper__image-credit {
+// .topper__image-credit {
+@mixin oTopperImageCredit {
 	color: oColorsGetPaletteColor('white');
 	@include oTypographySans(-2);
 	position: absolute;
@@ -71,6 +74,7 @@
 	}
 }
 
+// keep in next-article
 .article-summary-feedback {
 	margin-bottom: 10px;
 	.feedback__invitation {
@@ -79,50 +83,57 @@
 }
 
 //IE9 support
-.topper__image {
+// .topper__image {
+@mixin oTopperImage {
 	display: block;
 	position: relative;
 	width: 100%;
-}
 
-@supports (object-fit: cover) {
-	.topper__image {
+	@supports (object-fit: cover) {
 		height: 100%;
 		object-fit: cover;
 	}
 }
 
-.topper__brand {
+// .topper__brand {
+@mixin oTopperBrand {
 	@include oTypographySans(0);
 	margin-right: 4px;
 	-webkit-font-smoothing: antialiased;
+
 	@include oGridRespondTo($until: S) {
 		display: block;
 	}
 }
 
-.topper__columnist {
+// .topper__columnist {
+@mixin oTopperColumnist {
 	@include oTypographyMargin($top: 4);
 	text-transform: uppercase;
 }
 
-.topper__columnist-name {
+// .topper__columnist-name {
+@mixin oTopperColumnistName {
 	vertical-align: middle;
 }
 
-.topper__tags {
+// .topper__tags {
+@mixin oTopperTags {
 	display: flex;
 	padding-bottom: 5px;
 	@include oTypographySize($scale: 0, $line-height: 28px);
 
+	// keep in next-article?
 	.o-tooltip {
 		color: oColorsGetPaletteColor('black');
 		width: 275px;
 	}
+
 	.o-tooltip-close {
 		// Override this being set in n-ui-foundations for all links.
 		border-bottom: 0;
 	}
+
 	.o-tooltip-content {
 		@include oTypographySans($scale: 0);
 	}
