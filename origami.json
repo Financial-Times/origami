@@ -42,6 +42,16 @@
 			"name": "Full Bleed Offset",
 			"template": "/demos/src/full-bleed-offset.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Split Text Left",
+			"template": "/demos/src/split-text-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
+		},
+		{
+			"name": "Split Text Center",
+			"template": "/demos/src/split-text-center.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
 		}
 	]
 }
