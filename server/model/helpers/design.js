@@ -11,19 +11,22 @@ function setDesignProperties (content) {
 	// set the default values in case they're not defined
 	_.defaultsDeep(content, { design: {theme: 'basic', layout: 'default'} });
 
-	if (content.type === 'package') {
+	// Note that it's possible for a package to be containedIn another package
+	const isPackage = content.contains && !!content.contains.length;
+	const isContainedInPackage = content.containedIn && !!content.containedIn.length;
+
+	if (isPackage) {
 		if (isBrandSpecialReport(content)) {
 			content.design.theme = 'special-report';
 		}
 		// } else { no rules for other things yet }
 	}
 
-	// note that it's possible for a package to be containedIn another package
-	if (content.package) {
+	if (isContainedInPackage) {
 		setDesignProperties(content.package);
 		if (isBrandSpecialReport(content.package)) {
 			content.design.theme = 'special-report';
-		} else {
+		} else if (!isPackage) { // nested packages must not inherit from the parent package
 			content.design.theme = content.package.design.theme;
 		}
 	}

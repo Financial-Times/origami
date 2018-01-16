@@ -9,9 +9,19 @@ const brandSpecialReportConcept = {
 	prefLabel: 'Special Report',
 };
 
+const someOtherConcept = {
+	apiUrl: 'http://api.ft.com/brands/somethingelse',
+	directType: 'http://www.ft.com/ontology/product/Brand',
+	id: 'somethingelse',
+	predicate: 'http://www.ft.com/ontology/classification/isClassifiedBy',
+	prefLabel: 'Something else',
+};
+
 const specialReportPackage = {
 	type: 'package',
 	design: { theme: 'basic', layout: 'default' },
+	containedIn: [],
+	contains: [{}],
 	annotations: [
 		brandSpecialReportConcept
 	]
@@ -20,7 +30,21 @@ const specialReportPackage = {
 const extraThemePackage = {
 	type: 'package',
 	design: { theme: 'extra', layout: 'default' },
-	annotations: []
+	containedIn: [],
+	contains: [{}],
+	annotations: [
+		someOtherConcept
+	]
+};
+
+const basicThemePackage = {
+	type: 'package',
+	design: { theme: 'basic', layout: 'default' },
+	containedIn: [],
+	contains: [{}],
+	annotations: [
+		someOtherConcept
+	]
 };
 
 describe('Design', function () {
@@ -43,8 +67,22 @@ describe('Design', function () {
 	it('should inherit design theme from it\'s parent package', function () {
 		const fixture = {
 			type: 'article',
+			containedIn: [{}],
+			contains: [],
 			design: { theme: 'basic', layout: 'default' },
 			package: extraThemePackage,
+			annotations: []
+		};
+		expect(setDesign(fixture).design.theme).to.equal('extra');
+	});
+
+	it('should not inherit design theme when it\'s a nested package', function () {
+		const fixture = {
+			type: 'package',
+			containedIn: [{}],
+			contains: [{}],
+			design: { theme: 'extra', layout: 'default' },
+			package: basicThemePackage,
 			annotations: []
 		};
 		expect(setDesign(fixture).design.theme).to.equal('extra');
@@ -53,6 +91,8 @@ describe('Design', function () {
 	it('should inherit design "special-report" theme from package with Special Report brand metadata', function () {
 		const fixture = {
 			type: 'article',
+			containedIn: [{}],
+			contains: [],
 			design: { theme: 'basic', layout: 'default' },
 			package: specialReportPackage,
 			annotations: []
