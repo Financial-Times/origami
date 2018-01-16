@@ -12,8 +12,8 @@ function setDesignProperties (content) {
 	_.defaultsDeep(content, { design: {theme: 'basic', layout: 'default'} });
 
 	// Note that it's possible for a package to be containedIn another package
-	const isPackage = content.contains && !!content.contains.length;
-	const isContainedInPackage = content.containedIn && !!content.containedIn.length;
+	const isPackage = content.type === 'package';
+	const isContainedInPackage = content.package;
 
 	if (isPackage) {
 		if (isBrandSpecialReport(content)) {
