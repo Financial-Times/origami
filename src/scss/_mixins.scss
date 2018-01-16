@@ -10,67 +10,55 @@
 }
 
 // uses topper background colour to set background and pick contrasting text color
-@mixin setColors($bg-color) {
-	[data-textbox-background~='#{$bg-color}'] {
-		$text-color: black;
-		$hover-color: lighten($text-color, 40%);
-		$contrast: lightness(oColorsGetPaletteColor($bg-color));
-		@if $contrast <= 50% {
-			$text-color: white;
-			$hover-color: darken($text-color, 20%);
-			.o-topper__standfirst a {
-				color: $text-color;
-				border-bottom-color: $text-color;
-				&:hover {
-					color: $hover-color;
-					border-bottom-color: $hover-color;
-				}
-			}
-		}
-		@include colorBorder($text-color);
-		@if $bg-color == 'wheat' {
-			background-color: oColorsMix($color: 'wheat', $percentage: 40);
-		} @else {
-			background-color: oColorsGetPaletteColor('#{$bg-color}');
-		}
-		.o-topper__tags,
-		.o-topper__columnist-name,
-		.o-topper__headline,
-		.o-topper__standfirst,
-		.o-topper__summary {
+@mixin oTopperColor($bg-color) {
+	$text-color: black;
+	$hover-color: lighten($text-color, 40%);
+	$contrast: lightness(oColorsGetPaletteColor($bg-color));
+	@if $contrast <= 50% {
+		$text-color: white;
+		$hover-color: darken($text-color, 20%);
+		.o-topper__standfirst a {
 			color: $text-color;
-		}
-
-		.o-topper__tags .n-content-tag {
-			color: $text-color;
+			border-bottom-color: $text-color;
 			&:hover {
-				color: oColorsMix($text-color, $bg-color, 73);
-			}
-		}
-
-		@if $bg-color == 'paper' or $bg-color == 'wheat' {
-			.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
-			.o-topper__columnist-name {
-				@include oColorsFor(tag-link, text);
-				&:hover {
-					@include oColorsFor(tag-link-hover, text);
-				}
+				color: $hover-color;
+				border-bottom-color: $hover-color;
 			}
 		}
 	}
-}
-
-/// @param {list} $colors - colors available to editorial in methode for the background
-$colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'default', 'crimson', 'sky', 'velvet';
-@each $color in $colors {
-	@if $color == 'default' {
-		@include setColors('paper');
+	@include colorBorder($text-color);
+	@if $bg-color == 'wheat' {
+		background-color: oColorsMix($color: 'wheat', $percentage: 40);
 	} @else {
-		@include setColors($color);
+		background-color: oColorsGetPaletteColor('#{$bg-color}');
+	}
+	.o-topper__tags,
+	.o-topper__columnist-name,
+	.o-topper__headline,
+	.o-topper__standfirst,
+	.o-topper__summary {
+		color: $text-color;
+	}
+
+	.o-topper__tags .n-content-tag {
+		color: $text-color;
+		&:hover {
+			color: oColorsMix($text-color, $bg-color, 73);
+		}
+	}
+
+	@if $bg-color == 'paper' or $bg-color == 'wheat' {
+		.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
+		.o-topper__columnist-name {
+			@include oColorsFor(tag-link, text);
+			&:hover {
+				@include oColorsFor(tag-link-hover, text);
+			}
+		}
 	}
 }
 
-@mixin alignText($position) {
+@mixin _oTopperAlignText($position) {
 	$mleft: ('left': 0, 'center': auto, 'right': auto);
 	$mright: ('left': auto, 'center': auto, 'right': 0);
 	$value: ('left': flex-start, 'center': center, 'right': flex-end);

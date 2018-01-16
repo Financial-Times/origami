@@ -75,6 +75,6 @@
 
 .o-topper--split-text-center {
 	@include oGridRespondTo(S) {
-		@include alignText(center);
+		@include _oTopperAlignText(center);
 	}
 }
