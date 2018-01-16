@@ -11,48 +11,50 @@
 
 // uses topper background colour to set background and pick contrasting text color
 @mixin oTopperColor($bg-color) {
-	$text-color: black;
-	$hover-color: lighten($text-color, 40%);
-	$contrast: lightness(oColorsGetPaletteColor($bg-color));
-	@if $contrast <= 50% {
-		$text-color: white;
-		$hover-color: darken($text-color, 20%);
-		.o-topper__standfirst a {
-			color: $text-color;
-			border-bottom-color: $text-color;
-			&:hover {
-				color: $hover-color;
-				border-bottom-color: $hover-color;
+	%-o-topper-receive-color {
+		$text-color: black;
+		$hover-color: lighten($text-color, 40%);
+		$contrast: lightness(oColorsGetPaletteColor($bg-color));
+		@if $contrast <= 50% {
+			$text-color: white;
+			$hover-color: darken($text-color, 20%);
+			.o-topper__standfirst a {
+				color: $text-color;
+				border-bottom-color: $text-color;
+				&:hover {
+					color: $hover-color;
+					border-bottom-color: $hover-color;
+				}
 			}
 		}
-	}
-	@include colorBorder($text-color);
-	@if $bg-color == 'wheat' {
-		background-color: oColorsMix($color: 'wheat', $percentage: 40);
-	} @else {
-		background-color: oColorsGetPaletteColor('#{$bg-color}');
-	}
-	.o-topper__tags,
-	.o-topper__columnist-name,
-	.o-topper__headline,
-	.o-topper__standfirst,
-	.o-topper__summary {
-		color: $text-color;
-	}
-
-	.o-topper__tags .n-content-tag {
-		color: $text-color;
-		&:hover {
-			color: oColorsMix($text-color, $bg-color, 73);
+		@include colorBorder($text-color);
+		@if $bg-color == 'wheat' {
+			background-color: oColorsMix($color: 'wheat', $percentage: 40);
+		} @else {
+			background-color: oColorsGetPaletteColor('#{$bg-color}');
 		}
-	}
+		.o-topper__tags,
+		.o-topper__columnist-name,
+		.o-topper__headline,
+		.o-topper__standfirst,
+		.o-topper__summary {
+			color: $text-color;
+		}
 
-	@if $bg-color == 'paper' or $bg-color == 'wheat' {
-		.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
-		.o-topper__columnist-name {
-			@include oColorsFor(tag-link, text);
+		.o-topper__tags .n-content-tag {
+			color: $text-color;
 			&:hover {
-				@include oColorsFor(tag-link-hover, text);
+				color: oColorsMix($text-color, $bg-color, 73);
+			}
+		}
+
+		@if $bg-color == 'paper' or $bg-color == 'wheat' {
+			.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
+			.o-topper__columnist-name {
+				@include oColorsFor(tag-link, text);
+				&:hover {
+					@include oColorsFor(tag-link-hover, text);
+				}
 			}
 		}
 	}
