@@ -26,6 +26,7 @@ function setDesignProperties (content) {
 		setDesignProperties(content.package);
 		if (isBrandSpecialReport(content.package)) {
 			content.design.theme = 'special-report';
+			content.package.navigationTheme = 'special-report'; // HACK: temporary, remove after packaging refactor (LK)
 		} else if (!isPackage) { // nested packages must not inherit from the parent package
 			content.design.theme = content.package.design.theme;
 		}
