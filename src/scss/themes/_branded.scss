@@ -1,8 +1,6 @@
 // .o-topper--branded
 @mixin oTopperThemeBranded {
 	.o-topper__content {
-		-ms-grid-row: 2;
-		-ms-grid-row-span: 3;
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
 			padding: 20px 0;
@@ -10,8 +8,6 @@
 	}
 
 	.o-topper__read-next {
-		-ms-grid-row: 2;
-		-ms-grid-row-span: 3;
 		grid-row: 2 / span 3;
 	}
 

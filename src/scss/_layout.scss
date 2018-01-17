@@ -7,7 +7,6 @@
 	margin-bottom: 20px;
 
 	@include oGridRespondTo(L) {
-		-ms-grid-rows: 20px min-content 60px min-content 20px;
 		grid-template-rows: 20px min-content 60px min-content 20px;
 	}
 }
@@ -32,9 +31,6 @@
 // .o-topper__content {
 @mixin oTopperContent {
 	@include _oTopperReceive(color);
-	-ms-grid-row: 2;
-	-ms-grid-row-span: 4;
-	-ms-grid-column: 3;
 	grid-row: 2 / span 4;
 	grid-column: 3;
 	position: relative;
@@ -45,10 +41,6 @@
 // .o-topper__background {
 @mixin oTopperBackground {
 	@include _oTopperReceive(color);
-	-ms-grid-row: 1;
-	-ms-grid-row-span: 5;
-	-ms-grid-column: 1;
-	-ms-grid-column-span: 6;
 	grid-row: 1 / span 5;
 	grid-column: 1 / span 6;
 	width: 100vw;
@@ -72,10 +64,6 @@
 		display: block;
 	}
 	position: relative;
-	-ms-grid-row: 2;
-	-ms-grid-row-span: 4;
-	-ms-grid-column: 5;
-	-ms-grid-column-span: 1;
 	grid-row: 2 / span 4;
 	grid-column: 5 / span 1;
 }
