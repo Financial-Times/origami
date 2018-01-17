@@ -31,7 +31,7 @@
 
 // .o-topper__content {
 @mixin oTopperContent {
-	@extend %-o-topper-receive-color;
+	@include _oTopperReceive(color);
 	-ms-grid-row: 2;
 	-ms-grid-row-span: 4;
 	-ms-grid-column: 3;
@@ -44,7 +44,7 @@
 // .o-topper__visual,
 // .o-topper__background {
 @mixin oTopperBackground {
-	@extend %-o-topper-receive-color;
+	@include _oTopperReceive(color);
 	-ms-grid-row: 1;
 	-ms-grid-row-span: 5;
 	-ms-grid-column: 1;
