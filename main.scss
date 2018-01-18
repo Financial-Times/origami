@@ -17,9 +17,23 @@ $o-topper-is-silent: true !default;
 	.o-topper__background { @include oTopperBackground; }
 	.o-topper__read-next { @include oTopperReadNext; }
 
-	.o-topper__headline { @include oTopperHeadline; }
+	.o-topper__headline {
+		@include oTopperHeadline;
+
+		&--large {
+			@include oTopperHeadlineLarge;
+		}
+	}
+
 	.o-topper__standfirst { @include oTopperStandfirst; }
-	.o-topper__summary { @include oTopperSummary; }
+	.o-topper__summary {
+		@include oTopperSummary;
+
+		&--body {
+			@include oTopperSummaryBody;
+		}
+	}
+
 	.o-topper__image-credit { @include oTopperImageCredit; }
 	.o-topper__image { @include oTopperImage; }
 	.o-topper__brand { @include oTopperBrand; }
@@ -27,9 +41,13 @@ $o-topper-is-silent: true !default;
 	.o-topper__columnist-name { @include oTopperColumnistName; }
 	.o-topper__tags { @include oTopperTags; }
 
-	.o-topper--branded { @include oTopperThemeBranded; }
+	@each $theme in $-o-topper-themes {
+		.o-topper-#{$theme} {
+			@include _oTopperReceive(theme $theme);
+		}
+	}
+
 	.o-topper--has-headshot { @include oTopperHasHeadshot; }
-	.o-topper--opinion { @include oTopperOpinion; }
 	.o-topper__headshot { @include oTopperHeadshot; }
 	.o-topper__headshot-image { @include oTopperHeadshotImage; }
 

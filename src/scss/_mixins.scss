@@ -16,13 +16,17 @@
 	@return $result;
  }
 
-@mixin _oTopperReceive($keys) {
-	@extend %-o-topper-receive-#{-o-topper-join-string($keys, '-')};
+@mixin _oTopperReceive($paths...) {
+	@each $keys in $paths {
+		@extend %-o-topper-receive-#{-o-topper-join-string($keys, '-')};
+	}
 }
 
-@mixin _oTopperProvide($keys) {
-	%-o-topper-receive-#{-o-topper-join-string($keys, '-')} {
-		@content;
+@mixin _oTopperProvide($paths...) {
+	@each $keys in $paths {
+		%-o-topper-receive-#{-o-topper-join-string($keys, '-')} {
+			@content;
+		}
 	}
 }
 

@@ -1,19 +1,19 @@
 // .o-topper--branded
-@mixin oTopperThemeBranded {
-	.o-topper__content {
+@include _oTopperProvide(theme branded) {
+	@include _oTopperProvide(layout content) {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
 			padding: 20px 0;
 		}
 	}
 
-	.o-topper__read-next {
+	@include _oTopperProvide(layout read next) {
 		grid-row: 2 / span 3;
 	}
 
 	@include oGridRespondTo($until: L) {
 		//Make the background really full width
-		.o-topper__background {
+		@include _oTopperProvide(layout background) {
 			position: absolute;
 		}
 	}
@@ -21,8 +21,10 @@
 
 // .o-topper--has-headshot
 @mixin oTopperHasHeadshot {
-	.o-topper__tags,
-	.o-topper__standfirst {
+	@include _oTopperProvide(
+		element tags,
+		element standfirst
+	) {
 		box-sizing: border-box;
 		padding-right: 100px;
 
@@ -31,7 +33,7 @@
 		}
 	}
 
-	.o-topper__headline {
+	@include _oTopperProvide(element headline) {
 		@include oGridRespondTo(M) {
 			padding-right: 150px;
 		}
@@ -39,7 +41,8 @@
 }
 
 // .o-topper--opinion {
-@mixin oTopperOpinion {
+@include _oTopperProvide(theme opinion) {
+	// keep in next-article
 	.n-myft-ui--follow {
 		margin-left: 20px;
 	}
@@ -58,6 +61,7 @@
 		.o-topper__tags .o-typography-topic,
 		.o-topper__columnist-name {
 			color: oColorsGetPaletteColor('oxford');
+
 			&:hover {
 				color: oColorsGetPaletteColor('black-80');
 			}

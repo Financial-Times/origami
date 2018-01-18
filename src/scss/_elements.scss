@@ -1,16 +1,26 @@
-// .o-topper__headline {
-@mixin oTopperHeadline {
+@include _oTopperProvide(element headline) {
 	@include oTypographyHeadline();
-
-	&--large {
-		@include oTypographyHeadlineLarge();
-
-		position: relative; //so it appears above the full width background
-	}
 }
 
-// .o-topper__standfirst {
+@include _oTopperProvide(element headline large) {
+	@include oTypographyHeadlineLarge();
+
+	position: relative; //so it appears above the full width background
+}
+
+@mixin oTopperHeadline {
+	@include _oTopperReceive(element headline);
+}
+
+@mixin oTopperHeadlineLarge {
+	@include _oTopperReceive(element headline large);
+}
+
 @mixin oTopperStandfirst {
+	@include _oTopperReceive(element standfirst);
+}
+
+@include _oTopperProvide(element standfirst) {
 	@include oTypographyStandfirst();
 	margin-bottom: 0;
 	opacity: 0.8;
@@ -24,8 +34,15 @@
 	}
 }
 
-// .o-topper__summary {
 @mixin oTopperSummary {
+	@include _oTopperReceive(element summary);
+}
+
+@mixin oTopperSummaryBody {
+	@include _oTopperReceive(element summary body);
+}
+
+@include _oTopperProvide(element summary) {
 	@include oTypographySans(1);
 	> ul {
 		padding: 0 oTypographySpacingSize(5);
@@ -34,57 +51,49 @@
 	> ul > li {
 		margin: oTypographySpacingSize(2) 0;
 	}
+}
 
-	&--body {
-		h2 {
-			@include oTypographySansBold(0);
-			margin: 5px 0 0;
+@include _oTopperProvide(element summary body) {
+	h2 {
+		@include oTypographySansBold(0);
+		margin: 5px 0 0;
+	}
+
+	ul {
+		@include oTypographyList;
+		@include oTypographyListUnordered();
+		margin: 0px;
+
+		li:first-child {
+			margin-top: 0px;
 		}
-
-		ul {
-			@include oTypographyList;
-			@include oTypographyListUnordered();
-			margin: 0px;
-
-			li:first-child {
-				margin-top: 0px;
-			}
-			li {
-				@include oTypographySans(1);
-				@include oTypographyMargin(2, 0);
-				font-weight: 600;
-			}
+		li {
+			@include oTypographySans(1);
+			@include oTypographyMargin(2, 0);
+			font-weight: 600;
 		}
 	}
 }
 
-// .o-topper__image-credit {
 @mixin oTopperImageCredit {
+	@include _oTopperReceive(element image credit);
+}
+
+@include _oTopperProvide(element image credit) {
 	color: oColorsGetPaletteColor('white');
 	@include oTypographySans(-2);
 	position: absolute;
 	right: 12px;
 	bottom: 2px;
 	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
-	.o-topper--full-bleed-offset & {
-		@include oGridRespondTo($from: M, $until: XL) {
-			bottom: auto;
-			top: 0;
-		}
-	}
-}
-
-// keep in next-article
-.article-summary-feedback {
-	margin-bottom: 10px;
-	.feedback__invitation {
-		margin-top: 5px;
-	}
 }
 
 //IE9 support
-// .o-topper__image {
 @mixin oTopperImage {
+	@include _oTopperReceive(element image);
+}
+
+@include _oTopperProvide(element image) {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -95,8 +104,11 @@
 	}
 }
 
-// .o-topper__brand {
 @mixin oTopperBrand {
+	@include _oTopperReceive(element brand);
+}
+
+@include _oTopperProvide(element brand) {
 	@include oTypographySans(0);
 	margin-right: 4px;
 	-webkit-font-smoothing: antialiased;
@@ -106,19 +118,28 @@
 	}
 }
 
-// .o-topper__columnist {
 @mixin oTopperColumnist {
+	@include _oTopperReceive(element columnist);
+}
+
+@include _oTopperProvide(element columnist) {
 	@include oTypographyMargin($top: 4);
 	text-transform: uppercase;
 }
 
-// .o-topper__columnist-name {
 @mixin oTopperColumnistName {
+	@include _oTopperReceive(element columnist name);
+}
+
+@include _oTopperProvide(element columnist name) {
 	vertical-align: middle;
 }
 
-// .o-topper__tags {
 @mixin oTopperTags {
+	@include _oTopperReceive(element tags);
+}
+
+@include _oTopperProvide(element tags) {
 	display: flex;
 	padding-bottom: 5px;
 	@include oTypographySize($scale: 0, $line-height: 28px);

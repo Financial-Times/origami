@@ -1,7 +1,10 @@
 @import 'grid';
 
-// .topper {
 @mixin oTopper {
+	@include _oTopperReceive(layout);
+}
+
+@include _oTopperProvide(layout) {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include articleGrid();
 	margin-bottom: 20px;
@@ -11,16 +14,24 @@
 	}
 }
 
-// .o-topper--centered {
 @mixin oTopperCentered {
+	@include _oTopperReceive(layout centered);
+}
+
+@include _oTopperProvide(layout centered) {
 	@include articleGridCentered();
-	.o-topper__read-next {
+
+	@include _oTopperProvide(layout read next) {
 		display: none;
 	}
 }
 
 // .o-topper--basic {
 @mixin oTopperBasic {
+	@include _oTopperReceive(layout basic);
+}
+
+@include _oTopperProvide(layout basic) {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
 	}
@@ -28,8 +39,11 @@
 
 //Default theme;
 
-// .o-topper__content {
 @mixin oTopperContent {
+	@include _oTopperReceive(layout content);
+}
+
+@include _oTopperProvide(layout content) {
 	@include _oTopperReceive(color);
 	grid-row: 2 / span 4;
 	grid-column: 3;
@@ -37,9 +51,11 @@
 	z-index: 1;
 }
 
-// .o-topper__visual,
-// .o-topper__background {
 @mixin oTopperBackground {
+	@include _oTopperReceive(layout background);
+}
+
+@include _oTopperProvide(layout background) {
 	@include _oTopperReceive(color);
 	grid-row: 1 / span 5;
 	grid-column: 1 / span 6;
@@ -51,18 +67,26 @@
 	position: relative;
 }
 
-// .o-topper__visual {
 @mixin oTopperVisual {
-	@include oTopperBackground;
+	@include _oTopperReceive(layout visual);
+}
+
+@include _oTopperProvide(layout visual) {
+	@include _oTopperReceive(layout background);
 	margin: 0;
 }
 
-// .o-topper__read-next {
 @mixin oTopperReadNext {
+	@include _oTopperReceive(layout read next);
+}
+
+@include _oTopperProvide(layout read next) {
 	display: none;
+
 	@include oGridRespondTo(L) {
 		display: block;
 	}
+
 	position: relative;
 	grid-row: 2 / span 4;
 	grid-column: 5 / span 1;

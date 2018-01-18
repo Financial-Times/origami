@@ -1,4 +1,3 @@
-// .o-topper__anchor-link {
 @mixin oTopperAnchorLink {
 	@include oTypographySans(0, $progressive: true);
 	display: inline-block;
@@ -26,8 +25,7 @@
 	}
 }
 
-// .o-topper--package {
-@media oTopperPackage {
+@include _oTopperProvide(theme package) {
 	margin-bottom: 40px;
 
 	.n-myft-ui--follow {
@@ -54,8 +52,10 @@
 	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
 }
 
-.o-topper--package-extra,
-.o-topper--package-extra-wide {
+@include _oTopperProvide(
+	theme package extra,
+	theme package extra wide
+) {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
 		color: oColorsGetPaletteColor('lemon');
@@ -73,7 +73,7 @@
 	}
 }
 
-.o-topper--package-special-report {
+@include _oTopperProvide(theme package special report) {
 	.o-topper__tags .n-content-tag {
 		opacity: 0.6;
 	}

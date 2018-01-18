@@ -1,6 +1,4 @@
-// .o-topper--full-bleed-offset {
-@mixin oTopperThemeFullBleedOffset {
-
+@include _oTopperProvide(theme full bleed offset) {
 	display: flex;
 	flex-direction: column;
 	@include oGridRespondTo($until: L) {
@@ -76,4 +74,10 @@
 		}
 	}
 
+	@include _oTopperProvide(element image credit) {
+		@include oGridRespondTo($from: M, $until: XL) {
+			bottom: auto;
+			top: 0;
+		}
+	}
 }
