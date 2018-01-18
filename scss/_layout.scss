@@ -26,7 +26,6 @@
 	}
 }
 
-// .o-topper--basic {
 @mixin oTopperBasic {
 	@include _oTopperReceive(layout basic);
 }

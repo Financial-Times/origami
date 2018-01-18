@@ -47,7 +47,7 @@
 		margin-left: 20px;
 	}
 
-	.o-topper__opinion-genre {
+	@include _oTopperProvide(element opinion genre) {
 		@include oTypographySans(2);
 		font-weight: 200;
 		color: oColorsGetPaletteColor('oxford');
@@ -56,21 +56,13 @@
 	.n-content-tag--with-follow {
 		vertical-align: baseline;
 	}
-
-	&[data-textbox-background="sky"] {
-		.o-topper__tags .o-typography-topic,
-		.o-topper__columnist-name {
-			color: oColorsGetPaletteColor('oxford');
-
-			&:hover {
-				color: oColorsGetPaletteColor('black-80');
-			}
-		}
-	}
 }
 
-// .o-topper__headshot {
 @mixin oTopperHeadshot {
+	@include _oTopperReceive(element headshot);
+}
+
+@include _oTopperProvide(element headshot) {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -86,8 +78,11 @@
 	}
 }
 
-// .o-topper__headshot-image {
 @mixin oTopperHeadshotImage {
+	@include _oTopperReceive(element headshot image);
+}
+
+@include _oTopperProvide(element headshot image) {
 	max-width: 100%;
 	display: block;
 	margin-left: 8px;

@@ -14,7 +14,7 @@
 	}
 
 	@return $result;
- }
+}
 
 @mixin _oTopperReceive($paths...) {
 	@each $keys in $paths {
@@ -30,6 +30,14 @@
 	}
 }
 
+@mixin oTopperOutputThemes() {
+	@each $theme in $-o-topper-themes {
+		.o-topper-#{$theme} {
+			@include _oTopperReceive(theme $theme);
+		}
+	}
+}
+
 // uses topper background colour to set background and pick contrasting text color
 @mixin oTopperColor($bg-color) {
 	@include _oTopperProvide(color) {
@@ -39,20 +47,26 @@
 		@if $contrast <= 50% {
 			$text-color: white;
 			$hover-color: darken($text-color, 20%);
-			.o-topper__standfirst a {
-				color: $text-color;
-				border-bottom-color: $text-color;
-				&:hover {
-					color: $hover-color;
-					border-bottom-color: $hover-color;
+
+			@include _oTopperProvide(element standfirst) {
+				a {
+					color: $text-color;
+					border-bottom-color: $text-color;
+
+					&:hover {
+						color: $hover-color;
+						border-bottom-color: $hover-color;
+					}
 				}
 			}
 		}
 
-		.o-topper__headline::after {
-			border-bottom: 6px solid $text-color;
-			@include oGridRespondTo($from: L) {
-				border-bottom-width: 8px;
+		@include _oTopperProvide(element headline) {
+			&::after {
+				border-bottom: 6px solid $text-color;
+				@include oGridRespondTo($from: L) {
+					border-bottom-width: 8px;
+				}
 			}
 		}
 
@@ -61,14 +75,18 @@
 		} @else {
 			background-color: oColorsGetPaletteColor($bg-color);
 		}
-		.o-topper__tags,
-		.o-topper__columnist-name,
-		.o-topper__headline,
-		.o-topper__standfirst,
-		.o-topper__summary {
+
+		@include _oTopperProvide(
+			element tags,
+			element columnist name,
+			element headline,
+			element standfirst,
+			element summary
+		) {
 			color: $text-color;
 		}
 
+		// TODO: work out what to do with tags
 		.o-topper__tags .n-content-tag {
 			color: $text-color;
 			&:hover {
@@ -80,8 +98,23 @@
 			.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
 			.o-topper__columnist-name {
 				@include oColorsFor(tag-link, text);
+
 				&:hover {
 					@include oColorsFor(tag-link-hover, text);
+				}
+			}
+		}
+
+		@if $bg-color == 'sky' {
+			@include _oTopperProvide(
+				element tags,
+				element topic,
+				element columnist name
+			) {
+				color: oColorsGetPaletteColor('oxford');
+
+				&:hover {
+					color: oColorsGetPaletteColor('black-80');
 				}
 			}
 		}
@@ -93,22 +126,26 @@
 	$mright: ('left': auto, 'center': auto, 'right': 0);
 	$value: ('left': flex-start, 'center': center, 'right': flex-end);
 
-	.o-topper__headline--large:after {
-		margin-left: map-get($mleft, #{$position});
-		margin-right: map-get($mright, #{$position});
+	@include _oTopperProvide(element headline large) {
+		&:after {
+			margin-left: map-get($mleft, #{$position});
+			margin-right: map-get($mright, #{$position});
+		}
 	}
-	.o-topper__content {
+
+	@include _oTopperProvide(layout content) {
 		text-align: $position;
 		align-self: map-get($value, #{$position});
 	}
 
-	.o-topper__tags {
+	@include _oTopperProvide(element tags) {
 		justify-content: map-get($value, #{$position});
 	}
 }
 
-@mixin stackTags {
-	.o-topper__tags {
+// TODO: seems to be unused
+@mixin _oTopperStackTags {
+	@include _oTopperProvide(element tags) {
 		flex-direction: column;
 		justify-content: center;
 		padding-bottom: 15px;

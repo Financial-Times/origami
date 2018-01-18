@@ -3,10 +3,12 @@
 @import 'o-grid/main';
 @import 'o-icons/main';
 
-@import 'src/scss/main';
-@import 'src/scss/themes';
+@import 'scss/variables';
+@import 'scss/mixins';
 
-$o-topper-is-silent: true !default;
+@import 'scss/elements';
+@import 'scss/layout';
+@import 'scss/themes';
 
 @if ($o-topper-is-silent == false) {
 	.o-topper { @include oTopper; }
@@ -40,12 +42,6 @@ $o-topper-is-silent: true !default;
 	.o-topper__columnist { @include oTopperColumnist; }
 	.o-topper__columnist-name { @include oTopperColumnistName; }
 	.o-topper__tags { @include oTopperTags; }
-
-	@each $theme in $-o-topper-themes {
-		.o-topper-#{$theme} {
-			@include _oTopperReceive(theme $theme);
-		}
-	}
 
 	.o-topper--has-headshot { @include oTopperHasHeadshot; }
 	.o-topper__headshot { @include oTopperHeadshot; }

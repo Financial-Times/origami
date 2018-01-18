@@ -1,12 +1,14 @@
-//TODO: mixinify
-[class*="o-topper--full-bleed-image"] {
+@include _oTopperProvide(
+	theme full bleed image center,
+	theme full bleed image left
+) {
 
-	.o-topper__read-next {
+	@include _oTopperProvide(element read next) {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
-		.o-topper__content {
+		@include _oTopperProvide(layout content) {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -14,7 +16,7 @@
 			min-height: 350px;
 		}
 
-		.o-topper__visual {
+		@include _oTopperProvide(layout visual) {
 			min-height: 350px;
 		}
 	}
@@ -24,7 +26,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		.o-topper__content {
+		@include _oTopperProvide(layout content) {
 			grid-row: 1;
 			grid-column: 1 / span 2;
 			width: 50%;
@@ -34,13 +36,13 @@
 			background: transparent;
 		}
 
-		.o-topper__visual {
+		@include _oTopperProvide(layout visual) {
 			grid-row: 1;
 		}
 	}
 
 	@supports (object-fit: cover) {
-		.o-topper__visual {
+		@include _oTopperProvide(layout visual) {
 			height: auto;
 			max-height: 480px;
 			@include oGridRespondTo(L) {

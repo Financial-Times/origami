@@ -1,0 +1,14 @@
+$-debug-providers-with-no-receive: ();
+
+/// @param {list} $-o-topper-colors - colors available to editorial in methode for the background
+$-o-topper-colors: 'claret', 'oxford', 'paper', 'slate', 'wheat', 'crimson', 'sky', 'velvet';
+
+$-o-topper-themes: (
+	branded,
+	opinion,
+	package,
+	split-text-left,
+	split-text-center,
+	full-bleed-image-center,
+	full-bleed-image-left,
+);
