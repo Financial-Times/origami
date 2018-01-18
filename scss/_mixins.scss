@@ -32,7 +32,7 @@
 
 @mixin oTopperOutputThemes() {
 	@each $theme in $-o-topper-themes {
-		.o-topper-#{$theme} {
+		.o-topper--#{$theme} {
 			@include _oTopperReceive(theme $theme);
 		}
 	}

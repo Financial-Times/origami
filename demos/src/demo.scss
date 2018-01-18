@@ -3,4 +3,5 @@ $o-typography-is-silent: false;
 
 $o-topper-is-silent: false;
 @import '../../main';
-@import '../../src/scss/themes';
+
+@include oTopperOutputThemes;
