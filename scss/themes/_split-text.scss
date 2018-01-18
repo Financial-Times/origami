@@ -1,6 +1,7 @@
-//TODO: mixinify
-[class*="o-topper--split-text"] {
-
+@include _oTopperProvide(
+	theme split text left,
+	theme split text center
+) {
 	.o-topper__read-next {
 		display: none;
 	}
@@ -66,7 +67,7 @@
 
 }
 
-.o-topper--split-text-center {
+@include _oTopperProvide(theme split text center) {
 	@include oGridRespondTo(S) {
 		@include _oTopperAlignText(center);
 	}
