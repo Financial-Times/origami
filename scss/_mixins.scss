@@ -18,12 +18,14 @@
 
 @mixin _oTopperReceive($paths...) {
 	@each $keys in $paths {
-		$-debug-providers-with-no-receive: map-remove(
+		$joined: -o-topper-join-string($keys, '-');
+
+		$-debug-providers-with-no-receive: map-merge(
 			$-debug-providers-with-no-receive,
-			-o-topper-join-string($keys, '-')
+			($joined: false)
 		) !global;
 
-		@extend %-o-topper-receive-#{-o-topper-join-string($keys, '-')};
+		@extend %-o-topper-receive-#{$joined};
 	}
 }
 
@@ -31,10 +33,12 @@
 	@each $keys in $paths {
 		$joined: -o-topper-join-string($keys, '-');
 
-		$-debug-providers-with-no-receive: map-merge(
-			$-debug-providers-with-no-receive,
-			($joined: true)
-		) !global;
+		@if map-has-key($-debug-providers-with-no-receive, $joined) == false {
+			$-debug-providers-with-no-receive: map-merge(
+				$-debug-providers-with-no-receive,
+				($joined: true)
+			) !global;
+		}
 
 		%-o-topper-receive-#{$joined} {
 			@content;

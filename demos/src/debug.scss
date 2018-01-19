@@ -13,13 +13,26 @@ body {
 	@include oTypographyHeadline;
 }
 
+@function map-truthy-keys($map) {
+	$out: ();
+
+	@each $k, $v in $map {
+		@if $v {
+			$out: append($out, $k);
+		}
+	}
+
+	@return $out;
+}
+
+
 .o-topper__debug {
 	@include oTypographySize(0);
 	white-space: pre-wrap;
 
 	&:after {
 		content: quote(-o-topper-join-string(
-			map-keys($-debug-providers-with-no-receive),
+			map-truthy-keys($-debug-providers-with-no-receive),
 			', '
 		));
 	}
