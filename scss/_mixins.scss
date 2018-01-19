@@ -42,6 +42,7 @@
 @mixin _oTopperProvideOne($keys) {
 	$namespace: nth($keys, 1);
 	$key: -o-topper-join-string($keys, '-');
+	$key-without-namespace: str-slice($key, str-length($namespace) + 2);
 
 	@if map-has-key($-o-topper-debug-providers-with-no-receive, $key) == false {
 		$-o-topper-debug-providers-with-no-receive: map-merge(
@@ -56,7 +57,7 @@
 			(
 				$namespace: append(
 					map-get($-o-topper-provider-namespaces, $namespace),
-					$key
+					$key-without-namespace
 				)
 			)
 		) !global;
@@ -64,7 +65,7 @@
 		$-o-topper-provider-namespaces: map-merge(
 			$-o-topper-provider-namespaces,
 			(
-				$namespace: ($key)
+				$namespace: ($key-without-namespace)
 			)
 		) !global;
 	}
@@ -90,17 +91,16 @@
 	}
 }
 
-@mixin oTopperOutput($namespace) {
+@mixin oTopperOutput($namespace, $element: false) {
 	$paths: map-get($-o-topper-provider-namespaces, $namespace);
 	$separator: '--';
-	@if $namespace == 'element' {
+	@if $element {
 		$separator: '__';
 	}
 
-	@each $keys in $paths {
-
-		.o-topper#{$separator}#{$theme} {
-			@include _oTopperReceive(theme $theme);
+	@each $key in $paths {
+		.o-topper#{$separator}#{$key} {
+			@include _oTopperReceive($key);
 		}
 	}
 }

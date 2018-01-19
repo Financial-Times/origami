@@ -29,11 +29,29 @@ body {
 .o-topper__debug {
 	@include oTypographySize(0);
 	white-space: pre-wrap;
+}
 
-	&:after {
-		content: quote(-o-topper-join-string(
-			map-truthy-keys($-o-topper-debug-providers-with-no-receive),
-			', '
-		));
+.o-topper__debug-providers:after {
+	content: quote(-o-topper-join-string(
+		map-truthy-keys($-o-topper-debug-providers-with-no-receive),
+		', '
+	));
+}
+
+@function list-uniq($list) {
+	$set: ();
+	@each $item in $list {
+		$set: map-merge($set, ($item: true));
 	}
+
+	@return map-keys($set);
+}
+
+.o-topper__debug-ns:after {
+	$strs: ();
+	@each $ns, $keys in $-o-topper-provider-namespaces {
+		$strs: append($strs, $ns + ': (\A   ' + -o-topper-join-string(list-uniq($keys), ',\A   ') + '\A),');
+	}
+
+	content: quote(-o-topper-join-string($strs, '\A\A'));
 }
