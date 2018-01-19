@@ -1,7 +1,7 @@
 // scss-lint:disable SelectorFormat
 
 @function -o-topper-join-string($list, $separator: '') {
-	$result: null;
+	$result: '';
 	$first: true;
 
 	@each $item in $list {
@@ -18,13 +18,25 @@
 
 @mixin _oTopperReceive($paths...) {
 	@each $keys in $paths {
+		$-debug-providers-with-no-receive: map-remove(
+			$-debug-providers-with-no-receive,
+			-o-topper-join-string($keys, '-')
+		) !global;
+
 		@extend %-o-topper-receive-#{-o-topper-join-string($keys, '-')};
 	}
 }
 
 @mixin _oTopperProvide($paths...) {
 	@each $keys in $paths {
-		%-o-topper-receive-#{-o-topper-join-string($keys, '-')} {
+		$joined: -o-topper-join-string($keys, '-');
+
+		$-debug-providers-with-no-receive: map-merge(
+			$-debug-providers-with-no-receive,
+			($joined: true)
+		) !global;
+
+		%-o-topper-receive-#{$joined} {
 			@content;
 		}
 	}

@@ -2,20 +2,21 @@
 	theme split text left,
 	theme split text center
 ) {
-	.o-topper__read-next {
+	@include _oTopperProvide(element read next) {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
-		.o-topper__content {
+		@include _oTopperProvide(layout content) {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			padding: 20px 10px;
 			min-height: 350px;
 		}
-		.o-topper__visual {
+
+		@include _oTopperProvide(layout visual) {
 			min-height: 350px;
 		}
 	}
@@ -25,7 +26,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		.o-topper__content {
+		@include _oTopperProvide(layout content) {
 			grid-column: 1 / span 2;
 			grid-row: 1;
 			width: 50%;
@@ -34,7 +35,7 @@
 			padding-right: 20px;
 		}
 
-		.o-topper__visual {
+		@include _oTopperProvide(layout visual) {
 			grid-row: 1;
 		}
 
@@ -54,8 +55,7 @@
 	}
 
 	@supports (object-fit: cover) {
-
-		.o-topper__visual {
+		@include _oTopperProvide(layout visual) {
 			@include oGridRespondTo(M) {
 				height: 480px;
 			}

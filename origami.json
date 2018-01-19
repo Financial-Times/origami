@@ -52,6 +52,12 @@
 			"name": "Split Text Center",
 			"template": "/demos/src/split-text-center.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
+		},
+		{
+			"name": "Debug",
+			"template": "/demos/src/debug.mustache",
+			"sass": "demos/src/debug.scss",
+			"hidden": true
 		}
 	]
 }

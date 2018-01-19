@@ -1,0 +1,26 @@
+$o-topper-is-silent: false;
+
+@import '../../main';
+
+@include oTopperOutputThemes;
+
+body {
+	@include oColorsFor(page, background);
+	margin: 1em;
+}
+
+.o-topper__debug-header {
+	@include oTypographyHeadline;
+}
+
+.o-topper__debug {
+	@include oTypographySize(0);
+	white-space: pre-wrap;
+
+	&:after {
+		content: quote(-o-topper-join-string(
+			map-keys($-debug-providers-with-no-receive),
+			', '
+		));
+	}
+}

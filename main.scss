@@ -10,7 +10,6 @@
 @import 'scss/layout';
 @import 'scss/themes';
 
-@if ($o-topper-is-silent == false) {
 	.o-topper { @include oTopper; }
 	.o-topper--centered { @include oTopperCentered; }
 	.o-topper--basic { @include oTopperBasic; }
@@ -52,6 +51,9 @@
 			@include oTopperColor($color);
 		}
 	}
+
+
+@if ($o-topper-is-silent == false) {
 
 	$o-topper-is-silent: true !global;
 }
