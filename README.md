@@ -8,7 +8,7 @@ This component is used for showing information about various FT subscription pac
 	- [Markup](#markup)
 	- [Sass](#sass)
 	- [JS](#js)
-	- [Migration Guide](#)
+	- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -102,22 +102,22 @@ The markup has been rearranged, and some classes have been removed.
 		<div class="o-subs-card" data-o-component="o-subs-card">
 			<div class="o-subs-card__top">
 				<div class="o-subs-card__copy-title">Subscription title</div>
-		-		<img class="o-subs-card__copy-image" src='/demos/src/demo-placeholder.png' alt='photo of FT subscription options'>
+-				<img class="o-subs-card__copy-image" src='/demos/src/demo-placeholder.png' alt='photo of FT subscription options'>
 				<div class="o-subs-card__charge">
-		-			<span class="o-subs-card__charge__value">£XX.XX</span> per week
+-					<span class="o-subs-card__charge__value">£XX.XX</span> per week
 					<button class="o-subs-card__select-button">Select</button>
-		+			<div class="o-subs-card__charge__value">£XX.XX per week </div>
++					<div class="o-subs-card__charge__value">£XX.XX per week </div>
 				</div>
 			</div>
-		-	<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
+-			<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
 				<div class="o-subs-card__expander">
-		- 		<div class='o-subs-card__read-more'>Read more</div>
+-		 		<div class='o-subs-card__read-more'>Read more</div>
 					<div class="o-subs-card__copy-details">
 						<ul class="o-subs-card__copy-benefits">
 							<li>...</li>
 						</ul>
 					</div>
-		+			<div class='o-subs-card__read-more'>Read more</div>
++					<div class='o-subs-card__read-more'>Read more</div>
 				</div>
 		</div>
 + </div>
