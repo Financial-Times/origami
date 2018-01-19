@@ -24,9 +24,9 @@ body {
 	@return $out;
 }
 
-
 .o-topper__debug {
 	@include oTypographySize(0);
+	font-family: 'Iosevka', 'Menlo', 'Consolas', monospace;
 	white-space: pre-wrap;
 }
 
