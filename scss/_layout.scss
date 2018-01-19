@@ -1,10 +1,10 @@
 @import 'grid';
 
 @mixin oTopper {
-	@include _oTopperReceive(layout);
+	@include _oTopperReceive(layout root);
 }
 
-@include _oTopperProvide(layout) {
+@include _oTopperProvide(layout root) {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include articleGrid();
 	margin-bottom: 20px;

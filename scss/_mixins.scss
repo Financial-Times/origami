@@ -5,12 +5,12 @@
 	$first: true;
 
 	@each $item in $list {
-	  @if ($first) {
-		 $result: $item;
-		 $first: false;
-	  } @else {
-		 $result: $result + $separator + $item;
-	  }
+		@if ($first) {
+			$result: $item;
+			$first: false;
+		} @else {
+			$result: $result + $separator + $item;
+		}
 	}
 
 	@return $result;
