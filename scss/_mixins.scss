@@ -20,8 +20,8 @@
 	@each $keys in $paths {
 		$joined: -o-topper-join-string($keys, '-');
 
-		$-debug-providers-with-no-receive: map-merge(
-			$-debug-providers-with-no-receive,
+		$-o-topper-debug-providers-with-no-receive: map-merge(
+			$-o-topper-debug-providers-with-no-receive,
 			($joined: false)
 		) !global;
 
@@ -33,9 +33,9 @@
 	@each $keys in $paths {
 		$joined: -o-topper-join-string($keys, '-');
 
-		@if map-has-key($-debug-providers-with-no-receive, $joined) == false {
-			$-debug-providers-with-no-receive: map-merge(
-				$-debug-providers-with-no-receive,
+		@if map-has-key($-o-topper-debug-providers-with-no-receive, $joined) == false {
+			$-o-topper-debug-providers-with-no-receive: map-merge(
+				$-o-topper-debug-providers-with-no-receive,
 				($joined: true)
 			) !global;
 		}

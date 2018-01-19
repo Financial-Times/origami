@@ -32,7 +32,7 @@ body {
 
 	&:after {
 		content: quote(-o-topper-join-string(
-			map-truthy-keys($-debug-providers-with-no-receive),
+			map-truthy-keys($-o-topper-debug-providers-with-no-receive),
 			', '
 		));
 	}
