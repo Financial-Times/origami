@@ -9,8 +9,7 @@
     "tests"
   ],
   "main": [
-    "main.scss",
-    "main.js"
+    "main.scss"
   ],
   "dependencies": {
   }
