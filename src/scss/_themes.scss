@@ -1,33 +1,39 @@
-@mixin oSubsCardPremium {
-	.o-subs-card__top {
-		@include oColorsFor(o-subs-card-premium-top);
+@mixin oSubsCardB2B {
+	@include oColorsFor('o-subs-card-b2b');
+	background: oColorsGetUseCase(o-subs-card-b2b, background);
+	color: oColorsGetUseCase(o-subs-card-b2b, text);
+
+	.o-subs-card__copy-title:first-child {
+		@include oTypographyMargin($bottom: 1);
+		@include oTypographyPadding($top: 6);
+		padding-right: $o-subs-card-horizontal-padding;
+		padding-left: $o-subs-card-horizontal-padding;
 	}
 
 	.o-subs-card__select-button {
-		@include oButtonsTheme($theme: (background: oColorsGetUseCase(o-subs-card-premium-top, background), accent: 'white'));
+		@include oButtonsTheme(inverse);
 	}
 }
 
-@mixin oSubsCardPremiumPlus {
-	.o-subs-card__top {
-		@include oColorsFor(o-subs-card-premium-plus-top);
-	}
-
-	.o-subs-card__select-button {
-		@include oButtonsTheme($theme: (background: oColorsGetUseCase(o-subs-card-premium-plus-top, background), accent: "white"));
-	}
-}
 
 @mixin oSubsCardDiscount {
 	.o-subs-card__copy-title {
 		@include oTypographyMargin($bottom: 4);
 	}
 
-	.o-subs-card__charge {
-		@include oColorsFor('o-subs-card-discount', 'background');
+	.o-subs-card__copy-offer {
+		@include oTypographySans(3);
+		@include oTypographyPadding($top: 5);
+		//overwrite oTypography line-height for, well, height.
+		line-height: 1;
+		color: oColorsGetColorFor(o-subs-card-discount, text);
 	}
 
 	.o-subs-card__select-button {
 		@include oButtonsTheme($theme: (background: oColorsGetUseCase(o-subs-card-discount, background), accent: "white"));
+	}
+
+	.o-subs-card__charge__value {
+		color: oColorsGetColorFor(o-subs-card-discount, text);
 	}
 }

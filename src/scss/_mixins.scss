@@ -1,90 +1,86 @@
 @mixin oSubsCard {
 	@include oTypographySans(0);
-	@include oColorsFor('o-subs-card-copy-details', 'background');
-	@include oTypographyMargin($top: 3, $bottom: 3);
+	@include oColorsFor('o-subs-card');
 
+	background: oColorsGetUseCase('o-subs-card', 'background');
+	color: oColorsGetUseCase('o-subs-card', 'text');
 	text-align: center;
-	align-items: stretch;
-	width: 100%;
 
+	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
 	@include oGridRespondTo(L) {
-		height: 100%;
+		flex: 0 1 25%;
+		min-width: 0;
 	}
 
 	.o-subs-card__top {
-		@include oColorsFor(o-subs-card-top);
-	}
+		@include oTypographyPadding($bottom: 0);
 
-	.o-subs-card__copy-offer {
-		@include oTypographySans(2);
-		@include oTypographyPadding($top: 2);
+		padding-right: $o-subs-card-horizontal-padding;
+		padding-left: $o-subs-card-horizontal-padding;
 	}
 
 	.o-subs-card__copy-title {
 		@include oTypographySansBold(3);
-		@include oTypographyMargin($bottom: 6);
+		@include oTypographyMargin($bottom: 5);
 
 		&:first-child {
-			@include oTypographyPadding($top: 6);
+			@include oTypographyPadding($top: 8);
+		}
+
+		//Handle the height change when there is an offer in place
+		&:nth-child(2) {
+			@include oTypographyMargin($bottom: 2);
 		}
 	}
 
-	// Mobile first
-	.o-subs-card__copy-image {
-		display: none;
-	}
+	.o-subs-card__copy-pitch {
+		@include oTypographySans(0);
+		@include oTypographyPadding($bottom: 8);
 
-	// Tablet
-	@include oGridRespondTo(M) {
-		.o-subs-card__copy-image {
-			display: block;
-			margin: auto;
-		}
+		display: inline-block;
+		text-align: center;
+		// padding-right: $o-subs-card-horizontal-padding;
+		// padding-left: $o-subs-card-horizontal-padding;
 	}
 
 	.o-subs-card__charge {
-		@include oTypographyPadding($top: 2, $bottom: 5);
-		@include oTypographyMargin($top: 2);
-	}
-
-	.o-subs-card__charge__value {
-		font-weight: 600;
+		@include oTypographyPadding($bottom: 2);
 	}
 
 	.o-subs-card__select-button {
 		@include oButtons('big');
-		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-top, background), "white");
-		@include oTypographyMargin($top: 3);
-		width: calc(100% - 40px);
-	}
-
-	.o-subs-card__copy-pitch {
-		@include oColorsFor(o-subs-card-copy-pitch, background text, 80);
-		border-bottom: 1px solid oColorsMix(black, oColorsGetUseCase(o-subs-card-copy-pitch, background), 20);
-		text-align: left;
-		padding: 14px;
-
-		@include oGridRespondTo(L) {
-			display: none;
-		}
+		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-button, background), "white");
+		@include oTypographyMargin($bottom: 1);
+		width: 100%;
 	}
 
 	.o-subs-card__copy-details {
 		@include oExpanderContent();
-		@include oColorsFor(o-subs-card-copy-details, background text, 80);
 		text-align: left;
 
-		@include oGridRespondTo(L) {
-			&[aria-hidden='true'] {
-				display: block;
-			}
-		};
+		.core & {
+			display: block;
+		}
+	}
+
+	.o-subs-card__copy-benefits {
+		@include oTypographyPadding($top: 3);
+
+		padding-right: $o-subs-card-horizontal-padding;
+		padding-left: $o-subs-card-horizontal-padding;
+
+		margin: 0;
+		list-style: none;
+
+		li {
+			@include oTypographyPadding($bottom: 3);
+		}
 	}
 
 	.o-subs-card__read-more {
 		@include oColorsFor(o-subs-card-read-more, background text, 80);
-		@include oTypographySansBold(1);
-		padding: 16px 0px;
+		@include oTypographySansBold(-1);
+		@include oTypographyPadding($top: 2, $bottom: 2);
 		cursor: pointer;
 
 		border-width: 0;
@@ -97,7 +93,7 @@
 
 		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
 		&:after {
-			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 24);
+			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 16);
 			content: '';
 			position: relative;
 			vertical-align: middle;
@@ -111,29 +107,39 @@
 			display: none;
 		}
 	}
+}
 
-	.o-subs-card__copy-preamble {
-		@include oTypographySansBold();
-		padding: 20px 20px 0;
+@mixin oSubsCardContainer {
+	display: table-cell; // ie 9
+	border-spacing: $o-subs-card-horizontal-margin; //ie 9
+
+	display: flex;  //sass-lint:disable-line no-duplicate-properties
+	flex-direction: column;
+
+	@include oGridRespondTo(L) {
+		display: flex;  //sass-lint:disable-line no-duplicate-properties
+		flex-direction: row;
 	}
 
-	.o-subs-card__copy-benefits {
-		@include oTypographyListUnordered();
-		padding: 0 20px 20px;
-		margin: 0;
+	.o-subs-card {
+		@include oTypographyMargin($top: 3, $bottom: 3);
+		margin-left: $o-subs-card-horizontal-margin / 2; // no collapsing margins in display flex
+		margin-right: $o-subs-card-horizontal-margin / 2;
+	}
 
-		// for the case where there is no o-subs-card__copy-preamble
-		&:first-child {
-			@include oTypographyPadding($top: 5);
-		}
+	.o-subs-card,
+	.o-subs-card__top {
+		display: table-cell; //ie 9
+		display: flex; //sass-lint:disable-line no-duplicate-properties
+		flex-direction: column;
+	}
 
-		/* override a few oTypographyListUnordered styles */
-		li {
-			padding-left: 16px;
-			&:before {
-				font-size: 24px;
-				top: -1px;
-			}
-		}
+	.o-subs-card__top {
+		flex: 1 0 auto;
+	}
+
+	.o-subs-card__charge {
+		justify-self: flex-end;
+		margin-top: auto;
 	}
 }

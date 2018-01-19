@@ -25,10 +25,10 @@ function htmlCode () {
 		<h1>Basic Demo</h1>
 		<div class="o-subs-card" data-o-component="o-subs-card">
 			<div class="o-subs-card__expander">
-				<div class="o-subs-card__read-more"></div>
 				<div class="o-subs-card__copy-details">
 					Some content
 				</div>
+				<div class="o-subs-card__read-more"></div>
 			</div>
 		</div>
 	</div>
