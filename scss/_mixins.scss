@@ -91,6 +91,24 @@
 	}
 }
 
+
+
+@mixin _oTopperProvideAll($paths...) {
+	@each $item in $paths {
+		@if type-of($item) == 'map' {
+			@each $namespace, $key in $item {
+				@include _oTopperProvideOne(($namespace, $key)) {
+					@content
+				};
+			}
+		} @else {
+			@include _oTopperProvideOne($item) {
+				@content
+			};
+		}
+	}
+}
+
 @function -o-topper-provider-class($namespace, $key) {
 	$separator: '--';
 	@if $namespace == 'element' {

@@ -1,14 +1,14 @@
 @include _oTopperProvide(
-	theme full bleed image center,
-	theme full bleed image left
+	(theme: full-bleed-image-center),
+	(theme: full-bleed-image-left)
 ) {
 
-	@include _oTopperProvide(element read next) {
+	@include _oTopperProvide((element: read-next)) {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
-		@include _oTopperProvide(layout content) {
+		@include _oTopperProvide((layout: content)) {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -16,7 +16,7 @@
 			min-height: 350px;
 		}
 
-		@include _oTopperProvide(layout visual) {
+		@include _oTopperProvide((layout: visual)) {
 			min-height: 350px;
 		}
 	}
@@ -26,7 +26,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		@include _oTopperProvide(layout content) {
+		@include _oTopperProvide((layout: content)) {
 			grid-row: 1;
 			grid-column: 1 / span 2;
 			width: 50%;
@@ -36,13 +36,13 @@
 			background: transparent;
 		}
 
-		@include _oTopperProvide(layout visual) {
+		@include _oTopperProvide((layout: visual)) {
 			grid-row: 1;
 		}
 	}
 
 	@supports (object-fit: cover) {
-		@include _oTopperProvide(layout visual) {
+		@include _oTopperProvide((layout: visual)) {
 			height: auto;
 			max-height: 480px;
 			@include oGridRespondTo(L) {

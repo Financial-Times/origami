@@ -1,23 +1,25 @@
-.o-topper--news-package {
+@include _oTopperProvide((theme: news-package)) {
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
 	}
 
-	.o-topper__content {
+	@include _oTopperProvide((layout: content)) {
 		padding: oGridGutter();
 	}
 
-	.o-topper__tags,
-	.o-topper__read-next {
+	@include _oTopperProvide(
+		(element: tags),
+		(element: read-next)
+	) {
 		display: none;
 	}
 
-	.o-topper__headline {
+	@include _oTopperProvide((element: headline)) {
 		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
 	}
 
-	.o-topper__picture {
+	@include _oTopperProvide((element: picture)) {
 		height: auto;
 	}
 
@@ -26,7 +28,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 20px 1fr 20px;
 
-		.o-topper__content {
+		@include _oTopperProvide((layout: content)) {
 			grid-column: 1 / span 2;
 			grid-row: 2;
 			width: 50%;
@@ -34,7 +36,7 @@
 			padding: 0 20px 0 0;
 		}
 
-		.o-topper__visual {
+		@include _oTopperProvide((layout: visual)) {
 			grid-row: 2 / span 1;
 			grid-column: 2 / span 2;
 			height: auto;

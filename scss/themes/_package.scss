@@ -25,7 +25,7 @@
 	}
 }
 
-@include _oTopperProvide(theme package) {
+@include _oTopperProvide((theme: package)) {
 	margin-bottom: 40px;
 
 	.n-myft-ui--follow {
@@ -42,48 +42,55 @@
 		}
 	}
 
-	.o-topper__headline:after {
-		border-bottom-width: 1px;
+	@include _oTopperProvide((element: headline)) {
+		&:after {
+			border-bottom-width: 1px;
+		}
 	}
 }
 
-.o-topper__package-sequence-id {
+@include _oTopperProvide((element: package-sequence-id)) {
 	@include oTypographySans(-2, $progressive: true);
 	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
 }
 
 @include _oTopperProvide(
-	theme package extra,
-	theme package extra wide
+	(theme: package-extra),
+	(theme: package-extra-wide)
 ) {
-	.o-topper__package-sequence-id,
+	@include _oTopperProvide((element: package-sequence-id)) {
+
 	&.o-topper--package .o-topper__headline {
 		color: oColorsGetPaletteColor('lemon');
 	}
 
-	.o-topper__anchor-link {
+	@include _oTopperProvide((element: anchor-link)) {
 		color: oColorsGetPaletteColor('lemon');
 		border-color: oColorsGetPaletteColor('lemon');
+
 		&:after {
 			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('lemon'), 20, null, false, false);
 		}
+
 		&:hover {
 			color: darken(oColorsGetPaletteColor('lemon'), 20%);
 		}
 	}
 }
 
-@include _oTopperProvide(theme package special report) {
+@include _oTopperProvide((theme: package-special-report)) {
 	.o-topper__tags .n-content-tag {
 		opacity: 0.6;
 	}
 
-	.o-topper__anchor-link {
+	@include _oTopperProvide((element: anchor-link)) {
 		border-color: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('white');
+
 		&:after {
 			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor('white'), 20, null, false, false);
 		}
+
 		&:hover {
 			color: darken(oColorsGetPaletteColor('white'), 20%);
 		}
