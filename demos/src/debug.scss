@@ -6,7 +6,6 @@ $o-topper-is-silent: false;
 
 body {
 	@include oColorsFor(page, background);
-	margin: 1em;
 }
 
 .o-topper__debug-header {
@@ -34,7 +33,7 @@ body {
 .o-topper__debug-providers:after {
 	content: quote(-o-topper-join-string(
 		map-truthy-keys($-o-topper-debug-providers-with-no-receive),
-		', '
+		'\A'
 	));
 }
 
@@ -54,4 +53,26 @@ body {
 	}
 
 	content: quote(-o-topper-join-string($strs, '\A\A'));
+}
+
+.o-topper__debug-classes:after {
+	$strs: ();
+	@each $ns, $keys in $-o-topper-provider-namespaces {
+		@each $key in list-uniq($keys) {
+			@if str-length($key) != 0 {
+				$strs: append($strs, -o-topper-provider-class($ns, $key));
+			}
+		}
+	}
+
+	content: quote(-o-topper-join-string($strs, '\A'));
+}
+
+.o-topper__debug-grid {
+	display: flex;
+}
+
+.o-topper__debug-item {
+	margin: 1em;
+	flex-basis: 33.333%;
 }

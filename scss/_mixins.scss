@@ -91,16 +91,21 @@
 	}
 }
 
-@mixin oTopperOutput($namespace, $element: false) {
-	$paths: map-get($-o-topper-provider-namespaces, $namespace);
+@function -o-topper-provider-class($namespace, $key) {
 	$separator: '--';
-	@if $element {
+	@if $namespace == 'element' {
 		$separator: '__';
 	}
 
+	@return '.o-topper#{$separator}#{$key}';
+}
+
+@mixin oTopperOutput($namespace) {
+	$paths: map-get($-o-topper-provider-namespaces, $namespace);
+
 	@each $key in $paths {
-		.o-topper#{$separator}#{$key} {
-			@include _oTopperReceive($key);
+		#{-o-topper-provider-class($namespace, $key)} {
+			@include _oTopperReceive(($namespace: $key));
 		}
 	}
 }
