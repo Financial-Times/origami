@@ -58,7 +58,7 @@
 	.o-teaser__heading--visited {
 		@include oColorsFor('o-teaser', text, 100);
 		a:visited {
-			color: oColorsFor('o-teaser', text, 60);
+			@include oColorsFor('o-teaser', text, 60);
 		}
 	}
 
