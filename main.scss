@@ -18,17 +18,14 @@ $o-subs-card-is-silent: true !default;
 		@include oSubsCard;
 	}
 
-	.o-subs-card--premium {
-		@include oSubsCardPremium;
-	}
-
-	.o-subs-card--premium-plus {
-		@include oSubsCardPremiumPlus;
+	.o-subs-card--b2b {
+		@include oSubsCardB2B;
 	}
 
 	.o-subs-card--discount {
 		@include oSubsCardDiscount;
 	}
+
 	// Set to silent again to avoid being output twice
 	$o-subs-card-is-silent: true !global;
 }
