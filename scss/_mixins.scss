@@ -16,32 +16,91 @@
 	@return $result;
 }
 
-@mixin _oTopperReceive($paths...) {
-	@each $keys in $paths {
-		$joined: -o-topper-join-string($keys, '-');
+@mixin _oTopperReceiveOne($keys) {
+	$key: -o-topper-join-string($keys, '-');
 
+	$-o-topper-debug-providers-with-no-receive: map-merge(
+		$-o-topper-debug-providers-with-no-receive,
+		($key: false)
+	) !global;
+
+	@extend %-o-topper-receive-#{$key};
+}
+
+@mixin _oTopperReceive($paths...) {
+	@each $item in $paths {
+		@if type-of($item) == 'map' {
+			@each $namespace, $key in $item {
+				@include _oTopperReceiveOne(($namespace, $key));
+			}
+		} @else {
+			@include _oTopperReceiveOne($item);
+		}
+	}
+}
+
+@mixin _oTopperProvideOne($keys) {
+	$namespace: nth($keys, 1);
+	$key: -o-topper-join-string($keys, '-');
+
+	@if map-has-key($-o-topper-debug-providers-with-no-receive, $key) == false {
 		$-o-topper-debug-providers-with-no-receive: map-merge(
 			$-o-topper-debug-providers-with-no-receive,
-			($joined: false)
+			($key: true)
 		) !global;
+	}
 
-		@extend %-o-topper-receive-#{$joined};
+	@if map-has-key($-o-topper-provider-namespaces, $namespace) {
+		$-o-topper-provider-namespaces: map-merge(
+			$-o-topper-provider-namespaces,
+			(
+				$namespace: append(
+					map-get($-o-topper-provider-namespaces, $namespace),
+					$key
+				)
+			)
+		) !global;
+	} @else {
+		$-o-topper-provider-namespaces: map-merge(
+			$-o-topper-provider-namespaces,
+			(
+				$namespace: ($key)
+			)
+		) !global;
+	}
+
+	%-o-topper-receive-#{$key} {
+		@content;
 	}
 }
 
 @mixin _oTopperProvide($paths...) {
-	@each $keys in $paths {
-		$joined: -o-topper-join-string($keys, '-');
-
-		@if map-has-key($-o-topper-debug-providers-with-no-receive, $joined) == false {
-			$-o-topper-debug-providers-with-no-receive: map-merge(
-				$-o-topper-debug-providers-with-no-receive,
-				($joined: true)
-			) !global;
+	@each $item in $paths {
+		@if type-of($item) == 'map' {
+			@each $namespace, $key in $item {
+				@include _oTopperProvideOne(($namespace, $key)) {
+					@content
+				};
+			}
+		} @else {
+			@include _oTopperProvideOne($item) {
+				@content
+			};
 		}
+	}
+}
 
-		%-o-topper-receive-#{$joined} {
-			@content;
+@mixin oTopperOutput($namespace) {
+	$paths: map-get($-o-topper-provider-namespaces, $namespace);
+	$separator: '--';
+	@if $namespace == 'element' {
+		$separator: '__';
+	}
+
+	@each $keys in $paths {
+
+		.o-topper#{$separator}#{$theme} {
+			@include _oTopperReceive(theme $theme);
 		}
 	}
 }
