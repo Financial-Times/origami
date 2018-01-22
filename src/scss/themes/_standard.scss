@@ -75,7 +75,7 @@
 
 /// Highlight theme - colours background claret and adjust text colours
 @mixin oTeaserHighlight {
-	.o-teaser__heading:hover,
+	.o-teaser__heading a:hover,
 	.o-teaser__heading:focus,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
