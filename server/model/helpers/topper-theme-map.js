@@ -84,7 +84,7 @@ const getTopperSettings = (content, flags = {}) => {
 		};
 
 		//otherwise use the editorially selected topper if it exists
-	} else if(flags.articleTopper && content.topper && content.topper.layout && themeImageRatio.hasOwnProperty(content.topper.layout)) {
+	} else if(content.topper && content.topper.layout && themeImageRatio.hasOwnProperty(content.topper.layout)) {
 		const hasImage = content.topper.layout !== 'full-bleed-text';
 		let backgroundColour;
 
