@@ -110,7 +110,11 @@
 		$separator: '__';
 	}
 
-	@return '.o-topper#{$separator}#{$key}';
+	@if $namespace == 'root' {
+		@return '.o-topper';
+	} @else {
+		@return '.o-topper#{$separator}#{$key}';
+	}
 }
 
 @mixin oTopperOutput($namespace) {
