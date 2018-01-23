@@ -46,7 +46,7 @@
 	.o-topper__headshot { @include oTopperHeadshot; }
 	.o-topper__headshot-image { @include oTopperHeadshotImage; }
 
-	@each $color in $-o-topper-colors {
+	@each $color in $_o-topper-colors {
 		.o-topper--color-#{$color} {
 			@include oTopperColor($color);
 		}

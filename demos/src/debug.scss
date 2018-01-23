@@ -15,9 +15,9 @@ body {
 @function map-truthy-keys($map) {
 	$out: ();
 
-	@each $k, $v in $map {
-		@if $v {
-			$out: append($out, $k);
+	@each $key, $value in $map {
+		@if $value {
+			$out: append($out, $key);
 		}
 	}
 
@@ -31,8 +31,8 @@ body {
 }
 
 .o-topper__debug-providers:after {
-	content: quote(-o-topper-join-string(
-		map-truthy-keys($-o-topper-debug-providers-with-no-receive),
+	content: quote(_o-topper-join-string(
+		map-truthy-keys($_o-topper-debug-providers-with-no-receive),
 		'\A'
 	));
 }
@@ -48,24 +48,24 @@ body {
 
 .o-topper__debug-ns:after {
 	$strs: ();
-	@each $ns, $keys in $-o-topper-provider-namespaces {
-		$strs: append($strs, $ns + ': (\A   ' + -o-topper-join-string(list-uniq($keys), ',\A   ') + '\A),');
+	@each $ns, $keys in $_o-topper-provider-namespaces {
+		$strs: append($strs, $ns + ': (\A   ' + _o-topper-join-string(list-uniq($keys), ',\A   ') + '\A),');
 	}
 
-	content: quote(-o-topper-join-string($strs, '\A\A'));
+	content: quote(_o-topper-join-string($strs, '\A\A'));
 }
 
 .o-topper__debug-classes:after {
 	$strs: ();
-	@each $ns, $keys in $-o-topper-provider-namespaces {
+	@each $ns, $keys in $_o-topper-provider-namespaces {
 		@each $key in list-uniq($keys) {
 			@if str-length($key) != 0 {
-				$strs: append($strs, -o-topper-provider-class($ns, $key));
+				$strs: append($strs, _o-topper-provider-class($ns, $key));
 			}
 		}
 	}
 
-	content: quote(-o-topper-join-string($strs, '\A'));
+	content: quote(_o-topper-join-string($strs, '\A'));
 }
 
 .o-topper__debug-grid {

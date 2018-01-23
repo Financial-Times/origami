@@ -80,8 +80,8 @@
 }
 
 @include _oTopperProvide(element image credit) {
-	color: oColorsGetPaletteColor('white');
 	@include oTypographySans(-2);
+	color: oColorsGetPaletteColor('white');
 	position: absolute;
 	right: 12px;
 	bottom: 2px;
@@ -111,7 +111,8 @@
 @include _oTopperProvide(element brand) {
 	@include oTypographySans(0);
 	margin-right: 4px;
-	-webkit-font-smoothing: antialiased;
+	// TODO: move to next-article
+	// -webkit-font-smoothing: antialiased;
 
 	@include oGridRespondTo($until: S) {
 		display: block;
@@ -140,9 +141,9 @@
 }
 
 @include _oTopperProvide(element tags) {
+	@include oTypographySize($scale: 0, $line-height: 28px);
 	display: flex;
 	padding-bottom: 5px;
-	@include oTypographySize($scale: 0, $line-height: 28px);
 
 	// keep in next-article?
 	.o-tooltip {

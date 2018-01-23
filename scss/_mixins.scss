@@ -1,6 +1,6 @@
 // scss-lint:disable SelectorFormat
 
-@function -o-topper-join-string($list, $separator: '') {
+@function _o-topper-join-string($list, $separator: '') {
 	$result: '';
 	$first: true;
 
@@ -17,14 +17,15 @@
 }
 
 @mixin _oTopperReceiveOne($keys) {
-	$key: -o-topper-join-string($keys, '-');
+	$key: _o-topper-join-string($keys, '-');
 
-	$-o-topper-debug-providers-with-no-receive: map-merge(
-		$-o-topper-debug-providers-with-no-receive,
+	$_o-topper-debug-providers-with-no-receive: map-merge(
+		$_o-topper-debug-providers-with-no-receive,
 		($key: false)
 	) !global;
 
-	@extend %-o-topper-receive-#{$key};
+	// TODO: because, what declaration? hmm, sass-lint?
+	@extend %_o-topper-receive-#{$key}; // sass-lint:disable-line extends-before-declarations
 }
 
 @mixin _oTopperReceive($paths...) {
@@ -41,36 +42,36 @@
 
 @mixin _oTopperProvideOne($keys) {
 	$namespace: nth($keys, 1);
-	$key: -o-topper-join-string($keys, '-');
+	$key: _o-topper-join-string($keys, '-');
 	$key-without-namespace: str-slice($key, str-length($namespace) + 2);
 
-	@if map-has-key($-o-topper-debug-providers-with-no-receive, $key) == false {
-		$-o-topper-debug-providers-with-no-receive: map-merge(
-			$-o-topper-debug-providers-with-no-receive,
+	@if map-has-key($_o-topper-debug-providers-with-no-receive, $key) == false {
+		$_o-topper-debug-providers-with-no-receive: map-merge(
+			$_o-topper-debug-providers-with-no-receive,
 			($key: true)
 		) !global;
 	}
 
-	@if map-has-key($-o-topper-provider-namespaces, $namespace) {
-		$-o-topper-provider-namespaces: map-merge(
-			$-o-topper-provider-namespaces,
+	@if map-has-key($_o-topper-provider-namespaces, $namespace) {
+		$_o-topper-provider-namespaces: map-merge(
+			$_o-topper-provider-namespaces,
 			(
 				$namespace: append(
-					map-get($-o-topper-provider-namespaces, $namespace),
+					map-get($_o-topper-provider-namespaces, $namespace),
 					$key-without-namespace
 				)
 			)
 		) !global;
 	} @else {
-		$-o-topper-provider-namespaces: map-merge(
-			$-o-topper-provider-namespaces,
+		$_o-topper-provider-namespaces: map-merge(
+			$_o-topper-provider-namespaces,
 			(
 				$namespace: ($key-without-namespace)
 			)
 		) !global;
 	}
 
-	%-o-topper-receive-#{$key} {
+	%_o-topper-receive-#{$key} {
 		@content;
 	}
 }
@@ -91,8 +92,6 @@
 	}
 }
 
-
-
 @mixin _oTopperProvideAll($paths...) {
 	@each $item in $paths {
 		@if type-of($item) == 'map' {
@@ -109,7 +108,7 @@
 	}
 }
 
-@function -o-topper-provider-class($namespace, $key) {
+@function _o-topper-provider-class($namespace, $key) {
 	$separator: '--';
 	@if $namespace == 'element' {
 		$separator: '__';
@@ -119,17 +118,17 @@
 }
 
 @mixin oTopperOutput($namespace) {
-	$paths: map-get($-o-topper-provider-namespaces, $namespace);
+	$paths: map-get($_o-topper-provider-namespaces, $namespace);
 
 	@each $key in $paths {
-		#{-o-topper-provider-class($namespace, $key)} {
+		#{_o-topper-provider-class($namespace, $key)} {
 			@include _oTopperReceive(($namespace: $key));
 		}
 	}
 }
 
 @mixin oTopperOutputThemes() {
-	@each $theme in $-o-topper-themes {
+	@each $theme in $_o-topper-themes {
 		.o-topper--#{$theme} {
 			@include _oTopperReceive(theme $theme);
 		}

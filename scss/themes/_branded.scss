@@ -79,10 +79,10 @@
 }
 
 @mixin oTopperHeadshotImage {
-	@include _oTopperReceive((element: headshot image));
+	@include _oTopperReceive((element: headshot-image));
 }
 
-@include _oTopperProvide((element: headshot image)) {
+@include _oTopperProvide((element: headshot-image)) {
 	max-width: 100%;
 	display: block;
 	margin-left: 8px;

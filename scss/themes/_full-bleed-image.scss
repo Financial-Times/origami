@@ -1,3 +1,5 @@
+// sass-lint:disable mixins-before-declarations
+
 @include _oTopperProvide(
 	(theme: full-bleed-image-center),
 	(theme: full-bleed-image-left)
@@ -45,6 +47,7 @@
 		@include _oTopperProvide((layout: visual)) {
 			height: auto;
 			max-height: 480px;
+
 			@include oGridRespondTo(L) {
 				height: 600px;
 				max-height: 600px;
