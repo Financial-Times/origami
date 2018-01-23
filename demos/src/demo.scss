@@ -5,3 +5,8 @@ $o-topper-is-silent: false;
 @import '../../main';
 
 @include oTopperOutput(theme);
+
+.o-topper {
+	// TODO: add to next-article, discuss whether o-topper should do it itself
+	-webkit-font-smoothing: antialiased;
+}
