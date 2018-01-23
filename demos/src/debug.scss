@@ -2,7 +2,7 @@ $o-topper-is-silent: false;
 
 @import '../../main';
 
-@include oTopperOutputThemes;
+@include oTopperOutput(theme);
 
 body {
 	@include oColorsFor(page, background);

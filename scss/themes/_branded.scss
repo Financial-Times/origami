@@ -1,6 +1,6 @@
 // .o-topper--branded
 @include _oTopperProvide((theme: branded)) {
-	@include _oTopperProvide(layout content) {
+	@include _oTopperProvide((layout: content)) {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
 			padding: 20px 0;

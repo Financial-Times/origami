@@ -35,7 +35,7 @@
 				@include _oTopperReceiveOne(($namespace, $key));
 			}
 		} @else {
-			@include _oTopperReceiveOne($item);
+			@error Unexpected receiver spec $item;
 		}
 	}
 }
@@ -85,9 +85,7 @@
 				};
 			}
 		} @else {
-			@include _oTopperProvideOne($item) {
-				@content
-			};
+			@error Unexpected provider spec $item;
 		}
 	}
 }
@@ -101,9 +99,7 @@
 				};
 			}
 		} @else {
-			@include _oTopperProvideOne($item) {
-				@content
-			};
+			@error Unexpected provider spec $item;
 		}
 	}
 }
@@ -127,17 +123,9 @@
 	}
 }
 
-@mixin oTopperOutputThemes() {
-	@each $theme in $_o-topper-themes {
-		.o-topper--#{$theme} {
-			@include _oTopperReceive(theme $theme);
-		}
-	}
-}
-
 // uses topper background colour to set background and pick contrasting text color
 @mixin oTopperColor($bg-color) {
-	@include _oTopperProvide(color) {
+	@include _oTopperProvide((modifier: color)) {
 		$text-color: black;
 		$hover-color: lighten($text-color, 40%);
 		$contrast: lightness(oColorsGetPaletteColor($bg-color));
@@ -145,7 +133,7 @@
 			$text-color: white;
 			$hover-color: darken($text-color, 20%);
 
-			@include _oTopperProvide(element standfirst) {
+			@include _oTopperProvide((element: standfirst)) {
 				a {
 					color: $text-color;
 					border-bottom-color: $text-color;
@@ -158,7 +146,7 @@
 			}
 		}
 
-		@include _oTopperProvide(element headline) {
+		@include _oTopperProvide((element: headline)) {
 			&::after {
 				border-bottom: 6px solid $text-color;
 				@include oGridRespondTo($from: L) {
@@ -174,11 +162,11 @@
 		}
 
 		@include _oTopperProvide(
-			element tags,
-			element columnist name,
-			element headline,
-			element standfirst,
-			element summary
+			(element: tags),
+			(element: columnist-name),
+			(element: headline),
+			(element: standfirst),
+			(element: summary)
 		) {
 			color: $text-color;
 		}
@@ -204,9 +192,9 @@
 
 		@if $bg-color == 'sky' {
 			@include _oTopperProvide(
-				element tags,
-				element topic,
-				element columnist name
+				(element: tags),
+				(element: topic),
+				(element: columnist-name)
 			) {
 				color: oColorsGetPaletteColor('oxford');
 
@@ -223,26 +211,26 @@
 	$mright: ('left': auto, 'center': auto, 'right': 0);
 	$value: ('left': flex-start, 'center': center, 'right': flex-end);
 
-	@include _oTopperProvide(element headline large) {
+	@include _oTopperProvide((element: headline-large)) {
 		&:after {
 			margin-left: map-get($mleft, #{$position});
 			margin-right: map-get($mright, #{$position});
 		}
 	}
 
-	@include _oTopperProvide(layout content) {
+	@include _oTopperProvide((layout: content)) {
 		text-align: $position;
 		align-self: map-get($value, #{$position});
 	}
 
-	@include _oTopperProvide(element tags) {
+	@include _oTopperProvide((element: tags)) {
 		justify-content: map-get($value, #{$position});
 	}
 }
 
 // TODO: seems to be unused
 @mixin _oTopperStackTags {
-	@include _oTopperProvide(element tags) {
+	@include _oTopperProvide((element: tags)) {
 		flex-direction: column;
 		justify-content: center;
 		padding-bottom: 15px;
