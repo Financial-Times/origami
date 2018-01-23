@@ -21,6 +21,10 @@
 
 // .o-topper--has-headshot
 @mixin oTopperHasHeadshot {
+	@include _oTopperReceive((modifier: has-headshot));
+}
+
+@include _oTopperProvide((modifier: has-headshot)) {
 	@include _oTopperProvide(
 		(element: tags),
 		(element: standfirst)
