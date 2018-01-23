@@ -10,50 +10,16 @@
 @import 'scss/layout';
 @import 'scss/themes';
 
-	.o-topper { @include oTopper; }
-	.o-topper--centered { @include oTopperCentered; }
-	.o-topper--basic { @include oTopperBasic; }
-	.o-topper__content { @include oTopperContent; }
-	.o-topper__visual { @include oTopperVisual; }
-	.o-topper__background { @include oTopperBackground; }
-	.o-topper__read-next { @include oTopperReadNext; }
-
-	.o-topper__headline {
-		@include oTopperHeadline;
-
-		&--large {
-			@include oTopperHeadlineLarge;
-		}
+@if ($o-topper-is-silent == false) {
+	@each $namespace in $o-topper-output-namespaces {
+		@include oTopperOutput($namespace);
 	}
-
-	.o-topper__standfirst { @include oTopperStandfirst; }
-	.o-topper__summary {
-		@include oTopperSummary;
-
-		&--body {
-			@include oTopperSummaryBody;
-		}
-	}
-
-	.o-topper__image-credit { @include oTopperImageCredit; }
-	.o-topper__image { @include oTopperImage; }
-	.o-topper__brand { @include oTopperBrand; }
-	.o-topper__columnist { @include oTopperColumnist; }
-	.o-topper__columnist-name { @include oTopperColumnistName; }
-	.o-topper__tags { @include oTopperTags; }
-
-	.o-topper--has-headshot { @include oTopperHasHeadshot; }
-	.o-topper__headshot { @include oTopperHeadshot; }
-	.o-topper__headshot-image { @include oTopperHeadshotImage; }
 
 	@each $color in $_o-topper-colors {
 		.o-topper--color-#{$color} {
 			@include oTopperColor($color);
 		}
 	}
-
-
-@if ($o-topper-is-silent == false) {
 
 	$o-topper-is-silent: true !global;
 }

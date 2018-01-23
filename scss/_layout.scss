@@ -15,10 +15,10 @@
 }
 
 @mixin oTopperCentered {
-	@include _oTopperReceive((layout: centered));
+	@include _oTopperReceive((modifier: centered));
 }
 
-@include _oTopperProvide((layout: centered)) {
+@include _oTopperProvide((modifier: centered)) {
 	@include articleGridCentered();
 
 	@include _oTopperProvide((layout: read-next)) {
@@ -27,10 +27,10 @@
 }
 
 @mixin oTopperBasic {
-	@include _oTopperReceive((layout: basic));
+	@include _oTopperReceive((modifier: basic));
 }
 
-@include _oTopperProvide((layout: basic)) {
+@include _oTopperProvide((modifier: basic)) {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
 	}

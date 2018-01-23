@@ -11,7 +11,7 @@
 
 	@include _oTopperProvide(
 		(element: tags),
-		(element: read-next)
+		(layout: read-next)
 	) {
 		display: none;
 	}

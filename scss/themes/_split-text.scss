@@ -4,7 +4,7 @@
 	(theme: split-text-left),
 	(theme: split-text-center)
 ) {
-	@include _oTopperProvide((element: read-next)) {
+	@include _oTopperProvide((layout: read-next)) {
 		display: none;
 	}
 

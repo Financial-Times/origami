@@ -106,7 +106,7 @@
 
 @function _o-topper-provider-class($namespace, $key) {
 	$separator: '--';
-	@if $namespace == 'element' {
+	@if $namespace == 'element' or $namespace == 'layout' {
 		$separator: '__';
 	}
 
@@ -215,7 +215,7 @@
 	$mright: ('left': auto, 'center': auto, 'right': 0);
 	$value: ('left': flex-start, 'center': center, 'right': flex-end);
 
-	@include _oTopperProvide((element: headline-large)) {
+	@include _oTopperProvide((element: headline--large)) {
 		&:after {
 			margin-left: map-get($mleft, #{$position});
 			margin-right: map-get($mright, #{$position});

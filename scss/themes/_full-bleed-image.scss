@@ -5,7 +5,7 @@
 	(theme: full-bleed-image-left)
 ) {
 
-	@include _oTopperProvide((element: read-next)) {
+	@include _oTopperProvide((layout: read-next)) {
 		display: none;
 	}
 
