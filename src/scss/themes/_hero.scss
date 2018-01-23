@@ -45,6 +45,12 @@
 		@include oColorsFor('o-teaser-hero-opinion', text, 73);
 	}
 
+	.o-teaser__heading {
+		a:visited {
+			@include oColorsFor('o-teaser-hero-opinion', text, 73);
+		}
+	}
+
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
@@ -108,6 +114,12 @@
 		.o-teaser__timestamp {
 			color: oColorsGetPaletteColor('white');
 			pointer-events: auto;
+		}
+
+		.o-teaser__heading {
+			a:visited {
+				color: oColorsGetPaletteColor('white');
+			}
 		}
 
 		.o-teaser__meta:after {
@@ -201,6 +213,9 @@
 
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
+		a:visited {
+			@include oColorsFor(o-teaser-theme-hero-extra, text, 50);
+		}
 	}
 
 	.o-teaser__standfirst {
