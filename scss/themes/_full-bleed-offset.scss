@@ -57,13 +57,13 @@
 			grid-column: 4 / span 2;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
-			grid-column: 1 / span 7;
-		}
-
 		@include _oTopperProvide((layout: background)) {
 			grid-column: 1 / span 7;
 			grid-row: 4 / span 2;
+		}
+
+		@include _oTopperProvide((layout: visual)) {
+			grid-column: 1 / span 7;
 		}
 	}
 
