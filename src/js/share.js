@@ -4,7 +4,7 @@ const DomDelegate = require('ftdomdelegate');
 
 const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
-	facebook: "http://www.facebook.com/sharer.php?u={{url}}&t={{title}}+%7C+{{titleExtra}}",
+	facebook: "http://www.facebook.com/sharer.php?u={{url}}",
 	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	googleplus: "https://plus.google.com/share?url={{url}}",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
