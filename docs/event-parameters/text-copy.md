@@ -147,7 +147,7 @@ oTracking.init({
 
 - Key: `user.ft_session`
 - Required: no **yes, if available**
-- Default: *FTSession cookie*
+- Default: *FTSession_s cookie*
 - o-tracking automatic: yes
 - spoor pipeline automatic: yes
 
@@ -169,7 +169,7 @@ oTracking.init({
 - o-tracking automatic: no
 - spoor pipeline automatic: no
 
-If unable to use the `user.ft_session` value above, and can only send the user's GUID, then do that here. Set on init e.g. 
+If unable to use the `user.ft_session` value above, and can only send the user's GUID, then do that here. Set on init e.g.
 
 ```js
 oTracking.init({

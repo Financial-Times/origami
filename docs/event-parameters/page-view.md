@@ -183,7 +183,7 @@ oTracking.page({
 - o-tracking automatic: no
 - spoor pipeline automatic: no
 
-Set if a barrier is shown, a barrier which is stopping the user accessing the content. The value is a string and should be the name of the barrier. This is important to set as is used in the counted content calculation. 
+Set if a barrier is shown, a barrier which is stopping the user accessing the content. The value is a string and should be the name of the barrier. This is important to set as is used in the counted content calculation.
 
 Set on a page e.g.
 
@@ -263,7 +263,7 @@ oTracking.page({
 - spoor pipeline automatic: yes
 
 This is the IP address of the device. We will attempt to pick this up automatically from headers, but if this is not possible, set it here, normally at init. e.g.
- 
+
 ```js
 oTracking.init({
   device: {
@@ -316,7 +316,7 @@ oTracking.init({
 
 - Key: `user.ft_session`
 - Required: no **yes, if available**
-- Default: *FTSession cookie*
+- Default: *FTSession_s cookie*
 - o-tracking automatic: yes
 - spoor pipeline automatic: yes
 
@@ -338,7 +338,7 @@ oTracking.init({
 - o-tracking automatic: no
 - spoor pipeline automatic: no
 
-If unable to use the `user.ft_session` value above, and can only send the user's GUID, then do that here. Set on init e.g. 
+If unable to use the `user.ft_session` value above, and can only send the user's GUID, then do that here. Set on init e.g.
 
 ```js
 oTracking.init({
