@@ -63,6 +63,7 @@
 		color: oColorsGetPaletteColor('white');
 
 		&:hover,
+		a:visited,
 		&:focus {
 			@include oColorsFor(o-teaser-package-special-report, text, 73);
 		}
