@@ -37,19 +37,15 @@
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	font-weight: oFontsWeight(normal);
 
-	&:hover,
-	&:focus {
-		@include oColorsFor('o-teaser', text, 55);
-	}
-
 	a {
 		padding: 2px 0;
 		color: inherit;
 		text-decoration: none;
 		border: 0;
 
+		&:focus,
 		&:hover {
-			color: inherit;
+			@include oColorsFor('o-teaser', text, 55);
 		}
 	}
 }

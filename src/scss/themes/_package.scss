@@ -37,7 +37,7 @@
 		margin-top: -52px;
 		width: 100%;
 
-		&:hover,
+		a:hover,
 		&:focus {
 			@include oColorsFor('o-teaser', text, 55);
 		}
@@ -62,7 +62,7 @@
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
 
-		&:hover,
+		a:hover,
 		a:visited,
 		&:focus {
 			@include oColorsFor(o-teaser-package-special-report, text, 73);
@@ -88,7 +88,7 @@
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
 
-		&:hover,
+		a:hover,
 		&:focus {
 			@include oColorsFor('o-teaser-theme-hero-extra-highlight', text);
 		}

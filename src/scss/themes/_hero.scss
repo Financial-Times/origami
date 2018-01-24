@@ -38,8 +38,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin oTeaserHeroOpinion {
-	.o-teaser__heading:hover,
-	.o-teaser__heading:focus,
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
@@ -104,6 +104,7 @@
 		}
 
 		.o-teaser__heading,
+		.o-teaser__heading a,
 		.o-teaser__heading a:visited,
 		.o-teaser__meta,
 		.o-teaser__standfirst,
@@ -183,8 +184,8 @@
 
 // Hero Package theme — extra
 @mixin oTeaserHeroExtra {
-	.o-teaser__heading:hover,
-	.o-teaser__heading:focus {
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus {
 		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
 	}
 

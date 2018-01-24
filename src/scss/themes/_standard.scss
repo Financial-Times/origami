@@ -1,7 +1,7 @@
 /// Inverse theme styles - base all text content on white
 @mixin oTeaserInverse {
-	.o-teaser__heading:hover,
-	.o-teaser__heading:focus,
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
@@ -76,8 +76,8 @@
 
 /// Highlight theme - colours background claret and adjust text colours
 @mixin oTeaserHighlight {
-	.o-teaser__heading:hover,
-	.o-teaser__heading:focus,
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
