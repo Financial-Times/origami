@@ -144,19 +144,4 @@
 	@include oTypographySize($scale: 0, $line-height: 28px);
 	display: flex;
 	padding-bottom: 5px;
-
-	// keep in next-article?
-	.o-tooltip {
-		color: oColorsGetPaletteColor('black');
-		width: 275px;
-	}
-
-	.o-tooltip-close {
-		// Override this being set in n-ui-foundations for all links.
-		border-bottom: 0;
-	}
-
-	.o-tooltip-content {
-		@include oTypographySans($scale: 0);
-	}
 }

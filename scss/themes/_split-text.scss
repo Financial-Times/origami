@@ -41,14 +41,14 @@
 			grid-row: 1;
 		}
 
-		.o-topper__picture {
+		@include _oTopperProvide((element: picture)) {
 			width: 50%;
 			float: right;
 			height: 100%;
 			position: relative;
 		}
 
-		.o-topper__image {
+		@include _oTopperProvide((element: image)) {
 			position: absolute;
 			@include oGridRespondTo($until: M) {
 				max-height: 480px;

@@ -6,7 +6,7 @@
 
 @include _oTopperProvide((root: root)) {
 	//Basic topper uses the same grid columns as an article, so things can line up.
-	@include articleGrid();
+	@include oTopperArticleGrid();
 	margin-bottom: 20px;
 
 	@include oGridRespondTo(L) {
@@ -19,7 +19,7 @@
 }
 
 @include _oTopperProvide((modifier: centered)) {
-	@include articleGridCentered();
+	@include oTopperArticleGridCentered();
 
 	@include _oTopperProvide((layout: read-next)) {
 		display: none;

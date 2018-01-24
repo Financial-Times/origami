@@ -28,10 +28,6 @@
 @include _oTopperProvide((theme: package)) {
 	margin-bottom: 40px;
 
-	.n-myft-ui--follow {
-		margin-bottom: 20px;
-	}
-
 	.o-topper__tags .n-content-tag,
 	.o-topper__headline {
 		@include oTypographySans(6, $line-height: 1em);

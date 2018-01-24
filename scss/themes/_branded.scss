@@ -46,17 +46,13 @@
 
 // .o-topper--opinion {
 @include _oTopperProvide((theme: opinion)) {
-	// keep in next-article
-	.n-myft-ui--follow {
-		margin-left: 20px;
-	}
-
 	@include _oTopperProvide((element: opinion-genre)) {
 		@include oTypographySans(2);
 		font-weight: 200;
 		color: oColorsGetPaletteColor('oxford');
 	}
 
+	// TAGS!
 	.n-content-tag--with-follow {
 		vertical-align: baseline;
 	}
