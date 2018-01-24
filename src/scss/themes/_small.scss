@@ -1,16 +1,28 @@
 
 @mixin oBannerThemeSmallBase {
-	bottom: $_o-banner-spacing / 2;
+	width: 100%;
+	margin: 0;
 
-	@include oGridRespondTo($until: S) {
-		bottom: 0;
+	@include oGridRespondTo(S) {
+		width: oGridColspan(8);
+		margin: $_o-banner-spacing / 2;
+	}
+
+	@include oGridRespondTo(M) {
+		width: oGridColspan(7);
+	}
+
+	@include oGridRespondTo(L) {
+		width: oGridColspan(6);
+	}
+
+	@include oGridRespondTo(XL) {
+		width: map-get($o-grid-layouts, XL) / 2; // width is 50% grid
+		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
 	}
 }
 
 @mixin oBannerThemeSmallOuter {
-	width: auto;
-	max-width: map-get($o-grid-layouts, XL);
-	margin: 0 auto;
 	background-color: transparent;
 	box-shadow: none;
 }
@@ -20,20 +32,8 @@
 	@include oVisualEffectsShadowsElevation('high');
 	@include oTypographySans($scale: 2);
 	display: block;
-	margin: 0 $_o-banner-spacing / 2;
 	padding: $_o-banner-spacing;
-	max-width: oGridColspan(6);
-
-	@include oGridRespondTo($until: L) {
-		max-width: oGridColspan(7);
-	}
-	@include oGridRespondTo($until: M) {
-		max-width: oGridColspan(8);
-	}
-	@include oGridRespondTo($until: S) {
-		max-width: 100%;
-		margin: 0;
-	}
+	max-width: none;
 }
 
 @mixin oBannerThemeSmallContent {
