@@ -6,6 +6,10 @@ $o-topper-is-silent: false;
 
 @include oTopperOutput(theme);
 
+body {
+	@include oColorsFor(page, background);
+}
+
 .o-topper {
 	// TODO: add to next-article, discuss whether o-topper should do it itself
 	-webkit-font-smoothing: antialiased;
