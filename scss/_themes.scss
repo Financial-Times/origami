@@ -22,6 +22,9 @@
 @include oColorsSetUseCase(o-buttons-primary-hover,    text,              'white');
 @include oColorsSetUseCase(o-buttons-primary-hover,    border,            'teal-40');
 @include oColorsSetUseCase(o-buttons-primary-hover,    background,        'teal-40');
+@include oColorsSetUseCase(o-buttons-primary-focus,    text,              'white');
+@include oColorsSetUseCase(o-buttons-primary-focus,    border,            'teal-40');
+@include oColorsSetUseCase(o-buttons-primary-focus,    background,        'teal-40');
 @include oColorsSetUseCase(o-buttons-primary-active,   text,              'white');
 @include oColorsSetUseCase(o-buttons-primary-active,   border,            'teal-30');
 @include oColorsSetUseCase(o-buttons-primary-active,   background,        'teal-30');
@@ -37,6 +40,9 @@
 @include oColorsSetUseCase(o-buttons-secondary-hover,    text,              'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-hover,    border,            'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-hover,    background,        'teal-transparent-10');
+@include oColorsSetUseCase(o-buttons-secondary-focus,    text,              'teal-50');
+@include oColorsSetUseCase(o-buttons-secondary-focus,    border,            'teal-50');
+@include oColorsSetUseCase(o-buttons-secondary-focus,    background,        'teal-transparent-10');
 @include oColorsSetUseCase(o-buttons-secondary-active,   text,              'white');
 @include oColorsSetUseCase(o-buttons-secondary-active,   border,            'teal-50');
 @include oColorsSetUseCase(o-buttons-secondary-active,   background,        'teal-50');
@@ -52,6 +58,9 @@
 @include oColorsSetUseCase(o-buttons-inverse-hover,    text,              'white');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    border,            'white');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    background,        'white-black-20');
+@include oColorsSetUseCase(o-buttons-inverse-focus,    text,              'white');
+@include oColorsSetUseCase(o-buttons-inverse-focus,    border,            'white');
+@include oColorsSetUseCase(o-buttons-inverse-focus,    background,        'white-black-20');
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,              'black');
 @include oColorsSetUseCase(o-buttons-inverse-active,   border,            'white');
 @include oColorsSetUseCase(o-buttons-inverse-active,   background,        'white');
@@ -67,6 +76,9 @@
 @include oColorsSetUseCase(o-buttons-mono-hover,    text,              'black');
 @include oColorsSetUseCase(o-buttons-mono-hover,    border,            'black');
 @include oColorsSetUseCase(o-buttons-mono-hover,    background,        'black-10');
+@include oColorsSetUseCase(o-buttons-mono-focus,    text,              'black');
+@include oColorsSetUseCase(o-buttons-mono-focus,    border,            'black');
+@include oColorsSetUseCase(o-buttons-mono-focus,    background,        'black-10');
 @include oColorsSetUseCase(o-buttons-mono-active,   text,              'white');
 @include oColorsSetUseCase(o-buttons-mono-active,   border,            'black');
 @include oColorsSetUseCase(o-buttons-mono-active,   background,        'black');
@@ -82,6 +94,9 @@
 @include oColorsSetUseCase(o-buttons-b2c-hover, text,                 'black-90');
 @include oColorsSetUseCase(o-buttons-b2c-hover, border,               'org-b2c-dark');
 @include oColorsSetUseCase(o-buttons-b2c-hover, background,           'org-b2c');
+@include oColorsSetUseCase(o-buttons-b2c-focus,    text,              'black-90');
+@include oColorsSetUseCase(o-buttons-b2c-focus,    border,            'org-b2c-dark');
+@include oColorsSetUseCase(o-buttons-b2c-focus,    background,        'org-b2c');
 @include oColorsSetUseCase(o-buttons-b2c-pressedselected, background, 'org-b2c-light');
 @include oColorsSetUseCase(o-buttons-b2c-pressedselected, border,     'org-b2c-light');
 @include oColorsSetUseCase(o-buttons-b2c-pressedselected, text,       'black-90');
@@ -109,6 +124,11 @@ $o-buttons-themes__b2c: (
 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
 		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
+	),
+	focus: (
+		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-focus, background), 0.8),
+		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+		border-color: oColorsGetColorFor(o-buttons-b2c-focus, border),
 	),
 	pressedselected: (
 		// sass-lint:disable no-important
