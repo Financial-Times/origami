@@ -231,4 +231,44 @@ describe('oTable sorting', () => {
 			done();
 		});
 	});
+
+
+	it('sorts via data-o-table-order alphabetically it is set, regardless of whether cell is <th> or <td>', done => {
+		sandbox.reset();
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<th>Things</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th data-o-table-order="c">snowman</th>
+					</tr>
+					<tr>
+						<th data-o-table-order="a">42</th>
+					</tr>
+					<tr>
+						<th data-o-table-order="b">pangea</th>
+					</tr>
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+		testOTable = new OTable(oTableEl);
+		// TODO - Add a click polyfill to polyfill-service
+		const click = document.createEvent("MouseEvent");
+		click.initMouseEvent("click", true, true, window,
+			0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		oTableEl.querySelector('thead th').dispatchEvent(click);
+		oTableEl.addEventListener('oTable.sorted', () => {
+			const rows = oTableEl.querySelectorAll('tbody tr th');
+			proclaim.equal(rows[0].textContent, '42');
+			proclaim.equal(rows[1].textContent, 'pangea');
+			proclaim.equal(rows[2].textContent, 'snowman');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
+			done();
+		});
+	});
+
 });

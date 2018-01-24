@@ -164,8 +164,8 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 	const rows = Array.from(tbody.querySelectorAll('tr'));
 
 	rows.sort(function (a, b) {
-		let aCol = a.querySelectorAll('td')[index];
-		let bCol = b.querySelectorAll('td')[index];
+		let aCol = a.children[index];
+		let bCol = b.children[index];
 
 		if (aCol.getAttribute('data-o-table-order') !== null) {
 			aCol = aCol.getAttribute('data-o-table-order');
