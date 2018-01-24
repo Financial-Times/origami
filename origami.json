@@ -39,6 +39,11 @@
 			"description": "This is used for articles with a brandConcept"
 		},
 		{
+			"name": "Full Bleed Image Left",
+			"template": "/demos/src/full-bleed-image-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
 			"name": "Full Bleed Offset",
 			"template": "/demos/src/full-bleed-offset.mustache",
 			"description": "This is a theme that editorial can choose, which comes through the API"
