@@ -2,15 +2,10 @@
 @mixin oTeaserInverse {
 	.o-teaser__heading:hover,
 	.o-teaser__heading:focus,
+	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		@include oColorsFor('o-teaser-inverse', text, 60);
-	}
-
-	.o-teaser__heading {
-		a:visited {
-			@include oColorsFor('o-teaser-inverse', text, 60);
-		}
 	}
 
 	.o-teaser__meta,
@@ -83,15 +78,10 @@
 @mixin oTeaserHighlight {
 	.o-teaser__heading:hover,
 	.o-teaser__heading:focus,
+	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		@include oColorsFor('o-teaser-hero-highlight', text, 73);
-	}
-
-	.o-teaser__heading {
-		a:visited {
-			@include oColorsFor('o-teaser-hero-highlight', text, 73);
-		}
 	}
 
 	.o-teaser__standfirst,
