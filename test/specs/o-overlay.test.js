@@ -28,7 +28,11 @@ describe("Overlay", () => {
 			proclaim.isTypeOf(testOverlay.delegates.doc, 'object');
 			proclaim.isTypeOf(testOverlay.delegates.wrap, 'object');
 			proclaim.isTypeOf(testOverlay.delegates.context, 'object');
+		});
 
+		it("Allows the heading to be optional", () => {
+			let testOverlay = new Overlay('myID', {html: 'hello'});
+			proclaim.strictEqual(testOverlay.heading, undefined);
 		});
 
 		it("Errors if html or src are not passed in as opts", () => {
