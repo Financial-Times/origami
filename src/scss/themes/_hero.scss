@@ -40,6 +40,7 @@
 @mixin oTeaserHeroOpinion {
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
+	.o-teaser__heading a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		@include oColorsFor('o-teaser-hero-opinion', text, 73);
@@ -102,8 +103,8 @@
 			pointer-events: none;
 		}
 
-		.o-teaser__heading,
 		.o-teaser__heading a,
+		.o-teaser__heading a:visited,
 		.o-teaser__meta,
 		.o-teaser__standfirst,
 		.o-teaser__timestamp {
@@ -202,6 +203,9 @@
 
 	.o-teaser__heading {
 		color: oColorsGetPaletteColor('white');
+		a:visited {
+			@include oColorsFor(o-teaser-theme-hero-extra, text, 50);
+		}
 	}
 
 	.o-teaser__standfirst {
