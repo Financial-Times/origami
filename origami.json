@@ -21,6 +21,11 @@
 			"name": "standard",
 			"template": "demos/src/standard.mustache",
 			"hidden": false
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true
 		}
 	]
 }
