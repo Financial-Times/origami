@@ -48,7 +48,11 @@
 			"template": "/demos/src/sliding-notification.mustache",
 			"sass": "demos/src/sliding-notification.scss",
 			"js": "demos/src/sliding-notification.js"
-
+		},
+		{
+			"name": "pa11y",
+			"template": "/demos/src/pa11y.mustache",
+			"hidden": true
 		}
 	]
 }
