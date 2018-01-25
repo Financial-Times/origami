@@ -88,6 +88,12 @@
             "template": "demos/src/grid-demo.mustache",
             "hidden": "true",
             "description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
+        },
+        {
+            "name": "pa11y",
+            "data": "demos/src/header.json",
+            "template": "demos/src/pa11y.mustache",
+            "hidden": "true"
         }
     ]
 }
