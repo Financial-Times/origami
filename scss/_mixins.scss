@@ -191,11 +191,7 @@
 				(element: tag),
 				(element: columnist-name)
 			) {
-				@include oColorsFor(tag-link, text);
-
-				&:hover {
-					@include oColorsFor(tag-link-hover, text);
-				}
+				@include oTypographyTopic;
 			}
 		}
 
