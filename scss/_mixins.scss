@@ -175,17 +175,22 @@
 			color: $text-color;
 		}
 
-		// TODO: work out what to do with tags
-		.o-topper__tags .n-content-tag {
+		@include _oTopperProvide(
+			(element: tag),
+			(element: brand)
+		) {
 			color: $text-color;
+
 			&:hover {
 				color: oColorsMix($text-color, $bg-color, 73);
 			}
 		}
 
 		@if $bg-color == 'paper' or $bg-color == 'wheat' {
-			.o-topper__tags .n-content-tag:not(.n-content-tag--brand),
-			.o-topper__columnist-name {
+			@include _oTopperProvide(
+				(element: tag),
+				(element: columnist-name)
+			) {
 				@include oColorsFor(tag-link, text);
 
 				&:hover {
@@ -229,17 +234,5 @@
 
 	@include _oTopperProvide((element: tags)) {
 		justify-content: map-get($value, #{$position});
-	}
-}
-
-// TODO: seems to be unused
-@mixin _oTopperStackTags {
-	@include _oTopperProvide((element: tags)) {
-		flex-direction: column;
-		justify-content: center;
-		padding-bottom: 15px;
-		.n-content-tag {
-			padding-bottom: 5px;
-		}
 	}
 }

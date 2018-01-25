@@ -28,8 +28,10 @@
 @include _oTopperProvide((theme: package)) {
 	margin-bottom: 40px;
 
-	.o-topper__tags .n-content-tag,
-	.o-topper__headline {
+	@include _oTopperProvide(
+		(element: tag),
+		(element: headline)
+	) {
 		@include oTypographySans(6, $line-height: 1em);
 		font-weight: 400;
 
@@ -54,6 +56,7 @@
 	(theme: package-extra),
 	(theme: package-extra-wide)
 ) {
+	//TODO how do ampersand
 	// @include _oTopperProvide((element: package-sequence-id)) {
 	&.o-topper--package .o-topper__headline {
 		color: oColorsGetPaletteColor('lemon');
@@ -74,7 +77,7 @@
 }
 
 @include _oTopperProvide((theme: package-special-report)) {
-	.o-topper__tags .n-content-tag {
+	@include _oTopperProvide((element: tag)) {
 		opacity: 0.6;
 	}
 

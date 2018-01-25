@@ -7,6 +7,12 @@
 	}
 }
 
+.o-topper--opinion {
+	.n-content-tag--with-follow {
+		vertical-align: baseline;
+	}
+}
+
 .o-topper__tags {
 	.o-tooltip {
 		color: oColorsGetPaletteColor('black');
