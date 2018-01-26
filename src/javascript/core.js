@@ -57,7 +57,8 @@ function track(config, callback) {
 		},
 		user: {
 			passport_id: utils.getValueFromCookie(/USERID=([0-9]+):/) || utils.getValueFromCookie(/PID=([0-9]+)\_/),
-			ft_session: utils.getValueFromCookie(/FTSession_s=([^;]+)/) || utils.getValueFromCookie(/FTSession=([^;]+)/),
+			ft_session: utils.getValueFromCookie(/FTSession=([^;]+)/),
+			ft_session_s: utils.getValueFromCookie(/FTSession_s=([^;]+)/)
 		},
 		device: {
 			spoor_session: session.id,
