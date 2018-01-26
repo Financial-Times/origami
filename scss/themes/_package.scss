@@ -25,13 +25,11 @@
 	}
 }
 
-@include _oTopperProvide((theme: package)) {
+%_o-topper--package {
 	margin-bottom: 40px;
 
-	@include _oTopperProvide(
-		(element: tag),
-		(element: headline)
-	) {
+	%_o-topper__tag,
+	%_o-topper__headline {
 		@include oTypographySans(6, $line-height: 1em);
 		font-weight: 400;
 
@@ -40,29 +38,26 @@
 		}
 	}
 
-	@include _oTopperProvide((element: headline)) {
+	%_o-topper__headline {
 		&:after {
 			border-bottom-width: 1px;
 		}
 	}
 }
 
-@include _oTopperProvide((element: package-sequence-id)) {
+%_o-topper__package-sequence-id {
 	@include oTypographySans(-2, $progressive: true);
 	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
 }
 
-@include _oTopperProvide(
-	(theme: package-extra),
-	(theme: package-extra-wide)
-) {
-	//TODO how do ampersand
-	// @include _oTopperProvide((element: package-sequence-id)) {
-	&.o-topper--package .o-topper__headline {
+%_o-topper--package-extra,
+%_o-topper--package-extra-wide {
+	%_o-topper__package-sequence-id,
+	&%o-topper--package %o-topper__headline {
 		color: oColorsGetPaletteColor('lemon');
 	}
 
-	@include _oTopperProvide((element: anchor-link)) {
+	%_o-topper__anchor-link {
 		color: oColorsGetPaletteColor('lemon');
 		border-color: oColorsGetPaletteColor('lemon');
 
@@ -76,12 +71,12 @@
 	}
 }
 
-@include _oTopperProvide((theme: package-special-report)) {
-	@include _oTopperProvide((element: tag)) {
+%_o-topper--package-special-report {
+	%_o-topper__tag {
 		opacity: 0.6;
 	}
 
-	@include _oTopperProvide((element: anchor-link)) {
+	%_o-topper__anchor-link {
 		border-color: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('white');
 

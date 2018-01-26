@@ -11,9 +11,28 @@
 @import 'scss/themes';
 
 @if ($o-topper-is-silent == false) {
-	@each $namespace in $o-topper-output-namespaces {
-		@include oTopperOutput($namespace);
-	}
+	.o-topper { @extend %_o-topper; }
+	.o-topper--centered { @extend %_o-topper--centered; }
+	.o-topper--basic { @extend %_o-topper--basic; }
+	.o-topper__tags { @extend %_o-topper__tags; }
+	.o-topper__standfirst { @extend %_o-topper__standfirst; }
+	.o-topper__tag { @extend %_o-topper__tag; }
+	.o-topper__headline { @extend %_o-topper__headline; }
+	.o-topper__headline--large { @extend %_o-topper__headline--large; }
+	.o-topper__summary--body { @extend %_o-topper__summary--body; }
+	.o-topper__columnist-name { @extend %_o-topper__columnist-name; }
+	.o-topper__summary { @extend %_o-topper__summary; }
+	.o-topper__brand { @extend %_o-topper__brand; }
+	.o-topper__topic { @extend %_o-topper__topic; }
+	.o-topper__read-next { @extend %_o-topper__read-next; }
+	.o-topper__image { @extend %_o-topper__image; }
+	.o-topper__image-credit { @extend %_o-topper__image-credit; }
+	.o-topper__columnist { @extend %_o-topper__columnist; }
+	.o-topper__content{ @extend %_o-topper__content; }
+	.o-topper__visual{ @extend %_o-topper__visual; }
+	.o-topper__background{ @extend %_o-topper__background; }
+	.o-topper__picture { @extend %_o-topper__picture; }
+	.o-topper__anchor-link { @extend %_o-topper__anchor-link; }
 
 	@each $color in $_o-topper-colors {
 		.o-topper--color-#{$color} {

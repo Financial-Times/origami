@@ -1,26 +1,24 @@
 // sass-lint:disable mixins-before-declarations
 
-@include _oTopperProvide((theme: news-package)) {
+%_o-topper--news-package {
 	@include oGridRespondTo($until: M) {
 		padding: 0;
 	}
 
-	@include _oTopperProvide((layout: content)) {
+	%_o-topper__content {
 		padding: oGridGutter();
 	}
 
-	@include _oTopperProvide(
-		(element: tags),
-		(layout: read-next)
-	) {
+	%_o-topper__tags,
+	%_o-topper__read-next {
 		display: none;
 	}
 
-	@include _oTopperProvide((element: headline)) {
+	%_o-topper__headline {
 		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
 	}
 
-	@include _oTopperProvide((element: picture)) {
+	%_o-topper__picture {
 		height: auto;
 	}
 
@@ -29,7 +27,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 20px 1fr 20px;
 
-		@include _oTopperProvide((layout: content)) {
+		%_o-topper__content {
 			grid-column: 1 / span 2;
 			grid-row: 2;
 			width: 50%;
@@ -37,7 +35,7 @@
 			padding: 0 20px 0 0;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			grid-row: 2 / span 1;
 			grid-column: 2 / span 2;
 			height: auto;

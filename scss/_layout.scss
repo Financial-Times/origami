@@ -1,10 +1,10 @@
 @import 'grid';
 
 @mixin oTopper {
-	@include _oTopperReceive((root: root));
+	@extend %_o-topper;
 }
 
-@include _oTopperProvide((root: root)) {
+%_o-topper {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include oTopperArticleGrid();
 	margin-bottom: 20px;
@@ -15,22 +15,22 @@
 }
 
 @mixin oTopperCentered {
-	@include _oTopperReceive((modifier: centered));
+	@extend %_o-topper--centered;
 }
 
-@include _oTopperProvide((modifier: centered)) {
+%_o-topper--centered {
 	@include oTopperArticleGridCentered();
 
-	@include _oTopperProvide((layout: read-next)) {
+	%_o-topper__read-next {
 		display: none;
 	}
 }
 
 @mixin oTopperBasic {
-	@include _oTopperReceive((modifier: basic));
+	@extend %_o-topper--basic;
 }
 
-@include _oTopperProvide((modifier: basic)) {
+%_o-topper--basic {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
 	}
@@ -39,11 +39,11 @@
 //Default theme;
 
 @mixin oTopperContent {
-	@include _oTopperReceive((layout: content));
+	@extend %_o-topper__content;
 }
 
-@include _oTopperProvide((layout: content)) {
-	@include _oTopperReceive((modifier: color));
+%_o-topper__content {
+	@extend %_o-topper--color;
 	grid-row: 2 / span 4;
 	grid-column: 3;
 	position: relative;
@@ -51,20 +51,20 @@
 }
 
 @mixin oTopperBackground {
-	@include _oTopperReceive((layout: background));
+	@extend %_o-topper__background;
 }
 
 @mixin oTopperVisual {
-	@include _oTopperReceive((layout: visual));
+	@extend %_o-topper__visual;
 }
 
-@include _oTopperProvide((layout: visual)) {
+%_o-topper__visual {
 	@extend %_o-topper-common-background;
 	margin: 0;
 }
 
-@include _oTopperProvide((layout: background)) {
-	@include _oTopperReceive((modifier: color));
+%_o-topper__background {
+	@extend %_o-topper--color;
 	@extend %_o-topper-common-background;
 }
 
@@ -80,10 +80,10 @@
 }
 
 @mixin oTopperReadNext {
-	@include _oTopperReceive((layout: read-next));
+	@extend %_o-topper__read-next;
 }
 
-@include _oTopperProvide((layout: read-next)) {
+%_o-topper__read-next {
 	display: none;
 
 	@include oGridRespondTo(L) {

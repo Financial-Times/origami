@@ -1,19 +1,19 @@
 // .o-topper--branded
-@include _oTopperProvide((theme: branded)) {
-	@include _oTopperProvide((layout: content)) {
+%_o-topper--branded {
+	%_o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
 			padding: 20px 0;
 		}
 	}
 
-	@include _oTopperProvide((layout: read-next)) {
+	%_o-topper__read-next {
 		grid-row: 2 / span 3;
 	}
 
 	@include oGridRespondTo($until: L) {
 		//Make the background really full width
-		@include _oTopperProvide((layout: background)) {
+		%_o-topper__background {
 			position: absolute;
 		}
 	}
@@ -21,14 +21,12 @@
 
 // .o-topper--has-headshot
 @mixin oTopperHasHeadshot {
-	@include _oTopperReceive((modifier: has-headshot));
+	@extend %_o-topper--has-headshot;
 }
 
-@include _oTopperProvide((modifier: has-headshot)) {
-	@include _oTopperProvide(
-		(element: tags),
-		(element: standfirst)
-	) {
+%_o-topper--has-headshot {
+	%_o-topper__tags,
+	%_o-topper__standfirst {
 		box-sizing: border-box;
 		padding-right: 100px;
 
@@ -37,7 +35,7 @@
 		}
 	}
 
-	@include _oTopperProvide((element: headline)) {
+	%_o-topper__headline {
 		@include oGridRespondTo(M) {
 			padding-right: 150px;
 		}
@@ -45,18 +43,18 @@
 }
 
 // .o-topper--opinion {
-@include _oTopperProvide((theme: opinion)) {
-	@include _oTopperProvide((element: opinion-genre)) {
+%_o-topper--opinion {
+	%_o-topper__opinion-genre {
 		font-weight: 200;
 		color: oColorsGetPaletteColor('oxford');
 	}
 }
 
 @mixin oTopperHeadshot {
-	@include _oTopperReceive((element: headshot));
+	@extend %_o-topper__headshot;
 }
 
-@include _oTopperProvide((element: headshot)) {
+%_o-topper__headshot {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -73,10 +71,10 @@
 }
 
 @mixin oTopperHeadshotImage {
-	@include _oTopperReceive((element: headshot-image));
+	@extend %_o-topper__headshot-image;
 }
 
-@include _oTopperProvide((element: headshot-image)) {
+%_o-topper__headshot-image {
 	max-width: 100%;
 	display: block;
 	margin-left: 8px;

@@ -4,7 +4,7 @@ $o-typography-is-silent: false;
 $o-topper-is-silent: false;
 @import '../../main';
 
-@include oTopperOutput(theme);
+@include oTopperThemes;
 
 body {
 	@include oColorsFor(page, background);
@@ -12,5 +12,5 @@ body {
 
 .o-topper {
 	// TODO: add to next-article, discuss whether o-topper should do it itself
-	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 }

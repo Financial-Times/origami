@@ -1,8 +1,17 @@
-$_o-topper-debug-providers-with-no-receive: ();
-
 /// @param {list} $_o-topper-colors - colors available to editorial in methode for the background
 $_o-topper-colors: 'white', 'black', 'claret', 'oxford', 'paper', 'slate', 'wheat', 'crimson', 'sky', 'velvet';
 
-$_o-topper-provider-namespaces: ();
-
-$o-topper-output-namespaces: root, element, layout, modifier;
+$_o-topper-themes: (
+	'branded',
+	'opinion',
+	'full-bleed-offset',
+	'split-text-left',
+	'split-text-center',
+	'full-bleed-image-center',
+	'full-bleed-image-left',
+	'package',
+	'package-extra',
+	'package-extra-wide',
+	'package-special-report',
+	'news-package',
+);

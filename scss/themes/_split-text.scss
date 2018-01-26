@@ -1,16 +1,14 @@
 // sass-lint:disable mixins-before-declarations
 
-@include _oTopperProvide(
-	(theme: split-text-left),
-	(theme: split-text-center)
-) {
-	@include _oTopperProvide((layout: read-next)) {
+%_o-topper--split-text-left,
+%_o-topper--split-text-center {
+	%_o-topper__read-next {
 		display: none;
 	}
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
-		@include _oTopperProvide((layout: content)) {
+		%_o-topper__content {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -18,7 +16,7 @@
 			min-height: 350px;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			min-height: 350px;
 		}
 	}
@@ -28,7 +26,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		@include _oTopperProvide((layout: content)) {
+		%_o-topper__content {
 			grid-column: 1 / span 2;
 			grid-row: 1;
 			width: 50%;
@@ -37,18 +35,18 @@
 			padding-right: 20px;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			grid-row: 1;
 		}
 
-		@include _oTopperProvide((element: picture)) {
+		%_o-topper__picture {
 			width: 50%;
 			float: right;
 			height: 100%;
 			position: relative;
 		}
 
-		@include _oTopperProvide((element: image)) {
+		%_o-topper__image {
 			position: absolute;
 			@include oGridRespondTo($until: M) {
 				max-height: 480px;
@@ -57,7 +55,7 @@
 	}
 
 	@supports (object-fit: cover) {
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			@include oGridRespondTo(M) {
 				height: 480px;
 			}
@@ -69,7 +67,7 @@
 
 }
 
-@include _oTopperProvide((theme: split-text-center)) {
+%_o-topper--split-text-center {
 	@include oGridRespondTo(S) {
 		@include _oTopperAlignText(center);
 	}

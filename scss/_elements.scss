@@ -1,26 +1,26 @@
-@include _oTopperProvide((element: headline)) {
+%_o-topper__headline {
 	@include oTypographyHeadline();
 }
 
-@include _oTopperProvide((element: headline--large)) {
+%_o-topper__headline--large {
 	@include oTypographyHeadlineLarge();
 
 	position: relative; //so it appears above the full width background
 }
 
 @mixin oTopperHeadline {
-	@include _oTopperReceive((element: headline));
+	@extend %_o-topper__headline;
 }
 
 @mixin oTopperHeadlineLarge {
-	@include _oTopperReceive((element: headline--large));
+	@extend %_o-topper__headline--large;
 }
 
 @mixin oTopperStandfirst {
-	@include _oTopperReceive((element: standfirst));
+	@extend %_o-topper__standfirst;
 }
 
-@include _oTopperProvide((element: standfirst)) {
+%_o-topper__standfirst {
 	@include oTypographyStandfirst();
 	margin-bottom: 0;
 	opacity: 0.8;
@@ -35,14 +35,14 @@
 }
 
 @mixin oTopperSummary {
-	@include _oTopperReceive((element: summary));
+	@extend %_o-topper__summary;
 }
 
 @mixin oTopperSummaryBody {
-	@include _oTopperReceive((element: summary--body));
+	@extend %_o-topper__summary--body;
 }
 
-@include _oTopperProvide((element: summary)) {
+%_o-topper__summary {
 	@include oTypographySans(1);
 	> ul {
 		padding: 0 oTypographySpacingSize(5);
@@ -53,7 +53,7 @@
 	}
 }
 
-@include _oTopperProvide((element: summary--body)) {
+%_o-topper__summary--body {
 	h2 {
 		@include oTypographySansBold(0);
 		margin: 5px 0 0;
@@ -76,10 +76,10 @@
 }
 
 @mixin oTopperImageCredit {
-	@include _oTopperReceive((element: image-credit));
+	@extend %_o-topper__image-credit;
 }
 
-@include _oTopperProvide((element: image-credit)) {
+%_o-topper__image-credit {
 	@include oTypographySans(-2);
 	color: oColorsGetPaletteColor('white');
 	position: absolute;
@@ -90,10 +90,10 @@
 
 //IE9 support
 @mixin oTopperImage {
-	@include _oTopperReceive((element: image));
+	@extend %_o-topper__image;
 }
 
-@include _oTopperProvide((element: image)) {
+%_o-topper__image {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -105,10 +105,10 @@
 }
 
 @mixin oTopperBrand {
-	@include _oTopperReceive((element: brand));
+	@extend %_o-topper__brand;
 }
 
-@include _oTopperProvide((element: brand)) {
+%_o-topper__brand {
 	@include oTypographySans(0);
 	margin-right: 4px;
 	// TODO: move to next-article
@@ -120,27 +120,27 @@
 }
 
 @mixin oTopperColumnist {
-	@include _oTopperReceive((element: columnist));
+	@extend %_o-topper__columnist;
 }
 
-@include _oTopperProvide((element: columnist)) {
+%_o-topper__columnist {
 	@include oTypographyMargin($top: 4);
 	text-transform: uppercase;
 }
 
 @mixin oTopperColumnistName {
-	@include _oTopperReceive((element: columnist-name));
+	@extend %_o-topper__columnist-name;
 }
 
-@include _oTopperProvide((element: columnist-name)) {
+%_o-topper__columnist-name {
 	vertical-align: middle;
 }
 
 @mixin oTopperTags {
-	@include _oTopperReceive((element: tags));
+	@extend %_o-topper__tags;
 }
 
-@include _oTopperProvide((element: tags)) {
+%_o-topper__tags {
 	@include oTypographySize($scale: 0, $line-height: 28px);
 	display: flex;
 	padding-bottom: 5px;

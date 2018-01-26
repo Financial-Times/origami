@@ -1,6 +1,6 @@
 // sass-lint:disable mixins-before-declarations
 
-@include _oTopperProvide((theme: full-bleed-offset)) {
+%_o-topper--full-bleed-offset {
 	display: flex;
 	flex-direction: column;
 
@@ -9,11 +9,11 @@
 		padding: 0;
 	}
 
-	@include _oTopperProvide((layout: read-next)) {
+	%_o-topper__read-next {
 		display: none;
 	}
 
-	@include _oTopperProvide((layout: content)) {
+	%_o-topper__content {
 		padding: 20px 10px;
 		order: 2;
 
@@ -33,12 +33,12 @@
 		grid-template-columns: auto;
 		grid-template-rows: 20px min-content 60px min-content;
 
-		@include _oTopperProvide((layout: content)) {
+		%_o-topper__content {
 			grid-column: 1;
 			grid-row: 3 / span 2;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			grid-column: 1;
 			grid-row: 1 / span 3;
 		}
@@ -48,21 +48,21 @@
 	@include oGridRespondTo(L) {
 		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
 
-		// @include _oTopperProvide((layout: content)) {
+		// %_o-topper__content {
 		&.o-topper--centered {
 			grid-template-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
 		}
 
-		@include _oTopperProvide((layout: content)) {
+		%_o-topper__content {
 			grid-column: 4 / span 2;
 		}
 
-		@include _oTopperProvide((layout: background)) {
+		%_o-topper__background {
 			grid-column: 1 / span 7;
 			grid-row: 4 / span 2;
 		}
 
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			grid-column: 1 / span 7;
 		}
 	}
@@ -72,7 +72,7 @@
 	}
 
 	@supports (object-fit: cover) {
-		@include _oTopperProvide((layout: visual)) {
+		%_o-topper__visual {
 			height: auto;
 			max-height: 480px;
 
@@ -83,7 +83,7 @@
 		}
 	}
 
-	@include _oTopperProvide((element: image-credit)) {
+	%_o-topper__image-credit {
 		@include oGridRespondTo($from: M, $until: XL) {
 			bottom: auto;
 			top: 0;
