@@ -36,6 +36,11 @@
 				<button class="o-share__icon o-share__icon--mail"><span class="o-share__text">Mail</span></button>
 			</li>
 			{{/o-share.withMail}}
+			{{#o-share.withLink}}
+			<li class="o-share__action">
+				<a href="{{{o-share.url}}}" class="o-share__icon o-share__icon--link"><span class="o-share__text">URL</span></a>
+			</li>
+			{{/o-share.withLink}}
 		</ul>
 	</div>
 </div>

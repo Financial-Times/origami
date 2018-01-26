@@ -53,7 +53,7 @@
 	// sass-lint:disable-all
 	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
 
-	@if ($icon-name == 'mail') {
+	@if ($icon-name == 'mail' or $icon-name == 'link') {
 		$scheme: "fticon-v#{$o-share-ft-icons-version}";
 	}
 
@@ -158,10 +158,11 @@
 		}
 
 		@each $icon-name in $_o-share-icons {
+
 			// sass-lint:disable-all
 			$scheme: "ftsocial-v#{$o-share-social-icons-version}";
 
-			@if ($icon-name == 'mail') {
+			@if ($icon-name == 'mail' or $icon-name == 'link') {
 				$scheme: "fticon-v#{$o-share-ft-icons-version}";
 			}
 
