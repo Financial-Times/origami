@@ -316,7 +316,7 @@ oTracking.init({
 
 - Key: `user.ft_session`
 - Required: no **yes, if available**
-- Default: *FTSession_s cookie*
+- Default: *FTSession cookie*
 - o-tracking automatic: yes
 - spoor pipeline automatic: yes
 
@@ -326,6 +326,24 @@ The user's current session from membership's session API. If using o-tracking, t
 oTracking.init({
   user: {
     ft_session: ""
+  }
+});
+```
+
+### user_ft_session_s
+
+- Key: `user.ft_session_s`
+- Required: no **yes, if available**
+- Default: *FTSession_s cookie*
+- o-tracking automatic: yes
+- spoor pipeline automatic: yes
+
+The user's current secure session from membership's session API. If using o-tracking, this will be collected for you when available. The pipeline will also make an attempt to collect it from cookies. Otherwise you can set it on init e.g.
+
+```js
+oTracking.init({
+  user: {
+    ft_session_s: ""
   }
 });
 ```

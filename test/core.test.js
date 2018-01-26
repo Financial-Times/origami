@@ -75,7 +75,7 @@ describe('Core', function () {
 			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["passport_id","ft_session","user_id"]);
+			assert.deepEqual(Object.keys(sent_data.user), ["passport_id","ft_session","ft_session_s","user_id"]);
 			assert.equal(sent_data.user.user_id, "userID");
 
 			// Device
