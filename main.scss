@@ -34,11 +34,7 @@
 	.o-topper__picture { @extend %_o-topper__picture; }
 	.o-topper__anchor-link { @extend %_o-topper__anchor-link; }
 
-	@each $color in $_o-topper-colors {
-		.o-topper--color-#{$color} {
-			@include oTopperColor($color);
-		}
-	}
+	@include oTopperColors;
 
 	$o-topper-is-silent: true !global;
 }

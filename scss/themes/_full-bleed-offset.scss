@@ -17,15 +17,14 @@
 		padding: 20px 10px;
 		order: 2;
 
-		// TODO: move into background mixin
-		&[data-textbox-background="paper"] {
-			padding-bottom: 0;
-		}
-
 		@include oGridRespondTo(M) {
 			padding-left: 20px;
 			padding-right: 20px;
 		}
+	}
+
+	&%_o-topper--color-paper %_o-topper__content {
+		padding-bottom: 0;
 	}
 
 	@include oGridRespondTo(M) {

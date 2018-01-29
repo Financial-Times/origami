@@ -11,6 +11,14 @@
 	.o-topper__headshot-image { @extend %_o-topper__headshot-image; }
 }
 
+@mixin oTopperColors() {
+	@each $color in $_o-topper-colors {
+		.o-topper--color-#{$color} {
+			@include oTopperColor($color);
+		}
+	}
+}
+
 // uses topper background colour to set background and pick contrasting text color
 @mixin oTopperColor($color-name) {
 	$background: oColorsGetPaletteColor($color-name);
@@ -22,7 +30,21 @@
 		$hover-color: darken($foreground, 20%);
 	}
 
+	// include oTopperColor on a parent then extend this placeholder on a
+	// descendent to lend that descendent the color you specified in the mixin
 	%_o-topper--has-color {
+		@if $color-name == 'wheat' {
+			background-color: oColorsMix($color: 'wheat', $percentage: 40);
+		} @else {
+			background-color: $background;
+		}
+	}
+
+	// generate a placeholder and immediately extend it, to attach its styles and
+	// allow descendents to vary behaviour based on color theme
+	@extend %_o-topper--color-#{$color-name};
+
+	&%_o-topper--color-#{$color-name} {
 		@if not $is-light {
 			%_o-topper__standfirst {
 				a {
@@ -47,11 +69,6 @@
 			}
 		}
 
-		@if $color-name == 'wheat' {
-			background-color: oColorsMix($color: 'wheat', $percentage: 40);
-		} @else {
-			background-color: $background;
-		}
 
 		%_o-topper__tags,
 		%_o-topper__columnist-name,
