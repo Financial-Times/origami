@@ -28,7 +28,7 @@
 %_o-topper--package {
 	margin-bottom: 40px;
 
-	%_o-topper__tag,
+	%_o-topper__tags,
 	%_o-topper__headline {
 		@include oTypographySans(6, $line-height: 1em);
 		font-weight: 400;

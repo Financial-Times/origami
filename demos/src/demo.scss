@@ -14,3 +14,7 @@ body {
 	// TODO: add to next-article, discuss whether o-topper should do it itself
 	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 }
+
+.tags--large {
+	@include oTypographySize($scale: 2, $line-height: 28px);
+}

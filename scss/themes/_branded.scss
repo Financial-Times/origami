@@ -42,10 +42,10 @@
 	}
 }
 
-// .o-topper--opinion {
 %_o-topper--opinion {
 	%_o-topper__opinion-genre {
-		font-weight: 200;
+		@extend %_o-topper__tag;
+		font-weight: normal;
 		color: oColorsGetPaletteColor('oxford');
 	}
 }

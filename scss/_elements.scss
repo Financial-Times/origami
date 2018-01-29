@@ -104,15 +104,23 @@
 	}
 }
 
+%_o-topper__tag {
+	@include oTypographyTag;
+	@include oTypographySansBold;
+	color: unset;
+
+	&:hover {
+		color: unset;
+	}
+}
+
 @mixin oTopperBrand {
 	@extend %_o-topper__brand;
 }
 
 %_o-topper__brand {
-	@include oTypographySans(0);
+	@extend %_o-topper__tag;
 	margin-right: 4px;
-	// TODO: move to next-article
-	// -webkit-font-smoothing: antialiased;
 
 	@include oGridRespondTo($until: S) {
 		display: block;
@@ -133,6 +141,7 @@
 }
 
 %_o-topper__columnist-name {
+	@extend %_o-topper__tag;
 	vertical-align: middle;
 }
 
@@ -142,6 +151,14 @@
 
 %_o-topper__tags {
 	@include oTypographySize($scale: 0, $line-height: 28px);
-	display: flex;
 	padding-bottom: 5px;
+}
+
+@mixin oTopperTopic {
+	@extend %_o-topper__topic;
+}
+
+
+%_o-topper__topic {
+	@extend %_o-topper__tag;
 }

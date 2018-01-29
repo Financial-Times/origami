@@ -43,7 +43,7 @@
 }
 
 %_o-topper__content {
-	@extend %_o-topper--color;
+	@extend %_o-topper--has-color;
 	grid-row: 2 / span 4;
 	grid-column: 3;
 	position: relative;
@@ -64,7 +64,7 @@
 }
 
 %_o-topper__background {
-	@extend %_o-topper--color;
+	@extend %_o-topper--has-color;
 	@extend %_o-topper-common-background;
 }
 
