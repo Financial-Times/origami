@@ -16,5 +16,6 @@ body {
 }
 
 .tags--large {
+	// TODO: should this be part of o-topper? should it be done by the opinion theme?
 	@include oTypographySize($scale: 2, $line-height: 28px);
 }
