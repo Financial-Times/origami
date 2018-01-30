@@ -125,28 +125,27 @@
 }
 
 @mixin oTopperElements {
-	.o-topper { @extend %_o-topper; }
-	.o-topper--centered { @extend %_o-topper--centered; }
-	.o-topper--basic { @extend %_o-topper--basic; }
-	.o-topper__tags { @extend %_o-topper__tags; }
-	.o-topper__standfirst { @extend %_o-topper__standfirst; }
-	.o-topper__tag { @extend %_o-topper__tag; }
-	.o-topper__headline { @extend %_o-topper__headline; }
-	.o-topper__headline--large { @extend %_o-topper__headline--large; }
-	.o-topper__summary--body { @extend %_o-topper__summary--body; }
-	.o-topper__columnist-name { @extend %_o-topper__columnist-name; }
-	.o-topper__summary { @extend %_o-topper__summary; }
-	.o-topper__brand { @extend %_o-topper__brand; }
-	.o-topper__topic { @extend %_o-topper__topic; }
-	.o-topper__read-next { @extend %_o-topper__read-next; }
-	.o-topper__image { @extend %_o-topper__image; }
-	.o-topper__image-credit { @extend %_o-topper__image-credit; }
-	.o-topper__columnist { @extend %_o-topper__columnist; }
-	.o-topper__content{ @extend %_o-topper__content; }
-	.o-topper__visual{ @extend %_o-topper__visual; }
-	.o-topper__background{ @extend %_o-topper__background; }
-	.o-topper__picture { @extend %_o-topper__picture; }
-	.o-topper__anchor-link { @extend %_o-topper__anchor-link; }
+	.o-topper { @include oTopper; }
+	.o-topper--centered { @include oTopperCentered; }
+	.o-topper__content{ @include oTopperContent; }
+	.o-topper__visual{ @include oTopperVisual; }
+	.o-topper__background{ @include oTopperBackground; }
+	.o-topper--basic { @include oTopperBasic; }
+	.o-topper__headline { @include oTopperHeadline; }
+	.o-topper__headline--large { @include oTopperHeadlineLarge; }
+	.o-topper__summary { @include oTopperSummary; }
+	.o-topper__standfirst { @include oTopperStandfirst; }
+	.o-topper__summary--body { @include oTopperSummaryBody; }
+	.o-topper__tags { @include oTopperTags; }
+	.o-topper__columnist { @include oTopperColumnist; }
+	.o-topper__columnist-name { @include oTopperColumnistName; }
+	.o-topper__brand { @include oTopperBrand; }
+	.o-topper__topic { @include oTopperTopic; }
+	.o-topper__read-next { @include oTopperReadNext; }
+	.o-topper__image { @include oTopperImage; }
+	.o-topper__image-credit { @include oTopperImageCredit; }
+	.o-topper__picture { @include oTopperPicture; }
+	.o-topper__anchor-link { @include oTopperAnchorLink; }
 }
 
 @mixin _oTopperAlignText($position) {

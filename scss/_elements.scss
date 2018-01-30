@@ -104,6 +104,12 @@
 	}
 }
 
+@mixin oTopperPicture {
+	// styles included by themes, no base styles, so if themes aren't included
+	// no placeholder to extend
+	@extend %_o-topper__picture !optional;
+}
+
 %_o-topper__tag {
 	@include oTypographyTag;
 	@include oTypographySansBold;
@@ -157,7 +163,6 @@
 @mixin oTopperTopic {
 	@extend %_o-topper__topic;
 }
-
 
 %_o-topper__topic {
 	@extend %_o-topper__tag;
