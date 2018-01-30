@@ -31,7 +31,7 @@ const getTopperSettings = (content, flags = {}) => {
 			includesImage: true,
 			isExperimental: true,
 			myFtButton: {
-				variant: isLoud ? 'inverse' : 'standard',
+				variant: isLoud ? 'monochrome' : 'standard',
 				followPlusDigestEmail: followPlusDigestEmail(flags)
 			}
 		};
@@ -137,7 +137,9 @@ const getTopperSettings = (content, flags = {}) => {
 			headshotTint,
 			fthead,
 			myFtButton: {
-				variant: 'standard',
+				variant: backgroundColour === 'sky'
+					? 'opinion'
+					: 'standard',
 				followPlusDigestEmail: followPlusDigestEmail(flags)
 			}
 		};
@@ -159,7 +161,7 @@ const getTopperSettings = (content, flags = {}) => {
 
 const myFtButtonVariant = (backgroundColour) => {
 	let lightBackgroundColour = ['paper', 'wheat', 'white'].includes(backgroundColour);
-	return (!backgroundColour || lightBackgroundColour) ? 'uncolored' : 'inverse';
+	return (!backgroundColour || lightBackgroundColour) ? 'standard' : 'monochrome';
 };
 
 const followPlusDigestEmail = (flags) => {
