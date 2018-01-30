@@ -1,4 +1,3 @@
-// .o-topper--branded
 %_o-topper--branded {
 	%_o-topper__content {
 		grid-row: 2 / span 3;
@@ -19,7 +18,6 @@
 	}
 }
 
-// .o-topper--has-headshot
 @mixin oTopperHasHeadshot {
 	@extend %_o-topper--has-headshot;
 }
