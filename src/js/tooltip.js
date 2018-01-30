@@ -358,22 +358,22 @@ class Tooltip {
 			NB once this.tooltipRect.top is set, this.tooltipRect.bottom is no longer correct and should be
 			recalculated before use */
 		if (this.tooltipPosition === 'above' || this.tooltipPosition === 'below') {
-			if (Tooltip._isOutOfBounds(this.tooltipRect.left, 'x')) {
+			if (Tooltip._isOutOfBounds(this.tooltipRect.left, 'x', this.opts)) {
 				this.tooltipRect.left = this._getLeftFor('left');
 				this.tooltipAlignment = 'left';
 			}
-			if (Tooltip._isOutOfBounds(this.tooltipRect.right, 'x')) {
+			if (Tooltip._isOutOfBounds(this.tooltipRect.right, 'x', this.opts)) {
 				this.tooltipRect.left = this._getLeftFor('right');
 				this.tooltipAlignment = 'right';
 			}
 		}
 
 		if (this.tooltipPosition === 'left' || this.tooltipPosition === 'right') {
-			if (Tooltip._isOutOfBounds(this.tooltipRect.top, 'y')) {
+			if (Tooltip._isOutOfBounds(this.tooltipRect.top, 'y', this.opts)) {
 				this.tooltipRect.top = this._getTopFor('top');
 				this.tooltipAlignment = 'top';
 			}
-			if (Tooltip._isOutOfBounds(this.tooltipRect.bottom, 'y')) {
+			if (Tooltip._isOutOfBounds(this.tooltipRect.bottom, 'y', this.opts)) {
 				this.tooltipRect.top = this._getTopFor('bottom');
 				this.tooltipAlignment = 'bottom';
 			}
@@ -403,7 +403,7 @@ class Tooltip {
 	 * if it is, position of the tooltip is set (true) and maintains position
 	*/
 	resetPosition(side, axis) {
-		if (Tooltip._isOutOfBounds(side, axis)) {
+		if (Tooltip._isOutOfBounds(side, axis, this.opts)) {
 			let position = Tooltip._rotateOrientation(this.tooltipPosition);
 			this.calculateTooltipRect(position);
 			return [false, position];
@@ -520,17 +520,31 @@ class Tooltip {
 		this.tooltipEl.style.left = rect.left + 'px';
 	}
 
-	// the bounds here are the size of the client window to catch all cases
-	// where the tooltip may not realistically fit
-	static _isOutOfBounds(point, axis) {
+	/*
+		this measures the boundaries in which the tooltip will realistically fit.
+		if it is shown on construction, the size of the document body will be consulted
+		in all other cases, it will be the size of the viewport.
+	*/
+	static _isOutOfBounds(point, axis, opts) {
+
 		if (point < 0) {
 			return true;
 		}
-		if (axis === 'y' && point > document.documentElement.clientHeight) {
-			return true;
-		} else if (axis === 'x' && point > document.documentElement.clientWidth) {
-			return true;
+
+		if (opts.showOnConstruction) {
+			if (axis === 'y' && point > document.body.clientHeight) {
+				return true;
+			} else if (axis === 'x' && point > document.body.clientWidth) {
+				return true;
+			}
+		} else {
+			if (axis === 'y' && (point > (document.documentElement.clientHeight + window.pageYOffset) || point < window.pageYOffset)) {
+				return true;
+			} else if (axis === 'x' && (point > (document.documentElement.clientWidth + window.pageXOffset) || point < window.pageXOffset)) {
+				return true;
+			}
 		}
+
 		return false;
 	}
 

@@ -1264,26 +1264,53 @@ describe("Tooltip", () => {
 	});
 
 	describe("_isOutOfBounds", () => {
+
 		it('returns true if the value passed in is less than 0', () => {
 			proclaim.isTrue(Tooltip._isOutOfBounds(-1));
 		});
 
-		it('returns true if the value passed in is greater than document.documentElement.clientHeight and the axis is y', () => {
-			proclaim.isTrue(Tooltip._isOutOfBounds(document.documentElement.clientHeight+1, 'y'));
+		context('with empty opts measures bounds against document.documentElement', () => {
+			const stubOpts = {};
+
+			it('returns true if the value passed in is greater than document.documentElement.clientHeight and the axis is y', () => {
+				proclaim.isTrue(Tooltip._isOutOfBounds(document.documentElement.clientHeight+1, 'y', stubOpts));
+			});
+
+			it('returns true if the value passed in is greater than document.documentElement.clientWidth and the axis is x', () => {
+				proclaim.isTrue(Tooltip._isOutOfBounds(document.documentElement.clientWidth+1, 'x', stubOpts));
+			});
+
+			it('returns false if the value passed in is less than document.documentElement.clientWidth and the axis is x', () => {
+				proclaim.isFalse(Tooltip._isOutOfBounds(document.documentElement.clientWidth-1, 'x', stubOpts));
+			});
+
+			it('returns false if the value passed in is less than document.documentElement.clientHeight and the axis is y', () => {
+				document.body.style.height = "20px";
+
+				proclaim.isFalse(Tooltip._isOutOfBounds(document.documentElement.clientHeight-1, 'y', stubOpts));
+			});
 		});
 
-		it('returns true if the value passed in is greater than document.documentElement.clientWidth and the axis is x', () => {
-			proclaim.isTrue(Tooltip._isOutOfBounds(document.documentElement.clientWidth+1, 'x'));
-		});
+		context('with showOnConstruction opts measures bounds against document.body', () => {
+			const stubOpts = { showOnConstruction: true };
 
-		it('returns false if the value passed in is less than document.documentElement.clientWidth and the axis is x', () => {
-			proclaim.isFalse(Tooltip._isOutOfBounds(document.documentElement.clientWidth-1, 'x'));
-		});
+			it('returns true if the value passed in is greater than document.body.clientHeight and the axis is y', () => {
+				proclaim.isTrue(Tooltip._isOutOfBounds(document.body.clientHeight+1, 'y', stubOpts));
+			});
 
-		it('returns false if the value passed in is less than document.documentElement.clientHeight and the axis is y', () => {
-			document.body.style.height = "20px";
+			it('returns true if the value passed in is greater than document.body.clientWidth and the axis is x', () => {
+				proclaim.isTrue(Tooltip._isOutOfBounds(document.body.clientWidth+1, 'x', stubOpts));
+			});
 
-			proclaim.isFalse(Tooltip._isOutOfBounds(document.documentElement.clientHeight-1, 'y'));
+			it('returns false if the value passed in is less than document.body.clientWidth and the axis is x', () => {
+				proclaim.isFalse(Tooltip._isOutOfBounds(document.body.clientWidth-1, 'x', stubOpts));
+			});
+
+			it('returns false if the value passed in is less than document.body.clientHeight and the axis is y', () => {
+				document.body.style.height = "20px";
+
+				proclaim.isFalse(Tooltip._isOutOfBounds(document.body.clientHeight-1, 'y', stubOpts));
+			});
 		});
 	});
 
