@@ -29,6 +29,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
+	min-height: $_o-forms-field-default-height;
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
@@ -87,6 +88,7 @@
 @mixin oFormsCommonSmall {
 	padding-top: 0;
 	padding-bottom: 0;
+	min-height: $_o-forms-field-small-height;
 	background-size: $_o-forms-select-small-iconsize $_o-forms-select-small-iconsize;
 	background-position-x: 99%; // Make the smaller icon size visually match the padding on the left of the input
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
