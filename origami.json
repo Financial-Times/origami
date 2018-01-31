@@ -45,33 +45,21 @@
             "description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
         },
         {
-            "name": "checkbox-long-text",
-            "title": "Checkboxes with long text",
-            "template": "/demos/src/checkboxes-long-text.mustache",
-            "description": "<strong>Usercase:</strong> This is for a check box with longer copy. NB Width should not extend text input box components."
-        },
-        {
-            "name": "checkbox-toggle",
+            "name": "toggle",
             "title": "A checkbox which acts as a toggle",
-            "template": "/demos/src/checkbox-toggle.mustache",
+            "template": "/demos/src/toggle.mustache",
             "description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
         },
         {
-            "name": "prefix-suffix",
-            "template": "/demos/src/prefix-suffix.mustache",
+            "name": "suffix",
+            "template": "/demos/src/suffix.mustache",
             "description": ""
         },
         {
-            "name": "messages",
-            "title": "Global messages",
-            "template": "/demos/src/messages.mustache",
-            "description": "<strong>Usercase:</strong> These are generic global messages for most use cases."
-        },
-        {
-            "name": "wrappers",
-            "title": "Wrappers",
-            "template": "/demos/src/wrappers.mustache",
-            "description": "<strong>Usercase:</strong> These are generic wrappers for most use cases."
+            "name": "sections",
+            "title": "Sections",
+            "template": "/demos/src/sections.mustache",
+            "description": "<strong>Usercase:</strong> These are optional section wrappers to highlight multiple instances of o-forms."
         },
         {
             "name": "pa11y",
@@ -91,7 +79,8 @@
         "js": "demos/src/demo.js",
         "dependencies": [
             "o-fonts@^3",
-            "o-buttons@^5"
+            "o-buttons@^5",
+            "o-normalise@1"
         ]
     }
 }

@@ -76,7 +76,7 @@ describe("Forms", () => {
 		it('fires an event for toggle checkboxes on click', (done) => {
 			const html = `
 				<form data-o-component="o-forms">
-					<div class="o-forms__checkbox-toggle">
+					<div class="o-forms__toggle">
 						<input data-o-form-toggle type="checkbox">
 					</div>
 				</form>

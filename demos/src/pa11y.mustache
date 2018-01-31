@@ -1,35 +1,164 @@
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Checkbox Toggle</legend>
+	<div class="o-forms__group">
+		<div class="o-forms__toggle">
+			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle1" />
+			<label for="checkboxToggle1" class="o-forms__label">Checkbox Toggle 1</label>
+		</div>
+		<div class="o-forms__toggle">
+			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle2" checked="checked" />
+			<label for="checkboxToggle2" class="o-forms__label">Checkbox Toggle 2</label>
+		</div>
+	</div>
+	<div class="inverse-demo">
+		<div class="o-forms__group">
+			<div class="o-forms__toggle o-forms__toggle--inverse">
+				<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle3" />
+				<label for="checkboxToggle3" class="o-forms__label">Checkbox Toggle 3 (Inverse)</label>
+			</div>
+			<div class="o-forms__toggle o-forms__toggle--inverse">
+				<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle4" checked="checked" />
+				<label for="checkboxToggle4" class="o-forms__label">Checkbox Toggle 4 (Inverse)</label>
+			</div>
+		</div>
+	</div>
+</fieldset>
+
 <div class="o-forms">
-	<label for="o-forms-standard" class="o-forms__label">Text input</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<input type="text" id="o-forms-standard" placeholder="placeholder" class="o-forms__text" />
+	<legend class="o-forms__label">Default checkboxes</legend>
+	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
+	<div class="o-forms__group">
+		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
+		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox12" />
+		<label for="checkbox12" class="o-forms__label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-forms__checkbox" id="checkbox13" />
+		<label for="checkbox13" class="o-forms__label">Checkbox 3</label>
+	</div>
 </div>
-<div class="o-forms o-forms--valid">
-	<label for="o-forms-valid" class="o-forms__label">Text input with valid entry</label>
-	<input type="text" placeholder="placeholder" id="o-forms-valid" class="o-forms__text o-forms__text--valid" value="Field value" />
-</div>
-<div class="o-forms o-forms--error">
-	<label for="o-forms-invalid" class="o-forms__label">URL input :invalid</label>
-	<input type="url" placeholder="placeholder" id="o-forms-invalid" class="o-forms__text" value="hp://invalid.com" />
-	<div class="o-forms__errortext">Please enter a valid url</div>
-</div>
+
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Inline checkboxes</legend>
+	<div class="o-forms__group o-forms__group--inline">
+		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox61" checked="checked" />
+		<label for="checkbox61" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox62" />
+		<label for="checkbox62" class="o-forms__label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-forms__checkbox" id="checkbox63" />
+		<label for="checkbox63" class="o-forms__label">Checkbox 3</label>
+	</div>
+</fieldset>
+
 <div class="o-forms">
-	<label for="o-forms-disabled" class="o-forms__label">Text input disabled</label>
-	<input type="text" placeholder="placeholder" id="o-forms-disabled" class="o-forms__text o-forms__text--valid" value="Field value" disabled="disabled" />
+	<label for="form-secret" class="o-forms__label">Right side control checkbox</label>
+	<div class="o-forms__additional-info">Interface demo only, password hide/show functionality is not currently included in o-forms.</div>
+	<input type="password" id="form-secret" placeholder="secret password" class="o-forms__text" required />
+	<div class="o-forms__group o-forms__group--inline">
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox o-forms__checkbox--right" id="controlCheckbox" />
+		<label for="controlCheckbox" class="o-forms__label">Show password</label>
+	</div>
+</div>
+
+<fieldset class="o-forms o-forms--error">
+	<legend class="o-forms__label">Error</legend>
+	<div class="o-forms__group">
+		<input type="checkbox" name="checkbox3" value="1" class="o-forms__checkbox" id="checkbox31" checked="checked" />
+		<label for="checkbox31" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox3" value="2" class="o-forms__checkbox" id="checkbox32" />
+		<label for="checkbox32" class="o-forms__label">Checkbox 2</label>
+	</div>
+	<div class="o-forms__errortext">Invalid entry</div>
+</fieldset>
+
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Disabled</legend>
+	<div class="o-forms__group">
+		<input type="checkbox" name="checkbox2" value="1" class="o-forms__checkbox" id="checkbox21" checked="checked" disabled="disabled" />
+		<label for="checkbox21" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox2" value="2" class="o-forms__checkbox" id="checkbox22" disabled="disabled" />
+		<label for="checkbox22" class="o-forms__label">Checkbox 2</label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Checkbox with long text</legend>
+		<div class="o-forms__group">
+		<input type="checkbox" name="checkbox51" value="1" class="o-forms__checkbox" id="checkbox51" checked="checked" />
+		<label for="checkbox51" class="o-forms__label">
+			<p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p>
+			<p>We will send you occasional emails to improve your experience of the Financial Times.</p>
+		</label>
+		<input type="checkbox" name="checkbox52" value="1" class="o-forms__checkbox" id="checkbox52" />
+		<label for="checkbox52" class="o-forms__label">
+			<p>By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.</p>
+		</label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms o-forms--wide">
+	<legend class="o-forms__label">Checkbox with long text (wide)</legend>
+	<div class="o-forms__group">
+		<input type="checkbox" name="checkbox53" value="1" class="o-forms__checkbox" id="checkbox53" checked="checked" />
+		<label for="checkbox53" class="o-forms__label"><p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p></label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Default radio controls</legend>
+	<div class="o-forms__additional-info">Prompt text follows the ledgend if required.</div>
+	<div class="o-forms__group">
+		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
+		<label for="radio11" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio12" />
+		<label for="radio12" class="o-forms__label">Radio 2</label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Radio controls inline</legend>
+	<div class="o-forms__group o-forms__group--inline">
+		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio41" checked="checked" />
+		<label for="radio41" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio42" />
+		<label for="radio42" class="o-forms__label">Radio 2</label>
+	</div>
+</fieldset>
+
+<fieldset class="o-forms o-forms--error">
+	<legend class="o-forms__label">Error</legend>
+	<div class="o-forms__group">
+		<input type="radio" name="radio3" value="1" class="o-forms__radio" id="radio31" checked="checked" />
+		<label for="radio31" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio3" value="2" class="o-forms__radio" id="radio32" />
+		<label for="radio32" class="o-forms__label">Radio 2</label>
+	</div>
+	<div class="o-forms__errortext">Invalid entry</div>
+</fieldset>
+
+<div class="o-forms">
+	<label class="o-forms__label" id="radio-disabled">Disabled</label>
+	<div class="o-forms__group" for="radio-disabled">
+		<input type="radio" name="radio2" value="1" class="o-forms__radio" id="radio21" disabled="disabled" />
+		<label for="radio21" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio2" value="2" class="o-forms__radio" id="radio22" disabled="disabled" />
+		<label for="radio22" class="o-forms__label">Radio 2</label>
+	</div>
 </div>
 
 <div class="o-forms">
-	<label for="o-forms__select-standard" class="o-forms__label">Select box</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<select id="o-forms__select-standard" class="o-forms__select">
+	<label for="select-standard" class="o-forms__label">Select box</label>
+	<div class="o-forms__additional-info">Prompt text follows the label if required.</div>
+	<select id="select-standard" class="o-forms__select">
 		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>
 	</select>
 </div>
+
 <div class="o-forms o-forms--valid">
-	<label for="o-forms__select-valid" class="o-forms__label">Select box (valid)</label>
-	<select id="o-forms__select-valid" class="o-forms__select">
+	<label for="select-valid" class="o-forms__label">Select box (valid)</label>
+	<select id="select-valid" class="o-forms__select">
 		<option value="option1" selected>Option 1 (low chars: jpqy)</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
@@ -37,8 +166,8 @@
 	</select>
 </div>
 <div class="o-forms o-forms--error">
-	<label for="o-forms__select-invalid" class="o-forms__label">Select box (error)</label>
-	<select id="o-forms__select-invalid" class="o-forms__select">
+	<label for="select-invalid" class="o-forms__label">Select box (error)</label>
+	<select id="select-invalid" class="o-forms__select">
 		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
@@ -46,9 +175,10 @@
 	</select>
 	<div class="o-forms__errortext">Invalid entry</div>
 </div>
+
 <div class="o-forms">
-	<label for="o-forms__select-disabled" class="o-forms__label">Select box disabled</label>
-	<select id="o-forms__select-disabled" class="o-forms__select" disabled="disabled">
+	<label for="select-disabled" class="o-forms__label">Select box disabled</label>
+	<select id="select-disabled" class="o-forms__select" disabled="disabled">
 		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
@@ -57,270 +187,183 @@
 </div>
 
 <div class="o-forms">
+	<label for="select-multi" class="o-forms__label">Multi-select Select box</label>
+	<select id="select-multi" multiple class="o-forms__select">
+		<option value="option1" selected>Option 1</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+</div>
+
+<div class="o-forms">
+	<label for="select-small" class="o-forms__label"> Select box</label>
+	<select id="select-small" class="o-forms__select o-forms__select--small">
+		<option value="option1" selected>Option 1</option>
+		<option value="option2">Option 2</option>
+		<option value="option3">Option 3</option>
+		<option value="option4">Option 4</option>
+	</select>
+</div>
+
+<div class="o-forms">
+	<label class="o-forms__label" for="text-suffix">Text input with suffix button</label>
+	<div class="o-forms__affix-wrapper">
+		<input id="text-suffix" type="text" placeholder="placeholder" class="o-forms__text" />
+		<div class="o-forms__suffix">
+			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
+		</div>
+	</div>
+</div>
+
+<div class="o-forms">
+	<label class="o-forms__label" for="select-suffix">Select box with suffix button</label>
+	<div class="o-forms__affix-wrapper">
+		<select class="o-forms__select" id="select-suffix">
+			<option value="option1">Option 1</option>
+			<option value="option2">Option 2</option>
+			<option value="option3">Option 3</option>
+			<option value="option4">Option 4</option>
+		</select>
+		<div class="o-forms__suffix">
+			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
+		</div>
+	</div>
+</div>
+
+<div class="o-forms">
+	<label class="o-forms__label" for="small-text-suffix">Small text input with suffix button</label>
+	<div class="o-forms__affix-wrapper">
+		<input id="small-text-suffix" type="text" placeholder="placeholder" class="o-forms__text o-forms__text--small" />
+		<div class="o-forms__suffix">
+			<button type="button" class="o-buttons o-buttons--secondary">Go</button>
+		</div>
+	</div>
+</div>
+
+<div class="o-forms">
+	<label class="o-forms__label" for="small-select-suffix">Small select box with suffix button</label>
+	<div class="o-forms__affix-wrapper">
+		<select id="small-select-suffix" class="o-forms__select o-forms__select--small">
+			<option value="option1">Option 1</option>
+			<option value="option2">Option 2</option>
+			<option value="option3">Option 3</option>
+			<option value="option4">Option 4</option>
+		</select>
+		<div class="o-forms__suffix">
+			<button type="button" class="o-buttons o-buttons--secondary">Go</button>
+		</div>
+	</div>
+</div>
+
+<div class="o-forms">
+	<label for="o-forms-standard" class="o-forms__label">Text input</label>
+	<div class="o-forms__additional-info">Prompt text follows the label if required..</div>
+	<input type="text" id="o-forms-standard" placeholder="placeholder" class="o-forms__text" required />
+</div>
+
+<div class="o-forms">
+	<label for="o-forms-optional" class="o-forms__label o-forms__label--optional">Optional text input</label>
+	<input type="text" id="o-forms-optional" placeholder="placeholder" class="o-forms__text" />
+</div>
+
+<div class="o-forms o-forms--valid">
+	<label for="o-forms-valid" class="o-forms__label">Text input with valid entry</label>
+	<input type="text" placeholder="placeholder" id="o-forms-valid" class="o-forms__text o-forms__text--valid" value="Field value" />
+</div>
+
+<div class="o-forms o-forms--error">
+	<label for="o-forms-invalid" class="o-forms__label">URL input :invalid</label>
+	<input type="url" placeholder="placeholder" id="o-forms-invalid" class="o-forms__text" value="hp://invalid.com" />
+	<div class="o-forms__errortext">Please enter a valid url</div>
+</div>
+
+<div class="o-forms">
+	<label for="o-forms-disabled" class="o-forms__label">Text input disabled</label>
+	<input type="text" placeholder="placeholder" id="o-forms-disabled" class="o-forms__text o-forms__text--valid" value="Field value" disabled="disabled" />
+</div>
+
+<div class="o-forms o-forms--wide">
+	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
+	<input type="text" placeholder="placeholder" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
+</div>
+
+<div class="o-forms">
+	<label for="o-forms-small" class="o-forms__label">Text input small</label>
+	<input type="text" id="o-forms-small" placeholder="placeholder" class="o-forms__text o-forms__text--small" />
+</div>
+
+<div class="o-forms">
 	<label for="o-forms__textarea" class="o-forms__label">Textarea</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
+	<div class="o-forms__additional-info">Prompt text follows the label if required.</div>
 	<textarea placeholder="Placeholder" id="o-forms__textarea" class="o-forms__textarea"></textarea>
 </div>
+
+<div class="o-forms">
+	<label for="o-forms__textarea-optional" class="o-forms__label o-forms__label--optional">Optional textarea</label>
+	<textarea placeholder="Placeholder" id="o-forms__textarea-optional" class="o-forms__textarea"></textarea>
+</div>
+
 <div class="o-forms o-forms--error">
 	<label for="o-forms__textarea-invalid" class="o-forms__label">Textarea (error)</label>
 	<textarea placeholder="Placeholder" id="o-forms__textarea-invalid" class="o-forms__textarea"></textarea>
 	<div class="o-forms__errortext">Invalid entry</div>
 </div>
+
 <div class="o-forms">
 	<label for="o-forms__textarea-disabled" class="o-forms__label">Textarea disabled</label>
 	<textarea placeholder="Placeholder" id="o-forms__textarea-disabled" class="o-forms__textarea" disabled="disabled"></textarea>
 </div>
 
-<div class="o-forms">
-	<label class="o-forms__label">Default radio controls</label>
-	<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
-	<label for="radio11" class="o-forms__label">Radio 1</label>
-	<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio12" />
-	<label for="radio12" class="o-forms__label">Radio 2</label>
-</div>
-
-<div class="o-forms o-forms--error">
-	<label class="o-forms__label">Error</label>
-	<input type="radio" name="radio3" value="1" class="o-forms__radio" id="radio31" checked="checked" />
-	<label for="radio31" class="o-forms__label">Radio 1</label>
-	<input type="radio" name="radio3" value="2" class="o-forms__radio" id="radio32" />
-	<label for="radio32" class="o-forms__label">Radio 2</label>
-	<div class="o-forms__errortext">Invalid entry</div>
-</div>
-
-<div class="o-forms">
-	<label class="o-forms__label">Disabled</label>
-	<input type="radio" name="radio2" value="1" class="o-forms__radio" id="radio21" disabled="disabled" />
-	<label for="radio21" class="o-forms__label">Radio 1</label>
-	<input type="radio" name="radio2" value="2" class="o-forms__radio" id="radio22" disabled="disabled" />
-	<label for="radio22" class="o-forms__label">Radio 2</label>
-</div>
-
-<div class="o-forms">
-	<label class="o-forms__label">Default checkboxes</label>
-	<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
-	<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
-	<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox12" />
-	<label for="checkbox12" class="o-forms__label">Checkbox 2</label>
-</div>
-<div class="o-forms o-forms--error">
-	<label class="o-forms__label">Error</label>
-	<input type="checkbox" name="checkbox3" value="1" class="o-forms__checkbox" id="checkbox31" checked="checked" />
-	<label for="checkbox31" class="o-forms__label">Checkbox 1</label>
-	<input type="checkbox" name="checkbox3" value="2" class="o-forms__checkbox" id="checkbox32" />
-	<label for="checkbox32" class="o-forms__label">Checkbox 2</label>
-	<div class="o-forms__errortext">Invalid entry</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label">Disabled</label>
-	<input type="checkbox" name="checkbox2" value="1" class="o-forms__checkbox" id="checkbox21" checked="checked" disabled="disabled" />
-	<label for="checkbox21" class="o-forms__label">Checkbox 1</label>
-	<input type="checkbox" name="checkbox2" value="2" class="o-forms__checkbox" id="checkbox22" disabled="disabled" />
-	<label for="checkbox22" class="o-forms__label">Checkbox 2</label>
-</div>
-
-<div class="o-forms">
-	<label class="o-forms__label">Checkbox with long text</label>
-	<input type="checkbox" name="checkbox51" value="1" class="o-forms__checkbox" id="checkbox51" checked="checked" />
-	<label for="checkbox51" class="o-forms__label"><p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p></label>
-</div>
-
-<div class="o-forms__message">
-	<p>This is a global message</p>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="text-input-global-message">Field label</label>
-	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" id="text-input-global-message" class="o-forms__text" />
-</div>
-
-<div class="o-forms__message o-forms__message--error">
-	<p>This is a global error message</p>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="text-input-global-message-2">Field label</label>
-	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" id="text-input-global-message-2" class="o-forms__text" />
-</div>
-
-<div class="o-forms__wrapper o-forms__wrapper--highlight">
-	<div class="o-forms">
-		<label for="o-text-default-2" class="o-forms__label">Label</label>
-		<small class="o-forms__additional-info">Additional field information</small>
-		<input type="text" placeholder="placeholder" id="o-text-default-2" class="o-forms__text" />
-	</div>
-</div>
-<div class="o-forms__wrapper o-forms__wrapper--error">
-	<div class="o-forms__message o-forms__message--error">
-		<p>This is a section error message</p>
-	</div>
-	<div class="o-forms o-forms--error">
-		<label for="o-text-error" class="o-forms__label">Field label</label>
-		<small class="o-forms__additional-info">Additional field information</small>
-		<input type="text" placeholder="placeholder" id="o-text-error" class="o-forms__text" />
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-prefixed">Text input with prefix label</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" id="o-text-prefixed" class="o-forms__text" />
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-suffixed">Text input with suffix label</label>
-	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" id="o-text-suffixed" class="o-forms__text o-forms__text--suffixed" />
-		<span class="o-forms__suffix">.com</span>
-	</div>
-</div>
-<div class="o-forms o-forms--error">
-	<label class="o-forms__label" for="o-text-prefixed-error">Text input with prefix label (error)</label>
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" id="o-text-prefixed-error" class="o-forms__text" />
-	</div>
-	<div class="o-forms__errortext">Invalid entry</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-select-prefixed">Select box with prefix label</label>
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">Choose:</span>
-		<select class="o-forms__select" id="o-select-prefixed">
-			<option value="option1">Option 1</option>
-			<option value="option2">Option 2</option>
-			<option value="option3">Option 3</option>
-			<option value="option4">Option 4</option>
-		</select>
-	</div>
-</div>
-
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-suffix-button">Text input with suffix button</label>
-	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" id="o-text-suffix-button" class="o-forms__text" />
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-prefix-button">Text input with prefix button</label>
-	<div class="o-forms__affix-wrapper">
-		<div class="o-forms__prefix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-		<input type="text" placeholder="placeholder" id="o-text-prefix-button" class="o-forms__text" />
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-select-suffix-button">Select box with suffix button</label>
-	<div class="o-forms__affix-wrapper">
-		<select class="o-forms__select" id="o-select-suffix-button">
-			<option value="option1">Option 1</option>
-			<option value="option2">Option 2</option>
-			<option value="option3">Option 3</option>
-			<option value="option4">Option 4</option>
-		</select>
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-prefix-suffix">Text input with prefix label and suffix button</label>
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" id="o-text-prefix-suffix" class="o-forms__text" />
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-	</div>
-</div>
-<div class="o-forms">
-	<label class="o-forms__label" for="o-text-suffix-checkbox">Text input with suffix checkbox</label>
-	<div class="o-forms__affix-wrapper">
-		<input type="text" placeholder="placeholder" id="o-text-suffix-checkbox" class="o-forms__text o-forms__text--suffixed" />
-		<div class="o-forms__suffix">
-			<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox99" />
-			<label for="checkbox99" class="o-forms__label">Checkbox 2</label>
-		</div>
-	</div>
-</div>
-
-<div class="o-forms">
-	<label for="o-forms-multi-select" class="o-forms__label">Multi-select Select box</label>
-	<select id="o-forms-multi-select" multiple class="o-forms__select">
-		<option value="option1" selected>Option 1</option>
-		<option value="option2">Option 2</option>
-		<option value="option3">Option 3</option>
-		<option value="option4">Option 4</option>
-	</select>
-</div>
-
-<div class="o-forms__wrapper o-forms__wrapper--wide o-forms__wrapper--error">
-	<div class="o-forms__message o-forms__message--wide o-forms__message--error">
-		<p>This is a section error message (wide</p>
-	</div>
-	<div class="o-forms o-forms--wide">
-		<label for="o-text-wide" class="o-forms__label">Field label</label>
-		<small class="o-forms__additional-info">Additional field information</small>
-		<input type="text" placeholder="placeholder" id="o-text-wide" class="o-forms__text" />
-	</div>
-</div>
-
-<div class="o-forms o-forms--wide">
-	<label class="o-forms__label" for="o-test-prefix-suffix-button">Text input with prefix label and suffix button (wide)</label>
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
-		<input type="text" placeholder="placeholder" id="o-test-prefix-suffix-button" class="o-forms__text" />
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
-	</div>
-</div>
-
-<div class="o-forms__message o-forms__message--wide o-forms__message--error">
-	<p>This is a global error message (wide)</p>
-</div>
-<div class="o-forms o-forms--wide">
-	<label class="o-forms__label" for="o-test-global-message-wide">Field label</label>
-	<small class="o-forms__additional-info">Additional field information</small>
-	<input type="text" placeholder="placeholder" id="o-test-global-message-wide" class="o-forms__text" />
-</div>
-
-<fieldset class="o-forms o-forms--wide">
-	<legend class="o-forms__label">Checkbox with long text (wide)</legend>
-	<input type="checkbox" name="checkbox52" value="1" class="o-forms__checkbox" id="checkbox52" checked="checked" />
-	<label for="checkbox52" class="o-forms__label"><p>I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.</p></label>
-</fieldset>
-
-<div class="o-forms o-forms--wide">
-	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<input type="text" placeholder="placeholder" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
-</div>
-
 <div class="o-forms o-forms--wide">
 	<label for="o-forms__textarea-wide" class="o-forms__label">Textarea (wide)</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
 	<textarea placeholder="Placeholder" id="o-forms__textarea-wide" class="o-forms__textarea"></textarea>
 </div>
 
-<div class="o-forms">
-	<label for="o-forms-text-small" class="o-forms__label">Text input</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<input type="text" id="o-forms-text-small" placeholder="placeholder" class="o-forms__text o-forms__text--small" />
+<div class="o-forms-section o-forms-section--highlight">
+	<div class="o-forms">
+		<label for="o-forms-section-highlight" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-highlight" placeholder="placeholder" class="o-forms__text" required />
+	</div>
 </div>
 
-<div class="o-forms">
-	<label for="o-forms__select-small" class="o-forms__label">Select box</label>
-	<small class="o-forms__additional-info">Optional prompt text goes here</small>
-	<select id="o-forms__select-small" class="o-forms__select o-forms__select--small">
-		<option value="option1" selected>Option 1</option>
-		<option value="option2">Option 2</option>
-		<option value="option3">Option 3</option>
-		<option value="option4">Option 4</option>
-	</select>
+<div class="o-forms-section">
+	<div class="o-forms-section__message">
+		<p>This is a section message.</p>
+	</div>
+	<div class="o-forms">
+		<label for="o-forms-message" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-message" placeholder="placeholder" class="o-forms__text" required />
+	</div>
+</div>
+</div>
+
+<div class="o-forms-section o-forms-section--wide">
+	<div class="o-forms-section__message">
+		<p>This is a section message (wide).</p>
+	</div>
+	<div class="o-forms">
+		<label for="o-forms-message-wide" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-message-wide" placeholder="placeholder" class="o-forms__text" required />
+	</div>
+</div>
+
+<div class="o-forms-section o-forms-section--error">
+	<div class="o-forms-section__message">
+		<p>This is a section error message</p>
+	</div>
+	<div class="o-forms o-forms--error">
+		<label for="o-forms-section-error" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-error" placeholder="placeholder" class="o-forms__text" required />
+	</div>
+</div>
+
+<div class="o-forms-section o-forms-section--error o-forms-section--wide">
+	<div class="o-forms-section__message">
+		<p>This is a section error message (wide)</p>
+	</div>
+	<div class="o-forms o-forms--error o-forms--wide">
+		<label for="o-forms-section-error-wide" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-error-wide" placeholder="placeholder" class="o-forms__text" required />
+	</div>
 </div>

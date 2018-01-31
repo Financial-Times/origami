@@ -1,24 +1,38 @@
+////
+/// @ignore This main file outputs all form features if silent mode is off.
+/// @see {mixin} oForms
+////
+
+// Dependancies.
 @import 'o-typography/main';
 @import "o-normalise/main";
 @import "o-colors/main";
 @import "o-grid/main";
+@import "o-icons/main";
 
+// Deprecated form features.
 @import "src/scss/deprecated";
+
+// Variables and colours.
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 
+// Partial mixins used together to generate form features.
 @import "src/scss/mixins/common";
 @import "src/scss/mixins/textarea";
 @import "src/scss/mixins/select";
 @import "src/scss/mixins/radio-checkbox";
+@import "src/scss/mixins/toggle";
 @import "src/scss/mixins/labels";
+@import "src/scss/mixins/suffix";
+@import "src/scss/mixins/sections";
+@import "src/scss/mixins/unskin";
 
+// High level form mixins.
 @import "src/scss/base";
-@import "src/scss/prefix-suffix";
-@import "src/scss/message";
-@import "src/scss/wrapper";
-@import "src/scss/unskin";
 
+/// Output all form features if silent mode is off.
 @if $o-forms-is-silent == false {
+	@include oForms();
 	$o-forms-is-silent: true !global;
 }

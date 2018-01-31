@@ -12,7 +12,7 @@ body {
 }
 
 .inverse-demo {
-	margin: - oGridGutter();
-	padding: oGridGutter();
+	margin: 8px -#{oGridGutter()};
+	padding: 0 oGridGutter();
 	background-color: oColorsGetPaletteColor('slate');
 }

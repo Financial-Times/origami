@@ -1,20 +1,23 @@
-/// Select styles
-///
-/// To be used in combination with oFormsCommonField
+////
+/// @group Select
+////
+
+/// @access public
+/// @require {mixin} oFormsCommonField
+/// @output Styles for a select input.
 @mixin oFormsSelect {
-	$icon-color: oColorsGetPaletteColor('black-80');
+	@include oColorsFor(o-forms-field-standard, text);
+	$icon-color: oColorsGetColorFor(o-forms-field-standard, text);
+	@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-forms-field-standard, text), $apply-base-styles: false, $apply-width-height: false);
 	cursor: pointer;
-	color: oColorsGetPaletteColor('black-80');
-	background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
 	// For iOS 6 that doesn't support 4-value background-position
 	// sass-lint:disable no-duplicate-properties
 	background-position: right center;
-	background-position: $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-leftright center;
+	background-position: right $_o-forms-field-default-padding-leftright center;
 	// sass-lint:enable no-duplicate-properties
 	background-repeat: no-repeat;
-	background-origin: border-box;
-	background-size: $_o-forms__select-iconsize $_o-forms__select-iconsize;
-	padding-right: $_o-forms__select-iconsize;
+	background-size: $_o-forms-select-iconsize $_o-forms-select-iconsize;
+	padding-right: $_o-forms-select-iconsize + ($_o-forms-field-default-padding-leftright * 2);
 	padding-top: $_o-forms-field-default-padding-bottom - 2px;
 
 	// Normalise line-height across browsers,
@@ -45,11 +48,14 @@
 	// sass-lint:enable no-vendor-prefixes
 
 	&:disabled {
-		$icon-color: oColorsGetPaletteColor('black-60');
-		background-image: url(str-replace("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23#{$icon-color}&format=svg", "#", ""));
+		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-forms-field-placholder, text), $apply-base-styles: false, $apply-width-height: false);
 	}
 }
 
+/// @access public
+/// @require {mixin} oFormsCommonField
+/// @require {mixin} oFormsSelect
+/// @output Styles for a multi select input.
 @mixin oFormsSelectMulti() {
 	cursor: pointer;
 	// Reset the height to auto after the common field styles are applied

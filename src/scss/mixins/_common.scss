@@ -1,30 +1,42 @@
 ////
-/// @group o-forms
-/// @link http://registry.origami.ft.com/components/o-forms
+/// @group Common
 ////
 
-/// Common field styles
+/// @access public
+/// @output Styles for the main o-forms/fieldset group which contains a label/input.
+@mixin oFormsGroup {
+	position: relative;
+	max-width: $_o-forms-field-max-width;
+	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
+	// reset <fieldset> defaults
+	padding: 0;
+	border: 0;
+
+	// sass-lint:disable mixins-before-declarations
+	@include oGridRespondTo(S) {
+		padding-right: $_o-forms-padding;
+		padding-left: $_o-forms-padding;
+	}
+	// sass-lint:enable mixins-before-declarations
+}
+
+/// @access public
+/// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
-	@include oTypographyMargin($top: 3);
+	@include oColorsFor(o-forms-field-standard);
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	margin-top: $_o-forms-spacing;
 	box-sizing: border-box;
 	width: 100%;
 	max-width: $_o-forms-field-max-width;
-	height: $_o-forms-field-default-height;
 	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
-	background-color: oColorsGetColorFor(o-forms-field-standard, background);
 	background-clip: padding-box;
-	color: oColorsGetColorFor(o-forms-field-standard, text);
 	font-family: $o-forms-font-family;
-	font-size: $_o-forms-field-default-font-size;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
-
-	// sass-lint:disable no-vendor-prefixes
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	// sass-lint:enable no-vendor-prefixes
+	appearance: none;
 
 	&:focus {
 		@include oFormsCommonFieldFocus;
@@ -35,23 +47,26 @@
 	}
 
 	&::placeholder {
-		color: oColorsGetColorFor(o-forms-field-placholder, text);
+		@include oColorsFor(o-forms-field-placholder);
 	}
 }
 
-/// Common field styles: focused state only
+/// @access public
+/// @output Shared focus state styles.
 @mixin oFormsCommonFieldFocus {
 	@include oColorsFor(o-forms-field-focus);
 	box-shadow: 0 0 0 2px $o-normalise-focus-color;
 }
 
-/// Common field styles: disabled state
+/// @access public
+/// @output Shared disabled state styles.
 @mixin oFormsCommonFieldDisabled {
 	@include oColorsFor(o-forms-field-disabled);
 	cursor: default;
 }
 
-/// Common field styles: invalid state
+/// @access public
+/// @output Shared invalid state styles.
 @mixin oFormsCommonFieldInvalid {
 	@include oColorsFor(o-forms-field-invalid);
 
@@ -60,84 +75,19 @@
 	}
 }
 
-/// Common field styles: valid state
+/// @access public
+/// @output Shared valid state styles.
 @mixin oFormsCommonFieldValid {
-	border-color: oColorsGetColorFor(o-forms-field-valid, border);
+	@include oColorsFor(o-forms-field-valid);
 	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
-	color: oColorsGetColorFor(o-forms-field-valid, text);
 }
 
-/// Common field styles: small
+/// @access public
+/// @output Shared styles to make an input smaller, e.g select or text.
 @mixin oFormsCommonSmall {
-	height: $_o-forms-field-small-height;
 	padding-top: 0;
-	padding-bottom: 2px;
+	padding-bottom: 0;
 	background-size: $_o-forms-select-small-iconsize $_o-forms-select-small-iconsize;
 	background-position-x: 99%; // Make the smaller icon size visually match the padding on the left of the input
 	line-height: $_o-forms-field-small-height - ($_o-forms-field-border-width * 2);
-}
-
-
-/// Group styles
-@mixin oFormsGroup {
-	position: relative;
-	max-width: $_o-forms-field-max-width;
-	margin: 0 0 20px; // Reset top and side margins for fieldset usage
-	// reset <fieldset> defaults
-	padding: 0;
-	border: 0;
-
-	// sass-lint:disable mixins-before-declarations
-	@include _oFormsBreakpoint {
-		padding-right: $_o-forms-padding;
-		padding-left: $_o-forms-padding;
-	}
-	// sass-lint:enable mixins-before-declarations
-
-	&--wide {
-		@include oFormsFullWidth;
-	}
-}
-
-/// All the field to extend to the full width
-/// of the container
-@mixin oFormsFullWidth() {
-	// sass-lint:disable no-important
-	max-width: none !important;
-	// sass-lint:enable no-important
-}
-
-/// Target styles at Internet Explorer 8 only
-@mixin _oFormsTargetIE8 {
-	@media \0screen {
-		@content;
-	}
-}
-
-/// Target both IE8 and modern browsers at the breakpoint
-/// Useful for layout changes at the Small breakpoint
-@mixin _oFormsBreakpoint {
-	@include oGridRespondTo(S) {
-		@content;
-	}
-	@include oGridTargetIE8 {
-		@content;
-	}
-}
-
-// From: https://css-tricks.com/snippets/sass/str-replace-function/
-/// Replace `$search` with `$replace` in `$string`
-/// @author Hugo Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-
-  @return $string;
 }

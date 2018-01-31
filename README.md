@@ -20,24 +20,71 @@ Each form field is made up of at least 3 elements:
 
 * A containing element defined by `.o-forms`.
 * Its label, defined by `.o-forms__label`.
-* One or more form controls (e.g. `input`, `select`, `textarea` elements), defined by `.o-forms__text`, `.o-forms__select`, `.o-forms__textarea`.
+* One or more form controls e.g. `input`, `select`, `textarea` elements, defined by `.o-forms__text`, `.o-forms__select`, `.o-forms__textarea` etc.
 
 ```html
 <div class="o-forms">
-	<label class="o-forms__label">Text input</label>
-	<input type="text" class="o-forms__text" />
+	<label for="o-forms-demo-text" class="o-forms__label">Text input example</label>
+	<input type="text" id="o-forms-demo-text" placeholder="placeholder" class="o-forms__text" required />
 </div>
 ```
 
-[Text input examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/text-inputs)
+#### Additonal field information
+
+It is possible to add additional information to form fields with `.o-forms__additional-info`. Additonal information is not limited to a text input, it could also apply against a `select`, `textarea`, `checkbox`, etc.
+
+```html
+<div class="o-forms">
+	<label for="o-forms-demo-additional" class="o-forms__label">Text input example</label>
+	<div class="o-forms__additional-info">Additional info follows the label if required.</div>
+	<input type="text" id="o-forms-demo-additional" placeholder="placeholder" class="o-forms__text" required />
+</div>
+```
+
+#### Optional fields
+
+To indicate to the user that a field is optional, add the `.o-forms__label--optional` class to the label of the field. Any field label can be marked optional in this way.
+
+```html
+<div class="o-forms">
+	<label for="o-forms-demo-optional" class="o-forms__label o-forms__label--optional">Optional  input example</label>
+	<input type="text" id="o-forms-demo-optional" placeholder="placeholder" class="o-forms__text" />
+</div>
+```
+
+#### Wide fields
+
+The class `.o-forms--wide` can be used to show form fields without width restrictions. This is demonstrated below with a text input but can apply to any `.o-forms` field.
+
+```html
+<div class="o-forms o-forms--wide">
+	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
+	<input type="text" placeholder="placeholder" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
+</div>
+```
+
+#### Text inputs
+
+The markup above demonstrates how to use text inputs. More [text input examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/text-inputs) are available on the Origami Registry.
+
+#### Textareas
+
+```html
+<div class="o-forms">
+	<label for="o-forms-demo-textarea" class="o-forms__label">Textarea</label>
+	<textarea placeholder="Placeholder" id="o-forms-demo-textarea" class="o-forms__textarea"></textarea>
+</div>
+```
+
+[Textarea examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/textareas)
 
 #### Select boxes
 
 ```html
 <div class="o-forms">
-	<label class="o-forms__label">Select box</label>
-	<select class="o-forms__select">
-		<option value="option1">Option 1</option>
+	<label for="o-forms-demo-select" class="o-forms__label">Select box</label>
+	<select id="o-forms-demo-select" class="o-forms__select">
+		<option value="option1" selected>Option 1</option>
 		<option value="option2">Option 2</option>
 		<option value="option3">Option 3</option>
 		<option value="option4">Option 4</option>
@@ -47,57 +94,107 @@ Each form field is made up of at least 3 elements:
 
 [Select boxes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/select-boxes)
 
-#### Textareas
+#### Checkbox and radio controls
 
-```html
-<div class="o-forms">
-	<label class="o-forms__label">Textarea</label>
-	<textarea placeholder="placeholder" class="o-forms__textarea"></textarea>
-</div>
-```
-
-[Textarea examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/textareas)
-
-#### Checkboxes and radio controls
-
-Couple the checkboxes and radio controls with a label to obtain the desired styles. Add a wrapper and data attribute `data-o-form-toggle` to checkboxes to make them look like toggles:
+Unlike other inputs, multiple `checkbox` and `radio` inputs should be wrapped in  `.o-forms__group` to ensure correct vertical spacing.
 
 ```html
 <!-- Radio -->
-<div class="o-forms">
-	<input id="a" type="radio" class="o-forms__radio" />
-	<label for="a">Unchecked (default)</label>
-	<input id="a" type="radio" class="o-forms__radio" checked="checked" />
-	<label for="a">Checked</label>
-</div>
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Default radio controls</legend>
+	<div class="o-forms__additional-info">Prompt text follows the legend if required.</div>
+	<div class="o-forms__group">
+		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio11" checked="checked" />
+		<label for="radio11" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio12" />
+		<label for="radio12" class="o-forms__label">Radio 2</label>
+	</div>
+</fieldset>
 
 <!-- Checkboxes -->
-<div class="o-forms">
-	<input id="a" type="checkbox" class="o-forms__checkbox" />
-	<label for="a">Unchecked (default)</label>
-	<input id="a" type="checkbox" class="o-forms__checkbox" checked="checked" />
-	<label for="a">Checked</label>
-</div>
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Default checkboxes</legend>
+	<div class="o-forms__group">
+		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox11" checked="checked" />
+		<label for="checkbox11" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox12" />
+		<label for="checkbox12" class="o-forms__label">Checkbox 2</label>
+		<input type="checkbox" name="checkbox" value="3" class="o-forms__checkbox" id="checkbox13" />
+		<label for="checkbox13" class="o-forms__label">Checkbox 3</label>
+	</div>
+</fieldset>
+```
 
-<!-- Checkbox Toggles -->
-<form action="" data-o-component="o-forms">
-	<fieldset class="o-forms">
-		<legend class="o-forms__label">Checkbox Toggle</legend>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="a" checked="checked" />
-			<label for="a" class="o-forms__label">Checkbox Toggle a</label>
-		</div>
-		<div class="o-forms__checkbox-toggle">
-			<input data-o-form-toggle type="checkbox" id="b" />
-			<label for="b" class="o-forms__label">Checkbox Toggle b</label>
-		</div>
-	</fieldset>
-</form>
+To display checkboxes/radios inline add `.o-forms__group--inline` to their group wrapper.
+
+```html
+<!-- Inline Radio -->
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Radio controls inline</legend>
+	<div class="o-forms__group o-forms__group--inline">
+		<input type="radio" name="radio" value="1" class="o-forms__radio" id="radio41" checked="checked" />
+		<label for="radio41" class="o-forms__label">Radio 1</label>
+		<input type="radio" name="radio" value="2" class="o-forms__radio" id="radio42" />
+		<label for="radio42" class="o-forms__label">Radio 2</label>
+	</div>
+</fieldset>
+
+<!-- Inline Checkboxes -->
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Inline checkboxes</legend>
+	<div class="o-forms__group o-forms__group--inline">
+		<input type="checkbox" name="checkbox" value="1" class="o-forms__checkbox" id="checkbox61" checked="checked" />
+		<label for="checkbox61" class="o-forms__label">Checkbox 1</label>
+		<input type="checkbox" name="checkbox" value="2" class="o-forms__checkbox" id="checkbox62" />
+		<label for="checkbox62" class="o-forms__label">Checkbox 2</label>
+	</div>
+</fieldset>
 ```
 
 [Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
 [Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
-[Toggle Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkbox-toggle)
+
+#### Suffixes
+
+Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.o-forms__affix-wrapper` to contain both the input and its suffix `.o-forms__suffix`. The suffix `.o-forms__suffix` wraps suffix content, i.e. a button.
+
+```html
+<div class="o-forms">
+	<label class="o-forms__label" for="text-suffix">Text input with suffix button</label>
+	<div class="o-forms__affix-wrapper">
+		<input id="text-suffix" type="text" placeholder="placeholder" class="o-forms__text" />
+		<div class="o-forms__suffix">
+			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
+		</div>
+	</div>
+</div>
+```
+
+[Suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/suffix)
+
+#### Toggles (checkbox toggles)
+
+To produce a toggle interface wrap checkboxes in `.o-forms__toggle` and add the data attribute `data-o-form-toggle` to the checkbox input.
+
+```html
+<!-- Toggle -->
+<fieldset class="o-forms">
+	<legend class="o-forms__label">Checkbox Toggle</legend>
+	<div class="o-forms__group">
+		<div class="o-forms__toggle">
+			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle1" />
+			<label for="checkboxToggle1" class="o-forms__label">Checkbox Toggle 1</label>
+		</div>
+		<div class="o-forms__toggle">
+			<input class="o-forms__toggle__checkbox" data-o-form-toggle type="checkbox" name="checkbox" value="1" id="checkboxToggle2" checked="checked" />
+			<label for="checkboxToggle2" class="o-forms__label">Checkbox Toggle 2</label>
+		</div>
+	</div>
+</fieldset>
+```
+
+[Toggle examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/toggle)
+
 
 #### Validation states
 
@@ -105,7 +202,6 @@ Validation styles are applied by adding `.o-forms--error` or `.o-forms--valid` t
 
 An error message, defined with `.o-forms__errortext`, can be appended to the containing element.
 
-Example HTML:
 ```html
 <div class="o-forms o-forms--error">
 	<label class="o-forms__label">Text input</label>
@@ -114,75 +210,45 @@ Example HTML:
 </div>
 ```
 
-#### Wrappers
+#### Sections
 
-You can wrap a group of fields to highlight it or show it is not valid:
+Wrap a group of `.o-forms` fields in a section `.o-forms-section` to highlight them and provide a global message.
 
 ```html
-<div class="o-forms__wrapper o-forms__wrapper--highlight">
-	<div class="o-forms">Fields in this group are highlighted</div>
-</div>
-
-<div class="o-forms__wrapper o-forms__wrapper--error">
-	<div class="o-forms__message o-forms__message--error">
- 		<p>This is an error message</p>
+<div class="o-forms-section">
+	<div class="o-forms-section__message">
+		<p>This is a section message.</p>
 	</div>
-	<div class="o-forms">Fields in this group are invalid</div>
-</div>
-```
-
-[Wrapper examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/wrappers)
-
-#### Messages
-
-```html
-<div class="o-forms__message">
-	<p>This is a global message that highlights some text</p>
-</div>
-
-<div class="o-forms__message o-forms__message--error">
-	<p>This is a global error message that relates to the entire form</p>
-</div>
-```
-
-[Messages examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/messages)
-
-#### Prefixes and suffixes
-
-Prefixes and suffixes are used for prepending or appending static text to a form control. The form control should be wrapped in a block-level element with a class of `.o-forms__affix-wrapper`. Prefixes (defined by `.o-forms__prefix`) and suffixes (defined by `.o-forms__suffix`) can then be prepended/appended to this wrapper element.
-
-```html
-<div class="o-forms">
-	<div class="o-forms__affix-wrapper">
-		<span class="o-forms__prefix">http://</span>
-		<input type="text" class="o-forms__text" />
-		<div class="o-forms__suffix">
-			<button type="button" class="o-buttons">Go</button>
-		</div>
+	<div class="o-forms">
+		<label for="o-forms-message" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-message" placeholder="placeholder" class="o-forms__text" required />
 	</div>
 </div>
 ```
 
-[Prefixes and suffixes examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/prefix-suffix)
-
-#### "unskin" a form element
-
-Add the class `o-forms--unskin` to a text field to reset its appearance while keeping its vertical structure and other field properties (editable, focusable).
+This can be used to highlight errors within a section of a form which contains multiple `.o-forms` fields.
 
 ```html
-<input type="text" class="o-forms--unskin" value="foo" />
+<div class="o-forms-section o-forms-section--error">
+	<div class="o-forms-section__message">
+		<p>This is a section error message</p>
+	</div>
+	<div class="o-forms o-forms--error">
+		<label for="o-forms-section-error" class="o-forms__label">Field Label</label>
+		<input type="text" id="o-forms-section-error" placeholder="placeholder" class="o-forms__text" required />
+		<div class="o-forms__errortext">Invalid entry</div>
+	</div>
+</div>
 ```
 
-Properties of the `o-forms--unskin` class:
+Add `.o-forms-section--wide` to remove max width restrictions.
 
-- removes borders and rounded corners
-- removes the background color
-- removes the inner shadow added by some browsers
-- removes left-right spacing / padding
-- removes the "form field" appearance in supported browsers
-- editable
-- focusable
+[Section examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/sections)
 
+
+#### Additional Features
+
+Additional features such as small text and select inputs are avalible. Please see [more examples on the Origami Registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/).
 
 ### Sass
 
@@ -190,32 +256,30 @@ Properties of the `o-forms--unskin` class:
 
 In silent mode `o-forms` provides mixins for each set of form fields as well as some mixins to output basic form styles in one large chunk.
 
-#### oForms mixin
-
-The `oForms` mixin will output styles for the `o-forms` block, as well as all basic input styles supported by `o-forms` (`text`, `select`, `textarea`, `checkboxes` and `radio` buttons) as well as `labels`, valid and error states and, error text and helper text.
+The `oForms` mixin will output all features of `o-forms`. Turn off silent mode to output all `o-forms` features using this mixin automatically.
 
 ```sass
+$o-forms-is-silent: false;
 @import 'o-forms/main';
-
-@include oForms;
 ```
 
-The `oForms` mixin also allows customisation of the base classname:
+#### Mixins
 
-```sass
-@include oForms('my-forms');
-```
+If your project does not need all `o-forms` features, you may reduce your project's CSS bundle size by using the following mixins to only output what you need.
 
-#### Additional features
+Required:
+- `oFormsBaseFeatures` - Basic form features including `.o-forms`. Required by the other mixins.
 
-`o-forms` provides some additional features that can be included separately using their own mixins.
+Optional extras:
+- `oFormsRadioCheckboxFeatures` - Checkbox and radio support.
+- `oFormsRadioCheckboxRightModifier` - Modifier styles to align checkbox/radio inputs right.
+- `oFormsCheckboxToggleFeature` - Toggle support.
+- `oFormsSuffixFeature` - Suffix support.
+- `oFormsSectionFeature` - Section support.
+- `oFormsSmallFeature` - Modifier styles for small text and select inputs.
+- `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
 
-- `oFormsWrapper` - an area around the form, which can be coloured.
-- `oFormsMessage` - styles for global form messages.
-- `oFormsPrefixSuffix` - adds ability to affix information/buttons to form fields.
-- `oFormsUnskin` - removes all default styling from a field.
-
-For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms).
+For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms).
 
 ### JavaScript
 
@@ -285,14 +349,49 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Migration Guide
 
-## Upgrading from v3.x.x or v4.x.x
+## Upgrading from v4.x.x to v5.x.x
+
+Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granularly.
+
+### Checkboxes & Radios
+- Wrap groups of checkboxes and radios in `.o-forms__group` for correct vertical spacing.
+- `oFormsRadioCheckbox` no longer outputs all styles for checkboxes and radios, only what is shared between them. Use `oFormsRadioCheckboxFeatures` instead.
+- It is no longer possible to modify the complete selector of radios, checkboxes, or their labels. The base `.o-forms` class may still be updated using the `$class` argument.
+
+### Prefix, Suffix
+- Prefixes have been removed entirely. We recommend using additional label information and feedback in form validation instead.
+- Suffix buttons now use standard `o-buttons` styling.
+- Check your uses of suffixs still display correctly. In the case of button suffixes it may be necessary to apply the extra `o-buttons` classes `.o-buttons--secondary` and `.o-buttons--big`.
+- The mixins `oFormsAffixButton`, `oFormsAffixCheckbox`, `oFormsPrefixSuffix` have been removed. Use `oFormsSuffixFeature` for suffix classes including the affix wrapper (as documented above).
+
+### Toggles
+- `.o-forms__checkbox-toggle` has been renamed `.o-forms__toggle`.
+- The `oFormsCheckboxToggleSize` mixin has been removed due to lack of use.
+
+### Wrappers and Messages
+- Wrappers have been renamed to sections. Their class names have also been updated to conform to the BEM naming convention (as optional containers their name should not contain `__` as they are not elements of a block).
+	- `.o-forms__wrapper` becomes `.o-forms-section`.
+	- `.o-forms__wrapper--highlight` becomes `.o-forms-section--highlight`.
+	- `.o-forms__wrapper--error` which becomes `.o-forms-section--error`.
+	- The `oFormsMessage` mixin now only outputs minimal message styles, uses should be replaced with `oFormsSectionFeature`.
+- Messages are now child elements of a section and must not be used independently.
+	- Wrap messages within a form section `.o-forms-section` if they are not already. They should be the first child of the section.
+	- Remove the class `.o-forms__message--error`. A message now infers that it is an error message based on its parent section `.o-forms-section--error`.
+
+### Other changes
+- `oFormsFullWidth` has been removed. Use `oFormsWideFeature` for classes to remove form max width restrictions.
+- There is a new dependancy on `o-icons`. Build your project to confirm that it is compatible.
+
+Please [contact us](#contact) if you have any queries.
+
+## Upgrading from v3.x.x to v4.x.x
 - A dependency on [o-typography](http://github.com/financial-times/o-typography) v5 has been introduced. This will break any builds that use o-typography <v5. __Resolution__: Update to o-typography v5.
 - The o-colors dependency has been updated to `^4`. This could create bower conflicts which should be resolved by updating to the newest release of o-colors.
 - The design for o-forms has changed in v4. This could create issues on your pages which make use of o-forms. Ensure that the updated design does not break the layout on your webpage.
 
 ----
 
-## Upgrading from v2.x.x or v3.x.x
+## Upgrading from v2.x.x to v3.x.x
 
 The main change in `v2` is that classes provided by `o-forms` now conform more strictly to the [BEM naming convention][bem]. All form field classes now follow the element convention, so `o-forms-text` is now `o-forms__text`.
 
