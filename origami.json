@@ -62,6 +62,11 @@
 			"name": "Package",
 			"template": "/demos/src/package.mustache",
 			"description": "Default theme for a Package/Series landing page, which has `type: package` in the API."
+		},
+		{
+			"name": "Package Extra",
+			"template": "/demos/src/package-extra.mustache",
+			"description": "Theme for Packages that editorial can choose, which comes through the API."
 		}
 	]
 }
