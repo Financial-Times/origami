@@ -1,13 +1,18 @@
 // sass-lint:disable mixins-before-declarations
 
-%_o-topper--full-bleed-image-center,
-%_o-topper--full-bleed-image-left {
-	%_o-topper__read-next {
+@mixin oTopperThemeFullBleedImage {
+	.o-topper__read-next {
 		display: none;
 	}
 
+	&.o-topper--full-bleed-image-center {
+		@include oGridRespondTo(S) {
+			@include _oTopperAlignText(center);
+		}
+	}
+
 	@include oGridRespondTo($until: M) {
-		%_o-topper__content {
+		.o-topper__content {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -15,7 +20,7 @@
 			min-height: 350px;
 		}
 
-		%_o-topper__visual {
+		.o-topper__visual {
 			min-height: 350px;
 		}
 	}
@@ -25,7 +30,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		%_o-topper__content {
+		.o-topper__content {
 			grid-row: 1;
 			grid-column: 1 / span 2;
 			width: 50%;
@@ -35,13 +40,13 @@
 			background: transparent;
 		}
 
-		%_o-topper__visual {
+		.o-topper__visual {
 			grid-row: 1;
 		}
 	}
 
 	@supports (object-fit: cover) {
-		%_o-topper__visual {
+		.o-topper__visual {
 			height: auto;
 			max-height: 480px;
 

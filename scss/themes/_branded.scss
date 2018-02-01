@@ -1,30 +1,26 @@
-%_o-topper--branded {
-	%_o-topper__content {
+@mixin oTopperThemeBranded {
+	.o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
 			padding: 20px 0;
 		}
 	}
 
-	%_o-topper__read-next {
+	.o-topper__read-next {
 		grid-row: 2 / span 3;
 	}
 
 	@include oGridRespondTo($until: L) {
 		//Make the background really full width
-		%_o-topper__background {
+		.o-topper__background {
 			position: absolute;
 		}
 	}
 }
 
 @mixin oTopperHasHeadshot {
-	@extend %_o-topper--has-headshot;
-}
-
-%_o-topper--has-headshot {
-	%_o-topper__tags,
-	%_o-topper__standfirst {
+	.o-topper__tags,
+	.o-topper__standfirst {
 		box-sizing: border-box;
 		padding-right: 100px;
 
@@ -33,26 +29,22 @@
 		}
 	}
 
-	%_o-topper__headline {
+	.o-topper__headline {
 		@include oGridRespondTo(M) {
 			padding-right: 150px;
 		}
 	}
 }
 
-%_o-topper--opinion {
-	%_o-topper__opinion-genre {
-		@extend %_o-topper__tag;
-		font-weight: normal;
-		color: oColorsGetPaletteColor('oxford');
-	}
+@mixin oTopperThemeOpinion {}
+
+@mixin oTopperOpinionGenre {
+	@extend %_o-topper__tag;
+	font-weight: normal;
+	color: oColorsGetPaletteColor('oxford');
 }
 
 @mixin oTopperHeadshot {
-	@extend %_o-topper__headshot;
-}
-
-%_o-topper__headshot {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -69,10 +61,6 @@
 }
 
 @mixin oTopperHeadshotImage {
-	@extend %_o-topper__headshot-image;
-}
-
-%_o-topper__headshot-image {
 	max-width: 100%;
 	display: block;
 	margin-left: 8px;

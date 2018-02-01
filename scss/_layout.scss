@@ -1,10 +1,6 @@
 @import 'grid';
 
 @mixin oTopper {
-	@extend %_o-topper;
-}
-
-%_o-topper {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include oTopperArticleGrid();
 	margin-bottom: 20px;
@@ -15,22 +11,14 @@
 }
 
 @mixin oTopperCentered {
-	@extend %_o-topper--centered;
-}
-
-%_o-topper--centered {
 	@include oTopperArticleGridCentered();
 
-	%_o-topper__read-next {
+	.o-topper__read-next {
 		display: none;
 	}
 }
 
 @mixin oTopperBasic {
-	@extend %_o-topper--basic;
-}
-
-%_o-topper--basic {
 	@include oGridRespondTo($until: L) {
 		margin-top: 10px;
 	}
@@ -39,11 +27,6 @@
 //Default theme;
 
 @mixin oTopperContent {
-	@extend %_o-topper__content;
-}
-
-%_o-topper__content {
-	@extend %_o-topper--has-color;
 	grid-row: 2 / span 4;
 	grid-column: 3;
 	position: relative;
@@ -51,24 +34,6 @@
 }
 
 @mixin oTopperBackground {
-	@extend %_o-topper__background;
-}
-
-@mixin oTopperVisual {
-	@extend %_o-topper__visual;
-}
-
-%_o-topper__visual {
-	@extend %_o-topper-common-background;
-	margin: 0;
-}
-
-%_o-topper__background {
-	@extend %_o-topper--has-color;
-	@extend %_o-topper-common-background;
-}
-
-%_o-topper-common-background {
 	grid-row: 1 / span 5;
 	grid-column: 1 / span 6;
 	width: 100vw;
@@ -79,11 +44,11 @@
 	position: relative;
 }
 
-@mixin oTopperReadNext {
-	@extend %_o-topper__read-next;
+@mixin oTopperVisual {
+	margin: 0;
 }
 
-%_o-topper__read-next {
+@mixin oTopperReadNext {
 	display: none;
 
 	@include oGridRespondTo(L) {

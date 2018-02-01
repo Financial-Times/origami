@@ -1,14 +1,19 @@
 // sass-lint:disable mixins-before-declarations
 
-%_o-topper--split-text-left,
-%_o-topper--split-text-center {
-	%_o-topper__read-next {
+@mixin oTopperThemeSplitText {
+	.o-topper__read-next {
 		display: none;
+	}
+
+	&.o-topper--split-text-center {
+		@include oGridRespondTo(S) {
+			@include _oTopperAlignText(center);
+		}
 	}
 
 	@include oGridRespondTo($until: M) {
 		padding: 0;
-		%_o-topper__content {
+		.o-topper__content {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -16,7 +21,7 @@
 			min-height: 350px;
 		}
 
-		%_o-topper__visual {
+		.o-topper__visual {
 			min-height: 350px;
 		}
 	}
@@ -26,7 +31,7 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
 
-		%_o-topper__content {
+		.o-topper__content {
 			grid-column: 1 / span 2;
 			grid-row: 1;
 			width: 50%;
@@ -35,18 +40,18 @@
 			padding-right: 20px;
 		}
 
-		%_o-topper__visual {
+		.o-topper__visual {
 			grid-row: 1;
 		}
 
-		%_o-topper__picture {
+		.o-topper__picture {
 			width: 50%;
 			float: right;
 			height: 100%;
 			position: relative;
 		}
 
-		%_o-topper__image {
+		.o-topper__image {
 			position: absolute;
 			@include oGridRespondTo($until: M) {
 				max-height: 480px;
@@ -55,7 +60,7 @@
 	}
 
 	@supports (object-fit: cover) {
-		%_o-topper__visual {
+		.o-topper__visual {
 			@include oGridRespondTo(M) {
 				height: 480px;
 			}
@@ -65,10 +70,4 @@
 		}
 	}
 
-}
-
-%_o-topper--split-text-center {
-	@include oGridRespondTo(S) {
-		@include _oTopperAlignText(center);
-	}
 }

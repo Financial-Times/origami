@@ -1,8 +1,4 @@
 @mixin oTopperAnchorLink {
-	@extend %_o-topper__anchor-link;
-}
-
-%_o-topper__anchor-link {
 	@include oTypographySans(0, $progressive: true);
 	display: inline-block;
 	margin-top: 30px;
@@ -29,11 +25,11 @@
 	}
 }
 
-%_o-topper--package {
+@mixin oTopperThemePackage {
 	margin-bottom: 40px;
 
-	%_o-topper__tags,
-	%_o-topper__headline {
+	.o-topper__tags,
+	.o-topper__headline {
 		@include oTypographySans(6, $line-height: 1em);
 		font-weight: 400;
 
@@ -42,26 +38,25 @@
 		}
 	}
 
-	%_o-topper__headline {
+	.o-topper__headline {
 		&:after {
 			border-bottom-width: 1px;
 		}
 	}
 }
 
-%_o-topper__package-sequence-id {
+@mixin oTopperPackageSequenceId {
 	@include oTypographySans(-2, $progressive: true);
 	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
 }
 
-%_o-topper--package-extra,
-%_o-topper--package-extra-wide {
-	%_o-topper__package-sequence-id,
-	&%o-topper--package %o-topper__headline {
+@mixin oTopperThemePackageExtra {
+	.o-topper__package-sequence-id,
+	&.o-topper--package .o-topper__headline {
 		color: oColorsGetPaletteColor('lemon');
 	}
 
-	%_o-topper__anchor-link {
+	.o-topper__anchor-link {
 		color: oColorsGetPaletteColor('lemon');
 		border-color: oColorsGetPaletteColor('lemon');
 
@@ -75,12 +70,12 @@
 	}
 }
 
-%_o-topper--package-special-report {
-	%_o-topper__tag {
+@mixin oTopperThemePackageSpecialReport {
+	.o-topper__tag {
 		opacity: 0.6;
 	}
 
-	%_o-topper__anchor-link {
+	.o-topper__anchor-link {
 		border-color: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('white');
 
