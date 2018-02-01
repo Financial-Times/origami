@@ -94,26 +94,12 @@ $o-topper-is-silent: false;
 #### Using Sass mixins
 
 - To output all the topper element and (non-theme, non-color) modifier classes, use `@include oTopperElements;`.
-  - For a list of available element mixins, see the source of the [`oTopperElements` mixin in `_mixins.scss`](scss/_mixins.scss#L127-L149). Rules for nesting the elements from the [elements table](#supported-elements) should be followed for styles to work as expected.
+  - For a list of available element mixins, see the source of the [`oTopperElements` mixin in `_mixins.scss`](scss/_mixins.scss#L25-L47). Rules for nesting the elements from the [elements table](#supported-elements) should be followed for styles to work as expected.
 - To output all the themes and theme-associated element and modifier classes, use `@include oTopperThemes;`.
-  - For a single theme's styles, use `@include oTopperTheme($theme);`, e.g. `@include oTopperTheme(branded);`, within a selector. For a list of themes see [`$_o-topper-themes` in `_variables.scss`](scss/_variables.scss#L4).
+  - For a single theme's styles, use `@include oTopperThemeName;`, e.g. `@include oTopperThemeBranded;`, within a selector. For a list of themes see [`oTopperThemes` in `_mixins.scss`](scss/_mixins.scss#L8-L20).
   - For the theme-associated element classes, use `@include oTopperThemeElements;`.
 - To output all the background color classes, use `@include oTopperColors;`.
   - For a single color's styles to affect `background` and `visual` descendents, use `@include oTopperColor(%color);`, e.g. `@include oTopperColor(claret);`, within a selector. For a list of colors see [`$_o-topper-colors` in `_variables.scss`](scss/_variables.scss#L2).
-
-The theme and color mixins affect descendent elements, even when their styles are included via mixins. For example, if you have:
-
-```scss
-.custom-topper--claret {
-	@include oTopperColor(claret);
-}
-
-.custom-topper--visual {
-	@include oTopperVisual;
-}
-```
-
-An element with class `custom-topper--visual` within a wrapper with class `custom-topper--claret` will receive the claret background color (and other styles associated with the claret color theme).
 
 ## Contact
 
