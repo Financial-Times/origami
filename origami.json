@@ -72,6 +72,12 @@
 			"name": "News Package",
 			"template": "/demos/src/news-package.mustache",
 			"description": "Used for the lead article in a Series, or a live event."
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
 		}
 	]
 }
