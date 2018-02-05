@@ -27,10 +27,6 @@ const getTopperSettings = (content, flags = {}) => {
 			themeImageRatio: 'split',
 			includesImage: true,
 			isExperimental: true,
-			myFtButton: {
-				variant: isLoud ? 'monochrome' : 'standard',
-				followPlusDigestEmail: followPlusDigestEmail(flags)
-			}
 		};
 
 
@@ -138,12 +134,6 @@ const getTopperSettings = (content, flags = {}) => {
 			isOpinion,
 			headshotTint,
 			fthead,
-			myFtButton: {
-				variant: backgroundColour === 'sky'
-					? 'opinion'
-					: 'standard',
-				followPlusDigestEmail: followPlusDigestEmail(flags)
-			}
 		};
 
 	//everything else gets a regular topper
@@ -153,26 +143,8 @@ const getTopperSettings = (content, flags = {}) => {
 			backgroundColour: 'paper',
 			includesTeaser: true,
 			modifiers: ['basic'],
-			myFtButton: {
-				variant: 'standard',
-				followPlusDigestEmail: followPlusDigestEmail(flags)
-			}
 		};
 	}
-};
-
-const myFtButtonVariant = (backgroundColour) => {
-	let lightBackgroundColour = ['paper', 'wheat', 'white'].includes(backgroundColour);
-	return (!backgroundColour || lightBackgroundColour) ? 'standard' : 'monochrome';
-};
-
-const followPlusDigestEmail = (flags) => {
-	if (flags.onboardingMessaging
-		&& flags.onboardingMessaging
-		&& flags.onboardingMessaging === 'followPlusEmailDigestTooltip') {
-		return true;
-	}
-	return false;
 };
 
 module.exports = (content, flags = {}) => {
@@ -184,10 +156,6 @@ module.exports = (content, flags = {}) => {
 		{
 			headline: topper.headline || content.title,
 			standfirst: content.descriptionHTML || topper.standfirst || content.standfirst,
-			myFtButton: {
-				variant: myFtButtonVariant(settings.backgroundColour),
-				followPlusDigestEmail: followPlusDigestEmail(flags)
-			},
 			themeImageRatio: themeImageRatio[settings.layout]
 		},
 		settings);

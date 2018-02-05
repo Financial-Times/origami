@@ -9,7 +9,6 @@ describe('Topper theme map', () => {
 			const topper = subject({topper: { theme: 'some-crazy-theme' }});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('paper');
-			expect(topper.myFtButton.variant).to.equal('standard');
 			expect(topper.modifiers).to.deep.equal(['basic']);
 		});
 
@@ -17,7 +16,6 @@ describe('Topper theme map', () => {
 			const topper = subject({ realtime: true, liveBlog: { status: 'inprogress' }});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('crimson');
-			expect(topper.myFtButton.variant).to.equal('monochrome');
 		});
 
 		it('the branded article topper', () => {
@@ -32,39 +30,33 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.modifiers).to.deep.equal(['branded', 'has-headshot']);
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		it('the editorially selected topper if it exists — overrides backgroundColour', () => {
 			const topper = subject({topper: { layout: 'full-bleed-offset' }});
 			expect(topper.largeHeadline).to.be.true();
 			expect(topper.backgroundColour).to.equal('paper');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		it('topper with paper background color if none is defined', () => {
 			const topper = subject({topper: { layout: 'split-text-center' }});
 			expect(topper.backgroundColour).to.equal('paper');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		context('a button which has the correct settings applied according to flags', () => {
 
 			it('does not have enhanced behaviour if onboardingMessaging flag is not present', (done) => {
 				const topper = subject({}, {});
-				expect(topper.myFtButton.followPlusDigestEmail).to.be.false();
 				done();
 			});
 
 			it('does not have enhanced behaviour if onboardingMessaging parameter is not set', (done) => {
 				const topper = subject({}, { onboardingMessaging:  undefined } );
-				expect(topper.myFtButton.followPlusDigestEmail).to.be.false();
 				done();
 			});
 
 			it('does have enhanced behaviour if onboardingMessaging parameter set', () => {
 				const topper = subject({}, { onboardingMessaging: 'followPlusEmailDigestTooltip' } );
-				expect(topper.myFtButton.followPlusDigestEmail).to.be.true();
 			});
 
 		});
@@ -79,7 +71,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('wheat');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		it('first article in a news package', () => {
@@ -95,7 +86,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('wheat');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		it('second article in the news package is normal', () => {
@@ -111,7 +101,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('paper');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 	});
 
@@ -124,7 +113,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('crimson');
-			expect(topper.myFtButton.variant).to.equal('monochrome');
 		});
 
 		it('first article in a news package', () => {
@@ -140,7 +128,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('crimson');
-			expect(topper.myFtButton.variant).to.equal('monochrome');
 		});
 
 		it('second article in a news package is normal', () => {
@@ -156,7 +143,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('paper');
-			expect(topper.myFtButton.variant).to.equal('standard');
 		});
 
 		it('live blog in package also is crimson', () => {
@@ -174,7 +160,6 @@ describe('Topper theme map', () => {
 			});
 			expect(topper.largeHeadline).not.to.be.true();
 			expect(topper.backgroundColour).to.equal('crimson');
-			expect(topper.myFtButton.variant).to.equal('monochrome');
 		});
 	});
 
@@ -201,7 +186,6 @@ describe('Topper theme map', () => {
 			const topper = subject(articleContentFixture, {});
 			expect(topper.backgroundColour).to.equal('slate');
 			expect(topper.largeHeadline).to.be.true();
-			expect(topper.myFtButton.variant).to.equal('monochrome');
 		});
 
 		it('applies slate offset topper to article if package theme is extra-wide', () => {
@@ -228,13 +212,11 @@ describe('Topper theme map', () => {
 			const topper = subject(opinionArticleNotInPackage, {});
 			expect(topper.backgroundColour).to.equal('sky');
 			expect(topper.isOpinion).to.be.true();
-			expect(topper.myFtButton.variant).to.equal('opinion');
 		});
 
 		it('applies slate offset topper to article if package theme is extra-wide', () => {
 			const topper = subject(opinionArticleInPackage, {});
 			expect(topper.backgroundColour).to.equal('wheat');
-			expect(topper.myFtButton.variant).to.equal('standard');
 			expect(topper.isOpinion).to.be.true();
 		});
 	});
