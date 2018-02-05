@@ -20,20 +20,20 @@
 }
 
 /// Custom link styles
-@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: 'paper', $outlineColor: 'teal') {
+@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: 'paper', $outlineColor: 'teal-100') {
 	color: oColorsGetPaletteColor($baseColor);
 	text-decoration: none;
 	cursor: pointer;
 	border-bottom: 2px solid oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 20);
 
-	&:hover,
-	&:focus {
+	&:hover {
 		color: oColorsGetPaletteColor($hoverColor);
 		border-bottom-color: oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 40);
 	}
 
 	&:focus {
-		outline: 3px solid oColorsGetPaletteColor($outlineColor);
+		color: oColorsGetPaletteColor($hoverColor);
+		outline: 2px solid oColorsGetPaletteColor($outlineColor);
 		border-bottom-color: transparent;
 	}
 }
