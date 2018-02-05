@@ -1,4 +1,3 @@
-'use strict';
 const _ = require('lodash');
 
 const themeImageRatio = {
@@ -111,7 +110,7 @@ const getTopperSettings = (content, flags = {}) => {
 	} else if(content.brandConcept || (content.genreConcept && content.genreConcept.id === 'e569e23b-0c3e-3d20-8ed0-4c17b8177c05')) {
 		let fthead = Array.isArray(content.authorConcepts) &&
 			_.flatten(content.authorConcepts.map(({attributes} = {}) => attributes))
-			.find(({key} = {}) => key === 'headshot');
+				.find(({key} = {}) => key === 'headshot');
 		fthead = fthead ? fthead.value : '';
 		const modifiers = fthead ? ['branded', 'has-headshot'] : ['branded'];
 
