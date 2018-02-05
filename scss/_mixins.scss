@@ -1,49 +1,111 @@
 @mixin oTopperThemeElements {
-	.o-topper--has-headshot { @include oTopperHasHeadshot; }
-	.o-topper__opinion-genre { @include oTopperOpinionGenre; }
-	.o-topper__headshot { @include oTopperHeadshot; }
-	.o-topper__headshot-image { @include oTopperHeadshotImage; }
+	.o-topper--has-headshot {
+		@include oTopperHasHeadshot;
+	}
+	.o-topper__opinion-genre {
+		@include oTopperOpinionGenre;
+	}
+	.o-topper__headshot {
+		@include oTopperHeadshot;
+	}
+	.o-topper__headshot-image {
+		@include oTopperHeadshotImage;
+	}
 }
 
 @mixin oTopperThemes() {
-	.o-topper--branded { @include oTopperThemeBranded; }
-	.o-topper--opinion { @include oTopperThemeOpinion; }
-	.o-topper--full-bleed-offset { @include oTopperThemeFullBleedOffset; }
-	.o-topper--split-text-left,
-	.o-topper--split-text-center { @include oTopperThemeSplitText; }
-	.o-topper--full-bleed-image-center,
-	.o-topper--full-bleed-image-left { @include oTopperThemeFullBleedImage; }
-	.o-topper--package { @include oTopperThemePackage }
-	.o-topper--package-extra,
-	.o-topper--package-extra-wide { @include oTopperThemePackageExtra; }
-	.o-topper--package-special-report { @include oTopperThemePackageSpecialReport; }
-	.o-topper--news-package { @include oTopperThemeNewsPackage }
+	.o-topper--branded {
+		@include oTopperThemeBranded;
+	}
+	.o-topper--opinion {
+		@include oTopperThemeOpinion;
+	}
+	.o-topper--full-bleed-offset {
+		@include oTopperThemeFullBleedOffset;
+	}
+	.o-topper--split-text-left, .o-topper--split-text-center {
+		@include oTopperThemeSplitText;
+	}
+	.o-topper--full-bleed-image-center, .o-topper--full-bleed-image-left {
+		@include oTopperThemeFullBleedImage;
+	}
+	.o-topper--package {
+		@include oTopperThemePackage;
+	}
+	.o-topper--package-extra, .o-topper--package-extra-wide {
+		@include oTopperThemePackageExtra;
+	}
+	.o-topper--package-special-report {
+		@include oTopperThemePackageSpecialReport;
+	}
+	.o-topper--news-package {
+		@include oTopperThemeNewsPackage;
+	}
 
 	@include oTopperThemeElements;
 }
 
 @mixin oTopperElements {
-	.o-topper { @include oTopper; }
-	.o-topper--centered { @include oTopperCentered; }
-	.o-topper__content { @include oTopperContent; }
-	.o-topper__visual { @include oTopperVisual; }
-	.o-topper__visual,
-	.o-topper__background { @include oTopperBackground; }
-	.o-topper--basic { @include oTopperBasic; }
-	.o-topper__headline { @include oTopperHeadline; }
-	.o-topper__headline--large { @include oTopperHeadlineLarge; }
-	.o-topper__summary { @include oTopperSummary; }
-	.o-topper__standfirst { @include oTopperStandfirst; }
-	.o-topper__summary--body { @include oTopperSummaryBody; }
-	.o-topper__tags { @include oTopperTags; }
-	.o-topper__columnist { @include oTopperColumnist; }
-	.o-topper__columnist-name { @include oTopperColumnistName; }
-	.o-topper__brand { @include oTopperBrand; }
-	.o-topper__topic { @include oTopperTopic; }
-	.o-topper__read-next { @include oTopperReadNext; }
-	.o-topper__image { @include oTopperImage; }
-	.o-topper__image-credit { @include oTopperImageCredit; }
-	.o-topper__anchor-link { @include oTopperAnchorLink; }
+	.o-topper {
+		@include oTopper;
+	}
+	.o-topper--centered {
+		@include oTopperCentered;
+	}
+	.o-topper__content {
+		@include oTopperContent;
+	}
+	.o-topper__visual {
+		@include oTopperVisual;
+	}
+	.o-topper__visual, .o-topper__background {
+		@include oTopperBackground;
+	}
+	.o-topper--basic {
+		@include oTopperBasic;
+	}
+	.o-topper__headline {
+		@include oTopperHeadline;
+	}
+	.o-topper__headline--large {
+		@include oTopperHeadlineLarge;
+	}
+	.o-topper__summary {
+		@include oTopperSummary;
+	}
+	.o-topper__standfirst {
+		@include oTopperStandfirst;
+	}
+	.o-topper__summary--body {
+		@include oTopperSummaryBody;
+	}
+	.o-topper__tags {
+		@include oTopperTags;
+	}
+	.o-topper__columnist {
+		@include oTopperColumnist;
+	}
+	.o-topper__columnist-name {
+		@include oTopperColumnistName;
+	}
+	.o-topper__brand {
+		@include oTopperBrand;
+	}
+	.o-topper__topic {
+		@include oTopperTopic;
+	}
+	.o-topper__read-next {
+		@include oTopperReadNext;
+	}
+	.o-topper__image {
+		@include oTopperImage;
+	}
+	.o-topper__image-credit {
+		@include oTopperImageCredit;
+	}
+	.o-topper__anchor-link {
+		@include oTopperAnchorLink;
+	}
 }
 
 @mixin oTopperColors() {
