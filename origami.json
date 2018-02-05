@@ -67,6 +67,11 @@
 			"name": "Package Extra",
 			"template": "/demos/src/package-extra.mustache",
 			"description": "Theme for Packages that editorial can choose, which comes through the API."
+		},
+		{
+			"name": "News Package",
+			"template": "/demos/src/news-package.mustache",
+			"description": "Used for the lead article in a Series, or a live event."
 		}
 	]
 }
