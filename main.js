@@ -1,1 +1,1 @@
-exports.mapContentToTheme = require('./js/map-content-to-theme');
+exports.mapContentToTopper = require('./js/map-content-to-topper');

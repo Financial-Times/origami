@@ -101,6 +101,30 @@ $o-topper-is-silent: false;
 - To output all the background color classes, use `@include oTopperColors;`.
   - For a single color's styles to affect `background` and `visual` descendents, use `@include oTopperColor(%color);`, e.g. `@include oTopperColor(claret);`, within a selector. For a list of colors see [`$_o-topper-colors` in `_variables.scss`](scss/_variables.scss#L2).
 
+## Javascript
+
+This component includes a Javascript helper, which should be used to select the correct topper themes and colors, as well as other topper-overriden data, given a particular JSON-formatted FT article (such as from the Content API).
+
+```js
+const {mapContentToTopper} = require('o-topper');
+
+const topper = mapContentToTopper(ftArticle);
+```
+
+### Topper data
+
+Data returned by the topper helper should be used in the product's templates. Other keys may be returned but should not be relied on as documented behaviour.
+
+| Key               | Usage                                                                                  |
+|-------------------|----------------------------------------------------------------------------------------|
+| `headline`        | Should be used in place of the standard article headline                               |
+| `standfirst`      | Should be used in place of the standard article standfirst                             |
+| `modifiers`       | Should be included as `o-topper--[modifier]` classes on the `o-topper` wrapper element |
+| `backgroundColor` | Should be included as an `o-topper--color-[color]` class on the wrapper element        |
+| `themeImageRatio` | Used to differentiate `split` and `full-bleed` topper images                           |
+| `includesImage`   | Use to disable main article image to prevent duplicate images when topper includes one |
+| `largeHeadline`   | Indicates whether to use `o-topper__headline--large` on `o-topper__headline`           |
+
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-teaser/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).

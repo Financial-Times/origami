@@ -1,8 +1,8 @@
 const { expect } = require('chai').use(require('dirty-chai'));
 
-const subject = require('../js/map-content-to-theme');
+const subject = require('../js/map-content-to-topper');
 
-describe('Topper theme map', () => {
+describe('Topper content map', () => {
 	context('sets up', () => {
 
 		it('the regular article topper if the topper theme is unknown', () => {
