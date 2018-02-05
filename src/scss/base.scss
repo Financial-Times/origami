@@ -16,6 +16,8 @@
 	@include oFormsRadioCheckboxRightModifier($class);
 	// Input suffix support.
 	@include oFormsSuffixFeature($class);
+	// Styled radio buttons.
+	@include oFormsRadioButtonsStyledFeature($class);
 	// Toggles (checkbox toggles).
 	@include oFormsCheckboxToggleFeature($class);
 	// Sections.
@@ -87,7 +89,7 @@
 @mixin oFormsRadioCheckboxFeatures($class: 'o-forms') {
 	.#{$class}__group {
 		@include oFormsGroupContainer();
-	}
+    }
 	.#{$class}__radio,
 	.#{$class}__checkbox {
 		@include oFormsRadioCheckbox();
@@ -126,6 +128,16 @@
 	.#{$class}__toggle--inverse {
 		@include oFormsCheckboxToggleInverse();
 	}
+}
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for the styled radio buttons to work.
+/// @output Styles for radios which look like a group of buttons, where one can be selected.
+@mixin oFormsRadioButtonsStyledFeature($class: 'o-forms') {
+    .#{$class}__radio-button {
+      @include oFormsRadioButtonsStyled;
+    }
 }
 
 /// @access public

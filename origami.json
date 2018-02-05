@@ -39,6 +39,12 @@
             "description": "<strong>Usercase:</strong> These are the generic radio buttons for most use cases."
         },
         {
+            "name": "radios-button-styled",
+            "title": "Radios with button styling",
+            "template": "/demos/src/radios-button-styling.mustache",
+            "description": "<strong>Usercase:</strong> Can be used to require the user to choose between alternatives, with no default set."
+        },
+        {
             "name": "checkboxes",
             "title": "Checkboxes",
             "template": "/demos/src/checkboxes.mustache",

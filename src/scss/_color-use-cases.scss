@@ -39,6 +39,12 @@
 /// Radio Colours
 @include oColorsSetUseCase(o-forms-checkbox-radio-checked, background, 'teal');
 
+/// Radios Styled As Buttons Colours
+@include oColorsSetUseCase(o-forms-radio-buttons-styled, text, 'teal');
+@include oColorsSetUseCase(o-forms-radio-buttons-styled, border, 'teal');
+@include oColorsSetUseCase(o-forms-radio-buttons-styled-checked, text, 'white');
+@include oColorsSetUseCase(o-forms-radio-buttons-styled-checked, background, 'teal');
+
 /// Checkbox Toggle Colours
 @include oColorsSetUseCase(o-forms-toggle-inverse, background, 'white');
 @include oColorsSetUseCase(o-forms-toggle-inverse, text, 'white');

@@ -154,6 +154,29 @@ To display checkboxes/radios inline add `.o-forms__group--inline` to their group
 [Radio control examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radios)
 [Checkbox examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/checkboxes)
 
+#### Styled radio buttons
+
+To produce styled radio buttons wrap radio inputs with  `.o-forms__group .o-forms__group--inline-together` and use the class `.o-forms__radio-button` on the radio input.
+
+```html
+<!-- Styled radio buttons -->
+<fieldset class="o-forms">
+    <legend class="o-forms__label">Styled radio buttons with a default selection</legend>
+    <div class="o-forms__group o-forms__group--inline-together">
+        <input type="radio" name="radio5" value="daily" class="o-forms__radio-button" id="radio51"
+               checked="checked" />
+        <label for="radio51" class="o-forms__label">Daily</label>
+        <input type="radio" name="radio5" value="weekly" class="o-forms__radio-button" id="radio52" />
+        <label for="radio52" class="o-forms__label">Weekly</label>
+        <input type="radio" name="radio5" value="monthly" class="o-forms__radio-button" id="radio53" />
+        <label for="radio53" class="o-forms__label">Monthly</label>
+    </div>
+</fieldset>
+```
+
+[Styled radio button examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/radio-button-styling)
+
+
 #### Suffixes
 
 Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.o-forms__affix-wrapper` to contain both the input and its suffix `.o-forms__suffix`. The suffix `.o-forms__suffix` wraps suffix content, i.e. a button.
@@ -273,6 +296,7 @@ Required:
 Optional extras:
 - `oFormsRadioCheckboxFeatures` - Checkbox and radio support.
 - `oFormsRadioCheckboxRightModifier` - Modifier styles to align checkbox/radio inputs right.
+- `oFormsRadioButtonsStyledFeature` - Styled radio buttons support.
 - `oFormsCheckboxToggleFeature` - Toggle support.
 - `oFormsSuffixFeature` - Suffix support.
 - `oFormsSectionFeature` - Section support.
