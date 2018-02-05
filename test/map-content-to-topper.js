@@ -42,24 +42,6 @@ describe('Topper content map', () => {
 			const topper = subject({topper: { layout: 'split-text-center' }});
 			expect(topper.backgroundColour).to.equal('paper');
 		});
-
-		context('a button which has the correct settings applied according to flags', () => {
-
-			it('does not have enhanced behaviour if onboardingMessaging flag is not present', (done) => {
-				const topper = subject({}, {});
-				done();
-			});
-
-			it('does not have enhanced behaviour if onboardingMessaging parameter is not set', (done) => {
-				const topper = subject({}, { onboardingMessaging:  undefined } );
-				done();
-			});
-
-			it('does have enhanced behaviour if onboardingMessaging parameter set', () => {
-				const topper = subject({}, { onboardingMessaging: 'followPlusEmailDigestTooltip' } );
-			});
-
-		});
 	});
 
 	context('Live News package - basic', () => {

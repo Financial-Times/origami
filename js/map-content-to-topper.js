@@ -8,7 +8,7 @@ const themeImageRatio = {
 
 const isNews = content => content.annotations && content.annotations.find(a => a.prefLabel === 'News');
 
-const getTopperSettings = (content, flags = {}) => {
+const getTopperSettings = content => {
 	content.topper = content.topper || {};
 	//live blogs and news packages
 	if (content.realtime && content.liveBlog ||
@@ -147,7 +147,7 @@ const getTopperSettings = (content, flags = {}) => {
 	}
 };
 
-module.exports = (content, flags = {}) => {
+module.exports = content => {
 	const topper = content.topper || {};
 	const settings = getTopperSettings(content, flags);
 
