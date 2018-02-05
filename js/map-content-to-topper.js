@@ -149,7 +149,7 @@ const getTopperSettings = content => {
 
 module.exports = content => {
 	const topper = content.topper || {};
-	const settings = getTopperSettings(content, flags);
+	const settings = getTopperSettings(content);
 
 	return Object.assign({},
 		topper,
