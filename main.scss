@@ -72,10 +72,12 @@
 		}
 	}
 
+	.#{$classname}--full-screen,
 	.#{$classname}--full-width {
 		@include oOverlayFullscreen($fill: 'width');
 	}
 
+	.#{$classname}--full-screen,
 	.#{$classname}--full-height {
 		@include oOverlayFullscreen($fill: 'height');
 	}

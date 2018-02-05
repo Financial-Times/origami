@@ -130,6 +130,13 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
+
+	if (window.history.pushState && this.opts.fullscreen) {
+		this.popstateHandler = this.close.bind(this);
+		window.addEventListener("popstate", this.popstateHandler);
+		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
+	}
+
 	if (this.opts.trigger) {
 		this.opts.trigger.setAttribute('aria-pressed', 'true');
 	}
@@ -168,6 +175,11 @@ Overlay.prototype.render = function() {
 	const wrapperEl = document.createElement('div');
 	wrapperEl.className = 'o-overlay';
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
+
+	if (this.opts.fullscreen) {
+		wrapperEl.classList.add('o-overlay--full-screen');
+	}
+
 	wrapperEl.setAttribute('role', 'dialog');
 	if (this.opts.zindex) {
 		wrapperEl.style.zIndex = this.opts.zindex;
@@ -322,6 +334,11 @@ Overlay.prototype.close = function() {
 	this.delegates.doc.destroy();
 	this.delegates.wrap.destroy();
 	this.delegates.context.destroy();
+
+	window.removeEventListener("popstate", this.popstateHandler);
+	if (window.history.pushState && window.history.state.overlay == 'fullscreen') {
+		window.history.back();
+	}
 
 	viewport.stopListeningTo('resize');
 
