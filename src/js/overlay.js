@@ -182,10 +182,12 @@ Overlay.prototype.render = function() {
 	wrapperEl.classList.add('o-overlay--' + this.id.replace(' ', '-'));
 
 	// Add custom classes to the newly created overlay wrapper.
-	try {
-		wrapperEl.classList.add(...this.opts.class.split(' '));
-	} catch (error) {
-		console.warn(`Could not add the classes: ${this.opts.class}`);
+	if (this.opts.class) {
+		try {
+			wrapperEl.classList.add(...this.opts.class.split(' '));
+		} catch (error) {
+			console.warn(`Could not add the classes: ${this.opts.class}`);
+		}
 	}
 
 	if (this.opts.fullscreen) {
