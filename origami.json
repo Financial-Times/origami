@@ -36,6 +36,12 @@
 			"template": "/demos/src/modal.mustache"
 		},
 		{
+			"name": "modal-fullscreen",
+			"title": "Modal fullscreen overlay",
+			"description": "Fullscreen modal. The user can dismiss the overlay with the close button or back button.",
+			"template": "/demos/src/modal-fullscreen.mustache"
+		},
+		{
 			"name": "modal-prevent-closure",
 			"title": "Modal without close button",
 			"description": "Modal without a dismiss button in the top right. This should be used where the user has to make a choice or confirm they've seen something.",

@@ -86,6 +86,7 @@ const triggerClickHandler = function(id, ev) {
  * @param {String} opts.parentnode - Should be a query selector for a DOM element. If set, the overlay will be appended as a child of this rather than the document body or target. If multiple nodes are matched, it will use the first. If nothing matches this selector, the body will be used.
  * @param {Boolean} opts.nested - If set to true, the resize, escape, and layer listeners will not be set up. This boolean should be used in conjunction with the parentnode setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. Default: false.
  * @param {Boolean} opts.nofocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentnode options. Default: false.
+ * @param {Boolean} opts.fullscreen - If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
 */
 const Overlay = function(id, opts) {
 	viewport.listenTo('resize');
@@ -131,8 +132,12 @@ const Overlay = function(id, opts) {
 
 Overlay.prototype.open = function() {
 
+	// A full screen overlay can look like a new page so add to history.
+	// The browser back button can then be used to close a full-screen overlay.
 	if (window.history.pushState && this.opts.fullscreen) {
 		this.popstateHandler = this.close.bind(this);
+		this.originalOverflow = document.body.style.overflow;
+		document.body.style.overflow = 'hidden';
 		window.addEventListener("popstate", this.popstateHandler);
 		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
 	}
@@ -335,7 +340,13 @@ Overlay.prototype.close = function() {
 	this.delegates.wrap.destroy();
 	this.delegates.context.destroy();
 
-	window.removeEventListener("popstate", this.popstateHandler);
+	// Remove fullscreen popstate handler and re-enable document scroll.
+	if (this.opts.fullscreen) {
+		window.removeEventListener("popstate", this.popstateHandler);
+		document.body.style.overflow = this.originalOverflow;
+	}
+	// Remove state from history if fullscreen state is still in history.
+	// E.g.The close button was clicked directly rather than the browser back button.
 	if (window.history.pushState &&
 		window.history.state &&
 		window.history.state.overlay === 'fullscreen'

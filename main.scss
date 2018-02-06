@@ -82,6 +82,9 @@
 		@include oOverlayFullscreen($fill: 'height');
 	}
 
+	.#{$classname}--full-screen {
+		@include oOverlayFullscreen();
+	}
 }
 
 @if ($o-overlay-is-silent == false) {

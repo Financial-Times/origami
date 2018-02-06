@@ -54,6 +54,7 @@ var myOverlay = new Overlay('myOverlay', {
 	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+* `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
 * `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
 * `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
