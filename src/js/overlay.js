@@ -338,7 +338,7 @@ Overlay.prototype.close = function() {
 	window.removeEventListener("popstate", this.popstateHandler);
 	if (window.history.pushState &&
 		window.history.state &&
-		window.history.state.overlay == 'fullscreen'
+		window.history.state.overlay === 'fullscreen'
 	) {
 		window.history.back();
 	}
