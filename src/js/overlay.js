@@ -131,7 +131,7 @@ const Overlay = function(id, opts) {
 
 Overlay.prototype.open = function() {
 
-	if (window.history.pushState && this.opts.fullscreen) {
+	if (window.history.pushState) {
 		this.popstateHandler = this.close.bind(this);
 		window.addEventListener("popstate", this.popstateHandler);
 		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
@@ -336,7 +336,10 @@ Overlay.prototype.close = function() {
 	this.delegates.context.destroy();
 
 	window.removeEventListener("popstate", this.popstateHandler);
-	if (window.history.pushState && window.history.state.overlay == 'fullscreen') {
+	if (window.history.pushState &&
+		window.history.state &&
+		window.history.state.overlay == 'fullscreen'
+	) {
 		window.history.back();
 	}
 
