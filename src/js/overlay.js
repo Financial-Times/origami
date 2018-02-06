@@ -131,7 +131,7 @@ const Overlay = function(id, opts) {
 
 Overlay.prototype.open = function() {
 
-	if (window.history.pushState) {
+	if (window.history.pushState && this.opts.fullscreen) {
 		this.popstateHandler = this.close.bind(this);
 		window.addEventListener("popstate", this.popstateHandler);
 		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
