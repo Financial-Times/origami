@@ -147,6 +147,19 @@ describe("Overlay", () => {
 				done();
 			}, 10);
 		});
+
+		it("Adds custom classes to the overlay.", (done) => {
+			const testOverlay = new Overlay('myID', {
+				html: 'hello',
+				class: 'myCustomClass mySecondCustomClass'
+			});
+			testOverlay.open();
+			setTimeout(() => {
+				proclaim.isTrue(document.querySelector('.o-overlay').classList.contains("myCustomClass"));
+				proclaim.isTrue(document.querySelector('.o-overlay').classList.contains("mySecondCustomClass"));
+				done();
+			}, 10);
+		});
 	});
 });
 
