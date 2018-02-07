@@ -11,6 +11,8 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 		- [Responsive font scales](#responsive-font-scales)
 		- [Progressive loading web fonts](#progressive-loading-web-fonts)
 		- [Baseline grid mixins](#baseline-grid-mixins)
+		- [Custom Link mixin](#custom-link-mixin)
+		- [Heading mixins](#heading-mixins)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -370,6 +372,62 @@ Example usage:
 	);
 }
 ```
+
+#### Heading mixins
+
+Headings in o-typography have a specific font-family, and some additional styling depending on the functionality of the heading.
+
+There are two groups of mixins that are available to style headings, one for article headings, and one for headings that support other types of content, which we are calling 'product'.
+
+The following are two examples of many available mixins.
+
+`oTypographyHeadline` will output styles for an article headline.
+
+Usage:
+
+```scss
+.my-article-headline {
+	@include oTypographyHeadline();
+}
+```
+
+Output:
+
+```css
+.my-article-headline {
+	font-family: FinancierDisplayWeb, serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 700;
+	margin-top: 0px;
+	margin-bottom: 28px;
+	color: #33302e;
+}
+```
+
+`oTypographyProductHeadingLevel1` is an example of the product variant for an `h1`.
+
+Usage:
+```scss
+.my-non-article-headline {
+	@include oTypographyProductHeadingLevel1();
+}
+```
+
+Output:
+```css
+.my-non-article-headline {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	color: #33302e;
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+}
+```
+
+There are multiple mixins for article headings and for product headings, examples of which can be found in the [`o-typography` demos](http://registry.origami.ft.com/components/o-typography).
 
 ### JavaScript
 

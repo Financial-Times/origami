@@ -1,0 +1,44 @@
+////
+/// @group Use cases
+/// @link http://registry.origami.ft.com/components/o-typography
+////
+
+/// Level 1 product heading styles
+@mixin oTypographyProductHeadingLevel1 {
+	@include _oTypographyProductHeadingBase($scale: 5, $weight: semibold);
+}
+
+/// Level 2 product heading styles
+@mixin oTypographyProductHeadingLevel2 {
+	@include _oTypographyProductHeadingBase($scale: 5);
+}
+
+/// Level 3 product heading styles
+@mixin oTypographyProductHeadingLevel3 {
+	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
+}
+
+/// Level 4 heading styles
+@mixin oTypographyProductHeadingLevel4 {
+	@include _oTypographyProductHeadingBase($scale: 4);
+}
+
+/// Level 5 heading styles
+@mixin oTypographyProductHeadingLevel5 {
+	@include _oTypographyProductHeadingBase($scale: 3, $weight: semibold);
+}
+
+/// Level 6 heading styles
+@mixin oTypographyProductHeadingLevel6 {
+	@include _oTypographyProductHeadingBase($scale: 3);
+}
+
+/// Level 7 heading styles
+@mixin oTypographyProductHeadingLevel7 {
+	@include _oTypographyProductHeadingBase($scale: 2, $weight: semibold);
+}
+
+/// Level 8 heading styles
+@mixin oTypographyProductHeadingLevel8 {
+	@include _oTypographyProductHeadingBase($scale: 2);
+}

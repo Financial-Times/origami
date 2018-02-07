@@ -41,6 +41,11 @@
 			"description": ""
 		},
 		{
+			"name": "product-headings",
+			"template": "demos/src/product-headings.mustache",
+			"description": ""
+		},
+		{
 			"name": "all-styles",
 			"template": "demos/src/all-styles.mustache",
 			"description": "",

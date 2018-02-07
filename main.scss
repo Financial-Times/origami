@@ -16,6 +16,7 @@
 
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
+@import 'src/scss/use-cases/product-headings';
 @import 'src/scss/use-cases/article';
 @import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
@@ -60,6 +61,40 @@
 
 	.o-typography-collection-heading {
 		@include oTypographyCollectionHeader;
+	}
+
+	// Product Headings
+
+	.o-typography-product-heading-level-1 {
+		@include oTypographyProductHeadingLevel1;
+	}
+
+	.o-typography-product-heading-level-2 {
+		@include oTypographyProductHeadingLevel2;
+	}
+
+	.o-typography-product-heading-level-3 {
+		@include oTypographyProductHeadingLevel3;
+	}
+
+	.o-typography-product-heading-level-4 {
+		@include oTypographyProductHeadingLevel4;
+	}
+
+	.o-typography-product-heading-level-5 {
+		@include oTypographyProductHeadingLevel5;
+	}
+
+	.o-typography-product-heading-level-6 {
+		@include oTypographyProductHeadingLevel6;
+	}
+
+	.o-typography-product-heading-level-7 {
+		@include oTypographyProductHeadingLevel7;
+	}
+
+	.o-typography-product-heading-level-8 {
+		@include oTypographyProductHeadingLevel8;
 	}
 
 	// Body copy - common
@@ -134,6 +169,11 @@
 	// Body wrapper
 	.o-typography-wrapper {
 		@include oTypographyWrapper;
+	}
+
+	// Body wrapper for non-article related products
+	.o-typography-wrapper--product {
+		@include oTypographyWrapper($style: product);
 	}
 
 	// Don't output twice

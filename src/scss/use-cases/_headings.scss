@@ -28,34 +28,22 @@
 
 /// Level 2 heading styles
 @mixin oTypographyHeadingLevel2 {
-
-	@include oTypographySansBold($scale: 4);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
+	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
 }
 
 /// Level 3 heading styles
 @mixin oTypographyHeadingLevel3 {
-	@include oTypographySans($scale: 4);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 4);
 }
 
 /// Level 4 heading styles
 @mixin oTypographyHeadingLevel4 {
-	@include oTypographySans($scale: 3);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 3);
 }
 
 /// Level 5 heading styles
 @mixin oTypographyHeadingLevel5 {
-	@include oTypographySans($scale: 0);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 0);
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
