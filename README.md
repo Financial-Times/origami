@@ -5,6 +5,7 @@ Foundation styles and standardised utilities
 
 - [Usage](#usage)
 	- [Sass](#sass)
+	- [Focus States](#focus-states)
 - [Contributing](#contributing)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -36,6 +37,14 @@ The following mixins apply normalising styles to groups of HTML elements, these 
 
 - `$o-normalise-grid-gutters` - provides a map of standardised grid gutter sizes
 - `$o-normalise-border-radius` - provides a standardised border radius value
+
+### Focus States
+
+`o-normalise` provides default focus states using the `:focus-visible` pseudo-class. This applies while an element matches the `:focus` pseudo-class and the UA determines that the focus should be specially indicated.
+
+No browser supports `:focus-visible` right now (31st Jan 2018) but there is [a polyfill](https://github.com/WICG/focus-visible) which roughly mimics the behaviour by adding a class `.focus-visible` to an element if it should have `:focus-visible` applied to it. Integrate [the polyfill](https://github.com/WICG/focus-visible) with your project to apply these focus styles.
+
+`:focus` is used as a fallback in `core` mode.
 
 ## Contributing
 
