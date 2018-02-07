@@ -22,12 +22,17 @@ const Store = require('./store');
  * Init
  *
  * @param {String} value The value of a userID to use if one is not stored
+ * @param {String} cookieDomain The domain that should be used to cookie te user
  * @return {String} - The user ID if present, or a generated UID if not
  */
-function init(value) {
-	store = new Store(defaultUserConfig.name, defaultUserConfig);
+function init(value, cookieDomain) {
+	if ( cookieDomain ) {
+		defaultUserConfig.domain = cookieDomain;
+	}
 
+	store = new Store(defaultUserConfig.name, defaultUserConfig);
 	let id = store.read();
+
 	if (!id) {
 		id = value;
 	}
