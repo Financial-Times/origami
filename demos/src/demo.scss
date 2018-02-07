@@ -10,11 +10,6 @@ body {
 	@include oColorsFor(page, background);
 }
 
-.o-topper {
-	// TODO: add to next-article, discuss whether o-topper should do it itself
-	-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-}
-
 .tags--large {
 	// TODO: should this be part of o-topper? should it be done by the opinion theme?
 	@include oTypographySize($scale: 2, $line-height: 28px);
