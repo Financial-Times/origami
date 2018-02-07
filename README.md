@@ -54,9 +54,11 @@ var myOverlay = new Overlay('myOverlay', {
 	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+* `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
 * `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
 * `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
+* `class`: String. The custom classes to apply to to the overlay e.g. `o-overlay--my-modifier`.
 * `trigger`: String or HTMLElement. querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
 * `zindex`: String. Value of the CSS z-index property of the overlay. _Default set via CSS_: '10'
 * `preventclosing`: Boolean. Prevents closure of overlay via standard x button or escape key. For use when you are directing the user to somewhere else. Only valid with modal set to true.

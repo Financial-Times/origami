@@ -101,6 +101,65 @@ describe("Overlay", () => {
 			const testOverlay = new Overlay('myID', {html: 'hello'});
 			proclaim.strictEqual(document.body, testOverlay.context);
 		});
+
+		it("Does not add state to history when not in full screen mode.", () => {
+			const testOverlay = new Overlay('myID', { html: 'hello', fullscreen: false });
+			testOverlay.open();
+			proclaim.isNull(history.state);
+		});
+
+		it("Does not disable document scrolling when not in full screen mode.", (done) => {
+			const testOverlay = new Overlay('myID', { html: 'hello' });
+			testOverlay.open();
+			setTimeout(() => {
+				proclaim.equal('', document.body.style.overflow);
+				done();
+			}, 10);
+		});
+
+		it("Adds state to history when opened in full screen mode if supported.", () => {
+			const testOverlay = new Overlay('myID', {html: 'hello', fullscreen: true});
+			proclaim.isNull(history.state);
+			testOverlay.open();
+			if (window.history.pushState) {
+				proclaim.equal(history.state.overlay, 'fullscreen');
+			}
+		});
+
+		it("Removes state from history when opened in full screen mode if supported.", () => {
+			const testOverlay = new Overlay('myID', {html: 'hello', fullscreen: true});
+			sinon.spy(window.history, "back");
+			testOverlay.open();
+			testOverlay.close();
+			if (window.history.pushState) {
+				proclaim.isTrue(window.history.back.called);
+
+			}
+			window.history.back.restore();
+		});
+
+		it("Disables document scrolling with an open full screen overlay.", (done) => {
+			const testOverlay = new Overlay('myID', {html: 'hello'});
+			testOverlay.open();
+			setTimeout(() => {
+				proclaim.equal('hidden', document.body.style.overflow);
+				testOverlay.close();
+				done();
+			}, 10);
+		});
+
+		it("Adds custom classes to the overlay.", (done) => {
+			const testOverlay = new Overlay('myID', {
+				html: 'hello',
+				class: 'myCustomClass mySecondCustomClass'
+			});
+			testOverlay.open();
+			setTimeout(() => {
+				proclaim.isTrue(document.querySelector('.o-overlay').classList.contains("myCustomClass"));
+				proclaim.isTrue(document.querySelector('.o-overlay').classList.contains("mySecondCustomClass"));
+				done();
+			}, 10);
+		});
 	});
 });
 

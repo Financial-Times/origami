@@ -5,8 +5,8 @@
 
 /// Add to the overlay for a for it to stretch to full width or full height
 ///
-/// @param {String} fill - 'width' or 'height'
-@mixin oOverlayFullscreen($fill) {
+/// @param {String|null} fill - 'width' or 'height'
+@mixin oOverlayFullscreen($fill: null) {
 	@if ($fill == 'width') {
 		padding-left: 0;
 		padding-right: 0;
@@ -15,5 +15,7 @@
 		padding-top: 0;
 		padding-bottom: 0;
 		height: 100%;
+	} @else if ($fill == null) {
+		border: 0;
 	}
 }

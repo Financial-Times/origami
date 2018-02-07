@@ -72,14 +72,19 @@
 		}
 	}
 
+	.#{$classname}--full-screen,
 	.#{$classname}--full-width {
 		@include oOverlayFullscreen($fill: 'width');
 	}
 
+	.#{$classname}--full-screen,
 	.#{$classname}--full-height {
 		@include oOverlayFullscreen($fill: 'height');
 	}
 
+	.#{$classname}--full-screen {
+		@include oOverlayFullscreen();
+	}
 }
 
 @if ($o-overlay-is-silent == false) {
