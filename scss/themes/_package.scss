@@ -1,7 +1,7 @@
 @mixin oTopperAnchorLink {
 	@include oTypographySans(0, $progressive: true);
 	display: inline-block;
-	margin-top: 30px;
+	@include oTypographyMargin($top: 8);
 	width: 110px;
 	padding: 5px 0 0 10px;
 	border-top: 1px solid oColorsGetColorFor('link', 'text');
@@ -26,7 +26,7 @@
 }
 
 @mixin oTopperThemePackage {
-	margin-bottom: 40px;
+	@include oTypographyMargin($bottom: 10);
 
 	%_o-topper__tag,
 	.o-topper__headline {
