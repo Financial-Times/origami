@@ -52,7 +52,6 @@
 		}
 
 		.o-topper__image {
-			position: absolute;
 			@include oGridRespondTo($until: M) {
 				max-height: 480px;
 			}
@@ -60,6 +59,10 @@
 	}
 
 	@supports (object-fit: cover) {
+		.o-topper__image {
+			position: absolute;
+		}
+
 		.o-topper__visual {
 			@include oGridRespondTo(M) {
 				height: 480px;
