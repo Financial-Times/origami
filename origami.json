@@ -1,0 +1,37 @@
+{
+	"description": "Component description",
+	"keywords": "Product messaging component used for alerting and informing.",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-message/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-message"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"name": "demo",
+			"js": "demos/src/demo.js",
+			"template": "demos/src/demo.mustache",
+			"description": ""
+		},
+		{
+			"name": "pa11y",
+			"js": "demos/src/demo.js",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}
