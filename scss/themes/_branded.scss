@@ -36,7 +36,12 @@
 	}
 }
 
-@mixin oTopperThemeOpinion {}
+@mixin oTopperThemeOpinion {
+	.o-topper__topic,
+	.o-topper__opinion-genre {
+		@include oTypographySize($scale: 2, $line-height: 28px);
+	}
+}
 
 @mixin oTopperOpinionGenre {
 	@extend %_o-topper__tag;
