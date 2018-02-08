@@ -45,11 +45,6 @@
 	}
 }
 
-@mixin oTopperPackageSequenceId {
-	@include oTypographySans(-2, $progressive: true);
-	@include _oTypographyProgressiveFontFallbackSize('sans', 1);
-}
-
 @mixin oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
