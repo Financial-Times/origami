@@ -1,8 +1,4 @@
 @mixin oTopperThemeElements {
-	.o-topper--has-headshot {
-		@include oTopperHasHeadshot;
-	}
-
 	.o-topper__opinion-genre {
 		@include oTopperOpinionGenre;
 	}
@@ -17,12 +13,18 @@
 }
 
 @mixin oTopperThemes() {
+	@include oTopperThemeElements;
+
 	.o-topper--branded {
 		@include oTopperThemeBranded;
 	}
 
 	.o-topper--opinion {
 		@include oTopperThemeOpinion;
+	}
+
+	.o-topper--has-headshot {
+		@include oTopperHasHeadshot;
 	}
 
 	.o-topper--full-bleed-offset {
@@ -55,8 +57,6 @@
 	.o-topper--news-package {
 		@include oTopperThemeNewsPackage;
 	}
-
-	@include oTopperThemeElements;
 }
 
 @mixin oTopperElements {
