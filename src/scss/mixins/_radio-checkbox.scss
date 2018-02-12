@@ -63,6 +63,10 @@
         transition: all 0.1s ease-in;
     }
 
+	&:focus + .#{$class}__label::before {
+		@include oFormsCommonFieldFocus;
+    }
+
     & + .#{$class}__label::after {
         content: '';
         opacity: 0;
