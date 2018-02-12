@@ -10,6 +10,10 @@
 	.o-topper__headshot-image {
 		@include oTopperHeadshotImage;
 	}
+
+	.o-topper__anchor-link {
+		@include oTopperAnchorLink;
+	}
 }
 
 @mixin oTopperThemes() {
@@ -135,10 +139,6 @@
 
 	.o-topper__image-credit {
 		@include oTopperImageCredit;
-	}
-
-	.o-topper__anchor-link {
-		@include oTopperAnchorLink;
 	}
 }
 
