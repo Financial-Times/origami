@@ -1,99 +1,100 @@
 {
-    "description": "Responsive Financial Times page header",
-    "origamiType": "module",
-    "origamiCategory": "components",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-header/issues",
-    "supportContact": {
-        "email": "origami.support@ft.com",
-        "slack": "financialtimes/ft-origami"
-    },
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "CustomEvent",
-            "Array.from",
-            "Event",
-            "Element.prototype.classList",
-            "Array.prototype.forEach",
-            "Array.prototype.map",
-            "Array.prototype.filter",
-            "requestAnimationFrame"
-        ]
-    },
-    "ci": {
-        "circle": "https://circleci.com/gh/Financial-Times/o-header"
-    },
-    "demosDefaults": {
-        "sass": "demos/src/main.scss",
-        "js": "demos/src/main.js",
-        "documentClasses": "core",
-        "dependencies": "o-colors,o-normalise"
-    },
-    "demos": [
-        {
-            "name": "header",
-            "title": "Header",
-            "data": "demos/src/header.json",
-            "template": "demos/src/header.mustache",
-            "description": ""
-        },
-        {
-            "name": "mega-menu",
-            "title": "Mega menu",
-            "data": "demos/src/mega-menu.json",
-            "template": "demos/src/mega-menu.mustache",
-            "description": ""
-        },
-        {
-            "name": "subnav",
-            "title": "Header with subnav",
-            "data": "demos/src/subnav.json",
-            "template": "demos/src/subnav.mustache",
-            "description": ""
-        },
-        {
-            "name": "simple-header",
-            "title": "Simple header",
-            "data": "demos/src/header.json",
-            "template": "demos/src/simple-header.mustache",
-            "description": ""
-        },
-        {
-            "name": "transparent-header",
-            "title": "Transparent header",
-            "data": "demos/src/header.json",
-            "template": "demos/src/transparent-header.mustache",
-            "description": "",
-            "documentClasses": "demo-transparent"
-        },
-        {
-            "name": "sticky-header",
-            "title": "Sticky header",
-            "data": "demos/src/header.json",
-            "template": "demos/src/sticky-header.mustache",
-            "description": "Sticky variation of the simple header",
-            "documentClasses": "demo-sticky"
-        },
-        {
-            "name": "subbranded-header",
-            "title": "Subbranded header",
-            "data": "demos/src/subbrand.json",
-            "template": "demos/src/subbrand.mustache",
-            "description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
-        },
-        {
-            "name": "grid-demo",
-            "title": "Grid demo",
-            "template": "demos/src/grid-demo.mustache",
-            "hidden": "true",
-            "description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
-        },
-        {
-            "name": "pa11y",
-            "data": "demos/src/header.json",
-            "template": "demos/src/pa11y.mustache",
-            "hidden": "true"
-        }
-    ]
+	"description": "Responsive Financial Times page header",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-header/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"CustomEvent",
+			"Array.from",
+			"Event",
+			"Element.prototype.classList",
+			"Array.prototype.forEach",
+			"Array.prototype.map",
+			"Array.prototype.filter",
+			"requestAnimationFrame"
+		]
+	},
+	"ci": {
+		"circle": "https://circleci.com/gh/Financial-Times/o-header"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/main.scss",
+		"js": "demos/src/main.js",
+		"documentClasses": "core",
+		"dependencies": "o-colors,o-normalise"
+	},
+	"demos": [
+		{
+			"name": "header",
+			"title": "Header",
+			"data": "demos/src/header.json",
+			"template": "demos/src/header.mustache",
+			"description": ""
+		},
+		{
+			"name": "mega-menu",
+			"title": "Mega menu",
+			"data": "demos/src/mega-menu.json",
+			"template": "demos/src/mega-menu.mustache",
+			"description": ""
+		},
+		{
+			"name": "subnav",
+			"title": "Header with subnav",
+			"data": "demos/src/subnav.json",
+			"template": "demos/src/subnav.mustache",
+			"description": ""
+		},
+		{
+			"name": "simple-header",
+			"title": "Simple header",
+			"data": "demos/src/header.json",
+			"template": "demos/src/simple-header.mustache",
+			"description": ""
+		},
+		{
+			"name": "transparent-header",
+			"title": "Transparent header",
+			"data": "demos/src/header.json",
+			"template": "demos/src/transparent-header.mustache",
+			"description": "",
+			"documentClasses": "demo-transparent"
+		},
+		{
+			"name": "sticky-header",
+			"title": "Sticky header",
+			"data": "demos/src/header.json",
+			"template": "demos/src/sticky-header.mustache",
+			"description": "Sticky variation of the simple header",
+			"documentClasses": "demo-sticky"
+		},
+		{
+			"name": "subbranded-header",
+			"title": "Subbranded header",
+			"data": "demos/src/subbrand.json",
+			"template": "demos/src/subbrand.mustache",
+			"description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
+		},
+		{
+			"name": "grid-demo",
+			"title": "Grid demo",
+			"template": "demos/src/grid-demo.mustache",
+			"hidden": "true",
+			"description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"data": "demos/src/header.json",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": "true"
+		}
+	]
 }
