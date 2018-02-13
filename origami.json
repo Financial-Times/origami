@@ -11,18 +11,22 @@
 	"supportStatus": "active",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"dependencies": ["o-fonts@^3.0.0"]
+		"dependencies": [
+			"o-fonts@^3.0.0"
+		]
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
 	},
 	"demos": [
 		{
+			"title": "Standard",
 			"name": "standard",
 			"template": "demos/src/standard.mustache",
 			"hidden": false
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true
