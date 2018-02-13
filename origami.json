@@ -1,58 +1,62 @@
 {
-		"description": "Responsive page header for minimally branded sites, eg B2B tools, documentation sites, and internal tools.",
-		"origamiType": "module",
-		"origamiCategory": "components",
-		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-header-services/issues",
-		"supportContact": {
-				"email": "origami.support@ft.com",
-				"slack": "financialtimes/ft-origami"
-		},
-		"supportStatus": "active",
-		"browserFeatures": {
-				"required": [
-						"customevent"
-				]
-		},
-		"ci": {
-				"circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
-		},
-		"demosDefaults": {
-				"dependencies": ["o-fonts@^3.0.0","o-normalise@^1.0.0"],
-				"sass": "demos/src/main.scss",
-				"js": "demos/src/main.js",
-				"documentClasses": "core"
-		},
-		"demos": [
-				{
-						"name": "very-simple",
-						"title": "Site title only",
-						"template": "demos/src/very-simple.mustache",
-						"description": "If your site has no navigation you can use this top bar only."
-				},
-				{
-						"name": "one-level-of-navigation",
-						"title": "Header with navigation add-on",
-						"template": "demos/src/one-navigation.mustache",
-						"description": "For sites with a few pages, there is a navigation style available. These nav items collapse into a drawer at narrow screen widths."
-				},
-				{
-						"name": "two-levels-of-navigation",
-						"title": "Header with a primary and secondary navigation",
-						"template": "demos/src/two-navigation.mustache",
-						"description": "For sites with more than a few sections, a secondary navigation is also available"
-				},
-				{
-						"name": "themes",
-						"title": "Product themes",
-						"template": "demos/src/themes.mustache",
-						"description": "This component is themable. The current available themes are B2B and B2C. If you're creating a product that isn't within B2B or B2C please contact Origami."
-				},
-				{
-					"name": "pa11y",
-					"template": "demos/src/pa11y.mustache",
-					"hidden": true,
-					"description": "Accessibility test will be run against this demo"
-				}
+	"description": "Responsive page header for minimally branded sites, eg B2B tools, documentation sites, and internal tools.",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-header-services/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"customevent"
 		]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
+	},
+	"demosDefaults": {
+		"dependencies": [
+			"o-fonts@^3.0.0",
+			"o-normalise@^1.0.0"
+		],
+		"sass": "demos/src/main.scss",
+		"js": "demos/src/main.js",
+		"documentClasses": "core"
+	},
+	"demos": [
+		{
+			"name": "very-simple",
+			"title": "Site title only",
+			"template": "demos/src/very-simple.mustache",
+			"description": "If your site has no navigation you can use this top bar only."
+		},
+		{
+			"name": "one-level-of-navigation",
+			"title": "Header with navigation add-on",
+			"template": "demos/src/one-navigation.mustache",
+			"description": "For sites with a few pages, there is a navigation style available. These nav items collapse into a drawer at narrow screen widths."
+		},
+		{
+			"name": "two-levels-of-navigation",
+			"title": "Header with a primary and secondary navigation",
+			"template": "demos/src/two-navigation.mustache",
+			"description": "For sites with more than a few sections, a secondary navigation is also available"
+		},
+		{
+			"name": "themes",
+			"title": "Product themes",
+			"template": "demos/src/themes.mustache",
+			"description": "This component is themable. The current available themes are B2B and B2C. If you're creating a product that isn't within B2B or B2C please contact Origami."
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
 }
