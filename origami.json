@@ -1,92 +1,94 @@
 {
-    "description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
-    "origamiType": "module",
-    "origamiCategory": "components",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-forms/issues",
-    "supportContact": {
-        "email": "origami.support@ft.com",
-        "slack": "financialtimes/ft-origami"
-    },
-    "supportStatus": "active",
-    "keywords": "tickbox radio input checkbox error",
-    "ci": {
-        "circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
-    },
-    "demos": [
-        {
-            "name": "text-inputs",
-            "title": "Text input",
-            "template": "/demos/src/text-inputs.mustache",
-            "description": "<strong>Usercase:</strong> This is the generic text input box for most use cases to build any type of form."
-        },
-        {
-            "name": "select-boxes",
-            "title": "Select box",
-            "template": "/demos/src/select-boxes.mustache",
-            "description": "<strong>Usercase:</strong> This is the generic select box for most use cases that can be used to build any type of form on all devices."
-        },
-        {
-            "name": "textareas",
-            "title": "Textarea",
-            "template": "/demos/src/textareas.mustache",
-            "description": "<strong>Usercase:</strong> This is the generic text area box for most use cases."
-        },
-        {
-            "name": "radios",
-            "title": "Radio buttons",
-            "template": "/demos/src/radios.mustache",
-            "description": "<strong>Usercase:</strong> These are the generic radio buttons for most use cases."
-        },
-        {
-            "name": "radios-button-styled",
-            "title": "Radios with button styling",
-            "template": "/demos/src/radios-button-styling.mustache",
-            "description": "<strong>Usercase:</strong> Can be used to require the user to choose between alternatives, with no default set."
-        },
-        {
-            "name": "checkboxes",
-            "title": "Checkboxes",
-            "template": "/demos/src/checkboxes.mustache",
-            "description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
-        },
-        {
-            "name": "toggle",
-            "title": "A checkbox which acts as a toggle",
-            "template": "/demos/src/toggle.mustache",
-            "description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
-        },
-        {
-            "name": "suffix",
-            "template": "/demos/src/suffix.mustache",
-            "description": ""
-        },
-        {
-            "name": "sections",
-            "title": "Sections",
-            "template": "/demos/src/sections.mustache",
-            "description": "<strong>Usercase:</strong> These are optional section wrappers to highlight multiple instances of o-forms."
-        },
-        {
-            "name": "pa11y",
-            "template": "/demos/src/pa11y.mustache",
-            "hidden": true,
-            "description": ""
-        },
-        {
-            "name": "js-validation",
-            "title": "Validate inputs",
-            "template": "/demos/src/validation.mustache",
-            "hidden": true
-        }
-    ],
-    "demosDefaults": {
-        "sass": "demos/src/demo.scss",
-        "js": "demos/src/demo.js",
-        "dependencies": [
-            "o-fonts@^3",
-            "o-buttons@^5",
-            "o-normalise@1"
-        ]
-    }
+	"description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-forms/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"keywords": "tickbox radio input checkbox error",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
+	},
+	"demos": [
+		{
+			"name": "text-inputs",
+			"title": "Text input",
+			"template": "/demos/src/text-inputs.mustache",
+			"description": "<strong>Usercase:</strong> This is the generic text input box for most use cases to build any type of form."
+		},
+		{
+			"name": "select-boxes",
+			"title": "Select box",
+			"template": "/demos/src/select-boxes.mustache",
+			"description": "<strong>Usercase:</strong> This is the generic select box for most use cases that can be used to build any type of form on all devices."
+		},
+		{
+			"name": "textareas",
+			"title": "Textarea",
+			"template": "/demos/src/textareas.mustache",
+			"description": "<strong>Usercase:</strong> This is the generic text area box for most use cases."
+		},
+		{
+			"name": "radios",
+			"title": "Radio buttons",
+			"template": "/demos/src/radios.mustache",
+			"description": "<strong>Usercase:</strong> These are the generic radio buttons for most use cases."
+		},
+		{
+			"name": "radios-button-styled",
+			"title": "Radios with button styling",
+			"template": "/demos/src/radios-button-styling.mustache",
+			"description": "<strong>Usercase:</strong> Can be used to require the user to choose between alternatives, with no default set."
+		},
+		{
+			"name": "checkboxes",
+			"title": "Checkboxes",
+			"template": "/demos/src/checkboxes.mustache",
+			"description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
+		},
+		{
+			"name": "toggle",
+			"title": "A checkbox which acts as a toggle",
+			"template": "/demos/src/toggle.mustache",
+			"description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
+		},
+		{
+			"title": "Suffix",
+			"name": "suffix",
+			"template": "/demos/src/suffix.mustache",
+			"description": ""
+		},
+		{
+			"name": "sections",
+			"title": "Sections",
+			"template": "/demos/src/sections.mustache",
+			"description": "<strong>Usercase:</strong> These are optional section wrappers to highlight multiple instances of o-forms."
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "/demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": ""
+		},
+		{
+			"name": "js-validation",
+			"title": "Validate inputs",
+			"template": "/demos/src/validation.mustache",
+			"hidden": true
+		}
+	],
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"dependencies": [
+			"o-fonts@^3",
+			"o-buttons@^5",
+			"o-normalise@1"
+		]
+	}
 }
