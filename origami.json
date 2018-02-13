@@ -1,30 +1,31 @@
 {
-    "description": "Module for tracking FT",
-    "origamiType": "module",
-    "origamiCategory": "components",
-    "origamiVersion": 1,
-    "support": "https://github.com/Financial-Times/o-tracking/issues",
-    "supportContact": {
-        "email": "origami.support@ft.com",
-        "slack": "financialtimes/ft-origami"
-    },
-    "supportStatus": "active",
-    "browserFeatures": {
-        "required": [
-            "CustomEvent"
-        ],
-        "optional": [
-            "Promise",
-            "sendBeacon"
-        ]
-    },
-    "demos": [
-        {
-            "name": "json-config",
-            "description": "Sample configuration for a product.",
-            "template": "demos/src/json-config.mustache",
-            "js": "demos/src/demo.js",
-            "sass": "demos/src/demo.scss"
-        }
-    ]
+	"description": "Module for tracking FT",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-tracking/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"CustomEvent"
+		],
+		"optional": [
+			"Promise",
+			"sendBeacon"
+		]
+	},
+	"demos": [
+		{
+			"title": "Json Config",
+			"name": "json-config",
+			"description": "Sample configuration for a product.",
+			"template": "demos/src/json-config.mustache",
+			"js": "demos/src/demo.js",
+			"sass": "demos/src/demo.scss"
+		}
+	]
 }
