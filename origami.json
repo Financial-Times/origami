@@ -20,6 +20,7 @@
 	},
 	"demos": [
 		{
+			"title": "Approved Cookie Banner",
 			"name": "Approved cookie banner",
 			"js": "demos/src/demo.js",
 			"template": "demos/src/default.mustache",
@@ -27,6 +28,7 @@
 			"description": "This cookie banner should be used across all FT products and contains links back to the FT's cookie policy. The copy in the banner has been approved by the FT's legal team."
 		},
 		{
+			"title": "Custom HTML",
 			"name": "Custom HTML",
 			"js": "demos/src/demo.js",
 			"template": "demos/src/customHTML.mustache",
@@ -34,11 +36,12 @@
 			"description": ""
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"js": "demos/src/demo.js",
 			"template": "/demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": ""
-    }
+		}
 	]
 }
