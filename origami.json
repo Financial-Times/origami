@@ -11,10 +11,14 @@
 	"supportStatus": "active",
 	"ci": {},
 	"browserFeatures": {
-		"required": ["createevent", "customevents"]
+		"required": [
+			"createevent",
+			"customevents"
+		]
 	},
 	"demos": [
 		{
+			"title": "Main",
 			"name": "main",
 			"template": "/demos/src/demo.mustache",
 			"data": "/demos/src/data.json",
