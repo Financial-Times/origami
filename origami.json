@@ -1,61 +1,68 @@
 {
-		"description": "A collection of article teasers.",
-		"keywords": "article, teaser, list, collection",
-		"origamiType": "module",
-		"origamiCategory": "components",
-		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
-		"supportContact": {
-				"email": "origami.support@ft.com",
-				"slack": "financialtimes/ft-origami"
+	"description": "A collection of article teasers.",
+	"keywords": "article, teaser, list, collection",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": "o-date@^2.2.1,o-teaser@^2.0.0,o-normalise@^1.0.0"
+	},
+	"demos": [
+		{
+			"title": "Standard",
+			"name": "standard",
+			"description": "Standard teaser collection",
+			"template": "demos/src/demo.mustache"
 		},
-		"supportStatus": "active",
-		"browserFeatures": {},
-		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
+		{
+			"title": "Special",
+			"name": "special",
+			"description": "Special teaser collection with highlighted background",
+			"template": "demos/src/demo-special.mustache"
 		},
-		"demosDefaults": {
-			"sass": "demos/src/demo.scss",
-			"documentClasses": "",
-			"dependencies": "o-date@^2.2.1,o-teaser@^2.0.0,o-normalise@^1.0.0"
+		{
+			"title": "Numbered",
+			"name": "numbered",
+			"description": "Numbered teaser collection",
+			"template": "demos/src/demo-numbered.mustache"
 		},
-		"demos": [
-			{
-				"name": "standard",
-				"description": "Standard teaser collection",
-				"template": "demos/src/demo.mustache"
-			},
-			{
-				"name": "special",
-				"description": "Special teaser collection with highlighted background",
-				"template": "demos/src/demo-special.mustache"
-			},
-			{
-				"name": "numbered",
-				"description": "Numbered teaser collection",
-				"template": "demos/src/demo-numbered.mustache"
-			},
-			{
-				"name": "horizontal",
-				"description": "Teasers in horizontal rather than standard column layout",
-				"template": "demos/src/demo-horizontal.mustache"
-			},
-			{
-				"name": "horizontal numbered",
-				"description": "Numbered teasers in horizontal rather than standard column layout",
-				"template": "demos/src/demo-horizontal-numbered.mustache"
-			},
-			{
-				"name": "narrow",
-				"description": "Standard teaser at narrow width collection",
-				"template": "demos/src/demo-slim.mustache"
-			},
-			{
-				"name": "pa11y",
-				"js": "demos/src/demo.js",
-				"template": "demos/src/pa11y.mustache",
-				"hidden": true,
-				"description": "Accessibility test will be run against this demo"
-			}
-		]
-	}
+		{
+			"title": "Horizontal",
+			"name": "horizontal",
+			"description": "Teasers in horizontal rather than standard column layout",
+			"template": "demos/src/demo-horizontal.mustache"
+		},
+		{
+			"title": "Horizontal Numbered",
+			"name": "horizontal numbered",
+			"description": "Numbered teasers in horizontal rather than standard column layout",
+			"template": "demos/src/demo-horizontal-numbered.mustache"
+		},
+		{
+			"title": "Narrow",
+			"name": "narrow",
+			"description": "Standard teaser at narrow width collection",
+			"template": "demos/src/demo-slim.mustache"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"js": "demos/src/demo.js",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}
