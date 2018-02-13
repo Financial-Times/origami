@@ -1,80 +1,89 @@
 {
-		"description": "A tooltip for annotating or drawing attention to other bits of UI",
-		"keywords": "tooltip, tool, tip, annotate, highlight",
-		"origamiType": "module",
-		"origamiCategory": "components",
-		"origamiVersion": 1,
-		"support": "https://github.com/Financial-Times/o-tooltip/issues",
-		"supportContact": {
-				"email": "origami.support@ft.com",
-				"slack": "financialtimes/ft-origami"
+	"description": "A tooltip for annotating or drawing attention to other bits of UI",
+	"keywords": "tooltip, tool, tip, annotate, highlight",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-tooltip/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-tooltip"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": "o-fonts@^3.0.0,o-colors@^4.0.0,o-buttons@^5.0.0,o-normalise@^1.0.0"
+	},
+	"demos": [
+		{
+			"title": "Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Basic demo"
 		},
-		"supportStatus": "active",
-		"browserFeatures": {},
-		"ci": {
-			"circle": "https://circleci.com/api/v1/project/Financial-Times/o-tooltip"
+		{
+			"title": "Hover",
+			"name": "hover",
+			"template": "demos/src/hover.mustache",
+			"description": "Display on hover demo"
 		},
-		"demosDefaults": {
-			"sass": "demos/src/demo.scss",
-			"js": "demos/src/demo.js",
-
-			"documentClasses": "",
-			"dependencies": "o-fonts@^3.0.0,o-colors@^4.0.0,o-buttons@^5.0.0,o-normalise@^1.0.0"
+		{
+			"title": "Click",
+			"name": "click",
+			"template": "demos/src/click.mustache",
+			"description": "Display on click demo"
 		},
-		"demos": [
-			{
-				"name": "demo",
-				"template": "demos/src/demo.mustache",
-				"description": "Basic demo"
-			},
-			{
-				"name": "hover",
-				"template": "demos/src/hover.mustache",
-				"description": "Display on hover demo"
-			},
-			{
-				"name": "click",
-				"template": "demos/src/click.mustache",
-				"description": "Display on click demo"
-			},
-			{
-				"name": "toggle",
-				"template": "demos/src/toggle.mustache",
-				"description": "Toggle on click demo"
-			},
-			{
-				"name": "timeout",
-				"template": "demos/src/timeout.mustache",
-				"description": "Show/Hide Tooltip after timeout demo"
-			},
-			{
-				"name": "no-markup",
-				"template": "demos/src/no-markup.mustache",
-				"js": "demos/src/no-markup.js",
-				"description": "Tooltip declared in js, with no markup"
-			},
-			{
-				"name": "responsive-positioning",
-				"template": "demos/src/responsive-positioning.mustache",
-				"description": "Responsive positioning"
-			},
-			{
-				"name": "scroll-test",
-				"template": "demos/src/scroll-test.mustache",
-				"hidden": true,
-				"description": "Demo testcase for scrolling bug"
-			},
-			{
-				"name": "relative-position-test",
-				"template": "demos/src/relative-position-test.mustache",
-				"hidden": true,
-				"description": "relative parent position testcase"
-			},
-			{
-				"name": "pa11y",
-				"template": "demos/src/pa11y.mustache",
-				"hidden": true,
-				"description": "Accessibility test will be run against this demo"
-			}
-		]
-	}
+		{
+			"title": "Toggle",
+			"name": "toggle",
+			"template": "demos/src/toggle.mustache",
+			"description": "Toggle on click demo"
+		},
+		{
+			"title": "Timeout",
+			"name": "timeout",
+			"template": "demos/src/timeout.mustache",
+			"description": "Show/Hide Tooltip after timeout demo"
+		},
+		{
+			"title": "No Markup",
+			"name": "no-markup",
+			"template": "demos/src/no-markup.mustache",
+			"js": "demos/src/no-markup.js",
+			"description": "Tooltip declared in js, with no markup"
+		},
+		{
+			"title": "Responsive Positioning",
+			"name": "responsive-positioning",
+			"template": "demos/src/responsive-positioning.mustache",
+			"description": "Responsive positioning"
+		},
+		{
+			"title": "Scroll Test",
+			"name": "scroll-test",
+			"template": "demos/src/scroll-test.mustache",
+			"hidden": true,
+			"description": "Demo testcase for scrolling bug"
+		},
+		{
+			"title": "Relative Position Test",
+			"name": "relative-position-test",
+			"template": "demos/src/relative-position-test.mustache",
+			"hidden": true,
+			"description": "relative parent position testcase"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}
