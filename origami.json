@@ -26,16 +26,19 @@
 	},
 	"demos": [
 		{
+			"title": "States",
 			"name": "States",
 			"template": "/demos/src/states.mustache",
 			"description": ""
 		},
 		{
+			"title": "Typography",
 			"name": "Typography",
 			"template": "/demos/src/typography.mustache",
 			"description": "use with o-typography"
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
 			"hidden": true
