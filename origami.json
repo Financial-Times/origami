@@ -22,27 +22,32 @@
 	},
 	"demos": [
 		{
+			"title": "Banner",
 			"name": "banner",
 			"template": "demos/src/banner.mustache",
 			"description": "Basic banner"
 		},
 		{
+			"title": "Small",
 			"name": "small",
 			"template": "demos/src/small.mustache",
 			"description": "Small banner theme"
 		},
 		{
+			"title": "Marketing",
 			"name": "marketing",
 			"template": "demos/src/marketing.mustache",
 			"description": "Marketing banner theme"
 		},
 		{
+			"title": "Imperative",
 			"name": "imperative",
 			"template": "demos/src/imperative.mustache",
 			"description": "Imperative banner",
 			"js": "demos/src/imperative.js"
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
