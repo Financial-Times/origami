@@ -20,15 +20,20 @@
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
-		"dependencies": ["o-fonts@^3.0.0","o-normalise@^1.0.0"]
+		"dependencies": [
+			"o-fonts@^3.0.0",
+			"o-normalise@^1.0.0"
+		]
 	},
 	"demos": [
 		{
+			"title": "Basic",
 			"name": "basic",
 			"template": "demos/src/basic.mustache",
 			"description": ""
 		},
 		{
+			"title": "Compact",
 			"name": "compact",
 			"template": "demos/src/basic.mustache",
 			"data": {
@@ -37,16 +42,19 @@
 			"description": ""
 		},
 		{
+			"title": "Captions",
 			"name": "captions",
 			"template": "demos/src/captions.mustache",
 			"description": ""
 		},
 		{
+			"title": "Responsive Flat",
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",
 			"description": "This is a flat responsive version"
 		},
 		{
+			"title": "Responsive Overflow",
 			"name": "responsive-overflow",
 			"template": "demos/src/responsive-overflow.mustache",
 			"data": {
@@ -55,6 +63,7 @@
 			"description": "This is an overflow responsive version"
 		},
 		{
+			"title": "Responsive Scroll",
 			"name": "responsive-scroll",
 			"template": "demos/src/responsive-scroll.mustache",
 			"data": {
@@ -63,6 +72,7 @@
 			"description": "This is a scrolling responsive version"
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true
