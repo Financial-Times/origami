@@ -18,36 +18,43 @@
 			"getComputedStyle",
 			"canvas",
 			"CustomEvent"
-			]
-		},
+		]
+	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-share"
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"dependencies": ["o-fonts@^3.0.0","o-normalise@^1.0.0"]
+		"dependencies": [
+			"o-fonts@^3.0.0",
+			"o-normalise@^1.0.0"
+		]
 	},
 	"demos": [
 		{
+			"title": "Horizontal",
 			"name": "horizontal",
 			"template": "demos/src/main.mustache",
 			"data": "demos/src/data.json",
 			"description": "horizontal"
 		},
 		{
+			"title": "Inverse",
 			"name": "inverse",
 			"template": "demos/src/inverse.mustache",
 			"data": "demos/src/data.json",
 			"description": "inverse share icons"
 		},
 		{
+			"title": "Vertical",
 			"name": "vertical",
 			"template": "demos/src/main.mustache",
 			"data": "demos/src/data-vertical.json",
 			"description": "vertical"
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"data": "demos/src/data.json",
