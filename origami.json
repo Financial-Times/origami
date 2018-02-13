@@ -31,34 +31,40 @@
 	},
 	"demos": [
 		{
+			"title": "Base Style",
 			"name": "base-style",
 			"template": "demos/src/base-style.mustache",
 			"hidden": true,
 			"description": ""
 		},
 		{
+			"title": "Buttontabs",
 			"name": "buttontabs",
 			"template": "demos/src/buttontabs.mustache",
 			"description": ""
 		},
 		{
+			"title": "Buttontabs Big",
 			"name": "buttontabs-big",
 			"template": "demos/src/buttontabs-big.mustache",
 			"description": ""
 		},
 		{
+			"title": "Buttontabs Primary",
 			"name": "buttontabs-primary",
 			"template": "demos/src/buttontabs-primary.mustache",
 			"description": "",
 			"hidden": true
 		},
 		{
+			"title": "Buttontabs Inverse",
 			"name": "buttontabs-inverse",
 			"template": "demos/src/buttontabs-inverse.mustache",
 			"description": "",
 			"hidden": true
 		},
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"description": "",
