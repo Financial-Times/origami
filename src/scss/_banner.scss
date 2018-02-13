@@ -29,6 +29,12 @@
 	margin: 0 auto;
 	padding: $_o-banner-spacing 0;
 	box-sizing: border-box;
+
+	@include oGridRespondTo($until: S) {
+		@include oTypographySans($scale: 0);
+		display: block;
+		padding: $_o-banner-spacing;
+	}
 }
 
 @mixin oBannerContent {
@@ -64,6 +70,10 @@
 		li:before {
 			color: inherit;
 		}
+	}
+
+	@include oGridRespondTo($until: S) {
+		padding: 0;
 	}
 }
 
@@ -103,17 +113,27 @@
 @mixin oBannerActions {
 	display: flex;
 	align-items: center;
+
+	@include oGridRespondTo($until: S) {
+		display: block;
+		margin-top: oTypographySpacingSize(6);
+	}
 }
 
 @mixin oBannerAction {
 	padding-right: $_o-banner-spacing;
+
+	@include oGridRespondTo($until: S) {
+		padding: 0;
+	}
 }
 
 @mixin oBannerActionSecondary {
 	text-align: right;
 
 	@include oGridRespondTo($until: S) {
-		display: none;
+		text-align: left;
+		margin-top: $_o-banner-spacing / 4;
 	}
 }
 
