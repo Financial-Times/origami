@@ -136,7 +136,7 @@
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyledFeature($class: 'o-forms') {
     .#{$class}__radio-button {
-      @include oFormsRadioButtonsStyled;
+      @include oFormsRadioButtonsStyled($class);
     }
 }
 
