@@ -24,12 +24,12 @@ function htmlCode () {
 		<form data-o-component="o-forms" id="element">
 			<div class="o-forms">
 				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required pattern="valid"/>
+				<input type="text" id="required-input" class="o-forms__text" required pattern="valid"/>
 			</div>
 
 			<div class="o-forms">
 				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="email" id="standard-input" placeholder="placeholder" class="o-forms__text" />
+				<input type="email" id="standard-input" class="o-forms__text" />
 			</div>
 
 			<input type="submit">
@@ -42,8 +42,8 @@ function htmlCode () {
 function allInputsHtmlCode () {
 	const html = `<div>
 		<form data-o-component="o-forms" id="element">
-			<input type="text" id="required-input" placeholder="placeholder" class="o-forms__text" required />
-			<input type="email" id="standard-input" placeholder="placeholder" class="o-forms__text" />
+			<input type="text" id="required-input" class="o-forms__text" required />
+			<input type="email" id="standard-input" class="o-forms__text" />
 			<select class="o-forms__select">
 				<option>test</option>
 			</select>

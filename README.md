@@ -25,7 +25,7 @@ Each form field is made up of at least 3 elements:
 ```html
 <div class="o-forms">
 	<label for="o-forms-demo-text" class="o-forms__label">Text input example</label>
-	<input type="text" id="o-forms-demo-text" placeholder="placeholder" class="o-forms__text" required />
+	<input type="text" id="o-forms-demo-text" class="o-forms__text" required />
 </div>
 ```
 
@@ -37,7 +37,7 @@ It is possible to add additional information to form fields with `.o-forms__addi
 <div class="o-forms">
 	<label for="o-forms-demo-additional" class="o-forms__label">Text input example</label>
 	<div class="o-forms__additional-info">Additional info follows the label if required.</div>
-	<input type="text" id="o-forms-demo-additional" placeholder="placeholder" class="o-forms__text" required />
+	<input type="text" id="o-forms-demo-additional" class="o-forms__text" required />
 </div>
 ```
 
@@ -48,7 +48,7 @@ To indicate to the user that a field is optional, add the `.o-forms__label--opti
 ```html
 <div class="o-forms">
 	<label for="o-forms-demo-optional" class="o-forms__label o-forms__label--optional">Optional  input example</label>
-	<input type="text" id="o-forms-demo-optional" placeholder="placeholder" class="o-forms__text" />
+	<input type="text" id="o-forms-demo-optional" class="o-forms__text" />
 </div>
 ```
 
@@ -59,7 +59,7 @@ The class `.o-forms--wide` can be used to show form fields without width restric
 ```html
 <div class="o-forms o-forms--wide">
 	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
-	<input type="text" placeholder="placeholder" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
+	<input type="text" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
 </div>
 ```
 
@@ -72,7 +72,7 @@ The markup above demonstrates how to use text inputs. More [text input examples]
 ```html
 <div class="o-forms">
 	<label for="o-forms-demo-textarea" class="o-forms__label">Textarea</label>
-	<textarea placeholder="Placeholder" id="o-forms-demo-textarea" class="o-forms__textarea"></textarea>
+	<textarea id="o-forms-demo-textarea" class="o-forms__textarea"></textarea>
 </div>
 ```
 
@@ -185,7 +185,7 @@ Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.
 <div class="o-forms">
 	<label class="o-forms__label" for="text-suffix">Text input with suffix button</label>
 	<div class="o-forms__affix-wrapper">
-		<input id="text-suffix" type="text" placeholder="placeholder" class="o-forms__text" />
+		<input id="text-suffix" type="text" class="o-forms__text" />
 		<div class="o-forms__suffix">
 			<button type="button" class="o-buttons o-buttons--secondary o-buttons--big">Go</button>
 		</div>
@@ -228,7 +228,7 @@ An error message, defined with `.o-forms__errortext`, can be appended to the con
 ```html
 <div class="o-forms o-forms--error">
 	<label class="o-forms__label">Text input</label>
-	<input type="text" placeholder="placeholder" class="o-forms__text" />
+	<input type="text" class="o-forms__text" />
 	<div class="o-forms__errortext">Please enter a valid url</div>
 </div>
 ```
@@ -244,7 +244,7 @@ Wrap a group of `.o-forms` fields in a section `.o-forms-section` to highlight t
 	</div>
 	<div class="o-forms">
 		<label for="o-forms-message" class="o-forms__label">Field Label</label>
-		<input type="text" id="o-forms-message" placeholder="placeholder" class="o-forms__text" required />
+		<input type="text" id="o-forms-message" class="o-forms__text" required />
 	</div>
 </div>
 ```
@@ -258,7 +258,7 @@ This can be used to highlight errors within a section of a form which contains m
 	</div>
 	<div class="o-forms o-forms--error">
 		<label for="o-forms-section-error" class="o-forms__label">Field Label</label>
-		<input type="text" id="o-forms-section-error" placeholder="placeholder" class="o-forms__text" required />
+		<input type="text" id="o-forms-section-error" class="o-forms__text" required />
 		<div class="o-forms__errortext">Invalid entry</div>
 	</div>
 </div>
