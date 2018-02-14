@@ -25,6 +25,11 @@ function OTable(rootEl) {
 		const tableRows = Array.from(this.rootEl.getElementsByTagName('tr'));
 
 		this.tableHeaders.forEach((th, columnIndex) => {
+			// Do not sort headers with attribute.
+			if (th.hasAttribute('data-o-table-heading-disable-sort')) {
+				return false;
+			}
+
 			th.setAttribute('tabindex', "0");
 
 			const listener = this._sortByColumn(columnIndex);

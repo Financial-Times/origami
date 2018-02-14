@@ -58,6 +58,40 @@ describe('oTable sorting', () => {
 		});
 	});
 
+	it('does not sort if the heading has an attribute specifying not to', done => {
+		sandbox.reset();
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<th data-o-table-heading-disable-sort>Things</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>a</td>
+					</tr>
+					<tr>
+						<td>c</td>
+					</tr>
+					<tr>
+						<td>b</td>
+					</tr>
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+		testOTable = new OTable(oTableEl);
+		const click = document.createEvent("MouseEvent");
+		click.initMouseEvent("click", true, true, window,
+			0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		oTableEl.querySelector('thead th[data-o-table-heading-disable-sort]').dispatchEvent(click);
+		setTimeout(() => {
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			proclaim.equal(rows[1].textContent, 'c', 'The table column sorted with a click when sort was disabled for its header.');
+			done();
+		}, 100);
+	});
+
 	it('adds a sort order data attribute to the root element of the component', done => {
 		testOTable = new OTable(oTableEl);
 		// TODO - Add a click polyfill to polyfill-service

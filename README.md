@@ -18,7 +18,7 @@ Styling for tables.
 Add an `o-table` class to any table you wish to apply the styles to:
 
 ```html
-<table class="o-table">
+<table class="o-table" data-o-component="o-table">
 	...
 </table>
 ```
@@ -26,7 +26,7 @@ Add an `o-table` class to any table you wish to apply the styles to:
 Where a `td` contains numeric data, or a `th` is for cells containing numeric data, also add the class `.o-table__cell--numeric` and a `data-o-table-data-type="numeric"` attribute (the latter allows the column to be sorted correctly):
 
 ```html
-<table class="o-table">
+<table class="o-table" data-o-component="o-table">
 	<tr>
 		<th>Index</th>
 		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Value</th>
@@ -42,7 +42,7 @@ Where a `td` contains numeric data, or a `th` is for cells containing numeric da
 Where table headings (`th`) are used as row headings, `scope="row"` attributes must be set on the `th`:
 
 ```html
-<table class="o-table">
+<table class="o-table" data-o-component="o-table">
 	<tr>
 		<th scope="row">FTSE 100</th>
 		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">6685.52</td>
@@ -54,7 +54,7 @@ Where table headings (`th`) are used as row headings, `scope="row"` attributes m
 When they're are not present, browsers will implicitly wrap table contents in `tbody` tags, including the header row. It is therefore advisable (and when row-stripes are required, essential) to use `thead`, `tbody` (and if appropriate, `tfoot`) tags in your markup:
 
 ```html
-<table class="o-table">
+<table class="o-table" data-o-component="o-table">
 	<thead>
 		<tr>
 			<th>Index</th>
@@ -71,13 +71,39 @@ When they're are not present, browsers will implicitly wrap table contents in `t
 </table>
 ```
 
+#### Disable sort on one or more columns
+
+Adding `data-o-table-heading-disable-sort` to a table column heading will disable and hide the sort interface on that column heading. This is useful for columns of a table which do not provide sortable data, such as an edit button related to the data in its row.
+
+```html
+<table class="o-table" data-o-component="o-table">
+	<thead>
+		<tr>
+			<th>Heading One</th>
+			<th>Heading Two</th>
+			<!-- do not show the actions column as sortable -->
+			<th data-o-table-heading-disable-sort>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Item One</td>
+			<td>Item Two</td>
+			<td>
+				<a href="#edit">edit</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+```
+
 #### Small screen rendering
 
 Where there is not enough horizontal space for a table to fit, it can be made horizontally scrollable by wrapping it in an element with a class of `o-table-wrapper`:
 
 ```html
 <div class="o-table-wrapper">
-	<table class="o-table">
+	<table class="o-table" data-o-component="o-table">
 		...
 	</table>
 </div>

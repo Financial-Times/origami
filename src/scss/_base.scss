@@ -23,7 +23,7 @@
 		@include oColorsFor(o-table-header, color);
 	}
 
-	&[data-o-table--js] thead th {
+	&[data-o-table--js] thead th:not([data-o-table-heading-disable-sort]) {
 		cursor: pointer;
 		user-select: none;
 		padding-right: 20px;
