@@ -223,7 +223,9 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 ``` html
 <table class="o-table" data-o-component="o-table">
 	<thead>
-		<th>Things</th>
+		<tr>
+			<th>Things</th>
+		</tr>
 	</thead>
 	<tbody>
 		<tr>

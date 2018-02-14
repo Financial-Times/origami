@@ -13,7 +13,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th>Cheese</th>
+					<tr>
+						<th>Cheese</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -64,7 +66,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th data-o-table-heading-disable-sort>Things</th>
+					<tr>
+						<th data-o-table-heading-disable-sort>Things</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -146,7 +150,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th data-o-table-data-type="numeric">Price</th>
+					<tr>
+						<th data-o-table-data-type="numeric">Price</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -196,7 +202,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th>Things</th>
+					<tr>
+						<th>Things</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -234,7 +242,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th>Things</th>
+					<tr>
+						<th>Things</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -273,7 +283,9 @@ describe('oTable sorting', () => {
 		sandbox.setContents(`
 			<table class="o-table" data-o-component="o-table">
 				<thead>
-					<th>Things</th>
+					<tr>
+						<th>Things</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
