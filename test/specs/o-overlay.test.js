@@ -14,8 +14,10 @@ describe("Overlay", () => {
 		});
 
 		afterEach(() => {
+			Object.values(Overlay.getOverlays()).forEach(overlay => {
+				overlay.destroy();
+			});
 			fixtures.reset();
-			Overlay.destroy();
 		});
 
 		it("Adds itself to the overlays array", () => {
@@ -74,7 +76,7 @@ describe("Overlay", () => {
 			proclaim.throws(() => { new Overlay({html: 'hello', heading: {title: ''}}); });
 		});
 
-		it("Adds an event listener to the trigger if one has been set", () => {
+		it("Adds an event listener to the trigger if one has been set", (done) => {
 			let openSpy = sinon.spy(Overlay.prototype, 'open');
 			let closeSpy = sinon.spy(Overlay.prototype, 'close');
 			document.getElementById('testTrigger').click();
@@ -82,9 +84,13 @@ describe("Overlay", () => {
 			proclaim.isFalse(closeSpy.called);
 
 			new Overlay('myID', {html: 'hello', trigger: '#testTrigger'});
-
 			document.getElementById('testTrigger').click();
-			proclaim.isTrue(openSpy.called);
+			setTimeout(() => {
+				proclaim.isTrue(openSpy.called);
+				Overlay.prototype.open.restore();
+				Overlay.prototype.close.restore();
+				done();
+			}, 10);
 		});
 
 		it("Sets the context to the trigger if it's been set", () => {
@@ -108,11 +114,12 @@ describe("Overlay", () => {
 			proclaim.isNull(history.state);
 		});
 
-		it("Does not disable document scrolling when not in full screen mode.", (done) => {
-			const testOverlay = new Overlay('myID', { html: 'hello' });
+		it("Does not disable document scrolling when not in full screen or modal mode.", (done) => {
+			const testOverlay = new Overlay('myID', { html: 'hello', fullscreen: false, modal: false });
 			testOverlay.open();
 			setTimeout(() => {
-				proclaim.equal('', document.body.style.overflow);
+				const overlfow = document.body.style.overflow;
+				proclaim.equal(overlfow, '');
 				done();
 			}, 10);
 		});
@@ -138,14 +145,23 @@ describe("Overlay", () => {
 			window.history.back.restore();
 		});
 
-		it("Disables document scrolling with an open full screen overlay.", (done) => {
-			const testOverlay = new Overlay('myID', {html: 'hello'});
+		it("Adds full screen class in full screen mode.", () => {
+			const testOverlay = new Overlay('fullscreenClassTest', { html: 'hello', fullscreen: true });
 			testOverlay.open();
-			setTimeout(() => {
-				proclaim.equal('hidden', document.body.style.overflow);
-				testOverlay.close();
-				done();
-			}, 10);
+			const overlay = document.querySelector('.o-overlay--fullscreenClassTest');
+			proclaim.isTrue(overlay.classList.contains('o-overlay--full-screen'));
+		});
+
+		it("Disables document scrolling with an open modal overlay.", () => {
+			const testOverlay = new Overlay('modalScrollTest', { html: 'hello', modal: true, fullscreen: false});
+			testOverlay.open();
+			proclaim.equal(document.body.style.overflow, 'hidden');
+		});
+
+		it("Disables document scrolling with an open fullscreen overlay.", () => {
+			const testOverlay = new Overlay('fullscreenScrollTest', { html: 'hello', modal: false, fullscreen: true});
+			testOverlay.open();
+			proclaim.equal(document.body.style.overflow, 'hidden');
 		});
 
 		it("Adds custom classes to the overlay.", (done) => {

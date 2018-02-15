@@ -131,13 +131,16 @@ const Overlay = function(id, opts) {
 };
 
 Overlay.prototype.open = function() {
+	// Prevent page scroll for open modals or fullscreen overlays.
+	if (this.opts.modal || this.opts.fullscreen) {
+		this.originalOverflow = document.body.style.overflow;
+		document.body.style.overflow = 'hidden';
+	}
 
 	// A full screen overlay can look like a new page so add to history.
 	// The browser back button can then be used to close a full-screen overlay.
 	if (window.history.pushState && this.opts.fullscreen) {
 		this.popstateHandler = this.close.bind(this);
-		this.originalOverflow = document.body.style.overflow;
-		document.body.style.overflow = 'hidden';
 		window.addEventListener("popstate", this.popstateHandler);
 		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
 	}
@@ -349,10 +352,14 @@ Overlay.prototype.close = function() {
 	this.delegates.wrap.destroy();
 	this.delegates.context.destroy();
 
+	// Restore document scroll when modals or fullscreen overlays are closed.
+	if (this.opts.modal || this.opts.fullscreen) {
+		document.body.style.overflow = this.originalOverflow;
+	}
+
 	// Remove fullscreen popstate handler and re-enable document scroll.
 	if (this.opts.fullscreen) {
 		window.removeEventListener("popstate", this.popstateHandler);
-		document.body.style.overflow = this.originalOverflow;
 	}
 	// Remove state from history if fullscreen state is still in history.
 	// E.g.The close button was clicked directly rather than the browser back button.
