@@ -137,24 +137,26 @@ OTable.prototype.removeEventListeners = function () {
 	});
 };
 
-function ascendingSort (a, b, isNumericValue) {
-	if (isNumericValue && isNaN(a) || a < b) {
+function getIntlCollator() {
+	if (typeof Intl !== 'undefined' && {}.hasOwnProperty.call(Intl, 'Collator')) {
+		return new Intl.Collator();
+	}
+}
+
+function ascendingSort(a, b, isNumericValue, intlCollator) {
+	if ((typeof a === 'string' || a instanceof String) && (typeof b === 'string' || b instanceof String)) {
+		return intlCollator ? intlCollator.compare(a, b) : a.localeCompare(b);
+	} else if ((isNumericValue && isNaN(a)) || a < b) {
 		return -1;
-	} else if (isNumericValue && isNaN(b) || b < a) {
+	} else if ((isNumericValue && isNaN(b)) || b < a) {
 		return 1;
 	} else {
 		return 0;
 	}
 }
 
-function descendingSort (a, b, isNumericValue) {
-	if (isNumericValue && isNaN(a) || a < b) {
-		return 1;
-	} else if (isNumericValue && isNaN(b) || b < a) {
-		return -1;
-	} else {
-		return 0;
-	}
+function descendingSort(...args) {
+	return 0 - ascendingSort.apply(this, args);
 }
 
 /**
@@ -168,6 +170,7 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 	const tbody = this.rootEl.querySelector('tbody');
 	const rows = Array.from(tbody.querySelectorAll('tr'));
 
+	const intlCollator = getIntlCollator();
 	rows.sort(function (a, b) {
 		let aCol = a.children[index];
 		let bCol = b.children[index];
@@ -190,9 +193,9 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		}
 
 		if (sortAscending) {
-			return ascendingSort(aCol, bCol, isNumericValue);
+			return ascendingSort(aCol, bCol, isNumericValue, intlCollator);
 		} else {
-			return descendingSort(aCol, bCol, isNumericValue);
+			return descendingSort(aCol, bCol, isNumericValue, intlCollator);
 		}
 
 	});

@@ -8,6 +8,13 @@ describe('oTable sorting', () => {
 	let oTableEl;
 	let testOTable;
 
+	const click = element => {
+		// TODO - Add a click polyfill to polyfill-service
+		const click = document.createEvent('MouseEvent');
+		click.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		oTableEl.querySelector(element).dispatchEvent(click);
+	};
+
 	beforeEach(() => {
 		sandbox.init();
 		sandbox.setContents(`
@@ -46,11 +53,7 @@ describe('oTable sorting', () => {
 
 	it('sorts by ascending order first if not told otherwise', done => {
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, 'cheddar');
@@ -98,11 +101,7 @@ describe('oTable sorting', () => {
 
 	it('adds a sort order data attribute to the root element of the component', done => {
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
@@ -111,12 +110,8 @@ describe('oTable sorting', () => {
 
 	it('alternates sorting between ascending and descending', done => {
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'DES');
 			const rows = oTableEl.querySelectorAll('tbody tr td');
@@ -129,11 +124,7 @@ describe('oTable sorting', () => {
 
 	it('sorts strings alphabetically', done => {
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, 'cheddar');
@@ -178,11 +169,7 @@ describe('oTable sorting', () => {
 		`);
 		oTableEl = document.querySelector('[data-o-component=o-table]');
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, '');
@@ -221,16 +208,80 @@ describe('oTable sorting', () => {
 		`);
 		oTableEl = document.querySelector('[data-o-component=o-table]');
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, '42');
 			proclaim.equal(rows[1].textContent, 'pangea');
 			proclaim.equal(rows[2].textContent, 'snowman');
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
+			done();
+		});
+	});
+
+	it('sorts localised strings alphabetically', done => {
+		const items = ['café', 'apple', 'caffeine', 'Æ'];
+		const expectedSortedRows = ['Æ', 'apple', 'café', 'caffeine'];
+
+		sandbox.reset();
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<tr>
+						<th>Localised Things</th>
+					</tr>
+				</thead>
+				<tbody>
+					${items.reduce((output, item) => output + `<tr><td>${item}</td></tr>`, '')}
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+		testOTable = new OTable(oTableEl);
+		click('thead th');
+
+		oTableEl.addEventListener('oTable.sorted', () => {
+			const rows = Array.from(oTableEl.querySelectorAll('tbody tr td')).map(
+				({ textContent }) => textContent
+			);
+			proclaim.deepEqual(rows, expectedSortedRows);
+			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
+			done();
+		});
+	});
+
+	it('sorts localised strings alphabetically when the Intl.Collator API is not available', done => {
+		const items = ['café', 'apple', 'caffeine', 'Æ'];
+		const expectedSortedRows = ['Æ', 'apple', 'café', 'caffeine'];
+
+		sandbox.reset();
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<tr>
+						<th>Localised Things</th>
+					</tr>
+				</thead>
+				<tbody>
+					${items.reduce((output, item) => output + `<tr><td>${item}</td></tr>`, '')}
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+
+		const intlBackup = Intl;
+		delete global.Intl;
+		testOTable = new OTable(oTableEl);
+		click('thead th');
+
+		oTableEl.addEventListener('oTable.sorted', () => {
+			global.Intl = intlBackup;
+			const rows = Array.from(oTableEl.querySelectorAll('tbody tr td')).map(
+				({ textContent }) => textContent
+			);
+			proclaim.deepEqual(rows, expectedSortedRows);
 			proclaim.equal(oTableEl.getAttribute('data-o-table-order'), 'ASC');
 			done();
 		});
@@ -261,11 +312,7 @@ describe('oTable sorting', () => {
 		`);
 		oTableEl = document.querySelector('[data-o-component=o-table]');
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr td');
 			proclaim.equal(rows[0].textContent, 'pangea');
@@ -302,11 +349,7 @@ describe('oTable sorting', () => {
 		`);
 		oTableEl = document.querySelector('[data-o-component=o-table]');
 		testOTable = new OTable(oTableEl);
-		// TODO - Add a click polyfill to polyfill-service
-		const click = document.createEvent("MouseEvent");
-		click.initMouseEvent("click", true, true, window,
-			0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		oTableEl.querySelector('thead th').dispatchEvent(click);
+		click('thead th');
 		oTableEl.addEventListener('oTable.sorted', () => {
 			const rows = oTableEl.querySelectorAll('tbody tr th');
 			proclaim.equal(rows[0].textContent, '42');
