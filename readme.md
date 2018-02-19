@@ -8,6 +8,10 @@ This component is for displaying header sections at the top of articles
 - [Contact](#contact)
 - [Licence](#licence)
 
+## v1 Usage Warning
+
+**Use of this component is not recommended outside FT.com / app.ft.com**. The [Javascript helper which currently extracts themes, colors, and other topper display data](/js/map-content-to-topper.js) is deeply tied to the FT.com content store and includes hardcoded UUIDs and business logic. In future this will be moved into another layer of the FT.com stack, and the new configuration used to control topper display and functionality will be documented, at which stage this topper will be more suitable for wider use.
+
 ## Usage
 
 ### Markup
