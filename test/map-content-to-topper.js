@@ -181,12 +181,12 @@ describe('Topper content map', () => {
 
 	context('opinion article', () => {
 		const opinionArticleNotInPackage = {
-			genreConcept: { id: 'e569e23b-0c3e-3d20-8ed0-4c17b8177c05'},
+			genreConcept: { id: '6da31a37-691f-4908-896f-2829ebe2309e'},
 			containedIn: []
 		};
 
 		const opinionArticleInPackage = {
-			genreConcept: { id: 'e569e23b-0c3e-3d20-8ed0-4c17b8177c05'},
+			genreConcept: { id: '6da31a37-691f-4908-896f-2829ebe2309e'},
 			containedIn : [{ id: 123 }]
 		};
 
