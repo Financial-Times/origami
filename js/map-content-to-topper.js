@@ -101,7 +101,7 @@ const getTopperSettings = content => {
 		};
 
 		//Branded regular toppers
-	} else if(content.brandConcept || (content.genreConcept && content.genreConcept.id === 'e569e23b-0c3e-3d20-8ed0-4c17b8177c05')) {
+	} else if(content.brandConcept || (content.genreConcept && content.genreConcept.id === '6da31a37-691f-4908-896f-2829ebe2309e')) {
 		let fthead = Array.isArray(content.authorConcepts) &&
 			content.authorConcepts.reduce(
 				(attrs, {attributes} = {}) => attrs.concat(attributes),
@@ -117,7 +117,7 @@ const getTopperSettings = content => {
 		let headshotTint;
 		let isOpinion = false;
 
-		if(content.genreConcept && content.genreConcept.id === 'e569e23b-0c3e-3d20-8ed0-4c17b8177c05') { // opinion
+		if(content.genreConcept && content.genreConcept.id === '6da31a37-691f-4908-896f-2829ebe2309e') { // opinion
 			backgroundColour = content.containedIn && content.containedIn.length ? 'wheat' : 'sky';
 			modifiers.push('opinion');
 			headshotTint = '054593,d6d5d3';
