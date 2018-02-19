@@ -35,7 +35,7 @@
 /// @output Styles for basic form features including text, textarea, and select inputs along with labels and input error/validation styles.
 @mixin oFormsBaseFeatures($class: 'o-forms') {
 	.#{$class} {
-		@include oFormsGroup();
+		@include oFormsGroup;
 	}
 	.#{$class}__text,
 	.#{$class}__select,
@@ -88,21 +88,21 @@
 /// @output Styles for basic grouped checkboxes and radios, with extra error/validation styles.
 @mixin oFormsRadioCheckboxFeatures($class: 'o-forms') {
 	.#{$class}__group {
-		@include oFormsGroupContainer();
+		@include oFormsGroupContainer($class);
     }
 	.#{$class}__radio,
 	.#{$class}__checkbox {
-		@include oFormsRadioCheckbox();
+		@include oFormsRadioCheckbox($class);
 	}
 	.#{$class}__radio {
-		@include oFormsRadio();
+		@include oFormsRadio($class);
 	}
 	.#{$class}__checkbox {
-		@include oFormsCheckbox();
+		@include oFormsCheckbox($class);
 	}
 	// Checkbox and radio validation.
 	.#{$class}--error .#{$class}__group + .#{$class}__errortext {
-		@include _oFormsGroupContainerErrorText();
+		@include _oFormsGroupContainerErrorText;
 	}
 }
 
@@ -113,7 +113,7 @@
 @mixin oFormsRadioCheckboxRightModifier($class: 'o-forms') {
 	.#{$class}__radio--right,
 	.#{$class}__checkbox--right {
-		@include oFormsRadioCheckboxRight();
+		@include oFormsRadioCheckboxRight($class);
 	}
 }
 
@@ -123,10 +123,10 @@
 /// @output Styles to append a suffix to an input. E.g. a button to the end of a text input.
 @mixin oFormsCheckboxToggleFeature($class: 'o-forms') {
 	.#{$class}__toggle {
-		@include oFormsCheckboxToggle();
+		@include oFormsCheckboxToggle($class);
 	}
 	.#{$class}__toggle--inverse {
-		@include oFormsCheckboxToggleInverse();
+		@include oFormsCheckboxToggleInverse($class);
 	}
 }
 
@@ -146,10 +146,10 @@
 /// @output Styles to append a suffix to an input. E.g. a button to the end of a text input.
 @mixin oFormsSuffixFeature($class: 'o-forms') {
 	.#{$class}__affix-wrapper {
-		@include oFormsAffixWrapper();
+		@include oFormsAffixWrapper($class);
 	}
 	.#{$class}__suffix {
-		@include oFormsSuffix();
+		@include oFormsSuffix;
 	}
 }
 
@@ -174,7 +174,7 @@
 @mixin oFormsSmallFeature($class: 'o-forms') {
 	.#{$class}__text--small,
 	.#{$class}__select--small {
-		@include oFormsCommonSmall();
+		@include oFormsCommonSmall;
 	}
 }
 
@@ -183,7 +183,7 @@
 /// @output Wrapping styles to highlight sections of a form including section messages.
 @mixin oFormsSectionFeature($class: 'o-forms') {
 	.#{$class}-section {
-		@include oFormsSection();
+		@include oFormsSection($class);
 	}
 }
 
@@ -193,6 +193,6 @@
 /// @ignore This is a candidate for deprecation. Support is patchy and it is barely used, if at all.
 @mixin oFormsUnskinFeature($class: 'o-forms') {
 	.#{$class}--unskin {
-		@include oFormsUnskin();
+		@include oFormsUnskin;
 	}
 }
