@@ -1,0 +1,72 @@
+@mixin oTopperThemeBranded {
+	.o-topper__content {
+		grid-row: 2 / span 3;
+		@include oGridRespondTo($until: L) {
+			padding: 20px 0;
+		}
+	}
+
+	.o-topper__read-next {
+		grid-row: 2 / span 3;
+	}
+
+	@include oGridRespondTo($until: L) {
+		//Make the background really full width
+		.o-topper__background {
+			position: absolute;
+		}
+	}
+}
+
+@mixin oTopperHasHeadshot {
+	.o-topper__tags,
+	.o-topper__standfirst {
+		box-sizing: border-box;
+		padding-right: 100px;
+
+		@include oGridRespondTo(M) {
+			padding-right: 150px;
+		}
+	}
+
+	.o-topper__headline {
+		@include oGridRespondTo(M) {
+			padding-right: 150px;
+		}
+	}
+}
+
+@mixin oTopperThemeOpinion {
+	.o-topper__topic,
+	.o-topper__opinion-genre {
+		@include oTypographySize($scale: 2, $line-height: 28px);
+	}
+}
+
+@mixin oTopperOpinionGenre {
+	@extend %_o-topper__tag;
+	font-weight: normal;
+	color: oColorsGetPaletteColor('oxford');
+}
+
+@mixin oTopperHeadshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100px;
+	overflow: hidden;
+
+	@include oGridRespondTo(M) {
+		width: 150px;
+	}
+
+	@include oGridRespondTo(L) {
+		bottom: -20px;
+	}
+}
+
+@mixin oTopperHeadshotImage {
+	max-width: 100%;
+	display: block;
+	margin-left: 8px;
+}

@@ -1,0 +1,118 @@
+@mixin oTopperHeadline {
+	@include oTypographyHeadline();
+}
+
+@mixin oTopperHeadlineLarge {
+	@include oTypographyHeadlineLarge();
+
+	position: relative; //so it appears above the full width background
+}
+
+@mixin oTopperStandfirst {
+	@include oTypographyStandfirst();
+	margin-bottom: 0;
+	opacity: 0.8;
+
+	a {
+		@include oTypographySize(0);
+	}
+
+	> p {
+		margin: 0;
+	}
+}
+
+@mixin oTopperSummary {
+	@include oTypographySans(1);
+	> ul {
+		padding: 0 oTypographySpacingSize(5);
+	}
+
+	> ul > li {
+		margin: oTypographySpacingSize(2) 0;
+	}
+}
+
+
+@mixin oTopperSummaryBody {
+	h2 {
+		@include oTypographySansBold(0);
+		margin: 5px 0 0;
+	}
+
+	ul {
+		@include oTypographyList;
+		@include oTypographyListUnordered();
+		margin: 0px;
+
+		li:first-child {
+			margin-top: 0px;
+		}
+		li {
+			@include oTypographySans(1);
+			@include oTypographyMargin(2, 0);
+			font-weight: 600;
+		}
+	}
+}
+
+@mixin oTopperImageCredit {
+	@include oTypographySans(-2);
+	color: oColorsGetPaletteColor('white');
+	position: absolute;
+	right: 12px;
+	bottom: 2px;
+	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
+}
+
+//IE9 support
+@mixin oTopperImage {
+	display: block;
+	position: relative;
+	width: 100%;
+
+	@supports (object-fit: cover) {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+@include _oTopperDefineOnce(tag) {
+	%_o-topper__tag {
+		@include oTypographyTag;
+		@include oTypographySansBold;
+		color: unset;
+
+		&:hover {
+			color: unset;
+		}
+	}
+}
+
+@mixin oTopperBrand {
+	@extend %_o-topper__tag;
+	margin-right: 4px;
+
+	@include oGridRespondTo($until: S) {
+		display: block;
+	}
+}
+
+@mixin oTopperColumnist {
+	@include oTypographyMargin($top: 4);
+	text-transform: uppercase;
+}
+
+@mixin oTopperColumnistName {
+	@extend %_o-topper__tag;
+	vertical-align: middle;
+}
+
+@mixin oTopperTags {
+	@include oTypographySize($scale: 0, $line-height: 28px);
+	padding-bottom: 5px;
+}
+
+@mixin oTopperTopic {
+	@extend %_o-topper__tag;
+}
