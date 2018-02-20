@@ -9,3 +9,4 @@
 /npm-debug.log
 
 .editorconfig
+package-lock.json
