@@ -1,14 +1,14 @@
 {
-	"description": "Next FT - onsite notification bar",
-	"origamiType": "module",
-	"origamiVersion": 1,
-	"support": "next.team@ft.com",
-	"supportStatus": "experimental",
-	"demos": [
-		{
-			"path": "/demos/all.html",
-			"expanded": true,
-			"description": "All"
-		}
-	]
+  "description": "Next FT - onsite notification bar",
+  "origamiType": "module",
+  "origamiVersion": 1,
+  "support": "next.team@ft.com",
+  "supportStatus": "experimental",
+  "demos": [
+    {
+      "path": "/demos/all.html",
+      "expanded": true,
+      "description": "All"
+    }
+  ]
 }

@@ -4,9 +4,11 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
+export IGNORE_A11Y=true
+
 test:
 	./node_modules/karma/bin/karma start --single-run
-	obt verify
+	make verify
 
 demo:
 	obt demo --local --watch --runServer
