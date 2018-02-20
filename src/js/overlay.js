@@ -133,8 +133,8 @@ const Overlay = function(id, opts) {
 Overlay.prototype.open = function() {
 	// Prevent page scroll for open modals or fullscreen overlays.
 	if (this.opts.modal || this.opts.fullscreen) {
-		this.originalOverflow = document.body.style.overflow;
-		document.body.style.overflow = 'hidden';
+		this.originalOverflow = document.documentElement.style.overflow;
+		document.documentElement.style.overflow = 'hidden';
 	}
 
 	// A full screen overlay can look like a new page so add to history.
@@ -282,6 +282,7 @@ Overlay.prototype.show = function() {
 
 	this.closeHandler = this.close.bind(this);
 
+	// If the overlay is nested within a DOM element don't attach the viewport resize listeners.
 	if (!this.opts.nested) {
 		this.resizeListenerHandler = this.resizeListener.bind(this);
 		this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
@@ -317,34 +318,33 @@ Overlay.prototype.show = function() {
 	// Renders content after overlay has been added so css is applied before that
 	// Thay way if an element has autofocus, the window won't scroll to the bottom
 	// in Safari as the overlay is already in position
-	const overlay = this;
 	window.requestAnimationFrame(function() {
-		if (!overlay.content.innerHTML) {
-			// overlay.respondToWindow(viewport.getSize());
-			if (typeof overlay.opts.html === 'string') {
-				overlay.content.innerHTML = overlay.opts.html;
+		if (!this.content.innerHTML) {
+			if (typeof this.opts.html === 'string') {
+				this.content.innerHTML = this.opts.html;
 			} else {
-				overlay.content.appendChild(overlay.opts.html);
+				this.content.appendChild(this.opts.html);
 			}
 		}
-		overlay.width = overlay.getWidth();
-		overlay.height = overlay.getHeight();
 
-		// If the overlay is nested within a DOM element don't attach the viewport resize listeners
-		if (!overlay.opts.nested) {
-			overlay.respondToWindow(viewport.getSize());
+		this.width = this.getWidth();
+		this.height = this.getHeight();
+
+		// If the overlay is nested within a DOM element don't resize according to the viewport.
+		if (!this.opts.nested) {
+			this.realign();
 		}
-		overlay.visible = true;
-		overlay.wrapper.focus();
-		overlay.broadcast('ready');
+		this.visible = true;
+		this.wrapper.focus();
+		this.broadcast('ready');
 
 		// Add o-tracking integration
-		overlay.broadcast('event', 'oTracking', {
+		this.broadcast('event', 'oTracking', {
 			category: 'overlay',
 			action: 'show',
-			overlay_id: overlay.id
+			overlay_id: this.id
 		});
-	});
+	}.bind(this));
 };
 
 Overlay.prototype.close = function() {
@@ -354,7 +354,7 @@ Overlay.prototype.close = function() {
 
 	// Restore document scroll when modals or fullscreen overlays are closed.
 	if (this.opts.modal || this.opts.fullscreen) {
-		document.body.style.overflow = this.originalOverflow;
+		document.documentElement.style.overflow = this.originalOverflow;
 	}
 
 	// Remove fullscreen popstate handler and re-enable document scroll.
@@ -418,7 +418,7 @@ Overlay.prototype.closeOnNewLayer = function(ev) {
 
 Overlay.prototype.resizeListener = function(ev) {
 	if (!this.wrapper.contains(ev.target)) {
-		this.respondToWindow(ev.detail.viewport);
+		this.respondToWindow();
 	}
 };
 
@@ -440,8 +440,40 @@ Overlay.prototype.broadcast = function(eventType, namespace, detail) {
 };
 
 Overlay.prototype.realign = function(dimension, size) {
+	// Realign both height and width according to the window by default.
+	if (!dimension && !size) {
+		this._align('width', viewport.getSize().width);
+		this._align('height', viewport.getSize().height);
+		return;
+	}
+
+	// For a given dimension realign according to the viewport by default.
+	if (dimension && !size) {
+		this._align(dimension, viewport.getSize()['dimension']);
+		return;
+	}
+
+	this._align(dimension, size);
+};
+
+Overlay.prototype._align = function (dimension, size) {
+
+	if (dimension !== 'width' && dimension !== 'height') {
+		throw new Error(`Can not realign the overlay for the dimension "${dimension}". "height" or "width" expected.`);
+	}
+
+	if (isNaN(size)) {
+		throw new Error(`Can not realign the overlay for the size ${size}. A number is expected.`);
+	}
+
 	const edge = dimension === 'width' ? 'left' : 'top';
 
+	// Update overlay size for realignment calculation.
+	// We may be realigning because the content within the overlay has changed.
+	this.width = this.getWidth();
+	this.height = this.getHeight();
+
+	// E.g. viewport dimension <= overlay dimension
 	if (size <= this[dimension]) {
 		this.wrapper.classList.add('o-overlay--full-' + dimension);
 		this.wrapper.style[edge] = '0';
@@ -459,7 +491,7 @@ Overlay.prototype.realign = function(dimension, size) {
 			this.content.style.height = null;
 		}
 		this.wrapper.classList.remove('o-overlay--full-' + dimension);
-		this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)]/2) + 'px';
+		this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)] / 2) + 'px';
 
 		// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 		// so that browsers compute it properly. If it's applied earlier, when the negative
@@ -469,9 +501,8 @@ Overlay.prototype.realign = function(dimension, size) {
 	}
 };
 
-Overlay.prototype.respondToWindow = function(size) {
-	this.realign('width', size.width);
-	this.realign('height', size.height);
+Overlay.prototype.respondToWindow = function() {
+	this.realign();
 };
 
 Overlay.prototype.fills = function(dimension) {

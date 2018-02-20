@@ -98,6 +98,7 @@ $o-overlay-is-silent: false;
 
 * `open`: Display the overlay.  Content is loaded every time the overlay is opened.
 * `close`: Close (hide) the overlay.
+* `realign`: Realign the overlay. Useful when overlay content changes whilst the overlay is open.
 
 ## Events
 

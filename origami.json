@@ -22,10 +22,10 @@
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
 	},
-	"options": {
+	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"bodyClasses": "o-hoverable-on",
+		"documentClasses": "o-hoverable-on",
 		"dependencies": [
 			"o-fonts@^3.0.0",
 			"o-buttons@^5.0.0",
