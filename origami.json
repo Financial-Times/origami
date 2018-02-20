@@ -1,0 +1,84 @@
+{
+	"description": "Article header styling",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-topper/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [],
+		"optional": []
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-topper"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^1.4.0",
+			"o-normalise@^1.5.3"
+		]
+	},
+	"demos": [
+		{
+			"name": "Basic",
+			"template": "/demos/src/basic.mustache",
+			"description": "This is the default topper that all articles get"
+		},
+		{
+			"name": "Opinion",
+			"template": "/demos/src/opinion.mustache",
+			"description": "This is used for articles with Opinion genre"
+		},
+		{
+			"name": "Branded",
+			"template": "/demos/src/branded.mustache",
+			"description": "This is used for articles with a brandConcept"
+		},
+		{
+			"name": "Full Bleed Image Left",
+			"template": "/demos/src/full-bleed-image-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Full Bleed Offset",
+			"template": "/demos/src/full-bleed-offset.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API"
+		},
+		{
+			"name": "Split Text Left",
+			"template": "/demos/src/split-text-left.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
+		},
+		{
+			"name": "Split Text Center",
+			"template": "/demos/src/split-text-center.mustache",
+			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
+		},
+		{
+			"name": "Package",
+			"template": "/demos/src/package.mustache",
+			"description": "Default theme for a Package/Series landing page, which has `type: package` in the API."
+		},
+		{
+			"name": "Package Extra",
+			"template": "/demos/src/package-extra.mustache",
+			"description": "Theme for Packages that editorial can choose, which comes through the API."
+		},
+		{
+			"name": "News Package",
+			"template": "/demos/src/news-package.mustache",
+			"description": "Used for the lead article in a Series, or a live event."
+		},
+		{
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}

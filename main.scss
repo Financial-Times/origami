@@ -1,0 +1,18 @@
+@import 'o-colors/main';
+@import 'o-typography/main';
+@import 'o-grid/main';
+@import 'o-icons/main';
+
+@import 'scss/variables';
+@import 'scss/mixins';
+
+@import 'scss/elements';
+@import 'scss/layout';
+@import 'scss/themes';
+
+@if ($o-topper-is-silent == false) {
+	@include oTopperElements;
+	@include oTopperColors;
+
+	$o-topper-is-silent: true !global;
+}
