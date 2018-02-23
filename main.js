@@ -108,6 +108,8 @@ ODate.prototype.update = function() {
 		dateString = ODate.format(date, 'date');
 	} else if (format === 'time-ago-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { limit: 4*inSeconds.hour });
+	} else if (format === 'time-ago-abbreviated') {
+		dateString = ODate.timeAgo(date, { abbreviated: true });
 	} else if (format === 'time-ago-abbreviated-limit-4-hours') {
 		dateString = ODate.timeAgo(date, { abbreviated: true, limit: 4*inSeconds.hour });
 	} else if (format === 'time-ago-no-seconds') {
