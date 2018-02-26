@@ -131,7 +131,7 @@ describe("Overlay", () => {
 			proclaim.isNull(history.state);
 			testOverlay.open();
 			if (window.history.pushState) {
-				proclaim.equal(history.state.overlay, 'fullscreen');
+				proclaim.equal(history.state[`o-overlay-${testOverlay.id}`], 'fullscreen');
 			}
 		});
 

@@ -89,6 +89,11 @@ const triggerClickHandler = function(id, ev) {
  * @param {Boolean} opts.fullscreen - If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
 */
 const Overlay = function(id, opts) {
+	if (overlays[id]) {
+		// @todo Throw error in the next breaking.
+		console.warn(`o-overlay with id "${id}" already exists. Creating an overlay twice with the same id may result in unexpected behaviour. This will error in the next major release of o-overlay.`);
+	}
+
 	viewport.listenTo('resize');
 	this.visible = false;
 	this.id = id;
@@ -140,9 +145,15 @@ Overlay.prototype.open = function() {
 	// A full screen overlay can look like a new page so add to history.
 	// The browser back button can then be used to close a full-screen overlay.
 	if (window.history.pushState && this.opts.fullscreen) {
-		this.popstateHandler = this.close.bind(this);
+		// Push overlay state to history.
+		window.history.pushState({ [`o-overlay-${this.id}`]: 'fullscreen' }, window.location.href);
+		// When history changes check for the overlay and close it.
+		this.popstateHandler = function () {
+			if (window.history.state[`o-overlay-${this.id}`]) {
+				this.close();
+			}
+		}.bind(this);
 		window.addEventListener("popstate", this.popstateHandler);
-		window.history.pushState({ 'overlay': 'fullscreen' }, window.location.href);
 	}
 
 	if (this.opts.trigger) {
@@ -365,7 +376,7 @@ Overlay.prototype.close = function() {
 	// E.g.The close button was clicked directly rather than the browser back button.
 	if (window.history.pushState &&
 		window.history.state &&
-		window.history.state.overlay === 'fullscreen'
+		window.history.state[`o-overlay-${this.id}`] === 'fullscreen'
 	) {
 		window.history.back();
 	}
