@@ -21,12 +21,14 @@
 	},
 	"demos": [
 		{
+			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": "Accessibility test will be run against this demo"
 		},
 		{
+			"title": "Focus Styles",
 			"name": "focus-styles",
 			"template": "demos/src/focus.mustache",
 			"hidden": true,

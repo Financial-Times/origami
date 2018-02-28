@@ -82,7 +82,7 @@
 
 	// Apply :focus styles as a fallback
 	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
-	:not(body.js-focus-visible) { // sass-lint:disable-line no-qualifying-elements
+	body:not(.js-focus-visible) {
 		// Standardise focus styles.
 		:focus {
 			outline: 2px solid $o-normalise-focus-color;
@@ -111,15 +111,16 @@
 	// sass-lint:enable no-qualifying-elements
 
 	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
-	// If a browser supports :focus-visible we unset the :focus styles that were applied above (within the :not(body.js-focus-visible) block).
+	// If a browser supports :focus-visible we unset the :focus styles that were applied above (within the body:not(.js-focus-visible) block).
 	:focus-visible,
-	:focus {
+	body:not(.js-focus-visible):focus {
 		outline: unset;
 	}
+
 	:focus-visible,
-	input:focus,
-	textarea:focus,
-	select:focus {
+	body:not(.js-focus-visible) input:focus,
+	body:not(.js-focus-visible) textarea:focus,
+	body:not(.js-focus-visible) select:focus {
 		box-shadow: unset;
 	}
 
