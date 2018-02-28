@@ -344,3 +344,54 @@ describe('Destroying an oTable instance', () => {
 		proclaim.isFalse(oTableEl.hasAttribute('data-o-table--js'));
 	});
 });
+
+describe("getTableHeader()", () => {
+	let oTableEl;
+	let testOTable;
+
+	beforeEach(() => {
+		sandbox.init();
+		sandbox.setContents(`
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<th id="firstHeader">Cheese</th>
+					<th id="secondHeader">Letter</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>cheddar</td>
+						<td>a</td>
+					</tr>
+					<tr>
+						<td>stilton</td>
+						<td>b</td>
+					</tr>
+					<tr>
+						<td>red leicester</td>
+						<td>c</td>
+					</tr>
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+		testOTable = new OTable(oTableEl);
+	});
+
+	afterEach(() => {
+		sandbox.reset();
+	});
+
+	it('gets the first header for a column index of "0"', () => {
+		const columnIndex = 0;
+		const actual = testOTable.getTableHeader(columnIndex);
+		const expected = document.getElementById('firstHeader');
+		proclaim.equal(actual, expected);
+	});
+
+	it('gets the first header for a column index of "1"', () => {
+		const columnIndex = 1;
+		const actual = testOTable.getTableHeader(columnIndex);
+		const expected = document.getElementById('secondHeader');
+		proclaim.equal(actual, expected);
+	});
+});

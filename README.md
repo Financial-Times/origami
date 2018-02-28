@@ -241,6 +241,71 @@ If you are wanting to sort by a custom pattern, you can apply the sorting values
 </table>
 ```
 
+#### Events
+
+The following events are fired by `o-table`.
+
+- `oTable.ready`
+- `oTable.sorting`
+- `oTable.sorted`
+
+##### oTable.ready
+
+`oTable.ready` fires when the table has been initialised.
+
+The event provides the following properties:
+- `detail.oTable` - The initialised `o-table` instance _(oTable)_.
+
+##### oTable.sorted
+
+`oTable.sorted` indicates a table has finished sorting. It includes details of the current sort status of the table.
+
+The event provides the following properties:
+- `detail.sort` - The sort e.g. "ASC" _(String)_.
+- `detail.columnIndex` - The index of the sorted column heading _(Number)_.
+- `detail.oTable` - The effected `o-table` instance _(oTable)_.
+
+```js
+document.addEventListener('oTable.sorted', (event) => {
+	console.log(`The target table was just sorted by column ${event.detail.columnIndex} in an ${event.detail.sort} order.`);
+});
+```
+
+##### oTable.sorting
+
+This event is fired just before a table sorts based on user interaction. It may be prevented to implement custom sort functionality. This may be useful to sort a paginated table server-side.
+
+The event provides the following properties:
+- `detail.sort` - The sort requested e.g. "ASC" _(String)_.
+- `detail.columnIndex` - The index of the column heading which will be sorted _(Number)_.
+- `detail.oTable` - The effected `o-table` instance _(oTable)_.
+
+When intercepting the default sort the `sorted` method must be called with relevant parameters when the custom sort is completed.
+
+```js
+document.addEventListener('oTable.sorting', (event) => {
+	// Prevent default sorting.
+	event.preventDefault();
+	// Update the table with a custom sort.
+	console.log(`Update the table with sorted data here.`);
+	// Fire the sorted event, passing along the column index and sort.
+	event.detail.oTable.sorted(event.detail.columnIndex, event.detail.sort);
+});
+```
+
+##### Get The Sorted Column Heading From A Sort Event
+
+`o-table` sort events provide a `columnIndex`. This index maps to a column heading. To retrieve the column heading use `getTableHeader`.
+
+```js
+document.addEventListener('oTable.sorting', (event) => {
+	const table = event.detail.oTable;
+	const columnIndex = event.detail.columnIndex;
+	// Get the table header from the column index.
+	console.log(table.getTableHeader(columnIndex));
+});
+```
+
 ## Troubleshooting
 
 Known issues:

@@ -72,44 +72,6 @@ function OTable(rootEl) {
 }
 
 /**
- *
- * @private
- * @param  {Number} columnIndex
- */
-OTable.prototype._sortByColumn = function _sortByColumn (columnIndex) {
-	return function (event) {
-		let currentSort = event.currentTarget.getAttribute('aria-sort');
-		this.tableHeaders.forEach((header) => {
-			header.setAttribute('aria-sort', 'none');
-		});
-		if (this.rootEl.getAttribute('data-o-table-order') === null || currentSort === "none" || currentSort === "descending") {
-			this.rootEl.setAttribute('data-o-table-order', 'ASC');
-			event.currentTarget.setAttribute('aria-sort', 'ascending');
-		} else {
-			this.rootEl.setAttribute('data-o-table-order', 'DES');
-			event.currentTarget.setAttribute('aria-sort', 'descending');
-		}
-		this.sortRowsByColumn(columnIndex, this.rootEl.getAttribute('data-o-table-order') === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
-	}.bind(this);
-};
-
-/**
- * Duplicate the table headers into each row
- * For use with responsive tables
- *
- * @private
- * @param  {array} rows Table rows
- */
-OTable.prototype._duplicateHeaders = function _duplicateHeaders (rows, headers) {
-	rows.forEach((row) => {
-		const data = Array.from(row.getElementsByTagName('td'));
-		data.forEach((td, dataIndex) => {
-			td.parentNode.insertBefore(headers[dataIndex].cloneNode(true), td);
-		});
-	});
-};
-
-/**
  * Helper function to dispatch namespaced events, namespace defaults to oTable
  * @param  {String} event
  * @param  {Object} data={}
@@ -122,6 +84,16 @@ OTable.prototype.dispatch = function (event, data = {}, namespace = 'oTable') {
 			bubbles: true
 		}));
 	}, 0);
+};
+
+/**
+ * Gets a table header for a given column index.
+ *
+ * @public
+ * @returns {element|null} - The header element for the requested column index.
+ */
+OTable.prototype.getTableHeader = function (columnIndex) {
+	return this.tableHeaders[columnIndex] || null;
 };
 
 /**
@@ -169,7 +141,6 @@ function descendingSort(...args) {
 OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericValue) {
 	const tbody = this.rootEl.querySelector('tbody');
 	const rows = Array.from(tbody.querySelectorAll('tr'));
-
 	const intlCollator = getIntlCollator();
 	rows.sort(function (a, b) {
 		let aCol = a.children[index];
@@ -188,8 +159,8 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 		}
 
 		if (isNumericValue) {
-			aCol = parseFloat(aCol.replace(/,/g,''));
-			bCol = parseFloat(bCol.replace(/,/g,''));
+			aCol = parseFloat(aCol.replace(/,/g, ''));
+			bCol = parseFloat(bCol.replace(/,/g, ''));
 		}
 
 		if (sortAscending) {
@@ -200,11 +171,119 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 
 	});
 
-	rows.forEach(function(row) {
+	rows.forEach(function (row) {
 		tbody.appendChild(row);
 	});
 
-	this.dispatch('sorted');
+	this.sorted(index, (sortAscending ? 'ASC' : 'DES'));
+};
+
+/**
+ * Update the aria sort attributes on a sorted table.
+ * Useful to reset sort attributes in the case of a custom sort implementation failing.
+ * E.g. One which relies on the network.
+ *
+ * @private
+ * @param {number|null} columnIndex - The index of the currently sorted column, if any.
+ * @param {string|null} sort - The type of sort i.e. ASC or DES, if any.
+ */
+OTable.prototype._updateSortAttributes = function _updateSortAttributes(columnIndex, sort) {
+	let ariaSort;
+	switch (sort) {
+		case 'ASC':
+			ariaSort = 'ascending';
+			break;
+		case 'DES':
+			ariaSort = 'descending';
+			break;
+		default:
+			ariaSort = 'none';
+			break;
+	}
+	// Set aria attributes.
+	const sortedHeader = this.getTableHeader(columnIndex);
+	if (!sortedHeader || sortedHeader.getAttribute('aria-sort') !== ariaSort) {
+		this.tableHeaders.forEach((header) => {
+			const headerSort = (header === sortedHeader ? ariaSort : 'none');
+			header.setAttribute('aria-sort', headerSort);
+		});
+		this.rootEl.setAttribute('data-o-table-order', sort);
+	}
+};
+
+/**
+ * Indicated that the table has been sorted by firing by a custom sort implementation.
+ * Fires the `oTable.sorted` event.
+ *
+ * @public
+ * @param {number|null} columnIndex - The index of the currently sorted column, if any.
+ * @param {string|null} sort - The type of sort i.e. ASC or DES, if any.
+ */
+OTable.prototype.sorted = function (columnIndex, sort) {
+	this._updateSortAttributes(columnIndex, sort);
+	this.dispatch('sorted', {
+		sort,
+		columnIndex,
+		oTable: this
+	});
+};
+
+/**
+ * Duplicate the table headers into each row
+ * For use with responsive tables
+ *
+ * @private
+ * @param  {array} rows Table rows
+ */
+OTable.prototype._duplicateHeaders = function _duplicateHeaders(rows, headers) {
+	rows.forEach((row) => {
+		const data = Array.from(row.getElementsByTagName('td'));
+		data.forEach((td, dataIndex) => {
+			td.parentNode.insertBefore(headers[dataIndex].cloneNode(true), td);
+		});
+	});
+};
+
+/**
+ *
+ * @private
+ * @param {Number} columnIndex
+ */
+OTable.prototype._sortByColumn = function _sortByColumn(columnIndex) {
+	return function (event) {
+		const currentSort = event.currentTarget.getAttribute('aria-sort');
+		const sort = this.rootEl.getAttribute('data-o-table-order') === null || currentSort === "none" || currentSort === "descending" ? 'ASC' : 'DES';
+
+		/**
+		 * Check if sorting has been cancelled on this table in favour of a custom implementation.
+		 *
+		 * The return value is false if event is cancelable and at least one of the event handlers
+		 * which handled this event called Event.preventDefault(). Otherwise it returns true.
+		 * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+		 */
+		const customSort = !event.currentTarget.dispatchEvent(new CustomEvent('oTable.sorting', {
+			detail: {
+				sort,
+				columnIndex,
+				oTable: this
+			},
+			bubbles: true,
+			cancelable: true
+		}));
+
+		if (!customSort) {
+			this.sortRowsByColumn(columnIndex, sort === "ASC", event.currentTarget.getAttribute('data-o-table-data-type') === 'numeric');
+		}
+
+		/**
+		 * Update aria attributes to provide immediate feedback.
+		 *
+		 * This is called again by the `sorted` method to assure accuracy.
+		 * I.e. if a sort fails previous sort attributes can be restored via the `sorted` method.
+		 */
+		this._updateSortAttributes(columnIndex, sort);
+
+	}.bind(this);
 };
 
 /**
