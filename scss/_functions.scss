@@ -51,22 +51,30 @@
 	}
 }
 
-@function _oButtonsGetThemeSelector($theme-key, $button-class: $o-buttons-class) {
+/// Maps button theme names to class modifiers.
+///
+/// @example
+///  _oButtonsGetThemeSelector('primary') // o-buttons--primary
+///  _oButtonsGetThemeSelector('primary-inverse') // o-buttons--primary.o-buttons--inverse
+///
+/// @param {String} $theme - One of $o-buttons-themes
+/// @param {String} $button-class - The base button class e.g. o-buttons
+@function _oButtonsGetThemeSelector($theme, $button-class: $o-buttons-class) {
 	$seperator: '-';
     $theme-parts: ();
     // Index of first seperator.
-	$index: str-index($theme-key, $seperator);
+	$index: str-index($theme, $seperator);
     @while $index != null {
         // Get current theme part.
-		$theme-part: str-slice($theme-key, length($seperator), $index - length($seperator));
+		$theme-part: str-slice($theme, length($seperator), $index - length($seperator));
 		$theme-parts: append($theme-parts, $theme-part);
         // Remove theme part from the key.
-        $theme-key: str-slice($theme-key, $index + length($seperator));
+        $theme: str-slice($theme, $index + length($seperator));
         // Find the next theme part in the key if any.
-        $index : str-index($theme-key, $seperator);
+        $index : str-index($theme, $seperator);
     }
 	// Add the remaining theme part.
-	$final-theme-part: $theme-key;
+	$final-theme-part: $theme;
 	$theme-parts: append($theme-parts, $final-theme-part);
 	// Generate the selector.
 	$theme-selector: '';
@@ -76,7 +84,7 @@
 			$theme-selector: '#{$prepend}#{$button-class}--#{$theme-part}';
 		}
 	} @else {
-		$theme-selector: '#{$button-class}--#{$theme-key}';
+		$theme-selector: '#{$button-class}--#{$theme}';
 	}
 	@return $theme-selector;
 }
