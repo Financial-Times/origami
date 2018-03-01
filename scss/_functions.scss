@@ -50,3 +50,33 @@
 		@return false;
 	}
 }
+
+@function _oButtonsGetThemeSelector($theme-key, $button-class: $o-buttons-class) {
+	$seperator: '-';
+    $theme-parts: ();
+    // Index of first seperator.
+	$index: str-index($theme-key, $seperator);
+    @while $index != null {
+        // Get current theme part.
+		$theme-part: str-slice($theme-key, length($seperator), $index - length($seperator));
+		$theme-parts: append($theme-parts, $theme-part);
+        // Remove theme part from the key.
+        $theme-key: str-slice($theme-key, $index + length($seperator));
+        // Find the next theme part in the key if any.
+        $index : str-index($theme-key, $seperator);
+    }
+	// Add the remaining theme part.
+	$final-theme-part: $theme-key;
+	$theme-parts: append($theme-parts, $final-theme-part);
+	// Generate the selector.
+	$theme-selector: '';
+	@if length($theme-parts) > 1 {
+		@each $theme-part in $theme-parts {
+			$prepend: if($theme-selector == '', '', '#{$theme-selector}.');
+			$theme-selector: '#{$prepend}#{$button-class}--#{$theme-part}';
+		}
+	} @else {
+		$theme-selector: '#{$button-class}--#{$theme-key}';
+	}
+	@return $theme-selector;
+}

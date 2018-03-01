@@ -70,17 +70,6 @@ $o-buttons-themes: (
 	b2c: $o-buttons-themes__b2c
 ) !default;
 
-/// Not all theme selectors match their name.
-/// E.g. 'primary-inverse' is output for '.buttons--primary.o-buttons--inverse'.
-/// These themes should not be output with automatic selectors.
-///
-/// @type Map
-$_o-buttons-themes-manual-output: (
-	'inverse',
-	'primary-inverse',
-	'secondary'
-);
-
 /// List of icons to generate classes for icon buttons.
 /// Build service users will only be able to use these icons, but there is
 /// a mixin for people using this via Sass, meaning any icon in 'fticons' is
