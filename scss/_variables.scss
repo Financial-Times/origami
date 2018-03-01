@@ -70,6 +70,11 @@ $o-buttons-themes: (
 	b2c: $o-buttons-themes__b2c
 ) !default;
 
+/// Not all theme selectors match their name.
+/// E.g. 'primary-inverse' is output for '.buttons--primary.o-buttons--inverse'.
+/// These themes should not be output with automatic selectors.
+///
+/// @type Map
 $_o-buttons-themes-manual-output: (
 	'inverse',
 	'primary-inverse',
