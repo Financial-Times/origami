@@ -18,25 +18,25 @@
 			"name": "text-inputs",
 			"title": "Text input",
 			"template": "/demos/src/text-inputs.mustache",
-			"description": "<strong>Usercase:</strong> This is the generic text input box for most use cases to build any type of form."
+			"description": "This is the generic text input box for most use cases to build any type of form."
 		},
 		{
 			"name": "select-boxes",
 			"title": "Select box",
 			"template": "/demos/src/select-boxes.mustache",
-			"description": "<strong>Usercase:</strong> This is the generic select box for most use cases that can be used to build any type of form on all devices."
+			"description": "This is the generic select box for most use cases that can be used to build any type of form on all devices."
 		},
 		{
 			"name": "textareas",
 			"title": "Textarea",
 			"template": "/demos/src/textareas.mustache",
-			"description": "<strong>Usercase:</strong> This is the generic text area box for most use cases."
+			"description": "This is the generic text area box for most use cases."
 		},
 		{
 			"name": "radios",
 			"title": "Radio buttons",
 			"template": "/demos/src/radios.mustache",
-			"description": "<strong>Usercase:</strong> These are the generic radio buttons for most use cases."
+			"description": "These are the generic radio buttons for most use cases."
 		},
 		{
 			"name": "radios-button-styled",
@@ -48,13 +48,13 @@
 			"name": "checkboxes",
 			"title": "Checkboxes",
 			"template": "/demos/src/checkboxes.mustache",
-			"description": "<strong>Usercase:</strong> These are the generic check boxes for most use cases."
+			"description": "These are the generic check boxes for most use cases."
 		},
 		{
 			"name": "toggle",
 			"title": "A checkbox which acts as a toggle",
 			"template": "/demos/src/toggle.mustache",
-			"description": "<strong>Usercase:</strong> This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
+			"description": "This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
 		},
 		{
 			"title": "Suffix",
@@ -66,7 +66,7 @@
 			"name": "sections",
 			"title": "Sections",
 			"template": "/demos/src/sections.mustache",
-			"description": "<strong>Usercase:</strong> These are optional section wrappers to highlight multiple instances of o-forms."
+			"description": "These are optional section wrappers to highlight multiple instances of o-forms."
 		},
 		{
 			"title": "Pa11y",
