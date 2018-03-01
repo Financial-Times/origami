@@ -12,6 +12,9 @@
 // Set custom color translucent teal @ 10%
 @include oColorsSetColor('teal-transparent-10', oColorsMix($color: 'teal', $background: 'transparent', $percentage: 10));
 
+@include oColorsSetColor('slate-white-40', oColorsMix($color: 'slate', $background: 'white', $percentage: 40));
+@include oColorsSetColor('slate-white-30', oColorsMix($color: 'slate', $background: 'white', $percentage: 30));
+
 /// scss-lint:disable SpaceAfterComma
 
 // Theme: primary
@@ -104,6 +107,25 @@
 @include oColorsSetUseCase(o-buttons-b2c-disabled, background,        'white');
 @include oColorsSetUseCase(o-buttons-b2c-disabled, text,              'org-b2c-dark');
 
+// Theme: Primary, Inverse
+
+@include oColorsSetUseCase(o-buttons-primary-inverse-normal, text,                'slate');
+@include oColorsSetUseCase(o-buttons-primary-inverse-normal, background,          'white');
+@include oColorsSetUseCase(o-buttons-primary-inverse-normal, border,              'transparent');
+@include oColorsSetUseCase(o-buttons-primary-inverse-hover, text,                 'slate');
+@include oColorsSetUseCase(o-buttons-primary-inverse-hover, background,           'slate-white-40');
+@include oColorsSetUseCase(o-buttons-primary-inverse-hover, border,               'transparent');
+@include oColorsSetUseCase(o-buttons-primary-inverse-focus,  text,              'slate');
+@include oColorsSetUseCase(o-buttons-primary-inverse-focus,  background,        'white');
+@include oColorsSetUseCase(o-buttons-primary-inverse-focus,  border,            'teal-50');
+@include oColorsSetUseCase(o-buttons-primary-inverse-active, text,       'slate');
+@include oColorsSetUseCase(o-buttons-primary-inverse-active, background, 'slate-white-30');
+@include oColorsSetUseCase(o-buttons-primary-inverse-active, border,     'transparent');
+@include oColorsSetUseCase(o-buttons-primary-inverse-pressedselected, text,       'slate');
+@include oColorsSetUseCase(o-buttons-primary-inverse-pressedselected, background, 'slate-white-30');
+@include oColorsSetUseCase(o-buttons-primary-inverse-pressedselected, border,     'transparent');
+@include oColorsSetUseCase(o-buttons-primary-inverse-disabled, background,        'white');
+@include oColorsSetUseCase(o-buttons-primary-inverse-disabled, text,              'slate');
 
 /// Theme: B2C
 ///

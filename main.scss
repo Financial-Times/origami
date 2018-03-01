@@ -13,19 +13,35 @@
 @import 'scss/icon';
 
 @if ($o-buttons-is-silent == false) {
-	.#{$o-buttons-class} {
+
+	// Output default/secondary buttons manually.
+	.#{$o-buttons-class},
+	.#{$o-buttons-class}--secondary {
 		@include oButtons;
+	}
+
+	// Output inverse buttons manually.
+	.#{$o-buttons-class}--inverse,
+	.#{$o-buttons-class}--secondary.#{$o-buttons-class}--inverse {
+		@include oButtonsTheme('inverse');
+	}
+
+	.#{$o-buttons-class}--primary.#{$o-buttons-class}--inverse {
+		@include oButtonsTheme('primary-inverse');
+	}
+
+	// Output some themes automatically if not in the manual output map.
+	@each $theme, $properties in $o-buttons-themes {
+		@if not index($_o-buttons-themes-manual-output, $theme) {
+			.#{$o-buttons-class}--#{$theme} {
+				@include oButtonsTheme($theme);
+			}
+		}
 	}
 
 	@each $size, $properties in $o-buttons-sizes {
 		.#{$o-buttons-class}--#{$size} {
 			@include oButtonsSize($size);
-		}
-	}
-
-	@each $theme, $properties in $o-buttons-themes {
-		.#{$o-buttons-class}--#{$theme} {
-			@include oButtonsTheme($theme);
 		}
 	}
 

@@ -63,11 +63,18 @@ $_o-buttons-border-radius: $o-normalise-border-radius;
 /// @type Map
 $o-buttons-themes: (
 	primary: 'primary',
+	primary-inverse: 'primary-inverse',
 	secondary: 'secondary',
 	inverse: 'inverse',
 	mono: 'mono',
 	b2c: $o-buttons-themes__b2c
 ) !default;
+
+$_o-buttons-themes-manual-output: (
+	'inverse',
+	'primary-inverse',
+	'secondary'
+);
 
 /// List of icons to generate classes for icon buttons.
 /// Build service users will only be able to use these icons, but there is
