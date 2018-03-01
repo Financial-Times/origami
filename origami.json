@@ -51,7 +51,7 @@
 			"name": "mono",
 			"title": "Monochrome buttons",
 			"template": "/demos/src/mono.mustache",
-			"description": "A monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
+			"description": "Secondary/default monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
 		},
 		{
 			"name": "B2C",
