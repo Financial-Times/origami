@@ -29,7 +29,7 @@ o-buttons provides styling for:
 
 To apply a theme use one of the above selectors, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.
 
-### Sizes:
+### Sizes
 `o-buttons--{default|big}` or `@include oButtonsSize($size);`
 
 ### Grouped buttons
