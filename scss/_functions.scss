@@ -71,7 +71,7 @@
         // Remove theme part from the key.
         $theme: str-slice($theme, $index + length($seperator));
         // Find the next theme part in the key if any.
-        $index : str-index($theme, $seperator);
+        $index: str-index($theme, $seperator);
     }
 	// Add the remaining theme part.
 	$final-theme-part: $theme;
