@@ -27,11 +27,10 @@ o-buttons provides styling for:
 | primary-inverse         | .o-buttons--primary.o-buttons--inverse |
 | b2c                     | .o-buttons--b2b                        |
 
-To apply a theme use one of the above selectors, or if using Bower and silent mode `@include oButtonsTheme($theme);`
+To apply a theme use one of the above selectors, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.
 
-**Custom themes**: `@include oButtonsCustomTheme($theme: (background: $page-background-color, accent: $button-color, colorizer: 'secondary'));`
-
-### Sizes: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
+### Sizes:
+`o-buttons--{default|big}` or `@include oButtonsSize($size);`
 
 ### Grouped buttons
 `.o-buttons-group` or `@include oButtonsGroup;`
