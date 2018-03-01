@@ -20,14 +20,14 @@ o-buttons provides styling for:
 
 | Theme                   | Selector                               |
 |-------------------------|----------------------------------------|
-| secondary (the default) | .o-buttons                             |
+| secondary (the default) |                              |
 | inverse                 | .o-buttons--inverse                    |
 | mono                    | .o-buttons--mono                       |
 | primary                 | .o-buttons--primary                    |
 | primary-inverse         | .o-buttons--primary.o-buttons--inverse |
 | b2c                     | .o-buttons--b2b                        |
 
-To apply a theme use one of the above selectors, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.
+To apply a theme use one of the above selectors e.g. `o-buttons o-buttons--inverse`, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.
 
 ### Sizes
 `o-buttons--{default|big}` or `@include oButtonsSize($size);`
