@@ -16,7 +16,8 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 o-buttons provides styling for:
 
-- **Themes**:
+### Themes
+
 | Theme                   | Selector                               |
 |-------------------------|----------------------------------------|
 | secondary (the default) | .o-buttons                             |
@@ -27,11 +28,19 @@ o-buttons provides styling for:
 | b2c                     | .o-buttons--b2b                        |
 
 To apply a theme use one of the above selectors, or if using Bower and silent mode `@include oButtonsTheme($theme);`
-	- **Custom themes**: [Via mixins only] `@include oButtonsCustomTheme($page-background-color, $accent-color);`
-- **Sizes**: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
-- **Grouped buttons**: `o-buttons-group` or `@include oButtonsGroup;`
-- **Pagination buttons**: `o-buttons-pagination` or `@include oButtonsPagination;`
-- **Icon buttons**: `o-buttons-icon o-buttons-icon--{arrow-left| arrow-right | other supported icon}` or `@include oButtonsIconButton($icon-name, $size, $theme);`
+
+**Custom themes**: `@include oButtonsCustomTheme($theme: (background: $page-background-color, accent: $button-color, colorizer: 'secondary'));`
+
+### Sizes: `o-buttons--{default|big}` or `@include oButtonsSize($size);`
+
+### Grouped buttons
+`.o-buttons-group` or `@include oButtonsGroup;`
+
+### Pagination buttons
+`.o-buttons-pagination` or `@include oButtonsPagination;`
+
+### Icon buttons
+`.o-buttons-icon .o-buttons-icon--{arrow-left| arrow-right | other supported icon}` or `@include oButtonsIconButton($icon-name, $size, $theme);`
 
 You can combine these styles.
 
