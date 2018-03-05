@@ -125,12 +125,15 @@
 
 	&.o-tooltip-arrow--align-top:before,
 	&.o-tooltip-arrow--align-top:after {
-		top: 10%;
+		top: 0;
+		margin-top: $size;
 	}
 
 	&.o-tooltip-arrow--align-bottom:before,
 	&.o-tooltip-arrow--align-bottom:after {
-		top: 90%;
+		top: auto;
+		bottom: $size;
+		margin-top: 0;
 	}
 
 
