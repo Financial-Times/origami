@@ -13,3 +13,4 @@ test:
     - obt demo --demo-filter pa11y --suppress-errors
     - obt verify
     - obt test
+    - npm run test-scss

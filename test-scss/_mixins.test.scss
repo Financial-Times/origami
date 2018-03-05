@@ -1,0 +1,141 @@
+@include test-module('oBrandDefine') {
+    @include test('Adds new brand variables to a global map') {
+        $component1-brand1: (
+            'variables': (
+                example: blue
+            ),
+            'settings': (
+                'test': true,
+                'example': true
+            )
+        );
+        $component1-brand2: (
+            'variables': (
+            ),
+            'settings': (
+                'example': true
+            )
+        );
+        $component2-brand1: (
+            'variables': (
+                other: red
+            ),
+            'settings': (
+                'thing': true
+            )
+        );
+        $component2-brand2: (
+            'variables': (
+                other: white
+            ),
+            'settings': (
+            )
+        );
+        @include oBrandDefine('o-component1', 'brand1', $component1-brand1);
+        @include oBrandDefine('o-component1', 'brand2', $component1-brand2);
+        @include oBrandDefine('o-component2', 'brand1', $component2-brand1);
+        @include oBrandDefine('o-component2', 'brand2', $component2-brand2);
+        @include assert-equal(map-get($_o-brands, "o-component1"), (
+            'brand1': $component1-brand1,
+            'brand2': $component1-brand2
+        ));
+        @include assert-equal(map-get($_o-brands, "o-component2"), (
+            'brand1': $component2-brand1,
+            'brand2': $component2-brand2
+        ));
+    }
+}
+
+@include test-module('oBrandConfigureFor') {
+    @include test('Does not output styles for unsupported variants') {
+        @include assert('The "b2b inverse" variant is supported by the test brand so should output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
+                    content: '"b2b inverse" compound variant supported';
+                }
+            }
+            @include expect {
+                content: '"b2b inverse" compound variant supported';
+            }
+        }
+
+        @include assert('The "b2b" variant is supported by the test brand so should output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+                    content: '"b2b" variant supported';
+                }
+            }
+            @include expect {
+                content: '"b2b" variant supported';
+            }
+        }
+
+        @include assert('The "unsupported" variant is not supported by the test brand so should not output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: 'unsupported') {
+                    content: '"unsupported" variant is not supported';
+                }
+            }
+            @include expect {
+            }
+        }
+
+        @include assert('Although "b2b" is supported the "unsupported" variant part is not supported by the test brand so should not output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'unsupported')) {
+                    content: '"b2b unsupported" compound variant is not supported';
+                }
+            }
+            @include expect {
+            }
+        }
+    }
+}
+
+@include test-module('oBrandGet') {
+    @include test('Gets a default variable value for a defined brand') {
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+        @include assert-equal($property, white);
+    }
+
+    @include test('Concatenates multiple variables for use in one property value') {
+        $property: oBrandGet($component: 'o-example', $variables: (example-border-width example-border-style example-border-color));
+        @include assert-equal($property, 1px solid grey);
+    }
+
+    @include test('Gets a variable value for a configured variant') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, grey);
+        }
+    }
+
+    @include test('Gets a variable value for a configured compound variant, regardless of order') {
+        // inverse b2b
+        @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, darkred);
+        }
+        // b2b inverse
+        @include oBrandConfigureFor($component: 'o-example', $variant: ('inverse', 'b2b')) {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, darkred);
+        }
+    }
+
+    @include test('Gets a variable value for a configured compound variant (nested)') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
+            // variant: inverse
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, grey);
+            // variant: inverse b2b
+            @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+                $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+                @include assert-equal($property, darkred);
+            }
+            // variant: inverse
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, grey);
+        }
+    }
+}

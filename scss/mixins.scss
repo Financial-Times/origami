@@ -1,0 +1,407 @@
+$o-brand: null !default; // The chosen current brand.
+$_o-brand-default: 'master'; // The fallback current brand. Allows us to check if o-brand is set explicitly.
+$_o-brands: () !default; // A map of components to their defined brands.
+$_o-brand-variant: () !default; // Current variant by component.
+$_o-brand-depth: () !default; // The number of current variant parts by component.
+
+/**
+* Define component configuration for a brand.
+*
+* @access public
+* @param {string} $component
+* @param {string} $brand
+* @param {map} $config
+**/
+@mixin oBrandDefine($component, $brand, $config) {
+    // Validate input.
+    @if type-of($component) != 'string' or $component == '' {
+        @error 'Could not set brand "#{$brand}" for component "#{$component}". A component name of type string must be given.';
+    }
+    @if type-of($brand) != 'string' or $brand == '' {
+        @error 'Could not set brand "#{$brand}" for component "#{$component}". A brand of type string must be given.';
+    }
+    @if type-of($config) != 'map' {
+        @error 'Could not set brand "#{$brand}", it\'s configuration must be a map.';
+    }
+    // Validate brand variables and settings.
+    $variables: map-get($config, 'variables');
+    $settings: map-get($config, 'settings');
+    $errorMessage: 'Could not set brand "#{$brand}".';
+    @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
+        @error $errorMessage + ' Config key "variables" should be a map but is of type #{type-of($variables)}.';
+    }
+    @if $settings and (type-of($settings) != 'map' and type-of($settings) != 'list' ) {
+        @error $errorMessage + ' Config key "settings" should be a map but is of type #{type-of($settings)}.';
+    }
+    // Sort and merge variant config.
+    // In brand variables maps are considered variant config, where the key is the variant.
+    // Brand variants could be defined twice e.g. ('a', 'b', 'c'): (background: red), ('c', 'a', 'b'): (background: red).
+    $sorted-variables: ();
+    @each $key, $value in $variables {
+        // Sort brand variant key.
+        @if type-of($value) == 'map' {
+            $key: _oBrandQuickSort($key);
+        }
+        // Merge variable/variant map.
+        $sorted-variables: map-merge($sorted-variables, ($key: $value));
+    }
+    // Create an updated component brands map.
+    $component-brands: map-get($_o-brands, $component);
+    $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
+    $component-brands: map-merge($component-brands, ($brand: (
+        'variables': $sorted-variables,
+        'settings': $settings
+    )));
+    // Add updated component brands map to global brands object.
+    $_o-brands: map-merge($_o-brands, ($component: $component-brands)) !global;
+}
+
+/**
+* Configures a content block for a brand variant.
+* A single variant (string) or compound variant (list) is accepted.
+* This mixin may also be nested to target compound variants.
+* The content block will only be output in the brand supports the variant.
+* Calls for brand variables within will return the value for the configured variant.
+*
+* @example
+*     oBrandConfigureFor('o-component', 'inverse') {
+*        // Will use configuration for the 'inverse' variant when getting variable values.
+*        // This will not be output if the brand does not support the "inverse" variant.
+*       oBrandConfigureFor('b2b') {
+*            // Will use configuration for the compound variant 'inverse,b2b' when fetching variable values.
+*       }
+*     }
+*
+* @example
+*     oBrandConfigureFor('o-component', ('inverse', 'b2b')) {
+*        // Will use configuration for the compound variant 'inverse,b2b' when fetching variable values.
+*     }
+*
+* @access public
+* @param {string} $component
+* @param {string | list} $variant
+**/
+@mixin oBrandConfigureFor($component, $variant) {
+    // The default brand must be configured before o-brand can be used.
+    @if not _oBrandIsDefaultConfigured($component) {
+        @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
+    }
+    // Validate variant.
+    @if type-of($variant) != 'list' and type-of($variant) != 'string' {
+        @error 'Cound not configure for variant #{type-of($variant)} "#{$variant}", expecting a list or string.';
+    }
+    // Add to current variant to output variant content.
+    @include _oBrandAddToCurrentVariant($component, $variant);
+    @if _oBrandSupports($component, _oBrandGetCurrentVariant($component)) {
+        @content;
+    }
+    // Variant content output. Remove from the current variant so future CSS is not effected.
+    @include _oBrandRemoveFromCurrentVariant($component, $variant);
+}
+
+/**
+* Gets a variable for the current brand and configured for variant.
+* If multiple variables are requested they are concatenated for use as one property.
+*
+* @example
+*     @oBrandGet('o-component', ('example-border-size', 'example-border-style', 'example-border-color')); // 1px solid red
+*     @oBrandGet('o-component', 'inverse-stripe-color'); // black
+*
+* @access public
+* @param {string} $component
+* @param {string | list} $variables
+* @return {string | number | color | null}
+**/
+@function oBrandGet($component, $variables) {
+    // For one variable return value.
+
+    @if length($variables) == 1 {
+        @return _oBrandGetVariableValue($component, nth($variables, 1));
+    }
+    // Concatenate multiple requested variables for use in one property.
+    $values: ();
+    @each $variable in $variables {
+        @if $variable {
+            $values: join($values,  _oBrandGetVariableValue($component, $variable));
+        }
+    }
+    @return $values;
+}
+
+/**
+* Check the default brand is configured. Otherwise using o-brand is not allowed.
+* The default brand must be configured by the component as it is the fallback.
+*
+* @access private
+* @param {string} $component
+* @return {boolean}
+**/
+@function _oBrandIsDefaultConfigured($component) {
+    $component-brands: map-get($_o-brands, $component);
+    $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
+    @return type-of(map-get($component-brands, $_o-brand-default)) == 'map';
+}
+
+/**
+* Check the brand's configured settings to see if it supports a variant.
+* Using this function and a conditional may make sense if there is no variant specific configuration.
+* However `oBrandConfigureFor` should be used instead where possible.
+* Doing so will support variant specific configuration in the future without code changes.
+*
+* @see oBrandConfigureFor
+* @access private
+* @param {string} $component
+* @param {string | list} $variant
+* @return {boolean}
+**/
+@function _oBrandSupports($component, $variant) {
+    // Validate variant.
+    @if type-of($variant) != 'list' and type-of($variant) != 'string' {
+        @error 'Cound not check support for variant #{type-of($variant)} "#{$variant}", expecting a list or string.';
+    }
+    // Get all brand settings, which are used to indicate variant support.
+    $brand-config: _oBrandGetConfig($component, $o-brand);
+    $brand-settings: map-get($brand-config, 'settings');
+    // No settings are enabled so no variants are supported.
+    @if type-of($brand-settings) != 'map' {
+        @return false;
+    }
+    // Check for a setting name which matches the variant.
+    // Each part of a compound variant should be specified with its own setting.
+    // E.g. Variant ('stripe', 'compact') is enabled with both 'stripe' and 'compact' settings set to true.
+    @each $variant-part in $variant {
+        $setting-defined: type-of($brand-settings) == 'map' and map-has-key($brand-settings, $variant-part);
+        @if $setting-defined == false or map-get($brand-settings, $variant-part) == false {
+            @return false;
+        }
+    }
+    @return true;
+}
+
+/**
+* Gets a variable for the current brand and variant.
+*
+* @access private
+* @param {string} $component
+* @param {string} $variable
+* @return {string | number | color | null}
+**/
+@function _oBrandGetVariableValue($component, $variable) {
+    // Get all brand variables.
+    $brand-config: _oBrandGetConfig($component, $o-brand);
+    $variables: map-get($brand-config, 'variables');
+    // Use variant variables if a variant is configured.
+    $current-variant: _oBrandGetCurrentVariant($component);
+    $variant-variables: map-get($variables, _oBrandQuickSort($current-variant));
+    @if type-of($variant-variables) == 'map' {
+        $variables: $variant-variables;
+    }
+    // Variables for the current brand and variant found.
+    @if type-of($variables) == 'map' {
+        // Check the requested variable is defined.
+        @if map-has-key($variables, $variable) == false {
+            @warn 'The "#{$variable}" variable is not defined for the ' + if(length($current-variant) > 0, 'variant "#{$current-variant}" of ', '') + 'the "#{$o-brand}" brand.';
+            @return null;
+        }
+        // Get the defined value and validate it can be used as a CSS property.
+        // Boolean variant and feature toggles are configured seperately.
+        $value: map-get($variables, $variable);
+        $supported-variable-types: ('string', 'number', 'color', 'list', 'null');
+        @if not index($supported-variable-types, type-of($value)) {
+            @error 'Brand variable "#{$variable}" is type of "#{type-of($value)}" but can only be one of: #{$supported-variable-types}.';
+        }
+        @return $value;
+    }
+    // Warn but do not error if a variable is not defined for the current brand and variant.
+    // A CSS property with SASS value `null`  will not be output.
+    @warn 'Variables are not set for ' + if(length($current-variant) > 0, 'the variant "#{$current-variant}" of ', '') + 'the "#{$o-brand}" brand.';
+    @return null;
+}
+
+/**
+* Update the current variant to with a new variant.
+* If a variant is already set they are compounded.
+*
+* @access private
+* @param {string} $component
+* @param {string | list} $variant
+**/
+@mixin _oBrandAddToCurrentVariant($component, $variant) {
+    $current-variant: _oBrandGetCurrentVariant($component);
+    $current-depth: _oBrandGetCurrentDepth($component);
+    @if $current-depth == 0 {
+        $current-variant: $variant;
+    } @else {
+        $current-variant: join($current-variant, $variant, 'comma');
+    }
+    // Update current variant.
+    $current-variant: _oBrandSetCurrentVariant($component, $current-variant);
+    // Update current depth.
+    $current-depth: $current-depth + length($variant);
+    $current-depth: _oBrandSetCurrentDepth($component, $current-depth);
+}
+
+/**
+* Update the current variant by removing a variant.
+*
+* @access private
+* @param {string} $component
+* @param {string | list} $variant
+**/
+@mixin _oBrandRemoveFromCurrentVariant($component, $variant) {
+    $current-depth: _oBrandGetCurrentDepth($component);
+    $current-depth: $current-depth - length($variant);
+    // Set new current depth.
+    $current-depth: _oBrandSetCurrentDepth($component, $current-depth);
+    $current-variant: _oBrandGetCurrentVariant($component);
+    @if $current-depth == 0 {
+        $current-variant: _oBrandSetCurrentVariant($component, ());
+    }
+    $new-variants: ();
+    $num: 1;
+    @while $num <= $current-depth {
+        $new-variants: join($new-variants, (nth($current-variant, $num)), 'comma');
+        $num: $num + 1;
+    }
+    $current-variant: if(length($new-variants) == 0, (), $new-variants);
+    // Set new current variant.
+    $current-variant: _oBrandSetCurrentVariant($component, $current-variant);
+}
+
+/**
+* Get all config for a given component and brand.
+*
+* @access private
+* @param {string} $component
+* @param {string} $brand
+* @return {map}
+**/
+@function _oBrandGetConfig($component, $brand) {
+    // Get config for the brand.
+    $component-brands: map-get($_o-brands, $component);
+    $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
+    $brand-config: map-get($component-brands, $brand);
+    // The default brand must be configured before o-brand can be used.
+    @if not _oBrandIsDefaultConfigured($component) {
+        @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
+    }
+    // Validate the requested brand is configured, fallback to the default brand otherwise.
+    @if $brand-config == null {
+        @warn 'The requested brand "#{$brand}" has not been set. Using "#{$_o-brand-default}" brand instead.';
+        @return _oBrandGetConfig($component, $_o-brand-default);
+    }
+    @return $brand-config;
+}
+
+/**
+* Quick sort alphanumeric list.
+*
+* @access private
+* @param {list} $list The list to sort.
+* @return {list}
+**/
+@function _oBrandQuickSort($list) {
+    // sass-lint:disable variable-name-format
+    $less: ();
+    $equal: ();
+    $large: ();
+    @if length($list) > 1 {
+        $seed: nth($list, ceil(length($list) / 2));
+        @each $item in $list {
+            @if $item == $seed {
+                $equal: append($equal, $item);
+            } @else if _oBrandStringCompare($item, $seed) {
+                $less: append($less, $item);
+            } @else if not _oBrandStringCompare($item, $seed) {
+                $large: append($large, $item);
+            }
+        }
+        @return join(join(_oBrandQuickSort($less), $equal), _oBrandQuickSort($large), list-separator($list));
+    }
+    @return $list;
+    // sass-lint:enable variable-name-format
+}
+
+/**
+* Get the current number of compound variants (depth) of a component.
+*
+* @access private
+* @param {string} $component
+* @return {number}
+**/
+@function _oBrandGetCurrentDepth($component) {
+    $current-depth: map-get($_o-brand-depth, $component);
+    @return if(type-of($current-depth) == 'number', $current-depth, 0);
+}
+
+/**
+* Update the current number of compound variants (depth) of a component.
+*
+* @access private
+* @param {string} $component
+* @param {number} $current-depth
+* @return {number}
+**/
+@function _oBrandSetCurrentDepth($component, $current-depth) {
+    $_o-brand-depth: map-merge($_o-brand-depth, ($component: $current-depth)) !global;
+    @return $current-depth;
+}
+
+/**
+* Get the current variant of a component.
+*
+* @access private
+* @param {string} $component
+* @return {list | string}
+**/
+@function _oBrandGetCurrentVariant($component) {
+    $current-variant: map-get($_o-brand-variant, $component);
+    // If one variant part return string consistently.
+    $current-variant: if(length($current-variant) == 1, nth($current-variant, 1), $current-variant);
+    @return $current-variant;
+}
+
+/**
+* Update the current variant of a component.
+*
+* @access private
+* @param {string} $component
+* @param {string | list} $current-variant
+* @return {list}
+**/
+@function _oBrandSetCurrentVariant($component, $current-variant) {
+    $_o-brand-variant: map-merge($_o-brand-variant, ($component: $current-variant)) !global;
+    @return $current-variant;
+}
+
+/**
+* Compares two strings to determine which comes first.
+* Sort order defined in an alphanumeric list.
+*
+* @access private
+* @param {string} $string-a
+* @param {string} $string-b
+* @return {list}
+**/
+@function _oBrandStringCompare($string-a, $string-b) {
+    // sass-lint:disable variable-name-format
+    $character-order: ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+    @if type-of($string-a) == 'number' and type-of($string-b) == 'number' {
+        @return $string-a < $string-b;
+    }
+
+    $string-a: to-lower-case($string-a + unquote(''));
+    $string-b: to-lower-case($string-b + unquote(''));
+
+    @for $i from 1 through min(str-length($string-a), str-length($string-b)) {
+        $character-a: str-slice($string-a, $i, $i);
+        $character-b: str-slice($string-b, $i, $i);
+
+        @if $character-a and $character-b and index($character-order, $character-a) != index($character-order, $character-b) {
+            @return index($character-order, $character-a) < index($character-order, $character-b);
+        }
+    }
+
+    @return str-length($string-a) < str-length($string-b);
+    // sass-lint:enable variable-name-format
+}

@@ -1,0 +1,43 @@
+$o-brand: 'internal';
+
+@include oBrandDefine('o-example', 'master', (
+	'variables': (
+		example-background: pink
+	),
+	'settings': (
+		'stripe': true,
+		'compact': true
+	)
+));
+
+@include oBrandDefine('o-example', 'internal', (
+	'variables': (
+		example-background: white,
+		example-header-background: grey,
+		example-border-width: 1px,
+		example-border-style: solid,
+        example-border-color: grey,
+        'inverse': (
+		    example-background: grey,
+		    example-header-background: black,
+            example-border-color: black,
+        ),
+        'b2b': (
+		    example-background: red
+        ),
+        ('inverse', 'b2b'): (
+		    example-background: darkred
+        )
+	),
+	'settings': (
+		'compact': true,
+		'inverse': true,
+		'b2b': true
+	)
+));
+
+@include oBrandDefine('o-example', 'whitelabel', (
+	'settings': (
+		'compact': true
+	)
+));
