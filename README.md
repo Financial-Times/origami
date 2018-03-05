@@ -130,9 +130,9 @@ There are several options used to change the appearance or behaviour of o-banner
 
 ### Sass
 
-As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent: false;` in your Sass before you've imported the o-tooltip Sass.
+As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
 
-o-tooltip includes mixins that you can use if you'd rather not have origami classnames in your page. These are only available if you're not using the Build Service:
+o-banner includes mixins that you can use if you'd rather not have origami classnames in your page. These are only available if you're not using the Build Service:
 
 ```scss
 @include oBanner($class: 'o-banner', $themes: 'all');
