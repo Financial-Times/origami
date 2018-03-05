@@ -53,6 +53,8 @@
 
 /// Maps button theme names to class modifiers.
 ///
+/// Remove if possible in the next https://github.com/Financial-Times/o-buttons/issues/156.
+///
 /// @example
 ///  _oButtonsGetThemeSelector('primary') // o-buttons--primary
 ///  _oButtonsGetThemeSelector('primary-inverse') // o-buttons--primary.o-buttons--inverse
