@@ -66,7 +66,7 @@ class Message {
 		// if the message is 'alert-inner' it shouldn't be close-able
 		if (this.messageElement.matches("[class*='-inner']")) {
 			this.opts.close = false;
-		};
+		}
 
 		if (this.opts.close) {
 			let closeButton = construct.closeButton(this.opts);

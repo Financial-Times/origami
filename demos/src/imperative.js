@@ -15,7 +15,7 @@ let options = {
 			text: 'Relevant Link'
 		},
 	}
-}
+};
 
 let innerOptions = Object.assign({}, options, {
 	type: 'alert-inner',
@@ -27,19 +27,19 @@ let innerOptions = Object.assign({}, options, {
 	}
 });
 
-const deleteElementsByClassName  = (className) => {
+const deleteElementsByClassName = (className) => {
 	const elementsWithThisClass = document.getElementsByClassName(className);
 	while (elementsWithThisClass[0]) {
 		elementsWithThisClass[0].remove();
 	}
-}
+};
 
 const setUpDemo = (id, opts, variants) => {
 	document.getElementById(id).addEventListener('click', () => {
 		deleteElementsByClassName('o-message');
 		return new Message(null, Object.assign({}, opts, variants));
 	});
-}
+};
 
 const initDemos = () => {
 	setUpDemo('alert-success', options, {status: 'success'});
@@ -50,7 +50,7 @@ const initDemos = () => {
 	setUpDemo('inner-success', innerOptions, {status: 'success'});
 	setUpDemo('inner-neutral', innerOptions, {status: 'neutral'});
 	setUpDemo('inner-error', innerOptions, {status: 'error'});
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));

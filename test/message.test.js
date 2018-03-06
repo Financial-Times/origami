@@ -153,7 +153,6 @@ describe("Message", () => {
 
 		describe('.render()', () => {
 			let mockMessageElement;
-			let mockCloseButton;
 
 			beforeEach(() => {
 				const mockContainerElement = document.createElement('div');
@@ -219,7 +218,7 @@ describe("Message", () => {
 			});
 
 			it('throws an error if an incorrect message type is supplied', () => {
-				options.type = 'marketing'
+				options.type = 'marketing';
 				const error = "*** o-message error: 'marketing' is not a supported message type. The available options are 'alert', 'alert-bleed' or 'alert-inner' ***";
 
 				assert.throws(() => { new Message(null, options); }, error);
@@ -238,7 +237,7 @@ describe("Message", () => {
 			});
 
 			it('does not call `construct.closeButton` if opts.close is false', () => {
-				options.close = false
+				options.close = false;
 				message = new Message(null, options);
 				assert.notCalled(construct.closeButton);
 			});

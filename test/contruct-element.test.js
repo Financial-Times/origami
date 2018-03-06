@@ -14,7 +14,7 @@ const flatten = string => string.replace(/\s/g, '');
 
 describe("constructElement", () => {
 	let options;
-	beforeEach(() =>  {
+	beforeEach(() => {
 		options = {
 			messageClass: 'my-message',
 			type: 'alert',
@@ -36,7 +36,7 @@ describe("constructElement", () => {
 			},
 			close: true
 		};
-	})
+	});
 
 	describe('.alertMessage', () => {
 		it('returns an HTML element', () => {
@@ -57,10 +57,10 @@ describe("constructElement", () => {
 		describe('builds an inline version of component if an inline option is true', () => {
 			beforeEach(() => {
 				options.type = 'alert-inner';
-			})
+			});
 
 			it('if additional info is provided', () => {
-				options.content.additionalInfo = 'Additional info'
+				options.content.additionalInfo = 'Additional info';
 				assert.strictEqual(flatten(construct.alertMessage(options).innerHTML), flatten(fixtures.innerAlert));
 			});
 

@@ -50,12 +50,12 @@
 // @param {String} $icon-size - size of the icon
 
 @mixin oMessageAlertIcon ($icon-name, $icon-color, $icon-size) {
-	content: '';
 	@include oIconsGetIcon(
 		$icon-name,
 		$icon-color,
 		$icon-size
 	);
+	content: '';
 }
 
 // Alert message content styles
@@ -65,7 +65,9 @@
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	width: 100%;
 	display: table-cell;
+	// sass-lint:disable no-duplicate-properties
 	display: flex;
+	// sass-lint:enable no-duplicate-properties
 	align-items: center;
 	vertical-align: middle;
 }

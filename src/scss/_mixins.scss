@@ -4,7 +4,9 @@
 @mixin oMessageContainer () {
 	@include oTypographySans($scale: 0);
 	display: table;
+	// sass-lint:disable no-duplicate-properties
 	display: flex;
+	// sass-lint:enable no-duplicate-properties
 	align-items: center;
 	justify-content: flex-start;
 	height: 100%;
