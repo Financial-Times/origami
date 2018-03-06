@@ -1,2 +1,30 @@
 $o-message-is-silent: false;
 @import '../../main';
+
+body {
+	background: oColorsGetPaletteColor(paper);
+}
+
+h6 {
+	@include oTypographyProductHeadingLevel6();
+	margin-top: 20px;
+}
+
+.o-message {
+	margin-top: 20px;
+}
+
+.list-of-demo-buttons {
+	display: inline-block;
+}
+
+.demo-button {
+	@include oButtons();
+	margin: 10px;
+}
+
+.demo-inner,
+.demo-inner-message {
+	margin: auto;
+	max-width: 400px;
+}

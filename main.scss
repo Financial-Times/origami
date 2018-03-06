@@ -1,9 +1,13 @@
-// 
-// @if ($o-component-boilerplate-is-silent == false) {
-// 	 .o-component-boilerplate {
-// 		display: block;
-// 	}
-//
-// 	// Set to silent again to avoid being output twice
-// 	$o-component-boilerplate-is-silent: true !global;
-// }
+@import 'o-buttons/main';
+@import 'o-colors/main';
+@import 'o-icons/main';
+@import 'o-typography/main';
+
+@import 'src/scss/main';
+
+@if ($o-message-is-silent == false) {
+	@include oMessage;
+	
+	// Set to silent again to avoid being output twice
+	$o-message-is-silent: true !global;
+}

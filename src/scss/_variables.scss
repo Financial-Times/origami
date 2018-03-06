@@ -1,1 +1,19 @@
+////
+/// @group o-message
+/// @link http://registry.origami.ft.com/components/o-message
+////
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default message classes
+///
+/// @type Boolean
 $o-message-is-silent: true !default;
+
+/// Default button class used when $o-buttons-is-silent is true
+///
+/// @type String
+$o-message-class: o-message !default;
+
+// Alert message height
+$_o-message-alert-height: 48px;
+$_o-message-action-height: 40px;

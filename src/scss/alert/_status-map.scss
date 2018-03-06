@@ -1,0 +1,50 @@
+/// List of states that can be applied to alert type messages
+///
+/// @type List
+$o-message-status: (error, neutral, success);
+
+/// Message status variants, with their respective states
+/// Each status is a Map of CSS properties
+///
+/// @type Map
+$_o-message-status-styles: (
+	error: (
+		custom-link-base: 'black-crimson-12.5',
+		custom-link-hover: 'black-crimson-12.5',
+		custom-link-background: 'paper-crimson-90',
+		link-hover: oColorsGetPaletteColor('black-crimson-12.5'),
+		link-focus: oColorsGetPaletteColor('black-crimson-12.5'),
+		button-text: 'black-crimson-12.5',
+		button-background: 'paper-crimson-90',
+		alert-icon-name: 'warning-alt',
+		alert-icon-color: oColorsGetPaletteColor('black-crimson-12.5'),
+		alert-icon-size: 40,
+		close-icon-color: oColorsGetPaletteColor('black-crimson-12.5')
+	),
+	neutral: (
+		custom-link-base: 'black',
+		custom-link-hover: 'black',
+		custom-link-background: 'white-60',
+		link-hover: oColorsGetPaletteColor('black'),
+		link-focus: oColorsGetPaletteColor('black'),
+		button-text: 'black',
+		button-background: 'white-60',
+		alert-icon-name: 'info',
+		alert-icon-color: oColorsGetPaletteColor('black'),
+		alert-icon-size: 40,
+		close-icon-background: oColorsGetPaletteColor('black'),
+	),
+	success: (
+		custom-link-base: 'black-jade-43',
+		custom-link-hover: 'black-jade-43',
+		custom-link-background: 'paper-jade-80',
+		link-hover: oColorsGetPaletteColor('black-jade-43'),
+		link-focus: oColorsGetPaletteColor('black-jade-43'),
+		button-text: 'black-jade-43',
+		button-background: 'paper-jade-80',
+		alert-icon-name: 'tick',
+		alert-icon-color: oColorsGetPaletteColor('black-jade-43'),
+		alert-icon-size: 40,
+		close-icon-color: oColorsGetPaletteColor('black-jade-43')
+	),
+);

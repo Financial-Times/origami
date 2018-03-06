@@ -1,0 +1,121 @@
+////
+/// @group o-message
+/// @link http://registry.origami.ft.com/components/o-message
+////
+
+/// Alert Message
+///
+/// Outputs styling for an alert or alert-bleed type message
+/// @example
+/// @include oMessageAlert('my-class');
+///
+/// @param {String} $class - base class name
+
+@mixin oMessageAlert ($class) {
+	.#{$class}--alert,
+	.#{$class}--alert-bleed {
+		height: $_o-message-alert-height;
+
+		.#{$class}__content {
+			@include oMessageAlertContent;
+		}
+
+		.#{$class}__highlight {
+			@include oTypographyMargin($top: 0, $bottom: 0);
+		}
+
+		.#{$class}__detail {
+			@include oGridRespondTo($until: M) {
+				display: none;
+			};
+		}
+
+		.#{$class}__action--secondary {
+			@include oGridRespondTo($until: S) {
+				display: none;
+			};
+		}
+	}
+
+	.#{$class}--alert,
+	.#{$class}--alert-bleed .#{$class}__container {
+		@include oMessageAlertGrid;
+	}
+}
+
+// Customised Icon for Alert messages
+//
+// @param {String} $icon-name - name of the icon (accepts any icon name from fticons)
+// @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
+// @param {String} $icon-size - size of the icon
+
+@mixin oMessageAlertIcon ($icon-name, $icon-color, $icon-size) {
+	content: '';
+	@include oIconsGetIcon(
+		$icon-name,
+		$icon-color,
+		$icon-size
+	);
+}
+
+// Alert message content styles
+// Outputs content layout
+
+@mixin oMessageAlertContent () {
+	@include oTypographyMargin($top: 0, $bottom: 0);
+	width: 100%;
+	display: table-cell;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+}
+
+// Alert message button style
+//
+// @param {String} $background - name of the button background color (accepts any color from o-colors)
+// @param {String} $text - name of the button text color (accepts any color from o-colors)
+
+@mixin oMessageAlertButtonState ($background, $text) {
+	@include oMessageButtonBase;
+	@include oButtonsCustomTheme($background, $text);
+}
+
+
+// Alert message link style
+//
+//
+// @param {String} $custom-link-base - name of the link text color (required by oTypographyLinkCustom, accepts any color from o-colors)
+// @param {String} $custom-link-hover - name of the link hover color (required by oTypographyLinkCustom,accepts any color from o-colors)
+// @param {String} $custom-link-background - name of the link background color (required by oTypographyLinkCustom, accepts any color from o-colors)
+// @param {String} $link-hover - name of the link hover color (overrides default states from oTypographyLinkCustom, accepts any color from o-colors)
+// @param {String} $link-background - name of the link background color (overrides default states from oTypographyLinkCustom, accepts any color from o-colors)
+
+@mixin oMessageAlertLink ($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover, $link-focus) {
+	@include oTypographyLinkCustom(
+		$custom-link-base,
+		$custom-link-hover,
+		$custom-link-background
+	);
+	line-height: $_o-message-action-height;
+	white-space: nowrap;
+
+	&:hover {
+		border-bottom-color: $link-hover; // is different to custom link hover by design.
+	}
+
+	&:focus {
+		outline: 3px solid $link-focus;
+		border-bottom-color: transparent;
+	}
+}
+
+
+// Alert message grid
+// Outputs grid layout for alert message
+
+@mixin oMessageAlertGrid () {
+	@include oGridContainer();
+	@include oGridRespondTo($from: S) {
+		padding: 0 oGridGutter();
+	}
+}

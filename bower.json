@@ -1,0 +1,23 @@
+{
+  "name": "o-message",
+  "homepage": "https://github.com/Financial-Times/o-message",
+  "description": "Product messaging component used for alerting and informing.",
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "o-colors": "^4.1.5",
+    "o-typography": "^5.5.0",
+    "o-buttons": "^5.8.5",
+    "o-icons": "^5.6.0"
+  }
+}

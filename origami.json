@@ -16,22 +16,29 @@
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
 		"documentClasses": "",
-		"dependencies": ""
+		"dependencies": "o-fonts"
 	},
 	"demos": [
 		{
-			"name": "demo",
-			"js": "demos/src/demo.js",
-			"template": "demos/src/demo.mustache",
-			"description": ""
+			"title": "Alert Message",
+			"name": "alert",
+			"template": "demos/src/alert.mustache",
+			"description": "Alert messages (success, error and neutral)"
 		},
 		{
-			"name": "pa11y",
-			"js": "demos/src/demo.js",
-			"template": "demos/src/pa11y.mustache",
-			"hidden": true,
-			"description": "Accessibility test will be run against this demo"
+			"title": "Inner Message",
+			"name": "inner",
+			"template": "demos/src/inner.mustache",
+			"description": "Inner alert messages (success, error and neutral)"
+		},
+		{
+			"title": "Imperative",
+			"name": "imperative",
+			"js": "demos/src/imperative.js",
+			"template": "demos/src/imperative.mustache",
+			"description": "Imperative alert messages regular, inner and bleed)"
 		}
 	]
 }

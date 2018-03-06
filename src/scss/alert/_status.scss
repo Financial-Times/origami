@@ -1,0 +1,54 @@
+@import 'src/scss/alert/status-map';
+
+
+/// Alert message status
+///
+/// Outputs status specific styles for an alert message
+/// @example
+/// @include oMessageStatus('success', 'my-class');
+///
+/// @param {String} $status - the name of the status for the message ('success', 'neutral', 'error')
+/// @param {String} $class - base class for status
+
+
+@mixin oMessageStatus ($status, $class) {
+	@if not map-has-key($_o-message-status-styles, $status) {
+		@return _oMessageError("#{$status} is not a status. You can try 'error', 'success' or 'neutral', instead.");
+	} @else {
+		.#{$class}--#{$status} {
+			@include oColorsFor(o-message-alert-#{$status});
+
+			.#{$class}__action--primary {
+				@include oMessageAlertButtonState(
+				_oMessageGetMapValue($status, button-background),
+				_oMessageGetMapValue($status, button-text)
+				);
+			}
+
+			.#{$class}__action--secondary {
+				@include oMessageAlertLink(
+					$custom-link-base: _oMessageGetMapValue($status, custom-link-base),
+					$custom-link-hover: _oMessageGetMapValue($status, custom-link-hover),
+					$custom-link-background: _oMessageGetMapValue($status, custom-link-background),
+					$link-hover: _oMessageGetMapValue($status, link-hover),
+					$link-focus: _oMessageGetMapValue($status, link-focus)
+				);
+			}
+
+			.#{$class}__container:before {
+				@include oMessageAlertIcon(
+					_oMessageGetMapValue($status, alert-icon-name),
+					_oMessageGetMapValue($status, alert-icon-color),
+					_oMessageGetMapValue($status, alert-icon-size)
+				);
+				vertical-align: middle;
+				padding: 4px 0;
+			}
+
+			.#{$class}__close {
+				@include oMessageCloseButton(_oMessageGetMapValue($status, close-icon-color));
+				vertical-align: middle;
+			}
+		}
+	}
+}
