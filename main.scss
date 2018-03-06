@@ -3,11 +3,11 @@
 @import 'o-icons/main';
 @import 'o-typography/main';
 
-@import 'src/scss/main';
+@import './src/scss/main';
 
 @if ($o-message-is-silent == false) {
 	@include oMessage;
-	
+
 	// Set to silent again to avoid being output twice
 	$o-message-is-silent: true !global;
 }

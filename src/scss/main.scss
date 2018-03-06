@@ -1,8 +1,8 @@
-@import 'src/scss/variables';
-@import 'src/scss/color-use-cases';
-@import 'src/scss/functions';
-@import 'src/scss/mixins';
-@import 'src/scss/alert/main';
+@import './variables';
+@import './color-use-cases';
+@import './functions';
+@import './mixins';
+@import './alert/main';
 
 
 @mixin oMessage($class: $o-message-class, $type: 'all', $status: 'all') {
