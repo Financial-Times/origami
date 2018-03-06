@@ -61,11 +61,10 @@
 			@if $theme == 'secondary' {
 				$theme-selector: '&';
 			} @else {
-				$theme-selector: '&.#{$o-buttons-class}--#{$theme}';
+				$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
 			}
 
 			#{$theme-selector} {
-
 				@each $icon-name in $o-buttons-icons {
 					&.#{$o-buttons-class}-icon--#{$icon-name} {
 						@include _oButtonsIconBackgroundImage($icon-name, $theme);

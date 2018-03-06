@@ -24,7 +24,8 @@
 	}
 
 	@each $theme, $properties in $o-buttons-themes {
-		.#{$o-buttons-class}--#{$theme} {
+		$theme-selector: _oButtonsGetThemeSelector($theme, $o-buttons-class);
+		.#{$theme-selector} {
 			@include oButtonsTheme($theme);
 		}
 	}

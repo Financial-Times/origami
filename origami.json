@@ -23,28 +23,35 @@
 	"demos": [
 		{
 			"name": "primary",
-			"title": "Masterbrand primary buttons",
+			"title": "Primary button",
 			"template": "/demos/src/primary.mustache",
-			"description": "Primary theme for masterbrand buttons. This is the default theme."
+			"description": "Primary button."
+		},
+		{
+			"name": "primary-inverse",
+			"title": "Primary button (inverse)",
+			"template": "/demos/src/primary-inverse.mustache",
+			"bodyClasses": "inverse",
+			"description": "Primary button which is inversed for use on an alternate background."
 		},
 		{
 			"name": "secondary",
-			"title": "Masterbrand secondary buttons",
+			"title": "Secondary/default button",
 			"template": "/demos/src/secondary.mustache",
-			"description": "Secondary buttons should be used for primary actions."
+			"description": "The secondary button is the default and usually most used button."
 		},
 		{
 			"name": "inverse",
-			"title": "Masterbrand inverse theme",
+			"title": "Secondary/default button (inverse)",
 			"template": "/demos/src/inverse.mustache",
 			"bodyClasses": "inverse",
-			"description": "Inverse buttons for use on dark backgrounds."
+			"description": "Secondary/default button which is inversed for use on an alternate background."
 		},
 		{
 			"name": "mono",
 			"title": "Monochrome buttons",
 			"template": "/demos/src/mono.mustache",
-			"description": "A monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
+			"description": "Secondary/default monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
 		},
 		{
 			"name": "B2C",
