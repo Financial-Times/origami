@@ -38,8 +38,9 @@
 					_oMessageGetMapValue($status, alert-icon-color),
 					_oMessageGetMapValue($status, alert-icon-size)
 				);
+				min-width: 40px;
+				padding: 0 4px;
 				vertical-align: middle;
-				padding: 4px 0;
 			}
 
 			.#{$class}__close {

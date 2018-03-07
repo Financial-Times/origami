@@ -8,7 +8,7 @@
 ///
 /// Outputs base layout for a message container
 @mixin oMessageContainer () {
-	@include oTypographySans($scale: 0);
+	@include oTypographySans($o-message-typography-scale);
 	display: table;
 	// sass-lint:disable no-duplicate-properties
 	display: flex;
@@ -26,7 +26,7 @@
 ///
 /// Outputs styles for highligted message content
 @mixin oMessageHighlight {
-	@include oTypographySansBold($scale: 0);
+	@include oTypographySansBold($o-message-typography-scale);
 	line-height: 1;
 	margin-right: oTypographySpacingSize(6);
 	display: inline-block;
@@ -36,7 +36,7 @@
 ///
 /// Outputs styles for message content detail
 @mixin oMessageDetail {
-	padding-left: oTypographySpacingSize(2);
+	padding-left: oTypographySpacingSize(1);
 	font-weight: 400;
 }
 

@@ -17,3 +17,14 @@ $o-message-class: o-message !default;
 // Alert message height
 $_o-message-alert-height: 48px;
 $_o-message-action-height: 40px;
+
+
+//Typography
+$o-message-typography-scale: 0 !default;
+
+//temporary until design confirms
+$_line-height: _oTypographyLineHeightFromScale($o-message-typography-scale, null);
+$_font-size: _oTypographyFontSizeFromScale($o-message-typography-scale);
+$_line-height-ratio: 1.5; //https://www.smashingmagazine.com/2009/08/typographic-design-survey-best-practices-from-the-best-blogs/#6-optimal-line-height-for-body-copy
+$_characters-per-line: 65;
+$_max-line-width: $_characters-per-line * ($_font-size / $_line-height-ratio);
