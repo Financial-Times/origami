@@ -98,31 +98,30 @@
 /// @param {String} $theme, any theme name as defined in $o-buttons-themes (primary, secondary, etc). Custom themes not supported.
 ///
 @mixin _oButtonsIconBackgroundImage($icon-name, $theme) {
-	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
+	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'normal');
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination
 	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, pressedselected);
+		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
 
-	}
-
-	&[disabled] {
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, normal);
 	}
 
 	&:not([disabled]) {
 		&:hover {
-			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, hover);
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'hover');
+		}
+		&:focus {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'focus');
 		}
 		&:active {
-			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
 		}
 	}
 
 	// Hack to get the active state colour svg to download to prevent FOIC
 	&:after {
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, active);
+		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
 		content: '';
 	}
 }
