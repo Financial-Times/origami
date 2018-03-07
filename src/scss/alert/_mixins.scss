@@ -3,6 +3,39 @@
 /// @link http://registry.origami.ft.com/components/o-message
 ////
 
+/// Alert Messages
+///
+/// Outputs styling for all alert type messages
+/// @example
+/// @include oMessageAlerts('my-class');
+///
+/// @param {String} $class - base class name
+/// @param {String} $type - message type ('all', 'alert', 'alert-bleed' or 'alert-inner')
+/// @param {String} $status - message status ('all', 'success', 'neutral', 'error')
+
+@mixin oMessageAlerts($class, $type, $status) {
+	@if $type == 'all' {
+		@include oMessageAlert($class);
+		@include oMessageAlertInner($class);
+	} @else if $type == 'alert' or $type == 'alert-bleed' {
+			@include oMessageAlert($class);
+	} @else if $type == 'alert-inner' {
+			@include oMessageAlertInner($class);
+	} @else {
+		@include _oMessageError("#{$type} is not a type, the options are 'alert', 'alert-bleed' or 'alert-inner'");
+	}
+
+	@if $status == 'all' {
+		@each $status in $o-message-status {
+			@include oMessageStatus($status, $class)
+		}
+	} @else if index($o-message-status, $status) != null {
+			@include oMessageStatus($status, $class);
+	} @else {
+		@include _oMessageError("#{$status} is not a status, the options are 'success', 'neutral' or 'error'");
+	}
+}
+
 /// Alert Message
 ///
 /// Outputs styling for an alert or alert-bleed type message

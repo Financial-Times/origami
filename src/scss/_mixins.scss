@@ -1,3 +1,9 @@
+/// Output All oMessage Features
+@mixin oMessage($class: $o-message-class, $type: 'all', $status: 'all') {
+	@include oMessageBase($class);
+	@include oMessageAlerts($class, $type, $status);
+}
+
 /// Message container
 ///
 /// Outputs base layout for a message container
