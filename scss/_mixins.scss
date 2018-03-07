@@ -60,12 +60,6 @@
 		@include oBrandConfigureFor('o-buttons', $variant) {
 			@include _oButtonsGetThemeColors('default');
 			&:not([disabled]) {
-				// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
-				// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
-				&[aria-selected=true], // e.g. A selected tab or page number in pagination.
-				&[aria-pressed=true] { // e.g. A "follow" button that is pressed.
-					@include _oButtonsGetThemeColors('active');
-				}
 				&:hover {
 					@include _oButtonsGetThemeColors('hover');
 					text-decoration: none;
@@ -73,6 +67,10 @@
 				&:focus {
 					@include _oButtonsGetThemeColors('focus');
 				}
+				// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
+				// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
+				&[aria-selected=true], // e.g. A selected tab or page number in pagination.
+				&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 				&:active {
 					@include _oButtonsGetThemeColors('active');
 				}
