@@ -40,7 +40,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     @each $key, $value in $variables {
         // Sort brand variant key.
         @if type-of($value) == 'map' {
-            $key: _oBrandQuickSort($key);
+            $key: _oBrandNormaliseVariant($key);
         }
         // Merge variable/variant map.
         $sorted-variables: map-merge($sorted-variables, ($key: $value));
@@ -192,7 +192,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     $variables: map-get($brand-config, 'variables');
     // Use variant variables if a variant is configured.
     $current-variant: _oBrandGetCurrentVariant($component);
-    $variant-variables: map-get($variables, _oBrandQuickSort($current-variant));
+    $variant-variables: map-get($variables, _oBrandNormaliseVariant($current-variant));
     @if type-of($variant-variables) == 'map' {
         $variables: $variant-variables;
     }
@@ -291,6 +291,29 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
         @return _oBrandGetConfig($component, $_o-brand-default);
     }
     @return $brand-config;
+}
+
+/**
+* Ensure variants are expressed consistently,
+* so they may be compared and matched.
+*
+* Only effects compound variants:
+* - Makes a variant list alphabetical.
+* - Makes a variant list have a comma list separator.
+*
+* @access private
+* @param {list|string} $variant The variant to normalise.
+* @return {list|string}
+**/
+@function _oBrandNormaliseVariant($variant) {
+    @if type-of($variant) != 'list' {
+        @return $variant;
+    }
+    // Compound variant is expressed in order.
+    $variant: _oBrandQuickSort($variant);
+    // List separator is consistent.
+    $variant: join($variant, (), 'comma');
+    @return $variant;
 }
 
 /**

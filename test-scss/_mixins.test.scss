@@ -123,6 +123,19 @@
         }
     }
 
+    @include test('Gets a variable value for a configured variant, regardless of list separator') {
+        // space
+        @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' 'inverse')) {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, darkred);
+        }
+        // comma
+        @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'inverse')) {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, darkred);
+        }
+    }
+
     @include test('Gets a variable value for a configured compound variant (nested)') {
         @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
             // variant: inverse
