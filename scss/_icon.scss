@@ -99,15 +99,14 @@
 ///
 @mixin _oButtonsIconBackgroundImage($icon-name, $theme) {
 	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'normal');
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-	&[aria-selected=true], // e.g. A selected tab or page number in pagination
-	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
-
-	}
-
 	&:not([disabled]) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&[aria-selected=true], // e.g. A selected tab or page number in pagination
+		&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
+
+		}
 		&:hover {
 			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'hover');
 		}

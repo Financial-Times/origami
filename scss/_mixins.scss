@@ -43,24 +43,6 @@
 	}
 }
 
-@mixin _oButtonsGetColors($state) {
-	background-color: if(
-		oBrandGet('o-buttons', '#{$state}-background'),
-		oBrandGet('o-buttons', '#{$state}-background'),
-		oBrandGet('o-buttons', 'default-background')
-	);
-	color: if(
-		oBrandGet('o-buttons', '#{$state}-text'),
-		oBrandGet('o-buttons', '#{$state}-text'),
-		oBrandGet('o-buttons', 'default-text')
-	);
-	border-color: if(
-		oBrandGet('o-buttons', '#{$state}-border'),
-		oBrandGet('o-buttons', '#{$state}-border'),
-		oBrandGet('o-buttons', 'default-border')
-	);
-}
-
 /// Button theme construct
 /// Outputs styles for all button states
 ///
@@ -76,30 +58,45 @@
 	} @else {
 		$variant: _oButtonsGetBrandVariantFromTheme($theme);
 		@include oBrandConfigureFor('o-buttons', $variant) {
-
-			@include _oButtonsGetColors('default');
-
-			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-			&[aria-selected=true], // e.g. A selected tab or page number in pagination
-			&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-				@include _oButtonsGetColors('active');
-			}
-
+			@include _oButtonsGetThemeColors('default');
 			&:not([disabled]) {
+				// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
+				// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
+				&[aria-selected=true], // e.g. A selected tab or page number in pagination.
+				&[aria-pressed=true] { // e.g. A "follow" button that is pressed.
+					@include _oButtonsGetThemeColors('active');
+				}
 				&:hover {
-					@include _oButtonsGetColors('hover');
+					@include _oButtonsGetThemeColors('hover');
 					text-decoration: none;
 				}
 				&:focus {
-					@include _oButtonsGetColors('focus');
+					@include _oButtonsGetThemeColors('focus');
 				}
 				&:active {
-					@include _oButtonsGetColors('active');
+					@include _oButtonsGetThemeColors('active');
 				}
 			}
 		}
 	}
+}
+
+@mixin _oButtonsGetThemeColors($state) {
+	background-color: if(
+		oBrandGet('o-buttons', '#{$state}-background'),
+		oBrandGet('o-buttons', '#{$state}-background'),
+		oBrandGet('o-buttons', 'default-background')
+	);
+	color: if(
+		oBrandGet('o-buttons', '#{$state}-text'),
+		oBrandGet('o-buttons', '#{$state}-text'),
+		oBrandGet('o-buttons', 'default-text')
+	);
+	border-color: if(
+		oBrandGet('o-buttons', '#{$state}-border'),
+		oBrandGet('o-buttons', '#{$state}-border'),
+		oBrandGet('o-buttons', 'default-border')
+	);
 }
 
 
@@ -157,16 +154,15 @@
 		background-color: oColorsGetPaletteColor($accent);
 	}
 
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-	&[aria-selected=true], // e.g. A selected tab or page number in pagination
-	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-		border-color: oColorsGetPaletteColor($accent);
-		background-color: oColorsGetPaletteColor($accent);
-		color: oColorsGetPaletteColor($background);
-	}
-
 	&:not([disabled]) {
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+		&[aria-selected=true], // e.g. A selected tab or page number in pagination
+		&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+			border-color: oColorsGetPaletteColor($accent);
+			background-color: oColorsGetPaletteColor($accent);
+			color: oColorsGetPaletteColor($background);
+		}
 		&:hover {
 			background-color: oColorsMix($background, $accent);
 			text-decoration: none;
