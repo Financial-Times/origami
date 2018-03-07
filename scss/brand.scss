@@ -10,6 +10,15 @@ $o-brand: 'master';
             focus-background: oColorsGetPaletteColor('teal-40'),
             active-background: oColorsGetPaletteColor('teal-30')
         ),
+        ('primary', 'inverse'): (
+            default-text: oColorsGetPaletteColor('slate'),
+            default-background: oColorsGetPaletteColor('white'),
+            default-border: oColorsGetPaletteColor('transparent'),
+            hover-background: oColorsGetPaletteColor('slate-white-40'),
+            focus-background: oColorsGetPaletteColor('white'),
+            active-text: oColorsGetPaletteColor('slate'),
+            active-background: oColorsGetPaletteColor('slate-white-30')
+        ),
         'secondary': (
             default-text: oColorsGetPaletteColor('teal-50'),
             default-background: oColorsGetPaletteColor('transparent'),

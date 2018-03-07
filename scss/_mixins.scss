@@ -74,7 +74,8 @@
 	@if type-of($theme) == 'map' {
 		@include oButtonsCustomTheme($theme: $theme);
 	} @else {
-		@include oBrandConfigureFor('o-buttons', $theme) {
+		$variant: _oButtonsGetBrandVariantFromTheme($theme);
+		@include oBrandConfigureFor('o-buttons', $variant) {
 
 			@include _oButtonsGetColors('default');
 

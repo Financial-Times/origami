@@ -158,8 +158,14 @@
 			}
 		}
 	} @else {
-		$state-color: 'o-buttons-#{$theme}-#{$state}';
-		$icon-color: oColorsGetColorFor($state-color, text);
+		$variant: _oButtonsGetBrandVariantFromTheme($theme);
+		@include oBrandConfigureFor('o-buttons', $variant) {
+			$icon-color: if(
+				oBrandGet('o-buttons', '#{$state}-text'),
+				oBrandGet('o-buttons', '#{$state}-text'),
+				oBrandGet('o-buttons', 'default-text')
+			);
+		}
 	}
 
 	@if $icon-color != null {

@@ -3,5 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 @include oColorsSetColor('white-slate-20', oColorsMix($color: 'white', $background: 'slate', $percentage: 20));
+@include oColorsSetColor('slate-white-40', oColorsMix($color: 'slate', $background: 'white', $percentage: 40));
+@include oColorsSetColor('slate-white-30', oColorsMix($color: 'slate', $background: 'white', $percentage: 30));
 @include oColorsSetColor('teal-transparent-10', oColorsMix($color: 'teal', $background: 'transparent', $percentage: 10));
 @include oColorsSetColor('slate-transparent-10', oColorsMix($color: 'slate', $background: 'transparent', $percentage: 10));

@@ -214,36 +214,36 @@
 ///
 /// @type Map
 
-$o-buttons-themes__b2c: (
-	normal: (
-		color: oColorsGetColorFor(o-buttons-b2c-normal, text),
-		background-color: oColorsGetColorFor(o-buttons-b2c-normal, background),
-		border-color: oColorsGetColorFor(o-buttons-b2c-normal, border),
-	),
-	active: (
-		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
-		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
-		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
-	),
-	hover: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
-		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
-		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
-	),
-	focus: (
-		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-focus, background), 0.8),
-		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
-		border-color: oColorsGetColorFor(o-buttons-b2c-focus, border),
-	),
-	pressedselected: (
-		// sass-lint:disable no-important
-		background-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, background) !important,
-		// sass-lint:enable no-important
-		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
-		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
-	),
-	disabled: (
-		color: oColorsGetColorFor(o-buttons-b2c-disabled, text),
-		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-disabled, background), 0.4),
-	)
-) !default;
+// $o-buttons-themes__b2c: (
+// 	normal: (
+// 		color: oColorsGetColorFor(o-buttons-b2c-normal, text),
+// 		background-color: oColorsGetColorFor(o-buttons-b2c-normal, background),
+// 		border-color: oColorsGetColorFor(o-buttons-b2c-normal, border),
+// 	),
+// 	active: (
+// 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+// 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
+// 		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
+// 	),
+// 	hover: (
+// 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-hover, background), 0.8),
+// 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+// 		border-color: oColorsGetColorFor(o-buttons-b2c-hover, border),
+// 	),
+// 	focus: (
+// 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-focus, background), 0.8),
+// 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+// 		border-color: oColorsGetColorFor(o-buttons-b2c-focus, border),
+// 	),
+// 	pressedselected: (
+// 		// sass-lint:disable no-important
+// 		background-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, background) !important,
+// 		// sass-lint:enable no-important
+// 		color: oColorsGetColorFor(o-buttons-b2c-pressedselected, text),
+// 		border-color: oColorsGetColorFor(o-buttons-b2c-pressedselected, border),
+// 	),
+// 	disabled: (
+// 		color: oColorsGetColorFor(o-buttons-b2c-disabled, text),
+// 		background-color: rgba(oColorsGetColorFor(o-buttons-b2c-disabled, background), 0.4),
+// 	)
+// ) !default;
