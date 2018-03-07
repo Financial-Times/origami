@@ -44,7 +44,7 @@
 }
 
 @mixin _oButtonsGetColors($state) {
-	background: if(
+	background-color: if(
 		oBrandGet('o-buttons', '#{$state}-background'),
 		oBrandGet('o-buttons', '#{$state}-background'),
 		oBrandGet('o-buttons', 'default-background')
