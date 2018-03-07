@@ -58,28 +58,33 @@
 	} @else {
 		$variant: _oButtonsGetBrandVariantFromTheme($theme);
 		@include oBrandConfigureFor('o-buttons', $variant) {
-			@include _oButtonsGetThemeColors('default');
+			@include _oButtonsVariantColors('default');
 			&:not([disabled]) {
 				&:hover {
-					@include _oButtonsGetThemeColors('hover');
+					@include _oButtonsVariantColors('hover');
 					text-decoration: none;
 				}
 				&:focus {
-					@include _oButtonsGetThemeColors('focus');
+					@include _oButtonsVariantColors('focus');
 				}
 				// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 				// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 				&[aria-selected=true], // e.g. A selected tab or page number in pagination.
 				&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 				&:active {
-					@include _oButtonsGetThemeColors('active');
+					@include _oButtonsVariantColors('active');
 				}
 			}
 		}
 	}
 }
 
-@mixin _oButtonsGetThemeColors($state) {
+/// Output button colors for a given state.
+/// If no value is found for a brand variant,
+/// fallback to the default value for the state.
+///
+/// @param {String} $state
+@mixin _oButtonsVariantColors($state) {
 	background-color: if(
 		oBrandGet('o-buttons', '#{$state}-background'),
 		oBrandGet('o-buttons', '#{$state}-background'),
