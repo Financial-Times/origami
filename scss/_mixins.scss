@@ -43,6 +43,24 @@
 	}
 }
 
+@mixin _oButtonsGetColors($state) {
+	background: if(
+		oBrandGet('o-buttons', '#{$state}-background'),
+		oBrandGet('o-buttons', '#{$state}-background'),
+		oBrandGet('o-buttons', 'default-background')
+	);
+	color: if(
+		oBrandGet('o-buttons', '#{$state}-text'),
+		oBrandGet('o-buttons', '#{$state}-text'),
+		oBrandGet('o-buttons', 'default-text')
+	);
+	border-color: if(
+		oBrandGet('o-buttons', '#{$state}-border'),
+		oBrandGet('o-buttons', '#{$state}-border'),
+		oBrandGet('o-buttons', 'default-border')
+	);
+}
+
 /// Button theme construct
 /// Outputs styles for all button states
 ///
@@ -56,25 +74,28 @@
 	@if type-of($theme) == 'map' {
 		@include oButtonsCustomTheme($theme: $theme);
 	} @else {
-		@include _oButtonsPropertiesForState($theme, normal);
+		@include oBrandConfigureFor('o-buttons', $theme) {
 
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-		&[aria-selected=true], // e.g. A selected tab or page number in pagination
-		&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-			@include _oButtonsPropertiesForState($theme, pressedselected);
-		}
+			@include _oButtonsGetColors('default');
 
-		&:not([disabled]) {
-			&:hover {
-				@include _oButtonsPropertiesForState($theme, hover);
-				text-decoration: none;
+			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
+			// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
+			&[aria-selected=true], // e.g. A selected tab or page number in pagination
+			&[aria-pressed=true] { // e.g. A "follow" button that is pressed
+				@include _oButtonsGetColors('active');
 			}
-			&:focus {
-				@include _oButtonsPropertiesForState($theme, focus);
-			}
-			&:active {
-				@include _oButtonsPropertiesForState($theme, active);
+
+			&:not([disabled]) {
+				&:hover {
+					@include _oButtonsGetColors('hover');
+					text-decoration: none;
+				}
+				&:focus {
+					@include _oButtonsGetColors('focus');
+				}
+				&:active {
+					@include _oButtonsGetColors('active');
+				}
 			}
 		}
 	}
