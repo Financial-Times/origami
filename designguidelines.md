@@ -1,21 +1,24 @@
 #### Themes
 
-* __default__/__secondary__: teal outline
-* __primary__: solid teal
-* __mono__: monochrome
+##### Secondary / Default
+The secondary button is the default and usually most used button. This works with:
 * __inverse__: for use on dark backgrounds
-* __b2c__: A theme for b2c products eg [http://help.ft.com](http://help.ft.com)
-* __custom theme primary__/__custom theme secondary__: Any color defined in [o-colors](http://registry.origami.ft.com/components/o-colors) can be used to set up custom color buttons
+* __mono__: monochrome
 
+##### Primary
+The primary button is usually a key call to action. It works with:
+* __inverse__: for use on dark backgrounds
 
-and the following sizes:
+##### Custom Primary/Secondary
+Any color defined in [o-colors](http://registry.origami.ft.com/components/o-colors) can be used to set up custom color buttons for use as a primary or secondary button. See [https://github.com/Financial-Times/o-buttons](the README) for more.
+
+##### B2C
+The b2c button is for some non-editorial products e.g. [http://help.ft.com](http://help.ft.com).
 
 #### Sizes
 
 * __default__: 28px high
 * __big__: 40px high
-
-and have the following states:
 
 #### States
 
