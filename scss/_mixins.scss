@@ -61,6 +61,14 @@
 	.o-topper--news-package {
 		@include oTopperThemeNewsPackage;
 	}
+
+	.o-topper--right-rail {
+		@include oTopperThemeRightRail;
+	}
+
+	.o-topper--centered {
+		@include oTopperThemeCentered;
+	}
 }
 
 @mixin oTopperElements {

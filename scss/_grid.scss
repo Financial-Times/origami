@@ -24,6 +24,16 @@
 	}
 }
 
+@mixin oTopperArticleGridRightRail() {
+	@include oGridRespondTo(L) {
+		grid-template-columns: 0 0 minmax(500px, 700px) minmax(20px, 1fr) 300px;
+	}
+
+	@include oGridRespondTo(XL) {
+		grid-template-columns: 0 0 minmax(500px, 700px) minmax(20px, 1fr) 300px;
+	}
+}
+
 @mixin oTopperArticleGridCentered() {
 	@include oGridRespondTo(L) {
 		grid-template-columns: 40px 1fr minmax(500px, 700px) 1fr 40px;
