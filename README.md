@@ -212,6 +212,14 @@ Uses of `oBrandGet` within `oBrandConfigureFor` [retrieves a variable for a vari
 
 The default brand is `master`. Projects which consume branded Origami components may choose a different brand by setting the SCSS variable `$o-brand`.
 
+### Debug Mode
+
+Some warnings are not output by default but may be useful in certain circumstances.
+
+To output all warnings set debug mode to true: `$o-brand-debug-mode: true;`.
+
+For example, no warning is output if a component uses `oBrandConfigureFor` and `oBrandGet` to get a variant variable which is not configured. This is a valid method to conditionally output CSS properties if a corresponding variant variable is configured. In other cases it might be useful to know where variant configuration has been missed using debug mode.
+
 ---
 
 ## Contact

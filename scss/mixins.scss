@@ -1,4 +1,5 @@
 $o-brand: null !default; // The chosen current brand.
+$o-brand-debug-mode: false !default; // Show extra (optional) warnings. E.g. value for variant not found.
 $_o-brand-default: 'master'; // The fallback current brand. Allows us to check if o-brand is set explicitly.
 $_o-brands: () !default; // A map of components to their defined brands.
 $_o-brand-variant: () !default; // Current variant by component.
@@ -199,7 +200,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     // Variables for the current brand and variant found.
     @if type-of($variables) == 'map' {
         // Check the requested variable is defined.
-        @if map-has-key($variables, $variable) == false {
+        @if map-has-key($variables, $variable) == false and $o-brand-debug-mode == true {
             @warn 'The "#{$variable}" variable is not defined for the ' + if(length($current-variant) > 0, 'variant "#{$current-variant}" of ', '') + 'the "#{$o-brand}" brand.';
             @return null;
         }
