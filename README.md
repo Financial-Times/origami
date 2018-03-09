@@ -168,9 +168,37 @@ will not be reported. Defaults to `true`.
 ##### filterError - optional
 
 A `function` that can be used to filter errors before they are reported.  The function
-should accept one argument, an `object` with two fields,
-an `error` field which contains the reported `error` and a `context` field,
-which contains any additional context.
+should accept one argument, a complicated looking `object` that comes from the `n-raven` client, with a bunch of fields, of 
+which the most important is `exception`:
+
+```
+{
+  ...
+  "exception": {
+    "values": [
+      {
+        "type": "TypeError",
+        "value": "_nUi is undefined",
+        "stacktrace": {
+          "frames": [
+            {
+              "filename": "http://local.ft.com:5005/__dev/assets/public/main.js",
+              "lineno": 1,
+              "colno": 11,
+              "function": "?",
+              "in_app": true
+            },
+            ...
+          ]
+        }
+      }
+    ]
+  },
+  ...
+}
+```
+
+
 
 The function should return a boolean inidicating whether the error should be
 sent or not, if `true` or coerced to a truthy value, the error will be sent,
