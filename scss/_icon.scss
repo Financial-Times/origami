@@ -155,11 +155,7 @@
 	} @else {
 		$variant: _oButtonsGetBrandVariantFromTheme($theme);
 		@include oBrandConfigureFor('o-buttons', $variant) {
-			$icon-color: if(
-				oBrandGet('o-buttons', '#{$state}-text'),
-				oBrandGet('o-buttons', '#{$state}-text'),
-				oBrandGet('o-buttons', 'default-text')
-			);
+			$icon-color: oButtonsGetColor($state, 'color');
 		}
 	}
 
