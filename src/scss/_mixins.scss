@@ -9,14 +9,7 @@
 /// Outputs base layout for a message container
 @mixin oMessageContainer () {
 	@include oTypographySans($o-message-typography-scale);
-	display: table;
-	// sass-lint:disable no-duplicate-properties
-	display: flex;
-	// sass-lint:enable no-duplicate-properties
-	align-items: center;
-	justify-content: flex-start;
-	height: 100%;
-	flex-wrap: nowrap;
+	position: relative;
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
@@ -55,8 +48,10 @@
 // @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
 
 @mixin oMessageCloseButton ($icon-color) {
-	@include oIconsGetIcon('cross', $icon-color, 20);
-	margin-left: auto;
+	@include oIconsGetIcon('cross', $icon-color, $_o-message-close-icon-size);
+	position: absolute;
+	top: ($_o-message-alert-height - $_o-message-close-icon-size) / 2;
+	right: oTypographySpacingSize(2);
 }
 
 /// Message base
@@ -75,10 +70,6 @@
 
 			.#{$class}__detail {
 				@include oMessageDetail;
-			}
-
-			.#{$class}__actions {
-				display: inline;
 			}
 		}
 	}

@@ -15,6 +15,10 @@
 				@include oMessageAlertInnerContent();
 			}
 
+			.#{$class}__actions {
+				@include oTypographyPadding($bottom: 3);
+			}
+
 			.#{$class}__highlight,
 			.#{$class}__additional-info {
 				@include oTypographyMargin($top: 0);
@@ -28,8 +32,7 @@
 
 @mixin oMessageAlertInnerContainer () {
 	@include oMessageContainer();
-	align-items: flex-start;
-	padding: oTypographySpacingSize(2) oTypographySpacingSize(5) oTypographySpacingSize(5) oTypographySpacingSize(4);
+	padding: oTypographySpacingSize(2) oTypographySpacingSize(5) oTypographySpacingSize(2) oTypographySpacingSize(4);
 };
 
 
@@ -38,7 +41,5 @@
 
 @mixin oMessageAlertInnerContent () {
 	@include oTypographyMargin($top: 3, $bottom: 0);
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: flex-start;
+	padding-left: $_o-message-alert-icon-size * 1px;
 }

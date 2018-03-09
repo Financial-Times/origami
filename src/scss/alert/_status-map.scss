@@ -18,7 +18,6 @@ $_o-message-status-styles: (
 		button-background: 'paper-crimson-90',
 		alert-icon-name: 'warning-alt',
 		alert-icon-color: oColorsGetPaletteColor('black-crimson-12.5'),
-		alert-icon-size: 40,
 		close-icon-color: oColorsGetPaletteColor('black-crimson-12.5')
 	),
 	neutral: (
@@ -31,7 +30,6 @@ $_o-message-status-styles: (
 		button-background: 'white-60',
 		alert-icon-name: 'info',
 		alert-icon-color: oColorsGetPaletteColor('black'),
-		alert-icon-size: 40,
 		close-icon-background: oColorsGetPaletteColor('black'),
 	),
 	success: (
@@ -44,7 +42,6 @@ $_o-message-status-styles: (
 		button-background: 'paper-jade-80',
 		alert-icon-name: 'tick',
 		alert-icon-color: oColorsGetPaletteColor('black-jade-43'),
-		alert-icon-size: 40,
 		close-icon-color: oColorsGetPaletteColor('black-jade-43')
 	),
 );

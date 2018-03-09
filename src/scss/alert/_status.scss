@@ -36,11 +36,10 @@
 				@include oMessageAlertIcon(
 					_oMessageGetMapValue($status, alert-icon-name),
 					_oMessageGetMapValue($status, alert-icon-color),
-					_oMessageGetMapValue($status, alert-icon-size)
+					$_o-message-alert-icon-size
 				);
-				min-width: 40px;
-				padding: 0 4px;
-				vertical-align: middle;
+				min-width: $_o-message-alert-icon-size * 1px;
+				position: absolute;
 			}
 
 			.#{$class}__close {
