@@ -26,33 +26,45 @@
 	"demos": [
 		{
 			"name": "scale",
+			"title": "Scale",
 			"template": "demos/src/scale.mustache",
 			"description": "",
 			"display_html": false
 		},
 		{
 			"name": "article",
+			"title": "Article",
 			"template": "demos/src/article.mustache",
 			"description": ""
 		},
 		{
 			"name": "headings",
+			"title": "Headings",
 			"template": "demos/src/headings.mustache",
 			"description": ""
 		},
 		{
 			"name": "product-headings",
+			"title": "Product Headings",
 			"template": "demos/src/product-headings.mustache",
 			"description": ""
 		},
 		{
+			"name": "line-width",
+			"title": "Line Width",
+			"template": "demos/src/line-width.mustache",
+			"description": "Demonstrates line widths for different font-sizes"
+		},
+		{
 			"name": "all-styles",
+			"title": "All Styles",
 			"template": "demos/src/all-styles.mustache",
 			"description": "",
 			"hidden": true
 		},
 		{
 			"name": "custom-links",
+			"title": "Custom Links",
 			"template": "demos/src/custom-links.mustache",
 			"description": "",
 			"hidden": true

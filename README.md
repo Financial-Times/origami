@@ -321,6 +321,10 @@ There are 2 mixins and a function provided for working with the baseline grid. E
 - `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
 - `oTypographySpacingSize($units)` - (function) returns a pixel value
 
+There is also a function that will cap line width based on the scale and the characters per line:
+
+- `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
+
 Usage:
 
 ```sass

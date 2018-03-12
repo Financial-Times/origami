@@ -53,3 +53,35 @@ html {
 		$hoverColor: 'claret-30'
 	);
 }
+
+.line-width-demo {
+	display: flex;
+
+	.selection {
+		min-width: 100px;
+		margin: 20px;
+	}
+
+	.scale {
+		&--1 {
+			@include oTypographySans(-1);
+			max-width: oTypographyMaxLineWidth(-1);
+		}
+		&--2 {
+			@include oTypographySans(-2);
+			max-width: oTypographyMaxLineWidth(-2);
+		}
+		&-0 {
+			@include oTypographySans(0);
+			max-width: oTypographyMaxLineWidth(0);
+		}
+		&-1 {
+			@include oTypographySans(1);
+			max-width: oTypographyMaxLineWidth(1);
+		}
+		&-2 {
+			@include oTypographySans(2);
+			max-width: oTypographyMaxLineWidth(2);
+		}
+	}
+}
