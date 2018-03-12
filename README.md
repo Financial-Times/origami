@@ -25,7 +25,7 @@ This HTML demonstrates the declarative way to instantiate o-tooltip. If you are 
 
 <div data-o-component="o-tooltip"
 	data-o-tooltip-position="below"
-	data-o-tooltip-target="demo-tooltip-target"
+	data-o-tooltip-target="declarative-tooltip-target"
 	data-o-tooltip-show-on-construction=true
 	id="my-tooltip-element">
 	<div class='o-tooltip-content'>
