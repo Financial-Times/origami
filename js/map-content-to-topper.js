@@ -147,10 +147,20 @@ const getTopperSettings = content => {
 	}
 };
 
+const hasDarkBackground = (backgroundColour) => {
+	const darkBackgrounds = [
+		'black',
+		'slate',
+		'oxford',
+		'claret',
+		'crimson'
+	];
+	return (darkBackgrounds.indexOf(backgroundColour) > -1);
+};
+
 module.exports = content => {
 	const topper = content.topper || {};
 	const settings = getTopperSettings(content);
-
 	return Object.assign({},
 		topper,
 		{
@@ -158,5 +168,6 @@ module.exports = content => {
 			standfirst: content.descriptionHTML || topper.standfirst || content.standfirst,
 			themeImageRatio: themeImageRatio[settings.layout]
 		},
-		settings);
+		settings,
+		{ hasDarkBackground: hasDarkBackground(settings.backgroundColour) });
 };

@@ -3,6 +3,24 @@ const { expect } = require('chai').use(require('dirty-chai'));
 const subject = require('../js/map-content-to-topper');
 
 describe('Topper content map', () => {
+	const articleContentFixture = {
+		containedIn : [{ id: 123}],
+		package: {
+			design: {
+				theme: 'extra'
+			}
+		}
+	};
+
+	const articleExtraWideFixture = {
+		containedIn : [{ id: 123}],
+		package: {
+			design: {
+				theme: 'extra-wide'
+			}
+		}
+	};
+
 	context('sets up', () => {
 
 		it('the regular article topper if the topper theme is unknown', () => {
@@ -41,6 +59,19 @@ describe('Topper content map', () => {
 		it('topper with paper background color if none is defined', () => {
 			const topper = subject({topper: { layout: 'split-text-center' }});
 			expect(topper.backgroundColour).to.equal('paper');
+		});
+	});
+
+	context('Dark background setting', () => {
+		it('returns true if the background is in the list of dark backgrounds', () => {
+			const topper = subject(articleContentFixture);
+			expect(topper.backgroundColour).to.equal('slate');
+			expect(topper.hasDarkBackground).to.equal(true);
+		});
+		it('returns false if the background is not in the list of dark backgrounds', () => {
+			const topper = subject({topper: { theme: 'some-crazy-theme' }});
+			expect(topper.backgroundColour).to.equal('paper');
+			expect(topper.hasDarkBackground).to.equal(false);
 		});
 	});
 
@@ -146,24 +177,6 @@ describe('Topper content map', () => {
 	});
 
 	context('package article', () => {
-		const articleContentFixture = {
-			containedIn : [{ id: 123}],
-			package: {
-				design: {
-					theme: 'extra'
-				}
-			}
-		};
-
-		const articleExtraWideFixture = {
-			containedIn : [{ id: 123}],
-			package: {
-				design: {
-					theme: 'extra-wide'
-				}
-			}
-		};
-
 		it('applies slate offset topper if package theme is extra', () => {
 			const topper = subject(articleContentFixture, {});
 			expect(topper.backgroundColour).to.equal('slate');
