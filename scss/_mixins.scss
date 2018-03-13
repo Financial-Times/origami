@@ -75,7 +75,7 @@
 @mixin oButtonsTheme($theme) {
 	@if type-of($theme) == 'map' {
 		// 1. If $theme is a map a custom theme is being used so override brand variables.
-		$custom-config: _oButtonsThemeToBrandOverrides($theme);
+		$custom-config: _oButtonsThemeToBrandConfig($theme);
 		@include oBrandOverride('o-buttons', $custom-config) {
 			@include _oButtonsStates();
 		}
@@ -121,21 +121,25 @@
 	border-color: oButtonsGetColor($state, 'border');
 }
 
-/// Transform theme map into oBrand variables.
+/// Transform custom button theme map into oBrand config.
 ///
 /// @param {Map} $theme
-/// @return {Map} oBrand overrides
-@function _oButtonsThemeToBrandOverrides($theme) {
-	@if type-of($theme) == 'map' {
-		@if not map-has-key($theme, "accent") {
-			@error "Please provide an accent color for the custom button theme";
-		}
-		@if not map-has-key($theme, "background") {
-			@error "Please provide a background color for the custom button theme";
-		}
-		@if not map-has-key($theme, "colorizer") {
-			$theme: map-merge($theme, ('colorizer': 'secondary'));
-		}
+/// @return {Map} oBrand configuration for the custom theme
+@function _oButtonsThemeToBrandConfig($theme) {
+	@if type-of($theme) != 'map' {
+		@error 'Expecting custom button theme `$theme` to be a map.';
+	}
+
+	@if not map-has-key($theme, "accent") {
+		@error "Please provide an accent color for the custom button theme";
+	}
+
+	@if not map-has-key($theme, "background") {
+		@error "Please provide a background color for the custom button theme";
+	}
+
+	@if not map-has-key($theme, "colorizer") {
+		$theme: map-merge($theme, ('colorizer': 'secondary'));
 	}
 
 	$colorizer: map-get($theme, 'colorizer');

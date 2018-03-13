@@ -142,7 +142,7 @@
 
 	@if type-of($theme) == 'map' {
 		// 1. If $theme is a map a custom theme is being used so override brand variables.
-		$custom-config: _oButtonsThemeToBrandOverrides($theme);
+		$custom-config: _oButtonsThemeToBrandConfig($theme);
 		@include oBrandOverride('o-buttons', $custom-config) {
 			$icon-color: oButtonsGetColor($state, 'color');
 		}
