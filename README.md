@@ -236,7 +236,7 @@ This will output styles for a slate coloured button that has lemon text and bord
 To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
 
 ```scss
-@include oButtonsTheme('slate', 'lemon', primary);
+@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 ```
 
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
