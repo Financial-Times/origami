@@ -1,3 +1,31 @@
+/// Button custom theme construct
+/// Outputs styles for all button states for custom buttons based on a background color and an accent color
+///
+/// @example
+/// .my-button--custom {
+/// 	@include oButtonsTheme(black, paper);
+/// }
+///
+///
+/// @deprecated oButtonsCustomTheme is deprecated and will be made removed in the next major release. Use `oButtonsTheme` instead.
+/// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
+/// $accent - The accent color of the theme. Must be a color name from o-colors,
+//  $colorizer - One of primary or secondary (default). If $background,
+/// $colorizer or $accent have been provided then the $theme map will be ignored.
+@mixin oButtonsCustomTheme($background: null, $accent: null, $colorizer: null, $theme: ()) {
+	@warn "oButtonsCustomTheme is deprecated and will be made removed in the next major release. Use `oButtonsTheme` instead.";
+
+	@if ($background or $accent or $colorizer) {
+		$theme: (
+			'background': $background,
+			'accent': $accent,
+			'colorizer': $colorizer
+		);
+	}
+
+	@include oButtonsTheme($theme);
+}
+
 /// Icon Buttons
 ///
 /// Outputs styles for every icon in o-buttons-icons at every theme in o-buttons-themes
@@ -11,7 +39,7 @@
 	html > body .#{$buttonClass}-icon {
 		@include oButtonsBaseStyles;
 
-		@each $theme, $properties in $o-buttons-themes {
+		@each $key, $theme in $o-buttons-themes {
 			@each $icon in $o-buttons-icons {
 				@include oButtonsGetButtonForIconAndTheme($icon, $theme);
 			}
@@ -35,14 +63,10 @@
 @mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {
 	@warn 'The mixin oButtonsGetButtonForIconAndTheme has been deprecated. You can use oButtonsIconButton to get a button for a specific icon, theme and size.';
 	&.#{$buttonClass}-icon--#{$icon-name} {
-
-		$theme-selector: null;
-		@if $theme == 'secondary' {
-			$theme-selector: '&';
-		} @else {
-			$theme-selector: '&.#{$buttonClass}--#{$theme}';
+		$theme-selector: '&';
+		@if $theme != 'secondary' {
+			$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
 		}
-
 		#{$theme-selector} {
 			@include _oButtonsIconBackgroundImage($icon-name, $theme);
 		}

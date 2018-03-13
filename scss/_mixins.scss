@@ -61,7 +61,6 @@
 		opacity: 0.4;
 		cursor: default;
 	}
-
 }
 
 /// Button theme construct
@@ -74,16 +73,15 @@
 ///
 /// @param {String} $theme
 @mixin oButtonsTheme($theme) {
-	$overrides: null;
-	$variant: null;
 	@if type-of($theme) == 'map' {
-		$overrides: _oButtonsThemeToBrandOverride($theme);
-	}
-	@if type-of($theme) == 'string' {
-		$variant: _oButtonsGetBrandVariantFromTheme($theme);
-	}
-	@include oBrandOverride('o-buttons', $overrides) {
-		@include oBrandConfigureFor('o-buttons', $variant) {
+		// 1. If $theme is a map a custom theme is being used so override brand variables.
+		$custom-config: _oButtonsThemeToBrandOverrides($theme);
+		@include oBrandOverride('o-buttons', $custom-config) {
+			@include _oButtonsStates();
+		}
+	} @else {
+		// 2. Otherwise the theme is defined as a brand variant.
+		@include oBrandConfigureFor('o-buttons', $theme) {
 			@include _oButtonsStates();
 		}
 	}
@@ -127,17 +125,21 @@
 @function _oButtonsThemeToBrandOverrides($theme) {
 	@if type-of($theme) == 'map' {
 		@if not map-has-key($theme, "accent") {
-			@error "oButtonsCustomTheme: Please provide an accent color for the custom button theme";
+			@error "Please provide an accent color for the custom button theme";
 		}
 		@if not map-has-key($theme, "background") {
-			@error "oButtonsCustomTheme: Please provide a background color for the custom button theme";
+			@error "Please provide a background color for the custom button theme";
 		}
 		@if not map-has-key($theme, "colorizer") {
 			$theme: map-merge($theme, ('colorizer': 'secondary'));
 		}
 	}
 
-	@return (
+	$colorizer: map-get($theme, 'colorizer');
+	$background: map-get($theme, 'background');
+	$accent: map-get($theme, 'accent');
+
+	@return ('variables': (
 		default-color: if($colorizer == 'secondary', oColorsGetPaletteColor($accent), oColorsGetPaletteColor($background)),
 		default-background: if($colorizer == 'secondary', oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent)),
 		default-border: oColorsGetPaletteColor($accent),
@@ -146,37 +148,7 @@
 		focus-background: oColorsGetPaletteColor('teal-40'),
 		active-color: oColorsGetPaletteColor($background),
 		active-background: oColorsGetPaletteColor($accent)
-	);
-}
-
-/// Button custom theme construct
-/// Outputs styles for all button states for custom buttons based on a background color and an accent color
-///
-/// @example
-/// .my-button--custom {
-/// 	@include oButtonsTheme(black, paper);
-/// }
-///
-///
-/// @deprecated @param {String} $background - The background color of the theme. Must be a color name from o-colors
-/// @deprecated @param {String} $accent - The accent color of the theme. Must be a color name from o-colors
-/// @deprecated @param {String} $colorizer - One of primary or secondary (default)
-/// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
-/// $accent - The accent color of the theme. Must be a color name from o-colors,
-//  $colorizer - One of primary or secondary (default). If $background,
-/// $colorizer or $accent have been provided then the $theme map will be ignored.
-@mixin oButtonsCustomTheme($background: null, $accent: null, $colorizer: null, $theme: ()) {
-	@warn "oButtonsCustomTheme is deprecated and will be made removed in the next major release. Use `oButtonsTheme` instead.";
-
-	@if ($background or $accent or $colorizer) {
-		$theme: (
-			'background': $background,
-			'accent': $accent,
-			'colorizer': $colorizer
-		);
-	}
-
-	@include oButtonsTheme($theme);
+	));
 }
 
 /// Button size

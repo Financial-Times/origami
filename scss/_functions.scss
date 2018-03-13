@@ -12,7 +12,7 @@
 	@if $state-color {
 		@return $state-color;
 	}
-	$default-color: oBrandGet('o-buttons', 'default-#{$property}', $force-variant: $variant);
+	$default-color: oBrandGet('o-buttons', 'default-#{$property}', $force-variant: $theme);
 	@return $default-color;
 }
 
@@ -29,11 +29,10 @@
 /// @param {String} $button-class - The base button class e.g. o-buttons
 /// @return {String} CSS class selector without leading `.` e.g. o-buttons.o-buttons--inverse
 @function _oButtonsGetThemeSelector($theme, $button-class: $o-buttons-class) {
-	$theme-parts: _oButtonsGetBrandVariantFromTheme($theme);
 	// Generate the selector.
 	$theme-selector: '';
-	@if length($theme-parts) > 1 {
-		@each $theme-part in $theme-parts {
+	@if length($theme) > 1 {
+		@each $theme-part in $theme {
 			$prepend: if($theme-selector == '', '', '#{$theme-selector}.');
 			$theme-selector: '#{$prepend}#{$button-class}--#{$theme-part}';
 		}
@@ -41,35 +40,4 @@
 		$theme-selector: '#{$button-class}--#{$theme}';
 	}
 	@return $theme-selector;
-}
-
-/// Get the brand variant which represents a given theme.
-///
-/// Remove if possible in the next https://github.com/Financial-Times/o-buttons/issues/156.
-///
-/// @example
-///  _oButtonsGetBrandVariantFromTheme('primary') // primary
-///  _oButtonsGetBrandVariantFromTheme('primary-inverse') // (primary, inverse)
-///
-/// @access private
-/// @param {String} $theme - One of $o-buttons-themes
-/// @return {String|List Brand variant for theme name.
-@function _oButtonsGetBrandVariantFromTheme($theme) {
-	$seperator: '-';
-    $theme-parts: ();
-    // Index of first seperator.
-	$index: str-index($theme, $seperator);
-    @while $index != null {
-        // Get current theme part.
-		$theme-part: str-slice($theme, length($seperator), $index - length($seperator));
-		$theme-parts: append($theme-parts, "#{$theme-part}");
-        // Remove theme part from the key.
-        $theme: str-slice($theme, $index + length($seperator));
-        // Find the next theme part in the key if any.
-        $index: str-index($theme, $seperator);
-    }
-	// Add the remaining theme part.
-	$final-theme-part: $theme;
-	$theme-parts: append($theme-parts, "#{$final-theme-part}");
-	@return $theme-parts;
 }

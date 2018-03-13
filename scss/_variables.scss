@@ -56,14 +56,13 @@ $o-buttons-sizes: (
 /// @type Number
 $_o-buttons-border-radius: $o-normalise-border-radius;
 
-/// Button themes, with their respective states
-/// Each state is a Map of CSS properties, find
-/// all theme definitions in _themes.scss
+/// Button themes to a corresponding brand variant.
+/// Defined in _brand.scss.
 ///
 /// @type Map
 $o-buttons-themes: (
 	primary: 'primary',
-	primary-inverse: 'primary-inverse',
+	primary-inverse: ('primary', 'inverse'),
 	secondary: 'secondary',
 	inverse: 'inverse',
 	mono: 'mono',
