@@ -145,7 +145,7 @@
 		default-border: oColorsGetPaletteColor($accent),
 		hover-background: oColorsMix($background, $accent),
 		hover-color: oColorsGetPaletteColor($accent),
-		focus-background: oColorsGetPaletteColor('teal-40'),
+		focus-background: if($colorizer == 'secondary', transparent, oColorsGetPaletteColor($accent)),
 		active-color: oColorsGetPaletteColor($background),
 		active-background: oColorsGetPaletteColor($accent)
 	));
