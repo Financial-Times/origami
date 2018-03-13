@@ -8,6 +8,10 @@
 /// @param {String} $name
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, $name)) {
+		@if ($name == 'internal-slate' or $name == 'internal-slate-5' or $name == 'internal-slate-15') {
+			@warn "This color is not officially a part of the o-colors palette. It is for experimental use, and may be removed at any time.";
+		}
+
 		@return map-get($o-colors-palette, $name);
 	} @else {
 		@warn "Color name '#{inspect($name)}' is not defined in the palette";

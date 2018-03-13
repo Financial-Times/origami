@@ -20,24 +20,28 @@
 	"demos": [
 		{
 			"name": "palette",
+			"title": "Palette",
 			"data": "demos/src/palette.json",
 			"template": "demos/src/palette.mustache",
 			"display_html": false
 		},
 		{
 			"name": "tints",
+			"title": "Tints",
 			"data": "demos/src/palette.json",
 			"template": "demos/src/tints.mustache",
 			"display_html": false
 		},
 		{
 			"name": "use-cases",
+			"title": "Use cases",
 			"template": "demos/src/use-cases.mustache",
 			"display_html": false,
 			"hidden": true
 		},
 		{
 			"name": "pa11y",
+			"title": "Pa11y",
 			"data": "demos/src/palette.json",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
