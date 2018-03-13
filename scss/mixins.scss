@@ -14,47 +14,17 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 * @param {map} $config
 **/
 @mixin oBrandDefine($component, $brand, $config) {
-    // Validate input.
     @if type-of($component) != 'string' or $component == '' {
         @error 'Could not set brand "#{$brand}" for component "#{$component}". A component name of type string must be given.';
     }
     @if type-of($brand) != 'string' or $brand == '' {
         @error 'Could not set brand "#{$brand}" for component "#{$component}". A brand of type string must be given.';
     }
-    @if type-of($config) != 'map' {
-        @error 'Could not set brand "#{$brand}", it\'s configuration must be a map.';
+    @if _oBrandIsDefined($component, $brand) {
+        @error 'Brand "#{$brand}" is already defined for component "#{$component}".';
     }
-    // Validate brand variables and settings.
-    $variables: map-get($config, 'variables');
-    $settings: map-get($config, 'settings');
-    $errorMessage: 'Could not set brand "#{$brand}".';
-    @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
-        @error $errorMessage + ' Config key "variables" should be a map but is of type #{type-of($variables)}.';
-    }
-    @if $settings and (type-of($settings) != 'map' and type-of($settings) != 'list' ) {
-        @error $errorMessage + ' Config key "settings" should be a map but is of type #{type-of($settings)}.';
-    }
-    // Sort and merge variant config.
-    // In brand variables maps are considered variant config, where the key is the variant.
-    // Brand variants could be defined twice e.g. ('a', 'b', 'c'): (background: red), ('c', 'a', 'b'): (background: red).
-    $sorted-variables: ();
-    @each $key, $value in $variables {
-        // Sort brand variant key.
-        @if type-of($value) == 'map' {
-            $key: _oBrandNormaliseVariant($key);
-        }
-        // Merge variable/variant map.
-        $sorted-variables: map-merge($sorted-variables, ($key: $value));
-    }
-    // Create an updated component brands map.
-    $component-brands: map-get($_o-brands, $component);
-    $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
-    $component-brands: map-merge($component-brands, ($brand: (
-        'variables': $sorted-variables,
-        'settings': $settings
-    )));
-    // Add updated component brands map to global brands object.
-    $_o-brands: map-merge($_o-brands, ($component: $component-brands)) !global;
+    // Define brand configuration.
+    $result: _oBrandUpdateConfig($component, $brand, $config);
 }
 
 /**
@@ -84,12 +54,12 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 **/
 @mixin oBrandConfigureFor($component, $variant) {
     // The default brand must be configured before o-brand can be used.
-    @if not _oBrandIsDefaultConfigured($component) {
+    @if not _oBrandIsDefined($component) {
         @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
     }
     // Validate variant.
-    @if type-of($variant) != 'list' and type-of($variant) != 'string' {
-        @error 'Cound not configure for variant #{type-of($variant)} "#{$variant}", expecting a list or string.';
+    @if type-of($variant) != 'list' and type-of($variant) != 'string' and type-of($variant) != 'null' {
+        @error 'Cound not configure for variant "#{$variant}" of type "#{type-of($variant)}", expecting a list or string.';
     }
     // Add to current variant to output variant content.
     @include _oBrandAddToCurrentVariant($component, $variant);
@@ -98,6 +68,32 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     }
     // Variant content output. Remove from the current variant so future CSS is not effected.
     @include _oBrandRemoveFromCurrentVariant($component, $variant);
+}
+
+/**
+* Override component configuration for the current brand.
+* Configuration override applies to the mixin content block.
+*
+* @access public
+* @param {string} $component
+* @param {map} $config
+**/
+@mixin oBrandOverride($component, $config) {
+    $current-depth: _oBrandGetCurrentDepth($component);
+    @if($current-depth > 0) {
+        @error '`oBrandOverride` must wrap any `oBrandConfigureFor` call. Brand config cannot be overriden within a `oBrandConfigureFor` content block.';
+    }
+    @if type-of($config) != 'map' {
+        @error 'Could not override component "#{$component}" for brand "#{$brand}", the override configuration must be a map.';
+    }
+    // Get original config.
+    $brand: if($o-brand, $o-brand, $o-brand-default);
+    $original-config: _oBrandGetConfig($component, $brand);
+    // Override config.
+    $result: _oBrandUpdateConfig($component, $brand, $config);
+    @content;
+    // Remove override. Back to original config.
+    $result: _oBrandRestoreConfig($component, $brand, $original-config);
 }
 
 /**
@@ -111,36 +107,112 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 * @access public
 * @param {string} $component
 * @param {string | list} $variables
+* @param {string | list} $force-variant Get a variable for a specific variant, disregard any configured variant (`oBrandConfigureFor`).
 * @return {string | number | color | null}
 **/
-@function oBrandGet($component, $variables) {
+@function oBrandGet($component, $variables, $force-variant: null) {
     // For one variable return value.
 
     @if length($variables) == 1 {
-        @return _oBrandGetVariableValue($component, nth($variables, 1));
+        @return _oBrandGetVariableValue($component, nth($variables, 1), $force-variant);
     }
     // Concatenate multiple requested variables for use in one property.
     $values: ();
     @each $variable in $variables {
         @if $variable {
-            $values: join($values,  _oBrandGetVariableValue($component, $variable));
+            $values: join($values,  _oBrandGetVariableValue($component, $variable, $force-variant));
         }
     }
     @return $values;
 }
 
 /**
-* Check the default brand is configured. Otherwise using o-brand is not allowed.
+* Sets config for a given component and brand.
+*
+* @access private
+* @param {string} $component
+* @param {string} $brand
+* @param {map} $config
+* @return {map}
+**/
+@function _oBrandRestoreConfig($component, $brand, $config) {
+    $valid: _oBrandValidateConfig($component, $brand, $config);
+    $component-brands: map-get($_o-brands, $component);
+    $component-brands: map-merge($component-brands, ($brand: $config));
+    $_o-brands: map-merge($_o-brands, ($component: $component-brands)) !global;
+    @return $_o-brands;
+}
+
+/**
+* Updates config for a given component and brand using a recursive merge.
+*
+* @access private
+* @param {string} $component
+* @param {string} $brand
+* @param {map} $config
+* @return {map}
+**/
+@function _oBrandUpdateConfig($component, $brand, $config) {
+    // Validate config
+    $valid: _oBrandValidateConfig($component, $brand, $config);
+    $variables: map-get($config, 'variables');
+    $settings: map-get($config, 'settings');
+    // Ensure compound variant lists are alphabetical.
+    $sorted-variables: ();
+    @each $key, $value in $variables {
+        @if type-of($value) == 'map' {
+            $key: _oBrandNormaliseVariant($key);
+        }
+        $sorted-variables: map-merge($sorted-variables, ($key: $value));
+    }
+    // Update config.
+    $_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: ($brand: (
+        'variables': $sorted-variables,
+        'settings': $settings
+    )))) !global;
+    @return $_o-brands;
+}
+
+/**
+* Validate config.
+*
+* @access private
+* @param {string} $component
+* @param {string} $brand
+* @param {map} $config
+* @return {map}
+**/
+@function _oBrandValidateConfig($component, $brand, $config) {
+    $errorMessage: '"#{$component}" configuration for brand "#{$brand}" is invalid';
+    @if type-of($config) != 'map' {
+        @error '#{$errorMessage}. Its configuration must be a map.';
+    }
+    // Validate brand variables and settings.
+    $variables: map-get($config, 'variables');
+    $settings: map-get($config, 'settings');
+    @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
+        @error '#{$errorMessage}. Config key "variables" should be a map but is of type #{type-of($variables)}.';
+    }
+    @if $settings and (type-of($settings) != 'map' and type-of($settings) != 'list' ) {
+        @error '#{$errorMessage}. Config key "settings" should be a map but is of type #{type-of($settings)}.';
+    }
+    @return true;
+}
+
+/**
+* Check the brand is configured.
+* By default checks the default brand is configured.
 * The default brand must be configured by the component as it is the fallback.
 *
 * @access private
 * @param {string} $component
+* @param {string} $brand
 * @return {boolean}
 **/
-@function _oBrandIsDefaultConfigured($component) {
+@function _oBrandIsDefined($component, $brand: $_o-brand-default) {
     $component-brands: map-get($_o-brands, $component);
     $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
-    @return type-of(map-get($component-brands, $_o-brand-default)) == 'map';
+    @return type-of(map-get($component-brands, $brand)) == 'map';
 }
 
 /**
@@ -157,7 +229,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 **/
 @function _oBrandSupports($component, $variant) {
     // Validate variant.
-    @if type-of($variant) != 'list' and type-of($variant) != 'string' {
+    @if type-of($variant) != 'list' and type-of($variant) != 'string' and type-of($variant) != 'null' {
         @error 'Cound not check support for variant #{type-of($variant)} "#{$variant}", expecting a list or string.';
     }
     // Get all brand settings, which are used to indicate variant support.
@@ -185,14 +257,18 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 * @access private
 * @param {string} $component
 * @param {string} $variable
+* @param {string | list} $force-variant Get a variable for a specific variant, disregard any configured variant (`oBrandConfigureFor`).
 * @return {string | number | color | null}
 **/
-@function _oBrandGetVariableValue($component, $variable) {
+@function _oBrandGetVariableValue($component, $variable, $force-variant: null) {
     // Get all brand variables.
     $brand-config: _oBrandGetConfig($component, $o-brand);
     $variables: map-get($brand-config, 'variables');
     // Use variant variables if a variant is configured.
-    $current-variant: _oBrandGetCurrentVariant($component);
+    @if $force-variant and not (type-of($force-variant) == 'list' or type-of($force-variant) == 'string') {
+        @error 'Could not get get variable "#{$variable}" for component "#{$component}" and variant "#{$force-variant}", the variant should be of type string or list but was "#{type-of($force-variant)}".';
+    }
+    $current-variant: if($force-variant, $force-variant, _oBrandGetCurrentVariant($component));
     $variant-variables: map-get($variables, _oBrandNormaliseVariant($current-variant));
     @if type-of($variant-variables) == 'map' {
         $variables: $variant-variables;
@@ -283,7 +359,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
     $brand-config: map-get($component-brands, $brand);
     // The default brand must be configured before o-brand can be used.
-    @if not _oBrandIsDefaultConfigured($component) {
+    @if not _oBrandIsDefined($component) {
         @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
     }
     // Validate the requested brand is configured, fallback to the default brand otherwise.
@@ -428,4 +504,26 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
 
     @return str-length($string-a) < str-length($string-b);
     // sass-lint:enable variable-name-format
+}
+
+/// Merge config maps recursively.
+/// Keys in $map2 will take precedence over keys in $map1.
+///
+/// @acess private
+/// @link https://github.com/pentzzsolt/sass-recursive-map-merge/
+@function _oBrandRecursiveMapMerge($map1, $map2) {
+    @if ((type-of($map1) == map or type-of($map1) == list) and (type-of($map2) == map or type-of($map2) == list)) {
+        $result: $map1;
+        @each $key, $value in $map2 {
+            @if (type-of(map-get($result, $key)) == map and type-of($value) == map) {
+                $result: map-merge($result, ($key: _oBrandRecursiveMapMerge(map-get($result, $key), $value)));
+            } @else {
+                $result: map-merge($result, ($key: $value));
+            }
+        }
+        @return $result;
+    } @else {
+        @warn '_oBrandRecursiveMapMerge() expects it\'s parameters to be of type "map".';
+        @return null;
+    }
 }

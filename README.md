@@ -65,6 +65,7 @@ The following mixins and functions help brand a component.
 - [oBrandDefine](#defining-brand-configuration) - Define brand configuration (variables & settings).
 - [oBrandGet](#retrieve-a-variable) - Retrieve brand variables.
 - [oBrandConfigureFor](#retrieve-a-variable-for-a-variant) - Work with variants.
+- [oBrandOverride](#override-the-current-brand) - Override component configuration for the current brand.
 
 ### Defining Brand Configuration
 
@@ -178,6 +179,14 @@ Nesting is also supported:
 }
 ```
 
+A variable may also be retrieved for an explicit variant using the `$force-variant` argument of `oBrandGet`. This is useful when retrieving a variant value within a function, or when a specific value is needed regardless of what variant is configured by `oBrandConfigureFor`.
+
+```scss
+	.o-example--inverse {
+		content: oBrandGet('o-example', 'component-content', $force-variant: 'inverse'); // "inverse" variant value
+	}
+```
+
 ### Output Styles Only If A Brand Supports A Variant
 
 Not all brands will share variants. Define support in the `settings` map as demonstrated above. To output styles only if the current brand supports the variant use `oBrandConfigureFor`.
@@ -205,6 +214,28 @@ Uses of `oBrandGet` within `oBrandConfigureFor` [retrieves a variable for a vari
 		// "extra b2b" compound variant is not supported.
 		content: '"extra b2b" variant not available for the current brand.';
 	}
+}
+```
+
+### Override The Current Brand
+
+It may be desirable to output a customised variant of a component based on brand configuration. To do this create a component specific mixin which maps arguments to `oBrandOverride`. This prevents brand configuration from becoming a public interface, which makes it possible to change brand variables at a later point without a breaking change.
+
+The following contrived example shows how to override brand variables:
+
+```scss
+@mixin oExample($background-color, $forground-color) {
+	$custom-config: ('variables', {
+		'example-background-color': $background-color,
+		'example-color': $forground-color,
+		'example-border-color': $forground-color,
+	});
+
+	@include oBrandOverride('o-example', $custom-config) {
+		background: oBrandGet('example-background-color');
+		color: oBrandGet('example-color');
+		border: 1px solid oBrandGet('example-border-color');
+	};
 }
 ```
 
