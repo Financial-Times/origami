@@ -63,7 +63,7 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     }
     // Add to current variant to output variant content.
     @include _oBrandAddToCurrentVariant($component, $variant);
-    @if _oBrandSupports($component, _oBrandGetCurrentVariant($component)) {
+    @if not $variant or _oBrandSupports($component, _oBrandGetCurrentVariant($component)) {
         @content;
     }
     // Variant content output. Remove from the current variant so future CSS is not effected.
@@ -83,17 +83,18 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     @if($current-depth > 0) {
         @error '`oBrandOverride` must wrap any `oBrandConfigureFor` call. Brand config cannot be overriden within a `oBrandConfigureFor` content block.';
     }
-    @if type-of($config) != 'map' {
-        @error 'Could not override component "#{$component}" for brand "#{$brand}", the override configuration must be a map.';
+    @if $config {
+        $brand: if($o-brand, $o-brand, $_o-brand-default);
+        // Get original config.
+        $original-config: _oBrandGetConfig($component, $brand);
+        // Override config.
+        $result: _oBrandUpdateConfig($component, $brand, $config);
+        @content;
+        // Remove override. Back to original config.
+        $result: _oBrandRestoreConfig($component, $brand, $original-config);
+    } @else {
+        @content;
     }
-    // Get original config.
-    $brand: if($o-brand, $o-brand, $o-brand-default);
-    $original-config: _oBrandGetConfig($component, $brand);
-    // Override config.
-    $result: _oBrandUpdateConfig($component, $brand, $config);
-    @content;
-    // Remove override. Back to original config.
-    $result: _oBrandRestoreConfig($component, $brand, $original-config);
 }
 
 /**

@@ -92,6 +92,18 @@
     }
 
     @include test('Ignores null variants') {
+
+        @include assert('Null variants are supported.') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: null) {
+                    background: oBrandGet($component: 'o-example', $variables: 'example-background');
+                }
+            }
+            @include expect {
+                background: white;
+            }
+        }
+
         @include oBrandConfigureFor($component: 'o-example', $variant: null) { // should have no effect
             @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
                 @include oBrandConfigureFor($component: 'o-example', $variant: null) { // should have no effect
@@ -262,6 +274,14 @@
                 $property: oBrandGet($component: 'o-example', $variables: 'example-background');
                 @include assert-equal($property, purple);
             }
+        }
+    }
+
+    @include test('Has no effect if configuration is null. Does not error.') {
+        $overrides: null;
+        @include oBrandOverride($component: 'o-example', $config: $overrides) {
+            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            @include assert-equal($property, white);
         }
     }
 }
