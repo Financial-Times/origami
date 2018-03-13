@@ -87,6 +87,9 @@
 	}
 }
 
+/// Styles for button states such as 'hover', 'focus', etc.
+///
+/// @private
 @mixin _oButtonsStates() {
 	@include _oButtonsColors('default');
 	&:not([disabled]) {
