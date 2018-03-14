@@ -26,16 +26,16 @@ $gaudio-button-color: #f6e9d8;
   }
 
   .g-audio--playbutton:before {
-    content: '';
     @include oIconsGetIcon('play', $gaudio-button-color, 25);
+    content: '';
     font-size: 0.8em;
     margin: -3px $gaudio-horz-padding-inline;
     vertical-align: bottom;
   }
 
   &.pause .g-audio--playbutton:before {
-    content: '';
     @include oIconsGetIcon('pause', $gaudio-button-color, 25);
+    content: '';
     font-size: 0.8em;
     margin: -3px $gaudio-horz-padding-inline;
     vertical-align: bottom;
