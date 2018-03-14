@@ -135,7 +135,8 @@
 			margin-left: 0;
 		}
 
-		&[aria-selected="true"] {
+		&[aria-selected="true"], // deprecated
+		&[aria-current] {
 			@include oColorsFor(o-header-drawer-editions-link-highlight, text);
 			font-weight: 600;
 			text-decoration: none;

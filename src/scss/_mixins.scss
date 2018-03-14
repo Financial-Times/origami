@@ -40,7 +40,8 @@
 	}
 
 	&--highlight,
-	&[aria-selected="true"] {
+	&[aria-selected="true"], // deprecated
+	&[aria-current] {
 		color: oColorsGetColorFor('o-header-link-highlight', 'text');
 	}
 }
@@ -66,7 +67,8 @@
 	}
 
 	&--highlight:after,
-	&[aria-selected="true"]:after {
+	&[aria-selected="true"]:after, // deprecated
+	&[aria-current]:after {
 		background-color: oColorsGetColorFor('o-header-link-highlight', 'text');
 	}
 }
