@@ -68,7 +68,7 @@ module.exports = function(config) {
 		concurrency: Infinity,
 
 		browserify: {
-				"transform": [["babelify", { "presets": ["es2015"] }]]
+			"transform": [["babelify", { "presets": ["es2015"] }]]
 		}
 	});
 };
