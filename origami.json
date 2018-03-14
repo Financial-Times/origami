@@ -6,6 +6,10 @@
 	"origamiCategory": "components",
 	"support": "https://github.com/Financial-Times/g-audio/issues",
 	"supportStatus": "experimental",
+	"supportContact": {
+		"email": "ig.developers@ft.com",
+		"slack": "financialtimes/graphics-dev"
+	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
@@ -13,11 +17,13 @@
 	"demos": [
 		{
 			"name": "inline",
+			"title": "Inline",
 			"template": "demos/src/inline.mustache",
 			"description": "Demo of inline audio player"
 		},
 		{
 			"name": "block",
+			"title": "Block",
 			"template": "demos/src/block.mustache",
 			"description": "Demo of block audio player"
 		}
