@@ -27,7 +27,7 @@
 	// Improve readability of descending glpys in old IE
 	padding-bottom: #{$_o-forms-field-default-padding-bottom - 2px}\9;
 
-	// In old IE, since we can't hide the stock browser arrow, we'll just keep it:
+	// In old IE (IE9), since we can't hide the stock browser arrow, we'll just keep it:
 	// 1. Remove additional padding
 	// 2. Remove the custom arrow
 	// sass-lint:disable no-duplicate-properties
@@ -50,6 +50,18 @@
 	&:disabled {
 		@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-forms-field-placholder, text), $apply-base-styles: false, $apply-width-height: false);
 	}
+}
+
+/// @access public
+/// @require {mixin} oFormsCommonField
+/// @require {mixin} oFormsCommonSmall
+/// @output Styles to support a small select input.
+@mixin oFormsSelectSmall {
+	padding-right: $_o-forms-select-small-iconsize + $_o-forms-field-default-padding-leftright;
+	// In old IE (IE9), since we can't hide the stock browser arrow.
+	// sass-lint:disable no-duplicate-properties
+	padding-right: #{$_o-forms-field-default-padding-leftright}\9;
+	// sass-lint:enable no-duplicate-properties
 }
 
 /// @access public

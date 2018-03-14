@@ -176,6 +176,10 @@
 	.#{$class}__select--small {
 		@include oFormsCommonSmall;
 	}
+
+	.#{$class}__select--small {
+		@include oFormsSelectSmall();
+	}
 }
 
 /// @access public
