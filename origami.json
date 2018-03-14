@@ -17,11 +17,13 @@
 	"demos": [
 		{
 			"name": "inline",
+			"title": "Inline",
 			"template": "demos/src/inline.mustache",
 			"description": "Demo of inline audio player"
 		},
 		{
 			"name": "block",
+			"title": "Block",
 			"template": "demos/src/block.mustache",
 			"description": "Demo of block audio player"
 		}
