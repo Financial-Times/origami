@@ -6,6 +6,10 @@
 	"origamiCategory": "components",
 	"support": "https://github.com/Financial-Times/g-audio/issues",
 	"supportStatus": "experimental",
+	"supportContact": {
+		"email": "ig.developers@ft.com",
+		"slack": "financialtimes/graphics-dev"
+	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
