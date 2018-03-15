@@ -21,10 +21,16 @@
 
 	.o-topper--branded {
 		@include oTopperThemeBranded;
+		&.o-topper--right-rail {
+			@include oTopperGridRightRail;
+		}
 	}
 
 	.o-topper--opinion {
 		@include oTopperThemeOpinion;
+		&.o-topper--right-rail {
+			@include oTopperGridRightRail;
+		}
 	}
 
 	.o-topper--has-headshot {
@@ -33,6 +39,9 @@
 
 	.o-topper--full-bleed-offset {
 		@include oTopperThemeFullBleedOffset;
+		&.o-topper--right-rail {
+			@include oTopperFullBleedGridRightRail;
+		}
 	}
 
 	.o-topper--split-text-left,
@@ -60,10 +69,6 @@
 
 	.o-topper--news-package {
 		@include oTopperThemeNewsPackage;
-	}
-
-	.o-topper--right-rail {
-		@include oTopperThemeRightRail;
 	}
 
 	.o-topper--centered {
@@ -95,6 +100,9 @@
 
 	.o-topper--basic {
 		@include oTopperBasic;
+		&.o-topper--right-rail {
+			@include oTopperGridRightRail;
+		}
 	}
 
 	.o-topper__headline {
