@@ -280,6 +280,6 @@
 		@content;
 		$_o-topper-defined: map-merge($_o-topper-defined, (
 			$label: true
-		));
+		)) !global;
 	}
 }
