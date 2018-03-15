@@ -18,6 +18,6 @@ $_o-topper-themes: (
 	'centered',
 );
 
-$_o-topper-defined: ();
+$_o-topper-defined: () !default;
 
 $o-topper-is-silent: true !default;
