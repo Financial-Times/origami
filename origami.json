@@ -20,10 +20,11 @@
 	"demos": [
 		{
 			"name": "declarative",
+			"title": "Declarative error tracking",
 			"template": "demos/src/declarative.mustache",
 			"description": "Declarative error tracking"
-			}
-		],
+		}
+	],
 	"browserFeatures": {
 		"required": ["Array.isArray"]
 	}
