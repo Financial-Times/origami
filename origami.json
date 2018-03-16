@@ -1,4 +1,5 @@
 {
+	"name": "o-errors",
 	"description": "Library for reporting front end errors",
 	"origamiType": "module",
 	"origamiCategory": "utilities",
