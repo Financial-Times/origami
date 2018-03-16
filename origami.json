@@ -1,5 +1,4 @@
 {
-	"name": "o-errors",
 	"description": "Library for reporting front end errors",
 	"origamiType": "module",
 	"origamiCategory": "utilities",
@@ -21,10 +20,11 @@
 	"demos": [
 		{
 			"name": "declarative",
+			"title": "Declarative error tracking",
 			"template": "demos/src/declarative.mustache",
 			"description": "Declarative error tracking"
-			}
-		],
+		}
+	],
 	"browserFeatures": {
 		"required": ["Array.isArray"]
 	}
