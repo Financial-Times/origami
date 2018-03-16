@@ -14,6 +14,7 @@
     },
     "demos": [
         {
+            "title": "Test",
             "name": "test",
             "template": "demos/src/test.mustache",
             "sass": "demos/src/demo.scss",
