@@ -92,13 +92,12 @@ const getDomPathProps = (attrs, props) => {
 // Get only the custom data-trackable-context-? properties of a given element
 const getContextProps = (attrs, props, isClickedEl) => {
 
-
 	const customProps = {};
 
 	// for the clicked element collect properties like className, nodeName
 	if (isClickedEl) {
 		elementPropertiesToCollect.forEach(name => {
-			if (typeof props[name] !== 'undefined') {
+			if (typeof props[name] !== 'undefined' && name !== 'id') {
 				customProps[name] = props[name];
 			}
 		});
