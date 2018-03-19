@@ -26,7 +26,7 @@
 /// @param {String} $background [paper] - palette name of background color
 /// @param {String} $color [black] - palette name of color
 /// @param {Number} $percentage [60] - percentage opacity of the color over the background
-@function oColorsMix($color: 'black', $background: 'paper', $percentage: 80) {
+@function oColorsMix($color: 'black', $background: oColorsGetUseCase('page', 'background'), $percentage: 80) {
 	$context: $background;
 	$base: $color;
 
