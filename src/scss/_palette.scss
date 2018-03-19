@@ -54,8 +54,6 @@ $o-colors-palette: map-merge((
 	'org-b2c':               #4e96eb,
 	'org-b2c-dark':          #3a70af,
 	'org-b2c-light':         #99c6fb,
-
-	'internal-slate':         #262a33, //is the same as 'slate', but currently here to enable experimental work on internal brand design without distrupting the palette
 ), $o-colors-palette);
 
 $o-colors-tints: (
@@ -119,8 +117,12 @@ $o-colors-tints: (
 	'crimson': (
 		hue: 360,
 		saturation: 100,
-	),
-	'internal-slate': (
-		tints: (5, 15),
 	)
 );
+
+// Add experimental colors to support work on internal brand design.
+$_o-colors-experimental-palette: (
+	'slate-white-15':        #dedfe0, // oColorsMix('slate', 'white', 15): to support work on internal brand design
+	'slate-white-5':         #f4f4f5, // oColorsMix('slate', 'white', 5): to support work on internal brand design
+);
+$o-colors-palette: map-merge($_o-colors-experimental-palette, $o-colors-palette);

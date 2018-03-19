@@ -96,9 +96,7 @@
 				$name: "#{$color}-#{$value}";
 				$tint: null;
 
-				@if $saturation == null and $color == 'internal-slate' {
-					$tint: oColorsMix($color, $background: 'white', $percentage: $value);
-				} @else if $saturation == null {
+				@if $saturation == null {
 					$tint: oColorsMix($color, $percentage: $value);
 				} @else {
 					$tint: _oColorsHSB($hue, $saturation, $value);
