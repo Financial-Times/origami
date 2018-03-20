@@ -182,7 +182,7 @@ Or, using Sass:
 
 #### Theme modifiers
 
-There are named themes in oButtons. oButtons also allows developers to create custom themes using o-colors names.
+There are named themes in `o-buttons`. `o-buttons` also allows developers to create custom themes using o-colors names.
 
 ```html
 <button class="o-buttons o-buttons--primary">Primary button</button>
