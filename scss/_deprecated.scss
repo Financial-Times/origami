@@ -3,9 +3,13 @@
 ///
 /// @example
 /// .my-button--custom {
-/// 	@include oButtonsTheme(black, paper);
+/// 	@include oButtonsCustomTheme(slate, lemon); // deprecated
 /// }
 ///
+/// @example
+/// .my-button--custom {
+/// 	@include oButtonsCustomTheme($theme: ($background: slate, $accent: lemon)); // deprecated
+/// }
 ///
 /// @deprecated oButtonsCustomTheme is deprecated and will be made removed in the next major release. Use `oButtonsTheme` instead.
 /// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
