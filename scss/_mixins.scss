@@ -143,7 +143,7 @@
 		@error "Please provide a background color for the custom button theme";
 	}
 
-	@if not map-has-key($theme, "colorizer") {
+	@if map-get($theme, "colorizer") == null {
 		$theme: map-merge($theme, ('colorizer': 'secondary'));
 	}
 
