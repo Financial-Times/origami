@@ -67,8 +67,13 @@
 /// Outputs styles for all button states
 ///
 /// @example
-/// .my-button--standout {
-/// 	@include oButtonsTheme(standout);
+/// .my-button--inverse {
+/// 	@include oButtonsTheme($theme: 'inverse');
+/// }
+///
+/// @example
+/// .my-button--custom {
+/// 	@include oButtonsTheme($theme: ($background: 'slate', $accent: 'lemon', $colorizer: 'primary'));
 /// }
 ///
 /// @param {String} $theme
