@@ -70,16 +70,16 @@ p {
 }
 
 .demo__custom-theme-button--slate-primary {
-	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'white', colorizer: 'primary'));
+	@include oButtonsTheme($theme: (background: 'slate', accent: 'white', colorizer: 'primary'));
 }
 .demo__custom-theme-button--slate-secondary {
-	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'white', colorizer: 'secondary'));
+	@include oButtonsTheme($theme: (background: 'slate', accent: 'white', colorizer: 'secondary'));
 }
 .demo__custom-theme-button--lemon-primary {
-	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
+	@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 }
 .demo__custom-theme-button--lemon-secondary {
-	@include oButtonsCustomTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'secondary'));
+	@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'secondary'));
 }
 
 .demo__custom-icon-button--book {
@@ -100,7 +100,7 @@ p {
 .demo__custom-theme-primary-icon-button--book {
 	@include oButtons('big');
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'primary');
-	@include oButtonsCustomTheme($theme: $custom-theme);
+	@include oButtonsTheme($theme: $custom-theme);
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }
 
@@ -108,6 +108,6 @@ p {
 	@include oButtons(big);
 	$custom-theme: (background: 'slate', accent: 'claret-100', colorizer: 'secondary');
 
-	@include oButtonsCustomTheme($theme: $custom-theme);
+	@include oButtonsTheme($theme: $custom-theme);
 	@include oButtonsIconButton('book', 'big', $custom-theme);
 }

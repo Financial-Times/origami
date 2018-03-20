@@ -3,162 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-buttons
 ////
 
-/// Button size
-/// Outputs dimensions for a specific button size
-///
-/// @example
-/// .my-button--big {
-/// 	@include oButtonsSize(big);
-/// }
-///
-/// @param {String} $size
-@mixin oButtonsSize($size) {
-	$button-dimensions: map-get($o-buttons-sizes, $size);
-	$border-width: map-get($button-dimensions, border-width);
-	$vertical-padding: 1/2 * (map-get($button-dimensions, min-height) - map-get($button-dimensions, font-size)) - $border-width;
-	$background-size: map-get($button-dimensions, background-size);
-
-	background-size: $background-size $background-size;
-	min-height: map-get($button-dimensions, min-height);
-	min-width: map-get($button-dimensions, min-width);
-	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
-	font-size: map-get($button-dimensions, font-size);
-	line-height: map-get($button-dimensions, min-height) - $border-width * 2 - $vertical-padding * 2;
-	border-width: $border-width;
-}
-
-// Properties for a state of a given theme
-//
-// @param {String} $theme - One of $o-buttons-themes
-// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
-@mixin _oButtonsPropertiesForState($theme, $state) {
-	@if _oButtonsThemeHasState($theme, $state) {
-		$states: map-get($o-buttons-themes, $theme);
-		@each $property, $value in map-get($states, $state) {
-			#{$property}: #{$value};
-		}
-	} @else {
-		$colorsFor: 'o-buttons-#{$theme}-#{$state}';
-		@include oColorsFor($colorsFor);
-	}
-}
-
-/// Button theme construct
-/// Outputs styles for all button states
-///
-/// @example
-/// .my-button--standout {
-/// 	@include oButtonsTheme(standout);
-/// }
-///
-/// @param {String} $theme
-@mixin oButtonsTheme($theme) {
-	@if type-of($theme) == 'map' {
-		@include oButtonsCustomTheme($theme: $theme);
-	} @else {
-		@include _oButtonsPropertiesForState($theme, normal);
-
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-		// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-		&[aria-selected=true], // e.g. A selected tab or page number in pagination
-		&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-			@include _oButtonsPropertiesForState($theme, pressedselected);
-		}
-
-		&:not([disabled]) {
-			&:hover {
-				@include _oButtonsPropertiesForState($theme, hover);
-				text-decoration: none;
-			}
-			&:focus {
-				@include _oButtonsPropertiesForState($theme, focus);
-			}
-			&:active {
-				@include _oButtonsPropertiesForState($theme, active);
-			}
-		}
-	}
-}
-
-
-/// Button custom theme construct
-/// Outputs styles for all button states for custom buttons based on a background color and an accent color
-///
-/// @example
-/// .my-button--custom {
-/// 	@include oButtonsTheme(black, paper);
-/// }
-///
-///
-/// @deprecated @param {String} $background - The background color of the theme. Must be a color name from o-colors
-/// @deprecated @param {String} $accent - The accent color of the theme. Must be a color name from o-colors
-/// @deprecated @param {String} $colorizer - One of primary or secondary (default)
-/// @param {Map} $theme - A map with theme values. $background - The background color of the theme. Must be a color name from o-colors,
-/// $accent - The accent color of the theme. Must be a color name from o-colors,
-//  $colorizer - One of primary or secondary (default). If $background,
-/// $colorizer or $accent have been provided then the $theme map will be ignored.
-@mixin oButtonsCustomTheme($background: null, $accent: null, $colorizer: null, $theme: ()) {
-	@if ($background or $accent or $colorizer) {
-		@warn "oButtonsCustomTheme: $background, $accent and $colorizer params have now been deprecated and will be removed in the next major release. Pass these values in as a map instead.";
-	} @else {
-
-		@if map-has-key($theme, accent) {
-			$accent: map-get($theme, accent);
-		} @else {
-			@error "oButtonsCustomTheme: Please provide an accent color for the custom button theme";
-		}
-
-		@if map-has-key($theme, "background") {
-			$background: map-get($theme, "background");
-		} @else {
-			@error "oButtonsCustomTheme: Please provide a background color for the custom button theme";
-		}
-		@if map-has-key($theme, "colorizer") {
-			$colorizer: map-get($theme, "colorizer");
-		} @else {
-			$colorizer: secondary;
-		}
-	}
-
-	@if ($colorizer == null) {
-		$colorizer: secondary;
-	}
-
-	$testContrast: oColorsCheckContrast(oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent));
-
-	border-color: oColorsGetPaletteColor($accent);
-	@if $colorizer == secondary {
-		color: oColorsGetPaletteColor($accent);
-		background-color: oColorsGetPaletteColor($background);
-	} @else {
-		color: oColorsGetPaletteColor($background);
-		background-color: oColorsGetPaletteColor($accent);
-	}
-
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-selected
-	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-pressed
-	&[aria-selected=true], // e.g. A selected tab or page number in pagination
-	&[aria-pressed=true] { // e.g. A "follow" button that is pressed
-		border-color: oColorsGetPaletteColor($accent);
-		background-color: oColorsGetPaletteColor($accent);
-		color: oColorsGetPaletteColor($background);
-	}
-
-	&:not([disabled]) {
-		&:hover {
-			background-color: oColorsMix($background, $accent);
-			text-decoration: none;
-			border-color: oColorsGetPaletteColor($accent);
-			color: oColorsGetPaletteColor($accent);
-
-		}
-		&:active {
-			background-color: oColorsGetPaletteColor($accent);
-			color: oColorsGetPaletteColor($background);
-		}
-	}
-}
-
 /// Button construct
 /// Basic button styling and default states for specific theme and size
 ///
@@ -217,5 +61,128 @@
 		opacity: 0.4;
 		cursor: default;
 	}
+}
 
+/// Button theme construct
+/// Outputs styles for all button states
+///
+/// @example
+/// .my-button--inverse {
+/// 	@include oButtonsTheme($theme: 'inverse');
+/// }
+///
+/// @example
+/// .my-button--custom {
+/// 	@include oButtonsTheme($theme: ($background: 'slate', $accent: 'lemon', $colorizer: 'primary'));
+/// }
+///
+/// @param {String} $theme
+@mixin oButtonsTheme($theme) {
+	@if type-of($theme) == 'map' {
+		// 1. If $theme is a map a custom theme is being used so override brand variables.
+		$custom-config: _oButtonsThemeToBrandConfig($theme);
+		@include oBrandOverride('o-buttons', $custom-config) {
+			@include _oButtonsStates();
+		}
+	} @else {
+		// 2. Otherwise the theme is defined as a brand variant.
+		@include oBrandConfigureFor('o-buttons', $theme) {
+			@include _oButtonsStates();
+		}
+	}
+}
+
+/// Styles for button states such as 'hover', 'focus', etc.
+///
+/// @private
+@mixin _oButtonsStates() {
+	@include _oButtonsColors('default');
+	&:not([disabled]) {
+		&:hover {
+			@include _oButtonsColors('hover');
+			text-decoration: none;
+		}
+		&:focus {
+			@include _oButtonsColors('focus');
+		}
+		// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
+		// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
+		&[aria-selected=true], // e.g. A selected tab or page number in pagination.
+		&[aria-pressed=true], // e.g. A "follow" button that is pressed.
+		&:active {
+			@include _oButtonsColors('active');
+		}
+	}
+}
+
+/// Output button colors for a given state.
+/// If no value is found for a brand variant,
+/// fallback to the default value for the state.
+///
+/// @param {String} $state
+@mixin _oButtonsColors($state) {
+	background-color: oButtonsGetColor($state, 'background');
+	color: oButtonsGetColor($state, 'color');
+	border-color: oButtonsGetColor($state, 'border');
+}
+
+/// Transform custom button theme map into oBrand config.
+///
+/// @param {Map} $theme
+/// @return {Map} oBrand configuration for the custom theme
+@function _oButtonsThemeToBrandConfig($theme) {
+	@if type-of($theme) != 'map' {
+		@error 'Expecting custom button theme `$theme` to be a map.';
+	}
+
+	@if not map-has-key($theme, "accent") {
+		@error "Please provide an accent color for the custom button theme";
+	}
+
+	@if not map-has-key($theme, "background") {
+		@error "Please provide a background color for the custom button theme";
+	}
+
+	@if not map-has-key($theme, "colorizer") {
+		$theme: map-merge($theme, ('colorizer': 'secondary'));
+	}
+
+	$colorizer: map-get($theme, 'colorizer');
+	$background: map-get($theme, 'background');
+	$accent: map-get($theme, 'accent');
+
+	@return ('variables': (
+		default-color: if($colorizer == 'secondary', oColorsGetPaletteColor($accent), oColorsGetPaletteColor($background)),
+		default-background: if($colorizer == 'secondary', oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent)),
+		default-border: oColorsGetPaletteColor($accent),
+		hover-background: oColorsMix($background, $accent),
+		hover-color: oColorsGetPaletteColor($accent),
+		focus-background: if($colorizer == 'secondary', transparent, oColorsGetPaletteColor($accent)),
+		active-color: oColorsGetPaletteColor($background),
+		active-background: oColorsGetPaletteColor($accent)
+	));
+}
+
+/// Button size
+/// Outputs dimensions for a specific button size
+///
+/// @example
+/// .my-button--big {
+/// 	@include oButtonsSize(big);
+/// }
+///
+/// @param {String} $size
+@mixin oButtonsSize($size) {
+	$button-dimensions: map-get($o-buttons-sizes, $size);
+	$border-width: map-get($button-dimensions, border-width);
+	$vertical-padding: 1/2 * (map-get($button-dimensions, min-height) - map-get($button-dimensions, font-size)) - $border-width;
+	$background-size: map-get($button-dimensions, background-size);
+
+	background-size: $background-size $background-size;
+	min-height: map-get($button-dimensions, min-height);
+	min-width: map-get($button-dimensions, min-width);
+	padding: $vertical-padding map-get($button-dimensions, padding-right) $vertical-padding map-get($button-dimensions, padding-left);
+	font-size: map-get($button-dimensions, font-size);
+	line-height: map-get($button-dimensions, min-height) - $border-width * 2 - $vertical-padding * 2;
+	border-width: $border-width;
 }

@@ -182,9 +182,7 @@ Or, using Sass:
 
 #### Theme modifiers
 
-There are 5 named themes in oButtons. oButtons also allows developers to create custom themes using o-colors names.
-
-[View demos](http://registry.origami.ft.com/components/o-buttons)
+There are named themes in `o-buttons`. `o-buttons` also allows developers to create custom themes using o-colors names.
 
 ```html
 <button class="o-buttons o-buttons--primary">Primary button</button>
@@ -192,8 +190,9 @@ There are 5 named themes in oButtons. oButtons also allows developers to create 
 <button class="o-buttons o-buttons--mono">Mono button</button>
 <button class="o-buttons o-buttons--inverse">Inverse button</button>
 <button class="o-buttons o-buttons--b2c">B2C button</button>
-
 ```
+
+More named themes are demonstrated [in the registry](http://registry.origami.ft.com/components/o-buttons).
 
 Or, using Sass:
 
@@ -201,6 +200,7 @@ Or, using Sass:
 .my-button-class {
 	@include oButtons();
 }
+
 .my-button-class--secondary {
 	@include oButtonsTheme(secondary);
 }
@@ -236,7 +236,7 @@ This will output styles for a slate coloured button that has lemon text and bord
 To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
 
 ```scss
-@include oButtonsCustomTheme('slate', 'lemon', primary);
+@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
 ```
 
 This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
@@ -249,7 +249,6 @@ If you're using the Build Service, currently supported icons are defined in the 
 ```html
 // Icon and text button.
 <button class="o-buttons o-buttons-icon o-buttons-icon--arrow-left">Go left</button>
-
 
 // Icon only button
 <button class="o-buttons o-buttons-icon o-buttons-icon--icon-only o-buttons-icon--arrow-left">

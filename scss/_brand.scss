@@ -1,0 +1,107 @@
+$_o-buttons-shared-brand-config: (
+    'primary': (
+        default-color: oColorsGetPaletteColor('white'),
+        default-background: oColorsGetPaletteColor('teal-50'),
+        default-border: oColorsGetPaletteColor('transparent'),
+        hover-background: oColorsGetPaletteColor('teal-40'),
+        focus-background: oColorsGetPaletteColor('teal-40'),
+        active-background: oColorsGetPaletteColor('teal-30')
+    ),
+    ('primary', 'inverse'): (
+        default-color: oColorsGetPaletteColor('slate'),
+        default-background: oColorsGetPaletteColor('white'),
+        default-border: oColorsGetPaletteColor('transparent'),
+        hover-background: oColorsGetPaletteColor('slate-white-40'),
+        focus-background: oColorsGetPaletteColor('white'),
+        active-color: oColorsGetPaletteColor('slate'),
+        active-background: oColorsGetPaletteColor('slate-white-30')
+    ),
+    'secondary': (
+        default-color: oColorsGetPaletteColor('teal-50'),
+        default-background: oColorsGetPaletteColor('transparent'),
+        default-border: oColorsGetPaletteColor('teal-50'),
+        hover-background: oColorsGetPaletteColor('teal-transparent-10'),
+        focus-background: oColorsGetPaletteColor('teal-transparent-10'),
+        active-color: oColorsGetPaletteColor('white'),
+        active-background: oColorsGetPaletteColor('teal-50')
+    ),
+    'inverse': (
+        default-color: oColorsGetPaletteColor('white'),
+        default-background: oColorsGetPaletteColor('transparent'),
+        default-border: oColorsGetPaletteColor('white'),
+        hover-background: oColorsGetPaletteColor('white-slate-20'),
+        focus-background: oColorsGetPaletteColor('white-slate-20'),
+        active-color: oColorsGetPaletteColor('black'),
+        active-background: oColorsGetPaletteColor('white')
+    ),
+    'mono': (
+        default-color: oColorsGetPaletteColor('black'),
+        default-background: oColorsGetPaletteColor('transparent'),
+        default-border: oColorsGetPaletteColor('black'),
+        hover-background: oColorsGetPaletteColor('black-10'),
+        focus-background: oColorsGetPaletteColor('black-10'),
+        active-color: oColorsGetPaletteColor('white'),
+        active-background: oColorsGetPaletteColor('black')
+    )
+);
+
+@include oBrandDefine('o-buttons', 'master', (
+    'variables': map-merge($_o-buttons-shared-brand-config, (
+            'b2c': (
+                default-color: oColorsGetPaletteColor('white'),
+                default-background: oColorsGetPaletteColor('org-b2c-dark'),
+                default-border: oColorsGetPaletteColor('org-b2c-dark'),
+                hover-color: oColorsGetPaletteColor('black-90'),
+                hover-background: oColorsGetPaletteColor('org-b2c'),
+                focus-color: oColorsGetPaletteColor('black-90'),
+                focus-background: oColorsGetPaletteColor('org-b2c'),
+                active-color: oColorsGetPaletteColor('black-90'),
+                active-background: oColorsGetPaletteColor('org-b2c-light'),
+            )
+        )
+    ),
+    'settings': (
+        'primary': true,
+        'secondary': true,
+        'inverse': true,
+        'mono': true,
+        'b2c': true
+    )
+));
+
+@include oBrandDefine('o-buttons', 'internal', (
+    'variables': map-merge($_o-buttons-shared-brand-config, ()),
+    'settings': (
+        'primary': true,
+        'secondary': true,
+        'inverse': true,
+        'mono': true
+    )
+));
+
+@include oBrandDefine('o-buttons', 'whitelabel', (
+    'variables': (
+        'primary': (
+            default-color: oColorsGetPaletteColor('white'),
+            default-background: oColorsGetPaletteColor('black'),
+            default-border: oColorsGetPaletteColor('black'),
+            hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
+            focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
+            active-color: oColorsGetPaletteColor('black'),
+            active-background: oColorsGetPaletteColor('white')
+        ),
+        'secondary': (
+            default-color: oColorsGetPaletteColor('black'),
+            default-background: oColorsGetPaletteColor('transparent'),
+            default-border: oColorsGetPaletteColor('black'),
+            hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
+            focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
+            active-color: oColorsGetPaletteColor('white'),
+            active-background: oColorsGetPaletteColor('black')
+        )
+    ),
+    'settings': (
+        'primary': true,
+        'secondary': true,
+    )
+));

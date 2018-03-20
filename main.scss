@@ -1,9 +1,10 @@
 @import 'o-normalise/main';
 @import 'o-colors/main';
 @import 'o-icons/main';
+@import 'o-brand/main';
 
-@import 'scss/deprecated';
-@import 'scss/themes';
+@import 'scss/colors';
+@import 'scss/brand';
 @import 'scss/variables';
 @import 'scss/functions';
 @import 'scss/mixins';
@@ -11,6 +12,8 @@
 @import 'scss/group';
 @import 'scss/pagination';
 @import 'scss/icon';
+
+@import 'scss/deprecated';
 
 @if ($o-buttons-is-silent == false) {
 	.#{$o-buttons-class} {
@@ -23,7 +26,7 @@
 		}
 	}
 
-	@each $theme, $properties in $o-buttons-themes {
+	@each $key, $theme in $o-buttons-themes {
 		$theme-selector: _oButtonsGetThemeSelector($theme, $o-buttons-class);
 		.#{$theme-selector} {
 			@include oButtonsTheme($theme);

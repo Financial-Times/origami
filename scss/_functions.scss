@@ -1,54 +1,19 @@
-/// Check if a theme has a certain state
+/// Gets the color of a button property for a given theme and state.
 ///
-/// @param {String} $theme - One of $o-buttons-themes
-/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
-@function _oButtonsThemeHasState($theme, $state) {
-	$states: map-get($o-buttons-themes, $theme);
-	@if type-of($states) == map {
-		@return map-has-key($states, $state);
-	} @else {
-		@return false;
+/// @example background: oButtonsGetColor($state: 'hover', $property: 'border', $theme: 'primary');
+///
+/// @access public
+/// @param {String} $state
+/// @param {String} $property
+/// @param {String|List} $theme If no theme is provided the currently configured brand theme is used.
+/// @return {Color}
+@function oButtonsGetColor($state, $property, $theme: null) {
+	$state-color: oBrandGet('o-buttons', '#{$state}-#{$property}', $force-variant: $theme);
+	@if $state-color {
+		@return $state-color;
 	}
-}
-
-/// Check if a state has a property
-///
-/// @example
-///  @if _oButtonsStateHasProperty(standout, focus, color) {}
-///
-/// @param {String} $theme - One of $o-buttons-themes
-/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
-/// @param {String} $property - CSS property name
-@function _oButtonsStateHasProperty($theme, $state, $property) {
-	$states: map-get($o-buttons-themes, $theme);
-	$properties: map-get($states, $state);
-
-	@if type-of($properties) == map {
-		@return map-has-key($properties, $property);
-	} @else {
-		@return false;
-	}
-
-}
-
-/// Get the value of a property in a given state
-///
-/// @example
-///  div {
-///  	background-color: _oButtonsStateHasProperty(standout, selected, background);
-///  }
-///
-/// @param {String} $theme - One of $o-buttons-themes
-/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
-/// @param {String} $property - CSS property name
-@function _oButtonsStateGetProperty($theme, $state, $property) {
-	$states: map-get($o-buttons-themes, $theme);
-	$properties: map-get($states, $state);
-	@if type-of($properties) == map {
-		@return map-get($properties, $property);
-	} @else {
-		@return false;
-	}
+	$default-color: oBrandGet('o-buttons', 'default-#{$property}', $force-variant: $theme);
+	@return $default-color;
 }
 
 /// Maps button theme names to class modifiers.
@@ -59,29 +24,15 @@
 ///  _oButtonsGetThemeSelector('primary') // o-buttons--primary
 ///  _oButtonsGetThemeSelector('primary-inverse') // o-buttons--primary.o-buttons--inverse
 ///
+/// @access private
 /// @param {String} $theme - One of $o-buttons-themes
 /// @param {String} $button-class - The base button class e.g. o-buttons
+/// @return {String} CSS class selector without leading `.` e.g. o-buttons.o-buttons--inverse
 @function _oButtonsGetThemeSelector($theme, $button-class: $o-buttons-class) {
-	$seperator: '-';
-    $theme-parts: ();
-    // Index of first seperator.
-	$index: str-index($theme, $seperator);
-    @while $index != null {
-        // Get current theme part.
-		$theme-part: str-slice($theme, length($seperator), $index - length($seperator));
-		$theme-parts: append($theme-parts, $theme-part);
-        // Remove theme part from the key.
-        $theme: str-slice($theme, $index + length($seperator));
-        // Find the next theme part in the key if any.
-        $index: str-index($theme, $seperator);
-    }
-	// Add the remaining theme part.
-	$final-theme-part: $theme;
-	$theme-parts: append($theme-parts, $final-theme-part);
 	// Generate the selector.
 	$theme-selector: '';
-	@if length($theme-parts) > 1 {
-		@each $theme-part in $theme-parts {
+	@if length($theme) > 1 {
+		@each $theme-part in $theme {
 			$prepend: if($theme-selector == '', '', '#{$theme-selector}.');
 			$theme-selector: '#{$prepend}#{$button-class}--#{$theme-part}';
 		}
