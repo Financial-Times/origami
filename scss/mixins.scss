@@ -4,7 +4,7 @@ $_o-brand-default: 'master'; // The fallback current brand. Allows us to check i
 $_o-brands: () !default; // A map of components to their defined brands.
 $_o-brand-variant: () !default; // Current variant by component.
 $_o-brand-depth: () !default; // The number of current variant parts by component.
-
+$_o-brand-default-not-set-warning: false !default; // Has the default not set warning been output.
 
 /// Define component configuration for a brand.
 ///
@@ -19,11 +19,10 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     @if type-of($brand) != 'string' or $brand == '' {
         @error 'Could not set brand "#{$brand}" for component "#{$component}". A brand of type string must be given.';
     }
-    @if _oBrandIsDefined($component, $brand) {
-        @error 'Brand "#{$brand}" is already defined for component "#{$component}".';
-    }
     // Define brand configuration.
-    $result: _oBrandUpdateConfig($component, $brand, $config);
+    @if not _oBrandIsDefined($component, $brand) {
+        $result: _oBrandUpdateConfig($component, $brand, $config);
+    }
 }
 
 
@@ -367,7 +366,10 @@ $_o-brand-depth: () !default; // The number of current variant parts by componen
     }
     // Validate the requested brand is configured, fallback to the default brand otherwise.
     @if $brand-config == null {
-        @warn 'The requested brand "#{$brand}" has not been set. Using "#{$_o-brand-default}" brand instead.';
+        @if not $_o-brand-default-not-set-warning {
+            $_o-brand-default-not-set-warning: true !global;
+            @warn 'The requested brand "#{$brand}" has not been set. Using "#{$_o-brand-default}" brand instead.';
+        }
         @return _oBrandGetConfig($component, $_o-brand-default);
     }
     @return $brand-config;
