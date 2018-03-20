@@ -1,4 +1,4 @@
-/// Alert Inner Message
+/// Notice Inner Message
 ///
 /// Outputs styling for an alert-inner type message
 /// @example
@@ -6,22 +6,18 @@
 ///
 /// @param {String} $class - base class name
 
-@mixin oMessageAlertInner($class) {
-	.#{$class}--alert-inner {
+@mixin oMessageNoticeInner($class) {
+	.#{$class}--notice-inner {
 		.#{$class}__container {
 			@extend %o-message-inner-alert-notice-container;
 		}
 
 		.#{$class}__content {
 			@extend %o-message-inner-alert-notice-content;
-			padding-left: $_o-message-alert-icon-size * 1px;
+			padding-left: 20px;
 
 			&-main {
 				@extend %o-message-inner-alert-notice-content-main ;
-			}
-
-			&-highlight {
-				@include oMessageContentHighlight;
 			}
 		}
 

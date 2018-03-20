@@ -1,7 +1,8 @@
 /// List of states that can be applied to alert type messages
 ///
 /// @type List
-$o-message-status: (error, neutral, success);
+$o-message-alert-status: (error, neutral, success);
+$o-message-notice-status: (inform, warning, warning-light);
 
 /// Message status variants, with their respective states
 /// Each status is a Map of CSS properties
@@ -43,5 +44,35 @@ $_o-message-status-styles: (
 		alert-icon-name: 'tick',
 		alert-icon-color: oColorsGetPaletteColor('black-jade-43'),
 		close-icon-color: oColorsGetPaletteColor('black-jade-43')
+	),
+	inform: (
+		custom-link-base: 'black',
+		custom-link-hover: 'black',
+		custom-link-background: 'wheat',
+		link-hover: oColorsGetPaletteColor('black'),
+		link-focus: oColorsGetPaletteColor('black'),
+		button-text: 'black',
+		button-background: 'wheat',
+		close-icon-color: oColorsGetPaletteColor('black')
+	),
+	warning: (
+		custom-link-base: 'black',
+		custom-link-hover: 'black',
+		custom-link-background: 'lemon',
+		link-hover: oColorsGetPaletteColor('black'),
+		link-focus: oColorsGetPaletteColor('black'),
+		button-text: 'black',
+		button-background: 'lemon',
+		close-icon-color: oColorsGetPaletteColor('black')
+	),
+	warning-light: (
+		custom-link-base: 'black',
+		custom-link-hover: 'black',
+		custom-link-background: 'lemon-white-60',
+		link-hover: oColorsGetPaletteColor('black'),
+		link-focus: oColorsGetPaletteColor('black'),
+		button-text: 'black',
+		button-background: 'lemon-white-60',
+		close-icon-color: oColorsGetPaletteColor('black')
 	),
 );

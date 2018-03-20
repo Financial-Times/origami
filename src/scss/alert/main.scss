@@ -1,0 +1,42 @@
+@import './src/scss/alert/inner';
+@import './src/scss/alert/regular';
+
+////
+/// @group o-message
+/// @link http://registry.origami.ft.com/components/o-message
+////
+
+/// Alert Messages
+///
+/// Outputs styling for all alert type messages
+/// @example
+/// @include oMessageAlerts('my-class', 'alert', 'success');
+///
+/// @param {String} $class - base class name
+/// @param {String} $type - message type ('all', 'alert', 'alert-bleed' or 'alert-inner')
+/// @param {String} $status - message status ('all', 'success', 'neutral', 'error')
+
+@mixin oMessageAlerts($class, $type, $status) {
+	@if $type != 'all' and not index($o-message-alert-types, $type) {
+		@include _oMessageError("#{$type} is not an alert type, the options are 'alert', 'alert-bleed' or 'alert-inner'");
+	}
+
+	@if $type == 'alert-inner' or $type == 'all' {
+		@include oMessageAlertInner($class);
+	}
+
+	@if $type == 'alert' or $type == 'alert-bleed' or $type == 'all' {
+		@include oMessageAlert($class);
+	}
+
+
+	@if $status != 'all' and not index($o-message-alert-status, $status) {
+		@include _oMessageError("#{$status} is not an alert status, the options are 'success', 'neutral' or 'error'");
+	} @else if $status == 'all' {
+		@each $status in $o-message-alert-status {
+			@include oMessageStatus($status, $class)
+		}
+	} @else if index($o-message-alert-status, $status) != null {
+		@include oMessageStatus($status, $class);
+	}
+}

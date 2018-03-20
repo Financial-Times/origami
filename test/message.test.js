@@ -56,6 +56,7 @@ describe("Message", () => {
 				messageClass: 'o-message',
 				type: 'alert',
 				typeClass: 'o-message--alert',
+				typeNucleus: 'alert',
 				status: null,
 				statusClass: null,
 				parentElement: null,
@@ -219,7 +220,7 @@ describe("Message", () => {
 
 			it('throws an error if an incorrect message type is supplied', () => {
 				options.type = 'marketing';
-				const error = "*** o-message error: 'marketing' is not a supported message type. The available options are 'alert', 'alert-bleed' or 'alert-inner' ***";
+				const error = "*** o-message error: 'marketing' is not a supported message type. The available options are 'alert', 'alert-bleed', 'alert-inner', 'notice', 'notice-bleed', 'notice-inner' ***";
 
 				assert.throws(() => { new Message(null, options); }, error);
 			});

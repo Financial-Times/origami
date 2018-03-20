@@ -28,10 +28,22 @@
 			"description": "Alert messages (success, error and neutral)"
 		},
 		{
-			"title": "Inner Message",
-			"name": "inner",
-			"template": "demos/src/inner.mustache",
+			"title": "Alert Inner Message",
+			"name": "alert-inner",
+			"template": "demos/src/alert-inner.mustache",
 			"description": "Inner alert messages (success, error and neutral)"
+		},
+		{
+			"title": "Notice Message",
+			"name": "notice",
+			"template": "demos/src/notice.mustache",
+			"description": "Alert messages (inform, warning and warning-light)"
+		},
+		{
+			"title": "Notice Inner Message",
+			"name": "notice-inner",
+			"template": "demos/src/notice-inner.mustache",
+			"description": "Inner alert messages (inform, warning and warning-light)"
 		},
 		{
 			"title": "Imperative",

@@ -14,12 +14,22 @@ class Message {
 		const messageClass = options && options.messageClass ? options.messageClass : 'o-message';
 		const type = options && options.type ? options.type : 'alert';
 		const status = options && options.status ? options.status : null;
+		let typeNucleus;
+
+		if (type === 'alert' || type === 'alert-bleed' || type === 'alert-inner') {
+			typeNucleus = 'alert';
+		} else if (type === 'notice' || type === 'notice-bleed' || type === 'notice-inner') {
+			typeNucleus = 'notice';
+		} else {
+			typeNucleus = null;
+		}
 
 		this.opts = Object.assign({}, {
 			autoOpen: true,
 			messageClass,
 			type,
 			typeClass: `${messageClass}--${type}`,
+			typeNucleus,
 			status,
 			statusClass: options && options.status ? `${messageClass}--${options.status}` : null,
 			parentElement: null,
@@ -86,14 +96,20 @@ class Message {
 	* @returns {HTMLElement} Returns the type specific message element
 	*/
 	constructMessageElement () {
-		if (this.opts.type === 'alert' || this.opts.type === 'alert-bleed' || this.opts.type === 'alert-inner') {
-			if (!this.opts.content.highlight) {
-				throwError(`An ${this.opts.type} message element requires options.content.highlight`);
+		if (this.opts.typeNucleus === 'alert') {
+		 	if (!this.opts.content.highlight) {
+				throwError(`An ${this.opts.typeNucleus} message element requires options.content.highlight`);
 			} else {
 				return construct.alertMessage(this.opts);
 			}
+		} else if (this.opts.typeNucleus === 'notice') {
+			if (!this.opts.content.detail) {
+				throwError(`An ${this.opts.typeNucleus} message element requires options.content.detail`);
+			} else {
+				return construct.noticeMessage(this.opts);
+			}
 		} else {
-			throwError(`'${this.opts.type}' is not a supported message type. The available options are 'alert', 'alert-bleed' or 'alert-inner'`);
+			throwError(`'${this.opts.type}' is not a supported message type. The available options are 'alert', 'alert-bleed', 'alert-inner', 'notice', 'notice-bleed', 'notice-inner'`);
 		}
 	}
 

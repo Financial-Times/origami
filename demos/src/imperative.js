@@ -47,9 +47,17 @@ const initDemos = () => {
 	setUpDemo('alert-error', options, {status: 'error'});
 	setUpDemo('alert-error-bleed', options, {status: 'error', type: 'alert-bleed'});
 
-	setUpDemo('inner-success', innerOptions, {status: 'success'});
-	setUpDemo('inner-neutral', innerOptions, {status: 'neutral'});
-	setUpDemo('inner-error', innerOptions, {status: 'error'});
+	setUpDemo('notice-inform', options, {type: 'notice', status: 'inform'});
+	setUpDemo('notice-warning', options, {type: 'notice', status: 'warning'});
+	setUpDemo('notice-warning-light', options, {type: 'notice', status: 'warning-light'});
+
+	setUpDemo('inner-alert-success', innerOptions, {status: 'success'});
+	setUpDemo('inner-alert-neutral', innerOptions, {status: 'neutral'});
+	setUpDemo('inner-alert-error', innerOptions, {status: 'error'});
+
+	setUpDemo('inner-notice-inform', innerOptions, {type: 'notice-inner', status: 'inform'});
+	setUpDemo('inner-notice-warning', innerOptions, {type: 'notice-inner', status: 'warning'});
+	setUpDemo('inner-notice-warning-light', innerOptions, {type: 'notice-inner', status: 'warning-light'});
 };
 
 document.addEventListener('DOMContentLoaded', () => {

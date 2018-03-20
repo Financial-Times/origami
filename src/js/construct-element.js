@@ -1,6 +1,6 @@
-import { throwError } from './helpers';
-export default {
+import { buildActions, throwError } from './helpers';
 
+export default {
 	/**
 	* Build a full alert message element. Used when there is no message element in the DOM.
 	* @returns {HTMLElement} Returns the new alert type message element
@@ -16,21 +16,7 @@ export default {
 			alertMessageEl.classList.add(`${opts.statusClass}`);
 		}
 
-		let primaryActionHTML;
-		if (opts.actions.primary.text) {
-			primaryActionHTML = `<a href="${opts.actions.primary.url}" class="${opts.messageClass}__action--primary">${opts.actions.primary.text}</a>`;
-		}
-
-		let secondaryActionHTML;
-		if (opts.actions.secondary.text) {
-			secondaryActionHTML = `<a href="${opts.actions.secondary.url}" class="${opts.messageClass}__action--secondary">${opts.actions.secondary.text}</a>`;
-		}
-
-		let actions = `<div class="${opts.messageClass}__actions">
-			${primaryActionHTML}
-			${secondaryActionHTML}
-			</div>
-		`;
+		let actions = buildActions(opts);
 
 		let contentHTML;
 		if (!opts.content.detail) {
@@ -40,15 +26,21 @@ export default {
 		if (opts.type === 'alert-inner' && opts.content.additionalInfo) {
 			contentHTML = `
 				<div class="${opts.messageClass}__content">
-					<p class="${opts.messageClass}__highlight">${opts.content.highlight}<span class="${opts.messageClass}__detail">${opts.content.detail}</span></p>
-					<p class="${opts.messageClass}__additional-info">${opts.content.additionalInfo}</p>
+					<p class="${opts.messageClass}__content-main">
+						<span class="${opts.messageClass}__content-highlight">${opts.content.highlight}</span>
+						<span class="${opts.messageClass}__content-detail">${opts.content.detail}</span>
+					</p>
+					<p class="${opts.messageClass}__content-additional">${opts.content.additionalInfo}</p>
 					${actions}
 				</div>
 			`;
 		} else {
 			contentHTML = `
 				<div class="${opts.messageClass}__content">
-					<p class="${opts.messageClass}__highlight">${opts.content.highlight}<span class="${opts.messageClass}__detail">${opts.content.detail}</span></p>
+					<p class="${opts.messageClass}__content-main">
+						<span class="${opts.messageClass}__content-highlight">${opts.content.highlight}</span>
+						<span class="${opts.messageClass}__content-detail">${opts.content.detail}</span>
+					</p>
 					${actions}
 				</div>
 			`;
@@ -67,6 +59,44 @@ export default {
 		return alertMessageEl;
 	},
 
+	/**
+	* Build a full notice message element. Used when there is no message element in the DOM.
+	* @returns {HTMLElement} Returns the new notice type message element
+	*/
+	noticeMessage: (opts) => {
+		const noticeMessage = document.createElement('div');
+		noticeMessage.setAttribute('data-o-component', 'o-message');
+		noticeMessage.classList.add(opts.messageClass, opts.typeClass, `${opts.messageClass}--closed`);
+
+		if (!opts.status) {
+			throwError("Notice messages require a status. The options are 'inform', 'warning' or 'warning-light'");
+		} else {
+			noticeMessage.classList.add(`${opts.statusClass}`);
+		}
+
+		let actions = buildActions(opts);
+
+		const contentHTML = `
+			<div class="${opts.messageClass}__content">
+				<p class="${opts.messageClass}__content-main">
+					${opts.content.detail}
+				</p>
+				${actions}
+			</div>
+		`;
+
+		if (opts.type === 'notice-inner') {
+			opts.close = false;
+		}
+
+		noticeMessage.innerHTML = `
+			<div class="${opts.messageClass}__container">
+				${contentHTML}
+			</div>
+		`;
+
+		return noticeMessage;
+	},
 	/**
 	* Build a close button
 	* @returns {HTMLElement} Returns a new element to close the message

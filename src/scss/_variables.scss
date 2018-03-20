@@ -14,6 +14,10 @@ $o-message-is-silent: true !default;
 /// @type String
 $o-message-class: o-message !default;
 
+//Accepted message types
+$o-message-alert-types: (alert, alert-bleed, alert-inner);
+$o-message-notice-types: (notice, notice-bleed, notice-inner);
+
 // Alert message height
 $_o-message-alert-height: 48px;
 $_o-message-action-height: 40px;
@@ -25,3 +29,7 @@ $_o-message-close-icon-size: 20;
 
 //Typography
 $o-message-typography-scale: 0 !default;
+$_o-message-line-height: nth(oTypographyGetScale($o-message-typography-scale), 2);
+
+//Placeholder map
+$_o-message-placeholders: () !default;

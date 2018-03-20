@@ -1,0 +1,34 @@
+/// Notice Message
+///
+/// Outputs styling for an notice or notice-bleed type message
+/// @example
+/// @include oMessageNotice('my-class');
+///
+/// @param {String} $class - base class name
+
+@mixin oMessageNotice ($class) {
+	.#{$class}--notice,
+	.#{$class}--notice-bleed .#{$class}__container, {
+		@extend %o-message-alert-notice-grid;
+	}
+
+	.#{$class}--notice,
+	.#{$class}--notice-bleed {
+		.#{$class}__content {
+			@extend %o-message-alert-notice-content;
+			padding: 0 oTypographySpacingSize(5);
+
+			&-main {
+				@extend %o-message-alert-notice-content-main;
+			}
+		}
+
+		.#{$class}__actions {
+			@extend %o-message-alert-notice-actions;
+
+			@include oGridRespondTo($until: M) {
+				display: none;
+			};
+		}
+	}
+}

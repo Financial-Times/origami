@@ -11,6 +11,6 @@
 ///
 /// @param {String} $message - The message to insert in the error.
 
-@function _oMessageError($message) {
+@mixin _oMessageError($message) {
 	@error '*** oMessage SCSS error: #{$message} ***';
 };
