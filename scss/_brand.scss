@@ -78,3 +78,30 @@ $_o-buttons-shared-brand-config: (
         'mono': true
     )
 ));
+
+@include oBrandDefine('o-buttons', 'whitelabel', (
+    'variables': (
+        'primary': (
+            default-color: oColorsGetPaletteColor('white'),
+            default-background: oColorsGetPaletteColor('black'),
+            default-border: oColorsGetPaletteColor('black'),
+            hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
+            focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
+            active-color: oColorsGetPaletteColor('black'),
+            active-background: oColorsGetPaletteColor('white')
+        ),
+        'secondary': (
+            default-color: oColorsGetPaletteColor('black'),
+            default-background: oColorsGetPaletteColor('transparent'),
+            default-border: oColorsGetPaletteColor('black'),
+            hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
+            focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
+            active-color: oColorsGetPaletteColor('white'),
+            active-background: oColorsGetPaletteColor('black')
+        )
+    ),
+    'settings': (
+        'primary': true,
+        'secondary': true,
+    )
+));
