@@ -12,7 +12,3 @@ body {
 	color: #ffffff;
 	background: #333333;
 }
-
-// Include for demos of the themeable tabs
-@include oTabsButtonTabsTheme('primary');
-@include oTabsButtonTabsTheme('inverse');

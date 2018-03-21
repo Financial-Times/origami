@@ -6,3 +6,13 @@
 /// Silent mode
 /// @type Bool
 $o-tabs-is-silent: true !default;
+
+/// Tab themes to a corresponding brand variant.
+/// Must be a supported o-buttons theme.
+/// Other themes avalible, see o-buttons themes.
+///
+/// @type Map
+$o-tabs-themes: (
+	primary: 'primary',
+	inverse: 'inverse'
+) !default;

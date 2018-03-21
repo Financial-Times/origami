@@ -1,0 +1,20 @@
+@include oBrandDefine('o-tabs', 'master', (
+    'variables': (),
+    'settings': (
+        'primary': true,
+        'inverse': true
+    )
+));
+
+@include oBrandDefine('o-tabs', 'internal', (
+    'variables': (),
+    'settings': (
+        'primary': true,
+        'inverse': true
+    )
+));
+
+@include oBrandDefine('o-tabs', 'whitelabel', (
+    'variables': (),
+    'settings': ()
+));
