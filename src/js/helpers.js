@@ -1,5 +1,5 @@
 const throwError = (message) => {
-	throw new Error(`*** o-message error: ${message} ***`);
+	throw new Error(`*** o-message error:\n${message}\n***`);
 };
 
 const buildActions = (opts) => {

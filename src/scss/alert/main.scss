@@ -16,27 +16,25 @@
 /// @param {String} $type - message type ('all', 'alert', 'alert-bleed' or 'alert-inner')
 /// @param {String} $status - message status ('all', 'success', 'neutral', 'error')
 
-@mixin oMessageAlerts($class, $type, $status) {
-	@if $type != 'all' and not index($o-message-alert-types, $type) {
-		@include _oMessageError("#{$type} is not an alert type, the options are 'alert', 'alert-bleed' or 'alert-inner'");
-	}
+@mixin oMessageAlerts($class, $types, $status) {
+	@include oMessageBase($class);
+	@include oMessageStatusApply($status, $class);
 
-	@if $type == 'alert-inner' or $type == 'all' {
-		@include oMessageAlertInner($class);
-	}
-
-	@if $type == 'alert' or $type == 'alert-bleed' or $type == 'all' {
-		@include oMessageAlert($class);
-	}
-
-
-	@if $status != 'all' and not index($o-message-alert-status, $status) {
-		@include _oMessageError("#{$status} is not an alert status, the options are 'success', 'neutral' or 'error'");
-	} @else if $status == 'all' {
-		@each $status in $o-message-alert-status {
-			@include oMessageStatus($status, $class)
+	@each $type in $types {
+		@if $type != 'all' and not index($o-message-alert-types, $type) {
+			@include _oMessageError("o-message alert messages don't support #{$type}.
+			The available types are:
+			- alert
+			- alert-bleed
+			- alert-inner");
 		}
-	} @else if index($o-message-alert-status, $status) != null {
-		@include oMessageStatus($status, $class);
+
+		@if $type == 'alert-inner' or $type == 'all' {
+			@include oMessageAlertInner($class);
+		}
+
+		@if $type == 'alert' or $type == 'alert-bleed' or $type == 'all' {
+			@include oMessageAlert($class);
+		}
 	}
 }

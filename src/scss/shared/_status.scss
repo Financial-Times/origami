@@ -7,47 +7,67 @@
 /// @param {String} $status - the name of the status for the message ('success', 'neutral', 'error', 'warning', 'warning-light', 'inform')
 /// @param {String} $class - base class for status
 
+@mixin oMessageStatusApply($status, $class) {
+	@each $state in $status {
+		@if $state != 'all' and not index($o-message-states, $state) {
+			@include _oMessageError("o-message doesn't support #{$state}.
+			The available alert states are:
+			- success
+			- neutral
+			- error
+			
+			The available notice states are:
+			- inform
+			- warning
+			- warning-light");
+
+		} @else if $state == 'all' {
+			@each $state in $o-message-states {
+				@include oMessageStatus($state, $class)
+			}
+
+		} @else if index($o-message-states, $state) != null {
+			@include oMessageStatus($state, $class);
+		}
+	}
+}
 
 @mixin oMessageStatus ($status, $class) {
-	@if not map-has-key($_o-message-status-styles, $status) {
-		@include _oMessageError("#{$status} is not a status. You can try 'error', 'success', 'neutral', 'warning', 'warning-light' or 'inform', instead.");
-	} @else {
-		.#{$class}--#{$status} {
-			@include oColorsFor(o-message-#{$status});
+	.#{$class}--#{$status} {
+		@include oColorsFor(o-message-#{$status});
 
-			.#{$class}__actions__primary {
-				@include oMessageAlertButtonState(
-				_oMessageGetMapValue($status, button-background),
-				_oMessageGetMapValue($status, button-text)
+		.#{$class}__actions__primary {
+			@include oMessageAlertButtonState(
+			_oMessageGetMapValue($status, button-background),
+			_oMessageGetMapValue($status, button-text)
+			);
+		}
+
+		.#{$class}__actions__secondary {
+			@include oMessageAlertLink(
+				$custom-link-base: _oMessageGetMapValue($status, custom-link-base),
+				$custom-link-hover: _oMessageGetMapValue($status, custom-link-hover),
+				$custom-link-background: _oMessageGetMapValue($status, custom-link-background),
+				$link-hover: _oMessageGetMapValue($status, link-hover),
+				$link-focus: _oMessageGetMapValue($status, link-focus)
+			);
+		}
+
+		@if (_oMessageGetMapValue($status, alert-icon-name)) {
+			.#{$class}__container:before {
+				@include oMessageAlertIcon(
+				_oMessageGetMapValue($status, alert-icon-name),
+				_oMessageGetMapValue($status, alert-icon-color),
+				$_o-message-alert-icon-size
 				);
+				min-width: $_o-message-alert-icon-size * 1px;
+				position: absolute;
 			}
+		}
 
-			.#{$class}__actions__secondary {
-				@include oMessageAlertLink(
-					$custom-link-base: _oMessageGetMapValue($status, custom-link-base),
-					$custom-link-hover: _oMessageGetMapValue($status, custom-link-hover),
-					$custom-link-background: _oMessageGetMapValue($status, custom-link-background),
-					$link-hover: _oMessageGetMapValue($status, link-hover),
-					$link-focus: _oMessageGetMapValue($status, link-focus)
-				);
-			}
-
-			@if (_oMessageGetMapValue($status, alert-icon-name)) {
-				.#{$class}__container:before {
-					@include oMessageAlertIcon(
-					_oMessageGetMapValue($status, alert-icon-name),
-					_oMessageGetMapValue($status, alert-icon-color),
-					$_o-message-alert-icon-size
-					);
-					min-width: $_o-message-alert-icon-size * 1px;
-					position: absolute;
-				}
-			}
-
-			.#{$class}__close {
-				@include oMessageCloseButton(_oMessageGetMapValue($status, close-icon-color));
-				vertical-align: middle;
-			}
+		.#{$class}__close {
+			@include oMessageCloseButton(_oMessageGetMapValue($status, close-icon-color));
+			vertical-align: middle;
 		}
 	}
 }

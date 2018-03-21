@@ -1,5 +1,6 @@
 @import 'inner';
 @import 'regular';
+
 ////
 /// @group o-message
 /// @link http://registry.origami.ft.com/components/o-message
@@ -15,26 +16,25 @@
 /// @param {String} $type - message type ('all', 'notice', 'notice-bleed' or 'notice-inner')
 /// @param {String} $status - message status ('all', 'inform', 'warning', 'warning-light')
 
-@mixin oMessageNotices($class, $type, $status) {
-	@if $type != 'all' and not index($o-message-notice-types, $type) {
-		@include _oMessageError("#{$type} is not a notice type, the options are 'notice', 'notice-bleed' or 'notice-inner'");
-	}
+@mixin oMessageNotices($class, $types, $status) {
+	@include oMessageBase($class);
+	@include oMessageStatusApply($status, $class);
 
-	@if $type == 'notice-inner' or $type == 'all' {
-		@include oMessageNoticeInner($class);
-	}
-
-	@if $type == 'notice' or $type == 'notice-bleed' or $type == 'all' {
-			@include oMessageNotice($class);
-	}
-
-	@if $status != 'all' and not index($o-message-notice-status, $status) {
-		@include _oMessageError("#{$status} is not a notice status, the options are 'inform', 'warning' or 'warning-light'");
-	} @else if $status == 'all' {
-		@each $status in $o-message-notice-status {
-			@include oMessageStatus($status, $class)
+	@each $type in $types {
+		@if $type != 'all' and not index($o-message-notice-types, $type) {
+			@include _oMessageError("o-message notice messages don't support #{$type}.
+			The available types are:
+			- notice
+			- notice-bleed
+			- notice-inner");
 		}
-	} @else if index($o-message-notice-status, $status) != null {
-		@include oMessageStatus($status, $class);
+
+		@if $type == 'notice-inner' or $type == 'all' {
+			@include oMessageNoticeInner($class);
+		}
+
+		@if $type == 'notice' or $type == 'notice-bleed' or $type == 'all' {
+				@include oMessageNotice($class);
+		}
 	}
 }

@@ -17,8 +17,20 @@ o-message is a messaging component used for alerting and informing. It can inclu
 `o-message` uses Sass and Javascript to show and hide a message component.
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
 
-By default, `o-message` initialises an alert message, which provides information in response to a user action. It currently has three states, 'success', 'neutral' and 'error', and relies on the markup (or configuration) to determine  other variants of behaviour and style.
+`o-message` can initialise two types of messages: **alert** and **notice**.  
 
+Messages are styled correctly using any combination of types and states that have a  ✓ in the table below:
+
+types ↓ \| states  →|`success` | `neutral` | `error` | `inform` | `warning` | `warning-light` |
+---|:---: |:---:|:---:|:---:|:---:|:---:|
+`alert`| ✓ | ✓ |  ✓ | ✕ | ✕ | ✕ |
+`alert-bleed`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ |
+`alert-inner`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ |
+`notice`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
+`notice-bleed`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
+`notice-inner`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
+
+By default, `o-message` initialises with the markup for an `alert` type.
 
 ### Markup
 
@@ -161,7 +173,13 @@ As with all Origami components, o-message has a [silent mode](http://origami.ft.
 o-message includes mixins that you can use if you'd rather _not_ have origami classnames in your page. These are only available if you're _not_ using the Build Service:
 
 ```sass
-@include oMessage($class: 'my-banner', $type: 'alert-inner', $status: 'success');
+@include oMessage($class: 'my-banner', $types: 'alert-inner', $status: 'success');
+```
+
+You can also initialise multiple types and states of message by providing a list of types and a list of states:
+
+```sass
+@include oMessage($types: 'alert-inner', 'notice-bleed', $status: 'success', 'inform')
 ```
 
 ## Migration Guide

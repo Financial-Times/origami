@@ -1,8 +1,28 @@
 /// Output All oMessage Features
-@mixin oMessage($class: $o-message-class, $type: 'all', $status: 'all') {
-	@include oMessageBase($class);
-	@include oMessageAlerts($class, $type, $status);
-	@include oMessageNotices($class, $type, $status);
+/// Output All oMessage Features
+@mixin oMessage($class: $o-message-class, $types: 'all', $status: 'all') {
+	@each $type in $types {
+		@if $type == 'all' {
+			@include oMessageAlerts($class, $type, $status);
+			@include oMessageNotices($class, $type, $status);
+
+		} @else if index($o-message-alert-types, $type) {
+			@include oMessageAlerts($class, $type, $status);
+
+		} @else if index($o-message-notice-types, $type) {
+			@include oMessageNotices($class, $type, $status);
+
+		} @else {
+			@include _oMessageError("o-message types don't support #{$type}.
+			The available types are:
+			- alert
+			- alert-bleed
+			- alert-inner
+			- notice
+			- notice-bleed
+			- notice-inner");
+		}
+	}
 }
 
 

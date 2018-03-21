@@ -48,7 +48,7 @@ describe("constructElement", () => {
 		it('throws an error if no status is defined', () => {
 			options.status = null;
 
-			let error = "*** o-message error: Alert messages require a status. The options are 'success', 'error', or 'neutral' ***";
+			let error = "*** o-message error:\nAlert messages require a status. The options are:\n- success\n- error\n- neutral\n***";
 			assert.throws(() => construct.alertMessage(options), error);
 		});
 
@@ -103,7 +103,7 @@ describe("constructElement", () => {
 		it('throws an error if no status is defined', () => {
 			options.status = null;
 
-			let error = "*** o-message error: Notice messages require a status. The options are 'inform', 'warning' or 'warning-light' ***";
+			let error = "*** o-message error:\nNotice messages require a status. The options are:\n- inform\n- warning\n- warning-light\n***";
 			assert.throws(() => construct.noticeMessage(options), error);
 		});
 	});

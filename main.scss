@@ -17,7 +17,7 @@
 @import './src/scss/notice/main';
 
 @if ($o-message-is-silent == false) {
-	@include oMessage;
+	@include oMessage();
 
 	// Set to silent again to avoid being output twice
 	$o-message-is-silent: true !global;

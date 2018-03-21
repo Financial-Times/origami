@@ -98,18 +98,18 @@ class Message {
 	constructMessageElement () {
 		if (this.opts.typeNucleus === 'alert') {
 		 	if (!this.opts.content.highlight) {
-				throwError(`An ${this.opts.typeNucleus} message element requires options.content.highlight`);
+				throwError(`An ${this.opts.typeNucleus} message element requires 'options.content.highlight'`);
 			} else {
 				return construct.alertMessage(this.opts);
 			}
 		} else if (this.opts.typeNucleus === 'notice') {
 			if (!this.opts.content.detail) {
-				throwError(`An ${this.opts.typeNucleus} message element requires options.content.detail`);
+				throwError(`An ${this.opts.typeNucleus} message element requires 'options.content.detail'`);
 			} else {
 				return construct.noticeMessage(this.opts);
 			}
 		} else {
-			throwError(`'${this.opts.type}' is not a supported message type. The available options are 'alert', 'alert-bleed', 'alert-inner', 'notice', 'notice-bleed', 'notice-inner'`);
+			throwError(`'${this.opts.type}' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner`);
 		}
 	}
 

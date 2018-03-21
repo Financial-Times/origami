@@ -220,14 +220,14 @@ describe("Message", () => {
 
 			it('throws an error if an incorrect message type is supplied', () => {
 				options.type = 'marketing';
-				const error = "*** o-message error: 'marketing' is not a supported message type. The available options are 'alert', 'alert-bleed', 'alert-inner', 'notice', 'notice-bleed', 'notice-inner' ***";
+				const error = "*** o-message error:\n'marketing' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner\n***";
 
 				assert.throws(() => { new Message(null, options); }, error);
 			});
 
 			it('throws an error if opts.content.highlight is not declared for an alert type message', () => {
 				options.content.highlight = null;
-				const error = "*** o-message error: An alert message element requires options.content.highlight ***";
+				const error = "*** o-message error:\nAn alert message element requires 'options.content.highlight'\n***";
 
 				assert.throws(() => { new Message(null, options); }, error);
 			});

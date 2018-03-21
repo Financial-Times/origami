@@ -1,8 +1,7 @@
 /// List of states that can be applied to alert type messages
 ///
 /// @type List
-$o-message-alert-status: (error, neutral, success);
-$o-message-notice-status: (inform, warning, warning-light);
+$o-message-states: (error, neutral, success, inform, warning, warning-light);
 
 /// Message status variants, with their respective states
 /// Each status is a Map of CSS properties
