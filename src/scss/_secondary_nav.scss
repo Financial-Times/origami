@@ -6,17 +6,17 @@
 	.o-header-services {
 		.o-header__subnav-list--breadcrumb {
 			.o-header__subnav-link {
-				color: oColorsGetColorFor('o-header-services-secondary-nav', 'text');
+				color: oBrandGet('o-header-services', 'subnav-text');
 				font-weight: 600;
 			}
 			.o-header__subnav-item:before {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-header-services-secondary-nav', 'text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+				@include oIconsGetIcon('arrow-right',  oBrandGet('o-header-services', 'subnav-text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 			}
 		}
 
 		.o-header__subnav-link--highlight:after,
 		.o-header__subnav-link[aria-selected="true"]:after {
-			background-color: oColorsGetColorFor('o-header-services-secondary-nav', 'text');
+			background-color: oBrandGet('o-header-services', 'subnav-text');
 		}
 	}
 }

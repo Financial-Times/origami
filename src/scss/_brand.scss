@@ -1,0 +1,56 @@
+@include oBrandDefine('o-header-services', 'master', (
+	'variables': (
+		top-text: oColorsGetPaletteColor('white'),
+		top-background: oColorsGetPaletteColor('black'),
+		top-link: oColorsGetPaletteColor('white'),
+		top-link-hover: oColorsGetPaletteColor('black-20'),
+		product-title: oColorsGetPaletteColor('white'),
+		nav-text: oColorsGetPaletteColor('black'),
+		nav-background: oColorsGetPaletteColor('white-60'),
+		nav-border: oColorsGetPaletteColor('black-20'),
+		nav-hover-text: oColorsGetPaletteColor('black'),
+		nav-hover-background: oColorsGetPaletteColor('black-5'),
+		subnav-text: oColorsGetPaletteColor('black'),
+		subnav-background: oColorsGetPaletteColor('white-40'),
+		'b2b': (
+			product-title: oColorsGetPaletteColor('white'),
+			nav-text: oColorsGetPaletteColor('white'),
+			nav-background: oColorsGetPaletteColor('claret'),
+			nav-hover-text: oColorsGetPaletteColor('white'),
+			nav-hover-background: oColorsGetPaletteColor('claret-30')
+		),
+		'b2c': (
+			product-title: oColorsGetPaletteColor('org-b2c-light'),
+			nav-text: oColorsGetPaletteColor('white'),
+			nav-background: oColorsGetPaletteColor('org-b2c'),
+			nav-hover-text: oColorsGetPaletteColor('white'),
+			nav-hover-background: oColorsGetPaletteColor('org-b2c-dark')
+		)
+	),
+	'settings': (
+		'b2b': true,
+		'b2c': true
+	)
+));
+//
+// @include oBrandDefine('o-header-services', 'internal', (
+// 	'variables': (
+// 		top-text: oColorsGetPaletteColor('white')
+// 	)
+// ));
+
+
+
+//
+// oBrandConfigure('o-header-services', 'primary') {
+// 	// @content
+// 	smmink: oBrandGet('o-header-services', 'smmink');
+// }
+//
+// list ('primary', 'b2b', 'b2c') {
+// 	do stuff with list
+// }
+// oBrandConfigure('o-header-services', 'b2b') {
+// 	// @content
+// 	smmink: oBrandGet('o-header-services', 'smmink');
+// }

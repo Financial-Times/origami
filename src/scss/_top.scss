@@ -2,8 +2,8 @@
 
 	.o-header-services__top {
 		@include oTypographySans($scale: 0);
-		@include oColorsFor(o-header-services-top, text background);
-
+		color: oBrandGet('o-header-services', 'top-text');
+		background-color: oBrandGet('o-header-services', 'top-background');
 		overflow: hidden;
 		display: block;
 	}
@@ -34,7 +34,7 @@
 		height: $_o-header-services-top-bar-y-small;
 		width: $_o-header-services-top-bar-y-small;
 		float: left;
-		background-color: oColorsGetColorFor(o-header-services-top, background);
+		background-color: oBrandGet('o-header-services', 'top-background');
 		display: inline-block;
 
 		@include oGridRespondTo(M) {
@@ -65,7 +65,7 @@
 	.o-header-services__product-name {
 		@include oTypographySansBold($scale: 4);
 		text-overflow: ellipsis;
-		color: oColorsGetColorFor('o-header-services-top-title', text);
+		color: oBrandGet('o-header-services', 'product-title');
 		margin: 0;
 		-webkit-font-smoothing: antialiased;
 		display: inline;
@@ -109,12 +109,12 @@
 		> a {
 			text-decoration: none;
 			display: inline-block;
-			color: oColorsGetColorFor('o-header-services-top-link', text);
+			color: oBrandGet('o-header-services', 'top-link');
 			margin: 0 $_o-header-services-padding-x;
 			font-weight: 600;
 
 			&:visited {
-				color: oColorsGetColorFor('o-header-services-top-link', text);
+				color: oBrandGet('o-header-services', 'top-link');
 			}
 
 			&:hover {
