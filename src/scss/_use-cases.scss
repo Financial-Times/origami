@@ -54,34 +54,21 @@ $_o-colors-branded-usecases: (
 	'internal': (
 	//	<use case>                <properties>
 		page:                     (background: 'white'),
-		box:                      (background: 'internal-slate-5'),
+		box:                      (background: 'slate-white-5'),
 		link:                     (text: 'teal'),
-		link-hover:               (text: 'internal-slate-15'),
-		link-title:               (text: 'internal-slate-15'),
-		link-title-hover:         (text: 'internal-slate-15'),
-		tag-link:                 (text: 'claret', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		tag-link-hover:           (text: 'claret-30', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		opinion-tag-link:         (text: 'oxford', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		opinion-tag-link-hover:   (text: 'oxford-30', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		title:                    (text: 'internal-slate'),
-		body:                     (text: 'internal-slate'),
-		muted:                    (text: 'black-20', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		opinion:                  (background: 'sky', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		hero:                     (background: 'wheat', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		hero-opinion:             (background: 'oxford', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-		hero-highlight:           (background: 'claret', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-
-
-	// Section colors
-	section-life-arts:        (all: 'velvet', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-life-arts-alt:    (all: 'candy', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-magazine:         (all: 'oxford', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-magazine-alt:     (all: 'sky', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-house-home:       (all: 'jade', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-house-home-alt:   (all: 'wasabi', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-money:            (all: 'crimson', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
-	section-money-alt:        (all: 'white', _deprecated: 'It is not a valid usecase for the "internal" brand. Please contact Origami if you have any questions.'),
+		link-hover:               (text: 'slate-white-15'),
+		link-title:               (text: 'slate-white-15'),
+		link-title-hover:         (text: 'slate-white-15'),
+		title:                    (text: 'slate'),
+		body:                     (text: 'slate'),
+		muted:                    (text: 'black-20'),
+	),
+	'whitelabel': (
+	//	<use case>                <properties>
+		page:                     (background: 'white'),
 	)
 );
 
-$o-colors-usecases: if(map-get($_o-colors-branded-usecases, $_o-colors-brand), (map-merge(map-get($_o-colors-branded-usecases, $_o-colors-brand), $o-colors-usecases)), ());
+$_o-colors-default-brand-usecases: map-get($_o-colors-branded-usecases, 'master');
+$_o-colors-current-brand-usecases: map-get($_o-colors-branded-usecases, $_o-colors-brand);
+$o-colors-usecases: map-merge(if($_o-colors-current-brand-usecases, $_o-colors-current-brand-usecases, $_o-colors-default-brand-usecases), $o-colors-usecases);
