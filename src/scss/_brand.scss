@@ -1,5 +1,6 @@
 @include oBrandDefine('o-header-services', 'master', (
 	'variables': (
+		logo: 'brand-ft-logo-square-coloured',
 		top-text: oColorsGetPaletteColor('white'),
 		top-background: oColorsGetPaletteColor('black'),
 		top-link: oColorsGetPaletteColor('white'),
