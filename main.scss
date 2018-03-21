@@ -10,8 +10,8 @@
 	@include oTabs;
 	@include oTabsButtonTabs;
 
-	// Output themes.
-	@each $key, $theme in $o-tabs-themes {
+	// Output default themes. Other themes avalible, see o-buttons themes.
+	@each $theme in ('primary', 'inverse') {
 		@include oTabsButtonTabsTheme($theme);
 	}
 }
