@@ -92,10 +92,6 @@
 @mixin oTopperBrand {
 	@extend %_o-topper__tag;
 	margin-right: 4px;
-
-	@include oGridRespondTo($until: S) {
-		display: block;
-	}
 }
 
 @mixin oTopperColumnist {
