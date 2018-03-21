@@ -34,11 +34,23 @@
 	)
 ));
 //
-// @include oBrandDefine('o-header-services', 'internal', (
-// 	'variables': (
-// 		top-text: oColorsGetPaletteColor('white')
-// 	)
-// ));
+@include oBrandDefine('o-header-services', 'internal', (
+	'variables': (
+		logo: 'brand-ft-logo-squared-bw',
+		top-text: oColorsGetPaletteColor('white'),
+		top-background: oColorsGetPaletteColor('slate'),
+		top-link: oColorsGetPaletteColor('white'),
+		top-link-hover: oColorsGetPaletteColor('black-20'),
+		product-title: oColorsGetPaletteColor('white'),
+		nav-text: oColorsGetPaletteColor('black'),
+		nav-background: oColorsGetPaletteColor('slate-white-5'),
+		nav-border: oColorsGetPaletteColor('black-20'),
+		nav-hover-text: oColorsGetPaletteColor('black'),
+		nav-hover-background: oColorsGetPaletteColor('slate-white-15'),
+		subnav-text: oColorsGetPaletteColor('black'),
+		subnav-background: oColorsGetPaletteColor('slate-white-5')
+	)
+));
 
 
 

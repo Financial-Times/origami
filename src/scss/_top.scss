@@ -33,7 +33,6 @@
 		height: $_o-header-services-top-bar-y-small;
 		width: $_o-header-services-top-bar-y-small;
 		float: left;
-		background-color: oBrandGet('o-header-services', 'top-background');
 		display: inline-block;
 
 		@include oGridRespondTo(M) {

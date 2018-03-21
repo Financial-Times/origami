@@ -2,6 +2,8 @@
 @import 'o-icons/main';
 @import 'o-typography/main';
 @import 'o-grid/main';
+
+$o-brand: internal;
 @import 'o-brand/main';
 
 @import 'src/scss/brand';
@@ -18,7 +20,7 @@
 
 @mixin oHeaderServices {
 	.o-header-services {
-		background-color: oColorsGetColorFor('o-header-services-top', 'background');
+		background-color: oBrandGet('o-header-services', 'top-background');
 	}
 
 	.o-header-services__container {

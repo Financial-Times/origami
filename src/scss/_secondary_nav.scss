@@ -4,6 +4,10 @@
 
 	/* override some styles to remove teal link color */
 	.o-header-services {
+		.o-header__subnav {
+			background-color: oBrandGet('o-header-services', 'subnav-background');
+		}
+
 		.o-header__subnav-list--breadcrumb {
 			.o-header__subnav-link {
 				color: oBrandGet('o-header-services', 'subnav-text');
