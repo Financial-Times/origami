@@ -97,6 +97,13 @@
 /// @private
 @mixin _oButtonsStates() {
 	@include _oButtonsColors('default');
+	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
+	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
+	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
+	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
+	&:not([disabled]):active {
+		@include _oButtonsColors('active');
+	}
 	&:not([disabled]) {
 		&:hover {
 			@include _oButtonsColors('hover');
@@ -104,13 +111,6 @@
 		}
 		&:focus {
 			@include _oButtonsColors('focus');
-		}
-		// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
-		// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
-		&[aria-selected=true], // e.g. A selected tab or page number in pagination.
-		&[aria-pressed=true], // e.g. A "follow" button that is pressed.
-		&:active {
-			@include _oButtonsColors('active');
 		}
 	}
 }
@@ -143,7 +143,9 @@
 		@error "Please provide a background color for the custom button theme";
 	}
 
-	@if map-get($theme, "colorizer") == null {
+	// If theme colorizer is not supported default to secondary.
+	$supported-colorizers: ('secondary', 'primary');
+	@if not index($supported-colorizers, map-get($theme, "colorizer")) {
 		$theme: map-merge($theme, ('colorizer': 'secondary'));
 	}
 
