@@ -230,6 +230,7 @@
 	}
 
 	@if $color-name == 'paper' or $color-name == 'wheat' {
+		.o-topper__opinion-genre,
 		.o-topper__topic,
 		.o-topper__columnist-name {
 			@include oColorsFor('tag-link', text);
