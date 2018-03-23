@@ -136,30 +136,16 @@
 /// Request an icon from o-icons with color based on the o-buttons theme and state
 ///
 /// @param {String} $icon-name, icon to request
-/// @param {String} $theme, one of $o-colors-theme
+/// @param {String|Map} $theme, one of $o-colors-theme or a custom theme map
 /// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $theme, $state) {
-	$icon-color: 'paper';
-
-	@if type-of($theme) == 'map' {
-		// 1. If $theme is a map a custom theme is being used so override brand variables.
-		$custom-config: _oButtonsThemeToBrandConfig($theme);
-		@include oBrandOverride('o-buttons', $custom-config) {
-			$icon-color: oButtonsGetColor($state, 'color');
-		}
-	} @else {
-		// 2. Otherwise the theme is defined as a brand variant.
-		@include oBrandConfigureFor('o-buttons', $theme) {
-			$icon-color: oButtonsGetColor($state, 'color');
-		}
-	}
-
-	// 3. If the icon color is not a color assume it is in the palette.
+	// 1. Get the icon color for the button state and theme.
+	$icon-color: oButtonsGetColor($state, 'color', $theme);
+	// 2. If the icon color is not a color assume it is in the palette.
 	@if $icon-color and type-of($icon-color) != 'color' {
 		$icon-color: oColorsGetPaletteColor($icon-color);
 	}
-
-	// 4. Output the icon.
+	// 3. Output the icon.
 	@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1);
 }
 

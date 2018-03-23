@@ -5,15 +5,22 @@
 /// @access public
 /// @param {String} $state
 /// @param {String} $property
-/// @param {String|List} $theme If no theme is provided the currently configured brand theme is used.
+/// @param {String|List|Map} $theme A theme string/list or a custom theme map. Will default to the currently configured theme.
 /// @return {Color}
 @function oButtonsGetColor($state, $property, $theme: null) {
-	$state-color: oBrandGet('o-buttons', '#{$state}-#{$property}', $force-variant: $theme);
-	@if $state-color {
-		@return $state-color;
+	$state-color: null;
+	$default-color: null;
+	@if type-of($theme) == 'map' {
+		// Custom theme. Override button color.
+		$custom-config: _oButtonsThemeToBrandConfig($theme);
+		$state-color: oBrandGet($component: 'o-buttons', $variables: '#{$state}-#{$property}', $override-config: $custom-config);
+		$default-color: oBrandGet($component: 'o-buttons', $variables: 'default-#{$property}', $override-config: $custom-config);
+	} @else {
+		// The theme is defined as a brand variant.
+		$state-color: oBrandGet($component: 'o-buttons', $variables: '#{$state}-#{$property}', $configure-for: $theme);
+		$default-color: oBrandGet($component: 'o-buttons', $variables: 'default-#{$property}', $configure-for: $theme);
 	}
-	$default-color: oBrandGet('o-buttons', 'default-#{$property}', $force-variant: $theme);
-	@return $default-color;
+	@return if($state-color, $state-color, $default-color);
 }
 
 /// Maps button theme names to class modifiers.
