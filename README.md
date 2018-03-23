@@ -45,10 +45,10 @@ Mixins within `o-brand` help configure components to support brands. There is no
 
 The following mixins and functions help brand a component.
 
-- [oBrandDefine](#obranddefine) - Defines brand configuration (variables & settings).
-- [oBrandGet](#obrandget) - Retrieves brand variables.
-- [oBrandConfigureFor](#obrandconfigurefor) - Supports working with variants.
-- [oBrandOverride](#obrandoverride) - Helps customise a defined brand.
+- [oBrandDefine](#obranddefine) - Define brand configuration (variables & settings).
+- [oBrandGet](#obrandget) - Retrieve brand variables.
+- [oBrandConfigureFor](#obrandconfigurefor) - Choose a variant and automatically configure `oBrandGet`.
+- [oBrandOverride](#obrandoverride) - Customise a defined brand to automatically override `oBrandGet`.
 
 ### oBrandDefine
 
@@ -164,42 +164,57 @@ To request multiple variables at once, assuming variables `example-border-size: 
 }
 ```
 
-Retrieve a variable for a variant using `oBrandGet` using `$force-variant`. Whilst this is possible use [`oBrandConfigureFor`](#retrieve-a-variable-for-a-variant) instead where possible.
+Retrieve a variable for a variant using `oBrandGet` and `$configure-for`.
 ```scss
 .o-example--inverse {
-	background: oBrandGet($component: 'o-example', $variables: 'example-background', $force-variant: 'inverse'); // background: slate;
+	background: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: 'inverse'); // background: slate;
+}
+```
+
+Override variables using `oBrandGet` and `$override-config`. The override paramater accepts configuration to override brand configuration set with `oBrandDefine`, it expects the same configuration format.
+
+Assuming variables `example-background: 'paper'`, `example-border-size: 1px`, `example-border-type: solid`, `example-border-color: grey` are defined using `oBrandDefine`:
+
+```scss
+$custom-config: (
+	'variables': (
+		'example-background': 'hotpink',
+		'example-border-size', '2px'
+	)
+);
+
+.o-example {
+	background: oBrandGet($component: 'o-example', $variables: 'example-background', $override-config: $custom-config); // background: hotpink;
+	border: oBrandGet($component: 'o-example', $variables: ('example-border-size', 'example-border-type', 'example-border-color'), $override-config: $custom-config); // border: 2px solid grey;
 }
 ```
 
 - `oBrandGet` returns `null` if a variable is undefined. Sass removes css properties which are set to `null`. This is a useful feature to conditionally output css properties for different variants.
+- Whilst it is possible to get a brand variable for an explicit component and variant using `oBrandGet`, instead use [`oBrandConfigureFor`](#obrandconfigurefor) where possible.
+- Whilst it is possible to override any defined variable using `oBrandGet`, instead use [`oBrandOverride`](#obrandoverride) where possible.
 
 ### oBrandConfigureFor
 
-`oBrandConfigureFor` improves working with variants. It accepts a Sass content block which will only output if the brand supports the given variant. It also configures all `oBrandGet` calls within its content block for a given variant.
+`oBrandConfigureFor` configures all `oBrandGet` calls within its content block for a given component and variant, which removes the need to repeatedly pass the component and variant to `oBrandGet`. In addition it will only output the sass content block if the component brand supports the given variant.
 
 Building on the `oBrandDefine` example the following outputs multiple `o-example` variants with different backgrounds. The variants are only output if the brand supports them:
 
 ```scss
-
-@mixin oExampleTheme() {
-	background: oBrandGet($component: 'o-example', $variables: 'example-background');
-}
-
 @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
 	.o-example--inverse {
-		@include oExampleTheme(); // background: paper;
+		background: oBrandGet($variables: 'example-background'); // background: paper;
 	}
 }
 
 @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
 	.o-example--b2b {
-		@include oExampleTheme(); // background: lightblue;
+		background: oBrandGet($variables: 'example-background'); // background: lightblue;
 	}
 }
 
 @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'inverse')) {
 	.o-example--b2b .o-example--inverse {
-		@include oExampleTheme(); // background: darkblue;
+		background: oBrandGet($variables: 'example-background'); // background: darkblue;
 	}
 }
 ```
@@ -208,7 +223,7 @@ Building on the `oBrandDefine` example the following outputs multiple `o-example
 
 ```scss
 @mixin oExampleTheme() {
-	background: oBrandGet($component: 'o-example', $variables: 'example-background');
+	background: oBrandGet($variables: 'example-background');
 }
 
 // "b2b" variant
@@ -236,7 +251,7 @@ $custom-config: ('variables', {
 
 .o-example--custom-variant {
 	@include oBrandOverride('o-example', $custom-config) {
-		background: oBrandGet($component: 'o-example', $variables: 'example-background'); // background: hotpink
+		background: oBrandGet($variables: 'example-background'); // background: hotpink
 	};
 }
 ```

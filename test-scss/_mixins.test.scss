@@ -59,6 +59,31 @@
             }
         }
 
+        @include assert('The variants for a nested component is supported by the test brand so should output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
+                    @include oBrandConfigureFor($component: 'o-example-two', $variant: 'small') {
+                        content: 'variants supported by their component';
+                    }
+                }
+            }
+            @include expect {
+                content: 'variants supported by their component';
+            }
+        }
+
+        @include assert('The variants for a nested component are not supported by the test brand so should not output') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
+                    @include oBrandConfigureFor($component: 'o-example-two', $variant: 'large') {
+                        content: '"large" variant is not supported by the inner most component';
+                    }
+                }
+            }
+            @include expect {
+            }
+        }
+
         @include assert('The "b2b" variant is supported by the test brand so should output') {
             @include output {
                 @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
@@ -96,7 +121,7 @@
         @include assert('Null variants are supported.') {
             @include output {
                 @include oBrandConfigureFor($component: 'o-example', $variant: null) {
-                    background: oBrandGet($component: 'o-example', $variables: 'example-background');
+                    background: oBrandGet($variables: 'example-background');
                 }
             }
             @include expect {
@@ -108,17 +133,17 @@
             @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
                 @include oBrandConfigureFor($component: 'o-example', $variant: null) { // should have no effect
                     // variant: inverse
-                    $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+                    $property: oBrandGet($variables: 'example-background');
                     @include assert-equal($property, grey);
                     // variant: inverse b2b
                     @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
                         @include oBrandConfigureFor($component: 'o-example', $variant: null) { // should have no effect
-                            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+                            $property: oBrandGet($variables: 'example-background');
                             @include assert-equal($property, darkred);
                         }
                     }
                     // variant: inverse
-                    $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+                    $property: oBrandGet($variables: 'example-background');
                     @include assert-equal($property, grey);
                 }
             }
@@ -142,7 +167,7 @@
 
     @include test('Gets a variable value for a configured variant') {
         @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, grey);
         }
     }
@@ -150,12 +175,12 @@
     @include test('Gets a variable value for a configured compound variant, regardless of order') {
         // inverse b2b
         @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, darkred);
         }
         // b2b inverse
         @include oBrandConfigureFor($component: 'o-example', $variant: ('inverse', 'b2b')) {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, darkred);
         }
     }
@@ -163,45 +188,94 @@
     @include test('Gets a variable value for a configured variant, regardless of list separator') {
         // space
         @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' 'inverse')) {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, darkred);
         }
         // comma
         @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'inverse')) {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, darkred);
         }
     }
 
-    @include test('Gets a variable value for a configured compound variant (nested)') {
+    @include test('Gets a variable value for a configured compound variant (nested variants)') {
         @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
             // variant: inverse
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, grey);
             // variant: inverse b2b
             @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
-                $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+                $property: oBrandGet($variables: 'example-background');
                 @include assert-equal($property, darkred);
             }
             // variant: inverse
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
+            @include assert-equal($property, grey);
+        }
+    }
+
+    @include test('Gets a variable value for a configured compound variant (nested components)') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
+            // component: o-example, variant: inverse
+            $property: oBrandGet($variables: 'example-background');
+            @include assert-equal($property, grey);
+            // component: o-example, variant: inverse b2b
+            @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+                // component: o-example-two, variant: small
+                @include oBrandConfigureFor($component: 'o-example-two', $variant: 'small') {
+                    $property: oBrandGet($variables: 'example-two-size');
+                    @include assert-equal($property, 1em);
+                    // example-background not fonfigured for the "example-two" components
+                    $property: oBrandGet($variables: 'example-background');
+                    @include assert-equal($property, null);
+                }
+            }
+            // component: o-example, variant: inverse
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, grey);
         }
     }
 
     @include test('Gets a variable value for a "forced" variant') {
-        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $force-variant: 'inverse');
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: 'inverse');
         @include assert-equal($property, grey);
 
-        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $force-variant: ('inverse', 'b2b'));
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: ('inverse', 'b2b'));
         @include assert-equal($property, darkred);
     }
 
-    @include test('Gets a variable value for a "forced" variant, ignoring configured variants') {
+    @include test('Gets a variable value for an explicit variant, ignoring currently configured variants') {
         @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background', $force-variant: 'inverse');
+            $property: oBrandGet($variables: 'example-background', $configure-for: 'inverse');
             @include assert-equal($property, grey);
         }
+    }
+
+    @include test('Gets a variable value for an explicit variant, ignoring currently configured components') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+            $property: oBrandGet($variables: 'example-background', $component: 'o-example-two');
+            @include assert-equal($property, null);
+            $property: oBrandGet($variables: 'example-two-size', $component: 'o-example-two', $configure-for: 'small');
+            @include assert-equal($property, 1em);
+        }
+    }
+
+    @include test('Gets a variable value which has been overridden') {
+        $custom-config: ('variables': (
+                'example-background': blue
+        ));
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $override-config: $custom-config);
+        @include assert-equal($property, blue);
+    }
+
+    @include test('Gets a variant variable value which has been overridden') {
+        $custom-config: ('variables': (
+                'inverse': (
+                    'example-background': hotpink
+                )
+        ));
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: 'inverse', $override-config: $custom-config);
+        @include assert-equal($property, hotpink);
     }
 }
 
@@ -210,7 +284,7 @@
         @include oBrandOverride($component: 'o-example', $config: ('variables': (
                 'example-background': blue
             ))) {
-            $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+            $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, blue);
         }
     }

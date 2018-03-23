@@ -1,5 +1,6 @@
 $o-brand: 'internal';
 
+// Define an example component
 @include oBrandDefine('o-example', 'master', (
 	'variables': (
 		example-background: pink
@@ -39,5 +40,34 @@ $o-brand: 'internal';
 @include oBrandDefine('o-example', 'whitelabel', (
 	'settings': (
 		'compact': true
+	)
+));
+
+// Define a second example component
+@include oBrandDefine('o-example-two', 'master', (
+	'variables': (
+		example-two-size: 2em,
+		'large': (
+			example-two-size: 3em,
+		),
+		'small': (
+			example-two-size: 1em,
+		)
+	),
+	'settings': (
+		'small': true,
+		'large': true
+	)
+));
+
+@include oBrandDefine('o-example-two', 'internal', (
+	'variables': (
+		example-two-size: 2em,
+		'small': (
+			example-two-size: 1em,
+		)
+	),
+	'settings': (
+		'small': true
 	)
 ));
