@@ -22,7 +22,7 @@
 ///
 /// @example
 ///  _oButtonsGetThemeSelector('primary') // o-buttons--primary
-///  _oButtonsGetThemeSelector('primary-inverse') // o-buttons--primary.o-buttons--inverse
+///  _oButtonsGetThemeSelector('primary', 'inverse') // o-buttons--primary.o-buttons--inverse
 ///
 /// @access private
 /// @param {String} $theme - One of $o-buttons-themes
