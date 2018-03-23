@@ -149,7 +149,7 @@
 		transform: rotate(180deg);
 	}
 
-	.o-header__subnav-right-align {
+	.o-header__subnav-link--right {
 		float: right;
 		display: none;
 		@include oGridRespondTo('M') {
