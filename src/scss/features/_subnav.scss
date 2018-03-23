@@ -148,4 +148,12 @@
 		// don't download another icon...
 		transform: rotate(180deg);
 	}
+
+	.o-header__subnav-right-align {
+		float: right;
+		display: none;
+		@include oGridRespondTo('M') {
+			display: block;
+		}
+	}
 }
