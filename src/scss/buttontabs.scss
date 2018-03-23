@@ -37,17 +37,45 @@
 
 /// Outputs a modifier class to theme tabs.
 /// @access public
-@mixin oTabsButtonTabsTheme($theme) {
-	@include oBrandConfigureFor('o-tabs', $theme) {
+@mixin oTabsButtonTabsTheme($theme, $selector: true) {
+	@if $selector {
+		@warn '"oTabsButtonTabsTheme" has an argument `$selector` which has been deprecated.
+				If true (default) a CSS selector is output e.g. ".o-tabs--primary".
+				If false "oTabsButtonTabsTheme" must be wrapped in a custom selector.
+				Please set this to false "oTabsButtonTabsTheme($theme, $selector: false)".
+				See README for more information.';
+	}
+
+	// If the theme is not defined, i.e. is a custom theme map, set to null.
+	$defined-theme: if(type-of($theme) != 'map', $theme, null);
+
+	// Output defined theme or custom theme styles without a selector.
+	@if not $selector {
+		@include oBrandConfigureFor('o-tabs', $defined-theme) {
+			@include _oTabsButtonTabsThemeStyles($theme);
+		}
+	}
+
+	// Output defined theme styles with selector.
+	// @deprecated To move inline with o-buttons `oButtonsTheme` this is deprecated.
+	@if $selector and $defined-theme {
 		$selector: _oTabsGetThemeSelector($theme, 'o-tabs');
 		.#{$selector} {
-			&.o-tabs--buttontabs [role=tab] {
-				@include oButtonsTheme($theme);
-			}
-			&.o-tabs--buttontabs[data-o-tabs--js][role=tablist] {
-				border-bottom: 1px solid _oTabsGetTablistBorderColor($theme);
+			@include oBrandConfigureFor('o-tabs', $defined-theme) {
+				@include _oTabsButtonTabsThemeStyles($theme);
 			}
 		}
+	}
+}
+
+/// Styles to theme a button tabs.
+/// @access private
+@mixin _oTabsButtonTabsThemeStyles($theme) {
+	&.o-tabs--buttontabs [role=tab] {
+		@include oButtonsTheme($theme);
+	}
+	&.o-tabs--buttontabs[data-o-tabs--js][role=tablist] {
+		border-bottom: 1px solid _oTabsGetTablistBorderColor($theme);
 	}
 }
 
