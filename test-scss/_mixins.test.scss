@@ -118,9 +118,20 @@
 
     @include test('Ignores null variants') {
 
-        @include assert('Null variants are supported.') {
+        @include assert('Null variants are ignored.') {
             @include output {
                 @include oBrandConfigureFor($component: 'o-example', $variant: null) {
+                    background: oBrandGet($variables: 'example-background');
+                }
+            }
+            @include expect {
+                background: white;
+            }
+        }
+
+        @include assert('Blank variants are ignored.') {
+            @include output {
+                @include oBrandConfigureFor($component: 'o-example', $variant: '') {
                     background: oBrandGet($variables: 'example-background');
                 }
             }
@@ -240,6 +251,14 @@
         $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: 'inverse');
         @include assert-equal($property, grey);
 
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: null);
+        @include assert-equal($property, white);
+
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+            $property: oBrandGet($variables: 'example-background', $configure-for: null);
+            @include assert-equal($property, red);
+        }
+
         $property: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: ('inverse', 'b2b'));
         @include assert-equal($property, darkred);
     }
@@ -248,6 +267,10 @@
         @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
             $property: oBrandGet($variables: 'example-background', $configure-for: 'inverse');
             @include assert-equal($property, grey);
+        }
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
+            $property: oBrandGet($variables: 'example-background', $configure-for: '');
+            @include assert-equal($property, white);
         }
     }
 

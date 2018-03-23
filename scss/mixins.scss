@@ -65,7 +65,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     // Update variant and component.
     @include _oBrandUpdateCurrent($component, $variant);
     // Configure and output content block.
-    @if not $variant or _oBrandSupports($component, $_o-brand-current-variant) {
+    @if not $variant or $variant == '' or _oBrandSupports($component, $_o-brand-current-variant) {
         @content;
     }
     // Reset variant and component.
@@ -123,10 +123,14 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 /// @access public
 /// @param {string} $component
 /// @param {string | list} $variables
-/// @param {string | list} $configure-for Get a variable for a specific variant, disregard any configured variant (`oBrandConfigureFor`).
+/// @param {string | list} $configure-for Get a variable for a specific variant, disregards any configured variant of `oBrandConfigureFor`.
 /// @param {map} $override-config Configuration to override defined brand configuration. Expects the same as the `oBrandDefine` `$config` argument.
 /// @return {string | number | color | null}
 @function oBrandGet($variables, $component: $_o-brand-current-component, $configure-for: $_o-brand-current-variant, $override-config: $_o-brand-current-override) {
+   // Ignore a null `$configure-for` variant.
+    @if $configure-for == null {
+        $configure-for: $_o-brand-current-variant;
+    }
     // For one variable return value.
     @if $component == null {
         @error 'Can not get variable "#{variables}" as the component is not configured. Use `oBrandConfigureFor` or pass a `$component` argument.';
@@ -165,7 +169,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 /// @param {string} $variant
 /// @param {map} $config
 @mixin _oBrandUpdateCurrent($component, $variant) {
-    @if ($variant and $_o-brand-current-component == $component and $_o-brand-current-variant) {
+    @if ($variant and $variant != '' and $_o-brand-current-component == $component and $_o-brand-current-variant) {
         $variant: join($_o-brand-current-variant, $variant, 'comma');
     }
     $_o-brand-current-variant: if($variant, $variant, $_o-brand-current-variant) !global;
@@ -329,9 +333,11 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @if $variant and not (type-of($variant) == 'list' or type-of($variant) == 'string') {
         @error 'Could not get get variable "#{$variable}" for component "#{$component}" and variant "#{$variant}", the variant should be of type string or list but was "#{type-of($variant)}".';
     }
-    $variant-variables: map-get($variables, _oBrandNormaliseVariant($variant));
-    @if type-of($variant-variables) == 'map' {
-        $variables: $variant-variables;
+    @if $variant and $variant != '' {
+        $variant-variables: map-get($variables, _oBrandNormaliseVariant($variant));
+        @if type-of($variant-variables) == 'map' {
+            $variables: $variant-variables;
+        }
     }
     // Variables for the current brand and variant found.
     @if type-of($variables) == 'map' {
