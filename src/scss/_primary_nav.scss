@@ -1,58 +1,59 @@
 @if $o-header-services-is-silent == false {
+	@include oBrandConfigureFor('o-header-services') {
+		.o-header-services__primary-nav {
+			background-color: oBrandGet('nav-background');
+			border-bottom: 1px solid oBrandGet('nav-border');
+			zoom: 1;
+			overflow: hidden;
 
-	.o-header-services__primary-nav {
-		background-color: oBrandGet('o-header-services', 'nav-background');
-		border-bottom: 1px solid oBrandGet('o-header-services', 'nav-border');
-		zoom: 1;
-		overflow: hidden;
+			@include oGridRespondTo($until: M) {
+				border-bottom: 0;
+			}
+		}
 
-		@include oGridRespondTo($until: M) {
-			border-bottom: 0;
+		.o-header-services__nav-list {
+			margin: 0;
+			padding: 0;
+		}
+
+		.o-header-services__nav-item {
+			display: inline-block;
+
+			// scss-lint:disable PropertySpelling
+			//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
+			*display: inline;
+			// scss-lint:enable PropertySpelling
+
+			zoom: 1;
+
+			@include oGridRespondTo($until: M) {
+				display: none;
+			}
+		}
+
+		.o-header-services__nav-link {
+			@include oTypographySansBold($scale: 0);
+			color: oBrandGet('nav-text');
+
+			text-transform: uppercase;
+			text-decoration: none;
+			display: inline-block;
+			-webkit-font-smoothing: antialiased;
+
+			// scss-lint:disable PropertySpelling
+			//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
+			*display: inline;
+			// scss-lint:enable PropertySpelling
+			zoom: 1;
+			margin: 0;
+			padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
+
+			&:hover,
+			&--selected,
+			&[aria-selected=true] {
+				color: oBrandGet('nav-hover-text');
+				background-color: oBrandGet('nav-hover-background');
+			}
 		}
 	}
-
-	.o-header-services__nav-list {
-		margin: 0;
-		padding: 0;
-	}
-
-	.o-header-services__nav-item {
-		display: inline-block;
-
-		// scss-lint:disable PropertySpelling
-		//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
-		*display: inline;
-		// scss-lint:enable PropertySpelling
-
-		zoom: 1;
-
-		@include oGridRespondTo($until: M) {
-			display: none;
-		}
-	}
-
-	.o-header-services__nav-link {
-		@include oTypographySansBold($scale: 0);
-		color: oBrandGet('o-header-services', 'nav-text');
-
-		text-transform: uppercase;
-		text-decoration: none;
-		display: inline-block;
-		-webkit-font-smoothing: antialiased;
-
-		// scss-lint:disable PropertySpelling
-		//http://browserhacks.com/#hack-aff8d8f6c5ce6a560158ada7b9007854
-		*display: inline;
-		// scss-lint:enable PropertySpelling
-		zoom: 1;
-		margin: 0;
-		padding: $_o-header-services-padding-y $_o-header-services-padding-x*2;
-
-		&:hover,
-		&--selected,
-		&[aria-selected=true] {
-			color: oBrandGet('o-header-services', 'nav-hover-text');
-			background-color: oBrandGet('o-header-services', 'nav-hover-background');
-		}
-	}
-}
+};

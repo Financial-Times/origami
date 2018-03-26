@@ -3,7 +3,7 @@
   "dependencies": {
     "o-assets": "^3.0.2",
 		"o-brand": "^2.0.2",
-    "o-header": "brand",
+    "o-header": "^7.4.0",
     "o-icons": ">=4.4.2 <6",
     "o-colors": "^4.2.3",
     "o-grid": "^4.2.0",

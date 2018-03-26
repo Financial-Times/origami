@@ -2,21 +2,23 @@
 
 	@include oHeaderSubnav();
 
-	/* override some styles to remove teal link color */
-	.o-header-services {
-		.o-header__subnav-list--breadcrumb {
-			.o-header__subnav-link {
-				color: oBrandGet('o-header-services', 'subnav-text');
-				font-weight: 600;
+	@include oBrandConfigureFor('o-header-services') {
+		/* override some styles to remove teal link color */
+		.o-header-services {
+			.o-header__subnav-list--breadcrumb {
+				.o-header__subnav-link {
+					color: oBrandGet('subnav-text');
+					font-weight: 600;
+				}
+				.o-header__subnav-item:before {
+					@include oIconsGetIcon('arrow-right',  oBrandGet('subnav-text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+				}
 			}
-			.o-header__subnav-item:before {
-				@include oIconsGetIcon('arrow-right',  oBrandGet('o-header-services', 'subnav-text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-			}
-		}
 
-		.o-header__subnav-link--highlight:after,
-		.o-header__subnav-link[aria-selected="true"]:after {
-			background-color: oBrandGet('o-header-services', 'subnav-text');
+			.o-header__subnav-link--highlight:after,
+			.o-header__subnav-link[aria-selected="true"]:after {
+				background-color: oBrandGet('subnav-text');
+			}
 		}
 	}
 }

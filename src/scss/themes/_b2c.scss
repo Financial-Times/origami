@@ -2,25 +2,25 @@
 	@include oBrandConfigureFor('o-header-services', 'b2c') {
 		.o-header-services--b2c {
 			.o-header-services__product-name {
-				color: oBrandGet('o-header-services', 'product-title');
+				color: oBrandGet('product-title');
 			}
 
 			.o-header-services__hamburger {
-				background-color: oBrandGet('o-header-services', 'nav-background');
+				background-color: oBrandGet('nav-background');
 			}
 
 			.o-header-services__primary-nav {
-				background-color: oBrandGet('o-header-services', 'nav-background');
+				background-color: oBrandGet('nav-background');
 			}
 
 			.o-header-services__nav-link {
-				color: oBrandGet('o-header-services', 'nav-text');
+				color: oBrandGet('nav-text');
 
 				&:hover,
 				&--selected,
 				&[aria-selected=true] {
-					color: oBrandGet('o-header-services', 'nav-hover-text');
-					background-color: oBrandGet('o-header-services', 'nav-hover-background');
+					color: oBrandGet('nav-hover-text');
+					background-color: oBrandGet('nav-hover-background');
 				}
 			}
 		}

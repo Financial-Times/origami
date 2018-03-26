@@ -18,7 +18,7 @@
 
 @mixin oHeaderServices {
 	.o-header-services {
-		background-color: oBrandGet('o-header-services', 'top-background');
+		background-color: oBrandGet('top-background', 'o-header-services');
 	}
 
 	.o-header-services__container {
