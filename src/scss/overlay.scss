@@ -6,15 +6,16 @@
 /// Base overlay style
 @mixin oOverlay {
 	@include oVisualEffectsShadowsElevation($elevation: 'high');
-	position: fixed;
-	z-index: 10;
-	box-sizing: border-box;
-	opacity: 1;
-	transition: opacity 0.3s ease-in-out;
-	border: $_o-overlay-border-width solid oColorsGetColorFor(o-overlay, border);
-	background: oColorsGetColorFor(o-overlay, background);
-	border-radius: $o-normalise-border-radius;
-
+	@include oBrandConfigureFor('o-overlay') {
+		position: fixed;
+		z-index: 10;
+		box-sizing: border-box;
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out;
+		border: $_o-overlay-border-width solid oBrandGet('default-border');
+		background: oBrandGet('default-background');
+		border-radius: $o-normalise-border-radius;
+	};
 }
 
 /// Base overlay modal shadow style
@@ -34,11 +35,13 @@
 
 /// Base overlay heading style
 @mixin oOverlayHeading {
-	font-size: 20px;
-	margin: 0;
-	overflow: hidden;
-	background: oColorsGetColorFor(o-overlay-heading, background);
-	color: oColorsGetColorFor(o-overlay-heading, text);
+	@include oBrandConfigureFor('o-overlay') {
+		font-size: 20px;
+		margin: 0;
+		overflow: hidden;
+		background: oBrandGet('heading-background');
+		color: oBrandGet('heading-text');
+	};
 }
 
 /// Base overlay title style

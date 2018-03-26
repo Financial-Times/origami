@@ -1,0 +1,35 @@
+@include oBrandDefine('o-overlay', 'master', (
+	'variables': (
+		default-background: oColorsGetPaletteColor('white'),
+		default-border: oColorsGetPaletteColor('black-20'),
+		heading-background: oColorsGetPaletteColor('transparent'),
+		heading-text: oColorsGetPaletteColor('black-80'),
+		shaded-heading-background: oColorsGetPaletteColor('black-80'),
+		shaded-heading-border: oColorsGetPaletteColor('black-80'),
+		shaded-heading-text: oColorsGetPaletteColor('white'),
+		default-close-background: oColorsGetPaletteColor('white'),
+		default-close-text: oColorsGetPaletteColor('black-50'),
+		default-close-border: oColorsGetPaletteColor('black-50'),
+		shaded-close-background: oColorsGetPaletteColor('black-50'),
+		shaded-close-text: oColorsGetPaletteColor('white'),
+		shaded-close-border: oColorsGetPaletteColor('white')
+	)
+));
+
+@include oBrandDefine('o-overlay', 'internal', (
+	'variables': (
+		default-background: oColorsGetPaletteColor('white'),
+		default-border: oColorsGetPaletteColor('transparent'),
+		heading-background: oColorsGetPaletteColor('transparent'),
+		heading-text: oColorsGetPaletteColor('black-80'),
+		shaded-heading-background: oColorsGetPaletteColor('slate'),
+		shaded-heading-border: oColorsGetPaletteColor('slate'),
+		shaded-heading-text: oColorsGetPaletteColor('white'),
+		default-close-background: oColorsGetPaletteColor('white'),
+		default-close-text: oColorsGetPaletteColor('slate-white-15'),
+		default-close-border: oColorsGetPaletteColor('slate-white-5'),
+		shaded-close-background: oColorsGetPaletteColor('slate-white-15'),
+		shaded-close-text: oColorsGetPaletteColor('white'),
+		shaded-close-border: oColorsGetPaletteColor('white')
+	)
+));
