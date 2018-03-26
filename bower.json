@@ -1,17 +1,18 @@
 {
-  "name": "o-header",
-  "dependencies": {
-    "o-buttons": "^5.0.0",
-    "o-colors": "^4.0.1",
-    "o-grid": "^4.2.0",
-    "o-icons": ">=4.4.2 <6",
-    "o-toggle": "^1.0.0",
-    "o-typography": "^5.0.1",
-    "o-utils": "^1.0.0",
-    "o-visual-effects": "^2.0.0"
-  },
-  "main": [
-    "main.scss",
-    "main.js"
-  ]
+	"name": "o-header",
+	"dependencies": {
+		"o-colors": "^4.0.1",
+		"o-brand": "^2.0.2",
+		"o-buttons": "^5.0.0",
+		"o-grid": "^4.2.0",
+		"o-icons": ">=4.4.2 <6",
+		"o-toggle": "^1.0.0",
+		"o-typography": "^5.0.1",
+		"o-utils": "^1.0.0",
+		"o-visual-effects": "^2.0.0"
+	},
+	"main": [
+		"main.scss",
+		"main.js"
+	]
 }

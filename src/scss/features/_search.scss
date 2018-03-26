@@ -1,54 +1,57 @@
 @mixin oHeaderSearch() {
-	.o-header__search {
-		padding: $_o-header-padding-y 0;
-		text-align: center;
-		background: oColorsGetColorFor('o-header-search', 'background');
+	@include oBrandConfigureFor('o-header') {
+		.o-header__search {
+			padding: $_o-header-padding-y 0;
+			text-align: center;
+			background: oBrandGet('search-background');
 
-		&[aria-hidden="false"] {
-			display: block;
+			&[aria-hidden="false"] {
+				display: block;
+			}
 		}
-	}
 
-	[data-o-header-search] {
-		display: none;
-	}
-
-	.o-header__search-form {
-		display: flex;
-		align-items: center;
-		max-width: 640px;
-		margin: 0 auto;
-	}
-
-	.o-header__search-term,
-	.o-header__search-submit {
-		// This is mostly for <= IE9, flexbox should deal with everything else
-		line-height: normal;
-		box-sizing: border-box;
-		height: 32px;
-		vertical-align: middle;
-	}
-
-	.o-header__search-term {
-		@include oTypographySans();
-		// match o-buttons
-		@include oButtonsSize('default');
-		border-radius: $_o-buttons-border-radius;
-		// normalize
-		background: white;
-		border-style: solid;
-		border-color: transparent;
-		// oh, webkit...
-		box-shadow: none;
-		// fill!
-		min-width: 50%;
-		flex-grow: 1;
-
-		&:focus {
-			outline: none;
-			border-color: oColorsGetColorFor('o-header-search', 'border');
+		[data-o-header-search] {
+			display: none;
 		}
-	}
+
+		.o-header__search-form {
+			display: flex;
+			align-items: center;
+			max-width: 640px;
+			margin: 0 auto;
+		}
+
+		.o-header__search-term,
+		.o-header__search-submit {
+			// This is mostly for <= IE9, flexbox should deal with everything else
+			line-height: normal;
+			box-sizing: border-box;
+			height: 32px;
+			vertical-align: middle;
+		}
+
+		.o-header__search-term {
+			@include oTypographySans();
+			// match o-buttons
+			@include oButtonsSize('default');
+			border-radius: $_o-buttons-border-radius;
+			// normalize
+			background: white;
+			border-style: solid;
+			border-color: transparent;
+			// oh, webkit...
+			box-shadow: none;
+			// fill!
+			min-width: 50%;
+			flex-grow: 1;
+
+			&:focus {
+				//also, overriden by o-normalise
+				outline: none;
+				border-color: oBrandGet('search-border');
+			}
+		}
+	};
 
 	.o-header__search-submit {
 		@include oButtons($theme: $_o-header-buttons-theme);

@@ -1,360 +1,369 @@
 @mixin oHeaderDrawer() {
-	// added to the document element, see n-ui/layout
-	.o-header__drawer {
-		@include oColorsFor(o-header-drawer, background);
-		font-family: $o-typography-sans;
+	@include oBrandConfigureFor('o-header') {
+		// added to the document element, see n-ui/layout
+		.o-header__drawer {
+			background-color: oBrandGet('drawer-background');
+			// @include oColorsFor(o-header-drawer, background);
+			font-family: $o-typography-sans;
 
-		&[data-o-header-drawer--js] {
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			z-index: $_o-header-drawer-z-index;
-			width: 100%;
-			border-right: 1px solid oColorsGetColorFor(o-header-drawer, border);
-			// use a 2D transform because 3D are unsupported by IE9
-			// sass-lint:disable no-duplicate-properties
-			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0);
-			// sass-lint:enable no-duplicate-properties
-
-			// this is literally the spec example for will-change
-			will-change: transform;
-
-			@include oGridRespondTo('M') {
-				width: $_o-header-drawer-width;
-			}
-
-			&[aria-hidden] {
-				@include oVisualEffectsShadowsElevation('low');
-
-				// because the transition is slightly bouncy it will reveal some of the background
-				border-left: 30px solid transparent;
-				margin-left: -30px;
-			}
-
-			&[aria-hidden="false"] {
+			&[data-o-header-drawer--js] {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				z-index: $_o-header-drawer-z-index;
+				width: 100%;
+				border-right: 1px solid oBrandGet('drawer-border');
 				// use a 2D transform because 3D are unsupported by IE9
 				// sass-lint:disable no-duplicate-properties
-				transform: translateX(0);
-				transform: translate3d(0, 0, 0);
+				transform: translateX(-100%);
+				transform: translate3d(-100%, 0, 0);
 				// sass-lint:enable no-duplicate-properties
+
+				// this is literally the spec example for will-change
+				will-change: transform;
+
+				@include oGridRespondTo('M') {
+					width: $_o-header-drawer-width;
+				}
+
+				&[aria-hidden] {
+					@include oVisualEffectsShadowsElevation('low');
+
+					// because the transition is slightly bouncy it will reveal some of the background
+					border-left: 30px solid transparent;
+					margin-left: -30px;
+				}
+
+				&[aria-hidden="false"] {
+					// use a 2D transform because 3D are unsupported by IE9
+					// sass-lint:disable no-duplicate-properties
+					transform: translateX(0);
+					transform: translate3d(0, 0, 0);
+					// sass-lint:enable no-duplicate-properties
+				}
 			}
 		}
-	}
 
-	// Supports different transitions for opening and closing
-	.o-header__drawer--opening,
-	.o-header__drawer--closing {
-		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
-	}
+		// Supports different transitions for opening and closing
+		.o-header__drawer--opening,
+		.o-header__drawer--closing {
+			transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
+		}
 
-	.o-header__drawer-inner {
-		[data-o-header-drawer--js] & {
-			height: 100%;
-			overflow-y: auto;
-			// intertial scrolling for iOS Safari
-			// sass-lint:disable no-vendor-prefixes
-			-webkit-overflow-scrolling: touch;
-			// sass-lint:enable no-vendor-prefixes
-			// working draft
-			scroll-behavior: smooth;
-			// Windows 8+
-			// sass-lint:disable no-vendor-prefixes
-			-ms-overflow-style: -ms-autohiding-scrollbar;
-			// sass-lint:enable no-vendor-prefixes
-
-			// (╯°□°）╯︵ ┻━┻
-			// sass-lint:disable no-vendor-prefixes
-			&::-webkit-scrollbar {
+		.o-header__drawer-inner {
+			[data-o-header-drawer--js] & {
+				height: 100%;
+				overflow-y: auto;
+				// intertial scrolling for iOS Safari
+				// sass-lint:disable no-vendor-prefixes
+				-webkit-overflow-scrolling: touch;
 				// sass-lint:enable no-vendor-prefixes
-				width: 12px;
-			}
-			// sass-lint:disable no-vendor-prefixes
-			&::-webkit-scrollbar-thumb {
+				// working draft
+				scroll-behavior: smooth;
+				// Windows 8+
+				// sass-lint:disable no-vendor-prefixes
+				-ms-overflow-style: -ms-autohiding-scrollbar;
 				// sass-lint:enable no-vendor-prefixes
-				background: oColorsGetPaletteColor('black-30');
-				// you can't set the dimensions so use a border as a margin...
-				background-clip: content-box;
-				border: 4px solid transparent;
+
+				// (╯°□°）╯︵ ┻━┻
+				// sass-lint:disable no-vendor-prefixes
+				&::-webkit-scrollbar {
+					// sass-lint:enable no-vendor-prefixes
+					width: 12px;
+				}
+				// sass-lint:disable no-vendor-prefixes
+				&::-webkit-scrollbar-thumb {
+					// sass-lint:enable no-vendor-prefixes
+					background: oColorsGetPaletteColor('black-30');
+					// you can't set the dimensions so use a border as a margin...
+					background-clip: content-box;
+					border: 4px solid transparent;
+				}
 			}
 		}
-	}
 
-	//
-	// Tools
-	//
-	.o-header__drawer-tools {
-		overflow: hidden;
-		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
-	}
-
-	.o-header__drawer-tools-logo {
-		@include oIconsBaseStyles;
-		@include oHeaderBrandImage('brand-ft-masthead', oColorsGetPaletteColor('black-80'), 210);
-		width: 210px;
-		height: 18px;
-		border-bottom: 0;
-	}
-
-	.o-header__drawer-tools-close {
-		// dividing by 1px removes the unit
-		@include oIconsGetIcon('cross', oColorsGetPaletteColor('black-80'), $_o-header-icon-size-large, $iconset-version: 1);
-		float: right;
-		border: 0;
-		opacity: 0.75;
-		cursor: pointer;
-		margin-top: -10px;
-		&:hover,
-		&:focus {
-			opacity: 1;
+		//
+		// Tools
+		//
+		.o-header__drawer-tools {
+			overflow: hidden;
+			padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
 		}
 
-		[data-o-header-drawer--no-js] & {
-			display: none;
-		}
-	}
-
-	//
-	// Editions
-	//
-	.o-header__drawer-editions {
-		padding: 0 $_o-header-drawer-padding-x;
-	}
-
-	.o-header__drawer-editions-link {
-		@include oColorsFor(o-header-drawer-editions-link, text);
-		display: inline-block;
-		padding: $_o-header-drawer-padding-y/2 0 8px;
-		margin-left: 0.5em;
-		border-bottom: 0;
-		font-size: 18px;
-		text-decoration: underline;
-
-		&:first-child {
-			margin-left: 0;
+		.o-header__drawer-tools-logo {
+			@include oIconsBaseStyles;
+			@include oHeaderBrandImage('brand-ft-masthead', oColorsGetPaletteColor('black-80'), 210);
+			width: 210px;
+			height: 18px;
+			border-bottom: 0;
 		}
 
-		&[aria-selected="true"], // deprecated
-		&[aria-current] {
-			@include oColorsFor(o-header-drawer-editions-link-highlight, text);
+		.o-header__drawer-tools-close {
+			// dividing by 1px removes the unit
+			@include oIconsGetIcon('cross', oColorsGetPaletteColor('black-80'), $_o-header-icon-size-large, $iconset-version: 1);
+			float: right;
+			border: 0;
+			opacity: 0.75;
+			cursor: pointer;
+			margin-top: -10px;
+			&:hover,
+			&:focus {
+				opacity: 1;
+			}
+
+			[data-o-header-drawer--no-js] & {
+				display: none;
+			}
+		}
+
+		//
+		// Editions
+		//
+		.o-header__drawer-editions {
+			padding: 0 $_o-header-drawer-padding-x;
+		}
+
+		.o-header__drawer-editions-link {
+			@include oColorsFor(o-header-drawer-editions-link, text);
+			display: inline-block;
+			padding: $_o-header-drawer-padding-y/2 0 8px;
+			margin-left: 0.5em;
+			border-bottom: 0;
+			font-size: 18px;
+			text-decoration: underline;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&[aria-selected="true"], // deprecated
+			&[aria-current] {
+				color: oBrandGet('drawer-editions-link-highlight');
+				font-weight: 600;
+				text-decoration: none;
+				pointer-events: none;
+			}
+		}
+
+		//
+		// Search
+		//
+		.o-header__drawer-search {
+			padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+
+			@include oGridRespondTo('L') {
+				display: none;
+			}
+		}
+
+		.o-header__drawer-search-form {
+			display: flex;
+		}
+
+		.o-header__drawer-search-term,
+		.o-header__drawer-search-submit {
+			box-sizing: border-box;
+			// ಥ_ಥ
+			height: 32px;
+			padding: 8px ($_o-header-drawer-padding-x / 2);
+			border: 1px solid;
+			// prevent zoom on focus
+			font-size: 100%;
+		}
+
+		.o-header__drawer-search-term {
+			background-color: oBrandGet('drawer-search-term-background');
+			border-color: oBrandGet('drawer-search-term-border');
+			flex-grow: 1;
+
+			&:focus { //currently overriden by o-normalise
+				border-color: oBrandGet('drawer-search-term-highlight-border');
+			}
+		}
+
+		.o-header__drawer-search-submit {
+			background-color: oBrandGet('drawer-search-submit-background');
+			border-color: oBrandGet('drawer-search-submit-border');
+
+			&:after {
+				@include oIconsGetIcon('search', oColorsGetPaletteColor('white'), $_o-header-icon-size, $iconset-version: 1);
+				content: '';
+				margin-top: -($_o-header-drawer-padding-y / 2);
+			}
+		}
+
+		//
+		// Lists
+		//
+		.o-header__drawer-menu {
+			// @include oColorsFor(o-header-drawer-menu);
+			color: oBrandGet('drawer-menu-text');
+			border-color: oBrandGet('drawer-menu-border');
+		}
+
+		.o-header__drawer-menu--user {
+			background-color: oBrandGet('drawer-menu-user-background');
+			padding-bottom: $_o-header-drawer-padding-y;
+			border-top: 1px solid oBrandGet('drawer-menu-user-border');
+		}
+
+		.o-header__drawer-menu-list {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		.o-header__drawer-menu-list--child {
+			[data-o-header-drawer--no-js] & {
+				display: none;
+			}
+
+			[data-o-header-drawer--js] & {
+				// hide from the off to avoid any transition on page load
+				max-height: 0;
+				// take the contents away from tab order
+				visibility: hidden;
+				transition: max-height 0.25s ease-out;
+
+				&[aria-hidden="false"] {
+					// @include oColorsFor(o-header-drawer-menu-list, background);
+					background-color: oBrandGet('drawer-menu-list-background');
+					// magic number... you can't transition between 0 and unknown
+					// but as long as this is larger than the content it will do
+					max-height: 600px;
+					visibility: visible;
+					// a border would create some flickery layout
+					box-shadow: inset 0 -1px 0 oBrandGet('drawer-menu-border'), inset 0 1px 0 oColorsGetColorFor(o-header-drawer-menu, border);
+				}
+			}
+		}
+
+		.o-header__drawer-menu-item {
+			margin-top: 1px;
+		}
+
+		.o-header__drawer-menu-item--divide {
+			border-top: 2px solid oBrandGet('drawer-menu-border');
+		}
+
+		.o-header__drawer-menu-item--heading {
+			background-color: oBrandGet('drawer-menu-item-background');
+			padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
 			font-weight: 600;
-			text-decoration: none;
-			pointer-events: none;
-		}
-	}
-
-	//
-	// Search
-	//
-	.o-header__drawer-search {
-		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
-
-		@include oGridRespondTo('L') {
-			display: none;
-		}
-	}
-
-	.o-header__drawer-search-form {
-		display: flex;
-	}
-
-	.o-header__drawer-search-term,
-	.o-header__drawer-search-submit {
-		box-sizing: border-box;
-		// ಥ_ಥ
-		height: 32px;
-		padding: 8px ($_o-header-drawer-padding-x / 2);
-		border: 1px solid;
-		// prevent zoom on focus
-		font-size: 100%;
-	}
-
-	.o-header__drawer-search-term {
-		@include oColorsFor(o-header-drawer-search-term);
-		flex-grow: 1;
-
-		&:focus {
-			@include oColorsFor(o-header-drawer-search-term-highlight);
-		}
-	}
-
-	.o-header__drawer-search-submit {
-		@include oColorsFor(o-header-drawer-search-submit);
-
-		&:after {
-			@include oIconsGetIcon('search', oColorsGetPaletteColor('white'), $_o-header-icon-size, $iconset-version: 1);
-			content: '';
-			margin-top: -($_o-header-drawer-padding-y / 2);
-		}
-	}
-
-	//
-	// Lists
-	//
-	.o-header__drawer-menu {
-		@include oColorsFor(o-header-drawer-menu);
-	}
-
-	.o-header__drawer-menu--user {
-		@include oColorsFor(o-header-drawer-menu-user, background);
-		padding-bottom: $_o-header-drawer-padding-y;
-		border-top: 1px solid oColorsGetColorFor(o-header-drawer-menu-user, border);
-	}
-
-	.o-header__drawer-menu-list {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-		overflow: hidden;
-	}
-
-	.o-header__drawer-menu-list--child {
-		[data-o-header-drawer--no-js] & {
-			display: none;
 		}
 
-		[data-o-header-drawer--js] & {
-			// hide from the off to avoid any transition on page load
-			max-height: 0;
-			// take the contents away from tab order
-			visibility: hidden;
-			transition: max-height 0.25s ease-out;
-
-			&[aria-hidden="false"] {
-				@include oColorsFor(o-header-drawer-menu-list, background);
-				// magic number... you can't transition between 0 and unknown
-				// but as long as this is larger than the content it will do
-				max-height: 600px;
-				visibility: visible;
-				// a border would create some flickery layout
-				box-shadow: inset 0 -1px 0 oColorsGetColorFor(o-header-drawer-menu, border), inset 0 1px 0 oColorsGetColorFor(o-header-drawer-menu, border);
-			}
-		}
-	}
-
-	.o-header__drawer-menu-item {
-		margin-top: 1px;
-	}
-
-	.o-header__drawer-menu-item--divide {
-		border-top: 2px solid oColorsGetColorFor(o-header-drawer-menu, border);
-	}
-
-	.o-header__drawer-menu-item--heading {
-		@include oColorsFor(o-header-drawer-menu-item);
-		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
-		font-weight: 600;
-	}
-
-	//
-	// Toggles
-	//
-	.o-header__drawer-menu-toggle-wrapper {
-		position: relative;
-	}
-
-	.o-header__drawer-menu-toggle {
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%;
-		width: 42px;
-		// normalize the button
-		padding: 0;
-		text-align: left;
-		border: 0;
-		cursor: pointer;
-		// visually hide text...
-		font-size: 0;
-
-		&:before {
-			content: ' ';
-			margin-left: 9px; // magic number to vertically align icon in box
+		//
+		// Toggles
+		//
+		.o-header__drawer-menu-toggle-wrapper {
+			position: relative;
 		}
 
-		&[aria-expanded="true"] {
+		.o-header__drawer-menu-toggle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 42px;
+			// normalize the button
+			padding: 0;
+			text-align: left;
+			border: 0;
+			cursor: pointer;
+			// visually hide text...
+			font-size: 0;
+
 			&:before {
-				// don't download another icon...
-				transform: rotate(180deg);
+				content: ' ';
+				margin-left: 9px; // magic number to vertically align icon in box
+			}
+
+			&[aria-expanded="true"] {
+				&:before {
+					// don't download another icon...
+					transform: rotate(180deg);
+				}
+			}
+
+			&:hover {
+				// hide focus outline on hover
+				outline: 0;
+			}
+
+			[data-o-header-drawer--no-js] & {
+				display: none;
 			}
 		}
 
-		&:hover {
-			// hide focus outline on hover
-			outline: 0;
+		.o-header__drawer-menu-toggle--selected {
+			background: rgba(oBrandGet('drawer-selected-toggle-background'), 0.25);
+
+			&:before {
+				@include oIconsGetIcon('arrow-down', oBrandGet('drawer-selected-toggle-text'), $_o-header-icon-size, $iconset-version: 1);
+			}
 		}
 
-		[data-o-header-drawer--no-js] & {
-			display: none;
-		}
-	}
+		.o-header__drawer-menu-toggle--unselected {
+			background: rgba(oBrandGet('drawer-unselected-toggle-background'), 0.85);
 
-	.o-header__drawer-menu-toggle--selected {
-		background: rgba(oColorsGetColorFor(o-header-drawer-toggle-selected, background), 0.25);
-
-		&:before {
-			@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-header-drawer-toggle-selected, text), $_o-header-icon-size, $iconset-version: 1);
-		}
-	}
-
-	.o-header__drawer-menu-toggle--unselected {
-		background: rgba(oColorsGetColorFor(o-header-drawer-toggle-unselected, background), 0.85);
-
-		&:before {
-			@include oIconsGetIcon('arrow-down', oColorsGetColorFor(o-header-drawer-toggle-unselected, text), $_o-header-icon-size, $iconset-version: 1);
-		}
-	}
-
-	//
-	// Links
-	//
-	.o-header__drawer-menu-link {
-		@include oColorsFor(o-header-drawer-menu-link, text);
-		display: block;
-		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
-		border-bottom: 0;
-		font-size: 18px;
-		text-decoration: none;
-
-		&:hover {
-			@include oColorsFor(o-header-drawer-menu-link-hover, text);
-			color: getColor('teal-40');
+			&:before {
+				@include oIconsGetIcon('arrow-down', oBrandGet('drawer-unselected-toggle-text'), $_o-header-icon-size, $iconset-version: 1);
+			}
 		}
 
-		[aria-expanded="true"] + & {
-			@include oColorsFor(o-header-drawer-menu-link, background);
+		//
+		// Links
+		//
+		.o-header__drawer-menu-link {
+			color: oBrandGet('drawer-menu-link-text');
+			display: block;
+			padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+			border-bottom: 0;
+			font-size: 18px;
+			text-decoration: none;
+
+			&:hover {
+				color: oBrandGet('drawer-menu-link-hover-text');
+			}
+
+			[aria-expanded="true"] + & {
+				background-color: oBrandGet('drawer-menu-link-background');
+			}
 		}
-	}
 
-	.o-header__drawer-menu-link--selected {
-		@include oColorsFor(o-header-drawer-menu-link-selected);
+		.o-header__drawer-menu-link--selected {
+			color: oBrandGet('drawer-menu-selected-link-text');
+			background-color: oBrandGet('drawer-menu-selected-link-background');
 
-		&:hover,
-		&:focus {
-			@include oColorsFor(o-header-drawer-menu-link-hover-selected, text);
-			outline-color: oColorsGetColorFor('o-header-drawer-menu', 'text');
+			&:hover,
+			&:focus {
+				color: oBrandGet('drawer-menu-selected-link-hover-text');
+				//also overriden by o-normalise
+				outline-color: oBrandGet('drawer-menu-text');
+			}
+
+			[aria-expanded="true"] + & {
+				// specificity
+				background-color: oBrandGet('drawer-menu-selected-link-background');
+			}
 		}
 
-		[aria-expanded="true"] + & {
-			// speceficity
-			@include oColorsFor(o-header-drawer-menu-link-selected, background);
+		.o-header__drawer-menu-link--parent {}
+
+		.o-header__drawer-menu-link--child {
+			padding-left: 40px;
 		}
-	}
 
-	.o-header__drawer-menu-link--parent {}
+		.o-header__drawer-menu-link--secondary {
+			font-weight: 600;
+		}
 
-	.o-header__drawer-menu-link--child {
-		padding-left: 40px;
-	}
-
-	.o-header__drawer-menu-link--secondary {
-		font-weight: 600;
-	}
-
-	.o-header__drawer-menu-link-detail {
-		display: block;
-		margin-top: 0.25em;
-		font-size: 14px;
+		.o-header__drawer-menu-link-detail {
+			display: block;
+			margin-top: 0.25em;
+			font-size: 14px;
+		}
 	}
 }

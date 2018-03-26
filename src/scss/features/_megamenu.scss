@@ -8,51 +8,53 @@
 		}
 	}
 
-	.o-header__mega {
-		@include oTypographySans(0);
-		@include oTypographyProgressiveFontFallback('sans', 0);
-		@include oVisualEffectsShadowsElevation('low');
-		display: none;
-		position: absolute;
-		top: 100%;
-		left: oGridGutter('L');
-		right: oGridGutter('L');
-		z-index: $_o-header-mega-z-index;
-		box-sizing: border-box;
-		padding: $_o-header-mega-padding-y 0;
-		border-top: 1px solid oColorsGetColorFor('o-header', 'border');
-		background-color: oColorsGetColorFor('o-header-mega', 'background');
+	@include oBrandConfigureFor('o-header') {
+		.o-header__mega {
+			@include oTypographySans(0);
+			@include oTypographyProgressiveFontFallback('sans', 0);
+			@include oVisualEffectsShadowsElevation('low');
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: oGridGutter('L');
+			right: oGridGutter('L');
+			z-index: $_o-header-mega-z-index;
+			box-sizing: border-box;
+			padding: $_o-header-mega-padding-y 0;
+			border-top: 1px solid oBrandGet('header-border');
+			background-color: oBrandGet('mega-menu-background');
 
-		&[aria-expanded="true"],
-		// core experience fallback
-		[data-o-header--no-js] :hover > & {
-			display: block;
+			&[aria-expanded="true"],
+			// core experience fallback
+			[data-o-header--no-js] :hover > & {
+				display: block;
+			}
 		}
-	}
 
-	.o-header__mega--animation {
-		animation: o-header-mega 0.5s ease-out;
-	}
-
-	.o-header__mega-wrapper {
-		display: table;
-		table-layout: fixed;
-		width: 100%;
-		// no margins for table cells... also so we avoid using :last-child for old IE
-		border-spacing: $_o-header-mega-padding-x 0;
-		margin-left: $_o-header-mega-padding-x * -1;
-	}
-
-	.o-header__mega-column {
-		display: table-cell;
-		padding-left: $_o-header-mega-padding-x;
-		border-left: 1px solid oColorsGetColorFor('o-header', 'border');
-
-		&:first-child {
-			border-left: 0;
-			padding-left: 0;
+		.o-header__mega--animation {
+			animation: o-header-mega 0.5s ease-out;
 		}
-	}
+
+		.o-header__mega-wrapper {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			// no margins for table cells... also so we avoid using :last-child for old IE
+			border-spacing: $_o-header-mega-padding-x 0;
+			margin-left: $_o-header-mega-padding-x * -1;
+		}
+
+		.o-header__mega-column {
+			display: table-cell;
+			padding-left: $_o-header-mega-padding-x;
+			border-left: 1px solid oBrandGet('header-border');
+
+			&:first-child {
+				border-left: 0;
+				padding-left: 0;
+			}
+		}
+	};
 
 	.o-header__mega-column--articles {
 
