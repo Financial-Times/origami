@@ -312,13 +312,9 @@ class Video {
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
-		const playButtonTextEl = document.createElement('span');
-		playButtonTextEl.className = 'o-video__play-button-text';
-		playButtonTextEl.textContent = 'Play video';
-		playButtonEl.appendChild(playButtonTextEl);
-
 		const playButtonIconEl = document.createElement('span');
 		playButtonIconEl.className = 'o-video__play-button-icon';
+		playButtonIconEl.setAttribute('aria-label', 'Play video');
 		playButtonIconEl.textContent = this.opts.placeholderHint;
 		playButtonEl.appendChild(playButtonIconEl);
 

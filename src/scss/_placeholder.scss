@@ -40,16 +40,6 @@
 		cursor: pointer;
 	}
 
-	.o-video__play-button-text {
-		position: absolute;
-		clip: rect(0 0 0 0);
-		width: 1px;
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		color: oColorsGetPaletteColor('white');
-	}
-
 	.o-video__play-button-icon {
 		@include oIconsBaseStyles;
 		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);

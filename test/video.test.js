@@ -456,11 +456,9 @@ describe('Video', () => {
 			video.addPlaceholder();
 
 			const playButtonEl = video.placeholderEl.querySelector('.o-video__play-button');
-			const playButtonTextEl = playButtonEl.querySelector('.o-video__play-button-text');
 			const playIconEl = playButtonEl.querySelector('.o-video__play-button-icon');
 
 			proclaim.ok(playButtonEl);
-			proclaim.ok(playButtonTextEl);
 			proclaim.ok(playIconEl);
 			proclaim.deepEqual(addEventListenerSpy.called, true);
 			proclaim.deepEqual(addEventListenerSpy.calledWith('click'), true);
