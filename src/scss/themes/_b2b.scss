@@ -1,24 +1,27 @@
 @if $o-header-services-is-silent == false {
-	.o-header-services--b2b {
-		.o-header-services__product-name {
-			color: oColorsGetColorFor(o-header-services-b2b-top-title, text);
-		}
+	@include oBrandConfigureFor('o-header-services', 'b2b') {
+		.o-header-services--b2b {
+			.o-header-services__product-name {
+				color: oBrandGet('product-title');
+			}
 
-		.o-header-services__hamburger {
-			background-color: oColorsGetColorFor(o-header-services-b2b-primary-nav, background);
-		}
+			.o-header-services__hamburger {
+				background-color: oBrandGet('nav-background');
+			}
 
-		.o-header-services__primary-nav {
-			background-color: oColorsGetColorFor(o-header-services-b2b-primary-nav, background);
-		}
+			.o-header-services__primary-nav {
+				background-color: oBrandGet('nav-background');
+			}
 
-		.o-header-services__nav-link {
-			color: oColorsGetColorFor(o-header-services-b2b-primary-nav, text);
+			.o-header-services__nav-link {
+				color: oBrandGet('nav-text');
 
-			&:hover,
-			&--selected,
-			&[aria-selected=true] {
-				@include oColorsFor(o-header-services-b2b-primary-nav-item-hover, background text);
+				&:hover,
+				&--selected,
+				&[aria-selected=true] {
+					color: oBrandGet('nav-hover-text');
+					background-color: oBrandGet('nav-hover-background');
+				}
 			}
 		}
 	}

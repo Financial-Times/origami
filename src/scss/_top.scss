@@ -1,125 +1,124 @@
 @if $o-header-services-is-silent == false {
-
-	.o-header-services__top {
-		@include oTypographySans($scale: 0);
-		@include oColorsFor(o-header-services-top, text background);
-
-		overflow: hidden;
-		display: block;
-	}
-
-	.o-header-services__ftlogo {
-		width: 40px;
-		height: 40px;
-		margin: 8px 8px 8px 0;
-		float: left;
-		display: inline-block;
-		background: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:brand-ft-logo-square-coloured?source=o-header-services&format=svg&width=55') no-repeat;
-
-		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
-		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:brand-ft-logo-square-coloured?source=o-header-services&format=png&width=55')\9;
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 0;
-		@include oGridRespondTo($until: M) {
-			margin: 0;
-			width: $_o-header-services-top-bar-y-small;
-			height: $_o-header-services-top-bar-y-small;
-		}
-	}
-
-
-	.o-header-services__hamburger {
-		height: $_o-header-services-top-bar-y-small;
-		width: $_o-header-services-top-bar-y-small;
-		float: left;
-		background-color: oColorsGetColorFor(o-header-services-top, background);
-		display: inline-block;
-
-		@include oGridRespondTo(M) {
-			display: none;
-		}
-	}
-
-	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-		display: block;
-		background-size: 40px 40px;
-		background-position: 50% 50%;
-		background-repeat: no-repeat;
-		height: $_o-header-services-top-bar-y-small;
-		width: $_o-header-services-top-bar-y-small;
-	}
-
-	.o-header-services__title {
-		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
-		display: inline-block;
-		float: left;
-
-		@include oGridRespondTo($until: M) {
-			margin: 0;
-		}
-	}
-
-	.o-header-services__product-name {
-		@include oTypographySansBold($scale: 4);
-		text-overflow: ellipsis;
-		color: oColorsGetColorFor('o-header-services-top-title', text);
-		margin: 0;
-		-webkit-font-smoothing: antialiased;
-		display: inline;
-
-		@include oGridRespondTo($until: M) {
-			@include oTypographySansBold($scale: 2);
+	@include oBrandConfigureFor('o-header-services') {
+		.o-header-services__top {
+			@include oTypographySans($scale: 0);
+			color: oBrandGet('top-text');
+			background-color: oBrandGet('top-background');
+			overflow: hidden;
+			display: block;
 		}
 
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-	}
-
-	.o-header-subrand__product-tagline {
-		@include oTypographySans($scale: 3);
-		text-transform: uppercase;
-		margin-left: $_o-header-services-padding-x;
-		-webkit-font-smoothing: antialiased;
-
-		// Default behaviour for when there's not enough space because we don't know the
-		// width of the tagline
-		text-overflow: ellipsis;
-		overflow: hidden;
-		display: inline;
-
-		@include oGridRespondTo($until: L) {
-			display: none;
-		}
-	}
-
-	.o-header-services__related-content {
-		float: right;
-		padding: 16px $_o-header-services-padding-x;
-		-webkit-font-smoothing: antialiased;
-
-		@include oGridRespondTo($until: M) {
-			display: none;
-		}
-
-		> a {
-			text-decoration: none;
+		.o-header-services__ftlogo {
+			width: 40px;
+			height: 40px;
+			margin: 8px 8px 8px 0;
+			float: left;
 			display: inline-block;
-			color: oColorsGetColorFor('o-header-services-top-link', text);
-			margin: 0 $_o-header-services-padding-x;
-			font-weight: 600;
+			background: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{oBrandGet('logo')}?source=o-header-services&format=svg&width=55") no-repeat;
+			// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+			// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
+			background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{oBrandGet('logo')}?source=o-header-services&format=svg&width=55")\9;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 0;
+			@include oGridRespondTo($until: M) {
+				margin: 0;
+				width: $_o-header-services-top-bar-y-small;
+				height: $_o-header-services-top-bar-y-small;
+			}
+		}
 
-			&:visited {
-				color: oColorsGetColorFor('o-header-services-top-link', text);
+
+		.o-header-services__hamburger {
+			height: $_o-header-services-top-bar-y-small;
+			width: $_o-header-services-top-bar-y-small;
+			float: left;
+			display: inline-block;
+
+			@include oGridRespondTo(M) {
+				display: none;
+			}
+		}
+
+		.o-header-services__hamburger-icon {
+			@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+			display: block;
+			background-size: 40px 40px;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			height: $_o-header-services-top-bar-y-small;
+			width: $_o-header-services-top-bar-y-small;
+		}
+
+		.o-header-services__title {
+			padding: $_o-header-services-padding-y $_o-header-services-padding-x;
+			display: inline-block;
+			float: left;
+
+			@include oGridRespondTo($until: M) {
+				margin: 0;
+			}
+		}
+
+		.o-header-services__product-name {
+			@include oTypographySansBold($scale: 4);
+			text-overflow: ellipsis;
+			color: oBrandGet('product-title');
+			margin: 0;
+			-webkit-font-smoothing: antialiased;
+			display: inline;
+
+			@include oGridRespondTo($until: M) {
+				@include oTypographySansBold($scale: 2);
 			}
 
-			&:hover {
-				text-decoration: underline;
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+
+		.o-header-subrand__product-tagline {
+			@include oTypographySans($scale: 3);
+			text-transform: uppercase;
+			margin-left: $_o-header-services-padding-x;
+			-webkit-font-smoothing: antialiased;
+
+			// Default behaviour for when there's not enough space because we don't know the
+			// width of the tagline
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: inline;
+
+			@include oGridRespondTo($until: L) {
+				display: none;
+			}
+		}
+
+		.o-header-services__related-content {
+			float: right;
+			padding: 16px $_o-header-services-padding-x;
+			-webkit-font-smoothing: antialiased;
+
+			@include oGridRespondTo($until: M) {
+				display: none;
+			}
+
+			> a {
+				text-decoration: none;
+				display: inline-block;
+				color: oBrandGet('top-link');
+				margin: 0 $_o-header-services-padding-x;
+				font-weight: 600;
+
+				&:visited {
+					color: oBrandGet('top-link');
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}
-}
+};
