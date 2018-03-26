@@ -17,7 +17,10 @@ $o-loading-animation-keyframes: false !default;
 /// Predefined color themes
 ///
 /// @type List
-$o-loading-colors: ('light', 'dark');
+$o-loading-colors: (
+	'light': _oLoadingGetColors('light'),
+	'dark': _oLoadingGetColors('dark')
+);
 
 /// Predefined sizes
 ///

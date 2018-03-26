@@ -1,6 +1,6 @@
 @import 'o-colors/main';
 @import 'o-brand/main';
-$o-brand: 'master';
+
 @import 'src/scss/variables';
 @import 'src/scss/brand';
 @import 'src/scss/mixins';
@@ -11,9 +11,9 @@ $o-brand: 'master';
 		@include oLoading();
 	}
 
-	@each $color in $o-loading-colors {
-		.o-loading--#{$color} {
-			@include oLoadingColor($color);
+	@each $key, $value in $o-loading-colors {
+		.o-loading--#{$key} {
+			@include oLoadingColor($value);
 		}
 	}
 

@@ -21,14 +21,13 @@
 	}
 }
 
-/// Output the colors for a variant of a brand
+/// Output a color for a variant of a brand
 ///
 /// @private
-@mixin _oLoadingGetColors($variant) {
+@function _oLoadingGetColors($variant) {
 	@include oBrandConfigureFor('o-loading', $variant) {
-		border: 4px solid rgba(oBrandGet('default-color'), 0.25);
-		border-top-color: oBrandGet('default-color');
-	};
+		@return oBrandGet('default-color');
+	}
 }
 
 /// Base styles for a loading indicator
@@ -52,12 +51,16 @@
 /// @param {String|Color} $color
 @mixin oLoadingColor($color) {
 	@if type-of($color) == 'string' {
-		@include _oLoadingGetColors($color);
+		@debug $color;
+		$color: map-get($o-loading-colors, $color);
 
 		@if not $color {
 			@warn "Color not found for o-loading";
 		}
 	}
+
+	border: 4px solid rgba($color, 0.25);
+	border-top-color: $color;
 }
 
 /// Size variation for a loading indicator
