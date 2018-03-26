@@ -50,7 +50,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 /// @access public
 /// @param {string} $component
 /// @param {string | list} $variant
-@mixin oBrandConfigureFor($component, $variant) {
+@mixin oBrandConfigureFor($component, $variant: null) {
     // The default brand must be configured before o-brand can be used.
     @if not _oBrandIsDefined($component) {
         @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
