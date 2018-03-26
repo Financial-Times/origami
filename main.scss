@@ -37,6 +37,26 @@
 			clear: both;
 		}
 	}
+
+	.o-header-services__container--bleed {
+		@include oGridContainer($bleed: true);
+		max-width: 100%;
+		padding: 0 20px;
+
+		@include oGridRespondTo($until: M) {
+			padding: 0;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			display: table;
+		}
+
+		&:after {
+			clear: both;
+		}
+	}
 }
 
 @if $o-header-services-is-silent == false {

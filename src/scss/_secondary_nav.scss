@@ -11,7 +11,7 @@
 					font-weight: 600;
 				}
 				.o-header__subnav-item:before {
-					@include oIconsGetIcon('arrow-right',  oBrandGet('subnav-text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+					@include oIconsGetIcon('arrow-right', oBrandGet('subnav-text'), 15, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 				}
 			}
 
