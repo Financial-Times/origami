@@ -29,8 +29,9 @@ const eventPropertiesToCollect = [
 const track = eventData => {
 	const href = eventData.context.domPathTokens[0].href || null;
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
-
-	if (isInternal) {
+	const skipQueue = eventData.context.skipQueue || false; //OMG REALLY??? ¯\_(ツ)_/¯ 
+	
+	if (isInternal && !skipQueue) {
 		eventData.context.source_id = Core.getRootID();
 
 		// Queue the event and send it on the next page load
