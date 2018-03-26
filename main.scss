@@ -38,7 +38,7 @@
 		}
 	}
 
-	.o-header-services__container--bleed {
+	.o-header-services__bleed-container {
 		@include oGridContainer($bleed: true);
 		max-width: 100%;
 		padding: 0 20px;

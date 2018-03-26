@@ -222,14 +222,14 @@ To use the secondary navigation, use the primary navigation (with the drawer) an
 
 
 ### Bleed Header
-If your application requires a bleed header, it will be necessary to replace all instances of `o-header-services__container` with `o-header-services__container--bleed`.
+If your application requires a bleed header, it will be necessary to replace all instances of `o-header-services__container` with `o-header-services__bleed-container`.
 For example, in the case of using both primary and secondary navigation:
 
 ```diff
 <header class='o-header-services' data-o-component='o-header'>
 	<div class='o-header-services__top'>
 -		<div class='o-header-services__container'>
-+		<div class='o-header-services__container--bleed'>
++		<div class='o-header-services__bleed-container'>
 			<div class='o--if-js o-header-services__hamburger'>
 				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
 			</div>
@@ -246,7 +246,7 @@ For example, in the case of using both primary and secondary navigation:
 </header>
 <nav class='o-header-services__primary-nav'>
 -	<div class='o-header-services__container'>
-+	<div class='o-header-services__container--bleed'>
++	<div class='o-header-services__bleed-container'>
 		<ul class='o-header-services__nav-list'>
 			<li class='o-header-services__nav-item o-header-services__nav-item--selected'>
 				<a href='#'>
@@ -260,7 +260,7 @@ For example, in the case of using both primary and secondary navigation:
 <!-- note that these are o-header classes, because this component inherits directly from o-header and overrides a few styles -->
 <nav class="o-header__subnav" role="navigation" aria-label="Sub navigation" data-o-header-subnav>
 -	<div class="o-header-services__container">
-+	<div class="o-header-services__container--bleed">
++	<div class="o-header-services__bleed-container">
 		<div class="o-header__subnav-wrap-outside">
 			<div class="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
 				<div class="o-header__subnav-content">
