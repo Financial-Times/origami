@@ -22,7 +22,7 @@ h3 {
 
 .demo-card--dark {
 	@if (global-variable-exists(o-brand)) {
-		background: if($o-brand == 'internal', #262A33, #333333);
+		background: if($o-brand == 'internal', #262a33, #333333);
 	} @else {
 		background: #333333;
 	}
