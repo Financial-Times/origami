@@ -29,7 +29,7 @@ By default or if no parameters are passed the method will return the size of the
 
 
 ### `o-viewport#getScrollPosition()`
-Provides a reliable way of obtaining the current scroll position of the viewport. returns an object with the properties `width`, `height`, `left` and `right`
+Provides a reliable way of obtaining the current scroll position of the viewport. returns an object with the properties `width`, `height`, `left` and `top`
 
 ### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
 Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`].
