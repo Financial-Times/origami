@@ -21,9 +21,11 @@
 	}
 }
 
-@mixin oLoadingGetColors($color) {
-	$variant: map-get($o-loading-colors, $color);
-	@include oBrandConfigureFor('o-overlay', $variant) {
+/// Output the colors for a variant of a brand
+///
+/// @private
+@mixin _oLoadingGetColors($variant) {
+	@include oBrandConfigureFor('o-loading', $variant) {
 		border: 4px solid rgba(oBrandGet('default-color'), 0.25);
 		border-top-color: oBrandGet('default-color');
 	};
@@ -63,7 +65,7 @@
 /// @param {String|Number} $size
 @mixin oLoadingSize($size) {
 	@if type-of($size) == 'string' {
-		$size: map-get($o-loading-sizes, $size);
+		$size: indexof($o-loading-sizes, $size);
 
 		@if not $size {
 			@warn "Size not found for o-loading";

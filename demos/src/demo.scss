@@ -1,6 +1,10 @@
 $o-loading-is-silent: false;
 @import '../../main';
 
+h3 {
+	text-align: center;
+}
+
 .demo {
 	text-align: center;
 	min-height: 200px;
@@ -13,11 +17,15 @@ $o-loading-is-silent: false;
 }
 
 .demo-card--light {
-	background: #f6e9d8;
+	background: oColorsGetUseCase(page, background);
 }
 
 .demo-card--dark {
-	background: #333333;
+	@if (global-variable-exists(o-brand)) {
+		background: if($o-brand == 'internal', #262A33, #333333);
+	} @else {
+		background: #333333;
+	}
 }
 
 .demo-toggle {

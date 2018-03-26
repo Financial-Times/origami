@@ -18,10 +18,16 @@
 	},
 	"demos": [
 		{
-			"name": "basic",
-			"title": "Standard loading spinner",
-			"template": "demos/src/basic.mustache",
-			"description": "The basic spinner is available in a light or dark theme in three sizes."
+			"name": "basic-light",
+			"title": "Standard Light loading spinner",
+			"template": "demos/src/basic-light.mustache",
+			"description": "The basic spinner is available in a light theme in three sizes."
+		},
+		{
+			"name": "basic-dark",
+			"title": "Standard Darkloading spinner",
+			"template": "demos/src/basic-dark.mustache",
+			"description": "The basic spinner is available in a dark theme in three sizes."
 		},
 		{
 			"name": "accessible",
