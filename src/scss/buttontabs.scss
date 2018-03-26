@@ -36,6 +36,11 @@
 }
 
 /// Outputs a modifier class to theme tabs.
+/// @param {string|list|map} $theme - A theme identifier (string or list), see readme for available themes, or a custom theme map.
+/// @param {bool} $selector [true] - @deprecated set to false. Whether to wrap output in a css class or not. E.g. ".o-tabs--primary".
+/// @prop {map} $theme.accent -  The primary color of the theme. Must be a color name from o-colors.
+/// @prop {map} $theme.background - The secondary color of the theme. Must be a color name from o-colors.
+/// @prop {map} $theme.colorizer ['secondary'] - One of primary or secondary (default).
 /// @access public
 @mixin oTabsButtonTabsTheme($theme, $selector: true) {
 	@if $selector {

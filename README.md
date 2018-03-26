@@ -163,8 +163,10 @@ o-tabs styles are also available via mixins. The base styles and buttontabs styl
 If you're using the Sass mixins, you can also theme o-tabs using the `oTabsButtonTabsTheme` mixin, which can be set to any of the [`o-buttons` themes](https://github.com/Financial-Times/o-buttons#quick-start) by passing the name as a parameter:
 
 ```sass
-@include oTabsButtonTabsTheme('inverse');
+@include oTabsButtonTabsTheme($theme: 'inverse', $selector: false);
 ```
+
+Custom themes are also supported using `oTabsButtonTabsTheme` and the same custom theme map as for [`o-buttons` custom themes](https://github.com/Financial-Times/o-buttons#custom-themes).
 
 ## Migration Guide
 
