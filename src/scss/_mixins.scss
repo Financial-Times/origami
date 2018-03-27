@@ -58,7 +58,7 @@
 /// @param {String|Number} $size
 @mixin oLoadingSize($size) {
 	@if type-of($size) == 'string' {
-		$size: indexof($o-loading-sizes, $size);
+		$size: map-get($o-loading-sizes, $size);
 
 		@if not $size {
 			@warn "Size not found for o-loading";

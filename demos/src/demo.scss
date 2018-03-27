@@ -17,19 +17,11 @@ h3 {
 }
 
 .demo-card--light {
-	@if (global-variable-exists(o-brand)) {
-		background: if($o-brand == 'internal', white, #fff1e5);
-	} @else {
-		background: #fff1e5;
-	}
+	@include oColorsFor(page);
 }
 
 .demo-card--dark {
-	@if (global-variable-exists(o-brand)) {
-		background: if($o-brand == 'internal', #262a33, #333333);
-	} @else {
-		background: #333333;
-	}
+	background: oColorsGetPaletteColor('slate');
 }
 
 .demo-toggle {
