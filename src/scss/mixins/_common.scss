@@ -69,18 +69,21 @@
 /// @access public
 /// @output Shared invalid state styles.
 @mixin oFormsCommonFieldInvalid {
-	@include oColorsFor(o-forms-field-invalid);
-
-	&:focus {
-		box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-field-invalid, border);
+	&:not(:disabled) {
+		@include oColorsFor(o-forms-field-invalid);
+		&:focus {
+			box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-field-invalid, border);
+		}
 	}
 }
 
 /// @access public
 /// @output Shared valid state styles.
 @mixin oFormsCommonFieldValid {
-	@include oColorsFor(o-forms-field-valid);
-	background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
+	&:not(:disabled) {
+		@include oColorsFor(o-forms-field-valid);
+		background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
+	}
 }
 
 /// @access public
