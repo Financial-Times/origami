@@ -17,7 +17,11 @@ h3 {
 }
 
 .demo-card--light {
-	background: oColorsGetUseCase(page, background);
+	@if (global-variable-exists(o-brand)) {
+		background: if($o-brand == 'internal', white, #fff1e5);
+	} @else {
+		background: #fff1e5;
+	}
 }
 
 .demo-card--dark {

@@ -42,7 +42,6 @@
 /// @param {String|Color} $color
 @mixin oLoadingColor($color) {
 	@if type-of($color) == 'string' {
-		@debug $color;
 		$color: map-get($o-loading-colors, $color);
 
 		@if not $color {
