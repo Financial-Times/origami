@@ -1,0 +1,16 @@
+@include oColorsSetUseCase(o-table, background, 'transparent');
+@include oColorsSetUseCase(o-table, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-striped, background, 'paper');
+@include oColorsSetUseCase(o-table-striped, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-row, border, 'black-20');
+@include oColorsSetUseCase(o-table-row, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-row-alt, background, 'wheat');
+@include oColorsSetUseCase(o-table-row-alt, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-header-row, border, 'black-30');
+@include oColorsSetUseCase(o-table-header-row, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-header, color, 'black-90');
+@include oColorsSetUseCase(o-table-header, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-data, color, 'black-70');
+@include oColorsSetUseCase(o-table-data, '_deprecated', 'Please contact Origami if you require this usecase.');
+@include oColorsSetUseCase(o-table-row-right, border-right, 'black-20');
+@include oColorsSetUseCase(o-table-row-right, '_deprecated', 'Please contact Origami if you require this usecase.');

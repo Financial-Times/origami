@@ -34,9 +34,6 @@
 			@include oTableCellContentSecondary;
 		}
 	}
-	.#{$classname}--row-stripes {
-		@include oTableRowStripes;
-	}
 	.#{$classname}--horizontal-lines {
 		@include oTableHorizontalLines;
 	}
@@ -49,9 +46,6 @@
 	.#{$classname}--vertical-borders {
 		@include oTableVerticalBorders;
 	}
-	.#{$classname}--compact {
-		@include oTableCompact;
-	}
 	.#{$classname}--responsive-flat {
 		@include oTableResponsiveFlat;
 	}
@@ -60,5 +54,17 @@
 	}
 	.#{$classname}--responsive-scroll {
 		@include oTableResponsiveScroll;
+	}
+
+	@include oBrandConfigureFor('o-table', 'compact') {
+		.#{$classname}--compact {
+			@include oTableCompact;
+		}
+	}
+
+	@include oBrandConfigureFor('o-table', 'stripe') {
+		.#{$classname}--row-stripes {
+			@include oTableRowStripes;
+		}
 	}
 }

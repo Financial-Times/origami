@@ -5,64 +5,65 @@
 
 /// Make a table 'ResponsiveFlat'
 @mixin oTableResponsiveFlat {
-	float: left;
-	width: 100%;
-
-	*,
-	*:before,
-	*:after {
-		box-sizing: border-box;
-	}
-
-	@include oGridRespondTo(S) {
-		display: table;
-	}
-
-	@include oGridRespondTo($until: S) {
-		.o-table__cell--numeric {
-			text-align: left;
-		}
-	}
-
-	td {
-		padding: 8px;
-		width: 50%;
-
-		@include oGridRespondTo(S) {
-			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
-			display: table-cell;
-		}
-	} // td
-
-	thead th {
-		display: none;
-		padding: 8px;
-
-		@include oGridRespondTo(S) {
-			border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
-			display: table-cell;
-		}
-	} // thead th
-
-	tr {
-		display: flex;
-		flex-flow: row wrap;
+	@include oBrandConfigureFor('o-table') {
+		float: left;
 		width: 100%;
 
-		@include oGridRespondTo(S) {
-			display: table-row;
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
 		}
-	} // tr
-
-	tbody tr th {
-		border-right: 1px solid oColorsGetColorFor(o-table-row-right, border-right);
-		float: left;
-		padding: 8px;
-		width: 50%;
 
 		@include oGridRespondTo(S) {
+			display: table;
+		}
+
+		@include oGridRespondTo($until: S) {
+			.o-table__cell--numeric {
+				text-align: left;
+			}
+		}
+
+		td {
+			padding: 8px;
+			width: 50%;
+
+			@include oGridRespondTo(S) {
+				border-right: 1px solid oBrandGet('table-border-color');
+				display: table-cell;
+			}
+		} // td
+
+		thead th {
 			display: none;
-		}
-	} // td th
+			padding: 8px;
 
+			@include oGridRespondTo(S) {
+				border-right: 1px solid oBrandGet('table-border-color');
+				display: table-cell;
+			}
+		} // thead th
+
+		tr {
+			display: flex;
+			flex-flow: row wrap;
+			width: 100%;
+
+			@include oGridRespondTo(S) {
+				display: table-row;
+			}
+		} // tr
+
+		tbody tr th {
+			border-right: 1px solid oBrandGet('table-border-color');
+			float: left;
+			padding: 8px;
+			width: 50%;
+
+			@include oGridRespondTo(S) {
+				display: none;
+			}
+		} // td th
+	}
 } // mixin

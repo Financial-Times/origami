@@ -1,11 +1,13 @@
 $o-table-is-silent: true !default;
-
+// Dependancies
+@import "o-brand/main";
 @import "o-colors/main";
 @import "o-grid/main";
 @import "o-icons/main";
 @import "o-typography/main";
-
-@import "src/scss/color-use-cases";
+// Branding
+@import "src/scss/brand";
+// Main
 @import "src/scss/mixins";
 @import "src/scss/captions";
 @import "src/scss/base";
