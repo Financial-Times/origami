@@ -71,8 +71,10 @@
 @mixin oFormsCommonFieldInvalid {
 	&:not(:disabled) {
 		@include oColorsFor(o-forms-field-invalid);
+
 		&:focus {
-			box-shadow: 0 0 0 2px oColorsGetColorFor(o-forms-field-invalid, border);
+			border-color: oColorsGetColorFor(o-forms-field-invalid, border);
+			outline-offset: 0;
 		}
 	}
 }
@@ -83,6 +85,10 @@
 	&:not(:disabled) {
 		@include oColorsFor(o-forms-field-valid);
 		background-color: rgba(oColorsGetColorFor(o-forms-field-valid, background), 0.05);
+		&:focus {
+			border-color: oColorsGetColorFor(o-forms-field-valid, border);
+			outline-offset: 0;
+		}
 	}
 }
 
