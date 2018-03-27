@@ -25,7 +25,8 @@
 	$scheme: "fticon-v#{$iconset-version}";
 
 	$service-url: "#{$o-icons-service-base-url}/#{$o-icons-service-version}/images/raw/#{$scheme}:#{$icon-name}";
-	$query: "?source=o-icons";
+	$source: "o-icons";
+	$query: "?source=#{$source}";
 
 	@if $color != null {
 		$color: str-slice(ie-hex-str($color), 4);
@@ -42,6 +43,16 @@
 	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
 	// It still needs to use the build service  <-- what does this comment mean?
 	background-image: url($service-url + $query + "&format=png&width=#{$container-width}")\9;
+
+	// sass-lint:disable no-vendor-prefixes
+	@media screen and (-ms-high-contrast: active) {
+		background-image: url($service-url + "?source=#{$source}&tint=%23ffffff,%23ffffff&format=svg");
+	}
+
+	@media screen and (-ms-high-contrast: black-on-white) {
+		background-image: url($service-url + "?source=#{$source}&tint=%23000000,%23000000&format=svg");
+	}
+	// sass-lint:enable no-vendor-prefixes
 
 	// Prevents dimension styles being output by default.
 	// Resolves issue where previous component `o-ft-icons` the mixin this replaces,
