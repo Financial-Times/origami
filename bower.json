@@ -7,6 +7,7 @@
     "demo"
   ],
   "dependencies": {
-    "o-colors": "^4.0.1"
+    "o-colors": "^4.2.3",
+    "o-brand": "^2.0.2"
   }
 }

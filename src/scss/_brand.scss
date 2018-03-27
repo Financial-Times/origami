@@ -1,0 +1,29 @@
+@include oBrandDefine('o-loading', 'master', (
+	'variables': (
+		'light': (
+			default-color: oColorsGetPaletteColor('white')
+		),
+		'dark': (
+			default-color: oColorsGetPaletteColor('black-80')
+		)
+	),
+	'settings': (
+		'light': true,
+		'dark': true
+	)
+));
+
+@include oBrandDefine('o-loading', 'internal', (
+	'variables': (
+		'light': (
+			default-color: oColorsGetPaletteColor('white')
+		),
+		'dark': (
+			default-color: oColorsGetPaletteColor('slate')
+		)
+	),
+	'settings': (
+		'light': true,
+		'dark': true
+	)
+));

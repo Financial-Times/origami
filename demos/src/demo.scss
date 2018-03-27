@@ -1,6 +1,10 @@
 $o-loading-is-silent: false;
 @import '../../main';
 
+h3 {
+	text-align: center;
+}
+
 .demo {
 	text-align: center;
 	min-height: 200px;
@@ -13,11 +17,11 @@ $o-loading-is-silent: false;
 }
 
 .demo-card--light {
-	background: #f6e9d8;
+	@include oColorsFor(page);
 }
 
 .demo-card--dark {
-	background: #333333;
+	background: oColorsGetPaletteColor('slate');
 }
 
 .demo-toggle {
