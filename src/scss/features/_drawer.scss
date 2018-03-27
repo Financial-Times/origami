@@ -3,7 +3,6 @@
 		// added to the document element, see n-ui/layout
 		.o-header__drawer {
 			background-color: oBrandGet('drawer-background');
-			// @include oColorsFor(o-header-drawer, background);
 			font-family: $o-typography-sans;
 
 			&[data-o-header-drawer--js] {
@@ -89,6 +88,8 @@
 		.o-header__drawer-tools {
 			overflow: hidden;
 			padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+			background-color: oBrandGet('drawer-tools-background');
+			color: oBrandGet('drawer-tools-text');
 		}
 
 		.o-header__drawer-tools-logo {
@@ -101,7 +102,7 @@
 
 		.o-header__drawer-tools-close {
 			// dividing by 1px removes the unit
-			@include oIconsGetIcon('cross', oColorsGetPaletteColor('black-80'), $_o-header-icon-size-large, $iconset-version: 1);
+			@include oIconsGetIcon('cross', oBrandGet('drawer-tools-close'), $_o-header-icon-size-large, $iconset-version: 1);
 			float: right;
 			border: 0;
 			opacity: 0.75;
@@ -125,7 +126,7 @@
 		}
 
 		.o-header__drawer-editions-link {
-			@include oColorsFor(o-header-drawer-editions-link, text);
+			color: oBrandGet('drawer-editions-link');
 			display: inline-block;
 			padding: $_o-header-drawer-padding-y/2 0 8px;
 			margin-left: 0.5em;
@@ -197,7 +198,6 @@
 		// Lists
 		//
 		.o-header__drawer-menu {
-			// @include oColorsFor(o-header-drawer-menu);
 			color: oBrandGet('drawer-menu-text');
 			border-color: oBrandGet('drawer-menu-border');
 		}

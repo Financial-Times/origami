@@ -23,6 +23,9 @@
 
 		drawer-background: oColorsGetPaletteColor('paper'),
 		drawer-border: oColorsGetPaletteColor('black-20'),
+		drawer-tools-background: oColorsGetPaletteColor('transparent'),
+		drawer-tools-text: oColorsGetPaletteColor('black-80'),
+		drawer-tools-close: oColorsGetPaletteColor('black-80'),
 		drawer-editions-link: oColorsGetPaletteColor('teal-40'),
 		drawer-editions-link-highlight: oColorsGetPaletteColor('black-70'),
 		drawer-search-term-background: oColorsGetPaletteColor('white'),
@@ -74,6 +77,9 @@
 
 		drawer-background: oColorsGetPaletteColor('white'),
 		drawer-border: oColorsGetPaletteColor('black-20'),
+		drawer-tools-background: oColorsGetPaletteColor('slate'),
+		drawer-tools-text: oColorsGetPaletteColor('white'),
+		drawer-tools-close: oColorsGetPaletteColor('white'),
 		drawer-editions-link: oColorsGetPaletteColor('slate'),
 		drawer-editions-link-highlight: oColorsGetPaletteColor('black-70'),
 		drawer-search-term-background: oColorsGetPaletteColor('white'),
