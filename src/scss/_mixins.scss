@@ -21,15 +21,6 @@
 	}
 }
 
-/// Output a color for a variant of a brand
-///
-/// @private
-@function _oLoadingGetColors($variant) {
-	@include oBrandConfigureFor('o-loading', $variant) {
-		@return oBrandGet('default-color');
-	}
-}
-
 /// Base styles for a loading indicator
 @mixin oLoading() {
 

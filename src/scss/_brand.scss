@@ -1,3 +1,13 @@
+
+/// Output a color for a variant of a brand
+///
+/// @private
+
+// Lives inside brand file because of source order.
+@function _oLoadingGetColors($variant) {
+	@return oBrandGet($component: 'o-loading', $variables: 'default-color', $configure-for: $variant);
+}
+
 @include oBrandDefine('o-loading', 'master', (
 	'variables': (
 		'light': (
