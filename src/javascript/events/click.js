@@ -27,10 +27,13 @@ const eventPropertiesToCollect = [
 
 // Trigger the event tracking
 const track = eventData => {
-	const href = eventData.context.domPathTokens[0].href || null;
+	const firstDomPathToken = eventData.context.domPathTokens[0];
+	const href = firstDomPathToken.href || null;
+	const oTrackingSkipQueueAttr = firstDomPathToken['data-o-tracking-skip-queue'];
+	const skipQueue = (oTrackingSkipQueueAttr && oTrackingSkipQueueAttr.toLowerCase() === 'true') || false;
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
-	if (isInternal) {
+	if (isInternal && !skipQueue) {
 		eventData.context.source_id = Core.getRootID();
 
 		// Queue the event and send it on the next page load
