@@ -76,10 +76,14 @@ function addDrawerToggles (drawerEl) {
 
 	function toggleCallback (state, e) {
 		if (state === 'close') {
+			toggleTabbing(drawerEl, false);
+
 			handleClose.removeEvents();
 
 			openingControl.focus();
 		} else {
+			toggleTabbing(drawerEl, true);
+
 			// don't capture the initial click or accidental double taps etc.
 			// we could use transitionend but scoping is tricky and it needs prefixing and...
 			setTimeout(handleClose.addEvents, LISTEN_DELAY);
@@ -142,11 +146,28 @@ function addSubmenuToggles (drawerEl) {
 	});
 }
 
+// This function is to solve accessibility issue
+// when o-header-drawer is closed => tabbing is disabled.
+// when o-header-drawer is open => tabbing is enabled.
+function toggleTabbing (drawerEl, isEnabled) {
+	const allFocusable = drawerEl.querySelectorAll('a, button, input, select');
+	if (isEnabled) {
+		allFocusable.forEach(el => {
+			el.removeAttribute('tabindex');
+		});
+	} else {
+		allFocusable.forEach(el => {
+			el.setAttribute('tabindex', '-1');
+		});
+	}
+}
+
 function init () {
 	const drawerEl = document.body.querySelector('[data-o-header-drawer]');
 	if (!drawerEl) {
 		return;
 	}
+	toggleTabbing(drawerEl, false);
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(drawerEl);
 
