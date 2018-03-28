@@ -28,17 +28,17 @@
 			"description": "Primary button."
 		},
 		{
+			"name": "secondary",
+			"title": "Secondary/default button",
+			"template": "/demos/src/secondary.mustache",
+			"description": "The secondary button is the default and usually most used button."
+		},
+		{
 			"name": "primary-inverse",
 			"title": "Primary button (inverse)",
 			"template": "/demos/src/primary-inverse.mustache",
 			"bodyClasses": "inverse",
 			"description": "Primary button which is inversed for use on an alternate background."
-		},
-		{
-			"name": "secondary",
-			"title": "Secondary/default button",
-			"template": "/demos/src/secondary.mustache",
-			"description": "The secondary button is the default and usually most used button."
 		},
 		{
 			"name": "inverse",
@@ -48,10 +48,16 @@
 			"description": "Secondary/default button which is inversed for use on an alternate background."
 		},
 		{
+			"name": "primary-mono",
+			"title": "Primary button (mono)",
+			"template": "/demos/src/primary-mono.mustache",
+			"description": "Primary \"monochrome\" theme."
+		},
+		{
 			"name": "mono",
-			"title": "Monochrome buttons",
+			"title": "Secondary/default button (mono)",
 			"template": "/demos/src/mono.mustache",
-			"description": "Secondary/default monochrome theme for people who need a different theme to those supported by o-buttons (Masterbrand and b2c)"
+			"description": "Secondary/default \"monochrome\" theme."
 		},
 		{
 			"name": "B2C",

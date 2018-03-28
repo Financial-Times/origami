@@ -29,24 +29,33 @@ $_o-buttons-shared-brand-config: (
         default-color: oColorsGetPaletteColor('white'),
         default-background: oColorsGetPaletteColor('transparent'),
         default-border: oColorsGetPaletteColor('white'),
-        hover-background: oColorsGetPaletteColor('white-slate-20'),
-        focus-background: oColorsGetPaletteColor('white-slate-20'),
+        hover-background: oColorsGetPaletteColor('slate-white-80'),
+        focus-background: oColorsGetPaletteColor('slate-white-80'),
         active-color: oColorsGetPaletteColor('black'),
         active-background: oColorsGetPaletteColor('white')
-    ),
-    'mono': (
-        default-color: oColorsGetPaletteColor('black'),
-        default-background: oColorsGetPaletteColor('transparent'),
-        default-border: oColorsGetPaletteColor('black'),
-        hover-background: oColorsGetPaletteColor('black-10'),
-        focus-background: oColorsGetPaletteColor('black-10'),
-        active-color: oColorsGetPaletteColor('white'),
-        active-background: oColorsGetPaletteColor('black')
     )
 );
 
 @include oBrandDefine('o-buttons', 'master', (
     'variables': map-merge($_o-buttons-shared-brand-config, (
+            'mono': (
+                default-color: oColorsGetPaletteColor('black'),
+                default-background: oColorsGetPaletteColor('transparent'),
+                default-border: oColorsGetPaletteColor('black'),
+                hover-background: oColorsGetPaletteColor('black-10'),
+                focus-background: oColorsGetPaletteColor('black-10'),
+                active-color: oColorsGetPaletteColor('white'),
+                active-background: oColorsGetPaletteColor('black')
+            ),
+            ('primary', 'mono'): (
+                default-color: oColorsGetPaletteColor('white'),
+                default-background: oColorsGetPaletteColor('slate'),
+                default-border: oColorsGetPaletteColor('transparent'),
+                hover-background: oColorsGetPaletteColor('slate-paper-70'),
+                focus-background: oColorsGetPaletteColor('slate-paper-70'),
+                active-color: oColorsGetPaletteColor('white'),
+                active-background: oColorsGetPaletteColor('slate-paper-60')
+            ),
             'b2c': (
                 default-color: oColorsGetPaletteColor('white'),
                 default-background: oColorsGetPaletteColor('org-b2c-dark'),
@@ -71,14 +80,23 @@ $_o-buttons-shared-brand-config: (
 
 @include oBrandDefine('o-buttons', 'internal', (
     'variables': map-merge($_o-buttons-shared-brand-config, (
-        'mono': (
-              default-color: oColorsGetPaletteColor('slate'),
-              default-background: oColorsGetPaletteColor('transparent'),
-              default-border: oColorsGetPaletteColor('slate'),
-              hover-background: oColorsGetPaletteColor('slate-white-15'),
-              focus-background: oColorsGetPaletteColor('slate-white-15'),
-              active-color: oColorsGetPaletteColor('white'),
-              active-background: oColorsGetPaletteColor('slate')
+            'mono': (
+                default-color: oColorsGetPaletteColor('slate'),
+                default-background: oColorsGetPaletteColor('transparent'),
+                default-border: oColorsGetPaletteColor('slate'),
+                hover-background: oColorsGetPaletteColor('slate-white-15'),
+                focus-background: oColorsGetPaletteColor('slate-white-15'),
+                active-color: oColorsGetPaletteColor('white'),
+                active-background: oColorsGetPaletteColor('slate')
+            ),
+            ('primary', 'mono'): (
+                default-color: oColorsGetPaletteColor('white'),
+                default-background: oColorsGetPaletteColor('slate'),
+                default-border: oColorsGetPaletteColor('transparent'),
+                hover-background: oColorsGetPaletteColor('slate-white-70'),
+                focus-background: oColorsGetPaletteColor('slate-white-70'),
+                active-color: oColorsGetPaletteColor('white'),
+                active-background: oColorsGetPaletteColor('slate-white-60')
             )
         )
     ),

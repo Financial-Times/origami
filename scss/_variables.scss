@@ -63,6 +63,7 @@ $_o-buttons-border-radius: $o-normalise-border-radius;
 $o-buttons-themes: (
 	primary: 'primary',
 	primary-inverse: ('primary', 'inverse'),
+	primary-mono: ('primary', 'mono'),
 	secondary: 'secondary',
 	inverse: 'inverse',
 	mono: 'mono',
