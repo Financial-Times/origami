@@ -27,7 +27,7 @@
 // @param {String} $text - name of the button text color (accepts any color from o-colors)
 @mixin oMessageAlertButtonState ($background, $text) {
 	@include oMessageButtonBase;
-	@include oButtonsCustomTheme($background, $text);
+	@include oButtonsTheme($theme: (background: $background, accent: $text));
 }
 
 // Alert message link style
