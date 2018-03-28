@@ -70,7 +70,18 @@ $_o-buttons-shared-brand-config: (
 ));
 
 @include oBrandDefine('o-buttons', 'internal', (
-    'variables': map-merge($_o-buttons-shared-brand-config, ()),
+    'variables': map-merge($_o-buttons-shared-brand-config, (
+        'mono': (
+              default-color: oColorsGetPaletteColor('slate'),
+              default-background: oColorsGetPaletteColor('transparent'),
+              default-border: oColorsGetPaletteColor('slate'),
+              hover-background: oColorsGetPaletteColor('slate-white-15'),
+              focus-background: oColorsGetPaletteColor('slate-white-15'),
+              active-color: oColorsGetPaletteColor('white'),
+              active-background: oColorsGetPaletteColor('slate')
+            )
+        )
+    ),
     'settings': (
         'primary': true,
         'secondary': true,
