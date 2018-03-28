@@ -27,7 +27,9 @@
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
-		"documentClasses": "o-hoverable-on"
+		"dependencies": [
+			"o-fonts,o-normalise"
+		]
 	},
 	"demos": [
 		{
@@ -60,8 +62,17 @@
 			"title": "Buttontabs Inverse",
 			"name": "buttontabs-inverse",
 			"template": "demos/src/buttontabs-inverse.mustache",
+			"documentClasses": "demo-inverse",
 			"description": "",
 			"hidden": true
+		},
+		{
+			"title": "Custom",
+			"name": "custom",
+			"template": "/demos/src/custom.mustache",
+			"documentClasses": "demo-inverse",
+			"hidden": true,
+			"description": "Custom theme example."
 		},
 		{
 			"title": "Pa11y",
