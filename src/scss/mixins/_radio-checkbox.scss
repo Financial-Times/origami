@@ -17,6 +17,11 @@
     }
     & + .#{$class}__label::after {
         background-color: oColorsGetColorFor(o-forms-checkbox-radio-checked, background);
+        // sass-lint:disable no-vendor-prefixes
+        @media screen and (-ms-high-contrast: active) {
+ 		         background-color: windowText;
+        }
+        // sass-lint:enable no-vendor-prefixes
         // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
         border-radius: 9999px;
         height: $_o-forms-radio-internal-default-size;
