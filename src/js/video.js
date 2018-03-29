@@ -212,6 +212,9 @@ class Video {
 	}
 
 	addVideo() {
+		this.liveRegionEl = document.createElement('div');
+		this.liveRegionEl.setAttribute('aria-live','assertive');
+		this.liveRegionEl.classList.add('o-video__live-region');
 		this.videoEl = document.createElement('video');
 		this.videoEl.controls = true;
 		this.videoEl.className = Array.isArray(this.opts.classes) ? this.opts.classes.join(' ') : this.opts.classes;
@@ -233,6 +236,7 @@ class Video {
 			this.videoEl.autoplay = this.videoEl.autostart = true;
 		}
 
+		this.containerEl.appendChild(this.liveRegionEl);
 		this.containerEl.appendChild(this.videoEl);
 
 		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked', 'error', 'stalled']);

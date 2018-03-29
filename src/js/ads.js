@@ -290,6 +290,11 @@ class VideoAds {
 					// Currently not used, could be used in an interval
 					// const remainingTime = this.adsManager.getRemainingTime();
 				}
+
+				// Users with screen readers will lose control of video while advert is playing,
+				// so we explain why and encourage them to wait with this message.
+				this.video.liveRegionEl.innerHTML=`Video will play after ad in ${options.detail.adDuration} seconds`;
+
 				break;
 			}
 			case google.ima.AdEvent.Type.COMPLETE: {
@@ -301,6 +306,8 @@ class VideoAds {
 				if (ad.isLinear()) {
 					// Would be used to clear the interval
 				}
+
+				this.video.liveRegionEl.innerHTML='';
 				break;
 			}
 
