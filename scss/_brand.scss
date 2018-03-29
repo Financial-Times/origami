@@ -39,13 +39,13 @@ $_o-buttons-shared-brand-config: (
 @include oBrandDefine('o-buttons', 'master', (
     'variables': map-merge($_o-buttons-shared-brand-config, (
             'mono': (
-                default-color: oColorsGetPaletteColor('black'),
+                default-color: oColorsGetPaletteColor('slate'),
                 default-background: oColorsGetPaletteColor('transparent'),
-                default-border: oColorsGetPaletteColor('black'),
-                hover-background: oColorsGetPaletteColor('black-10'),
-                focus-background: oColorsGetPaletteColor('black-10'),
+                default-border: oColorsGetPaletteColor('slate'),
+                hover-background: oColorsGetPaletteColor('slate-paper-10'),
+                focus-background: oColorsGetPaletteColor('slate-paper-10'),
                 active-color: oColorsGetPaletteColor('white'),
-                active-background: oColorsGetPaletteColor('black')
+                active-background: oColorsGetPaletteColor('slate')
             ),
             ('primary', 'mono'): (
                 default-color: oColorsGetPaletteColor('white'),
