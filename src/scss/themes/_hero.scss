@@ -209,7 +209,8 @@
 		}
 	}
 
-	.o-teaser__standfirst {
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
 		@include oColorsFor(o-teaser-theme-hero-extra, text, 80);
 	}
 
