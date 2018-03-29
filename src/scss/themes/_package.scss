@@ -93,6 +93,10 @@
 			@include oColorsFor('o-teaser-theme-hero-extra-highlight', text);
 		}
 	}
+	
+	.o-teaser__timestamp {
+		color: oColorsGetPaletteColor('white');
+	}
 }
 
 @mixin oTeaserPackageList {
