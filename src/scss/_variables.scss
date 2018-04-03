@@ -59,7 +59,7 @@ $_o-forms-select-small-iconsize: 16px;
 /// @access private
 /// @type String | List
 $_o-forms-field-border-width: 1px;
-$_o-forms-field-border: $_o-forms-field-border-width solid oColorsGetColorFor(o-forms-field-standard, border);
+$_o-forms-field-border: $_o-forms-field-border-width solid oBrandGet('field-standard-border', 'o-forms');
 $_o-forms-field-border-radius: $o-normalise-border-radius;
 
 

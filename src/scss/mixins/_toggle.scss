@@ -7,40 +7,44 @@
 /// @see {mixin} oFormsCheckboxToggleInverse - An inversed toggle style is avalible.
 /// @output Styles for toggle interface which is backed by a checkbox input.
 @mixin oFormsCheckboxToggle($class: 'o-forms') {
-	.#{$class}__label {
-		@include _oFormsRadioCheckboxLabel();
-		padding-top: $_o-forms-radiocheckbox-default-size / 2 - 10px; // To align the text with the center of the toggle checkbox
-		padding-left: ($_o-forms-radiocheckbox-default-size * 1.6) + $_o-forms-label-padding-left;
-		min-height: $_o-forms-radiocheckbox-default-size;
-		&:before {
-			position: absolute;
-			content: '';
-			background-color: oColorsGetColorFor(o-forms-field-label, text);
-			top: 0;
-			left: 0;
-			width: $_o-forms-radiocheckbox-default-size * 1.6;
-			height: $_o-forms-radiocheckbox-default-size;
-			border-radius: ($_o-forms-radiocheckbox-default-size * 1.6);
+	$toggle-gap: 2px; // The space around the inner circle of the toggle.
+	$toggle-ratio: 1.6; // Height to width reation. 1.6 x wider than heigh.
+	$toggle-width: $_o-forms-radiocheckbox-default-size * $toggle-ratio;
+	@include oBrandConfigureFor('o-forms') {
+		.#{$class}__label {
+			@include _oFormsRadioCheckboxLabel();
+			padding-left: $toggle-width + $_o-forms-label-padding-left;
+			min-height: $_o-forms-radiocheckbox-default-size;
+			&:before {
+				position: absolute;
+				content: '';
+				background-color: oBrandGet('field-label-text');
+				top: 0;
+				left: 0;
+				width: $toggle-width;
+				height: $_o-forms-radiocheckbox-default-size;
+				border-radius: $toggle-width;
+			}
+			&:after {
+				position: absolute;
+				content: '';
+				background-color: oColorsGetColorFor(page, background);
+				top: $toggle-gap;
+				left: $toggle-gap;
+				transition: left 0.075s ease-in-out;
+				width: $_o-forms-radiocheckbox-default-size - ($toggle-gap * 2);
+				height: $_o-forms-radiocheckbox-default-size - ($toggle-gap * 2);
+				border-radius: $_o-forms-radiocheckbox-default-size - ($toggle-gap * 2);
+			}
 		}
-		&:after {
-			position: absolute;
-			content: '';
-			background-color: oColorsGetColorFor(page, background);
-			top: 2px;
-			left: 2px;
-			transition: left 0.075s ease-in-out;
-			width: $_o-forms-radiocheckbox-default-size - 4px;
-			height: $_o-forms-radiocheckbox-default-size - 4px;
-			border-radius: $_o-forms-radiocheckbox-default-size - 4px;
+
+		& .#{$class}__toggle__checkbox:checked + .#{$class}__label:after {
+			left: ($_o-forms-radiocheckbox-default-size * ($toggle-ratio - 1)) + $toggle-gap;
 		}
-	}
 
-	& .#{$class}__toggle__checkbox:checked + .#{$class}__label:after {
-		left: $_o-forms-radiocheckbox-default-size * 0.6 + 2px;
-	}
-
-	& .#{$class}__toggle__checkbox {
-		display: none;
+		& .#{$class}__toggle__checkbox {
+			display: none;
+		}
 	}
 }
 
@@ -49,18 +53,20 @@
 /// @require {mixin} oFormsCheckboxToggle - To display an inversed toggle the basic toggle styles must first be output.
 /// @output Styles for an inversed checkbox toggle.
 @mixin oFormsCheckboxToggleInverse($class: 'o-forms') {
-	.#{$class}__label {
-		&:before {
-			@include oColorsFor(o-forms-toggle-inverse, background);
+	@include oBrandConfigureFor('o-forms') {
+		.#{$class}__label {
+			&:before {
+				background-color: oBrandGet('toggle-inverse-background');
+			}
+			&:after {
+				background-color: oBrandGet('toggle-inverse-switch-knob-background');
+			}
 		}
-		&:after {
-			@include oColorsFor(o-forms-toggle-inverse-switch-knob, background);
+		& .#{$class}__toggle__checkbox:checked + .#{$class}__label:before {
+			background-color: oBrandGet('toggle-inverse-selected-background');
 		}
-	}
-	& .#{$class}__toggle__checkbox:checked + .#{$class}__label:before {
-		@include oColorsFor(o-forms-toggle-inverse-selected, background);
-	}
-	.#{$class}__label {
-		@include oColorsFor(o-forms-toggle-inverse, text);
+		.#{$class}__label {
+			color: oBrandGet('toggle-inverse-text');
+		}
 	}
 }

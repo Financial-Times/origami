@@ -4,6 +4,7 @@
 ////
 
 // Dependancies.
+@import 'o-brand/main';
 @import 'o-typography/main';
 @import "o-normalise/main";
 @import "o-colors/main";
@@ -14,7 +15,7 @@
 @import "src/scss/deprecated";
 
 // Variables and colours.
-@import "src/scss/color-use-cases";
+@import "src/scss/brand";
 @import "src/scss/variables";
 
 // Partial mixins used together to generate form features.

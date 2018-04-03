@@ -7,8 +7,8 @@ html {
 }
 
 body {
+	@include oColorsFor('page', 'background');
 	margin: oGridGutter();
-	background-color: oColorsGetPaletteColor('paper');
 }
 
 .inverse-demo {

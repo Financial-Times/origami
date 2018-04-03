@@ -6,15 +6,17 @@
 /// @access public
 /// @output Styles for a label.
 @mixin oFormsLabel {
-	@include oTypographyBold('sans');
-	@include oColorsFor(o-forms-field-label body, text);
-	display: block;
-	padding: 0; // Reset legend default styling
-	p {
-		@include oTypographyMargin($top: 0, $bottom: 2);
+	@include oBrandConfigureFor('o-forms') {
+		@include oTypographyBold('sans');
+		color: oBrandGet('field-label-text');
+		display: block;
+		padding: 0; // Reset legend default styling
+		p {
+			@include oTypographyMargin($top: 0, $bottom: 2);
 
-		&:last-child {
-			@include oTypographyMargin($bottom: 0);
+			&:last-child {
+				@include oTypographyMargin($bottom: 0);
+			}
 		}
 	}
 }
@@ -22,28 +24,34 @@
 /// @access public
 /// @output Styles for addional input information (typically below a label).
 @mixin oFormsAdditionalInfo {
-	@include oColorsFor(o-forms-field-additional-info body, text);
-	@include oTypographySize($_o-forms-typography-scale-small);
-	display: block;
+	@include oBrandConfigureFor('o-forms') {
+		@include oTypographySize($_o-forms-typography-scale-small);
+		color: oBrandGet('field-additional-info-text');
+		display: block;
+	}
 }
 
 /// @access public
 /// @output Styles for error text.
 @mixin oFormsErrorText {
-	@include oColorsFor(o-forms-field-invalid, text);
-	@include oTypographySize($_o-forms-typography-scale-small);
-	clear: both;
-	display: block;
-	margin-top: -1px;
-	padding: 3px 0;
+	@include oBrandConfigureFor('o-forms') {
+		@include oTypographySize($_o-forms-typography-scale-small);
+		color: oBrandGet('field-invalid-text');
+		clear: both;
+		display: block;
+		margin-top: -1px;
+		padding: 3px 0;
+	}
 }
 
 /// @access public
 /// @require {mixin} oFormsLabel - Foundation label styles are required.
 /// @output Modifying styles for labels of optional fields.
 @mixin oFormsLabelOptional {
-	@include oColorsFor(o-forms-field-additional-info body, text);
-	@include oTypographySize($_o-forms-typography-scale-small);
-	content: ' (optional)';
-	font-weight: oFontsWeight('normal');
+	@include oBrandConfigureFor('o-forms') {
+		@include oTypographySize($_o-forms-typography-scale-small);
+		color: oBrandGet('field-additional-info-text');
+		content: ' (optional)';
+		font-weight: oFontsWeight('normal');
+	}
 }
