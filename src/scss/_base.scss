@@ -1,0 +1,40 @@
+@mixin oHeaderServicesContainer($bleed: false) {
+	@include oGridContainer($bleed: $bleed);
+
+	@if $bleed {
+		max-width: 100%;
+		padding: 0 20px;
+	}
+
+	&:before,
+	&:after {
+		content: '';
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin oHeaderServices($class: 'o-header-services') {
+	@include oHeaderServicesTop;
+	@include oHeaderServicesDrawer;
+	@include oHeaderServicesPrimaryNav;
+	@include oHeaderServicesSubNav;
+
+	.#{class}__container {
+		@include oHeaderServicesContainer;
+	}
+
+	.#{$class}__bleed-container {
+		@include oHeaderServicesContainer($bleed: true);
+	}
+
+	.#{$class}--b2b {
+		@include oHeaderServicesTheme($theme: 'b2b');
+	}
+
+	.#{$class}--b2c {
+		@include oHeaderServicesTheme($theme: 'b2c');
+	}
+}

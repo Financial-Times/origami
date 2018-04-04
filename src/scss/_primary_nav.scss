@@ -1,6 +1,6 @@
-@if $o-header-services-is-silent == false {
+@mixin oHeaderServicesPrimaryNav($class: 'o-header-services') {
 	@include oBrandConfigureFor('o-header-services') {
-		.o-header-services__primary-nav {
+		.#{$class}__primary-nav {
 			background-color: oBrandGet('nav-background');
 			border-bottom: 1px solid oBrandGet('nav-border');
 			zoom: 1;
@@ -11,12 +11,12 @@
 			}
 		}
 
-		.o-header-services__nav-list {
+		.#{$class}__nav-list {
 			margin: 0;
 			padding: 0;
 		}
 
-		.o-header-services__nav-item {
+		.#{$class}__nav-item {
 			display: inline-block;
 			zoom: 1;
 
@@ -25,7 +25,7 @@
 			}
 		}
 
-		.o-header-services__nav-link {
+		.#{$class}__nav-link {
 			@include oTypographySansBold($scale: 0);
 			color: oBrandGet('nav-text');
 

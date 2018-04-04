@@ -1,6 +1,6 @@
-@if $o-header-services-is-silent == false {
+@mixin oHeaderServicesTop($class: 'o-header-services') {
 	@include oBrandConfigureFor('o-header-services') {
-		.o-header-services__top {
+		.#{$class}__top {
 			@include oTypographySans($scale: 0);
 			color: oBrandGet('top-text');
 			background-color: oBrandGet('top-background');
@@ -8,7 +8,7 @@
 			display: block;
 		}
 
-		.o-header-services__ftlogo {
+		.#{$class}__ftlogo {
 			width: 40px;
 			height: 40px;
 			margin: 8px 8px 8px 0;
@@ -29,7 +29,7 @@
 		}
 
 
-		.o-header-services__hamburger {
+		.#{$class}__hamburger {
 			height: $_o-header-services-top-bar-y-small;
 			width: $_o-header-services-top-bar-y-small;
 			float: left;
@@ -40,7 +40,7 @@
 			}
 		}
 
-		.o-header-services__hamburger-icon {
+		.#{$class}__hamburger-icon {
 			@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 			display: block;
 			background-size: 40px 40px;
@@ -50,7 +50,7 @@
 			width: $_o-header-services-top-bar-y-small;
 		}
 
-		.o-header-services__title {
+		.#{$class}__title {
 			padding: $_o-header-services-padding-y $_o-header-services-padding-x;
 			display: inline-block;
 			float: left;
@@ -60,7 +60,7 @@
 			}
 		}
 
-		.o-header-services__product-name {
+		.#{$class}__product-name {
 			@include oTypographySansBold($scale: 4);
 			text-overflow: ellipsis;
 			color: oBrandGet('product-title');
@@ -95,7 +95,7 @@
 			}
 		}
 
-		.o-header-services__related-content {
+		.#{$class}__related-content {
 			float: right;
 			padding: 16px $_o-header-services-padding-x;
 			-webkit-font-smoothing: antialiased;

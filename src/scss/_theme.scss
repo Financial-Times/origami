@@ -1,0 +1,26 @@
+@mixin oHeaderServicesTheme($theme, $class: 'o-header-services') {
+	@include oBrandConfigureFor('o-header-services', $theme) {
+		.#{$class}__product-name {
+			color: oBrandGet('product-title');
+		}
+
+		.#{$class}__hamburger {
+			background-color: oBrandGet('nav-background');
+		}
+
+		.#{$class}__primary-nav {
+			background-color: oBrandGet('nav-background');
+		}
+
+		.#{$class}__nav-link {
+			color: oBrandGet('nav-text');
+
+			&:hover,
+			&--selected,
+			&[aria-selected=true] {
+				color: oBrandGet('nav-hover-text');
+				background-color: oBrandGet('nav-hover-background');
+			}
+		}
+	}
+}

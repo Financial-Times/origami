@@ -5,60 +5,18 @@
 @import 'o-brand/main';
 
 @import 'src/scss/brand';
+@import 'src/scss/base';
 @import 'src/scss/deprecated';
 @import 'src/scss/variables';
 @import 'src/scss/drawer';
 @import 'src/scss/top';
+@import 'src/scss/theme';
 @import 'src/scss/primary_nav';
 @import 'src/scss/secondary_nav';
 
-
-@import 'src/scss/themes/b2b';
-@import 'src/scss/themes/b2c';
-
-@mixin oHeaderServices {
-	.o-header-services {
-		background-color: oBrandGet('top-background', 'o-header-services');
-	}
-
-	.o-header-services__container {
-		@include oGridContainer;
-		@include oGridRespondTo($until: M) {
-			padding: 0;
-		}
-
-		&:before,
-		&:after {
-			content: '';
-			display: table;
-		}
-
-		&:after {
-			clear: both;
-		}
-	}
-
-	.o-header-services__bleed-container {
-		@include oGridContainer($bleed: true);
-		max-width: 100%;
-		padding: 0 20px;
-
-		@include oGridRespondTo($until: M) {
-			padding: 0;
-		}
-
-		&:before,
-		&:after {
-			content: '';
-			display: table;
-		}
-
-		&:after {
-			clear: both;
-		}
-	}
-}
-
 @if $o-header-services-is-silent == false {
 	@include oHeaderServices();
+
+	// Set to silent again to avoid being output twice
+	$o-header-services-is-silent: true !global;
 }
