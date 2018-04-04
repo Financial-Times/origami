@@ -51,6 +51,12 @@
 			"js": "demos/src/imperative.js",
 			"template": "demos/src/imperative.mustache",
 			"description": "Imperative alert messages regular, inner and bleed)"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true
 		}
 	]
 }
