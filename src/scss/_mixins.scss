@@ -48,8 +48,11 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtons('big');
-		@include oButtonsCustomTheme(oColorsGetUseCase(o-subs-card-button, background), "white");
+		@include oButtons($size: 'big', $theme: (
+			accent: oColorsGetUseCase(o-subs-card-button, background),
+			background: 'white',
+			colorizer: 'primary'
+		));
 		@include oTypographyMargin($bottom: 1);
 		width: 100%;
 	}
