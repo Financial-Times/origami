@@ -150,7 +150,7 @@ function addSubmenuToggles (drawerEl) {
 // when o-header-drawer is closed => tabbing is disabled.
 // when o-header-drawer is open => tabbing is enabled.
 function toggleTabbing (drawerEl, isEnabled) {
-	const allFocusable = drawerEl.querySelectorAll('a, button, input, select');
+	const allFocusable = Array.from(drawerEl.querySelectorAll('a, button, input, select'));
 	if (isEnabled) {
 		allFocusable.forEach(el => {
 			el.removeAttribute('tabindex');
