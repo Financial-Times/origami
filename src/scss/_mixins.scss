@@ -1,9 +1,9 @@
 @mixin oTeaserCollectionHeading {
 	@include oTypographySize(3);
+	@include oTypographyPadding($top: 3, $bottom: 5);
 	position: relative;
 	width: 100%;
 	margin: 0;
-	padding: 20px 0;
 	font-family: $o-typography-sans;
 	font-weight: normal;
 	// sass-lint:disable no-vendor-prefixes
@@ -43,7 +43,7 @@
 	}
 
 	&--small {
-		margin-bottom: 20px;
+		@include oTypographyMargin($bottom: 5);
 		border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 		&:after {
