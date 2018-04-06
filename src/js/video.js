@@ -183,7 +183,6 @@ class Video {
 					}
 				});
 
-
 		return dataPromise.then(data => {
 			this.videoData = data;
 			this.posterImage = data.mainImageUrl && updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth);
@@ -316,11 +315,10 @@ class Video {
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
-		const playButtonIconEl = document.createElement('span');
-		playButtonIconEl.className = 'o-video__play-button-icon';
-		playButtonIconEl.setAttribute('aria-label', 'Play video');
-		playButtonIconEl.textContent = this.opts.placeholderHint;
-		playButtonEl.appendChild(playButtonIconEl);
+		this.playButtonIconEl = document.createElement('span');
+		this.playButtonIconEl.className = 'o-video__play-button-icon';
+		this.playButtonIconEl.textContent = this.opts.placeholderHint;
+		playButtonEl.appendChild(this.playButtonIconEl);
 
 		this.placeholderEl.appendChild(playButtonEl);
 
@@ -357,6 +355,10 @@ class Video {
 
 		if (this.infoPanel) {
 			this.infoPanel.update();
+		}
+
+		if (this.playButtonIconEl) {
+			this.playButtonIconEl.setAttribute('aria-label', `Play video ${this.videoData.title}`);
 		}
 	}
 
