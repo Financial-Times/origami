@@ -1,6 +1,5 @@
 {
-	"description": "Component description",
-	"keywords": "Product messaging component used for alerting and informing.",
+	"description": "Product messaging component used for alerting and informing",
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
