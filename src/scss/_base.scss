@@ -22,7 +22,11 @@
 	@include oHeaderServicesPrimaryNav;
 	@include oHeaderServicesSubNav;
 
-	.#{class}__container {
+	.#{$class} {
+		background-color: oBrandGet('top-background', 'o-header-services');
+	}
+
+	.#{$class}__container {
 		@include oHeaderServicesContainer;
 	}
 
