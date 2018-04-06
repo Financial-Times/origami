@@ -100,6 +100,7 @@
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
+	&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 	&:not([disabled]):active {
 		@include _oButtonsColors('active');
