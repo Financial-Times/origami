@@ -1,0 +1,50 @@
+@mixin oFooterServicesBase($class: 'o-footer-services') {
+	.#{$class} {
+		@include oTypographySans(0);
+		@include oTypographyPadding($top: 2, $bottom: 2);
+		@include oGridContainer($bleed: true);
+		border-top: 4px solid oBrandGet('default-border', 'o-footer-services');
+
+		a {
+			@include oTypographyLink();
+			border-bottom: none;
+		}
+	}
+
+	.#{$class}__container {
+		margin: 0 oTypographySpacingSize(5);
+	}
+
+	.#{$class}__source-code {
+		float: right;
+		margin: 0;
+	}
+}
+
+@mixin oFooterServicesWithLogo($image, $class: 'o-footer-services') {
+	@include oFooterServicesBase;
+
+	.#{$class}__info {
+		overflow: auto;
+	}
+
+	.#{$class}__logo {
+		@include oTypographyMargin($top: 2, $bottom: 2);
+		@include oTypographySansBold(1);
+		float: right;
+		margin-right: oTypographySpacingSize(6);
+
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: contain;
+			background-image: url($image);
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+	}
+}
