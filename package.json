@@ -1,0 +1,13 @@
+{
+  "name": "o-syntax-highlight",
+  "version": "1.0.0",
+  "description": "A syntax highlighter for FT products",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+	"dependencies": {
+		"prismjs": "^1.13.0"
+	},
+	"devDependencies": {}
+}

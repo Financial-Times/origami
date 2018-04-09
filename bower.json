@@ -1,0 +1,9 @@
+{
+  "name": "o-syntax-highlight",
+  "homepage": "https://github.com/Financial-Times/o-syntax-highlight",
+  "description": "syntax highlighter for FT products",
+  "main": [
+		"main.js",
+		"main.scss"
+		]
+}
