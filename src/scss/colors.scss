@@ -1,0 +1,6 @@
+@include oColorsSetColor('grey-5', oColorsMix('black', 'white', 5));
+@include oColorsSetColor('grey-80', oColorsMix('black', 'white', 80));
+
+@include oColorsSetColor('crimson-black-90', oColorsMix('crimson', 'black', 90));
+@include oColorsSetColor('mandarin-black-90', oColorsMix('mandarin', 'black', 90));
+@include oColorsSetColor('wasabi-white-70', oColorsMix('wasabi', 'white', 70));

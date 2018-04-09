@@ -1,0 +1,18 @@
+.syntax-html {
+	.token {
+		.tag {
+			color: oColorsGetPaletteColor('crimson-black-90');
+		}
+
+		.attr-name {
+			color: oColorsGetPaletteColor('mandarin-black-90');
+		}
+		.attr-value {
+			color: oColorsGetPaletteColor('wasabi-white-70');
+		}
+
+		.punctuation {
+			color: oColorsGetPaletteColor('grey-80');
+		}
+	}
+}
