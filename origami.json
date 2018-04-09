@@ -1,0 +1,30 @@
+{
+	"description": "Component description",
+	"keywords": "syntax, highlight",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-syntax-highlight/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-syntax-highlight"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"title": "Syntax highlight demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Description of the demo"
+		}
+	]
+}

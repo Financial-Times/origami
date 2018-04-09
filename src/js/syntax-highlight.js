@@ -1,3 +1,5 @@
+const prism = require('prismjs');
+
 class SyntaxHighlight {
 	/**
  * Class constructor.
@@ -5,8 +7,8 @@ class SyntaxHighlight {
  * @param {Object} [options={}] - An options object for configuring the message
  */
 
-	constructor (ComponentBoilerplateEl, opts) {
-		this.ComponentBoilerplateEl = ComponentBoilerplateEl;
+	constructor (syntaxEl, opts) {
+		this.syntaxEl = syntaxEl;
 		this.opts = opts || {values: "default"};
 	}
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="o-hoverable-on ">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-syntax-highlight: demo demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default"></script>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+
+	</style>
+	<script>
+		(function (d) {
+			d.className = d.className + ' demo-js';
+		})(document.documentElement);
+
+	</script>
+	<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<pre>
+	<code>
+		<div class="o-message o-message--alert o-message--error" data-o-component="o-message">
+			<div class="o-message__container">
+				<div class="o-message__content">
+					<p class="o-message__content-main">
+						<span class="o-message__content-highlight">Something went wrong!</span>
+						<span class="o-message__content-detail">The quick brown fox did not jump over the lazy dogs.</span>
+					</p>
+					<div class="o-message__actions">
+						<a href="#" class="o-message__actions__primary">Button</a>
+						<a href="#" class="o-message__actions__secondary">Text link</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</code>
+</pre>
+
+	<script src="demo.js"></script>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>
