@@ -1,5 +1,7 @@
 import { throwError } from './helpers';
-const prism = require('prismjs');
+
+const prism = require('prism');
+const loadLanguages = require('prism/components/index.js');
 
 class SyntaxHighlight {
 	/**
@@ -7,12 +9,14 @@ class SyntaxHighlight {
  * @param {HTMLElement} [messageElement] - The message element in the DOM
  * @param {Object} [options={}] - An options object for configuring the message
  */
-
 	constructor (syntaxEl) {
 		this.syntaxEl = syntaxEl
 		this.fetchCodeBlocks();
 	}
 
+	/**
+ * Fetch <code> on the page
+ */
 	fetchCodeBlocks () {
 		const codeBlocks = Array.from(this.syntaxEl.querySelectorAll('PRE'), pre => {
 			if (pre.firstElementChild.tagName === 'CODE') {
@@ -25,9 +29,14 @@ class SyntaxHighlight {
 		codeBlocks.forEach(this.highlightLanguage);
 	}
 
+	/**
+ * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
+ * @param {HTMLElement} - The <code> that holds the syntax to highlighter
+ */
 	highlightLanguage (code) {
 		let className = code.className;
 		let language;
+		
 		if (className.includes('syntax-')) {
 			language = className.replace('syntax-', '');
 		} else {
@@ -35,9 +44,21 @@ class SyntaxHighlight {
 		}
 
 		let syntax = code.innerHTML;
+
+		// if there is a language that is not bundled into default prism languages,
+		// load it here (e.g.scss, json);
+		if (!prism.languages.hasOwnProperty(language)) {
+			loadLanguages([language]);
+		}
+
 		code.innerHTML = prism.highlight(syntax, prism.languages[language]);
+
 	}
 
+	/**
+	 * Initialise syntax highlighting.
+	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
+	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
 			rootEl = document.body;

@@ -2,17 +2,10 @@
 
 	<pre>
 		<code  class="syntax-html">
-			<div class="o-message__container">
-				<div class="o-message__content">
-					<p class="o-message__content-main">
-						<span class="o-message__content-highlight">Something went wrong!</span>
-						<span class="o-message__content-detail">The quick brown fox did not jump over the lazy dogs.</span>
-					</p>
-					<div class="o-message__actions">
-						<a href="#" class="o-message__actions__primary">Button</a>
-						<a href="#" class="o-message__actions__secondary">Text link</a>
-					</div>
-				</div>
+			<div class="some-class">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus tempor orci ut volutpat. Curabitur at nunc mi. Aliquam erat volutpat. Sed luctus tortor ac nunc egestas rhoncus eget in velit. Vestibulum vel condimentum urna. Quisque consectetur est in urna iaculis tempus.</p>
+				<p>Nam faucibus feugiat lectus, <a href="#">sit amet blandit</a> purus bibendum et.</p>
+				<button type="button" name="button">Button.</button>
 			</div>
 		</code>
 	</pre>
@@ -20,10 +13,49 @@
 	<pre>
 		<code class='syntax-css'>
 			body {
-				background: lemonchiffon; }
+				background: lemonchiffon;
+			}
 
 			pre {
 				background: skyblue;
+			}
+		</code>
+	</pre>
+
+	<pre>
+		<code class='syntax-scss'>
+			@mixin colorizeEverything () {
+				body {
+					background: lemonchiffon;
+				}
+
+				pre {
+					background: skyblue;
+				}
+			}
+		</code>
+	</pre>
+
+	<pre>
+		<code class='syntax-js'>
+			let i = 0;
+			while (i < 100) {
+
+				console.log(`Number: ${i}`);
+				i++;
+			}
+		</code>
+	</pre>
+
+	<pre>
+		<code class='syntax-json'>
+			"object": {
+				"name": "string",
+				"array": [
+					"name",
+					"names"
+				],
+				"numbers": 1
 			}
 		</code>
 	</pre>
