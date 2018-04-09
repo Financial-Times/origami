@@ -3,7 +3,10 @@
   "homepage": "https://github.com/Financial-Times/o-syntax-highlight",
   "description": "syntax highlighter for FT products",
   "main": [
-		"main.js",
-		"main.scss"
-		]
+    "main.js",
+    "main.scss"
+  ],
+  "dependencies": {
+    "prism": "^1.13.0"
+  }
 }
