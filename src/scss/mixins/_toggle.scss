@@ -8,7 +8,7 @@
 /// @output Styles for toggle interface which is backed by a checkbox input.
 @mixin oFormsCheckboxToggle($class: 'o-forms') {
 	$toggle-gap: 2px; // The space around the inner circle of the toggle.
-	$toggle-ratio: 1.6; // Height to width reation. 1.6 x wider than heigh.
+	$toggle-ratio: 1.6; // Height to width reation. 1.6 x wider than height.
 	$toggle-width: $_o-forms-radiocheckbox-default-size * $toggle-ratio;
 	@include oBrandConfigureFor('o-forms') {
 		.#{$class}__label {
