@@ -8,6 +8,7 @@ function init (headerEl) {
 	let viewportOffset;
 	let lastScrollDepth;
 	let lastAnimationFrame;
+	let lastStickyState;
 
 	function handleFrame () {
 		// sticky el will appear when scrolled down from page top to
@@ -16,6 +17,11 @@ function init (headerEl) {
 		const isActive = scrollDepth > viewportOffset;
 
 		headerEl.classList.toggle('o-header--sticky-active', isActive);
+
+		if (isActive !== lastStickyState) {
+			lastStickyState = isActive;
+			headerEl.dispatchEvent(new CustomEvent('oHeader.Sticky', { bubbles: true, detail: { isActive }}));
+		}
 
 		// allow a little wiggling room so we don't get too hasty toggling up/down state
 		if (Math.abs(scrollDepth - lastScrollDepth) > 20) {
