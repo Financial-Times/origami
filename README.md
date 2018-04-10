@@ -132,10 +132,11 @@ oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
 
 ### Events
 
-o-header fires the following event:
+o-header fires the following events:
 
-* `oHeader.MegaMenuShow`: When a mega menu is showed. The target of the event is the menu itself
-* `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself
+* `oHeader.MegaMenuShow`: When a mega menu is shown. The target of the event is the menu itself.
+* `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself.
+* `oHeader.Sticky`: When the header changes to or from sticky. The event detail will contain an `isActive` boolean indicated sticky or not. The target of the event is the menu itself.
 
 ## Browser Support
 
