@@ -24,6 +24,15 @@ describe("Forms", () => {
 			proclaim.equal(testForms.opts.testEvent, 'blur');
 		});
 
+		it('sets default applyValidState to false', () => {
+			fixtures.htmlCode();
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			testForms = new Forms(formEl);
+
+			proclaim.equal(testForms.opts.applyValidState, false);
+		});
+
 		it('adds correct event listeners to form and inputs for blur config', () => {
 			const html = `<form data-o-component="o-forms"><input type="text" /></form>`;
 			fixtures.insert(html);
@@ -55,6 +64,16 @@ describe("Forms", () => {
 			testForms = new Forms(formEl);
 
 			proclaim.equal(testForms.opts.testEvent, 'submit');
+		});
+
+		it('sets applyValidState to correct options when constructed from data attr', () => {
+			const html = `<form data-o-component="o-forms" data-o-forms-apply-valid-state="true"><input type="text" /></form>`;
+			fixtures.insert(html);
+
+			const formEl = document.querySelector('[data-o-component="o-forms"]');
+			testForms = new Forms(formEl);
+
+			proclaim.equal(testForms.opts.applyValidState, true);
 		});
 
 		it('adds correct event listeners to form and inputs for submit config', () => {
@@ -203,6 +222,53 @@ describe("Forms", () => {
 				input.blur();
 
 				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+			});
+
+			it('adds the valid class to the form when applyValidState is true and input is valid on blur', () => {
+				testForms = new Forms(formEl, { applyValidState: true });
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+
+				input.focus();
+				input.value = 'valid';
+				input.blur();
+
+				proclaim.isTrue(oFormsEl.classList.contains('o-forms--valid'));
+			});
+
+			it('doesnt add the valid class to the form when applyValidState is false', () => {
+				testForms = new Forms(formEl, { applyValidState: false });
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+
+				input.focus();
+				input.value = 'valid';
+				input.blur();
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+			});
+		});
+
+		describe("handles validity changes", () => {
+			it('removes the valid class when input becomes invalid on blur', () => {
+				testForms = new Forms(formEl, { applyValidState: true });
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+
+				input.focus();
+				input.value = 'valid';
+				input.blur();
+
+				proclaim.isTrue(oFormsEl.classList.contains('o-forms--valid'));
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+
+				input.focus();
+				input.value = 'nope';
+				input.blur();
+
+				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
 			});
 		});
 	});

@@ -352,6 +352,25 @@ Or you can set an attribute on the `<form>` element to declaratively set the tes
 </form>
 ```
 
+#### Apply valid state class
+
+By default `o-forms` does not apply the `o-forms--valid` class, relying on the absence of `o-forms--error` to indicate an input's validity. To have `o-forms` apply a class for valid inputs, pass in a `applyValidState` boolean configuration property when constructing:
+
+```js
+const OForms = require('o-forms');
+const formsEl = document.querySelector('#form-element');
+
+const forms = new OForms(formsEl, { applyValidState: true });
+```
+
+Or you can set the `data-o-forms-apply-valid-state` attribute to true on the `<form>` element:
+
+```html
+<form data-o-component="o-forms" data-o-forms-apply-valid-state="true">
+	[...]
+</form>
+```
+
 #### Listening to a toggle change
 Listening for the `oForms.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
 ```html

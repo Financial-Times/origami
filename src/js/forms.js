@@ -1,6 +1,6 @@
 class Forms {
 
-	constructor (FormEl, opts) {
+	constructor (FormEl, { testEvent = 'blur', applyValidState = false } = {}) {
 		this.FormEl = FormEl;
 		this.validFormEls = [
 			HTMLFormElement,
@@ -11,12 +11,21 @@ class Forms {
 		];
 
 		const declaredTestEvent = this.FormEl.getAttribute('data-o-forms-test-event');
+		const declaredApplyValidState = this.FormEl.getAttribute('data-o-forms-apply-valid-state');
+
+		this.opts = {
+			testEvent,
+			applyValidState
+		};
 
 		if (declaredTestEvent) {
-			opts = { testEvent: declaredTestEvent };
+			this.opts.testEvent = declaredTestEvent;
 		}
 
-		this.opts = opts || { testEvent: "blur" };
+		if (declaredApplyValidState) {
+			this.opts.applyValidState = declaredApplyValidState === 'true';
+		}
+
 
 		// o-forms should only be registered against a <form>
 		// element. If not, return to prevent errors
@@ -73,28 +82,31 @@ class Forms {
 		}
 
 		const oFormsEl = input.closest('.o-forms');
+		const oFormsElExists = (oFormsEl instanceof HTMLElement);
 
-		if ((oFormsEl instanceof HTMLElement) && oFormsEl.classList.contains('o-forms--error')) {
+		if (oFormsElExists && oFormsEl.classList.contains('o-forms--error')) {
 			oFormsEl.classList.remove('o-forms--error');
+		}
+
+		if (this.opts && this.opts.applyValidState && oFormsElExists) {
+			oFormsEl.classList.add('o-forms--valid');
 		}
 
 		return true;
 	}
 
 	invalidInput(input) { // eslint-disable-line class-methods-use-this
-		input.closest('.o-forms').classList.add('o-forms--error');
+		const oFormsEl = input.closest('.o-forms');
+		oFormsEl.classList.add('o-forms--error');
+		oFormsEl.classList.remove('o-forms--valid');
 	}
 
 	handleInvalidEvent(event) {
-		const input = event.target;
-
-		this.invalidInput(input);
+		this.invalidInput(event.target);
 	}
 
 	handleBlurEvent(event) {
-		const input = event.target;
-
-		this.validateInput(input);
+		this.validateInput(event.target);
 	}
 
 	handleClickEvent(event) { // eslint-disable-line class-methods-use-this
