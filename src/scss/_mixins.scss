@@ -1,4 +1,4 @@
-@mixin oTeaserCollectionHeading {
+@mixin oTeaserCollectionHeadingBorderTypography {
 	@include oTypographySize(3);
 	@include oTypographyPadding($top: 3, $bottom: 5);
 	position: relative;
@@ -9,10 +9,6 @@
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
-
-	a {
-		@include oTeaserCollectionHeadingLink;
-	}
 
 	&:before,
 	&:after {
@@ -49,6 +45,14 @@
 		&:after {
 			width: 100%;
 		}
+	}
+}
+
+@mixin oTeaserCollectionHeading {
+	@include oTeaserCollectionHeadingBorderTypography;
+
+	a {
+		@include oTeaserCollectionHeadingLink;
 	}
 }
 
