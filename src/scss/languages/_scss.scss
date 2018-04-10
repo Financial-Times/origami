@@ -1,0 +1,36 @@
+.syntax-scss,
+.syntax-sass {
+	.token {
+		&.function {
+			color: cadetblue;
+		}
+
+		&.keyword,
+		&.important {
+			color: darkorchid;
+		}
+
+		&.property {
+			color: oColorsGetPaletteColor('grey-80');
+		}
+
+		&.selector {
+			color: oColorsGetPaletteColor('mandarin-black-90');
+		}
+
+		&.string,
+		&.url {
+			color: forestgreen;
+		}
+
+ 		&.statement.keyword {
+			color: grey;
+		}
+
+		&.variable,
+		&.parent,
+		&.parent.important {
+			color: oColorsGetPaletteColor('crimson-black-90');
+		}
+	}
+}

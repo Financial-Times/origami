@@ -36,15 +36,16 @@ class SyntaxHighlight {
 	highlightLanguage (code) {
 		let className = code.className;
 		let language;
-		
+
 		if (className.includes('syntax-')) {
 			language = className.replace('syntax-', '');
 		} else {
 			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"`);
 		}
 
-		let syntax = code.innerHTML;
+		let syntax = code.textContent;
 
+		console.log(syntax);
 		// if there is a language that is not bundled into default prism languages,
 		// load it here (e.g.scss, json);
 		if (!prism.languages.hasOwnProperty(language)) {

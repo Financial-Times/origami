@@ -1,15 +1,24 @@
-.syntax-html {
+.syntax-css {
 	.token {
-		&.tag {
+		&.rule {
+			color: darkorchid;
+		}
+
+		&.property {
 			color: oColorsGetPaletteColor('crimson-black-90');
 		}
 
-		&.attr-name {
+		&.selector {
 			color: oColorsGetPaletteColor('mandarin-black-90');
 		}
 
-		&.attr-value {
+		&.string,
+		&.url {
 			color: forestgreen;
+		}
+
+		&.function {
+			color: cadetblue;
 		}
 	}
 }

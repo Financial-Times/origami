@@ -1,71 +1,79 @@
 <div class="demo" data-o-component='o-syntax-highlight'>
 	<h2>Highlighted Syntax Demos</h2>
-
 	<h4>HTML</h4>
-	<div class="test">
 		<pre>
 			<code class="syntax-html">
-				<div class="some-class">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consectetur est in urna iaculis tempus.</p>
-					<p>Nam faucibus feugiat lectus, <a href="#">sit amet blandit</a> purus bibendum et.</p>
-					<button type="button" name="button">Button.</button>
-				</div>
-			</code>
+&lt;div class="some-class" data-attribute="value">
+	&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consectetur est in urna iaculis tempus.&lt;/p>
+	&lt;p>Nam faucibus feugiat lectus, &lt;a href="#">sit amet blandit&lt;/a> purus bibendum et.&lt;/p>
+	&lt;button type="button" name="button">Button.&lt;/button>
+&lt;/div></code>
 		</pre>
-	</div>
 
 	<h4>CSS</h4>
 	<pre>
 		<code class='syntax-css'>
-			body {
-				background: lemonchiffon;
-			}
+@import url(http://fonts.googleapis.com/css?family=Lato);
 
-			pre {
-				background: skyblue;
-			}
-		</code>
+:root {
+	--main-background-color: papayawhip;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+div[class*='demo-'] {
+	background: var(--main-background-color);
+}
+
+#text {
+	font-size: 10px;
+}</code>
 	</pre>
 
 	<h4>SCSS/SASS</h4>
 	<pre>
 		<code class='syntax-scss'>
-			@mixin colorizeEverything () {
-				body {
-					background: lemonchiffon;
-				}
+@mixin colorizeEverything () {
+	body {
+		@extend %something;
+		background: $background-color;
+		color: black !important;
+		margin: 10px !global;
 
-				pre {
-					background: skyblue;
-				}
-			}
-		</code>
+		&.font {
+			@include aFont($font-name: Arial);
+			font-size: getFontSize(2);
+			font-weight: 600 !default;
+		}
+	}
+
+}</code>
 	</pre>
 
 	<h4>JAVASCRIPT</h4>
 	<pre>
 		<code class='syntax-js'>
-			let i = 0;
-			while (i < 100) {
+let i = 0;
+while (i < 100) {
 
-				console.log(`Number: ${i}`);
-				i++;
-			}
-		</code>
+	console.log(`Number: ${i}`);
+	i++;
+}</code>
 	</pre>
 
 	<h4>JSON</h4>
 	<pre>
 		<code class='syntax-json'>
-			"object": {
-				"name": "string",
-				"array": [
-					"name",
-					"names"
-				],
-				"numbers": 1
-			}
-		</code>
+"object": {
+	"name": "string",
+	"array": [
+		"name",
+		"names"
+	],
+	"numbers": 1
+}</code>
 	</pre>
 
 </div>
