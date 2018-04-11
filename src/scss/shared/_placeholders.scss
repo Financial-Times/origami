@@ -34,19 +34,10 @@
 	%o-message-alert-notice-content-main {
 		margin-top: (($_o-message-alert-height - $_o-message-line-height) / 2);
 		margin-bottom: (($_o-message-alert-height - $_o-message-line-height) / 2);
+		margin-right: oTypographySpacingSize(6);
 		display: inline-block;
 	}
 };
-
-// Action elements styling
-// Outputs actions layout
-@include _oMessageDefinePlaceholder(actions) {
-	%o-message-alert-notice-actions {
-		display: inline-block;
-		margin-left: oTypographySpacingSize(6);
-	}
-};
-
 
 // Inner alert message content styles
 // Outputs content layout

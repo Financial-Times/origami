@@ -14,11 +14,7 @@
 
 	.#{$class}--alert,
 	.#{$class}--alert-bleed {
-		height: $_o-message-alert-height;
-
-		@include oGridRespondTo($until: S) {
-			height: 100%;
-		}
+		height: 100%;
 
 		.#{$class}__container:before {
 			top: ($_o-message-alert-height - $_o-message-alert-icon-size) / 2;
@@ -44,12 +40,10 @@
 		}
 
 		.#{$class}__actions {
-			@extend %o-message-alert-notice-actions;
+			@include oTypographyPadding($bottom: 1);
+			display: inline-block;
 
 			@include oGridRespondTo($until: S) {
-				@include oTypographyMargin($bottom: 2);
-				margin-left: 0;
-
 				&__secondary {
 					display: none;
 				}

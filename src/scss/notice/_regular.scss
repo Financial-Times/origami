@@ -24,7 +24,8 @@
 		}
 
 		.#{$class}__actions {
-			@extend %o-message-alert-notice-actions;
+			@include oTypographyPadding($bottom: 1);
+			display: inline-block;
 
 			@include oGridRespondTo($until: M) {
 				display: none;

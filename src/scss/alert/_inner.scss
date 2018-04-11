@@ -17,7 +17,7 @@
 			padding-left: $_o-message-alert-icon-size * 1px;
 
 			&-main {
-				@extend %o-message-inner-alert-notice-content-main ;
+				@extend %o-message-inner-alert-notice-content-main;
 			}
 
 			&-highlight {
@@ -26,9 +26,8 @@
 		}
 
 		.#{$class}__actions {
-			@extend %o-message-alert-notice-actions;
 			@include oTypographyPadding($bottom: 3);
-			margin-left: 0;
+			display: inline-block;
 		}
 	}
 }

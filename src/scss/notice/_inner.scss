@@ -17,14 +17,13 @@
 			padding-left: 20px;
 
 			&-main {
-				@extend %o-message-inner-alert-notice-content-main ;
+				@extend %o-message-inner-alert-notice-content-main;
 			}
 		}
 
 		.#{$class}__actions {
-			@extend %o-message-alert-notice-actions;
 			@include oTypographyPadding($bottom: 3);
-			margin-left: 0;
+			display: inline-block;
 		}
 	}
 }
