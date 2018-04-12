@@ -35,7 +35,7 @@
 
 	.o-subs-card__copy-pitch {
 		@include oTypographySans(0);
-		@include oTypographyPadding($bottom: 8);
+		@include oTypographyPadding($bottom: 3);
 
 		display: inline-block;
 		text-align: center;
@@ -44,6 +44,10 @@
 	}
 
 	.o-subs-card__charge {
+		@include oTypographyPadding($bottom: 4);
+	}
+
+	.o-subs-card__charge__value {
 		@include oTypographyPadding($bottom: 2);
 	}
 
