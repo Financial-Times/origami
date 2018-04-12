@@ -2,17 +2,17 @@
 	.syntax-css {
 		.token {
 			&.atrule {
-				color: #8B008B; //darkmagenta
-				.rule { color: #DB7093 } //palevioletred
+				color: oColorsGetPaletteColor('velvet-candy-60');
+				.rule { color: oColorsGetPaletteColor('claret-lemon-75') }
 			}
-			&.comment { color:  #808080  } //gray
-			&.important { color: #DB7093 } //palevioletred
-			&.property { color: #696969; } //dimgray
-			&.punctuation { color: #696969; } //dimgray
-			&.selector { color: #FF6347 } //tomato
-			&.string { color: #5F9EA0 } //cadetblue
-			&.url { color: #4682B4;} //steelblue
-			&.variable { color: #B22222; } //firebrick
+			&.comment { color: oColorsGetPaletteColor('grey-55') }
+			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
+			&.important { color:  oColorsGetPaletteColor('velvet-candy-60') }
+			&.property { color: oColorsGetPaletteColor('grey-70') }
+			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
+			&.selector { color: oColorsGetPaletteColor('oxford') }
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+			&.url { color: oColorsGetPaletteColor('oxford') }
 		}
 	}
 }

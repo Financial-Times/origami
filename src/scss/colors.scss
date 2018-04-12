@@ -12,9 +12,10 @@
 // Passes AA for any, AAA for 18pt or bold above 14px
 // oColorsGetPaletteColor(oxford); #0f5499 6.8
 @include oColorsSetColor('black-jade-50', oColorsMix(black, jade, 50)); //#005a2d 7.5
-@include oColorsSetColor('grey-60', oColorsMix(black, white, 60)); //#666666 5.3
-@include oColorsSetColor('black-lemon-55', oColorsMix(black, lemon, 55)); //#736a0c 4.9
+// @include oColorsSetColor('black-lemon-55', oColorsMix(black, lemon, 55)); //#736a0c 4.9
 @include oColorsSetColor('claret-lemon-75', oColorsMix(claret, lemon, 75)); // #b34634 4.9
 @include oColorsSetColor('velvet-candy-60', oColorsMix(velvet, candy, 60)); //#9b5191 4.8
 @include oColorsSetColor('oxford-jade-60', oColorsMix(oxford, jade, 60)) // #097a7f 4.6
 @include oColorsSetColor('oxford-sky-80', oColorsMix(oxford, sky, 80)) // #3571ad 4.6
+@include oColorsSetColor('black-mandarin-35', oColorsMix(black, mandarin, 35)); // #a65821 4.6
+@include oColorsSetColor('grey-55', oColorsMix(black, white, 55)); //#737373 5.3

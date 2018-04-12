@@ -1,10 +1,12 @@
 @import '../../main.scss';
-//
+
 @include highlightAll;
-//
-// h2, h4 {
-// 	margin-left: 20px;
-$col1: oColorsMix(black, white, 70);
+
+h2, h4 {
+	margin-left: 20px;
+}
+
+$col1: oColorsMix(claret, mandarin, 80);
 // $col1: oColorsGetPaletteColor(oxford);
 $col2: oColorsMix('black', 'white', 5);
 

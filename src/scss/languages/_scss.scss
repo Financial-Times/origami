@@ -2,23 +2,23 @@
 	.syntax-scss,
 	.syntax-sass {
 		.token {
-			&.boolean { color: oColorsGetPaletteColor('black-lemon-55') }
-			&.comment { color: oColorsGetPaletteColor('grey-60') }
+			&.boolean { color: oColorsGetPaletteColor('black-mandarin-35') }
+			&.comment { color: oColorsGetPaletteColor('grey-55') }
 			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
-			&.important {  color:  oColorsGetPaletteColor('black-lemon-55') }
-			&.keyword { color: oColorsGetPaletteColor('velvet-candy-60') }
-			&.null { color:  oColorsGetPaletteColor('black-candy-35') }
-			&.operator {  color:  oColorsGetPaletteColor('black-candy-35') }
+			&.important { color:  oColorsGetPaletteColor('claret-lemon-75') }
+			&.keyword { color: oColorsGetPaletteColor('claret-lemon-75') }
+			&.null { color:  oColorsGetPaletteColor('black-mandarin-35') }
+			&.operator {  color:  oColorsGetPaletteColor('black-mandarin-35') }
 			&.placeholder {  color: oColorsGetPaletteColor('black-lemon-55') }
-			&.property { color: oColorsGetPaletteColor('grey-80') }
-			&.punctuation { color: oColorsGetPaletteColor('grey-80') }
-			&.selector { color: oColorsGetPaletteColor('white-velvet-5') }
+			&.property { color: oColorsGetPaletteColor('grey-70') }
+			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
+			&.selector { color: oColorsGetPaletteColor('oxford') }
 			&.statement {
-				.keyword {  color: oColorsGetPaletteColor('claret-lemon-75') }
+				.keyword {  color: oColorsGetPaletteColor('velvet-candy-60') }
 			}
 			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
 			&.url { color: oColorsGetPaletteColor('oxford') }
-			&.variable { color: oColorsGetPaletteColor('claret-lemon-75'); }
+			&.variable { color: oColorsGetPaletteColor('velvet-candy-60'); }
 		}
 	}
 }
