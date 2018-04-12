@@ -1,11 +1,11 @@
-@mixin highlightSCSS {
+@mixin oSyntaxHighlightSCSS {
 	.syntax-scss,
 	.syntax-sass {
 		.token {
 			&.boolean { color: oColorsGetPaletteColor('black-mandarin-35') }
 			&.comment { color: oColorsGetPaletteColor('grey-55') }
 			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
-			&.important { color:  oColorsGetPaletteColor('claret-lemon-75') }
+			&.important { color:  oColorsGetPaletteColor('black-crimson-25') }
 			&.keyword { color: oColorsGetPaletteColor('claret-lemon-75') }
 			&.null { color:  oColorsGetPaletteColor('black-mandarin-35') }
 			&.operator {  color:  oColorsGetPaletteColor('black-mandarin-35') }

@@ -1,6 +1,6 @@
 import { throwError } from './helpers';
 
-const prism = require('prism');
+const prism = require('prism/prism.js');
 const loadLanguages = require('prism/components/index.js');
 
 class SyntaxHighlight {

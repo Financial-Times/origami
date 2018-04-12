@@ -21,9 +21,10 @@
 	}
 }
 
-@mixin highlightAll {
-	@include highlightJS;
-	@include highlightJSON;
-	@include highlightSCSS;
-	@include highlightCSS;
+@mixin oSyntaxHighlightAll() {
+	@include oSyntaxHighlightCSS();
+	@include oSyntaxHighlightHTML();
+	@include oSyntaxHighlightJS();
+	@include oSyntaxHighlightJSON();
+	@include oSyntaxHighlightSCSS();
 }

@@ -1,4 +1,4 @@
-@mixin highlightJSON () {
+@mixin oSyntaxHighlightJSON () {
 	.syntax-json {
 		.token {
 			&.number { color: oColorsGetPaletteColor('claret-lemon-75') }
