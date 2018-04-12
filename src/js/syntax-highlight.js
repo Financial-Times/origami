@@ -45,7 +45,6 @@ class SyntaxHighlight {
 
 		let syntax = code.textContent;
 
-		console.log(syntax);
 		// if there is a language that is not bundled into default prism languages,
 		// load it here (e.g.scss, json);
 		if (!prism.languages.hasOwnProperty(language)) {
