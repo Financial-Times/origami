@@ -15,8 +15,9 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 ## Usage
 
 This component provides accessible syntax highlighting for Javascript, JSON, HTML, CSS, Sass and SCSS.
+If there are any languagues you would like to highlight that we don't currently support, please open an issue and we will provide it.
 
-It uses the following colours, on a light grey background (#f2f2f2). It is compliant with WCAG AA. In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
+o-syntax-highlight uses the following colours, on a light grey background (#f2f2f2). It is compliant with WCAG AA. In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
 
 Color | Hex | Ratio | 14px+ | 18px+  or 14px **bold**
 ---|---|---|---|---
