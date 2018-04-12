@@ -1,5 +1,7 @@
 @import 'css';
 @import 'html';
+@import 'js';
+@import 'json';
 @import 'scss';
 
 [data-o-component='o-syntax-highlight'] {
@@ -10,7 +12,7 @@
 		tab-size: 4;
 
 		code {
-			color: oColorsGetPaletteColor('grey-80');
+			color: oColorsGetPaletteColor('grey-70');
 			overflow-x: auto;
 			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 			font-size: 14px;
@@ -19,16 +21,9 @@
 	}
 }
 
-.token  {
-	&.punctuation {
-		color: oColorsGetPaletteColor('grey-80');
-	}
-
-	&.bold {
-		font-weight: bold;
-	}
-
-	&.italic {
-		font-style: italic;
-	}
+@mixin highlightAll {
+	@include highlightJS;
+	@include highlightJSON;
+	@include highlightSCSS;
+	@include highlightCSS;
 }

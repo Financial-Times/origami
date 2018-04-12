@@ -1,15 +1,10 @@
 .syntax-html {
 	.token {
 		&.tag {
-			color: oColorsGetPaletteColor('crimson-black-90');
+			color: oColorsGetPaletteColor('claret-lemon-75');
+			.punctuation { color: oColorsGetPaletteColor('grey-70') }
 		}
-
-		&.attr-name {
-			color: oColorsGetPaletteColor('mandarin-black-90');
-		}
-
-		&.attr-value {
-			color: forestgreen;
-		}
+		&.attr-name { color: oColorsGetPaletteColor('oxford') }
+		&.attr-value { color: oColorsGetPaletteColor('oxford-jade-60') }
 	}
 }

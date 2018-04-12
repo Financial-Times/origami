@@ -21,10 +21,34 @@
 	},
 	"demos": [
 		{
-			"title": "Syntax highlight demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
-			"description": "Description of the demo"
+			"title": "HTML",
+			"name": "html",
+			"template": "demos/src/html.mustache",
+			"description": "Syntax highlight for HTML"
+		},
+		{
+			"title": "JS",
+			"name": "js",
+			"template": "demos/src/js.mustache",
+			"description": "Syntax highlight for JS"
+		},
+		{
+			"title": "JSON",
+			"name": "json",
+			"template": "demos/src/json.mustache",
+			"description": "Syntax highlight for JSON"
+		},
+		{
+			"title": "SCSS",
+			"name": "scss",
+			"template": "demos/src/scss.mustache",
+			"description": "Syntax highlight for SCSS"
+		},
+		{
+			"title": "CSS",
+			"name": "css",
+			"template": "demos/src/css.mustache",
+			"description": "Syntax highlight for CSS"
 		}
 	]
 }

@@ -1,36 +1,24 @@
-.syntax-scss,
-.syntax-sass {
-	.token {
-		&.function {
-			color: cadetblue;
-		}
-
-		&.keyword,
-		&.important {
-			color: darkorchid;
-		}
-
-		&.property {
-			color: oColorsGetPaletteColor('grey-80');
-		}
-
-		&.selector {
-			color: oColorsGetPaletteColor('mandarin-black-90');
-		}
-
-		&.string,
-		&.url {
-			color: forestgreen;
-		}
-
- 		&.statement.keyword {
-			color: grey;
-		}
-
-		&.variable,
-		&.parent,
-		&.parent.important {
-			color: oColorsGetPaletteColor('crimson-black-90');
+@mixin highlightSCSS {
+	.syntax-scss,
+	.syntax-sass {
+		.token {
+			&.boolean { color: oColorsGetPaletteColor('black-lemon-55') }
+			&.comment { color: oColorsGetPaletteColor('grey-60') }
+			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
+			&.important {  color:  oColorsGetPaletteColor('black-lemon-55') }
+			&.keyword { color: oColorsGetPaletteColor('velvet-candy-60') }
+			&.null { color:  oColorsGetPaletteColor('black-candy-35') }
+			&.operator {  color:  oColorsGetPaletteColor('black-candy-35') }
+			&.placeholder {  color: oColorsGetPaletteColor('black-lemon-55') }
+			&.property { color: oColorsGetPaletteColor('grey-80') }
+			&.punctuation { color: oColorsGetPaletteColor('grey-80') }
+			&.selector { color: oColorsGetPaletteColor('white-velvet-5') }
+			&.statement {
+				.keyword {  color: oColorsGetPaletteColor('claret-lemon-75') }
+			}
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+			&.url { color: oColorsGetPaletteColor('oxford') }
+			&.variable { color: oColorsGetPaletteColor('claret-lemon-75'); }
 		}
 	}
 }

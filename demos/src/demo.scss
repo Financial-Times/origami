@@ -1,5 +1,14 @@
 @import '../../main.scss';
+//
+@include highlightAll;
+//
+// h2, h4 {
+// 	margin-left: 20px;
+$col1: oColorsMix(black, white, 70);
+// $col1: oColorsGetPaletteColor(oxford);
+$col2: oColorsMix('black', 'white', 5);
 
-h2, h4 {
-	margin-left: 20px;
-}
+$ratio: oColorsGetContrastRatio($col1, $col2);
+
+@debug $col1;
+@debug $ratio;

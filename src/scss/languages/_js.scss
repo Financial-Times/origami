@@ -1,0 +1,23 @@
+@mixin highlightJS () {
+	.syntax-js,
+	.syntax-javascript {
+		.token {
+			&.boolean { color:  #20B2AA } //lightseagreen
+			&.class-name { color: #DB7093 } //palevioletred
+			&.comment { color: oColorsGetPaletteColor('grey-60') }
+			&.function {
+				color: #4682B4; //steelblue
+				.function-variable { color: #DB7093 } //palevioletred
+			}
+			&.keyword { color: #8B008B } //darkmagenta
+			&.number { color: #FF6347 } //tomato
+			&.operator { color: #DB7093 } //palevioletred
+			&.punctuation { color: #696969 } //dimgray
+			&.regex { color:  #20B2AA } //lightseagreen
+			&.string { color: #5F9EA0 } //cadetblue
+			&.template-string {
+				.interpolation-punctuation { color: #B22222; } //firebrick
+			}
+		}
+	}
+}

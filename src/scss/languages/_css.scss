@@ -1,24 +1,18 @@
-.syntax-css {
-	.token {
-		&.rule {
-			color: darkorchid;
-		}
-
-		&.property {
-			color: oColorsGetPaletteColor('crimson-black-90');
-		}
-
-		&.selector {
-			color: oColorsGetPaletteColor('mandarin-black-90');
-		}
-
-		&.string,
-		&.url {
-			color: forestgreen;
-		}
-
-		&.function {
-			color: cadetblue;
+@mixin highlightCSS {
+	.syntax-css {
+		.token {
+			&.atrule {
+				color: #8B008B; //darkmagenta
+				.rule { color: #DB7093 } //palevioletred
+			}
+			&.comment { color:  #808080  } //gray
+			&.important { color: #DB7093 } //palevioletred
+			&.property { color: #696969; } //dimgray
+			&.punctuation { color: #696969; } //dimgray
+			&.selector { color: #FF6347 } //tomato
+			&.string { color: #5F9EA0 } //cadetblue
+			&.url { color: #4682B4;} //steelblue
+			&.variable { color: #B22222; } //firebrick
 		}
 	}
 }

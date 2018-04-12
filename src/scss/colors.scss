@@ -1,6 +1,20 @@
-@include oColorsSetColor('grey-5', oColorsMix('black', 'white', 5));
-@include oColorsSetColor('grey-80', oColorsMix('black', 'white', 80));
+@include oColorsSetColor('grey-5', oColorsMix(black, white, 5));
 
-@include oColorsSetColor('crimson-black-90', oColorsMix('crimson', 'black', 90));
-@include oColorsSetColor('mandarin-black-90', oColorsMix('mandarin', 'black', 90));
-@include oColorsSetColor('wasabi-white-70', oColorsMix('wasabi', 'white', 70));
+// passes AAA for any size text
+@include oColorsSetColor('grey-70', oColorsMix(black, white, 70)); //#4d4d4d 7.6
+// oColorsGetPaletteColor(velvet); #593380 8.5
+@include oColorsSetColor('crimson-velvet-20', oColorsMix(crimson, velvet, 20)); //#732d72 8.2
+// oColorsGetPaletteColor(claret); #990f3d 7.7
+@include oColorsSetColor('white-velvet-5', oColorsMix(velvet, white, 95)); //#613d86 7.4
+@include oColorsSetColor('velvet-crimson-55', oColorsMix(velvet, crimson, 55)); //#942561 7.1
+@include oColorsSetColor('crimson-black-80', oColorsMix(black, crimson, 25)); //#a50f2d 7.1
+
+// Passes AA for any, AAA for 18pt or bold above 14px
+// oColorsGetPaletteColor(oxford); #0f5499 6.8
+@include oColorsSetColor('black-jade-50', oColorsMix(black, jade, 50)); //#005a2d 7.5
+@include oColorsSetColor('grey-60', oColorsMix(black, white, 60)); //#666666 5.3
+@include oColorsSetColor('black-lemon-55', oColorsMix(black, lemon, 55)); //#736a0c 4.9
+@include oColorsSetColor('claret-lemon-75', oColorsMix(claret, lemon, 75)); // #b34634 4.9
+@include oColorsSetColor('velvet-candy-60', oColorsMix(velvet, candy, 60)); //#9b5191 4.8
+@include oColorsSetColor('oxford-jade-60', oColorsMix(oxford, jade, 60)) // #097a7f 4.6
+@include oColorsSetColor('oxford-sky-80', oColorsMix(oxford, sky, 80)) // #3571ad 4.6

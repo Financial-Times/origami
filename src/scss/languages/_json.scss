@@ -1,0 +1,10 @@
+@mixin highlightJSON () {
+	.syntax-json {
+		.token {
+			&.number { color: oColorsGetPaletteColor('claret-lemon-75') }
+			&.operator { color: oColorsGetPaletteColor('grey-70') }
+			&.property { color: oColorsGetPaletteColor('oxford') }
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+		}
+	}
+}

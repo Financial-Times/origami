@@ -2,3 +2,10 @@
 @import 'colors';
 
 @import 'languages/main';
+@import 'prism/theme/prism.css';
+
+@if $o-syntax-highlight-is-silent == false {
+	@include highlightAll;
+
+	$o-syntax-highlight-is-silent: true !global;
+}
