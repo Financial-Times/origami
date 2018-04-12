@@ -1,18 +1,25 @@
 @mixin oSyntaxHighlightCSS {
 	.syntax-css {
 		.token {
+
+			&.important,
 			&.atrule {
 				color: oColorsGetPaletteColor('velvet-candy-60');
+
 				.rule { color: oColorsGetPaletteColor('claret-lemon-75') }
 			}
+
 			&.comment { color: oColorsGetPaletteColor('grey-55') }
 			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
 			&.important { color:  oColorsGetPaletteColor('velvet-candy-60') }
-			&.property { color: oColorsGetPaletteColor('grey-70') }
+
+			&.property,
 			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
-			&.selector { color: oColorsGetPaletteColor('oxford') }
-			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+
+			&.selector,
 			&.url { color: oColorsGetPaletteColor('oxford') }
+
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
 		}
 	}
 }

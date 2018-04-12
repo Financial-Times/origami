@@ -2,22 +2,24 @@
 	.syntax-js,
 	.syntax-javascript {
 		.token {
-			&.boolean { color: oColorsGetPaletteColor('black-mandarin-35') }
-			&.class-name { color: oColorsGetPaletteColor('velvet-candy-60'); }
 			&.comment { color: oColorsGetPaletteColor('grey-55') }
+			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+
+			&.regex,
+			&.boolean { color: oColorsGetPaletteColor('black-mandarin-35') }
+
+			&.operator,
+			&.class-name { color: oColorsGetPaletteColor('velvet-candy-60'); }
+
+			&.keyword,
 			&.function {
 				color: oColorsGetPaletteColor('oxford');
 				.function-variable { color: oColorsGetPaletteColor('velvet-candy-60'); }
 			}
-			&.keyword { color: oColorsGetPaletteColor('oxford') }
-			&.number { color: oColorsGetPaletteColor('claret-lemon-75') }
-			&.operator { color: oColorsGetPaletteColor('velvet-candy-60') }
-			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
-			&.regex { color: oColorsGetPaletteColor('black-mandarin-35') }
-			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
-			&.template-string {
-				.interpolation-punctuation { color: oColorsGetPaletteColor('claret-lemon-75') }
-			}
+
+			&.number,
+			&.template-string .interpolation-punctuation { color: oColorsGetPaletteColor('claret-lemon-75') }
 		}
 	}
 }
