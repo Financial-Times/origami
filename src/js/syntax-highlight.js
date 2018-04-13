@@ -22,7 +22,7 @@ class SyntaxHighlight {
 			if (pre.firstElementChild.tagName === 'CODE') {
 				return pre.firstElementChild;
 			} else {
-				throwError(`A '<pre>' must be wrap a '<code>' for semantically correct syntax highlighting.`);
+				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
 			};
 		})
 

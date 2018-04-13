@@ -7,4 +7,4 @@ const constructAll = function() {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default SyntaxHighlight
+export default SyntaxHighlight;
