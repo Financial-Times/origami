@@ -1,4 +1,4 @@
-import { throwError } from './helpers';
+import throwError from './helpers';
 
 const prism = require('prism/prism.js');
 const loadLanguages = require('prism/components/index.js');
@@ -9,9 +9,16 @@ class SyntaxHighlight {
  * @param {HTMLElement} [messageElement] - The message element in the DOM
  * @param {Object} [options={}] - An options object for configuring the message
  */
-	constructor (syntaxEl) {
+	constructor (syntaxEl, options) {
 		this.syntaxEl = syntaxEl
-		this.fetchCodeBlocks();
+		this.opts = Object.assign({ language: '' }, options);
+
+		if (typeof this.syntaxEl === 'string') {
+			checkPresence(this.language);
+			highlightBlock(this.syntaxEl);
+		} else {
+			this.fetchCodeBlocks()
+		}
 	}
 
 	/**
@@ -26,33 +33,46 @@ class SyntaxHighlight {
 			};
 		})
 
-		codeBlocks.forEach(this.highlightLanguage);
+		codeBlocks.forEach(this.highlightBlocks);
 	}
 
 	/**
  * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
- * @param {HTMLElement} - The <code> that holds the syntax to highlighter
+ * @param {String} - The <code> that holds the syntax to highlight
  */
-	highlightLanguage (code) {
+	highlightBlocks (code) {
 		let className = code.className;
 		let language;
 
 		if (className.includes('syntax-')) {
-			language = className.replace('syntax-', '');
+			this.opts.language = className.replace('syntax-', '');
 		} else {
 			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"`);
 		}
 
 		let syntax = code.textContent;
+		SyntaxHighlight._checkPresence(language);
 
-		// if there is a language that is not bundled into default prism languages,
-		// load it here (e.g.scss, json);
-		if (!prism.languages.hasOwnProperty(language)) {
-			loadLanguages([language]);
+		code.innerHTML = SyntaxHighlight._tokenise(syntax, language)
+	}
+
+	/**
+	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
+	 * @param {String} - The language to verify
+	 */
+	static _checkPresence () {
+		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
+			loadLanguages([this.opts.language]);
 		}
+	}
 
-		code.innerHTML = prism.highlight(syntax, prism.languages[language]);
-
+	/**
+	 * Tokenise string for highlighting
+	 * @param {String} - The string of code to tokenise
+	 * @param {String} The language to tokenise for
+	 */
+	static _tokenise (code) {
+		return prism.highlight(code, prism.languages[this.opts.language]);
 	}
 
 	/**
