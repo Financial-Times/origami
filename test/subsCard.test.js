@@ -49,4 +49,27 @@ describe("SubsCard", () => {
 			proclaim.equal(subsCard instanceof SubsCard, true);
 		});
 	});
+
+	describe('multiple components', () => {
+
+		beforeEach(() => {
+			fixtures.htmlCodeMulti();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it('will all have matching top height', () => {
+			const matchHeightsSpy = sinon.spy(SubsCard, 'matchHeights');
+
+			console.log(matchHeightsSpy);
+
+			SubsCard.init();
+
+			proclaim.equal(matchHeightsSpy.called, true);
+		});
+
+	});
+
 });

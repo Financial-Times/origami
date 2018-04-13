@@ -1,10 +1,21 @@
 const oExpander = require('o-expander');
 
+let tallestTopHeight = 0;
+
 class SubsCard {
 
 	constructor (rootEl) {
 		this.rootEl = rootEl;
 		this.setExpanders();
+		this.checkTallest();
+	}
+
+	checkTallest() {
+		const top = this.rootEl.querySelector('.o-subs-card__top');
+
+		if (top && top.clientHeight > tallestTopHeight) {
+			tallestTopHeight = top.clientHeight;
+		}
 	}
 
 	setExpanders() {
@@ -33,7 +44,21 @@ class SubsCard {
 		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-subs-card]')) {
 			return new SubsCard(rootEl);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-subs-card"]'), rootEl => new SubsCard(rootEl));
+		let cards = Array.from(rootEl.querySelectorAll('[data-o-component="o-subs-card"]'), rootEl => new SubsCard(rootEl));
+
+		if (cards.length > 1) {
+			SubsCard.matchHeights(cards);
+		}
+
+		return cards;
+	}
+
+	static matchHeights(cards) {
+		for (let i = 0; i < cards.length; i++) {
+			let cardTop = cards[i].rootEl.querySelector('.o-subs-card__top');
+
+			cardTop.style.flex = `0 1 ${tallestTopHeight}px`;
+		}
 	}
 }
 
