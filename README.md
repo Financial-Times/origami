@@ -99,6 +99,7 @@ As with all Origami components, o-syntax-highlight has a [silent mode](http://or
 
 You can't choose your own classnames, but you can choose to load specific language styles as follows:
 ```scss
+	@include oSyntaxHighlightBase();
 	@include oSyntaxHighlightJSON();
 ``
 

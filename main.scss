@@ -1,3 +1,9 @@
 @import 'o-colors/main';
 
 @import 'src/scss/main';
+
+@if $o-syntax-highlight-is-silent == false {
+	@include oSyntaxHighlightAll();
+
+	$o-syntax-highlight-is-silent: true !global;
+}

@@ -2,9 +2,3 @@
 @import 'colors';
 
 @import 'languages/main';
-
-@if $o-syntax-highlight-is-silent == false {
-	@include oSyntaxHighlightAll();
-
-	$o-syntax-highlight-is-silent: true !global;
-}

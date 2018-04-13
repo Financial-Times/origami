@@ -4,24 +4,27 @@
 @import 'json';
 @import 'scss';
 
-[data-o-component='o-syntax-highlight'] {
-	pre {
-		background: oColorsGetPaletteColor('grey-5');
-		padding-left: 20px;
-		word-break: break-all;
-		tab-size: 4;
-		overflow-x: auto;
+@mixin oSyntaxHighlightBase() {
+	[data-o-component='o-syntax-highlight'] {
+		pre {
+			background: oColorsGetPaletteColor('grey-5');
+			padding-left: 20px;
+			word-break: break-all;
+			tab-size: 4;
+			overflow-x: auto;
 
-		code {
-			color: oColorsGetPaletteColor('grey-70');
-			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-			font-size: 14px;
-			white-space: inherit;
+			code {
+				color: oColorsGetPaletteColor('grey-70');
+				font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+				font-size: 14px;
+				white-space: inherit;
+			}
 		}
 	}
 }
 
 @mixin oSyntaxHighlightAll() {
+	@include oSyntaxHighlightBase();
 	@include oSyntaxHighlightCSS();
 	@include oSyntaxHighlightHTML();
 	@include oSyntaxHighlightJS();
