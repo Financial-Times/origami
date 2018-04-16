@@ -378,7 +378,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
     // Validate the requested brand is configured, fallback to the default brand otherwise.
     @if $brand-config == null {
-        @if not $_o-brand-default-not-set-warning {
+        @if not $_o-brand-default-not-set-warning and $o-brand-debug-mode == true {
             $_o-brand-default-not-set-warning: true !global;
             @warn 'The requested brand "#{$brand}" has not been set. Using "#{$_o-brand-default}" brand instead.';
         }
