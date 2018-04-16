@@ -15,13 +15,21 @@
 		margin: 0 oTypographySpacingSize(5);
 	}
 
+	.#{$class}__contact-slack:before {
+		@include oFooterServicesIcons('slack')
+	}
+
 	.#{$class}__source-code {
 		float: right;
 		margin: 0;
+
+		&:before {
+			@include oFooterServicesIcons('github');
+		}
 	}
 }
 
-@mixin oFooterServicesWithLogo($image, $class: 'o-footer-services') {
+@mixin oFooterServicesWithLogo($logo-image, $class: 'o-footer-services') {
 	@include oFooterServicesBase;
 
 	.#{$class}__info {
@@ -35,16 +43,22 @@
 		margin-right: oTypographySpacingSize(6);
 
 		&:before {
+			@include oIconsBaseStyles();
+			background-image: url($logo-image);
 			content: '';
-			display: inline-block;
 			width: 40px;
 			height: 40px;
-			background-repeat: no-repeat;
-			background-position: 50% 50%;
-			background-size: contain;
-			background-image: url($image);
 			vertical-align: middle;
 			margin-right: 10px;
 		}
 	}
+}
+
+@mixin oFooterServicesIcons($icon-name) {
+	@include oIconsBaseStyles();
+	content: '';
+	background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:#{$icon-name}?source=o-footer-services&format=svg');
+	height: 30px;
+	width: 30px;
+	vertical-align: middle;
 }
