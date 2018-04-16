@@ -3,12 +3,7 @@
 		.o-header__subnav {
 			@include oTypographySans(0);
 			background-color: oBrandGet('subnav-background');
-			line-height: inherit;
 			border-bottom: 1px solid oBrandGet('subnav-border');
-
-			@include oGridRespondTo('M') {
-				font-size: 14px;
-			}
 		}
 
 		.o-header__subnav-wrap-outside {
