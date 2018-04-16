@@ -22,4 +22,4 @@ const buildActions = (opts) => {
 	return actions;
 };
 
-module.exports = { buildActions, throwError };
+export { buildActions, throwError };

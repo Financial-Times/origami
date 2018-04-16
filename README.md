@@ -1,7 +1,7 @@
 o-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-message/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-message/tree/master)
 =================
 
-o-message is a messaging component used for alerting and informing. It can include variants on the type of message it delivers, but currently only covers 'alert' type messages.
+o-message is a messaging component used for alerting and informing. It can include variants on the type of message it delivers.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -52,9 +52,6 @@ This is an example of the declarative way of instantiating an error message that
 	</div>
 </div>
 ```
-_Note: these message types are responsive. At different viewport sizes the message element hides the following elements:_
-- `<span class="o-message__content-detail">`
-- `<a class="o-message__actions__secondary">`
 
 The 'alert-inner' message type has almost exactly the same markup, with an optional addition of information, and does not have the option to close the message.
 This message type has been designed to fit within another element on the page. It does not hide elements at any viewport.
@@ -71,6 +68,24 @@ This message type has been designed to fit within another element on the page. I
 
 			<div class="o-message__actions">
 				<a href="#" class="o-message__actions__primary">Button</a>
+				<a href="#" class="o-message__actions__secondary">Text link</a>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+Alternatively you can embolden any text within a paragraph, and use the markup like this:
+```html
+<div class="o-message o-message--alert-inner o-message--success" data-o-component="o-message">
+	<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				The quick brown fox <span class="o-message__content-highlight">definitely</span> jumped over the lazy dogs!</span>
+			</p>
+			<p class="o-message__content-additional">Did you know that that sentence uses all of the letters in the alphabet <span class="o-message__content-highlight">at least</span> once?</p>
+
+			<div class="o-message__actions">
 				<a href="#" class="o-message__actions__secondary">Text link</a>
 			</div>
 		</div>

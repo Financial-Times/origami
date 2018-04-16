@@ -32,8 +32,7 @@
 // Outputs content layout
 @include _oMessageDefinePlaceholder(content-main) {
 	%o-message-alert-notice-content-main {
-		margin-top: (($_o-message-alert-height - $_o-message-line-height) / 2);
-		margin-bottom: (($_o-message-alert-height - $_o-message-line-height) / 2);
+		@include oTypographyMargin($top: 4, $bottom: 4);
 		margin-right: oTypographySpacingSize(6);
 		display: inline-block;
 	}
@@ -60,10 +59,18 @@
 
 // Inner alert message main content style
 // Outputs content layout
-@include _oMessageDefinePlaceholder(inner-inner-content-main) {
+@include _oMessageDefinePlaceholder(inner-alert-content-main) {
 	%o-message-inner-alert-notice-content-main {
 		@include oTypographyMargin($top: 0, $bottom: 3);
 		margin-right: oTypographySpacingSize(6);
 		display: inline-block;
+	}
+};
+
+// highlighted content style
+// Outputs emboldened text
+@include _oMessageDefinePlaceholder(content-highlight) {
+	%o-message-content-highlight {
+		@include oMessageContentHighlight();
 	}
 };

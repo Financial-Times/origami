@@ -21,7 +21,7 @@
 			}
 
 			&-highlight {
-				@include oMessageContentHighlight;
+				@extend %o-message-content-highlight;
 			}
 		}
 

@@ -17,7 +17,7 @@
 		height: 100%;
 
 		.#{$class}__container:before {
-			top: ($_o-message-alert-height - $_o-message-alert-icon-size) / 2;
+			top: $_o-message-text-spacing / 2;
 		}
 
 		.#{$class}__content {
@@ -29,25 +29,13 @@
 			}
 
 			&-highlight {
-				@include oMessageContentHighlight;
-			}
-
-			&-detail {
-				@include oGridRespondTo($until: M) {
-					display: none;
-				};
+				@extend %o-message-content-highlight;
 			}
 		}
 
 		.#{$class}__actions {
-			@include oTypographyPadding($bottom: 1);
+			padding-bottom: $_o-message-text-spacing;
 			display: inline-block;
-
-			@include oGridRespondTo($until: S) {
-				&__secondary {
-					display: none;
-				}
-			}
 		}
 	}
 }
