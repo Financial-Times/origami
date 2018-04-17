@@ -1,0 +1,23 @@
+{
+  "name": "o-syntax-highlight",
+  "version": "1.0.0",
+  "description": "A syntax highlighter for Origami-supported documentation that wraps [PrismJs](https://github.com/PrismJS/prism).",
+  "main": "main.js",
+  "dependencies": {
+    "prismjs": "^1.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/o-syntax-highlight.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/o-syntax-highlight/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/o-syntax-highlight#readme"
+}
