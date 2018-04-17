@@ -1,0 +1,16 @@
+{
+  "name": "o-footer-services",
+  "description": "A footer for non-master brand FT products",
+  "main": [
+    "main.js",
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "^4.2.4",
+    "o-grid": "^4.3.8",
+    "o-typography": "^5.6.0",
+    "o-brand": "^2.0.2",
+    "social-images": "^2.2.1",
+    "o-icons": "^5.6.1"
+  }
+}

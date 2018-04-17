@@ -1,0 +1,17 @@
+@import 'o-brand/main';
+@import 'o-colors/main';
+@import 'o-icons/main';
+@import 'o-grid/main';
+@import 'o-typography/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/main';
+@import 'src/scss/variables';
+
+
+@if $o-footer-services-is-silent == false {
+	@include oFooterServicesBase;
+
+	// Set to silent again to avoid being output twice
+	$o-footer-services-is-silent: true !global;
+}

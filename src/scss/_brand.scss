@@ -1,0 +1,12 @@
+$_o-footer-services-shared-brand-config: (
+	default-background: oColorsGetPaletteColor('slate-white-5'),
+	default-border: oColorsGetPaletteColor('slate-white-15')
+);
+
+@include oBrandDefine('o-footer-services', 'master', (
+	'variables': $_o-footer-services-shared-brand-config
+));
+
+@include oBrandDefine('o-footer-services', 'internal', (
+	'variables': $_o-footer-services-shared-brand-config
+));
