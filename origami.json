@@ -49,6 +49,13 @@
 			"name": "css",
 			"template": "demos/src/css.mustache",
 			"description": "Syntax highlight for CSS"
+		},
+		{
+			"title": "Imperative",
+			"name": "imperative",
+			"js": "demos/src/imperative.js",
+			"template": "demos/src/imperative.mustache",
+			"description": "Imperative highlighting"
 		}
 	]
 }

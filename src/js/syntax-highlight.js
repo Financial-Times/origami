@@ -11,11 +11,14 @@ class SyntaxHighlight {
  */
 	constructor (syntaxEl, options) {
 		this.syntaxEl = syntaxEl
-		this.opts = Object.assign({ language: '' }, options);
+		this.opts = Object.assign({ 
+			language: '',
+			syntaxString: ''
+		}, options);
 
 		if (typeof this.syntaxEl === 'string') {
-			checkPresence(this.language);
-			highlightBlock(this.syntaxEl);
+			this.opts.syntaxString = this.syntaxEl;
+			this._checkPresence();
 		} else {
 			this.fetchCodeBlocks()
 		}
@@ -33,14 +36,14 @@ class SyntaxHighlight {
 			};
 		})
 
-		codeBlocks.forEach(this.highlightBlocks);
+		codeBlocks.forEach(this._highlightBlocks);
 	}
 
 	/**
  * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
  * @param {String} - The <code> that holds the syntax to highlight
  */
-	highlightBlocks (code) {
+	_highlightBlocks (code) {
 		let className = code.className;
 		let language;
 
@@ -50,17 +53,17 @@ class SyntaxHighlight {
 			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"`);
 		}
 
-		let syntax = code.textContent;
-		SyntaxHighlight._checkPresence(language);
+		this.opts.syntaxString = code.textContent;
+		this._checkPresence(language);
 
-		code.innerHTML = SyntaxHighlight._tokenise(syntax, language)
+		code.innerHTML = this.tokenise();
 	}
 
 	/**
 	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
 	 * @param {String} - The language to verify
 	 */
-	static _checkPresence () {
+	_checkPresence () {
 		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
 			loadLanguages([this.opts.language]);
 		}
@@ -68,11 +71,9 @@ class SyntaxHighlight {
 
 	/**
 	 * Tokenise string for highlighting
-	 * @param {String} - The string of code to tokenise
-	 * @param {String} The language to tokenise for
 	 */
-	static _tokenise (code) {
-		return prism.highlight(code, prism.languages[this.opts.language]);
+	tokenise () {
+		return prism.highlight(this.opts.syntaxString, prism.languages[this.opts.language]);
 	}
 
 	/**
