@@ -8,7 +8,8 @@
 
 	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
 	@include oGridRespondTo(L) {
-		flex: 0 1 25%;
+		// 12px = the combined 6px padding either side.
+		flex: 0 1 calc(25% - 12px);
 		min-width: 0;
 	}
 
@@ -35,7 +36,7 @@
 
 	.o-subs-card__copy-pitch {
 		@include oTypographySans(0);
-		@include oTypographyPadding($bottom: 8);
+		@include oTypographyPadding($bottom: 3);
 
 		display: inline-block;
 		text-align: center;
@@ -44,6 +45,10 @@
 	}
 
 	.o-subs-card__charge {
+		@include oTypographyPadding($bottom: 4);
+	}
+
+	.o-subs-card__charge__value {
 		@include oTypographyPadding($bottom: 2);
 	}
 
@@ -135,10 +140,6 @@
 		display: table-cell; //ie 9
 		display: flex; //sass-lint:disable-line no-duplicate-properties
 		flex-direction: column;
-	}
-
-	.o-subs-card__top {
-		flex: 1 0 auto;
 	}
 
 	.o-subs-card__charge {
