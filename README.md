@@ -30,8 +30,8 @@ If your footer has more information, a full footer uses markup like this:
 	<div class="o-footer-services__container">
 		<div class="o-footer-services__info">
 			<span class="o-footer-services__logo">Origami</span>
-			<p class="o-footer-services__contact--email">Help or advice can be found here <a class="link" href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a href='/somewhere'>like this one</a> where you can find help, too.</p>
-			<p class="o-footer-services__contact--slack"><img src='link/to/icon'/><a href="https://slack.com/messages/[id]/">#slack-channel</a></p>
+			<p class="o-footer-services__contact-email">Help or advice can be found here <a class="link" href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a href='/somewhere'>like this one</a> where you can find help, too.</p>
+			<p class="o-footer-services__contact-slack"><img src='link/to/icon'/><a href="https://slack.com/messages/[id]/">#slack-channel</a></p>
 		</div>
 		<div class="o-footer-services__base">
 			<p class="o-footer-services__source-code"><a href="http://github.com/financial-times/o-footer-services">View project on GitHub</a></p>
