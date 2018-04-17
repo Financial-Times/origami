@@ -8,11 +8,15 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 	- [Markup](#markup)
 	- [Sass](#sass)
 		- [Mixins](#mixins)
+			- [Use Case mixins](#use-case-mixinss)
+			- [Type mixins](#type-mixins)
+			- [Font Scale mixin](#font-scale-mixin)
+			- [Baseline grid mixins](#baseline-grid-mixins)
+			- [Custom Link mixin](#custom-link-mixin)
+			- [Heading mixins](#heading-mixins)
 		- [Responsive font scales](#responsive-font-scales)
 		- [Progressive loading web fonts](#progressive-loading-web-fonts)
-		- [Baseline grid mixins](#baseline-grid-mixins)
-		- [Custom Link mixin](#custom-link-mixin)
-		- [Heading mixins](#heading-mixins)
+		- [Line width capping](#line-width-capping)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
@@ -185,6 +189,131 @@ h1 {
 
 As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a second parameter of `$line-height` to override the default value from the font scale.
 
+
+##### Baseline grid mixins
+
+Along with font sizing o-typography provides mixins for working with a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
+
+There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
+
+- `oTypographyMargin($top, $bottom)` - (mixin) output top and bottom margins
+- `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
+- `oTypographySpacingSize($units)` - (function) returns a pixel value
+
+There is also a function that will cap line width based on the scale and the characters per line:
+
+- `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
+
+Usage:
+
+```sass
+h1 {
+	@include oTypographyMargin($top: 3, $bottom: 5);
+	@include oTypographyPadding($top: 0, $bottom: 5);
+	border-bottom: oTypographySpacingSize($units: 2) solid #000;
+}
+```
+
+Output:
+
+```css
+h1 {
+	margin-top: 12px;
+	margin-bottom: 20px;
+	padding-top: 0;
+	padding-bottom: 20px;
+	border-bottom: 8px solid #000;
+}
+```
+
+
+##### Custom link mixin
+
+Links in o-typography have a custom underline which uses borders. As well as the default link mixin (`oTypographyLink`), we expose `oTypographyLinkCustom` which allows you to output link styles with your own colors.
+
+This mixin accepts four arguments, all of which must be valid o-colors palette colors:
+
+- **baseColor**: The base text color of the link. This is mixed with `backgroundColor` to create the underline color.
+- **hoverColor**: The text color of the link when it's hovered or focused.
+- **backgroundColor**: The color of the background the link will sit on. Defaults to `paper`.
+- **outlineColor**: The outline color of the link when it receives focus. Defaults to `teal`.
+
+Example usage:
+
+```scss
+.my-custom-link {
+	@include oTypographyLinkCustom(
+		$baseColor: 'claret',
+		$hoverColor: 'claret-30'
+	);
+}
+
+.dark-background .my-custom-link {
+	@include oTypographyLinkCustom(
+		$baseColor: 'lemon',
+		$hoverColor: 'lemon-30',
+		$backgroundColor: 'slate'
+	);
+}
+```
+
+##### Heading mixins
+
+Headings in o-typography have a specific font-family, and some additional styling depending on the functionality of the heading.
+
+There are two groups of mixins that are available to style headings, one for article headings, and one for headings that support other types of content, which we are calling 'product'.
+
+The following are two examples of many available mixins.
+
+`oTypographyHeadline` will output styles for an article headline.
+
+Usage:
+
+```scss
+.my-article-headline {
+	@include oTypographyHeadline();
+}
+```
+
+Output:
+
+```css
+.my-article-headline {
+	font-family: FinancierDisplayWeb, serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 700;
+	margin-top: 0px;
+	margin-bottom: 28px;
+	color: #33302e;
+}
+```
+
+`oTypographyProductHeadingLevel1` is an example of the product variant for an `h1`.
+
+Usage:
+```scss
+.my-non-article-headline {
+	@include oTypographyProductHeadingLevel1();
+}
+```
+
+Output:
+```css
+.my-non-article-headline {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	color: #33302e;
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+}
+```
+
+There are multiple mixins for article headings and for product headings, examples of which can be found in the [`o-typography` demos](http://registry.origami.ft.com/components/o-typography).
+
+
 #### Responsive font scales
 
 Sometimes there is a need for font sizes to adapt at different breakpoints. To allow for this, wherever there is a `$scale` argument in a mixin, you can provide a map of scales for each breakpoint. Breakpoints defined by the [o-grid](https://github.com/Financial-Times/o-grid) breakpoint sizes.
@@ -311,127 +440,14 @@ h1 {
 
 To enable loading fonts progressively when manually building your project, you will also need to include the o-typography [JavaScript](#javascript) in your project.
 
-#### Baseline grid mixins
+#### Line Width capping
 
-Along with font sizing o-typography provides mixins for working with a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
-
-There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
-
-- `oTypographyMargin($top, $bottom)` - (mixin) output top and bottom margins
-- `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
-- `oTypographySpacingSize($units)` - (function) returns a pixel value
-
-There is also a function that will cap line width based on the scale and the characters per line:
-
-- `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
-
-Usage:
-
-```sass
-h1 {
-	@include oTypographyMargin($top: 3, $bottom: 5);
-	@include oTypographyPadding($top: 0, $bottom: 5);
-	border-bottom: oTypographySpacingSize($units: 2) solid #000;
-}
-```
-
-Output:
-
-```css
-h1 {
-	margin-top: 12px;
-	margin-bottom: 20px;
-	padding-top: 0;
-	padding-bottom: 20px;
-	border-bottom: 8px solid #000;
-}
-```
-
-#### Custom link mixin
-
-Links in o-typography have a custom underline which uses borders. As well as the default link mixin (`oTypographyLink`), we expose `oTypographyLinkCustom` which allows you to output link styles with your own colors.
-
-This mixin accepts four arguments, all of which must be valid o-colors palette colors:
-
-- **baseColor**: The base text color of the link. This is mixed with `backgroundColor` to create the underline color.
-- **hoverColor**: The text color of the link when it's hovered or focused.
-- **backgroundColor**: The color of the background the link will sit on. Defaults to `paper`.
-- **outlineColor**: The outline color of the link when it receives focus. Defaults to `teal`.
-
-Example usage:
+If you need to cap the line width, o-typography provides a function which limits that value based on the size of the font and an optimal amount of characters per line (65~).
 
 ```scss
-.my-custom-link {
-	@include oTypographyLinkCustom(
-		$baseColor: 'claret',
-		$hoverColor: 'claret-30'
-	);
-}
-
-.dark-background .my-custom-link {
-	@include oTypographyLinkCustom(
-		$baseColor: 'lemon',
-		$hoverColor: 'lemon-30',
-		$backgroundColor: 'slate'
-	);
-}
+	max-width: oTypographyMaxLineWidth($scale: 1);
 ```
 
-#### Heading mixins
-
-Headings in o-typography have a specific font-family, and some additional styling depending on the functionality of the heading.
-
-There are two groups of mixins that are available to style headings, one for article headings, and one for headings that support other types of content, which we are calling 'product'.
-
-The following are two examples of many available mixins.
-
-`oTypographyHeadline` will output styles for an article headline.
-
-Usage:
-
-```scss
-.my-article-headline {
-	@include oTypographyHeadline();
-}
-```
-
-Output:
-
-```css
-.my-article-headline {
-	font-family: FinancierDisplayWeb, serif;
-	font-size: 32px;
-	line-height: 32px;
-	font-weight: 700;
-	margin-top: 0px;
-	margin-bottom: 28px;
-	color: #33302e;
-}
-```
-
-`oTypographyProductHeadingLevel1` is an example of the product variant for an `h1`.
-
-Usage:
-```scss
-.my-non-article-headline {
-	@include oTypographyProductHeadingLevel1();
-}
-```
-
-Output:
-```css
-.my-non-article-headline {
-	margin-top: 0px;
-	margin-bottom: 20px;
-	color: #33302e;
-	font-family: MetricWeb, sans-serif;
-	font-size: 32px;
-	line-height: 32px;
-	font-weight: 600;
-}
-```
-
-There are multiple mixins for article headings and for product headings, examples of which can be found in the [`o-typography` demos](http://registry.origami.ft.com/components/o-typography).
 
 ### JavaScript
 
