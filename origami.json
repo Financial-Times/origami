@@ -69,6 +69,12 @@
 			"description": "These are optional section wrappers to highlight multiple instances of o-forms."
 		},
 		{
+			"name": "inline",
+			"title": "Inline",
+			"template": "/demos/src/inline.mustache",
+			"description": "Form elements may also be displayed inline."
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",

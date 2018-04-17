@@ -22,6 +22,8 @@
 	@include oFormsCheckboxToggleFeature($class);
 	// Sections.
 	@include oFormsSectionFeature($class);
+	// Inline Forms.
+	@include oFormsInlineFeature($class);
 	// Small modifer.
 	@include oFormsSmallFeature($class);
 	// Wide modifer.
@@ -135,9 +137,13 @@
 /// @require {mixin} oFormsBaseFeatures - Basic form features must be output for the styled radio buttons to work.
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyledFeature($class: 'o-forms') {
-    .#{$class}__radio-button {
-      @include oFormsRadioButtonsStyled($class);
-    }
+	.#{$class}__radio-button {
+		@include oFormsRadioButtonsStyled($class);
+	}
+	// Errors.
+	.#{$class}--error .#{$class}__radio-button {
+		@include _oFormsRadioButtonsStyledInvalid;
+	}
 }
 
 /// @access public
@@ -150,6 +156,26 @@
 	}
 	.#{$class}__suffix {
 		@include oFormsSuffix;
+	}
+}
+
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @require {mixin} oFormsBaseFeatures - Basic form features must be output for inline modifiers to work.
+/// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
+@mixin oFormsInlineFeature($class: 'o-forms') {
+	.#{$class}--inline {
+		@include oFormsGroupInline;
+	}
+	.#{$class}--inline,
+	.#{$class}__inline-container {
+		@include oFormsGroupInlineContainer;
+	}
+	.#{$class}--inline.#{$class}--radios,
+	.#{$class}--inline.#{$class}--checkboxes,
+	.#{$class}--radios .#{$class}__inline-container,
+	.#{$class}--checkboxes .#{$class}__inline-container {
+		@include oFormsGroupInlineRadioCheckbox;
 	}
 }
 

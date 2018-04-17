@@ -31,6 +31,7 @@ $_o-forms-field-default-font-size: 14px;
 /// @access private
 /// @type String
 $_o-forms-group-spacing: oTypographySpacingSize(5); // 20px
+$_o-forms-inline-group-spacing: oTypographySpacingSize(8); // 32px
 $_o-forms-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(2); // 8px
 $_o-forms-checkbox-horizontal-spacing: 15px;
@@ -42,6 +43,7 @@ $_o-forms-padding: oGridGutter();
 $_o-forms-field-default-height: 40px;  // align it to the big button size
 $_o-forms-field-small-height: 28px; // align it to the regular button size
 $_o-forms-field-max-width: 380px; // This is meant to be 1/3 of the columns in the full grid, should probably be using an o-grid function
+$_o-forms-inline-field-max-width: 470px; // 5/12 full grid width (5 cols)
 
 /// Field and label padding variables.
 /// big button 40px, line height 20px, border 1px

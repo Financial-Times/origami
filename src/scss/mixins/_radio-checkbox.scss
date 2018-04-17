@@ -20,7 +20,7 @@
             background-color: oBrandGet('checkbox-radio-checked-background');
             // sass-lint:disable no-vendor-prefixes
             @media screen and (-ms-high-contrast: active) {
-                    background-color: windowText;
+                background-color: windowText;
             }
             // sass-lint:enable no-vendor-prefixes
             // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
@@ -42,6 +42,9 @@
         & + .#{$class}__label::after {
             @include oIconsGetIcon('tick', oBrandGet('checkbox-radio-checked-icon'), $_o-forms-radiocheckbox-default-size);
             background-color: oBrandGet('checkbox-radio-checked-background');
+        }
+        & + .#{$class}__label::before {
+            background-color: oBrandGet('field-standard-background');
         }
     }
 }
@@ -69,7 +72,6 @@
             border: 1px solid oBrandGet('field-standard-border');
             box-sizing: border-box;
             content: '';
-            background-color: oBrandGet('field-standard-background');
             transition: all 0.1s ease-in;
         }
 
@@ -119,31 +121,55 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles to wrap a group of checkboxes or a group of radios for purposes of positioning etc.
 @mixin oFormsGroupContainer($class: 'o-forms') {
-    margin: 0 0 #{-$_o-forms-spacing};
+    margin-top: $_o-forms-checkbox-legend-spacing;
 
+    // Stacked radios/checkboxes.
+    .o-forms__toggle,
     input + .#{$class}__label {
-        width: 100%; // We do not use display:block to maintain consistent margins (not collapsed).
+        display: block;
         box-sizing: border-box;
-        margin: $_o-forms-checkbox-legend-spacing $_o-forms-checkbox-horizontal-spacing $_o-forms-spacing 0; // margins do not collapse, making the space between checkbox/radio inputs a little larger
+        margin: $_o-forms-group-spacing 0;
+        &:first-of-type {
+            margin-top: 0;
+        }
         &:last-of-type {
-            margin-right: 0;
+            margin-bottom: 0;
         }
     }
 
+
+    // Inline radios/checkboxes.
+    // Half inline margins as inline margins do not collapse.
+    $group-item-vertical-spacing: $_o-forms-group-spacing / 2;
     &--inline {
+        margin: #{-$group-item-vertical-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-vertical-spacing} 0;
+        max-width: 100%;
+        .o-forms__toggle,
         input + .#{$class}__label {
+            display: inline-block;
             width: auto;
+            margin: $group-item-vertical-spacing $_o-forms-checkbox-horizontal-spacing $group-item-vertical-spacing 0;
+            &:first-of-type {
+                margin-top: $group-item-vertical-spacing;
+            }
+            &:last-of-type {
+                margin-bottom: $group-item-vertical-spacing;
+            }
         }
     }
 
+    // Styled radio buttons are grouped inline and close together.
     &--inline-together {
         @supports (display: grid) {
             display: inline-grid;
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
+            overflow: hidden;
+            width: max-content;
+            max-width: 100%;
         }
         input + .#{$class}__label {
-            margin-right: 0;
+            @include _oFormsRadioButtonsStyledMargin();
             width: auto;
             float: left; // Float to support non-grid browsers.
         }
@@ -177,8 +203,10 @@
     position: relative;
     cursor: pointer;
     font-weight: oFontsWeight('normal');
-    padding-top: 2px; // To align the text with the center of the checkbox/radio
     user-select: none;
+    // To align the text with the center of the checkbox/radio
+    padding-top: 2px;
+    min-height: $_o-forms-radiocheckbox-default-size;
 }
 
 /// @access public
@@ -187,21 +215,27 @@
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
     @include oBrandConfigureFor('o-forms') {
         @include oNormaliseVisuallyHidden;
-        $sidePadding: 32px;
+        $side-padding: 20px;
         & + .#{$class}__label {
+            @include _oFormsRadioButtonsStyledMargin();
             color: oBrandGet('radio-buttons-styled-text');
             cursor: pointer;
             font-size: $_o-forms-field-default-font-size;
             font-weight: oFontsWeight('semibold');
-            padding: 5px $sidePadding 7px;
+            padding: 5px $side-padding 7px;
             position: relative;
             text-align: center;
             transition: 0.3s background-color, 0.15s color ease-out;
             display: inline-block;
             border-left: 1px solid oBrandGet('radio-buttons-styled-border');
+            margin-top: 3px;
+            margin-bottom: 3px;
             &:first-of-type {
                 margin-left: 3px;
                 border-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 3px;
             }
             &:before {
                 content: '';
@@ -241,8 +275,35 @@
             // Hack for odd border break with applied opacity.
             &:last-of-type {
                 left: -1px;
-                padding-left: $sidePadding + 1;
+                padding-left: $side-padding + 1;
                 position: relative;
+            }
+        }
+    }
+}
+
+/// Margins for styled button labels.
+/// @access private
+@mixin _oFormsRadioButtonsStyledMargin {
+    margin: 3px 0;
+    &:first-of-type {
+        margin: 3px 0 3px 3px;
+    }
+    &:last-of-type {
+        margin: 3px 3px 3px 0;
+    }
+}
+
+/// @access private
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Error styles for radio buttons.
+@mixin _oFormsRadioButtonsStyledInvalid($class: 'o-forms') {
+    @include oBrandConfigureFor('o-forms') {
+        & + .#{$class}__label {
+            &:first-of-type:before,
+            &:last-of-type:before,
+            &:before {
+                border-color: oBrandGet('field-invalid-border');
             }
         }
     }

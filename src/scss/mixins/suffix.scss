@@ -25,13 +25,13 @@
 /// @see {mixin} oFormsSuffix - Supports the o-form suffix feature.
 /// @output Wrapping styles to support an input suffix. This could be built upon to support a prefix.
 @mixin oFormsAffixWrapper($class: 'o-forms') {
-	@include oTypographyMargin($top: 2);
 	display: table;
 	width: 100%;
 	box-sizing: border-box;
+	margin-top: $_o-forms-spacing;
 	.#{$class}__text,
 	.#{$class}__select,
 	.#{$class}__textarea {
-		@include oTypographyMargin($top: 0);
+		margin-top: 0;
 	}
 }
