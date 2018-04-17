@@ -10,6 +10,13 @@
 			border-bottom: 0;
 		}
 	}
+	
+	.#{$class}--wide {
+		max-width: 100%;
+		margin: 0;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
 
 	.#{$class}__container {
 		margin: 0 oTypographySpacingSize(5);
