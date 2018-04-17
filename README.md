@@ -105,8 +105,8 @@ The markup has been rearranged, and some classes have been removed.
 -				<img class="o-subs-card__copy-image" src='/demos/src/demo-placeholder.png' alt='photo of FT subscription options'>
 				<div class="o-subs-card__charge">
 -					<span class="o-subs-card__charge__value">£XX.XX</span> per week
-					<button class="o-subs-card__select-button">Select</button>
 +					<div class="o-subs-card__charge__value">£XX.XX per week </div>
+					<button class="o-subs-card__select-button">Select</button>
 				</div>
 			</div>
 -			<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
