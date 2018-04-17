@@ -40,6 +40,13 @@ If your footer has more information, a full footer uses markup like this:
 	</div>
 </footer>
 ```
+
+For the widest version of a footer, you can apply the variant `o-footer-services--wide` to the footer element: 
+```html
+<footer class="o-footer-services o-footer-services--wide">
+	<!-- Footer elements -->
+</footer>
+```
 ### Sass
 
 As with all Origami components, o-footer-services has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-footer-services-is-silent: false;` in your Sass before you import the o-footer-services Sass.
