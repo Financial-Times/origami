@@ -165,17 +165,17 @@
 /// @output Styles to support inline forms, with labels/messaging to one side and inputs to the other.
 @mixin oFormsInlineFeature($class: 'o-forms') {
 	.#{$class}--inline {
-		@include oFormsGroupInline;
+		@include oFormsGroupInline($class);
 	}
 	.#{$class}--inline,
 	.#{$class}__inline-container {
-		@include oFormsGroupInlineContainer;
+		@include oFormsGroupInlineContainer($class);
 	}
 	.#{$class}--inline.#{$class}--radios,
 	.#{$class}--inline.#{$class}--checkboxes,
 	.#{$class}--radios .#{$class}__inline-container,
 	.#{$class}--checkboxes .#{$class}__inline-container {
-		@include oFormsGroupInlineRadioCheckbox;
+		@include oFormsGroupInlineRadioCheckbox($class);
 	}
 }
 
