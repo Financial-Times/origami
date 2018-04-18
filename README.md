@@ -88,11 +88,20 @@ You must either construct an `o-syntax-highlight` object or fire the `o.DOMConte
 
 #### Construction
 
+In order to use `o-syntax-highlight` with already declared markup, you can use:
 ```js
 const oSyntaxHighlight = require('o-syntax-highlight');
 oSyntaxHighlight.init();
 ```
 
+If you are initialising the component imperatively, you will need to supply a string of code that you want to highlight, and an options object that defines the language of that code. To tokenise the string you will need be explicit about the element that will hold the highlighted syntax:
+
+```js
+const oSyntaxHighlight = require('o-syntax-highlight');
+const highlighter = new oSyntaxHighlight('code to highlight', { language: 'html'});
+
+myElement.innerHTML = highlighter.tokenise();
+```
 
 ### Sass
 As with all Origami components, o-syntax-highlight has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-syntax-highlight-is-silent: false;` in your Sass before you import the o-syntax-highlight Sass.

@@ -6,7 +6,7 @@ import loadLanguages from 'prism/components/index.js';
 class SyntaxHighlight {
 	/**
  * Class constructor.
- * @param {HTMLElement} [messageElement] - The message element in the DOM
+ * @param {HTMLElement|String} [messageElement] - The message element in the DOM
  * @param {Object} [options={}] - An options object for configuring the message
  */
 	constructor (syntaxEl, options) {
@@ -17,13 +17,20 @@ class SyntaxHighlight {
 	 	}, options);
 
 		if (typeof this.syntaxElement === 'string') {
-			this.opts.syntaxString = this.syntaxElement;
-			this._checkLanguage();
+			this._setLanguage();
 		} else {
 			this._tokeniseCodeBlocks();
 		}
 	}
 
+	_setLanguage () {
+		if (this.opts.language) {
+			this.opts.syntaxString = this.syntaxElement;
+			this._checkLanguage();
+		} else {
+			throwError('A language must be defined in the options object');
+		}
+	}
 	/**
 	* Get language from HTML element
 	* @param {HTMLElement} - The element with a language-relevant class name
@@ -58,7 +65,7 @@ class SyntaxHighlight {
  */
 	_tokeniseCodeBlocks () {
 		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'), pre => {
-			if (pre.firstElementChild.tagName === 'CODE') {
+			if (pre.firstElementChild && pre.firstElementChild.tagName === 'CODE') {
 				return pre.firstElementChild;
 			} else {
 				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);

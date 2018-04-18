@@ -28,5 +28,29 @@ export default {
 			<span class="token punctuation">}</span>
 		</code>
 	</pre>
+	`,
+	classlessJSON: `
+	<div data-o-component="o-syntax-highlight">
+		<pre>
+			<code>
+				"object": {
+					"array": [
+						"string": ""
+					]
+				}
+			</code>
+		</pre>
+	</div>
+	`,
+	unsemanticJSON: `
+	<div data-o-component="o-syntax-highlight">
+		<pre>
+			"object": {
+				"array": [
+					"string": ""
+				]
+			}
+		</pre>
+	</div>
 	`
 };
