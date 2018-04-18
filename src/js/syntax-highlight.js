@@ -10,39 +10,26 @@ class SyntaxHighlight {
  * @param {Object} [options={}] - An options object for configuring the message
  */
 	constructor (syntaxEl, options) {
-		this.syntaxEl = syntaxEl
-		this.opts = Object.assign({ language: '' }, options);
+		this.syntaxElement = syntaxEl
+		this.opts = Object.assign({
+			language: '',
+			syntaxString: ''
+	 	}, options);
 
-		if (typeof this.syntaxEl === 'string') {
-			checkPresence(this.language);
-			highlightBlock(this.syntaxEl);
+		if (typeof this.syntaxElement === 'string') {
+			this.opts.syntaxString = this.syntaxElement
+			this._checkLanguage();
 		} else {
-			this.fetchCodeBlocks()
+			this._tokeniseCodeBlocks()
 		}
 	}
 
 	/**
- * Fetch <code> on the page
- */
-	fetchCodeBlocks () {
-		const codeBlocks = Array.from(this.syntaxEl.querySelectorAll('PRE'), pre => {
-			if (pre.firstElementChild.tagName === 'CODE') {
-				return pre.firstElementChild;
-			} else {
-				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
-			};
-		})
-
-		codeBlocks.forEach(this.highlightBlocks);
-	}
-
-	/**
- * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
- * @param {String} - The <code> that holds the syntax to highlight
- */
-	highlightBlocks (code) {
-		let className = code.className;
-		let language;
+	* Get language from HTML element
+	* @param {HTMLElement} - The element with a language-relevant class name
+	*/
+	_getLanguage (element) {
+		let className = element.className;
 
 		if (className.includes('syntax-')) {
 			this.opts.language = className.replace('syntax-', '');
@@ -50,29 +37,48 @@ class SyntaxHighlight {
 			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"`);
 		}
 
-		let syntax = code.textContent;
-		SyntaxHighlight._checkPresence(language);
-
-		code.innerHTML = SyntaxHighlight._tokenise(syntax, language)
+		this._checkLanguage();
 	}
 
 	/**
-	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
-	 * @param {String} - The language to verify
-	 */
-	static _checkPresence () {
+	* Check if language is present for tokenising, add if not load it here (e.g.scss, json);
+	*/
+	_checkLanguage () {
 		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
 			loadLanguages([this.opts.language]);
 		}
 	}
 
 	/**
+ * Fetch and tokenise every <code> tag's content under the syntaxEl
+ */
+	_tokeniseCodeBlocks () {
+		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'), pre => {
+			if (pre.firstElementChild.tagName === 'CODE') {
+				return pre.firstElementChild;
+			} else {
+				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
+			};
+		})
+
+		codeBlocks.forEach(this._tokeniseBlock.bind(this));
+	}
+
+	/**
+ * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
+ * @param {HTMLElement} - The html element that holds the syntax to highlight
+ */
+	_tokeniseBlock (element) {
+		this._getLanguage(element);
+		this.opts.syntaxString = element.textContent;
+		element.innerHTML = this.tokenise();
+	}
+
+	/**
 	 * Tokenise string for highlighting
-	 * @param {String} - The string of code to tokenise
-	 * @param {String} The language to tokenise for
 	 */
-	static _tokenise (code) {
-		return prism.highlight(code, prism.languages[this.opts.language]);
+	tokenise () {
+		return prism.highlight(this.opts.syntaxString, prism.languages[this.opts.language]);
 	}
 
 	/**

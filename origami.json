@@ -21,6 +21,13 @@
 	},
 	"demos": [
 		{
+			"title": "imperative",
+			"name": "imperative",
+			"template": "demos/src/imperative.mustache",
+			"js": "demos/src/imperative.js",
+			"description": "Syntax highlight for imperative"
+		},
+		{
 			"title": "HTML",
 			"name": "html",
 			"template": "demos/src/html.mustache",
