@@ -5,10 +5,10 @@ import loadLanguages from 'prism/components/index.js';
 
 class SyntaxHighlight {
 	/**
- * Class constructor.
- * @param {HTMLElement|String} [messageElement] - The message element in the DOM
- * @param {Object} [options={}] - An options object for configuring the message
- */
+	 * Class constructor.
+	 * @param {HTMLElement|String} [messageElement] - The message element in the DOM
+	 * @param {Object} [options={}] - An options object for configuring the message
+	 */
 	constructor (syntaxEl, options) {
 		this.syntaxElement = syntaxEl;
 		this.opts = Object.assign({
@@ -23,6 +23,9 @@ class SyntaxHighlight {
 		}
 	}
 
+	/**
+	* Set language for syntax highlighting
+	*/
 	_setLanguage () {
 		if (this.opts.language) {
 			this.opts.syntaxString = this.syntaxElement;
@@ -31,6 +34,7 @@ class SyntaxHighlight {
 			throwError('A language must be defined in the options object');
 		}
 	}
+
 	/**
 	* Get language from HTML element
 	* @param {HTMLElement} - The element with a language-relevant class name
@@ -95,6 +99,7 @@ class SyntaxHighlight {
 	/**
 	 * Initialise syntax highlighting.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
+	 * @param {Object} [options={}] - An options object for configuring the syntax highlighting
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
