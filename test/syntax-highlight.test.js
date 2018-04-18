@@ -39,11 +39,11 @@ describe("Syntax Highlight", () => {
 		});
 
 		it('fetches the language to highlight from the element class', () => {
-			assert.strictEqual(highlight.opts.language, 'json')
+			assert.strictEqual(highlight.opts.language, 'json');
 		});
 
 		it('loads a new lanugage if it isn\'t bundled in prism', () => {
 
-		})
+		});
 	});
 });

@@ -10,17 +10,17 @@ class SyntaxHighlight {
  * @param {Object} [options={}] - An options object for configuring the message
  */
 	constructor (syntaxEl, options) {
-		this.syntaxElement = syntaxEl
+		this.syntaxElement = syntaxEl;
 		this.opts = Object.assign({
 			language: '',
 			syntaxString: ''
 	 	}, options);
 
 		if (typeof this.syntaxElement === 'string') {
-			this.opts.syntaxString = this.syntaxElement
+			this.opts.syntaxString = this.syntaxElement;
 			this._checkLanguage();
 		} else {
-			this._tokeniseCodeBlocks()
+			this._tokeniseCodeBlocks();
 		}
 	}
 
@@ -58,8 +58,8 @@ class SyntaxHighlight {
 				return pre.firstElementChild;
 			} else {
 				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
-			};
-		})
+			}
+		});
 
 		codeBlocks.forEach(this._tokeniseBlock.bind(this));
 	}

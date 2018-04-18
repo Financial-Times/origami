@@ -12,4 +12,4 @@ export default {
 		</pre>
 	</div>
 	`
-}
+};
