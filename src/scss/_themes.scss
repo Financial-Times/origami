@@ -1,7 +1,11 @@
 @mixin oSubsCardB2B {
-	@include oColorsFor('o-subs-card-b2b');
-	background: oColorsGetUseCase(o-subs-card-b2b, background);
-	color: oColorsGetUseCase(o-subs-card-b2b, text);
+	.o-subs-card__top {
+		@include oColorsFor('o-subs-card-b2b');
+	}
+
+	.o-subs-card__copy-benefits {
+		@include oColorsFor('o-subs-card-b2b');
+	}
 
 	.o-subs-card__copy-title:first-child {
 		@include oTypographyMargin($bottom: 1);
