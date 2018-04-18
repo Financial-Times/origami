@@ -8,6 +8,7 @@ class SyntaxHighlight {
 	 * Class constructor.
 	 * @param {HTMLElement|String} [messageElement] - The message element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the message
+	 * @param {String} options.language - The language to tokenise the code for
 	 */
 	constructor (syntaxEl, options) {
 		this.syntaxElement = syntaxEl;
@@ -91,6 +92,7 @@ class SyntaxHighlight {
 
 	/**
 	 * Tokenise string for highlighting
+	 @returns {HTMLElement} tokenised code in the form of HTML elements
 	 */
 	tokenise () {
 		return prism.highlight(this.opts.syntaxString, prism.languages[this.opts.language]);
@@ -100,6 +102,7 @@ class SyntaxHighlight {
 	 * Initialise syntax highlighting.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the syntax highlighting
+	 *
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
