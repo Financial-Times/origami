@@ -5,6 +5,8 @@ import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import fixtures from './helpers/fixtures';
 
+const flatten = string => string.replace(/\s/g, '');
+
 sinon.assert.expose(assert, {
 	includeFail: false,
 	prefix: ''
@@ -27,15 +29,10 @@ describe("Syntax Highlight", () => {
 
 	describe('new syntax highlighter initialised declaratively', () => {
 		beforeEach(() => {
-			testArea.innerHTML = fixtures.html;
-			stubs._checkLanguage = sinon.stub(SyntaxHighlight.prototype, '_checkLanguage');
+			testArea.innerHTML = fixtures.json;
 
-			testArea = document.getElementById('test-area');
 			syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
 			highlight = new SyntaxHighlight(syntaxEl);
-
-
-			SyntaxHighlight.prototype.restore();
 		});
 
 		it('stores `syntaxEl` in a syntaxElement property', () => {
@@ -46,8 +43,13 @@ describe("Syntax Highlight", () => {
 			assert.strictEqual(highlight.opts.language, 'json');
 		});
 
-		it('checks if languages is bundled in prism', () => {
-			assert.calledOnce(stubs._checkLanguage);
+		it('tokenises string within a <code> tag', () => {
+			assert.strictEqual(flatten(syntaxEl.innerHTML), flatten(fixtures.tokenisedJSON));
+		});
+
+		it('throws an error if the language is not supported by prism', () => {
+			let error = "*** o-syntax-highlight error:\nThe language bob is not supported. Please contact Origami if you would like to have it added.\n***"
+			assert.throws(() => { new SyntaxHighlight('new bob language', {language: 'bob'}) }, error);
 		});
 	});
 });

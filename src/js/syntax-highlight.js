@@ -1,7 +1,7 @@
 import throwError from './helpers';
 
-const prism = require('prism/prism.js');
-const loadLanguages = require('prism/components/index.js');
+import prism from 'prism/prism.js';
+import loadLanguages from 'prism/components/index.js';
 
 class SyntaxHighlight {
 	/**
@@ -45,7 +45,11 @@ class SyntaxHighlight {
 	*/
 	_checkLanguage () {
 		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
-			loadLanguages([this.opts.language]);
+			try {
+				loadLanguages([this.opts.language]);
+			} catch (err) {
+				throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`)
+			}
 		}
 	}
 
