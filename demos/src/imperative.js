@@ -1,3 +1,8 @@
 import SyntaxHighlight from '../../main.js';
-let syntax = new SyntaxHighlight('<div>Lols</div>', {language: 'html'});
-document.querySelector('.test').innerHTML = syntax.tokenise();
+
+let highlighter = new SyntaxHighlight(
+	'<div>There is a <p> here</p> and a <a href="#">link</a>here.</div>',
+	{language: 'html'}
+);
+
+document.querySelector('.demo').innerHTML = highlighter.tokenise();

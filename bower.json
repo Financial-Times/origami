@@ -7,7 +7,7 @@
     "main.scss"
   ],
   "dependencies": {
-    "prism": "^1.13.0",
-    "o-colors": "^4.2.4"
+    "o-colors": "^4.2.4",
+    "prism": "^1.14.0"
   }
 }
