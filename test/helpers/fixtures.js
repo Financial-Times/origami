@@ -2,7 +2,7 @@ export default {
 	json: `
 	<div data-o-component="o-syntax-highlight">
 		<pre>
-			<code class='syntax-json'>
+			<code class='o-syntax-highlight--json'>
 				"object": {
 					"array": [
 						"string": ""
@@ -14,7 +14,7 @@ export default {
 	`,
 	tokenisedJSON: `
 	<pre>
-		<code class="syntax-json">
+		<code class="o-syntax-highlight--json">
 			<span class="token property">"object"</span>
 			<span class="token operator">:</span>
 			<span class="token punctuation">{</span>

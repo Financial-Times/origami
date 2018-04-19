@@ -1,5 +1,5 @@
 @mixin oSyntaxHighlightHTML {
-	.syntax-html {
+	.o-syntax-highlight--html {
 		.token {
 			&.attr-name { color: oColorsGetPaletteColor('oxford') }
 			&.attr-value { color: oColorsGetPaletteColor('oxford-jade-60') }

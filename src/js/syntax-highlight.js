@@ -43,10 +43,10 @@ class SyntaxHighlight {
 	_getLanguage (element) {
 		let className = element.className;
 
-		if (className.includes('syntax-')) {
-			this.opts.language = className.replace('syntax-', '');
+		if (className.includes('o-syntax-highlight--')) {
+			this.opts.language = className.replace('o-syntax-highlight--', '');
 		} else {
-			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"`);
+			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"`);
 		}
 
 		this._checkLanguage();

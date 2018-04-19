@@ -1,6 +1,6 @@
 @mixin oSyntaxHighlightSCSS {
-	.syntax-scss,
-	.syntax-sass {
+	.o-syntax-highlight--scss,
+	.o-syntax-highlight--sass {
 		.token {
 			&.boolean,
 			&.null { color: oColorsGetPaletteColor('black-mandarin-35') }

@@ -15,7 +15,7 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 ## Usage
 
 This component provides accessible syntax highlighting for Javascript, JSON, HTML, CSS, Sass and SCSS.
-If there are any languagues you would like to highlight that we don't currently support, please open an issue and we will provide it.
+_If there are any languages you would like to highlight that we don't currently support, please open an issue and we will provide it._
 
 o-syntax-highlight uses the following colours, on a light grey background (#f2f2f2). It is compliant with WCAG AA. In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
 
@@ -41,7 +41,7 @@ Every language has its own set of styles — in order to highlight html for exam
 ```html
 <div class="demo" data-o-component='o-syntax-highlight'>
 	<pre>
-		<code class="syntax-json">
+		<code class="o-syntax-highlight--json">
 <!-- everything in this element will be highlighted, including this comment! -->
 "object": {
 	"string": "string",
@@ -59,10 +59,10 @@ Every language has its own set of styles — in order to highlight html for exam
 ```
 
 The same is true for all other available languages:
-- Javascript: `syntax-js` _or_ `syntax-javascript`
-- HTML: `syntax-html`
-- CSS: `syntax-css`
-- SCSS/SASS: `syntax-scss` _or_ `syntax-sass`
+- Javascript: `o-syntax-highlight--js` _or_ `o-syntax-highlight--javascript`
+- HTML: `o-syntax-highlight--html`
+- CSS: `o-syntax-highlight--css`
+- SCSS/SASS: `o-syntax-highlight--scss` _or_ `o-syntax-highlight--sass`
 
 It is worth pointing out that the wrapper can hold any html elements. So long as all of the code blocks within the wrapper are written as described above, o-syntax-highlight will ignore everything else.
 ```html
@@ -73,7 +73,7 @@ It is worth pointing out that the wrapper can hold any html elements. So long as
 	</div>
 
 	<pre>
-		<code class="syntax-json">
+		<code class="o-syntax-highlight--json">
 <!-- everything in this element will be highlighted, including this comment! --></code>
 	</pre>
 

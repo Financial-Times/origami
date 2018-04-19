@@ -1,6 +1,6 @@
 @mixin oSyntaxHighlightJS () {
-	.syntax-js,
-	.syntax-javascript {
+	.o-syntax-highlight--js,
+	.o-syntax-highlight--javascript {
 		.token {
 			&.comment { color: oColorsGetPaletteColor('grey-55') }
 			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
