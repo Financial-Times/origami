@@ -1,0 +1,43 @@
+<div class="demo" data-o-component='o-syntax-highlight'>
+	<h4>SCSS/SASS</h4>
+	<pre>
+		<code class='o-syntax-highlight--scss'>
+@import: 'file';
+$something: null !global;
+$url: 'www.url.com' !default;
+
+%truth {
+	color: forestgreen !important;
+}
+
+@mixin awesomeStyles ($url) {
+	background: url($url);
+}
+
+@function doSomething() {
+	@warn 'Doing something!';
+	@return lightness(rebeccapurple);
+}
+
+/* multiline comment begins here
+
+and ends here */
+
+.class[data*=data] {
+	@include awesomeStyles($url);
+	@if ($something == true) {
+		@extend %truth;
+	} @else {
+		@error 'That\'s not true'; //debatable
+	}
+
+	&:before {
+		margin: 20px;
+	}
+
+	#id {
+		background: doSomething();
+	}
+}</code>
+	</pre>
+<div>

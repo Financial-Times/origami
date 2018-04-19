@@ -1,0 +1,45 @@
+<div class="demo" data-o-component='o-syntax-highlight'>
+	<h4>CSS</h4>
+	<pre>
+		<code class='o-syntax-highlight--css'>
+@import 'file'; // using a relative path
+
+@font-face {
+	font-family: FontMcFontFace;
+	src: url(fontmcfontface.woff);
+}
+
+@keyframes move {
+	from { top: 0px }
+	to { top: 10px }
+}
+
+:root {
+	--main-background-color: papayawhip;
+}
+
+body {
+	font-family: 'FontMcFontFace', sans-serif;
+}
+
+div[class*=demo-] {
+	background: var(--main-background-color);
+}
+
+/* Lets be clear that this does nothing
+all of this CSS does
+nothing
+*/
+
+#text {
+	@media print {
+		font-size: 10px;
+	}
+
+	@media only screen and (max-width: 500px) {
+		font-size: 14px;
+		background: papayawhip !important;
+	}
+}</code>
+	</pre>
+<div>

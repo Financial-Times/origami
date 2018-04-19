@@ -1,0 +1,62 @@
+{
+	"description": "Component description",
+	"keywords": "syntax, highlight",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-syntax-highlight/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "active",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-syntax-highlight"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"title": "imperative",
+			"name": "imperative",
+			"template": "demos/src/imperative.mustache",
+			"js": "demos/src/imperative.js",
+			"description": "Syntax highlight for imperative",
+			"hidden": true
+		},
+		{
+			"title": "HTML",
+			"name": "html",
+			"template": "demos/src/html.mustache",
+			"description": "Syntax highlight for HTML"
+		},
+		{
+			"title": "JS",
+			"name": "js",
+			"template": "demos/src/js.mustache",
+			"description": "Syntax highlight for JS"
+		},
+		{
+			"title": "JSON",
+			"name": "json",
+			"template": "demos/src/json.mustache",
+			"description": "Syntax highlight for JSON"
+		},
+		{
+			"title": "SCSS",
+			"name": "scss",
+			"template": "demos/src/scss.mustache",
+			"description": "Syntax highlight for SCSS"
+		},
+		{
+			"title": "CSS",
+			"name": "css",
+			"template": "demos/src/css.mustache",
+			"description": "Syntax highlight for CSS"
+		}
+	]
+}

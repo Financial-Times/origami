@@ -1,0 +1,175 @@
+<div class="demo" data-o-component='o-syntax-highlight'>
+	<h4>JAVASCRIPT</h4>
+	<pre>
+		<code class='o-syntax-highlight--js'>
+import defaultExport from "module-name";
+import * as name from "module-name";
+import { prop } from "module-name";
+import { prop as alias } from "module-name";
+import { export1 , export2 } from "module-name";
+import { export3 , export2 as alias4 } from "module-name";
+import defaultExport1, { export5 , export6 as alias2 } from "module-name";
+import defaultExport2, * as name1 from "module-name";
+import "module-name";
+
+try {
+/*
+This
+Is a multiline
+comment!
+//  <= it can contain singline comments!
+*/
+class Thing extends Object {
+  constructor({propertyA: foo} = {}) {
+    super();
+
+    label: for (var i = 0;i<2;i++) {
+      break label;
+      continue;
+    }
+
+    const obj = {foo:"bar"};
+    delete obj.foo;
+    foo in obj
+
+    this instanceof Thing
+
+    do {
+      console.log("Fun")
+    } while(0)
+    	console.log("keywords:", `as; async; await; break; case;
+catch; class; const; continue; debugger;
+default; delete; do; else; enum;
+export; extends; finally; for;
+from; function; get; if; implements;
+import; in; instanceof; interface; let;
+new; null; of; package; private;
+protected; public; return; set; static;
+super; switch; this; throw;
+try; typeof; var; void; while;
+with; yield;`)
+      console.log("operators:", `- -- -=
++ ++ +=
+< <= << <<=
+> >= >> >>= >>> >>>=
+= == === =>
+! != !==
+& && &=
+| || |=
+* ** *= **=
+/ /= ~
+^ ^= % %=
+? ...`);
+    console.log(/regex literal/);
+    console.log("This is"+ "/, not a regex")
+    3 >= 2 || 2 <= 4 && 3 === 3 && 2 == 2
+    var a = 4;
+    a--
+    a -= 2
+    a = a+ 1
+    a++
+    a += 2
+    a< 3
+    a<= 4
+    a<< 2
+    a <<= 3
+    a> 3
+    a>= 3
+    a>> 3
+    a>>= 3
+    a>>> 3
+    a>>>= 3
+    a = !a
+    a!= a
+    a!==a
+    a & 2
+    a && a
+    a &= 2
+    a| 2
+    a || a
+    a|=2
+    a * 2
+    a*= 2
+    a**=2
+    a/ 2
+    a/= 3
+    ~a
+    a=a^2
+    a^= 3
+    a% 3
+    a%=3
+
+    a ? a : a
+
+    42
+    3.14159
+    4e10
+    3.2E+6
+    2.1e-10
+    0b1101
+    0o571
+    0xcafe
+    0xCAFE
+    NaN
+    Infinity
+
+    null
+    void 0
+    undefined
+  }
+
+  add(...args) {
+    if (args.length > 1) {
+      return args.pop() + add(...args);
+    } else {
+      return args[0];
+    }
+  }
+
+  get english_greeting() {
+    return "hi";
+  }
+
+  subtract(...args) {
+    switch (args.length) {
+      case 0:
+        return 0;
+      case 1:
+        return args[0];
+      default:
+        return args.shift - subtract(...args)
+    }
+  }
+
+  pow(a, exponent = 1) {
+    return [a ** exponent];
+  }
+
+  async ಠ_ಠ(){
+    return async function* () {
+      let hello = "hello";
+      var world = 'world';
+      const what = `${hello.toUpperCase()}
+${world.toUpperCase()}?
+`;
+		throw new Error("Please don't call this function");
+      // This may not work
+      return yield await delete typeof void this in new class extends async function () {} {}
+    }
+  }
+}
+
+  Thing.prototype.Ƞȡ_҇ = Thing.prototype.ಠ_ಠ;
+new Thing
+
+const identity = a => a
+
+const i = (a) => {return a}
+
+const fals = function (){return false}
+const tru = () => true
+} catch (e) {
+} finally {
+}</code>
+	</pre>
+<div>

@@ -1,0 +1,14 @@
+@include oColorsSetColor('grey-5', oColorsMix(black, white, 5)); //background
+
+// passes AAA for any size text
+@include oColorsSetColor('grey-70', oColorsMix(black, white, 70));
+
+// Passes AA for any, AAA for 18pt or bold above 14px
+// oColorsGetPaletteColor(oxford); listed here for reference only
+@include oColorsSetColor('claret-lemon-75', oColorsMix(claret, lemon, 75));
+@include oColorsSetColor('velvet-candy-60', oColorsMix(velvet, candy, 60));
+@include oColorsSetColor('oxford-jade-60', oColorsMix(oxford, jade, 60))
+@include oColorsSetColor('oxford-sky-80', oColorsMix(oxford, sky, 80))
+@include oColorsSetColor('black-mandarin-35', oColorsMix(black, mandarin, 35));
+@include oColorsSetColor('black-crimson-25', oColorsMix(black, crimson, 25));
+@include oColorsSetColor('grey-55', oColorsMix(black, white, 55));
