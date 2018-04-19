@@ -231,6 +231,8 @@ h1 {
 
 Links in o-typography have a custom underline which uses borders. As well as the default link mixin (`oTypographyLink`), we expose `oTypographyLinkCustom` which allows you to output link styles with your own colors.
 
+For a link that launches another window / tab, use oTypographyLinkExternal.
+
 This mixin accepts four arguments, all of which must be valid o-colors palette colors:
 
 - **baseColor**: The base text color of the link. This is mixed with `backgroundColor` to create the underline color.

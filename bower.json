@@ -10,6 +10,7 @@
     "o-colors": "^4.1.1",
     "o-fonts": "^3.0.0",
     "o-grid": "^4.3.1",
-    "fontfaceobserver": "^2.0.9"
+    "fontfaceobserver": "^2.0.9",
+    "o-icons": "^5.6.1"
   }
 }

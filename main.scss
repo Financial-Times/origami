@@ -6,6 +6,7 @@
 @import 'o-grid/main';
 @import 'o-fonts/main';
 @import 'o-colors/main';
+@import 'o-icons/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
@@ -115,6 +116,10 @@
 
 	.o-typography-link {
 		@include oTypographyLink;
+	}
+
+	.o-typography-link--external {
+		@include oTypographyLinkExternal;
 	}
 
 	.o-typography-caption {

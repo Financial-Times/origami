@@ -46,6 +46,21 @@
 	);
 }
 
+@mixin oTypographyLinkExternal {
+	@include oTypographyLink;
+	position: relative;
+	white-space: nowrap;
+	&::after {
+		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('teal'), 24);
+		content: '';
+		display: block;
+		position: absolute;
+		right: oTypographySpacingSize(6) * -1;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
 /// Make something italic
 @mixin oTypographyItalic {
 	font-style: italic;
