@@ -48,6 +48,7 @@
 
 @mixin oTypographyLinkExternal {
 	@include oTypographyLink;
+	margin-right: oTypographySpacingSize(6);
 	position: relative;
 	white-space: nowrap;
 	&::after {
