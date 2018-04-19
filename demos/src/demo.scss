@@ -1,8 +1,9 @@
-@import '../../main.scss';
+@import '../../main';
 
 @include oSyntaxHighlightAll();
 
-h2, h4 {
+h2,
+h4 {
 	margin-left: 20px;
 }
 

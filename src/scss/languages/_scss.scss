@@ -3,28 +3,38 @@
 	.o-syntax-highlight--sass {
 		.token {
 			&.boolean,
-			&.null { color: oColorsGetPaletteColor('black-mandarin-35') }
+			&.null {
+				color: oColorsGetPaletteColor('black-mandarin-35');
+			}
 
-			&.comment { color: oColorsGetPaletteColor('grey-55') }
-			&.function { color: oColorsGetPaletteColor('oxford-sky-80') }
-			&.keyword { color: oColorsGetPaletteColor('claret-lemon-75') }
+			&.comment { color: oColorsGetPaletteColor('grey-55'); }
+			&.function { color: oColorsGetPaletteColor('oxford-sky-80'); }
+			&.keyword { color: oColorsGetPaletteColor('claret-lemon-75'); }
 
 			&.important,
 			&.parent.important,
-			&.operator { color:  oColorsGetPaletteColor('black-crimson-25') }
+			&.operator {
+				color:  oColorsGetPaletteColor('black-crimson-25');
+			}
 
-			&.placeholder {  color: oColorsGetPaletteColor('black-lemon-55') }
+			&.placeholder {  color: oColorsGetPaletteColor('black-lemon-55'); }
 
 			&.property,
-			&.punctuation { color: oColorsGetPaletteColor('grey-70') }
+			&.punctuation {
+				color: oColorsGetPaletteColor('grey-70');
+			}
 
 			&.selector,
-			&.url { color: oColorsGetPaletteColor('oxford') }
+			&.url {
+				color: oColorsGetPaletteColor('oxford');
+			}
 
 			&.variable,
-			&.statement.keyword {  color: oColorsGetPaletteColor('velvet-candy-60') }
+			&.statement.keyword {
+				color: oColorsGetPaletteColor('velvet-candy-60');
+			}
 
-			&.string { color: oColorsGetPaletteColor('oxford-jade-60') }
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
 		}
 	}
 }

@@ -14,7 +14,6 @@ sinon.assert.expose(assert, {
 
 describe("Syntax Highlight", () => {
 	let testArea;
-	let stubs = {};
 	let syntaxEl;
 	let highlight;
 
@@ -39,8 +38,8 @@ describe("Syntax Highlight", () => {
 		});
 
 		it('throws an error if the language is not supported by prism', () => {
-			let error = "*** o-syntax-highlight error:\nThe language bob is not supported. Please contact Origami if you would like to have it added.\n***"
-			assert.throws(() => { new SyntaxHighlight('new bob language', {language: 'bob'}) }, error);
+			let error = "*** o-syntax-highlight error:\nThe language bob is not supported. Please contact Origami if you would like to have it added.\n***";
+			assert.throws(() => { new SyntaxHighlight('new bob language', {language: 'bob'}); }, error);
 		});
 
 		describe('with an HTML element', () => {
@@ -49,11 +48,11 @@ describe("Syntax Highlight", () => {
 			});
 
 			it('throws an error if the <code> tag does not have a class', () => {
-				let error = `*** o-syntax-highlight error:\nIn order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="syntax-html" or class="syntax-js"\n***`;
+				let error = `*** o-syntax-highlight error:\nIn order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"\n***`;
 				testArea.innerHTML = fixtures.classlessJSON;
 				syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
 
-				assert.throws(() => { new SyntaxHighlight(syntaxEl) }, error);
+				assert.throws(() => { new SyntaxHighlight(syntaxEl); }, error);
 			});
 
 			it('tokenises string within a <code> tag', () => {
@@ -65,19 +64,19 @@ describe("Syntax Highlight", () => {
 				testArea.innerHTML = fixtures.unsemanticJSON;
 				syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
 
-				assert.throws(() => { new SyntaxHighlight(syntaxEl) }, error);
+				assert.throws(() => { new SyntaxHighlight(syntaxEl); }, error);
 			});
 		});
 
 		describe('with a string', () => {
 			it('fetches the language to highlight from the options object', () => {
-				highlight = new SyntaxHighlight('<div>HTML</div>', { language: 'html'})
+				highlight = new SyntaxHighlight('<div>HTML</div>', { language: 'html'});
 				assert.strictEqual(highlight.opts.language, 'html');
 			});
 
 			it('throws an error if a language is not provided in the options', () => {
 				let error = "*** o-syntax-highlight error:\nA language must be defined in the options object\n***";
-				assert.throws(() => { new SyntaxHighlight('a string of code') }, error);
+				assert.throws(() => { new SyntaxHighlight('a string of code'); }, error);
 			});
 		});
 	});

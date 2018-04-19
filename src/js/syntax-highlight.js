@@ -60,7 +60,7 @@ class SyntaxHighlight {
 			try {
 				loadLanguages([this.opts.language]);
 			} catch (err) {
-				throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`)
+				throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
 			}
 		}
 	}
@@ -69,6 +69,7 @@ class SyntaxHighlight {
  * Fetch and tokenise every <code> tag's content under the syntaxEl
  */
 	_tokeniseCodeBlocks () {
+		/* eslint-disable array-callback-return */
 		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'), pre => {
 			if (pre.firstElementChild && pre.firstElementChild.tagName === 'CODE') {
 				return pre.firstElementChild;
@@ -76,7 +77,7 @@ class SyntaxHighlight {
 				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
 			}
 		});
-
+		/* eslint-enable array-callback-return */
 		codeBlocks.forEach(this._tokeniseBlock.bind(this));
 	}
 
