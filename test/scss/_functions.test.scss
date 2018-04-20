@@ -82,7 +82,7 @@
 
 			@include it('and assigns a fallback in case of non existent use case') {
 				@include assert-equal(
-				oColorsGetColorFor(test-link, text, $options: ('default': 'teal-20')),
+				oColorsGetColorFor(test-link, text, $options: ('default': oColorsGetPaletteColor('teal-20'))),
 				(oColorsGetPaletteColor('teal-20')));
 			};
 		};

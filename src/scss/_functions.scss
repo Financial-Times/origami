@@ -87,7 +87,7 @@
 ///
 /// @param {list} $namelist
 /// @param {String} $property [all]
-/// @param {map} $options [('default': false)] - default: fallback value (false, null, or one of $o-colors-palette)
+/// @param {map} $options [('default': false)] - default: fallback value (false, null, or oColorsGetPaletteColor($palette-color));
 @function oColorsGetColorFor($namelist, $property: all, $options: ('default': false)) {
 	$default: map-get($options, 'default');
 	$color: null;
@@ -100,7 +100,7 @@
 
 	@if ($color == null) {
 		@if ($default or $default == null) {
-			@return oColorsGetPaletteColor($default);
+			@return $default;
 		} @else {
 			$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
 
