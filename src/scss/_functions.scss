@@ -17,7 +17,7 @@
 
 		@return map-get($o-colors-palette, $name);
 	} @else {
-		@warn "Color name '#{inspect($name)}' is not defined in the palette";
+		@warn "Color name '#{inspect($name)}' is not defined in the palette.";
 		@return null;
 	}
 }
@@ -100,7 +100,7 @@
 
 	@if ($color == null) {
 		@if ($default or $default == null) {
-			@return $default;
+			@return oColorsGetPaletteColor($default);
 		} @else {
 			$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
 
@@ -128,7 +128,7 @@
 
 	@if not (map-has-key($o-colors-tints, $color)) {
 		$color-tints: map-keys($o-colors-tints);
-		@error "It is not possible to use a tint of: #{$color}, please use one of: #{$color-tints} instead.";
+		@return _error("It is not possible to use a tint of: #{$color}, please use one of: #{$color-tints} instead.");
 	}
 
 	@if (map-has-key(map-get($o-colors-tints, $color), 'hue')) {
@@ -155,7 +155,7 @@
 	$testContrast: oColorsCheckContrast($textColor, $background, false);
 
 	@if not $testContrast {
-		@error "The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.";
+		@return _error "The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.";
 	} @else if $testContrast == 'large' {
 		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
 	}

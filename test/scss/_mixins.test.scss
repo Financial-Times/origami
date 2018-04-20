@@ -1,0 +1,36 @@
+@include describe('oColors mixins') {
+	@include describe('oColorsSetColor') {
+		@include it('adds a custom palette color') {
+			@include oColorsSetColor('olive', #808000);
+			@include assert-equal(oColorsGetPaletteColor('olive'), (#808000))
+		};
+	};
+
+	@include describe('oColorSetUseCase') {
+		@include it('add a custom use case property') {
+			@include oColorsSetUseCase(test-case, text, 'candy');
+			@include assert-equal(oColorsGetUseCase(test-case, text), ('candy'));
+		};
+	};
+
+	@include describe('oColorsFor') {
+		@include test('outputs property declarations for all defined properties for a use case') {
+			@include oColorsSetUseCase(test-color, text, 'jade');
+			@include oColorsSetUseCase(test-color, background, 'wheat');
+			@include assert() {
+				@include output($selector: false) {
+					.test-colors {
+						@include oColorsFor(test-color);
+					}
+				};
+
+				@include expect($selector: false) {
+					.test-colors {
+						background-color: #f2dfce;
+						color: #00b359;
+					}
+				};
+			};
+		};
+	};
+};

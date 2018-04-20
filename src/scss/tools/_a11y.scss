@@ -48,7 +48,7 @@
 	}
 
 	@if $warnings {
-		@error "This combination of #{$col1} with #{$col2} does not pass WCAG color contrast guidelines.";
+		@return _error("This combination of #{$col1} with #{$col2} does not pass WCAG color contrast guidelines.");
 	}
 
 	@return false;

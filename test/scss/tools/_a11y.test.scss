@@ -1,0 +1,20 @@
+@include describe('a11y functions') {
+	@include describe('oColorsGetWCAGRating') {
+		@include test('checks contrast ratio and returns rating') {
+			@include assert-equal(oColorsGetWCAGRating(#000000, #ffffff), ('AAA')); // black, white
+			@include assert-equal(oColorsGetWCAGRating(#f2dfce, #cc0000), ('AA')); // wheat, crimson
+			@include assert-equal(oColorsGetWCAGRating(#ff7faa, #990f3d), ('AA18')); // candy, claret
+			@include assert-equal(oColorsGetWCAGRating(#fff1e5, #ffffff), ('fail')); //paper, white
+		};
+	};
+
+	@include describe('oColorsCheckContrast') {
+		@include test('checks contrast of two colors and reports') {
+			@include assert-equal(oColorsCheckContrast(#000000, #ffffff), ('pass'));
+			@include assert-equal(oColorsCheckContrast(#f2dfce, #cc0000), ('pass')); // wheat, crimson
+			@include assert-equal(oColorsCheckContrast(#ff7faa, #990f3d), ('large')); // candy, claret
+			@include assert-equal(oColorsCheckContrast(#fff1e5, #ffffff),  // candy, claret
+			('ERROR: This combination of #fff1e5 with #ffffff does not pass WCAG color contrast guidelines.'));
+		};
+	};
+};

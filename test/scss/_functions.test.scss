@@ -1,0 +1,107 @@
+@include describe('oColors functions') {
+	@include describe('oColorsGetPaletteColor') {
+		@include it('returns CSS color for palette color name') {
+			@include assert-equal(oColorsGetPaletteColor('transparent'), (transparent));
+			@include assert-equal(oColorsGetPaletteColor('inherit'), (inherit));
+			@include assert-equal(oColorsGetPaletteColor('paper'), (#fff1e5));
+			@include assert-equal(oColorsGetPaletteColor('black'), (#000000));
+			@include assert-equal(oColorsGetPaletteColor('white'), (#ffffff));
+			@include assert-equal(oColorsGetPaletteColor('claret'), (#990f3d));
+			@include assert-equal(oColorsGetPaletteColor('oxford'), (#0f5499));
+			@include assert-equal(oColorsGetPaletteColor('teal'), (#0d7680));
+			@include assert-equal(oColorsGetPaletteColor('wheat'), (#f2dfce));
+			@include assert-equal(oColorsGetPaletteColor('sky'), (#cce6ff));
+			@include assert-equal(oColorsGetPaletteColor('velvet'), (#593380));
+			@include assert-equal(oColorsGetPaletteColor('mandarin'), (#ff8833));
+			@include assert-equal(oColorsGetPaletteColor('lemon'), (#ffec1a));
+			@include assert-equal(oColorsGetPaletteColor('candy'), (#ff7faa));
+			@include assert-equal(oColorsGetPaletteColor('wasabi'), (#96cc28));
+			@include assert-equal(oColorsGetPaletteColor('jade'), (#00b359));
+			@include assert-equal(oColorsGetPaletteColor('crimson'), (#cc0000));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c'), (#4e96eb));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-dark'), (#3a70af));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-light'), (#99c6fb));
+		};
+	};
+
+	@include describe('oColorsMix') {
+		@include it('returns a color based on background and base color') {
+			@include assert-equal(oColorsMix(), (#33302e));
+			@include assert-equal(oColorsMix($color: 'candy'), (#ff96b6));
+			@include assert-equal(oColorsMix('candy'), (#ff96b6));
+			@include assert-equal(oColorsMix($background: 'lemon'), (#332f05));
+			@include assert-equal(oColorsMix($percentage: 20), (#ccc1b7));
+			@include assert-equal(oColorsMix($color: 'claret', $background: 'wheat', $percentage: 50), (#c67786));
+			@include assert-equal(oColorsMix('claret', 'wheat', 50), (#c67786));
+		};
+	};
+
+	@include describe('oColorsGetUseCase') {
+		@include it('returns the palette color name for a use case') {
+			@include assert-equal(oColorsGetUseCase(page, background), ('paper'));
+			@include assert-equal(oColorsGetUseCase(box, background), ('wheat'));
+			@include assert-equal(oColorsGetUseCase(link, text), ('teal'));
+			@include assert-equal(oColorsGetUseCase(link-hover, text), ('black-70'));
+			@include assert-equal(oColorsGetUseCase(link-title, text), ('black-80'));
+			@include assert-equal(oColorsGetUseCase(link-title-hover, text), ('black-70'));
+			@include assert-equal(oColorsGetUseCase(tag-link, text), ('claret'));
+			@include assert-equal(oColorsGetUseCase(tag-link-hover, text), ('claret-30'));
+			@include assert-equal(oColorsGetUseCase(opinion-tag-link, text), ('oxford'));
+			@include assert-equal(oColorsGetUseCase(opinion-tag-link-hover, text), ('oxford-30'));
+			@include assert-equal(oColorsGetUseCase(title, text), ('black'));
+			@include assert-equal(oColorsGetUseCase(body, text), ('black-80'));
+			@include assert-equal(oColorsGetUseCase(muted, text), ('black-20'));
+			@include assert-equal(oColorsGetUseCase(opinion, background), ('sky'));
+			@include assert-equal(oColorsGetUseCase(hero, background), ('wheat'));
+			@include assert-equal(oColorsGetUseCase(hero-opinion, background), ('oxford'));
+			@include assert-equal(oColorsGetUseCase(hero-highlight, background), ('claret'));
+			@include assert-equal(oColorsGetUseCase(section-life-arts, all), ('velvet'));
+			@include assert-equal(oColorsGetUseCase(section-life-arts-alt, all), ('candy'));
+			@include assert-equal(oColorsGetUseCase(section-magazine, all), ('oxford'));
+			@include assert-equal(oColorsGetUseCase(section-magazine-alt, all), ('sky'));
+			@include assert-equal(oColorsGetUseCase(section-house-home, all), ('jade'));
+			@include assert-equal(oColorsGetUseCase(section-house-home-alt, all), ('wasabi'));
+			@include assert-equal(oColorsGetUseCase(section-money, all), ('crimson'));
+			@include assert-equal(oColorsGetUseCase(section-money-alt, all), ('white'));
+		};
+	};
+
+	@include describe('oColorsGetColorFor') {
+		@include describe('returns the CSS color for the first defined use case in a prioritised list') {
+			@include it('for a single use case') {
+				@include assert-equal(oColorsGetColorFor(page, background), (#fff1e5));
+			};
+
+			@include it('for a use case with one or multiple fallbacks') {
+				@include assert-equal(oColorsGetColorFor(test-page page, background), (#fff1e5));
+			};
+
+			@include it('for a use case with no specific property (e.g. all)') {
+				@include assert-equal(oColorsGetColorFor(section-life-arts), (#593380));
+			};
+
+			@include it('and assigns a fallback in case of non existent use case') {
+				@include assert-equal(
+				oColorsGetColorFor(test-link, text, $options: ('default': 'teal-20')),
+				(oColorsGetPaletteColor('teal-20')));
+			};
+		};
+	};
+
+	@include describe('oColorsGetTint') {
+		@include it('returns a customised version of palette colors that accept shading') {
+			@include assert-equal(oColorsGetTint('black', 10), (#e6d9ce));
+		};
+
+		@include it('returns an error if palette color doesn\'t accept shading') {
+			@include assert-equal(oColorsGetTint('paper', 10),
+			('ERROR: It is not possible to use a tint of: paper, please use one of: black, white, claret, oxford, teal, wheat, sky, slate, velvet, mandarin, lemon, candy, wasabi, jade, crimson instead.'));
+		};
+	};
+
+	@include describe('oColorsGetTextColor') {
+		@include it('returns a text color based on background and opacity percentage') {
+			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('paper')), (#1a1817));
+		};
+	};
+};

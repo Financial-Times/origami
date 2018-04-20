@@ -14,7 +14,7 @@
 	$newcolor: ($name: $color);
 
 	$o-colors-palette: map-merge($o-colors-palette, $newcolor) !global;
-}
+};
 
 /// Add a custom use case property
 ///

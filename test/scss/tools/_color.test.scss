@@ -1,0 +1,30 @@
+@include describe('color functions') {
+	@include describe('oColorsColorBrightness') {
+		@include test('returns the % of brightness in a color') {
+			@include assert-equal(round(oColorsColorBrightness(#ffffff)), (100%));
+			@include assert-equal(round(oColorsColorBrightness(#000000)), (0%));
+			@include assert-equal(round(oColorsColorBrightness(#fff1e5)), (96%));
+		};
+	};
+
+	@include describe('oColorsColorLuminance')  {
+		@include test('returns luminance of a color as float') {
+			@include assert-equal(oColorsColorLuminance(#ffffff), (1));
+			@include assert-equal(oColorsColorLuminance(#000000), (0));
+		};
+	};
+
+	@include describe('oColorsGetContrastRatio') {
+		@include test('calculate the contrast ratio between two colors') {
+			@include assert-equal(oColorsGetContrastRatio(#ffffff, #fff1e5), (1.1));
+			@include assert-equal(oColorsGetContrastRatio(#000000, #fff1e5), (18.5));
+		};
+	};
+
+	@include describe('oColorsGetContrastRatio') {
+		@include test('calculate the contrast ratio between two colors') {
+			@include assert-equal(oColorsGetContrastRatio(#ffffff, #fff1e5), (1.1));
+			@include assert-equal(oColorsGetContrastRatio(#000000, #fff1e5), (18.5));
+		};
+	};
+};
