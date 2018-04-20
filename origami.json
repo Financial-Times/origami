@@ -6,7 +6,7 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-subs-card/issues",
 	"supportContact": {
-		"email": "next.conversion@ft.com",
+		"email": "conversion.tech@ft.com",
 		"slack": "financialtimes/next-conversion-dev"
 	},
 	"supportStatus": "active",
