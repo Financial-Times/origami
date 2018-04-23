@@ -18,6 +18,7 @@
 	},
 	"demos": [
 		{
+			"title": "Metric",
 			"name": "metricweb",
 			"data": {
 				"font": "metricweb"
@@ -26,6 +27,7 @@
 			"display_html": false
 		},
 		{
+			"title": "Financier Display",
 			"name": "financierdisplayweb",
 			"data": {
 				"font": "financierdisplayweb"
