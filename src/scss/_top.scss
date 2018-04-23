@@ -65,7 +65,7 @@
 			text-overflow: ellipsis;
 			color: oBrandGet('product-title');
 			margin: 0;
-			-webkit-font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 			display: inline;
 
 			@include oGridRespondTo($until: M) {
@@ -82,7 +82,7 @@
 			@include oTypographySans($scale: 3);
 			text-transform: uppercase;
 			margin-left: $_o-header-services-padding-x;
-			-webkit-font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 
 			// Default behaviour for when there's not enough space because we don't know the
 			// width of the tagline
@@ -98,7 +98,7 @@
 		.#{$class}__related-content {
 			float: right;
 			padding: 16px $_o-header-services-padding-x;
-			-webkit-font-smoothing: antialiased;
+			-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 
 			@include oGridRespondTo($until: M) {
 				display: none;
