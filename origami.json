@@ -17,6 +17,7 @@
   },
   "demos": [
     {
+      "title": "Toggles",
       "name": "toggles",
       "template": "demos/src/demo.mustache",
       "sass": "demos/src/demo.scss",
