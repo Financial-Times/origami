@@ -19,7 +19,6 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
 function declarativeCode () {
 	const html = `
 		<div class='tooltip-target' id="demo-tooltip-target">
@@ -69,6 +68,19 @@ function declarativeCode () {
 		<div id="tooltip-demo-5"
 			data-o-component="o-tooltip"
 			data-o-tooltip-target="demo-tooltip-target-5"
+			data-o-tooltip-show-on-hover="true">
+				Tooltip content
+		</div>
+
+
+		<div class='tooltip-target' id="demo-tooltip-target-below">
+				Thing to point the tooltip at.
+		</div>
+
+		<div id="tooltip-demo-below"
+			data-o-tooltip-position="below"
+			data-o-component="o-tooltip"
+			data-o-tooltip-target="demo-tooltip-target-below"
 			data-o-tooltip-show-on-hover="true">
 				Tooltip content
 		</div>

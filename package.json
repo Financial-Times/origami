@@ -1,6 +1,6 @@
 {
-  "private": true,
-  "devDependencies": {
-    "mock-raf": "^1.0.0"
-  }
+    "private": true,
+    "devDependencies": {
+        "mock-raf": "^1.0.0"
+    }
 }
