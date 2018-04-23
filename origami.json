@@ -19,12 +19,14 @@
 	},
 	"demos": [
 		{
+			"title": "Shadows",
 			"name": "shadows",
 			"template": "demos/src/shadows.mustache",
 			"hidden": false,
 			"description": ""
 		},
 		{
+			"title": "Transitions",
 			"name": "transitions",
 			"template": "demos/src/transitions.mustache",
 			"hidden": false,
