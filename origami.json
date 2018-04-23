@@ -18,6 +18,7 @@
 	},
 	"demos": [
 		{
+			"title": "Simple",
 			"name": "simple",
 			"template": "demos/src/simple.mustache"
 		}
