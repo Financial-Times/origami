@@ -128,7 +128,7 @@
     input + .#{$class}__label {
         display: block;
         box-sizing: border-box;
-        margin: $_o-forms-group-spacing 0;
+        margin: $_o-forms-checkbox-vertical-spacing 0;
         &:first-of-type {
             margin-top: 0;
         }
@@ -140,7 +140,7 @@
 
     // Inline radios/checkboxes.
     // Half inline margins as inline margins do not collapse.
-    $group-item-vertical-spacing: $_o-forms-group-spacing / 2;
+    $group-item-vertical-spacing: $_o-forms-checkbox-vertical-spacing / 2;
     &--inline {
         margin: #{-$group-item-vertical-spacing + $_o-forms-checkbox-legend-spacing} #{-$_o-forms-checkbox-horizontal-spacing} #{-$group-item-vertical-spacing} 0;
         max-width: 100%;

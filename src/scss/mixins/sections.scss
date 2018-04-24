@@ -11,7 +11,7 @@
 		$message-selector: #{&}__message;
 		max-width: $_o-forms-field-max-width;
 		padding: $_o-forms-padding 0;
-		margin: 0 0 $_o-forms-group-spacing;
+		margin: 0 0 $_o-forms-section-spacing;
 		box-sizing: border-box;
 
 		@include oGridRespondTo(S) {

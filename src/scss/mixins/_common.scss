@@ -7,7 +7,7 @@
 @mixin oFormsGroup {
 	position: relative;
 	max-width: $_o-forms-field-max-width;
-	margin: 0 0 $_o-forms-group-spacing; // Reset top and side margins for fieldset usage
+	margin: 0 0 $_o-forms-section-spacing; // Reset top and side margins for fieldset usage
 	// reset <fieldset> defaults
 	padding: 0;
 	border: 0;
@@ -28,14 +28,14 @@
 	@include oGridRespondTo(S) {
 		@supports (display: grid) {
 			max-width: $_o-forms-inline-field-max-width;
-			margin: 0 0 $_o-forms-inline-group-spacing;
+			margin: 0 0 $_o-forms-inline-section-spacing;
 		}
 		// IE10-11 (no @supports but its own grid
 		// sass-lint:disable no-vendor-prefixes
 		&,
 		_:-ms-lang(x) {
 			max-width: $_o-forms-inline-field-max-width;
-			margin: 0 0 $_o-forms-inline-group-spacing;
+			margin: 0 0 $_o-forms-inline-section-spacing;
 		}
 		// sass-lint:enable no-vendor-prefixes
 	}
