@@ -1,8 +1,13 @@
 {
   "name": "o-colors",
-  "main": ["main.scss"],
+  "main": [
+    "main.scss"
+  ],
   "ignore": [
     "test",
     ".travis.yml"
-  ]
+  ],
+  "dependencies": {
+    "mathsass": "^0.10.1"
+  }
 }

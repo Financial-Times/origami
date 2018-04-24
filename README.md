@@ -208,7 +208,7 @@ opinion |               background
 hero |                  background
 hero-opinion |          background
 hero-highlight |        background
-**Section colors** | 
+**Section colors** |
 section-life-arts |     all
 section-life-arts-alt | all
 section-magazine |      all

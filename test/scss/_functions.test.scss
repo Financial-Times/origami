@@ -16,7 +16,7 @@
 			@include assert-equal(oColorsGetPaletteColor('lemon'), (#ffec1a));
 			@include assert-equal(oColorsGetPaletteColor('candy'), (#ff7faa));
 			@include assert-equal(oColorsGetPaletteColor('wasabi'), (#96cc28));
-			@include assert-equal(oColorsGetPaletteColor('jade'), (#00b359));
+			@include assert-equal(oColorsGetPaletteColor('jade'), (#00994d));
 			@include assert-equal(oColorsGetPaletteColor('crimson'), (#cc0000));
 			@include assert-equal(oColorsGetPaletteColor('org-b2c'), (#4e96eb));
 			@include assert-equal(oColorsGetPaletteColor('org-b2c-dark'), (#3a70af));

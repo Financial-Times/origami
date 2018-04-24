@@ -1,0 +1,95 @@
+@include describe('verify accesibility of core palette colours') {
+	@include describe('PASS') {
+		@include test('$color on #ffffff (white)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('black'), #ffffff), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('claret'), #ffffff), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('oxford'), #ffffff), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('teal'), #ffffff), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('slate'), #ffffff), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('velvet'), #ffffff), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('jade'), #ffffff), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('crimson'), #ffffff), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c'), #ffffff), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-dark'), #ffffff), ('AA'));
+		};
+
+		@include test('$color on #fff1e5 (paper)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('black'), #fff1e5), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('claret'), #fff1e5), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('oxford'), #fff1e5), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('teal'), #fff1e5), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('slate'), #fff1e5), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('velvet'), #fff1e5), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('jade'), #fff1e5), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('crimson'), #fff1e5), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c'), #ffffff), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-dark'), #ffffff), ('AA'));
+		};
+
+		@include test('$color on #000000 (black)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-light'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('paper'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wheat'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('sky'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('mandarin'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('lemon'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('candy'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wasabi'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('white'), #000000), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('teal'), #000000), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('crimson'), #000000), ('AA18'));
+		};
+
+		@include test('$color on #262a33 (slate)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-light'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('paper'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wheat'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('sky'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('mandarin'), #262a33), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('lemon'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('candy'), #262a33), ('AA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wasabi'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('white'), #262a33), ('AAA'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('teal'), #000000), ('AA18'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('crimson'), #000000), ('AA18'));
+		};
+	};
+
+	@include describe('FAIL') {
+		@include test('$color on #ffffff (white)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wheat'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('sky'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('mandarin'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('lemon'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('candy'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wasabi'), #ffffff), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-light'), #ffffff), ('fail'));
+		};
+
+		@include test('$color on #fff1e5 (paper)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wheat'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('sky'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('mandarin'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('lemon'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('candy'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('wasabi'), #fff1e5), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('org-b2c-light'), #fff1e5), ('fail'));
+		};
+
+		@include test('$color on #000000 (black)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('slate'), #000000), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('claret'), #000000), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('oxford'), #000000), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('velvet'), #000000), ('fail'));
+		};
+
+		@include test('$color on #262a33 (slate)') {
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('black'), #262a33), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('claret'), #262a33), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('oxford'), #262a33), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('velvet'), #262a33), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('teal'), #262a33), ('fail'));
+			@include assert-equal(oColorsGetWCAGRating(oColorsGetPaletteColor('crimson'), #262a33), ('fail'));
+		};
+	}
+}

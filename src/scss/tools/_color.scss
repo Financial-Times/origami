@@ -84,7 +84,12 @@
 		$ratio: 1 / $ratio;
 	}
 
-	$ratio: (round($ratio*10)/10);
+	$ratio: preciseFloor($ratio);
 
 	@return $ratio;
+}
+
+@function preciseFloor($number, $decimals: 2) {
+	$multiplier: pow(10, $decimals);
+	@return floor($number * $multiplier) / $multiplier;
 }

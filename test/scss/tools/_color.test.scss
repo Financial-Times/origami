@@ -17,14 +17,7 @@
 	@include describe('oColorsGetContrastRatio') {
 		@include test('calculate the contrast ratio between two colors') {
 			@include assert-equal(oColorsGetContrastRatio(#ffffff, #fff1e5), (1.1));
-			@include assert-equal(oColorsGetContrastRatio(#000000, #fff1e5), (18.5));
-		};
-	};
-
-	@include describe('oColorsGetContrastRatio') {
-		@include test('calculate the contrast ratio between two colors') {
-			@include assert-equal(oColorsGetContrastRatio(#ffffff, #fff1e5), (1.1));
-			@include assert-equal(oColorsGetContrastRatio(#000000, #fff1e5), (18.5));
+			@include assert-equal(oColorsGetContrastRatio(#000000, #fff1e5), (18.96));
 		};
 	};
 };
