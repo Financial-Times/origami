@@ -53,8 +53,8 @@ This is an example of the declarative way of instantiating an error message that
 </div>
 ```
 
-The 'alert-inner' message type has almost exactly the same markup, with an optional addition of information, and does not have the option to close the message.
-This message type has been designed to fit within another element on the page. It does not hide elements at any viewport.
+The 'alert-inner' message type has almost exactly the same markup, with an optional addition of information.
+This message type has been designed to fit within another element on the page.
 
 ```html
 <div class="o-message o-message--alert-inner o-message--success" data-o-component="o-message">
@@ -94,7 +94,7 @@ Alternatively you can embolden any text within a paragraph, and use the markup l
 ```
 
 Notice message types are styled similarly to the alert type messages (both for a fit under a header, or inside another element).
-The differences are that they do not have an icon, they don't require highlighted content, and don't support additional content.
+The differences are that they do not have an icon and don't support additional content.
 
 ```html
 <div class="o-message o-message--notice-inner o-message--success" data-o-component="o-message">
@@ -140,7 +140,7 @@ const importantMessage = new oMessage(messageElement));
 ```
 The second argument that `oMessage` accepts is an [options object](#options), which can be used to change a message's style and functionality.
 
-If you're setting up a message without existing DOM elements, `oMessage` will construct an element for you when it is set up like this:
+If you're setting up a message without existing DOM elements, `oMessage` will construct an element for you when it is set up like this, as long as your markup contains an element with the data attribute `data-o-component=o-message`
 
 ```js
 const oMessage = require('o-message');
@@ -160,9 +160,6 @@ const importantMessage = new oMessage(null, {
 The only required options are listed in the example _above_. These are:
 - `type`: String. The o-message variant. The available variants are 'alert', 'alert-bleed' and 'alert-inner'.
 - `status`: String. Alert variants require a status, and the options are 'success', 'neutral' and 'error'.
-- `content`: Object. Holds the following values for text properties:
-	- `highlight`: String. The highlighted text in a message. Defaults to `null`
-	-	`detail`: String. The detail about the nature of a message.
 
 The following options are not required, and all have a default value:
 
@@ -170,17 +167,17 @@ The following options are not required, and all have a default value:
 - `messageClass`: String. The base class name for the component's elements, defaults to `o-message`.
 - `parentElement`: String. This determines the element that the message will be appended to. If none is declared, it will automatically append to the body, or an element with the data attribute `data-o-component=o-message`, defaults to `null`.
 - `content`: Object. Holds the following values for text properties:
-	-	`additionalInfo`: String. More information about the message –  only applies to an `alert-inner` message. Defaults to `null`
+	- `highlight`: String. The highlighted text in a message. Defaults to `null`
+	- `detail`: String. The detail about the nature of a message.
+	- `additionalInfo`: String. More information about the message –  only applies to an `alert-inner` message. Defaults to `null`
 - `actions`: Object. Holds the following values for text properties:
-	-	`primary`:  Object. Holds the following values for button properties:
+	- `primary`:  Object. Holds the following values for button properties:
 		- `text`: String. text value of the button. Defaults to `null`
 		- `url`: String. The URL the button links to. Defaults to `#`
 	- `secondary`: Object. Holds the following values for link properties:
 		- `text`: String. text value of the link. Defaults to `null`
 		- `url`: String. The URL the link links to. Defaults to `#`
-- `close`: Boolean. Whether or not to display the close button. Defaults to `true` for regular messages, to `false` for inline messages.
-
-_Note: `o-message` constructs a close button for 'alert' and 'alert-bleed' by default, and will not build one for 'alert-inner', as this specific message type shouldn't be dismissible'_
+- `close`: Boolean. Whether or not to display the close button. Defaults to `true`.
 
 ### Sass
 As with all Origami components, o-message has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-message-is-silent: false;` in your Sass before you import the o-message Sass.
@@ -194,7 +191,7 @@ o-message includes mixins that you can use if you'd rather _not_ have origami cl
 You can also initialise multiple types and states of message by providing a list of types and a list of states:
 
 ```sass
-@include oMessage($types: 'alert-inner', 'notice-bleed', $status: 'success', 'inform')
+@include oMessage($types: ('alert-inner', 'notice-bleed'), $status: ('success', 'inform'))
 ```
 
 ## Migration Guide

@@ -7,7 +7,6 @@ export default {
 	*/
 	alertMessage: (opts) => {
 		const alertMessageEl = document.createElement('div');
-		alertMessageEl.setAttribute('data-o-component', 'o-message');
 		alertMessageEl.classList.add(opts.messageClass, opts.typeClass, `${opts.messageClass}--closed`);
 
 		if (!opts.status) {
@@ -46,10 +45,6 @@ export default {
 			`;
 		}
 
-		if (opts.type === 'alert-inner') {
-			opts.close = false;
-		}
-
 		alertMessageEl.innerHTML = `
 			<div class="${opts.messageClass}__container">
 				${contentHTML}
@@ -65,7 +60,6 @@ export default {
 	*/
 	noticeMessage: (opts) => {
 		const noticeMessage = document.createElement('div');
-		noticeMessage.setAttribute('data-o-component', 'o-message');
 		noticeMessage.classList.add(opts.messageClass, opts.typeClass, `${opts.messageClass}--closed`);
 
 		if (!opts.status) {
@@ -84,10 +78,6 @@ export default {
 				${actions}
 			</div>
 		`;
-
-		if (opts.type === 'notice-inner') {
-			opts.close = false;
-		}
 
 		noticeMessage.innerHTML = `
 			<div class="${opts.messageClass}__container">

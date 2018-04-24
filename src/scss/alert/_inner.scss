@@ -29,5 +29,9 @@
 			@include oTypographyPadding($bottom: 3);
 			display: inline-block;
 		}
+
+		.#{$class}__close {
+			right: oTypographySpacingSize(4);
+		}
 	}
 }

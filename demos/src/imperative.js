@@ -37,7 +37,7 @@ const deleteElementsByClassName = (className) => {
 const setUpDemo = (id, opts, variants) => {
 	document.getElementById(id).addEventListener('click', () => {
 		deleteElementsByClassName('o-message');
-		return new Message(null, Object.assign({}, opts, variants));
+		new Message(null, Object.assign({}, opts, variants));
 	});
 };
 

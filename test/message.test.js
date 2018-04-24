@@ -225,13 +225,6 @@ describe("Message", () => {
 				assert.throws(() => { new Message(null, options); }, error);
 			});
 
-			it('throws an error if opts.content.highlight is not declared for an alert type message', () => {
-				options.content.highlight = null;
-				const error = "*** o-message error:\nAn alert message element requires 'options.content.highlight'\n***";
-
-				assert.throws(() => { new Message(null, options); }, error);
-			});
-
 			it('calls `construct.closeButton` if opts.close is true', () => {
 				message = new Message(null, options);
 				assert.calledOnce(construct.closeButton);
@@ -240,6 +233,12 @@ describe("Message", () => {
 			it('does not call `construct.closeButton` if opts.close is false', () => {
 				options.close = false;
 				message = new Message(null, options);
+				assert.notCalled(construct.closeButton);
+			});
+
+			it('does not call `construct.closeButton` if there is already a', () => {
+				messageElement.innerHTML = `<a href='#' class='my-message__close'></a>`;
+				message = new Message(messageElement, options);
 				assert.notCalled(construct.closeButton);
 			});
 		});

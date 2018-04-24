@@ -48,7 +48,7 @@ class Message {
 					url: '#'
 				}
 			},
-			close: true
+			close: options && options.close ? options.close : true
 		}, options);
 
 		this.render();
@@ -65,29 +65,26 @@ class Message {
 	 */
 	render () {
 		// If the message element is not an HTML Element, or if a parent element has been specified, build a new message element
-		if (!(this.messageElement instanceof HTMLElement) || this.opts.parentElement) {
+		if (this.opts.parentElement || !(this.messageElement instanceof HTMLElement)) {
 			this.messageElement = this.constructMessageElement();
 
 			// attach oMessage to specified parentElement or default to document body
-			let element = this.opts.parentElement ? document.querySelector(this.opts.parentElement) : document.body;
+			const element = this.opts.parentElement ? document.querySelector(this.opts.parentElement) : document.body;
 			element.appendChild(this.messageElement);
 		}
 
-		// if the message is 'alert-inner' it shouldn't be close-able
-		if (this.messageElement.matches("[class*='-inner']")) {
-			this.opts.close = false;
-		}
+		const closeButtonExists = this.messageElement.querySelector("[class*='__close']");
 
-		if (this.opts.close) {
-			let closeButton = construct.closeButton(this.opts);
+		if (this.opts.close && !closeButtonExists) {
+			this.closeButton = construct.closeButton(this.opts);
 
 			// Add event listeners
-			closeButton.addEventListener('click', event => {
+			this.closeButton.addEventListener('click', event => {
 				event.preventDefault();
 				this.close();
 			});
 
-			this.messageElement.lastElementChild.appendChild(closeButton);
+			this.messageElement.lastElementChild.appendChild(this.closeButton);
 		}
 	}
 
@@ -97,17 +94,9 @@ class Message {
 	*/
 	constructMessageElement () {
 		if (this.opts.typeNucleus === 'alert') {
-		 	if (!this.opts.content.highlight) {
-				throwError(`An ${this.opts.typeNucleus} message element requires 'options.content.highlight'`);
-			} else {
-				return construct.alertMessage(this.opts);
-			}
+			return construct.alertMessage(this.opts);
 		} else if (this.opts.typeNucleus === 'notice') {
-			if (!this.opts.content.detail) {
-				throwError(`An ${this.opts.typeNucleus} message element requires 'options.content.detail'`);
-			} else {
-				return construct.noticeMessage(this.opts);
-			}
+			return construct.noticeMessage(this.opts);
 		} else {
 			throwError(`'${this.opts.type}' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner`);
 		}
