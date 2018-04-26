@@ -75,6 +75,12 @@
 			"description": "Form elements may also be displayed inline."
 		},
 		{
+			"name": "inline-controls",
+			"title": "Inline Controls",
+			"template": "/demos/src/inline-controls.mustache",
+			"description": "For small controls of the same width E.g. repeated yes/no radios in a small container."
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",

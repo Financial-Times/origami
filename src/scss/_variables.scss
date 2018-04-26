@@ -37,6 +37,7 @@ $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-horizontal-spacing: 15px;
 $_o-forms-checkbox-vertical-spacing: oTypographySpacingSize(4); // 16px
 $_o-forms-padding: oGridGutter();
+$_o-forms-default-error-text-margin: -1px;
 
 /// Field dimention variables.
 /// @access private

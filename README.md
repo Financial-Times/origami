@@ -63,6 +63,17 @@ If `o-forms` is used on a `fieldset` a wrapper `o-forms__inline-container` must 
 </fieldset>
 ```
 
+Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline from mobile viewports upwards. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline-controls).
+
+```html
+<fieldset class="o-forms o-forms--inline-controls">
+    <div class="o-forms__inline-container">
+        <legend class="o-forms__label">Legend</legend>
+        <!-- styled radio button markup -->
+    </div>
+</fieldset>
+```
+
 Inline forms offer more options. For full demo markup see [inline examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/inline) on the Origami Registry.
 
 #### Additonal field information
@@ -341,6 +352,7 @@ Optional extras:
 - `oFormsSectionFeature` - Section support.
 - `oFormsSmallFeature` - Modifier styles for small text and select inputs.
 - `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
+- `oFormsBleedFeature` - Modifier styles for form elements with no width restriction and no padding.
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms).
 

@@ -25,19 +25,23 @@
 /// @require {mixin} oFormsGroup
 /// @output Styles to modify the o-forms/fieldset group for inline fields.
 @mixin oFormsGroupInline($class: 'o-forms') {
+	@supports (display: grid) {
+		@include _oFormsGroupInlineStyles();
+	}
+	// IE10-11 (no @supports but its own grid
+	// sass-lint:disable no-vendor-prefixes
+	&,
+	_:-ms-lang(x) {
+		@include _oFormsGroupInlineStyles();
+	}
+	// sass-lint:enable no-vendor-prefixes
+}
+
+/// @access private
+@mixin _oFormsGroupInlineStyles() {
+	max-width: $_o-forms-inline-field-max-width;
 	@include oGridRespondTo(S) {
-		@supports (display: grid) {
-			max-width: $_o-forms-inline-field-max-width;
-			margin: 0 0 $_o-forms-inline-section-spacing;
-		}
-		// IE10-11 (no @supports but its own grid
-		// sass-lint:disable no-vendor-prefixes
-		&,
-		_:-ms-lang(x) {
-			max-width: $_o-forms-inline-field-max-width;
-			margin: 0 0 $_o-forms-inline-section-spacing;
-		}
-		// sass-lint:enable no-vendor-prefixes
+		margin: 0 0 $_o-forms-inline-section-spacing;
 	}
 }
 
@@ -58,58 +62,63 @@
 /// @require {mixin} oFormsGroupInline
 /// @output Styles for the o-forms/fieldset inline container.
 @mixin oFormsGroupInlineContainer($class: 'o-forms') {
-	@include oGridRespondTo(S) {
-		// Fieldsets must use a container element, as fieldsets override the display vaule in some browsers.
-		// https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements
-		// sass-lint:disable mixins-before-declarations no-vendor-prefixes
-		&:not(fieldset) {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			grid-column-gap: 20px;
-			-ms-grid-columns: 1fr 20px 1fr;
-			min-width: 0;
+	// sass-lint:disable mixins-before-declarations no-vendor-prefixes
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 20px;
+	-ms-grid-columns: 1fr 20px 1fr;
+	min-width: 0;
 
-			@include _oFormsMessagingElementSelectors($class) {
-				grid-column: 1;
-				align-self: center;
-			}
+	@include _oFormsMessagingElementSelectors($class) {
+		grid-column: 1;
+		align-self: center;
+	}
 
-			// Explicitly position input elements in the css grid.
-			// IE10-11 do not support auto placement.
-			@include _oFormsInputElementSelectors($class) {
-				grid-column: 2;
-				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
-				grid-row: 1;
-				align-self: start; // IE10-11 defaults to stretch with align-items.
-				// Reset margins only if grid is supported.
-				@supports (display: grid) {
-					margin-top: 0;
-				}
-				// Reset margins for IE10-11 (@supports unsupported).
-				@at-root {
-					&,
-					_:-ms-lang(x) {
-						margin-top: 0;
-					}
-				}
-			}
-
-			// Explicitly position error text in the css grid.
-			> .#{$class}__errortext {
-				grid-column: 2;
-				-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
-				grid-row: 2;
-			}
-
-			// For long labels and or additional text.
-			// Spans error text so the error text is against its input.
-			> .#{$class}__inline-item--long {
-				align-self: start;
-				grid-row: 1 / span 3;
+	// Explicitly position input elements in the css grid.
+	// IE10-11 do not support auto placement.
+	@include _oFormsInputElementSelectors($class) {
+		grid-column: 2;
+		-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+		grid-row: 1;
+		align-self: start; // IE10-11 defaults to stretch with align-items.
+		// Reset margins only if grid is supported.
+		@supports (display: grid) {
+			margin-top: 0;
+		}
+		// Reset margins for IE10-11 (@supports unsupported).
+		@at-root {
+			&,
+			_:-ms-lang(x) {
+				margin-top: 0;
 			}
 		}
 	}
+
+	// Explicitly position error text in the css grid.
+	> .#{$class}__errortext {
+		grid-column: 2;
+		-ms-grid-column: 3; // IE10-11 has a fake column for a grid gap.
+		grid-row: 2;
+	}
+
+	// For long labels and or additional text.
+	// Spans error text so the error text is against its input.
+	> .#{$class}__inline-item--long {
+		align-self: start;
+		grid-row: 1 / span 3;
+	}
 	// sass-lint:enable mixins-before-declarations no-vendor-prefixes
+}
+
+/// @access public
+/// @require {mixin} oFormsGroup
+/// @require {mixin} oFormsGroupInline
+/// @output Container for small controls of the same width E.g. repeated yes/no radios in a narrow container.
+@mixin oFormsGroupInlineControls($class: 'o-forms') {
+	&  > .#{$class}__inline-container {
+		@include oFormsGroupInlineContainer($class);
+		grid-template-columns: 1fr min-content;
+	}
 }
 
 /// @access private

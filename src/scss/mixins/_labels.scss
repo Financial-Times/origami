@@ -39,7 +39,7 @@
 		color: oBrandGet('field-invalid-text');
 		clear: both;
 		display: block;
-		margin-top: -1px;
+		margin-top: $_o-forms-default-error-text-margin;
 		padding: 3px 0;
 	}
 }
