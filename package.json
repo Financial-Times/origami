@@ -19,6 +19,7 @@
     "@financial-times/n-gage": "^1.8.21",
     "babelify": "^6.1.2",
     "bower": "^1.8.0",
+    "browserify": "^16.2.0",
     "chai": "^2.0.0",
     "debowerify": "^1.2.0",
     "karma": "^2.0.0",
