@@ -69,7 +69,7 @@ export default {
 				</div>
 			</div>
 		`,
-	closeButton: `<a class="my-message__close" role="button" href="#void" aria-label="close" title="Close"></a>`,
+	closeButton: `<button class="my-message__close" aria-label="close" title="Close"></button>`,
 	actions: `<div class="my-message__actions">
 			<a href="#" class="my-message__actions__primary">a button</a>
 			<a href="#" class="my-message__actions__secondary">a link</a>

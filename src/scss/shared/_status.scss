@@ -15,7 +15,7 @@
 			- success
 			- neutral
 			- error
-			
+
 			The available notice states are:
 			- inform
 			- warning
@@ -68,6 +68,7 @@
 		.#{$class}__close {
 			@include oMessageCloseButton(_oMessageGetMapValue($status, close-icon-color));
 			vertical-align: middle;
+			border: 0;
 		}
 	}
 }

@@ -31,8 +31,7 @@ describe("constructElement", () => {
 					text: 'a link',
 					url: '#'
 				}
-			},
-			close: true
+			}
 		};
 	});
 
@@ -87,8 +86,7 @@ describe("constructElement", () => {
 						text: 'a link',
 						url: '#'
 					}
-				},
-				close: true
+				}
 			};
 		});
 
