@@ -55,13 +55,6 @@
 		@include oTeaserHeading;
 	}
 
-	.o-teaser__heading--visited {
-		@include oColorsFor('o-teaser', text, 100);
-		a:visited {
-			@include oColorsFor('o-teaser', text, 60);
-		}
-	}
-
 	.o-teaser__standfirst {
 		@include oTeaserStandfirst;
 	}

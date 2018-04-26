@@ -47,6 +47,10 @@
 		&:hover {
 			@include oColorsFor('o-teaser', text, 55);
 		}
+
+		&:visited {
+			@include oColorsFor('o-teaser', text, 60);
+		}
 	}
 }
 
