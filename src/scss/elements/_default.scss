@@ -33,7 +33,7 @@
 /// Including link and hover styling.
 @mixin oTeaserHeading {
 	@include oTypographyDisplay(2);
-	@include oColorsFor('o-teaser', text, 80);
+	@include oColorsFor('o-teaser', text, 100);
 	@include oTypographyMargin($top: 0, $bottom: 0);
 	font-weight: oFontsWeight(normal);
 
@@ -46,6 +46,10 @@
 		&:focus,
 		&:hover {
 			@include oColorsFor('o-teaser', text, 55);
+		}
+
+		&:visited {
+			@include oColorsFor('o-teaser', text, 60);
 		}
 	}
 }
