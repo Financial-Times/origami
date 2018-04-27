@@ -139,7 +139,7 @@
 	> .#{$class}__select,
 	> .#{$class}__textarea,
 	> .#{$class}__group,
-	> .#{$class}__inline-item--left {
+	> .#{$class}__inline-item--right {
 		@content;
 	}
 }
