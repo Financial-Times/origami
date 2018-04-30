@@ -5,15 +5,16 @@
 
 /// Get an SVG icon with PNG fallback for ie6-8
 ///
-/// @param {String} $icon-name - this should be a reference to an icon included in o-icons eg arrow-down
-/// @param {String} $color - this should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
-/// @param {String} $container-width - this is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
-/// @param {String} $container-height - this is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
-/// @param {Bool} $apply-base-styles - defaults to true. If true, will output style rules for the container. If false will only output the background-image property
-/// @param {Bool} $apply-width-height - defaults to true. If true, will output the styles for the container width and height.
-/// @param {Integer} $iconset-version - defaults to 1. At present only 1 version of the icon set is available.
+/// @param {String} $icon-name - This should be a reference to an icon included in o-icons eg arrow-down
+/// @param {String} $color - This should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
+/// @param {String} $container-width - This is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
+/// @param {String} $container-height - This is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
+/// @param {Bool} $apply-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
+/// @param {Bool} $apply-width-height [true] - If true, will output the styles for the container width and height.
+/// @param {Integer} $iconset-version [1] - At present only 1 version of the icon set is available.
+/// @param {Integer} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
 
-@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 1) {
+@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 1, $high-contrast-fallback: true) {
 
 	// Currently the only supported version of fticons is version 1.
 	@if $iconset-version == 0 {
@@ -45,12 +46,14 @@
 	background-image: url($service-url + $query + "&format=png&width=#{$container-width}")\9;
 
 	// sass-lint:disable no-vendor-prefixes
-	@media screen and (-ms-high-contrast: active) {
-		background-image: url($service-url + "?source=#{$source}&tint=%23ffffff,%23ffffff&format=svg");
-	}
+	@if $high-contrast-fallback {
+		@media screen and (-ms-high-contrast: active) {
+			background-image: url($service-url + "?source=#{$source}&tint=%23ffffff,%23ffffff&format=svg");
+		}
 
-	@media screen and (-ms-high-contrast: black-on-white) {
-		background-image: url($service-url + "?source=#{$source}&tint=%23000000,%23000000&format=svg");
+		@media screen and (-ms-high-contrast: black-on-white) {
+			background-image: url($service-url + "?source=#{$source}&tint=%23000000,%23000000&format=svg");
+		}
 	}
 	// sass-lint:enable no-vendor-prefixes
 
