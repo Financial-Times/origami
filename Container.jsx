@@ -1,6 +1,16 @@
 import h from '@financial-times/x-engine';
 import rules from './concerns/rules';
 
+const YES = '';
+
+const NO = 'not-';
+
+const PREFIX = {
+	yes: '',
+	no: 'not-',
+	verify: 'verify-'
+};
+
 const dynamicModifiers = (props) => {
 	const modifiers = [];
 
@@ -17,31 +27,11 @@ const dynamicModifiers = (props) => {
 	}
 
 	if (props.indicators && props.indicators.canBeSyndicated) {
-		switch (props.indicators.canBeSyndicated) {
-			case 'yes':
-				modifiers.push('syndicatable');
-				break;
-			case 'no':
-				modifiers.push('not-syndicatable');
-				break;
-			case 'verify':
-				modifiers.push('verify-syndicatable');
-				break;
-		}
+		modifiers.push(`${PREFIX[props.indicators.canBeSyndicated]}syndicatable`);
 	}
 
 	if (props.indicators && props.indicators.canBeDistributed) {
-		switch (props.indicators.canBeDistributed) {
-			case 'yes':
-				modifiers.push('distributable');
-				break;
-			case 'no':
-				modifiers.push('not-distributable');
-				break;
-			case 'verify':
-				modifiers.push('verify-distributable');
-				break;
-		}
+		modifiers.push(`${PREFIX[props.indicators.canBeDistributed]}distributable`);
 	}
 
 	return modifiers;
