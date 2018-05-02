@@ -21,6 +21,9 @@ const rulesets = {
 		function theme(props) {
 			return props.theme;
 		},
+		function live(props) {
+			return props.status && props.status === 'inprogress';
+		},
 		function opinion(props) {
 			return props.indicators && props.indicators.isOpinion;
 		},
