@@ -9,6 +9,7 @@ o-banner is a component used for product messaging which could include feature p
   - [JavaScript](#javascript)
   - [Sass](#sass)
   - [Themes](#themes)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -168,6 +169,12 @@ const myBanner = new oBanner({
     theme: ['small', 'marketing']
 });
 ```
+
+## Migration guide
+
+### Migrating from v1 to v2
+
+V2 of o-banner removes and renames several themes. This includes the removal of associated mixins and variables. The removed themes are `marketing-primary` and `marketing-secondary`. This should be replaced with `marketing`.
 
 ---
 
