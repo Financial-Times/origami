@@ -16,6 +16,7 @@ class Banner {
 		const bannerClass = (options && options.bannerClass ? options.bannerClass : 'o-banner');
 		this.options = Object.assign({}, {
 			autoOpen: true,
+			suppressCloseButton: false,
 
 			bannerClass: bannerClass,
 			bannerClosedClass: `${bannerClass}--closed`,
@@ -71,8 +72,10 @@ class Banner {
 		this.innerElement = this.bannerElement.querySelector('[data-o-banner-inner]');
 
 		// Build the close button
-		this.closeButtonElement = this.buildCloseButtonElement();
-		this.innerElement.appendChild(this.closeButtonElement);
+		if (!this.options.suppressCloseButton) {
+			this.closeButtonElement = this.buildCloseButtonElement();
+			this.innerElement.appendChild(this.closeButtonElement);
+		}
 	}
 
 	/**

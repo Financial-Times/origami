@@ -118,6 +118,7 @@ Once you have an o-banner instance, you can manipulate it using the following me
 There are several options used to change the appearance or behaviour of o-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl`. Set the following as properties on the second argument to `oBanner`:
 
   - `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
+  - `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `o-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`

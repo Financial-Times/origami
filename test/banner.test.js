@@ -63,6 +63,7 @@ describe('Banner', () => {
 			assert.notStrictEqual(banner.options, options);
 			assert.deepEqual(banner.options, {
 				autoOpen: true,
+				suppressCloseButton: false,
 				bannerClass: 'o-banner',
 				bannerClosedClass: 'o-banner--closed',
 				outerClass: 'o-banner__outer',
@@ -263,6 +264,19 @@ describe('Banner', () => {
 					assert.calledWithExactly(document.body.appendChild, mockBannerElement);
 				});
 
+			});
+
+			describe('when suppressCloseButton is true', () => {
+
+				beforeEach(() => {
+					banner.buildCloseButtonElement.resetHistory();
+					banner.options.suppressCloseButton = true;
+					banner.render();
+				});
+
+				it('does not build the close button', () => {
+					assert.notCalled(banner.buildCloseButtonElement);
+				});
 			});
 
 		});
