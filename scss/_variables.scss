@@ -78,3 +78,9 @@ $o-buttons-themes: (
 ///
 /// @type List
 $o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus", "warning", "arrow-down", "arrow-up", "grid", "list" !default;
+
+/// Multiple buttons may output the same icon/icon colour.
+/// SCSS Placeholders are used to only define an icon url once.
+/// @type List
+/// @access Private
+$_o-buttons-icon-placeholders: () !default;

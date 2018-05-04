@@ -5,7 +5,7 @@
   ],
   "dependencies": {
     "o-colors": "^4.2.2",
-    "o-icons": ">=4.4.2 <6",
+    "o-icons": ">=4.5.0 <6",
     "o-normalise": "^1.2.0",
     "o-brand": "^2.0.1"
   }

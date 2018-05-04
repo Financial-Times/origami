@@ -41,9 +41,7 @@
 /// ```
 @mixin _oButtonsGenerateIconButtons($o-buttons-class: $o-buttons-class) {
 
-	// Browserhack to only apply these styles for IE7 and up. IE6 will get the
-	// text fallback. Hack documented here: http://browserhacks.com/#hack-da690292d4fddd94dc7bdd50e38b5713
-	html > body .#{$o-buttons-class}-icon {
+	.#{$o-buttons-class}-icon {
 		@include oButtonsIconBaseStyles;
 		@include _oButtonsIconSize('default');
 
@@ -54,18 +52,18 @@
 		&.#{$o-buttons-class}-icon--icon-only {
 			@include _oButtonsIconIconOnly;
 		}
+	}
 
-		@each $key, $theme in $o-buttons-themes {
-			$theme-selector: '&';
-			@if $theme != 'secondary' {
-				$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
-			}
+	@each $key, $theme in $o-buttons-themes {
+		$theme-selector: '&';
+		@if $theme != 'secondary' {
+			$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
+		}
 
-			#{$theme-selector} {
-				@each $icon-name in $o-buttons-icons {
-					&.#{$o-buttons-class}-icon--#{$icon-name} {
-						@include _oButtonsIconBackgroundImage($icon-name, $theme);
-					}
+		#{$theme-selector} {
+			@each $icon-name in $o-buttons-icons {
+				&.#{$o-buttons-class}-icon--#{$icon-name} {
+					@include _oButtonsIconBackgroundImage($icon-name, $theme);
 				}
 			}
 		}
@@ -96,6 +94,17 @@
 ///
 @mixin _oButtonsIconBackgroundImage($icon-name, $theme) {
 	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'normal');
+	// Add fallback for MS High Contrast mode.
+	// This only needs to be output once, not for every button state.
+	// sass-lint:disable no-vendor-prefixes
+	@media screen and (-ms-high-contrast: active) {
+		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #ffffff, $iconset-version: 1, $high-contrast-fallback: false);
+	}
+	@media screen and (-ms-high-contrast: black-on-white) {
+		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #000000, $iconset-version: 1, $high-contrast-fallback: false);
+	}
+	// sass-lint:enable no-vendor-prefixes
+
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
@@ -147,7 +156,17 @@
 		$icon-color: oColorsGetPaletteColor($icon-color);
 	}
 	// 3. Output the icon.
-	@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1);
+	// 3.1. Output the icon placeholder if it has not been output before.
+	@if index($_o-buttons-icon-placeholders, '#{$icon-name}-#{$icon-color}') == null {
+		@at-root {
+			%o-buttons-#{$icon-name}-#{$icon-color} {
+				@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1, $high-contrast-fallback: false);
+			}
+			$_o-buttons-icon-placeholders: append($_o-buttons-icon-placeholders, '#{$icon-name}-#{$icon-color}') !global;
+		}
+	}
+	// 3.2. Extend the icon placeholder.
+	@extend %o-buttons-#{$icon-name}-#{$icon-color}; // sass-lint:disable-line extends-before-declarations
 }
 
 /// Icon Button Label
