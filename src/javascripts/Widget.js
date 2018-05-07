@@ -213,9 +213,11 @@ function Widget () {
 										self.ui.onNewCommentVisible(() => {
 											self.ui.hideDeleteButtons(self.config.hideDeleteInterval);
 										});
-									}
 
-									setInterval(self.ui.hideDeleteButtons, 10000);
+										setInterval(() => {
+											self.ui.hideDeleteButtons(self.config.hideDeleteInterval);
+										}, 10000);
+									}
 
 									if (envConfig.get().emailNotifications !== true) {
 										self.ui.hideFollowButton();

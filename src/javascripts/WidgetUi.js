@@ -260,7 +260,8 @@ function WidgetUi (widgetContainer, config) {
 		const commentContainer = self.widgetContainer.querySelector('.fyre-widget .fyre-comment-stream');
 		const commentWrappers = commentContainer.querySelectorAll('.fyre-comment-wrapper');
 
-		commentWrappers.forEach(commentWrapper => {
+		for (let i = 0; i < commentWrappers.length; i++) {
+			const commentWrapper = commentWrappers[i];
 			const dateCreatedEl = commentWrapper.querySelector('meta[itemprop="dateCreated"]');
 			const banLink = commentWrapper.querySelector('.fyre-ban-link');
 			const deleteLink = commentWrapper.querySelector('.fyre-delete-link');
@@ -272,7 +273,7 @@ function WidgetUi (widgetContainer, config) {
 					deleteLink.parentNode.removeChild(deleteLink);
 				}
 			}
-		});
+		}
 	};
 
 	this.onNewCommentVisible = function (callback) {
