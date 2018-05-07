@@ -49,9 +49,6 @@ function Widget () {
 
 	this.config.stream_type = this.config.stream_type || 'livecomments';
 	this.config.layout = this.config.layout || 'main';
-	this.config.hideDeleteEnabled = this.config.hideDeleteEnabled === false ? false : true;
-	this.config.hideDeleteInterval = this.config.hideDeleteInterval || 60 * 48; // minutes, default 48 hours
-
 	if (!this.config.livefyre || typeof this.config.livefyre !== 'object') {
 		this.config.livefyre = {};
 	}
@@ -207,15 +204,6 @@ function Widget () {
 									initStreamForBannedComments(collectionAttributes.id, collectionAttributes.event);
 
 									self.ui.addTermsAndGuidelineMessage();
-
-									if (self.config.hideDeleteEnabled) {
-										self.ui.hideDeleteButtons(self.config.hideDeleteInterval);
-										self.ui.onNewCommentVisible(() => {
-											self.ui.hideDeleteButtons(self.config.hideDeleteInterval);
-										});
-									}
-
-									setInterval(self.ui.hideDeleteButtons, 10000);
 
 									if (envConfig.get().emailNotifications !== true) {
 										self.ui.hideFollowButton();

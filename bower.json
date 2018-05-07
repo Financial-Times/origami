@@ -11,8 +11,7 @@
     "o-fonts": "^3.0.0",
     "o-colors": "^4.0.0",
     "o-assets": ">=2.0.0 <4",
-    "o-icons": ">=4.0.0 <6",
-    "dom-delegate": "^2.1.0"
+    "o-icons": ">=4.0.0 <6"
   },
   "ignore": [
     "node_modules",
