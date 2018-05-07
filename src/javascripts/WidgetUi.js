@@ -1,6 +1,7 @@
 const oCommentUtilities = require('o-comment-utilities');
 const oCommentUi = require('o-comment-ui');
 const envConfig = require('./config.js');
+const Delegate = require('dom-delegate');
 
 /**
  * FT specific UI customizing of the Livefyre widget.
@@ -253,6 +254,32 @@ function WidgetUi (widgetContainer, config) {
 				}
 			}
 		});
+	};
+
+	this.hideDeleteButtons = function (interval) {
+		const commentContainer = self.widgetContainer.querySelector('.fyre-widget .fyre-comment-stream');
+		const commentWrappers = commentContainer.querySelectorAll('.fyre-comment-wrapper');
+
+		commentWrappers.forEach(commentWrapper => {
+			const dateCreatedEl = commentWrapper.querySelector('meta[itemprop="dateCreated"]');
+			const banLink = commentWrapper.querySelector('.fyre-ban-link');
+			const deleteLink = commentWrapper.querySelector('.fyre-delete-link');
+
+			if (dateCreatedEl && deleteLink && !banLink) {
+				const dateCreated = dateCreatedEl.getAttribute('content');
+
+				if ((new Date()).getTime() - (new Date(dateCreated)).getTime() > interval * 60 * 1000) {
+					deleteLink.parentNode.removeChild(deleteLink);
+				}
+			}
+		});
+	};
+
+	this.onNewCommentVisible = function (callback) {
+		const editorDelegate = new Delegate(document.querySelector('.fyre'));
+
+		editorDelegate.on('click', '.fyre-stream-more', callback);
+		editorDelegate.on('click', '.fyre-reply-more-toggle', callback);
 	};
 
 	let __superDestroy = this.destroy;
