@@ -33,6 +33,7 @@ describe("Message", () => {
 			stubs.render = sinon.stub(Message.prototype, 'render');
 			stubs.open = sinon.stub(Message.prototype, 'open');
 			stubs.close = sinon.stub(Message.prototype, 'close');
+			stubs.getDataAttributes = sinon.stub(Message, 'getDataAttributes');
 
 			options = {};
 			messageElement = document.querySelector('[data-o-component=o-message]');
@@ -42,6 +43,7 @@ describe("Message", () => {
 			Message.prototype.render.restore();
 			Message.prototype.open.restore();
 			Message.prototype.close.restore();
+			Message.getDataAttributes.restore();
 		});
 
 		it('stores `messageElement` in a `messageElement` property', () => {
@@ -79,6 +81,10 @@ describe("Message", () => {
 			});
 		});
 
+		it('extracts options from the DOM', () => {
+			assert.calledOnce(stubs.getDataAttributes);
+		});
+
 		it('opens the message by default', () => {
 			assert.calledOnce(stubs.open);
 		});
@@ -110,6 +116,7 @@ describe("Message", () => {
 				stubs.render = sinon.stub(Message.prototype, 'render');
 				stubs.open = sinon.stub(Message.prototype, 'open');
 				stubs.close = sinon.stub(Message.prototype, 'close');
+				stubs.getDataAttributes = sinon.stub(Message, 'getDataAttributes');
 
 				options.autoOpen = false;
 				message = new Message(testArea, options);
@@ -118,6 +125,7 @@ describe("Message", () => {
 				Message.prototype.render.restore();
 				Message.prototype.open.restore();
 				Message.prototype.close.restore();
+				Message.getDataAttributes.restore();
 			});
 
 			it('does not open the message', () => {
@@ -127,6 +135,11 @@ describe("Message", () => {
 			it('closes the message', () => {
 				assert.calledOnce(stubs.close);
 			});
+
+			it('does not extract options from the DOM', () => {
+				assert.notCalled(stubs.getDataAttributes);
+			});
+
 		});
 
 		describe('accepts a different base class string', () => {
@@ -242,5 +255,74 @@ describe("Message", () => {
 				assert.notCalled(construct.closeButton);
 			});
 		});
+
+
+		describe('.getDataAttributes', () => {
+			let mockMessageEl;
+			let returnValue;
+
+			beforeEach(() => {
+				mockMessageEl = document.createElement('div');
+				mockMessageEl.setAttribute('data-o-component', 'o-banner');
+				mockMessageEl.setAttribute('data-key', 'value');
+				mockMessageEl.setAttribute('data-another-key', 'value');
+				mockMessageEl.setAttribute('data-o-message-foo', 'bar');
+				mockMessageEl.setAttribute('data-o-message-json', '{"foo": "bar"}');
+				mockMessageEl.setAttribute('data-o-message-json-single', '{\'foo\': \'bar\'}');
+				returnValue = Message.getDataAttributes(mockMessageEl);
+			});
+
+			it('returns an object', () => {
+				assert.isObject(returnValue);
+			});
+
+			it('extracts values from data attributes and returns them as object keys', () => {
+				assert.strictEqual(returnValue.key, 'value');
+			});
+
+			it('converts the keys to camel-case', () => {
+				assert.isUndefined(returnValue['another-key']);
+				assert.strictEqual(returnValue.anotherKey, 'value');
+			});
+
+			it('ignores the `data-o-component` attribute', () => {
+				assert.isUndefined(returnValue.oComponent);
+			});
+
+			it('strips "o-banner" from the key', () => {
+				assert.isUndefined(returnValue.oMessageFoo);
+				assert.strictEqual(returnValue.foo, 'bar');
+			});
+
+			it('parses the key as JSON if it\'s valid', () => {
+				assert.isObject(returnValue.json);
+				assert.deepEqual(returnValue.json, {
+					foo: 'bar'
+				});
+			});
+
+			it('parses the key as JSON even if single quotes are used', () => {
+				assert.isObject(returnValue.jsonSingle);
+				assert.deepEqual(returnValue.jsonSingle, {
+					foo: 'bar'
+				});
+			});
+
+			describe('when `messageElement` is not an HTML element', () => {
+				let returnValue;
+
+				beforeEach(() => {
+					returnValue = Message.getDataAttributes(null);
+				});
+
+				it('returns an empty object', () => {
+					assert.isObject(returnValue);
+					assert.deepEqual(returnValue, {});
+				});
+
+			});
+
+		});
+
 	});
 });

@@ -49,7 +49,7 @@ class Message {
 				}
 			},
 			close: options && options.close ? options.close : true
-		}, options);
+		}, options || Message.getDataAttributes(messageElement));
 
 		this.render();
 
@@ -116,6 +116,38 @@ class Message {
 	close () {
 		this.messageElement.classList.add(`${this.opts.messageClass}--closed`);
 		this.messageElement.dispatchEvent(new CustomEvent('o.messageClosed'));
+	}
+
+
+	/**
+	 * Get the data attributes from the messageElement. If the message is being set up
+	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 * @param {HTMLElement} messageElement - The message element in the DOM
+	 */
+	static getDataAttributes (messageElement) {
+		if (!(messageElement instanceof HTMLElement)) {
+			return {};
+		}
+		return Object.keys(messageElement.dataset).reduce((options, key) => {
+
+			// Ignore data-o-component
+			if (key === 'oComponent') {
+				return options;
+			}
+
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^oMessage(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = messageElement.dataset[key];
+
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+
+			return options;
+		}, {});
 	}
 
 	/**
