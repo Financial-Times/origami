@@ -3,6 +3,11 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"brands" : [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"support": "https://github.com/Financial-Times/o-table/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
