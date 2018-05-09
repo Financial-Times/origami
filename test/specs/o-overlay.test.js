@@ -183,16 +183,21 @@ describe("Overlay", () => {
 	describe("Realign", () => {
 		it("Adds a height to overlay content if the overlay is larger than the viewport.", () => {
 			const contentHeight = '3000px';
+			const borders = 2;
 			const testOverlay = new Overlay('contentHeightTest', { html: 'hello' });
 			testOverlay.open();
 			const overlayContent = document.querySelector('.o-overlay--contentHeightTest .o-overlay__content');
 			// Demo sets no modal content so the modal is within the viewport, no content height should be set.
 			proclaim.equal(overlayContent.style.height, '');
+
 			// Model content now makes the modal larger than the viewport.
 			overlayContent.innerHTML = `<div style="height:${contentHeight};">Very long content.</div>`;
 			// Calling `realign` will now set a height so modal content is scrollable.
+			// meaning the overlay will expand to the size of the viewport and allow scrolling for its child div, not become the size of the child div
 			testOverlay.realign();
-			proclaim.equal(overlayContent.style.height, contentHeight);
+
+			const viewportHeight = (window.innerHeight - borders) + 'px';
+			proclaim.equal(overlayContent.style.height, viewportHeight);
 		});
 	});
 

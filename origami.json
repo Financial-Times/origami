@@ -3,6 +3,10 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"brands" : [
+		"master",
+		"internal"
+	],
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
