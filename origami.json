@@ -53,6 +53,9 @@
 			"name": "themes",
 			"title": "Product themes",
 			"template": "demos/src/themes.mustache",
+			"brands": [
+				"master"
+			],
 			"description": "This component is themable. The current available themes are B2B and B2C. If you're creating a product that isn't within B2B or B2C please contact Origami."
 		},
 		{
