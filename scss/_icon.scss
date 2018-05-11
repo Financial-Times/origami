@@ -151,22 +151,26 @@
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $theme, $state) {
 	// 1. Get the icon color for the button state and theme.
 	$icon-color: oButtonsGetColor($state, 'color', $theme);
+
 	// 2. If the icon color is not a color assume it is in the palette.
 	@if $icon-color and type-of($icon-color) != 'color' {
 		$icon-color: oColorsGetPaletteColor($icon-color);
 	}
+
 	// 3. Output the icon.
 	// 3.1. Output the icon placeholder if it has not been output before.
-	@if index($_o-buttons-icon-placeholders, '#{$icon-name}-#{$icon-color}') == null {
+	$icon-color-id: str-slice('#{$icon-color}', 2);
+	$icon-placeholder: 'o-buttons-#{$icon-name}-#{$icon-color-id}';
+	@if index($_o-buttons-icon-placeholders, $icon-placeholder) == null {
 		@at-root {
-			%o-buttons-#{$icon-name}-#{$icon-color} {
+			%#{$icon-placeholder} {
 				@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1, $high-contrast-fallback: false);
 			}
 			$_o-buttons-icon-placeholders: append($_o-buttons-icon-placeholders, '#{$icon-name}-#{$icon-color}') !global;
 		}
 	}
 	// 3.2. Extend the icon placeholder.
-	@extend %o-buttons-#{$icon-name}-#{$icon-color}; // sass-lint:disable-line extends-before-declarations
+	@extend %#{$icon-placeholder}; // sass-lint:disable-line extends-before-declarations
 }
 
 /// Icon Button Label
