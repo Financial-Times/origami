@@ -1,5 +1,5 @@
 import h from '@financial-times/x-engine';
-import Concept from './Concept';
+import MetaLink from './MetaLink';
 import Promoted from './Promoted';
 
 export default (props) => {
@@ -7,7 +7,7 @@ export default (props) => {
 
 	return (
 		<div className="o-teaser__meta">
-			{showPromoted ? <Promoted {...props} /> : <Concept {...props} />}
+			{showPromoted ? <Promoted {...props} /> : <MetaLink {...props} />}
 		</div>
 	);
 };
