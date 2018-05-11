@@ -22,7 +22,7 @@ export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context
 			{displayLink ? (
 				<a
 					className="o-teaser__tag"
-					data-trackable="teaser-concept"
+					data-trackable="teaser-tag"
 					href={displayLink.relativeUrl || displayLink.url}>
 					{` ${displayLink.prefLabel} `}
 				</a>
