@@ -22,7 +22,7 @@ o-syntax-highlight uses the following colours, on a light grey background (#f2f2
 Color | Hex | Ratio | 14px+ | 18px+  or 14px **bold**
 ---|---|---|---|---
 `black-mandarin-35` | `#a65821` | [4.64](http://contrast-ratio.com/#%23a65821-on-%23f2f2f2) | AA | AAA
-`black-crimson-35` | `#a50f2d` | [6.93](http://contrast-ratio.com/#%23#a50f2d-on-%23f2f2f2) | AA | AAA
+`black-crimson-35` | `#a50f2d` | [6.93](http://contrast-ratio.com/#%23a50f2d-on-%23f2f2f2) | AA | AAA
 `claret-lemon-75` | `#b34634` | [4.88](http://contrast-ratio.com/#%23b34634-on-%23f2f2f2) | AA | AAA
 `grey-55` | `#737373` | [4.23](http://contrast-ratio.com/#%23737373-on-%23f2f2f2) | AA | AAA
 `grey-70` | `#4d4d4d` | [7.55](http://contrast-ratio.com/#%234d4d4d-on-%23f2f2f2) | AAA | AAA
