@@ -110,7 +110,7 @@ You can't choose your own classnames, but you can choose to load specific langua
 ```scss
 	@include oSyntaxHighlightBase();
 	@include oSyntaxHighlightJSON();
-``
+```
 
 The same is applicable for the other languages:
 - Javascript: `oSyntaxHighlightJS()`
