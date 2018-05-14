@@ -88,6 +88,12 @@ class CookieMessage {
 			return true;
 		}
 
+		// FT.com's bottom banner cookie consent, under test
+		if (/\bFTCookieConsentGDPR=true(?:;|$)/.test(document.cookie)){
+			CookieMessage.setConsentCookieAndHideMessage();
+			return true;
+		}
+
 		if (cookieConsent) {
 
 			const consentDate = parseInt(cookieConsent, 10);
