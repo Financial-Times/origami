@@ -23,7 +23,9 @@ export default ({ publishedDate, firstPublishedDate }) => {
 		<div className={`o-teaser__timestamp o-teaser__timestamp--${status}`}>
 			{status ? <span className="o-teaser__timestamp-prefix">{status}</span> : null}
 			<time
-				className="o-teaser__timestamp-date"
+				className="o-teaser__timestamp-date o-date"
+				data-o-component="o-date"
+				data-o-date-format="time-ago-limit-4-hours"
 				dateTime={dateformat(publishedDate, dateformat.masks.isoDateTime, true)}>
 				{/* Let o-date handle anything < 1 hour on the client */}
 				{status ? '' : displayTime(relativeDate)}
