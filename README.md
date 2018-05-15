@@ -350,6 +350,8 @@ Optional extras:
 - `oFormsCheckboxToggleFeature` - Toggle support.
 - `oFormsSuffixFeature` - Suffix support.
 - `oFormsSectionFeature` - Section support.
+- `oFormsStatusFeature` - Styles for form status such as "saving" or "saved".
+- `oFormsInlineFeature` - Styles for inline forms.
 - `oFormsSmallFeature` - Modifier styles for small text and select inputs.
 - `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
 - `oFormsBleedFeature` - Modifier styles for form elements with no width restriction and no padding.
@@ -421,6 +423,23 @@ Or you can set the `data-o-forms-apply-valid-state` attribute to true on the `<f
 	[...]
 </form>
 ```
+
+#### Status
+
+A form status is used to show an input is "saving" or is "saved". To show a status use the static method `updateInputStatus`.
+
+```js
+const OForms = require('o-forms');
+const formsInput = document.querySelector('input');
+
+OForms.updateInputStatus(formsInput, 'saving');
+```
+
+Valid statuses include "saving", "saved", or `null` to remove any current status.
+
+To add a left aligned status to an inline form input, add a placeholder status element `.o-forms__status .o-forms__status--left`, with attribute `aria-hidden="true"`, within the contaning `.o-forms` element.
+
+[Status examples](https://www.ft.com/__origami/service/build/v2/demos/o-forms/status)
 
 #### Listening to a toggle change
 Listening for the `oForms.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.

@@ -86,6 +86,12 @@
 			"description": "For small controls of the same width E.g. repeated yes/no radios in a small container."
 		},
 		{
+			"name": "status",
+			"title": "Status",
+			"template": "/demos/src/status.mustache",
+			"description": "Feedback styles."
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",

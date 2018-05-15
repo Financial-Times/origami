@@ -39,6 +39,18 @@ function htmlCode () {
 	insert(html);
 }
 
+function formFieldHtmlCode(opts) {
+	const html = `
+		<div class="o-forms ${opts && opts.hasError ? 'o-forms--error' : ''} ${opts && opts.status ? `o-forms--${opts.status}` : ''}">
+			<label for="o-forms-standard" class="o-forms__label">Text input</label>
+			<input type="text" id="required-input" class="o-forms__text" required pattern="valid"/>
+			${opts && opts.hasError ? '<div class="o-forms__errortext"></div>' : ''}
+			${opts && opts.includeStatusElement ? '<div class="o-forms__status"></div>' : ''}
+		</div>
+	`;
+	insert(html);
+}
+
 function allInputsHtmlCode () {
 	const html = `<div>
 		<form data-o-component="o-forms" id="element">
@@ -60,6 +72,7 @@ function allInputsHtmlCode () {
 
 export {
 	insert,
+	formFieldHtmlCode,
 	htmlCode,
 	allInputsHtmlCode,
 	reset

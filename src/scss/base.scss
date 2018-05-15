@@ -22,6 +22,8 @@
 	@include oFormsCheckboxToggleFeature($class);
 	// Sections.
 	@include oFormsSectionFeature($class);
+	// Form statuses (eg. "saving", "saved").
+	@include oFormsStatusFeature($class);
 	// Inline Forms.
 	@include oFormsInlineFeature($class);
 	// Small modifer.
@@ -104,12 +106,14 @@
 	.#{$class}__checkbox {
 		@include oFormsCheckbox($class);
 	}
-	// Checkbox and radio validation.
-	.#{$class}--error .#{$class}__group + .#{$class}__errortext {
-		@include _oFormsGroupContainerErrorText;
+	// Checkbox and radio validation / status.
+	.#{$class}--error .#{$class}__group ~ .#{$class}__errortext,
+	.#{$class}__group ~ .#{$class}__status {
+		margin-top: $_o-forms-checkbox-legend-spacing;
 	}
-	// Styled radio button validation.
-	.#{$class}--error .#{$class}__group--inline-together + .#{$class}__errortext {
+	// Styled radio button validation / status.
+	.#{$class}--error .#{$class}__group--inline-together ~ .#{$class}__errortext,
+	.#{$class}__group--inline-together ~ .#{$class}__status {
 		margin-top: $_o-forms-default-error-text-margin;
 	}
 }
@@ -173,6 +177,7 @@
 	.#{$class}--inline {
 		@include oFormsGroupInline($class);
 	}
+
 	.#{$class}--inline:not(fieldset),
 	.#{$class}__inline-container {
 		@include oGridRespondTo(S) {
@@ -187,6 +192,75 @@
 	.#{$class}--radios > .#{$class}__inline-container,
 	.#{$class}--checkboxes > .#{$class}__inline-container {
 		@include oFormsGroupInlineRadioCheckbox($class);
+	}
+}
+/// @access public
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @output Styles for form status such as "saving" and "saved".
+@mixin oFormsStatusFeature($class: 'o-forms') {
+	// Icons align to a 40x40 pixel grid with 10px padding on each side.
+	// In this case however we want to remove that padding to align the icon flush with the input.
+	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
+	$status-icon-size: $_o-forms-field-small-height;
+	$status-icon-padding: ($status-icon-size/40) * 10;
+	@include oBrandConfigureFor($component: 'o-forms') {
+		// Base status styles.
+		.#{$class}__status {
+			@include oTypographySize($_o-forms-typography-scale-small);
+			white-space: nowrap;
+			align-items: center;
+			min-width: 5em;
+			margin-top: $_o-forms-default-error-text-margin;
+			display: none;
+			&:after {
+				content: '';
+			}
+			&:before {
+				content: '';
+				margin: #{-$status-icon-padding} 0 #{-$status-icon-padding} #{-$status-icon-padding};
+			}
+		}
+
+		.#{$class}__status[aria-hidden="false"] {
+			display: flex;
+		}
+
+		// Saving status.
+		.#{$class}--saving .#{$class}__status {
+			&:after {
+				content: 'Saving';
+			}
+			&:before {
+				@include oLoading();
+				@include oLoadingSize('small');
+				@include oLoadingColor('dark');
+				// Reszise loader to match icon.
+				margin: 0 $status-icon-padding 0 0;
+				width: 10px;
+				height: 10px;
+				border-width: 2px;
+			}
+		}
+
+		// Saved status.
+		.#{$class}--saved .#{$class}__status {
+			&:after {
+				content: 'Saved';
+				color: oBrandGet('field-valid-text');
+			}
+			&:before {
+				@include oIconsGetIcon('tick', oBrandGet('field-valid-text'), $status-icon-size);
+			}
+		}
+
+		// Icon only statuses.
+		.#{$class} .#{$class}__status--icon-only {
+			min-width: $status-icon-size;
+			align-self: center;
+			&:after {
+				@include oNormaliseVisuallyHidden;
+			}
+		}
 	}
 }
 

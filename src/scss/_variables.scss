@@ -33,11 +33,12 @@ $_o-forms-field-default-font-size: 14px;
 $_o-forms-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-section-spacing: oTypographySpacingSize(5); // 20px
 $_o-forms-inline-section-spacing: oTypographySpacingSize(8); // 32px
+$_o-forms-inline-control-with-error-section-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-horizontal-spacing: 15px;
 $_o-forms-checkbox-vertical-spacing: oTypographySpacingSize(4); // 16px
 $_o-forms-padding: oGridGutter();
-$_o-forms-default-error-text-margin: -1px;
+$_o-forms-default-error-text-margin: oTypographySpacingSize(1); // 4px;
 
 /// Field dimention variables.
 /// @access private

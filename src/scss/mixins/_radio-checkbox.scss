@@ -187,13 +187,6 @@
 }
 
 /// @access private
-/// @require {mixin} oFormsErrorText - Foundation error text styles are required.
-/// @output Modifying styles to update the position of error text which pertains to a group.
-@mixin _oFormsGroupContainerErrorText {
-    margin-top: $_o-forms-checkbox-legend-spacing;
-}
-
-/// @access private
 /// @output Styles to modify checkbox/radio labels.
 @mixin _oFormsRadioCheckboxLabel {
     @include oTypographySize($_o-forms-typography-scale-regular);

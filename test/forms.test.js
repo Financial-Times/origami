@@ -319,6 +319,108 @@ describe("Forms", () => {
 		});
 	});
 
+	describe("update status method", () => {
+		it('adds a new status when a status element exists', () => {
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: true
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			const formStatusElement = document.querySelector('.o-forms__status');
+			// Add status.
+			const status = 'saving';
+			const input = formFieldElement.querySelector('input');
+			Forms.updateInputStatus(input, status);
+			// Confirm expected status classes and aria attributes.
+			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${status}`));
+			proclaim.equal(formStatusElement.getAttribute(`aria-live`), 'assertive');
+			proclaim.equal(formStatusElement.getAttribute(`aria-hidden`), 'false');
+		});
+		it('creates a status element if one does not exist', () => {
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: false
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			const initialFormStatusElement = document.querySelector('.o-forms__status');
+			// Confirm no status exists.
+			proclaim.isNull(initialFormStatusElement, 'Expecting no form status element to exist yet.');
+			// Add status.
+			const status = 'saving';
+			const input = formFieldElement.querySelector('input');
+			Forms.updateInputStatus(input, status);
+			// Confirm form status element is created with the requested status.
+			const finalFormStatusElement = document.querySelector('.o-forms__status');
+			proclaim.ok(finalFormStatusElement, 'Expecting a form status element to have been created.');
+			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${status}`));
+		});
+		it('does not add a status if the form input has an active error', () => {
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: true,
+				hasError: true
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			const formStatusElement = document.querySelector('.o-forms__status');
+			// Attempt to add status.
+			const status = 'saving';
+			const input = formFieldElement.querySelector('input');
+			Forms.updateInputStatus(input, status);
+			// Status is not added.
+			proclaim.isFalse(formFieldElement.classList.contains(`o-forms--${status}`), 'If a form field has an error it should not also have a status.');
+			proclaim.equal(formStatusElement.getAttribute(`aria-hidden`), 'true', 'If a form field has an error its status should be hidden.');
+		});
+		it('does not add an invalid status', () => {
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: true,
+				hasError: true
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			// Attempt to add nonsense status.
+			const status = 'not-a-real-status';
+			const input = formFieldElement.querySelector('input');
+			// Status is not added.
+			proclaim.throws(() => {
+				Forms.updateInputStatus(input, status);
+			});
+		});
+		it('updates an existing status', () => {
+			const existingStatus = 'saving';
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: true,
+				status: existingStatus
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			// Confirm their is an existing status to update.
+			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${existingStatus}`), 'Expecting an existing form field status to test.');
+			// Attempt to update status.
+			const newStatus = 'saved';
+			const input = formFieldElement.querySelector('input');
+			Forms.updateInputStatus(input, newStatus);
+			// Status is updated.
+			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${newStatus}`));
+		});
+		it('removes an existing status if no status is given', () => {
+			const existingStatus = 'saving';
+			fixtures.formFieldHtmlCode({
+				includeStatusElement: true,
+				status: existingStatus
+			});
+			// Get elements to test.
+			const formFieldElement = document.querySelector('.o-forms');
+			// Confirm their is an existing status to update.
+			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${existingStatus}`), 'Expecting an existing form field status to test.');
+			// Attempt to remove status.
+			const status = null;
+			const input = formFieldElement.querySelector('input');
+			Forms.updateInputStatus(input, status);
+			// Status is removed.
+			proclaim.isFalse(formFieldElement.classList.contains(`o-forms--${existingStatus}`));
+		});
+	});
+
 	describe("destroy method", () => {
 		it('destroys itself when not initialised on a <form> element', () => {
 			const html = `<form><input type="text" data-o-component="o-forms" /></form>`;
