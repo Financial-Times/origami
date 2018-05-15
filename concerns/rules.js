@@ -18,9 +18,6 @@ const rulesets = {
 		}
 	],
 	theme: [
-		function theme(props) {
-			return props.theme;
-		},
 		function live(props) {
 			return props.status && props.status === 'inprogress';
 		},
@@ -41,7 +38,7 @@ const rulesets = {
  */
 export default function rules(rule, props) {
 	if (rulesets.hasOwnProperty(rule)) {
-		const index = rulesets[rule].findIndex((rule) => Boolean(rule(props)));
+		const index = rulesets[rule].findIndex((rule) => rule(props));
 		return index !== -1 ? rulesets[rule][index].name : null;
 	} else {
 		throw Error(`No ruleset available named ${rule}`);
