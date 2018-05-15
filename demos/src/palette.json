@@ -4,33 +4,29 @@
 		"colors": [
 			{
 				"name": "paper",
-				"tints": false,
-				"usage": "backgrounds"
+				"baseBackground": true,
+				"tints": false
 			},
 			{
 				"name": "black",
-				"tints": true,
-				"usage": "text, border, backgrounds, buttons, icons"
+				"baseText": true,
+				"tints": true
 			},
 			{
 				"name": "white",
-				"tints": true,
-				"usage": "text, border, backgrounds, buttons, icons"
+				"tints": true
 			},
 			{
 				"name": "claret",
-				"tints": true,
-				"usage": "text, border, backgrounds"
+				"tints": true
 			},
 			{
 				"name": "oxford",
-				"tints": true,
-				"usage": "text, backgrounds"
+				"tints": true
 			},
 			{
 				"name": "teal",
-				"tints": true,
-				"usage": "text, backgrounds, buttons, links"
+				"tints": true
 			}
 		]
 	},
@@ -38,28 +34,22 @@
 		"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
 		"colors": [
 			{
-				"name": "wheat",
-				"usage": "backgrounds"
+				"name": "wheat"
 			},
 			{
-				"name": "sky",
-				"usage": "backgrounds"
+				"name": "sky"
 			},
 			{
-				"name": "slate",
-				"usage": "backgrounds"
+				"name": "slate"
 			},
 			{
-				"name": "velvet",
-				"usage": "backgrounds"
+				"name": "velvet"
 			},
 			{
-				"name": "mandarin",
-				"usage": "backgrounds, text"
+				"name": "mandarin"
 			},
 			{
-				"name": "lemon",
-				"usage": "backgrounds, text"
+				"name": "lemon"
 			}
 		]
 	},
@@ -67,20 +57,16 @@
 		"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
 		"colors": [
 			{
-				"name": "jade",
-				"usage": "backgrounds, text"
+				"name": "jade"
 			},
 			{
-				"name": "crimson",
-				"usage": "backgrounds, text"
+				"name": "crimson"
 			},
 			{
-				"name": "candy",
-				"usage": "backgrounds, text"
+				"name": "candy"
 			},
 			{
-				"name": "wasabi",
-				"usage": "backgrounds, text"
+				"name": "wasabi"
 			}
 		]
 	},
@@ -113,16 +99,13 @@
 		"description": "These colors are specifically designed for use in B2C products.",
 		"colors": [
 			{
-				"name": "org-b2c",
-				"usage": "backgrounds"
+				"name": "org-b2c"
 			},
 			{
-				"name": "org-b2c-dark",
-				"usage": "backgrounds"
+				"name": "org-b2c-dark"
 			},
 			{
-				"name": "org-b2c-light",
-				"usage": "backgrounds"
+				"name": "org-b2c-light"
 			}
 		]
 	}

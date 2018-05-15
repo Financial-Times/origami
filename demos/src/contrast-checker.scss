@@ -1,0 +1,61 @@
+$o-colors-is-silent: false;
+
+// Import colors module
+@import '../../main';
+$o-colors-button-size: 10px;
+
+.container {
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.color-selectors {
+	padding: 20px;
+}
+
+body {
+	font-family: MetricWeb, sans-serif;
+}
+
+.o-buttons--submit-colors {
+	margin: 0 $o-colors-button-size;
+	width: calc(100% - #{2 * $o-colors-button-size});
+}
+
+.rating-result--aaa,
+.rating-result--aa {
+	color: oColorsGetPaletteColor('jade');
+}
+
+.rating-result--aa18 {
+	color: oColorsGetPaletteColor('mandarin');
+}
+
+.rating-result--fail {
+	color: oColorsGetPaletteColor('crimson');
+}
+
+.contrast-result {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 10px 0;
+	border-top: 1px solid oColorsGetPaletteColor('slate-white-15');
+	font-size: 18px;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		font-weight: 600;
+	}
+}
+
+.contrast-showcase {
+	padding: 20px;
+
+	&--text {
+		font-size: 14px;
+	}
+}
