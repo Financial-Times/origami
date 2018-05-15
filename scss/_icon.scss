@@ -110,7 +110,7 @@
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
 	&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
-	&:not([disabled]):active {
+	&:active {
 		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
 	}
 
