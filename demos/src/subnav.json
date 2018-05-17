@@ -470,7 +470,8 @@
 			},
 			{
 				"name": "US Politics & Policy",
-				"href": "#"
+				"href": "#",
+				"selected": true
 			},
 			{
 				"name": "US Companies",

@@ -47,6 +47,15 @@ function init(headerEl) {
 		scrollable();
 	}
 
+	function scrollToCurrent() {
+		let currentSelectionEnd = wrapper.querySelector('[aria-current]').getBoundingClientRect().right;
+		let wrapperWidth = wrapper.getBoundingClientRect().width;
+
+		if (currentSelectionEnd > wrapperWidth) {
+			wrapper.scrollTo(currentSelectionEnd, 0);
+		}
+	}
+
 	wrapper.addEventListener('scroll', oUtils.throttle(scrollable, 100));
 	window.addEventListener('oViewport.resize', scrollable);
 
@@ -55,6 +64,7 @@ function init(headerEl) {
 	});
 
 	scrollable();
+	scrollToCurrent();
 }
 
 export default { init };

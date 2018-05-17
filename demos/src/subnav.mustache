@@ -4,7 +4,7 @@
 		<ul class="o-header__nav-list">
 			{{#mobile}}
 			<li class="o-header__nav-item">
-				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>{{name}}</a>
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}">{{name}}</a>
 			</li>
 			{{/mobile}}
 		</ul>
@@ -15,7 +15,7 @@
 			<ul class="o-header__nav-list o-header__nav-list--left">
 				{{#desktop}}
 				<li class="o-header__nav-item">
-					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}">{{name}}</a>
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}"  id="o-header-link-{{index}}">{{name}}</a>
 				</li>
 				{{/desktop}}
 			</ul>
@@ -57,7 +57,7 @@
 							{{/currentNav.ancestors}}
 							{{#currentNav}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}" aria-current="page" aria-label="Current page">
+								<a class="o-header__subnav-link" href="{{href}}" >
 									{{name}}
 								</a>
 							</li>
@@ -67,7 +67,7 @@
 						<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
 							{{#currentNav.children}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}">
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
 									{{name}}
 								</a>
 							</li>
@@ -82,4 +82,3 @@
 	</div>
 	{{/subnav}}
 </header>
-
