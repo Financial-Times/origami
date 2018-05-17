@@ -40,11 +40,6 @@
 		background-image: url($service-url + $query + "&format=svg");
 	}
 
-	// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
-	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-	// It still needs to use the build service  <-- what does this comment mean?
-	background-image: url($service-url + $query + "&format=png&width=#{$container-width}")\9;
-
 	// sass-lint:disable no-vendor-prefixes
 	@if $high-contrast-fallback {
 		@media screen and (-ms-high-contrast: active) {
@@ -60,12 +55,18 @@
 	// Prevents dimension styles being output by default.
 	// Resolves issue where previous component `o-ft-icons` the mixin this replaces,
 	// dimension styles were included within the $apply-base-styles block as well.
+	@if (type-of($container-width) == 'number' and unitless($container-width)) {
+		$container-width: $container-width + 0px;
+	}
+	@if (type-of($container-height) == 'number' and unitless($container-height)) {
+		$container-height: $container-height + 0px;
+	}
 	@if ($apply-width-height == true) {
-		width: $container-width + 0px;
+		width: $container-width;
 		@if ($container-height == null) {
 			$container-height: $container-width;
 		}
-		height: $container-height + 0px;
+		height: $container-height;
 	}
 
 	@if ($apply-base-styles == true) {
