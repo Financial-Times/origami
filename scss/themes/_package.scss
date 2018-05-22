@@ -30,12 +30,8 @@
 
 	%_o-topper__tag,
 	.o-topper__headline {
-		@include oTypographySans(6, $line-height: 1em);
+		@include oTypographySans(6);
 		font-weight: 400;
-
-		@include oGridRespondTo(L) {
-			@include _oTypographyProgressiveFontFallbackSize('sans', 8);
-		}
 	}
 
 	.o-topper__headline {
