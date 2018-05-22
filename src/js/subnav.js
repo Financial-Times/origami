@@ -51,7 +51,7 @@ function init(headerEl) {
 		const currentSelection = wrapper.querySelector('[aria-current]');
 
 		if(currentSelection) {
-			let currentSelectionEnd = wrapper.querySelector('[aria-current]').getBoundingClientRect().right;
+			let currentSelectionEnd = currentSelection.getBoundingClientRect().right;
 
 			let wrapperWidth = wrapper.getBoundingClientRect().width;
 
