@@ -87,7 +87,7 @@ class SyntaxHighlight {
  */
 	_tokeniseBlock (element) {
 		this._getLanguage(element);
-		this.opts.syntaxString = element.textContent;
+		this.opts.syntaxString = (this.opts.language == 'html' ? element.innerHTML : element.innerText);
 		element.innerHTML = this.tokenise();
 	}
 

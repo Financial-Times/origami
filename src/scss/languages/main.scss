@@ -13,12 +13,14 @@
 			tab-size: 4;
 			overflow-x: auto;
 
-			code {
-				color: oColorsGetPaletteColor('grey-70');
-				font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-				font-size: 14px;
-				white-space: inherit;
-			}
+		}
+
+		code {
+			background: oColorsGetPaletteColor('grey-5');
+			color: oColorsGetPaletteColor('grey-70');
+			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+			font-size: 14px;
+			white-space: inherit;
 		}
 	}
 }
