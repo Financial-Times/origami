@@ -78,6 +78,7 @@ class SyntaxHighlight {
 			}
 		});
 		/* eslint-enable array-callback-return */
+
 		codeBlocks.forEach(this._tokeniseBlock.bind(this));
 	}
 
@@ -87,7 +88,7 @@ class SyntaxHighlight {
  */
 	_tokeniseBlock (element) {
 		this._getLanguage(element);
-		this.opts.syntaxString = (this.opts.language == 'html' ? element.innerHTML : element.innerText);
+		this.opts.syntaxString = (this.opts.language === 'html' ? element.innerHTML : element.innerText);
 		element.innerHTML = this.tokenise();
 	}
 
