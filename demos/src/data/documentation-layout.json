@@ -1,0 +1,76 @@
+{
+	"title": "Layout Demos",
+	"description": "how we lay it out",
+	"mainNav": [
+		{
+			"name": "Documentation",
+			"href": "documentation-layout.html",
+			"current": true
+		},
+		{
+			"name": "Lists & Tables",
+			"href": "lists-tables-layout.html"
+		},
+		{
+			"name": "Search Results",
+			"href": "search-results-layout.html"
+		}
+	],
+	"hasChildren": true,
+	"ancestors": [
+		{
+			"name": "Documentation",
+			"href": "#"
+		},
+		{
+			"name": "Tutorials",
+			"href": "#",
+			"current": true
+		}
+	],
+	"children": [
+		{
+			"name": "Quickstart",
+			"href": "#",
+			"current": true,
+			"navigation": [
+				{
+					"name": "1. Set up your page",
+					"href": "#set-up-your-page"
+				},
+				{
+					"name": "2. Include CSS",
+					"href": "#include-css"
+				},
+				{
+					"name": "3. Add the Classes",
+					"href": "#add-the-classes"
+				},
+				{
+					"name": "4. Include the JavaScript",
+					"href": "#include-the-javascript"
+				},
+				{
+					"name": "5. Putting it all together",
+					"href": "#putting-it-all-together"
+				},
+				{
+					"name": "6. What's next",
+					"href": "#whats-next"
+				},
+				{
+					"name": "7. Find out more",
+					"href": "#find-out-more"
+				}
+			]
+		},
+		{
+			"name": "The Build Service",
+			"href": "#"
+		},
+		{
+			"name": "Manual Build Process",
+			"href": "#"
+		}
+	]
+}

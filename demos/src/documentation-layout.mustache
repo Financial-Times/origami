@@ -1,0 +1,21 @@
+{{> header}}
+
+<div class="o-layout o-layout--documentation">
+	<div class="left-column">
+		<ol>
+			{{#children}}
+				{{#current}}
+					{{#navigation}}
+						<li>
+							<a href="{{href}}">{{name}}</a>
+						</li>
+					{{/navigation}}
+				{{/current}}
+			{{/children}}
+		</ol>
+	</div>
+
+	<div class="column">
+		{{> quickstart-tutorial}}
+	</div>
+</div>

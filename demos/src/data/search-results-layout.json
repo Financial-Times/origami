@@ -1,0 +1,18 @@
+{
+	"title": "Layout Demos",
+	"description": "how we lay it out",
+	"mainNav": [{
+			"name": "Documentation",
+			"href": "documentation-layout.html"
+		},
+		{
+			"name": "Lists & Tables",
+			"href": "lists-tables-layout.html"
+		},
+		{
+			"name": "Search Results",
+			"href": "search-results-layout.html",
+			"current": true
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"description": "A layout component for internal products and tools",
+	"keywords": "layout, documentation",
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-layout/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "experimental",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-layout"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": "o-fonts"
+	},
+	"demos": [
+		{
+			"title": "Documentation Layout",
+			"name": "documentation-layout",
+			"data": "demos/src/data/documentation-layout.json",
+			"template": "demos/src/documentation-layout.mustache",
+			"description": "Documentation Layout"
+		},
+		{
+			"title": "Lists & Tables Layout",
+			"name": "lists-tables-layout",
+			"data": "demos/src/data/lists-tables-layout.json",
+			"template": "demos/src/lists-tables-layout.mustache",
+			"description": "Lists & Tables Layout"
+		},
+		{
+			"title": "Search Results Layout",
+			"name": "search-results-layout",
+			"data": "demos/src/data/search-results-layout.json",
+			"template": "demos/src/search-results-layout.mustache",
+			"description": "Search Results Layout"
+		}
+	]
+}

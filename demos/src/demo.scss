@@ -1,0 +1,17 @@
+@import '../../main.scss';
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+[data-o-component='o-syntax-highlight'] pre {
+	padding: 0 15px;
+}
+
+body {
+	font-family: Arial;
+	font-size: 18px;
+	line-height: 1.2;
+}
