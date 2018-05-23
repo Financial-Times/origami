@@ -183,6 +183,13 @@
         }
     }
 
+    @include test('Does not get a variable value for a variant with no variables defined') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'compact') {
+            $property: oBrandGet($variables: 'example-background');
+            @include assert-equal($property, null);
+        }
+    }
+
     @include test('Gets a variable value for a configured compound variant, regardless of order') {
         // inverse b2b
         @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b' , 'inverse')) {
