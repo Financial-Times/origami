@@ -19,7 +19,7 @@ Origami JS helpers.
     Utils.debounce(myFunction, 100)
 ```
 
-For more detailed explanation, refer to our [JSDoc](http://codedocs.webservices.ft.com/v1/jsdoc/o-utils@^1.0.0)
+For more detailed explanation, refer to our [JSDoc](http://codedocs.webservices.ft.com/v1/jsdoc/o-utils)
 
 
 ## Contributing
