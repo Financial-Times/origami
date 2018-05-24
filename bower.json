@@ -1,7 +1,8 @@
 {
   "name": "o-typography",
   "main": [
-    "main.scss"
+    "main.scss",
+    "main.js"
   ],
   "ignore": [
     ".travis.yml"
