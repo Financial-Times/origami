@@ -7,8 +7,6 @@
 		link-hover-text: oColorsGetPaletteColor('black-80'),
 		link-highlight-text: oColorsGetPaletteColor('teal-40'),
 
-		transparency: oColorsGetPaletteColor('white'),
-
 		search-border: oColorsGetPaletteColor('teal-40'),
 		search-background: oColorsGetPaletteColor('black-20'),
 
@@ -48,7 +46,10 @@
 		drawer-selected-toggle-text: oColorsGetPaletteColor('white'),
 		drawer-selected-toggle-background: oColorsGetPaletteColor('white'),
 		drawer-unselected-toggle-text: oColorsGetPaletteColor('teal-40'),
-		drawer-unselected-toggle-background: oColorsGetPaletteColor('black-10')
+		drawer-unselected-toggle-background: oColorsGetPaletteColor('black-10'),
+		'transparent': (
+			transparency: oColorsGetPaletteColor('white'),
+		)
 	),
 	'settings': (
 		'transparent': true
