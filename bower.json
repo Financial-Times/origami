@@ -5,7 +5,7 @@
         "o-grid": "^4.0.6",
         "o-icons": ">=4.0.0 <6",
         "o-typography": "^5.0.0",
-        "o-brand": "^v2.0.2"
+        "o-brand": "^v2.0.5"
     },
     "main": [
         "main.scss",
