@@ -335,7 +335,6 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
     @if $variant and $variant != '' {
         $variant-variables: map-get($variables, _oBrandNormaliseVariant($variant));
-        $variables: null;
         @if type-of($variant-variables) == 'map' {
             $variables: $variant-variables;
         }
@@ -358,9 +357,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
     // Warn but do not error if a variable is not defined for the current brand and variant.
     // A CSS property with SASS value `null`  will not be output.
-    @if $o-brand-debug-mode {
-        @warn 'Variables are not set for ' + if(length($variant) > 0, 'the variant "#{$variant}" of ', '') + 'the "#{$o-brand}" brand.';
-    }
+    @warn 'Variables are not set for ' + if(length($variant) > 0, 'the variant "#{$variant}" of ', '') + 'the "#{$o-brand}" brand.';
     @return null;
 }
 
@@ -389,6 +386,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
     @return $brand-config;
 }
+
 
 /// Ensure variants are expressed consistently,
 /// so they may be compared and matched.
