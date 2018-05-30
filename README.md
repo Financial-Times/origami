@@ -69,26 +69,7 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 <i class="icon-plus"></i>
 ```
 
-The [Responsive Image Service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons with a resized PNG fallback. Using the mixin from above, you'll get the following output:
-
-```scss
-.icon-plus {
-	// Older browsers: PNG fallback (resized to 40px wide)
-	background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon:plus?width=40&format=png&source=o-icons');
-	// Modern browsers: SVG covering the whole size of the element
-	// we declare multiple backgrounds so that only modern browsers read this property
-	background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?format=svg&source=o-icons'), none;
-
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 50%;
-	background-color: transparent;
-	vertical-align: middle;
-}
-```
+The [Responsive Image Service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons.
 
 The 'base' of the service url can be set with the `$o-icons-service-base-url` variable. e.g. setting
 
