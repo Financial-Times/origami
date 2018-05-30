@@ -27,11 +27,13 @@
 		},
 		"demos": [
 			{
+				"title": "Demo",
 				"name": "demo",
 				"template": "demos/src/demo.mustache",
 				"description": "Simple ribbon example"
 			},
 			{
+				"title": "PA11Y",
 				"name": "pa11y",
 				"template": "demos/src/pa11y.mustache",
 				"hidden": true,
