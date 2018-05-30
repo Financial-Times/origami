@@ -19,7 +19,7 @@ class Typography {
 			{
 				family: 'FinancierDisplayWeb',
 				weight: 'normal',
-				label: 'serifDisplay'
+				label: 'display'
 			},
 			{
 				family: 'MetricWeb',
@@ -34,7 +34,7 @@ class Typography {
 			{
 				family: 'FinancierDisplayWeb',
 				weight: 700,
-				label: 'serifDisplayBold'
+				label: 'displayBold'
 			}
 		];
 		if (this.opts.loadOnInit) {
