@@ -103,16 +103,11 @@
 		width: #{$o-share-icon-size};
 		height: #{$o-share-icon-size};
 		background-image: url($service-url + $query + "&format=svg");
-
-		// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
-		// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-		background-image: url($service-url + $query + "&format=png&width=#{$o-share-icon-size}")\9;
 		
 		// Hack to load icon early to prevent FOIC on hover
 		&:after {
 			content: '';
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
-			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}	
 	}
 
@@ -127,7 +122,6 @@
 		.#{$classname}__icon--#{$icon-name}:before {
 			background-color: oColorsGetPaletteColor('black');
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
-			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
 	}
 
@@ -138,7 +132,6 @@
 
 		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
-			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
 	}
 	// scss-lint:enable DuplicateProperty
@@ -179,7 +172,6 @@
 
 				&:before {
 					background-image: url($service-url + $query + "&format=svg#{$tint}");
-					background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 
 					// Force the background to be black in high-contrast mode
 					@media screen and (-ms-high-contrast: active) {
