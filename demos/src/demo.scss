@@ -23,7 +23,6 @@ $o-share-is-silent: false;
 
 		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
-			background-image: url($service-url + $query + "&format=png#{$tint}&width=#{$o-share-icon-size}")\9;
 		}
 	}
 }
