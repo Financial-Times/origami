@@ -102,3 +102,21 @@
 		@include oTypographyProgressiveFontFallback('serifBold', $scale);
 	}
 }
+
+/// Outputs font-family, italic font-style, size and line-height, and progressive
+/// font loading styles for Serif font
+///
+/// @param {Bool | Number} $scale [false] - number of the scale to use
+/// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
+/// @param {Bool} $progressive [true] - whether to output progressive font loading styles
+@mixin oTypographySerifItalic($scale: false, $line-height: false, $progressive: true) {
+	@include oTypographySerif($scale, $line-height, false);
+	@include oTypographyItalic();
+
+	// In this mixin $progressive defaults to false for the serif
+	// font because we are using a system font (Georgia).
+	// This will need to change if we move to a webfont for the serif font.
+	@if $progressive {
+		@include oTypographyProgressiveFontFallback('serifBold', $scale);
+	}
+}
