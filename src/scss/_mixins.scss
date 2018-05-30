@@ -6,6 +6,5 @@
 	$base-url: "#{$o-footer-image-base-url}/#{$o-footer-image-service-version}/images/raw/ftlogo:";
 	// sass-lint:disable no-duplicate-properties
 	background-image: url($base-url + $logo-name + "?source=o-footer&format=svg");
-	background-image: url($base-url + $logo-name + "?source=o-footer&format=png&width=#{$fallback-width}") \9;
 	// sass-lint:enable no-duplicate-properties
 }
