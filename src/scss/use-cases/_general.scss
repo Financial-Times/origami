@@ -111,22 +111,23 @@
 }
 
 /// Styles for <ul> tags
+/// Bullet size and spacing was suited to article font-size (18px at time of writing).
+/// This has since been updated to use `em` units but maintain that ratio.
 @mixin oTypographyListUnordered {
 	padding-left: 0;
 
 	li {
 		display: block;
 		position: relative;
-		padding-left: oTypographySpacingSize($units: 6);
+		padding-left: 1.333333333em; // padding-left 24px for `li` items with font-size of 18px
 
 		&:before {
 			@include oColorsFor('o-typography-list-prefix');
 			display: inline-block;
 			position: absolute;
 			content: '\2022'; // dot character
-			top: -3px; // magic number alignment
-			left: -2px;
-			font-size: oTypographySpacingSize($units: 8);
+			left: -0.0625em;
+			font-size: 1.777777778em; // font-size 32px for `li` items with font-size of 18px
 		}
 	}
 }
