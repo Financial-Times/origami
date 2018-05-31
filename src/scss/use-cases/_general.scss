@@ -47,18 +47,19 @@
 }
 
 @mixin oTypographyLinkExternal {
+	$icon-size: #{(24 / 16)}em;
 	@include oTypographyLink;
-	margin-right: oTypographySpacingSize(6);
-	position: relative;
-	white-space: nowrap;
+	margin-right: calc(1em + 0.25ch);
 	&::after {
 		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('teal'), 24, $iconset-version: 1);
 		content: '';
-		display: block;
-		position: absolute;
-		right: oTypographySpacingSize(6) * -1;
-		top: 50%;
-		transform: translateY(-50%);
+		width: 1em;
+		height: 1em;
+		vertical-align: bottom;
+		background-size: $icon-size;
+		margin-right: calc(-1em - 0.25ch);
+		padding-left: 0.25ch;
+		background-origin: content-box;
 	}
 }
 
