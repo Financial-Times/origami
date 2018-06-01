@@ -47,18 +47,24 @@
 }
 
 @mixin oTypographyLinkExternal {
-	$icon-size: #{(24 / 16)}em;
+	// Icons align to a 40x40 pixel grid with 10px padding on each side.
+	// In this case however we want to remove that padding to align the icon flush.
+	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
+	$icon-size: (24 / 16) * 1em;
+	$icon-padding: ($icon-size/40) * 10;
+	$icon-container-size: $icon-size - ($icon-padding * 2);
 	@include oTypographyLink;
-	margin-right: calc(1em + 0.25ch);
+	margin-right: calc(#{$icon-container-size} + 0.5ch); // Space for icon (without border).
 	&::after {
 		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('teal'), 24, $iconset-version: 1);
 		content: '';
-		width: 1em;
-		height: 1em;
-		vertical-align: bottom;
+		width: $icon-container-size;
+		height: $icon-container-size;
+		vertical-align: inherit;
 		background-size: $icon-size;
-		margin-right: calc(-1em - 0.25ch);
-		padding-left: 0.25ch;
+		background-position-x: right\0; // IE9 hack to position resized background
+		padding-left: 0.5ch;
+		margin-right: calc(-#{$icon-container-size} - 0.5ch);
 		background-origin: content-box;
 	}
 }
