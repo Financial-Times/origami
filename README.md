@@ -39,6 +39,9 @@ $o-footer-is-silent: false;
 // Output the simple footer, with the dark theme.
 // Use the method above for a light themed simple footer
 @include oFooter($simple: true);
+
+// Output o-footer without the standard top margin.
+@include oFooter($margin: false);
 ```
 
 ### JavaScript
