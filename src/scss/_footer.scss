@@ -2,13 +2,16 @@
 ///
 /// @param {string} $theme ['dark'] - the theme of the footer styles requested
 /// @param {boolean} $simple [false] - whether to only output the default footer styles
-@mixin oFooter($theme: 'dark', $simple: false) {
+/// @param {boolean} $margin [false] - whether to output the standard footer margin or not
+@mixin oFooter($theme: 'dark', $simple: false, $margin: true) {
 	// required by o-grid JS helper
 	@include oGridSurfaceCurrentLayout();
 
 	.o-footer {
 		@include oTypographySans(0, 20px);
-		margin-top: (2 * $o-footer-spacing-unit);
+		@if $margin {
+			margin-top: (2 * $o-footer-spacing-unit);
+		}
 		line-height: $o-footer-spacing-unit;
 
 		a {
