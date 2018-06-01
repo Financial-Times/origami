@@ -1,20 +1,28 @@
 /// Promoted content theme
 @mixin oTeaserPromotedContent {
 	@include oColorsFor('o-teaser-theme-promoted-content');
-	padding: 12px 32px 12px 12px;
-
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px
 	&#{&} {
-		padding-bottom: 12px;
+	        padding: 12px;
 	}
 
-	.o-teaser__content:after {
-		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32, $iconset-version: 1);
+	// @todo pull in external link icon position from o-typography
+	// https://github.com/Financial-Times/o-teaser/issues/96
+	.o-teaser__heading::after {
+		$icon-size: (24 / 16) * 1em;
+		$icon-padding: ($icon-size/40) * 10;
+		$icon-container-size: $icon-size - ($icon-padding * 2);
+		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 24, $iconset-version: 1);
 		content: '';
-		position: absolute;
-		top: 3px;
-		right: 0;
+		width: $icon-container-size;
+		height: $icon-container-size;
+		vertical-align: inherit;
+		background-size: $icon-size;
+		background-position-x: right\0; // IE9 hack to position resized background
+		padding-left: 0.5ch;
+		background-origin: content-box;
+		box-sizing: content-box;
 	}
 
 	.o-teaser__meta {
@@ -23,15 +31,20 @@
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oColorsFor('o-teaser-promoted-prefix', 'text');
+		@include oLabels;
+		@include oLabelsState('commercial-content');
+		@include oTypographySize(-2);
 	}
-
 }
 
 /// Paid post theme
 @mixin oTeaserPaidPost {
 	@include oColorsFor('o-teaser-theme-paid-post');
-	padding: 12px;
+	// Hack to force a higher specificity than .o-teaser--small which
+	// adds a padding-bottom of 16px
+	&#{&} {
+	        padding: 12px;
+	}
 
 	.o-teaser__meta {
 		@include oTypographyBold('sans');
