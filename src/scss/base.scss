@@ -207,6 +207,7 @@
 		// Base status styles.
 		.#{$class}__status {
 			@include oTypographySize($_o-forms-typography-scale-small);
+			line-height: 1em;
 			white-space: nowrap;
 			align-items: center;
 			min-width: 5em;
@@ -223,6 +224,8 @@
 
 		.#{$class}__status[aria-hidden="false"] {
 			display: flex;
+			// Sit within the margin of `.o-form` without pushing page content down.
+			margin-bottom: calc(-1em - #{$_o-forms-default-error-text-margin});
 		}
 
 		// Saving status.

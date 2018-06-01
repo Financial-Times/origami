@@ -105,6 +105,7 @@
 	visibility: hidden;
 	&[aria-hidden="false"] {
 		visibility: visible;
+		margin-bottom: 0px;
 	}
 }
 
