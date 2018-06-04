@@ -7,27 +7,13 @@
 	        padding: 12px;
 	}
 
-	// @todo pull in external link icon position from o-typography
-	// https://github.com/Financial-Times/o-teaser/issues/96
-	.o-teaser__heading::after {
-		$icon-size: (24 / 16) * 1em;
-		$icon-padding: ($icon-size/40) * 10;
-		$icon-container-size: $icon-size - ($icon-padding * 2);
-		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 24, $iconset-version: 1);
-		content: '';
-		width: $icon-container-size;
-		height: $icon-container-size;
-		vertical-align: inherit;
-		background-size: $icon-size;
-		background-position-x: right\0; // IE9 hack to position resized background
-		padding-left: 0.5ch;
-		background-origin: content-box;
-		box-sizing: content-box;
+	.o-teaser__heading a {
+		@include oTypographyLinkExternalIcon(oColorsGetPaletteColor('black-80'));
 	}
 
 	.o-teaser__meta {
 		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black');
+		color: oColorsGetPaletteColor('black-80');
 	}
 
 	.o-teaser__promoted-prefix {
@@ -48,7 +34,7 @@
 
 	.o-teaser__meta {
 		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black');
+		color: oColorsGetPaletteColor('black-80');
 	}
 
 	.o-teaser__promoted-prefix {
