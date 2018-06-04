@@ -46,26 +46,35 @@
 	);
 }
 
+/// Standard link styles + external link icon.
 @mixin oTypographyLinkExternal {
+	@include oTypographyLink;
+	@include oTypographyLinkExternalIcon(oColorsGetPaletteColor('teal'));
+}
+
+/// External link icon.
+/// @param {Color} $color of the icon
+@mixin oTypographyLinkExternalIcon($color) {
 	// Icons align to a 40x40 pixel grid with 10px padding on each side.
 	// In this case however we want to remove that padding to align the icon flush.
 	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
 	$icon-size: (24 / 16) * 1em;
 	$icon-padding: ($icon-size/40) * 10;
-	$icon-container-size: $icon-size - ($icon-padding * 2);
-	@include oTypographyLink;
-	margin-right: calc(#{$icon-container-size} + 0.5ch); // Space for icon (without border).
+	$margin: 0.5ch;
+	margin-right: calc(#{$icon-size} - #{$icon-padding * 2} + #{$margin}); // Space for icon.
 	&::after {
-		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('teal'), 24, $iconset-version: 1);
+		@include oIconsGetIcon('outside-page', $color, 24, $iconset-version: 1);
 		content: '';
-		width: $icon-container-size;
-		height: $icon-container-size;
-		vertical-align: inherit;
-		background-size: $icon-size;
-		background-position-x: right\0; // IE9 hack to position resized background
+		width: $icon-size;
+		height: $icon-size;
+		margin: -#{$icon-padding};
+		margin-right: calc(-#{$icon-size} + #{$icon-padding} - #{$margin});
 		padding-left: 0.5ch;
-		margin-right: calc(-#{$icon-container-size} - 0.5ch);
 		background-origin: content-box;
+		vertical-align: middle;
+		// To align middle ignoring any link border.
+		border-bottom: inherit;
+    	border-color: transparent;
 	}
 }
 
