@@ -11,6 +11,6 @@
 		"o-colors": "^4.0.2",
 		"o-buttons": "#update-o-brand",
 		"o-dom": "^2.0.3",
-		"o-brand": "#update-interface"
+		"o-brand": "^2.1.1"
 	}
 }
