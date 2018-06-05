@@ -157,19 +157,28 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @if $configure-for == null {
         $configure-for: $_o-brand-current-variant;
     }
-    @if type-of($from) == 'string' {
+    $original-config: _oBrandGetConfig($component, $o-brand);
+    // Use new `$from` argument over `$configure-for`.
+    @if type-of($from) == 'string' or type-of($from) == 'list' {
         $configure-for: $from;
+        // Unlink `$configure-for`, `$from` argument does not fall back to default
+        // variables if the variant is not configured.
+        @if $from {
+            $brand-variables: map-get($original-config, 'variables');
+            @if not map-has-key($brand-variables, $from) {
+                @return null;
+            }
+        }
     }
     // For one variable return value.
     @if $component == null {
-        @error 'Can not get variable "#{variables}" as the component is not configured. Use `oBrandConfigureFor` or pass a `$component` argument.';
+        @error 'Can not get variable "#{$variables}" for as the "$component" is not configured.';
     }
     @if $override-config and type-of($override-config) != 'map' {
         @error '`oBrandGet` expects "$override" to be of type map but was of type "#{type-of($override)}": "#{$override}".';
     }
     // Override config.
     $brand: if($o-brand, $o-brand, $_o-brand-default);
-    $original-config: _oBrandGetConfig($component, $brand);
     @if $override-config {
         $result: _oBrandUpdateConfig($component, $brand, $override-config);
     }
