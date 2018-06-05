@@ -4,7 +4,7 @@
             'variables': (
                 example: blue
             ),
-            'settings': (
+            'supports-variants': (
                 'test': true,
                 'example': true
             )
@@ -12,7 +12,7 @@
         $component1-brand2: (
             'variables': (
             ),
-            'settings': (
+            'supports-variants': (
                 'example': true
             )
         );
@@ -20,7 +20,7 @@
             'variables': (
                 other: red
             ),
-            'settings': (
+            'supports-variants': (
                 'thing': true
             )
         );
@@ -28,7 +28,7 @@
             'variables': (
                 other: white
             ),
-            'settings': (
+            'supports-variants': (
             )
         );
         @include oBrandDefine('o-component1', 'brand1', $component1-brand1);
@@ -180,6 +180,23 @@
         @include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
             $property: oBrandGet($variables: 'example-background');
             @include assert-equal($property, grey);
+        }
+    }
+
+    @include test('Gets a variable value from a variant') {
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $from: 'inverse');
+        @include assert-equal($property, grey);
+    }
+
+    @include test('Gets a variable value from a custom variant') {
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background', $from: ('example-background': hotpink));
+        @include assert-equal($property, hotpink);
+    }
+
+    @include test('If no variant variables are configured the default variable is fetched') {
+        @include oBrandConfigureFor($component: 'o-example', $variant: 'compact') {
+            $property: oBrandGet($variables: 'example-background');
+            @include assert-equal($property, white);
         }
     }
 

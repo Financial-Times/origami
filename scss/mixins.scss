@@ -26,7 +26,6 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
 }
 
-
 /// Configures a content block for a brand variant.
 /// A single variant (string) or compound variant (list) is accepted.
 /// This mixin may also be nested to target compound variants.
@@ -47,10 +46,14 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 ///        // Will use configuration for the compound variant 'inverse,b2b' when fetching variable values.
 ///     }
 ///
+/// @deprecated
 /// @access public
 /// @param {string} $component
 /// @param {string | list} $variant
 @mixin oBrandConfigureFor($component, $variant: null) {
+    @if $o-brand-debug-mode {
+        @warn "oBrandConfigureFor is deprecated and will be removed in the next major of `o-brand`";
+    }
     // The default brand must be configured before o-brand can be used.
     @if not _oBrandIsDefined($component) {
         @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
@@ -90,10 +93,14 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 ///     	};
 ///     }
 ///
+/// @deprecated
 /// @access public
 /// @param {string} $component
 /// @param {map} $config
 @mixin oBrandOverride($component, $config) {
+    @if $o-brand-debug-mode {
+        @warn "oBrandOverride is deprecated and will be removed in the next major of `o-brand`";
+    }
     $variants-configured: if($_o-brand-current-variant, length($_o-brand-current-variant), 0);
     @if($variants-configured > 0) {
         @error '`oBrandOverride` must wrap any `oBrandConfigureFor` call. Brand config cannot be overriden within a `oBrandConfigureFor` content block. Currently configured for #{$_o-brand-current-variant}.';
@@ -123,13 +130,35 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
 /// @access public
 /// @param {string} $component
 /// @param {string | list} $variables
-/// @param {string | list} $configure-for Get a variable for a specific variant, disregards any configured variant of `oBrandConfigureFor`.
-/// @param {map} $override-config Configuration to override defined brand configuration. Expects the same as the `oBrandDefine` `$config` argument.
+/// @param {string | list} $configure-for Deprecated use $from: Get a variable for a specific variant, disregards any configured variant of `oBrandConfigureFor`.
+/// @param {map} $override-config Deprecated use $from: Configuration to override defined brand configuration. Expects the same as the `oBrandDefine` `$config` argument.
+/// @param {map|list|string} $from Get variable values from a defined brand variant or from a map of variables. Use instead of `$override-config` and `$configure-for`.
 /// @return {string | number | color | null}
-@function oBrandGet($variables, $component: $_o-brand-current-component, $configure-for: $_o-brand-current-variant, $override-config: $_o-brand-current-override) {
+@function oBrandGet($variables, $component: $_o-brand-current-component, $configure-for: $_o-brand-current-variant, $override-config: $_o-brand-current-override, $from: null) {
+    @if ($override-config != $_o-brand-current-override) and $o-brand-debug-mode {
+        @warn 'The `oBrandGet` argument `$override-config` is deprecated.';
+    }
+    @if ($configure-for != $_o-brand-current-variant) and $o-brand-debug-mode {
+        @warn 'The `oBrandGet` argument `$configure-for` is deprecated.';
+    }
+    @if type-of($from) == 'map' {
+        $values: null;
+        @each $variable in $variables {
+            $value: map-get($from, $variable);
+            @if $values {
+                $values: join($values, $value);
+            } @else {
+                $values: $value;
+            }
+        }
+        @return $values;
+    }
    // Ignore a null `$configure-for` variant.
     @if $configure-for == null {
         $configure-for: $_o-brand-current-variant;
+    }
+    @if type-of($from) == 'string' {
+        $configure-for: $from;
     }
     // For one variable return value.
     @if $component == null {
@@ -214,11 +243,17 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     // Validate config
     $valid: _oBrandValidateConfig($component, $brand, $config);
     $variables: map-get($config, 'variables');
-    $settings: map-get($config, 'settings');
-    // Ensure compound variant lists are alphabetical.
+    $supports-variants: if(map-get($config, 'settings'), map-get($config, 'settings'), map-get($config, 'supports-variants'));
+    @if map-get($config, 'settings') and $o-brand-debug-mode {
+        @warn 'Defining brands with "settings" is deprecated. Use "supports-variants" instead for component "#{$component}" and brand "#{$brand}".';
+    }
+    // Ensure a variant list is alphabetical.
     $sorted-variables: ();
     @each $key, $value in $variables {
         @if type-of($value) == 'map' {
+            @if type-of($key) == 'list' and $o-brand-debug-mode {
+                @warn 'Defining variants as lists is deprecated. Use strings instead. Variant "#{$key}" of brand "#{$brand}" for component "#{$component}".';
+            }
             $key: _oBrandNormaliseVariant($key);
         }
         $sorted-variables: map-merge($sorted-variables, ($key: $value));
@@ -226,7 +261,7 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     // Update config.
     $_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: ($brand: (
         'variables': $sorted-variables,
-        'settings': $settings
+        'supports-variants': $supports-variants
     )))) !global;
     @return $_o-brands;
 }
@@ -244,18 +279,17 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @if type-of($config) != 'map' {
         @error '#{$errorMessage}. Its configuration must be a map.';
     }
-    // Validate brand variables and settings.
+    // Validate brand variables and supported variants.
     $variables: map-get($config, 'variables');
-    $settings: map-get($config, 'settings');
+    $supports-variants: if(map-get($config, 'settings'), map-get($config, 'settings'), map-get($config, 'supports-variants'));
     @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
         @error '#{$errorMessage}. Config key "variables" should be a map but is of type #{type-of($variables)}.';
     }
-    @if $settings and (type-of($settings) != 'map' and type-of($settings) != 'list' ) {
-        @error '#{$errorMessage}. Config key "settings" should be a map but is of type #{type-of($settings)}.';
+    @if $supports-variants and (type-of($supports-variants) != 'map' and type-of($supports-variants) != 'list' ) {
+        @error '#{$errorMessage}. Config key "$supports-variants" should be a map but is of type #{type-of($supports-variants)}.';
     }
     @return true;
 }
-
 
 /// Check the brand is configured.
 /// By default checks the default brand is configured.
@@ -271,8 +305,17 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @return type-of(map-get($component-brands, $brand)) == 'map';
 }
 
+/// Check if the brand supports a variant.
+///
+/// @access public
+/// @param {string} $component
+/// @param {string} $variant
+/// @return {boolean}
+@function oBrandSupportsVariant($component, $variant) {
+    @return _oBrandSupports($component, $variant);
+}
 
-/// Check the brand's configured settings to see if it supports a variant.
+/// Check the brand's configured supported variants to see if it supports a variant.
 /// Using this function and a conditional may make sense if there is no variant specific configuration.
 /// However `oBrandConfigureFor` should be used instead where possible.
 /// Doing so will support variant specific configuration in the future without code changes.
@@ -294,23 +337,23 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @if $override {
         $result: _oBrandUpdateConfig($component, $brand, $override);
     }
-    // Get all brand settings, which are used to indicate variant support.
+    // Get supported variants.
     $brand-config: _oBrandGetConfig($component, $o-brand);
-    $brand-settings: map-get($brand-config, 'settings');
+    $supports-variants: if(map-get($brand-config, 'settings'), map-get($brand-config, 'settings'), map-get($brand-config, 'supports-variants'));
     // Restore original config.
     @if $override {
         $result: _oBrandRestoreConfig($component, $brand, $original-config);
     }
-    // No settings are enabled so no variants are supported.
-    @if type-of($brand-settings) != 'map' {
+    // No variants are supported.
+    @if type-of($supports-variants) != 'map' {
         @return false;
     }
-    // Check for a setting name which matches the variant.
-    // Each part of a compound variant should be specified with its own setting.
-    // E.g. Variant ('stripe', 'compact') is enabled with both 'stripe' and 'compact' settings set to true.
+    // @deprecated When variants are combined as a list, assume support if each individual part is supported.
+    // E.g. a 'compact' variant may be combined with a 'stripe' variant as ('stripe', 'compact').
+    // For a combined variant ('stripe', 'compact') to be supported 'compact' and 'stripe' must be supported individually.
     @each $variant-part in $variant {
-        $setting-defined: type-of($brand-settings) == 'map' and map-has-key($brand-settings, $variant-part);
-        @if $setting-defined == false or map-get($brand-settings, $variant-part) == false {
+        $variant-part-defined: type-of($supports-variants) == 'map' and map-has-key($supports-variants, $variant-part);
+        @if $variant-part-defined == false or map-get($supports-variants, $variant-part) == false {
             @return false;
         }
     }
@@ -341,11 +384,6 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     }
     // Variables for the current brand and variant found.
     @if type-of($variables) == 'map' {
-        // Check the requested variable is defined.
-        @if map-has-key($variables, $variable) == false and $o-brand-debug-mode == true {
-            @warn 'The "#{$variable}" variable is not defined for the ' + if(length($variant) > 0, 'variant "#{$variant}" of ', '') + 'the "#{$o-brand}" brand.';
-            @return null;
-        }
         // Get the defined value and validate it can be used as a CSS property.
         // Boolean variant and feature toggles are configured seperately.
         $value: map-get($variables, $variable);

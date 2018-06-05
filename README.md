@@ -17,7 +17,7 @@ Tools to tailor Origami components for distinct usecases.
 
 ### Brand
 
-A brand is a collection of configuration to tailor a component for distinct use-cases. A branded Origami component is able to output differing styles for a requested brand. It is also able to include extra styles specific to a brand.
+A brand represents an enviroment which requires components to offer a distinct appearence or unique functionality.
 
 Brands include:
 
@@ -27,15 +27,15 @@ Brands include:
 
 ### Variant
 
-A variant is an addition or modification of a component. A variant may alter the appearance and/or functionality of a component. Variants must be optional and build upon a fully functional component.
+A variant is an addition or modification to a component within a given brand. A variant may also alter the appearance and/or functionality of a component. Variants must be optional and build upon a fully functional component.
 
 E.g. A button component may have an "inverse" variant, a "big" variant, etc. A header component may have a "subnav" variant, a "sticky" variant, etc.
 
 ## Motivation
 
-As of March 2018 Origami components provide master brand specific styles inconsistently. Some components aim to provide a generic foundation for visually distinct clients to build upon, e.g. `o-table`, but include CSS classes which unpredictably introduce heavy master brand specific styles. This means some clients need to manually override master brand styles with extra CSS. It also means a non-masterbrand client cannot be confident that new master brand styles will not creep in over time.
+As of March 2018 Origami components provide master brand specific styles inconsistently. Some components aim to provide a generic foundation for visually distinct clients to build upon, e.g. `o-table`, but include CSS classes which unpredictably introduce heavy "master" brand specific styles. This means some clients need to manually override "master" brand styles with extra CSS. It also means a non-masterbrand client cannot be confident that new "master" brand styles will not creep in over time.
 
-Branded components aim to provide styles for "master" and "internal" products which are immediately usable with little or no modification. For products where those do not apply a "whitelabel" brand provides a reliable foundation with little visual styling to build upon.
+Branded components aim to provide styles for "master" and "internal" branded products which are immediately usable with little or no modification. For products where those do not apply a "whitelabel" brand provides a reliable foundation with little visual styling to build upon.
 
 ## Sass
 
@@ -45,23 +45,22 @@ Mixins within `o-brand` help configure components to support brands. There is no
 
 The following mixins and functions help brand a component.
 
-- [oBrandDefine](#obranddefine) - Define brand configuration (variables & settings).
+- [oBrandDefine](#obranddefine) - Define brand configuration (variables & supported variants).
 - [oBrandGet](#obrandget) - Retrieve brand variables.
-- [oBrandConfigureFor](#obrandconfigurefor) - Choose a variant and automatically configure `oBrandGet`.
-- [oBrandOverride](#obrandoverride) - Customise a defined brand to automatically override `oBrandGet`.
+- [oBrandSupportsVariant](#obrandsupportsvariant) - Check if the brand supports a variant.
 
 ### oBrandDefine
 
 A component defines configuration for each of its supported brands. The default brand `master` must be defined. To do that use the mixin `oBrandDefine`.
 
-Brand configuration comprises of variables and settings. As explained below.
+Brand configuration comprises of variables and supported variants. As explained below.
 - [`variables`](#brand-variables)
-- [`settings`](#brand-settings)
+- [`supports-variants`](#supports-variants)
 
 ```scss
 @include oBrandDefine($component: 'o-example', $brand: 'master', (
     'variables': $variables,
-    'settings': $settings
+    'supports-variants': $supports-variants
 ));
 ```
 
@@ -86,61 +85,43 @@ $variables: (
 );
 ```
 
-Two or more variants may be used together to create a new variant. E.g. a "b2b" variant might provide a different background color when used along with the "inverse" variant.
-
-```scss
-$variables: (
-	example-background: 'paper',
-	'inverse': (
-		example-background: 'slate'
-	)
-	'b2b': (
-		example-background: 'lightblue'
-	)
-	('b2b', 'inverse'): (
-		example-background: 'darkblue'
-	)
-);
-```
-
 - Variable names must be a string and should be alphanumeric, including dashes e.g. `example-background`.
 - Variable names should not match css properties exactly e.g. `example-background` over `background`.
-- A variant must be an alphanumeric string or list of alphanumeric strings e.g. `inverse`, `('b2b', 'inverse')`.
+- A variant must be an alphanumeric string e.g. `inverse`, `b2b-inverse`.
 
-#### Brand Settings
+#### Supported Variant
 
-Variants are unsupported by default. To enable a variant for a brand, add the variant name to the settings map if the brand supports it. Brand settings provide boolean flags to turn variants on.
+To indicate a brand should support a variant, add the variant name to the `supports-variants` map.
 
-E.g. To configure support for inverse and b2b variants:
+E.g. To configure support for "inverse" and "b2b" variants:
 ```scss
-$settings: (
+$supports-variants: (
 	'inverse': true,
 	'b2b': true
 );
 ```
 
-- Some variants may not need variables, but may still exist in a component. This means the variant still needs to be set within the brand settings. E.g. a "sticky" variant of a header may need no configuration, other than a setting to turn support on/off.
+These ensures support for a variant which sets no variables can be determined.
 
 #### A Complete `oBrandDefine` Example
 
-The below example defines a brand `master` for the component `o-example`. We define a variable `example-background`. There is a different `example-background` value for the `inverse` and `b2b inverse` variant. Using the settings map we state the `master` brand supports these two variants.
+The below example defines a `master` brand for the component `o-example`. We define four variables including `example-background`, but we provide a different `example-background` value for the `inverse` and `b2b` variants. Using the `supports-variants` map we explicitly state the `master` brand supports both of these variants.
 
 ```scss
 @include oBrandDefine('o-example', 'master', (
     'variables': (
 		example-background: 'paper',
+		example-border-width: 1px,
+		example-border-type: solid,
+		example-border-type: grey,
 		'inverse': (
 			example-background: 'slate'
 		)
 		'b2b': (
 			example-background: 'lightblue'
 		)
-		('b2b', 'inverse'): (
-			example-background: 'darkblue'
-		)
     ),
-    'settings': (
-        'b2b': true,
+    'supports-variants': (
         'inverse': true
     )
 ));
@@ -157,102 +138,46 @@ E.g. building on the `oBrandDefine` example:
 }
 ```
 
-To request multiple variables at once, assuming variables `example-border-size: 1px`, `example-border-type: solid`, `example-border-color: grey` are defined using `oBrandDefine`:
+It is possible to request multiple variables:
 ```scss
 .o-example {
-	border: oBrandGet($component: 'o-example', $variables: ('example-border-size', 'example-border-type', 'example-border-color')); // border: 1px solid grey;
+	border: oBrandGet($component: 'o-example', $variables: ('example-border-width', 'example-border-type', 'example-border-color')); // border: 1px solid grey;
 }
 ```
 
-Retrieve a variable for a variant using `oBrandGet` and `$configure-for`.
+To retrieve a variable for a variant use the `$from` argument of `oBrandGet`.
 ```scss
 .o-example--inverse {
-	background: oBrandGet($component: 'o-example', $variables: 'example-background', $configure-for: 'inverse'); // background: slate;
+	background: oBrandGet($component: 'o-example', $variables: 'example-background', $from: 'inverse'); // background: slate;
 }
 ```
 
-Override variables using `oBrandGet` and `$override-config`. The override paramater accepts configuration to override brand configuration set with `oBrandDefine`, it expects the same configuration format.
-
-Assuming variables `example-background: 'paper'`, `example-border-size: 1px`, `example-border-type: solid`, `example-border-color: grey` are defined using `oBrandDefine`:
+The `$from` argument `oBrandGet` also accepts a custom variant:
 
 ```scss
-$custom-config: (
-	'variables': (
-		'example-background': 'hotpink',
-		'example-border-size', '2px'
-	)
+$custom-variant: (
+	'example-background': 'hotpink',
+	'example-border-width', '2px'
 );
 
-.o-example {
-	background: oBrandGet($component: 'o-example', $variables: 'example-background', $override-config: $custom-config); // background: hotpink;
-	border: oBrandGet($component: 'o-example', $variables: ('example-border-size', 'example-border-type', 'example-border-color'), $override-config: $custom-config); // border: 2px solid grey;
+.o-example--custom {
+	background: oBrandGet($component: 'o-example', $variables: 'example-background', $from: $custom-variant); // background: hotpink;
+	border-width: oBrandGet($component: 'o-example', $variables: 'example-border-width', $from: $custom-variant); // border-width: 2px;
 }
 ```
 
 - `oBrandGet` returns `null` if a variable is undefined. Sass removes css properties which are set to `null`. This is a useful feature to conditionally output css properties for different variants.
-- Whilst it is possible to get a brand variable for an explicit component and variant using `oBrandGet`, instead use [`oBrandConfigureFor`](#obrandconfigurefor) where possible.
-- Whilst it is possible to override any defined variable using `oBrandGet`, instead use [`oBrandOverride`](#obrandoverride) where possible.
 
-### oBrandConfigureFor
+## oBrandSupportsVariant
 
-`oBrandConfigureFor` configures all `oBrandGet` calls within its content block for a given component and variant, which removes the need to repeatedly pass the component and variant to `oBrandGet`. In addition it will only output the sass content block if the component brand supports the given variant.
+To check if a brand supports a variant call `oBrandSupportsVariant`.
 
-Building on the `oBrandDefine` example the following outputs multiple `o-example` variants with different backgrounds. The variants are only output if the brand supports them:
-
+E.g. only output the `inverse` variant if the brand supports it:
 ```scss
-@include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
+@if oBrandSupportsVariant($component: 'o-example', $variant: 'inverse') {
 	.o-example--inverse {
-		background: oBrandGet($variables: 'example-background'); // background: paper;
+		background: oBrandGet($component: 'o-example', $variables: 'example-background', $from: 'inverse'); // background: slate;
 	}
-}
-
-@include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
-	.o-example--b2b {
-		background: oBrandGet($variables: 'example-background'); // background: lightblue;
-	}
-}
-
-@include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'inverse')) {
-	.o-example--b2b .o-example--inverse {
-		background: oBrandGet($variables: 'example-background'); // background: darkblue;
-	}
-}
-```
-
-`oBrandConfigureFor` may also be nested:
-
-```scss
-@mixin oExampleTheme() {
-	background: oBrandGet($variables: 'example-background');
-}
-
-// "b2b" variant
-@include oBrandConfigureFor($component: 'o-example', $variant: 'b2b') {
-	.o-example--b2b {
-		@include oExampleTheme(); // background: lightblue;
-		// "b2b inverse" variant
-		@include oBrandConfigureFor($component: 'o-example', $variant: 'inverse') {
-			&.o-example--inverse {
-				@include oExampleTheme(); // background: darkblue;
-			}
-		}
-	}
-}
-```
-
-### oBrandOverride
-
-To customise a brand use the `oBrandOverride` mixin. It accepts configuration, including variables and settings, in the same format as `oBrandDefine`.  Sass within the `oBrandOverride` content block uses `oBrandDefine` configuration merged with  `oBrandOverride` configuration.
-
-```scss
-$custom-config: ('variables', {
-	'example-background': hotpink
-});
-
-.o-example--custom-variant {
-	@include oBrandOverride('o-example', $custom-config) {
-		background: oBrandGet($variables: 'example-background'); // background: hotpink
-	};
 }
 ```
 
@@ -261,8 +186,6 @@ $custom-config: ('variables', {
 Some warnings are not output by default but may be useful in certain circumstances.
 
 To output all warnings set debug mode to true: `$o-brand-debug-mode: true;`.
-
-For example, no warning is output if a component uses `oBrandConfigureFor` and `oBrandGet` to get a variant variable which is not configured. This is a valid method to conditionally output CSS properties if a corresponding variant variable is configured. In other cases it might be useful to know where variant configuration has been missed using debug mode.
 
 ---
 
