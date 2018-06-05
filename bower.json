@@ -9,7 +9,7 @@
 	],
 	"dependencies": {
 		"o-colors": "^4.0.2",
-		"o-buttons": "#update-o-brand",
+		"o-buttons": "^5.11.7",
 		"o-dom": "^2.0.3",
 		"o-brand": "^2.1.1"
 	}
