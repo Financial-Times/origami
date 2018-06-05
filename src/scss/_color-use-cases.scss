@@ -15,6 +15,7 @@
 @include oColorsSetUseCase(o-teaser-opinion-tag, text, 'oxford');
 @include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
 @include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'commercial-content');
+@include oColorsSetUseCase(o-teaser-promoted-prefix, _deprecated, 'Color usecase `o-teaser-promoted-prefix` is no longer used by `o-teaser`.');
 
 // Themes
 @include oColorsSetUseCase(o-teaser-theme-opinion, background, 'sky');

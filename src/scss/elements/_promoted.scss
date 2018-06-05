@@ -1,41 +1,40 @@
 /// Promoted content theme
 @mixin oTeaserPromotedContent {
 	@include oColorsFor('o-teaser-theme-promoted-content');
-	padding: 12px 32px 12px 12px;
-
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px
 	&#{&} {
-		padding-bottom: 12px;
+	        padding: 12px;
 	}
 
-	.o-teaser__content:after {
-		@include oIconsGetIcon('outside-page', oColorsGetPaletteColor('black-80'), 32, $iconset-version: 1);
-		content: '';
-		position: absolute;
-		top: 3px;
-		right: 0;
+	.o-teaser__heading a {
+		@include oTypographyLinkExternalIcon(oColorsGetPaletteColor('black-80'));
 	}
 
 	.o-teaser__meta {
 		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black');
+		color: oColorsGetPaletteColor('black-80');
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oColorsFor('o-teaser-promoted-prefix', 'text');
+		@include oLabels;
+		@include oLabelsState('commercial-content');
+		@include oTypographySize(-2);
 	}
-
 }
 
 /// Paid post theme
 @mixin oTeaserPaidPost {
 	@include oColorsFor('o-teaser-theme-paid-post');
-	padding: 12px;
+	// Hack to force a higher specificity than .o-teaser--small which
+	// adds a padding-bottom of 16px
+	&#{&} {
+	        padding: 12px;
+	}
 
 	.o-teaser__meta {
 		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black');
+		color: oColorsGetPaletteColor('black-80');
 	}
 
 	.o-teaser__promoted-prefix {
