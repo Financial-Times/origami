@@ -43,7 +43,7 @@
 	html > body .#{$buttonClass}-icon {
 		@include oButtonsBaseStyles;
 
-		@each $key, $theme in $o-buttons-themes {
+		@each $theme, $theme-parts in $o-buttons-themes {
 			@each $icon in $o-buttons-icons {
 				@include oButtonsGetButtonForIconAndTheme($icon, $theme);
 			}
@@ -61,7 +61,7 @@
 /// }
 ///
 /// @param {String} $icon-name, any icon name found in o-ft-icons
-/// @param {String} $theme, any theme name as defined in $o-buttons-themes (standard, standout, etc). Defaults to standard.
+/// @param {String|Map} $theme, any theme name as defined in $o-buttons-themes or a custom theme map.
 /// @param {String} $button-class, defaults to o-buttons ($o-buttons-class' default value)
 /// @deprecated
 @mixin oButtonsGetButtonForIconAndTheme($icon-name, $theme: secondary, $buttonClass: $o-buttons-class) {

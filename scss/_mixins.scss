@@ -78,40 +78,22 @@
 ///
 /// @param {String} $theme
 @mixin oButtonsTheme($theme) {
-	@if type-of($theme) == 'map' {
-		// 1. If $theme is a map a custom theme is being used so override brand variables.
-		$custom-config: _oButtonsThemeToBrandConfig($theme);
-		@include oBrandOverride('o-buttons', $custom-config) {
-			@include _oButtonsStates();
-		}
-	} @else {
-		// 2. Otherwise the theme is defined as a brand variant.
-		@include oBrandConfigureFor('o-buttons', $theme) {
-			@include _oButtonsStates();
-		}
-	}
-}
-
-/// Styles for button states such as 'hover', 'focus', etc.
-///
-/// @private
-@mixin _oButtonsStates() {
-	@include _oButtonsColors('default');
+	@include _oButtonsColors('default', $theme);
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
 	&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 	&:active {
-		@include _oButtonsColors('active');
+		@include _oButtonsColors('active', $theme);
 	}
 	&:not([disabled]) {
 		&:hover {
-			@include _oButtonsColors('hover');
+			@include _oButtonsColors('hover', $theme);
 			text-decoration: none;
 		}
 		&:focus {
-			@include _oButtonsColors('focus');
+			@include _oButtonsColors('focus', $theme);
 		}
 	}
 }
@@ -121,17 +103,18 @@
 /// fallback to the default value for the state.
 ///
 /// @param {String} $state
-@mixin _oButtonsColors($state) {
-	background-color: oButtonsGetColor($state, 'background');
-	color: oButtonsGetColor($state, 'color');
-	border-color: oButtonsGetColor($state, 'border');
+/// @param {String|Map} $theme Defined theme or custom theme map.
+@mixin _oButtonsColors($state, $theme) {
+	background-color: oButtonsGetColor($state, 'background', $theme);
+	color: oButtonsGetColor($state, 'color', $theme);
+	border-color: oButtonsGetColor($state, 'border', $theme);
 }
 
-/// Transform custom button theme map into oBrand config.
+/// Transform custom theme into variant variables, see `_brand.scss`.
 ///
 /// @param {Map} $theme
-/// @return {Map} oBrand configuration for the custom theme
-@function _oButtonsThemeToBrandConfig($theme) {
+/// @return {Map} o-brand variables for the custom button theme
+@function _oButtonsGetCustomThemeVariables($theme) {
 	@if type-of($theme) != 'map' {
 		@error 'Expecting custom button theme `$theme` to be a map.';
 	}
@@ -154,7 +137,7 @@
 	$background: map-get($theme, 'background');
 	$accent: map-get($theme, 'accent');
 
-	@return ('variables': (
+	@return (
 		default-color: if($colorizer == 'secondary', oColorsGetPaletteColor($accent), oColorsGetPaletteColor($background)),
 		default-background: if($colorizer == 'secondary', oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent)),
 		default-border: oColorsGetPaletteColor($accent),
@@ -163,7 +146,7 @@
 		focus-background: if($colorizer == 'secondary', transparent, oColorsGetPaletteColor($accent)),
 		active-color: oColorsGetPaletteColor($background),
 		active-background: oColorsGetPaletteColor($accent)
-	));
+	);
 }
 
 /// Button size

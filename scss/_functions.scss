@@ -8,24 +8,15 @@
 /// @param {String|List|Map} $theme A theme string/list or a custom theme map. Will default to the currently configured theme.
 /// @return {Color}
 @function oButtonsGetColor($state, $property, $theme: null) {
-	$state-color: null;
-	$default-color: null;
 	@if type-of($theme) == 'map' {
-		// Custom theme. Override button color.
-		$custom-config: _oButtonsThemeToBrandConfig($theme);
-		$state-color: oBrandGet($component: 'o-buttons', $variables: '#{$state}-#{$property}', $override-config: $custom-config);
-		$default-color: oBrandGet($component: 'o-buttons', $variables: 'default-#{$property}', $override-config: $custom-config);
-	} @else {
-		// The theme is defined as a brand variant.
-		$state-color: oBrandGet($component: 'o-buttons', $variables: '#{$state}-#{$property}', $configure-for: $theme);
-		$default-color: oBrandGet($component: 'o-buttons', $variables: 'default-#{$property}', $configure-for: $theme);
+		$theme: _oButtonsGetCustomThemeVariables($theme);
 	}
+	$state-color: _oButtonsGet($variables: '#{$state}-#{$property}', $from: $theme);
+	$default-color: _oButtonsGet($variables: 'default-#{$property}', $from: $theme);
 	@return if($state-color, $state-color, $default-color);
 }
 
-/// Maps button theme names to class modifiers.
-///
-/// Remove if possible in the next https://github.com/Financial-Times/o-buttons/issues/156.
+/// Output button theme selector.
 ///
 /// @example
 ///  _oButtonsGetThemeSelector('primary') // o-buttons--primary
@@ -38,8 +29,9 @@
 @function _oButtonsGetThemeSelector($theme, $button-class: $o-buttons-class) {
 	// Generate the selector.
 	$theme-selector: '';
-	@if length($theme) > 1 {
-		@each $theme-part in $theme {
+	$theme-parts: map-get($map: $o-buttons-themes, $key: $theme);
+	@if length($theme-parts) > 1 {
+		@each $theme-part in $theme-parts {
 			$prepend: if($theme-selector == '', '', '#{$theme-selector}.');
 			$theme-selector: '#{$prepend}#{$button-class}--#{$theme-part}';
 		}

@@ -26,10 +26,12 @@
 		}
 	}
 
-	@each $key, $theme in $o-buttons-themes {
-		$theme-selector: _oButtonsGetThemeSelector($theme, $o-buttons-class);
-		.#{$theme-selector} {
-			@include oButtonsTheme($theme);
+	@each $theme, $theme-parts in $o-buttons-themes {
+		@if _oButtonsSupports($theme) {
+			$theme-selector: _oButtonsGetThemeSelector($theme, $o-buttons-class);
+			.#{$theme-selector} {
+				@include oButtonsTheme($theme);
+			}
 		}
 	}
 

@@ -54,7 +54,7 @@
 		}
 	}
 
-	@each $key, $theme in $o-buttons-themes {
+	@each $theme, $theme-parts in $o-buttons-themes {
 		$theme-selector: '&';
 		@if $theme != 'secondary' {
 			$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';

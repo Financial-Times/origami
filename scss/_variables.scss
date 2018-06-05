@@ -56,8 +56,9 @@ $o-buttons-sizes: (
 /// @type Number
 $_o-buttons-border-radius: $o-normalise-border-radius;
 
-/// Button themes to a corresponding brand variant.
-/// Defined in _brand.scss.
+/// Button themes
+/// Keys are a brand variant (@see _brand.scss).
+/// Values are used to output selectors e.g. ".o-buttons--primary.o-buttons--inverse".
 ///
 /// @type Map
 $o-buttons-themes: (
