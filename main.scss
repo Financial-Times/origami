@@ -11,7 +11,15 @@
 	@include oTabsButtonTabs;
 
 	// Output default themes. Other themes avalible, see o-buttons themes.
-	@each $theme in ('primary', 'inverse') {
-		@include oTabsButtonTabsTheme($theme);
+	@if _oTabsSupports('primary') {
+		.o-tabs--primary {
+			@include oTabsButtonTabsTheme('primary', $selector: false);
+		}
+	}
+
+	@if _oTabsSupports('inverse') {
+		.o-tabs--inverse {
+			@include oTabsButtonTabsTheme('inverse', $selector: false);
+		}
 	}
 }
