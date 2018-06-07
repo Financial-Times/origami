@@ -82,13 +82,13 @@ $_o-buttons-shared-brand-config: (
         )
     ),
     'supports-variants': (
-        'primary': true,
-        'primary-inverse': true,
-        'primary-mono': true,
-        'secondary': true,
-        'inverse': true,
-        'mono': true,
-        'b2c': true
+        'primary',
+        'primary-inverse',
+        'primary-mono',
+        'secondary',
+        'inverse',
+        'mono',
+        'b2c'
     )
 ));
 
@@ -115,12 +115,12 @@ $_o-buttons-shared-brand-config: (
         )
     ),
     'supports-variants': (
-        'primary': true,
-        'primary-inverse': true,
-        'primary-mono': true,
-        'secondary': true,
-        'inverse': true,
-        'mono': true
+        'primary',
+        'primary-inverse',
+        'primary-mono',
+        'secondary',
+        'inverse',
+        'mono'
     )
 ));
 
@@ -146,7 +146,7 @@ $_o-buttons-shared-brand-config: (
         )
     ),
     'supports-variants': (
-        'primary': true,
-        'secondary': true,
+        'primary',
+        'secondary',
     )
 ));
