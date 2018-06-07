@@ -5,7 +5,6 @@
 
 /// Includes the correct mixin based on the row passed
 @mixin _oHeaderGetFeatureMixin($feature) {
-
 	@if $feature == 'anon' {
 		@include oHeaderAnon;
 	} @else if $feature == 'subnav' {
@@ -25,58 +24,52 @@
 	} @else if $feature == 'subbrand' {
 		@include oHeaderSubbrand;
 	} @else if $feature == 'transparent' {
-		@include oBrandConfigureFor('o-header', 'transparent') {
-			@include oHeaderTransparent;
-		};
+		@include oHeaderTransparent;
 	}
 }
 
 /// Base styles for header links
 @mixin oHeaderLink() {
-	@include oBrandConfigureFor('o-header')  {
-		color: inherit;
-		text-decoration: none;
-		border: 0;
+	color: inherit;
+	text-decoration: none;
+	border: 0;
 
-		&:hover {
-			color: oBrandGet('link-hover-text');
-		}
+	&:hover {
+		color: _oHeaderGet('link-hover-text');
+	}
 
-		&--highlight,
-		&[aria-selected="true"], // deprecated
-		&[aria-current] {
-			color: oBrandGet('link-highlight-text');
-		}
-	};
+	&--highlight,
+	&[aria-selected="true"], // deprecated
+	&[aria-current] {
+		color: _oHeaderGet('link-highlight-text');
+	}
 }
 
 /// More visually decorated link styles
 @mixin oHeaderFancyLink() {
-	@include oBrandConfigureFor('o-header') {
-		position: relative;
-		display: block;
-		padding: $_o-header-padding-y 0;
-		white-space: nowrap;
+	position: relative;
+	display: block;
+	padding: $_o-header-padding-y 0;
+	white-space: nowrap;
 
-		&:after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 4px;
-		}
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 4px;
+	}
 
-		&:hover:after {
-			background-color: oBrandGet('link-hover-text');
-		}
+	&:hover:after {
+		background-color: _oHeaderGet('link-hover-text');
+	}
 
-		&--highlight:after,
-		&[aria-selected="true"]:after, // deprecated
-		&[aria-current]:after {
-			background-color: oBrandGet('link-highlight-text');
-		}
-		};
+	&--highlight:after,
+	&[aria-selected="true"]:after, // deprecated
+	&[aria-current]:after {
+		background-color: _oHeaderGet('link-highlight-text');
+	}
 }
 
 /// Horizontal list item separator
@@ -100,7 +93,7 @@
 		top: 15%;
 		left: 0;
 		height: percentage($_o-header-item-separator-percentage-height);
-		border-left: $border-width solid oBrandGet('header-border', 'o-header');
+		border-left: $border-width solid _oHeaderGet('header-border');
 	}
 }
 

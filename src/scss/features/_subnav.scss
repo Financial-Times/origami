@@ -1,147 +1,145 @@
 @mixin oHeaderSubnav() {
-	@include oBrandConfigureFor('o-header') {
-		.o-header__subnav {
-			@include oTypographySans(0);
-			background-color: oBrandGet('subnav-background');
-			border-bottom: 1px solid oBrandGet('subnav-border');
+	.o-header__subnav {
+		@include oTypographySans(0);
+		background-color: _oHeaderGet('subnav-background');
+		border-bottom: 1px solid _oHeaderGet('subnav-border');
+	}
+
+	.o-header__subnav-wrap-outside {
+		margin-left: -$_o-header-sub-header-focus-margin;
+
+		[data-o-header--js] & {
+			overflow: hidden;
+			// height *needs* setting so we can hide scrollbars.
+			// This is the content height of .o-header__subnav-content
+			height: $_o-header-subhav-height;
 		}
+	}
 
-		.o-header__subnav-wrap-outside {
-			margin-left: -$_o-header-sub-header-focus-margin;
+	.o-header__subnav-wrap-inside {
+		overflow: auto;
 
-			[data-o-header--js] & {
-				overflow: hidden;
-				// height *needs* setting so we can hide scrollbars.
-				// This is the content height of .o-header__subnav-content
-				height: $_o-header-subhav-height;
-			}
+		[data-o-header--js] & {
+			// inertial scrolling for iOS Safari
+			// sass-lint:disable no-vendor-prefixes
+			-webkit-overflow-scrolling: touch;
+			// sass-lint:enable no-vendor-prefixes
+			// working draft
+			scroll-behavior: smooth;
+			// hide the scrollbar beneath the waves/many wrappers. 30px should be plenty.
+			padding-bottom: 30px;
 		}
+	}
 
-		.o-header__subnav-wrap-inside {
-			overflow: auto;
+	.o-header__subnav-content {
+		white-space: nowrap;
+		margin-left: $_o-header-sub-header-focus-margin;
+	}
 
-			[data-o-header--js] & {
-				// inertial scrolling for iOS Safari
-				// sass-lint:disable no-vendor-prefixes
-				-webkit-overflow-scrolling: touch;
-				// sass-lint:enable no-vendor-prefixes
-				// working draft
-				scroll-behavior: smooth;
-				// hide the scrollbar beneath the waves/many wrappers. 30px should be plenty.
-				padding-bottom: 30px;
-			}
-		}
+	.o-header__subnav-list {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
 
-		.o-header__subnav-content {
-			white-space: nowrap;
-			margin-left: $_o-header-sub-header-focus-margin;
-		}
-
-		.o-header__subnav-list {
-			display: inline-block;
-			padding: 0;
-			margin: 0;
-
-			// Separators for subnav lists are positioned relative to the subnavs first item
-			// to avoid positioning subnavs relative. This is so absolute childen of the subnav are
-			// positioned relative to their closest positioned ancestor `o-header__container`.
-			// An example benefit is o-tooltip support against sub nav items.
-			& + & .o-header__subnav-item {
-				&:first-child {
-					@include _oHeaderItemSeparatorContent();
-					&:before {
-						top: 50%;
-						margin-top: - $_o-header-subhav-height * $_o-header-item-separator-percentage-height / 2;
-						height: $_o-header-subhav-height * $_o-header-item-separator-percentage-height;
-					}
-				}
-			}
-		}
-
-		.o-header__subnav-item {
-			position: relative;
-			display: inline-block;
-			padding-left: 6px;
-
-			.o-header__subnav-list--children & {
-				padding-left: 16px;
-			}
-
+		// Separators for subnav lists are positioned relative to the subnavs first item
+		// to avoid positioning subnavs relative. This is so absolute childen of the subnav are
+		// positioned relative to their closest positioned ancestor `o-header__container`.
+		// An example benefit is o-tooltip support against sub nav items.
+		& + & .o-header__subnav-item {
 			&:first-child {
-				// align left side correctly
-				padding-left: 0;
-			}
-
-			.o-header__subnav-list--breadcrumb & {
+				@include _oHeaderItemSeparatorContent();
 				&:before {
-					@include oIconsGetIcon('arrow-right', oBrandGet('link-highlight-text'), $_o-header-icon-size-small, $iconset-version: 1);
-					content: '';
-					position: relative;
-					top: 0.125em;
-					margin-right: 6px;
-				}
-
-				&:first-child:before {
-					content: none;
+					top: 50%;
+					margin-top: - $_o-header-subhav-height * $_o-header-item-separator-percentage-height / 2;
+					height: $_o-header-subhav-height * $_o-header-item-separator-percentage-height;
 				}
 			}
 		}
+	}
 
-		.o-header__subnav-link {
-			@include oHeaderLink;
-			@include oHeaderFancyLink;
-			color: oBrandGet('subnav-link');
-			display: inline-block;
-			padding: 8px 0;
+	.o-header__subnav-item {
+		position: relative;
+		display: inline-block;
+		padding-left: 6px;
 
-			.o-header__subnav-list--breadcrumb & {
-				color: oBrandGet('link-highlight-text');
-				text-transform: uppercase;
-				font-weight: 600;
-			}
+		.o-header__subnav-list--children & {
+			padding-left: 16px;
 		}
 
-		.o-header__subnav-link--right {
-			float: right;
+		&:first-child {
+			// align left side correctly
+			padding-left: 0;
+		}
+
+		.o-header__subnav-list--breadcrumb & {
+			&:before {
+				@include oIconsGetIcon('arrow-right', _oHeaderGet('link-highlight-text'), $_o-header-icon-size-small, $iconset-version: 1);
+				content: '';
+				position: relative;
+				top: 0.125em;
+				margin-right: 6px;
+			}
+
+			&:first-child:before {
+				content: none;
+			}
+		}
+	}
+
+	.o-header__subnav-link {
+		@include oHeaderLink;
+		@include oHeaderFancyLink;
+		color: _oHeaderGet('subnav-link');
+		display: inline-block;
+		padding: 8px 0;
+
+		.o-header__subnav-list--breadcrumb & {
+			color: _oHeaderGet('link-highlight-text');
+			text-transform: uppercase;
+			font-weight: 600;
+		}
+	}
+
+	.o-header__subnav-link--right {
+		float: right;
+		display: none;
+		@include oGridRespondTo('M') {
+			display: block;
+		}
+	}
+
+	.o-header__subnav-button {
+		@include oIconsGetIcon('arrow-left', _oHeaderGet('subnav-button-text'), $_o-header-icon-size, $apply-width-height: false, $iconset-version: 1);
+		background-color: _oHeaderGet('subnav-button-background');
+		position: absolute;
+		top: 0;
+		width: #{$_o-header-icon-size}px;
+		height: 100%;
+		padding: 0;
+		border: 0;
+		transition: 0.25s opacity 0.5s;
+
+		&:hover {
+			background-color: _oHeaderGet('subnav-button-hover-background');
+		}
+
+		&[disabled] {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		[data-o-header--no-js] & {
 			display: none;
-			@include oGridRespondTo('M') {
-				display: block;
-			}
 		}
+	}
 
-		.o-header__subnav-button {
-			@include oIconsGetIcon('arrow-left', oBrandGet('subnav-button-text'), $_o-header-icon-size, $apply-width-height: false, $iconset-version: 1);
-			background-color: oBrandGet('subnav-button-background');
-			position: absolute;
-			top: 0;
-			width: #{$_o-header-icon-size}px;
-			height: 100%;
-			padding: 0;
-			border: 0;
-			transition: 0.25s opacity 0.5s;
+	.o-header__subnav-button--left {
+		left: 0;
+	}
 
-			&:hover {
-				background-color: oBrandGet('subnav-button-hover-background');
-			}
-
-			&[disabled] {
-				opacity: 0;
-				pointer-events: none;
-			}
-
-			[data-o-header--no-js] & {
-				display: none;
-			}
-		}
-
-		.o-header__subnav-button--left {
-			left: 0;
-		}
-
-		.o-header__subnav-button--right {
-			right: 0;
-			// don't download another icon...
-			transform: rotate(180deg);
-		}
+	.o-header__subnav-button--right {
+		right: 0;
+		// don't download another icon...
+		transform: rotate(180deg);
 	}
 }

@@ -78,80 +78,79 @@
 		}
 	}
 
-	@include oBrandConfigureFor('o-header') {
-		.o-header__top-link--menu {
-			&:before {
-				// container size (24) is only included for the fallback image.
-				// IE8 has a static stylesheet generated for the L breakpoint.
-				@include oIconsGetIcon('hamburger', oBrandGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-			}
+	.o-header__top-link--menu {
+		&:before {
+			// container size (24) is only included for the fallback image.
+			// IE8 has a static stylesheet generated for the L breakpoint.
+			@include oIconsGetIcon('hamburger', _oHeaderGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		}
+	}
+
+	.o-header__top-link--search {
+		&:before {
+			@include oIconsGetIcon('search', _oHeaderGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		}
 
-		.o-header__top-link--search {
-			&:before {
-				@include oIconsGetIcon('search', oBrandGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-			}
-
-			// when used in tandem with the menu toggle, hide this on smaller screen sizes
-			.o-header__top-link--menu + & {
-				@include oGridRespondTo($until: 'L') {
-					display: none;
-				}
-			}
-		}
-
-		.o-header__top-link--myft {
-			&:before {
-				@include oHeaderBrandImage('brand-myft', oBrandGet('header-icon'), 52);
-				// this is not a very square icon
-				width: 35px;
-				// Remove the negative margin added for new icons which have additional padding
-				margin-top: 0;
-
-				@include oGridRespondTo('M') {
-					width: 44px;
-				}
-
-				@include oGridRespondTo('L') {
-					width: 52px;
-				}
-			}
-		}
-
-		.o-header__top-link-label {
-			/* Deprecate this label in next breaking release (v7), but for v6.12.0
-			display-none it so that layout won't break and people don't have
-			to update their markup to get the change
-			*/
-			display: none;
-		}
-
-		.o-header__top-logo {
-			@include oHeaderBrandImage('brand-ft-masthead', oBrandGet('header-icon'), 500);
-			@include oHeaderLogoSize('XS');
-
-			display: block;
-			border: 0;
-			margin: 16px auto;
-			background-size: 100% 100%; // Edge SVG background clipped when scaled https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4705340/
-			background-position: 50%;
-			background-repeat: no-repeat;
-
-			@include oGridRespondTo('S') {
-				@include oHeaderLogoSize('S');
-			}
-
-			@include oGridRespondTo('M') {
-				@include oHeaderLogoSize('M');
-				margin-top: 24px;
-				margin-bottom: 24px;
-			}
-
-			@include oGridRespondTo('L') {
-				@include oHeaderLogoSize('L');
-				margin-top: 30px;
-				margin-bottom: 30px;
+		// when used in tandem with the menu toggle, hide this on smaller screen sizes
+		.o-header__top-link--menu + & {
+			@include oGridRespondTo($until: 'L') {
+				display: none;
 			}
 		}
 	}
+
+	.o-header__top-link--myft {
+		&:before {
+			@include oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
+			// this is not a very square icon
+			width: 35px;
+			// Remove the negative margin added for new icons which have additional padding
+			margin-top: 0;
+
+			@include oGridRespondTo('M') {
+				width: 44px;
+			}
+
+			@include oGridRespondTo('L') {
+				width: 52px;
+			}
+		}
+	}
+
+	.o-header__top-link-label {
+		/* Deprecate this label in next breaking release (v7), but for v6.12.0
+		display-none it so that layout won't break and people don't have
+		to update their markup to get the change
+		*/
+		display: none;
+	}
+
+	.o-header__top-logo {
+		@include oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
+		@include oHeaderLogoSize('XS');
+
+		display: block;
+		border: 0;
+		margin: 16px auto;
+		background-size: 100% 100%; // Edge SVG background clipped when scaled https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4705340/
+		background-position: 50%;
+		background-repeat: no-repeat;
+
+		@include oGridRespondTo('S') {
+			@include oHeaderLogoSize('S');
+		}
+
+		@include oGridRespondTo('M') {
+			@include oHeaderLogoSize('M');
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+
+		@include oGridRespondTo('L') {
+			@include oHeaderLogoSize('L');
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+	}
+
 }

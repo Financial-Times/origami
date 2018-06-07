@@ -1,14 +1,13 @@
 @mixin oHeaderBase() {
-	@include oBrandConfigureFor('o-header') {
-		.o-header {
-			color: oBrandGet('header-text');
-			background-color: oBrandGet('header-background');
-		}
+	.o-header {
+		color: _oHeaderGet('header-text');
+		background-color: _oHeaderGet('header-background');
+	}
 
-		.o-header__row {
-			border-bottom: 1px solid oBrandGet('header-border');
-		}
-	};
+	.o-header__row {
+		border-bottom: 1px solid _oHeaderGet('header-border');
+	}
+
 
 	.o-header__container {
 		@include oGridContainer();
