@@ -1,3 +1,15 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oHeaderServicesGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-header-services', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oHeaderServicesSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-header-services', $variant: $variant);
+}
+
 @include oBrandDefine('o-header-services', 'master', (
 	'variables': (
 		logo: 'brand-ft-logo-square-coloured',
@@ -28,9 +40,9 @@
 			nav-hover-background: oColorsGetPaletteColor('org-b2c-dark')
 		)
 	),
-	'settings': (
-		'b2b': true,
-		'b2c': true
+	'supports-variants': (
+		'b2b',
+		'b2c'
 	)
 ));
 
@@ -49,5 +61,6 @@
 		nav-hover-background: oColorsGetPaletteColor('slate-white-15'),
 		subnav-text: oColorsGetPaletteColor('black'),
 		subnav-background: oColorsGetPaletteColor('slate-white-5')
-	)
+	),
+	'supports-variants': ()
 ));
