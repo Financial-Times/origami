@@ -18,8 +18,8 @@ $o-loading-animation-keyframes: false !default;
 ///
 /// @type Map
 $o-loading-colors: (
-	'light':  oBrandGet($component: 'o-loading', $variables: 'default-color', $configure-for: 'light'),
-	'dark':  oBrandGet($component: 'o-loading', $variables: 'default-color', $configure-for: 'dark')
+	'light': _oLoadingGet('default-color', $from: 'light'),
+	'dark': _oLoadingGet('default-color', $from: 'dark')
 );
 
 /// Predefined sizes

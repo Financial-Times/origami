@@ -8,6 +8,6 @@
   ],
   "dependencies": {
     "o-colors": "^4.2.3",
-    "o-brand": "^2.0.2"
+    "o-brand": ">=2.2.0 <4"
   }
 }

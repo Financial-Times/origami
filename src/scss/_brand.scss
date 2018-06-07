@@ -1,3 +1,15 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLoadingGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-loading', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLoadingSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-loading', $variant: $variant);
+}
+
 @include oBrandDefine('o-loading', 'master', (
 	'variables': (
 		'light': (
@@ -7,9 +19,9 @@
 			default-color: oColorsGetPaletteColor('black-80')
 		)
 	),
-	'settings': (
-		'light': true,
-		'dark': true
+	'supports-variants': (
+		'light',
+		'dark'
 	)
 ));
 
@@ -22,8 +34,8 @@
 			default-color: oColorsGetPaletteColor('slate')
 		)
 	),
-	'settings': (
-		'light': true,
-		'dark': true
+	'supports-variants': (
+		'light',
+		'dark'
 	)
 ));
