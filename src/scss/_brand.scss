@@ -1,3 +1,15 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTableGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-table', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTableSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-table', $variant: $variant);
+}
+
 @include oBrandDefine('o-table', 'master', (
 	'variables': (
 		table-background: oColorsGetPaletteColor('paper'),
@@ -7,9 +19,9 @@
 		table-caption-border-color: oColorsGetPaletteColor('black-30'),
 		table-data-color: oColorsGetPaletteColor('black-70'),
 	),
-	'settings': (
-		'stripe': true,
-		'compact': true
+	'supports-variants': (
+		'stripe',
+		'compact'
 	)
 ));
 
@@ -22,14 +34,14 @@
 		table-caption-border-color: oColorsGetPaletteColor('black-30'),
 		table-data-color: oColorsGetPaletteColor('black-70'),
 	),
-	'settings': (
-		'stripe': true,
-		'compact': true
+	'supports-variants': (
+		'stripe',
+		'compact'
 	)
 ));
 
 @include oBrandDefine('o-table', 'whitelabel', (
-	'settings': (
-		'compact': true
+	'supports-variants': (
+		'compact'
 	)
 ));

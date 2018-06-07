@@ -5,15 +5,13 @@
 
 /// Add this to the table element to get row stripes
 @mixin oTableRowStripes() {
-	@include oBrandConfigureFor('o-table') {
-		background-color: oBrandGet('table-background');
+	background-color: _oTableGet('table-background');
 
-		caption {
-			background-color: oBrandGet('table-background');
-		}
+	caption {
+		background-color: _oTableGet('table-background');
+	}
 
-		tbody tr:nth-child(even) {
-			background-color: oBrandGet('table-stripe-background');
-		}
+	tbody tr:nth-child(even) {
+		background-color: _oTableGet('table-stripe-background');
 	}
 }

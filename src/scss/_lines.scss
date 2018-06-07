@@ -5,20 +5,17 @@
 
 /// Add horizontal lines to a table
 @mixin oTableHorizontalLines {
-	@include oBrandConfigureFor('o-table') {
-		tr:not(:last-child) {
-			border-bottom: 1px solid oBrandGet('table-border-color');
-		}
+	tr:not(:last-child) {
+		border-bottom: 1px solid _oTableGet('table-border-color');
 	}
 }
 
+
 /// Add verticle lines to a table
 @mixin oTableVerticalLines {
-	@include oBrandConfigureFor('o-table') {
-		th:not(:last-child):not(:first-child),
-		td:not(:last-child):not(:first-child) {
-			border-left: 1px solid oBrandGet('table-border-color');
-			border-right: 1px solid oBrandGet('table-border-color');
-		}
+	th:not(:last-child):not(:first-child),
+	td:not(:last-child):not(:first-child) {
+		border-left: 1px solid _oTableGet('table-border-color');
+		border-right: 1px solid _oTableGet('table-border-color');
 	}
 }

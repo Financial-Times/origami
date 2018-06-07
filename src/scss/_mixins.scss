@@ -56,13 +56,13 @@
 		@include oTableResponsiveScroll;
 	}
 
-	@include oBrandConfigureFor('o-table', 'compact') {
+	@if _oTableSupports('compact') {
 		.#{$classname}--compact {
 			@include oTableCompact;
 		}
 	}
 
-	@include oBrandConfigureFor('o-table', 'stripe') {
+	@if _oTableSupports('stripe') {
 		.#{$classname}--row-stripes {
 			@include oTableRowStripes;
 		}

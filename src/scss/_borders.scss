@@ -6,26 +6,22 @@
 
 /// Horizontal borders
 @mixin oTableHorizontalBorders {
-	@include oBrandConfigureFor('o-table') {
-		border-bottom: 1px solid oBrandGet('table-border-color');
-		border-top: 1px solid oBrandGet('table-border-color');
+	border-bottom: 1px solid _oTableGet('table-border-color');
+	border-top: 1px solid _oTableGet('table-border-color');
 
-		th:not([scope=row]) {
-			border-top: 1px solid oBrandGet('table-border-color');
-		}
+	th:not([scope=row]) {
+		border-top: 1px solid _oTableGet('table-border-color');
 	}
 }
 
 /// Vertical borders
 @mixin oTableVerticalBorders {
-	@include oBrandConfigureFor('o-table') {
-		border-left: 1px solid oBrandGet('table-border-color');
-		border-right: 1px solid oBrandGet('table-border-color');
+	border-left: 1px solid _oTableGet('table-border-color');
+	border-right: 1px solid _oTableGet('table-border-color');
 
-		// sass-lint:disable no-qualifying-elements
-		th[scope=row] {
-			border-left: 1px solid oBrandGet('table-border-color');
-		}
-		// sass-lint:enable no-qualifying-elements
+	// sass-lint:disable no-qualifying-elements
+	th[scope=row] {
+		border-left: 1px solid _oTableGet('table-border-color');
 	}
+	// sass-lint:enable no-qualifying-elements
 }

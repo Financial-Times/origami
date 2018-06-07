@@ -5,73 +5,71 @@
 
 /// Base tables styles - add to <table>
 @mixin oTableBase() {
-	@include oBrandConfigureFor('o-table') {
-		@include oTypographyBody;
-		border-collapse: collapse;
-		border-spacing: 0;
-		margin: 0 0 20px;
+	@include oTypographyBody;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 0 20px;
+	width: 100%;
+
+	caption {
+		margin: 0;
+		padding: 0;
 		width: 100%;
+	}
 
-		caption {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-		}
+	th {
+		@include oTypographySansBold(1);
+		color: _oTableGet('table-header-color');
+		background-color: _oTableGet('header-background');
+	}
 
-		th {
-			@include oTypographySansBold(1);
-			color: oBrandGet('table-header-color');
-			background-color: oBrandGet('header-background');
-		}
-
-		&[data-o-table--js] thead th:not([data-o-table-heading-disable-sort]) {
-			cursor: pointer;
-			user-select: none;
-			padding-right: 20px;
-			&:after {
-				@include oIconsGetIcon('arrows-up-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-				content: '';
-				margin-right: -20px;
-				vertical-align: top;
-			}
-			// Show descending icon with DSC sort applied.
-			&[aria-sort='descending'] {
-				&:after {
-					@include oIconsGetIcon('arrow-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-					vertical-align: top;
-				}
-			}
-			// Show ascending icon with ASC sort applied or on hover with no sort.
-			&[aria-sort='none']:hover,
-			&:not([aria-sort]):hover,
-			&[aria-sort='ascending'] {
-				&:after {
-					@include oIconsGetIcon('arrow-up', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-					vertical-align: top;
-				}
-			}
-		}
-
-		td {
-			@include oTypographySans(1);
-			color: oBrandGet('table-data-color');
-			&:empty:before {
-				@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
-				content: '';
-				vertical-align: middle;
-			}
-		}
-
-		th,
-		td {
-			padding: 8px;
-			text-align: left;
+	&[data-o-table--js] thead th:not([data-o-table-heading-disable-sort]) {
+		cursor: pointer;
+		user-select: none;
+		padding-right: 20px;
+		&:after {
+			@include oIconsGetIcon('arrows-up-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+			content: '';
+			margin-right: -20px;
 			vertical-align: top;
 		}
-
-		th:not([scope=row]) {
-			vertical-align: bottom;
+		// Show descending icon with DSC sort applied.
+		&[aria-sort='descending'] {
+			&:after {
+				@include oIconsGetIcon('arrow-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+				vertical-align: top;
+			}
 		}
+		// Show ascending icon with ASC sort applied or on hover with no sort.
+		&[aria-sort='none']:hover,
+		&:not([aria-sort]):hover,
+		&[aria-sort='ascending'] {
+			&:after {
+				@include oIconsGetIcon('arrow-up', $container-width: 20,  $container-height: 20, $iconset-version: 1);
+				vertical-align: top;
+			}
+		}
+	}
+
+	td {
+		@include oTypographySans(1);
+		color: _oTableGet('table-data-color');
+		&:empty:before {
+			@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
+			content: '';
+			vertical-align: middle;
+		}
+	}
+
+	th,
+	td {
+		padding: 8px;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th:not([scope=row]) {
+		vertical-align: bottom;
 	}
 }
 

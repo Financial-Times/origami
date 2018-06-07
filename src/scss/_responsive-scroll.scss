@@ -5,62 +5,60 @@
 
 /// Make a table 'ResponsiveScroll'
 @mixin oTableResponsiveScroll {
-	@include oBrandConfigureFor('o-table') {
-		display: flex;
-		overflow: hidden;
+	display: flex;
+	overflow: hidden;
 
-		// Ensure collapsed table border is not hidden.
-		border-right-width: 2px;
-		border-bottom-width: 2px;
+	// Ensure collapsed table border is not hidden.
+	border-right-width: 2px;
+	border-bottom-width: 2px;
 
-		@include oGridRespondTo(S) {
-			display: table;
-		}
+	@include oGridRespondTo(S) {
+		display: table;
+	}
 
-		@include oGridRespondTo($until: S) {
-			.o-table__cell--numeric {
-				text-align: left;
-			}
-		}
-
-		thead {
-			display: flex;
-			flex-shrink: 0;
-
-			@include oGridRespondTo(S) {
-				display: table-header-group;
-			}
-		}
-
-		tbody {
-			display: flex;
-			overflow-x: auto;
-			overflow-y: hidden;
-			position: relative;
-
-			@include oGridRespondTo(S) {
-				display: table-row-group;
-			}
-		}
-
-		tr {
-			display: flex;
-			flex-direction: column;
-			flex-shrink: 0;
-
-			@include oGridRespondTo(S) {
-				display: table-row;
-			}
-		}
-
-		th,
-		td {
-			display: block;
-
-
-			@include oGridRespondTo(S) {
-				display: table-cell;
-			}
+	@include oGridRespondTo($until: S) {
+		.o-table__cell--numeric {
+			text-align: left;
 		}
 	}
+
+	thead {
+		display: flex;
+		flex-shrink: 0;
+
+		@include oGridRespondTo(S) {
+			display: table-header-group;
+		}
+	}
+
+	tbody {
+		display: flex;
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+
+		@include oGridRespondTo(S) {
+			display: table-row-group;
+		}
+	}
+
+	tr {
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+
+		@include oGridRespondTo(S) {
+			display: table-row;
+		}
+	}
+
+	th,
+	td {
+		display: block;
+
+
+		@include oGridRespondTo(S) {
+			display: table-cell;
+		}
+		}
 } // mixin

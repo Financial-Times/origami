@@ -5,14 +5,12 @@
 
 /// Base styles for caption element - add this to any <caption> you use
 @mixin oTableCaption {
-	@include oBrandConfigureFor('o-table') {
-		@include oTypographySansBold(1);
-		@include oTypographyPadding($top: 2, $bottom: 2);
-		border-bottom: 2px solid oBrandGet('table-caption-border-color');
-		border-top: 2px solid oBrandGet('table-caption-border-color');
-		text-align: center;
-		text-transform: uppercase;
-	}
+	@include oTypographySansBold(1);
+	@include oTypographyPadding($top: 2, $bottom: 2);
+	border-bottom: 2px solid _oTableGet('table-caption-border-color');
+	border-top: 2px solid _oTableGet('table-caption-border-color');
+	text-align: center;
+	text-transform: uppercase;
 }
 
 /// Add this to a caption element at the top of a table
