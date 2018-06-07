@@ -5,16 +5,16 @@
 @include oBrandDefine('o-tabs', 'master', (
     'variables': (),
     'supports-variants': (
-        'primary': true,
-        'inverse': true
+        'primary',
+        'inverse'
     )
 ));
 
 @include oBrandDefine('o-tabs', 'internal', (
     'variables': (),
     'supports-variants': (
-        'primary': true,
-        'inverse': true
+        'primary',
+        'inverse'
     )
 ));
 
