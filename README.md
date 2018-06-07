@@ -55,7 +55,7 @@ A component defines configuration for each of its supported brands. The default 
 
 Brand configuration comprises of variables and supported variants. As explained below.
 - [`variables`](#brand-variables)
-- [`supports-variants`](#supports-variants)
+- [`supported variants`](#supported-variants)
 
 ```scss
 @include oBrandDefine($component: 'o-example', $brand: 'master', (
@@ -89,15 +89,15 @@ $variables: (
 - Variable names should not match css properties exactly e.g. `example-background` over `background`.
 - A variant must be an alphanumeric string e.g. `inverse`, `b2b-inverse`.
 
-#### Supported Variant
+#### Supported Variants
 
-To indicate a brand should support a variant, add the variant name to the `supports-variants` map.
+To indicate a brand should support a variant, add the variant name to the `supports-variants` list.
 
 E.g. To configure support for "inverse" and "b2b" variants:
 ```scss
 $supports-variants: (
-	'inverse': true,
-	'b2b': true
+	'inverse',
+	'b2b'
 );
 ```
 
@@ -105,7 +105,7 @@ These ensures support for a variant which sets no variables can be determined.
 
 #### A Complete `oBrandDefine` Example
 
-The below example defines a `master` brand for the component `o-example`. We define four variables including `example-background`, but we provide a different `example-background` value for the `inverse` and `b2b` variants. Using the `supports-variants` map we explicitly state the `master` brand supports both of these variants.
+The below example defines a `master` brand for the component `o-example`. We define four variables including `example-background`, but we provide a different `example-background` value for the `inverse` and `b2b` variants. Using the `supports-variants` list we explicitly state the `master` brand supports both of these variants.
 
 ```scss
 @include oBrandDefine('o-example', 'master', (
@@ -122,7 +122,8 @@ The below example defines a `master` brand for the component `o-example`. We def
 		)
     ),
     'supports-variants': (
-        'inverse': true
+        'inverse',
+        'b2b'
     )
 ));
 ```

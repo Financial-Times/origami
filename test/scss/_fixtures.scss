@@ -5,7 +5,10 @@ $o-brand: 'internal';
 	'variables': (
 		example-background: pink
 	),
-	'supports-variants': ('stripe', 'compact')
+	'supports-variants': (
+		'stripe',
+		'compact'
+	)
 ));
 
 @include oBrandDefine('o-example', 'internal', (
@@ -23,15 +26,21 @@ $o-brand: 'internal';
         'b2b': (
 		    example-background: red
         ),
-        ('inverse', 'b2b'): (
+        'inverse-b2b': (
 		    example-background: darkred
         )
 	),
-	'supports-variants': ('compact', 'inverse', 'b2b')
+	'supports-variants': (
+		'compact',
+		'inverse',
+		'b2b'
+	)
 ));
 
 @include oBrandDefine('o-example', 'whitelabel', (
-	'supports-variants': ('compact')
+	'supports-variants': (
+		'compact'
+	)
 ));
 
 // Define a second example component
@@ -45,7 +54,10 @@ $o-brand: 'internal';
 			example-two-size: 1em,
 		)
 	),
-	'supports-variants': ('small', 'large')
+	'supports-variants': (
+		'small',
+		'large'
+	)
 ));
 
 @include oBrandDefine('o-example-two', 'internal', (
@@ -55,5 +67,7 @@ $o-brand: 'internal';
 			example-two-size: 1em,
 		)
 	),
-	'supports-variants': ('small')
+	'supports-variants': (
+		'small'
+	)
 ));

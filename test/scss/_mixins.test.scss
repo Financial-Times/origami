@@ -1,48 +1,54 @@
 @include test-module('oBrandDefine') {
     @include test('Adds new brand variables to a global map') {
-        $component1-brand1: (
+        // Reset defined brands for test.
+        $original-brands: $_o-brands;
+        $_o-brands: () !global;
+        // Run test.
+        $component1-brandmaster: (
             'variables': (
                 example: blue
             ),
             'supports-variants': (
-                'test': true,
-                'example': true
+                'test',
+                'example'
             )
         );
-        $component1-brand2: (
+        $component1-brandinternal: (
             'variables': (
             ),
             'supports-variants': (
-                'example': true
+                'example'
             )
         );
-        $component2-brand1: (
+        $component2-brandmaster: (
             'variables': (
                 other: red
             ),
             'supports-variants': (
-                'thing': true
+                'thing'
             )
         );
-        $component2-brand2: (
+        $component2-brandinternal: (
             'variables': (
                 other: white
             ),
             'supports-variants': (
             )
         );
-        @include oBrandDefine('o-component1', 'brand1', $component1-brand1);
-        @include oBrandDefine('o-component1', 'brand2', $component1-brand2);
-        @include oBrandDefine('o-component2', 'brand1', $component2-brand1);
-        @include oBrandDefine('o-component2', 'brand2', $component2-brand2);
+        @include oBrandDefine('o-component1', 'master', $component1-brandmaster);
+        @include oBrandDefine('o-component1', 'internal', $component1-brandinternal);
+        @include oBrandDefine('o-component2', 'master', $component2-brandmaster);
+        @include oBrandDefine('o-component2', 'internal', $component2-brandinternal);
         @include assert-equal(map-get($_o-brands, "o-component1"), (
-            'brand1': $component1-brand1,
-            'brand2': $component1-brand2
+            'master': $component1-brandmaster,
+            'internal': $component1-brandinternal
         ));
         @include assert-equal(map-get($_o-brands, "o-component2"), (
-            'brand1': $component2-brand1,
-            'brand2': $component2-brand2
+            'master': $component2-brandmaster,
+            'internal': $component2-brandinternal
         ));
+        // Restore brands to pre-test state
+        $_o-brands: $original-brands !global;
     }
 }
 
@@ -70,6 +76,16 @@
     @include test('Gets null from a variant with no variables defined') {
         $property: oBrandGet($component: 'o-example', $variables: 'example-background', $from: 'compact');
         @include assert-equal($property, null);
+    }
+
+    @include test('Gets variables from the default "master" brand if the current brand is not defined.') {
+        // Set fake brand.
+        $original-brand: $o-brand;
+        $o-brand: 'non-existent-brand' !global;
+        $property: oBrandGet($component: 'o-example', $variables: 'example-background');
+        @include assert-equal($property, pink);
+        // Restore brand after test.
+        $o-brand: $original-brand !global;
     }
 }
 
