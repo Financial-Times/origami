@@ -294,8 +294,11 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
     @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
         @error '#{$errorMessage}. Config key "variables" should be a map but is of type #{type-of($variables)}.';
     }
-    @if $supports-variants and (type-of($supports-variants) != 'map' and type-of($supports-variants) != 'list' ) {
-        @error '#{$errorMessage}. Config key "$supports-variants" should be a map but is of type #{type-of($supports-variants)}.';
+    @if $supports-variants and type-of($supports-variants) == 'map' and $o-brand-debug-mode {
+        @warn '"#{$component}" config key "$supports-variants" is a map but this is deprecated. Use a list instead: https://github.com/Financial-Times/o-brand#supported-variant';
+    }
+    @if $supports-variants and (type-of($supports-variants) != 'map' and type-of($supports-variants) != 'list' and type-of($supports-variants) != 'string' ) {
+        @error '#{$errorMessage}. Config key "$supports-variants" should be a map or list but is of type #{type-of($supports-variants)}.';
     }
     @return true;
 }
@@ -354,16 +357,22 @@ $_o-brand-default-not-set-warning: false !default; // Has the default not set wa
         $result: _oBrandRestoreConfig($component, $brand, $original-config);
     }
     // No variants are supported.
-    @if type-of($supports-variants) != 'map' {
+    @if type-of($supports-variants) != 'map' and type-of($supports-variants) != 'list' and type-of($supports-variants) != 'string' {
         @return false;
     }
     // @deprecated When variants are combined as a list, assume support if each individual part is supported.
     // E.g. a 'compact' variant may be combined with a 'stripe' variant as ('stripe', 'compact').
     // For a combined variant ('stripe', 'compact') to be supported 'compact' and 'stripe' must be supported individually.
     @each $variant-part in $variant {
-        $variant-part-defined: type-of($supports-variants) == 'map' and map-has-key($supports-variants, $variant-part);
-        @if $variant-part-defined == false or map-get($supports-variants, $variant-part) == false {
-            @return false;
+        @if type-of($supports-variants) == 'map' {
+            $variant-part-defined: map-has-key($supports-variants, $variant-part);
+            @if $variant-part-defined == false or map-get($supports-variants, $variant-part) == false {
+                @return false;
+            }
+        } @else {
+            @if not index($supports-variants, $variant-part) {
+                @return false;
+            }
         }
     }
     @return true;

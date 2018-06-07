@@ -81,6 +81,31 @@
                 }
             }
 
+            @include assert('The "other-example" variant is not supported by the test brand so should not output') {
+                // Define brand in the deprecated way with settings map.
+                @include oBrandDefine('o-explicit-non-support', 'master', (
+                    'variables': (),
+                    'settings': ()
+                ));
+                @include oBrandDefine('o-explicit-non-support', $o-brand, (
+                    'variables': (
+                        example: blue
+                    ),
+                    'settings': (
+                        'test': true,
+                        'example': true,
+                        'other-example': false
+                    )
+                ));
+                @include output {
+                    @include oBrandConfigureFor($component: 'o-explicit-non-support', $variant: 'other-example') {
+                        content: '"other-example" variant is not supported';
+                    }
+                }
+                @include expect {
+                }
+            }
+
             @include assert('Although "b2b" is supported the "unsupported" variant part is not supported by the test brand so should not output') {
                 @include output {
                     @include oBrandConfigureFor($component: 'o-example', $variant: ('b2b', 'unsupported')) {
