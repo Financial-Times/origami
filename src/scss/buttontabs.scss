@@ -51,24 +51,17 @@
 				See README for more information.';
 	}
 
-	// If the theme is not defined, i.e. is a custom theme map, set to null.
-	$defined-theme: if(type-of($theme) != 'map', $theme, null);
-
 	// Output defined theme or custom theme styles without a selector.
 	@if not $selector {
-		@include oBrandConfigureFor('o-tabs', $defined-theme) {
-			@include _oTabsButtonTabsThemeStyles($theme);
-		}
+		@include _oTabsButtonTabsThemeStyles($theme);
 	}
 
 	// Output defined theme styles with selector.
 	// @deprecated To move inline with o-buttons `oButtonsTheme` this is deprecated.
-	@if $selector and $defined-theme {
-		$selector: _oTabsGetThemeSelector($theme, 'o-tabs');
+	@if $selector and type-of($theme) == 'string' {
+		$selector: _oTabsGetThemeSelector($theme);
 		.#{$selector} {
-			@include oBrandConfigureFor('o-tabs', $defined-theme) {
-				@include _oTabsButtonTabsThemeStyles($theme);
-			}
+			@include _oTabsButtonTabsThemeStyles($theme);
 		}
 	}
 }
@@ -91,13 +84,14 @@
 ///  _oTabsGetThemeSelector('primary-inverse') // o-tabs--primary.o-tabs--inverse
 ///
 /// @access private
-/// @param {String} $theme - One of $o-tabs-themes
+/// @param {String} $theme - One of $o-buttons-themes
 /// @param {String} $tab-class - The base button class e.g. o-tabs
 /// @return {String} CSS class selector without leading `.` e.g. o-tabs.o-tabs--inverse
-@function _oTabsGetThemeSelector($theme, $tab-class) {
+@function _oTabsGetThemeSelector($theme, $tab-class: 'o-tabs') {
 	$theme-selector: '';
-	@if length($theme) > 1 {
-		@each $theme-part in $theme {
+	$theme-parts: map-get($map: $o-buttons-themes, $key: $theme);
+	@if length($theme-parts) > 1 {
+		@each $theme-part in $theme-parts {
 			$prepend: if($theme-selector == '', '', '#{$theme-selector}.');
 			$theme-selector: '#{$prepend}#{$tab-class}--#{$theme-part}';
 		}

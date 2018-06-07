@@ -1,25 +1,24 @@
+@function _oTabsSupports($variant) {
+    @return oBrandSupportsVariant('o-tabs', $variant);
+}
+
 @include oBrandDefine('o-tabs', 'master', (
     'variables': (),
-    'settings': (
-        'primary': true,
-        'secondary': true,
-        'inverse': true,
-        'mono': true,
-        'b2c': true
+    'supports-variants': (
+        'primary',
+        'inverse'
     )
 ));
 
 @include oBrandDefine('o-tabs', 'internal', (
     'variables': (),
-    'settings': (
-        'primary': true,
-        'secondary': true,
-        'inverse': true,
-        'mono': true
+    'supports-variants': (
+        'primary',
+        'inverse'
     )
 ));
 
 @include oBrandDefine('o-tabs', 'whitelabel', (
     'variables': (),
-    'settings': ()
+    'supports-variants': ()
 ));

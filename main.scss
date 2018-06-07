@@ -1,5 +1,6 @@
 @import 'o-colors/main';
 @import 'o-buttons/main';
+@import 'o-brand/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/variables';
@@ -12,6 +13,10 @@
 
 	// Output default themes. Other themes avalible, see o-buttons themes.
 	@each $theme in ('primary', 'inverse') {
-		@include oTabsButtonTabsTheme($theme);
+		@if _oTabsSupports($theme) {
+			.o-tabs--#{$theme} {
+				@include oTabsButtonTabsTheme($theme, $selector: false);
+			}
+		}
 	}
 }
