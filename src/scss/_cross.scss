@@ -14,7 +14,7 @@
 
 /// Base overlay close style
 @mixin oOverlayClose {
-	@include _oOverlayCloseIcon(oBrandGet('default-close-text', 'o-overlay'));
+	@include _oOverlayCloseIcon(_oOverlayGet('default-close-text'));
 	box-sizing: content-box;
 	float: right;
 	position: relative;

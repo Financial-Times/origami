@@ -5,29 +5,25 @@
 
 /// Add to the header for a shaded overlay
 @mixin oOverlayHeadingShaded {
-	@include oBrandConfigureFor('o-overlay')  {
-		background: oBrandGet('shaded-heading-background');
-		color: oBrandGet('shaded-heading-text');
-		border-color: oBrandGet('shaded-heading-border');
-		font-weight: normal;
-		// sass-lint:disable no-vendor-prefixes
-		-webkit-font-smoothing: antialiased;
-		// sass-lint:disable no-vendor-prefixes
-	};
+	background: _oOverlayGet('shaded-heading-background');
+	color: _oOverlayGet('shaded-heading-text');
+	border-color: _oOverlayGet('shaded-heading-border');
+	font-weight: normal;
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	// sass-lint:disable no-vendor-prefixes
 }
 
 /// Add to the close icon for a shaded overlay
 @mixin oOverlayHeadingShadedClose {
-	@include oBrandConfigureFor('o-overlay') {
-		@include _oOverlayCloseIcon(oBrandGet('shaded-close-text'));
-		color: oBrandGet('shaded-close-text');
-		background-color: oBrandGet('shaded-close-background');
-		border-color: oBrandGet('shaded-close-border');
+	@include _oOverlayCloseIcon(_oOverlayGet('shaded-close-text'));
+	color: _oOverlayGet('shaded-close-text');
+	background-color: _oOverlayGet('shaded-close-background');
+	border-color: _oOverlayGet('shaded-close-border');
 
-		&:focus,
-		#{$o-hoverable-if-hover-enabled} &:hover {
-			@include _oOverlayCloseIcon(oBrandGet('default-close-text'));
-			background-color: oBrandGet('default-close-background');
-		}
-	};
+	&:focus,
+	#{$o-hoverable-if-hover-enabled} &:hover {
+		@include _oOverlayCloseIcon(_oOverlayGet('default-close-text'));
+		background-color: _oOverlayGet('default-close-background');
+	}
 }

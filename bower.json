@@ -19,6 +19,6 @@
     "o-layers": ">=0.2.0 <3",
     "o-viewport": ">=0.1.1 <4",
     "o-visual-effects": "^2.0.0",
-    "o-brand": "^2.0.2"
+    "o-brand": ">=2.2.0 <4"
   }
 }

@@ -1,3 +1,15 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oOverlayGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oOverlaySupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-overlay', $variant: $variant);
+}
+
 @include oBrandDefine('o-overlay', 'master', (
 	'variables': (
 		default-background: oColorsGetPaletteColor('white'),
@@ -13,7 +25,8 @@
 		shaded-close-background: oColorsGetPaletteColor('black-50'),
 		shaded-close-text: oColorsGetPaletteColor('white'),
 		shaded-close-border: oColorsGetPaletteColor('white')
-	)
+	),
+	'supports-variants': ()
 ));
 
 @include oBrandDefine('o-overlay', 'internal', (
@@ -31,5 +44,6 @@
 		shaded-close-background: oColorsGetPaletteColor('slate'),
 		shaded-close-text: oColorsGetPaletteColor('white'),
 		shaded-close-border: oColorsGetPaletteColor('white')
-	)
+	),
+	'supports-variants': ()
 ));
