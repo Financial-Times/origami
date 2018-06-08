@@ -13,5 +13,7 @@
 
 	} @else if $theme == 'small' {
 		@include oBannerThemeSmall($class);
+	} @else if $theme == 'compact' {
+		@include oBannerThemeCompact($class);
 	}
 }

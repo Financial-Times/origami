@@ -34,6 +34,7 @@
 		@include oTypographySans($scale: 0);
 		display: block;
 		padding: $_o-banner-spacing;
+		padding-top: oTypographySpacingSize($units: 7);
 	}
 }
 
@@ -71,6 +72,14 @@
 			color: inherit;
 		}
 	}
+	a {
+		@include oTypographyLinkCustom(
+			$baseColor: oColorsGetUseCase(o-banner-link, text),
+			$hoverColor: oColorsGetUseCase(o-banner-link, text),
+			$outlineColor: oColorsGetUseCase(o-banner-link, text),
+			$backgroundColor: oColorsGetUseCase(o-banner, background)
+		);
+	}
 
 	@include oGridRespondTo($until: S) {
 		padding: 0;
@@ -99,7 +108,7 @@
 		margin-bottom: 0;
 	}
 	&:after {
-		@include oTypographyMargin($top: 3, $bottom: 3);
+		@include oTypographyMargin($top: 2, $bottom: 4);
 		content: '';
 		display: block;
 		width: 100px;
@@ -111,11 +120,13 @@
 }
 
 @mixin oBannerActions {
+	@include oTypographySans($scale: 2);
 	display: flex;
 	align-items: center;
 
 	@include oGridRespondTo($until: S) {
-		display: block;
+		flex-direction: column;
+		align-items: flex-start;
 		margin-top: oTypographySpacingSize(6);
 	}
 }
@@ -124,15 +135,12 @@
 	padding-right: $_o-banner-spacing;
 
 	@include oGridRespondTo($until: S) {
-		padding: 0;
+		padding-right: 0;
 	}
 }
 
 @mixin oBannerActionSecondary {
-	text-align: right;
-
 	@include oGridRespondTo($until: S) {
-		text-align: left;
 		margin-top: $_o-banner-spacing / 4;
 	}
 }

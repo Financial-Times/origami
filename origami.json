@@ -40,6 +40,12 @@
 			"description": "Marketing banner theme"
 		},
 		{
+			"title": "Compact",
+			"name": "compact",
+			"template": "demos/src/compact.mustache",
+			"description": "Compact banner theme"
+		},
+		{
 			"title": "Imperative",
 			"name": "imperative",
 			"template": "demos/src/imperative.mustache",

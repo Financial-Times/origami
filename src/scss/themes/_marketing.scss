@@ -12,6 +12,17 @@
 	@include oColorsFor(o-banner-marketing, background);
 }
 
+@mixin oBannerThemeMarketingContent() {
+	a {
+		@include oTypographyLinkCustom(
+			$baseColor: oColorsGetUseCase(o-banner-marketing-link, text),
+			$hoverColor: oColorsGetUseCase(o-banner-marketing-link, text),
+			$outlineColor: oColorsGetUseCase(o-banner-marketing-link, text),
+			$backgroundColor: oColorsGetUseCase(o-banner-marketing, background)
+		);
+	}
+}
+
 @mixin oBannerThemeMarketingHeading {
 	&:after {
 		border-color: oColorsGetColorFor(o-banner-marketing-heading-rule, background);
@@ -47,6 +58,9 @@
 		.#{$class}__outer {
 			@include oBannerThemeMarketingOuter;
 		}
+		.#{$class}__content {
+			@include oBannerThemeMarketingContent;
+		}
 		.#{$class}__heading {
 			@include oBannerThemeMarketingHeading;
 		}
@@ -60,8 +74,9 @@
 			@include oBannerThemeMarketingCloseButton;
 		}
 
-		// When combined with the "small" theme
-		&.#{$class}--small {
+		// When combined with the "small" and "condensed" themes
+		&.#{$class}--small,
+		&.#{$class}--condensed {
 			.#{$class}__outer {
 				@include oBannerThemeMarketingSmallOuter;
 			}

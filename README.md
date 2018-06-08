@@ -142,7 +142,7 @@ o-banner includes mixins that you can use if you'd rather not have origami class
 The `$themes` parameter can be either `all` or a list of [themes](#themes) to include:
 
 ```scss
-@include oBanner($themes: ('small', 'marketing'));
+@include oBanner($themes: ('small', 'compact', 'marketing'));
 ```
 
 ### Themes
@@ -150,6 +150,7 @@ The `$themes` parameter can be either `all` or a list of [themes](#themes) to in
 o-banner is themeable, and has the following built-in themes, which can be used in combination with eachother:
 
   - `small`: Display the banner in the bottom left of the screen at a smaller size, rather than full width
+  - `compact`: Display the banner in the bottom left like the `small` theme, but with tighter spacing and smaller typography
   - `marketing`: Use the marketing colours for the banner
 
 In the markup, these can be applied as classes alongside the `o-banner class`. They are exposed as modifiers:
