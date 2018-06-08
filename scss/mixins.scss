@@ -16,10 +16,6 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     $validated-brand-name: _oBrandValidateName('Brand', $brand, 'Cannot define brand "#{$brand}" for component "#{$component}"');
     // Validate component name.
     $validated-component-name: _oBrandValidateName('Component', $component, 'Cannot define brand "#{$brand}" for component "#{$component}"');
-    // Do not allow a component brand to be overridden.
-    @if _oBrandIsDefined($component, $brand) {
-        @error 'Brand #{$brand} is already defined for #{$component}.';
-    }
     // Validate config.
     $validated-config: _oBrandValidateConfig($component, $brand, $config);
     // Update config.
