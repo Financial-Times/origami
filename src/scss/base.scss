@@ -203,66 +203,64 @@
 	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
 	$status-icon-size: $_o-forms-field-small-height;
 	$status-icon-padding: ($status-icon-size/40) * 10;
-	@include oBrandConfigureFor($component: 'o-forms') {
-		// Base status styles.
-		.#{$class}__status {
-			@include oTypographySize($_o-forms-typography-scale-small);
-			line-height: 1em;
-			white-space: nowrap;
-			align-items: center;
-			min-width: 5em;
-			margin-top: $_o-forms-default-error-text-margin;
-			display: none;
-			&:after {
-				content: '';
-			}
-			&:before {
-				content: '';
-				margin: #{-$status-icon-padding} 0 #{-$status-icon-padding} #{-$status-icon-padding};
-			}
+	// Base status styles.
+	.#{$class}__status {
+		@include oTypographySize($_o-forms-typography-scale-small);
+		line-height: 1em;
+		white-space: nowrap;
+		align-items: center;
+		min-width: 5em;
+		margin-top: $_o-forms-default-error-text-margin;
+		display: none;
+		&:after {
+			content: '';
 		}
-
-		.#{$class}__status[aria-hidden="false"] {
-			display: flex;
-			// Sit within the margin of `.o-form` without pushing page content down.
-			margin-bottom: calc(-1em - #{$_o-forms-default-error-text-margin});
+		&:before {
+			content: '';
+			margin: #{-$status-icon-padding} 0 #{-$status-icon-padding} #{-$status-icon-padding};
 		}
+	}
 
-		// Saving status.
-		.#{$class}--saving .#{$class}__status {
-			&:after {
-				content: 'Saving';
-			}
-			&:before {
-				@include oLoading();
-				@include oLoadingSize('small');
-				@include oLoadingColor('dark');
-				// Reszise loader to match icon.
-				margin: 0 $status-icon-padding 0 0;
-				width: 10px;
-				height: 10px;
-				border-width: 2px;
-			}
+	.#{$class}__status[aria-hidden="false"] {
+		display: flex;
+		// Sit within the margin of `.o-form` without pushing page content down.
+		margin-bottom: calc(-1em - #{$_o-forms-default-error-text-margin});
+	}
+
+	// Saving status.
+	.#{$class}--saving .#{$class}__status {
+		&:after {
+			content: 'Saving';
 		}
-
-		// Saved status.
-		.#{$class}--saved .#{$class}__status {
-			&:after {
-				content: 'Saved';
-				color: oBrandGet('field-valid-text');
-			}
-			&:before {
-				@include oIconsGetIcon('tick', oBrandGet('field-valid-text'), $status-icon-size);
-			}
+		&:before {
+			@include oLoading();
+			@include oLoadingSize('small');
+			@include oLoadingColor('dark');
+			// Reszise loader to match icon.
+			margin: 0 $status-icon-padding 0 0;
+			width: 10px;
+			height: 10px;
+			border-width: 2px;
 		}
+	}
 
-		// Icon only statuses.
-		.#{$class} .#{$class}__status--icon-only {
-			min-width: $status-icon-size;
-			align-self: center;
-			&:after {
-				@include oNormaliseVisuallyHidden;
-			}
+	// Saved status.
+	.#{$class}--saved .#{$class}__status {
+		&:after {
+			content: 'Saved';
+			color: _oFormsGet('field-valid-text');
+		}
+		&:before {
+			@include oIconsGetIcon('tick', _oFormsGet('field-valid-text'), $status-icon-size);
+		}
+	}
+
+	// Icon only statuses.
+	.#{$class} .#{$class}__status--icon-only {
+		min-width: $status-icon-size;
+		align-self: center;
+		&:after {
+			@include oNormaliseVisuallyHidden;
 		}
 	}
 }

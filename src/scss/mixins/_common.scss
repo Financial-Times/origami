@@ -214,72 +214,64 @@
 /// @access public
 /// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
-	@include oBrandConfigureFor('o-forms') {
-		@include oTypographySize($_o-forms-typography-scale-regular);
-		color: oBrandGet('field-standard-text');
-		border-color: oBrandGet('field-standard-border');
-		background-color: oBrandGet('field-standard-background');
-		margin-top: $_o-forms-spacing;
-		box-sizing: border-box;
-		width: 100%;
-		max-width: $_o-forms-field-max-width;
-		min-height: $_o-forms-field-default-height;
-		padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
-		border: $_o-forms-field-border;
-		border-radius: $_o-forms-field-border-radius;
-		background-clip: padding-box;
-		font-family: $o-forms-font-family;
-		outline: none;
-		transition: 0.15s box-shadow ease-in;
-		appearance: none;
+	@include oTypographySize($_o-forms-typography-scale-regular);
+	color: _oFormsGet('field-standard-text');
+	border-color: _oFormsGet('field-standard-border');
+	background-color: _oFormsGet('field-standard-background');
+	margin-top: $_o-forms-spacing;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: $_o-forms-field-max-width;
+	min-height: $_o-forms-field-default-height;
+	padding: $_o-forms-field-default-padding-top $_o-forms-field-default-padding-leftright $_o-forms-field-default-padding-bottom;
+	border: $_o-forms-field-border;
+	border-radius: $_o-forms-field-border-radius;
+	background-clip: padding-box;
+	font-family: $o-forms-font-family;
+	outline: none;
+	transition: 0.15s box-shadow ease-in;
+	appearance: none;
 
-		&:focus {
-			@include oFormsCommonFieldFocus;
-		}
+	&:focus {
+		@include oFormsCommonFieldFocus;
+	}
 
-		&:disabled {
-			@include oFormsCommonFieldDisabled;
-		}
+	&:disabled {
+		@include oFormsCommonFieldDisabled;
+	}
 
-		&::placeholder {
-			color: oBrandGet('field-placholder-text');
-		}
+	&::placeholder {
+		color: _oFormsGet('field-placholder-text');
 	}
 }
 
 /// @access public
 /// @output Shared focus state styles.
 @mixin oFormsCommonFieldFocus {
-	@include oBrandConfigureFor('o-forms') {
-		border-color: oBrandGet('field-focus-border');
-		box-shadow: 0 0 0 2px $o-normalise-focus-color;
-	}
+	border-color: _oFormsGet('field-focus-border');
+	box-shadow: 0 0 0 2px $o-normalise-focus-color;
 }
 
 /// @access public
 /// @output Shared disabled state styles.
 @mixin oFormsCommonFieldDisabled {
-	@include oBrandConfigureFor('o-forms') {
-		color: oBrandGet('field-disabled-text');
-		border-color: oBrandGet('field-disabled-border');
-		background-color: oBrandGet('field-disabled-background');
-		cursor: default;
-	}
+	color: _oFormsGet('field-disabled-text');
+	border-color: _oFormsGet('field-disabled-border');
+	background-color: _oFormsGet('field-disabled-background');
+	cursor: default;
 }
 
 /// @access public
 /// @output Shared invalid state styles.
 @mixin oFormsCommonFieldInvalid {
-	@include oBrandConfigureFor('o-forms') {
-		&:not(:disabled) {
-			color: oBrandGet('field-invalid-text');
-			border-color: oBrandGet('field-invalid-border');
-			background-color: oBrandGet('field-invalid-background');
+	&:not(:disabled) {
+		color: _oFormsGet('field-invalid-text');
+		border-color: _oFormsGet('field-invalid-border');
+		background-color: _oFormsGet('field-invalid-background');
 
-			&:focus {
-				border-color: oBrandGet('field-invalid-border');
-				outline-offset: 0;
-			}
+		&:focus {
+			border-color: _oFormsGet('field-invalid-border');
+			outline-offset: 0;
 		}
 	}
 }
@@ -287,15 +279,13 @@
 /// @access public
 /// @output Shared valid state styles.
 @mixin oFormsCommonFieldValid {
-	@include oBrandConfigureFor('o-forms') {
-		&:not(:disabled) {
-        	color: oBrandGet('field-valid-text');
-        	border-color: oBrandGet('field-valid-border');
-			background-color: rgba(oBrandGet('field-valid-background'), 0.05);
-			&:focus {
-				border-color: oBrandGet('field-valid-border');
-				outline-offset: 0;
-			}
+	&:not(:disabled) {
+		color: _oFormsGet('field-valid-text');
+		border-color: _oFormsGet('field-valid-border');
+		background-color: rgba(_oFormsGet('field-valid-background'), 0.05);
+		&:focus {
+			border-color: _oFormsGet('field-valid-border');
+			outline-offset: 0;
 		}
 	}
 }

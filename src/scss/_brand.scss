@@ -1,4 +1,16 @@
-$_o-table-shared-brand-config: (
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-forms', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-forms', $variant: $variant);
+}
+
+$_o-forms-shared-brand-config: (
         section-highlight-background: oColorsGetPaletteColor('black-10'),
         message-error-background: oColorsGetPaletteColor('crimson'),
         message-error-text: oColorsGetPaletteColor('white'),
@@ -33,15 +45,17 @@ $_o-table-shared-brand-config: (
 );
 
 @include oBrandDefine('o-forms', 'master', (
-	'variables': map-merge($_o-table-shared-brand-config, (
+	'variables': map-merge($_o-forms-shared-brand-config, (
                 section-error-background: oColorsMix('paper', 'crimson', 90),
-        ))
+        )),
+        'supports-variants': ()
 ));
 
 @include oBrandDefine('o-forms', 'internal', (
-        'variables': map-merge($_o-table-shared-brand-config, (
+        'variables': map-merge($_o-forms-shared-brand-config, (
                 section-error-background: oColorsMix('white', 'crimson', 90),
-        ))
+        )),
+        'supports-variants': ()
 ));
 
 @include oBrandDefine('o-forms', 'whitelabel', (
@@ -78,5 +92,6 @@ $_o-table-shared-brand-config: (
                 toggle-inverse-text: oColorsGetPaletteColor('white'),
                 toggle-inverse-selected-background: oColorsGetPaletteColor('white'),
                 toggle-inverse-switch-knob-background: oColorsGetPaletteColor('black')
-        )
+        ),
+        'supports-variants': ()
 ));

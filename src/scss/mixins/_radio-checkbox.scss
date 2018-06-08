@@ -7,29 +7,27 @@
 /// @require {mixin} oFormsRadioCheckbox - The shared radio/checkbox styles must be output for this to build upon them.
 /// @output Styles for radio inputs.
 @mixin oFormsRadio($class: 'o-forms') {
-    @include oBrandConfigureFor('o-forms') {
-        & + .#{$class}__label::before {
-            // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
-            border-radius: 9999px;
+    & + .#{$class}__label::before {
+        // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+        border-radius: 9999px;
+    }
+    &:checked + .#{$class}__label::before {
+        // Outer ring changes to teal when the radio button is checked
+        border: 1px solid _oFormsGet('checkbox-radio-checked-background');
+    }
+    & + .#{$class}__label::after {
+        background-color: _oFormsGet('checkbox-radio-checked-background');
+        // sass-lint:disable no-vendor-prefixes
+        @media screen and (-ms-high-contrast: active) {
+            background-color: windowText;
         }
-        &:checked + .#{$class}__label::before {
-            // Outer ring changes to teal when the radio button is checked
-            border: 1px solid oBrandGet('checkbox-radio-checked-background');
-        }
-        & + .#{$class}__label::after {
-            background-color: oBrandGet('checkbox-radio-checked-background');
-            // sass-lint:disable no-vendor-prefixes
-            @media screen and (-ms-high-contrast: active) {
-                background-color: windowText;
-            }
-            // sass-lint:enable no-vendor-prefixes
-            // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
-            border-radius: 9999px;
-            height: $_o-forms-radio-internal-default-size;
-            width: $_o-forms-radio-internal-default-size;
-            left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-            top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-        }
+        // sass-lint:enable no-vendor-prefixes
+        // Equivalent to border-radius 50%. Fixes an old WebKit bug where rounding wouldn't be applied properly
+        border-radius: 9999px;
+        height: $_o-forms-radio-internal-default-size;
+        width: $_o-forms-radio-internal-default-size;
+        left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+        top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
     }
 }
 
@@ -38,14 +36,12 @@
 /// @require {mixin} oFormsRadioCheckbox - The shared radio/checkbox styles must be output for this to build upon them.
 /// @output Styles for checkbox inputs.
 @mixin oFormsCheckbox($class: 'o-forms') {
-    @include oBrandConfigureFor('o-forms') {
-        & + .#{$class}__label::after {
-            @include oIconsGetIcon('tick', oBrandGet('checkbox-radio-checked-icon'), $_o-forms-radiocheckbox-default-size);
-            background-color: oBrandGet('checkbox-radio-checked-background');
-        }
-        & + .#{$class}__label::before {
-            background-color: oBrandGet('field-standard-background');
-        }
+    & + .#{$class}__label::after {
+        @include oIconsGetIcon('tick', _oFormsGet('checkbox-radio-checked-icon'), $_o-forms-radiocheckbox-default-size);
+        background-color: _oFormsGet('checkbox-radio-checked-background');
+    }
+    & + .#{$class}__label::before {
+        background-color: _oFormsGet('field-standard-background');
     }
 }
 
@@ -54,48 +50,46 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Shared styles of radio and checkbox inputs, including label changes.
 @mixin oFormsRadioCheckbox($class: 'o-forms') {
-    @include oBrandConfigureFor('o-forms') {
+    position: absolute;
+    opacity: 0; // better than display: none as it allows tabbing
+
+    & + .#{$class}__label {
+        @include _oFormsRadioCheckboxLabel();
+    }
+
+    & + .#{$class}__label::before {
+        border-color: _oFormsGet('focus-border');
         position: absolute;
-        opacity: 0; // better than display: none as it allows tabbing
+        top: 0;
+        left: 0;
+        width: $_o-forms-radiocheckbox-default-size;
+        height: $_o-forms-radiocheckbox-default-size;
+        border: 1px solid _oFormsGet('field-standard-border');
+        box-sizing: border-box;
+        content: '';
+        transition: all 0.1s ease-in;
+    }
 
-        & + .#{$class}__label {
-            @include _oFormsRadioCheckboxLabel();
-        }
+    &:focus + .#{$class}__label::before {
+        @include oFormsCommonFieldFocus;
+    }
 
-        & + .#{$class}__label::before {
-            border-color: oBrandGet('focus-border');
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: $_o-forms-radiocheckbox-default-size;
-            height: $_o-forms-radiocheckbox-default-size;
-            border: 1px solid oBrandGet('field-standard-border');
-            box-sizing: border-box;
-            content: '';
-            transition: all 0.1s ease-in;
-        }
+    & + .#{$class}__label::after {
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.1s opacity ease-in;
+    }
 
-        &:focus + .#{$class}__label::before {
-            @include oFormsCommonFieldFocus;
-        }
+    &:checked + .#{$class}__label::after {
+        opacity: 1;
+    }
 
-        & + .#{$class}__label::after {
-            content: '';
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: 0.1s opacity ease-in;
-        }
-
-        &:checked + .#{$class}__label::after {
-            opacity: 1;
-        }
-
-        &:disabled + .#{$class}__label {
-            opacity: 0.4;
-            cursor: default;
-        }
+    &:disabled + .#{$class}__label {
+        opacity: 0.4;
+        cursor: default;
     }
 }
 
@@ -205,71 +199,69 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
-    @include oBrandConfigureFor('o-forms') {
-        @include oNormaliseVisuallyHidden;
-        $side-padding: 20px;
-        & + .#{$class}__label {
-            @include _oFormsRadioButtonsStyledMargin();
-            color: oBrandGet('radio-buttons-styled-text');
-            cursor: pointer;
-            font-size: $_o-forms-field-default-font-size;
-            font-weight: oFontsWeight('semibold');
-            padding: 5px $side-padding 7px;
+    @include oNormaliseVisuallyHidden;
+    $side-padding: 20px;
+    & + .#{$class}__label {
+        @include _oFormsRadioButtonsStyledMargin();
+        color: _oFormsGet('radio-buttons-styled-text');
+        cursor: pointer;
+        font-size: $_o-forms-field-default-font-size;
+        font-weight: oFontsWeight('semibold');
+        padding: 5px $side-padding 7px;
+        position: relative;
+        text-align: center;
+        transition: 0.3s background-color, 0.15s color ease-out;
+        display: inline-block;
+        border-left: 1px solid _oFormsGet('radio-buttons-styled-border');
+        margin-top: 3px;
+        margin-bottom: 3px;
+        &:first-of-type {
+            margin-left: 3px;
+            border-left: 0;
+        }
+        &:last-of-type {
+            margin-right: 3px;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            bottom: -3px;
+            left: -3px;
+            border: 1px solid _oFormsGet('radio-buttons-styled-border');
+            border-left: 0;
+            border-right: 0;
+        }
+        &:last-of-type:before {
+            border-right: 1px solid _oFormsGet('radio-buttons-styled-border');
+        }
+        &:first-of-type:before {
+            border-left: 1px solid _oFormsGet('radio-buttons-styled-border');
+        }
+    }
+    &:not(:disabled):not(:checked) + .#{$class}__label:hover {
+        background-color: rgba(_oFormsGet('checkbox-radio-hover-background'), 0.15);
+    }
+    &:checked + .#{$class}__label {
+        background-color: _oFormsGet('radio-buttons-styled-checked-background');
+        color: _oFormsGet('radio-buttons-styled-checked-text');
+    }
+    &--negative:checked + .#{$class}__label {
+            background-color: _oFormsGet('radio-buttons-styled-negative-checked-background');
+    }
+    &:focus + .#{$class}__label {
+        @include oFormsCommonFieldFocus;
+        z-index: 1;
+    }
+    &:disabled + .#{$class}__label {
+        opacity: 0.5;
+        cursor: default;
+        // Hack for odd border break with applied opacity.
+        &:last-of-type {
+            left: -1px;
+            padding-left: $side-padding + 1;
             position: relative;
-            text-align: center;
-            transition: 0.3s background-color, 0.15s color ease-out;
-            display: inline-block;
-            border-left: 1px solid oBrandGet('radio-buttons-styled-border');
-            margin-top: 3px;
-            margin-bottom: 3px;
-            &:first-of-type {
-                margin-left: 3px;
-                border-left: 0;
-            }
-            &:last-of-type {
-                margin-right: 3px;
-            }
-            &:before {
-                content: '';
-                position: absolute;
-                top: -3px;
-                right: -3px;
-                bottom: -3px;
-                left: -3px;
-                border: 1px solid oBrandGet('radio-buttons-styled-border');
-                border-left: 0;
-                border-right: 0;
-            }
-            &:last-of-type:before {
-                border-right: 1px solid oBrandGet('radio-buttons-styled-border');
-            }
-            &:first-of-type:before {
-                border-left: 1px solid oBrandGet('radio-buttons-styled-border');
-            }
-        }
-        &:not(:disabled):not(:checked) + .#{$class}__label:hover {
-            background-color: rgba(oBrandGet('checkbox-radio-hover-background'), 0.15);
-        }
-        &:checked + .#{$class}__label {
-            background-color: oBrandGet('radio-buttons-styled-checked-background');
-            color: oBrandGet('radio-buttons-styled-checked-text');
-        }
-        &--negative:checked + .#{$class}__label {
-                background-color: oBrandGet('radio-buttons-styled-negative-checked-background');
-        }
-        &:focus + .#{$class}__label {
-            @include oFormsCommonFieldFocus;
-            z-index: 1;
-        }
-        &:disabled + .#{$class}__label {
-            opacity: 0.5;
-            cursor: default;
-            // Hack for odd border break with applied opacity.
-            &:last-of-type {
-                left: -1px;
-                padding-left: $side-padding + 1;
-                position: relative;
-            }
         }
     }
 }
@@ -290,13 +282,11 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Error styles for radio buttons.
 @mixin _oFormsRadioButtonsStyledInvalid($class: 'o-forms') {
-    @include oBrandConfigureFor('o-forms') {
-        & + .#{$class}__label {
-            &:first-of-type:before,
-            &:last-of-type:before,
-            &:before {
-                border-color: oBrandGet('field-invalid-border');
-            }
+    & + .#{$class}__label {
+        &:first-of-type:before,
+        &:last-of-type:before,
+        &:before {
+            border-color: _oFormsGet('field-invalid-border');
         }
     }
 }
