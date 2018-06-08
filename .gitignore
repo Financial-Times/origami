@@ -1,2 +1,9 @@
-demos/local
+.idea/
+.jshintrc
+.sass-cache/
 bower_components/
+build/
+demos/local/
+node_modules/
+.editorconfig
+.DS_Store
