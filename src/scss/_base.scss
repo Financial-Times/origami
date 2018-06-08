@@ -23,7 +23,7 @@
 	@include oHeaderServicesSubNav;
 
 	.#{$class} {
-		background-color: oBrandGet('top-background', 'o-header-services');
+		background-color: _oHeaderServicesGet('top-background');
 	}
 
 	.#{$class}__container {
@@ -34,11 +34,15 @@
 		@include oHeaderServicesContainer($bleed: true);
 	}
 
-	.#{$class}--b2b {
-		@include oHeaderServicesTheme($theme: 'b2b');
+	@if _oHeaderServicesSupports('b2b') {
+		.#{$class}--b2b {
+			@include oHeaderServicesTheme($theme: 'b2b');
+		}
 	}
 
-	.#{$class}--b2c {
-		@include oHeaderServicesTheme($theme: 'b2c');
+	@if _oHeaderServicesSupports('b2c') {
+		.#{$class}--b2c {
+			@include oHeaderServicesTheme($theme: 'b2c');
+		}
 	}
 }

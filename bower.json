@@ -2,8 +2,8 @@
 	"name": "o-header-services",
 	"dependencies": {
 		"o-assets": "^3.0.2",
-		"o-brand": "^2.0.2",
-		"o-header": "^7.4.0",
+		"o-brand": ">=2.2.0 <4",
+		"o-header": "^7.5.9",
 		"o-icons": ">=4.4.2 <6",
 		"o-colors": "^4.2.3",
 		"o-grid": "^4.2.0",

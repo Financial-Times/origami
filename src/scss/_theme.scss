@@ -1,26 +1,28 @@
 @mixin oHeaderServicesTheme($theme, $class: 'o-header-services') {
-	@include oBrandConfigureFor('o-header-services', $theme) {
-		.#{$class}__product-name {
-			color: oBrandGet('product-title');
-		}
+	@if type-of($theme) != 'string' {
+		@error 'oHeaderServicesTheme `$theme` must be a string but "#{$theme}" is of type "#{type-of($theme)}".';
+	}
 
-		.#{$class}__hamburger {
-			background-color: oBrandGet('nav-background');
-		}
+	.#{$class}__product-name {
+		color: _oHeaderServicesGet('product-title', $from: $theme);
+	}
 
-		.#{$class}__primary-nav {
-			background-color: oBrandGet('nav-background');
-		}
+	.#{$class}__hamburger {
+		background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+	}
 
-		.#{$class}__nav-link {
-			color: oBrandGet('nav-text');
+	.#{$class}__primary-nav {
+		background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+	}
 
-			&:hover,
-			&--selected,
-			&[aria-selected=true] {
-				color: oBrandGet('nav-hover-text');
-				background-color: oBrandGet('nav-hover-background');
-			}
+	.#{$class}__nav-link {
+		color: _oHeaderServicesGet('nav-text', $from: $theme);
+
+		&:hover,
+		&--selected,
+		&[aria-selected=true] {
+			color: _oHeaderServicesGet('nav-hover-text', $from: $theme);
+			background-color: _oHeaderServicesGet('nav-hover-background', $from: $theme);
 		}
 	}
 }
