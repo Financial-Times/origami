@@ -3,7 +3,7 @@
 		@include oTypographySans(0);
 		@include oTypographyPadding($top: 2, $bottom: 2);
 		@include oGridContainer($bleed: true);
-		border-top: 4px solid oBrandGet('default-border', 'o-footer-services');
+		border-top: 4px solid _oFooterServicesGet('default-border');
 
 		a {
 			@include oTypographyLink();

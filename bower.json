@@ -9,7 +9,7 @@
     "o-colors": "^4.2.4",
     "o-grid": "^4.3.8",
     "o-typography": "^5.6.0",
-    "o-brand": "^2.0.2",
+    "o-brand": ">=2.2.0 <4",
     "social-images": "^2.2.1",
     "o-icons": "^5.6.1"
   }
