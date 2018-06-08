@@ -201,7 +201,7 @@ class Video {
 	}
 
 	init() {
-		return (this.opts.advertising ? this.videoAds.loadAdsLibrary() : Promise.resolve())
+		return (this.opts.advertising ? VideoAds.loadAdsLibrary() : Promise.resolve())
 			.catch(() => {
 				// If ad doesn't load for some reason, load video as normal
 				this.opts.advertising = false;

@@ -40,7 +40,7 @@ describe('Ads', () => {
 	});
 
 	it('should add the video advertising script if the configuration parameter is passed', () => {
-		return ads.loadAdsLibrary()
+		return Ads.loadAdsLibrary()
 			.then(() => {
 				proclaim.ok(document.querySelector('[src="//imasdk.googleapis.com/js/sdkloader/ima3.js"]'));
 			});
