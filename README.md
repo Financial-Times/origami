@@ -82,6 +82,24 @@ It is worth pointing out that the wrapper can hold any html elements. So long as
 </div>
 ```
 
+However, when highlighting `HTML`, there is a caveat.
+Because of the way in which the `<code>` tag works, if you want to highlight markup **which has already been declared**, you will have to replace and `<` with `&lt;` in order for the markup to be read as a string instead of actual HTML.
+
+For example:
+```
+<pre>
+	<code class="o-syntax-highlight--html">
+&lt;html>
+	&lt;head>
+		&lt;!-- links and scripts -->
+	&lt;/head>
+	&lt;body>
+		&lt;div class="some-class"&lt;/div>
+	&lt;/body>
+&lt;/html></code>
+</pre>
+```
+
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
