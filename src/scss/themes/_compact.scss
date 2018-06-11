@@ -90,7 +90,7 @@
 	&:after {
 		@include oTypographyMargin($top: 2, $bottom: 3);
 		width: 60px;
-		border-bottom: oTypographySpacingSize(1) solid;
+		border-bottom-width: oTypographySpacingSize(1);
 	}
 }
 

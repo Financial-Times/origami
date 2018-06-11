@@ -34,22 +34,29 @@
 			"description": "Small banner theme"
 		},
 		{
-			"title": "Marketing",
-			"name": "marketing",
-			"template": "demos/src/marketing.mustache",
-			"description": "Marketing banner theme"
-		},
-		{
 			"title": "Compact",
 			"name": "compact",
 			"template": "demos/src/compact.mustache",
 			"description": "Compact banner theme"
 		},
 		{
-			"title": "Imperative",
-			"name": "imperative",
-			"template": "demos/src/imperative.mustache",
-			"description": "Imperative banner",
+			"title": "Marketing",
+			"name": "marketing",
+			"template": "demos/src/marketing.mustache",
+			"description": "Marketing banner theme"
+		},
+		{
+			"title": "Product",
+			"name": "product",
+			"template": "demos/src/product.mustache",
+			"description": "Product banner theme"
+		},
+		{
+			"title": "All",
+			"name": "all",
+			"template": "demos/src/all.mustache",
+			"hidden": true,
+			"description": "All of the possible banner combinations",
 			"js": "demos/src/imperative.js"
 		},
 		{

@@ -1,0 +1,88 @@
+
+@mixin oBannerThemeProductOuter() {
+	@include oColorsFor(o-banner-product, text background);
+}
+
+@mixin oBannerThemeProductSmallOuter() {
+	@include oColorsFor(o-banner-product, text);
+	background-color: transparent;
+}
+
+@mixin oBannerThemeProductSmallInner() {
+	@include oColorsFor(o-banner-product, background);
+}
+
+@mixin oBannerThemeProductContent() {
+	a {
+		@include oTypographyLinkCustom(
+			$baseColor: oColorsGetUseCase(o-banner-product-link, text),
+			$hoverColor: oColorsGetUseCase(o-banner-product-link, text),
+			$outlineColor: oColorsGetUseCase(o-banner-product-link, text),
+			$backgroundColor: oColorsGetUseCase(o-banner-product, background)
+		);
+	}
+}
+
+@mixin oBannerThemeProductHeading {
+	&:after {
+		border-color: oColorsGetColorFor(o-banner-product-heading-rule, background);
+	}
+}
+
+@mixin oBannerThemeProductButton {
+	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-product-button, background), oColorsGetUseCase(o-banner-product-button, text), primary);
+	// This is a hack around the fact that custom buttons do not
+	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
+	&,
+	&:not([disabled]):active {
+		@include oColorsFor(o-banner-product-button-active, text);
+	}
+}
+
+@mixin oBannerThemeProductLink {
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-product-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-product-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-product-link, text),
+		$backgroundColor: oColorsGetUseCase(o-banner-product, background)
+	);
+}
+
+@mixin oBannerThemeProductCloseButton {
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-product-close, text), $_o-banner-close-button-size, $iconset-version: 1);
+}
+
+@mixin oBannerThemeProduct($class: 'o-banner') {
+	.#{$class}--product {
+		.#{$class}__outer {
+			@include oBannerThemeProductOuter;
+		}
+		.#{$class}__content {
+			@include oBannerThemeProductContent;
+		}
+		.#{$class}__heading {
+			@include oBannerThemeProductHeading;
+		}
+		.#{$class}__button {
+			@include oBannerThemeProductButton;
+		}
+		.#{$class}__link {
+			@include oBannerThemeProductLink;
+		}
+		.#{$class}__close {
+			@include oBannerThemeProductCloseButton;
+		}
+
+		// When combined with the "small" and "compact" themes
+		&.#{$class}--small,
+		&.#{$class}--compact {
+			.#{$class}__outer {
+				@include oBannerThemeProductSmallOuter;
+			}
+			.#{$class}__inner {
+				@include oBannerThemeProductSmallInner;
+			}
+		}
+	}
+}

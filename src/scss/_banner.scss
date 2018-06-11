@@ -163,7 +163,7 @@
 		$baseColor: oColorsGetUseCase(o-banner-link, text),
 		$hoverColor: oColorsGetUseCase(o-banner-link, text),
 		$outlineColor: oColorsGetUseCase(o-banner-link, text),
-		$backgroundColor: 'teal'
+		$backgroundColor: oColorsGetUseCase(o-banner, background)
 	);
 	@include oTypographySans($scale: 0);
 	white-space: nowrap;

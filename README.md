@@ -143,7 +143,7 @@ o-banner includes mixins that you can use if you'd rather not have origami class
 The `$themes` parameter can be either `all` or a list of [themes](#themes) to include:
 
 ```scss
-@include oBanner($themes: ('small', 'compact', 'marketing'));
+@include oBanner($themes: ('small', 'compact', 'marketing', 'product'));
 ```
 
 ### Themes
@@ -175,6 +175,8 @@ const myBanner = new oBanner({
 ### Migrating from v1 to v2
 
 V2 of o-banner removes and renames several themes. This includes the removal of associated mixins and variables. The removed themes are `marketing-primary` and `marketing-secondary`. This should be replaced with `marketing`.
+
+As well as this, the default teal theme has been replaced with a white theme. The old default teal theme is now named `product`.
 
 ---
 
