@@ -17,6 +17,7 @@ class Banner {
 		this.options = Object.assign({}, {
 			autoOpen: true,
 			suppressCloseButton: false,
+			closeExistingBanners: true,
 
 			bannerClass: bannerClass,
 			bannerClosedClass: `${bannerClass}--closed`,
@@ -47,9 +48,13 @@ class Banner {
 		// Render the banner
 		this.render();
 
-		// There can be only one
-		Banner._bannerInstances.forEach(banner => banner.close());
-		Banner._bannerInstances = [this];
+		if (this.options.closeExistingBanners) {
+			// There can be only one
+			Banner._bannerInstances.forEach(banner => banner.close());
+			Banner._bannerInstances = [this];
+		} else {
+			Banner._bannerInstances.push(this);
+		}
 
 		if (this.options.autoOpen) {
 			this.open();

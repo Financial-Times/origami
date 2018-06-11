@@ -120,6 +120,7 @@ There are several options used to change the appearance or behaviour of o-banner
 
   - `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
   - `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
+  - `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `o-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`

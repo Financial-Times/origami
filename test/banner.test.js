@@ -64,6 +64,7 @@ describe('Banner', () => {
 			assert.deepEqual(banner.options, {
 				autoOpen: true,
 				suppressCloseButton: false,
+				closeExistingBanners: true,
 				bannerClass: 'o-banner',
 				bannerClosedClass: 'o-banner--closed',
 				outerClass: 'o-banner__outer',
