@@ -74,9 +74,9 @@
 			@include oBannerThemeMarketingCloseButton;
 		}
 
-		// When combined with the "small" and "condensed" themes
+		// When combined with the "small" and "compact" themes
 		&.#{$class}--small,
-		&.#{$class}--condensed {
+		&.#{$class}--compact {
 			.#{$class}__outer {
 				@include oBannerThemeMarketingSmallOuter;
 			}

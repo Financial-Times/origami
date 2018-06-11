@@ -47,7 +47,7 @@
 	h5,
 	h6,
 	ul li {
-		@include oTypographySans($scale: 2);
+		@include oTypographySans($scale: 0);
 	}
 	@include oGridRespondTo($until: M) {
 		&,
@@ -64,7 +64,7 @@
 }
 
 @mixin oBannerThemeCompactHeading {
-	@include oTypographySans($scale: 2);
+	@include oTypographySans($scale: 3);
 	padding-right: $_o-banner-spacing;
 
 	h1,
@@ -88,7 +88,7 @@
 		}
 	}
 	&:after {
-		@include oTypographyMargin($top: 1, $bottom: 3);
+		@include oTypographyMargin($top: 2, $bottom: 3);
 		width: 60px;
 		border-bottom: oTypographySpacingSize(1) solid;
 	}
