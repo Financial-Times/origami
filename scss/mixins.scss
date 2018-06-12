@@ -145,7 +145,13 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     }
     // Validate variables key (an empty map is of type list).
     $variables: map-get($config, 'variables');
+    @if not $variables {
+        @error '#{$error-message}. Config key "variables" is missing. #{$error-message-link}';
+    }
     $supports-variants: map-get($config, 'supports-variants');
+    @if not $supports-variants {
+        @error '#{$error-message}. Config key "supports-variants" is missing. #{$error-message-link}';
+    }
     @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
         @error '#{$error-message}. Config key "variables" should be a map but is of type #{type-of($variables)}. #{$error-message-link}';
     }
