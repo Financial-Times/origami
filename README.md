@@ -75,6 +75,25 @@ Variable content based on screen size as well as the link after the button are o
 </div>
 ```
 
+If the banner element is empty, then the appropriate structure will be constructed with JavaScript using data attributes to specify [options](#options):
+
+```html
+<div
+    class="o-banner"
+    data-o-component="o-banner"
+    data-o-banner-content-long="Do you like o-banner?"
+    data-o-banner-button-label="Yes"
+></div>
+```
+
+If the banner element has content, but does _not_ include an `o-banner__outer` element, then it will assume that the element content should be wrapped in the appropriate markup:
+
+```html
+<div class="o-banner" data-o-component="o-banner">
+    <p>This is the banner content</p>
+</div>
+```
+
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service. You must either construct an o-banner object or fire an `o.DOMContentLoaded` event, which o-banner listens for.

@@ -228,7 +228,6 @@ describe('Banner', () => {
 			});
 
 			it('selects the inner element and stores it on the `innerElement` property', () => {
-				assert.calledOnce(bannerElement.querySelector);
 				assert.calledWithExactly(bannerElement.querySelector, '[data-o-banner-inner]');
 				assert.strictEqual(banner.innerElement, mockBannerInnerElement);
 			});
@@ -257,12 +256,68 @@ describe('Banner', () => {
 
 				it('builds a banner element and stores it on the `bannerElement` property', () => {
 					assert.calledOnce(banner.buildBannerElement);
+					assert.calledWithExactly(banner.buildBannerElement);
 					assert.strictEqual(banner.bannerElement, mockBannerElement);
 				});
 
 				it('appends the banner element to the body', () => {
 					assert.calledOnce(document.body.appendChild);
 					assert.calledWithExactly(document.body.appendChild, mockBannerElement);
+				});
+
+			});
+
+			describe('when the `bannerElement` property is an empty HTML element', () => {
+				let bannerElement;
+
+				beforeEach(() => {
+					bannerElement = banner.bannerElement = document.createElement('div');
+					sinon.stub(document.body, 'appendChild');
+					banner.render();
+				});
+
+				afterEach(() => {
+					document.body.appendChild.restore();
+				});
+
+				it('fully constructs the banner element and stores it on the `bannerElement` property', () => {
+					assert.calledOnce(banner.buildBannerElement);
+					assert.calledWith(banner.buildBannerElement, bannerElement);
+					assert.strictEqual(banner.bannerElement, mockBannerElement);
+				});
+
+				it('does not append the banner element to the body', () => {
+					assert.notCalled(document.body.appendChild);
+				});
+
+			});
+
+			describe('when the `bannerElement` property is an HTML element with content but no "outer" element', () => {
+				let bannerElement;
+
+				beforeEach(() => {
+					bannerElement = banner.bannerElement = document.createElement('div');
+					bannerElement.innerHTML = 'mock-content';
+					banner.options.contentLong = 'mock-content-long-old';
+					banner.options.contentShort = 'mock-content-short-old';
+					sinon.stub(document.body, 'appendChild');
+					banner.render();
+				});
+
+				afterEach(() => {
+					document.body.appendChild.restore();
+				});
+
+				it('fully constructs the banner element using the element HTML as content', () => {
+					assert.strictEqual(banner.options.contentLong, 'mock-content');
+					assert.strictEqual(banner.options.contentShort, null);
+					assert.calledOnce(banner.buildBannerElement);
+					assert.calledWith(banner.buildBannerElement, bannerElement);
+					assert.strictEqual(banner.bannerElement, mockBannerElement);
+				});
+
+				it('does not append the banner element to the body', () => {
+					assert.notCalled(document.body.appendChild);
 				});
 
 			});
@@ -370,7 +425,7 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<div class="mockBannerClass" data-o-component="o-banner">
+					<div class="mockBannerClass">
 						<div class="mockOuterClass">
 							<div class="mockInnerClass" data-o-banner-inner="">
 								<div class="mockContentClass mockContentLongClass">
@@ -402,7 +457,7 @@ describe('Banner', () => {
 
 				it('outputs only one content element using `options.contentLong`', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass" data-o-component="o-banner">
+						<div class="mockBannerClass">
 							<div class="mockOuterClass">
 								<div class="mockInnerClass" data-o-banner-inner="">
 									<div class="mockContentClass">
@@ -433,7 +488,7 @@ describe('Banner', () => {
 
 				it('does not include a secondary action/link', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass" data-o-component="o-banner">
+						<div class="mockBannerClass">
 							<div class="mockOuterClass">
 								<div class="mockInnerClass" data-o-banner-inner="">
 									<div class="mockContentClass mockContentLongClass">
@@ -464,7 +519,7 @@ describe('Banner', () => {
 
 				it('adds the theme class to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass mockBannerClass--mock-theme" data-o-component="o-banner">
+						<div class="mockBannerClass mockBannerClass--mock-theme">
 							<div class="mockOuterClass">
 								<div class="mockInnerClass" data-o-banner-inner="">
 									<div class="mockContentClass mockContentLongClass">
@@ -501,7 +556,7 @@ describe('Banner', () => {
 
 				it('adds all of the theme classes to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass mockBannerClass--mock-theme mockBannerClass--test-theme" data-o-component="o-banner">
+						<div class="mockBannerClass mockBannerClass--mock-theme mockBannerClass--test-theme">
 							<div class="mockOuterClass">
 								<div class="mockInnerClass" data-o-banner-inner="">
 									<div class="mockContentClass mockContentLongClass">
@@ -522,6 +577,25 @@ describe('Banner', () => {
 							</div>
 						</div>
 					`.replace(/[\t\n]+/g, ''));
+				});
+
+			});
+
+			describe('when `bannerElement` is passed in', () => {
+				let bannerElement;
+
+				beforeEach(() => {
+					bannerElement = document.createElement('div');
+					bannerElement.innerHTML = 'mock-original-content';
+					returnValue = banner.buildBannerElement();
+				});
+
+				it('strips the banner element HTML before constructing', () => {
+					assert.doesNotInclude(returnValue.outerHTML, 'mock-original-content');
+				});
+
+				it('returns the passed in banner element', () => {
+					assert.deepEqual(returnValue, bannerElement);
 				});
 
 			});

@@ -67,10 +67,21 @@ class Banner {
 	 * Render the banner.
 	 */
 	render () {
-		// If the banner element is not an HTML Element, build one
 		if (!(this.bannerElement instanceof HTMLElement)) {
+			// If the banner element is not an HTML Element, build one
 			this.bannerElement = this.buildBannerElement();
 			document.body.appendChild(this.bannerElement);
+
+		} else if (this.bannerElement.innerHTML.trim() === '') {
+			// If the banner element is empty, we construct the banner
+			this.bannerElement = this.buildBannerElement(this.bannerElement);
+
+		} else if (!this.bannerElement.querySelector(`.${this.options.outerClass}`)) {
+			// If the banner element is not empty and also does not contain an outer element,
+			// we assume the element content is the banner content
+			this.options.contentLong = this.bannerElement.innerHTML;
+			this.options.contentShort = null;
+			this.bannerElement = this.buildBannerElement(this.bannerElement);
 		}
 
 		// Select all the elements we need
@@ -100,11 +111,13 @@ class Banner {
 	}
 
 	/**
-	 * Build a full banner element. This is used when no banner exists in the DOM.
+	 * Build a full banner element. This is used when no banner or a partial banner exists in the DOM.
+	 * @param {HTMLElement} [bannerElement] - The banner element to build around
 	 * @returns {HTMLElement} Returns the new banner element
 	 */
-	buildBannerElement () {
-		const bannerElement = document.createElement('div');
+	buildBannerElement (bannerElement) {
+		bannerElement = bannerElement || document.createElement('div');
+		bannerElement.innerHTML = '';
 		bannerElement.classList.add(this.options.bannerClass);
 		let themes = [];
 		if (this.options.theme) {
@@ -113,7 +126,6 @@ class Banner {
 		themes.forEach(theme => {
 			bannerElement.classList.add(`${this.options.bannerClass}--${theme}`);
 		});
-		bannerElement.setAttribute('data-o-component', 'o-banner');
 		let contentHtml;
 		if (this.options.contentShort) {
 			contentHtml = `
