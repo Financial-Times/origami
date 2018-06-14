@@ -20,6 +20,10 @@
                 color: white;
             }
         }
+
+        .o-teaser__heading a:visited {
+            color: oColorsGetPaletteColor('white-80');
+        }
         .o-teaser__timestamp-prefix:before,
         .o-teaser__timestamp--inprogress:before {
             background-color: white;
