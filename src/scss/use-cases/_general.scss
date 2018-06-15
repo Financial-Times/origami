@@ -64,7 +64,7 @@
 	margin-right: calc(#{$icon-size} - #{$icon-padding * 2} + #{$margin}); // Space for icon.
 	&::after {
 		@include oIconsGetIcon('outside-page', $color, 24, $iconset-version: 1);
-		content: '';
+		content: 'Opens a new window';
 		width: $icon-size;
 		height: $icon-size;
 		margin: -#{$icon-padding};
@@ -74,7 +74,9 @@
 		vertical-align: middle;
 		// To align middle ignoring any link border.
 		border-bottom: inherit;
-    	border-color: transparent;
+		border-color: transparent;
+		overflow: hidden;
+		text-indent: -10000px;
 	}
 }
 
