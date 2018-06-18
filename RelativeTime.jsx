@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import { isRecent, getRelativeDate, getStatus } from './concerns/date-time';
 import dateformat from 'dateformat';
 

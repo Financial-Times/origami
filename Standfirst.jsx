@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 
 export default ({ standfirst, altStandfirst, headlineTesting }) => {
 	const displayStandfirst = headlineTesting && altStandfirst ? altStandfirst : standfirst;

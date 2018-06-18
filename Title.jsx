@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import Link from './Link';
 
 export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators, ...props }) => {

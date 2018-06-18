@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import Image from './Image';
 
 // To prevent React from touching the DOM after mounting… return an empty <div />

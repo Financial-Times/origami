@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import TimeStamp from './TimeStamp';
 import RelativeTime from './RelativeTime';
 import LiveBlogStatus from './LiveBlogStatus';

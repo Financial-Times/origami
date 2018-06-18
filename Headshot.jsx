@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import { ImageSizes } from './concerns/constants';
 import imageService from './concerns/image-service';
 

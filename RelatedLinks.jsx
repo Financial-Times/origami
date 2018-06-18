@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 
 const renderLink = ({ id, url, type, title }, i) => (
 	<li

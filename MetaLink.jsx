@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 
 const inContext = (context = {}, id, label) => {
 	if (id && context.parentId) {

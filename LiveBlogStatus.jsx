@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 
 const LiveBlogLabels = {
 	inprogress: 'Live',

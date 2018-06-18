@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import Container from './Container';
 import Content from './Content';
 import CustomSlot from './CustomSlot';

@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 import dateformat from 'dateformat';
 
 export default ({ publishedDate }) => (

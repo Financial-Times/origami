@@ -1,4 +1,4 @@
-import h from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine';
 
 export default ({ promotedPrefix, promotedSuffix }) => (
 	<div className="o-teaser__meta-promoted">
