@@ -1,6 +1,9 @@
+
 $o-cookie-message-is-silent: false;
 @import '../../main';
 
-.o-cookie-message {
-	display: block;
+body {
+	font-family: MetricWeb;
+	min-height: 350px;
+	background-color: oColorsGetPaletteColor('paper');
 }

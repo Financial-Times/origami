@@ -6,7 +6,7 @@ import oCookieMessage from '../main';
 
 describe("oCookieMessage", () => {
 	beforeEach(() => {
-		fixtures.standardCookieMessage();
+		fixtures.generateHTML('standard');
 	});
 
 	afterEach(() => {
@@ -37,15 +37,14 @@ describe("oCookieMessage", () => {
 	});
 
 	describe("init", () => {
-
-		it("should create a sinlge oCookieMessage when no element is passed in", () => {
+		it("should create a single oCookieMessage when no element is passed in", () => {
 			const cookiemessage = oCookieMessage.init();
-			proclaim.equal(cookiemessage instanceof oCookieMessage, true);
+			proclaim.isInstanceOf(cookiemessage, oCookieMessage);
 		});
 
 		it("should create an oCookieMessage for the element found within the passed in selector", () => {
-			const cookiemessage = oCookieMessage.init('.cookie-message-container');
-			proclaim.equal(cookiemessage instanceof oCookieMessage, true);
+			const cookiemessage = oCookieMessage.init('.o-cookie-message');
+			proclaim.isInstanceOf(cookiemessage, oCookieMessage);
 		});
 	});
 });

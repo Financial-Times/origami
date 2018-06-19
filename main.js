@@ -1,9 +1,9 @@
-import CookieMessage from './src/js/cookieMessage';
+import CookieMessage from './src/js/cookie-message';
 
-const constructAll = function() {
+function constructAll () {
 	CookieMessage.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
-};
+}
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 

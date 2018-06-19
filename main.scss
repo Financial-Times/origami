@@ -1,132 +1,13 @@
-@import "o-normalise/main";
-@import "o-colors/main";
-@import "o-typography/main";
-@import "o-icons/main";
-@import "o-grid/main";
-@import "src/scss/variables";
-@import "src/scss/color-use-cases";
+@import "o-banner/main";
 
+@import "src/scss/color-use-cases";
+@import "src/scss/variables";
+@import "src/scss/cookie-message";
+@import "src/scss/mixins";
 
 @if ($o-cookie-message-is-silent == false) {
-	/*------------------------------------*\
-			#BLOCK-DESKTOP
-	\*------------------------------------*/
 
-	.o-cookie-message {
-		@include oNormaliseBoxSizing;
-		@include oTypographyPadding($top: 4, $bottom: 4);
-
-		margin: 0;
-
-		text-rendering: optimizeLegibility;
-
-		// sass-lint:disable no-vendor-prefixes
-		-ms-text-size-adjust: 100%;
-		-webkit-text-size-adjust: 100%;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		// sass-lint:enable no-vendor-prefixes
-
-		display: none;
-		position: relative;
-		background-color: oColorsGetColorFor(o-cookie-message, background);
-
-		&__container {
-			position: relative;
-			padding-right: 25px;
-		}
-
-		&__close-btn-container {
-			margin-top: -4px; // Magic number to make cross line up with top line of copy
-			position: absolute;
-			top: 0;
-			right: -$_o-cookie-message-icon-size/3 +0px;
-		}
-
-		&__close-btn {
-			position: relative;
-			padding: 0;
-			margin-right: 8px;
-			width: $_o-cookie-message-icon-size + 0px; // Hack to get a `px` at the end
-			height: $_o-cookie-message-icon-size + 0px;
-			border: 0;
-			background: none;
-			cursor: pointer;
-			opacity: 0.8;
-
-			@include oGridRespondTo(M) {
-				margin-right: 0;
-			};
-
-			&:before {
-				@include oIconsGetIcon(cross, oColorsGetColorFor(body, text), $_o-cookie-message-icon-size, $iconset-version: 1);
-				content: '';
-			}
-
-			&:hover {
-				opacity: 1;
-			}
-		}
-
-		&__close-btn-label {
-			/* For more info: https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
-			margin: -1px;
-			padding: 0;
-			width: 1px;
-			height: 1px;
-			overflow: hidden;
-			clip: rect(0 0 0 0); /* IE6, IE7 */
-			clip: rect(0, 0, 0, 0); // sass-lint:disable-line no-duplicate-properties
-			position: absolute;
-		}
-
-		&__title {
-			@include oTypographySansBold($_o-cookie-message-font-scale);
-			color: oColorsGetColorFor(body, text);
-			margin: 0;
-		}
-
-		&__description {
-			@include oTypographySans($_o-cookie-message-font-scale);
-			padding: 0 20px 0 5px;
-			margin: 0;
-			color: oColorsGetColorFor(body, text);
-
-			@include oGridRespondTo(L) {
-				width: $_line-width;
-			}
-		}
-
-		a {
-			@include oTypographyLink;
-			text-decoration: none;
-		}
-	}
-
-	/*------------------------------------*\
-			#BLOCK-MODIFIERS
-	\*------------------------------------*/
-	@media not print {
-		.o-cookie-message--active {
-			display: block;
-		}
-	}
-
-	/**
-	* The `--banner-centric` modifier center aligns the content so that it will
-	* align with a 728px width banner that is position beneath the message,
-	* as will be the case on next.ft.com
-	*/
-	.o-cookie-message.o-cookie-message--banner-centric {
-
-		.o-cookie-message__container {
-			@include oGridContainer();
-
-			> div {
-				position: relative;
-			}
-		}
-	}
+	@include oCookieMessage;
 
 	// Set to silent again to avoid being output twice
 	$o-cookie-message-is-silent: true !global;

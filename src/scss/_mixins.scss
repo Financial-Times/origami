@@ -1,0 +1,122 @@
+// Base cookie message styles
+@mixin oCookieMessageBase($class: 'o-cookie-message') {
+	.#{$class} {
+		@include oBannerBase;
+		@include oBannerThemeCompactBase;
+
+		&--active {
+			display: block;
+		}
+
+		&--closed {
+			@include oBannerClosed;
+		}
+
+		&__outer {
+			@include oBannerOuter;
+			@include oBannerThemeCompactOuter;
+		}
+
+		&__inner {
+			@include oBannerInner;
+			@include oBannerThemeCompactInner;
+		}
+
+		&__content {
+			@include oBannerContent;
+			@include oBannerThemeCompactContent;
+		}
+
+		&__button {
+			@include oBannerButton;
+		}
+	}
+}
+
+// Standard cookie message styles (for master brand e.g. FT.com)
+@mixin oCookieMessageStandard($class: 'o-cookie-message') {
+	.#{$class} {
+		&__heading {
+			@include oBannerHeading;
+			@include oBannerThemeCompactHeading;
+		}
+
+		&__actions {
+			@include oBannerActions;
+			@include oBannerThemeCompactActions;
+		}
+
+		&__action {
+			@include oBannerAction;
+			@include oBannerThemeCompactAction;
+		}
+
+		&__action--secondary {
+			@include oBannerActionSecondary;
+			@include oBannerThemeCompactActionSecondary;
+		}
+
+		&__link {
+			@include oBannerLink;
+		}
+	}
+}
+
+
+// ALTERNATIVE cookie message styles (for whitelabel/specialist titles)
+@mixin oCookieMessageAlternative($class: 'o-cookie-message') {
+	.#{$class}--alternative {
+		.#{$class} {
+			&__button {
+				//TODO: revisit argument names in o-buttons
+				@include oButtonsTheme((
+					accent: oColorsGetUseCase(o-cookie-message-alternative-button, background),
+		 			background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
+					colorizer: primary
+				))
+			}
+
+			&__action {
+				padding: 0;
+			}
+
+			&__actions {
+				flex-direction: row-reverse;
+				justify-content: space-between;
+
+				@include oGridRespondTo($until: M) {
+					flex-direction: column-reverse;
+					align-items: flex-start;
+					margin-top: 0;
+
+					.#{$class}__action {
+						align-self: stretch;
+
+						.#{$class}__button {
+							width: 100%;
+							margin-top: oTypographySpacingSize(4);
+						}
+					}
+				}
+			}
+
+			&__heading:after {
+				border-color: oColorsGetColorFor('o-cookie-message-alternative', 'border');
+			}
+
+			&__link--external {
+				@include oTypographyLinkExternalIcon(oColorsGetColorFor('o-cookie-message-alternative-link', 'text'));
+			}
+
+			&__link--external,
+			&__link {
+				@include oTypographyLinkCustom(
+					$baseColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+					$hoverColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+					$outlineColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+					$backgroundColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'background')
+				);
+			}
+		}
+	}
+}

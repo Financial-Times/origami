@@ -16,29 +16,41 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": "o-fonts,o-normalise"
+		"dependencies": "o-fonts,o-normalise",
+		"js": "demos/src/demo.js"
 	},
 	"demos": [
 		{
 			"title": "Approved Cookie Banner",
-			"name": "Approved cookie banner",
-			"js": "demos/src/demo.js",
-			"template": "demos/src/default.mustache",
+			"name": "cookie-message",
+			"template": "demos/src/cookie-message.mustache",
 			"hidden": false,
 			"description": "This cookie banner should be used across all FT products and contains links back to the FT's cookie policy. The copy in the banner has been approved by the FT's legal team."
 		},
 		{
+			"title": "Approved Alternative Cookie Banner",
+			"name": "alternative-cookie-message",
+			"template": "demos/src/alternative-cookie-message.mustache",
+			"hidden": false,
+			"description": "This cookie banner is a visual variant on the approved version for all FT products and contains links back to the FT's cookie policy. The copy in the banner has been approved by the FT's legal team."
+		},
+		{
 			"title": "Custom HTML",
-			"name": "Custom HTML",
-			"js": "demos/src/demo.js",
-			"template": "demos/src/customHTML.mustache",
+			"name": "custom-html",
+			"template": "demos/src/custom-html.mustache",
+			"hidden": true,
+			"description": ""
+		},
+		{
+			"title": "Custom HTML (full)",
+			"name": "custom-html-full",
+			"template": "demos/src/custom-html-full.mustache",
 			"hidden": true,
 			"description": ""
 		},
 		{
 			"title": "Pa11y",
 			"name": "pa11y",
-			"js": "demos/src/demo.js",
 			"template": "/demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": ""

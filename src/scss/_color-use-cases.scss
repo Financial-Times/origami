@@ -1,1 +1,5 @@
-@include oColorsSetUseCase('o-cookie-message', 'background', 'white-40');
+@include oColorsSetUseCase('o-cookie-message-alternative', 'border', 'jade');
+@include oColorsSetUseCase('o-cookie-message-alternative-button', 'text', 'white');
+@include oColorsSetUseCase('o-cookie-message-alternative-button', 'background', 'jade');
+@include oColorsSetUseCase('o-cookie-message-alternative-link', 'text', 'black');
+@include oColorsSetUseCase('o-cookie-message-alternative-link', 'background', 'white');

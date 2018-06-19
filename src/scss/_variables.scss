@@ -1,6 +1,3 @@
 $o-cookie-message-is-silent: true !default;
-$_o-cookie-message-icon-size: 25;
-$_o-cookie-message-font-scale: 0;
-$_characters-per-line: 85; //~25 words
-$_golden-ratio: 1.618;
-$_line-width: (_oTypographyFontSizeFromScale($_o-cookie-message-font-scale) / $_golden-ratio) * $_characters-per-line;
+
+$_o-cookie-message-themes: ('standard', 'alternative');
