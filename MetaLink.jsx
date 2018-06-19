@@ -9,8 +9,8 @@ const sameLabel = (context = {}, label) => {
 };
 
 export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context }) => {
-	const showPrefixText = !sameLabel(context, metaPrefixText);
-	const showSuffixText = !sameLabel(context, metaSuffixText);
+	const showPrefixText = metaPrefixText && !sameLabel(context, metaPrefixText);
+	const showSuffixText = metaSuffixText && !sameLabel(context, metaSuffixText);
 	const linkId = metaLink && metaLink.id;
 	const linkLabel = metaLink && metaLink.prefLabel;
 	const useAltLink = sameId(context, linkId) || sameLabel(context, linkLabel);
