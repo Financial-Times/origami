@@ -1,20 +1,20 @@
 import { h } from '@financial-times/x-engine';
 
-const inContext = (context = {}, id, label) => {
-	if (id && context.parentId) {
-		return id === context.parentId;
-	}
+const sameId = (context = {}, id) => {
+	return id && context.parentId && id === context.parentId;
+};
 
-	if (label && context.parentLabel) {
-		return label === context.parentLabel;
-	}
+const sameLabel = (context = {}, label) => {
+	return label && context.parentLabel && label === context.parentLabel;
 };
 
 export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context }) => {
-	const showPrefixText = metaPrefixText && !inContext(context, null, metaPrefixText);
-	const showSuffixText = metaSuffixText && !inContext(context, null, metaSuffixText);
-	const showAltLink = metaLink && inContext(context, metaLink.id, metaLink.prefLabel);
-	const displayLink = showAltLink ? metaAltLink : metaLink;
+	const showPrefixText = !sameLabel(context, metaPrefixText);
+	const showSuffixText = !sameLabel(context, metaSuffixText);
+	const linkId = metaLink && metaLink.id;
+	const linkLabel = metaLink && metaLink.prefLabel;
+	const useAltLink = sameId(context, linkId) || sameLabel(context, linkLabel);
+	const displayLink = useAltLink ? metaAltLink : metaLink;
 
 	return (
 		<div className="o-teaser__meta-concept">
