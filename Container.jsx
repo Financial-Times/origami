@@ -1,5 +1,5 @@
 import { h } from '@financial-times/x-engine';
-import rules from './concerns/rules';
+import { media, theme } from './concerns/rules';
 
 const YES = '';
 
@@ -14,16 +14,16 @@ const PREFIX = {
 const dynamicModifiers = (props) => {
 	const modifiers = [];
 
-	const media = rules('media', props);
+	const mediaRule = media(props);
 
-	if (media) {
-		modifiers.push(`has-${media}`);
+	if (mediaRule) {
+		modifiers.push(`has-${mediaRule}`);
 	}
 
-	const theme = rules('theme', props);
+	const themeRule = theme(props);
 
-	if (theme) {
-		modifiers.push(theme);
+	if (themeRule) {
+		modifiers.push(themeRule);
 	}
 
 	if (props.indicators && props.indicators.canBeSyndicated) {
@@ -38,8 +38,8 @@ const dynamicModifiers = (props) => {
 };
 
 export default (props) => {
-	// NOTE: Modifier props may be a string rather than a string[] so concat, don't spread.
 	const computed = dynamicModifiers(props);
+	// Modifier props may be a string rather than a string[] so concat, don't spread.
 	const variants = [props.type, props.layout].concat(props.modifiers || [], computed);
 
 	const classNames = variants
