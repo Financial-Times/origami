@@ -40,11 +40,11 @@ const dynamicModifiers = (props) => {
 export default (props) => {
 	const computed = dynamicModifiers(props);
 	// Modifier props may be a string rather than a string[] so concat, don't spread.
-	const variants = [props.type, props.layout].concat(props.modifiers || [], computed);
+	const variants = [props.type, props.layout].concat(props.modifiers, computed);
 
 	const classNames = variants
-		.map((mod) => `o-teaser--${mod}`)
 		.filter(Boolean)
+		.map((mod) => `o-teaser--${mod}`)
 		.join(' ');
 
 	return (
