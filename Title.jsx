@@ -7,14 +7,12 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 
 	return (
 		<div className="o-teaser__heading">
-			{displayTitle ? (
-				<Link {...props} url={displayUrl} attrs={{
-					'data-trackable': 'heading-link',
-					className: 'js-teaser-heading-link',
-				}}>
-					{` ${displayTitle} `}
-				</Link>
-			) : null}
+			<Link {...props} url={displayUrl} attrs={{
+				'data-trackable': 'heading-link',
+				className: 'js-teaser-heading-link',
+			}}>
+				{` ${displayTitle} `}
+			</Link>
 			{indicators && indicators.accessLevel === 'premium' ? (
 				<span className="o-labels o-labels--premium" aria-label="Premium content">
 					Premium

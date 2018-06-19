@@ -1,13 +1,8 @@
 import { h } from '@financial-times/x-engine';
 
-const BaseLink = ({ url, title, attrs, children }) => {
-	attrs.href = url;
-	if (title) {
-		attrs.title = title;
-	}
-
-	return <a {...attrs}>{children}</a>;
-};
+const BaseLink = ({ url, attrs = {}, children }) => (
+	<a href={url} {...attrs}>{children}</a>
+);
 
 export default ({ customElements = {}, ...props }) => {
 	if (!props.url) {
