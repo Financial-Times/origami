@@ -59,6 +59,20 @@
 		&__link {
 			@include oBannerLink;
 		}
+
+		&__link--external {
+			@include oTypographyLinkExternalIcon(oColorsGetColorFor('link', 'text'));
+		}
+
+		&__link--external,
+		&__link {
+			@include oTypographyLinkCustom(
+				$baseColor: oColorsGetUseCase('link', 'text'),
+				$hoverColor: oColorsGetUseCase('link', 'text'),
+				$outlineColor: oColorsGetUseCase('link', 'text'),
+				$backgroundColor: oColorsGetUseCase('o-banner', 'background')
+			);
+		}
 	}
 }
 
