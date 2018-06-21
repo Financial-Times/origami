@@ -27,6 +27,34 @@
 			@include oBannerThemeCompactContent;
 		}
 
+		&__actions {
+			@include oBannerActions;
+			@include oBannerThemeCompactActions;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+
+			@include oGridRespondTo($until: M) {
+				flex-direction: column-reverse;
+				align-items: flex-start;
+				margin-top: 0;
+
+				.#{$class}__action {
+					align-self: stretch;
+
+					.#{$class}__button {
+						width: 100%;
+						margin-top: oTypographySpacingSize(4);
+					}
+				}
+			}
+		}
+
+		&__action {
+			@include oBannerAction;
+			@include oBannerThemeCompactAction;
+			padding: 0;
+		}
+
 		&__button {
 			@include oBannerButton;
 		}
@@ -39,16 +67,6 @@
 		&__heading {
 			@include oBannerHeading;
 			@include oBannerThemeCompactHeading;
-		}
-
-		&__actions {
-			@include oBannerActions;
-			@include oBannerThemeCompactActions;
-		}
-
-		&__action {
-			@include oBannerAction;
-			@include oBannerThemeCompactAction;
 		}
 
 		&__action--secondary {
@@ -88,30 +106,6 @@
 		 			background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
 					colorizer: primary
 				))
-			}
-
-			&__action {
-				padding: 0;
-			}
-
-			&__actions {
-				flex-direction: row-reverse;
-				justify-content: space-between;
-
-				@include oGridRespondTo($until: M) {
-					flex-direction: column-reverse;
-					align-items: flex-start;
-					margin-top: 0;
-
-					.#{$class}__action {
-						align-self: stretch;
-
-						.#{$class}__button {
-							width: 100%;
-							margin-top: oTypographySpacingSize(4);
-						}
-					}
-				}
 			}
 
 			&__heading:after {
