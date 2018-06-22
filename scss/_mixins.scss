@@ -135,14 +135,15 @@
 
 	$colorizer: map-get($theme, 'colorizer');
 	$background: map-get($theme, 'background');
+	$hover: map-get($theme, 'hover');
 	$accent: map-get($theme, 'accent');
 
 	@return (
 		default-color: if($colorizer == 'secondary', oColorsGetPaletteColor($accent), oColorsGetPaletteColor($background)),
 		default-background: if($colorizer == 'secondary', oColorsGetPaletteColor($background), oColorsGetPaletteColor($accent)),
 		default-border: oColorsGetPaletteColor($accent),
-		hover-background: oColorsMix($background, $accent),
-		hover-color: oColorsGetPaletteColor($accent),
+		hover-background: if($hover == null, oColorsMix($background, $accent), oColorsGetPaletteColor($hover)),
+		hover-color: if($hover == null, oColorsGetPaletteColor($accent), oColorsGetTextColor(oColorsGetPaletteColor($hover), 100)),
 		focus-background: if($colorizer == 'secondary', transparent, oColorsGetPaletteColor($accent)),
 		active-color: oColorsGetPaletteColor($background),
 		active-background: oColorsGetPaletteColor($accent)

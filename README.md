@@ -223,8 +223,9 @@ Or, using Sass:
 #### Custom themes
 
 oButtonsTheme also accepts a Map, which you can use to create your own themes. The Map can have the following keys:
-- `background`: [String] - the background o-colors colour for the place the button sits on.
-- `accent`: [String] - the accent o-colors colour for the button
+- `background`: [String] - the background `o-colors` color for the place the button sits on.
+- `accent`: [String] - the accent `o-colors` color for the button.
+- `hover`: [String] - an optional parameter for the button hover state. It requires an `o-colors` color. Defaults to a mix of the `background` and `accent` colors.
 - `colorizer`: [String] - an optional parameter for the button style. One of "primary" or "secondary". Defaults to secondary.
 
 
