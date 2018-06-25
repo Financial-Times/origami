@@ -3,7 +3,10 @@ const Banner = require('o-banner/src/js/banner');
 class CookieMessage {
 
 	static get defaultOptions() {
-		const domain = window.location.hostname.replace('www.', '');
+		let domain = 'ft.com';
+		if (!/\.ft\.com$/i.test(window.location.hostname)) {
+			domain = window.location.hostname.replace('www.', '');
+		}
 		const redirect = window.location.href;
 		return {
 			cookieMessageClass: 'o-cookie-message',
