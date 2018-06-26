@@ -3,7 +3,7 @@ import MetaLink from './MetaLink';
 import Promoted from './Promoted';
 
 export default (props) => {
-	const showPromoted = props.promotedPrefix && props.promotedSuffix;
+	const showPromoted = props.promotedPrefixText && props.promotedSuffixText;
 
 	return (
 		<div className="o-teaser__meta">

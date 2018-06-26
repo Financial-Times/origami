@@ -1,8 +1,8 @@
 import { h } from '@financial-times/x-engine';
 
-export default ({ promotedPrefix, promotedSuffix }) => (
+export default ({ promotedPrefixText, promotedSuffixText }) => (
 	<div className="o-teaser__meta-promoted">
-		<span className="o-teaser__promoted-prefix">{promotedPrefix}</span>
-		<span className="o-teaser__promoted-by">{` ${promotedSuffix} `}</span>
+		<span className="o-teaser__promoted-prefix">{promotedPrefixText}</span>
+		<span className="o-teaser__promoted-by">{` ${promotedSuffixText} `}</span>
 	</div>
 );
