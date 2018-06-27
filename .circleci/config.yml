@@ -6,7 +6,7 @@ references:
   container_config_node8: &container_config_node8
     working_directory: ~/project/build
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8-browsers
 
   container_config_lambda_node8: &container_config_lambda_node8
     working_directory: ~/project/build
