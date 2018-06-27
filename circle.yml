@@ -1,9 +1,0 @@
-machine:
-  node:
-    version: 6.11.2
-deployment:
-  release:
-    tag: /v.*/
-    owner: Financial-Times
-    commands:
-      - make npm-publish
