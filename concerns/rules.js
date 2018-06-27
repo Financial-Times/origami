@@ -1,7 +1,7 @@
 /**
  * Rules are collections of exclusive properties. They are declared in a ruleset
- * (just an array of functions) in order of precedence. Each value returned by a
- * rule will evaluated as a boolean and the name of any matching rule returned.
+ * (an array of functions) in order of precedence. Each value returned by a rule
+ * will evaluated as a boolean and the name of any matching rule returned.
  */
 const rulesets = {
 	media: [
