@@ -112,6 +112,14 @@ The class `.o-forms--wide` can be used to show form fields without width restric
 </div>
 ```
 
+Alternatively for a wide field without the default horizontal padding use `.o-forms--bleed`.
+
+```html
+<div class="o-forms o-forms--bleed">
+	<label for="o-forms-full" class="o-forms__label">Text input full width</label>
+	<input type="text" id="o-forms-full" class="o-forms__text o-forms__text--valid" value="Field value" />
+</div>
+```
 
 #### Text inputs
 
