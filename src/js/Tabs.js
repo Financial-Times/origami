@@ -136,32 +136,32 @@ class Tabs {
 		}));
 	}
 
-	selectTab(newIndex, updateUrl) {
-		if (typeof (updateUrl) !== "boolean") {
-			updateUrl = this.updateUrl;
-		}
-		if (this.isValidTab(newIndex) && newIndex !== this.selectedTabIndex) {
-			for (let i = 0; i < this.tabEls.length; i++) {
-				if (newIndex === i) {
-					this.tabEls[i].setAttribute('aria-selected', 'true');
-					this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
-					// update the url to match the selected tab
-					if (this.tabpanelEls[i].id && updateUrl) {
-						location.href = '#' + this.tabpanelEls[i].id;
-					}
-				} else {
-					this.tabEls[i].setAttribute('aria-selected', 'false');
-					this.hidePanel(this.tabpanelEls[i]);
-				}
+	selectTab(newIndex, updateUrl = this.updateUrl) {
+		if (this.isValidTab(newIndex)) {
+			// Update the url to match the selected tab.
+			if (this.tabpanelEls[newIndex].id && updateUrl) {
+				location.href = '#' + this.tabpanelEls[newIndex].id;
 			}
+			// Display the selected tab.
+			if (newIndex !== this.selectedTabIndex) {
+				for (let i = 0; i < this.tabEls.length; i++) {
+					if (newIndex === i) {
+						this.tabEls[i].setAttribute('aria-selected', 'true');
+						this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
+					} else {
+						this.tabEls[i].setAttribute('aria-selected', 'false');
+						this.hidePanel(this.tabpanelEls[i]);
+					}
+				}
 
-			this.dispatchCustomEvent('tabSelect', {
-				tabs: this,
-				selected: newIndex,
-				lastSelected: this.selectedTabIndex
-			});
+				this.dispatchCustomEvent('tabSelect', {
+					tabs: this,
+					selected: newIndex,
+					lastSelected: this.selectedTabIndex
+				});
 
-			this.selectedTabIndex = newIndex;
+				this.selectedTabIndex = newIndex;
+			}
 		}
 	}
 
