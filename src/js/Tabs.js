@@ -106,7 +106,7 @@ class Tabs {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	showPanel(panelEl, disableFocus) {
+	showPanel(panelEl, disableFocus) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
@@ -115,11 +115,6 @@ class Tabs {
 
 		if (disableFocus) {
 			return;
-		}
-
-		// update the url to match the selected tab
-		if (panelEl.id && this.updateUrl) {
-			location.href = '#' + panelEl.id;
 		}
 
 		// Get current scroll position
@@ -196,6 +191,11 @@ class Tabs {
 	updateCurrentTab(tabEl) {
 		const index = this.getTabIndexFromElement(tabEl);
 		this.selectTab(index);
+		// update the url to match the selected tab
+		const currentTabPanelEl = this.tabpanelEls[this.selectedTabIndex];
+		if (currentTabPanelEl.id && this.updateUrl) {
+			location.href = '#' + currentTabPanelEl.id;
+		}
 		this.dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
