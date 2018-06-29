@@ -46,7 +46,7 @@ class Tabs {
 		this.dispatchCustomEvent('ready', {
 			tabs: this
 		});
-		this.selectTab(this.getSelectedTabIndex());
+		this.selectTab(this.getSelectedTabIndex(), false);
 	}
 
 	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
@@ -136,12 +136,19 @@ class Tabs {
 		}));
 	}
 
-	selectTab(newIndex) {
+	selectTab(newIndex, updateUrl) {
+		if (typeof (updateUrl) !== "boolean") {
+			updateUrl = this.updateUrl;
+		}
 		if (this.isValidTab(newIndex) && newIndex !== this.selectedTabIndex) {
 			for (let i = 0; i < this.tabEls.length; i++) {
 				if (newIndex === i) {
 					this.tabEls[i].setAttribute('aria-selected', 'true');
 					this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
+					// update the url to match the selected tab
+					if (this.tabpanelEls[i].id && updateUrl) {
+						location.href = '#' + this.tabpanelEls[i].id;
+					}
 				} else {
 					this.tabEls[i].setAttribute('aria-selected', 'false');
 					this.hidePanel(this.tabpanelEls[i]);
@@ -191,11 +198,6 @@ class Tabs {
 	updateCurrentTab(tabEl) {
 		const index = this.getTabIndexFromElement(tabEl);
 		this.selectTab(index);
-		// update the url to match the selected tab
-		const currentTabPanelEl = this.tabpanelEls[this.selectedTabIndex];
-		if (currentTabPanelEl.id && this.updateUrl) {
-			location.href = '#' + currentTabPanelEl.id;
-		}
 		this.dispatchCustomEvent('event', {
 			category: 'tabs',
 			action: 'click',
