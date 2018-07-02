@@ -187,6 +187,12 @@ describe('tabs', () => {
 				proclaim.strictEqual(location.hash, expectedHash);
 			});
 
+			it('Should not update the hash part of the url on tab initialisation', () => {
+				rebuildTabs();
+				const expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
+				proclaim.strictEqual(location.hash, '');
+			});
+
 			it('Should not update the url if the data attribute is not present', () => {
 				rebuildTabs(false);
 				testTabs.selectTab(0);
