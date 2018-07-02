@@ -189,7 +189,6 @@ describe('tabs', () => {
 
 			it('Should not update the hash part of the url on tab initialisation', () => {
 				rebuildTabs();
-				const expectedHash = document.querySelector('.o-tabs li:first-child a').hash;
 				proclaim.strictEqual(location.hash, '');
 			});
 
