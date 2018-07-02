@@ -46,7 +46,7 @@ class Tabs {
 		this.dispatchCustomEvent('ready', {
 			tabs: this
 		});
-		this.selectTab(this.getSelectedTabIndex());
+		this.selectTab(this.getSelectedTabIndex(), false);
 	}
 
 	getTabTargetId(tabEl) { // eslint-disable-line class-methods-use-this
@@ -106,7 +106,7 @@ class Tabs {
 		panelEl.setAttribute('aria-hidden', 'true');
 	}
 
-	showPanel(panelEl, disableFocus) {
+	showPanel(panelEl, disableFocus) { // eslint-disable-line class-methods-use-this
 		panelEl.setAttribute('aria-expanded', 'true');
 		panelEl.setAttribute('aria-hidden', 'false');
 
@@ -115,11 +115,6 @@ class Tabs {
 
 		if (disableFocus) {
 			return;
-		}
-
-		// update the url to match the selected tab
-		if (panelEl.id && this.updateUrl) {
-			location.href = '#' + panelEl.id;
 		}
 
 		// Get current scroll position
@@ -141,25 +136,32 @@ class Tabs {
 		}));
 	}
 
-	selectTab(newIndex) {
-		if (this.isValidTab(newIndex) && newIndex !== this.selectedTabIndex) {
-			for (let i = 0; i < this.tabEls.length; i++) {
-				if (newIndex === i) {
-					this.tabEls[i].setAttribute('aria-selected', 'true');
-					this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
-				} else {
-					this.tabEls[i].setAttribute('aria-selected', 'false');
-					this.hidePanel(this.tabpanelEls[i]);
-				}
+	selectTab(newIndex, updateUrl = this.updateUrl) {
+		if (this.isValidTab(newIndex)) {
+			// Update the url to match the selected tab.
+			if (this.tabpanelEls[newIndex].id && updateUrl) {
+				location.href = '#' + this.tabpanelEls[newIndex].id;
 			}
+			// Display the selected tab.
+			if (newIndex !== this.selectedTabIndex) {
+				for (let i = 0; i < this.tabEls.length; i++) {
+					if (newIndex === i) {
+						this.tabEls[i].setAttribute('aria-selected', 'true');
+						this.showPanel(this.tabpanelEls[i], this.config.disablefocus);
+					} else {
+						this.tabEls[i].setAttribute('aria-selected', 'false');
+						this.hidePanel(this.tabpanelEls[i]);
+					}
+				}
 
-			this.dispatchCustomEvent('tabSelect', {
-				tabs: this,
-				selected: newIndex,
-				lastSelected: this.selectedTabIndex
-			});
+				this.dispatchCustomEvent('tabSelect', {
+					tabs: this,
+					selected: newIndex,
+					lastSelected: this.selectedTabIndex
+				});
 
-			this.selectedTabIndex = newIndex;
+				this.selectedTabIndex = newIndex;
+			}
 		}
 	}
 
