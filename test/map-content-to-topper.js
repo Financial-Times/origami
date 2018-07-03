@@ -216,4 +216,42 @@ describe('Topper content map', () => {
 		});
 	});
 
+	context('custom brands', () => {
+		it('applies background colours for custom brands', () => {
+			const topper = subject({
+				topper: {
+					isBranded: true,
+					backgroundColour: 'velvet',
+				},
+			});
+			expect(topper.layout).to.equal('branded');
+			expect(topper.backgroundColour).to.equal('velvet');
+		});
+
+		it('blends opinion with custom brands', () => {
+			const topper = subject({
+				genreConcept: { id: '6da31a37-691f-4908-896f-2829ebe2309e'},
+				containedIn: [],
+				topper: {
+					isBranded: true,
+					backgroundColour: 'velvet',
+				},
+			});
+			expect(topper.layout).to.equal('branded');
+			expect(topper.backgroundColour).to.equal('velvet');
+			expect(topper.isOpinion).to.be.true();
+		});
+
+		it('prefers editorial themes over custom brands', () => {
+			const topper = subject({
+				topper: {
+					isBranded: true,
+					backgroundColour: 'velvet',
+					layout: 'full-bleed-offset',
+				},
+			});
+			expect(topper.backgroundColour).to.equal('paper');
+			expect(topper.largeHeadline).to.be.true();
+		});
+	});
 });
