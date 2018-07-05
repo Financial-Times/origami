@@ -13,6 +13,7 @@
         "withMail": true,
         "withPinterest": true,
         "withLink": true,
+        "withShare": true,
         "isVertical": true
     }
 }
