@@ -4,7 +4,7 @@ This header is for tools and services built by the Financial Times.
 
 ## Index
 - [Design](#design)
-- [Quick start](#quick-start)
+- [Markup](#markup)
 	- [Very simple header](#very-simple-header)
 	- [Themes](#themes)
 	- [Related links and the drawer](#related-links-and-the-drawer)
@@ -17,14 +17,14 @@ This header is for tools and services built by the Financial Times.
 - [License](#license)
 
 ## Design
-`o-header-services` is a very simple responsive header. It has support for up to three levels of navigation making it appropriate for single page applications and multi-layer applications.
+`o-header-services` is a responsive header. It has support for up to three levels of navigation making it appropriate for single page applications and multi-layer applications.
 
-It has themes for B2B and B2C products. There is also a default theme. If you're building something and need a new theme, [please raise an issue](../../issues).
+It has themes for B2B and B2C products under FT.com. If you're building something and need a new theme, [please raise an issue](../../issues).
 
 The header has the following features:
 
 **Required**
-- The FT logo
+- A product logo. This will default to the FT logo, but is customisable through Sass mixins.
 - The product title. This should be present and the same on all of your pages
 
 **Optional**
@@ -35,7 +35,7 @@ The header has the following features:
 - Secondary navigation
 
 
-## Quick start
+## Markup
 
 ### Very simple header
 The simplest header, appropriate for single page applications with no navigation is available with the following code:
@@ -54,9 +54,7 @@ The simplest header, appropriate for single page applications with no navigation
 
 
 ### Themes
-There is a default theme, which is appropriate for most sites, and there are specific themes available for b2b products and b2c products. If you want a new theme but aren't building a b2b or b2c product please [please raise an issue](../../issues).
-
-To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
+`o-header-services` offers theming for B2B or B2C products under FT.com. To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
 
 ```diff
 +<header class='o-header-services o-header-services--b2b' data-o-component='o-header'>
@@ -289,6 +287,18 @@ For example, in the case of using both primary and secondary navigation:
 </nav>
 
 <!-- Drawer HTML as above this should include related content links (if any) and nav items-->
+```
+
+## Sass
+
+As with all Origami components, o-header-services has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-header-services-is-silent : false;` in your Sass before you import the o-header-services Sass.
+
+As previously mentioned, the logo in the header will default to the FT logo. Although it is customisable, that is currently only available through the use of mixins. Within your main Sass file, include the following, along with your products' logo, preferably as a png or an svg.
+
+```sass
+@import 'o-header-services/main';
+
+@include oHeaderServices($class: 'my-product-header', $logo: 'my-product-logo');
 ```
 
 ## Migration guide

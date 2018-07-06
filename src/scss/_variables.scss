@@ -6,3 +6,5 @@ $_o-header-services-padding-y: oGridGutter();
 $_o-header-services-top-bar-y: 56px;
 $_o-header-services-top-bar-y-small: 44px;
 $_o-header-services-primary-nav-y: 36px;
+
+$o-header-services-default-logo: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{_oHeaderServicesGet('logo')}?source=o-header-services&format=svg&width=55';

@@ -16,8 +16,8 @@
 	}
 }
 
-@mixin oHeaderServices($class: 'o-header-services') {
-	@include oHeaderServicesTop;
+@mixin oHeaderServices($class: 'o-header-services', $logo: $o-header-services-default-logo) {
+	@include oHeaderServicesTop($logo: $logo);
 	@include oHeaderServicesDrawer;
 	@include oHeaderServicesPrimaryNav;
 	@include oHeaderServicesSubNav;
