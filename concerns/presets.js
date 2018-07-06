@@ -88,7 +88,6 @@ export default {
 	Small,
 	SmallHeavy,
 	Large,
-	LargeOpinion,
 	Hero,
 	HeroNarrow,
 	HeroVideo,
