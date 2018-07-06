@@ -27,17 +27,6 @@ const Large = {
 	imageSize: 'Medium'
 };
 
-const LargeOpinion = {
-	layout: Layouts.Large,
-	showMeta: true,
-	showTitle: true,
-	showStandfirst: true,
-	showStatus: true,
-	showImage: true,
-	imageSize: 'Medium',
-	modifiers: ['opinion-background']
-};
-
 const Hero = {
 	layout: Layouts.Hero,
 	showMeta: true,
