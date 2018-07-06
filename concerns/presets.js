@@ -69,6 +69,7 @@ const HeroOverlay = {
 	showMeta: true,
 	showTitle: true,
 	showStatus: true,
+	showImage: true,
 	imageSize: 'XL',
 	modifiers: ['hero-image']
 };
