@@ -67,6 +67,9 @@
 		{
 			"name": "B2C",
 			"title": "B2C theme",
+			"brands": [
+				"master"
+			],
 			"template": "/demos/src/b2c.mustache",
 			"description": "B2C themed buttons should be used in Customer facing non-editorial products eg Help or About Us."
 		},
