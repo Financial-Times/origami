@@ -3,6 +3,7 @@
 
 @include oColorsSetUseCase('o-share-mail-color', background, 'teal-40');
 @include oColorsSetUseCase('o-share-link-color', background, 'teal-40');
+@include oColorsSetUseCase('o-share-share-color', background, 'teal-40');
 
 @include oColorsSetUseCase('o-share-button-default', border, 'black');
 @include oColorsSetUseCase('o-share-button-hover', background, 'white');

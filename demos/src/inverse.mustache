@@ -41,6 +41,11 @@
 				<a href="{{{o-share.url}}}" class="o-share__icon o-share__icon--link"><span class="o-share__text">URL</span></a>
 			</li>
 			{{/o-share.withLink}}
+			{{#o-share.withShare}}
+				<li class="o-share__action">
+					<a href="{{{o-share.url}}}" class="o-share__icon o-share__icon--share"><span class="o-share__text">Share</span></a>
+				</li>
+			{{/o-share.withShare}}
 		</ul>
 	</div>
 </div>
