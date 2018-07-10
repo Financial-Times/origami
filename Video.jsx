@@ -1,6 +1,12 @@
 import { h } from '@financial-times/x-engine';
 import Image from './Image';
 
+// Re-format the data for use with o-video
+const formatData = (props) => JSON.stringify({
+	renditions: [ props.video ],
+	mainImageUrl: props.image ? props.image.url : null,
+});
+
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
 const Embed = (props) => (
@@ -8,7 +14,7 @@ const Embed = (props) => (
 		<div
 			className="o-video"
 			data-o-component="o-video"
-			data-o-video-id={props.id}
+			data-o-video-data={formatData(props)}
 			data-o-video-autorender="true"
 			data-o-video-playsinline="true"
 			data-o-video-placeholder="true"
