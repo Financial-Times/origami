@@ -64,6 +64,11 @@ p {
 	// Test the deprecated mixin pattern still works
 	@include oButtonsCustomTheme('teal-60', 'white', 'primary');
 }
+
+.demo__custom-theme-button--primary-mono {
+	// Test theme name as list rather than string still works (deprecated).
+	@include oButtonsTheme(('primary', 'mono'));
+}
 .demo__custom-theme-button--teal-secondary {
 	// You may just use the oButtonsTheme mixin too
 	@include oButtonsTheme($theme: (background: 'teal-60', accent: 'white', colorizer: 'secondary'));

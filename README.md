@@ -26,8 +26,8 @@ The `secondary` theme is the default `o-buttons` theme.
 | inverse                 | .o-buttons--inverse                    |
 | mono                    | .o-buttons--mono                       |
 | primary                 | .o-buttons--primary                    |
-| (primary, inverse)      | .o-buttons--primary.o-buttons--inverse |
-| (primary, mono)         | .o-buttons--primary.o-buttons--mono    |
+| primary-inverse         | .o-buttons--primary.o-buttons--inverse |
+| primary-mono            | .o-buttons--primary.o-buttons--mono    |
 | b2c                     | .o-buttons--b2b                        |
 
 To apply a theme use one of the above selectors e.g. `o-buttons o-buttons--inverse`, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.

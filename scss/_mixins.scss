@@ -76,8 +76,16 @@
 /// 	@include oButtonsTheme($theme: ($background: 'slate', $accent: 'lemon', $colorizer: 'primary'));
 /// }
 ///
-/// @param {String} $theme
+/// @param {String|Map} $theme
 @mixin oButtonsTheme($theme) {
+	@if type-of($theme) == 'list' {
+		@warn 'oButtonsTheme `$theme` argument "#{$theme}" should be of type string or a custom theme map. Identifying a built-in theme with a list is deprecated. See README for avalible themes: https://github.com/Financial-Times/o-buttons#themes';
+		@each $theme-string, $theme-list  in $o-buttons-themes {
+			@if $theme-list == $theme {
+				$theme: $theme-string;
+			}
+		}
+	}
 	@include _oButtonsColors('default', $theme);
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
