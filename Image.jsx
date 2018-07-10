@@ -19,7 +19,6 @@ const aspectRatio = ({ width, height }) => {
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyload, ...props }) => {
 	const displayUrl = relativeUrl || url;
-	const displaySrc = imageService(image.url, ImageSizes[imageSize]);
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
