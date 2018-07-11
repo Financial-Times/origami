@@ -23,6 +23,26 @@
 		{
 			"name": "arrow-up",
 			"text": "Hide"
+		},
+		{
+			"name": "tick",
+			"text": "Tick"
+		},
+		{
+			"name": "plus",
+			"text": "Plus"
+		},
+		{
+			"name": "grid",
+			"text": "Grid"
+		},
+		{
+			"name": "list",
+			"text": "List"
+		},
+		{
+			"name": "edit",
+			"text": "Edit"
 		}
 	],
 	"themes": [
