@@ -162,11 +162,11 @@
 	$icon-color-id: str-slice('#{$icon-color}', 2);
 	$icon-placeholder: 'o-buttons-#{$icon-name}-#{$icon-color-id}';
 	@if index($_o-buttons-icon-placeholders, $icon-placeholder) == null {
+		$_o-buttons-icon-placeholders: append($_o-buttons-icon-placeholders, $icon-placeholder) !global;
 		@at-root {
 			%#{$icon-placeholder} {
 				@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1, $high-contrast-fallback: false);
 			}
-			$_o-buttons-icon-placeholders: append($_o-buttons-icon-placeholders, '#{$icon-name}-#{$icon-color}') !global;
 		}
 	}
 	// 3.2. Extend the icon placeholder.
