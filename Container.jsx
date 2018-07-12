@@ -1,10 +1,6 @@
 import { h } from '@financial-times/x-engine';
 import { media, theme } from './concerns/rules';
 
-const YES = '';
-
-const NO = 'not-';
-
 const PREFIX = {
 	yes: '',
 	no: 'not-',

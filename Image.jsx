@@ -17,8 +17,10 @@ const aspectRatio = ({ width, height }) => {
 	return null;
 };
 
-export default ({ relativeUrl, url, image, imageSize, imageLazyload, ...props }) => {
+export default ({ relativeUrl, url, image, imageSize, ...props }) => {
 	const displayUrl = relativeUrl || url;
+
+	// TODO: image lazy loading via n-image!
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
@@ -27,7 +29,7 @@ export default ({ relativeUrl, url, image, imageSize, imageLazyload, ...props })
 					'data-trackable': 'image-link',
 					'tab-index': '-1',
 					'aria-hidden': 'true',
- 				}}>
+				}}>
 					<img className="o-teaser__image" src={imageService(image.url, ImageSizes[imageSize])} alt="" />
 				</Link>
 			</div>
