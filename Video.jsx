@@ -14,6 +14,7 @@ const Embed = (props) => (
 		<div
 			className="o-video"
 			data-o-component="o-video"
+			data-o-video-id={props.id}
 			data-o-video-data={formatData(props)}
 			data-o-video-autorender="true"
 			data-o-video-playsinline="true"
