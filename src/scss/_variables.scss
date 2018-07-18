@@ -9,12 +9,18 @@
 /// @type Boolean
 $o-message-is-silent: true !default;
 
+/// Only output all message states once.
+///
+/// @type Boolean
+$o-message-all-states-output: false !default;
+
 /// Default button class used when $o-buttons-is-silent is true
 ///
 /// @type String
 $o-message-class: o-message !default;
 
 //Accepted message types
+$o-message-action-types: (action, action-bleed);
 $o-message-alert-types: (alert, alert-bleed, alert-inner);
 $o-message-notice-types: (notice, notice-bleed, notice-inner);
 
@@ -33,3 +39,8 @@ $_o-message-text-spacing: ($_o-message-line-height / 2) * 1px;
 
 //Placeholder map
 $_o-message-placeholders: () !default;
+
+/// List of states that can be applied to alert type messages
+///
+/// @type List
+$o-message-states: (error, neutral, success, inform, inform-inverse, warning, warning-light);

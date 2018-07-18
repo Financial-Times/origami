@@ -13,7 +13,7 @@
 @mixin oMessageAlertIcon ($icon-name, $icon-color, $icon-size) {
 	@include oIconsGetIcon(
 		$icon-name,
-		$icon-color,
+		oColorsGetPaletteColor($icon-color),
 		$icon-size
 	);
 	content: '';

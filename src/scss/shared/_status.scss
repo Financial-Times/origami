@@ -10,23 +10,18 @@
 @mixin oMessageStatusApply($status, $class) {
 	@each $state in $status {
 		@if $state != 'all' and not index($o-message-states, $state) {
-			@include _oMessageError("o-message doesn't support #{$state}.
-			The available alert states are:
-			- success
-			- neutral
-			- error
-
-			The available notice states are:
-			- inform
-			- warning
-			- warning-light");
-
+			@include _oMessageError("o-message doesn't support #{$state}.");
 		} @else if $state == 'all' {
-			@each $state in $o-message-states {
-				@include oMessageStatus($state, $class)
+			@if not $o-message-all-states-output {
+				@each $state in $o-message-states {
+					@if _oMessageSupports($state) {
+						@include oMessageStatus($state, $class);
+					}
+				}
+				$o-message-all-states-output: true !global;
 			}
 
-		} @else if index($o-message-states, $state) != null {
+		} @else if index($o-message-states, $state) != null and _oMessageSupports($state) {
 			@include oMessageStatus($state, $class);
 		}
 	}
@@ -34,31 +29,32 @@
 
 @mixin oMessageStatus ($status, $class) {
 	.#{$class}--#{$status} {
-		@include oColorsFor(o-message-#{$status});
+		color: oColorsGetPaletteColor(_oMessageGet('foreground-color', $from: $status));
+		background-color: oColorsGetPaletteColor(_oMessageGet('background-color', $from: $status));
 
 		.#{$class}__actions__primary {
 			@include oMessageAlertButtonState(
-			_oMessageGetMapValue($status, button-background),
-			_oMessageGetMapValue($status, button-text)
+				_oMessageGet('background-color', $from: $status),
+				_oMessageGet('foreground-color', $from: $status)
 			);
 		}
 
 		.#{$class}__actions__secondary {
 			@include oMessageAlertLink(
-				$custom-link-base: _oMessageGetMapValue($status, custom-link-base),
-				$custom-link-hover: _oMessageGetMapValue($status, custom-link-hover),
-				$custom-link-background: _oMessageGetMapValue($status, custom-link-background),
-				$link-hover: _oMessageGetMapValue($status, link-hover),
-				$link-focus: _oMessageGetMapValue($status, link-focus)
+				$custom-link-base: _oMessageGet('foreground-color', $from: $status),
+				$custom-link-hover: _oMessageGet('foreground-color', $from: $status),
+				$custom-link-background: _oMessageGet('background-color', $from: $status),
+				$link-hover: _oMessageGet('foreground-color', $from: $status),
+				$link-focus: _oMessageGet('foreground-color', $from: $status)
 			);
 		}
 
-		@if (_oMessageGetMapValue($status, alert-icon-name)) {
+		@if (_oMessageGet('icon', $from: $status)) {
 			.#{$class}__container:before {
 				@include oMessageAlertIcon(
-				_oMessageGetMapValue($status, alert-icon-name),
-				_oMessageGetMapValue($status, alert-icon-color),
-				$_o-message-alert-icon-size
+					_oMessageGet('icon', $from: $status),
+					_oMessageGet('foreground-color', $from: $status),
+					$_o-message-alert-icon-size
 				);
 				min-width: $_o-message-alert-icon-size * 1px;
 				position: absolute;
@@ -66,9 +62,32 @@
 		}
 
 		.#{$class}__close {
-			@include oMessageCloseButton(_oMessageGetMapValue($status, close-icon-color));
+			@include oMessageCloseButton(_oMessageGet('foreground-color', $from: $status));
 			vertical-align: middle;
 			border: 0;
 		}
 	}
 }
+
+/// Message button
+///
+/// Outputs base styles for message buttons
+@mixin oMessageButtonBase () {
+	@include oButtons();
+	@include oTypographySans($scale: -1);
+	margin-right: oTypographySpacingSize(6);
+}
+
+
+/// Message button
+///
+/// Outputs base styles for message close buttons
+// @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
+
+@mixin oMessageCloseButton ($icon-color) {
+	@include oIconsGetIcon('cross', oColorsGetPaletteColor($icon-color), $_o-message-close-icon-size);
+	position: absolute;
+	top: ($_o-message-close-icon-size / 2) * 1px;
+	right: oTypographySpacingSize(2);
+}
+

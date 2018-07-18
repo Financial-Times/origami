@@ -4,17 +4,18 @@
 @import 'o-typography/main';
 
 @import './src/scss/color-use-cases';
-@import './src/scss/helpers';
+@import './src/scss/deprecated';
+@import './src/scss/brand';
 @import './src/scss/mixins';
 @import './src/scss/variables';
 
 @import './src/scss/shared/mixins';
 @import './src/scss/shared/placeholders';
-@import './src/scss/shared/status-map';
 @import './src/scss/shared/status';
 
 @import './src/scss/alert/main';
 @import './src/scss/notice/main';
+@import './src/scss/action/main';
 
 @if ($o-message-is-silent == false) {
 	@include oMessage();

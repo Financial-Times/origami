@@ -2,7 +2,7 @@ $o-message-is-silent: false;
 @import '../../main';
 
 body {
-	background: oColorsGetPaletteColor(paper);
+	@include oColorsFor(page);
 }
 
 h6 {

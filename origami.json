@@ -3,6 +3,11 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"support": "https://github.com/Financial-Times/o-message/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -50,6 +55,12 @@
 			"js": "demos/src/imperative.js",
 			"template": "demos/src/imperative.mustache",
 			"description": "Imperative alert messages regular, inner and bleed)"
+		},
+		{
+			"title": "Action",
+			"name": "action",
+			"template": "demos/src/action.mustache",
+			"description": "An action message."
 		},
 		{
 			"title": "Pa11y",

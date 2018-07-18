@@ -87,6 +87,40 @@ export default {
 
 		return noticeMessage;
 	},
+
+	/**
+	* Build a full action message element.
+	* @returns {HTMLElement} Returns the new action type message element
+	*/
+	actionMessage: (opts) => {
+		const actionMessage = document.createElement('div');
+		actionMessage.classList.add(opts.messageClass, opts.typeClass);
+
+		if (!opts.status) {
+			throwError("Action messages require a status. The options are:\n- inform\n- inform-inverse");
+		} else {
+			actionMessage.classList.add(`${opts.statusClass}`);
+		}
+
+		let actions = buildActions(opts);
+
+		const contentHTML = `
+			<div class="${opts.messageClass}__content">
+				<p class="${opts.messageClass}__content-main">
+					${opts.content.detail}
+				</p>
+				${actions}
+			</div>
+		`;
+
+		actionMessage.innerHTML = `
+			<div class="${opts.messageClass}__container">
+				${contentHTML}
+			</div>
+		`;
+
+		return actionMessage;
+	},
 	/**
 	* Build a close button
 	* @returns {HTMLElement} Returns a new element to close the message

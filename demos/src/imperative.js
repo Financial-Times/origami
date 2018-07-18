@@ -17,6 +17,20 @@ let options = {
 	}
 };
 
+let actionOptions = {
+	type: 'action',
+	content: {
+		detail: 'Some request for action goes here.'
+	},
+	actions: {
+		primary: {
+			text: 'Action',
+			link: '#'
+		}
+	},
+	close: false
+};
+
 let innerOptions = Object.assign({}, options, {
 	type: 'alert-inner',
 	parentElement: '.demo-inner',
@@ -58,6 +72,9 @@ const initDemos = () => {
 	setUpDemo('inner-notice-inform', innerOptions, {type: 'notice-inner', status: 'inform'});
 	setUpDemo('inner-notice-warning', innerOptions, {type: 'notice-inner', status: 'warning'});
 	setUpDemo('inner-notice-warning-light', innerOptions, {type: 'notice-inner', status: 'warning-light'});
+
+	setUpDemo('action-inform-inverse', actionOptions, {type: 'action', status: 'inform-inverse'});
+	setUpDemo('action-inform-inverse-bleed', actionOptions, {type: 'action-bleed', status: 'inform-inverse'});
 };
 
 document.addEventListener('DOMContentLoaded', () => {

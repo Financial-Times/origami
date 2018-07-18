@@ -1,20 +1,23 @@
 /// Output All oMessage Features
-/// Output All oMessage Features
 @mixin oMessage($class: $o-message-class, $types: 'all', $status: 'all') {
 	@each $type in $types {
 		@if $type == 'all' {
 			@include oMessageAlerts($class, $type, $status);
 			@include oMessageNotices($class, $type, $status);
+			@include oMessageActions($class, $type, $status);
 
 		} @else if index($o-message-alert-types, $type) {
 			@include oMessageAlerts($class, $type, $status);
 
 		} @else if index($o-message-notice-types, $type) {
 			@include oMessageNotices($class, $type, $status);
+		} @else if index($o-message-action-types, $type) {
+			@include oMessageActions($class, $type, $status);
 
 		} @else {
 			@include _oMessageError("o-message types don't support #{$type}.
 			The available types are:
+			- action
 			- alert
 			- alert-bleed
 			- alert-inner
@@ -54,24 +57,9 @@
 	// sass-lint:enable no-vendor-prefixes
 }
 
-/// Message button
+/// Provide a component specific error message
 ///
-/// Outputs base styles for message buttons
-@mixin oMessageButtonBase () {
-	@include oButtons();
-	@include oTypographySans($scale: -1);
-	margin-right: oTypographySpacingSize(6);
-}
-
-
-/// Message button
-///
-/// Outputs base styles for message close buttons
-// @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
-
-@mixin oMessageCloseButton ($icon-color) {
-	@include oIconsGetIcon('cross', $icon-color, $_o-message-close-icon-size);
-	position: absolute;
-	top: ($_o-message-close-icon-size / 2) * 1px;
-	right: oTypographySpacingSize(2);
-}
+/// @param {String} $message - The message to insert in the error.
+@mixin _oMessageError($message) {
+	@error '*** oMessage SCSS error: #{$message} ***';
+};

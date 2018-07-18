@@ -3,36 +3,13 @@
 /// @link http://registry.origami.ft.com/components/o-message
 ////
 
-/// Status Colors for Alert Messages
-/// Error status styles
+/// Set error status colors
 @include oColorsSetColor('black-crimson-12.5', oColorsMix('black', 'crimson', 12.5)); //text
-@include oColorsSetColor('paper-crimson-90', oColorsMix('paper', 'crimson', 90)); //background
+@include oColorsSetColor('paper-crimson-90', oColorsMix('crimson', $percentage: 10)); //background
 
-@include oColorsSetUseCase(o-message-error, text, 'black-crimson-12.5');
-@include oColorsSetUseCase(o-message-error, background, 'paper-crimson-90');
-
-/// Neutral status styles
-@include oColorsSetUseCase(o-message-neutral, text, 'black');
-@include oColorsSetUseCase(o-message-neutral, background, 'white-60');
-
-/// Success status styles
+/// Set success status colors
 @include oColorsSetColor('black-jade-43', oColorsMix('black', 'jade', 43)); //text
-@include oColorsSetColor('paper-jade-80', oColorsMix('paper', 'jade', 80)); //background
+@include oColorsSetColor('paper-jade-80', oColorsMix('jade', $percentage: 20)); //background
 
-@include oColorsSetUseCase(o-message-success, text, 'black-jade-43');
-@include oColorsSetUseCase(o-message-success, background, 'paper-jade-80');
-
-/// Status Colors for Notice Messages
-/// Inform status styles
-@include oColorsSetUseCase(o-message-inform, text, 'black');
-@include oColorsSetUseCase(o-message-inform, background, 'wheat');
-
-/// Strong warning status styles
-@include oColorsSetUseCase(o-message-warning, text, 'black');
-@include oColorsSetUseCase(o-message-warning, background, 'lemon');
-
-/// Light Warning status styles
+/// Set light warning status colors
 @include oColorsSetColor('lemon-white-60', oColorsMix('lemon', 'white', 60)); //background
-
-@include oColorsSetUseCase(o-message-warning-light, text, 'black');
-@include oColorsSetUseCase(o-message-warning-light, background, 'lemon-white-60');

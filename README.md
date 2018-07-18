@@ -17,18 +17,20 @@ o-message is a messaging component used for alerting and informing. It can inclu
 `o-message` uses Sass and Javascript to show and hide a message component.
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
 
-`o-message` can initialise two types of messages: **alert** and **notice**.  
+`o-message` can initialise three types of messages: **alert**, **notice**, and **action**.
 
 Messages are styled correctly using any combination of types and states that have a  ✓ in the table below:
 
-types ↓ \| states  →|`success` | `neutral` | `error` | `inform` | `warning` | `warning-light` |
----|:---: |:---:|:---:|:---:|:---:|:---:|
-`alert`| ✓ | ✓ |  ✓ | ✕ | ✕ | ✕ |
-`alert-bleed`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ |
-`alert-inner`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ |
-`notice`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
-`notice-bleed`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
-`notice-inner`| ✕ | ✕ | ✕ | ✓ | ✓ | ✓ |
+types ↓ \| states  →|`success` | `neutral` | `error` | `inform` | `inform-inverse` | `warning` | `warning-light` |
+---|:---: |:---:|:---:|:---:|:---:|:---:| :---:|
+`alert`| ✓ | ✓ |  ✓ | ✕ | ✕ | ✕ | ✕ |
+`alert-bleed`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ | ✕ |
+`alert-inner`| ✓ | ✓ | ✓ | ✕ | ✕ | ✕ | ✕ |
+`notice`| ✕ | ✕ | ✕ | ✓ | ✕ | ✓ | ✓ |
+`notice-bleed`| ✕ | ✕ | ✕ | ✓ | ✕ | ✓ | ✓ |
+`notice-inner`| ✕ | ✕ | ✕ | ✓ | ✕ | ✓ | ✓ |
+`action`| ✕ | ✕ | ✕ | ✓ | ✓ | ✕ | ✕ |
+`action-bleed`| ✕ | ✕ | ✕ | ✓ | ✓ | ✕ | ✕ |
 
 By default, `o-message` initialises with the markup for an `alert` type.
 
@@ -111,7 +113,23 @@ The differences are that they do not have an icon and don't support additional c
 </div>
 ```
 
-All message types can be presented without actions (e.g. without buttons or links).
+Both notices and alerts may be presented without actions (e.g. without buttons or links).
+
+Action message types are like notice messages but designed to sit within a page's content rather than above it. They should have one prefered action.
+
+```html
+<div class="o-message o-message--action o-message--inform" data-o-component="o-message">
+	<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">The quick brown fox jumped over the lazy dogs!</p>
+
+			<div class="o-message__actions">
+				<a href="#" class="o-message__actions__primary">Button</a>
+			</div>
+		</div>
+	</div>
+</div>
+```
 
 ### JavaScript
 No code will run automatically unless you are using the Build Service. You must either construct an `o-message` object or fire an o.DOMContentLoaded event, which `o-message` listens for.
@@ -122,6 +140,7 @@ Both message types have three variants, namely `alert`, `alert-bleed`, `alert-in
 All variants require a status.
 The available options for `alert` are `success`, `error` or `neutral`.
 The available options for `notice` are `inform`, `warning` or `warning-light`.
+The available options for `action` are `inform` or `inform-inverse`.
 
 #### Construction
 In the case your message has been set up declaratively:

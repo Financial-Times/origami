@@ -233,9 +233,7 @@ describe("Message", () => {
 
 			it('throws an error if an incorrect message type is supplied', () => {
 				options.type = 'marketing';
-				const error = "*** o-message error:\n'marketing' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner\n***";
-
-				assert.throws(() => { new Message(null, options); }, error);
+				assert.throws(() => { new Message(null, options); });
 			});
 
 			it('calls `construct.closeButton` if opts.close is true', () => {

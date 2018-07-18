@@ -20,6 +20,8 @@ class Message {
 			typeNucleus = 'alert';
 		} else if (type === 'notice' || type === 'notice-bleed' || type === 'notice-inner') {
 			typeNucleus = 'notice';
+		} else if (type === 'action' || type === 'action-bleed') {
+			typeNucleus = 'action';
 		} else {
 			typeNucleus = null;
 		}
@@ -97,8 +99,10 @@ class Message {
 			return construct.alertMessage(this.opts);
 		} else if (this.opts.typeNucleus === 'notice') {
 			return construct.noticeMessage(this.opts);
+		} else if (this.opts.typeNucleus === 'action') {
+			return construct.actionMessage(this.opts);
 		} else {
-			throwError(`'${this.opts.type}' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner`);
+			throwError(`'${this.opts.type}' is not a supported message type. The available options are:\n- alert\n- alert-bleed\n- alert-inner\n- notice\n- notice-bleed\n- notice-inner\n- action\n- acton-bleed`);
 		}
 	}
 

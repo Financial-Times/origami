@@ -1,0 +1,42 @@
+////
+/// @group o-message
+/// @link http://registry.origami.ft.com/components/o-message
+////
+
+/// Status Colors for Alert Messages
+/// Error status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-error, text, 'black-crimson-12.5');
+@include oColorsSetUseCase(o-message-error, background, 'paper-crimson-90');
+@include oColorsSetUseCase(o-message-error, _deprecated, 'Please contact Origami if you need this usecase.');
+
+/// Neutral status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-neutral, text, 'black');
+@include oColorsSetUseCase(o-message-neutral, background, 'white-60');
+@include oColorsSetUseCase(o-message-neutral, _deprecated, 'Please contact Origami if you need this usecase.');
+
+/// Success status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-success, text, 'black-jade-43');
+@include oColorsSetUseCase(o-message-success, background, 'paper-jade-80');
+@include oColorsSetUseCase(o-message-success, _deprecated, 'Please contact Origami if you need this usecase.');
+
+/// Status Colors for Notice Messages
+/// Inform status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-inform, text, 'black');
+@include oColorsSetUseCase(o-message-inform, background, 'wheat');
+@include oColorsSetUseCase(o-message-inform, _deprecated, 'Please contact Origami if you need this usecase.');
+
+/// Strong warning status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-warning, text, 'black');
+@include oColorsSetUseCase(o-message-warning, background, 'lemon');
+@include oColorsSetUseCase(o-message-warning, _deprecated, 'Please contact Origami if you need this usecase.');
+
+/// Light Warning status styles
+/// @deprecated
+@include oColorsSetUseCase(o-message-warning-light, text, 'black');
+@include oColorsSetUseCase(o-message-warning-light, background, 'lemon-white-60');
+@include oColorsSetUseCase(o-message-warning-light, _deprecated, 'Please contact Origami if you need this usecase.');
