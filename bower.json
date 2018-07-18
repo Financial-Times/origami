@@ -13,6 +13,7 @@
     "main.js"
   ],
   "dependencies": {
-    "o-banner": "^2.1.0"
+    "o-banner": "^2.1.0",
+    "superstore-sync": "^2.1.1"
   }
 }

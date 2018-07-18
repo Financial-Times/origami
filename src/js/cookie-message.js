@@ -1,5 +1,8 @@
 const Banner = require('o-banner/src/js/banner');
 
+//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
+const PrivacyPolicyMessage = require('./privacy-policy-message');
+
 class CookieMessage {
 
 	static get defaultOptions() {
@@ -14,7 +17,10 @@ class CookieMessage {
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: 'https://www.ft.com/preferences/manage-cookies',
-			consentCookieName: 'FTCookieConsentGDPR'
+			consentCookieName: 'FTCookieConsentGDPR',
+
+			//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
+			privacyMessage: false
 		};
 	}
 
@@ -34,8 +40,17 @@ class CookieMessage {
 		if (this.shouldShowCookieMessage()) {
 			this.createCookieMessage();
 			this.showCookieMessage();
+			this.displayPrivacyMessage('top');
 		} else {
 			this.removeCookieMessage();
+			this.displayPrivacyMessage('bottom');
+		}
+	}
+
+	//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
+	displayPrivacyMessage(position) {
+		if(this.options.privacyMessage) {
+			return new PrivacyPolicyMessage(this.cookieMessageElement, this.options.cookieMessageClass, position);
 		}
 	}
 
