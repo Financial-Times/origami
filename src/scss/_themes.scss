@@ -34,7 +34,11 @@
 	}
 
 	.o-subs-card__select-button {
-		@include oButtons($size: 'big', $theme: 'primary');
+		@include oButtonsTheme($theme: (
+			background: "white",
+			accent: oColorsGetUseCase(o-subs-card-discount, background),
+			colorizer: 'primary'
+		));
 	}
 
 	.o-subs-card__charge__value {
