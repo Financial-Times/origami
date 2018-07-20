@@ -31,7 +31,6 @@ const Hero = {
 	layout: Layouts.Hero,
 	showMeta: true,
 	showTitle: true,
-	showStandfirst: true,
 	showStatus: true,
 	showImage: true,
 	imageSize: 'Medium'
