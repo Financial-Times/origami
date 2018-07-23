@@ -14,7 +14,6 @@ It provides:
 		- [Layout Base](#layout-base)
 		- [Navigation and Content](#navigation-and-content)
 		- [Asides](#asides)
-		- [Tables](#tables)
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
 		- [Construction](#construction)
@@ -67,7 +66,8 @@ The grid does not require the sidebar to maintain its layout.
 #### Layout Base
 The markup below ↓ will generate the ascii grid above ↑.  
 
-The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `asides`.  
+The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.
+
 
 If you want an element to span the full width of the main content area, you can apply the `o-layout__main--full-span` class to that element to achieve that effect.
 
