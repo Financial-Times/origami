@@ -1,0 +1,131 @@
+/// Apply styles at a given layout size
+/// Wrapper for the Sass MQ mq() mixin
+///
+/// @link https://git.io/sass-mq Sass MQ documentation
+///
+/// @example
+///  // Turn the color of an element red at medium layout size and up
+///  @include oLayoutBreakPoint(M) {
+///  	element {
+///  		color: red;
+///  	}
+///  }
+///  // Turn the color of an element blue until medium layout
+///  element {
+///  	@include oLayoutBreakPoint($until: M) {
+///  		color: blue;
+///  	}
+///  }
+///  // Turn the color of an element green from small layout until medium layout
+///  element {
+///  	@include oLayoutBreakPoint($from: S, $until: M) {
+///  		color: green;
+///  	}
+///  }
+///
+/// @param {String} from - one of $o-layout-breakpoints
+/// @param {String} until - one of $o-layout-breakpoints
+
+@mixin oLayoutBreakPoint($from: false, $until: false) {
+	@include mq(
+		$from: $from,
+		$until: $until,
+		$breakpoints: $o-layout-breakpoints
+	) {
+		@content;
+	}
+}
+
+/// Base grid
+/// @access Private
+@mixin _oLayoutGridBase () {
+	min-width: 100%;
+	margin: 0;
+	position: relative;
+	box-sizing: border-box;
+
+	display: grid;
+	grid-auto-rows: auto;
+	grid-template-columns: 100%;
+	grid-gap: $_o-layout-gutter;
+	grid-template-areas:
+		"header"
+		"sidebar"
+		"main"
+		"footer";
+}
+
+/// Base styling for the layout content
+/// @access Private
+@mixin _oLayoutBody () {
+	@include oTypographySans($scale: 1, $line-height: 1.2);
+
+	a {
+		@include oTypographyLink();
+	}
+
+	h1	{
+		@include oTypographyProductHeadingLevel1();
+	}
+
+	h2 {
+		@include oTypographyProductHeadingLevel2();
+	}
+
+	h3 {
+		@include oTypographyProductHeadingLevel3();
+	}
+
+	h4 {
+		@include oTypographyProductHeadingLevel4();
+	}
+
+	h5 {
+		@include oTypographyProductHeadingLevel5();
+	}
+
+	h6 {
+		@include oTypographyProductHeadingLevel6();
+	}
+
+	aside {
+		@include oLayoutRule('left');
+		align-self: flex-start;
+	}
+
+	p,
+	ol,
+	ul,
+	pre,
+	aside,
+	table {
+		margin: 0 0 1rem;
+	}
+
+	ol:not([data-o-component^="o-"]),
+	ul:not([data-o-component^="o-"]) {
+		list-style-type: none;
+		position: relative;
+		padding-left: 1.5rem;
+
+		li {
+			margin-bottom: 0.5em;
+
+			&:before {
+				content: '—';
+				position: absolute;
+				left: 0;
+				color: oColorsGetPaletteColor('teal');
+				font-weight: 900;
+			}
+		}
+	}
+}
+
+/// Styles decorative rules for containers
+///
+///@param {String} $side — left or right rule to be styled
+@mixin oLayoutRule($side: 'left') {
+	border-#{$side}: 2px solid oColorsGetPaletteColor('teal');
+	padding-#{$side}: $_o-layout-gutter;
+}

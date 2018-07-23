@@ -1,21 +1,11 @@
-{{> header}}
+<div class="o-layout" data-o-component="o-layout">
+{{> shared/header}}
 
-<div class="o-layout o-layout--documentation">
-	<div class="left-column">
-		<ol>
-			{{#children}}
-				{{#current}}
-					{{#navigation}}
-						<li>
-							<a href="{{href}}">{{name}}</a>
-						</li>
-					{{/navigation}}
-				{{/current}}
-			{{/children}}
-		</ol>
+	<div class="o-layout__sidebar"></div>
+
+	<div class="o-layout__main" data-o-component="o-syntax-highlight">
+		{{> content/quickstart-tutorial}}
 	</div>
 
-	<div class="column">
-		{{> quickstart-tutorial}}
-	</div>
+{{> shared/footer}}
 </div>

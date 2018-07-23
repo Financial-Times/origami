@@ -1,0 +1,28 @@
+/// Layout Base
+/// Outputs responsive base grid
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutBase ($class: $o-layout-class) {
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+	}
+
+	.#{$class} {
+		@include _oLayoutGridBase;
+		@include oTypographySize(1);
+
+		@include oLayoutBreakPoint($from: M) {
+			grid-template-rows: auto 1fr auto;
+			grid-template-columns: 1fr minmax(auto, 30ch) $_o-layout-main-section-width minmax(20ch, 30ch) 1fr;
+			grid-template-areas:
+				"header header header header header"
+				". sidebar main main ."
+				"footer footer footer footer footer";
+		};
+
+		grid-column-gap: $_o-layout-gutter;
+		min-height: 100%;
+	}
+}

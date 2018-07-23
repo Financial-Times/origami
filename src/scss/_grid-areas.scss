@@ -1,0 +1,159 @@
+/// Layout Areas
+/// Outputs grid grid template areas
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutAreas($class: $o-layout-class, $header-logo: null, $footer-logo: null) {
+	@include oLayoutAreaHeader($class, $header-logo);
+	@include oLayoutAreaSidebar($class);
+	@include oLayoutAreaMain($class);
+	@include oLayoutAreaFooter($class, $footer-logo);
+}
+
+/// Header Area
+/// Outputs grid header area
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutAreaHeader($class: $o-layout-class, $logo: null) {
+	@if $logo == null {
+		@include oHeaderServices()
+	} @else {
+		@include oHeaderServices($logo: $logo);
+	}
+
+	.#{$class}__header {
+		grid-area: header;
+	}
+}
+
+/// Sidebar Area
+/// Outputs grid sidebar area
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutAreaSidebar($class: $o-layout-class) {
+	.#{$class}__sidebar {
+		@include oTypographySans(1);
+		@include _oLayoutNavigation($class);
+		@include oLayoutBreakPoint($until: M) {
+			padding: 0 1rem;
+		}
+
+		grid-area: sidebar;
+
+		a {
+			@include oTypographyLink;
+			border: 0;
+		}
+	}
+}
+
+/// Main Area
+/// Outputs grid main content area
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutAreaMain($class: $o-layout-class) {
+	.#{$class}__main {
+		@include _oLayoutBody;
+		@include oLayoutBreakPoint($until: M) {
+			padding: 0 1rem;
+		}
+
+		@include oLayoutBreakPoint($from: ML) {
+			display: grid;
+			grid-column-gap: $_o-layout-gutter;
+			grid-template-columns: $_o-layout-main-section-width 1fr;
+		}
+
+		@include oLayoutBreakPoint($from: L) {
+			> aside {
+				grid-column: 2;
+				grid-row: span 3; //hack mchack, need to look into spanning across rows irrespective of siblings
+			}
+		};
+
+		grid-area: main;
+		align-content: flex-start;
+		overflow: hidden;
+
+		> * {
+			grid-column: 1;
+		}
+
+		> :first-child {
+			margin-top: $_o-layout-gutter;
+		}
+
+		> table {
+			grid-column: 1 / span 2;
+			overflow-x: scroll;
+			padding-right: 1rem;
+			width: 100%;
+		}
+
+		.#{$class}__rule-left {
+			@include oLayoutRule('left');
+		}
+
+		.#{$class}__rule-right {
+			@include oLayoutRule('right');
+		}
+
+		.#{$class}__main--full-span {
+			grid-column-end: -1;
+		}
+	}
+}
+
+/// Footer Area
+/// Outputs grid footer area
+///
+/// @param {String} $class — class name for grid
+@mixin oLayoutAreaFooter($class: $o-layout-class, $logo: null) {
+	@include oFooterServicesBase();
+
+	@if $logo != null {
+		@include oFooterServicesWithLogo($logo);
+	}
+
+	.#{$class}__footer {
+		grid-area: footer;
+	}
+}
+
+/// Navigation
+/// Outputs navigation styles
+///
+/// @param {String} $class — class name for grid
+/// @access Private
+@mixin _oLayoutNavigation($class: $o-layout-class) {
+	.#{$class}__navigation {
+		@include oLayoutBreakPoint($from: M) {
+			border-right: 2px solid oColorsGetPaletteColor('teal');
+			border-left: 0;
+			position: sticky;
+			top: $_o-layout-gutter;
+			text-align: right;
+			margin-top: $_o-layout-gutter;
+		}
+		
+		border-left: 2px solid oColorsGetPaletteColor('teal');
+		padding: 0;
+		text-align: left;
+		list-style: none;
+		margin: 0;
+
+
+		li {
+			padding-right: 1em;
+
+			a {
+				display: inline-block;
+				padding: 0.4em 1em;
+				margin-right: -1em;
+
+				&[aria-current="location"] {
+					background: oColorsMix('teal', 'white', 20);
+				}
+			}
+		}
+	}
+}

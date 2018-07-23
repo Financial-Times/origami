@@ -1,0 +1,31 @@
+////
+/// @group o-layour
+/// @link http://registry.origami.ft.com/components/o-layour
+////
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default layour classes
+///
+/// @type Boolean
+$o-layout-is-silent: true !default;
+
+/// Default button class used when $o-buttons-is-silent is true
+///
+/// @type String
+$o-layout-class: o-layout !default;
+
+/// Base layout measurements
+$_o-layout-main-section-width: minmax(30ch, oTypographyMaxLineWidth(3));
+$_o-layout-gutter: 1rem;
+
+/// Breakpoints for responsive layout
+/// @type List
+$o-layout-breakpoints: (
+	XS: 300px,
+	S: 520px,
+	M: 780px,
+	ML: 900px,
+	L: 1090px,
+	XL: 1200px,
+	XXL: 1350px
+) !default;

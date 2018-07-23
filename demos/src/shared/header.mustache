@@ -1,17 +1,22 @@
-<header class="o-header-services" data-o-component="o-header">
+<header class="o-header-services o-layout__header" data-o-component="o-header">
 	<div class="o-header-services__top o-header-services__container">
-		<div class="o-header-services__hamburger">
-			<a class="o-header-services__hamburger-icon" href="#o-header-drawer" aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
-		</div>
-		<div class="o-header-services__ftlogo"></div>
-		<div class="o-header-services__title">
-			<h1 class="o-header-services__product-name"><a href="/">{{title}}</a></h1><span class="o-header-subrand__product-tagline">{{description}}</span>
-		</div>
+
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#o-header-drawer" aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
+			</div>
+
+			<div class="o-header-services__ftlogo"></div>
+			<div class="o-header-services__title">
+				<h1 class="o-header-services__product-name">
+					<a href="/">{{title}}</a>
+				</h1>
+				<span class="o-header-subrand__product-tagline">{{description}}</span>
+			</div>
 	</div>
 
 	<nav class="o-header-services__primary-nav">
 		<div class="o-header-services__container">
-			<ul class="o-header-services__nav-list">
+			<ul class="o-layout__primary-nav o-header-services__nav-list">
 				{{#mainNav}}
 					<li class="o-header-services__nav-item">
 						<a class="o-header-services__nav-link {{#current}}o-header-services__nav-link--selected{{/current}}" href="{{href}}">

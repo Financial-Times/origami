@@ -14,8 +14,10 @@
     "tests"
   ],
   "dependencies": {
-    "o-header-services": "^2.2.3",
-    "o-autoinit": "^1.3.3",
-    "o-syntax-highlight": "^1.0.0"
+    "sass-mq": "^5.0.0",
+    "o-header-services": "^2.3.0",
+    "o-footer-services": "^1.0.2",
+    "o-typography": "^5.7.5",
+    "o-fonts": "^3.0.4"
   }
 }

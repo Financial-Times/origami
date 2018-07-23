@@ -9,10 +9,6 @@
 			"name": "Lists & Tables",
 			"href": "lists-tables-layout.html",
 			"current": true
-		},
-		{
-			"name": "Search Results",
-			"href": "search-results-layout.html"
 		}
 	],
 	"hasChildren": true,
@@ -26,7 +22,22 @@
 		},
 		{
 			"name": "Tables",
-			"href": "#"
+			"href": "#",
+			"current": true,
+			"navigation": [
+				{
+					"name": "Third party components: the A list",
+					"href": "#third-party-components"
+				},
+				{
+					"name": "Something Else",
+					"href": "#"
+				},
+				{
+					"name": "Something Else",
+					"href": "#"
+				}
+			]
 		}
 	]
 }

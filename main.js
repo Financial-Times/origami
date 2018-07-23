@@ -1,3 +1,10 @@
-require('o-header-services');
-require('o-syntax-highlight');
-require('o-autoinit');
+import oLayout from './src/js/layout';
+
+const constructAll = function() {
+	oLayout.init();
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
+};
+
+document.addEventListener('o.DOMContentLoaded', constructAll);
+
+export default oLayout;

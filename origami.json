@@ -9,6 +9,9 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
+	"brands": [
+		"internal"
+	],
 	"supportStatus": "experimental",
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-layout"
@@ -17,7 +20,7 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"documentClasses": "",
-		"dependencies": "o-fonts"
+		"dependencies": ["o-fonts", "o-table", "o-syntax-highlight", "o-tabs"]
 	},
 	"demos": [
 		{
@@ -33,13 +36,6 @@
 			"data": "demos/src/data/lists-tables-layout.json",
 			"template": "demos/src/lists-tables-layout.mustache",
 			"description": "Lists & Tables Layout"
-		},
-		{
-			"title": "Search Results Layout",
-			"name": "search-results-layout",
-			"data": "demos/src/data/search-results-layout.json",
-			"template": "demos/src/search-results-layout.mustache",
-			"description": "Search Results Layout"
 		}
 	]
 }
