@@ -6,13 +6,15 @@ class Layout {
  */
 	constructor (layoutEl, options) {
 		this.layoutEl = layoutEl;
-		this.headings = document.querySelectorAll('h2, h3');
 
 		//Default options
 		this.options = Object.assign({}, {
 			baseClass: 'o-layout',
 			constructNav: true
 		}, options || Layout.getDataAttributes(layoutEl));
+
+		this.headings = [...document.querySelectorAll('h2, h3')]
+			.filter(heading => heading.getAttribute('id'));
 
 		if (this.options.constructNav) {
 			this.constructNavFromDOM();
