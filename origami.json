@@ -59,6 +59,13 @@
 			"description": ""
 		},
 		{
+			"title": "Row headings",
+			"name": "row-headings",
+			"brands": ["internal"],
+			"template": "demos/src/row-headings.mustache",
+			"description": ""
+		},
+		{
 			"title": "Responsive Flat",
 			"name": "responsive-flat",
 			"template": "demos/src/responsive-flat.mustache",

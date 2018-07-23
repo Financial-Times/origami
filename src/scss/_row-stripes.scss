@@ -12,6 +12,6 @@
 	}
 
 	tbody tr:nth-child(even) {
-		background-color: _oTableGet('table-stripe-background');
+		background-color: _oTableGet('table-alternate-background');
 	}
 }

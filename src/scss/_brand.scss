@@ -13,7 +13,7 @@
 @include oBrandDefine('o-table', 'master', (
 	'variables': (
 		table-background: oColorsGetPaletteColor('paper'),
-		table-stripe-background: oColorsGetPaletteColor('wheat'),
+		table-alternate-background: oColorsGetPaletteColor('wheat'),
 		table-header-color: oColorsGetPaletteColor('black-90'),
 		table-border-color: oColorsGetPaletteColor('black-20'),
 		table-caption-border-color: oColorsGetPaletteColor('black-30'),
@@ -28,7 +28,7 @@
 @include oBrandDefine('o-table', 'internal', (
 	'variables': (
 		table-background: oColorsGetPaletteColor('white'),
-		table-stripe-background: oColorsGetPaletteColor('slate-white-5'),
+		table-alternate-background: oColorsGetPaletteColor('slate-white-5'),
 		table-header-color: oColorsGetPaletteColor('black-90'),
 		table-border-color: oColorsGetPaletteColor('black-20'),
 		table-caption-border-color: oColorsGetPaletteColor('black-30'),
@@ -36,7 +36,8 @@
 	),
 	'supports-variants': (
 		'stripe',
-		'compact'
+		'compact',
+		'row-headings'
 	)
 ));
 
