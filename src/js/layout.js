@@ -53,6 +53,7 @@ class Layout {
 		let currentLocation;
 		let navAnchors = navigation.querySelectorAll('A');
 
+		//on page load, highlight the nav item that corresponds to the url
 		navAnchors.forEach((anchor, index) => {
 			if (location.hash === '' && index === 0) {
 				anchor.setAttribute('aria-current', 'location');
@@ -61,8 +62,20 @@ class Layout {
 			}
 		});
 
-		//on scroll, update current location in nav
+		//highlight nav item that has been clicked on
+		navAnchors.forEach(anchor => {
+			anchor.addEventListener('click', () => {
+				navAnchors.forEach(anchor => anchor.setAttribute('aria-current', false));
+				anchor.setAttribute('aria-current', 'location');
+			});
+		});
+
+		//on scroll, update current location in nav if we haven't scrolled to the bottom of the page
 		document.addEventListener('scroll', () => {
+			if (window.innerHeight + window.pageYOffset >= document.body.scrollHeight) {
+				return;
+			}
+
 			let bufferedPageTop = window.pageYOffset + window.innerHeight / 6;
 			let possibleLocation;
 
