@@ -97,7 +97,12 @@
 			@include oLayoutRule('right');
 		}
 
-		.#{$class}__main--full-span {
+		.#{$class}__main__single-span {
+			grid-column-end: 2;
+		}
+
+		.#{$class}__main--full-span,
+		.#{$class}__main__full-span {
 			grid-column-end: -1;
 		}
 	}
@@ -134,7 +139,7 @@
 			text-align: right;
 			margin-top: $_o-layout-gutter;
 		}
-		
+
 		border-left: 2px solid oColorsGetPaletteColor('teal');
 		padding: 0;
 		text-align: left;

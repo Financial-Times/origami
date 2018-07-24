@@ -66,10 +66,10 @@ The grid does not require the sidebar to maintain its layout.
 #### Layout Base
 The markup below ↓ will generate the ascii grid above ↑.  
 
-The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.
+The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.  
+If you want an element to span the full width of the main content area, you can apply the `o-layout__main__full-span` class to that element to achieve that effect.
 
-
-If you want an element to span the full width of the main content area, you can apply the `o-layout__main--full-span` class to that element to achieve that effect.
+_Note: `o-layout` styles tables to span two columns automatically. If you want a table to stick to a single column, you can apply_ `o-layout__main__single-span`, _instead. Every other element is styled to fit a single column._
 
 ```html
 <div class="o-layout" data-o-component="o-layout">
