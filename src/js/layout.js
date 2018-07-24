@@ -10,10 +10,11 @@ class Layout {
 		//Default options
 		this.options = Object.assign({}, {
 			baseClass: 'o-layout',
-			constructNav: true
+			constructNav: true,
+			navHeadingSelector: 'h2, h3'
 		}, options || Layout.getDataAttributes(layoutEl));
 
-		this.headings = [...document.querySelectorAll('h2, h3')]
+		this.headings = [...this.layoutEl.querySelectorAll(this.options.navHeadingSelector)]
 			.filter(heading => heading.getAttribute('id'));
 
 		if (this.options.constructNav) {

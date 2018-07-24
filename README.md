@@ -137,6 +137,13 @@ Altogether, your markup should look like this:
 </div>
 ```
 
+If you wish to use headings other than `<h2>` and `<h3>` in the navigation generation, you can customise the selector that's used. For example, to select only headings which have the class `nav-heading`, use the following:
+
+```diff
++ <div class="o-layout" data-o-component="o-layout" data-o-layout-nav-heading-selector=".nav-heading">
+- <div class="o-layout" data-o-component="o-layout">
+```
+
 #### Asides
 
 `o-layout` will make content asides literal asides to the content. As long as the aside is an aside element and placed _after_ the content it is an aside to, that element will line up correctly:
@@ -204,6 +211,13 @@ If you would like to define your own navigation, you will need to initialise `o-
 ```js
 const oLayout = require('o-layout');
 oLayout.init(null, { constructNav: false });
+```
+
+If you would like to specify a custom selector for the navigation generation, you can do so like this:
+
+```js
+const oLayout = require('o-layout');
+oLayout.init(null, { navHeadingSelector: '.nav-heading' });
 ```
 
 ---

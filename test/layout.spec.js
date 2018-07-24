@@ -51,7 +51,8 @@ describe('Layout', () => {
 			assert.notStrictEqual(layout.options, options);
 			assert.deepEqual(layout.options, {
 				constructNav: true,
-				baseClass: 'o-layout'
+				baseClass: 'o-layout',
+				navHeadingSelector: 'h2, h3'
 			});
 		});
 
@@ -60,7 +61,8 @@ describe('Layout', () => {
 		});
 
 		it('does not construct navigation by default', () => {
-			layout = new Layout(null, {constructNav: false});
+			layoutElement = document.querySelector('[data-o-component=o-layout]');
+			layout = new Layout(layoutElement, {constructNav: false});
 			assert.calledOnce(stubs.constructNavFromDOM);
 		});
 
