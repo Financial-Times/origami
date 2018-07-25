@@ -5,17 +5,9 @@ body {
 	@include oColorsFor(page);
 }
 
-h6 {
-	@include oTypographyProductHeadingLevel6();
-	margin: 20px;
-
-	&.center {
-		text-align: center;
-	}
-}
-
 .o-message {
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .list-of-demo-buttons {
