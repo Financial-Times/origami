@@ -21,14 +21,6 @@
 	},
 	"demos": [
 		{
-			"title": "imperative",
-			"name": "imperative",
-			"template": "demos/src/imperative.mustache",
-			"js": "demos/src/imperative.js",
-			"description": "Syntax highlight for imperative",
-			"hidden": true
-		},
-		{
 			"title": "HTML",
 			"name": "html",
 			"template": "demos/src/html.mustache",
@@ -39,6 +31,18 @@
 			"name": "js",
 			"template": "demos/src/js.mustache",
 			"description": "Syntax highlight for JS"
+		},
+		{
+			"title": "CSS",
+			"name": "css",
+			"template": "demos/src/css.mustache",
+			"description": "Syntax highlight for CSS"
+		},
+		{
+			"title": "Inline Code",
+			"name": "inline-syntax",
+			"template": "demos/src/inline-syntax.mustache",
+			"description": "Syntax highlight for Inline Code Tags"
 		},
 		{
 			"title": "JSON",
@@ -55,16 +59,12 @@
 			"hidden": true
 		},
 		{
-			"title": "CSS",
-			"name": "css",
-			"template": "demos/src/css.mustache",
-			"description": "Syntax highlight for CSS"
-		},
-		{
-			"title": "Inline Code",
-			"name": "inline-syntax",
-			"template": "demos/src/inline-syntax.mustache",
-			"description": "Syntax highlight for Inline Code Tags"
+			"title": "imperative",
+			"name": "imperative",
+			"template": "demos/src/imperative.mustache",
+			"js": "demos/src/imperative.js",
+			"description": "Syntax highlight for imperative",
+			"hidden": true
 		}
 	]
 }
