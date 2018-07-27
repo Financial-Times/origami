@@ -6,7 +6,7 @@
 //// @brand internal
 //// @outputs Highlights table headings.
 @mixin oTableRowHeadings() {
-	&>tbody>th {
+	&>tbody th {
 		background-color: _oTableGet('table-alternate-background');
 	}
 }
