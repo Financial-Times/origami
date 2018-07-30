@@ -32,6 +32,16 @@
 		color: oColorsGetPaletteColor(_oMessageGet('foreground-color', $from: $status));
 		background-color: oColorsGetPaletteColor(_oMessageGet('background-color', $from: $status));
 
+		.#{$class}__content-main a,
+		.#{$class}__content-additional a {
+			@include oTypographyLinkCustom(
+				_oMessageGet('foreground-color', $from: $status),
+				_oMessageGet('foreground-color', $from: $status),
+				_oMessageGet('background-color', $from: $status)
+			);
+			border-width: 1px;
+		}
+
 		.#{$class}__actions__primary {
 			@include oMessageAlertButtonState(
 				_oMessageGet('background-color', $from: $status),
