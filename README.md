@@ -151,7 +151,7 @@ const oMessage = require('o-message');
 oMessage.init();
 ```
 
-`oMessage` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-close: false` to the message element.
+`oMessage` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-close="false"` to the message element.
 
 If you are applying your own classes to your message, you can use the following:
 ```js
