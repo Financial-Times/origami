@@ -69,7 +69,7 @@ The markup below ↓ will generate the ascii grid above ↑.
 The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.  
 If you want an element to span the full width of the main content area, you can apply the `o-layout__main__full-span` class to that element to achieve that effect.
 
-_Note: `o-layout` styles tables to span two columns automatically. If you want a table to stick to a single column, you can apply_ `o-layout__main__single-span`, _instead. Every other element is styled to fit a single column._
+_Note: `o-layout` styles tables to span two columns automatically. If you want a table to stick to a single column, you can apply `o-layout__main__single-span`, instead. Every other element is styled to fit a single column._
 
 ```html
 <div class="o-layout" data-o-component="o-layout">
@@ -85,7 +85,7 @@ _Note: `o-layout` styles tables to span two columns automatically. If you want a
 		<!-- Any and all content goes here -->
 		<h2 id="this-is-a-title"> This is a title</h2><!-- one column wide -->
 		<p> This is some content. </p> <!-- one column wide -->
-		<div class="o-layout__main--full-span"> <!-- two columns wide -->
+		<div class="o-layout__main__full-span"> <!-- two columns wide -->
 			<p> This is more content</p>
 			<p> This is even more content</p>
 		</div>
@@ -98,9 +98,9 @@ _Note: `o-layout` styles tables to span two columns automatically. If you want a
 ```
 
 #### Navigation and Content
-Unless the configuration says otherwise, `o-layout` will generate a sidebar navigation, which will rely on the usage of `<h2>`s and `<h3>`s present in the main content section. If this is a feature you want to use, then you don't need to add anything to the sidebar section of `o-layout`.
+Unless the configuration says otherwise, `o-layout` will generate a sidebar navigation, which will rely on presence of `<h2>`s and `<h3>`s with `id`s in the main content section. If this is a feature you want to use, then you don't need to add anything to the sidebar section of `o-layout`.
 
-However, if you would like to customise your sidebar navigation, there are two ways to do this. You can add a data-attribute to your markup, or you can do [via JavaScript](#custom-navigation)
+However, if you would like to customise your sidebar navigation, there are two ways to do this. You can add a data-attribute to your markup, or you can do so [via JavaScript](#custom-navigation)
 
 Please note, automatic navigation construction creates an HTML tree structure that allows the nav items to be highlighted when you scroll down the page.
 For this effect to apply to your custom navigation, you will need to add the `o-layout__navigation` class your navigation list, and ensure that your `<a href>`s point at the `id` of the section it corresponds to.
