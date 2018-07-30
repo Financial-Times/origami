@@ -8,14 +8,10 @@
 	[data-o-component='o-syntax-highlight'] {
 		pre {
 			background: oColorsGetPaletteColor('grey-5');
-			padding: 0 1rem;
+			padding: 1rem;
 			word-break: break-all;
 			tab-size: 4;
 			overflow-x: auto;
-
-			code {
-				padding: 0;
-			}
 		}
 
 		code {
@@ -25,7 +21,6 @@
 			font-size: 14px;
 			line-height: 1.5;
 			white-space: inherit;
-			padding: 0 4px;
 		}
 	}
 }
