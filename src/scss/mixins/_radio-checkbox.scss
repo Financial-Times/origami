@@ -200,10 +200,10 @@
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
     // Output base radio button styles.
-    @at-root input#{&} {
+    @at-root #{selector_unify(input, &)} {
         @include oNormaliseVisuallyHidden;
     }
-    @at-root a#{&},
+    @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
         @include _oFormsRadioButtonsStyledMargin();
         cursor: pointer;
@@ -239,12 +239,12 @@
             border-right: 0;
         }
     }
-    @at-root a#{&}:focus,
+    @at-root #{selector_unify(a, &)}:focus,
     &:focus + .#{$class}__label {
         @include oFormsCommonFieldFocus;
         z-index: 1;
     }
-    @at-root a#{&}:disabled,
+    @at-root #{selector_unify(a, &)}:disabled,
     &:disabled + .#{$class}__label {
         opacity: 0.5;
         cursor: default;
@@ -277,7 +277,11 @@
 @mixin oFormsRadioButtonsStyledTheme($class: 'o-forms', $theme: null) {
     $theme: _oFormsThemeToBrandVariants($theme);
     // Output theme
-    @at-root a#{&},
+    // selector_unify is used to account for parent selectors.
+    //
+    // selector_unify('.example .o-forms__radio-button', 'a')
+    // => .example a.o-forms__radio-button
+    @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
         @include _oFormsRadioButtonsStyledMargin();
         color: _oFormsGet('radio-buttons-styled-text', $from: $theme);
@@ -295,16 +299,16 @@
         }
     }
     // sass-lint:disable space-after-colon
-    @at-root a#{&}:not(:disabled):not(.#{$class}__radio-button--current):hover,
+    @at-root #{selector_unify(a, &)}:not(:disabled):not(.#{$class}__radio-button--current):hover,
     &:not(:disabled):not(:checked) + .#{$class}__label:hover {
         background-color: rgba(_oFormsGet('checkbox-radio-hover-background', $from: $theme), 0.15);
     }
-    @at-root a#{&}.#{$class}__radio-button--current,
+    @at-root #{selector_unify(a, &)}.#{$class}__radio-button--current,
     &:checked + .#{$class}__label {
         background-color: _oFormsGet('radio-buttons-styled-checked-background', $from: $theme);
         color: _oFormsGet('radio-buttons-styled-checked-text', $from: $theme);
     }
-    @at-root a#{&}.#{$class}__radio-button--negative.#{$class}__radio-button--current,
+    @at-root #{selector_unify(a, &)}.#{$class}__radio-button--negative.#{$class}__radio-button--current,
     &--negative:checked + .#{$class}__label {
         background-color: _oFormsGet('radio-buttons-styled-negative-checked-background', $from: $theme);
     }
@@ -325,7 +329,7 @@
 /// @output An icon for styled radio buttons.
 @mixin oFormsRadioButtonsStyledIcon($icon-name, $theme: null, $class: 'o-forms') {
     $theme: _oFormsThemeToBrandVariants($theme);
-    @at-root a#{&},
+    @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
         @include oIconsGetIcon(
             $icon-name: $icon-name,
@@ -354,7 +358,7 @@
             display: none;
         }
     }
-    @at-root a#{&}.#{$class}__radio-button--current,
+    @at-root #{selector_unify(a, &)}.#{$class}__radio-button--current,
     &:checked + .#{$class}__label {
         @include oIconsGetIcon(
             $icon-name: $icon-name,
