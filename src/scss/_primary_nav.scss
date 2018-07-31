@@ -11,7 +11,7 @@
 	}
 
 	.#{$class}__nav-list {
-		margin: 0;
+		margin: 0 (0 - ($_o-header-services-padding-x * 2));
 		padding: 0;
 	}
 
