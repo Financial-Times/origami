@@ -47,7 +47,13 @@
 			"name": "radios-button-styled",
 			"title": "Radios with button styling",
 			"template": "/demos/src/radios-button-styling.mustache",
-			"description": "<strong>Usercase:</strong> Can be used to require the user to choose between alternatives, with no default set."
+			"description": "Usercase: Can be used to require the user to choose between alternatives, with no default set."
+		},
+		{
+			"name": "anchor-radios-button-styled",
+			"title": "Anchors with radio button styling",
+			"template": "/demos/src/anchor-radios-button-styling.mustache",
+			"description": "Where technically required anchor tags may also be used, outside a form, to achieve the styled radio button look."
 		},
 		{
 			"name": "checkboxes",
@@ -90,6 +96,13 @@
 			"title": "Status",
 			"template": "/demos/src/status.mustache",
 			"description": "Feedback styles."
+		},
+		{
+			"name": "custom",
+			"title": "Custom",
+			"template": "/demos/src/custom.mustache",
+			"hidden": true,
+			"description": "Custom styles."
 		},
 		{
 			"title": "Pa11y",

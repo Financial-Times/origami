@@ -199,82 +199,214 @@
 /// @param {string} $class - The block level class name (BEM naming convention).
 /// @output Styles for radios which look like a group of buttons, where one can be selected.
 @mixin oFormsRadioButtonsStyled($class: 'o-forms') {
-    @include oNormaliseVisuallyHidden;
-    $side-padding: 20px;
+    // Output base radio button styles.
+    @at-root input#{&} {
+        @include oNormaliseVisuallyHidden;
+    }
+    @at-root a#{&},
     & + .#{$class}__label {
         @include _oFormsRadioButtonsStyledMargin();
-        color: _oFormsGet('radio-buttons-styled-text');
         cursor: pointer;
         font-size: $_o-forms-field-default-font-size;
+        line-height: $_o-forms-field-default-font-size;
         font-weight: oFontsWeight('semibold');
-        padding: 5px $side-padding 7px;
+        padding: $_o-forms-radio-styled-padding;
+        min-height: $_o-forms-field-small-height;
+        min-width: $_o-forms-radio-styled-button-min-width - $_o-forms-radio-styled-button-gap;
+        box-sizing: border-box;
         position: relative;
         text-align: center;
-        transition: 0.3s background-color, 0.15s color ease-out;
+        text-decoration: none;
+        transition: $_o-forms-radio-styled-transition;
         display: inline-block;
-        border-left: 1px solid _oFormsGet('radio-buttons-styled-border');
-        margin-top: 3px;
-        margin-bottom: 3px;
+        margin-top: $_o-forms-radio-styled-button-gap;
+        margin-bottom: $_o-forms-radio-styled-button-gap;
         &:first-of-type {
-            margin-left: 3px;
+            margin-left: $_o-forms-radio-styled-button-gap;
             border-left: 0;
         }
         &:last-of-type {
-            margin-right: 3px;
+            margin-right: $_o-forms-radio-styled-button-gap;
         }
         &:before {
             content: '';
             position: absolute;
-            top: -3px;
-            right: -3px;
-            bottom: -3px;
-            left: -3px;
-            border: 1px solid _oFormsGet('radio-buttons-styled-border');
+            top: -$_o-forms-radio-styled-button-gap;
+            right: -$_o-forms-radio-styled-button-gap;
+            bottom: -$_o-forms-radio-styled-button-gap;
+            left: -$_o-forms-radio-styled-button-gap;
             border-left: 0;
             border-right: 0;
         }
-        &:last-of-type:before {
-            border-right: 1px solid _oFormsGet('radio-buttons-styled-border');
-        }
-        &:first-of-type:before {
-            border-left: 1px solid _oFormsGet('radio-buttons-styled-border');
-        }
     }
-    &:not(:disabled):not(:checked) + .#{$class}__label:hover {
-        background-color: rgba(_oFormsGet('checkbox-radio-hover-background'), 0.15);
-    }
-    &:checked + .#{$class}__label {
-        background-color: _oFormsGet('radio-buttons-styled-checked-background');
-        color: _oFormsGet('radio-buttons-styled-checked-text');
-    }
-    &--negative:checked + .#{$class}__label {
-            background-color: _oFormsGet('radio-buttons-styled-negative-checked-background');
-    }
+    @at-root a#{&}:focus,
     &:focus + .#{$class}__label {
         @include oFormsCommonFieldFocus;
         z-index: 1;
     }
+    @at-root a#{&}:disabled,
     &:disabled + .#{$class}__label {
         opacity: 0.5;
         cursor: default;
         // Hack for odd border break with applied opacity.
         &:last-of-type {
             left: -1px;
-            padding-left: $side-padding + 1;
+            padding-left: $_o-forms-radio-styled-padding + 1;
             position: relative;
         }
     }
+    // Output styles for the default radio button theme.
+    @include oFormsRadioButtonsStyledTheme($class);
+}
+
+/// @access public
+/// @example scss - Creating a custom theme, 'negative-checked-background' is optional.
+/// .o-forms__radio-button--my-custom-theme {
+///     @include oFormsRadioButtonsStyledTheme($theme: (
+///         'checked-background': 'claret-80',
+///         'negative-checked-background': 'claret-30',
+///         'border': 'black-30'
+///     ));
+/// }
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @param {map|null} $theme - A custom theme map (see example).
+/// @prop {string} $class.checked-background - An Origami color name e.g. "teal-50".
+/// @prop {string} $class.border - An Origami color name for the border e.g. "black-30".
+/// @prop {string} $class.negative-checked-background [$theme.checked-background] - An Origami color for negative choice radio buttons (optional).
+/// @output Modifying theme styles for styled radio buttons.
+@mixin oFormsRadioButtonsStyledTheme($class: 'o-forms', $theme: null) {
+    $theme: _oFormsThemeToBrandVariants($theme);
+    // Output theme
+    @at-root a#{&},
+    & + .#{$class}__label {
+        @include _oFormsRadioButtonsStyledMargin();
+        color: _oFormsGet('radio-buttons-styled-text', $from: $theme);
+        border-left: 1px solid _oFormsGet('radio-buttons-styled-border', $from: $theme);
+        &:before {
+            border: 1px solid _oFormsGet('radio-buttons-styled-border', $from: $theme);
+            border-left: 0;
+            border-right: 0;
+        }
+        &:last-of-type:before {
+            border-right: 1px solid _oFormsGet('radio-buttons-styled-border', $from: $theme);
+        }
+        &:first-of-type:before {
+            border-left: 1px solid _oFormsGet('radio-buttons-styled-border', $from: $theme);
+        }
+    }
+    // sass-lint:disable space-after-colon
+    @at-root a#{&}:not(:disabled):not(.#{$class}__radio-button--current):hover,
+    &:not(:disabled):not(:checked) + .#{$class}__label:hover {
+        background-color: rgba(_oFormsGet('checkbox-radio-hover-background', $from: $theme), 0.15);
+    }
+    @at-root a#{&}.#{$class}__radio-button--current,
+    &:checked + .#{$class}__label {
+        background-color: _oFormsGet('radio-buttons-styled-checked-background', $from: $theme);
+        color: _oFormsGet('radio-buttons-styled-checked-text', $from: $theme);
+    }
+    @at-root a#{&}.#{$class}__radio-button--negative.#{$class}__radio-button--current,
+    &--negative:checked + .#{$class}__label {
+        background-color: _oFormsGet('radio-buttons-styled-negative-checked-background', $from: $theme);
+    }
+    // sass-lint:enable space-after-colon
+}
+
+/// @access public
+/// @example scss - Adding an icon with a custom theme (optional). If a custom theme is passed, 'negative-checked-background' is optional.
+/// .o-forms__radio-button--my-custom-icon {
+/// 	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: (
+/// 		'checked-background': 'claret-50',
+/// 		'border': 'black-30',
+/// 		'negative-checked-background': 'claret-80',
+/// 	));
+/// }
+/// @param {string} $class - The block level class name (BEM naming convention).
+/// @param {map|null} $theme - A custom theme map (optional, see example).
+/// @output An icon for styled radio buttons.
+@mixin oFormsRadioButtonsStyledIcon($icon-name, $theme: null, $class: 'o-forms') {
+    $theme: _oFormsThemeToBrandVariants($theme);
+    @at-root a#{&},
+    & + .#{$class}__label {
+        @include oIconsGetIcon(
+            $icon-name: $icon-name,
+            $apply-base-styles: false,
+            $apply-width-height: false,
+            $color: _oFormsGet('radio-buttons-styled-text', $from: $theme),
+            $iconset-version: 1,
+            $high-contrast-fallback: true
+        );
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: 3px;
+        background-size: $_o-forms-radio-styled-icon-size $_o-forms-radio-styled-icon-size;
+        padding-left: $_o-forms-radio-styled-icon-padding;
+        &:after {
+            // Hack to download checked icon before checked, avoiding flash as icon loads.
+            @include oIconsGetIcon(
+                $icon-name: $icon-name,
+                $apply-base-styles: false,
+                $apply-width-height: false,
+                $color: _oFormsGet('radio-buttons-styled-checked-text', $from: $theme),
+                $iconset-version: 1,
+                $high-contrast-fallback: false
+            );
+            content: '';
+            display: none;
+        }
+    }
+    @at-root a#{&}.#{$class}__radio-button--current,
+    &:checked + .#{$class}__label {
+        @include oIconsGetIcon(
+            $icon-name: $icon-name,
+            $apply-base-styles: false,
+            $apply-width-height: false,
+            $color: _oFormsGet('radio-buttons-styled-checked-text', $from: $theme),
+            $iconset-version: 1,
+            $high-contrast-fallback: true
+        );
+    }
+}
+
+/// Transforms a custom theme map into brand variables. See `_brand.scss`.
+/// @access private
+/// @param {map|null} $theme - A custom theme map.
+/// @return {map} Brand variables.
+@function _oFormsThemeToBrandVariants($theme) {
+    @if $theme {
+        // Error if required theme keys are not provided.
+        $required-theme-keys: ('checked-background', 'border');
+        @each $required-theme-key in $required-theme-keys {
+            @if not index(map-keys($theme), $required-theme-key) {
+                @error "oFormsRadioButtonsStyled custom theme is missing a '#{$required-theme-key}' key.";
+            }
+        }
+        // Add default value for checked background if not specified.
+        @if not map-get($theme, 'negative-checked-background') {
+            $theme: map-merge($theme, (
+                'negative-checked-background': map-get($theme, 'checked-background')
+            ));
+        }
+        $theme: (
+            radio-buttons-styled-text: oColorsGetPaletteColor(map-get($theme, 'checked-background')),
+            radio-buttons-styled-border: oColorsGetPaletteColor(map-get($theme, 'border')),
+            radio-buttons-styled-checked-text: oColorsGetTextColor(oColorsGetPaletteColor(map-get($theme, 'checked-background')), 100),
+            radio-buttons-styled-checked-background: oColorsGetPaletteColor(map-get($theme, 'checked-background')),
+            radio-buttons-styled-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'negative-checked-background')),
+            checkbox-radio-hover-background: oColorsGetPaletteColor(map-get($theme, 'checked-background'))
+        );
+    }
+    @return $theme;
 }
 
 /// Margins for styled button labels.
 /// @access private
 @mixin _oFormsRadioButtonsStyledMargin {
-    margin: 3px 0;
+    margin: $_o-forms-radio-styled-button-gap 0;
     &:first-of-type {
-        margin: 3px 0 3px 3px;
+        margin: $_o-forms-radio-styled-button-gap 0 $_o-forms-radio-styled-button-gap $_o-forms-radio-styled-button-gap;
     }
     &:last-of-type {
-        margin: 3px 3px 3px 0;
+        margin: $_o-forms-radio-styled-button-gap $_o-forms-radio-styled-button-gap $_o-forms-radio-styled-button-gap 0;
     }
 }
 

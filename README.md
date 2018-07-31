@@ -351,7 +351,7 @@ If your project does not need all `o-forms` features, you may reduce your projec
 Required:
 - `oFormsBaseFeatures` - Basic form features including `.o-forms`. Required by the other mixins.
 
-Optional extras:
+Optional features:
 - `oFormsRadioCheckboxFeatures` - Checkbox and radio support.
 - `oFormsRadioCheckboxRightModifier` - Modifier styles to align checkbox/radio inputs right.
 - `oFormsRadioButtonsStyledFeature` - Styled radio buttons support.
@@ -363,6 +363,10 @@ Optional extras:
 - `oFormsSmallFeature` - Modifier styles for small text and select inputs.
 - `oFormsWideFeature` - Modifier styles for form elements with no width restriction.
 - `oFormsBleedFeature` - Modifier styles for form elements with no width restriction and no padding.
+
+Customisation (see [SassDoc](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms)):
+- `oFormsRadioButtonsStyledTheme` - Used to customise the color of styled radio buttons.
+- `oFormsRadioButtonsStyledIcon` - Used to add an icon to styled radio buttons.
 
 For more details on specific mixins [browse the SassDoc documentation of the module](http://sassdoc.webservices.ft.com/v1/sassdoc/o-forms/#o-forms).
 
