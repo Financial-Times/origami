@@ -59,6 +59,14 @@
 			"description": "Tooltip declared in js, with no markup"
 		},
 		{
+			"title": "Append to body",
+			"name": "append-to-body",
+			"template": "demos/src/no-markup.mustache",
+			"js": "demos/src/append-to-body.js",
+			"description": "Append tooltip to body rather than the target's parent.",
+			"hidden": true
+		},
+		{
 			"title": "Responsive Positioning",
 			"name": "responsive-positioning",
 			"template": "demos/src/responsive-positioning.mustache",

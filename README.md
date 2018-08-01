@@ -87,6 +87,25 @@ Since this creates the tooltip from scratch, it is important to include any decl
 
 - `content`: Required. String. This is the content that will be displayed in the tooltip.
 
+#### Create tooltip directly in the body
+
+There are situations when a tooltip cannot be displayed next to an element (i.e: the parent of the element has `overlow: hidden`). For these type of situations the tooltip can be instantiated using the `appendToBody` configuration property, which will force the tooltip element to be created just before `body` tag closing.
+
+```js
+const Tooltip = require('o-tooltip');
+const tooltipEl = document.querySelector('.imperative-tooltip-element');
+const opts = {
+	target: 'tooltip-target-imperative',
+	content: 'Click to save to somewhere',
+	showOnConstruction: true,
+	position: 'above',
+	appendToBody: true
+}
+const tooltip = new Tooltip(tooltipEl, opts);
+```
+
+*Note! this property can only be used only when constructing the tooltip declaratively*
+
 #### Firing an oDomContentLoaded event
 
 ```js

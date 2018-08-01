@@ -4,7 +4,6 @@ import oGrid from 'o-grid';
 import Target from './target';
 
 class Tooltip {
-
 	static _getCurrentLayout() {
 		return oGrid.getCurrentLayout();
 	}
@@ -138,9 +137,14 @@ class Tooltip {
 	 * Render the tooltip. Adds markup and attributes to this.tooltipEl in the DOM
 	*/
 	render() {
-		// make sure the tooltip is the next sibling of the target and (in the case of generated tooltip el)
-		// is attached to the DOM
-		if (this.targetNode && this.targetNode.nextSibling !== this.tooltipEl) {
+		// Make sure the tooltip is attached to the DOM
+		if (this.opts.appendToBody) {
+			// either appended directly into the body
+			if (!document.getElementById(this.opts.target + Tooltip.idSuffix)) {
+				document.body.appendChild(this.tooltipEl);
+			}
+		} else if (this.targetNode && this.targetNode.nextSibling !== this.tooltipEl) {
+			// or is the next sibling of the target
 			if (this.targetNode.nextSibling) {
 				this.targetNode.parentNode.insertBefore(this.tooltipEl, this.targetNode.nextSibling);
 			} else {
@@ -356,8 +360,17 @@ class Tooltip {
 		this.tooltipPosition = position;
 		const targetLeftOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().left);
 		const targetTopOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().top);
-		this.tooltipEl.style.top = (this.tooltipRect.top - targetTopOffset) + 'px';
-		this.tooltipEl.style.left = (this.tooltipRect.left - targetLeftOffset) + 'px';
+
+		if (this.opts.appendToBody) {
+			// If the tooltip will be apended directly to body:
+			// set an ID in order to be identified
+			this.tooltipEl.id = this.opts.target + Tooltip.idSuffix;
+			this.tooltipEl.style.top = (this.tooltipRect.top + document.documentElement.scrollTop) + 'px';
+			this.tooltipEl.style.left = (this.tooltipRect.left + document.documentElement.scrollLeft) + 'px';
+		} else {
+			this.tooltipEl.style.top = (this.tooltipRect.top - targetTopOffset) + 'px';
+			this.tooltipEl.style.left = (this.tooltipRect.left - targetLeftOffset) + 'px';
+		}
 
 		// Set Tooltip arrow.
 		this._setArrow();
@@ -570,6 +583,8 @@ class Tooltip {
 		return Array.from(rootEl.querySelectorAll('[data-o-component="o-tooltip"]'), rootEl => new Tooltip(rootEl, opts));
 	}
 }
+
+Tooltip.idSuffix = '-tooltip';
 
 Tooltip.arrowDepth = 10;
 Tooltip.positionToArrowPositionMap = {
