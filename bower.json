@@ -18,6 +18,7 @@
     "o-header-services": "^2.3.0",
     "o-footer-services": "^1.0.2",
     "o-typography": "^5.7.5",
-    "o-fonts": "^3.0.4"
+    "o-fonts": "^3.0.4",
+    "o-visual-effects": "^2.0.3"
   }
 }

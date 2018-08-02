@@ -1,9 +1,12 @@
+
+import LinkedHeading from './linked-heading';
+
 class Layout {
 	/**
- * Class constructor.
- * @param {HTMLElement} [layoutElement] - The layout element in the DOM
- * @param {Object} [options={}] - An options object for configuring aspects of the layout
- */
+	 * Class constructor.
+	 * @param {HTMLElement} [layoutElement] - The layout element in the DOM
+	 * @param {Object} [options={}] - An options object for configuring aspects of the layout
+	 */
 	constructor (layoutEl, options) {
 		this.layoutEl = layoutEl;
 
@@ -16,6 +19,8 @@ class Layout {
 
 		this.headings = [...this.layoutEl.querySelectorAll(this.options.navHeadingSelector)]
 			.filter(heading => heading.getAttribute('id'));
+
+		this.linkedHeadings = this.headings.map(heading => new LinkedHeading(heading));
 
 		if (this.options.constructNav) {
 			this.constructNavFromDOM();
