@@ -20,7 +20,9 @@ class Layout {
 		this.headings = [...this.layoutEl.querySelectorAll(this.options.navHeadingSelector)]
 			.filter(heading => heading.getAttribute('id'));
 
-		this.linkedHeadings = this.headings.map(heading => new LinkedHeading(heading));
+		this.linkedHeadings = this.headings.map(heading => new LinkedHeading(heading, {
+			baseClass: `${this.options.baseClass}__linked-heading`,
+		}));
 
 		if (this.options.constructNav) {
 			this.constructNavFromDOM();
@@ -37,7 +39,9 @@ class Layout {
 	 */
 	constructNavFromDOM () {
 		let listItems = Array.from(this.headings, (heading) => {
-			return `<li><a href='#${heading.id}'>${heading.innerText}</a></li>`;
+			const contentElement = heading.querySelector(`.${this.options.baseClass}__linked-heading__content`);
+			const headingText = (contentElement ? contentElement.textContent : heading.textContent);
+			return `<li><a href='#${heading.id}'>${headingText}</a></li>`;
 		});
 
 		let list = document.createElement('ol');

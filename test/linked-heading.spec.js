@@ -75,7 +75,7 @@ describe('LinkedHeading', () => {
 				const expectedHtml = `
 					<h2 id="mock-id" class="mock-base-class-option">
 						<a href="#mock-id" title="mock-title-option" class="mock-base-class-option__link">
-							Mock Content
+							<span class="mock-base-class-option__content">Mock Content</span>
 							<span class="mock-base-class-option__label">mock-content-option</span>
 						</a>
 					</h2>

@@ -40,7 +40,7 @@ class LinkedHeading {
 		this.headingElement.classList.add(this.options.baseClass);
 		this.headingElement.innerHTML = `
 			<a href="#${this.id}" title="${this.options.title}" class="${this.options.baseClass}__link">
-				${headingText}
+				<span class="${this.options.baseClass}__content">${headingText}</span>
 				<span class="${this.options.baseClass}__label">${this.options.content}</span>
 			</a>
 		`;
