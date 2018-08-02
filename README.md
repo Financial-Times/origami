@@ -12,12 +12,7 @@ config:
 
 ```
 {
-    "extends": "eslint-config-origami-components", // You can omit the `eslint-config-` part
-
-    "rules": {
-        // Override any settings from the "parent" configuration
-        // For example, Next may want to override some rules for their Next components
-    }
+    "extends": "eslint-config-origami-components"
 }
 ```
 
