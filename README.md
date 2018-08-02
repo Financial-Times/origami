@@ -4,7 +4,7 @@ This is an ESLint configuration which aims to ensure all Origami components' sou
 
 ## Usage
 
-Just install this package somewhere your eslint can find it (`npm
+Install this package somewhere your eslint can find it (`npm
 install -g eslint-config-origami-component` if your eslint is installed with
 `-g` too), and put
 this in your `.eslintrc` or wherever you keep your project's eslint
