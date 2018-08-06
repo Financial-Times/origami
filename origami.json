@@ -48,15 +48,19 @@
 			"title": "JSON",
 			"name": "json",
 			"template": "demos/src/json.mustache",
-			"description": "Syntax highlight for JSON",
-			"hidden": true
+			"description": "Syntax highlight for JSON"
 		},
 		{
 			"title": "SCSS",
 			"name": "scss",
 			"template": "demos/src/scss.mustache",
-			"description": "Syntax highlight for SCSS",
-			"hidden": true
+			"description": "Syntax highlight for SCSS"
+		},
+		{
+			"title": "Diff",
+			"name": "diff",
+			"template": "demos/src/diff.mustache",
+			"description": "Syntax highlight for diff"
 		},
 		{
 			"title": "imperative",

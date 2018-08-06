@@ -1,6 +1,8 @@
 @import 'o-colors/main';
 
-@import 'src/scss/main';
+@import 'src/scss/variables';
+@import 'src/scss/colors';
+@import 'src/scss/languages/main';
 
 @if $o-syntax-highlight-is-silent == false {
 	@include oSyntaxHighlightAll();

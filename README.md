@@ -1,5 +1,5 @@
 
-# o-syntax-highlight [![Circle CI](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master)  
+# o-syntax-highlight [![Circle CI](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master)
 
 A syntax highlighter for Origami-supported documentation that wraps [PrismJs](https://github.com/PrismJS/prism).
 
@@ -64,6 +64,8 @@ The same is true for all other available languages:
 - HTML: `o-syntax-highlight--html`
 - CSS: `o-syntax-highlight--css`
 - SCSS/SASS: `o-syntax-highlight--scss` _or_ `o-syntax-highlight--sass`
+- JSON: `o-syntax-highlight--json`
+- DIFF: `o-syntax-highlight--diff`
 
 It is worth pointing out that the wrapper can hold any html elements. So long as all of the code blocks within the wrapper are written as described above, o-syntax-highlight will ignore everything else.
 ```html
@@ -136,6 +138,8 @@ The same is applicable for the other languages:
 - HTML: `oSyntaxHighlightHTML()`
 - CSS: `oSyntaxHighlightCSS()`
 - SCSS/SASS: `oSyntaxHighlightSCSS()`
+- JSON: `oSyntaxHighlightJSON()`
+- DIFF: `oSyntaxHighlightDIFF()`
 
 ---
 
