@@ -156,6 +156,7 @@
 				margin-right: -1em;
 
 				&[aria-current="location"] {
+					color: oColorsGetPaletteColor('teal-30');
 					background: oColorsMix('teal', 'white', 20);
 				}
 			}
