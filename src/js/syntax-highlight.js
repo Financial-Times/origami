@@ -3,6 +3,7 @@ import throwError from './helpers';
 import prism from 'prism/prism.js';
 import diff from './languages/prism-diff.js';
 import loadLanguages from 'prism/components/index.js';
+// Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
 require('prism/components/prism-json.js');
 require('prism/components/prism-scss.js');
 require('prism/components/prism-css.js');
@@ -15,7 +16,7 @@ class SyntaxHighlight {
 	 * @param {String} options.language - The language to tokenise the code for
 	 */
 	constructor (syntaxEl, options) {
-		delete window.Prism; // Prism creates a global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
+		delete window.Prism; // Remove Prism global https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
 		prism.languages.diff = diff; // Assign custom diff language
 		this.syntaxElement = syntaxEl;
 		this.opts = Object.assign({
