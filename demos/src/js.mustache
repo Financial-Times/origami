@@ -17,13 +17,13 @@ try {
 This
 Is a multiline
 comment!
-//  <= it can contain singline comments!
+//  &lt;= it can contain singline comments!
 */
 class Thing extends Object {
   constructor({propertyA: foo} = {}) {
     super();
 
-    label: for (var i = 0;i<2;i++) {
+    label: for (var i = 0;i&lt;2;i++) {
       break label;
       continue;
     }
@@ -50,7 +50,7 @@ try; typeof; var; void; while;
 with; yield;`)
       console.log("operators:", `- -- -=
 + ++ +=
-< <= << <<=
+&lt; &lt;= &lt;&lt; &lt;&lt;=
 > >= >> >>= >>> >>>=
 = == === =>
 ! != !==
@@ -62,17 +62,17 @@ with; yield;`)
 ? ...`);
     console.log(/regex literal/);
     console.log("This is"+ "/, not a regex")
-    3 >= 2 || 2 <= 4 && 3 === 3 && 2 == 2
+    3 >= 2 || 2 &lt;= 4 && 3 === 3 && 2 == 2
     var a = 4;
     a--
     a -= 2
     a = a+ 1
     a++
     a += 2
-    a< 3
-    a<= 4
-    a<< 2
-    a <<= 3
+    a&lt; 3
+    a&lt;= 4
+    a&lt;&lt; 2
+    a &lt;&lt;= 3
     a> 3
     a>= 3
     a>> 3
