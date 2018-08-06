@@ -2,6 +2,10 @@ import throwError from './helpers';
 
 import prism from 'prism/prism.js';
 import loadLanguages from 'prism/components/index.js';
+require('prism/components/prism-json.js');
+require('prism/components/prism-scss.js');
+require('prism/components/prism-css.js');
+require('./languages/prism-diff.js');
 
 class SyntaxHighlight {
 	/**
@@ -11,6 +15,7 @@ class SyntaxHighlight {
 	 * @param {String} options.language - The language to tokenise the code for
 	 */
 	constructor (syntaxEl, options) {
+		delete window.Prism;
 		this.syntaxElement = syntaxEl;
 		this.opts = Object.assign({
 			language: '',
