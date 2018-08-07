@@ -86,6 +86,12 @@
 			"description": "Notice message to convey information"
 		},
 		{
+			"title": "Notice Bleed: Inform",
+			"name": "notice-bleed-inform",
+			"template": "demos/src/notice-bleed-inform.mustache",
+			"description": "Notice message to convey information, styled to bleed to the edge of a page"
+		},
+		{
 			"title": "Notice Inner: Inform",
 			"name": "notice-inner-inform",
 			"template": "demos/src/notice-inner-inform.mustache",
@@ -102,10 +108,20 @@
 			]
 		},
 		{
+			"title": "Notice Bleed: Warning Light",
+			"name": "notice-bleed-warning-light",
+			"template": "demos/src/notice-bleed-warning-light.mustache",
+			"description": "Notice message to emit a light warning, styled to bleed to the edge of a page",
+			"brands": [
+				"internal",
+				"whitelabel"
+			]
+		},
+		{
 			"title": "Notice Inner: Warning Light",
 			"name": "notice-inner-warning-light",
 			"template": "demos/src/notice-inner-warning-light.mustache",
-			"description": "Notice message to emit a lightwarning, styled to fit within another container",
+			"description": "Notice message to emit a light warning, styled to fit within another container",
 			"brands": [
 				"internal",
 				"whitelabel"
@@ -116,6 +132,16 @@
 			"name": "notice-warning",
 			"template": "demos/src/notice-warning.mustache",
 			"description": "Notice message to emit a strong warning",
+			"brands": [
+				"internal",
+				"whitelabel"
+			]
+		},
+		{
+			"title": "Notice Bleed: Warning",
+			"name": "notice-bleed-warning",
+			"template": "demos/src/notice-bleed-warning.mustache",
+			"description": "Notice message to emit a strong warning, styled to bleed to the edge of a page",
 			"brands": [
 				"internal",
 				"whitelabel"
