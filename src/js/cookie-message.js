@@ -17,7 +17,7 @@ class CookieMessage {
 			theme: null,
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
-			manageCookiesUrl: `https://cookies.${domain}/preferences/manage-cookies`,
+			manageCookiesUrl: `https://cookies.${domain}/preferences/manage-cookies?redirect=${redirect}&cookieDomain=.${domain}`,
 			consentCookieName: 'FTCookieConsentGDPR',
 
 			//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
