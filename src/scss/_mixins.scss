@@ -58,7 +58,7 @@
 /// Base styling for the layout content
 /// @access Private
 @mixin _oLayoutBody () {
-	@include oTypographySans($scale: 1, $line-height: 1.2);
+	@include oTypographySans($scale: 1, $line-height: 1.4);
 
 	a {
 		@include oTypographyLink();
@@ -102,7 +102,6 @@
 		margin: 0 0 1rem;
 	}
 
-	ol:not([data-o-component^="o-"]),
 	ul:not([data-o-component^="o-"]) {
 		list-style-type: none;
 		position: relative;
@@ -119,6 +118,11 @@
 				font-weight: 900;
 			}
 		}
+	}
+
+	ol:not([data-o-component^="o-"]) {
+		position: relative;
+		padding-left: 1.5rem;
 	}
 }
 
