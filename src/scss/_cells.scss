@@ -13,3 +13,7 @@
 	@include oTypographySans(0);
 	font-weight: normal;
 }
+
+@mixin oTableCellVerticallyCenter {
+	vertical-align: middle;
+}

@@ -27,7 +27,8 @@
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
 			"o-fonts@^3.0.0",
-			"o-normalise@^1.0.0"
+			"o-normalise@^1.0.0",
+			"o-typography@v5.7.5"
 		]
 	},
 	"demos": [
@@ -65,6 +66,12 @@
 			"template": "demos/src/row-headings.mustache",
 			"description": ""
 		},
+        {
+          "title": "Cell styles",
+          "name": "cell-styles",
+          "template": "demos/src/cell-styles.mustache",
+          "description": ""
+        },
 		{
 			"title": "Responsive Flat",
 			"name": "responsive-flat",

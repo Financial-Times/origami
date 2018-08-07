@@ -33,6 +33,10 @@
 		.#{$classname}__cell--content-secondary {
 			@include oTableCellContentSecondary;
 		}
+
+		.#{$classname}__cell--vertically-center {
+			@include oTableCellVerticallyCenter;
+		}
 	}
 	.#{$classname}--horizontal-lines {
 		@include oTableHorizontalLines;

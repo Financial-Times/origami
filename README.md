@@ -152,6 +152,16 @@ Class: `o-table__cell--content-secondary`, Mixin: `oTableCellContentSecondary`
 
 Reduce the size of some text in a cell and display block to start a new line. The class should be applied to a `<span>` or `<div>` element inside of the table cell.
 
+#### Cell alignment
+
+Class: `o-table__cell--numeric`, Mixin: `oTableCellNumeric`
+
+Right-align the cell contents.
+
+Class: `o-table__cell--vertically-center`, Mixin: `oTableCellVerticallyCenter`
+
+Vertically center the cell contents.
+
 #### Row stripes
 
 Class: `o-table--row-stripes`, Mixin: `oTableRowStripes`
