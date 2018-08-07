@@ -63,6 +63,8 @@
 		margin: 0;
 		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 		display: inline;
+		// this is so that when this element is a link it does not inherit default link styles
+		text-decoration: none;
 
 		@include oGridRespondTo($until: M) {
 			@include oTypographySansBold($scale: 2);
