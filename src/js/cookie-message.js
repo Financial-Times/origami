@@ -8,15 +8,16 @@ class CookieMessage {
 	static get defaultOptions() {
 		let domain = 'ft.com';
 		if (!/\.ft\.com$/i.test(window.location.hostname)) {
-			domain = window.location.hostname.replace('www.', '');
+			// replace www or subdomain
+			domain = window.location.hostname.replace(/^(.*?)\./, '');
 		}
 		const redirect = window.location.href;
 		return {
 			cookieMessageClass: 'o-cookie-message',
 			theme: null,
-			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie`,
+			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
-			manageCookiesUrl: 'https://www.ft.com/preferences/manage-cookies',
+			manageCookiesUrl: `https://cookies.${domain}/preferences/manage-cookies`,
 			consentCookieName: 'FTCookieConsentGDPR',
 
 			//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65

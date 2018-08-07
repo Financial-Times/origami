@@ -55,7 +55,7 @@ export const html = {
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://www.ft.com/preferences/manage-cookies" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/manage-cookies" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
@@ -85,7 +85,7 @@ export const html = {
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://www.ft.com/preferences/manage-cookies" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/manage-cookies" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
