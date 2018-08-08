@@ -73,6 +73,7 @@
 /// @require {mixin} oFormsGroupInline
 /// @output Container for small controls of the same width E.g. repeated yes/no radios in a narrow container.
 @mixin oFormsGroupInlineControls($class: 'o-forms') {
+	margin: 0 0 $_o-forms-inline-control-section-spacing;
 	&  > .#{$class}__inline-container {
 		@include _oFormsBaseInlineStyles($class);
 		grid-template-columns: 1fr min-content min-content;
