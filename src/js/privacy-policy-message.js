@@ -1,5 +1,6 @@
 //TODO: remove file when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
 const store = require('superstore-sync');
+const oViewport = require('o-viewport');
 
 class PrivacyPolicyMessage {
 	constructor (cookieMessageElement, baseClass, position) {
@@ -54,8 +55,18 @@ class PrivacyPolicyMessage {
 		this.policyMessageEl.parentNode.removeChild(this.policyMessageEl);
 	}
 
+	repositionOnResize () {
+		oViewport.listenTo('resize');
+
+		document.body.addEventListener('oViewport.resize', () => {
+			this.policyMessageEl.style.bottom = this.cookieMessageEl.clientHeight + 20 +'px';// 20px is the cookie banner margin.
+		});
+	}
+
 	render () {
 		if (this.options.position === 'top') {
+			this.repositionOnResize();
+
 			this.policyMessageEl.style.bottom = this.cookieMessageEl.clientHeight + 'px';
 			document.body.insertBefore(this.policyMessageEl, this.cookieMessageEl);
 		} else {
