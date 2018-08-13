@@ -5,34 +5,47 @@ import Link from './Link';
 
 /**
  * Aspect Ratio
- * @param {{ width: Number, height: Number }} width
+ * @param {Number} width
+ * @param {Number} height
  * @returns {String|null}
  */
-const aspectRatio = ({ width, height }) => {
+const aspectRatio = (width, height) => {
 	if (typeof width === 'number' && typeof height === 'number') {
-		const ratio = 100 / width * height;
+		const ratio = (100 / width) * height;
 		return ratio.toFixed(4) + '%';
 	}
 
 	return null;
 };
 
-export default ({ relativeUrl, url, image, imageSize, ...props }) => {
-	const displayUrl = relativeUrl || url;
+const NormalImage = ({ src, ratio }) => (
+	<div className="o-teaser__image-placeholder" style={{ paddingBottom: ratio }}>
+		<img className="o-teaser__image" src={src} alt="" />
+	</div>
+);
 
-	// TODO: image lazy loading via n-image!
+// HACK: class names are specific to n-image 😷
+const LazyLoadImage = ({ src, ratio }) => (
+	<div className="o-teaser__image-placeholder n-image-wrapper--lazy-loading" style={{ paddingBottom: ratio }}>
+		<img className="o-teaser__image n-image--lazy-loading" data-src={src} alt="" />
+	</div>
+);
+
+export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
+	const displayUrl = relativeUrl || url;
+	const imageSrc = imageService(image.url, ImageSizes[imageSize]);
+	const imageRatio = aspectRatio(image.width, image.height);
+	const ImageComponent = imageLazyLoad ? LazyLoadImage : NormalImage;
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
-			<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
-				<Link {...props} url={displayUrl} attrs={{
-					'data-trackable': 'image-link',
-					'tab-index': '-1',
-					'aria-hidden': 'true',
-				}}>
-					<img className="o-teaser__image" src={imageService(image.url, ImageSizes[imageSize])} alt="" />
-				</Link>
-			</div>
+			<Link {...props} url={displayUrl} attrs={{
+				'data-trackable': 'image-link',
+				'tab-index': '-1',
+				'aria-hidden': 'true',
+			}}>
+				<ImageComponent src={imageSrc} ratio={imageRatio} />
+			</Link>
 		</div>
 	) : null;
 };
