@@ -17,20 +17,20 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 This component provides accessible syntax highlighting for Javascript, JSON, HTML, CSS, Sass and SCSS.
 _If there are any languages you would like to highlight that we don't currently support, please open an issue and we will provide it._
 
-o-syntax-highlight uses the following colours, on a light grey background (#f2f2f2). It is compliant with the contrast for [WCAG AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html). In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
+o-syntax-highlight uses the following colours, on a `slate-white-5` background (`#f4f4f5`). It is compliant with the contrast for [WCAG AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html). In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
 
 Color | Hex | Ratio | 14px+ | 18px+  or 14px **bold**
 ---|---|---|---|---
-`black-crimson-25` | `#a50f2d` | [6.93](http://contrast-ratio.com/#%23a50f2d-on-%23f2f2f2) | AA | AAA
-`black-lemon-55` | `#736a0c` | [4.94](http://contrast-ratio.com/#%23736a0c-on-%23f2f2f2) | AA | AAA
-`black-mandarin-35` | `#a65821` | [4.64](http://contrast-ratio.com/#%23a65821-on-%23f2f2f2) | AA | AAA
-`claret-lemon-75` | `#b34634` | [4.88](http://contrast-ratio.com/#%23b34634-on-%23f2f2f2) | AA | AAA
-`grey-55` | `#737373` | [4.23](http://contrast-ratio.com/#%23737373-on-%23f2f2f2) | AA | AAA
-`grey-70` | `#4d4d4d` | [7.55](http://contrast-ratio.com/#%234d4d4d-on-%23f2f2f2) | AAA | AAA
-`oxford` | `#0f5499` | [6.82](http://contrast-ratio.com/#%230f5499-on-%23f2f2f2) | AA | AAA
-`oxford-jade-60` | `#097a7f` | [4.57](http://contrast-ratio.com/#%23097a7f-on-%23f2f2f2) | AA | AAA
-`oxford-sky-80` | `#3571ad` | [4.55](http://contrast-ratio.com/#%233571ad-on-%23f2f2f2) | AA | AAA
-`velvet-candy-60` | `#9b5191` | [4.71](http://contrast-ratio.com/#%239b5191-on-%23f2f2f2) | AA | AAA
+`black-crimson-25` | `#a50f2d` | [7.06](https://contrast-ratio.com/#%23a50f2d-on-%23f4f4f5) | AAA | AAA
+`black-lemon-55` | `#736a0c` | [5.03](https://contrast-ratio.com/#%23736a0c-on-%23f4f4f5) | AA | AAA
+`black-mandarin-35` | `#a65821` | [4.72](https://contrast-ratio.com/#%23a65821-on-%23f4f4f5) | AA | AAA
+`claret-lemon-75` | `#b34634` | [4.97](http://contrast-ratio.com/#%23b34634-on-%23f4f4f5) | AA | AAA
+`grey-55` | `#737373` | [4.31](http://contrast-ratio.com/#%23737373-on-%23f4f4f5) | AA | AAA
+`grey-70` | `#4d4d4d` | [7.69](http://contrast-ratio.com/#%234d4d4d-on-%23f4f4f5) | AAA | AAA
+`oxford` | `#0f5499` | [6.95](http://contrast-ratio.com/#%230f5499-on-%23f4f4f5) | AA | AAA
+`oxford-jade-60` | `#097a7f` | [4.65](http://contrast-ratio.com/#%23097a7f-on-%23f4f4f5) | AA | AAA
+`oxford-sky-80` | `#3571ad` | [4.64](http://contrast-ratio.com/#%233571ad-on-%23f4f4f5) | AA | AAA
+`velvet-candy-60` | `#9b5191` | [4.8](http://contrast-ratio.com/#%239b5191-on-%23f4f4f5) | AA | AAA
 
 ### Markup
 

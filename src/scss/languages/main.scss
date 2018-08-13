@@ -8,7 +8,7 @@
 @mixin oSyntaxHighlightBase() {
 	[data-o-component='o-syntax-highlight'] {
 		pre {
-			background: oColorsGetPaletteColor('grey-5');
+			background: oColorsGetPaletteColor('slate-white-5');
 			padding: 1rem;
 			word-break: break-all;
 			tab-size: 4;
@@ -16,7 +16,7 @@
 		}
 
 		code {
-			background: oColorsGetPaletteColor('grey-5');
+			background: oColorsGetPaletteColor('slate-white-5');
 			color: oColorsGetPaletteColor('grey-70');
 			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 			font-size: 14px;
