@@ -52,13 +52,14 @@
 	</p>
 
 	<p>
-		To do that we need to request the <code>o-buttons</code> CSS from the Build Service:
+		To do that we need to request the <code>o-buttons</code> CSS from the Build Service.
+		Replace "[version-here]" with <a href="https://registry.origami.ft.com/components/o-buttons">the latest version number</a>:
 	</p>
 
 
 	<pre>
 		<code class="o-syntax-highlight--html">
-https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons</code>
+https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons@^[version-here]</code>
 	</pre>
 
 	<p>This request says "give me the CSS for o-buttons at the latest version"</p>
@@ -68,7 +69,7 @@ https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons</cod
 
 	<pre>
 		<code class="o-syntax-highlight--html">
-&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons"/></code>
+&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons@^[version-here]"/></code>
 	</pre>
 </div>
 <aside>
@@ -86,11 +87,11 @@ https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons</cod
 
 	<p>For this tutorial though, you need to add the class <code>o-buttons</code> to the <code>&lt;button></code> tag.</p>
 
-	<p>o-buttons has some design variations. Let's apply the <code>standout</code> variation by the adding <code>o-buttons--standout</code> class.</p>
+	<p>o-buttons has some design variations. Let's apply the <code>primary</code> variation by the adding <code>o-buttons--primary</code> class.</p>
 
 	<pre>
 		<code class="o-syntax-highlight--html">
-&lt;button class="o-buttons o-buttons--secondary">Here's a button&lt;/button></code>
+&lt;button class="o-buttons o-buttons--primary">Here's a button&lt;/button></code>
 	</pre>
 
 
@@ -103,14 +104,14 @@ https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons</cod
 
 	<pre>
 		<code class="o-syntax-highlight--html">
-https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons</code>
+https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons@^[version-here]</code>
 	</pre>
 
 	<p>Instead of using a <code>&lt;link ...></code> tag, use a <code>&lt;script ...></code> tag.</p>
 
 	<pre>
 		<code class="o-syntax-highlight--html">
-&lt;script async type="javascript" src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons">&lt;/script></code>
+&lt;script async type="javascript" src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons@^[version-here]">&lt;/script></code>
 	</pre>
 
 
@@ -121,12 +122,12 @@ https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons</code
 &lt;html>
 	&lt;head>
 		&lt;!-- build service links and scripts here -->
-		&lt;script async type="javascript" src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons">&lt;/script>
-		&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons" />
+		&lt;script async type="javascript" src="https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-buttons@^[version-here]">&lt;/script>
+		&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-buttons@^[version-here]" />
 	&lt;/head>
 	&lt;body>
 		Hello!
-		&lt;button class="o-buttons o-buttons--secondary">Here's a button&lt;/button>
+		&lt;button class="o-buttons o-buttons--primary">Here's a button&lt;/button>
 	&lt;/body>
 &lt;/html></code>
 	</pre>
