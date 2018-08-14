@@ -91,6 +91,15 @@ const lazyInstance = new OLazyLoad();
 lazyInstance.observe();
 ```
 
+#### Manually triggering content to load
+
+In cases where you need to force content to load before it moves into the viewport you can manually pass the observed element to the `.triggerLoad()` method.
+
+```js
+const el = document.querySelector('.target-el');
+lazyInstance.triggerLoad(el);
+```
+
 ### Sass
 
 As with all Origami components, o-lazy-load has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-lazy-load-is-silent : false;` in your Sass before you import the o-lazy-load Sass.

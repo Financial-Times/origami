@@ -12,15 +12,9 @@ class OLazyLoad {
 	 */
 	constructor (opts) {
 		this.options = Object.assign({}, defaults, opts);
-		this.observer = lozad(this.options.selector, this.options);
+		// Lozad returns an object with two methods: .observe() and .triggerLoad()
+		Object.assign(this, lozad(this.options.selector, this.options));
 		this.observe();
-	}
-
-	/**
-	 * Refresh the targets to observe
-	 */
-	observe () {
-		this.observer.observe();
 	}
 
 	/**
