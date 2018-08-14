@@ -18,27 +18,23 @@ This component provides flexible lazy loading functionality for images, pictures
 
 ### Markup
 
-The most common use case for lazy loading is for images. To start append the `data-o-component` attribute to the element containing the targets to lazy load. To each target append the `o-lazy-target` class name.
+The most common use case for lazy loading is for images. To start append each image element with the `o-lazy-target` class name.
 
 ```html
-<div data-o-component="o-lazy-load">
-	<img class="o-lazy-target" data-src="path/to/image.jpg">
+<img class="o-lazy-target" data-src="path/to/image.jpg">
+```
+
+When content loads it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements but if you are working on a responsive site you may prefer to use placeholder elements which reserve space for the content to load into.
+
+This component provides classes to create placeholder elements and class names are provided to reserve space for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios.
+
+```html
+<div class="o-lazy-placeholder o-lazy-placeholder--16:9">
+	<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
-When lazy loaded content loads it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements but if you are working on a responsive site you may want to use placeholder elements which preserve space for the content to load into.
-
-This component provides class names to create placeholder elements. Class names are provided to preserve space for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios.
-
-```html
-<div data-o-component="o-lazy-load">
-	<div class="o-lazy-placeholder o-lazy-placeholder--16:9">
-		<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
-	</div>
-</div>
-```
-
-Aspect ratios may be configured by implementors using their own Sass build process but if you are using the Build Service, or are calculating aspect ratios dynamically you can also use a placeholder `<div>` element to apply percentage based padding ([the padding hack](https://css-tricks.com/aspect-ratio-boxes/)):
+Aspect ratio classes may be configured if you are implementing your own Sass build process but if you are using the Build Service, or are calculating aspect ratios dynamically, you can also use a placeholder `<div>` element to apply percentage based padding ([the padding hack](https://css-tricks.com/aspect-ratio-boxes/)):
 
 ```html
 <div class="o-lazy-placeholder">
@@ -47,25 +43,24 @@ Aspect ratios may be configured by implementors using their own Sass build proce
 </div>
 ```
 
-This component can also load iframes, background images, and append class names as well as work with images. See the [lozad.js] documentation for more information.
+This component can also load iframes, background images, and add class names as well as handle images. See the [lozad.js] documentation for more information.
 
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
-You must either construct an `o-lazy-load` object or fire the `o.DOMContentLoaded` event, which oComponent listens for. By default either method will initialise this component for all `[data-o-component="o-lazy-load"]` elements in the document.
+You must either construct an `o-lazy-load` object or fire the `o.DOMContentLoaded` event, which oComponent listens for. By default either method will initialise this component and observe all matching elements in the document.
 
 #### Constructing o-lazy-load
-
-The `OLazyLoad` class constructor accepts two options: the root element to target, and a map of options.
 
 ```js
 import OLazyLoad from 'o-lazy-load';
 
-const lazyLoad = new OLazyLoad(document.body, {});
+const lazyLoad = new OLazyLoad();
 ```
 
-The options currently available are:
+The `OLazyLoad` class constructor accepts a map of options, the options currently available are:
 
+- `selector` A CSS selector to match the elements to lazy load
 - `rootMargin` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin
 - `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
 - `loaded` A callback function which receives the element loaded
@@ -78,6 +73,20 @@ See the [lozad.js] documentation for full usage information and examples.
 document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
+```
+
+#### Updating observed targets
+
+If you are loading new or extra content into your document, either via AJAX or when building single-page application you may need to update the targets being observed. To do this you can call the `.observe()` method.
+
+```js
+import OLazyLoad from 'o-lazy-load';
+
+const lazyLoad = new OLazyLoad();
+
+// ... some logic to update the page ...
+
+lazyload.observe();
 ```
 
 ### Sass
