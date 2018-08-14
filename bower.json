@@ -7,7 +7,6 @@
 		".gitignore",
 		".travis.yml",
 		"karma.conf.js",
-		"package.json",
 		"test"
 	],
 	"dependencies": {}
