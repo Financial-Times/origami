@@ -18,11 +18,15 @@
 /// Creates a placeholder to preserve space for lazy loaded <img> and <picture> elements
 ///
 /// @param {String} $class
-@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
+@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
 	.#{$class} {
+		position: relative;
+
 		img,
 		picture {
-			float: left;
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
 			// IntersectionObserver requires a non-zero height
 			min-height: 1px;
