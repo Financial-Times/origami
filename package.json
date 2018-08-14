@@ -1,5 +1,6 @@
 {
     "private": true,
+    "main": "main.js",
     "devDependencies": {
         "mock-raf": "^1.0.0"
     }
