@@ -1,10 +1,5 @@
 /*global require*/
-import './../../main.js';
+import OLazyLoad from './../../main.js';
 
-function initDemos() {
-	document.addEventListener('DOMContentLoaded', function () {
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-	});
-}
-
-initDemos();
+// Cannot be setup declaratively because the document element and body element cannot be modified
+new OLazyLoad(document.documentElement);

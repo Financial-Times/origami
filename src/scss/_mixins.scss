@@ -9,7 +9,7 @@
 		transition: opacity 0.25s;
 		will-change: opacity;
 
-		&[data-loaded=true] {
+		&[data-o-lazy-loaded] {
 			opacity: 1;
 		}
 	}
