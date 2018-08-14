@@ -1,12 +1,6 @@
 import { h } from '@financial-times/x-engine';
 import { media, theme } from './concerns/rules';
 
-const PREFIX = {
-	yes: '',
-	no: 'not-',
-	verify: 'verify-'
-};
-
 const dynamicModifiers = (props) => {
 	const modifiers = [];
 
