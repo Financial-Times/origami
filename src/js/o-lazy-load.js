@@ -2,7 +2,7 @@
 import lozad from 'lozad';
 
 const defaults = {
-	selector: '.o-lazy-target'
+	selector: '.o-lazy-load'
 };
 
 class OLazyLoad {
