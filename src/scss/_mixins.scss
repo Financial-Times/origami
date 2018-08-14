@@ -3,11 +3,46 @@
 	img.#{$class},
 	picture.#{$class} {
 		opacity: 0;
-		transition: opacity 0.2s;
+		transition: opacity 0.25s;
 		will-change: opacity;
 
 		&[data-loaded=true] {
 			opacity: 1;
+		}
+	}
+}
+
+@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder') {
+	.#{$class} {
+		img,
+		picture {
+			float: left;
+			width: 100%;
+			// IntersectionObserver requires a non-zero height
+			min-height: 1px;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+		}
+	}
+
+	.#{$class}--16x9 {
+		&:after {
+			padding-bottom: 56.25%;
+		}
+	}
+
+	.#{$class}--4x3 {
+		&:after {
+			padding-bottom: 75%;
+		}
+	}
+
+	.#{$class}--1x1 {
+		&:after {
+			padding-bottom: 100%;
 		}
 	}
 }

@@ -1,2 +1,10 @@
 $o-lazy-is-silent: false;
 @import '../../main';
+
+.demo-container {
+	width: 480px;
+}
+
+.o-lazy-load-placeholder {
+	background-color: #dddddd;
+}
