@@ -61,8 +61,16 @@ The `OLazyLoad` class constructor accepts two options: the root element to targe
 ```js
 import OLazyLoad from 'o-lazy-load';
 
-const lazyLoad = new OLazyLoad(document.body);
+const lazyLoad = new OLazyLoad(document.body, {});
 ```
+
+The options currently available are:
+
+- `rootMargin` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin
+- `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
+- `loaded` A callback function which receives the element loaded
+
+See the [lozad.js] documentation for full usage information and examples.
 
 #### Firing an oDomContentLoaded event
 
