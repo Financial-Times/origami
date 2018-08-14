@@ -1,3 +1,6 @@
+/// Applies a fade-in effect to <img> and <picture> elements
+///
+/// @param {String} $class
 @mixin oLazyLoadImage ($class: 'o-lazy-load') {
 	// Apply fade-in effect only to <img> and <picture> elements
 	img.#{$class},
@@ -12,6 +15,9 @@
 	}
 }
 
+/// Creates a placeholder to preserve space for lazy loaded <img> and <picture> elements
+///
+/// @param {String} $class
 @mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
 	.#{$class} {
 		img,
