@@ -1,7 +1,7 @@
 o-lazy-load [![Circle CI](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master)
 =================
 
-This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by [lozad.js] which uses the Intersection Observer API to detect when elements enter the viewport.
+This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by [lozad] which uses the Intersection Observer API to detect when elements enter the viewport.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -12,7 +12,7 @@ This component provides lazy loading functionality for images, pictures, iframes
 - [Contact](#contact)
 - [Licence](#licence)
 
-[lozad.js]: (https://github.com/ApoorvSaxena/lozad.js)
+[lozad]: (https://github.com/ApoorvSaxena/lozad.js)
 
 ## Usage
 
@@ -45,7 +45,7 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 </div>
 ```
 
-This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the [lozad.js] documentation for more information.
+This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the [lozad] documentation for more information.
 
 ### JavaScript
 
@@ -67,7 +67,7 @@ The `OLazyLoad` constructor accepts a map of options, the options currently avai
 - `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
 - `loaded` A callback function which receives the element loaded
 
-See the [lozad.js] documentation for full usage information and examples.
+See the [lozad] documentation for full usage information and examples.
 
 #### Firing an oDomContentLoaded event
 
