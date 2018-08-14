@@ -44,11 +44,11 @@
 	white-space: nowrap;
 
 	&:hover {
-		border-bottom-color: $link-hover; // is different to custom link hover by design.
+		border-bottom-color: oColorsGetPaletteColor($link-hover); // is different to custom link hover by design.
 	}
 
 	&:focus {
-		outline: 3px solid $link-focus;
+		outline: 3px solid oColorsGetPaletteColor($link-focus);
 		border-bottom-color: transparent;
 	}
 }
