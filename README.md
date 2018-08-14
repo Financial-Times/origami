@@ -18,10 +18,10 @@ This component provides flexible lazy loading functionality for images, pictures
 
 ### Markup
 
-The most common use case for lazy loading is for images. To start append each image element with the `o-lazy-target` class name.
+The most common use case for lazy loading is for images. To start append each image element with the `o-lazy-load` class name.
 
 ```html
-<img class="o-lazy-target" data-src="path/to/image.jpg">
+<img class="o-lazy-load" data-src="path/to/image.jpg">
 ```
 
 When content loads it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements but if you are working on a responsive site you may prefer to use placeholder elements which reserve space for the content to load into.
@@ -30,7 +30,7 @@ This component provides classes to create placeholder elements and class names a
 
 ```html
 <div class="o-lazy-placeholder o-lazy-placeholder--16:9">
-	<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
+	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
@@ -39,7 +39,7 @@ Aspect ratio classes may be configured if you are implementing your own Sass bui
 ```html
 <div class="o-lazy-placeholder">
 	<div style="padding-bottom: 56.25%"></div>
-	<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
+	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
