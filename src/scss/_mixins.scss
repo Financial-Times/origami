@@ -15,18 +15,18 @@
 	}
 }
 
-/// Creates a placeholder to preserve space for lazy loaded <img> and <picture> elements
+/// Creates a placeholder to preserve space for lazy loaded content
 ///
 /// @param {String} $class
 @mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
 	.#{$class} {
 		position: relative;
 
-		img,
-		picture {
+		.o-lazy-target {
 			position: absolute;
 			top: 0;
 			left: 0;
+			// Images have implicit sizes so this forces them to fit the placeholder
 			width: 100%;
 			// IntersectionObserver requires a non-zero height
 			min-height: 1px;

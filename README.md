@@ -26,9 +26,9 @@ The most common use case for lazy loading is for images. To start append the `da
 </div>
 ```
 
-When images load they can cause a jarring reflow of the content. If you are implementing a static site you may wish to apply `width` and `height` attributes to your image elements. If you are working on a responsive website this component provides tools with which to create placeholders which preserve space for the image to load into.
+When lazy loaded content loads it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements but if you are working on a responsive site you may want to use placeholder elements which preserve space for the content to load into.
 
-Class names are provided to preserve spaces for images with 16:9, 16:10, 3:2, 4:3, and 1:1 aspect ratios.
+This component provides class names to create placeholder elements. Class names are provided to preserve space for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios.
 
 ```html
 <div data-o-component="o-lazy-load">
@@ -38,7 +38,7 @@ Class names are provided to preserve spaces for images with 16:9, 16:10, 3:2, 4:
 </div>
 ```
 
-Aspect ratio class names may be configured by implementors using their own Sass build process but if you are using the Build Service, or are calculating aspect ratios dynamically you may use a placeholder `<div>` element:
+Aspect ratios may be configured by implementors using their own Sass build process but if you are using the Build Service, or are calculating aspect ratios dynamically you can also use a placeholder `<div>` element to apply percentage based padding ([the padding hack](https://css-tricks.com/aspect-ratio-boxes/)):
 
 ```html
 <div class="o-lazy-placeholder">
@@ -47,7 +47,7 @@ Aspect ratio class names may be configured by implementors using their own Sass 
 </div>
 ```
 
-This component can also load iframes, background images, and append class names. See the [lozad.js] documentation for more information.
+This component can also load iframes, background images, and append class names as well as work with images. See the [lozad.js] documentation for more information.
 
 ### JavaScript
 
