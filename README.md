@@ -14,23 +14,16 @@ This component provides flexible lazy loading functionality for images, pictures
 - [Licence](#licence)
 
 ## Usage
-_Whatever usage instructions your component has. We've broken this down by Markup, JavaScript and Sass, but it depends how complex your component is._
 
 ### Markup
 
-_Common templating can go here, especially if there is only one template, but people can always check the demos for more._
-
-_Remember to start your codeblocks with three backticks and "html" so your markup is syntax highlighted correctly._
-
 ```html
-<div data-o-component="o-lazy-load" class='o-lazy-load'>
+<div data-o-component="o-lazy-load">
+	<img class="o-lazy-load" data-src="path/to/image.jpg">
 </div>
 ```
 
 ### JavaScript
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by modules not auto initialising, so this line is useful if you have JavaScript:_
 
 No code will run automatically unless you are using the Build Service.
 You must either construct an `o-lazy-load` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
@@ -46,7 +39,7 @@ const oLazy = new oLazy();
 #### Firing an oDomContentLoaded event
 
 ```js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```

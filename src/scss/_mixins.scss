@@ -1,12 +1,13 @@
-/// Output All oMessage Features
-@mixin oLazy ($class: 'o-lazy') {
+@mixin oLazyLoadImage ($class: 'o-lazy-load') {
+	// Apply fade-in effect only to <img> and <picture> elements
+	img.#{$class},
+	picture.#{$class} {
+		opacity: 0;
+		transition: opacity 0.2s;
+		will-change: opacity;
 
+		&[data-loaded=true] {
+			opacity: 1;
+		}
+	}
 }
-
-/// Provide a component specific error message
-///
-/// @param {String} $message - The message to insert in the error.
-/// @access Private
-@mixin _oLazy($message) {
-	@error '*** oLazy SCSS error: #{$message} ***';
-};

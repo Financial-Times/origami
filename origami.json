@@ -28,6 +28,12 @@
 			"description": "Description of the demo"
 		},
 		{
+			"title": "Placeholding images",
+			"name": "placeholder-images",
+			"template": "demos/src/placeholders.mustache",
+			"description": "Description of the demo"
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
