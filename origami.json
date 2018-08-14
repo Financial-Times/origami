@@ -28,10 +28,16 @@
 			"description": "Basic implementation of loading images when they move into the viewport."
 		},
 		{
-			"title": "Placeholding images",
-			"name": "placeholder-images",
+			"title": "Placeholders",
+			"name": "placeholders",
 			"template": "demos/src/placeholders.mustache",
-			"description": "Using placeholder elements to preserve space for images to load into."
+			"description": "Using placeholder elements to preserve space for content to load into."
+		},
+		{
+			"title": "Lazy loading pictures",
+			"name": "pictures",
+			"template": "demos/src/picture.mustache",
+			"description": "A more advanced implementation of loading picture elements when they move into view."
 		},
 		{
 			"title": "Pa11y",

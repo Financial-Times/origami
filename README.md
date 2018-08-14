@@ -43,6 +43,16 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 </div>
 ```
 
+Picture elements can also be lazy loaded, to do so switch the required `<img>` element to another `<source>` element.
+
+```diff
+<picture class="o-lazy-load">
+	<source srcset="path/to/image-large.jpg" media="screen and (min-width: 480px)">
++	<source srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
+-	<img src="path/to/image-small.jpg">
+</picture>
+```
+
 This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the [lozad] documentation for more information.
 
 ### JavaScript
