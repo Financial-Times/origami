@@ -7,8 +7,6 @@ This component provides lazy loading functionality for images, pictures, iframes
 	- [Markup](#markup)
 	- [JavaScript](#javascript)
 	- [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -108,15 +106,6 @@ This component currently provides two mixins for styling image and picture eleme
 
 - `oLazyLoadImage($class)` applies a fade in effect when image elements are loaded
 - `oLazyLoadPlaceholder($class)` provides basic styles for creating placeholder elements
-
-## Troubleshooting
-_This is a good place to put problems that come up repeatedly_
-
-### The thing with the thing isn't working
-Fix it by turning it off and on again
-
-## Contributing
-If your component is particularly complicated (image sets fall into this category) then a contributing section or even a contributing.md might be useful.
 
 ---
 
