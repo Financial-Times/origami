@@ -1,7 +1,7 @@
 o-lazy-load [![Circle CI](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master)
 =================
 
-This component provides flexible lazy loading functionality for images, pictures, iframes and more. It is powered by [lozad.js] which uses the Intersection Observer API to detect when targetted elements enter the viewport.
+This component provides flexible lazy loading functionality for images, pictures, iframes and more. It is powered by [lozad.js] which uses the Intersection Observer API to detect when elements enter the viewport.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -26,11 +26,11 @@ The most common use case for lazy loading is for images. To start append the `da
 </div>
 ```
 
-When images load they can cause a noticeable reflow of the content which is quite jarring. To prevent this we can wrap the target in placeholder element which preserves the space for the image to load into. Class names are provided to preserve spaces with 16x9, 4x3, or 1x1 aspect ratios.
+When images load they can cause a jarring reflow of the content. To prevent this wrap each target in placeholder elements which preserve the space required for the image to load into. Class names are provided to preserve spaces for 16:9, 16:10, 3:2, 4:3, and 1:1 aspect ratios.
 
 ```html
 <div data-o-component="o-lazy-load">
-	<div class="o-lazy-load-placeholder o-lazy-load-placeholder--16x9">
+	<div class="o-lazy-load-placeholder o-lazy-load-placeholder--16:9">
 		<img class="o-lazy-load" data-src="path/to/image.jpg">
 	</div>
 </div>

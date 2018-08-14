@@ -1,1 +1,14 @@
-$o-lazy-is-silent: true !default;
+$o-lazy-load-is-silent: true !default;
+
+$o-lazy-load-placholder-ratios: (
+	// HD video and most modern computer screens
+	(16, 9),
+	// Apple computer screens
+	(16, 10),
+	// 35mm film
+	(3, 2),
+	// Standard television and older computer screens
+	(4, 3),
+	// Square
+	(1, 1)
+);

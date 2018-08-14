@@ -12,7 +12,7 @@
 	}
 }
 
-@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder') {
+@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
 	.#{$class} {
 		img,
 		picture {
@@ -28,21 +28,14 @@
 		}
 	}
 
-	.#{$class}--16x9 {
-		&:after {
-			padding-bottom: 56.25%;
-		}
-	}
+	@each $ratio in $ratios {
+		$x: nth($ratio, 1);
+		$y: nth($ratio, 2);
 
-	.#{$class}--4x3 {
-		&:after {
-			padding-bottom: 75%;
-		}
-	}
-
-	.#{$class}--1x1 {
-		&:after {
-			padding-bottom: 100%;
+		.#{$class}--#{$x}\:#{$y} {
+			&:after {
+				padding-bottom: percentage(1 / $x * $y);
+			}
 		}
 	}
 }
