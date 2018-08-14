@@ -18,11 +18,11 @@ This component provides flexible lazy loading functionality for images, pictures
 
 ### Markup
 
-The most common use case for lazy loading is for images. To start append the `data-o-component` attribute to the element containing the targets to lazy load. To each target append the `o-lazy-load` class name.
+The most common use case for lazy loading is for images. To start append the `data-o-component` attribute to the element containing the targets to lazy load. To each target append the `o-lazy-target` class name.
 
 ```html
 <div data-o-component="o-lazy-load">
-	<img class="o-lazy-load" data-src="path/to/image.jpg">
+	<img class="o-lazy-target" data-src="path/to/image.jpg">
 </div>
 ```
 
@@ -33,7 +33,7 @@ Class names are provided to preserve spaces for images with 16:9, 16:10, 3:2, 4:
 ```html
 <div data-o-component="o-lazy-load">
 	<div class="o-lazy-placeholder o-lazy-placeholder--16:9">
-		<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
+		<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
 	</div>
 </div>
 ```
@@ -43,7 +43,7 @@ Aspect ratio class names may be configured by implementors using their own Sass 
 ```html
 <div class="o-lazy-placeholder">
 	<div style="padding-bottom: 56.25%"></div>
-	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
+	<img class="o-lazy-target" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
