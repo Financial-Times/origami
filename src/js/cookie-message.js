@@ -4,12 +4,13 @@ const Banner = require('o-banner/src/js/banner');
 const PrivacyPolicyMessage = require('./privacy-policy-message');
 
 class CookieMessage {
-
 	static get defaultOptions() {
 		let domain = 'ft.com';
+		let manageCookiesPath = 'manage-cookies';
 		if (!/\.ft\.com$/i.test(window.location.hostname)) {
 			// replace www or subdomain
 			domain = window.location.hostname.replace(/^(.*?)\./, '');
+			manageCookiesPath = 'cookies';
 		}
 		const redirect = window.location.href;
 		return {
@@ -17,7 +18,7 @@ class CookieMessage {
 			theme: null,
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
-			manageCookiesUrl: `https://cookies.${domain}/preferences/manage-cookies?redirect=${redirect}&cookieDomain=.${domain}`,
+			manageCookiesUrl: `https://cookies.${domain}/preferences/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
 			consentCookieName: 'FTCookieConsentGDPR',
 
 			//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
@@ -25,8 +26,7 @@ class CookieMessage {
 		};
 	}
 
-	constructor (cookieMessageElement, options) {
-
+	constructor(cookieMessageElement, options) {
 		this.cookieMessageElement = cookieMessageElement;
 
 		// Set cookie message options
@@ -50,8 +50,12 @@ class CookieMessage {
 
 	//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
 	displayPrivacyMessage(position) {
-		if(this.options.privacyMessage) {
-			return new PrivacyPolicyMessage(this.cookieMessageElement, this.options.cookieMessageClass, position);
+		if (this.options.privacyMessage) {
+			return new PrivacyPolicyMessage(
+				this.cookieMessageElement,
+				this.options.cookieMessageClass,
+				position
+			);
 		}
 	}
 
@@ -70,7 +74,9 @@ class CookieMessage {
 				contentShortClass: `${this.options.cookieMessageClass}__content--short`,
 				actionsClass: `${this.options.cookieMessageClass}__actions`,
 				actionClass: `${this.options.cookieMessageClass}__action`,
-				actionSecondaryClass: `${this.options.cookieMessageClass}__action--secondary`,
+				actionSecondaryClass: `${
+					this.options.cookieMessageClass
+				}__action--secondary`,
 				buttonClass: `${this.options.cookieMessageClass}__button`,
 				linkClass: `${this.options.cookieMessageClass}__link`,
 				contentLong: `
@@ -95,10 +101,12 @@ class CookieMessage {
 	 * Enables cookie setting behaviour from the FT consent service
 	 * https://github.com/Financial-Times/next-consent-proxy/tree/master/src
 	 */
-	updateConsent () {
-		const button = document.querySelector(`.${this.banner.options.buttonClass}`);
+	updateConsent() {
+		const button = document.querySelector(
+			`.${this.banner.options.buttonClass}`
+		);
 		if (button) {
-			button.addEventListener('click', (e) => {
+			button.addEventListener('click', e => {
 				e.preventDefault();
 				this.dispatchEvent('oCookieMessage.act');
 				this.removeCookieMessage();
@@ -113,15 +121,17 @@ class CookieMessage {
 	/**
 	 * Checks whether cookie is set
 	 */
-	shouldShowCookieMessage () {
+	shouldShowCookieMessage() {
 		return !document.cookie.includes(`${this.options.consentCookieName}`);
 	}
 
 	/**
 	 * Displays cookie message banner, based on existing cookies.
 	 */
-	showCookieMessage () {
-		this.cookieMessageElement.classList.add(`${this.options.cookieMessageClass}--active`);
+	showCookieMessage() {
+		this.cookieMessageElement.classList.add(
+			`${this.options.cookieMessageClass}--active`
+		);
 		this.dispatchEvent('oCookieMessage.view');
 		this.updateConsent();
 	}
@@ -129,12 +139,12 @@ class CookieMessage {
 	/**
 	 * Removes cookie message banner.
 	 */
-	removeCookieMessage () {
+	removeCookieMessage() {
 		this.dispatchEvent('oCookieMessage.close');
 		this.cookieMessageElement.parentNode.removeChild(this.cookieMessageElement);
 	}
 
-	dispatchEvent (eventName) {
+	dispatchEvent(eventName) {
 		const e = new CustomEvent(eventName, { bubbles: true });
 		this.cookieMessageElement.dispatchEvent(e);
 	}
@@ -144,19 +154,21 @@ class CookieMessage {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 * @param {HTMLElement} cookieMessageElement - The cookie message element in the DOM
 	 */
-	static getOptionsFromDom (cookieMessageElement) {
+	static getOptionsFromDom(cookieMessageElement) {
 		if (!(cookieMessageElement instanceof HTMLElement)) {
 			return {};
 		}
 		return Object.keys(cookieMessageElement.dataset).reduce((options, key) => {
-
 			// Ignore data-o-component
 			if (key === 'oComponent') {
 				return options;
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oCookieMessage(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(
+				/^oCookieMessage(\w)(\w+)$/,
+				(m, m1, m2) => m1.toLowerCase() + m2
+			);
 			const value = cookieMessageElement.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -175,7 +187,7 @@ class CookieMessage {
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise cookie messages in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the cookie messages
 	 */
-	static init (rootElement, options) {
+	static init(rootElement, options) {
 		if (!rootElement) {
 			rootElement = document.body;
 		}
@@ -187,15 +199,19 @@ class CookieMessage {
 
 		// If the rootElement is an HTMLElement (ie it was found in the document anywhere)
 		// AND the rootElement has the data-o-component=o-cookie-message then initialise just 1 cookie message (this one)
-		if (rootElement instanceof HTMLElement && /\bo-cookie-message\b/.test(rootElement.getAttribute('data-o-component'))) {
+		if (
+			rootElement instanceof HTMLElement &&
+			/\bo-cookie-message\b/.test(rootElement.getAttribute('data-o-component'))
+		) {
 			return new CookieMessage(rootElement, options);
 		}
 
 		// If the rootElement wasn't itself a cookie message, then find the first child that has the data-o-component=o-cookie-message set
-		const cookieMessageElement = rootElement.querySelector('[data-o-component="o-cookie-message"]');
+		const cookieMessageElement = rootElement.querySelector(
+			'[data-o-component="o-cookie-message"]'
+		);
 		return new CookieMessage(cookieMessageElement, options);
 	}
-
 }
 
 export default CookieMessage;

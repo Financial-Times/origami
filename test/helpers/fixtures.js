@@ -55,7 +55,7 @@ export const html = {
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://cookies.localhost/preferences/manage-cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
@@ -85,7 +85,7 @@ export const html = {
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://cookies.localhost/preferences/manage-cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
