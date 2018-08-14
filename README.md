@@ -10,8 +10,6 @@ This component provides lazy loading functionality for images, pictures, iframes
 - [Contact](#contact)
 - [Licence](#licence)
 
-[lozad]: (https://github.com/ApoorvSaxena/lozad.js)
-
 ## Usage
 
 ### Markup
@@ -128,3 +126,5 @@ If you have any questions or comments about this component, or need help using i
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
+
+[lozad]: https://github.com/ApoorvSaxena/lozad.js

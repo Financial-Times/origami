@@ -2,7 +2,7 @@ const defaults = {
 	selector: '.o-lazy-load'
 };
 
-const flag = 'data-o-lazy-loaded';
+const flag = 'data-o-lazy-load';
 
 function loadContent (element) {
 	if (element.nodeName.toLowerCase() === 'picture') {
@@ -26,7 +26,7 @@ function loadContent (element) {
 		element.removeAttribute('data-toggle-class');
 	}
 
-	element.setAttribute(flag, 1);
+	element.setAttribute(flag, true);
 }
 
 function isLoaded (element) {
@@ -61,7 +61,9 @@ class OLazyLoad {
 		this.rootEl = rootEl;
 		this.options = Object.assign({}, defaults, opts);
 
-		// Assume if the rootEl is the document or body then the user intends to use the viewport
+		// Assume if the rootEl is the document element or body that the user intends to
+		// observe the viewport. The spec calls this "the top-level browsing context"
+		// <https://www.w3.org/TR/intersection-observer/#intersectionobserver-implicit-root>
 		if (rootEl === document.documentElement || rootEl === document.body) {
 			this.options.root = null;
 		} else {
