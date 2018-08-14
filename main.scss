@@ -4,7 +4,7 @@
 
 @if ($o-lazy-load-is-silent == false) {
 	@include oLazyLoadImage();
-	@include oLazyLoadImagePlaceholder();
+	@include oLazyLoadPlaceholder();
 
 	// Set to silent again to avoid being output twice
 	$o-lazy-load-is-silent: true !global;
