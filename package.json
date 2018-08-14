@@ -1,3 +1,4 @@
 {
-  "private": true
+  "private": true,
+  "main": "main.js"
 }
