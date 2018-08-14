@@ -18,7 +18,7 @@
 /// Creates a placeholder to preserve space for lazy loaded content
 ///
 /// @param {String} $class
-@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
+@mixin oLazyLoadImagePlaceholder ($class: 'o-lazy-load-placeholder', $ratios: $o-lazy-load-placholder-ratios) {
 	.#{$class} {
 		position: relative;
 
