@@ -1,0 +1,18 @@
+@include describe('oLazy mixins') {
+	@include describe('oLazy') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oLazy();
+					}
+				};
+
+				@include expect($selector: false) {
+					.test-colors {
+					}
+				};
+			};
+		}
+	}
+}

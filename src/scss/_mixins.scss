@@ -1,0 +1,12 @@
+/// Output All oMessage Features
+@mixin oLazy ($class: 'o-lazy') {
+
+}
+
+/// Provide a component specific error message
+///
+/// @param {String} $message - The message to insert in the error.
+/// @access Private
+@mixin _oLazy($message) {
+	@error '*** oLazy SCSS error: #{$message} ***';
+};
