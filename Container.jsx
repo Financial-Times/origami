@@ -23,10 +23,6 @@ const dynamicModifiers = (props) => {
 		modifiers.push(themeRule);
 	}
 
-	if (props.indicators && props.indicators.canBeDistributed) {
-		modifiers.push(`${PREFIX[props.indicators.canBeDistributed]}distributable`);
-	}
-
 	return modifiers;
 };
 
