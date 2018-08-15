@@ -5,6 +5,7 @@ const defaults = {
 const flag = 'data-o-lazy-load';
 
 function loadContent (element) {
+	// TODO: use data-src and data-srcset?
 	if (element.nodeName.toLowerCase() === 'picture') {
 		const img = document.createElement('img');
 		img.alt = element.getAttribute('data-alt');

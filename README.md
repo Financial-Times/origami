@@ -1,7 +1,7 @@
 o-lazy-load [![Circle CI](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-lazy-load/tree/master)
 =================
 
-This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by [lozad] which uses the Intersection Observer API to detect when elements enter the viewport.
+This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -14,16 +14,19 @@ This component provides lazy loading functionality for images, pictures, iframes
 
 ### Markup
 
-The most common use case for lazy loading is to delay the loading of images. To do this start by appending each image element with the `o-lazy-load` class name and change the `src` attribute to `data-src`.
+The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document body and then for each target image add the `o-lazy-load` class name and change the `src` attribute to `data-src`. These changes will now prevent the image from loading when the page is visited and it is recommended to only lazy load images which are "below the fold" of the page.
 
 ```diff
-- <img src="path/to/image.jpg">
-+ <img class="o-lazy-load" data-src="path/to/image.jpg">
+- <body>
+-   <img src="path/to/image.jpg">
++ <body data-o-component="o-lazy-load">
++   <img class="o-lazy-load" data-src="path/to/image.jpg">
+</body>
 ```
 
-When the content is loaded it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements to prevent this. If you are working on a responsive site o-lazy-load provides placeholder styles which can reserve space for content to load into.
+When images are loaded it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements to prevent this. If you are working on a responsive site o-lazy-load provides placeholder styles which can reserve space of a fixed aspect ratio for content to load into.
 
-By default classes are provided for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios. If you are including o-lazy-load into your own build process you may configure the aspect ratios to generate classes for.
+By default classes are provided for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios. If you are including o-lazy-load into your own build process you may configure the aspect ratios.
 
 ```html
 <div class="o-lazy-load-placeholder o-lazy-load-placeholder--16:9">
@@ -51,7 +54,7 @@ Picture elements can also be lazy loaded, to do so switch the required `<img>` e
 </picture>
 ```
 
-This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the [lozad] documentation for more information.
+This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the component demos for more information about these features.
 
 ### JavaScript
 
@@ -63,17 +66,20 @@ You must either construct an o-lazy-load instance or fire the `o.DOMContentLoade
 ```js
 import OLazyLoad from 'o-lazy-load';
 
-const lazyInstance = new OLazyLoad({});
+const root = document.documentElement;
+const options = {};
+
+const lazyInstance = new OLazyLoad(root, options);
 ```
 
-The `OLazyLoad` constructor accepts a map of options, the options currently available are:
+The `OLazyLoad` constructor accepts two arguments - the root element and a map of options. If the `root` element is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base lazy loading on the viewport.
 
-- `selector` A CSS selector to match the elements to lazy load
+The current options are:
+
+- `selector` A CSS selector to match the elements to lazy load, these must be descendents of the `root`
 - `rootMargin` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin
 - `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
-- `loaded` A callback function which receives the element loaded
-
-See the [lozad] documentation for full usage information and examples.
+- `loaded` A callback function which receives the element just loaded
 
 #### Firing an oDomContentLoaded event
 
@@ -83,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
+You will need to
+
 #### Updating observed elements
 
 If you are loading new or extra content into your document, for example using AJAX or when building a single-page application you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance.
@@ -90,20 +98,11 @@ If you are loading new or extra content into your document, for example using AJ
 ```js
 import OLazyLoad from 'o-lazy-load';
 
-const lazyInstance = new OLazyLoad();
+const lazyInstance = new OLazyLoad(document.documentElement);
 
 // ... some logic to update the page ...
 
 lazyInstance.observe();
-```
-
-#### Manually triggering content to load
-
-In cases where you need to force content to load before it moves into the viewport you can manually pass the observed element to the `.triggerLoad()` method.
-
-```js
-const el = document.querySelector('.target-el');
-lazyInstance.triggerLoad(el);
 ```
 
 ### Sass
@@ -126,5 +125,3 @@ If you have any questions or comments about this component, or need help using i
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
-
-[lozad]: https://github.com/ApoorvSaxena/lozad.js
