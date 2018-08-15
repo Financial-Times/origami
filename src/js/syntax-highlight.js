@@ -4,9 +4,9 @@ import prism from 'prism/prism.js';
 import diff from './languages/prism-diff.js';
 import loadLanguages from 'prism/components/index.js';
 // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
+require('prism/components/prism-bash.js');
 require('prism/components/prism-json.js');
 require('prism/components/prism-scss.js');
-require('prism/components/prism-css.js');
 
 class SyntaxHighlight {
 	/**

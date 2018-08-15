@@ -1,3 +1,4 @@
+@import 'bash';
 @import 'css';
 @import 'html';
 @import 'js';
@@ -29,6 +30,7 @@
 
 @mixin oSyntaxHighlightAll() {
 	@include oSyntaxHighlightBase();
+	@include oSyntaxHighlightBASH();
 	@include oSyntaxHighlightCSS();
 	@include oSyntaxHighlightHTML();
 	@include oSyntaxHighlightJS();

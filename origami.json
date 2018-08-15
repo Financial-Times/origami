@@ -24,50 +24,56 @@
 			"title": "HTML",
 			"name": "html",
 			"template": "demos/src/html.mustache",
-			"description": "Syntax highlight for HTML"
+			"description": "Syntax highlight theme for HTML"
 		},
 		{
-			"title": "JS",
+			"title": "JavaScript",
 			"name": "js",
 			"template": "demos/src/js.mustache",
-			"description": "Syntax highlight for JS"
+			"description": "Syntax highlight theme for JavaScript"
 		},
 		{
 			"title": "CSS",
 			"name": "css",
 			"template": "demos/src/css.mustache",
-			"description": "Syntax highlight for CSS"
+			"description": "Syntax highlight theme for CSS"
 		},
 		{
 			"title": "Inline Code",
 			"name": "inline-syntax",
 			"template": "demos/src/inline-syntax.mustache",
-			"description": "Syntax highlight for Inline Code Tags"
+			"description": "Syntax highlight theme for inline <code> tags"
 		},
 		{
 			"title": "JSON",
 			"name": "json",
 			"template": "demos/src/json.mustache",
-			"description": "Syntax highlight for JSON"
+			"description": "Syntax highlight theme for JSON"
 		},
 		{
 			"title": "SCSS",
 			"name": "scss",
 			"template": "demos/src/scss.mustache",
-			"description": "Syntax highlight for SCSS"
+			"description": "Syntax highlight theme for SCSS"
 		},
 		{
 			"title": "Diff",
 			"name": "diff",
 			"template": "demos/src/diff.mustache",
-			"description": "Syntax highlight for diff"
+			"description": "Syntax highlight theme for diff"
+		},
+		{
+			"title": "Bash",
+			"name": "bash",
+			"template": "demos/src/bash.mustache",
+			"description": "Syntax highlight theme for bash"
 		},
 		{
 			"title": "imperative",
 			"name": "imperative",
 			"template": "demos/src/imperative.mustache",
 			"js": "demos/src/imperative.js",
-			"description": "Syntax highlight for imperative",
+			"description": "Syntax highlight theme for imperative",
 			"hidden": true
 		}
 	]

@@ -1,0 +1,12 @@
+@mixin oSyntaxHighlightBASH {
+	.o-syntax-highlight--bash {
+		.token {
+			&.comment { color: oColorsGetPaletteColor('grey-55'); }
+			&.function { color: oColorsGetPaletteColor('oxford-sky-80'); }
+			&.operator { color: oColorsGetPaletteColor('claret-lemon-75');}
+			&.punctuation { color: oColorsGetPaletteColor('grey-70'); }
+			&.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
+			&.variable { color: oColorsGetPaletteColor('oxford'); }
+		}
+	}
+}
