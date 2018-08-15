@@ -25,7 +25,7 @@
 			"title": "Lazy loading images",
 			"name": "lazy-images",
 			"template": "demos/src/images.mustache",
-			"description": "Basic implementation of loading images when they move into the viewport."
+			"description": "Basic implementation of loading images when they move into the viewport with a fancy loading animation."
 		},
 		{
 			"title": "Placeholders",

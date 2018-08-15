@@ -6,6 +6,19 @@ $o-lazy-load-is-silent: false;
 	width: 480px;
 }
 
+img.demo-fancy-load {
+	// A really unsubtle loading animation ✨
+	opacity: 0;
+	transform: scale(1.5);
+	transition: opacity 500ms, transform 400ms;
+	transition-delay: 100ms;
+
+	&[data-o-lazy-load=true] {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .demo-scrollable {
 	border: 2px solid #dddddd;
 	overflow: auto;
