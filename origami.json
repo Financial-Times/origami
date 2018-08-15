@@ -31,13 +31,19 @@
 			"title": "Placeholders",
 			"name": "placeholders",
 			"template": "demos/src/placeholders.mustache",
-			"description": "Using placeholder elements to preserve space for content to load into."
+			"description": "Using placeholder elements to preserve a fixed aspect ratio space for content to load into."
 		},
 		{
 			"title": "Lazy loading pictures",
 			"name": "pictures",
 			"template": "demos/src/picture.mustache",
-			"description": "A more advanced implementation of loading picture elements when they move into view."
+			"description": "A more advanced implementation which loads picture elements when they move into view."
+		},
+		{
+			"title": "Toggle class names",
+			"name": "class-toggle",
+			"template": "demos/src/scrollable.mustache",
+			"description": "Toggle class names when target elements are moved fully into view"
 		},
 		{
 			"title": "Pa11y",

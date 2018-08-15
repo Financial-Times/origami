@@ -52,7 +52,7 @@ function callback (entries, observer) {
 	});
 }
 
-class OLazyLoad {
+class oLazyLoad {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [rootEl] - The component element in the DOM
@@ -60,7 +60,7 @@ class OLazyLoad {
 	 */
 	constructor (rootEl, opts) {
 		this.rootEl = rootEl;
-		this.options = Object.assign({}, defaults, opts);
+		this.options = Object.assign({}, defaults, opts, oLazyLoad.getDataAttributes(rootEl));
 
 		// Assume if the rootEl is the document element or body that the user intends to
 		// observe the viewport. The spec calls this "the top-level browsing context"
@@ -86,6 +86,36 @@ class OLazyLoad {
 	}
 
 	/**
+	 * Get the data attributes from the ${name.titleCase}Element. If the message is being set up
+	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 * @param {HTMLElement} rootEl - The component element in the DOM
+	 */
+	static getDataAttributes (rootEl) {
+		if (!(rootEl instanceof HTMLElement)) {
+			return {};
+		}
+
+		return Object.keys(rootEl.dataset).reduce((options, key) => {
+			// Ignore data-o-component
+			if (key === 'oComponent') {
+				return options;
+			}
+
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^oLazyLoad(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = rootEl.dataset[key];
+
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+			return options;
+		}, {});
+	}
+
+	/**
 	 * Initialise component.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the component
@@ -100,11 +130,11 @@ class OLazyLoad {
 		}
 
 		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component="o-lazy-load"]')) {
-			return new OLazyLoad(rootEl, opts);
+			return new oLazyLoad(rootEl, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new OLazyLoad(rootEl, opts));
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new oLazyLoad(rootEl, opts));
 	}
 }
 
-export default OLazyLoad;
+export default oLazyLoad;

@@ -64,22 +64,25 @@ You must either construct an o-lazy-load instance or fire the `o.DOMContentLoade
 #### Constructing o-lazy-load
 
 ```js
-import OLazyLoad from 'o-lazy-load';
+import oLazyLoad from 'o-lazy-load';
 
 const root = document.documentElement;
 const options = {};
 
-const lazyInstance = new OLazyLoad(root, options);
+const lazyLoader = new oLazyLoad(root, options);
 ```
 
-The `OLazyLoad` constructor accepts two arguments - the root element and a map of options. If the `root` element is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base lazy loading on the viewport.
+The `oLazyLoad` constructor accepts two arguments - the root element and a map of options. If the `root` element is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base lazy loading on the viewport.
 
 The current options are:
 
 - `selector` A CSS selector to match the elements to lazy load, these must be descendents of the `root`
+- `loaded` A callback function which receives the element just loaded
+
+All options will be passed to the intersection observer,
+
 - `rootMargin` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin
 - `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
-- `loaded` A callback function which receives the element just loaded
 
 #### Firing an oDomContentLoaded event
 
@@ -96,13 +99,13 @@ You will need to
 If you are loading new or extra content into your document, for example using AJAX or when building a single-page application you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance.
 
 ```js
-import OLazyLoad from 'o-lazy-load';
+import oLazyLoad from 'o-lazy-load';
 
-const lazyInstance = new OLazyLoad(document.documentElement);
+const lazyLoader = new oLazyLoad(document.documentElement);
 
 // ... some logic to update the page ...
 
-lazyInstance.observe();
+lazyLoader.observe();
 ```
 
 ### Sass
