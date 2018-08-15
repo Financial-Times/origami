@@ -2,7 +2,27 @@ $o-lazy-load-is-silent: false;
 @import '../../main';
 
 .demo-container {
+	padding: 20px;
 	width: 480px;
+}
+
+.demo-scrollable {
+	border: 2px solid #dddddd;
+	overflow: auto;
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+.demo-target {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 50px;
+	background: salmon;
+
+	&.loaded {
+		background: rebeccapurple;
+	}
 }
 
 .o-lazy-load-placeholder {
