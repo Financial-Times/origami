@@ -6,17 +6,20 @@ $o-lazy-load-is-silent: false;
 	width: 480px;
 }
 
-img.demo-fancy-load {
-	// A really unsubtle loading animation ✨
-	opacity: 0;
-	transform: scale(1.5);
-	transition: opacity 500ms, transform 400ms;
-	transition-delay: 100ms;
-
-	&[data-o-lazy-load=true] {
-		opacity: 1;
-		transform: scale(1);
+@keyframes fancyLoad {
+	0% {
+		opacity: 0;
+		transform: scale(1.5) translateY(-25%);
 	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.demo-fancy-load {
+	// A really unsubtle loading animation ✨
+	animation: fancyLoad 500ms;
 }
 
 .demo-scrollable {

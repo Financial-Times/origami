@@ -25,25 +25,31 @@
 			"title": "Lazy loading images",
 			"name": "lazy-images",
 			"template": "demos/src/images.mustache",
-			"description": "Basic implementation of loading images when they move into the viewport with a fancy loading animation."
+			"description": "A basic implementation of loading images when they move into the viewport."
 		},
 		{
-			"title": "Placeholders",
+			"title": "Content Placeholders",
 			"name": "placeholders",
 			"template": "demos/src/placeholders.mustache",
-			"description": "Using placeholder elements to preserve a fixed aspect ratio space for content to load into."
+			"description": "Using a placeholder to preserve a fixed aspect ratio space for content to load into."
 		},
 		{
-			"title": "Lazy loading pictures",
+			"title": "Toggling class names",
+			"name": "fancy-loading",
+			"template": "demos/src/fancy.mustache",
+			"description": "Implementing class name toggles to add a fancy loading animation."
+		},
+		{
+			"title": "Lazy loading picture elements",
 			"name": "pictures",
 			"template": "demos/src/picture.mustache",
-			"description": "A more advanced implementation which loads picture elements when they move into view."
+			"description": "A more advanced implementation demonstrating how to load picture elements."
 		},
 		{
-			"title": "Toggle class names",
+			"title": "Declarative configuration",
 			"name": "class-toggle",
 			"template": "demos/src/scrollable.mustache",
-			"description": "Toggle class names when target elements are moved fully into view"
+			"description": "This demo toggles class names when the squares move fully into view"
 		},
 		{
 			"title": "Pa11y",
