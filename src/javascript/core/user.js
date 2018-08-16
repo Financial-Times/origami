@@ -5,15 +5,6 @@
 
 let userID;
 let store;
-const defaultUserConfig = {
-	storage: 'cookie',
-	name: 'spoor-id',
-	nameOverride: 'spoor-id',
-	value: null,
-
-	// Set the store cookie domain to .ft.com for ft.com and all its subdomains
-	domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
-};
 
 const utils = require('../utils');
 const Store = require('./store');
@@ -26,6 +17,15 @@ const Store = require('./store');
  * @return {String} - The user ID if present, or a generated UID if not
  */
 function init(value, cookieDomain) {
+	const defaultUserConfig = {
+		storage: 'cookie',
+		name: 'spoor-id',
+		nameOverride: 'spoor-id',
+		value: null,
+
+		// Set the store cookie domain to .ft.com for ft.com and all its subdomains
+		domain: location.hostname.match(/^(?:.+\.)?ft\.com$/) ? 'ft.com' : null,
+	};
 	if ( cookieDomain ) {
 		defaultUserConfig.domain = cookieDomain;
 	}
