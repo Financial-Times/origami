@@ -117,7 +117,7 @@ describe("oErrors", function() {
 
 			// This is a horrible hacky way to check the function is a noop
 			proclaim.equal(errors.report(10), 10);
-			proclaim.equal(errors.wrapWithContext(10), 10);
+			proclaim.equal(errors.wrapWithContext({}, 10), 10);
 
 		});
 
