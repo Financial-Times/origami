@@ -14,7 +14,7 @@ This component provides lazy loading functionality for images, pictures, iframes
 
 ### Markup
 
-The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>` and then for each target `<img>` add the `o-lazy-load` class name and change the `src` attribute to `data-src`. These changes will now prevent the image from loading when the page is visited so it is recommended to only lazy load decorative images which are "below the fold" of the page.
+The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>`. For each target `<img>` element add the `o-lazy-load` class name and change the `src` attribute to `data-src`. Because these changes will prevent the images from loading without JavaScript it is recommended to only lazy load decorative images which are "below the fold" of the page.
 
 ```diff
 - <body>
@@ -24,9 +24,9 @@ The most common use case for lazy loading is to delay the loading of images unti
 </body>
 ```
 
-When images are loaded it can cause a jarring reflow of the page. If you are implementing a page with a static width you may wish to apply `width` and `height` attributes to your image elements to prevent this. If you are working on a responsive site o-lazy-load provides placeholder styles which can reserve space of a fixed aspect ratio for content to load into.
+When images load it can cause a jarring reflow of the page. If you are working on a page with a static width you may wish to apply `width` and `height` attributes to your images to prevent this. If you are building a responsive site then o-lazy-load provides styles which can reserve a fixed aspect ratio space for content to load into.
 
-By default classes are provided for content with 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratios. If you are including o-lazy-load into your own build process you may configure the aspect ratios.
+By default classes are provided to preserve space for content with either a 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratio. If you are including o-lazy-load into your own build process you may configure the placeholder classes to generate.
 
 ```html
 <div class="o-lazy-load-placeholder o-lazy-load-placeholder--16:9">
@@ -34,7 +34,7 @@ By default classes are provided for content with 16:9, 16:10, 3:2, 4:3, or 1:1 a
 </div>
 ```
 
-If you are using the Build Service, or are calculating aspect ratios dynamically, you can also use a placeholder `<div>` element to apply percentage based heights [using the padding hack](https://css-tricks.com/aspect-ratio-boxes/).
+If you are using the Build Service, or are calculating aspect ratios dynamically, you can also use a placeholder element to apply a percentage based height [using the padding hack](https://css-tricks.com/aspect-ratio-boxes/).
 
 ```html
 <div class="o-lazy-load-placeholder">
@@ -44,9 +44,9 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 </div>
 ```
 
-Picture elements can also be lazy loaded, to do so add the `o-lazy-load` class to the `<picture>` and switch the `src` and `srcset` attributes for each of the `<source>` and `<img>` elements inside.
+To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `src` and `srcset` attributes for each of the `<source>` and `<img>` elements contained inside:
 
-```js
+```html
 <picture class="o-lazy-load">
 	<source data-srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
 	<source data-srcset="path/to/image-medium.jpg" media="screen and (max-width: 800px)">
@@ -54,14 +54,18 @@ Picture elements can also be lazy loaded, to do so add the `o-lazy-load` class t
 </picture>
 ```
 
-This component is also capable of lazy loading iframes, background images, and toggle class names when elements scroll into view. See the component demos for more information about these features.
+o-lazy-load is also capable of lazy loading iframes and toggle class names. See the component demos for more information about these features.
 
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
-You must either construct an o-lazy-load instance or fire the `o.DOMContentLoaded` event, which each oComponent listens for. By default either method will initialise this component and observe all  elements matching the selector `.o-lazy-load` in the document.
+You must either construct an o-lazy-load instance or fire the `o.DOMContentLoaded` event, which each oComponent listens for.
 
-#### Constructing o-lazy-load
+_Note: If the o-lazy-load root is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base element visibility on the viewport._
+
+#### Constructing an o-lazy-load instance
+
+To initialise o-lazy-load programmatically you can import the `oLazyLoad` class into your script:
 
 ```js
 import oLazyLoad from 'o-lazy-load';
@@ -72,19 +76,29 @@ const options = {};
 const lazyLoader = new oLazyLoad(root, options);
 ```
 
-The `oLazyLoad` constructor accepts two arguments - the root element and a map of options. If the `root` element is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base lazy loading on the viewport.
-
-The current options are:
+The `oLazyLoad` class constructor accepts two arguments - the `root` element and a map of `options`. The current o-lazy-load options are:
 
 - `selector` A CSS selector to match the elements to lazy load, these must be descendents of the `root`
 - `loaded` A callback function which receives the element just loaded
 
-All options will be passed to the intersection observer,
-
-- `rootMargin` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin
-- `threshold` https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/thresholds
+All other options will be passed to the intersection observer, so check [the `IntersectionObserver` documentation](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for more information about its configuration.
 
 #### Firing an oDomContentLoaded event
+
+To use o-lazy-load declaratively you must start by declaring the `root` element by appending the `data-o-component="o-lazy-load"` attribute to it. You can also add options to this element.
+
+```html
+<div
+	class="scrollable-area"
+	data-o-component="o-lazy-load"
+	data-o-lazy-load-selector=".js-target">
+	<div class="js-target">…</div>
+	<div class="js-target">…</div>
+	<div class="js-target">…</div>
+</div>
+```
+
+In your JavaScript you can then dispatch the `o.DOMContentLoaded` event:
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
@@ -92,11 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-You will need to
-
 #### Updating observed elements
 
-If you are loading new or extra content into your document, for example using AJAX or when building a single-page application you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance.
+If you are loading new or extra content into your document, for example using AJAX or building a single-page application, you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance you have previously constructed.
 
 ```js
 import oLazyLoad from 'o-lazy-load';
@@ -108,14 +120,16 @@ const lazyLoader = new oLazyLoad(document.documentElement);
 lazyLoader.observe();
 ```
 
+Call the `.observe()` method will find all elements matching the original options and add any new ones to the set to observe.
+
 ### Sass
 
-As with all Origami components, o-lazy-load has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-lazy-load-is-silent : false;` in your Sass before you import the o-lazy-load Sass.
+As with all Origami components, o-lazy-load has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-lazy-load-is-silent: false;` in your Sass before you import the o-lazy-load Sass.
 
-This component currently provides two mixins for styling image and picture elements:
+This component currently provides two mixins:
 
-- `oLazyLoadImage($class)` applies a fade in effect when image elements are loaded
-- `oLazyLoadPlaceholder($class)` provides basic styles for creating placeholder elements
+- `oLazyLoadImage($targetClass)` creates a fade in effect for when image or picture elements are loaded.
+- `oLazyLoadPlaceholder($placeholderClass, $targetClass)` provides basic styles for creating placeholder elements
 
 ---
 

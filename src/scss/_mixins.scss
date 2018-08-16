@@ -1,10 +1,10 @@
 /// Applies a fade-in effect to <img> and <picture> elements
 ///
-/// @param {String} $class
-@mixin oLazyLoadImage ($class: 'o-lazy-load') {
+/// @param {String} $targetClass
+@mixin oLazyLoadImage ($targetClass: 'o-lazy-load') {
 	// Apply fade-in effect only to <img> and <picture> elements
-	img.#{$class},
-	picture.#{$class} {
+	img.#{$targetClass},
+	picture.#{$targetClass} {
 		opacity: 0;
 		transition: opacity 0.25s;
 		will-change: opacity;
@@ -17,10 +17,10 @@
 
 /// Creates a placeholder to preserve space for lazy loaded content
 ///
-/// @param {String} $class
+/// @param {String} $placeholderClass
 /// @param {String} $targetClass
-@mixin oLazyLoadPlaceholder ($class: 'o-lazy-load-placeholder', $targetClass: 'o-lazy-load', $ratios: $o-lazy-load-placholder-ratios) {
-	.#{$class} {
+@mixin oLazyLoadPlaceholder ($placeholderClass: 'o-lazy-load-placeholder', $targetClass: 'o-lazy-load') {
+	.#{$placeholderClass} {
 		position: relative;
 
 		.#{$targetClass} {
@@ -29,6 +29,7 @@
 			left: 0;
 			// Images have implicit sizes so this forces them to fit the placeholder
 			width: 100%;
+			height: 100%;
 			// IntersectionObserver requires a non-zero height
 			min-height: 1px;
 		}
@@ -39,11 +40,11 @@
 		}
 	}
 
-	@each $ratio in $ratios {
+	@each $ratio in $o-lazy-load-placholder-ratios {
 		$x: nth($ratio, 1);
 		$y: nth($ratio, 2);
 
-		.#{$class}--#{$x}\:#{$y} {
+		.#{$placeholderClass}--#{$x}\:#{$y} {
 			&:after {
 				padding-bottom: percentage(1 / $x * $y);
 			}
