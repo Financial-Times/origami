@@ -24,18 +24,21 @@ const NormalImage = ({ src, ratio }) => (
 	</div>
 );
 
-// HACK: class names are specific to n-image 😷
-const LazyLoadImage = ({ src, ratio }) => (
-	<div className="o-teaser__image-placeholder n-image-wrapper--lazy-loading" style={{ paddingBottom: ratio }}>
-		<img className="o-teaser__image n-image--lazy-loading" data-src={src} alt="" />
-	</div>
-);
+const LazyImage = ({ src, ratio, lazyLoad }) => {
+	const className = typeof lazyLoad === 'string' ? lazyLoad : 'lazy-load';
+
+	return (
+		<div className="o-teaser__image-placeholder" style={{ paddingBottom: ratio }}>
+			<img className={`o-teaser__image ${className}`} data-src={src} alt="" />
+		</div>
+	);
+};
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
 	const displayUrl = relativeUrl || url;
 	const imageSrc = imageService(image.url, ImageSizes[imageSize]);
 	const imageRatio = aspectRatio(image.width, image.height);
-	const ImageComponent = imageLazyLoad ? LazyLoadImage : NormalImage;
+	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
@@ -44,7 +47,7 @@ export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props })
 				'tab-index': '-1',
 				'aria-hidden': 'true',
 			}}>
-				<ImageComponent src={imageSrc} ratio={imageRatio} />
+				<ImageComponent src={imageSrc} ratio={imageRatio} lazyLoad={imageLazyLoad} />
 			</Link>
 		</div>
 	) : null;
