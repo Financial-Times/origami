@@ -5,11 +5,10 @@ import Link from './Link';
 
 /**
  * Aspect Ratio
- * @param {Number} width
- * @param {Number} height
+ * @param {{ width: Number, height: Number }} image
  * @returns {String|null}
  */
-const aspectRatio = (width, height) => {
+const aspectRatio = ({ width, height }) => {
 	if (typeof width === 'number' && typeof height === 'number') {
 		const ratio = (100 / width) * height;
 		return ratio.toFixed(4) + '%';
@@ -18,37 +17,32 @@ const aspectRatio = (width, height) => {
 	return null;
 };
 
-const NormalImage = ({ src, ratio }) => (
-	<div className="o-teaser__image-placeholder" style={{ paddingBottom: ratio }}>
-		<img className="o-teaser__image" src={src} alt="" />
-	</div>
+const NormalImage = ({ src }) => (
+	<img className="o-teaser__image" src={src} alt="" />
 );
 
-const LazyImage = ({ src, ratio, lazyLoad }) => {
-	const className = typeof lazyLoad === 'string' ? lazyLoad : 'lazy-load';
-
-	return (
-		<div className="o-teaser__image-placeholder" style={{ paddingBottom: ratio }}>
-			<img className={`o-teaser__image ${className}`} data-src={src} alt="" />
-		</div>
-	);
+const LazyImage = ({ src, lazyLoad }) => {
+	// Allow folks to configure lazy loading class name but default to Origami
+	const lazyClassName = typeof lazyLoad === 'string' ? lazyLoad : 'o-lazy-load';
+	return <img className={`o-teaser__image ${lazyClassName}`} data-src={src} alt="" />;
 };
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
 	const displayUrl = relativeUrl || url;
 	const imageSrc = imageService(image.url, ImageSizes[imageSize]);
-	const imageRatio = aspectRatio(image.width, image.height);
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
-			<Link {...props} url={displayUrl} attrs={{
-				'data-trackable': 'image-link',
-				'tab-index': '-1',
-				'aria-hidden': 'true',
-			}}>
-				<ImageComponent src={imageSrc} ratio={imageRatio} lazyLoad={imageLazyLoad} />
-			</Link>
+			<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
+				<Link {...props} url={displayUrl} attrs={{
+					'data-trackable': 'image-link',
+					'tab-index': '-1',
+					'aria-hidden': 'true',
+				}}>
+					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
+				</Link>
+			</div>
 		</div>
 	) : null;
 };
