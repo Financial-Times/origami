@@ -5,11 +5,10 @@ const defaults = {
 const flag = 'data-o-lazy-load';
 
 function loadContent (element) {
-	// TODO: use data-src and data-srcset?
 	if (element.nodeName.toLowerCase() === 'picture') {
-		const img = document.createElement('img');
-		img.alt = element.getAttribute('data-alt');
-		element.appendChild(img);
+		// NOTE: element.children returns a live HTMLCollection
+		// but element.childNodes includes non-element children
+		Array.from(element.children).forEach(loadContent);
 	}
 
 	if (element.hasAttribute('data-src')) {

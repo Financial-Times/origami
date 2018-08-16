@@ -14,7 +14,7 @@ This component provides lazy loading functionality for images, pictures, iframes
 
 ### Markup
 
-The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document body and then for each target image add the `o-lazy-load` class name and change the `src` attribute to `data-src`. These changes will now prevent the image from loading when the page is visited and it is recommended to only lazy load images which are "below the fold" of the page.
+The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>` and then for each target `<img>` add the `o-lazy-load` class name and change the `src` attribute to `data-src`. These changes will now prevent the image from loading when the page is visited so it is recommended to only lazy load decorative images which are "below the fold" of the page.
 
 ```diff
 - <body>
@@ -34,7 +34,7 @@ By default classes are provided for content with 16:9, 16:10, 3:2, 4:3, or 1:1 a
 </div>
 ```
 
-If you are using the Build Service, or are calculating aspect ratios dynamically, you can also use a placeholder `<div>` element to apply percentage based heights [using the padding hack](https://css-tricks.com/aspect-ratio-boxes/):
+If you are using the Build Service, or are calculating aspect ratios dynamically, you can also use a placeholder `<div>` element to apply percentage based heights [using the padding hack](https://css-tricks.com/aspect-ratio-boxes/).
 
 ```html
 <div class="o-lazy-load-placeholder">
@@ -44,17 +44,17 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 </div>
 ```
 
-Picture elements can also be lazy loaded, to do so switch the required `<img>` element to another `<source>` element.
+Picture elements can also be lazy loaded, to do so add the `o-lazy-load` class to the `<picture>` and switch the `src` and `srcset` attributes for each of the `<source>` and `<img>` elements inside.
 
-```diff
+```js
 <picture class="o-lazy-load">
-	<source srcset="path/to/image-large.jpg" media="screen and (min-width: 480px)">
-+	<source srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
--	<img src="path/to/image-small.jpg">
+	<source data-srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
+	<source data-srcset="path/to/image-medium.jpg" media="screen and (max-width: 800px)">
+	<img data-srcset="path/to/image-large.jpg" alt="">
 </picture>
 ```
 
-This component is also capable of lazy loading iframes, background images, and add class names when elements scroll into view. See the component demos for more information about these features.
+This component is also capable of lazy loading iframes, background images, and toggle class names when elements scroll into view. See the component demos for more information about these features.
 
 ### JavaScript
 
