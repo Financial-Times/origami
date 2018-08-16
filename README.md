@@ -50,7 +50,7 @@ To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `s
 <picture class="o-lazy-load">
 	<source data-srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
 	<source data-srcset="path/to/image-medium.jpg" media="screen and (max-width: 800px)">
-	<img data-srcset="path/to/image-large.jpg" alt="">
+	<img data-src="path/to/image-large.jpg" alt="">
 </picture>
 ```
 
