@@ -127,7 +127,7 @@ Errors.prototype.init = function(options, raven) {
 
 	if (isErrorsDisabled) {
 		this.report = function(error) { return error; };
-		this.wrapWithContext = function(fn) { return fn; };
+		this.wrapWithContext = function(context, fn) { return fn; };
 		this.initialised = true;
 		return this;
 	}
