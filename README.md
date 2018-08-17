@@ -29,7 +29,7 @@ When images load it can cause a jarring reflow of the page. If you are working o
 By default classes are provided to preserve space for content with either a 16:9, 16:10, 3:2, 4:3, or 1:1 aspect ratio. If you are including o-lazy-load into your own build process you may configure the placeholder classes to generate.
 
 ```html
-<div class="o-lazy-load-placeholder o-lazy-load-placeholder--16:9">
+<div class="o-lazy-load-placeholder o-lazy-load-placeholder--16x9">
 	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
 </div>
 ```

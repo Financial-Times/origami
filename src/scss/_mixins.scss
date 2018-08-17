@@ -42,7 +42,7 @@
 		$ratioX: nth($ratio, 1);
 		$ratioY: nth($ratio, 2);
 
-		.#{$placeholderClass}--#{$ratioX}\:#{$ratioY} {
+		.#{$placeholderClass}--#{$ratioX}x#{$ratioY} {
 			&:after {
 				padding-bottom: percentage(1 / $ratioX * $ratioY);
 			}
