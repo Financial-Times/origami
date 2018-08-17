@@ -51,7 +51,7 @@ function callback (entries, observer) {
 	});
 }
 
-class oLazyLoad {
+class OLazyLoad {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [rootEl] - The component element in the DOM
@@ -129,11 +129,11 @@ class oLazyLoad {
 		}
 
 		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component="o-lazy-load"]')) {
-			return new oLazyLoad(rootEl, opts);
+			return new OLazyLoad(rootEl, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new oLazyLoad(rootEl, opts));
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new OLazyLoad(rootEl, opts));
 	}
 }
 
-export default oLazyLoad;
+export default OLazyLoad;

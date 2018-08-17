@@ -68,12 +68,12 @@ _Note: If the o-lazy-load root is set to the `<html>` or `<body>` element o-lazy
 To initialise o-lazy-load programmatically you can import the `oLazyLoad` class into your script:
 
 ```js
-import oLazyLoad from 'o-lazy-load';
+import LazyLoad from 'o-lazy-load';
 
 const root = document.documentElement;
 const options = {};
 
-const lazyLoader = new oLazyLoad(root, options);
+const lazyLoader = new LazyLoad(root, options);
 ```
 
 The `oLazyLoad` class constructor accepts two arguments - the `root` element and a map of `options`. The current o-lazy-load options are:
@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', function () {
 If you are loading new or extra content into your document, for example using AJAX or building a single-page application, you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance you have previously constructed.
 
 ```js
-import oLazyLoad from 'o-lazy-load';
+import LazyLoad from 'o-lazy-load';
 
-const lazyLoader = new oLazyLoad(document.documentElement);
+const lazyLoader = new LazyLoad(document.documentElement);
 
 // ... some logic to update the page ...
 
