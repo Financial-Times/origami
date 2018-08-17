@@ -1,8 +1,7 @@
 {
-	"primary" : {
+	"primary": {
 		"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
-		"colors": [
-			{
+		"colors": [{
 				"name": "paper",
 				"baseBackground": true,
 				"tints": false
@@ -30,10 +29,9 @@
 			}
 		]
 	},
-	"secondary" : {
+	"secondary": {
 		"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
-		"colors": [
-			{
+		"colors": [{
 				"name": "wheat"
 			},
 			{
@@ -53,10 +51,9 @@
 			}
 		]
 	},
-	"tertiary" : {
+	"tertiary": {
 		"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
-		"colors": [
-			{
+		"colors": [{
 				"name": "jade"
 			},
 			{
@@ -70,10 +67,9 @@
 			}
 		]
 	},
-	"tints" : {
+	"tints": {
 		"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
-		"colors": [
-			{
+		"colors": [{
 				"name": "black",
 				"tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 			},
@@ -95,10 +91,9 @@
 			}
 		]
 	},
-	"b2c" : {
+	"b2c": {
 		"description": "These colors are specifically designed for use in B2C products.",
-		"colors": [
-			{
+		"colors": [{
 				"name": "org-b2c"
 			},
 			{
@@ -108,5 +103,35 @@
 				"name": "org-b2c-light"
 			}
 		]
-	}
+	},
+	"percentages": [
+		{
+			"value": 10
+		},
+		{
+			"value": 20
+		},
+		{
+			"value": 30
+		},
+		{
+			"value": 40
+		},
+		{
+			"value": 50
+		},
+		{
+			"value": 60
+		},
+		{
+			"value": 70
+		},
+		{
+			"value": 80,
+			"default": true
+		},
+		{
+			"value": 90
+		}
+	]
 }

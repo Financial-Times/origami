@@ -53,7 +53,7 @@ function oColorsColorLuminance(hex) {
 	const colors = {
 		'red': decimals[0],
 		'green': decimals[1],
-		'blue':decimals[2]
+		'blue': decimals[2]
 	};
 
 	Object.keys(colors).forEach(color => {

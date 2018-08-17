@@ -17,7 +17,8 @@
 			"o-forms",
 			"o-buttons",
 			"o-normalise",
-			"o-fonts"
+			"o-fonts",
+			"o-syntax-highlight"
 		]
 	},
 	"ci": {
@@ -31,6 +32,15 @@
 			"js": "demos/src/contrast-checker.js",
 			"sass": "demos/src/contrast-checker.scss",
 			"template": "demos/src/contrast-checker.mustache",
+			"display_html": false
+		},
+		{
+			"name": "mix-sandbox",
+			"title": "mix-sandbox",
+			"data": "demos/src/palette.json",
+			"js": "demos/src/mix-sandbox.js",
+			"sass": "demos/src/mix-sandbox.scss",
+			"template": "demos/src/mix-sandbox.mustache",
 			"display_html": false
 		},
 		{
