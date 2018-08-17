@@ -3,19 +3,19 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-import OLazy from './../main';
+import oLazyLoad from './../main';
 
-describe("OLazy", () => {
+describe("oLazyLoad", () => {
 	it('is defined', () => {
-		proclaim.equal(typeof OLazy, 'function');
+		proclaim.equal(typeof oLazyLoad, 'function');
 	});
 
 	it('has a static init method', () => {
-		proclaim.equal(typeof OLazy.init, 'function');
+		proclaim.equal(typeof oLazyLoad.init, 'function');
 	});
 
 	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(OLazy, 'init');
+		const initSpy = sinon.spy(oLazyLoad, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
 			proclaim.equal(initSpy.called, true);
@@ -25,7 +25,7 @@ describe("OLazy", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(OLazy, 'init');
+		const initSpy = sinon.spy(oLazyLoad, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -39,14 +39,14 @@ describe("OLazy", () => {
 		});
 
 		it("component array when initialized", () => {
-			const boilerplate = OLazy.init();
+			const boilerplate = oLazyLoad.init();
 			proclaim.equal(boilerplate instanceof Array, true);
-			proclaim.equal(boilerplate[0] instanceof OLazy, true);
+			proclaim.equal(boilerplate[0] instanceof oLazyLoad, true);
 		});
 
 		it("single component when initialized with a root element", () => {
-			const boilerplate = OLazy.init('#element');
-			proclaim.equal(boilerplate instanceof OLazy, true);
+			const boilerplate = oLazyLoad.init('#element');
+			proclaim.equal(boilerplate instanceof oLazyLoad, true);
 		});
 	});
 });

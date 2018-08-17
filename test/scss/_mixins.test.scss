@@ -1,18 +1,58 @@
-@include describe('oLazy mixins') {
-	@include describe('oLazy') {
-		@include it('does something') {
-			@include assert() {
-				@include output($selector: false) {
-					.test-mixin {
-						@include oLazy();
-					}
-				};
-
-				@include expect($selector: false) {
-					.test-colors {
-					}
-				};
+@include describe('oLazyLoad mixins') {
+	@include it('provides a mixin for image elements') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoadImage('test-target');
 			};
-		}
+
+			@include contains() {
+				img.test-target,
+				picture.test-target {
+					opacity: 0;
+				}
+
+				img.test-target[data-o-lazy-load],
+				picture.test-target[data-o-lazy-load] {
+					opacity: 1;
+				}
+			};
+		};
+	}
+	@include it('provides a mixin for placeholder elements') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoadPlaceholder('test-placeholder', 'test-target');
+			};
+
+			@include contains() {
+				.test-placeholder {
+					position: relative;
+				}
+
+				.test-placeholder .test-target {
+					position: absolute;
+				}
+
+				.test-placeholder--16\:9:after {
+					padding-bottom: 56.25%;
+				}
+
+				.test-placeholder--16\:10:after {
+					padding-bottom: 62.5%;
+				}
+
+				.test-placeholder--3\:2:after {
+					padding-bottom: 66.66667%;
+				}
+
+				.test-placeholder--4\:3:after {
+					padding-bottom: 75%;
+				}
+
+				.test-placeholder--1\:1:after {
+					padding-bottom: 100%;
+				}
+			};
+		};
 	}
 }
