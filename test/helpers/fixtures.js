@@ -27,19 +27,19 @@ function htmlCode () {
 
 	const html = `
 		<div id="scrollable" style="width: 100px; height: ${viewportHeight}; overflow: scroll;">
-			<br style="margin-bottom: ${viewportHeight}">
+			<hr style="margin-bottom: ${viewportHeight}; border-width: 0;">
 
 			<img class="o-lazy-load" data-src="path/to/img-1.jpg" ${styleAttribute}>
 
-			<br style="margin-bottom: ${viewportHeight}">
+			<hr style="margin-bottom: ${viewportHeight}; border-width: 0;">
 
 			<img class="o-lazy-load" data-srcset="path/to/img-2.jpg 800w" sizes="(min-width: 800px)" ${styleAttribute}>
 
-			<br style="margin-bottom: ${viewportHeight}">
+			<hr style="margin-bottom: ${viewportHeight}; border-width: 0;">
 
 			<div class="o-lazy-load" data-toggle-class="is-loaded" ${styleAttribute}></div>
 
-			<br style="margin-bottom: ${viewportHeight}">
+			<hr style="margin-bottom: ${viewportHeight}; border-width: 0;">
 
 			<picture class="o-lazy-load" ${styleAttribute}>
 				<source data-srcset="path/to/img-s.jpg" media="screen and (max-width: 480px)">

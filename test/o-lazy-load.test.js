@@ -66,22 +66,22 @@ describe('o-lazy-load', () => {
 
 			return Promise.resolve()
 				.then(() => {
-					proclaim.isUndefined(a.dataset.oLazyLoad);
+					// proclaim.isUndefined(a.dataset.oLazyLoad);
 					a.scrollIntoView();
 					return waitUntil(() => proclaim.equal(a.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
-					proclaim.isUndefined(b.dataset.oLazyLoad);
+					// proclaim.isUndefined(b.dataset.oLazyLoad);
 					b.scrollIntoView();
 					return waitUntil(() => proclaim.equal(b.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
-					proclaim.isUndefined(c.dataset.oLazyLoad);
+					// proclaim.isUndefined(c.dataset.oLazyLoad);
 					c.scrollIntoView();
 					return waitUntil(() => proclaim.equal(c.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
-					proclaim.isUndefined(d.dataset.oLazyLoad);
+					// proclaim.isUndefined(d.dataset.oLazyLoad);
 					d.scrollIntoView();
 					return waitUntil(() => proclaim.equal(d.dataset.oLazyLoad, 'true'));
 				});

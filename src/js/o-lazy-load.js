@@ -51,7 +51,7 @@ function callback (entries, observer) {
 	});
 }
 
-class OLazyLoad {
+class LazyLoad {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [rootEl] - The component element in the DOM
@@ -59,7 +59,7 @@ class OLazyLoad {
 	 */
 	constructor (rootEl, opts) {
 		this.rootEl = rootEl;
-		this.options = Object.assign({}, defaults, opts, oLazyLoad.getDataAttributes(rootEl));
+		this.options = Object.assign({}, defaults, opts, LazyLoad.getDataAttributes(rootEl));
 
 		// Assume if the rootEl is the document element or body that the user intends to
 		// observe the viewport. The spec calls this "the top-level browsing context"
@@ -129,11 +129,11 @@ class OLazyLoad {
 		}
 
 		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component="o-lazy-load"]')) {
-			return new OLazyLoad(rootEl, opts);
+			return new LazyLoad(rootEl, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new OLazyLoad(rootEl, opts));
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-lazy-load"]'), (rootEl) => new LazyLoad(rootEl, opts));
 	}
 }
 
-export default OLazyLoad;
+export default LazyLoad;
