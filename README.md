@@ -128,7 +128,7 @@ As with all Origami components, o-lazy-load has a [silent mode](http://origami.f
 
 This component currently provides two mixins:
 
-- `oLazyLoadImage($targetClass)` creates a fade in effect for when image or picture elements are loaded.
+- `oLazyLoadTransition($class)` creates a fade in transition effect for when content is loaded, works best for image or picture elements.
 - `oLazyLoadPlaceholder($placeholderClass, $targetClass)` provides basic styles for creating placeholder elements
 
 ---

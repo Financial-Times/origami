@@ -2,17 +2,15 @@
 	@include it('provides a mixin for image elements') {
 		@include assert() {
 			@include output() {
-				@include oLazyLoadImage('test-target');
+				@include oLazyLoadTransition('test-target');
 			};
 
 			@include contains() {
-				img.test-target,
-				picture.test-target {
+				.test-target {
 					opacity: 0;
 				}
 
-				img.test-target[data-o-lazy-load],
-				picture.test-target[data-o-lazy-load] {
+				.test-target[data-o-lazy-load] {
 					opacity: 1;
 				}
 			};

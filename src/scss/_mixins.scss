@@ -1,10 +1,8 @@
-/// Applies a fade-in effect to <img> and <picture> elements
+/// Add a fade-in transition effect, works best for <img> or <picture> elements
 ///
-/// @param {String} $targetClass
-@mixin oLazyLoadImage ($targetClass: 'o-lazy-load') {
-	// Apply fade-in effect only to <img> and <picture> elements
-	img.#{$targetClass},
-	picture.#{$targetClass} {
+/// @param {String} $class
+@mixin oLazyLoadTransition ($class: 'o-lazy-load-transition') {
+	.#{$class} {
 		opacity: 0;
 		transition: opacity 0.25s;
 		will-change: opacity;
@@ -41,12 +39,12 @@
 	}
 
 	@each $ratio in $o-lazy-load-placholder-ratios {
-		$x: nth($ratio, 1);
-		$y: nth($ratio, 2);
+		$ratioX: nth($ratio, 1);
+		$ratioY: nth($ratio, 2);
 
-		.#{$placeholderClass}--#{$x}\:#{$y} {
+		.#{$placeholderClass}--#{$ratioX}\:#{$ratioY} {
 			&:after {
-				padding-bottom: percentage(1 / $x * $y);
+				padding-bottom: percentage(1 / $ratioX * $ratioY);
 			}
 		}
 	}
