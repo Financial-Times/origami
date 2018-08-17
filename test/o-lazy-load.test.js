@@ -66,47 +66,61 @@ describe('o-lazy-load', () => {
 
 			return Promise.resolve()
 				.then(() => {
+					proclaim.isUndefined(a.dataset.oLazyLoad);
 					a.scrollIntoView();
 					return waitUntil(() => proclaim.equal(a.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
+					proclaim.isUndefined(b.dataset.oLazyLoad);
 					b.scrollIntoView();
 					return waitUntil(() => proclaim.equal(b.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
+					proclaim.isUndefined(c.dataset.oLazyLoad);
 					c.scrollIntoView();
 					return waitUntil(() => proclaim.equal(c.dataset.oLazyLoad, 'true'));
 				})
 				.then(() => {
+					proclaim.isUndefined(d.dataset.oLazyLoad);
 					d.scrollIntoView();
 					return waitUntil(() => proclaim.equal(d.dataset.oLazyLoad, 'true'));
 				});
 		});
 
-		it('loads target when moved into bounds', () => {
+		it('loads  when moved into bounds', () => {
 			const [ a, b, c, d ] = sandboxEl.querySelectorAll('.o-lazy-load');
 
 			return Promise.resolve()
 				.then(() => {
+					// <img data-src>
+					proclaim.isNull(a.getAttribute('src'));
 					a.scrollIntoView();
 					return waitUntil(() => proclaim.equal(a.getAttribute('src'), 'path/to/img-1.jpg'));
 				})
 				.then(() => {
+					// <img data-srcset>
+					proclaim.isNull(b.getAttribute('srcset'));
 					b.scrollIntoView();
 					return waitUntil(() => proclaim.equal(b.getAttribute('srcset'), 'path/to/img-2.jpg 800w'));
 				})
 				.then(() => {
+					// <div data-toggle-class></div>
+					proclaim.isFalse(c.classList.contains('is-loaded'));
 					c.scrollIntoView();
-					return waitUntil(() => proclaim.equal(c.classList.contains('o-lazy-load'), true));
+					return waitUntil(() => proclaim.isTrue(c.classList.contains('is-loaded')));
 				})
 				.then(() => {
-					const src = d.querySelector('source');
+					// <picture><source data-srcset><img data-src></picture>
+					const source = d.querySelector('source');
 					const img = d.querySelector('img');
+
+					proclaim.isNull(source.getAttribute('srcset'));
+					proclaim.isNull(img.getAttribute('src'));
 
 					d.scrollIntoView();
 
 					return waitUntil(() => {
-						proclaim.equal(src.getAttribute('srcset'), 'path/to/img-s.jpg');
+						proclaim.equal(source.getAttribute('srcset'), 'path/to/img-s.jpg');
 						proclaim.equal(img.getAttribute('src'), 'path/to/img-l.jpg');
 					});
 				});

@@ -26,7 +26,7 @@ function htmlCode () {
 	const styleAttribute = 'style="display: block; width: 10px; height: 10px; background: red;"';
 
 	const html = `
-		<div id="scrollable" style="width: 100px; height: ${viewportHeight} overflow: scroll;">
+		<div id="scrollable" style="width: 100px; height: ${viewportHeight}; overflow: scroll;">
 			<br style="margin-bottom: ${viewportHeight}">
 
 			<img class="o-lazy-load" data-src="path/to/img-1.jpg" ${styleAttribute}>
