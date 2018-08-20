@@ -120,7 +120,7 @@ const lazyLoader = new LazyLoad(document.documentElement);
 lazyLoader.observe();
 ```
 
-Call the `.observe()` method will find all elements matching the original options and add any new ones to the set to observe.
+Calling this method will find all the elements matching the original options and append any new ones to the set to observe.
 
 ### Sass
 
@@ -128,8 +128,8 @@ As with all Origami components, o-lazy-load has a [silent mode](http://origami.f
 
 This component currently provides two mixins:
 
-- `oLazyLoadTransition($class)` creates a fade in transition effect for when content is loaded, works best for image or picture elements.
-- `oLazyLoadPlaceholder($placeholderClass, $targetClass)` provides basic styles for creating placeholder elements
+- `oLazyLoadTransition($class)` creates a fade in transition effect for when content is loaded which works best for image or picture elements.
+- `oLazyLoadPlaceholder($placeholderClass, $targetClass)` provides the basic layout styles for creating placeholder elements.
 
 ---
 
