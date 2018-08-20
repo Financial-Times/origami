@@ -34,8 +34,12 @@ function isLoaded (element) {
 }
 
 function callback (entries, observer) {
+	// NOTE: when an intersection observer is created this callback will be called with
+	// all items being observed so the threshold must be checked.
+	const threshold = observer.thresholds[0];
+
 	entries.forEach((entry) => {
-		if (entry.intersectionRatio > 0) {
+		if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
 			const target = entry.target;
 
 			observer.unobserve(target);
