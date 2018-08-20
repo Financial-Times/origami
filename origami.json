@@ -1,18 +1,22 @@
 {
-	"description": "This component provides flexible lazy loading functionality for images, pictures, iframes and more.",
+	"description": "This component provides lazy loading functionality for images, pictures, iframes, and more.",
 	"keywords": "",
 	"origamiType": "module",
-	"origamiCategory": "components",
+	"origamiCategory": "utilities",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-lazy-load/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
-	"supportStatus": "active",
-	"browserFeatures": {},
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [
+			"IntersectionObserver"
+		]
+	},
 	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-lazy-load"
+		"circle": "https://circleci.com/gh/Financial-Times/o-lazy-load"
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
