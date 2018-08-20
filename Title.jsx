@@ -11,7 +11,8 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 				'data-trackable': 'heading-link',
 				className: 'js-teaser-heading-link',
 			}}>
-				{` ${displayTitle} `}
+				{displayTitle}
+				{' '}
 			</Link>
 			{indicators && indicators.accessLevel === 'premium' ? (
 				<span className="o-labels o-labels--premium" aria-label="Premium content">
