@@ -87,7 +87,7 @@ describe('o-lazy-load', () => {
 				});
 		});
 
-		it('loads  when moved into bounds', () => {
+		it('can load images, pictures, and toggle class names', () => {
 			const [ a, b, c, d ] = sandboxEl.querySelectorAll('.o-lazy-load');
 
 			return Promise.resolve()
