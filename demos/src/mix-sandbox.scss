@@ -37,6 +37,7 @@ body {
 	}
 }
 
+
 .mix-range {
 	display: flex;
 	flex-direction: column-reverse;
@@ -57,13 +58,15 @@ body {
 			cursor: pointer;
 			outline: 2px solid var(--color);
 		}
+
+		&[aria-selected=true] {
+			outline: 2px solid var(--color);
+		}
 	}
 
 	.text {
 		align-self: center;
-
-		> * {
-			padding-left: 0.5em;
-		}
+		padding-left: 0.5em;
+		font-weight: 600;
 	}
 }
