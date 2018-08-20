@@ -195,9 +195,11 @@ The following options are not required, and all have a default value:
 	- `primary`:  Object. Holds the following values for button properties:
 		- `text`: String. text value of the button. Defaults to `null`
 		- `url`: String. The URL the button links to. Defaults to `#`
+		- `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
 	- `secondary`: Object. Holds the following values for link properties:
 		- `text`: String. text value of the link. Defaults to `null`
 		- `url`: String. The URL the link links to. Defaults to `#`
+		- `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
 - `close`: Boolean. Whether or not to display the close button. Defaults to `true`.
 
 ### Sass

@@ -74,5 +74,9 @@ export default {
 			<a href="#" class="my-message__actions__primary">a button</a>
 			<a href="#" class="my-message__actions__secondary">a link</a>
 			</div>
-		`
+		`,
+	actionsNewWindow: `<div class="my-message__actions">
+			<a href="#" class="my-message__actions__primary" target="_blank" aria-label="a button (opens in new window)">a button</a>
+			<a href="#" class="my-message__actions__secondary" target="_blank" aria-label="a link (opens in new window)">a link</a>
+			</div>`
 };

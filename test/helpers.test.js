@@ -25,18 +25,33 @@ describe("constructElement", () => {
 			actions: {
 				primary: {
 					text: 'a button',
-					url: '#'
+					url: '#',
+					openInNewWindow: false
 				},
 				secondary: {
 					text: 'a link',
-					url: '#'
+					url: '#',
+					openInNewWindow: false
 				}
 			},
 			close: true
 		};
 	});
 
-	it('builds an actions element', () => {
-		assert.strictEqual(flatten(buildActions(options)), flatten(fixtures.actions));
+	context('with `openInNewWindow` as false', () => {
+		it('builds an actions element', () => {
+			assert.strictEqual(flatten(buildActions(options)), flatten(fixtures.actions));
+		});
+	});
+
+	context('with `openInNewWindow` as true', () => {
+		beforeEach(() => {
+			options.actions.primary.openInNewWindow = true;
+			options.actions.secondary.openInNewWindow = true;
+		});
+
+		it('builds an actions element', () => {
+			assert.strictEqual(flatten(buildActions(options)), flatten(fixtures.actionsNewWindow));
+		});
 	});
 });

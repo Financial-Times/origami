@@ -43,11 +43,13 @@ class Message {
 			actions: {
 				primary: {
 					text: null,
-					url: '#'
+					url: '#',
+					openInNewWindow: false
 				},
 				secondary: {
 					text: null,
-					url: '#'
+					url: '#',
+					openInNewWindow: false
 				}
 			},
 			close: options && options.close ? options.close : true
