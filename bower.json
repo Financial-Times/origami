@@ -5,8 +5,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "demos"
+    "test"
   ],
   "main": [
     "main.js",
