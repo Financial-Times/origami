@@ -1,7 +1,7 @@
 /// Add a fade-in transition effect, works best for <img> or <picture> elements
 ///
 /// @param {String} $class
-@mixin oLazyLoadTransition ($class: 'o-lazy-load-transition') {
+@mixin oLazyLoadTransition ($class: 'o-lazy-load') {
 	.#{$class} {
 		opacity: 0;
 		transition: opacity 0.25s;

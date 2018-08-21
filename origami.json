@@ -29,24 +29,28 @@
 			"title": "Lazy loading images",
 			"name": "images",
 			"template": "demos/src/images.mustache",
+			"documentClasses": "demo-popout",
 			"description": "A basic implementation of loading images when they move into the viewport."
 		},
 		{
 			"title": "Content Placeholders",
 			"name": "placeholders",
 			"template": "demos/src/placeholders.mustache",
+			"documentClasses": "demo-popout",
 			"description": "Using a placeholder to preserve a fixed aspect ratio space for content to load into."
 		},
 		{
 			"title": "Class name toggle",
 			"name": "toggle",
 			"template": "demos/src/toggle.mustache",
+			"documentClasses": "demo-popout",
 			"description": "Implementing a class name toggle to add a jazzy loading animation."
 		},
 		{
 			"title": "Lazy loading picture elements",
 			"name": "pictures",
 			"template": "demos/src/picture.mustache",
+			"documentClasses": "demo-popout",
 			"description": "A more advanced implementation demonstrating how to load picture elements."
 		},
 		{
