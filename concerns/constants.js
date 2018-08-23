@@ -4,7 +4,8 @@ export const ImageSizes = {
 	Small: 240,
 	Medium: 340,
 	Large: 420,
-	XL: 640
+	XL: 640,
+	XXL: 1180 // max width of FT.com page
 };
 
 export const Layouts = {
