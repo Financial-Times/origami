@@ -1,6 +1,6 @@
-@import '../../main';
+$o-syntax-highlight-is-silent: false;
 
-@include oSyntaxHighlightAll();
+@import '../../main';
 
 .demo {
 	margin: 0 auto;

@@ -22,15 +22,15 @@ o-syntax-highlight uses the following colours, on a `slate-white-5` background (
 Color | Hex | Ratio | 14px+ | 18px+  or 14px **bold**
 ---|---|---|---|---
 `black-crimson-25` | `#a50f2d` | [7.06](https://contrast-ratio.com/#%23a50f2d-on-%23f4f4f5) | AAA | AAA
+`black-jade-30` | `#006b36` | [6.05](https://contrast-ratio.com/#%23006b36-on-%23f4f4f5) | AA | AAA
 `black-lemon-55` | `#736a0c` | [5.03](https://contrast-ratio.com/#%23736a0c-on-%23f4f4f5) | AA | AAA
-`black-mandarin-35` | `#a65821` | [4.72](https://contrast-ratio.com/#%23a65821-on-%23f4f4f5) | AA | AAA
-`claret-lemon-75` | `#b34634` | [4.97](http://contrast-ratio.com/#%23b34634-on-%23f4f4f5) | AA | AAA
+`crimson-jade-80` | `#a31f0f` | [6.92](http://contrast-ratio.com/#%23a31f0f-on-%23f4f4f5) | AA | AAA
 `grey-55` | `#737373` | [4.31](http://contrast-ratio.com/#%23737373-on-%23f4f4f5) | AA | AAA
 `grey-70` | `#4d4d4d` | [7.69](http://contrast-ratio.com/#%234d4d4d-on-%23f4f4f5) | AAA | AAA
 `oxford` | `#0f5499` | [6.95](http://contrast-ratio.com/#%230f5499-on-%23f4f4f5) | AA | AAA
 `oxford-jade-60` | `#097a7f` | [4.65](http://contrast-ratio.com/#%23097a7f-on-%23f4f4f5) | AA | AAA
-`oxford-sky-80` | `#3571ad` | [4.64](http://contrast-ratio.com/#%233571ad-on-%23f4f4f5) | AA | AAA
-`velvet-candy-60` | `#9b5191` | [4.8](http://contrast-ratio.com/#%239b5191-on-%23f4f4f5) | AA | AAA
+`oxford-lemon-80` | `#3f7280` | [4.86](http://contrast-ratio.com/#%233f7280-on-%23f4f4f5) | AA | AAA
+`oxford-crimson-50` | `#6e2a4d` | [9.09](http://contrast-ratio.com/#%6e2a4d-on-%23f4f4f5) | AAA | AAA
 
 ### Markup
 

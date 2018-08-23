@@ -4,12 +4,12 @@
 		.token {
 			&.boolean,
 			&.null {
-				color: oColorsGetPaletteColor('black-mandarin-35');
+				color: oColorsGetPaletteColor('black-jade-30');
 			}
 
 			&.comment { color: oColorsGetPaletteColor('grey-55'); }
-			&.function { color: oColorsGetPaletteColor('oxford-sky-80'); }
-			&.keyword { color: oColorsGetPaletteColor('claret-lemon-75'); }
+			&.function { color: oColorsGetPaletteColor('oxford-lemon-80'); }
+			&.keyword { color: oColorsGetPaletteColor('crimson-jade-80'); }
 
 			&.important,
 			&.parent.important,
@@ -31,7 +31,7 @@
 
 			&.variable,
 			&.statement.keyword {
-				color: oColorsGetPaletteColor('velvet-candy-60');
+				color: oColorsGetPaletteColor('oxford-crimson-50');
 			}
 
 			&.string { color: oColorsGetPaletteColor('oxford-jade-60'); }

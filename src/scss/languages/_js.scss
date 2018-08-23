@@ -8,23 +8,23 @@
 
 			&.regex,
 			&.boolean {
-				color: oColorsGetPaletteColor('black-mandarin-35');
+				color: oColorsGetPaletteColor('black-jade-30');
 			}
 
 			&.operator,
 			&.class-name {
-				color: oColorsGetPaletteColor('velvet-candy-60');
+				color: oColorsGetPaletteColor('oxford-crimson-50');
 			}
 
 			&.keyword,
 			&.function {
 				color: oColorsGetPaletteColor('oxford');
-				.function-variable { color: oColorsGetPaletteColor('velvet-candy-60'); }
+				.function-variable { color: oColorsGetPaletteColor('oxford-crimson-50'); }
 			}
 
 			&.number,
 			&.template-string .interpolation-punctuation {
-				color: oColorsGetPaletteColor('claret-lemon-75');
+				color: oColorsGetPaletteColor('crimson-jade-80');
 			}
 		}
 	}
