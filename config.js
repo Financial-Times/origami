@@ -3,7 +3,7 @@ module.exports = {
 	livefyre: {
 		network: "ft.fyre.co",
 		domain: "ft.auth.fyre.co",
-		resourceDomainBase: "//cdn.livefyre.com/"
+		resourceDomainBase: "https://cdn.livefyre.com/"
 	},
 	resourceUrls: {
 		livefyreJs: "Livefyre.js"
