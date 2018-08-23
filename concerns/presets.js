@@ -2,6 +2,7 @@ import { Layouts } from './constants';
 
 const Small = {
 	layout: Layouts.Small,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStatus: true
@@ -9,6 +10,7 @@ const Small = {
 
 const SmallHeavy = {
 	layout: Layouts.Small,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
@@ -19,6 +21,7 @@ const SmallHeavy = {
 
 const Large = {
 	layout: Layouts.Large,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
@@ -29,6 +32,7 @@ const Large = {
 
 const Hero = {
 	layout: Layouts.Hero,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStatus: true,
@@ -38,6 +42,7 @@ const Hero = {
 
 const HeroNarrow = {
 	layout: Layouts.Hero,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
@@ -46,6 +51,7 @@ const HeroNarrow = {
 
 const HeroVideo = {
 	layout: Layouts.Hero,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showVideo: true,
@@ -54,6 +60,7 @@ const HeroVideo = {
 
 const HeroOverlay = {
 	layout: Layouts.Hero,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStatus: true,
@@ -64,6 +71,7 @@ const HeroOverlay = {
 
 const TopStory = {
 	layout: Layouts.TopStory,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
@@ -73,6 +81,7 @@ const TopStory = {
 
 const TopStoryLandscape = {
 	layout: Layouts.TopStory,
+	useRelativeTime: true,
 	showMeta: true,
 	showTitle: true,
 	showStandfirst: true,
