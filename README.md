@@ -14,7 +14,9 @@ This component provides lazy loading functionality for images, pictures, iframes
 
 ### Markup
 
-The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>`. For each target `<img>` element add the `o-lazy-load` class name and change the `src` attribute to `data-src`. Because these changes will prevent the images from loading without JavaScript it is recommended to only lazy load decorative images which are "below the fold" of the page.
+The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>`. For each target `<img>` element add the `o-lazy-load` class name and change the `src` attribute to `data-src`. Because these changes will prevent the images from loading without JavaScript it is recommended to only lazy load decorative images which are "below the fold" of the page and _you should always consider the features you must provide as part of your [core experience]_.
+
+[core experience]: https://origami.ft.com/docs/developer-guide/modules/core-vs-enhanced-experience/
 
 ```diff
 - <body>
