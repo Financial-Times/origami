@@ -22,8 +22,7 @@ const NormalImage = ({ src }) => (
 );
 
 const LazyImage = ({ src, lazyLoad }) => {
-	// Allow folks to configure lazy loading class name but default to Origami
-	const lazyClassName = typeof lazyLoad === 'string' ? lazyLoad : 'o-lazy-load';
+	const lazyClassName = typeof lazyLoad === 'string' ? lazyLoad : '';
 	return <img className={`o-teaser__image ${lazyClassName}`} data-src={src} alt="" />;
 };
 
