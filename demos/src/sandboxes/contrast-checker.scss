@@ -2,7 +2,6 @@ $o-colors-is-silent: false;
 
 // Import colors module
 @import '../../main';
-$o-colors-button-size: 10px;
 
 .container {
 	max-width: 980px;
@@ -18,11 +17,6 @@ $o-colors-button-size: 10px;
 
 body {
 	font-family: MetricWeb, sans-serif;
-}
-
-.o-buttons--submit-colors {
-	margin: 0 $o-colors-button-size;
-	width: calc(100% - #{2 * $o-colors-button-size});
 }
 
 .rating-result--aaa,
@@ -54,6 +48,7 @@ body {
 
 .contrast-showcase {
 	padding: 20px;
+	border: 1px solid oColorsGetPaletteColor('slate-white-15');
 
 	&--text {
 		font-size: 14px;

@@ -1,0 +1,21 @@
+$o-brand: 'internal';
+@import '../../main';
+
+@include describe('branded palettes') {
+	@include describe('internal') {
+		@include test('has shared colours') {
+			@include assert-equal(oColorsGetPaletteColor('black'), (#000000));
+			@include assert-equal(oColorsGetPaletteColor('white'), (#ffffff));
+		};
+
+		@include test('does not have masterbrand colors') {
+			@include assert-equal(oColorsGetPaletteColor('paper'), (null));
+			@include assert-equal(oColorsGetPaletteColor('claret'), (null));
+			@include assert-equal(oColorsGetPaletteColor('wheat'), (null));
+			@include assert-equal(oColorsGetPaletteColor('sky'), (null));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c'), (null));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-dark'), (null));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-light'), (null));
+		};
+	};
+}

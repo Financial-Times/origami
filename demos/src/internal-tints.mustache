@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="demo-wrapper demo-wrapper--tints">
+		{{#tints}}
+			<div class="demo-tint-column">
+				<h4>{{name}}</h4>
+				{{#tint-levels}}
+					<div class="swatch swatch--tint o-colors-palette-{{name}}-{{.}}" data-o-color="{{name}}-{{.}}">
+						<label for="o-color-input-{{name}}-{{.}}">{{name}}-{{.}}</label>
+						<input type="text" class="hex" id="o-color-input-{{name}}-{{.}}" value="" readonly>
+					</div>
+				{{/tint-levels}}
+			</div>
+		{{/tints}}
+	</div>
+</div>

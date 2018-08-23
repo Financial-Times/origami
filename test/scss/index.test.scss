@@ -1,11 +1,5 @@
 @import 'true';
-@import '../../main';
-
 $_test-environment: true;
 
-@import 'tools/a11y.test';
-@import 'tools/color.test';
-
-@import 'functions.test';
-@import 'palette.test';
-@import 'mixins.test';
+@import 'internal.test';
+@import 'master.test';

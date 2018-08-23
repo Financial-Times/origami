@@ -1,0 +1,121 @@
+{
+	"primary": [
+		{
+			"name": "paper",
+			"baseBackground": true
+		},
+		{
+			"name": "black",
+			"baseText": true
+		},
+		{
+			"name": "white"
+		},
+		{
+			"name": "claret"
+		},
+		{
+			"name": "oxford"
+		},
+		{
+			"name": "teal"
+		}
+	],
+	"secondary": [
+		{
+			"name": "wheat"
+		},
+		{
+			"name": "sky"
+		},
+		{
+			"name": "slate"
+		},
+		{
+			"name": "velvet"
+		},
+		{
+			"name": "mandarin"
+		},
+		{
+			"name": "lemon"
+		}
+	],
+	"tertiary": [
+		{
+			"name": "jade"
+		},
+		{
+			"name": "wasabi"
+		},
+		{
+			"name": "crimson"
+		},
+		{
+			"name": "candy"
+		}
+	],
+	"b2c": [
+		{
+			"name": "org-b2c"
+		},
+		{
+			"name": "org-b2c-dark"
+		},
+		{
+			"name": "org-b2c-light"
+		}
+	],
+	"tints": [
+		{
+			"name": "black",
+			"tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+		},
+		{
+			"name": "white",
+			"tint-levels": [10, 20, 40, 60, 80]
+		},
+		{
+			"name": "claret",
+			"tint-levels": [30, 40, 50, 60, 70, 80, 90, 100]
+		},
+		{
+			"name": "oxford",
+			"tint-levels": [30, 40, 50, 60, 70, 80, 90, 100]
+		},
+		{
+			"name": "teal",
+			"tint-levels": [20, 30, 40, 50, 60, 70, 80, 90, 100]
+		}
+	],
+	"percentages": [
+		{
+			"value": 10
+		},
+		{
+			"value": 20
+		},
+		{
+			"value": 30
+		},
+		{
+			"value": 40
+		},
+		{
+			"value": 50
+		},
+		{
+			"value": 60
+		},
+		{
+			"value": 70
+		},
+		{
+			"value": 80,
+			"default": true
+		},
+		{
+			"value": 90
+		}
+	]
+}
