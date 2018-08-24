@@ -70,6 +70,8 @@ workflows:
     jobs:
       - test
       - commit:
+          requires:
+            - test
           filters:
             branches:
               only: master
