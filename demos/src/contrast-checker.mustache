@@ -4,25 +4,21 @@
 			<label aria-describedby="select-box-info" for="select-standard" class="o-forms__label">Text/foreground color</label>
 			<select id="text-selector" class="o-forms__select">
 
-				{{#primary}}
+				{{#primary.colors}}
 					<option value="{{name}}" {{#baseText}}selected {{/baseText}}>{{name}}</option>
-				{{/primary}}
+				{{/primary.colors}}
 
-				{{#secondary}}
+				{{#secondary.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/secondary}}
+				{{/secondary.colors}}
 
-				{{#tertiary}}
+				{{#tertiary.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/tertiary}}
+				{{/tertiary.colors}}
 
-				{{#b2c}}
+				{{#b2c.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/b2c}}
-
-				{{#experimental}}
-					<option value={{name}}>{{name}}</option>
-				{{/experimental}}
+				{{/b2c.colors}}
 
 			</select>
 		</div>
@@ -30,25 +26,21 @@
 			<label aria-describedby="select-box-info" for="select-standard" class="o-forms__label">Background color</label>
 			<select id="background-selector" class="o-forms__select">
 
-				{{#primary}}
+				{{#primary.colors}}
 					<option value={{name}} {{#baseBackground}}selected {{/baseBackground}}>{{name}}</option>
-				{{/primary}}
+				{{/primary.colors}}
 
-				{{#secondary}}
+				{{#secondary.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/secondary}}
+				{{/secondary.colors}}
 
-				{{#tertiary}}
+				{{#tertiary.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/tertiary}}
+				{{/tertiary.colors}}
 
-				{{#b2c}}
+				{{#b2c.colors}}
 					<option value={{name}}>{{name}}</option>
-				{{/b2c}}
-
-				{{#experimental}}
-					<option value={{name}}>{{name}}</option>
-				{{/experimental}}
+				{{/b2c.colors}}
 
 			</select>
 		</div>

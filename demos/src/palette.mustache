@@ -1,0 +1,79 @@
+<div class="container">
+	{{#primary}}
+		<div class="demo-header">
+			<h2>Primary</h2>
+			<p>{{description}}</p>
+		</div>
+
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<h3>
+						<label for="o-color-input-{{name}}">{{name}}</label>
+						{{! Button to show tints of the color in the swatch }}
+					<!-- {{#tints}}<button class="demo-tint-button demo-tint-button--{{name}}">Tints</button>{{/tints}} -->
+					</h3>
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
+						{{! Where the tints will display }}
+						<!-- {{#tints}}<div class="demo-tints-container"></div>{{/tints}} -->
+					</div>
+				</div>
+			{{/colors}}
+		</div>
+	{{/primary}}
+
+	{{#secondary}}
+		<div class="demo-header">
+			<h2>Secondary</h2>
+			<p>{{description}}</p>
+		</div>
+
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
+					</div>
+				</div>
+			{{/colors}}
+		</div>
+	{{/secondary}}
+
+	{{#tertiary}}
+		<div class="demo-header">
+			<h2>Tertiary</h2>
+			<p>{{description}}</p>
+		</div>
+
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
+					</div>
+				</div>
+			{{/colors}}
+		</div>
+	{{/tertiary}}
+
+	{{#b2c}}
+		<div class="demo-header">
+			<h2>B2C colors</h2>
+			<p>{{description}}</p>
+		</div>
+
+		<div class="demo-wrapper">
+			{{#colors}}
+				<div class="demo-color">
+					<h3><label for="o-color-input-{{name}}">{{name}}</label></h3>
+					<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+						<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
+					</div>
+				</div>
+			{{/colors}}
+		</div>
+	{{/b2c}}
+</div>

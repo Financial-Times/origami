@@ -62,10 +62,10 @@
 	@if ($propertyList == 'all' or index($propertyList, 'background')) {
 		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
-	
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
 		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
 		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
+
 		// If no text color is defined but there is a background color for the use case
 		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
 			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);

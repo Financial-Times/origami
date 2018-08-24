@@ -3,14 +3,12 @@ $o-colors-is-silent: true !default;
 $_o-colors-brand: if(global-variable-exists(o-brand), if($o-brand != null, $o-brand, 'master'), 'master');
 
 $o-colors-palette: () !default;
-$o-colors-tints: () !default;
-
 $_o-colors-experimental-palette: (
 	'slate-white-15':        #dedfe0, // oColorsMix('slate', 'white', 15): to support work on internal brand design
 	'slate-white-5':         #f4f4f5, // oColorsMix('slate', 'white', 5): to support work on internal brand design
 );
 
-$_o-colors-experimental-palette-warning: false !default;
+$_o-colors-experimental-palette-warning: true !default;
 
 $o-colors-usecases: () !default;
 
