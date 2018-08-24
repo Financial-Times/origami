@@ -22,13 +22,28 @@
 			"name": "book"
 		},
 		{
+			"name": "bookmark-outline"
+		},
+		{
+			"name": "bookmark"
+		},
+		{
+			"name": "circle"
+		},
+		{
 			"name": "corporate"
 		},
 		{
 			"name": "cross"
 		},
 		{
+			"name": "dollar"
+		},
+		{
 			"name": "download"
+		},
+		{
+			"name": "edit"
 		},
 		{
 			"name": "gift"
@@ -88,6 +103,9 @@
 			"name": "print"
 		},
 		{
+			"name": "refresh"
+		},
+		{
 			"name": "search"
 		},
 		{
@@ -115,6 +133,9 @@
 			"name": "tick"
 		},
 		{
+			"name": "trash"
+		},
+		{
 			"name": "upload"
 		},
 		{
@@ -124,16 +145,13 @@
 			"name": "users"
 		},
 		{
+			"name": "video"
+		},
+		{
 			"name": "warning"
 		},
 		{
 			"name": "written-text"
-		},
-		{
-			"name": "video"
-		},
-		{
-			"name": "pin"
 		}
 	]
 }
