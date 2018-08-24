@@ -1,7 +1,7 @@
 $o-colors-is-silent: false;
 
 // Import colors module
-@import '../../main';
+@import '../../../main';
 
 .container {
 	max-width: 980px;
@@ -9,6 +9,11 @@ $o-colors-is-silent: false;
 	padding: 20px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+
+
+	@media (max-width: 630px) {
+		grid-template-columns: 1fr;
+	}
 }
 
 .color-selectors {
@@ -25,7 +30,7 @@ body {
 }
 
 .rating-result--aa18 {
-	color: oColorsGetPaletteColor('mandarin');
+	color: oColorsMix('crimson', 'lemon', 50);
 }
 
 .rating-result--fail {
@@ -36,7 +41,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding: 20px 10px 0;
-	border-top: 1px solid oColorsGetPaletteColor('slate-white-15');
+	border-top: 1px solid oColorsMix('black', 'white', 5);
 	font-size: 18px;
 
 	div {
@@ -48,7 +53,7 @@ body {
 
 .contrast-showcase {
 	padding: 20px;
-	border: 1px solid oColorsGetPaletteColor('slate-white-15');
+	border: 1px solid oColorsMix('black', 'white', 5);
 
 	&--text {
 		font-size: 14px;

@@ -3,27 +3,7 @@ $o-colors-is-silent: false;
 // Import colors module
 @import '../../main';
 
-@function oColorsJSONifyMap($map) {
-	$json: '{';
-	$comma: false;
-
-	@each $key, $value in $map {
-		@if $comma {
-			$json: '#{$json}, ';
-		} @else {
-			$comma: true;
-		}
-
-		$json: '#{$json}"#{$key}": "#{$value}"';
-	}
-
-	$json: '#{$json}}';
-
-	@return $json;
-}
-
 body {
-	content: "#{oColorsJSONifyMap($o-colors-palette)}";
 	box-sizing: border-box;
 	font-family: MetricWeb, Arial, sans-serif;
 	font-size: 18px;
@@ -49,35 +29,8 @@ body {
 
 		.o-colors-palette-#{$name} .hex,
 		.o-colors-palette-#{$name}:after {
-			// Text at 90% does not pass contrast tests so increase
-			// the shade to pass
-			@if $name == 'jade' {
-				color: oColorsGetTextColor($csscolor, 95);
-			} @else {
-				color: oColorsGetTextColor($csscolor, 90);
-			}
+			color: oColorsGetTextColor($csscolor, 95);
 		}
-	}
-}
-
-.o-colors-palette-org-b2c {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c'), 90);
-	}
-}
-
-.o-colors-palette-org-b2c-light {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-light'), 90);
-	}
-}
-
-.o-colors-palette-org-b2c-dark {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-dark'), 90);
 	}
 }
 
@@ -103,29 +56,6 @@ body {
 		padding: 8px;
 		font-weight: normal;
 		text-align: center;
-	}
-}
-
-.demo-tints-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-content: stretch;
-	transform: translateY(-100%);
-	transition: transform 0.3s ease-in;
-
-	&.show-me {
-		transform: translateY(0);
-	}
-
-	.demo-tint {
-		flex: 1 0 25%;
-		cursor: pointer;
 	}
 }
 

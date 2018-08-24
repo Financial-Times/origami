@@ -1,7 +1,7 @@
 $o-colors-is-silent: false;
 
 // Import colors module
-@import '../../main';
+@import '../../../main';
 
 :root {
 	--color: black;
@@ -17,6 +17,16 @@ $o-colors-is-silent: false;
 	.o-forms__label,
 	.o-forms__additional-info {
 		color: inherit;
+	}
+
+
+	@media (max-width: 630px) {
+		grid-template-columns: 1fr;
+
+		.details {
+			grid-row: 2;
+			padding-bottom: 20px;
+		}
 	}
 }
 
@@ -34,7 +44,7 @@ body {
 	pre {
 		margin: 10px 0;
 		padding: 10px;
-		border: 1px solid oColorsGetPaletteColor(slate-white-15);
+		border: 1px solid oColorsMix('black', 'white', 5);
 	}
 }
 
@@ -46,12 +56,6 @@ body {
 	[class^='percent'] {
 		display: flex;
 		justify-content: flex-start;
-
-		&:before {
-			content: '';
-			height: 50px;
-			width: 50px;
-		}
 	}
 
 	.sqr {

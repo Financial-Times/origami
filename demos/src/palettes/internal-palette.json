@@ -1,43 +1,21 @@
 {
 	"primary": [
-		{
-			"name": "black",
-			"baseText": true
-		},
-		{
-			"name": "white",
-			"baseBackground": true
-		},
-		{
-			"name": "oxford"
-		},
-		{
-			"name": "teal"
-		}
+		{ "name": "black", "baseText": true },
+		{ "name": "white", "baseBackground": true },
+		{ "name": "oxford" },
+		{ "name": "teal" }
 	],
 	"secondary": [
-		{
-			"name": "slate"
-		},
-		{
-			"name": "lemon"
-		}
+		{ "name": "slate" },
+		{ "name": "lemon" }
 	],
 	"tertiary": [
-		{
-			"name": "jade"
-		},
-		{
-			"name": "crimson"
-		}
+		{ "name": "jade" },
+		{ "name": "crimson" }
 	],
 	"experimental": [
-		{
-			"name": "slate-white-5"
-		},
-		{
-			"name": "slate-white-15"
-		}
+		{ "name": "slate-white-5" },
+		{ "name": "slate-white-15" }
 	],
 	"tints": [
 		{
@@ -54,33 +32,14 @@
 		}
 	],
 	"percentages": [
-		{
-			"value": 10
-		},
-		{
-			"value": 20
-		},
-		{
-			"value": 30
-		},
-		{
-			"value": 40
-		},
-		{
-			"value": 50
-		},
-		{
-			"value": 60
-		},
-		{
-			"value": 70
-		},
-		{
-			"value": 80,
-			"default": true
-		},
-		{
-			"value": 90
-		}
+		{ "value": 10 },
+		{ "value": 20 },
+		{ "value": 30 },
+		{ "value": 40 },
+		{ "value": 50 },
+		{ "value": 60 },
+		{ "value": 70 },
+		{ "value": 80, "default": true },
+		{ "value": 90 }
 	]
 }
