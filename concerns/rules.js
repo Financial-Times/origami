@@ -1,33 +1,35 @@
 /**
- * Rules are collections of exclusive properties. They are declared in a ruleset
- * (an array of functions) in order of precedence. Each value returned by a rule
- * will evaluated as a boolean and the name of any matching rule returned.
+ * Rules are sets of exclusive properties.
+ * They are used to ensure that only one property can take precedence.
  */
 const rulesets = {
-	media: [
-		function video(props) {
-			return props.showVideo && props.video && props.video.url;
-		},
-		function headshot(props) {
-			return (
-				props.showHeadshot && props.headshot && props.headshot.url && props.indicators.isColumn
-			);
-		},
-		function image(props) {
-			return props.showImage && props.image && props.image.url;
+	media: (props) => {
+		// If this condition evaluates to true then no headshot nor image will be displayed.
+		if (props.showVideo && props.video && props.video.url) {
+			return 'video';
 		}
-	],
-	theme: [
-		function live(props) {
-			return props.status && props.status === 'inprogress';
-		},
-		function opinion(props) {
-			return props.indicators && props.indicators.isOpinion;
-		},
-		function highlight(props) {
-			return props.indicators && props.indicators.isEditorsChoice;
+
+		if (props.showHeadshot && props.headshot && props.headshot.url && props.indicators.isColumn) {
+			return 'headshot';
 		}
-	]
+
+		if (props.showImage && props.image && props.image.url) {
+			return 'image';
+		}
+	},
+	theme: (props) => {
+		if (props.status && props.status === 'inprogress') {
+			return 'live'
+		}
+
+		if (props.indicators && props.indicators.isOpinion) {
+			return 'opinion'
+		}
+
+		if (props.indicators && props.indicators.isEditorsChoice) {
+			return 'highlight'
+		}
+	}
 };
 
 /**
@@ -38,8 +40,7 @@ const rulesets = {
  */
 export default function rules(rule, props) {
 	if (rulesets.hasOwnProperty(rule)) {
-		const index = rulesets[rule].findIndex((rule) => rule(props));
-		return index !== -1 ? rulesets[rule][index].name : null;
+		return rulesets[rule](props);
 	} else {
 		throw Error(`No ruleset available named ${rule}`);
 	}
