@@ -47,8 +47,16 @@
 		@include oTeaserMeta;
 	}
 
+	.o-teaser__tag-prefix {
+		@include oTeaserTagPrefix;
+	}
+
 	.o-teaser__tag {
 		@include oTeaserTag;
+	}
+
+	.o-teaser__tag-suffix {
+		@include oTeaserTagSuffix;
 	}
 
 	.o-teaser__heading {
@@ -235,6 +243,7 @@
 		@include oTeaserBigVideo;
 	}
 
+	// NOTE: deprecate this element in next major version
 	.o-teaser__duration {
 		@include oTeaserDuration;
 	}
