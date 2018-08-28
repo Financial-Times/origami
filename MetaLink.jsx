@@ -17,14 +17,14 @@ export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context
 	const displayLink = useAltLink ? metaAltLink : metaLink;
 
 	return (
-		<div className="o-teaser__meta-concept">
+		<div className="o-teaser__meta-tag">
 			{showPrefixText ? <span className="o-teaser__tag-prefix">{metaPrefixText}</span> : null}
 			{displayLink ? (
 				<a
 					className="o-teaser__tag"
 					data-trackable="teaser-tag"
 					href={displayLink.relativeUrl || displayLink.url}>
-					{` ${displayLink.prefLabel} `}
+					{displayLink.prefLabel}
 				</a>
 			) : null}
 			{showSuffixText ? <span className="o-teaser__tag-suffix">{metaSuffixText}</span> : null}
