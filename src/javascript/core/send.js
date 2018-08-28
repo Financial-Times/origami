@@ -99,6 +99,19 @@ function sendRequest(request, callback) {
 	if (!(settings.get('developer') && settings.get('no_send'))) {
 		transport.send(url, stringifiedData);
 	}
+
+	// Detect IE11
+	const ie11 = !!navigator.userAgent.match(/Trident\/7\./);
+	if (ie11 && request.category === 'page' && request.action === 'view') {
+		// Force use of image method
+		let image_method = transports.get('image')();
+		// Use a clone of the object to avoid mutating original
+		let b2b_data = JSON.parse(stringifiedData);
+		// Change category
+		b2b_data.category = 'ie11';
+		// Send it
+		image_method.send(url, JSON.stringify(b2b_data));
+	}
 }
 
 /**
