@@ -109,6 +109,8 @@ function sendRequest(request, callback) {
 		let b2b_data = JSON.parse(stringifiedData);
 		// Change category
 		b2b_data.category = 'ie11';
+		// New ID
+		b2b_data.context.id = utils.guid();
 		// Send it
 		image_method.send(url, JSON.stringify(b2b_data));
 	}
