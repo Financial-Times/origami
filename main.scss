@@ -79,12 +79,6 @@ $n-notification-is-silent: true !default;
 		text-indent: -999em;
 	}
 
-	.n-notification .myft-ui__icon {
-		@include nGetImage('logo', 'brand-myft', getColor('black-80'), 20);
-		margin: 0 3px -5px;
-		width: 34px;
-	}
-
 	.n-notification--error,
 	.n-notification--success {
 		color: getColor('white');
@@ -107,9 +101,6 @@ $n-notification-is-silent: true !default;
 			width: 40px;
 			height: 40px;
 			text-indent: -999em;
-		}
-		.myft-ui__icon {
-			@include nGetImage('logo', 'brand-myft', getColor('white'), 20);
 		}
 	}
 
