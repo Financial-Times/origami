@@ -38,6 +38,12 @@ describe('Notifications', () => {
 			expect(document.querySelector('.n-notification--success')).not.to.be.null;
 		});
 
+		it('should not set modifier class for unsupported types', () => {
+			nNotification.show({type: 'indifferent'});
+			expect(document.querySelector('.n-notification--indifferent')).to.be.null;
+			expect(document.querySelector('.n-notification--default')).to.be.null;
+		});
+
 		it('should remove the message after the specified timeout', () => {
 			nNotification.show({title: 'Title', content: 'Content', duration: defaultDuration});
 			expect(document.querySelector('.n-notification__item')).not.to.be.null;

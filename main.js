@@ -1,5 +1,6 @@
 const template = require('./src/js/template');
 const timeoutDuration = 5000;
+const supportedTypes = ['error', 'success'];
 
 const stack = [];
 const eventShow = (e) => show(e.detail);
@@ -11,6 +12,10 @@ class Notice {
 	constructor (options) {
 
 		options.trackable = options.trackable || `notification-${options.type}`;
+
+		if (options.type && supportedTypes.includes(options.type)) {
+			options.modifier = options.type;
+		}
 
 		this.notice = document.createElement('div');
 		this.notice.appendChild(template(options));

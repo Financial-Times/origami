@@ -11,7 +11,7 @@ Concurrent notifications are stacked, most recent at the top.
 	nNotification.show({
 		title: 'Optional title',
 		content:'<p>Here is a message</p>',
-		type:'myft', // optional see below
+		type: 'success', // optional see below
 		duration: 7000 // optional, default is 5000
 	});
 
@@ -24,14 +24,14 @@ Concurrent notifications are stacked, most recent at the top.
 
 ## Types
 
-	type is optional
+`type` is optional, but if specified must have one of the following values:
 
-	'error', produces an error styled notification (red).
-	'success', styled green
+* `error`, produces an error styled notification (red).
+* `success`, styled green
 
 	any other type or if type is not provided, will result in a default FT pink notification.
 
 # Ideas for the future
 
-* Using the Notifications and PageVisibility APIS to show people notifications with the FT open in the background.
+* Using the Notifications and PageVisibility APIs to show people notifications with the FT open in the background.
 * Firing messages and notifcations from Server Sent Events
