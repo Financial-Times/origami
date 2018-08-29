@@ -1,7 +1,13 @@
 module.exports = (options) => {
 
 	const noticeEl = document.createElement('div');
-	noticeEl.className = `n-notification__item n-notification--${options.type ? options.type : 'default'}`;
+
+	noticeEl.classList.add('n-notification__item');
+
+	if (options.modifier) {
+		noticeEl.classList.add(`n-notification--${options.modifier}`);
+	}
+
 	noticeEl.setAttribute("role", "alert");
 	noticeEl.setAttribute("data-trackable", options.trackable);
 
