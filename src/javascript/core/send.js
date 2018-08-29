@@ -101,7 +101,7 @@ function sendRequest(request, callback) {
 	}
 
 	// Detect IE11
-	const ie11 = !!navigator.userAgent.match(/Trident\/7\./);
+	const ie11 = !!window.MSInputMethodContext && !!document.documentMode;
 	if (ie11 && request.category === 'page' && request.action === 'view') {
 		// Force use of image method
 		let image_method = transports.get('image')();
