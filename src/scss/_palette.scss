@@ -186,7 +186,6 @@ $o-colors-palette: if($_o-colors-brand == internal, map-merge($_o-colors-experim
 			hue: 185,
 			saturation: 90,
 			tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
-			_deprecated: true,
 		),
 		'wheat': (
 			hue: 28,
