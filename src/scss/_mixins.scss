@@ -6,10 +6,18 @@
 /// Add a custom palette color
 ///
 /// @example scss
-///  @include oColorsSetColor('grey-tint20': #cccccc);
+///  @include oColorsSetColor('grey-tint-20', #cccccc);
+///
+/// The internal and external palette do not share all colours, and we need  to
+/// indicate that a particular color or colors will be deprecated for the internal
+/// palette in the future
+///
+/// @example scss
+/// @include oColorsSetColor('paper-tint-20', (#fff1e5, _deprecated));
 ///
 /// @param {String} $name - Name in the palette
 /// @param {color} $color - Color (rgb, hex, hsl…)
+/// @param {color} $color - List (to signal deprecated tints for internal brand)
 @mixin oColorsSetColor($name, $color) {
 	$newcolor: ($name: $color);
 
@@ -62,6 +70,7 @@
 	@if ($propertyList == 'all' or index($propertyList, 'background')) {
 		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
 	}
+
 	@if ($propertyList == 'all' or index($propertyList, 'text')) {
 		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
 		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
@@ -86,9 +95,14 @@
 		$tints: map-get($settings, 'tints');
 
 		$saturation: null;
+		$deprecated: null;
 
 		@if map-has-key($settings, 'saturation') {
 			$saturation: map-get($settings, 'saturation');
+		}
+
+		@if map-has-key($settings, '_deprecated') {
+			$deprecated: '_deprecated';
 		}
 
 		@if $tints != null {
@@ -102,7 +116,7 @@
 					$tint: _oColorsHSB($hue, $saturation, $value);
 				}
 
-				@include oColorsSetColor($name, $tint);
+				@include oColorsSetColor($name, ($tint, $deprecated));
 			}
 		}
 	}

@@ -34,12 +34,12 @@
 		}
 	}
 
-	@each $name, $csscolor in $o-colors-palette {
+	@each $name, $value in $o-colors-palette {
 		.o-colors-palette-#{$name} {
-			background-color: $csscolor;
+			background-color: oColorsGetPaletteColor($name);
 
-			@if $csscolor != 'transparent' and $csscolor != 'inherit' {
-				color: oColorsGetTextColor($csscolor, 100);
+			@if $name != 'transparent' and $name != 'inherit' {
+				color: oColorsGetTextColor($name, 100);
 			}
 		}
 	}

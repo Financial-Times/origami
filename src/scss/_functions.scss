@@ -7,18 +7,29 @@
 ///
 /// @param {String} $name
 @function oColorsGetPaletteColor($name) {
-	@if (map-has-key($o-colors-palette, $name)) {
+	@if (map-has-key($o-colors-palette, inspect($name))) {
+		$color: map-get($o-colors-palette, inspect($name));
 
+		//check if it is deprecated
+		@if type-of($color) == list {
+			@if nth($color, 2) == '_deprecated' {
+				@warn "#{$name} is deprecated for the internal palette, and will be removed in the next major.";
+			}
+
+			$color: nth($color, 1);
+		}
 		// Warn if an experimental palette color is being used.
-		@if $_o-colors-experimental-palette-warning and map-has-key($_o-colors-experimental-palette, $name) {
+		@if $_o-colors-experimental-palette-warning and map-has-key($_o-colors-experimental-palette, inspect($name)) {
 			$_o-colors-experimental-palette-warning: false !global;
 			@warn "Please note: The palette colors #{map-keys($_o-colors-experimental-palette)} are experimental and may be removed at any time. No action is required if you are not using these colors directly.";
 		}
 
-		@return map-get($o-colors-palette, $name);
-	} @else {
+		@return $color;
+	} @else if type-of($name) != color {
 		@warn "Color name '#{inspect($name)}' is not defined in the palette.";
 		@return null;
+	} @else {
+		@return $name;
 	}
 }
 
@@ -29,18 +40,16 @@
 /// @param {String} $color [black] - palette name of color
 /// @param {Number} $percentage [60] - percentage opacity of the color over the background
 @function oColorsMix($color: 'black', $background: oColorsGetUseCase('page', 'background'), $percentage: 80) {
-	$context: $background;
-	$base: $color;
+	$base: oColorsGetPaletteColor($background);
+	$mixer: oColorsGetPaletteColor($color);
 
-	@if type-of($background) != color {
-		$context: oColorsGetPaletteColor($background);
+	@if type-of($base) != color {
+		@return _error("'#{inspect($background)}' is not a valid base color.");
+	} @else if type-of($mixer) != color {
+		@return _error("'#{inspect($color)}' is not a valid mixing color.");
+	} @else {
+		@return mix($mixer, $base, $percentage);
 	}
-
-	@if type-of($color) != color {
-		$base: oColorsGetPaletteColor($color);
-	}
-
-	@return mix($base, $context, $percentage);
 }
 
 /// Return the defined palette color name for a use case / property combination
@@ -147,15 +156,26 @@
 ///
 /// @param {Color} $background - the hex color of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
-@function oColorsGetTextColor($background, $opacity: 90) {
-	$baseColor: _oColorsGetTextBase($background);
-	$percentage: $opacity;
+@function oColorsGetTextColor($backgroundd, $opacity: 90) {
+	$background: oColorsGetPaletteColor($backgroundd);
 
+	@if $background == null or type-of($background) != color {
+		@return _error("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid hex code or color name for the background color'");
+	}
+
+	$percentage: $opacity;
+	$baseColor: _oColorsGetTextBase($background);
 	$textColor: oColorsMix($baseColor, $background, $percentage);
 	$testContrast: oColorsCheckContrast($textColor, $background, false);
 
 	@if not $testContrast {
-		@return _error "The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.";
+		$baseColor: if($baseColor == 'black', 'white', 'black');
+		$textColor: oColorsMix($baseColor, $background, $percentage);
+		$testContrast: oColorsCheckContrast($textColor, $background, false);
+	}
+
+	@if not $testContrast {
+		@return _error("The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.");
 	} @else if $testContrast == 'large' {
 		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
 	}

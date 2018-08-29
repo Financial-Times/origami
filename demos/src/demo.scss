@@ -3,29 +3,10 @@ $o-colors-is-silent: false;
 // Import colors module
 @import '../../main';
 
-@function oColorsJSONifyMap($map) {
-	$json: '{';
-	$comma: false;
-
-	@each $key, $value in $map {
-		@if $comma {
-			$json: '#{$json}, ';
-		} @else {
-			$comma: true;
-		}
-
-		$json: '#{$json}"#{$key}": "#{$value}"';
-	}
-
-	$json: '#{$json}}';
-
-	@return $json;
-}
-
 body {
-	content: "#{oColorsJSONifyMap($o-colors-palette)}";
 	box-sizing: border-box;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: MetricWeb, Arial, sans-serif;
+	font-size: 18px;
 
 	*,
 	*:before,
@@ -34,39 +15,22 @@ body {
 	}
 }
 
-@each $name, $csscolor in $o-colors-palette {
-	@if $csscolor != 'transparent' and $csscolor != 'inherit' {
-		.o-colors-palette-#{$name} .hex,
-		.o-colors-palette-#{$name}:after {
-			// Text at 90% does not pass contrast tests so increase
-			// the shade to pass
-			@if $name == 'jade' {
-				color: oColorsGetTextColor($csscolor, 95);
-			} @else {
-				color: oColorsGetTextColor($csscolor, 90);
+@each $name, $value in $o-colors-palette {
+	@if $name != 'transparent' and $name != 'inherit' {
+		.o-colors-border-#{$name} {
+			border-width: 2px 2px 0;
+			border-style: solid;
+			border-color:  oColorsGetPaletteColor($name);
+
+			@if $name == 'white' {
+				border-color: oColorsMix(black, white, 20);
 			}
 		}
-	}
-}
 
-.o-colors-palette-org-b2c {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c'), 90);
-	}
-}
-
-.o-colors-palette-org-b2c-light {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-light'), 90);
-	}
-}
-
-.o-colors-palette-org-b2c-dark {
-	&:after,
-	.hex {
-		color: oColorsGetTextColor(oColorsGetPaletteColor('org-b2c-dark'), 90);
+	.o-colors-palette-#{$name} .hex,
+		.o-colors-palette-#{$name}:after {
+			color: oColorsGetTextColor($name, 95);
+		}
 	}
 }
 
@@ -79,72 +43,19 @@ body {
 .demo-wrapper {
 	width: 100%;
 	display: flex;
-	margin-left: -10px;
-	margin-right: -10px;
-	justify-content: flex-start;
-	flex-direction: row;
 	flex-wrap: wrap;
-	align-content: space-between;
+	justify-content: center;
+	margin-top: 10px;
 }
 
-.use-cases-fade-out .demo-color { opacity: 0.37; }
-.use-cases-fade-out .demo-color.use-case-active { opacity: 1; }
-
 .demo-color {
-	flex: 0 0 30%;
-	margin: 0 10px 20px;
-	transition: opacity 0.3s ease-out;
+	margin: 0 5px;
 
-	.o-buttons {
-		margin-right: 5px;
-		color: oColorsMix(black, white, 80);
-		border-color: oColorsMix(black, white, 20);
-	}
-
-	h3 {
-		position: relative;
+	h4 {
 		margin: 0;
 		padding: 8px;
 		font-weight: normal;
-		font-size: 16px;
-		line-height: 24px;
-		border: 1px solid oColorsMix(black, white, 20);
-		border-bottom: 0;
-	}
-}
-
-.demo-tint-button {
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 40px;
-	padding: 0 10px;
-	background-color: oColorsGetPaletteColor('white');
-	cursor: pointer;
-	border: 0;
-	border-left: 1px solid oColorsMix(black, white, 20);
-}
-
-.demo-tints-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	align-content: stretch;
-	transform: translateY(-100%);
-	transition: transform 0.3s ease-in;
-
-	&.show-me {
-		transform: translateY(0);
-	}
-
-	.demo-tint {
-		flex: 1 0 25%;
-		cursor: pointer;
+		text-align: center;
 	}
 }
 
@@ -177,9 +88,8 @@ body {
 		opacity: 1;
 	}
 
-	&.o-colors-palette-white,
-	&.o-colors-palette-paper {
-		border: 1px solid oColorsMix(black, white, 20);
+	&.o-colors-palette-white {
+		border: 2px solid oColorsMix(black, white, 20);
 	}
 
 	.hex {
@@ -190,7 +100,8 @@ body {
 		text-transform: uppercase;
 		border: 0;
 		background: transparent;
-		font-size: 18px;
+		font-family: inherit;
+		font-size: inherit;
 		cursor: pointer;
 	}
 }
@@ -204,7 +115,7 @@ body {
 	margin: 0 5px;
 	flex: 1 0;
 
-	h3 {
+	h4 {
 		text-align: center;
 	}
 
@@ -220,24 +131,10 @@ body {
 			text-align: left;
 			padding-top: 10px;
 			margin-bottom: 5px;
-			font-size: 14px;
-		}
-
-		.hex {
-			font-size: 16px;
 		}
 
 		&:after {
 			bottom: 15px;
-			font-size: 12px;
 		}
 	}
-}
-
-.my-thing {
-	@include oColorsFor(custom-box box, background text, 80);
-}
-
-.o-colors-tinted-color {
-	background-color: oColorsGetTint('oxford', 90);
 }

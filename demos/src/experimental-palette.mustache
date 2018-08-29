@@ -1,0 +1,11 @@
+<div class="demo-wrapper">
+	<!-- this demo relies on $o-brand: internal to work -->
+	{{#experimental}}
+		<div class="demo-color">
+			<h4 class="o-colors-border-{{name}}">{{name}}</h4>
+			<div class="swatch o-colors-palette-{{name}}" data-o-color="{{name}}">
+				<input type="text" class="hex" id="o-color-input-{{name}}" value="" readonly>
+			</div>
+		</div>
+	{{/experimental}}
+</div>

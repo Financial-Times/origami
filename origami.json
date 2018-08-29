@@ -4,6 +4,10 @@
 	"origamiCategory": "primitives",
 	"keywords": "colours, themes, schemes, pink, salmon, background, palette",
 	"origamiVersion": 1,
+	"brands" : [
+		"master",
+		"internal"
+	],
 	"support": "https://github.com/Financial-Times/o-colors/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -15,7 +19,6 @@
 		"js": "demos/src/demo.js",
 		"dependencies": [
 			"o-forms",
-			"o-buttons",
 			"o-normalise",
 			"o-fonts",
 			"o-syntax-highlight"
@@ -26,41 +29,167 @@
 	},
 	"demos": [
 		{
-			"name": "contrast-checker",
+			"name": "master-contrast-checker",
 			"title": "Contrast ratio checker",
-			"data": "demos/src/palette.json",
-			"js": "demos/src/contrast-checker.js",
-			"sass": "demos/src/contrast-checker.scss",
-			"template": "demos/src/contrast-checker.mustache",
-			"display_html": false
+			"data": "demos/src/palettes/master-palette.json",
+			"js": "demos/src/sandboxes/contrast-checker.js",
+			"sass": "demos/src/sandboxes/contrast-checker.scss",
+			"template": "demos/src/sandboxes/contrast-checker.mustache",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
 		},
 		{
-			"name": "mix-sandbox",
-			"title": "mix-sandbox",
-			"data": "demos/src/palette.json",
-			"js": "demos/src/mix-sandbox.js",
-			"sass": "demos/src/mix-sandbox.scss",
-			"template": "demos/src/mix-sandbox.mustache",
-			"display_html": false
+			"name": "master-colors-mix",
+			"title": "Color Mixer",
+			"data": "demos/src/palettes/master-palette.json",
+			"js": "demos/src/sandboxes/colors-mix.js",
+			"sass": "demos/src/sandboxes/colors-mix.scss",
+			"template": "demos/src/sandboxes/colors-mix.mustache",
+			"display_html": false,
+			"brands":	[
+				"master"
+			]
 		},
 		{
-			"name": "palette",
-			"title": "Palette",
-			"data": "demos/src/palette.json",
-			"template": "demos/src/palette.mustache",
-			"display_html": false
+			"name": "master-primary-palette",
+			"title": "Primary Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/primary-palette.mustache",
+			"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
 		},
 		{
-			"name": "tints",
+			"name": "master-secondary-palette",
+			"title": "Secondary Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/secondary-palette.mustache",
+			"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "master-tertiary-palette",
+			"title": "Tertiary Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/tertiary-palette.mustache",
+			"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "master-b2c-palette",
+			"title": "B2C Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/b2c-palette.mustache",
+			"description": "These colors are specifically designed for use in B2C products.",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "master-tints",
 			"title": "Tints",
-			"data": "demos/src/palette.json",
+			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/tints.mustache",
-			"display_html": false
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "internal-contrast-checker",
+			"title": "Contrast ratio checker",
+			"data": "demos/src/palettes/internal-palette.json",
+			"js": "demos/src/sandboxes/contrast-checker.js",
+			"sass": "demos/src/sandboxes/contrast-checker.scss",
+			"template": "demos/src/sandboxes/contrast-checker.mustache",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "internal-colors-mix",
+			"title": "Color Mixer",
+			"data": "demos/src/palettes/internal-palette.json",
+			"js": "demos/src/sandboxes/colors-mix.js",
+			"sass": "demos/src/sandboxes/colors-mix.scss",
+			"template": "demos/src/sandboxes/colors-mix.mustache",
+			"display_html": false,
+			"brands":	[
+				"internal"
+			]
+		},
+		{
+			"name": "internal-primary-palette",
+			"title": "Primary Palette",
+			"data": "demos/src/palettes/internal-palette.json",
+			"template": "demos/src/primary-palette.mustache",
+			"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "internal-secondary-palette",
+			"title": "Secondary Palette",
+			"data": "demos/src/palettes/internal-palette.json",
+			"template": "demos/src/secondary-palette.mustache",
+			"description": "Secondary colors provide visual hierarchy to differentiate content and are brand identifiers of the FT.",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "internal-tertiary-palette",
+			"title": "Tertiary Palette",
+			"data": "demos/src/palettes/internal-palette.json",
+			"template": "demos/src/tertiary-palette.mustache",
+			"description": "Used sparingly, these colors provide contrast for highlighting and messaging.",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "internal-experimental-palette",
+			"title": "Experimental Palette",
+			"data": "demos/src/palettes/internal-palette.json",
+			"template": "demos/src/experimental-palette.mustache",
+			"description": "These are experimental colors for internal branding",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "internal-tints",
+			"title": "Tints",
+			"data": "demos/src/palettes/internal-palette.json",
+			"template": "demos/src/tints.mustache",
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"display_html": false,
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"name": "pa11y",
 			"title": "Pa11y",
-			"data": "demos/src/palette.json",
+			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"display_html": false

@@ -1,0 +1,45 @@
+// to change the brand in the testing environement, we need to reset the variables
+$o-colors-is-silent: true !global;
+
+$_o-colors-brand: if(global-variable-exists(o-brand), if($o-brand != null, $o-brand, 'master'), 'master');
+
+$o-colors-palette: () !global;
+$o-colors-tints: () !global;
+
+$_o-colors-experimental-palette: (
+	'slate-white-15':        #dedfe0, // oColorsMix('slate', 'white', 15): to support work on internal brand design
+	'slate-white-5':         #f4f4f5, // oColorsMix('slate', 'white', 5): to support work on internal brand design
+);
+
+$_o-colors-experimental-palette-warning: false !global;
+
+$o-colors-usecases: () !global;
+
+$o-brand: 'master';
+@import '../../main';
+
+@import 'tools/a11y.test';
+@import 'tools/color.test';
+
+@import 'functions.test';
+@import 'palette.test';
+@import 'mixins.test';
+
+@include describe('branded palettes') {
+	@include describe('master') {
+		@include test('has shared colours') {
+			@include assert-equal(oColorsGetPaletteColor('black'), (#000000));
+			@include assert-equal(oColorsGetPaletteColor('white'), (#ffffff));
+		};
+
+		@include test('has masterbrand colors') {
+			@include assert-equal(oColorsGetPaletteColor('paper'), (#fff1e5));
+			@include assert-equal(oColorsGetPaletteColor('claret'), (#990f3d));
+			@include assert-equal(oColorsGetPaletteColor('wheat'), (#f2dfce));
+			@include assert-equal(oColorsGetPaletteColor('sky'), (#cce6ff));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c'), (#4e96eb));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-dark'), (#3a70af));
+			@include assert-equal(oColorsGetPaletteColor('org-b2c-light'), (#99c6fb));
+		};
+	};
+}
