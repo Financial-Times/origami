@@ -1,0 +1,160 @@
+@mixin oFooterServicesBase($class: 'o-footer-services') {
+	.#{$class} {
+		@include oTypographySans(0);
+		background: oColorsGetPaletteColor(_oFooterServicesGet('default-background'));
+	}
+
+	.#{$class}__container {
+		width: 100%;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			border-top: 1px solid oColorsGetPaletteColor(_oFooterServicesGet('default-border'));
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	.#{$class}__wrapper {
+		max-width: 1220px;
+		margin: 0 auto;
+		padding: 0.5em 1em;
+
+		&--top {
+		padding: 1.5em 1em 0;
+
+			p {
+				display: inline-block;
+			}
+		}
+
+		&--legal {
+			@include oTypographySans($scale: -1, $line-height: 20px);
+			color: oColorsGetPaletteColor(_oFooterServicesGet('legal-text'));
+			overflow: hidden;
+
+			p {
+				margin: 0.5em 0;
+				float: left;
+			}
+
+			span {
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.#{$class}__links {
+		float: left;
+		margin: 0.5em 0;
+
+		a {
+			@include oFooterServicesLink(
+				$custom-link-base: _oFooterServicesGet('legal-text'),
+				$custom-link-hover: _oFooterServicesGet('legal-text'),
+				$custom-link-background: _oFooterServicesGet('default-background'),
+				$link-hover: _oFooterServicesGet('legal-link-hover')
+			);
+			margin-right: 0.5em;
+		}
+	}
+
+	.#{$class}__content {
+		margin: 0 0 1.5em;
+
+		a {
+			@include oFooterServicesLink(
+				$custom-link-base: _oFooterServicesGet('default-link-color'),
+				$custom-link-hover: _oFooterServicesGet('default-link-color'),
+				$custom-link-background: _oFooterServicesGet('default-background'),
+				$link-hover: _oFooterServicesGet('default-link-hover')
+			);
+		}
+
+		.#{$class}__content--external {
+			@include oTypographyLinkExternalIcon(oColorsGetPaletteColor(_oFooterServicesGet('default-link-color')));
+		}
+	}
+
+	.#{$class}__icon-link {
+		@include oTypographyBold('sans');
+		@include oFooterServicesLink(
+			$custom-link-base: _oFooterServicesGet('default-link-color'),
+			$custom-link-hover: _oFooterServicesGet('default-link-hover'),
+			$custom-link-background: _oFooterServicesGet('default-background')
+		)
+
+		display: inline-block;
+		min-width: max-content;
+		margin: 0 1em 1.5em 0;
+
+		&--slack {
+			@include oFooterServicesIcons('slack');
+		}
+
+		&--github {
+			@include oFooterServicesIcons('github');
+		}
+	}
+}
+
+@mixin oFooterServicesWithLogo($logo, $class: 'o-footer-services') {
+	@include oFooterServicesBase;
+
+	.#{$class}__logo {
+		@include oTypographySansBold(1);
+		min-width: max-content;
+		min-height: 1em; //holds the logo in place if there is no text
+		margin: 0 1.5em 1.5em 0;
+
+		position: relative;
+		padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
+
+		&:before {
+			@include oIconsBaseStyles();
+			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-footer-services');
+			content: '';
+			width: $_o-footer-services-logo-size;
+			height: $_o-footer-services-logo-size;
+			position: absolute;
+			top: -50%;
+			left: 0;
+		}
+	}
+}
+
+@mixin oFooterServicesIcons($icon-name) {
+	position: relative;
+	padding-left: $_o-footer-services-icon-size - 5;
+
+	&:before {
+		@include oIconsBaseStyles();
+		position: absolute;
+		content: '';
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:#{$icon-name}?source=o-footer-services&format=svg');
+		height: $_o-footer-services-icon-size;
+		width: $_o-footer-services-icon-size;
+		vertical-align: middle;
+		top: -5px;
+		left: -5px;
+	}
+}
+
+@mixin oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
+	@include oTypographyLinkCustom(
+		$custom-link-base,
+		$custom-link-hover,
+		$custom-link-background
+	);
+
+	@if $link-hover != null {
+		&:hover {
+			border-bottom-color: oColorsGetPaletteColor($link-hover); // is different to custom link hover by design.
+		}
+	} @else {
+		border-bottom: 0;
+	}
+}

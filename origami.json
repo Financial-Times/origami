@@ -21,28 +21,46 @@
 	},
 	"demos": [
 		{
-			"title": "Simple Footer",
-			"name": "simple-footer",
-			"template": "demos/src/simple-footer.mustache",
-			"description": "Simple footer with copyright and source code link, no logo"
+			"title": "Footer Legal",
+			"name": "footer-legal",
+			"template": "demos/src/footer-legal.mustache",
+			"description": "The most minimal version of the footer. Should not be treated as optional."
 		},
 		{
-			"title": "Copyright Logo Footer",
-			"name": "copyright-logo",
-			"template": "demos/src/copyright-logo.mustache",
-			"description": "Footer with copyright and logo"
+			"title": "Footer Links",
+			"name": "footer-links",
+			"template": "demos/src/footer-links.mustache",
+			"description": "Minimal footer with links"
 		},
 		{
-			"title": "Full Footer",
-			"name": "full-footer",
-			"template": "demos/src/full-footer.mustache",
-			"description": "Footer with contact, copyright and logo"
+			"title": "Footer Content Only",
+			"name": "footer-content-only",
+			"template": "demos/src/footer-content-only.mustache",
+			"description": "Minimal footer without content"
 		},
 		{
-			"title": "Slim Footer",
-			"name": "slim-footer",
-			"template": "demos/src/slim-footer.mustache",
-			"description": "Footer with contact and copyright, no logo"
+			"title": "Footer No Content",
+			"name": "footer-no-content",
+			"template": "demos/src/footer-no-content.mustache",
+			"description": "Minimal footer without content"
+		},
+		{
+			"title": "Footer Logo",
+			"name": "footer-logo",
+			"template": "demos/src/footer-logo.mustache",
+			"description": "Minimal footer with logo"
+		},
+		{
+			"title": "Footer Logo & Content",
+			"name": "footer-logo-content",
+			"template": "demos/src/footer-logo-content.mustache",
+			"description": "Minimal footer without content"
+		},
+		{
+			"title": "Footer",
+			"name": "footer",
+			"template": "demos/src/footer.mustache",
+			"description": "The full internal product and tooling footer"
 		}
 	]
 }

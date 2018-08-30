@@ -11,12 +11,19 @@
 }
 
 $_o-footer-services-shared-brand-config: (
-	default-background: oColorsGetPaletteColor('slate-white-5'),
-	default-border: oColorsGetPaletteColor('slate-white-15')
+	default-background: 'slate-white-5',
+	default-border: 'slate-white-15',
+	default-link-color: 'black-80',
+	default-link-hover: 'black-60',
+	legal-text: 'black-60',
+	legal-link-hover: 'black-80',
 );
 
 @include oBrandDefine('o-footer-services', 'master', (
-	'variables': $_o-footer-services-shared-brand-config,
+	'variables': map-merge($_o-footer-services-shared-brand-config, (
+		'default-background': 'black-5',
+		'default-border': 'black-20',
+	)),
 	'supports-variants': ()
 ));
 

@@ -5,12 +5,12 @@
 @import 'o-typography/main';
 
 @import 'src/scss/brand';
-@import 'src/scss/main';
+@import 'src/scss/mixins';
 @import 'src/scss/variables';
 
 
 @if $o-footer-services-is-silent == false {
-	@include oFooterServicesBase;
+	@include oFooterServicesBase();
 
 	// Set to silent again to avoid being output twice
 	$o-footer-services-is-silent: true !global;
