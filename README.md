@@ -17,7 +17,8 @@ It provides:
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
 		- [Construction](#construction)
-		- [Custom Navigation](#custom-navigation)
+		- [Custom Navigation](#custom-navigation)  
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -219,6 +220,12 @@ If you would like to specify a custom selector for the navigation generation, yo
 const oLayout = require('o-layout');
 oLayout.init(null, { navHeadingSelector: '.nav-heading' });
 ```
+
+### Migration Guide
+
+#### Migrating from v1.x.x to v2.x.x
+
+This major now uses `o-footer-services` v2. Though this does not change anything within `o-layout` directly, please make sure that your footer markup is changed according to the [`o-footer-services` migration guide](https://github.com/Financial-Times/o-footer-services#migration-guide).
 
 ---
 
