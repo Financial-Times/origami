@@ -13,7 +13,7 @@
 		//check if it is deprecated
 		@if type-of($color) == list {
 			@if nth($color, 2) == '_deprecated' {
-				@warn "#{$name} is deprecated for the internal palette, and will be removed in the next major.";
+				@warn "#{$name} is deprecated for the #{$_o-colors-brand} palette, and will be removed in the next major.";
 			}
 
 			$color: nth($color, 1);
