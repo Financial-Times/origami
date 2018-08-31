@@ -35,11 +35,11 @@ Anybody can propose a new component for inclusion in Origami. This can be a comp
 
   3. ### Raise an Issue
 
-     If your component idea is not already proposed in the backlog, please[raise an issue] on this repository and follow the provided template. The more detail you include the better. We prefer you to open an issue yourself, but if you don't have a GitHub account then you can also [email a proposal to the team](mailto:origami.support@ft.com?subject=Component%20Proposal). If you're doing this then please [follow the issue template][issue template].
+     If your component idea is not already proposed in the backlog, please [raise an issue] on this repository and follow the provided template. The more detail you include the better. We prefer you to open an issue yourself, but if you don't have a GitHub account then you can also [email a proposal to the team](mailto:origami.support@ft.com?subject=Component%20Proposal). If you're doing this then please [follow the issue template][issue template].
 
   4. ### Request Feedback
 
-     Once you've got a proposal, request feedback from the Origami team and feel free to share it to relevant stakeholders in the business – they may have something to add, and more evidence is always good. You can contact the Origami team via [email](mailto:origami.support@ft.com?subject=Component%20Proposal) or [Slack].
+     Once you've got a proposal, request feedback from the Origami team and feel free to share it to relevant stakeholders in the business – they may have something to add, and more evidence is always good. You can contact the Origami team via [email](mailto:origami.support@ft.com?subject=Component%20Proposal) or [Slack], alternatively assign the Origami Core GitHub team to the issue.
 
 
 ## Review a Proposal
