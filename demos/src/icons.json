@@ -13,6 +13,10 @@
 			"text": "Upload"
 		},
 		{
+			"name": "download",
+			"text": "Download"
+		},
+		{
 			"name": "warning",
 			"text": "Danger"
 		},
@@ -43,6 +47,10 @@
 		{
 			"name": "edit",
 			"text": "Edit"
+		},
+		{
+			"name": "search",
+			"text": "Search"
 		}
 	],
 	"themes": [
