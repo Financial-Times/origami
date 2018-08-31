@@ -49,7 +49,7 @@ describe('LinkedHeading', () => {
 		it('has an `options` property set to the default options', () => {
 			assert.deepEqual(instance.options, {
 				baseClass: 'o-layout__linked-heading',
-				content: '¶',
+				content: '#',
 				title: 'Link directly to this section of the page'
 			});
 		});

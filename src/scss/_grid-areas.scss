@@ -17,7 +17,7 @@
 	@if $logo == null {
 		@include oHeaderServices()
 	} @else {
-		@include oHeaderServices($logo: $logo);
+		@include oHeaderServices($logo: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-layout');
 	}
 
 	.#{$class}__header {

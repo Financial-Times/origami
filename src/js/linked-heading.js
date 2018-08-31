@@ -20,7 +20,7 @@ class LinkedHeading {
 
 		this.options = Object.assign({}, {
 			baseClass: 'o-layout__linked-heading',
-			content: '¶',
+			content: '#',
 			title: 'Link directly to this section of the page'
 		}, options);
 
