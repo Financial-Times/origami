@@ -1,5 +1,3 @@
-import { Layouts } from './constants';
-
 /**
  * Rules are sets of exclusive properties.
  * They are used to ensure that only one property can take precedence.
