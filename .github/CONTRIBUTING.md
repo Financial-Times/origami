@@ -3,14 +3,14 @@
 
 There are several ways to contribute to this proposal process:
 
-  - [Discuss existing and in-progress component proposals](#discuss-existing-proposals)
+  - [Discuss existing component proposals which are under consideration](#discuss-existing-proposals)
   - [Propose a new component](#propose-a-new-component)
   - [Review a proposal](#review-a-proposal) (Origami team only)
 
 
 ## Discuss Existing Proposals
 
-You should feel free to discuss any existing component proposals which are in the [proposal backlog]. Some examples of useful contributions to the discussion:
+You should feel free to discuss any existing component proposals which are in the [proposal backlog], and are in the "Proposed" or "Under Consideration" columns. Some examples of useful contributions to the discussion:
 
   - Asking questions about a component proposal
   - Answering questions from other contributors
@@ -46,9 +46,9 @@ Anybody can propose a new component for inclusion in Origami. This can be a comp
 
 This section is for members of the Origami team, and acts as a guide for reviewing and accepting (or not accepting) component proposals. It's publicly visible here to make our component proposal process as transparent as possible.
 
-  1. ### Move to In Progress
+  1. ### Mark as Under Consideration
 
-     Once a component has been proposed, we move it to the "In Progress" column in order to indicate that we've seen and are working on the proposal.
+     Once a component has been proposed, we move it to the "Under Consideration" column in order to indicate that we've seen and are considering the proposal.
 
   2. ### Questions
 
