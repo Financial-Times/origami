@@ -9,7 +9,7 @@ const rulesets = {
 			return 'video';
 		}
 
-		if (props.showHeadshot && props.headshot && props.headshot.url && props.indicators.isColumn) {
+		if (props.showHeadshot && props.headshot && props.indicators.isColumn) {
 			return 'headshot';
 		}
 

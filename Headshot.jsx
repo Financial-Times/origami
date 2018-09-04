@@ -14,7 +14,7 @@ export default ({ headshot, headshotTint }) => {
 			height={ImageSizes.Headshot}
 			alt=""
 			aria-hidden="true"
-			src={imageService(headshot.url, ImageSizes.Headshot, options)}
+			src={imageService(headshot, ImageSizes.Headshot, options)}
 		/>
 	) : null;
 };
