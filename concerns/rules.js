@@ -1,3 +1,5 @@
+import { Layouts } from './constants';
+
 /**
  * Rules are sets of exclusive properties.
  * They are used to ensure that only one property can take precedence.
@@ -18,20 +20,21 @@ const rulesets = {
 		}
 	},
 	theme: (props) => {
-		if (props.indicators && props.indicators.isOpinion) {
-			return 'opinion'
-		}
-
-		if (props.theme) {
+		// Package "themes" only apply to hero teasers
+		if (props.layout === Layouts.Hero && props.theme) {
 			return props.theme;
-		}
-
-		if (props.indicators && props.indicators.isEditorsChoice) {
-			return 'highlight'
 		}
 
 		if (props.status && props.status === 'inprogress') {
 			return 'live'
+		}
+
+		if (props.indicators && props.indicators.isOpinion) {
+			return 'opinion'
+		}
+
+		if (props.indicators && props.indicators.isEditorsChoice) {
+			return 'highlight'
 		}
 	}
 };
