@@ -20,12 +20,11 @@ const rulesets = {
 		}
 	},
 	theme: (props) => {
-		// Package "themes" only apply to hero teasers
-		if (props.layout === Layouts.Hero && props.theme) {
+		if (props.theme) {
 			return props.theme;
 		}
 
-		if (props.status && props.status === 'inprogress') {
+		if (props.status === 'inprogress') {
 			return 'live'
 		}
 
@@ -35,6 +34,10 @@ const rulesets = {
 
 		if (props.indicators && props.indicators.isEditorsChoice) {
 			return 'highlight'
+		}
+
+		if (props.parentTheme) {
+			return props.parentTheme;
 		}
 	}
 };
