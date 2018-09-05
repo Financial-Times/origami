@@ -249,8 +249,6 @@ describe('Core.Send', function () {
 			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 			server.respond();
 
-			console.log(dummyImage);
-
 			// Wait for localStorage
 			setTimeout(() => {
 				// console.log((new Queue('requests')).all());
