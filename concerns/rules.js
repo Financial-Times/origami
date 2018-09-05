@@ -18,7 +18,11 @@ const rulesets = {
 		}
 	},
 	theme: (props) => {
-		if (props.status && props.status === 'inprogress') {
+		if (props.theme) {
+			return props.theme;
+		}
+
+		if (props.status === 'inprogress') {
 			return 'live'
 		}
 
@@ -28,6 +32,10 @@ const rulesets = {
 
 		if (props.indicators && props.indicators.isEditorsChoice) {
 			return 'highlight'
+		}
+
+		if (props.parentTheme) {
+			return props.parentTheme;
 		}
 	}
 };

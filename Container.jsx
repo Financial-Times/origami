@@ -10,8 +10,7 @@ const dynamicModifiers = (props) => {
 		modifiers.push(`has-${mediaRule}`);
 	}
 
-	// Any defined theme takes precendence. The "basic" theme should be ignored upstream.
-	const themeRule = props.theme || theme(props);
+	const themeRule = theme(props);
 
 	if (themeRule) {
 		modifiers.push(themeRule);
