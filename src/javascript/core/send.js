@@ -7,7 +7,7 @@ const settings = require('./settings');
 const utils = require('../utils');
 const Queue = require('./queue');
 const transports = require('./transports');
-const ie11 = function () { return !!window.MSInputMethodContext && !!document.documentMode };
+const ie11 = function () { return !!window.MSInputMethodContext && !!document.documentMode; };
 /**
  * Default collection server.
  */
@@ -80,9 +80,9 @@ function sendRequest(request, callback) {
 			// If IE11 XHR error, try using image method
 			if (ie11() && transport.name === 'xhr') {
 				let image_method = transports.get('image')();
-				request.system.transport = [request.system.transport,image_method.name].join('-') // Append image label to transport value
+				request.system.transport = [request.system.transport,image_method.name].join('-'); // Append image label to transport value
 				image_method.send(url, JSON.stringify(request));
-				image_method.complete(function () {	
+				image_method.complete(function () {
 					if (callback) {
 						callback();
 					}
