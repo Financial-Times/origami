@@ -188,7 +188,7 @@ As with all Origami components, o-layout has a [silent mode](http://origami.ft.c
 
 Otherwise, you can initialise the styling for o-layout with your own classnames, like this:
 ```sass
-import 'o-layout/main';
+@import 'o-layout/main';
 
 @include oLayout($class: my-layout);
 ```
