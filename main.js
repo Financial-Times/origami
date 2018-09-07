@@ -1,5 +1,5 @@
 import oLayout from './src/js/layout';
-import 'o-header-services';
+import * as oHeader from 'o-header-services'; // eslint-disable-line no-unused-vars
 
 const constructAll = function() {
 	oLayout.init();
