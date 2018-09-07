@@ -1,1 +1,1 @@
-import 'o-header';
+import * as oHeader from 'o-header';
