@@ -25,7 +25,7 @@ Once a component has been accepted and built, you should initate discussion in t
 
 Anybody can propose a new component for inclusion in Origami. This can be a completely new component or an existing one which would benefit from being maintained by the Origami team. We ask that you complete the steps below:
 
-  2. ### Check the Registry
+  1. ### Check the Registry
 
      Before proposing a new component, please check and search the [Origami Registry] so that you're sure we haven't already built a similar component. If you find something and need changes made to it, then please open an issue on the component repository.
 
