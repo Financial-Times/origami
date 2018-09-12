@@ -1,7 +1,8 @@
 {
   "name": "o-topper",
   "main": [
-    "main.scss"
+    "main.scss",
+    "main.js"
   ],
   "dependencies": {
     "o-typography": "^5.4.2",
