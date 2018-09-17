@@ -630,7 +630,7 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<a class="mockCloseButtonClass" role="button" href="#void" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></a>
+					<button class="mockCloseButtonClass" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></button>
 				`.replace(/[\t\n]+/g, ''));
 			});
 

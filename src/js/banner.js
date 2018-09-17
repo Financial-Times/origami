@@ -172,10 +172,8 @@ class Banner {
 	 * @returns {HTMLElement} Returns the new close button element
 	 */
 	buildCloseButtonElement () {
-		const closeButton = document.createElement('a');
+		const closeButton = document.createElement('button');
 		closeButton.className = this.options.closeButtonClass;
-		closeButton.setAttribute('role', 'button');
-		closeButton.setAttribute('href', '#void');
 		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
 		closeButton.setAttribute('title', this.options.closeButtonLabel);
 
