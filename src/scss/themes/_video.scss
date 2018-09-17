@@ -34,6 +34,7 @@
 
 		&:after {
 			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 30, $apply-width-height: false);
+			pointer-events: none;
 			content: '';
 			position: absolute;
 			bottom: 0;
