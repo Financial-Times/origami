@@ -34,10 +34,9 @@ class PrivacyPolicyMessage {
 	}
 
 	buildCloseButtonElement () {
-		const closeButton = document.createElement('a');
+		const closeButton = document.createElement('button');
 		closeButton.className = `${this.options.baseClass}__close`;
 		closeButton.setAttribute('role', 'button');
-		closeButton.setAttribute('href', '#void');
 		closeButton.setAttribute('aria-label', 'Close');
 		closeButton.setAttribute('title', 'Close');
 
