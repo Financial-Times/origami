@@ -173,7 +173,6 @@
 	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 	// start: undo button styles
 	appearance: none;
-	background: none;
 	color: inherit;
 	border: 0;
 	padding: 0;
