@@ -27,9 +27,8 @@ function init(headerEl) {
 
 				wrapper.scrollTo(diff, 0);
 			}
-
-			scrollable();
 		}
+		scrollable();
 	}
 
 	function direction(button) {
