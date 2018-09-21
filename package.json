@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "heroku-postbuild": "npx origami-build-tools install",
-    "start": "npx origami-build-tools demo --run-server"
+    "start": "npx origami-build-tools demo --run-server --port=${PORT:-8999}"
   }
 }
