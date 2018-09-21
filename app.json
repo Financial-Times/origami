@@ -1,0 +1,8 @@
+{
+  "name": "o-table",
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": ["heroku/nodejs"]
+}
