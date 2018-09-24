@@ -13,6 +13,7 @@
 @if ($o-topper-is-silent == false) {
 	@include oTopperElements;
 	@include oTopperColors;
+	@include oTopperThemes;
 
 	$o-topper-is-silent: true !global;
 }
