@@ -143,8 +143,8 @@ OTable.prototype.sortRowsByColumn = function (index, sortAscending, isNumericVal
 	const rows = Array.from(tbody.querySelectorAll('tr'));
 	const intlCollator = getIntlCollator();
 	rows.sort(function (a, b) {
-		let aCol = a.children[index];
-		let bCol = b.children[index];
+		let aCol = a.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[index];
+		let bCol = b.querySelectorAll('td,th:not(.o-table__duplicate-heading)')[index];
 
 		if (aCol.getAttribute('data-o-table-order') !== null) {
 			aCol = aCol.getAttribute('data-o-table-order');
@@ -239,7 +239,9 @@ OTable.prototype._duplicateHeaders = function _duplicateHeaders(rows, headers) {
 	rows.forEach((row) => {
 		const data = Array.from(row.getElementsByTagName('td'));
 		data.forEach((td, dataIndex) => {
-			td.parentNode.insertBefore(headers[dataIndex].cloneNode(true), td);
+			const thClone = headers[dataIndex].cloneNode(true);
+			thClone.classList.add('o-table__duplicate-heading');
+			td.parentNode.insertBefore(thClone, td);
 		});
 	});
 };

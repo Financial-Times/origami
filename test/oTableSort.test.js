@@ -64,6 +64,42 @@ describe('oTable sorting', () => {
 		});
 	});
 
+	it('ignores duplicated row headers in the body when sorting, which are added for the flat responsive table', done => {
+		sandbox.setContents(`
+			<table class="o-table o-table--responsive-flat" data-o-component="o-table" data-o-table-responsive="flat" data-o-table--js="">
+				<thead>
+					<tr>
+						<th data-o-table-data-type="numeric" class="o-table__cell--numeric" tabindex="0">Cost (GBP)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th data-o-table-data-type="numeric" class="o-table__cell--numeric o-table__duplicate-heading" tabindex="0">Cost (GBP)</th>
+						<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
+					</tr>
+					<tr>
+						<th data-o-table-data-type="numeric" class="o-table__cell--numeric o-table__duplicate-heading" tabindex="0">Cost (GBP)</th>
+						<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.75</td>
+					</tr>
+					<tr>
+						<th data-o-table-data-type="numeric" class="o-table__cell--numeric o-table__duplicate-heading" tabindex="0">Cost (GBP)</th>
+						<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
+					</tr>
+				</tbody>
+			</table>
+		`);
+		oTableEl = document.querySelector('[data-o-component=o-table]');
+		testOTable = new OTable(oTableEl);
+		click('thead th');
+		oTableEl.addEventListener('oTable.sorted', () => {
+			const rows = oTableEl.querySelectorAll('tbody tr td');
+			proclaim.equal(rows[0].textContent, '1.75');
+			proclaim.equal(rows[1].textContent, '2');
+			proclaim.equal(rows[2].textContent, '3');
+			done();
+		});
+	});
+
 	it('does not sort if the heading has an attribute specifying not to', done => {
 		sandbox.reset();
 		sandbox.init();
