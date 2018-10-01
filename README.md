@@ -1,7 +1,7 @@
 o-brand [![Circle CI](https://circleci.com/gh/Financial-Times/o-brand/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-brand/tree/master)
 =================
 
-Tools to tailor Origami components for distinct usecases.
+Tools to tailor Origami components for distinct use cases.
 
 **&#x26A0;&#xFE0F; Non-Origami projects must not depend on `o-brand` directly.**
 
@@ -17,7 +17,7 @@ Tools to tailor Origami components for distinct usecases.
 
 ### Brand
 
-A brand represents an enviroment which requires components to offer a distinct appearence or unique functionality.
+A brand represents an environment which requires components to offer a distinct appearance or unique functionality.
 
 Brands include:
 
@@ -45,9 +45,29 @@ Mixins within `o-brand` help configure components to support brands. There is no
 
 The following mixins and functions help brand a component.
 
+- [oBrandGetCurrentBrand](#obrandgetcurrentbrand) - Set a default brand if necessary
 - [oBrandDefine](#obranddefine) - Define brand configuration (variables & supported variants).
 - [oBrandGet](#obrandget) - Retrieve brand variables.
 - [oBrandSupportsVariant](#obrandsupportsvariant) - Check if the brand supports a variant.
+
+### oBrandGetCurrentBrand
+
+This function will return the brand defined at a product level, or can be used to define a brand to be used within a component for conditional logic.
+
+If $o-brand has been previously defined, it can be used like this:
+
+```scss
+$o-brand: internal //defined in the product using the component
+
+$chosen-brand: oBrandGetCurrentBrand(); //returns 'internal'
+```
+
+If it has not yet been defined, it will provide a default brand: master.
+```scss
+//$o-brand is undefined
+
+$chosen-brand: oBrandGetCurrentBrand(); //returns 'master'
+```
 
 ### oBrandDefine
 
@@ -62,6 +82,17 @@ Brand configuration comprises of variables and supported variants. As explained 
     'variables': $variables,
     'supports-variants': $supports-variants
 ));
+```
+This can also be used in conjunction with `oBrandGetCurrentBrand` to define a component conditionally:
+```scss
+$chosen-brand: oBrandGetCurrentBrand();
+
+@if $chosen-brand == 'master' {
+	@include oBrandDefine($component: 'o-example', $brand: $chosen-brand, (
+		'variables': $variables,
+		'supports-variants': $supports-variants
+	));
+}
 ```
 
 #### Brand Variables
@@ -181,12 +212,6 @@ E.g. only output the `inverse` variant if the brand supports it:
 	}
 }
 ```
-
-### Debug Mode
-
-Some warnings are not output by default but may be useful in certain circumstances.
-
-To output all warnings set debug mode to true: `$o-brand-debug-mode: true;`.
 
 ---
 

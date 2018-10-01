@@ -1,9 +1,10 @@
 $o-brand: null !default; // The chosen current brand.
-$o-brand-debug-mode: false !default; // Show extra (optional) warnings. E.g. value for variant not found.
-$_o-brand-default: 'master'; // The fallback current brand. Allows us to check if o-brand is set explicitly.
 $_o-brands: () !default; // A map of components to their defined brands.
-$_o-brand-default-not-set-warning: false !default; // Has the default not set warning been output.
+$_o-brand-available-brands: ('master', 'internal', 'whitelabel'); // A list of available brands to use for a component
+$_o-brand-default: 'master'; // The fallback current brand.
 $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefine";
+
+$_o-brand-test-environment: false !default;
 
 /// Define component configuration for a brand.
 ///
@@ -60,7 +61,9 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     }
     // If from default component variables or a pre-defined variant.
     @if type-of($from) == 'string' or type-of($from) == 'null' {
-        $brand-config: _oBrandGetConfig($component, $o-brand);
+        // A brand must be configured before o-brand can be used.
+        $brand: oBrandGetCurrentBrand();
+        $brand-config: _oBrandGetConfig($component, $brand);
         $brand-variables: map-get($brand-config, 'variables');
         @if type-of($from) == 'null' {
             // Get from default variables.
@@ -81,7 +84,7 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     @each $variable in $variables {
         $value: map-get($from, $variable);
         @if type-of($value) == 'map' {
-            @error 'Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.';
+            @return _oBrandError('Could not get variable "#{$variable}" for component "#{component}" as it is a map of variant variables.');
         }
         @if $values {
             $values: join($values, $value);
@@ -117,8 +120,8 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
         'Cannot check if component "#{$component}" supports variant "#{$variant}"'
     );
     // Check support for a pre-defined variant.
-    $brand: _oBrandGetCurrentBrand();
-    $brand-config: _oBrandGetConfig($component, $o-brand);
+    $brand: oBrandGetCurrentBrand();
+    $brand-config: _oBrandGetConfig($component, $brand);
     $supports-variants: map-get($brand-config, 'supports-variants');
     @if type-of($supports-variants) == 'list' {
         @return if(index($supports-variants, $variant), true, false);
@@ -141,19 +144,19 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     $error-message: '"#{$component}" configuration for brand "#{$brand}" is invalid';
     $error-message-link: 'Example brand configuration can be seen in the readme: #{$_o-brand-define-readme}';
     @if type-of($config) != 'map' {
-        @error '#{$error-message}. Its configuration must be a map. #{$error-message-link}';
+        @return _oBrandError('#{$error-message}. Its configuration must be a map. #{$error-message-link}');
     }
     // Validate variables key (an empty map is of type list).
     $variables: map-get($config, 'variables');
     @if not $variables {
-        @error '#{$error-message}. Config key "variables" is missing. #{$error-message-link}';
+        @return _oBrandError('#{$error-message}. Config key "variables" is missing. #{$error-message-link}');
     }
     $supports-variants: map-get($config, 'supports-variants');
     @if not $supports-variants {
-        @error '#{$error-message}. Config key "supports-variants" is missing. #{$error-message-link}';
+        @return _oBrandError('#{$error-message}. Config key "supports-variants" is missing. #{$error-message-link}');
     }
     @if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
-        @error '#{$error-message}. Config key "variables" should be a map but is of type #{type-of($variables)}. #{$error-message-link}';
+        @return _oBrandError('#{$error-message}. Config key "variables" should be a map but is of type #{type-of($variables)}. #{$error-message-link}');
     }
     // Validate default variable names.
     @if type-of($variables) == 'map' {
@@ -187,7 +190,7 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     }
     // Validate supports variants key.
     @if $supports-variants and type-of($supports-variants) != 'list' and type-of($supports-variants) != 'string' {
-        @error '#{$error-message}. Config key "#{$supports-variants}" should be a list but is of type #{type-of($supports-variants)}. #{$error-message-link}';
+        @return _oBrandError('#{$error-message}. Config key "#{$supports-variants}" should be a list but is of type #{type-of($supports-variants)}. #{$error-message-link}');
     }
     // Check variant names within supports variants.
     @each $variant-name in $supports-variants {
@@ -200,23 +203,20 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     @return true;
 }
 
-/// Check the brand is configured.
+/// Get current brand.
+/// Errors for cases where a non-existent brand is provided
+/// If no brand is set, defaults to 'master'
 ///
-/// @access private
-/// @param {string} $component
-/// @param {string} $brand
-/// @return {boolean}
-@function _oBrandIsDefined($component, $brand) {
-    $component-brands: map-get($_o-brands, $component);
-    $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
-    @return type-of(map-get($component-brands, $brand)) == 'map';
-}
+/// @access public
+///
+@function oBrandGetCurrentBrand() {
+	$brand: if($o-brand, $o-brand, $_o-brand-default);
 
-/// Get the currently configured brand.
-/// @return {string}
-/// @access private
-@function _oBrandGetCurrentBrand() {
-    @return if($o-brand, $o-brand, $_o-brand-default);
+	@if not index($_o-brand-available-brands, $brand) {
+		@return _oBrandError('The brand "#{$brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+	}
+
+	@return $brand;
 }
 
 /// Get all config for a given component and brand.
@@ -230,18 +230,12 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     $component-brands: map-get($_o-brands, $component);
     $component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
     $brand-config: map-get($component-brands, $brand);
-    // The default brand must be configured before o-brand can be used.
-    @if not _oBrandIsDefined($component, $_o-brand-default) {
-        @error 'The default brand "#{$_o-brand-default}" must be defined for "#{$component}" before using o-brand.';
-    }
-    // Validate the requested brand is configured, fallback to the default brand otherwise.
+
+    // Validate the requested brand is configured, throw an error if not.
     @if $brand-config == null {
-        @if not $_o-brand-default-not-set-warning and $o-brand-debug-mode == true {
-            $_o-brand-default-not-set-warning: true !global;
-            @warn 'The requested brand "#{$brand}" has not been set. Using "#{$_o-brand-default}" brand instead.';
-        }
-        @return _oBrandGetConfig($component, $_o-brand-default);
+      @return _oBrandError('The requested brand "#{$brand}" has not been defined. Please define this brand before using it.');
     }
+
     @return $brand-config;
 }
 
@@ -290,11 +284,24 @@ $_o-brand-define-readme: "https://github.com/Financial-Times/o-brand/#obranddefi
     @for $character-index from 1 through str-length($name) {
         $character: str-slice($name, $character-index, $character-index);
         @if $character == " " {
-            @error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not contain spaces.';
+            @return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not contain spaces.');
         }
         @if not index($valid-characters, $character) {
-            @error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can only contain lowercase alphanumeric characters and "-".';
+            @return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can only contain lowercase alphanumeric characters and "-".');
         }
     }
     @return true;
 }
+
+/// Error handler that allows for errors to be tested in dev environments
+///
+/// @access private
+/// @param {string} $message Error message
+/// @param {boolean} $override whether or not to output an error or a string to compare against
+@function _oBrandError($message, $override: $_o-brand-test-environment) {
+	@if $override {
+		@return 'o-brand error: #{$message}';
+	}
+
+	@error('#{$message}');
+};
