@@ -1,0 +1,168 @@
+
+/// Validate config.
+///
+/// @access private
+/// @param {string} $component
+/// @param {string} $brand
+/// @param {map} $config
+/// @return {map}
+///
+@function _oBrandValidateConfig($component, $brand, $config) {
+	$error-message: '"#{$component}" configuration for brand "#{$brand}" is invalid';
+	$error-message-link: 'Example brand configuration can be seen in the readme: #{$_o-brand-define-readme}';
+	@if type-of($config) != 'map' {
+		@return _oBrandError('#{$error-message}. Its configuration must be a map. #{$error-message-link}');
+	}
+
+	// Validate variables key (an empty map is of type list).
+	$variables: map-get($config, 'variables');
+	@if not $variables {
+		@return _oBrandError('#{$error-message}. Config key "variables" is missing. #{$error-message-link}');
+	}
+	$supports-variants: map-get($config, 'supports-variants');
+	@if not $supports-variants {
+		@return _oBrandError('#{$error-message}. Config key "supports-variants" is missing. #{$error-message-link}');
+	}
+	@if $variables and (type-of($variables) != 'map' and type-of($variables) != 'list' ) {
+		@return _oBrandError('#{$error-message}. Config key "variables" should be a map but is of type #{type-of($variables)}. #{$error-message-link}');
+	}
+
+	// Validate default variable names.
+	@if type-of($variables) == 'map' {
+		@each $variable-name, $value in $variables {
+			@if type-of($value) != 'map' {
+				$validated-default-variables: _oBrandValidateName(
+					'Variable',
+					$variable-name,
+					'Cannot set variable(s) "#{$variable-name}" of component "#{$component}" for brand "#{$brand}"'
+				);
+			}
+		}
+	}
+
+	// Validate variant names.
+	@each $variant-name, $variant-variables in $variables {
+		@if type-of($variant-variables) == 'map' {
+			$validated-variant-name: _oBrandValidateName(
+				'Variant',
+				$variant-name,
+				'Cannot set variables for variant "#{$variant-name}" of component "#{$component}" for brand "#{$brand}"'
+			);
+
+			// Validate variant variable names.
+			@each $variable-name, $variant-variables in $variant-variables {
+				$validated-variant-variables: _oBrandValidateName(
+					'Variable',
+					$variable-name,
+					'Cannot set variable "#{$variable-name}" for variant "#{$variant-name}" of component "#{$component}" and brand "#{$brand}"'
+				);
+			}
+		}
+	}
+
+	// Validate supports variants key.
+	@if $supports-variants and type-of($supports-variants) != 'list' and type-of($supports-variants) != 'string' {
+		@return _oBrandError('#{$error-message}. Config key "#{$supports-variants}" should be a list but is of type #{type-of($supports-variants)}. #{$error-message-link}');
+	}
+
+	// Check variant names within supports variants.
+	@each $variant-name in $supports-variants {
+		$validated: _oBrandValidateName(
+			'Variant',
+			$variant-name,
+			'Cannot set supported variants for component "#{$component}" and brand "#{$brand}"'
+		);
+	}
+	@return true;
+}
+
+/// Get all config for a given component and brand.
+///
+/// @access private
+/// @param {string} $component
+/// @param {string} $brand
+/// @return {map}
+///
+@function _oBrandGetConfig($component, $brand) {
+	// Get config for the brand.
+	$component-brands: map-get($_o-brands, $component);
+	$component-brands: if(type-of($component-brands) == 'map', $component-brands, ());
+	$brand-config: map-get($component-brands, $brand);
+
+	// Validate the requested brand is configured, throw an error if not.
+	@if $brand-config == null {
+		@return _oBrandError('The requested brand "#{$brand}" has not been defined. Please define this brand before using it.');
+	}
+
+	@return $brand-config;
+}
+
+/// Merge config maps recursively.
+/// Keys in $map2 will take precedence over keys in $map1.
+///
+/// @acess private
+/// @link https://github.com/pentzzsolt/sass-recursive-map-merge/
+@function _oBrandRecursiveMapMerge($map1, $map2) {
+	@if ((type-of($map1) == map or type-of($map1) == list) and (type-of($map2) == map or type-of($map2) == list)) {
+		$result: $map1;
+		@each $key, $value in $map2 {
+			@if (type-of(map-get($result, $key)) == map and type-of($value) == map) {
+				$result: map-merge($result, ($key: _oBrandRecursiveMapMerge(map-get($result, $key), $value)));
+			} @else {
+				$result: map-merge($result, ($key: $value));
+			}
+		}
+		@return $result;
+	} @else {
+		@warn '_oBrandRecursiveMapMerge() expects it\'s parameters to be of type "map".';
+		@return null;
+	}
+}
+
+/// Check a string is a valid `o-brand` name and error if not.
+/// - Type string.
+/// - No empty string.
+/// - Contains only lowercase alphanumeric characters or dash "-".
+///
+/// @access private
+/// @param {string} $thing E.g. "Component", "Brand", "Variant"
+/// @param {string} $name The name to validate
+/// @param {string} $error-context E.g. "Unable to define brand"
+@function _oBrandValidateName($thing, $name, $error-context: '') {
+	// Strings only.
+	@if type-of($name) != 'string' {
+		@error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names must be a string.';
+	}
+
+	// No empty strings.
+	@if $name == '' {
+		@error '#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not be an empty string.';
+	}
+
+	// Valid characters only.
+	$valid-characters: ('-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+	@for $character-index from 1 through str-length($name) {
+		$character: str-slice($name, $character-index, $character-index);
+		@if $character == " " {
+			@return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can not contain spaces.');
+		}
+		@if not index($valid-characters, $character) {
+			@return _oBrandError('#{$error-context}. #{$thing} "#{$name}" is invalid. #{$thing} names can only contain lowercase alphanumeric characters and "-".');
+		}
+	}
+
+	@return true;
+}
+
+/// Error handler that allows for errors to be tested in dev environments
+///
+/// @access private
+/// @param {string} $message Error message
+/// @param {boolean} $override whether or not to output an error or a string to compare against
+@function _oBrandError($message, $override: $_o-brand-test-environment) {
+	@if $override {
+		@return 'o-brand error: #{$message}';
+	}
+
+	@error('#{$message}');
+};

@@ -1,0 +1,16 @@
+/// Define component configuration for a brand.
+///
+/// @access public
+/// @param {string} $component
+/// @param {string} $brand
+/// @param {map} $config
+@mixin oBrandDefine($component, $brand, $config) {
+	// Validate brand name.
+	$validated-brand-name: _oBrandValidateName('Brand', $brand, 'Cannot define brand "#{$brand}" for component "#{$component}"');
+	// Validate component name.
+	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot define brand "#{$brand}" for component "#{$component}"');
+	// Validate config.
+	$validated-config: _oBrandValidateConfig($component, $brand, $config);
+	// Update config.
+	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: ($brand: $config))) !global;
+}
