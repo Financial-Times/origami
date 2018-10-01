@@ -3,7 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-colors
 ////
 
-
 /// color palette
 ///
 /// These are the colors that make up the FT palette.
@@ -33,6 +32,11 @@ $o-colors-palette: map-merge((
 'black':                 #000000,
 'white':                 #ffffff,
 ), $o-colors-palette);
+
+/// Brand to define conditionally
+///
+/// @type String
+$_o-colors-brand: oBrandGetCurrentBrand();
 
 @if $_o-colors-brand == master {
 	$o-colors-palette: map-merge((

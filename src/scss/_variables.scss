@@ -1,7 +1,5 @@
 $o-colors-is-silent: true !default;
 
-$_o-colors-brand: if(global-variable-exists(o-brand), if($o-brand != null, $o-brand, 'master'), 'master');
-
 $o-colors-palette: () !default;
 $o-colors-tints: () !default;
 
@@ -14,4 +12,4 @@ $_o-colors-experimental-palette-warning: null !default;
 
 $o-colors-usecases: () !default;
 
-$_test-environment: false !default;
+$_o-colors-test-environment: false !default;

@@ -1,7 +1,7 @@
 @import 'true';
 @import '../../main';
 
-$_test-environment: true;
+$_o-colors-test-environment: true;
 
 @import 'tools/a11y.test';
 @import 'tools/color.test';
