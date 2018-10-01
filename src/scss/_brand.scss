@@ -42,6 +42,7 @@
 ));
 
 @include oBrandDefine('o-table', 'whitelabel', (
+	'variables': (),
 	'supports-variants': (
 		'compact'
 	)
