@@ -17,7 +17,8 @@
 	// Validate variables key (an empty map is of type list).
 	$variables: map-get($config, 'variables');
 	@if not $variables {
-		@return _oBrandError('#{$error-message}. Config key "variables" is missing. #{$error-message-link}');
+		// @breaking Change to an error.
+		@warn '#{$error-message}. Config key "variables" is missing. #{$error-message-link}';
 	}
 	$supports-variants: map-get($config, 'supports-variants');
 	@if not $supports-variants {
