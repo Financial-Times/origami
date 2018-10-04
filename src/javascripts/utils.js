@@ -13,7 +13,7 @@ exports.emptyLivefyreActionQueue = function () {
 
 exports.isLivefyreActionQueuePresent = function () {
 	if (typeof Storage !== 'undefined') {
-		if (localStorage.getItem('fyre-action-queue')) {
+		if (oCommentUtilities.storageWrapper.localStorage.getItem('fyre-action-queue')) {
 			return true;
 		}
 	}
