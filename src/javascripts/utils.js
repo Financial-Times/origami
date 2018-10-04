@@ -1,24 +1,18 @@
 const oCommentUtilities = require('o-comment-utilities');
 
+const QUEUE_KEY = 'fyre-action-queue';
+
 /**
  * Livefyre creates a queue in localStorage when a user posts a comment without being logged in.
  * This method clears the queue.
  * @return {undefined}
  */
 exports.emptyLivefyreActionQueue = function () {
-	if (typeof Storage !== 'undefined') {
-		oCommentUtilities.storageWrapper.localStorage.removeItem('fyre-action-queue');
-	}
+	oCommentUtilities.storageWrapper.localStorage.removeItem(QUEUE_KEY);
 };
 
 exports.isLivefyreActionQueuePresent = function () {
-	if (typeof Storage !== 'undefined') {
-		if (oCommentUtilities.storageWrapper.localStorage.getItem('fyre-action-queue')) {
-			return true;
-		}
-	}
-
-	return false;
+	return !!oCommentUtilities.storageWrapper.localStorage.getItem(QUEUE_KEY);
 };
 
 /**
