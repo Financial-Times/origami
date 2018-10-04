@@ -12,7 +12,7 @@ exports.emptyLivefyreActionQueue = function () {
 };
 
 exports.isLivefyreActionQueuePresent = function () {
-	return !!oCommentUtilities.storageWrapper.localStorage.getItem(QUEUE_KEY);
+	return Boolean(oCommentUtilities.storageWrapper.localStorage.getItem(QUEUE_KEY));
 };
 
 /**
