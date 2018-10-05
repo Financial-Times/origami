@@ -2,7 +2,6 @@ import throwError from './helpers';
 
 import prism from 'prism/prism.js';
 import diff from './languages/prism-diff.js';
-import loadLanguages from 'prism/components/index.js';
 // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
 require('prism/components/prism-bash.js');
 require('prism/components/prism-json.js');
@@ -64,11 +63,7 @@ class SyntaxHighlight {
 	*/
 	_checkLanguage () {
 		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
-			try {
-				loadLanguages([this.opts.language]);
-			} catch (err) {
-				throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
-			}
+			throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
 		}
 	}
 
