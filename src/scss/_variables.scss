@@ -39,7 +39,7 @@ $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-horizontal-spacing: 15px;
 $_o-forms-checkbox-vertical-spacing: oTypographySpacingSize(4); // 16px
 $_o-forms-padding: oGridGutter();
-$_o-forms-default-error-text-margin: oTypographySpacingSize(1); // 4px;
+$_o-forms-default-error-text-margin: oTypographySpacingSize(1); // 4px;;
 
 /// Field dimention variables.
 /// @access private
@@ -73,6 +73,7 @@ $_o-forms-field-border-radius: $o-normalise-border-radius;
 /// @type String
 $_o-forms-radiocheckbox-default-size: 24px; // Outer circle / box sizes
 $_o-forms-radio-internal-default-size: 12px; // Inner circle sizes
+$_o-forms-radio-internal-offset: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
 
 /// Styled radio button input variables.
 /// @access private

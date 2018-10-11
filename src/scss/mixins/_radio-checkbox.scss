@@ -26,8 +26,8 @@
         border-radius: 9999px;
         height: $_o-forms-radio-internal-default-size;
         width: $_o-forms-radio-internal-default-size;
-        left: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
-        top: ($_o-forms-radiocheckbox-default-size - $_o-forms-radio-internal-default-size) / 2;
+        left: $_o-forms-radio-internal-offset;
+        top: $_o-forms-radio-internal-offset;
     }
 }
 
@@ -104,9 +104,13 @@
         text-align: right;
     }
 
-    & + .#{$class}__label::before,
-    & + .#{$class}__label::after {
+    & + .#{$class}__label::before {
         right: 0;
+        left: auto;
+    }
+
+    & + .#{$class}__label::after {
+        right: $_o-forms-radio-internal-offset;
         left: auto;
     }
 }
