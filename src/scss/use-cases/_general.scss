@@ -55,30 +55,46 @@
 /// External link icon.
 /// @param {Color} $color of the icon
 @mixin oTypographyLinkExternalIcon($color) {
-	// Icons align to a 40x40 pixel grid with 10px padding on each side.
-	// In this case however we want to remove that padding to align the icon flush.
-	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
-	$icon-size: (24 / 16) * 1em;
-	$icon-padding: ($icon-size/40) * 10;
-	$margin: 0.5ch;
-	margin-right: calc(#{$icon-size} - #{$icon-padding * 2} + #{$margin}); // Space for icon.
+	// IE9-11 does not size the svg icon background correctly.
+	// Use @supports to target modern (non-IE) browsers.
+	@supports (background-size: contain) {
+		@include oIconsGetIcon('outside-page', $color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		background-repeat: no-repeat;
+		background-position-x: right;
+		background-size: contain;
+		padding-right: calc(1em + 0.5ch);
+		background-origin: border-box;
+	}
 	&::after {
-		@include oIconsGetIcon('outside-page', $color, 24, $iconset-version: 1);
+		// Fallback to a pseudo element icon for IE9-11.
+		// The downside is the icon may wrap to newline.
+		@include oIconsGetIcon('outside-page', $color, 24, $apply-base-styles: false, $iconset-version: 1);
 		content: 'Opens a new window';
-		width: $icon-size;
-		height: $icon-size;
-		margin: -#{$icon-padding};
-		margin-right: calc(-#{$icon-size} + #{$icon-padding} - #{$margin});
-		padding-left: 0.5ch;
+		width: 1rem;
+		height: 1rem;
+		display: inline-block;
 		background-origin: content-box;
 		vertical-align: middle;
-		// To align middle ignoring any link border.
 		border-bottom: inherit;
 		border-color: transparent;
 		overflow: hidden;
 		text-indent: -10000px;
 		text-align: left;
 		color: rgba(0, 0, 0, 0);
+		// Visually hide pseudo element if the pseudo element icon fallback is not needed.
+		// @breaking update to use oNormaliseVisuallyHidden
+		// https://github.com/Financial-Times/o-typography/issues/161
+		@supports (background-size: contain) {
+			position: absolute;
+			clip: rect(0 0 0 0);
+			margin: -1px;
+			border: 0;
+			overflow: hidden;
+			padding: 0;
+			width: 1px;
+			height: 1px;
+			white-space: nowrap;
+		}
 	}
 }
 
