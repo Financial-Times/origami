@@ -151,6 +151,12 @@
 			"name": "warning"
 		},
 		{
+			"name": "warning-alt"
+		},
+		{
+			"name": "video"
+		},
+		{
 			"name": "written-text"
 		}
 	]
