@@ -32,6 +32,12 @@
 			"description": ""
 		},
 		{
+			"title": "Sizes",
+			"name": "Sizes",
+			"template": "/demos/src/sizes.mustache",
+			"description": ""
+		},
+		{
 			"title": "Typography",
 			"name": "Typography",
 			"template": "/demos/src/typography.mustache",
