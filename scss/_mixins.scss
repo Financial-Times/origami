@@ -13,6 +13,9 @@
 ///
 /// @param {String} $theme
 @mixin oLabelsState($state) {
+	@if oColorsGetColorFor(o-labels-#{$state}, border) {
+		box-shadow: inset 0px 0px 0px 1px oColorsGetColorFor(o-labels-#{$state}, border);
+	}
 	@include oColorsFor(o-labels-#{$state}, text background);
 }
 
