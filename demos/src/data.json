@@ -46,6 +46,9 @@
 			"name": "edit"
 		},
 		{
+			"name": "first"
+		},
+		{
 			"name": "gift"
 		},
 		{
@@ -55,7 +58,13 @@
 			"name": "hamburger"
 		},
 		{
+			"name": "info"
+		},
+		{
 			"name": "ipad"
+		},
+		{
+			"name": "last"
 		},
 		{
 			"name": "link"
@@ -89,6 +98,9 @@
 		},
 		{
 			"name": "phone"
+		},
+		{
+			"name": "pin"
 		},
 		{
 			"name": "play"
@@ -148,13 +160,10 @@
 			"name": "video"
 		},
 		{
-			"name": "warning"
-		},
-		{
 			"name": "warning-alt"
 		},
 		{
-			"name": "video"
+			"name": "warning"
 		},
 		{
 			"name": "written-text"
