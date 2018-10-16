@@ -44,6 +44,12 @@
 			"description": "use with o-typography"
 		},
 		{
+			"title": "Beta",
+			"name": "Beta",
+			"template": "/demos/src/beta.mustache",
+			"description": "Label for use when a feature is in beta"
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
