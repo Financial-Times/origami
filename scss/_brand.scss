@@ -10,50 +10,48 @@
 	@return oBrandSupportsVariant($component: 'o-buttons', $variant: $variant);
 }
 
-$_o-buttons-shared-brand-config: (
-	'primary': (
-		default-color: oColorsGetPaletteColor('white'),
-		default-background: oColorsGetPaletteColor('teal-50'),
-		default-border: oColorsGetPaletteColor('transparent'),
-		hover-background: oColorsGetPaletteColor('teal-40'),
-		focus-background: oColorsGetPaletteColor('teal-40'),
-		active-background: oColorsGetPaletteColor('teal-30')
-	),
-	'primary-inverse': (
-		default-color: oColorsGetPaletteColor('slate'),
-		default-background: oColorsGetPaletteColor('white'),
-		default-border: oColorsGetPaletteColor('transparent'),
-		hover-background: oColorsGetPaletteColor('slate-white-40'),
-		focus-background: oColorsGetPaletteColor('white'),
-		active-color: oColorsGetPaletteColor('slate'),
-		active-background: oColorsGetPaletteColor('slate-white-30')
-	),
-	'secondary': (
-		default-color: oColorsGetPaletteColor('teal-50'),
-		default-background: oColorsGetPaletteColor('transparent'),
-		default-border: oColorsGetPaletteColor('teal-50'),
-		hover-background: oColorsGetPaletteColor('teal-transparent-10'),
-		focus-background: oColorsGetPaletteColor('teal-transparent-10'),
-		active-color: oColorsGetPaletteColor('white'),
-		active-background: oColorsGetPaletteColor('teal-50')
-	),
-	'inverse': (
-		default-color: oColorsGetPaletteColor('white'),
-		default-background: oColorsGetPaletteColor('transparent'),
-		default-border: oColorsGetPaletteColor('white'),
-		hover-background: oColorsGetPaletteColor('slate-white-80'),
-		focus-background: oColorsGetPaletteColor('slate-white-80'),
-		active-color: oColorsGetPaletteColor('black'),
-		active-background: oColorsGetPaletteColor('white')
-	)
-);
+$_o-buttons-shared-brand-config: () !default;
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	$_o-buttons-shared-brand-config: (
+		'primary': (
+			default-color: oColorsGetPaletteColor('white'),
+			default-background: oColorsGetPaletteColor('teal-50'),
+			default-border: oColorsGetPaletteColor('transparent'),
+			hover-background: oColorsGetPaletteColor('teal-40'),
+			focus-background: oColorsGetPaletteColor('teal-40'),
+			active-background: oColorsGetPaletteColor('teal-30')
+		),
+		'primary-inverse': (
+			default-color: oColorsGetPaletteColor('slate'),
+			default-background: oColorsGetPaletteColor('white'),
+			default-border: oColorsGetPaletteColor('transparent'),
+			hover-background: oColorsGetPaletteColor('slate-white-40'),
+			focus-background: oColorsGetPaletteColor('white'),
+			active-color: oColorsGetPaletteColor('slate'),
+			active-background: oColorsGetPaletteColor('slate-white-30')
+		),
+		'secondary': (
+			default-color: oColorsGetPaletteColor('teal-50'),
+			default-background: oColorsGetPaletteColor('transparent'),
+			default-border: oColorsGetPaletteColor('teal-50'),
+			hover-background: oColorsGetPaletteColor('teal-transparent-10'),
+			focus-background: oColorsGetPaletteColor('teal-transparent-10'),
+			active-color: oColorsGetPaletteColor('white'),
+			active-background: oColorsGetPaletteColor('teal-50')
+		),
+		'inverse': (
+			default-color: oColorsGetPaletteColor('white'),
+			default-background: oColorsGetPaletteColor('transparent'),
+			default-border: oColorsGetPaletteColor('white'),
+			hover-background: oColorsGetPaletteColor('slate-white-80'),
+			focus-background: oColorsGetPaletteColor('slate-white-80'),
+			active-color: oColorsGetPaletteColor('black'),
+			active-background: oColorsGetPaletteColor('white')
+		)
+	)!global;
+}
 
-/// Brand to define conditionally
-///
-/// @type String
-$_o-buttons-brand: oBrandGetCurrentBrand();
-
-@if $_o-buttons-brand == 'master' {
+@if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-buttons', 'master', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
 			'mono': (
@@ -98,7 +96,9 @@ $_o-buttons-brand: oBrandGetCurrentBrand();
 			)
 		)
 	);
-} @elseif $_o-buttons-brand == 'internal' {
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-buttons', 'internal', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
 			'mono': (
@@ -129,7 +129,9 @@ $_o-buttons-brand: oBrandGetCurrentBrand();
 			'mono'
 		))
 	);
-} @elseif $_o-buttons-brand == 'whitelabel' {
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-buttons', 'whitelabel', (
 		'variables': (
 			'primary': (
