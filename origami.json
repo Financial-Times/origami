@@ -32,10 +32,22 @@
 			"description": ""
 		},
 		{
+			"title": "Sizes",
+			"name": "Sizes",
+			"template": "/demos/src/sizes.mustache",
+			"description": ""
+		},
+		{
 			"title": "Typography",
 			"name": "Typography",
 			"template": "/demos/src/typography.mustache",
 			"description": "use with o-typography"
+		},
+		{
+			"title": "Beta",
+			"name": "Beta",
+			"template": "/demos/src/beta.mustache",
+			"description": "Label for use when a feature is in beta"
 		},
 		{
 			"title": "Pa11y",

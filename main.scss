@@ -12,6 +12,11 @@
 
 	@each $size, $scale in $o-labels-sizes {
 		.#{$o-labels-class}--#{$size} {
+			@if ($size == 'wide') {
+				padding: 0 20px;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
 			@include oTypographySans($scale);
 		}
 	}
