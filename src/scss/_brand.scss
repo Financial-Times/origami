@@ -39,3 +39,18 @@
 		'dark'
 	)
 ));
+
+@include oBrandDefine('o-loading', 'whitelabel', (
+	'variables': (
+		'light': (
+			default-color: oColorsGetPaletteColor('white')
+		),
+		'dark': (
+			default-color: oColorsGetPaletteColor('black')
+		)
+	),
+	'supports-variants': (
+		'light',
+		'dark'
+	)
+));
