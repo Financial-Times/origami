@@ -1,6 +1,6 @@
 @mixin oHeaderServicesDrawer() {
 	// :mask: Unlike o-header, the README and demos say to include ".o--if-js" on the draw.
-span class="pl-c"> 	// ".core .o--if-js" may be replaced with ".enhanced .o--if-js" before "data-o-header-drawer--js" is added.
+	// ".core .o--if-js" may be replaced with ".enhanced .o--if-js" before "data-o-header-drawer--js" is added.
 	// This causes a flash where the draw is rendered before being positioned.
 	// So, only display the draw when "data-o-header-drawer--js" has been added by o-header.
 	.enhanced .o--if-js.o-header__drawer:not([data-o-header-drawer--js]) {
