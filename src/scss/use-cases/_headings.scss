@@ -4,6 +4,7 @@
 ////
 
 /// Headline styles
+/// @brand master
 @mixin oTypographyHeadline {
 	@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
 	@include oTypographyMargin($top: 0, $bottom: 5);
@@ -12,6 +13,7 @@
 }
 
 /// Large headline styles with an underline
+/// @brand master
 @mixin oTypographyHeadlineLarge {
 	@include oTypographyDisplayBold($scale: (default: 5, S: 6, L: 7));
 	@include oTypographyMargin($top: 0, $bottom: 7);
@@ -27,21 +29,25 @@
 }
 
 /// Level 2 heading styles
+/// @brand master
 @mixin oTypographyHeadingLevel2 {
 	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
 }
 
 /// Level 3 heading styles
+/// @brand master
 @mixin oTypographyHeadingLevel3 {
 	@include _oTypographyProductHeadingBase($scale: 4);
 }
 
 /// Level 4 heading styles
+/// @brand master
 @mixin oTypographyHeadingLevel4 {
 	@include _oTypographyProductHeadingBase($scale: 3);
 }
 
 /// Level 5 heading styles
+/// @brand master
 @mixin oTypographyHeadingLevel5 {
 	@include _oTypographyProductHeadingBase($scale: 0);
 	text-transform: uppercase;

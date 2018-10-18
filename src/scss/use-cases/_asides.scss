@@ -1,4 +1,5 @@
 /// Styles for read next aside header
+/// @brand master
 @mixin oTypographyReadNext {
 	@include oTypographySansBold($scale: 1);
 	@include oTypographyMargin($top: 0, $bottom: 2);
@@ -14,6 +15,7 @@
 }
 
 /// Style for big-number aside
+/// @brand master
 @mixin oTypographyBigNumber {
 	@include oTypographySansBold($scale: 10);
 	@include oColorsFor('o-typography-body');
@@ -21,6 +23,7 @@
 
 /// Styles for collection headers including
 /// full-width top border
+/// @brand master
 @mixin oTypographyCollectionHeader {
 	@include oTypographySans($scale: 3);
 	@include oTypographyPadding($top: 2);

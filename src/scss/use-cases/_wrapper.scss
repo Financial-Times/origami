@@ -6,6 +6,7 @@
 /// General typography
 /// Apply to a wrapper to style all text inside it
 ///
+/// @brand master
 /// @param {String} $style will change the headings in a body that is not an article
 /// @example scss
 /// article { @include oTypographyWrapper; }
