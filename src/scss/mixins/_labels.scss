@@ -20,9 +20,17 @@
 }
 
 /// @access public
+/// @output Styles for a label within a group (i.e. fieldset of checkboxes, multi-input date capture).
+@mixin oFormsGroupLabel {
+    @include oTypographySize(0);
+    display: inline-block;
+    font-weight: oFontsWeight('normal');
+}
+
+/// @access public
 /// @output Styles for addional input information (typically below a label).
 @mixin oFormsAdditionalInfo {
-	@include oTypographySize($_o-forms-typography-scale-small);
+	@include oTypographySize(-1);
 	color: _oFormsGet('field-additional-info-text');
 	display: block;
 }
@@ -30,7 +38,7 @@
 /// @access public
 /// @output Styles for error text.
 @mixin oFormsErrorText {
-	@include oTypographySize($_o-forms-typography-scale-small);
+	@include oTypographySize(-1);
 	color: _oFormsGet('field-invalid-text');
 	clear: both;
 	display: block;
@@ -41,7 +49,7 @@
 /// @require {mixin} oFormsLabel - Foundation label styles are required.
 /// @output Modifying styles for labels of optional fields.
 @mixin oFormsLabelOptional {
-	@include oTypographySize($_o-forms-typography-scale-small);
+	@include oTypographySize(-1);
 	color: _oFormsGet('field-additional-info-text');
 	content: ' (optional)';
 	font-weight: oFontsWeight('normal');

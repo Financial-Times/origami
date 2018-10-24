@@ -10,6 +10,8 @@
 @mixin oForms($class: 'o-forms') {
 	// Common inputs.
 	@include oFormsBaseFeatures($class);
+	// Date input.
+	@include oFormsDateFeatures($class);
 	// Radio and checkboxes.
 	@include oFormsRadioCheckboxFeatures($class);
 	// Radio and checkboxes right modifier.
@@ -205,7 +207,7 @@
 	$status-icon-padding: ($status-icon-size/40) * 10;
 	// Base status styles.
 	.#{$class}__status {
-		@include oTypographySize($_o-forms-typography-scale-small);
+		@include oTypographySize(-1);
 		line-height: 1em;
 		white-space: nowrap;
 		align-items: center;

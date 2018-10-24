@@ -22,6 +22,7 @@
 // Partial mixins used together to generate form features.
 @import "src/scss/mixins/common";
 @import "src/scss/mixins/textarea";
+@import "src/scss/mixins/date";
 @import "src/scss/mixins/select";
 @import "src/scss/mixins/radio-checkbox";
 @import "src/scss/mixins/toggle";
@@ -36,5 +37,6 @@
 /// Output all form features if silent mode is off.
 @if $o-forms-is-silent == false {
 	@include oForms();
+
 	$o-forms-is-silent: true !global;
 }

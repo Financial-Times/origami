@@ -187,15 +187,13 @@
 /// @access private
 /// @output Styles to modify checkbox/radio labels.
 @mixin _oFormsRadioCheckboxLabel {
-    @include oTypographySize($_o-forms-typography-scale-regular);
-    display: inline-block;
-    padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
+    @include oFormsGroupLabel();
     position: relative;
-    cursor: pointer;
-    font-weight: oFontsWeight('normal');
-    user-select: none;
+	user-select: none;
+	cursor: pointer;
     // To align the text with the center of the checkbox/radio
     padding-top: 2px;
+    padding-left: $_o-forms-radiocheckbox-default-size + $_o-forms-label-padding-left; // radio/checkboxes are being styled as pseudo-elements, which means we have to account for the width of the radio/checkboxes when adding padding to the labels
     min-height: $_o-forms-radiocheckbox-default-size;
 }
 
@@ -209,10 +207,9 @@
     }
     @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
+		@include oTypographySize($scale: -1, $line-height: 1em);
         @include _oFormsRadioButtonsStyledMargin();
         cursor: pointer;
-        font-size: $_o-forms-field-default-font-size;
-        line-height: $_o-forms-field-default-font-size;
         font-weight: oFontsWeight('semibold');
         padding: $_o-forms-radio-styled-padding;
         min-height: $_o-forms-field-small-height;

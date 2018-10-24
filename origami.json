@@ -38,6 +38,12 @@
 			"description": "This is the generic text area box for most use cases."
 		},
 		{
+			"name": "date",
+			"title": "Date inputs",
+			"template": "/demos/src/dates.mustache",
+			"description": "This is a group of number inputs to capture a date."
+		},
+		{
 			"name": "radios",
 			"title": "Radio buttons",
 			"template": "/demos/src/radios.mustache",

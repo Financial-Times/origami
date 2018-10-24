@@ -7,25 +7,14 @@
 $o-forms-is-silent: true !default;
 
 /// Field font family variable.
+/// Defaults to the sans font defined for o-typography.
 ///
 /// This is required to override default system form element styling,
 /// since `<input>`, `<textarea>`, `<select>`… don't inherit global font styles
 ///
 /// @access public
 /// @type String
-$o-forms-font-family: MetricWeb, sans-serif !default;
-
-/// Typography scale variables.
-/// @access private
-/// @type Number
-$_o-forms-typography-scale-small: -1;
-$_o-forms-typography-scale-regular: 0;
-$_o-forms-typography-scale-large: 1;
-
-/// Font size variables.
-/// @access private
-/// @type String
-$_o-forms-field-default-font-size: 14px;
+$o-forms-font-family: $o-typography-sans !default;
 
 /// Spacing variables.
 /// @access private
@@ -39,7 +28,7 @@ $_o-forms-checkbox-legend-spacing: oTypographySpacingSize(3); // 12px
 $_o-forms-checkbox-horizontal-spacing: 15px;
 $_o-forms-checkbox-vertical-spacing: oTypographySpacingSize(4); // 16px
 $_o-forms-padding: oGridGutter();
-$_o-forms-default-error-text-margin: oTypographySpacingSize(1); // 4px;;
+$_o-forms-default-error-text-margin: oTypographySpacingSize(1); // 4px;
 
 /// Field dimention variables.
 /// @access private

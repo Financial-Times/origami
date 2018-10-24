@@ -47,7 +47,7 @@
 /// @access public
 /// @output Styles for a message which spans multiple o-forms instances.
 @mixin oFormsMessage() {
-	@include oTypographySize($_o-forms-typography-scale-large);
+	@include oTypographySize(1);
 	background-color: _oFormsGet('section-highlight-background');
 	padding: 0 $_o-forms-padding;
 	margin-bottom: $_o-forms-spacing;

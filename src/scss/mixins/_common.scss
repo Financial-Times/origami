@@ -215,7 +215,7 @@
 /// @access public
 /// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
-	@include oTypographySize($_o-forms-typography-scale-regular);
+	@include oTypographySize(0);
 	color: _oFormsGet('field-standard-text');
 	border-color: _oFormsGet('field-standard-border');
 	background-color: _oFormsGet('field-standard-background');

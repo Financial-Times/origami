@@ -6,7 +6,7 @@
 /// @require {mixin} oFormsAffixWrapper - A suffix must be used within an affix wrapper.
 /// @output Styles for an input suffix.
 @mixin oFormsSuffix() {
-	@include oTypographySize($_o-forms-typography-scale-regular);
+	@include oTypographySize(0);
 	display: table-cell;
 	box-sizing: border-box;
 	width: 1%;
