@@ -47,7 +47,7 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 
 ## Advanced usage<a name="advanced"></a>
 
-### Loading all the web fonts
+### Loading all Origami provided web fonts
 
 ```scss
 $o-fonts-is-silent: false;
@@ -61,7 +61,7 @@ or
 @include oFontsIncludeAll();
 ```
 
-### Loading specific web fonts
+### Loading specific Origami provided web fonts
 
 ```scss
 @import 'o-fonts/main';
@@ -91,6 +91,46 @@ Compiles to:
 .my-class {
 	font-family: FinancierDisplayWeb, sans-serif;
 }
+```
+
+`oFontsGetFontFamilyWithoutFallbacks` performs the inverse:
+
+```scss
+	$without-fallbacks: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
+```
+
+### Checking a weight or style is allowed
+
+To check if a font supports a weight/style use `oFontsVariantExists`.
+
+```scss
+$allowed: oFontsVariantExists('MetricWeb', 'bold', 'normal'); // true
+$allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
+```
+
+### Using custom font families
+
+It is also possible to register custom fonts with `o-fonts` using the mixin `oFontsGetFontFamilyWithoutFallbacks`.
+
+In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
+```scss
+@include oFontsIncludeCustomFont('MyFont, sans', (
+    (weight: regular, style: normal),
+    (weight: bold, style: normal)
+)) {
+    @font-face {
+        src: url('MyFont-Thin.woff');
+        font-family: MyFont;
+        font-weight: 100;
+        font-style: normal;
+    }
+    @font-face{
+        src: url('MyFont-Bold.woff');
+        font-family: MyFont;
+        font-weight: 700;
+        font-style: normal;
+    }
+};
 ```
 
 ====

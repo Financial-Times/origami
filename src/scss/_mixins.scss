@@ -1,8 +1,3 @@
-////
-/// @group o-fonts
-/// @link http://registry.origami.ft.com/components/o-fonts
-////
-
 /// Font-face declaration sources
 ///
 /// @param {String} fontName - path to the file, without the file extension
@@ -10,7 +5,8 @@
 	src: url(oFontsUseAsset($fontName + '.woff'));
 }
 
-/// Font-face declaration for a given font family
+
+/// Output a Font-face declaration for a given Origami provided font family.
 ///
 /// @param {String} $family - one of $o-fonts-families
 /// @param {String} $weight [regular] - one of $_o-fonts-weights
@@ -33,7 +29,7 @@
 		@if map-has-key($o-fonts-families, $family) == false {
 			@warn 'Font #{$family} not found. Must be one of $o-fonts-families.';
 		} @else {
-			@if (_oFontsVariantExists($family, $weight, $style)) {
+			@if (oFontsVariantExists($family, $weight, $style)) {
 				$font-exists: true;
 			} @else {
 				@warn 'Variant "weight: #{$weight}, style: #{$style}" not found for "#{$family}". @font-face rule will not be output.';
@@ -70,11 +66,56 @@
 	}
 }
 
-/// Output @font-face declarations for all the font families
+/// Output all Font-face declarations for Origami provided fonts.
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $o-fonts-families {
 		@each $variant in map-get($properties, variants) {
 			@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
 		}
 	}
+}
+
+/// Output custom Font-face declarations and register the family and variants with o-fonts.
+///
+/// @example This example shows registering a custom font "MyFont" with "sans" fallback. The font allows regular or bold variants.
+/// 	@include oFontsIncludeCustomFont('MyFont, sans', (
+/// 		(weight: regular, style: normal),
+/// 		(weight: bold, style: normal)
+/// 	)) {
+/// 		@font-face {
+/// 			src: url('MyFont-Thin.woff');
+/// 			font-family: MyFont;
+/// 			font-weight: 100;
+/// 			font-style: normal;
+/// 		}
+///
+/// 		@font-face{
+/// 			src: url('MyFont-Bold.woff');
+/// 			font-family: MyFont;
+/// 			font-weight: 700;
+/// 			font-style: normal;
+/// 		}
+/// 	};
+///
+/// @param {String} $font-family The custom font family with fallback e.g. 'ComicSans, sans'
+/// @param {Map} $variants The variants (weight and style combinations) which are allowed in a nested map e.g. ((weight: bold, style: normal), (weight: regular, style: normal))
+/// @content If the font family is not a system font, output the font-face for the custom font in the mixin content.
+@mixin oFontsIncludeCustomFont($font-family, $variants) {
+	// Validate variants.
+	@each $variant in $variants {
+		$weight: map-get($variant, 'weight');
+		$style: map-get($variant, 'style');
+		@if type-of($weight) != 'string' and map-has-key($_o-fonts-weights, $weight) {
+			@error 'Could not include custom font "#{$font-family}". All variants must specify a weight, one of "#{$_o-fonts-weights}".';
+		}
+		@if type-of($style) != 'string' {
+			@error 'Could not include custom font "#{$font-family}". All variants must specify a style, e.g. "normal", "italic".';
+		}
+	}
+	$font-key: oFontsGetFontFamilyWithoutFallbacks($font-family);
+	$o-fonts-families: map-merge(($font-key: (
+		'font-family': $font-family,
+		'variants': $variants
+	)), $o-fonts-families) !global;
+	@content; // Output a custom Font-face declaration.
 }
