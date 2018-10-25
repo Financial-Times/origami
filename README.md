@@ -110,7 +110,7 @@ $allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
 
 ### Using custom font families
 
-It is also possible to register custom fonts with `o-fonts` using the mixin `oFontsGetFontFamilyWithoutFallbacks`.
+It is also possible to register custom fonts with `o-fonts` using the mixin `oFontsDefineCustomFont`.
 
 In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
 ```scss
