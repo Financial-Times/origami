@@ -88,7 +88,7 @@
 /// Output custom Font-face declarations and register the family and variants with o-fonts.
 ///
 /// @example This example shows registering a custom font "MyFont" with "sans" fallback. The font allows regular or bold variants.
-/// 	@include oFontsIncludeCustomFont('MyFont, sans', (
+/// 	@include oFontsDefineCustomFont('MyFont, sans', (
 /// 		(weight: regular, style: normal),
 /// 		(weight: bold, style: normal)
 /// 	)) {
@@ -110,7 +110,7 @@
 /// @param {String} $font-family The custom font family with fallback e.g. 'ComicSans, sans'
 /// @param {Map} $variants The variants (weight and style combinations) which are allowed in a nested map e.g. ((weight: bold, style: normal), (weight: regular, style: normal))
 /// @content If the font family is not a system font, output the font-face for the custom font in the mixin content.
-@mixin oFontsIncludeCustomFont($font-family, $variants) {
+@mixin oFontsDefineCustomFont($font-family, $variants) {
 	// Validate variants.
 	@each $variant in $variants {
 		$weight: map-get($variant, 'weight');

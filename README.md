@@ -114,7 +114,7 @@ It is also possible to register custom fonts with `o-fonts` using the mixin `oFo
 
 In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
 ```scss
-@include oFontsIncludeCustomFont('MyFont, sans', (
+@include oFontsDefineCustomFont('MyFont, sans', (
     (weight: regular, style: normal),
     (weight: bold, style: normal)
 )) {
