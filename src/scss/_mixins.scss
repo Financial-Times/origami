@@ -5,8 +5,7 @@
 	src: url(oFontsUseAsset($fontName + '.woff'));
 }
 
-
-/// Output a Font-face declaration for a given Origami provided font family.
+/// Output a Font-face declaration for a given font family which is provided by Origami.
 ///
 /// @param {String} $family - one of $o-fonts-families
 /// @param {String} $weight [regular] - one of $_o-fonts-weights
@@ -74,7 +73,7 @@
 	}
 }
 
-/// Output all Font-face declarations for Origami provided fonts.
+/// Output all Font-face declarations which are provided by Origami.
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $o-fonts-families {
 		@if not map-get($properties, 'custom') {

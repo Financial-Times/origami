@@ -47,7 +47,7 @@ WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
 
 ## Advanced usage<a name="advanced"></a>
 
-### Loading all Origami provided web fonts
+### Loading all web fonts provided by Origami
 
 ```scss
 $o-fonts-is-silent: false;
@@ -61,7 +61,7 @@ or
 @include oFontsIncludeAll();
 ```
 
-### Loading specific Origami provided web fonts
+### Loading specific web fonts provided by Origami
 
 ```scss
 @import 'o-fonts/main';
