@@ -20,6 +20,14 @@
 		$weight: regular;
 	}
 
+	// Check the font is an Origami font, not a custom font.
+	@if map-has-key($o-fonts-families, $family) {
+		$font-family-config: map-get($o-fonts-families, $family);
+		@if map-get($font-family-config, 'custom') {
+			@error 'Can not include a custom font "#{$family}". Include your custom font manually.';
+		}
+	}
+
 	$font-exists: false;
 	// Check if the font has already been included
 	// If so, no need to output another @font-face declaration
@@ -69,8 +77,10 @@
 /// Output all Font-face declarations for Origami provided fonts.
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $o-fonts-families {
-		@each $variant in map-get($properties, variants) {
-			@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
+		@if not map-get($properties, 'custom') {
+			@each $variant in map-get($properties, variants) {
+				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
+			}
 		}
 	}
 }
@@ -115,7 +125,8 @@
 	$font-key: oFontsGetFontFamilyWithoutFallbacks($font-family);
 	$o-fonts-families: map-merge(($font-key: (
 		'font-family': $font-family,
-		'variants': $variants
+		'variants': $variants,
+		'custom': true
 	)), $o-fonts-families) !global;
 	@content; // Output a custom Font-face declaration.
 }
