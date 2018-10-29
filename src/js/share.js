@@ -90,7 +90,7 @@ function Share(rootEl, config) {
 	  * Transforms the default social urls
 	  *
 	  * @private
-	  * @param {string} socialNetwork - Name of the social network that we support (twitter, facebook, linkedin, reddit, pinterest)
+	  * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
 	  */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];
