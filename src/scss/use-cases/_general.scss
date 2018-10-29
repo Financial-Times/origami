@@ -40,10 +40,11 @@
 
 /// Standard link styles
 @mixin oTypographyLink {
-	@include oTypographyLinkCustom(
-		$baseColor: oColorsGetUseCase(link, text),
-		$hoverColor: 'teal-30'
-	);
+	$base-color: oColorsGetUseCase(link, text);
+	$hover-color: oColorsGetUseCase(link-hover, text);
+	@if $base-color and $hover-color {
+		@include oTypographyLinkCustom($base-color, $hover-color);
+	}
 }
 
 /// Standard link styles + external link icon.
