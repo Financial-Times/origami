@@ -41,7 +41,7 @@
 			@include assert-equal(oColorsGetUseCase(page, background), ('paper'));
 			@include assert-equal(oColorsGetUseCase(box, background), ('wheat'));
 			@include assert-equal(oColorsGetUseCase(link, text), ('teal'));
-			@include assert-equal(oColorsGetUseCase(link-hover, text), ('black-70'));
+			@include assert-equal(oColorsGetUseCase(link-hover, text), ('teal-30'));
 			@include assert-equal(oColorsGetUseCase(link-title, text), ('black-80'));
 			@include assert-equal(oColorsGetUseCase(link-title-hover, text), ('black-70'));
 			@include assert-equal(oColorsGetUseCase(tag-link, text), ('claret'));
