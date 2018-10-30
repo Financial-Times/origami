@@ -1,0 +1,27 @@
+@include test-module('oFontsDefineCustomFont') {
+	@include test('Outputs the custom font face and updates the "$o-fonts-families" map.') {
+
+        @include assert {
+            // Include a custom font with regular and bold variants.
+            @include output {
+                @include oFontsDefineCustomFont('MyFont, sans', (
+                    (weight: regular, style: normal),
+                    (weight: bold, style: normal)
+                )) {
+                    // True wraps this test in a class. We can't do that with font-face.
+                    // Instead test mixin content is output with arbitrary CSS.
+                    content: 'Just a test. Font face here.';
+                };
+            }
+            @include expect {
+                content: 'Just a test. Font face here.';
+            }
+        }
+
+        // The font faces are output.
+        @include assert-equal(
+            $o-fonts-families,
+            ("MyFont": ("font-family": "MyFont, sans", "variants": ((weight: regular, style: normal), (weight: bold, style: normal)), "custom": true), MetricWeb: (font-family: "MetricWeb, sans-serif", variants: ((weight: thin, style: normal), (weight: light, style: normal), (weight: light, style: italic), (weight: regular, style: normal), (weight: regular, style: italic), (weight: medium, style: normal), (weight: semibold, style: normal), (weight: bold, style: normal), (weight: bold, style: italic))), FinancierDisplayWeb: (font-family: "FinancierDisplayWeb, serif", variants: ((weight: light, style: italic), (weight: regular, style: normal), (weight: medium, style: italic), (weight: semibold, style: italic), (weight: bold, style: normal))))
+        );
+	}
+}

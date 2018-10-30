@@ -1,18 +1,13 @@
-////
-/// @group o-fonts
-/// @link http://registry.origami.ft.com/components/o-fonts
-////
-
 /// Check if a font variant exists for a family
 ///
-/// @param {String} family - one of $o-fonts-families
-/// @param {String} weight
-/// @param {String} style
-///
-/// @access private
-///
+/// @access public
+/// @param {String} $family - one of $o-fonts-families
+/// @param {String} $weight [regular] - The font weight.
+/// @param {String} $style [normal] - The font style.
 /// @return {Bool}
-@function _oFontsVariantExists($family, $weight, $style) {
+@function oFontsVariantExists($family, $weight, $style) {
+	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
+	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
 	$font-properties: map-get($o-fonts-families, $family);
 	$font-variants: map-get($font-properties, variants);
 
@@ -59,6 +54,22 @@
 	}
 	@warn 'Font #{$family} not found. Must be one of $o-fonts-families.';
 	@return inherit;
+}
+
+/// Removes a fonts fallbacks.
+/// @example
+///     $family: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans'); //FinancierDisplayWeb
+/// @param {String|List} $family - Font family potentially with fallbacks.
+/// @returns {String} Font family without fallbacks.
+@function oFontsGetFontFamilyWithoutFallbacks($family) {
+	@if type-of($family) == 'list' {
+		@return nth($family, 1);
+	}
+	$index: str-index($family, ',');
+	@if $index {
+		$family: str-slice($family, 0, $index - 1);
+	}
+	@return if($family, $family, '');
 }
 
 /// Path to a font asset
