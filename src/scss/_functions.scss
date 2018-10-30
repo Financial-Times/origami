@@ -5,9 +5,9 @@
 /// @param {String} $weight [regular] - The font weight.
 /// @param {String} $style [normal] - The font style.
 /// @return {Bool}
-@function oFontsVariantExists($family, $weight: 'regular', $style: 'normal') {
-	$weight: if($weight, $weight, 'regular');
-	$style: if($style, $style, 'normal');
+@function oFontsVariantExists($family, $weight, $style) {
+	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
+	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
 	$font-properties: map-get($o-fonts-families, $family);
 	$font-variants: map-get($font-properties, variants);
 
