@@ -9,7 +9,7 @@
         "withFacebook": true,
         "withLinkedin": true,
         "withWhatsapp": true,
-    	"withGoogleplus": true,
+    	"withGoogleplus": false,
     	"withPinterest": true,
     	"withLink": true,
     	"withMail": true,

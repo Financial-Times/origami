@@ -50,8 +50,10 @@ The different social networks are (in the order suggested by the design team):
 * Facebook (note: Facebook doesn't accept meta data attributes in the same way as the other sharing services, instead the [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler) uses internal heuristics to make a best guess about the title, description, and preview image for your content. You can provide specifics for these attributes to facebook by using [Open Graph meta tags](https://developers.facebook.com/docs/sharing/webmasters#markup))
 * Linkedin
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
-* Google+ (written as 'googleplus' in the `links` config option)
 * Pinterest
+
+The following social networks are deprecated, and will be removed in the next major release:
+* Google+ (written as 'googleplus' in the `links` config option)
 
 #### Core experience
 
@@ -124,7 +126,7 @@ It may help to look at the [changes made to the demo markup](https://github.com/
 - The original class names on `<a>` and `<button>` tags have been removed.
 
 ```diff
-<a 
+<a
 -class="o-share__action--icon"
 +class="o-share__icon o-share__icon--twitter"
 href="#">
@@ -135,7 +137,7 @@ href="#">
 ```
 
 ```diff
-<button 
+<button
 -class="o-share__action--icon"
 +class="o-share__icon o-share__icon--mail"
 >
