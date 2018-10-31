@@ -29,7 +29,7 @@
 		"dependencies": [
 			"o-fonts@^3.0.0",
 			"o-normalise@^1.0.0",
-			"o-typography@v5.7.5"
+			"o-typography@^5.7.8"
 		]
 	},
 	"demos": [
