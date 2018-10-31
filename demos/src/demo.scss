@@ -4,29 +4,13 @@ $o-table-is-silent: false;
 // Default font and styles
 html {
 	font-family: BentonSans, sans-serif;
+	background: oColorsGetColorFor('page', 'background');
 }
 
-.o-table-wrapper {
+.o-table-demo-constrain {
 	max-width: 600px;
 }
 
-.demo__controls {
-	display: none;
-	float: right;
-	width: 200px;
-	font-family: sans-serif;
-	font-size: 14px;
-
-	label {
-		display: block;
-		margin: 0 0 5px;
-		padding: 5px;
-	}
-	input:checked + span {
-		font-weight: bold;
-	}
-}
-
-.demo-js .demo__controls {
-	display: block;
+.o-table-demo-pad {
+	padding-bottom: 1000px;
 }

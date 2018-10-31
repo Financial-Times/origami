@@ -1,12 +1,9 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
-
-//// @brand internal
-//// @outputs Highlights table headings.
-@mixin oTableRowHeadings() {
-	&>tbody th {
+/// @brand internal
+/// @outputs Highlights table headings.
+/// @access private
+@mixin _oTableRowHeadings() {
+	.o-table--row-headings > tbody th {
 		background-color: _oTableGet('table-alternate-background');
+		border-right: 2px solid _oTableGet('table-data-color');
 	}
 }

@@ -1,67 +1,62 @@
-<table class="o-table {{modifierClass}}" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Fruit</th>
-			<th>Genus</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(GBP)</span></th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(EUR)</span></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Dragonfruit</td>
-			<td>Stenocereus</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-		</tr>
-		<tr>
-			<td>Durian</td>
-			<td>Durio</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-		</tr>
-		<tr>
-			<td>Naseberry</td>
-			<td>Manilkara</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="o-table {{modifierClass}}" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Fruit<span class="o-table__cell--content-secondary">Common Name</span></th>
-			<th>Genus<span class="o-table__cell--content-secondary">Scientific Name</span></th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(GBP)</span></th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(EUR)</span></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Dragonfruit</td>
-			<td>Stenocereus</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-		<tr>
-			<td>Durian</td>
-			<td>Durio</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-		</tr>
-		<tr>
-			<td>Naseberry</td>
-			<td>Manilkara</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-		</tr>
-	</tbody>
+<table class="o-table {{^isStriped}}o-table--horizontal-lines{{/isStriped}} {{modifierClass}}" data-o-component="o-table">
+    {{#showCaption}}
+        <caption class="o-table__caption">
+            <h2 class="o-typography-heading-level-2">Table Caption</h2>
+        </caption>
+    {{/showCaption}}
+    {{#showFooter}}
+        <tfoot>
+            <tr>
+                <td colspan=5 class="o-table-footnote">
+                    Source: The Origami team's love of fruit.
+                </td>
+            </tr>
+        </tfoot>
+    {{/showFooter}}
+    <thead>
+        <tr>
+            <th scope="col" role="columnheader">Fruit</th>
+            <th scope="col" role="columnheader">Genus</th>
+            <th scope="col" role="columnheader">Characteristic</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(GBP)</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(EUR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dragonfruit</td>
+            <td>Stenocereus</td>
+            <td>Juicy</td>
+            <td class="o-table__cell--numeric">3</td>
+            <td class="o-table__cell--numeric">2.72</td>
+        </tr>
+        <tr>
+            <td>Durian</td>
+            <td>Durio</td>
+            <td>Smelly</td>
+            <td class="o-table__cell--numeric">1.75</td>
+            <td class="o-table__cell--numeric">1.33</td>
+        </tr>
+        <tr>
+            <td>Naseberry</td>
+            <td>Manilkara</td>
+            <td>Chewy</td>
+            <td class="o-table__cell--numeric">2</td>
+            <td class="o-table__cell--numeric">1.85</td>
+        </tr>
+        <tr>
+            <td>Strawberry</td>
+            <td>Fragaria</td>
+            <td>Sweet</td>
+            <td class="o-table__cell--numeric">1.5</td>
+            <td class="o-table__cell--numeric">1.69</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>Malus</td>
+            <td>Crunchy</td>
+            <td class="o-table__cell--numeric">0.5</td>
+            <td class="o-table__cell--numeric">0.56</td>
+        </tr>
+    </tbody>
 </table>

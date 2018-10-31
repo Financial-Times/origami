@@ -2,30 +2,31 @@ $o-table-is-silent: true !default;
 
 // Dependancies
 @import "o-brand/main";
+@import "o-buttons/main";
 @import "o-colors/main";
 @import "o-grid/main";
 @import "o-icons/main";
 @import "o-typography/main";
+@import "o-visual-effects/main";
 // Branding
 @import "src/scss/brand";
 // Main
-@import "src/scss/mixins";
-@import "src/scss/captions";
 @import "src/scss/base";
-@import "src/scss/responsive-flat";
-@import "src/scss/responsive-overflow";
-@import "src/scss/responsive-scroll";
-@import "src/scss/compact";
-@import "src/scss/cells";
-@import "src/scss/row-stripes";
-@import "src/scss/lines";
 @import "src/scss/borders";
+@import "src/scss/compact";
+@import "src/scss/container";
+@import "src/scss/lines";
+@import "src/scss/mixins";
+@import "src/scss/responsive-overflow";
+@import "src/scss/responsive-flat";
+@import "src/scss/responsive-scroll";
 @import "src/scss/row-headings";
-
-@import "src/scss/deprecated";
+@import "src/scss/row-stripes";
+@import "src/scss/sort";
+@import "src/scss/wrapper";
 
 @if ($o-table-is-silent == false) {
-	@include oTableAll;
+	@include oTable();
 
 	// Set table to silent again to avoid being output twice
 	$o-table-is-silent: true !global;

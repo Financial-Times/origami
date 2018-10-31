@@ -1,64 +1,51 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
+/// Styles for a 'ScrollTable'
+/// @access private
+@mixin _oTableResponsiveScroll {
+	.o-table--responsive-scroll {
 
-/// Make a table 'ResponsiveScroll'
-@mixin oTableResponsiveScroll {
-	display: flex;
-	overflow: hidden;
+		.o-table__duplicate-row {
+			display: none;
+		}
 
-	// Ensure collapsed table border is not hidden.
-	border-right-width: 2px;
-	border-bottom-width: 2px;
+		@include oGridRespondTo($until: S) {
+			// Remove standard border.
+			&.o-table--horizontal-lines .o-table__duplicate-row:not(:first-child) {
+				border: 0;
+			}
 
-	@include oGridRespondTo(S) {
-		display: table;
-	}
+			// Add responsive border.
+			&.o-table--horizontal-lines .o-table__duplicate-row:not(:last-child) {
+				td {
+					border-bottom: 1px solid _oTableGet('table-border-color');
+				}
+			}
 
-	@include oGridRespondTo($until: S) {
-		.o-table__cell--numeric {
-			text-align: left;
+			tr:not(.o-table__duplicate-row) {
+				display: none;
+			}
+
+			.o-table__duplicate-row {
+				display: table-row;
+			}
+
+			th {
+				position: sticky;
+				left: 0;
+				background-color: _oTableGet('table-background');
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					border-right: 2px solid _oTableGet('table-data-color');
+				}
+			}
+
+			.o-table__cell--numeric {
+				text-align: left;
+			}
 		}
 	}
-
-	thead {
-		display: flex;
-		flex-shrink: 0;
-
-		@include oGridRespondTo(S) {
-			display: table-header-group;
-		}
-	}
-
-	tbody {
-		display: flex;
-		overflow-x: auto;
-		overflow-y: hidden;
-		position: relative;
-
-		@include oGridRespondTo(S) {
-			display: table-row-group;
-		}
-	}
-
-	tr {
-		display: flex;
-		flex-direction: column;
-		flex-shrink: 0;
-
-		@include oGridRespondTo(S) {
-			display: table-row;
-		}
-	}
-
-	th,
-	td {
-		display: block;
-
-
-		@include oGridRespondTo(S) {
-			display: table-cell;
-		}
-		}
-} // mixin
+}

@@ -10,40 +10,50 @@
     @return oBrandSupportsVariant($component: 'o-table', $variant: $variant);
 }
 
-@include oBrandDefine('o-table', 'master', (
-	'variables': (
-		table-background: oColorsGetPaletteColor('paper'),
-		table-alternate-background: oColorsGetPaletteColor('wheat'),
-		table-header-color: oColorsGetPaletteColor('black-90'),
-		table-border-color: oColorsGetPaletteColor('black-20'),
-		table-caption-border-color: oColorsGetPaletteColor('black-30'),
-		table-data-color: oColorsGetPaletteColor('black-70'),
-	),
-	'supports-variants': (
-		'stripe',
-		'compact'
-	)
-));
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-table', 'master', (
+		'variables': (
+			table-background: oColorsGetPaletteColor('paper'),
+			table-alternate-background: oColorsGetPaletteColor('wheat'),
+			table-border-color: oColorsGetPaletteColor('black-20'),
+			table-data-color: oColorsGetColorFor(body, text),
+			table-footnote-color: oColorsGetPaletteColor('black-60'),
+			'flat': (
+				table-item-alternate-background: oColorsMix('wheat', 'paper', 40)
+			)
+		),
+		'supports-variants': (
+			'stripes',
+			'compact'
+		)
+	));
+}
 
-@include oBrandDefine('o-table', 'internal', (
-	'variables': (
-		table-background: oColorsGetPaletteColor('white'),
-		table-alternate-background: oColorsGetPaletteColor('slate-white-5'),
-		table-header-color: oColorsGetPaletteColor('black-90'),
-		table-border-color: oColorsGetPaletteColor('black-20'),
-		table-caption-border-color: oColorsGetPaletteColor('black-30'),
-		table-data-color: oColorsGetPaletteColor('black-70'),
-	),
-	'supports-variants': (
-		'stripe',
-		'compact',
-		'row-headings'
-	)
-));
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-table', 'internal', (
+		'variables': (
+			table-background: oColorsGetPaletteColor('white'),
+			table-alternate-background: oColorsGetPaletteColor('slate-white-5'),
+			table-border-color: oColorsGetPaletteColor('black-20'),
+			table-data-color: oColorsGetColorFor(body, text),
+			table-footnote-color: oColorsGetPaletteColor('black-60'),
+			'flat': (
+				table-item-alternate-background: oColorsGetPaletteColor('slate-white-5')
+			)
+		),
+		'supports-variants': (
+			'stripes',
+			'compact',
+			'row-headings'
+		)
+	));
+}
 
-@include oBrandDefine('o-table', 'whitelabel', (
-	'variables': (),
-	'supports-variants': (
-		'compact'
-	)
-));
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-table', 'whitelabel', (
+		'variables': (),
+		'supports-variants': (
+			'compact'
+		)
+	));
+}

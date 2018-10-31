@@ -3,7 +3,7 @@
   "description": "FT-branded tables",
   "private": true,
   "scripts": {
-    "heroku-postbuild": "npx origami-build-tools install",
-    "start": "npx origami-build-tools demo --run-server --port=$PORT"
+    "heroku-postbuild": "npx origami-build-tools install && npm i serve && npx origami-build-tools demo",
+    "start": "serve -l $PORT"
   }
 }

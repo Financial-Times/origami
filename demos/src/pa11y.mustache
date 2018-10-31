@@ -1,251 +1,226 @@
-<table class="o-table {{modifierClass}}" data-o-component="o-table">
-	<thead>
+<div class="o-table-container">
+	<div class="o-table-overlay-wrapper">
+		<div class="o-table-scroll-wrapper">
+			<table aria-describedby="demo-footnote" class="o-table o-table--horizontal-lines o-table--responsive-overflow" data-o-component="o-table" data-o-table-responsive="overflow" data-o-table-minimum-row-count="2" data-o-table-expanded="false">
+				<thead>
+					<tr>
+						<th scope="col" role="columnheader">Fruit</th>
+						<th scope="col" role="columnheader">Genus</th>
+						<th scope="col" role="columnheader">Characteristic</th>
+						<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(GBP)</th>
+						<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(EUR)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Dragonfruit</td>
+						<td>Stenocereus</td>
+						<td>Juicy</td>
+						<td class="o-table__cell--numeric">3</td>
+						<td class="o-table__cell--numeric">2.72</td>
+					</tr>
+					<tr>
+						<td>Durian</td>
+						<td>Durio</td>
+						<td>Smelly</td>
+						<td class="o-table__cell--numeric">1.75</td>
+						<td class="o-table__cell--numeric">1.33</td>
+					</tr>
+					<tr>
+						<td>Naseberry</td>
+						<td>Manilkara</td>
+						<td>Chewy</td>
+						<td class="o-table__cell--numeric">2</td>
+						<td class="o-table__cell--numeric">1.85</td>
+					</tr>
+					<tr>
+						<td>Strawberry</td>
+						<td>Fragaria</td>
+						<td>Sweet</td>
+						<td class="o-table__cell--numeric">1.5</td>
+						<td class="o-table__cell--numeric">1.69</td>
+					</tr>
+					<tr>
+						<td>Apple</td>
+						<td>Malus</td>
+						<td>Crunchy</td>
+						<td class="o-table__cell--numeric">0.5</td>
+						<td class="o-table__cell--numeric">0.56</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="demo-footnote" class="o-table-footnote">
+		Source: The Origami team's love of fruit.
+	</div>
+</div>
+
+
+<table class="o-table o-table--compact o-table--row-stripes" data-o-component="o-table">
+	<tfoot>
 		<tr>
-			<th>Cheese <span class="o-table__cell--content-secondary">Type of cheese</span></th>
-			<th>Bread <span class="o-table__cell--content-secondary">Type of bread</span></th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(GBP)</span></th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost <span class="o-table__cell--content-secondary">(EUR)</span></th>
+			<td colspan=5 class="o-table-footnote">
+				Source: The Origami team's love of fruit.
+			</td>
 		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-	</tbody>
+	</tfoot>
+    <thead>
+        <tr>
+            <th scope="col" role="columnheader">Fruit</th>
+            <th scope="col" role="columnheader">Genus</th>
+            <th scope="col" role="columnheader">Characteristic</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(GBP)</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(EUR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dragonfruit</td>
+            <td>Stenocereus</td>
+            <td>Juicy</td>
+            <td class="o-table__cell--numeric">3</td>
+            <td class="o-table__cell--numeric">2.72</td>
+        </tr>
+        <tr>
+            <td>Durian</td>
+            <td>Durio</td>
+            <td>Smelly</td>
+            <td class="o-table__cell--numeric">1.75</td>
+            <td class="o-table__cell--numeric">1.33</td>
+        </tr>
+        <tr>
+            <td>Naseberry</td>
+            <td>Manilkara</td>
+            <td>Chewy</td>
+            <td class="o-table__cell--numeric">2</td>
+            <td class="o-table__cell--numeric">1.85</td>
+        </tr>
+        <tr>
+            <td>Strawberry</td>
+            <td>Fragaria</td>
+            <td>Sweet</td>
+            <td class="o-table__cell--numeric">1.5</td>
+            <td class="o-table__cell--numeric">1.69</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>Malus</td>
+            <td>Crunchy</td>
+            <td class="o-table__cell--numeric">0.5</td>
+            <td class="o-table__cell--numeric">0.56</td>
+        </tr>
+    </tbody>
 </table>
 
-<table class="o-table {{modifierClass}}" data-o-component="o-table">
-	<thead>
-		<th>Cheese</th>
-		<th>Bread</th>
-		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (GBP)</th>
-		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (EUR)</th>
-	</thead>
-	<tbody>
+<table class="o-table o-table--row-stripes" data-o-component="o-table">
+	<tfoot>
 		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.13</td>
+			<td colspan=5 class="o-table-footnote">
+				Source: The Origami team's love of fruit.
+			</td>
 		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2.25</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric"></td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7.89</td>
-		</tr>
-	</tbody>
+	</tfoot>
+    <thead>
+        <tr>
+            <th scope="col" role="columnheader">Fruit</th>
+            <th scope="col" role="columnheader">Genus</th>
+            <th scope="col" role="columnheader">Characteristic</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(GBP)</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(EUR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dragonfruit</td>
+            <td>Stenocereus</td>
+            <td>Juicy</td>
+            <td class="o-table__cell--numeric">3</td>
+            <td class="o-table__cell--numeric">2.72</td>
+        </tr>
+        <tr>
+            <td>Durian</td>
+            <td>Durio</td>
+            <td>Smelly</td>
+            <td class="o-table__cell--numeric">1.75</td>
+            <td class="o-table__cell--numeric">1.33</td>
+        </tr>
+        <tr>
+            <td>Naseberry</td>
+            <td>Manilkara</td>
+            <td>Chewy</td>
+            <td class="o-table__cell--numeric">2</td>
+            <td class="o-table__cell--numeric">1.85</td>
+        </tr>
+        <tr>
+            <td>Strawberry</td>
+            <td>Fragaria</td>
+            <td>Sweet</td>
+            <td class="o-table__cell--numeric">1.5</td>
+            <td class="o-table__cell--numeric">1.69</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>Malus</td>
+            <td>Crunchy</td>
+            <td class="o-table__cell--numeric">0.5</td>
+            <td class="o-table__cell--numeric">0.56</td>
+        </tr>
+    </tbody>
 </table>
 
-<table class="o-table" data-o-component="o-table">
-	<caption class="o-table__caption--top">
-		Top caption (default)
-	</caption>
-	<caption class="o-table__caption--bottom">
-		Bottom caption
-	</caption>
-	<tr>
-		<th>Heading</th>
-		<th>Heading</th>
-		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Heading</th>
-		<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Heading</th>
-	</tr>
-	<tr>
-		<td>text data</td>
-		<td>text data</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">123</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">123.45</td>
-	</tr>
-	<tr>
-		<td>text data</td>
-		<td>text data</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">22</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">22.2</td>
-	</tr>
-	<tr>
-		<td>text data</td>
-		<td>text data</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-		<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3.0</td>
-	</tr>
-</table>
-
-<table class="o-table o-table--responsive-flat" data-o-component="o-table" data-o-table-responsive="flat">
-	<thead>
+<table class="o-table o-table--horizontal-lines" data-o-component="o-table">
+	<tfoot>
 		<tr>
-			<th>Cheese</th>
-			<th>Bread</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (GBP)</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (EUR)</th>
-			<th>Taste Note</th>
+			<td colspan=5 class="o-table-footnote">
+				Source: The Origami team's love of fruit.
+			</td>
 		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-			<td>sharp</td>
-		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-			<td>strong</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2.72</td>
-			<td>sweet</td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7.89</td>
-			<td>blue</td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="o-table o-table--responsive-overflow o-table--row-stripes" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Cheese</th>
-			<th>Bread</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (GBP)</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (EUR)</th>
-			<th>Taste Note</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-			<td>sharp</td>
-		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-			<td>strong</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2.72</td>
-			<td>sweet</td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7.89</td>
-			<td>blue</td>
-		</tr>
-	</tbody>
-</table>
-
-<table class="o-table o-table--responsive-scroll" data-o-component="o-table">
-	<thead>
-		<tr>
-			<th>Cheese</th>
-			<th>Bread</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (GBP)</th>
-			<th data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost (EUR)</th>
-			<th>Taste Note</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-			<td>sharp</td>
-		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-			<td>strong</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2.72</td>
-			<td>sweet</td>
-		</tr>
-		<tr>
-			<td>cheddar</td>
-			<td>rye</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.56</td>
-			<td>sharp</td>
-		</tr>
-		<tr>
-			<td>stilton</td>
-			<td>wholemeal</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">1.85</td>
-			<td>strong</td>
-		</tr>
-		<tr>
-			<td>red leicester</td>
-			<td>white</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">3</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">2.72</td>
-			<td>sweet</td>
-		</tr>
-		<tr>
-			<td>gruyère</td>
-			<td>sourdough</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7</td>
-			<td data-o-table-data-type="numeric" class="o-table__cell--numeric">7.89</td>
-			<td>blue</td>
-		</tr>
-	</tbody>
+	</tfoot>
+    <thead>
+        <tr>
+            <th scope="col" role="columnheader">Fruit</th>
+            <th scope="col" role="columnheader">Genus</th>
+            <th scope="col" role="columnheader">Characteristic</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(GBP)</th>
+            <th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&nbsp;(EUR)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dragonfruit</td>
+            <td>Stenocereus</td>
+            <td>Juicy</td>
+            <td class="o-table__cell--numeric">3</td>
+            <td class="o-table__cell--numeric">2.72</td>
+        </tr>
+        <tr>
+            <td>Durian</td>
+            <td>Durio</td>
+            <td>Smelly</td>
+            <td class="o-table__cell--numeric">1.75</td>
+            <td class="o-table__cell--numeric">1.33</td>
+        </tr>
+        <tr>
+            <td>Naseberry</td>
+            <td>Manilkara</td>
+            <td>Chewy</td>
+            <td class="o-table__cell--numeric">2</td>
+            <td class="o-table__cell--numeric">1.85</td>
+        </tr>
+        <tr>
+            <td>Strawberry</td>
+            <td>Fragaria</td>
+            <td>Sweet</td>
+            <td class="o-table__cell--numeric">1.5</td>
+            <td class="o-table__cell--numeric">1.69</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>Malus</td>
+            <td>Crunchy</td>
+            <td class="o-table__cell--numeric">0.5</td>
+            <td class="o-table__cell--numeric">0.56</td>
+        </tr>
+    </tbody>
 </table>

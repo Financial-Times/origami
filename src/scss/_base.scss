@@ -1,80 +1,71 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
-
-/// Base tables styles - add to <table>
-@mixin oTableBase() {
-	@include oTypographyBody;
-	border-collapse: collapse;
-	border-spacing: 0;
-	margin: 0 0 20px;
-	width: 100%;
-
-	caption {
+/// Base tables styles and simple utility classes.
+/// @access private
+@mixin _oTableBase() {
+	.o-table {
+		border-collapse: collapse;
+		border-spacing: 0;
 		margin: 0;
-		padding: 0;
 		width: 100%;
-	}
 
-	th {
-		@include oTypographySansBold(1);
-		color: _oTableGet('table-header-color');
-		background-color: _oTableGet('header-background');
-	}
+		thead {
+			border-bottom: 2px solid _oTableGet('table-data-color');
+		}
 
-	&[data-o-table--js] thead th:not([data-o-table-heading-disable-sort]) {
-		cursor: pointer;
-		user-select: none;
-		padding-right: 20px;
-		&:after {
-			@include oIconsGetIcon('arrows-up-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-			content: '';
-			margin-right: -20px;
+		th,
+		td {
+			padding: 10px;
+			text-align: left;
 			vertical-align: top;
+			color: _oTableGet('table-data-color');
 		}
-		// Show descending icon with DSC sort applied.
-		&[aria-sort='descending'] {
-			&:after {
-				@include oIconsGetIcon('arrow-down', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-				vertical-align: top;
-			}
-		}
-		// Show ascending icon with ASC sort applied or on hover with no sort.
-		&[aria-sort='none']:hover,
-		&:not([aria-sort]):hover,
-		&[aria-sort='ascending'] {
-			&:after {
-				@include oIconsGetIcon('arrow-up', $container-width: 20,  $container-height: 20, $iconset-version: 1);
-				vertical-align: top;
-			}
-		}
-	}
 
-	td {
-		@include oTypographySans(1);
-		color: _oTableGet('table-data-color');
-		&:empty:before {
-			@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
-			content: '';
+		th {
+			@include oTypographySansBold(1);
+			background-color: _oTableGet('header-background');
+			&:not([scope=row]) {
+				vertical-align: bottom;
+			}
+		}
+
+		td {
+			@include oTypographySans(1);
+			scroll-snap-align: none center;
+			&:empty:before {
+				@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
+				content: '';
+				vertical-align: middle;
+			}
+		}
+
+		.o-table__caption {
+			text-align: left;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0 10px;
+			width: 100%;
+		}
+
+		.o-table__cell--numeric {
+			text-align: right;
+			font-feature-settings: "tnum" 1;
+		}
+
+		.o-table__cell--content-secondary {
+			@include oTypographySize(0);
+			font-weight: normal;
+		}
+
+		.o-table__cell--vertically-center {
 			vertical-align: middle;
 		}
 	}
 
-	th,
-	td {
-		padding: 8px;
-		text-align: left;
-		vertical-align: top;
+	.o-table .o-table-footnote,
+	.o-table-footnote {
+		@include oTypographyCaption();
 	}
 
-	th:not([scope=row]) {
-		vertical-align: bottom;
+	.o-table-container > .o-table-footnote {
+		margin-left: 10px;
 	}
-}
-
-/// Add to table's wrapper element (if there is one)
-@mixin oTableWrapper {
-	overflow: auto;
-	width: 100%;
 }

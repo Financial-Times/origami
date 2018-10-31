@@ -1,67 +1,70 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
-
-/// Make a table 'ResponsiveFlat'
-@mixin oTableResponsiveFlat {
-	float: left;
-	width: 100%;
-
-	*,
-	*:before,
-	*:after {
-		box-sizing: border-box;
-	}
-
-	@include oGridRespondTo(S) {
-		display: table;
-	}
-
-	@include oGridRespondTo($until: S) {
-		.o-table__cell--numeric {
-			text-align: left;
-		}
-	}
-
-	td {
-		padding: 8px;
-		width: 50%;
-
-		@include oGridRespondTo(S) {
-			border-right: 1px solid _oTableGet('table-border-color');
-			display: table-cell;
-		}
-	} // td
-
-	thead th {
-		display: none;
-		padding: 8px;
-
-		@include oGridRespondTo(S) {
-			border-right: 1px solid _oTableGet('table-border-color');
-			display: table-cell;
-		}
-	} // thead th
-
-	tr {
-		display: flex;
-		flex-flow: row wrap;
+/// Styles for a 'FlatTable'
+/// @access private
+@mixin _oTableResponsiveFlat {
+	.o-table.o-table--responsive-flat {
 		width: 100%;
 
-		@include oGridRespondTo(S) {
-			display: table-row;
-		}
-	} // tr
-
-	tbody tr th {
-		border-right: 1px solid _oTableGet('table-border-color');
-		float: left;
-		padding: 8px;
-		width: 50%;
-
-		@include oGridRespondTo(S) {
+		.o-table__duplicate-heading {
 			display: none;
 		}
-	} // td th
-} // mixin
+
+		@include oGridRespondTo($until: S) {
+			display: block;
+
+			td,
+			th,
+			tr {
+				box-sizing: border-box;
+			}
+
+			tr {
+				display: flex;
+				flex-flow: row wrap;
+				width: 100%;
+			}
+
+			td {
+				padding: 10px;
+				width: 50%;
+			}
+
+			thead th {
+				display: none;
+				padding: 10px;
+			}
+
+			thead tr {
+				display: none;
+			}
+
+			tbody tr:not(:first-child) {
+				border-top: 1px solid _oTableGet('table-data-color');
+			}
+
+			&.o-table--row-stripes tbody tr:nth-child(even) th, // Remove stripes when flat.
+			tbody tr:nth-child(even) {
+				background-color: _oTableGet('table-item-alternate-background', 'flat');
+			}
+
+			&.o-table--horizontal-lines th:not(:last-of-type),
+			&.o-table--horizontal-lines td:not(:last-of-type), {
+				// When flat, only show row border if a colour is defined.
+				// Else the browser will use a black border.
+				@if _oTableGet('table-border-color') {
+					border-bottom: 1px solid _oTableGet('table-border-color');
+				}
+			}
+
+			.o-table__duplicate-heading {
+				display: block;
+				float: left;
+				padding: 10px;
+				width: 50%;
+			}
+
+			.o-table__cell--numeric {
+				text-align: left;
+			}
+		}
+	}
+}

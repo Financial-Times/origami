@@ -19,7 +19,8 @@
 	},
 	"browserFeatures": {
 		"required": [
-			"Element.prototype.matches"
+			"IntersectionObserver",
+			"IntersectionObserverEntry"
 		]
 	},
 	"demosDefaults": {
@@ -36,6 +37,7 @@
 			"title": "Basic",
 			"name": "basic",
 			"template": "demos/src/basic.mustache",
+			"documentClasses": "o-table-demo-constrain",
 			"description": ""
 		},
 		{
@@ -45,56 +47,101 @@
 			"data": {
 				"modifierClass": "o-table--compact"
 			},
+			"documentClasses": "o-table-demo-constrain",
 			"description": ""
 		},
 		{
-			"title": "Captions",
+			"title": "Caption and footnote",
 			"name": "captions",
-			"template": "demos/src/captions.mustache",
-			"description": ""
-		},
-		{
-			"title": "Row Stripes",
-			"name": "row-stripes",
-			"template": "demos/src/row-stripes.mustache",
-			"description": ""
+			"template": "demos/src/basic.mustache",
+			"data": {
+				"showCaption": true,
+				"showFooter": true
+			},
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Caption elements may include flow content such as a heading, this demo uses o-typography to add a h2. The footer may also include any flow content, but in this case uses the footnote class to style a source."
 		},
 		{
 			"title": "Row headings",
 			"name": "row-headings",
 			"brands": ["internal"],
+			"documentClasses": "o-table-demo-constrain",
 			"template": "demos/src/row-headings.mustache",
 			"description": ""
-		},
-        {
-          "title": "Cell styles",
-          "name": "cell-styles",
-          "template": "demos/src/cell-styles.mustache",
-          "description": ""
-        },
-		{
-			"title": "Responsive Flat",
-			"name": "responsive-flat",
-			"template": "demos/src/responsive-flat.mustache",
-			"description": "This is a flat responsive version"
 		},
 		{
 			"title": "Responsive Overflow",
 			"name": "responsive-overflow",
-			"template": "demos/src/responsive-overflow.mustache",
+			"template": "demos/src/base.mustache",
 			"data": {
-				"modifierClass": "o-table--responsive-overflow"
+				"tableType": "overflow"
 			},
-			"description": "This is an overflow responsive version"
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Open demo and shrink browser to preview. On small viewports this table overflows and may be scrolled left/right. This demo includes the optional row stripes from the previous demo."
 		},
 		{
 			"title": "Responsive Scroll",
 			"name": "responsive-scroll",
-			"template": "demos/src/responsive-scroll.mustache",
+			"template": "demos/src/base.mustache",
 			"data": {
-				"modifierClass": "o-table--responsive-scroll"
+				"tableType": "scroll"
 			},
-			"description": "This is a scrolling responsive version"
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Open demo and shrink browser to preview. This table moves headers into the first column on small viewports. The headers stick to the left edge as the table data is scrolled. This demo includes the optional row stripes from the previous demo."
+		},
+		{
+			"title": "Responsive Flat",
+			"name": "responsive-flat",
+			"template": "demos/src/base.mustache",
+			"data": {
+				"tableType": "flat"
+			},
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Open demo and shrink browser to preview. Each entry in the flat table is shown individually with headers on small viewports. This demo includes the optional row stripes from the previous demo."
+		},
+		{
+			"title": "Expanding Table",
+			"name": "expanding",
+			"template": "demos/src/expanding.mustache",
+			"data": {
+				"expanded": "false"
+			},
+			"description": "Open demo and shrink browser to preview. Responsive Overflow tables may be configured to expand/contract."
+		},
+		{
+			"title": "Expanding Table With Arrow Dock",
+			"name": "expanding-dock",
+			"template": "demos/src/expanding.mustache",
+			"data": {
+				"expanded": "true"
+			},
+			"documentClasses": "o-table-demo-pad",
+			"hidden": true,
+			"description": "Open demo and shrink browser to preview. When expanding Responsive Overflow tables are tall and can be scrolled past, the left/right arrows \"dock\" next to the \"show more\" expand button."
+		},
+		{
+			"title": "Sorting",
+			"name": "sorting",
+			"template": "demos/src/sorting.mustache",
+			"description": "This demo shows sorting columns of various data types, including FT style dates, times, and abbreviated numbers. The demo also shows a column with sort disabled."
+		},
+		{
+			"title": "Row Stripes",
+			"name": "row-stripes",
+			"template": "demos/src/basic.mustache",
+			"data": {
+				"modifierClass": "o-table--row-stripes",
+				"isStriped": true
+			},
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Adds a modifier class to make alternate table rows striped. An alternative to lined tables."
+		},
+		{
+			"title": "Vertically centre",
+			"name": "cell-styles",
+			"template": "demos/src/cell-styles.mustache",
+			"documentClasses": "o-table-demo-constrain",
+			"description": ""
 		},
 		{
 			"title": "Pa11y",

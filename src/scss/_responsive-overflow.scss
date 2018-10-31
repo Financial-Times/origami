@@ -1,12 +1,162 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
+/// Styles for an 'OverflowTable'
+/// @require _oTableContainer
+/// @require _oTableWrapper
+/// @access private
+@mixin _oTableResponsiveOverflow {
+	@include _oTableOverflowControlsOverlay;
+	@include _oTableOverflowFadeOverlay;
+}
 
-/// Make a table 'ResponsiveOverflow'
-@mixin oTableResponsiveOverflow {
-	margin: 0;
-	min-width: 500px;
-	width: 100%;
+/// Styles for controls which overlay the table. Such as scroll forward/back buttons,
+/// and a "show more" button to expand/contract a table with many items.
+@mixin _oTableOverflowControlsOverlay {
+	.o-table-overflow-control-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
 
-} // mixin
+
+		.o-table-control {
+			display: inline-block;
+			background: _oTableGet('table-background');
+			pointer-events: all;
+			transition: 1s opacity ease-in-out;
+			button {
+				@include oButtons($size: 'big', $theme: 'primary');
+			}
+		}
+
+		.o-table-control--expander {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			text-align: center;
+			button {
+				width: 100%;
+			}
+		}
+
+		.o-table-control--forward,
+		.o-table-control--back {
+			@supports (pointer-events: none)  {
+				position: absolute;
+				top: calc(50% - 20px);
+				transition: opacity 0.3s $o-visual-effects-transition-fade;
+			}
+			z-index: 1;
+		}
+
+		.o-table-control--back {
+			left: 0; //absolute
+			float: left; //sticky
+			margin: 0 10px;
+			button {
+				@include oButtonsIconButton(
+					$icon-name: 'arrow-left',
+					$size: 'big',
+					$theme: 'primary',
+					$is-icon-only: true
+				);
+			}
+		}
+
+		.o-table-control--forward {
+			right: 0; //absolute
+			float: right; //sticky
+			margin: 0 10px;
+			button {
+				@include oButtonsIconButton(
+					$icon-name: 'arrow-right',
+					$size: 'big',
+					$theme: 'primary',
+					$is-icon-only: true
+				);
+			}
+		}
+
+		.o-table-control--hide {
+			opacity: 0;
+		}
+
+		.o-table-control--sticky {
+			position: sticky;
+		}
+	}
+
+	.o-table-overflow-control-overlay--arrow-dock {
+		// Create area left/right for arrows to scroll into ("dock").
+		&:after,
+		&:before {
+			position: absolute;
+			content: '';
+			bottom: 0;
+			height: 40px;
+			pointer-events: none;
+			border-color: oButtonsGetColor('default', 'background', $theme: 'primary');
+			border-style: solid;
+			width: 1px;
+		}
+
+		&:before {
+			left: 0;
+			border-width: 0 40px 0 9px;
+		}
+
+		&:after {
+			right: 0;
+			border-width: 0 9px 0 40px;
+		}
+
+		// Make more control leave space for arrows to dock left/right.
+		.o-table-control--expander {
+			left: 51px;
+			right: 51px;
+		}
+
+		// A modifier class which forces arrows to "dock" at the bottom of the overlay.
+		.o-table-control--dock {
+			top: auto;
+			bottom: 0;
+		}
+	}
+}
+
+/// Styles to show scroll and expander fade out.
+@mixin _oTableOverflowFadeOverlay {
+	.o-table-overflow-fade-overlay {
+		@supports (pointer-events: none) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			pointer-events: none;
+		}
+	}
+
+	// Show horizontal fade when the table is scrolled.
+	.o-table-overflow-fade-overlay--scroll {
+		@if _oTableGet('table-background') {
+			background: linear-gradient(to right, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)),
+			linear-gradient(to left, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end));
+		}
+	}
+
+	// Show vertical fade when the table is contracted.
+	.o-table-container--contracted .o-table-overflow-fade-overlay:after {
+		@if _oTableGet('table-background') {
+			content: '';
+			position: absolute;
+			height: 80px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, _oTableGet('table-background') 30px, rgba(_oTableGet('table-background'), 0) 80px);
+			pointer-events: none;
+		}
+	}
+}

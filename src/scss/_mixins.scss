@@ -1,80 +1,64 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
+/// Outputs all features and styles available.
+/// @param $opts {list} [('responsive-overflow', 'responsive-flat', 'responsive-scroll', 'lines', 'compact', 'stripes', 'row-headings')] - Table features to output. Defaults to all table features.
+/// @access public
+@mixin oTable($opts: (
+	'responsive-overflow',
+	'responsive-flat',
+	'responsive-scroll',
+	'lines',
+	'compact',
+	'stripes',
+	'row-headings',
+)) {
+	$overflow-enabled: index($opts, 'responsive-overflow');
+	$flat-enabled: index($opts, 'responsive-flat');
+	$scroll-enabled: index($opts, 'responsive-scroll');
+	$lines-enabled: index($opts, 'lines');
+	$compact-enabled: index($opts, 'compact');
+	$stripes-enabled: index($opts, 'stripes');
+	$row-headings-enabled: index($opts, 'row-headings');
 
-/// Table styles boilerplate
-/// Generates all styles available, with a set of modifiers for alternative styles
-///
-/// @param {string} $classname
-@mixin oTableAll($classname: o-table) {
-	.#{$classname}-wrapper {
-		@include oTableWrapper;
-	}
-	.#{$classname} {
-		@include oTableBase;
-		.#{$classname}__caption,
-		// Todo: remove these
-		.#{$classname}__caption--top,
-		.#{$classname}__caption--bottom {
-			@include oTableCaption;
-		}
-		.#{$classname}__caption--top {
-			@include oTableCaptionTop;
-		}
-		.#{$classname}__caption--bottom {
-			@include oTableCaptionBottom;
-		}
+	// Basic styles and simple utilities.
+	@include _oTableBase;
 
-		.#{$classname}__cell--numeric {
-			@include oTableCellNumeric;
-		}
+	// Sortable columns.
+	@include _oTableSort;
 
-		.#{$classname}__cell--content-secondary {
-			@include oTableCellContentSecondary;
-		}
-
-		.#{$classname}__cell--vertically-center {
-			@include oTableCellVerticallyCenter;
-		}
+	// Respnsive solutions.
+	@if $flat-enabled or $scroll-enabled or $overflow-enabled {
+		@include _oTableWrapper;
+		@include _oTableContainer;
 	}
-	.#{$classname}--horizontal-lines {
-		@include oTableHorizontalLines;
+	@if $overflow-enabled {
+		@include _oTableResponsiveOverflow;
 	}
-	.#{$classname}--vertical-lines {
-		@include oTableVerticalLines;
+	@if $flat-enabled {
+		@include _oTableResponsiveFlat;
 	}
-	.#{$classname}--horizontal-borders {
-		@include oTableHorizontalBorders;
-	}
-	.#{$classname}--vertical-borders {
-		@include oTableVerticalBorders;
-	}
-	.#{$classname}--responsive-flat {
-		@include oTableResponsiveFlat;
-	}
-	.#{$classname}--responsive-overflow {
-		@include oTableResponsiveOverflow;
-	}
-	.#{$classname}--responsive-scroll {
-		@include oTableResponsiveScroll;
+	@if $scroll-enabled {
+		@include _oTableResponsiveScroll;
 	}
 
-	@if _oTableSupports('row-headings') {
-		.#{$classname}--row-headings {
-			@include oTableRowHeadings;
-		}
+	// Lines.
+	@if $lines-enabled {
+		@include _oTableHorizontalLines;
+		@include _oTableVerticalLines;
+		@include _oTableHorizontalBorders;
+		@include _oTableVerticalBorders;
 	}
 
-	@if _oTableSupports('compact') {
-		.#{$classname}--compact {
-			@include oTableCompact;
-		}
+	// Compact.
+	@if $compact-enabled and _oTableSupports('compact') {
+		@include _oTableCompact;
 	}
 
-	@if _oTableSupports('stripe') {
-		.#{$classname}--row-stripes {
-			@include oTableRowStripes;
-		}
+	// Stripes.
+	@if $stripes-enabled and _oTableSupports('stripes') {
+		@include _oTableRowStripes;
+	}
+
+	// Row headings.
+	@if $row-headings-enabled and _oTableSupports('row-headings') {
+		@include _oTableRowHeadings;
 	}
 }

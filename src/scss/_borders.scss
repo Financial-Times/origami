@@ -1,27 +1,27 @@
-////
-/// @group o-table
-/// @link http://registry.origami.ft.com/components/o-table
-////
-
-
 /// Horizontal borders
-@mixin oTableHorizontalBorders {
-	border-bottom: 1px solid _oTableGet('table-border-color');
-	border-top: 1px solid _oTableGet('table-border-color');
-
-	th:not([scope=row]) {
+/// @access private
+@mixin _oTableHorizontalBorders {
+	.o-table--horizontal-borders {
+		border-bottom: 1px solid _oTableGet('table-border-color');
 		border-top: 1px solid _oTableGet('table-border-color');
+
+		th:not([scope=row]) {
+			border-top: 1px solid _oTableGet('table-border-color');
+		}
 	}
 }
 
 /// Vertical borders
-@mixin oTableVerticalBorders {
-	border-left: 1px solid _oTableGet('table-border-color');
-	border-right: 1px solid _oTableGet('table-border-color');
-
-	// sass-lint:disable no-qualifying-elements
-	th[scope=row] {
+/// @access private
+@mixin _oTableVerticalBorders {
+	.o-table--vertical-borders {
 		border-left: 1px solid _oTableGet('table-border-color');
+		border-right: 1px solid _oTableGet('table-border-color');
+
+		// sass-lint:disable no-qualifying-elements
+		th[scope=row] {
+			border-left: 1px solid _oTableGet('table-border-color');
+		}
+		// sass-lint:enable no-qualifying-elements
 	}
-	// sass-lint:enable no-qualifying-elements
 }
