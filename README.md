@@ -452,7 +452,7 @@ Known issues:
 
 ## Migration guide
 
-### How to upgrade from v5.x.x to v6.x.x?
+### How to upgrade from v6.x.x to v7.x.x?
 - To prevent errors in IE11, add support for `IntersectionObserverEntry` and `IntersectionObserver` with the [polyfill service](https://polyfill.io/).
 - Data attribute `data-o-table-order` has been removed. To specify a custom sort order on `td` cells use `data-o-table-sort-value` instead.
 - Markup updates:
@@ -525,6 +525,9 @@ Known issues:
 - Colour:
 	- All [deprecated colour usecases](https://github.com/Financial-Times/o-table/blob/533811d7f8673a7576a31608df8cd71777ff39d5/src/scss/_deprecated.scss) have been removed, ensure `o-table` colours are not used in your project.
 
+### How to upgrade from v5.x.x to v6.x.x?
+
+- The v6 release updates the dependencies `o-colors` and `o-typography`. Ensure your project  builds successfully and upgrade dependencies if required.
 
 ### How to upgrade from v4.x.x to v5.x.x?
 
