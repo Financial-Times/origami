@@ -1,5 +1,4 @@
 /// Check if a font variant exists for a family.
-/// If the font has not been defined returns true by default.
 ///
 /// @access public
 /// @param {String} $family - one of $o-fonts-families
@@ -11,10 +10,10 @@
 	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
 	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
 	$font-properties: map-get($o-fonts-families, $family);
-	// Could not find supported font variants.
-	// Trust the user, assume a system font or that the variant exists for their font.
+	// Font is not registered.
 	@if type-of($font-properties) != 'map' {
-		@return true;
+		@warn 'Could not find any supported font variants for "#{$family}". See `oFontsDefineCustomFont` to register a font and its supported weights/styles.';
+		@return false;
 	}
 	$font-variants: map-get($font-properties, variants);
 
