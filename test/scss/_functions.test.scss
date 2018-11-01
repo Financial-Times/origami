@@ -18,10 +18,10 @@
             true
         );
 	}
-	@include test('Returns true when the font has not been defined') {
+	@include test('Returns false when the font has not been defined') {
         @include assert-equal(
-            oFontsVariantExists('UnknownFontName', 'bold', 'italic'),
-            true
+            oFontsVariantExists('UnknownFontName', 'regular', 'normal'),
+            false
         );
 	}
 }
