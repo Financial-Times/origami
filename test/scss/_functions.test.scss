@@ -18,6 +18,12 @@
             true
         );
 	}
+	@include test('Returns true when the font has not been defined') {
+        @include assert-equal(
+            oFontsVariantExists('UnknownFontName', 'bold', 'italic'),
+            true
+        );
+	}
 }
 
 @include test-module('oFontsGetFontFamilyWithoutFallbacks') {
