@@ -161,7 +161,7 @@ class BaseTable {
 	 * Helper function to dispatch namespaced events.
 	 *
 	 * @param {String} event - The event name within `oTable` e.g. "sorted".
-	 * @param {Object} data={} - Event data. `insatnce` is added automatically.
+	 * @param {Object} data={} - Event data. `instance` is added automatically.
 	 * @param {Object} opts={} - [Event options]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event/Event#Values} (o-table events bubble by default).
 	 */
 	_dispatchEvent(event, data = {}, opts = {}) {
