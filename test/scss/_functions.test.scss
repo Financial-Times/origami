@@ -18,6 +18,12 @@
             true
         );
 	}
+	@include test('Returns false when the font has not been defined') {
+        @include assert-equal(
+            oFontsVariantExists('UnknownFontName', 'regular', 'normal'),
+            false
+        );
+	}
 }
 
 @include test-module('oFontsGetFontFamilyWithoutFallbacks') {
