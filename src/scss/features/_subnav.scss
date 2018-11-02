@@ -12,7 +12,10 @@
 			overflow: hidden;
 			// height *needs* setting so we can hide scrollbars.
 			// This is the content height of .o-header__subnav-content
-			height: $_o-header-subhav-height;
+			height: $_o-header-subnav-height-base;
+			@include oGridRespondTo('M') {
+				height: $_o-header-subnav-height-medium;
+			}
 		}
 	}
 
@@ -42,7 +45,7 @@
 		margin: 0;
 
 		// Separators for subnav lists are positioned relative to the subnavs first item
-		// to avoid positioning subnavs relative. This is so absolute childen of the subnav are
+		// to avoid positioning subnavs relative. This is so absolute children of the subnav are
 		// positioned relative to their closest positioned ancestor `o-header__container`.
 		// An example benefit is o-tooltip support against sub nav items.
 		& + & .o-header__subnav-item {
@@ -50,8 +53,12 @@
 				@include _oHeaderItemSeparatorContent();
 				&:before {
 					top: 50%;
-					margin-top: - $_o-header-subhav-height * $_o-header-item-separator-percentage-height / 2;
-					height: $_o-header-subhav-height * $_o-header-item-separator-percentage-height;
+					margin-top: - $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height / 2;
+					height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
+					@include oGridRespondTo('M') {
+						margin-top: - $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height / 2;
+						height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
+					}
 				}
 			}
 		}
@@ -91,7 +98,10 @@
 		@include oHeaderFancyLink;
 		color: _oHeaderGet('subnav-link');
 		display: inline-block;
-		padding: 8px 0;
+		padding: 12px 0;
+		@include oGridRespondTo('M') {
+			padding: 8px 0;
+		}
 
 		.o-header__subnav-list--breadcrumb & {
 			color: _oHeaderGet('link-highlight-text');
