@@ -1,4 +1,4 @@
-o-subs-card [![Circle CI](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master)
+o-subs-card [![Circle CI](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-subs-card/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 This component is used for showing information about various FT subscription packages.
