@@ -205,7 +205,7 @@ oLayout.init();
 ```
 
 #### Custom Navigation
-`o-layout` uses JavaScript to construct the sidebar navigation out of headings in the content, and to highlight those items depending on the scroll position. This is its default behaviour.
+`o-layout` uses JavaScript to construct the sidebar navigation out of headings (`h1`, `h2` and `h3`) in the content, and to highlight those items depending on the scroll position. This is its default behaviour.
 
 If you would like to define your own navigation, you will need to initialise `o-layout` like this:
 

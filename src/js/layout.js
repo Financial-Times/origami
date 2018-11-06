@@ -14,7 +14,7 @@ class Layout {
 		this.options = Object.assign({}, {
 			baseClass: 'o-layout',
 			constructNav: true,
-			navHeadingSelector: 'h2, h3'
+			navHeadingSelector: 'h1, h2, h3'
 		}, options || Layout.getDataAttributes(layoutEl));
 
 		this.headings = [...this.layoutEl.querySelectorAll(this.options.navHeadingSelector)]
@@ -41,7 +41,8 @@ class Layout {
 		let listItems = Array.from(this.headings, (heading) => {
 			const contentElement = heading.querySelector(`.${this.options.baseClass}__linked-heading__content`);
 			const headingText = (contentElement ? contentElement.textContent : heading.textContent);
-			return `<li><a href='#${heading.id}'>${headingText}</a></li>`;
+			const pageTitleClass = heading.nodeName === 'H1' ? 'class="o-layout__navigation-title"' : '';
+			return `<li ${pageTitleClass}><a href='#${heading.id}'>${headingText}</a></li>`;
 		});
 
 		let list = document.createElement('ol');

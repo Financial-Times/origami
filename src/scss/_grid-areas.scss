@@ -133,7 +133,6 @@
 @mixin _oLayoutNavigation($class: $o-layout-class) {
 	.#{$class}__navigation {
 		@include oLayoutBreakPoint($from: M) {
-			border-right: 2px solid oColorsGetPaletteColor('teal');
 			border-left: 0;
 			position: sticky;
 			top: $_o-layout-gutter;
@@ -150,16 +149,24 @@
 
 		li {
 			padding-right: 1em;
+			border-right: 2px solid oColorsGetPaletteColor('teal');
+
+			&.o-layout__navigation-title {
+				@include oTypographyBold('sans');
+				border-right: 0;
+			}
+
+			&:not(.o-layout__navigation-title) {
+				[aria-current="location"] {
+					color: oColorsGetPaletteColor('teal-30');
+					background: oColorsMix('teal', 'white', 20);
+				}
+			}
 
 			a {
 				display: inline-block;
 				padding: 0.4em 1em;
 				margin-right: -1em;
-
-				&[aria-current="location"] {
-					color: oColorsGetPaletteColor('teal-30');
-					background: oColorsMix('teal', 'white', 20);
-				}
 			}
 		}
 	}

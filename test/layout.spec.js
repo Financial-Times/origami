@@ -52,7 +52,7 @@ describe('Layout', () => {
 			assert.deepEqual(layout.options, {
 				constructNav: true,
 				baseClass: 'o-layout',
-				navHeadingSelector: 'h2, h3'
+				navHeadingSelector: 'h1, h2, h3'
 			});
 		});
 
