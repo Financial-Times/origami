@@ -126,7 +126,7 @@
 @mixin _oColorsCSSVariables {
 	:root {
 		@each $name, $hex in $o-colors-palette {
-			#{--o-colors-}#{$name}: $hex;
+			#{--o-colors-}#{$name}: oColorsGetPaletteColor($name);
 		}
 	}
 }
