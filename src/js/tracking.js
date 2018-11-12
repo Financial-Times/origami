@@ -68,7 +68,7 @@ class AudioTracking {
 	}
 
 	eventListener (ev) {
-		const progress = parseInt(100 * this.audio.currentTime / this.audioLength, 10);
+		const progress = parseInt(100 * (this.audio.currentTime || 0) / this.audioLength, 10);
 
 		if (ev.type !== 'timeupdate') {
 			return fireEvent(ev.type, this, { progress });
