@@ -1,0 +1,10 @@
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+@if ($o-audio-is-silent == false) {
+	@include oAudio();
+
+	// Set to silent again to avoid being output twice
+	$o-audio-is-silent: true !global;
+}
