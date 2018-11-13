@@ -12,7 +12,7 @@ class OAudio {
 
 		}, opts || OAudio.getDataAttributes(oAudioEl));
 	
-		this.tracking = new Tracking(oAudioEl);
+		this.tracking = new Tracking(oAudioEl, this.options);
 	}
 
 	destroy() {
