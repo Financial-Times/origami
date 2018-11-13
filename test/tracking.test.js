@@ -101,28 +101,26 @@ describe('Tracking' , () => {
         })
     });
 
-    describe('listened event', () => {
-        it('emits a listened event before the o-audio element is destroyed', () => {
-            const clock = sinon.useFakeTimers();
-            const events = collectOTrackingEvents(events);
-            const stubAudioEl = initAudioElement();
-            const tracking = initTracking(stubAudioEl, { contentId });
+    it('emits a listened event with total amount listened', () => {
+        const clock = sinon.useFakeTimers();
+        const events = collectOTrackingEvents(events);
+        const stubAudioEl = initAudioElement();
+        const tracking = initTracking(stubAudioEl, { contentId });
 
-            stubAudioEl.dispatchEvent(new Event('playing'));
-            clock.tick(18000); // pretend 18s have passed by
-            stubAudioEl.dispatchEvent(new Event('pause'));
+        stubAudioEl.dispatchEvent(new Event('playing'));
+        clock.tick(18000); // pretend 18s have passed by
+        stubAudioEl.dispatchEvent(new Event('pause'));
 
-            tracking.destroy();
-            clock.restore();
+        tracking.trackListeningTime();
+        clock.restore();
 
-            proclaim.deepEqual(events[2], {
-                category: 'audio',
-                action: 'listened',
-                duration: 120,
-                amount: 18,
-                amountPercentage:15,
-                contentId
-            });
+        proclaim.deepEqual(events[2], {
+            category: 'audio',
+            action: 'listened',
+            duration: 120,
+            amount: 18,
+            amountPercentage:15,
+            contentId
         });
     });
 
@@ -134,7 +132,7 @@ describe('Tracking' , () => {
         tracking.destroy();
         stubAudioEl.dispatchEvent(new Event('playing'));
 
-        proclaim.lengthEquals(events, 1); // just the listened event
+        proclaim.lengthEquals(events, 0);
     });
     
     describe('tracking attributes', () => {

@@ -9,13 +9,18 @@ class OAudio {
 	constructor (oAudioEl, opts) {
 		this.oAudioEl = oAudioEl;
 		this.options = Object.assign({}, {
-
 		}, opts || OAudio.getDataAttributes(oAudioEl));
 	
 		this.tracking = new Tracking(oAudioEl, this.options);
+
+		if (this.options.trackListeningTimeOn === 'unload') {
+			const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+			window.addEventListener(unloadEventName, this.tracking.trackListeningTime.bind(this.tracking));
+		}
 	}
 
 	destroy() {
+		this.tracking.trackListeningTime();
 		this.tracking.destroy();
 	}
 

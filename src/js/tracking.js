@@ -77,11 +77,6 @@ class AudioTracking {
 		EVENTS.forEach(eventName => {
 			this.delegate.on(eventName, this.eventListener.bind(this));
 		});
-
-		// [Q] how do this on mobile (ie. SPA) vs ft.com
-		// send 'listened' event on page unload
-		// const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
-		// window.addEventListener(unloadEventName, this.trackListeningTime.bind(this));
 	}
 
 	eventListener (ev) {
@@ -122,7 +117,6 @@ class AudioTracking {
 	}
 
 	destroy() {
-		this.trackListeningTime();
 		this.delegate.destroy();
 	}
 }
