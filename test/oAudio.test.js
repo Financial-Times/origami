@@ -49,4 +49,16 @@ describe("OAudio", () => {
 			proclaim.equal(boilerplate instanceof OAudio, true);
 		});
 	});
+
+	it('can be destroyed', () => {	
+		const events = [];
+		document.body.addEventListener('oTracking.event', ({ detail }) => events.push(detail));
+		const audio = new OAudio();
+		audio.destroy();
+		
+		proclaim.lengthEquals(events, 1);
+		const { category, action } = events[0];
+		proclaim.equal(category, "audio");
+		proclaim.equal(action, "listened");
+	})
 });

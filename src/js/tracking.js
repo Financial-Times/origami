@@ -73,7 +73,6 @@ class AudioTracking {
 
 	loadMetadata() {
 		this.audioLength = parseInt(this.audio.duration, 10);
-		
 		EVENTS.forEach(eventName => {
 			this.delegate.on(eventName, this.eventListener.bind(this));
 		});
@@ -109,10 +108,10 @@ class AudioTracking {
 
 	trackListeningTime() {
 		this.stopListeningTimer();
-
+		const amount = this.amountListened / 1000;
 		fireEvent('listened', this, {
-			amount: +(this.amountListened / 1000).toFixed(2),
-			amountPercentage: +(((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
+			amount: +amount.toFixed(2),
+			amountPercentage: +((amount / this.audioLength) * 100).toFixed(2),
 		});
 	}
 
