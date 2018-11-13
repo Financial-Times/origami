@@ -40,8 +40,9 @@ const EVENTS = [
 ]
 
 class AudioTracking {
-	constructor(audio) {
+	constructor(audio, contentId) {
 		this.audio = audio;
+		this.contentId = contentId;
 		this.delegate = new Delegate(audio);
 
 		this.audioLength = undefined;

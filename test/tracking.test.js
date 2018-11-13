@@ -1,10 +1,11 @@
 /* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-
 import Tracking from './../src/js/tracking';
 
-describe('  Tracking' , () => {
+const contentId = 'abc-123';
+describe('Tracking' , () => {
+
 	it('is defined', () => {
 		proclaim.equal(typeof Tracking, 'function');
     });
@@ -14,23 +15,34 @@ describe('  Tracking' , () => {
             it(`emits the ${eventName} event`, () => {
                 const events = collectOTrackingEvents(events);
                 const stubAudioEl = initAudioElement();
-                initTracking(stubAudioEl);
+                initTracking(stubAudioEl, contentId);
     
                 stubAudioEl.dispatchEvent(new Event(eventName));
-            
-                proclaim.deepEqual(events[0], { category: 'audio', action: eventName, duration: 120, progress: 0 });
+                proclaim.deepEqual(events[0], {
+                    category: 'audio',
+                    action: eventName,
+                    duration: 120,
+                    progress: 0,
+                    contentId
+                });
             });
         });
     
         it('includes an updated progress metric (as a %) on each event', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl);
+            initTracking(stubAudioEl, contentId);
     
             stubAudioEl.currentTime = 18;
             stubAudioEl.dispatchEvent(new Event('playing'));
     
-            proclaim.deepEqual(events[0], { category: 'audio', action: 'playing', duration: 120, progress: 15 });
+            proclaim.deepEqual(events[0], {
+                category: 'audio',
+                action: 'playing',
+                duration: 120,
+                progress: 15,
+                contentId
+            });
         });
     })
 
@@ -38,19 +50,25 @@ describe('  Tracking' , () => {
         it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl);
+            initTracking(stubAudioEl, contentId);
 
             // trigger timeupdate event at 50%
             stubAudioEl.currentTime = 60;
             stubAudioEl.dispatchEvent(new Event('timeupdate'));
 
-            proclaim.deepEqual(events[0], { category: 'audio', action: 'progress', duration: 120, progress: 50 });
+            proclaim.deepEqual(events[0], {
+                category: 'audio',
+                action: 'progress',
+                duration: 120,
+                progress: 50,
+                contentId
+            });
         });
 
         it('only emits a progress event when the current time is a known progress point', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl);
+            initTracking(stubAudioEl, contentId);
 
             // trigger timeupdate event at 15%
             stubAudioEl.currentTime = 18;
@@ -62,7 +80,7 @@ describe('  Tracking' , () => {
         it('only emits a progress event for a given progress point once', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl);
+            initTracking(stubAudioEl, contentId);
 
             // trigger first timeupdate event at 50%
             stubAudioEl.currentTime = 60;
@@ -73,7 +91,13 @@ describe('  Tracking' , () => {
             stubAudioEl.dispatchEvent(new Event('timeupdate'));
 
             proclaim.lengthEquals(events, 1);
-            proclaim.deepEqual(events[0], { category: 'audio', action: 'progress', duration: 120, progress: 50 });
+            proclaim.deepEqual(events[0], {
+                category: 'audio',
+                action: 'progress',
+                duration: 120,
+                progress: 50,
+                contentId
+            });
         })
     });
 
@@ -82,7 +106,7 @@ describe('  Tracking' , () => {
             const clock = sinon.useFakeTimers();
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            const tracking = initTracking(stubAudioEl);
+            const tracking = initTracking(stubAudioEl, contentId);
 
             stubAudioEl.dispatchEvent(new Event('playing'));
             clock.tick(18000); // pretend 18s have passed by
@@ -91,14 +115,21 @@ describe('  Tracking' , () => {
             tracking.destroy();
             clock.restore();
 
-            proclaim.deepEqual(events[2], { category: 'audio', action: 'listened', duration: 120, amount: 18, amountPercentage:15 });
+            proclaim.deepEqual(events[2], {
+                category: 'audio',
+                action: 'listened',
+                duration: 120,
+                amount: 18,
+                amountPercentage:15,
+                contentId
+            });
         });
     });
 
     it('removes event listeners when o-audio element is destroyed', () => {
         const events = collectOTrackingEvents(events);
         const stubAudioEl = initAudioElement();
-        const tracking = initTracking(stubAudioEl);
+        const tracking = initTracking(stubAudioEl, contentId);
 
         tracking.destroy();
         stubAudioEl.dispatchEvent(new Event('playing'));
@@ -114,8 +145,8 @@ function initAudioElement() {
     return stubAudioEl
 }
 
-function initTracking (stubAudioEl) {
-    const tracking = new Tracking(stubAudioEl);
+function initTracking (stubAudioEl, contentId) {
+    const tracking = new Tracking(stubAudioEl, contentId);
     stubAudioEl.dispatchEvent(new Event('loadedmetadata'));
     return tracking;
 }
