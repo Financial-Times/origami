@@ -15,7 +15,7 @@ describe('Tracking' , () => {
             it(`emits the ${eventName} event`, () => {
                 const events = collectOTrackingEvents(events);
                 const stubAudioEl = initAudioElement();
-                initTracking(stubAudioEl, contentId);
+                initTracking(stubAudioEl, { contentId });
     
                 stubAudioEl.dispatchEvent(new Event(eventName));
                 proclaim.deepEqual(events[0], {
@@ -31,7 +31,7 @@ describe('Tracking' , () => {
         it('includes an updated progress metric (as a %) on each event', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, contentId);
+            initTracking(stubAudioEl, { contentId });
     
             stubAudioEl.currentTime = 18;
             stubAudioEl.dispatchEvent(new Event('playing'));
@@ -50,7 +50,7 @@ describe('Tracking' , () => {
         it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, contentId);
+            initTracking(stubAudioEl, { contentId });
 
             // trigger timeupdate event at 50%
             stubAudioEl.currentTime = 60;
@@ -68,7 +68,7 @@ describe('Tracking' , () => {
         it('only emits a progress event when the current time is a known progress point', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, contentId);
+            initTracking(stubAudioEl, { contentId });
 
             // trigger timeupdate event at 15%
             stubAudioEl.currentTime = 18;
@@ -80,7 +80,7 @@ describe('Tracking' , () => {
         it('only emits a progress event for a given progress point once', () => {
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, contentId);
+            initTracking(stubAudioEl, { contentId });
 
             // trigger first timeupdate event at 50%
             stubAudioEl.currentTime = 60;
@@ -106,7 +106,7 @@ describe('Tracking' , () => {
             const clock = sinon.useFakeTimers();
             const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
-            const tracking = initTracking(stubAudioEl, contentId);
+            const tracking = initTracking(stubAudioEl, { contentId });
 
             stubAudioEl.dispatchEvent(new Event('playing'));
             clock.tick(18000); // pretend 18s have passed by
@@ -129,7 +129,7 @@ describe('Tracking' , () => {
     it('removes event listeners when o-audio element is destroyed', () => {
         const events = collectOTrackingEvents(events);
         const stubAudioEl = initAudioElement();
-        const tracking = initTracking(stubAudioEl, contentId);
+        const tracking = initTracking(stubAudioEl, { contentId });
 
         tracking.destroy();
         stubAudioEl.dispatchEvent(new Event('playing'));
@@ -145,8 +145,8 @@ function initAudioElement() {
     return stubAudioEl
 }
 
-function initTracking (stubAudioEl, contentId) {
-    const tracking = new Tracking(stubAudioEl, contentId);
+function initTracking (stubAudioEl, trackingOpts) {
+    const tracking = new Tracking(stubAudioEl, trackingOpts);
     stubAudioEl.dispatchEvent(new Event('loadedmetadata'));
     return tracking;
 }

@@ -6,9 +6,8 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 			category: 'audio',
 			// playerType,
 			action,
-			contentId: audioObject.contentId,
 			duration: audioObject.audioLength,
-		}, extraDetail),
+		}, audioObject.trackingOpts, extraDetail),
 		bubbles: true,
 	});
 	document.body.dispatchEvent(event);
@@ -40,9 +39,9 @@ const EVENTS = [
 ]
 
 class AudioTracking {
-	constructor(audio, contentId) {
+	constructor(audio, trackingOpts) {
 		this.audio = audio;
-		this.contentId = contentId;
+		this.trackingOpts = trackingOpts;
 		this.delegate = new Delegate(audio);
 
 		this.audioLength = undefined;
