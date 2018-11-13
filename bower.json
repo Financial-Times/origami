@@ -11,5 +11,8 @@
   "main": [
     "main.scss",
     "main.js"
-  ]
+  ],
+  "dependencies": {
+    "dom-delegate":"~2.2.0"
+  }
 }

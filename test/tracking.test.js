@@ -93,7 +93,18 @@ describe('  Tracking' , () => {
 
             proclaim.deepEqual(events[2], { category: 'audio', action: 'listened', duration: 120, amount: 18, amountPercentage:15 });
         });
-    })
+    });
+
+    it('removes event listeners when o-audio element is destroyed', () => {
+        const events = collectOTrackingEvents(events);
+        const stubAudioEl = initAudioElement();
+        const tracking = initTracking(stubAudioEl);
+
+        tracking.destroy();
+        stubAudioEl.dispatchEvent(new Event('playing'));
+
+        proclaim.lengthEquals(events, 1); // just the listened event
+    });
     
 });
 

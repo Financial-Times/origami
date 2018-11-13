@@ -1,3 +1,4 @@
+import Delegate from 'dom-delegate';
 
 function fireEvent(action, audioObject, extraDetail = {}) {
 	const event = new CustomEvent('oTracking.event', {
@@ -5,7 +6,7 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 			category: 'audio',
 			// playerType,
 			action,
-			// contentId: audioObject.audioURL,
+			contentId: audioObject.contentId,
 			duration: audioObject.audioLength,
 		}, extraDetail),
 		bubbles: true,
@@ -41,30 +42,30 @@ const EVENTS = [
 class AudioTracking {
 	constructor(audio) {
 		this.audio = audio;
+		this.delegate = new Delegate(audio);
+
 		this.audioLength = undefined;
+		this.lastTrackedProgressPoint = undefined;
 		// amount of the audio, in milliseconds, that has actually been listened to
 		this.amountListened = 0;
 		this.dateTimePlayStart = undefined;
-		this.lastTrackedProgressPoint = undefined;
 
-		this.audio.addEventListener('loadedmetadata', this.loadMetadata.bind(this), false);
-		this.audio.addEventListener('playing', this.startListeningTimer.bind(this));
-		this.audio.addEventListener('pause', this.stopListeningTimer.bind(this));
+		this.delegate.on('loadedmetadata', this.loadMetadata.bind(this), false);
+		this.delegate.on('playing', this.startListeningTimer.bind(this));
+		this.delegate.on('pause', this.stopListeningTimer.bind(this));
 	}
 
 	loadMetadata() {
 		this.audioLength = parseInt(this.audio.duration, 10);
-		this.addEvents();
+		
+		EVENTS.forEach(eventName => {
+			this.delegate.on(eventName, this.eventListener.bind(this));
+		});
+
 		// [Q] how do this on mobile (ie. SPA) vs ft.com
 		// send 'listened' event on page unload
 		// const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
 		// window.addEventListener(unloadEventName, this.trackListeningTime.bind(this));
-	}
-
-	addEvents() {
-		EVENTS.forEach(eventName => {
-			this.audio.addEventListener(eventName, this.eventListener.bind(this));
-		});
 	}
 
 	eventListener (ev) {
@@ -95,19 +96,18 @@ class AudioTracking {
 		}
 	}
 
-	destroy() {
-		this.trackListeningTime();
-		// return this.targetObject.getElementsByTagName('audio').destroy(); //?
-	}
-
 	trackListeningTime() {
 		this.stopListeningTimer();
 
-		// console.log('amt listened', +(this.amountListened / 1000).toFixed(2), (((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2));
 		fireEvent('listened', this, {
 			amount: +(this.amountListened / 1000).toFixed(2),
 			amountPercentage: +(((this.amountListened / 1000) / (this.audioLength)) * 100).toFixed(2),
 		});
+	}
+
+	destroy() {
+		this.trackListeningTime();
+		this.delegate.destroy();
 	}
 }
 
