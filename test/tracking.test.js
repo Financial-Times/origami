@@ -137,6 +137,48 @@ describe('Tracking' , () => {
         proclaim.lengthEquals(events, 1); // just the listened event
     });
     
+    describe('tracking attributes', () => {
+        it('tracks the content id', () => {
+            const events = collectOTrackingEvents(events);
+            const stubAudioEl = initAudioElement();
+            initTracking(stubAudioEl, { contentId: 'abc-123' });
+            stubAudioEl.dispatchEvent(new Event('playing'));
+            proclaim.deepEqual(events[0], {
+                category: "audio",
+                action: "playing",
+                duration: 120,
+                contentId: "abc-123",
+                progress: 0
+            });
+        });
+
+        it('tracks the audio subtype', () => {
+            const events = collectOTrackingEvents(events);
+            const stubAudioEl = initAudioElement();
+            initTracking(stubAudioEl, { audioSubtype: 'podcast' });
+            stubAudioEl.dispatchEvent(new Event('playing'));
+            proclaim.deepEqual(events[0], {
+                category: "audio",
+                action: "playing",
+                duration: 120,
+                audioSubtype: 'podcast',
+                progress: 0
+            });
+        });
+
+        it('doesnt allow unknown attributes', () => {
+            const events = collectOTrackingEvents(events);
+            const stubAudioEl = initAudioElement();
+            initTracking(stubAudioEl, { foo: 'bar' });
+            stubAudioEl.dispatchEvent(new Event('playing'));
+            proclaim.deepEqual(events[0], {
+                category: "audio",
+                action: "playing",
+                duration: 120,
+                progress: 0
+            });
+        });
+    })
 });
 
 function initAudioElement() {

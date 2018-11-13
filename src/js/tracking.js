@@ -7,7 +7,7 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 			// playerType,
 			action,
 			duration: audioObject.audioLength,
-		}, audioObject.trackingOpts, extraDetail),
+		}, audioObject.trackingAttributes, extraDetail),
 		bubbles: true,
 	});
 	document.body.dispatchEvent(event);
@@ -38,10 +38,26 @@ const EVENTS = [
 	'stalled'
 ]
 
+const TRACKING_ATTRIBUTES = [
+	'contentId',
+	'audioSubtype'
+]
+
+function whitelistAttrs(attrs) {
+	return TRACKING_ATTRIBUTES.reduce(
+		(acc, attrName) => Object.assign(
+			{},
+			acc,
+			attrs[attrName] ? { [attrName]: attrs[attrName] } : undefined
+		),
+		{}
+	);
+}
+
 class AudioTracking {
-	constructor(audio, trackingOpts) {
+	constructor(audio, trackingAttributes = {}) {
 		this.audio = audio;
-		this.trackingOpts = trackingOpts;
+		this.trackingAttributes = whitelistAttrs(trackingAttributes);
 		this.delegate = new Delegate(audio);
 
 		this.audioLength = undefined;
