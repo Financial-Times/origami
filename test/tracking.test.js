@@ -89,9 +89,9 @@ describe('  Tracking' , () => {
             stubAudioEl.dispatchEvent(new Event('pause'));
 
             tracking.destroy();
-            
-            proclaim.deepEqual(events[2], { category: 'audio', action: 'listened', duration: 120, amount: 18, amountPercentage:15 });
             clock.restore();
+
+            proclaim.deepEqual(events[2], { category: 'audio', action: 'listened', duration: 120, amount: 18, amountPercentage:15 });
         });
     })
     
