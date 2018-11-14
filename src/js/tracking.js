@@ -111,7 +111,7 @@ class AudioTracking {
 		}
 	}
 
-	trackListeningTime() {
+	dispatchListenedEvent() {
 		this.stopListeningTimer();
 		const amount = this.amountListened / 1000;
 		fireEvent('listened', this, {

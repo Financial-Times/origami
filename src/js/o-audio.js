@@ -13,14 +13,16 @@ class OAudio {
 	
 		this.tracking = new Tracking(oAudioEl, this.options);
 
-		if (this.options.trackListeningTimeOn === 'unload') {
-			const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
-			window.addEventListener(unloadEventName, this.tracking.trackListeningTime.bind(this.tracking));
+		if (this.options.dispatchListenedEventOnUnload) {
+			window.addEventListener(
+				('onbeforeunload' in window) ? 'beforeunload' : 'unload',
+				() => this.tracking.dispatchListenedEvent()
+			);
 		}
 	}
 
 	destroy() {
-		this.tracking.trackListeningTime();
+		this.tracking.dispatchListenedEvent();
 		this.tracking.destroy();
 	}
 
