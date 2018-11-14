@@ -5,15 +5,28 @@ import Tracking from './../src/js/tracking';
 
 const contentId = 'abc-123';
 describe('Tracking' , () => {
+	let events = [];
+	const oTrackingListener = ({ detail }) => events.push(detail)
+
+	before(() => {
+		document.body.addEventListener('oTracking.event', oTrackingListener);
+	});
+
+	after(() => {
+		document.body.removeEventListener('oTracking.event', oTrackingListener);
+	});
+
+	beforeEach(() => {
+		events = [];
+	});
 
 	it('is defined', () => {
 		proclaim.equal(typeof Tracking, 'function');
-    });
+	});
 
     describe('Standard audio events', () => {
         [ 'playing', 'pause', 'ended', 'error', 'stalled' ].map(eventName => {
             it(`emits the ${eventName} event`, () => {
-                const events = collectOTrackingEvents(events);
                 const stubAudioEl = initAudioElement();
                 initTracking(stubAudioEl, { contentId });
     
@@ -26,10 +39,26 @@ describe('Tracking' , () => {
                     contentId
                 });
             });
-        });
+		});
+		
+		it('emits the seeked event once every second', () => {
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
+			stubAudioEl.dispatchEvent(new Event('seeked'));
+			stubAudioEl.dispatchEvent(new Event('seeked'));
+			return waitFor(1000).then(() => {
+				proclaim.lengthEquals(events, 1);
+				proclaim.deepEqual(events[0], {
+					category: 'audio',
+					action: 'seeked',
+					duration: 120,
+					progress: 0,
+					contentId
+				});
+			});
+		})
     
         it('includes an updated progress metric (as a %) on each event', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { contentId });
     
@@ -48,7 +77,6 @@ describe('Tracking' , () => {
 
     describe('progress event', () => {
         it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { contentId });
 
@@ -66,7 +94,6 @@ describe('Tracking' , () => {
         });
 
         it('only emits a progress event when the current time is a known progress point', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { contentId });
 
@@ -78,7 +105,6 @@ describe('Tracking' , () => {
         });
 
         it('only emits a progress event for a given progress point once', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { contentId });
 
@@ -103,7 +129,6 @@ describe('Tracking' , () => {
 
     it('emits a listened event with total amount listened', () => {
         const clock = sinon.useFakeTimers();
-        const events = collectOTrackingEvents(events);
         const stubAudioEl = initAudioElement();
         const tracking = initTracking(stubAudioEl, { contentId });
 
@@ -125,7 +150,6 @@ describe('Tracking' , () => {
     });
 
     it('removes event listeners when o-audio element is destroyed', () => {
-        const events = collectOTrackingEvents(events);
         const stubAudioEl = initAudioElement();
         const tracking = initTracking(stubAudioEl, { contentId });
 
@@ -137,7 +161,6 @@ describe('Tracking' , () => {
     
     describe('tracking attributes', () => {
         it('tracks the content id', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { contentId: 'abc-123' });
             stubAudioEl.dispatchEvent(new Event('playing'));
@@ -151,7 +174,6 @@ describe('Tracking' , () => {
         });
 
         it('tracks the audio subtype', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { audioSubtype: 'podcast' });
             stubAudioEl.dispatchEvent(new Event('playing'));
@@ -165,7 +187,6 @@ describe('Tracking' , () => {
         });
 
         it('doesnt allow unknown attributes', () => {
-            const events = collectOTrackingEvents(events);
             const stubAudioEl = initAudioElement();
             initTracking(stubAudioEl, { foo: 'bar' });
             stubAudioEl.dispatchEvent(new Event('playing'));
@@ -191,8 +212,6 @@ function initTracking (stubAudioEl, trackingOpts) {
     return tracking;
 }
 
-function collectOTrackingEvents() {
-    const events = [];
-    document.body.addEventListener('oTracking.event', ({ detail }) => events.push(detail));
-    return events;
+function waitFor (ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
 }

@@ -1,4 +1,5 @@
 import Delegate from 'dom-delegate';
+import * as Utils from 'o-utils';
 
 function fireEvent(action, audioObject, extraDetail = {}) {
 	const event = new CustomEvent('oTracking.event', {
@@ -29,13 +30,13 @@ function getProgressPoint(progress) {
 }
 
 const EVENTS = [
-	'playing',
-	'pause',
-	// 'seeked', an audio element fires 'seeked' ALOT
-	'timeupdate',
-	'ended',
-	'error',
-	'stalled'
+	{ name: 'playing' },
+	{ name: 'pause' },
+	{ name: 'seeked', throttle: 1000 },
+	{ name: 'timeupdate' },
+	{ name: 'ended' },
+	{ name: 'error' },
+	{ name: 'stalled' }
 ]
 
 const TRACKING_ATTRIBUTES = [
@@ -73,8 +74,12 @@ class AudioTracking {
 
 	loadMetadata() {
 		this.audioLength = parseInt(this.audio.duration, 10);
-		EVENTS.forEach(eventName => {
-			this.delegate.on(eventName, this.eventListener.bind(this));
+		EVENTS.forEach(({ name, throttle }) => {
+			let listener = this.eventListener.bind(this);
+			if (throttle) {
+				listener = Utils.throttle(listener, throttle);
+			}
+			this.delegate.on(name, listener);
 		});
 	}
 

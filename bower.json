@@ -13,6 +13,7 @@
     "main.js"
   ],
   "dependencies": {
-    "dom-delegate":"~2.2.0"
+	"dom-delegate":"^2.2.0",
+	"o-utils": "^1.0.5"
   }
 }
