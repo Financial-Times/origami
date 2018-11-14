@@ -207,7 +207,7 @@
     }
     @at-root #{selector_unify(a, &)},
     & + .#{$class}__label {
-		@include oTypographySize($scale: -1, $line-height: 1em);
+		@include oTypographySans($scale: -1, $line-height: 1);
         @include _oFormsRadioButtonsStyledMargin();
         cursor: pointer;
         font-weight: oFontsWeight('semibold');

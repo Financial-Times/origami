@@ -215,7 +215,7 @@
 /// @access public
 /// @output Basic styles shared between input, textarea, select etc.
 @mixin oFormsCommonFieldBase {
-	@include oTypographySize(0);
+	@include oTypographySans(0);
 	color: _oFormsGet('field-standard-text');
 	border-color: _oFormsGet('field-standard-border');
 	background-color: _oFormsGet('field-standard-background');
@@ -228,7 +228,6 @@
 	border: $_o-forms-field-border;
 	border-radius: $_o-forms-field-border-radius;
 	background-clip: padding-box;
-	font-family: $o-forms-font-family;
 	outline: none;
 	transition: 0.15s box-shadow ease-in;
 	appearance: none;

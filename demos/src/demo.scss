@@ -8,10 +8,6 @@ $_o-forms-demo-theme: (
 	'negative-checked-background': 'claret-80',
 );
 
-html {
-	font-family: $o-forms-font-family;
-}
-
 body {
 	@include oColorsFor('page', 'background');
 	margin: oGridGutter();

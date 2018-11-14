@@ -13,6 +13,7 @@ $o-forms-is-silent: true !default;
 /// since `<input>`, `<textarea>`, `<select>`… don't inherit global font styles
 ///
 /// @access public
+/// @deprecated
 /// @type String
 $o-forms-font-family: $o-typography-sans !default;
 

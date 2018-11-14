@@ -6,7 +6,7 @@
 /// @access public
 /// @output Styles for a label.
 @mixin oFormsLabel {
-	@include oTypographyBold('sans');
+	@include oTypographySansBold($scale: 0);
 	color: _oFormsGet('field-label-text');
 	display: block;
 	padding: 0; // Reset legend default styling
@@ -30,7 +30,7 @@
 /// @access public
 /// @output Styles for addional input information (typically below a label).
 @mixin oFormsAdditionalInfo {
-	@include oTypographySize(-1);
+	@include oTypographySans($scale: -1);
 	color: _oFormsGet('field-additional-info-text');
 	display: block;
 }
@@ -38,7 +38,7 @@
 /// @access public
 /// @output Styles for error text.
 @mixin oFormsErrorText {
-	@include oTypographySize(-1);
+	@include oTypographySans($scale: -1);
 	color: _oFormsGet('field-invalid-text');
 	clear: both;
 	display: block;

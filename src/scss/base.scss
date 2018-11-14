@@ -207,7 +207,7 @@
 	$status-icon-padding: ($status-icon-size/40) * 10;
 	// Base status styles.
 	.#{$class}__status {
-		@include oTypographySize(-1);
+		@include oTypographySans(-1);
 		line-height: 1em;
 		white-space: nowrap;
 		align-items: center;

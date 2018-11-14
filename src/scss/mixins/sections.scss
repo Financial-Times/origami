@@ -47,13 +47,13 @@
 /// @access public
 /// @output Styles for a message which spans multiple o-forms instances.
 @mixin oFormsMessage() {
-	@include oTypographySize(1);
+	@include oTypographySans(1);
 	background-color: _oFormsGet('section-highlight-background');
 	padding: 0 $_o-forms-padding;
 	margin-bottom: $_o-forms-spacing;
 
 	p {
-		font-family: $o-forms-font-family;
+		@include oTypographySans(1);
 		padding: oTypographySpacingSize(2) 0;
 		margin: 0;
 	}
