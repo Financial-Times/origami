@@ -17,7 +17,7 @@ It provides:
 	- [Sass](#sass)
 	- [JavaScript](#javascript)
 		- [Construction](#construction)
-		- [Custom Navigation](#custom-navigation)  
+		- [Custom Navigation](#custom-navigation)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -57,17 +57,19 @@ Within the main content section, there is another grid, which looks like this:
 At its base, the main content section styles _elements_, not classes.
 It will automatically style paragraphs, headings, lists and anchor tags, for example.
 It will also automatically style tables and asides, which will occupy different columns or span different columns within the main content section.
+Lists are also styled by default if they are not a component of their own (i.e. they don't have `data-o-component` defined on them).
 
+You can opt out of default list styling by applying the class: '.o-layout__unstyled-element'.
 The grid does not require the sidebar to maintain its layout.
 
 ### Markup
 
-`o-layout` uses CSS Grid Layout, and more specifically [grid template areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas).   
+`o-layout` uses CSS Grid Layout, and more specifically [grid template areas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas).
 
 #### Layout Base
-The markup below ↓ will generate the ascii grid above ↑.  
+The markup below ↓ will generate the ascii grid above ↑.
 
-The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.  
+The main content section will constrain its _immediate_ children to its first column, with the exception of `table`s and `aside`s.
 If you want an element to span the full width of the main content area, you can apply the `o-layout__main__full-span` class to that element to achieve that effect.
 
 _Note: `o-layout` styles tables to span two columns automatically. If you want a table to stick to a single column, you can apply `o-layout__main__single-span`, instead. Every other element is styled to fit a single column._

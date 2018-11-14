@@ -102,7 +102,7 @@
 		margin: 0 0 1rem;
 	}
 
-	ul:not([data-o-component^="o-"]) {
+	ul:not([data-o-component^="o-"], .o-layout__unstyled-element) {
 		list-style-type: none;
 		position: relative;
 		padding-left: 1.5rem;
@@ -120,7 +120,7 @@
 		}
 	}
 
-	ol:not([data-o-component^="o-"]) {
+	ol:not([data-o-component^="o-"], .o-layout__unstyled-element) {
 		position: relative;
 		padding-left: 1.5rem;
 	}
