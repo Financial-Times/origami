@@ -10,31 +10,31 @@ describe('Tracking' , () => {
 	const oTracking = new OTrackingCollector();
 
 	after(() => {
-		oTracking.stop()
+		oTracking.stop();
 	});
 
 	it('is defined', () => {
 		proclaim.equal(typeof Tracking, 'function');
 	});
 
-    describe('Standard audio events', () => {
-        [ 'playing', 'pause', 'ended', 'error', 'stalled' ].map(eventName => {
-            it(`emits the ${eventName} event`, () => {
+	describe('Standard audio events', () => {
+		[ 'playing', 'pause', 'ended', 'error', 'stalled' ].map(eventName =>
+			it(`emits the ${eventName} event`, () => {
 				const events = oTracking.start();
-                const stubAudioEl = initAudioElement();
-                initTracking(stubAudioEl, { contentId });
-    
-                stubAudioEl.dispatchEvent(new Event(eventName));
-                proclaim.deepEqual(events[0], {
-                    category: 'audio',
-                    action: eventName,
-                    duration: 120,
-                    progress: 0,
-                    contentId
-                });
-            });
-		});
-		
+				const stubAudioEl = initAudioElement();
+				initTracking(stubAudioEl, { contentId });
+
+				stubAudioEl.dispatchEvent(new Event(eventName));
+				proclaim.deepEqual(events[0], {
+					category: 'audio',
+					action: eventName,
+					duration: 120,
+					progress: 0,
+					contentId
+				});
+			})
+		);
+
 		it('emits the seeked event once every second', () => {
 			const clock = sinon.useFakeTimers();
 			const events = oTracking.start();
@@ -58,198 +58,198 @@ describe('Tracking' , () => {
 				clock.restore();
 				throw err;
 			}
-		})
-    
-        it('includes an updated progress metric (as a %) on each event', () => {
+		});
+
+		it('includes an updated progress metric (as a %) on each event', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { contentId });
-    
-            stubAudioEl.currentTime = 18;
-            stubAudioEl.dispatchEvent(new Event('playing'));
-    
-            proclaim.deepEqual(events[0], {
-                category: 'audio',
-                action: 'playing',
-                duration: 120,
-                progress: 15,
-                contentId
-            });
-        });
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
 
-        it('handles metadata being loaded asynchronously', () => {
-            const events = oTracking.start();
-            const stubAudioEl = initAudioElementWithMetadata();
-            initTracking(stubAudioEl, { contentId });
+			stubAudioEl.currentTime = 18;
+			stubAudioEl.dispatchEvent(new Event('playing'));
 
-            mockMetadata(stubAudioEl);
+			proclaim.deepEqual(events[0], {
+				category: 'audio',
+				action: 'playing',
+				duration: 120,
+				progress: 15,
+				contentId
+			});
+		});
 
-            stubAudioEl.currentTime = 18;
-            stubAudioEl.dispatchEvent(new Event('playing'));
-    
-            proclaim.deepEqual(events[0], {
-                category: 'audio',
-                action: 'playing',
-                duration: 120,
-                progress: 15,
-                contentId
-            });
-        });
-    })
-
-    describe('progress event', () => {
-        it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
+		it('handles metadata being loaded asynchronously', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { contentId });
+			const stubAudioEl = initAudioElementWithMetadata();
+			initTracking(stubAudioEl, { contentId });
 
-            // trigger timeupdate event at 50%
-            stubAudioEl.currentTime = 60;
-            stubAudioEl.dispatchEvent(new Event('timeupdate'));
+			mockMetadata(stubAudioEl);
 
-            proclaim.deepEqual(events[0], {
-                category: 'audio',
-                action: 'progress',
-                duration: 120,
-                progress: 50,
-                contentId
-            });
-        });
+			stubAudioEl.currentTime = 18;
+			stubAudioEl.dispatchEvent(new Event('playing'));
 
-        it('only emits a progress event when the current time is a known progress point', () => {
+			proclaim.deepEqual(events[0], {
+				category: 'audio',
+				action: 'playing',
+				duration: 120,
+				progress: 15,
+				contentId
+			});
+		});
+	});
+
+	describe('progress event', () => {
+		it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { contentId });
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
 
-            // trigger timeupdate event at 15%
-            stubAudioEl.currentTime = 18;
-            stubAudioEl.dispatchEvent(new Event('timeupdate'));
+			// trigger timeupdate event at 50%
+			stubAudioEl.currentTime = 60;
+			stubAudioEl.dispatchEvent(new Event('timeupdate'));
 
-            proclaim.lengthEquals(events, 0);
-        });
+			proclaim.deepEqual(events[0], {
+				category: 'audio',
+				action: 'progress',
+				duration: 120,
+				progress: 50,
+				contentId
+			});
+		});
 
-        it('only emits a progress event for a given progress point once', () => {
+		it('only emits a progress event when the current time is a known progress point', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { contentId });
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
 
-            // trigger first timeupdate event at 50%
-            stubAudioEl.currentTime = 60;
-            stubAudioEl.dispatchEvent(new Event('timeupdate'));
+			// trigger timeupdate event at 15%
+			stubAudioEl.currentTime = 18;
+			stubAudioEl.dispatchEvent(new Event('timeupdate'));
 
-            // trigger first timeupdate event at ~51%
-            stubAudioEl.currentTime = 62;
-            stubAudioEl.dispatchEvent(new Event('timeupdate'));
+			proclaim.lengthEquals(events, 0);
+		});
 
-            proclaim.lengthEquals(events, 1);
-            proclaim.deepEqual(events[0], {
-                category: 'audio',
-                action: 'progress',
-                duration: 120,
-                progress: 50,
-                contentId
-            });
-        })
-    });
+		it('only emits a progress event for a given progress point once', () => {
+			const events = oTracking.start();
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
 
-    it('dispatches listened event with total amount listened', () => {
+			// trigger first timeupdate event at 50%
+			stubAudioEl.currentTime = 60;
+			stubAudioEl.dispatchEvent(new Event('timeupdate'));
+
+			// trigger first timeupdate event at ~51%
+			stubAudioEl.currentTime = 62;
+			stubAudioEl.dispatchEvent(new Event('timeupdate'));
+
+			proclaim.lengthEquals(events, 1);
+			proclaim.deepEqual(events[0], {
+				category: 'audio',
+				action: 'progress',
+				duration: 120,
+				progress: 50,
+				contentId
+			});
+		});
+	});
+
+	it('dispatches listened event with total amount listened', () => {
 		const events = oTracking.start();
-        const clock = sinon.useFakeTimers();
-        const stubAudioEl = initAudioElement();
-        const tracking = initTracking(stubAudioEl, { contentId });
+		const clock = sinon.useFakeTimers();
+		const stubAudioEl = initAudioElement();
+		const tracking = initTracking(stubAudioEl, { contentId });
 
-        stubAudioEl.dispatchEvent(new Event('playing'));
-        clock.tick(18000); // pretend 18s have passed by
-        stubAudioEl.dispatchEvent(new Event('pause'));
+		stubAudioEl.dispatchEvent(new Event('playing'));
+		clock.tick(18000); // pretend 18s have passed by
+		stubAudioEl.dispatchEvent(new Event('pause'));
 
-        tracking.dispatchListenedEvent();
-        clock.restore();
+		tracking.dispatchListenedEvent();
+		clock.restore();
 
-        proclaim.deepEqual(events[2], {
-            category: 'audio',
-            action: 'listened',
-            duration: 120,
-            amount: 18,
-            amountPercentage:15,
-            contentId
-        });
-    });
+		proclaim.deepEqual(events[2], {
+			category: 'audio',
+			action: 'listened',
+			duration: 120,
+			amount: 18,
+			amountPercentage:15,
+			contentId
+		});
+	});
 
-    it('removes event listeners when o-audio element is destroyed', () => {
+	it('removes event listeners when o-audio element is destroyed', () => {
 		const events = oTracking.start();
-        const stubAudioEl = initAudioElement();
-        const tracking = initTracking(stubAudioEl, { contentId });
+		const stubAudioEl = initAudioElement();
+		const tracking = initTracking(stubAudioEl, { contentId });
 
-        tracking.destroy();
-        stubAudioEl.dispatchEvent(new Event('playing'));
+		tracking.destroy();
+		stubAudioEl.dispatchEvent(new Event('playing'));
 
-        proclaim.lengthEquals(events, 0);
-    });
-    
-    describe('tracking attributes', () => {
-        it('tracks the content id', () => {
+		proclaim.lengthEquals(events, 0);
+	});
+
+	describe('tracking attributes', () => {
+		it('tracks the content id', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { contentId: 'abc-123' });
-            stubAudioEl.dispatchEvent(new Event('playing'));
-            proclaim.deepEqual(events[0], {
-                category: "audio",
-                action: "playing",
-                duration: 120,
-                contentId: "abc-123",
-                progress: 0
-            });
-        });
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId: 'abc-123' });
+			stubAudioEl.dispatchEvent(new Event('playing'));
+			proclaim.deepEqual(events[0], {
+				category: "audio",
+				action: "playing",
+				duration: 120,
+				contentId: "abc-123",
+				progress: 0
+			});
+		});
 
-        it('tracks the audio subtype', () => {
+		it('tracks the audio subtype', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { audioSubtype: 'podcast' });
-            stubAudioEl.dispatchEvent(new Event('playing'));
-            proclaim.deepEqual(events[0], {
-                category: "audio",
-                action: "playing",
-                duration: 120,
-                audioSubtype: 'podcast',
-                progress: 0
-            });
-        });
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { audioSubtype: 'podcast' });
+			stubAudioEl.dispatchEvent(new Event('playing'));
+			proclaim.deepEqual(events[0], {
+				category: "audio",
+				action: "playing",
+				duration: 120,
+				audioSubtype: 'podcast',
+				progress: 0
+			});
+		});
 
-        it('doesnt allow unknown attributes', () => {
+		it('doesnt allow unknown attributes', () => {
 			const events = oTracking.start();
-            const stubAudioEl = initAudioElement();
-            initTracking(stubAudioEl, { foo: 'bar' });
-            stubAudioEl.dispatchEvent(new Event('playing'));
-            proclaim.deepEqual(events[0], {
-                category: "audio",
-                action: "playing",
-                duration: 120,
-                progress: 0
-            });
-        });
-    })
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { foo: 'bar' });
+			stubAudioEl.dispatchEvent(new Event('playing'));
+			proclaim.deepEqual(events[0], {
+				category: "audio",
+				action: "playing",
+				duration: 120,
+				progress: 0
+			});
+		});
+	});
 });
 
 function initAudioElement() {
-    const stubAudioEl = new EventTarget();
-    stubAudioEl.duration = 120;
-    stubAudioEl.readyState = 1;
-    return stubAudioEl;
+	const stubAudioEl = new EventTarget();
+	stubAudioEl.duration = 120;
+	stubAudioEl.readyState = 1;
+	return stubAudioEl;
 }
 
 function initAudioElementWithMetadata() {
-    const stubAudioEl = new EventTarget();
-    stubAudioEl.readyState = 0;
-    return stubAudioEl;
+	const stubAudioEl = new EventTarget();
+	stubAudioEl.readyState = 0;
+	return stubAudioEl;
 }
 
 function mockMetadata(stubAudioEl) {
-    stubAudioEl.readyState = 1;
-    stubAudioEl.duration = 120;
-    stubAudioEl.dispatchEvent(new Event('readystatechange'));
+	stubAudioEl.readyState = 1;
+	stubAudioEl.duration = 120;
+	stubAudioEl.dispatchEvent(new Event('readystatechange'));
 }
 
 function initTracking (stubAudioEl, trackingOpts) {
-    const tracking = new Tracking(stubAudioEl, trackingOpts);
-    return tracking;
+	const tracking = new Tracking(stubAudioEl, trackingOpts);
+	return tracking;
 }

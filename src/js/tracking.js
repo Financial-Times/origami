@@ -15,18 +15,18 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 }
 
 const progressWindows = [
-	[8, 12],   // 10%
-	[23, 27],  // 25%
-	[48, 52],  // 50%
-	[73, 77]   // 75%
-]
+	[8, 12], // 10%
+	[23, 27], // 25%
+	[48, 52], // 50%
+	[73, 77] // 75%
+];
 
 function getProgressPoint(progress) {
 	const [lower, upper] = progressWindows.find(([lower, upper]) => {
 		return progress >= lower && progress < upper;
-	}) || [0,0]
+	}) || [0,0];
 
-	return upper - ((upper - lower) / 2)
+	return upper - (upper - lower) / 2;
 }
 
 const EVENTS = [
@@ -37,12 +37,12 @@ const EVENTS = [
 	{ name: 'ended' },
 	{ name: 'error' },
 	{ name: 'stalled' }
-]
+];
 
 const TRACKING_ATTRIBUTES = [
 	'contentId',
 	'audioSubtype'
-]
+];
 
 function whitelistAttrs(attrs) {
 	return TRACKING_ATTRIBUTES.reduce(
@@ -53,10 +53,6 @@ function whitelistAttrs(attrs) {
 		),
 		{}
 	);
-}
-
-function hasMetadata (audioEl) {
-	return readyState === 1;
 }
 
 class AudioTracking {
@@ -89,7 +85,7 @@ class AudioTracking {
 
 	extractMetadata() {
 		if (this.audio.readyState !== 1) {
-			return
+			return;
 		}
 		this.audioLength = parseInt(this.audio.duration, 10);
 	}
@@ -126,8 +122,8 @@ class AudioTracking {
 		this.stopListeningTimer();
 		const amount = this.amountListened / 1000;
 		fireEvent('listened', this, {
-			amount: +amount.toFixed(2),
-			amountPercentage: +((amount / this.audioLength) * 100).toFixed(2),
+			amount: Number(amount.toFixed(2)),
+			amountPercentage: Number((amount / this.audioLength * 100).toFixed(2)),
 		});
 	}
 

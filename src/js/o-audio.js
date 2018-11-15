@@ -10,12 +10,12 @@ class OAudio {
 		this.oAudioEl = oAudioEl;
 		this.options = Object.assign({}, {
 		}, opts || OAudio.getDataAttributes(oAudioEl));
-	
+
 		this.tracking = new Tracking(oAudioEl, this.options);
 
 		if (this.options.dispatchListenedEventOnUnload !== undefined) {
 			window.addEventListener(
-				('onbeforeunload' in window) ? 'beforeunload' : 'unload',
+				'onbeforeunload' in window ? 'beforeunload' : 'unload',
 				() => this.tracking.dispatchListenedEvent()
 			);
 		}

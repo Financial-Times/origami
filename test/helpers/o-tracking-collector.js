@@ -1,6 +1,5 @@
 
-
-export default class OTrackingCollector {
+class OTrackingCollector {
 	constructor () {
 		this.events = [];
 		this.listener = null;
@@ -13,10 +12,11 @@ export default class OTrackingCollector {
 		}
 		this.events = [];
 		return this.events;
-		
 	}
 
 	stop () {
 		document.body.removeEventListener('oTracking.event', this.listener);
 	}
 }
+
+export default OTrackingCollector;

@@ -54,7 +54,7 @@ describe("OAudio", () => {
 	describe('tracking listening time', () => {
 		const oTracking = new OTrackingCollector();
 		const stubAudioEl = new EventTarget();
-	
+
 		after(() => oTracking.stop());
 
 		it('when the component is destroyed', () => {
@@ -62,24 +62,24 @@ describe("OAudio", () => {
 
 			const audio = new OAudio(stubAudioEl);
 			audio.destroy();
-			
+
 			proclaim.lengthEquals(events, 1);
 			const { action } = events[0];
 			proclaim.equal(action, "listened");
 		});
 
-		it('when the page unloads', () => {	
+		it('when the page unloads', () => {
 			const events = oTracking.start();
 			new OAudio(stubAudioEl, {
 				dispatchListenedEventOnUnload: true
 			});
 
-			const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+			const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
 			window.dispatchEvent(new Event(unloadEventName));
 			proclaim.lengthEquals(events, 1);
 			const { action } = events[0];
 			proclaim.equal(action, "listened");
 		});
 	});
-	
-	});
+
+});
