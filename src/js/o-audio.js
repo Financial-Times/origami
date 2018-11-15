@@ -21,6 +21,9 @@ class OAudio {
 		}
 	}
 
+	/**
+	 * Destroy this component. Unbinds listeners and dispatches any final tracking events
+	 */
 	destroy() {
 		this.tracking.dispatchListenedEvent();
 		this.tracking.destroy();
