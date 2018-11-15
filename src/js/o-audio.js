@@ -13,7 +13,7 @@ class OAudio {
 	
 		this.tracking = new Tracking(oAudioEl, this.options);
 
-		if (this.options.dispatchListenedEventOnUnload) {
+		if (this.options.dispatchListenedEventOnUnload !== undefined) {
 			window.addEventListener(
 				('onbeforeunload' in window) ? 'beforeunload' : 'unload',
 				() => this.tracking.dispatchListenedEvent()
