@@ -186,46 +186,29 @@ describe('Tracking' , () => {
 		proclaim.lengthEquals(events, 0);
 	});
 
-	describe('tracking attributes', () => {
-		it('tracks the content id', () => {
-			const events = oTracking.start();
-			const stubAudioEl = initAudioElement();
-			initTracking(stubAudioEl, { contentId: 'abc-123' });
-			stubAudioEl.dispatchEvent(new Event('playing'));
-			proclaim.deepEqual(events[0], {
-				category: "audio",
-				action: "playing",
-				duration: 120,
-				contentId: "abc-123",
-				progress: 0
-			});
-		});
+	describe('optional tracking properties', () => {
 
-		it('tracks the audio subtype', () => {
-			const events = oTracking.start();
-			const stubAudioEl = initAudioElement();
-			initTracking(stubAudioEl, { audioSubtype: 'podcast' });
-			stubAudioEl.dispatchEvent(new Event('playing'));
-			proclaim.deepEqual(events[0], {
-				category: "audio",
-				action: "playing",
-				duration: 120,
-				audioSubtype: 'podcast',
-				progress: 0
-			});
-		});
+		[
+			[ 'contentId', 'abc-123' ],
+			[ 'audioSubtype', 'podcast' ],
+			[ 'playerType', 'inline' ]
+
+		].map(([ propName, propValue ]) =>
+			it(`includes ${propName} in the event detail`, () => {
+				const events = oTracking.start();
+				const stubAudioEl = initAudioElement();
+				initTracking(stubAudioEl, { [propName]: propValue });
+				stubAudioEl.dispatchEvent(new Event('playing'));
+				proclaim.equal(events[0][propName], propValue);
+			})
+		);
 
 		it('doesnt allow unknown attributes', () => {
 			const events = oTracking.start();
 			const stubAudioEl = initAudioElement();
 			initTracking(stubAudioEl, { foo: 'bar' });
 			stubAudioEl.dispatchEvent(new Event('playing'));
-			proclaim.deepEqual(events[0], {
-				category: "audio",
-				action: "playing",
-				duration: 120,
-				progress: 0
-			});
+			proclaim.notOk(events[0].foo);
 		});
 	});
 });
