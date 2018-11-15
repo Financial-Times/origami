@@ -22,7 +22,8 @@
         }
 
         .o-teaser__heading a {
-            &:focus, &:hover {
+            &:focus,
+            &:hover {
                 color: oColorsMix(white, crimson, 90);
             }
 
