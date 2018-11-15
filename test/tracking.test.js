@@ -76,6 +76,25 @@ describe('Tracking' , () => {
                 contentId
             });
         });
+
+        it('handles metadata being loaded asynchronously', () => {
+            const events = oTracking.start();
+            const stubAudioEl = initAudioElementWithMetadata();
+            initTracking(stubAudioEl, { contentId });
+
+            mockMetadata(stubAudioEl);
+
+            stubAudioEl.currentTime = 18;
+            stubAudioEl.dispatchEvent(new Event('playing'));
+    
+            proclaim.deepEqual(events[0], {
+                category: 'audio',
+                action: 'playing',
+                duration: 120,
+                progress: 15,
+                contentId
+            });
+        });
     })
 
     describe('progress event', () => {
@@ -214,15 +233,23 @@ describe('Tracking' , () => {
 function initAudioElement() {
     const stubAudioEl = new EventTarget();
     stubAudioEl.duration = 120;
-    return stubAudioEl
+    stubAudioEl.readyState = 1;
+    return stubAudioEl;
+}
+
+function initAudioElementWithMetadata() {
+    const stubAudioEl = new EventTarget();
+    stubAudioEl.readyState = 0;
+    return stubAudioEl;
+}
+
+function mockMetadata(stubAudioEl) {
+    stubAudioEl.readyState = 1;
+    stubAudioEl.duration = 120;
+    stubAudioEl.dispatchEvent(new Event('readystatechange'));
 }
 
 function initTracking (stubAudioEl, trackingOpts) {
     const tracking = new Tracking(stubAudioEl, trackingOpts);
-    stubAudioEl.dispatchEvent(new Event('loadedmetadata'));
     return tracking;
-}
-
-function waitFor (ms) {
-	return new Promise((resolve) => setTimeout(resolve, ms));
 }

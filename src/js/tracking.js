@@ -55,25 +55,29 @@ function whitelistAttrs(attrs) {
 	);
 }
 
+function hasMetadata (audioEl) {
+	return readyState === 1;
+}
+
 class AudioTracking {
 	constructor(audio, trackingAttributes = {}) {
 		this.audio = audio;
 		this.trackingAttributes = whitelistAttrs(trackingAttributes);
-		this.delegate = new Delegate(audio);
-
 		this.audioLength = undefined;
 		this.lastTrackedProgressPoint = undefined;
-		// amount of the audio, in milliseconds, that has actually been listened to
 		this.amountListened = 0;
 		this.dateTimePlayStart = undefined;
 
-		this.delegate.on('loadedmetadata', this.loadMetadata.bind(this), false);
+		this.delegate = new Delegate(audio);
+		this.delegate.on('readystatechange', this.extractMetadata.bind(this), false);
 		this.delegate.on('playing', this.startListeningTimer.bind(this));
 		this.delegate.on('pause', this.stopListeningTimer.bind(this));
+
+		this.attachListeners();
+		this.extractMetadata();
 	}
 
-	loadMetadata() {
-		this.audioLength = parseInt(this.audio.duration, 10);
+	attachListeners() {
 		EVENTS.forEach(({ name, throttle }) => {
 			let listener = this.eventListener.bind(this);
 			if (throttle) {
@@ -81,6 +85,13 @@ class AudioTracking {
 			}
 			this.delegate.on(name, listener);
 		});
+	}
+
+	extractMetadata() {
+		if (this.audio.readyState !== 1) {
+			return
+		}
+		this.audioLength = parseInt(this.audio.duration, 10);
 	}
 
 	eventListener (ev) {
