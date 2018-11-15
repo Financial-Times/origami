@@ -66,7 +66,7 @@ class AudioTracking {
 		this.dateTimePlayStart = undefined;
 
 		this.delegate = new Delegate(audio);
-		this.delegate.on('readystatechange', this.extractMetadata.bind(this), false);
+		this.delegate.on('readystatechange', this.extractMetadata.bind(this));
 		this.delegate.on('playing', this.startListeningTimer.bind(this));
 		this.delegate.on('pause', this.stopListeningTimer.bind(this));
 
