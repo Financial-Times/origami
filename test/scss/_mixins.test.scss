@@ -1,0 +1,18 @@
+
+@include describe('oProgressIndicator mixins') {
+	@include describe('oProgressIndicator') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oProgressIndicator();
+				};
+
+				@include expect($selector: false) {
+					.o-progress-indicator {
+						display: block;
+					}
+				};
+			};
+		}
+	}
+}

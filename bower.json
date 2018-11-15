@@ -1,0 +1,15 @@
+{
+	"name": "o-progress-indicator",
+	"description": "Track progress through a multi-step process, such as a form",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"build"
+	],
+	"main": [
+		"main.scss",
+		"main.js"
+	]
+}

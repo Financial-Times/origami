@@ -1,0 +1,39 @@
+{
+	"description": "Track progress through a multi-step process, such as a form",
+	"keywords": [
+		"indicator",
+		"progress",
+		"step",
+		"stepped"
+	],
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-progress-indicator/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-progress-indicator"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"dependencies": [
+			"o-fonts@^3.0.0",
+			"o-normalise@^1.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility tests will be run against this demo",
+			"hidden": true
+		}
+	]
+}

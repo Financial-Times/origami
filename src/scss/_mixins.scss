@@ -1,0 +1,17 @@
+
+/// Outputs all available features and styles for progress indicator.
+///
+/// @access public
+@mixin oProgressIndicator() {
+	.o-progress-indicator {
+		display: block;
+	}
+}
+
+/// Output a progress indicator specific error message
+///
+/// @param {String} $message - The message to insert in the error.
+/// @access private
+@mixin _oProgressIndicatorError($message) {
+	@error '*** oProgressIndicator SCSS error: #{$message} ***';
+};
