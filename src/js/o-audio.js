@@ -4,7 +4,7 @@ class OAudio {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [oAudioEl] - The component element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (oAudioEl, opts) {
 		this.oAudioEl = oAudioEl;
@@ -30,6 +30,7 @@ class OAudio {
 	 * Get the data attributes from the OAudioElement. If the message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 * @param {HTMLElement} oAudioEl - The component element in the DOM
+	 * @returns {Object} - Data attributes as an object
 	 */
 	static getDataAttributes (oAudioEl) {
 		if (!(oAudioEl instanceof HTMLElement)) {
@@ -59,8 +60,9 @@ class OAudio {
 
 	/**
 	 * Initialise message component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @returns {(OAudio|Array<OAudio>)} - OAudio instance(s)
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
