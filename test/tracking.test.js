@@ -150,6 +150,18 @@ describe('Tracking' , () => {
 				contentId
 			});
 		});
+
+		it('only emits a progress event when the audio is playing', () => {
+			const events = oTracking.start();
+			const stubAudioEl = initAudioElement();
+			initTracking(stubAudioEl, { contentId });
+
+			stubAudioEl.currentTime = 60;
+			stubAudioEl.paused = true;
+			stubAudioEl.dispatchEvent(new Event('timeupdate'));
+
+			proclaim.lengthEquals(events, 0);
+		});
 	});
 
 	it('dispatches listened event with total amount listened', () => {
