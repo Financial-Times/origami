@@ -228,20 +228,17 @@ describe('Tracking' , () => {
 function initAudioElement() {
 	const stubAudioEl = new EventTarget();
 	stubAudioEl.duration = 120;
-	stubAudioEl.readyState = 1;
 	return stubAudioEl;
 }
 
 function initAudioElementWithMetadata() {
 	const stubAudioEl = new EventTarget();
-	stubAudioEl.readyState = 0;
 	return stubAudioEl;
 }
 
 function mockMetadata(stubAudioEl) {
-	stubAudioEl.readyState = 1;
 	stubAudioEl.duration = 120;
-	stubAudioEl.dispatchEvent(new Event('readystatechange'));
+	stubAudioEl.dispatchEvent(new Event('loadedmetadata'));
 }
 
 function initTracking (stubAudioEl, trackingOpts) {

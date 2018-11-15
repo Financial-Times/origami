@@ -66,7 +66,7 @@ class AudioTracking {
 		this.dateTimePlayStart = undefined;
 
 		this.delegate = new Delegate(audio);
-		this.delegate.on('readystatechange', this.extractMetadata.bind(this));
+		this.delegate.on('loadedmetadata', this.extractMetadata.bind(this));
 		this.delegate.on('playing', this.startListeningTimer.bind(this));
 		this.delegate.on('pause', this.stopListeningTimer.bind(this));
 
@@ -85,9 +85,6 @@ class AudioTracking {
 	}
 
 	extractMetadata() {
-		if (this.audio.readyState !== 1) {
-			return;
-		}
 		this.audioLength = parseInt(this.audio.duration, 10);
 	}
 
