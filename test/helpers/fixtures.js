@@ -22,7 +22,7 @@ function insert(html) {
 
 function htmlCode () {
 	const html = `<div>
-		<div class="o-audio" data-o-component="o-audio" id="element"></div>
+		<audio class="o-audio" data-o-component="o-audio" id="element"></audio>
 	</div>
 	`;
 	insert(html);

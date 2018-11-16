@@ -3,10 +3,14 @@ import Tracking from './tracking';
 class OAudio {
 	/**
 	 * Class constructor.
-	 * @param {HTMLElement} [oAudioEl] - The component element in the DOM
+	 * @param {HTMLAudioElement} [oAudioEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (oAudioEl, opts) {
+
+		if (!(oAudioEl instanceof HTMLAudioElement)) {
+			console.warn('oAudioEl should be an instance of HTMLAudioElement');
+		}
 		this.oAudioEl = oAudioEl;
 		this.options = Object.assign({}, {
 		}, opts || OAudio.getDataAttributes(oAudioEl));
@@ -74,7 +78,7 @@ class OAudio {
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-audio]')) {
+		if (rootEl instanceof HTMLAudioElement && rootEl.matches('[data-o-component=o-audio]')) {
 			return new OAudio(rootEl, opts);
 		}
 		return Array.from(rootEl.querySelectorAll('[data-o-component="o-audio"]'), rootEl => new OAudio(rootEl, opts));
