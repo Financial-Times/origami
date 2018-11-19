@@ -3,9 +3,9 @@
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
-@if ($o-progress-indicator-is-silent == false) {
-	@include oProgressIndicator();
+@if ($o-stepped-progress-is-silent == false) {
+	@include oSteppedProgress();
 
 	// Set to silent again to avoid being output twice
-	$o-progress-indicator-is-silent: true !global;
+	$o-stepped-progress-is-silent: true !global;
 }

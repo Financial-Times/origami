@@ -1,5 +1,5 @@
 {
-	"name": "o-progress-indicator",
+	"name": "o-stepped-progress",
 	"description": "Track progress through a multi-step process, such as a form",
 	"ignore": [
 		"**/.*",

@@ -9,7 +9,7 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
-	"support": "https://github.com/Financial-Times/o-progress-indicator/issues",
+	"support": "https://github.com/Financial-Times/o-stepped-progress/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
@@ -17,7 +17,7 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-progress-indicator"
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-stepped-progress"
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",

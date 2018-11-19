@@ -1,14 +1,14 @@
 
-@include describe('oProgressIndicator mixins') {
-	@include describe('oProgressIndicator') {
+@include describe('oSteppedProgress mixins') {
+	@include describe('oSteppedProgress') {
 		@include it('does something') {
 			@include assert() {
 				@include output($selector: false) {
-					@include oProgressIndicator();
+					@include oSteppedProgress();
 				};
 
 				@include expect($selector: false) {
-					.o-progress-indicator {
+					.o-stepped-progress {
 						display: block;
 					}
 				};

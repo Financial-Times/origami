@@ -1,7 +1,7 @@
 
 /// Silent mode: on (true) or off (false)
-/// Set to false to output default progress indicator classes
+/// Set to false to output default stepped progress classes
 ///
 /// @type Boolean
 /// @access public
-$o-progress-indicator-is-silent: true !default;
+$o-stepped-progress-is-silent: true !default;

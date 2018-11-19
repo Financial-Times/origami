@@ -1,10 +1,10 @@
-import ProgressIndicator from './src/js/progress-indicator';
+import SteppedProgress from './src/js/stepped-progress';
 
 const constructAll = function () {
-	ProgressIndicator.init();
+	SteppedProgress.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export default ProgressIndicator;
+export default SteppedProgress;

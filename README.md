@@ -1,5 +1,5 @@
 
-# o-progress-indicator [![Circle CI](https://circleci.com/gh/Financial-Times/o-progress-indicator/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-progress-indicator/tree/master)
+# o-stepped-progress [![Circle CI](https://circleci.com/gh/Financial-Times/o-stepped-progress/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-stepped-progress/tree/master)
 
 Track progress through a multi-step process, such as a form.
 
@@ -36,7 +36,7 @@ If your component is particularly complicated (image sets fall into this categor
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-progress-indicator/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-stepped-progress/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
 
 ---

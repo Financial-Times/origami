@@ -1,17 +1,17 @@
 
-/// Outputs all available features and styles for progress indicator.
+/// Outputs all available features and styles for stepped progress.
 ///
 /// @access public
-@mixin oProgressIndicator() {
-	.o-progress-indicator {
+@mixin oSteppedProgress() {
+	.o-stepped-progress {
 		display: block;
 	}
 }
 
-/// Output a progress indicator specific error message
+/// Output a stepped progress specific error message
 ///
 /// @param {String} $message - The message to insert in the error.
 /// @access private
-@mixin _oProgressIndicatorError($message) {
-	@error '*** oProgressIndicator SCSS error: #{$message} ***';
+@mixin _oSteppedProgressError($message) {
+	@error '*** oSteppedProgress SCSS error: #{$message} ***';
 };

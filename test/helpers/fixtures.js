@@ -19,10 +19,9 @@ function insert(html) {
 	sandboxEl.innerHTML = html;
 }
 
-
 function htmlCode () {
 	const html = `<div>
-		<div class="o-progress-indicator" data-o-component="o-progress-indicator" id="element"></div>
+		<div class="o-stepped-progress" data-o-component="o-stepped-progress" id="element"></div>
 	</div>
 	`;
 	insert(html);
