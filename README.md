@@ -30,7 +30,7 @@ The expectation is that oAudio will eventually render it's own player interface,
 ### JavaScript
 
 No code will run automatically unless you are using the Build Service.
-You must either construct an `o-audio` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
+You must either construct an `o-audio` object or fire the `o.DOMContentLoaded` event, which oAudio listens for.
 
 #### Constructing an o-audio
 
