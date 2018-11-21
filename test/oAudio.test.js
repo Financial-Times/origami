@@ -74,7 +74,7 @@ describe("OAudio", () => {
 				dispatchListenedEventOnUnload: true
 			});
 
-			const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
+			const unloadEventName = 'onpagehide' in window ? 'pagehide' : 'unload';
 			window.dispatchEvent(new Event(unloadEventName));
 			proclaim.lengthEquals(events, 1);
 			const { action } = events[0];

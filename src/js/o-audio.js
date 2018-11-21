@@ -19,8 +19,8 @@ class OAudio {
 
 		if (this.options.dispatchListenedEventOnUnload !== undefined) {
 			window.addEventListener(
-				'onbeforeunload' in window ? 'beforeunload' : 'unload',
-				() => this.tracking.dispatchListenedEvent()
+				'onpagehide' in window ? 'pagehide' : 'unload',
+				this.onPageHide.bind(this)
 			);
 		}
 	}
@@ -31,6 +31,17 @@ class OAudio {
 	destroy() {
 		this.tracking.dispatchListenedEvent();
 		this.tracking.destroy();
+	}
+
+	/**
+	 * This is either an unload event for older browsers,
+	 * or a pagehide event for page tear-down in supported browsers.
+	 * See https://webkit.org/blog/516/webkit-page-cache-ii-the-unload-event/
+	 */
+	onPageHide(evt) {
+		if (!evt.persisted) {
+			this.tracking.dispatchListenedEvent();
+		}
 	}
 
 	/**
