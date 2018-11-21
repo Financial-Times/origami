@@ -35,7 +35,7 @@ describe('Tracking' , () => {
 			})
 		);
 
-		it('emits the seeked event once every second', () => {
+		it('prevents the `seeked` event from spamming (when the seek bar is used)', () => {
 			const clock = sinon.useFakeTimers();
 			const events = oTracking.start();
 			const stubAudioEl = initAudioElement();

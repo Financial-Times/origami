@@ -32,7 +32,7 @@ function getProgressPoint(progress) {
 const EVENTS = [
 	{ name: 'playing' },
 	{ name: 'pause' },
-	{ name: 'seeked', throttle: 1000 },
+	{ name: 'seeked', debounceEvery: 1000 },
 	{ name: 'timeupdate' },
 	{ name: 'ended' },
 	{ name: 'error' },
@@ -75,10 +75,10 @@ class AudioTracking {
 	}
 
 	attachListeners() {
-		EVENTS.forEach(({ name, throttle }) => {
+		EVENTS.forEach(({ name, debounceEvery }) => {
 			let listener = this.eventListener.bind(this);
-			if (throttle) {
-				listener = Utils.throttle(listener, throttle);
+			if (debounceEvery) {
+				listener = Utils.debounce(listener, debounceEvery);
 			}
 			this.delegate.on(name, listener);
 		});
