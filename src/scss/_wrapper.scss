@@ -6,7 +6,6 @@
 		overflow-y: hidden;
 		overflow-x: auto;
 		width: 100%;
-		scroll-snap-type: x proximity;
 		-webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes
 	}
 
