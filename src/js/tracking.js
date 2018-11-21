@@ -130,4 +130,4 @@ class AudioTracking {
 	}
 }
 
-module.exports = AudioTracking;
+export default AudioTracking;
