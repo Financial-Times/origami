@@ -40,6 +40,10 @@
 				"url": "#"
 			},
 			{
+				"name": "Tech",
+				"url": "#"
+			},
+			{
 				"name": "Markets",
 				"url": "#"
 			},
@@ -54,9 +58,17 @@
 			{
 				"name": "Life & Arts",
 				"url": "#"
+			},
+			{
+				"name": "Graphics",
+				"url": "#"
+			},
+			{
+				"name": "How to spend it",
+				"url": "#"
 			}
 		],
-		"isSignedIn": false
+		"isSignedIn": true
 	},
 	"drawer": {
 		"nav": [

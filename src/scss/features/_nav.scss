@@ -1,7 +1,6 @@
 @mixin oHeaderNav() {
 	.o-header__nav {
-		@include oTypographySans(0);
-		@include oTypographyProgressiveFontFallback('sans', 0);
+		@include oTypographySans($scale: -1, $line-height: 20px);
 	}
 
 	.o-header__nav--mobile {
@@ -37,7 +36,7 @@
 	.o-header__nav-item {
 		display: table-cell;
 		vertical-align: middle;
-		padding-left: $_o-header-padding-x;
+		padding-left: $_o-header-padding-x - 2;
 
 		&:first-child {
 			padding-left: 0;

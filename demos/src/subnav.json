@@ -25,12 +25,11 @@
 			{
 				"name": "Home",
 				"url": "#",
-				"selected": false
+				"selected": true
 			},
 			{
 				"name": "World",
-				"url": "#",
-				"selected": true
+				"url": "#"
 			},
 			{
 				"name": "UK",
@@ -38,6 +37,10 @@
 			},
 			{
 				"name": "Companies",
+				"url": "#"
+			},
+			{
+				"name": "Tech",
 				"url": "#"
 			},
 			{
@@ -55,9 +58,17 @@
 			{
 				"name": "Life & Arts",
 				"url": "#"
+			},
+			{
+				"name": "Graphics",
+				"url": "#"
+			},
+			{
+				"name": "How to spend it",
+				"url": "#"
 			}
 		],
-		"isSignedIn": false
+		"isSignedIn": true
 	},
 	"drawer": {
 		"nav": [
