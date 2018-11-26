@@ -54,8 +54,15 @@ describe("OAudio", () => {
 	describe('tracking listening time', () => {
 		const oTracking = new OTrackingCollector();
 		const stubAudioEl = new EventTarget();
-
-		after(() => oTracking.stop());
+		let _onbeforeunload;
+		before(() => {
+			_onbeforeunload = window.onbeforeunload;
+			window.onbeforeunload = f => f;
+		});
+		after(() => {
+			oTracking.stop();
+			window.onbeforeunload = _onbeforeunload;
+		});
 
 		it('when the component is destroyed', () => {
 			const events = oTracking.start();
@@ -68,17 +75,29 @@ describe("OAudio", () => {
 			proclaim.equal(action, "listened");
 		});
 
-		it('when the page unloads', () => {
+
+		['beforeunload', 'unload', 'pagehide'].forEach(eventName => {
+			it(`when the page unloads via ${eventName}`, () => {
+				const events = oTracking.start();
+				new OAudio(stubAudioEl, {
+					dispatchListenedEventOnUnload: true
+				});
+
+				window.dispatchEvent(new Event(eventName, { cancelable: true }));
+				proclaim.lengthEquals(events, 1);
+				const { action } = events[0];
+				proclaim.equal(action, "listened");
+			});
+		});
+
+		it('only dispatches listened event once', () => {
 			const events = oTracking.start();
 			new OAudio(stubAudioEl, {
 				dispatchListenedEventOnUnload: true
 			});
-
-			const unloadEventName = 'onpagehide' in window ? 'pagehide' : 'unload';
-			window.dispatchEvent(new Event(unloadEventName));
+			window.dispatchEvent(new Event('unload'));
+			window.dispatchEvent(new Event('pagehide'));
 			proclaim.lengthEquals(events, 1);
-			const { action } = events[0];
-			proclaim.equal(action, "listened");
 		});
 	});
 
