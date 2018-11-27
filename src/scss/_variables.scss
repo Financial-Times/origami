@@ -12,4 +12,9 @@ $_o-colors-experimental-palette-warning: null !default;
 
 $o-colors-usecases: () !default;
 
+// These are common usecase which are not necessarily defined for each brand.
+// When the usecase is used and `null` is returned, there is no need to warn about it.
+// Warning is still useful in other cases to highlight misspelled usecases, or missing custom usecases.
+$_o-colors-ignore-usecases-warnings: ('page', 'box', 'link', 'link-hover', 'link-title', 'link-title-hover', 'title', 'body', 'muted');
+
 $_o-colors-test-environment: false !default;

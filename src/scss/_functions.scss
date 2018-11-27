@@ -5,7 +5,7 @@
 
 /// Return the CSS color for a palette color name
 ///
-/// @param {String} $name
+/// @param {String|Color|Null} $name
 @function oColorsGetPaletteColor($name) {
 	@if (map-has-key($o-colors-palette, inspect($name))) {
 		$color: map-get($o-colors-palette, inspect($name));
@@ -25,7 +25,7 @@
 		}
 
 		@return $color;
-	} @else if type-of($name) != color {
+	} @else if $name != null and type-of($name) != color {
 		@warn "Color name '#{inspect($name)}' is not defined in the palette.";
 		@return null;
 	} @else {
@@ -97,6 +97,7 @@
 /// @param {list} $namelist
 /// @param {String} $property [all]
 /// @param {map} $options [('default': false)] - default: fallback value (false, null, or oColorsGetPaletteColor($palette-color));
+/// @return {String|Color|Null}
 @function oColorsGetColorFor($namelist, $property: all, $options: ('default': false)) {
 	$default: map-get($options, 'default');
 	$color: null;
@@ -107,18 +108,16 @@
 		}
 	}
 
-	@if ($color == null) {
-		@if ($default or $default == null) {
-			@return $default;
-		} @else {
-			$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
+	@if ($color == null and ($default or $default == null)) {
+		@return $default;
+	}
 
-			@if ($property) {
-				$warn: $warn + " for property '#{inspect($property)}'";
-			}
-
-			@warn $warn;
+	@if(not index($_o-colors-ignore-usecases-warnings, $namelist)) {
+		$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
+		@if ($property) {
+			$warn: $warn + " for property '#{inspect($property)}'";
 		}
+		@warn $warn;
 	}
 
 	@return oColorsGetPaletteColor($color);
