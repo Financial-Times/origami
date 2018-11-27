@@ -5,7 +5,6 @@
 @mixin oLayoutBase ($class: $o-layout-class) {
 	html,
 	body {
-		height: 100%;
 		margin: 0;
 	}
 
@@ -22,7 +21,6 @@
 				"footer footer footer footer footer";
 		};
 
-		grid-column-gap: $_o-layout-gutter;
-		min-height: 100%;
+		min-height: 100vh;
 	}
 }

@@ -45,7 +45,7 @@
 	box-sizing: border-box;
 
 	display: grid;
-	grid-auto-rows: auto;
+	grid-template-rows: auto auto 1fr auto;
 	grid-template-columns: 100%;
 	grid-gap: $_o-layout-gutter;
 	grid-template-areas:
