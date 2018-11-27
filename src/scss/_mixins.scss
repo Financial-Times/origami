@@ -27,7 +27,7 @@
 	// Respnsive solutions.
 	@if $flat-enabled or $scroll-enabled or $overflow-enabled {
 		@include _oTableWrapper;
-		@include _oTableContainer;
+		@include _oTableContainer($expandable: $overflow-enabled);
 	}
 	@if $overflow-enabled {
 		@include _oTableResponsiveOverflow;

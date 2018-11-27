@@ -1,14 +1,16 @@
 /// Styles for a table container, the parent of all other table elements.
 /// Enables child overlays such as to indicate the ability to scroll a table.
-/// Includes standard table margin.
+/// @param {Bool} $expandable [false] - Set to true to output expanded/contracted container modifiers.
 /// @access private
-@mixin _oTableContainer {
+@mixin _oTableContainer($expandable: false) {
 	.o-table-container {
 		position: relative;
 	}
 	// Leave space for controls such as "show more" when expanded/contracted.
-	.o-table-container--expanded,
-	.o-table-container--contracted {
-		padding-bottom: 40px;
+	@if $expandable {
+		.o-table-container--expanded .o-table,
+		.o-table-container--contracted .o-table {
+			margin-bottom: 40px;
+		}
 	}
 }
