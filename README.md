@@ -2,20 +2,24 @@
 
 Styling for tables.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-	- [JavaScript](#javascript)
+- [Markup](#markup)
+	- [Basic Table](#basic-table)
+	- [Disable sort](#disable-sort)
+	- [Responsive options](#responsive-options)
+	- [Expander](#expander)
+	- [Additional Markup](#additional-markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
+	- [Sorting](#sorting)
+	- [Events](#events)
 - [Troubleshooting](#troubleshooting)
-- [Migration guide](#migration-guide)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
+## Markup
 
-### Markup
-
-#### Basic table
+### Basic table
 
 Add an `o-table` class to any table you wish to apply the styles to:
 
@@ -83,7 +87,7 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 </table>
 ```
 
-#### Disable sort
+### Disable sort
 
 Table columns are sortable by default but may be disabled by adding `data-o-table-sortable="false"` to the table.
 ```html
@@ -110,7 +114,7 @@ Or to disable sort per table column, add `data-o-table-heading-disable-sort` to 
 </table>
 ```
 
-#### Responsive options
+### Responsive options
 
 There are three options for small viewports where the table does not fit.
 
@@ -134,7 +138,7 @@ To enable these set `data-o-table-responsive` to the type of responsive table de
 
 More examples are available in [the registry](https://registry.origami.ft.com/components/o-table).
 
-#### Expander
+### Expander
 
 The "overflow" style of responsive table ([see above](#responsive-options)) supports an expander to hide rows and offer a "show more" / "show fewer" button. To enable this feature set `data-o-table-expanded="false"` to the table. The number of rows to show when the table is not expanded can be configured with `data-o-table-minimum-row-count="20"` _(default: 20)_.
 
@@ -170,7 +174,7 @@ To add a footnote to an expandable table, for example with disclaimers or source
 </div>
 ```
 
-#### Additional markup
+### Additional markup
 - `o-table--compact` - Apply to the table for smaller typography and padding.
 - `o-table--row-stripes` - Apply to the table for alternating stripes on the table rows.
 - `o-table-footnote` - Style a `tfoot` element subtily for sources, disclaimers, etc.
@@ -179,9 +183,9 @@ To add a footnote to an expandable table, for example with disclaimers or source
 
 See more in the registry: [o-table demos](https://registry.origami.ft.com/components/o-table).
 
-### Sass
+## Sass
 
-#### Silent mode
+### Silent mode
 
 If using `o-table` in silent mode, `@include oTable()` includes styles for all features. Alternatively styles may be included granularly with an `$opts` map.
 
@@ -208,7 +212,7 @@ Alternatively include base styles with only selected optional features. E.g. to 
 | stripes             | Alternating row stripe styles.                          | master, internal             |
 | row-headings        | Row heading styles.                                     | internal                     |
 
-### JavaScript
+## JavaScript
 
 To manually instantiate `o-table`:
 
@@ -235,7 +239,7 @@ OTable.init(document.body, {
 });
 ```
 
-#### Sorting
+### Sorting
 
 All `o-table` instances support sorting. Sorting on non-string values such as numbers works if the column type has been declared. E.g. for a column of numbers add the following to `o-table`:
 `data-o-table-data-type="number"`.
@@ -253,7 +257,7 @@ Other data types for `data-o-table-data-type` include:
 
 It is possible to add sort support for a custom data type. Alternatively, the behaviour of an existing type may be modified.
 
-##### Custom sort (declarative)
+#### Custom sort (declarative)
 
 If you are wanting to sort by a custom pattern, you can apply the sorting values to each row as a data attribute:
 `data-o-table-sort-value=${sort-value}`. These values can be strings or integers.
@@ -303,7 +307,7 @@ Or to provide an arbitrary sort order:
 </table>
 ```
 
-##### Custom sort (imperative)
+#### Custom sort (imperative)
 
 Rather than specify `data-o-table-sort-value` [declaratively](#custom-sort-declarative), a formatter function may be provided client-side to generate sort values for a given data type.
 
@@ -380,7 +384,7 @@ Which for an ascending sort, will result in:
 </table>
 ```
 
-#### Events
+### Events
 
 The following events are fired by `o-table`.
 
@@ -388,14 +392,14 @@ The following events are fired by `o-table`.
 - `oTable.sorting`
 - `oTable.sorted`
 
-##### oTable.ready
+#### oTable.ready
 
 `oTable.ready` fires when the table has been initialised.
 
 The event provides the following properties:
 - `detail.instance` - The initialised `o-table` instance _(FlatTable | ScrollTable | OverflowTable | BasicTable)_.
 
-##### oTable.sorted
+#### oTable.sorted
 
 `oTable.sorted` indicates a table has finished sorting. It includes details of the current sort status of the table.
 
@@ -410,7 +414,7 @@ document.addEventListener('oTable.sorted', (event) => {
 });
 ```
 
-##### oTable.sorting
+#### oTable.sorting
 
 This event is fired just before a table sorts based on user interaction. It may be prevented to implement custom sort functionality. This may be useful to sort a paginated table server-side.
 
@@ -432,7 +436,7 @@ document.addEventListener('oTable.sorting', (event) => {
 });
 ```
 
-##### Get The Sorted Column Heading From A Sort Event
+#### Get The Sorted Column Heading From A Sort Event
 
 `o-table` sort events provide a `columnIndex`. This index maps to a column heading. To retrieve the column heading use `getTableHeader`.
 
@@ -450,111 +454,21 @@ document.addEventListener('oTable.sorting', (event) => {
 Known issues:
 * IE11 and below need the [polyfill service](https://polyfill.io/)
 
-## Migration guide
+## Migration
 
-### How to upgrade from v6.x.x to v7.x.x?
-- To prevent errors in IE11, add support for `IntersectionObserverEntry` and `IntersectionObserver` with the [polyfill service](https://polyfill.io/).
-- Data attribute `data-o-table-order` has been removed. To specify a custom sort order on `td` cells use `data-o-table-sort-value` instead.
-- Markup updates:
-	- Previous `o-table` demos omitted `thead` and `tbody` from `table`, including their child `tr` element. Ensure your table markup is correct and includes `thead` and `tbody`.
-	- `o-table__caption--top` and `o-table__caption--bottom` have been removed. Remove these classes and add a heading within the caption (e.g. a `<h2>`) with appropriate styling.
-	- `o-table-wrapper` is now `o-table-scroll-wrapper`
-	- Responsive tables are now wrapped in a container div `o-table-container` and overlay div `o-table-overlay-wrapper`.
-	- Responsive tables should now have their type specified via a data attribute e.g. `data-o-table-responsive="overflow"`.
-```diff
-+<div class="o-table-container">
-+    <div class="o-table-overlay-wrapper">
-+     	<div class="o-table-scroll-wrapper">
--    	<div class="o-table-wrapper">
--        	<table data-o-component="o-table" class="o-table--responsive-overflow">
-+        	<table data-o-component="o-table" class="o-table--responsive-overflow" data-o-table-responsive="overflow">
--            	<caption class="o-table__caption o-table__caption--bottom">
-+            	<caption class="o-table__caption">
--                	My Table Caption
-+                	<h2>My Table Caption</h2>
-             	</caption>
-             	<!-- thead, tbody -->
-        	</table>
-    	</div>
-+   </div>
-+</div>
-```
-- Style updates:
-	- The default bottom margin of `o-table` has been removed. Please apply the margin as needed, depending on the context of the table e.g. within typical body copy:
-	```scss
-		.o-table {
-			margin-bottom: oTypographySpacingSize($units: 4);
-		}
-	```
-- Mixin updates:
-	- All `o-table` mixins have been made private except for a new mixin `@include oTable($opts)`. It accepts an feature list `$opts` to include `o-table` styles granularly. Replace previous mixins with one call to the [`oTable` mixin with an optional `$opts` flag](#silent-mode). Please [contact us](#contact) if this does not suit your product.
-	- `oTableAll` has been replaced with `oTable`, which does not accept a class name `$classname`. Instead use the default `o-table` class name in your markup. As the mixin now output classes directly, they must not be wrapped in an `.o-table` class manually.
-```diff
--.o-table {
--    @include oTableBase;
--    @include oTableResponsiveFlat;
--}
--.o-table-wrapper {
--    @include oTableWrapper;
--}
--.o-table-container {
--    @include oTableContainer;
--}
-
-+ @include oTable($opts: ('responsive-flat'));
-```
-- JS updates:
-	- `OTable` returns an instance of `BasicTable`, `FlatTable`, `ScrollTable`, `OverflowTable` on construction, according to the type of table. All extend from `BaseTable`.
-	- Table properties removed or made private: `isResponsive`, `listeners`.
-	- Table methods removed or made private:
-		- `wrap`: for a responsive table manually wrap the table in a container and wrapper class.
-		```html
-		<div class="o-table-container">
-			<div class="o-table-scroll-wrapper">
-				<!-- table -->
-			</div>
-		</div>
-		```
-		- `sortRowsByColumn`: arguments are simplified `sortRowsByColumn(columnIndex, sortOrder)` over `sortRowsByColumn(index, sortAscending, isNumericValue, type)`, where `columnIndex` replaces `index` and `sortOrder` is "ascending" or "descending".
-		- `removeEventListeners`
-		- `dispatch`
-- Events:
-	- Event detail `detail.oTable` is now `detail.instance`.
-	- Event detail `detail.sort` is now `detail.sortOrder`, the value is now "ascending" rather than "ASC", and "descending" rather than "DES".
-	- The `oTable.sorting` event target is no longer the `th` of the column being sorted. To find the sorted column use [the event detail](#get-the-sorted-column-heading-from-a-sort-event) instead.
-- Colour:
-	- All [deprecated colour usecases](https://github.com/Financial-Times/o-table/blob/533811d7f8673a7576a31608df8cd71777ff39d5/src/scss/_deprecated.scss) have been removed, ensure `o-table` colours are not used in your project.
-
-### How to upgrade from v5.x.x to v6.x.x?
-
-- The v6 release updates the dependencies `o-colors` and `o-typography`. Ensure your project  builds successfully and upgrade dependencies if required.
-
-### How to upgrade from v4.x.x to v5.x.x?
-
-This major takes the new o-colors and o-typography. Some of the colors and typography have changed slightly from v4 to v5. The font size and line heights of the table data has increased to sit in line with the new typography scale. Some of the colors have changed as there isn't an exact mapping from one color to the other in o-colors.
-
-The `oTableCellContentPrimary` mixin (deprecated in v5) has been removed.
-The concrete classes `.primary-data` and `.secondary-data` (deprecated in v5) have been removed.
-
-### How to upgrade from v3.x.x to v4.x.x?
-
-#### Important Changes
-
-- In order to have sorting work correctly, tables need `thead` and `tbody` elements
-- The Javascript module now returns an o-table constructor
-
-#### Markup changes
-
-- Wrap the headings in `thead`
-- Add `data-o-component="o-table"` to the `table` element of any o-table components which require JS.
-
----
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.9 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.2 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.0 | N/A |
+╳ deprecated | 2 | 2.0 | N/A |
+╳ deprecated | 1 | 1.7 | N/A |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-table/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
-
-----
 
 ## Licence
 
