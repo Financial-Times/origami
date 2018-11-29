@@ -13,69 +13,14 @@ sinon.assert.expose(assert, {
 const flatten = string => string.replace(/\s/g, '');
 
 describe("constructElement", () => {
-	let options;
+	let mockObj;
 	beforeEach(() => {
-		options = {
-			messageClass: 'my-message',
-			type: 'alert',
-			status: 'success',
-			content: {
-				highlight: 'Important'
-			},
-			actions: {
-				primary: {
-					text: 'a button',
-					url: '#'
-				},
-				secondary: {
-					text: 'a link',
-					url: '#'
-				}
-			}
-		};
-	});
-
-	describe('.alertMessage', () => {
-		it('returns an HTML element', () => {
-			assert.instanceOf(construct.alertMessage(options), HTMLElement);
-		});
-
-		it('builds a message component based on the provided messageClass and theme', () => {
-			assert.strictEqual(flatten(construct.alertMessage(options).innerHTML), flatten(fixtures.alert));
-		});
-
-		it('throws an error if no status is defined', () => {
-			options.status = null;
-
-			let error = "*** o-message error:\nAlert messages require a status. The options are:\n- success\n- error\n- neutral\n***";
-			assert.throws(() => construct.alertMessage(options), error);
-		});
-
-		describe('builds an inline version of component if an inline option is true', () => {
-			beforeEach(() => {
-				options.type = 'alert-inner';
-			});
-
-			it('if additional info is provided', () => {
-				options.content.additionalInfo = 'Additional info';
-				assert.strictEqual(flatten(construct.alertMessage(options).innerHTML), flatten(fixtures.innerAlert));
-			});
-
-			it('if additional info is not provided', () => {
-				options.content.additionalInfo = false;
-				assert.strictEqual(flatten(construct.alertMessage(options).innerHTML), flatten(fixtures.innerAlertWithOutAdditionalInfo));
-			});
-		});
-	});
-
-	describe('.noticeMessage', () => {
-		beforeEach(() => {
-			options = {
-				messageClass: 'my-message',
-				type: 'notice',
-				status: 'inform',
+		mockObj = {
+			opts: {
+				type: 'alert',
+				state: 'success',
 				content: {
-					detail: 'Many things are here to be said about this message'
+					highlight: 'Important'
 				},
 				actions: {
 					primary: {
@@ -87,32 +32,96 @@ describe("constructElement", () => {
 						url: '#'
 					}
 				}
+			}
+		};
+	});
+
+	describe('.message (inner + additional info)', () => {
+		it('returns an HTML element', () => {
+			assert.instanceOf(construct.message(mockObj.opts), HTMLElement);
+		});
+
+		it('builds a message component based on the provided theme', () => {
+			assert.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.alert));
+		});
+
+		it('throws an error if no type is defined', () => {
+			mockObj.opts.type = null;
+
+			let error = "*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***";
+			assert.throws(() => construct.message(mockObj.opts), error);
+		});
+
+		it('throws an error if no status is defined', () => {
+			mockObj.opts.state = null;
+
+			let error = "*** o-message error:\nMessages require a state.\n***";
+			assert.throws(() => construct.message(mockObj.opts), error);
+		});
+
+		describe('builds an inner version of component if an inner option is true', () => {
+			beforeEach(() => {
+				mockObj.opts.inner = true;
+			});
+
+			it('if additional info is provided', () => {
+				mockObj.opts.content.additionalInfo = 'Additional info';
+				assert.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.innerAlert));
+			});
+
+			it('if additional info is not provided', () => {
+				mockObj.opts.content.additionalInfo = false;
+				assert.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.innerAlertWithOutAdditionalInfo));
+			});
+		});
+	});
+
+	describe('.message (notice)', () => {
+		beforeEach(() => {
+			mockObj = {
+				opts: {
+					type: 'notice',
+					state: 'inform',
+					content: {
+						detail: 'Many things are here to be said about this message'
+					},
+					actions: {
+						primary: {
+							text: 'a button',
+							url: '#'
+						},
+						secondary: {
+							text: 'a link',
+							url: '#'
+						}
+					}
+				}
 			};
 		});
 
 		it('returns an HTML element', () => {
-			assert.instanceOf(construct.noticeMessage(options), HTMLElement);
+			assert.instanceOf(construct.message(mockObj.opts), HTMLElement);
 		});
 
 		it('builds a message component based on the provided messageClass and theme', () => {
-			assert.strictEqual(flatten(construct.noticeMessage(options).innerHTML), flatten(fixtures.notice));
+			assert.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.notice));
 		});
 
 		it('throws an error if no status is defined', () => {
-			options.status = null;
+			mockObj.opts.state = null;
 
-			let error = "*** o-message error:\nNotice messages require a status. The options are:\n- inform\n- warning\n- warning-light\n***";
-			assert.throws(() => construct.noticeMessage(options), error);
+			let error = "*** o-message error:\nMessages require a state.\n***";
+			assert.throws(() => construct.message(mockObj.opts), error);
 		});
 	});
 
 	describe('.closeButton', () => {
 		it('returns an HTML element', () => {
-			assert.instanceOf(construct.closeButton(options), HTMLElement);
+			assert.instanceOf(construct.closeButton(), HTMLElement);
 		});
 
 		it('builds a close button component', () => {
-			assert.strictEqual(flatten(construct.closeButton(options).outerHTML), flatten(fixtures.closeButton));
+			assert.strictEqual(flatten(construct.closeButton().outerHTML), flatten(fixtures.closeButton));
 		});
 	});
 });

@@ -32,7 +32,8 @@ let actionOptions = {
 };
 
 let innerOptions = Object.assign({}, options, {
-	type: 'alert-inner',
+	type: 'alert',
+	inner: true,
 	parentElement: '.demo-inner',
 	content: {
 		highlight: 'Highlight!',
@@ -56,25 +57,23 @@ const setUpDemo = (id, opts, variants) => {
 };
 
 const initDemos = () => {
-	setUpDemo('alert-success', options, {status: 'success'});
-	setUpDemo('alert-neutral', options, {status: 'neutral'});
-	setUpDemo('alert-error', options, {status: 'error'});
-	setUpDemo('alert-error-bleed', options, {status: 'error', type: 'alert-bleed'});
+	setUpDemo('alert-success', options, {state: 'success'});
+	setUpDemo('alert-neutral', options, {state: 'neutral'});
+	setUpDemo('alert-error', options, {state: 'error'});
 
-	setUpDemo('notice-inform', options, {type: 'notice', status: 'inform'});
-	setUpDemo('notice-warning', options, {type: 'notice', status: 'warning'});
-	setUpDemo('notice-warning-light', options, {type: 'notice', status: 'warning-light'});
+	setUpDemo('notice-inform', options, {type: 'notice', state: 'inform'});
+	setUpDemo('notice-warning', options, {type: 'notice', state: 'warning'});
+	setUpDemo('notice-warning-light', options, {type: 'notice', state: 'warning-light'});
 
-	setUpDemo('inner-alert-success', innerOptions, {status: 'success'});
-	setUpDemo('inner-alert-neutral', innerOptions, {status: 'neutral'});
-	setUpDemo('inner-alert-error', innerOptions, {status: 'error'});
+	setUpDemo('inner-alert-success', innerOptions, {state: 'success'});
+	setUpDemo('inner-alert-neutral', innerOptions, {state: 'neutral'});
+	setUpDemo('inner-alert-error', innerOptions, {state: 'error', actions: null});
 
-	setUpDemo('inner-notice-inform', innerOptions, {type: 'notice-inner', status: 'inform'});
-	setUpDemo('inner-notice-warning', innerOptions, {type: 'notice-inner', status: 'warning'});
-	setUpDemo('inner-notice-warning-light', innerOptions, {type: 'notice-inner', status: 'warning-light'});
+	setUpDemo('inner-notice-inform', innerOptions, {type: 'notice', state: 'inform'});
+	setUpDemo('inner-notice-warning', innerOptions, {type: 'notice', state: 'warning'});
+	setUpDemo('inner-notice-warning-light', innerOptions, {type: 'notice', state: 'warning-light'});
 
-	setUpDemo('action-inform-inverse', actionOptions, {type: 'action', status: 'inform-inverse'});
-	setUpDemo('action-inform-inverse-bleed', actionOptions, {type: 'action-bleed', status: 'inform-inverse'});
+	setUpDemo('action-inform-inverse', actionOptions, {type: 'action', state: 'inform-inverse'});
 };
 
 document.addEventListener('DOMContentLoaded', () => {

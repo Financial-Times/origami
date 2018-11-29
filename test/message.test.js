@@ -35,7 +35,6 @@ describe("Message", () => {
 			stubs.close = sinon.stub(Message.prototype, 'close');
 			stubs.getDataAttributes = sinon.stub(Message, 'getDataAttributes');
 
-			options = {};
 			messageElement = document.querySelector('[data-o-component=o-message]');
 			message = new Message(messageElement);
 
@@ -52,15 +51,12 @@ describe("Message", () => {
 
 		it('has default options, and stores them in an `opts` property', () => {
 			assert.isObject(message.opts);
-			assert.notStrictEqual(message.opts, options);
+			assert.notStrictEqual(message.opts, {});
 			assert.deepEqual(message.opts, {
 				autoOpen: true,
-				messageClass: 'o-message',
-				type: 'alert',
-				typeClass: 'o-message--alert',
-				typeNucleus: 'alert',
-				status: null,
-				statusClass: null,
+				type: null,
+				state: null,
+				inner: false,
 				parentElement: null,
 				content: {
 					highlight: null,
@@ -70,12 +66,12 @@ describe("Message", () => {
 				actions: {
 					primary: {
 						text: null,
-						url: '#',
+						url: null,
 						openInNewWindow: false
 					},
 					secondary: {
 						text: null,
-						url: '#',
+						url: null,
 						openInNewWindow: false
 					}
 				},
@@ -93,22 +89,6 @@ describe("Message", () => {
 
 		it('does not close the message', () => {
 			assert.notCalled(stubs.close);
-		});
-
-		describe('.render()', () => {
-			beforeEach(() => {
-				stubs.open = sinon.stub(Message.prototype, 'open');
-				stubs.close = sinon.stub(Message.prototype, 'close');
-				stubs.constructMessageElement = sinon.stub(Message.prototype, 'constructMessageElement');
-
-				Message.prototype.open.restore();
-				Message.prototype.close.restore();
-				Message.prototype.constructMessageElement.restore();
-			});
-
-			it('does not call `constructMessageElement` if messageEl is an HTML element', () => {
-				assert.notCalled(stubs.constructMessageElement);
-			});
 		});
 	});
 
@@ -144,60 +124,9 @@ describe("Message", () => {
 
 		});
 
-		describe('accepts a different base class string', () => {
-			beforeEach(() => {
-				stubs.render = sinon.stub(Message.prototype, 'render');
-				stubs.open = sinon.stub(Message.prototype, 'open');
-				stubs.close = sinon.stub(Message.prototype, 'close');
-
-				options.messageClass = 'my-message';
-				message = new Message(testArea, options);
-
-				Message.prototype.render.restore();
-				Message.prototype.open.restore();
-				Message.prototype.close.restore();
-			});
-
-			it('to apply to the element', () => {
-				assert.strictEqual(message.opts.messageClass, 'my-message');
-			});
-
-			it('to apply to the type class', () => {
-				assert.strictEqual(message.opts.typeClass, 'my-message--alert');
-			});
-		});
-
 		describe('.render()', () => {
 			let mockMessageElement;
-
-			beforeEach(() => {
-				const mockContainerElement = document.createElement('div');
-				mockMessageElement = document.createElement('div');
-				mockMessageElement.appendChild(mockContainerElement);
-
-				stubs.open = sinon.stub(Message.prototype, 'open');
-				stubs.close = sinon.stub(Message.prototype, 'close');
-				stubs.constructMessageElement = sinon.stub(Message.prototype, 'constructMessageElement').returns(mockMessageElement);
-
-				message = new Message(null);
-
-				Message.prototype.open.restore();
-				Message.prototype.close.restore();
-				Message.prototype.constructMessageElement.restore();
-			});
-
-			it('calls `constructMessageElement` if messageEl is not an HTML element', () => {
-				assert.calledOnce(stubs.constructMessageElement);
-			});
-
-			it('calls `constructMessageElement` if opts.parentElement is present', () => {
-				options.parentElement = '.some-class';
-				assert.calledOnce(stubs.constructMessageElement);
-			});
-		});
-
-		describe('.constructMessageElement()', () => {
-			let mockMessageElement;
+			let mockParentElement;
 			let mockCloseButton;
 
 			beforeEach(() => {
@@ -216,7 +145,7 @@ describe("Message", () => {
 
 				stubs.open = sinon.stub(Message.prototype, 'open');
 				stubs.close = sinon.stub(Message.prototype, 'close');
-				sinon.stub(construct, 'alertMessage').returns(mockMessageElement);
+				sinon.stub(construct, 'message').returns(mockMessageElement);
 				sinon.stub(construct, 'closeButton').returns(mockCloseButton);
 
 				Message.prototype.open.restore();
@@ -224,18 +153,23 @@ describe("Message", () => {
 			});
 
 			afterEach(() => {
-				construct.alertMessage.restore();
+				construct.message.restore();
 				construct.closeButton.restore();
 			});
 
-			it('calls `construct.alertMessage`', () => {
+			it('calls `construct.message` if messageEl is not an HTML element', () => {
 				message = new Message(null, options);
-				assert.calledOnce(construct.alertMessage);
+				assert.calledOnce(construct.message);
 			});
 
-			it('throws an error if an incorrect message type is supplied', () => {
-				options.type = 'marketing';
-				assert.throws(() => { new Message(null, options); });
+			it('calls `construct.message` if opts.parentElement is present', () => {
+				mockParentElement = document.createElement('div');
+				mockParentElement.classList.add('some-class');
+				document.body.appendChild(mockParentElement);
+
+				options.parentElement = '.some-class';
+				message = new Message(null, options);
+				assert.calledOnce(construct.message);
 			});
 
 			it('calls `construct.closeButton` if opts.close is true', () => {
@@ -249,12 +183,14 @@ describe("Message", () => {
 				assert.notCalled(construct.closeButton);
 			});
 
-			it('does not call `construct.closeButton` if there is already a', () => {
-				messageElement.innerHTML = `<a href='#' class='my-message__close'></a>`;
+			it('does not call `construct.closeButton` if there is already one', () => {
+				messageElement = document.createElement('div');
+				messageElement.innerHTML = `<a href='#' class='o-message__close'></a>`;
 				message = new Message(messageElement, options);
 				assert.notCalled(construct.closeButton);
 			});
 		});
+
 
 
 		describe('.getDataAttributes', () => {
@@ -263,7 +199,7 @@ describe("Message", () => {
 
 			beforeEach(() => {
 				mockMessageEl = document.createElement('div');
-				mockMessageEl.setAttribute('data-o-component', 'o-banner');
+				mockMessageEl.setAttribute('data-o-component', 'o-message');
 				mockMessageEl.setAttribute('data-key', 'value');
 				mockMessageEl.setAttribute('data-another-key', 'value');
 				mockMessageEl.setAttribute('data-o-message-foo', 'bar');
@@ -319,10 +255,7 @@ describe("Message", () => {
 					assert.isObject(returnValue);
 					assert.deepEqual(returnValue, {});
 				});
-
 			});
-
 		});
-
 	});
 });

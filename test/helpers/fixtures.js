@@ -1,6 +1,6 @@
 export default {
 	main: `
-		<div class="o-message o-message--alert o-message--alert-error" data-o-component="o-message">
+		<div class="o-message o-message--alert o-message--error" data-o-component="o-message">
 			<div class="o-message__container">
 				<div class="o-message__content">
 					<p class="o-message__content-main">
@@ -16,67 +16,58 @@ export default {
 		</div>
 	`,
 	alert: `
-			<div class="my-message__container">
-				<div class="my-message__content">
-					<p class="my-message__content-main">
-						<span class="my-message__content-highlight">Important</span>
-						<span class="my-message__content-detail"></span>
+			<div class="o-message__container">
+				<div class="o-message__content">
+					<p class="o-message__content-main">
+						<span class="o-message__content-highlight">Important</span>
+						<span class="o-message__content-detail"></span>
 					</p>
-					<div class="my-message__actions">
-						<a href="#" class="my-message__actions__primary">a button</a>
-						<a href="#" class="my-message__actions__secondary">a link</a>
+					<div class="o-message__actions">
+						<a href="#" class="o-message__actions__primary">a button</a>
+						<a href="#" class="o-message__actions__secondary">a link</a>
 					</div>
 				</div>
 			</div>
 		`,
 	notice: `
-			<div class="my-message__container">
-				<div class="my-message__content">
-					<p class="my-message__content-main">Many things are here to be said about this message</p>
-					<div class="my-message__actions">
-						<a href="#" class="my-message__actions__primary">a button</a>
-						<a href="#" class="my-message__actions__secondary">a link</a>
+			<div class="o-message__container">
+				<div class="o-message__content">
+					<p class="o-message__content-main">Many things are here to be said about this message</p>
+					<div class="o-message__actions">
+						<a href="#" class="o-message__actions__primary">a button</a>
+						<a href="#" class="o-message__actions__secondary">a link</a>
 					</div>
 				</div>
 			</div>
 		`,
 	innerAlert: `
-	<div class="my-message__container">
-		<div class="my-message__content">
-			<p class="my-message__content-main">
-				<span class="my-message__content-highlight">Important</span>
-				<span class="my-message__content-detail"></span>
+	<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight">Important</span>
+				<span class="o-message__content-detail"></span>
 			</p>
-			<p class="my-message__content-additional">Additional info</p>
-			<div class="my-message__actions">
-				<a href="#" class="my-message__actions__primary">a button</a>
-				<a href="#" class="my-message__actions__secondary">a link</a>
+			<p class="o-message__content-additional">Additional info</p>
+			<div class="o-message__actions">
+				<a href="#" class="o-message__actions__primary">a button</a>
+				<a href="#" class="o-message__actions__secondary">a link</a>
 			</div>
 		</div>
 	</div>
 		`,
 	innerAlertWithOutAdditionalInfo: `
-			<div class="my-message__container">
-				<div class="my-message__content">
-					<p class="my-message__content-main">
-						<span class="my-message__content-highlight">Important</span>
-						<span class="my-message__content-detail"></span>
+			<div class="o-message__container">
+				<div class="o-message__content">
+					<p class="o-message__content-main">
+						<span class="o-message__content-highlight">Important</span>
+						<span class="o-message__content-detail"></span>
 					</p>
-					<div class="my-message__actions">
-						<a href="#" class="my-message__actions__primary">a button</a>
-						<a href="#" class="my-message__actions__secondary">a link</a>
+					<div class="o-message__actions">
+						<a href="#" class="o-message__actions__primary">a button</a>
+						<a href="#" class="o-message__actions__secondary">a link</a>
 					</div>
 				</div>
 			</div>
 		`,
-	closeButton: `<button class="my-message__close" aria-label="close" title="Close"></button>`,
-	actions: `<div class="my-message__actions">
-			<a href="#" class="my-message__actions__primary">a button</a>
-			<a href="#" class="my-message__actions__secondary">a link</a>
-			</div>
-		`,
-	actionsNewWindow: `<div class="my-message__actions">
-			<a href="#" class="my-message__actions__primary" target="_blank" aria-label="a button (opens in new window)">a button</a>
-			<a href="#" class="my-message__actions__secondary" target="_blank" aria-label="a link (opens in new window)">a link</a>
-			</div>`
+	closeButton: `<button class="o-message__close" aria-label="close" title="Close"></button>`
 };

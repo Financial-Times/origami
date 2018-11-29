@@ -21,97 +21,143 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
+		"template": "demos/src/message-template.mustache",
 		"documentClasses": "",
-		"dependencies": "o-fonts"
+		"dependencies": ["o-fonts","o-normalise"]
 	},
 	"demos": [
 		{
 			"title": "Alert: Success",
 			"name": "alert-success",
-			"template": "demos/src/alert-success.mustache",
-			"description": "Alert message for a positive response to an action"
-		},
-		{
-			"title": "Alert Bleed: Success",
-			"name": "alert-bleed-success",
-			"template": "demos/src/alert-bleed-success.mustache",
-			"description": "Alert message for a positive response to an action, styled to bleed to the edge of a page"
+			"description": "Alert message for a positive response to an action",
+			"data": {
+				"type": "alert",
+				"status": "success",
+				"highlight": "Hooray!",
+				"content": "The quick brown fox jumped over the lazy dogs!",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Alert Inner: Success",
 			"name": "alert-inner-success",
-			"template": "demos/src/alert-inner-success.mustache",
-			"description": "Alert message for a positive response to an action, styled to fit within another container"
+			"description": "Alert message for a positive response to an action, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "alert",
+				"status": "success",
+				"highlight": "Hooray!",
+				"content": "The quick brown fox jumped over the lazy dogs!",
+				"additionalContent": "Did you know that that sentence uses all of the letters in the alphabet at least once?",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Alert: Neutral",
 			"name": "alert-neutral",
-			"template": "demos/src/alert-neutral.mustache",
-			"description": "Alert message for an informative response to an action"
-		},
-		{
-			"title": "Alert Bleed: Neutral",
-			"name": "alert-bleed-neutral",
-			"template": "demos/src/alert-bleed-neutral.mustache",
-			"description": "Alert message for an informative response to an action, styled to bleed to the edge of a page"
+			"description": "Alert message for an informative response to an action",
+			"data": {
+				"type": "alert",
+				"status": "neutral",
+				"content": "There's a fox, and some lazy dogs. Many lazy dogs. Many, many, many lazy dogs. Only one fox. Many, many, many lazy dogs.",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Alert Inner: Neutral",
 			"name": "alert-inner-neutral",
-			"template": "demos/src/alert-inner-neutral.mustache",
-			"description": "Alert message for an informative response to an action, styled to fit within another container"
+			"description": "Alert message for an informative response to an action, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "alert",
+				"status": "neutral",
+				"highlight": "Meh.",
+				"detail": "The quick brown fox did not jump over the lazy dogs.",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Alert: Error",
 			"name": "alert-error",
-			"template": "demos/src/alert-error.mustache",
-			"description": "Alert message for a negative response to an action"
-		},
-		{
-			"title": "Alert Bleed: Error",
-			"name": "alert-bleed-error",
-			"template": "demos/src/alert-bleed-error.mustache",
-			"description": "Alert message for a negative response to an action, styled to bleed to the edge of a page"
+			"description": "Alert message for a negative response to an action",
+			"data": {
+				"type": "alert",
+				"status": "error",
+				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Alert Inner: Error",
 			"name": "alert-inner-error",
-			"template": "demos/src/alert-inner-error.mustache",
-			"description": "Alert message for a negative response to an action, styled to fit within another container"
+			"description": "Alert message for a negative response to an action, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "alert",
+				"status": "error",
+				"highlight": "Oops.",
+				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
+				"additionalContent": "But that sentence still uses all of the letters in the alphabet at least once!",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Notice: Inform",
 			"name": "notice-inform",
-			"template": "demos/src/notice-inform.mustache",
-			"description": "Notice message to convey information"
-		},
-		{
-			"title": "Notice Bleed: Inform",
-			"name": "notice-bleed-inform",
-			"template": "demos/src/notice-bleed-inform.mustache",
-			"description": "Notice message to convey information, styled to bleed to the edge of a page"
+			"description": "Notice message to convey information",
+			"data": {
+				"type": "notice",
+				"status": "inform",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			}
 		},
 		{
 			"title": "Notice Inner: Inform",
 			"name": "notice-inner-inform",
-			"template": "demos/src/notice-inner-inform.mustache",
-			"description": "Notice message to convey information, styled to fit within another container"
+			"description": "Notice message to convey information, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "notice",
+				"status": "inform",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
+				"actions": {
+					"button": true,
+					"link": true
+				},
+				"noCloseButton": true
+			}
 		},
 		{
 			"title": "Notice: Warning Light",
 			"name": "notice-warning-light",
-			"template": "demos/src/notice-warning-light.mustache",
 			"description": "Notice message to emit a light warning",
-			"brands": [
-				"internal",
-				"whitelabel"
-			]
-		},
-		{
-			"title": "Notice Bleed: Warning Light",
-			"name": "notice-bleed-warning-light",
-			"template": "demos/src/notice-bleed-warning-light.mustache",
-			"description": "Notice message to emit a light warning, styled to bleed to the edge of a page",
+			"data": {
+				"type": "notice",
+				"status": "warning-light",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
+			},
 			"brands": [
 				"internal",
 				"whitelabel"
@@ -120,8 +166,18 @@
 		{
 			"title": "Notice Inner: Warning Light",
 			"name": "notice-inner-warning-light",
-			"template": "demos/src/notice-inner-warning-light.mustache",
 			"description": "Notice message to emit a light warning, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "notice",
+				"status": "warning-light",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
+				"actions": {
+					"button": true,
+					"link": true
+				},
+				"noCloseButton": true
+			},
 			"brands": [
 				"internal",
 				"whitelabel"
@@ -130,18 +186,12 @@
 		{
 			"title": "Notice: Warning",
 			"name": "notice-warning",
-			"template": "demos/src/notice-warning.mustache",
 			"description": "Notice message to emit a strong warning",
-			"brands": [
-				"internal",
-				"whitelabel"
-			]
-		},
-		{
-			"title": "Notice Bleed: Warning",
-			"name": "notice-bleed-warning",
-			"template": "demos/src/notice-bleed-warning.mustache",
-			"description": "Notice message to emit a strong warning, styled to bleed to the edge of a page",
+			"data": {
+				"type": "notice",
+				"status": "warning",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
+			},
 			"brands": [
 				"internal",
 				"whitelabel"
@@ -150,8 +200,13 @@
 		{
 			"title": "Notice Inner: Warning",
 			"name": "notice-inner-warning",
-			"template": "demos/src/notice-inner-warning.mustache",
 			"description": "Notice message to emit a strong warning, styled to fit within another container",
+			"data": {
+				"inner": true,
+				"type": "notice",
+				"status": "warning",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed."
+			},
 			"brands": [
 				"internal",
 				"whitelabel"
@@ -160,18 +215,17 @@
 		{
 			"title": "Action: Inform Inverse",
 			"name": "action-inform-inverse",
-			"template": "demos/src/action-inform-inverse.mustache",
 			"description": "Action message, displaying a call to action",
-			"brands": [
-				"internal",
-				"whitelabel"
-			]
-		},
-		{
-			"title": "Action Bleed: Inform Inverse",
-			"name": "action-bleed-inform-inverse",
-			"template": "demos/src/action-bleed-inform-inverse.mustache",
-			"description": "Action message, displaying a call to action, styled to fit within another container",
+			"data":  {
+				"type": "action",
+				"status": "inform-inverse",
+				"centralised": true,
+				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
+				"actions": {
+					"button": true
+				},
+				"noCloseButton": true
+			},
 			"brands": [
 				"internal",
 				"whitelabel"

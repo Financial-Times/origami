@@ -1,65 +1,96 @@
-/// Output All oMessage Features
-@mixin oMessage($class: $o-message-class, $types: 'all', $status: 'all') {
-	@each $type in $types {
-		@if $type == 'all' {
-			@include oMessageAlerts($class, $type, $status);
-			@include oMessageNotices($class, $type, $status);
-			@include oMessageActions($class, $type, $status);
+/// Inner Message base
+///
+/// Outputs base styles for an inner variant of a message
+/// @access private
+@mixin _oMessageInner() {
+	.o-message.o-message--inner {
+		.o-message__container {
+			padding: oTypographySpacingSize(2) oTypographySpacingSize(5) oTypographySpacingSize(2) ($_o-message-spacing / 4);
 
-		} @else if index($o-message-alert-types, $type) {
-			@include oMessageAlerts($class, $type, $status);
+			&:before {
+				top: unset;
+			}
 
-		} @else if index($o-message-notice-types, $type) {
-			@include oMessageNotices($class, $type, $status);
-		} @else if index($o-message-action-types, $type) {
-			@include oMessageActions($class, $type, $status);
+			.o-message__close {
+				right: oTypographySpacingSize(2);
 
-		} @else {
-			@include _oMessageError("o-message types don't support #{$type}.
-			The available types are:
-			- action
-			- alert
-			- alert-bleed
-			- alert-inner
-			- notice
-			- notice-bleed
-			- notice-inner");
+				@include oGridRespondTo(S) {
+					right: oTypographySpacingSize(4);
+				};
+			}
+		}
+
+		.o-message__content {
+			@include oTypographyMargin($top: 3, $bottom: 0);
+			max-width: oTypographyMaxLineWidth($_o-message-typography-scale);
+
+			.o-message__content-main {
+				@include oTypographyMargin($top: 0, $bottom: 3);
+			}
+		}
+
+		.o-message__actions {
+			@include oTypographyPadding($bottom: 3);
 		}
 	}
 }
 
-
-/// Message base
+/// Type styling
 ///
-/// Outputs base styles for a Message
-/// @param {String} $class  - base class for message
+/// Outputs base styles for an type of message
+/// @access private
+@mixin _oMessageType($type) {
+	.o-message--#{$type} {
+		@if $type == 'alert' {
+			.o-message__content {
+				padding-left: $_o-message-spacing;
+			}
 
-@mixin oMessageBase($class) {
-	.#{$class} {
-		.#{$class}__container {
-			@include oMessageContainer;
+		} @elseif $type == 'notice' {
+			.o-message__content {
+				padding-left: $_o-message-spacing / 2;
+			}
+
+		} @elseif $type == 'action' {
+			.o-message__content {
+				padding: oTypographySpacingSize(4) 0;
+
+				@include oGridRespondTo(S) {
+					padding: $_o-message-spacing 0 $_o-message-spacing $_o-message-spacing;
+				}
+
+				.o-message__content-main {
+					margin: oTypographySpacingSize(2) oTypographySpacingSize(6) oTypographySpacingSize(2) 0;
+				}
+
+				.o-message__actions {
+					margin: oTypographySpacingSize(2) 0;
+					padding: 0 $_o-message-close-icon-size * 1px 0 0;
+				}
+			}
+
+			.o-message__content--center-align {
+				margin: 0 auto;
+				padding-left: 0;
+
+				@include oGridRespondTo(S) {
+					text-align: center;
+				}
+			}
 		}
 	}
-
-	.#{$class}--closed {
-		display: none;
-	}
-};
-
-/// Message container
-///
-/// Outputs base layout for a message container
-@mixin oMessageContainer () {
-	@include oTypographySans($o-message-typography-scale);
-	position: relative;
-	// sass-lint:disable no-vendor-prefixes
-	-webkit-font-smoothing: antialiased;
-	// sass-lint:enable no-vendor-prefixes
 }
 
-/// Provide a component specific error message
-///
-/// @param {String} $message - The message to insert in the error.
-@mixin _oMessageError($message) {
-	@error '*** oMessage SCSS error: #{$message} ***';
-};
+/// Customised icon for messages
+/// @param {String} $icon-name - name of the icon (accepts any icon name from fticons)
+/// @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
+/// @param {String} $icon-size - size of the icon
+/// @access private
+@mixin _oMessageIcon ($icon-name, $icon-color, $icon-size) {
+	@include oIconsGetIcon(
+		$icon-name,
+		oColorsGetPaletteColor($icon-color),
+		$icon-size
+	);
+	content: '';
+}

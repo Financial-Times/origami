@@ -1,46 +1,22 @@
-////
-/// @group o-message
-/// @link http://registry.origami.ft.com/components/o-message
-////
-
 /// Silent mode: on (true) or off (false)
 /// Set to false to output default message classes
 ///
 /// @type Boolean
 $o-message-is-silent: true !default;
 
-/// Only output all message states once.
-///
-/// @type Boolean
-$o-message-all-states-output: false !default;
-
-/// Default button class used when $o-buttons-is-silent is true
-///
-/// @type String
-$o-message-class: o-message !default;
-
-//Accepted message types
-$o-message-action-types: (action, action-bleed);
-$o-message-alert-types: (alert, alert-bleed, alert-inner);
-$o-message-notice-types: (notice, notice-bleed, notice-inner);
-
 // Alert message height
-$_o-message-action-height: 40px;
+$_o-message-spacing: 40px;
 
 //Icons
 $_o-message-alert-icon-size: 40;
 $_o-message-close-icon-size: 26;
 
-
 //Typography
-$o-message-typography-scale: 0 !default;
-$_o-message-line-height: nth(oTypographyGetScale($o-message-typography-scale), 2);
+$_o-message-typography-scale: 0 !default;
+$_o-message-line-height: nth(oTypographyGetScale($_o-message-typography-scale), 2);
 $_o-message-text-spacing: ($_o-message-line-height / 2) * 1px;
-
-//Placeholder map
-$_o-message-placeholders: () !default;
 
 /// List of states that can be applied to alert type messages
 ///
 /// @type List
-$o-message-states: (error, neutral, success, inform, inform-inverse, warning, warning-light);
+$o-message-states: ('error', 'inform', 'inform-inverse', 'neutral', 'success', 'warning', 'warning-light');

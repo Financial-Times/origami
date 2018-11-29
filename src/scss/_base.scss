@@ -1,0 +1,46 @@
+/// Message base
+///
+/// Outputs base styles for a message
+/// @access private
+@mixin _oMessageBase() {
+	.o-message {
+		@include oTypographySans($_o-message-typography-scale);
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
+
+		.o-message__container {
+			@include oGridContainer($bleed: true);
+			padding-left: $_o-message-spacing / 4;
+			padding-right: $_o-message-spacing / 4;
+
+			&:before {
+				top: $_o-message-text-spacing / 2;
+			}
+		}
+
+		.o-message__content {
+			@include oTypographyMargin($top: 0, $bottom: 0);
+			position: relative;
+
+			.o-message__content-main {
+				@include oTypographyMargin($top: 4, $bottom: 4);
+				display: inline-block;
+				margin-right: oTypographySpacingSize(6);
+			}
+
+			.o-message__content-highlight {
+				@include oTypographyBold('sans');
+			}
+		}
+
+		.o-message__actions {
+			display: inline-block;
+			padding: 0 ($_o-message-close-icon-size * 1px) $_o-message-text-spacing 0;
+		}
+	}
+
+	.o-message--closed {
+		display: none;
+	}
+};

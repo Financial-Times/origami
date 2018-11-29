@@ -15,10 +15,11 @@
     "tests"
   ],
   "dependencies": {
-    "o-colors": "^4.1.5",
+    "o-colors": "^4.7.8",
     "o-typography": "^5.5.0",
     "o-buttons": "^5.11.1",
     "o-icons": "^5.6.0",
-    "o-brand": ">=2.2.0 <4"
+    "o-brand": "^3.1.1",
+    "o-grid": "^4.4.4"
   }
 }
