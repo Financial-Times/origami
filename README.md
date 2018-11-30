@@ -1,18 +1,18 @@
 
 # Origami Proposals
 
-This repository is used to propose and track new [Origami] components.<br/>
+This repository is used to propose and track new [Origami] components, or patterns which impact multiple components.<br/>
 For more information, please view the [Contributing Guide].
 
 
 ## Proposal Backlog
 
-The **[Proposal Backlog]** is where you can track and edit new Origami components. We recommend checking here first before proposing a new component.
+The **[Proposal Backlog]** is where you can track and edit proposals. We recommend checking here first before proposing a new component.
 
 
 ## Propose a new Component
 
-The **[Contributing Guide]** outlines how to propose a new component.
+The **[Contributing Guide]** outlines how to create a new proposal, including how to propose a new component.
 
 
 ## Credit
