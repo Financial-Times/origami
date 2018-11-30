@@ -60,7 +60,7 @@ This section is for members of the Origami team, and acts as a guide for reviewi
 
      If, after discussing the proposal, it's decided that Origami should take on the work then we should outline our reasoning in a comment on the issue. Then we move it to the "Accepted" column and add the appropriate labels.
 
-	  If the proposal is not going to be accepted then we should also provide some reasoning and move to the "Not Accepted" column. It's important to also note that if somebody in future has a need for the same proposal then we can reopen the proposal and accept further evidence and reasoning.
+	 If the proposal is not going to be accepted then we should also provide some reasoning and move to the "Not Accepted" column. It's important to also note that if somebody in future has a need for the same proposal then we can reopen the proposal and accept further evidence and reasoning.
 
 
 [issue template]: https://github.com/Financial-Times/origami-proposals/blob/master/.github/ISSUE_TEMPLATE.md
