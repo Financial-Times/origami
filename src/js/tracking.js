@@ -5,7 +5,6 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 	const event = new CustomEvent('oTracking.event', {
 		detail: Object.assign({
 			category: 'audio',
-			// playerType,
 			action,
 			duration: audioObject.audioLength,
 		}, audioObject.trackingProperties, extraDetail),
@@ -15,18 +14,20 @@ function fireEvent(action, audioObject, extraDetail = {}) {
 }
 
 const progressWindows = [
-	[8, 12], // 10%
-	[23, 27], // 25%
-	[48, 52], // 50%
-	[73, 77] // 75%
+	[8, 12, 10],
+	[23, 27, 25],
+	[48, 52, 50],
+	[73, 77, 75],
+	[98, 100, 100]
 ];
 
 function getProgressPoint(progress) {
-	const [lower, upper] = progressWindows.find(([lower, upper]) => {
+	// eslint-disable-next-line no-unused-vars
+	const [lower, upper, point] = progressWindows.find(([lower, upper]) => {
 		return progress >= lower && progress < upper;
-	}) || [0,0];
+	}) || [0, 0, 0];
 
-	return upper - (upper - lower) / 2;
+	return point;
 }
 
 const EVENTS = [

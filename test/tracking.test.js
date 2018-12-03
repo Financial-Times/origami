@@ -98,23 +98,30 @@ describe('Tracking' , () => {
 	});
 
 	describe('progress event', () => {
-		it('emits a progress event when the current time reaches the progress points 10%, 25%, 50%, 75%', () => {
-			const events = oTracking.start();
-			const stubAudioEl = initAudioElement();
-			initTracking(stubAudioEl, { contentId });
+		[
+			{ currentTime: 10, progressPoint: 10 },
+			{ currentTime: 30, progressPoint: 25 },
+			{ currentTime: 61, progressPoint: 50 },
+			{ currentTime: 91, progressPoint: 75 },
+			{ currentTime: 119, progressPoint: 100 }
+		].forEach(({ currentTime, progressPoint }) => {
+			it(`emits a progress event at ${progressPoint}%`, () => {
+				const events = oTracking.start();
+				const stubAudioEl = initAudioElement();
+				initTracking(stubAudioEl, { contentId });
 
-			// trigger timeupdate event at 50%
-			stubAudioEl.currentTime = 60;
-			stubAudioEl.dispatchEvent(new Event('timeupdate'));
-
-			proclaim.deepEqual(events[0], {
-				category: 'audio',
-				action: 'progress',
-				duration: 120,
-				progress: 50,
-				contentId
+				stubAudioEl.currentTime = currentTime;
+				stubAudioEl.dispatchEvent(new Event('timeupdate'));
+				proclaim.deepEqual(events[0], {
+					category: 'audio',
+					action: 'progress',
+					duration: 120,
+					progress:  progressPoint,
+					contentId
+				});
 			});
 		});
+
 
 		it('only emits a progress event when the current time is a known progress point', () => {
 			const events = oTracking.start();
