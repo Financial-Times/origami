@@ -100,9 +100,11 @@ $_o-message-shared-brand-variables: (
 			'inform': (
 				'foreground-color': 'black',
 				'background-color': 'white',
-			),
+			)
 		)),
 		'supports-variants': (
+			'alert',
+			'notice',
 			'error',
 			'inform',
 			'neutral',

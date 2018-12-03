@@ -35,10 +35,10 @@ In addition to layout, messages can accept another variation: state.
 However, not every message accepts every state, or every layout, and not every message works for every brand. Please check the table below against the needs of your product. If you need a message that is not available to you, please [get in touch](#contact) with the Origami team.
 
 | | state support | layout support | brand support
----|:---|:---:|:---
+---|:---|:---|:---
 **action message** | `inform`, `inform-inverse` | default | internal, whitelabel
 **alert message** | `success`, `neutral`, `error` | default, inner | all
-**notice message** | `inform`, `warning`, `warning-light` | default, inner | master: `inform` state only <br> internal and whitelabel: all states
+**notice message** | `inform`, `warning`, `warning-light` | default, inner | master: `inform` state only <br> internal: all states <br> whitelabel: `inform` state only
 
 
 ### Markup
