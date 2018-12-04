@@ -91,23 +91,23 @@ In this example we register a custom font "MyFont" with sans fallback `MyFont, s
 };
 ```
 
-### Specifying font families
+### Get font families for a font
 
 To get a `font-family` with web safe fallbacks for a font, use the `oFontsGetFontFamilyWithFallbacks` function.
 
 ```scss
-.my-class {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisplayWeb, sans-serif
-}
+$family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisplayWeb, sans-serif
 ```
 
-To get a font without the fallbacks, use `oFontsGetFontFamilyWithoutFallbacks`:
+### Get a font from a font families
+
+To get a font without fallbacks, use `oFontsGetFontFamilyWithoutFallbacks`:
 
 ```scss
-	$without-fallbacks: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
+$font: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
 ```
 
-### Checking a weight or style is allowed
+### Check a font of weight or style exists
 
 To check if a font supports a weight/style use `oFontsVariantExists`.
 
