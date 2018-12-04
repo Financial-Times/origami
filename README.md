@@ -50,7 +50,7 @@ To include [default fonts for your brand](#fonts-included-by-default), call `oFo
 @include oFonts();
 ```
 
-_If you want to include a font which is provided by Origami but not included by for your brand default, [specifically load the font](#loading-specific-web-fonts–provided-by-origami) separately._
+_If you want to include a font which is provided by Origami but not included by for your brand default, [specifically load the font](#loading-specific-web-fonts-provided-by-origami) separately._
 
 ### Loading specific web fonts provided by Origami
 
