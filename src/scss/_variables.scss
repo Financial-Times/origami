@@ -9,7 +9,7 @@ $o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-asse
 $o-fonts-is-silent: true !default;
 
 /// The font families to include by default, which may vary per brand.
-/// @see oFontsIncludeAll
+/// @see oFonts
 /// @access private
 $_o-fonts-default-families: ();
 @if oBrandGetCurrentBrand() == 'master' {

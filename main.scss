@@ -4,6 +4,18 @@
 @import "src/scss/functions";
 @import "src/scss/mixins";
 
+/// Output all default Font-face declarations for the current brand.
+@mixin oFonts {
+	@each $family in $_o-fonts-default-families {
+		$properties: map-get($o-fonts-families, $family);
+		@if has not map-get($properties, 'custom') {
+			@each $variant in map-get($properties, variants) {
+				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
+			}
+		}
+	}
+}
+
 @if ($o-fonts-is-silent == false) {
-	@include oFontsIncludeAll();
+	@include oFonts();
 }

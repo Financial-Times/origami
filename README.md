@@ -1,4 +1,4 @@
-o-fonts [![Circle CI](https://circleci.com/gh/Financial-Times/o-fonts/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-fonts/tree/master)
+# o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?style=shield&circle-token=c29a1b0246bd3bbad4da8e024954af6c8dc04dca)](https://circleci.com/gh/Financial-Times/o-fonts) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
@@ -31,7 +31,7 @@ i: italic style available (if not, faux-italic will be displayed)
 
 ## Fonts Included By Default
 
-Font faces included by default, if using the Origami Build Service or [including all fonts with SASS](#sass), depends on your products chosen brand:
+Font faces included by default, if using the Origami Build Service or [including default fonts with SASS](#include-default-fonts), depends on your products chosen brand:
 
 | Brand       | Fonts included by default (all weights and styles) |
 |-------------|:--------------------------------------------------:|
@@ -41,13 +41,13 @@ Font faces included by default, if using the Origami Build Service or [including
 
 ## Sass
 
-### Include All Default Fonts
+### Include Default Fonts
 
-To include [all default fonts for your brand](#fonts-included-by-default), call `oFontsIncludeAll`.
+To include [default fonts for your brand](#fonts-included-by-default), call `oFonts`.
 
 ```scss
 @import 'o-fonts/main';
-@include oFontsIncludeAll();
+@include oFonts();
 ```
 
 _If you want to include a font which is provided by Origami but not included by for your brand default, [specifically load the font](#loading-specific-web-fonts–provided-by-origami) separately._
