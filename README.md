@@ -1,65 +1,56 @@
+o-fonts [![Circle CI](https://circleci.com/gh/Financial-Times/o-fonts/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-fonts/tree/master)
+=================
 
-# o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?style=shield&circle-token=c29a1b0246bd3bbad4da8e024954af6c8dc04dca)](https://circleci.com/gh/Financial-Times/o-fonts) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+_Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
 
-Easily include FT web fonts in products.
+- [Fonts Available](#fonts-available)
+- [Fonts Included By Default](#fonts-included-by-default)
+- [Sass](#sass)
+- [Contributing](#contributing)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
-## Quick start
 
-```html
-<!-- Load web fonts with @font-face declarations  -->
-<link rel="stylesheet" href="//www.ft.com/__origami/service/build/v2/bundles/css?modules=o-fonts@^3" />
+## Fonts Available
 
-<!-- Set font families -->
-<style>
-	html {
-		font-family: FinancierDisplayWeb, sans-serif;
-	}
-	h1 {
-		font-family: MetricWeb, serif;
-	}
-</style>
-```
-
-[Looking for more advanced usage options (Sass…)?](#advanced)
-
-----
-
-## Browser support
-
-`o-fonts` loads web fonts in the [WOFF format](http://en.wikipedia.org/wiki/Web_Open_Font_Format).
-
-WOFF is supported in IE 9+, Chrome, Firefox, iOS 5+, Android 4.4+.
-[View full support table on caniuse.com](http://caniuse.com/#feat=woff).
-
-## Font families, weights and styles
+Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But the [fonts included by default](#fonts-included-by-default) vary per brand.
 
 | Weight   | FinancierDisplayWeb | MetricWeb |
 |----------|:-------------------:|:---------:|
-| thin     |                     |     ✓     |
-| light    |         *i*         |   ✓ *i*   |
-| regular  |        ✓ *i*        |   ✓ *i*   |
-| medium   |         *i*         |     ✓     |
-| semibold |         *i*         |     ✓     |
-| bold     |                     |   ✓ *i*   |
+| thin     |                     |    ✓      |
+| light    |           i         |    ✓ i    |
+| regular  |         ✓ i         |    ✓ i    |
+| medium   |           i         |    ✓      |
+| semibold |           i         |    ✓      |
+| bold     |                     |    ✓ i    |
 | black    |                     |           |
 
-*i*: italic available (if not, faux-italic will be displayed)
+✓: normal style available
+i: italic style available (if not, faux-italic will be displayed)
 
-## Advanced usage<a name="advanced"></a>
+## Fonts Included By Default
 
-### Loading all web fonts provided by Origami
+Font faces included by default, if using the Origami Build Service or [including all fonts with SASS](#sass), depends on your products chosen brand:
 
-```scss
-$o-fonts-is-silent: false;
-@import 'o-fonts/main';
-```
+| Brand       | Fonts included by default (all weights and styles) |
+|-------------|:--------------------------------------------------:|
+| master      | FinancierDisplayWeb, MetricWeb                     |
+| internal    | MetricWeb                                          |
+| whitelabel  | _(none)_                                           |
 
-or
+## Sass
+
+### Include All Default Fonts
+
+To include [all default fonts for your brand](#fonts-included-by-default), call `oFontsIncludeAll`.
 
 ```scss
 @import 'o-fonts/main';
 @include oFontsIncludeAll();
 ```
+
+_If you want to include a font which is provided by Origami but not included by for your brand default, [specifically load the font](#loading-specific-web-fonts–provided-by-origami) separately._
 
 ### Loading specific web fonts provided by Origami
 
@@ -75,42 +66,9 @@ or
 @include oFontsInclude(MetricWeb, $weight: regular, $style: italic);
 ```
 
-### Specifying font families
+### Use a custom font family
 
-`oFontsGetFontFamilyWithFallbacks()` is a function that returns the correct `font-family` with web safe fallbacks.
-
-```scss
-.my-class {
-	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-}
-```
-
-Compiles to:
-
-```css
-.my-class {
-	font-family: FinancierDisplayWeb, sans-serif;
-}
-```
-
-`oFontsGetFontFamilyWithoutFallbacks` performs the inverse:
-
-```scss
-	$without-fallbacks: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
-```
-
-### Checking a weight or style is allowed
-
-To check if a font supports a weight/style use `oFontsVariantExists`.
-
-```scss
-$allowed: oFontsVariantExists('MetricWeb', 'bold', 'normal'); // true
-$allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
-```
-
-### Using custom font families
-
-It is also possible to register custom fonts with `o-fonts` using the mixin `oFontsDefineCustomFont`.
+To register a custom font and supported variants, use the mixin `oFontsDefineCustomFont`.
 
 In this example we register a custom font "MyFont" with sans fallback `MyFont, sans`. We configure this font to allow two variants (a normal style of either bold or regular weight). In the mixin content we include the `@font-face` declaration to load these fonts from our own source.
 ```scss
@@ -133,36 +91,38 @@ In this example we register a custom font "MyFont" with sans fallback `MyFont, s
 };
 ```
 
-====
+### Specifying font families
 
-Product tip: store the family in a variable for brevity.
+To get a `font-family` with web safe fallbacks for a font, use the `oFontsGetFontFamilyWithFallbacks` function.
 
 ```scss
-// _my-variables.scss
-$serif: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-
-// foo.scss
-@import 'my-variables';
-.foo {
-	font-family: $serif;
-}
-
-// bar.scss
-@import 'my-variables';
-.bar {
-	font-family: $serif;
+.my-class {
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisplayWeb, sans-serif
 }
 ```
 
-`oFontsGetFontFamilyWithFallbacks()` has the added benefit of warning you if the family specified doesn't exist in the list of supported families (which as a result wouldn't show the text as intended).
+To get a font without the fallbacks, use `oFontsGetFontFamilyWithoutFallbacks`:
 
-----
+```scss
+	$without-fallbacks: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans-serif'); // FinancierDisplayWeb
+```
 
-## Contribute (*adding new variants*)
+### Checking a weight or style is allowed
+
+To check if a font supports a weight/style use `oFontsVariantExists`.
+
+```scss
+$allowed: oFontsVariantExists('MetricWeb', 'bold', 'normal'); // true
+$allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
+```
+
+## Contributing
+
+### Adding new font variants
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets)).
 
-Open `src/scss/_variables.scss` in a text editor. Add the font family name (if it's an entirely new family) and the variant styles to the `$o-fonts-families` map:
+1. Open `src/scss/_variables.scss` and add the font family name (if it's an entirely new family) and the variant styles to the `$o-fonts-families` map:
 
 ```scss
 $o-fonts-families: (
@@ -178,30 +138,18 @@ $o-fonts-families: (
 );
 ```
 
-And then, if it's a new family, add a new entry in `demos/src/config.json`, like so:
+2. Second, if adding an entirely new font, indicate brand support by adding the font name to `$_o-fonts-default-families`. This will determine when the [font is included by default](#fonts-included-by-default).
 
-    "demos": {
-	  "metricweb": {
-	    "data": { "font": "metricweb" }
-	  },
+3. Finally, update the demos (see `origami.json`).
 
-And a new entry in `demos/src/demo.scss`:
-
-```css
-.demo-family-metricweb .demo-example {
-	font-family: oFontsGetFontFamilyWithFallback(MetricWeb);
-}
-```
-
-----
+---
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-fonts/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-
 ----
 
-## License
+## Licence
 
-This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
