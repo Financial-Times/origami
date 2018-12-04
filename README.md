@@ -1,4 +1,4 @@
-# o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?style=shield&circle-token=c29a1b0246bd3bbad4da8e024954af6c8dc04dca)](https://circleci.com/gh/Financial-Times/o-fonts) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?style=shield&circle-token=c29a1b0246bd3bbad4da8e024954af6c8dc04dca)](https://circleci.com/gh/Financial-Times/o-fonts) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
@@ -26,15 +26,15 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But t
 | bold     |                     |    ✓ i    |
 | black    |                     |           |
 
-✓: normal style available
-i: italic style available (if not, faux-italic will be displayed)
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
 
 ## Fonts Included By Default
 
 Font faces included by default, if using the Origami Build Service or [including default fonts with SASS](#include-default-fonts), depends on your products chosen brand:
 
 | Brand       | Fonts included by default (all weights and styles) |
-|-------------|:--------------------------------------------------:|
+|-------------|----------------------------------------------------|
 | master      | FinancierDisplayWeb, MetricWeb                     |
 | internal    | MetricWeb                                          |
 | whitelabel  | _(none)_                                           |
