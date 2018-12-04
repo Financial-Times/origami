@@ -5,8 +5,7 @@
 	"origamiVersion": 1,
 	"brands": [
 		"master",
-		"internal",
-		"whitelabel"
+		"internal"
 	],
 	"support": "https://github.com/Financial-Times/o-fonts/issues",
 	"supportContact": {
