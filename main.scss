@@ -8,7 +8,7 @@
 @mixin oFonts {
 	@each $family in $_o-fonts-default-families {
 		$properties: map-get($o-fonts-families, $family);
-		@if has not map-get($properties, 'custom') {
+		@if not map-get($properties, 'custom') {
 			@each $variant in map-get($properties, variants) {
 				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
 			}

@@ -77,7 +77,7 @@
 /// @deprecated Use oFonts instead.
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $o-fonts-families {
-		@if has not map-get($properties, 'custom') {
+		@if not map-get($properties, 'custom') {
 			@each $variant in map-get($properties, variants) {
 				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
 			}
