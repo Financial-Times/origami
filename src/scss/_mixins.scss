@@ -73,7 +73,7 @@
 	}
 }
 
-/// Output all Font-face declarations.
+/// Output all Font-face declarations which are provided by Origami.
 /// @deprecated Use oFonts instead.
 @mixin oFontsIncludeAll {
 	@each $family, $properties in $o-fonts-families {
