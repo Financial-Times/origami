@@ -147,8 +147,12 @@
 
 
 		li {
+			@include oLayoutBreakPoint($from: M) {
+				border-right: 2px solid oColorsGetPaletteColor('teal');
+			}
+
 			padding-right: 1em;
-			border-right: 2px solid oColorsGetPaletteColor('teal');
+			border-right: 0;
 
 			&.o-layout__navigation-title {
 				@include oTypographyBold('sans');
