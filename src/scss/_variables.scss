@@ -8,7 +8,19 @@ $o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-asse
 /// @type Bool
 $o-fonts-is-silent: true !default;
 
-/// Font families
+/// The font families to include by default, which may vary per brand.
+/// @see oFonts
+/// @access private
+$_o-fonts-default-families: ();
+@if oBrandGetCurrentBrand() == 'master' {
+	$_o-fonts-default-families: ('MetricWeb', 'FinancierDisplayWeb')!global;
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	$_o-fonts-default-families: ('MetricWeb')!global;
+}
+
+/// All available font families.
 ///
 /// @type Map
 $o-fonts-families: (

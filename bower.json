@@ -1,5 +1,12 @@
 {
-    "name": "o-fonts",
-    "main": ["main.scss"],
-    "ignore": [""]
+  "name": "o-fonts",
+  "main": [
+    "main.scss"
+  ],
+  "ignore": [
+    ""
+  ],
+  "dependencies": {
+    "o-brand": ">=2.3.0 <4"
+  }
 }
