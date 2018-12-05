@@ -112,7 +112,7 @@
 		@return $default;
 	}
 
-	@if(not index($_o-colors-ignore-usecases-warnings, $namelist)) {
+	@if($color == null and not index($_o-colors-ignore-usecases-warnings, $namelist)) {
 		$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
 		@if ($property) {
 			$warn: $warn + " for property '#{inspect($property)}'";
