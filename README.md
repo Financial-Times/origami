@@ -95,10 +95,10 @@ And you can also add actions, such as a button and/or a link to your message:
 					The quick brown fox did not jump over the lazy dogs.
 				</span>
 			</p>
-		</div>
-+		<div class="o-message__actions">
-+			<a href="#" class="o-message__actions__primary">Button</a>
-+			<a href="#" class="o-message__actions__secondary">Text link</a>
++			<div class="o-message__actions">
++				<a href="#" class="o-message__actions__primary">Button</a>
++				<a href="#" class="o-message__actions__secondary">Text link</a>
++			</div>
 		</div>
 	</div>
 </div>
@@ -121,10 +121,10 @@ If you have applied the `o-message--inner` modifier to your message, you can add
 +			<p class="o-message__content-additional">
 +				Did you know that that sentence uses all of the letters in the alphabet at least once?
 +			</p>
-		</div>
-		<div class="o-message__actions">
-			<a href="#" class="o-message__actions__primary">Button</a>
-			<a href="#" class="o-message__actions__secondary">Text link</a>
+			<div class="o-message__actions">
+				<a href="#" class="o-message__actions__primary">Button</a>
+				<a href="#" class="o-message__actions__secondary">Text link</a>
+			</div>
 		</div>
 	</div>
 </div>
