@@ -50,9 +50,9 @@ To include [default fonts for your brand](#fonts-included-by-default), call `oFo
 @include oFonts();
 ```
 
-_If you want to include a font which is provided by Origami but not included by for your brand default, [specifically load the font](#loading-specific-web-fonts-provided-by-origami) separately._
+_If you want to include an Origami font which is not included by default for your brand, [specifically load the font](#load-a-specific-web-font-provided-by-origami) separately._
 
-### Loading specific web fonts provided by Origami
+### Load a specific web font provided by Origami
 
 ```scss
 @import 'o-fonts/main';
@@ -91,7 +91,7 @@ In this example we register a custom font "MyFont" with sans fallback `MyFont, s
 };
 ```
 
-### Get font families for a font
+### Get a font family for a font name
 
 To get a `font-family` with web safe fallbacks for a font, use the `oFontsGetFontFamilyWithFallbacks` function.
 
@@ -99,7 +99,7 @@ To get a `font-family` with web safe fallbacks for a font, use the `oFontsGetFon
 $family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb); // FinancierDisplayWeb, sans-serif
 ```
 
-### Get a font from a font families
+### Get a font name from a font family
 
 To get a font without fallbacks, use `oFontsGetFontFamilyWithoutFallbacks`:
 
@@ -118,7 +118,7 @@ $allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
 
 ## Contributing
 
-### Adding new font variants
+### Add a new font or font variant
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets)).
 
