@@ -248,7 +248,7 @@ Other data types for `data-o-table-data-type` include:
 
 | type     | description                                                                                   | examples                                   |
 |----------|-----------------------------------------------------------------------------------------------|--------------------------------------------|
-| text     | The default, content is sorted as a stirng.                                                   | "Jane Doe", "John Smith"                   |
+| text     | The default, content is sorted as a string.                                                   | "Jane Doe", "John Smith"                   |
 | date     | Supports the FT style of date and time, including abbreviation.                               | "Aug 17", "1.30am", "April 20 2014 1.30pm" |
 | number   | Any number which may include number formatting and abbreviation.                              | "1,200", "100", "3.2", "1bn", "2tn"        |
 | percent  | Any percentage with or without the symbol "%".                                                | "3.3%", "200%", "50%"                      |
