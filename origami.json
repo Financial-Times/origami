@@ -103,6 +103,13 @@
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": "Accessibility test will be run against this demo"
+		},
+		{
+			"name": "Podcast",
+			"title": "Podcast Article Topper",
+			"template": "/demos/src/podcast.mustache",
+			"description": "This is used for podcast articles",
+			"hidden": true
 		}
 	]
 }
