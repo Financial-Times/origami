@@ -1,4 +1,4 @@
-# o-utils [![Build Status](https://circleci.com/gh/Financial-Times/o-utils.png?style=shield)](https://circleci.com/gh/Financial-Times/o-utils)
+# o-utils [![Build Status](https://circleci.com/gh/Financial-Times/o-utils.png?style=shield)](https://circleci.com/gh/Financial-Times/o-utils) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Origami JS helpers.
 
