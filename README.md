@@ -1,5 +1,5 @@
 
-# o-banner [![Circle CI](https://circleci.com/gh/Financial-Times/o-banner/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-banner/tree/master)
+# o-banner [![Circle CI](https://img.shields.io/circleci/project/github/Financial-Times/o-banner/master.svg)](https://circleci.com/gh/Financial-Times/o-banner/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
 
