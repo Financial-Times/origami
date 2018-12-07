@@ -22,16 +22,16 @@
 	.o-topper__tags,
 	.o-topper__standfirst {
 		box-sizing: border-box;
-		padding-right: 100px;
+		padding-right: calc(#{$_o-topper-headshot-width} + #{oTypographySpacingSize(2)});
 
 		@include oGridRespondTo(M) {
-			padding-right: 150px;
+			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
 		}
 	}
 
 	.o-topper__headline {
 		@include oGridRespondTo(M) {
-			padding-right: 150px;
+			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
 		}
 	}
 }
@@ -53,11 +53,11 @@
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	width: 100px;
+	width: $_o-topper-headshot-width;
 	overflow: hidden;
 
 	@include oGridRespondTo(M) {
-		width: 150px;
+		width: $_o-topper-headshot-width-M;
 	}
 
 	@include oGridRespondTo(L) {
@@ -68,5 +68,4 @@
 @mixin oTopperHeadshotImage {
 	max-width: 100%;
 	display: block;
-	margin-left: 8px;
 }
