@@ -1,4 +1,4 @@
-# o-viewport [![Build Status][![Build Status](https://circleci.com/gh/Financial-Times/o-viewport.png?style=shield&circle-token=c8c2a8774bda9e188fe1dbc65dc39fa412e1c656)](https://circleci.com/gh/Financial-Times/o-viewport)
+# o-viewport [![CircleCI](https://circleci.com/gh/Financial-Times/o-viewport.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-viewport) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Utility for attaching debounced listeners to resize, scroll, orientation and visibility events on `window`.
 
