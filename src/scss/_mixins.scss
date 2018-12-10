@@ -1,17 +1,258 @@
 
 /// Outputs all available features and styles for stepped progress.
 ///
+/// @output The output includes the `.o-stepped-progress` class definition as well as class definitions for every available theme.
+/// @example scss - All stepped progress styles
+///   @include oSteppedProgress();
+/// @example scss - Base styles with 'heavy' theme
+///   @include oLabels((
+///     'themes': (
+///       'heavy'
+///     )
+///   ));
 /// @access public
-@mixin oSteppedProgress() {
-	.o-stepped-progress {
-		display: block;
+@mixin oSteppedProgress($opts: (
+	'themes': (
+		'heavy'
+	)
+)) {
+	$themes: map_get($opts, 'themes');
+
+	// Base stepped progress styles
+	@include _oSteppedProgressBase();
+
+	// Heavy theme
+	@if index($themes, 'heavy') and _oSteppedProgressSupports('heavy') {
+		@include _oSteppedProgressHeavy();
 	}
+
 }
 
-/// Output a stepped progress specific error message
+/// Base styles for stepped progress.
 ///
-/// @param {String} $message - The message to insert in the error.
+/// @output The output includes the `.o-stepped-progress` class definition and all styles for a basic stepped progress.
+/// @example scss - Base stepped progress styles
+///   @include _oSteppedProgressBase();
 /// @access private
-@mixin _oSteppedProgressError($message) {
-	@error '*** oSteppedProgress SCSS error: #{$message} ***';
-};
+@mixin _oSteppedProgressBase() {
+
+	.o-stepped-progress {
+		@include oTypographySans(_oSteppedProgressGet('font-scale'));
+		display: block;
+		position: relative;
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+		}
+	}
+
+	// Progress bar
+	.o-stepped-progress:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: _oSteppedProgressGet('bar-weight');
+		position: absolute;
+		top: (_oSteppedProgressGet('step-size') / 2) - (_oSteppedProgressGet('bar-weight') / 2);
+		background-color: _oSteppedProgressGet('default-color');
+	}
+
+	.o-stepped-progress__steps {
+		list-style: none;
+		padding-left: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+
+		> li {
+			display: flex;
+			flex-basis: 0;
+			flex-grow: 2;
+			justify-content: center;
+			width: auto;
+
+			&:first-child {
+				flex-grow: 1;
+				justify-content: flex-start;
+			}
+
+			&:last-child {
+				flex-grow: 1;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	// Individual step
+	.o-stepped-progress__step {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		// Sensible line length but also fixes a flex bug in IE 11
+		max-width: _oSteppedProgressGet('label-max-width');
+
+		// The first and last step must be aligned differently:
+		// the first is aligned left and the last is aligned right
+		.o-stepped-progress__steps > li:first-child & {
+			align-items: flex-start;
+			text-align: left;
+		}
+		.o-stepped-progress__steps > li:last-child & {
+			align-items: flex-end;
+			text-align: right;
+		}
+
+		// The step type indicator
+		&:before {
+			content: '';
+			display: inline-block;
+			height: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
+			width: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
+			margin-bottom: oTypographySpacingSize(1);
+			background-color: _oSteppedProgressGet('container-background');
+			background-repeat: no-repeat;
+			background-origin: border-box;
+			background-position: center;
+			background-size: 100%;
+			border-radius: 50%;
+			border: solid _oSteppedProgressGet('step-border-size') _oSteppedProgressGet('default-color');
+		}
+	}
+
+	// The complete and current steps render the black progress bar
+	// after themselves. Both step modifiers need these styles
+	.o-stepped-progress__step--complete,
+	.o-stepped-progress__step--current,
+	.o-stepped-progress__step--error {
+		position: relative;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 100vw;
+			height: _oSteppedProgressGet('bar-weight');
+			position: absolute;
+			top: (_oSteppedProgressGet('step-size') / 2) - (_oSteppedProgressGet('bar-weight') / 2);
+			right: 50%;
+			z-index: -5;
+			background-color: _oSteppedProgressGet('interacted-color');
+		}
+	}
+
+	// Completed step modifier
+	.o-stepped-progress__step--complete {
+		&:before {
+			@include oIconsGetIcon(
+				$icon-name: 'tick',
+				$color: _oSteppedProgressGet('container-background'),
+				$apply-base-styles: false,
+				$apply-width-height: false
+			);
+			background-color: _oSteppedProgressGet('interacted-color');
+			border-color: transparent;
+		}
+	}
+
+	// Current step modifier
+	.o-stepped-progress__step--current {
+		&:before {
+			background-color: _oSteppedProgressGet('interacted-color');
+			border-color: _oSteppedProgressGet('interacted-color');
+			box-shadow: inset 0px 0px 0px _oSteppedProgressGet('step-border-size') _oSteppedProgressGet('container-background');
+		}
+	}
+
+	// Errored step modifier
+	.o-stepped-progress__step--error {
+		&:before {
+			@include oIconsGetIcon(
+				$icon-name: 'warning',
+				$color: _oSteppedProgressGet('container-background'),
+				$apply-base-styles: false,
+				$apply-width-height: false
+			);
+			background-color: _oSteppedProgressGet('error-color');
+			border-color: transparent;
+		}
+	}
+
+	// Step label styles
+	.o-stepped-progress__label {
+		// Sensible line length but also fixes a flex bug in IE 11.
+		// Repetition of this line from .o-stepped-progress__stepped
+		// is required for the fix to work.
+		max-width: _oSteppedProgressGet('label-max-width');
+	}
+
+}
+
+/// Heavy theme for the stepped progress component.
+///
+/// @output The output includes the `.o-stepped-progress--heavy` class definition and all style overrides for it.
+/// @example scss - Heavy stepped progress styles
+///   @include _oSteppedProgressHeavy();
+/// @access private
+@mixin _oSteppedProgressHeavy() {
+	$variant: 'heavy';
+
+	.o-stepped-progress--heavy {
+		@include oTypographySans(_oSteppedProgressGet('font-scale', $variant));
+
+		// Progress bars
+		&:before {
+			height: _oSteppedProgressGet('bar-weight', $variant);
+			top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
+		}
+		.o-stepped-progress__step--complete,
+		.o-stepped-progress__step--current,
+		.o-stepped-progress__step--error {
+			&:after {
+				height: _oSteppedProgressGet('bar-weight', $variant);
+				top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
+			}
+		}
+
+		// The step type indicator
+		.o-stepped-progress__step {
+			&:before {
+				height: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
+				width: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
+				border-width: _oSteppedProgressGet('step-border-size', $variant);
+			}
+		}
+
+		// Completed step modifier
+		.o-stepped-progress__step--complete {
+			&:before {
+				@include oIconsGetIcon(
+					$icon-name: 'tick',
+					$color: _oSteppedProgressGet('interacted-color'),
+					$apply-base-styles: false,
+					$apply-width-height: false
+				);
+				background-color: _oSteppedProgressGet('container-background');
+				background-size: 160%;
+				background-position: 35% 35%;
+				background-origin: content-box;
+				border-color: _oSteppedProgressGet('interacted-color');
+			}
+		}
+
+		// Current step modifier
+		.o-stepped-progress__step--current {
+			&:before {
+				background-color: _oSteppedProgressGet('container-background');
+				box-shadow: none;
+			}
+		}
+
+	}
+
+}

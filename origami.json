@@ -24,15 +24,54 @@
 		"js": "demos/src/demo.js",
 		"dependencies": [
 			"o-fonts@^3.0.0",
+			"o-icons@^5.8.0",
 			"o-normalise@^1.0.0"
 		]
 	},
 	"demos": [
 		{
-			"title": "Pa11y",
+			"name": "stepped-progress",
+			"title": "Stepped Progress",
+			"description": "A basic stepped progress indicator, with completed and current steps. This demonstrates using stepped progress for a signup form.",
+			"template": "demos/src/demo.mustache",
+			"data": "demos/src/data/signup-form.json"
+		},
+		{
+			"name": "error-step",
+			"title": "Error Step",
+			"description": "A stepped progress indicator with an errored step.",
+			"template": "demos/src/demo.mustache",
+			"data": "demos/src/data/signup-form-error.json"
+		},
+		{
+			"name": "html-labels",
+			"title": "HTML Labels",
+			"description": "A stepped progress indicator with richer labels, using other components.",
+			"template": "demos/src/demo.mustache",
+			"data": "demos/src/data/html-labels.json"
+		},
+		{
+			"name": "heavy",
+			"title": "Heavy Variant",
+			"description": "A stepped progress with the “heavy” variant.",
+			"template": "demos/src/demo.mustache",
+			"data": "demos/src/data/renewal-timeline.json",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "testing",
+			"title": "Testing All Styles",
+			"description": "A hidden demo for manual cross-browser testing. This includes all of the possible styles and lots of variations on numbers of steps etc.",
+			"template": "demos/src/testing.mustache",
+			"hidden": true
+		},
+		{
 			"name": "pa11y",
-			"template": "demos/src/pa11y.mustache",
+			"title": "Pa11y",
 			"description": "Accessibility tests will be run against this demo",
+			"template": "demos/src/pa11y.mustache",
 			"hidden": true
 		}
 	]

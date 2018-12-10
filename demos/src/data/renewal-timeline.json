@@ -1,0 +1,24 @@
+{
+	"modifierClasses": "o-stepped-progress--heavy",
+	"steps": [
+		{
+			"label": "<strong>Contract start date</strong><br/> 22 Jan 2018",
+			"accessibleLabel": "Contract start date, 22 Jan 2018",
+			"isComplete": true
+		},
+		{
+			"label": "<strong>Planning meeting</strong><br/> 22 Feb 2018",
+			"accessibleLabel": "Planning meeting, 22 Feb 2018",
+			"isComplete": true
+		},
+		{
+			"label": "<strong>Mid-year review</strong><br/> 22 June 2018",
+			"accessibleLabel": "Mid-year review, 22 June 2018",
+			"isCurrent": true
+		},
+		{
+			"label": "<strong>Renewal</strong><br/> 22 Nov 2018",
+			"accessibleLabel": "Renewal, 22 Nov 2018"
+		}
+	]
+}

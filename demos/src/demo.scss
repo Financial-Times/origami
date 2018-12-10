@@ -2,3 +2,16 @@
 $o-stepped-progress-is-silent: false;
 
 @import '../../main';
+
+body {
+	@include oColorsFor('page', 'background');
+	margin: 1em;
+}
+
+.demo-container {
+	margin-bottom: 2em;
+	max-width: 600px;
+}
+.demo-container:last-of-type {
+	margin-bottom: 0;
+}

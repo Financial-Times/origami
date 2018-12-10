@@ -1,0 +1,19 @@
+{
+	"steps": [
+		{
+			"label": "Step with icon <i class=\"o-icons-icon o-icons-icon--edit\" style=\"width: 20px; height: 20px; vertical-align: middle;\"><!-- Inline styles here should be in CSS or SCSS files when implementing --></i>",
+			"accessibleLabel": "Step with icon",
+			"url": "#edit",
+			"isComplete": true
+		},
+		{
+			"label": "Step with<br/>multiple</br>line breaks",
+			"accessibleLabel": "Step with multiple line breaks",
+			"isCurrent": true
+		},
+		{
+			"label": "Step with <strong>bold</strong> and <em>italic</em> text",
+			"accessibleLabel": "Step with bold and italic text"
+		}
+	]
+}

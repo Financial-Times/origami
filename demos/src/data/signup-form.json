@@ -1,0 +1,26 @@
+{
+	"steps": [
+		{
+			"label": "Details",
+			"accessibleLabel": "Details",
+			"url": "#details",
+			"isComplete": true
+		},
+		{
+			"label": "Delivery",
+			"accessibleLabel": "Delivery",
+			"url": "#delivery",
+			"isComplete": true
+		},
+		{
+			"label": "Customise",
+			"accessibleLabel": "Customise",
+			"url": "#customise",
+			"isCurrent": true
+		},
+		{
+			"label": "Payment",
+			"accessibleLabel": "Payment"
+		}
+	]
+}

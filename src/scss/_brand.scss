@@ -1,0 +1,58 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oSteppedProgressGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-stepped-progress', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oSteppedProgressSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-stepped-progress', $variant: $variant);
+}
+
+// Define shared brand configurations
+$_o-stepped-progress-shared-brand-config: (
+	font-scale: -1,
+	step-size: 22px,
+	step-border-size: 2px,
+	label-max-width: 10em,
+	bar-weight: 2px,
+	container-background: oColorsGetPaletteColor(oColorsGetUseCase('page', 'background')),
+	default-color: oColorsGetPaletteColor('black-40'),
+	interacted-color: oColorsGetPaletteColor('slate'),
+	error-color: oColorsMix('crimson', oColorsGetUseCase('page', 'background'), 90)
+);
+
+// Define masterbrand
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-stepped-progress', 'master', (
+		'variables': map-merge($_o-stepped-progress-shared-brand-config, ()),
+		'supports-variants': ()
+	));
+}
+
+// Define internal brand
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-stepped-progress', 'internal', (
+		'variables': map-merge($_o-stepped-progress-shared-brand-config, (
+			'heavy': (
+				font-scale: 0,
+				step-size: 26px,
+				step-border-size: 5px,
+				bar-weight: 6px
+			)
+		)),
+		'supports-variants': (
+			'heavy'
+		)
+	));
+}
+
+// Define whitelabel brand
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-stepped-progress', 'whitelabel', (
+		'variables': map-merge($_o-stepped-progress-shared-brand-config, ()),
+		'supports-variants': ()
+	));
+}
