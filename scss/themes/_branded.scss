@@ -22,13 +22,16 @@
 	.o-topper__tags,
 	.o-topper__standfirst {
 		box-sizing: border-box;
-		padding-right: calc(#{$_o-topper-headshot-width} + #{oTypographySpacingSize(2)});
+	}
 
+	.o-topper__standfirst {
+		padding-right: calc(#{$_o-topper-headshot-width} + #{oTypographySpacingSize(2)});
 		@include oGridRespondTo(M) {
 			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
 		}
 	}
 
+	.o-topper__tags,
 	.o-topper__headline {
 		@include oGridRespondTo(M) {
 			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
