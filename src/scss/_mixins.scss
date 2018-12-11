@@ -5,10 +5,10 @@
 /// @example scss - All stepped progress styles
 ///   @include oSteppedProgress();
 /// @example scss - Base styles with 'heavy' theme
-///   @include oLabels((
-///     'themes': (
-///       'heavy'
-///     )
+///   @include oSteppedProgress((
+///   	'themes': (
+///   		'heavy'
+///   	)
 ///   ));
 /// @access public
 @mixin oSteppedProgress($opts: (
