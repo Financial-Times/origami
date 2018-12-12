@@ -63,7 +63,10 @@
 			// sass-lint:disable no-vendor-prefixes
 			-ms-overflow-style: -ms-autohiding-scrollbar;
 			// sass-lint:enable no-vendor-prefixes
-			scrollbar-color: oColorsGetPaletteColor('black-30') transparent; // sass-lint:disable no-misspelled-properties
+
+			// sass-lint:disable no-misspelled-properties
+			scrollbar-color: oColorsGetPaletteColor('black-30') transparent;
+			// sass-lint:enable no-misspelled-properties
 
 			// (╯°□°）╯︵ ┻━┻
 			// sass-lint:disable no-vendor-prefixes
