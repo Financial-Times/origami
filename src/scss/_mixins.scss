@@ -48,7 +48,7 @@
 	}
 
 	// Progress bar
-	.o-stepped-progress:before {
+	.o-stepped-progress::before {
 		content: '';
 		display: block;
 		width: 100%;
@@ -56,6 +56,18 @@
 		position: absolute;
 		top: (_oSteppedProgressGet('step-size') / 2) - (_oSteppedProgressGet('bar-weight') / 2);
 		background-color: _oSteppedProgressGet('default-color');
+
+		// IE hacks:
+		// The background colour is removed for IE9, because
+		// the steps are stacked vertically there. However the
+		// hack also targets IE10/11, so we have to re-add the
+		// background colour using a different hack
+		// sass-lint:disable-all
+		background-color: transparent\9;
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			background-color: _oSteppedProgressGet('default-color');
+		}
+		// sass-lint:enable-all
 	}
 
 	.o-stepped-progress__steps {
@@ -110,9 +122,10 @@
 		}
 
 		// The step type indicator
-		&:before {
+		&::before {
 			content: '';
 			display: inline-block;
+			vertical-align: middle;
 			height: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
 			width: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
 			margin-bottom: oTypographySpacingSize(1);
@@ -133,7 +146,7 @@
 	.o-stepped-progress__step--error {
 		position: relative;
 
-		&:after {
+		&::after {
 			content: '';
 			display: block;
 			width: 100vw;
@@ -143,12 +156,24 @@
 			right: 50%;
 			z-index: -5;
 			background-color: _oSteppedProgressGet('interacted-color');
+
+			// IE hacks:
+			// The background colour is removed for IE9, because
+			// the steps are stacked vertically there. However the
+			// hack also targets IE10/11, so we have to re-add the
+			// background colour using a different hack
+			// sass-lint:disable-all
+			background-color: transparent\9;
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+				background-color: _oSteppedProgressGet('interacted-color');
+			}
+			// sass-lint:enable-all
 		}
 	}
 
 	// Completed step modifier
 	.o-stepped-progress__step--complete {
-		&:before {
+		&::before {
 			@include oIconsGetIcon(
 				$icon-name: 'tick',
 				$color: _oSteppedProgressGet('container-background'),
@@ -162,7 +187,7 @@
 
 	// Current step modifier
 	.o-stepped-progress__step--current {
-		&:before {
+		&::before {
 			background-color: _oSteppedProgressGet('interacted-color');
 			border-color: _oSteppedProgressGet('interacted-color');
 			box-shadow: inset 0px 0px 0px _oSteppedProgressGet('step-border-size') _oSteppedProgressGet('container-background');
@@ -171,7 +196,7 @@
 
 	// Errored step modifier
 	.o-stepped-progress__step--error {
-		&:before {
+		&::before {
 			@include oIconsGetIcon(
 				$icon-name: 'warning',
 				$color: _oSteppedProgressGet('container-background'),
@@ -206,14 +231,14 @@
 		@include oTypographySans(_oSteppedProgressGet('font-scale', $variant));
 
 		// Progress bars
-		&:before {
+		&::before {
 			height: _oSteppedProgressGet('bar-weight', $variant);
 			top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
 		}
 		.o-stepped-progress__step--complete,
 		.o-stepped-progress__step--current,
 		.o-stepped-progress__step--error {
-			&:after {
+			&::after {
 				height: _oSteppedProgressGet('bar-weight', $variant);
 				top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
 			}
@@ -221,7 +246,7 @@
 
 		// The step type indicator
 		.o-stepped-progress__step {
-			&:before {
+			&::before {
 				height: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
 				width: _oSteppedProgressGet('step-size', $variant) - (_oSteppedProgressGet('step-border-size', $variant) * 2);
 				border-width: _oSteppedProgressGet('step-border-size', $variant);
@@ -230,7 +255,7 @@
 
 		// Completed step modifier
 		.o-stepped-progress__step--complete {
-			&:before {
+			&::before {
 				@include oIconsGetIcon(
 					$icon-name: 'tick',
 					$color: _oSteppedProgressGet('interacted-color'),
@@ -247,7 +272,7 @@
 
 		// Current step modifier
 		.o-stepped-progress__step--current {
-			&:before {
+			&::before {
 				background-color: _oSteppedProgressGet('container-background');
 				box-shadow: none;
 			}
