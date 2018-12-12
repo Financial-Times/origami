@@ -228,6 +228,25 @@
 		max-width: _oSteppedProgressGet('label-max-width');
 	}
 
+	// Step status indicator (for core experience and screen readers)
+	@supports (display: flex) {
+		.o-stepped-progress__status {
+			@include oNormaliseVisuallyHidden();
+		}
+	}
+
+	// IE hack:
+	// The @supports directive is not supported by IE 10/11, but we
+	// do need to hide the progress status from them. We duplicate
+	// the styles for these browsers
+	// sass-lint:disable-all
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		.o-stepped-progress__status {
+			@include oNormaliseVisuallyHidden();
+		}
+	}
+	// sass-lint:enable-all
+
 }
 
 /// Heavy theme for the stepped progress component.

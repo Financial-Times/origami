@@ -5,12 +5,16 @@
 		<li>
 			{{#url}}
 			<a href="{{url}}" class="o-stepped-progress__step{{#isComplete}} o-stepped-progress__step--complete{{/isComplete}}{{#isCurrent}} o-stepped-progress__step--current{{/isCurrent}}{{#isError}} o-stepped-progress__step--error{{/isError}}">
-				<span class="o-stepped-progress__label"{{#isComplete}} aria-label="Completed: {{accessibleLabel}}"{{/isComplete}}{{#isCurrent}} aria-label="Current step: {{accessibleLabel}}"{{/isCurrent}}{{#isError}} aria-label="Error: {{accessibleLabel}}"{{/isError}}>{{{label}}}</span>
+				<span class="o-stepped-progress__label">
+					{{{label}}}{{#isComplete}} <span class="o-stepped-progress__status">(completed)</span>{{/isComplete}}{{#isCurrent}} <span class="o-stepped-progress__status">(current step)</span>{{/isCurrent}}{{#isError}} <span class="o-stepped-progress__status">(error)</span>{{/isError}}
+				</span>
 			</a>
 			{{/url}}
 			{{^url}}
 			<span class="o-stepped-progress__step{{#isComplete}} o-stepped-progress__step--complete{{/isComplete}}{{#isCurrent}} o-stepped-progress__step--current{{/isCurrent}}{{#isError}} o-stepped-progress__step--error{{/isError}}">
-				<span class="o-stepped-progress__label"{{#isComplete}} aria-label="Completed: {{accessibleLabel}}"{{/isComplete}}{{#isCurrent}} aria-label="Current step: {{accessibleLabel}}"{{/isCurrent}}{{#isError}} aria-label="Error: {{accessibleLabel}}"{{/isError}}>{{{label}}}</span>
+				<span class="o-stepped-progress__label">
+					{{{label}}}{{#isComplete}} <span class="o-stepped-progress__status">(completed)</span>{{/isComplete}}{{#isCurrent}} <span class="o-stepped-progress__status">(current step)</span>{{/isCurrent}}{{#isError}} <span class="o-stepped-progress__status">(error)</span>{{/isError}}
+				</span>
 			</span>
 			{{/url}}
 		</li>
