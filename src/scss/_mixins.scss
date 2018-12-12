@@ -115,10 +115,20 @@
 		.o-stepped-progress__steps > li:first-child & {
 			align-items: flex-start;
 			text-align: left;
+
+			// Progress bar alignment
+			&::after {
+				right: 100%;
+			}
 		}
 		.o-stepped-progress__steps > li:last-child & {
 			align-items: flex-end;
 			text-align: right;
+
+			// Progress bar alignment
+			&::after {
+				right: 0;
+			}
 		}
 
 		// The step type indicator
