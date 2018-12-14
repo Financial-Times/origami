@@ -15,8 +15,10 @@ $o-layout-is-silent: true !default;
 $o-layout-class: o-layout !default;
 
 /// Base layout measurements
-$_o-layout-main-section-width: minmax(30ch, oTypographyMaxLineWidth(3));
 $_o-layout-gutter: 1rem;
+$_o-layout-container-max-width: 1220px; // To align to o-header, which uses o-grid https://github.com/Financial-Times/o-grid/blob/v4.4.4/src/scss/_variables.scss#L92
+$_o-layout-aside-max-width: 30ch;
+$_o-layout-main-section-width: minmax(30ch, calc(#{$_o-layout-container-max-width} - #{$_o-layout-aside-max-width * 2} - #{$_o-layout-gutter * 2}));
 
 /// Breakpoints for responsive layout
 /// @type List
