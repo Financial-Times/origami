@@ -1,3 +1,4 @@
+
 import SteppedProgress from './src/js/stepped-progress';
 
 const constructAll = function () {
