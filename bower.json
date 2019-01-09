@@ -1,13 +1,10 @@
 {
-  "name": "o-loading",
-  "main": [
-    "main.scss"
-  ],
-  "ignore": [
-    "demo"
-  ],
-  "dependencies": {
-    "o-colors": "^4.2.3",
-    "o-brand": ">=2.2.0 <4"
-  }
+	"name": "o-loading",
+	"main": [
+		"main.scss"
+	],
+	"dependencies": {
+		"o-colors": "^4.2.3",
+		"o-brand": "^3.1.1"
+	}
 }

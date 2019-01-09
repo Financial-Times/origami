@@ -16,23 +16,28 @@
 	},
 	"supportStatus": "active",
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss"
+		"sass": "demos/src/demo.scss",
+		"template": "demos/src/loading-spinner.mustache"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-loading"
 	},
 	"demos": [
 		{
-			"name": "basic-light",
+			"name": "light-loading-spinner",
 			"title": "Standard Light loading spinner",
-			"template": "demos/src/basic-light.mustache",
-			"description": "The basic spinner is available in a light theme in three sizes."
+			"description": "The basic spinner is available in a light theme in four sizes.",
+			"data": {
+				"theme": "light"
+			}
 		},
 		{
-			"name": "basic-dark",
+			"name": "dark-loading-spinner",
 			"title": "Standard Darkloading spinner",
-			"template": "demos/src/basic-dark.mustache",
-			"description": "The basic spinner is available in a dark theme in three sizes."
+			"description": "The basic spinner is available in a dark theme in four sizes.",
+			"data": {
+				"theme": "dark"
+			}
 		},
 		{
 			"name": "accessible",

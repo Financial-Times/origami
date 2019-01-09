@@ -1,13 +1,13 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oLoadingGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-loading', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-loading', $variables: $variables, $from: $from);
 }
 
 /// Helper for `o-brand` function.
 /// @access private
 @function _oLoadingSupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-loading', $variant: $variant);
+	@return oBrandSupportsVariant($component: 'o-loading', $variant: $variant);
 }
 
 @include oBrandDefine('o-loading', 'master', (

@@ -3,68 +3,92 @@
 /// @link http://registry.origami.ft.com/components/o-loading
 ////
 
-/// Output the keyframe animation definition
-///
-/// @private
+/// @access private
+/// Outputs the keyframe animation definition
 @mixin _oLoadingAnimationKeyframes {
-	@if not $o-loading-animation-keyframes {
-		@keyframes o-loading-spinner {
-			0% {
-				transform: rotate(0deg);
+	@at-root {
+		@if not $o-loading-animation-keyframes {
+			@keyframes o-loading-spinner {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
 			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
 
-		$o-loading-animation-keyframes: true !global;
+			$o-loading-animation-keyframes: true !global;
+		}
 	}
 }
 
-/// Base styles for a loading indicator
-@mixin oLoading() {
+/// @access private
+/// Output base styles for a loading spinner
+@mixin _oLoadingBase() {
+	display: inline-block;
+	border-radius: 50%;
+	animation: o-loading-spinner 1s infinite linear;
+}
+/// Color variation for a loading indicator
+///
+/// @param {String|Color} $color
+/// @access private
+@mixin _oLoadingColor($color) {
+	@if type-of($color) == 'string' {
+		$color: map-get($o-loading-themes, $color);
 
-	// the keyframes must be defined _before_ first use
+		@if not $color {
+			@warn "Color: '#{$color}' not found for o-loading";
+		}
+	}
+
+	border-style: solid;
+	border-color: rgba($color, 0.25);
+	border-top-color: $color;
+}
+
+/// Size variation for a loading indicator
+///
+/// @param {String|Number} $name
+/// @access private
+@mixin _oLoadingSize($name) {
+	@if type-of($name) == 'string' {
+		$name: map-get($o-loading-sizes, $name);
+
+		@if not $name {
+			@warn "Size: '#{$name}' not found for o-loading";
+		}
+	}
+
+	width: map-get($name, 'size');
+	height: map-get($name, 'size');
+	border-width: map-get($name, 'border');
+}
+
+/// @param {Map} $opts ['theme': ('light', 'dark'), 'size': ('mini', 'small', 'medium', 'large')
+/// @access public
+// Outputs loading styles for a custom class
+@mixin oLoadingContent($opts: (
+	'theme': null,
+	'size': null
+)) {
+	$theme: map-get($opts, 'theme');
+	$size: map-get($opts, 'size');
+
 	@at-root {
 		@include _oLoadingAnimationKeyframes();
 	}
 
 	// HACK: creates a new selector to output the rules _after_ keyframes
 	& {
-		display: inline-block;
-		border-radius: 50%;
-		animation: o-loading-spinner 1s infinite linear;
-	}
-}
-
-/// Color variation for a loading indicator
-///
-/// @param {String|Color} $color
-@mixin oLoadingColor($color) {
-	@if type-of($color) == 'string' {
-		$color: map-get($o-loading-colors, $color);
-
-		@if not $color {
-			@warn "Color not found for o-loading";
-		}
+		@include _oLoadingBase();
 	}
 
-	border: 4px solid rgba($color, 0.25);
-	border-top-color: $color;
-}
-
-/// Size variation for a loading indicator
-///
-/// @param {String|Number} $size
-@mixin oLoadingSize($size) {
-	@if type-of($size) == 'string' {
-		$size: map-get($o-loading-sizes, $size);
-
-		@if not $size {
-			@warn "Size not found for o-loading";
-		}
+	@if $theme {
+		@include _oLoadingColor($theme);
 	}
 
-	width: $size;
-	height: $size;
+	@if $size {
+		@include _oLoadingSize($size);
+	}
 }

@@ -14,10 +14,10 @@ $o-loading-is-silent: true !default;
 /// @type Boolean
 $o-loading-animation-keyframes: false !default;
 
-/// Predefined color themes
+/// Predefined themes
 ///
 /// @type Map
-$o-loading-colors: (
+$o-loading-themes: (
 	'light': _oLoadingGet('default-color', $from: 'light'),
 	'dark': _oLoadingGet('default-color', $from: 'dark')
 );
@@ -26,7 +26,8 @@ $o-loading-colors: (
 ///
 /// @type Map
 $o-loading-sizes: (
-	'small': 22px,
-	'medium': 30px,
-	'large': 36px
+	'mini': ('size': 12px, 'border': 2px),
+	'small': ('size': 20px, 'border': 3px),
+	'medium': ('size': 28px, 'border': 4px),
+	'large': ('size': 36px, 'border': 5px)
 );

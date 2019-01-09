@@ -2,68 +2,73 @@
 
 This is an [Origami](http://origami.ft.com/) component that provides a visual loading indicator.
 
-- [Usage](#usage)
+- [Markup](#markup)
+- [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
-
-Loading indicators come in the following themes:
-
-- light
-- dark
-
-And the following sizes:
-
-- small
-- medium
-- large
-
-### Mixins, silent mode and classes
-
-> Mixins and silent mode are only available if you're including o-loading in your project using Bower. If you're using o-loading via the build service, you must use the o-loading classes instead. Both are documented below.
-
-[Full documentation of mixins and variables](http://sassdoc.webservices.ft.com/v1/sassdoc/o-loading)
-
-#### Default loading indicator
-
+## Markup
+In order to display a loading indicator in your product, you will need to supply the theme and the size modifiers in your markup, e.g.:
 ```html
 <div class="o-loading o-loading--light o-loading--small"></div>
 ```
 
+## Sass
+In order to output all of the variations in theme and size of `o-loading`, you'll need to include the following:
 ```scss
-$o-loading-is-silent: false;
 @import 'o-loading/main';
+
+@include oLoading();
+```
+You can also be more selective about which themes or sizes of the loading indicator you wish to output, by using a map.
+The `$opts` map accepts two lists:
+
+'themes':
+- light
+- dark
+
+And 'sizes':
+- mini
+- small
+- medium
+- large
+
+```scss
+@import 'o-loading/main';
+
+@include oLoading($opts: (
+	'themes': ('light'),
+	'sizes': ('medium', 'large')
+));
+
+// outputs a large light spinner and a medium light spinner
 ```
 
-#### Custom loading indicator
+If you need to build a loading spinner into a component, for example, you can use the following mixin:
 
 ```scss
 @import 'o-loading/main';
 
-.my-custom-indicator {
-    @include oLoading();
-    @include oLoadingSize('small');
-    @include oLoadingColor('light');
+.my-loading-spinner {
+	@include oLoadingContent($opts: (
+		'color': 'light',
+		'size': 'small'
+	));
 }
 ```
 
----
+## Migration
 
-## Migration guide
-
-### Migrating from 1.X.X to 2.X.X
-
-V1 -> V2 introduces the new majors of o-colors. Updating to this new version will mean updating any other components that you have which are using o-colors. There are no other breaking changes in this release.
-
----
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.0 | N/A |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-loading/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
-
----
 
 ## Licence
 

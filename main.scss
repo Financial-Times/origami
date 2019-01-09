@@ -5,23 +5,39 @@
 @import 'src/scss/variables';
 @import 'src/scss/mixins';
 
-@if $o-loading-is-silent == false {
+
+/// @param {Map} $opts ['themes': ('light', 'dark'), 'sizes': ('mini', 'small', 'medium', 'large')
+/// @access public
+// Outputs all loading styles
+@mixin oLoading($opts: (
+	'themes': ('light', 'dark'),
+	'sizes': ('mini', 'small', 'medium', 'large')
+)) {
+	$themes: map-get($opts, 'themes');
+	$sizes: map-get($opts, 'sizes');
+
+	@include _oLoadingAnimationKeyframes();
 
 	.o-loading {
-		@include oLoading();
+		@include _oLoadingBase();
 	}
 
-	@each $key, $value in $o-loading-colors {
-		.o-loading--#{$key} {
-			@include oLoadingColor($value);
+	@each $theme in $themes {
+		.o-loading--#{$theme} {
+			@include _oLoadingColor(map-get($o-loading-themes, $theme));
 		}
 	}
 
-	@each $key, $value in $o-loading-sizes {
-		.o-loading--#{$key} {
-			@include oLoadingSize($value);
+	@each $size in $sizes {
+		.o-loading--#{$size} {
+			@include _oLoadingSize(map-get($o-loading-sizes, $size));
 		}
 	}
+}
+
+@if $o-loading-is-silent == false {
+
+	@include oLoading();
 
 	$o-loading-is-silent: true !global;
 }
