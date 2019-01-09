@@ -252,8 +252,38 @@ const shortTableWithContainer = `
 	</div>
 </div>
 `;
+const tableWithContainerAndComplexHeadings = `
+<div class="o-table-container">
+	<div class="o-table-overlay-wrapper">
+		<div class="o-table-scroll-wrapper">
+			<table class="o-table" data-o-component="o-table">
+				<thead>
+					<tr>
+						<th scope="col" role="columnheader"><abbr title="Fruit">F</abbr></th>
+						<th scope="col" role="columnheader"><b>Genus</b></th>
+						<th scope="col" role="columnheader"><div>Characteristic</div></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Dragonfruit</td>
+						<td>Stenocereus</td>
+						<td>Juicy</td>
+					</tr>
+					<tr>
+						<td>Durian</td>
+						<td>Durio</td>
+						<td>Smelly</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+`;
 
 export {
 	longTableWithContainer,
 	shortTableWithContainer,
+	tableWithContainerAndComplexHeadings,
 };

@@ -45,6 +45,32 @@ describe("BaseTable", () => {
 			}, 100);
 		});
 
+		it('maintains heading phrasing content within generated sort buttons', done => {
+			// https://html.spec.whatwg.org/#the-button-element
+			sandbox.init();
+			sandbox.setContents(fixtures.tableWithContainerAndComplexHeadings);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+			table.addSortButtons();
+
+			setTimeout(() => {
+				try {
+					const thead = oTableEl.querySelector('thead');
+					const sortButtons = thead.querySelectorAll('button');
+					// `abbr` has been maintained
+					proclaim.equal(sortButtons[0].innerHTML, '<abbr title="Fruit">F</abbr>');
+					// `b` has been maintained
+					proclaim.equal(sortButtons[1].innerHTML, '<b>Genus</b>');
+					// `div` has been removed
+					proclaim.equal(sortButtons[2].innerHTML, 'Characteristic');
+				} catch (error) {
+					done(error);
+				} finally {
+					done();
+				}
+			}, 100);
+		});
+
 		it('does not add sort button to column header with attribute "data-o-table-heading-disable-sort"', done => {
 			const thead = oTableEl.querySelector('thead');
 			// Disable sort on first column.

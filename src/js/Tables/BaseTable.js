@@ -85,12 +85,24 @@ class BaseTable {
 			}
 			// Move heading text into button.
 			const sortButton = document.createElement('button');
-			const heading = th.textContent;
-			sortButton.textContent = heading;
+			const headingNodes = Array.from(th.childNodes);
+			const headingHTML = headingNodes.reduce((html, node) => {
+				// Maintain child elements of the heading which make sense in a button.
+				const maintainedElements = ['ABBR', 'B', 'BDI', 'BDO', 'BR', 'CODE', 'CITE', 'DATA', 'DFN', 'DEL', 'EM', 'I', 'S', 'SMALL', 'SPAN', 'STRONG', 'SUB', 'SUP', 'TIME', 'U', 'VAR', 'WBR'];
+				if (node.nodeType === Node.ELEMENT_NODE && maintainedElements.includes(node.nodeName)) {
+					return html + node.outerHTML;
+				}
+				// Otherwise return text content.
+				if (node.nodeType === Node.ELEMENT_NODE) {
+					console.warn(`o-table has removed the element "${node.nodeName}" from the table heading to add a sort button on the column. Please remove this element from your table heading, disable sort on this column, or contact the Origami team for help.`, th);
+				}
+				return html + node.textContent;
+			}, '');
+			sortButton.innerHTML = headingHTML;
 			// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
 			// Using `title` avoids this, but risks not being announced by other screen readers.
 			sortButton.classList.add('o-table__sort');
-			sortButton.setAttribute('title', `sort table by ${heading}`);
+			sortButton.setAttribute('title', `sort table by ${th.innerText}`);
 			th.innerHTML = '';
 			th.appendChild(sortButton);
 			// Add click event to buttons.
