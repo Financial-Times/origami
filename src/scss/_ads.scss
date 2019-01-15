@@ -1,5 +1,6 @@
-@if $o-video-is-silent == false {
-
+/// @access private
+/// Outputs styles for ads embedded in videos
+@mixin _oVideoAds {
 	.o-video__overlay,
 	.o-video__ad {
 		position: absolute;
@@ -39,9 +40,7 @@
 		outline: 2px solid oColorsGetPaletteColor('black');
 
 		&:after {
-			@include oLoading();
-			@include oLoadingSize('small');
-			@include oLoadingColor('light');
+			@include oLoadingContent($opts: ('theme': 'light', 'size': 'small'));
 
 			content: '';
 			position: absolute;
@@ -53,5 +52,4 @@
 			margin-left: -11px;
 		}
 	}
-
 }

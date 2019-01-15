@@ -1,5 +1,6 @@
-@if $o-video-is-silent == false {
-
+/// @access private
+/// Outpus styling for video placeholder
+@mixin _oVideoPlaceholder {
 	.o-video__placeholder,
 	.o-video__placeholder-image {
 		position: absolute;
@@ -67,5 +68,4 @@
 			background-color: oColorsGetPaletteColor('claret');
 		}
 	}
-
 }

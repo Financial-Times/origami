@@ -1,4 +1,6 @@
-@mixin oVideoInfoSmall {
+/// @access private
+/// Outputs styling for small variation of video information
+@mixin _oVideoInfoSmall {
 	.o-video__info-description {
 		display: none;
 	}
@@ -8,7 +10,9 @@
 	}
 }
 
-@mixin oVideoInfoMedium {
+/// @access private
+/// Outputs styling for medium variation of video information
+@mixin _oVideoInfoMedium {
 	.o-video__info-brand {
 		display: inline-block;
 	}
@@ -18,7 +22,9 @@
 	}
 }
 
-@mixin oVideoInfoLarge {
+/// @access private
+/// Outputs styling for large variation of video information
+@mixin _oVideoInfoLarge {
 	.o-video__info-title,
 	.o-video__info-description {
 		margin: 10px 0;
@@ -43,8 +49,9 @@
 	}
 }
 
-@if $o-video-is-silent == false {
-
+/// @access private
+/// Outputs base styling for video information
+@mixin _oVideoInfo($sizes) {
 	.o-video__info {
 		position: absolute;
 		top: 0;
@@ -66,9 +73,7 @@
 		background-color: oColorsGetPaletteColor('claret');
 		color: oColorsGetPaletteColor('white');
 		&:empty {
-			// sass-lint:disable no-important
-			display: none !important;
-			// sass-lint:enable no-important
+			display: none !important;// sass-lint:disable-line no-important
 		}
 	}
 
@@ -77,16 +82,21 @@
 		line-height: 18px;
 	}
 
-	.o-video--small {
-		@include oVideoInfoSmall();
+	@if index($sizes, 'small') {
+		.o-video--small {
+			@include _oVideoInfoSmall();
+		}
 	}
 
-	.o-video--medium {
-		@include oVideoInfoMedium();
+	@if index($sizes, 'medium') {
+		.o-video--medium {
+			@include _oVideoInfoMedium();
+		}
 	}
 
-	.o-video--large {
-		@include oVideoInfoLarge();
+	@if index($sizes, 'large') {
+		.o-video--large {
+			@include _oVideoInfoLarge();
+		}
 	}
-
 }

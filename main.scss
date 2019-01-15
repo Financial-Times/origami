@@ -1,48 +1,45 @@
 $o-video-is-silent: true !default;
 
-@import "o-icons/main";
 @import "o-colors/main";
+@import "o-icons/main";
 @import "o-loading/main";
+@import "o-normalise/main";
 @import "o-typography/main";
 
-@import "src/scss/placeholder";
-@import "src/scss/info";
 @import "src/scss/ads";
+@import "src/scss/base";
+@import "src/scss/info";
+@import "src/scss/placeholder";
+
+
+/// @access public
+/// @param {Map} $opts - ['attributes': ('ads', 'info', 'placeholder'), 	'sizes': ('small', 'medium', 'large')]
+/// Outputs all video styles
+@mixin oVideo($opts: (
+	'attributes': ('ads', 'info', 'placeholder'),
+	'sizes': ('small', 'medium', 'large')
+)) {
+	$attributes: map-get($opts, 'attributes');
+	$sizes: map-get($opts, 'sizes');
+
+	@include _oVideoBase();
+
+	@if index($attributes, 'ads') {
+		@include _oVideoAds();
+	}
+
+	@if index($attributes, 'placeholder') {
+		@include _oVideoPlaceholder();
+	}
+
+	@if index($attributes, 'info') {
+		@include _oVideoInfo($sizes);
+	}
+}
 
 @if $o-video-is-silent == false {
 
-	.o-video {
-		position: relative;
-		width: 100%;
-		height: 100%;
-
-		&:before {
-			content: '';
-			display: block;
-			width: 100%;
-			padding: 56.25% 0 0;
-		}
-	}
-
-	.o-video__video {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.o-video__live-region {
-		position: absolute;
-		clip: rect(0 0 0 0);
-		margin: -1px;
-		border: 0;
-		overflow: hidden;
-		padding: 0;
-		width: 1px;
-		height: 1px;
-		white-space: nowrap;
-	}
+	@include oVideo()
 
 	$o-video-is-silent: true !global;
 }

@@ -2,15 +2,64 @@
 
 Creates a video player and attaches analytics. Also supports pre roll ads.
 
-## Usage
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
+	- [Config](#config)
+	- [With a playlist](#with-a-playlist)
+- [Testing](#testing)
+- [Migration](#migration)
+- [Contact](#contact)
+- [License](#license)
 
-Create an element of the format e.g.
+## Markup
 
 ```html
-<div data-o-component="o-video o-video--large"></div>
+<div class="o-video" data-o-component="o-video"></div>
 ```
 
-In JS
+Videos can be styled in three different sizes, namely 'small', 'medium' and 'large', which can be added to the element as class modifiers, e.g.
+
+```html
+<div class="o-video o-video--large" data-o-component="o-video"></div>
+```
+
+## Sass
+
+In order to output every size and attribute of `o-video`, you'll need to include the following:
+
+```scss
+@import 'o-video/main';
+
+@include oVideo();
+```
+
+You can be more selective about which sizes and attributes you would like to output, by using an `$opts` map. It accepts the following lists:
+
+**attributes**
+- `'ads'`
+- `'info'`
+- `'placeholder'`
+
+**sizes**
+- `'small'`
+- `'medium'`
+- `'large'`
+
+```scss
+@import 'o-video';
+
+@include oVideo($opts:(
+	'attributes': ('ads'),
+	'sizes': ('small', 'large')
+))
+
+// outputs small and large video styles, and styling support for ads
+```
+
+## JavaScript
+
+In order to initialise `o-video`, you will need the following:
 
 ```js
 const OVideo = require('o-video');
@@ -79,80 +128,20 @@ $ npm test
 Requires Firefox (v38.0.0 to test with polyfills and mirror CircleCI)
 
 
-## Migration Guide
+## Migration
 
-Migrating from 3.0 to 4.0
--------------------------
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained| 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.4 | N/A |
 
-Version 4 introduces the new majors of o-colors, o-loading, and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors, o-loading, or o-typography. There are no other breaking changes in this release.
+## Contact
 
-Migrating from 2.0 to 3.0
--------------------------
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-loading/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-The `videoSource` and `captionsUrl` options no longer exist. Captions can be toggled on or off by using the `showCaptions` boolean. This defaults to `true`, so if the video data (now gotten from the [next-media-api](https://github.com/Financial-Times/next-media-api)) contains captions, then the component will present them to the user.
+## Licence
 
-Since 3.0, if `showCaptions` is *true*, calling `addVideo()` directly will throw an error. This is due to the fact the component needs to source the `captionsUrl` first. Either leave `autorender` as *true* or call `init()` instead.
-
-In the previous version, the call to the API could be skipped by using the `data` option, passing in a response from `next-video-api`. This option can still be used, but the data will now need to match a `next-media-api` response – [see an example](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526).
-
-```diff
-<div class="video-container">
-	<div class="o-video" data-o-component="o-video"
--		data-o-video-source="Brightcove"
-		data-o-component="o-video"
-		data-o-video-id="4165329773001"
-		data-o-video-advertising="true"
-		data-o-video-placeholder="true"
-- 		data-o-video-captions-url="http://www.path.to/captions.vtt"
-+ 		data-o-video-show-captions="true"
-	></div>
-</div>
-```
-
-Migrating from 1.0 to 2.0
--------------------------
-
-### Configuration
-
-The `placeholdertitle` property no longer exists, it has been replaced by `placeholder-info` which accepts an array containing one or more of `'title'`, `'description'`, `'brand'`.
-
-```diff
-<div class="video-container">
-	<div class="o-video" data-o-component="o-video"
-		data-o-video-source="Brightcove"
-		data-o-component="o-video"
-		data-o-video-id="4165329773001"
-		data-o-video-advertising="true"
-		data-o-video-placeholder="true"
-- 		data-o-video-placeholdertitle="true"
-+ 		data-o-video-placeholder-info="['title']"
-	></div>
-</div>
-```
-
-The `optimumwidth` property is no longer used for the video width, it is now only used for the poster image width. To choose an optimum video width you can use the new property `optimumvideowidth`.
-
-
-```diff
-<div class="video-container">
-	<div class="o-video" data-o-component="o-video"
-		data-o-video-source="Brightcove"
-		data-o-component="o-video"
-		data-o-video-id="4165329773001"
-		data-o-video-advertising="true"
-		data-o-video-placeholder="true"
-		data-o-video-placeholder-info="['title']"
-		data-o-video-optimumwidth="400"
-+ 		data-o-video-optimumvideowidth="400"
-	></div>
-</div>
-```
-
-### Sass
-
-The silent flag `_o-video_applied` variable has been renamed to `o-video-is-silent` and has had it's default value changed from `false` to `true`. If you want to include the component with the styles please look at the code diff below.
-
-```diff
-+ $o-video-is-silent: false;
-@import 'o-video/main';
-```
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).

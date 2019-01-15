@@ -1,7 +1,6 @@
 /* global fetch */
 import oViewport from 'o-viewport';
 
-import crossDomainFetch from 'o-fetch-jsonp';
 import getRendition from './helpers/get-rendition';
 import VideoAds from './ads';
 import VideoInfo from './info';
@@ -174,7 +173,7 @@ class Video {
 	getData() {
 		const dataPromise = this.opts.data ?
 			Promise.resolve(this.opts.data) :
-			crossDomainFetch(`https://next-media-api.ft.com/v1/${this.opts.id}`)
+			fetch(`https://next-media-api.ft.com/v1/${this.opts.id}`)
 				.then(response => {
 					if (response.ok) {
 						return response.json();
