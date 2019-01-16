@@ -1,4 +1,4 @@
-# Origami Tracking component
+# Origami Tracking component [![CircleCI](https://circleci.com/gh/Financial-Times/o-tracking.svg?style=svg&circle-token=bac74d66190dbd699381ab25baab148fb3bb010c)](https://circleci.com/gh/Financial-Times/o-tracking) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This module should be included on your product to make sending tracking requests to the Spoor API easy.
 
