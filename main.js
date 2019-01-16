@@ -71,15 +71,34 @@ Tracking.prototype.toString = function() {
 	return 'oTracking version ' + version;
 };
 
+/**
+ * Track a custom event.
+ * @see {@link event}
+ */
 Tracking.prototype.event = require('./src/javascript/events/custom');
 
+/**
+ * Make the page tracking request.
+ * @see {@link page}
+ */
 Tracking.prototype.page = require('./src/javascript/events/page-view');
 
+/**
+ * To initalise click events.
+ * @see {@link click#init}
+ */
 Tracking.prototype.click = require('./src/javascript/events/click');
 
-// Previously, the click handler was initialised as "link"
+/**
+ * Previously, the click handler was initialised as "link".
+ * @deprecated Use {@link Tracking#click} instead.
+ */
 Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') }; // eslint-disable-line no-unused-vars
 
+/**
+ * Tracking utilities.
+ * @see {@link utils}
+ */
 Tracking.prototype.utils = require('./src/javascript/utils');
 
 /**

@@ -206,6 +206,14 @@ const runQueue = _ => {
 };
 /*eslint-enable no-unused-vars*/
 
+/**
+ * Listen for click events.
+ *
+ * @alias click#init
+ * @param {String} category - The event category for clicks.
+ * @param {String} elementsToTrack - A query selector string to select elements to track links on {@link https://github.com/ftlabs/ftdomdelegate#selector-string}.
+ * @return {undefined}
+ */
 const init = (category, elementsToTrack) => {
 	elementsToTrack = elementsToTrack || 'a, button, input, [role="button"]'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
 

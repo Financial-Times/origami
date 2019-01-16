@@ -214,6 +214,11 @@ function getValueFromJsVariable(str) {
 	return test !== '' ? test : null;
 }
 
+
+/**
+ * Utilities.
+ * @alias utils
+ */
 module.exports = {
 	log: log,
 	is: is,
