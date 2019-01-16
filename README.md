@@ -1,6 +1,6 @@
 # Origami Tracking component
 
-Include in your product to requests to the Spoor API.
+Include in your product to send tracking requests to the Spoor API.
 
 ## The Spoor ecosystem
 ![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
