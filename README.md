@@ -256,4 +256,4 @@ For example:
 
 [Look at all the properties](docs/event.md) available for an event.
 
-[JSDoc](https://registry.origami.ft.com/components/o-tracking@1.4.1/#Tracking)
+[JSDoc](https://registry.origami.ft.com/components/o-tracking/jsdoc#Tracking)
