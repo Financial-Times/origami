@@ -18,7 +18,7 @@
 /// @brand master
 @mixin oTypographyBigNumber {
 	@include oTypographySansBold($scale: 10);
-	@include oColorsFor('o-typography-body');
+	color: oColorsGetColorFor('body', 'text');
 }
 
 /// Styles for collection headers including
@@ -27,9 +27,9 @@
 @mixin oTypographyCollectionHeader {
 	@include oTypographySans($scale: 3);
 	@include oTypographyPadding($top: 2);
-	@include oColorsFor('o-typography-headline');
 	position: relative;
 	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 5);
+	color: oColorsGetColorFor('body', 'text');
 
 	&:before {
 		content: '';

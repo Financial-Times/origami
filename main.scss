@@ -1,193 +1,260 @@
-////
-/// @group general
-/// @link http://registry.origami.ft.com/components/o-typography
-////
-
 @import 'o-grid/main';
 @import 'o-fonts/main';
 @import 'o-colors/main';
 @import 'o-icons/main';
 
+@import 'src/scss/brand';
 @import 'src/scss/variables';
-@import 'src/scss/color-use-cases';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
-
 @import 'src/scss/type-mixins';
-
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/product-headings';
 @import 'src/scss/use-cases/article';
 @import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
+@import 'src/scss/deprecated';
 
-
-@if $o-typography-is-silent == false {
+/// Output all default typography styles.
+@mixin oTypography($opts: (
+	'headings',
+	'wrapper',
+	'product-headings',
+	'product-wrapper',
+	'article',
+	'collection',
+	'big-number',
+	'read-next',
+	'body',
+	'links',
+	'lists',
+	'caption',
+	'footer',
+	'blockquote',
+	'utilities',
+)) {
+	$wrapper-enabled: index($opts, 'wrapper');
+	$product-wrapper-enabled: index($opts, 'product-wrapper');
+	$product-headings-enabled: index($opts, 'product-headings');
+	$article-enabled: index($opts, 'article');
+	$collection-enabled: index($opts, 'collection');
+	$big-number-enabled: index($opts, 'big-number');
+	$read-next-enabled: index($opts, 'read-next');
+	$headings-enabled: index($opts, 'headings');
+	$body-enabled: index($opts, 'body');
+	$links-enabled: index($opts, 'links');
+	$lists-enabled: index($opts, 'lists');
+	$caption-enabled: index($opts, 'caption');
+	$footer-enabled: index($opts, 'footer');
+	$blockquote-enabled: index($opts, 'blockquote');
+	$utilities-enabled: index($opts, 'utilities');
 
 	@if $o-typography-load-fonts == true {
-		@include oFontsIncludeAll();
+		@include oFonts();
 	}
 
 	// Headings
-	.o-typography-headline,
-	.o-typography-heading-level-1 {
-		@include oTypographyHeadline;
+	@if $headings-enabled {
+		@if _oTypographySupports('heading-level-one-large') {
+			.o-typography-headline--large,
+			.o-typography-heading-level-1--large {
+				@include oTypographyHeadlineLarge;
+			}
+		}
+
+		.o-typography-headline,
+		.o-typography-heading-level-1 {
+			@include oTypographyHeadingLevel1;
+		}
+
+		.o-typography-heading-level-2 {
+			@include oTypographyHeadingLevel2;
+		}
+
+		.o-typography-heading-level-3 {
+			@include oTypographyHeadingLevel3;
+		}
+
+		.o-typography-heading-level-4 {
+			@include oTypographyHeadingLevel4;
+		}
+
+		.o-typography-heading-level-5 {
+			@include oTypographyHeadingLevel5;
+		}
+
+		@if _oTypographySupports('heading-level-six') {
+			.o-typography-heading-level-6 {
+				@include oTypographyHeadingLevel6;
+			}
+		}
 	}
 
-	.o-typography-headline--large,
-	.o-typography-heading-level-1--large {
-		@include oTypographyHeadlineLarge;
+
+	// Product Headings - non-article headings for the master brand.
+	@if $product-headings-enabled and _oTypographySupports('product-headings') {
+		.o-typography-product-heading-level-1 {
+			@include oTypographyProductHeadingLevel1;
+		}
+
+		.o-typography-product-heading-level-2 {
+			@include oTypographyProductHeadingLevel2;
+		}
+
+		.o-typography-product-heading-level-3 {
+			@include oTypographyProductHeadingLevel3;
+		}
+
+		.o-typography-product-heading-level-4 {
+			@include oTypographyProductHeadingLevel4;
+		}
+
+		.o-typography-product-heading-level-5 {
+			@include oTypographyProductHeadingLevel5;
+		}
+
+		.o-typography-product-heading-level-6 {
+			@include oTypographyProductHeadingLevel6;
+		}
+
+		.o-typography-product-heading-level-7 {
+			@include oTypographyProductHeadingLevel7;
+		}
+
+		.o-typography-product-heading-level-8 {
+			@include oTypographyProductHeadingLevel8;
+		}
+
+		.o-typography-product-heading-level-7--thin-rule {
+			@include oTypographyProductHeadingLevel7;
+			border-top: 1px solid oColorsGetPaletteColor('black-30');
+			padding-top: oTypographySpacingSize(3);
+			margin-bottom: oTypographySpacingSize(1);
+		}
 	}
 
-	.o-typography-heading-level-2 {
-		@include oTypographyHeadingLevel2;
+	// Body, Links, Lists, etc.
+	@if $utilities-enabled {
+		.o-typography-bold {
+			@include oTypographyBold;
+		}
+
+		.o-typography-italic {
+			@include oTypographyItalic;
+		}
+
+		.o-typography-sup {
+			@include oTypographySuper;
+		}
+
+		.o-typography-sub {
+			@include oTypographySub;
+		}
 	}
 
-	.o-typography-heading-level-3 {
-		@include oTypographyHeadingLevel3;
+	@if $body-enabled {
+		.o-typography-body {
+			@include oTypographyBody;
+		}
 	}
 
-	.o-typography-heading-level-4 {
-		@include oTypographyHeadingLevel4;
+	@if $links-enabled {
+		.o-typography-link {
+			@include oTypographyLink;
+		}
+
+		.o-typography-link--external {
+			@include oTypographyLinkExternal;
+		}
 	}
 
-	.o-typography-heading-level-5 {
-		@include oTypographyHeadingLevel5;
+	@if $caption-enabled {
+		.o-typography-caption {
+			@include oTypographyCaption;
+		}
 	}
 
-	.o-typography-read-next {
-		@include oTypographyReadNext;
+	@if $lists-enabled {
+		.o-typography-list {
+			@include oTypographyList;
+		}
+
+		.o-typography-list--ordered {
+			@include oTypographyListOrdered;
+		}
+
+		.o-typography-list--unordered {
+			@include oTypographyListUnordered;
+		}
 	}
 
-	.o-typography-collection-heading {
-		@include oTypographyCollectionHeader;
+	@if $footer-enabled {
+		.o-typography-footer {
+			@include oTypographyFooter;
+		}
 	}
 
-	// Product Headings
-
-	.o-typography-product-heading-level-1 {
-		@include oTypographyProductHeadingLevel1;
+	@if $blockquote-enabled {
+		.o-typography-blockquote {
+			@include oTypographyBlockquote;
+		}
 	}
 
-	.o-typography-product-heading-level-2 {
-		@include oTypographyProductHeadingLevel2;
+	@if $article-enabled and _oTypographySupports('article') {
+		.o-typography-topic {
+			@include oTypographyTopic;
+		}
+
+		.o-typography-author {
+			@include oTypographyAuthor;
+		}
+
+		.o-typography-standfirst {
+			@include oTypographyStandfirst;
+		}
+
+		.o-typography-timestamp {
+			@include oTypographyTimestamp;
+		}
 	}
 
-	.o-typography-product-heading-level-3 {
-		@include oTypographyProductHeadingLevel3;
+	@if $collection-enabled and _oTypographySupports('collection') {
+		.o-typography-collection-heading {
+			@include oTypographyCollectionHeader;
+		}
 	}
 
-	.o-typography-product-heading-level-4 {
-		@include oTypographyProductHeadingLevel4;
+	@if $big-number-enabled and _oTypographySupports('big-number') {
+		.o-typography-big-number {
+			@include oTypographyBigNumber;
+		}
 	}
 
-	.o-typography-product-heading-level-5 {
-		@include oTypographyProductHeadingLevel5;
+	@if $read-next-enabled and _oTypographySupports('read-next') {
+		.o-typography-read-next {
+			@include oTypographyReadNext;
+		}
 	}
 
-	.o-typography-product-heading-level-6 {
-		@include oTypographyProductHeadingLevel6;
+	// Wrapper
+	@if $wrapper-enabled {
+		.o-typography-wrapper {
+			@include oTypographyWrapper;
+		}
 	}
 
-	.o-typography-product-heading-level-7 {
-		@include oTypographyProductHeadingLevel7;
+	// Product Wrapper - non-article styles for the master brand.
+	@if $product-wrapper-enabled and _oTypographySupports('product-wrapper') {
+		.o-typography-wrapper--product {
+			@include oTypographyWrapper($style: product);
+		}
 	}
+}
 
-	.o-typography-product-heading-level-8 {
-		@include oTypographyProductHeadingLevel8;
-	}
-
-	.o-typography-product-heading-level-7--thin-rule {
-		@include oTypographyProductHeadingLevel7;
-		border-top: 1px solid oColorsGetPaletteColor('black-30');
-		padding-top: oTypographySpacingSize(3);
-		margin-bottom: oTypographySpacingSize(1);
-	}
-
-	// Body copy - common
-	.o-typography-bold {
-		@include oTypographyBold;
-	}
-
-	.o-typography-italic {
-		@include oTypographyItalic;
-	}
-
-	.o-typography-sup {
-		@include oTypographySuper;
-	}
-	.o-typography-sub {
-		@include oTypographySub;
-	}
-
-	.o-typography-link {
-		@include oTypographyLink;
-	}
-
-	.o-typography-link--external {
-		@include oTypographyLinkExternal;
-	}
-
-	.o-typography-caption {
-		@include oTypographyCaption;
-	}
-
-	.o-typography-topic {
-		@include oTypographyTopic;
-	}
-
-	.o-typography-author {
-		@include oTypographyAuthor;
-	}
-
-	.o-typography-body {
-		@include oTypographyBody;
-	}
-
-	.o-typography-standfirst {
-		@include oTypographyStandfirst;
-	}
-
-	.o-typography-list {
-		@include oTypographyList;
-	}
-
-	.o-typography-list--ordered {
-		@include oTypographyListOrdered;
-	}
-
-	.o-typography-list--unordered {
-		@include oTypographyListUnordered;
-	}
-
-	.o-typography-footer {
-		@include oTypographyFooter;
-	}
-
-	.o-typography-blockquote {
-		@include oTypographyBlockquote;
-	}
-
-	.o-typography-big-number {
-		@include oTypographyBigNumber;
-	}
-
-	// Timestamps usecase
-	.o-typography-timestamp {
-		@include oTypographyTimestamp;
-	}
-
-	// Body wrapper
-	.o-typography-wrapper {
-		@include oTypographyWrapper;
-	}
-
-	// Body wrapper for non-article related products
-	.o-typography-wrapper--product {
-		@include oTypographyWrapper($style: product);
-	}
-
+// So the build service can output all typography styles.
+@if $o-typography-is-silent == false {
+	@include oTypography();
 	// Don't output twice
 	$o-typography-is-silent: true !global;
 }

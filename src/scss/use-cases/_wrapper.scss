@@ -5,70 +5,59 @@
 
 /// General typography
 /// Apply to a wrapper to style all text inside it
-///
+/// @breaking Remove 'style' param, default to product headings, move article headings out of o-typography.
+/// @example scss
+///     article { @include oTypographyWrapper; }
 /// @brand master
 /// @param {String} $style will change the headings in a body that is not an article
-/// @example scss
-/// article { @include oTypographyWrapper; }
-/// non-article { @include oTypographyWrapper($style: product); }
 @mixin oTypographyWrapper($style: article) {
-	@if $style == article {
+
+	// Only master brand supports product and article header styles.
+	@if _oTypographySupports('article') and $style != article {
 		h1 {
-			// Article headline
-			@include oTypographyHeadline;
-		}
-
-		h2 {
-			// In article body subheads
-			@include oTypographyHeadingLevel2;
-		}
-
-		h3 {
-			// Headings for complementary sections / asides
-			@include oTypographyHeadingLevel3;
-		}
-
-		h4 {
-			// Headlines for other articles referenced
-			@include oTypographyHeadingLevel4;
-		}
-
-		h5 {
-			// Headlines for other articles referenced
-			@include oTypographyHeadingLevel5;
-		}
-	} @else {
-		h1 {
-			// Non-article headline
 			@include oTypographyProductHeadingLevel1;
 		}
 
 		h2 {
-			// Non-article headings
 			@include oTypographyProductHeadingLevel2;
 		}
 
 		h3 {
-			// Non-article headings for complementary sections / asides
 			@include oTypographyProductHeadingLevel3;
 		}
 
 		h4 {
-			// Non-article headlines for other references
 			@include oTypographyProductHeadingLevel4;
 		}
 
 		h5 {
-			// Non-article headlines for other references
 			@include oTypographyProductHeadingLevel5;
 		}
 
 		h6 {
-			// Non-article headlines for other references
 			@include oTypographyProductHeadingLevel6;
 		}
-	}
+	} @else {
+		h1 {
+			@include oTypographyHeadingLevel1;
+		}
 
+		h2 {
+			@include oTypographyHeadingLevel2;
+		}
+
+		h3 {
+			@include oTypographyHeadingLevel3;
+		}
+
+		h4 {
+			@include oTypographyHeadingLevel4;
+		}
+
+		h5 {
+			@include oTypographyHeadingLevel5;
+		}
+	}
 
 	a {
 		@include oTypographyLink;

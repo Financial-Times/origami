@@ -1,0 +1,186 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTypographyGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-typography', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTypographySupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-typography', $variant: $variant);
+}
+
+// Register Georgia font and allowed variants with `o-fonts`.
+// Shared by all brands.
+@include oFontsDefineCustomFont('Georgia, serif', (
+    (weight: regular, style: normal),
+    (weight: regular, style: italic),
+    (weight: bold, style: normal),
+    (weight: bold, style: italic)
+));
+
+@if oBrandGetCurrentBrand() == 'master' {
+    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
+
+    @include oBrandDefine('o-typography', 'master', (
+        'variables': (
+            'author-color': oColorsGetColorFor('body', 'text'),
+            'author-hover-color': oColorsGetPaletteColor('claret'),
+            'blockquote-color': oColorsGetPaletteColor('claret'),
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'heading-level-one-large': (
+                'font-type': 'display',
+                'weight': 'bold',
+                'bottom-spacing-size': 7,
+                'scale': 5,
+                'scale-s': 6,
+                'scale-l': 7,
+            ),
+            'heading-level-one': (
+                'font-type': 'display',
+                'scale': 4,
+                'scale-s': 5,
+                'scale-l': 6,
+            ),
+            'heading-level-two': (
+                'weight': 'semibold',
+                'scale': 4
+            ),
+            'heading-level-three': (
+                'scale': 4
+            ),
+            'heading-level-four': (
+                'scale': 3
+            ),
+            'heading-level-five': (
+                'scale': 0,
+                'text-transform': uppercase,
+                'letter-spacing': 0.5px
+            ),
+            'body': (
+                'font-type': 'serif',
+                'bottom-spacing-size': 7,
+                'custom-line-height': 28px,
+            )
+        ),
+        'supports-variants': (
+            'article',
+            'product-wrapper',
+            'product-headings',
+            'collection',
+            'big-number',
+            'read-next',
+            'heading-level-one-large'
+        )
+    ));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-display: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+
+    @include oBrandDefine('o-typography', 'internal', (
+        'variables': (
+            'blockquote-color': oColorsGetColorFor(body, text),
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'heading-level-one': (
+                'scale': 5,
+                'weight': 'semibold'
+            ),
+            'heading-level-two': (
+                'scale': 5
+            ),
+            'heading-level-three': (
+                'scale': 4,
+                'weight': 'semibold'
+            ),
+            'heading-level-four': (
+                'scale': 4
+            ),
+            'heading-level-five': (
+                'scale': 3,
+                'weight': 'semibold'
+            ),
+            'heading-level-six': (
+                'scale': 2,
+                'weight': 'semibold'
+            ),
+            'body': (
+                'bottom-spacing-size': 7,
+            )
+        ),
+        'supports-variants': (
+            'product-wrapper', //@deprecated, replaced by standard headings and wrapper.
+            'product-headings', //@deprecated, replaced by standard headings and wrapper.
+            'heading-level-six'
+        )
+    ));
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+    // Register Arial font with `o-fonts`.
+    @include oFontsDefineCustomFont('Arial, sans', (
+        (weight: regular, style: normal),
+        (weight: regular, style: italic),
+        (weight: semibold, style: normal),
+        (weight: bold, style: normal),
+        (weight: semibold, style: italic),
+        (weight: bold, style: italic)
+    ));
+
+    $o-typography-sans: 'Arial, sans' !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-display: 'Arial, sans' !default!global;
+
+    // Other components may get values from the scale map and assume a px value.
+    // Therefore we must set a line height of px value.
+    // @breaking Allow scale to have `null` line-heights, for the default browser line height.
+    $o-typography-font-scale: (
+       -2: (12, (12 * 1.2)),
+       -1: (14, (14 * 1.2)),
+        0: (16, (16 * 1.2)),
+        1: (18, (18 * 1.2)),
+        2: (20, (20 * 1.2)),
+        3: (24, (24 * 1.2)),
+        4: (28, (28 * 1.2)),
+        5: (32, (32 * 1.2)),
+        6: (40, (40 * 1.2)),
+        7: (48, (48 * 1.2)),
+        8: (56, (56 * 1.2)),
+        9: (72, (72 * 1.2)),
+       10: (84, (84 * 1.2)),
+    ) !default!global;
+
+    @include oBrandDefine('o-typography', 'whitelabel', (
+        'variables': (
+            'blockquote-color': oColorsGetPaletteColor('black'),
+            'heading-level-one': (
+                'scale': 6,
+            ),
+            'heading-level-two': (
+                'scale': 5
+            ),
+            'heading-level-three': (
+                'scale': 4
+            ),
+            'heading-level-four': (
+                'scale': 3
+            ),
+            'heading-level-five': (
+                'scale': 2
+            ),
+            'heading-level-six': (
+                'scale': 1
+            ),
+            'body': (
+                'bottom-spacing-size': 7,
+            )
+        ),
+        'supports-variants': (
+            'heading-level-six'
+        )
+    ));
+}

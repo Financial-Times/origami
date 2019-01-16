@@ -5,7 +5,6 @@ $o-typography-is-silent: false;
 html {
 	@include oColorsFor(page);
 	overflow-y: scroll;
-	font-family: $o-typography-sans;
 }
 
 .demo {
@@ -21,37 +20,27 @@ html {
 }
 
 .type-scale {
-	margin-bottom: 8px;
 	white-space: nowrap;
 	overflow: hidden;
 
-	&__label {
+	.type-scale__label {
 		@include oTypographySans(1);
 		color: oColorsGetPaletteColor('black-60');
 		display: inline-block;
-		width: 20px;
-		padding-left: 5px;
-		padding-right: 10px;
+		min-width: 1ch;
+		padding: 0 1em;
 	}
 
-	&__example {
-		margin-bottom: 12px;
+	.type-scale__example {
 		white-space: nowrap;
 		overflow: hidden;
 	}
 
 	@each $scale, $values in $o-typography-font-scale {
-		&__example-#{$scale} {
+		.type-scale__example-#{$scale} {
 			@include oTypographyDisplay($scale);
 		}
 	}
-}
-
-.o-typography-link--custom {
-	@include oTypographyLinkCustom(
-		$baseColor: 'claret',
-		$hoverColor: 'claret-30'
-	);
 }
 
 .line-width-demo {
@@ -62,26 +51,10 @@ html {
 		margin: 20px;
 	}
 
-	.scale {
-		&--1 {
-			@include oTypographySans(-1);
-			max-width: oTypographyMaxLineWidth(-1);
-		}
-		&--2 {
-			@include oTypographySans(-2);
-			max-width: oTypographyMaxLineWidth(-2);
-		}
-		&-0 {
-			@include oTypographySans(0);
-			max-width: oTypographyMaxLineWidth(0);
-		}
-		&-1 {
-			@include oTypographySans(1);
-			max-width: oTypographyMaxLineWidth(1);
-		}
-		&-2 {
-			@include oTypographySans(2);
-			max-width: oTypographyMaxLineWidth(2);
+	@each $scale, $values in $o-typography-font-scale {
+		.scale-#{$scale} {
+			@include oTypographySans($scale);
+			max-width: oTypographyMaxLineWidth($scale);
 		}
 	}
 }

@@ -1,0 +1,17 @@
+@include oColorsSetUseCase(o-typography-timestamp, text, 'black-60');
+@include oColorsSetUseCase(o-typography-timestamp, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-headline, text, 'black-80');
+@include oColorsSetUseCase(o-typography-headline, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-body, text, 'black-80');
+@include oColorsSetUseCase(o-typography-body, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-standfirst, text, 'black-60');
+@include oColorsSetUseCase(o-typography-standfirst, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-caption, text, 'black-80');
+@include oColorsSetUseCase(o-typography-caption, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-list-prefix, text, 'black-80');
+@include oColorsSetUseCase(o-typography-list-prefix, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-blockquote, border, 'claret');
+@include oColorsSetUseCase(o-typography-author, text, 'black-80');
+@include oColorsSetUseCase(o-typography-author, _deprecated, 'Please contact Origami if you need this usecase.');
+@include oColorsSetUseCase(o-typography-author-hover, text, 'claret');
+@include oColorsSetUseCase(o-typography-author-hover, _deprecated, 'Please contact Origami if you need this usecase.');

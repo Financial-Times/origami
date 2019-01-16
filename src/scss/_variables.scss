@@ -1,27 +1,36 @@
-////
-/// @group o-typography
-/// @link http://registry.origami.ft.com/components/o-typography
-////
-
 /// When silent mode is active, css classes will not be output
 /// @type Bool
 $o-typography-is-silent: true !default;
+
+/// Use relative units (rem) or not (px) when outputting typographic styles.
+/// When `true`, the user will be able to modify their font size using browser settings.
+///
+/// For legacy reasons, this defaults to `false` (outputs px units).
+/// Components and projects may need to be updated to support relative units.
+/// @type Bool
+$o-typography-relative-units: false !default;
 
 /// When true, webfonts will be downloaded
 /// @type Bool
 $o-typography-load-fonts: true !default;
 
 /// Sans font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-band.scss' where default typography variables are set.
 /// @type String
-$o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+$o-typography-sans: '' !default;
 
 /// Serif font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-brand.scss' where default typography variables are set.
 /// @type String
-$o-typography-serif: Georgia, serif !default;
+$o-typography-serif: '' !default;
 
 /// Display font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-brand.scss' where default typography variables are set.
 /// @type String
-$o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
+$o-typography-display: '' !default;
 
 /// Unitless size representing the baseline grid
 /// @type Number
@@ -31,7 +40,10 @@ $o-typography-baseline-unit: 4;
 /// @type String
 $o-typography-loading-prefix: 'o-typography--loading' !default;
 
-/// Scale of font-sizes and line-heights for all font-families
+/// The default font scale of font-sizes and line-heights.
+/// For backward compatibility this scale is used by default when a scale is needed but the font family is not known.
+/// @see $_o-typography-font-scale-by-font
+/// @see '_o-brand.scss' where this default scale is updated by the whitelabel brand
 /// @type Map
 $o-typography-font-scale: (
    -2: (12, 16),
@@ -47,39 +59,47 @@ $o-typography-font-scale: (
     8: (56, 56),
     9: (72, 72),
    10: (84, 84),
-);
+) !default;
 
-/// Configuration for fallback fonts when loading
-/// fonts progressively
+/// The "types" of fonts o-typography supports.
+/// @access private
+$_o-typography-types: ('sans', 'serif', 'display');
+
+/// Font scale of font-sizes and line-heights.
+/// Currently the default scale `$o-typography-font-scale` is used for all fonts and brands,
+/// but branded products may choose to define their own scale on a per font basis.
+/// @access private
+/// @see oTypographyDefineFontScale
+/// @type Map
+$_o-typography-font-scale-by-font: () !default;
+
+/// Configuration for fallback fonts when loading fonts progressively.
+/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb fonts.
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
-	sans: (
-		font: $o-typography-sans,
+	(
+		label: 'sans',
+		family: 'MetricWeb',
 		fallback: sans-serif,
 		fallback-scale: 0.87
 	),
-	sansBold: (
-		font: $o-typography-sans,
+	(
+		label: 'sansBold',
+		family: 'MetricWeb',
+		weight: ('bold', 'semibold'),
 		fallback: sans-serif,
 		fallback-scale: 0.83
 	),
-	sansItalic: (
-		font: $o-typography-sans,
-		fallback: sans-serif,
-		fallback-scale: 0.87
-	),
-	display: (
-		font: $o-typography-display,
+	(
+		label: 'display',
+		family: 'FinancierDisplayWeb',
 		fallback: serif,
 		fallback-scale: 0.9
 	),
-	displayBold: (
-		font: $o-typography-display,
-		fallback: serif,
-		fallback-scale: 0.9
-	),
-	displayItalic: (
-		font: $o-typography-display,
+	(
+		label: 'displayBold',
+		family: 'FinancierDisplayWeb',
+		weight: bold,
 		fallback: serif,
 		fallback-scale: 0.9
 	)

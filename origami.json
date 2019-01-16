@@ -8,17 +8,22 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"supportStatus": "active",
 	"browserFeatures": {
 		"optional": [
 			"textshadow"
-			]
+		]
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"dependencies": ["o-grid@^4.0.0"],
-		"documentClasses": "o-typography--loading-serifDisplay o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-serifDisplayBold"
+		"dependencies": ["o-grid@^4.0.0", "o-normalise@^1.0.0"],
+		"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-displayBold"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
@@ -28,46 +33,112 @@
 			"name": "scale",
 			"title": "Scale",
 			"template": "demos/src/scale.mustache",
-			"description": "",
+			"description": "Demonstrates the default typographic scale.",
 			"display_html": false
-		},
-		{
-			"name": "article",
-			"title": "Article",
-			"template": "demos/src/article.mustache",
-			"description": ""
-		},
-		{
-			"name": "headings",
-			"title": "Headings",
-			"template": "demos/src/headings.mustache",
-			"description": ""
-		},
-		{
-			"name": "product-headings",
-			"title": "Product Headings",
-			"template": "demos/src/product-headings.mustache",
-			"description": ""
 		},
 		{
 			"name": "line-width",
 			"title": "Line Width",
 			"template": "demos/src/line-width.mustache",
-			"description": "Demonstrates line widths for different font-sizes"
+			"description": "Demonstrates line width capping for different font-sizes (see the SASS mixin `oTypographyMaxLineWidth`).",
+			"display_html": false
 		},
 		{
-			"name": "all-styles",
-			"title": "All Styles",
-			"template": "demos/src/all-styles.mustache",
-			"description": "",
-			"hidden": true
+			"name": "headings-master",
+			"title": "Headings",
+			"template": "demos/src/headings.mustache",
+			"data": {
+				"headline": true
+			},
+			"brands": [
+				"master"
+			],
+			"description": "Article headings."
 		},
 		{
-			"name": "custom-links",
-			"title": "Custom Links",
-			"template": "demos/src/custom-links.mustache",
-			"description": "",
-			"hidden": true
+			"name": "headings",
+			"title": "Headings",
+			"template": "demos/src/headings.mustache",
+			"data": {
+				"headingLevel6": true
+			},
+			"brands": [
+				"internal",
+				"whitelabel"
+			],
+			"description": "Headings."
+		},
+		{
+			"name": "product-headings",
+			"title": "Product Headings",
+			"template": "demos/src/product-headings.mustache",
+			"brands": [
+				"master"
+			],
+			"description": "Non-article headings."
+		},
+		{
+			"name": "body",
+			"title": "Body",
+			"template": "demos/src/body.mustache",
+			"description": ""
+		},
+		{
+			"name": "blockquote",
+			"title": "Blockquote",
+			"template": "demos/src/blockquote.mustache",
+			"description": ""
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"template": "demos/src/footer.mustache",
+			"description": ""
+		},
+		{
+			"name": "caption",
+			"title": "Caption",
+			"template": "demos/src/caption.mustache",
+			"description": ""
+		},
+		{
+			"name": "lists",
+			"title": "Lists",
+			"template": "demos/src/lists.mustache",
+			"description": ""
+		},
+		{
+			"name": "big-number",
+			"title": "Big Number",
+			"template": "demos/src/big-number.mustache",
+			"brands": [
+				"master"
+			],
+			"description": ""
+		},
+		{
+			"name": "read-next",
+			"title": "Read Next",
+			"template": "demos/src/read-next.mustache",
+			"brands": [
+				"master"
+			],
+			"description": ""
+		},
+		{
+			"name": "article",
+			"title": "Article",
+			"template": "demos/src/article.mustache",
+			"brands": [
+				"master"
+			],
+			"description": "This shows article styles such as the collection headings, topic, author name, standfirst, timestamp, and big number."
+		},
+		{
+			"name": "wrapper",
+			"title": "Wrapper",
+			"template": "demos/src/wrapper.mustache",
+			"description": "As an alternative to adding classes to each html element, adding a wrapper class on a parent element will apply typographic styles to child html elements semantically."
 		}
 	]
 }

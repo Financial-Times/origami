@@ -3,20 +3,14 @@
 ///
 /// @param {Bool | Number} $scale [false] - number of the scale to use
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
-/// @param {Bool} $progressive [false] - whether to output progressive font loading styles
-@mixin oTypographySerif($scale: false, $line-height: false, $progressive: false) {
-	font-family: $o-typography-serif;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	// In this mixin $progressive defaults to false for the serif
-	// font because we are using a system font (Georgia).
-	// This will need to change if we move to a webfont for the serif font.
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('serif', $scale);
-	}
+/// @param {Bool} $progressive [true] - whether to output progressive font loading styles
+@mixin oTypographySerif($scale: false, $line-height: false, $progressive: true) {
+	@include _oTypographyFor($o-typography-serif, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, size and line-height, and progressive
@@ -26,15 +20,12 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographyDisplay($scale: false, $line-height: false, $progressive: true) {
-	font-family: $o-typography-display;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('display', $scale);
-	}
+	@include _oTypographyFor($o-typography-display, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, size and line-height, and progressive
@@ -44,15 +35,12 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySans($scale: false, $line-height: false, $progressive: true) {
-	font-family: $o-typography-sans;
-
-	@if $scale {
-		@include oTypographySize($scale, $line-height);
-	}
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('sans', $scale);
-	}
+	@include _oTypographyFor($o-typography-sans, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, bold font-weight, size and line-height, and progressive
@@ -62,12 +50,13 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographyDisplayBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographyDisplay($scale, $line-height, false);
-	@include oTypographyBold('display');
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('displayBold', $scale);
-	}
+	@include _oTypographyFor($o-typography-display, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'weight': 'bold',
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, bold font-weight, size and line-height, and progressive
@@ -77,12 +66,13 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySansBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographySans($scale, $line-height, false);
-	@include oTypographyBold('sans');
-
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('sansBold', $scale);
-	}
+	@include _oTypographyFor($o-typography-sans, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'weight': 'semibold',
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, bold font-weight, size and line-height, and progressive
@@ -92,15 +82,13 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySerifBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographySerif($scale, $line-height, false);
-	@include oTypographyBold('serif');
-
-	// In this mixin $progressive defaults to false for the serif
-	// font because we are using a system font (Georgia).
-	// This will need to change if we move to a webfont for the serif font.
-	@if $progressive {
-		@include oTypographyProgressiveFontFallback('serifBold', $scale);
-	}
+	@include _oTypographyFor($o-typography-serif, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'weight': 'bold',
+		'progressive': $progressive
+	));
 }
 
 /// Outputs font-family, italic font-style, size and line-height, and progressive
@@ -110,13 +98,55 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySerifItalic($scale: false, $line-height: false, $progressive: true) {
-	@include oTypographySerif($scale, $line-height, false);
-	@include oTypographyItalic();
+	@include _oTypographyFor($o-typography-serif, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height': $line-height,
+		'style': 'italic',
+		'progressive': $progressive
+	));
+}
 
-	// In this mixin $progressive defaults to false for the serif
-	// font because we are using a system font (Georgia).
-	// This will need to change if we move to a webfont for the serif font.
+/// Output a typography for font
+/// @param {String} $font - The font to output typography for.
+/// @param {Map} $opts - What typography styles to output: family (boolean), scale (number -2 - 12), custom-line-height (e.g. 1em), weight (e.g. bold), style (e.g. italic), progressive (boolean).
+/// @access private
+@mixin _oTypographyFor($font, $opts: ()) {
+	// Get options, null default.
+	$family: map-get($opts, 'family');
+	$scale: map-get($opts, 'scale');
+	$custom-line-height: map-get($opts, 'custom-line-height');
+	$weight: map-get($opts, 'weight');
+	$style: map-get($opts, 'style');
+	// Get options, true default.
+	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
+
+	// Check font variant is supported.
+	$font-without-fallbacks: oFontsGetFontFamilyWithoutFallbacks($font);
+	$variant-exists: oFontsVariantExists($font-without-fallbacks, $weight, $style);
+	@if not $variant-exists {
+		@error 'Font family "#{$font-without-fallbacks}" of weight "#{if($weight, $weight, 'regular')}" and style "#{if($style, $style, 'normal')}" is not supported.';
+	}
+
+	@if $family {
+		font-family: if(type-of($font) == 'string', unquote($font), $font);
+	}
+
+	@if $scale {
+		@include oTypographySize($scale: $scale, $line-height: $custom-line-height, $font: $font);
+	} @else if $custom-line-height {
+		line-height: _oTypographyAdjustUnit($custom-line-height);
+	}
+
+	@if $weight  {
+		font-weight: oFontsWeight($weight);
+	}
+
+	@if $style  {
+		font-style: unquote($style);
+	}
+
 	@if $progressive {
-		@include oTypographyProgressiveFontFallback('serifBold', $scale);
+		@include oTypographyProgressiveFontFallback($font, $scale, $weight, $style);
 	}
 }

@@ -1,10 +1,12 @@
 /// Returns a single list on the scale
 ///
-/// @param {Number} $index - number of the scale to return
-///
-/// @returns {List} list of the requested scale value
-@function oTypographyGetScale($index: 0) {
-	@return map-get($o-typography-font-scale, $index);
+/// @param {Number} $index - Number of the scale to return.
+/// @param {String} $font [''] - The font to get the scale number for, as fonts may have different scales. Uses the default scale if not specified.
+/// @returns {List} List of the requested scale value.
+@function oTypographyGetScale($index: 0, $font: '') {
+	$scale: map-get($_o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
+	$scale: if(type-of($scale) == 'map', $scale, $o-typography-font-scale);
+	@return map-get($scale, $index);
 }
 
 /// Returns the font-size value from the scale passed in
@@ -12,11 +14,11 @@
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $font-adjust - multiplier if used as a progressive font
-///
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} size in px
-@function _oTypographyFontSizeFromScale($scale, $font-adjust: 1) {
-	$settings: oTypographyGetScale($scale);
-	@return (nth($settings, 1) * $font-adjust) * 1px;
+@function _oTypographyFontSizeFromScale($scale, $font-adjust: 1, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
+	@return _oTypographyAddUnit(nth($settings, 1) * $font-adjust);
 }
 
 /// Returns the line-height value from the scale passed in or
@@ -24,15 +26,16 @@
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $line-height - size to output if not false
-///
+/// @param {String} $font [''] - The font to get the line height for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} size in px
-@function _oTypographyLineHeightFromScale($scale, $line-height) {
-	$settings: oTypographyGetScale($scale);
+@function _oTypographyLineHeightFromScale($scale, $line-height, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
 
 	@if $line-height {
-		@return $line-height;
+		@return _oTypographyAdjustUnit($line-height);
 	} @else {
-		@return nth($settings, 2) * 1px;
+		$line-height: nth($settings, 2);
+		@return if($line-height, _oTypographyAddUnit($line-height), null);
 	}
 }
 
@@ -40,26 +43,71 @@
 /// passed to the function
 ///
 /// @param {Number} $units [0] - multiple of the baseline unit
-///
 /// @returns {Number} size in px
 @function oTypographySpacingSize($units: 0) {
-	@return ($units * $o-typography-baseline-unit) * 1px;
+	@return _oTypographyAddUnit($units * $o-typography-baseline-unit);
 }
 
 /// Returns a maximum line width based on the given scale
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $optimal-characters-per-line - number of the characters per line
-///
+/// @param {String} $font [''] - The font to get the max line width for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} maximum line width in px
-@function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65) {
-	$settings: oTypographyGetScale($scale);
+@function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
 
-	$font-size: nth($settings, 1) * 1px;
-	$line-height: nth($settings, 2) * 1px;
+	$font-size: _oTypographyAddUnit(nth($settings, 1));
+	$line-height: if(nth($settings, 2), _oTypographyAddUnit(nth($settings, 2)), $font-size);
 
 	$golden-ratio: 1.618;
 	$scale-ratio: ($font-size / $line-height)  + $golden-ratio; //adapts ratio to quirks in oTypography's line-heights
 
 	@return $optimal-characters-per-line * ($font-size / $scale-ratio);
+}
+
+/// Get font family for family style i.e "sans", "serif", or "display".
+///
+/// @example
+/// 	font-family: oTypographyGetFamily('sans')
+///
+/// @access private
+/// @param {String} $type - One of 'sans', 'serif', or 'display'.
+/// @return {String|List} The font-family set for the given font style.
+@function _oTypographyFontFamilyForType($type) {
+	@if not index($_o-typography-types, $type) {
+		@error 'Could not get the font-family for font of style "#{$type}", style must be one of "#{$_o-typography-types}".';
+	}
+	@if $type == 'sans' {
+		@return $o-typography-sans;
+	}
+	@if $type == 'serif' {
+		@return $o-typography-serif;
+	}
+	@if $type == 'display' {
+		@return $o-typography-display;
+	}
+}
+
+/// Changes a px value to a rem value if relative units are enabled.
+/// Useful for user input such as custom line-heights, where a px value
+/// should become a rem value but otherwise the value should remain unchanged.
+/// @access private
+/// @param {Number} $value
+@function _oTypographyAdjustUnit($value) {
+	@if ($o-typography-relative-units and unit($value) == 'px') {
+		@return (($value / 1px) / 16) * 1rem;
+	}
+	@return $value;
+}
+
+/// Adds a px unit to a unitless pixel value, or converts to a rem unit if relative units are enabled.
+/// Useful as the public typographic scales are currently defined in px but unitless.
+/// @access private
+/// @param {Number} $value
+@function _oTypographyAddUnit($value) {
+	@if ($o-typography-relative-units) {
+		@return ($value / 16) * 1rem;
+	}
+	@return $value * 1px;
 }

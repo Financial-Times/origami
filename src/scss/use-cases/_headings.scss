@@ -3,53 +3,84 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-/// Headline styles
-/// @brand master
-@mixin oTypographyHeadline {
-	@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400; // Browser default a h# to bold...
-}
-
-/// Large headline styles with an underline
+/// Large headline styles with an underline.
 /// @brand master
 @mixin oTypographyHeadlineLarge {
-	@include oTypographyDisplayBold($scale: (default: 5, S: 6, L: 7));
-	@include oTypographyMargin($top: 0, $bottom: 7);
-	@include oColorsFor('o-typography-headline');
-
+	@include _oTypographyHeading($from: 'heading-level-one-large');
 	&:after {
 		@include oTypographyPadding($top: 5, $bottom: 0);
 		content: '';
 		display: block;
 		width: 180px;
-		border-bottom: oTypographySpacingSize($units: 2) solid oColorsGetPaletteColor('black');
+		border-bottom: oTypographySpacingSize(2) solid oColorsGetPaletteColor('black');
 	}
 }
 
-/// Level 2 heading styles
+/// Headline styles.
 /// @brand master
+@mixin oTypographyHeadline {
+	@include oTypographyHeadingLevel1();
+}
+
+/// Level 1 heading styles.
+@mixin oTypographyHeadingLevel1 {
+	@include _oTypographyHeading($from: 'heading-level-one');
+}
+
+/// Level 2 heading styles.
 @mixin oTypographyHeadingLevel2 {
-	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
+	@include _oTypographyHeading($from: 'heading-level-two');
 }
 
-/// Level 3 heading styles
-/// @brand master
+/// Level 3 heading styles.
 @mixin oTypographyHeadingLevel3 {
-	@include _oTypographyProductHeadingBase($scale: 4);
+	@include _oTypographyHeading($from: 'heading-level-three');
 }
 
-/// Level 4 heading styles
-/// @brand master
+/// Level 4 heading styles.
 @mixin oTypographyHeadingLevel4 {
-	@include _oTypographyProductHeadingBase($scale: 3);
+	@include _oTypographyHeading($from: 'heading-level-four');
 }
 
-/// Level 5 heading styles
-/// @brand master
+/// Level 5 heading styles.
 @mixin oTypographyHeadingLevel5 {
-	@include _oTypographyProductHeadingBase($scale: 0);
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	@include _oTypographyHeading($from: 'heading-level-five');
+}
+
+/// Level 6 heading styles.
+/// @brand internal
+@mixin oTypographyHeadingLevel6 {
+	@include _oTypographyHeading($from: 'heading-level-six');
+}
+
+/// Heading styles.
+/// @access private
+@mixin _oTypographyHeading($from) {
+	// If family style is not given default to sans.
+	$type: _oTypographyGet('font-type', $from);
+	$type: if($type, $type, 'sans');
+	$font-family: _oTypographyFontFamilyForType($type);
+	// If weight is not given default to regular, overriding the browser default.
+	$weight: _oTypographyGet('weight', $from);
+	$weight: if($weight, $weight, 'regular');
+	// If bottom spacing size is not given default to 5.
+	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', $from);
+	$bottom-spacing-size: if($bottom-spacing-size, $bottom-spacing-size, 5);
+	@include _oTypographyFor($font-family, $opts: (
+		'family': true,
+		'weight': $weight,
+		'scale': (
+			default: _oTypographyGet('scale', $from),
+			S: _oTypographyGet('scale-s', $from),
+			M: _oTypographyGet('scale-m', $from),
+			L: _oTypographyGet('scale-l', $from),
+			XL: _oTypographyGet('scale-xl', $from)
+		),
+	));
+	color: oColorsGetColorFor('body', 'text');
+	text-transform: _oTypographyGet('text-transform', $from);
+	letter-spacing: _oTypographyGet('letter-spacing', $from);
+	@if $bottom-spacing-size {
+		margin: 0 0 oTypographySpacingSize($bottom-spacing-size);
+	}
 }
