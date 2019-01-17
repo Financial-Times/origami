@@ -165,7 +165,7 @@ if (cutsTheMustard) {
 
 ## Events
 
-`o-tracking` captures events automatically when initialised with the methods [outlined above](#useage). In addition, `o-tracking` with capture custom `oTracking.page` and `oTracking.event` events:
+`o-tracking` captures events automatically when initialised with the methods [outlined above](#useage). In addition, `o-tracking` will capture custom `oTracking.page` and `oTracking.event` events:
 
 - `oTracking.page`
 
