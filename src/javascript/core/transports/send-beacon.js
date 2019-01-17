@@ -6,6 +6,7 @@ module.exports = function () {
 		rejecter = reject;
 	});
 	return {
+		name: 'sendBeacon',
 		send: function (url, data) {
 			if (navigator.sendBeacon(url, data)) {
 				resolver();

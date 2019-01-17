@@ -7,6 +7,7 @@ const settings = require('./settings');
 const utils = require('../utils');
 const Queue = require('./queue');
 const transports = require('./transports');
+const isIe11 = function () { return !!window.MSInputMethodContext && !!document.documentMode; };
 /**
  * Default collection server.
  */
@@ -49,6 +50,7 @@ function sendRequest(request, callback) {
 		api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
 		version: settings.get('version'), // Version of the tracking client e.g. '1.2'
 		source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
+		transport: transport.name, // The transport method used.
 	});
 
 	request = utils.merge({ system: system }, request);
@@ -75,15 +77,28 @@ function sendRequest(request, callback) {
 		}
 
 		if (error) {
-			// Re-add to the queue if it failed.
-			// Re-apply queueTime here
-			request.queueTime = queueTime;
-			queue.add(request).save();
+			// If IE11 XHR error, try using image method
+			if (isIe11() && transport.name === 'xhr') {
+				let image_method = transports.get('image')();
+				// Append image label to transport value so that we know it tried xhr first
+				request.system.transport = [request.system.transport,image_method.name].join('-');
+				image_method.send(url, JSON.stringify(request));
+				image_method.complete(function () {
+					if (callback) {
+						callback();
+					}
+				});
+			} else {
+				// Re-add to the queue if it failed.
+				// Re-apply queueTime here
+				request.queueTime = queueTime;
+				queue.add(request).save();
 
-			utils.broadcast('oErrors', 'log', {
-				error: error.message,
-				info: { module: 'o-tracking' }
-			});
+				utils.broadcast('oErrors', 'log', {
+					error: error.message,
+					info: { module: 'o-tracking' }
+				});
+			}
 		} else if (callback) {
 			callback();
 		}

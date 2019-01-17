@@ -1,7 +1,7 @@
 {
   "name": "o-tracking",
   "description": "This module should be included on your product to make sending tracking requests to the Spoor API easy.",
-  "version": "1.2.3",
+  "version": "1.4.1",
   "main": "main.js",
   "private": true,
   "devDependencies": {
