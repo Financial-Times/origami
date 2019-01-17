@@ -1,6 +1,6 @@
 # Origami Tracking component [![CircleCI](https://circleci.com/gh/Financial-Times/o-tracking.svg?style=svg&circle-token=bac74d66190dbd699381ab25baab148fb3bb010c)](https://circleci.com/gh/Financial-Times/o-tracking) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-This module should be included on your product to make sending tracking requests to the Spoor API easy.
+Include in your product to send tracking requests to the Spoor API.
 
 ## The Spoor ecosystem
 ![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
@@ -59,6 +59,8 @@ function oTrackinginit() {
     oTracking.init({...config...});
     // Page
     oTracking.page({...config...});
+    // Clicks.
+    oTracking.click.init(category);
 }
 ```
 
@@ -75,6 +77,8 @@ if (cutsTheMustard) {
     oTracking.init({...config...});
     // Page
     oTracking.page({...config...});
+    // Clicks
+    oTracking.click.init(category);
 }
 ```
 
@@ -161,7 +165,7 @@ if (cutsTheMustard) {
 
 ## Events
 
-o-tracking will listen for 2 events as well as the funcations available above.
+`o-tracking` captures events automatically when initialised with the methods [outlined above](#useage). In addition, `o-tracking` will capture custom `oTracking.page` and `oTracking.event` events:
 
 - `oTracking.page`
 
@@ -183,6 +187,7 @@ o-tracking will listen for 2 events as well as the funcations available above.
 o-tracking will
 * Automatically pickup ftsession from cookies for you.
 * Page events automatically pick up the url and the referrer.
+* Click events [initalised as above](#usage), will populate a `domPathTokens` property. If the clicked element has the `data-trackable` attribute, sibling elements will also be included within `domPathTokens`.
 
 Events are decorated with config values you pass in via `init()` or `updateConfig()` if they are part of `context`, `user`, or `device` objects. Values passed in as `context` to individual events will override context values from init.
 
@@ -251,4 +256,4 @@ For example:
 
 [Look at all the properties](docs/event.md) available for an event.
 
-[Code Doc](http://codedocs.webservices.ft.com/v1/jsdoc/o-tracking/Tracking.html)
+[JSDoc](https://registry.origami.ft.com/components/o-tracking/jsdoc#Tracking)
