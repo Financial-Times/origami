@@ -57,3 +57,98 @@
         @include assert-equal($o-typography-display, 'MyDisplayFont');
 	}
 }
+
+
+@include test-module('oTypographySize') {
+	@include test('Includes a font size and line height for a given scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: 1);
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+    }
+
+	@include test('Includes a font size and line height for a given responsive scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: (default: 1, L: 2));
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 20px;
+
+                @media (min-width: 61.25em) {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+
+	@include test('Includes a custom line height for a given scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: 1, $line-height: 1.4);
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 1.4;
+            }
+        }
+    }
+
+	@include test('Includes a custom line height for a responsive scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: (default: 1, L: 2), $line-height: 24px);
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 24px;
+
+                @media (min-width: 61.25em) {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+
+	@include test('Includes seperate custom line heights for each scale in a responsive scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: (default: (1, 18px), L: (2, 24px)));
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 18px;
+
+                @media (min-width: 61.25em) {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+
+	@include test('Priorities custom line heights in responsive scales.') {
+        @include assert {
+            @include output {
+                @include oTypographySize($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 18px;
+
+                @media (min-width: 61.25em) {
+                    font-size: 20px;
+                    line-height: 1.4;
+                }
+            }
+        }
+    }
+}

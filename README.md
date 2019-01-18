@@ -216,22 +216,36 @@ See more type mixins in the registry [SassDoc documentation](sassdoc).
 
 If you want to output only the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
 
-Example:
-
 ```scss
 .example {
 	@include oTypographySize($scale: 8);
 }
 ```
 
-As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a map for a responsive scale. It can also accept a second parameter of `$line-height` to override the default value from the font scale.
+It can also accept a second parameter of `$line-height` to override the default value from the font scale.
+
+```scss
+.example {
+	@include oTypographySize($scale: 8, $line-height: 1.4);
+}
+```
+
+As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a map for a responsive scale.
 
 ```scss
 .example {
 	@include oTypographySize($scale: (default: 0, M: 1, XL: 2));
 }
 ```
-g
+
+To provide a custom line height for each individual breakpoint pass the scale as a list, where the custom line height is the second item. In this example the scale is `0` and line-height is `1.4` by default. On large `XL` screens the scale is `2` and the line-height is `1.2`.
+
+```scss
+.example {
+	@include oTypographySize($scale: (default: (0, 1.4), XL: (2, 1.2)));
+}
+```
+
 ### Spacing
 
 Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.

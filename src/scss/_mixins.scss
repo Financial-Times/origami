@@ -8,23 +8,18 @@
 @mixin oTypographySize($scale, $line-height: false, $font: '') {
 	@if type-of($scale) == map {
 		@each $breakpoint, $scale in $scale {
-			@if $breakpoint == 'default' {
-				@if type-of($scale) == list {
-					font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
-					line-height: _oTypographyLineHeightFromScale($scale, $font);
-				} @else {
-					font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
-					line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
-				}
-			} @else if($scale) {
+			$current-line-height: if(length($scale) == 2, nth($scale, 2), $line-height);
+			$current-scale: if(type-of($scale) == list and length($scale) != 0, nth($scale, 1), $scale);
+
+			@if $breakpoint == 'default' and $current-scale {
+				font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
+				line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
+			}
+
+			@if $breakpoint != 'default' and $current-scale {
 				@include oGridRespondTo($breakpoint) {
-					@if type-of($scale) == list {
-						font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
-						line-height: _oTypographyLineHeightFromScale($scale, $font);
-					} @else {
-						font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
-						line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
-					}
+					font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
+					line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
 				}
 			}
 		}
