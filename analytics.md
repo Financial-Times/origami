@@ -6,7 +6,7 @@ An overview of o-audio analytics.
 
 The following audio events are fired as part of the [native HTML Media Events API](https://developer.mozilla.org/en/docs/Web/Guide/Events/Media_events):
 - playing: user played the audio
-- progress: audio played through to a particular waypoint, fires at ~10/25/50/75/100 progress
+- progress: audio played through to a particular waypoint, fires at ~10/25/50/75/85/90/95/100 progress
 - ended: audio played through to the end
 - seeked: user jumped to a point in the audio
 - pause: user paused the audio
