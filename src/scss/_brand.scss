@@ -21,7 +21,7 @@
 
 @if oBrandGetCurrentBrand() == 'master' {
     $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-serif: Georgia, serif !default!global;
     $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
 
     @include oBrandDefine('o-typography', 'master', (
@@ -79,7 +79,7 @@
 
 @if oBrandGetCurrentBrand() == 'internal' {
     $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-serif: Georgia, serif !default!global;
     $o-typography-display: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
 
     @include oBrandDefine('o-typography', 'internal', (
@@ -131,9 +131,9 @@
         (weight: bold, style: italic)
     ));
 
-    $o-typography-sans: 'Arial, sans' !default!global;
-    $o-typography-serif: 'Georgia, serif' !default!global;
-    $o-typography-display: 'Arial, sans' !default!global;
+    $o-typography-sans: Arial, sans !default!global;
+    $o-typography-serif: Georgia, serif !default!global;
+    $o-typography-display: Arial, sans !default!global;
 
     // Other components may get values from the scale map and assume a px value.
     // Therefore we must set a line height of px value.
