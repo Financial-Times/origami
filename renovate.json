@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "github>financial-times/renovate-config-next"
+  ]
+}
