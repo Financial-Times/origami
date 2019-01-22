@@ -1,0 +1,23 @@
+{
+	"primary": [
+		{ "name": "black", "baseText": true },
+		{ "name": "white", "baseBackground": true }
+	],
+	"secondary": [],
+	"tertiary": [],
+	"experimental": [],
+	"tints": [
+		{ "name": "black",  "tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90] }
+	],
+	"percentages": [
+		{ "value": 10 },
+		{ "value": 20 },
+		{ "value": 30 },
+		{ "value": 40 },
+		{ "value": 50 },
+		{ "value": 60 },
+		{ "value": 70 },
+		{ "value": 80, "default": true },
+		{ "value": 90 }
+	]
+}

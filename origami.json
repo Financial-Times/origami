@@ -6,7 +6,8 @@
 	"origamiVersion": 1,
 	"brands" : [
 		"master",
-		"internal"
+		"internal",
+		"whitelabel"
 	],
 	"support": "https://github.com/Financial-Times/o-colors/issues",
 	"supportContact": {
@@ -184,6 +185,28 @@
 			"display_html": false,
 			"brands": [
 				"internal"
+			]
+		},
+		{
+			"name": "whitelabel-primary-palette",
+			"title": "Primary Palette",
+			"data": "demos/src/palettes/whitelabel-palette.json",
+			"template": "demos/src/primary-palette.mustache",
+			"description": "The whitelabel brand does not assume much colour. White and black, or a mix of the two, is common as a placeholder.",
+			"display_html": false,
+			"brands": [
+				"whitelabel"
+			]
+		},
+		{
+			"name": "whitelabel-tints",
+			"title": "Tints",
+			"data": "demos/src/palettes/whitelabel-palette.json",
+			"template": "demos/src/tints.mustache",
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"display_html": false,
+			"brands": [
+				"whitelabel"
 			]
 		},
 		{
