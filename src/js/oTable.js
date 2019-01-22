@@ -102,4 +102,4 @@ class OTable {
 	}
 }
 
-module.exports = OTable;
+export default OTable;
