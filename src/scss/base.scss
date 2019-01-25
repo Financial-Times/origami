@@ -235,10 +235,9 @@
 			content: 'Saving';
 		}
 		&:before {
-			@include oLoading($opts: (
-				'themes': ('dark'),
-				'sizes': ('small')
-			));
+			@include oLoading();
+			@include oLoadingSize('small');
+			@include oLoadingColor('dark');
 			// Reszise loader to match icon.
 			margin: 0 $status-icon-padding 0 0;
 			width: 10px;
