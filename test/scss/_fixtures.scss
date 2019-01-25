@@ -38,7 +38,10 @@ $o-brand: 'internal';
 ));
 
 @include oBrandDefine('o-example', 'whitelabel', (
-	'variables': (),
+	'variables': (
+		example-background: white,
+		example-header-background: black,
+	),
 	'supports-variants': (
 		'compact'
 	)
