@@ -83,11 +83,13 @@
 /// @param {Color} $color - Color of the icon. Default to the link `o-color` usecase.
 @mixin oTypographyLinkExternalIcon($color: null) {
 	// If no link colour usecase (i.e. whitelabel brand) fallback to a black icon.
-	// If statement prevents warnings when calling `oColorsGetColorFor`.
-	@if oColorsGetUseCase(link, text) {
-		$color: oColorsGetColorFor(link, text);
-	} @else {
-		$color: black;
+	// `oColorsGetUseCase` if statement prevents warnings when calling `oColorsGetColorFor`.
+	@if not $color {
+		@if oColorsGetUseCase(link, text) {
+			$color: oColorsGetColorFor(link, text);
+		} @else {
+			$color: black;
+		}
 	}
 	// IE9-11 does not size the svg icon background correctly.
 	// Use @supports to target modern (non-IE) browsers.

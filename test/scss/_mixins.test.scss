@@ -14,7 +14,7 @@
         9: (18, 20),
         10: (20, 22)
     );
-	@include test('Adds scale to font scale map.') {
+    @include test('Adds scale to font scale map.') {
         // Set custom scale for custom font.
         @include oTypographyDefineFontScale('MyFont, sans', $custom-font-scale);
 
@@ -25,11 +25,11 @@
                 'MyFont': $custom-font-scale
             )
         );
-	}
+    }
 }
 
 @include test-module('oTypographySetFont') {
-	@include test('Updates the global variable for the sans font') {
+    @include test('Updates the global variable for the sans font') {
         @include oFontsDefineCustomFont('system-ui', (
             (weight: semibold, style: normal),
             (weight: regular, style: normal),
@@ -41,9 +41,9 @@
             $family: 'system-ui'
         );
         @include assert-equal($o-typography-sans, 'system-ui');
-	}
+    }
 
-	@include test('Updates the global variable for the display font') {
+    @include test('Updates the global variable for the display font') {
         @include oFontsDefineCustomFont('MyDisplayFont, serif', (
             (weight: semibold, style: normal),
             (weight: regular, style: normal),
@@ -55,12 +55,12 @@
             $family: 'MyDisplayFont'
         );
         @include assert-equal($o-typography-display, 'MyDisplayFont');
-	}
+    }
 }
 
 
 @include test-module('oTypographySize') {
-	@include test('Includes a font size and line height for a given scale.') {
+    @include test('Includes a font size and line height for a given scale.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: 1);
@@ -72,7 +72,7 @@
         }
     }
 
-	@include test('Includes a font size and line height for a given responsive scale.') {
+    @include test('Includes a font size and line height for a given responsive scale.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: (default: 1, L: 2));
@@ -89,7 +89,7 @@
         }
     }
 
-	@include test('Includes a custom line height for a given scale.') {
+    @include test('Includes a custom line height for a given scale.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: 1, $line-height: 1.4);
@@ -101,7 +101,7 @@
         }
     }
 
-	@include test('Includes a custom line height for a responsive scale.') {
+    @include test('Includes a custom line height for a responsive scale.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: (default: 1, L: 2), $line-height: 24px);
@@ -118,7 +118,7 @@
         }
     }
 
-	@include test('Includes seperate custom line heights for each scale in a responsive scale.') {
+    @include test('Includes seperate custom line heights for each scale in a responsive scale.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: (default: (1, 18px), L: (2, 24px)));
@@ -135,7 +135,7 @@
         }
     }
 
-	@include test('Priorities custom line heights in responsive scales.') {
+    @include test('Priorities custom line heights in responsive scales.') {
         @include assert {
             @include output {
                 @include oTypographySize($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
@@ -147,6 +147,49 @@
                 @media (min-width: 61.25em) {
                     font-size: 20px;
                     line-height: 1.4;
+                }
+            }
+        }
+    }
+}
+
+
+@include test-module('oTypographyLinkExternalIcon') {
+    @include test('Colours according to the link colour usecase by default.') {
+        @include assert {
+            @include output {
+                @include oTypographyLinkExternalIcon();
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+                }
+            }
+        }
+    }
+    @include test('Defaults to black when no link colour usecase is set (i.e. whitelabel).') {
+        @include assert {
+            @include output {
+                $original-palette: $o-colors-palette;
+                $o-colors-palette: () !global;
+                @include oTypographyLinkExternalIcon();
+                $o-colors-palette: $original-palette !global;
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&format=svg");
+                }
+            }
+        }
+    }
+    @include test('Allows a custom icon colour') {
+        @include assert {
+            @include output {
+                @include oTypographyLinkExternalIcon(red);
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23FF0000,%23FF0000&format=svg");
                 }
             }
         }
