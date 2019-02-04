@@ -1,0 +1,110 @@
+<header class="o-header-services {{#modifier}}o-header-services--{{modifier}}{{/modifier}}" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			{{#primary-navigation}}
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+			{{/primary-navigation}}
+		<div class="o-header-services__logo"></div>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Tool or Service name</a>
+			<span class="o-header-services__product-tagline">Tagline to explain the product here</span>
+		</div>
+		<ul class="o-header-services__related-content">
+			<li>
+				<a href="{{href}}">XXXX</a>
+			</li>
+			<li>
+				<a href="{{href}}">Sign in</a>
+			</li>
+		</ul>
+	</div>
+
+	{{#primary-navigation}}
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li {{#drop-down}}data-o-header-services-level="1"{{/drop-down}}>
+				<a aria-current="true" href="{{href}}">Docs</a>{{#drop-down}}<!--
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
+				<ul data-o-header-services-level="2" aria-hidden="true">
+					<li>
+						<a href="{{href}}">Principles</a>
+					</li>
+					<li>
+						<a href="{{href}}">Components</a>
+					</li>
+					<li>
+						<a href="{{href}}">Services</a>
+					</li>
+					<li>
+						<a href="{{href}}">Tutorials</a>
+					</li>
+					<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
+				</ul>{{/drop-down}}
+			</li>
+			<li {{#drop-down}}data-o-header-services-level="1"{{/drop-down}}>
+				<a href="{{href}}">Specs</a>{{#drop-down}}<!--
+				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
+				<ul data-o-header-services-level="2" aria-hidden="true">
+					<li>
+						<a href="{{href}}">Condensed Spec</a>
+					</li>
+					<li>
+						<a href="{{href}}">Formal Spec</a>
+					</li>
+					<li>
+						<a href="{{href}}">Components</a>
+					</li>
+					<li>
+						<a href="{{href}}">Services</a>
+					</li>
+					<li>
+						<a href="{{href}}">Manifest</a>
+					</li>
+					<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
+				</ul>{{/drop-down}}
+			</li>
+			<li>
+				<a href="#">Registry</a>
+			</li>
+		</ul>
+	</nav>
+	{{/primary-navigation}}
+
+	{{#sub-navigation}}
+	<nav class="o-header-services__secondary-nav" aria-label="secondary"  data-o-header-services-nav>
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list>
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+				<li>
+					<a href="{{href}}">Documentation</a>
+				</li>
+				<li>
+					<a href="{{href}}">Tutorials</a>
+				</li>
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+				<li>
+					<a href="{{href}}">Build Service</a>
+				</li>
+				<li>
+					<a aria-current="true" href="{{href}}">The manual build process</a>
+				</li>
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	{{/sub-navigation}}
+</header>
+
+<div class="dummy-text">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie eget ex ut volutpat. Suspendisse et molestie mi. Suspendisse at magna posuere, euismod erat eget, aliquet lorem. Praesent at semper nulla. Fusce a lobortis nibh, sit amet lobortis elit. Nunc ornare vulputate dictum. Mauris at luctus est. Cras fermentum, ex in rhoncus semper, nunc nunc porttitor felis, a dictum neque orci a tellus. Morbi ipsum mauris, pellentesque sit amet velit vitae, posuere euismod nisi. Etiam velit orci, sagittis vel pharetra sed, molestie vel massa. Sed dui sapien, euismod eget ultrices et, lacinia ut mi. Vivamus <a href="#">porttitor bibendum mauris</a> vel tempor. Vivamus vehicula dictum ipsum, a porta ex fermentum in.
+	</p>
+	<p>
+		Pellentesque accumsan consectetur arcu, rutrum cursus arcu pretium vitae. Nullam vitae massa felis. Donec convallis iaculis faucibus. Etiam non ullamcorper dui. Nullam sit amet ultricies erat, at luctus metus. Aliquam euismod sem ut vehicula sollicitudin. Sed vitae neque ligula. Pellentesque id diam quis libero hendrerit semper nec vitae lectus. Aenean quis accumsan nisl.
+	</p>
+</div>

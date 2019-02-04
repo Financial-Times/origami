@@ -1,15 +1,67 @@
-@mixin oHeaderServicesDrawer() {
-	// :mask: Unlike o-header, the README and demos say to include ".o--if-js" on the draw.
-	// ".core .o--if-js" may be replaced with ".enhanced .o--if-js" before "data-o-header-drawer--js" is added.
-	// This causes a flash where the draw is rendered before being positioned.
-	// So, only display the draw when "data-o-header-drawer--js" has been added by o-header.
-	.enhanced .o--if-js.o-header__drawer:not([data-o-header-drawer--js]) {
-		display: none;
-	}
+/// @access private
+/// @outputs styling for the drawer
+@mixin _oHeaderServicesDrawer {
+	.o-header-services__primary-nav--drawer {
+		background-color: rgba(0, 0, 0, 0.2);
+		position: absolute;
+		top: $_o-header-services-top-bar-short;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		visibility: hidden;
+		transition:
+			visibility 0.01s linear,
+			opacity 0.5s $o-visual-effects-transition-fade;
 
-	@include oHeaderDrawer();
+		.o-header-services__primary-nav-list {
+			@include oVisualEffectsShadowsElevation('mid');
+			flex-direction: column;
+			display: block;
+			margin: 0;
+			overflow-y: auto;
+			padding: 0;
+			transform: translateX(-100%);
+			transition:
+				transform 0.5s $o-visual-effects-transition-expand;
+			height: 100%;
+			width: calc(100% - 120px);
+		}
 
-	.o-header__visually-hidden {
-		@include oHeaderVisuallyHidden;
+		.o-header-services__related-content {
+			display: block;
+			clear: both;
+			margin: oTypographySpacingSize(5) 0 0;
+			padding: 0;
+
+			li {
+				background-color: _oHeaderServicesGet('nav-background');
+
+				a {
+					color: inherit;
+					font-weight: oFontsWeight('regular');
+					text-transform: none;
+
+					@if oBrandGetCurrentBrand() == 'whitelabel' {
+						padding: 10px 20px;
+					}
+
+					&:hover:before {
+						background-color: transparent;
+					}
+				}
+
+				a:hover {
+					background-color: none;
+				}
+			}
+		}
+
+		&.o-header-services__primary-nav--open {
+			visibility: visible;
+
+			.o-header-services__primary-nav-list {
+				transform: translateX(0%);
+			}
+		}
 	}
 }

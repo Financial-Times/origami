@@ -1,10 +1,18 @@
 $o-header-services-is-silent: true !default;
 
-$_o-header-services-padding-x: oGridGutter();
-$_o-header-services-padding-y: oGridGutter();
+$_o-header-services-padding: oGridGutter();
 
-$_o-header-services-top-bar-y: 56px;
-$_o-header-services-top-bar-y-small: 44px;
-$_o-header-services-primary-nav-y: 36px;
+$_o-header-services-top-bar-short: oTypographySpacingSize(11);
+$_o-header-services-top-bar-z-index: 2;
 
-$o-header-services-default-logo: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{_oHeaderServicesGet('logo')}?source=o-header-services&format=svg&width=55';
+$_o-header-services-primary-nav-z-index: 1;
+$_o-header-services-sub-nav-height: oTypographySpacingSize(9);
+
+ $_o-header-services-top-icon-size: oTypographySpacingSize(10);
+ $_o-header-services-button-icon-size: oTypographySpacingSize(6);
+
+$_o-header-services-button-theme: (
+	background: _oHeaderServicesGet('nav-text'),
+	accent: _oHeaderServicesGet('nav-hover-background'),
+	colorizer: 'primary'
+);

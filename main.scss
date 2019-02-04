@@ -1,18 +1,69 @@
-@import 'o-header/main';
-@import 'o-icons/main';
-@import 'o-typography/main';
-@import 'o-grid/main';
 @import 'o-brand/main';
+@import 'o-buttons/main';
+@import 'o-icons/main';
+@import 'o-grid/main';
+@import 'o-normalise/main';
+@import 'o-typography/main';
+@import 'o-visual-effects/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/base';
-@import 'src/scss/deprecated';
 @import 'src/scss/variables';
 @import 'src/scss/drawer';
+@import 'src/scss/drop-down';
+@import 'src/scss/functions';
 @import 'src/scss/top';
 @import 'src/scss/theme';
-@import 'src/scss/primary_nav';
-@import 'src/scss/secondary_nav';
+@import 'src/scss/primary-nav';
+@import 'src/scss/secondary-nav';
+
+/// Outputs all features and styles available to o-header-services
+/// @param {Map} $opts ['types':('primary-nav', 'secondary-nav', 'b2b', 'b2c'), 'features': ('bleed', 'drop-down'), 'logo': default to ft-logo depending on brand (pink or white)]
+/// @access public
+/// @example scss
+///		@include oHeaderServices($opts: (
+///			'types': ('primary-nav'),
+///			'features': ('drop-down'),
+///			'logo': 'origami'
+///		))
+@mixin oHeaderServices($opts: (
+	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
+	'features': ('bleed', 'drop-down'),
+	'logo': _oHeaderServicesGet('logo')
+)) {
+	$types: map-get($opts, 'types');
+	$features: map-get($opts, 'features');
+	$logo: map-get($opts, 'logo');
+
+	$bleed: index($features, 'bleed');
+
+	/// Base styles for a header
+	@include _oHeaderServicesBase($bleed);
+
+	/// Required because there would be no header without the title
+	/// if other features aren't added.
+	@include _oHeaderServicesTop($logo);
+
+	@if index($types, 'primary-nav') {
+		@include _oHeaderServicesPrimaryNav;
+	}
+
+	@if index($types, 'secondary-nav') {
+		@include _oHeaderServicesSecondaryNav;
+	}
+
+	@if index($types, 'b2b') and _oHeaderSupports('b2b') {
+		@include _oHeaderServicesTheme($theme: 'b2b');
+	}
+
+	@if index($types, 'b2c') and _oHeaderSupports('b2b') {
+		@include _oHeaderServicesTheme($theme: 'b2c');
+	}
+
+	@if index($features, 'drop-down') {
+		@include _oHeaderServicesDropDown();
+	}
+}
 
 @if $o-header-services-is-silent == false {
 	@include oHeaderServices();

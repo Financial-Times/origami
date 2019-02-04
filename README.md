@@ -2,319 +2,177 @@
 
 This header is for tools and services built by the Financial Times.
 
-## Index
-- [Design](#design)
 - [Markup](#markup)
-	- [Very simple header](#very-simple-header)
-	- [Themes](#themes)
-	- [Related links and the drawer](#related-links-and-the-drawer)
-		- [Core experience of the drawer](#core-experience-of-the-drawer)
+	- [Title Section](#title-section)
 	- [Primary navigation](#primary-navigation)
+	- [Primary navigation with drop down](#primary-navigation-with-drop-down)
 	- [Secondary navigation](#secondary-navigation)
+	- [Themes](#themes)
 	- [Bleed header](#bleed-header)
-- [Migration guide](#migration-guide)
+- [Sass](#sass)
+	- [Customisation](#customisation)
+- [JavaScript](#javascript)
+- [Migration](#migration)
 - [Contact](#contact)
 - [License](#license)
 
-## Design
-`o-header-services` is a responsive header. It has support for up to three levels of navigation making it appropriate for single page applications and multi-layer applications.
-
-It has themes for B2B and B2C products under FT.com. If you're building something and need a new theme, [please raise an issue](../../issues).
-
-The header has the following features:
-
-**Required**
-- A product logo. This will default to the FT logo, but is customisable through Sass mixins.
-- The product title. This should be present and the same on all of your pages
-
-**Optional**
-- A product tagline. If used, this should be a concise description of your product. The tagline is only visible at the widest screen size
-- At wide screen sizes, the right of the nav may be used for content like a "Sign in" link. At narrower screen widths this content goes behind a hamburger menu on the right of the FT logo
-- If there is a "Sign in" option in the related content it should always appear on the far right. For consistency with other FT products, use "Sign in" over "Log in" or "Login"
-- Primary navigation
-- Secondary navigation
-
-
 ## Markup
 
-### Very simple header
-The simplest header, appropriate for single page applications with no navigation is available with the following code:
+An `o-header-services` header is divided into three main parts: title section **(required)**, primary navigation **(optional)**, and secondary navigation **(optional)**. Each section is placed within a `header` element:
 
-```
-<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top o-header-services__container'>
-		<div class='o-header-services__ftlogo'></div>
-		<div class='o-header-services__title'>
-			<h1 class='o-header-services__product-name'><a href='/'>Tool or Service name</a></h1>
-			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-		</div>
-	</div>
+```html
+<header class='o-header-services' data-o-component='o-header-services'>
+	<!-- Markup specific to the needs of your product. Options detailed below. -->
 </header>
 ```
 
+### Title Section
+
+A title section is **required** for every header, and every title section _must_ include a logo and a product title.
+The logo will default to the FT logo—if you are not using the build service you can customise it with the `oHeaderServices()` [Sass mixin](#sass).
+
+You can choose to include a product tagline to describe your product concisely, and there is space for extra content such as a 'Sign In' link in this section of the header, too.
+
+_Note: If there is a 'Sign in' option, it should be consistent with other FT products by aligning itself to the right and avoiding different wording such as 'Log in' or 'Login'._
+
+For an example and markup, see the [title-only header in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-title-section).
+
+### Primary Navigation
+
+The primary navigation is an **optional** addition to the title section. It's most useful for high-level navigation.
+
+This section of the header has specific behaviour, as it turns into a drawer at smaller viewport sizes (740px down). It requires the addition an extra element in the title section to support the hamburger button.
+
+If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well.
+
+For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-primary-navigation).
+
+### Primary Navigation with drop down
+
+The primary navigation can also handle dropdown menus. These menus are hidden behind a button that lives beside the navigation item that it is pertinent to.
+
+Drop down menus also get pulled into the drawer on smaller viewports.
+
+For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-drop-down-navigation).
+
+### Secondary Navigation
+
+The secondary navigation is also an **optional** addition to the header, but it makes more sense alongside the primary navigation, as it serves more complicated products.
+
+It includes two sections of navigation: 'ancestors' and 'children'.
+The 'ancestor' section  works in the form of a breadcrumb, and the children are relative to the ancestor.
+
+At smaller viewports, it does _not_ collapse into the drawer, but becomes scrollable instead.
+
+For an example and markup, see the [secondary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-secondary-navigation).
 
 ### Themes
-`o-header-services` offers theming for B2B or B2C products under FT.com. To add a theme to the header, add the appropriate class to a wrapping element. For example, for b2b that would be:
+
+`o-header-services` offers theming for B2B or B2C products for FT.com products who use the master brand. They are designed to affect the title section and the primary navigation.
+
+To add a theme to the header, add the appropriate class to the header element. For example, for B2B that would be:
 
 ```diff
 +<header class='o-header-services o-header-services--b2b' data-o-component='o-header'>
 -<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top o-header-services__container'>
-		<div class='o-header-services__ftlogo'></div>
-		<div class='o-header-services__title'>
-			<h1 class='o-header-services__product-name'><a href='/'>Tool or Service name</a></h1>
-			<span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-		</div>
-	</div>
+	<!-- Your header markup -->
 </header>
 ```
 
-### Related links and the drawer
-
-o-header-services supports related content (eg Sign in or licence numbers). At large screen widths these appear to the far right of the header. At smaller screens these collapse down to a `drawer` which is behind a hamburger menu.
-
-#### Core experience of the drawer
-
-Small screen users should still be able to access the contents of the drawer even if their browser doesn't cut the mustard or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
-
-To add support for related content, add the following to your markup:
-
-```diff
-<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top'>
-		<div class='o-header-services__container'>
-+			<div class='o--if-js o-header-services__hamburger'>
-+				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
-+			</div>
-			<div class='o-header-services__ftlogo'></div>
-			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-			</div>
-			<div class='o-header-services__related-content'>
-				<a href='#'>XXXX</a>
-				<a href='#'>Sign in</a>
-			</div>
-		</div>
-	</div>
-</header>
-<!-- Drawer HTML from o-header which should include the links from related content. -->
-```
-
-Related content also needs some JavaScript to operate the drawer. If you are using the Build Service this will just work. If you're using a manual build process you should have the following somewhere in your code ([what's this?](http://origami.ft.com/docs/developer-guide/modules/initialising-modules/)):
-
-```
-document.addEventListener("DOMContentLoaded", function() {
-	document.documentElement.className = document.documentElement.className.replace('core', 'enhanced');
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
-```
-
-### Primary navigation
-
-If your application has more than one page you may want to add the primary navigation bar.
-This requires the drawer code, as seen above, and the following addition:
-
-```diff
-<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top'>
-		<div class='o-header-services__container'>
-			<div class='o--if-js o-header-services__hamburger'>
-				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
-			</div>
-			<div class='o-header-services__ftlogo'></div>
-			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-			</div>
-			<div class='o-header-services__related-content'>
-				<a href='#'>XXXX</a>
-				<a href='#'>Sign in</a>
-			</div>
-		</div>
-	</div>
-</header>
-+<nav class='o-header-services__primary-nav'>
-+ <div class='o-header-services__container'>
-+	 <ul class='o-header-services__nav-list'>
-+		 <li class='o-header-services__nav-item o-header-services__nav-item--selected'>
-+			 <a href='#'>
-+				 Nav item title
-+			 </a>
-+			</li>
-+			<!-- more nav items -->
-+		</ul>
-+	</div>
-+</nav>
-<!-- Drawer HTML as above this should include related content links (if any) and nav items-->
-```
-
-### Secondary navigation
-
-If your application is more complicated still, you may want to use a secondary navigation.
-The secondary nav allows for breadcrumbs for many addition levels of navigation.
-
-To use the secondary navigation, use the primary navigation (with the drawer) and add the following code:
-
-```diff
-<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top'>
-		<div class='o-header-services__container'>
-			<div class='o--if-js o-header-services__hamburger'>
-				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
-			</div>
-			<div class='o-header-services__ftlogo'></div>
-			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-			</div>
-			<div class='o-header-services__related-content'>
-				<a href='#'>XXXX</a>
-				<a href='#'>Sign in</a>
-			</div>
-		</div>
-	</div>
-</header>
-<nav class='o-header-services__primary-nav'>
- <div class='o-header-services__container'>
-	 <ul class='o-header-services__nav-list'>
-		 <li class='o-header-services__nav-item o-header-services__nav-item--selected'>
-			 <a href='#'>
-				 Nav item title
-			 </a>
-			</li>
-			<!-- more nav items -->
-		</ul>
-	</div>
-</nav>
-<!-- note that these are o-header classes, because this component inherits directly from o-header and overrides a few styles -->
-+<nav class="o-header__subnav" role="navigation" aria-label="Sub navigation" data-o-header-subnav>
-+	<div class="o-header-services__container">
-+		<div class="o-header__subnav-wrap-outside">
-+			<div class="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
-+				<div class="o-header__subnav-content">
-+					<ol class="o-header__subnav-list o-header__subnav-list--breadcrumb" aria-label="Breadcrumb">
-+						<li class="o-header__subnav-item">
-+							<a class="o-header__subnav-link" href="#">
-+								ancestor section
-+							</a>
-+						</li>
-+						<!-- other breadcrumb links -->
-+					</ol>
-+					<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
-+						<li class="o-header__subnav-item">
-+							<a class="o-header__subnav-link" href="{{href}}">
-+								child page
-+							</a>
-+						</li>
-+						<!-- More links to child pages -->
-+					</ul>
-+				</div>
-+			</div>
-+			<button class="o-header__subnav-button o-header__subnav-button--left" title="scroll left" aria-hidden="true" disabled></button>
-+			<button class="o-header__subnav-button o-header__subnav-button--right" title="scroll right" aria-hidden="true" disabled></button>
-+		</div>
-+	</div>
-+</nav>
-
-<!-- Drawer HTML as above this should include related content links (if any) and nav items-->
-
-```
-
+For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-theme-b2c).
 
 ### Bleed Header
-If your application requires a bleed header, it will be necessary to replace all instances of `o-header-services__container` with `o-header-services__bleed-container`.
-For example, in the case of using both primary and secondary navigation:
-
+If your application requires a bleed header, you'll need to add the `o-header-services--bleed` variant to your header.
 ```diff
-<header class='o-header-services' data-o-component='o-header'>
-	<div class='o-header-services__top'>
--		<div class='o-header-services__container'>
-+		<div class='o-header-services__bleed-container'>
-			<div class='o--if-js o-header-services__hamburger'>
-				<a class='o-header-services__hamburger-icon' href="#o-header-drawer"	aria-controls="o-header-drawer"><span class="o-header__visually-hidden">Menu</span></a>
-			</div>
-			<div class='o-header-services__ftlogo'></div>
-			<div class='o-header-services__title'>
-				<h1 class='o-header-services__product-name'><a href=''>Tool or Service name</a></h1><span class='o-header-subrand__product-tagline '>Tagline to explain the product here</span>
-			</div>
-			<div class='o-header-services__related-content'>
-				<a href='#'>XXXX</a>
-				<a href='#'>Sign in</a>
-			</div>
-		</div>
-	</div>
++<header class='o-header-services o-header-services--bleed' data-o-component='o-header'>
+-<header class='o-header-services' data-o-component='o-header'>
+	<!-- Your header markup -->
 </header>
-<nav class='o-header-services__primary-nav'>
--	<div class='o-header-services__container'>
-+	<div class='o-header-services__bleed-container'>
-		<ul class='o-header-services__nav-list'>
-			<li class='o-header-services__nav-item o-header-services__nav-item--selected'>
-				<a href='#'>
-					Nav item title
-				</a>
-			</li>
-			<!-- more nav items -->
-		</ul>
-	</div>
-</nav>
-<!-- note that these are o-header classes, because this component inherits directly from o-header and overrides a few styles -->
-<nav class="o-header__subnav" role="navigation" aria-label="Sub navigation" data-o-header-subnav>
--	<div class="o-header-services__container">
-+	<div class="o-header-services__bleed-container">
-		<div class="o-header__subnav-wrap-outside">
-			<div class="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
-				<div class="o-header__subnav-content">
-					<ol class="o-header__subnav-list o-header__subnav-list--breadcrumb" aria-label="Breadcrumb">
-						<li class="o-header__subnav-item">
-							<a class="o-header__subnav-link" href="#">
-								ancestor section
-							</a>
-						</li>
-						<!-- other breadcrumb links -->
-					</ol>
-					<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
-						<li class="o-header__subnav-item">
-							<a class="o-header__subnav-link" href="{{href}}">
-								child page
-							</a>
-						</li>
-						<!-- More links to child pages -->
-					</ul>
-				</div>
-			</div>
-			<button class="o-header__subnav-button o-header__subnav-button--left" title="scroll left" aria-hidden="true" disabled></button>
-			<button class="o-header__subnav-button o-header__subnav-button--right" title="scroll right" aria-hidden="true" disabled></button>
-		</div>
-	</div>
-</nav>
-
-<!-- Drawer HTML as above this should include related content links (if any) and nav items-->
 ```
 
 ## Sass
 
-As with all Origami components, o-header-services has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-header-services-is-silent : false;` in your Sass before you import the o-header-services Sass.
+In order to output every type of `o-header-services` style, you'll need to include the following:
+```scss
+	@import 'o-header-services/main';
 
-As previously mentioned, the logo in the header will default to the FT logo. Although it is customisable, that is currently only available through the use of mixins. Within your main Sass file, include the following, along with your products' logo, preferably as a png or an svg.
-
-```sass
-@import 'o-header-services/main';
-
-@include oHeaderServices($class: 'my-product-header', $logo: 'my-product-logo');
+	@include oHeaderServices();
 ```
 
-## Migration guide
+You can be more selective about which types you would like to output, by using an `$opts` map. It accepts the following options:
 
-### Migrating from v1.x.x to v2.x.x
+**types**
+- `'primary-nav'`
+- `'secondary-nav'`
+- `'bleed'`
+- `'b2b'`
+- `'b2c'`
 
-V2 bumps to the new major versions of o-header, o-colors, and o-typography. If you are using any of these components in your projects you will have bower conflicts that you need to resolve by upgrading those components too.
-V2 includes some minor visual changes, but these shouldn't be breaking changes for projects that include them.
+**logo**
+- the name of a logo from the [logos image set](https://registry.origami.ft.com/components/logo-images@1.8.0). Defaults to the FT logo.
 
-----
+
+To use a logo that is **not** the FT logo, the logo can be modified in one of two ways:
+- By using a logo name from the logo image set (e.g. 'origami')
+- By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. 'https://www.example.com/logo.svg'). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
+
+In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the [logo image set](https://registry.origami.ft.com/components/logo-images@1.8.0).
+
+```scss
+	@import 'o-header-services/main';
+
+	@include oHeaderServices($opts:
+		'types': ('primary-nav', 'bleed');
+		'logo': 'origami'
+	);
+
+	// Will output styles for a bleed header with a primary navigation and the Origami logo
+```
+### Customisation
+
+`o-header-services` provides the option to customise the `whitelabel` brand. If you are using this brand, you can modify brand-specific variables by overriding them in a map in `oHeaderServicesCustomize`.
+
+```scss
+$o-brand: whitelabel;
+@import 'o-header-services/main';
+
+@include oHeaderServicesCustomize((
+	'nav-hover-background': hotpink // will apply to background colors on hover, where appropriate
+))
+
+@include oHeaderServices($opts: (
+	'types': ('primary-nav'),
+	'features': ('drop-dowm')
+));
+```
+
+You can see all of the variables that are available for customising under `whitelabel` in the [brand SCSS file](../src/scss/_brand.scss#L70).
+
+## JavaScript
+
+No code will run automatically unless you are using the Build Service. You must either construct an `o-header-services` object or fire an `o.DOMContentLoaded` event, which `o-header-services` listens for.
+
+You'll need to set up your header declaratively, as the JavaScript for `o-header-services` does _not_ construct it for you.
+
+The JavaScript is responsible for generating the drawer and enabling scrolling on the secondary navigation. You can implement that with the following:
+
+```js
+const oHeaderServices = require('o-header-services');
+
+oHeaderServices.init();
+```
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.2 | N/A |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-header-services/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
-
-----
 
 ## Licence
 

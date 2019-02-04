@@ -1,28 +1,50 @@
-@mixin oHeaderServicesTheme($theme, $class: 'o-header-services') {
+/// @brand master
+/// @access private
+/// @param {String} $theme either b2b or b2c
+/// @outputs Changes navigation colours based on $theme
+@mixin _oHeaderServicesTheme($theme) {
 	@if type-of($theme) != 'string' {
 		@error 'oHeaderServicesTheme `$theme` must be a string but "#{$theme}" is of type "#{type-of($theme)}".';
 	}
 
-	.#{$class}__product-name {
-		color: _oHeaderServicesGet('product-title', $from: $theme);
-	}
+	@if _oHeaderServicesSupports($theme) {
+		.o-header-services--#{$theme} {
+			.o-header-services__product-name {
+				color: _oHeaderServicesGet('nav-text', $from: $theme);
+			}
 
-	.#{$class}__hamburger {
-		background-color: _oHeaderServicesGet('nav-background', $from: $theme);
-	}
+			.o-header-services__hamburger {
+				background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+			}
 
-	.#{$class}__primary-nav {
-		background-color: _oHeaderServicesGet('nav-background', $from: $theme);
-	}
+			.o-header-services__primary-nav {
+				background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+			}
 
-	.#{$class}__nav-link {
-		color: _oHeaderServicesGet('nav-text', $from: $theme);
+			.o-header-services__primary-nav--drawer {
+				background-color: rgba(0, 0, 0, 0.2);
+				.o-header-services__related-content li {
+					background-color: _oHeaderServicesGet('nav-background', $from: $theme);
 
-		&:hover,
-		&--selected,
-		&[aria-selected=true] {
-			color: _oHeaderServicesGet('nav-hover-text', $from: $theme);
-			background-color: _oHeaderServicesGet('nav-hover-background', $from: $theme);
+					a {
+						color: _oHeaderServicesGet('nav-text', $from: $theme);
+					}
+				}
+			}
+
+			.o-header-services__primary-nav-list {
+				background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+
+				a {
+					color: _oHeaderServicesGet('nav-text', $from: $theme);
+
+					&:hover,
+					&[aria-current=true] {
+						color: _oHeaderServicesGet('nav-text', $from: $theme);
+						background-color: _oHeaderServicesGet('nav-hover-background', $from: $theme);
+					}
+				}
+			}
 		}
 	}
 }

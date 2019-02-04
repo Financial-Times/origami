@@ -1,66 +1,92 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oHeaderServicesGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-header-services', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-header-services', $variables: $variables, $from: $from);
 }
 
 /// Helper for `o-brand` function.
 /// @access private
 @function _oHeaderServicesSupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-header-services', $variant: $variant);
+	@return oBrandSupportsVariant($component: 'o-header-services', $variant: $variant);
 }
 
-@include oBrandDefine('o-header-services', 'master', (
-	'variables': (
-		logo: 'brand-ft-logo-square-coloured',
-		top-text: oColorsGetPaletteColor('white'),
-		top-background: oColorsGetPaletteColor('black'),
-		top-link: oColorsGetPaletteColor('white'),
-		top-link-hover: oColorsGetPaletteColor('black-20'),
-		product-title: oColorsGetPaletteColor('white'),
-		nav-text: oColorsGetPaletteColor('black'),
-		nav-background: oColorsGetPaletteColor('white-60'),
-		nav-border: oColorsGetPaletteColor('black-20'),
-		nav-hover-text: oColorsGetPaletteColor('black'),
-		nav-hover-background: oColorsGetPaletteColor('black-5'),
-		subnav-text: oColorsGetPaletteColor('black'),
-		subnav-background: oColorsGetPaletteColor('white-40'),
-		'b2b': (
-			product-title: oColorsGetPaletteColor('white'),
-			nav-text: oColorsGetPaletteColor('white'),
-			nav-background: oColorsGetPaletteColor('claret'),
-			nav-hover-text: oColorsGetPaletteColor('white'),
-			nav-hover-background: oColorsGetPaletteColor('claret-30')
-		),
-		'b2c': (
-			product-title: oColorsGetPaletteColor('org-b2c-light'),
-			nav-text: oColorsGetPaletteColor('white'),
-			nav-background: oColorsGetPaletteColor('org-b2c'),
-			nav-hover-text: oColorsGetPaletteColor('white'),
-			nav-hover-background: oColorsGetPaletteColor('org-b2c-dark')
-		)
-	),
-	'supports-variants': (
-		'b2b',
-		'b2c'
-	)
-));
+/// Helper for `whitelabel` varibale customisation
+/// @brand whitelabel
+/// @param {Map} $variables - Brand variables to customise
+/// @access public
+/// @example scss
+///		@include oHeaderServicesCustomize((
+///			'nav-background': hotpink;
+///			'nav-hover-background': candy;
+///		))
+@mixin oHeaderServicesCustomize($variables) {
+	@include oBrandCustomize('o-header-services', $variables);
+}
 
-@include oBrandDefine('o-header-services', 'internal', (
-	'variables': (
-		logo: 'brand-ft-logo-squared-bw',
-		top-text: oColorsGetPaletteColor('white'),
-		top-background: oColorsGetPaletteColor('slate'),
-		top-link: oColorsGetPaletteColor('white'),
-		top-link-hover: oColorsGetPaletteColor('black-20'),
-		product-title: oColorsGetPaletteColor('white'),
-		nav-text: oColorsGetPaletteColor('black'),
-		nav-background: oColorsGetPaletteColor('slate-white-5'),
-		nav-border: oColorsGetPaletteColor('black-20'),
-		nav-hover-text: oColorsGetPaletteColor('black'),
-		nav-hover-background: oColorsGetPaletteColor('slate-white-15'),
-		subnav-text: oColorsGetPaletteColor('black'),
-		subnav-background: oColorsGetPaletteColor('slate-white-5')
-	),
-	'supports-variants': ()
-));
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-header-services', 'master', (
+		'variables': (
+			logo: 'brand-ft-logo-square-coloured',
+			top-text: oColorsGetPaletteColor('white'),
+			top-background: oColorsGetPaletteColor('black'),
+			nav-text: oColorsGetPaletteColor('black'),
+			nav-background: oColorsGetPaletteColor('white-60'),
+			nav-border: oColorsGetPaletteColor('black-20'),
+			nav-hover-background: oColorsGetPaletteColor('black-5'),
+			nav-underline-color: oColorsGetPaletteColor('black'),
+			arrow-icon-color: oColorsGetPaletteColor('black'),
+			button-hover-color: oColorsGetPaletteColor('black-20'),
+			'b2b': (
+				product-title: oColorsGetPaletteColor('white'),
+				nav-text: oColorsGetPaletteColor('white'),
+				nav-background: oColorsGetPaletteColor('claret'),
+				nav-hover-background: oColorsGetPaletteColor('claret-30'),
+				arrow-icon-color: oColorsGetPaletteColor('white'),
+			),
+			'b2c': (
+				product-title: oColorsGetPaletteColor('org-b2c-light'),
+				nav-text: oColorsGetPaletteColor('white'),
+				nav-background: oColorsGetPaletteColor('org-b2c'),
+				nav-hover-background: oColorsGetPaletteColor('org-b2c-dark'),
+				arrow-icon-color: oColorsGetPaletteColor('white'),
+			)
+		),
+		'supports-variants': (
+			'b2b',
+			'b2c'
+		)
+	));
+} @elseif oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-header-services', 'internal', (
+		'variables': (
+			logo: 'brand-ft-logo-squared-bw',
+			top-text: oColorsGetPaletteColor('white'),
+			top-background: oColorsGetPaletteColor('slate'),
+			nav-text: oColorsGetPaletteColor('black'),
+			nav-background: oColorsGetPaletteColor('slate-white-5'),
+			nav-border: oColorsGetPaletteColor('black-20'),
+			nav-hover-background: oColorsGetPaletteColor('slate-white-15'),
+			nav-underline-color: oColorsGetPaletteColor('black'),
+			arrow-icon-color: oColorsGetPaletteColor('slate'),
+			button-hover-color: oColorsGetPaletteColor('black-20')
+		),
+		'supports-variants': ()
+	));
+} @elseif oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-header-services', 'whitelabel', (
+		'variables': (
+			logo: null,
+			top-text: oColorsGetPaletteColor('white'),
+			top-background: oColorsGetPaletteColor('black'),
+			nav-text: oColorsGetPaletteColor('black'),
+			nav-background: oColorsGetPaletteColor('white'),
+			nav-border: oColorsGetPaletteColor('black'),
+			nav-hover-background: oColorsGetPaletteColor('white'),
+			nav-underline-color: oColorsGetPaletteColor('black'),
+			arrow-icon-color: oColorsGetPaletteColor('black'),
+			arrow-icon-hover-color: oColorsGetPaletteColor('white'),
+			button-hover-color: oColorsGetPaletteColor('black')
+		),
+		'supports-variants': ()
+	));
+}

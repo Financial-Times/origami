@@ -1,7 +1,15 @@
 $o-header-services-is-silent: false;
-
 @import '../../main';
 
 body {
 	font-family: arial;
+}
+
+.dummy-text {
+	@include oTypographySans(1);
+	max-width: 800px;
+	margin: auto;
+	padding: 0 20px;
+
+	a { @include oTypographyLink();}
 }

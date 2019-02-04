@@ -5,7 +5,8 @@
 	"origamiVersion": 1,
 	"brands": [
 		"master",
-		"internal"
+		"internal",
+		"whitelabel"
 	],
 	"support": "https://github.com/Financial-Times/o-header-services/issues",
 	"supportContact": {
@@ -26,37 +27,68 @@
 			"o-fonts@^3.0.0",
 			"o-normalise@^1.0.0"
 		],
+		"documentClasses": "core",
 		"sass": "demos/src/main.scss",
-		"js": "demos/src/main.js",
-		"documentClasses": "core"
+		"template": "demos/src/header.mustache",
+		"js": "demos/src/main.js"
 	},
 	"demos": [
 		{
-			"name": "very-simple",
-			"title": "Site title only",
-			"template": "demos/src/very-simple.mustache",
-			"description": "If your site has no navigation you can use this top bar only."
+			"name": "title-section",
+			"title": "Header with title section",
+			"description": "If your site has no navigation you can use this top bar on its own."
 		},
 		{
-			"name": "one-level-of-navigation",
-			"title": "Header with navigation add-on",
-			"template": "demos/src/one-navigation.mustache",
-			"description": "For sites with a few pages, there is a navigation style available. These nav items collapse into a drawer at narrow screen widths."
+			"name": "primary-navigation",
+			"title": "Header with primary navigation",
+			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths.",
+			"data": {
+				"primary-navigation": true
+			}
 		},
 		{
-			"name": "two-levels-of-navigation",
-			"title": "Header with a primary and secondary navigation",
-			"template": "demos/src/two-navigation.mustache",
-			"description": "For sites with more than a few sections, a secondary navigation is also available"
+			"name": "drop-down-navigation",
+			"title": "Header with primary navigation and drop down menus",
+			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths, and can be presented as dropdown menus",
+			"data": {
+				"primary-navigation": true,
+				"drop-down": true
+			}
 		},
 		{
-			"name": "themes",
-			"title": "Product themes",
-			"template": "demos/src/themes.mustache",
+			"name": "secondary-navigation",
+			"title": "Header with a primary and a secondary navigation",
+			"description": "For sites with more than a few sections, a secondary navigation is also available",
+			"data": {
+				"primary-navigation": true,
+				"sub-navigation": true
+			}
+		},
+		{
+			"name": "theme-b2c",
+			"title": "Product theme: B2C",
+			"description": "B2C theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
+			"data": {
+				"modifier": "b2c",
+				"primary-navigation": true,
+				"sub-navigation": true
+			},
 			"brands": [
 				"master"
-			],
-			"description": "This component is themable. The current available themes are B2B and B2C. If you're creating a product that isn't within B2B or B2C please contact Origami."
+			]
+		},
+		{
+			"name": "theme-b2b",
+			"title": "Product theme: B2B",
+			"description": "B2B theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
+			"data": {
+				"modifier": "b2b",
+				"primary-navigation": true,
+				"sub-navigation": true
+			},
+			"brands": [
+				"master"
+			]
 		},
 		{
 			"title": "Pa11y",

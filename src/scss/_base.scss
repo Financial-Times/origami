@@ -1,48 +1,80 @@
-@mixin oHeaderServicesContainer($bleed: false) {
-	@include oGridContainer($bleed: $bleed);
+/// @access private
+/// @param {Boolean} $bleed [whether or not to make the header a bleed header. Defaults to false.]
+/// @outputs base styles for full header
+@mixin _oHeaderServicesBase($bleed: false) {
+	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
+	@include oGridSurfaceCurrentLayout();
 
-	@if $bleed {
-		max-width: 100%;
-		padding: 0 20px;
-	}
-
-	&:before,
-	&:after {
-		content: '';
-	}
-
-	&:after {
-		clear: both;
-	}
-}
-
-@mixin oHeaderServices($class: 'o-header-services', $logo: $o-header-services-default-logo) {
-	@include oHeaderServicesTop($logo: $logo);
-	@include oHeaderServicesDrawer;
-	@include oHeaderServicesPrimaryNav;
-	@include oHeaderServicesSubNav;
-
-	.#{$class} {
+	.o-header-services {
+		@include oTypographySans($scale: 0);
 		background-color: _oHeaderServicesGet('top-background');
-	}
+		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 
-	.#{$class}__container {
-		@include oHeaderServicesContainer;
-	}
+		a {
+			text-decoration: none;
+		}
 
-	.#{$class}__bleed-container {
-		@include oHeaderServicesContainer($bleed: true);
-	}
+		ol,
+		ul {
+			list-style-type: none;
 
-	@if _oHeaderServicesSupports('b2b') {
-		.#{$class}--b2b {
-			@include oHeaderServicesTheme($theme: 'b2b');
+			@include oGridRespondTo(S) {
+				white-space: nowrap;
+			};
+		}
+
+		.o-header-services__visually-hidden {
+			@include oNormaliseVisuallyHidden;
 		}
 	}
 
-	@if _oHeaderServicesSupports('b2c') {
-		.#{$class}--b2c {
-			@include oHeaderServicesTheme($theme: 'b2c');
+	@if $bleed {
+		.o-header-services--bleed {
+			.o-header-services__top,
+			.o-header-services__primary-nav-list,
+			.o-header-services__secondary-nav-content {
+				@include oGridContainer($bleed: $bleed)
+				max-width: 100%;
+				padding: 0 oTypographySpacingSize(5);
+			}
+
+			.o-header-services__primary-nav-list  {
+				padding: 0;
+			}
+		}
+	}
+}
+
+/// @access private
+/// @param {Boolean} $underline [whether or not to make the hover an underline or a background change]
+/// @outputs hover styles
+@mixin _oHeaderServicesHover($underline) {
+	color: _oHeaderServicesGet('nav-text');
+	position: relative;
+
+	@if $underline {
+		display: inline-block;
+		margin: 0 oTypographySpacingSize(5);
+		padding: $_o-header-services-padding 0;
+
+		&:hover:before,
+		&[aria-current=true]:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: oTypographySpacingSize(1);
+			background-color: _oHeaderServicesGet('nav-underline-color');
+		}
+	} @else {
+		display: block;
+		margin: 0;
+		padding: $_o-header-services-padding  oTypographySpacingSize(5);
+
+		&:hover,
+		&[aria-current=true] {
+			background-color: _oHeaderServicesGet('nav-hover-background');
 		}
 	}
 }

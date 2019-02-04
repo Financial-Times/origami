@@ -1,0 +1,32 @@
+/// @access private
+/// @outputs styling for primary nav
+@mixin _oHeaderServicesPrimaryNav() {
+	.o-header-services__primary-nav {
+		position: relative;
+		background-color: _oHeaderServicesGet('nav-background');
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		z-index: 1;
+	}
+
+	.o-header-services__primary-nav-list {
+		@include oGridContainer;
+		background-color: _oHeaderServicesGet('nav-background');
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+
+		@include oGridRespondTo(S) {
+			padding: 0;
+		};
+
+		a {
+			$underline: if(_oHeaderServicesGet('nav-background') == _oHeaderServicesGet('nav-hover-background'), true, false);
+			@include _oHeaderServicesHover($underline);
+			@include oTypographyBold('sans');
+			text-transform: uppercase;
+			min-height: oTypographySpacingSize(5);
+		}
+	}
+
+	@include _oHeaderServicesDrawer();
+};

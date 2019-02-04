@@ -1,0 +1,116 @@
+/// @access private
+/// @outputs styling for sub nav
+@mixin _oHeaderServicesSecondaryNav() {
+	.o-header-services__secondary-nav {
+		position: relative;
+		background-color: _oHeaderServicesGet('nav-background');
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		overflow: hidden;
+	}
+
+	.o-header-services__secondary-nav-content {
+		@include oGridContainer;
+		display: flex;
+		white-space: nowrap;
+		overflow-x: auto;
+		padding: 0 20px;
+		max-height: $_o-header-services-sub-nav-height;
+	}
+
+	.o-header-services__secondary-nav-list {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			position: relative;
+
+			a {
+				@include _oHeaderServicesHover($underline: true);
+				padding: oTypographySpacingSize(2) 0;
+				margin: 0;
+			}
+		}
+	}
+
+
+	.o-header-services__secondary-nav-list--ancestors li {
+		padding-left: oTypographySpacingSize(2);
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:first-child:before {
+			content: none;
+		}
+
+		&:before {
+			@include oIconsGetIcon('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oTypographySpacingSize(4));
+			content: '';
+			position: relative;
+			top: 0.2em;
+		}
+
+		a {
+			@include oTypographyBold('sans');
+			text-transform: uppercase;
+		}
+	}
+
+	.o-header-services__secondary-nav-list--children li {
+		padding-left:  oTypographySpacingSize(4);
+
+		&:first-child {
+			margin-left:  oTypographySpacingSize(3);
+			padding-left:  oTypographySpacingSize(3);
+		}
+
+		&:first-child:before {
+			content: '';
+			position: absolute;
+			top: 15%;
+			left: 0;
+			height: 70%;
+			border-left: 1px solid _oHeaderServicesGet('nav-border');
+		}
+	}
+
+	.o-header-services__scroll-button {
+		@include oButtonsTheme($theme: $_o-header-services-button-theme);
+		border: 1px solid _oHeaderServicesGet('nav-border');
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		transition: opacity 0.5s $o-visual-effects-transition-fade;
+
+		&[disabled] {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	.o-header-services__scroll-button--left {
+		@include oButtonsIconButton(
+			$icon-name: 'arrow-left',
+			$theme: $_o-header-services-button-theme,
+			$is-icon-only: true
+		);
+		border-width: 0 1px 0 0;
+		min-width: $_o-header-services-button-icon-size;
+		left: 0;
+	}
+
+	.o-header-services__scroll-button--right {
+		@include oButtonsIconButton(
+			$icon-name: 'arrow-right',
+			$theme: $_o-header-services-button-theme,
+			$is-icon-only: true
+		);
+		border-width: 0 0 0 1px;
+		min-width: $_o-header-services-button-icon-size;
+		right: 0;
+	}
+}

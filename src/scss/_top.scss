@@ -1,120 +1,122 @@
-@mixin oHeaderServicesTop($class: 'o-header-services', $logo: $o-header-services-default-logo) {
-	.#{$class}__top {
-		@include oTypographySans($scale: 0);
-		color: _oHeaderServicesGet('top-text');
+/// @access private
+/// @param {String} $logo [ft-logo depending on brand (pink or white)]
+/// @outputs styling for title section of header
+@mixin _oHeaderServicesTop($logo) {
+	.o-header-services__top {
+		@include oGridContainer;
 		background-color: _oHeaderServicesGet('top-background');
+		color: _oHeaderServicesGet('top-text');
+		display: flex;
 		overflow: hidden;
-		display: block;
-	}
+		z-index: $_o-header-services-top-bar-z-index;
+		padding: 0;
 
-	.#{$class}__ftlogo {
-		width: 40px;
-		height: 40px;
-		margin: 8px 8px 8px 0;
-		float: left;
-		display: inline-block;
-		background-image: url($logo);
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 0;
-		@include oGridRespondTo($until: M) {
-			margin: 0;
-			width: $_o-header-services-top-bar-y-small;
-			height: $_o-header-services-top-bar-y-small;
+		a {
+			color: inherit;
 		}
 	}
 
+	.o-header-services__title {
+		display: flex;
+		align-items: center;
+	}
 
-	.#{$class}__hamburger {
-		height: $_o-header-services-top-bar-y-small;
-		width: $_o-header-services-top-bar-y-small;
-		float: left;
-		display: inline-block;
+	@if $logo {
+		.o-header-services__logo {
+			background-image: url(_oHeaderServicesLogo($logo));
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 0;
+			margin: 0;
+			height: $_o-header-services-top-bar-short;
+			width: $_o-header-services-top-bar-short;
 
+			@include oGridRespondTo(M) {
+				margin: oTypographySpacingSize(2) oTypographySpacingSize(2) oTypographySpacingSize(2) 0;
+				height: $_o-header-services-top-icon-size;
+				width: $_o-header-services-top-icon-size;
+			}
+		}
+
+		.o-header-services__title {
+			padding-left: 10px;
+		}
+	}
+
+	.o-header-services__hamburger {
+		height: $_o-header-services-top-bar-short;
+		width: $_o-header-services-top-bar-short;
 		@include oGridRespondTo(M) {
 			display: none;
 		}
 	}
 
-	.#{$class}__hamburger-icon {
-		@include oIconsGetIcon('hamburger', white, 40, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-		display: block;
-		background-size: 40px 40px;
-		background-position: 50% 50%;
-		background-repeat: no-repeat;
-		height: $_o-header-services-top-bar-y-small;
-		width: $_o-header-services-top-bar-y-small;
-	}
+	.o-header-services__hamburger-icon {
+		@include oIconsGetIcon(
+			$icon-name: 'hamburger',
+			$color: _oHeaderServicesGet('top-text'),
+			$container-width: $_o-header-services-top-icon-size
+		);
+		height: $_o-header-services-top-bar-short;
+		width: $_o-header-services-top-bar-short;
+		transition: transform 0.2s ease;
 
-	.#{$class}__title {
-		padding: $_o-header-services-padding-y $_o-header-services-padding-x;
-		display: inline-block;
-		float: left;
-
-		@include oGridRespondTo($until: M) {
-			margin: 0;
+		&.o-header-services__hambuger--open {
+			transform: rotate(90deg);
 		}
 	}
 
-	.#{$class}__product-name {
-		@include oTypographySansBold($scale: 4);
+	.o-header-services__product-name {
+		@include oTypographySize($scale: 4);
+		@include oTypographyBold('sans');
 		text-overflow: ellipsis;
-		color: _oHeaderServicesGet('product-title');
-		margin: 0;
-		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-		display: inline;
-		// this is so that when this element is a link it does not inherit default link styles
-		text-decoration: none;
 
 		@include oGridRespondTo($until: M) {
-			@include oTypographySansBold($scale: 2);
-		}
-
-		a {
-			color: inherit;
-			text-decoration: none;
+			@include oTypographySize($scale: 2);
 		}
 	}
 
-	.o-header-subrand__product-tagline {
-		@include oTypographySans($scale: 3);
-		text-transform: uppercase;
-		margin-left: $_o-header-services-padding-x;
-		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-
-		// Default behaviour for when there's not enough space because we don't know the
-		// width of the tagline
+	.o-header-services__product-tagline {
+		@include oTypographySize($scale: 3);
+		margin-left: $_o-header-services-padding;
 		text-overflow: ellipsis;
 		overflow: hidden;
-		display: inline;
 
 		@include oGridRespondTo($until: L) {
 			display: none;
 		}
 	}
 
-	.#{$class}__related-content {
-		float: right;
-		padding: 16px $_o-header-services-padding-x;
-		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+	.o-header-services__related-content {
+		margin: 0 0 0 auto;
+		padding: oTypographySpacingSize(3)/2 $_o-header-services-padding;
+		display: flex;
 
-		@include oGridRespondTo($until: M) {
-			display: none;
-		}
+		li {
+			background-color: _oHeaderServicesGet('top-background');
 
-		> a {
-			text-decoration: none;
-			display: inline-block;
-			color: _oHeaderServicesGet('top-link');
-			margin: 0 $_o-header-services-padding-x;
-			font-weight: 600;
-
-			&:visited {
-				color: _oHeaderServicesGet('top-link');
+			@if _oHeaderServicesGet('nav-background') == _oHeaderServicesGet('nav-hover-background') {
+				&:hover:before {
+					content: none;
+				}
 			}
 
-			&:hover {
-				text-decoration: underline;
+			a {
+				@include oTypographyBold('sans');
+				margin: 0;
+				color: _oHeaderServicesGet('top-text');
+
+				@include oGridRespondTo($from: M) {
+					display: block;
+					padding: $_o-header-services-padding oTypographySpacingSize(3);
+					margin: 0;
+				}
+
+
+				&:hover {
+					text-decoration: underline;
+					background-color: transparent;
+				}
 			}
 		}
 	}

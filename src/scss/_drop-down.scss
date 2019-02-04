@@ -1,0 +1,145 @@
+// sass-lint:disable no-qualifying-elements
+/// @access private
+/// @outputs styling for primary navigation drop down menus
+@mixin _oHeaderServicesDropDown() {
+	.o-header-services {
+		li[data-o-header-services-level] {
+			position: relative;
+			min-height: oTypographySpacingSize(10);
+
+			> a {
+				display: inline-block;
+			}
+
+			.o-header-services__drop-down-button {
+				background-color: transparent;
+				border: 0;
+				border-left: 1px solid _oHeaderServicesGet('nav-border');
+				border-right: 1px solid _oHeaderServicesGet('nav-border');
+				height: 100%;
+				vertical-align: top;
+
+				&:after {
+					@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 24);
+					content: '';
+					transition: transform 0.2s ease;
+					vertical-align: middle;
+				}
+
+				&:hover {
+					background-color: _oHeaderServicesGet('button-hover-color');
+
+					&:after {
+						@if _oHeaderServicesGet('arrow-icon-hover-color') {
+							@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 24);
+						}
+					}
+				}
+			}
+
+			a[aria-current='true'] + .o-header-services__drop-down-button {
+				background-color: _oHeaderServicesGet('nav-hover-background');
+
+
+				&:hover {
+					background-color: _oHeaderServicesGet('button-hover-color');
+				}
+			}
+		}
+
+		ul[data-o-header-services-level] {
+			@include oTypographySize(-1);
+			background: _oHeaderServicesGet('nav-background');
+			border: 1px solid _oHeaderServicesGet('nav-border');
+			box-sizing: border-box;
+			min-width: auto;
+			padding-left: 0;
+			position: absolute;
+			opacity: 0;
+			transform: translateY(-100%);
+			transition:
+				opacity 0.1s linear,
+				transform 0.2s ease-in;
+			z-index: -1;
+
+			&.o-header-services__list--right {
+				right: 0;
+			}
+		}
+
+		.core li[data-o-header-services-level]:hover,
+		li[aria-expanded=true] {
+			.o-header-services__drop-down-button:after {
+				transform: rotate(-180deg);
+			}
+
+			ul[data-o-header-services-level] {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		.o-header-services__primary-nav--drawer {
+			li[data-o-header-services-level] {
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+
+				> a {
+					flex-grow: 1;
+				}
+
+				.o-header-services__drop-down-button {
+					height: oTypographySpacingSize(10);
+					border: 1px solid _oHeaderServicesGet('nav-border');
+				}
+
+				@if oBrandGetCurrentBrand() == 'whitelabel' {
+					> a {
+						flex-grow: 0;
+					}
+
+					.o-header-services__drop-down-button {
+						margin-left: auto;
+					}
+				};
+			}
+
+			ul[data-o-header-services-level] {
+				border-right: 0;
+				opacity: 0;
+				transition:
+					opacity 0s ease,
+					transform 0s ease;
+			}
+
+			li[aria-expanded=true] {
+				.o-header-services__drop-down-button {
+					border-width: 0 1px;
+				}
+
+				ul[data-o-header-services-level] {
+					opacity: 1;
+					position: relative;
+					width: 100%;
+					z-index: 2;
+				}
+			}
+		}
+	}
+
+	.core .o-header-services {
+		li[data-o-header-services-level] .o-header-services__drop-down-button:hover {
+
+			&:after {
+				transform: rotate(-180deg);
+			}
+
+			+ ul[data-o-header-services-level] {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	}
+}
+// sass-lint:enable no-qualifying-elements
