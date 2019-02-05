@@ -17,6 +17,8 @@
 			text-align: left;
 			vertical-align: top;
 			color: _oTableGet('table-data-color');
+			min-width: 3ch; // helps prevent some layout updates
+			box-sizing: border-box;
 		}
 
 		th {

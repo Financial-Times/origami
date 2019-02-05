@@ -65,7 +65,7 @@ class BaseTable {
 		}, { cancelable: true });
 
 		if (defaultSort) {
-			this._sorter.sortRowsByColumn(this, columnIndex, sortOrder);
+			this._sorter.sortRowsByColumn(this, columnIndex, sortOrder, this._opts.sortBatchNumber);
 		}
 	}
 
@@ -78,13 +78,16 @@ class BaseTable {
 			return;
 		}
 		this.rootEl.classList.add('o-table--sortable');
-		this.tableHeaders.forEach(function (th) {
+		this.tableHeaders.forEach((th) => {
 			// Don't add sort buttons to unsortable columns.
 			if (th.hasAttribute('data-o-table-heading-disable-sort')) {
 				return;
 			}
+			// Don't add sort buttons to columns with no headings.
+			if (!th.hasChildNodes()) {
+				return;
+			}
 			// Move heading text into button.
-			const sortButton = document.createElement('button');
 			const headingNodes = Array.from(th.childNodes);
 			const headingHTML = headingNodes.reduce((html, node) => {
 				// Maintain child elements of the heading which make sense in a button.
@@ -98,17 +101,20 @@ class BaseTable {
 				}
 				return html + node.textContent;
 			}, '');
-			sortButton.innerHTML = headingHTML;
-			// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
-			// Using `title` avoids this, but risks not being announced by other screen readers.
-			sortButton.classList.add('o-table__sort');
-			sortButton.setAttribute('title', `sort table by ${th.innerText}`);
-			th.innerHTML = '';
-			th.appendChild(sortButton);
-			// Add click event to buttons.
-			const listener = this._sortButtonHandler.bind(this);
-			this._rootElDomDelegate.on('click', '.o-table__sort', listener);
-		}.bind(this));
+			window.requestAnimationFrame(() => {
+				const sortButton = document.createElement('button');
+				sortButton.innerHTML = headingHTML;
+				// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
+				// Using `title` avoids this, but risks not being announced by other screen readers.
+				sortButton.classList.add('o-table__sort');
+				sortButton.setAttribute('title', `sort table by ${th.textContent}`);
+				th.innerHTML = '';
+				th.appendChild(sortButton);
+			});
+		});
+		// Add click event to buttons.
+		const listener = this._sortButtonHandler.bind(this);
+		this._rootElDomDelegate.on('click', '.o-table__sort', listener);
 	}
 
 	/**

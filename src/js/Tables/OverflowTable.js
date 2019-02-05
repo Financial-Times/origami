@@ -20,6 +20,7 @@ class OverflowTable extends BaseTable {
 			expanded: this.rootEl.hasAttribute('data-o-table-expanded') ? this.rootEl.getAttribute('data-o-table-expanded') !== 'false' : null,
 			minimumRowCount: this.rootEl.getAttribute('data-o-table-minimum-row-count')
 		}, this._opts);
+		this._opts.sortBatchNumber = this._opts.minimumRowCount && !this._opts.expanded ? parseInt(this._opts.minimumRowCount, 10) + 5 : null;
 		window.requestAnimationFrame(this.addSortButtons.bind(this));
 		window.requestAnimationFrame(this._setupScroll.bind(this));
 		window.requestAnimationFrame(this._setupExpander.bind(this));
@@ -256,6 +257,7 @@ class OverflowTable extends BaseTable {
 			this._setScrollPosition();
 			this._updateControls();
 		}.bind(this);
+
 		updateScroll();
 
 		// Observe controls scrolling beyond table and update.
@@ -323,9 +325,9 @@ class OverflowTable extends BaseTable {
 		}
 
 		if (this._opts.expanded){
-			this.expandTable();
+			window.requestAnimationFrame(this.expandTable.bind(this));
 		} else {
-			this.contractTable();
+			window.requestAnimationFrame(this.contractTable.bind(this));
 		}
 	}
 

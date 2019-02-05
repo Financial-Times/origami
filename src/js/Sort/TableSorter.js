@@ -47,6 +47,41 @@ function descendingSort(...args) {
 }
 
 /**
+ * Append rows to table.
+ *
+ * @access private
+ * @param {Element} tbody - The table body to append the row batch to.
+ * @param {Array} rowBatch - An array of rows to append to the table body.
+ * @returns {undefined}
+ */
+function append(tbody, rowBatch) {
+	if (tbody.append) {
+		tbody.append(...rowBatch);
+	} else {
+		rowBatch.forEach(row => tbody.appendChild(row));
+	}
+
+}
+
+/**
+ * Prepend rows to table.
+ *
+ * @access private
+ * @param {Element} tbody - The table body to prepend the row batch to.
+ * @param {Array} rowBatch - An array of rows to prepend to the table body.
+ * @returns {undefined}
+ */
+function prepend(tbody, rowBatch) {
+	if (tbody.prepend) {
+		tbody.prepend(...rowBatch);
+	} else {
+		rowBatch.reverse().forEach(row => {
+			tbody.insertBefore(row, tbody.firstChild);
+		});
+	}
+}
+
+/**
  * Provides methods to sort table instances.
  */
 class TableSorter {
@@ -62,19 +97,19 @@ class TableSorter {
 	 * @param {BaseTable} table - The table instance to sort.
 	 * @param {Number} columnIndex - The index of the table column to sort.
 	 * @param {Number} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {Number} batch [100] - How many rows to update at once when sorting.
 	 * @returns {undefined}
 	 */
-	sortRowsByColumn(table, columnIndex, sortOrder) {
+	sortRowsByColumn(table, columnIndex, sortOrder, batch) {
 		const tableHeaderElement = table.getTableHeader(columnIndex);
 
 		if (['ascending', 'descending'].indexOf(sortOrder) === -1) {
 			throw new Error(`Sort order "${sortOrder}" is not supported. Must be "ascending" or "descending".`);
 		}
 
-		// Add class for immediate visual feedback (only update aria when table has sorted successfully).
-		window.requestAnimationFrame(() => {
-			tableHeaderElement.classList.add(`o-table-sorting-${sortOrder}`);
-		});
+		if (!batch || isNaN(batch)) {
+			batch = 100;
+		}
 
 		const intlCollator = getIntlCollator();
 		const cellFormatter = this._cellFormatter;
@@ -91,15 +126,27 @@ class TableSorter {
 			}
 		});
 
-		window.requestAnimationFrame(() => {
-			table.tableRows.forEach((row) => {
-				table.tbody.appendChild(row);
+		let updatedRowCount = 0;
+		function updateSortedRowBatch() {
+			window.requestAnimationFrame(() => {
+				const rowBatch = table.tableRows.slice(updatedRowCount, updatedRowCount + batch);
+				if (updatedRowCount === 0) {
+					prepend(table.tbody, rowBatch);
+				} else {
+					append(table.tbody, rowBatch);
+				}
+				updatedRowCount = updatedRowCount + batch;
+				if (updatedRowCount < table.tableRows.length) {
+					updateSortedRowBatch();
+				}
 			});
+		}
+		updateSortedRowBatch();
+
+		window.requestAnimationFrame(() => {
 			table.tableHeaders.forEach((header) => {
 				const headerSort = (header === tableHeaderElement ? sortOrder : 'none');
 				header.setAttribute('aria-sort', headerSort);
-				header.classList.remove(`o-table-sorting-ascending`);
-				header.classList.remove(`o-table-sorting-descending`);
 			});
 			table.sorted({
 				columnIndex,

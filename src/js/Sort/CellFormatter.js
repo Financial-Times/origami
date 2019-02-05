@@ -284,10 +284,10 @@ class CellFormatter {
 	 */
 	formatCell({ cell, type = 'text' }) {
 		type = type || 'text';
-		let cellClone = cell.cloneNode({ deep: true });
 		let sortValue = cell.getAttribute('data-o-table-sort-value');
 		if (sortValue === null) {
 			if (this.filters[type]) {
+				let cellClone = cell.cloneNode({ deep: true });
 				sortValue = cellClone;
 				this.filters[type].forEach(fn => { sortValue = fn(sortValue); });
 			}
