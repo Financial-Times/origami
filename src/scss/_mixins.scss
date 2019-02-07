@@ -41,9 +41,10 @@
 		display: block;
 		position: relative;
 
-		a {
+		a:not(.o-typography-link) {
 			color: inherit;
 			text-decoration: underline;
+			border-bottom: 0;
 		}
 	}
 
