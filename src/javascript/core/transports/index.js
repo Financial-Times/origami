@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	xhr: require('./xhr'),
 	sendBeacon: require('./send-beacon'),
 	image: require('./image'),

@@ -1,18 +1,19 @@
 /*global module, require, window */
 /*eslint-disable*/
 'use strict';
+
 /*eslint-enable*/
 
 /**
  * Shared 'internal' scope.
  * @private
  */
-const settings = require('./core/settings');
+import settings from './core/settings';
 
 /**
  * CUID Generator
  */
-const cuid = require('../libs/browser-cuid');
+import cuid from '../libs/browser-cuid';
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -260,7 +261,7 @@ function whitelistProps (props, list) {
  * Utilities.
  * @alias utils
  */
-module.exports = {
+export default {
 	log: log,
 	is: is,
 	isUndefined: is,

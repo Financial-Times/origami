@@ -6,8 +6,8 @@
 let userID;
 let store;
 
-const utils = require('../utils');
-const Store = require('./store');
+import utils from '../utils';
+import Store from './store';
 
 /**
  * Init
@@ -66,7 +66,7 @@ function destroy() {
 	store.destroy();
 }
 
-module.exports = {
+export default {
 	init: init,
 	setUser: setUser,
 	userID: function () { return userID; },

@@ -10,8 +10,8 @@ const defaultSessionConfig = {
 	expires: 30 * 60 * 1000 // 30 minutes
 };
 
-const utils = require('../utils');
-const Store = require('./store');
+import utils from '../utils';
+import Store from './store';
 
 /**
  * Set the session in the store.
@@ -91,7 +91,7 @@ function init(config) {
 	return getSession();
 }
 
-module.exports = {
+export default {
 	init: init,
 	session: getSession
 };

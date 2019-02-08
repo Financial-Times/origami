@@ -1,8 +1,9 @@
 /*global require, describe, it, beforeEach, afterEach */
 
-const assert = require('assert');
-const Store = require('../../src/javascript/core/store');
-const Session = require('../../src/javascript/core/session');
+import assert from 'assert';
+
+import Store from '../../src/javascript/core/store';
+import Session from '../../src/javascript/core/session';
 
 describe('Core.Session', function () {
 

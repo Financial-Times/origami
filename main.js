@@ -1,11 +1,10 @@
 /*global require, module */
 'use strict'; // eslint-disable-line strict
 
-const settings = require('./src/javascript/core/settings');
-const user = require('./src/javascript/core/user');
-const session = require('./src/javascript/core/session');
-const send = require('./src/javascript/core/send');
-const core = require('./src/javascript/core');
+import settings from './src/javascript/core/settings';
+import user from './src/javascript/core/user';
+import session from './src/javascript/core/session';
+import send from './src/javascript/core/send';
 
 /**
  * The version of the tracking module.
@@ -277,4 +276,4 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  * interface.
  * @type {Tracking}
  */
-module.exports = tracking;
+export default tracking;

@@ -1,10 +1,10 @@
 /*global require, describe, it, before, after, sinon */
 require('../setup');
-const assert = require("assert");
-const Queue = require("../../src/javascript/core/queue");
-const settings = require("../../src/javascript/core/settings");
-const send = require("../../src/javascript/core/send");
-const session = require("../../src/javascript/core/session");
+import assert from "assert";
+import Queue from "../../src/javascript/core/queue";
+import settings from "../../src/javascript/core/settings";
+import send from "../../src/javascript/core/send";
+import session from "../../src/javascript/core/session";
 
 describe('event', function () {
 

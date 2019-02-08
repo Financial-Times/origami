@@ -1,12 +1,13 @@
 /*global require, describe, it, before, after, sinon */
 
-const assert = require('assert');
-const settings = require("../src/javascript/core/settings");
-const Queue = require("../src/javascript/core/queue");
-const session = require("../src/javascript/core/session");
-const send = require("../src/javascript/core/send");
-const Core = require("../src/javascript/core.js");
-const setup = require('./setup');
+import assert from 'assert';
+
+import settings from "../src/javascript/core/settings";
+import Queue from "../src/javascript/core/queue";
+import session from "../src/javascript/core/session";
+import send from "../src/javascript/core/send";
+import Core from "../src/javascript/core.js";
+import setup from './setup';
 describe('Core', function () {
 
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f

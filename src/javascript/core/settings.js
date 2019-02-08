@@ -58,7 +58,7 @@ function destroy(key) {
 	delete settings[key];
 }
 
-module.exports = {
+export default {
 	'set': setValue,
 	'get': getValue,
 	'destroy': destroy

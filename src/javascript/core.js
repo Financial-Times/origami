@@ -1,13 +1,15 @@
 /*global module, require */
 /*eslint-disable*/
 'use strict';
+
 /*eslint-enable*/
 
-const Send = require('./core/send');
-const User = require('./core/user');
-const Session = require('./core/session');
-const settings = require('./core/settings');
-const utils = require('./utils');
+import Send from './core/send';
+
+import User from './core/user';
+import Session from './core/session';
+import settings from './core/settings';
+import utils from './utils';
 
 let rootID;
 
@@ -90,7 +92,7 @@ function track(config, callback) {
 	return request;
 }
 
-module.exports = {
+export default {
 	setRootID: setRootID,
 	getRootID: getRootID,
 	track: track

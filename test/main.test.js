@@ -1,9 +1,9 @@
 /*global require, describe, it, before, after, sinon */
 require('./setup');
-const assert = require("assert");
-const settings = require("../src/javascript/core/settings");
-const Queue = require("../src/javascript/core/queue");
-const Send = require("../src/javascript/core/send");
+import assert from "assert";
+import settings from "../src/javascript/core/settings";
+import Queue from "../src/javascript/core/queue";
+import Send from "../src/javascript/core/send";
 
 describe('main', function () {
 

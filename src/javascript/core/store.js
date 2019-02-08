@@ -191,4 +191,4 @@ Store.prototype.destroy = function () {
 	return this;
 };
 
-module.exports = Store;
+export default Store;

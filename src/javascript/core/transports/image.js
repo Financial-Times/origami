@@ -1,6 +1,6 @@
-const utils = require('../../utils');
+import utils from '../../utils';
 
-module.exports = function () {
+export default function () {
 	const image = new Image(1,1);
 
 	return {
