@@ -33,7 +33,7 @@
 			.o-header-services__top,
 			.o-header-services__primary-nav-list,
 			.o-header-services__secondary-nav-content {
-				@include oGridContainer($bleed: $bleed)
+				@include oGridContainer($bleed: $bleed);
 				max-width: 100%;
 				padding: 0 oTypographySpacingSize(5);
 			}
@@ -52,10 +52,18 @@
 	color: _oHeaderServicesGet('nav-text');
 	position: relative;
 
+	&:hover {
+		color: _oHeaderServicesGet('text-hover-color');
+	}
+
 	@if $underline {
 		display: inline-block;
 		margin: 0 oTypographySpacingSize(5);
 		padding: $_o-header-services-padding 0;
+
+		&[aria-current=true] {
+			color: _oHeaderServicesGet('text-hover-color');
+		}
 
 		&:hover:before,
 		&[aria-current=true]:before {

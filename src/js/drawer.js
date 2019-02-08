@@ -9,12 +9,30 @@ class Drawer {
 	constructor(headerEl) {
 		this.headerEl = headerEl;
 		this.nav = headerEl.querySelector('.o-header-services__primary-nav');
+		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 		this.class = {
 			drawer: 'o-header-services__primary-nav--drawer',
 			open: 'o-header-services__primary-nav--open'
 		};
 
 		if (!this.nav) { return; }
+
+
+		// Create drawer header.
+		let drawerHeader = document.createElement('li');
+		drawerHeader.classList.add('o-header-services__drawer-header');
+		this.drawerCloseButton = document.createElement('button');
+		this.drawerCloseButton.classList.add('o-header-services__drawer-close-button');
+		this.drawerCloseButton.innerText = 'Close';
+		// Add drawer header to navlist, with close button.
+		if (this.navList) {
+			drawerHeader.appendChild(this.drawerCloseButton);
+			if (this.navList && this.navList.firstChild) {
+				this.navList.insertBefore(drawerHeader, this.navList.firstChild);
+			} else {
+				this.navList.appendChild(drawerHeader);
+			}
+		}
 
 		this.debouncedRender = oUtils.debounce(() => this.render(), 100);
 		this.burger = this.headerEl.querySelector('.o-header-services__hamburger-icon');
@@ -32,12 +50,16 @@ class Drawer {
 	handleEvent(e) {
 		if (e.type === 'resize') {
 			this.debouncedRender();
-		} else if (e.type === 'keydown') {
+		}
+
+		if (e.type === 'keydown') {
 			if (e.key === 'Escape' && this.nav.classList.contains(this.class.open)) {
 				this.toggleDrawer();
 				this.burger.focus();
 			}
-		} else if (e.type === 'click' || e.type === 'focusout') {
+		}
+
+		if ((e.type === 'click' && [this.nav, this.burger, this.drawerCloseButton].includes(e.target))) {
 			this.toggleDrawer();
 		}
 	}
@@ -67,7 +89,13 @@ class Drawer {
 	toggleDrawer () {
 		this.nav.classList.toggle(this.class.open);
 		this.burger.classList.toggle('o-header-services__hambuger--open');
-		this._toggleAriaAttributes(this.nav.classList.contains(this.class.open));
+		const open = this.nav.classList.contains(this.class.open);
+		this._toggleAriaAttributes(open);
+		if (open) {
+			setTimeout(function(){
+				this.drawerCloseButton.focus();
+			}.bind(this), 50); // Wait for drawer to be open
+		}
 	}
 
 	/**
@@ -79,9 +107,8 @@ class Drawer {
 		if (!relatedContent) { return; }
 
 		let headerTop = this.headerEl.querySelector('.o-header-services__top');
-		let navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 
-		return shiftItems ? navList.appendChild(relatedContent) : headerTop.appendChild(relatedContent);
+		return shiftItems ? this.navList.appendChild(relatedContent) : headerTop.appendChild(relatedContent);
 	}
 
 	/**

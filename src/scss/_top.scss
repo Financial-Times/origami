@@ -8,7 +8,6 @@
 		color: _oHeaderServicesGet('top-text');
 		display: flex;
 		overflow: hidden;
-		z-index: $_o-header-services-top-bar-z-index;
 		padding: 0;
 
 		a {
@@ -60,10 +59,6 @@
 		height: $_o-header-services-top-bar-short;
 		width: $_o-header-services-top-bar-short;
 		transition: transform 0.2s ease;
-
-		&.o-header-services__hambuger--open {
-			transform: rotate(90deg);
-		}
 	}
 
 	.o-header-services__product-name {
