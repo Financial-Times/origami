@@ -1,4 +1,4 @@
-module.exports = function () {
+export default function () {
 	const editionsData = {
 		current: {
 			name: 'UK',
