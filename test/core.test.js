@@ -7,7 +7,8 @@ import Queue from "../src/javascript/core/queue";
 import session from "../src/javascript/core/session";
 import send from "../src/javascript/core/send";
 import Core from "../src/javascript/core.js";
-import setup from './setup';
+import {mockTransport, unmockTransport, errorNextSend} from './setup';
+
 describe('Core', function () {
 
 	const guid_re = /\w{25}/; // cifnulwv2000030ds4avpbm9f
