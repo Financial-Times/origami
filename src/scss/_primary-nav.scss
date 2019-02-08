@@ -5,7 +5,6 @@
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
 		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
-		z-index: 1;
 	}
 
 	.o-header-services__primary-nav-list {
@@ -15,19 +14,46 @@
 		flex-wrap: wrap;
 		margin: auto;
 
-		@include oGridRespondTo(S) {
-			padding: 0;
-		};
+		> li {
+			position: relative;
+		}
 
 		> li a {
-			@include _oHeaderServicesHover($underline: false);
 			@include oTypographyBold('sans');
+			position: relative;
+			color: _oHeaderServicesGet('nav-text');
+			display: inline-block;
+			margin: 0;
+			padding: $_o-header-services-padding  oTypographySpacingSize(5);
 			text-transform: uppercase;
-			min-height: oTypographySpacingSize(5);
+			box-sizing: border-box;
+
+			&:hover {
+				color: _oHeaderServicesGet('text-hover-color');
+			}
+
+			&:hover,
+			&[aria-current=true] {
+				background-color: _oHeaderServicesGet('nav-hover-background');
+			}
 		}
 
 		> li:not(:last-child) {
 			border-right: 1px solid _oHeaderServicesGet('nav-border');
+		}
+
+		[data-o-header-services-level="2"] {
+			> li a {
+				display: block;
+			}
+			max-width: 50vw;
+			overflow: hidden;
+			white-space: nowrap;
+			> li a {
+				text-overflow: ellipsis;
+				max-width: 100%;
+				overflow: hidden;
+			}
 		}
 	}
 

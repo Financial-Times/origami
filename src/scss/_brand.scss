@@ -94,31 +94,3 @@
 		'supports-variants': ()
 	));
 }
-
-// @if oBrandGetCurrentBrand() == 'whitelabel' {
-// 	$fdi-blue: #1173C1;
-// 	$background-grey: #ECECEC;
-// 	$fdi-border: #979797;
-// 	@include oBrandDefine('o-header-services', 'whitelabel', (
-// 		'variables': (
-// 			logo: null,
-// 			top-text: oColorsGetPaletteColor('white'),
-// 			top-background: oColorsGetPaletteColor('black'),
-// 			nav-text: oColorsGetPaletteColor('black'),
-// 			nav-background: oColorsGetPaletteColor('white'),
-// 			nav-border: $fdi-border,
-// 			nav-hover-background: $background-grey,
-// 			nav-underline-color: $fdi-blue,
-// 			arrow-icon-color: oColorsGetPaletteColor('black'),
-// 			arrow-icon-hover-color: $fdi-blue,
-// 			button-hover-color: $background-grey,
-// 			text-hover-color: $fdi-blue,
-
-// 			drawer-background: $background-grey,
-// 			drawer-button-background: darken($background-grey, 10),
-// 			drawer-text-hover-color: #FFFFFF,
-// 			drawer-nav-hover-background: $fdi-blue,
-// 		),
-// 		'supports-variants': ()
-// 	));
-// }

@@ -1,82 +1,9 @@
 /// @access private
 /// @outputs styling for the drawer
+// sass-lint:disable no-qualifying-elements
 @mixin _oHeaderServicesDrawer {
-
-	.o-header-services__drawer-header {
-		display: none;
-		position: relative;
-		overflow: hidden;
-		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
-		padding: 0.5rem 0;
-	}
-
-	.o-header-services__drawer-close-button {
-		position: relative;
-		appearance: none;
-		font-family: inherit;
-		font-size: inherit;
-		background: transparent;
-		border: 0;
-		vertical-align: middle;
-		float: right;
-		&:after {
-			content: '';
-			@include oIconsGetIcon('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
-			vertical-align: inherit;
-		}
-
-		&:hover {
-			color: _oHeaderServicesGet('text-hover-color');
-
-			&:after {
-				@if _oHeaderServicesGet('text-hover-color') {
-					@include oIconsGetIcon('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
-					vertical-align: inherit;
-				}
-			}
-		}
-	}
-
-	.o-header-services .o-header-services__primary-nav--drawer {
-		li[data-o-header-services-level] {
-			display: flex;
-			flex-wrap: wrap;
-			width: 100%;
-
-			> a {
-				flex-grow: 1;
-			}
-
-			.o-header-services__drop-down-button {
-				height: oTypographySpacingSize(10);
-				border: 1px solid _oHeaderServicesGet('nav-border');
-				border-top: 0px;
-			}
-		}
-
-		ul[data-o-header-services-level] {
-			border-right: 0;
-			opacity: 0;
-			transition:
-				opacity 0s ease,
-				transform 0s ease;
-		}
-
-		li[aria-expanded=true] {
-			.o-header-services__drop-down-button {
-				border-width: 0 1px;
-			}
-
-			ul[data-o-header-services-level] {
-				opacity: 1;
-				position: relative;
-				width: 100%;
-				z-index: 2;
-			}
-		}
-	}
-
-	.o-header-services .o-header-services__primary-nav.o-header-services__primary-nav--drawer {
+	.o-header-services__primary-nav.o-header-services__primary-nav--drawer {
+		// Drawer background.
 		background-color: rgba(0, 0, 0, 0.8);
 		position: fixed;
 		top: 0;
@@ -88,6 +15,7 @@
 			visibility 0.01s linear,
 			opacity 0.5s $o-visual-effects-transition-fade;
 
+		// Drawer nav.
 		.o-header-services__primary-nav-list {
 			@include oVisualEffectsShadowsElevation('mid');
 			flex-direction: column;
@@ -95,20 +23,38 @@
 			margin: 0;
 			overflow-y: auto;
 			padding: 0;
+			height: 100%;
+			width: 75vw;
+			background-color: _oHeaderServicesGet('drawer-background');
 			transform: translateX(-100%);
 			transition:
 				transform 0.5s $o-visual-effects-transition-expand;
-			height: 100%;
-			width: calc(100% - 120px);
-			background-color: _oHeaderServicesGet('drawer-background');
-			[data-o-header-services-level="2"] a:hover {
-				color: _oHeaderServicesGet('drawer-text-hover-color');
-				background: _oHeaderServicesGet('drawer-nav-hover-background');
+		}
+
+		// First level nav item.
+		.o-header-services__primary-nav-list > li {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+
+			// Expand the link to fill the draw,
+			// up to a drop down button if there is one.
+			> a {
+				flex-grow: 1;
 			}
 		}
 
-		li[data-o-header-services-level] .o-header-services__drop-down-button {
-			padding: 0 .4375rem;
+		// Draw's dropdown button.
+		.o-header-services__drop-down-button {
+			padding: 0 0.4375rem;
+			height: oTypographySpacingSize(10);
+			border: 1px solid _oHeaderServicesGet('nav-border');
+			border-top: 0px;
+		}
+
+		// Override the background colour of the draw's dropdown button.
+		.o-header-services__drop-down-button,
+		a[aria-current="true"] + .o-header-services__drop-down-button {
 			@if  _oHeaderServicesGet('drawer-button-background') {
 				border: 0;
 				background-color: _oHeaderServicesGet('drawer-button-background');
@@ -118,15 +64,37 @@
 			}
 		}
 
+		// Second level nav item.
+		[data-o-header-services-level="2"] {
+			border-right: 0;
+			opacity: 0;
+			width: 100%;
+			// Reset the dropdown styles now they are in a drawer.
+			transition: none;
+			z-index: 0;
+			max-width: none;
+			white-space: normal;
+			a:hover {
+				color: _oHeaderServicesGet('drawer-text-hover-color');
+				background: _oHeaderServicesGet('drawer-nav-hover-background');
+			}
+		}
+
+		// Expanded first level nav item.
+		li[data-o-header-services-level][aria-expanded=true] {
+			[data-o-header-services-level="2"] {
+				position: relative;
+				opacity: 1;
+			}
+		}
+
+		// Override related content styles to match the draw.
 		.o-header-services__related-content {
 			display: block;
-			clear: both;
 			margin: oTypographySpacingSize(5) 0 0;
 			padding: 0;
-
 			li {
-				background-color: if(_oHeaderServicesGet('drawer-background'), _oHeaderServicesGet('drawer-background'), _oHeaderServicesGet('nav-background'));
-
+				background-color: inherit;
 				a {
 					color: inherit;
 					font-weight: oFontsWeight('regular');
@@ -135,24 +103,59 @@
 					margin: 0;
 					padding: $_o-header-services-padding  oTypographySpacingSize(5);
 				}
-
 				a:hover {
 					background-color: none;
 				}
 			}
 
 		}
+	}
 
-		&.o-header-services__primary-nav--open {
-			visibility: visible;
+	// The drawer header, which contains the close button.
+	.o-header-services__drawer-header {
+		display: none;
+		position: relative;
+		overflow: hidden;
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		padding: 0.5rem 0;
+		justify-content: end;
+	}
 
-			.o-header-services__primary-nav-list {
-				transform: translateX(0%);
-			}
+	// The drawer close button.
+	.o-header-services__drawer-close-button {
+		position: relative;
+		appearance: none;
+		font-family: inherit;
+		font-size: inherit;
+		background: transparent;
+		border: 0;
+		vertical-align: middle;
+		&:after {
+			@include oIconsGetIcon('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
+			content: '';
+			vertical-align: inherit;
+		}
 
-			.o-header-services__drawer-header {
-				display: block;
+		&:hover {
+			color: _oHeaderServicesGet('text-hover-color');
+			&:after {
+				@if _oHeaderServicesGet('text-hover-color') {
+					@include oIconsGetIcon('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
+					vertical-align: inherit;
+				}
 			}
 		}
 	}
+
+	// Draw open modifer (closed by default).
+	.o-header-services__primary-nav--drawer.o-header-services__primary-nav--open {
+		visibility: visible;
+		.o-header-services__drawer-header {
+			display: block;
+		}
+		.o-header-services__primary-nav-list {
+			transform: translateX(0%);
+		}
+	}
 }
+// sass-lint:enable no-qualifying-elements

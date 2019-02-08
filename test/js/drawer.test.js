@@ -21,8 +21,11 @@ describe('Drawer', () => {
 	});
 
 	context('on viewports above 740px', () => {
-		it('primary nav is visibile', () => {
-			proclaim.isTrue(primaryNav.classList.contains('o-header-services__primary-nav--open'));
+		it('primary nav is visibile', (done) => {
+			setTimeout(() => {
+				proclaim.isTrue(primaryNav.classList.contains('o-header-services__primary-nav--open'));
+				done();
+			}, 100);
 		});
 	});
 
@@ -34,35 +37,39 @@ describe('Drawer', () => {
 			click = element => headerEl.querySelector(element).dispatchEvent(new Event('click'));
 		});
 
-		it('primary nav is hidden', () => {
+		it('primary nav is hidden', (done) => {
 			setTimeout(() => {
 				proclaim.isFalse(primaryNav.classList.contains('o-header-services__primary-nav--open'));
 				proclaim.isTrue(primaryNav.hasAttribute('aria-hidden', 'true'));
+				done();
 			}, 100);
 		});
 
-		it('display primary nav on burger icon click', () => {
+		it('display primary nav on burger icon click', (done) => {
 			let burgerIcon = '.o-header-services__hamburger-icon';
 			setTimeout(() => {
 				click(burgerIcon);
 				proclaim.isTrue(primaryNav.classList.contains('o-header-services__primary-nav--open'));
+				done();
 			}, 100);
 		});
 
-		it('hides primary nav on second burger icon click', () => {
+		it('hides primary nav on second burger icon click', (done) => {
 			let burgerIcon = '.o-header-services__hamburger-icon';
 
 			setTimeout(() => {
 				click(burgerIcon);
 				click(burgerIcon);
 				proclaim.isTrue(primaryNav.classList.contains('o-header-services__primary-nav--open'));
+				done();
 			}, 100);
 		});
 
-		it('shifts related content to primary nav', () => {
+		it('shifts related content to primary nav', (done) => {
 			setTimeout(() => {
 				let listItems = primaryNav.querySelector('ul');
 				proclaim.equal(listItems.children.length, 3);
+				done();
 			}, 100);
 		});
 	});

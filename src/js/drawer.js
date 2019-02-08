@@ -1,4 +1,3 @@
-import oGrid from 'o-grid';
 import * as oUtils from 'o-utils';
 
 class Drawer {
@@ -9,7 +8,6 @@ class Drawer {
 	constructor(headerEl) {
 		this.headerEl = headerEl;
 		this.nav = headerEl.querySelector('.o-header-services__primary-nav');
-		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 		this.class = {
 			drawer: 'o-header-services__primary-nav--drawer',
 			open: 'o-header-services__primary-nav--open'
@@ -17,6 +15,7 @@ class Drawer {
 
 		if (!this.nav) { return; }
 
+		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 
 		// Create drawer header.
 		let drawerHeader = document.createElement('li');
@@ -68,7 +67,8 @@ class Drawer {
 	 * Drawer rendering
 	 */
 	render () {
-		const enableDrawer = oGrid.getCurrentLayout() === 'default' || oGrid.getCurrentLayout() === 'S';
+		// If burger is not hidden render the drawer.
+		const enableDrawer = this.burger.offsetParent !== null;
 
 		if (enableDrawer) {
 			this.nav.addEventListener('click', this);

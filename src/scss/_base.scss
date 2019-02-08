@@ -17,19 +17,15 @@
 		ol,
 		ul {
 			list-style-type: none;
-
-			@include oGridRespondTo(S) {
-				white-space: nowrap;
-			};
-		}
-
-		.o-header-services__visually-hidden {
-			@include oNormaliseVisuallyHidden;
 		}
 	}
 
+	.o-header-services__visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
 	@if $bleed {
-		.o-header-services--bleed {
+		.o-header-services.o-header-services--bleed {
 			.o-header-services__top,
 			.o-header-services__primary-nav-list,
 			.o-header-services__secondary-nav-content {
@@ -41,48 +37,6 @@
 			.o-header-services__primary-nav-list  {
 				padding: 0;
 			}
-		}
-	}
-}
-
-/// @access private
-/// @param {Boolean} $underline [whether or not to make the hover an underline or a background change]
-/// @outputs hover styles
-@mixin _oHeaderServicesHover($underline) {
-	color: _oHeaderServicesGet('nav-text');
-	position: relative;
-
-	&:hover {
-		color: _oHeaderServicesGet('text-hover-color');
-	}
-
-	@if $underline {
-		display: inline-block;
-		margin: 0 oTypographySpacingSize(5);
-		padding: $_o-header-services-padding 0;
-
-		&[aria-current=true] {
-			color: _oHeaderServicesGet('text-hover-color');
-		}
-
-		&:hover:before,
-		&[aria-current=true]:before {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: oTypographySpacingSize(1);
-			background-color: _oHeaderServicesGet('nav-underline-color');
-		}
-	} @else {
-		display: block;
-		margin: 0;
-		padding: $_o-header-services-padding  oTypographySpacingSize(5);
-
-		&:hover,
-		&[aria-current=true] {
-			background-color: _oHeaderServicesGet('nav-hover-background');
 		}
 	}
 }

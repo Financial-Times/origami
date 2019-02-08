@@ -3,22 +3,13 @@
 ### Migrating from v2 to v3
 
 V2 introduces many new changes to o-header-services; It now transforms the primary nav into a drawer menu on smaller viewports. It introduces the option to have dropdown menus on primary navigation items. It removes a large dependency on o-header, and changes multiple class names and markup, and no longer allows custom class names. This major also removes most public mixins and makes `oHeaderServices` publicly available instead;
-<!-- private mixins here -->
 ```diff
 -oHeaderServicesContainer
-+_oHeaderServicesBase
-+_oHeaderServicesHover
 -oHeaderServicesPrimaryNav
-+_oHeaderServicesPrimaryNav
-+_oHeaderServicesDropDown
 -oHeaderServicesDrawer
-+_oHeaderServicesDrawer
 -oHeaderServicesSubNav
-+_oHeaderServicesSecondaryNav
 -oHeaderServicesTop
-+_oHeaderServicesTop
 -oHeaderServicesTheme
-+_oHeaderServicesTheme
 ```
 
 The markup for a full header (**not** including dropdown menus) has changed in the following way:

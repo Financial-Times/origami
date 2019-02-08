@@ -1,7 +1,8 @@
 /// @access private
 /// @param {String} $logo [ft-logo depending on brand (pink or white)]
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @outputs styling for title section of header
-@mixin _oHeaderServicesTop($logo) {
+@mixin _oHeaderServicesTop($logo, $draw-breakpoint: M) {
 	.o-header-services__top {
 		@include oGridContainer;
 		background-color: _oHeaderServicesGet('top-background');
@@ -26,14 +27,20 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: 0;
-			margin: 0;
 			height: $_o-header-services-top-bar-short;
 			width: $_o-header-services-top-bar-short;
 
 			@include oGridRespondTo(M) {
-				margin: oTypographySpacingSize(2) oTypographySpacingSize(2) oTypographySpacingSize(2) 0;
 				height: $_o-header-services-top-icon-size;
 				width: $_o-header-services-top-icon-size;
+			}
+
+			@include oGridRespondTo($draw-breakpoint) {
+				margin: oTypographySpacingSize(2);
+			}
+
+			@include oGridRespondTo(M) {
+				margin-left: 0;
 			}
 		}
 
@@ -45,7 +52,7 @@
 	.o-header-services__hamburger {
 		height: $_o-header-services-top-bar-short;
 		width: $_o-header-services-top-bar-short;
-		@include oGridRespondTo(M) {
+		@include oGridRespondTo($draw-breakpoint) {
 			display: none;
 		}
 	}
@@ -66,7 +73,7 @@
 		@include oTypographyBold('sans');
 		text-overflow: ellipsis;
 
-		@include oGridRespondTo($until: M) {
+		@include oGridRespondTo($until: $draw-breakpoint) {
 			@include oTypographySize($scale: 2);
 		}
 	}
@@ -101,7 +108,8 @@
 				margin: 0;
 				color: _oHeaderServicesGet('top-text');
 
-				@include oGridRespondTo($from: M) {
+
+				@include oGridRespondTo($from: $draw-breakpoint) {
 					display: block;
 					padding: $_o-header-services-padding oTypographySpacingSize(3);
 					margin: 0;
