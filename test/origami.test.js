@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const Tabs = require('./../main');
+import Tabs from './../main';
 
 describe("Tabs", () => {
 	it('is defined', () => {

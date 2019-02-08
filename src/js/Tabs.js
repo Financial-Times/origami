@@ -1,5 +1,5 @@
 /*global module, require*/
-const oDom = require('o-dom');
+import oDom from 'o-dom';
 
 class Tabs {
 
