@@ -1,7 +1,9 @@
 /*global module, require, window */
 /*eslint-disable*/
 'use strict';
+
 /*eslint-enable*/
+import utils from '../utils';
 
 /**
  * Class for storing data
@@ -23,7 +25,6 @@ const Store = function (name, config) {
 	 * @property loadStore
 	 */
 	let loadStore;
-	const utils = require('../utils');
 
 	if (utils.isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the store.');

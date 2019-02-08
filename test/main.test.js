@@ -4,10 +4,10 @@ import assert from "assert";
 import settings from "../src/javascript/core/settings";
 import Queue from "../src/javascript/core/queue";
 import Send from "../src/javascript/core/send";
+import oTracking from "../main.js";
 
 describe('main', function () {
 
-	const oTracking = require("../main.js");
 	let root_id;
 
 	before(function () {
