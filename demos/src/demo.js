@@ -1,4 +1,4 @@
-const oErrors = require('../../main');
+import oErrors from '../../main';
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"));
