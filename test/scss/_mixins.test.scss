@@ -1,0 +1,60 @@
+
+@include describe('oLabels mixins') {
+
+	@include describe('_oLabelsBase') {
+		@include it('subtracts border width from the padding values') {
+			@include assert() {
+				@include output($selector: false) {
+					@include _oLabelsBase;
+				};
+				@include contains($selector: false) {
+					$expected-vertical-padding: oTypographySpacingSize(1) - 1px;
+					$expected-horizontal-padding: oTypographySpacingSize(2) - 1px;
+					.o-labels {
+						padding: $expected-vertical-padding $expected-horizontal-padding;
+					}
+				};
+			};
+		};
+	};
+
+	@include describe('_oLabelsSize') {
+		@include describe('with $size set to "big"') {
+			@include it('subtracts border width from the padding values') {
+				@include assert() {
+					@include output($selector: false) {
+						@include _oLabelsSize('big');
+					};
+					@include contains($selector: false) {
+						$expected-vertical-padding: oTypographySpacingSize(2) - 1px;
+						$expected-horizontal-padding: oTypographySpacingSize(2) - 1px;
+						.o-labels--big {
+							padding: $expected-vertical-padding $expected-horizontal-padding;
+						}
+					};
+				};
+			};
+		};
+	};
+
+	@include describe('_oLabelsSize') {
+		@include describe('with $size set to "small"') {
+			@include it('subtracts border width from the padding values') {
+				@include assert() {
+					@include output($selector: false) {
+						@include _oLabelsSize('small');
+					};
+					@include contains($selector: false) {
+						$expected-vertical-padding: 1px;
+						$expected-horizontal-padding: 3px;
+						.o-labels--small {
+							padding: $expected-vertical-padding $expected-horizontal-padding;
+						}
+					};
+				};
+			};
+		};
+	};
+
+
+};

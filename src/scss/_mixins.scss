@@ -1,0 +1,78 @@
+
+/// Base styles for labels.
+///
+/// @output The output includes the `.o-labels` class definition and all styles for a basic label.
+/// @example scss - Base label styles
+///   @include _oLabelsBase();
+/// @access private
+@mixin _oLabelsBase() {
+	.o-labels {
+		@include oTypographySans($scale: _oLabelsGet('font-scale'), $line-height: 1em);
+		font-weight: 500;
+		text-align: center;
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+		text-decoration: none;
+		padding: (_oLabelsGet('padding-vertical') - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal') - _oLabelsGet('border-width'));
+		color: _oLabelsGet('text-color');
+		background-color: _oLabelsGet('background-color');
+		border: solid _oLabelsGet('border-width') transparent;
+	}
+}
+
+/// Size modifiers for labels.
+///
+/// @param {String} $size - The label size to output styles for. The valid sizes are `big` and `small`.
+/// @output The output includes the `.o-labels--SIZE` modifier class definition, which includes all overrides.
+/// @example scss - Big label styles
+///   @include _oLabelsSize('big');
+/// @access private
+@mixin _oLabelsSize($size) {
+	.o-labels--#{$size} {
+		// We use the scale and set font size manually to rely on the cascade rather
+		// than repeating the font family and line height from the main label class
+		@if _oLabelsGet('font-scale', $size) {
+			// TODO is there a nicer way to get this number?
+			font-size: nth(oTypographyGetScale(_oLabelsGet('font-scale', $size)), 1) * 1px;
+		}
+		padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
+	}
+}
+
+/// Add a state modifier for labels.
+///
+/// @param {String|Map} $state-name - The label state to output styles for. See README for available states.
+/// @param {Map} $opts [null] - A brand configuration which can be used to create custom label states. See README for more examples.
+/// @output The output includes the `.o-labels--STATE` modifier class definition, which includes all overrides.
+/// @example scss - Existing label state
+///   @include oLabelsAddState('tier-gold');
+/// @example scss - Custom label state
+///   @include oLabelsAddState('citrus-fruit', (
+///       background-color: oColorsGetPaletteColor('lemon')
+///   ));
+/// @access public
+@mixin oLabelsAddState($state-name, $opts: null) {
+
+	// If we have a custom config, we use that instead of one of the
+	// preconfigured states
+	$variant: if($opts, $opts, $state-name);
+
+	.o-labels--#{$state-name} {
+		background-color: _oLabelsGet('background-color', $variant);
+		border-color: _oLabelsGet('border-color', $variant);
+		text-transform: _oLabelsGet('text-transform', $variant);
+
+		// Set text colour or calculate based on background
+		@if _oLabelsGet('text-color', $variant) {
+			color: _oLabelsGet('text-color', $variant);
+		} @else {
+			color: oColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
+		}
+
+		// Set the spacing
+		@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
+			padding: (_oLabelsGet('padding-vertical', $variant) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $variant) - _oLabelsGet('border-width'));
+		}
+	}
+}

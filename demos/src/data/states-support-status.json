@@ -1,0 +1,24 @@
+{
+	"states": [
+		{
+			"id": "support-active",
+			"content": "Active"
+		},
+		{
+			"id": "support-maintained",
+			"content": "Maintained"
+		},
+		{
+			"id": "support-experimental",
+			"content": "Experimental"
+		},
+		{
+			"id": "support-deprecated",
+			"content": "Deprecated"
+		},
+		{
+			"id": "support-dead",
+			"content": "Dead"
+		}
+	]
+}

@@ -1,39 +1,8 @@
-<span class="o-labels">Label</span>
-<span class="o-labels o-labels--active">Active</span>
-<span class="o-labels o-labels--error">Error</span>
-<span class="o-labels o-labels--pending">Pending</span>
-<span class="o-labels o-labels--live">Live</span>
-<span class="o-labels o-labels--closed">Closed</span>
-<span class="o-labels o-labels--premium">Premium</span>
-<span class="o-labels o-labels--brand">Brand</span>
-<span class="o-labels o-labels--commercial-content">Commercial Content</span>
 
-<br><br>
-
-<span class="o-labels o-labels--medium">Label</span>
-<span class="o-labels o-labels--active o-labels--medium">Active</span>
-<span class="o-labels o-labels--error o-labels--medium">Error</span>
-<span class="o-labels o-labels--pending o-labels--medium">Pending</span>
-<span class="o-labels o-labels--live o-labels--medium">Live</span>
-<span class="o-labels o-labels--closed o-labels--medium">Closed</span>
-<span class="o-labels o-labels--premium o-labels--medium">Premium</span>
-<span class="o-labels o-labels--brand o-labels--medium">Brand</span>
-<span class="o-labels o-labels--commercial-content o-labels--medium">Commercial Content</span>
-
-<br><br>
-
-<span class="o-labels o-labels--big">Label</span>
-<span class="o-labels o-labels--active o-labels--big">Active</span>
-<span class="o-labels o-labels--error o-labels--big">Error</span>
-<span class="o-labels o-labels--pending o-labels--big">Pending</span>
-<span class="o-labels o-labels--live o-labels--big">Live</span>
-<span class="o-labels o-labels--closed o-labels--big">Closed</span>
-<span class="o-labels o-labels--premium o-labels--big">Premium</span>
-<span class="o-labels o-labels--brand o-labels--big">Brand</span>
-<span class="o-labels o-labels--commercial-content o-labels--big">Commercial Content</span>
-
-<br><br>
-
-<p class="demo-paragraph">
-Inline text, <span class="o-labels">label</span>, more text
-</p>
+{{#states}}
+	<div class="demo-container">
+		<span class="o-labels o-labels--{{.}}">Testing</span>
+		<span class="o-labels o-labels--{{.}} o-labels--big">Testing</span>
+		<span class="o-labels o-labels--{{.}} o-labels--small">Testing</span>
+	</div>
+{{/states}}

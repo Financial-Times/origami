@@ -1,0 +1,20 @@
+{
+	"states": [
+		{
+			"id": "content-commercial",
+			"content": "Commercial"
+		},
+		{
+			"id": "content-commercial",
+			"content": "Paid Post"
+		},
+		{
+			"id": "content-commercial",
+			"content": "Promoted Content"
+		},
+		{
+			"id": "content-premium",
+			"content": "Premium"
+		}
+	]
+}

@@ -1,18 +1,13 @@
+
 $o-labels-is-silent: false;
 
 @import "../../main";
-@import "o-typography/main";
-
-@include oFontsIncludeAll();
 
 body {
+	@include oColorsFor('page', 'background');
 	margin: 1em;
 }
 
-.demo-paragraph {
-	@include oTypographySans(-1);
-
-	.o-labels {
-		@include oTypographySansBold(-2);
-	}
+.demo-container {
+	margin-bottom: 1em;
 }

@@ -1,9 +1,4 @@
-<span class="o-labels">Label</span>
-<span class="o-labels o-labels--active">Active</span>
-<span class="o-labels o-labels--error">Error</span>
-<span class="o-labels o-labels--pending">Pending</span>
-<span class="o-labels o-labels--live">Live</span>
-<span class="o-labels o-labels--closed">Closed</span>
-<span class="o-labels o-labels--premium">Premium</span>
-<span class="o-labels o-labels--brand">Brand</span>
-<span class="o-labels o-labels--commercial-content">Commercial Content</span>
+
+{{#states}}
+	<span class="o-labels o-labels--{{id}}">{{content}}</span>
+{{/states}}

@@ -1,33 +1,48 @@
+
+@import 'o-brand/main';
 @import "o-colors/main";
 @import "o-typography/main";
 
-@import "scss/states";
-@import "scss/variables";
-@import "scss/mixins";
+@import "src/scss/brand";
+@import "src/scss/variables";
+@import "src/scss/mixins";
+
+/// Outputs all available features and styles for labels.
+///
+/// @param {Map} $opts ['sizes': ('big', 'small'), 'states': ( ... )] - Label options including sizes and states to output styles for.
+/// @output The output includes the `.o-labels` class definition as well as class definitions for every variant.
+/// @example scss - All label styles
+///   @include oLabels();
+/// @example scss - Base styles, big size variant, and gold tier state variant
+///   @include oLabels($opts: ('sizes': ('big'), 'states': ('tier-gold'));
+/// @access public
+@mixin oLabels($opts: (
+	'sizes': $_o-labels-sizes,
+	'states': $_o-labels-states
+)) {
+	$sizes: map-get($opts, 'sizes');
+	$states: map-get($opts, 'states');
+
+	// Base label styles
+	@include _oLabelsBase();
+
+	// Label size variants
+	@each $size in $_o-labels-sizes {
+		@if index($sizes, $size) and _oLabelsSupports($size) {
+			@include _oLabelsSize($size);
+		}
+	}
+
+	// Label state variants
+	@each $state in $_o-labels-states {
+		@if index($states, $state) and _oLabelsSupports($state) {
+			@include oLabelsAddState($state);
+		}
+	}
+}
 
 @if ($o-labels-is-silent == false) {
-	.#{$o-labels-class} {
-		@include oLabels;
-	}
-
-	@each $size, $scale in $o-labels-sizes {
-		.#{$o-labels-class}--#{$size} {
-			@if ($size == 'wide') {
-				padding: 0 20px;
-				text-transform: uppercase;
-				font-weight: 500;
-			}
-			@include oTypographySans($scale);
-		}
-	}
-
-	@each $state, $colors in $o-labels-states {
-		@if $state != normal {
-			.#{$o-labels-class}--#{$state} {
-				@include oLabelsState($state);
-			}
-		}
-	}
+	@include oLabels();
 
 	// Set module to silent again
 	$o-labels-is-silent: true !global;

@@ -1,0 +1,20 @@
+{
+	"states": [
+		{
+			"id": "tier-platinum",
+			"content": "Platinum"
+		},
+		{
+			"id": "tier-gold",
+			"content": "Gold"
+		},
+		{
+			"id": "tier-silver",
+			"content": "Silver"
+		},
+		{
+			"id": "tier-bronze",
+			"content": "Bronze"
+		}
+	]
+}

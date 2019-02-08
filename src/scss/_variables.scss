@@ -1,0 +1,39 @@
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default label classes
+///
+/// @type Boolean
+/// @access public
+$o-labels-is-silent: true !default;
+
+/// Label sizes
+/// A list used to loop over all label sizes.
+/// For actual values: (@see _brand.scss).
+///
+/// @type List
+/// @access private
+$_o-labels-sizes: (
+	'big',
+	'small'
+);
+
+/// Label states
+/// A list used to loop over all label states.
+/// For actual values: (@see _brand.scss).
+///
+/// @type List
+/// @access private
+$_o-labels-states: (
+	'content-commercial',
+	'content-premium',
+	'lifecycle-beta',
+	'support-active',
+	'support-dead',
+	'support-deprecated',
+	'support-experimental',
+	'support-maintained',
+	'tier-bronze',
+	'tier-gold',
+	'tier-platinum',
+	'tier-silver'
+);

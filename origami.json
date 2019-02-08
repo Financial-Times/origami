@@ -1,5 +1,9 @@
 {
-	"description": "Label styling",
+	"description": "Labels for content classification or to emphasise a value",
+	"keywords": [
+		"label",
+		"tag"
+	],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -11,9 +15,7 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [],
-		"optional": [
-			"borderradius"
-		]
+		"optional": []
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-labels"
@@ -21,38 +23,68 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"o-fonts@^3.0.0"
+			"o-fonts@^3.0.0",
+			"o-normalise@^1.0.0"
 		]
 	},
 	"demos": [
 		{
-			"title": "States",
-			"name": "States",
-			"template": "/demos/src/states.mustache",
-			"description": ""
-		},
-		{
+			"name": "sizes",
 			"title": "Sizes",
-			"name": "Sizes",
-			"template": "/demos/src/sizes.mustache",
-			"description": ""
+			"description": "Label size modifiers are used to change the prominence of labels.",
+			"template": "/demos/src/sizes.mustache"
 		},
 		{
+			"name": "content-states",
+			"title": "Content States",
+			"description": "States used to differentiate between types of content.",
+			"template": "/demos/src/states.mustache",
+			"data": "demos/src/data/states-content.json",
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "lifecycle-states",
+			"title": "Lifecycle States",
+			"description": "States used to represent stages in the product lifecycle.",
+			"template": "/demos/src/states.mustache",
+			"data": "demos/src/data/states-lifecycle.json",
+			"brands": [
+				"master"
+			]
+		},
+		{
+			"name": "service-tier-states",
+			"title": "Service Tier States",
+			"description": "States used to represent the different service support tiers.",
+			"template": "/demos/src/states.mustache",
+			"data": "demos/src/data/states-service-tier.json",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "support-status-states",
+			"title": "Support Status States",
+			"description": "States used to represent the different support levels of Origami components.",
+			"template": "/demos/src/states.mustache",
+			"data": "demos/src/data/states-support-status.json",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"name": "typography",
 			"title": "Typography",
-			"name": "Typography",
-			"template": "/demos/src/typography.mustache",
-			"description": "use with o-typography"
-		},
-		{
-			"title": "Beta",
-			"name": "Beta",
-			"template": "/demos/src/beta.mustache",
-			"description": "Label for use when a feature is in beta"
+			"description": "Labels sitting in line with text that's styled with o-typography.",
+			"template": "/demos/src/typography.mustache"
 		},
 		{
 			"title": "Pa11y",
 			"name": "pa11y",
-			"template": "/demos/src/pa11y.mustache",
+			"template": "demos/src/pa11y.mustache",
+			"data": "demos/src/data/pa11y.json",
 			"hidden": true
 		}
 	]

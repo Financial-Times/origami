@@ -1,0 +1,131 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLabelsGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-labels', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLabelsSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-labels', $variant: $variant);
+}
+
+// Define shared brand configurations
+$_o-labels-shared-brand-config: (
+	font-scale: -1,
+	padding-vertical: oTypographySpacingSize(1),
+	padding-horizontal: oTypographySpacingSize(2),
+	border-width: 1px,
+	'big': (
+		font-scale: 0,
+		padding-vertical: oTypographySpacingSize(2),
+		padding-horizontal: oTypographySpacingSize(2)
+	),
+	'small': (
+		font-scale: -2,
+		padding-vertical: 2px,
+		padding-horizontal: 4px
+	)
+);
+
+// Define masterbrand
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-labels', 'master', (
+		'variables': map-merge($_o-labels-shared-brand-config, (
+			text-color: oColorsGetPaletteColor('black'),
+			background-color: oColorsGetPaletteColor('wheat'),
+			'content-commercial': (
+				background-color: oColorsGetTint('jade', 50)
+			),
+			'content-premium': (
+				background-color: oColorsGetPaletteColor('black')
+			),
+			'lifecycle-beta': (
+				background-color: oColorsGetPaletteColor('paper'),
+				border-color: oColorsGetPaletteColor('black-20'),
+				text-color: oColorsGetPaletteColor('black-80'),
+				text-transform: uppercase,
+				padding-vertical: oTypographySpacingSize(1),
+				padding-horizontal: oTypographySpacingSize(3),
+			)
+		)),
+		'supports-variants': (
+			'big',
+			'small',
+			'content-commercial',
+			'content-premium',
+			'lifecycle-beta'
+		)
+	));
+}
+
+// Define internal brand
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-labels', 'internal', (
+		'variables': map-merge($_o-labels-shared-brand-config, (
+			background-color: oColorsMix('black', 'white', 10),
+			'support-active': (
+				background-color: oColorsMix('jade', 'black', 70)
+			),
+			'support-dead': (
+				background-color: oColorsGetPaletteColor('black')
+			),
+			'support-deprecated': (
+				background-color: oColorsGetPaletteColor('crimson')
+			),
+			'support-experimental': (
+				background-color: oColorsGetPaletteColor('lemon')
+			),
+			'support-maintained': (
+				background-color: oColorsMix('jade', 'black', 70)
+			),
+			'tier-bronze': (
+				// NOTE: service tiers not in o-colors yet, will be moved if another
+				// component needs to use these colours
+				background-color: #b78d83
+			),
+			'tier-gold': (
+				// NOTE: service tiers not in o-colors yet, will be moved if another
+				// component needs to use these colours
+				background-color: #b89d62
+			),
+			'tier-platinum': (
+				// NOTE: service tiers not in o-colors yet, will be moved if another
+				// component needs to use these colours
+				background-color: #e5e4e2
+			),
+			'tier-silver': (
+				// NOTE: service tiers not in o-colors yet, will be moved if another
+				// component needs to use these colours
+				background-color: #c0c0c0
+			),
+		)),
+		'supports-variants': (
+			'big',
+			'small',
+			'support-active',
+			'support-dead',
+			'support-deprecated',
+			'support-experimental',
+			'support-maintained',
+			'tier-bronze',
+			'tier-gold',
+			'tier-platinum',
+			'tier-silver'
+		)
+	));
+}
+
+// Define whitelabel brand
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-labels', 'whitelabel', (
+		'variables': map-merge($_o-labels-shared-brand-config, (
+			background-color: oColorsMix('black', 'white', 10)
+		)),
+		'supports-variants': (
+			'big',
+			'small'
+		)
+	));
+}
