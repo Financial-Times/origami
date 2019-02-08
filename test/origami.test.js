@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const Share = require('./../main');
+import Share from './../main';
 
 describe("Share", () => {
 	it('is defined', () => {

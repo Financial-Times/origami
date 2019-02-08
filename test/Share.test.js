@@ -9,7 +9,7 @@ sinon.assert.expose(proclaim, {
 	prefix: ''
 });
 
-const Share = require('./../main');
+import Share from './../main';
 
 
 let testShare;
