@@ -7,7 +7,7 @@ import Queue from "../src/javascript/core/queue";
 import session from "../src/javascript/core/session";
 import send from "../src/javascript/core/send";
 import Core from "../src/javascript/core.js";
-import {mockTransport, unmockTransport, errorNextSend} from './setup';
+import { errorNextSend } from './setup';
 
 describe('Core', function () {
 
@@ -89,7 +89,7 @@ describe('Core', function () {
 
 		it('should defer a tracking request', function () {
 
-			setup.errorNextSend();
+			errorNextSend();
 			const callback = sinon.spy();
 
 			Core.track({
