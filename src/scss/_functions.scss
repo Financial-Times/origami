@@ -1,5 +1,5 @@
 @function _oHeaderServicesLogo($logo) {
-	@if str-index($logo, 'https://') == 0 or str-index($logo, 'http://') == 0 or str-index($logo, 'data:') == 0 or str-index($logo, './') == 0 or str-index($logo, '/') == 0 {
+	@if str-index($logo, 'https://') == 1 or str-index($logo, 'http://') == 1 or str-index($logo, 'data:') == 1 or str-index($logo, './') == 0 or str-index($logo, '/') == 1 {
 		@return $logo;
 	} @else {
 		@return 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-header-services&format=svg&width=55';
