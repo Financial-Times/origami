@@ -7,6 +7,7 @@
 		border-top: 1px solid _oHeaderServicesGet('nav-border');
 		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
 		overflow: hidden;
+		max-height: #{(36/16)}rem; // To hide the scroll bar.
 	}
 
 	.o-header-services__secondary-nav-content {
@@ -15,7 +16,7 @@
 		white-space: nowrap;
 		overflow-x: auto;
 		padding: 0 oTypographySpacingSize(5);
-		max-height: $_o-header-services-sub-nav-height;
+		padding-bottom: 1rem; // To hide the scroll bar.
 	}
 
 	.o-header-services__secondary-nav-list {
@@ -83,7 +84,10 @@
 
 		&:first-child {
 			margin-left:  oTypographySpacingSize(3);
-			padding-left:  oTypographySpacingSize(3);
+		}
+
+		&:last-child {
+			padding-right:  oTypographySpacingSize(3);
 		}
 
 		&:first-child:before {
