@@ -62,10 +62,15 @@ describe('Dropdown', () => {
 	});
 
 	describe('toggles drop down menu via `aria-expanded`', () => {
-		it('repositions dropdown menu if it doesnt fit to the right of the window', () => {
-			navItems[1].querySelector('li').style.width = window.innerWidth + 1;
+		it('repositions dropdown menu if it doesnt fit to the right of the window but can fit to the left', (done) => {
+			const subItem = navItems[1].querySelector('li');
+			navItems[1].style['margin-left'] = (window.innerWidth / 2) + 'px';
+			subItem.style['width'] = (window.innerWidth / 2) + 'px';
 			click(navItems[1], 'button');
-			proclaim.isTrue(navItems[1].lastElementChild.classList.contains('o-header-services__list--right'));
+			setTimeout(() => {
+				proclaim.isTrue(navItems[1].lastElementChild.classList.contains('o-header-services__list--right'));
+				done();
+			}, 100);
 		});
 	});
 });
