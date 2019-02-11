@@ -51,7 +51,6 @@
 			"title": "Header with primary navigation and drop down menus",
 			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths, and can be presented as dropdown menus",
 			"data": {
-				"fake-ad": true,
 				"primary-navigation": true,
 				"drop-down": true,
 				"sub-navigation": true
