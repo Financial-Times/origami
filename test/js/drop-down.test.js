@@ -9,9 +9,12 @@ describe('Dropdown', () => {
 	let click;
 	let headerEl;
 	let navItems;
+	let sandbox;
 
 	beforeEach(() => {
-		document.body.innerHTML = fixtures.withPrimaryNav;
+		sandbox = document.createElement('div');
+		sandbox.innerHTML = fixtures.withPrimaryNav;
+		document.body.appendChild(sandbox);
 		headerEl = document.body.querySelector('.o-header-services');
 		new HeaderServices(headerEl);
 		navItems = document.querySelectorAll('li[data-o-header-services-level="1"]');
@@ -19,7 +22,7 @@ describe('Dropdown', () => {
 	});
 
 	afterEach(() => {
-		document.body.removeChild(headerEl);
+		document.body.removeChild(sandbox);
 		headerEl = null;
 	});
 
@@ -60,7 +63,7 @@ describe('Dropdown', () => {
 
 	describe('toggles drop down menu via `aria-expanded`', () => {
 		it('repositions dropdown menu if it doesnt fit to the right of the window', () => {
-			navItems[1].style.width = '1000px';
+			navItems[1].querySelector('li').style.width = window.innerWidth + 1;
 			click(navItems[1], 'button');
 			proclaim.isTrue(navItems[1].lastElementChild.classList.contains('o-header-services__list--right'));
 		});

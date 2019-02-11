@@ -7,16 +7,19 @@ import * as fixtures from '../helpers/fixtures';
 describe('Drawer', () => {
 	let headerEl;
 	let primaryNav;
+	let sandbox;
 
 	beforeEach(() => {
-		document.body.innerHTML = fixtures.withPrimaryNav;
+		sandbox = document.createElement('div');
+		sandbox.innerHTML = fixtures.withPrimaryNav;
+		document.body.appendChild(sandbox);
 		headerEl = document.body.querySelector('.o-header-services');
 		new HeaderServices(headerEl);
 		primaryNav = headerEl.querySelector('.o-header-services__primary-nav');
 	});
 
 	afterEach(() => {
-		document.body.innerHTML = '';
+		document.body.removeChild(sandbox);
 		window.resizeTo(window.screen.availHeight, window.screen.availWidth);
 	});
 
@@ -54,8 +57,8 @@ describe('Drawer', () => {
 			}, 100);
 		});
 
-		it('hides primary nav on second burger icon click', (done) => {
-			let burgerIcon = '.o-header-services__hamburger-icon';
+		it('hides primary nav on close button click', (done) => {
+			let burgerIcon = '.o-header-services__drawer-close-button';
 
 			setTimeout(() => {
 				click(burgerIcon);
