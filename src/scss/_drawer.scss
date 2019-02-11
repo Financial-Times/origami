@@ -38,11 +38,14 @@
 			flex-wrap: wrap;
 			width: 100%;
 
-			// Expand the link to fill the draw,
-			// up to a drop down button if there is one.
 			@if $drop-down {
 				> a {
-					flex-grow: 1;
+					flex-grow: 1; // Expand the link to fill the draw, up to a drop down button if there is one.
+					// If the nav item padding has been customised, reset within the drawer.
+					@if _oHeaderServicesGet('primary-nav-item-horizontal-padding') {
+						padding-left: oTypographySpacingSize(5);
+						padding-right: oTypographySpacingSize(5);
+					}
 				}
 			}
 		}
@@ -78,6 +81,10 @@
 				z-index: 0;
 				max-width: none;
 				white-space: normal;
+				a {
+					// Indent dropdown links within the drawer.
+					padding-left: oTypographySpacingSize(8);
+				}
 				a:hover {
 					color: _oHeaderServicesGet('drawer-text-hover-color');
 					background: _oHeaderServicesGet('drawer-nav-hover-background');

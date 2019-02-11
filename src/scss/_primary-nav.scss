@@ -11,11 +11,17 @@
 	}
 
 	.o-header-services__primary-nav-list {
-		@include oGridContainer;
+		@include oGridContainer();
 		background-color: _oHeaderServicesGet('nav-background');
 		display: flex;
 		flex-wrap: wrap;
 		margin: auto;
+
+		// Remove the padding from the grid container.
+		// Unless the nav items have custom padding which is smaller than the grid container's grid gap.
+		@include oGridRespondTo(S) {
+			padding: 0 if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), calc(map-get($o-grid-gutters, 'M') - #{_oHeaderServicesGet('primary-nav-item-horizontal-padding')}), 0);
+		};
 
 		> li {
 			position: relative;
