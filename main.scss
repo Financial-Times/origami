@@ -36,6 +36,7 @@
 	$logo: map-get($opts, 'logo');
 
 	$bleed: index($features, 'bleed');
+	$drop-down: index($features, 'drop-down');
 
 	/// Base styles for a header
 	@include _oHeaderServicesBase($bleed);
@@ -45,7 +46,7 @@
 	@include _oHeaderServicesTop($logo);
 
 	@if index($types, 'primary-nav') {
-		@include _oHeaderServicesPrimaryNav;
+		@include _oHeaderServicesPrimaryNav($drop-down);
 	}
 
 	@if index($types, 'secondary-nav') {
@@ -60,7 +61,7 @@
 		@include _oHeaderServicesTheme($theme: 'b2c');
 	}
 
-	@if index($features, 'drop-down') {
+	@if $drop-down {
 		@include _oHeaderServicesDropDown();
 	}
 }

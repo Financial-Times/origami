@@ -1,7 +1,8 @@
 /// @access private
 /// @outputs styling for the drawer
+/// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
 // sass-lint:disable no-qualifying-elements
-@mixin _oHeaderServicesDrawer {
+@mixin _oHeaderServicesDrawer($drop-down: true) {
 	.o-header-services__primary-nav.o-header-services__primary-nav--drawer {
 		// Drawer background.
 		background-color: rgba(0, 0, 0, 0.8);
@@ -39,75 +40,79 @@
 
 			// Expand the link to fill the draw,
 			// up to a drop down button if there is one.
-			> a {
-				flex-grow: 1;
+			@if $drop-down {
+				> a {
+					flex-grow: 1;
+				}
 			}
 		}
 
 		// Draw's dropdown button.
-		.o-header-services__drop-down-button {
-			padding: 0 0.4375rem;
-			height: oTypographySpacingSize(10);
-			border: 1px solid _oHeaderServicesGet('nav-border');
-			border-top: 0px;
-		}
+		@if $drop-down {
+			.o-header-services__drop-down-button {
+				padding: 0 0.4375rem;
+				height: oTypographySpacingSize(10);
+				border: 1px solid _oHeaderServicesGet('nav-border');
+				border-top: 0px;
+			}
 
-		// Override the background colour of the draw's dropdown button.
-		.o-header-services__drop-down-button,
-		a[aria-current="true"] + .o-header-services__drop-down-button {
-			@if  _oHeaderServicesGet('drawer-button-background') {
-				border: 0;
-				background-color: _oHeaderServicesGet('drawer-button-background');
-				&:hover {
+			// Override the background colour of the draw's dropdown button.
+			.o-header-services__drop-down-button,
+			a[aria-current="true"] + .o-header-services__drop-down-button {
+				@if  _oHeaderServicesGet('drawer-button-background') {
+					border: 0;
 					background-color: _oHeaderServicesGet('drawer-button-background');
+					&:hover {
+						background-color: _oHeaderServicesGet('drawer-button-background');
+					}
 				}
 			}
-		}
 
-		// Second level nav item.
-		[data-o-header-services-level="2"] {
-			border-right: 0;
-			opacity: 0;
-			width: 100%;
-			// Reset the dropdown styles now they are in a drawer.
-			transition: none;
-			z-index: 0;
-			max-width: none;
-			white-space: normal;
-			a:hover {
-				color: _oHeaderServicesGet('drawer-text-hover-color');
-				background: _oHeaderServicesGet('drawer-nav-hover-background');
-			}
-		}
-
-		// Expanded first level nav item.
-		li[data-o-header-services-level][aria-expanded=true] {
+			// Second level nav item.
 			[data-o-header-services-level="2"] {
-				position: relative;
-				opacity: 1;
-			}
-		}
-
-		// Override related content styles to match the draw.
-		.o-header-services__related-content {
-			display: block;
-			margin: oTypographySpacingSize(5) 0 0;
-			padding: 0;
-			li {
-				background-color: inherit;
-				a {
-					color: inherit;
-					font-weight: oFontsWeight('regular');
-					text-transform: none;
-					display: block;
-					margin: 0;
-					padding: $_o-header-services-padding  oTypographySpacingSize(5);
-				}
+				border-right: 0;
+				opacity: 0;
+				width: 100%;
+				// Reset the dropdown styles now they are in a drawer.
+				transition: none;
+				z-index: 0;
+				max-width: none;
+				white-space: normal;
 				a:hover {
-					background-color: none;
+					color: _oHeaderServicesGet('drawer-text-hover-color');
+					background: _oHeaderServicesGet('drawer-nav-hover-background');
 				}
 			}
 
+			// Expanded first level nav item.
+			li[data-o-header-services-level][aria-expanded=true] {
+				[data-o-header-services-level="2"] {
+					position: relative;
+					opacity: 1;
+				}
+			}
+
+			// Override related content styles to match the draw.
+			.o-header-services__related-content {
+				display: block;
+				margin: oTypographySpacingSize(5) 0 0;
+				padding: 0;
+				li {
+					background-color: inherit;
+					a {
+						color: inherit;
+						font-weight: oFontsWeight('regular');
+						text-transform: none;
+						display: block;
+						margin: 0;
+						padding: $_o-header-services-padding  oTypographySpacingSize(5);
+					}
+					a:hover {
+						background-color: none;
+					}
+				}
+
+			}
 		}
 	}
 

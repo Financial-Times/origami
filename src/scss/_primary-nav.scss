@@ -1,6 +1,7 @@
 /// @access private
 /// @outputs styling for primary nav
-@mixin _oHeaderServicesPrimaryNav() {
+/// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
+@mixin _oHeaderServicesPrimaryNav($drop-down) {
 	.o-header-services__primary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
@@ -57,5 +58,5 @@
 		}
 	}
 
-	@include _oHeaderServicesDrawer();
+	@include _oHeaderServicesDrawer($drop-down);
 };
