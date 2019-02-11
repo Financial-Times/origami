@@ -69,13 +69,16 @@
 		}
 	}
 
+	// Completely hide visually hidden elements untill the dropdown is open.
+	ul[data-o-header-services-level] .o-header-services__visually-hidden {
+		display: none;
+	}
+
 	// Drop down list (opened state).
 	.core li[data-o-header-services-level]:hover,
 	li[aria-expanded=true] {
-		.o-header-services__drop-down-button:after {
-			transform: rotate(-180deg);
-		}
 
+		// Reveal the dropdown.
 		ul[data-o-header-services-level] {
 			height: auto;
 			@supports (pointer-events: none) {
@@ -83,6 +86,16 @@
 			}
 			transform: translateY(0);
 			opacity: 1;
+		}
+
+		// Reveal visually hidden elements within the dropdown to screen readers.
+		ul[data-o-header-services-level] .o-header-services__visually-hidden {
+			display: initial;
+		}
+
+		// Update the dropdown icon to show the drawer is open.
+		.o-header-services__drop-down-button:after {
+			transform: rotate(-180deg);
 		}
 	}
 }
