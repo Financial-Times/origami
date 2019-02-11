@@ -4,6 +4,7 @@
 	.o-header-services__secondary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
+		border-top: 1px solid _oHeaderServicesGet('nav-border');
 		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
 		overflow: hidden;
 	}

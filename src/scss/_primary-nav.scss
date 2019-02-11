@@ -5,7 +5,9 @@
 	.o-header-services__primary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
-		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		@if (_oHeaderServicesGet('nav-background') == _oHeaderServicesGet('top-background')) {
+			border-top: 1px solid _oHeaderServicesGet('nav-border');
+		}
 	}
 
 	.o-header-services__primary-nav-list {
@@ -25,7 +27,7 @@
 			color: _oHeaderServicesGet('nav-text');
 			display: inline-block;
 			margin: 0;
-			padding: $_o-header-services-padding  oTypographySpacingSize(5);
+			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oTypographySpacingSize(5));
 			text-transform: uppercase;
 			box-sizing: border-box;
 
