@@ -29,11 +29,13 @@
 @mixin oHeaderServices($opts: (
 	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
 	'features': ('bleed', 'drop-down'),
-	'logo': _oHeaderServicesGet('logo')
+	'logo': _oHeaderServicesGet('logo'),
+	'drawer-breakpoint': 'M'
 )) {
 	$types: map-get($opts, 'types');
 	$features: map-get($opts, 'features');
 	$logo: map-get($opts, 'logo');
+	$drawer-breakpoint: if(map-get($opts, 'drawer-breakpoint'), map-get($opts, 'drawer-breakpoint'), 'M');
 
 	$bleed: index($features, 'bleed');
 	$drop-down: index($features, 'drop-down');
@@ -43,7 +45,7 @@
 
 	/// Required because there would be no header without the title
 	/// if other features aren't added.
-	@include _oHeaderServicesTop($logo);
+	@include _oHeaderServicesTop($logo, $drawer-breakpoint);
 
 	@if index($types, 'primary-nav') {
 		@include _oHeaderServicesPrimaryNav($drop-down);

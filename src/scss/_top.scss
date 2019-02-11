@@ -2,14 +2,13 @@
 /// @param {String} $logo [ft-logo depending on brand (pink or white)]
 /// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @outputs styling for title section of header
-@mixin _oHeaderServicesTop($logo, $draw-breakpoint: M) {
+@mixin _oHeaderServicesTop($logo, $draw-breakpoint) {
 	.o-header-services__top {
 		@include oGridContainer;
 		background-color: _oHeaderServicesGet('top-background');
 		color: _oHeaderServicesGet('top-text');
 		display: flex;
 		overflow: hidden;
-		padding: 0;
 
 		a {
 			color: inherit;
@@ -69,12 +68,12 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySize($scale: 4);
+		@include oTypographySize($scale: 2);
 		@include oTypographyBold('sans');
 		text-overflow: ellipsis;
 
-		@include oGridRespondTo($until: $draw-breakpoint) {
-			@include oTypographySize($scale: 2);
+		@include oGridRespondTo(M) {
+			@include oTypographySize($scale: 4);
 		}
 	}
 
@@ -83,9 +82,9 @@
 		margin-left: $_o-header-services-padding;
 		text-overflow: ellipsis;
 		overflow: hidden;
-
-		@include oGridRespondTo($until: L) {
-			display: none;
+		display: none;
+		@include oGridRespondTo(L) {
+			display: inline-block;
 		}
 	}
 

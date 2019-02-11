@@ -109,7 +109,10 @@ You can be more selective about which types you would like to output, by using a
 - `'b2c'`
 
 **logo**
-- the name of a logo from the [logos image set](https://registry.origami.ft.com/components/logo-images@1.8.0). Defaults to the FT logo.
+- The name of a logo from the [logos image set](https://registry.origami.ft.com/components/logo-images@1.8.0). Defaults to the FT logo.
+
+**drawer-breakpoint**
+- The breakpoint to move the primary navigation into a drawer. We recommend a `rem` value or a layout size from [o-grid](https://github.com/Financial-Times/o-grid/#layout-sizes) e.g. 'M'. Defaults to the medium grid size 'M'.
 
 
 To use a logo that is **not** the FT logo, the logo can be modified in one of two ways:
