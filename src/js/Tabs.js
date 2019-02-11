@@ -1,5 +1,4 @@
-/*global module, require*/
-const oDom = require('o-dom');
+/*global module */
 
 class Tabs {
 
@@ -84,8 +83,8 @@ class Tabs {
 		return tabLink && tabLink.parentNode ? tabLink.parentNode : null;
 	}
 
-	getTabIndexFromElement(el) { // eslint-disable-line class-methods-use-this
-		return oDom.getIndex(el);
+	getTabIndexFromElement(el) {
+		return this.tabEls.indexOf(el);
 	}
 
 	getSelectedTabElement() {
@@ -166,7 +165,7 @@ class Tabs {
 	}
 
 	clickHandler(ev) {
-		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
+		const tabEl = ev.target.closest('[role=tab]');
 
 		if (tabEl && this.tabHasValidUrl(tabEl)) {
 			ev.preventDefault();
@@ -175,7 +174,7 @@ class Tabs {
 	}
 
 	keyPressHandler(ev) {
-		const tabEl = oDom.getClosestMatch(ev.target, '[role=tab]');
+		const tabEl = ev.target.closest('[role=tab]');
 		// Only update if key pressed is enter key
 		if (tabEl && ev.keyCode === 13 && this.tabHasValidUrl(tabEl)) {
 			ev.preventDefault();
