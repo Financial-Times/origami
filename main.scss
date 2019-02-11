@@ -52,7 +52,7 @@
 	}
 
 	@if index($types, 'secondary-nav') {
-		@include _oHeaderServicesSecondaryNav;
+		@include _oHeaderServicesSecondaryNav($drawer-breakpoint);
 	}
 
 	@if index($types, 'b2b') and _oHeaderSupports('b2b') {

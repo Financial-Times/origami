@@ -1,13 +1,19 @@
 /// @access private
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @outputs styling for sub nav
-@mixin _oHeaderServicesSecondaryNav() {
+@mixin _oHeaderServicesSecondaryNav($draw-breakpoint) {
 	.o-header-services__secondary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
 		border-top: 1px solid _oHeaderServicesGet('nav-border');
-		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
 		overflow: hidden;
 		max-height: #{(36/16)}rem; // To hide the scroll bar.
+		// Remove border between the top and the secondary nav if their background is different.
+		@if (_oHeaderServicesGet('nav-background') != _oHeaderServicesGet('top-background')) {
+			@include oGridRespondTo($until: $draw-breakpoint) {
+				border-top: 0;
+			}
+		}
 	}
 
 	.o-header-services__secondary-nav-content {

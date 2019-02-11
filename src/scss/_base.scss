@@ -8,6 +8,7 @@
 	.o-header-services {
 		@include oTypographySans($scale: 0);
 		background-color: _oHeaderServicesGet('top-background');
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
 		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
 
 		a {
