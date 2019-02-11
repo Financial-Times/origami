@@ -10,7 +10,6 @@
 	"dependencies": {
 		"o-colors": "^4.0.2",
 		"o-buttons": "^5.11.8",
-		"o-dom": "^2.0.3",
 		"o-brand": ">=2.2.0 <4"
 	}
 }
