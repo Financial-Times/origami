@@ -187,9 +187,7 @@ See more in the registry: [o-table demos](https://registry.origami.ft.com/compon
 
 ## Sass
 
-### Silent mode
-
-If using `o-table` in silent mode, `@include oTable()` includes styles for all features. Alternatively styles may be included granularly with an `$opts` map.
+Use `@include oTable()` to include styles for all table features. Alternatively styles may be included granularly with an `$opts` map.
 
 Include all table features:
 ```scss

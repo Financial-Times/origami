@@ -70,4 +70,10 @@
 	.o-table-container > .o-table-footnote {
 		margin-left: 10px;
 	}
+
+	// A spacing class until we have a generic spacing component users can include.
+	// e.g. .o-table.o-table-margin-bottom or .o-table-container.o-table-margin-bottom
+	.o-table-margin-bottom {
+		margin-bottom: oTypographySpacingSize($units: 4);
+	}
 }

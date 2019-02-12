@@ -34,6 +34,7 @@
 			margin-bottom: oTypographySpacingSize($units: 4);
 		}
 	```
+	If it's not possible or practical to apply a custom margin, add the  `o-table-margin-bottom` class to the table (or table container, if you are using a responsive table).
 - Mixin updates:
 	- All `o-table` mixins have been made private except for a new mixin `@include oTable($opts)`. It accepts an feature list `$opts` to include `o-table` styles granularly. Replace previous mixins with one call to the [`oTable` mixin with an optional `$opts` flag](#silent-mode). Please [contact us](#contact) if this does not suit your product.
 	- `oTableAll` has been replaced with `oTable`, which does not accept a class name `$classname`. Instead use the default `o-table` class name in your markup. As the mixin now output classes directly, they must not be wrapped in an `.o-table` class manually.
