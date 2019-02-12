@@ -60,7 +60,7 @@
 @mixin _oLayoutBody () {
 	@include oTypographySans($scale: 1, $line-height: 1.4);
 
-	a:not(.o-layout__unstyled-element) {
+	a:not(.o-layout__unstyled-element):not(.o-layout__linked-heading__link) {
 		@include oTypographyLink();
 	}
 
