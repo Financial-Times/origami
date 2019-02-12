@@ -29,27 +29,30 @@
 @mixin oHeaderServices($opts: (
 	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
 	'features': ('bleed', 'drop-down'),
-	'logo': _oHeaderServicesGet('logo')
+	'logo': _oHeaderServicesGet('logo'),
+	'drawer-breakpoint': 'M'
 )) {
 	$types: map-get($opts, 'types');
 	$features: map-get($opts, 'features');
 	$logo: map-get($opts, 'logo');
+	$drawer-breakpoint: if(map-get($opts, 'drawer-breakpoint'), map-get($opts, 'drawer-breakpoint'), 'M');
 
 	$bleed: index($features, 'bleed');
+	$drop-down: index($features, 'drop-down');
 
 	/// Base styles for a header
 	@include _oHeaderServicesBase($bleed);
 
 	/// Required because there would be no header without the title
 	/// if other features aren't added.
-	@include _oHeaderServicesTop($logo);
+	@include _oHeaderServicesTop($logo, $drawer-breakpoint);
 
 	@if index($types, 'primary-nav') {
-		@include _oHeaderServicesPrimaryNav;
+		@include _oHeaderServicesPrimaryNav($drop-down);
 	}
 
 	@if index($types, 'secondary-nav') {
-		@include _oHeaderServicesSecondaryNav;
+		@include _oHeaderServicesSecondaryNav($drawer-breakpoint);
 	}
 
 	@if index($types, 'b2b') and _oHeaderSupports('b2b') {
@@ -60,7 +63,7 @@
 		@include _oHeaderServicesTheme($theme: 'b2c');
 	}
 
-	@if index($features, 'drop-down') {
+	@if $drop-down {
 		@include _oHeaderServicesDropDown();
 	}
 }

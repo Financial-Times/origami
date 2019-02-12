@@ -1,11 +1,19 @@
 /// @access private
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @outputs styling for sub nav
-@mixin _oHeaderServicesSecondaryNav() {
+@mixin _oHeaderServicesSecondaryNav($draw-breakpoint) {
 	.o-header-services__secondary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
-		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		border-top: 1px solid _oHeaderServicesGet('nav-border');
 		overflow: hidden;
+		max-height: #{(36/16)}rem; // To hide the scroll bar.
+		// Remove border between the top and the secondary nav if their background is different.
+		@if (_oHeaderServicesGet('nav-background') != _oHeaderServicesGet('top-background')) {
+			@include oGridRespondTo($until: $draw-breakpoint) {
+				border-top: 0;
+			}
+		}
 	}
 
 	.o-header-services__secondary-nav-content {
@@ -13,8 +21,8 @@
 		display: flex;
 		white-space: nowrap;
 		overflow-x: auto;
-		padding: 0 20px;
-		max-height: $_o-header-services-sub-nav-height;
+		padding: 0 oTypographySpacingSize(5);
+		padding-bottom: 1rem; // To hide the scroll bar.
 	}
 
 	.o-header-services__secondary-nav-list {
@@ -27,9 +35,27 @@
 			position: relative;
 
 			a {
-				@include _oHeaderServicesHover($underline: true);
+				color: _oHeaderServicesGet('nav-text');
+				position: relative;
+				display: inline-block;
 				padding: oTypographySpacingSize(2) 0;
 				margin: 0;
+
+				&:hover,
+				&[aria-current=true] {
+					color: _oHeaderServicesGet('text-hover-color');
+				}
+
+				&:hover:before,
+				&[aria-current=true]:before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: oTypographySpacingSize(1);
+					background-color: _oHeaderServicesGet('nav-underline-color');
+				}
 			}
 		}
 	}
@@ -64,7 +90,10 @@
 
 		&:first-child {
 			margin-left:  oTypographySpacingSize(3);
-			padding-left:  oTypographySpacingSize(3);
+		}
+
+		&:last-child {
+			padding-right:  oTypographySpacingSize(3);
 		}
 
 		&:first-child:before {

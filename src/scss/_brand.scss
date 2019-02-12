@@ -56,7 +56,9 @@
 			'b2c'
 		)
 	));
-} @elseif oBrandGetCurrentBrand() == 'internal' {
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-header-services', 'internal', (
 		'variables': (
 			logo: 'brand-ft-logo-squared-bw',
@@ -72,7 +74,9 @@
 		),
 		'supports-variants': ()
 	));
-} @elseif oBrandGetCurrentBrand() == 'whitelabel' {
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-header-services', 'whitelabel', (
 		'variables': (
 			logo: null,

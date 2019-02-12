@@ -1,32 +1,70 @@
 /// @access private
 /// @outputs styling for primary nav
-@mixin _oHeaderServicesPrimaryNav() {
+/// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
+@mixin _oHeaderServicesPrimaryNav($drop-down) {
 	.o-header-services__primary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
-		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
-		z-index: 1;
+		@if (_oHeaderServicesGet('nav-background') == _oHeaderServicesGet('top-background')) {
+			border-top: 1px solid _oHeaderServicesGet('nav-border');
+		}
 	}
 
 	.o-header-services__primary-nav-list {
-		@include oGridContainer;
+		@include oGridContainer();
 		background-color: _oHeaderServicesGet('nav-background');
 		display: flex;
 		flex-wrap: wrap;
 		margin: auto;
 
+		// Remove the padding from the grid container.
+		// Unless the nav items have custom padding which is smaller than the grid container's grid gap.
 		@include oGridRespondTo(S) {
-			padding: 0;
+			padding: 0 if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), calc(#{map-get($o-grid-gutters, 'M')} - #{_oHeaderServicesGet('primary-nav-item-horizontal-padding')}), 0);
 		};
 
-		a {
-			$underline: if(_oHeaderServicesGet('nav-background') == _oHeaderServicesGet('nav-hover-background'), true, false);
-			@include _oHeaderServicesHover($underline);
+		> li {
+			position: relative;
+		}
+
+		> li a {
 			@include oTypographyBold('sans');
+			position: relative;
+			color: _oHeaderServicesGet('nav-text');
+			display: inline-block;
+			margin: 0;
+			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oTypographySpacingSize(5));
 			text-transform: uppercase;
-			min-height: oTypographySpacingSize(5);
+			box-sizing: border-box;
+
+			&:hover {
+				color: _oHeaderServicesGet('text-hover-color');
+			}
+
+			&:hover,
+			&[aria-current=true] {
+				background-color: _oHeaderServicesGet('nav-hover-background');
+			}
+		}
+
+		> li:not(:last-child) {
+			border-right: 1px solid _oHeaderServicesGet('nav-border');
+		}
+
+		[data-o-header-services-level="2"] {
+			> li a {
+				display: block;
+			}
+			max-width: 50vw;
+			overflow: hidden;
+			white-space: nowrap;
+			> li a {
+				text-overflow: ellipsis;
+				max-width: 100%;
+				overflow: hidden;
+			}
 		}
 	}
 
-	@include _oHeaderServicesDrawer();
+	@include _oHeaderServicesDrawer($drop-down);
 };

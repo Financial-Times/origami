@@ -52,7 +52,8 @@
 			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths, and can be presented as dropdown menus",
 			"data": {
 				"primary-navigation": true,
-				"drop-down": true
+				"drop-down": true,
+				"sub-navigation": true
 			}
 		},
 		{

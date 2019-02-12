@@ -2,143 +2,100 @@
 /// @access private
 /// @outputs styling for primary navigation drop down menus
 @mixin _oHeaderServicesDropDown() {
-	.o-header-services {
-		li[data-o-header-services-level] {
-			position: relative;
-			min-height: oTypographySpacingSize(10);
+	// So the dropdown stays above other elements.
+	.o-header-services__primary-nav {
+		z-index: 1;
+	}
 
-			> a {
-				display: inline-block;
-			}
+	// Drop down button.
+	.o-header-services__drop-down-button {
+		background-color: transparent;
+		border: 0;
+		border-left: 1px dotted _oHeaderServicesGet('nav-border');
+		height: 100%;
+		vertical-align: top;
+		padding: 0 0.25rem;
 
-			.o-header-services__drop-down-button {
-				background-color: transparent;
-				border: 0;
-				border-left: 1px solid _oHeaderServicesGet('nav-border');
-				border-right: 1px solid _oHeaderServicesGet('nav-border');
-				height: 100%;
-				vertical-align: top;
-
-				&:after {
-					@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 24);
-					content: '';
-					transition: transform 0.2s ease;
-					vertical-align: middle;
-				}
-
-				&:hover {
-					background-color: _oHeaderServicesGet('button-hover-color');
-
-					&:after {
-						@if _oHeaderServicesGet('arrow-icon-hover-color') {
-							@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 24);
-						}
-					}
-				}
-			}
-
-			a[aria-current='true'] + .o-header-services__drop-down-button {
-				background-color: _oHeaderServicesGet('nav-hover-background');
-
-
-				&:hover {
-					background-color: _oHeaderServicesGet('button-hover-color');
-				}
-			}
+		&:after {
+			@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 1.5rem);
+			content: '';
+			transition: transform 0.2s ease;
 		}
 
-		ul[data-o-header-services-level] {
-			@include oTypographySize(-1);
-			background: _oHeaderServicesGet('nav-background');
-			border: 1px solid _oHeaderServicesGet('nav-border');
-			box-sizing: border-box;
-			min-width: auto;
-			padding-left: 0;
-			position: absolute;
-			opacity: 0;
-			transform: translateY(-100%);
-			transition:
-				opacity 0.1s linear,
-				transform 0.2s ease-in;
-			z-index: -1;
+		&:hover {
+			background-color: _oHeaderServicesGet('button-hover-color');
 
-			&.o-header-services__list--right {
-				right: 0;
-			}
-		}
-
-		.core li[data-o-header-services-level]:hover,
-		li[aria-expanded=true] {
-			.o-header-services__drop-down-button:after {
-				transform: rotate(-180deg);
-			}
-
-			ul[data-o-header-services-level] {
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}
-
-		.o-header-services__primary-nav--drawer {
-			li[data-o-header-services-level] {
-				display: flex;
-				flex-wrap: wrap;
-				width: 100%;
-
-				> a {
-					flex-grow: 1;
-				}
-
-				.o-header-services__drop-down-button {
-					height: oTypographySpacingSize(10);
-					border: 1px solid _oHeaderServicesGet('nav-border');
-				}
-
-				@if oBrandGetCurrentBrand() == 'whitelabel' {
-					> a {
-						flex-grow: 0;
-					}
-
-					.o-header-services__drop-down-button {
-						margin-left: auto;
-					}
-				};
-			}
-
-			ul[data-o-header-services-level] {
-				border-right: 0;
-				opacity: 0;
-				transition:
-					opacity 0s ease,
-					transform 0s ease;
-			}
-
-			li[aria-expanded=true] {
-				.o-header-services__drop-down-button {
-					border-width: 0 1px;
-				}
-
-				ul[data-o-header-services-level] {
-					opacity: 1;
-					position: relative;
-					width: 100%;
-					z-index: 2;
+			&:after {
+				@if _oHeaderServicesGet('arrow-icon-hover-color') {
+					@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 1.5rem);
 				}
 			}
 		}
 	}
 
-	.core .o-header-services {
-		li[data-o-header-services-level] .o-header-services__drop-down-button:hover {
+	// Current drop down button.
+	li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button {
+		background-color: _oHeaderServicesGet('nav-hover-background');
+		&:hover {
+			background-color: _oHeaderServicesGet('button-hover-color');
+		}
+	}
 
-			&:after {
-				transform: rotate(-180deg);
-			}
+	// Drop down list.
+	ul[data-o-header-services-level="2"] {
+		@include oTypographySize(-1);
+		background: _oHeaderServicesGet('nav-background');
+		border: 1px solid _oHeaderServicesGet('nav-border');
+		box-sizing: border-box;
+		padding-left: 0;
+		position: absolute;
+		opacity: 0;
+		transform: translateY(-10%);
+		transition: opacity 0.1s linear, transform 0.1s ease-in;
+		left: -1px;
+		z-index: -1; // So the dropdown doesn't cover the link/button whilst animating.
 
-			+ ul[data-o-header-services-level] {
-				transform: translateY(0);
-				opacity: 1;
+		// The dropdown list is inviisble when closed.
+		// This is so it doesn't block interaction with other elements.
+		height: 0;
+		@supports (pointer-events: none) {
+			height: auto;
+			pointer-events: none;
+		}
+
+		&.o-header-services__list--right {
+			right: -1px;
+			left: auto;
+		}
+	}
+
+	// Completely hide visually hidden elements untill the dropdown is open.
+	ul[data-o-header-services-level] .o-header-services__visually-hidden {
+		display: none;
+	}
+
+	// Drop down list (opened state).
+	.core li[data-o-header-services-level]:hover,
+	li[aria-expanded=true] {
+
+		// Reveal the dropdown.
+		ul[data-o-header-services-level] {
+			height: auto;
+			@supports (pointer-events: none) {
+				pointer-events: all;
 			}
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		// Reveal visually hidden elements within the dropdown to screen readers.
+		ul[data-o-header-services-level] .o-header-services__visually-hidden {
+			display: initial;
+		}
+
+		// Update the dropdown icon to show the drawer is open.
+		.o-header-services__drop-down-button:after {
+			transform: rotate(-180deg);
 		}
 	}
 }

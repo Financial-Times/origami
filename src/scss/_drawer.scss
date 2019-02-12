@@ -1,10 +1,13 @@
 /// @access private
 /// @outputs styling for the drawer
-@mixin _oHeaderServicesDrawer {
-	.o-header-services__primary-nav--drawer {
-		background-color: rgba(0, 0, 0, 0.2);
+/// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
+// sass-lint:disable no-qualifying-elements
+@mixin _oHeaderServicesDrawer($drop-down: true) {
+	.o-header-services__primary-nav.o-header-services__primary-nav--drawer {
+		// Drawer background.
+		background-color: rgba(0, 0, 0, 0.8);
 		position: fixed;
-		top: $_o-header-services-top-bar-short;
+		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
@@ -13,6 +16,7 @@
 			visibility 0.01s linear,
 			opacity 0.5s $o-visual-effects-transition-fade;
 
+		// Drawer nav.
 		.o-header-services__primary-nav-list {
 			@include oVisualEffectsShadowsElevation('mid');
 			flex-direction: column;
@@ -20,48 +24,150 @@
 			margin: 0;
 			overflow-y: auto;
 			padding: 0;
+			height: 100%;
+			width: 75vw;
+			background-color: _oHeaderServicesGet('drawer-background');
 			transform: translateX(-100%);
 			transition:
 				transform 0.5s $o-visual-effects-transition-expand;
-			height: 100%;
-			width: calc(100% - 120px);
 		}
 
-		.o-header-services__related-content {
-			display: block;
-			clear: both;
-			margin: oTypographySpacingSize(5) 0 0;
-			padding: 0;
+		// First level nav item.
+		.o-header-services__primary-nav-list > li {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
 
-			li {
-				background-color: _oHeaderServicesGet('nav-background');
-
-				a {
-					color: inherit;
-					font-weight: oFontsWeight('regular');
-					text-transform: none;
-
-					@if oBrandGetCurrentBrand() == 'whitelabel' {
-						padding: 10px 20px;
+			@if $drop-down {
+				> a {
+					flex-grow: 1; // Expand the link to fill the draw, up to a drop down button if there is one.
+					// If the nav item padding has been customised, reset within the drawer.
+					@if _oHeaderServicesGet('primary-nav-item-horizontal-padding') {
+						padding-left: oTypographySpacingSize(5);
+						padding-right: oTypographySpacingSize(5);
 					}
-
-					&:hover:before {
-						background-color: transparent;
-					}
-				}
-
-				a:hover {
-					background-color: none;
 				}
 			}
 		}
 
-		&.o-header-services__primary-nav--open {
-			visibility: visible;
+		// Draw's dropdown button.
+		@if $drop-down {
+			.o-header-services__drop-down-button {
+				padding: 0 0.4375rem;
+				height: oTypographySpacingSize(10);
+				border: 1px solid _oHeaderServicesGet('nav-border');
+				border-top: 0px;
+			}
 
-			.o-header-services__primary-nav-list {
-				transform: translateX(0%);
+			// Override the background colour of the draw's dropdown button.
+			.o-header-services__drop-down-button,
+			a[aria-current="true"] + .o-header-services__drop-down-button {
+				@if  _oHeaderServicesGet('drawer-button-background') {
+					border: 0;
+					background-color: _oHeaderServicesGet('drawer-button-background');
+					&:hover {
+						background-color: _oHeaderServicesGet('drawer-button-background');
+					}
+				}
+			}
+
+			// Second level nav item.
+			[data-o-header-services-level="2"] {
+				border-right: 0;
+				opacity: 0;
+				width: 100%;
+				// Reset the dropdown styles now they are in a drawer.
+				transition: none;
+				z-index: 0;
+				max-width: none;
+				white-space: normal;
+				a {
+					// Indent dropdown links within the drawer.
+					padding-left: oTypographySpacingSize(8);
+				}
+				a:hover {
+					color: _oHeaderServicesGet('drawer-text-hover-color');
+					background: _oHeaderServicesGet('drawer-nav-hover-background');
+				}
+			}
+
+			// Expanded first level nav item.
+			li[data-o-header-services-level][aria-expanded=true] {
+				[data-o-header-services-level="2"] {
+					position: relative;
+					opacity: 1;
+				}
+			}
+
+			// Override related content styles to match the draw.
+			.o-header-services__related-content {
+				display: block;
+				margin: oTypographySpacingSize(5) 0 0;
+				padding: 0;
+				li {
+					background-color: inherit;
+					a {
+						color: inherit;
+						font-weight: oFontsWeight('regular');
+						text-transform: none;
+						display: block;
+						margin: 0;
+						padding: $_o-header-services-padding  oTypographySpacingSize(5);
+					}
+					a:hover {
+						background-color: none;
+					}
+				}
+
 			}
 		}
 	}
+
+	// The drawer header, which contains the close button.
+	.o-header-services__drawer-header {
+		display: none;
+		position: relative;
+		overflow: hidden;
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		padding: 0.5rem 0;
+		justify-content: end;
+	}
+
+	// The drawer close button.
+	.o-header-services__drawer-close-button {
+		position: relative;
+		appearance: none;
+		font-family: inherit;
+		font-size: inherit;
+		background: transparent;
+		border: 0;
+		vertical-align: middle;
+		&:after {
+			@include oIconsGetIcon('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
+			content: '';
+			vertical-align: inherit;
+		}
+
+		&:hover {
+			color: _oHeaderServicesGet('text-hover-color');
+			&:after {
+				@if _oHeaderServicesGet('text-hover-color') {
+					@include oIconsGetIcon('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
+					vertical-align: inherit;
+				}
+			}
+		}
+	}
+
+	// Draw open modifer (closed by default).
+	.o-header-services__primary-nav--drawer.o-header-services__primary-nav--open {
+		visibility: visible;
+		.o-header-services__drawer-header {
+			display: block;
+		}
+		.o-header-services__primary-nav-list {
+			transform: translateX(0%);
+		}
+	}
 }
+// sass-lint:enable no-qualifying-elements
