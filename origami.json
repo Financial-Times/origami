@@ -12,7 +12,8 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {
 		"required": [
-			"IntersectionObserver"
+			"IntersectionObserver",
+			"NodeList.prototype.forEach"
 		]
 	},
 	"ci": {
