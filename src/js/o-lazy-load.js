@@ -48,7 +48,7 @@ function callback (entries, observer) {
 				loadContent(target);
 
 				if (typeof this.options.callback === 'function') {
-					callback(target);
+					this.options.callback(target);
 				}
 			}
 		}
