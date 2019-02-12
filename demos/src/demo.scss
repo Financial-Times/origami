@@ -1,3 +1,7 @@
 @import '../../main';
 
-@include oLayout($header-logo: 'origami', $footer-logo: 'origami');
+@include oLayout();
+
+.demo-button:not(:last-of-type) {
+    margin-right: 0.5rem;
+}

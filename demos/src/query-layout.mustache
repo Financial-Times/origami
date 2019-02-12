@@ -1,0 +1,73 @@
+<div class="o-layout o-layout--query" data-o-component="o-layout">
+    {{> shared/header}}
+
+    <div class="o-layout__heading o-layout-typography">
+		<h1 id="searchable-things">Searchable Things</h1>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur ipsa illum veniam doloremque ut laborum voluptates saepe dignissimos cupiditate eos.</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.</p>
+    </div>
+
+    <div class="o-layout__query-sidebar o-layout-typography">
+		<form action="/components" method="get" class="registry__form registry__container__sticky" data-o-component="o-filter-form" data-o-filter-form-browser-history="true">
+			<fieldset class="o-forms">
+				<label class="o-forms__label">Types</label>
+				<div class="o-forms__additional-info">Filter results by type</div>
+				<div class="o-forms__group">
+					<input id="type-module" type="checkbox" name="module" value="true" checked="" class="o-forms__checkbox">
+					<label for="type-module" class="o-forms__label">Modules</label>
+					<input id="type-imageset" type="checkbox" name="imageset" value="true" checked="" class="o-forms__checkbox">
+					<label for="type-imageset" class="o-forms__label">Imagesets</label>
+					<input id="type-service" type="checkbox" name="service" value="true" checked="" class="o-forms__checkbox">
+					<label for="type-service" class="o-forms__label">Services</label>
+				</div>
+			</fieldset>
+
+			<fieldset class="o-forms">
+				<label class="o-forms__label">Status</label>
+				<div class="o-forms__additional-info">Filter results by status</div>
+				<div class="o-forms__group">
+					<input id="status-active" type="checkbox" name="active" value="true" checked="" class="o-forms__checkbox">
+					<label for="status-active" class="o-forms__label">Active</label>
+					<input id="status-maintained" type="checkbox" name="maintained" value="true" checked="" class="o-forms__checkbox">
+					<label for="status-maintained" class="o-forms__label">Maintained</label>
+					<input id="status-experimental" type="checkbox" name="experimental" value="true" checked="" class="o-forms__checkbox">
+					<label for="status-experimental" class="o-forms__label">Experimental</label>
+					<input id="status-deprecated" type="checkbox" name="deprecated" value="true" class="o-forms__checkbox">
+					<label for="status-deprecated" class="o-forms__label">Deprecated</label>
+					<input id="status-dead" type="checkbox" name="dead" value="true" class="o-forms__checkbox">
+					<label for="status-dead" class="o-forms__label">Dead</label>
+				</div>
+			</fieldset>
+		</form>
+    </div>
+
+	<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+		<h2 id="results">Results</h2>
+		<ul>
+			<li>
+				<p>Result 1</p>
+			</li>
+			<li>
+				<p>Result 2</p>
+			</li>
+			<li>
+				<p>Result 3</p>
+			</li>
+			<li>
+				<p>Result 4</p>
+			</li>
+			<li>
+				<p>Result 5</p>
+			</li>
+			<li>
+				<p>Result 6</p>
+			</li>
+		</ul>
+	</div>
+
+    <div class="o-layout__aside-sidebar o-layout-typography" data-o-component="o-syntax-highlight">
+		<p>Aside Sidebar: Lorem ipsum, dolor sit amet consectetur adipisicing <code class='o-syntax-highlight--html'>o-layout</code> elit. Pariatur beatae, tempora deleniti inventore impedit minus corrupti omnis esse assumenda perspiciatis?</p>
+    </div>
+
+	{{> shared/footer}}
+</div>

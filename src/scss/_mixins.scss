@@ -1,135 +1,225 @@
-/// Apply styles at a given layout size
-/// Wrapper for the Sass MQ mq() mixin
+/// Styles decorative rules for containers
 ///
-/// @link https://git.io/sass-mq Sass MQ documentation
-///
-/// @example
-///  // Turn the color of an element red at medium layout size and up
-///  @include oLayoutBreakPoint(M) {
-///  	element {
-///  		color: red;
-///  	}
-///  }
-///  // Turn the color of an element blue until medium layout
-///  element {
-///  	@include oLayoutBreakPoint($until: M) {
-///  		color: blue;
-///  	}
-///  }
-///  // Turn the color of an element green from small layout until medium layout
-///  element {
-///  	@include oLayoutBreakPoint($from: S, $until: M) {
-///  		color: green;
-///  	}
-///  }
-///
-/// @param {String} from - one of $o-layout-breakpoints
-/// @param {String} until - one of $o-layout-breakpoints
-
-@mixin oLayoutBreakPoint($from: false, $until: false) {
-	@include mq(
-		$from: $from,
-		$until: $until,
-		$breakpoints: $o-layout-breakpoints
-	) {
-		@content;
-	}
-}
-
-/// Base grid
-/// @access Private
-@mixin _oLayoutGridBase () {
-	min-width: 100%;
-	margin: 0;
-	position: relative;
-	box-sizing: border-box;
-
-	display: grid;
-	grid-template-rows: auto auto 1fr auto;
-	grid-template-columns: 100%;
-	grid-gap: $_o-layout-gutter;
-	grid-template-areas:
-		"header"
-		"sidebar"
-		"main"
-		"footer";
+///@param {String} $side — left or right rule to be styled
+/// @access private
+@mixin _oLayoutRule($side: 'left') {
+	border-#{$side}: 2px solid oColorsGetPaletteColor('teal');
+	padding-#{$side}: $_o-layout-gutter;
 }
 
 /// Base styling for the layout content
-/// @access Private
-@mixin _oLayoutBody () {
-	@include oTypographySans($scale: 1, $line-height: 1.4);
+/// @access private
+@mixin _oLayoutTypography () {
+	.o-layout-typography {
+		@include oTypographySans($scale: 1, $line-height: 1.4);
 
-	a:not(.o-layout__unstyled-element):not(.o-layout__linked-heading__link) {
-		@include oTypographyLink();
+		p:not(.o-layout__unstyled-element),
+		a:not(.o-layout__unstyled-element),
+		h1:not(.o-layout__unstyled-element),
+		h2:not(.o-layout__unstyled-element),
+		h3:not(.o-layout__unstyled-element),
+		h4:not(.o-layout__unstyled-element),
+		h5:not(.o-layout__unstyled-element),
+		h6:not(.o-layout__unstyled-element),
+		ul:not(.o-layout__unstyled-element),
+		ol:not(.o-layout__unstyled-element) {
+			max-width: 60ch;
+		}
+
+		p:not(.o-layout__unstyled-element) {
+			@include oTypographyBody;
+			@include oTypographySize($scale: 1, $line-height: 1.4);
+		}
+
+		a:not(.o-layout__unstyled-element) {
+			@include oTypographyLink();
+		}
+
+		h1:not(.o-layout__unstyled-element)	{
+			@include oTypographyHeadingLevel1();
+		}
+
+		h2:not(.o-layout__unstyled-element) {
+			@include oTypographyHeadingLevel2();
+		}
+
+		h3:not(.o-layout__unstyled-element) {
+			@include oTypographyHeadingLevel3();
+		}
+
+		h4:not(.o-layout__unstyled-element) {
+			@include oTypographyHeadingLevel4();
+		}
+
+		h5:not(.o-layout__unstyled-element) {
+			@include oTypographyHeadingLevel5();
+		}
+
+		h6:not(.o-layout__unstyled-element) {
+			@include oTypographyHeadingLevel6();
+		}
+
+		aside:not(.o-layout__unstyled-element) {
+			@include _oLayoutRule('left');
+			align-self: flex-start;
+		}
+
+		ul:not(.o-layout__unstyled-element) {
+			@include oTypographyList;
+			@include oTypographyListUnordered;
+		}
+
+		ol:not(.o-layout__unstyled-element) {
+			@include oTypographyList;
+			@include oTypographyListOrdered;
+		}
+
+		table {
+			margin: 0 0 oTypographySpacingSize(4);
+		}
+	}
+}
+
+/// Navigation
+/// Outputs navigation styles
+/// @param {boolean} $query-layout - Should the query layout be supported?
+/// @access private
+@mixin _oLayoutNavigation($query-layout) {
+	.o-layout__navigation {
+		@include oGridRespondTo($from: M) {
+			position: sticky;
+			top: $_o-layout-gutter;
+			max-height: 100vh;
+			overflow-y: scroll;
+		}
 	}
 
-	h1	{
-		@include oTypographyProductHeadingLevel1();
+	.o-layout__navigation li {
+		list-style: none;
 	}
 
-	h2 {
-		@include oTypographyProductHeadingLevel2();
+	.o-layout__navigation ul,
+	.o-layout__navigation ol {
+		padding: 0;
 	}
 
-	h3 {
-		@include oTypographyProductHeadingLevel3();
-	}
+	.o-layout__navigation > ul,
+	.o-layout__navigation > ol {
+		border: 0;
+		text-align: left;
+		margin: 0 0 oTypographySpacingSize(7);
 
-	h4 {
-		@include oTypographyProductHeadingLevel4();
-	}
-
-	h5 {
-		@include oTypographyProductHeadingLevel5();
-	}
-
-	h6 {
-		@include oTypographyProductHeadingLevel6();
-	}
-
-	aside {
-		@include oLayoutRule('left');
-		align-self: flex-start;
-	}
-
-	p,
-	ol,
-	ul,
-	pre,
-	aside,
-	table {
-		margin: 0 0 1rem;
-	}
-
-	ul:not([data-o-component^="o-"], .o-layout__unstyled-element) {
-		list-style-type: none;
-		position: relative;
-		padding-left: 1.5rem;
+		@include oGridRespondTo($from: M) {
+			text-align: right;
+			margin-top: $_o-layout-gutter;
+		}
 
 		li {
-			margin-bottom: 0.5em;
+			&:not(.o-layout__navigation-title) [aria-current="location"] {
+				color: oColorsGetPaletteColor('teal-30');
+				background: oColorsMix('teal', 'white', 20);
+			}
 
-			&:before {
-				content: '—';
-				position: absolute;
-				left: 0;
-				color: oColorsGetPaletteColor('teal');
-				font-weight: 900;
+			a {
+				@include oTypographySans(1);
+				@include oTypographyLink();
+				border: inherit;
+				display: inline-block;
+				padding: 0.4em 1em;
+				word-wrap: anywhere;
+				overflow-wrap: anywhere;
+				border-color: oColorsGetPaletteColor('teal');
+				border-left: 2px solid;
+				@include oGridRespondTo($from: M) {
+					border-left: 0 solid;
+					border-right: 2px solid;
+				}
+			}
+
+			&.o-layout__navigation-title a {
+				@include oTypographyBold('sans');
+				@include oGridRespondTo($from: M) {
+					border: 0;
+				}
+			}
+
+			// For sub-nav headings, where there is no parent anchor.
+			span {
+				@include oTypographySans(1);
+				display: inline-block;
+				padding: 0.4em 1em;
 			}
 		}
 	}
 
-	ol:not([data-o-component^="o-"], .o-layout__unstyled-element) {
-		position: relative;
-		padding-left: 1.5rem;
+	// Style sub-nav items.
+	.o-layout__navigation ul li:not(.o-layout__navigation-title) ul a,
+	.o-layout__navigation ol li:not(.o-layout__navigation-title) ol a {
+		border-color: rgba(oColorsGetPaletteColor('teal'), 0.4);
+	}
+
+	@if $query-layout {
+		// To align the nav with the edge of the query sidebar.
+		// Whilst supporting a scrollable navigation.
+		.o-layout--query .o-layout__navigation,
+		.o-layout--query .o-layout__navigation {
+			margin-right: calc(-#{$_o-layout-gutter} - 1px);
+		}
+		// Undo the negative margin for any element in the nav which is not the nav list.
+		// E.g. an input to filter the nav.
+		.o-layout--query .o-layout__navigation > *:not(ul):not(ol) {
+			margin-right: calc(#{$_o-layout-gutter} + 1px);
+		}
 	}
 }
 
-/// Styles decorative rules for containers
-///
-///@param {String} $side — left or right rule to be styled
-@mixin oLayoutRule($side: 'left') {
-	border-#{$side}: 2px solid oColorsGetPaletteColor('teal');
-	padding-#{$side}: $_o-layout-gutter;
+/// Linked Heading
+/// Outputs styles for the linked headings
+/// @access private
+@mixin _oLayoutLinkedHeading () {
+	.o-layout__linked-heading:not(.o-layout__unstyled-element) {
+
+		padding-right: 1.5ch; // for the octothorpe
+
+		// Increased specificity needed to counteract
+		// default link styles
+		& .o-layout__linked-heading__link,
+		& .o-layout__linked-heading__link:visited {
+			color: inherit;
+			text-decoration: none;
+			border-bottom: 0;
+			position: relative;
+		}
+
+		.o-layout__linked-heading__label {
+			color: oColorsGetColorFor(link, text);
+			display: none;
+			user-select: none;
+			font-weight: normal;
+			position: absolute;
+			bottom: 0;
+			right: -1ch; //keeps the octothorpe in line with the heading if the heading spans a whole grid-column
+		}
+
+		.o-layout__linked-heading__link:hover .o-layout__linked-heading__label {
+			display: inline-block;
+		}
+
+		&:target .o-layout__linked-heading__link {
+			animation-delay: 0;
+			animation-duration: 5s;
+			animation-timing-function: $o-visual-effects-transition-fade;
+			animation-name: o-layout-linked-heading-fade;
+		}
+
+	}
+
+	@keyframes o-layout-linked-heading-fade {
+		0% {
+			background-color: oColorsMix('teal', 'white', 15);
+		}
+		100% {
+			background-color: transparent;
+		}
+	}
 }

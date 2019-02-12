@@ -9,25 +9,10 @@
 /// @type Boolean
 $o-layout-is-silent: true !default;
 
-/// Default button class used when $o-buttons-is-silent is true
-///
-/// @type String
-$o-layout-class: o-layout !default;
-
 /// Base layout measurements
 $_o-layout-gutter: 1rem;
-$_o-layout-container-max-width: 1220px; // To align to o-header, which uses o-grid https://github.com/Financial-Times/o-grid/blob/v4.4.4/src/scss/_variables.scss#L92
-$_o-layout-aside-max-width: 30ch;
-$_o-layout-main-section-width: minmax(30ch, calc(#{$_o-layout-container-max-width} - #{$_o-layout-aside-max-width * 2} - #{$_o-layout-gutter * 2}));
-
-/// Breakpoints for responsive layout
-/// @type List
-$o-layout-breakpoints: (
-	XS: 300px,
-	S: 520px,
-	M: 780px,
-	ML: 900px,
-	L: 1090px,
-	XL: 1200px,
-	XXL: 1350px
-) !default;
+$_o-layout-container-max-width: oGridGetMaxWidthForLayout($o-grid-fixed-layout); // To align with o-header-services.
+$_o-layout-sidebar-max-width: 16.5rem;
+$_o-layout-sidebar: minmax(auto, $_o-layout-sidebar-max-width);
+$_o-layout-main-min-width: 15rem;
+$_o-layout-main: minmax($_o-layout-main-min-width, 1fr);

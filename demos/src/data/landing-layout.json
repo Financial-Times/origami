@@ -1,0 +1,19 @@
+{
+    "title": "Layout Demos",
+    "description": "how we lay it out",
+    "mainNav": [
+        {
+            "name": "Landing Layout",
+            "href": "landing-layout.html",
+            "current": true
+        },
+        {
+            "name": "Documentation Layout",
+            "href": "documentation-layout.html"
+        },
+        {
+            "name": "Query Layout",
+            "href": "query-layout.html"
+        }
+    ]
+}

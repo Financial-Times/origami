@@ -3,70 +3,17 @@
 	"description": "how we lay it out",
 	"mainNav": [
 		{
-			"name": "Documentation",
+			"name": "Landing Layout",
+			"href": "landing-layout.html"
+		},
+		{
+			"name": "Documentation Layout",
 			"href": "documentation-layout.html",
 			"current": true
 		},
 		{
-			"name": "Lists & Tables",
-			"href": "lists-tables-layout.html"
-		}
-	],
-	"hasChildren": true,
-	"ancestors": [
-		{
-			"name": "Documentation",
-			"href": "#"
-		},
-		{
-			"name": "Tutorials",
-			"href": "#",
-			"current": true
-		}
-	],
-	"children": [
-		{
-			"name": "Quickstart",
-			"href": "#",
-			"current": true,
-			"navigation": [
-				{
-					"name": "Set up your page",
-					"href": "#set-up-your-page"
-				},
-				{
-					"name": "Include CSS",
-					"href": "#include-css"
-				},
-				{
-					"name": "Add the Classes",
-					"href": "#add-the-classes"
-				},
-				{
-					"name": "Include the JavaScript",
-					"href": "#include-the-javascript"
-				},
-				{
-					"name": "Putting it all together",
-					"href": "#putting-it-all-together"
-				},
-				{
-					"name": "What's next",
-					"href": "#whats-next"
-				},
-				{
-					"name": "Find out more",
-					"href": "#find-out-more"
-				}
-			]
-		},
-		{
-			"name": "The Build Service",
-			"href": "#"
-		},
-		{
-			"name": "Manual Build Process",
-			"href": "#"
+			"name": "Query Layout",
+			"href": "query-layout.html"
 		}
 	]
 }

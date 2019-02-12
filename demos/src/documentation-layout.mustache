@@ -1,11 +1,94 @@
-<div class="o-layout" data-o-component="o-layout">
-{{> shared/header}}
+<div class="o-layout o-layout--docs" data-o-component="o-layout">
+	{{> shared/header}}
 
 	<div class="o-layout__sidebar"></div>
 
-	<div class="o-layout__main" data-o-component="o-syntax-highlight">
-		{{> content/quickstart-tutorial}}
-	</div>
+	<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+		<h1 id="an-example-documentation-layout">Documentation Layout</h1>
+		<h2 id="sidebar-navigation">Sidebar Navigation</h2>
+		<p><code class='o-syntax-highlight--html'>o-layout</code> can generate a sidebar navigation, find out more in the <a href="https://registry.origami.ft.com/components/o-layout/readme">readme</a>.</p>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sunt rerum quod repudiandae repellat fugit laboriosam eveniet harum in natus!</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit? Fugiat, sed doloribus. Neque blanditiis aliquam, ab perspiciatis mollitia nesciunt fugit vitae soluta ducimus eos, aspernatur praesentium iure, aliquid modi.</p>
+		<h2 id="asides">Asides</h2>
+		<p>Asides are also styled and positioned witin the documentation layout.</p>
+		<h3 id="sub-section-1">Sub Section 1</h3>
+		<aside>
+			<h3>Hello, I am an aside.</h3>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, numquam.</p>
+		</aside>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel amet minus quibusdam officia, consequuntur perspiciatis laudantium illum, expedita nostrum corrupti accusantium eligendi doloremque quisquam eos commodi temporibus tempora obcaecati. Inventore omnis blanditiis quia mollitia aperiam quibusdam dignissimos unde molestias ipsam.</p>
+		<h3 id="sub-section-2">Sub Section 2</h3>
+		<ul>
+			<li>List item 1</li>
+			<li>List item 2</li>
+			<li>List item 3</li>
+			<li>List item 4</li>
+		</ul>
+		<ol>
+			<li>Ordered list item 1</li>
+			<li>Ordered list item 2</li>
+			<li>Ordered list item 3</li>
+			<li>Ordered list item 4</li>
+		</ol>
+		<h2 id="tables">Tables</h2>
+		<p>The <code>table</code> element spans both columns automatically, but we recommend you use a responsive <a href="https://registry.origami.ft.com/components/o-table">o-table</a> and apply the <code>o-layout__main__full-span</code> class.</p>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam rem libero inventore ab nisi pariatur!</p>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam doloribus eum maiores dolor ipsam expedita aut rerum animi soluta veritatis eaque quia quisquam, ratione tenetur facere iste cum quos? Repudiandae?</p>
 
-{{> shared/footer}}
+		<div class="o-table-container o-layout__main__full-span">
+			<div class="o-table-overlay-wrapper">
+				<div class="o-table-scroll-wrapper">
+					<table class="o-table o-table--horizontal-lines o-table--responsive-overflow" data-o-component="o-table" data-o-table-responsive="overflow">
+						<thead>
+							<tr>
+								<th scope="col" role="columnheader">Fruit</th>
+								<th scope="col" role="columnheader">Genus</th>
+								<th scope="col" role="columnheader">Characteristic</th>
+								<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&#xA0;(GBP)</th>
+								<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&#xA0;(EUR)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Dragonfruit</td>
+								<td>Stenocereus</td>
+								<td>Juicy</td>
+								<td class="o-table__cell--numeric">3</td>
+								<td class="o-table__cell--numeric">2.72</td>
+							</tr>
+							<tr>
+								<td>Durian</td>
+								<td>Durio</td>
+								<td>Smelly</td>
+								<td class="o-table__cell--numeric">1.75</td>
+								<td class="o-table__cell--numeric">1.33</td>
+							</tr>
+							<tr>
+								<td>Naseberry</td>
+								<td>Manilkara</td>
+								<td>Chewy</td>
+								<td class="o-table__cell--numeric">2</td>
+								<td class="o-table__cell--numeric">1.85</td>
+							</tr>
+							<tr>
+								<td>Strawberry</td>
+								<td>Fragaria</td>
+								<td>Sweet</td>
+								<td class="o-table__cell--numeric">1.5</td>
+								<td class="o-table__cell--numeric">1.69</td>
+							</tr>
+							<tr>
+								<td>Apple</td>
+								<td>Malus</td>
+								<td>Crunchy</td>
+								<td class="o-table__cell--numeric">0.5</td>
+								<td class="o-table__cell--numeric">0.56</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{> shared/footer}}
 </div>

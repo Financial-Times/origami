@@ -1,176 +1,168 @@
-/// Layout Areas
-/// Outputs grid grid template areas
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutAreas($class: $o-layout-class, $header-logo: null, $footer-logo: null) {
-	@include oLayoutAreaHeader($class, $header-logo);
-	@include oLayoutAreaSidebar($class);
-	@include oLayoutAreaMain($class);
-	@include oLayoutAreaFooter($class, $footer-logo);
-}
 
 /// Header Area
 /// Outputs grid header area
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutAreaHeader($class: $o-layout-class, $logo: null) {
-	@if $logo == null {
-		@include oHeaderServices()
-	} @else {
-		@include oHeaderServices($logo: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-layout');
-	}
-
-	.#{$class}__header {
+/// @access private
+@mixin _oLayoutAreaHeader() {
+	.o-layout__header {
 		grid-area: header;
 	}
 }
 
 /// Sidebar Area
 /// Outputs grid sidebar area
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutAreaSidebar($class: $o-layout-class) {
-	.#{$class}__sidebar {
-		@include oTypographySans(1);
-		@include _oLayoutNavigation($class);
-		@include oLayoutBreakPoint($until: M) {
-			padding: 0 1rem;
+/// @access private
+@mixin _oLayoutAreaSidebar() {
+	.o-layout__sidebar {
+		@include oGridRespondTo($until: M) {
+			margin-top: $_o-layout-gutter;
 		}
 
 		grid-area: sidebar;
+	}
+}
 
-		a {
-			@include oTypographyLink;
-			border: 0;
+/// Outputs hero area
+/// @param {String} $hero-image - An image for the "hero" area background.
+/// @access private
+@mixin _oLayoutAreaHero($hero-image: '') {
+	.o-layout__hero {
+		position: relative;
+		grid-area: hero;
+		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
+		text-align: center;
+		min-height: 30vh;
+		margin: 0 0 oTypographySpacingSize(4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		align-content: center;
+		justify-items: center;
+		justify-content: center;
+		// The background image is inherited by the pseudo element.
+		// This is to make it easier for a build service users to modify the background image.
+		@if $hero-image {
+			background-image: url($hero-image);
+		}
+		background-size: 0 0;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100vw;
+			top: 0;
+			bottom: 0;
+			left: 50%;
+			margin-left: -50vw;
+			background-color: oColorsGetPaletteColor('slate-white-5');
+			background-size: cover;
+			background-image: inherit;
+			z-index: -1;
+		}
+		> *:not(.o-layout__unstyled-element):last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.o-layout__hero:not(.o-layout__hero--muted) h1:not(.o-layout__unstyled-element) {
+		@include oTypographySize($scale: 6);
+	}
+
+	.o-layout__hero.o-layout__hero--muted {
+		align-items: start;
+		align-content: start;
+		text-align: left;
+		background-image: none;
+		min-height: auto;
+		@include oGridRespondTo($from: M) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+/// Columns for overview items, such as cards.
+/// Outputs overview area
+/// @access private
+@mixin _oLayoutAreaOverview() {
+	.o-layout__overview {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-gap: $_o-layout-gutter * 3;
+		grid-row-gap: $_o-layout-gutter;
+	}
+
+	.o-layout__overview--actions {
+		grid-gap: $_o-layout-gutter;
+		margin-bottom: oTypographySpacingSize(7); // Aligns with <p> margin set by oTypographyBody
+
+		.o-layout-item {
+			display: grid;
+			grid-template-rows: 1fr min-content;
+			background-color: oColorsGetPaletteColor('slate-white-5');
+			padding: $_o-layout-gutter;
+		}
+
+		.o-layout-item__footer :last-child,
+		.o-layout-item__content:last-child :last-child {
+			margin-bottom: 0;
+		}
+
+		.o-layout-item__footer {
+			grid-row: 2 / 3;
 		}
 	}
 }
 
 /// Main Area
 /// Outputs grid main content area
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutAreaMain($class: $o-layout-class) {
-	.#{$class}__main {
-		@include _oLayoutBody;
-		@include oLayoutBreakPoint($until: M) {
-			padding: 0 1rem;
-		}
-
-		@include oLayoutBreakPoint($from: ML) {
-			display: grid;
-			grid-column-gap: $_o-layout-gutter;
-			grid-template-columns: $_o-layout-main-section-width 1fr;
-		}
-
-		@include oLayoutBreakPoint($from: L) {
-			> aside {
-				grid-column: 2;
-				grid-row: span 3; //hack mchack, need to look into spanning across rows irrespective of siblings
-			}
-		};
-
+/// @access private
+@mixin _oLayoutAreaMain() {
+	.o-layout__main {
 		grid-area: main;
-		align-content: flex-start;
-
-		> * {
-			grid-column: 1;
-		}
-
-		> :first-child {
-			margin-top: $_o-layout-gutter;
-		}
+		margin-top: $_o-layout-gutter;
 
 		> table {
-			grid-column: 1 / span 2;
-			overflow-x: scroll;
-			padding-right: 1rem;
 			box-sizing: border-box;
-			width: 100%;
-		}
-
-		.#{$class}__rule-left {
-			@include oLayoutRule('left');
-		}
-
-		.#{$class}__rule-right {
-			@include oLayoutRule('right');
-		}
-
-		.#{$class}__main__single-span {
-			grid-column-end: 2;
-		}
-
-		.#{$class}__main--full-span,
-		.#{$class}__main__full-span {
-			grid-column-end: -1;
+			max-width: 100%;
 		}
 	}
 }
 
 /// Footer Area
 /// Outputs grid footer area
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutAreaFooter($class: $o-layout-class, $logo: null) {
-	@include oFooterServicesBase();
-
-	@if $logo != null {
-		@include oFooterServicesWithLogo($logo);
-	}
-
-	.#{$class}__footer {
+/// @access private
+@mixin _oLayoutAreaFooter() {
+	.o-layout__footer {
 		grid-area: footer;
 	}
 }
 
-/// Navigation
-/// Outputs navigation styles
-///
-/// @param {String} $class — class name for grid
-/// @access Private
-@mixin _oLayoutNavigation($class: $o-layout-class) {
-	.#{$class}__navigation {
-		@include oLayoutBreakPoint($from: M) {
-			border-left: 0;
-			position: sticky;
-			top: $_o-layout-gutter;
-			text-align: right;
-			margin-top: $_o-layout-gutter;
-		}
+/// Heading Area
+/// Outputs a heading area, for page titles etc.
+/// Not to be confused with the header area, for navigation.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaHeading() {
+	.o-layout__heading {
+		grid-area: heading;
+	}
+}
 
-		border-left: 2px solid oColorsGetPaletteColor('teal');
-		padding: 0;
-		text-align: left;
-		list-style: none;
-		margin: 0;
+/// Query Sidebar
+/// Outputs a sidebar used for search and filter inputs.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaQuerySidebar() {
+	.o-layout__query-sidebar {
+		grid-area: query-sidebar;
+	}
+}
 
-
-		li {
-			@include oLayoutBreakPoint($from: M) {
-				border-right: 2px solid oColorsGetPaletteColor('teal');
-			}
-
-			padding-right: 1em;
-			border-right: 0;
-
-			&.o-layout__navigation-title {
-				@include oTypographyBold('sans');
-				border-right: 0;
-			}
-
-			&:not(.o-layout__navigation-title) {
-				[aria-current="location"] {
-					color: oColorsGetPaletteColor('teal-30');
-					background: oColorsMix('teal', 'white', 20);
-				}
-			}
-
-			a {
-				display: inline-block;
-				padding: 0.4em 1em;
-				margin-right: -1em;
-			}
-		}
+/// Aside Sidebar
+/// Outputs a sidebar used for additional or secondary information.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaAsideSidebar() {
+	.o-layout__aside-sidebar {
+		grid-area: aside-sidebar;
 	}
 }

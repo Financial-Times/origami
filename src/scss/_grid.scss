@@ -1,26 +1,176 @@
 /// Layout Base
 /// Outputs responsive base grid
-///
-/// @param {String} $class — class name for grid
-@mixin oLayoutBase ($class: $o-layout-class) {
+/// @access private
+@mixin _oLayoutBase() {
 	html,
 	body {
 		margin: 0;
 	}
 
-	.#{$class} {
-		@include _oLayoutGridBase;
-		@include oTypographySize(1);
+	.o-layout {
+		position: relative;
+		display: grid;
+		box-sizing: border-box;
+		min-height: 100vh;
+		max-width: $_o-layout-container-max-width;
+		margin: auto;
+		grid-template-columns: 100%;
+		grid-template-rows: auto 1fr auto;
+		grid-column-gap: $_o-layout-gutter;
+		padding: 0 (oGridGutter() * 2); // To align with o-header-services.
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+	}
 
-		@include oLayoutBreakPoint($from: M) {
-			grid-template-rows: auto 1fr auto;
-			grid-template-columns: 1fr minmax(auto, $_o-layout-aside-max-width) $_o-layout-main-section-width minmax(20ch, $_o-layout-aside-max-width) 1fr;
+	.o-layout__footer,
+	.o-layout__header {
+		// Position to the left of the viewport.
+		// Relative to the center aligned grid.
+		position: relative;
+		width: 100vw;
+		left: #{calc((100vw - 100%) * -0.5)};
+	}
+}
+
+
+/// Grid for a landing page layout (e.g. homepage).
+/// @access private
+@mixin _oLayoutLandingGrid() {
+	.o-layout.o-layout--landing {
+		grid-template-areas:
+			"header"
+			"hero"
+			"main"
+			"footer";
+		grid-template-rows: auto auto 1fr auto;
+	}
+}
+
+/// Grid for document layout.
+/// @access private
+@mixin _oLayoutDocsGrid() {
+	.o-layout.o-layout--docs {
+		grid-template-rows: auto auto 1fr auto;
+		grid-template-areas:
+			"header"
+			"sidebar"
+			"main"
+			"footer";
+
+		@include oGridRespondTo($from: M) {
 			grid-template-areas:
-				"header header header header header"
-				". sidebar main main ."
-				"footer footer footer footer footer";
+				"header header"
+				"sidebar main"
+				"footer footer";
+			grid-template-columns: $_o-layout-sidebar minmax($_o-layout-main-min-width + $_o-layout-sidebar-max-width + $_o-layout-gutter, 1fr);
+			grid-template-rows: auto 1fr auto;
+		};
+	}
+
+	.o-layout.o-layout--docs > .o-layout__main {
+		@include oGridRespondTo($until: M) {
+			margin-top: 0;
+		}
+		@include oGridRespondTo($from: L) {
+			> * {
+				box-sizing: border-box;
+				max-width: calc(100% - #{$_o-layout-sidebar-max-width} - #{$_o-layout-gutter});
+				float: left;
+				clear: left;
+			}
+			> aside {
+				box-sizing: border-box;
+				width: $_o-layout-sidebar-max-width;
+				margin-bottom: oTypographySpacingSize(10);
+				float: right;
+				clear: right;
+				:last-child {
+					margin-bottom: 0;
+				}
+			}
 		};
 
-		min-height: 100vh;
+		> table:not(.o-layout__main__single-span) {
+			max-width: none;
+			float: none;
+		}
+
+		.o-layout__rule-left {
+			@include _oLayoutRule('left');
+		}
+
+		.o-layout__rule-right {
+			@include _oLayoutRule('right');
+		}
+
+		.o-layout__main__full-span {
+			display: block;
+			max-width: none;
+			float: none;
+		}
+	}
+}
+
+/// Grid for query layout.
+/// @access private
+@mixin _oLayoutQueryGrid() {
+	.o-layout.o-layout--query {
+		grid-template-rows: auto auto auto 1fr auto auto;
+		grid-template-areas:
+			"header"
+			"heading"
+			"query-sidebar"
+			"main"
+			"aside-sidebar"
+			"footer";
+
+		@include oGridRespondTo($from: M) {
+			grid-template-rows: auto auto 1fr auto;
+			grid-template-columns: $_o-layout-sidebar $_o-layout-main;
+			grid-template-areas:
+				"header header"
+				"query-sidebar heading"
+				"query-sidebar main"
+				"query-sidebar aside-sidebar"
+				"footer footer";
+		};
+
+		@include oGridRespondTo($from: L) {
+			grid-template-rows: auto auto 1fr auto;
+			grid-template-columns: $_o-layout-sidebar $_o-layout-main fit-content($_o-layout-sidebar-max-width); // fit-content makes the aside collapse with no content (optional)
+			grid-template-areas:
+				"header header header"
+				"query-sidebar heading aside-sidebar"
+				"query-sidebar main aside-sidebar"
+				"footer footer footer";
+		};
+
+		.o-layout__main {
+			margin-top: 0;
+		}
+
+		.o-layout__heading {
+			margin-top: $_o-layout-gutter;
+		}
+
+		.o-layout__query-sidebar {
+			margin: 0;
+			@include oGridRespondTo($from: M) {
+				border-right: 1px solid oColorsGetPaletteColor('slate-white-15');
+				padding-right: $_o-layout-gutter;
+				margin: $_o-layout-gutter 0 oTypographySpacingSize(5);
+			}
+		}
+
+		.o-layout__aside-sidebar {
+			@include oGridRespondTo($from: L) {
+				width: $_o-layout-sidebar-max-width; // So the sidebar can be deleted, the query area fits to content width.
+				margin: $_o-layout-gutter 0;
+				padding-left: $_o-layout-gutter;
+				border-left: 1px solid oColorsGetPaletteColor('slate-white-15');
+			}
+		}
 	}
 }

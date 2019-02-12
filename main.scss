@@ -1,21 +1,82 @@
-$o-brand: 'internal';
-
 @import 'o-fonts/main';
+@import 'o-colors/main';
+@import 'o-normalise/main';
 @import 'o-typography/main';
 @import 'o-visual-effects/main';
-@import 'o-header-services/main';
-@import 'o-footer-services/main';
 
-@import 'sass-mq/mq';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/grid';
+@import 'src/scss/grid-areas';
 
+/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query'), "features" ('linked-headings', 'typography'), and  "hero-image" (an image for the background of the "hero" area).
+@mixin oLayout($opts: (
+	'layouts': ('documentation', 'landing', 'query'),
+	'features': ('sidebar-nav', 'linked-headings', 'typography'),
+	'hero-image': '',
+)) {
+	$layouts: map-get($opts, $key: 'layouts');
+	$features: map-get($opts, $key: 'features');
+	$linked-headings: index($features, 'linked-headings');
+	$typography: index($features, 'typography');
+	$nav: index($features, 'sidebar-nav');
+	$docs-layout: index($layouts, 'documentation');
+	$landing-layout: index($layouts, 'landing');
+	$query-layout: index($layouts, 'query');
+	$hero-image: map-get($opts, $key: 'hero-image');
 
-@import 'src/scss/main';
+	@if(not ($docs-layout or $landing-layout or $query-layout)) {
+		@error 'Please specify the layouts to output within the `$opts` argument of `oLayout`. See the Sass documentation for more: https://registry.origami.ft.com/components/o-layout@2.2.4/sassdoc';
+	}
 
+	// Base styles.
+	@include _oLayoutBase();
+
+	// 	Typography.
+	@if ($typography) {
+		@include oFonts();
+		@include _oLayoutTypography;
+	}
+	@if ($linked-headings) {
+		@include _oLayoutLinkedHeading();
+	}
+
+	// Shared layout areas.
+	@include _oLayoutAreaHeader();
+	@include _oLayoutAreaMain();
+	@include _oLayoutAreaFooter();
+
+	// Always include the sidebar nav for the docs layout.
+	@if($docs-layout or $nav) {
+		@include _oLayoutNavigation($query-layout);
+	}
+
+	// 	Layouts.
+	@if($docs-layout) {
+		@include _oLayoutDocsGrid();
+		// Documentation page areas.
+		@include _oLayoutAreaSidebar();
+	}
+
+	@if($landing-layout) {
+		@include _oLayoutLandingGrid();
+		// Landing page areas.
+		@include _oLayoutAreaHero($hero-image);
+		@include _oLayoutAreaOverview();
+	}
+
+	@if($query-layout) {
+		@include _oLayoutQueryGrid();
+		// Query page areas.
+		@include _oLayoutAreaHeading();
+		@include _oLayoutAreaQuerySidebar();
+		@include _oLayoutAreaAsideSidebar();
+	}
+}
 
 @if $o-layout-is-silent == false {
-
-	// Set to silent again to avoid being output twice
 	@include oLayout();
-
+	// Set to silent again to avoid being output twice
 	$o-layout-is-silent: true !global;
 }

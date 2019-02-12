@@ -48,7 +48,6 @@ describe('LinkedHeading', () => {
 
 		it('has an `options` property set to the default options', () => {
 			assert.deepEqual(instance.options, {
-				baseClass: 'o-layout__linked-heading',
 				content: '#',
 				title: 'Link directly to this section of the page'
 			});
@@ -64,27 +63,35 @@ describe('LinkedHeading', () => {
 			let returnValue;
 
 			beforeEach(() => {
-				instance.options.baseClass = 'mock-base-class-option';
 				instance.options.content = 'mock-content-option';
 				instance.options.title = 'mock-title-option';
 				returnValue = originalConstructLinkElement.call(instance);
 			});
 
-			it('sets the heading element HTML', () => {
-				const actualHtml = headingElement.outerHTML.trim().replace(/\s+/g, ' ');
+			it('sets the heading element HTML', (done) => {
 				const expectedHtml = `
-					<h2 id="mock-id" class="mock-base-class-option">
-						<a href="#mock-id" title="mock-title-option" class="mock-base-class-option__link">
-							<span class="mock-base-class-option__content">Mock Content</span>
-							<span class="mock-base-class-option__label">mock-content-option</span>
+					<h2 id="mock-id" class="o-layout__linked-heading">
+						<a href="#mock-id" title="mock-title-option" class="o-layout__linked-heading__link">
+							<span class="o-layout__linked-heading__content">Mock Content</span>
+							<span class="o-layout__linked-heading__label">mock-content-option</span>
 						</a>
 					</h2>
-				`.trim().replace(/\s+/g, ' ');
-				assert.strictEqual(actualHtml, expectedHtml);
+				`.replace(/\s+/g, '');
+
+				// allow for request animation frame
+				setTimeout(() => {
+					const actualHtml = headingElement.outerHTML.replace(/\s+/g, '');
+					assert.strictEqual(actualHtml, expectedHtml);
+					done();
+				}, 100);
 			});
 
-			it('returns the created link element', () => {
-				assert.strictEqual(returnValue, headingElement.querySelector('a'));
+			it('returns the created link element', (done) => {
+				// allow for request animation frame
+				setTimeout(() => {
+					assert.strictEqual(returnValue, headingElement.querySelector('a'));
+					done();
+				}, 100);
 			});
 
 			describe('when the heading does not have an ID', () => {
@@ -114,7 +121,6 @@ describe('LinkedHeading', () => {
 			testArea.innerHTML = '<h2 id="mock-id">Mock Content</h2>';
 			headingElement = testArea.querySelector('h2');
 			options = {
-				baseClass: 'mock-base-class-option',
 				content: 'mock-content-option',
 				title: 'mock-title-option'
 			};
