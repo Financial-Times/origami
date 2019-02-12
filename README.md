@@ -52,7 +52,7 @@ If you need to build a loading spinner into a component, for example, you can us
 
 .my-loading-spinner {
 	@include oLoadingContent($opts: (
-		'color': 'light',
+		'theme': 'light',
 		'size': 'small'
 	));
 }
