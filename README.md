@@ -145,10 +145,16 @@ When it's not possible to use an `o-loading` CSS class, for example within anoth
 
 If it is possible to use `o-loading` classes we recommend [oLabels](#mixin-olabels) and [oLabelsAddStates](#mixin-olabelsaddstate) instead. Using these will help reduce the size of your CSS bundle where mutliple labels are used.
 
+`oLabelsContent` accepts an `$opts` argument which is a map of options. To output styles required by all labels set "base" to "true". Then set the labels "[sizes](#size)" and its "[state](#states)". Any of these options may be output independently.
+
 To output an existing label:
 ```scss
 .o-example-my-label {
-	@include oLabelsContent($opts: ('size': 'big', 'state': 'tier-gold'));
+	@include oLabelsContent($opts: (
+        'base': true,
+        'size': 'big',
+        'state': 'tier-gold'
+    ));
 }
 ```
 
@@ -156,6 +162,7 @@ To output a custom label:
 ```scss
 .o-example-my-custom-label {
 	@include oLabelsContent($opts: (
+		'base': true,
 		'size': 'big',
 		'state': (
 			'background-color': oColorsGetPaletteColor('lemon')

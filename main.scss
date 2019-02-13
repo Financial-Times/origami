@@ -24,7 +24,9 @@
 	$states: map-get($opts, 'states');
 
 	// Base label styles
-	@include _oLabelsBase();
+	.o-labels {
+		@include _oLabelsBaseContent();
+	}
 
 	// Label size variants
 	@each $size in $_o-labels-sizes {

@@ -1,18 +1,16 @@
 
 @include describe('oLabels mixins') {
 
-	@include describe('_oLabelsBase') {
+	@include describe('_oLabelsBaseContent') {
 		@include it('subtracts border width from the padding values') {
 			@include assert() {
-				@include output($selector: false) {
-					@include _oLabelsBase;
+				@include output() {
+					@include _oLabelsBaseContent;
 				};
-				@include contains($selector: false) {
+				@include contains() {
 					$expected-vertical-padding: oTypographySpacingSize(1) - 1px;
 					$expected-horizontal-padding: oTypographySpacingSize(2) - 1px;
-					.o-labels {
-						padding: $expected-vertical-padding $expected-horizontal-padding;
-					}
+					padding: $expected-vertical-padding $expected-horizontal-padding;
 				};
 			};
 		};
@@ -125,6 +123,18 @@
     						font-size: 12px;
     						padding: 1px 3px;
 						}
+					};
+				};
+			};
+		};
+		@include describe('with "base"') {
+			@include it('outputs fundamental label styles required by all labels') {
+				@include assert() {
+					@include output() {
+						@include oLabelsContent($opts: ('base': true));
+					};
+					@include contains() {
+    					box-sizing: border-box;
 					};
 				};
 			};

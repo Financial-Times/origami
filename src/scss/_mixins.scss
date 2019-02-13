@@ -1,24 +1,22 @@
 
 /// Base styles for labels.
 ///
-/// @output The output includes the `.o-labels` class definition and all styles for a basic label.
+/// @output The output includes all styles for a basic label.
 /// @example scss - Base label styles
-///   @include _oLabelsBase();
+///   @include _oLabelsBaseContent();
 /// @access private
-@mixin _oLabelsBase() {
-	.o-labels {
-		@include oTypographySans($scale: _oLabelsGet('font-scale'), $line-height: 1em);
-		font-weight: 500;
-		text-align: center;
-		display: inline-block;
-		box-sizing: border-box;
-		margin: 0;
-		text-decoration: none;
-		padding: (_oLabelsGet('padding-vertical') - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal') - _oLabelsGet('border-width'));
-		color: _oLabelsGet('text-color');
-		background-color: _oLabelsGet('background-color');
-		border: solid _oLabelsGet('border-width') transparent;
-	}
+@mixin _oLabelsBaseContent() {
+	@include oTypographySans($scale: _oLabelsGet('font-scale'), $line-height: 1em);
+	font-weight: 500;
+	text-align: center;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	text-decoration: none;
+	padding: (_oLabelsGet('padding-vertical') - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal') - _oLabelsGet('border-width'));
+	color: _oLabelsGet('text-color');
+	background-color: _oLabelsGet('background-color');
+	border: solid _oLabelsGet('border-width') transparent;
 }
 
 /// Size modifiers for labels.
@@ -60,14 +58,15 @@
 /// Styles for a label without an `o-loading` CSS class.
 /// Recommended only when a custom class name is required, for example within another component.
 /// @output Styles for a label without a CSS selector.
-/// @param {Map} $opts - A map containing the label size and state (a state name or custom state map).
+/// @param {Map} $opts - A map containing a boolean to output base label styles, plus the label size and state (a state name or custom state map).
 /// @example An existing label.
 /// 	.o-example-my-label {
-/// 		@include oLabelsContent($opts: ('size': 'big', 'state': 'tier-gold'));
+/// 		@include oLabelsContent($opts: ('base': true, 'size': 'big', 'state': 'tier-gold'));
 /// 	}
 /// @example A custom label.
 /// 	.o-example-my-custom-label {
 /// 		@include oLabelsContent($opts: (
+/// 			'base': true,
 /// 			'size': 'big',
 /// 			'state': (
 /// 				'background-color': oColorsGetPaletteColor('lemon')
@@ -76,8 +75,13 @@
 /// 	}
 /// @access public
 @mixin oLabelsContent($opts: ()) {
+	$base: map-get($opts, 'base');
 	$size: map-get($opts, 'size');
 	$state: map-get($opts, 'state');
+
+	@if $base {
+		@include _oLabelsBaseContent();
+	}
 
 	@if $state {
 		@include _oLabelsStateContent($state);
