@@ -1,0 +1,26 @@
+<div class="demo-container demo-container--large {{#article-modifier}} demo-container--{{.}} {{/article-modifier}}">
+
+	<div class="o-teaser o-teaser--audio {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}}" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+
+			<div class="o-teaser__meta">
+				{{#article-tag-prefix}}<span class="o-teaser__tag-prefix">{{.}}</span>{{/article-tag-prefix}}
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				{{#article-duration}}
+					<time class="o-teaser__duration" datetime="PT4M07S">4 mins</time>
+				{{/article-duration}}
+			</div>
+
+			{{#article-image-url}}
+				<div class="o-teaser__image-container">
+					<div class="o-teaser__image-placeholder image-placeholder">
+						<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+					</div>
+				</div>
+			{{/article-image-url}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+		</div>
+	</div>
+
+</div>

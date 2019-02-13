@@ -10,6 +10,9 @@ This component is for displaying teasers which link through to articles.
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Development
+Install the [Origami build tools](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md) to [build and run demos](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md#developing-modules-locally)
+
 ## Usage
 
 ### Markup
@@ -101,6 +104,7 @@ The elements can be specified via groups:
 - `large` - styling for [large teasers](#large-teasers)
 - `standard` - outputs the opinion and inverse themes
 - `video` - outputs the [video teaser](#video-teasers) styles
+- `audio` - outputs the [audio teaser](#audio-teasers) styles
 - `top-stories` - outputs all top stories teaser styles and variations
 - `hero` - outputs all [hero](#hero-teasers) teaser styles and variations
 
@@ -150,6 +154,12 @@ Additional modifiers:
 Uses the `o-teaser--video` modifier.
 
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-video)
+
+##### Video teasers
+
+Uses the `o-teaser--audio` modifier.
+
+[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
 
 ## Migration guide
 
