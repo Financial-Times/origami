@@ -44,11 +44,7 @@
 /// @access public
 @mixin oTabsButtonTabsTheme($theme, $selector: true) {
 	@if $selector {
-		@warn '"oTabsButtonTabsTheme" has an argument `$selector` which has been deprecated.
-				If true (default) a CSS selector is output e.g. ".o-tabs--primary".
-				If false "oTabsButtonTabsTheme" must be wrapped in a custom selector.
-				Please set this to false "oTabsButtonTabsTheme($theme, $selector: false)".
-				See README for more information.';
+		@warn '"oTabsButtonTabsTheme" has an argument `$selector` which has been deprecated. If true (default) a CSS selector is output e.g. ".o-tabs--primary". If false "oTabsButtonTabsTheme" must be wrapped in a custom selector. Please set this to false "oTabsButtonTabsTheme($theme, $selector: false)". See README for more information.';
 	}
 
 	// Output defined theme or custom theme styles without a selector.
