@@ -56,5 +56,80 @@
 		};
 	};
 
+	@include describe('oLabelsContent') {
+		@include describe('with "size" and no "state"') {
+			@include it('outputs label dimentions only') {
+				@include assert() {
+					@include output() {
+						.o-example-label {
+							@include oLabelsContent($opts: ('size': 'small'));
+						}
+					};
+					@include expect() {
+						.o-example-label {
+    						font-size: 12px;
+    						padding: 1px 3px;
+						}
+					};
+				};
+			};
+		};
+		@include describe('with "state" and no "size"') {
+			@include it('outputs state styles only') {
+				@include assert() {
+					@include output() {
+						.o-example-label {
+							@include oLabelsContent($opts: ('state': 'content-commercial'));
+						}
+					};
+					@include expect() {
+						.o-example-label {
+    						background-color: #008040;
+    						color: white;
+						}
+					};
+				};
+			};
+		};
+		@include describe('with a custom "state" and no "size"') {
+			@include it('outputs custom state styles only') {
+				@include assert() {
+					@include output() {
+						.o-example-label {
+							@include oLabelsContent($opts: ('state': (
+								'background-color': hotpink
+							)));
+						}
+					};
+					@include expect() {
+						.o-example-label {
+    						background-color: hotpink;
+    						color: black;
+						}
+					};
+				};
+			};
+		};
+		@include describe('with "state" and "size"') {
+			@include it('outputs state and size styles') {
+				@include assert() {
+					@include output() {
+						.o-example-label {
+							@include oLabelsContent($opts: ('size': 'small', 'state': 'content-commercial'));
+						}
+					};
+					@include expect() {
+						.o-example-label {
+    						background-color: #008040;
+    						color: white;
+    						font-size: 12px;
+    						padding: 1px 3px;
+						}
+					};
+				};
+			};
+		};
+	};
+
 
 };

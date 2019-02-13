@@ -30,13 +30,7 @@
 /// @access private
 @mixin _oLabelsSize($size) {
 	.o-labels--#{$size} {
-		// We use the scale and set font size manually to rely on the cascade rather
-		// than repeating the font family and line height from the main label class
-		@if _oLabelsGet('font-scale', $size) {
-			// TODO is there a nicer way to get this number?
-			font-size: nth(oTypographyGetScale(_oLabelsGet('font-scale', $size)), 1) * 1px;
-		}
-		padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
+		@include _oLabelsSizeContent($size);
 	}
 }
 
@@ -59,20 +53,71 @@
 	$variant: if($opts, $opts, $state-name);
 
 	.o-labels--#{$state-name} {
-		background-color: _oLabelsGet('background-color', $variant);
-		border-color: _oLabelsGet('border-color', $variant);
-		text-transform: _oLabelsGet('text-transform', $variant);
+		@include _oLabelsStateContent($variant);
+	}
+}
 
-		// Set text colour or calculate based on background
-		@if _oLabelsGet('text-color', $variant) {
-			color: _oLabelsGet('text-color', $variant);
-		} @else {
-			color: oColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
-		}
+/// Styles for a label without an `o-loading` CSS class.
+/// Recommended only when a custom class name is required, for example within another component.
+/// @output Styles for a label without a CSS selector.
+/// @param {Map} $opts - A map containing the label size and state (a state name or custom state map).
+/// @example An existing label.
+/// 	.o-example-my-label {
+/// 		@include oLabelsContent($opts: ('size': 'big', 'state': 'tier-gold'));
+/// 	}
+/// @example A custom label.
+/// 	.o-example-my-custom-label {
+/// 		@include oLabelsContent($opts: (
+/// 			'size': 'big',
+/// 			'state': (
+/// 				'background-color': oColorsGetPaletteColor('lemon')
+/// 			)
+/// 		));
+/// 	}
+/// @access public
+@mixin oLabelsContent($opts: ()) {
+	$size: map-get($opts, 'size');
+	$state: map-get($opts, 'state');
 
-		// Set the spacing
-		@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
-			padding: (_oLabelsGet('padding-vertical', $variant) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $variant) - _oLabelsGet('border-width'));
+	@if $state {
+		@include _oLabelsStateContent($state);
+	}
+
+	@if $size {
+		@include _oLabelsSizeContent($size);
+	}
+}
+
+/// Styles to change the size of the label.
+/// @param {Sting} $size - The label size to output styles for. The valid sizes are `big` and `small`.
+/// @access private
+@mixin _oLabelsSizeContent($size) {
+		// We use the scale and set font size manually to rely on the cascade rather
+		// than repeating the font family and line height from the main label class
+		@if _oLabelsGet('font-scale', $size) {
+			// TODO is there a nicer way to get this number?
+			font-size: nth(oTypographyGetScale(_oLabelsGet('font-scale', $size)), 1) * 1px;
 		}
+		padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
+}
+
+/// Styles for a state.
+/// @param {Sting|Map} $variant - An existing state name or a custom state map.
+/// @access private
+@mixin _oLabelsStateContent($variant) {
+	background-color: _oLabelsGet('background-color', $variant);
+	border-color: _oLabelsGet('border-color', $variant);
+	text-transform: _oLabelsGet('text-transform', $variant);
+
+	// Set text colour or calculate based on background
+	@if _oLabelsGet('text-color', $variant) {
+		color: _oLabelsGet('text-color', $variant);
+	} @else {
+		color: oColorsGetTextColor(_oLabelsGet('background-color', $variant), 100);
+	}
+
+	// Set the spacing
+	@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
+		padding: (_oLabelsGet('padding-vertical', $variant) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $variant) - _oLabelsGet('border-width'));
 	}
 }

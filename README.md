@@ -139,6 +139,31 @@ The `oLabelsAddState` mixin also accepts optional custom configurations, which o
 }
 ```
 
+#### Mixin: `oLabelsContent`
+
+When it's not possible to use an `o-loading` CSS class, for example within another Origami component, use `oLabelsContent` to output a label with a custom class.
+
+If it is possible to use `o-loading` classes we recommend [oLabels](#mixin-olabels) and [oLabelsAddStates](#mixin-olabelsaddstate) instead. Using these will help reduce the size of your CSS bundle where mutliple labels are used.
+
+To output an existing label:
+```scss
+.o-example-my-label {
+	@include oLabelsContent($opts: ('size': 'big', 'state': 'tier-gold'));
+}
+```
+
+To output a custom label:
+```scss
+.o-example-my-custom-label {
+	@include oLabelsContent($opts: (
+		'size': 'big',
+		'state': (
+			'background-color': oColorsGetPaletteColor('lemon')
+		)
+	));
+}
+```
+
 #### Sizes
 
 This table outlines all of the possible sizes you can request in the [`oLabels` mixin](#mixin-olabels):
