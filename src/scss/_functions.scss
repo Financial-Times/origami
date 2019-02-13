@@ -7,8 +7,12 @@
 ///
 /// @param {String|Color|Null} $name
 @function oColorsGetPaletteColor($name) {
-	@if (map-has-key($o-colors-palette, inspect($name))) {
-		$color: map-get($o-colors-palette, inspect($name));
+	// Due to an apparent bug in dart-sass we can't use `inspect` with a string to get values from a map.
+	// When compiled by dart-sass: inspect("string") != "string"
+	// https://github.com/sass/dart-sass/issues/594
+	$name-string: if(type-of($name) == 'string', $name, inspect($name));
+	@if (map-has-key($o-colors-palette, $name-string)) {
+		$color: map-get($o-colors-palette, $name-string);
 
 		//check if it is deprecated
 		@if type-of($color) == list {
@@ -19,14 +23,14 @@
 			$color: nth($color, 1);
 		}
 		// Warn if an experimental palette color is being used.
-		@if $_o-colors-experimental-palette-warning and map-has-key($_o-colors-experimental-palette, inspect($name)) {
+		@if $_o-colors-experimental-palette-warning and map-has-key($_o-colors-experimental-palette, $name-string) {
 			$_o-colors-experimental-palette-warning: false !global;
 			@warn "Please note: The palette colors #{map-keys($_o-colors-experimental-palette)} are experimental and may be removed at any time. No action is required if you are not using these colors directly.";
 		}
 
 		@return $color;
 	} @else if $name != null and type-of($name) != color {
-		@warn "Color name '#{inspect($name)}' is not defined in the palette.";
+		@warn "Color name '#{$name-string}' is not defined in the palette.";
 		@return null;
 	} @else {
 		@return $name;
