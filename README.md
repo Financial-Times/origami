@@ -474,6 +474,10 @@ There are a number of inconsistencies in how browsers handle form events, valida
 
 ## Migration Guide
 
+## Upgrade from v5.x.x to v6.x.x
+
+Version 6 uses a new major version of [o-loading](https://github.com/Financial-Times/o-loading/). Make sure your project is [compatible](https://github.com/Financial-Times/o-loading/blob/master/MIGRATION.md#migrating-from-2xx-to-3xx) with o-loading@3.0.0
+
 ## Upgrading from v4.x.x to v5.x.x
 
 Version 5 makes some design improvements including tightening up the spacing around checkboxes and radio buttons. It also provides many [new mixins](#sass) to make it easier to output `o-forms` features granularly.
