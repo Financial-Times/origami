@@ -103,8 +103,8 @@ If you wish to specify a subset of sizes and states to output styles for, you ca
 
 ```scss
 @include oLabels($opts: (
-    $sizes: ('big'),
-    $states: (
+    'sizes': ('big'),
+    'states': (
         'content-commercial',
         'content-premium'
     )
