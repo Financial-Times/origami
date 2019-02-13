@@ -153,6 +153,10 @@ Uses the `o-teaser--video` modifier.
 
 ## Migration guide
 
+## Upgrade from v2.x.x to v3.x.x
+
+Version 3 uses a new major version of [o-labels](https://github.com/Financial-Times/o-labels/). Make sure your project is [compatible](https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md#migrating-from-v3-to-v4) with o-labels@4.0.0
+
 ### Migrating from v1 to v2
 
 V1 -> V2 introduces the new major of o-colors, o-labels, and o-typography. Updating to this new version will mean updating any other components that you have which are using any of the updated major versions. There are no other breaking changes in this release.
