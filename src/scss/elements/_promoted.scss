@@ -19,8 +19,12 @@
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oLabels;
-		@include oLabelsState('commercial-content');
+		@include oLabels($opts: (
+			$states: (
+				'content-commercial'
+				)
+			)
+		);
 		@include oTypographySize(-2);
 	}
 }
@@ -40,8 +44,12 @@
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oLabels;
-		@include oLabelsState('commercial-content');
+		@include oLabels($opts: (
+			$states: (
+				'content-commercial'
+				)
+			)
+		);
 		@include oTypographySize(-2);
 	}
 }
