@@ -85,7 +85,7 @@
 			$custom-link-base: _oFooterServicesGet('default-link-color'),
 			$custom-link-hover: _oFooterServicesGet('default-link-hover'),
 			$custom-link-background: _oFooterServicesGet('default-background')
-		)
+		);
 
 		display: inline-block;
 		min-width: max-content;
