@@ -1,4 +1,4 @@
-const contrastRatio = require('./contrast-ratio');
+import contrastRatio from './contrast-ratio';
 
 function changeColor(colorName, property) {
 	const hexValue = getComputedStyle(document.documentElement).getPropertyValue(`--o-colors-${colorName}`);

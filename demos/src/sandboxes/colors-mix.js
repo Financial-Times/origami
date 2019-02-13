@@ -1,4 +1,4 @@
-const contrastRatio = require('./contrast-ratio');
+import contrastRatio from './contrast-ratio';
 
 document.addEventListener('DOMContentLoaded', function() {
 	const mixer = document.getElementById('mixer-selector');
