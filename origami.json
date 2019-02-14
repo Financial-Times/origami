@@ -238,6 +238,51 @@
 			}
 		},
 		{
+			"title": "Small Audio",
+			"name": "small-audio",
+			"description": "Small audio teaser",
+			"template": "demos/src/demo.mustache",
+			"data": {
+				"article-modifier": "audio",
+				"article-tag": "Tech Tonic Podcast",
+				"article-duration": "4 mins",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-timestamp": "2019-02-13T12:35:48Z"
+			}
+		},
+		{
+			"title": "Small Audio Image",
+			"name": "small-audio-image",
+			"description": "Small audio teaser with image",
+			"template": "demos/src/demo.mustache",
+			"data": {
+				"article-modifier": "audio",
+				"article-tag": "Tech Tonic Podcast",
+				"article-duration": "4 mins",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-timestamp": "2019-02-13T12:35:48Z",
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fprod-upp-image-read.ft.com%2F5d1a54aa-f49b-11e8-ae55-df4bf40f9d0d?width=240&source=o-teaser-demo"
+			}
+		},
+		{
+			"title": "Small Audio Stacked",
+			"name": "small-audio-stacked",
+			"description": "Small audio teaser with stacked image",
+			"template": "demos/src/demo.mustache",
+			"data": {
+				"article-modifier": [
+					"audio",
+					"stacked"
+				],
+				"article-tag": "World",
+				"article-duration": "4 mins",
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fprod-upp-image-read.ft.com%2F5d1a54aa-f49b-11e8-ae55-df4bf40f9d0d?width=280&source=o-teaser-demo",
+				"article-timestamp": "2019-02-13T12:35:48Z",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-standfirst": "John Thornhill talks to the social scientist Shoshana Zuboff about her book, The Age…"
+			}
+		},
+		{
 			"title": "Opinion",
 			"name": "opinion",
 			"description": "Opinion teaser with no image",
@@ -467,6 +512,21 @@
 				"article-heading": "Future energy in Scottish mountains",
 				"article-timestamp": "2016-02-29T12:35:48Z",
 				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo"
+			}
+		},
+		{
+			"title": "Top Story Audio",
+			"name": "top-story-audio",
+			"description": "Top story audio teaser big story theme",
+			"template": "demos/src/demo-top-story.mustache",
+			"hidden": true,
+			"data": {
+				"article-modifier": "audio",
+				"article-tag": "Tech Tonic Podcast",
+				"article-duration": "4 mins",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-timestamp": "2019-02-13T12:35:48Z",
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fprod-upp-image-read.ft.com%2F5d1a54aa-f49b-11e8-ae55-df4bf40f9d0d?width=180&source=o-teaser-demo"
 			}
 		},
 		{
@@ -718,6 +778,34 @@
 				"article-heading": "Future energy in Scottish mountains",
 				"article-timestamp": "2016-02-29T12:35:48Z",
 				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo"
+			}
+		},
+		{
+			"title": "Big Audio Large",
+			"name": "big-audio-large",
+			"description": "Large 'big audio' teaser",
+			"template": "demos/src/demo-big-audio.mustache",
+			"data": {
+				"article-modifier": "large",
+				"article-tag": "Tech Tonic Podcast",
+				"article-duration": "4 mins",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-timestamp": "2019-02-13T12:35:48Z",
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fprod-upp-image-read.ft.com%2F5d1a54aa-f49b-11e8-ae55-df4bf40f9d0d?width=280&source=o-teaser-demo"
+			}
+		},
+		{
+			"title": "Big Audio Hero",
+			"name": "big-audio-hero",
+			"description": "Hero 'big audio' teaser",
+			"template": "demos/src/demo-big-audio.mustache",
+			"data": {
+				"article-modifier": "hero",
+				"article-tag": "Tech Tonic Podcast",
+				"article-duration": "4 mins",
+				"article-heading": "Shoshana Zuboff on surveillance capitalism",
+				"article-timestamp": "2019-02-13T12:35:48Z",
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fprod-upp-image-read.ft.com%2F5d1a54aa-f49b-11e8-ae55-df4bf40f9d0d?width=280&source=o-teaser-demo"
 			}
 		}
 	]

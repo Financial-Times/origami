@@ -1,0 +1,21 @@
+@mixin oTeaserAudio {
+	// Add audio icon overlay for image
+	.o-teaser__image-placeholder {
+		position: relative;
+
+		&:after {
+			@include oIconsGetIcon('audio', oColorsGetPaletteColor('white'), 30, $apply-width-height: false);
+			pointer-events: none;
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			width: 15%;
+			padding-top: 15%;
+			min-width: 20px;
+			min-height: 20px;
+			background-color: oColorsGetPaletteColor('slate');
+		}
+	}
+}
