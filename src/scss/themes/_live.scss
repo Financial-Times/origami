@@ -21,9 +21,14 @@
             }
         }
 
-        .o-teaser__heading a:visited {
-            color: oColorsGetPaletteColor('white-80');
+        .o-teaser__heading a {
+            &:focus,
+            &:hover,
+            &:visited {
+                color: oColorsMix(white, crimson, 90);
+            }
         }
+
         .o-teaser__timestamp-prefix:before,
         .o-teaser__timestamp--inprogress:before {
             background-color: white;

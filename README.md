@@ -10,6 +10,9 @@ This component is for displaying teasers which link through to articles.
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Development
+Install the [Origami build tools](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md) to [build and run demos](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md#developing-modules-locally)
+
 ## Usage
 
 ### Markup
@@ -101,6 +104,7 @@ The elements can be specified via groups:
 - `large` - styling for [large teasers](#large-teasers)
 - `standard` - outputs the opinion and inverse themes
 - `video` - outputs the [video teaser](#video-teasers) styles
+- `audio` - outputs the [audio teaser](#audio-teasers) styles
 - `top-stories` - outputs all top stories teaser styles and variations
 - `hero` - outputs all [hero](#hero-teasers) teaser styles and variations
 
@@ -151,9 +155,19 @@ Uses the `o-teaser--video` modifier.
 
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-video)
 
+##### Video teasers
+
+Uses the `o-teaser--audio` modifier.
+
+[View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
+
 ## Migration guide
 
-### Migrating from v1 to v2
+## Upgrade from v2.x.x to v3.x.x
+
+Version 3 uses a new major version of [o-labels](https://github.com/Financial-Times/o-labels/). Make sure your project is [compatible](https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md#migrating-from-v3-to-v4) with o-labels@4.0.0
+
+## Migrating from v1 to v2
 
 V1 -> V2 introduces the new major of o-colors, o-labels, and o-typography. Updating to this new version will mean updating any other components that you have which are using any of the updated major versions. There are no other breaking changes in this release.
 

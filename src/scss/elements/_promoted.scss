@@ -6,7 +6,7 @@
 	// so that it has a higher specificity than
 	// .o-teaser-small.o-teaser-stacked
 	&#{&}#{&} {
-	        padding: 12px;
+	    padding: 12px;
 	}
 
 	.o-teaser__heading a {
@@ -19,9 +19,7 @@
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oLabels;
-		@include oLabelsState('commercial-content');
-		@include oTypographySize(-2);
+		@include oLabelsContent($opts: ('state': 'content-commercial', 'base': true, 'size': 'small'));
 	}
 }
 
@@ -40,8 +38,6 @@
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oLabels;
-		@include oLabelsState('commercial-content');
-		@include oTypographySize(-2);
+		@include oLabelsContent($opts: ('state': 'content-commercial', 'base': true, 'size': 'small'));
 	}
 }

@@ -35,6 +35,8 @@
 		@include oTeaserThemeTopStories;
 	} @else if $theme == 'video' {
 		@include oTeaserThemeVideo;
+	} @else if $theme == 'audio' {
+		@include oTeaserThemeAudio;
 	} @else if $theme == 'package' {
 		@include oTeaserThemePackage;
 	} @else if $theme == 'live' {
@@ -230,6 +232,12 @@
 		&.o-teaser--big-story {
 			@include oTeaserTopStoryBigStory;
 		}
+	}
+}
+
+@mixin oTeaserThemeAudio {
+	.o-teaser--audio {
+		@include oTeaserAudio;
 	}
 }
 
