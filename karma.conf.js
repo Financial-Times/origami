@@ -15,7 +15,7 @@ module.exports = function(config) {
 		// list of files / patterns to load in the browser
 		files: [
 			'https://polyfill.io/v2/polyfill.js?flags=gated',
-			'tests/*.test.js'
+			'test/*.test.js'
 		],
 
 
@@ -27,7 +27,7 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'tests/*.test.js': ['browserify']
+			'test/*.test.js': ['browserify']
 		},
 
 
