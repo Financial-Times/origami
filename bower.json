@@ -4,7 +4,7 @@
   "ignore": [
     "tests",
     ".gitignore",
-    "circle.yml",
+    ".circleci/config.yml",
     "karma.conf.js"
   ],
   "dependencies": {
