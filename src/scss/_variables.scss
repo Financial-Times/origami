@@ -17,4 +17,10 @@ $o-colors-usecases: () !default;
 // Warning is still useful in other cases to highlight misspelled usecases, or missing custom usecases.
 $_o-colors-ignore-usecases-warnings: ('page', 'box', 'link', 'link-hover', 'link-title', 'link-title-hover', 'title', 'body', 'muted');
 
+// Whether to show deprecated palette color warnings.
+// v4 of o-colors has many deprecations for the internal and whtielabel brands.
+// These still effect our components, so users are spammed with warnings they cannot solve.
+// So suppress these warnings. The deprecated colors will be removed in the next major.
+$_o-colors-deprecated-palette-color-warnings: oBrandGetCurrentBrand() == 'master' !default;
+
 $_o-colors-test-environment: false !default;
