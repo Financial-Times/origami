@@ -3,12 +3,10 @@ $o-colors-is-silent: true !default;
 $o-colors-palette: () !default;
 $o-colors-tints: () !default;
 
-$_o-colors-experimental-palette: (
+$_o-colors-experimental-internal-palette: (
 	'slate-white-15':        #dedfe0, // oColorsMix('slate', 'white', 15): to support work on internal brand design
 	'slate-white-5':         #f4f4f5, // oColorsMix('slate', 'white', 5): to support work on internal brand design
 );
-
-$_o-colors-experimental-palette-warning: null !default;
 
 $o-colors-usecases: () !default;
 

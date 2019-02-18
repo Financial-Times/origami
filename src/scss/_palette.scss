@@ -68,9 +68,6 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 }
 
 @if $_o-colors-brand == internal {
-	// Set warning, avoid outputting it twice
-	$_o-colors-experimental-palette-warning: if($_o-colors-experimental-palette-warning == null, true, $_o-colors-experimental-palette-warning) !global;
-
 	$o-colors-palette: map-merge((
 	// primary palette
 	'oxford':          #0f5499,
@@ -126,10 +123,10 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 	'org-b2c-dark':   (#3a70af, '_deprecated'),
 	'org-b2c-light':  (#99c6fb, '_deprecated'),
 	), $o-colors-palette);
-}
 
-// Add experimental colors to support work on internal brand design.
-$o-colors-palette: if($_o-colors-brand == internal, map-merge($_o-colors-experimental-palette, $o-colors-palette), $o-colors-palette);
+	// Add experimental colors to support work on the internal brand design.
+	$o-colors-palette: map-merge($_o-colors-experimental-internal-palette, $o-colors-palette);
+}
 
 @if $_o-colors-brand == master {
 	$o-colors-tints: map-merge((

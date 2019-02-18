@@ -22,11 +22,6 @@
 
 			$color: nth($color, 1);
 		}
-		// Warn if an experimental palette color is being used.
-		@if $_o-colors-experimental-palette-warning and map-has-key($_o-colors-experimental-palette, $name-string) {
-			$_o-colors-experimental-palette-warning: false !global;
-			@warn "Please note: The palette colors #{map-keys($_o-colors-experimental-palette)} are experimental and may be removed at any time. No action is required if you are not using these colors directly.";
-		}
 
 		@return $color;
 	} @else if $name != null and type-of($name) != color {
