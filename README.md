@@ -149,7 +149,27 @@ $o-brand: whitelabel;
 ));
 ```
 
-You can see all of the variables that are available for customising under `whitelabel` in the [brand SCSS file](../src/scss/_brand.scss#L70).
+We recommend customising the following brand variables:
+
+- top-text
+- top-background
+- nav-text
+- nav-background
+- nav-border
+- nav-hover-background
+- nav-underline-color
+- arrow-icon-color
+- arrow-icon-hover-color
+- button-hover-color
+
+In addition, the following brand variables may also be customised:
+
+- text-hover-color
+- drawer-background
+- drawer-button-background
+- drawer-text-hover-color
+- drawer-nav-hover-background
+- primary-nav-item-horizontal-padding
 
 ## JavaScript
 
