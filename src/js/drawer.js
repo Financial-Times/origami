@@ -176,3 +176,4 @@ function init () {
 }
 
 export default { init, handleCloseEvents };
+export { init, handleCloseEvents };
