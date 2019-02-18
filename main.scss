@@ -18,13 +18,20 @@
 @import 'src/scss/secondary-nav';
 
 /// Outputs all features and styles available to o-header-services
-/// @param {Map} $opts ['types':('primary-nav', 'secondary-nav', 'b2b', 'b2c'), 'features': ('bleed', 'drop-down'), 'logo': default to ft-logo depending on brand (pink or white)]
+/// @param {Map} $opts ['types':('primary-nav', 'secondary-nav', 'b2b', 'b2c'), 'features': ('bleed', 'drop-down'), 'drawer-breakpoint': 'M', 'logo': default to ft-logo depending on brand (pink or white)]
 /// @access public
-/// @example scss
+/// @example scss This example outputs styles for a header with an origami logo, and a primary navigation with dropdowns.
 ///		@include oHeaderServices($opts: (
 ///			'types': ('primary-nav'),
 ///			'features': ('drop-down'),
 ///			'logo': 'origami'
+///		))
+/// @example scss This example changes the breakpoint at which the primary navigation is hidden behind a drawer.
+///		@include oHeaderServices($opts: (
+///			'types': ('primary-nav'),
+///			'features': ('drop-down'),
+///			'logo': 'origami',
+///			'drawer-breakpoint': 'L'
 ///		))
 @mixin oHeaderServices($opts: (
 	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
