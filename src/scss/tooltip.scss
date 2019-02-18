@@ -3,6 +3,7 @@
 /// Base tooltip style. Inherits from oOverlay.
 @mixin oTooltip {
 	@include oOverlay();
+	background: $_o-tooltip-background-color;
 
 	// Override border set in o-overlay
 	border: 0;
@@ -79,8 +80,8 @@
 
 /// Top arrow styling
 ///
-/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipUpArrow($color: rgba(0, 0, 0, 0.05)) {
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+@mixin oTooltipUpArrow($color: $_o-tooltip-border-color) {
 	@include _oTooltipVerticalArrow;
 
 	&:before,
@@ -92,14 +93,14 @@
 		border-bottom-color: $color;
 	}
 	&:after {
-		border-bottom-color: oColorsGetColorFor(o-overlay, background);
+		border-bottom-color: $_o-tooltip-background-color;
 	}
 }
 
 /// Bottom arrow styling
 ///
-/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipDownArrow($color: rgba(0, 0, 0, 0.05)) {
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+@mixin oTooltipDownArrow($color: $_o-tooltip-border-color) {
 	@include _oTooltipVerticalArrow;
 
 	&:before,
@@ -111,7 +112,7 @@
 		border-top-color: $color;
 	}
 	&:after {
-		border-top-color: oColorsGetColorFor(o-overlay, background);
+		border-top-color: $_o-tooltip-background-color;
 	}
 }
 
@@ -152,8 +153,8 @@
 
 /// Left arrow styling
 ///
-/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipLeftArrow($color: rgba(0, 0, 0, 0.05)) {
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+@mixin oTooltipLeftArrow($color: $_o-tooltip-border-color) {
 	@include _oTooltipHorizontalArrow;
 
 	&:before,
@@ -165,14 +166,14 @@
 		border-right-color: $color;
 	}
 	&:after {
-		border-right-color: oColorsGetColorFor(o-overlay, background);
+		border-right-color: $_o-tooltip-background-color;
 	}
 }
 
 /// Right arrow styling
 ///
-/// @param {Color} color [oColorsGetColorFor(o-overlay, border)]
-@mixin oTooltipRightArrow($color: rgba(0, 0, 0, 0.05)) {
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+@mixin oTooltipRightArrow($color: $_o-tooltip-border-color) {
 	@include _oTooltipHorizontalArrow;
 
 	&:before,
@@ -184,7 +185,7 @@
 		border-left-color: $color;
 	}
 	&:after {
-		border-left-color: oColorsGetColorFor(o-overlay, background);
+		border-left-color: $_o-tooltip-background-color;
 	}
 }
 

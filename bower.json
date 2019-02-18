@@ -15,7 +15,7 @@
   "dependencies": {
     "ftdomdelegate": "^2.2.0",
     "o-normalise": "^1.2.1",
-    "o-overlay": "^2.0.0",
+    "o-overlay": "^2.6.0",
     "o-viewport": "^3.1.2",
     "o-visual-effects": "^2.0.0",
     "o-grid": "^4.3.6"

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	let tooltipElement = document.querySelector('.imperative-tooltip-target');
 	new Tooltip(tooltipElement, {
 		target: 'tooltip-target-imperative',
-		content: 'Click to save to somewhere',
+		content: '<p>Click to save to somewhere</p>',
 		showOnConstruction: true,
 		position: 'above',
 		appendToBody: true
