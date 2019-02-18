@@ -5,7 +5,8 @@
 	"origamiVersion": 1,
 	"brands" : [
 		"master",
-		"internal"
+		"internal",
+		"whitelabel"
 	],
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportContact": {

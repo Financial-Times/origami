@@ -47,3 +47,22 @@
 	),
 	'supports-variants': ()
 ));
+
+@include oBrandDefine('o-overlay', 'whitelabel', (
+	'variables': (
+		default-background: oColorsGetPaletteColor('white'),
+		default-border: oColorsGetPaletteColor('transparent'),
+		heading-background: oColorsGetPaletteColor('transparent'),
+		heading-text: oColorsGetPaletteColor('black-80'),
+		shaded-heading-background: oColorsGetPaletteColor('black'),
+		shaded-heading-border: oColorsGetPaletteColor('black'),
+		shaded-heading-text: oColorsGetPaletteColor('white'),
+		default-close-background: oColorsGetPaletteColor('white'),
+		default-close-text: oColorsGetPaletteColor('black'),
+		default-close-border: oColorsGetPaletteColor('black'),
+		shaded-close-background: oColorsGetPaletteColor('black'),
+		shaded-close-text: oColorsGetPaletteColor('white'),
+		shaded-close-border: oColorsGetPaletteColor('white')
+	),
+	'supports-variants': ()
+));
