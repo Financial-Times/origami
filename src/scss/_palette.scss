@@ -94,6 +94,9 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 	'org-b2c-dark':   (#3a70af, '_deprecated'),
 	'org-b2c-light':  (#99c6fb, '_deprecated'),
 	), $o-colors-palette);
+
+	// Add experimental colors to support work on the internal brand design.
+	$o-colors-palette: map-merge($_o-colors-experimental-internal-palette, $o-colors-palette);
 }
 
 @if $_o-colors-brand == whitelabel {
@@ -123,9 +126,6 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 	'org-b2c-dark':   (#3a70af, '_deprecated'),
 	'org-b2c-light':  (#99c6fb, '_deprecated'),
 	), $o-colors-palette);
-
-	// Add experimental colors to support work on the internal brand design.
-	$o-colors-palette: map-merge($_o-colors-experimental-internal-palette, $o-colors-palette);
 }
 
 @if $_o-colors-brand == master {
