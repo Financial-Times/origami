@@ -11,7 +11,9 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-			"CustomEvent"
+			"CustomEvent",
+			"IntersectionObserver",
+			"IntersectionObserverEntry"
 		],
 		"optional": [
 			"Promise",

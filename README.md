@@ -61,6 +61,8 @@ function oTrackinginit() {
     oTracking.page({...config...});
     // Clicks.
     oTracking.click.init(category);
+    // Components/Elements views.
+    oTracking.view.init({...opts...});
 }
 ```
 
@@ -79,6 +81,8 @@ if (cutsTheMustard) {
     oTracking.page({...config...});
     // Clicks
     oTracking.click.init(category);
+    // Components/Elements views.
+    oTracking.view.init({...opts...});
 }
 ```
 
@@ -188,6 +192,25 @@ o-tracking will
 * Automatically pickup ftsession from cookies for you.
 * Page events automatically pick up the url and the referrer.
 * Click events [initalised as above](#usage), will populate a `domPathTokens` property. If the clicked element has the `data-trackable` attribute, sibling elements will also be included within `domPathTokens`.
+* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]  
+_Note:_ This feature requires `window.IntersectionObserver` in order to track the events  
+_Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument  
+	```js
+	const opts = {
+		category: 'audio', // default: 'component'
+		selector: '.o-teaser__audio', // default: '[data-o-tracking-view]'
+		getContextData: (el) => {  // default: null
+			return {
+				contentId: el.getAttribute('data-id'),
+				type: 'audio',
+				subtype: 'podcast',
+			 	component: 'teaser'
+			};
+		}
+	}
+
+	oTracking.view.init(opts);
+	```
 
 Events are decorated with config values you pass in via `init()` or `updateConfig()` if they are part of `context`, `user`, or `device` objects. Values passed in as `context` to individual events will override context values from init.
 
