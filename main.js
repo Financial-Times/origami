@@ -27,32 +27,3 @@ if (document.readyState === 'complete') {
 } else if (document.readyState === 'interactive' && !document.attachEvent) {
 	trigger('DOMContentLoaded');
 }
-
-
-if (document.attachEvent) {
-	// If IE and not a frame
-	// continually check to see if the document is ready
-	let top = false;
-	let delay = 50;
-
-	try {
-		top = window.frameElement === null && document.documentElement;
-	} catch(e) {}
-
-	if (top && top.doScroll) {
-		(function doScrollCheck() {
-			if (!('DOMContentLoaded' in hasFired)) {
-
-				try {
-					// Use the trick by Diego Perini
-					// http://javascript.nwbox.com/IEContentLoaded/
-					top.doScroll("left");
-				} catch(e) {
-					return delay < 5000 ? setTimeout( doScrollCheck, (delay*=1.2)) : undefined;
-				}
-
-				trigger('DOMContentLoaded');
-			}
-		}());
-	}
-}
