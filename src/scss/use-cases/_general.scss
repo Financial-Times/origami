@@ -29,7 +29,7 @@
 @mixin oTypographySub {
 	@include oTypographySans(-2);
 	display: inline-block;
-	margin-bottom: -5px;
+	margin-bottom: _oTypographyAdjustUnit(-5px);
 	vertical-align: sub;
 }
 
@@ -37,7 +37,7 @@
 @mixin oTypographySuper {
 	@include oTypographySans(-2);
 	display: inline-block;
-	margin-top: -3px;
+	margin-top: _oTypographyAdjustUnit(-3px);
 	vertical-align: super;
 }
 

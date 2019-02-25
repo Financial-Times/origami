@@ -48,7 +48,7 @@
 }
 
 /// Level 6 heading styles.
-/// @brand internal
+/// @brand internal|whitelabel
 @mixin oTypographyHeadingLevel6 {
 	@include _oTypographyHeading($from: 'heading-level-six');
 }

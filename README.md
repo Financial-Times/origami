@@ -349,6 +349,53 @@ $example-custom-font-scale: (
 @include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
 ```
 
+### Customisation
+
+`o-typography` provides mixins to [set a custom font](#use-a-custom-font) and a [custom font scale](#use-a-custom-font-scale). If your project uses the `whitelabel` brand, `o-typography` provides the option to customise typography further with the `oTypographyCustomize` mixin.
+
+With `oTypographyCustomize` you can change the size of heading levels and update the colour of `o-typography`'s blockquote. In the below example, we update the size of `h1` and `h2` headings, and change the blockquote colour to `hotpink`. For a full list of brand variables which may be customised, see the [oTypographyCustomize SassDoc](https://registry.origami.ft.com/components/o-typography/sassdoc?brand=whitelabel#mixin-oTypographyCustomize).
+
+```scss
+$o-brand: whitelabel;
+@import 'o-typography/main';
+
+// 1. Set a custom font.
+// See "Use A Custom Font".
+
+// 2. Set a custom typographic scale.
+// See "Use A Custom Font Scale".
+
+// 3. Customise typography variants.
+@include oTypographyCustomize((
+    'blockquote-color': hotpink, // Update the blockquote border color to hotpink.
+    'heading-level-one': (
+        'scale': 7, // Update the size of h1.
+    ),
+    'heading-level-two': (
+        'scale': 6 // Update the size of h2 (up to h6 is supported heading-level-six).
+    )
+));
+
+// 4. Output typography styles.
+h1 {
+	@include oTypographyHeadingLevel1();
+}
+
+h2 {
+	@include oTypographyHeadingLevel2();
+}
+
+blockquote {
+	p {
+		@include oTypographyBlockquote;
+	}
+
+	footer {
+		@include oTypographyFooter;
+	}
+}
+```
+
 ## JavaScript
 
 o-typography uses JavaScript to [progressively load fonts](#progressive-loading-web-fonts) to prevent a flash of invisible content (FOIC) if the web-fonts are taking a long time to load.

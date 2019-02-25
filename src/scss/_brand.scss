@@ -10,6 +10,57 @@
     @return oBrandSupportsVariant($component: 'o-typography', $variant: $variant);
 }
 
+/// Helper for `whitelabel` brand variable customisation.
+/// @brand whitelabel
+/// @param {Map} $variables - Brand variables to customise
+/// @access public
+/// @example scss
+///    @include oTypographyCustomize((
+///        'blockquote-color': hotpink,
+///        'heading-level-one': (
+///            'scale': 7,
+///        ),
+///        'heading-level-two': (
+///            'scale': 6
+///        ),
+///        'heading-level-three': (
+///            'scale': 5
+///        ),
+///        'heading-level-four': (
+///            'scale': 4
+///        ),
+///        'heading-level-five': (
+///            'scale': 3
+///        ),
+///        'heading-level-six': (
+///            'scale': 2
+///        ),
+///        'body': (
+///            'bottom-spacing-size': 8,
+///        )
+//    ))
+@mixin oTypographyCustomize($variables) {
+    // Only allow certain brand variables to be customised.
+    $allowed-brand-variables: (
+        'blockquote-color',
+        'heading-level-one',
+        'heading-level-two',
+        'heading-level-three',
+        'heading-level-four',
+        'heading-level-five',
+        'heading-level-six',
+        'body',
+    );
+    @each $brand-variable in map-keys($variables) {
+        @if not index($allowed-brand-variables, $brand-variable) {
+            @error 'You cannot customise the brand variable "#{$brand-variable}". Did you mean one of: "#{$allowed-brand-variables}"? Please contact the Origami team if you need to customise something new.';
+        }
+    }
+    // Customise the brand.
+    @include oBrandCustomize('o-typography', $variables);
+}
+
+
 // Register Georgia font and allowed variants with `o-fonts`.
 // Shared by all brands.
 @include oFontsDefineCustomFont('Georgia, serif', (
