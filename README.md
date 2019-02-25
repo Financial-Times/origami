@@ -4,7 +4,7 @@ This is an [Origami](http://origami.ft.com/) component that provides a visual lo
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
