@@ -65,7 +65,7 @@ class BaseTable {
 		}, { cancelable: true });
 
 		if (defaultSort) {
-			this._sorter.sortRowsByColumn(this, columnIndex, sortOrder, this._opts.sortBatchNumber);
+			this._sorter.sortRowsByColumn(this, columnIndex, sortOrder, this._sortBatchNumber);
 		}
 	}
 

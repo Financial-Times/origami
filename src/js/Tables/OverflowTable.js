@@ -20,7 +20,6 @@ class OverflowTable extends BaseTable {
 			expanded: this.rootEl.hasAttribute('data-o-table-expanded') ? this.rootEl.getAttribute('data-o-table-expanded') !== 'false' : null,
 			minimumRowCount: this.rootEl.getAttribute('data-o-table-minimum-row-count')
 		}, this._opts);
-		this._opts.sortBatchNumber = this._opts.minimumRowCount && !this._opts.expanded ? parseInt(this._opts.minimumRowCount, 10) + 5 : null;
 		window.requestAnimationFrame(this.addSortButtons.bind(this));
 		window.requestAnimationFrame(this._setupScroll.bind(this));
 		window.requestAnimationFrame(this._setupExpander.bind(this));
@@ -72,6 +71,8 @@ class OverflowTable extends BaseTable {
 		}, 0);
 		const extraHeight = (rowsToHide[0] ? rowsToHide[0].getBoundingClientRect().height / 2 : 0);
 		const contractedHeight = tableHeight + extraHeight - rowsToHideHeight;
+		// When the table is contracted, only the rows which will be visible need to be rendered immediately when sorting.
+		this._sortBatchNumber = this._opts.minimumRowCount && !this._opts.expanded ? parseInt(this._opts.minimumRowCount, 10) + 5 : null;
 		// Contract table.
 		window.requestAnimationFrame(() => {
 			this._updateRowVisibility(false);
@@ -106,6 +107,8 @@ class OverflowTable extends BaseTable {
 			this._opts.expanded = true;
 			return;
 		}
+		// When the table is expanded, render sorted rows at once as they are all visible.
+		this._sortBatchNumber = undefined;
 		const expanderButton = this.controls ? this.controls.expanderButton.querySelector('button') : null;
 		window.requestAnimationFrame(() => {
 			this.container.classList.remove('o-table-container--contracted');

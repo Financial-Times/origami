@@ -144,6 +144,13 @@
 			"description": ""
 		},
 		{
+			"title": "Huge sortable table",
+			"name": "huge",
+			"template": "demos/src/huge.mustache",
+			"description": "A huge, sortable, expandable table - useful to test sort performance.",
+			"hidden": true
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

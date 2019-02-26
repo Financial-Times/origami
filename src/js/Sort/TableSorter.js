@@ -107,10 +107,6 @@ class TableSorter {
 			throw new Error(`Sort order "${sortOrder}" is not supported. Must be "ascending" or "descending".`);
 		}
 
-		if (!batch || isNaN(batch)) {
-			batch = 100;
-		}
-
 		const intlCollator = getIntlCollator();
 		const cellFormatter = this._cellFormatter;
 		const type = tableHeaderElement.getAttribute('data-o-table-data-type') || undefined;
@@ -129,13 +125,17 @@ class TableSorter {
 		let updatedRowCount = 0;
 		function updateSortedRowBatch() {
 			window.requestAnimationFrame(() => {
-				const rowBatch = table.tableRows.slice(updatedRowCount, updatedRowCount + batch);
-				if (updatedRowCount === 0) {
+				if (updatedRowCount === 0 && isNaN(batch) === false) {
+					// On first run, update a batch of rows.
+					const rowBatch = table.tableRows.slice(updatedRowCount, batch);
 					prepend(table.tbody, rowBatch);
+					updatedRowCount = updatedRowCount + batch;
 				} else {
+					// On second run, update all the rest.
+					const rowBatch = table.tableRows.slice(updatedRowCount);
 					append(table.tbody, rowBatch);
+					updatedRowCount = table.tableRows.length;
 				}
-				updatedRowCount = updatedRowCount + batch;
 				if (updatedRowCount < table.tableRows.length) {
 					updateSortedRowBatch();
 				}
