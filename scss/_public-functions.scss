@@ -25,7 +25,7 @@
 		$validated: _oBrandValidateName(
 			'Variant',
 			$from,
-			'Get variables "#{$variables}" for "#{$component}" from "#{$from}"'
+			'Get variables "#{$variables}" for "#{$component}" from "#{inspect($from)}"'
 		);
 	}
 	// Validate names of the variables we are trying to get.
@@ -33,7 +33,7 @@
 		$validated-variable-names: _oBrandValidateName(
 			'Variable',
 			$variable-name,
-			'Cannot get variable "#{$variable-name}" for component "#{$component}" from variant "#{$from}"'
+			'Cannot get variable "#{$variable-name}" for component "#{$component}" from variant "#{inspect($from)}"'
 		);
 	}
 	// If from default component variables or a pre-defined variant.
