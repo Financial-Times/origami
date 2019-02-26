@@ -21,8 +21,8 @@
 	background-color: _oOverlayGet('shaded-close-background');
 	border-color: _oOverlayGet('shaded-close-border');
 
-	&:focus,
-	#{$o-hoverable-if-hover-enabled} &:hover {
+	&:hover,
+	&:focus {
 		@include _oOverlayCloseIcon(_oOverlayGet('default-close-text'));
 		background-color: _oOverlayGet('default-close-background');
 	}

@@ -12,7 +12,6 @@
   "dependencies": {
     "ftdomdelegate": "^2.0.1",
     "o-colors": "^4.0.0",
-    "o-hoverable": ">=0.2.0 <4",
     "o-icons": ">=4.0.0 <6.0.0",
     "o-normalise": "^1.2.1",
     "o-layers": ">=0.2.0 <3",
