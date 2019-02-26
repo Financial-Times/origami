@@ -3,17 +3,17 @@
 @import 'o-icons/main';
 @import 'o-normalise/main';
 
-@import 'scss/colors';
-@import 'scss/brand';
-@import 'scss/variables';
-@import 'scss/functions';
-@import 'scss/mixins';
+@import './src/scss/colors';
+@import './src/scss/brand';
+@import './src/scss/variables';
+@import './src/scss/functions';
+@import './src/scss/mixins';
 
-@import 'scss/group';
-@import 'scss/pagination';
-@import 'scss/icon';
+@import './src/scss/group';
+@import './src/scss/pagination';
+@import './src/scss/icon';
 
-@import 'scss/deprecated';
+@import './src/scss/deprecated';
 
 @if ($o-buttons-is-silent == false) {
 	.#{$o-buttons-class} {
