@@ -59,3 +59,4 @@ class VideoInfo {
 }
 
 export default VideoInfo;
+export {VideoInfo};

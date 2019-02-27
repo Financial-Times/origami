@@ -32,3 +32,4 @@ function getRendition(renditions, options) {
 }
 
 export default getRendition;
+export {getRendition};

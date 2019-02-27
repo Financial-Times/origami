@@ -30,3 +30,4 @@ function supportedFormats () {
 }
 
 export default supportedFormats;
+export {supportedFormats};
