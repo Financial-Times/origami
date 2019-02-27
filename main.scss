@@ -39,7 +39,7 @@ $o-video-is-silent: true !default;
 
 @if $o-video-is-silent == false {
 
-	@include oVideo()
+	@include oVideo();
 
 	$o-video-is-silent: true !global;
 }
