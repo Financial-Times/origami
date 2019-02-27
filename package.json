@@ -1,7 +1,6 @@
 {
   "name": "o-topper",
   "version": "0.0.0",
-  "main": "main.js",
   "private": true,
   "scripts": {
     "test": "mocha"
