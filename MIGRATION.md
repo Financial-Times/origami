@@ -44,8 +44,7 @@ The markup for a full header (**not** including dropdown menus) has changed in t
 +			</li>
 +		</ul>
 	</div>
-</header>
-<nav class="o-header-services__primary-nav">
+	<nav class="o-header-services__primary-nav">
 -	<div class="o-header-services__container">
 -		<ul class="o-header-services__nav-list">
 +		<ul class="o-header-services__primary-nav-list">
@@ -59,8 +58,8 @@ The markup for a full header (**not** including dropdown menus) has changed in t
 			<!-- more nav items -->
 		</ul>
 -	</div>
-</nav>
-
+	</nav>
+</header>
 -<nav class="o-header-services__subnav" role="navigation" aria-label="Sub navigation">
 +<nav class="o-header-services__secondary-nav" aria-label="secondary navigation"  data-o-header-services-nav>
 -	<div class="o-header-services__container">
