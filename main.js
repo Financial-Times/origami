@@ -1,1 +1,1 @@
-exports.mapContentToTopper = require('./js/map-content-to-topper');
+exports.mapContentToTopper = require('./src/js/map-content-to-topper');
