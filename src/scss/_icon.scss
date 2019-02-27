@@ -40,7 +40,6 @@
 /// .o-buttons-icon.o-buttons-big {...}
 /// ```
 @mixin _oButtonsGenerateIconButtons($o-buttons-class: $o-buttons-class) {
-
 	.#{$o-buttons-class}-icon {
 		@include oButtonsIconBaseStyles;
 		@include _oButtonsIconSize('default');
@@ -52,18 +51,18 @@
 		&.#{$o-buttons-class}-icon--icon-only {
 			@include _oButtonsIconIconOnly;
 		}
-	}
 
-	@each $theme, $theme-parts in $o-buttons-themes {
-		$theme-selector: '&';
-		@if $theme != 'secondary' {
-			$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
-		}
+		@each $theme, $theme-parts in $o-buttons-themes {
+			$theme-selector: '&';
+			@if $theme != 'secondary' {
+				$theme-selector: '&.#{_oButtonsGetThemeSelector($theme, $o-buttons-class)}';
+			}
 
-		#{$theme-selector} {
-			@each $icon-name in $o-buttons-icons {
-				&.#{$o-buttons-class}-icon--#{$icon-name} {
-					@include _oButtonsIconBackgroundImage($icon-name, $theme);
+			#{$theme-selector} {
+				@each $icon-name in $o-buttons-icons {
+					&.#{$o-buttons-class}-icon--#{$icon-name} {
+						@include _oButtonsIconBackgroundImage($icon-name, $theme);
+					}
 				}
 			}
 		}
