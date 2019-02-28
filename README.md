@@ -141,9 +141,9 @@ The `oLabelsAddState` mixin also accepts optional custom configurations, which o
 
 #### Mixin: `oLabelsContent`
 
-When it's not possible to use an `o-loading` CSS class, for example within another Origami component, use `oLabelsContent` to output a label with a custom class.
+When it's not possible to use an `o-labels` CSS class, for example within another Origami component, use `oLabelsContent` to output a label with a custom class.
 
-If it is possible to use `o-loading` classes we recommend [oLabels](#mixin-olabels) and [oLabelsAddStates](#mixin-olabelsaddstate) instead. Using these will help reduce the size of your CSS bundle where mutliple labels are used.
+If it is possible to use `o-labels` classes we recommend [oLabels](#mixin-olabels) and [oLabelsAddStates](#mixin-olabelsaddstate) instead. Using these will help reduce the size of your CSS bundle where mutliple labels are used.
 
 `oLabelsContent` accepts an `$opts` argument which is a map of options. To output styles required by all labels set "base" to "true". Then set the labels "[sizes](#size)" and its "[state](#states)". Any of these options may be output independently.
 
