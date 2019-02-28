@@ -3,12 +3,12 @@
 @import 'o-grid/main';
 @import 'o-icons/main';
 
-@import 'src/scss/variables';
-@import 'src/scss/mixins';
+@import 'scss/variables';
+@import 'scss/mixins';
 
-@import 'src/scss/elements';
-@import 'src/scss/layout';
-@import 'src/scss/themes';
+@import 'scss/elements';
+@import 'scss/layout';
+@import 'scss/themes';
 
 @if ($o-topper-is-silent == false) {
 	@include oTopperElements;
