@@ -124,10 +124,10 @@ In this example we include only the styles for a [primary navigation](#primary-n
 ```scss
 	@import 'o-header-services/main';
 
-	@include oHeaderServices($opts:
+	@include oHeaderServices($opts: (
 		'types': ('primary-nav', 'bleed');
 		'logo': 'origami'
-	);
+	));
 
 	// Will output styles for a bleed header with a primary navigation and the Origami logo
 ```
