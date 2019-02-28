@@ -10,11 +10,11 @@
 				.o-teaser-collection--numbered {
 					@include oTeaserCollectionNumbered();
 				}
-			} @elseif ($theme == 'special') {
+			} @else if ($theme == 'special') {
 				.o-teaser-collection--special {
 					@include oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
 				}
-			} @elseif ($theme == 'horizontal') {
+			} @else if ($theme == 'horizontal') {
 				.o-teaser-collection--horizontal {
 					@include oTeaserCollectionHorizontal();
 				}
