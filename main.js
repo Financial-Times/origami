@@ -1,5 +1,3 @@
-"use strict";
-
 const ftDateFormat = require('./ft-date-format');
 
 const updateEventName = 'oDate.update';

@@ -221,16 +221,16 @@ function timeAgoNoSeconds(date){
 }
 
 module.exports = { 
-    toDate,
-    asTodayOrYesterdayOrNothing,
-    format,
-    timeAgo,
-    timeAgoNoSeconds,
-    ftTime,
-    inSeconds,
-    getSecondsBetween,
-    isNearFuture,
-    isFarFuture,
-    isToday,
-    isYesterday
+	toDate,
+	asTodayOrYesterdayOrNothing,
+	format,
+	timeAgo,
+	timeAgoNoSeconds,
+	ftTime,
+	inSeconds,
+	getSecondsBetween,
+	isNearFuture,
+	isFarFuture,
+	isToday,
+	isYesterday
 };
