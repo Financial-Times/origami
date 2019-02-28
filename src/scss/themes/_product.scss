@@ -30,7 +30,12 @@
 }
 
 @mixin oBannerThemeProductButton {
-	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-product-button, background), oColorsGetUseCase(o-banner-product-button, text), primary);
+	@include oButtonsTheme($theme: (
+		'background': oColorsGetUseCase(o-banner-product-button, background),
+		'accent': oColorsGetUseCase(o-banner-product-button, text),
+		'colorizer': 'primary'
+	));
+
 	// This is a hack around the fact that custom buttons do not
 	// support buttons with three colours. TODO: add this to o-buttons
 	// https://github.com/Financial-Times/o-buttons/issues/128

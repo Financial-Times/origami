@@ -146,8 +146,13 @@
 }
 
 @mixin oBannerButton {
-	@include oButtons($size: big);
-	@include oButtonsCustomTheme(oColorsGetUseCase(o-banner-button, background), oColorsGetUseCase(o-banner-button, text), primary);
+	@include oButtons(
+		$size: big,
+		$theme: (
+			'background': oColorsGetUseCase(o-banner-button, background),
+			'accent': oColorsGetUseCase(o-banner-button, text),
+			'colorizer': 'primary'
+	));
 	white-space: nowrap;
 	// This is a hack around the fact that custom buttons do not
 	// support buttons with three colours. TODO: add this to o-buttons
