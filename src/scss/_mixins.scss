@@ -46,12 +46,16 @@
 				padding-left: $_o-message-spacing;
 			}
 
-		} @elseif $type == 'notice' {
+		}
+
+		@if $type == 'notice' {
 			.o-message__content {
 				padding-left: $_o-message-spacing / 2;
 			}
 
-		} @elseif $type == 'action' {
+		}
+
+		@if $type == 'action' {
 			.o-message__content {
 				padding: oTypographySpacingSize(4) 0;
 
