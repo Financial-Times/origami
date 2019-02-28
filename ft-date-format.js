@@ -220,7 +220,7 @@ function timeAgoNoSeconds(date){
 	return timeAgo(date);
 }
 
-module.exports = { 
+module.exports = {
 	toDate,
 	asTodayOrYesterdayOrNothing,
 	format,
