@@ -1,3 +1,21 @@
+/// Sans font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-band.scss' where default typography variables are set.
+/// @type String
+$o-typography-sans: '' !default;
+
+/// Serif font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-brand.scss' where default typography variables are set.
+/// @type String
+$o-typography-serif: '' !default;
+
+/// Display font-family
+/// @deprecated Output/set font family using the provided mixins.
+/// @see '_o-brand.scss' where default typography variables are set.
+/// @type String
+$o-typography-display: '' !default;
+
 /// Helper for `o-brand` function.
 /// @access private
 @function _oTypographyGet($variables, $from: null) {
@@ -71,9 +89,9 @@
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
-    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
@@ -129,9 +147,9 @@
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
@@ -182,9 +200,9 @@
         (weight: bold, style: italic)
     ));
 
-    $o-typography-sans: Arial, sans !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: Arial, sans !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, (Arial, sans)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, (Arial, sans)) !global;
 
     // Other components may get values from the scale map and assume a px value.
     // Therefore we must set a line height of px value.

@@ -14,24 +14,6 @@ $o-typography-relative-units: false !default;
 /// @type Bool
 $o-typography-load-fonts: true !default;
 
-/// Sans font-family
-/// @deprecated Output/set font family using the provided mixins.
-/// @see '_o-band.scss' where default typography variables are set.
-/// @type String
-$o-typography-sans: '' !default;
-
-/// Serif font-family
-/// @deprecated Output/set font family using the provided mixins.
-/// @see '_o-brand.scss' where default typography variables are set.
-/// @type String
-$o-typography-serif: '' !default;
-
-/// Display font-family
-/// @deprecated Output/set font family using the provided mixins.
-/// @see '_o-brand.scss' where default typography variables are set.
-/// @type String
-$o-typography-display: '' !default;
-
 /// Unitless size representing the baseline grid
 /// @type Number
 $o-typography-baseline-unit: 4;
