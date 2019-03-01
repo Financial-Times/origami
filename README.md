@@ -63,7 +63,7 @@ If `o-forms` is used on a `fieldset` a wrapper `o-forms__inline-container` must 
 </fieldset>
 ```
 
-Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline from mobile viewports upwards. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-inline-controls).
+Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs inline from mobile viewports upwards. It also expands the label forcing the inputs to align right. This is useful for long lists of simple styled radio buttons which are used as controls, e.g. repeated yes/no options. For an example see [the registry](https://registry.origami.ft.com/components/o-forms#demo-inline-controls).
 
 ```html
 <fieldset class="o-forms o-forms--inline-controls">
@@ -74,7 +74,7 @@ Using `o-forms--inline-controls` instead of `o-forms--inline` keeps the inputs i
 </fieldset>
 ```
 
-Inline forms offer more options. For full demo markup see [inline examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-inline) on the Origami Registry.
+Inline forms offer more options. For full demo markup see [inline examples](https://registry.origami.ft.com/components/o-forms#demo-inline) on the Origami Registry.
 
 #### Additonal field information
 
@@ -123,7 +123,7 @@ Alternatively for a wide field without the default horizontal padding use `.o-fo
 
 #### Text inputs
 
-The markup above demonstrates how to use text inputs. More [text input examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-text-input) are available on the Origami Registry.
+The markup above demonstrates how to use text inputs. More [text input examples](https://registry.origami.ft.com/components/o-forms#demo-text-input) are available on the Origami Registry.
 
 #### Textareas
 
@@ -134,7 +134,7 @@ The markup above demonstrates how to use text inputs. More [text input examples]
 </div>
 ```
 
-[Textarea examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-textarea)
+[Textarea examples](https://registry.origami.ft.com/components/o-forms#demo-textarea)
 
 #### Select boxes
 
@@ -150,7 +150,7 @@ The markup above demonstrates how to use text inputs. More [text input examples]
 </div>
 ```
 
-[Select boxes examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-select-box)
+[Select boxes examples](https://registry.origami.ft.com/components/o-forms#demo-select-box)
 
 #### Checkbox and radio controls
 
@@ -209,8 +209,8 @@ To display checkboxes/radios inline add `.o-forms__group--inline` to their group
 </fieldset>
 ```
 
-[Radio control examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-radio-buttons)
-[Checkbox examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-checkboxes)
+[Radio control examples](https://registry.origami.ft.com/components/o-forms#demo-radio-buttons)
+[Checkbox examples](https://registry.origami.ft.com/components/o-forms#demo-checkboxes)
 
 #### Styled radio buttons
 
@@ -232,7 +232,7 @@ To produce styled radio buttons wrap radio inputs with  `.o-forms__group .o-form
 </fieldset>
 ```
 
-[Styled radio button examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-radios-with-button-styling)
+[Styled radio button examples](https://registry.origami.ft.com/components/o-forms#demo-radios-with-button-styling)
 
 
 #### Suffixes
@@ -251,7 +251,7 @@ Suffixes are used to append content to an input, i.e. a button. Add a wrapper `.
 </div>
 ```
 
-[Suffixes examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-suffix)
+[Suffixes examples](https://registry.origami.ft.com/components/o-forms#demo-suffix)
 
 #### Toggles (checkbox toggles)
 
@@ -274,7 +274,7 @@ To produce a toggle interface wrap checkboxes in `.o-forms__toggle` and add the 
 </fieldset>
 ```
 
-[Toggle examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-a-checkbox-which-acts-as-a-toggle)
+[Toggle examples](https://registry.origami.ft.com/components/o-forms#demo-a-checkbox-which-acts-as-a-toggle)
 
 
 #### Validation states
@@ -324,7 +324,7 @@ This can be used to highlight errors within a section of a form which contains m
 
 Add `.o-forms-section--wide` to remove max width restrictions.
 
-[Section examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-sections)
+[Section examples](https://registry.origami.ft.com/components/o-forms#demo-sections)
 
 
 #### Additional Features
@@ -451,7 +451,7 @@ Valid statuses include "saving", "saved", or `null` to remove any current status
 
 To add a left aligned status to an inline form input, add a placeholder status element `.o-forms__status .o-forms__status--left`, with attribute `aria-hidden="true"`, within the contaning `.o-forms` element.
 
-[Status examples](https://registry.origami.ft.com/components/o-forms@6.0.0#demo-status)
+[Status examples](https://registry.origami.ft.com/components/o-forms#demo-status)
 
 #### Listening to a toggle change
 Listening for the `oForms.toggled` event we can react to the status of a toggle checkbox. This event is fired when the toggle checkbox is clicked.
