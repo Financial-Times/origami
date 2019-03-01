@@ -117,8 +117,6 @@ describe('o-date', () => {
 
 	describe('oDate.ftTime', () => {
 
-		const someDate = new Date("Jul 13 2016 00:02:00");
-
 		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
 			try {
 				const oneHourAgo = new Date("Jul 13 2016 23:02:49");
