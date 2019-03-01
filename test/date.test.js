@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
-const ftDateFormat = require('../ft-date-format');
+const ftDateFormat = require('../src/js/ft-date-format');
 
 describe('o-date', () => {
 
