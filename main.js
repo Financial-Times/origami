@@ -1,4 +1,4 @@
-const ftDateFormat = require('./src/js/ft-date-format');
+const ftDateFormat = require('ft-date-format');
 
 const updateEventName = 'oDate.update';
 let interval;

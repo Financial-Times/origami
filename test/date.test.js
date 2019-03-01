@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
-const ftDateFormat = require('../src/js/ft-date-format');
+const oDate = require('../main');
 
 describe('o-date', () => {
 
@@ -18,7 +18,7 @@ describe('o-date', () => {
 
 	describe('toDate', () => {
 		it('returns `undefined` if the passed in argument isnt a date', () => {
-			proclaim.isUndefined(ftDateFormat.toDate('hello'));
+			proclaim.isUndefined(oDate.toDate('hello'));
 		});
 
 		it('returns a date object if the date passed in is valid', () => {
@@ -29,7 +29,7 @@ describe('o-date', () => {
 			];
 
 			for (let date of validDates) {
-				let testDate = ftDateFormat.toDate(date);
+				let testDate = oDate.toDate(date);
 				let testDateAsDate = new Date(testDate);
 
 				proclaim.isInstanceOf(testDate, Date); // It should be a Date object
@@ -38,7 +38,7 @@ describe('o-date', () => {
 		});
 	});
 
-	describe('ftDateFormat.format', () => {
+	describe('oDate.format', () => {
 		const someDate = new Date("Mon Jul 18 2016 23:12:11");
 
 		const someTimes = {
@@ -50,173 +50,100 @@ describe('o-date', () => {
 			"11pm":	 new Date("Monday July 18 23:00"),
 		};
 
-		it('calls ftDateFormat.toDate() with the date argument passed in', () => {
-			try {
-				sinon.spy(ftDateFormat, 'toDate');
-				ftDateFormat.format(someDate);
-				proclaim.isTrue(ftDateFormat.toDate.withArgs(someDate).calledOnce);
-			} finally {
-				ftDateFormat.toDate.restore();
-			}
-		});
-
 		it('returns a date if "date" is passed in as a second argument', () => {
-			proclaim.strictEqual(ftDateFormat.format(someDate, "date"), 'July 18, 2016');
+			proclaim.strictEqual(oDate.format(someDate, "date"), 'July 18, 2016');
 		});
 
 		it('returns a datetime if "datetime" is passed in as a second argument', () => {
-			proclaim.strictEqual(ftDateFormat.format(someDate, "datetime"), 'July 18, 2016 11:12 pm');
+			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18, 2016 11:12 pm');
 		});
 
 		it('doesnt zero pad single digit hours', () => {
 			const someDate = new Date("Mon Jul 18 2016 06:12:11");
-			proclaim.strictEqual(ftDateFormat.format(someDate, "datetime"), 'July 18, 2016 6:12 am');
+			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18, 2016 6:12 am');
 		});
 
-		// This is a bit of a cop-out really as what we're testing here is ftDateFormat's
+		// This is a bit of a cop-out really as what we're testing here is oDate's
 		// compile() and tpl() functions
 		it('accepts date formatting functions', () => {
 			const date = new Date(2000, 1, 5, 6, 7, 22, 499);
 
-			proclaim.strictEqual(ftDateFormat.format(date, 'yyyy yy'), '2000 00');
-			proclaim.strictEqual(ftDateFormat.format(date, 'MMMM MMM MM M'), 'February Feb 02 2');
-			proclaim.strictEqual(ftDateFormat.format(date, 'EEEE EEE'), 'Saturday Sat');
-			proclaim.strictEqual(ftDateFormat.format(date, 'd dd'), '5 05');
-			proclaim.strictEqual(ftDateFormat.format(date, 'h hh'), '6 06');
-			proclaim.strictEqual(ftDateFormat.format(date, 'm mm'), '7 07');
-			proclaim.strictEqual(ftDateFormat.format(date, 'a'), 'am');
-			proclaim.strictEqual(ftDateFormat.format(date, 'This is \\a co\\mmon string mm'), 'This is a common string 07');
+			proclaim.strictEqual(oDate.format(date, 'yyyy yy'), '2000 00');
+			proclaim.strictEqual(oDate.format(date, 'MMMM MMM MM M'), 'February Feb 02 2');
+			proclaim.strictEqual(oDate.format(date, 'EEEE EEE'), 'Saturday Sat');
+			proclaim.strictEqual(oDate.format(date, 'd dd'), '5 05');
+			proclaim.strictEqual(oDate.format(date, 'h hh'), '6 06');
+			proclaim.strictEqual(oDate.format(date, 'm mm'), '7 07');
+			proclaim.strictEqual(oDate.format(date, 'a'), 'am');
+			proclaim.strictEqual(oDate.format(date, 'This is \\a co\\mmon string mm'), 'This is a common string 07');
 		});
 
 		it('returns an unpadded 12hour clock value for `h` format', () => {
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midnight"], 'h'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1am"], 'h'), '1');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["10am"], 'h'), '10');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midday"], 'h'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1pm"], 'h'), '1');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["11pm"], 'h'), '11');
+			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'h'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1am"], 'h'), '1');
+			proclaim.strictEqual(oDate.format(someTimes["10am"], 'h'), '10');
+			proclaim.strictEqual(oDate.format(someTimes["midday"], 'h'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'h'), '1');
+			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'h'), '11');
 		});
 
 		it('returns a padded 12hour clock value for `hh` format', () => {
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midnight"], 'hh'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1am"], 'hh'), '01');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["10am"], 'hh'), '10');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midday"], 'hh'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1pm"], 'hh'), '01');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["11pm"], 'hh'), '11');
+			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'hh'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1am"], 'hh'), '01');
+			proclaim.strictEqual(oDate.format(someTimes["10am"], 'hh'), '10');
+			proclaim.strictEqual(oDate.format(someTimes["midday"], 'hh'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'hh'), '01');
+			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'hh'), '11');
 		});
 
 		it('returns an unpadded 24hour clock value for `H` format', () => {
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midnight"], 'H'), '0');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1am"], 'H'), '1');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["10am"], 'H'), '10');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midday"], 'H'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1pm"], 'H'), '13');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["11pm"], 'H'), '23');
+			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'H'), '0');
+			proclaim.strictEqual(oDate.format(someTimes["1am"], 'H'), '1');
+			proclaim.strictEqual(oDate.format(someTimes["10am"], 'H'), '10');
+			proclaim.strictEqual(oDate.format(someTimes["midday"], 'H'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'H'), '13');
+			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'H'), '23');
 		});
 
 		it('returns an padded 24hour clock value for `HH` format', () => {
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midnight"], 'HH'), '00');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1am"], 'HH'), '01');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["10am"], 'HH'), '10');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["midday"], 'HH'), '12');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["1pm"], 'HH'), '13');
-			proclaim.strictEqual(ftDateFormat.format(someTimes["11pm"], 'HH'), '23');
+			proclaim.strictEqual(oDate.format(someTimes["midnight"], 'HH'), '00');
+			proclaim.strictEqual(oDate.format(someTimes["1am"], 'HH'), '01');
+			proclaim.strictEqual(oDate.format(someTimes["10am"], 'HH'), '10');
+			proclaim.strictEqual(oDate.format(someTimes["midday"], 'HH'), '12');
+			proclaim.strictEqual(oDate.format(someTimes["1pm"], 'HH'), '13');
+			proclaim.strictEqual(oDate.format(someTimes["11pm"], 'HH'), '23');
 		});
 	});
 
-	describe('ftDateFormat.ftTime', () => {
-
-		const someDate = new Date("Jul 13 2016 00:02:00");
-
-		it('returns "just now" if ftDateFormat.isNearFuture returns true', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(true);
-				proclaim.strictEqual(ftDateFormat.ftTime(someDate), 'just now');
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-			}
-		});
-
-		it('doesnt return just now if ftDateFormat.isNearFuture returns false', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				proclaim.notStrictEqual(ftDateFormat.ftTime(someDate), 'just now');
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-			}
-		});
-
-		it('returns a result from ftDateFormat.format if ftDateFormat.isFarFuture returns true', () => {
-			try {
-				const ftDateFormatFormatReturn = "spy return value";
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isFarFuture').returns(true);
-				sinon.stub(ftDateFormat, 'format').returns(ftDateFormatFormatReturn);
-
-				proclaim.strictEqual(ftDateFormat.ftTime(someDate), ftDateFormatFormatReturn);
-				proclaim.isTrue(ftDateFormat.format.withArgs(someDate, 'date').calledOnce);
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-				ftDateFormat.isFarFuture.restore();
-				ftDateFormat.format.restore();
-			}
-		});
-
-		it('returns a result from ftDateFormat.timeAgo if ftDateFormat.isToday returns true', () => {
-			try {
-				const ftDateFormatTimeAgoReturn = "mocked timeAgo date";
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isFarFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isToday').returns(true);
-				sinon.stub(ftDateFormat, 'timeAgo').returns(ftDateFormatTimeAgoReturn);
-
-				proclaim.strictEqual(ftDateFormat.ftTime(someDate), ftDateFormatTimeAgoReturn);
-				const call = ftDateFormat.timeAgo.firstCall;
-				proclaim.strictEqual(call.args[0], someDate);
-				proclaim.isNumber(call.args[1]);
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-				ftDateFormat.isFarFuture.restore();
-				ftDateFormat.isToday.restore();
-				ftDateFormat.timeAgo.restore();
-			}
-		});
+	describe('oDate.ftTime', () => {
 
 		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
 			try {
-				const ftDateFormatTimeAgoReturn = "mocked timeAgo date";
-				sinon.stub(ftDateFormat, 'timeAgo').returns(ftDateFormatTimeAgoReturn);
-
-				const publishDatesInTheLast4Hours = [
-					new Date("Jul 13 2016 23:02:49"),
-					new Date("Jul 13 2016 22:02:49"),
-					new Date("Jul 13 2016 21:02:49"),
-					new Date("Jul 13 2016 20:02:50")
-				];
-
+				const oneHourAgo = new Date("Jul 13 2016 23:02:49");
+				const twoHoursAgo = new Date("Jul 13 2016 22:02:49");
+				const threeHoursAgo = new Date("Jul 13 2016 21:02:49");
+				const fourHoursAgo = new Date("Jul 13 2016 20:02:50");
 				const now = Date.now;
 				const fakeNow = new Date("Jul 14 2016 00:02:49");
 				sinon.stub(window, 'Date').returns(fakeNow);
 				Date.now = now;
 
-				for (let date of publishDatesInTheLast4Hours) {
-					proclaim.strictEqual(ftDateFormat.ftTime(date), ftDateFormatTimeAgoReturn);
-					proclaim.isTrue(ftDateFormat.timeAgo.withArgs(date).called);
-				}
+				proclaim.strictEqual(oDate.ftTime(oneHourAgo), "an hour ago");
+				proclaim.strictEqual(oDate.ftTime(twoHoursAgo), "2 hours ago");
+				proclaim.strictEqual(oDate.ftTime(threeHoursAgo), "3 hours ago");
+				proclaim.strictEqual(oDate.ftTime(fourHoursAgo), "4 hours ago");
 			} finally {
-				ftDateFormat.timeAgo.restore();
 				window.Date.restore();
 			}
 		});
 
 		it('doesnt return a result from timeAgo if the publish date is more than 4 hours ago and isToday is false', ()=>{
 			try {
-				const ftDateFormatTimeAgoReturn = "mocked timeAgo date";
-				sinon.stub(ftDateFormat, 'timeAgo').returns(ftDateFormatTimeAgoReturn);
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isFarFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isToday').returns(false);
+				const oDateTimeAgoReturn = "mocked timeAgo date";
+				sinon.stub(oDate, 'timeAgo').returns(oDateTimeAgoReturn);
+				sinon.stub(oDate, 'isNearFuture').returns(false);
+				sinon.stub(oDate, 'isFarFuture').returns(false);
+				sinon.stub(oDate, 'isToday').returns(false);
 
 				const publishDatesInTheLast4Hours = [
 					new Date("Jul 13 2016 19:02:49"),
@@ -231,88 +158,54 @@ describe('o-date', () => {
 				Date.now = now;
 
 				for (let date of publishDatesInTheLast4Hours) {
-					proclaim.notStrictEqual(ftDateFormat.ftTime(date), ftDateFormatTimeAgoReturn);
-					proclaim.isTrue(ftDateFormat.timeAgo.neverCalledWith(date));
+					proclaim.notStrictEqual(oDate.ftTime(date), oDateTimeAgoReturn);
+					proclaim.isTrue(oDate.timeAgo.neverCalledWith(date));
 				}
 			} finally {
-				ftDateFormat.timeAgo.restore();
-				ftDateFormat.isNearFuture.restore();
-				ftDateFormat.isFarFuture.restore();
-				ftDateFormat.isToday.restore();
+				oDate.timeAgo.restore();
+				oDate.isNearFuture.restore();
+				oDate.isFarFuture.restore();
+				oDate.isToday.restore();
 				window.Date.restore();
-			}
-		});
-
-		it('returns a result from "yesterday" if ftDateFormat.isYesterday returns true', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isFarFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isToday').returns(false);
-				sinon.stub(ftDateFormat, 'isYesterday').returns(true);
-
-				proclaim.strictEqual(ftDateFormat.ftTime(someDate), 'yesterday');
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-				ftDateFormat.isFarFuture.restore();
-				ftDateFormat.isToday.restore();
-				ftDateFormat.isYesterday.restore();
-			}
-		});
-
-		it('returns the result of ftDateFormat.format if none of the date matchers return true', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isNearFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isFarFuture').returns(false);
-				sinon.stub(ftDateFormat, 'isToday').returns(false);
-				sinon.stub(ftDateFormat, 'isYesterday').returns(false);
-				sinon.stub(ftDateFormat, 'format').returns('a pretend date string');
-
-				proclaim.strictEqual(ftDateFormat.ftTime(someDate), 'a pretend date string');
-			} finally {
-				ftDateFormat.isNearFuture.restore();
-				ftDateFormat.isFarFuture.restore();
-				ftDateFormat.isToday.restore();
-				ftDateFormat.isYesterday.restore();
-				ftDateFormat.format.restore();
 			}
 		});
 	});
 
 	describe('isNearFuture', () => {
 		it('returns true if the interval is less than 5 mins in the future', () => {
-			proclaim.isTrue(ftDateFormat.isNearFuture(- inSeconds.minute));
-			proclaim.isTrue(ftDateFormat.isNearFuture(- inSeconds.second));
+			proclaim.isTrue(oDate.isNearFuture(- inSeconds.minute));
+			proclaim.isTrue(oDate.isNearFuture(- inSeconds.second));
 		});
 		it('returns false if the interval is more than 5 mins in the future', () => {
-			proclaim.isFalse(ftDateFormat.isNearFuture(- 100 * inSeconds.hour));
-			proclaim.isFalse(ftDateFormat.isNearFuture(- inSeconds.hour));
-			proclaim.isFalse(ftDateFormat.isNearFuture(- 10 * inSeconds.minute));
+			proclaim.isFalse(oDate.isNearFuture(- 100 * inSeconds.hour));
+			proclaim.isFalse(oDate.isNearFuture(- inSeconds.hour));
+			proclaim.isFalse(oDate.isNearFuture(- 10 * inSeconds.minute));
 		});
 		it('returns false if the interval in the past', () => {
-			proclaim.isFalse(ftDateFormat.isNearFuture(inSeconds.hour));
-			proclaim.isFalse(ftDateFormat.isNearFuture(10 * inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isNearFuture(5 * inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isNearFuture(inSeconds.second));
+			proclaim.isFalse(oDate.isNearFuture(inSeconds.hour));
+			proclaim.isFalse(oDate.isNearFuture(10 * inSeconds.minute));
+			proclaim.isFalse(oDate.isNearFuture(5 * inSeconds.minute));
+			proclaim.isFalse(oDate.isNearFuture(inSeconds.second));
 		});
 	});
 
 	describe('isFarFuture', () => {
 		it('returns true if the interval ismore than 5 mins in the future', () => {
-			proclaim.isTrue(ftDateFormat.isFarFuture(- 100 * inSeconds.hour));
-			proclaim.isTrue(ftDateFormat.isFarFuture(- inSeconds.hour));
-			proclaim.isTrue(ftDateFormat.isFarFuture(- 10 * inSeconds.minute));
+			proclaim.isTrue(oDate.isFarFuture(- 100 * inSeconds.hour));
+			proclaim.isTrue(oDate.isFarFuture(- inSeconds.hour));
+			proclaim.isTrue(oDate.isFarFuture(- 10 * inSeconds.minute));
 		});
 		it('returns false if the interval is less than 5 mins in the future', () => {
-			proclaim.isFalse(ftDateFormat.isFarFuture(- 5 * inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isFarFuture(- inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isFarFuture(- inSeconds.second));
+			proclaim.isFalse(oDate.isFarFuture(- 5 * inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(- inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(- inSeconds.second));
 
 		});
 		it('returns false if the interval in the past', () => {
-			proclaim.isFalse(ftDateFormat.isFarFuture(inSeconds.hour));
-			proclaim.isFalse(ftDateFormat.isFarFuture(10 * inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isFarFuture(5 * inSeconds.minute));
-			proclaim.isFalse(ftDateFormat.isFarFuture(inSeconds.second));
+			proclaim.isFalse(oDate.isFarFuture(inSeconds.hour));
+			proclaim.isFalse(oDate.isFarFuture(10 * inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(5 * inSeconds.minute));
+			proclaim.isFalse(oDate.isFarFuture(inSeconds.second));
 		});
 	});
 
@@ -321,13 +214,13 @@ describe('o-date', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + (interval * 1000));
-			proclaim.isTrue(ftDateFormat.isToday(publishDate, now, interval));
+			proclaim.isTrue(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates passed in are not same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + (interval * 1000));
-			proclaim.isFalse(ftDateFormat.isToday(publishDate, now, interval));
+			proclaim.isFalse(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates are both tuesday but more than 24h apart', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
@@ -336,7 +229,7 @@ describe('o-date', () => {
 
 			// These two dates are the "same day" but a week apart.
 			proclaim.strictEqual(publishDate.getDay(), now.getDay());
-			proclaim.isFalse(ftDateFormat.isToday(publishDate, now, interval));
+			proclaim.isFalse(oDate.isToday(publishDate, now, interval));
 		});
 	});
 
@@ -345,14 +238,14 @@ describe('o-date', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
 			const now = new Date(publishDate.getTime() + (interval * 1000));
-			proclaim.isTrue(ftDateFormat.isYesterday(publishDate, now, interval));
+			proclaim.isTrue(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the dates passed are the same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
 			const now = new Date(publishDate.getTime() + (interval * 1000));
-			proclaim.isFalse(ftDateFormat.isYesterday(publishDate, now, interval));
+			proclaim.isFalse(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the weekdays are 1 apart but more than 24h apart', () => {
@@ -363,11 +256,11 @@ describe('o-date', () => {
 			// These two dates are the "day after eachother (wednesday and thursday)"
 			// but a week apart.
 			proclaim.strictEqual(publishDate.getDay(), now.getDay() - 1);
-			proclaim.isFalse(ftDateFormat.isYesterday(publishDate, now, interval));
+			proclaim.isFalse(oDate.isYesterday(publishDate, now, interval));
 		});
 	});
 
-	describe('ftDateFormat.timeAgo', () => {
+	describe('oDate.timeAgo', () => {
 		let OriginalDate;
 		let mockDate;
 
@@ -375,7 +268,7 @@ describe('o-date', () => {
 			// This is a convoluted way of ensuring that we always get
 			// the same date when `Date` is called. We default the input
 			// to a fixed point in time, but allow it to be specified –
-			// this ensures that `ftDateFormat.toDate` still works.
+			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
 			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
@@ -418,19 +311,19 @@ describe('o-date', () => {
 			Object.keys(formatsLow).forEach(function (format) {
 				let date = new Date();
 				date = date - (formatsLow[format] * 1000);
-				proclaim.strictEqual(ftDateFormat.timeAgo(date), format);
+				proclaim.strictEqual(oDate.timeAgo(date), format);
 			});
 
 			Object.keys(formatsHigh).forEach(function (format) {
 				let date = new Date();
 				date = date - (formatsHigh[format] * 1000);
-				proclaim.strictEqual(ftDateFormat.timeAgo(date), format, `HIGH: ${format}`);
+				proclaim.strictEqual(oDate.timeAgo(date), format, `HIGH: ${format}`);
 			});
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns `undefined` if the param passed in is not a date', () => {
-			proclaim.strictEqual(ftDateFormat.timeAgo('not a date'), undefined);
+			proclaim.strictEqual(oDate.timeAgo('not a date'), undefined);
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
@@ -443,7 +336,7 @@ describe('o-date', () => {
 
 			for (let date of datesWithinLimit) {
 				mockDate = date;
-				proclaim.notStrictEqual(ftDateFormat.timeAgo(publishDate, {limit: inSeconds.hour}), '');
+				proclaim.notStrictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
@@ -458,7 +351,7 @@ describe('o-date', () => {
 
 			for (let date of datesWithinLimit) {
 				mockDate = date;
-				proclaim.strictEqual(ftDateFormat.timeAgo(publishDate, {limit: inSeconds.hour}), '');
+				proclaim.strictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
@@ -473,7 +366,7 @@ describe('o-date', () => {
 
 			for (let date of dates) {
 				mockDate = date;
-				proclaim.strictEqual(ftDateFormat.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
+				proclaim.strictEqual(oDate.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
 			}
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
@@ -488,7 +381,7 @@ describe('o-date', () => {
 
 			for (let date of dates) {
 				mockDate = date;
-				proclaim.strictEqual(ftDateFormat.timeAgo(publishDate, 5), '5 seconds ago');
+				proclaim.strictEqual(oDate.timeAgo(publishDate, 5), '5 seconds ago');
 			}
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
@@ -511,14 +404,14 @@ describe('o-date', () => {
 			Object.keys(abbreviations).forEach(function (abbreviation) {
 				let date = new Date();
 				date = date - (abbreviations[abbreviation] * 1000);
-				proclaim.strictEqual(ftDateFormat.timeAgo(date, { abbreviated: true }), abbreviation);
+				proclaim.strictEqual(oDate.timeAgo(date, { abbreviated: true }), abbreviation);
 			});
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 	});
 
 	// THIS ONE
-	describe('ftDateFormat.asTodayOrYesterdayOrNothing', () => {
+	describe('oDate.asTodayOrYesterdayOrNothing', () => {
 		let OriginalDate;
 		let mockDate;
 
@@ -526,7 +419,7 @@ describe('o-date', () => {
 			// This is a convoluted way of ensuring that we always get
 			// the same date when `Date` is called. We default the input
 			// to a fixed point in time, but allow it to be specified –
-			// this ensures that `ftDateFormat.toDate` still works.
+			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
 			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
@@ -538,93 +431,19 @@ describe('o-date', () => {
 		afterEach(() => {
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
-
-		it('returns "today" if isToday returns true', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isToday').returns(true);
-				sinon.spy(ftDateFormat, 'isYesterday');
-
-				const mockDate = "some date";
-				proclaim.strictEqual(ftDateFormat.asTodayOrYesterdayOrNothing(mockDate), 'today');
-
-				const call = ftDateFormat.isToday.firstCall;
-				proclaim.strictEqual(call.args[0], mockDate);
-				proclaim.isInstanceOf(call.args[1], OriginalDate);
-				proclaim.isNumber(call.args[2]);
-				proclaim.isFalse(ftDateFormat.isYesterday.called);
-			} finally {
-				ftDateFormat.isToday.restore();
-				ftDateFormat.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
-
-		it('returns "yesterday" if isYesterday returns true AND isToday is false', () => {
-			try {
-				sinon.stub(ftDateFormat, 'isToday').returns(false);
-				sinon.stub(ftDateFormat, 'isYesterday').returns(true);
-
-				const mockDate = "some date";
-				proclaim.strictEqual(ftDateFormat.asTodayOrYesterdayOrNothing(mockDate), 'yesterday');
-
-				const todayCall = ftDateFormat.isToday.firstCall;
-				proclaim.strictEqual(todayCall.args[0], mockDate);
-				proclaim.isInstanceOf(todayCall.args[1], OriginalDate);
-				proclaim.isNumber(todayCall.args[2]);
-
-				const yesterdayCall = ftDateFormat.isToday.firstCall;
-				proclaim.strictEqual(yesterdayCall.args[0], mockDate);
-				proclaim.isInstanceOf(yesterdayCall.args[1], OriginalDate);
-				proclaim.isNumber(yesterdayCall.args[2]);
-			} finally {
-				ftDateFormat.isToday.restore();
-				ftDateFormat.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
-
-		it("returns '' if isToday and isYesterday are both false", () => {
-			try {
-				sinon.stub(ftDateFormat, 'isToday').returns(false);
-				sinon.stub(ftDateFormat, 'isYesterday').returns(false);
-
-				const mockDate = "some date";
-				proclaim.strictEqual(ftDateFormat.asTodayOrYesterdayOrNothing(mockDate), '');
-
-				const todayCall = ftDateFormat.isToday.firstCall;
-				proclaim.strictEqual(todayCall.args[0], mockDate);
-				proclaim.isInstanceOf(todayCall.args[1], OriginalDate);
-				proclaim.isNumber(todayCall.args[2]);
-
-				const yesterdayCall = ftDateFormat.isToday.firstCall;
-				proclaim.strictEqual(yesterdayCall.args[0], mockDate);
-				proclaim.isInstanceOf(yesterdayCall.args[1], OriginalDate);
-				proclaim.isNumber(yesterdayCall.args[2]);
-			} finally {
-				ftDateFormat.isToday.restore();
-				ftDateFormat.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
 	});
 
-	describe('ftDateFormat.timeAgoNoSeconds', () => {
+	describe('oDate.timeAgoNoSeconds', () => {
 		it('returns \'Less than a minute ago\' if time was less than a minute ago', () => {
-			try {
-				let date;
-				date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
-				proclaim.strictEqual(ftDateFormat.timeAgoNoSeconds(date), 'Less than a minute ago');
+			let date;
+			date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
+			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-				date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
-				proclaim.strictEqual(ftDateFormat.timeAgoNoSeconds(date), 'Less than a minute ago');
+			date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
+			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-				date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
-				sinon.spy(ftDateFormat, 'timeAgo');
-				ftDateFormat.timeAgoNoSeconds(date);
-				proclaim.isTrue(ftDateFormat.timeAgo.withArgs(date).calledOnce);
-			} finally {
-				ftDateFormat.timeAgo.restore();
-			}
+			date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
+			oDate.timeAgoNoSeconds(date);
 		});
 	});
 });
