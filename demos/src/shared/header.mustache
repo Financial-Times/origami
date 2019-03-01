@@ -2,62 +2,13 @@
 	<!-- start o-header-services markup: included as a seperate dependency, see https://registry.origami.ft.com/components/o-header-services -->
 	<header class='o-header-services' data-o-component='o-header-services'>
 		<div class="o-header-services__top">
-
-				<div class="o-header-services__hamburger">
-					<a class="o-header-services__hamburger-icon" href="#" role="button">
-						<span class="o-header-services__visually-hidden">Open primary navigation</span>
-					</a>
-				</div>
-
 				<div class='o-header-services__logo'></div>
 
 				<div class="o-header-services__title">
-					<span class="o-header-services__product-name"><a href="/">{{title}}</a></span>
-					<span class="o-header-services__product-tagline">{{description}}</span>
+					<span class="o-header-services__product-name"><a href="/">Layout Demos</a></span>
+					<span class="o-header-services__product-tagline">{{ tagline }}</span>
 				</div>
 		</div>
-
-		<nav class="o-header-services__primary-nav">
-			<ul class="o-header-services__primary-nav-list">
-				{{#mainNav}}
-					<li>
-						<a {{#current}}aria-current="true" aria-label="Current page"{{/current}} href="{{href}}">
-							{{name}}
-						</a>
-					</li>
-				{{/mainNav}}
-			</ul>
-		</nav>
-
-		{{#hasChildren}}
-			<nav class="o-header-services__secondary-nav" aria-label="secondary navigation"  data-o-header-services-nav>
-				<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list>
-					<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
-						{{#ancestors}}
-							<li class="o-header__subnav-item">
-								<a href="{{href}}">
-									{{name}}
-								</a>
-							</li>
-						{{/ancestors}}
-					</ol>
-
-					{{#children?}}
-					<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
-						{{#children}}
-						<li class="o-header__subnav-item">
-							<a href="{{href}}" {{#current}}aria-current="true"{{/current}} >
-								{{name}}
-							</a>
-						</li>
-						{{/children}}
-					</ul>
-					{{/children?}}
-				</div>
-				<button class="o-header__subnav-button o-header__subnav-button--left" title="scroll left" aria-hidden="true" disabled></button>
-				<button class="o-header__subnav-button o-header__subnav-button--right" title="scroll right" aria-hidden="true" disabled></button>
-			</nav>
-		{{/hasChildren}}
 	</header>
 	<!-- end o-header-services markup -->
 </div>

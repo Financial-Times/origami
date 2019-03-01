@@ -26,28 +26,36 @@
 		{
 			"title": "Documentation Layout",
 			"name": "documentation-layout",
-			"data": "demos/src/data/documentation-layout.json",
+			"data": {
+				"tagline": "Documentation Layout"
+			},
 			"template": "demos/src/documentation-layout.mustache",
 			"description": "Ideal for documentation."
 		},
 		{
 			"title": "Landing Layout",
 			"name": "landing-layout",
-			"data": "demos/src/data/landing-layout.json",
+			"data": {
+				"tagline": "Landing Layout"
+			},
 			"template": "demos/src/landing-layout.mustache",
 			"description": "Ideal for a homepage."
 		},
 		{
 			"title": "Query Layout",
 			"name": "query-layout",
-			"data": "demos/src/data/query-layout.json",
+			"data": {
+				"tagline": "Query Layout"
+			},
 			"template": "demos/src/query-layout.mustache",
 			"description": "Ideal for a search or filter page."
 		},
 		{
 			"title": "Base Layout",
 			"name": "base-layout",
-			"data": "demos/src/data/documentation-layout.json",
+			"data": {
+				"tagline": "Base Layout"
+			},
 			"template": "demos/src/base-layout.mustache",
 			"hidden": true
 		}
