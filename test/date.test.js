@@ -50,16 +50,6 @@ describe('o-date', () => {
 			"11pm":	 new Date("Monday July 18 23:00"),
 		};
 
-		it('calls oDate.toDate() with the date argument passed in', () => {
-			try {
-				sinon.spy(oDate, 'toDate');
-				oDate.format(someDate);
-				proclaim.isTrue(oDate.toDate.withArgs(someDate).calledOnce);
-			} finally {
-				oDate.toDate.restore();
-			}
-		});
-
 		it('returns a date if "date" is passed in as a second argument', () => {
 			proclaim.strictEqual(oDate.format(someDate, "date"), 'July 18, 2016');
 		});
@@ -129,83 +119,22 @@ describe('o-date', () => {
 
 		const someDate = new Date("Jul 13 2016 00:02:00");
 
-		it('returns "just now" if oDate.isNearFuture returns true', () => {
-			try {
-				sinon.stub(oDate, 'isNearFuture').returns(true);
-				proclaim.strictEqual(oDate.ftTime(someDate), 'just now');
-			} finally {
-				oDate.isNearFuture.restore();
-			}
-		});
-
-		it('doesnt return just now if oDate.isNearFuture returns false', () => {
-			try {
-				sinon.stub(oDate, 'isNearFuture').returns(false);
-				proclaim.notStrictEqual(oDate.ftTime(someDate), 'just now');
-			} finally {
-				oDate.isNearFuture.restore();
-			}
-		});
-
-		it('returns a result from oDate.format if oDate.isFarFuture returns true', () => {
-			try {
-				const oDateFormatReturn = "spy return value";
-				sinon.stub(oDate, 'isNearFuture').returns(false);
-				sinon.stub(oDate, 'isFarFuture').returns(true);
-				sinon.stub(oDate, 'format').returns(oDateFormatReturn);
-
-				proclaim.strictEqual(oDate.ftTime(someDate), oDateFormatReturn);
-				proclaim.isTrue(oDate.format.withArgs(someDate, 'date').calledOnce);
-			} finally {
-				oDate.isNearFuture.restore();
-				oDate.isFarFuture.restore();
-				oDate.format.restore();
-			}
-		});
-
-		it('returns a result from oDate.timeAgo if oDate.isToday returns true', () => {
-			try {
-				const oDateTimeAgoReturn = "mocked timeAgo date";
-				sinon.stub(oDate, 'isNearFuture').returns(false);
-				sinon.stub(oDate, 'isFarFuture').returns(false);
-				sinon.stub(oDate, 'isToday').returns(true);
-				sinon.stub(oDate, 'timeAgo').returns(oDateTimeAgoReturn);
-
-				proclaim.strictEqual(oDate.ftTime(someDate), oDateTimeAgoReturn);
-				const call = oDate.timeAgo.firstCall;
-				proclaim.strictEqual(call.args[0], someDate);
-				proclaim.isNumber(call.args[1]);
-			} finally {
-				oDate.isNearFuture.restore();
-				oDate.isFarFuture.restore();
-				oDate.isToday.restore();
-				oDate.timeAgo.restore();
-			}
-		});
-
 		it('returns a result from timeAgo if the publish date is less than 4 hours ago even if that date is also yesterday', ()=>{
 			try {
-				const oDateTimeAgoReturn = "mocked timeAgo date";
-				sinon.stub(oDate, 'timeAgo').returns(oDateTimeAgoReturn);
-
-				const publishDatesInTheLast4Hours = [
-					new Date("Jul 13 2016 23:02:49"),
-					new Date("Jul 13 2016 22:02:49"),
-					new Date("Jul 13 2016 21:02:49"),
-					new Date("Jul 13 2016 20:02:50")
-				];
-
+				const oneHourAgo = new Date("Jul 13 2016 23:02:49");
+				const twoHoursAgo = new Date("Jul 13 2016 22:02:49");
+				const threeHoursAgo = new Date("Jul 13 2016 21:02:49");
+				const fourHoursAgo = new Date("Jul 13 2016 20:02:50");
 				const now = Date.now;
 				const fakeNow = new Date("Jul 14 2016 00:02:49");
 				sinon.stub(window, 'Date').returns(fakeNow);
 				Date.now = now;
 
-				for (let date of publishDatesInTheLast4Hours) {
-					proclaim.strictEqual(oDate.ftTime(date), oDateTimeAgoReturn);
-					proclaim.isTrue(oDate.timeAgo.withArgs(date).called);
-				}
+				proclaim.strictEqual(oDate.ftTime(oneHourAgo), "an hour ago");
+				proclaim.strictEqual(oDate.ftTime(twoHoursAgo), "2 hours ago");
+				proclaim.strictEqual(oDate.ftTime(threeHoursAgo), "3 hours ago");
+				proclaim.strictEqual(oDate.ftTime(fourHoursAgo), "4 hours ago");
 			} finally {
-				oDate.timeAgo.restore();
 				window.Date.restore();
 			}
 		});
@@ -240,40 +169,6 @@ describe('o-date', () => {
 				oDate.isFarFuture.restore();
 				oDate.isToday.restore();
 				window.Date.restore();
-			}
-		});
-
-		it('returns a result from "yesterday" if oDate.isYesterday returns true', () => {
-			try {
-				sinon.stub(oDate, 'isNearFuture').returns(false);
-				sinon.stub(oDate, 'isFarFuture').returns(false);
-				sinon.stub(oDate, 'isToday').returns(false);
-				sinon.stub(oDate, 'isYesterday').returns(true);
-
-				proclaim.strictEqual(oDate.ftTime(someDate), 'yesterday');
-			} finally {
-				oDate.isNearFuture.restore();
-				oDate.isFarFuture.restore();
-				oDate.isToday.restore();
-				oDate.isYesterday.restore();
-			}
-		});
-
-		it('returns the result of oDate.format if none of the date matchers return true', () => {
-			try {
-				sinon.stub(oDate, 'isNearFuture').returns(false);
-				sinon.stub(oDate, 'isFarFuture').returns(false);
-				sinon.stub(oDate, 'isToday').returns(false);
-				sinon.stub(oDate, 'isYesterday').returns(false);
-				sinon.stub(oDate, 'format').returns('a pretend date string');
-
-				proclaim.strictEqual(oDate.ftTime(someDate), 'a pretend date string');
-			} finally {
-				oDate.isNearFuture.restore();
-				oDate.isFarFuture.restore();
-				oDate.isToday.restore();
-				oDate.isYesterday.restore();
-				oDate.format.restore();
 			}
 		});
 	});
@@ -538,93 +433,19 @@ describe('o-date', () => {
 		afterEach(() => {
 			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
-
-		it('returns "today" if isToday returns true', () => {
-			try {
-				sinon.stub(oDate, 'isToday').returns(true);
-				sinon.spy(oDate, 'isYesterday');
-
-				const mockDate = "some date";
-				proclaim.strictEqual(oDate.asTodayOrYesterdayOrNothing(mockDate), 'today');
-
-				const call = oDate.isToday.firstCall;
-				proclaim.strictEqual(call.args[0], mockDate);
-				proclaim.isInstanceOf(call.args[1], OriginalDate);
-				proclaim.isNumber(call.args[2]);
-				proclaim.isFalse(oDate.isYesterday.called);
-			} finally {
-				oDate.isToday.restore();
-				oDate.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
-
-		it('returns "yesterday" if isYesterday returns true AND isToday is false', () => {
-			try {
-				sinon.stub(oDate, 'isToday').returns(false);
-				sinon.stub(oDate, 'isYesterday').returns(true);
-
-				const mockDate = "some date";
-				proclaim.strictEqual(oDate.asTodayOrYesterdayOrNothing(mockDate), 'yesterday');
-
-				const todayCall = oDate.isToday.firstCall;
-				proclaim.strictEqual(todayCall.args[0], mockDate);
-				proclaim.isInstanceOf(todayCall.args[1], OriginalDate);
-				proclaim.isNumber(todayCall.args[2]);
-
-				const yesterdayCall = oDate.isToday.firstCall;
-				proclaim.strictEqual(yesterdayCall.args[0], mockDate);
-				proclaim.isInstanceOf(yesterdayCall.args[1], OriginalDate);
-				proclaim.isNumber(yesterdayCall.args[2]);
-			} finally {
-				oDate.isToday.restore();
-				oDate.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
-
-		it("returns '' if isToday and isYesterday are both false", () => {
-			try {
-				sinon.stub(oDate, 'isToday').returns(false);
-				sinon.stub(oDate, 'isYesterday').returns(false);
-
-				const mockDate = "some date";
-				proclaim.strictEqual(oDate.asTodayOrYesterdayOrNothing(mockDate), '');
-
-				const todayCall = oDate.isToday.firstCall;
-				proclaim.strictEqual(todayCall.args[0], mockDate);
-				proclaim.isInstanceOf(todayCall.args[1], OriginalDate);
-				proclaim.isNumber(todayCall.args[2]);
-
-				const yesterdayCall = oDate.isToday.firstCall;
-				proclaim.strictEqual(yesterdayCall.args[0], mockDate);
-				proclaim.isInstanceOf(yesterdayCall.args[1], OriginalDate);
-				proclaim.isNumber(yesterdayCall.args[2]);
-			} finally {
-				oDate.isToday.restore();
-				oDate.isYesterday.restore();
-				Date = OriginalDate; // eslint-disable-line no-global-assign
-			}
-		});
 	});
 
 	describe('oDate.timeAgoNoSeconds', () => {
 		it('returns \'Less than a minute ago\' if time was less than a minute ago', () => {
-			try {
-				let date;
-				date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
-				proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
+			let date;
+			date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
+			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-				date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
-				proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
+			date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
+			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-				date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
-				sinon.spy(oDate, 'timeAgo');
-				oDate.timeAgoNoSeconds(date);
-				proclaim.isTrue(oDate.timeAgo.withArgs(date).calledOnce);
-			} finally {
-				oDate.timeAgo.restore();
-			}
+			date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
+			oDate.timeAgoNoSeconds(date);
 		});
 	});
 });
