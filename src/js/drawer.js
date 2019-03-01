@@ -88,7 +88,6 @@ class Drawer {
 	 */
 	toggleDrawer () {
 		this.nav.classList.toggle(this.class.open);
-		this.burger.classList.toggle('o-header-services__hambuger--open');
 		const open = this.nav.classList.contains(this.class.open);
 		this._toggleAriaAttributes(open);
 		if (open) {
