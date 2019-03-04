@@ -104,9 +104,11 @@ class Layout {
 
 		// Add the nav to the page.
 		const sidebar = this.layoutEl.querySelector(`.o-layout__sidebar`) || this.layoutEl.querySelector(`.o-layout__query-sidebar`);
-		window.requestAnimationFrame(() => {
-			sidebar.append(nav);
-		});
+		if (sidebar) {
+			window.requestAnimationFrame(() => {
+				sidebar.append(nav);
+			});
+		}
 
 		this.highlightNavItems(nav);
 	}
