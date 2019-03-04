@@ -126,8 +126,14 @@
 				border: inherit;
 				display: inline-block;
 				padding: 0.4em 1em;
-				word-wrap: anywhere;
+				// Where supported `overflow-wrap: anywhere` is better than
+				// `word-break: break-all` as it only breaks a word where
+				// no otherwise-acceptable break points exist.
 				overflow-wrap: anywhere;
+				word-break: break-all;
+				@supports (overflow-wrap: anywhere) {
+					word-break: normal;
+				}
 				border-color: oColorsGetPaletteColor('teal');
 				border-left: 2px solid;
 				@include oGridRespondTo($from: M) {
