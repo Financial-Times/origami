@@ -33,12 +33,12 @@ A footer requires the following markup:
 			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
 			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
 		</div>
-		<p><span>&copy; THE FINANCIAL TIMES LTD 2018.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2019.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 	</div>
 </footer>
 ```
 
-All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in the registry](https://registry.origami.ft.com/components/o-footer-services@1.0.2).  
+All elements within the `.o-footer-services__wrapper--top` section are entirely optional. You can find examples of the variations [in the registry](https://registry.origami.ft.com/components/o-footer-services@1.0.2).
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 
@@ -90,14 +90,14 @@ All previous variations of the footer have been discontinued. To illustrate the 
 +					<a href="http://help.ft.com/help/legal-privacy/privacy/" class="o-footer-services__bulletted-link">Privacy</a>
 +					<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
 +				</div>
-+				<p><span>&copy; THE FINANCIAL TIMES LTD 2018.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
++				<p><span>&copy; THE FINANCIAL TIMES LTD 2019.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
 +			</div>
 +		<div>
 	</div>
 </footer>
 ```
 
-`o-footer-services--wide` is no longer an available class.  
+`o-footer-services--wide` is no longer an available class.
 
 ---
 
