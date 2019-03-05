@@ -67,8 +67,9 @@ class Drawer {
 	 * Drawer rendering
 	 */
 	render () {
-		// If burger is not hidden render the drawer.
-		const enableDrawer = this.burger.offsetParent !== null;
+		// If burger is visible, render the drawer.
+		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
+		const enableDrawer = this.burger.offsetHeight !== 0;
 
 		if (enableDrawer) {
 			this.nav.addEventListener('click', this);
