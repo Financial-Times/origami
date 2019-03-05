@@ -70,4 +70,47 @@ describe('Utils', function () {
 		assert.ok(Utils.getValueFromJsVariable);
 	});
 
+	it('should provide sanitise functionality', function () {
+		[
+			{ param: '   with space  ', result: 'with space' },
+			{ param: 'noSpace', result: 'noSpace' }
+	 	].forEach(function (test) {
+			assert.equal(Utils.sanitise(test.param), test.result);
+		});
+	});
+
+	it('should provide assignIfUndefined functionality', function () {
+		[
+			{
+				subject: { a: 'aa', b: 'b', c: 'c' },
+				target: { a: 'a', b: undefined },
+				result: { a: 'a', b: 'b', c: 'c' }
+			}
+		].forEach(function (test) {
+			Utils.assignIfUndefined(test.subject, test.target);
+			assert.deepEqual(test.target, test.result);
+		});
+	});
+
+	it('should provide whitelistProps functionality', function () {
+		const whitelist = [ 'contentId', 'type' ];
+
+		[
+			{
+				target: { contentId: 1234, type: 'audio' },
+				result: { contentId: 1234, type: 'audio' }
+			},
+			{
+				target: { contentId: 1234, name: 'name' },
+				result: { contentId: 1234 }
+			},
+			{
+				target: { contentId: undefined },
+				result: {}
+			}
+		].forEach(function (test) {
+			assert.deepEqual(Utils.whitelistProps(test.target, whitelist), test.result);
+		});
+	});
+
 });

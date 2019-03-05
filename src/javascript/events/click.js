@@ -6,17 +6,9 @@ const Queue = require('../core/queue');
 const Core = require('../core');
 const utils = require('../utils');
 const settings = require('../core/settings');
+const getTrace = require('../../libs/get-trace');
 
 let internalQueue;
-
-const elementPropertiesToCollect = [
-	"nodeName",
-	"className",
-	"id",
-	"href",
-	"text",
-	"role",
-];
 
 const eventPropertiesToCollect = [
 	"ctrlKey",
@@ -46,124 +38,12 @@ const track = eventData => {
 	}
 };
 
-// Utility for trimming strings
-const sanitise = property => {
-	return typeof property === 'string' ? property.trim() : property;
-};
-
-// For a given container element, get the number of elements that match the
-// clicked element (siblings); and the index of the clicked element (position).
-const getSiblingsAndPosition = (el, clickedEl, selector) => {
-	const siblings = Array.from(el.querySelectorAll(selector));
-	const position = siblings.findIndex(item => item === clickedEl);
-	if(position === -1) {return;}
-	return {
-		siblings: siblings.length,
-		position,
-	};
-};
-
-// Get all (sanitised) properties of a given element.
-const getAllElementProperties = el => {
-	return elementPropertiesToCollect.reduce((returnObject, property) => {
-		if (el[property]) {
-			returnObject[property] = sanitise(el[property]);
-		}
-		else if (el.getAttribute(property)) {
-			returnObject[property] = sanitise(el.getAttribute(property));
-		}
-		else if (el.hasAttribute(property)) {
-			returnObject[property] = el.hasAttribute(property);
-		}
-		return returnObject;
-	}, {});
-};
-
-// Get some properties of a given element.
-const getDomPathProps = (attrs, props) => {
-
-	// Collect any attribute that matches given strings.
-	attrs
-		.filter(attribute => attribute.name.match(/^data-trackable|^data-o-|^aria-/i))
-		.forEach(attribute => {
-			props[attribute.name] = attribute.value;
-		});
-
-	return props;
-};
-
-// Get only the custom data-trackable-context-? properties of a given element
-const getContextProps = (attrs, props, isClickedEl) => {
-
-	const customProps = {};
-
-	// for the clicked element collect properties like className, nodeName
-	if (isClickedEl) {
-		elementPropertiesToCollect.forEach(name => {
-			if (typeof props[name] !== 'undefined' && name !== 'id') {
-				customProps[name] = props[name];
-			}
-		});
-	}
-
-	// Collect any attribute that matches given strings.
-	attrs
-		.filter(attribute => attribute.name.match(/^data-trackable-context-/i))
-		.forEach(attribute => {
-			customProps[attribute.name.replace('data-trackable-context-', '')] = attribute.value;
-		});
-
-	return customProps;
-};
-
-const assignIfUndefined = (subject, target) => {
-	for (const prop in subject) {
-		if (!target[prop]) {
-			target[prop] = subject[prop];
-		} else {
-			console.warn(`You can't set a custom property called ${prop}`);
-		}
-	}
-};
-
-// Trace the clicked element and all of its parents, collecting properties as we go
-const getTrace = el => {
-	const rootEl = document;
-	const clickedEl = el;
-	const selector = clickedEl.getAttribute('data-trackable') ? `[data-trackable="${clickedEl.getAttribute('data-trackable')}"]` : clickedEl.nodeName;
-	const trace = [];
-	const customContext = {};
-	while (el && el !== rootEl) {
-		const props = getAllElementProperties(el);
-		const attrs = Array.from(el.attributes);
-		let domPathProps = getDomPathProps(attrs, props);
-
-		// If the element happens to have a data-trackable attribute, get the siblings
-		// and position of the clicked element (relative to the current element).
-		if (domPathProps["data-trackable"]) {
-			domPathProps = Object.assign(
-				domPathProps,
-				getSiblingsAndPosition(el, clickedEl, selector)
-			);
-		}
-
-		trace.push(domPathProps);
-
-		const contextProps = getContextProps(attrs, props, el === clickedEl);
-
-		assignIfUndefined(contextProps, customContext);
-
-		el = el.parentNode;
-	}
-	return { trace, customContext };
-};
-
 // Get properties for the event (as opposed to properties of the clicked element)
 // Available properties include mouse x- and y co-ordinates, for example.
 const getEventProperties = event => {
 	const eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
 		try {
-			if (event[property]) {returnObject[property] = sanitise(event[property]);}
+			if (event[property]) {returnObject[property] = utils.sanitise(event[property]);}
 		}
 		catch (e) {
 			console.log(e);
@@ -182,7 +62,7 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
 
-	assignIfUndefined(customContext, context);
+	utils.assignIfUndefined(customContext, context);
 
 	eventData.context = context;
 
