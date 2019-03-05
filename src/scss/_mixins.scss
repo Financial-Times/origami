@@ -127,10 +127,11 @@
 				display: inline-block;
 				padding: 0.4em 1em;
 				// Where supported `overflow-wrap: anywhere` is better than
-				// `word-break: break-all` as it only breaks a word where
+				// `word-break: break-word` as it only breaks a word where
 				// no otherwise-acceptable break points exist.
 				overflow-wrap: anywhere;
-				word-break: break-all;
+				word-break: break-all; // For browsers which do not support break-word, or overflow-wrap: anywhere.
+				word-break: break-word; // sass-lint:disable-line no-duplicate-properties
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
