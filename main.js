@@ -277,3 +277,4 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  * @type {Tracking}
  */
 export default tracking;
+export { tracking };
