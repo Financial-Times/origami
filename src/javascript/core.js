@@ -91,9 +91,10 @@ function track(config, callback) {
 
 	return request;
 }
-
-export default {
+const core = {
 	setRootID: setRootID,
 	getRootID: getRootID,
 	track: track
 };
+export default core;
+export { core };
