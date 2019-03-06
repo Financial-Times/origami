@@ -227,8 +227,7 @@ function init() {
 
 	return queue;
 }
-
-export default {
+const send = {
 	init: init,
 	setDomain: setDomain,
 	getDomain: function () { return domain;},
@@ -236,3 +235,5 @@ export default {
 	run: run,
 	addAndRun: addAndRun
 };
+export default send;
+export { send };
