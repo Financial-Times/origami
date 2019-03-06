@@ -1,4 +1,4 @@
-const xhr = function () {
+function xhr () {
 	const xhr = new window.XMLHttpRequest();
 
 	return {
