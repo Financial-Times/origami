@@ -223,10 +223,11 @@ function _generateHash(str) {
 	return h >>> 0;
 }
 
-
+const init = function init() {
+	utils.addEvent(window, 'oTracking.event', event);
+};
+event.init = init;
 
 export default event;
+export { event,  init };
 
-export function init() {
-	utils.addEvent(window, 'oTracking.event', event);
-}
