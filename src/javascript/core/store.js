@@ -1,8 +1,3 @@
-/*global module, require, window */
-/*eslint-disable*/
-'use strict';
-
-/*eslint-enable*/
 import utils from '../utils';
 
 /**

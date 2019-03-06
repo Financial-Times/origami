@@ -1,9 +1,3 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-
-/*eslint-enable*/
-
 import utils from '../utils';
 
 import Store from './store';

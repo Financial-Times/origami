@@ -1,6 +1,3 @@
-/*global module, require */
-'use strict'; // eslint-disable-line strict
-
 import Delegate from 'ftdomdelegate';
 import Queue from '../core/queue';
 import Core from '../core';

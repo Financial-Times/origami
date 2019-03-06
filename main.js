@@ -1,10 +1,11 @@
-/*global require, module */
-'use strict'; // eslint-disable-line strict
-
 import settings from './src/javascript/core/settings';
 import user from './src/javascript/core/user';
 import session from './src/javascript/core/session';
 import send from './src/javascript/core/send';
+import event from './src/javascript/events/custom';
+import page from './src/javascript/events/page-view';
+import click from './src/javascript/events/click';
+import utils from './src/javascript/utils';
 
 /**
  * The version of the tracking module.
@@ -75,13 +76,13 @@ Tracking.prototype.toString = function() {
  * Track a custom event.
  * @see {@link event}
  */
-Tracking.prototype.event = require('./src/javascript/events/custom');
+Tracking.prototype.event = event;
 
 /**
  * Make the page tracking request.
  * @see {@link page}
  */
-Tracking.prototype.page = require('./src/javascript/events/page-view');
+Tracking.prototype.page = page;
 
 /**
 * To initalise view events for components/elements.
@@ -93,7 +94,7 @@ Tracking.prototype.view = require('./src/javascript/events/component-view');
  * To initalise click events.
  * @see {@link click#init}
  */
-Tracking.prototype.click = require('./src/javascript/events/click');
+Tracking.prototype.click = click;
 
 /**
  * Previously, the click handler was initialised as "link".
@@ -105,7 +106,7 @@ Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') }; 
  * Tracking utilities.
  * @see {@link utils}
  */
-Tracking.prototype.utils = require('./src/javascript/utils');
+Tracking.prototype.utils = utils;
 
 /**
  * Get the rootID.

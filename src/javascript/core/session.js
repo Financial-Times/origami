@@ -1,8 +1,3 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
-
 let store;
 const defaultSessionConfig = {
 	storage: 'best',
@@ -90,9 +85,8 @@ function init(config) {
 
 	return getSession();
 }
-const session = {
-	init: init,
+export default {
+	init,
 	session: getSession
 };
-export default session;
-export { session };
+export { getSession as session, init };

@@ -1,9 +1,3 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-
-/*eslint-enable*/
-
 import Send from './core/send';
 
 import User from './core/user';
@@ -91,10 +85,13 @@ function track(config, callback) {
 
 	return request;
 }
-const core = {
-	setRootID: setRootID,
-	getRootID: getRootID,
-	track: track
+export default {
+	setRootID,
+	getRootID,
+	track
 };
-export default core;
-export { core };
+export {
+	setRootID,
+	getRootID,
+	track
+};

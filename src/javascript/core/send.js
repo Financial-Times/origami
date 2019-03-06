@@ -1,9 +1,3 @@
-/*global module, require, window */
-/*eslint-disable*/
-'use strict';
-
-/*eslint-enable*/
-
 import settings from './settings';
 
 import utils from '../utils';
@@ -227,13 +221,20 @@ function init() {
 
 	return queue;
 }
-const send = {
-	init: init,
-	setDomain: setDomain,
-	getDomain: function () { return domain;},
-	add: add,
-	run: run,
-	addAndRun: addAndRun
+function getDomain() { return domain;}
+export default {
+	init,
+	setDomain,
+	getDomain,
+	add,
+	run,
+	addAndRun
 };
-export default send;
-export { send };
+export {
+	init,
+	setDomain,
+	getDomain,
+	add,
+	run,
+	addAndRun
+};

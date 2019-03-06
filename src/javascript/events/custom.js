@@ -1,9 +1,3 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-
-/*eslint-enable*/
-
 import Core from '../core';
 
 import utils from '../utils';
@@ -229,5 +223,4 @@ const init = function init() {
 event.init = init;
 
 export default event;
-export { event, init };
 
