@@ -36,4 +36,4 @@ export default {
 	mockTransport,
 	unmockTransport,
 	errorNextSend
-}
+};
