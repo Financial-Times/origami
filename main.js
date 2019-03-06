@@ -9,3 +9,4 @@ const constructAll = function() {
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 export default oShare;
+export { oShare };
