@@ -193,3 +193,4 @@ Store.prototype.destroy = function () {
 };
 
 export default Store;
+export { Store };
