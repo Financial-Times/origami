@@ -1,7 +1,8 @@
 /* eslint-env mocha */
 
-const Errors = require('../src/js/oErrors');
-const proclaim = require('proclaim');
+import Errors from '../src/js/oErrors';
+
+import proclaim from 'proclaim';
 
 describe("oErrors", function() {
 	let mockRavenClient = null;
