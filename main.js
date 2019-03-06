@@ -135,4 +135,5 @@ if (typeof window !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
 
-module.exports = ODate;
+export default ODate;
+export { ODate };
