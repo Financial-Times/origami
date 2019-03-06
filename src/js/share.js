@@ -215,3 +215,4 @@ Share.init = function(rootEl) {
 };
 
 export default Share;
+export { Share };
