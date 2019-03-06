@@ -25,3 +25,4 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  * @type {Errors}
  */
 export default errors;
+export { errors };
