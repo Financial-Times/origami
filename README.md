@@ -422,6 +422,8 @@ doThis().then(that).catch(function(e) {
 	// re-throw event
 	throw e;
 });
+```
+
 
 ## Migration
 
@@ -434,7 +436,6 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 1 | 1.7 | N/A |
 
 
-```
 # License
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
