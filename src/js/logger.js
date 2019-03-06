@@ -136,3 +136,4 @@ Logger.level = {
 function noop() {}
 
 export default Logger;
+export { Logger };
