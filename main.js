@@ -7,4 +7,5 @@ const constructAll = function() {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = SubsCard;
+export default SubsCard;
+export { SubsCard };
