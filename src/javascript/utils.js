@@ -252,6 +252,48 @@ function whitelistProps (props, list) {
 }
 
 /**
+ * Trim strings
+ * @param {String} str - The string to trim.
+ * @return {String} The trimmed string.
+ */
+function sanitise (str) {
+	return typeof str === 'string' ? str.trim() : str;
+}
+
+ /**
+ * Assign the subject value if the target properties are undefined
+ * @param {Object} subject - assign the value
+ * @param {Object} target - be assigned the value
+ * @return
+ */
+function assignIfUndefined (subject, target) {
+	for (const prop in subject) {
+		if (!target[prop]) {
+			target[prop] = subject[prop];
+		} else {
+			console.warn(`You can't set a custom property called ${prop}`);
+		}
+	}
+}
+
+ /**
+ * Whitelist props
+ * @param {Object} props - An object whose props need to be whitelisted
+ * @param {Array} list - A list for whitelisting
+ * @return
+ */
+function whitelistProps (props, list) {
+	return list.reduce(
+		(acc, propName) => Object.assign(
+			{},
+			acc,
+			props[propName] ? { [propName]: props[propName] } : undefined
+		),
+		{}
+	);
+}
+
+/**
  * Utilities.
  * @alias utils
  */
@@ -269,7 +311,10 @@ export default {
 	triggerPage,
 	getValueFromCookie,
 	getValueFromUrl,
-	getValueFromJsVariable
+	getValueFromJsVariable,
+	sanitise,
+	assignIfUndefined,
+	whitelistProps
 };
 export {
 	log,
@@ -285,5 +330,8 @@ export {
 	triggerPage,
 	getValueFromCookie,
 	getValueFromUrl,
-	getValueFromJsVariable
+	getValueFromJsVariable,
+	sanitise,
+	assignIfUndefined,
+	whitelistProps
 };
