@@ -57,10 +57,16 @@ function getValue(key) {
 function destroy(key) {
 	delete settings[key];
 }
-const settings = {
-	'set': setValue,
-	'get': getValue,
-	'destroy': destroy
+const set = setValue;
+const get = getValue;
+
+export default {
+	set,
+	get,
+	destroy
 };
-export default settings;
-export { settings };
+export {
+	set,
+	get,
+	destroy
+};

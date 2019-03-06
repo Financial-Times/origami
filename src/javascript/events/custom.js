@@ -229,5 +229,5 @@ const init = function init() {
 event.init = init;
 
 export default event;
-export { event,  init };
+export { event, init };
 
