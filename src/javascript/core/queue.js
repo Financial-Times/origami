@@ -173,3 +173,4 @@ Queue.prototype.save = function () {
 };
 
 export default Queue;
+export { Queue };
