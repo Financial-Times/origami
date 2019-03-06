@@ -64,10 +64,9 @@ function listener(e) {
 	page(e.detail);
 }
 
-
-
-export default page;
-
-export function init() {
+const init = function init() {
 	utils.addEvent(window, 'oTracking.page', listener);
 }
+page.init = init;
+export default page;
+export { page };
