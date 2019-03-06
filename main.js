@@ -247,3 +247,4 @@ document.addEventListener('o.DOMContentLoaded', constructAll);
 
 
 export default Expander;
+export { Expander };
