@@ -1,9 +1,9 @@
 /*global module, require */
 'use strict'; // eslint-disable-line strict
 
-const Core = require('../core');
-const getTrace = require('../../libs/get-trace');
-const utils = require('../utils');
+import Core from '../core';
+import getTrace from '../../libs/get-trace';
+import utils from '../utils';
 
 const TRACKING_ATTRIBUTES = [
 	'componentContentId',

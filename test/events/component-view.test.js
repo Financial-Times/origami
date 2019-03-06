@@ -1,11 +1,11 @@
 /*global require, describe, it, before, after, sinon, document */
 require('../setup');
-const assert = require('assert');
-const settings = require('../../src/javascript/core/settings');
-const send = require('../../src/javascript/core/send');
-const core = require('../../src/javascript/core');
-const session = require('../../src/javascript/core/session');
-const componentView = require('../../src/javascript/events/component-view');
+import assert from "assert";
+import settings from '../../src/javascript/core/settings';
+import send from '../../src/javascript/core/send';
+import core from '../../src/javascript/core';
+import session from '../../src/javascript/core/session';
+import componentView from '../../src/javascript/events/component-view';
 
 const config = {
 	context: {
