@@ -1,4 +1,4 @@
-export default function () {
+const xhr = function () {
 	const xhr = new window.XMLHttpRequest();
 
 	return {
@@ -22,4 +22,6 @@ export default function () {
 			};
 		}
 	};
-}
+};
+export default xhr;
+export { xhr };
