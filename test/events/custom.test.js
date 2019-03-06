@@ -5,10 +5,10 @@ import Queue from "../../src/javascript/core/queue";
 import settings from "../../src/javascript/core/settings";
 import send from "../../src/javascript/core/send";
 import session from "../../src/javascript/core/session";
+import track_event from "../../src/javascript/events/custom.js";
 
 describe('event', function () {
 
-	const track_event = require("../../src/javascript/events/custom.js");
 
 	before(function () {
 		session.init();
