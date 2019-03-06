@@ -6,6 +6,7 @@ o-date provides javascript utilities for formatting and updating dates in FT sty
     - [Browser support](#browser-support)
     - [Markup](#markup)
     - [JavaScript](#javascript)
+  - [Migration Guide](#migration-guide)
   - [Contact](#contact)
   - [Licence](#licence)
 
@@ -78,6 +79,12 @@ If the `el` is a valid `<time>` element, the resulting o-date instance will be r
 Call on any instances to stop processing date updates and release the item reference.
 
 ---
+
+## Migration Guide
+
+### Migrating from v2 to v3
+We removed the ability to use o-date on the server in v3, the npm package `@financial-times/ft-date-format` is the server version of o-date, it is a drop-in replacement for o-date's server use.
+
 
 ## Contact
 
