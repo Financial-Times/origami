@@ -1,4 +1,4 @@
-module.exports = {
+const utils = {
 	unCapitalise: function(str) {
 		return str.charAt(0).toLowerCase() + str.substr(1);
 	},
@@ -81,3 +81,6 @@ module.exports = {
 		};
 	}
 };
+
+export default utils;
+export { utils };

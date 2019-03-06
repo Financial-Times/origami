@@ -18,7 +18,7 @@ const fireCustomEvent = function (el, event, data) {
 	}));
 };
 
-module.exports = {
+export default {
 	fireEvent: fireEvent,
 	fireCustomEvent: fireCustomEvent
 };
