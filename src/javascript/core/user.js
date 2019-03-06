@@ -65,10 +65,16 @@ function setUser(id) {
 function destroy() {
 	store.destroy();
 }
-
+const userID = function () { return userID; }
 export default {
-	init: init,
-	setUser: setUser,
-	userID: function () { return userID; },
-	destroy: destroy
+	init,
+	setUser,
+	userID,
+	destroy
+};
+export {
+	init,
+	setUser,
+	userID,
+	destroy
 };
