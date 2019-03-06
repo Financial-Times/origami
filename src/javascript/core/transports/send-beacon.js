@@ -1,4 +1,4 @@
-export default function () {
+const sendBeacon = function () {
 	let resolver;
 	let rejecter;
 	const p = new Promise((resolve, reject) => {
@@ -21,4 +21,7 @@ export default function () {
 			}
 		}
 	};
-}
+};
+
+export default sendBeacon;
+export { sendBeacon };
