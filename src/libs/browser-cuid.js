@@ -99,4 +99,5 @@ api.fingerprint = function browserPrint() {
 };
 
 export default api;
+export { api };
 /*eslint-enable */
