@@ -22,4 +22,4 @@ const image = function () {
 };
 
 export default image;
-export { image }
+export { image };

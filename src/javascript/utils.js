@@ -210,15 +210,6 @@ function getValueFromJsVariable(str) {
 }
 
 /**
- * Trim strings
- * @param {String} str - The string to trim.
- * @return {String} The trimmed string.
- */
-function sanitise (str) {
-	return typeof str === 'string' ? str.trim() : str;
-}
-
-/**
  * Assign the subject value if the target properties are undefined
  * @param {Object} subject - assign the value
  * @param {Object} target - be assigned the value
