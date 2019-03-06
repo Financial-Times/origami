@@ -210,22 +210,6 @@ function getValueFromJsVariable(str) {
 }
 
 /**
- * Assign the subject value if the target properties are undefined
- * @param {Object} subject - assign the value
- * @param {Object} target - be assigned the value
- * @return
- */
-function assignIfUndefined (subject, target) {
-	for (const prop in subject) {
-		if (!target[prop]) {
-			target[prop] = subject[prop];
-		} else {
-			console.warn(`You can't set a custom property called ${prop}`);
-		}
-	}
-}
-
-/**
  * Whitelist props
  * @param {Object} props - An object whose props need to be whitelisted
  * @param {Array} list - A list for whitelisting
@@ -251,7 +235,7 @@ function sanitise (str) {
 	return typeof str === 'string' ? str.trim() : str;
 }
 
- /**
+/**
  * Assign the subject value if the target properties are undefined
  * @param {Object} subject - assign the value
  * @param {Object} target - be assigned the value
@@ -265,23 +249,6 @@ function assignIfUndefined (subject, target) {
 			console.warn(`You can't set a custom property called ${prop}`);
 		}
 	}
-}
-
- /**
- * Whitelist props
- * @param {Object} props - An object whose props need to be whitelisted
- * @param {Array} list - A list for whitelisting
- * @return
- */
-function whitelistProps (props, list) {
-	return list.reduce(
-		(acc, propName) => Object.assign(
-			{},
-			acc,
-			props[propName] ? { [propName]: props[propName] } : undefined
-		),
-		{}
-	);
 }
 
 /**
