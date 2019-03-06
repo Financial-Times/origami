@@ -4,8 +4,7 @@
  * @module oErrors
  * @see Errors
  */
-import Errors from './src/js/oErrors';
-
+const Errors = require('./src/js/oErrors');
 const errors = new Errors();
 
 
@@ -24,5 +23,4 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  *
  * @type {Errors}
  */
-export default errors;
-export { errors };
+module.exports = errors;
