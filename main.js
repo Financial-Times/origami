@@ -345,3 +345,4 @@ if (typeof window !== 'undefined') {
 }
 
 export default ODate;
+export { ODate };
