@@ -135,5 +135,4 @@ Logger.level = {
 
 function noop() {}
 
-export default Logger;
-export { Logger };
+module.exports = Logger;

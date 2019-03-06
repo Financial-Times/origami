@@ -1,4 +1,4 @@
-import Logger from './logger';
+const Logger = require('./logger');
 
 function isFunction(fn) {
 	return typeof fn === 'function';
@@ -518,6 +518,4 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 	return options;
 };
 
-export default Errors;
-export { Errors };
-
+module.exports = Errors;
