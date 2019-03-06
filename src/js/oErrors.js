@@ -519,3 +519,5 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 };
 
 export default Errors;
+export { Errors };
+
