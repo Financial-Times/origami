@@ -162,7 +162,7 @@ const hasDarkBackground = (backgroundColour) => {
 	return (darkBackgrounds.indexOf(backgroundColour) > -1);
 };
 
-module.exports = content => {
+const mapContentToTopper = content => {
 	const topper = content.topper || {};
 	const settings = getTopperSettings(content);
 	return Object.assign({},
@@ -175,3 +175,7 @@ module.exports = content => {
 		settings,
 		{ hasDarkBackground: hasDarkBackground(settings.backgroundColour) });
 };
+
+export default mapContentToTopper;
+export { mapContentToTopper };
+
