@@ -423,6 +423,17 @@ doThis().then(that).catch(function(e) {
 	throw e;
 });
 
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 4 | N/A | N/A |
+⚠ maintained | 3 | 3.8 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.0 | N/A |
+╳ deprecated | 2 | 2.0 | N/A |
+╳ deprecated | 1 | 1.7 | N/A |
+
+
 ```
 # License
 
