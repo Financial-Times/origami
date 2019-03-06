@@ -1,6 +1,6 @@
 import utils from '../../utils';
 
-export default function () {
+const image = function () {
 	const image = new Image(1,1);
 
 	return {
@@ -19,4 +19,7 @@ export default function () {
 			}
 		}
 	};
-}
+};
+
+export default image;
+export { image };
