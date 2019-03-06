@@ -1,6 +1,6 @@
 /**global require,module*/
 
-const DomDelegate = require('ftdomdelegate');
+import DomDelegate from 'ftdomdelegate';
 
 const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
@@ -214,4 +214,5 @@ Share.init = function(rootEl) {
 	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl) );
 };
 
-module.exports = Share;
+export default Share;
+export { Share };
