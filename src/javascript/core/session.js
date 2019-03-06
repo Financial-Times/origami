@@ -90,8 +90,9 @@ function init(config) {
 
 	return getSession();
 }
-
-export default {
+const session = {
 	init: init,
 	session: getSession
 };
+export default session;
+export { session };
