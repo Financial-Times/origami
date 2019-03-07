@@ -8,4 +8,4 @@ function initDemos() {
 
 initDemos();
 
-export default initDemos;
+module.exports = initDemos;

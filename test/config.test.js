@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import * as fixtures from './helpers/fixtures';
 
-import Expander from './../main';
+const Expander = require('./../main');
 
 describe("Expander", () => {
 	let expanderConfig;

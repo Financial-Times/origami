@@ -1,4 +1,4 @@
-import viewport from 'o-viewport';
+const viewport = require('o-viewport');
 
 const rootClassName = 'o-expander';
 let count = 0;
@@ -246,5 +246,4 @@ const constructAll = function() {
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 
-export default Expander;
-export { Expander };
+module.exports = Expander;
