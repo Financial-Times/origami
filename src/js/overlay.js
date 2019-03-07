@@ -1,7 +1,7 @@
-import Delegate from 'ftdomdelegate';
-import viewport from 'o-viewport';
-import oLayers from 'o-layers';
-import utils from './utils';
+const Delegate = require('ftdomdelegate');
+const viewport = require('o-viewport');
+const oLayers = require('o-layers');
+const utils = require('./utils');
 const overlays = {};
 
 const checkOptions = function(opts) {
@@ -571,5 +571,4 @@ Overlay.getOverlays = function() {
 	return overlays;
 };
 
-export default Overlay;
-export { Overlay };
+module.exports = Overlay;
