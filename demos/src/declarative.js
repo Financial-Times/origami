@@ -1,5 +1,3 @@
-import ODate from '../../main';
-
 const now = new Date();
 const today = new Date();
 const dates = document.querySelectorAll('time:not([datetime])');
@@ -9,4 +7,4 @@ for (let i = 0; i < dates.length; i++) {
 	dates[i].setAttribute('datetime', today.toISOString());
 }
 
-ODate.init();
+require('./demo');

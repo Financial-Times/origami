@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 
-import oDate from '../main';
+const oDate = require('../main');
 
 describe('o-date', () => {
 
