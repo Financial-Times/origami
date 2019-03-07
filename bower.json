@@ -1,8 +1,7 @@
 {
   "name": "o-big-number",
   "main": [
-    "main.scss",
-    "main.js"
+    "main.scss"
   ],
   "dependencies": {
     "o-colors": ">=2.4.4 <4"
