@@ -23,7 +23,7 @@ bower install --S o-header
 Load the JS:
 
 ```js
-const oHeader = require('o-header');
+import oHeader from 'o-header';
 
 oHeader.init();
 ```
