@@ -1,8 +1,8 @@
 /*global require, describe, it */
 
-import assert from 'assert';
+const assert = require('assert');
 
-import Queue from '../../src/javascript/core/queue';
+const Queue = require('../../src/javascript/core/queue');
 const queue_name = 'queue_test';
 
 // PhantomJS doesn't always create a "fresh" environment...

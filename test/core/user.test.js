@@ -1,8 +1,8 @@
 /*global require, describe, it, afterEach */
 
-import assert from 'assert';
+const assert = require('assert');
 
-import User from '../../src/javascript/core/user';
+const User = require('../../src/javascript/core/user');
 
 describe('Core.User', function () {
 

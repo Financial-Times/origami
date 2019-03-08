@@ -1,8 +1,8 @@
 /*global require, describe, it, document, navigator */
 
-import assert from 'assert';
+const assert = require('assert');
 
-import Store from '../../src/javascript/core/store';
+const Store = require('../../src/javascript/core/store');
 
 describe('Core.Store', function () {
 

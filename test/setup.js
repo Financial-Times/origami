@@ -1,6 +1,6 @@
 /* global sinon*/
 
-import transports from '../src/javascript/core/transports';
+const transports = require('../src/javascript/core/transports');
 
 let willError = false;
 

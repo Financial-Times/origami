@@ -1,8 +1,8 @@
 /*global require, describe, it */
 
-import assert from 'assert';
+const assert = require('assert');
 
-import Settings from '../../src/javascript/core/settings';
+const Settings = require('../../src/javascript/core/settings');
 
 describe('Core.Settings', function () {
 

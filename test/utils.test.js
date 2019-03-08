@@ -1,8 +1,8 @@
 /*global require, describe, it, sinon */
 
-import assert from 'assert';
+const assert = require('assert');
 
-import Utils from '../src/javascript/utils';
+const Utils = require('../src/javascript/utils');
 
 describe('Utils', function () {
 

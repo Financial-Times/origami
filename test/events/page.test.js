@@ -1,12 +1,12 @@
 /*global require, describe, it, before, beforeEach, after, sinon */
 require('../setup');
-import assert from "assert";
-import settings from "../../src/javascript/core/settings";
-import send from "../../src/javascript/core/send";
-import session from "../../src/javascript/core/session";
-import Queue from "../../src/javascript/core/queue";
-import page from "../../src/javascript/events/page-view.js";
-import event from "../../src/javascript/events/custom.js";
+const assert = require("assert");
+const settings = require("../../src/javascript/core/settings");
+const send = require("../../src/javascript/core/send");
+const session = require("../../src/javascript/core/session");
+const Queue = require("../../src/javascript/core/queue");
+const page = require("../../src/javascript/events/page-view.js");
+const event = require("../../src/javascript/events/custom.js");
 
 
 describe('page', function () {
