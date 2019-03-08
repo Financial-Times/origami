@@ -460,4 +460,3 @@ class Video {
 Video.Playlist = Playlist;
 
 export default Video;
-export {Video};

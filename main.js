@@ -8,4 +8,3 @@ const constructAll = () => {
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 export default Video;
-export {Video};

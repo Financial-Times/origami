@@ -393,4 +393,3 @@ class VideoAds {
 }
 
 export default VideoAds;
-export {VideoAds};

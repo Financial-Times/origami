@@ -61,4 +61,3 @@ class Playlist {
 }
 
 export default Playlist;
-export {Playlist};
