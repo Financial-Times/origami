@@ -9,7 +9,7 @@ sinon.assert.expose(proclaim, {
 	prefix: ''
 });
 
-import Tabs from '../main';
+const Tabs = require('../main');
 
 let testTabs;
 let tabsEl;
