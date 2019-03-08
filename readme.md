@@ -110,7 +110,7 @@ $o-topper-is-silent: false;
 This component includes a Javascript helper, which should be used to select the correct topper themes and colors, as well as other topper-overriden data, given a particular JSON-formatted FT article (such as from the Content API).
 
 ```js
-import {mapContentToTopper} from 'o-topper';
+const {mapContentToTopper} = require('o-topper');
 
 const topper = mapContentToTopper(ftArticle);
 ```

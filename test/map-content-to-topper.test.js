@@ -1,5 +1,6 @@
-import proclaim from 'proclaim';
-import subject from '../main';
+const { expect } = require('chai').use(require('dirty-chai'));
+
+const subject = require('../main').mapContentToTopper;
 
 describe('Topper content map', () => {
 	const articleContentFixture = {
@@ -24,15 +25,15 @@ describe('Topper content map', () => {
 
 		it('the regular article topper if the topper theme is unknown', () => {
 			const topper = subject({topper: { theme: 'some-crazy-theme' }});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
-			proclaim.deepStrictEqual(topper.modifiers['basic']);
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('paper');
+			expect(topper.modifiers).to.deep.equal(['basic']);
 		});
 
 		it('live blog toppers for standalone live blogs', () => {
 			const topper = subject({ realtime: true, liveBlog: { status: 'inprogress' }});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'crimson');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('crimson');
 		});
 
 		it('the branded article topper', () => {
@@ -45,32 +46,32 @@ describe('Topper content map', () => {
 				}],
 				brandConcept: true
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.modifiers, ['branded', 'has-headshot']);
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.modifiers).to.deep.equal(['branded', 'has-headshot']);
 		});
 
 		it('the editorially selected topper if it exists — overrides backgroundColour', () => {
 			const topper = subject({topper: { layout: 'full-bleed-offset' }});
-			proclaim.isTrue(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
+			expect(topper.largeHeadline).to.be.true();
+			expect(topper.backgroundColour).to.equal('paper');
 		});
 
 		it('topper with paper background color if none is defined', () => {
 			const topper = subject({topper: { layout: 'split-text-center' }});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
+			expect(topper.backgroundColour).to.equal('paper');
 		});
 	});
 
 	context('Dark background setting', () => {
 		it('returns true if the background is in the list of dark backgrounds', () => {
 			const topper = subject(articleContentFixture);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'slate');
-			proclaim.deepStrictEqual(topper.hasDarkBackground, true);
+			expect(topper.backgroundColour).to.equal('slate');
+			expect(topper.hasDarkBackground).to.equal(true);
 		});
 		it('returns false if the background is not in the list of dark backgrounds', () => {
 			const topper = subject({topper: { theme: 'some-crazy-theme' }});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
-			proclaim.deepStrictEqual(topper.hasDarkBackground, false);
+			expect(topper.backgroundColour).to.equal('paper');
+			expect(topper.hasDarkBackground).to.equal(false);
 		});
 	});
 
@@ -81,8 +82,8 @@ describe('Topper content map', () => {
 				annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				design: { theme: 'basic' }
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'wheat');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('wheat');
 		});
 
 		it('first article in a news package', () => {
@@ -96,8 +97,8 @@ describe('Topper content map', () => {
 					annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				}
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'wheat');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('wheat');
 		});
 
 		it('second article in the news package is normal', () => {
@@ -111,8 +112,8 @@ describe('Topper content map', () => {
 					annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				}
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('paper');
 		});
 	});
 
@@ -123,8 +124,8 @@ describe('Topper content map', () => {
 				annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				design: { theme: 'extra' }
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'crimson');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('crimson');
 		});
 
 		it('first article in a news package', () => {
@@ -138,8 +139,8 @@ describe('Topper content map', () => {
 					annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				}
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'crimson');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('crimson');
 		});
 
 		it('second article in a news package is normal', () => {
@@ -153,8 +154,8 @@ describe('Topper content map', () => {
 					annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				}
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('paper');
 		});
 
 		it('live blog in package also is crimson', () => {
@@ -170,23 +171,23 @@ describe('Topper content map', () => {
 					annotations: [{prefLabel: 'Barcelona' }, { prefLabel: 'News' }],
 				}
 			});
-			proclaim.notOk(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.backgroundColour, 'crimson');
+			expect(topper.largeHeadline).not.to.be.true();
+			expect(topper.backgroundColour).to.equal('crimson');
 		});
 	});
 
 	context('package article', () => {
 		it('applies slate offset topper if package theme is extra', () => {
 			const topper = subject(articleContentFixture, {});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'slate');
-			proclaim.isTrue(topper.largeHeadline);
+			expect(topper.backgroundColour).to.equal('slate');
+			expect(topper.largeHeadline).to.be.true();
 		});
 
 		it('applies slate offset topper to article if package theme is extra-wide', () => {
 			const topper = subject(articleExtraWideFixture, {});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'slate');
-			proclaim.isTrue(topper.largeHeadline);
-			proclaim.deepStrictEqual(topper.modifiers[1], 'package-extra');
+			expect(topper.backgroundColour).to.equal('slate');
+			expect(topper.largeHeadline).to.be.true();
+			expect(topper.modifiers[1]).to.equal('package-extra');
 		});
 	});
 
@@ -204,14 +205,14 @@ describe('Topper content map', () => {
 
 		it('is a sky, branded topper', () => {
 			const topper = subject(opinionArticleNotInPackage, {});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'sky');
-			proclaim.isTrue(topper.isOpinion);
+			expect(topper.backgroundColour).to.equal('sky');
+			expect(topper.isOpinion).to.be.true();
 		});
 
 		it('applies slate offset topper to article if package theme is extra-wide', () => {
 			const topper = subject(opinionArticleInPackage, {});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'wheat');
-			proclaim.isTrue(topper.isOpinion);
+			expect(topper.backgroundColour).to.equal('wheat');
+			expect(topper.isOpinion).to.be.true();
 		});
 	});
 
@@ -223,8 +224,8 @@ describe('Topper content map', () => {
 					backgroundColour: 'velvet',
 				},
 			});
-			proclaim.deepStrictEqual(topper.layout, 'branded');
-			proclaim.deepStrictEqual(topper.backgroundColour, 'velvet');
+			expect(topper.layout).to.equal('branded');
+			expect(topper.backgroundColour).to.equal('velvet');
 		});
 
 		it('blends opinion with custom brands', () => {
@@ -236,9 +237,9 @@ describe('Topper content map', () => {
 					backgroundColour: 'velvet',
 				},
 			});
-			proclaim.deepStrictEqual(topper.layout, 'branded');
-			proclaim.deepStrictEqual(topper.backgroundColour, 'velvet');
-			proclaim.isTrue(topper.isOpinion);
+			expect(topper.layout).to.equal('branded');
+			expect(topper.backgroundColour).to.equal('velvet');
+			expect(topper.isOpinion).to.be.true();
 		});
 
 		it('prefers editorial themes over custom brands', () => {
@@ -249,8 +250,8 @@ describe('Topper content map', () => {
 					layout: 'full-bleed-offset',
 				},
 			});
-			proclaim.deepStrictEqual(topper.backgroundColour, 'paper');
-			proclaim.isTrue(topper.largeHeadline);
+			expect(topper.backgroundColour).to.equal('paper');
+			expect(topper.largeHeadline).to.be.true();
 		});
 	});
 });
