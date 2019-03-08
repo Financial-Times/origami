@@ -1,3 +1,5 @@
+/*global module */
+
 class Tabs {
 
 	constructor(rootEl, config) {
