@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-import SubsCard from './../main';
+const SubsCard = require('./../main');
 
 describe("SubsCard", () => {
 	it('is defined', () => {
