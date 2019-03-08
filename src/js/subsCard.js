@@ -1,4 +1,4 @@
-import oExpander from 'o-expander';
+const oExpander = require('o-expander');
 
 let tallestTopHeight = 0;
 
