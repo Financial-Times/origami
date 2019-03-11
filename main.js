@@ -1,10 +1,7 @@
 // let debug;
-import * as utils from './src/utils';
-
-const {
-	debounce,
-	throttle
-} = utils;
+const utils = require('./src/utils');
+const throttle = utils.throttle;
+const debounce = utils.debounce;
 
 const listeners = {};
 const intervals = {
@@ -142,32 +139,16 @@ function stopListeningTo(eventType) {
 	}
 }
 
-function debug () {
-	// debug = true;
-	utils.debug();
-}
-
-export default {
-	debug,
-	listenTo,
-	stopListeningTo,
-	setThrottleInterval,
+module.exports = {
+	debug: function() {
+		// debug = true;
+		utils.debug();
+	},
+	listenTo: listenTo,
+	stopListeningTo: stopListeningTo,
+	setThrottleInterval: setThrottleInterval,
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
 	getScrollPosition: utils.getScrollPosition,
-	getVisibility: utils.getVisibility,
+	getVisibility: utils.getVisibility
 };
-
-export {
-	debug,
-	listenTo,
-	stopListeningTo,
-	setThrottleInterval
-};
-
-export {
-	getOrientation,
-	getSize,
-	getScrollPosition,
-	getVisibility
-} from './src/utils.js';
