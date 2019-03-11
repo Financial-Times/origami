@@ -29,8 +29,8 @@ function getWidth(ignoreScrollbars) {
 
 function getSize(ignoreScrollbars) {
 	return {
-		height: getHeight(ignoreScrollbars),
-		width: getWidth(ignoreScrollbars)
+		height: module.exports.getHeight(ignoreScrollbars),
+		width: module.exports.getWidth(ignoreScrollbars)
 	};
 }
 
