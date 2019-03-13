@@ -28,7 +28,7 @@
 
 		p:not(.o-layout__unstyled-element) {
 			@include oTypographyBody;
-			@include oTypographySize($scale: 1, $line-height: 1.4);
+			@include oTypographySans($scale: 1, $line-height: 1.4);
 		}
 
 		a:not(.o-layout__unstyled-element) {
