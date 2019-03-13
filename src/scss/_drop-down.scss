@@ -43,7 +43,7 @@
 
 	// Drop down list.
 	ul[data-o-header-services-level="2"] {
-		@include oTypographySize(-1);
+		@include oTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
 		box-sizing: border-box;
