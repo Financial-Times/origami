@@ -68,17 +68,13 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySize($scale: 2);
+		@include oTypographySans($scale: (default: 2, M: 4));
 		@include oTypographyBold('sans');
 		text-overflow: ellipsis;
-
-		@include oGridRespondTo(M) {
-			@include oTypographySize($scale: 4);
-		}
 	}
 
 	.o-header-services__product-tagline {
-		@include oTypographySize($scale: 3);
+		@include oTypographySans($scale: 3);
 		margin-left: $_o-header-services-padding;
 		text-overflow: ellipsis;
 		overflow: hidden;
