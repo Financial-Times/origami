@@ -124,7 +124,7 @@ describe('component:view', () => {
 					category,
 					selector: `[${targetAttribute}]`,
 					getContextData: (el) => {
-						return { contentId: el.getAttribute(idAttribute), type };
+						return { componentContentId: el.getAttribute(idAttribute), type };
 					},
 				};
 
@@ -145,7 +145,7 @@ describe('component:view', () => {
 				assert.equal(trackedDetail.category, category);
 				assert.equal(trackedDetail.action, 'view');
 				assert.ok(trackedDetail.context.domPathTokens, true);
-				assert.equal(trackedDetail.context.contentId, id);
+				assert.equal(trackedDetail.context.componentContentId, id);
 				assert.equal(trackedDetail.context.type, type);
 			});
 		});
@@ -195,7 +195,7 @@ describe('component:view', () => {
 						selector: `[${targetAttribute}]`,
 						getContextData: (el) => {
 							return {
-								contentId: el.getAttribute(idAttribute),
+								componentContentId: el.getAttribute(idAttribute),
 								name: 'name',
 							};
 						},
@@ -215,7 +215,7 @@ describe('component:view', () => {
 				it('should not have non-whitelist props in event detail', () => {
 					const trackedDetail = core.track.getCall(0).args[0];
 
-					assert.equal(trackedDetail.context.contentId, id);
+					assert.equal(trackedDetail.context.componentContentId, id);
 					assert.equal(trackedDetail.context.name, undefined);
 				});
 			});

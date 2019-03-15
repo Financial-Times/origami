@@ -201,7 +201,7 @@ _Note:_ `getContextData` should be a function which returns `{Object}`. It accep
 		selector: '.o-teaser__audio', // default: '[data-o-tracking-view]'
 		getContextData: (el) => {  // default: null
 			return {
-				contentId: el.getAttribute('data-id'),
+				componentContentId: el.getAttribute('data-id'),
 				type: 'audio',
 				subtype: 'podcast',
 			 	component: 'teaser'
