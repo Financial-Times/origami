@@ -107,6 +107,27 @@ describe('LinkedHeading', () => {
 
 			});
 
+			describe('when the heading already contains a link element', () => {
+				let expectedHtml;
+				let existingLinkElement;
+
+				beforeEach(() => {
+					expectedHtml = '<a href="/mock-url">Mock Content</a>';
+					headingElement.innerHTML = expectedHtml;
+					existingLinkElement = headingElement.querySelector('a');
+					returnValue = originalConstructLinkElement.call(instance);
+				});
+
+				it('returns the existing link element', () => {
+					assert.strictEqual(returnValue, existingLinkElement);
+				});
+
+				it('does nothing to the DOM', () => {
+					assert.strictEqual(headingElement.innerHTML, expectedHtml);
+				});
+
+			});
+
 		});
 
 	});

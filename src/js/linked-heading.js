@@ -26,13 +26,20 @@ class LinkedHeading {
 	}
 
 	/**
-	 * Construct the heading link element.
+	 * Construct the heading link element. If a link element already exists inside the heading,
+	 * then this method will do nothing
 	 * @private
-	 * @returns {HTMLElement} Returns the new link element
+	 * @returns {HTMLElement} Returns the new link element, or the existing link element if present
 	 */
 	constructLinkElement () {
 		if (!this.id) {
 			return null;
+		}
+
+		// Check for an existing link element
+		const existingAnchor = this.headingElement.querySelector('a');
+		if (existingAnchor) {
+			return existingAnchor;
 		}
 
 		// Create heading anchor.
