@@ -141,13 +141,6 @@ Altogether, a customised navigation should look like this:
 </div>
 ```
 
-The query layout also supports a generated navigation but it is disabled by default and must be turned on with `data-o-layout-construct-nav="true"`:
-```html
-<div class="o-layout o-layout--query" data-o-component="o-layout" data-o-layout-construct-nav="true">
-	<!-- query layout -->
-</div>
-```
-
 Alternatively you can customise the navigation [via JavaScript](#custom-navigation).
 
 ## Landing Layout
@@ -332,6 +325,13 @@ The query layout is intended for search, filter, and result pages. It provides f
 </div>
 ```
 
+The query sidebar supports a [generated navigation like the documentation layout](#sidebar) but it is disabled by default and must be turned on with `data-o-layout-construct-nav="true"`:
+```html
+<div class="o-layout o-layout--query" data-o-component="o-layout" data-o-layout-construct-nav="true">
+	<!-- query layout -->
+</div>
+```
+
 ### Large Viewports
 ```
 ┌————————————————————————————┐
@@ -451,29 +451,35 @@ const oLayout = require('o-layout');
 oLayout.init();
 ```
 
-### Custom Navigation
+### Navigation
 
-The [documentation layout](#documentation-layout) uses JavaScript to construct a sidebar navigation out of headings (`h1`, `h2` and `h3`) in the content, and to highlight those items depending on the scroll position. This is its default behaviour. The [query layout](#query-layout) also supports a generated nav but by default it is disabled.
+The [documentation layout](#documentation-layout) uses JavaScript to construct a sidebar navigation out of headings (`h1`, `h2` and `h3`) in the content, and to highlight those items depending on the scroll position. The [query layout](#query-layout) also supports a generated nav but by default it is disabled.
 
-To generate a nav for the query layout, explicitly set `constructNav` to `true`:
+To generate a nav for the query layout, or turn it off for the documentation layout, explicitly set the "construct navigation" option to `true` or `false`. Either declaritively in your html with the `data-o-layout-construct-nav` attribute:
+```html
+<div class="o-layout o-layout--query" data-o-layout-construct-nav="true" data-o-component="o-layout">
+    <!-- Layout markup. -->
+</div>
+```
 
+Or imperatively with JavaScript, by setting the `constructNav` option:
 ```js
 const oLayout = require('o-layout');
 oLayout.init(null, { constructNav: true });
 ```
 
-If you would like to specify a custom selector for the navigation generation, set the `navHeadingSelector` option to any valid CSS selector string:
+If you would like to change what items show in the generated navigation, set the "navigation heading selector" option to any valid CSS selector. Do this declaritively in your html with the `data-o-layout-nav-heading-selector` attribute:
+```html
+<div class="o-layout o-layout--query" data-o-layout-nav-heading-selector="h1, h2, .nav-heading" data-o-component="o-layout">
+    <!-- Layout markup. -->
+</div>
+```
+
+Or imperatively with JavaScript, by setting the `navHeadingSelector` option:
 
 ```js
 const oLayout = require('o-layout');
 oLayout.init(null, { navHeadingSelector: 'h1, h2, .nav-heading' });
-```
-
-If you would like to define your own navigation, you will need to initialise `o-layout` with the `constructNav` option set to `false`:
-
-```js
-const oLayout = require('o-layout');
-oLayout.init(null, { constructNav: false });
 ```
 
 ### Linking Headings
