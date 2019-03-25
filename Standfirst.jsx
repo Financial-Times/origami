@@ -1,6 +1,18 @@
 import { h } from '@financial-times/x-engine';
+import Link from './Link';
 
-export default ({ standfirst, altStandfirst, headlineTesting }) => {
+
+export default ({ standfirst, altStandfirst, headlineTesting, relativeUrl, url, ...props }) => {
 	const displayStandfirst = headlineTesting && altStandfirst ? altStandfirst : standfirst;
-	return displayStandfirst ? <p className="o-teaser__standfirst">{displayStandfirst}</p> : null;
+	const displayUrl = relativeUrl || url;
+	return displayStandfirst ?
+	<p className="o-teaser__standfirst">
+		<Link {...props} url={displayUrl} attrs={{
+				'data-trackable': 'standfirst-link',
+				className: 'js-teaser-standfirst-link',
+		}}>
+			{displayStandfirst}
+		</Link>
+	</p>
+	: null;
 };
