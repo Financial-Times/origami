@@ -93,19 +93,19 @@ describe('Utils', function () {
 	});
 
 	it('should provide whitelistProps functionality', function () {
-		const whitelist = [ 'contentId', 'type' ];
+		const whitelist = [ 'componentContentId', 'type' ];
 
 		[
 			{
-				target: { contentId: 1234, type: 'audio' },
-				result: { contentId: 1234, type: 'audio' }
+				target: { componentContentId: 1234, type: 'audio' },
+				result: { componentContentId: 1234, type: 'audio' }
 			},
 			{
-				target: { contentId: 1234, name: 'name' },
-				result: { contentId: 1234 }
+				target: { componentContentId: 1234, name: 'name' },
+				result: { componentContentId: 1234 }
 			},
 			{
-				target: { contentId: undefined },
+				target: { componentContentId: undefined },
 				result: {}
 			}
 		].forEach(function (test) {

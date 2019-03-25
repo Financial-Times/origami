@@ -6,7 +6,7 @@ const getTrace = require('../../libs/get-trace');
 const utils = require('../utils');
 
 const TRACKING_ATTRIBUTES = [
-	'contentId',
+	'componentContentId',
 	'type',
 	'subtype',
 	'component',
