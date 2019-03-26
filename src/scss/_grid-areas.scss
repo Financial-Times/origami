@@ -40,7 +40,7 @@
 		justify-content: center;
 		// The background image is inherited by the pseudo element.
 		// This is to make it easier for a build service users to modify the background image.
-		@if $hero-image {
+		@if type-of($hero-image) == 'string' and str-length($hero-image) > 0 {
 			background-image: url($hero-image);
 		}
 		background-size: 0 0;
