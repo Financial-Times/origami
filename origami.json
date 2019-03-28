@@ -9,6 +9,11 @@
 			"customevent"
 		]
 	},
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"supportStatus": "active",
 	"support": "https://github.com/Financial-Times/o-expander/issues",
 	"supportContact": {
