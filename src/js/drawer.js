@@ -171,8 +171,13 @@ function init () {
 	addSubmenuToggles(drawerEl);
 	addDrawerToggles(drawerEl);
 
-	drawerEl.removeAttribute('data-o-header-drawer--no-js');
-	drawerEl.setAttribute('data-o-header-drawer--js', 'true');
+	// Wrap in a timeout to stop page load stall in Chrome v73 on Android
+	// toggleTabbing and the removal of the no-js attribute spikes the CPU
+	// and causes the main process to block for around 10 seconds.
+	setTimeout(() => {
+		drawerEl.removeAttribute('data-o-header-drawer--no-js');
+		drawerEl.setAttribute('data-o-header-drawer--js', 'true');
+	});
 }
 
 export default { init, handleCloseEvents };
