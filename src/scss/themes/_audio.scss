@@ -1,4 +1,28 @@
 @mixin oTeaserAudio {
+	.o-teaser__heading:before {
+		@include oIconsGetIcon('audio', oColorsGetPaletteColor('white'), 15, $apply-width-height: false);
+		content: '';
+		width: 0.7em;
+		height: 0.7em;
+		min-width: 12px;
+		min-height: 12px;
+		margin-right: 0.15em;
+		background-color: oColorsGetPaletteColor('slate');
+
+	}
+
+	// hide the title prefix icon if there is an image...
+	&.o-teaser--has-image .o-teaser__heading:before {
+		content: none;
+	}
+
+	// ...except for when the image is hidden on small teasers on narrow viewports
+	&.o-teaser--has-image.o-teaser--small .o-teaser__heading:before {
+		@include oGridRespondTo($until: 'M') {
+			content: '';
+		}
+	}
+
 	// Add audio icon overlay for image
 	.o-teaser__image-placeholder {
 		position: relative;
