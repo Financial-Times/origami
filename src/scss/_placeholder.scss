@@ -22,6 +22,7 @@
 	.o-video__placeholder-image {
 		will-change: opacity;
 		transition: opacity 0.25s;
+		object-fit: cover;
 
 		// saves messing with z-indexes!
 		:hover > & {
