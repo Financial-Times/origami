@@ -11,6 +11,8 @@ class DropDown {
 			item.querySelector('button').addEventListener('click', this);
 		});
 
+		// the event listener is added to the body here to handle cases where a
+		// user might click anywhere else on the body to collapse open dropdowns
 		document.body.addEventListener('click', this);
 		window.addEventListener('resize', this);
 		window.addEventListener('keydown', this);
@@ -22,7 +24,7 @@ class DropDown {
 	 */
 	handleEvent(e) {
 		if (e.type === 'click') {
-			if (!e.target.parentNode.getAttribute('data-o-header-services-level')) {
+			if (!e.target.parentNode || !e.target.parentNode.getAttribute('data-o-header-services-level')) {
 				DropDown.collapseAll(this.navItems);
 				return;
 			}
