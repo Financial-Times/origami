@@ -153,7 +153,6 @@
     }
 }
 
-
 @include test-module('oTypographyLinkExternalIcon') {
     @include test('Colours according to the link colour usecase by default.') {
         @include assert {
@@ -191,6 +190,88 @@
                 &::after {
                     background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23FF0000,%23FF0000&format=svg");
                 }
+            }
+        }
+    }
+}
+
+@include test-module('oTypographyBold') {
+    @include test('Outputs the default font weight if not given a font type (the FinancierDisplayWeb bold weight for the master brand).') {
+        @include assert {
+            @include output {
+                @include oTypographyBold();
+            }
+            @include contains {
+                font-weight: 700;
+            }
+        }
+    }
+    @include test('Outputs the sans "bold" font weight of 600 (semibold).') {
+        @include assert {
+            @include output {
+                @include oTypographyBold('sans');
+            }
+            @include contains {
+                font-weight: 600;
+            }
+        }
+    }
+    @include test('Outputs the serif "bold" font weight.') {
+        @include assert {
+            @include output {
+                @include oTypographyBold('serif');
+            }
+            @include contains {
+                font-weight: 700;
+            }
+        }
+    }
+    @include test('Outputs the display "bold" font weight.') {
+        @include assert {
+            @include output {
+                @include oTypographyBold('display');
+            }
+            @include contains {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@include test-module('oTypographySansBold') {
+    @include test('Outputs the sans "bold" font weight of 600 (semibold).') {
+        @include assert {
+            @include output {
+                @include oTypographySansBold($scale: 1);
+            }
+            @include contains {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@include test-module('oTypographySerifBold') {
+    @include test('Outputs the serif "bold" font weight of 700 (bold).') {
+        @include assert {
+            @include output {
+                @include oTypographySerifBold($scale: 1);
+            }
+            @include contains {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@include test-module('oTypographyDisplayBold') {
+    @include test('Outputs the display "bold" font weight of 700 (bold).') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplayBold($scale: 1);
+            }
+            @include contains {
+                font-weight: 700;
             }
         }
     }

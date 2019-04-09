@@ -54,7 +54,7 @@
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
-		'weight': 'bold',
+		'weight': _oTypographyGetBoldWeight('display'),
 		'progressive': $progressive
 	));
 }
@@ -70,7 +70,7 @@
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
-		'weight': 'semibold',
+		'weight': _oTypographyGetBoldWeight('sans'),
 		'progressive': $progressive
 	));
 }
@@ -86,7 +86,7 @@
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
-		'weight': 'bold',
+		'weight': _oTypographyGetBoldWeight('serif'),
 		'progressive': $progressive
 	));
 }

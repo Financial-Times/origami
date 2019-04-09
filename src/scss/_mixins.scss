@@ -59,15 +59,18 @@
 	}
 }
 
-/// Outputs font-weight property for the given font
+/// Outputs font-weight property for the given font type.
 ///
-/// @param {Bool | String} $font [false] - font-family that is going to be styled bold
-@mixin oTypographyBold($font: false) {
-	@if $font == 'sans' {
-		font-weight: 600;
-	} @else {
-		font-weight: 700;
-	}
+/// @example Make a sans copy bold without outputting the font family again.
+///     .example-text {
+///     	@include oTypographySans($scale: 2);
+///     }
+///     .example-text--bold {
+///     	@include oTypographyBold('sans');
+///     }
+/// @param {Bool | Null | String} $font [null] - the font type to style bold (i.e. 'sans', 'serif'). `false` or `null` is also accepted but deprecated.
+@mixin oTypographyBold($font: null) {
+	font-weight: oFontsWeight(_oTypographyGetBoldWeight($font-type: $font));
 }
 
 /// Set a custom font.
