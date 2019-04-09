@@ -1,4 +1,4 @@
-import Delegate from 'dom-delegate';
+import Delegate from 'ftdomdelegate';
 
 class BaseTable {
 
