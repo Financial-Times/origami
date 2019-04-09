@@ -1,4 +1,4 @@
-import Delegate from 'dom-delegate';
+import Delegate from 'ftdomdelegate';
 import * as Utils from 'o-utils';
 
 function fireEvent(action, audioObject, extraDetail = {}) {

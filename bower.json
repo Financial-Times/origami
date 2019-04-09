@@ -13,7 +13,7 @@
     "main.js"
   ],
   "dependencies": {
-	"dom-delegate":"^2.2.0",
-	"o-utils": "^1.0.5"
+    "ftdomdelegate": ">=2.2.0 <4.0.0",
+    "o-utils": "^1.0.5"
   }
 }
