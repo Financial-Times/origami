@@ -1,7 +1,7 @@
 const oCommentUtilities = require('o-comment-utilities');
 const oCommentUi = require('o-comment-ui');
 const envConfig = require('./config.js');
-const Delegate = require('dom-delegate');
+const Delegate = require('ftdomdelegate');
 
 /**
  * FT specific UI customizing of the Livefyre widget.
