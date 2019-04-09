@@ -261,4 +261,8 @@ describe('main', function () {
 		assert.equal(data.context.marketing.banner_closed, true);
 		assert.equal(data.context.marketing.segid, '4321');
 	});
+
+	it('should have getRoodID() as an accessible method', () => {
+		assert.equal(typeof oTracking.getRootID, 'function');
+	});
 });
