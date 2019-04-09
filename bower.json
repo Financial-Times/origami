@@ -10,7 +10,7 @@
     "test"
   ],
   "dependencies": {
-    "ftdomdelegate": "^2.0.1",
+    "ftdomdelegate": ">=2.2.0 <4.0.0",
     "o-colors": "^4.0.0",
     "o-icons": ">=4.0.0 <6.0.0",
     "o-normalise": "^1.2.1",
