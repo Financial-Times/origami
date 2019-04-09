@@ -457,3 +457,13 @@ Works in accordance with our [support policy](https://docs.google.com/a/ft.com/d
 
 ## <div id="core"></div> Core/Enhanced Experience
 Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | 4.2.0 | - |
+╳ deprecated | 3 | 3.5.0 | - |
+╳ deprecated | 2 | 2.5.0 | - |
+╳ deprecated | 1 | 1.0.10 | - |
