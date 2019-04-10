@@ -35,8 +35,8 @@
 	@include oTypographyDisplay(2);
 	@include oColorsFor('o-teaser', text, 100);
 	@include oTypographyMargin($top: 0, $bottom: 0);
-	font-weight: oFontsWeight(normal);
 	@include oTeaserLink();
+	font-weight: oFontsWeight(normal);
 }
 
 /// Meta area and colouring styles
@@ -85,11 +85,11 @@
 	@include oTypographySize(0, 20px);
 	@include oTypographyMargin(0, 0);
 	@include oColorsFor('o-teaser', text, 60);
+	@include oTeaserLink();
 
 	.o-teaser__heading + & {
 		margin-top: 10px;
 	}
-	@include oTeaserLink();
 }
 
 /// Links within title or standfirst
