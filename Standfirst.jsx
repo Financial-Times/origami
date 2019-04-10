@@ -9,6 +9,7 @@ export default ({ standfirst, altStandfirst, headlineTesting, relativeUrl, url, 
 	<p className="o-teaser__standfirst">
 		<Link {...props} url={displayUrl} attrs={{
 				'data-trackable': 'standfirst-link',
+				tabIndex:-1,
 				className: 'js-teaser-standfirst-link',
 		}}>
 			{displayStandfirst}
