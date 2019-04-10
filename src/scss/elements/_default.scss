@@ -35,23 +35,8 @@
 	@include oTypographyDisplay(2);
 	@include oColorsFor('o-teaser', text, 100);
 	@include oTypographyMargin($top: 0, $bottom: 0);
+	@include oTeaserLink();
 	font-weight: oFontsWeight(normal);
-
-	a {
-		padding: 2px 0;
-		color: inherit;
-		text-decoration: none;
-		border: 0;
-
-		&:focus,
-		&:hover {
-			@include oColorsFor('o-teaser', text, 55);
-		}
-
-		&:visited {
-			@include oColorsFor('o-teaser', text, 60);
-		}
-	}
 }
 
 /// Meta area and colouring styles
@@ -100,8 +85,28 @@
 	@include oTypographySize(0, 20px);
 	@include oTypographyMargin(0, 0);
 	@include oColorsFor('o-teaser', text, 60);
+	@include oTeaserLink();
 
 	.o-teaser__heading + & {
 		margin-top: 10px;
+	}
+}
+
+/// Links within title or standfirst
+@mixin oTeaserLink {
+	a {
+		padding: 2px 0;
+		color: inherit;
+		text-decoration: none;
+		border: 0;
+
+		&:focus,
+		&:hover {
+			@include oColorsFor('o-teaser', text, 55);
+		}
+
+		&:visited {
+			@include oColorsFor('o-teaser', text, 60);
+		}
 	}
 }
