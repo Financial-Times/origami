@@ -5,6 +5,7 @@ const settings = require('./src/javascript/core/settings');
 const user = require('./src/javascript/core/user');
 const session = require('./src/javascript/core/session');
 const send = require('./src/javascript/core/send');
+const core = require('./src/javascript/core');
 
 /**
  * The version of the tracking module.
@@ -106,6 +107,12 @@ Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') }; 
  * @see {@link utils}
  */
 Tracking.prototype.utils = require('./src/javascript/utils');
+
+/**
+ * Get the rootID.
+ * @see {@link utils}
+ */
+Tracking.prototype.getRootID = core.getRootID;
 
 /**
  * Initialises the Tracking object.
