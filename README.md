@@ -35,7 +35,7 @@ You can choose to include a product tagline to describe your product concisely, 
 
 _Note: If there is a 'Sign in' option, it should be consistent with other FT products by aligning itself to the right and avoiding different wording such as 'Log in' or 'Login'._
 
-For an example and markup, see the [title-only header in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-title-section).
+For an example and markup, see the [title-only header in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-title-section).
 
 ### Primary Navigation
 
@@ -45,7 +45,7 @@ This section of the header has specific behaviour, as it turns into a drawer at 
 
 If you are using extra content (such as a 'Sign in' link), that will be pulled into the drawer, as well.
 
-For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-primary-navigation).
+For an example and markup, see the [primary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation).
 
 ### Primary Navigation with drop down
 
@@ -53,7 +53,7 @@ The primary navigation can also handle dropdown menus. These menus are hidden be
 
 Drop down menus also get pulled into the drawer on smaller viewports.
 
-For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-drop-down-navigation).
+For an example and markup, see the [primary navigation with drop downs in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-primary-navigation-and-drop-down-menus).
 
 ### Secondary Navigation
 
@@ -64,7 +64,7 @@ The 'ancestor' section  works in the form of a breadcrumb, and the children are 
 
 At smaller viewports, it does _not_ collapse into the drawer, but becomes scrollable instead.
 
-For an example and markup, see the [secondary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-secondary-navigation).
+For an example and markup, see the [secondary navigation in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-header-with-a-primary-and-a-secondary-navigation).
 
 ### Themes
 
@@ -79,7 +79,7 @@ To add a theme to the header, add the appropriate class to the header element. F
 </header>
 ```
 
-For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services#demo-theme-b2c).
+For an example and markup, see the [B2B and B2C headers in the Origami Registry](https://registry.origami.ft.com/components/o-header-services@3.2.10#demo-product-theme-b2c).
 
 ### Bleed Header
 If your application requires a bleed header, you'll need to add the `o-header-services--bleed` variant to your header.
