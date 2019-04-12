@@ -4,6 +4,8 @@ import Link from './Link';
 export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators, ...props }) => {
 	const displayTitle = headlineTesting && altTitle ? altTitle : title;
 	const displayUrl = relativeUrl || url;
+	// o-labels--premium left for backwards compatibility for o-labels v3
+	const premiumClass = 'o-labels o-labels--premium o-labels--content-premium';
 
 	return (
 		<div className="o-teaser__heading">
@@ -15,7 +17,7 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 				{' '}
 			</Link>
 			{indicators && indicators.accessLevel === 'premium' ? (
-				<span className="o-labels o-labels--premium" aria-label="Premium content">
+				<span className={premiumClass} aria-label="Premium content">
 					Premium
 				</span>
 			) : null}
