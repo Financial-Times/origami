@@ -21,7 +21,8 @@
             }
         }
 
-        .o-teaser__heading a {
+        .o-teaser__heading a,
+        .o-teaser__standfirst a {
             &:focus,
             &:hover,
             &:visited {

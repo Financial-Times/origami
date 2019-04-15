@@ -3,6 +3,9 @@
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus,
+	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		@include oColorsFor('o-teaser-inverse', text, 60);
@@ -79,6 +82,9 @@
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus,
+	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
 		@include oColorsFor('o-teaser-hero-highlight', text, 73);
