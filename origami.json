@@ -33,6 +33,18 @@
 			}
 		},
 		{
+			"title": "Small Live",
+			"name": "small-live",
+			"description": "Small live teaser",
+			"template": "demos/src/demo.mustache",
+			"data": {
+				"article-modifier": "live",
+				"article-tag": "World",
+				"article-heading": "Japan sells negative yield 10-year bonds",
+				"article-timestamp": "2016-02-29T12:35:48Z"
+			}
+		},
+		{
 			"title": "Small Full Fat",
 			"name": "small-full-fat",
 			"description": "Small (full-fat) teaser",
