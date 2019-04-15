@@ -41,6 +41,10 @@
 			@include oGridRespondTo(M) {
 				margin-left: 0;
 			}
+
+			> * {
+				@include oNormaliseVisuallyHidden();
+			}
 		}
 
 		.o-header-services__title {
