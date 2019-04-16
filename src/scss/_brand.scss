@@ -1,0 +1,12 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oCommentsGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-comments', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oCommentsSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-comments', $variant: $variant);
+}
