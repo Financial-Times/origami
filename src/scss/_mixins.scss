@@ -1,0 +1,14 @@
+/// Output All oMessage Features
+@mixin oComments ($class: 'o-comments') {
+	.#{$class} {
+		display: block;
+	}
+}
+
+/// Provide a component specific error message
+///
+/// @param {String} $message - The message to insert in the error.
+/// @access Private
+@mixin _oComments($message) {
+	@error '*** oComments SCSS error: #{$message} ***';
+};
