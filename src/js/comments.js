@@ -6,9 +6,22 @@ class Comments {
 	 */
 	constructor (oCommentsEl, opts) {
 		this.oCommentsEl = oCommentsEl;
-		this.options = Object.assign({}, {
+		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(oCommentsEl));
+		this._renderComments();
+	}
 
-		}, opts || Comments.getDataAttributes(oCommentsEl));
+	/**
+	 * Render comment instances and store them on the `_comments` property.
+	 *
+	 * @access private
+	 * @returns {void}
+	 */
+	_renderComments() {
+		const scriptElement = document.createElement('script');
+		scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
+		scriptElement.setAttribute('onload', `Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'), {talk: 'https://ft-next-talk-spike.herokuapp.com'})`);
+
+		this.oCommentsEl.appendChild(scriptElement);
 	}
 
 	/**
