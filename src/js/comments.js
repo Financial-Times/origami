@@ -1,3 +1,5 @@
+import {validEvents, coralMap} from './utils/events';
+
 class Comments {
 	/**
 	 * Class constructor.
@@ -7,6 +9,9 @@ class Comments {
 	constructor (oCommentsEl, opts) {
 		this.oCommentsEl = oCommentsEl;
 		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(oCommentsEl));
+		this.validEvents = validEvents;
+		this.coralEventMapping = coralMap;
+		this._mapCoralEventsToOComments();
 		this._renderComments();
 	}
 
@@ -17,9 +22,25 @@ class Comments {
 	 * @returns {void}
 	 */
 	_renderComments() {
+		/*global Coral*/
 		const scriptElement = document.createElement('script');
 		scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
-		scriptElement.setAttribute('onload', `Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'), {talk: 'https://ft-next-talk-spike.herokuapp.com'})`);
+		scriptElement.onload = () => Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'),
+			{
+				talk: 'https://ft-next-talk-spike.herokuapp.com',
+				events: (events) => {
+					events.onAny((name, data) => {
+						const message = new CustomEvent('talkEvent', {
+							detail: {
+								name,
+								data
+							}
+						});
+						parent.dispatchEvent(message);
+					});
+				}
+			}
+		);
 
 		this.oCommentsEl.appendChild(scriptElement);
 	}
@@ -54,6 +75,37 @@ class Comments {
 
 			return options;
 		}, {});
+	}
+
+	/**
+	 * Register callback functions to events
+	 * @param {String} event - The event to be tracked
+	 * @returns {Function} - The callback for when the event is emitted
+	 */
+	on (event, callback) {
+		if (!event || !callback) {
+			throw new Error('.on requires both the `event` & `callback` parameters');
+		}
+
+		if (!this.validEvents.includes(event)) {
+			throw new Error(`${event} is not a valid event`);
+		}
+
+		if (typeof callback !== 'function') {
+			throw new Error('The callback must be a function');
+		}
+
+		document.addEventListener(event, callback);
+	}
+
+	_mapCoralEventsToOComments () {
+		window.addEventListener('talkEvent', (event) => {
+			const mappedEventName = this.coralEventMapping.get(event.detail.name);
+			if (mappedEventName) {
+				const oCommentEvent = new CustomEvent(mappedEventName, {});
+				document.dispatchEvent(oCommentEvent);
+			}
+		});
 	}
 
 	/**
