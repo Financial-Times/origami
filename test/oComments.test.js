@@ -29,24 +29,36 @@ describe("OComments", () => {
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("should create a new", () => {
+	describe("new Comments(oCommentsEl, opts)", () => {
+		let boilerplate;
+		let rootElement;
+		let scriptElement;
+
 		beforeEach(() => {
 			fixtures.htmlCode();
+			boilerplate = OComments.init('#element');
+			rootElement = boilerplate.oCommentsEl;
+			scriptElement = rootElement.querySelector('script');
 		});
 
 		afterEach(() => {
 			fixtures.reset();
 		});
 
-		it("component array when initialized", () => {
-			const boilerplate = OComments.init();
-			proclaim.equal(boilerplate instanceof Array, true);
-			proclaim.equal(boilerplate[0] instanceof OComments, true);
-		});
+		describe("._renderComments", () => {
+			it("creates a script element", () => {
+				proclaim.isNotNull(scriptElement);
+			});
 
-		it("single component when initialized with a root element", () => {
-			const boilerplate = OComments.init('#element');
-			proclaim.equal(boilerplate instanceof OComments, true);
+			it("sets the source to `embed.js`", () => {
+				proclaim.include(scriptElement.src, 'embed.js');
+			});
+
+			it("sets an `onload` attribute", () => {
+				const onloadAttribute = scriptElement.onload;
+				proclaim.isNotNull(onloadAttribute);
+				proclaim.isFunction(onloadAttribute);
+			});
 		});
 	});
 });
