@@ -61,4 +61,124 @@ describe("OComments", () => {
 			});
 		});
 	});
+
+	describe(".on", () => {
+		beforeEach(() => {
+			fixtures.htmlCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it("is a function", () => {
+			const comments = OComments.init('#element');
+			proclaim.equal(typeof comments.on, 'function');
+		});
+
+		it("throws a error if it's missing a parameter", () => {
+			const comments = OComments.init('#element');
+			proclaim.throws(() => comments.on('component.render.successful'), '.on requires both the `event` & `callback` parameters');
+		});
+
+		it("throws a error if the event name isn't valid", () => {
+			const comments = OComments.init('#element');
+			proclaim.throws(() => comments.on('not.real', () => {}), 'not.real is not a valid event');
+		});
+
+		it("throws a type error if the callback parameter isn't a function", () => {
+			const comments = OComments.init('#element');
+			proclaim.throws(() => comments.on('component.render.successful', 'Not a function'),'The callback must be a function');
+		});
+
+		it("calls the callback when the event is omitted", () => {
+			let beenCalled = false;
+			const comments = OComments.init('#element');
+			comments.on('component.render.successful', () => {
+				beenCalled = true;
+			});
+
+			document.dispatchEvent(new CustomEvent('component.render.successful'));
+
+			proclaim.isTrue(beenCalled);
+		});
+
+		describe("when Coral Talk events are omittd", () => {
+			it("maps the `query.CoralEmbedStream_Embed.ready` event", () => {
+				let beenCalled = false;
+				const comments = OComments.init('#element');
+				comments.on('component.render.successful', () => {
+					beenCalled = true;
+				});
+
+				window.dispatchEvent(new CustomEvent('talkEvent', {
+					detail: {
+						name: 'query.CoralEmbedStream_Embed.ready'
+					}
+				}));
+
+				proclaim.isTrue(beenCalled);
+			});
+
+			it("maps the `mutation.PostComment.success` event", () => {
+				let beenCalled = false;
+				const comments = OComments.init('#element');
+				comments.on('comment.posted.successful', () => {
+					beenCalled = true;
+				});
+
+				window.dispatchEvent(new CustomEvent('talkEvent', {
+					detail: {
+						name: 'mutation.PostComment.success'
+					}
+				}));
+				proclaim.isTrue(beenCalled);
+			});
+
+			it("maps the `mutation.CreateLikeAction.success` event", () => {
+				let beenCalled = false;
+				const comments = OComments.init('#element');
+				comments.on('comment.liked.successful', () => {
+					beenCalled = true;
+				});
+
+				window.dispatchEvent(new CustomEvent('talkEvent', {
+					detail: {
+						name: 'mutation.CreateLikeAction.success'
+					}
+				}));
+				proclaim.isTrue(beenCalled);
+			});
+
+			it("maps the `action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS` event", () => {
+				let beenCalled = false;
+				const comments = OComments.init('#element');
+				comments.on('auth.login.successful', () => {
+					beenCalled = true;
+				});
+
+				window.dispatchEvent(new CustomEvent('talkEvent', {
+					detail: {
+						name: 'action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS'
+					}
+				}));
+				proclaim.isTrue(beenCalled);
+			});
+
+			it("maps the `action.SHOW_SIGNIN_DIALOG` event", () => {
+				let beenCalled = false;
+				const comments = OComments.init('#element');
+				comments.on('auth.login.required', () => {
+					beenCalled = true;
+				});
+
+				window.dispatchEvent(new CustomEvent('talkEvent', {
+					detail: {
+						name: 'action.SHOW_SIGNIN_DIALOG'
+					}
+				}));
+				proclaim.isTrue(beenCalled);
+			});
+		});
+	});
 });
