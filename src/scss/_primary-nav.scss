@@ -1,7 +1,8 @@
 /// @access private
 /// @outputs styling for primary nav
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
-@mixin _oHeaderServicesPrimaryNav($drop-down) {
+@mixin _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down) {
 	.o-header-services__primary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
@@ -66,5 +67,5 @@
 		}
 	}
 
-	@include _oHeaderServicesDrawer($drop-down);
+	@include _oHeaderServicesDrawer($drawer-breakpoint, $drop-down);
 };

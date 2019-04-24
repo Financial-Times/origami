@@ -59,6 +59,7 @@ class Drawer {
 		}
 
 		if ((e.type === 'click' && [this.nav, this.burger, this.drawerCloseButton].includes(e.target))) {
+			e.preventDefault();
 			this.toggleDrawer();
 		}
 	}

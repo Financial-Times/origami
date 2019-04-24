@@ -55,7 +55,7 @@
 	@include _oHeaderServicesTop($logo, $drawer-breakpoint);
 
 	@if index($types, 'primary-nav') {
-		@include _oHeaderServicesPrimaryNav($drop-down);
+		@include _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down);
 	}
 
 	@if index($types, 'secondary-nav') {

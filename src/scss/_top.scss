@@ -85,31 +85,23 @@
 	}
 
 	.o-header-services__related-content {
-		margin: 0 0 0 auto;
-		padding: oTypographySpacingSize(3)/2 $_o-header-services-padding;
-		display: flex;
+		display: none;
+
+		@include oGridRespondTo($from: $draw-breakpoint) {
+			display: flex;
+			margin: 0 0 0 auto;
+			padding: oTypographySpacingSize(3)/2 $_o-header-services-padding;
+		}
 
 		li {
 			background-color: _oHeaderServicesGet('top-background');
 
-			@if _oHeaderServicesGet('nav-background') == _oHeaderServicesGet('nav-hover-background') {
-				&:hover:before {
-					content: none;
-				}
-			}
-
 			a {
 				@include oTypographyBold('sans');
-				margin: 0;
 				color: _oHeaderServicesGet('top-text');
-
-
-				@include oGridRespondTo($from: $draw-breakpoint) {
-					display: block;
-					padding: $_o-header-services-padding oTypographySpacingSize(3);
-					margin: 0;
-				}
-
+				display: inline-block;
+				padding: $_o-header-services-padding oTypographySpacingSize(3);
+				margin: 0;
 
 				&:hover {
 					text-decoration: underline;

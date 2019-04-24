@@ -121,6 +121,10 @@
 		}
 	}
 
+	.core .o-header-services__scroll-button {
+		display: none;
+	}
+
 	.o-header-services__scroll-button--left {
 		@include oButtonsIconButton(
 			$icon-name: 'arrow-left',

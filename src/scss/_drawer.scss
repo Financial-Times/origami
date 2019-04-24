@@ -1,8 +1,15 @@
 /// @access private
 /// @outputs styling for the drawer
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
 // sass-lint:disable no-qualifying-elements
-@mixin _oHeaderServicesDrawer($drop-down: true) {
+@mixin _oHeaderServicesDrawer($draw-breakpoint, $drop-down) {
+	.o-header-services__primary-nav {
+		@include oGridRespondTo($until: $draw-breakpoint) {
+			display: none;
+		}
+	}
+
 	.o-header-services__primary-nav.o-header-services__primary-nav--drawer {
 		// Drawer background.
 		background-color: rgba(0, 0, 0, 0.8);
@@ -12,6 +19,7 @@
 		right: 0;
 		bottom: 0;
 		visibility: hidden;
+		display: block;
 		transition:
 			visibility 0.01s linear,
 			opacity 0.5s $o-visual-effects-transition-fade;
