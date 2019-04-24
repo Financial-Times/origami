@@ -22,7 +22,7 @@ class Drawer {
 			this.nav = document.createElement('div');
 			this.nav.classList.add('o-header-services__primary-nav');
 			this.nav.setAttribute('aria-label', 'primary navigation');
-			this.nav.setAttribute('aria-hidden', 'true');
+			this.nav.setAttribute('aria-hidden', 'true'); // Hidden until related content is added the drawer.
 
 			this.navList = document.createElement('ul');
 			this.navList.classList.add('o-header-services__primary-nav-list');
