@@ -167,6 +167,21 @@
 		},
 		{
 			"name": "written-text"
+		},
+		{
+			"name": "audio"
+		},
+		{
+			"name": "mute"
+		},
+		{
+			"name": "mute-notifications"
+		},
+		{
+			"name": "skip-forward-30"
+		},
+		{
+			"name": "skip-backward-30"
 		}
 	]
 }
