@@ -7,13 +7,34 @@ class Drawer {
 	 */
 	constructor(headerEl) {
 		this.headerEl = headerEl;
-		this.nav = headerEl.querySelector('.o-header-services__primary-nav');
 		this.class = {
 			drawer: 'o-header-services__primary-nav--drawer',
 			open: 'o-header-services__primary-nav--open'
 		};
 
-		if (!this.nav) { return; }
+		this.relatedContent = headerEl.querySelector('.o-header-services__related-content');
+		this.nav = headerEl.querySelector('.o-header-services__primary-nav');
+
+		// If the primary nav `nav` does not exist, but related content does,
+		// then create an empty primary nav which functions as a draw for
+		// related content on mobile.
+		if (!this.nav && this.relatedContent) {
+			this.nav = document.createElement('div');
+			this.nav.classList.add('o-header-services__primary-nav');
+			this.nav.setAttribute('aria-label', 'primary navigation');
+			this.nav.setAttribute('aria-hidden', 'true');
+
+			this.navList = document.createElement('ul');
+			this.navList.classList.add('o-header-services__primary-nav-list');
+			this.nav.appendChild(this.navList);
+
+			this.headerEl.appendChild(this.nav);
+		}
+
+		// If there's no primary nav and we didn't create one exit.
+		if (!this.nav) {
+			return;
+		}
 
 		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 
@@ -103,7 +124,7 @@ class Drawer {
 	 * Shift related content (sign in, etc) between drawer and header title section
 	 */
 	_shiftRelatedContentList (shiftItems) {
-		let relatedContent = this.headerEl.querySelector('.o-header-services__related-content');
+		let relatedContent = this.relatedContent;
 
 		if (!relatedContent) { return; }
 
