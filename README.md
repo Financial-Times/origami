@@ -1,11 +1,7 @@
 o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
-_A short description of what this component does._
-
-
-_A table of contents to help people find things_
-
+A component, integrated with FT authentication and user data services, to add comments to content.
 
 - [Markup](#markup)
 - [JavaScript](#javascript)
@@ -16,26 +12,20 @@ _A table of contents to help people find things_
 - [Contact](#contact)
 - [Licence](#licence)
 
-_Whatever usage instructions your component has. We've broken this down by Markup, JavaScript and Sass, but it depends how complex your component is._
-
 ### Markup
 
-_Common templating can go here, especially if there is only one template, but people can always check the demos for more._
-
-_Remember to start your codeblocks with three backticks and "html" so your markup is syntax highlighted correctly._
+Use the following markup to enable comments:
 
 ```html
-<div data-o-component="o-comments" class='o-comments'>
+<div  class="o-comments" data-o-component="o-comments">
 </div>
 ```
 
+This element will be initialized automatically on the `o.DOMContentReady` event meaning you're unable to defer component initialisation.
+
 ### JavaScript
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
 
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by modules not auto initialising, so this line is useful if you have JavaScript:_
-
-No code will run automatically unless you are using the Build Service.
-You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
+No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
 
 #### Constructing an o-comments
 
@@ -56,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by silent mode, so this line (remember to change the o-comments to your component name) is useful if you have Sass:_
 
 As with all Origami components, o-comments has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-comments-is-silent : false;` in your Sass before you import the o-comments Sass.
 
