@@ -49,7 +49,7 @@ For an example and markup, see the [primary navigation in the Origami Registry](
 
 ### Core Experience Of The Drawer
 
-Small screen users should still be able to access the contents of the drawer even if their browser doesn't cut the mustard or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
+Small screen users should still be able to access the contents of the drawer even if their browser doesn't [cut the mustard](https://origami.ft.com/docs/components/compatibility/#cuts-the-mustard) or the JavaScript has failed to load. In this case we recommend you have the contents of the drawer at the bottom of the page in a footer that is only visible if the body has a `.core` class. In core experience the hamburger menu links to an anchor at the bottom of the page.
 
 ### Primary Navigation With Drop Down
 
