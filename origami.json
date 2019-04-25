@@ -10,7 +10,11 @@
 		"slack": "financialtimes/YOUR-SLACK-CHANNEL"
 	},
 	"supportStatus": "experimental",
-	"browserFeatures": {},
+	"browserFeatures": {
+		"required": [
+			"Map"
+		]
+	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-comments"
 	},

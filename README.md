@@ -5,6 +5,8 @@ A component, integrated with FT authentication and user data services, to add co
 
 - [Markup](#markup)
 - [JavaScript](#javascript)
+	- [Interface](#interface)
+	- [Events](#events)
 - [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -43,6 +45,53 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
+
+#### Interface
+
+##### .on(eventName, callback)
+
+- `eventName` - *required*
+- `callBack` - *required*
+
+The `.on` interface allows you to listen for [events](#events).
+
+```js
+const oComments = require('o-comments');
+const Comments = new oComments();
+
+Comments.on('component.render.successful', () => {
+	console.log('The comments have rendered')
+});
+
+```
+
+
+#### Events
+
+Events are emitted during key events and can be listened to using the [`.on` interface](#on).
+
+The naming of events uses a dot notation and follows a `category.action.state` namespacing. The categories and their events are listed below.
+
+
+##### Component
+
+These events are anything to do with the component itself.
+
+- **component.render.successful** - Emitted when the component has finished rendering and is ready for the user to interact with comments 
+
+##### Comment
+
+These events are anything to do with comment interactions.
+
+- **comment.posted.successful** - Emitted when a users has successfully left a comment
+- **comment.liked.successful** - Emitted when a users has liked a comment
+
+##### Auth
+
+These events are anything to do with users being authenticated.
+
+- **auth.login.successful** - Emitted when a user has successfully logged in to Coral Talk
+- **auth.login.required** - Emitted when a logged out user has performed an action that requires them to login
 
 ### Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
