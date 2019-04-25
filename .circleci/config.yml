@@ -42,9 +42,13 @@ workflows:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
             branches:
               ignore: /.*/
+          requires:
+            - test
       - publish_prerelease_to_npm:
           filters:
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+$/
             branches:
               ignore: /.*/
+          requires:
+            - test
