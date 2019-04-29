@@ -104,7 +104,7 @@ describe("OComments", () => {
 			proclaim.isTrue(eventWasEmitted);
 		});
 
-		describe("when Coral Talk events are omittd", () => {
+		describe("when Coral Talk events are omitted", () => {
 			it("maps the `query.CoralEmbedStream_Embed.ready` event", () => {
 				comments.on('component.render.successful', () => {
 					eventWasEmitted = true;

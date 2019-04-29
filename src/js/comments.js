@@ -3,6 +3,7 @@ import {validEvents, coralMap, errorMap} from './utils/events';
 class Comments {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [oCommentsEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
@@ -17,12 +18,12 @@ class Comments {
 	}
 
 	/**
-	 * Render comment instances and store them on the `_comments` property.
+	 * Render a comments instance authenticated with Coral Talk.
 	 *
 	 * @access private
-	 * @returns {void}
+	 * @returns {HTMLElement}
 	 */
-	_renderComments() {
+	_renderComments () {
 		/*global Coral*/
 		const scriptElement = document.createElement('script');
 		scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
@@ -49,6 +50,7 @@ class Comments {
 	/**
 	 * Get the data attributes from the CommentsElement. If the component is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} oCommentsEl - The component element in the DOM
 	 * @returns {Object} - Data attributes as an object
 	 */
@@ -79,7 +81,8 @@ class Comments {
 	}
 
 	/**
-	 * Register callback functions to events
+	 * Register callback functions to events.
+	 *
 	 * @param {String} event - The event to be tracked
 	 * @param {Function} callback - The callback for when the event is emitted
 	 */
@@ -98,7 +101,6 @@ class Comments {
 
 		document.addEventListener(event, callback);
 	}
-
 
 	/**
 	 * Emits events that have a valid o-comment event name
@@ -147,7 +149,8 @@ class Comments {
 
 	/**
 	 * Initialise the component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+	 *
+	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 * @returns {(Comments|Array<Comments>)} - Comments instance(s)
 	 */
