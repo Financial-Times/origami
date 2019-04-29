@@ -168,7 +168,66 @@ describe("OComments", () => {
 						name: 'action.SHOW_SIGNIN_DIALOG'
 					}
 				}));
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
+			});
+
+			describe("when the payload contains an error", () => {
+				it("maps the `COMMENT_IS_TOXIC` error event", () => {
+					comments.on('comment.posted.toxic', () => {
+						eventWasEmitted = true;
+					});
+
+					window.dispatchEvent(new CustomEvent('talkEvent', {
+						detail: {
+							data: {
+								error: {
+									errors: [
+										{
+											translation_key: 'COMMENT_IS_TOXIC'
+										}
+									]
+								}
+							}
+						}
+					}));
+
+					proclaim.isTrue(eventWasEmitted);
+				});
+
+			});
+
+			describe("when the payload contains an error and a valid event", () => {
+				it("maps the `COMMENT_IS_TOXIC` error event", () => {
+					let errorCalled = false;
+					let eventCalled = false;
+
+					comments.on('comment.posted.toxic', () => {
+						errorCalled = true;
+					});
+
+					comments.on('comment.edited.successful', () => {
+						eventCalled = true;
+					});
+
+					window.dispatchEvent(new CustomEvent('talkEvent', {
+						detail: {
+							name: 'mutation.EditComment.success',
+							data: {
+								error: {
+									errors: [
+										{
+											translation_key: 'COMMENT_IS_TOXIC'
+										}
+									]
+								}
+							}
+						}
+					}));
+
+					proclaim.isTrue(errorCalled);
+					proclaim.isTrue(eventCalled);
+				});
+
 			});
 		});
 	});
