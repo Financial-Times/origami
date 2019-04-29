@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
+import fetchMock from 'fetch-mock';
 import * as fixtures from './helpers/fixtures';
 
 import OComments from '../main';
@@ -34,15 +35,24 @@ describe("OComments", () => {
 		let rootElement;
 		let scriptElement;
 
-		beforeEach(() => {
+		before((done) => {
+			document.addEventListener('oCommentsReady', () => {
+				rootElement = boilerplate.oCommentsEl;
+				scriptElement = rootElement.querySelector('script');
+				done();
+			});
+
+			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
+				token: '12345'
+			});
+
 			fixtures.htmlCode();
 			boilerplate = OComments.init('#element');
-			rootElement = boilerplate.oCommentsEl;
-			scriptElement = rootElement.querySelector('script');
 		});
 
-		afterEach(() => {
+		after(() => {
 			fixtures.reset();
+			fetchMock.restore();
 		});
 
 		describe("._renderComments", () => {

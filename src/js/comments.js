@@ -25,26 +25,37 @@ class Comments {
 	 */
 	_renderComments () {
 		/*global Coral*/
-		const scriptElement = document.createElement('script');
-		scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
-		scriptElement.onload = () => Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'),
-			{
-				talk: 'https://ft-next-talk-spike.herokuapp.com',
-				events: (events) => {
-					events.onAny((name, data) => {
-						const message = new CustomEvent('talkEvent', {
-							detail: {
-								name,
-								data
-							}
-						});
-						parent.dispatchEvent(message);
-					});
-				}
-			}
-		);
-
-		this.oCommentsEl.appendChild(scriptElement);
+		fetch(`https://comments-auth.ft.com/v1/jwt/`, {
+			credentials: 'include'
+		}).then(res => res.json())
+			.then(json => json.token)
+			.then(token => {
+				const scriptElement = document.createElement('script');
+				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
+				scriptElement.onload = () => Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'),
+					{
+						talk: 'https://ft-next-talk-spike.herokuapp.com',
+						auth_token: token,
+						events: (events) => {
+							events.onAny((name, data) => {
+								const message = new CustomEvent('talkEvent', {
+									detail: {
+										name,
+										data
+									}
+								});
+								parent.dispatchEvent(message);
+							});
+						}
+					}
+				);
+				this.oCommentsEl.appendChild(scriptElement);
+				/**
+				 * In order to test the asynchronous function, send an event when fetch returns and
+				 * the script element is injected into the document.
+				 */
+				document.dispatchEvent(new Event('oCommentsReady'));
+			});
 	}
 
 	/**
