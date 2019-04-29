@@ -1,4 +1,4 @@
-import {validEvents, coralMap} from './utils/events';
+import {validEvents, coralMap, errorMap} from './utils/events';
 
 class Comments {
 	/**
@@ -11,6 +11,7 @@ class Comments {
 		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(oCommentsEl));
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
+		this.errorMapping = errorMap;
 		this._mapCoralEventsToOComments();
 		this._renderComments();
 	}
@@ -80,7 +81,7 @@ class Comments {
 	/**
 	 * Register callback functions to events
 	 * @param {String} event - The event to be tracked
-	 * @returns {Function} - The callback for when the event is emitted
+	 * @param {Function} callback - The callback for when the event is emitted
 	 */
 	on (event, callback) {
 		if (!event || !callback) {
@@ -98,12 +99,48 @@ class Comments {
 		document.addEventListener(event, callback);
 	}
 
+
+	/**
+	 * Emits events that have a valid o-comment event name
+	 * @param {String} name - The event name
+	 * @param {Object} payload - The event payload
+	 */
+	_dispatchEvent (name, payload) {
+		if (!this.validEvents.includes(name)) {
+			throw new Error(`${name} is not a valid event`);
+		}
+
+		const event = new CustomEvent(name, payload || {});
+
+		document.dispatchEvent(event);
+	}
+
+	/**
+	 * Listens for all Coral Talk events and maps them to valid events
+	 */
 	_mapCoralEventsToOComments () {
-		window.addEventListener('talkEvent', (event) => {
-			const mappedEventName = this.coralEventMapping.get(event.detail.name);
+		window.addEventListener('talkEvent', (event = {}) => {
+			const {
+				detail: {
+					name,
+					data: {
+						error: {
+							errors
+						} = {}
+					} = {}
+				} = {}
+			} = event;
+
+			if (errors && Array.isArray(errors)) {
+				errors
+					.filter(error => this.errorMapping.get(error.translation_key))
+					.map(error => this._dispatchEvent(this.errorMapping.get(error.translation_key)));
+			}
+
+			const mappedEventName = this.coralEventMapping.get(name);
+
 			if (mappedEventName) {
-				const oCommentEvent = new CustomEvent(mappedEventName, {});
-				document.dispatchEvent(oCommentEvent);
+				this._dispatchEvent(mappedEventName);
 			}
 		});
 	}
