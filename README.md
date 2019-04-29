@@ -84,6 +84,7 @@ These events are anything to do with the component itself.
 These events are anything to do with comment interactions.
 
 - **comment.posted.successful** - Emitted when a users has successfully left a comment
+- **comment.posted.toxic** - Emitted when a comment has been flagged as above our acceptable level of toxicity by the automated toxic moderation.
 - **comment.liked.successful** - Emitted when a users has liked a comment
 
 ##### Auth
