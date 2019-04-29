@@ -383,7 +383,7 @@ Additionally `o-forms` fires an event `oForms.toggled` when a toggle checkbox is
 An o-forms object must be constructed for every `<form>` element you have on your page that you want to validate with this module. You can do this for explicit elements like so:
 
 ```js
-const OForms = require('o-forms');
+import OForms from 'o-forms';
 const formsEl = document.querySelector('#form-element');
 
 const forms = new OForms(formsEl);
@@ -392,7 +392,7 @@ const forms = new OForms(formsEl);
 Alternatively, an o.DOMContentLoaded event can be dispatched on the document to auto-construct an o-forms object for each element with a `data-o-component="o-forms"` attribute:
 
 ```js
-require('o-forms');
+import OForms from 'o-forms';
 document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
 By default `o-forms` tests inputs on the `blur` event for each input. To defer the validation to the `submit` event of the form, you can pass an config object to set the `testEvent` when constructing `o-forms`:
 
 ```js
-const OForms = require('o-forms');
+import OForms from 'o-forms';
 const formsEl = document.querySelector('#form-element');
 
 const forms = new OForms(formsEl, { testEvent: 'submit' });
@@ -422,7 +422,8 @@ Or you can set an attribute on the `<form>` element to declaratively set the tes
 By default `o-forms` does not apply the `o-forms--valid` class, relying on the absence of `o-forms--error` to indicate an input's validity. To have `o-forms` apply a class for valid inputs, pass in a `applyValidState` boolean configuration property when constructing:
 
 ```js
-const OForms = require('o-forms');
+import OForms from 'o-forms';
+
 const formsEl = document.querySelector('#form-element');
 
 const forms = new OForms(formsEl, { applyValidState: true });
@@ -441,7 +442,7 @@ Or you can set the `data-o-forms-apply-valid-state` attribute to true on the `<f
 A form status is used to show an input is "saving" or is "saved". To show a status use the static method `updateInputStatus`.
 
 ```js
-const OForms = require('o-forms');
+import OForms from 'o-forms';
 const formsInput = document.querySelector('input');
 
 OForms.updateInputStatus(formsInput, 'saving');
