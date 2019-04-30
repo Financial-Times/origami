@@ -27,8 +27,18 @@ class Comments {
 		/*global Coral*/
 		fetch(`https://comments-auth.ft.com/v1/jwt/`, {
 			credentials: 'include'
-		}).then(res => res.json())
-			.then(json => json.token)
+		}).then(response => {
+			if(response.ok) {
+				return response.json()
+			}
+			throw new Error('Bad response from the authentication service')
+		})
+			.then(json => {
+				if (json.token) {
+					return json.token;
+				}
+				throw new Error('Authentication token doesn\'t exist')
+			})
 			.then(token => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
@@ -55,7 +65,11 @@ class Comments {
 				 * the script element is injected into the document.
 				 */
 				document.dispatchEvent(new Event('oCommentsReady'));
-			});
+			})
+		.catch(error => {
+			console.error(`Unable to authenticate user: ${error}`)
+			document.dispatchEvent(new Event('oCommentsFailed'));
+		});
 	}
 
 	/**

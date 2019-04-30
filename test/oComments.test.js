@@ -30,29 +30,33 @@ describe("OComments", () => {
 		proclaim.equal(initSpy.called, false);
 	});
 
-	describe("new Comments(oCommentsEl, opts)", () => {
-		let boilerplate;
+	describe("when an authentication token is passed in", () => {
+		let comments;
 		let rootElement;
 		let scriptElement;
+		let oCommentsReadyListener;
 
 		before((done) => {
-			document.addEventListener('oCommentsReady', () => {
-				rootElement = boilerplate.oCommentsEl;
+			oCommentsReadyListener = () => {
+				rootElement = comments.oCommentsEl;
 				scriptElement = rootElement.querySelector('script');
 				done();
-			});
+			};
+
+			document.addEventListener('oCommentsReady', oCommentsReadyListener);
 
 			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
 				token: '12345'
 			});
 
 			fixtures.htmlCode();
-			boilerplate = OComments.init('#element');
+			comments = OComments.init('#element');
 		});
 
 		after(() => {
+			document.removeEventListener('oCommentsReady', oCommentsReadyListener);
+			fetchMock.reset();
 			fixtures.reset();
-			fetchMock.restore();
 		});
 
 		describe("._renderComments", () => {
@@ -72,17 +76,54 @@ describe("OComments", () => {
 		});
 	});
 
+	describe("when an authentication token is missing", () => {
+		let comments;
+		let rootElement;
+		let scriptElement;
+		let oCommentsReadyListener;
+
+		before((done) => {
+			oCommentsReadyListener = () => {
+				rootElement = comments.oCommentsEl;
+				scriptElement = rootElement.querySelector('script');
+				done();
+			};
+
+			document.addEventListener('oCommentsFailed', oCommentsReadyListener);
+
+			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {});
+
+			fixtures.htmlCode();
+			comments = OComments.init('#element');
+		});
+
+		after(() => {
+			document.removeEventListener('oCommentsFailed', oCommentsReadyListener);
+			fetchMock.reset();
+			fixtures.reset();
+		});
+
+		it("won't create a script element", () => {
+			proclaim.isNull(scriptElement);
+		});
+	});
+
 	describe(".on", () => {
 		let comments;
 		let eventWasEmitted;
 
 		beforeEach(() => {
+			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
+				token: '12345'
+			});
+
 			fixtures.htmlCode();
 			comments = OComments.init('#element');
 			eventWasEmitted = false;
 		});
 
 		afterEach(() => {
+			fetchMock.reset();
 			fixtures.reset();
 			eventWasEmitted = false;
 			comments = false;
