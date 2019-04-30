@@ -12,7 +12,8 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {
 		"required": [
-			"Map"
+			"Map",
+			"fetch"
 		]
 	},
 	"ci": {
