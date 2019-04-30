@@ -63,52 +63,51 @@ describe("OComments", () => {
 	});
 
 	describe(".on", () => {
+		let comments;
+		let eventWasEmitted;
+
 		beforeEach(() => {
 			fixtures.htmlCode();
+			comments = OComments.init('#element');
+			eventWasEmitted = false;
 		});
 
 		afterEach(() => {
 			fixtures.reset();
+			eventWasEmitted = false;
+			comments = false;
 		});
 
 		it("is a function", () => {
-			const comments = OComments.init('#element');
 			proclaim.equal(typeof comments.on, 'function');
 		});
 
 		it("throws a error if it's missing a parameter", () => {
-			const comments = OComments.init('#element');
 			proclaim.throws(() => comments.on('component.render.successful'), '.on requires both the `event` & `callback` parameters');
 		});
 
 		it("throws a error if the event name isn't valid", () => {
-			const comments = OComments.init('#element');
 			proclaim.throws(() => comments.on('not.real', () => {}), 'not.real is not a valid event');
 		});
 
 		it("throws a type error if the callback parameter isn't a function", () => {
-			const comments = OComments.init('#element');
 			proclaim.throws(() => comments.on('component.render.successful', 'Not a function'),'The callback must be a function');
 		});
 
 		it("calls the callback when the event is omitted", () => {
-			let beenCalled = false;
-			const comments = OComments.init('#element');
 			comments.on('component.render.successful', () => {
-				beenCalled = true;
+				eventWasEmitted = true;
 			});
 
 			document.dispatchEvent(new CustomEvent('component.render.successful'));
 
-			proclaim.isTrue(beenCalled);
+			proclaim.isTrue(eventWasEmitted);
 		});
 
 		describe("when Coral Talk events are omittd", () => {
 			it("maps the `query.CoralEmbedStream_Embed.ready` event", () => {
-				let beenCalled = false;
-				const comments = OComments.init('#element');
 				comments.on('component.render.successful', () => {
-					beenCalled = true;
+					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
@@ -117,14 +116,12 @@ describe("OComments", () => {
 					}
 				}));
 
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
 			});
 
 			it("maps the `mutation.PostComment.success` event", () => {
-				let beenCalled = false;
-				const comments = OComments.init('#element');
 				comments.on('comment.posted.successful', () => {
-					beenCalled = true;
+					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
@@ -132,14 +129,12 @@ describe("OComments", () => {
 						name: 'mutation.PostComment.success'
 					}
 				}));
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
 			});
 
 			it("maps the `mutation.CreateLikeAction.success` event", () => {
-				let beenCalled = false;
-				const comments = OComments.init('#element');
 				comments.on('comment.liked.successful', () => {
-					beenCalled = true;
+					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
@@ -147,14 +142,12 @@ describe("OComments", () => {
 						name: 'mutation.CreateLikeAction.success'
 					}
 				}));
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
 			});
 
 			it("maps the `action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS` event", () => {
-				let beenCalled = false;
-				const comments = OComments.init('#element');
 				comments.on('auth.login.successful', () => {
-					beenCalled = true;
+					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
@@ -162,14 +155,12 @@ describe("OComments", () => {
 						name: 'action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS'
 					}
 				}));
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
 			});
 
 			it("maps the `action.SHOW_SIGNIN_DIALOG` event", () => {
-				let beenCalled = false;
-				const comments = OComments.init('#element');
 				comments.on('auth.login.required', () => {
-					beenCalled = true;
+					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
@@ -177,7 +168,66 @@ describe("OComments", () => {
 						name: 'action.SHOW_SIGNIN_DIALOG'
 					}
 				}));
-				proclaim.isTrue(beenCalled);
+				proclaim.isTrue(eventWasEmitted);
+			});
+
+			describe("when the payload contains an error", () => {
+				it("maps the `COMMENT_IS_TOXIC` error event", () => {
+					comments.on('comment.posted.toxic', () => {
+						eventWasEmitted = true;
+					});
+
+					window.dispatchEvent(new CustomEvent('talkEvent', {
+						detail: {
+							data: {
+								error: {
+									errors: [
+										{
+											translation_key: 'COMMENT_IS_TOXIC'
+										}
+									]
+								}
+							}
+						}
+					}));
+
+					proclaim.isTrue(eventWasEmitted);
+				});
+
+			});
+
+			describe("when the payload contains an error and a valid event", () => {
+				it("maps the `COMMENT_IS_TOXIC` error event", () => {
+					let errorCalled = false;
+					let eventCalled = false;
+
+					comments.on('comment.posted.toxic', () => {
+						errorCalled = true;
+					});
+
+					comments.on('comment.edited.successful', () => {
+						eventCalled = true;
+					});
+
+					window.dispatchEvent(new CustomEvent('talkEvent', {
+						detail: {
+							name: 'mutation.EditComment.success',
+							data: {
+								error: {
+									errors: [
+										{
+											translation_key: 'COMMENT_IS_TOXIC'
+										}
+									]
+								}
+							}
+						}
+					}));
+
+					proclaim.isTrue(errorCalled);
+					proclaim.isTrue(eventCalled);
+				});
+
 			});
 		});
 	});

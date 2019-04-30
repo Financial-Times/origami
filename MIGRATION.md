@@ -19,17 +19,17 @@ The table below shows the mapping of old events to new.
 | ---------------------- | --------------------------- |
 | error.init             | Not mapped yet              |
 | error.widget           | Not mapped yet              |
-| error.livefyreJs       | Not mapped yet              |
-| widget.timeout         | Not mapped yet              |
+| error.livefyreJs       | Deprecated                  |
 | data.init              | Not mapped yet              |
 | data.auth              | Not mapped yet              |
-| widget.ready           | Not mapped yet              |
-| widget.load            | Not mapped yet              |
+| widget.timeout         | Not mapped yet              |
+| widget.ready           | Deprecation candidate       |
+| widget.load            | Deprecation candidate       |
 | widget.renderComplete  | component.render.successful |
 | tracking.postComment   | comment.posted.successful   |
 | tracking.likeComment   | comment.liked.successful    |
-| tracking.shareComment  | Not mapped yet              |
-| tracking.socialMention | Not mapped yet              |
+| tracking.shareComment  | Deprecation candidate       |
+| tracking.socialMention | Deprecated                  |
 | auth.login             | auth.login.successful       |
 | auth.loginRequired     | auth.login.required         |
 
