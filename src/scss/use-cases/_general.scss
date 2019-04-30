@@ -166,7 +166,7 @@
 	:root & {
 		counter-reset: item;
 
-		li {
+		> li {
 			display: block;
 			position: relative;
 			padding-left: oTypographySpacingSize($units: 6);
