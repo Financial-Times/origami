@@ -76,4 +76,13 @@
 	.o-table-margin-bottom {
 		margin-bottom: oTypographySpacingSize($units: 4);
 	}
+
+	// Visually hide any filtered rows.
+	// `display: none` is not used to avoid recalculating column row.
+	// `visibility: collaposed` is not used due to inconsistent browser support.
+	// sass-lint:disable no-qualifying-elements
+	tr[data-o-table-filtered="true"] {
+		visibility: hidden;
+	}
+	// sass-lint:enable no-qualifying-elements
 }

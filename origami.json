@@ -29,7 +29,9 @@
 		"dependencies": [
 			"o-fonts@^3.0.0",
 			"o-normalise@^1.0.0",
-			"o-typography@^5.7.8"
+			"o-typography@^5.7.8",
+			"o-forms@^6.0.1",
+			"o-buttons@^5.16.2"
 		]
 	},
 	"demos": [
@@ -144,8 +146,22 @@
 			"description": ""
 		},
 		{
+			"title": "Filter",
+			"name": "filter",
+			"data": {
+				"tableId": "fruit-table",
+				"showFilter": true,
+				"tableType": "overflow"
+			},
+			"template": "demos/src/base.mustache",
+			"description": "This demo shows a table with columns which may be filtered by a value."
+		},
+		{
 			"title": "Huge sortable table",
 			"name": "huge",
+			"data": {
+				"tableType": "overflow"
+			},
 			"template": "demos/src/huge.mustache",
 			"description": "A huge, sortable, expandable table - useful to test sort performance.",
 			"hidden": true

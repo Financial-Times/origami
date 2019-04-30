@@ -12,6 +12,23 @@ describe("BaseTable", () => {
 	let oTableEl;
 	let table;
 
+	function getTableElementWithData(type, dataArray, tableId) {
+		const markup = fixtures.getTableMarkupFor(type, dataArray, tableId);
+		sandbox.setContents(markup);
+		return document.querySelector('[data-o-component=o-table]');
+	}
+
+	function assertFilter(data, expectedData) {
+		const tbody = oTableEl.querySelector('tbody');
+		const filterdRows = tbody.querySelectorAll('tr[aria-hidden="true"]');
+		const visibleRows = tbody.querySelectorAll('tr[aria-hidden="false"]');
+		const expectedFiltered = data.length - expectedData.length;
+		const expectedVisible = expectedData.length;
+		proclaim.equal(filterdRows.length, expectedFiltered, `Expected ${expectedFiltered} filtered rows but found ${filterdRows.length}.`);
+		proclaim.equal(visibleRows.length, expectedVisible, `Expected ${expectedVisible} visible rows but found ${visibleRows.length}.`);
+		proclaim.isTrue(table.wrapper.style.height !== '', `Expect the table to have a set height on its parent container to hide rows visually.`);
+	}
+
 	const click = element => {
 		const click = document.createEvent('MouseEvent');
 		click.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
@@ -20,12 +37,158 @@ describe("BaseTable", () => {
 
 	beforeEach(() => {
 		sandbox.init();
-		sandbox.setContents(fixtures.shortTableWithContainer);
-		oTableEl = document.querySelector('[data-o-component=o-table]');
-		table = new BaseTable(oTableEl, sorter);
+	});
+
+	describe('constructor', () => {
+		it('applies declaritive table filters', (done) => {
+			// Setup markup: Table + filter input.
+			const data = ['Dragonfruit', 'Durian', 'Naseberry', 'Strawberry', 'Apple'];
+			const tableId = 'constructor-test-table';
+			oTableEl = getTableElementWithData('', data, tableId);
+			sandbox.addContents(`
+				<select
+					id="filter-input"
+					data-o-table-filter-id="${tableId}"
+					data-o-table-filter-column="0"
+				>
+					<option value="">All</option>
+					<!-- "selected" indicates the default filter -->
+					<option value="Naseberry" selected>Naseberry</option>
+				</select>
+			`);
+			// Init table.
+			table = new BaseTable(oTableEl, sorter);
+			// Confirm default filter (set declaritively).
+			setTimeout(() => {
+				try {
+					assertFilter(data, ['Naseberry']);
+					done();
+				} catch(error) {
+					done(error);
+				}
+			}, 100); // wait for window.requestAnimationFrame
+		});
+	});
+
+	describe('filter', () => {
+		describe('given a string filter', () => {
+			it('is case insensitive', done => {
+				const data = ['Dragonfruit', 'Durian', 'Naseberry', 'Strawberry', 'Apple'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, 'dragonfruit');
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['Dragonfruit']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+			it('is whitespace insensitive', done => {
+				const data = ['       Dragon fruit       ', 'Durian', 'Naseberry', 'Strawberry', 'Apple'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, 'Dragonfruit');
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['Dragonfruit']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+			it('ignores special characters', done => {
+				const data = ['Dragonfruit', 'Durian*', 'Naseberry', 'Strawberry', 'Apple'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, 'Durian');
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['Durian']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+			it('ignores non-breaking space characters', done => {
+				const data = ['Dragonfruit', 'Dur ian', 'Naseberry', 'Strawberry', 'Apple'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, 'Durian');
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['Durian']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+			it('filters on a partial match', done => {
+				const data = ['Dragonfruit', 'Durian', 'Naseberry', 'Strawberry', 'Apple'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, 'berry');
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['Naseberry', 'Strawberry']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+		});
+
+		describe('given a function', () => {
+			it('keeps rows where the return value is true', done => {
+				const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, (cell) => {
+					return parseInt(cell.textContent, 10) > 3;
+				});
+				setTimeout(() => {
+					try {
+						assertFilter(data, [4, 5, 6, 7, 8, 9, 10]);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('filters rows where the return value is false', done => {
+				const data = ['a', 'b', 'aa', 'bb'];
+				oTableEl = getTableElementWithData('', data);
+				table = new BaseTable(oTableEl, sorter);
+				table.filter(0, (cell) => {
+					return cell.textContent === 'a';
+				});
+				setTimeout(() => {
+					try {
+						assertFilter(data, ['a']);
+						done();
+					} catch(error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			});
+		});
 	});
 
 	describe('addSortButtons', () => {
+		beforeEach(() => {
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+		});
+
 		it('adds buttons in the table column headers', done => {
 			table.addSortButtons();
 			setTimeout(() => {
@@ -138,6 +301,13 @@ describe("BaseTable", () => {
 	});
 
 	describe('sortRowsByColumn', () => {
+		beforeEach(() => {
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+		});
+
 		it('sorts a given column in descending order', () => {
 			const columnIndex = 1;
 			const sortOrder = 'descending';
@@ -194,6 +364,13 @@ describe("BaseTable", () => {
 	});
 
 	describe('getTableHeader', () => {
+		beforeEach(() => {
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+		});
+
 		it('gets a th element for a given column index', () => {
 			const thead = oTableEl.querySelector('thead');
 			const tableHeaders = thead.querySelectorAll('th');
@@ -210,6 +387,14 @@ describe("BaseTable", () => {
 	});
 
 	describe('sorted', () => {
+
+		beforeEach(() => {
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+		});
+
 		it('fires the oTable.sorted event with column index and sort order', done => {
 			const columnIndex = 1;
 			const sortOrder = 'ascending';
@@ -249,6 +434,14 @@ describe("BaseTable", () => {
 	});
 
 	describe('destroy', () => {
+
+		beforeEach(() => {
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			table = new BaseTable(oTableEl, sorter);
+		});
+
 		it('removes sort button event listeners', () => {
 			// Mock removeEventListener
 			const realRemoveEventListener = Element.prototype.removeEventListener;
@@ -267,6 +460,24 @@ describe("BaseTable", () => {
 				// Restore mocks before calling done.
 				Element.prototype.removeEventListener = realRemoveEventListener;
 			}
+		});
+
+		it('removes properties with DOM references', () => {
+			const expectedToBeRemoved = [
+				'thead',
+				'tbody',
+				'tableHeaders',
+				'tableRows',
+				'_filteredTableRows',
+				'wrapper',
+				'container',
+				'overlayWrapper',
+				'filterContainer'
+			];
+			table.destroy();
+			expectedToBeRemoved.forEach(property => {
+				proclaim.isUndefined(table[property], `Expected the table property ${property} to be removed when the "destroy" method is called.`);
+			});
 		});
 	});
 });

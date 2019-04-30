@@ -41,11 +41,29 @@ describe("ScrollTable", () => {
 					const duplicateHeadings = row.querySelectorAll('th[scope="row"][role="rowheader"]');
 					proclaim.equal(duplicateHeadings.length, 1, `Expected to find a row heading within the rows of duplicate data, with scope="row" and role="rowheader".`);
 				});
+				done();
 			} catch (error) {
 				done(error);
 			}
-			done();
-		}, 2); // wait for window.requestAnimationFrame
+		}, 100); // wait for window.requestAnimationFrame
+	});
+
+	it('filters cloned column data for the "scroll" version of the table (mobile version)', (done) => {
+		const table = new ScrollTable(oTableEl, sorter);
+		table.filter(0, 'Durian');
+		setTimeout(() => {
+			try {
+				const duplicateRowClass = '.o-table__duplicate-row';
+				const duplicateRows = document.querySelectorAll(duplicateRowClass);
+				duplicateRows.forEach((row) => {
+					const visibleData = row.querySelectorAll('td[data-o-table-filtered="false"]');
+					proclaim.equal(visibleData.length, 1, `Expected one non-filtered data point per row but found "${visibleData.length}".`);
+				});
+				done();
+			} catch (error) {
+				done(error);
+			}
+		}, 100); // wait for window.requestAnimationFrame
 	});
 
 });

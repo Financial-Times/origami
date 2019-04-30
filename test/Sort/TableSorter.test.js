@@ -3,6 +3,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as sandbox from './../helpers/sandbox';
+import * as fixtures from './../helpers/fixtures';
 import BaseTable from './../../src/js/Tables/BaseTable';
 import FlatTable from './../../src/js/Tables/FlatTable';
 import TableSorter from './../../src/js/Sort/TableSorter';
@@ -54,22 +55,7 @@ describe("BaseTable", () => {
 	describe('sortRowsByColumn', () => {
 
 		function getTableElementWithData(type, dataArray) {
-			const markup = `
-				<div class="o-table-container">
-					<div class="o-table-scroll-wrapper">
-						<table class="o-table" data-o-component="o-table">
-							<thead>
-								<tr>
-									<th scope="col" role="columnheader" data-o-table-data-type="${type}">Test Data</th>
-								</tr>
-							</thead>
-							<tbody>
-								${dataArray.map(data => `<tr><td>${data}</td></tr>`).join('')}
-							</tbody>
-					</table>
-					</div>
-				</div>
-			`;
+			const markup = fixtures.getTableMarkupFor(type, dataArray);
 			sandbox.setContents(markup);
 			return document.querySelector('[data-o-component=o-table]');
 		}

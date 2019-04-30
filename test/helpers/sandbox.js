@@ -19,3 +19,7 @@ export function reset() {
 export function setContents(html) {
 	sandboxEl.innerHTML = html;
 }
+
+export function addContents(html) {
+	sandboxEl.innerHTML = sandboxEl.innerHTML + html;
+}

@@ -1,7 +1,33 @@
+{{#showFilter}}
+	<div id="demo-table-caption">
+		<h2 class="o-typography-heading-level-2">Table Caption</h2>
+		<div class="o--if-js o-forms o-forms--inline">
+			<div class="o-forms__inline-item">
+				<label aria-describedby="select-box-info" for="demo-filter-select" class="o-forms__label">
+					Showing data for:
+				</label>
+			</div>
+			<select data-o-table-filter-id="{{tableId}}" data-o-table-filter-column="2" id="demo-filter-select" class="o-forms__select">
+				<option value="">All</option>
+				<option value="Juicy">Juicy</option>
+				<option value="Smelly">Smelly</option>
+				<option value="Chewy">Chewy</option>
+				<option value="Sweet">Sweet</option>
+				<option value="Crunchy">Crunchy</option>
+			</select>
+		</div>
+	</div>
+{{/showFilter}}
+
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
 		<div class="o-table-scroll-wrapper">
-			<table aria-describedby="demo-footnote" class="o-table o-table--horizontal-lines {{modifierClass}} {{#tableType}}o-table--responsive-{{tableType}}{{/tableType}}" data-o-component="o-table" {{#tableType}}data-o-table-responsive="{{tableType}}"{{/tableType}}>
+			<table
+				{{#tableId}}id="{{tableId}}"{{/tableId}}
+				aria-describedby="{{#showFilter}}demo-table-caption{{/showFilter}} demo-footnote"
+				class="o-table o-table--horizontal-lines {{modifierClass}} {{#tableType}}o-table--responsive-{{tableType}}{{/tableType}}"
+				data-o-component="o-table"
+				{{#tableType}}data-o-table-responsive="{{tableType}}"{{/tableType}}>
 				<thead>
 					<tr>
 						<th scope="col" role="columnheader">Fruit</th>

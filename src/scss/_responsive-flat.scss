@@ -47,7 +47,7 @@
 			}
 
 			&.o-table--horizontal-lines th:not(:last-of-type),
-			&.o-table--horizontal-lines td:not(:last-of-type), {
+			&.o-table--horizontal-lines td:not(:last-of-type) {
 				// When flat, only show row border if a colour is defined.
 				// Else the browser will use a black border.
 				@if _oTableGet('table-border-color') {

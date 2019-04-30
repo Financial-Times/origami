@@ -14,7 +14,7 @@ class BasicTable extends BaseTable {
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
-		window.requestAnimationFrame(this.addSortButtons.bind(this));
+		window.setTimeout(this.addSortButtons.bind(this), 0);
 		this._ready();
 		return this;
 	}

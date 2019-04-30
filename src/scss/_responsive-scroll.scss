@@ -43,6 +43,13 @@
 				}
 			}
 
+			// Whilst scrollable, remove all hidden cells.
+			// sass-lint:disable no-qualifying-elements
+			td[aria-hidden="true"] {
+				display: none;
+			}
+			// sass-lint:enable no-qualifying-elements
+
 			.o-table__cell--numeric {
 				text-align: left;
 			}

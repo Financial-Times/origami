@@ -11,6 +11,7 @@ Styling for tables.
 - [Sass](#sass)
 - [JavaScript](#javascript)
 	- [Sorting](#sorting)
+	- [Filtering](#filtering)
 	- [Events](#events)
 - [Troubleshooting](#troubleshooting)
 - [Migration](#migration)
@@ -237,6 +238,54 @@ OTable.init(document.body, {
 	expanded: true,
 	minimumRowCount: 10,
 });
+```
+
+### Filtering
+
+All `o-table` instances support filtering. Filters may be applied declaritively in HTML or the `filter` method may be called against a table instance.
+
+#### Filter (declarative)
+
+To enable declarative table filtering add the `data-o-table-filter-id` and `data-o-table-filter-column` to a form input. Where `data-o-table-filter-id` matches the `id` of the table to filter and `data-o-table-filter-column` is the numerical index of the column to filter (starting at 0).
+
+For example, to filter a table based on a users selected option:
+```html
+	<label>Filter the table by country:</label>
+	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+	<select data-o-table-filter-id="example-table" data-o-table-filter-column="0">
+		<option value="" selected>All</option>
+		<option value="​Austria">​Austria</option>
+		<option value="​Belgium">​Belgium</option>
+		<!-- more options  -->
+	</select>
+
+	<!-- the table markup, this may be a resposnive table -->
+	<div class="o-table-container">
+		<!-- the table element with an id -->
+		<table id="example-table">
+			<!-- ... -->
+		</table>
+	</div>
+```
+
+Declarative filters are case insensitive and perform partial matches, e.g. a filter of "Kingdom" would reveal "United Kingdom".
+
+#### Filter (imperative)
+
+The table's `filter` method may also be used to filter the table. Call it with the column index to filter and the filter to apply. The filter may be a string, which acts like a declarative filter (i.e. is case insensitive and performs a partial match):
+
+```js
+	const table = new OTable(tableElement);
+	table.filter(0, 'United Kingdom'); // Filter the first table column by "United Kingdom".
+```
+
+Alternatively a callback function may be given. The callback should accept a table cell element and return a boolean value:
+
+```js
+	const table = new OTable(tableElement);
+	table.filter(0, (cell) => {
+		return parseInt(cell.textContent, 10) > 3;
+	}); // Filter the first table column. Keep rows with a value more than 3.
 ```
 
 ### Sorting
