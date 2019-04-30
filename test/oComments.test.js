@@ -7,11 +7,11 @@ import * as fixtures from './helpers/fixtures';
 import OComments from '../main';
 
 describe("OComments", () => {
-	it('is defined', () => {
+	it("is defined", () => {
 		proclaim.equal(typeof OComments, 'function');
 	});
 
-	it('has a static init method', () => {
+	it("has a static init method", () => {
 		proclaim.equal(typeof OComments.init, 'function');
 	});
 

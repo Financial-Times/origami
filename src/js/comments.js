@@ -25,19 +25,19 @@ class Comments {
 	 */
 	_renderComments () {
 		/*global Coral*/
-		fetch(`https://comments-auth.ft.com/v1/jwt/`, {
+		fetch('https://comments-auth.ft.com/v1/jwt/', {
 			credentials: 'include'
 		}).then(response => {
 			if(response.ok) {
-				return response.json()
+				return response.json();
 			}
-			throw new Error('Bad response from the authentication service')
+			throw new Error('Bad response from the authentication service');
 		})
 			.then(json => {
 				if (json.token) {
 					return json.token;
 				}
-				throw new Error('Authentication token doesn\'t exist')
+				throw new Error('Authentication token doesn\'t exist');
 			})
 			.then(token => {
 				const scriptElement = document.createElement('script');
@@ -66,10 +66,10 @@ class Comments {
 				 */
 				document.dispatchEvent(new Event('oCommentsReady'));
 			})
-		.catch(error => {
-			console.error(`Unable to authenticate user: ${error}`)
-			document.dispatchEvent(new Event('oCommentsFailed'));
-		});
+			.catch(error => {
+				console.error(`Unable to authenticate user: ${error}`);
+				document.dispatchEvent(new Event('oCommentsFailed'));
+			});
 	}
 
 	/**
