@@ -1,25 +1,27 @@
 /* eslint-env mocha */
-import proclaim from 'proclaim';
+import chai from 'chai';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
 import OComments from '../main';
 import * as auth from '../src/js/utils/auth';
 
+const expect = chai.expect;
+
 describe("OComments", () => {
 	it("is defined", () => {
-		proclaim.equal(typeof OComments, 'function');
+		expect(OComments).to.be.instanceOf(Function);
 	});
 
 	it("has a static init method", () => {
-		proclaim.equal(typeof OComments.init, 'function');
+		expect(OComments.init).to.be.instanceOf(Function);
 	});
 
 	it("should autoinitialize", (done) => {
 		const initSpy = sinon.spy(OComments, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
-			proclaim.equal(initSpy.called, true);
+			expect(initSpy.called).to.be.true;
 			initSpy.restore();
 			done();
 		}, 100);
@@ -27,7 +29,7 @@ describe("OComments", () => {
 
 	it("should not autoinitialize when the event is not dispached", () => {
 		const initSpy = sinon.spy(OComments, 'init');
-		proclaim.equal(initSpy.called, false);
+		expect(initSpy.called).to.be.false;
 	});
 
 	describe("when an authentication token is passed in", () => {
@@ -59,17 +61,17 @@ describe("OComments", () => {
 
 		describe("._renderComments", () => {
 			it("creates a script element", () => {
-				proclaim.isNotNull(scriptElement);
+				expect(scriptElement).to.not.be.null;
 			});
 
 			it("sets the source to `embed.js`", () => {
-				proclaim.include(scriptElement.src, 'embed.js');
+				expect(scriptElement.src).to.include('embed.js');
 			});
 
 			it("sets an `onload` attribute", () => {
 				const onloadAttribute = scriptElement.onload;
-				proclaim.isNotNull(onloadAttribute);
-				proclaim.isFunction(onloadAttribute);
+				expect(onloadAttribute).to.not.be.null;
+				expect(onloadAttribute).to.be.instanceof(Function);
 			});
 		});
 	});
@@ -102,7 +104,7 @@ describe("OComments", () => {
 		});
 
 		it("won't create a script element", () => {
-			proclaim.isNull(scriptElement);
+			expect(scriptElement).to.be.null;
 		});
 	});
 
@@ -123,19 +125,19 @@ describe("OComments", () => {
 		});
 
 		it("is a function", () => {
-			proclaim.equal(typeof comments.on, 'function');
+			expect(comments.on).to.be.instanceof(Function);
 		});
 
 		it("throws a error if it's missing a parameter", () => {
-			proclaim.throws(() => comments.on('component.render.successful'), '.on requires both the `event` & `callback` parameters');
+			expect(() => comments.on('component.render.successful')).to.throw('.on requires both the `event` & `callback` parameters');
 		});
 
 		it("throws a error if the event name isn't valid", () => {
-			proclaim.throws(() => comments.on('not.real', () => {}), 'not.real is not a valid event');
+			expect(() => comments.on('not.real', () => {})).to.throw('not.real is not a valid event');
 		});
 
 		it("throws a type error if the callback parameter isn't a function", () => {
-			proclaim.throws(() => comments.on('component.render.successful', 'Not a function'),'The callback must be a function');
+			expect(() => comments.on('component.render.successful', 'Not a function')).to.throw('The callback must be a function');
 		});
 
 		it("calls the callback when the event is emitted", () => {
@@ -145,7 +147,7 @@ describe("OComments", () => {
 
 			document.dispatchEvent(new CustomEvent('component.render.successful'));
 
-			proclaim.isTrue(eventWasEmitted);
+			expect(eventWasEmitted).to.be.true;
 		});
 
 		describe("when Coral Talk events are emitted", () => {
@@ -160,7 +162,7 @@ describe("OComments", () => {
 					}
 				}));
 
-				proclaim.isTrue(eventWasEmitted);
+				expect(eventWasEmitted).to.be.true;
 			});
 
 			it("maps the `mutation.PostComment.success` event", () => {
@@ -173,7 +175,7 @@ describe("OComments", () => {
 						name: 'mutation.PostComment.success'
 					}
 				}));
-				proclaim.isTrue(eventWasEmitted);
+				expect(eventWasEmitted).to.be.true;
 			});
 
 			it("maps the `mutation.CreateLikeAction.success` event", () => {
@@ -186,7 +188,7 @@ describe("OComments", () => {
 						name: 'mutation.CreateLikeAction.success'
 					}
 				}));
-				proclaim.isTrue(eventWasEmitted);
+				expect(eventWasEmitted).to.be.true;
 			});
 
 			it("maps the `action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS` event", () => {
@@ -199,7 +201,7 @@ describe("OComments", () => {
 						name: 'action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS'
 					}
 				}));
-				proclaim.isTrue(eventWasEmitted);
+				expect(eventWasEmitted).to.be.true;
 			});
 
 			it("maps the `action.SHOW_SIGNIN_DIALOG` event", () => {
@@ -212,7 +214,7 @@ describe("OComments", () => {
 						name: 'action.SHOW_SIGNIN_DIALOG'
 					}
 				}));
-				proclaim.isTrue(eventWasEmitted);
+				expect(eventWasEmitted).to.be.true;
 			});
 
 			describe("when the payload contains an error", () => {
@@ -235,7 +237,7 @@ describe("OComments", () => {
 						}
 					}));
 
-					proclaim.isTrue(eventWasEmitted);
+					expect(eventWasEmitted).to.be.true;
 				});
 
 			});
@@ -268,8 +270,8 @@ describe("OComments", () => {
 						}
 					}));
 
-					proclaim.isTrue(errorCalled);
-					proclaim.isTrue(eventCalled);
+					expect(errorCalled).to.be.true;
+					expect(eventCalled).to.be.true;
 				});
 
 			});
