@@ -32,6 +32,10 @@
 
 	.o-footer__legal-links {
 		padding-left: 0px;
+		
+		a {
+			display: inline-block;
+		}
 
 		li {
 			@include oTypographySans(-1);
