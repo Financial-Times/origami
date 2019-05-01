@@ -138,7 +138,7 @@ describe("OComments", () => {
 			proclaim.throws(() => comments.on('component.render.successful', 'Not a function'),'The callback must be a function');
 		});
 
-		it("calls the callback when the event is omitted", () => {
+		it("calls the callback when the event is emitted", () => {
 			comments.on('component.render.successful', () => {
 				eventWasEmitted = true;
 			});
@@ -148,7 +148,7 @@ describe("OComments", () => {
 			proclaim.isTrue(eventWasEmitted);
 		});
 
-		describe("when Coral Talk events are omitted", () => {
+		describe("when Coral Talk events are emitted", () => {
 			it("maps the `query.CoralEmbedStream_Embed.ready` event", () => {
 				comments.on('component.render.successful', () => {
 					eventWasEmitted = true;
