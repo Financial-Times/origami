@@ -1,4 +1,5 @@
 import {validEvents, coralMap, errorMap} from './utils/events';
+import {getJsonWebToken} from './utils/auth';
 
 class Comments {
 	/**
@@ -25,20 +26,7 @@ class Comments {
 	 */
 	_renderComments () {
 		/*global Coral*/
-		fetch('https://comments-auth.ft.com/v1/jwt/', {
-			credentials: 'include'
-		}).then(response => {
-			if(response.ok) {
-				return response.json();
-			}
-			throw new Error('Bad response from the authentication service');
-		})
-			.then(json => {
-				if (json.token) {
-					return json.token;
-				}
-				throw new Error('Authentication token doesn\'t exist');
-			})
+		getJsonWebToken()
 			.then(token => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
@@ -61,7 +49,7 @@ class Comments {
 				);
 				this.oCommentsEl.appendChild(scriptElement);
 				/**
-				 * In order to test the asynchronous function, send an event when fetch returns and
+				 * In order to test the asynchronous function, send an event when getJsonWebToken resolves
 				 * the script element is injected into the document.
 				 */
 				document.dispatchEvent(new Event('oCommentsReady'));
