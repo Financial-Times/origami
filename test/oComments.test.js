@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import fetchMock from 'fetch-mock';
 import * as fixtures from './helpers/fixtures';
 
 import OComments from '../main';
+import * as auth from '../src/js/utils/auth';
 
 describe("OComments", () => {
 	it("is defined", () => {
@@ -31,12 +31,14 @@ describe("OComments", () => {
 	});
 
 	describe("when an authentication token is passed in", () => {
+		const sandbox = sinon.sandbox.create();
 		let comments;
 		let rootElement;
 		let scriptElement;
 		let oCommentsReadyListener;
 
 		before((done) => {
+			sandbox.stub(auth, 'getJsonWebToken').resolves('fake-json-web-token');
 			oCommentsReadyListener = () => {
 				rootElement = comments.oCommentsEl;
 				scriptElement = rootElement.querySelector('script');
@@ -45,17 +47,13 @@ describe("OComments", () => {
 
 			document.addEventListener('oCommentsReady', oCommentsReadyListener);
 
-			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
-				token: '12345'
-			});
-
 			fixtures.htmlCode();
 			comments = OComments.init('#element');
 		});
 
 		after(() => {
+			sandbox.restore();
 			document.removeEventListener('oCommentsReady', oCommentsReadyListener);
-			fetchMock.reset();
 			fixtures.reset();
 		});
 
@@ -76,13 +74,15 @@ describe("OComments", () => {
 		});
 	});
 
-	describe("when an authentication token is missing", () => {
+	describe("when an authentication fails", () => {
+		const sandbox = sinon.sandbox.create();
 		let comments;
 		let rootElement;
 		let scriptElement;
 		let oCommentsReadyListener;
 
 		before((done) => {
+			sandbox.stub(auth, 'getJsonWebToken').rejects(new Error());
 			oCommentsReadyListener = () => {
 				rootElement = comments.oCommentsEl;
 				scriptElement = rootElement.querySelector('script');
@@ -91,15 +91,13 @@ describe("OComments", () => {
 
 			document.addEventListener('oCommentsFailed', oCommentsReadyListener);
 
-			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {});
-
 			fixtures.htmlCode();
 			comments = OComments.init('#element');
 		});
 
 		after(() => {
 			document.removeEventListener('oCommentsFailed', oCommentsReadyListener);
-			fetchMock.reset();
+			sandbox.restore();
 			fixtures.reset();
 		});
 
@@ -113,17 +111,12 @@ describe("OComments", () => {
 		let eventWasEmitted;
 
 		beforeEach(() => {
-			fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
-				token: '12345'
-			});
-
 			fixtures.htmlCode();
 			comments = OComments.init('#element');
 			eventWasEmitted = false;
 		});
 
 		afterEach(() => {
-			fetchMock.reset();
 			fixtures.reset();
 			eventWasEmitted = false;
 			comments = false;
