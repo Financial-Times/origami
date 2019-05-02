@@ -65,7 +65,7 @@
 		a:hover,
 		a:visited,
 		&:focus {
-			@include oColorsFor(o-teaser-package-special-report, text, 73);
+			@include oColorsFor(o-teaser-package-special-report, text, 78);
 		}
 	}
 }
@@ -150,7 +150,7 @@
 			color: oColorsGetPaletteColor('white');
 
 			&:hover {
-				@include oColorsFor(o-teaser-package-special-report, text, 73);
+				@include oColorsFor(o-teaser-package-special-report, text, 78);
 			}
 		}
 
