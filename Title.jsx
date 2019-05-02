@@ -14,7 +14,6 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 				className: 'js-teaser-heading-link',
 			}}>
 				{displayTitle}
-				{' '}
 			</Link>
 			{indicators && indicators.accessLevel === 'premium' ? (
 				<span className={premiumClass} aria-label="Premium content">
