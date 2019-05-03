@@ -41,7 +41,12 @@ describe("Auth", () => {
 			});
 
 			it("throws an error", () => {
-				proclaim.throws(getJsonWebToken());
+				return getJsonWebToken()
+					.then(() => {
+						throw new Error('This should never happen, its just here to make sure the .then is never entered');
+					}).catch((error) => {
+						proclaim.equal(error.message, "Authentication token doesn\'t exist");
+					});
 			});
 		});
 
@@ -55,7 +60,12 @@ describe("Auth", () => {
 			});
 
 			it("throws an error", () => {
-				proclaim.throws(getJsonWebToken());
+				return getJsonWebToken()
+					.then(() => {
+						throw new Error('This should never happen, its just here to make sure the .then is never entered');
+					}).catch((error) => {
+						proclaim.equal(error.message, "Bad response from the authentication service");
+					});
 			});
 		});
 	});
