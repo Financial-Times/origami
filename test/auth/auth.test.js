@@ -1,18 +1,13 @@
 /* eslint-env mocha */
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
+import proclaim from 'proclaim';
 import fetchMock from 'fetch-mock';
 
 import {getJsonWebToken} from '../..//src/js/utils/auth';
 
-chai.use(chaiAsPromised);
-
-const expect = chai.expect;
-
 describe("Auth", () => {
 	describe("getJsonWebToken", () => {
 		it("is a function", () => {
-			return expect(getJsonWebToken).to.be.an.instanceof(Function);
+			proclaim.isFunction(getJsonWebToken);
 		});
 
 		describe("when comments auth service returns a valid response", () => {
@@ -27,11 +22,13 @@ describe("Auth", () => {
 			});
 
 			it("returns a promise", () => {
-				return expect(getJsonWebToken()).to.be.an.instanceof(Promise);
+				const returnValue = getJsonWebToken();
+				proclaim.isInstanceOf(returnValue, Promise);
 			});
 
 			it("returns a promise which contains a JSON Web Token as a string", () => {
-				return expect(getJsonWebToken()).to.eventually.have.string('12345');
+				return getJsonWebToken()
+					.then(token => proclaim.isString(token));
 			});
 		});
 		describe("when the comments auth service response is missing the token", () => {
@@ -44,7 +41,7 @@ describe("Auth", () => {
 			});
 
 			it("throws an error", () => {
-				return expect(getJsonWebToken()).to.be.rejectedWith("Authentication token doesn't exist");
+				proclaim.throws(getJsonWebToken());
 			});
 		});
 
@@ -58,7 +55,7 @@ describe("Auth", () => {
 			});
 
 			it("throws an error", () => {
-				return expect(getJsonWebToken()).to.be.rejectedWith("Bad response from the authentication service");
+				proclaim.throws(getJsonWebToken());
 			});
 		});
 	});
