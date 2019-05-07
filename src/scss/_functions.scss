@@ -105,8 +105,12 @@
 /// Useful for user input such as custom line-heights, where a px value
 /// should become a rem value but otherwise the value should remain unchanged.
 /// @access private
-/// @param {Number} $value
+/// @param {Number|String} $value - Any none numbers are returned as is (e.g. "unset")
 @function _oTypographyAdjustUnit($value) {
+	@if(type-of($value) != 'number') {
+		@return $value;
+	}
+
 	@if ($o-typography-relative-units and unit($value) == 'px') {
 		@return (($value / 1px) / 16) * 1rem;
 	}

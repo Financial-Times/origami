@@ -151,6 +151,34 @@
             }
         }
     }
+
+    @include test('Outputs rem units when relative units are enabled.') {
+        @include assert {
+            @include output {
+                $o-typography-relative-units: true !global;
+                @include oTypographySize($scale: 1);
+                $o-typography-relative-units: false !global;
+            }
+            @include expect {
+                font-size: 1.125rem;
+                line-height: 1.25rem;
+            }
+        }
+    }
+
+    @include test('Outputs a custom line height "unset" when relative units are enabled.') {
+        @include assert {
+            @include output {
+                $o-typography-relative-units: true !global;
+                @include oTypographySize($scale: 1, $line-height: unset);
+                $o-typography-relative-units: false !global;
+            }
+            @include expect {
+                font-size: 1.125rem;
+                line-height: unset;
+            }
+        }
+    }
 }
 
 @include test-module('oTypographyLinkExternalIcon') {
