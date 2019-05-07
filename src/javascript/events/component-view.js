@@ -50,6 +50,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  */
 const init = (opts = {}) => {
 	if(!window.IntersectionObserver) {
+		console.warn('o-tracking: Unable to track component view events as "window.IntersectionObserver" is not supported.');
 		return;
 	}
 
@@ -57,7 +58,6 @@ const init = (opts = {}) => {
 	const elementsToTrack = [...document.querySelectorAll(selector)];
 
 	if (!elementsToTrack.length) {
-		console.warn('o-tracking: Unable to track element view events as "window.IntersectionObserver" is not supported.');
 		return;
 	}
 
