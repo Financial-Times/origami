@@ -76,7 +76,13 @@
 
 		blockquote:not(.o-layout__unstyled-element) {
 			@include oTypographyBlockquote;
-			margin: 0 0 oTypographySpacingSize(7); // Override default browser margin to match that of `oTypographyBody`.
+			// Override default browser margin to match that of `oTypographyBody`.
+			// Removes indent from the blockqupte provided by o-typography wrapper.
+			// https://github.com/Financial-Times/o-typography/issues/189
+			margin: 0 0 oTypographySpacingSize(7);
+			p:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		table {
