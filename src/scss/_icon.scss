@@ -92,17 +92,12 @@
 /// @param {String} $theme, any theme name as defined in $o-buttons-themes (primary, secondary, etc). Custom themes not supported.
 ///
 @mixin _oButtonsIconBackgroundImage($icon-name, $theme) {
+	$normal-color: _oButtonsGetIconColor('normal', $theme);
+	$active-color: _oButtonsGetIconColor('active', $theme);
+	$hover-color: _oButtonsGetIconColor('hover', $theme);
+	$focus-color: _oButtonsGetIconColor('focus', $theme);
+
 	@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'normal');
-	// Add fallback for MS High Contrast mode.
-	// This only needs to be output once, not for every button state.
-	// sass-lint:disable no-vendor-prefixes
-	@media screen and (-ms-high-contrast: active) {
-		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #ffffff, $iconset-version: 1, $high-contrast-fallback: false);
-	}
-	@media screen and (-ms-high-contrast: black-on-white) {
-		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #000000, $iconset-version: 1, $high-contrast-fallback: false);
-	}
-	// sass-lint:enable no-vendor-prefixes
 
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
@@ -110,7 +105,9 @@
 	&[aria-current], // e.g. A selected tab or page number in pagination (for links only).
 	&[aria-pressed=true], // e.g. A "follow" button that is pressed.
 	&:active {
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
+		@if($normal-color != $active-color) {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
+		}
 	}
 
 	&:not([disabled]) {
@@ -124,9 +121,22 @@
 
 	// Hack to get the active state colour svg to download to prevent FOIC
 	&:after {
-		@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
+		@if($normal-color != $active-color) {
+			@include _oButtonsGetIconForThemeAndState($icon-name, $theme, 'active');
+		}
 		content: '';
 	}
+
+	// Add fallback for MS High Contrast mode.
+	// This only needs to be output once, not for every button state.
+	// sass-lint:disable no-vendor-prefixes
+	@media screen and (-ms-high-contrast: active) {
+		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #ffffff, $iconset-version: 1, $high-contrast-fallback: false);
+	}
+	@media screen and (-ms-high-contrast: black-on-white) {
+		@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: #000000, $iconset-version: 1, $high-contrast-fallback: false);
+	}
+	// sass-lint:enable no-vendor-prefixes
 }
 
 /// Base styling for buttons
@@ -142,6 +152,20 @@
 	}
 }
 
+/// Get the icon color for a given state and theme.
+///
+/// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
+/// @param {String|Map} $theme, one of $o-colors-theme or a custom theme map
+@function _oButtonsGetIconColor($state, $theme) {
+	// 1. Get the icon color for the button state and theme.
+	$icon-color: oButtonsGetColor($state, 'color', $theme);
+	// 2. If the icon color is not a color assume it is in the palette.
+	@if $icon-color and type-of($icon-color) != 'color' {
+		$icon-color: oColorsGetPaletteColor($icon-color);
+	}
+	@return $icon-color;
+}
+
 /// Request an icon from o-icons with color based on the o-buttons theme and state
 ///
 /// @param {String} $icon-name, icon to request
@@ -149,14 +173,8 @@
 /// @param {String} $state - One of normal, hover, focus, selected, disabled, pressed
 @mixin _oButtonsGetIconForThemeAndState($icon-name, $theme, $state) {
 	// 1. Get the icon color for the button state and theme.
-	$icon-color: oButtonsGetColor($state, 'color', $theme);
-
-	// 2. If the icon color is not a color assume it is in the palette.
-	@if $icon-color and type-of($icon-color) != 'color' {
-		$icon-color: oColorsGetPaletteColor($icon-color);
-	}
-
-	// 3. Output the icon.
+	$icon-color: _oButtonsGetIconColor($state, $theme);
+	// 2. Output the icon.
 	@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1, $high-contrast-fallback: false);
 }
 
