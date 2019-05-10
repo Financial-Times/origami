@@ -31,6 +31,7 @@ describe("Auth", () => {
 					.then(token => proclaim.isString(token));
 			});
 		});
+
 		describe("when the comments auth service response is missing the token", () => {
 			before(() => {
 				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {});
@@ -40,19 +41,51 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("throws an error", () => {
+			it("resolves with undefined", () => {
 				return getJsonWebToken()
-					.then(() => {
-						throw new Error('This should never happen, its just here to make sure the .then is never entered');
-					}).catch((error) => {
-						proclaim.equal(error.message, "Authentication token doesn\'t exist");
+					.then((token) => {
+						proclaim.equal(token, undefined);
 					});
 			});
 		});
 
-		describe("when the comments auth service responds with a bad response", () => {
+		describe("when the comments auth service response is missing the token", () => {
+			before(() => {
+				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {token: undefined});
+			});
+
+			after(() => {
+				fetchMock.reset();
+			});
+
+			it("resolves with undefined", () => {
+				return getJsonWebToken()
+					.then((token) => {
+						proclaim.equal(token, undefined);
+					});
+			});
+		});
+
+		describe("when the comments auth service responds with 404", () => {
 			before(() => {
 				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 404);
+			});
+
+			after(() => {
+				fetchMock.reset();
+			});
+
+			it("resolves with undefined", () => {
+				return getJsonWebToken()
+					.then((token) => {
+						proclaim.equal(token, undefined);
+					});
+			});
+		});
+
+		describe("when the comments auth service responds with a bad response other than 404", () => {
+			before(() => {
+				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 500);
 			});
 
 			after(() => {
