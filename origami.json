@@ -1,5 +1,6 @@
 {
-	"description": "Sass mixins to use CSS visual effects",
+	"description": "Provides visual effects through SCSS mixins, such as shadows and animations",
+	"keywords": [ "animation", "effect", "animate" ],
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
@@ -9,7 +10,6 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "active",
-	"keywords": "animation",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
