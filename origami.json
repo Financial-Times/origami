@@ -1,5 +1,6 @@
 {
-	"description": "JS helper functions",
+	"description": "Provides JS helper functions, such as throttling and debouncing",
+	"keywords": ["debounce", "throttle"],
 	"origamiType": "module",
 	"origamiCategory": "utilities",
 	"origamiVersion": 1,
