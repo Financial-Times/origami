@@ -1,5 +1,6 @@
 {
-	"description": "Responsive, configurable overlays for displaying notifications to users",
+	"description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
+	"keywords": [ "overlay" , "modal"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
