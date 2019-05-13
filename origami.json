@@ -1,5 +1,6 @@
 {
-	"description": "Utility for moderating listeners for browser events on window",
+	"description": "Utility for attaching debounced listeners to resize, scroll, orientation and visibility events on window",
+	"keywords": [ "debounce", "listen", "event" ],
 	"origamiType": "module",
 	"origamiCategory": "utilities",
 	"origamiVersion": 1,
