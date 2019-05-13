@@ -1,5 +1,6 @@
 {
-	"description": "Module for tracking FT",
+	"description": "Provides tracking for a product. Tracking requests are sent to the Spoor API.",
+	"keywords": ["tracking", "spoor"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
