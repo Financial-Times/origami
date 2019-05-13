@@ -1,5 +1,6 @@
 {
-	"description": "Cookie message banner which ensures sites comply with the EU cookie law",
+	"description": "The cookie message and behaviour approved by the FT's legal team. All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant according to EU regulatory law.",
+	"keywords": [ "cookie", "cookies", "message", "legal", "regulation", "privacy", "policy"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
