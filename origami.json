@@ -1,5 +1,6 @@
 {
-	"description": "A visual loading indicator",
+	"description": "A visual loading indicator, available in two colours and four sizes",
+	"keywords": [ "loading", "spinner" ],
 	"origamiType": "module",
 	"keywords": "spinner, wait, loader",
 	"origamiCategory": "primitives",
