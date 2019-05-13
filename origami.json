@@ -1,6 +1,6 @@
 {
-	"description": "FT affiliation ribbon for Specialist Titles",
-	"keywords": "footer, ribbon, ft affiliation",
+	"description": "A ribbon denoting affiliation with the FT. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the company.",
+	"keywords": [ "footer", "ribbon", "ft affiliation" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
