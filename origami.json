@@ -1,5 +1,6 @@
 {
-	"description": "Financial Times video component",
+	"description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
+	"keywords": [ "videos", "play", "watch" ],
 	"origamiVersion": 1,
 	"origamiType": "module",
 	"origamiCategory": "components",
