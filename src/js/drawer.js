@@ -115,9 +115,9 @@ class Drawer {
 		this.nav.classList.toggle(this.class.open);
 		const open = this.nav.classList.contains(this.class.open);
 
-		this.nav.setAttribute('aria-hidden', !expand);
-		this.burger.setAttribute('aria-expanded', expand);
-		this.burger.querySelector('span').innerText = expand ? 'Close primary navigation' : 'Open primary navigation';
+		this.nav.setAttribute('aria-hidden', !open);
+		this.burger.setAttribute('aria-expanded', open);
+		this.burger.querySelector('span').innerText = open ? 'Close primary navigation' : 'Open primary navigation';
 
 		if (open) {
 			setTimeout(function(){
