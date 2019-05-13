@@ -1,5 +1,6 @@
 {
-    "description": "Helper Sass for using the FT's icons. For a full list of available icons please see the fticons image set(http://registry.origami.ft.com/components/fticons)",
+    "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
+    "keywords": [ "icons", "images" ],
     "origamiType": "module",
     "origamiCategory": "utilities",
     "origamiVersion": 1,
