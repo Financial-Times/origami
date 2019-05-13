@@ -1,6 +1,6 @@
 {
-	"description": "A tooltip for annotating or drawing attention to other bits of UI",
-	"keywords": "tooltip, tool, tip, annotate, highlight",
+	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
+	"keywords": ["tooltip", "tool", "tip", "annotate", "highlight", "hover"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
