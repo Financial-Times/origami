@@ -1,5 +1,6 @@
 {
-	"description": "Responsive Financial Times page footer",
+	"description": "Responsive footer for all FT.com pages. Includes legally approved links.",
+	"keywords": ["footer", "links", "page", "bottom" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
