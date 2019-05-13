@@ -1,5 +1,5 @@
 {
-	"description": "Used for product messaging",
+	"description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
 	"keywords": "banner, message, messaging",
 	"origamiType": "module",
 	"origamiCategory": "components",
