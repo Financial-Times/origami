@@ -1,5 +1,6 @@
 {
-	"description": "Styling for block quotes",
+	"description": "Styling for blockquotes, pull-quotes and any other types of quote",
+	"keywords": ["quotes", "pull quote", "blockquote", "text", "typography", "highlight" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
