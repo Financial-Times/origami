@@ -1,5 +1,6 @@
 {
-	"description": "Share module",
+	"description": "Provides styling for social media sharing links",
+	"keywords": [ "share", "link", "social", "facebook", "twitter", "linkedin", "whatsapp", "email" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -8,7 +9,6 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
-	"keywords": "social, facebook, twitter, linkedin, whatsapp, email",
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
