@@ -1,5 +1,6 @@
 {
-	"description": "Webfont loader for the FT's fonts.",
+	"description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
+	"keywords": [ "font", "web", "fonts" ],
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
