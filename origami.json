@@ -1,5 +1,6 @@
 {
-	"description": "Library for reporting front end errors",
+	"description": "A decoupled events-based mechanism for components to report errors and an API for products to report client-side errors.",
+	"keywords": ["error", "errors"],
 	"origamiType": "module",
 	"origamiCategory": "utilities",
 	"origamiVersion": 1,
