@@ -56,7 +56,9 @@ class Drawer {
 
 		this.debouncedRender = oUtils.debounce(() => this.render(), 100);
 		this.burger = this.headerEl.querySelector('.o-header-services__hamburger-icon');
-		this.burger.addEventListener('click', this);
+		if (this.burger) {
+			this.burger.addEventListener('click', this);
+		}
 		window.addEventListener('resize', this);
 		window.addEventListener('keydown', this);
 
