@@ -1,6 +1,6 @@
 {
-	"description": "A collection of article teasers.",
-	"keywords": "article, teaser, list, collection",
+	"description": "Provides styles to layout out multiple teasers in one section.",
+	"keywords": ["article", "teaser", "card", "list", "collection", "layout" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
