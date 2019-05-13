@@ -1,6 +1,6 @@
 {
-	"description": "A footer for non-master brand FT products",
-	"keywords": "footer, note, legal, copyright, logo, contact",
+	"description": "This is a legally approved footer component for internal products, tooling and customer products",
+	"keywords": [ "footer, note, legal, copyright, logo, contact" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
