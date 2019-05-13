@@ -1,5 +1,5 @@
 {
-	"description": "FT brand colours: Sass variables and helpers to use and define them",
+	"description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and tinting.",
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"keywords": "o-colours, colours, themes, schemes, pink, salmon, slate, tint, mix, background, palette",
