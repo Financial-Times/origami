@@ -2,11 +2,13 @@
 <header class="o-header-services {{#modifier}}o-header-services--{{modifier}}{{/modifier}}" data-o-component="o-header-services">
 	<div class="o-header-services__top">
 		<!-- Link to a fallback nav for the core experience when using a drawer and hamburger icon. -->
+		{{#primary-navigation}}
 		<div class="o-header-services__hamburger">
 			<a class="o-header-services__hamburger-icon" href="#core-nav-fallback" role="button">
 				<span class="o-header-services__visually-hidden">Open primary navigation</span>
 			</a>
 		</div>
+		{{/primary-navigation}}
 		<div class="o-header-services__logo"></div>
 		<div class="o-header-services__title">
 			<a class="o-header-services__product-name" href="/">Tool or Service name</a>

@@ -74,14 +74,14 @@ class Drawer {
 			this.debouncedRender();
 		}
 
-		if (e.type === 'keydown') {
+		if (e.type === 'keydown' && this.burger) {
 			if (e.key === 'Escape' && this.nav.classList.contains(this.class.open)) {
 				this.toggleDrawer();
 				this.burger.focus();
 			}
 		}
 
-		if ((e.type === 'click' && [this.nav, this.burger, this.drawerCloseButton].includes(e.target))) {
+		if ((e.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(e.target))) {
 			e.preventDefault();
 			this.toggleDrawer();
 		}
@@ -93,7 +93,7 @@ class Drawer {
 	render () {
 		// If burger is visible, render the drawer.
 		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
-		const enableDrawer = this.burger.offsetHeight !== 0;
+		const enableDrawer = this.burger && this.burger.offsetHeight !== 0;
 
 		if (enableDrawer) {
 			this.nav.addEventListener('click', this);
@@ -114,7 +114,11 @@ class Drawer {
 	toggleDrawer () {
 		this.nav.classList.toggle(this.class.open);
 		const open = this.nav.classList.contains(this.class.open);
-		this._toggleAriaAttributes(open);
+
+		this.nav.setAttribute('aria-hidden', !open);
+		this.burger.setAttribute('aria-expanded', open);
+		this.burger.querySelector('span').innerText = open ? 'Close primary navigation' : 'Open primary navigation';
+
 		if (open) {
 			setTimeout(function(){
 				this.drawerCloseButton.focus();
@@ -133,15 +137,6 @@ class Drawer {
 		let headerTop = this.headerEl.querySelector('.o-header-services__top');
 
 		return shiftItems ? this.navList.appendChild(relatedContent) : headerTop.appendChild(relatedContent);
-	}
-
-	/**
-	 * Set aria attributes specific to presence of drawer
-	 */
-	_toggleAriaAttributes(expand) {
-		this.nav.setAttribute('aria-hidden', !expand);
-		this.burger.setAttribute('aria-expanded', expand);
-		this.burger.querySelector('span').innerText = expand ? 'Close primary navigation' : 'Open primary navigation';
 	}
 }
 
