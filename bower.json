@@ -11,6 +11,6 @@
 		"o-icons": "^5.7.0",
 		"o-loading": "^3.0.0",
 		"o-normalise": "^1.6.2",
-		"o-typography": "#v5.8.0"
+		"o-typography": "^5.11.3"
 	}
 }
