@@ -1,5 +1,5 @@
 $o-forms-is-silent: false;
-@import "../../../main";
+@import "./../../main";
 
 body {
 	@include oColorsFor(page, background);
