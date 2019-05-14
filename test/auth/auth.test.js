@@ -66,6 +66,23 @@ describe("Auth", () => {
 			});
 		});
 
+		describe("when the comments auth service responds with 205", () => {
+			before(() => {
+				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 205);
+			});
+
+			after(() => {
+				fetchMock.reset();
+			});
+
+			it("resolves with undefined", () => {
+				return getJsonWebToken()
+					.then((token) => {
+						proclaim.equal(token, undefined);
+					});
+			});
+		});
+
 		describe("when the comments auth service responds with 404", () => {
 			before(() => {
 				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 404);
