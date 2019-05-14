@@ -1,0 +1,72 @@
+{
+	"variants": [
+		{
+			"textArea": true,
+			"optional": true,
+			"title": {
+				"main": "Optional text area",
+				"prompt": "Optional prompt text"
+			},
+			"input": {
+				"type": "textarea"
+			}
+		},
+		{
+			"textArea": true,
+			"title": {
+				"main": "Text area with a valid entry"
+			},
+			"input": {
+				"type": "textarea",
+				"modifiers": [ "valid" ],
+				"value": "Yup!"
+			}
+		},
+		{
+			"textArea": true,
+			"title": {
+				"main": "Text area with an invalid entry"
+			},
+			"input": {
+				"type": "textarea",
+				"modifiers": [ "invalid" ],
+				"value": "",
+				"error": "Please fill out this field"
+			}
+		},
+		{
+			"textArea": true,
+			"disabled": true,
+			"title": {
+				"main": "Disabled text area"
+			},
+			"input": {
+				"type": "textarea",
+				"value": "Disabled"
+			}
+		},
+		{
+			"textArea": true,
+			"inline-field": true,
+			"title": {
+				"main": "Inline text area",
+				"prompt": "Inline text area fields can be set in this way."
+			},
+			"input": {
+				"type": "textarea"
+			}
+		},
+		{
+			"textArea": true,
+			"inline-field": true,
+			"title": {
+				"main": "Shrunken title",
+				"prompt": "A prompt can go here",
+				"modifiers": [ "shrink"]
+			},
+			"input": {
+				"type": "textarea"
+			}
+		}
+	]
+}

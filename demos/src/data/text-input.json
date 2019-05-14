@@ -1,0 +1,107 @@
+{
+	"variants": [
+		{
+			"textInput": true,
+			"optional": true,
+			"title": {
+				"main": "Optional text input",
+				"prompt": "Optional prompt text"
+			},
+			"input": {
+				"type": "text"
+			}
+		},
+		{
+			"textInput": true,
+			"title": {
+				"main": "Text input with a valid entry"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "valid" ],
+				"value": "Valid Input"
+			}
+		},
+		{
+			"textInput": true,
+			"title": {
+				"main": "Text input with an invalid entry"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "invalid" ],
+				"error": "Please fill out this field"
+			}
+		},
+		{
+			"textInput": true,
+			"disabled": true,
+			"title": {
+				"main": "Disabled text input"
+			},
+			"input": {
+				"type": "text",
+				"value": "Disabled"
+			}
+		},
+		{
+			"textInput": true,
+			"title": {
+				"main": "Small text input"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "small" ],
+				"value": "Value"
+			}
+		},
+		{
+			"textInput": true,
+			"optional": true,
+			"title": {
+				"main": "Text input with suffix"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "suffix" ],
+				"value": "",
+				"button": "o-buttons o-buttons--big"
+			}
+		},
+		{
+			"textInput": true,
+			"title": {
+				"main": "Small text input with suffix"
+			},
+			"input": {
+				"type": "text",
+				"modifiers": [ "small", "suffix" ],
+				"value": "",
+				"button": "o-buttons"
+			}
+		},
+		{
+			"textInput": true,
+			"optional": true,
+			"inline-field": true,
+			"title": {
+				"main": "Shrunken title",
+				"prompt": "Vertically centered",
+				"modifiers": [ "shrink", "vertical-center" ]
+			},
+			"input": {
+				"type": "text"
+			}
+		},
+		{
+			"textInput": true,
+			"title": {
+				"main": "Password input"
+			},
+			"input": {
+				"type": "password",
+				"value": "password"
+			}
+		}
+	]
+}

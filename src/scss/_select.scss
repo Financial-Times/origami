@@ -1,0 +1,58 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $small Whether to output small input styles
+/// @param {Boolean} $suffix Whether to output suffix styles
+/// @output Styling for text areas
+@mixin _oFormsSelect(
+	$disabled: null,
+	$small: null,
+	$suffix: null
+) {
+	.o-forms-input--select {
+		@if $small {
+			@include _oFormsInputSmall('select');
+		}
+		
+		@if $suffix {
+			@include _oFormsInputSuffix('select');
+		}
+
+		select {
+			@include _oFormsInputBase($disabled);
+			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
+			appearance: none;
+			background-repeat: no-repeat;
+			background-size: auto $_o-forms-spacing-six;
+			border-radius: 0;
+			background-clip: padding-box;
+			color: _oFormsGet('default-text');
+			cursor: pointer;
+			outline: none;
+
+			// For iOS 6 that doesn't support 4-value background-position
+			// Handles background sizing and positioning issues with IE10+
+			// sass-lint:disable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
+			background-position: right center;
+			background-position: right $_o-forms-spacing-two center;
+			-ms-background-position-x: right -75%;
+			-ms-background-position-y: center;
+			// sass-lint:enable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
+
+			// Hide stock browser arrow in IE 10+
+			// sass-lint:disable no-vendor-prefixes
+			&::-ms-expand {
+				color: oColorsGetPaletteColor('white');
+				display: none;
+			}
+			// sass-lint:enable no-vendor-prefixes
+
+			&:disabled {
+				@include oIconsGetIcon('arrow-down', _oFormsGet('disabled-text'), $apply-base-styles: false, $apply-width-height: false);
+			}
+
+			&[multiple] {
+				background-image: none;
+			}
+		}
+	}
+}

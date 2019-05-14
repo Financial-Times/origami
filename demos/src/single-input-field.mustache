@@ -1,0 +1,41 @@
+{{#variants}}
+	<label class="o-forms-field{{#inline-field}} o-forms-field--inline{{/inline-field}}{{#optional}} o-forms-field--optional{{/optional}}">
+		
+		<span	class="o-forms-title{{#title.modifiers}} o-forms-title--{{.}}{{/title.modifiers}}">
+			<span class="o-forms-title__main">{{title.main}}</span>
+			{{#title.prompt}}<span class="o-forms-title__prompt">{{.}}</span>{{/title.prompt}}
+		</span>
+
+		<span class="o-forms-input o-forms-input--{{input.type}}{{#input.modifiers}} o-forms-input--{{.}}{{/input.modifiers}}">
+
+			{{#textInput}}
+				<input 
+					type="{{input.type}}" 
+					name="text" 
+					value="{{input.value}}" 
+					{{#disabled}}disabled{{/disabled}}
+					{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
+			{{/textInput}}
+			
+			{{#textArea}}
+				<textarea 
+					{{#disabled}}disabled{{/disabled}}
+					{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>{{input.value}}</textarea>
+			{{/textArea}}
+
+			{{#select}}
+				<select 
+					{{#multiple}}multiple{{/multiple}}
+					{{#disabled}}disabled{{/disabled}}
+					{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
+					{{#input.selected}}<option value="{{.}}" selected>{{.}}</option>{{/input.selected}}
+					{{#input.options}}<option value="{{.}}">{{.}}</option>{{/input.options}}
+				</select>
+			{{/select}}
+
+			{{#input.error}}<span class="o-forms-input__error">{{.}}</span>{{/input.error}}
+			{{#input.button}}<button class="{{.}}">Go</button>{{/input.button}}
+		</span>
+	
+	</label>
+{{/variants}}

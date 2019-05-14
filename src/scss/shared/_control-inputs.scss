@@ -1,0 +1,58 @@
+/// @access private
+/// @output Shared base styles for checkboxes, toggles, round- and box-style radio buttons.
+@mixin _oFormsControlsBase($disabled: null) {
+	position: absolute;
+	padding: 0;
+	width: $_o-forms-spacing-six;
+	height: $_o-forms-spacing-six;
+
+	&:checked + .o-forms-input__label:after {
+		opacity: 1;
+	}
+
+	@if $disabled {
+		&:disabled {
+			opacity: 0;
+
+			+ .o-forms-input__label {
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
+/// @access private
+/// @output Shared pseudo element styles for checkboxes, toggle, round- and box-style radio buttons.
+@mixin _oFormsControlsPseudoElements {
+	content: '';
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $_o-forms-spacing-six;
+	height: $_o-forms-spacing-six;
+	box-sizing: border-box;
+}
+
+/// @access private
+/// @output Shared styles for box-style radio buttons and anchor controls
+@mixin _oFormsControlsBoxBase {
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+	margin: 0;
+	min-height: $_o-forms-spacing-seven;
+	min-width: oTypographySpacingSize(15);
+}
+
+/// @access private
+/// @output Shared styles for box-style containers
+@mixin _oFormsControlsBoxContainer {
+	@include oTypographySize($scale: -1, $line-height: unset);
+	@include oTypographyBold('sans');
+	box-sizing: border-box;
+	border: $_o-forms-border;
+	display: inline-block;
+	padding: $_o-forms-spacing-half;
+	text-align: center;
+}

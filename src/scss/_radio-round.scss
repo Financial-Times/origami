@@ -1,0 +1,54 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output Styling for box-styled radio inputs
+@mixin _oFormsRadioRound(
+	$disabled: null
+) {
+	.o-forms-input--radio-round {
+		.o-forms-input__label {
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-controls;
+			display: inline-block;
+
+			&:before,
+			&:after {
+				@include _oFormsControlsPseudoElements;
+				border-radius: 50%;
+				transition: opacity 0.1s ease-in;
+				background-color: transparent;
+			}
+
+			&:before {
+				@include oColorsFor(page, background);
+				border: $_o-forms-border;
+			}
+
+			&:after {
+				background-color: _oFormsGet('controls-base');
+				border-radius: 50%;
+				height: $_o-forms-spacing-three;
+				width: $_o-forms-spacing-three;
+				margin: $_o-forms-spacing-three / 2;
+				opacity: 0;
+				// sass-lint:disable no-vendor-prefixes
+				@media screen and (-ms-high-contrast: active) {
+					background-color: windowText;
+				}
+				// sass-lint:enable no-vendor-prefixes
+			}
+		}
+
+		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+			@include _oFormsControlsBase($disabled);
+
+			&:checked	+ .o-forms-input__label:before {
+				border-color: _oFormsGet('controls-base');
+			}
+
+			&:focus {
+				border-color: $o-normalise-focus-color;
+				box-shadow: 0 0 0 $_o-forms-spacing-half $o-normalise-focus-color;
+				outline: none;
+			}
+		}
+	}
+};

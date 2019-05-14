@@ -2,471 +2,168 @@
 
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
-import * as fixtures from './helpers/fixtures';
+import formFixture from './helpers/fixtures';
+import Forms from './../main';
 
-const Forms = require('./../main');
+describe('Forms', () => {
+	let formEl;
+	let parentClass;
+	let requiredTextField;
+	let dateFields;
 
-describe("Forms", () => {
-	describe("configuration", () => {
-		let testForms;
-
-		afterEach(() => {
-			fixtures.reset();
-			testForms.destroy();
-		});
-
-		it('sets default testEvent to blur', () => {
-			fixtures.htmlCode();
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			testForms = new Forms(formEl);
-
-			proclaim.equal(testForms.opts.testEvent, 'blur');
-		});
-
-		it('sets default applyValidState to false', () => {
-			fixtures.htmlCode();
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			testForms = new Forms(formEl);
-
-			proclaim.equal(testForms.opts.applyValidState, false);
-		});
-
-		it('adds correct event listeners to form and inputs for blur config', () => {
-			const html = `<form data-o-component="o-forms"><input type="text" /></form>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const input = formEl.querySelector('input');
-			const inputSpy = sinon.spy(input, 'addEventListener');
-
-			testForms = new Forms(formEl);
-
-			proclaim.isTrue(inputSpy.calledOnce);
-		});
-
-		it('sets testEvent to correct options when constructed manually', () => {
-			fixtures.htmlCode();
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const opts = { testEvent: 'submit' };
-			testForms = new Forms(formEl, opts);
-
-			proclaim.equal(testForms.opts.testEvent, 'submit');
-		});
-
-		it('sets testEvent to correct options when constructed from data attr', () => {
-			const html = `<form data-o-component="o-forms" data-o-forms-test-event="submit"><input type="text" /></form>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			testForms = new Forms(formEl);
-
-			proclaim.equal(testForms.opts.testEvent, 'submit');
-		});
-
-		it('sets applyValidState to correct options when constructed from data attr', () => {
-			const html = `<form data-o-component="o-forms" data-o-forms-apply-valid-state="true"><input type="text" /></form>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			testForms = new Forms(formEl);
-
-			proclaim.equal(testForms.opts.applyValidState, true);
-		});
-
-		it('adds correct event listeners to form and inputs for submit config', () => {
-			const html = `<form data-o-component="o-forms" data-o-forms-test-event="submit"><input type="text" /></form>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const formSpy = sinon.spy(formEl, 'addEventListener');
-			const input = formEl.querySelector('input');
-			const inputSpy = sinon.spy(input, 'addEventListener');
-
-			testForms = new Forms(formEl);
-
-			proclaim.isTrue(inputSpy.calledOnce);
-			proclaim.isTrue(formSpy.withArgs('click').calledOnce);
-			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
-		});
-
-		it('fires an event for toggle checkboxes on click', (done) => {
-			const html = `
-				<form data-o-component="o-forms">
-					<div class="o-forms__toggle">
-						<input data-o-form-toggle type="checkbox">
-					</div>
-				</form>
-			`;
-			fixtures.insert(html);
-
-			// Setup form
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const checkboxToggle = document.querySelector('[data-o-form-toggle]');
-			testForms = new Forms(formEl);
-
-			// We expect an oForms toggled event.
-			formEl.addEventListener('oForms.toggled', (event) => {
-				event.preventDefault();
-				proclaim.isTrue(event.target.checked, 'The toggle checkbox should be checked on click.');
-				done();
-			}, false);
-
-			// Click the checkbox.
-			checkboxToggle.click();
-		});
+	before(() => {
+		parentClass = (element, modifier) => element.closest('.o-forms-input').classList.contains(`o-forms-input--${modifier}`);
 	});
 
-	describe("handles inputs", () => {
-		let formEl;
-		let input;
-		let oFormsEl;
-		let testForms;
+	context('on `submit`', () => {
+		let submit;
+		let summary;
+		let formSpy;
 
 		beforeEach(() => {
-			fixtures.htmlCode();
-			formEl = document.querySelector('[data-o-component="o-forms"]');
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			formSpy = sinon.spy(formEl, 'addEventListener');
 
-			input = document.querySelector('#required-input');
-			oFormsEl = input.closest('.o-forms');
+			dateFields = formEl.elements['date'];
+			requiredTextField = formEl.elements['required'];
+			submit = formEl.elements[formEl.elements.length - 1];
 		});
 
 		afterEach(() => {
-			formEl = undefined;
-
-			oFormsEl = undefined;
-			input = undefined;
-			testForms.destroy();
-
-			fixtures.reset();
+			document.body.innerHTML = null;
 		});
 
-		it('adds the error class to the form when an input is invalid on blur', () => {
-			testForms = new Forms(formEl);
+		it('`opts.useBrowserValidation = true` relays form validation to browser on all invalid form inputs', () => {
+			new Forms(formEl, { useBrowserValidation: true });
+			submit.click();
 
-			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-
-			input.focus();
-			input.value = '';
-			input.blur();
-
-			proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+			proclaim.isTrue(formSpy.withArgs('submit').notCalled);
+			proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
+			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
 		});
 
-		it('adds the error class to the form when an input is invalid on submit', (done) => {
-			const submitButton = document.querySelector('input[type="submit"]');
-			testForms = new Forms(formEl, { testEvent: 'submit' });
+		it('`opts.useBrowserValidation = false` manually validates form inputs', () => {
+			new Forms(formEl);
+			submit.click();
 
-			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-			input.value = 'test';
-
-			formEl.addEventListener('submit', (event) => {
-				event.preventDefault();
-				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
-				done();
-			}, false);
-
-			input.addEventListener('invalid', (event) => {
-				event.preventDefault();
-				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
-				done();
-			}, false);
-
-			submitButton.click();
+			proclaim.isTrue(formSpy.withArgs('submit').calledOnce);
+			proclaim.isTrue(parentClass(dateFields[0], 'invalid'));
+			proclaim.isTrue(parentClass(requiredTextField, 'invalid'));
 		});
 
-		it('does not submit the form when an input is invalid on submit', (done) => {
-			const submitButton = document.querySelector('input[type="submit"]');
-			testForms = new Forms(formEl, { testEvent: 'submit' });
+		context('`opts.errorSummary = true`', () => {
+			let listItems;
+			let textInput;
 
-			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-			input.value = 'test';
-
-			formEl.addEventListener('submit', (event) => {
-				event.preventDefault();
-				throw new Error('Expected form to not be submitted');
-			}, false);
-
-			setTimeout(() => {
-				done();
-			}, 10);
-
-			submitButton.click();
-		});
-
-		describe("handles valid inputs", () => {
 			beforeEach(() => {
-				testForms = new Forms(formEl);
+				new Forms(formEl);
 			});
 
-			it('submits form when inputs are valid', (done) => {
-				const submitButton = document.querySelector('input[type="submit"]');
-
-				input.value = 'valid';
-
-				formEl.addEventListener('submit', (event) => {
-					event.preventDefault();
-					done();
-				}, false);
-
-				submitButton.click();
+			it('creates new summary when inputs are invalid', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				proclaim.isNotNull(summary);
 			});
 
-			it('removes error class when input is valid', () => {
-				oFormsEl.classList.add('o-forms--error');
-
-				input.focus();
-				input.value = 'valid';
-				input.blur();
-
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
+			it('the summary reflects the number of invalid inputs', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 4);
 			});
 
-			it('adds the valid class to the form when applyValidState is true and input is valid on blur', () => {
-				testForms = new Forms(formEl, { applyValidState: true });
+			it('the summary gets updated on second submit if a form field has been amended', () => {
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 4);
 
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+				textInput = formEl.elements['text'];
+				textInput.value = 'something';
 
-				input.focus();
-				input.value = 'valid';
-				input.blur();
-
-				proclaim.isTrue(oFormsEl.classList.contains('o-forms--valid'));
-			});
-
-			it('doesnt add the valid class to the form when applyValidState is false', () => {
-				testForms = new Forms(formEl, { applyValidState: false });
-
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
-
-				input.focus();
-				input.value = 'valid';
-				input.blur();
-
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				listItems = summary.querySelectorAll('a');
+				proclaim.equal(listItems.length, 3);
 			});
 		});
 
-		describe("handles validity changes", () => {
-			it('removes the valid class when input becomes invalid on blur', () => {
-				testForms = new Forms(formEl, { applyValidState: true });
-
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-
-				input.focus();
-				input.value = 'valid';
-				input.blur();
-
-				proclaim.isTrue(oFormsEl.classList.contains('o-forms--valid'));
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-
-				input.focus();
-				input.value = 'nope';
-				input.blur();
-
-				proclaim.isFalse(oFormsEl.classList.contains('o-forms--valid'));
-				proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+		context('`opts.errorSummary = false`', () => {
+			it('does not create a new summary when inputs are invalid ', () => {
+				new Forms(formEl, { errorSummary: false });
+				submit.click();
+				summary = formEl.querySelector('.o-forms__error-summary');
+				proclaim.isNull(summary);
 			});
 		});
 	});
 
-	describe("methods", () => {
-		it('selects all form control elements in a form', () => {
-			fixtures.allInputsHtmlCode();
+	context('.setState()', () => {
+		let form;
+		let name;
+		let radioInputs;
 
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
+		before(() => {
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			name = 'radioBox';
+			radioInputs = formEl.elements[name];
 
-			const inputEls = testForms.findInputs();
-
-			proclaim.lengthEquals(inputEls, 7);
+			form = new Forms(formEl);
 		});
 
-		it('validate forms method', () => {
-			const html = `<div data-o-component="o-forms" class="o-forms o-forms--error"><input type="text" /></div>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
-
-			const input = document.querySelector('input');
-
-			const validateResult = testForms.validateInput(input);
-
-			proclaim.isTrue(validateResult);
-
-			proclaim.isFalse(formEl.classList.contains('o-forms--error'));
+		after(() => {
+			document.body.innerHTML = null;
 		});
 
-		it('adds a class to the ancestor o-forms element', () => {
-			const html = `<div class="o-forms"><input type="text" /></div>`;
-			fixtures.insert(html);
+		it('`saving` to named input', () => {
+			form.setState('saving', name);
+			proclaim.isTrue(parentClass(radioInputs[0], 'saving'));
+		});
 
-			const formEl = document.createElement('div');
-			formEl.setAttribute('data-o-component', 'o-forms');
+		it('`saved` to named input', () => {
+			form.setState('saved', name);
+			proclaim.isFalse(parentClass(radioInputs[0], 'saving'));
+			proclaim.isTrue(parentClass(radioInputs[0], 'saved'));
+		});
 
-			const testForms = new Forms(formEl);
-			const input = document.querySelector('input');
-			const oFormsEl = input.closest('.o-forms');
-
-			proclaim.isFalse(oFormsEl.classList.contains('o-forms--error'));
-
-			testForms.invalidInput(input);
-			proclaim.isTrue(oFormsEl.classList.contains('o-forms--error'));
+		it('`none` to named input', () => {
+			form.setState('none', name);
+			proclaim.isFalse(parentClass(radioInputs[0], 'saving'));
+			proclaim.isFalse(parentClass(radioInputs[0], 'saved'));
 		});
 	});
 
-	describe("update status method", () => {
-		it('adds a new status when a status element exists', () => {
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: true
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			const formStatusElement = document.querySelector('.o-forms__status');
-			// Add status.
-			const status = 'saving';
-			const input = formFieldElement.querySelector('input');
-			Forms.updateInputStatus(input, status);
-			// Confirm expected status classes and aria attributes.
-			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${status}`));
-			proclaim.equal(formStatusElement.getAttribute(`aria-live`), 'assertive');
-			proclaim.equal(formStatusElement.getAttribute(`aria-hidden`), 'false');
-		});
-		it('creates a status element if one does not exist', () => {
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: false
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			const initialFormStatusElement = document.querySelector('.o-forms__status');
-			// Confirm no status exists.
-			proclaim.isNull(initialFormStatusElement, 'Expecting no form status element to exist yet.');
-			// Add status.
-			const status = 'saving';
-			const input = formFieldElement.querySelector('input');
-			Forms.updateInputStatus(input, status);
-			// Confirm form status element is created with the requested status.
-			const finalFormStatusElement = document.querySelector('.o-forms__status');
-			proclaim.ok(finalFormStatusElement, 'Expecting a form status element to have been created.');
-			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${status}`));
-		});
-		it('does not add a status if the form input has an active error', () => {
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: true,
-				hasError: true
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			const formStatusElement = document.querySelector('.o-forms__status');
-			// Attempt to add status.
-			const status = 'saving';
-			const input = formFieldElement.querySelector('input');
-			Forms.updateInputStatus(input, status);
-			// Status is not added.
-			proclaim.isFalse(formFieldElement.classList.contains(`o-forms--${status}`), 'If a form field has an error it should not also have a status.');
-			proclaim.equal(formStatusElement.getAttribute(`aria-hidden`), 'true', 'If a form field has an error its status should be hidden.');
-		});
-		it('does not add an invalid status', () => {
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: true,
-				hasError: true
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			// Attempt to add nonsense status.
-			const status = 'not-a-real-status';
-			const input = formFieldElement.querySelector('input');
-			// Status is not added.
-			proclaim.throws(() => {
-				Forms.updateInputStatus(input, status);
-			});
-		});
-		it('updates an existing status', () => {
-			const existingStatus = 'saving';
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: true,
-				status: existingStatus
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			// Confirm their is an existing status to update.
-			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${existingStatus}`), 'Expecting an existing form field status to test.');
-			// Attempt to update status.
-			const newStatus = 'saved';
-			const input = formFieldElement.querySelector('input');
-			Forms.updateInputStatus(input, newStatus);
-			// Status is updated.
-			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${newStatus}`));
-		});
-		it('removes an existing status if no status is given', () => {
-			const existingStatus = 'saving';
-			fixtures.formFieldHtmlCode({
-				includeStatusElement: true,
-				status: existingStatus
-			});
-			// Get elements to test.
-			const formFieldElement = document.querySelector('.o-forms');
-			// Confirm their is an existing status to update.
-			proclaim.isTrue(formFieldElement.classList.contains(`o-forms--${existingStatus}`), 'Expecting an existing form field status to test.');
-			// Attempt to remove status.
-			const status = null;
-			const input = formFieldElement.querySelector('input');
-			Forms.updateInputStatus(input, status);
-			// Status is removed.
-			proclaim.isFalse(formFieldElement.classList.contains(`o-forms--${existingStatus}`));
-		});
-	});
-
-	describe("destroy method", () => {
-		it('destroys itself when not initialised on a <form> element', () => {
-			const html = `<form><input type="text" data-o-component="o-forms" /></form>`;
-			fixtures.insert(html);
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
-
-			proclaim.isUndefined(testForms.FormEl);
-			proclaim.isUndefined(testForms.opts);
-			proclaim.isUndefined(testForms.validFormEls);
+	context('.destroy()', () => {
+		let form;
+		let formSpy;
+		beforeEach(() => {
+			document.body.innerHTML = formFixture;
+			formEl = document.forms[0];
+			form = new Forms(formEl);
 		});
 
-		it("removes the event listeners from the FormEl on submit", () => {
-			fixtures.htmlCode();
-
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
-
-			let elSpy = sinon.spy(formEl, 'removeEventListener');
-			testForms.destroy();
-
-			proclaim.isTrue(elSpy.calledOnce);
+		afterEach(() => {
+			document.body.innerHTML = null;
 		});
 
-		it("removes the event listeners from the FormEl inputs", (done) => {
-			fixtures.htmlCode();
+		it('removes all references to Forms, Inputs and State', () => {
+			proclaim.isInstanceOf(form, Forms);
 
-			const formEl = document.querySelector('[data-o-component="o-forms"]');
-			const testForms = new Forms(formEl);
-
-			const spys = [];
-			const inputs = Array.from(formEl.querySelectorAll('input, select, textarea, button'));
-
-			inputs.forEach((input) => {
-				spys.push(sinon.spy(input, 'removeEventListener'));
-			});
-
-			testForms.destroy();
-
-			spys.forEach((spy) => {
-				proclaim.isTrue(spy.calledTwice);
-			});
-
-			done();
+			form.destroy();
+			proclaim.isNull(form.form);
+			proclaim.isNull(form.opts);
+			proclaim.isNull(form.formInputs);
+			proclaim.isNull(form.stateElements);
 		});
 
+		it('removes all event listeners', () => {
+			formSpy = sinon.spy(formEl, 'removeEventListener');
+
+			form.destroy();
+
+			proclaim.isTrue(formSpy.calledOnce);
+		});
 	});
 });

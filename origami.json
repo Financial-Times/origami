@@ -1,5 +1,6 @@
 {
-	"description": "These components are used as the building blocks for creating all types of forms. These forms should be able to be used on all devices ie desktop, mobile and tablet.",
+	"description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
+	"keywords": [ "form", "input", "field", "fieldset", "submit" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -14,123 +15,113 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "active",
-	"keywords": "tickbox radio input checkbox error",
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-forms"
 	},
-	"demos": [
-		{
-			"name": "text-inputs",
-			"title": "Text input",
-			"template": "/demos/src/text-inputs.mustache",
-			"description": "This is the generic text input box for most use cases to build any type of form."
-		},
-		{
-			"name": "select-boxes",
-			"title": "Select box",
-			"template": "/demos/src/select-boxes.mustache",
-			"description": "This is the generic select box for most use cases that can be used to build any type of form on all devices."
-		},
-		{
-			"name": "textareas",
-			"title": "Textarea",
-			"template": "/demos/src/textareas.mustache",
-			"description": "This is the generic text area box for most use cases."
-		},
-		{
-			"name": "date",
-			"title": "Date inputs",
-			"template": "/demos/src/dates.mustache",
-			"description": "This is a group of number inputs to capture a date."
-		},
-		{
-			"name": "radios",
-			"title": "Radio buttons",
-			"template": "/demos/src/radios.mustache",
-			"description": "These are the generic radio buttons for most use cases."
-		},
-		{
-			"name": "radios-button-styled",
-			"title": "Radios with button styling",
-			"template": "/demos/src/radios-button-styling.mustache",
-			"description": "Usercase: Can be used to require the user to choose between alternatives, with no default set."
-		},
-		{
-			"name": "anchor-radios-button-styled",
-			"title": "Anchors with radio button styling",
-			"template": "/demos/src/anchor-radios-button-styling.mustache",
-			"description": "Where technically required anchor tags may also be used, outside a form, to achieve the styled radio button look."
-		},
-		{
-			"name": "checkboxes",
-			"title": "Checkboxes",
-			"template": "/demos/src/checkboxes.mustache",
-			"description": "These are the generic check boxes for most use cases."
-		},
-		{
-			"name": "toggle",
-			"title": "A checkbox which acts as a toggle",
-			"template": "/demos/src/toggle.mustache",
-			"description": "This is a checkbox which looks like a toggle, useful as an on/off e.g. for settings."
-		},
-		{
-			"title": "Suffix",
-			"name": "suffix",
-			"template": "/demos/src/suffix.mustache",
-			"description": ""
-		},
-		{
-			"name": "sections",
-			"title": "Sections",
-			"template": "/demos/src/sections.mustache",
-			"description": "These are optional section wrappers to highlight multiple instances of o-forms."
-		},
-		{
-			"name": "inline",
-			"title": "Inline",
-			"template": "/demos/src/inline.mustache",
-			"description": "Form elements may also be displayed inline."
-		},
-		{
-			"name": "inline-controls",
-			"title": "Inline Controls",
-			"template": "/demos/src/inline-controls.mustache",
-			"description": "For small controls of the same width E.g. repeated yes/no radios in a small container."
-		},
-		{
-			"name": "status",
-			"title": "Status",
-			"template": "/demos/src/status.mustache",
-			"description": "Feedback styles."
-		},
-		{
-			"name": "custom",
-			"title": "Custom",
-			"template": "/demos/src/custom.mustache",
-			"hidden": true,
-			"description": "Custom styles."
-		},
-		{
-			"title": "Pa11y",
-			"name": "pa11y",
-			"template": "/demos/src/pa11y.mustache",
-			"hidden": true,
-			"description": ""
-		},
-		{
-			"name": "js-validation",
-			"title": "Validate inputs",
-			"template": "/demos/src/validation.mustache",
-			"hidden": true
-		}
-	],
+	"browserFeatures": {
+		"required": [
+			"DOMTokenList",
+			"Element.prototype.closest",
+			"Array.prototype.includes"
+		]
+	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
+		"documentClasses": "demo",
 		"dependencies": [
 			"o-fonts@^3",
 			"o-buttons@^5",
 			"o-normalise@1"
 		]
-	}
+	},
+	"demos": [
+		{
+			"name": "pseudo-radio-links",
+			"title": "Pseudo Radio Links",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Anchor elements that imitate box-style radio inputs",
+			"data": "/demos/src/data/pseudo-radio-links.json"
+		},
+		{
+			"name": "checkboxes",
+			"title": "Checkboxes",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Checkbox inputs with a default squared style",
+			"data": "/demos/src/data/checkboxes.json"
+		},
+		{
+			"name": "custom",
+			"title": "Customised pseudo-radio-links/radio-boxes",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Custom theme example for box-styled anchors and radio inputs",
+			"data": "/demos/src/data/custom.json",
+			"hidden": true
+		},
+		{
+			"name": "date",
+			"title": "Date input",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Date input with text fields instead of a date picker",
+			"data": "/demos/src/data/date.json"
+		},
+		{
+			"name": "radio-box",
+			"title": "Box-styled radio inputs",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Radio button inputs with a box-like style",
+			"data": "/demos/src/data/radio-box.json"
+		},
+		{
+			"name": "radio-round",
+			"title": "Round-styled radio inputs",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Radio button inputs with a default circular style",
+			"data": "/demos/src/data/radio-round.json"
+		},
+		{
+			"name": "toggle",
+			"title": "Toggle",
+			"template": "/demos/src/multiple-input-field.mustache",
+			"description": "Checkbox inputs with a toggle style",
+			"data": "/demos/src/data/toggle.json"
+		},
+		{
+			"name": "text-input",
+			"title": "Text input",
+			"template": "/demos/src/single-input-field.mustache",
+			"description": "Regular text input",
+			"data": "/demos/src/data/text-input.json"
+		},
+		{
+			"name": "text-area",
+			"title": "Text Area",
+			"template": "/demos/src/single-input-field.mustache",
+			"description": "Regular textarea input",
+			"data": "/demos/src/data/text-area.json"
+		},
+		{
+			"name": "select",
+			"title": "Select boxes",
+			"template": "/demos/src/single-input-field.mustache",
+			"description": "Dropdown/Selection inputs",
+			"data": "/demos/src/data/select.json"
+		},
+		{
+			"name": "pa11y",
+			"title": "Accessibility testing",
+			"template": "/demos/src/pa11y.mustache",
+			"description": "pa11y",
+			"data": "/demos/src/data/pa11y.json",
+			"hidden": true
+		},
+		{
+			"name": "interactive",
+			"title": "Interactive form demo",
+			"template": "/demos/src/interactive.mustache",
+			"description": "Illustrates validation and state behaviour with form JS",
+			"js": "demos/src/interactive.js",
+			"hidden": true
+		}
+	]
 }

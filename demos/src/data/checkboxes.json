@@ -1,0 +1,235 @@
+{
+	"variants": [
+		{
+			"optional": true,
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "checkbox-group-title",
+					"info": "checkbox-group-info"
+				}
+			},
+			"title": {
+				"main": "Stacked checkboxes",
+				"prompt": "Optional prompt/description text"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "default",
+					"value": "Stacked 1",
+					"checked": true
+				},
+				{
+					"type": "checkbox",
+					"name": "default",
+					"value": "Stacked 2"
+				},
+				{
+					"type": "checkbox",
+					"name": "default",
+					"value": "Stacked 3",
+					"checked": true
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "disabed-checkbox-group-title"
+				}
+			},
+			"title": {
+				"main": "Disabled checkboxes"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "disabled",
+					"value": "Disabled 1",
+					"checked": true,
+					"disabled": true
+				},
+				{
+					"type": "checkbox",
+					"name": "disabled",
+					"value": "Disabled 2",
+					"disabled": true
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "error-checkbox-group-title"
+				},
+				"error": "Please select at least one option",
+				"modifiers": [ "invalid" ]
+			},
+			"title": {
+				"main": "Error checkboxes"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "error",
+					"value": "Error 1"
+				},
+				{
+					"type": "checkbox",
+					"name": "error",
+					"value": "Error 2"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "inline-checkbox-group-title"
+				},
+				"modifiers": [
+					"inline"
+				]
+			},
+			"title": {
+				"main": "Inline checkboxes"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "inline",
+					"value": "Inlined 1",
+					"checked": true
+				},
+				{
+					"type": "checkbox",
+					"name": "inline",
+					"value": "This is be a very long inlined checkbox to demonstrate the correct alignment of checkboxes"
+				},
+				{
+					"type": "checkbox",
+					"name": "inline",
+					"value": "Inlined 3"
+				}
+			]
+		},
+		{
+			"inline-field": true,
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "inline-field-inline-checkbox-group-title"
+				},
+				"modifiers": [ "inline" ]
+			},
+			"title": {
+				"main": "Inline field and checkboxes"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "inline-field",
+					"value": "Inline 1",
+					"checked": true
+				},
+				{
+					"type": "checkbox",
+					"name": "inline-field",
+					"value": "Inline 2"
+				}
+			]
+		},
+		{
+			"inline-field": true,
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "inline-field-checkbox-group-title"
+				}
+			},
+			"title": {
+				"main": "Inline field and stacked checkboxes"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "inline-stacked",
+					"value": "Inline 1"
+				},
+				{
+					"type": "checkbox",
+					"name": "inline-stacked",
+					"value": "Inline 2",
+					"checked": true
+				},
+				{
+					"type": "checkbox",
+					"name": "inline-stacked",
+					"value": "Inline 3",
+					"checked": true
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "password-checkbox-group-title",
+					"info": "password-checkbox-group-info"
+				},
+				"modifiers": [ "password" ]
+			},
+			"title": {
+				"main": "Right side checkboxes",
+				"prompt": "Interface demo only, password hide/show functionality is not currently included in o-forms."
+			},
+			"inputs": [
+				{
+					"type": "password",
+					"value": "password"
+				},
+				{
+					"type": "checkbox",
+					"name": "show",
+					"value": "Show password",
+					"label": "o-forms-input__right"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "checkbox",
+				"aria": {
+					"label": "extra-content-checkbox-group-title",
+					"info": "extra-content-checkbox-group-info"
+				}
+			},
+			"title": {
+				"main": "Checkboxes with extra content",
+				"prompt": "Indeterminate interface demo only, select/unselect all functionality is not currently included in o-forms"
+			},
+			"inputs": [
+				{
+					"type": "checkbox",
+					"name": "extra",
+					"value": "Select All"
+				},
+				{
+					"type": "checkbox",
+					"name": "extra",
+					"value": "I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.",
+					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times."
+				},
+				{
+					"type": "checkbox",
+					"name": "extra",
+					"value": "By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.",
+					"checked": true
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,186 @@
+{
+  "variants": [
+    {
+      "optional": true,
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "toggle-group-title",
+          "info": "toggle-group-info"
+        }
+      },
+      "title": {
+        "main": "Default toggle inputs",
+        "prompt": "Optional prompt text"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "default",
+          "value": "Stacked 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "default",
+          "value": "Stacked 2"
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "inlined-toggle-group-title"
+        },
+        "modifiers": [ "inline" ]
+      },
+      "title": {
+        "main": "Inline toggle inputs"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "optional",
+          "value": "Optional 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "optional",
+          "value": "Optional 2"
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "disabed-toggle-group-title"
+        }
+      },
+      "title": {
+        "main": "Disabled toggle inputs"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "disabled",
+          "value": "Disabled 1",
+          "checked": true,
+          "disabled": true
+        },
+        {
+          "type": "checkbox",
+          "name": "disabled",
+          "value": "Disabled 2",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "error-toggle-group-title"
+        },
+        "error": "Something has gone wrong.",
+        "modifiers": [ "invalid" ]
+      },
+      "title": {
+        "main": "Error toggle inputs"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "error",
+          "value": "Error 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "error",
+          "value": "Error 2"
+        }
+      ]
+    },
+    {
+      "inline-field": true,
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "inline-field-toggle-group-title"
+        }
+      },
+      "title": {
+        "main": "Inline field with toggle"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "inline-field",
+          "value": "Inlined 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "inline-field",
+          "value": "Inlined 2"
+        }
+      ]
+    },
+    {
+      "inline-field": true,
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "inline-field-toggle-group-title"
+        },
+        "modifiers": [ "inline" ]
+      },
+      "title": {
+        "main": "Inline field with inline toggle"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "inline-all",
+          "value": "Inlined 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "inline-all",
+          "value": "Inlined 2"
+        }
+      ]
+    },
+    {
+      "inverse": true,
+      "optional": true,
+      "field": {
+        "type": "toggle",
+        "aria": {
+          "label": "inverse-toggle-group-title"
+        }
+      },
+      "title": {
+        "main": "Inverse checkboxes",
+        "prompt": "Inverse prompt text"
+      },
+      "inputs": [
+        {
+          "type": "checkbox",
+          "name": "inverse",
+          "value": "Inverse 1",
+          "checked": true
+        },
+        {
+          "type": "checkbox",
+          "name": "inverse",
+          "value": "Inverse 2"
+        }
+      ]
+    }
+  ]
+}

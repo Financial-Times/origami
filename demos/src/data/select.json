@@ -1,0 +1,146 @@
+{
+	"variants": [
+		{
+			"select": true,
+			"optional": true,
+			"title": {
+				"main": "Default select box",
+				"prompt": "Optional prompt/description text"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1 (low chars: qgjpy)",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"title": {
+				"main": "Valid selection"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"modifiers": ["valid"]
+			}
+		},
+		{
+			"select": true,
+			"title": {
+				"main": "Invalid selection"
+			},
+			"input": {
+				"type": "select",
+				"selected": "",
+				"options": ["", "Option 1", "Option 2", "Option 3" ],
+				"modifiers": ["invalid"],
+				"error": "Please select an option"
+			}
+		},
+		{
+			"select": true,
+			"disabled": true,
+			"title": {
+				"main": "Disabled select box"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"title": {
+				"main": "Small select box"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"modifiers": [ "small" ]
+			}
+		},
+		{
+			"select": true,
+			"multiple": true,
+			"title": {
+				"main": "Multiple select box"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"title": {
+				"main": "Select box with suffix",
+				"prompt": "And prompt text for good measure"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"modifiers": [ "suffix" ],
+				"button": "o-buttons o-buttons--big"
+			}
+		},
+		{
+			"select": true,
+			"title": {
+				"main": "Small select box with suffix"
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ],
+				"modifiers": [ "suffix", "small" ],
+				"button": "o-buttons"
+			}
+		},
+		{
+			"select": true,
+			"inline-field": true,
+			"title": {
+				"main": "Short title",
+				"prompt": "Long input",
+				"modifiers": [ "shrink"]
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"inline-field": true,
+			"title": {
+				"main": "Vertically centered title",
+				"modifiers": [ "vertical-center" ]
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		},
+		{
+			"select": true,
+			"inline-field": true,
+			"multiple": true,
+			"title": {
+				"main": "Inline multiple selectbox",
+				"prompt": "Multiple select boxes can also be inlined."
+			},
+			"input": {
+				"type": "select",
+				"selected": "Option 1",
+				"options": [ "Option 2", "Option 3", "Option 4" ]
+			}
+		}
+	]
+}

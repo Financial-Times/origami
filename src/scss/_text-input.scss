@@ -1,0 +1,29 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $small Whether to output small input styles
+/// @param {Boolean} $suffix Whether to output suffix styles
+/// @param {Boolean} $small Whether to output small styles
+/// @param {String} $input-type Which text-like input to style (password, email, text)
+/// @output Styling for text inputs
+@mixin _oFormsTextInput(
+	$disabled: null,
+	$small: null,
+	$suffix: null,
+	$input-type: 'text'
+) {
+	$element: 'input[type=#{$input-type}]';
+
+	.o-forms-input--#{$input-type} {
+		@if $small {
+			@include _oFormsInputSmall($element);
+		}
+
+		@if $suffix {
+			@include _oFormsInputSuffix($element);
+		}
+
+		#{$element} {
+			@include _oFormsInputBase($disabled);
+		}
+	}
+}

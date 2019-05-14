@@ -1,0 +1,262 @@
+{
+	"variants": [
+		{
+			"radioBox": true,
+			"optional": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "radio-box-group-title",
+					"info": "radio-box-group-info"
+				}
+			},
+			"title": {
+				"main": "Box style radio buttons",
+				"prompt": "Optional prompt text"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Daily",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Weekly"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "negative-radio-box-group-title",
+					"info": "negative-radio-box-group-info"
+				},
+				"modifiers": ["inline"]
+			},
+			"title": {
+				"main": "Negative highlight",
+				"prompt": "Requires a modifier on the label"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "negative",
+					"value": "Yes"
+				},
+				{
+					"type": "radio",
+					"name": "negative",
+					"value": "No",
+					"checked": true,
+					"modifier": ["negative"]
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "multiple-radio-box-group-title"
+				}
+			},
+			"title": {
+				"main": "Multiple box-styled radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "multiple",
+					"value": "Daily"
+				},
+				{
+					"type": "radio",
+					"name": "multiple",
+					"value": "Weekly",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "multiple",
+					"value": "Monthly"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "disabed-radio-box-group-title"
+				}
+			},
+			"title": {
+				"main": "Disabled box-styled radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "disabled",
+					"value": "Daily",
+					"checked": true,
+					"disabled": true
+				},
+				{
+					"type": "radio",
+					"name": "disabled",
+					"value": "Monthly",
+					"disabled": true
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "error-radio-box-group-title"
+				},
+				"error": "Please select an option",
+				"modifiers": [ "invalid" ]
+			},
+			"title": {
+				"main": "Error box-style radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "error",
+					"value": "Yes"
+				},
+				{
+					"type": "radio",
+					"name": "error",
+					"value": "No"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"inline-field": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "inline-radio-box-group-title"
+				},
+				"modifiers": ["inline"],
+				"state": true
+			},
+			"title": {
+				"main": "V-centered inline radio box",
+				"modifiers": [ "vertical-center" ]
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "inline",
+					"value": "Daily",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "inline",
+					"value": "Weekly"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"inline-field": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "saving-state-group-title",
+					"info": "saving-state-group-info"
+				},
+				"modifiers": ["saving"],
+				"state": true
+			},
+			"title": {
+				"main": "Inline box-style radio buttons",
+				"prompt": "With a stacked saving state"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "saving",
+					"value": "Daily",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "saving",
+					"value": "Weekly"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"inline-field": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "saved-state-group-title"
+				},
+				"modifiers": ["saved", "inline"],
+				"state": true
+			},
+			"title": {
+				"main": "Inline saved state"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "saved",
+					"value": "Daily"
+				},
+				{
+					"type": "radio",
+					"name": "saved",
+					"value": "Weekly",
+					"checked": true
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"inline-field": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "saving-state-group-title",
+					"info": "saving-state-group-info"
+				},
+				"modifiers": [ "saving", "inline" ],
+				"state": true,
+				"icon": true
+			},
+			"title": {
+				"main": "Inline saving state",
+				"prompt": "Icon only—also available for saved state"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "icon",
+					"value": "Daily",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "icon",
+					"value": "Weekly"
+				}
+			]
+		}
+	]
+}

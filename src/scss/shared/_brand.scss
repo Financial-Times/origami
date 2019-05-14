@@ -1,0 +1,54 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-forms', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-forms', $variant: $variant);
+}
+
+$_o-forms-shared-brand-config: (
+	default-text: oColorsGetPaletteColor('black-80'),
+	default-prompt-text: oColorsGetPaletteColor('black-60'),
+	default-border: oColorsGetPaletteColor('black-50'),
+	default-background: oColorsGetPaletteColor('white'),
+	disabled-text: oColorsGetPaletteColor('black-60'),
+	disabled-base: oColorsGetPaletteColor('black-10'),
+	controls-base: oColorsGetPaletteColor('teal'),
+	controls-checked-base: oColorsGetPaletteColor('white'),
+	controls-negative-checked-background: oColorsGetPaletteColor('teal-30'),
+	invalid-base: oColorsGetPaletteColor('crimson'),
+	toggle: oColorsGetPaletteColor('black'),
+	toggle-knob: oColorsMix('black', 'white', 10),
+	toggle-selected: oColorsGetPaletteColor('teal'),
+	toggle-knob-selected: oColorsGetPaletteColor('white'),
+	toggle-disabled: oColorsGetPaletteColor('black-20'),
+	toggle-knob-disabled: oColorsGetPaletteColor('black-40'),
+	toggle-inverse: oColorsGetPaletteColor('white'),
+	toggle-inverse-knob: oColorsGetPaletteColor('slate'),
+	toggle-inverse-selected: oColorsGetPaletteColor('teal-100'),
+	valid-base: oColorsMix('jade', 'black', 80)
+);
+
+@include oBrandDefine('o-forms', 'master', (
+	'variables': $_o-forms-shared-brand-config,
+	'supports-variants': ()
+));
+
+@include oBrandDefine('o-forms', 'internal', (
+	'variables': $_o-forms-shared-brand-config,
+	'supports-variants': ()
+));
+
+@include oBrandDefine('o-forms', 'whitelabel', (
+	'variables': map-merge($_o-forms-shared-brand-config, (
+		controls-base: oColorsGetPaletteColor('black'),
+		controls-negative-checked-background: oColorsGetPaletteColor('black'),
+		toggle-inverse-selected: oColorsGetPaletteColor('white'),
+		toggle-inverse-knob: oColorsGetPaletteColor('black'),
+	)),
+	'supports-variants': ()
+));

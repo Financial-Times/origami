@@ -1,0 +1,91 @@
+// sass-lint:disable no-qualifying-elements
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output Styling for box-styled radio inputs
+@mixin _oFormsRadioBox(
+	$disabled: null
+) {
+	.o-forms-input--radio-box {
+		@include _oFormsRadioBoxInputStyles();
+
+		.o-forms-input--radio-box__container {
+			@include _oFormsControlsBoxContainer();
+		}
+
+		&.o-forms-input--invalid .o-forms-input--radio-box__container {
+			border-color: _oFormsGet('invalid-base');
+		}
+
+		label {
+			@include _oFormsControlsBoxBase();
+
+			&:not(:first-of-type) {
+				border-left: $_o-forms-border;
+			}
+
+			.o-forms-input__label {
+				box-sizing: border-box;
+				display: inline-block;
+				max-height: $_o-forms-spacing-controls;
+				padding: $_o-forms-spacing-one;
+				transition: 0.3s background-color, 0.15s color ease-out;
+				white-space: nowrap;
+				width: 100%;
+			}
+		}
+
+		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+			position: absolute;
+			opacity: 0;
+
+			@if $disabled {
+				&:disabled + .o-forms-input__label {
+					cursor: default;
+					opacity: 0.4;
+				}
+			}
+		}
+
+		@include oGridRespondTo(S) {
+			&.o-forms-input--inline .o-forms-input__state {
+				position: relative;
+				bottom: 0;
+			}
+		}
+
+		.o-forms-input__state {
+			position: absolute;
+			bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
+		}
+
+		.o-forms-input__error {
+			bottom: -$_o-forms-spacing-four;
+		}
+	}
+}
+
+/// @access private
+/// @param {Map|null} $theme Custom theme map
+/// @output styling for box-styled radio inputs
+@mixin _oFormsRadioBoxInputStyles($theme: null) {
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+		& + .o-forms-input__label {
+			color: _oFormsGet('controls-base', $from: $theme);
+		}
+
+		&:not(:checked):not(:disabled):hover + .o-forms-input__label {
+			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		}
+
+		&:checked + .o-forms-input__label {
+			background-color: _oFormsGet('controls-base', $from: $theme);
+			color: _oFormsGet('controls-checked-base', $from: $theme);
+
+			&.o-forms-input__label--negative {
+				background-color: _oFormsGet('controls-negative-checked-background', $from: $theme);
+			}
+		}
+	}
+}

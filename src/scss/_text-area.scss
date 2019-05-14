@@ -1,0 +1,15 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @param {Boolean} $invalid Whether to output invalid state styling
+/// @param {Boolean} $valid Whether to output valid state styling
+/// @output Styling for text areas
+@mixin _oFormsTextArea(
+	$disabled: null
+) {
+	.o-forms-input--textarea {
+		textarea {
+			@include _oFormsInputBase($disabled);
+			resize: vertical;
+		}
+	}
+}

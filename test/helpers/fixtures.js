@@ -1,79 +1,66 @@
-let sandboxEl;
+export default `
+<form action="" data-o-component="o-forms">
 
-function createSandbox() {
-	if (document.querySelector('.sandbox')) {
-		sandboxEl = document.querySelector('.sandbox');
-	} else {
-		sandboxEl = document.createElement('div');
-		sandboxEl.setAttribute('class', 'sandbox');
-		document.body.appendChild(sandboxEl);
-	}
-}
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+		<span class="o-forms-title" aria-hidden="true">
+			<span class="o-forms-title__main" id="date-group-title">Date input</span>
+		</span>
 
-function reset() {
-	sandboxEl.innerHTML = '';
-}
-
-function insert(html) {
-	createSandbox();
-	sandboxEl.innerHTML = html;
-}
-
-function htmlCode () {
-	const html = `<div>
-		<form data-o-component="o-forms" id="element">
-			<div class="o-forms">
-				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="text" id="required-input" class="o-forms__text" required pattern="valid"/>
-			</div>
-
-			<div class="o-forms">
-				<label for="o-forms-standard" class="o-forms__label">Text input</label>
-				<input type="email" id="standard-input" class="o-forms__text" />
-			</div>
-
-			<input type="submit">
-		</form>
+		<span class="o-forms-input o-forms-input--date">
+			<label>
+				<span class="o-forms-input__label" aria-hidden="true">DD</span>
+				<input id="date" type="text" name="date" value="" pattern="[0-9]{2}" aria-label="" required>
+			</label>
+			<label>
+				<span class="o-forms-input__label" aria-hidden="true">MM</span>
+				<input id="date1" type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="" required>
+			</label>
+			<label>
+				<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
+				<input id="date2" type="text" name="date" value="" pattern="[0-9]{4}" aria-label="" required>
+			</label>
+		</span>
 	</div>
-	`;
-	insert(html);
-}
 
-function formFieldHtmlCode(opts) {
-	const html = `
-		<div class="o-forms ${opts && opts.hasError ? 'o-forms--error' : ''} ${opts && opts.status ? `o-forms--${opts.status}` : ''}">
-			<label for="o-forms-standard" class="o-forms__label">Text input</label>
-			<input type="text" id="required-input" class="o-forms__text" required pattern="valid"/>
-			${opts && opts.hasError ? '<div class="o-forms__errortext"></div>' : ''}
-			${opts && opts.includeStatusElement ? '<div class="o-forms__status"></div>' : ''}
-		</div>
-	`;
-	insert(html);
-}
+	<label class="o-forms-field">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main">Required text input</span>
+		</span>
 
-function allInputsHtmlCode () {
-	const html = `<div>
-		<form data-o-component="o-forms" id="element">
-			<input type="text" id="required-input" class="o-forms__text" required />
-			<input type="email" id="standard-input" class="o-forms__text" />
-			<select class="o-forms__select">
-				<option>test</option>
-			</select>
-			<input type="checkbox">
-			<textarea></textarea>
-			<button>Reset</button>
+		<span class="o-forms-input o-forms-input--text">
+			<input id="text" type="text" name="required" value="" required>
+		</span>
+	</label>
 
-			<input type="submit">
-		</form>
+	<label class="o-forms-field o-forms-field--optional">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main">Optional text input</span>
+		</span>
+
+		<span class="o-forms-input o-forms-input--text">
+			<input type="text" name="optional" value="">
+		</span>
+	</label>
+
+	<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+		<span class="o-forms-title" aria-hidden="true">
+			<span class="o-forms-title__main" id="date-group-title">Radio box input</span>
+		</span>
+
+		<span class="o-forms-input o-forms-input--radio-box">
+			<div class="o-forms-input--radio-box__container">
+				<label>
+					<input type="radio" name="radioBox">
+					<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+				</label>
+				<label>
+					<input type="radio" name="radioBox" checked>
+					<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+				</label>
+			</div>
+		</span>
 	</div>
-	`;
-	insert(html);
-}
 
-export {
-	insert,
-	formFieldHtmlCode,
-	htmlCode,
-	allInputsHtmlCode,
-	reset
-};
+	<input class="o-buttons" type="submit">
+</form>
+`;

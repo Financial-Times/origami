@@ -1,0 +1,38 @@
+/// @access private
+/// @output styles for valid and invalid inputs
+@mixin _oFormsValidityStates() {
+	.o-forms-input--valid {
+		*:valid:not(:disabled) {
+			color: _oFormsGet('valid-base');
+			border-color: _oFormsGet('valid-base');
+		}
+	}
+
+	*:invalid {
+		box-shadow: none;
+	}
+	
+	.o-forms-input__error {
+		display: none;
+	}
+
+	.o-forms-input--invalid {
+		*:invalid:not(:disabled) {
+			color: _oFormsGet('invalid-base');
+			border-color: _oFormsGet('invalid-base');
+
+			+ .o-forms-input__label:before,
+			+ .o-forms-input__label:after {
+				border-color: _oFormsGet('invalid-base');
+			}
+		}
+
+		.o-forms-input__error {
+			@include oTypographySize($scale: -1);
+			color: _oFormsGet('invalid-base');
+			display: block;
+			position: absolute;
+			bottom: -$_o-forms-spacing-five;
+		}
+	}
+}

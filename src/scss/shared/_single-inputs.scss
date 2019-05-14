@@ -1,0 +1,54 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output base styles for select, textarea and text input
+@mixin _oFormsInputBase($disabled) {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: _oFormsGet('default-background');
+	border: $_o-forms-border;
+	box-sizing: border-box;
+	min-height: $_o-forms-spacing-ten;
+	padding: $_o-forms-spacing-two;
+	width: 100%;
+
+	@if $disabled {
+		@include _oFormsInputDisabled();
+	}
+}
+
+/// @access private
+/// @output Shared disabled state styles for inputs.
+@mixin _oFormsInputDisabled {
+	&:disabled {
+		cursor: default;
+		color: _oFormsGet('disabled-text');
+		background-color: _oFormsGet('disabled-base');
+		border-color: _oFormsGet('disabled-base');
+	}
+}
+
+/// @access private
+/// @output Shared small styles for select and text input.
+@mixin _oFormsInputSmall($element) {
+	&.o-forms-input--small {
+		#{$element} {
+			@include oTypographySize($scale: -1, $line-height: 1.65);
+			min-height: $_o-forms-spacing-seven;
+			padding: 0 $_o-forms-spacing-two;
+		}
+	}
+}
+
+/// @access private
+/// @output Shared suffix styles for select and text input.
+@mixin _oFormsInputSuffix($element) {
+	&.o-forms-input--suffix {
+		display: flex;
+		flex-wrap: wrap;
+
+		#{$element} {
+			flex: 1;
+			margin-right: $_o-forms-spacing-two;
+		}
+	}
+}

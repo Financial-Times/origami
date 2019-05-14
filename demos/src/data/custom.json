@@ -1,0 +1,93 @@
+{
+	"variants": [
+		{
+			"radioBox": true,
+			"optional": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "radio-box-group-title"
+				},
+				"modifiers": [ "demo-radio" ]
+			},
+			"title": {
+				"main": "Custom radio buttons and anchor"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Daily",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Weekly"
+				}
+			]
+		},
+		{
+			"anchor": true,
+			"modifiers": [ "demo-pseudo-radio-link" ],
+			"inputs": [
+				{
+					"value": "Anchor Link A",
+					"href": "#",
+					"current": true
+				},
+				{
+					"value": "Anchor Link B",
+					"href": "#"
+				}
+			]
+		},
+		{
+			"radioBox": true,
+			"field": {
+				"type": "radio-box",
+				"aria": {
+					"label": "radio-box-group-title",
+					"info": "radio-box-group-info"
+				},
+				"modifiers": [ "demo-radio" ]
+			},
+			"title": {
+				"main": "Custom radio buttons and anchor",
+				"prompt": "With prefixed icons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "icon",
+					"value": "Grid",
+					"icon": "grid"
+				},
+				{
+					"type": "radio",
+					"name": "icon",
+					"value": "List",
+					"icon": "list",
+					"checked": true
+				}
+			]
+		},
+		{
+			"anchor": true,
+			"modifiers": [ "demo-pseudo-radio-link" ],
+			"inputs": [
+				{
+					"value": "Grid Link",
+					"href": "#",
+					"current": true,
+					"icon": "grid"
+				},
+				{
+					"value": "List Link",
+					"href": "#",
+					"icon": "list"
+				}
+			]
+		}
+	]
+}

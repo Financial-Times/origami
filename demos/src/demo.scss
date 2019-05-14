@@ -1,33 +1,43 @@
 $o-forms-is-silent: false;
-
-@import "../../main";
-
-$_o-forms-demo-theme: (
-	'checked-background': 'claret-50',
-	'border': 'black-30',
-	'negative-checked-background': 'claret-80',
-);
+@import "../../../main";
 
 body {
-	@include oColorsFor('page', 'background');
-	margin: oGridGutter();
+	@include oColorsFor(page, background);
 }
 
-.inverse-demo {
-	margin-left: -#{oGridGutter()};
-	margin-right: -#{oGridGutter()};
-	padding: oGridGutter();
-	background-color: oColorsGetPaletteColor('slate');
+.demo {
+	margin: 12px;
+	max-width: 500px;
 }
 
-.o-forms__radio-button--custom-theme {
-	@include oFormsRadioButtonsStyledTheme($theme: $_o-forms-demo-theme);
+.demo-inverse {
+	margin-top: 16px;
+	background-color: #262a33;
+	padding: 10px;
+
+	.o-forms {
+		margin: 0;
+	}
 }
 
-.o-forms__radio-button--custom-list-icon {
-	@include oFormsRadioButtonsStyledIcon($icon-name: 'list', $theme: $_o-forms-demo-theme);
-}
+$custom-theme: (
+	controls-base: 'claret',
+	controls-checked-base: 'white',
+	controls-negative-checked-background: 'claret-30'
+);
 
-.o-forms__radio-button--custom-grid-icon {
-	@include oFormsRadioButtonsStyledIcon($icon-name: 'grid', $theme: $_o-forms-demo-theme);
-}
+$icon-list: ('grid', 'list');
+
+@include oFormsAddCustom(
+	$input: 'pseudo-radio-link',
+	$class: 'demo-pseudo-radio-link',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);
+
+@include oFormsAddCustom(
+	$input: 'radio',
+	$class: 'demo-radio',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);

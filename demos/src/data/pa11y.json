@@ -1,0 +1,462 @@
+{
+	"multiple-inputs": {
+		"variants": [
+			{
+				"optional": true,
+				"field": {
+					"type": "checkbox",
+					"aria": {
+						"label": "checkbox-group-title"
+					}
+				},
+				"title": {
+					"main": "Stacked checkboxes",
+					"prompt": "Optional prompt text"
+				},
+				"inputs": [
+					{
+						"type": "checkbox",
+						"name": "default",
+						"value": "Stacked 1",
+						"checked": true
+					},
+					{
+						"type": "checkbox",
+						"name": "default",
+						"value": "Stacked 2"
+					},
+					{
+						"type": "checkbox",
+						"name": "default",
+						"value": "Stacked 3",
+						"checked": true
+					}
+				]
+			},
+			{
+				"field": {
+					"type": "checkbox",
+					"aria": {
+						"label": "disabed-checkbox-group-title"
+					}
+				},
+				"title": {
+					"main": "Disabled checkboxes"
+				},
+				"inputs": [
+					{
+						"type": "checkbox",
+						"name": "disabled",
+						"value": "Disabled 1",
+						"checked": true,
+						"disabled": true
+					},
+					{
+						"type": "checkbox",
+						"name": "disabled",
+						"value": "Disabled 2",
+						"disabled": true
+					}
+				]
+			},
+			{
+				"optional": true,
+				"field": {
+					"type": "date",
+					"aria": {
+						"label": "date-group-title",
+						"info": "date-group-info"
+					}
+				},
+				"title": {
+					"main": "Date input",
+					"prompt": "Optional prompt text"
+				},
+				"inputs": [
+					{
+						"type": "text",
+						"pattern": "[0-9]{2}",
+						"date": "DD"
+					},
+					{
+						"type": "text",
+						"pattern": "0?[1-9]|1[012]",
+						"date": "MM"
+					},
+					{
+						"type": "text",
+						"pattern": "[0-9]{4}",
+						"date": "YYYY"
+					}
+				]
+			},
+			{
+				"field": {
+					"type": "date",
+					"aria": {
+						"label": "error-date-group-title"
+					},
+					"error": "Not a valid date",
+					"modifiers": [
+						"invalid"
+					]
+				},
+				"title": {
+					"main": "Invalid date input"
+				},
+				"inputs": [
+					{
+						"type": "text",
+						"pattern": "[0-9]{2}",
+						"date": "DD",
+						"value": "01"
+					},
+					{
+						"type": "text",
+						"pattern": "0?[1-9]|1[012]",
+						"date": "MM",
+						"value": "24"
+					},
+					{
+						"type": "text",
+						"pattern": "[0-9]{4}",
+						"date": "YYYY",
+						"value": "2019"
+					}
+				]
+			},
+			{
+				"radioBox": true,
+				"optional": true,
+				"field": {
+					"type": "radio-box",
+					"aria": {
+						"label": "radio-box-group-title",
+						"info": "radio-box-group-info"
+					}
+				},
+				"title": {
+					"main": "Box style radio buttons",
+					"prompt": "Optional prompt text"
+				},
+				"inputs": [
+					{
+						"type": "radio",
+						"name": "default",
+						"value": "Daily",
+						"checked": true
+					},
+					{
+						"type": "radio",
+						"name": "default",
+						"value": "Weekly"
+					}
+				]
+			},
+			{
+				"radioBox": true,
+				"field": {
+					"type": "radio-box",
+					"aria": {
+						"label": "multiple-radio-box-group-title"
+					}
+				},
+				"title": {
+					"main": "Multiple checkboxes"
+				},
+				"inputs": [
+					{
+						"type": "radio",
+						"name": "multiple",
+						"value": "Daily"
+					},
+					{
+						"type": "radio",
+						"name": "multiple",
+						"value": "Weekly",
+						"checked": true
+					},
+					{
+						"type": "radio",
+						"name": "multiple",
+						"value": "Monthly"
+					}
+				]
+			},
+			{
+				"radioBox": true,
+				"inline-field": true,
+				"field": {
+					"type": "radio-box",
+					"aria": {
+						"label": "saving-state-group-title",
+						"info": "saving-state-group-info"
+					},
+					"modifiers": [
+						"saving",
+						"inline"
+					],
+					"state": true
+				},
+				"title": {
+					"main": "Inline Saving state",
+					"prompt": "When saving a preference"
+				},
+				"inputs": [
+					{
+						"type": "radio",
+						"name": "saving",
+						"value": "Daily",
+						"checked": true
+					},
+					{
+						"type": "radio",
+						"name": "saving",
+						"value": "Weekly"
+					}
+				]
+			},
+			{
+				"optional": true,
+				"field": {
+					"type": "radio-round",
+					"aria": {
+						"label": "radio-round-group-title",
+						"info": "radio-round-group-info"
+					}
+				},
+				"title": {
+					"main": "Default radio buttons",
+					"prompt": "Optional prompt text"
+				},
+				"inputs": [
+					{
+						"type": "radio",
+						"name": "default",
+						"value": "Default 1",
+						"checked": true
+					},
+					{
+						"type": "radio",
+						"name": "default",
+						"value": "Default 2"
+					}
+				]
+			},
+			{
+				"field": {
+					"type": "radio-round",
+					"aria": {
+						"label": "disabed-radio-round-group-title"
+					}
+				},
+				"title": {
+					"main": "Disabled radio buttons"
+				},
+				"inputs": [
+					{
+						"type": "radio",
+						"name": "disabled",
+						"value": "Disabled 1",
+						"checked": true,
+						"disabled": true
+					},
+					{
+						"type": "radio",
+						"name": "disabled",
+						"value": "Disabled 2",
+						"disabled": true
+					}
+				]
+			},
+			{
+				"optional": true,
+				"field": {
+					"type": "toggle",
+					"aria": {
+						"label": "toggle-group-title",
+						"info": "toggle-group-info"
+					}
+				},
+				"title": {
+					"main": "Default toggle checkboxes",
+					"prompt": "Optional prompt text"
+				},
+				"inputs": [
+					{
+						"type": "checkbox",
+						"name": "default",
+						"value": "Stacked 1",
+						"checked": true
+					},
+					{
+						"type": "checkbox",
+						"name": "default",
+						"value": "Stacked 2"
+					}
+				]
+			},
+			{
+				"inverse": true,
+				"optional": true,
+				"field": {
+					"type": "toggle",
+					"aria": {
+						"label": "inverse-toggle-group-title",
+						"info": "inverse-toggle-group-info"
+					}
+				},
+				"title": {
+					"main": "Inverse checkboxes",
+					"prompt": "Inverse prompt text"
+				},
+				"inputs": [
+					{
+						"type": "checkbox",
+						"name": "inverse",
+						"value": "Inverse 1",
+						"checked": true
+					},
+					{
+						"type": "checkbox",
+						"name": "inverse",
+						"value": "Inverse 2"
+					}
+				]
+			}
+		]
+	},
+	"single-input": {
+		"variants": [
+			{
+				"textInput": true,
+				"optional": true,
+				"title": {
+					"main": "Optional text input",
+					"prompt": "Optional prompt text"
+				},
+				"input": {
+					"type": "text"
+				}
+			},
+			{
+				"textInput": true,
+				"title": {
+					"main": "Text input with a valid entry"
+				},
+				"input": {
+					"type": "text",
+					"modifiers": [
+						"valid"
+					],
+					"value": "Valid Input"
+				}
+			},
+			{
+				"textInput": true,
+				"title": {
+					"main": "Text input with an invalid entry"
+				},
+				"input": {
+					"type": "text",
+					"modifiers": [
+						"invalid"
+					],
+					"value": "Invalid Input",
+					"error": "Something went wrong"
+				}
+			},
+			{
+				"textInput": true,
+				"disabled": true,
+				"title": {
+					"main": "Disabled text input"
+				},
+				"input": {
+					"type": "text",
+					"value": "Disabled"
+				}
+			},
+			{
+				"textInput": true,
+				"title": {
+					"main": "Text input with suffix"
+				},
+				"input": {
+					"type": "text",
+					"modifiers": [
+						"suffix"
+					],
+					"value": "",
+					"button": "o-buttons o-buttons--big"
+				}
+			},
+			{
+				"textInput": true,
+				"title": {
+					"main": "Password input"
+				},
+				"input": {
+					"type": "password",
+					"value": "password"
+				}
+			},
+			{
+				"select": true,
+				"title": {
+					"main": "Small select box"
+				},
+				"input": {
+					"type": "select",
+					"options": [
+						"Option 1",
+						"Option 2",
+						"Option 3",
+						"Option 4"
+					],
+					"modifiers": [
+						"small"
+					]
+				}
+			},
+			{
+				"select": true,
+				"multiple": true,
+				"title": {
+					"main": "Multiple select box"
+				},
+				"input": {
+					"type": "select",
+					"options": [
+						"Option 1",
+						"Option 2",
+						"Option 3",
+						"Option 4"
+					]
+				}
+			},
+			{
+				"textArea": true,
+				"optional": true,
+				"title": {
+					"main": "Optional text area",
+					"prompt": "Optional prompt text"
+				},
+				"input": {
+					"type": "textarea"
+				}
+			},
+			{
+				"textArea": true,
+				"disabled": true,
+				"title": {
+					"main": "Disabled text area"
+				},
+				"input": {
+					"type": "textarea",
+					"value": "Disabled"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,68 @@
+<form action="" data-o-component="o-forms">
+
+<div class="o-forms-field o-forms-field--optional" role="group" aria-labelledby="date-group-title">
+	<span class="o-forms-title" aria-hidden="true">
+		<span class="o-forms-title__main" id="date-group-title">Date input</span>
+		<span class="o-forms-title__prompt">Optional prompt text</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--date">
+		<label>
+			<input id="date" type="text" name="date" value="" pattern="[0-9]{2}" aria-label="Day (DD)" required>
+			<span class="o-forms-input__label" aria-hidden="true">DD</span>
+		</label>
+		<label>
+			<input type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="Month (MM)" required>
+			<span class="o-forms-input__label" aria-hidden="true">MM</span>
+		</label>
+		<label>
+			<input type="text" name="date" value="" pattern="[0-9]{4}" aria-label="Year (YYYY)" required>
+			<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
+		</label>
+		<span class="o-forms-input__error">Please fill out this field with the required format (DD/MM/YYYY)</span>
+	</span>
+</div>
+
+<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+	<span class="o-forms-title" aria-hidden="true">
+		<span class="o-forms-title__main" id="date-group-title">Radio box input</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--radio-box">
+		<div class="o-forms-input--radio-box__container">
+			<label>
+				<input id="radio" type="radio" name="box">
+				<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+			</label>
+			<label>
+				<input type="radio" name="box" checked>
+				<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+			</label>
+		</div>
+	</span>
+</div>
+
+	<label class="o-forms-field">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main">Required text input</span>
+		</span>
+
+		<span class="o-forms-input o-forms-input--text">
+			<input id="required" type="text" name="text" value="" required>
+			<span class="o-forms-input__error">Please fill out this field</span>
+		</span>
+	</label>
+
+	<label class="o-forms-field o-forms-field--optional">
+		<span class="o-forms-title">
+			<span class="o-forms-title__main">Optional text input</span>
+			<span class="o-forms-title__prompt">Optional prompt text</span>
+		</span>
+
+		<span class="o-forms-input o-forms-input--text">
+			<input type="text" name="optional" value="">
+		</span>
+	</label>
+
+	<input class="o-buttons" type="submit"/>
+</form>

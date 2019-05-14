@@ -9,4 +9,4 @@ node_modules/
 /.classpath
 /.project
 .DS_Store
-
+.env

@@ -1,0 +1,51 @@
+/// @access private
+/// @output Shared base state styles for all form elements.
+@mixin _oFormsBase() {
+	@include _oFormsValidityStates();
+
+	.o-forms-field,
+	.o-forms-title,
+	.o-forms-input {
+		@include oTypographySans(0);
+	}
+	
+	.o-forms-field {	
+		display: flex;
+		flex-direction: column;
+		margin-bottom: $_o-forms-spacing-six;
+		position: relative;
+
+		label {
+			display: block;
+			margin: 0 0 $_o-forms-spacing-three;
+			position: relative;
+		}
+
+		label:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+	
+	.o-forms-field--optional .o-forms-title__main:after {
+		@include oTypographySize($scale: -1);
+		content: '(optional)';
+		color: _oFormsGet('default-prompt-text');
+		font-weight: 400;
+		margin-left: $_o-forms-spacing-one;
+	}
+
+	.o-forms-title__main {
+		@include oTypographyBold('sans');
+		display: block;
+	}
+
+	.o-forms-title__prompt {
+		@include oTypographySize($scale: -1);
+		color: _oFormsGet('default-prompt-text');
+		display: block;
+	}
+
+	.o-forms-input {
+		margin-top: $_o-forms-spacing-three;
+	}
+}

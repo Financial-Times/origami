@@ -1,0 +1,132 @@
+/// Transforms a custom theme map into brand variables. See `_brand.scss`.
+/// @access private
+/// @param {map|null} $theme - A custom theme map.
+/// @return {map} Brand variables.
+@function _oFormsThemeToBrandVariants($theme) {
+	@if $theme {
+			@if not index(map-keys($theme), 'controls-base') {
+				@error "The custom theme for box-styled controls is missing a 'controls-base' key. (see @mixin _oFormsAnchorBox)";
+			}
+		// Add default value for checked background if not specified.
+		@if not map-get($theme, 'negative-checked-background') {
+			$theme: map-merge($theme, (
+				'negative-checked-background': map-get($theme, 'checked-background')
+			));
+		}
+
+		$theme: (
+			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
+			controls-checked-base: oColorsGetPaletteColor(map-get($theme, 'controls-checked-base')),
+			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
+		);
+	}
+
+	@return $theme;
+}
+
+/// @access private
+/// Outputs base styling for custom icons
+@mixin _oFormsCustomIconBase {
+	.o-forms-input__label {
+		min-width: unset;
+	}
+
+	a.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
+	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
+		&:after {
+			display: block;
+		}
+	}
+}
+
+/// @access public
+/// @param {String} $icon Name of the icon to request from the image set
+/// @param {String} $input Type of input to set icons on ('anchor' or radio)
+/// @param {Map|null} $theme Custom theme map
+@mixin _oFormsCustomIcon($icon, $input, $theme: null) {
+	@include _oFormsCustomIconBase();
+	$theme: _oFormsThemeToBrandVariants($theme);
+	$element: '';
+
+	@if $input == 'radio' {
+		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
+	} @else {
+		$element: 'a.o-forms-input__link--#{$icon}-icon';
+	} 
+	
+	#{$element} {
+		padding-left: $_o-forms-spacing-six;
+		padding-right: $_o-forms-spacing-two;
+		text-align: left;
+
+		&:after,
+		&:before {
+			content: '';
+			background-repeat: no-repeat;
+			background-position-y: 0.175em;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:before {
+			@include oIconsGetIcon(
+				$icon-name: $icon,
+				$color: _oFormsGet('controls-base', $from: $theme),
+				$apply-base-styles: false,
+				$high-contrast-fallback: true,
+				$container-width: $_o-forms-spacing-six
+			);
+		}
+
+		&:after {
+			@include oIconsGetIcon(
+				$icon-name: $icon,
+				$color: _oFormsGet('controls-checked-base', $from: $theme),
+				$apply-base-styles: false,
+				$high-contrast-fallback: true,
+				$container-width: $_o-forms-spacing-six
+			);
+			display: none;
+		}
+	}
+}
+
+
+/// @access public
+/// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
+/// @param {List} $icons A list of icons to render
+/// @param {Map|null} $theme Custom theme map
+@mixin oFormsAddCustom(
+	$input: null,
+	$class: null, 
+	$icons: null,
+	$theme: null
+) {
+
+	@if not $input {
+		@error('Please specify whether you would like to customise radio inputs or anchors');
+	}
+
+	@if not $class {
+		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).');
+	}
+
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	.o-forms-input--#{$class} {
+		@if $input == 'pseudo-radio-link' {
+			@include _oFormsPseudoRadioLinkStyles($theme);
+		} @else if $input == 'radio' {
+			@include _oFormsRadioBoxInputStyles($theme);
+		} @else {
+			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+		};
+	}
+
+	@if $icons {
+		@each $icon in $icons {
+			@include _oFormsCustomIcon($icon, $input, $theme);
+		}
+	}
+}

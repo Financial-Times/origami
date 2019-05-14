@@ -1,0 +1,83 @@
+/// @access private
+/// @output styles for state animation for the box-styled radio inputs
+@mixin _oFormsState() {
+	.o-forms-input__state {
+		// the loading spinner and tick icons for state are mismatched in terms of size/padding, 
+		// the custom line-height aligns them as closely as possible (with minimal style changes)
+		@include oTypographySize($scale: -1, $line-height: 1.75);
+		color: inherit;
+		display: block;
+
+		&:before,
+		&:after {
+			content: '';
+			vertical-align: middle;
+		}
+	}
+
+	.o-forms-input__state--icon-only:after {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	.o-forms-input--saving {
+		display: block;
+
+		.o-forms-input__state {
+			padding: 0;
+
+			&:after {
+				content: 'Saving';
+			}
+			
+			&:before {
+				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
+				margin: 0 $_o-forms-spacing-two 0 0;
+			}
+		}
+	}
+
+	.o-forms-input--saved {
+		display: block;
+
+		.o-forms-input__state {
+			margin-left: -$_o-forms-spacing-one;
+
+			&:after {
+				content: 'Saved';
+				color: _oFormsGet('valid-base');
+			}
+
+			&:before {
+				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
+				vertical-align: middle;
+				padding: 0;
+			}
+		}
+	}
+
+	@include oGridRespondTo(S) {
+		.o-forms-input--inline {
+			&.o-forms-input--saving,
+			&.o-forms-input--saved {
+				flex-direction: row-reverse;
+				align-items: center;
+
+				label {
+					margin: 0;
+				}
+
+				.o-forms-input__state--icon-only {
+					padding: 0;
+				}
+			}
+
+			&.o-forms-input--saving .o-forms-input__state {
+				padding: 0 $_o-forms-spacing-three;
+			}
+
+			&.o-forms-input--saved .o-forms-input__state {
+				padding: 0 $_o-forms-spacing-three 0 $_o-forms-spacing-two;
+			}
+		}
+	}
+}

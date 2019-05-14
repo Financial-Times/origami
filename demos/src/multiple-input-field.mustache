@@ -1,0 +1,78 @@
+{{#variants}}
+
+{{#anchor}}
+	<div class="o-forms-input o-forms-input--pseudo-radio-link {{#modifiers}}o-forms-input--{{.}}{{/modifiers}}">
+		{{#inputs}}
+			<a class="
+				o-forms-input__link
+				{{#current}} o-forms-input__link--current{{/current}}
+				{{#icon}} o-forms-input__link--{{.}}-icon{{/icon}}" href={{href}}>{{value}}</a>
+		{{/inputs}}
+	</div>
+{{/anchor}}
+
+{{^anchor}}
+
+{{#inverse}}<div class="demo-inverse">{{/inverse}}
+	
+	<div class="o-forms-field
+		{{#inline-field}} o-forms-field--inline{{/inline-field}}
+		{{#inverse}} o-forms-field--inverse{{/inverse}}
+		{{#optional}} o-forms-field--optional{{/optional}}
+		{{#custom}} demo-custom-radio-theme{{/custom}}" 
+		role="group" 
+		{{#field.aria}}
+			aria-labelledby="{{label}}"
+			{{#info}}aria-describedby="{{info}}"{{/info}}
+		{{/field.aria}}>
+		
+		<span	class="o-forms-title" aria-hidden="true">
+			<span class="o-forms-title__main" id="{{field.aria.label}}">{{title.main}}</span>
+			{{#title.prompt}}
+				<span class="o-forms-title__prompt" {{#field.aria.info}} id={{field.aria.info}} {{/field.aria.info}}>{{.}}</span>
+			{{/title.prompt}}
+		</span>
+
+		<span class="o-forms-input o-forms-input--{{field.type}}{{#field.modifiers}} o-forms-input--{{.}}{{/field.modifiers}}">
+
+			{{#radioBox}}<div class="o-forms-input--radio-box__container">{{/radioBox}}
+
+			{{#inputs}}
+				<label {{#label}}class="{{.}}"{{/label}}>
+					<input 
+						type="{{type}}" 
+						name="{{name}}"
+						value="{{value}}" 
+						{{#pattern}}pattern={{.}}{{/pattern}} 
+						aria-label="{{value}}" 
+						{{#checked}}checked{{/checked}} 
+						{{#disabled}}disabled{{/disabled}}
+						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
+
+					{{#name}}
+						<span class="o-forms-input__label
+									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
+									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}" aria-hidden="true">
+									{{#pattern}}{{date}}{{/pattern}}{{^pattern}}{{value}}{{/pattern}}
+						</span>
+					{{/name}}
+
+					{{#additionalContent}}
+						<span class="o-forms-input__label" aria-hidden="true">{{.}}</span>
+					{{/additionalContent}}
+				</label>
+			{{/inputs}}
+
+			{{#radioBox}}</div>{{/radioBox}}
+
+			{{#field.error}}<span class="o-forms-input__error">{{.}}</span>{{/field.error}}
+
+			{{#field.state}}<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}"></span>{{/field.state}}
+		</span>
+	
+	</div>
+
+{{#inverse}}</div>{{/inverse}}
+
+{{/anchor}}
+{{/variants}}

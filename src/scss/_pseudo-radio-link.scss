@@ -1,0 +1,38 @@
+/// @access private
+/// @output Styling for anchor 'controls'
+
+@mixin _oFormsPseudoRadioLink {
+	.o-forms-input--pseudo-radio-link {
+		@include _oFormsControlsBoxContainer();
+		@include oTypographyMargin($top: 0);
+
+		@include _oFormsPseudoRadioLinkStyles();
+	}
+}
+
+/// @access private
+/// @param {Map|null} $theme Custom theme map
+/// Outpus styling for box-styled anchors
+@mixin _oFormsPseudoRadioLinkStyles($theme: null) {
+	a {
+		@include _oFormsControlsBoxBase();
+		box-sizing: border-box;
+		color: _oFormsGet('controls-base', $from: $theme);
+		padding: ($_o-forms-spacing-one + $_o-forms-spacing-half) $_o-forms-spacing-two;
+		position: relative;
+		text-decoration: none;
+
+		&:hover {
+			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
+		}
+
+		&.o-forms-input__link--current {
+			background-color: _oFormsGet('controls-base', $from: $theme);
+			color: _oFormsGet('controls-checked-base', $from: $theme);
+		}
+
+		&:not(:first-of-type) {
+			border-left: $_o-forms-border;
+		}
+	}
+}

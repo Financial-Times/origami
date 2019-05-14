@@ -1,0 +1,73 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output styles for toggle based on a checkbox input
+@mixin _oFormsToggle($disabled: null) {
+	.o-forms-input--toggle {
+		.o-forms-input__label {
+			display: inline-block;
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-eight;
+			vertical-align: top;
+
+			&:before,
+			&:after {
+				content: '';
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			&:before {
+				background-color: _oFormsGet('toggle');
+				border-radius: $_o-forms-spacing-ten;
+				height: $_o-forms-spacing-six;
+				width: $_o-forms-spacing-ten;
+			}
+
+			&:after {
+				background-color: oColorsGetColorFor(page, background);
+				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
+				border-radius: 50%;
+				box-sizing: border-box;
+				height: $_o-forms-spacing-six;
+				width: $_o-forms-spacing-six;
+				transition: left 75ms ease-in-out;
+			}
+		}
+
+		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
+			position: relative;
+			left: $_o-forms-spacing-three;
+
+			&:checked + .o-forms-input__label {
+				&:before {
+					background-color: _oFormsGet('toggle-selected');
+				}
+				&:after {
+					left: $_o-forms-spacing-four;
+					border-color: _oFormsGet('toggle-selected');
+				}
+			}
+
+			&:invalid:not(:disabled) + .o-forms-input__label:after {
+				border-color: inherit;
+			}
+		}
+
+		@if $disabled {
+			input[type=checkbox]:disabled + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
+				color: _oFormsGet('disabled-text');
+
+				&:after {
+					border-color: _oFormsGet('toggle-disabled');
+					background-color: _oFormsGet('toggle-knob-disabled');
+				}
+
+				&:before {
+					background-color: _oFormsGet('toggle-disabled');
+				}
+			}
+		}
+	}
+}
+

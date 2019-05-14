@@ -1,0 +1,59 @@
+/// @access private
+/// @output styles for inlining labels and inputs
+@mixin _oFormsInline() {
+	/* inline field titles and inputs
+		[title] [input]
+		or
+		[title] [input]
+						[input]
+	*/
+	@include oGridRespondTo(S) {
+		&.o-forms-field--inline {
+			flex-direction: row;
+			justify-content: space-between;
+		
+			.o-forms-title {
+				flex: 0 1 50%;
+				margin-right: $_o-forms-spacing-three;
+				box-sizing: border-box;
+
+				&.o-forms-title--shrink {
+					flex-basis: auto;
+				}
+				
+				&.o-forms-title--vertical-center {
+					align-self: center;
+				}
+			}
+		
+			.o-forms-input {
+				display: flex;
+				flex-direction: column;
+				flex: 1 0 50%;
+				align-items: flex-start;
+				margin: 0;
+			}
+		}
+		
+		/* inline inputs
+			[title] 
+			[input] [input]
+			or (combined with field inline)
+			[title] [input] [input]
+		*/
+		.o-forms-input.o-forms-input--inline {
+			display: flex;
+			flex-flow: row wrap;
+				
+			label {
+				margin: 0 $_o-forms-spacing-four $_o-forms-spacing-three 0;
+				max-width: 75%;
+			}
+
+			&.o-forms-input--date label,
+			&.o-forms-input--radio-box label {
+				margin: 0;
+			}
+		}
+	}
+}

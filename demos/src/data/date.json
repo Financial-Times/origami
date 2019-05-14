@@ -1,0 +1,143 @@
+{
+	"variants": [
+		{
+			"optional": true,
+			"field": {
+				"type": "date",
+				"aria": {
+					"label": "date-group-title",
+					"info": "date-group-info"
+				}
+			},
+			"title": {
+				"main": "Date input",
+				"prompt": "Optional prompt/description text"
+			},
+			"inputs": [
+				{
+					"type": "text",
+					"name": "date",
+					"pattern":"[0-9]{2}",
+					"date": "DD"
+				},
+				{
+					"type": "text",
+					"name": "date",
+					"pattern": "0?[1-9]|1[012]",
+					"date": "MM"
+				},
+				{
+					"type": "text",
+					"name": "date",
+					"pattern": "[0-9]{4}",
+					"date": "YYYY"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "date",
+				"aria": {
+					"label": "disabled-date-group-title"
+				}
+			},
+			"title": {
+				"main": "Disabled date input"
+			},
+			"inputs": [
+				{
+					"type": "text",
+					"name": "disabled-date",
+					"pattern":"[0-9]{2}",
+					"date": "DD",
+					"disabled": true
+				},
+				{
+					"type": "text",
+					"name": "disabled-date",
+					"pattern": "0?[1-9]|1[012]",
+					"date": "MM",
+					"disabled": true
+				},
+				{
+					"type": "text",
+					"name": "disabled-date",
+					"pattern": "[0-9]{4}",
+					"date": "YYYY",
+					"disabled": true
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "date",
+				"aria": {
+					"label": "error-date-group-title",
+					"info": "error-date-group-info"
+				},
+				"error": "Not a valid date",
+				"modifiers": [ "invalid" ]
+			},
+			"title": {
+				"main": "Invalid date input",
+				"prompt": "Exemplifies a pattern mismatch"
+			},
+			"inputs": [
+				{
+					"type": "text",
+					"name": "invalid-date",
+					"pattern":"[0-9]{2}",
+					"date": "DD",
+					"value": "01"
+				},
+				{
+					"type": "text",
+					"name": "invalid-date",
+					"pattern": "0?[1-9]|1[012]",
+					"date": "MM",
+					"value": "24"
+				},
+				{
+					"type": "text",
+					"name": "invalid-date",
+					"pattern": "[0-9]{4}",
+					"date": "YYYY",
+					"value": "2019"
+				}
+			]
+		},
+		{
+			"inline-field": true,
+			"field": {
+				"type": "date",
+				"aria": {
+					"label": "inline-date-group-title"
+				},
+				"modifiers": [ "inline" ]
+			},
+			"title": {
+				"main": "Inline date input"
+			},
+			"inputs": [
+				{
+					"type": "text",
+					"name": "inline-date",
+					"pattern":"[0-9]{2}",
+					"date": "DD"
+				},
+				{
+					"type": "text",
+					"name": "inline-date",
+					"pattern": "0?[1-9]|1[012]",
+					"date": "MM"
+				},
+				{
+					"type": "text",
+					"name": "inline-date",
+					"pattern": "[0-9]{4}",
+					"date": "YYYY"
+				}
+			]
+		}
+	]
+}
