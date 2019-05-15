@@ -36,9 +36,6 @@ workflows:
   test:
     jobs:
       - test
-          filters:
-            tags:
-              only: /.*/
       - publish_to_npm:
           filters:
             tags:
