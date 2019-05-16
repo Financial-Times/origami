@@ -7,6 +7,10 @@ html {
 	background: oColorsGetColorFor('page', 'background');
 }
 
+.o-forms-field--demo {
+	max-width: 24rem;
+}
+
 .o-table-demo-constrain {
 	max-width: 600px;
 }

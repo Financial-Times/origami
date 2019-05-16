@@ -1,37 +1,41 @@
 {{#showFilter}}
 	<div id="demo-table-caption">
 		<h2 class="o-typography-heading-level-2">Table Caption</h2>
-		<div class="o--if-js o-forms o-forms--inline">
-			<div class="o-forms__inline-item">
-				<label aria-describedby="select-box-info" for="demo-filter-select" class="o-forms__label">
+
+		<label class="o-forms-field o-forms-field--inline o-forms-field--inline o--if-js o-forms-field--demo">
+			<span class="o-forms-title o-forms-title--vertical-center o-forms-title--shrink">
+				<span class="o-forms-title__main">
 					Showing data for:
-				</label>
-			</div>
-			<select data-o-table-filter-id="{{tableId}}" data-o-table-filter-column="2" id="demo-filter-select" class="o-forms__select">
-				<option value="">All</option>
-				<option value="​Austria">​Austria</option>
-				<option value="​Belgium">​Belgium</option>
-				<option value="​Bulgaria">​Bulgaria</option>
-				<option value="​Croatia">​Croatia</option>
-				<option value="​Czech Republic">​Czech Republic</option>
-				<option value="​Finland">​Finland</option>
-				<option value="​France">​France</option>
-				<option value="​Germany">​Germany</option>
-				<option value="​Hungary">​Hungary</option>
-				<option value="​Iceland">​Iceland</option>
-				<option value="Ireland">Ireland</option>
-				<option value="Italy">Italy</option>
-				<option value="Norway">Norway</option>
-				<option value="Poland">Poland</option>
-				<option value="Portugal">Portugal</option>
-				<option value="Romania">Romania</option>
-				<option value="Spain">Spain</option>
-				<option value="Sweden">Sweden</option>
-				<option value="Switzerland">Switzerland</option>
-				<option value="The Netherlands">The Netherlands</option>
-				<option value="United Kingdom" selected>United Kingdom</option>
-			</select>
-		</div>
+				</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--select o-forms-input--invalid">
+					<select data-o-table-filter-id="{{tableId}}" data-o-table-filter-column="2" id="demo-filter-select" class="o-forms__select">
+						<option value="">All</option>
+						<option value="​Austria">​Austria</option>
+						<option value="​Belgium">​Belgium</option>
+						<option value="​Bulgaria">​Bulgaria</option>
+						<option value="​Croatia">​Croatia</option>
+						<option value="​Czech Republic">​Czech Republic</option>
+						<option value="​Finland">​Finland</option>
+						<option value="​France">​France</option>
+						<option value="​Germany">​Germany</option>
+						<option value="​Hungary">​Hungary</option>
+						<option value="​Iceland">​Iceland</option>
+						<option value="Ireland">Ireland</option>
+						<option value="Italy">Italy</option>
+						<option value="Norway">Norway</option>
+						<option value="Poland">Poland</option>
+						<option value="Portugal">Portugal</option>
+						<option value="Romania">Romania</option>
+						<option value="Spain">Spain</option>
+						<option value="Sweden">Sweden</option>
+						<option value="Switzerland">Switzerland</option>
+						<option value="The Netherlands">The Netherlands</option>
+						<option value="United Kingdom" selected>United Kingdom</option>
+					</select>
+			</span>
+		</label>
 	</div>
 {{/showFilter}}
 

@@ -31,7 +31,7 @@
 			"o-fonts@^3.0.0",
 			"o-normalise@^1.0.0",
 			"o-typography@^5.7.8",
-			"o-forms@^6.0.1",
+			"o-forms@^7.0.2",
 			"o-buttons@^5.16.2"
 		]
 	},
