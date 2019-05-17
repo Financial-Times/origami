@@ -100,3 +100,5 @@ class OAudio {
 }
 
 export default OAudio;
+
+export { Tracking };
