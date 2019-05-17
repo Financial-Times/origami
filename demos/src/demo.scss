@@ -1,0 +1,99 @@
+@import '../../main';
+
+@include oSpacing();
+
+body {
+    font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb); // todo use o-typography when it has a new major with sans default
+}
+
+.demo-utilities div {
+    height: 0.5rem;
+    background-color: black;
+    background-color: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
+}
+
+.demo-named-spaces-container {
+    padding-top: oSpaceByBaselineIncrement(3);
+    padding-left: oSpaceByBaselineIncrement(3);
+    background: repeating-linear-gradient(
+        0deg,
+        white,
+        white oSpaceByBaselineIncrement(1),
+        lightgrey oSpaceByBaselineIncrement(1),
+        lightgrey oSpaceByBaselineIncrement(2)
+    );
+}
+
+.demo-named-space__name {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0 oSpaceByBaselineIncrement(1);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -0.5ch;
+        width: 0.5ch;
+        border-top: 1px solid black;
+    }
+}
+
+.demo-named-space::before {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: oSpaceByBaselineIncrement(5);
+    background: black;
+    background: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
+}
+
+.demo-named-space--s1::before {
+    height: oSpaceByName('s1');
+    width: oSpaceByName('s1');
+}
+
+.demo-named-space--s2::before {
+    height: oSpaceByName('s2');
+    width: oSpaceByName('s2');
+}
+
+.demo-named-space--s3::before {
+    height: oSpaceByName('s3');
+    width: oSpaceByName('s3');
+}
+
+.demo-named-space--s4::before {
+    height: oSpaceByName('s4');
+    width: oSpaceByName('s4');
+}
+
+.demo-named-space--s6::before {
+    height: oSpaceByName('s6');
+    width: oSpaceByName('s6');
+}
+
+.demo-named-space--s8::before {
+    height: oSpaceByName('s8');
+    width: oSpaceByName('s8');
+}
+
+.demo-named-space--m12::before {
+    height: oSpaceByName('m12');
+    width: oSpaceByName('m12');
+}
+
+.demo-named-space--m16::before {
+    height: oSpaceByName('m16');
+    width: oSpaceByName('m16');
+}
+
+.demo-named-space--l18::before {
+    height: oSpaceByName('l18');
+    width: oSpaceByName('l18');
+}
+
+.demo-named-space--l24::before {
+    height: oSpaceByName('l24');
+    width: oSpaceByName('l24');
+}

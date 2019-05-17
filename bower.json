@@ -1,0 +1,14 @@
+{
+  "name": "o-spacing",
+  "description": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "main": [
+    "main.scss"
+  ]
+}

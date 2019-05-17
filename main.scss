@@ -1,0 +1,10 @@
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+@if ($o-spacing-is-silent == false) {
+	@include oSpacing();
+
+	// Set to silent again to avoid being output twice
+	$o-spacing-is-silent: true !global;
+}
