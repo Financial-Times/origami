@@ -5,7 +5,7 @@
 @include oColorsSetUseCase('o-share-link-color', background, 'teal-40');
 @include oColorsSetUseCase('o-share-share-color', background, 'teal-40');
 
-@include oColorsSetUseCase('o-share-button-default', border, 'black');
+@include oColorsSetUseCase('o-share-button-default', border, 'black-50');
 @include oColorsSetUseCase('o-share-button-hover', background, 'white');
 
 @include oColorsSetUseCase('o-share-button-inverse', border, 'white');

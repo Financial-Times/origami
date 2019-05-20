@@ -22,7 +22,7 @@
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
-		border: 1px solid rgba(oColorsGetColorFor('o-share-button-default', 'border'), 0.2);
+		border: 1px solid oColorsGetColorFor('o-share-button-default', 'border');
 		border-radius: $o-normalise-border-radius;
 		cursor: pointer;
 
@@ -103,12 +103,12 @@
 		width: #{$o-share-icon-size};
 		height: #{$o-share-icon-size};
 		background-image: url($service-url + $query + "&format=svg");
-		
+
 		// Hack to load icon early to prevent FOIC on hover
 		&:after {
 			content: '';
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
-		}	
+		}
 	}
 
 	// Targets displays using any of Windows’ High Contrast Mode themes:
