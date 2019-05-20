@@ -1,6 +1,6 @@
 {
 	"description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
-	"keywords": [],
+	"keywords": ["whitespace", "spacing"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
