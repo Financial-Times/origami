@@ -1,4 +1,5 @@
 import oAudio from './src/js/o-audio';
+import Tracking from './src/js/tracking';
 
 const constructAll = function () {
 	oAudio.init();
@@ -8,3 +9,5 @@ const constructAll = function () {
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 export default oAudio;
+
+export { Tracking };
