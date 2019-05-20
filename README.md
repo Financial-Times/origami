@@ -1,6 +1,6 @@
 # o-comments [![Build Status](https://travis-ci.org/Financial-Times/o-comments.svg?branch=master)](https://travis-ci.org/Financial-Times/o-comments) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-📢 **The commenting platform for ft.com, the app, interactive graphics & alphaville is currently being replaced. Please speak to the [Comments team](https://github.com/orgs/Financial-Times/teams/comments) if you intend to start using this component or which to make any changes to it.**
+📢 **The commenting platform for ft.com, the app, interactive graphics & alphaville is currently being replaced. Please speak to the [Comments team](https://github.com/orgs/Financial-Times/teams/comments) if you intend to start using this component or wish to make any changes to it.**
 
 A fully featured commenting client integrated with FT's membership systems. If you simply wish to add comments to some content this is the component to use.
 
