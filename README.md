@@ -16,7 +16,9 @@ For [Build Service](https://www.ft.com/__origami/service/build/v2/) users, `o-sp
 
 ### Spaces
 
-![named-spaces](https://user-images.githubusercontent.com/10405691/57918050-e9381780-788d-11e9-8310-ba5053c0c84a.png)
+![Visual representation of spaces defined below.](https://user-images.githubusercontent.com/10405691/57918050-e9381780-788d-11e9-8310-ba5053c0c84a.png)
+
+_The above illustration is taken from the [UXD Sketch Toolkit](https://sites.google.com/ft.com/ft-design-system)._
 
 #### Baseline
 
