@@ -13,14 +13,14 @@ body {
 }
 
 .demo-named-spaces-container {
-    padding-top: oSpaceByBaselineIncrement(3);
-    padding-left: oSpaceByBaselineIncrement(3);
+    padding-top: oSpaceByIncrement(3);
+    padding-left: oSpaceByIncrement(3);
     background: repeating-linear-gradient(
         0deg,
         white,
-        white oSpaceByBaselineIncrement(1),
-        lightgrey oSpaceByBaselineIncrement(1),
-        lightgrey oSpaceByBaselineIncrement(2)
+        white oSpaceByIncrement(1),
+        lightgrey oSpaceByIncrement(1),
+        lightgrey oSpaceByIncrement(2)
     );
 }
 
@@ -28,7 +28,7 @@ body {
     position: relative;
     background-color: white;
     border: 1px solid black;
-    padding: 0 oSpaceByBaselineIncrement(1);
+    padding: 0 oSpaceByIncrement(1);
     &::before {
         content: '';
         position: absolute;
@@ -43,7 +43,7 @@ body {
     content: '';
     display: inline-block;
     vertical-align: top;
-    margin-bottom: oSpaceByBaselineIncrement(5);
+    margin-bottom: oSpaceByIncrement(5);
     background: black;
     background: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
 }

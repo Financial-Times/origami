@@ -28,15 +28,15 @@
 		};
 	}
 
-	@include describe('oSpaceByBaselineIncrement') {
+	@include describe('oSpaceByIncrement') {
 		@include it('returns a px value based on the baseline') {
 			@include assert-equal(
-				oSpaceByBaselineIncrement(1),
+				oSpaceByIncrement(1),
 				4px
 			);
 
 			@include assert-equal(
-				oSpaceByBaselineIncrement(100),
+				oSpaceByIncrement(100),
 				400px
 			);
 		};
@@ -44,12 +44,12 @@
 		@include it('returns a rem value based on the baseline when relative units are enabled') {
 			$o-spacing-relative-units: true !global;
 			@include assert-equal(
-				oSpaceByBaselineIncrement(1),
+				oSpaceByIncrement(1),
 				0.25rem
 			);
 
 			@include assert-equal(
-				oSpaceByBaselineIncrement(100),
+				oSpaceByIncrement(100),
 				25rem
 			);
 			$o-spacing-relative-units: false !global;

@@ -99,11 +99,11 @@ We recommend Sass users apply space to their project using the `oSpaceByName` fu
 
 ### Baseline Space
 
-We recommend users apply [named spaces](#named-space), but any space which is a multiple of our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByBaselineIncrement`. It accepts a increment to multiply the baseline value by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
+We recommend users apply [named spaces](#named-space), but any space which is a multiple of our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByIncrement`. It accepts a increment to multiply the baseline value by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```
 	.example {
-		margin-bottom: oSpaceByBaselineIncrement('4');
+		margin-bottom: oSpaceByIncrement('4');
 	}
 ```
 

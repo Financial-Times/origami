@@ -5,13 +5,12 @@
     @if(type-of($value) != 'number') {
         @error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($_o-spacing-sizes)}.';
     }
-    @return oSpaceByBaselineIncrement($value);
+    @return oSpaceByIncrement($value);
 }
-
 
 /// @param {Number} $increment - The number to multiply the baseline size by.
 /// @return {Number} - A px value (or rem value if relative units have been enabled).
-@function oSpaceByBaselineIncrement($increment) {
+@function oSpaceByIncrement($increment) {
     @if(type-of($increment) != 'number' and floor($increment) != $increment) {
         @error 'Expected a whole number but was given "#{$increment}".';
     }
