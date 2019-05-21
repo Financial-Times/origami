@@ -8,7 +8,7 @@
 						[input]
 	*/
 	@include oGridRespondTo(S) {
-		&.o-forms-field--inline {
+		.o-forms-field--inline {
 			flex-direction: row;
 			justify-content: space-between;
 		
