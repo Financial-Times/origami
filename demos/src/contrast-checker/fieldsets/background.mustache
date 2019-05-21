@@ -1,0 +1,34 @@
+<span class="o-forms-title__main">Palette</span>
+{{#primary}}
+	<label title="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseBackground}}checked{{/baseBackground}}>
+	</label>
+{{/primary}}
+<br>
+{{#secondary}}
+	<label title="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+	</label>
+{{/secondary}}
+<br>
+{{#tertiary}}
+	<label title="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+	</label>
+{{/tertiary}}
+<br>
+{{#experimental}}
+	<label title="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+	</label>
+{{/experimental}}
+
+<span class="o-forms-title__main">Tints</span>
+{{#tints}}
+	{{#tint-levels}}
+		<label title="{{name}}-{{.}}">
+			<input type=radio name="background" style="background-color: var(--o-colors-{{name}}-{{.}})" value="{{name}}-{{.}}">
+		</label>
+	{{/tint-levels}}
+	<br>
+{{/tints}}

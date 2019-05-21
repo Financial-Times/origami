@@ -1,46 +1,45 @@
-function oColorsGetWCAGRating(ratio, color1, color2) {
+function getWCAGRating(ratio, foreground, background) {
 	let wcagRating;
-	let message;
+	let message = 'This combination passes WCAG color contrast guidelines';
+	let combination = `<code>${foreground}</code> on <code>${background}</code>`;
 
 	if (ratio >= 7) {
 		wcagRating = 'AAA';
-		message = 'Pass';
 	} else if (ratio >= 4.5) {
 		wcagRating = 'AA';
-		message = 'Pass';
 	} else if (ratio >= 3) {
 		wcagRating = 'AA18';
-		message = `Caution: When using the combination of '${color1}' on '${color2}', text should be larger than 18px to pass WCAG color contrast guidelines.`;
+		message = `Caution: When using this combination, text should be larger than 18px to pass WCAG color contrast guidelines.`;
 	} else {
 		wcagRating = 'Fail';
-		message = `The combination of '${color1}' on '${color2}' does not pass WCAG color contrast guidelines.`;
+		message = `This combination does not pass WCAG color contrast guidelines.`;
 	}
+
 	return {
-		'wcagRating': wcagRating,
-		'message': message
+		combination,
+		wcagRating,
+		message
 	};
 }
 
 
-function oColorsGetContrastRatio(color1, color2) {
-	const l1 = oColorsColorLuminance(color1) + 0.05;
-	const l2 = oColorsColorLuminance(color2) + 0.05;
-	let ratio = l1/l2;
+function getContrastRatio(foreground, background) {
+	const l1 = oColorsColorLuminance(foreground) + 0.05;
+	const l2 = oColorsColorLuminance(background) + 0.05;
+	let ratio = l1 / l2;
 
 	if (l2 > l1) {
-		ratio = 1/ratio;
+		ratio = 1 / ratio;
 	}
 
 	ratio = preciseFloor(ratio);
 	return ratio;
 }
 
-
 function preciseFloor(number, decimals = 2) {
 	const multiplier = Math.pow(10, decimals);
 	return Math.floor(number * multiplier) / multiplier;
 }
-
 
 function oColorsColorLuminance(hex) {
 	const hexValue = hex.replace('#', '').trim();
@@ -71,6 +70,6 @@ function oColorsColorLuminance(hex) {
 }
 
 export default {
-	oColorsGetWCAGRating,
-	oColorsGetContrastRatio
+	getWCAGRating,
+	getContrastRatio
 };

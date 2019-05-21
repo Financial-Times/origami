@@ -21,11 +21,6 @@
 		{ "name": "crimson" },
 		{ "name": "candy" }
 	],
-	"b2c": [
-		{ "name": "org-b2c" },
-		{ "name": "org-b2c-dark" },
-		{ "name": "org-b2c-light" }
-	],
 	"tints": [
 		{ "name": "black",  "tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90] },
 		{ "name": "white",  "tint-levels": [10, 20, 40, 60, 80] },

@@ -1,0 +1,73 @@
+$o-colors-is-silent: false;
+
+// Import colors module
+@import '../../../main';
+
+:root {
+	--color: #000000;
+	--background: #ffffff;
+}
+
+body {
+	color: var(--color);
+	background-color: var(--background);
+
+	display: grid;
+	grid-template-columns: repeat(2, 0.75fr) 1fr;
+	font-family: MetricWeb, sans-serif;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+
+	@media (max-width: 630px) {
+		grid-template-columns: 1fr;
+
+		.details {
+			grid-row: 2;
+			padding-bottom: 20px;
+		}
+	}
+}
+
+.details {
+	.o-forms-title__prompt {
+		color: var(--color);
+	}
+
+	pre {
+		margin: 10px 0;
+		padding: 10px;
+		border: 1px solid oColorsMix('black', 'white', 5);
+	}
+}
+
+input[type=radio] { //sass-lint:disable-line no-qualifying-elements
+	appearance: none;
+	border: 1px solid var(--color);
+	display: inline-block;
+	margin: 0 0 4px;
+	height: 35px;
+	width: 100px;
+	vertical-align: middle;
+	
+	&:hover {
+		cursor: pointer;
+		outline: 2px solid var(--color);
+	}
+
+	&:checked {
+		outline: 2px solid var(--color);
+	}
+}
+
+.o-forms-input__label {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 8px;
+}
+
+.mix-range {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-self: center;
+}

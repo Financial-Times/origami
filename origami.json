@@ -19,10 +19,13 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-forms",
-			"o-normalise",
-			"o-fonts",
-			"o-syntax-highlight"
+			"o-buttons@^5.16.4",
+			"o-fonts@^3.3.1",
+			"o-forms@^7.0.2",
+			"o-normalise@^1.7.1",
+			"o-overlay@^2.4.7",
+			"o-syntax-highlight@^1.6.1",
+			"o-tabs@^4.3.2"
 		]
 	},
 	"ci": {
@@ -33,21 +36,21 @@
 			"name": "master-contrast-checker",
 			"title": "Contrast ratio checker",
 			"data": "demos/src/palettes/master-palette.json",
-			"js": "demos/src/sandboxes/contrast-checker.js",
-			"sass": "demos/src/sandboxes/contrast-checker.scss",
-			"template": "demos/src/sandboxes/contrast-checker.mustache",
+			"js": "demos/src/contrast-checker/contrast-checker.js",
+			"sass": "demos/src/contrast-checker/contrast-checker.scss",
+			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
 			"brands": [
 				"master"
 			]
 		},
 		{
-			"name": "master-colors-mix",
+			"name": "master-color-mixer",
 			"title": "Color Mixer",
 			"data": "demos/src/palettes/master-palette.json",
-			"js": "demos/src/sandboxes/colors-mix.js",
-			"sass": "demos/src/sandboxes/colors-mix.scss",
-			"template": "demos/src/sandboxes/colors-mix.mustache",
+			"js": "demos/src/color-mixer/color-mixer.js",
+			"sass": "demos/src/color-mixer/color-mixer.scss",
+			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
 			"brands":	[
 				"master"
@@ -58,7 +61,7 @@
 			"title": "Primary Palette",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/primary-palette.mustache",
-			"description": "color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+			"description": "Color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
 			"display_html": false,
 			"brands": [
 				"master"
@@ -112,21 +115,21 @@
 			"name": "internal-contrast-checker",
 			"title": "Contrast ratio checker",
 			"data": "demos/src/palettes/internal-palette.json",
-			"js": "demos/src/sandboxes/contrast-checker.js",
-			"sass": "demos/src/sandboxes/contrast-checker.scss",
-			"template": "demos/src/sandboxes/contrast-checker.mustache",
+			"js": "demos/src/contrast-checker/contrast-checker.js",
+			"sass": "demos/src/contrast-checker/contrast-checker.scss",
+			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
 			"brands": [
 				"internal"
 			]
 		},
 		{
-			"name": "internal-colors-mix",
+			"name": "internal-color-mixer",
 			"title": "Color Mixer",
 			"data": "demos/src/palettes/internal-palette.json",
-			"js": "demos/src/sandboxes/colors-mix.js",
-			"sass": "demos/src/sandboxes/colors-mix.scss",
-			"template": "demos/src/sandboxes/colors-mix.mustache",
+			"js": "demos/src/color-mixer/color-mixer.js",
+			"sass": "demos/src/color-mixer/color-mixer.scss",
+			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
 			"brands":	[
 				"internal"

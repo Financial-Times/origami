@@ -1,0 +1,51 @@
+<form class="color-selectors" id="color-selectors">
+	<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
+		<li role="tab" aria-selected="true"><a href="#foreground">Foreground Colour</a></li>
+		<li role="tab"><a href="#background">Background Colour</a></li>
+	</ul>
+
+	<fieldset id="foreground" class="swatches swatches--foreground o-tabs__tabpanel">
+		{{> fieldsets/foreground }}
+		<span class="o-forms-title__main">Mixes</span>
+		<label title="Add mixed colour">
+			<input type="radio"
+				class="o-overlay-trigger"
+				data-o-overlay-src="#mixer-overlay"
+				data-o-overlay-id="mixer-overlay"
+				data-o-overlay-customclose="true"
+				aria-pressed="false"
+				aria-haspopup="true">
+		</label>
+	</fieldset>
+
+	<fieldset id="background" class="swatches swatches--background o-tabs__tabpanel">
+		{{> fieldsets/background}}
+		<span class="o-forms-title__main">Mixes</span>
+		<label title="Add mixed colour">
+			<input type="radio" class="trigger-input" aria-pressed="false" aria-haspopup="true">
+		</label>
+	</fieldset>
+
+	{{> fieldsets/mixer }}
+</form>
+
+<div class="contrast-info" data-o-component="o-syntax-highlight">
+	<div class="contrast-combination">
+		<span class="o-forms-title__main">Combination</span>
+		<span class="combination"></span>
+	</div>
+	<div class="contrast-details">
+		<span class="o-forms-title__main">Contrast Details</span>
+		<span class="contrast-ratio"></span>
+		<span class="wcag-rating rating-result"></span>
+		<p class="rating-message rating-result"></p>
+	</div>
+</div>
+
+<div class="contrast-showcase">
+	<h3>This is an example of text at 18px</h3>
+	<p>Everything else is 14px</p>
+	<p>This contrast checker is constrained to the colours that exist within the <a href="https://registry.origami.ft.com/components/o-colors#primary-palette">o-colors color palette</a>. It also provides the option to include 'mixed' colours, which allow the original palette colours to be mixed with each other at different percentages.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec ultrices arcu. Donec faucibus euismod condimentum. Donec pharetra diam nunc, accumsan tempus est pellentesque nec. Vivamus eget fermentum lacus. Integer quis luctus leo, sed placerat mi.</p>
+</div>
+
