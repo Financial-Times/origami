@@ -17,7 +17,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "o-typography-wrapper",
-		"dependencies": ["o-normalise", "o-typography", "o-colors"]
+		"dependencies": ["o-normalise@^1.7.2", "o-typography@^5.11.3", "o-colors@^4.8.6"]
 	},
 	"demos": [
 		{
