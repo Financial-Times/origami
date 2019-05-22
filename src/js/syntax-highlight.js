@@ -1,6 +1,10 @@
 import throwError from './helpers';
 
-import prism from 'prism/prism.js';
+import prism from 'prism/components/prism-core.js';
+import 'prism/components/prism-markup.js';
+import 'prism/components/prism-css.js';
+import 'prism/components/prism-clike.js';
+import 'prism/components/prism-javascript.js';
 import diff from './languages/prism-diff.js';
 // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
 import 'prism/components/prism-bash.js';
