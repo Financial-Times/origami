@@ -3,9 +3,9 @@ import throwError from './helpers';
 import prism from 'prism/prism.js';
 import diff from './languages/prism-diff.js';
 // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
-require('prism/components/prism-bash.js');
-require('prism/components/prism-json.js');
-require('prism/components/prism-scss.js');
+import 'prism/components/prism-bash.js';
+import 'prism/components/prism-json.js';
+import 'prism/components/prism-scss.js';
 
 class SyntaxHighlight {
 	/**
