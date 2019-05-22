@@ -198,6 +198,68 @@ describe('Video', () => {
 			Element.prototype.addEventListener = realAddEventListener;
 		});
 
+		describe('progress eventListener', () => {
+			let video;
+			let realVideoEl;
+			let realDispatchEvent;
+			let dispatchEventSpy;
+
+			beforeEach(() => {
+				video = new Video(containerEl);
+				video.addVideo();
+				realVideoEl = video.videoEl;
+				dispatchEventSpy = sinon.spy();
+				realDispatchEvent = document.body.dispatchEvent;
+				document.body.dispatchEvent = dispatchEventSpy;
+			});
+
+			afterEach(() => {
+				document.body.dispatchEvent = realDispatchEvent;
+			});
+
+			it('should dispatch progress events at relevant percentages', () => {
+				// Duration on the video element is read only so we have to replace
+				video.videoEl = {
+					duration: 100,
+					currentTime: 50
+				};
+
+				// Call dispatch on the original
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+
+				proclaim.equal(dispatchEventSpy.called, true);
+			});
+
+			it('should not dispatch progress events at other percentages', () => {
+				// Duration on the video element is read only so we have to replace
+				video.videoEl = {
+					duration: 100,
+					currentTime: 80
+				};
+
+				// Call dispatch on the original
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+
+				proclaim.equal(dispatchEventSpy.called, false);
+			});
+
+			it('should dispatch progress events only once per percentage', () => {
+				// Duration on the video element is read only so we have to replace
+				video.videoEl = {
+					duration: 100,
+					currentTime: 10
+				};
+
+				// Call dispatch multiple times on the original
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+				realVideoEl.dispatchEvent(new ProgressEvent('progress'));
+
+				proclaim.equal(dispatchEventSpy.calledOnce, true);
+			});
+		});
+
 		describe('captions', () => {
 			let fetchStub;
 

@@ -19,7 +19,7 @@ function eventListener(video, ev) {
 	}
 
 	// Dispatch progress event at around 25%, 50%, 75% and 100%
-	if (ev.type === 'progress' && !shouldDispatch(video.getProgress())) {
+	if (ev.type === 'progress' && !shouldDispatch(video)) {
 		return;
 	}
 
@@ -43,8 +43,10 @@ function fireEvent(action, video, extraDetail = {}) {
 	document.body.dispatchEvent(event);
 }
 
-function shouldDispatch(progress) {
-
+const dispatchedProgress = {};
+function shouldDispatch(video) {
+	const progress = video.getProgress();
+	const id = video.opts.id;
 	const relevantProgressPoints = [
 		8, 9, 10, 11, 12,
 		23, 24, 25, 26, 27,
@@ -53,7 +55,23 @@ function shouldDispatch(progress) {
 		100
 	];
 
-	return relevantProgressPoints.includes(progress);
+	// Initialise dispatched progress store
+	if (!dispatchedProgress[id]) {
+		dispatchedProgress[id] = [];
+	}
+
+	// Progress is not relevant
+	if (!relevantProgressPoints.includes(progress)) {
+		return false;
+	}
+
+	// Progress has already been dispatched
+	if (dispatchedProgress[id].includes(progress)) {
+		return false;
+	}
+
+	dispatchedProgress[id].push(progress);
+	return true;
 }
 
 function addEvents(video, events) {
