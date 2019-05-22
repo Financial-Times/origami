@@ -24,6 +24,10 @@
 			font-size: 14px;
 			line-height: 1.5;
 			white-space: inherit;
+		}
+
+		:not(pre) > code,
+		:not(pre) > var {
 			padding: 0.2em 0.3em; //for inline <code> tags
 		}
 
