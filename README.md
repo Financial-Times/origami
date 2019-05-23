@@ -23,7 +23,7 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But t
 | regular  |         ✓ i         |    ✓ i    |
 | medium   |           i         |    ✓      |
 | semibold |           i         |    ✓      |
-| bold     |                     |    ✓ i    |
+| bold     |         ✓           |    ✓ i    |
 | black    |                     |           |
 
 - **✓**: normal style available
