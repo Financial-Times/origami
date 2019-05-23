@@ -11,6 +11,11 @@
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {},
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-spacing"
 	},
