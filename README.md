@@ -22,11 +22,11 @@ _The above illustration is taken from the [UXD Sketch Toolkit](https://sites.goo
 
 #### Baseline
 
-Our baseline grid defaults to 4px. Any space on this baseline grid may be applied (any multiple of 4px). However for consistency we recommend our [named spaces](#named-spaces).
+Our baseline grid defaults to 4px. Any multiple of this default may be applied to a project. We recommend using our [named spaces](#named-spaces) for consistency.
 
 #### Named Spaces
 
-Named spaces are the sizes we recommend to consistently layout a component or page. Each space is based on our 4px baseline. Small sizes such as `s1`, `s2` are ideal for space within a component; use medium sizes `m12` and `m16` for related content on a page; and large sizes `l18`, `l24` for separating distinct area of a project.
+Named spaces are the sizes we use to layout a component or page consistently. Each space is based on the 4px baseline. Small sizes such as `s1` or `s2` are ideal for space within a component; use medium sizes `m12` and `m16` for related content on a page; and large sizes `l18`, `l24` for separating distinct areas within a project.
 
 | name | value |
 |------|-------|
@@ -73,8 +73,8 @@ We recommend using a [named space](#named-spaces), but for more granular control
 
 ```css
 .example {
-	padding: calc(var(--o-spacing-baseline) * 1); // A small padding.
-	margin-bottom: calc(var(--o-spacing-baseline) * 4); // A large space.
+	padding: calc(var(--o-spacing-baseline) * 1); // A small padding (4px).
+	margin-bottom: calc(var(--o-spacing-baseline) * 4); // A large space (16px).
 }
 ```
 
@@ -92,14 +92,14 @@ We recommend Sass users apply space to their project using the `oSpaceByName` fu
 
 ```css
 	.example {
-		padding: oSpaceByName('s1');  // Small padding.
-		margin-bottom: oSpaceByName('m12'); // Medium margin.
+		padding: oSpaceByName('s1');  // Small padding (4px).
+		margin-bottom: oSpaceByName('m12'); // Medium margin (48px).
 	}
 ```
 
 ### Baseline Space
 
-We recommend users apply [named spaces](#named-space), but any space which is a multiple of our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByIncrement`. It accepts a increment to multiply the baseline value by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
+We recommend the use of [named spaces](#named-space), but any space that multiplies our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByIncrement`. It accepts a value to multiply the baseline by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```
 	.example {
