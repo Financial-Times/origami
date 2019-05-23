@@ -46,7 +46,8 @@ const EVENTS = [
 const TRACKING_ATTRIBUTES = [
 	'contentId',
 	'audioSubtype',
-	'playerType'
+	'playerType',
+	'root_id',
 ];
 
 function whitelistProps(props) {
