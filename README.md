@@ -3,28 +3,26 @@ o-spacing [![Circle CI](https://circleci.com/gh/Financial-Times/o-spacing/tree/m
 
 A styling utility component to aid projects and component with consistent spacing, according to the baseline grid within the design guidelines.
 
+- [Spaces](#spaces)
 - [Markup](#markup)
 - [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 For [Build Service](https://www.ft.com/__origami/service/build/v2/) users, `o-spacing` provides [CSS classes](#markup) for vertical space and [CSS Custom Properties (CSS Variables)](#css-custom-properties) for other usecases. For Sass users `o-spacing` also provides a number of [Sass functions and mixins](#sass) for applying space to a project.
 
-### Spaces
+## Spaces
 
 ![Visual representation of spaces defined below.](https://user-images.githubusercontent.com/10405691/57918050-e9381780-788d-11e9-8310-ba5053c0c84a.png)
 
 _The above illustration is taken from the [UXD Sketch Toolkit](https://sites.google.com/ft.com/ft-design-system)._
 
-#### Baseline
+### Baseline
 
 Our baseline grid defaults to 4px. Any multiple of this default may be applied to a project. We recommend using our [named spaces](#named-spaces) for consistency.
 
-#### Named Spaces
+### Named Spaces
 
 Named spaces are the sizes we use to layout a component or page consistently. Each space is based on the 4px baseline. Small sizes such as `s1` or `s2` are ideal for space within a component; use medium sizes `m12` and `m16` for related content on a page; and large sizes `l18`, `l24` for separating distinct areas within a project.
 
@@ -43,7 +41,7 @@ Named spaces are the sizes we use to layout a component or page consistently. Ea
 
 To apply named spaces see `o-spacing` [markup](#markup) and [Sass](#sass) documentation.
 
-### Markup
+## Markup
 
 `o-spacing` provides utility classes to help space Origami components vertically within your project.
 
@@ -55,7 +53,7 @@ To apply named spaces see `o-spacing` [markup](#markup) and [Sass](#sass) docume
 
 To apply spaces to other properties `o-spacing` provides [CSS Custom Properties (CSS Variables)](#css-custom-properties).
 
-### CSS Custom Properties
+## CSS Custom Properties
 
 ### Named Space Custom Properties
 
@@ -78,7 +76,7 @@ We recommend using a [named space](#named-spaces), but for more granular control
 }
 ```
 
-### Sass
+## Sass
 
 ### Relative Units
 
