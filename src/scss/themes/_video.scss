@@ -42,6 +42,11 @@
 			background-color: oColorsGetPaletteColor('slate');
 		}
 	}
+
+	.o-teaser__image-container a {
+		display: block;
+		border: 0;
+	}
 }
 
 @mixin oTeaserBigVideo {
