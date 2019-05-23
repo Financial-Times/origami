@@ -61,7 +61,7 @@ To apply spaces to other properties `o-spacing` provides [CSS Custom Properties 
 
 `o-spacing` outputs a CSS Custom Property (CSS Variable) for each named space. E.g. `--o-spacing-s1`. These may be used to apply spaces in custom CSS if your project [supports](https://caniuse.com/#feat=css-variables) CSS Custom Properties. This is particularly useful for [Build Service](https://www.ft.com/__origami/service/build/v2/) users who do not have access to `o-spacing`'s [Sass](#sass) functions.
 
-```css
+```scss
 .example {
 	margin: var(--o-spacing-s1);
 }
@@ -71,7 +71,7 @@ To apply spaces to other properties `o-spacing` provides [CSS Custom Properties 
 
 We recommend using a [named space](#named-spaces), but for more granular control a project may output any space which is a multiple of our baseline value. For users who do not have access to Sass, `o-spacing` outputs a `--o-spacing-baseline` CSS variable.
 
-```css
+```scss
 .example {
 	padding: calc(var(--o-spacing-baseline) * 1); // A small padding (4px).
 	margin-bottom: calc(var(--o-spacing-baseline) * 4); // A large space (16px).
@@ -84,13 +84,22 @@ We recommend using a [named space](#named-spaces), but for more granular control
 
 For compatibility with existing Origami projects, `o-spacing` outputs `px` values by default. To use relative `rem` values, set `$o-spacing-relative-units: true` before importing `o-spacing`.
 
+```scss
+	$o-spacing-relative-units: true;
+
+	.example {
+		padding: oSpaceByName('s1');  // Small padding (0.24rem).
+		margin-bottom: oSpaceByName('m12'); // Medium margin (3rem).
+	}
+```
+
 _If using `o-typography` set [$o-typography-relative-units](https://registry.origami.ft.com/components/o-typography@5.11.3/sassdoc?brand=master#variable-o-typography-relative-units) also._
 
 ### Named Space
 
 We recommend Sass users apply space to their project using the `oSpaceByName` function. It accepts a [space name](#named-spaces) and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
-```css
+```scss
 	.example {
 		padding: oSpaceByName('s1');  // Small padding (4px).
 		margin-bottom: oSpaceByName('m12'); // Medium margin (48px).
@@ -101,7 +110,7 @@ We recommend Sass users apply space to their project using the `oSpaceByName` fu
 
 We recommend the use of [named spaces](#named-space), but any space that multiplies our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByIncrement`. It accepts a value to multiply the baseline by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
-```
+```scss
 	.example {
 		margin-bottom: oSpaceByIncrement('4');
 	}
@@ -111,7 +120,7 @@ We recommend the use of [named spaces](#named-space), but any space that multipl
 
 We recommend users apply named spaces using the Sass function [oSpaceByName](#named-space), but Sass users may output all `o-spacing` CSS including [utility classes](#markup) and [CSS custom properties](#css-custom-properties) using the `oSpacing` mixin.
 
-```
+```scss
 @include oSpacing($opts: (
 	'margin-bottom-utilities': true, // Output CSS classes such as `o-spacing-s1`
 	'custom-properties': true // Output CSS variables
