@@ -42,6 +42,7 @@ function preciseFloor(number, decimals = 2) {
 }
 
 function oColorsColorLuminance(hex) {
+	hex = hex.trim() === 'gray' ? '#808080' : hex; // an equal mix of black and white will always default to 'gray' instead of a hex value
 	const hexValue = hex.replace('#', '').trim();
 	const rgbPairs = hexValue.match(/.{1,2}/g);
 
