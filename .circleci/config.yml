@@ -15,22 +15,22 @@ jobs:
       - run: npx occ 0.0.0
       - run: $HOME/.local/bin/obt install --ignore-bower
       - run: $HOME/.local/bin/obt test --ignore-bower
-    publish_to_npm:
-      docker:
-        - image: circleci/node:10
-      steps:
-        - checkout
-        - run: npx occ ${CIRCLE_TAG##v}
-        - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
-        - run: npm publish --access public 
+  publish_to_npm:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: npx occ ${CIRCLE_TAG##v}
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
+      - run: npm publish --access public
 workflows:
-version: 2
-test:
-  jobs:
-    - test
-    - publish_to_npm:
-        filters:
-          tags:
-            only: /^v.*/
-          branches:
-            ignore: /.*/
+  version: 2
+  test:
+    jobs:
+      - test
+      - publish_to_npm:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
