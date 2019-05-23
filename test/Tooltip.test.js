@@ -873,14 +873,27 @@ describe("Tooltip", () => {
 			testTooltip.destroy();
 			proclaim.isTrue(closeStub.called);
 		});
+
 		it("deletes the tooltip from the tooltip map", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			Tooltip.init('#tooltip-demo-2'); // Init a second tooltip so when the first is destroyed the Tooltip._tooltips is not also destroyed
-
 			const tooltipCount = Tooltip._tooltips.size;
 			testTooltip.destroy();
 			proclaim.strictEqual(tooltipCount -1, Tooltip._tooltips.size);
 		});
+
+		it("deletes the tooltip from the dom", () => {
+			const parent = document.querySelector('#demo-tooltip-removal-test-1');
+			const target = document.querySelector('#demo-tooltip-removal-test-1-target');
+			const testTooltip = new Tooltip(target, {
+				content: 'removal test',
+				showOnConstruction: true,
+				target: target.id
+			});
+			testTooltip.destroy();
+			proclaim.strictEqual(1, parent.childElementCount);
+		});
+
 		it("destroys the tooltip map if this is the last tooltip", () => {
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.destroy();
