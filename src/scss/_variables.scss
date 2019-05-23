@@ -1,0 +1,35 @@
+/// @type Boolean
+$o-spacing-is-silent: true !default;
+
+/// When true output relative `rem` space values, not `px`.
+/// Relative spaces will respect the browser's configured font size.
+///
+/// For legacy reasons, this defaults to `false` (outputs px units).
+/// Projects may need to be updated to support relative units.
+/// @type Bool
+$o-spacing-relative-units: false !default;
+
+/// Represents the baseline number (pixels) to base spaces off.
+/// @type Number
+/// @access private
+$_o-spacing-baseline: 4;
+
+/// The named spaces. Where the key is the name and the number value is the
+/// increment of the baseline value.
+/// @type Map
+/// @access private
+$_o-spacing-sizes: (
+    's1': 1,
+    's2': 2,
+    's3': 3,
+    's4': 4,
+    's6': 6,
+    's8': 8,
+    'm12': 12,
+    'm16': 16,
+    'l18': 18,
+    'l24': 24,
+);
+
+
+

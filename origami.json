@@ -1,0 +1,42 @@
+{
+	"description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
+	"keywords": ["whitespace", "spacing"],
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-spacing/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-spacing"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "o-typography-wrapper",
+		"dependencies": ["o-normalise@^1.7.2", "o-typography@^5.11.3", "o-colors@^4.8.6"]
+	},
+	"demos": [
+		{
+			"title": "Named Spaces",
+			"name": "named-spaces",
+			"template": "demos/src/named-spaces.mustache",
+			"description": "This demo visuallies the size of named spaces. It shows a square for each named space, which has a width and height equal to the space size. See the readme for more information on space sizes."
+		},
+		{
+			"title": "Utility Classes",
+			"name": "vertical-margin-utilities",
+			"documentClasses": "demo-utilities",
+			"template": "demos/src/vertical-margin-utilities.mustache",
+			"description": ""
+		}
+	]
+}

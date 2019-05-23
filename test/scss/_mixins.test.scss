@@ -1,0 +1,152 @@
+@include describe('oSpacing mixins') {
+
+	@include describe('oSpaceByName') {
+		@include it('returns a px value for a named space') {
+			@include assert-equal(
+				oSpaceByName('s1'),
+				4px
+			);
+
+			@include assert-equal(
+				oSpaceByName('l24'),
+				96px
+			);
+		};
+
+		@include it('returns a rem value for a named space when relative units are enabled') {
+			$o-spacing-relative-units: true !global;
+			@include assert-equal(
+				oSpaceByName('s1'),
+				0.25rem
+			);
+
+			@include assert-equal(
+				oSpaceByName('l24'),
+				6rem
+			);
+			$o-spacing-relative-units: false !global;
+		};
+	}
+
+	@include describe('oSpaceByIncrement') {
+		@include it('returns a px value based on the baseline') {
+			@include assert-equal(
+				oSpaceByIncrement(1),
+				4px
+			);
+
+			@include assert-equal(
+				oSpaceByIncrement(100),
+				400px
+			);
+		};
+
+		@include it('returns a rem value based on the baseline when relative units are enabled') {
+			$o-spacing-relative-units: true !global;
+			@include assert-equal(
+				oSpaceByIncrement(1),
+				0.25rem
+			);
+
+			@include assert-equal(
+				oSpaceByIncrement(100),
+				25rem
+			);
+			$o-spacing-relative-units: false !global;
+		};
+	}
+
+	@include describe('oSpacing') {
+		@include it('outputs only CSS custom properties when "custom-properties" is the only option enabled') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oSpacing($opts: (
+						'custom-properties': true
+					));
+				};
+
+				@include expect($selector: false) {
+					:root {
+						--o-spacing-s1: 4px;
+						--o-spacing-s2: 8px;
+						--o-spacing-s3: 12px;
+						--o-spacing-s4: 16px;
+						--o-spacing-s6: 24px;
+						--o-spacing-s8: 32px;
+						--o-spacing-m12: 48px;
+						--o-spacing-m16: 64px;
+						--o-spacing-l18: 72px;
+						--o-spacing-l24: 96px;
+						--o-spacing-baseline: 4px;
+					}
+				};
+			};
+		}
+		@include it('outputs only CSS utility classes when "margin-bottom-utilities" is the only option enabled') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oSpacing($opts: (
+						'margin-bottom-utilities': true
+					));
+				};
+
+				@include expect($selector: false) {
+					.o-spacing-s1 {
+						margin-bottom: 4px;
+					}
+					.o-spacing-s2 {
+						margin-bottom: 8px;
+					}
+					.o-spacing-s3 {
+						margin-bottom: 12px;
+					}
+					.o-spacing-s4 {
+						margin-bottom: 16px;
+					}
+					.o-spacing-s6 {
+						margin-bottom: 24px;
+					}
+					.o-spacing-s8 {
+						margin-bottom: 32px;
+					}
+					.o-spacing-m12 {
+						margin-bottom: 48px;
+					}
+					.o-spacing-m16 {
+						margin-bottom: 64px;
+					}
+					.o-spacing-l18 {
+						margin-bottom: 72px;
+					}
+					.o-spacing-l24 {
+						margin-bottom: 96px;
+					}
+				};
+			};
+		}
+		@include it('outputs CSS Custom Properties and utility classes by default') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oSpacing();
+				};
+
+				@include contains($selector: false) {
+					:root {
+						// Assume other named variables are output.
+						--o-spacing-s3: 12px;
+						--o-spacing-l24: 96px;
+						--o-spacing-baseline: 4px;
+					}
+
+					// Assume other utility classes are output.
+					.o-spacing-s1 {
+						margin-bottom: 4px;
+					}
+					.o-spacing-s6 {
+						margin-bottom: 24px;
+					}
+				};
+			};
+		}
+	}
+}
