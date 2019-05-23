@@ -30,7 +30,7 @@ class Comments {
 			.then(token => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
-				scriptElement.onload = () => Coral.Talk.render(document.querySelector('[data-o-component="o-comments"]'),
+				scriptElement.onload = () => Coral.Talk.render(this.oCommentsEl,
 					{
 						talk: 'https://ft-next-talk-spike.herokuapp.com',
 						auth_token: token,
