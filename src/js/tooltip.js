@@ -55,6 +55,11 @@ class Tooltip {
 			this.delegates.target.on('mouseout', this.close.bind(this));
 		}
 
+		if(this.opts.showOnFocus) {
+			this.delegates.target.on('focusin', this.show.bind(this));
+			this.delegates.target.on('focusout', this.close.bind(this));
+		}
+
 		Viewport.listenTo('resize');
 
 		this.render();

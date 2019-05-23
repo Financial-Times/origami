@@ -72,7 +72,17 @@ function declarativeCode () {
 				data-o-tooltip-show-on-hover="true">
 					Tooltip content
 			</div>
-	
+			
+			<div id="tooltip-demo-6"
+				data-o-component="o-tooltip"
+				data-o-tooltip-target="demo-tooltip-target-6"
+				data-o-tooltip-show-on-focus="true">
+					Tooltip content
+			</div>
+			
+			<div class='tooltip-target' id="demo-tooltip-target-6" style='position:fixed'>
+					Thing to point the tooltip at.
+			</div>
 	
 			<div class='tooltip-target' id="demo-tooltip-target-below">
 					Thing to point the tooltip at.

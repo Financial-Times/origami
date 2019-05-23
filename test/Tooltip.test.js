@@ -134,6 +134,18 @@ describe("Tooltip", () => {
 				proclaim.isTrue(showStub.called);
 				proclaim.isTrue(closeStub.called);
 			});
+
+			it('adds event listeners when opts.showOnFocus is set to true', () => {
+				getOptionsStub.restore(); // !! IMPORTANT !!
+				targetStub.restore();
+				new Tooltip(document.getElementById('tooltip-demo-6'));
+
+				document.getElementById('demo-tooltip-target-6').dispatchEvent(new Event('focusin'));
+				document.getElementById('demo-tooltip-target-6').dispatchEvent(new Event('focusout'));
+
+				proclaim.isTrue(showStub.called);
+				proclaim.isTrue(closeStub.called);
+			});
 		});
 	});
 

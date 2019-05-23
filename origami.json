@@ -39,6 +39,12 @@
 			"description": "Display on hover demo"
 		},
 		{
+			"title": "Focus",
+			"name": "focus",
+			"template": "demos/src/focus.mustache",
+			"description": "Display on focus demo"
+		},
+		{
 			"title": "Click",
 			"name": "click",
 			"template": "demos/src/click.mustache",
