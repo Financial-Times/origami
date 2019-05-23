@@ -1,13 +1,9 @@
-@mixin oSyntaxHighlightHTML {
+@mixin _oSyntaxHighlightHTML {
 	.o-syntax-highlight--html {
 		.token {
 			&.attr-name { color: oColorsGetPaletteColor('oxford'); }
 			&.attr-value { color: oColorsGetPaletteColor('oxford-jade-60'); }
-			&.comment { color: oColorsGetPaletteColor('grey-60'); }
-			&.tag {
-				color: oColorsGetPaletteColor('crimson-jade-80');
-				.punctuation { color: oColorsGetPaletteColor('grey-70'); }
-			}
+			&.tag { color: oColorsGetPaletteColor('crimson-jade-80'); }
 		}
 	}
 }

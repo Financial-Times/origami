@@ -1,4 +1,4 @@
-@mixin oSyntaxHighlightSCSS {
+@mixin _oSyntaxHighlightSCSS {
 	.o-syntax-highlight--scss,
 	.o-syntax-highlight--sass {
 		.token {
@@ -7,7 +7,6 @@
 				color: oColorsGetPaletteColor('black-jade-30');
 			}
 
-			&.comment { color: oColorsGetPaletteColor('grey-60'); }
 			&.function { color: oColorsGetPaletteColor('oxford-lemon-80'); }
 			&.keyword { color: oColorsGetPaletteColor('crimson-jade-80'); }
 
@@ -17,12 +16,9 @@
 				color:  oColorsGetPaletteColor('black-crimson-25');
 			}
 
-			&.placeholder {  color: oColorsGetPaletteColor('black-lemon-55'); }
+			&.placeholder { color: oColorsGetPaletteColor('black-lemon-55'); }
 
-			&.property,
-			&.punctuation {
-				color: oColorsGetPaletteColor('grey-70');
-			}
+			&.property { color: oColorsGetPaletteColor('grey-70'); }
 
 			&.selector,
 			&.url {
@@ -33,8 +29,6 @@
 			&.statement.keyword {
 				color: oColorsGetPaletteColor('oxford-crimson-50');
 			}
-
-			&.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
 		}
 	}
 }

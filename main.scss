@@ -4,8 +4,52 @@
 @import 'src/scss/colors';
 @import 'src/scss/languages/main';
 
+@mixin oSyntaxHighlight($opts: (
+	'languages': (
+		'bash',
+		'css',
+		'diff', 
+		'html', 
+		'js',
+		'json',
+		'sass'
+	)
+)) {
+	$languages: map-get($opts, 'languages');
+
+	@include _oSyntaxHighlightBase();
+
+	@if index($languages, 'bash') {
+		@include _oSyntaxHighlightBash();
+	}
+
+	@if index($languages, 'css') {
+		@include _oSyntaxHighlightCSS();
+	}
+
+	@if index($languages, 'diff') {
+		@include _oSyntaxHighlightDiff();
+	}
+
+	@if index($languages, 'html') {
+		@include _oSyntaxHighlightHTML();
+	}
+
+	@if index($languages, 'js') or index($languages, 'javascript') {
+		@include _oSyntaxHighlightJS();
+	}
+
+	@if index($languages, 'json') {
+		@include _oSyntaxHighlightJSON();
+	}
+
+	@if index($languages, 'scss') or index($languages, 'sass') {
+		@include _oSyntaxHighlightSCSS();
+	}
+}
+
 @if $o-syntax-highlight-is-silent == false {
-	@include oSyntaxHighlightAll();
+	@include oSyntaxHighlight();
 
 	$o-syntax-highlight-is-silent: true !global;
 }

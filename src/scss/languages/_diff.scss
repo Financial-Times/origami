@@ -1,4 +1,4 @@
-@mixin oSyntaxHighlightDIFF {
+@mixin _oSyntaxHighlightDiff {
 	.o-syntax-highlight--diff {
 		.token.deleted {
 			color: oColorsMix('black', 'crimson', 75);

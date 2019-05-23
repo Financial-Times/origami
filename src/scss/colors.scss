@@ -1,4 +1,5 @@
 // passes AAA for any size text
+// oColorsGetPaletteColor(teal); listed here for reference only
 @include oColorsSetColor('grey-70', oColorsMix(black, white, 70));
 @include oColorsSetColor('oxford-crimson-50', oColorsMix(oxford, crimson, 50));
 
@@ -10,7 +11,6 @@
 @include oColorsSetColor('crimson-jade-80', oColorsMix(crimson, jade, 80));
 @include oColorsSetColor('grey-60', oColorsMix(black, white, 60));
 @include oColorsSetColor('oxford-jade-60', oColorsMix(oxford, jade, 60));
-@include oColorsSetColor('oxford-sky-80', oColorsMix(oxford, sky, 80));
 @include oColorsSetColor('oxford-lemon-80', oColorsMix(oxford, lemon, 80));
 
 //background

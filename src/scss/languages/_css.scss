@@ -1,4 +1,4 @@
-@mixin oSyntaxHighlightCSS {
+@mixin _oSyntaxHighlightCSS {
 	.o-syntax-highlight--css {
 		.token {
 
@@ -9,12 +9,10 @@
 				.rule { color: oColorsGetPaletteColor('crimson-jade-80'); }
 			}
 
-			&.comment { color: oColorsGetPaletteColor('grey-60'); }
 			&.function { color: oColorsGetPaletteColor('oxford-lemon-80'); }
 			&.important { color:  oColorsGetPaletteColor('oxford-crimson-50'); }
 
-			&.property,
-			&.punctuation {
+			&.property {
 				color: oColorsGetPaletteColor('grey-70');
 			}
 
@@ -22,8 +20,6 @@
 			&.url {
 				color: oColorsGetPaletteColor('oxford');
 			}
-
-			&.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
 		}
 	}
 }

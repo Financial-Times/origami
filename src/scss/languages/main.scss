@@ -6,7 +6,7 @@
 @import 'scss';
 @import 'diff';
 
-@mixin oSyntaxHighlightBase() {
+@mixin _oSyntaxHighlightBase() {
 	[data-o-component='o-syntax-highlight'] {
 		pre {
 			background: oColorsGetPaletteColor('grey-5');
@@ -14,12 +14,16 @@
 			word-break: break-all;
 			tab-size: 4;
 			overflow-x: auto;
+
+			.token.comment { color: oColorsGetPaletteColor('grey-60'); }
+			.token.punctuation { color: oColorsGetPaletteColor('grey-70'); }
+			.token.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
 		}
 
 		code,
 		var {
 			background: oColorsGetPaletteColor('grey-5');
-			color: oColorsGetPaletteColor('grey-70');
+			color: oColorsGetPaletteColor('black');
 			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 			font-size: 14px;
 			line-height: 1.5;
@@ -32,19 +36,8 @@
 		}
 
 		var {
-			color: oColorsGetPaletteColor('oxford-sky-80');
+			color: oColorsGetPaletteColor('teal');
 			font-weight: 600;
 		}
 	}
-}
-
-@mixin oSyntaxHighlightAll() {
-	@include oSyntaxHighlightBase();
-	@include oSyntaxHighlightBASH();
-	@include oSyntaxHighlightCSS();
-	@include oSyntaxHighlightHTML();
-	@include oSyntaxHighlightJS();
-	@include oSyntaxHighlightJSON();
-	@include oSyntaxHighlightSCSS();
-	@include oSyntaxHighlightDIFF();
 }
