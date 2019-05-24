@@ -3,7 +3,7 @@ import Toggle from 'o-toggle';
 const LISTEN_DELAY = 300;
 const INTENT_DELAY = 1000;
 
-function handleCloseEvents (scope, callback) {
+function handleCloseEvents (scope, callback, allFocusable) {
 	let timeout;
 
 	const handleKeydown = (e) => {
@@ -40,6 +40,20 @@ function handleCloseEvents (scope, callback) {
 		}
 	};
 
+	const handleTab = (e) => {
+		if (e.keyCode === 9) {
+			const lastEl = allFocusable[allFocusable.length - 1];
+			// Keep focus within the drawer when tabbing for a11y reasons.
+			if (e.target === lastEl) {
+				allFocusable[0].focus();
+				e.preventDefault();
+			} else if (e.shiftKey && e.target === allFocusable[0]) { // loop to the bottom when shift+tabbing.
+				lastEl.focus();
+				e.preventDefault();
+			}
+		}
+	};
+
 	const removeEvents = () => {
 		clearTimeout(timeout);
 
@@ -50,6 +64,7 @@ function handleCloseEvents (scope, callback) {
 		document.removeEventListener('keydown', handleKeydown);
 		document.removeEventListener('focusin', handleFocus);
 		document.removeEventListener('focusout', handleFocus);
+		scope.removeEventListener('keydown', handleTab);
 	};
 
 	const addEvents = () => {
@@ -63,12 +78,14 @@ function handleCloseEvents (scope, callback) {
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=687787
 		document.addEventListener('focusin', handleFocus);
 		document.addEventListener('focusout', handleFocus);
+
+		scope.addEventListener('keydown', handleTab);
 	};
 
 	return { addEvents, removeEvents, handleMouseleave };
 }
 
-function addDrawerToggles (drawerEl) {
+function addDrawerToggles (drawerEl, allFocusable) {
 	const controls = Array.from(document.body.querySelectorAll(`[aria-controls="${drawerEl.id}"]`));
 
 	let handleClose;
@@ -76,13 +93,13 @@ function addDrawerToggles (drawerEl) {
 
 	function toggleCallback (state, e) {
 		if (state === 'close') {
-			toggleTabbing(drawerEl, false);
+			toggleTabbing(drawerEl, false, allFocusable);
 
 			handleClose.removeEvents();
 
 			openingControl.focus();
 		} else {
-			toggleTabbing(drawerEl, true);
+			toggleTabbing(drawerEl, true, allFocusable);
 
 			// don't capture the initial click or accidental double taps etc.
 			// we could use transitionend but scoping is tricky and it needs prefixing and...
@@ -121,7 +138,7 @@ function addDrawerToggles (drawerEl) {
 		// If there's a separate handleClose instance for each toggle, removeEvents doesn't work
 		// when the close toggle is clicked
 		if (!handleClose) {
-			handleClose = handleCloseEvents(drawerEl, drawerToggle.toggle);
+			handleClose = handleCloseEvents(drawerEl, drawerToggle.toggle, allFocusable);
 		}
 	});
 
@@ -149,8 +166,7 @@ function addSubmenuToggles (drawerEl) {
 // This function is to solve accessibility issue
 // when o-header-drawer is closed => tabbing is disabled.
 // when o-header-drawer is open => tabbing is enabled.
-function toggleTabbing (drawerEl, isEnabled) {
-	const allFocusable = Array.from(drawerEl.querySelectorAll('a, button, input, select'));
+function toggleTabbing (drawerEl, isEnabled, allFocusable) {
 	if (isEnabled) {
 		allFocusable.forEach(el => {
 			el.removeAttribute('tabindex');
@@ -167,9 +183,10 @@ function init () {
 	if (!drawerEl) {
 		return;
 	}
-	toggleTabbing(drawerEl, false);
+	const allFocusable = Array.from(drawerEl.querySelectorAll('a, button, input, select'));
+	toggleTabbing(drawerEl, false, allFocusable);
 	addSubmenuToggles(drawerEl);
-	addDrawerToggles(drawerEl);
+	addDrawerToggles(drawerEl, allFocusable);
 
 	// Wrap in a timeout to stop page load stall in Chrome v73 on Android
 	// toggleTabbing and the removal of the no-js attribute spikes the CPU
