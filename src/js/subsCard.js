@@ -1,4 +1,4 @@
-const oExpander = require('o-expander');
+import oExpander from 'o-expander';
 
 let tallestTopHeight = 0;
 
@@ -62,4 +62,6 @@ class SubsCard {
 	}
 }
 
-export default SubsCard;
+export {
+	SubsCard
+};

@@ -70,12 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
 Instantiating your own oSubsCard:
 
 ```js
-const subsCard = require('o-subs-card');
+import { SubsCard } from 'o-subs-card';
 subsCard.init();
 ```
 This will instantiate all subs-cards within the document. Alternatively you can pass in a HTMLElement, or String to be used as a selector to limit the scope of the instantiated subs cards to only child elements of the passed in scope.
 
 ## Migration Guide
+
+### Upgrading from v2.x.x to v3.x.x
+
+o-subs-card v3.x.x changes the JavaScript from being a mix of ECMAScript Modules and CommonJS in a single file to being solely ECMAScript Modules. 
+
+You will need to change from using a CommonJS `require` to an ECMAScript Module `import`:
+
+```diff
+- const SubsCard = require('o-subs-card');
++ import { SubsCard } from 'o-subs-card';
+```
 
 ### Upgrading from v1.x.x to v2.x.x
 
