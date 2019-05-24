@@ -1,4 +1,4 @@
-import SubsCard from './src/js/subsCard';
+import {SubsCard} from './src/js/subsCard';
 
 const constructAll = function() {
 	SubsCard.init();
@@ -7,4 +7,4 @@ const constructAll = function() {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = SubsCard;
+export { SubsCard } from './src/js/subsCard';
