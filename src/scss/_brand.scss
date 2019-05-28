@@ -102,7 +102,7 @@ $o-typography-display: '' !default;
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
             'blockquote-color': oColorsGetPaletteColor('claret'),
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('black-50'), //deprecated
             'bold-level': 'bold',
             'sans': (
                 'bold-level': 'semibold' // override the default "bold" font weight for the sans font
@@ -162,7 +162,7 @@ $o-typography-display: '' !default;
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
             'blockquote-color': oColorsGetColorFor(body, text),
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('oxford-80'), //deprecated
             'bold-level': 'semibold',
             'heading-level-one': (
                 'scale': 5,
