@@ -112,6 +112,7 @@ jobs:
       - run:
           name: shared-helper / npm-store-auth-token
           command: .circleci/shared-helpers/helper-npm-store-auth-token
+      - run: npx snyk monitor --org=customer-products --project-name=Financial-Times/n-notification
       - run:
           name: shared-helper / npm-version-and-publish-public
           command: .circleci/shared-helpers/helper-npm-version-and-publish-public
