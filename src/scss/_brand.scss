@@ -230,7 +230,7 @@ $o-typography-display: '' !default;
         8: (56, (56 * 1.2)),
         9: (72, (72 * 1.2)),
        10: (84, (84 * 1.2)),
-    ) !default!global;
+    ) !global;
 
     @include oBrandDefine('o-typography', 'whitelabel', (
         'variables': (
