@@ -8,7 +8,6 @@ module.exports = (options) => {
 		noticeEl.classList.add(`n-notification--${options.modifier}`);
 	}
 
-	noticeEl.setAttribute("role", "alert");
 	noticeEl.setAttribute("data-trackable", options.trackable);
 
 	const contentWrapperEl = document.createElement('div');
@@ -25,6 +24,7 @@ module.exports = (options) => {
 		const contentEl = document.createElement('span');
 		contentEl.className = "n-notification__content";
 		contentEl.innerHTML = options.content;
+		contentEl.setAttribute("role", "alert");
 		contentWrapperEl.appendChild(contentEl);
 	}
 
