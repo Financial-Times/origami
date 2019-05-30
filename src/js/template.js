@@ -22,7 +22,7 @@ module.exports = (options) => {
 	}
 
 	if (options.content) {
-		const contentEl = document.createElement('div');
+		const contentEl = document.createElement('span');
 		contentEl.className = "n-notification__content";
 		contentEl.innerHTML = options.content;
 		contentWrapperEl.appendChild(contentEl);

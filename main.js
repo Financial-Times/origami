@@ -17,6 +17,9 @@ class Notice {
 			options.modifier = options.type;
 		}
 
+		options.returnFocusSelector = options.returnFocusSelector instanceof Element ? options.returnFocusSelector : document.querySelector(options.returnFocusSelector);
+		this.options = options;
+
 		this.notice = document.createElement('div');
 		this.notice.appendChild(template(options));
 		this.notice.querySelector('button').onclick = this.hide.bind(this);
@@ -39,6 +42,10 @@ class Notice {
 			stack.splice(index, 1);
 		}
 		this.dispatchNotificationCloseEvent();
+
+		if (this.options.returnFocusSelector) {
+			this.options.returnFocusSelector.focus();
+		}
 	}
 
 	dispatchNotificationCloseEvent () {
@@ -54,6 +61,13 @@ function show (options) {
 		lastNotice.timeout = setTimeout(lastNotice.hide.bind(lastNotice), timeoutDuration);
 	} else {
 		stack.push(new Notice(options));
+	}
+
+	if (options.focusSelector) {
+		const focusEl = options.focusSelector instanceof Element ? options.focusSelector : document.querySelector(options.focusSelector);
+		if (focusEl) {
+			focusEl.focus();
+		}
 	}
 }
 
