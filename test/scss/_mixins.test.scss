@@ -1,14 +1,14 @@
 @include describe('oSpacing mixins') {
 
-	@include describe('oSpaceByName') {
+	@include describe('oSpacingByName') {
 		@include it('returns a px value for a named space') {
 			@include assert-equal(
-				oSpaceByName('s1'),
+				oSpacingByName('s1'),
 				4px
 			);
 
 			@include assert-equal(
-				oSpaceByName('l24'),
+				oSpacingByName('l24'),
 				96px
 			);
 		};
@@ -16,27 +16,27 @@
 		@include it('returns a rem value for a named space when relative units are enabled') {
 			$o-spacing-relative-units: true !global;
 			@include assert-equal(
-				oSpaceByName('s1'),
+				oSpacingByName('s1'),
 				0.25rem
 			);
 
 			@include assert-equal(
-				oSpaceByName('l24'),
+				oSpacingByName('l24'),
 				6rem
 			);
 			$o-spacing-relative-units: false !global;
 		};
 	}
 
-	@include describe('oSpaceByIncrement') {
+	@include describe('oSpacingByIncrement') {
 		@include it('returns a px value based on the baseline') {
 			@include assert-equal(
-				oSpaceByIncrement(1),
+				oSpacingByIncrement(1),
 				4px
 			);
 
 			@include assert-equal(
-				oSpaceByIncrement(100),
+				oSpacingByIncrement(100),
 				400px
 			);
 		};
@@ -44,12 +44,12 @@
 		@include it('returns a rem value based on the baseline when relative units are enabled') {
 			$o-spacing-relative-units: true !global;
 			@include assert-equal(
-				oSpaceByIncrement(1),
+				oSpacingByIncrement(1),
 				0.25rem
 			);
 
 			@include assert-equal(
-				oSpaceByIncrement(100),
+				oSpacingByIncrement(100),
 				25rem
 			);
 			$o-spacing-relative-units: false !global;
