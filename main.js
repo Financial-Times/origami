@@ -57,6 +57,7 @@ ODate.prototype.update = function() {
 	}
 
 	let dateString;
+	let labelString;
 
 	if (format === 'today-or-yesterday-or-nothing') {
 		dateString = ftDateFormat.asTodayOrYesterdayOrNothing(date);
@@ -66,8 +67,10 @@ ODate.prototype.update = function() {
 		dateString = ftDateFormat.timeAgo(date, { limit: 4*ftDateFormat.inSeconds.hour });
 	} else if (format === 'time-ago-abbreviated') {
 		dateString = ftDateFormat.timeAgo(date, { abbreviated: true });
+		labelString = ftDateFormat.timeAgo(date);
 	} else if (format === 'time-ago-abbreviated-limit-4-hours') {
 		dateString = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4*ftDateFormat.inSeconds.hour });
+		labelString = ftDateFormat.timeAgo(date, { limit: 4*ftDateFormat.inSeconds.hour });
 	} else if (format === 'time-ago-no-seconds') {
 		dateString = ftDateFormat.timeAgoNoSeconds(date);
 	} else if (format !== null) {
@@ -86,7 +89,12 @@ ODate.prototype.update = function() {
 
 	el.title = ftDateFormat.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
-	el.setAttribute('aria-label', dateString);
+
+	if (labelString) {
+		el.setAttribute('aria-label', labelString);
+	} else {
+		el.setAttribute('aria-label', dateString);
+	}
 };
 
 ODate.prototype.destroy = function() {
