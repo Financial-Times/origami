@@ -20,10 +20,10 @@
 		:root {
 			// Named spaces.
 			@each $space-name, $increment in $_o-spacing-sizes {
-				#{--o-spacing-}#{$space-name}: oSpaceByIncrement($increment);
+				#{--o-spacing-}#{$space-name}: oSpacingByIncrement($increment);
 			}
 			// Baseline value.
-			#{--o-spacing-baseline}: getBaselineValue();
+			#{--o-spacing-baseline}: oSpacingGetBaselineValue();
 		}
 	}
 
@@ -31,7 +31,7 @@
 	@if($margin-bottom-utilities) {
 		@each $space-name, $increment in $_o-spacing-sizes {
 			.o-spacing-#{$space-name} {
-				margin-bottom: oSpaceByIncrement($increment);
+				margin-bottom: oSpacingByIncrement($increment);
 			}
 		}
 	}

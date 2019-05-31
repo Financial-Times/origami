@@ -86,8 +86,8 @@ For compatibility with existing Origami projects, `o-spacing` outputs `px` value
 	$o-spacing-relative-units: true;
 
 	.example {
-		padding: oSpaceByName('s1');  // Small padding (0.24rem).
-		margin-bottom: oSpaceByName('m12'); // Medium margin (3rem).
+		padding: oSpacingByName('s1');  // Small padding (0.24rem).
+		margin-bottom: oSpacingByName('m12'); // Medium margin (3rem).
 	}
 ```
 
@@ -95,28 +95,28 @@ _If using `o-typography` set [$o-typography-relative-units](https://registry.ori
 
 ### Named Space
 
-We recommend Sass users apply space to their project using the `oSpaceByName` function. It accepts a [space name](#named-spaces) and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
+We recommend Sass users apply space to their project using the `oSpacingByName` function. It accepts a [space name](#named-spaces) and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```scss
 	.example {
-		padding: oSpaceByName('s1');  // Small padding (4px).
-		margin-bottom: oSpaceByName('m12'); // Medium margin (48px).
+		padding: oSpacingByName('s1');  // Small padding (4px).
+		margin-bottom: oSpacingByName('m12'); // Medium margin (48px).
 	}
 ```
 
 ### Baseline Space
 
-We recommend the use of [named spaces](#named-space), but any space that multiplies our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpaceByIncrement`. It accepts a value to multiply the baseline by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
+We recommend the use of [named spaces](#named-space), but any space that multiplies our [baseline](#baseline) is allowed. To apply a multiple of the baseline value use `oSpacingByIncrement`. It accepts a value to multiply the baseline by and returns a `px` value (or `rem` value, if [relative units](#relative-units) are enabled).
 
 ```scss
 	.example {
-		margin-bottom: oSpaceByIncrement('4');
+		margin-bottom: oSpacingByIncrement('4');
 	}
 ```
 
 ### Custom Properties &amp; Utility Classes
 
-We recommend users apply named spaces using the Sass function [oSpaceByName](#named-space), but Sass users may output all `o-spacing` CSS including [utility classes](#markup) and [CSS custom properties](#css-custom-properties) using the `oSpacing` mixin.
+We recommend users apply named spaces using the Sass function [oSpacingByName](#named-space), but Sass users may output all `o-spacing` CSS including [utility classes](#markup) and [CSS custom properties](#css-custom-properties) using the `oSpacing` mixin.
 
 ```scss
 @include oSpacing($opts: (
@@ -124,6 +124,13 @@ We recommend users apply named spaces using the Sass function [oSpaceByName](#na
 	'custom-properties': true // Output CSS variables
 ));
 ```
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.0 | N/A |
 
 ## Contact
 

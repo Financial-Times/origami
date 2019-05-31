@@ -13,14 +13,14 @@ body {
 }
 
 .demo-named-spaces-container {
-    padding-top: oSpaceByIncrement(3);
-    padding-left: oSpaceByIncrement(3);
+    padding-top: oSpacingByIncrement(3);
+    padding-left: oSpacingByIncrement(3);
     background: repeating-linear-gradient(
         0deg,
         white,
-        white oSpaceByIncrement(1),
-        lightgrey oSpaceByIncrement(1),
-        lightgrey oSpaceByIncrement(2)
+        white oSpacingByIncrement(1),
+        lightgrey oSpacingByIncrement(1),
+        lightgrey oSpacingByIncrement(2)
     );
 }
 
@@ -28,7 +28,7 @@ body {
     position: relative;
     background-color: white;
     border: 1px solid black;
-    padding: 0 oSpaceByIncrement(1);
+    padding: 0 oSpacingByIncrement(1);
     &::before {
         content: '';
         position: absolute;
@@ -43,57 +43,57 @@ body {
     content: '';
     display: inline-block;
     vertical-align: top;
-    margin-bottom: oSpaceByIncrement(5);
+    margin-bottom: oSpacingByIncrement(5);
     background: black;
     background: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
 }
 
 .demo-named-space--s1::before {
-    height: oSpaceByName('s1');
-    width: oSpaceByName('s1');
+    height: oSpacingByName('s1');
+    width: oSpacingByName('s1');
 }
 
 .demo-named-space--s2::before {
-    height: oSpaceByName('s2');
-    width: oSpaceByName('s2');
+    height: oSpacingByName('s2');
+    width: oSpacingByName('s2');
 }
 
 .demo-named-space--s3::before {
-    height: oSpaceByName('s3');
-    width: oSpaceByName('s3');
+    height: oSpacingByName('s3');
+    width: oSpacingByName('s3');
 }
 
 .demo-named-space--s4::before {
-    height: oSpaceByName('s4');
-    width: oSpaceByName('s4');
+    height: oSpacingByName('s4');
+    width: oSpacingByName('s4');
 }
 
 .demo-named-space--s6::before {
-    height: oSpaceByName('s6');
-    width: oSpaceByName('s6');
+    height: oSpacingByName('s6');
+    width: oSpacingByName('s6');
 }
 
 .demo-named-space--s8::before {
-    height: oSpaceByName('s8');
-    width: oSpaceByName('s8');
+    height: oSpacingByName('s8');
+    width: oSpacingByName('s8');
 }
 
 .demo-named-space--m12::before {
-    height: oSpaceByName('m12');
-    width: oSpaceByName('m12');
+    height: oSpacingByName('m12');
+    width: oSpacingByName('m12');
 }
 
 .demo-named-space--m16::before {
-    height: oSpaceByName('m16');
-    width: oSpaceByName('m16');
+    height: oSpacingByName('m16');
+    width: oSpacingByName('m16');
 }
 
 .demo-named-space--l18::before {
-    height: oSpaceByName('l18');
-    width: oSpaceByName('l18');
+    height: oSpacingByName('l18');
+    width: oSpacingByName('l18');
 }
 
 .demo-named-space--l24::before {
-    height: oSpaceByName('l24');
-    width: oSpaceByName('l24');
+    height: oSpacingByName('l24');
+    width: oSpacingByName('l24');
 }
