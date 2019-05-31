@@ -66,6 +66,22 @@ const triggerClickHandler = function(id, ev) {
 	}
 };
 
+const focusTrap = function(event) {
+	const overlayFocusableElements = this.wrapper.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+	const tabKeyCode = 9;
+
+	if (overlayFocusableElements.length && event.keyCode === tabKeyCode) {
+		const lastElement = overlayFocusableElements[overlayFocusableElements.length - 1];
+		// Loop focus back to the first element if focus has reached the focusable element
+		if (event.target === lastElement) {
+			overlayFocusableElements[0].focus();
+			event.preventDefault();
+		} else if (event.shiftKey && event.target === overlayFocusableElements[0]) { // loop to the bottom when shift+tabbing.
+			lastElement.focus();
+			event.preventDefault();
+		}
+	}
+};
 
 /**
  * Represents an Overlay.
@@ -279,6 +295,11 @@ Overlay.prototype.render = function() {
 	this.show();
 };
 
+Overlay.prototype._trapFocus = function () {
+	// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
+	document.addEventListener('keydown', focusTrap.bind(this));
+};
+
 Overlay.prototype.show = function() {
 	if (this.opts.modal) {
 		this.wrapper.classList.add('o-overlay--modal');
@@ -356,6 +377,8 @@ Overlay.prototype.show = function() {
 			action: 'show',
 			overlay_id: this.id
 		});
+
+		this._trapFocus();
 	}.bind(this));
 };
 
@@ -401,7 +424,10 @@ Overlay.prototype.close = function() {
 		this.opts.trigger.focus();
 		this.opts.trigger.setAttribute('aria-pressed', 'false');
 	}
+	document.removeEventListener('keydown', focusTrap);
+
 	this.visible = false;
+
 
 	if (this.opts.layer) {
 		this.broadcast('close', 'oLayers');
