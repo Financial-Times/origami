@@ -27,13 +27,14 @@ class Comments {
 	_renderComments () {
 		/*global Coral*/
 		getJsonWebToken()
-			.then(token => {
+			.then(({ token, userIsSignedIn }) => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
 				scriptElement.onload = () => Coral.Talk.render(this.oCommentsEl,
 					{
 						talk: 'https://ft-next-talk-spike.herokuapp.com',
 						auth_token: token,
+						userSignedInToFT: userIsSignedIn,
 						events: (events) => {
 							events.onAny((name, data) => {
 								const message = new CustomEvent('talkEvent', {

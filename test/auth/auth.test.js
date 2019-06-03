@@ -28,7 +28,7 @@ describe("Auth", () => {
 
 			it("returns a promise which contains a JSON Web Token as a string", () => {
 				return getJsonWebToken()
-					.then(token => proclaim.isString(token));
+					.then(result => proclaim.isString(result.token));
 			});
 		});
 
@@ -41,11 +41,14 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("resolves with undefined", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then((token) => {
-						proclaim.equal(token, undefined);
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
 			});
 		});
 
@@ -58,11 +61,14 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("resolves with undefined", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then((token) => {
-						proclaim.equal(token, undefined);
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
 			});
 		});
 
@@ -75,11 +81,19 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("resolves with undefined", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then((token) => {
-						proclaim.equal(token, undefined);
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
+			});
+
+			it("resolves with userIsSignedIn true", () => {
+				return getJsonWebToken()
+					.then((result) => proclaim.isTrue(result.userIsSignedIn));
 			});
 		});
 
@@ -92,11 +106,19 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("resolves with undefined", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then((token) => {
-						proclaim.equal(token, undefined);
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
+			});
+
+			it("resolves with userIsSignedIn false", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.isFalse(result.userIsSignedIn));
 			});
 		});
 

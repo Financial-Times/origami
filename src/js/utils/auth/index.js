@@ -1,8 +1,12 @@
 const getJsonWebToken = () => fetch('https://comments-auth.ft.com/v1/jwt/', {
 	credentials: 'include'
 }).then(response => {
-	if (response.status === 404 || response.status === 205) {
-		return { token: undefined };
+	if (response.status === 404) {
+		return { token: undefined, userIsSignedIn: false };
+	}
+
+	if (response.status === 205) {
+		return { token: undefined, userIsSignedIn: true };
 	}
 
 	if (response.ok) {
@@ -10,8 +14,6 @@ const getJsonWebToken = () => fetch('https://comments-auth.ft.com/v1/jwt/', {
 	}
 
 	throw new Error('Bad response from the authentication service');
-}).then(json => {
-	return json.token;
 });
 
 export {
