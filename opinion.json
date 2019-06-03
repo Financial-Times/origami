@@ -1,0 +1,31 @@
+{
+  "type": "article",
+  "id": "",
+  "url": "#",
+  "title": "Anti-Semitism and the threat of identity politics",
+  "altTitle": "",
+  "standfirst": "Today, hatred of Jews is mixed in with fights about Islam and Israel",
+  "altStandfirst": "Anti-Semitism and identity politics",
+  "publishedDate": "2018-04-02T12:22:01.000Z",
+  "firstPublishedDate": "2018-04-02T12:22:01.000Z",
+  "metaPrefixText": "",
+  "metaSuffixText": "",
+  "metaLink": {
+    "url": "#",
+    "prefLabel": "Gideon Rachman"
+  },
+  "metaAltLink": {
+    "url": "#",
+    "prefLabel": "Anti-Semitism"
+  },
+  "image": {
+    "url": "http://prod-upp-image-read.ft.com/1005ca96-364b-11e8-8b98-2f31af407cc8",
+    "width": 2048,
+    "height": 1152
+  },
+  "headshot": "fthead-v1:gideon-rachman",
+  "indicators": {
+    "isOpinion": true,
+    "isColumn": true
+  }
+}

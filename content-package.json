@@ -1,0 +1,26 @@
+{
+  "type": "package",
+  "id": "",
+  "url": "#",
+  "title": "The royal wedding",
+  "altTitle": "",
+  "standfirst": "Prince Harry and Meghan Markle will tie the knot at Windsor Castle",
+  "altStandfirst": "",
+  "publishedDate": "2018-05-14T16:38:49.000Z",
+  "firstPublishedDate": "2018-05-14T16:38:49.000Z",
+  "metaPrefixText": "",
+  "metaSuffixText": "",
+  "metaLink": {
+    "url": "#",
+    "prefLabel": "FT Magazine"
+  },
+  "metaAltLink": {
+    "url": "#",
+    "prefLabel": "FT Series"
+  },
+  "image": {
+    "url": "http://prod-upp-image-read.ft.com/7e97f5b6-578d-11e8-b8b2-d6ceb45fa9d0",
+    "width": 2048,
+    "height": 1152
+  }
+}
