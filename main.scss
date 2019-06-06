@@ -7,12 +7,20 @@
 
 @import 'src/scss/main';
 
+/// @access public
+/// @param {Map} $opts The o-form features to include styles for (see the README for a full list).
+/// @example
+///		@include oForms($opts: (
+///			'elements': ('text-input', 'checkbox'),
+///			'features': ('inline')
+///		));
+/// @output Styles for form elements.
 @mixin oForms($opts: (
 	'elements': (
-		'checkbox', 
+		'checkbox',
 		'date',
 		'password',
-		'pseudo-radio-link', 
+		'pseudo-radio-link',
 		'radio-round',
 		'radio-box',
 		'select',
