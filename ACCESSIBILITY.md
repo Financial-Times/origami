@@ -227,6 +227,6 @@ Overall, it outlines that:
 
 This means that not only will ATs have clear access to what has happend on the page, but it will be clear for any other user of the product's form.
 
-`o-forms` implements this behaviour for you if the [error summary options is enabled](./README#form-instance)
+`o-forms` implements this behaviour for you if the [error summary options is enabled](./README.md#form-instance)
 
 If you would like help implementing anything you've read here, please [get in touch with the team](./README.md#contact). 
