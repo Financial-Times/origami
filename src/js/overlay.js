@@ -66,9 +66,15 @@ const triggerClickHandler = function(id, ev) {
 	}
 };
 
+const isVisible = function (element) {
+	return !!element.offsetHeight;
+};
+
 const focusTrap = function(event) {
-	const overlayFocusableElements = this.wrapper.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
 	const tabKeyCode = 9;
+	const overlayFocusableElements = [].slice.call(
+		this.wrapper.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+	).filter(element => isVisible(element) && !element.disabled);
 
 	if (overlayFocusableElements.length && event.keyCode === tabKeyCode) {
 		const lastElement = overlayFocusableElements[overlayFocusableElements.length - 1];
