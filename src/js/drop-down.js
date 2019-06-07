@@ -25,7 +25,7 @@ class DropDown {
 	handleEvent(e) {
 		if (e.type === 'click') {
 			if (!e.target.parentNode || !e.target.parentNode.getAttribute('data-o-header-services-level')) {
-				DropDown.collapseAll(this.navItems);
+				this.reset();
 				return;
 			}
 
@@ -41,7 +41,7 @@ class DropDown {
 
 			e.stopPropagation();
 		} else if (e.type === 'resize' || (e.key === 'Escape')) {
-			DropDown.collapseAll(this.navItems);
+			this.reset();
 		}
 	}
 
@@ -51,6 +51,18 @@ class DropDown {
 	 */
 	isDrawer() {
 		return this.primaryNav.classList.contains('o-header-services__primary-nav--drawer');
+	}
+
+	/**
+	 * Returns nav items to their original collapsed state,
+	 * items which contain links with the attribute `aria-current`
+	 * set to true remain expanded.
+	 */
+	reset() {
+		DropDown.collapseAll(this.navItems);
+		if (this.isDrawer()) {
+			DropDown.expandAll(DropDown.getCurrent(this.navItems));
+		}
 	}
 
 	/**
@@ -93,6 +105,27 @@ class DropDown {
 	 */
 	static collapseAll(items) {
 		items.forEach(DropDown.collapse);
+	}
+
+	/**
+	 * Expands all open nav menus
+	 */
+	static expandAll(items) {
+		items.forEach(DropDown.expand);
+	}
+
+	/**
+	 * Returns items which contain an anchor
+	 * with the attribute `aria-current` set to true.
+	 */
+	static getCurrent(items) {
+		return items.filter(item => {
+			const links = item.querySelectorAll('a');
+			const hasCurrentLink = Array.from(links).reduce((result, link) => {
+				return result || link.getAttribute('aria-current') === 'true';
+			}, false);
+			return hasCurrentLink;
+		});
 	}
 }
 
