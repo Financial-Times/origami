@@ -17,7 +17,8 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-			"customevent"
+			"customevent",
+			"Array.from"
 		]
 	},
 	"ci": {
