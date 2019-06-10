@@ -36,7 +36,7 @@ export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props })
 			<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
 				<Link {...props} url={displayUrl} attrs={{
 					'data-trackable': 'image-link',
-					'tab-index': '-1',
+					'tabIndex': '-1',
 					'aria-hidden': 'true',
 				}}>
 					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
