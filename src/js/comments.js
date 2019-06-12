@@ -117,7 +117,8 @@ class Comments {
 	}
 
 	/**
-	 * Emits events that have a valid o-comment event name
+	 * Emits events that have a valid o-comment event name.
+	 *
 	 * @param {String} name - The event name
 	 * @param {Object} payload - The event payload
 	 */
@@ -132,7 +133,7 @@ class Comments {
 	}
 
 	/**
-	 * Listens for all Coral Talk events and maps them to valid events
+	 * Listens for all Coral Talk events and maps them to valid events.
 	 */
 	_mapCoralEventsToOComments () {
 		window.addEventListener('talkEvent', (event = {}) => {

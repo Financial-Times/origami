@@ -19,7 +19,7 @@ A component, integrated with FT authentication and user data services, to add co
 Use the following markup to enable comments:
 
 ```html
-<div  class="o-comments" data-o-component="o-comments">
+<div class="o-comments" data-o-component="o-comments">
 </div>
 ```
 
@@ -77,7 +77,7 @@ The naming of events uses a dot notation and follows a `category.action.state` n
 
 These events are anything to do with the component itself.
 
-- **component.render.successful** - Emitted when the component has finished rendering and is ready for the user to interact with comments 
+- **component.render.successful** - Emitted when the component has finished rendering and is ready for the user to interact with comments
 
 ##### Comment
 
