@@ -3,17 +3,22 @@
 /// @param {Boolean} $small Whether to output small input styles
 /// @param {Boolean} $suffix Whether to output suffix styles
 /// @param {Boolean} $small Whether to output small styles
-/// @param {String} $input-type Which text-like input to style (password, email, text)
+/// @param {String} $include-password-selector Whether or not to output a password class `o-forms-input--password` as well as `o-forms-input--text`
 /// @output Styling for text inputs
 @mixin _oFormsTextInput(
 	$disabled: null,
 	$small: null,
 	$suffix: null,
-	$input-type: 'text'
+	$include-password-selector: false
 ) {
-	$element: 'input[type=#{$input-type}]';
+	$selector: '.o-forms-input--text';
+	$element: 'input';
 
-	.o-forms-input--#{$input-type} {
+	@if($include-password-selector) {
+		$selector: $selector + ', .o-forms-input--password';
+	}
+
+	#{$selector} {
 		@if $small {
 			@include _oFormsInputSmall($element);
 		}

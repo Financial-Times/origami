@@ -9,7 +9,7 @@ All Sass mixins have been removed, and have been replaced with two public mixins
 - `oForms()`
 - `oFormsAddCustom()`
 
-The primary mixin makes an options map public, which allows you to output styles specific to the elements that you want to use in your form. `o-forms` [no longer supports custom classes](https://github.com/Financial-Times/origami-proposals/issues/4). 
+The primary mixin makes an options map public, which allows you to output styles specific to the elements that you want to use in your form. `o-forms` [no longer supports custom classes](https://github.com/Financial-Times/origami-proposals/issues/4).
 
 The following example would output small text inputs and regular checkboxes:
 
@@ -20,7 +20,7 @@ The following example would output small text inputs and regular checkboxes:
 
 +@include oForms($opts: (
 +	'elements': (
-+		'text', 
++		'text',
 +		'checkbox'
 +	),
 +	'features': (
@@ -80,7 +80,8 @@ The root `o-forms` class is no longer used. Instead, there are modifiers for eac
 	- `.o-forms-input--radio-round`
 	- `.o-forms-input--select`
 	- `.o-forms-input--text-area`
-	- `.o-forms-input--text-input`
+	- `.o-forms-input--password`
+	- `.o-forms-input--text`
 	- `.o-forms-input--toggle`
 	- `.o-forms-input--valid`
 

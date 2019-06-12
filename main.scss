@@ -70,13 +70,6 @@
 		);
 	}
 
-	@if index($elements, 'password') {
-		@include _oFormsTextInput(
-			$disabled,
-			$input-type: 'password'
-		);
-	}
-
 	@if index($elements, 'radio-round') {
 		@include _oFormsRadioRound(
 			$disabled
@@ -101,12 +94,12 @@
 		@include _oFormsTextArea($disabled);
 	}
 
-	@if index($elements, 'text') {
+	@if index($elements, 'text') or index($elements, 'password') {
 		@include _oFormsTextInput(
 			$disabled,
 			$small,
 			$suffix,
-			$input-type: 'text'
+			$include-password-selector: index($elements, 'password')
 		);
 	}
 

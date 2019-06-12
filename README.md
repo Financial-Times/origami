@@ -58,12 +58,12 @@ Regardless of the input type used, all elements follow the same structure:
 └————————————————————————————————————————┘
 ```
 
-Bearing that in mind, all form elements are divided into two main categories, with a couple of outliers: 
+Bearing that in mind, all form elements are divided into two main categories, with a couple of outliers:
 - [single input fields](#single-input-fields)
 - [multiple input fields](#multiple-input-fields)
 - [uncategorised input fields](#uncategorised-input-fields)
 
-Overall, the same modifiers will work for the structure outlined above. 
+Overall, the same modifiers will work for the structure outlined above.
 If a particular form element has a unique modifier, it will be under its markup description.
 - [Field modifiers](#field-modifiers)
 - [Input modifiers](#input-modifiers)
@@ -105,6 +105,9 @@ Every single input field requires a root structure that looks like this:
 	</span>
 ...
 ```
+
+Note: For text-like input types where `o-forms` does not provide a specific modifier class, like `type="email"`, the `o-forms-input--text` modifier may be used.
+
 [_See the full markup for text and password input in the registry_](https://registry.origami.ft.com/components/o-forms#text-input)
 #### `textarea`
 ```html
@@ -288,7 +291,7 @@ For a toggle checkbox, you'll need the following markup:
 ...
 ```
 
-This is currently the only input type that has an inverse state. 
+This is currently the only input type that has an inverse state.
 For this you'll need to add the `o-forms-field--inverse` to the parent element:
 
 ```diff
@@ -378,7 +381,7 @@ In order to provide customised error messages for an invalid input field, you'll
 	</span>
 ...
 ```
-The message is hidden by default, until the input field becomes invalid. 
+The message is hidden by default, until the input field becomes invalid.
 
 #### Error Summary
 `o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised.
@@ -405,7 +408,7 @@ If you would like to be more specific about what aspects of the styles get outpu
 ));
 ```
 ### Options
-`o-forms` has many options due to its comprehensive nature.  
+`o-forms` has many options due to its comprehensive nature.
 The `$opts` map accepts two lists with the following options:
 - `'elements'`:
 	- `'checkbox'`
@@ -487,7 +490,7 @@ oForms.init()
 The default behaviour can be changed by configuring the options object:
 ```js
 oForms.init(null, {
-	useBrowserValidation: true, 
+	useBrowserValidation: true,
 	errorSummary: false
 })
 ```
@@ -506,7 +509,7 @@ new Input(myInputEl);
 
 `o-forms` has no opinion about the timing of the states—it doesn't know when to change from 'saving' to 'saved', but it has a public method that allows the project to control this (shown below).
 
-In order to set up a state, you'll need to use a method on an existing form instance. 
+In order to set up a state, you'll need to use a method on an existing form instance.
 
 This method accepts a state and a name argument. State can be one of 'saving', 'saved' or 'none', 'none' being responsible for removing the state from the input. The name argument must be the name of the inputs that will be recieving the state. For example:
 ```html
@@ -522,7 +525,7 @@ This method accepts a state and a name argument. State can be one of 'saving', '
 		</label>
 	...
 </form>
-``` 
+```
 ```js
 import oForms from 'o-forms';
 let myForm = oForms.init();
