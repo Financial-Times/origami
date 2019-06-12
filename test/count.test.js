@@ -1,23 +1,25 @@
 /* eslint-env mocha */
 import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-import Count from '../src/js/count';
+import {CommentCount} from '../main';
 
 describe("Count", () => {
 	it("is defined", () => {
-		proclaim.equal(typeof Count, 'function');
+		proclaim.equal(typeof CommentCount, 'function');
 	});
-	
-		
-	describe(".init()", () => {	
+
+	it("has a static init method", () => {
+		proclaim.equal(typeof CommentCount.init, 'function');
+	});
+
+	describe("._renderCount()", () => {
 		describe("when element doesn't exist", () => {
 			let count;
 
 			beforeEach(() => {
 				fixtures.htmlCode();
-				count = new Count({
+				count = new CommentCount({
 					articleIds: 'fake-id'
 				});
 			});
@@ -27,7 +29,7 @@ describe("Count", () => {
 			});
 
 			it("will throw an error", () => {
-				proclaim.throws(() => count.init(), 'Element must be a HTMLElement');
+				proclaim.throws(() => count._renderCount(), 'Element must be a HTMLElement');
 			});
 		});
 
@@ -41,7 +43,7 @@ describe("Count", () => {
 			});
 
 			it("will throw an error", () => {
-				proclaim.throws(() => new Count({
+				proclaim.throws(() => new CommentCount({
 					element: '#imNotReal',
 					articleIds: 'fake-id'
 				}), 'Element must be a HTMLElement');
@@ -54,7 +56,7 @@ describe("Count", () => {
 
 			beforeEach(() => {
 				fixtures.htmlCode();
-				count = new Count({
+				count = new CommentCount({
 					element: '#element',
 					articleIds: 'fake-id'
 				});
@@ -74,20 +76,20 @@ describe("Count", () => {
 
 	describe(".getCount()", () => {
 		it("is defined", () => {
-			proclaim.equal(typeof new Count().getCount, 'function');
+			proclaim.equal(typeof new CommentCount().getCount, 'function');
 		});
 
 		describe("when no id's exist", () => {
 			it("returns null", () => {
-				const count = new Count({}).getCount();
-				
+				const count = new CommentCount({}).getCount();
+
 				proclaim.isNull(count)
 			});
 		});
 
 		describe("when passed a single id", () => {
 			it("returns a number", () => {
-				const count = new Count({
+				const count = new CommentCount({
 					articleIds: 'fake-id'
 				}).getCount();
 
@@ -96,7 +98,7 @@ describe("Count", () => {
 
 			describe("when the id is invalid", () => {
 				it("returns null", () => {
-					const count = new Count({
+					const count = new CommentCount({
 						articleIds: 'invalid-id'
 					}).getCount();
 
@@ -107,7 +109,7 @@ describe("Count", () => {
 
 		describe("when passed an array of articleIds", () => {
 			it("returns an object", () => {
-				const count = new Count({
+				const count = new CommentCount({
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
@@ -115,7 +117,7 @@ describe("Count", () => {
 			});
 
 			it("sets the articleIds as keys in the object", () => {
-				const count = new Count({
+				const count = new CommentCount({
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
@@ -124,7 +126,7 @@ describe("Count", () => {
 			});
 
 			it("sets the counts as the values in the object", () => {
-				const count = new Count({
+				const count = new CommentCount({
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
@@ -133,7 +135,7 @@ describe("Count", () => {
 			});
 
 			it("removes any invalid id's", () => {
-				const count = new Count({
+				const count = new CommentCount({
 					articleIds: ['fake-id', 'invalid-id']
 				}).getCount();
 
@@ -144,8 +146,8 @@ describe("Count", () => {
 			it("returns null if all id's are invalid", () => {
 				// I am not sure on this case
 				// Would it be better to return an empty object?
-				
-				const count = new Count({
+
+				const count = new CommentCount({
 					articleIds: ['invalid-id', 'invalid-id']
 				}).getCount();
 

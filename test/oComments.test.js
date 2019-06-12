@@ -3,20 +3,20 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-import OComments from '../main';
+import {Comments} from '../main';
 import * as auth from '../src/js/utils/auth';
 
 describe("OComments", () => {
 	it("is defined", () => {
-		proclaim.equal(typeof OComments, 'function');
+		proclaim.equal(typeof Comments, 'function');
 	});
 
 	it("has a static init method", () => {
-		proclaim.equal(typeof OComments.init, 'function');
+		proclaim.equal(typeof Comments.init, 'function');
 	});
 
 	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(OComments, 'init');
+		const initSpy = sinon.spy(Comments, 'init');
 		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 		setTimeout(function(){
 			proclaim.equal(initSpy.called, true);
@@ -26,7 +26,7 @@ describe("OComments", () => {
 	});
 
 	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(OComments, 'init');
+		const initSpy = sinon.spy(Comments, 'init');
 		proclaim.equal(initSpy.called, false);
 	});
 
@@ -37,7 +37,7 @@ describe("OComments", () => {
 		let scriptElement;
 		let oCommentsReadyListener;
 
-		before((done) => {
+		beforeEach((done) => {
 			sandbox.stub(auth, 'getJsonWebToken').resolves('fake-json-web-token');
 			oCommentsReadyListener = () => {
 				rootElement = comments.oCommentsEl;
@@ -48,10 +48,10 @@ describe("OComments", () => {
 			document.addEventListener('oCommentsReady', oCommentsReadyListener);
 
 			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			comments = Comments.init('#element');
 		});
 
-		after(() => {
+		afterEach(() => {
 			sandbox.restore();
 			document.removeEventListener('oCommentsReady', oCommentsReadyListener);
 			fixtures.reset();
@@ -81,7 +81,7 @@ describe("OComments", () => {
 		let scriptElement;
 		let oCommentsReadyListener;
 
-		before((done) => {
+		beforeEach((done) => {
 			sandbox.stub(auth, 'getJsonWebToken').rejects(new Error());
 			oCommentsReadyListener = () => {
 				rootElement = comments.oCommentsEl;
@@ -92,10 +92,10 @@ describe("OComments", () => {
 			document.addEventListener('oCommentsFailed', oCommentsReadyListener);
 
 			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			comments = Comments.init('#element');
 		});
 
-		after(() => {
+		afterEach(() => {
 			document.removeEventListener('oCommentsFailed', oCommentsReadyListener);
 			sandbox.restore();
 			fixtures.reset();
@@ -112,7 +112,7 @@ describe("OComments", () => {
 
 		beforeEach(() => {
 			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			comments = Comments.init('#element');
 			eventWasEmitted = false;
 		});
 
