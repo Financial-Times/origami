@@ -42,7 +42,7 @@ class CommentCount {
 			return {
 				id,
 				count: this._fetchCount(id)
-			}
+			};
 		}).filter(item => item.count) : this._fetchCount(this.articleIds);
 
 		if (!counts || (Array.isArray(counts) && !counts.length)) {
@@ -53,7 +53,7 @@ class CommentCount {
 
 		return counts.reduce((obj, item) => {
 			obj[item.id] = item.count;
-			return obj
+			return obj;
 		}, {});
 	}
 

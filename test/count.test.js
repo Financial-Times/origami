@@ -83,7 +83,7 @@ describe("Count", () => {
 			it("returns null", () => {
 				const count = new CommentCount({}).getCount();
 
-				proclaim.isNull(count)
+				proclaim.isNull(count);
 			});
 		});
 
@@ -93,7 +93,7 @@ describe("Count", () => {
 					articleIds: 'fake-id'
 				}).getCount();
 
-				proclaim.isTypeOf(count, 'number')
+				proclaim.isTypeOf(count, 'number');
 			});
 
 			describe("when the id is invalid", () => {
@@ -102,7 +102,7 @@ describe("Count", () => {
 						articleIds: 'invalid-id'
 					}).getCount();
 
-					proclaim.isNull(count)
+					proclaim.isNull(count);
 				});
 			});
 		});
@@ -113,7 +113,7 @@ describe("Count", () => {
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
-				proclaim.isObject(count)
+				proclaim.isObject(count);
 			});
 
 			it("sets the articleIds as keys in the object", () => {
@@ -121,8 +121,8 @@ describe("Count", () => {
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
-				proclaim.isDefined(count['fake-id'])
-				proclaim.isDefined(count['fake-id-2'])
+				proclaim.isDefined(count['fake-id']);
+				proclaim.isDefined(count['fake-id-2']);
 			});
 
 			it("sets the counts as the values in the object", () => {
@@ -130,8 +130,8 @@ describe("Count", () => {
 					articleIds: ['fake-id', 'fake-id-2']
 				}).getCount();
 
-				proclaim.isNumber(count['fake-id'])
-				proclaim.isNumber(count['fake-id-2'])
+				proclaim.isNumber(count['fake-id']);
+				proclaim.isNumber(count['fake-id-2']);
 			});
 
 			it("removes any invalid id's", () => {
@@ -139,8 +139,8 @@ describe("Count", () => {
 					articleIds: ['fake-id', 'invalid-id']
 				}).getCount();
 
-				proclaim.isUndefined(count['invalid-id'])
-				proclaim.isDefined(count['fake-id'])
+				proclaim.isUndefined(count['invalid-id']);
+				proclaim.isDefined(count['fake-id']);
 			});
 
 			it("returns null if all id's are invalid", () => {
@@ -151,7 +151,7 @@ describe("Count", () => {
 					articleIds: ['invalid-id', 'invalid-id']
 				}).getCount();
 
-				proclaim.isNull(count)
+				proclaim.isNull(count);
 			});
 		});
 	});
