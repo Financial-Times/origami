@@ -22,7 +22,7 @@ Though you can use these icons at any size, they render best at 40px.
 <link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-icons@^5.0.0" />
 
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-icons-icon o-icons-icon--arrow-down"></i>
+<span class="o-icons-icon o-icons-icon--arrow-down"></span>
 ```
 
 ### Sass
@@ -45,7 +45,7 @@ $o-icons-is-silent: false;
 
 ```html
 <!-- In your markup, use the helper classes, such as: -->
-<i class="o-icons-icon o-icons-icon--plus"></i>
+<span class="o-icons-icon o-icons-icon--plus"></span>
 ```
 
 When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
@@ -66,7 +66,7 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 ```
 
 ```html
-<i class="icon-plus"></i>
+<span class="icon-plus"></span>
 ```
 
 The [Responsive Image Service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons.
