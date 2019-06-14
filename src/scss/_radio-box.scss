@@ -79,6 +79,12 @@
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
+		&:focus + .o-forms-input__label {
+			border-color: $o-normalise-focus-color;
+			box-shadow: 0 0 0 $_o-forms-spacing-half $o-normalise-focus-color;
+			outline: none;
+		}
+
 		&:checked + .o-forms-input__label {
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
