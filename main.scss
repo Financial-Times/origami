@@ -45,6 +45,10 @@
 		@include oButtonsGroup;
 	}
 
+	.#{$o-buttons-class}--hide-disabled[disabled] {
+		visibility: hidden;
+	}
+
 	// Set module to silent again
 	$o-buttons-is-silent: true !global;
 }

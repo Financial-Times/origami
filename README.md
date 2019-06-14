@@ -44,6 +44,17 @@ To apply a theme use one of the above selectors e.g. `o-buttons o-buttons--inver
 ### Icon buttons
 `.o-buttons-icon .o-buttons-icon--{arrow-left| arrow-right | other supported icon}` or `@include oButtonsIconButton($icon-name, $size, $theme);`
 
+### Disabled
+`o-buttons` styles buttons with the `disabled` attribute to show they are inactive. In some cases it is preferred to visually hide the button until it is active. For this case add the class `o-buttons--hide-disabled`.
+
+```html
+<!-- Visibly disabled because of the `disabled` attribute. -->
+<button class="o-buttons" disabled>My Button</button>
+
+<!-- Visually hidden because of the `disabled` attribute and `o-buttons--hide-disabled`.-->
+<button class="o-buttons o-buttons--hide-disabled" disabled>My Button</button>
+```
+
 You can combine these styles.
 
 ## Usage
