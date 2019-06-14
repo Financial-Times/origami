@@ -22,8 +22,8 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
-		"documentClasses": "o-typography-wrapper",
-		"dependencies": ["o-typography@^5.9.0", "o-colors@^4.0.0", "o-buttons@^5.0.0", "o-normalise@^1.0.0"]
+		"documentClasses": "",
+		"dependencies": ["o-fonts@^3.3.2", "o-colors@^4.0.0", "o-buttons@^5.0.0", "o-normalise@^1.0.0"]
 	},
 	"demos": [
 		{
