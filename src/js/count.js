@@ -2,13 +2,15 @@ class CommentCount {
 	/**
 	 * Class constructor.
 	 *
+	 * @param {HTMLElement} [countEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (opts = {}) {
-		this.articleIds = opts.articleIds;
-		this.element = opts.element;
+	constructor (countEl, opts) {
+		this.countEl = countEl;
+		this.options = Object.assign({}, {}, opts || CommentCount.getDataAttributes(countEl));
+		this.articleIds = this.options.articleId;
 
-		if (this.element) {
+		if (this.countEl) {
 			this._renderCount();
 		}
 	}
@@ -20,17 +22,50 @@ class CommentCount {
 	 * @returns {HTMLElement}
 	 */
 	_renderCount () {
-		if (this.element && !(this.element instanceof HTMLElement)) {
-			this.element = document.querySelector(this.element);
+		if (this.countEl && !(this.countEl instanceof HTMLElement)) {
+			this.countEl = document.querySelector(this.countEl);
 		}
 
-		if (!this.element) {
+		if (!this.countEl) {
 			throw new Error('Element must be a HTMLElement');
 		}
 
 		const count = this._fetchCount(this.articleIds);
 
-		this.element.innerHTML = count;
+		this.countEl.innerHTML = count;
+	}
+
+	/**
+	 * Get the data attributes from the CountElement. If the component is being set up
+	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
+	 * @param {HTMLElement} countEl - The component element in the DOM
+	 * @returns {Object} - Data attributes as an object
+	 */
+	static getDataAttributes (countEl) {
+		if (!(countEl instanceof HTMLElement)) {
+			return {};
+		}
+		return Object.keys(countEl.dataset).reduce((options, key) => {
+
+			// Ignore data-o-component
+			if (key === 'oComponent') {
+				return options;
+			}
+
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^oCommentsCount(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = countEl.dataset[key];
+
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+
+			return options;
+		}, {});
 	}
 
 	getCount () {
@@ -69,19 +104,23 @@ class CommentCount {
 	 * Initialise the component.
 	 *
 	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {Object} [opts={}] - An options object for configuring the component
 	 * @returns {(CommentCount|Array<CommentCount>)} - Comment count instance(s)
 	 */
-	static init (rootEl) {
+	static init (rootEl, opts) {
+
 		if (!rootEl) {
 			rootEl = document.body;
 		}
 		if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=comment-count]')) {
-			return new CommentCount({element: rootEl});
+
+		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-comments-count]')) {
+			return new CommentCount(rootEl, opts);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="comment-count"]'), rootEl => new CommentCount({element: rootEl}));
+
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments-count"]'), rootEl => new CommentCount(rootEl, opts));
 	}
 }
 

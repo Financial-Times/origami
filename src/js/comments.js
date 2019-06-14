@@ -80,12 +80,12 @@ class Comments {
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oComments(w)(w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 			const value = oCommentsEl.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
 			try {
-				options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
+				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
 			} catch (error) {
 				options[shortKey] = value;
 			}
