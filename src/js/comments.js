@@ -30,7 +30,7 @@ class Comments {
 			.then(() => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
-				scriptElement.onload = () => Coral.Talk.createStreamEmbed(
+				scriptElement.onload = () => Coral.createStreamEmbed(
 					{
 						id: 'comments',
 						rootURL: 'https://ft.staging.coral.coralproject.net',
