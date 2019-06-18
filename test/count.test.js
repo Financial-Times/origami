@@ -12,7 +12,7 @@ describe("CommentCount", () => {
 	it("exports a class constructor", () => {
 		assert.isFunction(CommentCount);
 		assert.throws(CommentCount, TypeError);
-	})
+	});
 
 	describe("new CommentCount(countEl, opts)", () => {
 		let mockDataAttributeOptions;

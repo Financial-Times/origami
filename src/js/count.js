@@ -8,11 +8,8 @@ class CommentCount {
 	constructor (countEl, opts) {
 		this.countEl = countEl;
 		this.options = Object.assign({}, {}, opts || CommentCount.getDataAttributes(countEl));
-		this.articleIds = this.options.articleId;
-
-		if (this.countEl) {
-			this._renderCount();
-		}
+		this.articleId = this.options.articleId;
+		this._renderCount();
 	}
 
 	/**
@@ -30,7 +27,7 @@ class CommentCount {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		const count = this._fetchCount(this.articleIds);
+		const count = this._fetchCount(this.articleId);
 
 		this.countEl.innerHTML = count;
 	}
@@ -65,30 +62,6 @@ class CommentCount {
 			}
 
 			return options;
-		}, {});
-	}
-
-	getCount () {
-		if (!this.articleIds) {
-			return null;
-		}
-
-		const counts = Array.isArray(this.articleIds) ? this.articleIds.map(id => {
-			return {
-				id,
-				count: this._fetchCount(id)
-			};
-		}).filter(item => item.count) : this._fetchCount(this.articleIds);
-
-		if (!counts || (Array.isArray(counts) && !counts.length)) {
-			return null;
-		} else if (counts && !Array.isArray(counts)) {
-			return counts;
-		}
-
-		return counts.reduce((obj, item) => {
-			obj[item.id] = item.count;
-			return obj;
 		}, {});
 	}
 
