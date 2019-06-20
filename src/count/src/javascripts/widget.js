@@ -25,8 +25,6 @@ const Widget = function (rootEl, config) {
 		}
 	}
 
-	rootEl.setAttribute('data-o-comment-count-js', '');
-
 	widgetEl = rootEl;
 
 
