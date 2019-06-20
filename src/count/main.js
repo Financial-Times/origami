@@ -36,8 +36,8 @@ module.exports.setConfig = function () {
 module.exports.init = function (el) {
 	return domConstruct({
 		context: el,
-		classNamespace: 'o-comment-count',
-		eventNamespace: 'oCommentCount',
+		classNamespace: 'o-comments-count',
+		eventNamespace: 'oCommentsCount',
 		module: module.exports
 	});
 };
@@ -71,7 +71,7 @@ module.exports.setLoggingLevel = function () {
 
 document.addEventListener('o.DOMContentLoaded', function () {
 	try {
-		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comment-count-config]');
+		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-count-config]');
 		if (configInDomEl) {
 			const configInDom = JSON.parse(configInDomEl.innerHTML);
 
@@ -82,8 +82,8 @@ document.addEventListener('o.DOMContentLoaded', function () {
 	}
 
 	domConstruct({
-		classNamespace: 'o-comment-count',
-		eventNamespace: 'oCommentCount',
+		classNamespace: 'o-comments-count',
+		eventNamespace: 'oCommentsCount',
 		module: module.exports,
 		auto: true
 	});
