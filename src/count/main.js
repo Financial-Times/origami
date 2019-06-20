@@ -1,13 +1,9 @@
-/* global Livefyre */
-
-const globalEvents = require('./src/javascripts/globalEvents');
-const config = require('./src/javascripts/config.js');
+const config = require('./src/javascripts/config');
 const oCommentApi = require('o-comment-api');
-const oCommentCount = require('./src/count');
 const defaultConfig = require('./config.js');
 const oCommentUtilities = require('o-comment-utilities');
-const Widget = require('./src/javascripts/Widget.js');
-const resourceLoader = require('./src/javascripts/resourceLoader.js');
+const Widget = require('./src/javascripts/widget');
+const domConstruct = require('./src/javascripts/domConstruct');
 
 /**
  * Default config (prod) is set.
@@ -38,20 +34,15 @@ module.exports.setConfig = function () {
 };
 
 module.exports.init = function (el) {
-	return oCommentUtilities.initDomConstruct({
+	return domConstruct({
 		context: el,
-		classNamespace: 'o-comments',
-		eventNamespace: 'oComments',
+		classNamespace: 'o-comment-count',
+		eventNamespace: 'oCommentCount',
 		module: module.exports
 	});
 };
 module.exports.utilities = oCommentUtilities;
 module.exports.dataService = oCommentApi;
-module.exports.oCommentCount = oCommentCount;
-module.exports.utils = require('./src/javascripts/utils.js');
-module.exports.i18n = require('./src/javascripts/i18n.js');
-module.exports.userDialogs = require('./src/javascripts/userDialogs.js');
-module.exports.auth = require('./src/javascripts/auth.js');
 
 /**
  * Enables logging.
@@ -77,13 +68,10 @@ module.exports.setLoggingLevel = function () {
 	oCommentUtilities.logger.setLevel.apply(this, arguments);
 };
 
-module.exports.on = globalEvents.on;
-module.exports.off = globalEvents.off;
-
 
 document.addEventListener('o.DOMContentLoaded', function () {
 	try {
-		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-config]');
+		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comment-count-config]');
 		if (configInDomEl) {
 			const configInDom = JSON.parse(configInDomEl.innerHTML);
 
@@ -93,22 +81,10 @@ document.addEventListener('o.DOMContentLoaded', function () {
 		oCommentUtilities.logger.log('Invalid config in the DOM.', e);
 	}
 
-	oCommentUtilities.initDomConstruct({
-		classNamespace: 'o-comments',
-		eventNamespace: 'oComments',
+	domConstruct({
+		classNamespace: 'o-comment-count',
+		eventNamespace: 'oCommentCount',
 		module: module.exports,
 		auto: true
-	});
-});
-
-
-resourceLoader.loadLivefyreCore(function (err) {
-	if (err) {
-		return;
-	}
-
-	Livefyre.on('beforeLoadPermalinks', function (e) {
-		// Disable the Permalink Modal
-		e.disableModal();
 	});
 });
