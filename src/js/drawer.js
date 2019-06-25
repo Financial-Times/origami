@@ -92,7 +92,7 @@ class Drawer {
 	 * If the burger element is visible, the drawer is enabled.
 	 */
 	get enabled () {
-		return this.nav && this.burger && this.burger.offsetHeight !== 0
+		return this.nav && this.burger && this.burger.offsetHeight !== 0;
 	}
 
 	/**
