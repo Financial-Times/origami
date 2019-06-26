@@ -42,12 +42,14 @@ function handleCloseEvents (scope, callback, allFocusable) {
 
 	const handleTab = (e) => {
 		if (e.keyCode === 9) {
+			const firstEl = allFocusable[0];
 			const lastEl = allFocusable[allFocusable.length - 1];
+
 			// Keep focus within the drawer when tabbing for a11y reasons.
-			if (e.target === lastEl) {
-				allFocusable[0].focus();
+			if (!e.shiftKey && e.target === lastEl) {
+				firstEl.focus();
 				e.preventDefault();
-			} else if (e.shiftKey && e.target === allFocusable[0]) { // loop to the bottom when shift+tabbing.
+			} else if (e.shiftKey && e.target === firstEl) { // loop to the bottom when shift+tabbing.
 				lastEl.focus();
 				e.preventDefault();
 			}
