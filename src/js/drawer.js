@@ -54,7 +54,7 @@ class Drawer {
 			}
 		}
 
-		this.debouncedRender = oUtils.debounce(() => this.render(), 100);
+		this.debouncedRender = oUtils.debounce(() => this.render(), 33);
 		this.burger = this.headerEl.querySelector('.o-header-services__hamburger-icon');
 		if (this.burger) {
 			this.burger.addEventListener('click', this);
@@ -88,24 +88,28 @@ class Drawer {
 	}
 
 	/**
+	 * Check if the drawer is currently enabled.
+	 * If the burger element is visible, the drawer is enabled.
+	 */
+	get enabled () {
+		return this.nav && this.burger && this.burger.offsetHeight !== 0;
+	}
+
+	/**
 	 * Drawer rendering
 	 */
 	render () {
-		// If burger is visible, render the drawer.
-		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight
-		const enableDrawer = this.burger && this.burger.offsetHeight !== 0;
-
-		if (enableDrawer) {
+		if (this.enabled) {
 			this.nav.addEventListener('click', this);
 		} else {
 			this.nav.removeEventListener('click', this);
 		}
 
-		this._shiftRelatedContentList(enableDrawer);
-		this.nav.classList.toggle(this.class.drawer, enableDrawer);
-		this.nav.classList.toggle(this.class.open, !enableDrawer);
+		this._shiftRelatedContentList(this.enabled);
+		this.nav.classList.toggle(this.class.drawer, this.enabled);
+		this.nav.classList.toggle(this.class.open, !this.enabled);
 
-		this.nav.setAttribute('aria-hidden', enableDrawer);
+		this.nav.setAttribute('aria-hidden', this.enabled);
 	}
 
 	/**

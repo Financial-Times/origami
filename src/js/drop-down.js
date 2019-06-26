@@ -1,10 +1,14 @@
+import * as oUtils from 'o-utils';
+
 class DropDown {
 	/**
 	 * Class constructor
-	 * @param {HTMLElement} [headerEl] - The component element in the DOM
+	 * @param {HTMLElement} headerEl - The component element in the DOM
+	 * @param {Drawer|null} drawer [null] - The drawer that this drop down belongs to if any.
 	 */
-	constructor (headerEl) {
+	constructor(headerEl, drawer = null) {
 		this.primaryNav = headerEl.querySelector('.o-header-services__primary-nav');
+		this.drawer = drawer;
 
 		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')];
 		this.navItems.forEach(item => {
@@ -14,7 +18,7 @@ class DropDown {
 		// the event listener is added to the body here to handle cases where a
 		// user might click anywhere else on the body to collapse open dropdowns
 		document.body.addEventListener('click', this);
-		window.addEventListener('resize', this);
+		window.addEventListener('resize', oUtils.debounce(() => this.reset(), 33));
 		window.addEventListener('keydown', this);
 	}
 
@@ -40,17 +44,19 @@ class DropDown {
 			}
 
 			e.stopPropagation();
-		} else if (e.type === 'resize' || (e.key === 'Escape')) {
+		}
+
+		if (e.key === 'Escape') {
 			this.reset();
 		}
 	}
 
 	/**
-	 * Checks if primary nav is a drawer
+	 * Checks if primary nav is in a drawer
 	 * This boolean will change the drop down behaviour.
 	 */
 	isDrawer() {
-		return this.primaryNav.classList.contains('o-header-services__primary-nav--drawer');
+		return this.drawer && this.drawer.enabled;
 	}
 
 	/**
