@@ -16,6 +16,8 @@ const Embed = (props) => (
 			data-o-component="o-video"
 			data-o-video-id={props.id}
 			data-o-video-data={formatData(props)}
+			data-o-video-optimumwidth="640"
+			data-o-video-optimumvideowidth="640"
 			data-o-video-autorender="true"
 			data-o-video-playsinline="true"
 			data-o-video-placeholder="true"
