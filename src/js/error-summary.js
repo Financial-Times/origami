@@ -49,7 +49,7 @@ class ErrorSummary {
 	static createList(inputs) {
 		let list = document.createElement('ul');
 		inputs.forEach(input => {
-			if (input.id && !input.valid) {
+			if (input.id && input.valid === false) {
 				let listItem = document.createElement('li');
 				let anchor = ErrorSummary.createAnchor(input);
 				listItem.appendChild(anchor);

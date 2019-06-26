@@ -61,6 +61,8 @@ export default `
 		</span>
 	</div>
 
+	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
+
 	<input class="o-buttons" type="submit">
 </form>
 `;
