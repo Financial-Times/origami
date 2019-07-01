@@ -12,7 +12,8 @@
   },
   "scripts": {
     "precommit": "node_modules/.bin/secret-squirrel",
-    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg"
+    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+    "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "homepage": "https://github.com/Financial-Times/n-notification",
   "devDependencies": {
@@ -32,6 +33,7 @@
     "mocha": "^2.1.0",
     "npm-prepublish": "^1.2.1",
     "origami-build-tools": "^4.0.0",
+    "snyk": "^1.168.0",
     "textrequireify": "^2.1.0"
   }
 }
