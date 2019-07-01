@@ -6,7 +6,8 @@
 	}
 
 	.o-header__subnav-wrap-outside {
-		margin: 0 -$_o-header-sub-header-focus-margin;
+		margin-left: -$_o-header-sub-header-focus-margin;
+		margin-right: -$_o-header-sub-header-focus-margin;
 
 		[data-o-header--js] & {
 			overflow: hidden;
@@ -36,7 +37,8 @@
 
 	.o-header__subnav-content {
 		white-space: nowrap;
-		margin: 0 $_o-header-sub-header-focus-margin;
+		margin-left: $_o-header-sub-header-focus-margin;
+		margin-right: $_o-header-sub-header-focus-margin;
 	}
 
 	.o-header__subnav-list {
