@@ -1,4 +1,71 @@
 @include describe('oColors mixins') {
+	@include describe('oColors') {
+		@include it('outputs palette custom properties, palette classes, and usecase classes by default') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors();
+				};
+
+				@include contains($selector: false) {
+					:root {
+						--o-colors-white: #ffffff;
+					}
+				};
+			};
+		};
+
+		@include it('palette custom properties with only the "palette-custom-properties" option') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors($opts: (
+						'palette-custom-properties': true
+					));
+				};
+
+				@include contains($selector: false) {
+					:root {
+						--o-colors-white: #ffffff;
+					}
+				};
+			};
+		};
+
+		@include it('outputs usecase classes with only the "usecase-classes" option') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors($opts: (
+						'usecase-classes': true
+					));
+				};
+
+				@include contains($selector: false) {
+					.o-colors-page-background {
+						background-color: #fff1e5;
+					}
+					.o-colors-link-text {
+						color: #0d7680;
+					}
+				};
+			};
+		};
+		@include it('palette classes with only the "palette-classes" option') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors($opts: (
+						'palette-classes': true
+					));
+				};
+
+				@include contains($selector: false) {
+					.o-colors-palette-white {
+						background-color: #ffffff;
+						color: black;
+					}
+				};
+			};
+		};
+	}
+
 	@include describe('oColorsSetColor') {
 		@include it('adds a custom palette color') {
 			@include oColorsSetColor('olive', #808000);

@@ -19,12 +19,26 @@ There are a number of ways of using colors in your component or product. o-color
 
 ### Sass:
 
-As with all Origami components, o-colors has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-colors-is-silent : false;` in your Sass before you import the o-colors Sass:
+We recommend Sass projects use the [mixins and functions](#mixins-and-functions) `o-colors` provides directly in their own Sass. However it is also possible to output all `o-colors` CSS classes including [CSS custom properties](#css-variables) using the `oColors` mixin.
 
 ```scss
-$o-colors-is-silent: false;
 @import 'o-colors/main';
+@include oColors();
 ```
+
+The `oColors` mixin accepts an `$opts` argument to granularly include `o-colors` CSS:
+
+```scss
+@include oColors($opts: (
+	'palette-custom-properties': true // output just css custom properties "css variables"
+));
+```
+
+| Feature                   | Description                                                                                                                         |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| palette-custom-properties | Output a [CSS custom property (CSS Variable)](#css-variables) for each colour in the palette.                                       |
+| palette-classes           | Output CSS classes which apply a background for each palette colour, see the [markup section](#markup) for a list of these classes. |
+| usecase-classes           | Output CSS classes for each colour usecase, see the [markup section](#markup) for a list of these classes.                          |
 
 #### Colors and accessibility
 
@@ -181,7 +195,7 @@ You can also use `oColorsGetUseCase` to retrieve the palette color name (eg `pap
 
 ### Markup
 
-When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-colors provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
+When using the [Build Service](https://origami.ft.com/docs/services/#build-service) or the [`oColors` mixin](#sass), `o-colors` provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
 
 ```html
 <p class="o-colors-body-text">Article text</p>
@@ -221,7 +235,7 @@ section-money-alt |     all
 
 ### CSS Variables
 
-When using the build service or importing the module with silent mode set to false, o-colors will output all the palette colors as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These will use the format `--o-colors-{name}` (e.g. `--o-colors-black` and `--o-colors-teal`).
+When using the [Build Service](https://origami.ft.com/docs/services/#build-service) or the [`oColors` mixin](#sass), `o-colors` will output all the palette colors as [CSS custom properties (CSS Variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These will use the format `--o-colors-{name}` (e.g. `--o-colors-black` and `--o-colors-teal`).
 
 
 ## Migration guide

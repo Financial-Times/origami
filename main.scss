@@ -16,36 +16,61 @@
 // Set the tint palette colors programatically
 @include _oColorsSetPaletteTints;
 
+/// Output `o-colors` CSS classes and custom properties.
+/// @example Output only `o-colors` CSS custom properties ("CSS variables").
+///     @include oColors($opts: (
+///     	'palette-custom-properties': true
+///     ));
+///
+/// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
+@mixin oColors($opts: (
+	'palette-custom-properties': true,
+	'palette-classes': true,
+	'usecase-classes': true
+)) {
+	$palette-proeprties: map-get($opts, 'palette-custom-properties');
+	$palette-classes: map-get($opts, 'palette-classes');
+	$usecase-classes: map-get($opts, 'usecase-classes');
+
+	@if($palette-proeprties) {
+		@include _oColorsCSSVariables;
+	}
+
+	@if($usecase-classes) {
+		@each $usecase, $props in $o-colors-usecases {
+			@each $prop, $color in $props {
+				#{'.o-colors-' + $usecase + '-' + $prop} {
+					@if $prop == text or $prop == all {
+						color: oColorsGetPaletteColor($color);
+					}
+					@if $prop == background or $prop == all {
+						background-color: oColorsGetPaletteColor($color);
+					}
+					@if $prop == border or $prop == all {
+						border-color: oColorsGetPaletteColor($color);
+					}
+				}
+			}
+		}
+	}
+
+	@if($palette-classes) {
+		@each $name, $value in $o-colors-palette {
+			.o-colors-palette-#{$name} {
+				background-color: oColorsGetPaletteColor($name);
+
+				@if $name != 'transparent' and $name != 'inherit' {
+					color: oColorsGetTextColor($name, 100);
+				}
+			}
+		}
+	}
+}
+
 // If noisy, output helper classes for use cases and palette colors
 @if ($o-colors-is-silent == false) {
-	@include _oColorsCSSVariables;
-
-	@each $usecase, $props in $o-colors-usecases {
-		@each $prop, $color in $props {
-			#{'.o-colors-' + $usecase + '-' + $prop} {
-				@if $prop == text or $prop == all {
-					color: oColorsGetPaletteColor($color);
-				}
-				@if $prop == background or $prop == all {
-					background-color: oColorsGetPaletteColor($color);
-				}
-				@if $prop == border or $prop == all {
-					border-color: oColorsGetPaletteColor($color);
-				}
-			}
-		}
-	}
-
-	@each $name, $value in $o-colors-palette {
-		.o-colors-palette-#{$name} {
-			background-color: oColorsGetPaletteColor($name);
-
-			@if $name != 'transparent' and $name != 'inherit' {
-				color: oColorsGetTextColor($name, 100);
-			}
-		}
-	}
-
+	// Include all classes and custom properties.
+	@include oColors();
 	// Set silent mode back on to avoid multiple outputs of helper classes
 	$o-colors-is-silent: true;
 }
