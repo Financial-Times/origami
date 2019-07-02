@@ -8,8 +8,8 @@
 					@include _oLabelsBaseContent;
 				};
 				@include contains() {
-					$expected-vertical-padding: oTypographySpacingSize(1) - 1px;
-					$expected-horizontal-padding: oTypographySpacingSize(2) - 1px;
+					$expected-vertical-padding: oSpacingByName('s1') - 1px;
+					$expected-horizontal-padding: oSpacingByName('s2') - 1px;
 					padding: $expected-vertical-padding $expected-horizontal-padding;
 				};
 			};
@@ -24,8 +24,8 @@
 						@include _oLabelsSize('big');
 					};
 					@include contains($selector: false) {
-						$expected-vertical-padding: oTypographySpacingSize(2) - 1px;
-						$expected-horizontal-padding: oTypographySpacingSize(2) - 1px;
+						$expected-vertical-padding: oSpacingByName('s2') - 1px;
+						$expected-horizontal-padding: oSpacingByName('s2') - 1px;
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
