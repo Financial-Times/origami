@@ -43,7 +43,7 @@
 
 					.#{$class}__button {
 						width: 100%;
-						margin-top: oTypographySpacingSize(6);
+						margin-top: oSpacingByName('s6');
 					}
 				}
 			}

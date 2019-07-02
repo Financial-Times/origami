@@ -14,7 +14,7 @@
 
 		h5 {
 			@include oTypographyProductHeadingLevel5;
-			@include oTypographyMargin($bottom: 2);
+			margin-bottom: oSpacingByName('s2');
 		}
 
 		p {
