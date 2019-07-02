@@ -25,16 +25,16 @@
 	}
 
 	.o-topper__standfirst {
-		padding-right: calc(#{$_o-topper-headshot-width} + #{oTypographySpacingSize(2)});
+		padding-right: calc(#{$_o-topper-headshot-width} + #{oSpacingByName('s2')});
 		@include oGridRespondTo(M) {
-			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
+			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
 		}
 	}
 
 	.o-topper__tags,
 	.o-topper__headline {
 		@include oGridRespondTo(M) {
-			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oTypographySpacingSize(2)});
+			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
 		}
 	}
 }

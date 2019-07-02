@@ -25,11 +25,11 @@
 @mixin oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
-		padding: 0 oTypographySpacingSize(5);
+		padding: 0 oSpacingByIncrement(5);
 	}
 
 	> ul > li {
-		margin: oTypographySpacingSize(2) 0;
+		margin: oSpacingByName('s2') 0;
 	}
 }
 
@@ -50,7 +50,8 @@
 		}
 		li {
 			@include oTypographySans(1);
-			@include oTypographyMargin(2, 0);
+			margin-top: oSpacingByName('s2');
+			margin-bottom: 0;
 			font-weight: 600;
 		}
 	}
@@ -95,7 +96,7 @@
 }
 
 @mixin oTopperColumnist {
-	@include oTypographyMargin($top: 4);
+	margin-top: oSpacingByName('s4');
 	text-transform: uppercase;
 }
 
