@@ -28,10 +28,10 @@
 +</div>
 ```
 - Style updates:
-	- The default bottom margin of `o-table` has been removed. Please apply the margin as needed, depending on the context of the table e.g. within typical body copy:
+	- The default bottom margin of `o-table` has been removed. Please apply the margin as needed, depending on the context of the table e.g. [see o-spacing](https://registry.origami.ft.com/components/o-spacing):
 	```scss
 		.o-table {
-			margin-bottom: oTypographySpacingSize($units: 4);
+			margin-bottom: oSpacingByName('s4');
 		}
 	```
 	If it's not possible or practical to apply a custom margin, add the  `o-table-margin-bottom` class to the table (or table container, if you are using a responsive table).

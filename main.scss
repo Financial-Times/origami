@@ -1,6 +1,5 @@
-$o-table-is-silent: true !default;
-
 // Dependancies
+@import "o-spacing/main";
 @import "o-brand/main";
 @import "o-buttons/main";
 @import "o-colors/main";
@@ -11,6 +10,7 @@ $o-table-is-silent: true !default;
 // Branding
 @import "src/scss/brand";
 // Main
+@import "src/scss/variables";
 @import "src/scss/base";
 @import "src/scss/borders";
 @import "src/scss/compact";

@@ -71,10 +71,12 @@
 		margin-left: 10px;
 	}
 
-	// A spacing class until we have a generic spacing component users can include.
+	// A spacing class.
 	// e.g. .o-table.o-table-margin-bottom or .o-table-container.o-table-margin-bottom
+	// @deprecated - this is no longer needed now we have `o-spacing`.
+	// @see https://registry.origami.ft.com/components/o-spacing
 	.o-table-margin-bottom {
-		margin-bottom: oTypographySpacingSize($units: 4);
+		margin-bottom: oSpacingByName('s4');
 	}
 
 	// Visually hide any filtered rows.
