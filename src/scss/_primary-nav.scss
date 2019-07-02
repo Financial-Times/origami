@@ -34,7 +34,7 @@
 			color: _oHeaderServicesGet('nav-text');
 			display: inline-block;
 			margin: 0;
-			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oTypographySpacingSize(5));
+			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oSpacingByIncrement(5));
 			text-transform: uppercase;
 			box-sizing: border-box;
 
