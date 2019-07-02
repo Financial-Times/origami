@@ -5,7 +5,8 @@
 
 /// Base quote styles
 @mixin oQuote {
-	@include oTypographyPadding($top: 10, $bottom: 10);
+	padding-top: oSpacingByIncrement(10);
+	padding-bottom: oSpacingByIncrement(10);
 
 	// The fonts look quite heavy in Chrome / FF. Add these in to smooth them out.
 	// sass-lint:disable no-vendor-prefixes
@@ -13,8 +14,8 @@
 	-moz-osx-font-smoothing: grayscale;
 	// sass-lint:enable no-vendor-prefixes
 
-	padding-left: oTypographySpacingSize($units: 15);
-	padding-right: oTypographySpacingSize($units: 4);
+	padding-left: oSpacingByIncrement(15);
+	padding-right: oSpacingByName('s4');
 
 	display: block;
 	margin: 0;
@@ -22,7 +23,7 @@
 	p {
 		@include oTypographySans($scale: 1);
 		&:last-child {
-			@include oTypographyMargin($bottom: 0);
+			margin-bottom: 0;
 		}
 	}
 }

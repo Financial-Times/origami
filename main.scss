@@ -1,17 +1,9 @@
-////
-/// @group o-quote
-/// @link http://registry.origami.ft.com/components/o-quote
-////
-
-/// Silent mode
-///
-/// @type Bool
-$o-quote-is-silent: true !default;
-
+@import "o-spacing/main";
 @import "o-colors/main";
 @import "o-typography/main";
 @import "o-icons/main";
 
+@import 'src/variables';
 @import "src/color-use-cases";
 @import "src/base";
 @import "src/standard";

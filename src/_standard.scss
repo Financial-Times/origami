@@ -16,7 +16,7 @@
 	padding-top: 0px;
 	padding-bottom: 0px;
 
-	padding-left: oTypographySpacingSize($units: 4);
+	padding-left: oSpacingByName('s4');
 
 	a {
 		@include oTypographyLink;
