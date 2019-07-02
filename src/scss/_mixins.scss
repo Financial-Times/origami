@@ -139,7 +139,7 @@
 			vertical-align: middle;
 			height: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
 			width: _oSteppedProgressGet('step-size') - (_oSteppedProgressGet('step-border-size') * 2);
-			margin-bottom: oTypographySpacingSize(1);
+			margin-bottom: oSpacingByName('s1');
 			background-color: _oSteppedProgressGet('container-background');
 			background-repeat: no-repeat;
 			background-origin: border-box;

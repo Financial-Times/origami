@@ -1,21 +1,22 @@
 {
-	"name": "o-stepped-progress",
-	"description": "Track progress through a multi-step process, such as a form",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"build"
-	],
-	"main": [
-		"main.scss",
-		"main.js"
-	],
-	"dependencies": {
-		"o-colors": "^4.7.7",
-		"o-icons": "^5.8.0",
-		"o-normalise": "^1.6.2",
-		"o-typography": "^5.7.8"
-	}
+  "name": "o-stepped-progress",
+  "description": "Track progress through a multi-step process, such as a form",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "dependencies": {
+    "o-colors": "^4.7.7",
+    "o-icons": "^5.8.0",
+    "o-normalise": "^1.6.2",
+    "o-typography": "^5.7.8",
+    "o-spacing": "^2.0.0"
+  }
 }
