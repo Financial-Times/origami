@@ -20,13 +20,15 @@
 		}
 
 		.o-message__content {
-			@include oTypographyMargin($top: 0, $bottom: 0);
 			position: relative;
+			margin-top: 0;
+			margin-bottom: 0;
 
 			.o-message__content-main {
-				@include oTypographyMargin($top: 4, $bottom: 4);
 				display: inline-block;
-				margin-right: oTypographySpacingSize(6);
+				margin-top: oSpacingByName('s4');
+				margin-bottom: oSpacingByName('s4');
+				margin-right: oSpacingByName('s6');
 			}
 
 			.o-message__content-highlight {

@@ -5,32 +5,34 @@
 @mixin _oMessageInner() {
 	.o-message.o-message--inner {
 		.o-message__container {
-			padding: oTypographySpacingSize(2) oTypographySpacingSize(5) oTypographySpacingSize(2) ($_o-message-spacing / 4);
+			padding: oSpacingByName('s2') oSpacingByIncrement(5) oSpacingByName('s2') ($_o-message-spacing / 4);
 
 			&:before {
 				top: unset;
 			}
 
 			.o-message__close {
-				right: oTypographySpacingSize(2);
+				right: oSpacingByName('s2');
 
 				@include oGridRespondTo(S) {
-					right: oTypographySpacingSize(4);
+					right: oSpacingByName('s4');
 				};
 			}
 		}
 
 		.o-message__content {
-			@include oTypographyMargin($top: 3, $bottom: 0);
 			max-width: oTypographyMaxLineWidth($_o-message-typography-scale);
+			margin-top: oSpacingByName('s3');
+			margin-bottom: 0;
 
 			.o-message__content-main {
-				@include oTypographyMargin($top: 0, $bottom: 3);
+				margin-top: 0;
+				margin-bottom: oSpacingByName('s3');
 			}
 		}
 
 		.o-message__actions {
-			@include oTypographyPadding($bottom: 3);
+			padding-bottom: oSpacingByName('s3');
 		}
 	}
 }
@@ -57,18 +59,18 @@
 
 		@if $type == 'action' {
 			.o-message__content {
-				padding: oTypographySpacingSize(4) 0;
+				padding: oSpacingByName('s4') 0;
 
 				@include oGridRespondTo(S) {
 					padding: $_o-message-spacing 0 $_o-message-spacing $_o-message-spacing;
 				}
 
 				.o-message__content-main {
-					margin: oTypographySpacingSize(2) oTypographySpacingSize(6) oTypographySpacingSize(2) 0;
+					margin: oSpacingByName('s2') oSpacingByName('s6') oSpacingByName('s2') 0;
 				}
 
 				.o-message__actions {
-					margin: oTypographySpacingSize(2) 0;
+					margin: oSpacingByName('s2') 0;
 					padding: 0 $_o-message-close-icon-size * 1px 0 0;
 				}
 			}

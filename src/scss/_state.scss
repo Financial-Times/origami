@@ -21,7 +21,7 @@
 				background: _oMessageGet('background-color', $from: $state),
 				accent: _oMessageGet('foreground-color', $from: $state)
 			));
-			margin-right: oTypographySpacingSize(6);
+			margin-right: oSpacingByName('s6');
 		}
 
 		.o-message__actions__secondary {
@@ -49,7 +49,7 @@
 			@include _oMessageIcon('cross', _oMessageGet('foreground-color', $from: $state), $_o-message-close-icon-size);
 			position: absolute;
 			top: ($_o-message-close-icon-size / 2) * 1px;
-			right: oTypographySpacingSize(2);
+			right: oSpacingByName('s2');
 			vertical-align: middle;
 			border: 0;
 		}
