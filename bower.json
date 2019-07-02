@@ -15,6 +15,7 @@
     "o-colors": "^4",
     "o-typography": "^5",
     "o-icons": ">=4.4.2 <6",
-    "o-grid": "^4.2.3"
+    "o-grid": "^4.2.3",
+    "o-spacing": "^2.0.0"
   }
 }

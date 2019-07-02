@@ -1,11 +1,12 @@
 @mixin oTeaserCollectionHeadingBorderTypography {
 	@include oTypographySize(3);
-	@include oTypographyPadding($top: 3, $bottom: 5);
 	position: relative;
 	width: 100%;
 	margin: 0;
 	font-family: $o-typography-sans;
 	font-weight: normal;
+	padding-top: oSpacingByName('s3');
+	padding-bottom: oSpacingByIncrement(5);
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
@@ -39,7 +40,7 @@
 	}
 
 	&--small {
-		@include oTypographyMargin($bottom: 5);
+		margin-bottom: oSpacingByIncrement(5);
 		border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 		&:after {
