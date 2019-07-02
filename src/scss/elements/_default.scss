@@ -2,10 +2,10 @@
 /// sets the font and basic display properties
 @mixin oTeaserBase {
 	@include oTypographySans(-1);
-	@include oTypographyMargin($bottom: 4);
 	position: relative;
 	width: 100%;
 	text-rendering: optimizeLegibility;
+	margin-bottom: oSpacingByName('s4');
 
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
@@ -34,8 +34,9 @@
 @mixin oTeaserHeading {
 	@include oTypographyDisplay(2);
 	@include oColorsFor('o-teaser', text, 100);
-	@include oTypographyMargin($top: 0, $bottom: 0);
 	@include oTeaserLink();
+	margin-top: 0;
+	margin-bottom: 0;
 	font-weight: oFontsWeight(normal);
 }
 
@@ -83,9 +84,10 @@
 /// Styles for standfirst element
 @mixin oTeaserStandfirst {
 	@include oTypographySize(0, 20px);
-	@include oTypographyMargin(0, 0);
 	@include oColorsFor('o-teaser', text, 60);
 	@include oTeaserLink();
+	margin-top: 0;
+	margin-bottom: 0;
 
 	.o-teaser__heading + & {
 		margin-top: 10px;

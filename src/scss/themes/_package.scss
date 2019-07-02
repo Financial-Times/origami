@@ -21,11 +21,11 @@
 		background: inherit;
 
 		&:after {
-			@include oTypographyMargin($top: 1);
 			content: "";
 			display: block;
 			width: 60px;
-			border-bottom: oTypographySpacingSize(1) solid oColorsGetColorFor(o-teaser-package-basic, border);
+			border-bottom: oSpacingByIncrement(1) solid oColorsGetColorFor(o-teaser-package-basic, border);
+			margin-top: oSpacingByName('s1');
 		}
 	}
 

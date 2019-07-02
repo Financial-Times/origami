@@ -9,11 +9,12 @@
 	}
 
 	.o-teaser__meta:after {
-		@include oTypographyMargin($top: 1, $bottom: 3);
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('claret');
+		border-bottom: oSpacingByIncrement(1) solid oColorsGetPaletteColor('claret');
+		margin-top: oSpacingByName('s1');
+		margin-bottom: oSpacingByName('s3');
 	}
 }
 

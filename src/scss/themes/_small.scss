@@ -1,7 +1,7 @@
 /// Small teaser styles
 @mixin oTeaserSmall {
-	@include oTypographyPadding($bottom: 4);
 	display: flex;
+	padding-bottom: oSpacingByName('s4');
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {

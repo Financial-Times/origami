@@ -13,12 +13,12 @@
 	}
 
 	.o-teaser__timestamp {
-		@include oTypographyMargin($top: 1);
+		margin-top: oSpacingByName('s1');
 	}
 
 	.o-teaser__standfirst {
 		@include oTypographySize($scale: (default: (1, 24px), L: (2, 24px)));
-		@include oTypographyMargin($top: 6);
+		margin-top: oSpacingByName('s6');
 	}
 }
 
