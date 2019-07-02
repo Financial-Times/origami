@@ -60,7 +60,7 @@
 				background-color: oColorsGetPaletteColor($name);
 
 				@if $name != 'transparent' and $name != 'inherit' {
-					color: oColorsGetTextColor($name, 100);
+					color: oColorsGetTextColor($name, 100, $warnings: false);
 				}
 			}
 		}
