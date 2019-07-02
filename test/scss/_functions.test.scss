@@ -109,5 +109,12 @@
 		@include it('returns a text color based on background and opacity percentage') {
 			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('paper')), (#1a1817));
 		};
+		@include it('throws an error if a text color and background does not pass WCAG contrast guidelines') {
+			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('black-40'), 50),
+			('ERROR: The combination of 50% black on #999189 does not pass WCAG guidelines for color contrast.'));
+		};
+		@include it('does not throw an error when a text color and background does not pass WCAG contrast guidelines and warnings are disabled') {
+			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('black-40'), 50, $warnings: false),  #4d4945);
+		};
 	};
 };

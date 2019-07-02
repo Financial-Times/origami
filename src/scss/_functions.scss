@@ -154,7 +154,8 @@
 ///
 /// @param {Color} $background - the hex color of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
-@function oColorsGetTextColor($backgroundd, $opacity: 90) {
+/// @param {Boolean} $warnings [true] - whether this function should throw WCAG contrast check warnings/errors
+@function oColorsGetTextColor($backgroundd, $opacity: 90, $warnings: true) {
 	$background: oColorsGetPaletteColor($backgroundd);
 
 	@if $background == null or type-of($background) != color {
@@ -172,9 +173,11 @@
 		$testContrast: oColorsCheckContrast($textColor, $background, false);
 	}
 
-	@if not $testContrast {
+	@if not $testContrast and $warnings == true {
 		@return _error("The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.");
-	} @else if $testContrast == 'large' {
+	}
+
+	@if $testContrast == 'large' and $warnings == true {
 		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
 	}
 
