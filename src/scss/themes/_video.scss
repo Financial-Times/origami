@@ -62,7 +62,7 @@
 	.o-teaser__image-container {
 		// use padding instead of margins so we don't have to worry about
 		// the --stretch (flexbox) variant containing margins and doubling up.
-		padding: 0 0 oTypographySpacingSize(3);
+		padding: 0 0 oSpacingByName('s3');
 	}
 
 	&.o-teaser--large .o-teaser__image-container,
@@ -72,10 +72,10 @@
 	}
 
 	&.o-teaser--large .o-teaser__image-container {
-		padding-top: oTypographySpacingSize(3);
+		padding-top: oSpacingByName('s3');
 	}
 
 	&.o-teaser--hero .o-teaser__image-container {
-		padding-top: oTypographySpacingSize(1);
+		padding-top: oSpacingByName('s1');
 	}
 }
