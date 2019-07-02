@@ -83,7 +83,7 @@
 			> aside {
 				box-sizing: border-box;
 				width: $_o-layout-sidebar-max-width;
-				margin-bottom: oTypographySpacingSize(10);
+				margin-bottom: oSpacingByName('m12');
 				float: right;
 				clear: right;
 				:last-child {
@@ -160,7 +160,7 @@
 			@include oGridRespondTo($from: M) {
 				border-right: 1px solid oColorsGetPaletteColor('slate-white-15');
 				padding-right: $_o-layout-gutter;
-				margin: $_o-layout-gutter 0 oTypographySpacingSize(5);
+				margin: $_o-layout-gutter 0 oSpacingByName('s4');
 			}
 		}
 

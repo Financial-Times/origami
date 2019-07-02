@@ -31,7 +31,7 @@
 		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
 		text-align: center;
 		min-height: 30vh;
-		margin: 0 0 oTypographySpacingSize(4);
+		margin: 0 0 oSpacingByName('s4');
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -92,7 +92,7 @@
 
 	.o-layout__overview--actions {
 		grid-gap: $_o-layout-gutter;
-		margin-bottom: oTypographySpacingSize(7); // Aligns with <p> margin set by oTypographyBody
+		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
 
 		.o-layout-item {
 			display: grid;

@@ -20,6 +20,7 @@
     "o-grid": "^4.4.4",
     "o-colors": "^4.7.9",
     "o-normalise": "^1.6.2",
-    "o-utils": "^1.0.5"
+    "o-utils": "^1.0.5",
+    "o-spacing": "^2.0.0"
   }
 }

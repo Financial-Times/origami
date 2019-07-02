@@ -79,14 +79,14 @@
 			// Override default browser margin to match that of `oTypographyBody`.
 			// Removes indent from the blockqupte provided by o-typography wrapper.
 			// https://github.com/Financial-Times/o-typography/issues/189
-			margin: 0 0 oTypographySpacingSize(7);
+			margin: 0 0 oSpacingByIncrement(7);
 			p:last-child {
 				margin-bottom: 0;
 			}
 		}
 
 		table {
-			margin: 0 0 oTypographySpacingSize(4);
+			margin: 0 0 oSpacingByName('s4');
 		}
 	}
 }
@@ -118,7 +118,7 @@
 	.o-layout__navigation > ol {
 		border: 0;
 		text-align: left;
-		margin: 0 0 oTypographySpacingSize(7);
+		margin: 0 0 oSpacingByIncrement(7); // matches `oTypographyBody`
 
 		@include oGridRespondTo($from: M) {
 			text-align: right;
