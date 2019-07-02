@@ -2,11 +2,19 @@ import Delegate from 'ftdomdelegate';
 import * as Utils from 'o-utils';
 
 function fireEvent(action, audioObject, extraDetail = {}) {
+	const error = audioObject.audio.error ? {
+		code: audioObject.audio.error.code,
+		message: audioObject.audio.error.message,
+		currentTime: audioObject.audio.currentTime,
+		src: audioObject.audio.currentSrc
+	} : undefined;
+
 	const event = new CustomEvent('oTracking.event', {
 		detail: Object.assign({
 			category: 'audio',
 			action,
 			duration: audioObject.audioLength,
+			error,
 		}, audioObject.trackingProperties, extraDetail),
 		bubbles: true,
 	});
