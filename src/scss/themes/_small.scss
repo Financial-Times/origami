@@ -33,7 +33,7 @@
 	@include oTypographySans($scale: 2);
 	display: block;
 	padding: $_o-banner-spacing;
-	padding-top: oTypographySpacingSize($units: 7);
+	padding-top: oSpacingByIncrement(7);
 	max-width: none;
 }
 
@@ -90,12 +90,12 @@
 }
 
 @mixin oBannerThemeSmallActions {
-	margin-top: oTypographySpacingSize(6);
+	margin-top: oSpacingByName('s6');
 
 	@include oGridRespondTo($until: M) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oTypographySpacingSize(6);
+		margin-top: oSpacingByName('s6');
 	}
 }
 

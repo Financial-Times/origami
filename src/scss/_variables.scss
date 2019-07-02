@@ -1,6 +1,6 @@
 
 $o-banner-is-silent: true !default;
 
-$_o-banner-spacing: oTypographySpacingSize($units: 10) !default;
+$_o-banner-spacing: oSpacingByIncrement(10) !default;
 $_o-banner-close-button-size: 26 !default;
 $_o-banner-themes: ('small', 'compact', 'marketing', 'product'); // order is important

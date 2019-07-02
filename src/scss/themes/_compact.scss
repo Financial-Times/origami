@@ -33,7 +33,7 @@
 	@include oTypographySans($scale: 0);
 	display: block;
 	padding: $_o-banner-spacing;
-	padding-top: oTypographySpacingSize($units: 7);
+	padding-top: oSpacingByIncrement(7);
 	max-width: none;
 }
 
@@ -88,9 +88,10 @@
 		}
 	}
 	&:after {
-		@include oTypographyMargin($top: 2, $bottom: 3);
+		margin-top: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s3');
 		width: 60px;
-		border-bottom-width: oTypographySpacingSize(1);
+		border-bottom-width: oSpacingByIncrement(1);
 	}
 }
 

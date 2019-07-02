@@ -18,6 +18,7 @@
     "o-typography": "^5.2.0",
     "o-buttons": "^5.1.0",
     "o-icons": ">=4.0.0 <6",
-    "o-visual-effects": "^2.0.3"
+    "o-visual-effects": "^2.0.3",
+    "o-spacing": "^2.0.0"
   }
 }

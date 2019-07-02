@@ -34,7 +34,7 @@
 		@include oTypographySans($scale: 0);
 		display: block;
 		padding: $_o-banner-spacing;
-		padding-top: oTypographySpacingSize($units: 7);
+		padding-top: oSpacingByIncrement(7);
 	}
 }
 
@@ -50,7 +50,7 @@
 		@include oTypographySans($scale: 3);
 		@include oTypographyBold($font: 'sans');
 		margin-top: 0;
-		margin-bottom: oTypographySpacingSize(1);
+		margin-bottom: oSpacingByName('s1');
 	}
 	p {
 		margin-top: 0;
@@ -62,11 +62,11 @@
 	}
 	> ul {
 		@include oTypographyListUnordered;
-		margin-top: oTypographySpacingSize(3);
+		margin-top: oSpacingByName('s3');
 		margin-bottom: 0;
 
 		li {
-			@include oTypographySans($scale: 2, $line-height: oTypographySpacingSize(7));
+			@include oTypographySans($scale: 2, $line-height: oSpacingByIncrement(7));
 		}
 		li:before {
 			color: inherit;
@@ -108,13 +108,14 @@
 		margin-bottom: 0;
 	}
 	&:after {
-		@include oTypographyMargin($top: 2, $bottom: 4);
 		content: '';
 		display: block;
 		width: 100px;
+		margin-top: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s4');
 
 		// Color is set separately for easier overriding later
-		border-bottom: oTypographySpacingSize(2) solid;
+		border-bottom: oSpacingByIncrement(2) solid;
 		border-color: oColorsGetColorFor(o-banner-heading-rule, background);
 	}
 }
@@ -127,7 +128,7 @@
 	@include oGridRespondTo($until: S) {
 		flex-direction: column;
 		align-items: flex-start;
-		margin-top: oTypographySpacingSize(6);
+		margin-top: oSpacingByName('s6');
 	}
 }
 
