@@ -21,7 +21,7 @@
 		display: flex;
 		white-space: nowrap;
 		overflow-x: auto;
-		padding: 0 oTypographySpacingSize(5);
+		padding: 0 oSpacingByIncrement(5);
 		padding-bottom: 1rem; // To hide the scroll bar.
 	}
 
@@ -38,7 +38,7 @@
 				color: _oHeaderServicesGet('nav-text');
 				position: relative;
 				display: inline-block;
-				padding: oTypographySpacingSize(2) 0;
+				padding: oSpacingByName('s2') 0;
 				margin: 0;
 
 				&:hover,
@@ -53,7 +53,7 @@
 					bottom: 0;
 					left: 0;
 					width: 100%;
-					height: oTypographySpacingSize(1);
+					height: oSpacingByName('s1');
 					background-color: _oHeaderServicesGet('nav-underline-color');
 				}
 			}
@@ -62,7 +62,7 @@
 
 
 	.o-header-services__secondary-nav-list--ancestors li {
-		padding-left: oTypographySpacingSize(2);
+		padding-left: oSpacingByName('s2');
 
 		&:first-child {
 			padding-left: 0;
@@ -73,7 +73,7 @@
 		}
 
 		&:before {
-			@include oIconsGetIcon('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oTypographySpacingSize(4));
+			@include oIconsGetIcon('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oSpacingByName('s4'));
 			content: '';
 			position: relative;
 			top: 0.2em;
@@ -86,14 +86,14 @@
 	}
 
 	.o-header-services__secondary-nav-list--children li {
-		padding-left:  oTypographySpacingSize(4);
+		padding-left:  oSpacingByName('s4');
 
 		&:first-child {
-			margin-left:  oTypographySpacingSize(3);
+			margin-left:  oSpacingByName('s3');
 		}
 
 		&:last-child {
-			padding-right:  oTypographySpacingSize(3);
+			padding-right:  oSpacingByName('s3');
 		}
 
 		&:first-child:before {

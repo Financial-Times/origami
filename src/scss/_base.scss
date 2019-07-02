@@ -32,7 +32,7 @@
 			.o-header-services__secondary-nav-content {
 				@include oGridContainer($bleed: $bleed);
 				max-width: 100%;
-				padding: 0 oTypographySpacingSize(5);
+				padding: 0 oSpacingByIncrement(5);
 			}
 
 			.o-header-services__primary-nav-list  {

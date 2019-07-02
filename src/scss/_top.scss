@@ -35,7 +35,7 @@
 			}
 
 			@include oGridRespondTo($draw-breakpoint) {
-				margin: oTypographySpacingSize(2);
+				margin: oSpacingByName('s2');
 			}
 
 			@include oGridRespondTo(M) {
@@ -90,7 +90,7 @@
 		@include oGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
-			padding: oTypographySpacingSize(3)/2 $_o-header-services-padding;
+			padding: oSpacingByName('s3')/2 $_o-header-services-padding;
 		}
 
 		li {
@@ -100,7 +100,7 @@
 				@include oTypographyBold('sans');
 				color: _oHeaderServicesGet('top-text');
 				display: inline-block;
-				padding: $_o-header-services-padding oTypographySpacingSize(3);
+				padding: $_o-header-services-padding oSpacingByName('s3');
 				margin: 0;
 
 				&:hover {
