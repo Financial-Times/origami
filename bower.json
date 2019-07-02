@@ -12,6 +12,7 @@
     "o-typography": "^5.0.1",
     "o-assets": ">=0.4.1 <4",
     "o-viewport": ">=2.2.0 <4",
-    "o-icons": ">=4.4.2 <6"
+    "o-icons": ">=4.4.2 <6",
+    "o-spacing": "^2.0.0"
   }
 }
