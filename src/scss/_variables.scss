@@ -11,7 +11,7 @@ $o-footer-image-service-version: "v2" !default;
 
 /// Footer spacing unit
 /// @type Number
-$o-footer-spacing-unit: oTypographySpacingSize($units: 5);
+$o-footer-spacing-unit: oSpacingByIncrement(5);
 
 /// Footer matrix
 /// The o-grid column sizes for groups and inner columns

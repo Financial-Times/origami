@@ -32,7 +32,7 @@
 
 	.o-footer__legal-links {
 		padding-left: 0px;
-		
+
 		a {
 			display: inline-block;
 		}
@@ -44,8 +44,8 @@
 
 			&:before {
 				content: '\2022';
-				padding-left: oTypographySpacingSize($units: 1);
-				padding-right: oTypographySpacingSize($units: 1);
+				padding-left: oSpacingByName('s1');
+				padding-right: oSpacingByName('s1');
 			}
 			&:first-child:before {
 				content: '';
@@ -86,7 +86,8 @@
 		}
 
 		a {
-			@include oTypographyPadding($top: 3, $bottom: 3);
+			padding-top: oSpacingByName('s3');
+			padding-bottom: oSpacingByName('s3');
 			display: block;
 
 			&:after {
@@ -107,7 +108,8 @@
 	}
 
 	.o-footer__brand {
-		@include oTypographyPadding($top: 4, $bottom: 4);
+		padding-top: oSpacingByName('s4');
+		padding-bottom: oSpacingByName('s4');
 	}
 
 	.o-footer__brand-logo {
