@@ -3,7 +3,7 @@
 @mixin oTopper {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include oTopperArticleGrid();
-	@include oTypographyMargin($bottom: 5);
+	margin-bottom: oSpacingByIncrement(5);
 
 	@include oGridRespondTo(L) {
 		grid-template-rows: 20px min-content 60px min-content 20px;
@@ -20,7 +20,7 @@
 
 @mixin oTopperBasic {
 	@include oGridRespondTo($until: L) {
-		@include oTypographyMargin($top: 2);
+		margin-top: oSpacingByName('s2');
 	}
 }
 

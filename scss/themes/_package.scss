@@ -1,9 +1,9 @@
 @mixin oTopperAnchorLink {
 	@include oTypographySans(0, $progressive: true);
-	@include oTypographyMargin($top: 8);
 	display: inline-block;
 	width: 110px;
 	padding: 5px 0 0 10px;
+	margin-top: oSpacingByName('s8');
 	border-top: 1px solid oColorsGetColorFor('link', 'text');
 	border-left: 1px solid oColorsGetColorFor('link', 'text');
 	border-bottom-width: 0;
@@ -26,7 +26,7 @@
 }
 
 @mixin oTopperThemePackage {
-	@include oTypographyMargin($bottom: 10);
+	margin-bottom: oSpacingByIncrement(10);
 
 	%_o-topper__tag,
 	.o-topper__headline {
