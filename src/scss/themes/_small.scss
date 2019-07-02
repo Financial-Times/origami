@@ -1,7 +1,7 @@
 /// Small teaser styles
 @mixin oTeaserSmall {
 	display: flex;
-	margin-bottom: oSpacingByName('s4');
+	padding-bottom: oSpacingByName('s4');
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
 
 	.o-teaser__content {
