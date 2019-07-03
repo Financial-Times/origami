@@ -8,11 +8,12 @@
 @mixin oTypographyHeadlineLarge {
 	@include _oTypographyHeading($from: 'heading-level-one-large');
 	&:after {
-		@include oTypographyPadding($top: 5, $bottom: 0);
 		content: '';
+		padding-top: oSpacingByIncrement(5);
+		padding-bottom: 0;
 		display: block;
 		width: 180px;
-		border-bottom: oTypographySpacingSize(2) solid oColorsGetPaletteColor('black');
+		border-bottom: oSpacingByName('s2') solid oColorsGetPaletteColor('black');
 	}
 }
 
@@ -81,6 +82,6 @@
 	text-transform: _oTypographyGet('text-transform', $from);
 	letter-spacing: _oTypographyGet('letter-spacing', $from);
 	@if $bottom-spacing-size {
-		margin: 0 0 oTypographySpacingSize($bottom-spacing-size);
+		margin: 0 0 oSpacingByIncrement($bottom-spacing-size);
 	}
 }

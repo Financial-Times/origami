@@ -20,7 +20,7 @@
 	// Add bottom margin if set.
 	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', 'body');
 	@if $bottom-spacing-size {
-		margin: 0 0 oTypographySpacingSize($bottom-spacing-size);
+		margin: 0 0 oSpacingByIncrement($bottom-spacing-size);
 	}
 	color: oColorsGetColorFor('body', 'text');
 }
@@ -141,7 +141,8 @@
 
 /// Styling for <ul> and <ol>
 @mixin oTypographyList {
-	@include oTypographyMargin($top: 0, $bottom: 7);
+	margin-top: 0;
+	margin-bottom: oSpacingByIncrement(7);
 
 	li {
 		$type: _oTypographyGet('font-type', 'body');
@@ -152,7 +153,8 @@
 			'scale': 1,
 			'custom-line-height': 28px,
 		));
-		@include oTypographyMargin($top: 0, $bottom: 0);
+		margin-top: 0;
+		margin-bottom: 0;
 		color: oColorsGetColorFor('body', 'text');
 	}
 }
@@ -169,16 +171,16 @@
 		> li {
 			display: block;
 			position: relative;
-			padding-left: oTypographySpacingSize($units: 6);
+			padding-left: oSpacingByIncrement(6);
 
 
 			&:before {
 				@include oTypographySansBold($scale: 0);
 				position: absolute;
 				display: inline-block;
-				width: oTypographySpacingSize($units: 5);
+				width: oSpacingByIncrement(5);
 				font-feature-settings: "tnum";
-				margin-right: oTypographySpacingSize($units: -1);
+				margin-right: oSpacingByIncrement(-1);
 				content: counter(item);
 				counter-increment: item;
 				left: 0;
@@ -215,8 +217,8 @@
 /// and `footer` elements
 @mixin oTypographyBlockquote {
 	margin-left: 0;
-	padding-left: oTypographySpacingSize($units: 4);
-	border-left: oTypographySpacingSize($units: 1) solid _oTypographyGet('blockquote-color');
+	padding-left: oSpacingByIncrement(4);
+	border-left: oSpacingByIncrement(1) solid _oTypographyGet('blockquote-color');
 
 	p {
 		@include oTypographyBody;
@@ -238,7 +240,8 @@
 /// @brand master
 @mixin oTypographyCaption {
 	@include oTypographySans($scale: -1);
-	@include oTypographyMargin($top: 2, $bottom: 0);
+	margin-top: oSpacingByName('s2');
+	margin-bottom: 0;
 	color: oColorsGetColorFor('body', 'text');
 }
 

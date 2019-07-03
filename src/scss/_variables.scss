@@ -86,3 +86,8 @@ $_o-typography-progressive-font-fallbacks: (
 		fallback-scale: 0.9
 	)
 );
+
+/// Which warnings have been output already.
+/// @type Map
+/// @access private
+$_o-typography-warnings: () !default;

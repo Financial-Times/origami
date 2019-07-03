@@ -29,36 +29,6 @@
 	}
 }
 
-/// Outputs margin-top and/or margin-bottom based on multiples of
-/// the baseline unit passed to the mixin
-///
-/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top margin
-/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom margin
-@mixin oTypographyMargin($top: false, $bottom: false) {
-	@if $top {
-		margin-top: oTypographySpacingSize($top);
-	}
-
-	@if $bottom {
-		margin-bottom: oTypographySpacingSize($bottom);
-	}
-}
-
-/// Outputs padding-top and/or padding-bottom based on multiples of
-/// the baseline unit passed to the mixin
-///
-/// @param {Bool | Number} $top [false] - multiple of the baseline unit for top padding
-/// @param {Bool | Number} $bottom [false] - multiple of the baseline unit for bottom padding
-@mixin oTypographyPadding($top: false, $bottom: false) {
-	@if $top {
-		padding-top: oTypographySpacingSize($top);
-	}
-
-	@if $bottom {
-		padding-bottom: oTypographySpacingSize($bottom);
-	}
-}
-
 /// Outputs font-weight property for the given font type.
 ///
 /// @example Make a sans copy bold without outputting the font family again.

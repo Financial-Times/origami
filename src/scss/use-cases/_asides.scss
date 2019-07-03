@@ -2,15 +2,16 @@
 /// @brand master
 @mixin oTypographyReadNext {
 	@include oTypographySansBold($scale: 1);
-	@include oTypographyMargin($top: 0, $bottom: 2);
+	margin-top: 0;
+	margin-bottom: oSpacingByName('s2');
 	color: oColorsGetPaletteColor('black');
 
 	&:after {
-		@include oTypographyPadding($top: 1);
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('black');
+		padding-top: oSpacingByName('s1');
+		border-bottom: oSpacingByName('s1') solid oColorsGetPaletteColor('black');
 	}
 }
 
@@ -26,18 +27,18 @@
 /// @brand master
 @mixin oTypographyCollectionHeader {
 	@include oTypographySans($scale: 3);
-	@include oTypographyPadding($top: 2);
 	position: relative;
-	border-top: oTypographySpacingSize(2) solid oColorsMix($percentage: 5);
+	padding-top: oSpacingByName('s2');
+	border-top: oSpacingByName('s2') solid oColorsMix($percentage: 5);
 	color: oColorsGetColorFor('body', 'text');
 
 	&:before {
 		content: '';
 		display: block;
 		position: absolute;
-		top: oTypographySpacingSize(2) * -1;
+		top: oSpacingByName('s2') * -1;
 		left: 0;
 		width: 50%;
-		border-top: oTypographySpacingSize(2) solid oColorsGetPaletteColor('black');
+		border-top: oSpacingByName('s2') solid oColorsGetPaletteColor('black');
 	}
 }

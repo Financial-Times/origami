@@ -1,3 +1,4 @@
+@import 'o-spacing/main';
 @import 'o-grid/main';
 @import 'o-fonts/main';
 @import 'o-colors/main';
@@ -129,8 +130,8 @@
 		.o-typography-product-heading-level-7--thin-rule {
 			@include oTypographyProductHeadingLevel7;
 			border-top: 1px solid oColorsGetPaletteColor('black-30');
-			padding-top: oTypographySpacingSize(3);
-			margin-bottom: oTypographySpacingSize(1);
+			padding-top: oSpacingByName('s3');
+			margin-bottom: oSpacingByName('s1');
 		}
 	}
 

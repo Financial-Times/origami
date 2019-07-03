@@ -1,18 +1,19 @@
 /// Style for timestamps
 /// @brand master
 @mixin oTypographyTimestamp {
-  @include oTypographySans($scale: 0);
-  @include oTypographyMargin($bottom: 4);
-  display: inline-block;
-  text-transform: uppercase;
-  color: oColorsGetPaletteColor('black-60');
+	@include oTypographySans($scale: 0);
+	margin-bottom: oSpacingByName('s4');
+	display: inline-block;
+	text-transform: uppercase;
+	color: oColorsGetPaletteColor('black-60');
 }
 
 /// Article Standfirst styles
 /// @brand master
 @mixin oTypographyStandfirst {
 	@include oTypographySans($scale: 2);
-	@include oTypographyMargin($top: 0, $bottom: 9);
+	margin-top: 0;
+	margin-bottom: oSpacingByIncrement(9);
 	color: oColorsGetPaletteColor('black-60');
 }
 

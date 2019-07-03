@@ -246,9 +246,15 @@ To provide a custom line height for each individual breakpoint pass the scale as
 }
 ```
 
+There is also a function that will cap line width based on the scale and the characters per line:
+
+- `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
+
 ### Spacing
 
-Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
+**`o-typography` spacing Sass is now deprecated, use [o-spacing](https://github.com/Financial-Times/o-spacing) Sass instead.**
+
+Before [o-spacing](https://github.com/Financial-Times/o-spacing) `o-typography` provided spacing Sass for placing elements within our baseline grid. The baseline grid defaults to `4px`, and is stored in `$o-typography-baseline-unit`.
 
 There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
 
@@ -256,18 +262,7 @@ There are 2 mixins and a function provided for working with the baseline grid. E
 - `oTypographyPadding($top, $bottom)` - (mixin) output top and bottom padding
 - `oTypographySpacingSize($units)` - (function) returns a pixel value
 
-There is also a function that will cap line width based on the scale and the characters per line:
-
-- `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
-
-```sass
-.example-box {
-	@include oTypographyMargin($top: 3, $bottom: 5);
-	@include oTypographyPadding($top: 0, $bottom: 5);
-}
-```
-
-See more details about spacing in the registry [SassDoc documentation](sassdoc).
+These are now deprecated in favour of [o-spacing](https://github.com/Financial-Times/o-spacing) Sass. See more details about spacing in the registry [SassDoc documentation](sassdoc).
 
 ### Custom link mixin
 
