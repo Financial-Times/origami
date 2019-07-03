@@ -4,9 +4,8 @@
 @mixin _oFormsPseudoRadioLink {
 	.o-forms-input--pseudo-radio-link {
 		@include _oFormsControlsBoxContainer();
-		@include oTypographyMargin($top: 0);
-
 		@include _oFormsPseudoRadioLinkStyles();
+		margin-top: 0;
 	}
 }
 

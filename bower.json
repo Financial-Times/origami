@@ -1,16 +1,17 @@
 {
-	"name": "o-forms",
-	"main": [
-		"main.scss",
-		"main.js"
-	],
-	"dependencies": {
-		"o-brand": "^3.2.3",
-		"o-colors": "^4.0.1",
-		"o-grid": "^4.0.0",
-		"o-icons": "^5.7.0",
-		"o-loading": "^3.0.0",
-		"o-normalise": "^1.6.2",
-		"o-typography": "^5.11.3"
-	}
+  "name": "o-forms",
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "dependencies": {
+    "o-brand": "^3.2.3",
+    "o-colors": "^4.0.1",
+    "o-grid": "^4.0.0",
+    "o-icons": "^5.7.0",
+    "o-loading": "^3.0.0",
+    "o-normalise": "^1.6.2",
+    "o-typography": "^5.11.3",
+    "o-spacing": "^2.0.0"
+  }
 }

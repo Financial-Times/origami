@@ -2,16 +2,16 @@ $o-forms-is-silent: true !default;
 
 $_o-forms-border: 1px solid _oFormsGet('default-border');
 
-$_o-forms-spacing-half: oTypographySpacingSize(1) / 2; //2px
-$_o-forms-spacing-one: oTypographySpacingSize(1); // 4px
-$_o-forms-spacing-two: oTypographySpacingSize(2); // 8px
-$_o-forms-spacing-three: oTypographySpacingSize(3); // 12px
-$_o-forms-spacing-four: oTypographySpacingSize(4); // 16px
-$_o-forms-spacing-five: oTypographySpacingSize(5); // 20px
-$_o-forms-spacing-six: oTypographySpacingSize(6); // 24px && checkbox/radio widths
-$_o-forms-spacing-seven: oTypographySpacingSize(7); // 28px
-$_o-forms-spacing-eight: oTypographySpacingSize(8); // 32px
-$_o-forms-spacing-nine: oTypographySpacingSize(9); // 36px
-$_o-forms-spacing-ten: oTypographySpacingSize(10); // 40px
+$_o-forms-spacing-half: oSpacingByIncrement(1) / 2; //2px
+$_o-forms-spacing-one: oSpacingByIncrement(1); // 4px
+$_o-forms-spacing-two: oSpacingByIncrement(2); // 8px
+$_o-forms-spacing-three: oSpacingByIncrement(3); // 12px
+$_o-forms-spacing-four: oSpacingByIncrement(4); // 16px
+$_o-forms-spacing-five: oSpacingByIncrement(5); // 20px
+$_o-forms-spacing-six: oSpacingByIncrement(6); // 24px && checkbox/radio widths
+$_o-forms-spacing-seven: oSpacingByIncrement(7); // 28px
+$_o-forms-spacing-eight: oSpacingByIncrement(8); // 32px
+$_o-forms-spacing-nine: oSpacingByIncrement(9); // 36px
+$_o-forms-spacing-ten: oSpacingByIncrement(10); // 40px
 
 $_o-forms-spacing-controls: $_o-forms-spacing-nine + $_o-forms-spacing-half;
