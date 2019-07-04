@@ -1,7 +1,7 @@
-const oCommentsCount = require('../../src/count/main');
+const oComments = require('../../main');
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 
-window.oCommentsCount = oCommentsCount;
+window.oComments = oComments;

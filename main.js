@@ -3,11 +3,12 @@
 const globalEvents = require('./src/javascripts/globalEvents');
 const config = require('./src/javascripts/config.js');
 const oCommentApi = require('o-comment-api');
-const oCommentCount = require('./src/count');
 const defaultConfig = require('./config.js');
 const oCommentUtilities = require('o-comment-utilities');
 const Widget = require('./src/javascripts/Widget.js');
 const resourceLoader = require('./src/javascripts/resourceLoader.js');
+const domConstruct = require('./src/javascripts/domConstruct');
+const count = require('./src/count/main');
 
 /**
  * Default config (prod) is set.
@@ -38,16 +39,42 @@ module.exports.setConfig = function () {
 };
 
 module.exports.init = function (el) {
-	return oCommentUtilities.initDomConstruct({
-		context: el,
-		classNamespace: 'o-comments',
-		eventNamespace: 'oComments',
-		module: module.exports
-	});
+	if (!el) {
+		el = document.body;
+	} else if (!(el instanceof HTMLElement)) {
+		el = document.querySelector(el);
+	}
+
+	let instances;
+	if (el.dataset.oComponent === 'o-comments') {
+		instances = [el];
+	} else {
+		instances = Array.from(el.querySelectorAll('[data-o-component="o-comments"]'));
+	}
+
+	const commentInstances = instances.filter(instance => !instance.hasAttribute('data-o-comments-count'));
+	const countInstances = instances.filter(instance => instance.hasAttribute('data-o-comments-count'));
+
+	if (commentInstances.length) {
+		domConstruct({
+			context: commentInstances,
+			classNamespace: 'o-comments',
+			eventNamespace: 'oComments',
+			module: module.exports
+		});
+	}
+
+	if (countInstances.length) {
+		domConstruct({
+			context: countInstances,
+			classNamespace: 'o-comments',
+			eventNamespace: 'oComments',
+			module: count
+		});
+	}
 };
 module.exports.utilities = oCommentUtilities;
 module.exports.dataService = oCommentApi;
-module.exports.oCommentCount = oCommentCount;
 module.exports.utils = require('./src/javascripts/utils.js');
 module.exports.i18n = require('./src/javascripts/i18n.js');
 module.exports.userDialogs = require('./src/javascripts/userDialogs.js');
@@ -93,12 +120,7 @@ document.addEventListener('o.DOMContentLoaded', function () {
 		oCommentUtilities.logger.log('Invalid config in the DOM.', e);
 	}
 
-	oCommentUtilities.initDomConstruct({
-		classNamespace: 'o-comments',
-		eventNamespace: 'oComments',
-		module: module.exports,
-		auto: true
-	});
+	module.exports.init();
 });
 
 

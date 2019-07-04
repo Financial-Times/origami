@@ -1,9 +1,12 @@
-<div data-o-component="o-comments-count" data-o-comments-count-config-article-id="{{articleId}}" data-o-comments-count-auto-init="false">
-Comments
+<div data-o-component="o-comments"
+  data-o-comments-count
+  data-o-comments-config-article-id="{{articleId}}"
+  data-o-comments-auto-init="false">
+  Comments
 </div>
 
 <script>
-	setTimeout(function () {
-		oCommentsCount.init();
-	}, 4000);
+  setTimeout(function () {
+    oComments.init();
+  }, 4000);
 </script>

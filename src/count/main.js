@@ -3,7 +3,6 @@ const oCommentApi = require('o-comment-api');
 const defaultConfig = require('./config.js');
 const oCommentUtilities = require('o-comment-utilities');
 const Widget = require('./src/javascripts/widget');
-const domConstruct = require('./src/javascripts/domConstruct');
 
 /**
  * Default config (prod) is set.
@@ -33,14 +32,6 @@ module.exports.setConfig = function () {
 	config.set.apply(this, arguments);
 };
 
-module.exports.init = function (el) {
-	return domConstruct({
-		context: el,
-		classNamespace: 'o-comments-count',
-		eventNamespace: 'oCommentsCount',
-		module: module.exports
-	});
-};
 module.exports.utilities = oCommentUtilities;
 module.exports.dataService = oCommentApi;
 

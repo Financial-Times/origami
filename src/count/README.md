@@ -21,29 +21,29 @@ A small UI component for rendering the comment count of a given article.
 Use the following markup to enable comments:
 
 ```html
-<div data-o-component="o-comments-count"
-    data-o-comments-count-auto-init="true|false"
-    data-o-comments-count-config-article-id="{article-id}"
-    data-o-comments-count-config-template="{count} Comment{plural}">
+<div data-o-component="o-comments"
+    data-o-comments-count
+    data-o-comments-auto-init="true|false"
+    data-o-comments-config-article-id="{article-id}"
+    data-o-comments-config-template="{count} Comment{plural}">
 
         <div class="o--if-no-js">0 Comments</div>
 </div>
 ```
 
-
- * `data-o-comments-count-config-article-id` a unique id for your content, ideally a UUID for FT content
- * `data-o-comments-count-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
- * `data-o-comments-count-config-{key}` for any other configuration. `{key}` has the following rule: `--` means new object level, `-` means camel case. Example: `data-o-comments-count-config--data-format--absolute="value"` is transformed to: ```{"livefyre": {"dataFormat": {"absolute": "value"}}}```
+ * `data-o-comments-config-article-id` a unique id for your content, ideally a UUID for FT content
+ * `data-o-comments-auto-init="false"` a module which has this attribute with a `false` value will not be initialized on the `o.DOMContentLoaded` event. This allows you to defer component initialisation.
+ * `data-o-comments-config-{key}` for any other configuration. `{key}` has the following rule: `--` means new object level, `-` means camel case. Example: `data-o-comments-config--data-format--absolute="value"` is transformed to: ```{"livefyre": {"dataFormat": {"absolute": "value"}}}```
 
 For the full list of configuration, see the <a href="#config">available configurations</a>.
 
 
-Those elements which don't have the `data-o-comments-count-auto-init="false"` attribute will be automatically initialized on the `o.DOMContentReady` event.
+Those elements which don't have the `data-o-comments-auto-init="false"` attribute will be automatically initialized on the `o.DOMContentReady` event.
 
-If you defer initialising oCommentsCount by using `data-o-comments-count-auto-init="false"` then you can initialise the component whenever you want by calling
+If you defer initialising the comment count by using `data-o-comments-auto-init="false"` then you can initialise the component whenever you want by calling
 
 ```javascript
-oCommentsCount.init();
+oComments.init();
 ```
 
 The init function may take an optional parameter: a context (this could be DOM element or a valid selector). The search would be performed only inside of this context element. If none is specified, it defaults to document.body.
@@ -52,7 +52,7 @@ The init function may take an optional parameter: a context (this could be DOM e
 Create an instance of the component with the parameters that are available:
 
 ```javascript
-var oCommentsCountComponent = new oCommentsCount(document.querySelector('.comment-count'), {
+var oComments = new oComments(document.querySelector('.comments-count'), {
     articleId: 'article-id'
 });
 ```
@@ -60,7 +60,7 @@ var oCommentsCountComponent = new oCommentsCount(document.querySelector('.commen
 *The widget is automatically initialized, unless you specify in the configuration `autoInit: false`. In this case you can initialize this particular object at a later time by calling the following:*
 
 ```javascript
-oCommentsCountComponent.init();
+oComments.init();
 ```
 
 For the full list of configuration, see the <a href="#config">available configurations</a>.
@@ -110,13 +110,13 @@ This configuration will be loaded on the `o.DOMContentLoaded` event.
 
 
 ### <div id="confimper"></div> Imperatively
-##### oCommentsCount.setConfig(config)
+##### oComments.setConfig(config)
 The configuration can be changed using the `setConfig` static method. Calling this method with an object will merge the current configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
 
 Example:
 
 ```javascript
-oCommentsCount.setConfig({
+oComments.setConfig({
     "template": "{count}"
 });
 ```
@@ -133,14 +133,14 @@ The API of o-comment-api is available by using `oCommentsCount.dataService`.
 
 #### oCommentsCount.ready
 
-The `oCommentsCount.ready` event is fired after the comment count is initalised and added to the DOM.
+The `oComments.ready` event is fired after the comment count is initalised and added to the DOM.
 
 The event has the following properties:
 - detail.id - Widget id _(deprecated)_
 - detail.instance - `Widget` instance.
 
 ```javascript
-	document.body.addEventListener('oCommentsCount.ready', function(e) {
+	document.body.addEventListener('oComments.ready', function(e) {
 		console.log(e.detail.instance);
 	});
 ```
@@ -155,13 +155,13 @@ Called automatically unless autoInit is set to false. Init will basically fetch 
 Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
 By default logging is disabled.
 
-##### oCommentsCount.enableLogging()
+##### oComments.enableLogging()
 This method enables logging of the module.
 
-##### oCommentsCount.disableLogging()
+##### oComments.disableLogging()
 This method disables logging of the module.
 
-##### oCommentsCount.setLoggingLevel(level)
+##### oComments.setLoggingLevel(level)
 This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
 Default is 3 (warn).
 
