@@ -58,24 +58,3 @@ module.exports.disableLogging = function () {
 module.exports.setLoggingLevel = function () {
 	oCommentUtilities.logger.setLevel.apply(this, arguments);
 };
-
-
-document.addEventListener('o.DOMContentLoaded', function () {
-	try {
-		const configInDomEl = document.querySelector('script[type="application/json"][data-o-comments-count-config]');
-		if (configInDomEl) {
-			const configInDom = JSON.parse(configInDomEl.innerHTML);
-
-			module.exports.setConfig(configInDom);
-		}
-	} catch (e) {
-		oCommentUtilities.logger.log('Invalid config in the DOM.', e);
-	}
-
-	domConstruct({
-		classNamespace: 'o-comments-count',
-		eventNamespace: 'oCommentsCount',
-		module: module.exports,
-		auto: true
-	});
-});
