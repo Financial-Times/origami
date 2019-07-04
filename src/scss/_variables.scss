@@ -4,10 +4,8 @@ $_o-header-services-padding: oGridGutter();
 
 $_o-header-services-top-bar-short: oSpacingByIncrement(11);
 
-$_o-header-services-primary-nav-z-index: 1;
-
- $_o-header-services-top-icon-size: oSpacingByIncrement(10);
- $_o-header-services-button-icon-size: oSpacingByIncrement(6);
+$_o-header-services-top-icon-size: oSpacingByIncrement(10);
+$_o-header-services-button-icon-size: oSpacingByIncrement(6);
 
 $_o-header-services-button-theme: (
 	background: _oHeaderServicesGet('nav-text'),

@@ -20,9 +20,9 @@
 		bottom: 0;
 		visibility: hidden;
 		display: block;
-		transition:
-			visibility 0.01s linear,
-			opacity 0.5s $o-visual-effects-transition-fade;
+		transition: visibility 0.01s linear, opacity 0.5s $o-visual-effects-transition-fade;
+		// So the drawer stays on top of other elements.
+		z-index: 1;
 
 		// Drawer nav.
 		.o-header-services__primary-nav-list {
@@ -86,7 +86,6 @@
 				width: 100%;
 				// Reset the dropdown styles now they are in a drawer.
 				transition: none;
-				z-index: 0;
 				max-width: none;
 				white-space: normal;
 				a {
