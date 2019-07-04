@@ -2,11 +2,6 @@
 /// @access private
 /// @outputs styling for primary navigation drop down menus
 @mixin _oHeaderServicesDropDown() {
-	// So the dropdown stays above other elements.
-	.o-header-services__primary-nav {
-		z-index: 1;
-	}
-
 	// Drop down button.
 	.o-header-services__drop-down-button {
 		background-color: transparent;
@@ -46,14 +41,17 @@
 		@include oTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
+		left: -1px;
 		box-sizing: border-box;
 		padding-left: 0;
 		position: absolute;
+		// So the dropdown appears above other elements.
+		// But does not obscure its button as it animates down.
+		z-index: 1;
+		clip-path: inset(10.5% 0 0 0);
 		opacity: 0;
 		transform: translateY(-10%);
-		transition: opacity 0.1s linear, transform 0.1s ease-in;
-		left: -1px;
-		z-index: -1; // So the dropdown doesn't cover the link/button whilst animating.
+		transition: clip-path 0.1s linear, opacity 0.1s linear, transform 0.1s ease-in;
 
 		// The dropdown list is inviisble when closed.
 		// This is so it doesn't block interaction with other elements.
@@ -77,7 +75,6 @@
 	// Drop down list (opened state).
 	.core li[data-o-header-services-level]:hover,
 	li[aria-expanded=true] {
-
 		// Reveal the dropdown.
 		ul[data-o-header-services-level] {
 			height: auto;
@@ -86,6 +83,7 @@
 			}
 			transform: translateY(0);
 			opacity: 1;
+			clip-path: inset(0 0 0 0);
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
