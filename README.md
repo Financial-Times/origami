@@ -291,6 +291,39 @@ Actions overview with 4 items with footer:
 	</div>
 ```
 
+Sometimes a page may have multiple overview sections. In this case it can appear odd to have three overview items followed by a separate section with four more narrow items. To enforce that the items in each overview section have the same width apply the `o-layout__overview--consistent-columns` modifier class.
+
+```html
+	<!-- Your landing page content here. -->
+	<div class="o-layout__main o-layout-typography">
+		<!-- Actions Overview 1 -->
+		<div class="o-layout__overview o-layout__overview--consistent-columns">
+			<!-- 3 o-layout-item items (see above example) -->
+		</div>
+
+		<!-- Actions Overview 2 -->
+		<div class="o-layout__overview o-layout__overview--consistent-columns">
+			<!-- 4 o-layout-item items (see above example) -->
+		</div>
+	</div>
+```
+
+```
+├———————————————————————————————————————┤
+| content | content | content |         |
+| content |         | content |         |
+| content |         | content |         |
+├———————————————————————————————————————┤
+
+├———————————————————————————————————————┤
+| content | content | content | content |
+| content | content | content | content |
+| content |         | content |         |
+├———————————————————————————————————————┤
+```
+
+
+
 [See the registry demos](https://registry.origami.ft.com/components/o-layout#demo-landing-layout) for an example landing page.
 
 ## Query Layout

@@ -87,10 +87,14 @@
 		/* autoprefixer: off */
 		// o-layout does not cater for older `-ms-` versions of the grid spec.
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
 		grid-gap: $_o-layout-gutter * 3;
 		grid-row-gap: $_o-layout-gutter;
 		/* autoprefixer: on */
+	}
+
+	.o-layout__overview--consistent-columns {
+		--_o-layout-overview-columns: auto-fill;
 	}
 
 	.o-layout__overview--actions {
