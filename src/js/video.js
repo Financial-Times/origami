@@ -5,6 +5,15 @@ import getRendition from './helpers/get-rendition';
 import VideoAds from './ads';
 import VideoInfo from './info';
 import Playlist from './playlist';
+import Guidance from './guidance';
+
+function listenOnce(el, eventName, fn) {
+	const wrappedFn = function(...args) {
+		el.removeEventListener(eventName, wrappedFn);
+		fn(...args);
+	};
+	el.addEventListener(eventName, wrappedFn);
+}
 
 function eventListener(video, ev) {
 
@@ -159,6 +168,7 @@ class Video {
 		this.amountWatched = 0;
 		this.fireWatchedEvent = unloadListener.bind(this);
 		this.visibilityListener = visibilityListener.bind(this);
+		this.didUserPressPlay = false;
 
 		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
@@ -186,6 +196,8 @@ class Video {
 		if (this.opts.autorender === true) {
 			this.init();
 		}
+
+		this.guidance = new Guidance();
 	}
 
 	getData() {
@@ -308,6 +320,8 @@ class Video {
 		}
 
 		this.videoEl.src = this.rendition && this.rendition.url;
+		this.guidance.removeBanner();
+		listenOnce(this.videoEl, 'playing', this.showGuidanceBanner.bind(this));
 
 		this.addCaptions();
 	}
@@ -329,17 +343,31 @@ class Video {
 		}
 
 		// play button
+		const playCTA = document.createElement('div');
+		playCTA.className = `o-video__play-cta ${this.opts.placeholderHint ? 'o-video__play-cta--with-hint' : 'o-video__play-cta--without-hint'}`;
+
 		const playButtonEl = document.createElement('button');
 		playButtonEl.className = 'o-video__play-button';
 
 		this.playButtonIconEl = document.createElement('span');
 		this.playButtonIconEl.className = 'o-video__play-button-icon';
 		this.playButtonIconEl.textContent = this.opts.placeholderHint;
-		playButtonEl.appendChild(this.playButtonIconEl);
+
+
+		playCTA.appendChild(this.playButtonIconEl);
+
+		const { captionsUrl } = this.videoData || {};
+		if (!captionsUrl) {
+			playCTA.appendChild(this.guidance.createPlaceholder());
+		}
+		playButtonEl.appendChild(playCTA);
 
 		this.placeholderEl.appendChild(playButtonEl);
 
-		this.placeholderEl.addEventListener('click', this.play.bind(this));
+		this.placeholderEl.addEventListener('click', () => {
+			this.didUserPressPlay = true;
+			this.play();
+		});
 
 		this.updatePlaceholder();
 
@@ -384,6 +412,8 @@ class Video {
 			this.videoEl.pause();
 		}
 		this.clearCurrentlyPlaying();
+
+		this.didUserPressPlay = false;
 
 		this.opts = Object.assign(this.opts, { data: null }, newOpts);
 
@@ -449,6 +479,13 @@ class Video {
 
 	resetAmountWatched () {
 		this.amountWatched = 0;
+	}
+
+	showGuidanceBanner () {
+		const { captionsUrl } = this.videoData || {};
+		if (!this.didUserPressPlay && !captionsUrl) {
+			this.containerEl.appendChild(this.guidance.createBanner());
+		}
 	}
 
 	destroy () {

@@ -923,6 +923,70 @@ describe('Video', () => {
 			});
 		});
 	});
+
+	context('Videos without subtitles', () => {
+		let fetchStub;
+
+		beforeEach(() => {
+			const mediaApiResponseWithoutCaptions = Object.assign({}, mediaApiResponse1, { captionsUrl: null });
+			const res1 = new window.Response(JSON.stringify(mediaApiResponseWithoutCaptions), {
+				status: 200,
+				headers: { 'Content-type': 'application/json' }
+			});
+
+			fetchStub = sinon.stub(window, 'fetch');
+			fetchStub.resolves(res1);
+		});
+
+		afterEach(() => {
+			fetchStub.restore();
+		});
+
+		it('a guidance message is displayed on the placholder', () => {
+			const video = new Video(containerEl, { placeholder: true });
+
+			return video.init().then(() => {
+				proclaim.ok(containerEl.querySelector('.o-video__guidance'));
+			});
+		});
+
+		context('guidance banner', () => {
+			it('is displayed for autoplaying videos', () => {
+				const video = new Video(containerEl);
+				return video.init().then(() => {
+					video.videoEl.dispatchEvent(new Event('playing'));
+					proclaim.ok(containerEl.querySelector('.o-video__guidance--banner'));
+				});
+			});
+
+			it('can be closed', () => {
+				const video = new Video(containerEl);
+				return video.init().then(() => {
+					video.videoEl.dispatchEvent(new Event('playing'));
+					containerEl.querySelector('.o-video__guidance__close').dispatchEvent(new Event('click'));
+					proclaim.notOk(containerEl.querySelector('.o-video__guidance--banner'));
+				});
+			});
+
+			it('is removed when the next video in the playlist is played', () => {
+				const video = new Video(containerEl);
+				return video.init()
+					.then(() => {
+						const resWithCaptions = new window.Response(JSON.stringify(mediaApiResponse2), {
+							status: 200,
+							headers: { 'Content-type': 'application/json' }
+						});
+
+						fetchStub.resetBehavior();
+						fetchStub.returns(Promise.resolve(resWithCaptions));
+						const newOpts = { id: mediaApiResponse2.id };
+						return video.update(newOpts);
+					}).then(() => {
+						proclaim.notOk(containerEl.querySelector('.o-video__guidance--banner'));
+					});
+			});
+		});
+	});
 });
 
 /* eslint-enable no-unused-expressions */

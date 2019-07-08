@@ -31,11 +31,7 @@
 	}
 
 	.o-video__play-button {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
+		bottom: 0;
 		padding: 0;
 		border: 0;
 		background-color: transparent;
@@ -45,28 +41,43 @@
 	.o-video__play-button-icon {
 		@include oIconsBaseStyles;
 		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
-		position: absolute;
 		color: oColorsGetPaletteColor('white');
 		background-color: oColorsGetPaletteColor('black');
-
-		&:empty {
-			bottom: 0;
-			left: 0;
-			width: 40px;
-			height: 40px;
-		}
-
-		&:not(:empty) {
-			@include oTypographySansBold(-1);
-			bottom: 10px;
-			left: 10px;
-			padding: 10px 16px 10px 36px;
-			background-position: left;
-		}
-
 		:hover > &,
 		:focus > & {
 			background-color: oColorsGetPaletteColor('claret');
+		}
+	}
+
+	.o-video__play-cta {
+		position: absolute;
+		display: flex;
+		bottom: 0;
+		left: 0;
+		
+		&--without-hint {
+			.o-video__play-button-icon {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		&--with-hint {
+			bottom: 10px;
+			left: 10px;
+			.o-video__play-button-icon {
+				@include oTypographySansBold(-1);
+				padding: 10px 16px 10px 36px;
+				background-position: left;
+			}
+		}
+	}
+	.o-video--large {
+		.o-video__play-cta--without-hint {
+			.o-video__play-button-icon {
+				width: 60px;
+				height: 60px;
+			}
 		}
 	}
 }
