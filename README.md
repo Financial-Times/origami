@@ -399,7 +399,7 @@ You can include styles for every input type and feature by calling that mixin:
 @include oForms();
 ```
 
-If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the abilty to inlne them, you would use the following:
+If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
 ```scss
 @import 'o-forms';
 @include oForms($opts: (
