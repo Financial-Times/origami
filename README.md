@@ -2,14 +2,17 @@
 
 📢 **The commenting platform for ft.com, the app, interactive graphics & alphaville is currently being replaced. Please speak to the [Comments team](https://github.com/orgs/Financial-Times/teams/comments) if you intend to start using this component or wish to make any changes to it.**
 
-A fully featured commenting client integrated with FT's membership systems. If you simply wish to add comments to some content this is the component to use.
+A fully featured commenting client integrated with FT's membership systems. If you simply wish to add comments or a comment count to some content this is the component to use.
 
 ## Contents
 
  * <a href="#prereq">Prerequisites</a>
- * <a href="#product">Adding comments to your product</a>
-     * <a href="#decl">Declaratively</a>
-     * <a href="#imper">Imperatively</a>
+ * <a href="#markup">Markup</a>
+     * <a href="#comments">Comments</a>
+     * <a href="#count">Comment Count</a>
+ * <a href="#js">Javascript</a>
+     * <a href="#comments-js">Comments</a>
+     * <a href="#count-js">Comment Count</a>
  * <a href="#login">Login integration</a>
  * <a href="#events">Events</a>
  * <a href="#configuration">Global configuration</a>
@@ -21,25 +24,24 @@ A fully featured commenting client integrated with FT's membership systems. If y
  * <a href="#sassapi">Sass API</a>
      * <a href="#fontfamily">Font family</a>
  * <a href="#browser">Browser support</a>
- * <a href="#core">Core/enhanced experience</a>
 
 ## <div id="prereq"></div> Prerequisites
 
 * You must be on an FT.com domain or sub-domain for authentication to work
 
-## <div id="product"></div> Adding comments to your product
-### <div id="decl"></div> Declaratively
+## <div id="markup"></div> Markup
+### <div id="comment"></div> Comments
 Use the following markup to enable comments:
 
 ```html
 <div data-o-component="o-comments"
     id="{idOfTheElement}"
     data-o-comments-auto-init="true|false"
+    data-o-comments-config-article-id="{article-id}"
     data-o-comments-config-title="{article-title}"
-    data-o-comments-config-url="{page-url}"
-    data-o-comments-config-article-id="{article-id}">
+    data-o-comments-config-url="{page-url}">
 
-        <div class="o--if-no-js">To participate in this chat, you need to upgrade to a newer web browser. <a href="http://help.ft.com/tools-services/browser-compatibility/">Learn more.</a></div>
+    <div class="o--if-no-js">To participate in this chat, you need to upgrade to a newer web browser. <a href="http://help.ft.com/tools-services/browser-compatibility/">Learn more.</a></div>
 </div>
 ```
 
@@ -64,11 +66,32 @@ oComments.init();
 
 The init function may take an optional parameter: a context (this could be DOM element or a valid selector). The search would be performed only inside of this context element. If none is specified, it defaults to document.body.
 
-### <div id="imper"></div> Imperatively
-Create an instance of the component with the parameters that are available:
+### <div id="count"></div> Comment Count
+
+Use the following markup to enable comments:
+
+```diff
+<div data-o-component="o-comments"
+-   id="{idOfTheElement}"
++   data-o-comments-count
+    data-o-comments-auto-init="true|false"
+    data-o-comments-config-article-id="{article-id}"
+-   data-o-comments-config-title="{article-title}"
+-   data-o-comments-config-url="{page-url}"
++   data-o-comments-config-template="{count} Comment{plural}">
+
+-   <div class="o--if-no-js">To participate in this chat, you need to upgrade to a newer web browser. <a href="http://help.ft.com/tools-services/browser-compatibility/">Learn more.</a></div>
++   <div class="o--if-no-js">0 Comments</div>
+```
+
+For the full list of configuration, see the <a href="#config">available configurations</a>.
+
+## <div id="js"></div> JavaScript
+### <div id="comments-js"></div> Comments
+Create an instance of the comment component with the parameters that are available:
 
 ```javascript
-var oCommentComponent = new oComments(document.querySelector('.comments'), {
+var oComments = new oComments(document.querySelector('.comments'), {
     title: document.title,
     url: document.location.href,
     articleId: 'article-id',
@@ -84,19 +107,19 @@ var oCommentComponent = new oComments(document.querySelector('.comments'), {
 *The widget is automatically initialized, unless you specify in the configuration `autoInit: false`. In this case you can initialize this particular object at a later time by calling the following:*
 
 ```javascript
-oCommentsComponent.init();
+oComments.init();
 ```
 
 #### More about the constructor config object
 The configuration object which is passed to the contructor can/should have the following fields:
 
-###### Mandatory fields:
+##### Mandatory fields:
 
  - articleId: ID of the article, any string
  - url: canonical URL of the page
  - title: Title of the page
 
-###### Optional fields:
+##### Optional fields:
 
  - stream_type: livecomments, livechat, liveblog
  - livefyre: object which contains key-value pairs which will be added to the Livefyre init object. For more information visit http://docs.livefyre.com/developers/app-integrations/comments/#convConfigObject
@@ -104,6 +127,28 @@ The configuration object which is passed to the contructor can/should have the f
  - authPageReload: if authentication needs a page reload. By default this is false.
  - tags: Tags which will be added to the collection (term used by Livefyre to articles) in Livefyre
  - autoInit: if this is set to false, the object will be created, but it will not be initialized automatically (the DOM will not be populated, call to backend services will not be made). In this case you should call the `init` method on the instance when you want to initialize it.
+
+### <div id="count-js"></div> Comment Count
+Create an instance of the comment count component with the parameters that are available:
+
+```javascript
+var oComments = new oComments(document.querySelector('.comments-count'), {
+    articleId: 'article-id'
+});
+```
+
+#### <div id="config"></div> More about the constructor config object
+The configuration object which is passed to the contructor can/should have the following fields:
+
+##### Mandatory fields:
+
+ - articleId: ID of the article, any string
+
+##### Optional fields:
+ - template: can be used if you want to override the global template for this widget. `{count}` will be replaced with the count, and `{plural}` will be replaced with blank for a count of 0 or 1, and with 's' for a count > 1.
+ - autoInit: can be used to avoid initializing the widget automatically by setting this to false
+ - autoRefresh: it refreshes the widget with the latest count if set to true
+ - hideIfZero: if true, hides the dom element of the widget (visibility: hidden)
 
 ## <div id="login"></div> Login integration
 Users need to have a valid FT session in order to post comments. The default behavior for a user without a valid session is to redirect to the FT's login page (https://accounts.ft.com/login). However you may wish to integrate with your product's authentication process for a slicker UX in which case you can override the default behaviour.
@@ -162,18 +207,18 @@ All events have a payload of data which helps getting the ID of the instance and
 }
 ```
 
-##### oComments.widget.timeout
+#### oComments.widget.timeout
 Triggered when loading the widget exceeded a given time.
 
-##### oComments.error.init
+#### oComments.error.init
 Error while loading the initialization data and the comments.
 Event detail data: error object/message.
 
-##### oComments.error.widget
+#### oComments.error.widget
 Triggered when any error appear (triggered together with the above mentioned error events).
 Event detail data: error object/message.
 
-##### oComments.data.init
+#### oComments.data.init
 Loaded when the initialization is finished and the necessary data is obtained.
 Event detail data: initialization data in the following form:
 
@@ -187,7 +232,7 @@ Event detail data: initialization data in the following form:
 }
 ```
 
-##### oComments.data.auth
+#### oComments.data.auth
 The first time the auth object is loaded, it is broadcasted using this event. Event detail data: authentication and user detail data in the following form:
 
 ```javascript
@@ -204,16 +249,16 @@ The first time the auth object is loaded, it is broadcasted using this event. Ev
 }
 ```
 
-##### oComments.widget.ready
+#### oComments.widget.ready
 The widget is ready to be rendered, the initialization process has finished.
 
-##### oComments.widget.load
+#### oComments.widget.load
 The Livefyre widget has loaded the necessary data and created a `Livefyre widget` instance, but not yet rendered it. The handler receives the Livefyre widget object as a parameter, access it using `detail.data.lfWidget`.
 
-##### oComments.widget.renderComplete
+#### oComments.widget.renderComplete
 The UI is fully rendered.
 
-##### oComments.tracking.postComment
+#### oComments.tracking.postComment
 A comment is posted.
 Event detail data: (evt.detail.data)
 
@@ -230,7 +275,7 @@ Event detail data: (evt.detail.data)
 }
 ```
 
-##### oComments.tracking.likeComment
+#### oComments.tracking.likeComment
 A comment is recommended.
 Event detail data: (evt.detail.data)
 
@@ -244,7 +289,7 @@ Event detail data: (evt.detail.data)
 }
 ```
 
-##### oComments.tracking.shareComment
+#### oComments.tracking.shareComment
 A comment is shared.
 Event detail data: (evt.detail.data)
 
@@ -259,7 +304,7 @@ Event detail data: (evt.detail.data)
 }
 ```
 
-##### oComments.tracking.socialMention
+#### oComments.tracking.socialMention
 A user sent a social mention through a comment.
 Event detail data: (evt.detail.data)
 
@@ -288,14 +333,14 @@ The payload data consists only of event specific data:
 ```
 
 The events are the following:
-##### oComments.auth.login
+#### oComments.auth.login
 Triggered when a user is successfully logged in.
 Payload is the jwt token with which the user is logged in.
 
-##### oComments.auth.logout
+#### oComments.auth.logout
 Triggered when a user is logged out.
 
-##### oComments.auth.loginRequired
+#### oComments.auth.loginRequired
 Triggered on any activity which explicitly requires a logged in status. This could mean from the product perspective that the user is not logged in, or his/her login status expired (e.g. session expire).
 
 The payload data contains an object with a callback function. Based on the outcome of the login process, one of these should be called by the handler.
@@ -313,7 +358,7 @@ oComments.on('auth.loginRequired', function (evt) {
 });
 ```
 
-##### oComments.error.livefyreJs
+#### oComments.error.livefyreJs
 Triggered when the core Livefyre resource file (e.g. Livefyre's core JS library) couldn't be loaded.
 Event detail data: error object/message.
 
@@ -374,7 +419,7 @@ This configuration will be loaded on the `o.DOMContentLoaded` event.
 
 
 ### <div id="confimper"></div> Imperatively
-##### oComments.setConfig(config)
+#### oComments.setConfig(config)
 The configuration can be changed be using the `setConfig` static method. Calling this method with an object will merge the current configuration with the object specified (deep merge, primitive type values of the same key will be overwritten).
 
 Example:
@@ -397,7 +442,7 @@ The API of o-comment-api is available by using `oComments.dataService`.
 
 ### <div id="messages"></div> UI messages
 You can override the messages shown to a user in various parts of the UI:
-##### oComments.i18n.lfStringOverride
+#### oComments.i18n.lfStringOverride
 An object with the following messages:
 
     commentTombstone: "This comment has been removed"
@@ -427,13 +472,13 @@ An object with the following messages:
 Logging can be enabled for debugging purposes. It logs using the global 'console' if available (if not, nothing happens and it degrades gracefully).
 By default logging is disabled.
 
-##### oComments.enableLogging()
+#### oComments.enableLogging()
 This method enables logging of the module.
 
-##### oComments.disableLogging()
+#### oComments.disableLogging()
 This method disables logging of the module.
 
-##### oComments.setLoggingLevel(level)
+#### oComments.setLoggingLevel(level)
 This method sets the logging level. This could be a number from 0 to 4 (where 0 is debug, 4 is error), or a string from the available methods of 'console' (debug, log, info, warn, error).
 Default is 3 (warn).
 
@@ -455,10 +500,7 @@ $o-comments-include-fonts: false;
 ```
 
 ## <div id="browser"></div> Browser support
-Works in accordance with our [support policy](https://docs.google.com/a/ft.com/document/d/1dX92MPm9ZNY2jqFidWf_E6V4S6pLkydjcPmk5F989YI/edit)
-
-## <div id="core"></div> Core/Enhanced Experience
-Only the enhanced experience offers any kind of commenting functionality. Core functionality will be added in due course.
+Works in accordance with our [support policy](https://docs.google.com/document/d/1mByh6sT8zI4XRyPKqWVsC2jUfXHZvhshS5SlHErWjXU).
 
 ## Migration
 
