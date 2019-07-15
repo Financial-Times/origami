@@ -82,8 +82,30 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-js)
+Check out the [API docs](https://registry.origami.ft.com/components/o-share@6.4.4/jsdoc)
 
+#### Events
+
+The following events are fired by o-share.
+
+- [oShare.ready](#oshareready)
+- [oShare.open](#oshareopen)
+
+##### oShare.ready
+
+`oShare.ready` fires when a o-share instance has been initialised.
+
+The event provides the following properties:
+- `detail.share` - The initialised o-share instance.
+
+##### oShare.open
+
+`oShare.open` fires when a social network share action is triggered, to open a new window.
+
+The event provides the following properties:
+- `detail.share` - The o-share instance.
+- `detail.action` - The kind of share i.e. "social".
+- `detail.url` - The social share url opened.
 
 ### Sass
 

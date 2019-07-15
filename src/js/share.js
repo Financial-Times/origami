@@ -1,5 +1,3 @@
-/**global require,module*/
-
 const DomDelegate = require('ftdomdelegate');
 
 const socialUrls = {
@@ -12,9 +10,28 @@ const socialUrls = {
 };
 
 /**
+ * The `oShare.open` open event fires when a social network share action is
+ * triggered, to open a new window.
+ *
+ * @event oShare\.open
+ * @type {object}
+ * @property {boolean} share - The o-share instance.
+ * @property {boolean} action - The kind of share i.e. "social".
+ * @property {boolean} url - The social share url opened.
+ */
+
+/**
+ * The `oShare.ready` fires when a o-share instance has been initialised.
+ *
+ * @event oShare\.ready
+ * @type {object}
+ * @property {boolean} share - The initialised o-share instance.
+ */
+
+/**
   * @class Share
   *
-  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
+  * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for an o-share component. You can pass an HTMLElement or a selector string
   * @param {Object} config - Optional
   * @param {string} config.url - Optional, url to share
   * @param {string} config.title - Optional, title to be used in social network sharing
@@ -42,6 +59,8 @@ function Share(rootEl, config) {
 	/**
 	  * Click event handler that checks the event target is an o-share action
 	  *
+	  * @param {Event} ev - The event to handle
+	  * @return {undefined}
 	  * @private
 	  */
 	function handleClick(ev) {
@@ -68,6 +87,8 @@ function Share(rootEl, config) {
 	  *
 	  * @private
 	  * @param {string} url - URL to be loaded in the new window
+	  * @returns {undefined}
+	  * @fires oShare\.open
 	  */
 	function shareSocial(url) {
 		if (url) {
@@ -91,6 +112,7 @@ function Share(rootEl, config) {
 	  *
 	  * @private
 	  * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+	  * @returns {string}
 	  */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];
@@ -105,6 +127,7 @@ function Share(rootEl, config) {
 	/**
 	  * Renders the list of social networks in {@link config.links}
 	  *
+	  * @returns {undefined}
 	  * @private
 	  */
 	function render() {
@@ -132,6 +155,7 @@ function Share(rootEl, config) {
 	  * Normalises any data in the configuration, converting relative URLs to ready-to-share
 	  * absolute versions
 	  *
+	  * @return {undefined}
 	  * @private
 	  */
 	function normaliseConfig() {
@@ -144,6 +168,9 @@ function Share(rootEl, config) {
 	  * Initialises the Share class, rendering the o-share element if it's empty with {@link config} options,
 	  * or from corresponding data attributes and sets up dom-delegates.
 	  * Dispatches 'oShare.ready' at the end
+	  *
+	  * @return {undefined}
+	  * @fires oShare\.ready
 	  */
 	function init() {
 		if (!rootEl) {
@@ -183,8 +210,10 @@ function Share(rootEl, config) {
 
 /**
   * Destroys the Share instance, disables dom-delegates
+  *
+  * @return {undefined}
   */
-Share.prototype.destroy = function() {
+Share.prototype.destroy = function () {
 	this.rootDomDelegate.destroy();
 	// Should destroy remove its children? Maybe setting .innerHTML to '' is faster
 	for (let i = 0; i < this.rootEl.children; i++) {
@@ -198,10 +227,10 @@ Share.prototype.destroy = function() {
 /**
   * Initialises all o-share components inside the element passed as the first parameter
   *
-  * @param {(HTMLElement|string)} [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
+  * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
   * @returns {Array} - An array of Share instances
   */
-Share.init = function(rootEl) {
+Share.init = function (rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
 	}
@@ -211,7 +240,7 @@ Share.init = function(rootEl) {
 	if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-share]')) {
 		return new Share(rootEl);
 	}
-	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl) );
+	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl));
 };
 
 module.exports = Share;
