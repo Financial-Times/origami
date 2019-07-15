@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-Check out the [API docs](https://registry.origami.ft.com/components/o-share@6.4.4/jsdoc)
+Check out the [API docs](https://registry.origami.ft.com/components/o-share/jsdoc)
 
 #### Events
 
@@ -121,7 +121,7 @@ $o-share-is-silent: false;
 
 If not, you can just use our mixins to set you custom class.
 
-Check out the [API docs](http://registry.origami.ft.com/components/o-share#docs-css)
+Check out the [API docs](https://registry.origami.ft.com/components/o-share/sassdoc)
 
 ## Migration guide
 
