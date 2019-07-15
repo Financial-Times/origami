@@ -1,7 +1,7 @@
-const config = require('./src/javascripts/config');
+const config = require('./envConfig');
 const oCommentApi = require('o-comment-api');
-const defaultConfig = require('./config.js');
-const Widget = require('./src/javascripts/widget');
+const defaultConfig = require('./config');
+const Widget = require('./widget');
 
 /**
  * Default config (prod) is set.

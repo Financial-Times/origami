@@ -1,33 +1,8 @@
-const envConfig = require('./config.js');
+const envConfig = require('./envConfig');
 const oCommentUtilities = require('o-comment-utilities');
 const oCommentApi = require('o-comment-api');
 
 const Widget = function (rootEl, config) {
-	let widgetEl;
-	let commentCount;
-
-	try {
-		if (!rootEl) {
-			rootEl = document.body;
-		} else if (!(rootEl instanceof HTMLElement)) { // could throw exception in IE
-			rootEl = document.querySelector(rootEl);
-		}
-	} catch (e) {
-		let el;
-		if (typeof rootEl === 'string') {
-			el = document.querySelector(rootEl);
-		}
-
-		if (el) {
-			rootEl = el;
-		} else {
-			rootEl = document.body;
-		}
-	}
-
-	widgetEl = rootEl;
-
-
 	/**
 	 * Validation of the initial configuration object.
 	 */
@@ -46,6 +21,7 @@ const Widget = function (rootEl, config) {
 	const template = config.template || envConfig.get('template');
 	const ariaLabelTemplate = config.ariaLabelTemplate || envConfig.get('ariaLabelTemplate');
 
+	let commentCount;
 	if (config.count >= 0) {
 		commentCount = config.count;
 	}
@@ -61,16 +37,16 @@ const Widget = function (rootEl, config) {
 			}
 
 			if (count === 0 && config.hideIfZero === true) {
-				widgetEl.style.visibility = 'hidden';
+				rootEl.style.visibility = 'hidden';
 			} else {
-				widgetEl.style.visibility = 'visible';
+				rootEl.style.visibility = 'visible';
 				if (template) {
-					widgetEl.innerHTML = replacePlaceholders(template, count);
+					rootEl.innerHTML = replacePlaceholders(template, count);
 				}
 
 				if (ariaLabelTemplate) {
-					widgetEl.setAttribute('aria-label', replacePlaceholders(ariaLabelTemplate, count));
-					widgetEl.setAttribute('title', replacePlaceholders(ariaLabelTemplate, count));
+					rootEl.setAttribute('aria-label', replacePlaceholders(ariaLabelTemplate, count));
+					rootEl.setAttribute('title', replacePlaceholders(ariaLabelTemplate, count));
 				}
 			}
 		});

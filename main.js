@@ -8,7 +8,7 @@ const oCommentUtilities = require('o-comment-utilities');
 const Widget = require('./src/javascripts/Widget.js');
 const resourceLoader = require('./src/javascripts/resourceLoader.js');
 const domConstruct = require('./src/javascripts/domConstruct');
-const count = require('./src/count/main');
+const count = require('./src/javascripts/count/count');
 
 /**
  * Default config (prod) is set.
