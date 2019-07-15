@@ -49,7 +49,7 @@ module.exports.init = function (el) {
 	if (el.dataset.oComponent === 'o-comments') {
 		instances = [el];
 	} else {
-		instances = Array.from(el.querySelectorAll('[data-o-component="o-comments"]'));
+		instances = [].slice.call(el.querySelectorAll('[data-o-component="o-comments"]'));
 	}
 
 	const commentInstances = instances.filter(instance => !instance.hasAttribute('data-o-comments-count'));
