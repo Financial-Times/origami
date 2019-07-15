@@ -13,7 +13,7 @@ const socialUrls = {
  * The `oShare.open` open event fires when a social network share action is
  * triggered, to open a new window.
  *
- * @event oShare\.open
+ * @event "oShare.open"
  * @type {object}
  * @property {boolean} share - The o-share instance.
  * @property {boolean} action - The kind of share i.e. "social".
@@ -23,7 +23,7 @@ const socialUrls = {
 /**
  * The `oShare.ready` fires when a o-share instance has been initialised.
  *
- * @event oShare\.ready
+ * @event "oShare.ready"
  * @type {object}
  * @property {boolean} share - The initialised o-share instance.
  */
@@ -88,7 +88,7 @@ function Share(rootEl, config) {
 	  * @private
 	  * @param {string} url - URL to be loaded in the new window
 	  * @returns {undefined}
-	  * @fires oShare\.open
+	  * @fires "oShare.open"
 	  */
 	function shareSocial(url) {
 		if (url) {
@@ -170,7 +170,7 @@ function Share(rootEl, config) {
 	  * Dispatches 'oShare.ready' at the end
 	  *
 	  * @return {undefined}
-	  * @fires oShare\.ready
+	  * @fires "oShare.ready"
 	  */
 	function init() {
 		if (!rootEl) {
