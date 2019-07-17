@@ -1,20 +1,20 @@
-o-footer-services [![Circle CI](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-footer-services [![Circle CI](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o-footer-services is a footer component for internal products and tooling  at the FT.
+o-footer-services is a footer component for internal products and tooling at the FT.
 
-- [Usage](#usage)
+-   [Usage](#usage)
 	- [Markup](#markup)
 	- [Sass](#sass)
-- [Migration Guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+-   [Migration Guide](#migration-guide)
+-   [Contact](#contact)
+-   [Licence](#licence)
 
 ## Usage
 
 ### Markup
 
 A footer requires the following markup:
+
 ```html
 <footer class="o-footer-services">
 	<div class="o-footer-services__container">
@@ -65,6 +65,7 @@ This will only provide styling for footers without a logo, so if you are plannin
 This major includes a change in markup and an entirely new design, which is compliant with legal requirements within internal FT tooling and products.
 
 All previous variations of the footer have been discontinued. To illustrate the change in markup, this difference is between the full footer and the new footer that has been introduced with this major:
+
 ```diff
 <footer class="o-footer-services">
 	<div class="o-footer-services__container">
@@ -87,7 +88,7 @@ All previous variations of the footer have been discontinued. To illustrate the 
 +				<div class="o-footer-services__links">
 +					<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
 +					<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
-+					<a href="http://help.ft.com/help/legal-privacy/privacy/" class="o-footer-services__bulletted-link">Privacy</a>
++					<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
 +					<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
 +				</div>
 +				<p><span>&copy; THE FINANCIAL TIMES LTD 2019.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
@@ -105,7 +106,7 @@ All previous variations of the footer have been discontinued. To illustrate the 
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-footer-services/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
