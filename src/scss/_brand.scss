@@ -11,8 +11,8 @@
 }
 
 $_o-footer-services-shared-brand-config: (
-	default-background: 'slate-white-5',
-	default-border: 'slate-white-15',
+	default-background: 'black-5',
+	default-border: 'black-20',
 	default-link-color: 'black-80',
 	default-link-hover: 'black-60',
 	legal-text: 'black-60',
@@ -20,14 +20,19 @@ $_o-footer-services-shared-brand-config: (
 );
 
 @include oBrandDefine('o-footer-services', 'master', (
-	'variables': map-merge($_o-footer-services-shared-brand-config, (
-		'default-background': 'black-5',
-		'default-border': 'black-20',
-	)),
+	'variables': $_o-footer-services-shared-brand-config,
 	'supports-variants': ()
 ));
 
 @include oBrandDefine('o-footer-services', 'internal', (
+	'variables': map-merge($_o-footer-services-shared-brand-config, (
+		'default-background': 'slate-white-5',
+		'default-border': 'slate-white-15',
+	)),
+	'supports-variants': ()
+));
+
+@include oBrandDefine('o-footer-services', 'whitelabel', (
 	'variables': $_o-footer-services-shared-brand-config,
 	'supports-variants': ()
 ));
