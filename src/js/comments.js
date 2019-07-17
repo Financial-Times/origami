@@ -27,14 +27,15 @@ class Comments {
 	_renderComments () {
 		/*global Coral*/
 		getJsonWebToken()
-			.then(() => {
+			.then((jwtResponse) => {
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
 				scriptElement.onload = () => Coral.createStreamEmbed(
 					{
 						id: 'comments',
 						rootURL: 'https://ft.staging.coral.coralproject.net',
-						autoRender: true
+						autoRender: true,
+						accessToken: jwtResponse.token
 					}
 				);
 				this.oCommentsEl.appendChild(scriptElement);
