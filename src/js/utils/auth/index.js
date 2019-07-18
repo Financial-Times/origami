@@ -1,4 +1,4 @@
-const getJsonWebToken = () => fetch('https://comments-auth.ft.com/v1/jwt/', {
+const getJsonWebToken = () => fetch('https://comments-auth.ft.com/v2/jwt/', {
 	credentials: 'include'
 }).then(response => {
 	if (response.status === 404) {
