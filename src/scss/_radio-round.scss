@@ -38,13 +38,13 @@
 
 		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
-			visibility: hidden;
+			@include oNormaliseVisuallyHidden;
 
-			&:checked	+ .o-forms-input__label:before {
+			&:checked + .o-forms-input__label:before {
 				border-color: _oFormsGet('controls-base');
 			}
 
-			&:focus {
+			&:focus + .o-forms-input__label:before {
 				border-color: $o-normalise-focus-color;
 				box-shadow: 0 0 0 $_o-forms-spacing-half $o-normalise-focus-color;
 				outline: none;
