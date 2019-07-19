@@ -16,6 +16,7 @@
 
 		padding-right: $o-subs-card-horizontal-padding;
 		padding-left: $o-subs-card-horizontal-padding;
+		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
 	}
 
 	.o-subs-card__copy-title {
@@ -56,6 +57,7 @@
 
 	.o-subs-card__expander {
 		@include oColorsFor('o-subs-card');
+		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
 	}
 
 	.o-subs-card__copy-details {
@@ -73,7 +75,7 @@
 
 	.o-subs-card__copy-benefits {
 		@include oTypographyPadding($top: 3);
-		
+
 		margin: 0;
 		padding-left: 0;
 		list-style: none;
@@ -87,7 +89,7 @@
 		@include oColorsFor(o-subs-card-read-more, background text, 80);
 		@include oTypographySansBold(-1);
 		@include oTypographyPadding($top: 2, $bottom: 2);
-		
+
 		cursor: pointer;
 		border-width: 0;
 		display: block;
@@ -117,6 +119,7 @@
 	.o-subs-card__swg {
 		background: white;
 		padding: 0 16px 16px;
+		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
 	}
 
 	.o-subs-card__separator {
@@ -194,7 +197,7 @@
 
 	.o-subs-card {
 		@include oTypographyMargin($top: 3, $bottom: 3);
-		
+
 		margin-left: $o-subs-card-horizontal-margin / 2; // no collapsing margins in display flex
 		margin-right: $o-subs-card-horizontal-margin / 2;
 	}

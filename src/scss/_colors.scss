@@ -1,5 +1,6 @@
 @include oColorsSetUseCase('o-subs-card', 'text', 'black');
 @include oColorsSetUseCase('o-subs-card', 'background', 'white');
+@include oColorsSetUseCase('o-subs-card', 'shadow', 'black-5');
 @include oColorsSetUseCase('o-subs-card-button', 'background', 'teal-50');
 
 @include oColorsSetUseCase('o-subs-card-copy-details', 'background', 'white');
