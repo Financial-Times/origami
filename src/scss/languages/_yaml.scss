@@ -1,0 +1,10 @@
+@mixin _oSyntaxHighlightYAML () {
+	.o-syntax-highlight--yaml {
+		.token {
+			&.number { color: oColorsGetPaletteColor('crimson-jade-80'); }
+			&.punctuation { color: oColorsGetPaletteColor('grey-70'); }
+			&.atrule { color: oColorsGetPaletteColor('oxford'); }
+
+		}
+	}
+}

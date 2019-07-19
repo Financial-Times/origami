@@ -12,7 +12,8 @@
 		'html', 
 		'js',
 		'json',
-		'sass'
+		'sass',
+		'yaml'
 	)
 )) {
 	$languages: map-get($opts, 'languages');
@@ -41,6 +42,10 @@
 
 	@if index($languages, 'json') {
 		@include _oSyntaxHighlightJSON();
+	}
+	
+	@if index($languages, 'yaml') {
+		@include _oSyntaxHighlightYAML();
 	}
 
 	@if index($languages, 'scss') or index($languages, 'sass') {

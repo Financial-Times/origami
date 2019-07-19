@@ -5,6 +5,7 @@
 @import 'json';
 @import 'scss';
 @import 'diff';
+@import 'yaml';
 
 @mixin _oSyntaxHighlightBase() {
 	[data-o-component='o-syntax-highlight'] {
