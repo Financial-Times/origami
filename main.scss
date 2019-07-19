@@ -44,7 +44,7 @@
 		@include _oSyntaxHighlightJSON();
 	}
 	
-	@if index($languages, 'yaml') {
+	@if index($languages, 'yaml') or index($languages, 'yml') {
 		@include _oSyntaxHighlightYAML();
 	}
 
