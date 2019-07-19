@@ -9,6 +9,7 @@ import 'prism/components/prism-javascript.js';
 import 'prism/components/prism-bash.js';
 import 'prism/components/prism-json.js';
 import 'prism/components/prism-scss.js';
+import 'prism/components/prism-yaml.js';
 import diff from './languages/prism-diff.js';
 
 class SyntaxHighlight {
