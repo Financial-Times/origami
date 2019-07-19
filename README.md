@@ -14,7 +14,7 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 
 ## Usage
 
-This component provides accessible syntax highlighting for `bash`, `diff`, Javascript, JSON, HTML, CSS and Sass/SCSS.
+This component provides accessible syntax highlighting for `bash`, `diff`, Javascript, JSON, YAML, HTML, CSS and Sass/SCSS.
 _If there are any languages you would like to highlight that we don't currently support, please open an issue and we will provide it._
 
 o-syntax-highlight uses the following colours, on a `grey-5` background (`#f2f2f2`). It is compliant with the contrast for [WCAG AA](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html). In order to meet the criteria for AAA at 14px+, the colours would be far too dark to distinguish syntax highlighting effectively.
@@ -65,6 +65,7 @@ The same is true for all other available languages:
 - CSS: `o-syntax-highlight--css`
 - SCSS/SASS: `o-syntax-highlight--scss` _or_ `o-syntax-highlight--sass`
 - JSON: `o-syntax-highlight--json`
+- YAML: `o-syntax-highlight--yaml`
 - DIFF: `o-syntax-highlight--diff`
 
 It is worth pointing out that the wrapper can hold any html elements. So long as all of the code blocks within the wrapper are written as described above, o-syntax-highlight will ignore everything else.
@@ -149,6 +150,7 @@ You can also be more specific about which languages you would like styling outpu
 - 'js' _or_ 'javascript'
 - 'json'
 - 'scss' _or_ 'sass'
+- 'yaml'
 
 
 ## Migration

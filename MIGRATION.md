@@ -25,5 +25,6 @@ The primary mixin requires an `$opts` parameter that accepts a 'languages' list.
 - 'js' or 'javascript'
 - 'json'
 - 'scss' or 'sass'
+- 'yaml'
 
 There are no changes to the markup or the JavaScript.
