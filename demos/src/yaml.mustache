@@ -1,6 +1,16 @@
 <div class="demo" data-o-component='o-syntax-highlight'>
 	<pre>
 		<code class='o-syntax-highlight--yaml'>
+---
+my_string: &my_string
+my_embed: &my_embed
+ 	nested: true
+otherProperty: *my_string
+acceptMerge:
+  <<: *my_embed
+some_string: |
+ 	my string
+ 	over two lines
 version: 2
 jobs:
   test:
