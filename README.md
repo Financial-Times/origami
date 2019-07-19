@@ -141,7 +141,7 @@ You can also be more specific about which languages you would like styling outpu
 		)
 	));
 ```
-`o-syntax-highlight` accespts the following options:
+`o-syntax-highlight` accepts the following options:
 - 'bash'
 - 'css'
 - 'diff'
