@@ -55,6 +55,12 @@
 			"description": "Syntax highlight theme for JSON"
 		},
 		{
+			"title": "YAML",
+			"name": "yaml",
+			"template": "demos/src/yaml.mustache",
+			"description": "Syntax highlight theme for YAML"
+		},
+		{
 			"title": "SCSS",
 			"name": "scss",
 			"template": "demos/src/scss.mustache",
