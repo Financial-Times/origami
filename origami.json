@@ -18,12 +18,44 @@
 	},
 	"demos": [
 		{
-			"title": "Main",
-			"name": "main",
+			"title": "Comments",
+			"name": "comments_main",
 			"template": "/demos/src/demo.mustache",
-			"data": "/demos/src/data.json",
+			"data": "/demos/data/comments.json",
 			"js": "/demos/src/demo.js",
 			"sass": "/demos/src/demo.scss"
+		},
+		{
+			"title": "Comment Count",
+			"name": "count_main",
+			"template": "demos/src/count.mustache",
+			"data": "demos/data/count.json",
+			"js": "demos/src/count.js",
+			"description": "Basic setup"
+		},
+		{
+			"title": "Comment Count With Custom Template",
+			"name": "custom_template",
+			"template": "demos/src/custom-template.mustache",
+			"data": "demos/data/count.json",
+			"js": "demos/src/count.js",
+			"description": "How to provide a custom template at an individual level"
+		},
+		{
+			"title": "Auto Refresh Comment Count",
+			"name": "auto_refresh",
+			"template": "demos/src/auto-refresh.mustache",
+			"data": "demos/data/count.json",
+			"js": "demos/src/count.js",
+			"description": "Enable auto refresh: interval of 1 minute"
+		},
+		{
+			"title": "Defer Comment Count Init",
+			"name": "defer_init",
+			"template": "demos/src/defer-init.mustache",
+			"data": "demos/data/count.json",
+			"js": "demos/src/count.js",
+			"description": "Initialize later"
 		}
 	]
 }
