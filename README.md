@@ -59,7 +59,7 @@ The `.on` interface allows you to listen for [events](#events).
 const oComments = require('o-comments');
 const Comments = new oComments();
 
-Comments.on('component.render.successful', () => {
+Comments.on('o-comments.ready', (event) => {
 	console.log('The comments have rendered')
 });
 
@@ -68,31 +68,28 @@ Comments.on('component.render.successful', () => {
 
 #### Events
 
-Events are emitted during key events and can be listened to using the [`.on` interface](#on).
+Events are emitted during key events and can be listened to using the [`.on` interface](#on) or by listening for events on the document.
 
-The naming of events uses a dot notation and follows a `category.action.state` namespacing. The categories and their events are listed below.
+```js
+document.addEventListener('o-comments.ready', (event) => {
+	console.log('This comments have rendered');
+});
+```
 
-
-##### Component
+##### Global / Component 
 
 These events are anything to do with the component itself.
 
-- **component.render.successful** - Emitted when the component has finished rendering and is ready for the user to interact with comments 
+- **o-comments.ready** - Emitted when the component has finished rendering and is ready for the user to interact with comments 
 
 ##### Comment
 
 These events are anything to do with comment interactions.
 
-- **comment.posted.successful** - Emitted when a users has successfully left a comment
-- **comment.posted.toxic** - Emitted when a comment has been flagged as above our acceptable level of toxicity by the automated toxic moderation.
-- **comment.liked.successful** - Emitted when a users has liked a comment
-
-##### Auth
-
-These events are anything to do with users being authenticated.
-
-- **auth.login.successful** - Emitted when a user has successfully logged in to Coral Talk
-- **auth.login.required** - Emitted when a logged out user has performed an action that requires them to login
+- **o-comments.comment.posted** - Emitted when a users has successfully left a comment
+- **o-comments.comment.replied** - Emitted when a user has successfully left a comment which is a reply to an existing comment.
+- **o-comments.comment.edited** - Emitted when a user has successfully edited their existing comment.
+- **o-comments.comment.liked** - Emitted when a users has liked a comment
 
 ### Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
