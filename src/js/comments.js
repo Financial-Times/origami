@@ -35,7 +35,18 @@ class Comments {
 						id: 'comments',
 						rootURL: 'https://ft.staging.coral.coralproject.net',
 						autoRender: true,
-						accessToken: jwtResponse.token
+						accessToken: jwtResponse.token,
+						events: (events) => {
+							events.onAny((name, data) => {
+								const message = new CustomEvent('talkEvent', {
+									detail: {
+										name,
+										data
+									}
+								});
+								parent.dispatchEvent(message);
+							});
+						}
 					}
 				);
 				this.oCommentsEl.appendChild(scriptElement);
