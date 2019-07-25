@@ -1,15 +1,13 @@
 const coralMap = new Map([
-	['query.CoralEmbedStream_Embed.loading', 'component.render.loading'],
-	['query.CoralEmbedStream_Embed.ready', 'component.render.successful'],
-	['mutation.PostComment.success', 'comment.posted.successful'],
-	['mutation.EditComment.success', 'comment.edited.successful'],
-	['mutation.CreateLikeAction.success', 'comment.liked.successful'],
-	['action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS', 'auth.login.successful'],
-	['action.SHOW_SIGNIN_DIALOG', 'auth.login.required']
+	['ready', 'o-comments.ready'],
+	['mutation.createComment', 'o-comments.comment.posted'],
+	['mutation.createCommentReply', 'o-comments.comment.replied'],
+	['mutation.editComment', 'o-comments.comment.edited'],
+	['mutation.createCommentReaction', 'o-comments.comment.liked'],
 ]);
 
 const errorMap = new Map([
-	['COMMENT_IS_TOXIC', 'comment.posted.toxic']
+	['COMMENT_IS_TOXIC', 'o-comments.comment.toxic']
 ]);
 
 const validEvents = []

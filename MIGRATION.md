@@ -7,11 +7,7 @@ In version 6 the commenting provider has been updated from Livefyre to [Coral Ta
 
 #### Event naming
 
-In v6 the naming of events has changed and all events use a dot notation that has three sections.
-
-1. Category
-2. Action
-3. State
+In v6 the naming of events has changed and all events use a dot notation.
 
 The table below shows the mapping of old events to new.
 
@@ -25,13 +21,13 @@ The table below shows the mapping of old events to new.
 | widget.timeout         | Not mapped yet              |
 | widget.ready           | Deprecation candidate       |
 | widget.load            | Deprecation candidate       |
-| widget.renderComplete  | component.render.successful |
-| tracking.postComment   | comment.posted.successful   |
-| tracking.likeComment   | comment.liked.successful    |
+| widget.renderComplete  | o-comments.ready            |
+| tracking.postComment   | o-comments.comment.posted   |
+| tracking.likeComment   | o-comments.comment.liked    |
 | tracking.shareComment  | Deprecation candidate       |
 | tracking.socialMention | Deprecated                  |
-| auth.login             | auth.login.successful       |
-| auth.loginRequired     | auth.login.required         |
+| auth.login             | Not mapped yet              |
+| auth.loginRequired     | Not mapped yet              |
 
 
 ### Migrating from v4 to v5
