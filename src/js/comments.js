@@ -44,7 +44,7 @@ class Comments {
 										data
 									}
 								});
-								parent.dispatchEvent(message);
+								window.parent.dispatchEvent(message);
 							});
 						}
 					}
