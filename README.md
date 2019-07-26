@@ -177,7 +177,7 @@ const importantMessage = new oMessage(null, {
 	type: 'alert',
 	status: 'error',
 	content: {
-		highlight: 'Something has gone wrong.'
+		highlight: 'Something has gone wrong.',
 		detail: 'The quick brown fox did not jump over the lazy dogs.'
 	}
 });
