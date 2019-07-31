@@ -72,29 +72,6 @@ class CommentCount {
 
 		return id === 'invalid-id' ? null : Math.floor(Math.random() * 10) + 1;
 	}
-
-	/**
-	 * Initialise the component.
-	 *
-	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [opts={}] - An options object for configuring the component
-	 * @returns {(CommentCount|Array<CommentCount>)} - Comment count instance(s)
-	 */
-	static init (rootEl, opts) {
-
-		if (!rootEl) {
-			rootEl = document.body;
-		}
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
-		}
-
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-comments-count]')) {
-			return new CommentCount(rootEl, opts);
-		}
-
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments-count"]'), rootEl => new CommentCount(rootEl, opts));
-	}
 }
 
 export default CommentCount;
