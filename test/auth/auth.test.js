@@ -12,7 +12,7 @@ describe("Auth", () => {
 
 		describe("when comments auth service returns a valid response", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', {
 					token: '12345'
 				});
 			});
@@ -34,7 +34,7 @@ describe("Auth", () => {
 
 		describe("when the comments auth service response is missing the token", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {});
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', {});
 			});
 
 			after(() => {
@@ -54,7 +54,7 @@ describe("Auth", () => {
 
 		describe("when the comments auth service response is missing the token", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', {token: undefined});
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', {token: undefined});
 			});
 
 			after(() => {
@@ -74,7 +74,7 @@ describe("Auth", () => {
 
 		describe("when the comments auth service responds with 205", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 205);
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', 205);
 			});
 
 			after(() => {
@@ -99,7 +99,7 @@ describe("Auth", () => {
 
 		describe("when the comments auth service responds with 404", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 404);
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', 404);
 			});
 
 			after(() => {
@@ -124,7 +124,7 @@ describe("Auth", () => {
 
 		describe("when the comments auth service responds with a bad response other than 404", () => {
 			before(() => {
-				fetchMock.mock('https://comments-auth.ft.com/v1/jwt/', 500);
+				fetchMock.mock('https://comments-api.ft.com/user/auth/', 500);
 			});
 
 			after(() => {

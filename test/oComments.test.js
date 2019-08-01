@@ -127,7 +127,7 @@ describe("OComments", () => {
 		});
 
 		it("throws a error if it's missing a parameter", () => {
-			proclaim.throws(() => comments.on('component.render.successful'), '.on requires both the `event` & `callback` parameters');
+			proclaim.throws(() => comments.on('o-comments.ready'), '.on requires both the `event` & `callback` parameters');
 		});
 
 		it("throws a error if the event name isn't valid", () => {
@@ -135,81 +135,81 @@ describe("OComments", () => {
 		});
 
 		it("throws a type error if the callback parameter isn't a function", () => {
-			proclaim.throws(() => comments.on('component.render.successful', 'Not a function'),'The callback must be a function');
+			proclaim.throws(() => comments.on('o-comments.ready', 'Not a function'),'The callback must be a function');
 		});
 
 		it("calls the callback when the event is emitted", () => {
-			comments.on('component.render.successful', () => {
+			comments.on('o-comments.ready', () => {
 				eventWasEmitted = true;
 			});
 
-			document.dispatchEvent(new CustomEvent('component.render.successful'));
+			document.dispatchEvent(new CustomEvent('o-comments.ready'));
 
 			proclaim.isTrue(eventWasEmitted);
 		});
 
 		describe("when Coral Talk events are emitted", () => {
-			it("maps the `query.CoralEmbedStream_Embed.ready` event", () => {
-				comments.on('component.render.successful', () => {
+			it("maps the `ready` event", () => {
+				comments.on('o-comments.ready', () => {
 					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
 					detail: {
-						name: 'query.CoralEmbedStream_Embed.ready'
+						name: 'ready'
 					}
 				}));
 
 				proclaim.isTrue(eventWasEmitted);
 			});
 
-			it("maps the `mutation.PostComment.success` event", () => {
-				comments.on('comment.posted.successful', () => {
+			it("maps the `mutation.createComment` event", () => {
+				comments.on('o-comments.comment.posted', () => {
 					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
 					detail: {
-						name: 'mutation.PostComment.success'
+						name: 'mutation.createComment'
 					}
 				}));
 				proclaim.isTrue(eventWasEmitted);
 			});
 
-			it("maps the `mutation.CreateLikeAction.success` event", () => {
-				comments.on('comment.liked.successful', () => {
+			it("maps the `mutation.createCommentReaction` event", () => {
+				comments.on('o-comments.comment.liked', () => {
 					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
 					detail: {
-						name: 'mutation.CreateLikeAction.success'
+						name: 'mutation.createCommentReaction'
 					}
 				}));
 				proclaim.isTrue(eventWasEmitted);
 			});
 
-			it("maps the `action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS` event", () => {
-				comments.on('auth.login.successful', () => {
+			it("maps the `mutation.editComment` event", () => {
+				comments.on('o-comments.comment.edited', () => {
 					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
 					detail: {
-						name: 'action.TALK_FRAMEWORK_CHECK_LOGIN_SUCCESS'
+						name: 'mutation.editComment'
 					}
 				}));
 				proclaim.isTrue(eventWasEmitted);
 			});
 
-			it("maps the `action.SHOW_SIGNIN_DIALOG` event", () => {
-				comments.on('auth.login.required', () => {
+			it("maps the `mutation.createCommentReply` event", () => {
+				comments.on('o-comments.comment.replied', () => {
 					eventWasEmitted = true;
 				});
 
 				window.dispatchEvent(new CustomEvent('talkEvent', {
 					detail: {
-						name: 'action.SHOW_SIGNIN_DIALOG'
+						name: 'mutation.createCommentReply'
 					}
 				}));
 				proclaim.isTrue(eventWasEmitted);
@@ -217,7 +217,7 @@ describe("OComments", () => {
 
 			describe("when the payload contains an error", () => {
 				it("maps the `COMMENT_IS_TOXIC` error event", () => {
-					comments.on('comment.posted.toxic', () => {
+					comments.on('o-comments.comment.toxic', () => {
 						eventWasEmitted = true;
 					});
 
@@ -245,17 +245,17 @@ describe("OComments", () => {
 					let errorCalled = false;
 					let eventCalled = false;
 
-					comments.on('comment.posted.toxic', () => {
+					comments.on('o-comments.comment.toxic', () => {
 						errorCalled = true;
 					});
 
-					comments.on('comment.edited.successful', () => {
+					comments.on('o-comments.comment.edited', () => {
 						eventCalled = true;
 					});
 
 					window.dispatchEvent(new CustomEvent('talkEvent', {
 						detail: {
-							name: 'mutation.EditComment.success',
+							name: 'mutation.editComment',
 							data: {
 								error: {
 									errors: [

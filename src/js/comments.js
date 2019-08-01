@@ -27,14 +27,15 @@ class Comments {
 	_renderComments () {
 		/*global Coral*/
 		getJsonWebToken()
-			.then(({ token, userIsSignedIn }) => {
+			.then((jwtResponse) => {
 				const scriptElement = document.createElement('script');
-				scriptElement.src = 'https://ft-next-talk-spike.herokuapp.com/static/embed.js';
-				scriptElement.onload = () => Coral.Talk.render(this.oCommentsEl,
+				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
+				scriptElement.onload = () => Coral.createStreamEmbed(
 					{
-						talk: 'https://ft-next-talk-spike.herokuapp.com',
-						auth_token: token,
-						userSignedInToFT: userIsSignedIn,
+						id: 'comments',
+						rootURL: 'https://ft.staging.coral.coralproject.net',
+						autoRender: true,
+						accessToken: jwtResponse.token,
 						events: (events) => {
 							events.onAny((name, data) => {
 								const message = new CustomEvent('talkEvent', {
@@ -43,7 +44,7 @@ class Comments {
 										data
 									}
 								});
-								parent.dispatchEvent(message);
+								window.parent.dispatchEvent(message);
 							});
 						}
 					}
