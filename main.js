@@ -1,33 +1,41 @@
-import Comments from './src/js/comments';
-import CommentCount from './src/js/count';
+import Stream from './src/js/stream';
+import Count from './src/js/count';
 
-/**
- * Initialise the component.
- *
- * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
- * @param {Object} [opts={}] - An options object for configuring the component
- * @returns {(Comments|Array<Comments>)|(CommentCount|Array<CommentCount>)} - Comments or CommentCount instance(s)
- */
-const init = function (rootEl, opts) {
-	if (!rootEl) {
-			rootEl = document.body;
-	}
-	if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
-	}
-	return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments"]'), rootEl => {
+class Comments {
+	constructor (rootEl, opts) {
+		document.addEventListener('o.DOMContentLoaded', this.constructAll);
+
 		if (rootEl.hasAttribute('data-o-comments-count')) {
-			return new CommentCount(rootEl, opts);
+			new Count(rootEl, opts);
+		} else {
+			new Stream(rootEl, opts);
 		}
-		return new Comments(rootEl, opts);
-	});
-};
+	}
 
-const constructAll = function () {
-	Comments.init();
-	document.removeEventListener('o.DOMContentLoaded', constructAll);
-};
+	/**
+	 * Initialise the component.
+	 *
+	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @returns {(Comments|Array<Comments>)} - Comments instance(s)
+	 */
+	static init (rootEl, opts) {
+		if (!rootEl) {
+			rootEl = document.body;
+		}
+		if (!(rootEl instanceof HTMLElement)) {
+			rootEl = document.querySelector(rootEl);
+		}
+		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-comments]')) {
+			return new Comments(rootEl, opts);
+		}
+		return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments"]'), rootEl => new Comments(rootEl, opts));
+	}
 
-document.addEventListener('o.DOMContentLoaded', constructAll);
+	constructAll () {
+		Comments.init();
+		document.removeEventListener('o.DOMContentLoaded', this.constructAll);
+	}
+}
 
-export { Comments, CommentCount };
+export default Comments;

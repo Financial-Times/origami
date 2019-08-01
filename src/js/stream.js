@@ -1,16 +1,16 @@
 import {validEvents, coralMap, errorMap} from './utils/events';
 import {getJsonWebToken} from './utils/auth';
 
-class Comments {
+class Stream {
 	/**
 	 * Class constructor.
 	 *
-	 * @param {HTMLElement} [oCommentsEl] - The component element in the DOM
+	 * @param {HTMLElement} [streamEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (oCommentsEl, opts) {
-		this.oCommentsEl = oCommentsEl;
-		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(oCommentsEl));
+	constructor (streamEl, opts) {
+		this.streamEl = streamEl;
+		this.options = Object.assign({}, {}, opts || Stream.getDataAttributes(streamEl));
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
@@ -49,7 +49,7 @@ class Comments {
 						}
 					}
 				);
-				this.oCommentsEl.appendChild(scriptElement);
+				this.streamEl.appendChild(scriptElement);
 				/**
 				 * In order to test the asynchronous function, send an event when getJsonWebToken resolves
 				 * the script element is injected into the document.
@@ -63,17 +63,17 @@ class Comments {
 	}
 
 	/**
-	 * Get the data attributes from the CommentsElement. If the component is being set up
+	 * Get the data attributes from the StreamElement. If the component is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
-	 * @param {HTMLElement} oCommentsEl - The component element in the DOM
+	 * @param {HTMLElement} streamEl - The component element in the DOM
 	 * @returns {Object} - Data attributes as an object
 	 */
-	static getDataAttributes (oCommentsEl) {
-		if (!(oCommentsEl instanceof HTMLElement)) {
+	static getDataAttributes (streamEl) {
+		if (!(streamEl instanceof HTMLElement)) {
 			return {};
 		}
-		return Object.keys(oCommentsEl.dataset).reduce((options, key) => {
+		return Object.keys(streamEl.dataset).reduce((options, key) => {
 
 			// Ignore data-o-component
 			if (key === 'oComponent') {
@@ -82,7 +82,7 @@ class Comments {
 
 			// Build a concise key and get the option value
 			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
-			const value = oCommentsEl.dataset[key];
+			const value = streamEl.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
 			try {
@@ -164,4 +164,4 @@ class Comments {
 	}
 }
 
-export default Comments;
+export default Stream;

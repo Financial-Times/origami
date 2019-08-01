@@ -1,4 +1,4 @@
-class CommentCount {
+class Count {
 	/**
 	 * Class constructor.
 	 *
@@ -7,7 +7,7 @@ class CommentCount {
 	 */
 	constructor (countEl, opts) {
 		this.countEl = countEl;
-		this.options = Object.assign({}, {}, opts || CommentCount.getDataAttributes(countEl));
+		this.options = Object.assign({}, {}, opts || Count.getDataAttributes(countEl));
 		this.articleId = this.options.articleId;
 		this._renderCount();
 	}
@@ -51,7 +51,7 @@ class CommentCount {
 			}
 
 			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oCommentsCount(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
 			const value = countEl.dataset[key];
 
 			// Try parsing the value as JSON, otherwise just set it as a string
@@ -74,4 +74,4 @@ class CommentCount {
 	}
 }
 
-export default CommentCount;
+export default Count;

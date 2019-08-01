@@ -1,44 +1,44 @@
 /* eslint-env mocha */
 import * as assert from 'proclaim';
+import * as fixtures from './helpers/fixtures';
 import sinon from 'sinon/pkg/sinon';
-import {CommentCount} from '../main';
+import Count from '../src/js/count';
 
 sinon.assert.expose(assert, {
 	includeFail: false,
 	prefix: ''
 });
 
-describe("CommentCount", () => {
-	it("exports a class constructor", () => {
-		assert.isFunction(CommentCount);
-		assert.throws(CommentCount, TypeError);
+describe("Count", () => {
+	it("is defined", () => {
+		assert.isFunction(Count);
+		assert.throws(Count, TypeError);
 	});
 
-	describe("new CommentCount(countEl, opts)", () => {
+	describe("new Count(countEl, opts)", () => {
 		let mockDataAttributeOptions;
-		let mockCountElement;
+		let mockCountEl;
 		let count;
 
 		beforeEach(() => {
 			mockDataAttributeOptions = {
 				isMockDataAttributeOptions: true
 			};
-			sinon.stub(CommentCount, 'getDataAttributes').returns(mockDataAttributeOptions);
+			sinon.stub(Count, 'getDataAttributes').returns(mockDataAttributeOptions);
+			fixtures.countMarkup();
 
-			const element = document.createElement('div');
-			element.innerHTML = '<div data-o-component=o-comments-count" data-o-comments-count-article-id="id"></div>';
-			mockCountElement = element.querySelector('[data-o-comments-count-article-id="id"]');
-
-			count = new CommentCount(mockCountElement);
+			mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+			count = new Count(mockCountEl);
 		});
 
 		afterEach(() => {
-			CommentCount.getDataAttributes.restore();
+			fixtures.reset();
+			Count.getDataAttributes.restore();
 		});
 
 		it("fetches options set via HTML data attributes", () => {
-			assert.calledOnce(CommentCount.getDataAttributes);
-			assert.calledWithExactly(CommentCount.getDataAttributes, mockCountElement);
+			assert.calledOnce(Count.getDataAttributes);
+			assert.calledWithExactly(Count.getDataAttributes, mockCountEl);
 		});
 
 		describe(".options", () => {
@@ -53,7 +53,7 @@ describe("CommentCount", () => {
 
 		describe(".countEl", () => {
 			it("is set to the `countElement` that was passed into the constructor", () => {
-				assert.strictEqual(count.countEl, mockCountElement);
+				assert.strictEqual(count.countEl, mockCountEl);
 			});
 		});
 	});
@@ -61,33 +61,30 @@ describe("CommentCount", () => {
 	describe("._renderCount()", () => {
 		describe("when element exists", () => {
 			it("renders the count within the element", () => {
-				sinon.stub(CommentCount.prototype, '_fetchCount').returns(10);
+				sinon.stub(Count.prototype, '_fetchCount').returns(10);
+				fixtures.countMarkup();
 
-				const element = document.createElement('div');
-				element.innerHTML = '<div data-o-component="o-comments-count" data-o-comments-count-article-id="id"></div>';
-				const mockCountElement = element.querySelector('[data-o-comments-count-article-id="id"]');
-
-				const count = new CommentCount(mockCountElement);
-
+				const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+				const count = new Count(mockCountEl);
 				assert.equal(count.countEl.innerHTML, 10);
 
-				CommentCount.prototype._fetchCount.restore();
+				fixtures.reset();
+				Count.prototype._fetchCount.restore();
 			});
 		});
 
 		describe("when element does not exist", () => {
 			it("will throw an error", () => {
-				assert.throws(() => new CommentCount(), 'Element must be a HTMLElement');
+				assert.throws(() => new Count(), 'Element must be a HTMLElement');
 			});
 		});
 
 		describe("when element does not exist in the DOM", () => {
 			it("will throw an error", () => {
 				const element = document.createElement('div');
-				element.innerHTML = '<div data-o-component="o-comments-count"></div>';
-				const mockCountElement = element.querySelector('[data-o-comments-count-article-id="id"]');
+				const mockCountEl = element.querySelector('[data-o-comments-article-id="id"]');
 
-				assert.throws(() => new CommentCount(mockCountElement), 'Element must be a HTMLElement');
+				assert.throws(() => new Count(mockCountEl), 'Element must be a HTMLElement');
 			});
 		});
 	});
