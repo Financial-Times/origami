@@ -1,9 +1,11 @@
-o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
-A component, integrated with FT authentication and user data services, to add comments to content.
+A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.
 
 - [Markup](#markup)
+	- [Stream](#stream)
+	- [Count](#count)
 - [JavaScript](#javascript)
 	- [Interface](#interface)
 	- [Events](#events)
@@ -14,29 +16,57 @@ A component, integrated with FT authentication and user data services, to add co
 - [Contact](#contact)
 - [Licence](#licence)
 
-### Markup
+## Markup
 
-Use the following markup to enable comments:
+These elements will be initialized automatically on the `o.DOMContentReady` event meaning you're unable to defer component initialisation.
+
+### Stream
+
+Use the following markup to enable a comment stream:
 
 ```html
-<div class="o-comments" data-o-component="o-comments">
+<div class="o-comments"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}">
 </div>
 ```
 
-This element will be initialized automatically on the `o.DOMContentReady` event meaning you're unable to defer component initialisation.
+### Count
 
-### JavaScript
+Add the following attribute to the markup to enable a comment count:
 
-No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
+```diff
+<div class="o-comments"
+	data-o-component="o-comments"
++	data-o-comments-count
+	data-o-comments-article-id="{article-id}">
+</div>
+```
 
-#### Constructing an o-comments
+## JavaScript
+
+No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
+
+### Constructing an o-comments
+
+Assuming you have an HTML element on the page to represent your comment stream or count:
+
+```js
+const oComments = require('o-comments');
+const commentsElement = document.querySelector('#element');
+const Comments = new oComments(commentsElement, {
+	articleId: 'article-id'
+})
+```
+
+If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 
 ```js
 const oComments = require('o-comments');
 oComments.init();
 ```
 
-#### Firing an oDomContentLoaded event
+### Firing an oDomContentLoaded event
 
 ```js
 require('o-comments');
@@ -46,9 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-#### Interface
+### Interface
 
-##### .on(eventName, callback)
+#### .on(eventName, callback)
 
 - `eventName` - *required*
 - `callBack` - *required*
@@ -65,8 +95,7 @@ Comments.on('o-comments.ready', (event) => {
 
 ```
 
-
-#### Events
+### Events
 
 Events are emitted during key events and can be listened to using the [`.on` interface](#on) or by listening for events on the document.
 
@@ -76,13 +105,13 @@ document.addEventListener('o-comments.ready', (event) => {
 });
 ```
 
-##### Global / Component
+#### Global / Component
 
 These events are anything to do with the component itself.
 
 - **o-comments.ready** - Emitted when the component has finished rendering and is ready for the user to interact with comments
 
-##### Comment
+#### Comment
 
 These events are anything to do with comment interactions.
 
@@ -91,7 +120,7 @@ These events are anything to do with comment interactions.
 - **o-comments.comment.edited** - Emitted when a user has successfully edited their existing comment.
 - **o-comments.comment.liked** - Emitted when a users has liked a comment
 
-### Sass
+## Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
 
 As with all Origami components, o-comments has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-comments-is-silent : false;` in your Sass before you import the o-comments Sass.
