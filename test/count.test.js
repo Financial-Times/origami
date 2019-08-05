@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 import * as assert from 'proclaim';
 import * as fixtures from './helpers/fixtures';
+import fetchMock from 'fetch-mock';
 import sinon from 'sinon/pkg/sinon';
 import Count from '../src/js/count';
 
@@ -85,6 +86,40 @@ describe("Count", () => {
 				const mockCountEl = element.querySelector('[data-o-comments-article-id="id"]');
 
 				assert.throws(() => new Count(mockCountEl), 'Element must be a HTMLElement');
+			});
+		});
+	});
+
+	describe("._fetchCount()", () => {
+		afterEach(() => {
+				fetchMock.reset();
+		});
+
+		describe("when the API returns a valid JSON", () => {
+			beforeEach(() => {
+				fetchMock.mock('https://comments-api.ft.com/story/count/article-id', {
+					commentCount: 10
+				});
+			});
+
+			it("returns the comment count", () => {
+				return Count.prototype._fetchCount('article-id')
+					.then(count => assert.equal(count, 10));
+			});
+		});
+
+		describe("when the API responds with an error", () => {
+			beforeEach(() => {
+				fetchMock.mock('https://comments-api.ft.com/story/count/article-id', 500)
+			});
+
+			it("will throw an error", () => {
+				return Count.prototype._fetchCount('article-id')
+					.then(() => {
+						throw new Error('This should never happen, its just here to make sure the .then is never entered');
+					}).catch((error) => {
+						assert.include(error.message, 'Error with fetching comment count:');
+					});
 			});
 		});
 	});

@@ -27,9 +27,8 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		const count = this._fetchCount(this.articleId);
-
-		this.countEl.innerHTML = count;
+		this._fetchCount(this.articleId)
+			.then(count => this.countEl.innerHTML = count);
 	}
 
 	/**
@@ -66,11 +65,14 @@ class Count {
 	}
 
 	_fetchCount (id) {
-		/*
- 		 * This will be replaced by an API call eventually
- 		 */
+		const url = `https://comments-api.ft.com/story/count/${id}`;
 
-		return id === 'invalid-id' ? null : Math.floor(Math.random() * 10) + 1;
+		return fetch(url)
+			.then(res => res.json())
+			.then(json => json.commentCount)
+			.catch(error => {
+				throw new Error(`Error with fetching comment count: ${error.message}`)
+			});
 	}
 }
 
