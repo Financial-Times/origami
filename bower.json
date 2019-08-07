@@ -11,5 +11,11 @@
   "main": [
     "main.scss",
     "main.js"
-  ]
+  ],
+  "dependencies": {
+    "o-buttons": "^5.16.6",
+    "o-colors": "^4.9.0",
+    "o-fonts": "^3.3.2",
+    "o-typography": "^5.12.0"
+  }
 }

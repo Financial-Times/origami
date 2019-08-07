@@ -3,12 +3,8 @@
 @import 'src/scss/mixins';
 
 @if ($o-comments-is-silent == false) {
-	@include oComments();
+	@include oComments;
 
 	// Set to silent again to avoid being output twice
 	$o-comments-is-silent: true !global;
-
-	.talk-plugin-infobox-info {
-		background: pink;
-	}
-}
+};

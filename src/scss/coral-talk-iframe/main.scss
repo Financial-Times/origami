@@ -1,0 +1,156 @@
+/*
+ * NOTE:
+ * This file is used to apply our custom theme to Coral
+ * Talk V5 service.
+ *
+ * The stylesheet is built by the Origami Build Service
+ * and the URL for the CSS file is used in Coral Talk
+ * admin panel as the custom CSS URL.
+ *
+ * This is not a normal use case of Origami styles.
+ */
+
+// sass-lint:disable no-qualifying-elements nesting-depth no-important class-name-format
+@import 'o-buttons/main';
+@import 'o-fonts/main';
+@import 'o-colors/main';
+@import 'o-typography/main';
+
+:root {
+	--font-family-sans-serif: #{inspect($o-typography-sans)};
+	--font-family-serif: #{inspect($o-typography-display)};
+
+
+	// primary text color
+	--palette-text-primary: #{inspect(oColorsGetPaletteColor('black-80'))};
+
+
+	// error message (ex: edit time has expired)
+	// background
+	--palette-error-light: #{inspect(oColorsGetPaletteColor('claret-80'))};
+	// border-left
+	--palette-error-darkest: #{inspect(oColorsGetPaletteColor('claret-70'))};
+
+
+	// community guidelines box
+	// background
+	--palette-primary-lightest: #{inspect(oColorsGetPaletteColor('wheat'))};
+	// border
+	--palette-primary-light: #{inspect(oColorsGetPaletteColor('wheat'))};
+
+
+	// apply button in configure tab
+	--palette-success-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+	--palette-success-light: #{inspect(oColorsGetPaletteColor('teal-60'))};
+
+
+	// stream section selected tab item, selected item count badge
+	--palette-primary-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+
+
+	// stream section unselected tab comment count badge
+	// blockquote background
+	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('wheat'))};
+
+
+	// stream section tab bar divider
+	--palette-divider: #{inspect(oColorsGetPaletteColor('teal-50'))};
+
+
+	// respect, reply, share, report
+	--palette-grey-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+
+
+	// report button "reported" state
+	--palette-error-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+
+
+	// moderation drop down
+	// "Approved" button (approve button state)
+	--palette-success-dark: #{inspect(oColorsGetPaletteColor('black'))};
+	// "Un Feature" button (feature button state)
+	--palette-primary-dark: #{inspect(oColorsGetPaletteColor('black'))};
+}
+
+// Mainly for the links in the community guidelines box
+a {
+	@include oTypographyLink;
+}
+
+// remove divider of the top tab bar
+.coral-tabBar {
+	border-bottom-width: 0;
+}
+
+// top tab bar buttons
+.coral-tabBar-allComments,
+.coral-tabBar-myProfile,
+.coral-tabBar-configure	{
+	@include oButtons;
+
+	border-width: 1px;
+
+	// normally, these should come for free with oButtons mixin
+	// but we have to declare this explicitly here because
+	// Coral styles override our styles for some reason
+	&[aria-selected=true],
+	&[aria-pressed=true],
+	&[aria-current] {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		border-top: 1px !important;
+		border-bottom: 1px !important;
+	}
+}
+
+// post comment buttons
+.coral-createComment-submit,
+.coral-commentReply-submit,
+.coral-createComment-signIn {
+	@include oButtons;
+
+	// normally, these should come for free with oButtons mixin
+	// but we have to declare this explicitly here because
+	// Coral styles override our styles for some reason
+	color: oButtonsGetColor('', 'color', 'primary') !important;
+	background-color: oButtonsGetColor('', 'background', 'primary') !important;
+	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+}
+
+// spacing and divider between comments
+.coral-comment {
+	padding-bottom: 6px;
+	padding-top: 10px;
+	border-bottom: solid 1px oColorsGetPaletteColor('black-20');
+}
+
+// comment author
+.coral-comment-username {
+	@include oTypographyAuthor;
+
+	&:hover {
+		color: oColorsGetPaletteColor('black');
+	}
+}
+
+// xx hours ago
+.coral-comment-timestamp {
+	@include oTypographyTimestamp;
+	font-weight: lighter !important;
+	margin-bottom: 0;
+	color: oColorsGetPaletteColor('black-50');
+}
+
+// "staff" tag
+.coral-comment-userTag {
+	background-color: oColorsGetPaletteColor('claret-70');
+	color: oColorsGetPaletteColor('white');
+}
+
+// "featured comment" tag
+.coral-comment-commentTag {
+	background-color: oColorsGetPaletteColor('black') !important;
+	color: oColorsGetPaletteColor('white') !important;
+	border-radius: 0;
+}
