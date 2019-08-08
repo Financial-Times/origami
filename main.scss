@@ -88,4 +88,5 @@
 
 @if ($o-overlay-is-silent == false) {
 	@include oOverlayIncludeAll();
+	$o-overlay-is-silent: true !global;
 }
