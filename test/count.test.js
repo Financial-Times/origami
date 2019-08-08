@@ -10,7 +10,7 @@ sinon.assert.expose(assert, {
 	prefix: ''
 });
 
-describe("Count", () => {
+describe.only("Count", () => {
 	it("is defined", () => {
 		assert.isFunction(Count);
 		assert.throws(Count, TypeError);
@@ -62,13 +62,13 @@ describe("Count", () => {
 	describe(".renderCount()", () => {
 		describe("when element exists", () => {
 			beforeEach(() => {
-				sinon.stub(Count.prototype, 'fetchCount').resolves(10);
+				sinon.stub(Count, 'fetchCount').resolves(10);
 				fixtures.countMarkup();
 			});
 
 			afterEach(() => {
 				fixtures.reset();
-				Count.prototype.fetchCount.restore();
+				Count.fetchCount.restore();
 			});
 
 			it("renders the count within the element", () => {
@@ -84,12 +84,7 @@ describe("Count", () => {
 			it("will throw an error", () => {
 				const count = new Count();
 
-				return count.renderCount()
-					.then(() => {
-						throw new Error('This should never happen, its just here to make sure the .then is never entered');
-					}).catch((error) => {
-						assert.equal(error.message, "Element must be a HTMLElement");
-					});
+				assert.throws(() => count.renderCount());
 			});
 		});
 
@@ -99,12 +94,7 @@ describe("Count", () => {
 				const mockCountEl = element.querySelector('[data-o-comments-article-id="id"]');
 				const count = new Count(mockCountEl);
 
-				return count.renderCount()
-					.then(() => {
-						throw new Error('This should never happen, its just here to make sure the .then is never entered');
-					}).catch((error) => {
-						assert.equal(error.message, "Element must be a HTMLElement");
-					});
+				assert.throws(() => count.renderCount());
 			});
 		});
 	});
@@ -122,7 +112,7 @@ describe("Count", () => {
 			});
 
 			it("returns the comment count", () => {
-				return Count.prototype.fetchCount('article-id')
+				return Count.fetchCount('article-id')
 					.then(count => assert.equal(count, 10));
 			});
 		});
@@ -133,7 +123,7 @@ describe("Count", () => {
 			});
 
 			it("will throw an error", () => {
-				return Count.prototype.fetchCount('article-id')
+				return Count.fetchCount('article-id')
 					.then(() => {
 						throw new Error('This should never happen, its just here to make sure the .then is never entered');
 					}).catch((error) => {

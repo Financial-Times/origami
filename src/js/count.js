@@ -26,7 +26,7 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		return this.fetchCount(this.articleId)
+		return Count.fetchCount(this.articleId)
 			.then((count) => {
 				this.countEl.innerHTML = count;
 			});
@@ -65,7 +65,7 @@ class Count {
 		}, {});
 	}
 
-	fetchCount (id) {
+	static fetchCount (id) {
 		const url = `https://comments-api.ft.com/story/count/${id}`;
 
 		return fetch(url)
