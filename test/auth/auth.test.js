@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import fetchMock from 'fetch-mock';
 
-import {getJsonWebToken} from '../..//src/js/utils/auth';
+import {getJsonWebToken} from '../../src/js/utils/auth';
 
 describe("Auth", () => {
 	describe("getJsonWebToken", () => {

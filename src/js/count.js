@@ -9,7 +9,6 @@ class Count {
 		this.countEl = countEl;
 		this.options = Object.assign({}, {}, opts || Count.getDataAttributes(countEl));
 		this.articleId = this.options.articleId;
-		this._renderCount();
 	}
 
 	/**
@@ -18,7 +17,7 @@ class Count {
 	 * @access private
 	 * @returns {HTMLElement}
 	 */
-	_renderCount () {
+	renderCount () {
 		if (this.countEl && !(this.countEl instanceof HTMLElement)) {
 			this.countEl = document.querySelector(this.countEl);
 		}
@@ -27,8 +26,10 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		this._fetchCount(this.articleId)
-			.then(count => this.countEl.innerHTML = count);
+		return this.fetchCount(this.articleId)
+			.then((count) => {
+				this.countEl.innerHTML = count;
+			});
 	}
 
 	/**
@@ -64,14 +65,14 @@ class Count {
 		}, {});
 	}
 
-	_fetchCount (id) {
+	fetchCount (id) {
 		const url = `https://comments-api.ft.com/story/count/${id}`;
 
 		return fetch(url)
 			.then(res => res.json())
 			.then(json => json.commentCount)
 			.catch(error => {
-				throw new Error(`Error with fetching comment count: ${error.message}`)
+				throw new Error(`Error with fetching comment count: ${error.message}`);
 			});
 	}
 }

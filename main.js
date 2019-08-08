@@ -6,7 +6,8 @@ class Comments {
 		document.addEventListener('o.DOMContentLoaded', this.constructAll);
 
 		if (rootEl.hasAttribute('data-o-comments-count')) {
-			new Count(rootEl, opts);
+			const count = new Count(rootEl, opts);
+			count.renderCount();
 		} else {
 			new Stream(rootEl, opts);
 		}
