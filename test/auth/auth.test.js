@@ -131,13 +131,19 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("throws an error", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then(() => {
-						throw new Error('This should never happen, its just here to make sure the .then is never entered');
-					}).catch((error) => {
-						proclaim.equal(error.message, "Bad response from the authentication service");
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
+			});
+
+			it("resolves with userIsSignedIn false", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.isFalse(result.userIsSignedIn));
 			});
 		});
 	});
