@@ -28,7 +28,7 @@ class Count {
 
 		return Count.fetchCount(this.articleId)
 			.then((count) => {
-				this.countEl.innerHTML = count;
+				this.countEl.textContent = count;
 			});
 	}
 

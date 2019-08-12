@@ -10,7 +10,7 @@ sinon.assert.expose(assert, {
 	prefix: ''
 });
 
-describe.only("Count", () => {
+describe("Count", () => {
 	it("is defined", () => {
 		assert.isFunction(Count);
 		assert.throws(Count, TypeError);
