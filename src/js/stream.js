@@ -32,7 +32,7 @@ class Stream {
 				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
 				scriptElement.onload = () => Coral.createStreamEmbed(
 					{
-						id: 'comments',
+						id: 'o-comments-stream',
 						rootURL: 'https://ft.staging.coral.coralproject.net',
 						autoRender: true,
 						accessToken: jwtResponse.token,

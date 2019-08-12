@@ -26,7 +26,7 @@ Use the following markup to enable a comment stream:
 
 ```html
 <div class="o-comments"
-	id="comments"
+	id="o-comments-stream"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}">
 </div>
@@ -39,7 +39,7 @@ Add the following attribute to the markup to enable a comment count:
 
 ```diff
 <div class="o-comments"
--	id="comments"
+-	id="o-comments-stream"
 	data-o-component="o-comments"
 +	data-o-comments-count
 	data-o-comments-article-id="{article-id}">
