@@ -33,7 +33,7 @@ class Comments {
 		return Array.from(rootEl.querySelectorAll('[data-o-component="o-comments"]'), rootEl => new Comments(rootEl, opts));
 	}
 
-	constructAll () {
+	static constructAll () {
 		Comments.init();
 		document.removeEventListener('o.DOMContentLoaded', this.constructAll);
 	}
