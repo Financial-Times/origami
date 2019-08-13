@@ -31,7 +31,7 @@ Use the following markup to enable a comment stream:
 	data-o-comments-article-id="{article-id}">
 </div>
 ```
-The comment stream is embedded in the element with a `comments` id attribute.
+The comment stream is embedded in the element with a `o-comments-stream` id attribute.
 
 ### Count
 
@@ -41,10 +41,12 @@ Add the following attribute to the markup to enable a comment count:
 <div class="o-comments"
 -	id="o-comments-stream"
 	data-o-component="o-comments"
-+	data-o-comments-count
-	data-o-comments-article-id="{article-id}">
+	data-o-comments-article-id="{article-id}"
++	data-o-comments-count="true">
 </div>
 ```
+
+The comment count is rendered when the `data-o-comments-count` attribute value is `true`.
 
 ## JavaScript
 

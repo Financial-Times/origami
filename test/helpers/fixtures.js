@@ -20,17 +20,27 @@ function insert(html) {
 }
 
 function streamMarkup () {
-	const html = `<div>
-		<div data-o-component="o-comments" data-o-comments-article-id="id"></div>
-	</div>
+	const html = `
+		<div>
+			<div class="o-comments"
+				id="o-comments-stream"
+				data-o-component="o-comments"
+				data-o-comments-article-id="id">
+			</div>
+		</div>
 	`;
 	insert(html);
 }
 
 function countMarkup () {
-	const html = `<div>
-		<div data-o-component="o-comments" data-o-comments-count data-o-comments-article-id="id"></div>
-	</div>
+	const html = `
+		<div>
+			<div class="o-comments"
+				data-o-component="o-comments"
+				data-o-comments-article-id="id"
+				data-o-comments-count="true">
+			</div>
+		</div>
 	`;
 	insert(html);
 }
