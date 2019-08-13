@@ -16,49 +16,6 @@ describe("Count", () => {
 		assert.throws(Count, TypeError);
 	});
 
-	describe("new Count(countEl, opts)", () => {
-		let mockDataAttributeOptions;
-		let mockCountEl;
-		let count;
-
-		beforeEach(() => {
-			mockDataAttributeOptions = {
-				isMockDataAttributeOptions: true
-			};
-			sinon.stub(Count, 'getDataAttributes').returns(mockDataAttributeOptions);
-			fixtures.countMarkup();
-
-			mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
-			count = new Count(mockCountEl);
-		});
-
-		afterEach(() => {
-			fixtures.reset();
-			Count.getDataAttributes.restore();
-		});
-
-		it("fetches options set via HTML data attributes", () => {
-			assert.calledOnce(Count.getDataAttributes);
-			assert.calledWithExactly(Count.getDataAttributes, mockCountEl);
-		});
-
-		describe(".options", () => {
-			it("is a defaulted options object", () => {
-				assert.isObject(count.options);
-				assert.deepEqual(count.options, {
-					isMockDataAttributeOptions: true
-				});
-				assert.notStrictEqual(count.options, mockDataAttributeOptions);
-			});
-		});
-
-		describe(".countEl", () => {
-			it("is set to the `countElement` that was passed into the constructor", () => {
-				assert.strictEqual(count.countEl, mockCountEl);
-			});
-		});
-	});
-
 	describe(".renderCount()", () => {
 		describe("when element exists", () => {
 			beforeEach(() => {
@@ -73,7 +30,9 @@ describe("Count", () => {
 
 			it("renders the count within the element", () => {
 				const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
-				const count = new Count(mockCountEl);
+				const count = new Count(mockCountEl, {
+					articleId: 'id'
+				});
 
 				return count.renderCount()
 					.then(() => assert.equal(count.countEl.innerHTML, 10));
@@ -81,8 +40,12 @@ describe("Count", () => {
 		});
 
 		describe("when element does not exist", () => {
+			let mockCountEl;
+
 			it("will throw an error", () => {
-				const count = new Count();
+				const count = new Count(mockCountEl, {
+					articleId: 'id'
+				});
 
 				assert.throws(() => count.renderCount());
 			});
@@ -92,7 +55,9 @@ describe("Count", () => {
 			it("will throw an error", () => {
 				const element = document.createElement('div');
 				const mockCountEl = element.querySelector('[data-o-comments-article-id="id"]');
-				const count = new Count(mockCountEl);
+				const count = new Count(mockCountEl, {
+					articleId: 'id'
+				});
 
 				assert.throws(() => count.renderCount());
 			});

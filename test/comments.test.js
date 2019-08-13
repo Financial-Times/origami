@@ -17,46 +17,83 @@ describe("Comments", () => {
 	});
 
 	describe("new Comments(rootEl, opts)", () => {
-		describe("when 'data-o-comments-count' is set to true", () => {
-			let count;
+		describe(".options", () => {
+			let mockDataAttributeOptions;
+			let sandbox;
+			let mockRootEl;
+			let comments;
 
 			beforeEach(() => {
-				count = sinon.stub(Count.prototype, 'renderCount').callsFake(() => true);
+				mockDataAttributeOptions = {
+					isMockDataAttributeOptions: true
+				};
+				sandbox = sinon.createSandbox();
+				sandbox.stub(Comments, 'getDataAttributes').returns(mockDataAttributeOptions);
+				sandbox.stub(Count.prototype, 'renderCount').callsFake(() => true);
+
 				fixtures.countMarkup();
 
-				const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
-				new Comments(mockRootEl);
+				mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
+				comments = new Comments(mockRootEl);
 			});
 
 			afterEach(() => {
 				fixtures.reset();
-				count.restore();
+				sandbox.restore();
 			});
 
-			it("calls new Count", () => {
-				assert.called(count);
+			it("fetches options set via HTML data attributes", () => {
+				assert.calledOnce(Comments.getDataAttributes);
+				assert.calledWithExactly(Comments.getDataAttributes, mockRootEl);
+			});
+
+			it("is a defaulted options object", () => {
+				assert.isObject(comments.options);
+				assert.deepEqual(comments.options, {
+					isMockDataAttributeOptions: true
+				});
+				assert.notStrictEqual(comments.options, mockDataAttributeOptions);
 			});
 		});
+	});
 
-		describe("when 'data-o-comments-count' is set to false", () => {
-			let stream;
+	describe("when 'data-o-comments-count' is set to true", () => {
+		let count;
 
-			beforeEach(() => {
-				stream = sinon.stub(Stream.prototype, '_renderComments').callsFake(() => true);
-				fixtures.streamMarkup();
+		beforeEach(() => {
+			count = sinon.stub(Count.prototype, 'renderCount').callsFake(() => true);
+			fixtures.countMarkup();
+			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
+			new Comments(mockRootEl);
+		});
 
-				const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
-				new Comments(mockRootEl);
-			});
+		afterEach(() => {
+			fixtures.reset();
+			count.restore();
+		});
 
-			afterEach(() => {
-				fixtures.reset();
-				stream.restore();
-			});
+		it("calls new Count", () => {
+			assert.called(count);
+		});
+	});
 
-			it("calls new Stream", () => {
-				assert.called(stream);
-			});
+	describe("when 'data-o-comments-count' is set to false", () => {
+		let stream;
+
+		beforeEach(() => {
+			stream = sinon.stub(Stream.prototype, '_renderComments').callsFake(() => true);
+			fixtures.streamMarkup();
+			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
+			new Comments(mockRootEl);
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+			stream.restore();
+		});
+
+		it("calls new Stream", () => {
+			assert.called(stream);
 		});
 	});
 });

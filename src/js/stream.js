@@ -10,7 +10,7 @@ class Stream {
 	 */
 	constructor (streamEl, opts) {
 		this.streamEl = streamEl;
-		this.options = Object.assign({}, {}, opts || Stream.getDataAttributes(streamEl));
+		this.options = opts;
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
@@ -60,39 +60,6 @@ class Stream {
 				console.error(`Unable to authenticate user: ${error}`);
 				document.dispatchEvent(new Event('oCommentsFailed'));
 			});
-	}
-
-	/**
-	 * Get the data attributes from the StreamElement. If the component is being set up
-	 * declaratively, this method is used to extract the data attributes from the DOM.
-	 *
-	 * @param {HTMLElement} streamEl - The component element in the DOM
-	 * @returns {Object} - Data attributes as an object
-	 */
-	static getDataAttributes (streamEl) {
-		if (!(streamEl instanceof HTMLElement)) {
-			return {};
-		}
-		return Object.keys(streamEl.dataset).reduce((options, key) => {
-
-			// Ignore data-o-component
-			if (key === 'oComponent') {
-				return options;
-			}
-
-			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
-			const value = streamEl.dataset[key];
-
-			// Try parsing the value as JSON, otherwise just set it as a string
-			try {
-				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
-			} catch (error) {
-				options[shortKey] = value;
-			}
-
-			return options;
-		}, {});
 	}
 
 	/**

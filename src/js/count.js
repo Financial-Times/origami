@@ -7,8 +7,7 @@ class Count {
 	 */
 	constructor (countEl, opts) {
 		this.countEl = countEl;
-		this.options = Object.assign({}, {}, opts || Count.getDataAttributes(countEl));
-		this.articleId = this.options.articleId;
+		this.articleId = opts.articleId;
 	}
 
 	/**
@@ -30,39 +29,6 @@ class Count {
 			.then((count) => {
 				this.countEl.textContent = count;
 			});
-	}
-
-	/**
-	 * Get the data attributes from the CountElement. If the component is being set up
-	 * declaratively, this method is used to extract the data attributes from the DOM.
-	 *
-	 * @param {HTMLElement} countEl - The component element in the DOM
-	 * @returns {Object} - Data attributes as an object
-	 */
-	static getDataAttributes (countEl) {
-		if (!(countEl instanceof HTMLElement)) {
-			return {};
-		}
-		return Object.keys(countEl.dataset).reduce((options, key) => {
-
-			// Ignore data-o-component
-			if (key === 'oComponent') {
-				return options;
-			}
-
-			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
-			const value = countEl.dataset[key];
-
-			// Try parsing the value as JSON, otherwise just set it as a string
-			try {
-				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
-			} catch (error) {
-				options[shortKey] = value;
-			}
-
-			return options;
-		}, {});
 	}
 
 	static fetchCount (id) {

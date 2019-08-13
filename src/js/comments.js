@@ -3,14 +3,48 @@ import Count from './count';
 
 class Comments {
 	constructor (rootEl, opts) {
+		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(rootEl));
 		const isCount = rootEl.getAttribute('data-o-comments-count') === 'true';
 
 		if (isCount) {
-			const count = new Count(rootEl, opts);
+			const count = new Count(rootEl, this.options);
 			count.renderCount();
 		} else {
-			new Stream(rootEl, opts);
+			new Stream(rootEl, this.options);
 		}
+	}
+
+	/**
+	 * Get the data attributes from the element. If the component is being set up
+	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
+	 * @param {HTMLElement} rootEl - The component element in the DOM
+	 * @returns {Object} - Data attributes as an object
+	 */
+	static getDataAttributes (rootEl) {
+		if (!(rootEl instanceof HTMLElement)) {
+			return {};
+		}
+		return Object.keys(rootEl.dataset).reduce((options, key) => {
+
+			// Ignore data-o-component
+			if (key === 'oComponent') {
+				return options;
+			}
+
+			// Build a concise key and get the option value
+			const shortKey = key.replace(/^oComments(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
+			const value = rootEl.dataset[key];
+
+			// Try parsing the value as JSON, otherwise just set it as a string
+			try {
+				options[shortKey] = JSON.parse(value.replace(/\'/g, '"'));
+			} catch (error) {
+				options[shortKey] = value;
+			}
+
+			return options;
+		}, {});
 	}
 
 	/**
