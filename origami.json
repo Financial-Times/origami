@@ -1,13 +1,17 @@
 {
-	"description": "component description",
-	"keywords": [],
+	"description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
+	"keywords": [
+		"comments",
+		"stream",
+		"count"
+	],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-comments/issues",
 	"supportContact": {
-		"email": "YOUR-TEAM@ft.com",
-		"slack": "financialtimes/YOUR-SLACK-CHANNEL"
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {
@@ -21,17 +25,24 @@
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-comments"
 	},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
+		"data": "demos/src/data/data.json",
 		"documentClasses": "",
 		"dependencies": ""
 	},
 	"demos": [
 		{
-			"title": "A Useful Demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
-			"description": "Description of the demo"
+			"title": "Comments Stream",
+			"name": "comments-stream",
+			"template": "demos/src/stream.mustache",
+			"sass": "demos/src/stream.scss",
+			"description": "Comments stream on an article page"
+		},
+		{
+			"title": "Comments Count",
+			"name": "comments-count",
+			"template": "demos/src/count.mustache",
+			"description": "Comments count on an article or stream page"
 		}
 	]
 }
