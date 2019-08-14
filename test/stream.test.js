@@ -1,57 +1,39 @@
 /* eslint-env mocha */
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
+import Stream from '../src/js/stream';
+import * as auth from '../src/js/utils/auth';
 import * as fixtures from './helpers/fixtures';
 
-import OComments from '../main';
-import * as auth from '../src/js/utils/auth';
-
-describe("OComments", () => {
+describe("Stream", () => {
 	it("is defined", () => {
-		proclaim.equal(typeof OComments, 'function');
-	});
-
-	it("has a static init method", () => {
-		proclaim.equal(typeof OComments.init, 'function');
-	});
-
-	it("should autoinitialize", (done) => {
-		const initSpy = sinon.spy(OComments, 'init');
-		document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-		setTimeout(function(){
-			proclaim.equal(initSpy.called, true);
-			initSpy.restore();
-			done();
-		}, 100);
-	});
-
-	it("should not autoinitialize when the event is not dispached", () => {
-		const initSpy = sinon.spy(OComments, 'init');
-		proclaim.equal(initSpy.called, false);
+		proclaim.equal(typeof Stream, 'function');
 	});
 
 	describe("when an authentication token is passed in", () => {
 		const sandbox = sinon.sandbox.create();
 		let comments;
-		let rootElement;
-		let scriptElement;
+		let mockStreamEl;
+		let rootEl;
+		let scriptEl;
 		let oCommentsReadyListener;
 
-		before((done) => {
+		beforeEach((done) => {
 			sandbox.stub(auth, 'getJsonWebToken').resolves('fake-json-web-token');
 			oCommentsReadyListener = () => {
-				rootElement = comments.oCommentsEl;
-				scriptElement = rootElement.querySelector('script');
+				rootEl = comments.streamEl;
+				scriptEl = rootEl.querySelector('script');
 				done();
 			};
 
 			document.addEventListener('oCommentsReady', oCommentsReadyListener);
 
-			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			fixtures.streamMarkup();
+			mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			comments = new Stream(mockStreamEl);
 		});
 
-		after(() => {
+		afterEach(() => {
 			sandbox.restore();
 			document.removeEventListener('oCommentsReady', oCommentsReadyListener);
 			fixtures.reset();
@@ -59,15 +41,15 @@ describe("OComments", () => {
 
 		describe("._renderComments", () => {
 			it("creates a script element", () => {
-				proclaim.isNotNull(scriptElement);
+				proclaim.isNotNull(scriptEl);
 			});
 
 			it("sets the source to `embed.js`", () => {
-				proclaim.include(scriptElement.src, 'embed.js');
+				proclaim.include(scriptEl.src, 'embed.js');
 			});
 
 			it("sets an `onload` attribute", () => {
-				const onloadAttribute = scriptElement.onload;
+				const onloadAttribute = scriptEl.onload;
 				proclaim.isNotNull(onloadAttribute);
 				proclaim.isFunction(onloadAttribute);
 			});
@@ -77,42 +59,46 @@ describe("OComments", () => {
 	describe("when an authentication fails", () => {
 		const sandbox = sinon.sandbox.create();
 		let comments;
-		let rootElement;
-		let scriptElement;
+		let mockStreamEl;
+		let rootEl;
+		let scriptEl;
 		let oCommentsReadyListener;
 
-		before((done) => {
+		beforeEach((done) => {
 			sandbox.stub(auth, 'getJsonWebToken').rejects(new Error());
 			oCommentsReadyListener = () => {
-				rootElement = comments.oCommentsEl;
-				scriptElement = rootElement.querySelector('script');
+				rootEl = comments.streamEl;
+				scriptEl = rootEl.querySelector('script');
 				done();
 			};
 
 			document.addEventListener('oCommentsFailed', oCommentsReadyListener);
 
-			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			fixtures.streamMarkup();
+			mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			comments = new Stream(mockStreamEl);
 		});
 
-		after(() => {
+		afterEach(() => {
 			document.removeEventListener('oCommentsFailed', oCommentsReadyListener);
 			sandbox.restore();
 			fixtures.reset();
 		});
 
 		it("won't create a script element", () => {
-			proclaim.isNull(scriptElement);
+			proclaim.isNull(scriptEl);
 		});
 	});
 
 	describe(".on", () => {
 		let comments;
+		let mockStreamEl;
 		let eventWasEmitted;
 
 		beforeEach(() => {
-			fixtures.htmlCode();
-			comments = OComments.init('#element');
+			fixtures.streamMarkup();
+			mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			comments = new Stream(mockStreamEl);
 			eventWasEmitted = false;
 		});
 
@@ -271,7 +257,6 @@ describe("OComments", () => {
 					proclaim.isTrue(errorCalled);
 					proclaim.isTrue(eventCalled);
 				});
-
 			});
 		});
 	});
