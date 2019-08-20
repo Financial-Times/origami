@@ -433,6 +433,51 @@ describe("BaseTable", () => {
 		});
 	});
 
+	describe('updateRows', () => {
+		const headerIndex = 0;
+		const sortOrder = 'descending';
+		const data = ['Apple', 'Durian', 'Naseberry', 'Strawberry', 'Dragonfruit'];
+		const cloneData = data[0];
+		beforeEach((done) => {
+			sandbox.init();
+			// Create table.
+			oTableEl = getTableElementWithData('', data);
+			// Clone the first "Apple" row.
+			const trClone = oTableEl.querySelector('tbody > tr:first-of-type').cloneNode({ deep: true });
+			table = new BaseTable(oTableEl, sorter);
+			// Sort.
+			table.sortRowsByColumn(headerIndex, sortOrder);
+			// Filter.
+			table.filter(headerIndex, cloneData);
+			setTimeout(() => {
+				// Table initialised and rendered.
+				// Add a new "Apple" row.
+				table.tbody.appendChild(trClone);
+				data.push(cloneData);
+				done();
+			}, 100); // wait for window.requestAnimationFrame
+		});
+
+		it('applies an existing filter to any row inserted after it was initialised', (done) => {
+			// Tell o-table the rows have updated.
+			table.updateRows();
+			setTimeout(() => {
+				// The filter includes the original Apple row and the clone
+				// added after the table was initialised.
+				done(assertFilter(data, [cloneData, cloneData]));
+			}, 100); // wait for window.requestAnimationFrame
+		});
+
+		it('applies an existing sort to any row inserted after it was initialised', (done) => {
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+			// Tell o-table the rows have updated.
+			table.updateRows();
+			setTimeout(() => {
+				done(proclaim.isTrue(sorterSpy.calledWith(table, headerIndex, sortOrder)));
+			}, 100); // wait for window.requestAnimationFrame
+		});
+	});
+
 	describe('destroy', () => {
 
 		beforeEach(() => {

@@ -40,7 +40,7 @@ class OverflowTable extends BaseTable {
 	 */
 	filter(headerIndex, filter) {
 		this._filterRowsByColumn(headerIndex, filter);
-		this.updateRows();
+		this.renderRowUpdates();
 	}
 
 	/**
@@ -73,11 +73,11 @@ class OverflowTable extends BaseTable {
 	}
 
 	/**
-	* Update table rows.
-	*
-	* @returns {undefined}
-	*/
-	updateRows() {
+	 * Updates the dom to account for row updates.
+	 *
+	 * @returns {undefined}
+	 */
+	renderRowUpdates() {
 		this._updateExpander();
 		this._updateRowAriaHidden();
 		this._hideFilteredRows();

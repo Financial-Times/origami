@@ -14,14 +14,14 @@ class FlatTable extends BaseTable {
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		super(rootEl, sorter, opts);
+		// Duplicate row headings before adding sort buttons.
+		this._tableHeadersWithoutSort = this.tableHeaders.map(header => header.cloneNode(true));
 		// Flat table can only work given headers.
 		if (this.tableHeaders.length <= 0) {
 			console.warn('Could not create a "flat" table as no headers were found. Ensure table headers are placed within "<thead>". Removing class "o-table--responsive-flat".', rootEl);
 			rootEl.classList.remove('o-table--responsive-flat');
 		} else {
-			// Setup flat table structure immediately.
-			// Before adding sort buttons.
-			this._createFlatTableStructure(rootEl);
+			this._createFlatTableStructure();
 		}
 		// Defer other tasks.
 		window.setTimeout(this.addSortButtons.bind(this), 0);
@@ -30,29 +30,52 @@ class FlatTable extends BaseTable {
 	}
 
 	/**
+	 * Update the o-table instance with rows added dynamically to the table.
+	 *
+	 * @returns {undefined}
+	 */
+	updateRows() {
+		// Update new rows to support the flat structure.
+		const latestRows = this._getLatestRowNodes();
+		this._createFlatTableStructure(latestRows);
+		// Update row visibility, sort, etc.
+		super.updateRows();
+	}
+
+	/**
+	 * Get all the table body's current row nodes, without nodes duplicated for
+	 * the responsive "flat" style
+	 *
+	 * @returns {Array<Node>}
+	 * @access private
+	 */
+	_getLatestRowNodes() {
+		return this.tbody ? Array.from(this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')) : [];
+	}
+
+	/**
 	 * Duplicate table headers for each data item.
 	 * I.e. Each row is shown as a single item with its own headings.
 	 *
 	 * @access private
 	 */
-	_createFlatTableStructure() {
-		this.tableRows.forEach((row) => {
-			const data = Array.from(row.getElementsByTagName('td'));
-			const dataHeadings = data.map((td, dataIndex) => {
-				const clonedHeader = this.tableHeaders[dataIndex].cloneNode(true);
-				clonedHeader.setAttribute('scope', 'row');
-				clonedHeader.setAttribute('role', 'rowheader');
-				clonedHeader.classList.add('o-table__duplicate-heading');
-				return clonedHeader;
-			});
-
-			window.requestAnimationFrame(() => {
-				dataHeadings.forEach((clonedHeader, index) => {
-					const td = data[index];
-					td.parentNode.insertBefore(clonedHeader, td);
+	_createFlatTableStructure(rows = this.tableRows) {
+		rows
+			.filter(row => !row.hasAttribute('data-o-table-flat-headings')) // only process rows once
+			.forEach((row) => {
+				const data = Array.from(row.getElementsByTagName('td'));
+				row.setAttribute('data-o-table-flat-headings', true);
+				window.requestAnimationFrame(() => {
+					this._tableHeadersWithoutSort.forEach((header, index) => {
+						const td = data[index];
+						const clonedHeader = header.cloneNode(true);
+						clonedHeader.setAttribute('scope', 'row');
+						clonedHeader.setAttribute('role', 'rowheader');
+						clonedHeader.classList.add('o-table__duplicate-heading');
+						td.parentNode.insertBefore(clonedHeader, td);
+					});
 				});
 			});
-		});
 	}
 }
 

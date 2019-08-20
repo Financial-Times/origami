@@ -433,6 +433,10 @@ Which for an ascending sort, will result in:
 </table>
 ```
 
+### Dynamic Rows
+
+If rows are added or removed dynamically after the table is initialised call `updateRows`; this will apply any existing sort or filter to the new rows.
+
 ### Events
 
 The following events are fired by `o-table`.

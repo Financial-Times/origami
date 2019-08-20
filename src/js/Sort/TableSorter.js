@@ -98,7 +98,7 @@ class TableSorter {
 		});
 
 		// Render sorted table rows.
-		table.updateRows();
+		table.renderRowUpdates();
 
 		// Update table headings.
 		window.requestAnimationFrame(() => {

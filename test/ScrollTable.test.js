@@ -30,7 +30,7 @@ describe("ScrollTable", () => {
 		proclaim.isInstanceOf(table, BaseTable);
 	});
 
-	it('clones column data into a new row with row header', (done) => {
+	it('clones column data into a new row with row header for the "scroll" version of the table (mobile version)', (done) => {
 		new ScrollTable(oTableEl, sorter);
 		setTimeout(() => {
 			try {
@@ -64,6 +64,43 @@ describe("ScrollTable", () => {
 				done(error);
 			}
 		}, 100); // wait for window.requestAnimationFrame
+	});
+
+	describe("updateRows", () => {
+		it('for any new rows, clones column data into the rows created for the scroll view (mobile version)', (done) => {
+			const trClone = oTableEl.querySelector('tbody > tr').cloneNode({ deep: true });
+			const table = new ScrollTable(oTableEl, sorter);
+			setTimeout(() => {
+				// table initialised and rendered
+				// add a new row
+				table.tbody.appendChild(trClone);
+				// tell o-table the rows have updated
+				table.updateRows();
+				// confirm new row data is reflected in the responsive "scroll" view
+				setTimeout(() => {
+					try {
+						// find rows duplicated for the "scroll" view
+						const duplicateRowClass = '.o-table__duplicate-row';
+						const duplicateRows = document.querySelectorAll(duplicateRowClass);
+						const originalDataNode = trClone.getElementsByTagName('td');
+						// each duplicated row should have a `td` for the new
+						// row which was added after the table was initialised
+						duplicateRows.forEach((row, index) => {
+							const data = row.getElementsByTagName('td');
+							const lastDuplicateDataNode = data[data.length - 1];
+							proclaim.equal(
+								lastDuplicateDataNode.textContent,
+								originalDataNode[index].textContent,
+								'Expected each "td" of the new "tr" to be cloned and appened into rows for the scroll view.'
+							);
+						});
+						done();
+					} catch (error) {
+						done(error);
+					}
+				}, 100); // wait for window.requestAnimationFrame
+			}, 100); // wait for window.requestAnimationFrame
+		});
 	});
 
 });

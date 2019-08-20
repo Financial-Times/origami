@@ -35,9 +35,32 @@ class ScrollTable extends BaseTable {
 		// Filter rows by columns (desktop view).
 		this._filterRowsByColumn(headerIndex, filter);
 		// Render filtered table (desktop view).
-		this.updateRows();
+		this.renderRowUpdates();
 		// Recreate scrollable table with filtered rows (mobile view).
 		this._createScrollTableStructure();
+	}
+
+	/**
+	 * Update the o-table instance with rows added dynamically to the table.
+	 *
+	 * @returns {undefined}
+	 */
+	updateRows() {
+		// Update row visibility, sort, etc.
+		super.updateRows();
+		// Recreate scrollable table with updated rows.
+		this._createScrollTableStructure();
+	}
+
+	/**
+	 * Get all the table body's current row nodes, without nodes duplicated for
+	 * the responsive "scroll" style
+	 *
+	 * @returns {Array<Node>}
+	 * @access private
+	 */
+	_getLatestRowNodes() {
+		return this.tbody ? Array.from(this.tbody.querySelectorAll('tr:not(.o-table__duplicate-row)')) : [];
 	}
 
 	/**

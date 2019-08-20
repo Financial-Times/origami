@@ -30,7 +30,7 @@ describe("FlatTable", () => {
 		proclaim.isInstanceOf(table, BaseTable);
 	});
 
-	it('clones all headings into each row, so each cell has a row heading', (done) => {
+	it('clones all headings into each row, so each cell has a row heading for the flat view (mobile version)', (done) => {
 		const table = new FlatTable(oTableEl, sorter);
 		setTimeout(() => {
 			try {
@@ -46,4 +46,35 @@ describe("FlatTable", () => {
 			done();
 		}, 100); // wait for window.requestAnimationFrame
 	});
+
+	describe("updateRows", () => {
+		it('for any new rows, clones all headings into each row, so each cell has a row heading for the flat view (mobile version)', (done) => {
+			const trClone = oTableEl.querySelector('tbody > tr').cloneNode({ deep: true });
+			const table = new FlatTable(oTableEl, sorter);
+			const originalTableRowLength = table.tableRows.length;
+			setTimeout(() => {
+				// table initialised and rendered
+				// add a new row
+				table.tbody.appendChild(trClone);
+				// tell o-table the rows have updated
+				table.updateRows();
+				setTimeout(() => {
+					try {
+						// confirm o-table found the new row
+						proclaim.equal(table.tableRows.length - originalTableRowLength, 1, `Expected to find 1 new table row.`);
+						// confirm that all rows, including the new row, have a duplicated heading for the "flat" view
+						table.tableRows.forEach(row => {
+							const duplicateHeadingClass = '.o-table__duplicate-heading';
+							const duplicateHeadings = row.querySelectorAll(`${duplicateHeadingClass}[scope="row"][role="rowheader"]`);
+							proclaim.equal(duplicateHeadings.length, 5, `Expected table rows to contain a clone of all headings,  with class "${duplicateHeadingClass}", scope="row", and role="rowheader".`);
+						});
+					} catch (error) {
+						done(error);
+					}
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			}, 100); // wait for window.requestAnimationFrame
+		});
+	});
+
 });
