@@ -38,6 +38,8 @@ Multiple `o-footer-services` mixin calls should be replaced with one call to `oF
 + <a class="o-footer-services__icon-link o-footer-services__icon-link--share" href="#">share</a>
 ```
 
+- Many of the replaced mixins above accepted a `$class` argument to customise the class names output by `o-footer-services`. This feature has been removed, instead update your markup to use default `o-footer-services` classes.
+
 ### Migrating from v1 to v2
 
 This major includes a change in markup and an entirely new design, which is compliant with legal requirements within internal FT tooling and products.

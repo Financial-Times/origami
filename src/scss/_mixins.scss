@@ -1,10 +1,10 @@
-@mixin _oFooterServicesBase($class: 'o-footer-services') {
-	.#{$class} {
+@mixin _oFooterServicesBase() {
+	.o-footer-services {
 		@include oTypographySans(0);
 		background: oColorsGetPaletteColor(_oFooterServicesGet('default-background'));
 	}
 
-	.#{$class}__container {
+	.o-footer-services__container {
 		width: 100%;
 		position: relative;
 
@@ -18,7 +18,7 @@
 		}
 	}
 
-	.#{$class}__wrapper {
+	.o-footer-services__wrapper {
 		max-width: 1220px;
 		margin: 0 auto;
 		padding: 0.5em 1em;
@@ -47,7 +47,7 @@
 		}
 	}
 
-	.#{$class}__links {
+	.o-footer-services__links {
 		float: left;
 		margin: 0.5em 0;
 
@@ -62,7 +62,7 @@
 		}
 	}
 
-	.#{$class}__content {
+	.o-footer-services__content {
 		margin: 0 0 1.5em;
 
 		a {
@@ -74,13 +74,13 @@
 			);
 		}
 
-		.#{$class}__content--external {
+		.o-footer-services__content--external {
 			@include oTypographyLinkExternalIcon(oColorsGetPaletteColor(_oFooterServicesGet('default-link-color')));
 		}
 	}
 }
 
-@mixin _oFooterServicesLogo($logo, $class: 'o-footer-services') {
+@mixin _oFooterServicesLogo($logo) {
 	// Ensure logo is valid.
 	// Allows dash, underscore, and alphanumeric characters which are url safe.
 	// Also allows a colon, which is url encoded.
@@ -95,7 +95,7 @@
 		$url-encoded-logo: $url-encoded-logo + if($character == ':', '%3A', $character);
 	}
 
-	.#{$class}__logo {
+	.o-footer-services__logo {
 		@include oTypographySansBold(1);
 		min-width: max-content;
 		min-height: 1em; //holds the logo in place if there is no text
