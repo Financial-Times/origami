@@ -2,6 +2,42 @@
 
 ### Migrating from v2 to v3
 
+All mixins have been replaced with `oFooterServices`, except `oFooterServicesLink` which has been removed entirely (please contact Origami if you have any questions or feedback).
+
+Multiple `o-footer-services` mixin calls should be replaced with one call to `oFooterServices` with the options required by your project.
+
+- `oFooterServicesBase` may be replaced by setting the `oFooterServices` `$opts` argument with the icons your footer uses as links:
+```diff
+- @include oFooterServicesBase();
++ @include oFooterServices($opts: (
++ 	'icons': ('slack', 'github')
++ ));
+```
+
+- `oFooterServicesWithLogo` has been removed. Instead pass a `logo` option to `oFooterServices`, which includes the image set `ftlogo-v1` to get the logo from (also specify the icons your footer uses as links):
+```diff
+- @include oFooterServicesWithLogo($logo: 'origami');
++ @include oFooterServices($opts: (
++ 	'logo': 'ftlogo-v1:origami',
++ 	'icons': ('slack', 'github')
++ ));
+```
+
+- `oFooterServicesIcons` has been removed. Instead add to the `oFooterServices` `icons` option and update your markup to use the `o-footer-services` class (`o-footer-services__icon-link--[icon-name]`):
+```diff
+- .my-custom-share-icon-link {
+-     @include oFooterServicesIcons('share');
+- }
++ @include oFooterServices($opts: (
++ 	'logo': 'ftlogo-v1:origami',
++ 	'icons': ('slack', 'github','share')
++ ));
+```
+```diff
+- <a class="o-footer-services__icon-link my-custom-share-icon-link" href="#">share</a>
++ <a class="o-footer-services__icon-link o-footer-services__icon-link--share" href="#">share</a>
+```
+
 ### Migrating from v1 to v2
 
 This major includes a change in markup and an entirely new design, which is compliant with legal requirements within internal FT tooling and products.

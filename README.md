@@ -44,18 +44,43 @@ As a move to future proof this component and the products that may use it, **`.o
 
 ### Sass
 
-As with all Origami components, o-footer-services has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-footer-services-is-silent: false;` in your Sass before you import the o-footer-services Sass.
+To output all `o-footer-services` CSS call `oFooterServices()`.
 
-If you would rather _not_ have origami classnames on your page, don't switch off silent mode, and use the mixin as shown below. This will only be available if you are _not_ using the Build Service.
-
-```sass
-@include oFooterServicesBase($class: 'my-footer');
+```scss
+@include oFooterServices();
 ```
 
-This will only provide styling for footers without a logo, so if you are planning on incorporating a logo in your footer, you'll need to use the `oFooterServicesWithLogo` mixin. This mixin uses the [Image Service](https://www.ft.com/__origami/service/image/v2), so if you would like to add your logo to the [logo-images image set](https://registry.origami.ft.com/components/logo-images), please [get in touch with us](#contact).
+To keep your CSS bundle size small, include  `o-footer-services` features granularly using the `opts` argument.
+E.g. to output styles with a project logo but without the default icon link to Github:
 
-```sass
-@include oFooterServicesWithLogo($image: 'logo-name', class: 'my-footer');
+```scss
+@include oFooterServices($opts: (
+	'logo': 'ftlogo-v1:origami',
+	'icons': ('slack')
+));
+```
+All options include:
+
+| Option    | Description                                                                                                                                         | Brand support                |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| logo      | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).     | master, internal, whitelabel |
+| icons     | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
+
+
+Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to ommit fundamental base styles required by all options.
+```scss
+// Output o-footer-services with no icons.
+@include oFooterServices($opts: (
+    'logo': 'ftlogo-v1:origami',
+    'icons': ()
+));
+
+// Include o-footer-services icons separately,
+// without repeating base styles output above.
+// This is *not* recommended.
+@include oFooterServices($opts: (
+    'icons': ('slack', 'github')
+), $include-base-styles: false);
 ```
 
 ## Migration

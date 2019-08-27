@@ -1,4 +1,4 @@
-@mixin oFooterServicesBase($class: 'o-footer-services') {
+@mixin _oFooterServicesBase($class: 'o-footer-services') {
 	.#{$class} {
 		@include oTypographySans(0);
 		background: oColorsGetPaletteColor(_oFooterServicesGet('default-background'));
@@ -52,7 +52,7 @@
 		margin: 0.5em 0;
 
 		a {
-			@include oFooterServicesLink(
+			@include _oFooterServicesLink(
 				$custom-link-base: _oFooterServicesGet('legal-text'),
 				$custom-link-hover: _oFooterServicesGet('legal-text'),
 				$custom-link-background: _oFooterServicesGet('default-background'),
@@ -66,7 +66,7 @@
 		margin: 0 0 1.5em;
 
 		a {
-			@include oFooterServicesLink(
+			@include _oFooterServicesLink(
 				$custom-link-base: _oFooterServicesGet('default-link-color'),
 				$custom-link-hover: _oFooterServicesGet('default-link-color'),
 				$custom-link-background: _oFooterServicesGet('default-background'),
@@ -78,31 +78,22 @@
 			@include oTypographyLinkExternalIcon(oColorsGetPaletteColor(_oFooterServicesGet('default-link-color')));
 		}
 	}
-
-	.#{$class}__icon-link {
-		@include oTypographyBold('sans');
-		@include oFooterServicesLink(
-			$custom-link-base: _oFooterServicesGet('default-link-color'),
-			$custom-link-hover: _oFooterServicesGet('default-link-hover'),
-			$custom-link-background: _oFooterServicesGet('default-background')
-		);
-
-		display: inline-block;
-		min-width: max-content;
-		margin: 0 1em 1.5em 0;
-
-		&--slack {
-			@include oFooterServicesIcons('slack');
-		}
-
-		&--github {
-			@include oFooterServicesIcons('github');
-		}
-	}
 }
 
-@mixin oFooterServicesWithLogo($logo, $class: 'o-footer-services') {
-	@include oFooterServicesBase;
+@mixin _oFooterServicesLogo($logo, $class: 'o-footer-services') {
+	// Ensure logo is valid.
+	// Allows dash, underscore, and alphanumeric characters which are url safe.
+	// Also allows a colon, which is url encoded.
+	$valid-characters: ('-', '_', ':', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+	$url-encoded-logo: '';
+	@for $character-index from 1 through str-length($logo) {
+		$character: str-slice($logo, $character-index, $character-index);
+		@if not index($valid-characters, $character) {
+			@error 'The logo "#{$logo}" can only contain lowercase alphanumeric characters plus dash, underscore, or colon e.g. "ftlogo-v1:origami".';
+		}
+		// Url encode any colon character.
+		$url-encoded-logo: $url-encoded-logo + if($character == ':', '%3A', $character);
+	}
 
 	.#{$class}__logo {
 		@include oTypographySansBold(1);
@@ -115,7 +106,7 @@
 
 		&:before {
 			@include oIconsBaseStyles();
-			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-footer-services');
+			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=o-footer-services');
 			content: '';
 			width: $_o-footer-services-logo-size;
 			height: $_o-footer-services-logo-size;
@@ -126,7 +117,7 @@
 	}
 }
 
-@mixin oFooterServicesIcons($icon-name) {
+@mixin _oFooterServicesIcons($icon-name) {
 	position: relative;
 	padding-left: $_o-footer-services-icon-size - 5;
 
@@ -134,7 +125,7 @@
 		@include oIconsBaseStyles();
 		position: absolute;
 		content: '';
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:#{$icon-name}?source=o-footer-services&format=svg');
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=o-footer-services&format=svg');
 		height: $_o-footer-services-icon-size;
 		width: $_o-footer-services-icon-size;
 		vertical-align: middle;
@@ -143,7 +134,7 @@
 	}
 }
 
-@mixin oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
+@mixin _oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
 	@include oTypographyLinkCustom(
 		$custom-link-base,
 		$custom-link-hover,

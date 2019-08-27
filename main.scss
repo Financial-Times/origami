@@ -8,10 +8,60 @@
 @import 'src/scss/mixins';
 @import 'src/scss/variables';
 
+/// Outputs all features and styles available for o-footer-services.
+/// @param {map} $opts [('logo': 'ftlogo-v1:origami', 'icons': ('slack', 'github'))] - A map of optional footer features to output, including the footer logo and list of social icon links.
+/// @param {bool} $include-base-styles [true] - Whether to output fundamental o-footer-services styles required by the optional features.
+/// @access public
+@mixin oFooterServices($opts: (
+	'logo': false,
+	'icons': ('slack', 'github')
+), $include-base-styles: true) {
+	$logo: map-get($opts, 'logo');
+	$icons: map-get($opts, 'icons');
+
+	// Output fundamental o-footer-services styles required by all users.
+	@if($include-base-styles) {
+		@include _oFooterServicesBase();
+	}
+
+	// Output classes for a logo in the footer.
+	@if($logo) {
+		@include _oFooterServicesLogo($logo);
+	}
+
+	// Output classes for footer icons.
+	@if($icons) {
+		.o-footer-services__icon-link {
+			@include oTypographyBold('sans');
+			@include _oFooterServicesLink(
+				$custom-link-base: _oFooterServicesGet('default-link-color'),
+				$custom-link-hover: _oFooterServicesGet('default-link-hover'),
+				$custom-link-background: _oFooterServicesGet('default-background')
+			);
+
+			display: inline-block;
+			min-width: max-content;
+			margin: 0 1em 1.5em 0;
+		}
+
+		// Output a footer class for each requested icon.
+		@each $icon in $icons {
+			// Allowed social images: https://registry.origami.ft.com/components/social-images
+			$allowed-social-images: (facebook, github, linkedin, pinterest, slack, tumblr, twitter, whatsapp, youtube);
+			// Error if one of the requested icons are not an Origami social share image.
+			@if(index($allowed-social-images, unquote($icon)) == null) {
+				@error '"#{$icon}" is not an Origami supported social image, please contact that Origami team if you would like support for this icon to be added. Available icons are currently: #{$allowed-social-images}';
+			}
+			// Output icon class e.g. `.o-footer-services__icon-link--slack`
+			.o-footer-services__icon-link--#{$icon} {
+				@include _oFooterServicesIcons($icon);
+			}
+		}
+	}
+}
 
 @if $o-footer-services-is-silent == false {
-	@include oFooterServicesBase();
-
+	@include oFooterServices();
 	// Set to silent again to avoid being output twice
 	$o-footer-services-is-silent: true !global;
 }
