@@ -170,24 +170,18 @@ Custom themes are also supported using `oTabsButtonTabsTheme` and the same custo
 
 ## Migration Guide
 
-### Migrating from v3 to v4
+| State | Major Version | Last Minor Release | Migration guide |
+| :---: | :---: | :---: | :---: |
+| ✨ active | 4 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated | 3 | 3.0.0 | N/A |
+| ╳ deprecated | 2 | 2.2.0 | N/A |
+| ╳ deprecated | 1 | 1.0.2 | N/A |
 
-This major includes the new o-colors and o-buttons, and updates the themes and sizes of button tabs.
-
-The following changes have been made to the **themes**:
-
-- `Standout` is now `Primary`: use `oTabsButtonTabsTheme('primary')`
-- `Uncolored` is now `Mono`: use `oTabsButtonTabsTheme('mono')`
-
-As well as this, the JavaScript for o-tabs now relies on `String.prototype.trim`. This is present in modern browsers and can be polyfilled in others.
-
----
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tabs/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
 
 ## Licence
 
