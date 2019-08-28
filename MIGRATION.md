@@ -2,6 +2,10 @@
 
 ### Migrating from v2 to v3
 
+#### Sass
+
+Origami components now require a `$system-code` variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
+
 All mixins have been replaced with `oFooterServices`, except `oFooterServicesLink` which has been removed entirely (please contact Origami if you have any questions or feedback).
 
 Multiple `o-footer-services` mixin calls should be replaced with one call to `oFooterServices` with the options required by your project.

@@ -106,7 +106,7 @@
 
 		&:before {
 			@include oIconsBaseStyles();
-			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=o-footer-services');
+			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
 			content: '';
 			width: $_o-footer-services-logo-size;
 			height: $_o-footer-services-logo-size;
@@ -125,7 +125,7 @@
 		@include oIconsBaseStyles();
 		position: absolute;
 		content: '';
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=o-footer-services&format=svg');
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}&format=svg');
 		height: $_o-footer-services-icon-size;
 		width: $_o-footer-services-icon-size;
 		vertical-align: middle;

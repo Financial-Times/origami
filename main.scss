@@ -19,6 +19,12 @@
 	$logo: map-get($opts, 'logo');
 	$icons: map-get($opts, 'icons');
 
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
 	// Output fundamental o-footer-services styles required by all users.
 	@if($include-base-styles) {
 		@include _oFooterServicesBase();
