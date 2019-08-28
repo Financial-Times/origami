@@ -28,7 +28,8 @@ Use the following markup to enable a comment stream:
 <div class="o-comments"
 	id="o-comments-stream"
 	data-o-component="o-comments"
-	data-o-comments-article-id="{article-id}">
+	data-o-comments-article-id="{article-id}"
+	data-o-comments-story-url="{optional-story-url}">
 </div>
 ```
 The comment stream is embedded in the element with a `o-comments-stream` id attribute.
@@ -60,7 +61,8 @@ Assuming you have an HTML element on the page to represent your comment stream o
 const oComments = require('o-comments');
 const commentsElement = document.querySelector('#element');
 const Comments = new oComments(commentsElement, {
-	articleId: 'article-id'
+	articleId: 'article-id',
+	storyUrl: 'optional-story-url'
 })
 ```
 
