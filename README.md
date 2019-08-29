@@ -184,7 +184,7 @@ You'll need to set up your header declaratively, as the JavaScript for `o-header
 The JavaScript is responsible for generating the drawer and enabling scrolling on the secondary navigation. You can implement that with the following:
 
 ```js
-const oHeaderServices = require('o-header-services');
+import oHeaderServices from ('o-header-services');
 
 oHeaderServices.init();
 ```
