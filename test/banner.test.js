@@ -64,6 +64,7 @@ describe('Banner', () => {
 			assert.deepEqual(banner.options, {
 				autoOpen: true,
 				suppressCloseButton: false,
+				appendTo: document.body,
 				closeExistingBanners: true,
 				bannerClass: 'o-banner',
 				bannerClosedClass: 'o-banner--closed',
@@ -133,6 +134,64 @@ describe('Banner', () => {
 			it('closes the banner', () => {
 				assert.calledOnce(bannerCloseStub);
 			});
+
+		});
+
+		describe('when `options.appendTo` is set', () => {
+
+			describe('to an invalid selector', () => {
+				it('throws and error', (done) => {
+					try {
+						banner = new Banner(null, {
+							appendTo: '£$%^&*('
+						});
+					} catch (error) {
+						done();
+					}
+					throw new Error('Did not throw an error.');
+				});
+			});
+
+			describe('to an object', () => {
+				it('throws and error', (done) => {
+					try {
+						banner = new Banner(null, {
+							appendTo: {}
+						});
+					} catch (error) {
+						done();
+					}
+					throw new Error('Did not throw an error.');
+				});
+			});
+
+			describe('to a valid selector with a matching element', () => {
+				it('appends the banner to that selector', () => {
+					// Create div in test area with class .test
+					const testDiv = document.createElement('div');
+					testDiv.setAttribute('class', 'test');
+					testArea.appendChild(testDiv);
+					// Append banner to test div.
+					banner = new Banner(null, {
+						appendTo: '.test'
+					});
+					assert.equal([].slice.call(testDiv.childNodes).length, 1, 'Did not find the banner within the expected element.');
+				});
+			});
+
+			describe('to a valid selector which does not have a matching element', () => {
+				it('throws and error', (done) => {
+					try {
+						banner = new Banner(null, {
+							appendTo: '.this-does-not-exist-in-the-dom'
+						});
+					} catch (error) {
+						done();
+					}
+					throw new Error('Did not throw an error.');
+				});
+			});
+
 
 		});
 

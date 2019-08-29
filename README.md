@@ -138,6 +138,7 @@ Once you have an o-banner instance, you can manipulate it using the following me
 There are several options used to change the appearance or behaviour of o-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl`. Set the following as properties on the second argument to `oBanner`:
 
   - `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
+  - `appendTo`: String or Node. The element to append the banner to, when created imperatively with JavaScript. Defaults to `document.body`
   - `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
   - `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
   - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `o-banner`

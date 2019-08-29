@@ -18,6 +18,7 @@ class Banner {
 			autoOpen: true,
 			suppressCloseButton: false,
 			closeExistingBanners: true,
+			appendTo: document.body,
 
 			bannerClass: bannerClass,
 			bannerClosedClass: `${bannerClass}--closed`,
@@ -45,6 +46,20 @@ class Banner {
 
 		}, options || Banner.getOptionsFromDom(bannerElement));
 
+		// Find the element to append the banner to if configured.
+		try {
+			// Find by query selector.
+			if (typeof this.options.appendTo === 'string') {
+				this.options.appendTo = document.querySelector(this.options.appendTo);
+			}
+			// Confirm a html element has been given or found.
+			if ((this.options.appendTo instanceof HTMLElement) !== true) {
+				throw new Error('It is not an Node instance.');
+			}
+		} catch (error) {
+			throw new Error(`Cound not find the element to append the banner to: ${error.message}`, this);
+		}
+
 		// Render the banner
 		this.render();
 
@@ -70,7 +85,7 @@ class Banner {
 		if (!(this.bannerElement instanceof HTMLElement)) {
 			// If the banner element is not an HTML Element, build one
 			this.bannerElement = this.buildBannerElement();
-			document.body.appendChild(this.bannerElement);
+			this.options.appendTo.appendChild(this.bannerElement);
 
 		} else if (this.bannerElement.innerHTML.trim() === '') {
 			// If the banner element is empty, we construct the banner
