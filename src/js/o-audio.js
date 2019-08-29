@@ -1,21 +1,5 @@
 import Tracking from './tracking';
 
-const UNLOAD_EVENTS = ['beforeunload', 'unload', 'pagehide'];
-
-function bindToUnloadEvents () {
-	UNLOAD_EVENTS.forEach(evtName => {
-		window.addEventListener(
-			evtName,
-			() => {
-				if (!this.hasDispatchedListened) {
-					this.hasDispatchedListened = true;
-					this.tracking.dispatchListenedEvent();
-				}
-			}
-		);
-	});
-}
-
 class OAudio {
 	/**
 	 * Class constructor.
@@ -32,18 +16,13 @@ class OAudio {
 		}, opts || OAudio.getDataAttributes(oAudioEl));
 
 		this.tracking = new Tracking(oAudioEl, this.options);
-		this.hasDispatchedListened = false;
 
-		if (this.options.dispatchListenedEventOnUnload !== undefined) {
-			bindToUnloadEvents.call(this);
-		}
 	}
 
 	/**
 	 * Destroy this component. Unbinds listeners and dispatches any final tracking events
 	 */
 	destroy() {
-		this.tracking.dispatchListenedEvent();
 		this.tracking.destroy();
 	}
 

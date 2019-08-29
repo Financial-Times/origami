@@ -17,25 +17,36 @@ Each event has the following additional properties:
 detail: {
   category: 'audio',
   action: ev.type,
-  progress: 88, // current time / length (percentage)
-  duration: 14, // audio length in seconds
-  // optional properties
-  contentId: 'url-of-audio-file', 
-  playerType: '[inline|inline-multiplelines|block]',
-  audioSubtype: 'podcast'
+  audioSubtype: '[podcast|amy]',
+  // current time / length (percentage)
+  progress: 88,
+   // audio length in seconds
+  duration: 14,
+  // The content id of the audio being played
+  contentId: '{uuid}',
+  // The content id of the article in which the audio is embedded
+  rootContentId: '{uuid}',
+  // A string to identify which player is being used.
+  playerType: 'ft-audio-player',
+  // The the value of root ID when audio playback started.
+  root_id: '{event_root_id}'
 }
 ```
-There is also a `listened` event which contains how much (in seconds) of the audio was actually played. This event is fired on page `unload` or when the component is destroyed (as it the case in the app).
 
-```js
-detail: {
-  category: 'audio',
-  action: 'listened',
-  amount: 83.47, // amount of the audio actually listened to, in seconds
-  amountPercentage: 71.96 // as percentage of the total length of the audio, could be > 100
-  // optional properties
-  contentId: 'url-of-audio-file', 
-  playerType: '[inline|inline-multiplelines|block]',
-  audioSubtype: 'podcast'
-}
-```
+##
+
+Each audio event is inserted into the `Audio` table in redshift, which in turn powers the audio dashboard in chartio. Before an audio event is inserted, it passes through a number of systems which ensure the event contains all the data required for reporting. A simplification of [the architecture](https://sites.google.com/ft.com/data/documentation/spoor-stream-processor) is documented below.
+
+
+![](https://user-images.githubusercontent.com/616321/63938362-82b1c080-ca5c-11e9-8eb9-e252b6b9e5e2.png)
+
+
+| System/module  | Responsibility | Owned by | Useful reference |
+| ------------- | ------------- | ------------- |  ------------- |
+| o-audio  | Publishes audio event  | Customer Products | - |
+| spoor-enrichment  | Enriches event with data about the audio (title etc.)  | Customer Products | [transforms/audio.js](https://github.com/Financial-Times/spoor-enrichment/blob/master/server/transforms/audio.js)
+| spoor-stream-processor  | Maps fields in the event to columns in the audio table  | Data Platform | [mappings.json](https://github.com/Financial-Times/data-spoor-stream-processor/blob/master/config/mappings.json)
+| Audio table  | Stores the audio event  | Data Platform | - |
+| Bigquery/chartio  | Reporting on audio consumption  | Business Intelligence | [Audio dashboard](https://chartio.com/financialtimes/dashboard/356574/link_sharing/4847c824f70e33da577105929b98a7f6f6d0a887ce4bb697a99517febcf19fcb/) |
+
+

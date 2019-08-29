@@ -134,11 +134,12 @@ describe('Tracking' , () => {
 
 	describe('progress event', () => {
 		[
+			{ currentTime: 0, progressPoint: 0 },
 			{ currentTime: 10, progressPoint: 10 },
 			{ currentTime: 30, progressPoint: 25 },
 			{ currentTime: 61, progressPoint: 50 },
 			{ currentTime: 91, progressPoint: 75 },
-			{ currentTime: 119, progressPoint: 100 }
+			{ currentTime: 120, progressPoint: 100 }
 		].forEach(({ currentTime, progressPoint }) => {
 			it(`emits a progress event at ${progressPoint}%`, () => {
 				const events = oTracking.start();
@@ -160,14 +161,14 @@ describe('Tracking' , () => {
 
 
 		it('only emits a progress event when the current time is a known progress point', () => {
-			const events = oTracking.start();
+			// eslint-disable-next-line no-unused-vars
+			const [progressAt0, ...events] = oTracking.start();
 			const stubAudioEl = initAudioElement();
 			initTracking(stubAudioEl, { contentId });
 
 			// trigger timeupdate event at 15%
 			stubAudioEl.currentTime = 18;
 			stubAudioEl.dispatchEvent(new Event('timeupdate'));
-
 			proclaim.lengthEquals(events, 0);
 		});
 
@@ -208,30 +209,6 @@ describe('Tracking' , () => {
 		});
 	});
 
-	it('dispatches listened event with total amount listened', () => {
-		const events = oTracking.start();
-		const clock = sinon.useFakeTimers();
-		const stubAudioEl = initAudioElement();
-		const tracking = initTracking(stubAudioEl, { contentId });
-
-		stubAudioEl.dispatchEvent(new Event('playing'));
-		clock.tick(18000); // pretend 18s have passed by
-		stubAudioEl.dispatchEvent(new Event('pause'));
-
-		tracking.dispatchListenedEvent();
-		clock.restore();
-
-		proclaim.deepEqual(events[2], {
-			category: 'audio',
-			action: 'listened',
-			duration: 120,
-			amount: 18,
-			amountPercentage:15,
-			error: undefined,
-			contentId
-		});
-	});
-
 	it('removes event listeners when o-audio element is destroyed', () => {
 		const events = oTracking.start();
 		const stubAudioEl = initAudioElement();
@@ -248,7 +225,8 @@ describe('Tracking' , () => {
 		[
 			[ 'contentId', 'abc-123' ],
 			[ 'audioSubtype', 'podcast' ],
-			[ 'playerType', 'inline' ]
+			[ 'playerType', 'inline' ],
+			[ 'rootContentId', 'def-456' ]
 
 		].map(([ propName, propValue ]) =>
 			it(`includes ${propName} in the event detail`, () => {

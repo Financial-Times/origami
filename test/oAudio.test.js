@@ -2,7 +2,6 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
-import OTrackingCollector from './helpers/o-tracking-collector';
 
 import OAudio from './../main';
 
@@ -48,56 +47,6 @@ describe("OAudio", () => {
 		it("single component when initialized with a root element", () => {
 			const boilerplate = OAudio.init('#element');
 			proclaim.equal(boilerplate instanceof OAudio, true);
-		});
-	});
-
-	describe('tracking listening time', () => {
-		const oTracking = new OTrackingCollector();
-		const stubAudioEl = new EventTarget();
-		let _onbeforeunload;
-		before(() => {
-			_onbeforeunload = window.onbeforeunload;
-			window.onbeforeunload = f => f;
-		});
-		after(() => {
-			oTracking.stop();
-			window.onbeforeunload = _onbeforeunload;
-		});
-
-		it('when the component is destroyed', () => {
-			const events = oTracking.start();
-
-			const audio = new OAudio(stubAudioEl);
-			audio.destroy();
-
-			proclaim.lengthEquals(events, 1);
-			const { action } = events[0];
-			proclaim.equal(action, "listened");
-		});
-
-
-		['beforeunload', 'unload', 'pagehide'].forEach(eventName => {
-			it(`when the page unloads via ${eventName}`, () => {
-				const events = oTracking.start();
-				new OAudio(stubAudioEl, {
-					dispatchListenedEventOnUnload: true
-				});
-
-				window.dispatchEvent(new Event(eventName, { cancelable: true }));
-				proclaim.lengthEquals(events, 1);
-				const { action } = events[0];
-				proclaim.equal(action, "listened");
-			});
-		});
-
-		it('only dispatches listened event once', () => {
-			const events = oTracking.start();
-			new OAudio(stubAudioEl, {
-				dispatchListenedEventOnUnload: true
-			});
-			window.dispatchEvent(new Event('unload'));
-			window.dispatchEvent(new Event('pagehide'));
-			proclaim.lengthEquals(events, 1);
 		});
 	});
 

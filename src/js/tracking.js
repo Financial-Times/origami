@@ -28,15 +28,17 @@ const progressWindows = [
 	[73, 77, 75],
 	[83, 87, 85],
 	[88, 92, 90],
-	[93, 97, 95],
-	[98, 100, 100]
+	[93, 97, 95]
 ];
 
 function getProgressPoint(progress) {
+	if (progress === 0 || progress === 100) {
+		return progress;
+	}
 	// eslint-disable-next-line no-unused-vars
 	const [lower, upper, point] = progressWindows.find(([lower, upper]) => {
-		return progress >= lower && progress < upper;
-	}) || [0, 0, 0];
+		return progress >= lower && progress <= upper;
+	}) || [];
 
 	return point;
 }
@@ -52,9 +54,23 @@ const EVENTS = [
 ];
 
 const TRACKING_ATTRIBUTES = [
+	// The content id of the audio being played
 	'contentId',
+
+	// The content id of the article in which the audio is embedded
+	// Note: This can be the same as contentId
+	'rootContentId',
+
+	// The audio subtype ie. podcast, amy
 	'audioSubtype',
+
+	// A string to identify which player is being used.
+	// i.e. ft-audio-player
 	'playerType',
+
+	// The the value of root ID when audio playback started.
+	// Required for the persistent player in the app so
+	// audio events can be linked back to the correct page:view event
 	'root_id',
 ];
 
@@ -75,13 +91,9 @@ class AudioTracking {
 		this.trackingProperties = whitelistProps(trackingProperties);
 		this.audioLength = undefined;
 		this.lastTrackedProgressPoint = undefined;
-		this.amountListened = 0;
-		this.dateTimePlayStart = undefined;
 
 		this.delegate = new Delegate(audio);
 		this.delegate.on('loadedmetadata', this.extractMetadata.bind(this));
-		this.delegate.on('playing', this.startListeningTimer.bind(this));
-		this.delegate.on('pause', this.stopListeningTimer.bind(this));
 
 		this.attachListeners();
 		this.extractMetadata();
@@ -109,33 +121,11 @@ class AudioTracking {
 		}
 
 		const progressPoint = getProgressPoint(progress);
-		if (progressPoint && progressPoint !== this.lastTrackedProgressPoint && !this.audio.paused) {
+		if (progressPoint !== undefined && progressPoint !== this.lastTrackedProgressPoint && !this.audio.paused) {
 			this.lastTrackedProgressPoint = progressPoint;
 			// log as 'progress' to keep consistency with o-video
 			fireEvent('progress', this, { progress: progressPoint });
 		}
-	}
-
-	startListeningTimer () {
-		if (this.dateTimePlayStart === undefined) {
-			this.dateTimePlayStart = Date.now();
-		}
-	}
-
-	stopListeningTimer() {
-		if (this.dateTimePlayStart !== undefined) {
-			this.amountListened += Date.now() - this.dateTimePlayStart;
-			this.dateTimePlayStart = undefined;
-		}
-	}
-
-	dispatchListenedEvent() {
-		this.stopListeningTimer();
-		const amount = this.amountListened / 1000;
-		fireEvent('listened', this, {
-			amount: Number(amount.toFixed(2)),
-			amountPercentage: Number((amount / this.audioLength * 100).toFixed(2)),
-		});
 	}
 
 	destroy() {
