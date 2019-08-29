@@ -34,6 +34,10 @@ const checkOptions = function(opts) {
 		console.warn('Please change the instantation of o-overlay to use the `nofocus` option instead of `noFocus`. `noFocus` will be removed in a future major version.');
 		opts.nofocus = opts.noFocus;
 	}
+	if (opts.visuallyHideTitle) {
+		console.warn('Please change the instantation of o-overlay to use the `visuallyhidetitle` option instead of `visuallyHideTitle`. `visuallyHideTitle` will be removed in a future major version.');
+		opts.visuallyhidetitle = opts.visuallyHideTitle;
+	}
 
 	return opts;
 };
@@ -104,7 +108,7 @@ const focusTrap = function(event) {
  * @param {HTMLElement} id - String. A unique identifier for the overlay within the page. (Required)
  * @param {Object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
  * @param {String} opts.heading.title - Your overlay's title
- * @param {Boolean} opts.heading.visuallyHideTitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
+ * @param {Boolean} opts.heading.visuallyhidetitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
  * @param {Boolean} opts.heading.shaded - Whether to shade the background of the header. Default: to false
  * @param {Boolean} opts.modal - Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
  * @param {Boolean} opts.compact - If true, the .o-overlay--compact class will be added to the overlay that reduces heading font-size and paddings in the content.
@@ -274,7 +278,7 @@ Overlay.prototype.render = function() {
 		title.setAttribute('role', 'heading');
 		title.className = 'o-overlay__title';
 
-		if (!this.opts.heading.visuallyHideTitle) {
+		if (!this.opts.heading.visuallyhidetitle) {
 			title.innerHTML = this.opts.heading.title;
 		}
 

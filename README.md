@@ -51,7 +51,7 @@ var myOverlay = new Overlay('myOverlay', {
 
 * `heading`: Object. Options for the Overlay header
 	* `.title`: String. Your overlay's title
-	* `.visuallyHideTitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
+	* `.visuallyhidetitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
 	* `.shaded`: Boolean. Whether to shade the background of the header
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. This will add a translucent shadow between the page and the overlay. Modal overlays also disable scroll on the underlying document. _Default_: true.
 * `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
