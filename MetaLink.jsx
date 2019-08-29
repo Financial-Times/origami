@@ -23,7 +23,8 @@ export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context
 				<a
 					className="o-teaser__tag"
 					data-trackable="teaser-tag"
-					href={displayLink.relativeUrl || displayLink.url}>
+					href={displayLink.relativeUrl || displayLink.url}
+					aria-label="Category: {displayLink.prefLabel}">
 					{displayLink.prefLabel}
 				</a>
 			) : null}
