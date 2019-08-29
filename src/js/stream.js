@@ -33,6 +33,7 @@ class Stream {
 				scriptElement.onload = () => Coral.createStreamEmbed(
 					{
 						id: this.streamEl.id,
+						storyURL: this.options.storyUrl,
 						rootURL: 'https://ft.staging.coral.coralproject.net',
 						autoRender: true,
 						accessToken: jwtResponse.token,
