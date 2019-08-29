@@ -193,8 +193,9 @@ oHeaderServices.init();
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+✨ active | 3 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v2-to-v4) |
+⚠ maintained | 3 | 2.2 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.2 | N/A |
 
 ## Contact
