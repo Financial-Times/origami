@@ -151,11 +151,11 @@
 @include oColorsSetUseCase(o-buttons-inverse-normal, _deprecated, 'Use `oButtonsGetColor` instead. Please contact Origami should you have any questions.');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    text,              'white');
 @include oColorsSetUseCase(o-buttons-inverse-hover,    border,            'white');
-@include oColorsSetUseCase(o-buttons-inverse-hover,    background,        'white-slate-20');
+@include oColorsSetUseCase(o-buttons-inverse-hover,    background,        'slate-white-80');
 @include oColorsSetUseCase(o-buttons-inverse-hover,  _deprecated, 'Use `oButtonsGetColor` instead. Please contact Origami should you have any questions.');
 @include oColorsSetUseCase(o-buttons-inverse-focus,    text,              'white');
 @include oColorsSetUseCase(o-buttons-inverse-focus,    border,            'white');
-@include oColorsSetUseCase(o-buttons-inverse-focus,    background,        'white-slate-20');
+@include oColorsSetUseCase(o-buttons-inverse-focus,    background,        'slate-white-80');
 @include oColorsSetUseCase(o-buttons-inverse-focus,  _deprecated, 'Use `oButtonsGetColor` instead. Please contact Origami should you have any questions.');
 @include oColorsSetUseCase(o-buttons-inverse-active,   text,              'black');
 @include oColorsSetUseCase(o-buttons-inverse-active,   border,            'white');
