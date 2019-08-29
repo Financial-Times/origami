@@ -1,7 +1,13 @@
 @function _oHeaderServicesLogo($logo) {
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
 	@if str-index($logo, 'https://') == 1 or str-index($logo, 'http://') == 1 or str-index($logo, 'data:') == 1 or str-index($logo, './') == 1 or str-index($logo, '../') == 1 or str-index($logo, '/') == 1 {
 		@return $logo;
 	} @else {
-		@return 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-header-services&format=svg&width=55';
+		@return 'https://www.ft.com/__origami/service/image/v2/images/raw/#{$logo}?source=#{$system-code}&format=svg&width=55';
 	}
 }

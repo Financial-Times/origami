@@ -2,6 +2,10 @@
 
 ### Migrating from v3 to v4
 
+#### Sass
+
+- Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
+- If a logo has been included by name using `oHeaderServices` or `oHeaderServicesCustomize` mixins, its Origami imageset is no longer assumed to be [logo-images](https://registry.origami.ft.com/components/logo-images). Prepend the imageset to your logo name with a colon e.g. a logo `origami` should be `ftlogo-v1:origami`.
 
 ### Migrating from v2 to v3
 

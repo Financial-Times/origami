@@ -26,7 +26,7 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-header-services', 'master', (
 		'variables': (
-			logo: 'brand-ft-logo-square-coloured',
+			logo: 'ftlogo-v1:brand-ft-logo-square-coloured',
 			top-text: oColorsGetPaletteColor('white'),
 			top-background: oColorsGetPaletteColor('black'),
 			nav-text: oColorsGetPaletteColor('black'),
@@ -61,7 +61,7 @@
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-header-services', 'internal', (
 		'variables': (
-			logo: 'brand-ft-logo-squared-bw',
+			logo: 'ftlogo-v1:brand-ft-logo-squared-bw',
 			top-text: oColorsGetPaletteColor('white'),
 			top-background: oColorsGetPaletteColor('slate'),
 			nav-text: oColorsGetPaletteColor('black'),
