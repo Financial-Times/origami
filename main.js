@@ -87,13 +87,16 @@ ODate.prototype.update = function() {
 		printer.innerHTML = dateString;
 	}
 
-	el.title = ftDateFormat.format(date, 'datetime');
 	el.setAttribute('data-o-date-js', '');
 
-	if (labelString) {
-		el.setAttribute('aria-label', labelString);
+	if (dateString) {
+		el.setAttribute('title', ftDateFormat.format(date, 'datetime'));
+		el.setAttribute('aria-label', labelString || dateString);
+		el.removeAttribute('aria-hidden');
 	} else {
-		el.setAttribute('aria-label', dateString);
+		el.removeAttribute('title');
+		el.removeAttribute('aria-label');
+		el.setAttribute('aria-hidden', '');
 	}
 };
 
