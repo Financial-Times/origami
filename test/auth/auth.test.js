@@ -2,7 +2,7 @@
 import proclaim from 'proclaim';
 import fetchMock from 'fetch-mock';
 
-import {getJsonWebToken} from '../..//src/js/utils/auth';
+import {getJsonWebToken} from '../../src/js/utils/auth';
 
 describe("Auth", () => {
 	describe("getJsonWebToken", () => {
@@ -10,7 +10,7 @@ describe("Auth", () => {
 			proclaim.isFunction(getJsonWebToken);
 		});
 
-		describe("when comments auth service returns a valid response", () => {
+		describe("when comments api returns a valid response", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', {
 					token: '12345'
@@ -32,7 +32,7 @@ describe("Auth", () => {
 			});
 		});
 
-		describe("when the comments auth service response is missing the token", () => {
+		describe("when the comments api response is missing the token", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', {});
 			});
@@ -52,7 +52,7 @@ describe("Auth", () => {
 			});
 		});
 
-		describe("when the comments auth service response is missing the token", () => {
+		describe("when the comments api response is missing the token", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', {token: undefined});
 			});
@@ -72,7 +72,7 @@ describe("Auth", () => {
 			});
 		});
 
-		describe("when the comments auth service responds with 205", () => {
+		describe("when the comments api responds with 205", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', 205);
 			});
@@ -97,7 +97,7 @@ describe("Auth", () => {
 			});
 		});
 
-		describe("when the comments auth service responds with 404", () => {
+		describe("when the comments api responds with 404", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', 404);
 			});
@@ -122,7 +122,7 @@ describe("Auth", () => {
 			});
 		});
 
-		describe("when the comments auth service responds with a bad response other than 404", () => {
+		describe("when the comments api responds with a bad response other than 404", () => {
 			before(() => {
 				fetchMock.mock('https://comments-api.ft.com/user/auth/', 500);
 			});
@@ -131,13 +131,19 @@ describe("Auth", () => {
 				fetchMock.reset();
 			});
 
-			it("throws an error", () => {
+			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then(() => {
-						throw new Error('This should never happen, its just here to make sure the .then is never entered');
-					}).catch((error) => {
-						proclaim.equal(error.message, "Bad response from the authentication service");
-					});
+					.then(proclaim.isObject);
+			});
+
+			it("resolves with undefined token", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.equal(result.token, undefined));
+			});
+
+			it("resolves with userIsSignedIn false", () => {
+				return getJsonWebToken()
+					.then(result => proclaim.isFalse(result.userIsSignedIn));
 			});
 		});
 	});
