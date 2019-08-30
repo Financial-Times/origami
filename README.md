@@ -13,7 +13,7 @@ The FT audio player.
 
 ## Usage
 
-This is a beta version of oAudio. It will accept an `<audio>` element + attach o-tracking events to it (for occurences of `play`, `pause` etc). For more details on these events please see [Analytics]('/Financial-Times/o-audio/analytics.md).
+This is a beta version of oAudio. It will accept an `<audio>` element + attach o-tracking events to it (for occurences of `play`, `pause` etc). For more details on these events please see [Analytics](analytics.md).
 
 The expectation is that oAudio will eventually render it's own player interface, potentially with different skins, to be used on ft.com and the app.
 
@@ -54,7 +54,7 @@ Since oAudio renders as a native HTML `<audio>` element only, there are no style
 
 ## Contact
 
-If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-audio/issues) or visit [#ft-incubation-audio](https://financialtimes.slack.com/messages/ft-incubation-audio).
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-audio/issues) or visit [#ft-next-support](https://financialtimes.slack.com/messages/ft-next-support).
 
 ----
 
