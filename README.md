@@ -132,6 +132,14 @@ _Remember to start your codeblocks with three backticks and "sass" so your marku
 
 As with all Origami components, o-comments has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-comments-is-silent : false;` in your Sass before you import the o-comments Sass.
 
+### Styling of Coral Talk iframe
+
+This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service. 
+
+Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss`
+
+Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%3Do-comments%406.0.0-beta.24%3A%2Fsrc%2Fscss%2Fcoral-talk-iframe%2Fmain.scss`
+
 ## Troubleshooting
 _This is a good place to put problems that come up repeatedly_
 
