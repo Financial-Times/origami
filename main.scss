@@ -14,19 +14,19 @@
 	'display': true,
 	'visibility': true
 )) {
-    $display: map-get($opts, 'display');
-    $visibility: map-get($opts, 'visibility');
+	$display: map-get($opts, 'display');
+	$visibility: map-get($opts, 'visibility');
 
 	@if $display {
-        .o-toggle-display:not(.o-toggle--active) {
-            display: none;
-        }
-    }
+		.o-toggle-display:not(.o-toggle--active) {
+			display: none;
+		}
+	}
 
 	@if $visibility {
-        .o-toggle-visibility:not(.o-toggle--active) {
-            visibility: hidden;
-        }
+		.o-toggle-visibility:not(.o-toggle--active) {
+			visibility: hidden;
+		}
 	}
 }
 
