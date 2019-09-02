@@ -35,11 +35,24 @@ class Toggle {
 			});
 		}
 
-		this.callback = config.callback;
-		if (typeof this.callback === 'string') {
-			this.callback = new Function(this.callback); // eslint-disable-line no-new-func
+		// Set the toggle callback if its a string.
+		if (config.callback && typeof config.callback === 'string') {
+			// Error if the callback is a string and a global function of that name does not exist.
+			if (typeof window[config.callback] !== 'function') {
+				throw new Error(`Could not find o-toggle callback "${config.callback}".`);
+			}
+			this.callback = window[config.callback];
+		}
+		// Set the toggle callback if its a funciton.
+		if (config.callback && typeof config.callback === 'function') {
+			this.callback = config.callback;
+		}
+		// Error if some callback value has been given but has not been set.
+		if (config.callback && !this.callback) {
+			throw new Error(`The o-toggle callback must be a string or function.`);
 		}
 
+		// Set the toggle element.
 		this.toggleEl = toggleEl;
 
 		if (this.toggleEl.nodeName === 'A') {

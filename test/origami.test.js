@@ -30,8 +30,11 @@ describe("oToggle", () => {
 	});
 
 	describe("initialisation", () => {
+
 		beforeEach(() => {
-			fixtures.declarativeMarkup();
+			// declarative callback
+			window.myCallback = () => { };
+			fixtures.declarativeMarkup('myCallback');
 		});
 
 		afterEach(() => {

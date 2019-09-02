@@ -20,12 +20,19 @@ function insert(html) {
 }
 
 
-function declarativeMarkup () {
+function declarativeMarkup (callback) {
 
-	const html = `<div class='declarativeToggleContainer'><button data-o-component="o-toggle"
-			data-o-toggle-target=".declarativeTestTarget"
-			data-o-toggle-callback="document.querySelector('.declarativeTestTarget').classList.toggle('hidden');">Toggle</button>
-			<div class="declarativeTestTarget">Target of the toggle</div></div>`;
+	const html = `
+		<div class='declarativeToggleContainer'>
+			<button
+				data-o-component="o-toggle"
+				data-o-toggle-target=".declarativeTestTarget"
+				${callback ? `data-o-toggle-callback="${callback}"` : ''}
+			>
+				Toggle
+			</button>
+			<div class="declarativeTestTarget">Target of the toggle</div>
+		</div>`;
 	insert(html);
 }
 

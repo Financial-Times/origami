@@ -19,11 +19,20 @@ When the toggle is clicked a class `o-toggle--active` is toggled on the target a
 <div id='my-target' class="o-toggle o-toggle-display">Some toggleable content</div>
 ```
 
-The data attribute `data-o-toggle-callback` may also be set to the content of a function as _string_ that will be executed every time a toggle happens. E.g:
+The data attribute `data-o-toggle-callback` may also be set to the name of a function as a _string_ that will be executed every time a toggle happens. E.g:
 
 ```html
-<button data-o-component="o-toggle" data-o-toggle-target="#my-target">My button</button>
-<div id='my-target' class="o-toggle o-toggle-display" data-o-toggle-callback="console.log('toggled!');">Some toggleable content</div>
+<script>
+    window.myToggleCallback = function(state, event) {
+        if (state === 'open') {
+            console.log('Target opened');
+        } else if (state === 'close') {
+            console.log('Target closed');
+        }
+    };
+</script>
+<button data-o-component="o-toggle" data-o-toggle-target="#my-target" data-o-toggle-callback="myToggleCallback">My button</button>
+<div id='my-target' class="o-toggle o-toggle-display">Some toggleable content</div>
 ```
 
 ## Sass

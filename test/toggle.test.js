@@ -49,7 +49,8 @@ describe("oToggle", () => {
 			let toggleEl;
 
 			beforeEach(() => {
-				fixtures.declarativeMarkup();
+				window.myCallback = () => { };
+				fixtures.declarativeMarkup('myCallback');
 				toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			});
 
@@ -144,6 +145,29 @@ describe("oToggle", () => {
 				proclaim.isTrue(toggleEl.hasAttribute('data-o-toggle--js'));
 			});
 		});
+
+		describe("where the contents of a function are set declaratively, instead of giving a function name", () => {
+			let toggleEl;
+
+			beforeEach(() => {
+				let callback = `document.querySelector('.declarativeTestTarget').classList.toggle('hidden');`;
+				fixtures.declarativeMarkup(callback);
+				toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+
+			it("it errors", (done) => {
+				try {
+					new OToggle(toggleEl);
+				} catch (error) {
+					done();
+				}
+				throw new Error('Did not error for an invalid callback.');
+			});
+		});
 	});
 
 	describe("#destroy", () => {
@@ -218,7 +242,11 @@ describe("oToggle", () => {
 		let testToggle;
 
 		beforeEach(() => {
-			fixtures.declarativeMarkup();
+			// declarative callback
+			window.myCallback = () => {
+				document.querySelector('.declarativeTestTarget').classList.toggle('hidden');
+			};
+			fixtures.declarativeMarkup('myCallback');
 			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			testToggle = new OToggle(toggleEl);
 		});
