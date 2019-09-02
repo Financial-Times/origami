@@ -77,6 +77,12 @@ All config options can also be passed as data attributes. These are:
 * data-o-toggle-target: Selector of the element that will be toggled
 * data-o-toggle-callback: Content of a function as _string_ that will be executed every time a toggle happens
 
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 7 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.2 | N/A |
 
 ## Contact
 
