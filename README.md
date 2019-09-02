@@ -67,7 +67,7 @@ A second parameter can be passed to the oToggle constructor or to the `.init()` 
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 7 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.2 | N/A |
 
 ## Contact
