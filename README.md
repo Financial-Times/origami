@@ -4,23 +4,45 @@ This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>
 
 - [Markup](#markup)
 - [JavaScript](#javascript)
+- [Sass](#sass)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ## Markup
 
-Add the toggle data attributes to your toggle such as a `<button>`, where the value of `data-o-toggle-target` is the CSS selector for the element you want to show/hide. E.g:
+Add the `data-o-component="o-toggle"` and `data-o-toggle-target` to your toggle element (e.g. `<button>`). Where the value of `data-o-toggle-target` is the CSS selector for the element you want to show/hide.
+
+When the toggle is clicked a class `o-toggle--active` is toggled on the target as well as its `aria-hidden` attribute. Use these in your project to style the target according to if the toggle is on or off. Alternatively, add the class `o-toggle-display` (to totally hide the target) or `o-toggle-visibility` (to layout but visually hide the target) when the toggle is not active.
 
 ```html
 <button data-o-component="o-toggle" data-o-toggle-target="#my-target">My button</button>
-<div id='my-target'>Some toggleable content</div>
+<div id='my-target' class="o-toggle o-toggle-display">Some toggleable content</div>
 ```
 
 The data attribute `data-o-toggle-callback` may also be set to the content of a function as _string_ that will be executed every time a toggle happens. E.g:
 
-<button data-o-component="o-toggle" data-o-toggle-target="#my-target" data-o-toggle-callback="console.log('toggled!');">
-</button>
-<div id='my-target'>Some toggleable content</div>
+```html
+<button data-o-component="o-toggle" data-o-toggle-target="#my-target">My button</button>
+<div id='my-target' class="o-toggle o-toggle-display" data-o-toggle-callback="console.log('toggled!');">Some toggleable content</div>
+```
+
+## Sass
+
+Projects may choose to style active targets themselves using the `o-toggle--active` class or `aria-hidden` attribute. However to use the `o-toggle` helper classes `o-toggle-display` and `o-toggle-visibility` classes (see [Markup](#markup) call the mixin `@include oToggle()`:
+
+```scss
+@include oToggle();
+```
+
+Alternatively the classes may be included granularly with an `$opts` map:
+
+```scss
+@include oToggle($opts: ('display': true));
+```
+or
+```scss
+@include oToggle($opts: ('visibility': true));
+```
 
 ## JavaScript
 

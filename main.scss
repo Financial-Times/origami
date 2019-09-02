@@ -1,0 +1,38 @@
+@import "src/scss/variables";
+
+/// Outputs toggle stlyes.
+/// @param {list} $opts [('display': true, 'visibility': true)] - A map of which default toggle classes to output, i.e. `o-toggle-display`, `o-toggle-visibility`.
+/// @example Output all default o-toggle features.
+///     @include oToggle();
+/// @example Output only the styles for a toggle which applies `display: none` when inactive.
+///     @include oToggle($opts: ('display': true));
+/// @example Output only the styles for a toggle which applies `visibility: hidden` when inactive.
+///     @include oToggle($opts: ('visibility': true));
+/// @example Output all o-toggle features.
+/// @access public
+@mixin oToggle($opts: (
+	'display': true,
+	'visibility': true
+)) {
+    $display: map-get($opts, 'display');
+    $visibility: map-get($opts, 'visibility');
+
+	@if $display {
+        .o-toggle-display:not(.o-toggle--active) {
+            display: none;
+        }
+    }
+
+	@if $visibility {
+        .o-toggle-visibility:not(.o-toggle--active) {
+            visibility: hidden;
+        }
+	}
+}
+
+@if ($o-toggle-is-silent == false) {
+	@include oToggle();
+
+	// Set toggle to silent again to avoid being output twice
+	$o-toggle-is-silent: true !global;
+}

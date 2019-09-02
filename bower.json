@@ -1,6 +1,14 @@
 {
   "name": "o-toggle",
   "main": [
-    "main.js"
+    "main.js",
+    "main.scss"
+  ],
+  "ignore": [
+    ".gitignore",
+    "build",
+    "test",
+    "karma.conf.js",
+    "package.json"
   ]
 }

@@ -1,5 +1,2 @@
-<button class='demo-toggle' data-o-component="o-toggle"
-		data-o-toggle-target=".demo-target"
-		data-o-toggle-callback="document.querySelector('.demo-target').classList.toggle('hidden');">Toggle</button>
-
-<div class="demo-target hidden">Target of the toggle</div>
+<button data-o-component="o-toggle" data-o-toggle-target="#demo-target" class='o-buttons o-buttons--primary'>{{type}} toggle</button>
+<div id="demo-target" class="o-toggle o-toggle-{{type}}">Target of the toggle</div>

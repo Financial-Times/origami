@@ -1,21 +1,11 @@
+$o-toggle-is-silent: false;
+@import "./../../main";
+
 body {
-	background-color: #cccccc;
-}
-.hidden {
-	visibility: hidden;
+	margin: var(--o-spacing-s4, 1rem);
 }
 
-.demo-toggle {
-	margin: 1em;
-	font-size: 20px;
-}
-
-.demo-target {
-	font-family: arial;
-	font-size: 20px;
-	display: block;
-	background-color: grey;
-	width: 50%;
-	padding: 1em;
-	margin: 1em;
+#demo-target {
+	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb);
+	margin: var(--o-spacing-s4, 1rem) 0;
 }

@@ -14,16 +14,33 @@
     "circle": "https://circleci.com/api/v1/project/Financial-Times/o-toggle"
   },
   "demosDefaults": {
-    "js": "demos/src/demo.js"
+    "js": "demos/src/demo.js",
+    "sass": "demos/src/demo.scss",
+    "dependencies": [
+      "o-spacing@^2.0.0",
+      "o-fonts@^3.0.0",
+      "o-normalise@^1.0.0",
+      "o-buttons@^5.16.2"
+    ]
   },
   "demos": [
     {
-      "title": "Toggles",
-      "name": "toggles",
+      "title": "Toggle display on/off.",
+      "name": "display-toggle",
       "template": "demos/src/demo.mustache",
-      "sass": "demos/src/demo.scss",
-      "hidden": false,
-      "description": "The toggle button updates aria attributes on the targets and adds a class."
+      "data": {
+        "type": "display"
+      },
+      "description": "This toggle target has a class \"o-toggle-display\" which hides it until clicking the toggle updates its aria attributes and adds the \"o-toggle--active\" class."
+    },
+    {
+      "title": "Toggle visibility.",
+      "name": "visibility-toggle",
+      "template": "demos/src/demo.mustache",
+      "data": {
+        "type": "visibility"
+      },
+      "description": "This toggle target has a class \"o-toggle-visibility\" which visually hides it, whilst still occupying space, until clicking the toggle updates its aria attributes and adds the \"o-toggle--active\" class."
     }
   ]
 }
