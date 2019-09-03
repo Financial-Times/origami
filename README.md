@@ -23,7 +23,7 @@ To include features of `o-normalise` granularly, pass an `$opts` map. E.g. to ou
 ```scss
 @include oNormalise($opts: (
 	'elements': ('forms', 'images', 'text', 'links'),
-	'body': ('font-smoothing', 'box-sizing', 'focus')
+	'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion')
 ));
 ```
 

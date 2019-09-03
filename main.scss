@@ -10,12 +10,12 @@
 /// @example Output all o-normalise styles, without css class helpers such as `o-normalise-visually-hidden`.
 ///     @include oNormalise($opts: (
 ///     	'elements': ('forms', 'images', 'text', 'links'),
-///     	'body': ('font-smoothing', 'box-sizing', 'focus')
+///     	'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion')
 ///     ));
 /// @access public
 @mixin oNormalise($opts: (
 	'elements': ('forms', 'images', 'text', 'links'),
-	'body': ('font-smoothing', 'box-sizing', 'focus'),
+	'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion'),
 	'helpers': ('clearfix', 'visually-hidden')
 )) {
 	// The elements to normalise.
@@ -30,6 +30,7 @@
 	$font-smoothing: index($body, 'font-smoothing');
 	$box-sizing: index($body, 'box-sizing');
 	$focus: index($body, 'focus');
+	$reduce-motion: index($body, 'reduce-motion');
 
 	// The normalise classes to output.
 	$helpers: map-get($opts, 'helpers');
@@ -37,7 +38,7 @@
 	$visually-hidden: index($helpers, 'visually-hidden');
 
 	@if($body) {
-		@include _oNormaliseBody($font-smoothing, $box-sizing, $focus);
+		@include _oNormaliseBody($font-smoothing, $box-sizing, $focus, $reduce-motion);
 	}
 
 	@if($links) {

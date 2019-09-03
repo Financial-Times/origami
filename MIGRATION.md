@@ -20,9 +20,13 @@ E.g.
 - @include oNormaliseForms();
 + @include oNormalise((
 +     'elements': ('forms'),
-+     'body': ('font-smoothing', 'box-sizing', 'focus')
++     'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion')
 + ));
 ```
+
+#### Reduced Motion
+
+v2 introduces a `reduce-motion` option which removes transition duration, animation duration, and animation iteration on all elements for users who have a "prefers reduced motion option" set. Confirm your project functions as expected with the [prefers reduced motion setting on in your browser](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion). If not remove the o-normalise `reduce-motion` option from your project in favour of a [custom solution](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) to reduced motion, or consider using `!important` to override `o-normalise`.
 
 #### Renamed Mixins
 

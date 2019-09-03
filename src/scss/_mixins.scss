@@ -55,7 +55,7 @@
 /// Adds normalising styles to general html elements
 /// effects: <html>, <body>, <main>, and :focus state
 /// @access private
-@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true) {
+@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true, $reduce-motion: true) {
 	html,
 	body {
 		margin: 0;
@@ -74,6 +74,18 @@
 
 		@if $box-sizing {
 			@include oNormaliseBoxSizingContent;
+		}
+
+		@if $reduce-motion {
+			// Immediately jump any animation to the end point if the user has set their device
+			// to "prefers reduced motion".
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					animation-duration: 0.001s !important;
+					transition-duration: 0.001s !important;
+    				animation-iteration-count: 1 !important;
+				}
+			}
 		}
 	}
 
