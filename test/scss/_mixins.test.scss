@@ -84,6 +84,7 @@
 		@include test('outputs property declarations for all defined properties for a use case') {
 			@include oColorsSetUseCase(test-color, text, 'jade');
 			@include oColorsSetUseCase(test-color, background, 'wheat');
+			@include oColorsSetUseCase(test-color, outline, 'crimson');
 			@include assert() {
 				@include output($selector: false) {
 					.test-colors {
@@ -95,6 +96,7 @@
 					.test-colors {
 						background-color: #f2dfce;
 						color: #00994d;
+						outline-color: #cc0000;
 					}
 				};
 			};

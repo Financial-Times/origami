@@ -55,7 +55,7 @@
 ///
 ///
 /// @param {String} $usecase
-/// @param {String} $property - 'text', 'background', 'border' or 'all'
+/// @param {String} $property - 'text', 'background', 'border', 'outline', or 'all'
 @function oColorsGetUseCase($usecase, $property) {
 	@if (not map-has-key($o-colors-usecases, $usecase)) {
 		@return null;

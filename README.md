@@ -205,6 +205,7 @@ This is a list of the use cases and their respective properties:
 
 `USECASE` | `PROPERTY` |
 ---|---
+focus |                 outline
 page |                  background
 box |                   background
 link |                  text
