@@ -3,13 +3,13 @@
 /// @link http://registry.origami.ft.com/components/o-visual-effects
 ////
 
-$o-visual-effects-is-silent: true !default;
+$o-visual-effects-silent: true !default;
 
 /// Timing function for elements that slide in and out
-$o-visual-effects-transition-slide: cubic-bezier(1, 0, 0.5, 1.275);
+$o-visual-effects-timing-slide: cubic-bezier(1, 0, 0.5, 1.275) !default;
 
 /// Timing function for elements that expand and contract
-$o-visual-effects-transition-expand: cubic-bezier(0.215, 0.61, 0.355, 1);
+$o-visual-effects-timing-expand: cubic-bezier(0.215, 0.61, 0.355, 1) !default;
 
 /// Timing function for elements that fade in and out
-$o-visual-effects-transition-fade: cubic-bezier(0.165, 0.84, 0.44, 1);
+$o-visual-effects-timing-fade: cubic-bezier(0.165, 0.84, 0.44, 1) !default;

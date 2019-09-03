@@ -1,0 +1,37 @@
+@include test-module('oVisualEffects') {
+    @include test('Outputs timing css custom properties and shadow classes by default') {
+        // css custom properties for timing functions by default
+        @include assert {
+            @include output($selector: false) {
+                @include oVisualEffects();
+            }
+            @include contains($selector: false) {
+                :root {
+                    --o-visual-effects-timing-slide: cubic-bezier(1, 0, 0.5, 1.275);
+                    --o-visual-effects-timing-expand: cubic-bezier(0.215, 0.61, 0.355, 1);
+                    --o-visual-effects-timing-fade: cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+            }
+        }
+        // box shadow styles by default
+        @include assert {
+            @include output($selector: false) {
+                @include oVisualEffects();
+            }
+            @include contains($selector: false) {
+                .o-visual-effects-shadow-low {
+                    box-shadow: 0 1px 2px rgba(77, 72, 69, 0.25), 0 4px 6px rgba(77, 72, 69, 0.1);
+                }
+            }
+        }
+    }
+    @include test('Outputs nothing with an empty options map') {
+        @include assert {
+            @include output() {
+                @include oVisualEffects($opts: ());
+            }
+            @include expect() {
+            }
+        }
+    }
+}

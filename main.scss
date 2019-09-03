@@ -4,23 +4,65 @@
 @import 'src/scss/shadows';
 @import 'src/scss/variables';
 
-@if $o-visual-effects-is-silent == false {
-	.o-visual-effects-shadow {
-		@include oVisualEffectsShadowsElevation;
+/// Outputs styles for visual effects.
+/// @param {list} $opts [('shadows': ('ultralow', 'low', 'mid', 'high'), 'timing-custom-properties': true)] - A map of which visual effects to include.
+/// @example Output all o-visual-effect styles.
+///     @include oVisualEffects();
+/// @example Output only mid shadow styles from o-visual-effect.
+///     @include oVisualEffects($opts: ('shadows': ('mid')))
+/// @example Output only timing css custom properties from o-visual-effect.
+///     @include oVisualEffects($opts: ('timing-custom-properties': true))
+/// @access public
+@mixin oVisualEffects($opts: (
+	'shadows': ('ultralow', 'low', 'mid', 'high'),
+	'timing-custom-properties': true
+)) {
+	// Shadows.
+	$shadows: map-get($opts, 'shadows');
+	$ultralow: index($shadows, 'ultralow');
+	$low: index($shadows, 'low');
+	$mid: index($shadows, 'mid');
+	$high: index($shadows, 'high');
+	// Custom properties for timing functions.
+	$timing: map-get($opts, 'timing-custom-properties');
 
-		&--ultralow {
-			@include oVisualEffectsShadowsElevation('ultralow');
-		}
-
-		&--mid {
-			@include oVisualEffectsShadowsElevation('mid');
-		}
-
-		&--high {
-			@include oVisualEffectsShadowsElevation('high');
+	@if($timing) {
+		:root {
+			--o-visual-effects-timing-slide: #{$o-visual-effects-timing-slide};
+			--o-visual-effects-timing-expand: #{$o-visual-effects-timing-expand};
+			--o-visual-effects-timing-fade: #{$o-visual-effects-timing-fade};
 		}
 	}
 
+	@if($ultralow) {
+		.o-visual-effects-shadow-ultralow {
+			@include oVisualEffectsShadowsElevation('ultralow');
+		}
+	}
+
+	@if($low) {
+		.o-visual-effects-shadow-low {
+			@include oVisualEffectsShadowsElevation('low');
+		}
+	}
+
+
+	@if($mid) {
+		.o-visual-effects-shadow-mid {
+			@include oVisualEffectsShadowsElevation('mid');
+		}
+	}
+
+	@if($high) {
+		.o-visual-effects-shadow-high {
+			@include oVisualEffectsShadowsElevation('high');
+		}
+	}
+}
+
+@if $o-visual-effects-silent == false {
+	@include oVisualEffects();
+
 	// Don't output twice
-	$o-visual-effects-is-silent: true !global;
+	$o-visual-effects-silent: true !global;
 }

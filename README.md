@@ -2,34 +2,70 @@
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
+- [Markup](#markup)
+- [Sass](#sass)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Markup
 
-## Usage
-
-### Markup
-
-When using the build service or importing the module with [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) set to false, o-visual-effects provides helper classes to access the different levels of box shadow settings. The main class available is: `.o-visual-effects-shadow` which outputs a _low_ shadow. To access any other level of shadow, you should use the modifier for that level, for example: `.o-visual-effects-shadow--high`.
+`o-visual-effects` provides helper classes to style with different levels of box shadow:
+- `.o-visual-effects-shadow-ultralow`
+- `.o-visual-effects-shadow-low`
+- `.o-visual-effects-shadow-mid`
+- `.o-visual-effects-shadow-high`
 
 ```html
-<div class="box o-visual-effects-shadow--high">Box content</div>
+<div class="o-visual-effects-shadow-high">Box content</div>
 ```
 
-### Sass
+`o-visual-effects` also provides [timing functions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) for slide, expand, or fade animations and transitions as [CSS custom properties](#css-custom-properties) (CSS Variables). Sass users may use [Sass variables](#sass) to apply these timing functions instead.
 
-As with all Origami components, o-visual-effects has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-visual-effects-is-silent : false;` in your Sass before you import the o-visual-effects Sass.
+## CSS Custom Properties
 
-```sass
-$o-visual-effects-is-silent: false;
-@import 'o-visual-effects/main';
+Build Service users may use CSS Custom Properties (CSS Variables) to apply consistent [timing functions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) within custom CSS. The variables avalible are:
+
+- `--o-visual-effects-timing-slide`
+- `--o-visual-effects-timing-expand`
+- `--o-visual-effects-timing-fade`
+
+E.g.
+```css
+.transition--slide {
+	transition: all 0.5s var(--o-visual-effects-timing-slide);
+}
+
+.transition--expand {
+	transition: all 0.5s var(--o-visual-effects-timing-expand);
+}
+
+.transition--fade {
+	transition: all 0.5s var(--o-visual-effects-timing-fade);
+}
 ```
 
-#### Shadows mixin
+Sass users should use [Sass variables](#sass) instead for improved browser support.
+
+## Sass
+
+To include all `o-visual-effects` css call the `oVisualEffects` mixin. This will include box shadow styles and CSS custom properties for transition [timing functions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function).
+
+```scss
+@include oVisualEffects();
+```
+
+`o-visual-effects` may also be output granularly. For example ommit the CSS custom properties if you are using Sass variables such as `$o-visual-effects-timing-slide` instead:
+
+```scss
+@mixin oVisualEffects($opts: (
+	'shadows': ('ultralow', 'low', 'mid', 'high')
+));
+```
+
+If you are not using `o-visual-effects` CSS, and instead are using other Sass mixins or variables directly there is no need to call `oVisualEffects`.
+
+### Shadows mixin
 
 The `oVisualEffectsShadowsElevation` mixin is used to add a consistent shadow to your element. There are 4 levels of shadow available: `ultralow`, `low` (default), `mid`, and `high`.
 
@@ -57,15 +93,15 @@ Example:
 
 ```sass
 .transition--slide {
-	transition: all 0.5s $o-visual-effects-transition-slide;
+	transition: all 0.5s $o-visual-effects-timing-slide;
 }
 
 .transition--expand {
-	transition: all 0.5s $o-visual-effects-transition-expand;
+	transition: all 0.5s $o-visual-effects-timing-expand;
 }
 
 .transition--fade {
-	transition: all 0.5s $o-visual-effects-transition-fade;
+	transition: all 0.5s $o-visual-effects-timing-fade;
 }
 ```
 

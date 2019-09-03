@@ -1,5 +1,7 @@
 @import '../../main';
 
+@include oVisualEffects();
+
 $card-size: 160px;
 
 .demo-canvas {
@@ -15,43 +17,23 @@ $card-size: 160px;
 	left: 10px;
 }
 
+.shadows-demo div,
 .demo-card {
 	display: inline-block;
+	display: inline-flex; // sass-lint:disable-line no-duplicate-properties fallback for no flex support
 	background: white;
 	width: $card-size;
 	height: $card-size;
 	margin: 20px;
-}
-
-.demo-card-label {
-	display: table-cell;
-	width: $card-size;
-	height: $card-size;
-	text-align: center;
-	vertical-align: middle;
-}
-
-// shadows
-.demo-shadows-elevation--ultralow {
-	@include oVisualEffectsShadowsElevation('ultralow');
-}
-
-.demo-shadows-elevation--low {
-	@include oVisualEffectsShadowsElevation('low');
-}
-
-.demo-shadows-elevation--mid {
-	@include oVisualEffectsShadowsElevation('mid');
-}
-
-.demo-shadows-elevation--high {
-	@include oVisualEffectsShadowsElevation('high');
+	text-align: center; //fallback for no flex support
+	justify-content: center;
+	align-items: center;
 }
 
 // transitions
 .demo-transitions--slide {
 	background: slateblue;
-	transition: all 0.5s $o-visual-effects-transition-slide;
+	transition: all 0.5s $o-visual-effects-timing-slide;
 
 	.demo-off & {
 		transform: translateY(0);
@@ -65,7 +47,7 @@ $card-size: 160px;
 .demo-transitions--expand {
 	overflow: hidden;
 	background: darkseagreen;
-	transition: all 0.5s $o-visual-effects-transition-expand;
+	transition: all 0.5s $o-visual-effects-timing-expand;
 
 	.demo-off & {
 		max-height: $card-size;
@@ -78,7 +60,7 @@ $card-size: 160px;
 
 .demo-transitions--fade {
 	background: tomato;
-	transition: all 0.5s $o-visual-effects-transition-fade;
+	transition: all 0.5s $o-visual-effects-timing-fade;
 
 	.demo-off & {
 		opacity: 1;
