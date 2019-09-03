@@ -1,6 +1,6 @@
 /// Visually hide an element while still
 /// allowing it to be read by a screenreader
-@mixin oNormaliseVisuallyHidden {
+@mixin oNormaliseVisuallyHiddenContent {
 	position: absolute;
 	clip: rect(0 0 0 0);
 	margin: -1px;
@@ -14,7 +14,7 @@
 
 /// Clearfix helper styles
 /// Outputs clearfix styles on the current element
-@mixin oNormaliseClearfix {
+@mixin oNormaliseClearfixContent {
 	zoom: 1;
 
 	&:before,
@@ -31,7 +31,7 @@
 }
 
 /// Adds box sizing to current and all child elements
-@mixin oNormaliseBoxSizing {
+@mixin oNormaliseBoxSizingContent {
 	// sass-lint:disable no-vendor-prefixes
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box;
@@ -53,7 +53,8 @@
 
 /// Adds normalising styles to general html elements
 /// effects: <html>, <body>, <main>, and :focus state
-@mixin oNormaliseHTML($font-smoothing: true, $box-sizing: true) {
+/// @access private
+@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true) {
 	html,
 	body {
 		margin: 0;
@@ -71,7 +72,7 @@
 		}
 
 		@if $box-sizing {
-			@include oNormaliseBoxSizing;
+			@include oNormaliseBoxSizingContent;
 		}
 	}
 
@@ -80,6 +81,14 @@
 		display: block;
 	}
 
+	@if $focus {
+		@include _oNormaliseFocus();
+	}
+}
+
+/// Adds normalising styles for focused elements.
+/// @access private
+@mixin _oNormaliseFocus {
 	// Apply :focus styles as a fallback
 	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
 	body:not(.js-focus-visible) {
@@ -145,10 +154,12 @@
 	[readonly]:focus {
 		outline: none;
 	}
+
 }
 
 /// Adds normalising styles to link elements
-@mixin oNormaliseLinks {
+/// @access private
+@mixin _oNormaliseLinks {
 
 	// Remove the grey background on active links in IE 10.
 	a {
@@ -165,7 +176,8 @@
 }
 
 /// Adds normalising styles to text related elements
-@mixin oNormaliseText {
+/// @access private
+@mixin _oNormaliseText {
 
 	// 1. Remove the bottom border in Firefox 39-.
 	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -216,8 +228,8 @@
 }
 
 /// Adds normalising styles to the image element
-@mixin oNormaliseImages {
-
+/// @access private
+@mixin _oNormaliseImages {
 	// Remove the border on images inside links in IE 10-.
 	img {
 		border-style: none;
@@ -225,8 +237,8 @@
 }
 
 /// Adds normalising styles to form elements
-@mixin oNormaliseForms {
-
+/// @access private
+@mixin _oNormaliseForms {
 	// Restore the font weight unset by the previous rule.
 	optgroup {
 		font-weight: bold;

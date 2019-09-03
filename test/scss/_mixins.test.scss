@@ -1,0 +1,47 @@
+@include test-module('oNormalise') {
+    @include test('Outputs elements, body, helpers by default') {
+        // the main element is included as part of "body" styles by default
+        @include assert {
+            @include output($selector: false) {
+                @include oNormalise();
+            }
+            @include contains($selector: false) {
+                main {
+                    display: block;
+                }
+            }
+        }
+        // the anchor element is included as part of "element" styles by default
+        @include assert {
+            @include output($selector: false) {
+                @include oNormalise();
+            }
+            @include contains($selector: false) {
+                a {
+                    background-color: transparent;
+                }
+            }
+        }
+        // the `o-normalise-visually-hidden` class is included as part of "element" styles by default
+        @include assert {
+            @include output($selector: false) {
+                @include oNormalise();
+            }
+            @include contains($selector: false) {
+                .o-normalise-visually-hidden {
+	                position: absolute;
+	                clip: rect(0 0 0 0);
+                }
+            }
+        }
+    }
+    @include test('Outputs nothing with an empty options map') {
+        @include assert {
+            @include output() {
+                @include oNormalise($opts: ());
+            }
+            @include expect() {
+            }
+        }
+    }
+}

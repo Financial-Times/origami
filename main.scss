@@ -1,22 +1,75 @@
 @import 'src/scss/variables';
 @import 'src/scss/mixins';
 
+/// Outputs all o-normalise styles.
+/// @param {list} $opts - A map of which normalise styles and helper classes to output.
+/// @example Output all o-normalise styles.
+///     @include oNormalise();
+/// @example Output all o-normalise styles, without css class helpers such as `o-normalise-visually-hidden`.
+///     @include oNormalise($opts: (
+///     	'elements': ('forms', 'images', 'text', 'links'),
+///     	'body': ('font-smoothing', 'box-sizing', 'focus')
+///     ));
+/// @access public
+@mixin oNormalise($opts: (
+	'elements': ('forms', 'images', 'text', 'links'),
+	'body': ('font-smoothing', 'box-sizing', 'focus'),
+	'helpers': ('clearfix', 'visually-hidden')
+)) {
+	// The elements to normalise.
+	$elements: map-get($opts, 'elements');
+	$links: index($elements, 'links');
+	$text: index($elements, 'text');
+	$images: index($elements, 'images');
+	$forms: index($elements, 'forms');
+
+	// The body features to normalise.
+	$body: map-get($opts, 'body');
+	$font-smoothing: index($body, 'font-smoothing');
+	$box-sizing: index($body, 'box-sizing');
+	$focus: index($body, 'focus');
+
+	// The normalise classes to output.
+	$helpers: map-get($opts, 'helpers');
+	$clearfix: index($helpers, 'clearfix');
+	$visually-hidden: index($helpers, 'visually-hidden');
+
+	@if($body) {
+		@include _oNormaliseBody($font-smoothing, $box-sizing, $focus);
+	}
+
+	@if($links) {
+		@include _oNormaliseLinks();
+	}
+
+	@if($text) {
+		@include _oNormaliseText();
+	}
+
+	@if($images) {
+		@include _oNormaliseImages();
+	}
+
+	@if($forms) {
+		@include _oNormaliseForms();
+	}
+
+	@if($clearfix) {
+		.o-normalise-clearfix {
+			@include oNormaliseClearfixContent;
+		}
+	}
+
+	@if($visually-hidden) {
+		.o-normalise-visually-hidden {
+			@include oNormaliseVisuallyHiddenContent;
+		}
+	}
+}
+
 @if ($o-normalise-is-silent == false) {
-	// Output all Normalising styles
-	@include oNormaliseHTML($box-sizing: false);
-	@include oNormaliseLinks;
-	@include oNormaliseText;
-	@include oNormaliseImages;
-	@include oNormaliseForms;
-
-	// Output helper classes
-	.o-normalise-clearfix {
-		@include oNormaliseClearfix;
-	}
-
-	.o-normalise-visually-hidden {
-		@include oNormaliseVisuallyHidden;
-	}
+	// Output all normalising styles
+	@include oNormalise();
 
 	// Set to silent again to avoid being output twice
 	$o-normalise-is-silent: true !global;
