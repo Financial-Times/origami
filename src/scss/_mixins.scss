@@ -81,9 +81,11 @@
 			// to "prefers reduced motion".
 			@media (prefers-reduced-motion: reduce) {
 				* {
+					// sass-lint:disable no-important
 					animation-duration: 0.001s !important;
 					transition-duration: 0.001s !important;
-    				animation-iteration-count: 1 !important;
+					animation-iteration-count: 1 !important;
+					// sass-lint:enable no-important
 				}
 			}
 		}
