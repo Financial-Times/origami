@@ -85,16 +85,14 @@ Output:
 }
 ```
 
-## Migration Guide
+## Migration
 
-**Migrating from v1 to v2**
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.1 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.0 | N/A |
 
-The following changes have been made to the mixins in o-visual-effects:
-
-- `oEffectsBackgroundsPinStripe` removed.
-- `oEffectsShadowsElevation` renamed to `oVisualEffectsShadowsElevation`.
-
----
 
 ## Contact
 
