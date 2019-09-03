@@ -80,7 +80,9 @@
 			// Immediately jump any animation to the end point if the user has set their device
 			// to "prefers reduced motion".
 			@media (prefers-reduced-motion: reduce) {
-				* {
+				*,
+				*:before,
+				*:after {
 					// sass-lint:disable no-important
 					animation-duration: 0.001s !important;
 					transition-duration: 0.001s !important;
