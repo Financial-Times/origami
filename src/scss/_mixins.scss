@@ -92,7 +92,8 @@
 @mixin _oNormaliseFocus {
 	// Apply :focus styles as a fallback
 	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
-	body:not(.js-focus-visible) {
+	body:not(.js-focus-visible),
+	html:not(.js-focus-visible) {
 		// Standardise focus styles.
 		:focus {
 			outline: 2px solid $_o-normalise-focus-color;
@@ -105,9 +106,11 @@
 		}
 	}
 
-	// `.js-focus-visible` is added to the body dom node when the focus-visible polyfill is applied
+	// When the focus-visible polyfill is applied `.js-focus-visible` is added to the html dom node
+	// (the body node in v4 of the 3rd party polyfill)
 	// sass-lint:disable no-qualifying-elements
-	body.js-focus-visible {
+	body.js-focus-visible,
+	html.js-focus-visible {
 		// Standardise focus styles.
 		.focus-visible {
 			outline: 2px solid $_o-normalise-focus-color;
@@ -125,16 +128,21 @@
 	// sass-lint:enable no-qualifying-elements
 
 	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
-	// If a browser supports :focus-visible we unset the :focus styles that were applied above (within the body:not(.js-focus-visible) block).
+	// If a browser supports :focus-visible we unset the :focus styles that were applied above
+	// (within the html:not(.js-focus-visible) block).
 	:focus-visible,
-	body:not(.js-focus-visible) :focus {
+	body:not(.js-focus-visible) :focus,
+	html:not(.js-focus-visible) :focus {
 		outline: unset;
 	}
 
 	:focus-visible,
 	body:not(.js-focus-visible) input:focus,
+	html:not(.js-focus-visible) input:focus,
 	body:not(.js-focus-visible) textarea:focus,
-	body:not(.js-focus-visible) select:focus {
+	html:not(.js-focus-visible) textarea:focus,
+	body:not(.js-focus-visible) select:focus,
+	html:not(.js-focus-visible) select:focus {
 		box-shadow: unset;
 	}
 

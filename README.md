@@ -47,7 +47,7 @@ _Note: if using the "focus" option in your project also include the `:focus-visi
 
 `o-normalise` provides default focus states using the `:focus-visible` pseudo-class. This applies while an element matches the `:focus` pseudo-class and the user-agent determines that the focus should be specially indicated.
 
-No browser supports `:focus-visible` right now (31st Jan 2018) but there is [a polyfill](https://github.com/WICG/focus-visible) which roughly mimics the behaviour by adding a class `.focus-visible` to an element if it should have `:focus-visible` applied to it. Integrate [the polyfill](https://github.com/WICG/focus-visible) with your project to apply these focus styles.
+No browser supports `:focus-visible` right now (31st Jan 2018) but there is [a polyfill](https://github.com/WICG/focus-visible) which roughly mimics the behaviour by adding a class `.focus-visible` to an element if it should have `:focus-visible` applied to it. Integrate [the polyfill](https://github.com/WICG/focus-visible) at v4 or v5 with your project to apply these focus styles.
 
 `:focus` is used as a fallback in `core` mode.
 
