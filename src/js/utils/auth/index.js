@@ -14,6 +14,8 @@ const getJsonWebToken = () => fetch('https://comments-api.ft.com/user/auth/', {
 		// or error in comments api
 		return { token: undefined, userIsSignedIn: false };
 	}
+}).catch(error => {
+	return;
 });
 
 export {

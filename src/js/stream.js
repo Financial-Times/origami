@@ -14,53 +14,59 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
-		this._mapCoralEventsToOComments();
-		this._renderComments();
 	}
 
-	/**
-	 * Render a comments instance authenticated with Coral Talk.
-	 *
-	 * @access private
-	 * @returns {HTMLElement}
-	 */
-	_renderComments () {
-		/*global Coral*/
-		getJsonWebToken()
-			.then((jwtResponse) => {
-				const scriptElement = document.createElement('script');
-				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
-				scriptElement.onload = () => Coral.createStreamEmbed(
-					{
-						id: this.streamEl.id,
-						storyURL: this.options.storyUrl,
-						rootURL: 'https://ft.staging.coral.coralproject.net',
-						autoRender: true,
-						accessToken: jwtResponse.token,
-						events: (events) => {
-							events.onAny((name, data) => {
-								const message = new CustomEvent('talkEvent', {
-									detail: {
-										name,
-										data
-									}
-								});
-								window.parent.dispatchEvent(message);
-							});
-						}
-					}
-				);
-				this.streamEl.appendChild(scriptElement);
-				/**
-				 * In order to test the asynchronous function, send an event when getJsonWebToken resolves
-				 * the script element is injected into the document.
-				 */
-				document.dispatchEvent(new Event('oCommentsReady'));
-			})
-			.catch(error => {
-				console.error(`Unable to authenticate user: ${error}`);
-				document.dispatchEvent(new Event('oCommentsFailed'));
+	init () {
+		Promise.all([this._renderComments(), getJsonWebToken()])
+			.then(([embed, jsonWebToken]) => {
+
+				this.token = (jsonWebToken && jsonWebToken.token) ? jsonWebToken.token : false;
+				this.embed = embed || false;
+
+				if (this.token && this.embed) {
+					this.login();
+				}
 			});
+
+		this._mapCoralEventsToOComments();
+	}
+
+	login () {
+		this.embed.login(this.token);
+	}
+
+	renderComments () {
+		/*global Coral*/
+
+		let embed;
+
+		const scriptElement = document.createElement('script');
+		scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
+		scriptElement.onload = () => {
+			embed = Coral.createStreamEmbed(
+				{
+					id: this.streamEl.id,
+					storyURL: this.options.storyUrl,
+					rootURL: 'https://ft.staging.coral.coralproject.net',
+					autoRender: true,
+					events: (events) => {
+						events.onAny((name, data) => {
+							const message = new CustomEvent('talkEvent', {
+								detail: {
+									name,
+									data
+								}
+							});
+							window.parent.dispatchEvent(message);
+						});
+					}
+				}
+			);
+		}
+		this.streamEl.appendChild(scriptElement);
+
+		document.dispatchEvent(new Event('oCommentsReady'));
+		return embed;
 	}
 
 	/**

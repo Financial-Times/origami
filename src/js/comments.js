@@ -10,7 +10,7 @@ class Comments {
 			const count = new Count(rootEl, this.options);
 			count.renderCount();
 		} else {
-			new Stream(rootEl, this.options);
+			new Stream(rootEl, this.options).init();
 		}
 	}
 
