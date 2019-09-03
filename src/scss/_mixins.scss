@@ -77,8 +77,9 @@
 		}
 
 		@if $reduce-motion {
-			// Immediately jump any animation to the end point if the user has set their device
-			// to "prefers reduced motion".
+			// Immediately jump any animation to the end point if the user has
+			// set their device to "prefers reduced motion".
+			// See https://github.com/mozdevs/cssremedy/issues/11
 			@media (prefers-reduced-motion: reduce) {
 				*,
 				*:before,
