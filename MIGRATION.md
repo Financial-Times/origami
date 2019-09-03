@@ -35,3 +35,5 @@ The following mixins have been renamed to indicate they do not output a top leve
 #### Removed Variables
 
 - `$o-normalise-focus-color` has been removed. Use the [o-colors focus usecase](https://github.com/Financial-Times/o-colors) instead.
+- `$o-normalise-grid-gutters` has been removed. Use [$o-grid-gutters](https://github.com/Financial-Times/o-grid#variables) instead.
+- `$o-normalise-border-radius` has been removed. It was set to `0` so the border radius may be removed instead.
