@@ -12,8 +12,5 @@ $o-normalise-grid-gutters: (
 /// Standardised border radius
 $o-normalise-border-radius: 0;
 
-/// TODO: Update this to use o-colors/o-brand in the next major.
-$o-normalise-focus-color: #1470cc !default; // oxford-80
-@if(global-variable-exists('o-brand') == false or $o-brand == 'master' or $o-brand == null) {
-	$o-normalise-focus-color: #807973 !global; // black-50
-}
+/// @access private
+$_o-normalise-focus-color: oColorsGetColorFor('focus', 'outline');

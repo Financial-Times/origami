@@ -94,13 +94,13 @@
 	body:not(.js-focus-visible) {
 		// Standardise focus styles.
 		:focus {
-			outline: 2px solid $o-normalise-focus-color;
+			outline: 2px solid $_o-normalise-focus-color;
 		}
 
 		input:focus,
 		textarea:focus,
 		select:focus {
-			box-shadow: 0 0 0 1px $o-normalise-focus-color;
+			box-shadow: 0 0 0 1px $_o-normalise-focus-color;
 		}
 	}
 
@@ -109,12 +109,12 @@
 	body.js-focus-visible {
 		// Standardise focus styles.
 		.focus-visible {
-			outline: 2px solid $o-normalise-focus-color;
+			outline: 2px solid $_o-normalise-focus-color;
 		}
 		input.focus-visible,
 		textarea.focus-visible,
 		select.focus-visible {
-			box-shadow: 0 0 0 1px $o-normalise-focus-color;
+			box-shadow: 0 0 0 1px $_o-normalise-focus-color;
 		}
 		// Disable browser default focus style.
 		:focus:not(.focus-visible) {
@@ -138,13 +138,13 @@
 	}
 
 	:focus-visible {
-		outline: 2px solid $o-normalise-focus-color;
+		outline: 2px solid $_o-normalise-focus-color;
 	}
 
 	input:focus-visible,
 	textarea:focus-visible,
 	select:focus-visible {
-		box-shadow: 0 0 0 1px $o-normalise-focus-color;
+		box-shadow: 0 0 0 1px $_o-normalise-focus-color;
 	}
 
 	// Prevent IE from putting focus styles on the body or html. These selectors

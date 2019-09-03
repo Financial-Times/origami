@@ -2,6 +2,8 @@
 
 ### Migrating from v1 to v2
 
+`o-normalise` now depends on `o-colors`. Ensure your project builds successfully and upgrade `o-colors` if there is a conflict.
+
 #### Primary Mixin
 
 The following mixins have been removed or made private. Replace them with a single call to the `oNormalise` primary mixin, with appropriate options passed as an argument.
@@ -28,3 +30,8 @@ The following mixins have been renamed to indicate they do not output a top leve
 - `oNormaliseClearfix` becomes `oNormaliseClearfixContent`.
 - `oNormaliseVisuallyHidden` becomes `oNormaliseVisuallyHiddenContent`.
 - `oNormaliseBoxSizing` becomes `oNormaliseBoxSizingContent`.
+
+
+#### Removed Variables
+
+- `$o-normalise-focus-color` has been removed. Use the [o-colors focus usecase](https://github.com/Financial-Times/o-colors) instead.
