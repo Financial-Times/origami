@@ -67,13 +67,13 @@ If you are not using `o-visual-effects` CSS, and instead are using other Sass mi
 
 ### Shadows mixin
 
-The `oVisualEffectsShadowsElevation` mixin is used to add a consistent shadow to your element. There are 4 levels of shadow available: `ultralow`, `low` (default), `mid`, and `high`.
+The `oVisualEffectsShadowContent` mixin is used to add a consistent shadow to your element. There are 4 levels of shadow available: `ultralow`, `low` (default), `mid`, and `high`.
 
 Example:
 
 ```sass
 .my-element {
-	@include oVisualEffectsShadowsElevation('mid');
+	@include oVisualEffectsShadowContent('mid');
 }
 ```
 

@@ -8,6 +8,9 @@ The following CSS classes have been renamed:
 - `o-visual-effects-shadow--mid` is now `o-visual-effects-shadow-mid`
 - `o-visual-effects-shadow--high` is now `o-visual-effects-shadow-high`
 
+The following Sass mixin has been renamed:
+- `oVisualEffectsShadowsElevation` is now `oVisualEffectsShadowContent`.
+
 The following Sass variables have been renamed:
 - `$o-visual-effects-transition-slide` is now `$o-visual-effects-timing-slide`
 - `$o-visual-effects-transition-expand` is now `$o-visual-effects-timing-expand`

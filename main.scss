@@ -36,26 +36,26 @@
 
 	@if($ultralow) {
 		.o-visual-effects-shadow-ultralow {
-			@include oVisualEffectsShadowsElevation('ultralow');
+			@include oVisualEffectsShadowContent('ultralow');
 		}
 	}
 
 	@if($low) {
 		.o-visual-effects-shadow-low {
-			@include oVisualEffectsShadowsElevation('low');
+			@include oVisualEffectsShadowContent('low');
 		}
 	}
 
 
 	@if($mid) {
 		.o-visual-effects-shadow-mid {
-			@include oVisualEffectsShadowsElevation('mid');
+			@include oVisualEffectsShadowContent('mid');
 		}
 	}
 
 	@if($high) {
 		.o-visual-effects-shadow-high {
-			@include oVisualEffectsShadowsElevation('high');
+			@include oVisualEffectsShadowContent('high');
 		}
 	}
 }
