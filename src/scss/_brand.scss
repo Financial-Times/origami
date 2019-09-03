@@ -1,23 +1,38 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oTabsGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-tabs', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
 @function _oTabsSupports($variant) {
     @return oBrandSupportsVariant('o-tabs', $variant);
 }
 
+// Define masterbrand
 @include oBrandDefine('o-tabs', 'master', (
     'variables': (),
     'supports-variants': (
         'primary',
-        'inverse'
+        'inverse',
+        'mono',
+        'b2c'
     )
 ));
 
+// Define internal brand
 @include oBrandDefine('o-tabs', 'internal', (
     'variables': (),
     'supports-variants': (
         'primary',
-        'inverse'
+        'inverse',
+        'mono'
     )
 ));
 
+// Define whitelabel brand
 @include oBrandDefine('o-tabs', 'whitelabel', (
     'variables': (),
     'supports-variants': ()

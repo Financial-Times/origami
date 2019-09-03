@@ -1,6 +1,7 @@
-$o-tabs-is-silent: false;
 
 @import "../../main";
+
+@include oTabs();
 
 body {
 	margin: 10px;
@@ -9,8 +10,4 @@ body {
 .demo-inverse {
 	color: #ffffff;
 	background: #333333;
-}
-
-.o-tabs--custom {
-	@include oTabsButtonTabsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'), $selector: false);
 }

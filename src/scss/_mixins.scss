@@ -1,4 +1,15 @@
-@mixin oTabs() {
+
+/// Base styles for tabs.
+///
+/// @output The output includes all styles for basic tabs.
+/// @example scss - Base tab styles
+///   @include _oTabsBase();
+/// @access private
+@mixin _oTabsBase() {
+
+	// We only want these tab styles to apply when JavaScript has loaded,
+	// so we don't make any content inaccessible to non-JavaScript users.
+	// The o-tabs JavaScript adds the `data-o-tabs--js` attribute
 	.o-tabs[data-o-tabs--js] {
 		&[role=tablist] {
 			margin: 0;

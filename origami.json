@@ -72,14 +72,6 @@
 			"hidden": true
 		},
 		{
-			"title": "Custom",
-			"name": "custom",
-			"template": "/demos/src/custom.mustache",
-			"documentClasses": "demo-inverse",
-			"hidden": true,
-			"description": "Custom theme example."
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

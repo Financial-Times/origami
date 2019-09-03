@@ -1,0 +1,63 @@
+
+/// Outputs tabs with a default theme 'secondary'.
+///
+/// @access private
+@mixin _oTabsButtonTabs() {
+	.o-tabs--buttontabs[data-o-tabs--js] {
+		&[role=tablist] {
+			border-bottom: 1px solid _oTabsGetTablistBorderColor($theme: 'secondary');
+			font-size: 0; // Hack to remove the spacing between tabs when using <li>'s
+		}
+
+		[role=tab] {
+			@include oButtons($theme: 'secondary');
+		}
+
+		&.o-tabs--big [role=tab] {
+			@include oButtonsSize('big');
+		}
+
+		[role=tab],
+		&.o-tabs--big [role=tab] {
+			border-bottom-width: 0;
+
+			& + [role=tab] {
+				margin-left: 0;
+				border-left-width: 0;
+			}
+
+			&[aria-selected=true] a {
+				font-weight: normal; // reset weight set in the base styles
+			}
+
+			&:first-child {
+				border-left-width: 1px;
+			}
+		}
+	}
+}
+
+/// Outputs a modifier class to theme tabs.
+///
+/// @param {String} $theme - A theme identifier (string), see o-buttons for a list of available themes.
+/// @access private
+@mixin _oTabsButtonTabsTheme($theme) {
+	.o-tabs--buttontabs.o-tabs--#{$theme} {
+		[role=tab] {
+			@include oButtonsTheme($theme);
+		}
+		&[data-o-tabs--js][role=tablist] {
+			border-bottom: 1px solid _oTabsGetTablistBorderColor($theme);
+		}
+	}
+}
+
+/// Gets the tablist border color for a given theme.
+/// @access private
+/// @return {color}
+@function _oTabsGetTablistBorderColor($theme) {
+	$button-background: oButtonsGetColor($state: 'default', $property: 'background', $theme: $theme);
+	$button-border: oButtonsGetColor($state: 'default', $property: 'border', $theme: $theme);
+	$tablist-border: if($button-border and $button-border != transparent, $button-border, $button-background);
+	@return $tablist-border;
+}

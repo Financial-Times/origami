@@ -7,16 +7,38 @@
 @import 'src/scss/mixins';
 @import 'src/scss/buttontabs';
 
-@if $o-tabs-is-silent == false {
-	@include oTabs;
-	@include oTabsButtonTabs;
+/// Outputs all available features and styles for tabs.
+///
+/// @param {Map} $opts ['themes': ('primary', 'inverse')] - Tab options including themes to output styles for.
+/// @output The output includes the `.o-tabs` class definition as well as class definitions for every variant.
+/// @example scss - All tab styles
+///   @include oTabs();
+/// @example scss - Base styles and primary theme
+///   @include oTabs($opts: ('themes': ('primary'));
+/// @access public
+@mixin oTabs($opts: (
+	'themes': ('primary', 'inverse')
+)) {
+	$themes: map-get($opts, 'themes');
+
+	// Include base styles
+	@include _oTabsBase();
+
+	// Include base button tabs styles
+	@include _oTabsButtonTabs();
 
 	// Output default themes. Other themes avalible, see o-buttons themes.
-	@each $theme in ('primary', 'inverse') {
+	@each $theme in $themes {
 		@if _oTabsSupports($theme) {
-			.o-tabs--#{$theme} {
-				@include oTabsButtonTabsTheme($theme, $selector: false);
-			}
+			@include _oTabsButtonTabsTheme($theme);
 		}
 	}
+}
+
+// If silent mode is disabled, output all of the default tab styles.
+@if ($o-tabs-is-silent == false) {
+	@include oTabs();
+
+	// Set module to silent again
+	$o-tabs-is-silent: true !global;
 }

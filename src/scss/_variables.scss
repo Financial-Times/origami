@@ -1,8 +1,7 @@
-////
-/// @group o-tabs
-/// @link http://registry.origami.ft.com/components/o-tabs
-////
 
-/// Silent mode
-/// @type Bool
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default tabs classes
+///
+/// @type Boolean
+/// @access public
 $o-tabs-is-silent: true !default;
