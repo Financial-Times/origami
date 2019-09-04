@@ -43,7 +43,7 @@ describe("Auth", () => {
 
 			it('resolves with an object', () => {
 				return getJsonWebToken()
-					.then(proclaim.isObject);
+					.then(result => proclaim.isObject(result));
 			});
 
 			it("resolves with undefined token", () => {
