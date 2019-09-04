@@ -3,9 +3,27 @@
 
 ## Migrating from v4 to v5
 
+### Mixins
+
 - The `oTabs` mixin now includes all styles required for unstyled tabs and button tabs. See the [Sass documentation](README.md#sass) for information on the new parameters
 - The `oTabsButtonTabs` mixin has been removed. These styles are included when you call the `oTabs` mixin
 - The `oTabsButtonTabsTheme` mixin has been removed. You can include new themes in the `oTabs` mixin
+
+### ES Modules
+
+v5 uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-tabs` using the es modules syntax.
+
+```diff
+-const Tabs = require('o-tabs');
++import Tabs from 'o-tabs';
+```
+
+However to use the CommonJS syntax, without a plugin like [babel-plugin-transform-es2015-modules-commonjs](https://babeljs.io/docs/en/babel-plugin-transform-es2015-modules-commonjs), add `.default` to access `o-tabs` methods.
+
+```diff
+-const Tabs = require('o-tabs');
++const Tabs = require('o-tabs').default;
+```
 
 ## Migrating from v3 to v4
 

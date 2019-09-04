@@ -1,4 +1,3 @@
-/*global require, module*/
 
 const Tabs = require('./src/js/Tabs');
 
@@ -9,4 +8,4 @@ const constructAll = function() {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = Tabs;
+export default Tabs;

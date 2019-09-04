@@ -90,7 +90,7 @@ Auto-construction can be disabled for a specific element via another data attrib
 Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the event could be polyfilled, or construction can be manually invoked:
 
 ```javascript
-const Tabs = require('o-tabs');
+import Tabs from 'o-tabs';
 const tabsObjects = Tabs.init(document.body, {
     disablefocus: false
 });
@@ -103,7 +103,7 @@ An array of any constructed Tabs objects will be returned.
 ### Imperative
 
 ```javascript
-const Tabs = require('o-tabs');
+import Tabs from 'o-tabs';
 const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
     disablefocus: false
 });
