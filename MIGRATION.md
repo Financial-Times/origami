@@ -28,7 +28,7 @@ The inbuilt polyfill for `screen.orientation` has been removed. `o-viewport` wil
 
 The in built polyfill for `document.visibilityState` has also been removed. It is supported by IE10 and above, so no action is needed.
 
-`getScrollPosition` no longer suppotrs IE < 9.
+`getScrollPosition` no longer supports IE < 9.
 
 ### Migrating from v2 to v3
 
