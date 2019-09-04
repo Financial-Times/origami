@@ -14,18 +14,38 @@ module.exports = () => {
 		sandbox.restore();
 	});
 
-	it("calls this.embed.login", () => {
-		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
-		const embedLoginStub = sandbox.stub();
+	describe("token exists", () => {
+		it("calls this.embed.login", () => {
+			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			const embedLoginStub = sandbox.stub();
 
-		const stream = new Stream(mockStreamEl);
+			const stream = new Stream(mockStreamEl);
 
-		stream.embed = {
-			login: embedLoginStub
-		}
+			stream.token = '12345';
+			stream.embed = {
+				login: embedLoginStub
+			}
 
-		stream.login();
+			stream.login();
 
-		proclaim.isTrue(embedLoginStub.calledOnce);
+			proclaim.isTrue(embedLoginStub.calledOnce);
+		});
+	});
+
+	describe("token doesn't exists", () => {
+		it("this.embed.login isn't called", () => {
+			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			const embedLoginStub = sandbox.stub();
+
+			const stream = new Stream(mockStreamEl);
+
+			stream.embed = {
+				login: embedLoginStub
+			}
+
+			stream.login();
+
+			proclaim.isFalse(embedLoginStub.called);
+		});
 	});
 };

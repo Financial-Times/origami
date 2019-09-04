@@ -1,5 +1,4 @@
 import {validEvents, coralMap, errorMap} from './utils/events';
-import {getJsonWebToken} from './utils/auth';
 
 class Stream {
 	/**
@@ -20,10 +19,7 @@ class Stream {
 
 	init () {
 		return Promise.all([this.renderComments(), this.getJsonWebToken()])
-			.then(([embed, jsonWebToken]) => {
-				this.token = (jsonWebToken && jsonWebToken.token) ? jsonWebToken.token : false;
-				this.embed = embed || false;
-
+			.then(() => {
 				if (this.token && this.embed) {
 					this.login();
 				}
@@ -31,11 +27,33 @@ class Stream {
 	}
 
 	login () {
-		this.embed.login(this.token);
+		if (this.token) {
+			this.embed.login(this.token);
+		} else {
+			console.log("Unabled to login into comments as token doesn't exist")
+		}
 	}
 
 	getJsonWebToken () {
-		return getJsonWebToken()
+		return fetch('https://comments-api.ft.com/user/auth/', {
+			credentials: 'include'
+		}).then(response => {
+			// user is signed in but has no display name
+			if (response.status === 205) {
+				return { token: undefined, userIsSignedIn: true };
+			}
+
+			// user is signed in and has a pseudonym
+			if (response.ok) {
+				return response.json();
+			} else {
+				// user is not signed in or session token is invalid
+				// or error in comments api
+				return { token: undefined, userIsSignedIn: false };
+			}
+		}).catch(error => {
+			return;
+		});
 	}
 
 	renderComments () {
@@ -68,7 +86,7 @@ class Stream {
 				this.streamEl.parentNode.appendChild(scriptElement);
 
 				document.dispatchEvent(new Event('oCommentsReady'));
-				resolve(this.embed);
+				resolve();
 			} catch (error) {
 				resolve()
 			}

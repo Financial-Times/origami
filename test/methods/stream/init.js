@@ -28,8 +28,10 @@ module.exports = () => {
 	it("calls .getJsonWebToken", () => {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 		const stream = new Stream(mockStreamEl);
+		const renderStub = sandbox.stub();
 		const tokenStub = sandbox.stub();
 		stream.getJsonWebToken = tokenStub;
+		stream.renderComments = renderStub;
 
 		stream.init();
 
@@ -85,11 +87,11 @@ module.exports = () => {
 			const tokenStub = sandbox.stub();
 			const loginStub = sandbox.stub();
 
-			stream.getJsonWebToken = tokenStub.resolves({
-				token: 'fake-token'
-			});
-			stream.renderComments = renderStub.returns({});
+			stream.getJsonWebToken = tokenStub.resolves();
+			stream.renderComments = renderStub.resolves();
 			stream.login = loginStub;
+			stream.token = 'fake-token';
+			stream.embed = {};
 
 			stream.init().
 				then(() => {
