@@ -81,7 +81,7 @@ describe("Comments", () => {
 		let stream;
 
 		beforeEach(() => {
-			stream = sinon.stub(Stream.prototype, '_renderComments').callsFake(() => true);
+			stream = sinon.stub(Stream.prototype, 'init').callsFake(() => true);
 			fixtures.streamMarkup();
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			new Comments(mockRootEl);
