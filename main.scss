@@ -13,10 +13,18 @@
 @import './src/scss/base';
 @import './src/scss/state';
 
-/// Output all oMessage features
+/// Output all o-message features. Accepts an options map to include features granularly.
+/// Options include which types, states, and layouts of o-message to include.
+/// See the README for more details.
+/// @example To include all o-message styles.
+///     @include oMessage();
+/// @example To include only error and success alert styles.
+///     @include oMessage($opts: (
+///     	'types': ('alert'),
+///     	'states': ('error', 'success'),
+///     ));
 /// @param {Map} $opts ['types': ('alert', 'notice', 'action), 'states': ('error', 'success', 'inform', 'neutral', 'inform-inverse', 'warning', 'warning-light'), 'layouts': ('inner')]
-
-@mixin oMessage ($opts: (
+@mixin oMessage($opts: (
 	'types': ('action', 'alert', 'notice'),
 	'states': ('error', 'success', 'neutral', 'inform', 'inform-inverse', 'warning', 'warning-light'),
 	'layouts': ('inner')

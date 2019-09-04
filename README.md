@@ -18,7 +18,7 @@ o-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-message/tree/m
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
 
 ### Message Types
-`o-message` provides three types of messages: **action**, **alert**, and **notice**.  
+`o-message` provides three types of messages: **action**, **alert**, and **notice**.
 
 - An **action** message should be used as a static call to action, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
 
@@ -45,8 +45,8 @@ However, not every message accepts every state, or every layout, and not every m
 
 All messages have the same markup. What will style them differently are the following modifiers:
 
-- `type`: one of `o-message--action`, `o-message--alert`, `o-message--notice`  
-- `state`: one of `o-message--success`, `o-message--neutral`, `o-message--error`, `o-message--warning`, `o-message--warning-light`, `o-message--inform`, `o-message--inform-inverse`  
+- `type`: one of `o-message--action`, `o-message--alert`, `o-message--notice`
+- `state`: one of `o-message--success`, `o-message--neutral`, `o-message--error`, `o-message--warning`, `o-message--warning-light`, `o-message--inform`, `o-message--inform-inverse`
 - `layout`: currently only `o-message--inner`
 
 _Note: as mentioned in the description of the [message types](#message-types), not all states will work for all message types. In addition to that, the layout modifier only applies to `alert` and `notice` type messages._
@@ -163,17 +163,17 @@ No code will run automatically unless you are using the Build Service. You must 
 #### Construction
 If you have set up your message declaratively, use the following to initialise your message.
 ```js
-const oMessage = require('o-message');
-oMessage.init();
+import Message from 'o-message';
+Message.init();
 ```
 
-`oMessage` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-close="false"` to the message element.
+`Message` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-close="false"` to the message element.
 
-If you're setting up a message without existing DOM elements, `oMessage` will construct an element for you. As long as your markup contains an element with the data attribute `data-o-component=o-message`, you can initialise a message with specific [options](#options).
+If you're setting up a message without existing DOM elements, `Message` will construct an element for you. As long as your markup contains an element with the data attribute `data-o-component=o-message`, you can initialise a message with specific [options](#options).
 
 ```js
-const oMessage = require('o-message');
-const importantMessage = new oMessage(null, {
+import Message from 'o-message';
+const importantMessage = new Message(null, {
 	type: 'alert',
 	status: 'error',
 	content: {
@@ -209,6 +209,22 @@ The following options are not required, and all have a default value:
 		- `openInNewWindow`: Boolean. Decides if the action should open with `target="_blank`. Defaults to `false`
 - `close`: Boolean. Whether or not to display the close button. Defaults to `true`.
 
+For example, to configure the `close` icon to not display:
+
+```diff
+import Message from 'o-message';
+const importantMessage = new Message(null, {
+	type: 'alert',
+	status: 'error',
+	content: {
+-		highlight: 'Something has gone wrong.',
++		highlight: 'Something has gone very wrong.',
+		detail: 'The quick brown fox did not jump over the lazy dogs.'
+	},
++	close: false
+});
+```
+
 ### Sass
 
 You can include all styles and variations for every message type by calling:
@@ -222,9 +238,18 @@ You can also be more specific about which message styles and variations you woul
 @include oMessage($opts: (
 	'types': ('action', 'notice'),
 	'states': ('inform', 'warning'),
-	'layouts': (inner)
+	'layouts': ('inner')
 ));
 ```
+
+Options include:
+
+| Feature             | Description                                                                                                                                 |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| types               | The message to support (e.g. alert, notice, action) see [message types](#message-types).                                                    |
+| state               | The kinds of messages to support (e.g. 'inform', 'warning', 'error') see [message types](#message-types).                                   |
+| layouts             | By default messages should span the page, to support messages within content pass the 'inner' option. See [message types](#message-types).  |
+
 
 ## Migration
 

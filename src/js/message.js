@@ -2,10 +2,29 @@ import construct from './construct-element';
 
 class Message {
 	/**
- * Class constructor.
- * @param {HTMLElement} [messageElement] - The message element in the DOM
- * @param {Object} [options={}] - An options object for configuring the message
- */
+	 * Initialises an `o-message` component.
+	 *
+	 * @access public
+	 * @param {HTMLElement} messageElement [undefined] - The `o-message` element (optional).
+	 * @param {Object} [options={}] - An options object for configuring the message (see the README for details).
+	 *
+	 * @example To construct all elements on the page with the `data-o-component="o-message"` attribute.
+ 	 *      Message.init();
+	 *
+	 * @example To construct a specifc o-message on the page.
+	 * 		const myMessageElement = document.querySelector('.my-message');
+ 	 *      const myMessage = new Message(myMessageElement, {});
+	 *
+	 * @example To construct a message which does not already exist on the page.
+ 	 *      const errorAlert = new Message(null, {
+ 	 *      	type: 'alert',
+ 	 *      	status: 'error',
+ 	 *      	content: {
+ 	 *      		highlight: 'Something has gone wrong.',
+ 	 *      		detail: 'The quick brown fox did not jump over the lazy dogs.'
+ 	 *      	}
+ 	 *      });
+	 */
 	constructor(messageElement, options) {
 		this.messageElement = messageElement;
 

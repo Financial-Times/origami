@@ -1,4 +1,3 @@
-/*global require*/
 import '../../main.js';
 
 document.addEventListener('DOMContentLoaded', () => {

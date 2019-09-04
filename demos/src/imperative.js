@@ -1,4 +1,3 @@
-/*global require*/
 import Message from './../../main.js';
 
 let options = {
