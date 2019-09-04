@@ -11,6 +11,19 @@ const intervals = {
 	scroll: 100
 };
 
+/**
+ *
+ * @param {string} eventType - The type of event to throttle for this duration.
+ * @param {number} interval - The duration to throttle in ms.
+ * @example
+ * 	   // throttle for different events at different durations
+ *     setThrottleInterval('scroll', 100)
+ *     setThrottleInterval('resize', 300)
+ *     setThrottleInterval('orientation', 30)
+ *     setThrottleInterval('visibility', 30)
+ * 		// throttle all events at 30ms
+ *     setThrottleInterval(30);
+ */
 function setThrottleInterval(eventType, interval) {
 	if (typeof arguments[0] === 'number') {
 		setThrottleInterval('scroll', arguments[0]);
@@ -22,6 +35,9 @@ function setThrottleInterval(eventType, interval) {
 	}
 }
 
+/**
+ * @access private
+ */
 function listenToResize() {
 	if (listeners.resize) {
 		return;
@@ -42,6 +58,9 @@ function listenToResize() {
 	};
 }
 
+/**
+ * @access private
+ */
 function listenToOrientation() {
 
 	if (listeners.orientation) {
@@ -64,6 +83,9 @@ function listenToOrientation() {
 	};
 }
 
+/**
+ * @access private
+ */
 function listenToVisibility() {
 
 	if (listeners.visibility) {
@@ -86,6 +108,9 @@ function listenToVisibility() {
 	};
 }
 
+/**
+ * @access private
+ */
 function listenToScroll() {
 
 	if (listeners.scroll) {
@@ -112,6 +137,18 @@ function listenToScroll() {
 	};
 }
 
+/**
+ * Start listening for an event(s).
+ * @param {string} eventType - The event to start listening for. One of `resize`, `scroll`, `orientation`, `visibility` or `all`.
+ * @example
+ * 		// Start listening for all events.
+ * 		oViewport.listenTo('all');
+ *
+ * 		// It is now possible to listen for debounce o-viewport events such as `oViewport.orientation`.
+ *      document.body.addEventListener('oViewport.orientation', function(event) {
+ *      	console.log(event.type); // oViewport.orientation
+ *      });
+ */
 function listenTo(eventType) {
 	if (eventType === 'resize' || eventType === 'all') {
 		listenToResize();
@@ -130,6 +167,15 @@ function listenTo(eventType) {
 	}
 }
 
+/**
+ * Stop listening for an event(s).
+ * @param {string} eventType - The event to stop listening for. One of `resize`, `scroll`, `orientation`, `visibility` or `all`.
+ * @example
+ * 		// Start listening for all events.
+ * 		oViewport.listenTo('all');
+ * 		// We're done. Stop listening for all events.
+ * 		oViewport.stopListeningTo('all');
+ */
 function stopListeningTo(eventType) {
 	if (eventType === 'all') {
 		Object.keys(listeners).forEach(stopListeningTo);
@@ -143,9 +189,9 @@ export default {
 	debug: function () {
 		utils.debug();
 	},
-	listenTo: listenTo,
-	stopListeningTo: stopListeningTo,
-	setThrottleInterval: setThrottleInterval,
+	listenTo,
+	stopListeningTo,
+	setThrottleInterval,
 	getOrientation: utils.getOrientation,
 	getSize: utils.getSize,
 	getScrollPosition: utils.getScrollPosition,

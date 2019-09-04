@@ -22,11 +22,13 @@ However to use the CommonJS syntax, without a plugin like [babel-plugin-transfor
 +const oViewport = require('o-viewport').default;
 ```
 
-#### Polyfills
+#### Browser Support
 
 The inbuilt polyfill for `screen.orientation` has been removed. `o-viewport` will infer screen orientation without it, but for more accurate support across browsers add the polyfill to your project using [polyfill.io](https://polyfill.io/v3/url-builder/).
 
 The in built polyfill for `document.visibilityState` has also been removed. It is supported by IE10 and above, so no action is needed.
+
+`getScrollPosition` no longer suppotrs IE < 9.
 
 ### Migrating from v2 to v3
 

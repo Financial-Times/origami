@@ -2,6 +2,12 @@ import * as Utils from 'o-utils';
 
 let debug;
 
+/**
+ *
+ * @param {string} eventType
+ * @param {object} data
+ * @param {EventTarget} target
+ */
 function broadcast(eventType, data, target) {
 	target = target || document.body;
 
@@ -15,14 +21,36 @@ function broadcast(eventType, data, target) {
 	}));
 }
 
+/**
+* Get the viewport height.
+* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar height.
+* @return {number}
+*/
 function getHeight(ignoreScrollbars) {
 	return ignoreScrollbars ? document.documentElement.clientHeight : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
+/**
+* Get the viewport width.
+* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width
+* @return {number}
+*/
 function getWidth(ignoreScrollbars) {
 	return ignoreScrollbars ? document.documentElement.clientWidth : Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 }
 
+/**
+ * Viewport size.
+ * @typedef {Object} Size
+ * @property {number} height
+ * @property {number} width
+ */
+
+/**
+* Get the viewport width and height.
+* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width/height.
+* @return {Size}
+*/
 function getSize(ignoreScrollbars) {
 	return {
 		height: getHeight(ignoreScrollbars),
@@ -30,23 +58,30 @@ function getSize(ignoreScrollbars) {
 	};
 }
 
+/**
+ * Scroll position.
+ * @typedef {Object} ScrollPosition
+ * @property {number} height - `document.body.scrollHeight`
+ * @property {number} width - `document.body.scrollWidth`
+ * @property {number} left - `window.pageXOffset || window.scrollX`
+ * @property {number} top - `window.pageYOffset || window.scrollY`
+ */
+
+/**
+ * @return {ScrollPosition}
+ */
 function getScrollPosition() {
-	const de = document.documentElement;
-	const db = document.body;
-
-	// adapted from https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY
-	const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
-
-	const ieX = isCSS1Compat ? de.scrollLeft : db.scrollLeft;
-	const ieY = isCSS1Compat ? de.scrollTop : db.scrollTop;
 	return {
-		height: db.scrollHeight,
-		width: db.scrollWidth,
-		left: window.pageXOffset || window.scrollX || ieX,
-		top: window.pageYOffset || window.scrollY || ieY
+		height: document.body.scrollHeight,
+		width: document.body.scrollWidth,
+		left: window.pageXOffset || window.scrollX,
+		top: window.pageYOffset || window.scrollY
 	};
 }
 
+/**
+ * @return {string} - 'portrait' or 'landscape'
+ */
 function getOrientation() {
 	const orientation = window.screen.orientation;
 	if (orientation) {
@@ -60,6 +95,9 @@ function getOrientation() {
 	}
 }
 
+/**
+ * @return {boolean} - true if the viewport is visible
+ */
 function getVisibility() {
 	return document.hidden;
 }
