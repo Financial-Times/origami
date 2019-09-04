@@ -2,6 +2,12 @@
 
 ### Migrating from v3 to v4
 
+#### Removed Methods
+
+`detectVisiblityAPI` has been removed, we recommend [document.visibilityState](https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilityState) or [document.hidden](https://developer.mozilla.org/en-US/docs/Web/API/Document/hidden) instead.
+
+#### ES Modules over CommonJS
+
 v4 uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-viewport` using the es modules syntax.
 
 ```diff
@@ -16,9 +22,15 @@ However to use the CommonJS syntax, without a plugin like [babel-plugin-transfor
 +const oViewport = require('o-viewport').default;
 ```
 
+#### Polyfills
+
+The inbuilt polyfill for `screen.orientation` has been removed. `o-viewport` will infer screen orientation without it, but for more accurate support across browsers add the polyfill to your project using [polyfill.io](https://polyfill.io/v3/url-builder/).
+
+The in built polyfill for `document.visibilityState` has also been removed. It is supported by IE10 and above, so no action is needed.
+
 ### Migrating from v2 to v3
 
-v3 removes the `throttle` and `debounce` methods. These were later reintroduced, but we recommend [o-utils](https://github.com/Financial-Times/o-utils/) instead.
+v3 removes the `throttle` and `debounce` methods from `o-viewport`. We recommend [o-utils](https://github.com/Financial-Times/o-utils/) instead.
 
 ### Migrating from v1 to v2
 

@@ -48,7 +48,7 @@ function getScrollPosition() {
 }
 
 function getOrientation() {
-	const orientation = window.screen.orientation || window.screen.mozOrientation || window.screen.msOrientation || undefined;
+	const orientation = window.screen.orientation;
 	if (orientation) {
 		return typeof orientation === 'string' ?
 			orientation.split('-')[0] :
@@ -60,32 +60,8 @@ function getOrientation() {
 	}
 }
 
-function detectVisiblityAPI() {
-	let hiddenName;
-	let eventType;
-	if (typeof document.hidden !== 'undefined') {
-		hiddenName = 'hidden';
-		eventType = 'visibilitychange';
-	} else if (typeof document.mozHidden !== 'undefined') {
-		hiddenName = 'mozHidden';
-		eventType = 'mozvisibilitychange';
-	} else if (typeof document.msHidden !== 'undefined') {
-		hiddenName = 'msHidden';
-		eventType = 'msvisibilitychange';
-	} else if (typeof document.webkitHidden !== 'undefined') {
-		hiddenName = 'webkitHidden';
-		eventType = 'webkitvisibilitychange';
-	}
-
-	return {
-		hiddenName: hiddenName,
-		eventType: eventType
-	};
-}
-
 function getVisibility() {
-	const hiddenName = detectVisiblityAPI().hiddenName;
-	return document[hiddenName];
+	return document.hidden;
 }
 
 export default {
@@ -99,7 +75,6 @@ export default {
 	getScrollPosition,
 	getVisibility,
 	getOrientation,
-	detectVisiblityAPI,
 	debounce: Utils.debounce,
 	throttle: Utils.throttle
 };

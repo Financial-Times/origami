@@ -70,7 +70,7 @@ function listenToVisibility() {
 		return;
 	}
 
-	const eventType = utils.detectVisiblityAPI().eventType;
+	const eventType = 'visibilitychange';
 	const handler = debounce(function(ev) {
 		utils.broadcast('visibility', {
 			hidden: utils.getVisibility(),

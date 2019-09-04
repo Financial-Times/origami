@@ -15,7 +15,8 @@
 			"customevent"
 		],
 		"optional": [
-			"matchmedia"
+			"matchmedia",
+			"screen.orientation"
 		]
 	},
 	"ci": {
