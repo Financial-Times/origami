@@ -1,3 +1,4 @@
+import proclaim from 'proclaim';
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 

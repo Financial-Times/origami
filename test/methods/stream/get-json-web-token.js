@@ -1,3 +1,4 @@
+import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import fetchMock from 'fetch-mock';
 import * as fixtures from '../../helpers/fixtures';
