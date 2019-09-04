@@ -14,12 +14,13 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
+
+		this._mapCoralEventsToOComments();
 	}
 
 	init () {
-		Promise.all([this._renderComments(), getJsonWebToken()])
+		return Promise.all([this.renderComments(), this.getJsonWebToken()])
 			.then(([embed, jsonWebToken]) => {
-
 				this.token = (jsonWebToken && jsonWebToken.token) ? jsonWebToken.token : false;
 				this.embed = embed || false;
 
@@ -27,46 +28,51 @@ class Stream {
 					this.login();
 				}
 			});
-
-		this._mapCoralEventsToOComments();
 	}
 
 	login () {
 		this.embed.login(this.token);
 	}
 
+	getJsonWebToken () {
+		return getJsonWebToken()
+	}
+
 	renderComments () {
-		/*global Coral*/
-
-		let embed;
-
-		const scriptElement = document.createElement('script');
-		scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
-		scriptElement.onload = () => {
-			embed = Coral.createStreamEmbed(
-				{
-					id: this.streamEl.id,
-					storyURL: this.options.storyUrl,
-					rootURL: 'https://ft.staging.coral.coralproject.net',
-					autoRender: true,
-					events: (events) => {
-						events.onAny((name, data) => {
-							const message = new CustomEvent('talkEvent', {
-								detail: {
-									name,
-									data
-								}
-							});
-							window.parent.dispatchEvent(message);
-						});
-					}
+		return new Promise((resolve) => {
+			try {
+				/*global Coral*/
+				const scriptElement = document.createElement('script');
+				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
+				scriptElement.onload = () => {
+					this.embed = Coral.createStreamEmbed(
+						{
+							id: this.streamEl.id,
+							storyURL: this.options.storyUrl,
+							rootURL: 'https://ft.staging.coral.coralproject.net',
+							autoRender: true,
+							events: (events) => {
+								events.onAny((name, data) => {
+									const message = new CustomEvent('talkEvent', {
+										detail: {
+											name,
+											data
+										}
+									});
+									window.parent.dispatchEvent(message);
+								});
+							}
+						}
+					);
 				}
-			);
-		}
-		this.streamEl.appendChild(scriptElement);
+				this.streamEl.parentNode.appendChild(scriptElement);
 
-		document.dispatchEvent(new Event('oCommentsReady'));
-		return embed;
+				document.dispatchEvent(new Event('oCommentsReady'));
+				resolve(this.embed);
+			} catch (error) {
+				resolve()
+			}
+		});
 	}
 
 	/**
