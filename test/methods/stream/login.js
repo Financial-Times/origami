@@ -25,7 +25,7 @@ module.exports = () => {
 			stream.token = '12345';
 			stream.embed = {
 				login: embedLoginStub
-			}
+			};
 
 			stream.login();
 
@@ -42,7 +42,7 @@ module.exports = () => {
 
 			stream.embed = {
 				login: embedLoginStub
-			}
+			};
 
 			stream.login();
 

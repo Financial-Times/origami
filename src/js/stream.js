@@ -30,7 +30,7 @@ class Stream {
 		if (this.token) {
 			this.embed.login(this.token);
 		} else {
-			console.log("Unabled to login into comments as token doesn't exist")
+			console.log("Unabled to login into comments as token doesn't exist");
 		}
 	}
 
@@ -51,8 +51,16 @@ class Stream {
 				// or error in comments api
 				return { token: undefined, userIsSignedIn: false };
 			}
-		}).catch(error => {
-			return;
+		}).then(jsonWebToken => {
+
+			if (jsonWebToken.token) {
+				this.token = jsonWebToken.token;
+			}
+
+			return jsonWebToken;
+
+		}).catch(() => {
+			return false;
 		});
 	}
 
@@ -82,13 +90,13 @@ class Stream {
 							}
 						}
 					);
-				}
+				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
 				document.dispatchEvent(new Event('oCommentsReady'));
 				resolve();
 			} catch (error) {
-				resolve()
+				resolve();
 			}
 		});
 	}
