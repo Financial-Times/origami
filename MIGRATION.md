@@ -21,9 +21,9 @@ The table below shows the mapping of old events to new.
 | widget.timeout         | Not mapped yet              |
 | widget.ready           | Deprecation candidate       |
 | widget.load            | Deprecation candidate       |
-| widget.renderComplete  | o-comments.ready            |
-| tracking.postComment   | o-comments.comment.posted   |
-| tracking.likeComment   | o-comments.comment.liked    |
+| widget.renderComplete  | oComments.ready             |
+| tracking.postComment   | oComments.postComment       |
+| tracking.likeComment   | ocomments.likeComment       |
 | tracking.shareComment  | Deprecation candidate       |
 | tracking.socialMention | Deprecated                  |
 | auth.login             | Not mapped yet              |

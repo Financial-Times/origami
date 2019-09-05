@@ -18,7 +18,7 @@ module.exports = () => {
 
 	it("throws a error if it's missing a parameter", () => {
 		const stream = new Stream();
-		proclaim.throws(() => stream.on('o-comments.ready'), '.on requires both the `event` & `callback` parameters');
+		proclaim.throws(() => stream.on('oComments.ready'), '.on requires both the `event` & `callback` parameters');
 	});
 
 	it("throws a error if the event name isn't valid", () => {
@@ -28,18 +28,18 @@ module.exports = () => {
 
 	it("throws a type error if the callback parameter isn't a function", () => {
 		const stream = new Stream();
-		proclaim.throws(() => stream.on('o-comments.ready', 'Not a function'),'The callback must be a function');
+		proclaim.throws(() => stream.on('oComments.ready', 'Not a function'),'The callback must be a function');
 	});
 
 	it("calls the callback when the event is emitted", () => {
 		const stream = new Stream();
 		let eventWasEmitted = false;
 
-		stream.on('o-comments.ready', () => {
+		stream.on('oComments.ready', () => {
 			eventWasEmitted = true;
 		});
 
-		document.dispatchEvent(new CustomEvent('o-comments.ready'));
+		document.dispatchEvent(new CustomEvent('oComments.ready'));
 
 		proclaim.isTrue(eventWasEmitted);
 	});
@@ -48,7 +48,7 @@ module.exports = () => {
 		it("maps the `ready` event", (done) => {
 			const stream = new Stream();
 
-			stream.on('o-comments.ready', () => {
+			stream.on('oComments.ready', () => {
 				proclaim.isTrue(true);
 				done();
 			});
@@ -64,7 +64,7 @@ module.exports = () => {
 		it("maps the `mutation.createComment` event", (done) => {
 			const stream = new Stream();
 
-			stream.on('o-comments.comment.posted', () => {
+			stream.on('oComments.postComment', () => {
 				proclaim.isTrue(true);
 				done();
 			});
@@ -79,7 +79,7 @@ module.exports = () => {
 		it("maps the `mutation.createCommentReaction` event", (done) => {
 			const stream = new Stream();
 
-			stream.on('o-comments.comment.liked', () => {
+			stream.on('oComments.likeComment', () => {
 				proclaim.isTrue(true);
 				done();
 			});
@@ -94,7 +94,7 @@ module.exports = () => {
 		it("maps the `mutation.editComment` event", (done) => {
 			const stream = new Stream();
 
-			stream.on('o-comments.comment.edited', () => {
+			stream.on('oComments.editComment', () => {
 				proclaim.isTrue(true);
 				done();
 			});
@@ -109,7 +109,7 @@ module.exports = () => {
 		it("maps the `mutation.createCommentReply` event", (done) => {
 			const stream = new Stream();
 
-			stream.on('o-comments.comment.replied', () => {
+			stream.on('oComments.replyComment', () => {
 				proclaim.isTrue(true);
 				done();
 			});
@@ -125,7 +125,7 @@ module.exports = () => {
 			it("maps the `COMMENT_IS_TOXIC` error event", (done) => {
 				const stream = new Stream();
 
-				stream.on('o-comments.comment.toxic', () => {
+				stream.on('oComments.toxicComment', () => {
 					proclaim.isTrue(true);
 					done();
 				});
@@ -151,7 +151,7 @@ module.exports = () => {
 			it("maps the `COMMENT_IS_TOXIC` error event", (done) => {
 				const stream = new Stream();
 
-				stream.on('o-comments.comment.toxic', () => {
+				stream.on('oComments.toxicComment', () => {
 					proclaim.isTrue(true);
 					done();
 				});
@@ -175,7 +175,7 @@ module.exports = () => {
 			it("maps the valid  event", (done) => {
 				const stream = new Stream();
 
-				stream.on('o-comments.comment.edited', () => {
+				stream.on('oComments.editComment', () => {
 					proclaim.isTrue(true);
 					done();
 				});

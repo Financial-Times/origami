@@ -96,7 +96,7 @@ The `.on` interface allows you to listen for [events](#events).
 const oComments = require('o-comments');
 const Comments = new oComments();
 
-Comments.on('o-comments.ready', (event) => {
+Comments.on('oComments.ready', (event) => {
 	console.log('The comments have rendered')
 });
 
@@ -107,7 +107,7 @@ Comments.on('o-comments.ready', (event) => {
 Events are emitted during key events and can be listened to using the [`.on` interface](#on) or by listening for events on the document.
 
 ```js
-document.addEventListener('o-comments.ready', (event) => {
+document.addEventListener('oComments.ready', (event) => {
 	console.log('This comments have rendered');
 });
 ```
@@ -116,16 +116,17 @@ document.addEventListener('o-comments.ready', (event) => {
 
 These events are anything to do with the component itself.
 
-- **o-comments.ready** - Emitted when the component has finished rendering and is ready for the user to interact with comments
+- **oComments.ready** - Emitted when the component has finished rendering and is ready for the user to interact with comments
 
 #### Comment
 
 These events are anything to do with comment interactions.
 
-- **o-comments.comment.posted** - Emitted when a users has successfully left a comment
-- **o-comments.comment.replied** - Emitted when a user has successfully left a comment which is a reply to an existing comment.
-- **o-comments.comment.edited** - Emitted when a user has successfully edited their existing comment.
-- **o-comments.comment.liked** - Emitted when a users has liked a comment
+- **oComments.postComment** - Emitted when a users has successfully left a comment
+- **oComments.replyComment** - Emitted when a user has successfully left a comment which is a reply to an existing comment.
+- **oComments.editComment** - Emitted when a user has successfully edited their existing comment.
+- **oComments.likeComment** - Emitted when a users has liked a comment
+- **oComments.toxicComment** - Emitted when a user attempted to leave a comment that was flagged as toxic by the auto moderation
 
 ## Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
