@@ -168,10 +168,11 @@ The `oTabs` mixin is used to output base styles as well as styles for several of
 /* etc. */
 ```
 
-If you wish to specify more themes to output styles for, you can pass in options (see [themes](#themes) for available options):
+If you wish to specify more sizes and themes to output styles for, you can pass in options (see [sizes](#sizes) and [themes](#themes) for available options):
 
 ```scss
 @include oTabs($opts: (
+    'sizes': ('big'),
     'themes': ('mono')
 ));
 ```
@@ -182,11 +183,19 @@ If you wish to specify more themes to output styles for, you can pass in options
 }
 ```
 
+### Sizes
+
+This table outlines all of the possible sizes you can request in the [`oTabs` mixin](#mixin-otabs):
+
+| Size | Notes               | Brand support                |
+|------|---------------------|------------------------------|
+| big  | Included by default | master, internal, whitelabel |
+
 ### Themes
 
 This table outlines all of the possible themes you can request in the [`oTabs` mixin](#mixin-otabs). All of these are [themes in o-buttons](https://github.com/Financial-Times/o-buttons#themes):
 
-| Size      | Notes                                    | Brand support    |
+| Theme     | Notes                                    | Brand support    |
 |-----------|------------------------------------------|------------------|
 | secondary | Always defined – no need to include this | master, internal |
 | primary   | Included by default                      | master, internal |

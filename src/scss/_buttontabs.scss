@@ -2,7 +2,7 @@
 /// Outputs tabs with a default theme 'secondary'.
 ///
 /// @access private
-@mixin _oTabsButtonTabs() {
+@mixin _oTabsButtonTabs($sizes) {
 	.o-tabs--buttontabs[data-o-tabs--js] {
 		&[role=tablist] {
 			border-bottom: 1px solid _oTabsGetTablistBorderColor($theme: 'secondary');
@@ -13,10 +13,15 @@
 			@include oButtons($theme: 'secondary');
 		}
 
-		&.o-tabs--big [role=tab] {
-			@include oButtonsSize('big');
+		@if index($sizes, 'big') {
+			&.o-tabs--big [role=tab] {
+				@include oButtonsSize('big');
+			}
 		}
 
+		// Note: this "big" selector is not included in the condition above
+		// because it'd have a negative impact on readability. The "big" here
+		// has minimal impact on the output bundle size
 		[role=tab],
 		&.o-tabs--big [role=tab] {
 			border-bottom-width: 0;

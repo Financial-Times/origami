@@ -9,7 +9,7 @@
 
 /// Outputs all available features and styles for tabs.
 ///
-/// @param {Map} $opts ['themes': ('primary', 'inverse')] - Tab options including themes to output styles for.
+/// @param {Map} $opts [('sizes': ('big'), 'themes': ('primary', 'inverse'))] - Tab options including themes to output styles for.
 /// @output The output includes the `.o-tabs` class definition as well as class definitions for every variant.
 /// @example scss - All tab styles
 ///   @include oTabs();
@@ -17,15 +17,17 @@
 ///   @include oTabs($opts: ('themes': ('primary'));
 /// @access public
 @mixin oTabs($opts: (
+	'sizes': ('big'),
 	'themes': ('primary', 'inverse')
 )) {
+	$sizes: map-get($opts, 'sizes');
 	$themes: map-get($opts, 'themes');
 
 	// Include base styles
 	@include _oTabsBase();
 
 	// Include base button tabs styles
-	@include _oTabsButtonTabs();
+	@include _oTabsButtonTabs($sizes);
 
 	// Output default themes. Other themes avalible, see o-buttons themes.
 	@each $theme in $themes {
