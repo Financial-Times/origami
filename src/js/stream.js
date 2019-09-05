@@ -1,5 +1,4 @@
 import {validEvents, coralMap, errorMap} from './utils/events';
-import {getJsonWebToken} from './utils/auth';
 
 class Stream {
 	/**
@@ -14,53 +13,92 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
+
 		this._mapCoralEventsToOComments();
-		this._renderComments();
 	}
 
-	/**
-	 * Render a comments instance authenticated with Coral Talk.
-	 *
-	 * @access private
-	 * @returns {HTMLElement}
-	 */
-	_renderComments () {
-		/*global Coral*/
-		getJsonWebToken()
-			.then((jwtResponse) => {
+	init () {
+		return Promise.all([this.renderComments(), this.getJsonWebToken()])
+			.then(() => {
+				if (this.token && this.embed) {
+					this.login();
+				}
+			});
+	}
+
+	login () {
+		if (this.token && this.embed) {
+			this.embed.login(this.token);
+		} else {
+			console.log("Unabled to login into comments as token or embed dont exist");
+		}
+	}
+
+	getJsonWebToken () {
+		return fetch('https://comments-api.ft.com/user/auth/', {
+			credentials: 'include'
+		}).then(response => {
+			// user is signed in but has no display name
+			if (response.status === 205) {
+				return { token: undefined, userIsSignedIn: true };
+			}
+
+			// user is signed in and has a pseudonym
+			if (response.ok) {
+				return response.json();
+			} else {
+				// user is not signed in or session token is invalid
+				// or error in comments api
+				return { token: undefined, userIsSignedIn: false };
+			}
+		}).then(jsonWebToken => {
+
+			if (jsonWebToken.token) {
+				this.token = jsonWebToken.token;
+			}
+
+			return jsonWebToken;
+
+		}).catch(() => {
+			return false;
+		});
+	}
+
+	renderComments () {
+		return new Promise((resolve) => {
+			try {
+				/*global Coral*/
 				const scriptElement = document.createElement('script');
 				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
-				scriptElement.onload = () => Coral.createStreamEmbed(
-					{
-						id: this.streamEl.id,
-						storyURL: this.options.storyUrl,
-						rootURL: 'https://ft.staging.coral.coralproject.net',
-						autoRender: true,
-						accessToken: jwtResponse.token,
-						events: (events) => {
-							events.onAny((name, data) => {
-								const message = new CustomEvent('talkEvent', {
-									detail: {
-										name,
-										data
-									}
+				scriptElement.onload = () => {
+					this.embed = Coral.createStreamEmbed(
+						{
+							id: this.streamEl.id,
+							storyURL: this.options.storyUrl,
+							rootURL: 'https://ft.staging.coral.coralproject.net',
+							autoRender: true,
+							events: (events) => {
+								events.onAny((name, data) => {
+									const message = new CustomEvent('talkEvent', {
+										detail: {
+											name,
+											data
+										}
+									});
+									window.parent.dispatchEvent(message);
 								});
-								window.parent.dispatchEvent(message);
-							});
+							}
 						}
-					}
-				);
-				this.streamEl.appendChild(scriptElement);
-				/**
-				 * In order to test the asynchronous function, send an event when getJsonWebToken resolves
-				 * the script element is injected into the document.
-				 */
+					);
+				};
+				this.streamEl.parentNode.appendChild(scriptElement);
+
 				document.dispatchEvent(new Event('oCommentsReady'));
-			})
-			.catch(error => {
-				console.error(`Unable to authenticate user: ${error}`);
-				document.dispatchEvent(new Event('oCommentsFailed'));
-			});
+				resolve();
+			} catch (error) {
+				resolve();
+			}
+		});
 	}
 
 	/**
