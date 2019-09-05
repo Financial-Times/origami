@@ -27,10 +27,10 @@ class Stream {
 	}
 
 	login () {
-		if (this.token) {
+		if (this.token && this.embed) {
 			this.embed.login(this.token);
 		} else {
-			console.log("Unabled to login into comments as token doesn't exist");
+			console.log("Unabled to login into comments as token or embed dont exist");
 		}
 	}
 
