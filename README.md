@@ -64,7 +64,7 @@ You must either construct an `o-tooltip` object or fire an `o.DOMContentLoaded` 
 #### Constructing an o-tooltip
 If you have setup your tooltip declaratively, the following applies:
 ```js
-const Tooltip = require('o-tooltip');
+import Tooltip from 'o-tooltip';
 const tooltipEl = Document.getElementById('my-tooltip-element');
 const tooltip = new Tooltip(tooltipEl);
 ```
@@ -72,7 +72,7 @@ const tooltip = new Tooltip(tooltipEl);
 Alternatively, if you want to construct a tooltip imperatively, you can instantiate o-tooltip by passing in your target element and an options object.
 
 ```js
-const Tooltip = require('o-tooltip');
+import Tooltip from 'o-tooltip';
 const tooltipEl = document.querySelector('.imperative-tooltip-element');
 const opts = {
 	target: 'tooltip-target-imperative',
@@ -93,7 +93,7 @@ Since this creates the tooltip from scratch, it is important to include any decl
 There are situations when a tooltip cannot be displayed next to an element (i.e: the parent of the element has `overlow: hidden`). For these type of situations the tooltip can be instantiated using the `appendToBody` configuration property, which will force the tooltip element to be created just before `body` tag closing.
 
 ```js
-const Tooltip = require('o-tooltip');
+import Tooltip from 'o-tooltip';
 const tooltipEl = document.querySelector('.imperative-tooltip-element');
 const opts = {
 	target: 'tooltip-target-imperative',

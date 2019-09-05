@@ -1,4 +1,4 @@
-/*global require*/
+
 import Tooltip from './../../main.js';
 
 document.addEventListener('DOMContentLoaded', function() {
