@@ -1,14 +1,14 @@
 ## Migration
 
-### Migration from v7 to v8
-
-- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing@2.0.0) instead, or apply margin as needed, depending on the context of the table e.g.
+### Migrating from v7 to v8
+- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing) instead, or apply margin as needed, depending on the context of the table e.g.
 
 ```
 .o-table {
 	margin-bottom: oSpacingByName('s4');
 }
 ```
+- v8 updates the required version on the [o-icons](https://registry.origami.ft.com/components/o-icons) and [ftdomdelegate](https://github.com/Financial-Times/ftdomdelegate) dependencies. Make sure your project still builds with the new versions! 
 
 ### Migrating from v6 to v7
 - To prevent errors in IE11, add support for `IntersectionObserverEntry` and `IntersectionObserver` with the [polyfill service](https://polyfill.io/).
