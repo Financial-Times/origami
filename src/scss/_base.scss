@@ -71,14 +71,6 @@
 		margin-left: 10px;
 	}
 
-	// A spacing class.
-	// e.g. .o-table.o-table-margin-bottom or .o-table-container.o-table-margin-bottom
-	// @deprecated - this is no longer needed now we have `o-spacing`.
-	// @see https://registry.origami.ft.com/components/o-spacing
-	.o-table-margin-bottom {
-		margin-bottom: oSpacingByName('s4');
-	}
-
 	// Visually hide any filtered rows.
 	// `display: none` is not used to avoid recalculating column row.
 	// `visibility: collaposed` is not used due to inconsistent browser support.
