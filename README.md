@@ -117,7 +117,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Sass
 
-As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-tooltip-is-silent : false;` in your Sass before you've imported the o-tooltip Sass.
+#### Mixin: `oTooltip`
+
+The `oTooltip` mixin is used to output tooltip selectors and styles. This output includes all of the `.o-tooltip` classes:
+
+```scss
+@include oTooltip();
+```
+
+```css
+.o-tooltip {
+	/* styles */
+}
+.o-tooltip-content {
+	/* styles */
+}
+/* etc. */
+```
+
+There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-tooltip/sassdoc).
 
 ## Migration Guide
 

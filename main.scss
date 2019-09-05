@@ -1,63 +1,32 @@
-@import "o-normalise/main";
-@import "o-visual-effects/main";
-@import "src/scss/variables";
-@import "src/scss/tooltip";
 @import "o-grid/main";
+@import "o-normalise/main";
+@import "o-overlay/main";
+@import "o-visual-effects/main";
 
-@if $o-tooltip-is-silent == false {
-	@include oGridSurfaceCurrentLayout;
-	@include oGridSurfaceLayoutSizes;
+@import "src/scss/variables";
+@import "src/scss/mixins";
+
+/// Outputs all available features and styles for tooltips.
+///
+/// @output The output includes the `.o-tooltip` class definition.
+/// @example scss - All tooltip styles
+///   @include oTooltip();
+/// @access public
+@mixin oTooltip() {
+	// Tooltip relies on the o-grid layout sizes being defined.
+	// This is still spec-compliant, as these mixins only output
+	// element selectors – nothing prefixed with o-grid
+	@include oGridSurfaceCurrentLayout();
+	@include oGridSurfaceLayoutSizes();
+
+	// Include base styles
+	@include _oTooltipBase();
 }
 
+// If silent mode is disabled, output all of the default tooltip styles.
 @if ($o-tooltip-is-silent == false) {
-	 .o-tooltip {
-		@include oTooltip;
+	@include oTooltip();
 
-		opacity: 0;
-		transition: opacity $o-tooltip-animation-duration $o-visual-effects-transition-fade,
-								transform $o-tooltip-animation-duration $o-visual-effects-transition-slide;
-
-		&.visible {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-
-		&[data-o-tooltip-position="left"]:not(.visible) {
-			transform: translate(-$o-tooltip-animation-distance, 0);
-		}
-		&[data-o-tooltip-position="right"]:not(.visible) {
-			transform: translate($o-tooltip-animation-distance, 0);
-		}
-		&[data-o-tooltip-position="top"]:not(.visible) {
-			transform: translate(0, -$o-tooltip-animation-distance);
-		}
-		&[data-o-tooltip-position="bottom"]:not(.visible) {
-			transform: translate(0, $o-tooltip-animation-distance);
-		}
-	}
-
-	.o-tooltip-content {
-		@include oTooltipContent;
-		line-height: 1;
-	}
-
-	.o-tooltip--arrow-left {
-		@include oTooltipLeftArrow;
-	}
-	.o-tooltip--arrow-right {
-		@include oTooltipRightArrow;
-	}
-	.o-tooltip--arrow-above {
-		@include oTooltipUpArrow;
-	}
-	.o-tooltip--arrow-below {
-		@include oTooltipDownArrow;
-	}
-
-	.o-tooltip-close {
-		@include oTooltipClose;
-	}
-	
-	// Set to silent again to avoid being output twice
+	// Set module to silent again
 	$o-tooltip-is-silent: true !global;
 }

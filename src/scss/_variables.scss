@@ -1,7 +1,31 @@
-$o-tooltip-is-silent: true !default;
-$o-tooltip-animation-distance: 50px;
-$o-tooltip-animation-duration: 0.5s;
 
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default tooltip classes
+///
+/// @type Boolean
+/// @access public
+$o-tooltip-is-silent: true !default;
+
+/// How far a tooltip should animate from when opened.
+///
+/// @type {Number}
+/// @access private
+$_o-tooltip-animation-distance: 50px;
+
+/// The amount of time that a tooltip should animate for when opened.
+///
+/// @type {Number}
+/// @access private
+$_o-tooltip-animation-duration: 0.5s;
+
+/// The background colour for tooltips.
+///
+/// @type {Color}
 /// @access private
 $_o-tooltip-background-color: oColorsGetPaletteColor('white');
+
+/// The border colour for tooltips.
+///
+/// @type {Color}
+/// @access private
 $_o-tooltip-border-color: rgba(0, 0, 0, 0.05);

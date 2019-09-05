@@ -1,6 +1,22 @@
 
 # Migration
 
+## Migrating from v3 to v4
+
+### Mixins
+
+- The `oTooltips` mixin now includes all styles required for tooltips. See the [Sass documentation](README.md#sass) for information on the new parameters
+- The following mixins have been removed:
+  - `oTooltipContent`
+  - `oTooltipUpArrow`
+  - `oTooltipDownArrow`
+  - `oTooltipLeftArrow`
+  - `oTooltipRightArrow`
+  - `oTooltipClose`
+- The following global variables have been removed:
+  - `$o-tooltip-animation-distance`
+  - `$o-tooltip-animation-duration`
+
 ## Migrating from v2 to v3
 
 - V3 introduces a new dependency on `o-grid`. `o-grid` enables us to position `o-tooltip` dependent on the current breakpoint. To upgrade your project confirm your version of `o-grid`, if your project has one, is compatible. You may do this by installing V3 of `o-tooltip` and confirming there are no build failures. If your project is not compatible update the version of `o-grid` used in your project. Your current use of `o-grid` may be a direct dependency on the `o-grid` component or a sub-dependency of a different component.

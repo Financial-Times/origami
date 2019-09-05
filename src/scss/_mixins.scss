@@ -1,0 +1,260 @@
+
+/// Base styles for tooltips.
+///
+/// @output The output includes all selectors and styles for tooltips, inheriting from o-overlay.
+/// @example scss - Base tooltip styles
+///   @include _oTooltipBase();
+/// @access private
+@mixin _oTooltipBase {
+	.o-tooltip {
+		@include oOverlay();
+		background: $_o-tooltip-background-color;
+
+		// Override border set in o-overlay
+		border: 0;
+
+		position: absolute;
+		display: none;
+
+		opacity: 0;
+		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-transition-fade,
+					transform $_o-tooltip-animation-duration $o-visual-effects-transition-slide;
+
+		&.visible {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		&[data-o-tooltip-position="left"]:not(.visible) {
+			transform: translate(-$_o-tooltip-animation-distance, 0);
+		}
+		&[data-o-tooltip-position="right"]:not(.visible) {
+			transform: translate($_o-tooltip-animation-distance, 0);
+		}
+		&[data-o-tooltip-position="top"]:not(.visible) {
+			transform: translate(0, -$_o-tooltip-animation-distance);
+		}
+		&[data-o-tooltip-position="bottom"]:not(.visible) {
+			transform: translate(0, $_o-tooltip-animation-distance);
+		}
+	}
+	.o-tooltip-content {
+		@include _oTooltipContentBody();
+	}
+	.o-tooltip--arrow-left {
+		@include _oTooltipContentLeftArrow();
+	}
+	.o-tooltip--arrow-right {
+		@include _oTooltipContentRightArrow();
+	}
+	.o-tooltip--arrow-above {
+		@include _oTooltipContentUpArrow();
+	}
+	.o-tooltip--arrow-below {
+		@include _oTooltipContentDownArrow();
+	}
+	.o-tooltip-close {
+		@include _oTooltipContentClose();
+	}
+}
+
+/// Outputs styles for tooltip content.
+///
+/// @output The output includes all styles for tooltip content excluding a wrapping selector, inheriting from o-overlay.
+/// @access private
+@mixin _oTooltipContentBody() {
+	@include oOverlayContent();
+	// Breaks long words to fit into smaller screen sizes
+	hyphens: auto;
+	// Override padding provided for o-overlay which is too big
+	padding: 15px 35px 15px 20px;
+	float: left;
+	line-height: 1;
+}
+
+/// Outputs base styles for tooltip arrows.
+///
+/// @param {Number} size [10px] - The size of the arrow
+/// @output The output includes all styles for tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentArrow($size: 10px) {
+	// :before for the outer arrow that has the bordered colour,
+	// and :after for the inner arrow with the white background colour
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		border: solid transparent;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		border-width: $size + $_o-overlay-border-width + 1;
+	}
+	&:after {
+		border-width: $size;
+	}
+}
+
+/// Outputs base styles for top and bottom tooltip arrows.
+///
+/// @param {Number} size [10px] - The size of the arrow
+/// @output The output includes all styles for top and bottom tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentVerticalArrow($size: 10px) {
+	@include _oTooltipContentArrow;
+
+	&.o-tooltip-arrow--align-left:before,
+	&.o-tooltip-arrow--align-left:after {
+		left: 10%;
+	}
+
+	&.o-tooltip-arrow--align-right:before,
+	&.o-tooltip-arrow--align-right:after {
+		left: 90%;
+	}
+
+	&:before,
+	&:after {
+		left: 50%;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		margin-left: -$size - $_o-overlay-border-width - 1;
+	}
+	&:after {
+		margin-left: -$size;
+	}
+}
+
+/// Outputs base styles for top tooltip arrows.
+///
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+/// @output The output includes all styles for top tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentUpArrow($color: $_o-tooltip-border-color) {
+	@include _oTooltipContentVerticalArrow;
+
+	&:before,
+	&:after {
+		bottom: 100%;
+		border-top-width: 0;
+	}
+	&:before {
+		border-bottom-color: $color;
+	}
+	&:after {
+		border-bottom-color: $_o-tooltip-background-color;
+	}
+}
+
+/// Outputs base styles for bottom tooltip arrows.
+///
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+/// @output The output includes all styles for bottom tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentDownArrow($color: $_o-tooltip-border-color) {
+	@include _oTooltipContentVerticalArrow;
+
+	&:before,
+	&:after {
+		top: 100%;
+		border-bottom-width: 0;
+	}
+	&:before {
+		border-top-color: $color;
+	}
+	&:after {
+		border-top-color: $_o-tooltip-background-color;
+	}
+}
+
+/// Outputs base styles for left and right tooltip arrows.
+///
+/// @param {Number} size [10px] - The size of the arrow
+/// @output The output includes all styles for left and right tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentHorizontalArrow($size: 10px) {
+	@include _oTooltipContentArrow;
+
+	&.o-tooltip-arrow--align-top:before,
+	&.o-tooltip-arrow--align-top:after {
+		top: 0;
+		margin-top: 0;
+	}
+
+	&.o-tooltip-arrow--align-bottom:before,
+	&.o-tooltip-arrow--align-bottom:after {
+		top: auto;
+		bottom: 0;
+		margin-top: 0;
+	}
+
+
+	&:before,
+	&:after {
+		top: 50%;
+	}
+	&:before {
+		// 1px offset so it appears properly
+		margin-top: -$size - $_o-overlay-border-width - 1;
+	}
+	&:after {
+		margin-top: -$size;
+	}
+}
+
+/// Outputs base styles for left tooltip arrows.
+///
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+/// @output The output includes all styles for left tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentLeftArrow($color: $_o-tooltip-border-color) {
+	@include _oTooltipContentHorizontalArrow;
+
+	&:before,
+	&:after {
+		right: 100%;
+		border-left-width: 0;
+	}
+	&:before {
+		border-right-color: $color;
+	}
+	&:after {
+		border-right-color: $_o-tooltip-background-color;
+	}
+}
+
+/// Outputs base styles for right tooltip arrows.
+///
+/// @param {Color} color [$_o-tooltip-border-color] - The color of the arrow shadow.
+/// @output The output includes all styles for right tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentRightArrow($color: $_o-tooltip-border-color) {
+	@include _oTooltipContentHorizontalArrow;
+
+	&:before,
+	&:after {
+		left: 100%;
+		border-right-width: 0;
+	}
+	&:before {
+		border-left-color: $color;
+	}
+	&:after {
+		border-left-color: $_o-tooltip-background-color;
+	}
+}
+
+/// Outputs base styles for tooltip close buttons.
+///
+/// @output The output includes all styles for top tooltip arrows excluding a wrapping selector.
+/// @access private
+@mixin _oTooltipContentClose() {
+	@include oOverlayClose;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	margin: 5px 5px 15px 15px;
+	border: 0;
+}
