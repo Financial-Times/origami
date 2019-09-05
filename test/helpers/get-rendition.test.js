@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 
 import getRendition from './../../src/js/helpers/get-rendition';
-const renditions = require('./../fixtures/media-api-1.json').renditions;
+import { renditions } from './../fixtures/media-api-1.json';
 import proclaim from 'proclaim';
 
 describe('Get Appropriate Renditions', () => {
