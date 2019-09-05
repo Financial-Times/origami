@@ -2,7 +2,7 @@
 
 ### Migration from v7 to v8
 
-- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing@2.0.0) instead, or apply margin apply margin as needed, depending on the context of the table e.g.
+- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing@2.0.0) instead, or apply margin as needed, depending on the context of the table e.g.
 
 ```
 .o-table {
