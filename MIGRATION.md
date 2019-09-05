@@ -1,5 +1,15 @@
 ## Migration
 
+### Migration from v7 to v8
+
+- `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing@2.0.0) instead, or apply margin apply margin as needed, depending on the context of the table e.g.
+
+```
+.o-table {
+	margin-bottom: oSpacingByName('s4');
+}
+```
+
 ### Migrating from v6 to v7
 - To prevent errors in IE11, add support for `IntersectionObserverEntry` and `IntersectionObserver` with the [polyfill service](https://polyfill.io/).
 - Data attribute `data-o-table-order` has been removed. To specify a custom sort order on `td` cells use `data-o-table-sort-value` instead.
