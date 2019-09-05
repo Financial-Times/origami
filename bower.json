@@ -7,10 +7,10 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-icons": ">=4.4.2 <6",
-    "o-colors": "^4",
+    "o-icons": "^5.11.2",
+    "o-colors": "^4.10.2",
     "o-loading": "^3.0.0",
-    "o-typography": "^5",
+    "o-typography": "^5.12.0",
     "o-viewport": "^3.0.1",
     "o-normalise": "^1.6.2"
   }

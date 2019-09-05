@@ -1,6 +1,10 @@
 
 ## Migration Guide
 
+### Migrating from 5.0 to 6.0
+
+Version 6 updates its dependency on `o-icons`. It is no longer compatible with `o-icons@^4`. Ensure your project builds successfully without conflicts.
+
 ### Migrating from 4.0 to 5.0
 
 Version 5 introduces a new major of `o-loading`. Updating to this new version will mean updating any other components that you have which are using `o-loading`.
