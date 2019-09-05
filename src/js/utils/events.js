@@ -1,13 +1,13 @@
 const coralMap = new Map([
-	['ready', 'o-comments.ready'],
-	['mutation.createComment', 'o-comments.comment.posted'],
-	['mutation.createCommentReply', 'o-comments.comment.replied'],
-	['mutation.editComment', 'o-comments.comment.edited'],
-	['mutation.createCommentReaction', 'o-comments.comment.liked'],
+	['ready', 'oComments.ready'],
+	['mutation.createComment', 'oComments.postComment'],
+	['mutation.createCommentReply', 'oComments.replyComment'],
+	['mutation.editComment', 'oComments.editComment'],
+	['mutation.createCommentReaction', 'oComments.likeComment'],
 ]);
 
 const errorMap = new Map([
-	['COMMENT_IS_TOXIC', 'o-comments.comment.toxic']
+	['COMMENT_IS_TOXIC', 'oComments.toxicComment']
 ]);
 
 const validEvents = []
