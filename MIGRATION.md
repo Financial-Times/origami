@@ -2,7 +2,7 @@
 
 ### Migrating from v2 to v3
 
-
+v3 updates its dependecy on `o-icons`. Confirm your project builds correctly and resolve any conflicts.
 
 ### Migrating from v1 to v2
 
