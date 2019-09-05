@@ -5,6 +5,18 @@
 
 Version 6 updates its dependency on `o-icons`. It is no longer compatible with `o-icons@^4`. Ensure your project builds successfully without conflicts.
 
+A `systemcode` option is also required, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`. Set this declaratively using `data-o-video-systemcode` or by adding to the `opts` constructor argument.
+
+```diff
+import Video from 'o-video';
+const opts = {
+	id: 4165329773001,
+	optimumwidth: 710,
++	systemcode: 'my-biz-ops-code'
+};
+const video = new Video(document.body, opts);
+```
+
 ### Migrating from 4.0 to 5.0
 
 Version 5 introduces a new major of `o-loading`. Updating to this new version will mean updating any other components that you have which are using `o-loading`.

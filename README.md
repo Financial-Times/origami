@@ -67,7 +67,8 @@ const opts = {
 	id: 4165329773001,
 	optimumwidth: 710,
 	placeholder: true,
-	classes: ['video']
+	classes: ['video'],
+	systemcode: 'my-biz-ops-code'
 };
 const video = new Video(document.body, opts);
 ```
@@ -89,6 +90,7 @@ Where `opts` is an optional object with properties
  * `advertising` [`Boolean`] whether or not to show ads on the video
  * `showCaptions` [`Boolean`] whether or not to add captions to the video. Defaults to *true*.
  * `data` [`Object`] JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
+ * `systemcode` [`String`] a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`.
 
 The config options can also be set as data attribute to instantiate the module declaratively:
 
@@ -112,7 +114,7 @@ const queue = [
 	'4165329773001'
 ];
 
-const player = new Video(document.body, { autorender: false });
+const player = new Video(document.body, { autorender: false, systemcode: 'my-biz-ops-code' });
 const playlist = new Video.Playlist({ player, queue });
 
 document.querySelector('.next-btn').onclick = () => playlist.next();

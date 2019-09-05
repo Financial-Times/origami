@@ -17,6 +17,7 @@ describe('Video', () => {
 		containerEl.setAttribute('data-o-video-id', 'eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526');
 		containerEl.setAttribute('data-o-video-autorender', 'false');
 		containerEl.setAttribute('data-o-video-show-captions', 'false');
+		containerEl.setAttribute('data-o-video-systemcode', 'origami-build-tools');
 		document.body.appendChild(containerEl);
 	});
 
@@ -60,6 +61,7 @@ describe('Video', () => {
 			containerEl.setAttribute('data-o-video-placeholder-info', '[\'title\', \'description\']');
 			containerEl.setAttribute('data-o-video-classes', 'a-class another-class');
 			containerEl.setAttribute('data-o-video-show-captions', true);
+			containerEl.setAttribute('data-o-video-systemcode', 'test');
 
 			const video = new Video(containerEl);
 			proclaim.equal(video.opts.optimumwidth, 300);
@@ -68,6 +70,20 @@ describe('Video', () => {
 			proclaim.include(video.opts.classes, 'a-class');
 			proclaim.include(video.opts.classes, 'another-class');
 			proclaim.equal(video.opts.showCaptions, true);
+			proclaim.equal(video.opts.systemcode, 'test');
+		});
+
+		it('should error if a system code is not given', (done) => {
+			const testEl = containerEl.cloneNode(true);
+			testEl.removeAttribute('data-o-video-systemcode');
+
+			try {
+				new Video(testEl);
+			} catch (error) {
+				done();
+			}
+
+			throw new Error('o-video was created without a system code');
 		});
 	});
 
@@ -855,7 +871,7 @@ describe('Video', () => {
 					proclaim.deepEqual(video.posterImage,
 						'https://www.ft.com/__origami/service/image/v2/images/raw/' +
 						'https%3A%2F%2Fbcsecure01-a.akamaihd.net%2F13%2F47628783001%2F201704%2F970%2F47628783001_5393625566001_5393611350001-vs.jpg%3FpubId%3D47628783001%26videoId%3D5393611350001' +
-						'?source=o-video&quality=low&fit=scale-down&width=300'
+						'?source=origami-build-tools&quality=low&fit=scale-down&width=300'
 					);
 				});
 		});

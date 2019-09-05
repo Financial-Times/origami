@@ -90,8 +90,8 @@ function addEvents(video, events) {
 }
 
 // use the image resizing service, if width supplied
-function updatePosterUrl(posterImage, width) {
-	let url = `https://www.ft.com/__origami/service/image/v2/images/raw/${encodeURIComponent(posterImage)}?source=o-video&quality=low`;
+function updatePosterUrl(posterImage, width, systemcode) {
+	let url = `https://www.ft.com/__origami/service/image/v2/images/raw/${encodeURIComponent(posterImage)}?source=${systemcode}&quality=low`;
 	if (width) {
 		url += `&fit=scale-down&width=${width}`;
 	}
@@ -173,6 +173,10 @@ class Video {
 
 		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
+		if(typeof this.opts.systemcode !== 'string') {
+			throw new Error('o-video requires "systemcode" is configured using the "data-o-video-systemcode" data attribute, or configured with the `opts` constructor argument. It must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).');
+		}
+
 		if (typeof this.opts.classes === 'string') {
 			this.opts.classes = this.opts.classes.split(' ');
 		}
@@ -217,7 +221,7 @@ class Video {
 
 		return dataPromise.then(data => {
 			this.videoData = data;
-			this.posterImage = data.mainImageUrl && updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth);
+			this.posterImage = data.mainImageUrl && updatePosterUrl(data.mainImageUrl, this.opts.optimumwidth, this.opts.systemcode);
 			this.rendition = getRendition(data.renditions, this.opts);
 		});
 	}
