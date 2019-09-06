@@ -17,44 +17,82 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": "o-date@^2.2.1,o-teaser@^2.0.0,o-normalise@^1.0.0"
+		"dependencies": "o-teaser@^3.5.6,o-normalise@^1.0.0,o-grid@^4.5.3"
 	},
 	"demos": [
 		{
-			"title": "Standard",
+			"title": "Basic",
 			"name": "standard",
+			"data": {},
 			"description": "Standard teaser collection",
 			"template": "demos/src/demo.mustache"
 		},
 		{
-			"title": "Special",
-			"name": "special",
-			"description": "Special teaser collection with highlighted background",
-			"template": "demos/src/demo-special.mustache"
+			"title": "Linked Heading",
+			"name": "linked",
+			"data": {
+				"link": true
+			},
+			"description": "Standard teaser collection with a linked heading. A linked heading may be applied to any teaser theme.",
+			"template": "demos/src/demo.mustache"
 		},
 		{
-			"title": "Numbered",
-			"name": "numbered",
-			"description": "Numbered teaser collection",
-			"template": "demos/src/demo-numbered.mustache"
+			"title": "Responsive Heading (full-width on desktop)",
+			"name": "full-heading",
+			"data": {
+				"headings": ["full-width"],
+				"link": true
+			},
+			"description": "The heading border is reduced in size responsively. This can be changed with modifier classes. See the readme for more options.",
+			"template": "demos/src/demo.mustache"
 		},
 		{
-			"title": "Horizontal",
+			"title": "Inverse Heading",
+			"name": "inverse",
+			"data": {
+				"headings": ["inverse"],
+				"link": true
+			},
+			"documentClasses": "demo-inverse",
+			"description": "The heading colour may be inversed for use on a slate (or other dark) background.",
+			"template": "demos/src/demo.mustache"
+		},
+		{
+			"title": "Collection: horizontal",
 			"name": "horizontal",
+			"data": {
+				"collections": ["horizontal"]
+			},
 			"description": "Teasers in horizontal rather than standard column layout",
-			"template": "demos/src/demo-horizontal.mustache"
+			"template": "demos/src/demo.mustache"
 		},
 		{
-			"title": "Horizontal Numbered",
-			"name": "horizontal numbered",
-			"description": "Numbered teasers in horizontal rather than standard column layout",
-			"template": "demos/src/demo-horizontal-numbered.mustache"
+			"title": "Collection: special",
+			"name": "special",
+			"data": {
+				"collections": ["special"]
+			},
+			"description": "",
+			"template": "demos/src/demo.mustache"
 		},
 		{
-			"title": "Narrow",
-			"name": "narrow",
-			"description": "Standard teaser at narrow width collection",
-			"template": "demos/src/demo-slim.mustache"
+			"title": "Collection: numbered and special",
+			"name": "numbered",
+			"data": {
+				"collections": ["numbered", "special"],
+				"numbered": true
+			},
+			"description": "",
+			"template": "demos/src/demo.mustache"
+		},
+		{
+			"title": "Collection: mid slice",
+			"name": "mid-slice",
+			"data": {
+				"collections": ["mid-slice"]
+			},
+			"description": "",
+			"template": "demos/src/demo.mustache"
 		},
 		{
 			"title": "Pa11y",

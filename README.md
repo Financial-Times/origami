@@ -3,16 +3,13 @@ o-teaser-collection [![Circle CI](https://circleci.com/gh/Financial-Times/o-teas
 
 This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
+- [Markup](#markup)
+- [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
-
-### Markup
+## Markup
 
 The basic markup structure for a teaser collection will look something like this:
 
@@ -22,11 +19,11 @@ The basic markup structure for a teaser collection will look something like this
 		<a class="o-teaser-collection__heading-link" href="#">UK</a>
 	</h2>
 
-	<!-- Content goes here -->
+	<!-- Teasers go here -->
 </div>
 ```
 
-Content for teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
+Teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
 
 ```html
 <div class="o-teaser-collection o-teaser-collection--numbered">
@@ -42,39 +39,40 @@ Content for teaser collections can be arranged using [o-grid](http://registry.or
 </div>
 ```
 
-Teaser Collections can be customised using several [themes](#themes), for a full list of examples including example markup, see [o-teaser-collection in the Registry](http://registry.origami.ft.com/components/o-teaser-collection).
+Teaser Collections can be customised using several [modifier classes](#options).
 
-### Sass:
+## Sass
 
-As with all Origami components, o-teaser-collection has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-teaser-collection-is-silent : false;` in your Sass before you import the o-teaser-collection Sass:
+To include all styles call the `oTeaserCollection` mixin.
 
-```sass
-$o-teaser-collection-is-silent: false;
-@import 'o-teaser-collection/main';
+```scss
+@include oTeaserCollection();
 ```
 
-#### Using Sass mixins
+#### Options
 
-The `o-teaser-collection` styles are also available via Sass mixins. To include all styles for teaser collections, you can do:
+The `o-teaser-collection` may be included granularly by passing options to the `oTeaserCollection` mixin.
 
-```sass
-@include oTeaserCollection;
+```scss
+@include oTeaserCollection($opts: (
+	'collections': ('special'), // o-teaser-collection--special
+	'headings': ('inverse'), // o-teaser-collection__heading--inverse
+	'items': ('stretched') // o-teaser-collection__item--stretched
+));
 ```
 
-By default the `oTeaserCollection` mixin includes both [themes](#themes), to include a single theme or no themes you can pass an argument to the mixin:
+Options include:
 
-```sass
-@include oTeaserCollection('');
-@include oTeaserCollection('numbered');
-```
+| Key                 | Possible Values                                                                                                                       | class output  |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| collections         | 'horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'   | `o-teaser-collection--[option]`. Apply to `o-teaser-collection`, e.g. `class="o-teaser-collection o-teaser-collection--horizontal"`                                  |
+| headings            | 'inverse', 'full-width', 'half-width', 'small'                                                                                        | `o-teaser-collection__heading--[option]`. Apply to `o-teaser-collection__heading`, e.g. `class="o-teaser-collection__heading o-teaser-collection__heading--inverse"` |
+| items               | 'stretched'                                                                                                                           | `o-teaser-collection__item--[option]`. Apply to `o-teaser-collection__item`, e.g. `o-teaser-collection__item o-teaser-collection__item--stretched`                   |
 
-#### Themes
 
-`o-teaser-collection` has two themes along with the standard collections styles.
+Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
-Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-numbered).
-
-Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-special).
+Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
 ## Migration
 
