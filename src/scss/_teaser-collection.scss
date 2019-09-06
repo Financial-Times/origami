@@ -8,15 +8,15 @@
 		@each $theme in $themes {
 			@if ($theme == 'numbered') {
 				.o-teaser-collection--numbered {
-					@include oTeaserCollectionNumbered();
+					@include _oTeaserCollectionNumbered();
 				}
 			} @else if ($theme == 'special') {
 				.o-teaser-collection--special {
-					@include oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
+					@include _oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
 				}
 			} @else if ($theme == 'horizontal') {
 				.o-teaser-collection--horizontal {
-					@include oTeaserCollectionHorizontal();
+					@include _oTeaserCollectionHorizontal();
 				}
 			} @else {
 				@error "There is no theme '#{$theme}' available in o-teaser-collection please use 'numbered', 'special' or 'horizontal' themes only.";
@@ -29,14 +29,14 @@
 	}
 
 	.o-teaser-collection__heading--inverse {
-		@include oTeaserCollectionHeadingInverse();
+		@include _oTeaserCollectionHeadingInverse();
 	}
 
 	.o-teaser-collection__items {
-		@include oTeaserCollectionItems;
+		@include _oTeaserCollectionItems;
 	}
 
 	.o-teaser-collection__item--stretched {
-		@include oTeaserCollectionItemStretched;
+		@include __oTeaserCollectionItemStretched;
 	}
 }

@@ -13,8 +13,8 @@
 @if ($o-teaser-collection-is-silent == false) {
  	@include oTeaserCollection;
 
-	@include oTeaserCollectionStream;
-	@include oTeaserCollectionFrontPage;
+	@include _oTeaserCollectionStream;
+	@include _oTeaserCollectionFrontPage;
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;

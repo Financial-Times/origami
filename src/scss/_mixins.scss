@@ -79,7 +79,7 @@
 	}
 }
 
-@mixin oTeaserCollectionHeadingInverse {
+@mixin _oTeaserCollectionHeadingInverse {
 	@include oTeaserCollectionHeading;
 	color: $_o-teaser-collection-color-assassination-heading;
 
@@ -93,7 +93,7 @@
 	}
 }
 
-@mixin oTeaserCollectionItems {
+@mixin _oTeaserCollectionItems {
 	list-style: none;
 	display: flex;
 	flex-flow: column wrap;
@@ -103,6 +103,6 @@
 	padding: 0;
 }
 
-@mixin oTeaserCollectionItemStretched {
+@mixin __oTeaserCollectionItemStretched {
 	display: flex;
 }

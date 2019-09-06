@@ -1,4 +1,4 @@
-@mixin oTeaserCollectionNumbered() {
+@mixin _oTeaserCollectionNumbered() {
 	.o-teaser-collection__items {
 		counter-reset: o-teaser-collection-items;
 	}
@@ -19,7 +19,7 @@
 	}
 }
 
-@mixin oTeaserCollectionSpecial($colour) {
+@mixin _oTeaserCollectionSpecial($colour) {
 	position: relative;
 	border-top: 0;
 	margin-bottom: 50px;
@@ -43,11 +43,11 @@
 	}
 }
 
-@mixin oTeaserCollectionAssassination {
-	@include oTeaserCollectionBigStory();
+@mixin _oTeaserCollectionAssassination {
+	@include _oTeaserCollectionBigStory();
 
 	.o-teaser-collection--assassination-related {
-		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+		@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
 		z-index: 1;
 		margin-bottom: 0;
 		padding-left: 10px;
@@ -84,7 +84,7 @@
 	}
 }
 
-@mixin oTeaserCollectionBigStory() {
+@mixin _oTeaserCollectionBigStory() {
 	.o-teaser-collection__heading,
 	.o-teaser-collection__heading--inverse {
 		z-index: 1;
@@ -121,7 +121,7 @@
 	}
 }
 
-@mixin oTeaserCollectionHorizontal() {
+@mixin _oTeaserCollectionHorizontal() {
 
 	// Change flex direction from column
 	.o-teaser-collection__items {
@@ -138,13 +138,13 @@
 	}
 }
 
-@mixin oTeaserCollectionMidSlice {
+@mixin _oTeaserCollectionMidSlice {
 	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 	border-top: 1px solid $_o-teaser-collection-color-thin-border;
 	padding: 20px 0 0;
 }
 
-@mixin oTeaserCollectionTopStandalone {
+@mixin _oTeaserCollectionTopStandalone {
 	border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
 
 	// Modify o-teaser elements
@@ -162,7 +162,7 @@
 	}
 }
 
-@mixin oTeaserCollectionStream {
+@mixin _oTeaserCollectionStream {
 	.o-teaser-collection--stream {
 		margin: 20px 0 50px;
 
@@ -183,23 +183,23 @@
 	}
 }
 
-@mixin oTeaserCollectionFrontPage {
+@mixin _oTeaserCollectionFrontPage {
 	.o-teaser-collection--top-standalone {
-		@include oTeaserCollectionTopStandalone;
+		@include _oTeaserCollectionTopStandalone;
 	}
 
 	.o-teaser-collection--big-story {
-		@include oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
-		@include oTeaserCollectionBigStory();
+		@include _oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
+		@include _oTeaserCollectionBigStory();
 	}
 
 	.o-teaser-collection--assassination {
-		@include oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bg);
-		@include oTeaserCollectionAssassination();
+		@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bg);
+		@include _oTeaserCollectionAssassination();
 	}
 
 
 	.o-teaser-collection--mid-slice {
-		@include oTeaserCollectionMidSlice;
+		@include _oTeaserCollectionMidSlice;
 	}
 }
