@@ -51,7 +51,7 @@ To include all styles call the `oTeaserCollection` mixin.
 
 #### Options
 
-The `o-teaser-collection` may be included granularly by passing options to the `oTeaserCollection` mixin.
+`o-teaser-collection` css may be included granularly by passing options to the `oTeaserCollection` mixin.
 
 ```scss
 @include oTeaserCollection($opts: (
