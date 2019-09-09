@@ -83,7 +83,7 @@ On large viewports the main content area (`o-layout__main`) is split into two co
 
 Most content is placed into column 1 by default. The exceptions are the `aside` element, which is placed in column 2; and the `table` element, which spans both columns.
 
-Add the class `o-layout__main__single-span` to constrain elements to column 1. Use `o-layout__main__full-span` to expand elements to span both columns.
+Use a containing `div` with class `o-layout__main__single-span` to constrain elements to column 1. Use a `o-layout__main__full-span` container to expand elements to span both columns.
 
 
 ```html
@@ -92,14 +92,18 @@ Add the class `o-layout__main__single-span` to constrain elements to column 1. U
 	<!-- Most content is placed in column 1 -->
 	<h2>A Title</h2>
 	<p>Some content.</p>
-	<!-- Asides are placed in column 2 -->
+	<!-- Asides are placed in column 2 by default -->
 	<aside>An aside</aside>
-	<!-- Tables span columns 1 & 2 -->
+	<!-- Tables span columns 1 & 2 by default -->
 	<table></table>
 	<!-- The class "o-layout__main__single-span" constrains elements to column 1 -->
-	<table class="o-layout__main__single-span"></table>
+	<div class="o-layout__main__single-span">
+		<!-- Your elements -->
+	</div>
 	<!-- The class "o-layout__main__full-span" expands elements to span columns 1 & 2 -->
-	<div class="o-layout__main__full-span"></div>
+	<div class="o-layout__main__full-span">
+		<!-- Your elements -->
+	</div>
 </div>
 ```
 
