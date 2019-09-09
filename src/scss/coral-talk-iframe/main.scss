@@ -83,7 +83,7 @@ a {
 }
 
 // top tab bar buttons
-.coral-tabBar-allComments,
+.coral-tabBar-comments,
 .coral-tabBar-myProfile,
 .coral-tabBar-configure	{
 	@include oButtons;
@@ -126,7 +126,7 @@ a {
 }
 
 // comment author
-.coral-comment-username {
+.coral-comment-username span {
 	@include oTypographyAuthor;
 
 	&:hover {
@@ -134,8 +134,17 @@ a {
 	}
 }
 
+// In reply to <<author>>
+.coral-comment-inReplyToUsername {
+	@include oTypographyAuthor;
+
+	&:hover {
+		color: oColorsGetPaletteColor('black-50');
+	}
+}
+
 // xx hours ago
-.coral-comment-timestamp {
+.coral-comment-timestamp span {
 	@include oTypographyTimestamp;
 	font-weight: lighter !important;
 	margin-bottom: 0;
