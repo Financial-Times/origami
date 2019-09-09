@@ -21,7 +21,6 @@ describe("Comments", () => {
 			let mockDataAttributeOptions;
 			let sandbox;
 			let mockRootEl;
-			let comments;
 
 			beforeEach(() => {
 				mockDataAttributeOptions = {
@@ -34,7 +33,7 @@ describe("Comments", () => {
 				fixtures.countMarkup();
 
 				mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
-				comments = new Comments(mockRootEl);
+				new Comments(mockRootEl);
 			});
 
 			afterEach(() => {
@@ -46,55 +45,52 @@ describe("Comments", () => {
 				assert.calledOnce(Comments.getDataAttributes);
 				assert.calledWithExactly(Comments.getDataAttributes, mockRootEl);
 			});
-
-			it("is a defaulted options object", () => {
-				assert.isObject(comments.options);
-				assert.deepEqual(comments.options, {
-					isMockDataAttributeOptions: true
-				});
-				assert.notStrictEqual(comments.options, mockDataAttributeOptions);
-			});
 		});
 	});
 
 	describe("when 'data-o-comments-count' is set to true", () => {
-		let count;
+		let comments;
 
 		beforeEach(() => {
-			count = sinon.stub(Count.prototype, 'renderCount').callsFake(() => true);
 			fixtures.countMarkup();
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
-			new Comments(mockRootEl);
+			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			count.restore();
 		});
 
-		it("calls new Count", () => {
-			assert.called(count);
+		it("returns the new count instance", () => {
+			assert.isInstanceOf(comments, Count);
+		});
+
+		it("exposes the renderCount method", () => {
+			assert.isInstanceOf(comments.renderCount, Function);
 		});
 	});
 
 	describe("when 'data-o-comments-count' is set to false", () => {
-		let stream;
+		let comments;
 
 		beforeEach(() => {
-			stream = sinon.stub(Stream.prototype, 'init').callsFake(() => true);
 			fixtures.streamMarkup();
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
-			new Comments(mockRootEl);
+			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			stream.restore();
 		});
 
-		it("calls new Stream", () => {
-			assert.called(stream);
+		it("returns the new Stream instance", () => {
+			assert.isInstanceOf(comments, Stream);
 		});
+
+		['init', 'login', 'getJsonWebToken', 'renderComments', 'on']
+			.forEach(method => it(`exposes the ${method} method`, () => {
+				assert.isInstanceOf(comments[method], Function);
+			}));
 	});
 });
 

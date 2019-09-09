@@ -9,8 +9,13 @@ class Comments {
 		if (isCount) {
 			const count = new Count(rootEl, this.options);
 			count.renderCount();
+
+			return count;
 		} else {
-			new Stream(rootEl, this.options).init();
+			const stream = new Stream(rootEl, this.options);
+			stream.init();
+
+			return stream;
 		}
 	}
 
