@@ -35,7 +35,11 @@
 	}
 
 	.o-teaser-collection__heading {
-		@include oTeaserCollectionHeading($sizes: $headings);
+		@include oTeaserCollectionContentHeading($opts: (
+			'anchor': true,
+			'divider': true,
+			'sizes': $headings
+		));
 	}
 
 	.o-teaser-collection__items {

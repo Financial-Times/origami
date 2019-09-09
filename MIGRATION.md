@@ -6,7 +6,12 @@ Confirm the `o-teaser-collection__heading--inverse` modifier is used with `o-tea
 
 `oTeaserCollection` has changed, it now outputs all `o-teaser-collection` css by default. See the README for `oTeaserCollection` options to include css granularly.
 
-Removes the following mixins. If your project uses these mixins replace with a single call to `oTeaserCollection` instead. See the README for `oTeaserCollection` options.
+#### Renamed Mixins
+- `oTeaserCollectionHeading` has been renamed `oTeaserCollectionContentHeading` to indicate it has no top level selector. It now excepts an `$opts` map to include parts of the heading more granularly (such as styles for a child anchor tag). See the README for more details.
+
+#### Removed Mixins
+
+If your project uses these mixins replace with a single call to `oTeaserCollection` instead. See the README for `oTeaserCollection` options.
 - oTeaserCollectionAssassination
 - oTeaserCollectionStream
 - oTeaserCollectionFrontPage
@@ -15,13 +20,36 @@ Removes the following mixins. If your project uses these mixins replace with a s
 - oTeaserCollectionItemStretched
 - oTeaserCollectionNumbered
 - oTeaserCollectionSpecial
-- oTeaserCollectionAssassination
 - oTeaserCollectionBigStory
 - oTeaserCollectionHorizontal
 - oTeaserCollectionMidSlice
 - oTeaserCollectionTopStandalone
-- oTeaserCollectionStream
-- oTeaserCollectionFrontPage
+
+
+`oTeaserCollectionHeadingLink` has also been removed. If your project is using this mixin to avoid outputting the heading border (divider) use `oTeaserCollectionContentHeading` without the `divider` or `sizes` option. This will output the base heading styles plus the child anchor styles, without the divider.
+```diff
+.my-heading {
+-   // Custom styles replicating the collection heading.
+-	@include oTypographySize(3);
+-	a {
+-		@include oTeaserCollectionHeadingLink;
+-	}
++	@include oTeaserCollectionContentHeading($opts: ('anchor': true));
+}
+```
+
+`oTeaserCollectionHeadingBorderTypography` has been removed. Replace with a call to `oTeaserCollectionContentHeading` without the `anchor` option.
+```diff
+.my-heading {
+-   @include oTeaserCollectionHeadingBorderTypography;
++	@include oTeaserCollectionContentHeading($opts: (
++       'divider': true,
++       'sizes': ('full-width', 'half-width', 'small') // .my-heading--small, etc.
++   ));
+}
+```
+
+#### Dependencies
 
 v3 updates its dependecy on `o-icons`. Confirm your project builds correctly and resolve any conflicts.
 
