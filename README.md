@@ -15,10 +15,10 @@ This module comprises a standard way of firing the `o.DOMContentLoaded` and `o.l
 ### JavaScript
 
 ```javascript
-require('o-autoinit');
+import 'o-autoinit';
 ```
 
-The `autoinit` module must be imported after all modules that bind to the initialisation events.  If it is required more than once, subsequent requires will not have any effect, and the initialisation events may be emitted as early as the first require point.
+The `autoinit` module must be imported after all modules that bind to the initialisation events.  If it is imported more than once, subsequent imports will not have any effect, and the initialisation events may be emitted as early as the first import point.
 
 
 ---
