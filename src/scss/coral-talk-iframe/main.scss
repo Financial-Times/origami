@@ -32,11 +32,8 @@
 	--palette-error-darkest: #{inspect(oColorsGetPaletteColor('claret-70'))};
 
 
-	// community guidelines box
-	// background
-	--palette-primary-lightest: #{inspect(oColorsGetPaletteColor('wheat'))};
-	// border
-	--palette-primary-light: #{inspect(oColorsGetPaletteColor('wheat'))};
+	// close stream button
+	--palette-error-main: #{inspect(oColorsGetPaletteColor('claret-70'))};
 
 
 	// apply button in configure tab
@@ -49,41 +46,35 @@
 
 
 	// stream section unselected tab comment count badge
-	// blockquote background
-	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('wheat'))};
+	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('paper'))};
 
 
 	// stream section tab bar divider
 	--palette-divider: #{inspect(oColorsGetPaletteColor('teal-50'))};
-
-
-	// respect, reply, share, report
-	--palette-grey-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
-
-
-	// report button "reported" state
-	--palette-error-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
-
-
-	// moderation drop down
-	// "Approved" button (approve button state)
-	--palette-success-dark: #{inspect(oColorsGetPaletteColor('black'))};
-	// "Un Feature" button (feature button state)
-	--palette-primary-dark: #{inspect(oColorsGetPaletteColor('black'))};
 }
+
 
 // Mainly for the links in the community guidelines box
 a {
 	@include oTypographyLink;
 }
 
+
 // remove divider of the top tab bar
 .coral-tabBar {
 	border-bottom-width: 0;
 }
 
+
+// community guidelines box
+.coral-guidelines {
+	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsGetPaletteColor('wheat');
+}
+
+
 // top tab bar buttons
-.coral-tabBar-allComments,
+.coral-tabBar-comments,
 .coral-tabBar-myProfile,
 .coral-tabBar-configure	{
 	@include oButtons;
@@ -104,10 +95,13 @@ a {
 	}
 }
 
+
 // post comment buttons
 .coral-createComment-submit,
 .coral-commentReply-submit,
-.coral-createComment-signIn {
+.coral-createComment-signIn,
+.coral-createReplyComment-submit,
+.coral-editComment-submit {
 	@include oButtons;
 
 	// normally, these should come for free with oButtons mixin
@@ -116,7 +110,29 @@ a {
 	color: oButtonsGetColor('', 'color', 'primary') !important;
 	background-color: oButtonsGetColor('', 'background', 'primary') !important;
 	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	}
 }
+
+
+// cancel buttons
+.coral-createReplyComment-cancel,
+.coral-editComment-cancel {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'secondary') !important;
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	}
+}
+
 
 // spacing and divider between comments
 .coral-comment {
@@ -125,8 +141,9 @@ a {
 	border-bottom: solid 1px oColorsGetPaletteColor('black-20');
 }
 
+
 // comment author
-.coral-comment-username {
+.coral-comment-username span {
 	@include oTypographyAuthor;
 
 	&:hover {
@@ -134,13 +151,89 @@ a {
 	}
 }
 
+
+// report button
+.coral-comment-reactButton,
+.coral-comment-reactedButton,
+.coral-comment-replyButton,
+.coral-comment-shareButton,
+.coral-comment-reportButton,
+.coral-featuredComment-reactButton,
+.coral-featuredComment-replies {
+	&:hover {
+		border-color: transparent !important;
+	}
+
+	span,
+	i {
+		color: oColorsGetPaletteColor('teal-50');
+	}
+}
+
+
+.coral-featuredComment-replies div {
+	color: oColorsGetPaletteColor('teal-50');
+}
+
+
+.coral-comment-replyButton,
+.coral-comment-shareButton {
+	// this is required for selected state
+	border-color: transparent !important;
+	background-color: transparent !important;
+
+	&:hover {
+		border-color: transparent !important;
+	}
+}
+
+
+// report button reported state
+.coral-comment-reportedButton {
+	background-color: oColorsGetPaletteColor('teal-50');
+
+	span,
+	i {
+		color: white;
+	}
+}
+
+
+// share comment - copy button
+.coral-sharePopover-copyButotn, // a spelling mistake on Coral side
+.coral-sharePopover-copyButton {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'primary') !important;
+	background-color: oButtonsGetColor('', 'background', 'primary') !important;
+	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	}
+}
+
+
+// In reply to <<author>>
+.coral-comment-inReplyToUsername {
+	@include oTypographyAuthor;
+
+	&:hover {
+		color: oColorsGetPaletteColor('black-50');
+	}
+}
+
+
 // xx hours ago
-.coral-comment-timestamp {
+.coral-comment-timestamp span {
 	@include oTypographyTimestamp;
 	font-weight: lighter !important;
 	margin-bottom: 0;
 	color: oColorsGetPaletteColor('black-50');
 }
+
 
 // "staff" tag
 .coral-comment-userTag {
@@ -148,9 +241,89 @@ a {
 	color: oColorsGetPaletteColor('white');
 }
 
+
 // "featured comment" tag
 .coral-comment-commentTag {
 	background-color: oColorsGetPaletteColor('black') !important;
 	color: oColorsGetPaletteColor('white') !important;
 	border-radius: 0;
+}
+
+
+// comment content blockquote
+.coral-rte-content blockquote,
+.coral-comment-content blockquote {
+	background-color: oColorsGetPaletteColor('wheat');
+}
+
+
+// load more buttons
+.coral-allComments-loadMoreButton,
+.coral-featuredComments-loadMoreButton,
+.coral-myComments-loadMoreButton {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'secondary') !important;
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+}
+
+
+// featured comments
+.coral-featuredComment {
+	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsGetPaletteColor('wheat');
+}
+
+
+// edit button
+.coral-comment-editButton {
+	@include oButtons;
+
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+	}
+}
+
+
+// replying to: <<user name>>
+.coral-createReplyComment-replyToUsername {
+	@include oTypographyAuthor;
+
+	&:hover {
+		color: oColorsGetColorFor('body', 'text');
+	}
+}
+
+
+// verify email resend button
+.coral-verifyEmail-resendButton {
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+	}
+}
+
+
+// verify email - message sent
+.coral-verifyEmail-resentMessage {
+	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsGetPaletteColor('wheat');
+}
+
+
+// my comment - view conversation
+// featured comment - go to conversation button
+.coral-myComment-viewConversationButton,
+.coral-myComments-viewConversationButton,
+.coral-myComment-viewConversationButton,
+.coral-myComments-viewConversationButton,
+.coral-featuredComment-goToConversationButton {
+	@include oTypographyLink;
+
+	color: oColorsGetPaletteColor(oColorsGetUseCase(link, text)) !important;
+
+	&:hover {
+		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
+	}
 }
