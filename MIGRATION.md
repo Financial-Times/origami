@@ -4,7 +4,7 @@
 
 Confirm the `o-teaser-collection__heading--inverse` modifier is used with `o-teaser-collection__heading`. I.e. `o-teaser-collection__heading o-teaser-collection__heading--inverse`. This was optional before.
 
-`oTeaserCollection` has changed, it now outputs all `o-teaser-collection` css by default. See the README for `oTeaserCollection` options to include css granularly.
+`oTeaserCollection` has changed, it now outputs all `o-teaser-collection` css by default. See the [README](./README.md) for `oTeaserCollection` options to include css granularly.
 
 Removes the following mixins. If your project uses these mixins replace with a single call to `oTeaserCollection` instead. See the README for `oTeaserCollection` options.
 - oTeaserCollectionAssassination
