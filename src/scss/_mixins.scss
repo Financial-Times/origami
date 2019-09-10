@@ -1,12 +1,39 @@
-@mixin oTeaserCollectionHeading($sizes: ('full-width', 'half-width', 'small')) {
-	@include oTeaserCollectionHeadingBorderTypography($sizes);
+/// Styles used witin o-teaser-collection__heading, including size modifiers.
+///
+/// @example - Include all heading styles.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading();
+///		}
+/// @example - Include the standard heading styles but do not style any child anchor element, and do not output modifier classes for different sized headings.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading($opts: (
+///				'anchor': false,
+///				'divider': true,
+///				'sizes': ()
+///			));
+///		}
+/// @example - Output a modifier class for a "small" collection heading.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading($opts: (
+///				'anchor': true,
+///				'divider': true,
+///				'sizes': ('small') // .my-collection-heading--small
+///			));
+///		}
+/// @param {Map} $opts [('anchor': true,'divider': true,'sizes': ('full-width', 'half-width', 'small'))]
+@mixin oTeaserCollectionContentHeading($opts: (
+	'anchor': true,
+	'divider': true,
+	'sizes': ('full-width', 'half-width', 'small')
+)) {
+	$anchor: map-get($opts, 'anchor');
+	$divider: map-get($opts, 'divider');
 
-	a {
-		@include oTeaserCollectionHeadingLink;
-	}
-}
+	$sizes: map-get($opts, 'sizes');
+	$full-width: index($sizes, 'full-width');
+	$half-width: index($sizes, 'half-width');
+	$small: index($sizes, 'small');
 
-@mixin oTeaserCollectionHeadingBorderTypography($sizes: ('full-width', 'half-width', 'small')) {
 	@include oTypographySize(3);
 	position: relative;
 	width: 100%;
@@ -19,31 +46,33 @@
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
 
-	&:before,
-	&:after {
-		border-top: 8px solid rgba(oColorsGetPaletteColor('black'), 0.05);
-		content: '';
-		left: 0;
-		top: 0;
-		position: absolute;
-		width: 100%;
-	}
+	@if($divider) {
+		&:before,
+		&:after {
+			border-top: 8px solid rgba(oColorsGetPaletteColor('black'), 0.05);
+			content: '';
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
+		}
 
-	&:after {
-		border-top-color: oColorsGetPaletteColor('black');
+		&:after {
+			border-top-color: oColorsGetPaletteColor('black');
 
-		@include oGridRespondTo(L) {
-			width: 32.5%;
+			@include oGridRespondTo(L) {
+				width: 32.5%;
+			}
 		}
 	}
 
-	@if(index($sizes, 'full-width')) {
+	@if($divider and $full-width) {
 		&--full-width:after {
 			width: 100%;
 		}
 	}
 
-	@if(index($sizes, 'half-width')) {
+	@if($divider and $half-width) {
 		&--half-width:after {
 			@include oGridRespondTo(L) {
 				width: 49%;
@@ -51,19 +80,29 @@
 		}
 	}
 
-	@if(index($sizes, 'small')) {
+	@if($small) {
 		&--small {
 			margin-bottom: oSpacingByIncrement(5);
 			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
-			&:after {
-				width: 100%;
+			@if($divider) {
+				&:after {
+					width: 100%;
+				}
 			}
+		}
+	}
+
+	@if ($anchor) {
+		> a {
+			@include _oTeaserCollectionHeadingLink;
 		}
 	}
 }
 
-@mixin oTeaserCollectionHeadingLink {
+
+/// @access private
+@mixin _oTeaserCollectionHeadingLink {
 	color: inherit;
 	text-decoration: none;
 	border: 0;
