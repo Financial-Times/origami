@@ -139,7 +139,7 @@ function Share(rootEl, config) {
 			const spanElement = document.createElement('span');
 			const aElement = document.createElement('a');
 
-			liElement.classList.add('o-share__action');
+			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
 			spanElement.classList.add('o-share__text');
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
 			aElement.href = generateSocialUrl(config.links[i]);
