@@ -69,13 +69,13 @@ class Stream {
 			try {
 				/*global Coral*/
 				const scriptElement = document.createElement('script');
-				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
+				scriptElement.src = 'https://ft.coral.coralproject.net/assets/js/embed.js';
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
 						{
 							id: this.streamEl.id,
 							storyURL: this.options.storyUrl,
-							rootURL: 'https://ft.staging.coral.coralproject.net',
+							rootURL: 'https://ft.coral.coralproject.net',
 							autoRender: true,
 							events: (events) => {
 								events.onAny((name, data) => {

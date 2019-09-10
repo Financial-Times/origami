@@ -17,7 +17,7 @@ module.exports = () => {
 
 		stream.renderComments();
 
-		const scriptTag = document.querySelector('script[src="https://ft.staging.coral.coralproject.net/assets/js/embed.js"]');
+		const scriptTag = document.querySelector('script[src="https://ft.coral.coralproject.net/assets/js/embed.js"]');
 
 		proclaim.isTrue(!!scriptTag);
 	});
