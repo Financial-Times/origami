@@ -1,13 +1,44 @@
-<div class="demo-container">
-	<div class="o-teaser-collection ">
-		<h2 class="o-teaser-collection__heading"><a class="o-teaser-collection__heading-link" href="#">Brexit</a></h2>
-		<p>teasers go here</p>
-	</div>
-</div>
+<div class="o-teaser-collection {{#collections}} o-teaser-collection--{{.}}{{/collections}}">
+	<h2 class="o-teaser-collection__heading{{#headings}} o-teaser-collection__heading--{{.}}{{/headings}}">
+		{{#link}}
+			<a class="o-teaser-collection__heading-link" href="#">Collection Heading</a>
+		{{/link}}
+		{{^link}}
+			Collection Heading
+		{{/link}}
+	</h2>
 
-<div class="demo-container">
-	<div class="demo-assassination">
-		<h2 class="o-teaser-collection__heading"><a class="o-teaser-collection__heading-link" href="#">Brexit</a></h2>
-		<p>teasers go here</p>
+	{{^numbered}}
+	<!-- o-grid included in the demo as an example -->
+	<!-- `o-teaser-collection__items` or a custom container could also be used -->
+	<!-- see the readme for details -->
+	<div class="o-grid-container">
+		<div class="o-grid-row">
+			<p class="demo-paragraph">teasers go here</p>
+		</div>
 	</div>
+	{{/numbered}}
+
+	{{#numbered}}
+	<ol class="o-teaser-collection__items">
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+		<li class="o-teaser-collection__item">
+			<p class="demo-paragraph">teasers go here</p>
+		</li>
+	</ol>
+	{{/numbered}}
 </div>

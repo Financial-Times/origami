@@ -1,22 +1,26 @@
-$o-component-boilerplate-is-silent: false;
-
 @import '../../main';
 
-@include oFontsIncludeAll();
+@include oTeaserCollection();
 
 body {
 	background-color: oColorsGetPaletteColor('paper');
+	margin: oSpacingByName('s8');
+	max-width: map-get($o-grid-layouts, 'XL');
+	.demo-paragraph {
+		@include oTypographySans();
+	}
+	.o-teaser-collection__item .demo-paragraph {
+		margin: oSpacingByName('s1') 0 oSpacingByName('s4');
+	}
 }
 
-.demo-container {
-	@include oGridContainer();
-	margin-top: 10px;
+.demo-inverse body {
+	background-color: oColorsGetPaletteColor('slate');
 }
 
-.demo-slim-collection {
-	width: 33%;
-}
-
-.demo-assassination {
-	@include oTeaserCollectionAssassination;
+.demo-inverse body,
+.demo-inverse-copy body {
+	.demo-paragraph {
+		color: oColorsGetPaletteColor('white');
+	}
 }
