@@ -6,13 +6,19 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 	const displayUrl = relativeUrl || url;
 	// o-labels--premium left for backwards compatibility for o-labels v3
 	const premiumClass = 'o-labels o-labels--premium o-labels--content-premium';
+	let ariaLabel;
+	if(props.type === 'video') {
+		ariaLabel = `Watch video ${displayTitle}`
+	} else if (props.type === 'audio') {
+		ariaLabel = `Listen to podcast ${displayTitle}`
+	}
 
 	return (
 		<div className="o-teaser__heading">
 			<Link {...props} url={displayUrl} attrs={{
 				'data-trackable': 'heading-link',
 				className: 'js-teaser-heading-link',
-				'aria-label': props.type === 'video' ? `Watch video ${displayTitle}` : null
+				'aria-label': ariaLabel
 			}}>
 				{displayTitle}
 			</Link>
