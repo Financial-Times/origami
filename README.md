@@ -42,7 +42,7 @@ Add the following attribute to the markup to enable a comment count:
 <div class="o-comments"
 -	id="o-comments-stream"
 	data-o-component="o-comments"
-	data-o-comments-article-id="{article-id}"   
+	data-o-comments-article-id="{article-id}"
 +	data-o-comments-count="true">
 </div>
 ```
