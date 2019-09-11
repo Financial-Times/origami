@@ -5,10 +5,10 @@ class Count {
 	 * @param {HTMLElement} [countEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (countEl, opts) {
+	constructor (countEl, opts = {}) {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
-		this.useStagingEnvironment = opts && !!opts.useStagingEnvironment;
+		this.useStagingEnvironment = !!opts.useStagingEnvironment;
 	}
 
 	/**
