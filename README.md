@@ -42,12 +42,37 @@ Add the following attribute to the markup to enable a comment count:
 <div class="o-comments"
 -	id="o-comments-stream"
 	data-o-component="o-comments"
-	data-o-comments-article-id="{article-id}"
+	data-o-comments-article-id="{article-id}"   
 +	data-o-comments-count="true">
 </div>
 ```
 
 The comment count is rendered when the `data-o-comments-count` attribute value is `true`.
+
+### Use staging environment
+
+Add the following attribute to the markup to use Coral staging environment:
+
+For stream:
+```diff
+<div class="o-comments"
+	id="o-comments-stream"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}"
+	data-o-comments-story-url="{optional-story-url}"
++	data-o-comments-use-staging-environment="true">
+</div>
+```
+
+For count:
+```diff
+<div class="o-comments"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}"   
+	data-o-comments-count="true"
++	data-o-comments-use-staging-environment="true">
+</div>
+```
 
 ## JavaScript
 
@@ -65,6 +90,8 @@ const Comments = new oComments(commentsElement, {
 	storyUrl: 'optional-story-url'
 })
 ```
+
+Add `useStagingEnvironment: true` to the options if you want to use Coral staging environment.
 
 If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 

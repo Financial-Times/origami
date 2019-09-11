@@ -8,6 +8,8 @@ class Count {
 	constructor (countEl, opts) {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
+		this.useStagingEnvironment = opts &&
+			(opts.useStagingEnvironment === true || opts.useStagingEnvironment === 'true');
 	}
 
 	/**
@@ -25,14 +27,14 @@ class Count {
 			throw new Error('Element must be a HTMLElement');
 		}
 
-		return Count.fetchCount(this.articleId)
+		return Count.fetchCount(this.articleId, this.useStagingEnvironment)
 			.then((count) => {
 				this.countEl.textContent = count;
 			});
 	}
 
-	static fetchCount (id) {
-		const url = `https://comments-api.ft.com/story/count/${id}`;
+	static fetchCount (id, useStaging) {
+		const url = `https://comments-api.ft.com/story/count/${id}` + (useStaging ? '?staging=1' : '');
 
 		return fetch(url)
 			.then(res => res.json())
