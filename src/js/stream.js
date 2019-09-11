@@ -1,4 +1,4 @@
-import {validEvents, coralMap, errorMap} from './utils/events';
+import {validEvents, coralEventMap, coralErrorMap} from './utils/events';
 
 class Stream {
 	/**
@@ -10,9 +10,6 @@ class Stream {
 	constructor (streamEl, opts = {}) {
 		this.streamEl = streamEl;
 		this.options = opts;
-		this.validEvents = validEvents;
-		this.coralEventMapping = coralMap;
-		this.errorMapping = errorMap;
 		this.eventSeenTimes = {};
 	}
 
@@ -105,7 +102,7 @@ class Stream {
 			throw new Error('.on requires both the `event` & `callback` parameters');
 		}
 
-		if (!this.validEvents.includes(event)) {
+		if (!validEvents.includes(event)) {
 			throw new Error(`${event} is not a valid event`);
 		}
 
@@ -129,14 +126,14 @@ class Stream {
 			} = {}
 		} = data;
 
-		const mappedEventName = this.coralEventMapping.get(name);
+		const mappedEventName = coralEventMap.get(name);
 		const eventsToPublish = [];
 
 		if (errors && Array.isArray(errors)) {
 			errors
-				.filter(error => this.errorMapping.get(error.translation_key))
+				.filter(error => coralErrorMap.get(error.translation_key))
 				.forEach(error => {
-					const mapppedErrorName = this.errorMapping.get(error.translation_key);
+					const mapppedErrorName = coralErrorMap.get(error.translation_key);
 
 					if (mapppedErrorName) {
 						eventsToPublish.push(mapppedErrorName);

@@ -1,4 +1,4 @@
-const coralMap = new Map([
+const coralEventMap = new Map([
 	['ready', 'oComments.ready'],
 	['mutation.createComment', 'oComments.postComment'],
 	['mutation.createCommentReply', 'oComments.replyComment'],
@@ -6,15 +6,15 @@ const coralMap = new Map([
 	['mutation.createCommentReaction', 'oComments.likeComment'],
 ]);
 
-const errorMap = new Map([
+const coralErrorMap = new Map([
 	['COMMENT_IS_TOXIC', 'oComments.toxicComment']
 ]);
 
 const validEvents = []
-	.concat(Array.from(coralMap.values()), Array.from(errorMap.values()));
+	.concat(Array.from(coralEventMap.values()), Array.from(coralErrorMap.values()));
 
 export {
 	validEvents,
-	coralMap,
-	errorMap
+	coralEventMap,
+	coralErrorMap
 };
