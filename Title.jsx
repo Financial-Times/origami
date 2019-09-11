@@ -12,6 +12,7 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 			<Link {...props} url={displayUrl} attrs={{
 				'data-trackable': 'heading-link',
 				className: 'js-teaser-heading-link',
+				'aria-label': props.type === 'video' ? `Watch video ${displayTitle}` : null
 			}}>
 				{displayTitle}
 			</Link>
