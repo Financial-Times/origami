@@ -13,8 +13,6 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
-
-		this._mapCoralEventsToOComments();
 	}
 
 	init () {
@@ -79,13 +77,7 @@ class Stream {
 							autoRender: true,
 							events: (events) => {
 								events.onAny((name, data) => {
-									const message = new CustomEvent('talkEvent', {
-										detail: {
-											name,
-											data
-										}
-									});
-									window.parent.dispatchEvent(message);
+									this.publishEvent({name, data});
 								});
 							}
 						}
@@ -127,46 +119,33 @@ class Stream {
 	 * Emits events that have a valid o-comment event name.
 	 *
 	 * @param {String} name - The event name
-	 * @param {Object} payload - The event payload
+	 * @param {Object} data - The event payload
 	 */
-	_dispatchEvent (name, payload) {
-		if (!this.validEvents.includes(name)) {
-			throw new Error(`${name} is not a valid event`);
+	publishEvent ({name, data = {}}) {
+		const {
+			error: {
+				errors
+			} = {}
+		} = data;
+
+		const mappedEventName = this.coralEventMapping.get(name);
+
+		if (errors && Array.isArray(errors)) {
+			errors
+				.filter(error => this.errorMapping.get(error.translation_key))
+				.map(error => {
+					const mapppedErrorName = this.errorMapping.get(error.translation_key);
+					const event = new CustomEvent(mapppedErrorName);
+
+					document.dispatchEvent(event);
+				});
 		}
 
-		const event = new CustomEvent(name, payload || {});
+		if (mappedEventName) {
+			const event = new CustomEvent(mappedEventName);
 
-		document.dispatchEvent(event);
-	}
-
-	/**
-	 * Listens for all Coral Talk events and maps them to valid events.
-	 */
-	_mapCoralEventsToOComments () {
-		window.addEventListener('talkEvent', (event = {}) => {
-			const {
-				detail: {
-					name,
-					data: {
-						error: {
-							errors
-						} = {}
-					} = {}
-				} = {}
-			} = event;
-
-			if (errors && Array.isArray(errors)) {
-				errors
-					.filter(error => this.errorMapping.get(error.translation_key))
-					.map(error => this._dispatchEvent(this.errorMapping.get(error.translation_key)));
-			}
-
-			const mappedEventName = this.coralEventMapping.get(name);
-
-			if (mappedEventName) {
-				this._dispatchEvent(mappedEventName);
-			}
-		});
+			document.dispatchEvent(event);
+		}
 	}
 }
 

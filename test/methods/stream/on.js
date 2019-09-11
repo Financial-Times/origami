@@ -39,7 +39,7 @@ module.exports = () => {
 			eventWasEmitted = true;
 		});
 
-		document.dispatchEvent(new CustomEvent('oComments.ready'));
+		stream.publishEvent({name: 'ready'});
 
 		proclaim.isTrue(eventWasEmitted);
 	});
@@ -53,11 +53,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'ready'
-				}
-			}));
+			stream.publishEvent({name: 'ready'});
 
 		});
 
@@ -69,11 +65,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createComment'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createComment'});
 		});
 
 		it("maps the `mutation.createCommentReaction` event", (done) => {
@@ -84,11 +76,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createCommentReaction'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createCommentReaction'});
 		});
 
 		it("maps the `mutation.editComment` event", (done) => {
@@ -99,11 +87,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.editComment'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.editComment'});
 		});
 
 		it("maps the `mutation.createCommentReply` event", (done) => {
@@ -114,11 +98,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createCommentReply'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createCommentReply'});
 		});
 
 		describe("when the payload contains an error", () => {
@@ -130,19 +110,17 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 
 		});
@@ -156,20 +134,18 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						name: 'mutation.editComment',
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					name: 'mutation.editComment',
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 
 			it("maps the valid  event", (done) => {
@@ -180,20 +156,18 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						name: 'mutation.editComment',
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					name: 'mutation.editComment',
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 		});
 	});
