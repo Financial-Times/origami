@@ -12,7 +12,11 @@ class DropDown {
 
 		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')];
 		this.navItems.forEach(item => {
-			item.querySelector('button').addEventListener('click', this);
+			const button = item.querySelector('button');
+			if (!button) {
+				return;
+			}
+			button.addEventListener('click', this);
 		});
 
 		// the event listener is added to the body here to handle cases where a
