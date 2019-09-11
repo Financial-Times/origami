@@ -7,7 +7,7 @@ class Stream {
 	 * @param {HTMLElement} [streamEl] - The component element in the DOM
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
-	constructor (streamEl, opts) {
+	constructor (streamEl, opts = {}) {
 		this.streamEl = streamEl;
 		this.options = opts;
 		this.validEvents = validEvents;
