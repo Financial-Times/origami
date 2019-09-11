@@ -403,7 +403,7 @@ If you would like to be more specific about what aspects of the styles get outpu
 ```scss
 @import 'o-forms';
 @include oForms($opts: (
-	'elements': ('text-input', 'checkbox'),
+	'elements': ('text', 'checkbox'),
 	'features': ('inline')
 ));
 ```
