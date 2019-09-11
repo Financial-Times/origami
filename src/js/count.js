@@ -8,8 +8,7 @@ class Count {
 	constructor (countEl, opts) {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
-		this.useStagingEnvironment = opts &&
-			(opts.useStagingEnvironment === true || opts.useStagingEnvironment === 'true');
+		this.useStagingEnvironment = opts && !!opts.useStagingEnvironment;
 	}
 
 	/**

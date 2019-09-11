@@ -13,8 +13,7 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
-		this.useStagingEnvironment = opts &&
-			(opts.useStagingEnvironment === true || opts.useStagingEnvironment === 'true');
+		this.useStagingEnvironment = opts && !!opts.useStagingEnvironment;
 
 		this._mapCoralEventsToOComments();
 	}

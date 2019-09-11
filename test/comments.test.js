@@ -92,5 +92,41 @@ describe("Comments", () => {
 				assert.isInstanceOf(comments[method], Function);
 			}));
 	});
+
+	describe("when 'data-o-comments-use-staging-environment' is set to true", () => {
+		let comments;
+
+		beforeEach(() => {
+			fixtures.useStagingEnvironmentMarkup();
+			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
+			comments = new Comments(mockRootEl);
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it("initializes Stream with staging environment option set to true", () => {
+			assert.isTrue(comments.useStagingEnvironment);
+		});
+	});
+
+	describe("when 'data-o-comments-use-staging-environment' is set to false", () => {
+		let comments;
+
+		beforeEach(() => {
+			fixtures.doNotUseStagingEnvironmentMarkup();
+			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
+			comments = new Comments(mockRootEl);
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		it("initializes Stream with staging environment option set to false", () => {
+			assert.isFalse(comments.useStagingEnvironment);
+		});
+	});
 });
 
