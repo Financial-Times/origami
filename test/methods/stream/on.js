@@ -44,6 +44,31 @@ module.exports = () => {
 		proclaim.isTrue(eventWasEmitted);
 	});
 
+	it("throttles events so callbacks are only called every 250 milliseconds", (done) => {
+		const stream = new Stream();
+		let onCount = 0;
+		let listenerCount = 0;
+
+		stream.on('oComments.ready', () => {
+			onCount++;
+		});
+
+		document.addEventListener('oComments.ready', () => {
+			listenerCount++;
+		});
+
+		const interval = window.setInterval(() => {
+			stream.publishEvent({name: 'ready'});
+		}, 10);
+
+		window.setTimeout(() => {
+			proclaim.equal(onCount, 2);
+			proclaim.equal(listenerCount, 2);
+			window.clearInterval(interval);
+			done();
+		}, 270);
+	});
+
 	describe("when Coral Talk events are emitted", () => {
 		it("maps the `ready` event", (done) => {
 			const stream = new Stream();

@@ -13,6 +13,7 @@ class Stream {
 		this.validEvents = validEvents;
 		this.coralEventMapping = coralMap;
 		this.errorMapping = errorMap;
+		this.eventSeenTimes = {};
 	}
 
 	init () {
@@ -129,23 +130,37 @@ class Stream {
 		} = data;
 
 		const mappedEventName = this.coralEventMapping.get(name);
+		const eventsToPublish = [];
 
 		if (errors && Array.isArray(errors)) {
 			errors
 				.filter(error => this.errorMapping.get(error.translation_key))
-				.map(error => {
+				.forEach(error => {
 					const mapppedErrorName = this.errorMapping.get(error.translation_key);
-					const event = new CustomEvent(mapppedErrorName);
 
-					document.dispatchEvent(event);
+					if (mapppedErrorName) {
+						eventsToPublish.push(mapppedErrorName);
+					}
 				});
 		}
 
 		if (mappedEventName) {
-			const event = new CustomEvent(mappedEventName);
-
-			document.dispatchEvent(event);
+			eventsToPublish.push(mappedEventName);
 		}
+
+		eventsToPublish
+			.forEach(eventName => {
+				const now = +new Date;
+				const delayInMilliseconds = 250;
+				const eventHasntBeenSeenRecently = !this.eventSeenTimes[eventName] ||
+					now > this.eventSeenTimes[eventName] + delayInMilliseconds;
+
+				if (eventHasntBeenSeenRecently) {
+					this.eventSeenTimes[eventName] = now;
+					const event = new CustomEvent(eventName);
+					document.dispatchEvent(event);
+				}
+			});
 	}
 }
 
