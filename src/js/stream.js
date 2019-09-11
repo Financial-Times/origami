@@ -8,7 +8,7 @@ class Stream {
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (streamEl, opts = {}) {
-		this.streamEl = streamEl;
+		this.streamEl = streamEl || document;
 		this.options = opts;
 		this.eventSeenTimes = {};
 	}
@@ -110,7 +110,7 @@ class Stream {
 			throw new Error('The callback must be a function');
 		}
 
-		document.addEventListener(event, callback);
+		this.streamEl.addEventListener(event, callback);
 	}
 
 	/**
@@ -155,7 +155,7 @@ class Stream {
 				if (eventHasntBeenSeenRecently) {
 					this.eventSeenTimes[eventName] = now;
 					const event = new CustomEvent(eventName);
-					document.dispatchEvent(event);
+					this.streamEl.dispatchEvent(event);
 				}
 			});
 	}
