@@ -1,4 +1,4 @@
-import {validEvents, coralMap, errorMap} from './utils/events';
+import {validEvents, coralEventMap, coralErrorMap} from './utils/events';
 
 class Stream {
 	/**
@@ -8,14 +8,10 @@ class Stream {
 	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (streamEl, opts = {}) {
-		this.streamEl = streamEl;
+		this.streamEl = streamEl || document;
 		this.options = opts;
-		this.validEvents = validEvents;
-		this.coralEventMapping = coralMap;
-		this.errorMapping = errorMap;
+		this.eventSeenTimes = {};
 		this.useStagingEnvironment = !!opts.useStagingEnvironment;
-
-		this._mapCoralEventsToOComments();
 	}
 
 	init () {
@@ -87,13 +83,7 @@ class Stream {
 							autoRender: true,
 							events: (events) => {
 								events.onAny((name, data) => {
-									const message = new CustomEvent('talkEvent', {
-										detail: {
-											name,
-											data
-										}
-									});
-									window.parent.dispatchEvent(message);
+									this.publishEvent({name, data});
 								});
 							}
 						}
@@ -120,7 +110,7 @@ class Stream {
 			throw new Error('.on requires both the `event` & `callback` parameters');
 		}
 
-		if (!this.validEvents.includes(event)) {
+		if (!validEvents.includes(event)) {
 			throw new Error(`${event} is not a valid event`);
 		}
 
@@ -128,53 +118,54 @@ class Stream {
 			throw new Error('The callback must be a function');
 		}
 
-		document.addEventListener(event, callback);
+		this.streamEl.addEventListener(event, callback);
 	}
 
 	/**
 	 * Emits events that have a valid o-comment event name.
 	 *
 	 * @param {String} name - The event name
-	 * @param {Object} payload - The event payload
+	 * @param {Object} data - The event payload
 	 */
-	_dispatchEvent (name, payload) {
-		if (!this.validEvents.includes(name)) {
-			throw new Error(`${name} is not a valid event`);
+	publishEvent ({name, data = {}}) {
+		const {
+			error: {
+				errors
+			} = {}
+		} = data;
+
+		const mappedEventName = coralEventMap.get(name);
+		const eventsToPublish = [];
+
+		if (errors && Array.isArray(errors)) {
+			errors
+				.filter(error => coralErrorMap.get(error.translation_key))
+				.forEach(error => {
+					const mapppedErrorName = coralErrorMap.get(error.translation_key);
+
+					if (mapppedErrorName) {
+						eventsToPublish.push(mapppedErrorName);
+					}
+				});
 		}
 
-		const event = new CustomEvent(name, payload || {});
+		if (mappedEventName) {
+			eventsToPublish.push(mappedEventName);
+		}
 
-		document.dispatchEvent(event);
-	}
+		eventsToPublish
+			.forEach(eventName => {
+				const now = +new Date;
+				const delayInMilliseconds = 250;
+				const eventHasntBeenSeenRecently = !this.eventSeenTimes[eventName] ||
+					now > this.eventSeenTimes[eventName] + delayInMilliseconds;
 
-	/**
-	 * Listens for all Coral Talk events and maps them to valid events.
-	 */
-	_mapCoralEventsToOComments () {
-		window.addEventListener('talkEvent', (event = {}) => {
-			const {
-				detail: {
-					name,
-					data: {
-						error: {
-							errors
-						} = {}
-					} = {}
-				} = {}
-			} = event;
-
-			if (errors && Array.isArray(errors)) {
-				errors
-					.filter(error => this.errorMapping.get(error.translation_key))
-					.map(error => this._dispatchEvent(this.errorMapping.get(error.translation_key)));
-			}
-
-			const mappedEventName = this.coralEventMapping.get(name);
-
-			if (mappedEventName) {
-				this._dispatchEvent(mappedEventName);
-			}
-		});
+				if (eventHasntBeenSeenRecently) {
+					this.eventSeenTimes[eventName] = now;
+					const event = new CustomEvent(eventName);
+					this.streamEl.dispatchEvent(event);
+				}
+			});
 	}
 }
 

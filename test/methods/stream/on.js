@@ -39,9 +39,34 @@ module.exports = () => {
 			eventWasEmitted = true;
 		});
 
-		document.dispatchEvent(new CustomEvent('oComments.ready'));
+		stream.publishEvent({name: 'ready'});
 
 		proclaim.isTrue(eventWasEmitted);
+	});
+
+	it("throttles events so callbacks are only called every 250 milliseconds", (done) => {
+		const stream = new Stream();
+		let onCount = 0;
+		let listenerCount = 0;
+
+		stream.on('oComments.ready', () => {
+			onCount++;
+		});
+
+		document.addEventListener('oComments.ready', () => {
+			listenerCount++;
+		});
+
+		const interval = window.setInterval(() => {
+			stream.publishEvent({name: 'ready'});
+		}, 10);
+
+		window.setTimeout(() => {
+			proclaim.equal(onCount, 2);
+			proclaim.equal(listenerCount, 2);
+			window.clearInterval(interval);
+			done();
+		}, 270);
 	});
 
 	describe("when Coral Talk events are emitted", () => {
@@ -53,11 +78,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'ready'
-				}
-			}));
+			stream.publishEvent({name: 'ready'});
 
 		});
 
@@ -69,11 +90,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createComment'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createComment'});
 		});
 
 		it("maps the `mutation.createCommentReaction` event", (done) => {
@@ -84,11 +101,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createCommentReaction'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createCommentReaction'});
 		});
 
 		it("maps the `mutation.editComment` event", (done) => {
@@ -99,11 +112,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.editComment'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.editComment'});
 		});
 
 		it("maps the `mutation.createCommentReply` event", (done) => {
@@ -114,11 +123,7 @@ module.exports = () => {
 				done();
 			});
 
-			window.dispatchEvent(new CustomEvent('talkEvent', {
-				detail: {
-					name: 'mutation.createCommentReply'
-				}
-			}));
+			stream.publishEvent({name: 'mutation.createCommentReply'});
 		});
 
 		describe("when the payload contains an error", () => {
@@ -130,19 +135,17 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 
 		});
@@ -156,20 +159,18 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						name: 'mutation.editComment',
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					name: 'mutation.editComment',
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 
 			it("maps the valid  event", (done) => {
@@ -180,20 +181,18 @@ module.exports = () => {
 					done();
 				});
 
-				window.dispatchEvent(new CustomEvent('talkEvent', {
-					detail: {
-						name: 'mutation.editComment',
-						data: {
-							error: {
-								errors: [
-									{
-										translation_key: 'COMMENT_IS_TOXIC'
-									}
-								]
-							}
+				stream.publishEvent({
+					name: 'mutation.editComment',
+					data: {
+						error: {
+							errors: [
+								{
+									translation_key: 'COMMENT_IS_TOXIC'
+								}
+							]
 						}
 					}
-				}));
+				});
 			});
 		});
 	});
