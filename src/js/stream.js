@@ -11,6 +11,7 @@ class Stream {
 		this.streamEl = streamEl || document;
 		this.options = opts;
 		this.eventSeenTimes = {};
+		this.useStagingEnvironment = !!opts.useStagingEnvironment;
 	}
 
 	init () {
@@ -65,13 +66,20 @@ class Stream {
 			try {
 				/*global Coral*/
 				const scriptElement = document.createElement('script');
-				scriptElement.src = 'https://ft.staging.coral.coralproject.net/assets/js/embed.js';
+				scriptElement.src = this.useStagingEnvironment
+					? 'https://ft.staging.coral.coralproject.net/assets/js/embed.js'
+					: 'https://ft.coral.coralproject.net/assets/js/embed.js';
+
+				const rootUrl = this.useStagingEnvironment
+					? 'https://ft.staging.coral.coralproject.net'
+					: 'https://ft.coral.coralproject.net';
+
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
 						{
 							id: this.streamEl.id,
-							storyURL: this.options.storyUrl,
-							rootURL: 'https://ft.staging.coral.coralproject.net',
+							storyURL: this.options && this.options.storyUrl,
+							rootURL: rootUrl,
 							autoRender: true,
 							events: (events) => {
 								events.onAny((name, data) => {
