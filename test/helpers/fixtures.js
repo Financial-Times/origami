@@ -45,8 +45,38 @@ function countMarkup () {
 	insert(html);
 }
 
+function useStagingEnvironmentMarkup () {
+	const html = `
+		<div>
+			<div class="o-comments"
+				data-o-component="o-comments"
+				data-o-comments-article-id="id"
+				data-o-comments-count="true"
+				data-o-comments-use-staging-environment="true">
+			</div>
+		</div>
+	`;
+	insert(html);
+}
+
+function doNotUseStagingEnvironmentMarkup () {
+	const html = `
+		<div>
+			<div class="o-comments"
+				data-o-component="o-comments"
+				data-o-comments-article-id="id"
+				data-o-comments-count="true"
+				data-o-comments-use-staging-environment="false">
+			</div>
+		</div>
+	`;
+	insert(html);
+}
+
 export {
 	reset,
 	streamMarkup,
-	countMarkup
+	countMarkup,
+	useStagingEnvironmentMarkup,
+	doNotUseStagingEnvironmentMarkup
 };

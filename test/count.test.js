@@ -18,24 +18,49 @@ describe("Count", () => {
 
 	describe(".renderCount()", () => {
 		describe("when element exists", () => {
-			beforeEach(() => {
-				sinon.stub(Count, 'fetchCount').resolves(10);
-				fixtures.countMarkup();
-			});
-
-			afterEach(() => {
-				fixtures.reset();
-				Count.fetchCount.restore();
-			});
-
-			it("renders the count within the element", () => {
-				const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
-				const count = new Count(mockCountEl, {
-					articleId: 'id'
+			describe("when initialized without staging option", () => {
+				beforeEach(() => {
+					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(10);
+					fixtures.countMarkup();
 				});
 
-				return count.renderCount()
-					.then(() => assert.equal(count.countEl.innerHTML, 10));
+				afterEach(() => {
+					fixtures.reset();
+					Count.fetchCount.restore();
+				});
+
+				it("renders the count within the element", () => {
+					const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+					const count = new Count(mockCountEl, {
+						articleId: 'id'
+					});
+
+					return count.renderCount()
+						.then(() => assert.equal(count.countEl.innerHTML, 10));
+				});
+			});
+
+			describe("when initialized with staging option", () => {
+				beforeEach(() => {
+					sinon.stub(Count, 'fetchCount').withArgs('id', true).resolves(20);
+					fixtures.countMarkup();
+				});
+
+				afterEach(() => {
+					fixtures.reset();
+					Count.fetchCount.restore();
+				});
+
+				it("renders the count within the element", () => {
+					const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+					const count = new Count(mockCountEl, {
+						articleId: 'id',
+						useStagingEnvironment: true
+					});
+
+					return count.renderCount()
+						.then(() => assert.equal(count.countEl.innerHTML, 20));
+				});
 			});
 		});
 
@@ -94,6 +119,20 @@ describe("Count", () => {
 					}).catch((error) => {
 						assert.include(error.message, 'Error with fetching comment count:');
 					});
+			});
+		});
+
+		describe("when called for the staging environment", () => {
+			beforeEach(() => {
+				fetchMock.mock('https://comments-api.ft.com/story/count/article-id?staging=1', {
+					commentCount: 20
+				});
+			});
+
+			it("returns the comment count from staging", () => {
+				const useStaging = true;
+				return Count.fetchCount('article-id', useStaging)
+					.then(count => assert.equal(count, 20));
 			});
 		});
 	});
