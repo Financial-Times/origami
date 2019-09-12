@@ -32,9 +32,9 @@ class Stream {
 	}
 
 	getJsonWebToken () {
-		return fetch('https://comments-api.ft.com/user/auth/', {
-			credentials: 'include'
-		}).then(response => {
+		const url = 'https://comments-api.ft.com/user/auth/' +
+			(this.useStagingEnvironment ? '?staging=1' : '');
+		return fetch(url, { credentials: 'include' }).then(response => {
 			// user is signed in but has no display name
 			if (response.status === 205) {
 				return { token: undefined, userIsSignedIn: true };
