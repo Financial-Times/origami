@@ -88,11 +88,11 @@ class Stream {
 							}
 						}
 					);
+					resolve();
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
 				document.dispatchEvent(new Event('oCommentsReady'));
-				resolve();
 			} catch (error) {
 				resolve();
 			}
