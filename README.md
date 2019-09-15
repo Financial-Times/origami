@@ -68,7 +68,7 @@ For count:
 ```diff
 <div class="o-comments"
 	data-o-component="o-comments"
-	data-o-comments-article-id="{article-id}"   
+	data-o-comments-article-id="{article-id}"
 	data-o-comments-count="true"
 +	data-o-comments-use-staging-environment="true">
 </div>
@@ -112,26 +112,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Interface
 
-#### .on(eventName, callback)
-
-- `eventName` - *required*
-- `callBack` - *required*
-
-The `.on` interface allows you to listen for [events](#events).
-
-```js
-const oComments = require('o-comments');
-const Comments = new oComments();
-
-Comments.on('oComments.ready', (event) => {
-	console.log('The comments have rendered')
-});
-
-```
 
 ### Events
 
-Events are emitted during key events and can be listened to using the [`.on` interface](#on) or by listening for events on the document.
+Events are emitted during key events or interactions and can be listened to by listening for events on the document.
 
 ```js
 document.addEventListener('oComments.ready', (event) => {
@@ -162,7 +146,7 @@ As with all Origami components, o-comments has a [silent mode](http://origami.ft
 
 ### Styling of Coral Talk iframe
 
-This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service. 
+This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service.
 
 Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss`
 

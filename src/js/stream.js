@@ -100,28 +100,6 @@ class Stream {
 	}
 
 	/**
-	 * Register callback functions to events.
-	 *
-	 * @param {String} event - The event to be tracked
-	 * @param {Function} callback - The callback for when the event is emitted
-	 */
-	on (event, callback) {
-		if (!event || !callback) {
-			throw new Error('.on requires both the `event` & `callback` parameters');
-		}
-
-		if (!validEvents.includes(event)) {
-			throw new Error(`${event} is not a valid event`);
-		}
-
-		if (typeof callback !== 'function') {
-			throw new Error('The callback must be a function');
-		}
-
-		this.streamEl.addEventListener(event, callback);
-	}
-
-	/**
 	 * Emits events that have a valid o-comment event name.
 	 *
 	 * @param {String} name - The event name
