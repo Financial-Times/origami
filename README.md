@@ -34,9 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-You can also run `require('o-date').init()` once the DOM has loaded if you don't want to initialise other modules at the same time.
+You can also import `o-date` as a module.
 
-Run `require('o-date').init(el)` on any elements containing dates that are added to the page after DOM load, and if you keep a reference to the returned object you can clean them up with `oDateItem.destroy()` to stop processing.
+```
+import ODate from 'o-date'
+```
+
+You can run `ODate.init()` once the DOM has loaded if you don't want to initialise other modules at the same time.
+
+Run `ODate.init(el)` on any elements containing dates that are added to the page after DOM load, and if you keep a reference to the returned object you can clean them up with `oDateItem.destroy()` to stop processing.
 
 #### o-date#format(date, tpl)
 
