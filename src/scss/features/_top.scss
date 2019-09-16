@@ -118,11 +118,7 @@
 	}
 
 	.o-header__top-link-label {
-		/* Deprecate this label in next breaking release (v7), but for v6.12.0
-		display-none it so that layout won't break and people don't have
-		to update their markup to get the change
-		*/
-		display: none;
+		@include oNormaliseVisuallyHidden;
 	}
 
 	.o-header__top-logo {
