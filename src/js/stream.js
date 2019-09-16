@@ -1,4 +1,4 @@
-import {validEvents, coralEventMap, coralErrorMap} from './utils/events';
+import {coralEventMap, findValidErrors} from './utils/events';
 
 class Stream {
 	/**
@@ -112,36 +112,39 @@ class Stream {
 			} = {}
 		} = data;
 
-		const mappedEventName = coralEventMap.get(name);
-		const eventsToPublish = [];
+		const mappedEvent = coralEventMap.get(name);
+		const validErrors = errors && Array.isArray(errors) ? findValidErrors(errors) : [];
+		const eventsToPublish = mappedEvent ?
+			[mappedEvent].concat(validErrors) :
+			validErrors;
 
-		if (errors && Array.isArray(errors)) {
-			errors
-				.filter(error => coralErrorMap.get(error.translation_key))
-				.forEach(error => {
-					const mapppedErrorName = coralErrorMap.get(error.translation_key);
-
-					if (mapppedErrorName) {
-						eventsToPublish.push(mapppedErrorName);
-					}
-				});
-		}
-
-		if (mappedEventName) {
-			eventsToPublish.push(mappedEventName);
+		if (!eventsToPublish.length) {
+			throw new Error('Invalid event name or error type');
 		}
 
 		eventsToPublish
-			.forEach(eventName => {
+			.forEach(eventMapping => {
 				const now = +new Date;
-				const delayInMilliseconds = 250;
-				const eventHasntBeenSeenRecently = !this.eventSeenTimes[eventName] ||
-					now > this.eventSeenTimes[eventName] + delayInMilliseconds;
+				const delayInMilliseconds = 100;
+				const eventHasntBeenSeenRecently = !this.eventSeenTimes[eventMapping.oComments] ||
+					now > this.eventSeenTimes[eventMapping.oComments] + delayInMilliseconds;
 
 				if (eventHasntBeenSeenRecently) {
-					this.eventSeenTimes[eventName] = now;
-					const event = new CustomEvent(eventName);
-					this.streamEl.dispatchEvent(event);
+					this.eventSeenTimes[eventMapping.oComments] = now;
+
+					const oCommentsEvent = new CustomEvent(eventMapping.oComments);
+					this.streamEl.dispatchEvent(oCommentsEvent);
+
+					if (eventMapping.oTracking) {
+						const oTrackingEvent = new CustomEvent('oTracking.event', {
+							detail: {
+								category: 'comment',
+								action: eventMapping.oTracking
+							},
+							bubbles: true
+						});
+						document.body.dispatchEvent(oTrackingEvent);
+					}
 				}
 			});
 	}
