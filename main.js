@@ -1,9 +1,9 @@
-const ftDateFormat = require('ft-date-format');
+import ftDateFormat from 'ft-date-format';
 
 const updateEventName = 'oDate.update';
 let interval;
 
-function ODate(rootEl) {
+export default function ODate(rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
 	} else if (!(rootEl instanceof HTMLElement)) {
@@ -145,5 +145,3 @@ const constructAll = function() {
 if (typeof window !== 'undefined') {
 	document.addEventListener('o.DOMContentLoaded', constructAll);
 }
-
-module.exports = ODate;
