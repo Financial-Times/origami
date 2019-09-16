@@ -1,7 +1,22 @@
-/// Output All oMessage Features
+@import 'o-spacing/main';
+
+/// Output All oComments Features
 @mixin oComments ($class: 'o-comments') {
-	.#{$class} {
-		display: block;
+	.o-comments__staging-message-container {
+		margin-bottom: oSpacingByName('s2');
+		padding: 0;
+	}
+
+	.o-comments__staging-message-content {
+		padding-top: oSpacingByName('s1');
+		padding-bottom: oSpacingByName('s1');
+		background-color: oColorsGetPaletteColor('claret-80');
+	}
+
+	.o-comments__staging-message {
+		color: white;
+		font-weight: bold;
+		padding-left: oSpacingByName('s4');
 	}
 }
 
