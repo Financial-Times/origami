@@ -24,8 +24,6 @@ To provide the best non-JS fallback you should markup your dates as follows:
 <time data-o-component="o-date" class="o-date" datetime="{{iso8601String}}">{FT formatted date (including time if appropriate)}</time>
 ```
 
-This module's `format` method will also run in Node.js and can be used to populate your model with the appropriate formatted date string. It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.
-
 ### JavaScript
 
 To display dates in the standard relative time format, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct each element with a `data-o-component="o-date"` attribute:
@@ -77,6 +75,10 @@ If the `el` is a valid `<time>` element, the resulting o-date instance will be r
 #### o-date#destroy()
 
 Call on any instances to stop processing date updates and release the item reference.
+
+## Server-side
+
+See the npm package [@financial-times/ft-date-format](https://github.com/Financial-Times/ft-date-format) for server-side date formatting. _Note: It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time._
 
 ---
 
