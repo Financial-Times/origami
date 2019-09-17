@@ -78,7 +78,8 @@ class Stream {
 					this.embed = Coral.createStreamEmbed(
 						{
 							id: this.streamEl.id,
-							storyURL: this.options && this.options.storyUrl,
+							storyURL: this.options.storyUrl,
+							storyID: this.options.articleId,
 							rootURL: rootUrl,
 							autoRender: true,
 							events: (events) => {
