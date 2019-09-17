@@ -135,7 +135,7 @@ class Stream {
 					const oCommentsEvent = new CustomEvent(eventMapping.oComments);
 					this.streamEl.dispatchEvent(oCommentsEvent);
 
-					if (eventMapping.oTracking) {
+					if (eventMapping.oTracking && !this.options.disableOTracking) {
 						const oTrackingEvent = new CustomEvent('oTracking.event', {
 							detail: {
 								category: 'comment',
