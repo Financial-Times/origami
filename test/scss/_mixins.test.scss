@@ -8,22 +8,9 @@
 					}
 				};
 
-				@include expect($selector: false) {
+				@include contains($selector: false) {
 					.test-mixin .o-comments__staging-message-container {
 						margin-bottom: oSpacingByName('s2');
-						padding: 0;
-					}
-
-					.test-mixin .o-comments__staging-message-content {
-						padding-top: oSpacingByName('s1');
-						padding-bottom: oSpacingByName('s1');
-						background-color: oColorsGetPaletteColor('claret-80');
-					}
-
-					.test-mixin .o-comments__staging-message {
-						color: white;
-						font-weight: bold;
-						padding-left: oSpacingByName('s4');
 					}
 				};
 			};
