@@ -32,8 +32,16 @@ class Stream {
 	}
 
 	getJsonWebToken () {
-		const url = 'https://comments-api.ft.com/user/auth/' +
-			(this.useStagingEnvironment ? '?staging=1' : '');
+		const url = new URL('https://comments-api.ft.com/user/auth/');
+
+		if (this.useStagingEnvironment) {
+			url.searchParams.append('staging', '1');
+		}
+
+		if (this.options.sourceApp) {
+			url.searchParams.append('sourceApp', this.options.sourceApp);
+		}
+
 		return fetch(url, { credentials: 'include' }).then(response => {
 			// user is signed in but has no display name
 			if (response.status === 205) {
