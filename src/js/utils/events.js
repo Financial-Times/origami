@@ -1,20 +1,52 @@
 const coralEventMap = new Map([
-	['ready', 'oComments.ready'],
-	['mutation.createComment', 'oComments.postComment'],
-	['mutation.createCommentReply', 'oComments.replyComment'],
-	['mutation.editComment', 'oComments.editComment'],
-	['mutation.createCommentReaction', 'oComments.likeComment'],
+	['ready',
+		{
+			oComments: 'oComments.ready',
+			oTracking: 'ready'
+		}
+	],
+	['mutation.createComment',
+		{
+			oComments: 'oComments.postComment',
+			oTracking: 'post'
+		}
+	],
+	['mutation.createCommentReply',
+		{
+			oComments: 'oComments.replyComment',
+			oTracking: 'reply'
+		}
+	],
+	['mutation.editComment',
+		{
+			oComments: 'oComments.editComment',
+			oTracking: 'edit'
+		}
+	],
+	['mutation.createCommentReaction',
+		{
+			oComments: 'oComments.likeComment',
+			oTracking: 'like'
+		}
+	]
 ]);
 
 const coralErrorMap = new Map([
-	['COMMENT_IS_TOXIC', 'oComments.toxicComment']
+	['COMMENT_IS_TOXIC',
+		{
+			oComments: 'oComments.toxicComment',
+			oTracking: 'post-rejected-toxic'
+		}
+	]
 ]);
 
-const validEvents = []
-	.concat(Array.from(coralEventMap.values()), Array.from(coralErrorMap.values()));
+const findValidErrors = (errors = []) => {
+	return errors
+		.filter(error => coralErrorMap.get(error.translation_key))
+		.map(error => coralErrorMap.get(error.translation_key));
+};
 
 export {
-	validEvents,
 	coralEventMap,
-	coralErrorMap
+	findValidErrors
 };

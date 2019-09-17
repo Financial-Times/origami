@@ -9,6 +9,7 @@ A component, integrated with FT authentication and user data services, to add a 
 - [JavaScript](#javascript)
 	- [Interface](#interface)
 	- [Events](#events)
+	- [Tracking](#tracking)
 - [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -68,7 +69,7 @@ For count:
 ```diff
 <div class="o-comments"
 	data-o-component="o-comments"
-	data-o-comments-article-id="{article-id}"   
+	data-o-comments-article-id="{article-id}"
 	data-o-comments-count="true"
 +	data-o-comments-use-staging-environment="true">
 </div>
@@ -112,26 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Interface
 
-#### .on(eventName, callback)
-
-- `eventName` - *required*
-- `callBack` - *required*
-
-The `.on` interface allows you to listen for [events](#events).
-
-```js
-const oComments = require('o-comments');
-const Comments = new oComments();
-
-Comments.on('oComments.ready', (event) => {
-	console.log('The comments have rendered')
-});
-
-```
 
 ### Events
 
-Events are emitted during key events and can be listened to using the [`.on` interface](#on) or by listening for events on the document.
+Events are emitted during key events or interactions and can be listened to by listening for events on the document.
 
 ```js
 document.addEventListener('oComments.ready', (event) => {
@@ -155,6 +140,35 @@ These events are anything to do with comment interactions.
 - **oComments.likeComment** - Emitted when a users has liked a comment
 - **oComments.toxicComment** - Emitted when a user attempted to leave a comment that was flagged as toxic by the auto moderation
 
+### Tracking
+
+To keep tracking consistent across applications o-comments will emit [o-tracking](https://github.com/Financial-Times/o-tracking) events for all of the [events](#events). If your application is already using o-tracking then then there is no need to do anything to track common events.
+
+#### Disable tracking
+
+If you want to disable the o-tracking events and manage tracking / analytics yourself this can be done by passing the `disableOTracking` option to the o-comments instance.
+
+**Imperatively**
+```js
+const oComments = require('o-comments');
+const commentsElement = document.querySelector('#element');
+const comments = new Comments(commentsElement, {
+	disableOTracking: true
+});
+```
+
+**Declaritively**
+
+```diff
+<div class="o-comments"
+	id="o-comments-stream"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}"
+	data-o-comments-story-url="{optional-story-url}"
++	data-o-comments-disable-o-tracking="true">
+</div>
+```
+
 ## Sass
 _Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
 
@@ -162,7 +176,7 @@ As with all Origami components, o-comments has a [silent mode](http://origami.ft
 
 ### Styling of Coral Talk iframe
 
-This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service. 
+This component contains a sass file (/src/scss/coral-talk-iframe/main.scss) that provides custom styling for Coral Talk components inside their own iframe. That file **must only** be referenced from Coral Talk admin panel by specifying the path of the file in Origami Build Service.
 
 Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss`
 
