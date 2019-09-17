@@ -92,6 +92,17 @@ class Stream {
 				};
 				this.streamEl.parentNode.appendChild(scriptElement);
 
+				if (this.useStagingEnvironment) {
+					const stagingWarning = document.createElement('div');
+					stagingWarning.innerHTML = `
+											<div class="o-comments__staging-message-container">
+												<div class="o-comments__staging-message-content">
+													<p class="o-comments__staging-message">You are on the staging environment for Comments</p>
+												</div>
+											</div>`;
+					this.streamEl.parentNode.insertBefore(stagingWarning, this.streamEl);
+				}
+
 				document.dispatchEvent(new Event('oCommentsReady'));
 			} catch (error) {
 				resolve();

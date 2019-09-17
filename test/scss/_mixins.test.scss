@@ -8,9 +8,9 @@
 					}
 				};
 
-				@include expect($selector: false) {
-					.test-mixin .o-comments {
-						display: block;
+				@include contains($selector: false) {
+					.test-mixin .o-comments__staging-message-container {
+						margin-bottom: oSpacingByName('s2');
 					}
 				};
 			};
