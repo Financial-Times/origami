@@ -15,6 +15,11 @@ jobs:
       - run: npx occ 0.0.0
       - run: $HOME/.local/bin/obt install --ignore-bower
       - run: $HOME/.local/bin/obt test --ignore-bower
+  bundle_size_notice:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - [[ "${CIRCLE_PR_NUMBER}" ]] && npx @financial-times/origami-bundle-size-cli | hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${CIRCLE_PR_NUMBER}/comments -F 'body=@-'
   publish_to_npm:
     docker:
       - image: circleci/node:10
@@ -22,12 +27,13 @@ jobs:
       - checkout
       - run: npx occ ${CIRCLE_TAG##v}
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
-      - run: npm publish --access public 
+      - run: npm publish --access public
 workflows:
   version: 2
   test:
     jobs:
       - test
+      - bundle_size_notice
       - publish_to_npm:
           filters:
             tags:
