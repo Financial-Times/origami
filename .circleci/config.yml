@@ -22,7 +22,9 @@ jobs:
       - run:
           name: Report Bundle Size
           command: |
-            [[ "${CIRCLE_PR_NUMBER}" ]] && npx @financial-times/origami-bundle-size-cli | npx hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${CIRCLE_PR_NUMBER}/comments -F 'body=@-'
+            [[ "${CIRCLE_PR_NUMBER}" ]] && npx @financial-times/origami-bundle-size-cli |
+            npx hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${CIRCLE_PR_NUMBER}/comments -F 'body=@-' ||
+            echo "No CIRCLE_PR_NUMBER env found".
   publish_to_npm:
     docker:
       - image: circleci/node:10
