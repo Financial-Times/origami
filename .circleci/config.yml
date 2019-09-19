@@ -22,10 +22,10 @@ jobs:
       - run:
           name: Report Bundle Size
           command: |
-            echo ${CIRCLE_PULL_REQUEST}
-            [[ "${CIRCLE_PR_NUMBER}" ]] && npx @financial-times/origami-bundle-size-cli |
-            npx hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${CIRCLE_PR_NUMBER}/comments -F 'body=@-' ||
-            echo "No CIRCLE_PR_NUMBER env found".
+            PULL_REQUEST=$(echo ${CIRCLE_PULL_REQUEST} | sed 's|.*/||') &&
+            [[ -z "${PULL_REQUEST}" ]] && echo "Could not find pull request to post bundle sizes to." ||
+            npx @financial-times/origami-bundle-size-cli |
+            npx hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${PULL_REQUEST}/comments -F 'body=@-'
   publish_to_npm:
     docker:
       - image: circleci/node:10
