@@ -1,0 +1,15 @@
+{
+  "name": "o-date",
+  "description": "Utility for formatting and updating dates",
+  "main": "main.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "@financial-times/ft-date-format": "^1.0.1"
+  }
+}
