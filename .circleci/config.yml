@@ -19,13 +19,17 @@ jobs:
     docker:
       - image: circleci/node:10
     steps:
+      - checkout
       - run:
           name: Report Bundle Size
           command: |
-            PULL_REQUEST=$(echo ${CIRCLE_PULL_REQUEST} | sed 's|.*/||') &&
-            [[ -z "${PULL_REQUEST}" ]] && echo "Could not find pull request to post bundle sizes to." ||
-            npx @financial-times/origami-bundle-size-cli |
-            npx hub api repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${PULL_REQUEST}/comments -F 'body=@-'
+            export PULL_REQUEST=$(echo ${CIRCLE_PULL_REQUEST} | sed 's|.*/||')
+            echo Finding bundle size...
+            export BUNDLE_SIZE_MESSAGE="$(npx @financial-times/origami-bundle-size-cli)"
+            echo "${BUNDLE_SIZE_MESSAGE}"
+            export COMMENT_DATA="{\"body\":\"$(printenv BUNDLE_SIZE_MESSAGE | sed ':a;N;$!ba;s/\n/\\n/g')\"}"
+            [[ "${PULL_REQUEST}" ]] && echo "Posting bundle size to PR https://github.com/Financial-Times/${CIRCLE_PR_REPONAME}/pull/${PULL_REQUEST}" || echo "Could not find pull request to post bundle sizes to."
+            [[ "${PULL_REQUEST}" ]] && curl -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/Financial-Times/${CIRCLE_PR_REPONAME}/issues/${PULL_REQUEST}/comments --data "${COMMENT_DATA}" --header "Content-Type:application/json" &> /dev/null
   publish_to_npm:
     docker:
       - image: circleci/node:10
