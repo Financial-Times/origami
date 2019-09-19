@@ -206,20 +206,4 @@ module.exports = () => {
 			}, 120);
 		});
 	});
-
-	describe("invalid coral event and error", () => {
-		it("throws an error", () => {
-			const stream = new Stream();
-
-			proclaim.throws(() => stream.publishEvent({ name: 'invalid-event-name', data: {
-				error: {
-					errors: [
-						{
-							translation_key: 'FAKE_ERROR'
-						}
-					]
-				}
-			}}));
-		});
-	});
 };

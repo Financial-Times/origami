@@ -5,6 +5,11 @@ const coralEventMap = new Map([
 			oTracking: 'ready'
 		}
 	],
+	['loginPrompt',
+		{
+			oComments: 'oComments.loginPrompt'
+		}
+	],
 	['mutation.createComment',
 		{
 			oComments: 'oComments.postComment',

@@ -138,10 +138,6 @@ class Stream {
 			[mappedEvent].concat(validErrors) :
 			validErrors;
 
-		if (!eventsToPublish.length) {
-			throw new Error('Invalid event name or error type');
-		}
-
 		eventsToPublish
 			.forEach(eventMapping => {
 				const now = +new Date;
@@ -152,7 +148,9 @@ class Stream {
 				if (eventHasntBeenSeenRecently) {
 					this.eventSeenTimes[eventMapping.oComments] = now;
 
-					const oCommentsEvent = new CustomEvent(eventMapping.oComments);
+					const oCommentsEvent = new CustomEvent(eventMapping.oComments, {
+						bubbles: true
+					});
 					this.streamEl.dispatchEvent(oCommentsEvent);
 
 					if (eventMapping.oTracking && !this.options.disableOTracking) {
