@@ -1,11 +1,11 @@
 import { h } from '@financial-times/x-engine';
 
 const sameId = (context = {}, id) => {
-	return id && context.parentId && id === context.parentId;
+	return id && context && context.parentId && id === context.parentId;
 };
 
 const sameLabel = (context = {}, label) => {
-	return label && context.parentLabel && label === context.parentLabel;
+	return label && context && context.parentLabel && label === context.parentLabel;
 };
 
 export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context }) => {
