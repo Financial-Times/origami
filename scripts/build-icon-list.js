@@ -2,11 +2,15 @@
 
 const readFile = require('fs').readFileSync;
 const writeFile = require('fs').writeFileSync;
+const iconBlacklist = [
+	'mute_notifications' // incorrect name, only include mute-notifications (with a dash)
+];
 
 runScript();
 
 function runScript() {
-	const {images} = loadJson(`${__dirname}/../bower_components/fticons/imageset.json`);
+	let {images} = loadJson(`${__dirname}/../bower_components/fticons/imageset.json`);
+	images = images.filter(image => !iconBlacklist.includes(image.name));
 	writeDemoData(images, `${__dirname}/../demos/src/data.json`);
 	writeSassIconList(images, `${__dirname}/../scss/_icon-list.scss`);
 }
