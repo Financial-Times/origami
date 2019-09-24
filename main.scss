@@ -15,12 +15,12 @@
 	'icons': $o-icons-list
 )) {
 	.o-icons-icon {
-		@include oIconsBaseStyles;
+		@include oIconsContentBaseStyles;
 	}
 
 	@each $icon in map-get($opts, icons) {
 		.o-icons-icon--#{$icon} {
-			@include oIconsGetIcon($icon, $apply-base-styles: false);
+			@include oIconsContentIcon($icon, $include-base-styles: false);
 		}
 	}
 }

@@ -1,6 +1,6 @@
-$o-icons-is-silent: false;
-$o-icons-use-local-assets: true;
 @import "../../main";
+
+@include oIcons();
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -46,12 +46,12 @@ body {
 }
 
 .demo-icon-special {
-	@include oIconsGetIcon('lock');
+	@include oIconsContentIcon('lock');
 }
 .demo-icon-special--coloured {
-	@include oIconsGetIcon('lock', $color: #0000ff);
+	@include oIconsContentIcon('lock', $color: #0000ff);
 }
 
 .demo-icon-special--coloured--resized {
-	@include oIconsGetIcon('lock', #0000ff, 40);
+	@include oIconsContentIcon('lock', #0000ff, 40);
 }

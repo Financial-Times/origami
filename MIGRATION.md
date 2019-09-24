@@ -2,6 +2,17 @@
 
 ### Migrating from v5 to v6
 
+The following variables have been removed:
+- `$o-icons-use-local-assets` has been removed; icons always come via the image service. Local icons could not be coloured, and new icons are published to the image service via fticons, before being included by `o-icons`.
+- `$o-icons-service-base-url` and `$o-icons-service-version` have also been removed.
+
+The following mixins have been renamed:
+- `oIconsBaseStyles` is now `oIconsContentBaseStyles`.
+- `oIconsGetIcon` is now named `oIconsContentIcon`. Its arguments have also changed:
+	- `$container-width` and `$container-height` have been replaced with a single `$size` argument (our icons are square).
+	- `$apply-width-height` has been removed. So not to set a width/height set `$size: null` instead.
+	- `$apply-base-styles` has been renamed `$include-base-styles` to match other components.
+
 ### Migrating from v4 to v5
 
 The jump from 4 to 5 introduces an entirely new set of icons. Using these icons should be a lot easier as they have a uniform amount of white-space around them, so you don't need to individually size icons to work in your application harmoniously.
@@ -56,7 +67,7 @@ CSS now doesn't add any pseudoclasses, so all the styling is applied directly on
 #### Sass Changes
 
 * All icon font related mixins have been removed
-* `oFtIconsBaseIconStyles` has been renamed to `oIconsBaseStyles`
+* `oFtIconsBaseIconStyles` has been renamed to `oIconsContentBaseStyles`
 * `oFtIconsGetSvg` has been renamed to `oIconsGetIcon`
 
 #### Silent mode off Changes

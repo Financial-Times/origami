@@ -47,11 +47,11 @@ $o-icons-is-silent: false;
 <span class="o-icons-icon o-icons-icon--plus"></span>
 ```
 
-When using CSS classes, it isn't possible to set a colour for the icon or to specify a size for the PNG fallback. The defaults are 'black' for the icon colour and '128px' for the width and height.
+When using CSS classes, it isn't possible to set a colour for the icon or to specify a size. The defaults are 'black' for the icon colour and '128px' for the width and height.
 
 #### Using the Sass mixins with your own CSS
 
-This option has the added flexibility of supporting coloured icons and PNG fallbacks of any size.
+This option has the added flexibility of supporting coloured icons of any size.
 
 ```scss
 // public/bundle.scss
@@ -60,7 +60,7 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 @import "o-colors/main"; // So you can use colors from the Origami palette, the mixin only accepts hex values
 
 .icon-plus {
-	@include oIconsGetIcon('plus', oColorsGetPaletteColor('cold-1'), 32);
+	@include oIconsContentIcon('plus', oColorsGetPaletteColor('claret'), 32);
 }
 ```
 
@@ -68,29 +68,11 @@ This option has the added flexibility of supporting coloured icons and PNG fallb
 <span class="icon-plus"></span>
 ```
 
-The [Responsive Image Service](https://image.webservices.ft.com/) helps serving resolution-independent SVG icons.
-
-The 'base' of the service url can be set with the `$o-icons-service-base-url` variable. e.g. setting
-
-```
-$o-icons-service-base-url: "https://my.image.service/foo";
-```
-
-will output an image service url in the format `https://my.image.service/foo/v2/images/raw/...`.
-
-The 'version' of the service url can be set with the `$o-icons-service-version` variable. e.g. setting
-
-```
-$o-icons-service-version: "v1";
-```
-
-will output an image service url in the format `https://my.image.service/foo/v1/images/raw/...`.
-
 There's also a separate mixin to output just the base styles for an icon:
 
 ```scss
 .icon {
-	@include oIconsBaseStyles;
+	@include oIconsContentBaseStyles();
 }
 ```
 

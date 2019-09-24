@@ -1,21 +1,13 @@
-////
-/// @group o-icons
-/// @link http://registry.origami.ft.com/components/o-icons
-////
-
 /// Get an SVG icon with PNG fallback for ie6-8
 ///
 /// @param {String} $icon-name - This should be a reference to an icon included in o-icons eg arrow-down
-/// @param {String} $color - This should be a hex colour value. Used to color the icon. We suggest using an o-colors an o-colors function.
-/// @param {String} $container-width - This is the width to set the icon containing element to. Defaults to 20px. This value is also used to request a PNG fallback of the right size from the image service.
-/// @param {String} $container-height - This is the height to set the icon containing element to. Defaults to null, and will use the value of $container-width
-/// @param {Bool} $apply-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
-/// @param {Bool} $apply-width-height [true] - If true, will output the styles for the container width and height.
-/// @param {Integer} $iconset-version [1] - At present only 1 version of the icon set is available.
+/// @param {String} $color - This should be a hex colour value. Used to color the icon. We suggest using an o-colors function.
+/// @param {Number|Null} $size [128] - The width and height of the icon (units optional, defaults to px). Set to `null` to set no width or height.
+/// @param {Bool} $include-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
 /// @param {Integer} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
+/// @param {Integer} $iconset-version [1] - At present only 1 version of the icon set is available.
 
-@mixin oIconsGetIcon($icon-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true, $iconset-version: 1, $high-contrast-fallback: true) {
-
+@mixin oIconsContentIcon($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
 	// Currently the only supported version of fticons is version 1.
 	@if $iconset-version == 0 {
 		@error "Icon set version 0 is not supported with this version of o-icons. Please use version 1.";
@@ -23,23 +15,36 @@
 		@error "Icon set version #{$iconset-version} does not exist. Please use version 1.";
 	}
 
-	$scheme: "fticon-v#{$iconset-version}";
+	// If the size of the icons has been given without a unit, default to px.
+	@if (type-of($size) == 'number' and unitless($size)) {
+		$size: $size + 0px;
+	}
 
-	$service-url: "#{$o-icons-service-base-url}/#{$o-icons-service-version}/images/raw/#{$scheme}:#{$icon-name}";
+	// Build an image service url for the requested icon.
+	$scheme: "fticon-v#{$iconset-version}";
+	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/#{$scheme}:#{$icon-name}";
 	$source: "o-icons";
 	$query: "?source=#{$source}";
-
 	@if $color != null {
 		$color: str-slice(ie-hex-str($color), 4);
 		$query: $query + "&tint=%23#{$color},%23#{$color}";
 	}
 
-	@if ($o-icons-use-local-assets == true and $color == null) {
-		background-image: url(oAssetsResolve("bower_components/fticons/svg/#{$icon-name}.svg", o-icons));
-	} @else {
-		background-image: url($service-url + $query + "&format=svg");
+	// Include base styles shared by all icons.
+	@if ($include-base-styles == true) {
+		@include oIconsContentBaseStyles;
 	}
 
+	// Set the icon dimentions.
+	width: $size;
+	height: $size;
+
+	// Include the icon via the image service.
+	background-image: url($service-url + $query + "&format=svg");
+
+	// Include a fallback for Window's high contrast mode.
+	// This mode removes background images unless specifcally included
+	// for high contrast mode.
 	// sass-lint:disable no-vendor-prefixes
 	@if $high-contrast-fallback {
 		@media screen and (-ms-high-contrast: active) {
@@ -51,34 +56,12 @@
 		}
 	}
 	// sass-lint:enable no-vendor-prefixes
-
-	// Prevents dimension styles being output by default.
-	// Resolves issue where previous component `o-ft-icons` the mixin this replaces,
-	// dimension styles were included within the $apply-base-styles block as well.
-	@if (type-of($container-width) == 'number' and unitless($container-width)) {
-		$container-width: $container-width + 0px;
-	}
-	@if (type-of($container-height) == 'number' and unitless($container-height)) {
-		$container-height: $container-height + 0px;
-	}
-	@if ($apply-width-height == true) {
-		width: $container-width;
-		@if ($container-height == null) {
-			$container-height: $container-width;
-		}
-		height: $container-height;
-	}
-
-	@if ($apply-base-styles == true) {
-		@include oIconsBaseStyles;
-	}
 }
 
 /// Base styles for all icons
-@mixin oIconsBaseStyles() {
+@mixin oIconsContentBaseStyles() {
 	display: inline-block;
 	background-repeat: no-repeat;
-	// Doesn't work in ie8/7/6 in these cases the icon will fill the available space
 	background-size: contain;
 	background-position: 50%;
 	background-color: transparent;

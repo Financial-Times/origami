@@ -6,20 +6,3 @@
 /// Silent mode
 /// @type Bool
 $o-icons-is-silent: true !default;
-
-/// Whether SVG icon mixin should use the image service or serve
-/// local assets
-///
-/// @type Bool
-$o-icons-use-local-assets: false !default;
-
-
-/// Option to change the base of the image service url
-///
-/// @type String
-$o-icons-service-base-url: "https://www.ft.com/__origami/service/image" !default;
-
-/// Option to change the version of the image service url
-///
-/// @type String
-$o-icons-service-version: "v2" !default;
