@@ -2,6 +2,7 @@
 
 ### Migrating from v5 to v6
 
+
 The `vertical-align` property of icons is now `middle` by default (previously `baseline`), as the icon svg includes whitespace around the icon glyph ([related issue](https://github.com/Financial-Times/o-icons/issues/58)). Confirm your icons align with surrounding text, you may need to adjust margin/padding or restore `vertical-align: baseline;`.
 
 The following variables have been removed:

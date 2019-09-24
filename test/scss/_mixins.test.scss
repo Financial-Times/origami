@@ -26,9 +26,9 @@
 
 			@include contains($selector: false) {
 				.o-icons-icon--arrow-down {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&format=svg");
-      				width: 128px;
-      				height: 128px;
+	  				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&format=svg");
+	  				width: 128px;
+	  				height: 128px;
 				}
 			};
 		};
@@ -51,21 +51,21 @@
 				}
 
 				.o-icons-icon--arrow-down {
-      		width: 128px;
+					width: 128px;
 					height: 128px;
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&format=svg");
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&format=svg");
 				}
 
 				// sass-lint:disable no-vendor-prefixes
-      			@media screen and (-ms-high-contrast: active) {
-      				.o-icons-icon--arrow-down {
-      			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
-      				}
-      			}
+	  			@media screen and (-ms-high-contrast: active) {
+	  				.o-icons-icon--arrow-down {
+	  					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+	  				}
+	  			}
 
-      			@media screen and (-ms-high-contrast: black-on-white) {
-      			  	.o-icons-icon--arrow-down {
-      			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23000000,%23000000&format=svg");
+	  			@media screen and (-ms-high-contrast: black-on-white) {
+	  			  	.o-icons-icon--arrow-down {
+	  					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
 					}
 				}
 				// sass-lint:enable no-vendor-prefixes
