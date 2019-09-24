@@ -6,6 +6,6 @@
 	],
 	"dependencies": {
 		"fticons": "^1.20.0",
-		"o-assets": ">= 0.4.1 <4"
+		"o-assets": "^3.4.1"
 	}
 }
