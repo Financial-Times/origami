@@ -77,7 +77,15 @@ All the following can be passed in an options object in the second parameter of 
   * `contentClassName` [`'o-expander__content'`]: Class name used in the content element of the component
   * `toggleClassName` [`'o-expander__toggle'`]: Class name used in the toggle element of the component
 
----
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | 4.7  | - |
+╳ deprecated | 3 | 3.0  | - |
+╳ deprecated | 2 | 2.0 | - |
+╳ deprecated | 1 | 1.4 | - |
 
 ## Contact
 
