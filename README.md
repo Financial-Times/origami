@@ -99,13 +99,11 @@ Which outputs:
 ```scss
 .icon {
 	display: inline-block;
-	width: 128px;
-	height: 128px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: 50%;
 	background-color: transparent;
-	vertical-align: middle;
+	vertical-align: baseline;
 }
 ```
 

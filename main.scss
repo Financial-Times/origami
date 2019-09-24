@@ -4,17 +4,30 @@
 @import "scss/mixins";
 @import "scss/icon-list";
 
-// Only output base classes once in non-silent mode
-@if ($o-icons-is-silent == false) {
+
+/// @access public
+/// @param {Map} $opts [('icons': ('arrow-down', 'audio', 'book'))] A map of o-icons options, including all icons to include (defaults to all icons, see the README for a full list).
+/// @example Include all o-icons css.
+///		@include oIcons();
+/// @example Include only css for the up and down arrows.
+///		@include oIcons($opts: ('icons': ('arrow-down', 'arrow-up')));
+@mixin oIcons($opts: (
+	'icons': $o-icons-list
+)) {
 	.o-icons-icon {
 		@include oIconsBaseStyles;
 	}
 
-	@each $icon in $o-icons-list {
+	@each $icon in map-get($opts, icons) {
 		.o-icons-icon--#{$icon} {
 			@include oIconsGetIcon($icon, $apply-base-styles: false);
 		}
 	}
+}
+
+// Only output base classes once in non-silent mode
+@if ($o-icons-is-silent == false) {
+	@include oIcons();
 
 	$o-icons-is-silent: true !global;
 }

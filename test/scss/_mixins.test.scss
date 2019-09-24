@@ -1,0 +1,92 @@
+@include describe ('oIcons') {
+
+	@include it('includes icons and base icon styles by default') {
+		// Assert base styles.
+		@include assert() {
+			@include output($selector: false)  {
+				@include oIcons();
+			};
+
+			@include contains($selector: false) {
+				.o-icons-icon {
+					display: inline-block;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: 50%;
+					background-color: transparent;
+					vertical-align: baseline;
+				}
+			};
+		};
+		// Assert an icon.
+		@include assert() {
+			@include output($selector: false)  {
+				@include oIcons();
+			};
+
+			@include contains($selector: false) {
+				.o-icons-icon--arrow-down {
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&format=svg");
+      				width: 128px;
+      				height: 128px;
+				}
+			};
+		};
+	}
+
+	@include it('includes only specified icons') {
+		@include assert() {
+			@include output($selector: false)  {
+				@include oIcons($opts: ('icons': ('arrow-down')));
+			};
+
+			@include expect($selector: false) {
+				.o-icons-icon {
+					display: inline-block;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: 50%;
+					background-color: transparent;
+					vertical-align: baseline;
+				}
+
+				.o-icons-icon--arrow-down {
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&format=svg");
+      				width: 128px;
+      				height: 128px;
+				}
+
+      			@media screen and (-ms-high-contrast: active) {
+      				.o-icons-icon--arrow-down {
+      			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
+      				}
+      			}
+
+      			@media screen and (-ms-high-contrast: black-on-white) {
+      			  	.o-icons-icon--arrow-down {
+      			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23000000,%23000000&format=svg");
+					}
+				}
+			};
+		};
+	}
+
+	@include it('includes only base icon styles when an empty icon list is given') {
+		@include assert() {
+			@include output($selector: false)  {
+				@include oIcons($opts: ('icons': ()));
+			};
+
+			@include expect($selector: false) {
+				.o-icons-icon {
+					display: inline-block;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: 50%;
+					background-color: transparent;
+					vertical-align: baseline;
+				}
+			};
+		};
+	}
+};
