@@ -56,6 +56,7 @@
       				height: 128px;
 				}
 
+				// sass-lint:disable no-vendor-prefixes
       			@media screen and (-ms-high-contrast: active) {
       				.o-icons-icon--arrow-down {
       			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23ffffff,%23ffffff&format=svg");
@@ -67,6 +68,7 @@
       			    	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=o-icons&tint=%23000000,%23000000&format=svg");
 					}
 				}
+				// sass-lint:enable no-vendor-prefixes
 			};
 		};
 	}
