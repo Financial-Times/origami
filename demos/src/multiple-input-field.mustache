@@ -14,18 +14,18 @@
 {{^anchor}}
 
 {{#inverse}}<div class="demo-inverse">{{/inverse}}
-	
+
 	<div class="o-forms-field
 		{{#inline-field}} o-forms-field--inline{{/inline-field}}
 		{{#inverse}} o-forms-field--inverse{{/inverse}}
 		{{#optional}} o-forms-field--optional{{/optional}}
-		{{#custom}} demo-custom-radio-theme{{/custom}}" 
-		role="group" 
+		{{#custom}} demo-custom-radio-theme{{/custom}}"
+		role="group"
 		{{#field.aria}}
 			aria-labelledby="{{label}}"
 			{{#info}}aria-describedby="{{info}}"{{/info}}
 		{{/field.aria}}>
-		
+
 		<span	class="o-forms-title" aria-hidden="true">
 			<span class="o-forms-title__main" id="{{field.aria.label}}">{{title.main}}</span>
 			{{#title.prompt}}
@@ -39,13 +39,13 @@
 
 			{{#inputs}}
 				<label {{#label}}class="{{.}}"{{/label}}>
-					<input 
-						type="{{type}}" 
+					<input
+						type="{{type}}"
 						name="{{name}}"
-						value="{{value}}" 
-						{{#pattern}}pattern={{.}}{{/pattern}} 
-						aria-label="{{value}}" 
-						{{#checked}}checked{{/checked}} 
+						value="{{value}}"
+						{{#pattern}}pattern={{.}}{{/pattern}}
+						aria-label="{{value}}"
+						{{#checked}}checked{{/checked}}
 						{{#disabled}}disabled{{/disabled}}
 						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
 
@@ -67,9 +67,12 @@
 
 			{{#field.error}}<span class="o-forms-input__error">{{.}}</span>{{/field.error}}
 
-			{{#field.state}}<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}"></span>{{/field.state}}
+			{{#field.state}}
+				<span class="o-forms-input__state {{#field.icon}}o-forms-input__state--icon-only{{/field.icon}}">
+				</span>
+			{{/field.state}}
 		</span>
-	
+
 	</div>
 
 {{#inverse}}</div>{{/inverse}}

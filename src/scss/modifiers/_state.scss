@@ -2,16 +2,16 @@
 /// @output styles for state animation for the box-styled radio inputs
 @mixin _oFormsState() {
 	.o-forms-input__state {
-		// the loading spinner and tick icons for state are mismatched in terms of size/padding, 
+		// the loading spinner and tick icons for state are mismatched in terms of size/padding,
 		// the custom line-height aligns them as closely as possible (with minimal style changes)
 		@include oTypographySize($scale: -1, $line-height: 1.75);
 		color: inherit;
-		display: block;
+		display: flex;
+		align-items: center;
 
 		&:before,
 		&:after {
 			content: '';
-			vertical-align: middle;
 		}
 	}
 
@@ -19,8 +19,18 @@
 		@include oNormaliseVisuallyHidden;
 	}
 
+	// Hide pseudo element text for saving and saved status.
+	// So the user can provide custom copy.
+	// E.g. they may chooise "Sent" instead of "Saved",
+	// or need to localise the copy.
+	.o-forms-input__state--custom:after {
+		display: none;
+	}
+
+	// Saving status styles.
 	.o-forms-input--saving {
 		display: block;
+
 
 		.o-forms-input__state {
 			padding: 0;
@@ -28,7 +38,7 @@
 			&:after {
 				content: 'Saving';
 			}
-			
+
 			&:before {
 				@include oLoadingContent($opts: ('theme': 'dark', 'size': 'mini'));
 				margin: 0 $_o-forms-spacing-two 0 0;
@@ -36,21 +46,20 @@
 		}
 	}
 
+	// Saved status styles.
 	.o-forms-input--saved {
 		display: block;
+		color: _oFormsGet('valid-base');
 
 		.o-forms-input__state {
 			margin-left: -$_o-forms-spacing-one;
 
 			&:after {
 				content: 'Saved';
-				color: _oFormsGet('valid-base');
 			}
 
 			&:before {
 				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
-				vertical-align: middle;
-				padding: 0;
 			}
 		}
 	}

@@ -36,16 +36,18 @@ describe('State', () => {
 
 	context('.set()', () => {
 		let stateClass;
+		let getStateText;
 
-		before(() => {
+		beforeEach(() => {
 			document.body.innerHTML = formFixture;
 			form = document.forms[0];
 			nodeList = form.elements['radioBox'];
 			state = new State(nodeList);
 			stateClass = (state) => nodeList[0].closest('.o-forms-input').classList.contains(`o-forms-input--${state}`);
+			getStateText = () => nodeList[0].closest('.o-forms-input').querySelector('.o-forms-input__state').textContent;
 		});
 
-		after(() => {
+		afterEach(() => {
 			document.body.innerHTML = null;
 		});
 
@@ -54,10 +56,22 @@ describe('State', () => {
 			proclaim.isTrue(stateClass('saving'));
 		});
 
+		it('`saving` state with custom label', () => {
+			state.set('saving', 'sending');
+			proclaim.isTrue(stateClass('saving'));
+			proclaim.equal(getStateText(), 'sending');
+		});
+
 		it('`saved` state', () => {
 			state.set('saved');
 			proclaim.isFalse(stateClass('saving'));
 			proclaim.isTrue(stateClass('saved'));
+		});
+
+		it('`saved` state with custom label', () => {
+			state.set('saved', 'sent');
+			proclaim.isTrue(stateClass('saved'));
+			proclaim.equal(getStateText(), 'sent');
 		});
 
 		it('`none` state', () => {
