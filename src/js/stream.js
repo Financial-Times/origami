@@ -1,4 +1,4 @@
-import {coralEventMap, findValidErrors} from './utils/events';
+import * as utils from './utils';
 
 class Stream {
 	/**
@@ -15,58 +15,24 @@ class Stream {
 	}
 
 	init () {
-		return Promise.all([this.renderComments(), this.getJsonWebToken()])
-			.then(() => {
-				if (this.token && this.embed) {
-					this.login();
+		return Promise.all([this.renderComments(), this.authenticateUser()]);
+	}
+
+	authenticateUser () {
+		const fetchOptions = {
+			useStagingEnvironment: this.useStagingEnvironment,
+			sourceApp: this.options.sourceApp
+		};
+
+		return utils.fetchJsonWebToken(fetchOptions)
+			.then(response => {
+				if (response.token) {
+					this.embed.login(response.token);
 				}
+			})
+			.catch(() => {
+				return false;
 			});
-	}
-
-	login () {
-		if (this.token && this.embed) {
-			this.embed.login(this.token);
-		} else {
-			console.log("Unabled to login into comments as token or embed dont exist");
-		}
-	}
-
-	getJsonWebToken () {
-		const url = new URL('https://comments-api.ft.com/user/auth/');
-
-		if (this.useStagingEnvironment) {
-			url.searchParams.append('staging', '1');
-		}
-
-		if (this.options.sourceApp) {
-			url.searchParams.append('sourceApp', this.options.sourceApp);
-		}
-
-		return fetch(url, { credentials: 'include' }).then(response => {
-			// user is signed in but has no display name
-			if (response.status === 205) {
-				return { token: undefined, userIsSignedIn: true };
-			}
-
-			// user is signed in and has a pseudonym
-			if (response.ok) {
-				return response.json();
-			} else {
-				// user is not signed in or session token is invalid
-				// or error in comments api
-				return { token: undefined, userIsSignedIn: false };
-			}
-		}).then(jsonWebToken => {
-
-			if (jsonWebToken.token) {
-				this.token = jsonWebToken.token;
-			}
-
-			return jsonWebToken;
-
-		}).catch(() => {
-			return false;
-		});
 	}
 
 	renderComments () {
@@ -132,8 +98,8 @@ class Stream {
 			} = {}
 		} = data;
 
-		const mappedEvent = coralEventMap.get(name);
-		const validErrors = errors && Array.isArray(errors) ? findValidErrors(errors) : [];
+		const mappedEvent = utils.events.coralEventMap.get(name);
+		const validErrors = errors && Array.isArray(errors) ? utils.events.findValidErrors(errors) : [];
 		const eventsToPublish = mappedEvent ?
 			[mappedEvent].concat(validErrors) :
 			validErrors;

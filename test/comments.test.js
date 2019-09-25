@@ -87,7 +87,7 @@ describe("Comments", () => {
 			assert.isInstanceOf(comments, Stream);
 		});
 
-		['init', 'login', 'getJsonWebToken', 'renderComments', 'publishEvent']
+		['init', 'authenticateUser', 'renderComments', 'publishEvent']
 			.forEach(method => it(`exposes the ${method} method`, () => {
 				assert.isInstanceOf(comments[method], Function);
 			}));

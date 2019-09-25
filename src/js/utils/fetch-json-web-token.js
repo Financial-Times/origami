@@ -1,0 +1,27 @@
+export default (options = {}) => {
+	const url = new URL('https://comments-api.ft.com/user/auth/');
+
+	if (options.useStagingEnvironment) {
+		url.searchParams.append('staging', '1');
+	}
+
+	if (options.sourceApp) {
+		url.searchParams.append('sourceApp', options.sourceApp);
+	}
+
+	return fetch(url, { credentials: 'include' }).then(response => {
+		// user is signed in and has a pseudonym
+		if (response.ok) {
+			return response.json();
+		} else {
+			// user is signed in but has no display name
+			if (response.status === 409) {
+				return { userIsSignedIn: true };
+			}
+
+			// user is not signed in or session token is invalid
+			// or error in comments api
+			return { userIsSignedIn: false };
+		}
+	});
+};
