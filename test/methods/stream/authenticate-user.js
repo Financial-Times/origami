@@ -21,7 +21,20 @@ module.exports = () => {
 			sandbox.restore();
 		});
 
-		it("use staging option is passed to fetchJsonWebToken", (done) => {
+		it("displayName option is passed to fetchJsonWebToken", (done) => {
+			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
+
+			const stream = new Stream();
+
+			stream.authenticateUser('Glynn')
+				.then(() => {
+					proclaim.isTrue(fetchJWTStub.calledWith({displayName: 'Glynn', useStagingEnvironment: undefined, sourceApp: undefined}));
+					done();
+				});
+
+		});
+
+		it("staging option is passed to fetchJsonWebToken", (done) => {
 			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
 
 
@@ -82,6 +95,50 @@ module.exports = () => {
 					done();
 				});
 
+		});
+
+	});
+
+	describe("fetchJsonWebToken returns userHasValidSession", () => {
+		beforeEach(() => {
+			fixtures.streamMarkup();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+			sandbox.restore();
+		});
+
+		describe("userHasValidSession is true", () => {
+			it("sets this.userHasValidSession to true", (done) => {
+				sandbox.stub(utils, 'fetchJsonWebToken').resolves({
+					userHasValidSession: true
+				});
+
+				const stream = new Stream();
+				stream.authenticateUser()
+					.then(() => {
+						proclaim.isTrue(stream.userHasValidSession);
+						done();
+					});
+
+			});
+		});
+
+		describe("userHasValidSession is false", () => {
+			it("sets this.userHasValidSession to false", (done) => {
+				sandbox.stub(utils, 'fetchJsonWebToken').resolves({
+					userHasValidSession: false
+				});
+
+				const stream = new Stream();
+				stream.authenticateUser()
+					.then(() => {
+						proclaim.isFalse(stream.userHasValidSession);
+						done();
+					});
+
+			});
 		});
 
 	});

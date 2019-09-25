@@ -18,16 +18,22 @@ class Stream {
 		return Promise.all([this.renderComments(), this.authenticateUser()]);
 	}
 
-	authenticateUser () {
+	authenticateUser (displayName) {
 		const fetchOptions = {
 			useStagingEnvironment: this.useStagingEnvironment,
 			sourceApp: this.options.sourceApp
 		};
 
+		if (displayName) {
+			fetchOptions.displayName = displayName;
+		}
+
 		return utils.fetchJsonWebToken(fetchOptions)
 			.then(response => {
 				if (response.token) {
 					this.embed.login(response.token);
+				} else {
+					this.userHasValidSession = response.userHasValidSession;
 				}
 			})
 			.catch(() => {
@@ -85,6 +91,21 @@ class Stream {
 		});
 	}
 
+	displayNamePrompt () {
+		const overlay = utils.displayNamePrompt();
+		document.addEventListener('oOverlay.ready', (event) => {
+			const sourceOverlay = event.srcElement;
+			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
+
+			if (displayNameForm) {
+				displayNameForm.addEventListener('submit', (event) => {
+					utils.displayNameValidation(event)
+						.then(displayName => this.authenticateUser(displayName));
+				});
+			}
+		});
+	}
+
 	/**
 	 * Emits events that have a valid o-comment event name.
 	 *
@@ -97,6 +118,10 @@ class Stream {
 				errors
 			} = {}
 		} = data;
+
+		if (name === 'loginPrompt' && this.userHasValidSession) {
+			return this.displayNamePrompt();
+		}
 
 		const mappedEvent = utils.events.coralEventMap.get(name);
 		const validErrors = errors && Array.isArray(errors) ? utils.events.findValidErrors(errors) : [];

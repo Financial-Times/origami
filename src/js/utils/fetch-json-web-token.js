@@ -1,6 +1,10 @@
 export default (options = {}) => {
 	const url = new URL('https://comments-api.ft.com/user/auth/');
 
+	if (options.displayName) {
+		url.searchParams.append('displayName', options.displayName);
+	}
+
 	if (options.useStagingEnvironment) {
 		url.searchParams.append('staging', '1');
 	}
@@ -16,12 +20,12 @@ export default (options = {}) => {
 		} else {
 			// user is signed in but has no display name
 			if (response.status === 409) {
-				return { userIsSignedIn: true };
+				return { userHasValidSession: true };
 			}
 
 			// user is not signed in or session token is invalid
 			// or error in comments api
-			return { userIsSignedIn: false };
+			return { userHasValidSession: false };
 		}
 	});
 };

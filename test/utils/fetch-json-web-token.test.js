@@ -14,6 +14,29 @@ describe('Fetch JSON web token', () => {
 		proclaim.isFunction(fetchJsonWebToken);
 	});
 
+	describe("when the displayName option is passed in", () => {
+		let commentsApiMock;
+
+		before(() => {
+			commentsApiMock = fetchMock.mock('https://comments-api.ft.com/user/auth/?displayName=Glynn', {
+				token: '12345'
+			});
+		});
+
+		after(() => {
+			fetchMock.reset();
+		});
+
+		it("appends the displayName query parameter to the comments api url", () => {
+			fetchJsonWebToken({
+				displayName: 'Glynn'
+			});
+
+			proclaim.isTrue(commentsApiMock.called());
+		});
+	});
+
+
 	describe("when the useStagingEnvironment option is passed in", () => {
 		let commentsApiMock;
 
@@ -141,7 +164,7 @@ describe('Fetch JSON web token', () => {
 
 		it("resolves with userIsSignedIn true", () => {
 			return fetchJsonWebToken()
-				.then((result) => proclaim.isTrue(result.userIsSignedIn));
+				.then((result) => proclaim.isTrue(result.userHasValidSession));
 		});
 	});
 
@@ -166,7 +189,7 @@ describe('Fetch JSON web token', () => {
 
 		it("resolves with userIsSignedIn false", () => {
 			return fetchJsonWebToken()
-				.then(result => proclaim.isFalse(result.userIsSignedIn));
+				.then(result => proclaim.isFalse(result.userHasValidSession));
 		});
 	});
 
@@ -191,7 +214,7 @@ describe('Fetch JSON web token', () => {
 
 		it("resolves with userIsSignedIn false", () => {
 			return fetchJsonWebToken()
-				.then(result => proclaim.isFalse(result.userIsSignedIn));
+				.then(result => proclaim.isFalse(result.userHasValidSession));
 		});
 	});
 });
