@@ -27,13 +27,13 @@ Use the following markup to enable a comment stream:
 
 ```html
 <div class="o-comments"
-	id="o-comments-stream"
+	id="{element-id}"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
 	data-o-comments-story-url="{optional-story-url}">
 </div>
 ```
-The comment stream is embedded in the element with a `o-comments-stream` id attribute.
+Coral needs a parent element id when initialising the comment stream embed script.
 
 ### Count
 
@@ -41,7 +41,7 @@ Add the following attribute to the markup to enable a comment count:
 
 ```diff
 <div class="o-comments"
--	id="o-comments-stream"
+-	id="{element-id}"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
 +	data-o-comments-count="true">
