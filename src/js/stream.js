@@ -93,6 +93,7 @@ class Stream {
 
 	displayNamePrompt () {
 		const overlay = utils.displayNamePrompt();
+
 		document.addEventListener('oOverlay.ready', (event) => {
 			const sourceOverlay = event.srcElement;
 			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
@@ -100,9 +101,22 @@ class Stream {
 			if (displayNameForm) {
 				displayNameForm.addEventListener('submit', (event) => {
 					utils.displayNameValidation(event)
-						.then(displayName => this.authenticateUser(displayName));
+						.then(displayName => {
+							overlay.close();
+							this.authenticateUser(displayName)
+						});
 				});
 			}
+		});
+
+		document.addEventListener('oOverlay.close', (event) => {
+			const sourceOverlay = event.srcElement;
+			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
+
+			if (displayNameForm) {
+				overlay.destroy();
+			}
+
 		});
 	}
 
