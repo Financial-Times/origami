@@ -2,7 +2,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
-import * as auth from '../../../src/js/utils/fetch-json-web-token';
+import * as auth from '../../../src/js/utils/auth';
 
 const sandbox = sinon.createSandbox();
 
