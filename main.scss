@@ -24,7 +24,7 @@
 
 	@each $theme in $themes {
 		.o-loading--#{$theme} {
-			@include _oLoadingColor(map-get($o-loading-themes, $theme));
+			@include _oLoadingColor($theme);
 		}
 	}
 
@@ -36,7 +36,6 @@
 }
 
 @if $o-loading-is-silent == false {
-
 	@include oLoading();
 
 	$o-loading-is-silent: true !global;

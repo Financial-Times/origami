@@ -29,17 +29,14 @@
 	border-radius: 50%;
 	animation: o-loading-spinner 1s infinite linear;
 }
-/// Color variation for a loading indicator
+/// Styles for a color variation for a loading indicator.
 ///
-/// @param {String|Color} $color
+/// @param {String} $theme
 /// @access private
-@mixin _oLoadingColor($color) {
-	@if type-of($color) == 'string' {
-		$color: map-get($o-loading-themes, $color);
-
-		@if not $color {
-			@warn "Color: '#{$color}' not found for o-loading";
-		}
+@mixin _oLoadingColor($theme) {
+	$color: _oLoadingGet('default-color', $from: $theme);
+	@if(not $color) {
+		@error 'No color found for o-loading theme "#{$theme}".';
 	}
 
 	border-style: solid;

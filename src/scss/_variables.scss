@@ -17,7 +17,7 @@ $o-loading-animation-keyframes: false !default;
 /// Predefined themes
 ///
 /// @type Map
-$o-loading-themes: (
+$_o-loading-themes: (
 	'light': _oLoadingGet('default-color', $from: 'light'),
 	'dark': _oLoadingGet('default-color', $from: 'dark')
 );

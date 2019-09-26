@@ -10,6 +10,30 @@
 	@return oBrandSupportsVariant($component: 'o-loading', $variant: $variant);
 }
 
+/// Helper for `whitelabel` variable customisation
+/// @brand whitelabel
+/// @param {Map} $variables - Brand variables to customise
+/// @access public
+/// @example scss
+///		@include oLoadingCustomize((
+///			'light': (
+///				default-color: hotpink
+///			),
+///			'dark': (
+///				default-color: black
+///			)
+///		))
+@mixin oLoadingCustomize($variables) {
+	$keys: map-keys($variables);
+	@each $key in $keys {
+		@if($key != 'dark' and $key != 'light')	{
+			@error 'Only light and dark o-loading variants may be customised. Found "#{$key}".';
+		}
+	}
+
+	@include oBrandCustomize('o-loading', $variables);
+}
+
 @include oBrandDefine('o-loading', 'master', (
 	'variables': (
 		'light': (
