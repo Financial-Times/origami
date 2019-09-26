@@ -16,6 +16,35 @@ module.exports = () => {
 	});
 
 	describe("valid event", () => {
+		describe("loginPrompt event", () => {
+			describe("this.userHasValidSession is truthy", () => {
+				it("calls displayNamePrompt", () => {
+					const stream = new Stream();
+					const displayNamePromptStub = sandbox.stub();
+
+					stream.userHasValidSession = true;
+					stream.displayNamePrompt = displayNamePromptStub;
+					stream.publishEvent({ name: 'loginPrompt' });
+
+					proclaim.isTrue(displayNamePromptStub.calledOnce);
+
+				});
+			});
+
+			describe("this.userHasValidSession is falsy", () => {
+				it("doesn't calls displayNamePrompt", () => {
+					const stream = new Stream();
+					const displayNamePromptStub = sandbox.stub();
+
+					stream.userHasValidSession = false;
+					stream.displayNamePrompt = displayNamePromptStub;
+					stream.publishEvent({ name: 'loginPrompt' });
+
+					proclaim.isFalse(displayNamePromptStub.calledOnce);
+
+				});
+			});
+		});
 		it("maps coral events to oComment events", (done) => {
 			const listenerStub = sandbox.stub();
 			document.addEventListener('oComments.ready', () => {

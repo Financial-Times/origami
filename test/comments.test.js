@@ -27,6 +27,7 @@ describe("Comments", () => {
 					isMockDataAttributeOptions: true
 				};
 				sandbox = sinon.createSandbox();
+				sandbox.stub(Stream.prototype, 'init');
 				sandbox.stub(Comments, 'getDataAttributes').returns(mockDataAttributeOptions);
 				sandbox.stub(Count.prototype, 'renderCount').callsFake(() => true);
 
@@ -50,14 +51,18 @@ describe("Comments", () => {
 
 	describe("when 'data-o-comments-count' is set to true", () => {
 		let comments;
+		let sandbox;
 
 		beforeEach(() => {
 			fixtures.countMarkup();
+			sandbox = sinon.createSandbox();
+			sandbox.stub(Count.prototype, 'renderCount');
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
+			sandbox.restore();
 			fixtures.reset();
 		});
 
@@ -72,14 +77,19 @@ describe("Comments", () => {
 
 	describe("when 'data-o-comments-count' is set to false", () => {
 		let comments;
+		let sandbox;
 
 		beforeEach(() => {
 			fixtures.streamMarkup();
+			sandbox = sinon.createSandbox();
+			sandbox.stub(Stream.prototype, 'init');
+
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
+			sandbox.restore();
 			fixtures.reset();
 		});
 
@@ -87,7 +97,7 @@ describe("Comments", () => {
 			assert.isInstanceOf(comments, Stream);
 		});
 
-		['init', 'login', 'getJsonWebToken', 'renderComments', 'publishEvent']
+		['init', 'authenticateUser', 'renderComments', 'publishEvent']
 			.forEach(method => it(`exposes the ${method} method`, () => {
 				assert.isInstanceOf(comments[method], Function);
 			}));
@@ -95,14 +105,19 @@ describe("Comments", () => {
 
 	describe("when 'data-o-comments-use-staging-environment' is set to true", () => {
 		let comments;
+		let sandbox;
 
 		beforeEach(() => {
 			fixtures.useStagingEnvironmentMarkup();
+			sandbox = sinon.createSandbox();
+			sandbox.stub(Count.prototype, 'renderCount');
+
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
+			sandbox.restore();
 			fixtures.reset();
 		});
 
@@ -113,14 +128,19 @@ describe("Comments", () => {
 
 	describe("when 'data-o-comments-use-staging-environment' is set to false", () => {
 		let comments;
+		let sandbox;
 
 		beforeEach(() => {
 			fixtures.doNotUseStagingEnvironmentMarkup();
+			sandbox = sinon.createSandbox();
+			sandbox.stub(Count.prototype, 'renderCount');
+
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
+			sandbox.restore();
 			fixtures.reset();
 		});
 
