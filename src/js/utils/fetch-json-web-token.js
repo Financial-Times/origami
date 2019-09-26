@@ -1,4 +1,4 @@
-export default (options = {}) => {
+export function fetchJsonWebToken (options = {}) {
 	const url = new URL('https://comments-api.ft.com/user/auth/');
 
 	if (options.displayName) {
@@ -28,4 +28,4 @@ export default (options = {}) => {
 			return { userHasValidSession: false };
 		}
 	});
-};
+}

@@ -2,7 +2,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
-import * as utils from '../../../src/js/utils';
+import * as auth from '../../../src/js/utils/fetch-json-web-token';
 
 const sandbox = sinon.createSandbox();
 
@@ -22,7 +22,7 @@ module.exports = () => {
 		});
 
 		it("displayName option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
+			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
 
 			const stream = new Stream();
 
@@ -36,7 +36,7 @@ module.exports = () => {
 		});
 
 		it("staging option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
+			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
 
 			const stream = new Stream(null, {
 				useStagingEnvironment: true
@@ -52,7 +52,7 @@ module.exports = () => {
 		});
 
 		it("source app option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
+			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
 
 			const stream = new Stream(null, {
 				sourceApp: 'next'
@@ -79,7 +79,7 @@ module.exports = () => {
 		});
 
 		it("calls embed.login with the new token", (done) => {
-			sandbox.stub(utils, 'fetchJsonWebToken').resolves({
+			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
 				token: 'fake-jwt'
 			});
 
@@ -112,7 +112,7 @@ module.exports = () => {
 
 		describe("userHasValidSession is true", () => {
 			it("sets this.userHasValidSession to true", (done) => {
-				sandbox.stub(utils, 'fetchJsonWebToken').resolves({
+				sandbox.stub(auth, 'fetchJsonWebToken').resolves({
 					userHasValidSession: true
 				});
 
@@ -128,7 +128,7 @@ module.exports = () => {
 
 		describe("userHasValidSession is false", () => {
 			it("sets this.userHasValidSession to false", (done) => {
-				sandbox.stub(utils, 'fetchJsonWebToken').resolves({
+				sandbox.stub(auth, 'fetchJsonWebToken').resolves({
 					userHasValidSession: false
 				});
 

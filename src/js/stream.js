@@ -1,4 +1,5 @@
 import * as utils from './utils';
+import * as auth from './utils/fetch-json-web-token';
 
 class Stream {
 	/**
@@ -28,7 +29,7 @@ class Stream {
 			fetchOptions.displayName = displayName;
 		}
 
-		return utils.fetchJsonWebToken(fetchOptions)
+		return auth.fetchJsonWebToken(fetchOptions)
 			.then(response => {
 				if (response.token) {
 					this.embed.login(response.token);

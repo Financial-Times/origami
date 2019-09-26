@@ -1,7 +1,7 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import fetchMock from 'fetch-mock';
-import fetchJsonWebToken from '../../src/js/utils/fetch-json-web-token';
+import * as auth from '../../src/js/utils/fetch-json-web-token';
 
 const sandbox = sinon.createSandbox();
 
@@ -11,7 +11,7 @@ describe('Fetch JSON web token', () => {
 	});
 
 	it("is a function", () => {
-		proclaim.isFunction(fetchJsonWebToken);
+		proclaim.isFunction(auth.fetchJsonWebToken);
 	});
 
 	describe("when the displayName option is passed in", () => {
@@ -28,7 +28,7 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it("appends the displayName query parameter to the comments api url", () => {
-			fetchJsonWebToken({
+			auth.fetchJsonWebToken({
 				displayName: 'Glynn'
 			});
 
@@ -51,7 +51,7 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it("appends the staging query parameter to the comments api url", () => {
-			fetchJsonWebToken({
+			auth.fetchJsonWebToken({
 				useStagingEnvironment: true
 			});
 
@@ -73,7 +73,7 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it("appends the source app query parameter to the comments api url", () => {
-			fetchJsonWebToken({
+			auth.fetchJsonWebToken({
 				sourceApp: 'next'
 			});
 
@@ -93,12 +93,12 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it("returns a promise", () => {
-			const returnValue = fetchJsonWebToken();
+			const returnValue = auth.fetchJsonWebToken();
 			proclaim.isInstanceOf(returnValue, Promise);
 		});
 
 		it("returns a promise which contains a JSON Web Token as a string", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.isString(result.token));
 		});
 	});
@@ -113,12 +113,12 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it('resolves with an object', () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.isObject(result));
 		});
 
 		it("resolves with undefined token", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 	});
@@ -133,12 +133,12 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it('resolves with an object', () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(proclaim.isObject);
 		});
 
 		it("resolves with undefined token", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 	});
@@ -153,17 +153,17 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it('resolves with an object', () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(proclaim.isObject);
 		});
 
 		it("resolves with undefined token", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
 		it("resolves with userIsSignedIn true", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then((result) => proclaim.isTrue(result.userHasValidSession));
 		});
 	});
@@ -178,17 +178,17 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it('resolves with an object', () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(proclaim.isObject);
 		});
 
 		it("resolves with undefined token", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
 		it("resolves with userIsSignedIn false", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.isFalse(result.userHasValidSession));
 		});
 	});
@@ -203,17 +203,17 @@ describe('Fetch JSON web token', () => {
 		});
 
 		it('resolves with an object', () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.isObject(result));
 		});
 
 		it("resolves with undefined token", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.equal(result.token, undefined));
 		});
 
 		it("resolves with userIsSignedIn false", () => {
-			return fetchJsonWebToken()
+			return auth.fetchJsonWebToken()
 				.then(result => proclaim.isFalse(result.userHasValidSession));
 		});
 	});
