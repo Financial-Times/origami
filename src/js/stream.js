@@ -103,7 +103,7 @@ class Stream {
 					utils.displayNameValidation(event)
 						.then(displayName => {
 							overlay.close();
-							this.authenticateUser(displayName)
+							this.authenticateUser(displayName);
 						});
 				});
 			}

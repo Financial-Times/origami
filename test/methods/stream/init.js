@@ -19,6 +19,8 @@ module.exports = () => {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 		const stream = new Stream(mockStreamEl);
 		const renderStub = sandbox.stub();
+		const authStub = sandbox.stub();
+		stream.authenticateUser = authStub;
 		stream.renderComments = renderStub;
 
 		stream.init();

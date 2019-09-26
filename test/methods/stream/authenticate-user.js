@@ -28,7 +28,8 @@ module.exports = () => {
 
 			stream.authenticateUser('Glynn')
 				.then(() => {
-					proclaim.isTrue(fetchJWTStub.calledWith({displayName: 'Glynn', useStagingEnvironment: undefined, sourceApp: undefined}));
+					const options = fetchJWTStub.getCall(0).args[0];
+					proclaim.equal(options.displayName, 'Glynn');
 					done();
 				});
 
@@ -37,14 +38,14 @@ module.exports = () => {
 		it("staging option is passed to fetchJsonWebToken", (done) => {
 			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
 
-
 			const stream = new Stream(null, {
 				useStagingEnvironment: true
 			});
 
 			stream.authenticateUser()
 				.then(() => {
-					proclaim.isTrue(fetchJWTStub.calledWith({useStagingEnvironment: true, sourceApp: undefined}));
+					const options = fetchJWTStub.getCall(0).args[0];
+					proclaim.equal(options.useStagingEnvironment, true);
 					done();
 				});
 
@@ -53,14 +54,14 @@ module.exports = () => {
 		it("source app option is passed to fetchJsonWebToken", (done) => {
 			const fetchJWTStub = sandbox.stub(utils, 'fetchJsonWebToken').resolves({});
 
-
 			const stream = new Stream(null, {
 				sourceApp: 'next'
 			});
 
 			stream.authenticateUser()
 				.then(() => {
-					proclaim.isTrue(fetchJWTStub.calledWith({sourceApp: 'next', useStagingEnvironment: false}));
+					const options = fetchJWTStub.getCall(0).args[0];
+					proclaim.equal(options.sourceApp, 'next');
 					done();
 				});
 		});

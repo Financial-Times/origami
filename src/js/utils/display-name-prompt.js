@@ -22,4 +22,4 @@ export default () => {
 	overlay.open();
 
 	return overlay;
-}
+};
