@@ -1,5 +1,6 @@
-import * as utils from './utils';
-import * as auth from './utils/fetch-json-web-token';
+import * as events from './utils/events';
+import * as displayName from './utils/display-name';
+import * as auth from './utils/auth';
 
 class Stream {
 	/**
@@ -93,7 +94,7 @@ class Stream {
 	}
 
 	displayNamePrompt () {
-		const overlay = utils.displayNamePrompt();
+		const overlay = displayName.prompt();
 
 		document.addEventListener('oOverlay.ready', (event) => {
 			const sourceOverlay = event.srcElement;
@@ -101,7 +102,7 @@ class Stream {
 
 			if (displayNameForm) {
 				displayNameForm.addEventListener('submit', (event) => {
-					utils.displayNameValidation(event)
+					displayName.validation(event)
 						.then(displayName => {
 							overlay.close();
 							this.authenticateUser(displayName);
@@ -138,8 +139,8 @@ class Stream {
 			return this.displayNamePrompt();
 		}
 
-		const mappedEvent = utils.events.coralEventMap.get(name);
-		const validErrors = errors && Array.isArray(errors) ? utils.events.findValidErrors(errors) : [];
+		const mappedEvent = events.coralEventMap.get(name);
+		const validErrors = errors && Array.isArray(errors) ? events.findValidErrors(errors) : [];
 		const eventsToPublish = mappedEvent ?
 			[mappedEvent].concat(validErrors) :
 			validErrors;
