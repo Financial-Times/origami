@@ -2,7 +2,7 @@
 
 ### Migrating from 3 to 4
 
-The `$o-loading-themes` mixin is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://registry.origami.ft.com/components/o-loading/sassdoc?brand=whitelabel) for more details.
+The `$o-loading-themes` variable is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://registry.origami.ft.com/components/o-loading/sassdoc?brand=whitelabel) for more details.
 
 ### Migrating from 2 to 3
 
