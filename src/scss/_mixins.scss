@@ -7,7 +7,7 @@
 /// Outputs the keyframe animation definition
 @mixin _oLoadingAnimationKeyframes {
 	@at-root {
-		@if not $o-loading-animation-keyframes {
+		@if not $_o-loading-animation-keyframes {
 			@keyframes o-loading-spinner {
 				0% {
 					transform: rotate(0deg);
@@ -17,7 +17,7 @@
 				}
 			}
 
-			$o-loading-animation-keyframes: true !global;
+			$_o-loading-animation-keyframes: true !global;
 		}
 	}
 }
@@ -50,7 +50,7 @@
 /// @access private
 @mixin _oLoadingSize($name) {
 	@if type-of($name) == 'string' {
-		$name: map-get($o-loading-sizes, $name);
+		$name: map-get($_o-loading-sizes, $name);
 
 		@if not $name {
 			@warn "Size: '#{$name}' not found for o-loading";

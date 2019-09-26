@@ -4,6 +4,17 @@
 
 The `$o-loading-themes` variable is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://registry.origami.ft.com/components/o-loading/sassdoc?brand=whitelabel) for more details.
 
+The `$o-loading-sizes` is also now private. If your project uses this to configure which sizes of `o-loading` to output, use the `oLoading` mixin instead, e.g.
+```scss
+@include oLoading($opts: (
+	'themes': ('light'),
+	'sizes': ('medium', 'large')
+));
+```
+If your project uses `$o-loading-sizes` for any other reason, e.g. to customise the dimensions of `o-loading`, please contact the Origami team.
+
+Finally the `$o-loading-animation-keyframes` variable is now private and should not be used.
+
 ### Migrating from 2 to 3
 
 V3 changes the internal structure of `o-loading`.

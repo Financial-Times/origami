@@ -10,12 +10,12 @@
 $o-loading-is-silent: true !default;
 
 /// Keyframe animation output once flag
-/// @private
+/// @access private
 /// @type Boolean
-$o-loading-animation-keyframes: false !default;
+$_o-loading-animation-keyframes: false !default;
 
 /// Predefined themes
-///
+/// @access private
 /// @type Map
 $_o-loading-themes: (
 	'light': _oLoadingGet('default-color', $from: 'light'),
@@ -23,9 +23,9 @@ $_o-loading-themes: (
 );
 
 /// Predefined sizes
-///
+/// @access private
 /// @type Map
-$o-loading-sizes: (
+$_o-loading-sizes: (
 	'mini': ('size': 12px, 'border': 2px),
 	'small': ('size': 20px, 'border': 3px),
 	'medium': ('size': 28px, 'border': 4px),

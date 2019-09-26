@@ -30,7 +30,7 @@
 
 	@each $size in $sizes {
 		.o-loading--#{$size} {
-			@include _oLoadingSize(map-get($o-loading-sizes, $size));
+			@include _oLoadingSize(map-get($_o-loading-sizes, $size));
 		}
 	}
 }
