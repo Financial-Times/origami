@@ -4,54 +4,34 @@
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	padding: 1em;
-	overflow: auto;
-}
-
-.demo-count {
-	margin-left: 30px;
-	color: #777777;
+	padding: 1rem;
 }
 
 .demo-examples {
-	margin: 20px 0;
+	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	overflow: hidden;
 }
 
 .demo-example {
-	float: left;
-	margin: 0 0 20px;
-	padding: 0;
-	width: 180px;
+	margin: 0 0 3rem;
 	text-align: center;
+	vertical-align: bottom;
+	display: inline-block;
 }
 
 .demo-label {
 	display: block;
-	padding: 5px 0;
-	font-size: 14px;
-	color: #333333;
 }
 
-.demo-icon {
-	display: inline-block;
-	border: 1px dotted #333333;
-	text-align: center;
-	color: #000000;
-	width: 40px;
-	height: 40px;
-}
-
-.demo-icon-special {
+.demo-icon-custom {
 	@include oIconsContentIcon('lock');
 }
-.demo-icon-special--coloured {
+
+.demo-icon-custom-color {
 	@include oIconsContentIcon('lock', $color: #0000ff);
 }
 
-.demo-icon-special--coloured--resized {
+.demo-icon-custom-color-resized {
 	@include oIconsContentIcon('lock', #0000ff, 40);
 }

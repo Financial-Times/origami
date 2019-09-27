@@ -1,10 +1,8 @@
 # o-icons [![CircleCI](https://circleci.com/gh/Financial-Times/o-icons.svg?style=shield&circle-token=cf2a28827a03270506ee12ca8dfd0c233709b1a7)](https://circleci.com/gh/Financial-Times/o-icons) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
-[Complete list of available icons](http://registry.origami.ft.com/components/fticons)
 
-Though you can use these icons at any size, they render best at 40px.
-
+- [Summary](#summary)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Contributing](#contributing)
@@ -12,81 +10,99 @@ Though you can use these icons at any size, they render best at 40px.
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
+## Summary
 
-### Markup
+There are a few ways to get icons from `fticons`:
+
+1. Use [o-icons CSS classes](#markup)
+2. Use [o-icons Sass mixins](#sass) with your own CSS.
+3. Request the icon directly from the [Image Service](https://www.ft.com/__origami/service/image/v2/docs/url-builder?url=fticon-v1%3Aarrow-down&preview=true) (without using o-icons at all).
+
+
+## Markup
+
+To add an icon apply the `o-icons-icon` class to a `span`, along with the modifier class for your specific icon e.g. `o-icons-icon--arrow-down`. See the [registry demos](https://registry.origami.ft.com/components/o-icons) for a full list of icons.
 
 ```html
-<!-- Loads the CSS for o-icons  -->
-<link rel="stylesheet" href="//origami-build.ft.com/v2/bundles/css?modules=o-icons@^5.0.0" />
-
-<!-- In your markup, use the helper classes, such as: -->
 <span class="o-icons-icon o-icons-icon--arrow-down"></span>
+<span class="o-icons-icon o-icons-icon--audio"></span>
+<span class="o-icons-icon o-icons-icon--book"></span>
 ```
 
-### Sass
+This will include icons with a `128px` width/height by default. Or use the [Sass](#sass) mixins to include icons of a given dimension and colour.
 
-There are a few ways to use o-icons to get fticons:
+## Sass
 
-1. [Using the CSS helper classes](#using-the-css-helper-classes)
-2. [Using the Sass mixins with your own CSS](#using-the-sass-mixins-with-your-own-css)
+### Includes icons of different sizes and colors
 
-You can also request the icon directly from the Image Service (without using o-icons at all). See the [fticons](http://registry.origami.ft.com/components/fticons) for how to do this.
-
-#### Using the CSS helper classes
+Use `oIconsContentIcon` to output the styles for an icon of a given size and colour.
 
 ```scss
-// public/bundle.scss
-
-$o-icons-is-silent: false;
+// Use o-colors so you can use colors from the Origami palette.
 @import "o-icons/main";
-```
+@import "o-colors/main";
 
-```html
-<!-- In your markup, use the helper classes, such as: -->
-<span class="o-icons-icon o-icons-icon--plus"></span>
-```
-
-When using CSS classes, it isn't possible to set a colour for the icon or to specify a size. The defaults are 'black' for the icon colour and '128px' for the width and height.
-
-#### Using the Sass mixins with your own CSS
-
-This option has the added flexibility of supporting coloured icons of any size.
-
-```scss
-// public/bundle.scss
-
-@import "o-icons/main";
-@import "o-colors/main"; // So you can use colors from the Origami palette, the mixin only accepts hex values
-
-.icon-plus {
-	@include oIconsContentIcon('plus', oColorsGetPaletteColor('claret'), 32);
+// Output a 32px, claret coloured plus icon.
+.my-icon-plus {
+	@include oIconsContentIcon(
+		$icon-name: 'plus',
+		$color: oColorsGetPaletteColor('claret'),
+		$size: 32
+	);
 }
 ```
 
 ```html
-<span class="icon-plus"></span>
+<span class="my-icon-plus"></span>
 ```
 
-There's also a separate mixin to output just the base styles for an icon:
+The `oIconsContentIcon` mixins outputs styles used by each icon. This is inefficient if your project outputs multiple icons. In this case we recommend outputting the base styles separately with `oIconsContentBaseStyles`.
 
 ```scss
-.icon {
+// Output a 32px, claret coloured plus icon.
+.my-icon {
 	@include oIconsContentBaseStyles();
 }
+
+.my-icon--plus {
+	@include oIconsContentIcon(
+		$icon-name: 'plus',
+		$color: oColorsGetPaletteColor('claret'),
+		$size: 32,
+		$include-base-styles: false // do not duplicate the base styles
+	);
+}
 ```
 
-Which outputs:
+```html
+<span class="my-icon my-icon--plus"></span>
+```
+
+`o-icons` includes a media query to restore either a black or white icon in Microsoft's high-contrast mode. If no icon is acceptable for users of Microsoft's high-contrast mode this may be disabled to reduce bundle size:
 
 ```scss
-.icon {
-	display: inline-block;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 50%;
-	background-color: transparent;
-	vertical-align: baseline;
+.no-high-contrast-window {
+	@include oIconsContentIcon(
+		$icon-name: 'plus',
+		$color: oColorsGetPaletteColor('claret'),
+		$high-contrast-fallback: false
+	);
 }
+```
+
+### Using the default CSS helper classes
+
+To output all icon [helper classes](#markup) include the `oIcons` mixin.
+```scss
+@import "o-icons/main";
+@include oIcons(); // include helper classes for all icons
+```
+
+To avoid including all icon [helper classes](#markup), `oIcons` mixin also accepts a list of icons to include:
+```scss
+@include oIcons($opts: (
+	'icons': ('arrow-down', 'audio') // include helper classes for the arrow-down and audio icons
+));
 ```
 
 ## Contributing

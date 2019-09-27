@@ -15,13 +15,20 @@
     },
     "demos": [
         {
-            "title": "Test",
-            "name": "test",
-            "template": "demos/src/test.mustache",
+            "title": "Icons",
+            "name": "icons",
+            "template": "demos/src/icons.mustache",
             "sass": "demos/src/demo.scss",
             "data": "demos/src/data.json",
-            "hidden": true,
-            "description": "Test demo to run to test changes made to o-icons"
+            "description": "All icons available via o-icons."
+        },
+        {
+            "title": "Custom Icons",
+            "name": "custom-icons",
+            "template": "demos/src/custom-icons.mustache",
+            "sass": "demos/src/demo.scss",
+            "data": "demos/src/data.json",
+            "description": "Example customised icons generated using o-icons Sass."
         }
     ]
 }
