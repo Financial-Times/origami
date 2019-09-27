@@ -1,7 +1,11 @@
 {
-  "private": true,
-  "dependencies": {
-    "fontfaceobserver": "^2.0.9",
-    "superstore-sync": "^2.1.0"
-  }
+	"private": true,
+	"dependencies": {
+		"fontfaceobserver": "^2.0.9",
+		"superstore-sync": "^2.1.0"
+	},
+	"name": "o-typography",
+	"devDependencies": {
+		"origami-ci-tools": "^1.0.0"
+	}
 }
