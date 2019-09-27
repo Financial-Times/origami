@@ -1,3 +1,6 @@
+@import 'o-buttons/main';
+@import 'o-spacing/main';
+
 @import 'src/scss/variables';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
@@ -7,4 +10,23 @@
 
 	// Set to silent again to avoid being output twice
 	$o-comments-is-silent: true !global;
+
+	.o-comments__displayname-prompt {
+		width: 100%;
+		max-width: 400px;
+
+		.o-comments__displayname-container {
+			margin-top: oSpacingByName('s2');
+			display: flex;
+		}
+
+		.o-comments__displayname-input {
+			margin-top: 0;
+		}
+
+		.o-comments__displayname-submit {
+			@include oButtons($theme: primary);
+		}
+	}
+
 };
