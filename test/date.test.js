@@ -60,7 +60,7 @@ describe('o-date', () => {
 
 		it('doesnt zero pad single digit hours', () => {
 			const someDate = new Date("Mon Jul 18 2016 06:12:11");
-			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18fJ 2016 6:12 am');
+			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18 2016 6:12 am');
 		});
 
 		// This is a bit of a cop-out really as what we're testing here is oDate's
