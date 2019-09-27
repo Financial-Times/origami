@@ -1,19 +1,20 @@
 {
-  "name": "o-tracking",
-  "description": "This module should be included on your product to make sending tracking requests to the Spoor API easy.",
-  "version": "1.4.2",
-  "main": "main.js",
-  "private": true,
-  "devDependencies": {
-    "origami-build-tools": "^7.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Financial-Times/o-tracking"
-  },
-  "author": "Financial-Times",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/o-tracking/issues"
-  },
-  "homepage": "https://github.com/Financial-Times/o-tracking"
+	"name": "o-tracking",
+	"description": "This module should be included on your product to make sending tracking requests to the Spoor API easy.",
+	"version": "1.4.2",
+	"main": "main.js",
+	"private": true,
+	"devDependencies": {
+		"origami-build-tools": "^7.2.0",
+		"origami-ci-tools": "^1.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Financial-Times/o-tracking"
+	},
+	"author": "Financial-Times",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/o-tracking/issues"
+	},
+	"homepage": "https://github.com/Financial-Times/o-tracking"
 }
