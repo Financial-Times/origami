@@ -51,16 +51,16 @@ describe('o-date', () => {
 		};
 
 		it('returns a date if "date" is passed in as a second argument', () => {
-			proclaim.strictEqual(oDate.format(someDate, "date"), 'July 18, 2016');
+			proclaim.strictEqual(oDate.format(someDate, "date"), 'July 18 2016');
 		});
 
 		it('returns a datetime if "datetime" is passed in as a second argument', () => {
-			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18, 2016 11:12 pm');
+			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18 2016 11:12 pm');
 		});
 
 		it('doesnt zero pad single digit hours', () => {
 			const someDate = new Date("Mon Jul 18 2016 06:12:11");
-			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18, 2016 6:12 am');
+			proclaim.strictEqual(oDate.format(someDate, "datetime"), 'July 18fJ 2016 6:12 am');
 		});
 
 		// This is a bit of a cop-out really as what we're testing here is oDate's
