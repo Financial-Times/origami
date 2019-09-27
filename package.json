@@ -1,5 +1,8 @@
 {
-  "name": "o-utils",
-  "private": true,
-  "main": "main.js"
+	"name": "o-utils",
+	"private": true,
+	"main": "main.js",
+	"devDependencies": {
+		"origami-ci-tools": "^1.0.0"
+	}
 }
