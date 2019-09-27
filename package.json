@@ -1,7 +1,9 @@
 {
-    "private": true,
-    "main": "main.js",
-    "devDependencies": {
-        "mock-raf": "^1.0.0"
-    }
+	"private": true,
+	"main": "main.js",
+	"devDependencies": {
+		"mock-raf": "^1.0.0",
+		"origami-ci-tools": "^1.0.0"
+	},
+	"name": "o-tooltip"
 }
