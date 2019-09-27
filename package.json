@@ -1,4 +1,7 @@
 {
-  "name": "o-overlay",
-  "private": true
+	"name": "o-overlay",
+	"private": true,
+	"devDependencies": {
+		"origami-ci-tools": "^1.0.0"
+	}
 }
