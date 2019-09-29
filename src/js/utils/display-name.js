@@ -20,11 +20,17 @@ const isUnique = (displayName) => {
 		});
 };
 
-const containsInvalidCharacters = (displayName) => {
-	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]+/i;
+const findInvalidCharacters = (displayName) => {
+	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]/g;
+	const matchingCharacters = displayName
+		.match(containsCharactersNotInCoralTalkRules);
+	const uniqueMatchingCharacters = matchingCharacters.length ?
+		matchingCharacters
+			.filter((character, position) => matchingCharacters.indexOf(character) === position) :
+		[];
 
-	return containsCharactersNotInCoralTalkRules.test(displayName) ?
-		true :
+	return uniqueMatchingCharacters.length ?
+		uniqueMatchingCharacters.join('') :
 		false;
 };
 
@@ -51,12 +57,15 @@ const validation = (event) => {
 		const input = displayNameForm.querySelector('input');
 		const displayName = input.value.trim();
 		const errorMessage = displayNameForm.querySelector('#o-comments-displayname-error');
+		const invalidCharacters = findInvalidCharacters(displayName);
 
 		errorMessage.innerText = '';
 		displayNameForm.classList.remove('o-forms--error');
 
-		if (containsInvalidCharacters(displayName)) {
-			errorMessage.innerText = 'Only alphanumeric characters, underscores and periods are allowed';
+
+
+		if (invalidCharacters) {
+			errorMessage.innerText = `The display name contains the following invalid characters: ${invalidCharacters}`;
 			displayNameForm.classList.add('o-forms--error');
 		} else {
 			isUnique(displayName)
