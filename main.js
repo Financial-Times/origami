@@ -1,5 +1,5 @@
 
-const Tabs = require('./src/js/Tabs');
+import Tabs from './src/js/Tabs';
 
 const constructAll = function() {
 	Tabs.init();
