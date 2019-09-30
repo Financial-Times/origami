@@ -1,8 +1,11 @@
-const oOverlay = require('./src/js/overlay');
+
+import Overlay from './src/js/overlay';
+
 const constructAll = function() {
-	oOverlay.init();
+	Overlay.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
-module.exports = oOverlay;
+
+export default Overlay;

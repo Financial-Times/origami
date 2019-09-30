@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-import o from '../helpers/events';
+import * as o from '../helpers/events';
 import Overlay from '../../src/js/overlay';
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';

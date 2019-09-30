@@ -1,6 +1,24 @@
 
 # Migration
 
+## Migrating from v2 to v3
+
+### ES Modules
+
+v5 uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-overlay` using the es modules syntax.
+
+```diff
+-const Overlay = require('o-overlay');
++import Overlay from 'o-overlay';
+```
+
+However to use the CommonJS syntax, without a plugin like [babel-plugin-transform-es2015-modules-commonjs](https://babeljs.io/docs/en/babel-plugin-transform-es2015-modules-commonjs), add `.default` to access `o-overlay` methods.
+
+```diff
+-const Overlay = require('o-overlay');
++const Overlay = require('o-overlay').default;
+```
+
 ## Migrating from v1 to v2
 
 - Arrows functionality has now been removed. __Resolution__ If you need an overlay with an arrow, please use [o-tooltip](http://github.com/financial-times/o-tooltip).

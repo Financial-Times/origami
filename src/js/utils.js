@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	unCapitalise: function(str) {
 		return str.charAt(0).toLowerCase() + str.substr(1);
 	},
