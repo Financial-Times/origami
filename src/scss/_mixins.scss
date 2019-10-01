@@ -1,24 +1,23 @@
 
 /// Base styles for tooltips.
 ///
-/// @output The output includes all selectors and styles for tooltips, inheriting from o-overlay.
+/// @output The output includes all selectors and styles for tooltips.
 /// @example scss - Base tooltip styles
 ///   @include _oTooltipBase();
 /// @access private
 @mixin _oTooltipBase {
 	.o-tooltip {
-		@include oOverlay();
-		background: $_o-tooltip-background-color;
-
-		// Override border set in o-overlay
-		border: 0;
-
+		@include oVisualEffectsShadowsElevation($elevation: 'high');
 		position: absolute;
-		display: none;
-
+		z-index: 10;
+		box-sizing: border-box;
 		opacity: 0;
 		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-transition-fade,
 					transform $_o-tooltip-animation-duration $o-visual-effects-transition-slide;
+		border: 0;
+		background: $_o-tooltip-background-color;
+		border-radius: $o-normalise-border-radius;
+		display: none;
 
 		&.visible {
 			transform: translate(0, 0);
@@ -60,16 +59,23 @@
 
 /// Outputs styles for tooltip content.
 ///
-/// @output The output includes all styles for tooltip content excluding a wrapping selector, inheriting from o-overlay.
+/// @output The output includes all styles for tooltip content excluding a wrapping selector.
 /// @access private
 @mixin _oTooltipContentBody() {
-	@include oOverlayContent();
-	// Breaks long words to fit into smaller screen sizes
-	hyphens: auto;
-	// Override padding provided for o-overlay which is too big
+	position: relative;
+	box-sizing: border-box;
+	overflow: auto;
 	padding: 15px 35px 15px 20px;
 	float: left;
 	line-height: 1;
+	hyphens: auto; // Breaks long words to fit into smaller screen sizes
+
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
 }
 
 /// Outputs base styles for tooltip arrows.
@@ -88,7 +94,7 @@
 	}
 	&:before {
 		// 1px offset so it appears properly
-		border-width: $size + $_o-overlay-border-width + 1;
+		border-width: $size + $_o-tooltip-border-width + 1;
 	}
 	&:after {
 		border-width: $size;
@@ -119,7 +125,7 @@
 	}
 	&:before {
 		// 1px offset so it appears properly
-		margin-left: -$size - $_o-overlay-border-width - 1;
+		margin-left: -$size - $_o-tooltip-border-width - 1;
 	}
 	&:after {
 		margin-left: -$size;
@@ -196,7 +202,7 @@
 	}
 	&:before {
 		// 1px offset so it appears properly
-		margin-top: -$size - $_o-overlay-border-width - 1;
+		margin-top: -$size - $_o-tooltip-border-width - 1;
 	}
 	&:after {
 		margin-top: -$size;

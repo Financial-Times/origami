@@ -29,3 +29,9 @@ $_o-tooltip-background-color: oColorsGetPaletteColor('white');
 /// @type {Color}
 /// @access private
 $_o-tooltip-border-color: rgba(0, 0, 0, 0.05);
+
+/// The border width for tooltips.
+///
+/// @type {Number}
+/// @access private
+$_o-tooltip-border-width: 1px;
