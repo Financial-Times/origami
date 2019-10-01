@@ -10,7 +10,7 @@
 	.o-overlay {
 		@include oVisualEffectsShadowsElevation($elevation: 'high');
 		position: fixed;
-		z-index: 10;
+		z-index: 11; // Must always be higher than the shadow z-index
 		box-sizing: border-box;
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out;
@@ -48,7 +48,7 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 10;
+	z-index: 10; // Must always be lower than the overlay z-index
 	opacity: 1;
 	transition: opacity 0.3s ease-in-out;
 }

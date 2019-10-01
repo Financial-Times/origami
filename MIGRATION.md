@@ -47,6 +47,10 @@ However to use the CommonJS syntax, without a plugin like [babel-plugin-transfor
 +const Overlay = require('o-overlay').default;
 ```
 
+### CSS
+
+- The default `z-index` value for the overlay has increased from `10` to `11`. This _may_ cause issues on your site if anything has relied on the exact value of `10` in the past.
+
 ## Migrating from v1 to v2
 
 - Arrows functionality has now been removed. __Resolution__ If you need an overlay with an arrow, please use [o-tooltip](http://github.com/financial-times/o-tooltip).
