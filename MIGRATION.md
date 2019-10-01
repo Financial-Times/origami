@@ -22,6 +22,15 @@
 - Rename:
   - `oOverlayClose` to `oOverlayContentClose`
 
+### Color use-cases
+
+- All of the deprecated o-colors use-cases have been removed:
+  - `o-overlay`
+  - `o-overlay-close`
+  - `o-overlay-close-shaded`
+  - `o-overlay-heading`
+  - `o-overlay-heading-shaded`
+
 ### ES Modules
 
 v5 uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-overlay` using the es modules syntax.
