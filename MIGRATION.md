@@ -3,6 +3,25 @@
 
 ## Migrating from v2 to v3
 
+### Mixins
+
+- The `oOverlay` mixin now includes all styles required for overlays and outputs CSS selectors as well as properties and values. See the [Sass documentation](README.md#sass) for information on the new parameters
+- The following mixins have been removed, their styles can now be included using the `oOverlay` mixin parameters:
+  - `oOverlayCompactClose`
+  - `oOverlayCompactContent`
+  - `oOverlayCompactHeading`
+  - `oOverlayCompactTitle`
+  - `oOverlayContent`
+  - `oOverlayFullscreen`
+  - `oOverlayHeading`
+  - `oOverlayHeadingShaded`
+  - `oOverlayHeadingShadedClose`
+  - `oOverlayIncludeAll`
+  - `oOverlayShadow`
+  - `oOverlayTitle`
+- Rename:
+  - `oOverlayClose` to `oOverlayContentClose`
+
 ### ES Modules
 
 v5 uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-overlay` using the es modules syntax.

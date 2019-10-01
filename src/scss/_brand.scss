@@ -1,13 +1,10 @@
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+
 /// Helper for `o-brand` function.
 /// @access private
 @function _oOverlayGet($variables, $from: null) {
     @return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
-}
-
-/// Helper for `o-brand` function.
-/// @access private
-@function _oOverlaySupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-overlay', $variant: $variant);
 }
 
 @if oBrandGetCurrentBrand() == 'master' {

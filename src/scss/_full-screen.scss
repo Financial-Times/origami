@@ -1,0 +1,26 @@
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+
+/// Outputs selectors and styles for the fullscreen variant overlay,
+/// allowing an overlay to span the full width and/or height of a screen.
+///
+/// @output The output includes the `.o-overlay--full-screen`, `.o-overlay--full-width`
+/// and `.o-overlay--full-height` class definitions.
+/// @access private
+@mixin _oOverlayFullScreen() {
+	.o-overlay--full-screen {
+		border: 0;
+	}
+	.o-overlay--full-screen,
+	.o-overlay--full-width {
+		padding-left: 0;
+		padding-right: 0;
+		width: 100%;
+	}
+	.o-overlay--full-screen,
+	.o-overlay--full-height {
+		padding-top: 0;
+		padding-bottom: 0;
+		height: 100%;
+	}
+}

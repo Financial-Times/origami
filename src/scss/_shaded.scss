@@ -1,29 +1,39 @@
-////
 /// @group o-overlay
 /// @link http://registry.origami.ft.com/components/o-overlay
-////
 
-/// Add to the header for a shaded overlay
-@mixin oOverlayHeadingShaded {
-	background: _oOverlayGet('shaded-heading-background');
-	color: _oOverlayGet('shaded-heading-text');
-	border-color: _oOverlayGet('shaded-heading-border');
-	font-weight: normal;
-	// sass-lint:disable no-vendor-prefixes
-	-webkit-font-smoothing: antialiased;
-	// sass-lint:disable no-vendor-prefixes
+/// Outputs selectors and styles for the shaded heading variant.
+///
+/// @output The output includes the `o-overlay__heading--shaded` class definition.
+/// @access private
+@mixin _oOverlayHeadingShaded {
+	.o-overlay__heading--shaded {
+		background: _oOverlayGet('shaded-heading-background');
+		color: _oOverlayGet('shaded-heading-text');
+		border-color: _oOverlayGet('shaded-heading-border');
+		font-weight: normal;
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:disable no-vendor-prefixes
+
+		.o-overlay__close {
+			@include _oOverlayHeadingShadedContentClose();
+		}
+	}
 }
 
-/// Add to the close icon for a shaded overlay
-@mixin oOverlayHeadingShadedClose {
-	@include _oOverlayCloseIcon(_oOverlayGet('shaded-close-text'));
+/// Outputs styles for the shaded heading variant close button.
+///
+/// @output The output does not include a class definition, and should be wrapped in a selector.
+/// @access private
+@mixin _oOverlayHeadingShadedContentClose {
+	@include _oOverlayContentCloseIcon(_oOverlayGet('shaded-close-text'));
 	color: _oOverlayGet('shaded-close-text');
 	background-color: _oOverlayGet('shaded-close-background');
 	border-color: _oOverlayGet('shaded-close-border');
 
 	&:hover,
 	&:focus {
-		@include _oOverlayCloseIcon(_oOverlayGet('default-close-text'));
+		@include _oOverlayContentCloseIcon(_oOverlayGet('default-close-text'));
 		background-color: _oOverlayGet('default-close-background');
 	}
 }

@@ -1,16 +1,15 @@
-////
 /// @group o-overlay
 /// @link http://registry.origami.ft.com/components/o-overlay
-////
 
-/// Silent mode
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default overlay classes.
 ///
-/// @type {Boolean}
+/// @type Boolean
+/// @access public
 $o-overlay-is-silent: true !default;
 
-/// Border width
+/// The overlay border width.
 ///
+/// @type Number
 /// @access private
-///
-/// @type {Number}
 $_o-overlay-border-width: 1px;

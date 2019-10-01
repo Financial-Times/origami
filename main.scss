@@ -1,7 +1,5 @@
-////
 /// @group o-overlay
 /// @link http://registry.origami.ft.com/components/o-overlay
-////
 
 @import 'o-brand/main';
 @import 'o-colors/main';
@@ -10,83 +8,50 @@
 @import 'o-visual-effects/main';
 @import 'src/scss/variables';
 @import 'src/scss/brand';
-@import 'src/scss/cross';
-@import 'src/scss/overlay';
+@import 'src/scss/close';
 @import 'src/scss/compact';
-@import 'src/scss/fullscreen';
-@import 'src/scss/shaded';
 @import 'src/scss/deprecated';
+@import 'src/scss/full-screen';
+@import 'src/scss/mixins';
+@import 'src/scss/shaded';
 
-/// Outputs all CSS classes
+/// Outputs all available features and styles for overlays.
 ///
-/// @param {String} base class name
-@mixin oOverlayIncludeAll($classname: o-overlay) {
-	.#{$classname} {
-		@include oOverlay;
+/// @param {Map} $opts ['variants': ('compact', 'full-screen', 'heading-shaded')] - Overlay options including variants to output styles for.
+/// @output The output includes the `.o-overlay` class definition as well as class definitions for every variant.
+/// @example scss - All overlay styles
+///   @include oOverlay();
+/// @example scss - Base styles and compact variant, but with no full-screen or heading-shaded variants
+///   @include oOverlay($opts: ('variants': ('compact'));
+/// @access public
+@mixin oOverlay($opts: (
+	'variants': ('compact', 'full-screen', 'heading-shaded')
+)) {
+	$variants: map-get($opts, 'variants');
+
+	// Include base styles
+	@include _oOverlayBase();
+
+	// Include the shaded heading variant
+	@if index($variants, 'heading-shaded') {
+		@include _oOverlayHeadingShaded();
 	}
 
-	.#{$classname}-shadow {
-		@include oOverlayShadow;
+	// Include the compact variant
+	@if index($variants, 'compact') {
+		@include _oOverlayCompact();
 	}
 
-	.#{$classname}__heading {
-		@include oOverlayHeading;
-	}
-
-	.#{$classname}__title {
-		@include oOverlayTitle;
-	}
-
-	.#{$classname}__close {
-		@include oOverlayClose;
-	}
-
-	.#{$classname}__heading--shaded {
-		@include oOverlayHeadingShaded;
-
-		.#{$classname}__close {
-			@include oOverlayHeadingShadedClose;
-		}
-	}
-
-	.#{$classname}__content {
-		@include oOverlayContent;
-	}
-
-	.#{$classname}--compact {
-		.#{$classname}__content {
-			@include oOverlayCompactContent;
-		}
-
-		.#{$classname}__heading {
-			@include oOverlayCompactHeading;
-		}
-
-		.#{$classname}__title {
-			@include oOverlayCompactTitle;
-		}
-
-		.#{$classname}__close {
-			@include oOverlayCompactClose;
-		}
-	}
-
-	.#{$classname}--full-screen,
-	.#{$classname}--full-width {
-		@include oOverlayFullscreen($fill: 'width');
-	}
-
-	.#{$classname}--full-screen,
-	.#{$classname}--full-height {
-		@include oOverlayFullscreen($fill: 'height');
-	}
-
-	.#{$classname}--full-screen {
-		@include oOverlayFullscreen();
+	// Include the full-screen variant
+	@if index($variants, 'full-screen') {
+		@include _oOverlayFullScreen();
 	}
 }
 
+// If silent mode is disabled, output all of the default overlay styles.
 @if ($o-overlay-is-silent == false) {
-	@include oOverlayIncludeAll();
+	@include oOverlay();
+
+	// Set module to silent again
 	$o-overlay-is-silent: true !global;
 }

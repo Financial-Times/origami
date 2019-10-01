@@ -52,10 +52,10 @@ var myOverlay = new Overlay('myOverlay', {
 * `heading`: Object. Options for the Overlay header
 	* `.title`: String. Your overlay's title
 	* `.visuallyhidetitle`: Boolean. If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for `aria` labelling) _Default_: false.
-	* `.shaded`: Boolean. Whether to shade the background of the header
+	* `.shaded`: Boolean. Whether to shade the background of the header. Note: for this to work properly, the `heading-shaded` variant must be included with the CSS (it is by default)
 * `modal`: Boolean. Whether the overlay should have modal behaviour or not. This will add a translucent shadow between the page and the overlay. Modal overlays also disable scroll on the underlying document. _Default_: true.
-* `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
-* `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content.
+* `fullscreen`: Boolean. If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button. Note: for this to work properly, the `full-screen` variant must be included with the CSS (it is by default)
+* `compact`: Boolean. If true, the `.o-overlay--compact` class will be added to the overlay that reduces heading font-size and paddings in the content. Note: for this to work properly, the `compact` variant must be included with the CSS (it is by default)
 * `src`: String. Either a _url_ from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
 * `html`: String or HTMLElement.  Raw HTML (cannot be set declaratively)
 * `class`: String. The custom classes to apply to to the overlay e.g. `o-overlay--my-modifier`.
@@ -78,13 +78,55 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 ### Sass
 
-O-overlay contains styles for the container (eg border and shadow) and layout styles (to place the overlay above the page content). It does not come with typographic styles, background colours, or buttons. Implementing projects should add these.
+#### Mixin: `oOverlay`
 
-`o-overlay` supports silent mode, so there are mixins for the different elements. If you want to get all the classes styled by default, you'll need to turn of silent mode:
+The `oOverlay` mixin is used to output base styles as well as styles for all of the overlay variants (`compact`, `full-screen`, and `heading-shaded`). This output includes the `o-overlay` class declarations:
 
 ```scss
-$o-overlay-is-silent: false;
+@include oOverlay();
 ```
+
+```css
+.o-overlay {
+    /* styles */
+}
+.o-overlay--compact {
+    /* styles */
+}
+.o-overlay--full-screen {
+    /* styles */
+}
+/* etc. */
+```
+
+If you wish to specify specific variants to output styles for, you can pass in options (see [variants](#variants) for available options).
+
+For example, to output only the base styles and the `compact` variant, ignoring other variants:
+
+```scss
+@include oOverlay($opts: (
+    'variants': ('compact')
+));
+```
+
+```css
+.o-overlay {
+    /* styles */
+}
+.o-overlay--compact {
+    /* styles */
+}
+```
+
+#### Variants
+
+This table outlines all of the possible variants you can request in the [`oOverlay` mixin](#mixin-ooverlay):
+
+| Size          | Notes               | Brand support                |
+|---------------|---------------------|------------------------------|
+| compact       | Included by default | master, internal, whitelabel |
+| full-screen   | Included by default | master, internal, whitelabel |
+| header-shaded | Included by default | master, internal, whitelabel |
 
 ## API
 
