@@ -38,10 +38,10 @@ describe("Overlay", () => {
 		});
 
 		it("Errors if html or src are not passed in as opts", () => {
-			proclaim.throws(new Overlay('myID', {}));
-			proclaim.throws(new Overlay('myID', {somethingElse: "hello"}));
-			proclaim.isTypeOf(new Overlay('myID', {html: "hello"}), 'object');
-			proclaim.isTypeOf(new Overlay('myID', {src: "hello"}), 'object');
+			proclaim.throws(new Overlay('myID1', {}));
+			proclaim.throws(new Overlay('myID2', {somethingElse: "hello"}));
+			proclaim.isTypeOf(new Overlay('myID3', {html: "hello"}), 'object');
+			proclaim.isTypeOf(new Overlay('myID4', {src: "hello"}), 'object');
 		});
 
 		it("Converts trigger to a HTMLElement if it's a string", () => {
@@ -73,7 +73,12 @@ describe("Overlay", () => {
 		});
 
 		it("Throws if no id is passed in", () => {
-			proclaim.throws(() => { new Overlay({html: 'hello', heading: {title: ''}}); });
+			proclaim.throws(() => { new Overlay({html: 'hello', heading: {title: 'hello'}}); });
+		});
+
+		it("Throws if id is not unique", () => {
+			new Overlay('myID', {html: 'hello', heading: {title: 'hello'}});
+			proclaim.throws(() => { new Overlay('myID', {html: 'hello', heading: {title: 'hello'}}); });
 		});
 
 		it("Adds an event listener to the trigger if one has been set", (done) => {

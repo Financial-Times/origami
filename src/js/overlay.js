@@ -122,11 +122,11 @@ const focusTrap = function(event) {
  * @param {Boolean} opts.nested - If set to true, the resize, escape, and layer listeners will not be set up. This boolean should be used in conjunction with the parentnode setting to allow an overlay to be positioned within a DOM element rather than overlaid on top of everything. Default: false.
  * @param {Boolean} opts.nofocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentnode options. Default: false.
  * @param {Boolean} opts.fullscreen - If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
+ * @throws {Error} Will throw an error if the `id` parameter is not unique.
 */
 const Overlay = function(id, opts) {
 	if (overlays[id]) {
-		// @todo Throw error in the next breaking.
-		console.warn(`o-overlay with id "${id}" already exists. Creating an overlay twice with the same id may result in unexpected behaviour. This will error in the next major release of o-overlay.`);
+		throw new Error(`o-overlay with id "${id}" already exists. Creating an overlay twice with the same id may result in unexpected behaviour.`);
 	}
 
 	viewport.listenTo('resize');
