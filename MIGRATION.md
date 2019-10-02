@@ -1,4 +1,17 @@
-# Color palette migration table
+## Migration Guide
+
+### Upgrading from v4 to v5
+
+
+
+### Upgrading from v3 to v4
+
+o-colors v4.x.x updates the entire palette of colors and adds a lot more functionality through new mixins and functions. The palette has been reduced from over 60 colors to a base palette of around 20 colors. These colors can be manipulated using new mixins to get a wide range of on brand colors accessibility compliant colors.
+
+In addition, new use cases have been added for `opinion`, `hero` and `highlight` branding.
+The `product-brand` use case has been removed.
+
+To migrate from v3.x.x to use v4.x.x you will need to update the palette colors you are requesting using `oColorsFor`, `oColorsSetUseCase`, and `oColorsGetPaletteColor`. To work out which color names you need to update, see the following table:
 
 | Old name              | Switch to                        |
 | --------------------- |----------------------------------|

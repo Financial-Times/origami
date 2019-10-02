@@ -238,19 +238,17 @@ section-money-alt |     all
 
 When using the [Build Service](https://origami.ft.com/docs/services/#build-service) or the [`oColors` mixin](#sass), `o-colors` will output all the palette colors as [CSS custom properties (CSS Variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). These will use the format `--o-colors-{name}` (e.g. `--o-colors-black` and `--o-colors-teal`).
 
+## Migration
 
-## Migration guide
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | 4.10 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.6 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.1 | [migrate to v1](MIGRATION.md#migrating-from-v0-to-v1) |
+╳ deprecated | 0 | 0.2 | N/A |
 
-### Upgrading from v3.x.x to v4.x.x
-
-o-colors v4.x.x updates the entire palette of colors and adds a lot more functionality through new mixins and functions. The palette has been reduced from over 60 colors to a base palette of around 20 colors. These colors can be manipulated using new mixins to get a wide range of on brand colors accessibility compliant colors.
-
-To migrate from v3.x.x to use v4.x.x you will need to update the palette colors you are requesting using `oColorsFor`, `oColorsSetUseCase`, and `oColorsGetPaletteColor`. To work out which color names you need to update, we've created a [table showing which colors should now be used in place of the old v3.x.x palette colors](migration-guide.md).
-
-New use cases have been added for `opinion`, `hero` and `highlight` branding.
-The `product-brand` use case has been removed.
-
-----
 
 ## Contact
 
