@@ -22,7 +22,9 @@
 	  @include _oShareActionIcon($icon);
   }
 
-  @include _oShareInverse;
+  @if $inverse-enabled {
+	  @include _oShareInverse;
+  }
 
   @if $vertical-enabled {
 	  .o-share--vertical {
