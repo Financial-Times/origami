@@ -34,6 +34,9 @@
 ### JavaScript API
 
 - The `Overlay` constructor now throws an error if the `id` parameter is not unique
+- The deprecated `parentNode` option has been removed. Use `parentnode` instead
+- The deprecated `noFocus` option has been removed. Use `nofocus` instead
+- The deprecated `visuallyHideTitle` option has been removed. Use `visuallyhidetitle` instead
 
 ### ES Modules
 
