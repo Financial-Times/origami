@@ -33,4 +33,6 @@
 
 @if (not $o-share-is-silent) {
 	@include oShare();
+	// Set to silent again to avoid being output twice
+	$o-share-is-silent: true !global;
 }
