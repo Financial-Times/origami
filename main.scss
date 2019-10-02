@@ -7,17 +7,30 @@
 @import 'src/scss/functions';
 @import 'src/scss/share';
 
+@mixin oShare($opts: (
+  'icons': $_o-share-icons,
+  'vertical': true,
+  'inverse': true
+)) {
+  $icons: map-get($opts, 'icons');
+  $vertical-enabled: map-get($opts, 'vertical');
+  $inverse-enabled: map-get($opts, 'inverse');
+
+  @include _oShareBase;
+
+  @each $icon in $_o-share-icons {
+	  @include _oShareActionIcon($icon);
+  }
+
+  @include _oShareInverse;
+
+  @if $vertical-enabled {
+	  .o-share--vertical {
+		  @include _oShareVertical();
+	  }
+  }
+}
+
 @if (not $o-share-is-silent) {
-	@include oShareBase;
-
-	// run through all the different icons available
-	@each $icon in $_o-share-icons {
-		@include oShareActionIcon($icon);
-	}
-
-	@include oShareInverse;
-
-	.o-share--vertical {
-		@include oShareVertical();
-	}
+	@include oShare();
 }

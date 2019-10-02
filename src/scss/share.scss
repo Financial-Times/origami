@@ -5,7 +5,7 @@
 
 /// Generate base share styles
 /// @param {String} $classname [o-share] - base class name
-@mixin oShareBase($classname: o-share) {
+@mixin _oShareBase($classname: o-share) {
 	.#{$classname} {
 		display: inline-block;
 
@@ -49,7 +49,7 @@
 /// @param {String}  $name - Name of the icon
 /// @param {String}  $classname [o-share] - base class name
 /// @param {Boolean} $hover [true] - whether to output the hover styles
-@mixin oShareActionIcon($icon-name, $classname: o-share, $hover: true) {
+@mixin _oShareActionIcon($icon-name, $classname: o-share, $hover: true) {
 	// sass-lint:disable-all
 	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
 
@@ -137,14 +137,14 @@
 	// scss-lint:enable DuplicateProperty
 }
 
-@mixin oShareVertical($classname: o-share) {
+@mixin _oShareVertical($classname: o-share) {
 	.#{$classname}__action {
 		float: none;
 		margin-bottom: 5px;
 	}
 }
 
-@mixin oShareInverse($classname: o-share) {
+@mixin _oShareInverse($classname: o-share) {
 	.#{$classname}--inverse {
 		.#{$classname}__action:not(:hover) {
 			border: 1px solid rgba(oColorsGetColorFor('o-share-button-inverse', 'border'), 0.5);
