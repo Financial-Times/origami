@@ -26,7 +26,7 @@
 			{{#info}}aria-describedby="{{info}}"{{/info}}
 		{{/field.aria}}>
 
-		<span	class="o-forms-title" aria-hidden="true">
+		<span class="o-forms-title">
 			<span class="o-forms-title__main" id="{{field.aria.label}}">{{title.main}}</span>
 			{{#title.prompt}}
 				<span class="o-forms-title__prompt" {{#field.aria.info}} id={{field.aria.info}} {{/field.aria.info}}>{{.}}</span>
@@ -44,16 +44,19 @@
 						name="{{name}}"
 						value="{{value}}"
 						{{#pattern}}pattern={{.}}{{/pattern}}
-						aria-label="{{value}}"
+						aria-label="{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}"
 						{{#checked}}checked{{/checked}}
 						{{#disabled}}disabled{{/disabled}}
 						{{^disabled}}{{^optional}}required{{/optional}}{{/disabled}}>
 
 					{{#name}}
+						{{! aria-hidden="true" is set on a group label content intentionally,
+						 	but requires a correct `aria-label` on the input element,
+							see https://github.com/Financial-Times/o-forms/blob/2bf0485d8f89e4c598bd5e3043d0ae9b0d42adb8/ACCESSIBILITY.md#aria-label--aria-hidden }}
 						<span class="o-forms-input__label
 									{{#modifier}} o-forms-input__label--{{.}}{{/modifier}}
 									{{#icon}} o-forms-input__label__{{.}}-icon{{/icon}}" aria-hidden="true">
-									{{#pattern}}{{date}}{{/pattern}}{{^pattern}}{{value}}{{/pattern}}
+									{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}
 						</span>
 					{{/name}}
 
