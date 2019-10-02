@@ -2,7 +2,7 @@
 
 ## Migrating from v6.x.x to v7.x.x
 
-
+`o-share v7` no longer has public mixins other than the primary mixin `oShare()`. It accepts a map `$opts` that allows you to include only the styles you need. Replace previous calls that used the mixins with one using `oShare` with an optional `$opts` map.
 
 ## Migrating from v5.x.x to v6.x.x
 
