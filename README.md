@@ -9,17 +9,14 @@ Social media buttons.
 
 ---
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [JavaScript](#javascript)
-	- [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Sass](#sass)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
 
-### Markup
+## Markup
 
 The simplest markup you might need looks like this:
 
@@ -55,13 +52,13 @@ The different social networks are (in the order suggested by the design team):
 The following social networks are deprecated, and will be removed in the next major release:
 * Google+ (written as 'googleplus' in the `links` config option)
 
-#### Core experience
+### Core experience
 
 To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/demos/src/main.mustache) directly.
 
 Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
 
-### JavaScript
+## JavaScript
 
 To instantiate the JavaScript:
 
@@ -84,21 +81,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Check out the [API docs](https://registry.origami.ft.com/components/o-share/jsdoc)
 
-#### Events
+### Events
 
 The following events are fired by o-share.
 
 - [oShare.ready](#oshareready)
 - [oShare.open](#oshareopen)
 
-##### oShare.ready
+#### oShare.ready
 
 `oShare.ready` fires when a o-share instance has been initialised.
 
 The event provides the following properties:
 - `detail.share` - The initialised o-share instance.
 
-##### oShare.open
+#### oShare.open
 
 `oShare.open` fires when a social network share action is triggered, to open a new window.
 
@@ -107,22 +104,23 @@ The event provides the following properties:
 - `detail.action` - The kind of share i.e. "social".
 - `detail.url` - The social share url opened.
 
-### Sass
+## Sass
 
 ```scss
 @import 'o-share/main';
 ```
 
-We also support silent mode. So if you want to use all the default `o-share` classes, you need to set it to false:
+The `oShare` mixin is used to output the `o-share` styles.
 
 ```scss
-$o-share-is-silent: false;
+@include oShare();
 ```
 
-If not, you can just use our mixins to set you custom class.
+The mixin can take an optional argument `$opts`, that allows you to specify styles more granularly.
 
-Check out the [API docs](https://registry.origami.ft.com/components/o-share/sassdoc)
-
+```scss
+@include oShare($opts: ('vertical': false, 'inverse': true, 'icons': ('twitter', 'pinterest')));
+```
 ---
 
 ## Contact
