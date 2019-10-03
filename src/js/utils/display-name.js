@@ -21,7 +21,7 @@ const isUnique = (displayName) => {
 };
 
 const findInvalidCharacters = (displayName) => {
-	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]/g;
+	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]/gi;
 	const matchingCharacters = displayName
 		.match(containsCharactersNotInCoralTalkRules);
 	const uniqueMatchingCharacters = matchingCharacters.length ?
