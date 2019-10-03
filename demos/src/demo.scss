@@ -1,11 +1,7 @@
-[data-o-expander-shrink-to="height"] .o-expander__content {
-	max-height: 72px;
-	overflow: hidden;
-}
-
-.demo-alert {
-	color: red;
-}
-
-$o-expander-is-silent: false;
 @import "./../../main";
+
+@include oExpander();
+
+.o-expander--initialized[data-o-expander-shrink-to="height"] .o-expander__content {
+	max-height: 72px;
+}

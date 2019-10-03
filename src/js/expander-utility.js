@@ -326,7 +326,7 @@ class ExpanderUtility {
 				if (this.options.toggleState !== 'aria') {
 					toggle.innerHTML = (state === 'expand' ?
 						this.options.expandedToggleText :
-						this.options.collapsedToggleText) + '<i></i>';
+						this.options.collapsedToggleText);
 				}
 				toggle.setAttribute('aria-expanded', state === 'expand' ? 'true' : 'false');
 			});
