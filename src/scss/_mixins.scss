@@ -1,7 +1,5 @@
 /// Define a new palette color.
 ///
-/// @todo Pre-major cascade: Refactor to support deprecated messages, the same as use-cases.
-///
 /// @example scss - Add a custom palette color
 ///     @include oColorsSetColor($project-name: 'o-example', $color-name: 'pink', $color-hex: #ff69b4);
 ///
@@ -18,7 +16,7 @@
 /// @param {Color} $color-hex - The colour to set (hex) e.g. #ff69b4.
 /// @param {Map} $opts - A map of options. Accepts a `deprecated` key with a message to deprecated a set colour e.g. `$opts: (deprecated: 'your deprecation message')`.
 @mixin oColorsSetColor($project-name, $color-name, $color-hex, $opts: ()) {
-	// Validate arguments.
+	// Validate arguments are of correct type.
 	$missing-namespace: type-of($project-name) != 'string';
 	$missing-color-name: type-of($color-name) != 'string';
 	$missing-color-hex: type-of($color-hex) != 'color';
@@ -26,21 +24,19 @@
 		@error 'Expected a string `$project-name` and `$color-name` to set a new colour.';
 	}
 	@if $missing-color-hex {
-		@error 'Expected `$color-hex ` to be a colour, found type "#{type-of($color)}".';
+		@error 'Expected `$color-hex ` to be a colour, found "#{$color-hex}" of type "#{type-of($color-hex)}".';
 	}
 	// Get the namespaced color name.
 	$namespaced-color-name: '#{$project-name}-#{$color-name}';
-	// If a deprecation message has been given, mark the colour as deprecated.
-	// o-colors currently identified deprecated palette colours by assigning
-	// a color name to a list with the colour hex and `_deprecated`.
-	// @todo refactor to support deprecated messages the same as use-cases.
-	$deprecation-message: map-get($opts, 'deprecated');
-	@if($deprecation-message) {
-		$color-hex: $namespaced-color-name, '_deprecated';
-	}
 	// Set the new colour to the colour palette.
-	$new-color: ($namespaced-color-name: $color-hex);
-	$o-colors-palette: map-merge($o-colors-palette, $new-color) !global;
+	$deprecation-message: map-get($opts, 'deprecated');
+	$new-color: ($namespaced-color-name: (
+		'color': $color-hex,
+		'name': $color-name,
+		'$from': $project-name,
+		'meta': ('deprecated': $deprecation-message)
+	));
+	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
 };
 
 /// Add a custom use case property
@@ -50,7 +46,7 @@
 ///
 /// @param {String} $usecase - Name of the use case
 /// @param {String} $property - Property it applies to
-/// @param {String} $color - One of $o-colors-palette
+/// @param {String} $color - One of $_o-colors-palette
 @mixin oColorsSetUseCase($usecase, $property, $color) {
 	$propmap: ($property: $color);
 
@@ -111,7 +107,6 @@
 	}
 }
 
-/// @todo Pre-major cascade: Use `oColorsSetColor` to set namespaced tints.
 /// Update the palette with calculated tints of
 /// each color from $o-colors-tints
 @mixin _oColorsSetPaletteTints {
@@ -126,9 +121,7 @@
 			$saturation: map-get($settings, 'saturation');
 		}
 
-		@if map-has-key($settings, '_deprecated') {
-			$deprecated: '_deprecated';
-		}
+		$deprecated:  map-has-key($settings, '_deprecated');
 
 		@if $tints != null {
 			@each $value in $tints {
@@ -142,18 +135,29 @@
 				}
 
 				// @todo use oColorsSetColor
-				$new-tine: ($name: ($tint, $deprecated));
-				$o-colors-palette: map-merge($o-colors-palette, $new-tine) !global;
+				@include oColorsSetColor('o-colors', $name, $tint, $opts: (
+					'deprecated': $deprecated
+				));
 			}
 		}
+	}
+}
+
+/// Update the palette with default o-colors palette colours.
+@mixin _oColorsSetPaletteColors {
+	@each $color-name, $color-details in $_o-colors-default-palette-colors {
+		$color-hex: map-get($color-details, 'color');
+		$opts: map-get($color-details, 'opts');
+		@include oColorsSetColor('o-colors', $color-name, $color-hex, $opts);
 	}
 }
 
 /// Output all palette colors as CSS Variables
 @mixin _oColorsCSSVariables {
 	:root {
-		@each $name, $hex in $o-colors-palette {
-			#{--o-colors-}#{$name}: oColorsGetPaletteColor($name);
+		@each $color-map in oColorsGetPalette() {
+			$name: map-get($color-map, 'name');
+			#{--o-colors-}#{$name}: oColorsByName($name);
 		}
 	}
 }

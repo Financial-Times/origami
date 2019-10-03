@@ -13,7 +13,8 @@
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
-// Set the tint palette colors programatically
+// Set the palette colors programatically
+@include _oColorsSetPaletteColors;
 @include _oColorsSetPaletteTints;
 
 /// Output `o-colors` CSS classes and custom properties.
@@ -41,13 +42,13 @@
 			@each $prop, $color in $props {
 				#{'.o-colors-' + $usecase + '-' + $prop} {
 					@if $prop == text or $prop == all {
-						color: oColorsGetPaletteColor($color);
+						color: oColorsByName($color);
 					}
 					@if $prop == background or $prop == all {
-						background-color: oColorsGetPaletteColor($color);
+						background-color: oColorsByName($color);
 					}
 					@if $prop == border or $prop == all {
-						border-color: oColorsGetPaletteColor($color);
+						border-color: oColorsByName($color);
 					}
 				}
 			}
@@ -55,9 +56,10 @@
 	}
 
 	@if($palette-classes) {
-		@each $name, $value in $o-colors-palette {
+		@each $color-details in oColorsGetPalette() {
+			$name: map-get($color-details, 'name');
 			.o-colors-palette-#{$name} {
-				background-color: oColorsGetPaletteColor($name);
+				background-color: oColorsByName($name);
 
 				@if $name != 'transparent' and $name != 'inherit' {
 					color: oColorsGetTextColor($name, 100, $warnings: false);

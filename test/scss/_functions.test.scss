@@ -1,32 +1,32 @@
 @include describe('oColors functions') {
-	@include describe('oColorsGetPaletteColor') {
+	@include describe('oColorsByName') {
 		@include it('returns a CSS color for a palette color name, given as a string') {
-			@include assert-equal(oColorsGetPaletteColor('transparent'), (transparent));
-			@include assert-equal(oColorsGetPaletteColor('inherit'), (inherit));
-			@include assert-equal(oColorsGetPaletteColor('paper'), (#fff1e5));
-			@include assert-equal(oColorsGetPaletteColor('black'), (#000000));
-			@include assert-equal(oColorsGetPaletteColor('white'), (#ffffff));
-			@include assert-equal(oColorsGetPaletteColor('claret'), (#990f3d));
-			@include assert-equal(oColorsGetPaletteColor('oxford'), (#0f5499));
-			@include assert-equal(oColorsGetPaletteColor('teal'), (#0d7680));
-			@include assert-equal(oColorsGetPaletteColor('wheat'), (#f2dfce));
-			@include assert-equal(oColorsGetPaletteColor('sky'), (#cce6ff));
-			@include assert-equal(oColorsGetPaletteColor('velvet'), (#593380));
-			@include assert-equal(oColorsGetPaletteColor('mandarin'), (#ff8833));
-			@include assert-equal(oColorsGetPaletteColor('lemon'), (#ffec1a));
-			@include assert-equal(oColorsGetPaletteColor('candy'), (#ff7faa));
-			@include assert-equal(oColorsGetPaletteColor('wasabi'), (#96cc28));
-			@include assert-equal(oColorsGetPaletteColor('jade'), (#00994d));
-			@include assert-equal(oColorsGetPaletteColor('crimson'), (#cc0000));
-			@include assert-equal(oColorsGetPaletteColor('org-b2c'), (#4e96eb));
-			@include assert-equal(oColorsGetPaletteColor('org-b2c-dark'), (#3a70af));
-			@include assert-equal(oColorsGetPaletteColor('org-b2c-light'), (#99c6fb));
+			@include assert-equal(oColorsByName('paper'), (#fff1e5));
+			@include assert-equal(oColorsByName('black'), (#000000));
+			@include assert-equal(oColorsByName('white'), (#ffffff));
+			@include assert-equal(oColorsByName('claret'), (#990f3d));
+			@include assert-equal(oColorsByName('oxford'), (#0f5499));
+			@include assert-equal(oColorsByName('teal'), (#0d7680));
+			@include assert-equal(oColorsByName('wheat'), (#f2dfce));
+			@include assert-equal(oColorsByName('sky'), (#cce6ff));
+			@include assert-equal(oColorsByName('velvet'), (#593380));
+			@include assert-equal(oColorsByName('mandarin'), (#ff8833));
+			@include assert-equal(oColorsByName('lemon'), (#ffec1a));
+			@include assert-equal(oColorsByName('candy'), (#ff7faa));
+			@include assert-equal(oColorsByName('wasabi'), (#96cc28));
+			@include assert-equal(oColorsByName('jade'), (#00994d));
+			@include assert-equal(oColorsByName('crimson'), (#cc0000));
+			@include assert-equal(oColorsByName('org-b2c'), (#4e96eb));
+			@include assert-equal(oColorsByName('org-b2c-dark'), (#3a70af));
+			@include assert-equal(oColorsByName('org-b2c-light'), (#99c6fb));
 		};
-		@include it('returns a CSS color for a palette color name, given as a color') {
-			@include assert-equal(oColorsGetPaletteColor(transparent), (transparent));
-			@include assert-equal(oColorsGetPaletteColor(inherit), (inherit));
-			@include assert-equal(oColorsGetPaletteColor(black), (#000000));
-			@include assert-equal(oColorsGetPaletteColor(white), (#ffffff));
+		@include it('returns an error if `$color-name` is not a string') {
+			@include assert-equal(oColorsByName(null),
+			('ERROR: `$color-name` should be a string but found "null" of type "null".'));
+		};
+		@include it('returns an error if the `$from` argument is not a string') {
+			@include assert-equal(oColorsByName('candy', null),
+			('ERROR: `$from` should be a string but found "null" of type "null".'));
 		};
 	};
 
@@ -89,8 +89,8 @@
 
 			@include it('and assigns a fallback in case of non existent use case') {
 				@include assert-equal(
-				oColorsGetColorFor(test-link, text, $options: ('default': oColorsGetPaletteColor('teal-20'))),
-				(oColorsGetPaletteColor('teal-20')));
+				oColorsGetColorFor(test-link, text, $options: ('default': oColorsByName('teal-20'))),
+				(oColorsByName('teal-20')));
 			};
 		};
 	};
@@ -108,14 +108,14 @@
 
 	@include describe('oColorsGetTextColor') {
 		@include it('returns a text color based on background and opacity percentage') {
-			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('paper')), (#1a1817));
+			@include assert-equal(oColorsGetTextColor(oColorsByName('paper')), (#1a1817));
 		};
 		@include it('throws an error if a text color and background does not pass WCAG contrast guidelines') {
-			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('black-40'), 50),
+			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50),
 			('ERROR: The combination of 50% black on #999189 does not pass WCAG guidelines for color contrast.'));
 		};
 		@include it('does not throw an error when a text color and background does not pass WCAG contrast guidelines and warnings are disabled') {
-			@include assert-equal(oColorsGetTextColor(oColorsGetPaletteColor('black-40'), 50, $warnings: false),  #4d4945);
+			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50, $warnings: false),  #4d4945);
 		};
 	};
 };

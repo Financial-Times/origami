@@ -104,11 +104,11 @@ _This function will not generate a text color based on the use case like `oColor
 
 ### Palette color function
 
-If you have a color use case not covered by those built into the colors module, consider defining a custom use case (see below) and then using the use case mixin or function described above.  However, if you need to use a particular color in one single place only, it may be worth using the `oColorsGetPaletteColor` function, which returns the CSS color for a palette color name:
+If you have a color use case not covered by those built into the colors module, consider defining a custom use case (see below) and then using the use case mixin or function described above.  However, if you need to use a particular color in one single place only, it may be worth using the `oColorsByName` function, which returns the CSS color for a palette color name:
 
 ```scss
 .my-thing {
-	color: oColorsGetPaletteColor('white-60');
+	color: oColorsByName('white-60');
 }
 ```
 
@@ -122,7 +122,7 @@ Usage:
 
 ```scss
 .o-colors-palette-teal {
-	color: oColorsGetTextColor(oColorsGetPaletteColor('teal'), 80);
+	color: oColorsGetTextColor(oColorsByName('teal'), 80);
 }
 ```
 

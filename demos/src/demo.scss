@@ -15,22 +15,21 @@ body {
 	}
 }
 
-@each $name, $value in $o-colors-palette {
-	@if $name != 'transparent' and $name != 'inherit' {
-		.o-colors-border-#{$name} {
-			border-width: 2px 2px 0;
-			border-style: solid;
-			border-color:  oColorsGetPaletteColor($name);
+@each $color-details in oColorsGetPalette() {
+	$name: map-get($color-details, 'name');
+	.o-colors-border-#{$name} {
+		border-width: 2px 2px 0;
+		border-style: solid;
+		border-color:  oColorsByName($name);
 
-			@if $name == 'white' {
-				border-color: oColorsMix(black, white, 20);
-			}
+		@if $name == 'white' {
+			border-color: oColorsMix(black, white, 20);
 		}
+	}
 
 	.o-colors-palette-#{$name} .hex,
-		.o-colors-palette-#{$name}:after {
-			color: oColorsGetTextColor($name, 95);
-		}
+	.o-colors-palette-#{$name}:after {
+		color: oColorsGetTextColor($name, 95);
 	}
 }
 

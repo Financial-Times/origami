@@ -74,11 +74,11 @@ body {
 		[role=tab] {
 			color: black;
 			border-color: black;
-			background-color: oColorsGetPaletteColor('white');
+			background-color: oColorsByName('white');
 		}
 
 		[role=tab][aria-selected=true] {
-				background-color: oColorsGetPaletteColor('black-10');
+				background-color: oColorsByName('black-10');
 
 			a {
 				font-weight: 600;
@@ -92,9 +92,9 @@ body {
 
 	.swatches {
 		border-top: 0;
-		margin: 0; 
+		margin: 0;
 
-		span, 
+		span,
 		br {
 			margin-bottom: 6px;
 		}
@@ -180,7 +180,7 @@ body {
 	.rating-result {
 		&--aaa,
 		&--aa {
-			color: oColorsGetPaletteColor('jade');
+			color: oColorsByName('jade');
 		}
 
 		&--aa18 {
@@ -188,7 +188,7 @@ body {
 		}
 
 		&--fail {
-			color: oColorsGetPaletteColor('crimson');
+			color: oColorsByName('crimson');
 		}
 	}
 

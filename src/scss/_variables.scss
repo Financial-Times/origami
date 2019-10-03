@@ -1,12 +1,20 @@
 $o-colors-is-silent: true !default;
 
-$o-colors-palette: () !default;
-$o-colors-tints: () !default;
+/// Brand to define colours conditionally.
+///
+/// @type String
+$_o-colors-brand: oBrandGetCurrentBrand();
 
-$_o-colors-experimental-internal-palette: (
-	'slate-white-15':        #dedfe0, // oColorsMix('slate', 'white', 15): to support work on internal brand design
-	'slate-white-5':         #f4f4f5, // oColorsMix('slate', 'white', 5): to support work on internal brand design
-);
+/// Default FT colours to add to the colour palette.
+/// @prop {Map}
+/// @prop {Map} base.color-name - Where `color-name` is the name of the colour, e.g. paper.
+/// @prop {Color} base.color-name.color - The color for the colour name.
+/// @prop {Map} base.color-name.opts - Extra details about the colour.
+/// @prop {String|Boolean} base.color-name.opts.deprecated - True, or a deprecation message, if the colour is deprecated.
+$_o-colors-default-palette-colors: () !default;
+
+$_o-colors-palette: () !default;
+$o-colors-tints: ();
 
 $o-colors-usecases: () !default;
 
@@ -14,11 +22,6 @@ $o-colors-usecases: () !default;
 // When the usecase is used and `null` is returned, there is no need to warn about it.
 // Warning is still useful in other cases to highlight misspelled usecases, or missing custom usecases.
 $_o-colors-ignore-usecases-warnings: ('page', 'box', 'link', 'link-hover', 'link-title', 'link-title-hover', 'title', 'body', 'muted');
-
-// Whether to show deprecated palette color warnings.
-// v4 of o-colors has many deprecations for the internal and whtielabel brands.
-// These still effect our components, so users are spammed with warnings they cannot solve.
-// So suppress these warnings. The deprecated colors will be removed in the next major.
-$_o-colors-deprecated-palette-color-warnings: oBrandGetCurrentBrand() == 'master' !default;
+$_o-colors-deprecation-warnings-output: ();
 
 $_o-colors-test-environment: false !default;

@@ -1,133 +1,106 @@
-////
-/// @group o-colors
-/// @link http://registry.origami.ft.com/components/o-colors
-////
+// Define universal primary palette.
+$_o-colors-default-palette-colors: map-merge((
+	'black':                 ('color': #000000, 'opts': ()),
+	'white':                 ('color': #ffffff, 'opts': ()),
+), $_o-colors-default-palette-colors);
 
-/// color palette
-///
-/// These are the colors that make up the FT palette.
-/// We don't use these colors directly, but instead assign them to 'use cases',
-/// which are defined in use-cases.scss.
-///
-/// In the list below, each line contains a color name and a color code,
-/// and is finished with a comma:
-///
-/// 	<color name>:   <color code>,
-///
-/// The color name must be a single word comprising just letters,
-/// numbers, and dashes.
-///
-/// You can have as many spaces between the color name and the color code
-/// as you like (so you can line them up neatly), and you *MUST* finish the
-/// line with a comma.
-///
-/// @type map
-
-$o-colors-palette: map-merge((
-// non-color css values
-'transparent':           transparent,
-'inherit':               inherit,
-
-// primary palette
-'black':                 #000000,
-'white':                 #ffffff,
-), $o-colors-palette);
-
-/// Brand to define conditionally
-///
-/// @type String
-$_o-colors-brand: oBrandGetCurrentBrand();
-
+// Master brand palette.
 @if $_o-colors-brand == master {
-	$o-colors-palette: map-merge((
+	$_o-colors-default-palette-colors: map-merge((
 		// primary palette
-		'paper':                 #fff1e5,
-		'claret':                #990f3d,
-		'oxford':                #0f5499,
-		'teal':                  #0d7680,
+		'paper':                 ('color': #fff1e5, 'opts': ()),
+		'claret':                ('color': #990f3d, 'opts': ()),
+		'oxford':                ('color': #0f5499, 'opts': ()),
+		'teal':                  ('color': #0d7680, 'opts': ()),
 
 		//secondary palette
-		'wheat':                 #f2dfce,
-		'sky':                   #cce6ff,
-		'slate':                 #262a33,
-		'velvet':                #593380,
-		'mandarin':              #ff8833,
-		'lemon':                 #ffec1a,
+		'wheat':                 ('color': #f2dfce, 'opts': ()),
+		'sky':                   ('color': #cce6ff, 'opts': ()),
+		'slate':                 ('color': #262a33, 'opts': ()),
+		'velvet':                ('color': #593380, 'opts': ()),
+		'mandarin':              ('color': #ff8833, 'opts': ()),
+		'lemon':                 ('color': #ffec1a, 'opts': ()),
 
 		//tertiary palette
-		'candy':                 #ff7faa,
-		'wasabi':                #96cc28,
-		'jade':                  #00994d,
-		'crimson':               #cc0000,
+		'candy':                 ('color': #ff7faa, 'opts': ()),
+		'wasabi':                ('color': #96cc28, 'opts': ()),
+		'jade':                  ('color': #00994d, 'opts': ()),
+		'crimson':               ('color': #cc0000, 'opts': ()),
 
 		//b2c palette
-		'org-b2c':               #4e96eb,
-		'org-b2c-dark':          #3a70af,
-		'org-b2c-light':         #99c6fb,
-	), $o-colors-palette);
+		'org-b2c':               ('color': #4e96eb, 'opts': ()),
+		'org-b2c-dark':          ('color': #3a70af, 'opts': ()),
+		'org-b2c-light':         ('color': #99c6fb, 'opts': ()),
+	), $_o-colors-default-palette-colors);
 }
 
+// Internal brand palette.
 @if $_o-colors-brand == internal {
-	$o-colors-palette: map-merge((
-	// primary palette
-	'oxford':          #0f5499,
-	'teal':            #0d7680,
-	'paper':          (#fff1e5, '_deprecated'),
-	'claret':         (#990f3d, '_deprecated'),
+	$_o-colors-default-palette-colors: map-merge((
+		// primary palette
+		'oxford':         ('color': #0f5499, 'opts': ()),
+		'teal':           ('color': #0d7680, 'opts': ()),
+		'paper':          ('color': #fff1e5, 'opts': ('deprecated': true)),
+		'claret':         ('color': #990f3d, 'opts': ('deprecated': true)),
 
-	//secondary palette
-	'lemon':           #ffec1a,
-	'slate':           #262a33,
-	'wheat':          (#f2dfce, '_deprecated'),
-	'sky':            (#cce6ff, '_deprecated'),
-	'velvet':         (#593380, '_deprecated'),
-	'mandarin':       (#ff8833, '_deprecated'),
+		//secondary palette
+		'lemon':          ('color': #ffec1a, 'opts': ()),
+		'slate':          ('color': #262a33, 'opts': ()),
+		'wheat':          ('color': #f2dfce, 'opts': ('deprecated': true)),
+		'sky':            ('color': #cce6ff, 'opts': ('deprecated': true)),
+		'velvet':         ('color': #593380, 'opts': ('deprecated': true)),
+		'mandarin':       ('color': #ff8833, 'opts': ('deprecated': true)),
 
-	//tertiary palette
-	'jade':            #00994d,
-	'crimson':         #cc0000,
-	'candy':          (#ff7faa, '_deprecated'),
-	'wasabi':         (#96cc28, '_deprecated'),
+		//tertiary palette
+		'jade':           ('color': #00994d, 'opts': ()),
+		'crimson':        ('color': #cc0000, 'opts': ()),
+		'candy':          ('color': #ff7faa, 'opts': ('deprecated': true)),
+		'wasabi':         ('color': #96cc28, 'opts': ('deprecated': true)),
 
-	//b2c palette
-	'org-b2c':        (#4e96eb, '_deprecated'),
-	'org-b2c-dark':   (#3a70af, '_deprecated'),
-	'org-b2c-light':  (#99c6fb, '_deprecated'),
-	), $o-colors-palette);
+		//b2c palette
+		'org-b2c':        ('color': #4e96eb, 'opts': ('deprecated': true)),
+		'org-b2c-dark':   ('color': #3a70af, 'opts': ('deprecated': true)),
+		'org-b2c-light':  ('color': #99c6fb, 'opts': ('deprecated': true)),
+	), $_o-colors-default-palette-colors);
 
 	// Add experimental colors to support work on the internal brand design.
-	$o-colors-palette: map-merge($_o-colors-experimental-internal-palette, $o-colors-palette);
+	$_o-colors-default-palette-colors: map-merge((
+		'slate-white-15': ('color': #dedfe0, 'opts': ()), // oColorsMix('slate', 'white', 15): to support work on internal brand design
+		'slate-white-5':  ('color': #f4f4f5, 'opts': ()), // oColorsMix('slate', 'white', 5): to support work on internal brand design
+	), $_o-colors-default-palette-colors);
 }
 
+// Whitelabel brand palette.
 @if $_o-colors-brand == whitelabel {
-	$o-colors-palette: map-merge((
-	// primary palette
-	'oxford':         (#0f5499, '_deprecated'),
-	'teal':           (#0d7680, '_deprecated'),
-	'paper':          (#fff1e5, '_deprecated'),
-	'claret':         (#990f3d, '_deprecated'),
+	$_o-colors-default-palette-colors: map-merge((
+		// primary palette
+		'oxford':         ('color': #0f5499, 'opts': ('deprecated': true)),
+		'teal':           ('color': #0d7680, 'opts': ('deprecated': true)),
+		'paper':          ('color': #fff1e5, 'opts': ('deprecated': true)),
+		'claret':         ('color': #990f3d, 'opts': ('deprecated': true)),
 
-	//secondary palette
-	'lemon':          (#ffec1a, '_deprecated'),
-	'slate':          (#262a33, '_deprecated'),
-	'wheat':          (#f2dfce, '_deprecated'),
-	'sky':            (#cce6ff, '_deprecated'),
-	'velvet':         (#593380, '_deprecated'),
-	'mandarin':       (#ff8833, '_deprecated'),
+		//secondary palette
+		'lemon':          ('color': #ffec1a, 'opts': ('deprecated': true)),
+		'slate':          ('color': #262a33, 'opts': ('deprecated': true)),
+		'wheat':          ('color': #f2dfce, 'opts': ('deprecated': true)),
+		'sky':            ('color': #cce6ff, 'opts': ('deprecated': true)),
+		'velvet':         ('color': #593380, 'opts': ('deprecated': true)),
+		'mandarin':       ('color': #ff8833, 'opts': ('deprecated': true)),
 
-	//tertiary palette
-	'jade':           (#00994d, '_deprecated'),
-	'crimson':        (#cc0000, '_deprecated'),
-	'candy':          (#ff7faa, '_deprecated'),
-	'wasabi':         (#96cc28, '_deprecated'),
+		//tertiary palette
+		'jade':           ('color': #00994d, 'opts': ('deprecated': true)),
+		'crimson':        ('color': #cc0000, 'opts': ('deprecated': true)),
+		'candy':          ('color': #ff7faa, 'opts': ('deprecated': true)),
+		'wasabi':         ('color': #96cc28, 'opts': ('deprecated': true)),
 
-	//b2c palette
-	'org-b2c':        (#4e96eb, '_deprecated'),
-	'org-b2c-dark':   (#3a70af, '_deprecated'),
-	'org-b2c-light':  (#99c6fb, '_deprecated'),
-	), $o-colors-palette);
+		//b2c palette
+		'org-b2c':        ('color': #4e96eb, 'opts': ('deprecated': true)),
+		'org-b2c-dark':   ('color': #3a70af, 'opts': ('deprecated': true)),
+		'org-b2c-light':  ('color': #99c6fb, 'opts': ('deprecated': true)),
+	), $_o-colors-default-palette-colors);
 }
 
+// Master brand palette tints.
 @if $_o-colors-brand == master {
 	$o-colors-tints: map-merge((
 		'black': (
@@ -193,6 +166,8 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 		)
 	), $o-colors-tints);
 }
+
+// Internal brand palette tints.
 @if $_o-colors-brand == internal {
 	$o-colors-tints: map-merge((
 		'black': (
@@ -265,6 +240,8 @@ $_o-colors-brand: oBrandGetCurrentBrand();
 		),
 	), $o-colors-tints);
 }
+
+// Whitelabel brand palette tints.
 @if $_o-colors-brand == whitelabel {
 	$o-colors-tints: map-merge((
 		'black': (

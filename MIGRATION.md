@@ -2,6 +2,45 @@
 
 ### Upgrading from v4 to v5
 
+The following variables have changed:
+
+- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette, `oColorsByName` to fetch colors from the palette, and `oColorsGetPalette` to iterate over the palette.
+
+The following mixins have changed:
+
+- `oColorsGetPaletteColor` is now [`oColorsByName`](#oColorsByName).
+- [`oColorsSetColor`](#oColorsSetColor) has updated arguments.
+
+The following have been removed from the palette:
+
+- `inherit`. Replace `oColorsByName('inherit');` with `inherit`.
+- `transparent`. Replace `oColorsByName('transparent');` with `transparent`.
+
+#### oColorsByName
+
+`oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name` and it must be of type string. A second argument `$from` may also be given to get a colour set by a component or project other than o-colors.
+
+To fetch a default `o-colors` colour.
+```diff
+-color: oColorsGetPaletteColor('paper');
++color: oColorsByName('paper');
+```
+
+To fetch a colour set by a component or project other that `o-colors`.
+```diff
+// Fetch the colour 'stormy' from the component 'o-example'.
+-color: oColorsGetPaletteColor('o-example-story');
++color: oColorsByName('stormy', 'o-example');
+```
+
+Or with argument names:
+```diff
+// Fetch the colour 'stormy' from the component 'o-example'.
+-color: oColorsGetPaletteColor($name: 'o-example-story');
++color: oColorsByName($color-name: 'stormy', $from: 'o-example');
+```
+
+
 #### oColorsSetColor
 
 The arguments of `oColorsSetColor` have changed. And it now supports a colour deprecation message.
