@@ -1,5 +1,3 @@
-@import 'o-spacing/main';
-
 /// Output All oComments Features
 @mixin oComments ($class: 'o-comments') {
 	.o-comments__staging-message-container {
@@ -17,6 +15,40 @@
 		color: white;
 		font-weight: bold;
 		padding-left: oSpacingByName('s4');
+	}
+
+	.o-overlay.o-comments__displayname-prompt {
+		background: oColorsGetPaletteColor('paper');
+		padding: 10px;
+		width: 100%;
+		max-width: 400px;
+
+		.o-overlay__title {
+			margin: 5px 10px 10px;
+			line-height: 25px;
+			font-family: MetricWeb;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.o-comments__displayname-form {
+			padding-right: 0px;
+			padding-left: 0px;
+		}
+
+		.o-comments__displayname-container {
+			margin-top: oSpacingByName('s2');
+			display: flex;
+		}
+
+		.o-comments__displayname-input {
+			margin-right: 15px;
+			margin-top: 0;
+		}
+
+		.o-comments__displayname-submit {
+			@include oButtons($theme: primary);
+		}
 	}
 }
 
