@@ -5,7 +5,7 @@
     "keywords": "",
     "origamiCategory": "utilities",
     "support": "https://github.com/Financial-Times/o-brand/issues",
-    "supportStatus": "experimental",
+    "supportStatus": "active",
     "supportContact": {
         "email": "origami.support@ft.com",
         "slack": "financialtimes/ft-origami"
