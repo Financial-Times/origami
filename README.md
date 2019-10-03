@@ -3,8 +3,8 @@
 Accessible, content-aware component for expanding and collapsing content.
 
 - [Markup](#markup)
-- [Sass](#sass)
 - [JavaScript](#javascript)
+- [Sass](#sass)
 - [Options](#options)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -18,18 +18,6 @@ The  `o-expander` component has a content element `o-expander__content` (the DOM
 ```html
 <div data-o-component="o-expander" class="o-expander">
     <div class="o-expander__content">
-      <!-- Some content to expand and collapse. -->
-    </div>
-    <button class="o-expander__toggle">Toggle Content</button>
-</div>
-```
-
-By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded`.
-
-```diff
-<div data-o-component="o-expander" class="o-expander">
--    <div class="o-expander__content">
-+    <div class="o-expander__content o-expander__content--expanded">
       <!-- Some content to expand and collapse. -->
     </div>
     <button class="o-expander__toggle">Toggle Content</button>
@@ -145,19 +133,6 @@ If you would not like toggle text to be updated set `data-o-expander-collapsed-t
 	</div>
 ```
 
-## Sass
-
-
-Default expander styles hide the toggle until the expander is initialised successfully, so no content is obscured if JavaScript fails. When toggled the expander hides and shows content immediately. To include all `o-expander` CSS use the `oExpander` mixin.
-
-```scss
-  @include oExpander();
-```
-If using the height expander, also set your `max-height`. See [Height Expander](#height-expander) for an example.
-
-_For animation and other more complex styles don't include opinionated o-expander CSS. Instead create a [custom expander](#custom-expander) with totally custom styles._
-
-
 ## JavaScript
 
 No JavaScript will run automatically unless you are using the Build Service. You must either construct an `o-expander` object or fire an o.DOMContentLoaded event, which `o-expander` listens for.
@@ -232,6 +207,24 @@ o-expander fires the following events, which always fire before any repainting/l
   * `oExpander.init` - fires when the expander has initialised
   * `oExpander.expand` - fires when the expander expands
   * `oExpander.collapse` - fires when the expander collapses
+
+## Sass
+
+  * If you want to use the default classes, turn silent mode off before importing it: `$o-expander-is-silent: false;`
+  * By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded`
+  * Maximum height (when collapsed) should be set using css. Be mindful that when js doesn't run you may want to default to showing all the content e.g.
+
+    ```scss
+    .o--if-js .o-expander__content { // ensures all content is shown when js doesn't run
+        max-height: 50px;
+    }
+
+    .o-expander__content { // collapses content when js doesn't run
+        max-height: 50px;
+    }
+    ```
+
+  * Animation and other fancy behaviour can be added using css and by listening to the events outlined above.
 
 ## Migration
 
