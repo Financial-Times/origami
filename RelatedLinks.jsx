@@ -1,11 +1,11 @@
 import { h } from '@financial-times/x-engine';
 
-const renderLink = ({ id, url, type, title }, i) => (
+const renderLink = ({ id, relativeUrl, type, title }, i) => (
 	<li
 		key={`related-${i}`}
 		data-content-id={id}
 		className={`o-teaser__related-item o-teaser__related-item--${type}`}>
-		<a data-trackable="related" href={url}>
+		<a data-trackable="related" href={relativeUrl}>
 			{title}
 		</a>
 	</li>
