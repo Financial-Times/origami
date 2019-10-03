@@ -6,8 +6,9 @@
 	"origamiType": "module",
 	"browserFeatures": {
 		"required": [
-			"classlist",
-			"customevent"
+			"Element.prototype.classList",
+			"Array.from",
+			"CustomEvent"
 		]
 	},
 	"brands": [
@@ -31,16 +32,22 @@
 	},
 	"demos": [
 		{
+			"title": "Collapsing Height",
+			"name": "Collapsing Height",
+			"description": "Collapses based on the max-height of the content.",
+			"template": "demos/src/collapsing-height.mustache"
+		},
+		{
 			"title": "Collapsing List",
 			"name": "Collapsing List",
 			"description": "A list which collapses, hiding a number of items.",
 			"template": "demos/src/collapsing-list.mustache"
 		},
 		{
-			"title": "Collapsing Height",
-			"name": "Collapsing Height",
-			"description": "Collapses based on the max-height of the content.",
-			"template": "demos/src/collapsing-height.mustache"
+			"title": "Collapsing Hidden",
+			"name": "Collapsing Hidden",
+			"description": "",
+			"template": "demos/src/collapsing-hidden.mustache"
 		},
 		{
 			"title": "Collapsing Selector",

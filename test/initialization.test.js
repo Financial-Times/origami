@@ -3,7 +3,7 @@ import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-const Expander = require('./../main');
+import Expander from './../main';
 
 describe("Expander", () => {
 	it('is defined', () => {
