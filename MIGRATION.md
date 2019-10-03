@@ -2,7 +2,30 @@
 
 ### Upgrading from v4 to v5
 
+#### oColorsSetColor
 
+The arguments of `oColorsSetColor` have changed. And it now supports a colour deprecation message.
+
+A project name must now be given explicitly, which is used to namespace the colour:
+```diff
+// Setting a custom colour 'pink' within a component or project 'o-example'.
+- @include oColorsSetColor('o-example-pink', #ff69b4);
++ @include oColorsSetColor('o-example', 'pink', #ff69b4);
+```
+
+The color name argument no longer accepts a list to deprecate colours. Instead use the new `$opts` argument.
+```diff
+// Setting a  custom colour 'pink', which is deprecated.
+- @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
++ @include oColorsSetColor('o-example', 'pink', #ff69b4, (deprecated: true));
+```
+
+A custom deprecation message may be given:
+```diff
+// Setting a  custom colour 'pink', which is deprecated, with a custom deprecation warning.
+- @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
++ @include oColorsSetColor('o-example', 'pink', #ff69b4, (deprecated: 'reason for deprecation'));
+```
 
 ### Upgrading from v3 to v4
 

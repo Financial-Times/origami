@@ -68,8 +68,8 @@
 
 	@include describe('oColorsSetColor') {
 		@include it('adds a custom palette color') {
-			@include oColorsSetColor('olive', #808000);
-			@include assert-equal(oColorsGetPaletteColor('olive'), (#808000))
+			@include oColorsSetColor('o-colors', 'olive', #808000);
+			@include assert-equal(oColorsGetPaletteColor('o-colors-olive'), (#808000))
 		};
 	};
 
