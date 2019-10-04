@@ -2,7 +2,13 @@
 
 ## Migrating from v6.x.x to v7.x.x
 
+### Mixins
+
 `o-share v7` no longer has public mixins other than the primary mixin `oShare()`. It accepts a map `$opts` that allows you to include only the styles you need. Replace previous calls that used the mixins with one using `oShare` with an optional `$opts` map.
+
+### Google Plus is gone
+
+Google Plus was deprecated during the previous major version. It has now been removed.
 
 ## Migrating from v5.x.x to v6.x.x
 

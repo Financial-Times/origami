@@ -30,12 +30,11 @@ $o-share-ft-icons-names: (mail link share);
 
 /// List of accepted social network icons, and the version
 /// @type map
-$_o-share-icons: (twitter, facebook, googleplus, linkedin, link, share, mail, pinterest, whatsapp);
+$_o-share-icons: (twitter, facebook, linkedin, link, share, mail, pinterest, whatsapp);
 
 $o-share-colors: (
 	twitter: #1da1f2,
 	facebook: #3b579d,
-	googleplus: #dc4a3d,
 	linkedin: #0077b5,
 	pinterest: #bd081c,
 	whatsapp: #25d366

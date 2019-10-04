@@ -91,7 +91,6 @@ describe('component', () => {
 		proclaim.instanceOf(document.querySelector('.o-share__icon--facebook'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__icon--linkedin'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__icon--whatsapp'), HTMLElement);
-		proclaim.instanceOf(document.querySelector('.o-share__icon--googleplus'), HTMLElement);
 		proclaim.instanceOf(document.querySelector('.o-share__icon--pinterest'), HTMLElement);
 	});
 

@@ -49,9 +49,6 @@ The different social networks are (in the order suggested by the design team):
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
 * Pinterest
 
-The following social networks are deprecated, and will be removed in the next major release:
-* Google+ (written as 'googleplus' in the `links` config option)
-
 ### Core experience
 
 To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/demos/src/main.mustache) directly.

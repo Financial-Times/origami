@@ -43,7 +43,7 @@ function insertShareComponent() {
 	const html = `
 		<div data-o-component="o-share"
 			class="o-share"
-			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest"
+			data-o-share-links="twitter facebook linkedin whatsapp pinterest"
 			data-o-share-url="https://www.ft.com/content/test"
 			data-o-share-title="Test Article"
 			data-o-share-titleExtra="Extra"
@@ -57,7 +57,7 @@ function insertRelativeShareComponent() {
 	const html = `
 		<div data-o-component="o-share"
 			class="o-share"
-			data-o-share-links="twitter facebook linkedin whatsapp googleplus pinterest"
+			data-o-share-links="twitter facebook linkedin whatsapp pinterest"
 			data-o-share-url="/content/test"
 			data-o-share-title="Test Article"
 			data-o-share-titleExtra="Extra"
