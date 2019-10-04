@@ -16,7 +16,12 @@
   $vertical-enabled: map-get($opts, 'vertical');
   $inverse-enabled: map-get($opts, 'inverse');
 
-  @include _oShareBase;
+  // Error if the global $system-code variable is not set.
+  @if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+	  @error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
+  }
+
+  @include _oShareBase();
 
   @each $icon in $_o-share-icons {
 	  @include _oShareActionIcon($icon);
