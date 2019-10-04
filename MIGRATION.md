@@ -10,6 +10,10 @@
 
 Google Plus was deprecated during the previous major version. It has now been removed.
 
+### Custom classnames
+
+It's no longer possible to customise the class name used in `o-share`, use the `o-share` classes instead.
+
 ## Migrating from v5.x.x to v6.x.x
 
 o-share v6 introduces a breaking change that you may need to update in your product:
