@@ -149,10 +149,11 @@
 @mixin _oShareInverse($classname: o-share) {
 	.#{$classname}--inverse {
 		.#{$classname}__action:not(:hover) {
+@mixin _oShareInverse($icons) {
 			border: 1px solid rgba(oColorsGetColorFor('o-share-button-inverse', 'border'), 0.5);
 		}
 
-		@each $icon-name in $_o-share-icons {
+		@each $icon-name in $icons {
 
 			// sass-lint:disable-all
 			$scheme: "ftsocial-v#{$o-share-social-icons-version}";

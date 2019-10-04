@@ -28,7 +28,7 @@
   }
 
   @if $inverse-enabled {
-	  @include _oShareInverse;
+	  @include _oShareInverse($icons);
   }
 
   @if $vertical-enabled {
