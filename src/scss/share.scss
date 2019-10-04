@@ -4,9 +4,9 @@
 ////
 
 /// Generate base share styles
-/// @param {String} $classname [o-share] - base class name
-@mixin _oShareBase($classname: o-share) {
-	.#{$classname} {
+/// @param {String}
+@mixin _oShareBase() {
+	.o-share {
 		display: inline-block;
 
 		ul {
@@ -14,7 +14,7 @@
 			padding: 0;
 		}
 	}
-	.#{$classname}__action {
+	.o-share__action {
 		box-sizing: border-box;
 		float: left;
 		width: $o-share-icon-size;
@@ -31,7 +31,7 @@
 		}
 	}
 
-	.#{$classname}__text {
+	.o-share__text {
 		position: absolute;
 		clip: rect(0 0 0 0);
 		margin: -1px;
@@ -49,7 +49,7 @@
 /// @param {String}  $name - Name of the icon
 /// @param {String}  $classname [o-share] - base class name
 /// @param {Boolean} $hover [true] - whether to output the hover styles
-@mixin _oShareActionIcon($icon-name, $classname: o-share, $hover: true) {
+@mixin _oShareActionIcon($icon-name, $hover: true) {
 	// sass-lint:disable-all
 	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
 
@@ -65,7 +65,7 @@
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-	.#{$classname}__icon {
+	.o-share__icon {
 		display: block;
 		position: relative;
 		top: -1px;
@@ -97,7 +97,7 @@
 	}
 
 	// scss-lint:disable DuplicateProperty
-	.#{$classname}__icon--#{$icon-name}:before {
+	.o-share__icon--#{$icon-name}:before {
 		content: '';
 		display: block;
 		width: #{$o-share-icon-size};
@@ -119,14 +119,14 @@
 		$hover-color: str-slice(ie-hex-str($hover-color), 4);
 		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-		.#{$classname}__icon--#{$icon-name}:before {
+		.o-share__icon--#{$icon-name}:before {
 			background-color: oColorsGetPaletteColor('black');
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
 	}
 
-	.#{$classname}__icon--#{$icon-name}:hover,
-	.#{$classname}__icon--#{$icon-name}:focus {
+	.o-share__icon--#{$icon-name}:hover,
+	.o-share__icon--#{$icon-name}:focus {
 		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
@@ -146,10 +146,9 @@
 	}
 }
 
-@mixin _oShareInverse($classname: o-share) {
-	.#{$classname}--inverse {
-		.#{$classname}__action:not(:hover) {
 @mixin _oShareInverse($icons) {
+	.o-share--inverse {
+		.o-share__action:not(:hover) {
 			border: 1px solid rgba(oColorsGetColorFor('o-share-button-inverse', 'border'), 0.5);
 		}
 
@@ -170,7 +169,7 @@
 			$hover-color: str-slice(ie-hex-str($hover-color), 4);
 			$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-			.#{$classname}__icon--#{$icon-name} {
+			.o-share__icon--#{$icon-name} {
 				border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
 
 				&:before {
