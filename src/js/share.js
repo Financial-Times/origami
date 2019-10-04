@@ -1,4 +1,4 @@
-const DomDelegate = require('ftdomdelegate');
+import DomDelegate from 'ftdomdelegate';
 
 const socialUrls = {
 	twitter: "https://twitter.com/intent/tweet?url={{url}}&text={{title}}&related={{relatedTwitterAccounts}}&via=FT",
@@ -230,10 +230,7 @@ Share.prototype.destroy = function () {
   * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
   * @returns {Array} - An array of Share instances
   */
-Share.init = function (rootEl) {
-	if (!rootEl) {
-		rootEl = document.body;
-	}
+Share.init = function (rootEl = document.body) {
 	if (!(rootEl instanceof HTMLElement)) {
 		rootEl = document.querySelector(rootEl);
 	}
@@ -243,4 +240,4 @@ Share.init = function (rootEl) {
 	return Array.from(rootEl.querySelectorAll('[data-o-component=o-share]'), rootEl => new Share(rootEl));
 };
 
-module.exports = Share;
+export default Share;

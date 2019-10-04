@@ -1,11 +1,11 @@
 /*global require, module*/
-const oShare = require('./src/js/share');
+import Share from './src/js/share';
 
 const constructAll = function() {
-	oShare.init();
+	Share.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 };
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = oShare;
+export default Share;

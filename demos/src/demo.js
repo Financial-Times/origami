@@ -1,6 +1,7 @@
 /*global require*/
-window.oShare = require('../../main.js');
+import Share from '../../main';
+window.oShare = Share;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
