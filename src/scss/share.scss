@@ -14,6 +14,7 @@
 			padding: 0;
 		}
 	}
+
 	.o-share__action {
 		box-sizing: border-box;
 		float: left;
@@ -42,28 +43,6 @@
 		height: 1px;
 		white-space: nowrap;
 	}
-}
-
-/// Icon
-///
-/// @param {String}  $name - Name of the icon
-/// @param {String}  $classname [o-share] - base class name
-/// @param {Boolean} $hover [true] - whether to output the hover styles
-@mixin _oShareActionIcon($icon-name, $hover: true) {
-	// sass-lint:disable-all
-	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
-
-	@if (index($o-share-ft-icons-names, $icon-name)) {
-		$scheme: "fticon-v#{$o-share-ft-icons-version}";
-	}
-
-	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
-	$query: "?source=$system-code";
-
-	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
-
-	$hover-color: str-slice(ie-hex-str($hover-color), 4);
-	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
 	.o-share__icon {
 		display: block;
@@ -95,6 +74,28 @@
 			}
 		}
 	}
+}
+
+/// Icon
+///
+/// @param {String}  $name - Name of the icon
+/// @param {String}  $classname [o-share] - base class name
+/// @param {Boolean} $hover [true] - whether to output the hover styles
+@mixin _oShareActionIcon($icon-name, $hover: true) {
+	// sass-lint:disable-all
+	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
+
+	@if (index($o-share-ft-icons-names, $icon-name)) {
+		$scheme: "fticon-v#{$o-share-ft-icons-version}";
+	}
+
+	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
+	$query: "?source=o-share";
+
+	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
+
+	$hover-color: str-slice(ie-hex-str($hover-color), 4);
+	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
 	// scss-lint:disable DuplicateProperty
 	.o-share__icon--#{$icon-name}:before {
