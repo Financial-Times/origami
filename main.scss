@@ -27,9 +27,7 @@
   }
 
   @if $vertical-enabled {
-	  .o-share--vertical {
-		  @include _oShareVertical();
-	  }
+    @include _oShareVertical();
   }
 }
 

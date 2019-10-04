@@ -137,10 +137,12 @@
 	// scss-lint:enable DuplicateProperty
 }
 
-@mixin _oShareVertical($classname: o-share) {
-	.#{$classname}__action {
-		float: none;
-		margin-bottom: 5px;
+@mixin _oShareVertical() {
+	.o-share--vertical {
+		.o-share__action {
+			float: none;
+			margin-bottom: 5px;
+		}
 	}
 }
 
