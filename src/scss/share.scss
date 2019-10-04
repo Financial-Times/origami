@@ -58,7 +58,7 @@
 	}
 
 	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
-	$query: "?source=o-share";
+	$query: "?source=$system-code";
 
 	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
 
@@ -162,7 +162,7 @@
 			}
 
 			$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
-			$query: "?source=o-share";
+			$query: "?source=$system-code";
 
 			$hover-color: oColorsGetColorFor('o-share-button-inverse', background);
 
