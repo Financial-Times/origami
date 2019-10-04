@@ -18,7 +18,7 @@
 
 :root {
 	--font-family-sans-serif: #{inspect($o-typography-sans)};
-	--font-family-serif: #{inspect($o-typography-display)};
+	--font-family-serif: #{inspect($o-typography-sans)};
 
 
 	// primary text color
@@ -48,11 +48,11 @@
 	// stream section unselected tab comment count badge
 	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('paper'))};
 
-
-	// stream section tab bar divider
-	--palette-divider: #{inspect(oColorsGetPaletteColor('teal-50'))};
 }
 
+body {
+	font-size: 14px !important;
+}
 
 // Mainly for the links in the community guidelines box
 a {
@@ -65,6 +65,9 @@ a {
 	border-bottom-width: 0;
 }
 
+.coral-tabBarSecondary {
+	border-bottom-color: oColorsGetPaletteColor('teal-50');
+}
 
 // community guidelines box
 .coral-guidelines {
@@ -72,6 +75,9 @@ a {
 	border-color: oColorsGetPaletteColor('wheat');
 }
 
+.coral-guidelines div div {
+	font-size: 14px !important;
+}
 
 // top tab bar buttons
 .coral-tabBar-comments,
@@ -121,7 +127,8 @@ a {
 
 // cancel buttons
 .coral-createReplyComment-cancel,
-.coral-editComment-cancel {
+.coral-editComment-cancel,
+.coral-editComment-close {
 	@include oButtons;
 
 	color: oButtonsGetColor('', 'color', 'secondary') !important;
@@ -138,13 +145,14 @@ a {
 .coral-comment {
 	padding-bottom: 6px;
 	padding-top: 10px;
-	border-bottom: solid 1px oColorsGetPaletteColor('black-20');
 }
 
 
 // comment author
-.coral-comment-username span {
+.coral-comment-username span,
+.coral-comment-inReplyToUsername {
 	@include oTypographyAuthor;
+	font-size: 14px;
 
 	&:hover {
 		color: oColorsGetPaletteColor('black');
@@ -152,7 +160,7 @@ a {
 }
 
 
-// report button
+// comment buttons
 .coral-comment-reactButton,
 .coral-comment-reactedButton,
 .coral-comment-replyButton,
@@ -160,6 +168,9 @@ a {
 .coral-comment-reportButton,
 .coral-featuredComment-reactButton,
 .coral-featuredComment-replies {
+	font-weight: 400;
+	font-size: 14px;
+
 	&:hover {
 		border-color: transparent !important;
 	}
@@ -216,22 +227,15 @@ a {
 }
 
 
-// In reply to <<author>>
-.coral-comment-inReplyToUsername {
-	@include oTypographyAuthor;
-
-	&:hover {
-		color: oColorsGetPaletteColor('black-50');
-	}
-}
-
-
 // xx hours ago
+.coral-myComment-timestamp,
+.coral-myComment-timestamp span,
+.coral-comment-timestamp,
 .coral-comment-timestamp span {
 	@include oTypographyTimestamp;
-	font-weight: lighter !important;
+	font-size: 12px;
 	margin-bottom: 0;
-	color: oColorsGetPaletteColor('black-50');
+	color: oColorsGetPaletteColor('black-80');
 }
 
 
@@ -252,8 +256,19 @@ a {
 
 // comment content blockquote
 .coral-rte-content blockquote,
-.coral-comment-content blockquote {
+.coral-comment-content blockquote,
+.coral-myComment-content blockquote {
 	background-color: oColorsGetPaletteColor('wheat');
+	font-size: 14px !important;
+}
+
+.coral-rte-content,
+.coral-rte-placeholder,
+.coral-comment-content,
+.coral-myComment-content,
+.coral-myComment-story,
+.coral-createReplyComment-replyToText {
+	font-size: 14px !important;
 }
 
 
@@ -291,11 +306,19 @@ a {
 .coral-createReplyComment-replyToUsername {
 	@include oTypographyAuthor;
 
+	font-size: 14px;
+
 	&:hover {
 		color: oColorsGetColorFor('body', 'text');
 	}
 }
 
+// In reply to <<author>>
+.coral-comment-inReplyToUsername {
+	&:hover {
+		color: oColorsGetPaletteColor('black-50');
+	}
+}
 
 // verify email resend button
 .coral-verifyEmail-resendButton {
@@ -326,4 +349,16 @@ a {
 	&:hover {
 		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
 	}
+}
+
+.coral-viewerBox div div,
+.coral-viewerBox div div span,
+.coral-viewerBox div div button {
+	font-size: 14px !important;
+}
+
+.coral-editComment div div div div span,
+.coral-editComment-expiredTime,
+.coral-editComment-remainingTime span {
+	font-size: 14px;
 }
