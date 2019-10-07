@@ -1,63 +1,78 @@
 @import "o-icons/main";
+@import 'src/scss/variables';
 
-$o-expander-is-silent: true !default;
-
-@mixin oExpanderContent {
-	&[aria-hidden="true"] {
+/// @outputs All o-expander CSS, including the expander content area and toggle.
+@mixin oExpander() {
+	// Hide content when aria-hidden is applied.
+	.o-expander__content[aria-hidden="true"] {
 		display: none;
 	}
 
-	// Needs extra specificity
-	&#{&}--expanded {
-		max-height: none;
+	// Remove max-height from content when expanded.
+	// This must override the user set max-height, so use `!important` to
+	// guarantee higher specificity. Users may use the `createCustom` method
+	// and totally custom CSS for an expander with different behaviour.
+	.o-expander__content--expanded {
+		max-height: none !important; //sass-lint:disable-line no-important
 	}
 
-	// The class is added via JS, so it can use the default name
-	&--collapsed .o-expander__collapsible-item {
+	// Hide overflow when collapsed.
+	.o-expander__content--collapsed {
+		overflow: hidden;
+	}
+
+	// Hide collapsible-item within the content expander content when
+	// it is collapsed.
+	.o-expander__content--collapsed .o-expander__collapsible-item {
 		display: none;
 	}
-}
 
-@mixin oExpanderToggle($root-class-name: o-expander, $font-color: #000000, $icon-color: #000000) {
-	color: $font-color;
-	font-weight: normal;
-	font-size: 12px;
-	margin: 0;
-	padding: 0;
-	background: none;
-	cursor: pointer;
-	border: 0;
-	text-decoration: none;
-
-	i {
-		@include oIconsGetIcon('arrow-down', $icon-color, 15, 15, $iconset-version: 1);
-		padding: 0 3px;
-		vertical-align: middle;
-	}
-
-	&[aria-expanded="true"] i {
-		// Rotate the icon rather than downloading another one
-		// I call this the "Matt Hinchliffe manouvre"
-		transform: rotate(180deg);
-	}
-
-	&:hover {
+	// Style the default expander toggle.
+	.o-expander__toggle {
+		$font-color: #000000;
+		$icon-color: #000000;
+		color: $font-color;
+		font-weight: normal;
+		font-size: 12px;
+		margin: 0;
+		padding: 0;
+		background: none;
+		cursor: pointer;
+		border: 0;
 		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&:after {
+			@include oIconsGetIcon('arrow-down', $icon-color, 15, 15, $iconset-version: 1);
+			content: '';
+			padding: 0 3px;
+			vertical-align: middle;
+		}
+
+		&[aria-expanded="true"]:after {
+			// Rotate the icon rather than downloading another one
+			// I call this the "Matt Hinchliffe manouvre"
+			transform: rotate(180deg);
+		}
 	}
 
-	.#{$root-class-name}--inactive & {
+	// Hide the toggle by default, or when the expander is inactive.
+	.o-expander__toggle,
+	.o-expander--inactive .o-expander__toggle {
 		display: none;
+	}
+
+	// Show the toggle when the expander is initialised.
+	.o-expander--initialized .o-expander__toggle {
+		display: inline-block;
 	}
 }
 
 @if ($o-expander-is-silent == false) {
-	.o-expander__content {
-		@include oExpanderContent;
-	}
-
-	.o-expander__toggle {
-		@include oExpanderToggle;
-	}
+	@include oExpander();
 
 	// Don't output twice
 	$o-expander-is-silent: true !global;

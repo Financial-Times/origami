@@ -10,7 +10,11 @@ The data attribute `data-o-expander-js` has been replaced with the class `o-expa
 
 Expanders with the `shrinkTo` (`data-shrink-to`) option set to a number, to toggle a collapsing list, will now have `aria-hidden` set on collapsed items. No changes should be required.
 
-### Removed JavaScript Methods
+### Sass
+
+The Sass mixins `oExpanderToggle` and `oExpanderContent` have been removed. Instead use `oExpander` to include all `o-expander` CSS. Classnames are no longer customisable with `oExpander`, update your markup and javascript to use `o-expander` classes instead. If this is not possible consider creating a [Custom Expander](./README.md#custom-expander) instead.
+
+### JavaScript
 
 The following functions are removed or now private, ensure your project doesn't call them:
 - `toggleExpander` and `displayState`: use `toggle`, `collapse`, or `expand` methods instead.
