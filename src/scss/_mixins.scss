@@ -71,7 +71,8 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayContentTitle {
-	margin: 10px 10px 10px 20px;
+	margin: oSpacingByName('s3');
+	margin-right: oSpacingByName('s6');
 	display: block;
 	overflow: auto;
 }
@@ -84,7 +85,7 @@
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
-	padding: 20px;
+	padding: oSpacingByName('s4');
 
 	> *:first-child {
 		margin-top: 0;

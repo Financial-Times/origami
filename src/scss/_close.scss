@@ -29,12 +29,9 @@
 	box-sizing: content-box;
 	float: right;
 	position: relative;
-	margin-top: 10px; // Align with the text baseline (magic number)
-	margin-right: 10px; // Same right spacing as the top one
-	margin-left: 10px;
-	margin-bottom: 10px;
-	width: 20px;
-	height: 20px;
+	margin: oSpacingByName('s3');
+	width: oSpacingByName('s4');
+	height: oSpacingByName('s4');
 	padding: 0.25em;
 	cursor: pointer;
 	font-size: 8px;
@@ -45,10 +42,10 @@
 	&:after {
 		position: absolute;
 		content: '';
-		top: -10px;
-		right: -10px;
-		left: -10px;
-		bottom: -10px;
+		top: -(oSpacingByName('s3'));
+		right: -(oSpacingByName('s3'));
+		left: -(oSpacingByName('s3'));
+		bottom: -(oSpacingByName('s3'));
 	}
 }
 
@@ -58,6 +55,6 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayContentCloseIcon($color) {
-	@include oIconsGetIcon('cross', $color, $container-width: 20, $iconset-version: 1);
+	@include oIconsGetIcon('cross', $color, $container-width: 20px, $iconset-version: 1);
 	background-size: contain;
 }

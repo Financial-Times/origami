@@ -2,12 +2,12 @@
 @include oOverlay();
 
 body {
-	padding: 10px;
+	padding: oSpacingByName('s3');
 	min-height: 500px;
 }
 
 .demo-button {
-	margin-right: 5px;
+	margin-right: oSpacingByName('s1');
 }
 
 .demo-overlay-container {

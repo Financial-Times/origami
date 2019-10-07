@@ -35,9 +35,9 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayCompactContentTitle {
-	margin-top: 8px; // Actually 10px - line-height adds some space too
-	margin-bottom: 5px;
-	margin-left: 10px;
+	margin-top: oSpacingByName('s2'); // Actually 10px - line-height adds some space too
+	margin-bottom: oSpacingByName('s1');
+	margin-left: oSpacingByName('s3');
 }
 
 /// Outputs styles for the compact variant overlay close button.
@@ -45,7 +45,7 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayCompactContentClose {
-	margin: 5px 5px 5px 10px;
+	margin: oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s3');
 }
 
 /// Outputs styles for the compact variant overlay body.
@@ -53,5 +53,5 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayCompactContentBody {
-	padding: 10px;
+	padding: oSpacingByName('s3');
 }
