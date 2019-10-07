@@ -26,33 +26,13 @@
 /// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
 @mixin oColors($opts: (
 	'palette-custom-properties': true,
-	'palette-classes': true,
-	'usecase-classes': true
+	'palette-classes': true
 )) {
 	$palette-proeprties: map-get($opts, 'palette-custom-properties');
 	$palette-classes: map-get($opts, 'palette-classes');
-	$usecase-classes: map-get($opts, 'usecase-classes');
 
 	@if($palette-proeprties) {
 		@include _oColorsCSSVariables;
-	}
-
-	@if($usecase-classes) {
-		@each $usecase, $props in $o-colors-usecases {
-			@each $prop, $color in $props {
-				#{'.o-colors-' + $usecase + '-' + $prop} {
-					@if $prop == text or $prop == all {
-						color: oColorsByName($color);
-					}
-					@if $prop == background or $prop == all {
-						background-color: oColorsByName($color);
-					}
-					@if $prop == border or $prop == all {
-						border-color: oColorsByName($color);
-					}
-				}
-			}
-		}
 	}
 
 	@if($palette-classes) {

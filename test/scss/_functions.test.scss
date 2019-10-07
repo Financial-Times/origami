@@ -42,34 +42,34 @@
 		};
 	};
 
-	@include describe('oColorsGetUseCase') {
+	@include describe('oColorsByUsecase') {
 		@include it('returns the palette color name for a use case') {
-			@include assert-equal(oColorsGetUseCase(focus, outline), ('black-50'));
-			@include assert-equal(oColorsGetUseCase(page, background), ('paper'));
-			@include assert-equal(oColorsGetUseCase(box, background), ('wheat'));
-			@include assert-equal(oColorsGetUseCase(link, text), ('teal'));
-			@include assert-equal(oColorsGetUseCase(link-hover, text), ('teal-30'));
-			@include assert-equal(oColorsGetUseCase(link-title, text), ('black-80'));
-			@include assert-equal(oColorsGetUseCase(link-title-hover, text), ('black-70'));
-			@include assert-equal(oColorsGetUseCase(tag-link, text), ('claret'));
-			@include assert-equal(oColorsGetUseCase(tag-link-hover, text), ('claret-30'));
-			@include assert-equal(oColorsGetUseCase(opinion-tag-link, text), ('oxford'));
-			@include assert-equal(oColorsGetUseCase(opinion-tag-link-hover, text), ('oxford-30'));
-			@include assert-equal(oColorsGetUseCase(title, text), ('black'));
-			@include assert-equal(oColorsGetUseCase(body, text), ('black-80'));
-			@include assert-equal(oColorsGetUseCase(muted, text), ('black-20'));
-			@include assert-equal(oColorsGetUseCase(opinion, background), ('sky'));
-			@include assert-equal(oColorsGetUseCase(hero, background), ('wheat'));
-			@include assert-equal(oColorsGetUseCase(hero-opinion, background), ('oxford'));
-			@include assert-equal(oColorsGetUseCase(hero-highlight, background), ('claret'));
-			@include assert-equal(oColorsGetUseCase(section-life-arts, all), ('velvet'));
-			@include assert-equal(oColorsGetUseCase(section-life-arts-alt, all), ('candy'));
-			@include assert-equal(oColorsGetUseCase(section-magazine, all), ('oxford'));
-			@include assert-equal(oColorsGetUseCase(section-magazine-alt, all), ('sky'));
-			@include assert-equal(oColorsGetUseCase(section-house-home, all), ('jade'));
-			@include assert-equal(oColorsGetUseCase(section-house-home-alt, all), ('wasabi'));
-			@include assert-equal(oColorsGetUseCase(section-money, all), ('crimson'));
-			@include assert-equal(oColorsGetUseCase(section-money-alt, all), ('white'));
+			@include assert-equal(oColorsByUsecase(focus, outline), ('black-50'));
+			@include assert-equal(oColorsByUsecase(page, background), ('paper'));
+			@include assert-equal(oColorsByUsecase(box, background), ('wheat'));
+			@include assert-equal(oColorsByUsecase(link, text), ('teal'));
+			@include assert-equal(oColorsByUsecase(link-hover, text), ('teal-30'));
+			@include assert-equal(oColorsByUsecase(link-title, text), ('black-80'));
+			@include assert-equal(oColorsByUsecase(link-title-hover, text), ('black-70'));
+			@include assert-equal(oColorsByUsecase(tag-link, text), ('claret'));
+			@include assert-equal(oColorsByUsecase(tag-link-hover, text), ('claret-30'));
+			@include assert-equal(oColorsByUsecase(opinion-tag-link, text), ('oxford'));
+			@include assert-equal(oColorsByUsecase(opinion-tag-link-hover, text), ('oxford-30'));
+			@include assert-equal(oColorsByUsecase(title, text), ('black'));
+			@include assert-equal(oColorsByUsecase(body, text), ('black-80'));
+			@include assert-equal(oColorsByUsecase(muted, text), ('black-20'));
+			@include assert-equal(oColorsByUsecase(opinion, background), ('sky'));
+			@include assert-equal(oColorsByUsecase(hero, background), ('wheat'));
+			@include assert-equal(oColorsByUsecase(hero-opinion, background), ('oxford'));
+			@include assert-equal(oColorsByUsecase(hero-highlight, background), ('claret'));
+			@include assert-equal(oColorsByUsecase(section-life-arts, text), ('velvet'));
+			@include assert-equal(oColorsByUsecase(section-life-arts-alt, text), ('candy'));
+			@include assert-equal(oColorsByUsecase(section-magazine, text), ('oxford'));
+			@include assert-equal(oColorsByUsecase(section-magazine-alt, text), ('sky'));
+			@include assert-equal(oColorsByUsecase(section-house-home, text), ('jade'));
+			@include assert-equal(oColorsByUsecase(section-house-home-alt, text), ('wasabi'));
+			@include assert-equal(oColorsByUsecase(section-money, text), ('crimson'));
+			@include assert-equal(oColorsByUsecase(section-money-alt, text), ('white'));
 		};
 	};
 

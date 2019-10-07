@@ -29,25 +29,6 @@
 				};
 			};
 		};
-
-		@include it('outputs usecase classes with only the "usecase-classes" option') {
-			@include assert() {
-				@include output($selector: false) {
-					@include oColors($opts: (
-						'usecase-classes': true
-					));
-				};
-
-				@include contains($selector: false) {
-					.o-colors-page-background {
-						background-color: #fff1e5;
-					}
-					.o-colors-link-text {
-						color: #0d7680;
-					}
-				};
-			};
-		};
 		@include it('palette classes with only the "palette-classes" option') {
 			@include assert() {
 				@include output($selector: false) {
@@ -76,7 +57,7 @@
 	@include describe('oColorSetUseCase') {
 		@include it('add a custom use case property') {
 			@include oColorsSetUseCase(test-case, text, 'candy');
-			@include assert-equal(oColorsGetUseCase(test-case, text), ('candy'));
+			@include assert-equal(oColorsByUsecase(test-case, text), ('candy'));
 		};
 	};
 

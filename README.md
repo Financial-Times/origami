@@ -38,7 +38,6 @@ The `oColors` mixin accepts an `$opts` argument to granularly include `o-colors`
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | palette-custom-properties | Output a [CSS custom property (CSS Variable)](#css-variables) for each colour in the palette.                                       |
 | palette-classes           | Output CSS classes which apply a background for each palette colour, see the [markup section](#markup) for a list of these classes. |
-| usecase-classes           | Output CSS classes for each colour usecase, see the [markup section](#markup) for a list of these classes.                          |
 
 #### Colors and accessibility
 
@@ -175,33 +174,7 @@ Output:
 }
 ```
 
-## Defining custom use cases
-
-You can add use cases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
-
-```scss
-@include oColorsSetUseCase(email, text, 'black-60');
-```
-
-It takes three arguments:
-
-* **Use case**: your particular use case
-* **Property**: the property for which the color should be used for (background, border, or text)
-* **Color**: a color from the palette
-
-If you are creating a use case for a component, you *must* namespace your use case name with the name of your component.
-
-You can also use `oColorsGetUseCase` to retrieve the palette color name (eg `paper`) defined against a usecase. This can be useful when you need the palette color name to use with another Sass mixin.
-
-### Markup
-
-When using the [Build Service](https://origami.ft.com/docs/services/#build-service) or the [`oColors` mixin](#sass), `o-colors` provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`) and use cases are available as `.o-colors-[USECASE]-[PROPERTY]` (which style the appropriate property):
-
-```html
-<p class="o-colors-body-text">Article text</p>
-```
-
-This is a list of the use cases and their respective properties:
+## Usecases
 
 `USECASE` | `PROPERTY` |
 ---|---
@@ -233,6 +206,28 @@ section-house-home-alt |all
 section-money |         all
 section-money-alt |     all
 
+## Defining custom usecases
+
+You can add usecases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
+
+```scss
+@include oColorsSetUseCase(email, text, 'black-60');
+```
+
+It takes three arguments:
+
+* **Usecase**: your particular usecase
+* **Property**: the property for which the color should be used for (background, border, or text)
+* **Color**: a color from the palette
+
+If you are creating a usecase for a component, you *must* namespace your usecase name with the name of your component.
+
+You can also use `oColorsByUsecase` to retrieve the palette color name (eg `paper`) defined against a usecase. This can be useful when you need the palette color name to use with another Sass mixin.
+
+
+### Markup
+
+When using the [Build Service](https://origami.ft.com/docs/services/#build-service) or the [`oColors` mixin](#sass), `o-colors` provides you with helper classes to access the color palette. All palette colors are available as `.o-colors-palette-[NAME]` (which style just `background-color`).
 
 ### CSS Variables
 

@@ -33,7 +33,7 @@
 	$new-color: ($namespaced-color-name: (
 		'color': $color-hex,
 		'name': $color-name,
-		'$from': $project-name,
+		'from': $project-name,
 		'meta': ('deprecated': $deprecation-message)
 	));
 	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
@@ -48,15 +48,16 @@
 /// @param {String} $property - Property it applies to
 /// @param {String} $color - One of $_o-colors-palette
 @mixin oColorsSetUseCase($usecase, $property, $color) {
+	$namespaced-usecase: 'o-colors-#{$usecase}';
 	$propmap: ($property: $color);
 
 	// The use-case already exists,
 	// combine its existing properties with the new one
-	@if (map-has-key($o-colors-usecases, $usecase)) {
-		$propmap: map-merge(map-get($o-colors-usecases, $usecase), $propmap);
+	@if (map-has-key($o-colors-usecases, $namespaced-usecase)) {
+		$propmap: map-merge(map-get($o-colors-usecases, $namespaced-usecase), $propmap);
 	}
 
-	$newmap: ($usecase: $propmap);
+	$newmap: ($namespaced-usecase: $propmap);
 
 	// Add the use-case and its properties to the global use-case map
 	$o-colors-usecases: map-merge($o-colors-usecases, $newmap) !global;

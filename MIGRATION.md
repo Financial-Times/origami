@@ -2,19 +2,96 @@
 
 ### Upgrading from v4 to v5
 
+`o-colors` no longer outputs CSS classes for usecases. If your project used these classes instead use Sass mixins or CSS Custom Properties (Variables). If this isn't possible, e.g. due to browser support requirements, please contact the Origami team.
+
+- o-colors-focus-outline
+- o-colors-page-background
+- o-colors-box-background
+- o-colors-link-text
+- o-colors-link-hover-text
+- o-colors-link-title-text
+- o-colors-link-title-hover-text
+- o-colors-tag-link-text
+- o-colors-tag-link-hover-text
+- o-colors-opinion-tag-link-text
+- o-colors-opinion-tag-link-hover-text
+- o-colors-title-text
+- o-colors-body-text
+- o-colors-muted-text
+- o-colors-opinion-background
+- o-colors-hero-background
+- o-colors-hero-opinion-background
+- o-colors-hero-highlight-background
+- o-colors-section-life-arts-all
+- o-colors-section-life-arts-alt-all
+- o-colors-section-magazine-all
+- o-colors-section-magazine-alt-all
+- o-colors-section-house-home-all
+- o-colors-section-house-home-alt-all
+- o-colors-section-money-all
+- o-colors-section-money-alt-all
+
+The following have been removed from the palette:
+
+- `inherit`. Replace `oColorsByName('inherit');` with `inherit`.
+- `transparent`. Replace `oColorsByName('transparent');` with `transparent`.
+
 The following variables have changed:
 
 - `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette, `oColorsByName` to fetch colors from the palette, and `oColorsGetPalette` to iterate over the palette.
 
 The following mixins have changed:
 
+- `oColors` no longer outputs usecase CSS classes.
 - `oColorsGetPaletteColor` is now [`oColorsByName`](#oColorsByName).
 - [`oColorsSetColor`](#oColorsSetColor) has updated arguments.
+- `oColorsGetUseCase` is now [`oColorsByUsecase`](#oColorsByUsecase).
 
-The following have been removed from the palette:
+#### oColors
 
-- `inherit`. Replace `oColorsByName('inherit');` with `inherit`.
-- `transparent`. Replace `oColorsByName('transparent');` with `transparent`.
+As `o-colors` [no longer outputs usecase CSS classes](#MIGRATION.md#migrating-from-v4-to-v5) the option 'usecase-classes' is removed from the `oColors` mixin.
+
+```diff
+@include oColors($opts: (
+	'palette-custom-properties': true,
+	'palette-classes': true,
+-	'usecase-classes': true
+));
+```
+
+#### oColorsByUsecase
+
+`oColorsGetUseCase` is now `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). A list of usecases are no longer accepted. `oColorsByUsecase` also has a new `$from` argument, to get usecases set by different component or projects.
+
+If getting a usecase set by o-colors update the mixin name:
+```diff
+-background-color: oColorsGetUseCase('page', 'background');
++background-color: oColorsByUsecase('page', 'background');
+```
+
+Note `all` is no longer a valid property when getting a usecase. Instead use one of 'text', 'background', 'border', or 'outline'.
+```diff
+-color: oColorsGetUseCase('page', 'all');
++color: oColorsByUsecase('page', 'text');
+```
+
+If getting a usecase set by a different project or component use the `$from` argument:
+```diff
+-background-color: oColorsGetUseCase('o-example-row-stripe', 'background');
++background-color: oColorsByUsecase('row-stripe', 'background', 'o-example');
+```
+
+Or with argument names:
+```diff
+-background-color: oColorsGetUseCase('o-example-row-stripe', 'background');
++background-color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $from: 'o-example');
+```
+
+If a missing usecase is acceptable set the `$fallback` argument to an alternative colour to use or `null` (Sass will remove any CSS properties which are set to `null`):
+```scss
+background-color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $fallback: null); // background-color will not be set if the row-stripe background colour isn't found
+color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $fallback: 'black'); // black will be used if the row-stripe colour isn't found
+```
 
 #### oColorsByName
 

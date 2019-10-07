@@ -64,7 +64,7 @@
 /// @param {String} $background [paper] - palette name of background color
 /// @param {String} $color [black] - palette name of color
 /// @param {Number} $percentage [60] - percentage opacity of the color over the background
-@function oColorsMix($color: 'black', $background: oColorsGetUseCase('page', 'background'), $percentage: 80) {
+@function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
 	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
 	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
 
@@ -80,22 +80,53 @@
 /// Return the defined palette color name for a use case / property combination
 ///
 ///
-/// @param {String} $usecase
-/// @param {String} $property - 'text', 'background', 'border', 'outline', or 'all'
-@function oColorsGetUseCase($usecase, $property) {
-	@if (not map-has-key($o-colors-usecases, $usecase)) {
-		@return null;
+/// @param {String} $usecase - The name of the usecase, e.g. 'page'.
+/// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
+/// @param {Color|Null} $fallback - The value to return if the usecase isn't found.
+/// @return {Color|Null} - The usecase colour or `$fallback` value (note: the default is `false` to indicate no fallback).
+@function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
+	// Validate usecase is a string.
+	@if(type-of($usecase) != 'string') {
+		@return _error('`$usecase` should be a string but found "#{inspect($usecase)}" of type "#{type-of($usecase)}".');
+	}
+	// Validate from is a string.
+	@if(type-of($from) != 'string') {
+		@return _error('`$from` should be a string but found "#{inspect($from)}" of type "#{type-of($from)}".');
+	}
+	// Validate property is allowed.
+	$valid-properties: ('text', 'background', 'border', 'outline');
+	@if(not index($valid-properties, $property)) {
+		@return _error('`$property` should be one o "#{inspect($valid-properties)}" but found "#{inspect($property)}".');
+	}
+	// Validate fallback is a colour or null.
+	// `false` is used as a default to indicate the user has not passed a fallback.
+	$valid-fallback: type-of($fallback) == 'color' or type-of($fallback) == 'null';
+	@if($fallback != false and not $valid-fallback) {
+		@return _error('`$fallback` should be a valid colour or `null`, found "#{inspect($fallback)}".');
 	}
 
-	$props: map-get($o-colors-usecases, $usecase);
-
+	// Get properties for usecase. Error if none are found.
+	$namespaced-usecase: '#{$from}-#{$usecase}';
+	$props: map-get($o-colors-usecases, $namespaced-usecase);
+	@if($props == null) {
+		@return if($valid-fallback, $fallback, _error(
+			'The colour usecase #{inspect($usecase)} couldn\'t be found for #{inspect($from)}'
+		));
+	}
+	// Get colour for usecase property. If none are found look for the property
+	// specifically, see if the usecase has set a colour for `all` properties.
+	// Error if no colour is found.
 	$color: map-get($props, $property);
-
-	@if ($color == null and $property != 'all') {
-		$color: map-get($props, all);
+	$color: if($color, $color, map-get($props, all));
+	@if($color == null) {
+		@return if($valid-fallback, $fallback, _error(
+			'The colour usecase property #{inspect($property)} couldn\'t be found within the #{inspect($from)} #{inspect($usecase)} usecase.'
+		));
 	}
 
-	@if (map-has-key($props, '_deprecated')) {
+	// Output any deprecation warning.
+	// @todo: pre-major cascade, update to support granular usecase property deprecation.
+	@if ($props and map-has-key($props, '_deprecated')) {
 		@warn "Color use case '#{inspect($usecase)}' is deprecated (property '#{inspect($property)}' was requested): #{inspect(map-get($props, '_deprecated'))}";
 	}
 
@@ -129,7 +160,11 @@
 
 	@each $name in $namelist {
 		@if ($color == null) {
-			$color: oColorsGetUseCase($name, $property);
+			// oColorsByUsecase does not support the 'all' property anymore.
+			// instead ask for the text colour.
+			// @todo - pre major casecade remove this mixin as per the proposal
+			$usecase-property: if($property != 'all', $property, 'text');
+			$color: oColorsByUsecase($name, $usecase-property, $fallback: null);
 		}
 	}
 
