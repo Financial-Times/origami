@@ -2,7 +2,6 @@
 @include oOverlay();
 
 body {
-	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb); // todo, use o-fonts or o-typography in the next major
 	padding: 10px;
 	min-height: 500px;
 }

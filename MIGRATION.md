@@ -57,6 +57,7 @@ However to use the CommonJS syntax, without a plugin like [babel-plugin-transfor
 ### CSS
 
 - The default `z-index` value for the overlay has increased from `10` to `11`. This _may_ cause issues on your site if anything has relied on the exact value of `10` in the past.
+- o-typography is now used for typographic styles, which results in small changes to element sizes, e.g. the heading element's height has been reduced by `1px`
 
 ## Migrating from v1 to v2
 

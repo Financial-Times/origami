@@ -27,7 +27,7 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayCompactContentHeading {
-	font-size: 16px;
+	@include oTypographySize($scale: 0);
 }
 
 /// Outputs styles for the compact variant overlay title.
@@ -38,7 +38,6 @@
 	margin-top: 8px; // Actually 10px - line-height adds some space too
 	margin-bottom: 5px;
 	margin-left: 10px;
-	line-height: 16px;
 }
 
 /// Outputs styles for the compact variant overlay close button.

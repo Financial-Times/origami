@@ -17,6 +17,7 @@
     "o-layers": "^2.1.0",
     "o-viewport": "^3.3.3",
     "o-visual-effects": "^2.0.0",
-    "o-brand": "^3.2.4"
+    "o-brand": "^3.2.4",
+    "o-typography": "^5.12.0"
   }
 }

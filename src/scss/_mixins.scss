@@ -9,6 +9,7 @@
 @mixin _oOverlayBase {
 	.o-overlay {
 		@include oVisualEffectsShadowsElevation($elevation: 'high');
+		@include oTypographySans($scale: 0);
 		position: fixed;
 		z-index: 11; // Must always be higher than the shadow z-index
 		box-sizing: border-box;
@@ -58,7 +59,7 @@
 /// @output The output does not include a class definition, and should be wrapped in a selector.
 /// @access private
 @mixin _oOverlayContentHeading {
-	font-size: 20px;
+	@include oTypographySize($scale: 2);
 	margin: 0;
 	overflow: hidden;
 	background: _oOverlayGet('heading-background');
@@ -72,7 +73,6 @@
 @mixin _oOverlayContentTitle {
 	margin: 10px 10px 10px 20px;
 	display: block;
-	line-height: 25px;
 	overflow: auto;
 }
 
