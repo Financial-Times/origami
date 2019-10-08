@@ -50,15 +50,6 @@
 
 }
 
-body {
-	font-size: 14px !important;
-}
-
-// Mainly for the links in the community guidelines box
-a {
-	@include oTypographyLink;
-}
-
 
 // remove divider of the top tab bar
 .coral-tabBar {
@@ -69,15 +60,21 @@ a {
 	border-bottom-color: oColorsGetPaletteColor('teal-50');
 }
 
+
 // community guidelines box
 .coral-guidelines {
 	background-color: oColorsGetPaletteColor('wheat');
 	border-color: oColorsGetPaletteColor('wheat');
 }
 
-.coral-guidelines div div {
-	font-size: 14px !important;
+.coral-guidelines div div p {
+	letter-spacing: normal;
 }
+
+.coral-guidelines div div p a {
+	@include oTypographyLink;
+}
+
 
 // top tab bar buttons
 .coral-tabBar-comments,
@@ -170,6 +167,7 @@ a {
 .coral-featuredComment-replies {
 	font-weight: 400;
 	font-size: 14px;
+	letter-spacing: normal !important;
 
 	&:hover {
 		border-color: transparent !important;
@@ -262,15 +260,6 @@ a {
 	font-size: 14px !important;
 }
 
-.coral-rte-content,
-.coral-rte-placeholder,
-.coral-comment-content,
-.coral-myComment-content,
-.coral-myComment-story,
-.coral-createReplyComment-replyToText {
-	font-size: 14px !important;
-}
-
 
 // load more buttons
 .coral-allComments-loadMoreButton,
@@ -351,14 +340,31 @@ a {
 	}
 }
 
+
+// make font sizes consistent in various places
+.coral-guidelines div div,
+.coral-rte-content,
+.coral-rte-placeholder,
+.coral-comment-content,
+.coral-myComment-content,
+.coral-myComment-story,
+.coral-createReplyComment-replyToText,
 .coral-viewerBox div div,
 .coral-viewerBox div div span,
-.coral-viewerBox div div button {
-	font-size: 14px !important;
-}
-
+.coral-viewerBox div div button,
 .coral-editComment div div div div span,
 .coral-editComment-expiredTime,
-.coral-editComment-remainingTime span {
-	font-size: 14px;
+.coral-editComment-remainingTime span,
+.coral-sortMenu label,
+.coral-sortMenu span select,
+.coral-tabBarSecondary-tab div span,
+.coral-moderationDropdown-featureButton div div,
+.coral-moderationDropdown-unfeatureButton div div,
+.coral-moderationDropdown-approveButton div div,
+.coral-moderationDropdown-approveedButton div div, // typo in Coral class name
+.coral-moderationDropdown-approvedButton div div, // in case the typo ^^ is fixed
+.coral-moderationDropdown-rejectButton div div,
+.coral-moderationDropdown-banUserButton div div,
+.coral-moderationDropdown-goToModerateButton div div {
+	font-size: 14px !important;
 }
