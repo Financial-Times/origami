@@ -164,7 +164,8 @@ class Stream {
 						const oTrackingEvent = new CustomEvent('oTracking.event', {
 							detail: {
 								category: 'comment',
-								action: eventMapping.oTracking
+								action: eventMapping.oTracking,
+								coral: true
 							},
 							bubbles: true
 						});
