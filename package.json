@@ -1,4 +1,5 @@
 {
+	"name": "o-comments-beta",
 	"devDependencies": {
 		"eslint-config-origami-component": "^1.0.0",
 		"fetch-mock": "^7.3.3"
