@@ -4,7 +4,7 @@
 ////
 
 /// Base quote styles
-@mixin oQuote {
+@mixin _oQuoteBase {
 	padding-top: oSpacingByIncrement(10);
 	padding-bottom: oSpacingByIncrement(10);
 
@@ -29,16 +29,6 @@
 }
 
 /// Base quote cite styles
-@mixin oQuoteCite {
+@mixin _oQuoteBaseCite {
 	display: block;
-}
-
-@if $o-quote-is-silent == false {
-	.o-quote {
-		@include oQuote;
-	}
-
-	.o-quote__cite {
-		@include oQuoteCite;
-	}
 }

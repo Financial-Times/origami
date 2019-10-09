@@ -3,12 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-@mixin oQuoteStandardIcon {
-	@warn "oQuoteStandardIcon is now deprecated and will be removed in the next major release";
-}
-
-/// Add to container for a standard quote
-@mixin oQuoteStandard {
+@mixin _oQuoteStandard {
 	position: relative;
 	background-color: oColorsGetColorFor(o-quote, background);
 	border-left: 4px solid oColorsGetColorFor(o-quote, border);
@@ -27,18 +22,8 @@
 	}
 }
 
-@mixin oQuoteStandardCiteAuthor {
-	@include oTypographySansBold($scale: 0);
-	text-transform: uppercase;
-	display: block;
-}
-
-@mixin oQuoteStandardCiteSource {
-	display: block;
-}
-
 /// Apply this to a <cite> within a standard quote block
-@mixin oQuoteStandardCite {
+@mixin _oQuoteStandardCite {
 	@include oTypographySans($scale: 1);
 	font-weight: normal;
 	font-style: normal;
@@ -47,19 +32,11 @@
 		@include oTypographyLink;
 	}
 	.o-quote__author {
-		@include oQuoteStandardCiteAuthor;
+		@include oTypographySansBold($scale: 0);
+		text-transform: uppercase;
+		display: block;
 	}
 	.o-quote__source {
-		@include oQuoteStandardCiteSource;
-	}
-}
-
-@if $o-quote-is-silent == false {
-	.o-quote--standard {
-		@include oQuoteStandard;
-	}
-
-	.o-quote--standard .o-quote__cite {
-		@include oQuoteStandardCite;
+		display: block;
 	}
 }

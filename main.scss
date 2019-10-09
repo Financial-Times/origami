@@ -3,7 +3,43 @@
 @import "o-typography/main";
 @import "o-icons/main";
 
-@import 'src/scss/variables';
+@import "src/scss/variables";
 @import "src/scss/color-use-cases";
 @import "src/scss/base";
 @import "src/scss/standard";
+
+@mixin oQuote($opts: (
+	base: true,
+	cite: true,
+	standard: true
+)) {
+	@if $base-enabled {
+		.o-quote {
+			@include _oQuoteBase();
+		}
+	}
+
+	@if $cite-enabled {
+		.o-quote__cite {
+			@include _oQuoteBaseCite();
+		}
+	}
+
+	@if $standard-enabled {
+		.o-quote--standard {
+			@include _oQuoteStandard();
+		}
+	}
+
+	@if $standard-enabled and $cite-enabled {
+		.o-quote--standard .o-quote__cite {
+			@include _oQuoteStandardCite();
+		}
+	}
+}
+
+@if (not $o-quote-is-silent) {
+	@include oQuote();
+	// Set to silent again to avoid being output twice
+	$o-quote-is-silent: true !global;
+}
