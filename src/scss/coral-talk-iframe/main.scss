@@ -20,6 +20,10 @@
 	--font-family-sans-serif: #{inspect($o-typography-sans)};
 	--font-family-serif: #{inspect($o-typography-sans)};
 
+	// make font sizes consistent in various places
+	--rem-base: 19;
+	--font-size-3: 14px;
+	--font-size-4: 14px;
 
 	// primary text color
 	--palette-text-primary: #{inspect(oColorsGetPaletteColor('black-80'))};
@@ -67,11 +71,7 @@
 	border-color: oColorsGetPaletteColor('wheat');
 }
 
-.coral-guidelines div div p {
-	letter-spacing: normal;
-}
-
-.coral-guidelines div div p a {
+.coral-guidelines a {
 	@include oTypographyLink;
 }
 
@@ -338,33 +338,4 @@
 	&:hover {
 		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
 	}
-}
-
-
-// make font sizes consistent in various places
-.coral-guidelines div div,
-.coral-rte-content,
-.coral-rte-placeholder,
-.coral-comment-content,
-.coral-myComment-content,
-.coral-myComment-story,
-.coral-createReplyComment-replyToText,
-.coral-viewerBox div div,
-.coral-viewerBox div div span,
-.coral-viewerBox div div button,
-.coral-editComment div div div div span,
-.coral-editComment-expiredTime,
-.coral-editComment-remainingTime span,
-.coral-sortMenu label,
-.coral-sortMenu span select,
-.coral-tabBarSecondary-tab div span,
-.coral-moderationDropdown-featureButton div div,
-.coral-moderationDropdown-unfeatureButton div div,
-.coral-moderationDropdown-approveButton div div,
-.coral-moderationDropdown-approveedButton div div, // typo in Coral class name
-.coral-moderationDropdown-approvedButton div div, // in case the typo ^^ is fixed
-.coral-moderationDropdown-rejectButton div div,
-.coral-moderationDropdown-banUserButton div div,
-.coral-moderationDropdown-goToModerateButton div div {
-	font-size: 14px !important;
 }
