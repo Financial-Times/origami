@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-@mixin _oQuoteStandard {
+@mixin _oQuoteEditorial {
 	position: relative;
 	background-color: oColorsGetColorFor(o-quote, background);
 	border-left: 4px solid oColorsGetColorFor(o-quote, border);
@@ -23,7 +23,7 @@
 }
 
 /// Apply this to a <cite> within a standard quote block
-@mixin _oQuoteStandardCite {
+@mixin _oQuoteEditorialCite {
 	@include oTypographySans($scale: 1);
 	font-weight: normal;
 	font-style: normal;
