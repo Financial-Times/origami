@@ -24,11 +24,6 @@ const findInvalidCharacters = (displayName) => {
 	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]/gi;
 	const matchingCharacters = displayName
 		.match(containsCharactersNotInCoralTalkRules);
-
-	if (!matchingCharacters) {
-		return false;
-	}
-
 	const uniqueMatchingCharacters = matchingCharacters && matchingCharacters.length ?
 		matchingCharacters
 			.filter((character, position) => matchingCharacters.indexOf(character) === position) :
