@@ -29,7 +29,7 @@ const findInvalidCharacters = (displayName) => {
 		return false;
 	}
 
-	const uniqueMatchingCharacters = matchingCharacters.length ?
+	const uniqueMatchingCharacters = matchingCharacters && matchingCharacters.length ?
 		matchingCharacters
 			.filter((character, position) => matchingCharacters.indexOf(character) === position) :
 		[];
