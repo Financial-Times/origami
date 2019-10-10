@@ -6,17 +6,14 @@
 @import "src/scss/variables";
 @import "src/scss/color-use-cases";
 @import "src/scss/base";
-@import "src/scss/standard";
+@import "src/scss/editorial";
 
 @mixin oQuote($opts: (
-	base: true,
 	cite: true,
-	standard: true
+	editorial: true
 )) {
-	@if $base-enabled {
-		.o-quote {
-			@include _oQuoteBase();
-		}
+	.o-quote {
+		@include _oQuoteBase();
 	}
 
 	@if $cite-enabled {
@@ -25,15 +22,15 @@
 		}
 	}
 
-	@if $standard-enabled {
-		.o-quote--standard {
-			@include _oQuoteStandard();
+	@if $editorial-enabled {
+		.o-quote--editorial {
+			@include _oQuoteEditorial();
 		}
 	}
 
-	@if $standard-enabled and $cite-enabled {
-		.o-quote--standard .o-quote__cite {
-			@include _oQuoteStandardCite();
+	@if $editorial-enabled and $cite-enabled {
+		.o-quote--editorial .o-quote__cite {
+			@include _oQuoteEditorialCite();
 		}
 	}
 }
