@@ -1,4 +1,5 @@
 import * as assert from 'proclaim';
+import fetchMock from 'fetch-mock';
 import * as fixtures from './helpers/fixtures';
 import sinon from 'sinon/pkg/sinon';
 import Comments from '../src/js/comments';
@@ -146,6 +147,55 @@ describe("Comments", () => {
 
 		it("initializes Stream with staging environment option set to false", () => {
 			assert.isFalse(comments.useStagingEnvironment);
+		});
+	});
+
+	describe('Comments.getCount', () => {
+		beforeEach(() => {
+			fetchMock.mock('begin:https://comments-api.ft.com/story/count/', {
+				commentCount: 4
+			});
+		});
+
+		afterEach(() => {
+			fetchMock.reset();
+		});
+
+		it('returns a promise', () => {
+			assert.isInstanceOf(Comments.getCount(), Promise);
+		});
+
+		describe('getting the count is successful', () => {
+			it('returns a integer', (done) => {
+				Comments.getCount('article-id')
+					.then(count => {
+						assert.isNumber(count);
+						assert.equal(count, 4);
+						done();
+					});
+			});
+		});
+
+		describe('getting the count is unsuccessful', () => {
+			beforeEach(() => {
+				fetchMock.mock('begin:https://comments-api.ft.com/story/count/',
+					500,
+					{
+						overwriteRoutes: true
+					}
+				);
+			});
+
+			afterEach(() => {
+				fetchMock.reset();
+			});
+
+			it('returns a rejected promise', (done) => {
+				Comments.getCount('article-id')
+					.catch(() => {
+						done();
+					});
+			});
 		});
 	});
 });
