@@ -17,7 +17,12 @@ class Stream {
 	}
 
 	init () {
-		return Promise.all([this.renderComments(), this.authenticateUser()]);
+		return Promise.all([this.renderComments(), this.authenticateUser()])
+			.then(() => {
+				if (this.authenticationToken) {
+					this.embed.login(this.authenticationToken);
+				}
+			});
 	}
 
 	authenticateUser (displayName) {
@@ -33,7 +38,11 @@ class Stream {
 		return auth.fetchJsonWebToken(fetchOptions)
 			.then(response => {
 				if (response.token) {
-					this.embed.login(response.token);
+					if (this.embed) {
+						this.embed.login(response.token);
+					} else {
+						this.authenticationToken = response.token;
+					}
 				} else {
 					this.userHasValidSession = response.userHasValidSession;
 				}
