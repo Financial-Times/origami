@@ -19,6 +19,10 @@ class Comments {
 		}
 	}
 
+	static getCount (id) {
+		return Count.fetchCount(id);
+	}
+
 	/**
 	 * Get the data attributes from the element. If the component is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.

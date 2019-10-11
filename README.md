@@ -50,6 +50,15 @@ Add the following attribute to the markup to enable a comment count:
 
 The comment count is rendered when the `data-o-comments-count` attribute value is `true`.
 
+#### getCount
+
+Should you require the count as a value there is also a `getCount` method that will return an integer.
+
+```js
+Comments.getCount('article-id')
+	.then(count => console.log(count));
+```
+
 ### Use staging environment
 
 Add the following attribute to the markup to use Coral staging environment:
