@@ -30,7 +30,7 @@ Use the following markup to enable a comment stream:
 	id="{element-id}"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
-	data-o-comments-story-url="{optional-story-url}">
+	data-o-comments-article-url="{optional-article-url}">
 </div>
 ```
 Coral needs a parent element id when initialising the comment stream embed script.
@@ -69,7 +69,7 @@ For stream:
 	id="o-comments-stream"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
-	data-o-comments-story-url="{optional-story-url}"
+	data-o-comments-article-url="{optional-article-url}"
 +	data-o-comments-use-staging-environment="true">
 </div>
 ```
@@ -97,7 +97,7 @@ const oComments = require('o-comments');
 const commentsElement = document.querySelector('#element');
 const Comments = new oComments(commentsElement, {
 	articleId: 'article-id',
-	storyUrl: 'optional-story-url'
+	articleUrl: 'optional-article-url'
 })
 ```
 
@@ -173,7 +173,7 @@ const comments = new Comments(commentsElement, {
 	id="o-comments-stream"
 	data-o-component="o-comments"
 	data-o-comments-article-id="{article-id}"
-	data-o-comments-story-url="{optional-story-url}"
+	data-o-comments-article-url="{optional-article-url}"
 +	data-o-comments-disable-o-tracking="true">
 </div>
 ```
