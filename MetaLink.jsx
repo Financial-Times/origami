@@ -17,7 +17,7 @@ export default ({ metaPrefixText, metaLink, metaAltLink, metaSuffixText, context
 	const displayLink = useAltLink ? metaAltLink : metaLink;
 
 	return (
-		<div className="o-teaser__meta-tag">
+		<div className="o-teaser__meta">
 			{showPrefixText ? <span className="o-teaser__tag-prefix">{metaPrefixText}</span> : null}
 			{displayLink ? (
 				<a
