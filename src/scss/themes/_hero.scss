@@ -6,6 +6,7 @@
 	.o-teaser__content {
 		@include oColorsFor('o-teaser-hero', background);
 		border: 0;
+		word-break: break-word;
 	}
 
 	.o-teaser__meta:after {
