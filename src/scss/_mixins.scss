@@ -6,6 +6,7 @@
 @mixin oEditorialTypographyBody() {
 	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
 	color: oColorsGetColorFor('body', 'text');
+	margin: 0; // undo browser defaults
 }
 
 /// Output editorial styles for lists.
