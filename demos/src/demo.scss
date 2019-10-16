@@ -1,5 +1,6 @@
-$o-editorial-typography-is-silent: false;
 @import '../../main';
+
+@include oEditorialTypography();
 
 body {
     background: oColorsGetColorFor('page', 'background');

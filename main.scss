@@ -1,5 +1,6 @@
 @import 'o-typography/main';
 @import 'o-spacing/main';
+@import 'o-fonts/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/functions';
@@ -33,7 +34,7 @@
 	$body: map-get($opts, 'body');
 	$lists: map-get($opts, 'lists');
 	$lists: if($lists, $lists, ());
-	@if($headings and type-of($headings) != 'list') {
+	@if($lists and type-of($lists) != 'list') {
 		@error ('The "lists" option must be a list of list types to include e.g. `(\'ordered\', \'unordered\')`.');
 	}
 	$caption: map-get($opts, 'caption');
