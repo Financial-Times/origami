@@ -6,8 +6,8 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-editorial-typography/issues",
 	"supportContact": {
-		"email": "YOUR-TEAM@ft.com",
-		"slack": "financialtimes/YOUR-SLACK-CHANNEL"
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "experimental",
 	"browserFeatures": {
