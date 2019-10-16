@@ -21,9 +21,19 @@ const isUnique = (displayName) => {
 };
 
 const findInvalidCharacters = (displayName) => {
-	const containsCharactersNotInCoralTalkRules = /[^a-z0-9_.]/gi;
+	/*
+	 * Allowed Characters
+	 * The below regex matches any character not in the allowed characters set
+	 * All allowed characters are case insensitive
+	 * Anything in the range A-Z or 0-9 is allowed
+	 * Any of the below special characters are allowed
+	 * !#$%'`()*+,-./:;=@[]^_{|}
+	 * Spaces are allowed
+	 */
+
+	const matchInvalidCharacters = /[^0-9a-z!#$%'`()*+,\-.\/:;=@[\]\^_{}\|\s]/gi;
 	const matchingCharacters = displayName
-		.match(containsCharactersNotInCoralTalkRules);
+		.match(matchInvalidCharacters);
 	const uniqueMatchingCharacters = matchingCharacters && matchingCharacters.length ?
 		matchingCharacters
 			.filter((character, position) => matchingCharacters.indexOf(character) === position) :
