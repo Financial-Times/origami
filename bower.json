@@ -1,0 +1,19 @@
+{
+  "name": "o-editorial-typography",
+  "description": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-typography": "^5.12.0",
+    "o-fonts": "^3.3.2",
+    "o-spacing": "^2.0.0"
+  }
+}

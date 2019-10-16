@@ -1,0 +1,12 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oEditorialTypographyGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-editorial-typography', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oEditorialTypographySupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-editorial-typography', $variant: $variant);
+}

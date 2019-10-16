@@ -1,0 +1,7 @@
+$o-editorial-typography-is-silent: false;
+@import '../../main';
+
+body {
+    background: oColorsGetColorFor('page', 'background');
+    margin: oSpacingByName('s2');
+}

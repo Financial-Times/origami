@@ -1,0 +1,80 @@
+{
+	"description": "Typography styles for editorial content.",
+	"keywords": [],
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-editorial-typography/issues",
+	"supportContact": {
+		"email": "YOUR-TEAM@ft.com",
+		"slack": "financialtimes/YOUR-SLACK-CHANNEL"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [
+			"Array.from"
+		]
+	},
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-editorial-typography"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": [
+			"o-normalise@^1.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Headline",
+			"name": "headline",
+			"template": "demos/src/headline.mustache"
+		},
+		{
+			"title": "Headings",
+			"name": "headings",
+			"template": "demos/src/headings.mustache"
+		},
+		{
+			"title": "Body",
+			"name": "body",
+			"template": "demos/src/body.mustache"
+		},
+		{
+			"title": "Unordered List",
+			"name": "unordered-list",
+			"documentClasses": "o-editorial-typography-body",
+			"template": "demos/src/unordered-list.mustache"
+		},
+		{
+			"title": "Ordered List",
+			"name": "ordered-list",
+			"documentClasses": "o-editorial-typography-body",
+			"template": "demos/src/ordered-list.mustache"
+		},
+		{
+			"title": "Byline With Timestamp",
+			"name": "byline",
+			"template": "demos/src/byline.mustache"
+		},
+		{
+			"title": "Topic Tag",
+			"name": "topic-tag",
+			"template": "demos/src/topic-tag.mustache",
+			"description": "The style of a topic tag. The size is not set by o-editorial-typography, it is inherited from context as a topic tag may be used in many contexts."
+		},
+		{
+			"title": "Caption",
+			"name": "caption",
+			"template": "demos/src/caption.mustache"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
+}

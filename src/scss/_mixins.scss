@@ -1,0 +1,255 @@
+/// Output editorial styles for body text.
+/// @example
+///     p {
+///     	@include oEditorialTypographyBody();
+///     }
+@mixin oEditorialTypographyBody() {
+	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
+	color: oColorsGetColorFor('body', 'text');
+}
+
+/// Output editorial styles for lists.
+/// Styles child `li` elements. Apply to a
+/// containing list element such as `ul` or `ol`.
+/// Does not output font styles, these are
+/// inherited (@see oEditorialTypographyBody).
+///
+/// @example Output the styles for an unordered list.
+///     .my-unordered-list {
+///     	@include oEditorialTypographyList('unordered');
+///     }
+///
+/// @example Output the styles for an ordered and unordered list, sharing base list styles.
+///     .my-list {
+///     	@include oEditorialTypographyList();
+///     }
+///
+///     .my-list--ordered {
+///     	@include oEditorialTypographyList('ordered', $include-base-styles: false);
+///     }
+///
+///     .my-list--unordered {
+///     	@include oEditorialTypographyList('unordered', $include-base-styles: false);
+///     }
+///
+/// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
+/// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
+@mixin oEditorialTypographyList($type: null, $include-base-styles: true) {
+	// Undo browser defaults.
+	@if($include-base-styles) {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	// Reset number counter for new ordered list.
+	@if($type == 'ordered') {
+		counter-reset: item;
+	}
+	> li {
+		// Undo browser defaults.
+		@if($include-base-styles) {
+			margin: 0;
+		}
+		&:before {
+			// Allow space for 2-3 numbers for both ordered and unordered lists,
+			// so content aligns between both list types. As an inline pseudo
+			// element a longer count will push list content rather than overlap.
+			@if($include-base-styles) {
+				display: inline-block;
+				box-sizing: border-box;
+				min-width: 3ex;
+				padding-right: oSpacingByName('s1');
+			}
+
+			@if($type == 'unordered') {
+				content: '\2022'; // dot character
+				color: inherit;
+				transform: scale(1.778); // 32px dot character given a parent font-size of 18px
+				transform-origin: center left;
+				margin-left: -0.16ch; // remove kerning and align marker flush to the left
+			}
+
+			@if($type == 'ordered') {
+				@include oTypographyBold('sans');
+				content: counter(item);
+				counter-increment: item;
+				font-feature-settings: "tnum";
+				font-family: $o-typography-sans;
+			}
+		}
+	}
+}
+
+/// Output styles for captions,
+/// e.g. for photo or video credit/caption.
+@mixin oEditorialTypographyCaption() {
+	@include oTypographySans($scale: -1);
+	color: oColorsGetColorFor('body', 'text');
+}
+
+/// Output styles for large headline text.
+/// This style has high visual prominence.
+///
+/// Alternatively, you may prefer to use
+/// the level one heading style.
+/// @see oEditorialTypographyHeading
+@mixin oEditorialTypographyHeadline() {
+	@include oEditorialTypographyDecorated();
+	@include oTypographyDisplay($scale: (default: 5, S: 6, L: 7));
+	margin: 0; // remove browser default margin from headings
+}
+
+/// Output styles for editorial page heading copy.
+/// @param {number} $level - The heading level 1-5.
+@mixin oEditorialTypographyHeading($level) {
+	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
+		@error 'Heading levels must be a number between 1 and 5.';
+	}
+
+	// undo browser defaults
+	font-weight: normal;
+	margin: 0;
+
+	// set color
+	color: oColorsGetColorFor('body', 'text');
+
+	@if($level == 1) {
+		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
+	}
+
+	@if($level == 2) {
+		@include oTypographySans($scale: 4);
+		@include oTypographyBold('sans');
+	}
+
+	@if($level == 3) {
+		@include oTypographySans($scale: 4);
+	}
+
+	@if($level == 4) {
+		@include oTypographySans($scale: 3);
+	}
+
+	@if($level == 5) {
+		@include oTypographySans($scale: 0);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+}
+
+/// Output styles for editorial standfirst.
+@mixin oEditorialTypographyStandfirst() {
+	@include oTypographySans($scale: 2);
+	color: oColorsGetPaletteColor('black-60');
+}
+
+/// Output styles for the editorial byline.
+@mixin oEditorialTypographyByline() {
+	@include oTypographySans($scale: 0);
+}
+
+/// Output styles for the byline timestamp.
+/// Font family and size are inherited from the
+/// parent element, for example if the timestamp
+/// is used within a byline.
+/// @see oEditorialTypographyByline
+@mixin oEditorialTypographyBylineTimestamp() {
+	text-transform: uppercase;
+	color: oColorsGetPaletteColor('black-60');
+}
+
+/// Output specific tag styles, such as author and
+/// topic tags, or styles for other tags of similar
+/// appearance. Font size is inherited from the
+/// parent element, for example if a tag is used
+/// within a byline it will be the same size as
+/// the byline text.
+///
+/// @example Output a topic and author tag.
+///     .my-topic-tag {
+///     	@include oEditorialTypographyTag('topic');
+///     }
+///
+///     .my-author-tag {
+///     	@include oEditorialTypographyTag('author');
+///     }
+///
+/// @param {Null|String} $type - the type of tag ('topic', 'author', or `null` for an unspecific kind of tag).
+@mixin oEditorialTypographyTag($type) {
+	// Non-linked tags and author tags are the same colour as the body copy.
+	color: oColorsGetColorFor('body', 'text');
+
+	// Author and topic tags are bold.
+	// They inherit their font size but because we want
+	// the tags to be bold we must set the font family
+	// rather than assume it, as our sans and serif fonts
+	// use different font weights.
+	@if($type == 'author' or $type == 'topic') {
+		@include oTypographyBold('sans');
+		font-family: $o-typography-sans;
+	}
+
+	// Apply tag link styles only to anchor elements.
+	// e.g. `a.my-author-tag:hover`
+	// Tags which are links are highlighted with colour by default.
+	// But author tags are the same colour as body copy until hover.
+	@at-root a#{&} {
+		@if($type != 'author') {
+			@include oColorsFor('tag-link', text);
+		}
+		text-decoration: none;
+		&:hover {
+			$hover-color: if($type != 'author', 'tag-link-hover', 'tag-link');
+			@include oColorsFor($hover-color, text);
+		}
+	}
+}
+
+/// Output styles to decorate typography with a short,
+/// thick underline. Styles after pseudo element.
+/// @example Decorate a header.
+///     .decorated-header {
+///     	@include oEditorialTypographyDecorated();
+///     }
+///
+/// @example Decorate a centred header.
+///     .centered-decorated-header {
+///     	text-align: center;
+///     	@include oEditorialTypographyDecorated($align: 'center');
+///     }
+///
+/// @example Decorate a centred and non-centred header without duplicating css.
+///     .decorated-header {
+///     	@include oEditorialTypographyDecorated();
+///     }
+///     .decorated-header--center {
+///     	text-align: center;
+///     	@include oEditorialTypographyDecorated($align: 'center', $include-base-styles: false);
+///     }
+/// @param {String} $align ['left'] - either 'left' or 'center'
+/// @param {Boolean} $include-base-styles [true] - set to false to only output styles to modify standard decorator alignment
+@mixin oEditorialTypographyDecorated($align: 'left', $include-base-styles: true) {
+	@if($align != 'left' and $align != 'center') {
+		@error 'Align must be "left" or "center", found "#{inspect($align)}".';
+	}
+
+	@if($include-base-styles) {
+		&:after {
+			content: '';
+			display: block;
+			border-bottom: 0.4ex solid;
+			width: 6.5ch;
+			max-width: 100%;
+			padding-top: 0.416em; // 20px assuming a 48px font size
+			@if($align == 'center') {
+				margin: auto;
+			}
+		}
+	}
+
+	@if($align == 'center') {
+		&:after {
+			margin: auto;
+		}
+	}
+}
