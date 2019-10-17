@@ -87,17 +87,23 @@
 /// @param {Color} $color
 /// @param {Number} $fallback-width
 @mixin _oHeaderBrandImage($logo-name, $color, $fallback-width) {
-	$base-url: "#{$o-header-image-base-url}/#{$o-header-image-service-version}/images/raw/ftlogo:";
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
+	$base-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:";
 	$color: str-slice(ie-hex-str($color), 4);
-	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");
+	background-image: url($base-url + $logo-name + "?source=#{$system-code}&tint=%23#{$color},%23#{$color}&format=svg");
 
 	// sass-lint:disable no-vendor-prefixes
 	@media screen and (-ms-high-contrast: active) {
-		background-image: url($base-url + $logo-name + "?source=o-header&tint=%23ffffff,%23ffffff&format=svg");
+		background-image: url($base-url + $logo-name + "?source=#{$system-code}&tint=%23ffffff,%23ffffff&format=svg");
 	}
 
 	@media screen and (-ms-high-contrast: black-on-white) {
-		background-image: url($base-url + $logo-name + "?source=o-header&tint=%23000000,%23000000&format=svg");
+		background-image: url($base-url + $logo-name + "?source=#{$system-code}&tint=%23000000,%23000000&format=svg");
 	}
 	// sass-lint:enable no-vendor-prefixes
 }

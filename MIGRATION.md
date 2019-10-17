@@ -2,9 +2,15 @@
 
 ### Migrating from v7 to v8
 
-#### Sass Mixins
+#### Sass
 
-The following mixins have been removed and should be replaced with a single call to `oHeader` and the appropriate `$features` argument.
+Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
+
+The following Sass variables have been removed:
+- `$o-header-image-service-version`
+- `$o-header-image-base-url`
+
+The following Sass mixins have been removed and should be replaced with a single call to `oHeader` and the appropriate `$features` argument.
 
 - `oHeaderBase`: included by default in base styles
 - `oHeaderTop`: included by default in base styles

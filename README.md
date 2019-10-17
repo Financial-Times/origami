@@ -84,28 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ### Sass
 
-The 'base' of the image url can be set with the `$o-header-image-base-url` variable. e.g. setting
-
-```
-$o-header-image-base-url: 'https://my.image.service/foo';
-```
-
-will output an image logo url in the format `https://my.image.service/foo/v2/images/raw/ftlogo:....`
-
-The 'version' of the image url can be set with the `$o-header-image-service-version` variable. e.g. setting
-
-```
-$o-header-image-service-version: "v1";
-```
-
-will output an image logo url in the format `https://my.image.service/foo/v1/images/raw/ftlogo:...`.
-
-#### Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
-
-When using `o-header` in silent mode, we offer a series of helper mixins to output styles for different parts of the header.
-
-##### oHeader
-
 The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features as the first argument.
 
 The list of features is as follows:
