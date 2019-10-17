@@ -14,6 +14,17 @@
 $_o-quote-placeholders-defined: true;
 
 /// Default styles for o-quote
+///
+/// @example Output all o-quote rules.
+/// 	@include oQuote();
+///
+/// @example Output a selection of o-quote rules.
+///     @include oQuote((
+///     	'cite': false,
+///     	'editorial': true
+///     ));
+///
+/// @param {Map} $opts [('cite': true, 'editorial': true] - The feature set to output rules for.
 /// @output The output includes the `.o-quote*` selectors
 @mixin oQuote($opts: (
 	cite: true,

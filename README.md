@@ -18,7 +18,6 @@ Add an `o-quote` class to any quote you wish to apply the styles to.
 
 ```
 
-
 ## Themeable
 
 Either extend the base classes to create a custom theme or use the standard theme.
