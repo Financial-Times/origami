@@ -22,7 +22,7 @@ Which will output the base styles, the citation styles and the special editorial
 
 ### Placeholders
 
-This shouldn't affect how you work, but the mixins in this component have been implemented using Sass's [placeholder selectors](https://sass-lang.com/documentation/style-rules/placeholder-selectors). This should be transparent to you, the user, but it means multiple uses of the non-primary mixins will end up in the same place in the outputted CSS and if you're reading the outputted CSS when debugging that might just be something to bear in mind. Or is it bare? Bear, right?
+This shouldn't affect how you work, but the mixins in this component have been implemented using Sass's [placeholder selectors](https://sass-lang.com/documentation/style-rules/placeholder-selectors). This should be transparent to you, the user, but it means multiple uses of the non-primary mixins will end up in the same place in the outputted CSS and if you're reading the outputted CSS when debugging that might just be something to bear in mind.
 
 ## Migrating from v1 to v2
 
