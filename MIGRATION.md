@@ -4,7 +4,7 @@
 
 ### Primary mixin
 
-Like our other components, the preferred way to use `o-quote` is through the primary mixin, called `oQuote`. It takes an optional options parameter (called `$opts`) that can be a map of booleans to enable or disable feature, the default is:
+Like our other components, the preferred way to use `o-quote` is through the primary mixin, called `oQuote`. It takes an optional options parameter (called `$opts`) that can be a map of booleans to enable or disable features, the default is:
 
 ```
 oQuote($opts: (cite: true, editorial: true))
