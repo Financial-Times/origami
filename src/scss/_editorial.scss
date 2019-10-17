@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-@mixin _oQuoteEditorial {
+%_o-quote--editorial {
 	position: relative;
 	background-color: oColorsGetColorFor(o-quote, background);
 	border-left: 4px solid oColorsGetColorFor(o-quote, border);
@@ -22,8 +22,29 @@
 	}
 }
 
-/// Apply this to a <cite> within a standard quote block
-@mixin _oQuoteEditorialCite {
+/// Editorial quote styles
+/// @output Adds to the %o-quote--editorial placeholder
+@mixin oQuoteEditorial {
+	@extend %_o-quote--editorial;
+}
+
+/// Editorial quote author styles
+/// @output Adds to the %o-quote__author placeholder
+%_o-quote__author {
+	@include oTypographySansBold($scale: 0);
+	text-transform: uppercase;
+	display: block;
+}
+
+@mixin oQuoteAuthor {
+	@extend %_o-quote__author;
+}
+
+%_o-quote__source {
+	display: block;
+}
+
+%_o-quote-cite--editorial {
 	@include oTypographySans($scale: 1);
 	font-weight: normal;
 	font-style: normal;
@@ -31,12 +52,8 @@
 	a {
 		@include oTypographyLink;
 	}
-	.o-quote__author {
-		@include oTypographySansBold($scale: 0);
-		text-transform: uppercase;
-		display: block;
-	}
-	.o-quote__source {
-		display: block;
-	}
+}
+
+@mixin oQuoteEditorialCite {
+	@extend %_o-quote-cite--editorial;
 }

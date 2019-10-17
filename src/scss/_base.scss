@@ -3,8 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-/// Base quote styles
-@mixin _oQuoteBase {
+%_o-quote {
 	padding-top: oSpacingByIncrement(10);
 	padding-bottom: oSpacingByIncrement(10);
 
@@ -28,7 +27,17 @@
 	}
 }
 
-/// Base quote cite styles
-@mixin _oQuoteBaseCite {
+/// Base quote styles
+@mixin oQuoteBase {
+	@extend %_o-quote;
+}
+
+%_o-quote-cite {
 	display: block;
+}
+
+/// Base quote cite styles
+/// @output Adds to the %_o-quote-cite placeholder
+@mixin oQuoteBaseCite {
+	@extend %_o-quote-cite;
 }
