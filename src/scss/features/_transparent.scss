@@ -1,4 +1,4 @@
-@mixin oHeaderTransparent() {
+@mixin _oHeaderTransparent() {
 	.o-header--transparent {
 		border-color: _oHeaderGet('header-border', $from: 'transparent');
 		background-color: _oHeaderGet('header-background', $from: 'transparent');
@@ -16,11 +16,11 @@
 		}
 
 		.o-header__top-link--myft:before {
-			@include oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon', $from: 'transparent'), 52);
+			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon', $from: 'transparent'), 52);
 		}
 
 		.o-header__top-logo {
-			@include oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon', $from: 'transparent'), 500);
+			@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon', $from: 'transparent'), 500);
 		}
 
 		.o-header__nav-button {

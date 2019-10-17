@@ -86,13 +86,3 @@
 @include oColorsSetUseCase('o-header-subnav-button', '_deprecated', 'Please contact Origami should you have any questions.');
 @include oColorsSetUseCase('o-header-subnav-button-hover', 'background', 'black-20');
 @include oColorsSetUseCase('o-header-subnav-button-hover', '_deprecated', 'Please contact Origami should you have any questions.');
-
-
-
-/// Applies styles to hide an element accessibly,
-/// allowing the content to be read by screenreaders.
-/// @deprecated
-@mixin oHeaderVisuallyHidden() {
-	@warn 'This mixin has been deprecated, and will be removed in the next major.';
-	@include oNormaliseVisuallyHidden;
-}

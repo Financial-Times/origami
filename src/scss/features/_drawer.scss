@@ -1,4 +1,4 @@
-@mixin oHeaderDrawer() {
+@mixin _oHeaderDrawer() {
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
 		background-color: _oHeaderGet('drawer-background');
@@ -97,7 +97,7 @@
 
 	.o-header__drawer-tools-logo {
 		@include oIconsBaseStyles;
-		@include oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
+		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
 		width: 210px;
 		height: 18px;
 		border-bottom: 0;

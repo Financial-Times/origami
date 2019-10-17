@@ -1,4 +1,4 @@
-@mixin oHeaderSubbrand($_o-header-subbrand-bg-color: #443c47) {
+@mixin _oHeaderSubbrand($_o-header-subbrand-bg-color: #443c47) {
 	.o-header__subbrand {
 		height: 55px - ($_o-header-padding-y*2);
 		background-color: $_o-header-subbrand-bg-color;

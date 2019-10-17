@@ -1,4 +1,4 @@
-@mixin oHeaderTop() {
+@mixin _oHeaderTop() {
 	.o-header__top-wrapper {
 		display: table;
 		width: 100%;
@@ -44,7 +44,7 @@
 	}
 
 	.o-header__top-link {
-		@include oHeaderLink;
+		@include _oHeaderLink;
 		display: inline-block;
 		margin-left: 10px;
 		text-transform: uppercase;
@@ -101,7 +101,7 @@
 
 	.o-header__top-link--myft {
 		&:before {
-			@include oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
+			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
 			// this is not a very square icon
 			width: 35px;
 			// Remove the negative margin added for new icons which have additional padding
@@ -122,8 +122,8 @@
 	}
 
 	.o-header__top-logo {
-		@include oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
-		@include oHeaderLogoSize('XS');
+		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
+		@include _oHeaderLogoSize('XS');
 
 		display: block;
 		border: 0;
@@ -133,17 +133,17 @@
 		background-repeat: no-repeat;
 
 		@include oGridRespondTo('S') {
-			@include oHeaderLogoSize('S');
+			@include _oHeaderLogoSize('S');
 		}
 
 		@include oGridRespondTo('M') {
-			@include oHeaderLogoSize('M');
+			@include _oHeaderLogoSize('M');
 			margin-top: 24px;
 			margin-bottom: 24px;
 		}
 
 		@include oGridRespondTo('L') {
-			@include oHeaderLogoSize('L');
+			@include _oHeaderLogoSize('L');
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}

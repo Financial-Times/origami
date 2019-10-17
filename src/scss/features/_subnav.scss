@@ -1,4 +1,4 @@
-@mixin oHeaderSubnav() {
+@mixin _oHeaderSubnav() {
 	.o-header__subnav {
 		@include oTypographySans(0);
 		background-color: _oHeaderGet('subnav-background');
@@ -96,8 +96,8 @@
 	}
 
 	.o-header__subnav-link {
-		@include oHeaderLink;
-		@include oHeaderFancyLink;
+		@include _oHeaderLink;
+		@include _oHeaderFancyLink;
 		color: _oHeaderGet('subnav-link');
 		display: inline-block;
 		padding: 12px 0;

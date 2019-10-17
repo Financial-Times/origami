@@ -25,7 +25,71 @@
 @import 'src/scss/features/sticky';
 @import 'src/scss/features/drawer';
 
-@import 'src/scss/header';
+/// Output the styles for the header.
+/// Can be passed a list of one or more features to output.
+/// By default, will output all styles.
+///
+/// @param {List} $features [('subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'subbrand', 'transparent')]
+/// @param {Boolean} $include-base-styles [true]
+@mixin oHeader($features: $_o-header-features, $include-base-styles: true) {
+
+	@if $include-base-styles == true {
+		@include _oHeaderBase;
+	}
+
+	@each $feature in $features {
+		// Check the feature exists.
+		@if index($_o-header-features, $feature) == null {
+			@error "There is no feature '#{$feature}' available in o-header please use one of "
+			+ "the following: #{$_o-header-features}";
+		}
+
+		// Output feature.
+		@if $feature == 'top' and _oHeaderSupports($feature) {
+			@include _oHeaderTop;
+		}
+
+		@if $feature == 'anon' and _oHeaderSupports($feature) {
+			@include _oHeaderAnon;
+		}
+
+		@if $feature == 'subnav' and _oHeaderSupports($feature) {
+			@include _oHeaderSubnav;
+		}
+
+		@if $feature == 'search' and _oHeaderSupports($feature) {
+			@include _oHeaderSearch;
+		}
+
+		@if $feature == 'nav' and _oHeaderSupports($feature) {
+			@include _oHeaderNav;
+		}
+
+		@if $feature == 'drawer' and _oHeaderSupports($feature) {
+			@include _oHeaderDrawer;
+		}
+
+		@if $feature == 'megamenu' and _oHeaderSupports($feature) {
+			@include _oHeaderMegaMenu;
+		}
+
+		@if $feature == 'sticky' and _oHeaderSupports($feature) {
+			@include _oHeaderSticky;
+		}
+
+		@if $feature == 'simple' and _oHeaderSupports($feature) {
+			@include _oHeaderSimple;
+		}
+
+		@if $feature == 'subbrand' and _oHeaderSupports($feature) {
+			@include _oHeaderSubbrand;
+		}
+
+		@if $feature == 'transparent' and _oHeaderSupports($feature) {
+			@include _oHeaderTransparent;
+		}
+	}
+}
 
 @if $o-header-is-silent == false {
 	@include oHeader;

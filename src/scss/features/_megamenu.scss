@@ -1,4 +1,4 @@
-@mixin oHeaderMegaMenu() {
+@mixin _oHeaderMegaMenu() {
 	@keyframes o-header-mega {
 		0% {
 			opacity: 0;
@@ -100,7 +100,7 @@
 	}
 
 	.o-header__mega-link {
-		@include oHeaderLink();
+		@include _oHeaderLink();
 
 		&:hover {
 			text-decoration: underline;

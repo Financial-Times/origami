@@ -3,33 +3,8 @@
 /// @link http://registry.origami.ft.com/components/o-header
 ////
 
-/// Includes the correct mixin based on the row passed
-@mixin _oHeaderGetFeatureMixin($feature) {
-	@if $feature == 'anon' {
-		@include oHeaderAnon;
-	} @else if $feature == 'subnav' {
-		@include oHeaderSubnav;
-	} @else if $feature == 'search' {
-		@include oHeaderSearch;
-	} @else if $feature == 'nav' {
-		@include oHeaderNav;
-	} @else if $feature == 'drawer' {
-		@include oHeaderDrawer;
-	} @else if $feature == 'megamenu' {
-		@include oHeaderMegaMenu;
-	} @else if $feature == 'sticky' {
-		@include oHeaderSticky;
-	} @else if $feature == 'simple' {
-		@include oHeaderSimple;
-	} @else if $feature == 'subbrand' {
-		@include oHeaderSubbrand;
-	} @else if $feature == 'transparent' {
-		@include oHeaderTransparent;
-	}
-}
-
 /// Base styles for header links
-@mixin oHeaderLink() {
+@mixin _oHeaderLink() {
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -46,7 +21,7 @@
 }
 
 /// More visually decorated link styles
-@mixin oHeaderFancyLink() {
+@mixin _oHeaderFancyLink() {
 	position: relative;
 	display: block;
 	padding: $_o-header-padding-y 0;
@@ -73,8 +48,7 @@
 }
 
 /// Horizontal list item separator
-@mixin oHeaderItemSeparator() {
-
+@mixin _oHeaderItemSeparator() {
 	& + & {
 		@include _oHeaderItemSeparatorContent();
 	}
@@ -100,7 +74,7 @@
 /// Calculate logo dimensions for the given breakpoint
 ///
 /// @param {String} $breakpoint - XS, S, M, L or XL
-@mixin oHeaderLogoSize($breakpoint) {
+@mixin _oHeaderLogoSize($breakpoint) {
 	$image-aspect-ratio: 25 / 2;
 	$logo-heights: ('XS': 16, 'S': 20, 'M': 24, 'L': 40, 'XL': 40);
 	width: map-get($logo-heights, $breakpoint) * $image-aspect-ratio + 0px;
@@ -112,7 +86,7 @@
 /// @param {String} $logo-name
 /// @param {Color} $color
 /// @param {Number} $fallback-width
-@mixin oHeaderBrandImage($logo-name, $color, $fallback-width) {
+@mixin _oHeaderBrandImage($logo-name, $color, $fallback-width) {
 	$base-url: "#{$o-header-image-base-url}/#{$o-header-image-service-version}/images/raw/ftlogo:";
 	$color: str-slice(ie-hex-str($color), 4);
 	background-image: url($base-url + $logo-name + "?source=o-header&tint=%23#{$color},%23#{$color}&format=svg");

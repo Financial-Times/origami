@@ -1,4 +1,4 @@
-@mixin oHeaderSimple() {
+@mixin _oHeaderSimple() {
 	.o-header--simple {
 		// fix heights
 		.o-header__top-wrapper {
@@ -15,7 +15,7 @@
 			margin-bottom: 0;
 
 			@include oGridRespondTo('L') {
-				@include oHeaderLogoSize('M');
+				@include _oHeaderLogoSize('M');
 			}
 		}
 

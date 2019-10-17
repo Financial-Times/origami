@@ -1,4 +1,4 @@
-@mixin oHeaderBase() {
+@mixin _oHeaderBase() {
 	.o-header {
 		color: _oHeaderGet('header-text');
 		background-color: _oHeaderGet('header-background');

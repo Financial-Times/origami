@@ -1,4 +1,4 @@
-@mixin oHeaderNav() {
+@mixin _oHeaderNav() {
 	.o-header__nav {
 		@include oTypographySans($scale: -1, $line-height: 20px);
 	}
@@ -60,8 +60,8 @@
 	}
 
 	.o-header__nav-link {
-		@include oHeaderLink();
-		@include oHeaderFancyLink();
+		@include _oHeaderLink();
+		@include _oHeaderFancyLink();
 	}
 
 	.o-header__nav-link--primary {

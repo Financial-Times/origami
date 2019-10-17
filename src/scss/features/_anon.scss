@@ -1,4 +1,4 @@
-@mixin oHeaderAnon() {
+@mixin _oHeaderAnon() {
 	.o-header__anon {
 		text-align: center;
 
@@ -13,13 +13,13 @@
 	}
 
 	.o-header__anon-item {
-		@include oHeaderItemSeparator();
+		@include _oHeaderItemSeparator();
 		display: inline-block;
 	}
 
 	.o-header__anon-link {
 		@include oTypographySans(-1);
-		@include oHeaderLink();
-		@include oHeaderFancyLink();
+		@include _oHeaderLink();
+		@include _oHeaderFancyLink();
 	}
 }
