@@ -22,7 +22,8 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts,o-normalise"
+			"o-fonts@^3.3.2",
+			"o-normalise@^1.7.4"
 		]
 	},
 	"demos": [
@@ -93,13 +94,6 @@
 			"description": "oButtons includes styles for some common icon buttons and the ability to add more using Sass mixins."
 		},
 		{
-			"title": "Test",
-			"name": "test",
-			"template": "/demos/src/test.mustache",
-			"hidden": true,
-			"description": "Really big page of demos for all buttons for testing"
-		},
-		{
 			"title": "Custom Icon Button",
 			"name": "custom icon button",
 			"template": "/demos/src/custom-icon-button.mustache",
@@ -110,6 +104,9 @@
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
+			"data": {
+				"themes": ["","mono","inverse", "custom-claret", "b2c"]
+			},
 			"hidden": true,
 			"description": "Pa11y test for accesibility"
 		},

@@ -1,53 +1,147 @@
 @import 'o-brand/main';
 @import 'o-colors/main';
+@import 'o-typography/main';
 @import 'o-icons/main';
 @import 'o-normalise/main';
 
-@import './src/scss/colors';
 @import './src/scss/brand';
 @import './src/scss/variables';
 @import './src/scss/functions';
 @import './src/scss/mixins';
 
-@import './src/scss/group';
-@import './src/scss/pagination';
-@import './src/scss/icon';
+/// Output button classes, including size and theme modifiers.
+/// Defaults to all sizes and themes.
+///
+/// @example Default button classes only.
+///     @include oButtons;
+///
+/// @example Primary and secondary button modifier classes, plus big and small modifier classes. No icon buttons. No pagination or group classes.
+///    @include oButtons($opts: (
+///        'sizes': ('big', 'default'),
+///        'themes': ('primary', 'secondary')
+///    ));
+///
+/// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes. No pagination or group classes.
+///    @include oButtons($opts: (
+///        'sizes': ('big', 'default'),
+///        'themes': ('primary', 'secondary'),
+///        'icons': ('arrow-left', 'arrow-right')
+///    ));
+///
+/// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes, plus classes for pagination and group styles.
+///    @include oButtons($opts: (
+///        'sizes': ('big', 'default'),
+///        'themes': ('primary', 'secondary'),
+///        'icons': ('arrow-left', 'arrow-right'),
+///        'pagination': true,
+///        'groups': true
+///    ));
+///
+/// @param {List} $opts
+@mixin oButtons($opts: (
+	'sizes': $_o-buttons-sizes,
+	'types': $_o-buttons-types,
+	'themes': $_o-buttons-themes,
+	'icons': $_o-buttons-icons,
+	'pagination': true,
+	'groups': true
+)) {
+	$types: map-get($opts, 'types');
+	$sizes: map-get($opts, 'sizes');
+	$themes: map-get($opts, 'themes');
+	$icons: map-get($opts, 'icons');
+	$pagination-enabled: map-has-key($opts, 'pagination');
+	$groups-enabled: map-has-key($opts, 'groups');
 
-@import './src/scss/deprecated';
-
-@if ($o-buttons-is-silent == false) {
-	.#{$o-buttons-class} {
-		@include oButtons;
+	// Base button class.
+	.o-buttons {
+		@include _oButtonsBaseContent();
 	}
 
-	@each $size, $properties in $o-buttons-sizes {
-		.#{$o-buttons-class}--#{$size} {
-			@include oButtonsSize($size);
+	// Helper class to hide disabled buttons.
+	.o-buttons--hide-disabled[disabled] {
+		visibility: hidden;
+	}
+
+	// Sizes.
+	@each $size in $sizes {
+		.o-buttons--#{$size} {
+			@include _oButtonsSizeContent($size);
 		}
 	}
 
-	@each $theme, $theme-parts in $o-buttons-themes {
-		@if _oButtonsSupports($theme) {
-			$theme-selector: _oButtonsGetThemeSelector($theme, $o-buttons-class);
-			.#{$theme-selector} {
-				@include oButtonsTheme($theme);
+	// Icons.
+	@if (length($icons) > 0) {
+		.o-buttons-icon {
+			@include _oButtonsIconBaseContent();
+		}
+
+		@each $size in $sizes {
+			.o-buttons--#{$size}.o-buttons-icon {
+				background-size: _oButtonsGet('background-size', $size);
+				padding-left: _oButtonsGet('icon-padding', $size);
+			}
+		}
+
+		// Higher specificity than `.o-buttons--#{$size}.o-buttons-icon`.
+		.o-buttons-icon.o-buttons-icon--icon-only {
+			@include _oButtonsIconOnlyContent();
+		}
+
+		.o-buttons-icon__label {
+			@include oNormaliseVisuallyHidden();
+		}
+	}
+
+	// Type & theme modifiers.
+	@each $type in $types {
+		@if _oButtonsSupports($type) {
+			@include _oButtonsAdd($type: $type, $icons: $icons);
+		}
+		@each $theme in $themes {
+			@if _oButtonsSupports('#{$type}-#{$theme}') {
+				@include _oButtonsAdd($type, $theme, $icons);
 			}
 		}
 	}
 
-	.#{$o-buttons-class}-pagination {
-		@include oButtonsPagination;
+	// Pagination wrapper.
+	@if $pagination-enabled {
+		.o-buttons-pagination {
+			> .o-buttons {
+				padding-left: 5px;
+				padding-right: 5px;
+				min-width: 24px;
+
+				&[disabled] {
+					visibility: hidden;
+				}
+
+				&.o-buttons--big {
+					padding-left: 9px;
+					padding-right: 9px;
+					min-width: 36px;
+				}
+			}
+		}
 	}
 
-	@include _oButtonsGenerateIconButtons;
+	// Group wrapper.
+	@if $groups-enabled {
+		.o-buttons-group {
+			> .o-buttons {
+				position: relative;
 
-	.#{$o-buttons-class}-group {
-		@include oButtonsGroup;
+				+ .o-buttons {
+					margin-left: -1px;
+				}
+			}
+		}
 	}
+}
 
-	.#{$o-buttons-class}--hide-disabled[disabled] {
-		visibility: hidden;
-	}
+@if ($o-buttons-is-silent == false) {
+	@include oButtons();
 
 	// Set module to silent again
 	$o-buttons-is-silent: true !global;

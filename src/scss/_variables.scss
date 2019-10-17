@@ -1,74 +1,30 @@
-////
-/// @group o-buttons
-/// @link http://registry.origami.ft.com/components/o-buttons
-////
-
 /// Silent mode: on (true) or off (false)
 /// Set to false to output default button classes
 ///
 /// @type Boolean
 $o-buttons-is-silent: true !default;
 
-/// Default button class used when $o-buttons-is-silent is true
-///
-/// @type String
-$o-buttons-class: o-buttons !default;
-
-/// Button font family
-///
-/// This is required to override default system form element styling,
-/// since `<input>`, `<button>`… don't inherit global font styles
-///
-/// @type String
-$o-buttons-font-family: MetricWeb, sans-serif !default;
-
-/// Button font weight
-///
-/// @type String
-$o-buttons-font-weight: 600 !default; // Semibold
-
 /// Button sizes, with their attached properties
 ///
-/// @type Map
-$o-buttons-sizes: (
-	default: (
-		background-size: 21px, // Magic number to reduce poor antialiasing on icons at small sizes
-		font-size: 14px,
-		min-height: 28px,
-		min-width: 60px,
-		padding-left: 8px,
-		padding-right: 8px,
-		border-width: 1px,
-	),
-	big: (
-		background-size: 40px,
-		font-size: 16px,
-		min-height: 40px,
-		min-width: 80px,
-		padding-left: 20px,
-		padding-right: 20px,
-		border-width: 1px,
-	)
+/// @type List
+$_o-buttons-sizes: ('big') !default;
+
+/// A list of all available button themes. @see _brand.scss to see which brands
+/// support which themes.
+/// @type List
+/// @access private
+$_o-buttons-themes: (
+	inverse,
+	mono,
+	b2c
 ) !default;
 
-/// Border-radius
-///
-/// @type Number
-$_o-buttons-border-radius: $o-normalise-border-radius;
-
-/// Button themes
-/// Keys are a brand variant (@see _brand.scss).
-/// Values are used to output selectors e.g. ".o-buttons--primary.o-buttons--inverse".
-///
-/// @type Map
-$o-buttons-themes: (
-	primary: 'primary',
-	primary-inverse: ('primary', 'inverse'),
-	primary-mono: ('primary', 'mono'),
-	secondary: 'secondary',
-	inverse: 'inverse',
-	mono: 'mono',
-	b2c: 'b2c'
+/// A list of all available button types.
+/// @type List
+/// @access private
+$_o-buttons-types: (
+	primary,
+	secondary,
 ) !default;
 
 /// List of icons to generate classes for icon buttons.
@@ -77,5 +33,9 @@ $o-buttons-themes: (
 /// available to those users.
 /// Icon names as used in fticons
 ///
+/// Update README.md with icon options when updating this list.
+///
 /// @type List
-$o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus", "warning", "arrow-down", "arrow-up", "grid", "list", "edit", "download", "search" !default;
+$_o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus", "warning", "arrow-down", "arrow-up", "grid", "list", "edit", "download", "search" !default;
+
+$_o-buttons-generated-themes: ();

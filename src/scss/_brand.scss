@@ -10,149 +10,78 @@
 	@return oBrandSupportsVariant($component: 'o-buttons', $variant: $variant);
 }
 
-$_o-buttons-shared-brand-config: () !default;
-@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
-	$_o-buttons-shared-brand-config: (
-		'primary': (
-			default-color: oColorsGetPaletteColor('white'),
-			default-background: oColorsGetPaletteColor('teal-50'),
-			default-border: oColorsGetPaletteColor('transparent'),
-			hover-background: oColorsGetPaletteColor('teal-40'),
-			focus-background: oColorsGetPaletteColor('teal-40'),
-			active-background: oColorsGetPaletteColor('teal-30')
-		),
-		'primary-inverse': (
-			default-color: oColorsGetPaletteColor('slate'),
-			default-background: oColorsGetPaletteColor('white'),
-			default-border: oColorsGetPaletteColor('transparent'),
-			hover-background: oColorsGetPaletteColor('slate-white-40'),
-			focus-background: oColorsGetPaletteColor('white'),
-			active-color: oColorsGetPaletteColor('slate'),
-			active-background: oColorsGetPaletteColor('slate-white-30')
-		),
-		'secondary': (
-			default-color: oColorsGetPaletteColor('teal-50'),
-			default-background: oColorsGetPaletteColor('transparent'),
-			default-border: oColorsGetPaletteColor('teal-50'),
-			hover-background: oColorsGetPaletteColor('teal-transparent-10'),
-			focus-background: oColorsGetPaletteColor('teal-transparent-10'),
-			active-color: oColorsGetPaletteColor('white'),
-			active-background: oColorsGetPaletteColor('teal-50')
-		),
-		'inverse': (
-			default-color: oColorsGetPaletteColor('white'),
-			default-background: oColorsGetPaletteColor('transparent'),
-			default-border: oColorsGetPaletteColor('white'),
-			hover-background: oColorsGetPaletteColor('slate-white-80'),
-			focus-background: oColorsGetPaletteColor('slate-white-80'),
-			active-color: oColorsGetPaletteColor('black'),
-			active-background: oColorsGetPaletteColor('white')
-		)
-	)!global;
-}
+$_o-buttons-shared-brand-config: (
+	'scale': -1,
+	'background-size': 21px, // Magic number to reduce poor antialiasing on icons at small sizes
+	'min-height': 28px,
+	'min-width': 60px,
+	'padding': 0 8px,
+	'icon-padding': 22px,
+	'big': (
+		'scale': 0,
+		'background-size': 40px,
+		'min-height': 40px,
+		'min-width': 80px,
+		'padding': 0 20px,
+		'icon-padding': 40px
+	),
+);
 
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-buttons', 'master', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
+			'color': 'teal',
+			'inverse': (
+				'color': 'white',
+				'context': 'slate'
+			),
 			'mono': (
-					default-color: oColorsGetPaletteColor('slate'),
-					default-background: oColorsGetPaletteColor('transparent'),
-					default-border: oColorsGetPaletteColor('slate'),
-					hover-background: oColorsGetPaletteColor('slate-paper-10'),
-					focus-background: oColorsGetPaletteColor('slate-paper-10'),
-					active-color: oColorsGetPaletteColor('white'),
-					active-background: oColorsGetPaletteColor('slate')
-				),
-				'primary-mono': (
-					default-color: oColorsGetPaletteColor('white'),
-					default-background: oColorsGetPaletteColor('slate'),
-					default-border: oColorsGetPaletteColor('transparent'),
-					hover-background: oColorsGetPaletteColor('slate-paper-70'),
-					focus-background: oColorsGetPaletteColor('slate-paper-70'),
-					active-color: oColorsGetPaletteColor('white'),
-					active-background: oColorsGetPaletteColor('slate-paper-60')
-				),
-				'b2c': (
-					default-color: oColorsGetPaletteColor('white'),
-					default-background: oColorsGetPaletteColor('org-b2c-dark'),
-					default-border: oColorsGetPaletteColor('org-b2c-dark'),
-					hover-color: oColorsGetPaletteColor('black-90'),
-					hover-background: oColorsGetPaletteColor('org-b2c'),
-					focus-color: oColorsGetPaletteColor('black-90'),
-					focus-background: oColorsGetPaletteColor('org-b2c'),
-					active-color: oColorsGetPaletteColor('black-90'),
-					active-background: oColorsGetPaletteColor('org-b2c-light'),
-				)
+				'color': 'slate'
+			),
+			'b2c': (
+				'color': 'org-b2c-dark'
 			)
-		),
+		)),
 		'supports-variants': (
 			'primary',
+			'secondary',
+			'primary-b2c',
 			'primary-inverse',
 			'primary-mono',
-			'secondary',
-			'inverse',
-			'mono',
-			'b2c'
-			)
-		)
+			'secondary-inverse',
+			'secondary-mono',
+		))
 	);
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-buttons', 'internal', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
-			'mono': (
-				default-color: oColorsGetPaletteColor('slate'),
-				default-background: oColorsGetPaletteColor('transparent'),
-				default-border: oColorsGetPaletteColor('slate'),
-				hover-background: oColorsGetPaletteColor('slate-white-15'),
-				focus-background: oColorsGetPaletteColor('slate-white-15'),
-				active-color: oColorsGetPaletteColor('white'),
-				active-background: oColorsGetPaletteColor('slate')
+			'color': 'teal',
+			'inverse': (
+				'color': 'white',
+				'context': 'slate'
 			),
-			('primary-mono'): (
-				default-color: oColorsGetPaletteColor('white'),
-				default-background: oColorsGetPaletteColor('slate'),
-				default-border: oColorsGetPaletteColor('transparent'),
-				hover-background: oColorsGetPaletteColor('slate-white-70'),
-				focus-background: oColorsGetPaletteColor('slate-white-70'),
-				active-color: oColorsGetPaletteColor('white'),
-				active-background: oColorsGetPaletteColor('slate-white-60')
-				)
+			'mono': (
+				'color': 'slate'
+			)
 		)),
 		'supports-variants': (
 			'primary',
 			'primary-inverse',
 			'primary-mono',
 			'secondary',
-			'inverse',
-			'mono'
+			'secondary-inverse',
+			'secondary-mono'
 		))
 	);
 }
 
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-buttons', 'whitelabel', (
-		'variables': (
-			'primary': (
-				default-color: oColorsGetPaletteColor('white'),
-				default-background: oColorsGetPaletteColor('black'),
-				default-border: oColorsGetPaletteColor('black'),
-				hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
-				focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 60),
-				active-color: oColorsGetPaletteColor('black'),
-				active-background: oColorsGetPaletteColor('white')
-			),
-			'secondary': (
-				default-color: oColorsGetPaletteColor('black'),
-				default-background: oColorsGetPaletteColor('transparent'),
-				default-border: oColorsGetPaletteColor('black'),
-				hover-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
-				focus-background: oColorsMix($color: 'black', $background: 'transparent', $percentage: 10),
-				active-color: oColorsGetPaletteColor('white'),
-				active-background: oColorsGetPaletteColor('black')
-			)
-		),
+		'variables': map-merge($_o-buttons-shared-brand-config, (
+			'color': 'black'
+		)),
 		'supports-variants': (
 			'primary',
 			'secondary',

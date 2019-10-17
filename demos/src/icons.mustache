@@ -1,27 +1,26 @@
 <h2>Currently supported icons</h2>
-<p>You can add any icon using the <code>oButtonsIconButton</code> mixin. If you need an icon button with the build service, please ask the team or raise a PR adding the o-icons icon to the <code>$o-buttons-icons</code> variable.</p>
 	{{#icons}}
-		<button class="o-buttons o-buttons-icon o-buttons-icon--{{name}}">
+		<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--{{name}}">
 			{{text}}
 		</button>
 	{{/icons}}
 	<br>
 	<br>
 	{{#icons}}
-		<button class="o-buttons o-buttons--big o-buttons-icon o-buttons-icon--{{name}}">
+		<button class="o-buttons o-buttons--secondary o-buttons--big o-buttons-icon o-buttons-icon--{{name}}">
 			{{text}}
 		</button>
 	{{/icons}}
 <h2>Icon buttons without text</h2>
 {{#icons}}
-<button class="o-buttons o-buttons-icon o-buttons-icon--{{name}} o-buttons-icon--icon-only">
+<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--{{name}} o-buttons-icon--icon-only">
 	<span class="o-buttons-icon__label">{{text}}</span>
 </button>
 {{/icons}}
 <br>
 <br>
 {{#icons}}
-<button class="o-buttons o-buttons-icon o-buttons--big o-buttons-icon--{{name}} o-buttons-icon--icon-only">
+<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons--big o-buttons-icon--{{name}} o-buttons-icon--icon-only">
 	<span class="o-buttons-icon__label">{{text}}</span>
 </button>
 {{/icons}}
@@ -29,7 +28,7 @@
 <h2>Icon buttons with different themes</h2>
 	{{#themes}}
 		<div class='theme-box {{name}}'>
-			<button class="o-buttons o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			<button class="o-buttons o-buttons--secondary o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
 				Show
 			</button>
 		</div>
@@ -38,7 +37,7 @@
 	</br>
 	{{#themes}}
 		<div class='theme-box {{name}}'>
-			<button class="o-buttons o-buttons--big o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			<button class="o-buttons o-buttons--secondary o-buttons--big o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
 				Show
 			</button>
 		</div>

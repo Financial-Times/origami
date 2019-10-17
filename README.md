@@ -259,7 +259,20 @@ This will output styles for a lemon coloured button that has slate text, with a 
 #### Icons
 If you're using bower, you can create an icon button for **any** icon in [fticons](https://registry.origami.ft.com/components/fticons/).
 
-If you're using the Build Service, currently supported icons are defined in the `$o-buttons-icons` variable in `scss/_variables.scss`. Limiting the concrete classes keeps the compiled CSS bundle small, but if you need an icon button that we don't currently support then please open an issue.
+If you're using the Build Service a limited number of button icons are available. Limiting the concrete classes keeps the compiled CSS bundle smaller, but if you need an icon button that we don't currently support then please open an issue. Build service icons currently include:
+- arrow-left
+- arrow-right
+- upload
+- tick
+- plus
+- warning
+- arrow-down
+- arrow-up
+- grid
+- list
+- edit
+- download
+- search
 
 ```html
 // Icon and text button.
@@ -306,6 +319,25 @@ In the past we've seen issues where adding styles to the `background` property o
 To avoid this, use the `background-color` property instead of the shorthand `background` property if you wish to overwrite a buttons background-color.
 
 ## Migration Guide
+
+### Migrating from v5 to v6
+
+- The variable `$o-buttons-icons` is now private.
+- `o-buttons--b2c` buttons require the addition of a `o-buttons--primary` class.
+- Added a dependancy on `o-typography`.
+- There is no default button use `o-buttons--secondary`.
+- Removes the ability to set a custom button class.
+- Removed global variables `$o-buttons-font-family`, `$o-buttons-font-weight`, `$o-buttons-themes__b2c`, and `$o-buttons-class`.
+- Global variables `$o-buttons-themes`, `$o-buttons-sizes`, and `$_o-buttons-icons` are now private.
+- The mixin `oButtons` has been updated. It outputs all `o-buttons` styles by default, or a subset of button styles with the `$opts` argument.
+- The function `oButtonsGetColor` now takes a button type and theme rather than variant.
+- Removed deprecated mixins `oButtonsCustomTheme`, `oButtonsIcon`, `oButtonsGetButtonForIconAndTheme`, and `oButtonsBaseStyles`.
+- Removed mixins `oButtonsSize`, `oButtonsIconButton`, `oButtonsIconBaseStyles`, `oButtonsIconButtonLabel`, `oButtonsGroup`, and `oButtonsPagination`.
+- Added `oButtonsContent` to output button styles without classes.
+- Removes the `$buttonClass` argument from `oButtonsGroup`, `oButtonsPagination`.
+- `oButtonsTheme` is now private, use `oButtonsAddTheme` or `oButtonsContent` instead.
+- Removed all deprecated [colour usecases](https://github.com/Financial-Times/o-buttons/blob/v5.15.1/scss/_deprecated.scss#L98).
+
 
 ### Migrating from v4 to v5
 
