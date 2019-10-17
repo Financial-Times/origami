@@ -140,18 +140,20 @@ o-header fires the following events:
 
 ## Browser Support
 
-We use the [standard](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
+We use the [standard](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
-## Migration Guide
+## Migration
 
-### Migrating from 6.x.x to 7.x.x
-
-V7 introduces new major versions of `o-colors`, `o-typography`, `o-buttons` and `o-visual-effects`. Updating to this new version will mean updating any other components that you have which are using `o-colors`, `o-typography`, `o-buttons`, or `o-visual-effects`. There are no other breaking changes in this release.
-
-
-### Migrating from 5.x.x to 6.x.x
-
-This is a complete change in the markup and usage of the module, so we advise to look at the markup in the demos and go over the readme. If any issues come up, please let us know.
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 8 | N/A | [migrate to v8](MIGRATION.md#migrating-from-v7-to-v8) |
+⚠ maintained | 7 | 7.8 | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+╳ deprecated | 6 | 6.14 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.0 | - |
+╳ deprecated | 4 | 4.0 | - |
+╳ deprecated | 3 | 3.0 | - |
+╳ deprecated | 2 | 2.5 | - |
+╳ deprecated | 1 | 1.1 | - |
 
 ---
 
