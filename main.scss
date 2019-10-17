@@ -7,7 +7,7 @@
 @import "src/scss/color-use-cases";
 
 // ensure that the placeholders are only output once
-$_o-quote-placeholders-defined: false!default;
+$_o-quote-placeholders-defined: false !default;
 @import "src/scss/base";
 @import "src/scss/editorial";
 $_o-quote-placeholders-defined: true;
@@ -29,6 +29,9 @@ $_o-quote-placeholders-defined: true;
 	cite: true,
 	editorial: true
 )) {
+	$cite-enabled: map-get($opts, 'cite');
+	$editorial-enabled: map-get($opts, 'editorial');
+
 	.o-quote {
 		@include oQuoteBase();
 	}
@@ -43,7 +46,10 @@ $_o-quote-placeholders-defined: true;
 		.o-quote--editorial {
 			@include oQuoteEditorial();
 			.o-quote__author {
-				@include oQuoteAuthor();
+				@include oQuoteEditorialAuthor();
+			}
+			.o-quote__source {
+				@include oQuoteEditorialSource();
 			}
 		}
 	}
