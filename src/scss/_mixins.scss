@@ -1,27 +1,20 @@
-/// Applies styles to hide an element accessibly,
-/// allowing the content to be read by screenreaders.
-@mixin oFtAffiliateRibbonVisuallyHidden() {
-	position: absolute;
-	clip: rect(0 0 0 0);
-	margin: -1px;
-	border: 0;
-	overflow: hidden;
-	padding: 0;
-	width: 1px;
-	height: 1px;
-}
-
 /// Construct a logo image URL
 ///
 /// @param {String} $logo-name
 /// @param {Color} $color
 /// @param {Number} $fallback-width
-@mixin oFtAffiliateRibbonBrandImage($fallback-width) {
+@mixin _oFtAffiliateRibbonBrandImage($fallback-width) {
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
 	$url: '';
 	@if ($o-ft-affiliate-ribbon-use-local-assets) {
 		$url: '/src/img/service-from-ft.svg';
 	} @else {
 		$url: "https://www.ft.com/__origami/service/build/v2/files/o-ft-affiliate-ribbon/src/img/service-from-ft.svg";
 	}
-	background-image: url($url + "?source=o-ft-affiliate-ribbon&format=svg");
+	background-image: url($url + "?source=#{$system-code}&format=svg");
 }
