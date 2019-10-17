@@ -36,12 +36,16 @@
 	display: block;
 }
 
-@mixin oQuoteAuthor {
+@mixin oQuoteEditorialAuthor {
 	@extend %_o-quote__author;
 }
 
 %_o-quote__source {
 	display: block;
+}
+
+@mixin oQuoteEditorialSource {
+	@extend %_o-quote__source;
 }
 
 %_o-quote-cite--editorial {
