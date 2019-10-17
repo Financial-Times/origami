@@ -6,11 +6,10 @@
 @import "src/scss/variables";
 @import "src/scss/color-use-cases";
 
-@if $_o-quote-placeholders-defined != true {
-	@import "src/scss/base";
-	@import "src/scss/editorial";
-}
-
+// ensure that the placeholders are only output once
+$_o-quote-placeholders-defined: false!default;
+@import "src/scss/base";
+@import "src/scss/editorial";
 $_o-quote-placeholders-defined: true;
 
 /// Default styles for o-quote

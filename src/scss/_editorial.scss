@@ -3,22 +3,44 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-%_o-quote--editorial {
-	position: relative;
-	background-color: oColorsGetColorFor(o-quote, background);
-	border-left: 4px solid oColorsGetColorFor(o-quote, border);
+@if ($_o-quote-placeholders-defined == false) {
+	%_o-quote--editorial {
+		position: relative;
+		background-color: oColorsGetColorFor(o-quote, background);
+		border-left: 4px solid oColorsGetColorFor(o-quote, border);
 
-	padding-top: 0px;
-	padding-bottom: 0px;
+		padding-top: 0px;
+		padding-bottom: 0px;
 
-	padding-left: oSpacingByName('s4');
+		padding-left: oSpacingByName('s4');
 
-	a {
-		@include oTypographyLink;
+		a {
+			@include oTypographyLink;
+		}
+
+		p {
+			color: oColorsGetColorFor(o-quote, text);
+		}
 	}
 
-	p {
-		color: oColorsGetColorFor(o-quote, text);
+	%_o-quote__author {
+		@include oTypographySansBold($scale: 0);
+		text-transform: uppercase;
+		display: block;
+	}
+
+	%_o-quote__source {
+		display: block;
+	}
+
+	%_o-quote-cite--editorial {
+		@include oTypographySans($scale: 1);
+		font-weight: normal;
+		font-style: normal;
+		color: oColorsGetColorFor(body, text);
+		a {
+			@include oTypographyLink;
+		}
 	}
 }
 
@@ -30,32 +52,12 @@
 
 /// Editorial quote author styles
 /// @output Adds to the %o-quote__author placeholder
-%_o-quote__author {
-	@include oTypographySansBold($scale: 0);
-	text-transform: uppercase;
-	display: block;
-}
-
 @mixin oQuoteEditorialAuthor {
 	@extend %_o-quote__author;
 }
 
-%_o-quote__source {
-	display: block;
-}
-
 @mixin oQuoteEditorialSource {
 	@extend %_o-quote__source;
-}
-
-%_o-quote-cite--editorial {
-	@include oTypographySans($scale: 1);
-	font-weight: normal;
-	font-style: normal;
-	color: oColorsGetColorFor(body, text);
-	a {
-		@include oTypographyLink;
-	}
 }
 
 @mixin oQuoteEditorialCite {
