@@ -68,7 +68,7 @@ Some elements inside the header require specific data attributes so the JavaScri
 An o-header object must be constructed for every `<header>` you have on your page that uses this module.
 
 ```js
-const Header = require('o-header');
+import Header from 'o-header';
 const headerEl = document.querySelector('.o-header');
 const header = new oHeader(headerEl);
 ```
@@ -76,7 +76,7 @@ const header = new oHeader(headerEl);
 Alternatively, a `o.DOMContentLoaded` event can be dispatched on the document to auto-construct an o-header object for each element with a `data-o-component="o-header"` attribute:
 
 ```js
-require('o-header');
+import 'o-header';
 document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
