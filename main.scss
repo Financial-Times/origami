@@ -17,20 +17,20 @@
 ///
 /// @example Primary and secondary button modifier classes, plus big and small modifier classes. No icon buttons. No pagination or group classes.
 ///    @include oButtons($opts: (
-///        'sizes': ('big', 'default'),
+///        'sizes': ('big'),
 ///        'themes': ('primary', 'secondary')
 ///    ));
 ///
 /// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes. No pagination or group classes.
 ///    @include oButtons($opts: (
-///        'sizes': ('big', 'default'),
+///        'sizes': ('big'),
 ///        'themes': ('primary', 'secondary'),
 ///        'icons': ('arrow-left', 'arrow-right')
 ///    ));
 ///
 /// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes, plus classes for pagination and group styles.
 ///    @include oButtons($opts: (
-///        'sizes': ('big', 'default'),
+///        'sizes': ('big'),
 ///        'themes': ('primary', 'secondary'),
 ///        'icons': ('arrow-left', 'arrow-right'),
 ///        'pagination': true,

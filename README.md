@@ -311,57 +311,16 @@ Or, using Sass:
 </button>
 ```
 
+## Migration
 
-## Troubleshooting
-
-In the past we've seen issues where adding styles to the `background` property of buttons with a low specificity selector can overwrite the `background-color` styles added by o-buttons, [see issue #76](https://github.com/Financial-Times/o-buttons/issues/76). This happens because o-buttons styles the `background-color` property on buttons to add color instead of the shorthand property, which allows for icons to be added to buttons using the remaining background properties.
-
-To avoid this, use the `background-color` property instead of the shorthand `background` property if you wish to overwrite a buttons background-color.
-
-## Migration Guide
-
-### Migrating from v5 to v6
-
-- The variable `$o-buttons-icons` is now private.
-- `o-buttons--b2c` buttons require the addition of a `o-buttons--primary` class.
-- Added a dependancy on `o-typography`.
-- There is no default button use `o-buttons--secondary`.
-- Removes the ability to set a custom button class.
-- Removed global variables `$o-buttons-font-family`, `$o-buttons-font-weight`, `$o-buttons-themes__b2c`, and `$o-buttons-class`.
-- Global variables `$o-buttons-themes`, `$o-buttons-sizes`, and `$_o-buttons-icons` are now private.
-- The mixin `oButtons` has been updated. It outputs all `o-buttons` styles by default, or a subset of button styles with the `$opts` argument.
-- The function `oButtonsGetColor` now takes a button type and theme rather than variant.
-- Removed deprecated mixins `oButtonsCustomTheme`, `oButtonsIcon`, `oButtonsGetButtonForIconAndTheme`, and `oButtonsBaseStyles`.
-- Removed mixins `oButtonsSize`, `oButtonsIconButton`, `oButtonsIconBaseStyles`, `oButtonsIconButtonLabel`, `oButtonsGroup`, and `oButtonsPagination`.
-- Added `oButtonsContent` to output button styles without classes.
-- Removes the `$buttonClass` argument from `oButtonsGroup`, `oButtonsPagination`.
-- `oButtonsTheme` is now private, use `oButtonsAddTheme` or `oButtonsContent` instead.
-- Removed all deprecated [colour usecases](https://github.com/Financial-Times/o-buttons/blob/v5.15.1/scss/_deprecated.scss#L98).
-
-
-### Migrating from v4 to v5
-
-This major includes the new o-colors and updates the themes and sizes of buttons.
-
-**Sizes** have been updated to `default` (`28px` min-height), and `big` (`40px` min-height) to correspond to the new baseline sizing introduced in the new o-typography. `Small` button size has been removed.
-
-The following changes have been made to the **themes**:
-
-- `Standard` is now `Secondary` and the default button style: use `o-buttons` or `o-buttons--secondary` classes
-- `Standout` is now `Primary`: use `o-buttons--primary` class
-- `Uncolored` is now `Mono`: use `o-buttons--mono` class
-
-Inverse and B2C themes have remained the same.
-
-Removes deprecated classnames:
-
-```diff
--.o-buttons__pagination
-+.o-buttons-pagination
-
--.o-buttons__group
-+.o-buttons-group
-```
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | 5.16 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.5 | - |
+╳ deprecated | 3 | 3.1 | - |
+╳ deprecated | 2 | 2.0 | - |
+╳ deprecated | 1 | 1.8 | - |
 
 ---
 
