@@ -5,32 +5,42 @@
 
 @import "src/scss/variables";
 @import "src/scss/color-use-cases";
-@import "src/scss/base";
-@import "src/scss/editorial";
 
+@if $_o-quote-placeholders-defined != true {
+	@import "src/scss/base";
+	@import "src/scss/editorial";
+}
+
+$_o-quote-placeholders-defined: true;
+
+/// Default styles for o-quote
+/// @output The output includes the `.o-quote*` selectors
 @mixin oQuote($opts: (
 	cite: true,
 	editorial: true
 )) {
 	.o-quote {
-		@include _oQuoteBase();
+		@include oQuoteBase();
 	}
 
 	@if $cite-enabled {
 		.o-quote__cite {
-			@include _oQuoteBaseCite();
+			@include oQuoteBaseCite();
 		}
 	}
 
 	@if $editorial-enabled {
 		.o-quote--editorial {
-			@include _oQuoteEditorial();
+			@include oQuoteEditorial();
+			.o-quote__author {
+				@include oQuoteAuthor();
+			}
 		}
 	}
 
 	@if $editorial-enabled and $cite-enabled {
 		.o-quote--editorial .o-quote__cite {
-			@include _oQuoteEditorialCite();
+			@include oQuoteEditorialCite();
 		}
 	}
 }
