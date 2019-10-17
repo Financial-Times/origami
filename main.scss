@@ -7,10 +7,8 @@
 @import "src/scss/color-use-cases";
 
 // ensure that the placeholders are only output once
-$_o-quote-placeholders-defined: false !default;
 @import "src/scss/base";
-@import "src/scss/editorial";
-$_o-quote-placeholders-defined: true;
+@import "src/scss/standard";
 
 /// Default styles for o-quote
 ///
@@ -23,14 +21,14 @@ $_o-quote-placeholders-defined: true;
 ///     	'editorial': true
 ///     ));
 ///
-/// @param {Map} $opts [('cite': true, 'editorial': true] - The feature set to output rules for.
+/// @param {Map} $opts [('cite': true, 'standard': true] - The feature set to output rules for.
 /// @output The output includes the `.o-quote*` selectors
 @mixin oQuote($opts: (
 	cite: true,
-	editorial: true
+	standard: true
 )) {
 	$cite-enabled: map-get($opts, 'cite');
-	$editorial-enabled: map-get($opts, 'editorial');
+	$standard-enabled: map-get($opts, 'standard');
 
 	.o-quote {
 		@include oQuoteBase();
@@ -42,21 +40,21 @@ $_o-quote-placeholders-defined: true;
 		}
 	}
 
-	@if $editorial-enabled {
-		.o-quote--editorial {
-			@include oQuoteEditorial();
+	@if $standard-enabled {
+		.o-quote--standard {
+			@include oQuoteStandard();
 			.o-quote__author {
-				@include oQuoteEditorialAuthor();
+				@include oQuoteStandardAuthor();
 			}
 			.o-quote__source {
-				@include oQuoteEditorialSource();
+				@include oQuoteStandardSource();
 			}
 		}
 	}
 
-	@if $editorial-enabled and $cite-enabled {
-		.o-quote--editorial .o-quote__cite {
-			@include oQuoteEditorialCite();
+	@if $standard-enabled and $cite-enabled {
+		.o-quote--standard .o-quote__cite {
+			@include oQuoteStandardCite();
 		}
 	}
 }

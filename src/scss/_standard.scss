@@ -4,7 +4,7 @@
 ////
 
 @if ($_o-quote-placeholders-defined == false) {
-	%_o-quote--editorial {
+	%_o-quote--standard {
 		position: relative;
 		background-color: oColorsGetColorFor(o-quote, background);
 		border-left: 4px solid oColorsGetColorFor(o-quote, border);
@@ -33,7 +33,7 @@
 		display: block;
 	}
 
-	%_o-quote-cite--editorial {
+	%_o-quote-cite--standard {
 		@include oTypographySans($scale: 1);
 		font-weight: normal;
 		font-style: normal;
@@ -45,21 +45,21 @@
 }
 
 /// Editorial quote styles
-/// @output Adds to the %o-quote--editorial placeholder
-@mixin oQuoteEditorial {
-	@extend %_o-quote--editorial;
+/// @output Adds to the %o-quote--standard placeholder
+@mixin oQuoteStandard {
+	@extend %_o-quote--standard;
 }
 
-/// Editorial quote author styles
+/// Standard quote author styles
 /// @output Adds to the %o-quote__author placeholder
-@mixin oQuoteEditorialAuthor {
+@mixin oQuoteStandardAuthor {
 	@extend %_o-quote__author;
 }
 
-@mixin oQuoteEditorialSource {
+@mixin oQuoteStandardSource {
 	@extend %_o-quote__source;
 }
 
-@mixin oQuoteEditorialCite {
-	@extend %_o-quote-cite--editorial;
+@mixin oQuoteStandardCite {
+	@extend %_o-quote-cite--standard;
 }

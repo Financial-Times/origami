@@ -14,11 +14,7 @@ Which will output the base styles, the citation styles and the special editorial
 
 ### Other mixins
 
-- `oQuoteStandard` has been renamed to `oQuoteEditorial`.
-- `oQuoteStandardCite` is now `oQuoteEditorialCite`
-- `oQuoteStandardCiteAuthor` is `oQuoteEditorialAuthor`
-- `oQuoteStandardCiteSource` is `oQuoteEditorialSource`
-- The deprecated `oQuoteStandardIcon` is gone for real
+- The deprecated `oQuoteStandardIcon` has been removed
 
 ### Placeholders
 
