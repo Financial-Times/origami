@@ -4,6 +4,8 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": ">=2.4.4 <4"
+    "o-spacing": "^2.0.0",
+    "o-colors": "^4.10.3",
+    "o-typography": "^5.12.0"
   }
 }

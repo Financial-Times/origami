@@ -1,5 +1,5 @@
 {
-	"description": "A pull-quote-esque component that highlights large numbers",
+	"description": "Typographical styles to highlight a big number.",
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -8,17 +8,20 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
-	"supportStatus": "experimental",
+	"supportStatus": "maintained",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"dependencies": "o-fonts@^1.6.3"
+		"dependencies": [
+			"o-fonts@^3.3.2",
+			"o-normalise@^1.7.4"
+		]
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-big-number"
 	},
 	"demos": [
 		{
-			"title": "Simple",
+			"title": "Big Number",
 			"name": "simple",
 			"template": "demos/src/simple.mustache"
 		}

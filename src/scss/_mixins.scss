@@ -1,0 +1,11 @@
+/// Styles for the big number itself.
+@mixin oBigNumberTitle {
+	@include oTypographySansBold($scale: 8);
+	margin: 0 0 oSpacingByName('s1') 0;
+}
+
+/// Styles for the copy under the big number.
+@mixin oBigNumberContent {
+	@include oTypographySans($scale: 1, $line-height: 22px);
+	max-width: oTypographyMaxLineWidth($scale: 1);
+}
