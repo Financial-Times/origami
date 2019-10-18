@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "o-colors": "^4.0.0",
-    "o-icons": ">=4.0.0 <6",
+    "o-icons": "^5.11.2",
     "o-typography": "^5.0.0",
     "o-spacing": "^2.0.0"
   }
