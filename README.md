@@ -8,7 +8,7 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 - [Sass](#sass)
 - [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -420,133 +420,21 @@ Both methods will trigger the font loading scripts. This will remove the loading
 ### Fonts not loading in IE11
 This is likely due to a misconfigured `Vary` header. In IE11 if the `Vary` header contains the name of a header which the browser is not aware of E.G. `FT-Site`, then it will cancel downloading the fonts part way through recieving the response yet still report the response as having a 200 HTTP status code. The solution to this is to remove the erroneous `Vary` header values or to remove the `Vary` header altogether. You can read more about how IE handles the `Vary` header on [MSDN](https://blogs.msdn.microsoft.com/ieinternals/2009/06/17/vary-with-care/).
 
-### Fonts not loading in any brower
+### Fonts not loading in any browser
 This is likely due to the server sending the fonts having misconfigured Cross Origin Resource Sharing (CORS). The solution to this is to set the header `Access-Control-Allow-Origin` with the value `*` for any font requests.
 
 
-## Migration guide
+## Migration
 
-### Migrating from v4 to v5
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.3 | - |
+╳ deprecated | 3 | 3.3 | - |
+╳ deprecated | 2 | 2.0 | - |
+╳ deprecated | 1 | 1.16 | - |
 
-V5 of o-typography is a complete overhaul of the typographic system for FT products. The update includes:
-
-- introducing a **new typographic scale**, replacing the type matrix system in the previous version. This affects the [mixins and sizes](#mixins-and-sizes) provided by the API.
-- new use cases, updated to reflect the latest master brand styles. These are available via new [CSS classes](#css-classes) and mixins.
-- removing access to the `FinancierText` font family and replace serif font with `Georgia`.
-
-#### Mixins and sizes
-
-To help you migrate from the v4 mixins to the v5 mixins. We have provided a [table recommending the mixins and font scale](migrating-v4-v5.md) you should use when migrating from v4 to v5.
-
-The following mixins are now renamed:
-
-```diff
-- oTypographySerifDisplayBold
-+ oTypographyDisplayBold
-
-- oTypographySerifDisplay
-+ oTypographyDisplay
-
-- oTypographySansDataBold
-+ oTypographySansBold
-
-- oTypographySansData
-+ oTypographySans
-
-- font-size
-+ oTypographySize
-
-- oTypographyProgressiveFont
-+ oTypographyProgressiveFontFallback
-
-- oTypographyFallbackFontSize
-+ _oTypographyProgressiveFontFallbackSize
-
-- oTypographyHeading1
-+ oTypographyHeadline
-
-- oTypographyHeading2
-+ oTypographyHeadingLevel2
-
-- oTypographyHeading3
-+ oTypographyHeadingLevel3
-
-- oTypographyHeading4
-+ oTypographyHeadingLevel4
-
-- oTypographyHeading5
-+ oTypographyHeadingLevel5
-
-- oTypographyLinkTopic
-- oTypographyLinkTopicMedium
-+ oTypographyTopic
-```
-
-v5 also removes the following mixins:
-
-```diff
-- oTypographySansSize
-- oTypographySansBoldSize
-- oTypographySansDataSize
-- oTypographySansDataBoldSize
-- oTypographySansDataItalicSize
-- oTypographySerifSize
-- oTypographySerifBoldSize
-- oTypographySerifItalicSize
-- oTypographySerifDisplaySize
-- oTypographySerifDisplayBoldSize
-- oTypographySerifDisplayItalicSize
-```
-
-#### CSS classes
-
-v5 introduces several changes to the CSS classes that are available. Whether using the build service or Sass with silent mode switched off you will need to update to the new classnames. The following diff shows removed class and what classname you should use instead, if available.
-
-```diff
-- .o-typography-block
-+ .o-typography-body
-
-- .o-typography-lead
-- .o-typography-lead--small
-+ .o-typography-standfirst
-
-- o-typography-heading1
-+ o-typography-headline
-
-- o-typography-heading2
-+ o-typography-heading-level-2
-
-- o-typography-heading3
-+ o-typography-heading-level-3
-
-- o-typography-heading4
-+ o-typography-heading-level-4
-
-- o-typography-heading5
-+ o-typography-heading-level-5
-
-- .o-typography-link-topic
-- .o-typography-link-topic--medium
-+ .o-typography-topic
-
-- .o-typography-body-wrapper
-+ .o-typography-wrapper
-
-
-// The following classnames do not have like-for-like replacements
-- .o-typography-flyline
-- .o-typography-subhead
-- .o-typography-subhead--standard
-- .o-typography-subhead--crosshead
-- .o-typography-aside__title
-- .o-typography-aside__title--large
-- .o-typography-aside__headline
-- .o-typography-aside__headline--small
-- .o-typography-aside__headline--large
-- .o-typography-aside__body
-- .o-typography-aside__body--small
-- .o-typography-aside-wrapper
-```
 
 ---
 
