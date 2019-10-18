@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-@if ($_o-quote-placeholders-defined == false) {
+@if $_o-quote-first-import == true {
 	%_o-quote--standard {
 		position: relative;
 		background-color: oColorsGetColorFor(o-quote, background);
@@ -52,14 +52,18 @@
 
 /// Standard quote author styles
 /// @output Adds to the %o-quote__author placeholder
-@mixin oQuoteStandardAuthor {
+@mixin oQuoteStandardCiteAuthor {
 	@extend %_o-quote__author;
 }
 
-@mixin oQuoteStandardSource {
+/// Standard quote source styles
+/// @output Adds to the %o-quote__source placeholder
+@mixin oQuoteStandardCiteSource {
 	@extend %_o-quote__source;
 }
 
+/// Standard quote cite styles
+/// @output Adds to the %o-quote-cite--standard placeholder
 @mixin oQuoteStandardCite {
 	@extend %_o-quote-cite--standard;
 }

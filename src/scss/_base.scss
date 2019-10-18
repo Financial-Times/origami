@@ -3,7 +3,7 @@
 /// @link http://registry.origami.ft.com/components/o-quote
 ////
 
-@if ($_o-quote-placeholders-defined == false) {
+@if $_o-quote-first-import == true {
 	%_o-quote {
 		padding-top: oSpacingByIncrement(10);
 		padding-bottom: oSpacingByIncrement(10);

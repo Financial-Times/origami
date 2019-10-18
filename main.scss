@@ -1,3 +1,7 @@
+// TODO This is a temporary variable, until we can use the new sass `@use` feature
+// that will not have the problem of re-outputting placeholders on every import
+$_o-quote-first-import: true !default;
+
 @import "o-spacing/main";
 @import "o-colors/main";
 @import "o-typography/main";
@@ -6,7 +10,6 @@
 @import "src/scss/variables";
 @import "src/scss/color-use-cases";
 
-// ensure that the placeholders are only output once
 @import "src/scss/base";
 @import "src/scss/standard";
 
@@ -43,18 +46,19 @@
 	@if $standard-enabled {
 		.o-quote--standard {
 			@include oQuoteStandard();
-			.o-quote__author {
-				@include oQuoteStandardAuthor();
-			}
-			.o-quote__source {
-				@include oQuoteStandardSource();
-			}
 		}
 	}
 
 	@if $standard-enabled and $cite-enabled {
 		.o-quote--standard .o-quote__cite {
 			@include oQuoteStandardCite();
+		}
+
+		.o-quote__author {
+			@include oQuoteStandardCiteAuthor();
+		}
+		.o-quote__source {
+			@include oQuoteStandardCiteSource();
 		}
 	}
 }
@@ -64,3 +68,5 @@
 	// Set to silent again to avoid being output twice
 	$o-quote-is-silent: true !global;
 }
+
+$_o-quote-first-import: false;
