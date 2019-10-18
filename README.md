@@ -4,7 +4,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration Guide](#migration-guide)
+- [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
