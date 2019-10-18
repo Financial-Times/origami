@@ -1,107 +1,107 @@
 // Define universal primary palette.
-$_o-colors-default-palette-colors: map-merge((
-	'black':                 ('color': #000000, 'opts': ()),
-	'white':                 ('color': #ffffff, 'opts': ()),
+$_o-colors-default-palette-colors: join((
+	('black', #000000),
+	('white', #ffffff),
 ), $_o-colors-default-palette-colors);
 
 // Master brand palette.
-@if $_o-colors-brand == master {
-	$_o-colors-default-palette-colors: map-merge((
+@if oBrandGetCurrentBrand() == master {
+	$_o-colors-default-palette-colors: join((
 		// primary palette
-		'paper':                 ('color': #fff1e5, 'opts': ()),
-		'claret':                ('color': #990f3d, 'opts': ()),
-		'oxford':                ('color': #0f5499, 'opts': ()),
-		'teal':                  ('color': #0d7680, 'opts': ()),
+		('paper', #fff1e5),
+		('claret', #990f3d),
+		('oxford', #0f5499),
+		('teal', #0d7680),
 
 		//secondary palette
-		'wheat':                 ('color': #f2dfce, 'opts': ()),
-		'sky':                   ('color': #cce6ff, 'opts': ()),
-		'slate':                 ('color': #262a33, 'opts': ()),
-		'velvet':                ('color': #593380, 'opts': ()),
-		'mandarin':              ('color': #ff8833, 'opts': ()),
-		'lemon':                 ('color': #ffec1a, 'opts': ()),
+		('wheat', #f2dfce),
+		('sky', #cce6ff),
+		('slate', #262a33),
+		('velvet', #593380),
+		('mandarin', #ff8833),
+		('lemon', #ffec1a),
 
 		//tertiary palette
-		'candy':                 ('color': #ff7faa, 'opts': ()),
-		'wasabi':                ('color': #96cc28, 'opts': ()),
-		'jade':                  ('color': #00994d, 'opts': ()),
-		'crimson':               ('color': #cc0000, 'opts': ()),
+		('candy', #ff7faa),
+		('wasabi', #96cc28),
+		('jade', #00994d),
+		('crimson', #cc0000),
 
 		//b2c palette
-		'org-b2c':               ('color': #4e96eb, 'opts': ()),
-		'org-b2c-dark':          ('color': #3a70af, 'opts': ()),
-		'org-b2c-light':         ('color': #99c6fb, 'opts': ()),
+		('org-b2c', #4e96eb),
+		('org-b2c-dark', #3a70af),
+		('org-b2c-light', #99c6fb),
 	), $_o-colors-default-palette-colors);
 }
 
 // Internal brand palette.
-@if $_o-colors-brand == internal {
-	$_o-colors-default-palette-colors: map-merge((
+@if oBrandGetCurrentBrand() == internal {
+	$_o-colors-default-palette-colors: join((
 		// primary palette
-		'oxford':         ('color': #0f5499, 'opts': ()),
-		'teal':           ('color': #0d7680, 'opts': ()),
-		'paper':          ('color': #fff1e5, 'opts': ('deprecated': true)),
-		'claret':         ('color': #990f3d, 'opts': ('deprecated': true)),
+		('oxford', #0f5499),
+		('teal', #0d7680),
+		('paper', #fff1e5, ('deprecated': true)),
+		('claret', #990f3d, ('deprecated': true)),
 
 		//secondary palette
-		'lemon':          ('color': #ffec1a, 'opts': ()),
-		'slate':          ('color': #262a33, 'opts': ()),
-		'wheat':          ('color': #f2dfce, 'opts': ('deprecated': true)),
-		'sky':            ('color': #cce6ff, 'opts': ('deprecated': true)),
-		'velvet':         ('color': #593380, 'opts': ('deprecated': true)),
-		'mandarin':       ('color': #ff8833, 'opts': ('deprecated': true)),
+		('lemon', #ffec1a),
+		('slate', #262a33),
+		('wheat', #f2dfce, ('deprecated': true)),
+		('sky', #cce6ff, ('deprecated': true)),
+		('velvet', #593380, ('deprecated': true)),
+		('mandarin', #ff8833, ('deprecated': true)),
 
 		//tertiary palette
-		'jade':           ('color': #00994d, 'opts': ()),
-		'crimson':        ('color': #cc0000, 'opts': ()),
-		'candy':          ('color': #ff7faa, 'opts': ('deprecated': true)),
-		'wasabi':         ('color': #96cc28, 'opts': ('deprecated': true)),
+		('jade', #00994d),
+		('crimson', #cc0000),
+		('candy', #ff7faa, ('deprecated': true)),
+		('wasabi', #96cc28, ('deprecated': true)),
 
 		//b2c palette
-		'org-b2c':        ('color': #4e96eb, 'opts': ('deprecated': true)),
-		'org-b2c-dark':   ('color': #3a70af, 'opts': ('deprecated': true)),
-		'org-b2c-light':  ('color': #99c6fb, 'opts': ('deprecated': true)),
+		('org-b2c', #4e96eb, ('deprecated': true)),
+		('org-b2c-dark', #3a70af, ('deprecated': true)),
+		('org-b2c-light', #99c6fb, ('deprecated': true)),
 	), $_o-colors-default-palette-colors);
 
 	// Add experimental colors to support work on the internal brand design.
-	$_o-colors-default-palette-colors: map-merge((
-		'slate-white-15': ('color': #dedfe0, 'opts': ()), // oColorsMix('slate', 'white', 15): to support work on internal brand design
-		'slate-white-5':  ('color': #f4f4f5, 'opts': ()), // oColorsMix('slate', 'white', 5): to support work on internal brand design
+	$_o-colors-default-palette-colors: join((
+		('slate-white-15', #dedfe0), // oColorsMix('slate', 'white', 15): to support work on internal brand design
+		('slate-white-5', #f4f4f5), // oColorsMix('slate', 'white', 5): to support work on internal brand design
 	), $_o-colors-default-palette-colors);
 }
 
 // Whitelabel brand palette.
-@if $_o-colors-brand == whitelabel {
-	$_o-colors-default-palette-colors: map-merge((
+@if oBrandGetCurrentBrand() == whitelabel {
+	$_o-colors-default-palette-colors: join((
 		// primary palette
-		'oxford':         ('color': #0f5499, 'opts': ('deprecated': true)),
-		'teal':           ('color': #0d7680, 'opts': ('deprecated': true)),
-		'paper':          ('color': #fff1e5, 'opts': ('deprecated': true)),
-		'claret':         ('color': #990f3d, 'opts': ('deprecated': true)),
+		('oxford', #0f5499, ('deprecated': true)),
+		('teal', #0d7680, ('deprecated': true)),
+		('paper', #fff1e5, ('deprecated': true)),
+		('claret', #990f3d, ('deprecated': true)),
 
 		//secondary palette
-		'lemon':          ('color': #ffec1a, 'opts': ('deprecated': true)),
-		'slate':          ('color': #262a33, 'opts': ('deprecated': true)),
-		'wheat':          ('color': #f2dfce, 'opts': ('deprecated': true)),
-		'sky':            ('color': #cce6ff, 'opts': ('deprecated': true)),
-		'velvet':         ('color': #593380, 'opts': ('deprecated': true)),
-		'mandarin':       ('color': #ff8833, 'opts': ('deprecated': true)),
+		('lemon', #ffec1a, ('deprecated': true)),
+		('slate', #262a33, ('deprecated': true)),
+		('wheat', #f2dfce, ('deprecated': true)),
+		('sky', #cce6ff, ('deprecated': true)),
+		('velvet', #593380, ('deprecated': true)),
+		('mandarin', #ff8833, ('deprecated': true)),
 
 		//tertiary palette
-		'jade':           ('color': #00994d, 'opts': ('deprecated': true)),
-		'crimson':        ('color': #cc0000, 'opts': ('deprecated': true)),
-		'candy':          ('color': #ff7faa, 'opts': ('deprecated': true)),
-		'wasabi':         ('color': #96cc28, 'opts': ('deprecated': true)),
+		('jade', #00994d, ('deprecated': true)),
+		('crimson', #cc0000, ('deprecated': true)),
+		('candy', #ff7faa, ('deprecated': true)),
+		('wasabi', #96cc28, ('deprecated': true)),
 
 		//b2c palette
-		'org-b2c':        ('color': #4e96eb, 'opts': ('deprecated': true)),
-		'org-b2c-dark':   ('color': #3a70af, 'opts': ('deprecated': true)),
-		'org-b2c-light':  ('color': #99c6fb, 'opts': ('deprecated': true)),
+		('org-b2c', #4e96eb, ('deprecated': true)),
+		('org-b2c-dark', #3a70af, ('deprecated': true)),
+		('org-b2c-light', #99c6fb, ('deprecated': true)),
 	), $_o-colors-default-palette-colors);
 }
 
 // Master brand palette tints.
-@if $_o-colors-brand == master {
+@if oBrandGetCurrentBrand() == master {
 	$o-colors-tints: map-merge((
 		'black': (
 			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
@@ -168,7 +168,7 @@ $_o-colors-default-palette-colors: map-merge((
 }
 
 // Internal brand palette tints.
-@if $_o-colors-brand == internal {
+@if oBrandGetCurrentBrand() == internal {
 	$o-colors-tints: map-merge((
 		'black': (
 			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
@@ -242,7 +242,7 @@ $_o-colors-default-palette-colors: map-merge((
 }
 
 // Whitelabel brand palette tints.
-@if $_o-colors-brand == whitelabel {
+@if oBrandGetCurrentBrand() == whitelabel {
 	$o-colors-tints: map-merge((
 		'black': (
 			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),

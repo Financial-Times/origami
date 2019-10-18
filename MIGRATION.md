@@ -38,13 +38,15 @@ The following have been removed from the palette:
 
 The following variables have changed:
 
-- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette, `oColorsByName` to fetch colors from the palette, and `oColorsGetPalette` to iterate over the palette.
+- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPalette` to iterate over each colour in the palette.
+- `$o-colors-usecases` has been removed. Use `oColorsSetUseCase` to add to add a usecase or customise a default o-colors usecase; or `oColorsByUsecase` to fetch a colour for a usecase.
 
 The following mixins have changed:
 
 - `oColors` no longer outputs usecase CSS classes.
 - `oColorsGetPaletteColor` is now [`oColorsByName`](#oColorsByName).
 - [`oColorsSetColor`](#oColorsSetColor) has updated arguments.
+- [`oColorsSetUseCase`](#oColorsSetUseCase) has updated arguments.
 - `oColorsGetUseCase` is now [`oColorsByUsecase`](#oColorsByUsecase).
 
 #### oColors
@@ -120,7 +122,9 @@ Or with argument names:
 
 #### oColorsSetColor
 
-The arguments of `oColorsSetColor` have changed. And it now supports a colour deprecation message.
+- The arguments of `oColorsSetColor` have changed.
+- It now supports a colour deprecation message.
+- It errors when overriding an existing palette colour which was not set by o-colors.
 
 A project name must now be given explicitly, which is used to namespace the colour:
 ```diff
@@ -141,6 +145,39 @@ A custom deprecation message may be given:
 // Setting a  custom colour 'pink', which is deprecated, with a custom deprecation warning.
 - @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
 + @include oColorsSetColor('o-example', 'pink', #ff69b4, (deprecated: 'reason for deprecation'));
+```
+
+#### oColorsSetUseCase
+
+- The arguments of `oColorsSetUseCase` have changed.
+- It may also deprecate the properties of a colour usecase more granularly.
+- It errors when overriding an existing usecase which was not set by o-colors.
+
+A project name must now be given explicitly, which is used to namespace the usecase, and properties are given with a map:
+```diff
+// Setting a custom usecase within a component 'o-example'.
+// The usecase describes stripes, which have a background, text colour, and border.
+-@include oColorsSetUseCase('o-example-stripe', 'text', 'white');
+-@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
+-@include oColorsSetUseCase('o-example-stripe', 'border', 'black-50');
++@include oColorsSetUseCase('o-example', 'stripe', (
++	'text': 'white',
++	'background': 'black',
++	'border': 'black-50'
++));
+```
+
+To deprecate a usecase pass a second options argument:
+```diff
+-@include oColorsSetUseCase('o-example-stripe', 'text', 'white');
+-@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
+-@include oColorsSetUseCase('o-example-stripe', 'border', 'black-50');
+-@include oColorsSetUseCase('o-example-stripe', '_deprecated', 'There are no stripes anymore.');
++@include oColorsSetUseCase('o-example', 'stripe', (
++	'text': 'white',
++	'background': 'black',
++	'border': 'black-50'
++), ('deprecated': 'There are no stripes anymore.'));
 ```
 
 ### Upgrading from v3 to v4

@@ -31,7 +31,7 @@
 	$deprecated: map-get($meta, 'deprecated');
 	$already-warned: index($_o-colors-deprecation-warnings-output, $namespaced-color-name) != null;
 	@if $deprecated and not $already-warned {
-		$deprecation-message: 'The color "#{$color-name}" from "#{$from}" is deprecated for the "#{$_o-colors-brand}" palette, and will be removed in the next major.';
+		$deprecation-message: 'The color "#{$color-name}" from "#{$from}" is deprecated for the "#{oBrandGetCurrentBrand()}" palette, and will be removed in the next major.';
 		// Append any custom deprecation message.
 		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
 		// Output warning.
@@ -87,47 +87,69 @@
 @function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
-		@return _error('`$usecase` should be a string but found "#{inspect($usecase)}" of type "#{type-of($usecase)}".');
+		@return _error('`$usecase` should be a string but found ' +
+		'"#{inspect($usecase)}" of type "#{type-of($usecase)}".');
 	}
+
 	// Validate from is a string.
 	@if(type-of($from) != 'string') {
-		@return _error('`$from` should be a string but found "#{inspect($from)}" of type "#{type-of($from)}".');
+		@return _error('`$from` should be a string but found ' +
+		'"#{inspect($from)}" of type "#{type-of($from)}".');
 	}
+
 	// Validate property is allowed.
 	$valid-properties: ('text', 'background', 'border', 'outline');
 	@if(not index($valid-properties, $property)) {
-		@return _error('`$property` should be one o "#{inspect($valid-properties)}" but found "#{inspect($property)}".');
+		@return _error('`$property` should be one of ' +
+		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
+
 	// Validate fallback is a colour or null.
 	// `false` is used as a default to indicate the user has not passed a fallback.
 	$valid-fallback: type-of($fallback) == 'color' or type-of($fallback) == 'null';
 	@if($fallback != false and not $valid-fallback) {
-		@return _error('`$fallback` should be a valid colour or `null`, found "#{inspect($fallback)}".');
+		@return _error('`$fallback` should be a valid colour or `null`, ' +
+		'found "#{inspect($fallback)}".');
 	}
 
 	// Get properties for usecase. Error if none are found.
 	$namespaced-usecase: '#{$from}-#{$usecase}';
-	$props: map-get($o-colors-usecases, $namespaced-usecase);
-	@if($props == null) {
+	$config: map-get($_o-colors-usecases, $namespaced-usecase);
+	@if($config == null) {
 		@return if($valid-fallback, $fallback, _error(
-			'The colour usecase #{inspect($usecase)} couldn\'t be found for #{inspect($from)}'
-		));
-	}
-	// Get colour for usecase property. If none are found look for the property
-	// specifically, see if the usecase has set a colour for `all` properties.
-	// Error if no colour is found.
-	$color: map-get($props, $property);
-	$color: if($color, $color, map-get($props, all));
-	@if($color == null) {
-		@return if($valid-fallback, $fallback, _error(
-			'The colour usecase property #{inspect($property)} couldn\'t be found within the #{inspect($from)} #{inspect($usecase)} usecase.'
+			'The colour usecase #{inspect($usecase)} couldn\'t be found ' +
+			'for #{inspect($from)}'
 		));
 	}
 
-	// Output any deprecation warning.
-	// @todo: pre-major cascade, update to support granular usecase property deprecation.
-	@if ($props and map-has-key($props, '_deprecated')) {
-		@warn "Color use case '#{inspect($usecase)}' is deprecated (property '#{inspect($property)}' was requested): #{inspect(map-get($props, '_deprecated'))}";
+	// Get colour for usecase property. If none are found look for the property
+	// specifically, see if the usecase has set a colour for `all` properties.
+	// Error if no colour is found.
+	$colors: map-get($config, 'colors');
+	$color: map-get($colors, $property);
+	$color: if($color, $color, map-get($colors, all));
+	@if($color == null) {
+		@return if($valid-fallback, $fallback, _error(
+			'The colour usecase property #{inspect($property)} couldn\'t ' +
+			'be found within the #{inspect($from)} #{inspect($usecase)} usecase.'
+		));
+	}
+
+	// Output any deprecation warnings, if not already.
+	$opts: map-get($config, 'opts');
+	$deprecated: if(type-of($opts) == 'map', map-get($opts, 'deprecated'), null);
+	$deprecated-key: 'usecase-#{$namespaced-usecase}-#{$property}';
+	@if(not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
+		@if (type-of($deprecated) == 'string') {
+			@warn 'Color usecase "#{inspect($usecase)}" from #{inspect($from)} is deprecated ' +
+			'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
+		}
+		@if (type-of($deprecated) == 'map' and map-has-key($deprecated, $property)) {
+			@warn 'The "#{inspect($property)}" property of "#{inspect($from)}" ' +
+			'"#{inspect($usecase)}" color usecase is deprecated: ' +
+			'#{inspect(map-get($deprecated, $property))}';
+		}
+		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
 
 	@return $color;

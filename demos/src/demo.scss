@@ -29,7 +29,7 @@ body {
 
 	.o-colors-palette-#{$name} .hex,
 	.o-colors-palette-#{$name}:after {
-		color: oColorsGetTextColor($name, 95);
+		color: oColorsGetTextColor($name, 95,  $warnings: false);
 	}
 }
 

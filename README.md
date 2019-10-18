@@ -211,16 +211,21 @@ section-money-alt |     all
 You can add usecases for your particular component or product. This is done using the `oColorsSetUseCase` mixin:
 
 ```scss
-@include oColorsSetUseCase(email, text, 'black-60');
+@include oColorsSetUseCase('o-example', 'stripes', (
+	'text': 'white',
+	'background': 'black',
+	'border': 'black-50',
+));
 ```
 
-It takes three arguments:
+It takes four arguments:
 
-* **Usecase**: your particular usecase
-* **Property**: the property for which the color should be used for (background, border, or text)
-* **Color**: a color from the palette
+* **Project Name**: your component or project name
+* **Usecase**: your particular usecase name
+* **Colors**: a map of properties to colours (background, border, text, or outline)
+* **Opts**: a map of options. Accepts a `deprecated` key with a deprecation message for the usecase, or a map to deprecate a specific property.
 
-If you are creating a usecase for a component, you *must* namespace your usecase name with the name of your component.
+See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=master#o-colors-mixin-ocolorssetusecase) for more details and examples.
 
 You can also use `oColorsByUsecase` to retrieve the palette color name (eg `paper`) defined against a usecase. This can be useful when you need the palette color name to use with another Sass mixin.
 

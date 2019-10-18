@@ -14,7 +14,8 @@
 @import 'src/scss/mixins';
 
 // Set the palette colors programatically
-@include _oColorsSetPaletteColors;
+@include _oColorsSetDefaultPaletteColors;
+@include _oColorsSetDefaultUsecases;
 @include _oColorsSetPaletteTints;
 
 /// Output `o-colors` CSS classes and custom properties.

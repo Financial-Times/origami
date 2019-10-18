@@ -1,22 +1,27 @@
 $o-colors-is-silent: true !default;
 
-/// Brand to define colours conditionally.
+/// A list of arguments for `oColorsSetColor`, except the project name. Used
+/// to set default palette colours.
 ///
-/// @type String
-$_o-colors-brand: oBrandGetCurrentBrand();
-
-/// Default FT colours to add to the colour palette.
-/// @prop {Map}
-/// @prop {Map} base.color-name - Where `color-name` is the name of the colour, e.g. paper.
-/// @prop {Color} base.color-name.color - The color for the colour name.
-/// @prop {Map} base.color-name.opts - Extra details about the colour.
-/// @prop {String|Boolean} base.color-name.opts.deprecated - True, or a deprecation message, if the colour is deprecated.
+/// @see _oColorsSetDefaultPaletteColors
+/// @see oColorsSetColor
+///
+/// @type list
 $_o-colors-default-palette-colors: () !default;
 
+/// A list of arguments for `oColorsSetUseCase`, except the project name. Used
+/// to set default usecases.
+///
+/// @see _oColorsSetDefaultUsecases
+/// @see oColorsSetUseCase
+///
+/// @type list
+$_o-colors-default-usecases: () !default;
+
+
+$_o-colors-usecases: () !default;
 $_o-colors-palette: () !default;
 $o-colors-tints: ();
-
-$o-colors-usecases: () !default;
 
 // These are common usecase which are not necessarily defined for each brand.
 // When the usecase is used and `null` is returned, there is no need to warn about it.
