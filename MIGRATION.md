@@ -53,7 +53,7 @@ The following css classes have been removed:
 
 Headings are now sans-seif "product" headings by default.
 
-Only direct children on `o-typography-wrapper` are styled.
+Only direct children of `o-typography-wrapper` are styled.
 
 ### Migrating from v4 to v5
 
