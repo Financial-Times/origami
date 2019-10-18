@@ -166,7 +166,7 @@ const comments = new Comments(commentsElement, {
 });
 ```
 
-**Declaritively**
+**Declaratively**
 
 ```diff
 <div class="o-comments"
