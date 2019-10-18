@@ -129,6 +129,8 @@
 	// Group wrapper.
 	@if $groups-enabled {
 		.o-buttons-group {
+			display: flex;
+			flex-wrap: wrap;
 			> .o-buttons {
 				position: relative;
 
