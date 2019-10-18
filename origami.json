@@ -45,49 +45,15 @@
 			"display_html": false
 		},
 		{
-			"name": "headings-master",
-			"title": "Headings",
-			"template": "demos/src/headings.mustache",
-			"data": {
-				"headline": true
-			},
-			"brands": [
-				"master"
-			],
-			"description": "Article headings."
-		},
-		{
 			"name": "headings",
 			"title": "Headings",
 			"template": "demos/src/headings.mustache",
-			"data": {
-				"headingLevel6": true
-			},
-			"brands": [
-				"internal",
-				"whitelabel"
-			],
 			"description": "Headings."
-		},
-		{
-			"name": "product-headings",
-			"title": "Product Headings",
-			"template": "demos/src/product-headings.mustache",
-			"brands": [
-				"master"
-			],
-			"description": "Non-article headings."
 		},
 		{
 			"name": "body",
 			"title": "Body",
 			"template": "demos/src/body.mustache",
-			"description": ""
-		},
-		{
-			"name": "blockquote",
-			"title": "Blockquote",
-			"template": "demos/src/blockquote.mustache",
 			"description": ""
 		},
 		{
@@ -107,33 +73,6 @@
 			"title": "Lists",
 			"template": "demos/src/lists.mustache",
 			"description": ""
-		},
-		{
-			"name": "big-number",
-			"title": "Big Number",
-			"template": "demos/src/big-number.mustache",
-			"brands": [
-				"master"
-			],
-			"description": ""
-		},
-		{
-			"name": "read-next",
-			"title": "Read Next",
-			"template": "demos/src/read-next.mustache",
-			"brands": [
-				"master"
-			],
-			"description": ""
-		},
-		{
-			"name": "article",
-			"title": "Article",
-			"template": "demos/src/article.mustache",
-			"brands": [
-				"master"
-			],
-			"description": "This shows article styles such as the collection headings, topic, author name, standfirst, timestamp, and big number."
 		},
 		{
 			"name": "wrapper",

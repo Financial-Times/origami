@@ -3,114 +3,75 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-/// General typography
-/// Apply to a wrapper to style all text inside it
-/// @breaking Remove 'style' param, default to product headings, move article headings out of o-typography.
-/// @example scss
-///     article { @include oTypographyWrapper; }
-/// @brand master
-/// @param {String} $style will change the headings in a body that is not an article
-@mixin oTypographyWrapper($style: article) {
+/// Typography wrapper
+@mixin _oTypographyWrapper() {
 
-	// Only master brand supports product and article header styles.
-	@if _oTypographySupports('article') and $style != article {
-		h1 {
-			@include oTypographyProductHeadingLevel1;
-		}
-
-		h2 {
-			@include oTypographyProductHeadingLevel2;
-		}
-
-		h3 {
-			@include oTypographyProductHeadingLevel3;
-		}
-
-		h4 {
-			@include oTypographyProductHeadingLevel4;
-		}
-
-		h5 {
-			@include oTypographyProductHeadingLevel5;
-		}
-
-		h6 {
-			@include oTypographyProductHeadingLevel6;
-		}
-	} @else {
-		h1 {
-			@include oTypographyHeadingLevel1;
-		}
-
-		h2 {
-			@include oTypographyHeadingLevel2;
-		}
-
-		h3 {
-			@include oTypographyHeadingLevel3;
-		}
-
-		h4 {
-			@include oTypographyHeadingLevel4;
-		}
-
-		h5 {
-			@include oTypographyHeadingLevel5;
-		}
+	> h1 {
+		@include oTypographyHeadingLevel1;
 	}
 
-	a {
+	> h2 {
+		@include oTypographyHeadingLevel2;
+	}
+
+	> h3 {
+		@include oTypographyHeadingLevel3;
+	}
+
+	> h4 {
+		@include oTypographyHeadingLevel4;
+	}
+
+	> h5 {
+		@include oTypographyHeadingLevel5;
+	}
+
+	> h6 {
+		@include oTypographyHeadingLevel6;
+	}
+
+	> a {
 		@include oTypographyLink;
 	}
 
-	p {
+	> p {
 		@include oTypographyBody;
 	}
 
-	ol,
-	ul {
+	> ol,
+	> ul {
 		@include oTypographyList;
 	}
 
-	ol {
+	> ol {
 		@include oTypographyListOrdered;
 	}
 
-	ul {
+	> ul {
 		@include oTypographyListUnordered;
 	}
 
-	footer {
+	> footer {
 		@include oTypographyFooter;
 	}
 
-	blockquote {
-		p {
-			@include oTypographyBlockquote;
-		}
-
-		footer {
-			@include oTypographyFooter;
-		}
-	}
-
-	strong {
+	> strong {
 		@include oTypographyBold;
 	}
 
-	em {
+	> em {
 		@include oTypographyItalic;
 	}
 
-	sup {
+	> sup {
 		@include oTypographySuper;
 	}
 
-	sub {
+	> sub {
 		@include oTypographySub;
 	}
 
-	figcaption {
+	> figcaption {
 		@include oTypographyCaption;
 	}
 }

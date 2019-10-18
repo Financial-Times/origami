@@ -34,7 +34,6 @@ $o-typography-display: '' !default;
 /// @access public
 /// @example scss
 ///    @include oTypographyCustomize((
-///        'blockquote-color': hotpink,
 ///        'bold-level': 'bold',
 ///        'sans': (
 ///            'bold-level': 'semibold'
@@ -64,7 +63,6 @@ $o-typography-display: '' !default;
 @mixin oTypographyCustomize($variables) {
     // Only allow certain brand variables to be customised.
     $allowed-brand-variables: (
-        'blockquote-color',
         'heading-level-one',
         'heading-level-two',
         'heading-level-three',
@@ -101,40 +99,32 @@ $o-typography-display: '' !default;
         'variables': (
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
-            'blockquote-color': oColorsGetPaletteColor('claret'),
             'custom-link-focus-outline-color': oColorsGetPaletteColor('black-50'), //deprecated
             'bold-level': 'bold',
             'sans': (
                 'bold-level': 'semibold' // override the default "bold" font weight for the sans font
             ),
-            'heading-level-one-large': (
-                'font-type': 'display',
-                'weight': 'bold',
-                'bottom-spacing-size': 7,
-                'scale': 5,
-                'scale-s': 6,
-                'scale-l': 7,
-            ),
             'heading-level-one': (
-                'font-type': 'display',
-                'scale': 4,
-                'scale-s': 5,
-                'scale-l': 6,
+                'scale': 5,
+                'weight': 'semibold'
             ),
             'heading-level-two': (
-                'weight': 'semibold',
-                'scale': 4
+                'scale': 5
             ),
             'heading-level-three': (
-                'scale': 4
+                'scale': 4,
+                'weight': 'semibold'
             ),
             'heading-level-four': (
-                'scale': 3
+                'scale': 4
             ),
             'heading-level-five': (
-                'scale': 0,
-                'text-transform': uppercase,
-                'letter-spacing': 0.5px
+                'scale': 3,
+                'weight': 'semibold'
+            ),
+            'heading-level-six': (
+                'scale': 2,
+                'weight': 'semibold'
             ),
             'body': (
                 'font-type': 'serif',
@@ -142,15 +132,7 @@ $o-typography-display: '' !default;
                 'custom-line-height': 28px,
             )
         ),
-        'supports-variants': (
-            'article',
-            'product-wrapper',
-            'product-headings',
-            'collection',
-            'big-number',
-            'read-next',
-            'heading-level-one-large'
-        )
+        'supports-variants': ()
     ));
 }
 
@@ -161,7 +143,6 @@ $o-typography-display: '' !default;
 
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
-            'blockquote-color': oColorsGetColorFor(body, text),
             'custom-link-focus-outline-color': oColorsGetPaletteColor('oxford-80'), //deprecated
             'bold-level': 'semibold',
             'heading-level-one': (
@@ -190,11 +171,7 @@ $o-typography-display: '' !default;
                 'bottom-spacing-size': 7,
             )
         ),
-        'supports-variants': (
-            'product-wrapper', //@deprecated, replaced by standard headings and wrapper.
-            'product-headings', //@deprecated, replaced by standard headings and wrapper.
-            'heading-level-six'
-        )
+        'supports-variants': ()
     ));
 }
 
@@ -234,7 +211,6 @@ $o-typography-display: '' !default;
 
     @include oBrandDefine('o-typography', 'whitelabel', (
         'variables': (
-            'blockquote-color': oColorsGetPaletteColor('black'),
             'bold-level': 'bold',
             'heading-level-one': (
                 'scale': 6,
@@ -258,8 +234,6 @@ $o-typography-display: '' !default;
                 'bottom-spacing-size': 7,
             )
         ),
-        'supports-variants': (
-            'heading-level-six'
-        )
+        'supports-variants': ()
     ));
 }

@@ -2,7 +2,58 @@
 
 ### Migrating from v5 to v6
 
+### Editorial Typography
 
+Editorial typography, such as that used in article pages, has move to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
+
+The following mixins have been removed:
+- oTypographyTopic
+- oTypographyAuthor
+- oTypographyStandfirst
+- oTypographyTimestamp
+- oTypographyTag
+- oTypographyBigNumber
+- oTypographyWrapper
+- oTypographyHeadline
+- oTypographyHeadlineLarge
+- oTypographyProductHeadingLevel1
+- oTypographyProductHeadingLevel2
+- oTypographyProductHeadingLevel3
+- oTypographyProductHeadingLevel4
+- oTypographyProductHeadingLevel5
+- oTypographyProductHeadingLevel6
+- oTypographyProductHeadingLevel7
+- oTypographyProductHeadingLevel8
+- oTypographyCollectionHeader
+- oTypographyReadNext
+- oTypographyBlockquote
+
+The following css classes have been removed:
+- o-typography-topic
+- o-typography-author
+- o-typography-standfirst
+- o-typography-timestamp
+- o-typography-big-number
+- o-typography-wrapper--product
+- o-typography-headline
+- o-typography-headline--large
+- o-typography-heading-level-1--large
+- o-typography-product-heading-level-1
+- o-typography-product-heading-level-2
+- o-typography-product-heading-level-3
+- o-typography-product-heading-level-4
+- o-typography-product-heading-level-5
+- o-typography-product-heading-level-6
+- o-typography-product-heading-level-7
+- o-typography-product-heading-level-8
+- o-typography-product-heading-level-7--thin-rule
+- o-typography-collection-heading
+- o-typography-read-next
+- o-typography-blockquote
+
+Headings are now sans-seif "product" headings by default.
+
+Only direct children on `o-typography-wrapper` are styled.
 
 ### Migrating from v4 to v5
 

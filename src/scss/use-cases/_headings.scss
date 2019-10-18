@@ -3,26 +3,6 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
-/// Large headline styles with an underline.
-/// @brand master
-@mixin oTypographyHeadlineLarge {
-	@include _oTypographyHeading($from: 'heading-level-one-large');
-	&:after {
-		content: '';
-		padding-top: oSpacingByIncrement(5);
-		padding-bottom: 0;
-		display: block;
-		width: 180px;
-		border-bottom: oSpacingByName('s2') solid oColorsGetPaletteColor('black');
-	}
-}
-
-/// Headline styles.
-/// @brand master
-@mixin oTypographyHeadline {
-	@include oTypographyHeadingLevel1();
-}
-
 /// Level 1 heading styles.
 @mixin oTypographyHeadingLevel1 {
 	@include _oTypographyHeading($from: 'heading-level-one');

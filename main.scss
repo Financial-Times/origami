@@ -11,9 +11,6 @@
 @import 'src/scss/type-mixins';
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
-@import 'src/scss/use-cases/product-headings';
-@import 'src/scss/use-cases/article';
-@import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
 @import 'src/scss/deprecated';
 
@@ -21,34 +18,20 @@
 @mixin oTypography($opts: (
 	'headings',
 	'wrapper',
-	'product-headings',
-	'product-wrapper',
-	'article',
-	'collection',
-	'big-number',
-	'read-next',
 	'body',
 	'links',
 	'lists',
 	'caption',
 	'footer',
-	'blockquote',
 	'utilities',
 )) {
 	$wrapper-enabled: index($opts, 'wrapper');
-	$product-wrapper-enabled: index($opts, 'product-wrapper');
-	$product-headings-enabled: index($opts, 'product-headings');
-	$article-enabled: index($opts, 'article');
-	$collection-enabled: index($opts, 'collection');
-	$big-number-enabled: index($opts, 'big-number');
-	$read-next-enabled: index($opts, 'read-next');
 	$headings-enabled: index($opts, 'headings');
 	$body-enabled: index($opts, 'body');
 	$links-enabled: index($opts, 'links');
 	$lists-enabled: index($opts, 'lists');
 	$caption-enabled: index($opts, 'caption');
 	$footer-enabled: index($opts, 'footer');
-	$blockquote-enabled: index($opts, 'blockquote');
 	$utilities-enabled: index($opts, 'utilities');
 
 	@if $o-typography-load-fonts == true {
@@ -57,14 +40,6 @@
 
 	// Headings
 	@if $headings-enabled {
-		@if _oTypographySupports('heading-level-one-large') {
-			.o-typography-headline--large,
-			.o-typography-heading-level-1--large {
-				@include oTypographyHeadlineLarge;
-			}
-		}
-
-		.o-typography-headline,
 		.o-typography-heading-level-1 {
 			@include oTypographyHeadingLevel1;
 		}
@@ -85,53 +60,8 @@
 			@include oTypographyHeadingLevel5;
 		}
 
-		@if _oTypographySupports('heading-level-six') {
-			.o-typography-heading-level-6 {
-				@include oTypographyHeadingLevel6;
-			}
-		}
-	}
-
-
-	// Product Headings - non-article headings for the master brand.
-	@if $product-headings-enabled and _oTypographySupports('product-headings') {
-		.o-typography-product-heading-level-1 {
-			@include oTypographyProductHeadingLevel1;
-		}
-
-		.o-typography-product-heading-level-2 {
-			@include oTypographyProductHeadingLevel2;
-		}
-
-		.o-typography-product-heading-level-3 {
-			@include oTypographyProductHeadingLevel3;
-		}
-
-		.o-typography-product-heading-level-4 {
-			@include oTypographyProductHeadingLevel4;
-		}
-
-		.o-typography-product-heading-level-5 {
-			@include oTypographyProductHeadingLevel5;
-		}
-
-		.o-typography-product-heading-level-6 {
-			@include oTypographyProductHeadingLevel6;
-		}
-
-		.o-typography-product-heading-level-7 {
-			@include oTypographyProductHeadingLevel7;
-		}
-
-		.o-typography-product-heading-level-8 {
-			@include oTypographyProductHeadingLevel8;
-		}
-
-		.o-typography-product-heading-level-7--thin-rule {
-			@include oTypographyProductHeadingLevel7;
-			border-top: 1px solid oColorsGetPaletteColor('black-30');
-			padding-top: oSpacingByName('s3');
-			margin-bottom: oSpacingByName('s1');
+		.o-typography-heading-level-6 {
+			@include oTypographyHeadingLevel6;
 		}
 	}
 
@@ -196,59 +126,10 @@
 		}
 	}
 
-	@if $blockquote-enabled {
-		.o-typography-blockquote {
-			@include oTypographyBlockquote;
-		}
-	}
-
-	@if $article-enabled and _oTypographySupports('article') {
-		.o-typography-topic {
-			@include oTypographyTopic;
-		}
-
-		.o-typography-author {
-			@include oTypographyAuthor;
-		}
-
-		.o-typography-standfirst {
-			@include oTypographyStandfirst;
-		}
-
-		.o-typography-timestamp {
-			@include oTypographyTimestamp;
-		}
-	}
-
-	@if $collection-enabled and _oTypographySupports('collection') {
-		.o-typography-collection-heading {
-			@include oTypographyCollectionHeader;
-		}
-	}
-
-	@if $big-number-enabled and _oTypographySupports('big-number') {
-		.o-typography-big-number {
-			@include oTypographyBigNumber;
-		}
-	}
-
-	@if $read-next-enabled and _oTypographySupports('read-next') {
-		.o-typography-read-next {
-			@include oTypographyReadNext;
-		}
-	}
-
 	// Wrapper
 	@if $wrapper-enabled {
 		.o-typography-wrapper {
-			@include oTypographyWrapper;
-		}
-	}
-
-	// Product Wrapper - non-article styles for the master brand.
-	@if $product-wrapper-enabled and _oTypographySupports('product-wrapper') {
-		.o-typography-wrapper--product {
-			@include oTypographyWrapper($style: product);
+			@include _oTypographyWrapper;
 		}
 	}
 }

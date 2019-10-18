@@ -213,22 +213,6 @@
 	}
 }
 
-/// Style for <blockquote> tags including `p`
-/// and `footer` elements
-@mixin oTypographyBlockquote {
-	margin-left: 0;
-	padding-left: oSpacingByIncrement(4);
-	border-left: oSpacingByIncrement(1) solid _oTypographyGet('blockquote-color');
-
-	p {
-		@include oTypographyBody;
-	}
-
-	footer {
-		@include oTypographyFooter;
-	}
-}
-
 /// Style for <footer> tags
 /// @brand master
 @mixin oTypographyFooter {
