@@ -8,7 +8,7 @@
 /// @param {String} $state
 /// @param {String} $property
 /// @param {String} $type
-/// @param {String|Map|Null} $theme A theme string of a custom theme map.
+/// @param {String|Map|Null} $theme A theme string or a custom theme map.
 /// @return {Color} - The hex colour for a button property.
 @function oButtonsGetColor($state, $property, $type, $theme: null) {
 	$button-color-map: _oButtonsGetColors($type, $theme);

@@ -9,30 +9,27 @@
 @import './src/scss/functions';
 @import './src/scss/mixins';
 
-/// Output button classes, including size and theme modifiers.
-/// Defaults to all sizes and themes.
+/// Output o-buttons classes.
 ///
-/// @example Default button classes only.
-///     @include oButtons;
+/// @example All default o-buttons styles.
+///     @include oButtons();
 ///
-/// @example Primary and secondary button modifier classes, plus big and small modifier classes. No icon buttons. No pagination or group classes.
+/// @example Primary and secondary button classes, plus the big button modifier class.
 ///    @include oButtons($opts: (
-///        'sizes': ('big'),
-///        'themes': ('primary', 'secondary')
+///        'types': ('primary', 'secondary'),
+///        'sizes': ('big')
 ///    ));
 ///
-/// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes. No pagination or group classes.
+/// @example Primary and secondary button classes, plus an inverse theme modifier class, and classes for arrow left and arrow right icon buttons.
 ///    @include oButtons($opts: (
-///        'sizes': ('big'),
-///        'themes': ('primary', 'secondary'),
+///        'types': ('primary', 'secondary'),
+///        'themes': ('inverse'),
 ///        'icons': ('arrow-left', 'arrow-right')
 ///    ));
 ///
-/// @example Primary and secondary modifier classes, plus big and small modifier classes, plus arrow left/right icon buttons for these themes and sizes, plus classes for pagination and group styles.
+/// @example Secondary button classes, plus classes to support button groups and pagination.
 ///    @include oButtons($opts: (
-///        'sizes': ('big'),
-///        'themes': ('primary', 'secondary'),
-///        'icons': ('arrow-left', 'arrow-right'),
+///        'types': ('secondary'),
 ///        'pagination': true,
 ///        'groups': true
 ///    ));

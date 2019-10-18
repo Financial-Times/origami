@@ -22,7 +22,7 @@
 ///         $icons: ('arrow-up', 'arrow-down')
 ///     );
 /// @param {String} $name - A theme name e.g. `my-special-button`.
-/// @param {Map} $opts - A custom theme map with a `color` and optional `context` key. See [the README](https://registry.origami.ft.com/components/o-buttons/readme) for more details.
+/// @param {Map} $opts - A custom theme map with a `color` and optional `context` key. The context key indicates the background colour your button is placed on, it defaults to the page colour (paper for the master brand, white otherwise). See [the README](https://registry.origami.ft.com/components/o-buttons/readme) for more details.
 /// @param {List} $types - The types of button to output the theme for e.g. ('primary', 'secondary').
 /// @param {List|Null} $icons [null] - The button icons to output for this theme.
 @mixin oButtonsAddTheme($name, $opts, $types, $icons: null) {
