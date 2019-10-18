@@ -2,264 +2,60 @@
 
 o-buttons provides Sass mixins and variables to create buttons.
 
-- [Quick start](#quick-start)
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
+- [Markup](#markup)
+- [Sass](#sass)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
-## Quick start
+## Markup
 
-o-buttons provides styling for:
+There are two types of buttons, primary buttons and secondary buttons.
+
+| Type      | Selector              | Brand Support                |
+|-----------|-----------------------|------------------------------|
+| primary   | .o-buttons--primary      | master, internal, whitelabel |
+| secondary | .o-buttons--secondary | master, internal, whitelabel |
+
+
+```html
+<button class="o-buttons o-buttons--primary">Submit</button>
+<button class="o-buttons o-buttons--secondary">Cancel</button>
+```
+
+o-buttons CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
 
 ### Themes
 
-The `secondary` theme is the default `o-buttons` theme.
+A theme may be applied to a button to change its appearance. o-buttons provides some themes by default:
 
-| Theme                   | Selector                               |
-|-------------------------|----------------------------------------|
-| secondary               |                                        |
-| inverse                 | .o-buttons--inverse                    |
-| mono                    | .o-buttons--mono                       |
-| primary                 | .o-buttons--primary                    |
-| primary-inverse         | .o-buttons--primary.o-buttons--inverse |
-| primary-mono            | .o-buttons--primary.o-buttons--mono    |
-| b2c                     | .o-buttons--b2b                        |
+| Theme    | Selector             | Works With Types     | Brand Support    |
+|----------|----------------------|----------------------|------------------|
+| inverse  | .o-buttons--inverse  | primary, secondary   | master, internal |
+| mono     | .o-buttons--mono     | primary, secondary   | master, internal |
+| b2c      | .o-buttons--b2c      | primary              | master           |
 
-To apply a theme use one of the above selectors e.g. `o-buttons o-buttons--inverse`, or if using Bower and silent mode `@include oButtonsTheme($theme);`. Using Sass Mixins [custom themes](#custom-themes) are also supported.
+```html
+<button class="o-buttons o-buttons--primary o-buttons--inverse">Submit</button>
+<button class="o-buttons o-buttons--secondary o-buttons--inverse">Cancel</button>
+```
+
+Sass users may create [custom themes](#custom-themes).
 
 ### Sizes
-`o-buttons--{default|big}` or `@include oButtonsSize($size);`
 
-### Grouped buttons
-`.o-buttons-group` or `@include oButtonsGroup;`
-
-### Pagination buttons
-`.o-buttons-pagination` or `@include oButtonsPagination;`
-
-### Icon buttons
-`.o-buttons-icon .o-buttons-icon--{arrow-left| arrow-right | other supported icon}` or `@include oButtonsIconButton($icon-name, $size, $theme);`
-
-### Disabled
-`o-buttons` styles buttons with the `disabled` attribute to show they are inactive. In some cases it is preferred to visually hide the button until it is active. For this case add the class `o-buttons--hide-disabled`.
+Any button may be made larger using the `o-buttons--big` modifier class.
 
 ```html
-<!-- Visibly disabled because of the `disabled` attribute. -->
-<button class="o-buttons" disabled>My Button</button>
-
-<!-- Visually hidden because of the `disabled` attribute and `o-buttons--hide-disabled`.-->
-<button class="o-buttons o-buttons--hide-disabled" disabled>My Button</button>
+<button class="o-buttons o-buttons--primary o-buttons--big">Click Me</button>
 ```
 
-You can combine these styles.
+### Icons
 
-## Usage
+To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon--{icon-name}` to your button.
 
-For design guidelines, see the [registry](http://registry.origami.ft.com/components/o-buttons).
-
-For detailed documentation on this component's mixins, see the [Sassdoc](http://codedocs.webservices.ft.com/v1/sassdoc/o-buttons)
-
-### Markup
-
-The button CSS will work on `<button>` or `<a>` elements. It is important for accessibility that if you intend to style an `<a>` as a button, you give it the correct [aria role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role).
-
-### Sass
-
-Mixins, Custom themes and [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles) are only available if you're including o-buttons in your project using bower. If you're using o-buttons via the [Build Service](https://www.ft.com/__origami/service/build/v2/), you must use the o-buttons classes instead. Both are documented below.
-
-#### Default button
-
-[View demos](http://registry.origami.ft.com/components/o-buttons)
-
-```html
-<!-- Default/Secondary theme, default size -->
-<button class="o-buttons">Secondary</button>
-```
-
-Or, using Sass:
-
-```scss
-.my-button-class {
-	@include oButtons();
-}
-```
-
-```html
-<!-- Default/Secondary theme, default size -->
-<button class="my-button-class">Secondary</button>
-```
-
-
-#### States
-
-```html
-<!-- Default/Secondary theme, default size -->
-<button class="o-buttons">Secondary</button>
-<button class="o-buttons" aria-selected="true">Selected</button>
-<button class="o-buttons" aria-pressed="true">Pressed</button>
-<button class="o-buttons" disabled>Disabled</button>
-```
-
-#### Grouped buttons
-
-[View demos](http://registry.origami.ft.com/components/o-buttons)
-
-```html
-<div class="o-buttons-group">
-    <button class="o-buttons">John</button><!--
- --><button class="o-buttons">Paul</button><!--
- --><button class="o-buttons">George</button><!--
- --><button class="o-buttons">Ringo</button>
-</div>
-```
-
-Or, using Sass:
-
-```scss
-.my-button-group-class {
-	@include oButtonsGroup('my-button-class');
-}
-```
-
-```html
-<div class="my-button-group-class">
-    <button class="my-button-class">John</button><!--
- --><button class="my-button-class">Paul</button><!--
- --><button class="my-button-class">George</button><!--
- --><button class="my-button-class">Ringo</button>
-</div>
-```
-
-
-#### Pagination buttons
-
-[View demos](http://registry.origami.ft.com/components/o-buttons)
-
-```html
-<div class="o-buttons-pagination">
-    <button class="o-buttons">1</button><!--
- --><button class="o-buttons">2</button><!--
- --><button class="o-buttons">3</button><!--
- --><button class="o-buttons">4</button>
-</div>
-```
-
-Or, using Sass:
-
-```scss
-.my-button-pagination-class {
-	@include oButtonsPagination(my-button-class);
-}
-```
-
-```html
-<div class="my-button-pagination-class">
-    <button class="my-button-class">1</button><!--
- --><button class="my-button-class">2</button><!--
- --><button class="my-button-class">3</button><!--
- --><button class="my-button-class">4</button>
-</div>
-```
-
-#### Size modifiers
-
-```html
-<button class="o-buttons">Default-sized button</button>
-<button class="o-buttons o-buttons--big">Big button</button>
-```
-
-Or, using Sass:
-
-```scss
-.my-button-class {
-	@include oButtons();
-}
-.my-button-class--big {
-	@include oButtonsSize(big);
-}
-
-// Or…
-.my-big-button {
-	@include oButtons(big);
-}
-```
-
-```html
-<button class="my-button-class my-button-class--big">Big button</button>
-
-<button class="my-big-button-class">Big button</button>
-```
-
-#### Theme modifiers
-
-There are named themes in `o-buttons`. `o-buttons` also allows developers to create custom themes using o-colors names.
-
-```html
-<button class="o-buttons o-buttons--primary">Primary button</button>
-<button class="o-buttons">Default/Secondary button</button>
-<button class="o-buttons o-buttons--mono">Mono button</button>
-<button class="o-buttons o-buttons--inverse">Inverse button</button>
-<button class="o-buttons o-buttons--b2c">B2C button</button>
-```
-
-More named themes are demonstrated [in the registry](http://registry.origami.ft.com/components/o-buttons).
-
-Or, using Sass:
-
-```scss
-.my-button-class {
-	@include oButtons();
-}
-
-.my-button-class--secondary {
-	@include oButtonsTheme(secondary);
-}
-
-// Or…
-.my-secondary-button {
-	@include oButtons($theme: secondary);
-}
-```
-
-```html
-<button class="my-button-class my-button-class--secondary">Secondary button</button>
-
-<button class="my-secondary-button">Secondary button</button>
-```
-
-#### Custom themes
-
-oButtonsTheme also accepts a Map, which you can use to create your own themes. The Map can have the following keys:
-- `background`: [String] - the background `o-colors` color for the place the button sits on.
-- `accent`: [String] - the accent `o-colors` color for the button.
-- `hover`: [String] - an optional parameter for the button hover state. It requires an `o-colors` color. Defaults to a mix of the `background` and `accent` colors.
-- `colorizer`: [String] - an optional parameter for the button style. One of "primary" or "secondary". Defaults to secondary.
-
-
-To create a `lemon` accented button on a `slate` background:
-
-```scss
-@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
-```
-
-This will output styles for a slate coloured button that has lemon text and border, with a slate/lemon mixed hover state.
-
-To create a `lemon` _filled_ button on a `slate` background, use the `colorizer` parameter and set to `primary`:
-
-```scss
-@include oButtonsTheme($theme: (background: 'slate', accent: 'lemon', colorizer: 'primary'));
-```
-
-This will output styles for a lemon coloured button that has slate text, with a slate/lemon mixed hover state.
-
-#### Icons
-If you're using bower, you can create an icon button for **any** icon in [fticons](https://registry.origami.ft.com/components/fticons/).
-
-If you're using the Build Service a limited number of button icons are available. Limiting the concrete classes keeps the compiled CSS bundle smaller, but if you need an icon button that we don't currently support then please open an issue. Build service icons currently include:
+[Sass](#sass) users may output any icon from the [fticons](https://registry.origami.ft.com/components/fticons/) set. However if you're using the [Build Service](https://www.ft.com/__origami/service/build/) a limited number of button icons are available. Limiting the number of icons keeps the CSS bundle smaller, but if you need an icon button that we don't currently support then please contact the Origami team:
 - arrow-left
 - arrow-right
 - upload
@@ -275,41 +71,128 @@ If you're using the Build Service a limited number of button icons are available
 - search
 
 ```html
-// Icon and text button.
-<button class="o-buttons o-buttons-icon o-buttons-icon--arrow-left">Go left</button>
-
-// Icon only button
-<button class="o-buttons o-buttons-icon o-buttons-icon--icon-only o-buttons-icon--arrow-left">
-	// accessible text fallback for the button. Not visible, only required for icon only buttons.
-	<span class="o-buttons-icon__label">Go left</span>
-</button>
+<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down">Down Arrow</button>
+<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--download">Download</button>
 ```
 
-Or, using Sass:
-
-```scss
-.my-button-class--icon {
- @include oButtons();
- @include oButtonsIconButton($icon-name: star);
-}
-
-.my-button-class--icon-only {
- @include oButtons();
- @include oButtonsIconButton($icon-name: star, $is-icon-only: true);
-}
-```
+If you would like your button to display only an icon, add the class `o-buttons-icon--icon-only` and provide a visually hidden label for screen-reader users with `o-buttons-icon__label`.
 
 ```html
-// Icon and text button.
-<button class="my-button-class--icon">star</button>
-
-
-// Icon only button
-<button class="my-button-class--icon-only">
-	<!-- accessible text fallback for the button. Not visible, only required for icon only buttons. -->
-	<span class="my-button-class-icon__label">star</span>
+<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down o-buttons-icon--icon-only">
+	<span class="o-buttons-icon__label">
+		Down Arrow
+	</span>
 </button>
 ```
+
+### Groups
+
+Wrap buttons with `.o-buttons-group` to group them together:
+
+```html
+<div class="o-buttons-group">
+	<button class="o-buttons o-buttons--secondary" aria-selected="true">One</button>
+	<button class="o-buttons o-buttons--secondary">Two</button>
+	<button class="o-buttons o-buttons--secondary">Three</button>
+</div>
+```
+
+### Pagination
+
+For a pagination style wrap your buttons in `.o-buttons-pagination`. In this example we show pages 1-3 and use icon buttons to indicate more and fewer results:
+
+```html
+<div class="o-buttons-pagination">
+	<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled="disabled">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</button>
+
+	<button class="o-buttons o-buttons--secondary" aria-selected="true">1</button>
+	<button class="o-buttons o-buttons--secondary">2</button>
+	<button class="o-buttons o-buttons--secondary">3</button>
+
+	<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</button>
+</div>
+```
+
+### Disabled
+`o-buttons` styles buttons with the `disabled` attribute to show they are inactive. In some cases it is preferred to visually hide the button until it is active. For this case add the class `o-buttons--hide-disabled`.
+
+```html
+<!-- Visibly disabled because of the `disabled` attribute. -->
+<button class="o-buttons" disabled>My Button</button>
+
+<!-- Visually hidden because of the `disabled` attribute and `o-buttons--hide-disabled`.-->
+<button class="o-buttons o-buttons--hide-disabled" disabled>My Button</button>
+```
+
+### Sass
+
+To output default o-buttons CSS make a single call to the primary mixin `oButtons`. It is recommended that you pass an options map as the first argument to include only the button styles you need. Without the options map, all o-buttons styles are included.
+
+```scss
+@mixin oButtons($opts: (
+	'sizes': ('big'), // e.g .o-buttons--big
+	'types': ('primary', 'secondary'), // e.g .o-buttons--primary
+	'themes': ('mono', 'inverse', 'b2c'), // e.g .o-buttons--inverse
+	'icons': ('arrow-left', 'arrow-right', 'search'), // any fticons, e.g .o-buttons-icons.o-buttons-icons--search
+	'pagination': true, // .o-buttons-pagination
+	'groups': true // .o-buttons-group
+));
+```
+
+#### Custom Themes
+
+To create a new button theme call `oButtonsAddTheme` with the colour of your theme along with the types of buttons and icons you would like to use with your theme, if any.
+
+- name: The name of your theme. This is used for the modifer class output `o-buttons--{name}`.
+- opts: A map of options for your theme. Keys include `color` and `context`.
+	- color: The main colour of your button. Any o-colors palette colour name.
+	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the master brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
+- types: A list of button types your theme is used with.
+- icons: A list of icons your theme is used with. Any [fticons](https://registry.origami.ft.com/components/fticons/) icon name.
+
+```scss
+/// .o-buttons--my-special-button
+@include oButtonsAddTheme(
+    $name: 'my-special-button',
+    $opts: ('color': 'claret-80'),
+    $types: ('primary', 'secondary'),
+    $icons: ('arrow-up', 'arrow-down')
+);
+```
+
+#### Custom Markup
+
+We recommend using `o-buttons` markup as this encourages CSS reuse and smaller bundle sizes. If you are unable to update your markup to use `o-buttons` classes, including those generated by `oButtonsAddTheme`, use `oButtonsContent`:
+
+```scss
+.my-button {
+    @include oButtonsContent($opts: ('type': 'primary'));
+}
+```
+
+```scss
+.my-icon-button {
+    @include oButtonsContent($opts: (
+        'type': 'primary',
+        'icon': 'arrow-right'
+    ));
+}
+```
+
+```scss
+.my-lemon-button {
+    @include oButtonsContent($opts: (
+        'type': 'primary',
+        'theme': ('color': 'lemon')
+    ));
+}
+```
+
+`oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://registry.origami.ft.com/components/o-buttons/sassdoc) for more details and examples.
 
 ## Migration
 
