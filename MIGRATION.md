@@ -4,7 +4,7 @@
 
 ### Editorial Typography
 
-Editorial typography, such as that used in article pages, has move to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
+Editorial typography, such as that used in article pages, has moved to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
 
 The following mixins have been removed:
 - oTypographyTopic
