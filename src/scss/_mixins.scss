@@ -1,7 +1,7 @@
 /// Styles for the big number itself.
 @mixin oBigNumberTitle {
 	@include oTypographySansBold($scale: 8);
-	margin: 0 0 oSpacingByName('s1') 0;
+	margin: 0 0 oSpacingByName('s1');
 }
 
 /// Styles for the copy under the big number.
