@@ -44,11 +44,15 @@
 	'groups': true
 )) {
 	$types: map-get($opts, 'types');
+	$types: if($types, $types, ());
 	$sizes: map-get($opts, 'sizes');
+	$sizes: if($sizes, $sizes, ());
 	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
 	$icons: map-get($opts, 'icons');
-	$pagination-enabled: map-has-key($opts, 'pagination');
-	$groups-enabled: map-has-key($opts, 'groups');
+	$icons: if($icons, $icons, ());
+	$pagination-enabled: map-get($opts, 'pagination');
+	$groups-enabled: map-get($opts, 'groups');
 
 	// Base button class.
 	.o-buttons {
