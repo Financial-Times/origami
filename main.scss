@@ -12,7 +12,6 @@
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/wrapper';
-@import 'src/scss/deprecated';
 
 /// Output all default typography styles.
 @mixin oTypography($opts: (

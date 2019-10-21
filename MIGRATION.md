@@ -27,6 +27,11 @@ The following mixins have been removed:
 - oTypographyCollectionHeader
 - oTypographyReadNext
 - oTypographyBlockquote
+- oTypographyPadding
+- oTypographyMargin
+
+The following functions have been removed:
+- oTypographySpacingSize
 
 The following css classes have been removed:
 - o-typography-topic
@@ -50,6 +55,17 @@ The following css classes have been removed:
 - o-typography-collection-heading
 - o-typography-read-next
 - o-typography-blockquote
+
+The following colour usecases have been removed. Replace `o-typography-body` with the default o-colors usecase `body`. If your project requires any other usecase please contact the Origami team:
+- o-typography-timestamp
+- o-typography-headline
+- o-typography-body
+- o-typography-standfirst
+- o-typography-caption
+- o-typography-list-prefix
+- o-typography-blockquote
+- o-typography-author
+- o-typography-author-hover
 
 Headings are now sans-seif "product" headings by default.
 
