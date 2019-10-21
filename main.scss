@@ -29,15 +29,15 @@
 /// Can be passed a list of one or more features to output.
 /// By default, will output all styles.
 ///
-/// @param {List} $features [('subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'subbrand', 'transparent')]
+/// @param {List} $opts [('subnav', 'search', 'nav', 'anon', 'drawer', 'megamenu', 'sticky', 'simple', 'subbrand', 'transparent')]
 /// @param {Boolean} $include-base-styles [true]
-@mixin oHeader($features: $_o-header-features, $include-base-styles: true) {
+@mixin oHeader($opts: $_o-header-features, $include-base-styles: true) {
 
 	@if $include-base-styles == true {
 		@include _oHeaderBase;
 	}
 
-	@each $feature in $features {
+	@each $feature in $opts {
 		// Check the feature exists.
 		@if index($_o-header-features, $feature) == null {
 			@error "There is no feature '#{$feature}' available in o-header please use one of "

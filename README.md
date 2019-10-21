@@ -57,9 +57,9 @@ o-header fires the following events:
 
 ## Sass
 
-The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features as the first argument.
+The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of options as the first argument.
 
-The list of features is as follows:
+The list of options is as follows:
 
 * `nav`: The primary nav, this is the nav that sits directly under the top section of the header.
 * `search`: The search bar that appears when a user presses the search icon.
@@ -70,7 +70,7 @@ The list of features is as follows:
 * `subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
 * `megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
 
-To output styles for a feature only, excluding the core header styles, pass `false` as the second argument.
+To output styles for a feature only, excluding base header styles required by all features, pass `false` as the second argument.
 
 E.g. To get all of the CSS needed for the FT homepage you would call:
 

@@ -10,7 +10,14 @@ The following Sass variables have been removed:
 - `$o-header-image-service-version`
 - `$o-header-image-base-url`
 
-The following Sass mixins have been removed and should be replaced with a single call to `oHeader` and the appropriate `$features` argument.
+The first `oHeader` argument is now an options map `$opts`, rather than `$features`, to align with other Origami components.
+
+```diff
+-@include oHeader($features: ('drawer', 'sticky'));
++@include oHeader($opts: ('drawer', 'sticky'));
+```
+
+The following Sass mixins have been removed and should be replaced with a single call to `oHeader` and the appropriate `$opts` argument.
 
 - `oHeaderBase`: included by default in base styles
 - `oHeaderTop`: included by default in base styles
@@ -31,21 +38,21 @@ E.g. to output the header with select features:
 -@include oHeaderTop;
 -@include _oHeaderDrawer;
 -@include _oHeaderSticky;
-+@include oHeader($features: ('drawer', 'sticky');
++@include oHeader($opts: ('drawer', 'sticky');
 ```
 
 Or to output only base styles:
 ```diff
 -@include oHeaderBase;
 -@include oHeaderTop;
-+@include oHeader($features: ());
++@include oHeader($opts: ());
 ```
 
 Or to output only extra features without the base styles required by all features:
 ```diff
 -@include _oHeaderDrawer;
 -@include _oHeaderSticky;
-+@include oHeader($features: ('drawer', 'sticky'), $include-base-styles: false);
++@include oHeader($opts: ('drawer', 'sticky'), $include-base-styles: false);
 ```
 
 There is no direct replacement for the following mixins. Please contact the Origami team if you have a usecase for these:
