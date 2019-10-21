@@ -1,0 +1,132 @@
+@import 'o-typography/main';
+@import 'o-spacing/main';
+@import 'o-fonts/main';
+
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+/// Output oEditorialTypography features.
+///
+/// @example Output all o-editorial-typography css classes.
+/// 	@include oEditorialTypography();
+///
+/// @example Output a granular selection of o-editorial-typography css classes. See the [README](https://registry.origami.ft.com/components/o-editorial-typography/readme) for a full list of options.
+///     @include oEditorialTypography((
+///     	'body': true,
+///     	'headings': (1, 2, 3),
+///     	'lists': ('unordered'),
+///     ));
+///
+/// @param {Map} $opts [('body': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'headline': true, 'headings': (1, 2, 3, 4, 5), 'author': true, 'topic': true, 'byline': true, 'timestamp': true, 'fonts': true)] - The features of o-editorial-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-editorial-typography/readme) for more details.
+@mixin oEditorialTypography($opts: (
+	'body': true,
+	'lists': ('ordered', 'unordered'),
+	'caption': true,
+	'headline': true,
+	'headings': (1, 2, 3, 4, 5),
+	'author': true,
+	'topic': true,
+	'byline': true,
+	'timestamp': true,
+	'fonts': true,
+)) {
+	$body: map-get($opts, 'body');
+	$lists: map-get($opts, 'lists');
+	$lists: if($lists, $lists, ());
+	@if($lists and type-of($lists) != 'list') {
+		@error ('The "lists" option must be a list of list types to include e.g. `(\'ordered\', \'unordered\')`.');
+	}
+	$caption: map-get($opts, 'caption');
+	$headline: map-get($opts, 'headline');
+	$headings: map-get($opts, 'headings');
+	$headings: if($headings, $headings, ());
+	@if($headings and type-of($headings) != 'list') {
+		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
+	}
+	$author: map-get($opts, 'author');
+	$topic: map-get($opts, 'topic');
+	$byline: map-get($opts, 'byline');
+	$timestamp: map-get($opts, 'timestamp');
+	$fonts: map-get($opts, 'fonts');
+
+	@if $fonts {
+		@include oFonts();
+	}
+
+	@if $body {
+		.o-editorial-typography-body {
+			@include oEditorialTypographyBody();
+		}
+	}
+
+	@if length($lists) >= 1 {
+		.o-editorial-typography-list {
+			// Output base styles shared by all list types.
+			@include oEditorialTypographyList();
+		}
+	}
+
+	@if index($lists, 'ordered') {
+		.o-editorial-typography-list--ordered {
+			// Output list styles unique to an ordered list.
+			@include oEditorialTypographyList($type: 'ordered', $include-base-styles: false);
+		}
+	}
+
+	@if index($lists, 'unordered') {
+		.o-editorial-typography-list--unordered {
+			// Output list styles unique to an unordered list.
+			@include oEditorialTypographyList($type: 'unordered', $include-base-styles: false);
+		}
+	}
+
+	@if $caption {
+		.o-editorial-typography-caption {
+			@include oEditorialTypographyCaption();
+		}
+	}
+
+	@if $headline {
+		.o-editorial-typography-headline {
+			@include oEditorialTypographyHeadline();
+		}
+	}
+
+	@each $level in $headings {
+		.o-editorial-typography-heading-level-#{$level} {
+			@include oEditorialTypographyHeading($level);
+		}
+	}
+
+	@if $author {
+		.o-editorial-typography-author {
+			@include oEditorialTypographyTag('author');
+		}
+	}
+
+	@if $topic {
+		.o-editorial-typography-topic {
+			@include oEditorialTypographyTag('topic');
+		}
+	}
+
+	@if $byline {
+		.o-editorial-typography-byline {
+			@include oEditorialTypographyByline();
+		}
+	}
+
+	@if $timestamp {
+		.o-editorial-typography-timestamp {
+			@include oEditorialTypographyBylineTimestamp();
+		}
+	}
+}
+
+@if ($o-editorial-typography-is-silent == false) {
+	@include oEditorialTypography();
+
+	// Set to silent again to avoid being output twice
+	$o-editorial-typography-is-silent: true !global;
+}

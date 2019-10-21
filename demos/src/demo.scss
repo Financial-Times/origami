@@ -1,0 +1,8 @@
+@import '../../main';
+
+@include oEditorialTypography();
+
+body {
+    background: oColorsGetColorFor('page', 'background');
+    margin: oSpacingByName('s2');
+}
