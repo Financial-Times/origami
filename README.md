@@ -1,6 +1,6 @@
 # o-big-number [![Build Status](https://circleci.com/gh/Financial-Times/o-big-number.png?style=shield&circle-token=9ca314332de2a9b6a80eb8477e097d9acbc96e0b)](https://circleci.com/gh/Financial-Times/o-big-number) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-Typographical styles to highlight and describe a big number. Positioning of the big number, for example to the left in a style of a pull-quote, is left to the user. This is so o-big-number may be used in different contexts without overrides.
+Typographical styles to highlight and describe a big number. Positioning of the big number, for example to the left in a style of a pull-quote, is left to the user. This is so o-big-number may be used in different contexts without writing extra CSS to remove existing positioning.
 
 ----
 
