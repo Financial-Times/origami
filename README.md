@@ -1,52 +1,16 @@
 # o-header [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Responsive header for FT branded sites
-- [Usage](#usage)
-	- [Quick Start](#quick-start)
-	- [Markup](#markup)
-	- [JavaScript](#JavaScript)
-	- [Sass](#sass)
-	- [Browser Support](#browser-support)
+
+- [Markup](#markup)
+- [JavaScript](#JavaScript)
+- [Sass](#sass)
+- [Browser Support](#browser-support)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
-
-### Quick Start
-Install the module:
-
-```
-bower install --S o-header
-```
-
-Load the JS:
-
-```js
-import oHeader from 'o-header';
-
-oHeader.init();
-```
-
-Load the CSS:
-
-```scss
-$o-header-is-silent: false;
-@import 'o-header/main';
-```
-
-Load [o-fonts](https://github.com/Financial-Times/o-fonts) and set some default CSS properties to the document root:
-
-```scss
-html {
-    font-family: "MetricWeb";
-}
-```
-
-Copy the markup from [one of the demos](http://registry.origami.ft.com/components/o-header) in the registry, and paste it in a document
-
-
-### Markup
+## Markup
 
 As there are variations on the header, and the markup for each is specific and somewhat extensive, we recommend visiting the [component page](http://registry.origami.ft.com/components/o-header) in the registry to find the markup that is most suited to your product.
 
@@ -63,9 +27,9 @@ Some elements inside the header require specific data attributes so the JavaScri
 * data-o-header-subnav-wrapper: Applied to the inner wrapper `div` of the subnav menu so the JS can handle the scrolling
 
 
-### JavaScript
+## JavaScript
 
-An o-header object must be constructed for every `<header>` you have on your page that uses this module.
+An o-header object must be constructed for every `<header>` you have on your page that uses this component.
 
 ```js
 import Header from 'o-header';
@@ -82,7 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 
-### Sass
+### Events
+
+o-header fires the following events:
+
+* `oHeader.MegaMenuShow`: When a mega menu is shown. The target of the event is the menu itself.
+* `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself.
+* `oHeader.Sticky`: When the header changes to or from sticky. The event detail will contain an `isActive` boolean indicated sticky or not. The target of the event is the menu itself.
+
+
+## Sass
 
 The header is made up of various features (e.g. `nav`, `search`, and `drawer`). To get everything, use the `oHeader()` mixin without arguments. To get only the stuff you need, you can pass in a list of features as the first argument.
 
@@ -99,22 +72,11 @@ The list of features is as follows:
 
 To output styles for a feature only, excluding the core header styles, pass `false` as the second argument.
 
-###### Example
+E.g. To get all of the CSS needed for the FT homepage you would call:
 
-To get all of the CSS needed for the FT homepage you would call:
-
+```scss
+@include oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
 ```
-oHeader(('sticky', 'simple', 'anon', 'search', 'nav', 'megamenu'));
-```
-
-
-### Events
-
-o-header fires the following events:
-
-* `oHeader.MegaMenuShow`: When a mega menu is shown. The target of the event is the menu itself.
-* `oHeader.MegaMenuClose`: When a mega menu is closed. The target of the event is the menu itself.
-* `oHeader.Sticky`: When the header changes to or from sticky. The event detail will contain an `isActive` boolean indicated sticky or not. The target of the event is the menu itself.
 
 ## Browser Support
 
@@ -132,8 +94,6 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 3 | 3.0 | - |
 ╳ deprecated | 2 | 2.5 | - |
 ╳ deprecated | 1 | 1.1 | - |
-
----
 
 ## Contact
 
