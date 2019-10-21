@@ -61,20 +61,22 @@
 /// Returns a color based on the background context and base color
 /// at the supplied percentage
 ///
-/// @param {String} $background [paper] - palette name of background color
-/// @param {String} $color [black] - palette name of color
-/// @param {Number} $percentage [60] - percentage opacity of the color over the background
+/// @param {String|Color} $color [black] - palette name of color
+/// @param {String|Color} $background [paper] - palette name of background color
+/// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
 @function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
 	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
 	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
 
 	@if type-of($base) != color {
 		@return _error("'#{inspect($background)}' is not a valid base color.");
-	} @else if type-of($mixer) != color {
-		@return _error("'#{inspect($color)}' is not a valid mixing color.");
-	} @else {
-		@return mix($mixer, $base, $percentage);
 	}
+
+	@if type-of($mixer) != color {
+		@return _error("'#{inspect($color)}' is not a valid mixing color.");
+	}
+
+	@return mix($mixer, $base, $percentage);
 }
 
 /// Return the defined palette color name for a use case / property combination
