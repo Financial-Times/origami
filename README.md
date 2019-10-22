@@ -5,6 +5,8 @@ Include in your product to send tracking requests to the Spoor API.
 ## The Spoor ecosystem
 ![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
 
+[Spoor API docs](https://spoor-docs.herokuapp.com/)
+
 ## Usage
 
 ### Requirement: Polyfills & Doesn't cut the mustard
