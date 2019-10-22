@@ -87,7 +87,7 @@ p {
 Include both the CSS and JavaScript for o-typography in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
 
 ```html
-<html class="o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
+<html class="o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold">
 ```
 
 If you build your projects using Sass, styles for progressively loading fonts are output by default when using the [use case mixins](#use-case-mixins) or [type mixins](#type-mixins).

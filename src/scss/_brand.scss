@@ -34,10 +34,6 @@ $o-typography-display: '' !default;
 /// @access public
 /// @example scss
 ///    @include oTypographyCustomize((
-///        'bold-level': 'bold',
-///        'sans': (
-///            'bold-level': 'semibold'
-///        ),
 ///        'heading-level-one': (
 ///            'scale': 7,
 ///        ),
@@ -100,10 +96,6 @@ $o-typography-display: '' !default;
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
             'custom-link-focus-outline-color': oColorsGetPaletteColor('black-50'), //deprecated
-            'bold-level': 'bold',
-            'sans': (
-                'bold-level': 'semibold' // override the default "bold" font weight for the sans font
-            ),
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'
@@ -144,7 +136,6 @@ $o-typography-display: '' !default;
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
             'custom-link-focus-outline-color': oColorsGetPaletteColor('oxford-80'), //deprecated
-            'bold-level': 'semibold',
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'
@@ -211,7 +202,6 @@ $o-typography-display: '' !default;
 
     @include oBrandDefine('o-typography', 'whitelabel', (
         'variables': (
-            'bold-level': 'bold',
             'heading-level-one': (
                 'scale': 6,
             ),

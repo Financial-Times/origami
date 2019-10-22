@@ -2,6 +2,17 @@
 
 ### Migrating from v5 to v6
 
+The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bold` and `o-typography--loading-displayBold` is now `o-typography--loading-display-bold`.
+
+The following mixins have been replaced:
+- oTypographySansBold: oTypographySans($weight: 'semibold')
+- oTypographyDisplayBold: oTypographyDisplay($weight: 'bold')
+- oTypographySerifBold: oTypographySerif($weight: 'bold')
+- oTypographySerifItalic: oTypographySerif($style: 'italic')
+- oTypographyBold('sans'): oTypographySans($weight: 'semibold', $opts: ('font-family': false))
+- oTypographyBold('serif'): oTypographySerif($weight: 'bold', $opts: ('font-family': false))
+- oTypographyItalic: Use the `$style` argument of other mixins. Eg. `oTypographySerif($style: 'italic')`.
+
 ### Editorial Typography
 
 Editorial typography, such as that used in article pages, has moved to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).

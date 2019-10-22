@@ -67,11 +67,14 @@
 	// Body, Links, Lists, etc.
 	@if $utilities-enabled {
 		.o-typography-bold {
-			@include oTypographyBold;
+			@include oTypographySans (
+				$weight: 'semibold',
+				$opts: ('font-family': false)
+			);
 		}
 
 		.o-typography-italic {
-			@include oTypographyItalic;
+			font-style: italic;
 		}
 
 		.o-typography-sup {

@@ -66,7 +66,7 @@ $_o-typography-progressive-font-fallbacks: (
 		fallback-scale: 0.87
 	),
 	(
-		label: 'sansBold',
+		label: 'sans-bold',
 		family: 'MetricWeb',
 		weight: ('bold', 'semibold'),
 		fallback: sans-serif,
@@ -79,7 +79,7 @@ $_o-typography-progressive-font-fallbacks: (
 		fallback-scale: 0.9
 	),
 	(
-		label: 'displayBold',
+		label: 'display-bold',
 		family: 'FinancierDisplayWeb',
 		weight: bold,
 		fallback: serif,

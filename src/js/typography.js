@@ -29,12 +29,12 @@ class Typography {
 			{
 				family: 'MetricWeb',
 				weight: 600,
-				label: 'sansBold'
+				label: 'sans-bold'
 			},
 			{
 				family: 'FinancierDisplayWeb',
 				weight: 700,
-				label: 'displayBold'
+				label: 'display-bold'
 			}
 		];
 		if (this.opts.loadOnInit) {

@@ -5,7 +5,7 @@ import sinon from 'sinon/pkg/sinon';
 
 import Typography from './../main';
 
-const fontLabels = ['display', 'sans', 'sansBold', 'displayBold'];
+const fontLabels = ['display', 'sans', 'sans-bold', 'display-bold'];
 const stubPrefix = 'loading-font-';
 const stubCookieName = 'fonts-loaded';
 

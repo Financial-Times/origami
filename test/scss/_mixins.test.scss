@@ -1,3 +1,314 @@
+@include test-module('oTypographySans') {
+    @include test('Outputs a font family.') {
+        @include assert {
+            @include output {
+                @include oTypographySans();
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+                font-size: 18px;
+                line-height: 20px;
+                .o-typography--loading-sans & {
+                    font-size: 15.66px;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1, 1.6);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+                font-size: 18px;
+                line-height: 1.6;
+                .o-typography--loading-sans & {
+                    font-size: 15.66px;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1, $weight: 'bold');
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 700;
+                .o-typography--loading-sans-bold & {
+                    font-size: 14.94px;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, style, and progressive loading sizes for a given scale and style.') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1, $style: 'italic');
+            }
+
+            // there are no progressive loading scale defined for an italic sans font
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+                font-size: 18px;
+                line-height: 20px;
+                font-style: italic;
+            }
+        }
+    }
+
+    @include test('Does not output a font-family when the option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1, 1.6, $opts: (
+                    'font-family': false
+                ));
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 1.6;
+
+                .o-typography--loading-sans & {
+                    font-size: 15.66px;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+
+    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographySans(1, 1.6, $opts: (
+                    'progressive': false
+                ));
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+@include test-module('oTypographySerif') {
+    @include test('Outputs a font family.') {
+        @include assert {
+            @include output {
+                @include oTypographySerif();
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, and line height for a given scale.') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, and line height for a given scale and custom line height.') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1, 1.6);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, and weight for a given scale and weight.') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1, $weight: 'bold');
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, style, for a given scale and style.') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1, $style: 'italic');
+            }
+
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+                font-size: 18px;
+                line-height: 20px;
+                font-style: italic;
+            }
+        }
+    }
+
+    @include test('Does not output a font-family when the option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1, 1.6, $opts: (
+                    'font-family': false
+                ));
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographySerif(1, 1.6, $opts: (
+                    'progressive': false
+                ));
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+@include test-module('oTypographyDisplay') {
+    @include test('Outputs a font family.') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay();
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay(1);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+                font-size: 18px;
+                line-height: 20px;
+                .o-typography--loading-display & {
+                    font-size: 16.2px;
+                    font-family: serif;
+                }
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay(1, 1.6);
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+                font-size: 18px;
+                line-height: 1.6;
+                .o-typography--loading-display & {
+                    font-size: 16.2px;
+                    font-family: serif;
+                }
+            }
+        }
+    }
+
+    @include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay(1, $weight: 'bold');
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 700;
+                .o-typography--loading-display-bold & {
+                    font-size: 16.2px;
+                    font-family: serif;
+                }
+            }
+        }
+    }
+
+    @include test('Does not output a font-family when the option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay(1, 1.6, $opts: (
+                    'font-family': false
+                ));
+            }
+            @include expect {
+                font-size: 18px;
+                line-height: 1.6;
+
+                .o-typography--loading-display & {
+                    font-size: 16.2px;
+                    font-family: serif;
+                }
+            }
+        }
+    }
+
+    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+        @include assert {
+            @include output {
+                @include oTypographyDisplay(1, 1.6, $opts: (
+                    'progressive': false
+                ));
+            }
+            @include expect {
+                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+                font-size: 18px;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
 @include test-module('oTypographyDefineFontScale') {
     $custom-font-scale: (
         -2: (1, 1),
@@ -218,88 +529,6 @@
                 &::after {
                     background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23FF0000,%23FF0000&format=svg");
                 }
-            }
-        }
-    }
-}
-
-@include test-module('oTypographyBold') {
-    @include test('Outputs the default font weight if not given a font type (the FinancierDisplayWeb bold weight for the master brand).') {
-        @include assert {
-            @include output {
-                @include oTypographyBold();
-            }
-            @include contains {
-                font-weight: 700;
-            }
-        }
-    }
-    @include test('Outputs the sans "bold" font weight of 600 (semibold).') {
-        @include assert {
-            @include output {
-                @include oTypographyBold('sans');
-            }
-            @include contains {
-                font-weight: 600;
-            }
-        }
-    }
-    @include test('Outputs the serif "bold" font weight.') {
-        @include assert {
-            @include output {
-                @include oTypographyBold('serif');
-            }
-            @include contains {
-                font-weight: 700;
-            }
-        }
-    }
-    @include test('Outputs the display "bold" font weight.') {
-        @include assert {
-            @include output {
-                @include oTypographyBold('display');
-            }
-            @include contains {
-                font-weight: 700;
-            }
-        }
-    }
-}
-
-@include test-module('oTypographySansBold') {
-    @include test('Outputs the sans "bold" font weight of 600 (semibold).') {
-        @include assert {
-            @include output {
-                @include oTypographySansBold($scale: 1);
-            }
-            @include contains {
-                font-weight: 600;
-            }
-        }
-    }
-}
-
-@include test-module('oTypographySerifBold') {
-    @include test('Outputs the serif "bold" font weight of 700 (bold).') {
-        @include assert {
-            @include output {
-                @include oTypographySerifBold($scale: 1);
-            }
-            @include contains {
-                font-weight: 700;
-            }
-        }
-    }
-}
-
-@include test-module('oTypographyDisplayBold') {
-    @include test('Outputs the display "bold" font weight of 700 (bold).') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplayBold($scale: 1);
-            }
-            @include contains {
-                font-weight: 700;
             }
         }
     }

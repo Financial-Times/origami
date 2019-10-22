@@ -134,11 +134,6 @@
 	}
 }
 
-/// Make something italic
-@mixin oTypographyItalic {
-	font-style: italic;
-}
-
 /// Styling for <ul> and <ol>
 @mixin oTypographyList {
 	margin-top: 0;
@@ -175,7 +170,10 @@
 
 
 			&:before {
-				@include oTypographySansBold($scale: 0);
+				@include oTypographySans (
+					$scale: 0,
+					$weight: 'semibold'
+				);
 				position: absolute;
 				display: inline-block;
 				width: oSpacingByIncrement(5);
