@@ -18,6 +18,9 @@ The following mixins have been replaced:
 - oTypographyLinkExternal: oTypographyLink($external: true);
 - oTypographyLinkExternalIcon: oTypographyLink($external: true, $include-base-styles: false);
 
+The following mixins have been removed:
+- oTypographyProgressiveFontFallback: progressive font fallbacks are output by other mixins
+
 ### Editorial Typography
 
 Editorial typography, such as that used in article pages, has moved to a new component [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).

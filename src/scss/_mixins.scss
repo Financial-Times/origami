@@ -94,14 +94,11 @@
 /// Outputs the progressive font fallback styles based on
 /// font and scale if the font has fallback settings
 ///
-/// @todo Make private in the next major release.
-/// @deprecated The progressive font fallback is output by other `o-typography` mixins, and should not be needed directly within products.
-///
 /// @param {String} $font - Font to output fallback styles for (or .
 /// @param {Number} $scale - Number on scale the size is based on.
 /// @param {String} $weight [null] - The weight of the font which needs a fallback e.g. 'bold'.
 /// @param {String} $style [null] - The style of the font which needs a fallback e.g. 'italic'.
-@mixin oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null) {
+@mixin _oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null) {
 	@if $scale {
 		// If falsy weight/style default to regular/normal.
 		$weight: if($weight, $weight, 'regular');

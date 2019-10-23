@@ -180,6 +180,6 @@
 	}
 
 	@if $progressive {
-		@include oTypographyProgressiveFontFallback($font, $scale, $weight, $style);
+		@include _oTypographyProgressiveFontFallback($font, $scale, $weight, $style);
 	}
 }
