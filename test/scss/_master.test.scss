@@ -1,10 +1,8 @@
 @import '../../main';
 
-@import 'tools/a11y.test';
 @import 'tools/color.test';
 
 @import 'functions.test';
-@import 'palette.test';
 @import 'mixins.test';
 
 @include describe('branded palettes') {

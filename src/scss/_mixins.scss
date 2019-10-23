@@ -119,55 +119,10 @@
 	)) !global;
 }
 
-/// Output property declarations for all defined properties for the specified use case
-///
-/// @example scss
-///  .my-thing {
-///  	@include oColorsFor(custom-box box);
-///  }
-///  .my-other-thing {
-///  	@include oColorsFor(custom-box box, background border);
-///  }
-///
-/// @param {String|list} $useCaseList
-/// @param {String|list} $propertyList [all]
-@mixin oColorsFor($useCaseList, $propertyList: all, $textLevel: 100) {
-	// Fail silently when a use case doesn't exist,
-	// taking advantage of how Sass treats the `null` keyword:
-	//
-	// 		$foo: null;
-	// 		el { color: $foo; } // outputs nothing
-	$args: (default: null);
-
-	@if ($propertyList == 'all' or index($propertyList, 'background')) {
-		background-color: oColorsGetColorFor($useCaseList, background, $options: $args);
-	}
-
-	@if ($propertyList == 'all' or index($propertyList, 'text')) {
-		$useCaseTextColor: oColorsGetColorFor($useCaseList, text, $options: $args);
-		$useCaseBackgroundColor: oColorsGetColorFor($useCaseList, background, $options: $args);
-
-		// If no text color is defined but there is a background color for the use case
-		@if $useCaseTextColor == null and $useCaseBackgroundColor != null {
-			$useCaseTextColor: oColorsGetTextColor($useCaseBackgroundColor, $textLevel);
-		}
-
-		color: $useCaseTextColor;
-	}
-
-	@if ($propertyList == 'all' or index($propertyList, 'border')) {
-		border-color: oColorsGetColorFor($useCaseList, border, $options: $args);
-	}
-
-	@if ($propertyList == 'all' or index($propertyList, 'outline')) {
-		outline-color: oColorsGetColorFor($useCaseList, outline, $options: $args);
-	}
-}
-
 /// Update the palette with calculated tints of
-/// each color from $o-colors-tints
+/// each color from $_o-colors-tints
 @mixin _oColorsSetPaletteTints {
-	@each $color, $settings in $o-colors-tints {
+	@each $color, $settings in $_o-colors-tints {
 		$hue: map-get($settings, 'hue');
 		$tints: map-get($settings, 'tints');
 

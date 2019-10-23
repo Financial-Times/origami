@@ -31,23 +31,36 @@
 - o-colors-section-money-all
 - o-colors-section-money-alt-all
 
-The following have been removed from the palette:
+The following colours have been removed from the palette:
 
 - `inherit`. Replace `oColorsByName('inherit');` with `inherit`.
 - `transparent`. Replace `oColorsByName('transparent');` with `transparent`.
 
-The following variables have changed:
+The following variables have been removed:
 
 - `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPalette` to iterate over each colour in the palette.
+- `$o-colors-tints` has been removed. Please contact the Origami team if you have a usecase for accessing this variable.
 - `$o-colors-usecases` has been removed. Use `oColorsSetUseCase` to add to add a usecase or customise a default o-colors usecase; or `oColorsByUsecase` to fetch a colour for a usecase.
 
 The following mixins have changed:
 
-- `oColors` no longer outputs usecase CSS classes.
-- `oColorsGetPaletteColor` is now [`oColorsByName`](#oColorsByName).
-- [`oColorsSetColor`](#oColorsSetColor) has updated arguments.
-- [`oColorsSetUseCase`](#oColorsSetUseCase) has updated arguments.
-- `oColorsGetUseCase` is now [`oColorsByUsecase`](#oColorsByUsecase).
+- [oColors](#oColors) no longer outputs all colour usecase CSS classes.
+- [oColorsSetColor](#oColorsSetColor) has updated arguments.
+- [oColorsSetUseCase](#oColorsSetUseCase) has updated arguments.
+
+The following mixins have been removed:
+- [oColorsFor](#oColorsFor)
+
+The following functions have changed:
+- [oColorsGetTint](#oColorsGetTint)
+- [oColorsGetTextColor](#oColorsGetTextColor)
+
+The following functions have been removed:
+- [oColorsGetPaletteColor](#oColorsGetPaletteColor)
+- [oColorsGetUseCase](#oColorsGetUseCase)
+- [oColorsGetColorFor](#oColorsGetColorFor)
+- [oColorsGetWCAGRating](#oColorsGetWCAGRating)
+- [oColorsCheckContrast](#oColorsCheckContrast)
 
 #### oColors
 
@@ -59,16 +72,6 @@ As `o-colors` [no longer outputs usecase CSS classes](#MIGRATION.md#migrating-fr
 	'palette-classes': true,
 -	'usecase-classes': true
 ));
-```
-
-#### oColorsGetContrastRatio
-
-The arguments of `oColorsGetContrastRatio` have been renamed. `$col1` becomes `$color-a` and `$col2` becomes `$color-b`. As well as a CSS colour, palette colour names are now also accepted.
-
-```diff
-	$contrast: oColorsGetContrastRatio(#ffffff, #000000);
--	$contrast: oColorsGetContrastRatio($col1: oColorsGetPaletteColor('paper'), $col2: oColorsGetPaletteColor('teal'));
-+	$contrast: oColorsGetContrastRatio($color-a: 'paper', $color-b: 'teal');
 ```
 
 #### oColorsGetTextColor
@@ -97,41 +100,16 @@ Or set to `null` to never error, e.g. for [incidental or logo text](https://www.
 +	color: oColorsGetTextColor($background': paper', $minimum-contrast: null);
 ```
 
-#### oColorsByUsecase
+#### oColorsGetUseCase
 
-`oColorsGetUseCase` is now `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). A list of usecases are no longer accepted. `oColorsByUsecase` also has a new `$from` argument, to get usecases set by different component or projects.
+The mixin `oColorsGetUseCase` returns a colour name. It has been removed and there is no direct replacement, but `oColorsByUsecase` may be used to get the colour hex for a usecase:
 
-If getting a usecase set by o-colors update the mixin name:
 ```diff
--background-color: oColorsGetUseCase('page', 'background');
+-background-color: oColorsGetPaletteColor(oColorsGetUseCase('page', 'background'));
 +background-color: oColorsByUsecase('page', 'background');
 ```
 
-Note `all` is no longer a valid property when getting a usecase. Instead use one of 'text', 'background', 'border', or 'outline'.
-```diff
--color: oColorsGetUseCase('page', 'all');
-+color: oColorsByUsecase('page', 'text');
-```
-
-If getting a usecase set by a different project or component use the `$from` argument:
-```diff
--background-color: oColorsGetUseCase('o-example-row-stripe', 'background');
-+background-color: oColorsByUsecase('row-stripe', 'background', 'o-example');
-```
-
-Or with argument names:
-```diff
--background-color: oColorsGetUseCase('o-example-row-stripe', 'background');
-+background-color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $from: 'o-example');
-```
-
-If a missing usecase is acceptable set the `$fallback` argument to an alternative colour to use or `null` (Sass will remove any CSS properties which are set to `null`):
-```scss
-background-color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $fallback: null); // background-color will not be set if the row-stripe background colour isn't found
-color: oColorsByUsecase($usecase: 'row-stripe', $property: 'background', $fallback: 'black'); // black will be used if the row-stripe colour isn't found
-```
-
-#### oColorsByName
+#### oColorsGetPaletteColor
 
 `oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name` and it must be of type string. A second argument `$from` may also be given to get a colour set by a component or project other than o-colors.
 
@@ -154,7 +132,6 @@ Or with argument names:
 -color: oColorsGetPaletteColor($name: 'o-example-story');
 +color: oColorsByName($color-name: 'stormy', $from: 'o-example');
 ```
-
 
 #### oColorsSetColor
 
@@ -215,6 +192,73 @@ To deprecate a usecase pass a second options argument:
 +	'border': 'black-50'
 +), ('deprecated': 'There are no stripes anymore.'));
 ```
+
+#### oColorsFor
+
+`oColorsFor` has been removed and should be replaced with separate calls to `oColorsByUsecase` for each property. By default `oColorsByUsecase` errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
+
+E.g. setting the page background colour from o-colors. In this example no properties have been given to the second argument of `oColorsFor`, so we replace with calls to `oColorsByUsecase` for all properties the usecase supports.
+```diff
+-@include oColorsFor(page);
++background: oColorsByUsecase('page', 'background');
+```
+
+E.g. setting multiple colour properties to match a 'row-stripe' from an example component o-example.
+```diff
+-@include oColorsFor(o-example-row-stripe, background border);
++background: oColorsByUsecase('row-stripe', 'background', $from: 'o-example');
++border: oColorsByUsecase('row-stripe', 'border', $from: 'o-example');
+```
+
+#### oColorsGetColorFor
+
+`oColorsGetColorFor` has been removed and should be replaced with a call to `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). If the usecase doesn't exist and an error is thrown remove the property.
+
+E.g. when requesting the page background from o-colors:
+```diff
+-background: oColorsGetColorFor('page', 'background');
++background: oColorsByUsecase('page', 'background');
+```
+
+E.g. if no property is requested by `oColorsGetColorFor` explicitly choose one when migrating to `oColorsByUsecase` (one of 'text', 'background', 'border', or 'outline'):
+```diff
+-color: oColorsGetColorFor('section-life-arts');
++color: oColorsByUsecase('section-life-arts', 'text');
+```
+
+E.g. set fallback colours using `$fallback`:
+```diff
+-background-color: oColorsGetColorFor('page', 'background', $options: ('default': 'white'));
++background-color: oColorsByUsecase('page', 'background', $fallback: 'white');
+```
+
+#### oColorsGetContrastRatio
+
+The arguments of `oColorsGetContrastRatio` have been renamed. `$col1` becomes `$color-a` and `$col2` becomes `$color-b`. As well as a CSS colour, palette colour names are now also accepted.
+
+```diff
+	$contrast: oColorsGetContrastRatio(#ffffff, #000000);
+-	$contrast: oColorsGetContrastRatio($col1: oColorsGetPaletteColor('paper'), $col2: oColorsGetPaletteColor('teal'));
++	$contrast: oColorsGetContrastRatio($color-a: 'paper', $color-b: 'teal');
+```
+
+#### oColorsGetTint
+
+The first argument of `oColorsGetTint` has been renamed from `$color` to `$color-name`:
+
+```diff
+$tint: oColorsGetTint('teal', 50);
+-$tint: oColorsGetTint($color: 'teal', 50);
++$tint: oColorsGetTint($color-name: 'teal', 50);
+```
+
+#### oColorsCheckContrast
+
+This function has been removed. If used, implement a custom check with [oColorsGetContrastRatio](#oColorsGetContrastRatio) instead.
+
+#### oColorsGetWCAGRating
+
+This function has been removed. If used, implement a custom check with [oColorsGetContrastRatio](#oColorsGetContrastRatio) instead.
 
 ### Upgrading from v3 to v4
 

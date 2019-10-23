@@ -63,42 +63,13 @@
 			@include oColorsSetUseCase('o-colors', 'test-case', (
 				'text': 'candy'
 			));
-			@include assert-equal(oColorsByUsecase(test-case, text), ('candy'));
+			@include assert-equal(oColorsByUsecase(test-case, text), oColorsByName('candy'));
 		};
 		@include it('override a default o-colors custom use case property') {
 			@include oColorsSetUseCase('o-colors', 'page', (
 				'background': 'candy'
 			));
-			@include assert-equal(oColorsByUsecase('page', 'background'), ('candy'));
-		};
-	};
-
-	@include describe('oColorsFor') {
-		@include test('outputs property declarations for all defined properties for a use case') {
-			@include oColorsSetUseCase('o-colors', 'test-color', (
-				text: 'jade'
-			));
-			@include oColorsSetUseCase('o-colors', 'test-color', (
-				background: 'wheat'
-			));
-			@include oColorsSetUseCase('o-colors', 'test-color', (
-				outline: 'crimson'
-			));
-			@include assert() {
-				@include output($selector: false) {
-					.test-colors {
-						@include oColorsFor(test-color);
-					}
-				};
-
-				@include expect($selector: false) {
-					.test-colors {
-						background-color: #f2dfce;
-						color: #00994d;
-						outline-color: #cc0000;
-					}
-				};
-			};
+			@include assert-equal(oColorsByUsecase('page', 'background'), oColorsByName('candy'));
 		};
 	};
 };

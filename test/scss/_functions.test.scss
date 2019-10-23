@@ -44,54 +44,37 @@
 
 	@include describe('oColorsByUsecase') {
 		@include it('returns the palette color name for a use case') {
-			@include assert-equal(oColorsByUsecase(focus, outline), ('black-50'));
-			@include assert-equal(oColorsByUsecase(page, background), ('paper'));
-			@include assert-equal(oColorsByUsecase(box, background), ('wheat'));
-			@include assert-equal(oColorsByUsecase(link, text), ('teal'));
-			@include assert-equal(oColorsByUsecase(link-hover, text), ('teal-30'));
-			@include assert-equal(oColorsByUsecase(link-title, text), ('black-80'));
-			@include assert-equal(oColorsByUsecase(link-title-hover, text), ('black-70'));
-			@include assert-equal(oColorsByUsecase(tag-link, text), ('claret'));
-			@include assert-equal(oColorsByUsecase(tag-link-hover, text), ('claret-30'));
-			@include assert-equal(oColorsByUsecase(opinion-tag-link, text), ('oxford'));
-			@include assert-equal(oColorsByUsecase(opinion-tag-link-hover, text), ('oxford-30'));
-			@include assert-equal(oColorsByUsecase(title, text), ('black'));
-			@include assert-equal(oColorsByUsecase(body, text), ('black-80'));
-			@include assert-equal(oColorsByUsecase(muted, text), ('black-20'));
-			@include assert-equal(oColorsByUsecase(opinion, background), ('sky'));
-			@include assert-equal(oColorsByUsecase(hero, background), ('wheat'));
-			@include assert-equal(oColorsByUsecase(hero-opinion, background), ('oxford'));
-			@include assert-equal(oColorsByUsecase(hero-highlight, background), ('claret'));
-			@include assert-equal(oColorsByUsecase(section-life-arts, text), ('velvet'));
-			@include assert-equal(oColorsByUsecase(section-life-arts-alt, text), ('candy'));
-			@include assert-equal(oColorsByUsecase(section-magazine, text), ('oxford'));
-			@include assert-equal(oColorsByUsecase(section-magazine-alt, text), ('sky'));
-			@include assert-equal(oColorsByUsecase(section-house-home, text), ('jade'));
-			@include assert-equal(oColorsByUsecase(section-house-home-alt, text), ('wasabi'));
-			@include assert-equal(oColorsByUsecase(section-money, text), ('crimson'));
-			@include assert-equal(oColorsByUsecase(section-money-alt, text), ('white'));
+			@include assert-equal(oColorsByUsecase(focus, outline), oColorsByName('black-50'));
+			@include assert-equal(oColorsByUsecase(page, background), oColorsByName('paper'));
+			@include assert-equal(oColorsByUsecase(box, background), oColorsByName('wheat'));
+			@include assert-equal(oColorsByUsecase(link, text), oColorsByName('teal'));
+			@include assert-equal(oColorsByUsecase(link-hover, text), oColorsByName('teal-30'));
+			@include assert-equal(oColorsByUsecase(link-title, text), oColorsByName('black-80'));
+			@include assert-equal(oColorsByUsecase(link-title-hover, text), oColorsByName('black-70'));
+			@include assert-equal(oColorsByUsecase(tag-link, text), oColorsByName('claret'));
+			@include assert-equal(oColorsByUsecase(tag-link-hover, text), oColorsByName('claret-30'));
+			@include assert-equal(oColorsByUsecase(opinion-tag-link, text), oColorsByName('oxford'));
+			@include assert-equal(oColorsByUsecase(opinion-tag-link-hover, text), oColorsByName('oxford-30'));
+			@include assert-equal(oColorsByUsecase(title, text), oColorsByName('black'));
+			@include assert-equal(oColorsByUsecase(body, text), oColorsByName('black-80'));
+			@include assert-equal(oColorsByUsecase(muted, text), oColorsByName('black-20'));
+			@include assert-equal(oColorsByUsecase(opinion, background), oColorsByName('sky'));
+			@include assert-equal(oColorsByUsecase(hero, background), oColorsByName('wheat'));
+			@include assert-equal(oColorsByUsecase(hero-opinion, background), oColorsByName('oxford'));
+			@include assert-equal(oColorsByUsecase(hero-highlight, background), oColorsByName('claret'));
+			@include assert-equal(oColorsByUsecase(section-life-arts, text), oColorsByName('velvet'));
+			@include assert-equal(oColorsByUsecase(section-life-arts-alt, text), oColorsByName('candy'));
+			@include assert-equal(oColorsByUsecase(section-magazine, text), oColorsByName('oxford'));
+			@include assert-equal(oColorsByUsecase(section-magazine-alt, text), oColorsByName('sky'));
+			@include assert-equal(oColorsByUsecase(section-house-home, text), oColorsByName('jade'));
+			@include assert-equal(oColorsByUsecase(section-house-home-alt, text), oColorsByName('wasabi'));
+			@include assert-equal(oColorsByUsecase(section-money, text), oColorsByName('crimson'));
+			@include assert-equal(oColorsByUsecase(section-money-alt, text), oColorsByName('white'));
 		};
-	};
 
-	@include describe('oColorsGetColorFor') {
-		@include describe('returns the CSS color for the first defined use case in a prioritised list') {
-			@include it('for a single use case') {
-				@include assert-equal(oColorsGetColorFor(page, background), (#fff1e5));
-			};
-
-			@include it('for a use case with one or multiple fallbacks') {
-				@include assert-equal(oColorsGetColorFor(test-page page, background), (#fff1e5));
-			};
-
-			@include it('for a use case with no specific property (e.g. all)') {
-				@include assert-equal(oColorsGetColorFor(section-life-arts), (#593380));
-			};
-
-			@include it('and assigns a fallback in case of non existent use case') {
-				@include assert-equal(
-				oColorsGetColorFor(test-link, text, $options: ('default': oColorsByName('teal-20'))),
-				(oColorsByName('teal-20')));
-			};
+		@include it('returns a fallback for a usecase which does not exist') {
+			@include assert-equal(oColorsByUsecase('fake-usecase-does-not-exist', 'text', $fallback: null), null);
+			@include assert-equal(oColorsByUsecase('fake-usecase-does-not-exist', 'text', $fallback: 'teal'), oColorsByName('teal'));
 		};
 	};
 

@@ -79,13 +79,13 @@
 	@return mix($mixer, $base, $percentage);
 }
 
-/// Return the defined palette color name for a use case / property combination
-///
+/// Return the defined palette color for a use case / property combination
 ///
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
 /// @param {Color|Null} $fallback - The value to return if the usecase isn't found.
-/// @return {Color|Null} - The usecase colour or `$fallback` value (note: the default is `false` to indicate no fallback).
+/// @param {String|Color|Null} - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
+/// @return {Color} - The usecase colour.
 @function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
@@ -108,6 +108,7 @@
 
 	// Validate fallback is a colour or null.
 	// `false` is used as a default to indicate the user has not passed a fallback.
+	$fallback: if(type-of($fallback) == 'string', oColorsByName($fallback), $fallback);
 	$valid-fallback: type-of($fallback) == 'color' or type-of($fallback) == 'null';
 	@if($fallback != false and not $valid-fallback) {
 		@return _error('`$fallback` should be a valid colour or `null`, ' +
@@ -154,81 +155,31 @@
 		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
 
-	@return $color;
-}
-
-/// Return the CSS color name of the first defined use case in a prioritised list for a use case / property combination
-///
-/// @example scss
-/// // Single use case:
-/// body { color: oColorsGetColorFor(page, text); }
-///
-/// // Use case with one or multiple fallbacks:
-/// // Use "my-box" color if available. If not, fall back to the "box" use case.
-/// .box { background-color: oColorsGetColorFor(my-box box, background); }
-///
-/// // No specific property:
-/// .money-wrapper { background-color: oColorsGetColorFor(section-money); }
-/// .money-headline { color: oColorsGetColorFor(section-money); }
-///
-/// // Assign a different fallback if the use case doesn't exist
-/// .foo { background-color: oColorsGetColorFor(foo, background, $options: ('default': 'black-5')); }
-///
-/// @param {list} $namelist
-/// @param {String} $property [all]
-/// @param {map} $options [('default': false)] - default: fallback value (false, null, or oColorsByName($palette-color));
-/// @return {String|Color|Null}
-@function oColorsGetColorFor($namelist, $property: all, $options: ('default': false)) {
-	$default: map-get($options, 'default');
-	$color: null;
-
-	@each $name in $namelist {
-		@if ($color == null) {
-			// oColorsByUsecase does not support the 'all' property anymore.
-			// instead ask for the text colour.
-			// @todo - pre major casecade remove this mixin as per the proposal
-			$usecase-property: if($property != 'all', $property, 'text');
-			$color: oColorsByUsecase($name, $usecase-property, $fallback: null);
-		}
-	}
-
-	@if ($color == null and ($default or $default == null)) {
-		@return $default;
-	}
-
-	@if($color == null and not index($_o-colors-ignore-usecases-warnings, $namelist)) {
-		$warn: "Undefined use-case: can't resolve use case list '#{inspect($namelist)}'";
-		@if ($property) {
-			$warn: $warn + " for property '#{inspect($property)}'";
-		}
-		@warn $warn;
-	}
-
 	@return oColorsByName($color);
 }
 
 /// Returns a customised version of our shade-able colors defined in
-/// $o-colors-tints
+/// $_o-colors-tints
 ///
-/// @param {String} $color - the name of the color to be shaded
+/// @param {String} $color-name - the name of the color to be shaded
 /// @param {Number} $brightness - the brightness value of the new color
-@function oColorsGetTint($color, $brightness) {
+@function oColorsGetTint($color-name, $brightness) {
 	$hue: null;
 	$saturation: null;
 	$mix: null;
 	$newcolor: null;
 
-	@if not (map-has-key($o-colors-tints, $color)) {
-		$color-tints: map-keys($o-colors-tints);
-		@return _error("It is not possible to use a tint of: #{$color}, please use one of: #{$color-tints} instead.");
+	@if not (map-has-key($_o-colors-tints, $color-name)) {
+		$color-tints: map-keys($_o-colors-tints);
+		@return _error("It is not possible to use a tint of: #{$color-name}, please use one of: #{$color-tints} instead.");
 	}
 
-	@if (map-has-key(map-get($o-colors-tints, $color), 'hue')) {
-		$hue: map-get(map-get($o-colors-tints, $color), 'hue');
-		$saturation: map-get(map-get($o-colors-tints, $color), 'saturation');
+	@if (map-has-key(map-get($_o-colors-tints, $color-name), 'hue')) {
+		$hue: map-get(map-get($_o-colors-tints, $color-name), 'hue');
+		$saturation: map-get(map-get($_o-colors-tints, $color-name), 'saturation');
 		$newcolor: _oColorsHSB($hue, $saturation, $brightness);
 	} @else {
-		$newcolor: oColorsMix($color, $percentage: $brightness);
+		$newcolor: oColorsMix($color-name, $percentage: $brightness);
 	}
 
 	@return $newcolor;
