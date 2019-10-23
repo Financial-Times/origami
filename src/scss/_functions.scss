@@ -9,6 +9,18 @@
 	@return map-get($scale, $index);
 }
 
+/// Returns a maximum line width based on the given scale
+///
+/// @param {Number} $optimal-characters-per-line - number of the characters per line
+/// @returns {String} maximum line width in ch
+@function oTypographyMaxLineWidth($optimal-characters-per-line: 65) {
+	// a ch unit represents the width of the glyph "0"
+	// it's a wide glyph so we'll reduce the ch value by an arbitrary amount
+	// to bring our characters per line closer to the requested number on average
+	$magic-number: 0.75;
+	@return $optimal-characters-per-line * $magic-number * 1ch;
+}
+
 /// Returns the font-size value from the scale passed in
 /// modified by the font-adjust if present
 ///
@@ -37,24 +49,6 @@
 		$line-height: nth($settings, 2);
 		@return if($line-height, _oTypographyAddUnit($line-height), null);
 	}
-}
-
-/// Returns a maximum line width based on the given scale
-///
-/// @param {Number} $scale - number of the scale to return
-/// @param {Number} $optimal-characters-per-line - number of the characters per line
-/// @param {String} $font [''] - The font to get the max line width for, as fonts may have different scales. Uses the default scale if not specified.
-/// @returns {Number} maximum line width in px
-@function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65, $font: '') {
-	$settings: oTypographyGetScale($scale, $font);
-
-	$font-size: _oTypographyAddUnit(nth($settings, 1));
-	$line-height: if(nth($settings, 2), _oTypographyAddUnit(nth($settings, 2)), $font-size);
-
-	$golden-ratio: 1.618;
-	$scale-ratio: ($font-size / $line-height)  + $golden-ratio; //adapts ratio to quirks in oTypography's line-heights
-
-	@return $optimal-characters-per-line * ($font-size / $scale-ratio);
 }
 
 /// Get font family for family style i.e "sans", "serif", or "display".

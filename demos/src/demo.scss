@@ -46,15 +46,18 @@ html {
 .line-width-demo {
 	display: flex;
 
-	.selection {
+	.line-width-demo__selection {
 		min-width: 100px;
 		margin: 20px;
 	}
 
+	.line-width-demo__scale {
+		max-width: oTypographyMaxLineWidth();
+	}
+
 	@each $scale, $values in $o-typography-font-scale {
-		.scale-#{$scale} {
+		.line-width-demo__scale--#{$scale} {
 			@include oTypographySans($scale);
-			max-width: oTypographyMaxLineWidth($scale);
 		}
 	}
 }
