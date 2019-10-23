@@ -19,9 +19,11 @@
 
 /// Work out the brightness value in % of a color
 ///
-/// @param {Color} $color - color value to get brightness from
+/// @param {Color} $color - color value to get brightness from (either a CSS colour or o-colors palette colour name)
 /// From: https://gist.github.com/jlong/f06f5843104ee10006fe
 @function oColorsColorBrightness($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
 	$red-magic-number: 241;
 	$green-magic-number: 691;
 	$blue-magic-number: 68;
@@ -42,10 +44,12 @@
 
 /// Returns the luminance of `$color` as a float (between 0 and 1)
 /// 1 is pure white, 0 is pure black
-/// @param {Color} $color - Color
+/// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
 /// @return {Number}
 /// From: https://css-tricks.com/snippets/sass/luminance-color-function/
 @function oColorsColorLuminance($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
 	$colors: (
 		'red': red($color),
 		'green': green($color),
@@ -69,14 +73,14 @@
 	@return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * 0.7152) + (map-get($colors, 'blue') * 0.0722);
 }
 
-/// Calculate the contrast ratio between two colors
+/// Calculate the contrast ratio between two colours.
 ///
-/// @param {Color} $col1 - first color to compare
-/// @param {Color} $col2 - second color to compare
+/// @param {String|Color} $color-a - first colour to compare (either a CSS colour or o-colors palette colour name)
+/// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
 /// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
-@function oColorsGetContrastRatio($col1, $col2) {
-	$l1: oColorsColorLuminance($col1) + 0.05;
-	$l2: oColorsColorLuminance($col2) + 0.05;
+@function oColorsGetContrastRatio($color-a, $color-b) {
+	$l1: oColorsColorLuminance($color-a) + 0.05;
+	$l2: oColorsColorLuminance($color-b) + 0.05;
 
 	$ratio: $l1 / $l2;
 
