@@ -43,7 +43,7 @@
 				background-color: oColorsByName($name);
 
 				@if $name != 'transparent' and $name != 'inherit' {
-					color: oColorsGetTextColor($name, 100, $warnings: false);
+					color: oColorsGetTextColor($name, 100, $minimum-contrast: null);
 				}
 			}
 		}

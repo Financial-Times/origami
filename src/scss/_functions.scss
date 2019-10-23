@@ -237,34 +237,53 @@
 /// Returns a text color based on the background and
 /// an opacity percentage the color should appear at
 ///
-/// @param {Color} $background - the hex color of the background the text will appear on
+/// @param {Color} $background - the palette name or hex of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
-/// @param {Boolean} $warnings [true] - whether this function should throw WCAG contrast check warnings/errors
-@function oColorsGetTextColor($backgroundd, $opacity: 90, $warnings: true) {
-	$background: if(type-of($backgroundd) == 'string', oColorsByName($backgroundd), $backgroundd);
+/// @param {String|Null} $minimum-contrast ['aa-normal'] - the minimum contrast ratio standard between the background and the returned text color, one of: aa-normal, aa-large, aaa-normal, aaa-large. See [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum). If the contrast ratio is too low to meet the selected guideline an error is thrown. Set to `null` to remove contrast checking and never throw an error.
+@function oColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
+	// Get background hex if palette colour name has been given.
+	$background-name: $background;
+	$background: if(type-of($background) == 'string', oColorsByName($background), $background);
 
-	@if $background == null or type-of($background) != color {
+	// Contrast values. See https://www.w3.org/TR/WCAG21/#contrast-minimum
+	$contrast-levels: (
+		'aa-normal': 4.5,
+		'aa-large': 3,
+		'aaa-normal': 7,
+		'aaa-large': 4.5
+	);
+
+	// Validate arguments.
+	@if($minimum-contrast != null and not map-has-key($contrast-levels, $minimum-contrast)) {
+		@return _error('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
+		'or `null`. Found "#{inspect($minimum-contrast)}".');
+	}
+
+	@if type-of($background) != color {
 		@return _error("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid hex code or color name for the background color'");
 	}
 
-	$percentage: $opacity;
-	$baseColor: _oColorsGetTextBase($background);
-	$textColor: oColorsMix($baseColor, $background, $percentage);
-	$testContrast: oColorsCheckContrast($textColor, $background, false);
-
-	@if not $testContrast {
-		$baseColor: if($baseColor == 'black', 'white', 'black');
-		$textColor: oColorsMix($baseColor, $background, $percentage);
-		$testContrast: oColorsCheckContrast($textColor, $background, false);
+	@if type-of($opacity) != 'number' {
+		@return _error("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
 	}
 
-	@if not $testContrast and $warnings == true {
-		@return _error("The combination of #{$opacity}% #{$baseColor} on #{$background} does not pass WCAG guidelines for color contrast.");
+	// Calculate text colour for background and opacity.
+	$required-contrast-ratio: map-get($contrast-levels, $minimum-contrast);
+	$base-color: if(oColorsColorBrightness($background) > 35%, 'black', 'white');
+	$text-color: oColorsMix($base-color, $background, $opacity);
+
+	// Check text/background contrast ratio.
+	$contrast-ratio: oColorsGetContrastRatio($text-color, $background);
+	@if $minimum-contrast != null and $contrast-ratio < $required-contrast-ratio {
+		@return _error(
+			'The text colour generated for #{inspect($background-name)} at ' +
+			'#{inspect($opacity)}% opacity has a contrast ratio of ' +
+			'"#{inspect($contrast-ratio)}" and does not pass the WCAG 2.1 ' +
+			'#{$minimum-contrast} required contrast ratio of at least ' +
+			'#{$required-contrast-ratio}:1. Update the `$minimum-contrast` argument ' +
+			'if a lower contrast is acceptable.'
+		);
 	}
 
-	@if $testContrast == 'large' and $warnings == true {
-		@warn "When using this combination (#{$opacity}% #{$baseColor} on #{$background}) please use a font size larger than 18px.";
-	}
-
-	@return $textColor;
+	@return $text-color;
 }

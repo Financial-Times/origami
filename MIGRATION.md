@@ -61,6 +61,32 @@ As `o-colors` [no longer outputs usecase CSS classes](#MIGRATION.md#migrating-fr
 ));
 ```
 
+#### oColorsGetTextColor
+
+The name of the first argument of `oColorsGetTextColor` has changed. It was `$backgroundd` (with a double `d`) but it now spelled correctly as `$background`. E.g:
+
+```diff
+-	color: oColorsGetTextColor($backgroundd: 'paper');
++	color: oColorsGetTextColor($background: 'paper');
+```
+
+`oColorsGetTextColor` now errors if the contrast between the given background and text colour does not pass WCAG 2.1 level AA for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum). Previously it would only throw a warning provided the contrast check passed for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale). Accordingly, the third `$warnings` argument is now `$minimum-contrast`. This can be set to one of `aa-normal` (default), `aa-large`, `aaa-normal`, `aaa-large`, or `null` to remove the contrast check. To migrate update the third `$warnings` argument of `oColorsGetTextColor` to `$minimum-contrast`:
+- **not set**: no changes are needed unless contrast errors are thrown. If an error is thrown set `$minimum-contrast` to `aa-large` if creating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), or `null` to ignore the contrast of the resulting text colour. Only ignore contrast errors for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), otherwise your project may be inaccessible.
+- **true**: remove the argument, it's optional and checks contrast for [normal text](https://www.w3.org/TR/WCAG21/#contrast-minimum) by default. If a contrast error is thrown refer to the point "not set" above.
+- **false**: set to `null` instead.
+
+E.g. If generating a colour for [large text](https://www.w3.org/TR/WCAG21/#dfn-large-scale), error if the contrast between the background `paper` is lower than 3:1 (see [WCAG 2.1](https://www.w3.org/TR/WCAG21/#contrast-minimum))
+```diff
+-	color: oColorsGetTextColor('paper', 80, $warnings: false);
++	color: oColorsGetTextColor('paper', 80, $minimum-contrast: 'aa-large');
+```
+
+Or set to `null` to never error, e.g. for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), regardless of the contrast between the given background `paper` and the result:
+```diff
+-	color: oColorsGetTextColor($backgroundd: 'paper', $warnings: false);
++	color: oColorsGetTextColor($background': paper', $minimum-contrast: null);
+```
+
 #### oColorsByUsecase
 
 `oColorsGetUseCase` is now `oColorsByUsecase`. By default `oColorsByUsecase` now errors if a usecase isn't found, unless a `$fallback` colour has been given (which may be `null`). A list of usecases are no longer accepted. `oColorsByUsecase` also has a new `$from` argument, to get usecases set by different component or projects.

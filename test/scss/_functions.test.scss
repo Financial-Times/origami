@@ -111,11 +111,19 @@
 			@include assert-equal(oColorsGetTextColor(oColorsByName('paper')), (#1a1817));
 		};
 		@include it('throws an error if a text color and background does not pass WCAG contrast guidelines') {
-			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50),
-			('ERROR: The combination of 50% black on #999189 does not pass WCAG guidelines for color contrast.'));
+			@include assert-equal(oColorsGetTextColor('black-40', 50),
+			('ERROR: The text colour generated for black-40 at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-normal required contrast ratio of at least 4.5:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
 		};
-		@include it('does not throw an error when a text color and background does not pass WCAG contrast guidelines and warnings are disabled') {
-			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50, $warnings: false),  #4d4945);
+		@include it('throws an error for an invalid contrast ratio check') {
+			@include assert-equal(oColorsGetTextColor('black-40', 50, 'aaaaaaaa-large'),
+			('ERROR: The minimum contrast must by one of "aa-normal, aa-large, aaa-normal, aaa-large" or `null`. Found "aaaaaaaa-large".'));
+		};
+		@include it('throws an error if a text color and background does not pass a custom contrast ratio check') {
+			@include assert-equal(oColorsGetTextColor('black-40', 50, 'aa-large'),
+			('ERROR: The text colour generated for black-40 at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-large required contrast ratio of at least 3:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
+		};
+		@include it('does not throw an error when a text color and background does not pass WCAG contrast guidelines and `$minimum-contrast` is set the `null`') {
+			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50, $minimum-contrast: null),  #4d4945);
 		};
 	};
 };
