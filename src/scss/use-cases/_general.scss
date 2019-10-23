@@ -27,18 +27,32 @@
 
 /// Subscript text
 @mixin oTypographySub {
-	@include oTypographySans(-2);
-	display: inline-block;
-	margin-bottom: _oTypographyAdjustUnit(-5px);
+	// make subscript smaller and sans-serif
+	// 12px given 18px copy
+	@include oTypographySans();
+	font-size: 0.666em;
+	// override o-normalise default
+	position: static;
 	vertical-align: sub;
+	line-height: 0;
+	// prevent sub increasing line-height
+	display: inline-block;
+	margin-bottom: -1em;
 }
 
 /// Superscript text
 @mixin oTypographySuper {
-	@include oTypographySans(-2);
-	display: inline-block;
-	margin-top: _oTypographyAdjustUnit(-3px);
+	// make superscript smaller and sans-serif
+	// 12px given 18px copy
+	@include oTypographySans();
+	font-size: 0.666em;
+	// override o-normalise default
+	position: static;
 	vertical-align: super;
+	line-height: 0;
+	// prevent super increasing line-height
+	display: inline-block;
+	margin-top: -1em;
 }
 
 /// Output link styles.
