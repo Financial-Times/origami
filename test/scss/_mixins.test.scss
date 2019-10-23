@@ -492,43 +492,82 @@
     }
 }
 
-@include test-module('oTypographyLinkExternalIcon') {
-    @include test('Colours according to the link colour usecase by default.') {
+@include test-module('oTypographyLink') {
+    @include test('outputs default styles with no external link by default') {
         @include assert {
             @include output {
-                @include oTypographyLinkExternalIcon();
+                @include oTypographyLink();
             }
-            @include contains {
-                &::after {
-                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+            @include expect {
+                text-decoration: none;
+                cursor: pointer;
+                border-bottom: 2px solid;
+                color: #0d7680;
+                border-bottom-color: #cfd8d1;
+                &:hover {
+                    color: #08474d;
+                    border-bottom-color: #9ec0bd;
+                }
+                &:focus {
+                    border-bottom-color: transparent;
+                    color: #08474d;
                 }
             }
         }
     }
-    @include test('Defaults to black when no link colour usecase is set (i.e. whitelabel).') {
+    @include test('outputs styles for a custom theme only when base styles are disabled') {
         @include assert {
             @include output {
-                $original-palette: $o-colors-palette;
-                $o-colors-palette: () !global;
-                @include oTypographyLinkExternalIcon();
-                $o-colors-palette: $original-palette !global;
+                @include oTypographyLink($theme: (
+                    'base': 'claret',
+                    'hover': 'claret-30',
+                ), $include-base-styles: false);
             }
-            @include contains {
-                &::after {
-                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&format=svg");
+            @include expect {
+                color: #990f3d;
+                border-bottom-color: #ebc4c3;
+                &:hover {
+                    color: #4d081f;
+                    border-bottom-color: #d697a2;
+                }
+                &:focus {
+                    color: #4d081f;
                 }
             }
         }
     }
-    @include test('Allows a custom icon colour') {
+    @include test('outputs an icon for an external link') {
         @include assert {
             @include output {
-                @include oTypographyLinkExternalIcon(red);
+                @include oTypographyLink($external: true);
             }
             @include contains {
-                &::after {
-                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23FF0000,%23FF0000&format=svg");
+                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+            }
+        }
+    }
+    @include test('outputs a notice for screen reader users that an external link is opened') {
+        @include assert {
+            @include output {
+                @include oTypographyLink($external: true);
+            }
+            @include contains {
+                &[target="_blank"]:after {
+                    content: '(opens a new window)';
                 }
+            }
+        }
+    }
+    @include test('colours an external link icon according to a custom theme') {
+        @include assert {
+            @include output {
+                @include oTypographyLink($theme: (
+                    'base': 'claret',
+                    'hover': 'claret-30',
+                ), $external: true);
+            }
+            @include contains {
+                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23990F3D,%23990F3D&format=svg");
             }
         }
     }

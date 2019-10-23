@@ -95,7 +95,6 @@ $o-typography-display: '' !default;
         'variables': (
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('black-50'), //deprecated
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'
@@ -135,7 +134,6 @@ $o-typography-display: '' !default;
 
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('oxford-80'), //deprecated
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'

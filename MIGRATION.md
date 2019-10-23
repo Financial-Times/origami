@@ -4,6 +4,8 @@
 
 The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bold` and `o-typography--loading-displayBold` is now `o-typography--loading-display-bold`.
 
+The `o-typography-link--external` class must be used with the `o-typography-link` class.
+
 The following mixins have been replaced:
 - oTypographySansBold: oTypographySans($weight: 'semibold')
 - oTypographyDisplayBold: oTypographyDisplay($weight: 'bold')
@@ -12,6 +14,9 @@ The following mixins have been replaced:
 - oTypographyBold('sans'): oTypographySans($weight: 'semibold', $opts: ('font-family': false))
 - oTypographyBold('serif'): oTypographySerif($weight: 'bold', $opts: ('font-family': false))
 - oTypographyItalic: Use the `$style` argument of other mixins. Eg. `oTypographySerif($style: 'italic')`.
+- oTypographyLinkCustom: oTypographyLink($theme: ('base': 'claret', 'hover': 'claret-30'));
+- oTypographyLinkExternal: oTypographyLink($external: true);
+- oTypographyLinkExternalIcon: oTypographyLink($external: true, $include-base-styles: false);
 
 ### Editorial Typography
 

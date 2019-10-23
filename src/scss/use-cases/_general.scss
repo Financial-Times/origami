@@ -41,95 +41,129 @@
 	vertical-align: super;
 }
 
-/// Custom link styles
-/// @breaking Remove `$outlineColor` on the next major release. Instead use `o-normalise` to provide the focus outline: https://github.com/Financial-Times/o-typography/issues/169
-@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: oColorsGetUseCase(page, background), $outlineColor: _oTypographyGet('custom-link-focus-outline-color')) {
-	color: oColorsGetPaletteColor($baseColor);
-	text-decoration: none;
-	cursor: pointer;
-	border-bottom: 2px solid oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 20);
+/// Output link styles.
+///
+/// @example Output the styles for a standard link.
+///     .my-link {
+///     	@include oTypographyLink();
+///     }
+///
+/// @example Output the styles for an external link.
+///     .my-external-link {
+///     	@include oTypographyLink($external: true);
+///     }
+///
+/// @example Output the styles for an external link, without repeating styles shared by standard links.
+///     .my-link--external {
+///     	@include oTypographyLink($external: true, $include-base-styles: false);
+///     }
+///
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the master brand, white otherwise).
+///     .my-claret-link {
+///     	@include oTypographyLink($theme: (
+///     		'base': 'claret',
+///     		'hover': 'claret-30',
+///     	));
+///     }
+///
+/// @example Output a custom, lemon coloured link to go on a slate background.
+///     .my-inverse-link {
+///     	@include oTypographyLink($theme: (
+///     		'base': 'lemon',
+///     		'hover': 'lemon-30',
+///     		'context': 'slate',
+///     	));
+///     }
+///
+/// @param {Boolean} $external [false] - If the style is for external links, set to true to output an external link icon.
+/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the master brand, white otherwise).
+/// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme or external link.
+@mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
+	// Default link colours.
+	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
+	$base-color: oColorsGetColorFor(link, text);
+	$hover-color: oColorsGetColorFor(link-hover, text);
+	$context-color: oColorsGetColorFor(page, background);
 
-	&:hover {
-		color: oColorsGetPaletteColor($hoverColor);
-		border-bottom-color: oColorsMix(oColorsGetPaletteColor($baseColor), oColorsGetPaletteColor($backgroundColor), $percentage: 40);
+	// If a custom theme is given check it is a map with the required keys.
+	// And update the link colours.
+	$required-theme-keys: ('base', 'hover');
+	@if($theme and type-of($theme) != 'map') {
+		@error 'The link $theme argument must `null` or a map. ' +
+		'Found: "#{inspect($theme)}"';
 	}
-
-	&:focus {
-		color: oColorsGetPaletteColor($hoverColor);
-		border-bottom-color: transparent;
-
-		@if $outlineColor {
-			outline: 2px solid if($outlineColor, oColorsGetPaletteColor($outlineColor), null);
+	@if(type-of($theme) == 'map') {
+		$theme-base: map-get($theme, 'base');
+		$theme-hover: map-get($theme, 'hover');
+		$theme-context: map-get($theme, 'context');
+		@if(type-of($theme-base) != 'string') {
+			@error 'A custom link theme must have a `base` property with a palette colour name e.g. `claret`. But found #{$theme-base}.';
+		}
+		@if(type-of($theme-hover) != 'string') {
+			@error 'A custom link theme must have a `hover` property with a palette colour name e.g. `claret`. But found #{$theme-hover}.';
+		}
+		@if($theme-context and type-of($theme-context) != 'string') {
+			@error 'A custom link theme may optionally have a `context` property with a palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
+		}
+		$base-color: oColorsGetPaletteColor($theme-base);
+		$hover-color: oColorsGetPaletteColor($theme-hover);
+		// theme context is optional, use the default if not set
+		@if($theme-context) {
+			$context-color: oColorsGetPaletteColor($theme-context);
 		}
 	}
-}
 
-/// Standard link styles
-@mixin oTypographyLink {
-	$base-color: oColorsGetUseCase(link, text);
-	$hover-color: oColorsGetUseCase(link-hover, text);
-	@if $base-color and $hover-color {
-		@include oTypographyLinkCustom($base-color, $hover-color);
-	}
-}
-
-/// Standard link styles + external link icon.
-@mixin oTypographyLinkExternal {
-	@include oTypographyLink();
-	@include oTypographyLinkExternalIcon();
-}
-
-/// External link icon.
-/// @param {Color} $color - Color of the icon. Default to the link `o-color` usecase.
-@mixin oTypographyLinkExternalIcon($color: null) {
-	// If no link colour usecase (i.e. whitelabel brand) fallback to a black icon.
-	// `oColorsGetUseCase` if statement prevents warnings when calling `oColorsGetColorFor`.
-	@if not $color {
-		@if oColorsGetUseCase(link, text) {
-			$color: oColorsGetColorFor(link, text);
-		} @else {
-			$color: black;
-		}
-	}
-	// IE9-11 does not size the svg icon background correctly.
-	// Use @supports to target modern (non-IE) browsers.
-	@supports (background-size: contain) {
-		@include oIconsGetIcon('outside-page', $color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+	// Output external link styles.
+	// Fallback to a black icon if no link colour is given.
+	@if($external) {
+		$icon-color: if($base-color, $base-color, oColorsGetPaletteColor('black'));
+		$icon-padding: calc(1em + 0.5ch);
+		@include oIconsGetIcon('outside-page', $icon-color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		background-repeat: no-repeat;
 		background-position-x: right;
-		background-size: contain;
-		padding-right: calc(1em + 0.5ch);
+		padding-right: $icon-padding;
 		background-origin: border-box;
-	}
-	&::after {
-		// Fallback to a pseudo element icon for IE9-11.
-		// The downside is the icon may wrap to newline.
-		@include oIconsGetIcon('outside-page', $color, 24, $apply-base-styles: false, $iconset-version: 1);
-		content: 'Opens a new window';
-		width: 1rem;
-		height: 1rem;
-		display: inline-block;
-		background-origin: content-box;
-		vertical-align: middle;
-		border-bottom: inherit;
-		border-color: transparent;
-		overflow: hidden;
-		text-indent: -10000px;
-		text-align: left;
-		color: rgba(0, 0, 0, 0);
-		// Visually hide pseudo element if the pseudo element icon fallback is not needed.
-		// @breaking update to use oNormaliseVisuallyHidden
-		// https://github.com/Financial-Times/o-typography/issues/161
+		// IE11 does not size and position the svg icon background correctly
+		// using `background-size: contain`. Use @supports to exclude IE11,
+		// as IE11 does not support @supports
+		background-size: $icon-padding $icon-padding; // IE11 fallback
 		@supports (background-size: contain) {
-			position: absolute;
-			clip: rect(0 0 0 0);
-			margin: -1px;
-			border: 0;
-			overflow: hidden;
-			padding: 0;
-			width: 1px;
-			height: 1px;
-			white-space: nowrap;
+			background-size: contain;
+		}
+		&[target="_blank"]:after {
+			@include oNormaliseVisuallyHidden();
+			content: '(opens a new window)';
+		}
+	}
+
+	// Output base styles shared by all links.
+	@if($include-base-styles) {
+		text-decoration: none;
+		cursor: pointer;
+		border-bottom: 2px solid;
+	}
+
+	// Output base styles shared by all links, or
+	// required for a custom link theme.
+	@if($include-base-styles or $theme) {
+		color: $base-color;
+		border-bottom-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 20), null);
+	}
+
+	&:hover {
+		@if($include-base-styles or $theme) {
+			color: $hover-color;
+			border-bottom-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 40), null);
+		}
+	}
+
+	// o-normalise provides extra focus styles for links
+	&:focus {
+		@if($include-base-styles) {
+			border-bottom-color: transparent;
+		}
+		@if($include-base-styles or $theme) {
+			color: $hover-color;
 		}
 	}
 }

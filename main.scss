@@ -3,6 +3,7 @@
 @import 'o-fonts/main';
 @import 'o-colors/main';
 @import 'o-icons/main';
+@import 'o-normalise/main';
 
 @import 'src/scss/brand';
 @import 'src/scss/variables';
@@ -98,7 +99,10 @@
 		}
 
 		.o-typography-link--external {
-			@include oTypographyLinkExternal;
+			@include oTypographyLink(
+				$external: true,
+				$include-base-styles: false
+			);
 		}
 	}
 
