@@ -26,9 +26,9 @@ const LazyImage = ({ src, lazyLoad }) => {
 	return <img className={`o-teaser__image ${lazyClassName}`} data-src={src} alt="" />;
 };
 
-export default ({ dataUrl, relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
+export default ({ imageDataUrl, relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
 	const displayUrl = relativeUrl || url;
-	const imageSrc = dataUrl ? image.url : imageService(image.url, ImageSizes[imageSize]);
+	const imageSrc = imageDataUrl ? image.url : imageService(image.url, ImageSizes[imageSize]);
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return image ? (
