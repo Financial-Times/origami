@@ -11,7 +11,7 @@ const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-co
 </form>`;
 
 const isUnique = (displayName) => {
-	const url = `https://comments-api.ft.com/displayname/isavailable/${displayName}`;
+	const url = `https://comments-api.ft.com/displayname/isavailable/${encodeURIComponent(displayName)}`;
 
 	return fetch(url, { method: 'GET' })
 		.then(response => response.json())
