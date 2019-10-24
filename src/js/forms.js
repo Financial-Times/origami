@@ -131,18 +131,13 @@ class Forms {
 	 *
 	 * @param {String} state - name of the input fields to add state to
 	 * @param {String} name - type of state to apply — one of 'saving', 'saved', 'none'
-	 * @param {Boolean|Object} options - an object of options (deprecated: boolean, to set the `iconOnly` option).
+	 * @param {Object} options - an object of options
 	 * @param {String} options.iconLabel [null] - customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
 	 * @param {Boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
 	 */
 	setState(state, name, options = { iconLabel: null, iconOnly: false }) {
-		// @deprecated: this condition handles the deprecated use of a boolean third argument
-		// setState(state, name, iconOnly)
-		if (typeof options === 'boolean') {
-			console.warn('The `setState` method accepting a boolean third argument has been deprecated and will be removed in a later version. Please use an options object with a boolean `iconOnly` property instead.');
-			options = {
-				iconOnly: options
-			};
+		if (typeof options !== 'object' || options === null || Array.isArray(options)) {
+			throw new Error('The `options` argument must be an object');
 		}
 
 		let object = this.stateElements.find(item => item.name === name);

@@ -1,6 +1,19 @@
 
 ## Migration Guide
 
+### Migrating from v7 to v8
+
+Version 8 removes a deprecated interface: the `Forms.setState` method no longer accepts a boolean third argument to specify the `iconOnly` option.
+
+The following change will need to be made:
+
+```diff
+-form.setState('saving', 'my-checkbox', true);
++form.setState('saving', 'my-checkbox', {
++    iconOnly: true
++});
+```
+
 ### Migrating from v6 to v7
 
 Version 7 introduces a complete redesign to the `o-forms` markup, Sass and JavaScript API, and makes small design changes and additions.
