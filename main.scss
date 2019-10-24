@@ -17,6 +17,14 @@
 	'features': ('sidebar-nav', 'linked-headings', 'typography'),
 	'hero-image': '',
 )) {
+	@if(oBrandGetCurrentBrand() != 'internal') {
+		@error "o-layout doesn't support the \"#{oBrandGetCurrentBrand()}\" brand. " +
+		"If you are using o-layout for an internal tool or product set " +
+		"`$o-brand: 'internal';` at the top of your Sass file. To learn more about " +
+		"branded components see https://origami.ft.com/docs/components/branding/ " +
+		"or contact the Origami team.";
+	}
+
 	$layouts: map-get($opts, $key: 'layouts');
 	$features: map-get($opts, $key: 'features');
 	$linked-headings: index($features, 'linked-headings');
