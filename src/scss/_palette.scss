@@ -40,63 +40,16 @@ $_o-colors-default-palette-colors: join((
 		// primary palette
 		('oxford', #0f5499),
 		('teal', #0d7680),
-		('paper', #fff1e5, ('deprecated': true)),
-		('claret', #990f3d, ('deprecated': true)),
 
 		//secondary palette
 		('lemon', #ffec1a),
 		('slate', #262a33),
-		('wheat', #f2dfce, ('deprecated': true)),
-		('sky', #cce6ff, ('deprecated': true)),
-		('velvet', #593380, ('deprecated': true)),
-		('mandarin', #ff8833, ('deprecated': true)),
+		('slate-white-15', #dedfe0), // oColorsMix('slate', 'white', 15)
+		('slate-white-5', #f4f4f5), // oColorsMix('slate', 'white', 5)
 
 		//tertiary palette
 		('jade', #00994d),
-		('crimson', #cc0000),
-		('candy', #ff7faa, ('deprecated': true)),
-		('wasabi', #96cc28, ('deprecated': true)),
-
-		//b2c palette
-		('org-b2c', #4e96eb, ('deprecated': true)),
-		('org-b2c-dark', #3a70af, ('deprecated': true)),
-		('org-b2c-light', #99c6fb, ('deprecated': true)),
-	), $_o-colors-default-palette-colors);
-
-	// Add experimental colors to support work on the internal brand design.
-	$_o-colors-default-palette-colors: join((
-		('slate-white-15', #dedfe0), // oColorsMix('slate', 'white', 15): to support work on internal brand design
-		('slate-white-5', #f4f4f5), // oColorsMix('slate', 'white', 5): to support work on internal brand design
-	), $_o-colors-default-palette-colors);
-}
-
-// Whitelabel brand palette.
-@if oBrandGetCurrentBrand() == whitelabel {
-	$_o-colors-default-palette-colors: join((
-		// primary palette
-		('oxford', #0f5499, ('deprecated': true)),
-		('teal', #0d7680, ('deprecated': true)),
-		('paper', #fff1e5, ('deprecated': true)),
-		('claret', #990f3d, ('deprecated': true)),
-
-		//secondary palette
-		('lemon', #ffec1a, ('deprecated': true)),
-		('slate', #262a33, ('deprecated': true)),
-		('wheat', #f2dfce, ('deprecated': true)),
-		('sky', #cce6ff, ('deprecated': true)),
-		('velvet', #593380, ('deprecated': true)),
-		('mandarin', #ff8833, ('deprecated': true)),
-
-		//tertiary palette
-		('jade', #00994d, ('deprecated': true)),
-		('crimson', #cc0000, ('deprecated': true)),
-		('candy', #ff7faa, ('deprecated': true)),
-		('wasabi', #96cc28, ('deprecated': true)),
-
-		//b2c palette
-		('org-b2c', #4e96eb, ('deprecated': true)),
-		('org-b2c-dark', #3a70af, ('deprecated': true)),
-		('org-b2c-light', #99c6fb, ('deprecated': true)),
+		('crimson', #cc0000)
 	), $_o-colors-default-palette-colors);
 }
 
@@ -176,12 +129,6 @@ $_o-colors-default-palette-colors: join((
 		'white': (
 			tints: (10, 20, 40, 60, 80),
 		),
-		'claret': (
-			hue: 340,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-			_deprecated: true,
-		),
 		'oxford': (
 			hue: 210,
 			saturation: 90,
@@ -192,43 +139,13 @@ $_o-colors-default-palette-colors: join((
 			saturation: 90,
 			tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
 		),
-		'wheat': (
-			hue: 28,
-			saturation: 15,
-			_deprecated: true,
-		),
-		'sky': (
-			hue: 210,
-			saturation: 20,
-			_deprecated: true,
-		),
 		'slate': (
 			hue: 220,
 			saturation: 20,
 		),
-		'velvet': (
-			hue: 270,
-			saturation: 60,
-			_deprecated: true,
-		),
-		'mandarin': (
-			hue: 25,
-			saturation: 80,
-			_deprecated: true,
-		),
 		'lemon': (
 			hue: 55,
 			saturation: 90,
-		),
-		'candy': (
-			hue: 340,
-			saturation: 50,
-			_deprecated: true,
-		),
-		'wasabi': (
-			hue: 80,
-			saturation: 80,
-			_deprecated: true,
 		),
 		'jade': (
 			hue: 150,
@@ -249,74 +166,6 @@ $_o-colors-default-palette-colors: join((
 		),
 		'white': (
 			tints: (10, 20, 40, 60, 80),
-		),
-		'claret': (
-			hue: 340,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-			_deprecated: true,
-		),
-		'oxford': (
-			hue: 210,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-			_deprecated: true,
-		),
-		'teal': (
-			hue: 185,
-			saturation: 90,
-			tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
-			_deprecated: true,
-		),
-		'wheat': (
-			hue: 28,
-			saturation: 15,
-			_deprecated: true,
-		),
-		'sky': (
-			hue: 210,
-			saturation: 20,
-			_deprecated: true,
-		),
-		'slate': (
-			hue: 220,
-			saturation: 20,
-			_deprecated: true,
-		),
-		'velvet': (
-			hue: 270,
-			saturation: 60,
-			_deprecated: true,
-		),
-		'mandarin': (
-			hue: 25,
-			saturation: 80,
-			_deprecated: true,
-		),
-		'lemon': (
-			hue: 55,
-			saturation: 90,
-			_deprecated: true,
-		),
-		'candy': (
-			hue: 340,
-			saturation: 50,
-			_deprecated: true,
-		),
-		'wasabi': (
-			hue: 80,
-			saturation: 80,
-			_deprecated: true,
-		),
-		'jade': (
-			hue: 150,
-			saturation: 100,
-			_deprecated: true,
-		),
-		'crimson': (
-			hue: 360,
-			saturation: 100,
-			_deprecated: true,
-		),
+		)
 	), $_o-colors-tints);
 }

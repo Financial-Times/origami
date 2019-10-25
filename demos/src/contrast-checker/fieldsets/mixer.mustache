@@ -19,12 +19,6 @@
 				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
 			</label>
 		{{/tertiary}}
-		<br>
-		{{#experimental}}
-			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
-			</label>
-		{{/experimental}}
 
 		<span class="o-forms-title__main">Base</span>
 		{{#primary}}
@@ -44,13 +38,7 @@
 				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
 			</label>
 		{{/tertiary}}
-		<br>
-		{{#experimental}}
-			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
-			</label>
-		{{/experimental}}
-		
+
 		<span class="o-forms-title__main">Range</span>
 		<label title="0%">
 			<input type=radio form="color-selectors" name="range" value="{{name}}" checked>

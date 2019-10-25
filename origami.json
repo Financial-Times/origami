@@ -169,17 +169,6 @@
 			]
 		},
 		{
-			"name": "internal-experimental-palette",
-			"title": "Experimental Palette",
-			"data": "demos/src/palettes/internal-palette.json",
-			"template": "demos/src/experimental-palette.mustache",
-			"description": "These are experimental colors for internal branding",
-			"display_html": false,
-			"brands": [
-				"internal"
-			]
-		},
-		{
 			"name": "internal-tints",
 			"title": "Tints",
 			"data": "demos/src/palettes/internal-palette.json",

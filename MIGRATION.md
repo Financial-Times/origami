@@ -2,6 +2,8 @@
 
 ### Upgrading from v4 to v5
 
+#### CSS Classes
+
 `o-colors` no longer outputs CSS classes for usecases. If your project used these classes instead use Sass mixins or CSS Custom Properties (Variables). If this isn't possible, e.g. due to browser support requirements, please contact the Origami team.
 
 - o-colors-focus-outline
@@ -31,16 +33,17 @@
 - o-colors-section-money-all
 - o-colors-section-money-alt-all
 
-The following colours have been removed from the palette:
+#### Palette Colours
 
-- `inherit`. Replace `oColorsByName('inherit');` with `inherit`.
-- `transparent`. Replace `oColorsByName('transparent');` with `transparent`.
+The following palette colours were removed for all brands:
+- `inherit`. Replace `oColorsGetPaletteColor('inherit');` with `inherit`.
+- `transparent`. Replace `oColorsGetPaletteColor('transparent');` with `transparent`.
 
-The following variables have been removed:
+Deprecated internal and whitelabel brand palette colours were removed. Please contact Origami if your product has a usecase for one of the removed colours:
+- Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, mandarin, claret.
+- Whitelabel brand: all colours except black and white have been removed.
 
-- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPalette` to iterate over each colour in the palette.
-- `$o-colors-tints` has been removed. Please contact the Origami team if you have a usecase for accessing this variable.
-- `$o-colors-usecases` has been removed. Use `oColorsSetUseCase` to add to add a usecase or customise a default o-colors usecase; or `oColorsByUsecase` to fetch a colour for a usecase.
+#### Sass Mixins
 
 The following mixins have changed:
 
@@ -50,6 +53,8 @@ The following mixins have changed:
 
 The following mixins have been removed:
 - [oColorsFor](#oColorsFor)
+
+#### Sass Functions
 
 The following functions have changed:
 - [oColorsGetTint](#oColorsGetTint)
@@ -62,6 +67,14 @@ The following functions have been removed:
 - [oColorsGetWCAGRating](#oColorsGetWCAGRating)
 - [oColorsCheckContrast](#oColorsCheckContrast)
 - [preciseFloor](https://github.com/Financial-Times/o-colors/blob/5c19b13c76e6ea7d3e0b0512511154bd6b049dbe/src/scss/tools/_color.scss#L92), replace with your own implementation.
+
+#### Sass Variables
+
+The following variables have been removed:
+
+- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPalette` to iterate over each colour in the palette.
+- `$o-colors-tints` has been removed. Please contact the Origami team if you have a usecase for accessing this variable.
+- `$o-colors-usecases` has been removed. Use `oColorsSetUseCase` to add to add a usecase or customise a default o-colors usecase; or `oColorsByUsecase` to fetch a colour for a usecase.
 
 #### oColors
 

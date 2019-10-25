@@ -50,11 +50,13 @@
 	@include describe('oColorsSetColor') {
 		@include it('adds a custom palette color') {
 			@include oColorsSetColor('o-colors', 'olive', #808000);
-			@include assert-equal(oColorsByName('olive'), (#808000))
+			@include assert-equal(oColorsByName('olive'), (#808000));
 		};
 		@include it('override a default o-colors palette color') {
 			@include oColorsSetColor('o-colors', 'paper', #808000);
-			@include assert-equal(oColorsByName('paper'), (#808000))
+			@include assert-equal(oColorsByName('paper'), (#808000));
+			// reset paper color
+			@include oColorsSetColor('o-colors', 'paper', #fff1e5);
 		};
 	};
 
