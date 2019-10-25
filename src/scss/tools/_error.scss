@@ -1,9 +1,0 @@
-/// Allows for errors to be tested in dev environments
-// Code from: https://github.com/oddbird/true/issues/92
-@function _error($message, $capture: $_o-colors-test-environment) {
-	@if $capture {
-		@return 'ERROR: #{$message}';
-	}
-
-	@error('#{$message}');
-};

@@ -1,32 +1,53 @@
+/// Silent mode
+/// @type Bool
+/// @access public
 $o-colors-is-silent: true !default;
 
-/// A list of arguments for `oColorsSetColor`, except the project name. Used
-/// to set default palette colours.
+/// A map to define default palette colours:
+/// A list of arguments for `oColorsSetColor`, except the project name.
 ///
 /// @see _oColorsSetDefaultPaletteColors
 /// @see oColorsSetColor
-///
-/// @type list
+/// @type List
+/// @access private
 $_o-colors-default-palette-colors: () !default;
 
-/// A list of arguments for `oColorsSetUseCase`, except the project name. Used
-/// to set default usecases.
+/// A map to define default colour usecases:
+/// A list of arguments for `oColorsSetUseCase`, except the project name.
 ///
 /// @see _oColorsSetDefaultUsecases
 /// @see oColorsSetUseCase
-///
-/// @type list
+/// @type List
+/// @access private
 $_o-colors-default-usecases: () !default;
 
 
-$_o-colors-usecases: () !default;
-$_o-colors-palette: () !default;
+/// A map to define allowed tints.
+/// @see _oColorsSetPaletteTints
+/// @type Map
+/// @access private
 $_o-colors-tints: ();
 
-// These are common usecase which are not necessarily defined for each brand.
-// When the usecase is used and `null` is returned, there is no need to warn about it.
-// Warning is still useful in other cases to highlight misspelled usecases, or missing custom usecases.
-$_o-colors-ignore-usecases-warnings: ('page', 'box', 'link', 'link-hover', 'link-title', 'link-title-hover', 'title', 'body', 'muted');
+/// A map to store all set colour usecases.
+/// @see oColorsSetUseCase
+/// @type Map
+/// @access private
+$_o-colors-usecases: () !default;
+
+/// A map to store all set palette colours.
+/// @see oColorsSetColor
+/// @type Map
+/// @access private
+$_o-colors-palette: () !default;
+
+/// A list of keys to indicate warnings which have been output,
+/// so that they aren't output a second time.
+/// @access private
+/// @type List
 $_o-colors-deprecation-warnings-output: ();
 
+/// Function errors may return a string rather than error
+/// when in test mode, so automated tests may assert errors.
+/// @access private
+/// @type Bool
 $_o-colors-test-environment: false !default;

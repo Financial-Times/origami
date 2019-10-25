@@ -1,8 +1,3 @@
-////
-/// @group o-colors
-/// @link http://registry.origami.ft.com/components/o-colors
-////
-
 /// Return the CSS color for a palette color name.
 ///
 /// @param {String} $color-name - The name of the colour to get.
@@ -40,43 +35,6 @@
 	}
 
 	@return $color;
-}
-
-/// Return color names and the component/project name they're from.
-/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper', 'from': 'o-colors'), ('name': 'storm', 'from': 'o-example'))`
-@function oColorsGetPalette() {
-	$public-palette-details: ();
-
-	@each $name, $color-map in $_o-colors-palette {
-		$details: (
-			'name': map-get($color-map, 'name'),
-			'from': map-get($color-map, 'from')
-		);
-		$public-palette-details: append($public-palette-details, $details);
-	}
-
-	@return $public-palette-details;
-}
-
-/// Returns a color based on the background context and base color
-/// at the supplied percentage
-///
-/// @param {String|Color} $color [black] - palette name of color
-/// @param {String|Color} $background [paper] - palette name of background color
-/// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
-@function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
-	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
-	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
-
-	@if type-of($base) != color {
-		@return _error("'#{inspect($background)}' is not a valid base color.");
-	}
-
-	@if type-of($mixer) != color {
-		@return _error("'#{inspect($color)}' is not a valid mixing color.");
-	}
-
-	@return mix($mixer, $base, $percentage);
 }
 
 /// Return the defined palette color for a use case / property combination
@@ -185,6 +143,27 @@
 	@return $newcolor;
 }
 
+/// Returns a color based on the background context and base color
+/// at the supplied percentage
+///
+/// @param {String|Color} $color [black] - palette name of color
+/// @param {String|Color} $background [paper] - palette name of background color
+/// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
+@function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
+	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
+	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	@if type-of($base) != color {
+		@return _error("'#{inspect($background)}' is not a valid base color.");
+	}
+
+	@if type-of($mixer) != color {
+		@return _error("'#{inspect($color)}' is not a valid mixing color.");
+	}
+
+	@return mix($mixer, $base, $percentage);
+}
+
 /// Returns a text color based on the background and
 /// an opacity percentage the color should appear at
 ///
@@ -238,3 +217,132 @@
 
 	@return $text-color;
 }
+
+/// Work out the brightness value in % of a color
+/// From: https://gist.github.com/jlong/f06f5843104ee10006fe
+///
+/// @param {Color} $color - color value to get brightness from (either a CSS colour or o-colors palette colour name)
+@function oColorsColorBrightness($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	$red-magic-number: 241;
+	$green-magic-number: 691;
+	$blue-magic-number: 68;
+
+	$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+
+	// Extract color components
+	$red-component: red($color);
+	$green-component: green($color);
+	$blue-component: blue($color);
+
+	// Calculate a brightness value in 3d color space between 0 and 255
+	$number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+
+	// Convert to percentage and return
+	@return 100% * ($number / 255);
+}
+
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black.
+/// From: https://css-tricks.com/snippets/sass/luminance-color-function/
+/// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
+/// @return {Number}
+@function oColorsColorLuminance($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	$colors: (
+		'red': red($color),
+		'green': green($color),
+		'blue': blue($color)
+	);
+
+	@each $name, $value in $colors {
+		$adjusted: 0;
+		$value: $value / 255;
+
+		@if $value < 0.03928 {
+			$value: $value / 12.92;
+		} @else {
+			$value: ($value + 0.055) / 1.055;
+			$value: pow($value, 2.4);
+		}
+
+		$colors: map-merge($colors, ($name: $value));
+	}
+
+	@return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * 0.7152) + (map-get($colors, 'blue') * 0.0722);
+}
+
+/// Calculate the contrast ratio between two colours.
+///
+/// @param {String|Color} $color-a - first colour to compare (either a CSS colour or o-colors palette colour name)
+/// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
+/// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
+@function oColorsGetContrastRatio($color-a, $color-b) {
+	$l1: oColorsColorLuminance($color-a) + 0.05;
+	$l2: oColorsColorLuminance($color-b) + 0.05;
+
+	$ratio: $l1 / $l2;
+
+	@if $l2 > $l1 {
+		$ratio: 1 / $ratio;
+	}
+
+	$ratio: _oColorsPreciseFloor($ratio);
+
+	@return $ratio;
+}
+
+/// Return color names and the component/project name they're from.
+/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper', 'from': 'o-colors'), ('name': 'storm', 'from': 'o-example'))`
+@function oColorsGetPalette() {
+	$public-palette-details: ();
+
+	@each $name, $color-map in $_o-colors-palette {
+		$details: (
+			'name': map-get($color-map, 'name'),
+			'from': map-get($color-map, 'from')
+		);
+		$public-palette-details: append($public-palette-details, $details);
+	}
+
+	@return $public-palette-details;
+}
+
+/// Returns the web-safe HSLA color based on HSB/HSV values
+///
+/// @access private
+///
+/// @param {Number} $hue - number between 0-360
+/// @param {Number} $saturation - number between 0-100
+/// @param {Number} $brigthness - number between 0-100
+/// @param {Number} $alpha [1] - number between 0-1
+/// @access private
+@function _oColorsHSB($hue, $saturation, $brightness, $alpha: 1) {
+	@if $brightness == 0 {
+		@return hsla(0, 0, 0, $alpha);
+	} @else {
+		$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
+		$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
+
+		@return hsla($hue, $hsl-saturation, $hsl-luminance, $alpha);
+	}
+}
+
+/// @access private
+@function _oColorsPreciseFloor($number, $decimals: 2) {
+	$multiplier: pow(10, $decimals);
+	@return floor($number * $multiplier) / $multiplier;
+}
+
+/// Allows for errors to be tested in dev environments
+// Code from: https://github.com/oddbird/true/issues/92
+/// @access private
+@function _error($message, $capture: $_o-colors-test-environment) {
+	@if $capture {
+		@return 'ERROR: #{$message}';
+	}
+
+	@error('#{$message}');
+};

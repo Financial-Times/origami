@@ -61,6 +61,7 @@ The following functions have been removed:
 - [oColorsGetColorFor](#oColorsGetColorFor)
 - [oColorsGetWCAGRating](#oColorsGetWCAGRating)
 - [oColorsCheckContrast](#oColorsCheckContrast)
+- [preciseFloor](https://github.com/Financial-Times/o-colors/blob/5c19b13c76e6ea7d3e0b0512511154bd6b049dbe/src/scss/tools/_color.scss#L92), replace with your own implementation.
 
 #### oColors
 

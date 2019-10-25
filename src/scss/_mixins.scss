@@ -121,6 +121,7 @@
 
 /// Update the palette with calculated tints of
 /// each color from $_o-colors-tints
+/// @access private
 @mixin _oColorsSetPaletteTints {
 	@each $color, $settings in $_o-colors-tints {
 		$hue: map-get($settings, 'hue');
@@ -155,6 +156,7 @@
 }
 
 /// Add default o-colors palette colours.
+/// @access private
 @mixin _oColorsSetDefaultPaletteColors {
 	@each $color-name, $color-hex, $opts in $_o-colors-default-palette-colors {
 		$opts: if($opts, $opts, ());
@@ -163,6 +165,7 @@
 }
 
 /// Add default o-colors usecases.
+/// @access private
 @mixin _oColorsSetDefaultUsecases {
 	@each $usecase, $colors, $opts in $_o-colors-default-usecases {
 		$opts: if($opts, $opts, ());
@@ -171,6 +174,7 @@
 }
 
 /// Output all palette colors as CSS Variables
+/// @access private
 @mixin _oColorsCSSVariables {
 	:root {
 		@each $color-map in oColorsGetPalette() {
