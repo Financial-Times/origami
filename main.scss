@@ -18,13 +18,14 @@
 ///     	'lists': ('unordered'),
 ///     ));
 ///
-/// @param {Map} $opts [('body': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'headline': true, 'headings': (1, 2, 3, 4, 5), 'author': true, 'topic': true, 'byline': true, 'timestamp': true, 'fonts': true)] - The features of o-editorial-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-editorial-typography/readme) for more details.
+/// @param {Map} $opts [('body': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'headline': true, 'headings': (1, 2, 3, 4, 5), 'author': true, 'standfirst': true, 'topic': true, 'byline': true, 'timestamp': true, 'fonts': true)] - The features of o-editorial-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-editorial-typography/readme) for more details.
 @mixin oEditorialTypography($opts: (
 	'body': true,
 	'lists': ('ordered', 'unordered'),
 	'caption': true,
 	'headline': true,
 	'headings': (1, 2, 3, 4, 5),
+	'standfirst': true,
 	'author': true,
 	'topic': true,
 	'byline': true,
@@ -44,6 +45,7 @@
 	@if($headings and type-of($headings) != 'list') {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
 	}
+	$standfirst: map-get($opts, 'standfirst');
 	$author: map-get($opts, 'author');
 	$topic: map-get($opts, 'topic');
 	$byline: map-get($opts, 'byline');
@@ -96,6 +98,12 @@
 	@each $level in $headings {
 		.o-editorial-typography-heading-level-#{$level} {
 			@include oEditorialTypographyHeading($level);
+		}
+	}
+
+	@if $standfirst {
+		.o-editorial-typography-standfirst {
+			@include oEditorialTypographyStandfirst();
 		}
 	}
 
