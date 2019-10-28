@@ -9,9 +9,7 @@
 @import 'src/scss/variables';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
-@import 'src/scss/type-mixins';
 @import 'src/scss/use-cases/general';
-@import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/wrapper';
 
 /// Output all default typography styles.
@@ -34,30 +32,33 @@
 	$footer-enabled: index($opts, 'footer');
 	$utilities-enabled: index($opts, 'utilities');
 
+	// Load fonts within the primary mixin in-case silent mode is on.
+	@if $o-typography-load-fonts == true {
+		@include oFonts();
+		// Set to false so fonts are not output twice by o-typography.
+		$o-typography-load-fonts: false !global;
+	}
+
 	// Headings
 	@if $headings-enabled {
 		.o-typography-heading-level-1 {
-			@include oTypographyHeadingLevel1;
+			@include oTypographyHeading($level: 1);
 		}
 
 		.o-typography-heading-level-2 {
-			@include oTypographyHeadingLevel2;
+			@include oTypographyHeading($level: 2);
 		}
 
 		.o-typography-heading-level-3 {
-			@include oTypographyHeadingLevel3;
+			@include oTypographyHeading($level: 3);
 		}
 
 		.o-typography-heading-level-4 {
-			@include oTypographyHeadingLevel4;
+			@include oTypographyHeading($level: 4);
 		}
 
 		.o-typography-heading-level-5 {
-			@include oTypographyHeadingLevel5;
-		}
-
-		.o-typography-heading-level-6 {
-			@include oTypographyHeadingLevel6;
+			@include oTypographyHeading($level: 5);
 		}
 	}
 
@@ -141,10 +142,12 @@
 
 // So the build service can output all typography styles.
 @if $o-typography-is-silent == false {
-	// Load fonts outside the primary mixin
-	// as they may be required by other mixins.
+	// Load fonts outside the primary mixin as they may be
+	// required by other mixins. But set to false so fonts
+	// are not output twice by o-typography.
 	@if $o-typography-load-fonts == true {
 		@include oFonts();
+		$o-typography-load-fonts: false !global;
 	}
 
 	@include oTypography();

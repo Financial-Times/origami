@@ -1,33 +1,28 @@
-////
-/// @group Use cases
-/// @link http://registry.origami.ft.com/components/o-typography
-////
-
 /// Typography wrapper
 @mixin _oTypographyWrapper() {
 
 	> h1 {
-		@include oTypographyHeadingLevel1;
+		@include oTypographyHeading($level: 1);
 	}
 
 	> h2 {
-		@include oTypographyHeadingLevel2;
+		@include oTypographyHeading($level: 2);
 	}
 
 	> h3 {
-		@include oTypographyHeadingLevel3;
+		@include oTypographyHeading($level: 3);
 	}
 
 	> h4 {
-		@include oTypographyHeadingLevel4;
+		@include oTypographyHeading($level: 4);
 	}
 
 	> h5 {
-		@include oTypographyHeadingLevel5;
+		@include oTypographyHeading($level: 5);
 	}
 
 	> h6 {
-		@include oTypographyHeadingLevel6;
+		@include oTypographyHeading($level: 6);
 	}
 
 	> a {

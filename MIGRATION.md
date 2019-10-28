@@ -38,6 +38,12 @@ The following mixins have been removed:
 - oTypographyTag
 - oTypographyBigNumber
 - oTypographyWrapper
+- oTypographyHeadingLevel1
+- oTypographyHeadingLevel2
+- oTypographyHeadingLevel3
+- oTypographyHeadingLevel4
+- oTypographyHeadingLevel5
+- oTypographyHeadingLevel6
 - oTypographyHeadline
 - oTypographyHeadlineLarge
 - oTypographyProductHeadingLevel1

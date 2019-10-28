@@ -1,6 +1,6 @@
 {
-	"description": "Typographical styles for FT products - font families, weight, colors, sizes and vertical rhythm",
-	"keywords": ["font", "link", "links", "heading", "headings", "text", "copy"],
+	"description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
+	"keywords": ["font", "link", "links", "heading", "headings", "text", "copy", "scale", "caption", "footer", "list", "lists"],
 	"origamiType": "module",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,

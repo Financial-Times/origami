@@ -1,7 +1,47 @@
-////
-/// @group Use cases
-/// @link http://registry.origami.ft.com/components/o-typography
-////
+/// Output styles for page headings.
+/// @example Output heading level 1 styles.
+///     h1 {
+///     	@include oTypographyHeading($level: 1);
+///     }
+/// @example Output heading level 5 styles.
+///     h5 {
+///     	@include oTypographyHeading($level: 5);
+///     }
+/// @param {Number} $level - The heading level 1-5.
+@mixin oTypographyHeading($level) {
+	$headings: (
+		'heading-level-one',
+		'heading-level-two',
+		'heading-level-three',
+		'heading-level-four',
+		'heading-level-five',
+		'heading-level-six',
+	);
+
+	@if(type-of($level) != 'number' or $level < 1 or $level > 6) {
+		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
+	}
+
+	$from: nth($headings, $level);
+
+	// Get heading styles from brand config (see _brand.scss)
+	// If weight is not given default to regular, to override browser defaults.
+	$weight: _oTypographyGet('weight', $from);
+	$weight: if($weight, $weight, 'regular');
+	@include oTypographySans(
+		$scale: (
+			default: _oTypographyGet('scale', $from),
+			S: _oTypographyGet('scale-s', $from),
+			M: _oTypographyGet('scale-m', $from),
+			L: _oTypographyGet('scale-l', $from),
+			XL: _oTypographyGet('scale-xl', $from)
+		),
+		$weight: $weight
+	);
+	color: oColorsGetColorFor('body', 'text');
+	margin: 0 0 oSpacingByName('s4');
+}
+
 
 /// Body text styles
 @mixin oTypographyBody {
@@ -239,14 +279,12 @@
 }
 
 /// Style for <footer> tags
-/// @brand master
 @mixin oTypographyFooter {
 	@include oTypographySans($scale: 1, $line-height: 24px);
 	color: oColorsGetColorFor('body', 'text');
 }
 
 /// Styles for photo or video credit/caption
-/// @brand master
 @mixin oTypographyCaption {
 	@include oTypographySans($scale: -1);
 	margin-top: oSpacingByName('s2');
