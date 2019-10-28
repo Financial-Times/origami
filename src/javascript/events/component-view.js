@@ -1,5 +1,3 @@
-/*global module, require */
-'use strict'; // eslint-disable-line strict
 
 import Core from '../core';
 import getTrace from '../../libs/get-trace';
@@ -82,6 +80,6 @@ const init = (opts = {}) => {
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
-module.exports = {
-	init: init
-};
+export default init;
+export { init };
+

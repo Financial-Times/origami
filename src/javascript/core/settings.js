@@ -1,7 +1,3 @@
-/*global module */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
 
 const settings = {};
 
