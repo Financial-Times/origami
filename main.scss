@@ -70,7 +70,7 @@
 		.o-typography-bold {
 			@include oTypographySans (
 				$weight: 'semibold',
-				$opts: ('font-family': false)
+				$include-font-family: false
 			);
 		}
 
@@ -114,15 +114,18 @@
 
 	@if $lists-enabled {
 		.o-typography-list {
-			@include oTypographyList;
+			// Output base styles shared by all list types.
+			@include oTypographyList();
 		}
 
 		.o-typography-list--ordered {
-			@include oTypographyListOrdered;
+			// Output list styles unique to an ordered list.
+			@include oTypographyList($type: 'ordered', $include-base-styles: false);
 		}
 
 		.o-typography-list--unordered {
-			@include oTypographyListUnordered;
+			// Output list styles unique to an unordered list.
+			@include oTypographyList($type: 'unordered', $include-base-styles: false);
 		}
 	}
 

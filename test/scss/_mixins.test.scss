@@ -81,9 +81,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySans(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographySans(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -91,7 +89,6 @@
 
                 .o-typography--loading-sans & {
                     font-size: 15.66px;
-                    font-family: sans-serif;
                 }
             }
         }
@@ -100,9 +97,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySans(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographySans(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
@@ -183,9 +178,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySerif(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographySerif(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -197,9 +190,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySerif(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographySerif(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
@@ -277,9 +268,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographyDisplay(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographyDisplay(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -287,7 +276,6 @@
 
                 .o-typography--loading-display & {
                     font-size: 16.2px;
-                    font-family: serif;
                 }
             }
         }
@@ -296,9 +284,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographyDisplay(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographyDisplay(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
@@ -374,7 +360,7 @@
     @include test('Includes a font size and line height for a given scale.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: 1);
+                @include _oTypographySize($scale: 1);
             }
             @include expect {
                 font-size: 18px;
@@ -386,7 +372,7 @@
     @include test('Includes a font size and line height for a given responsive scale.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: (default: 1, L: 2));
+                @include _oTypographySize($scale: (default: 1, L: 2));
             }
             @include expect {
                 font-size: 18px;
@@ -403,7 +389,7 @@
     @include test('Includes a custom line height for a given scale.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: 1, $line-height: 1.4);
+                @include _oTypographySize($scale: 1, $line-height: 1.4);
             }
             @include expect {
                 font-size: 18px;
@@ -415,7 +401,7 @@
     @include test('Includes a custom line height for a responsive scale.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: (default: 1, L: 2), $line-height: 24px);
+                @include _oTypographySize($scale: (default: 1, L: 2), $line-height: 24px);
             }
             @include expect {
                 font-size: 18px;
@@ -432,7 +418,7 @@
     @include test('Includes seperate custom line heights for each scale in a responsive scale.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: (default: (1, 18px), L: (2, 24px)));
+                @include _oTypographySize($scale: (default: (1, 18px), L: (2, 24px)));
             }
             @include expect {
                 font-size: 18px;
@@ -449,7 +435,7 @@
     @include test('Priorities custom line heights in responsive scales.') {
         @include assert {
             @include output {
-                @include oTypographySize($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
+                @include _oTypographySize($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
             }
             @include expect {
                 font-size: 18px;
@@ -467,7 +453,7 @@
         @include assert {
             @include output {
                 $o-typography-relative-units: true !global;
-                @include oTypographySize($scale: 1);
+                @include _oTypographySize($scale: 1);
                 $o-typography-relative-units: false !global;
             }
             @include expect {
@@ -481,7 +467,7 @@
         @include assert {
             @include output {
                 $o-typography-relative-units: true !global;
-                @include oTypographySize($scale: 1, $line-height: unset);
+                @include _oTypographySize($scale: 1, $line-height: unset);
                 $o-typography-relative-units: false !global;
             }
             @include expect {

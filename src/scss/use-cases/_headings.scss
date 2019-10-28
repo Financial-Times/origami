@@ -37,31 +37,20 @@
 /// Heading styles.
 /// @access private
 @mixin _oTypographyHeading($from) {
-	// If family style is not given default to sans.
-	$type: _oTypographyGet('font-type', $from);
-	$type: if($type, $type, 'sans');
-	$font-family: _oTypographyFontFamilyForType($type);
-	// If weight is not given default to regular, overriding the browser default.
+	// If weight is not given default to regular,
+	// overriding the browser default.
 	$weight: _oTypographyGet('weight', $from);
 	$weight: if($weight, $weight, 'regular');
-	// If bottom spacing size is not given default to 5.
-	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', $from);
-	$bottom-spacing-size: if($bottom-spacing-size, $bottom-spacing-size, 5);
-	@include _oTypographyFor($font-family, $opts: (
-		'family': true,
-		'weight': $weight,
-		'scale': (
+	@include oTypographySans(
+		$scale: (
 			default: _oTypographyGet('scale', $from),
 			S: _oTypographyGet('scale-s', $from),
 			M: _oTypographyGet('scale-m', $from),
 			L: _oTypographyGet('scale-l', $from),
 			XL: _oTypographyGet('scale-xl', $from)
 		),
-	));
+		$weight: $weight
+	);
 	color: oColorsGetColorFor('body', 'text');
-	text-transform: _oTypographyGet('text-transform', $from);
-	letter-spacing: _oTypographyGet('letter-spacing', $from);
-	@if $bottom-spacing-size {
-		margin: 0 0 oSpacingByIncrement($bottom-spacing-size);
-	}
+	margin: 0 0 oSpacingByName('s4');
 }

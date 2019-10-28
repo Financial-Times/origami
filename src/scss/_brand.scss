@@ -51,9 +51,6 @@ $o-typography-display: '' !default;
 ///        ),
 ///        'heading-level-six': (
 ///            'scale': 2
-///        ),
-///        'body': (
-///            'bottom-spacing-size': 8,
 ///        )
 ///    ));
 @mixin oTypographyCustomize($variables) {
@@ -64,8 +61,7 @@ $o-typography-display: '' !default;
         'heading-level-three',
         'heading-level-four',
         'heading-level-five',
-        'heading-level-six',
-        'body',
+        'heading-level-six'
     );
     @each $brand-variable in map-keys($variables) {
         @if not index($allowed-brand-variables, $brand-variable) {
@@ -116,11 +112,6 @@ $o-typography-display: '' !default;
             'heading-level-six': (
                 'scale': 2,
                 'weight': 'semibold'
-            ),
-            'body': (
-                'font-type': 'serif',
-                'bottom-spacing-size': 7,
-                'custom-line-height': 28px,
             )
         ),
         'supports-variants': ()
@@ -155,9 +146,6 @@ $o-typography-display: '' !default;
             'heading-level-six': (
                 'scale': 2,
                 'weight': 'semibold'
-            ),
-            'body': (
-                'bottom-spacing-size': 7,
             )
         ),
         'supports-variants': ()
@@ -217,9 +205,6 @@ $o-typography-display: '' !default;
             ),
             'heading-level-six': (
                 'scale': 1
-            ),
-            'body': (
-                'bottom-spacing-size': 7,
             )
         ),
         'supports-variants': ()

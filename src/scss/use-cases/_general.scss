@@ -5,23 +5,8 @@
 
 /// Body text styles
 @mixin oTypographyBody {
-	// If family style is not given default to sans.
-	$type: _oTypographyGet('font-type', 'body');
-	$type: if($type, $type, 'sans');
-	$font-family: _oTypographyFontFamilyForType($type);
-	// If scale isn't given default to 1.
-	$scale: _oTypographyGet('scale', 'body');
-	$scale: if($scale, $scale, 1);
-	@include _oTypographyFor($font-family, $opts: (
-		'family': true,
-		'scale': $scale,
-		'custom-line-height':  _oTypographyGet('custom-line-height', 'body'),
-	));
-	// Add bottom margin if set.
-	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', 'body');
-	@if $bottom-spacing-size {
-		margin: 0 0 oSpacingByIncrement($bottom-spacing-size);
-	}
+	@include oTypographySans(1);
+	margin: 0 0 oSpacingByName('s2');
 	color: oColorsGetColorFor('body', 'text');
 }
 
@@ -182,79 +167,73 @@
 	}
 }
 
-/// Styling for <ul> and <ol>
-@mixin oTypographyList {
-	margin-top: 0;
-	margin-bottom: oSpacingByIncrement(7);
-
-	li {
-		$type: _oTypographyGet('font-type', 'body');
-		$type: if($type, $type, 'sans');
-		$font-family: _oTypographyFontFamilyForType($type);
-		@include _oTypographyFor($font-family, $opts: (
-			'family': true,
-			'scale': 1,
-			'custom-line-height': 28px,
-		));
-		margin-top: 0;
-		margin-bottom: 0;
-		color: oColorsGetColorFor('body', 'text');
+/// Output styles for lists.
+/// Styles child `li` elements. Apply to a
+/// containing list element such as `ul` or `ol`.
+/// Does not output font styles, these are
+/// inherited (@see oTypographyBody).
+///
+/// @example Output the styles for an unordered list.
+///     .my-unordered-list {
+///     	@include oTypographyList('unordered');
+///     }
+///
+/// @example Output the styles for an ordered and unordered list, sharing base list styles.
+///     .my-list {
+///     	@include oTypographyList();
+///     }
+///
+///     .my-list--ordered {
+///     	@include oTypographyList('ordered', $include-base-styles: false);
+///     }
+///
+///     .my-list--unordered {
+///     	@include oTypographyList('unordered', $include-base-styles: false);
+///     }
+///
+/// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
+/// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
+@mixin oTypographyList($type: null, $include-base-styles: true) {
+	// Undo browser defaults.
+	@if($include-base-styles) {
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
-}
-
-/// Styles for <ol> tags
-@mixin oTypographyListOrdered {
-	padding-left: 0;
-
-	// Counter-increment/counter-reset is not supported in
-	// <IE8, so use browserhack to only target supported browsers
-	:root & {
+	// Reset number counter for new ordered list.
+	@if($type == 'ordered') {
 		counter-reset: item;
-
-		> li {
-			display: block;
-			position: relative;
-			padding-left: oSpacingByIncrement(6);
-
-
-			&:before {
-				@include oTypographySans (
-					$scale: 0,
-					$weight: 'semibold'
-				);
-				position: absolute;
+	}
+	> li {
+		// Undo browser defaults.
+		@if($include-base-styles) {
+			margin: 0;
+		}
+		&:before {
+			// Allow space for 2-3 numbers for both ordered and unordered lists,
+			// so content aligns between both list types. As an inline pseudo
+			// element a longer count will push list content rather than overlap.
+			@if($include-base-styles) {
 				display: inline-block;
-				width: oSpacingByIncrement(5);
-				font-feature-settings: "tnum";
-				margin-right: oSpacingByIncrement(-1);
+				box-sizing: border-box;
+				min-width: 3ex;
+				padding-right: oSpacingByName('s1');
+			}
+
+			@if($type == 'unordered') {
+				content: '\2022'; // dot character
+				color: inherit;
+				transform: scale(1.778); // 32px dot character given a parent font-size of 18px
+				transform-origin: center left;
+				margin-left: -0.16ch; // remove kerning and align marker flush to the left
+			}
+
+			@if($type == 'ordered') {
 				content: counter(item);
 				counter-increment: item;
-				left: 0;
-				top: 4px;
-				color: oColorsGetColorFor('body', 'text');
+				font-feature-settings: "tnum";
+				font-family: $o-typography-sans;
 			}
-		}
-	}
-}
-
-/// Styles for <ul> tags
-/// Bullet size and spacing was suited to article font-size (18px at time of writing).
-/// This has since been updated to use `em` units but maintain that ratio.
-@mixin oTypographyListUnordered {
-	padding-left: 0;
-
-	li {
-		display: block;
-		position: relative;
-		padding-left: 1.333333333em; // padding-left 24px for `li` items with font-size of 18px
-
-		&:before {
-			color: oColorsGetColorFor('body', 'text');
-			display: inline-block;
-			position: absolute;
-			content: '\2022'; // dot character
-			left: -0.0625em;
-			font-size: 1.777777778em; // font-size 32px for `li` items with font-size of 18px
 		}
 	}
 }

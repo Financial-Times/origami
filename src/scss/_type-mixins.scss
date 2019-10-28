@@ -18,31 +18,34 @@
 /// 	@include oTypographySerif($scale: 1, $style: 'italic');
 ///
 /// @example Output serif font properties without font-family.
-/// 	@include oTypographySerif($scale: 1, $style: 'italic', $opts: ('font-family': false));
+/// 	@include oTypographySerif($scale: 1, $style: 'italic', $include-font-family: false);
 ///
 /// @example Output serif font properties without sizes for the fallback font (without progressive font loading).
-/// 	@include oTypographySerif($scale: 1, $style: 'italic', $opts: ('progressive': false));
+/// 	@include oTypographySerif($scale: 1, $style: 'italic', $include-progressive: false);
 ///
 /// @param {Null | Number} $scale [null] - a scale number to output a font-size and line-height property
 /// @param {Null | Number} $line-height [null] - custom line-height value to use instead of the scale's default
 /// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
 /// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
-/// @param {Map} $opts [('font-family': true, 'progressive': true)] - a map of further options. Set a key `font-family` to false to not output a font-family property. Set a key `progressive` to false to not include alternative font sizes for progressive font loading.
-@mixin oTypographySerif($scale: null, $line-height: null, $weight: null, $style: null, $opts: (
-	'font-family': true,
-	'progressive': true,
-)) {
-	$font-family: if(map-has-key($opts, 'font-family'), map-get($opts, 'font-family'), true);
-	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
-
-	@include _oTypographyFor($o-typography-serif, $opts: (
-		'family': $font-family,
-		'scale': $scale,
-		'style': $style,
-		'weight': $weight,
-		'custom-line-height': $line-height,
-		'progressive': $progressive
-	));
+/// @param {Boolean} $include-font-family [true] - Set to false to exclude the font-family property from the output. This is useful when resizing typography, where the serif font-family is inherited from a parent element.
+/// @param {Boolean} $include-progressive [true] - Set to false to exclude styles used for progressive font loading (font-family and size fallbacks for loading fonts).
+@mixin oTypographySerif(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null,
+	$include-font-family: true,
+	$include-progressive: true
+) {
+	@include _oTypographyFor(
+		$o-typography-serif,
+		$scale,
+		$line-height,
+		$weight,
+		$style,
+		$include-font-family,
+		$include-progressive
+	);
 }
 
 /// Outputs typography styles for the Display font.
@@ -65,31 +68,34 @@
 /// 	@include oTypographyDisplay($scale: 1, $style: 'italic');
 ///
 /// @example Output display font properties without font-family.
-/// 	@include oTypographyDisplay($scale: 1, $style: 'italic', $opts: ('font-family': false));
+/// 	@include oTypographyDisplay($scale: 1, $style: 'italic', $include-font-family: false);
 ///
 /// @example Output display font properties without sizes for the fallback font (without progressive font loading).
-/// 	@include oTypographyDisplay($scale: 1, $style: 'italic', $opts: ('progressive': false));
+/// 	@include oTypographyDisplay($scale: 1, $style: 'italic', $include-progressive: false);
 ///
 /// @param {Null | Number} $scale [null] - a scale number to output a font-size and line-height property
 /// @param {Null | Number} $line-height [null] - custom line-height value to use instead of the scale's default
 /// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
 /// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
-/// @param {Map} $opts [('font-family': true, 'progressive': true)] - a map of further options. Set a key `font-family` to false to not output a font-family property. Set a key `progressive` to false to not include alternative font sizes for progressive font loading.
-@mixin oTypographyDisplay($scale: null, $line-height: null, $weight: null, $style: null, $opts: (
-	'font-family': true,
-	'progressive': true,
-)) {
-	$font-family: if(map-has-key($opts, 'font-family'), map-get($opts, 'font-family'), true);
-	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
-
-	@include _oTypographyFor($o-typography-display, $opts: (
-		'family': $font-family,
-		'scale': $scale,
-		'style': $style,
-		'weight': $weight,
-		'custom-line-height': $line-height,
-		'progressive': $progressive
-	));
+/// @param {Boolean} $include-font-family [true] - Set to false to exclude the font-family property from the output. This is useful when resizing typography, where the display font-family is inherited from a parent element.
+/// @param {Boolean} $include-progressive [true] - Set to false to exclude styles used for progressive font loading (font-family and size fallbacks for loading fonts).
+@mixin oTypographyDisplay(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null,
+	$include-font-family: true,
+	$include-progressive: true
+) {
+	@include _oTypographyFor(
+		$o-typography-display,
+		$scale,
+		$line-height,
+		$weight,
+		$style,
+		$include-font-family,
+		$include-progressive
+	);
 }
 
 /// Outputs typography styles for the Sans font.
@@ -113,47 +119,54 @@
 /// 	@include oTypographySans($scale: 1, $style: 'italic');
 ///
 /// @example Output sans font properties without font-family.
-/// 	@include oTypographySans($scale: 1, $style: 'italic', $opts: ('font-family': false));
+/// 	@include oTypographySans($scale: 1, $style: 'italic', $include-font-family: false);
 ///
 /// @example Output sans font properties without sizes for the fallback font (without progressive font loading).
-/// 	@include oTypographySans($scale: 1, $style: 'italic', $opts: ('progressive': false));
+/// 	@include oTypographySans($scale: 1, $style: 'italic', $include-progressive: false);
 ///
 /// @param {Null | Number} $scale [null] - a scale number to output a font-size and line-height property
 /// @param {Null | Number} $line-height [null] - custom line-height value to use instead of the scale's default
 /// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
 /// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
-/// @param {Map} $opts [('font-family': true, 'progressive': true)] - a map of further options. Set a key `font-family` to false to not output a font-family property. Set a key `progressive` to false to not include alternative font sizes for progressive font loading.
-@mixin oTypographySans($scale: null, $line-height: null, $weight: null, $style: null, $opts: (
-	'font-family': true,
-	'progressive': true,
-)) {
-	$font-family: if(map-has-key($opts, 'font-family'), map-get($opts, 'font-family'), true);
-	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
-
-	@include _oTypographyFor($o-typography-sans, $opts: (
-		'family': $font-family,
-		'scale': $scale,
-		'style': $style,
-		'weight': $weight,
-		'custom-line-height': $line-height,
-		'progressive': $progressive
-	));
+/// @param {Boolean} $include-font-family [true] - Set to false to exclude the font-family property from the output. This is useful when resizing typography, where the sans font-family is inherited from a parent element.
+/// @param {Boolean} $include-progressive [true] - Set to false to exclude styles used for progressive font loading (font-family and size fallbacks for loading fonts).
+@mixin oTypographySans(
+	$scale: null,
+	$line-height: null,
+	$weight: null,
+	$style: null,
+	$include-font-family: true,
+	$include-progressive: true
+) {
+	@include _oTypographyFor(
+		$o-typography-sans,
+		$scale,
+		$line-height,
+		$weight,
+		$style,
+		$include-font-family,
+		$include-progressive
+	);
 }
 
 /// Output a typography for font
 /// @param {String} $font - The font to output typography for.
-/// @param {Map} $opts - What typography styles to output: family (boolean), scale (number -2 - 12), custom-line-height (e.g. 1em), weight (e.g. bold), style (e.g. italic), progressive (boolean).
+/// @param {Null | Number} $scale [null] - a scale number to output a font-size and line-height property
+/// @param {Null | Number} $line-height [null] - custom line-height value to use instead of the scale's default
+/// @param {Null | String} $weight [null] - output a font-weight property, e.g. 'bold', 'semibold'
+/// @param {Null | String} $style [null] - output a font-style property, e.g. 'italic'
+/// @param {Boolean} $include-font-family [true] - Set to false to exclude the font-family property from the output. This is useful when resizing typography, where the given font-family is inherited from a parent element.
+/// @param {Boolean} $include-progressive [true] - Set to false to exclude styles used for progressive font loading (font-family and size fallbacks for loading fonts).
 /// @access private
-@mixin _oTypographyFor($font, $opts: ()) {
-	// Get options, null default.
-	$family: map-get($opts, 'family');
-	$scale: map-get($opts, 'scale');
-	$custom-line-height: map-get($opts, 'custom-line-height');
-	$weight: map-get($opts, 'weight');
-	$style: map-get($opts, 'style');
-	// Get options, true default.
-	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
-
+@mixin _oTypographyFor(
+	$font,
+	$scale,
+	$line-height,
+	$weight,
+	$style,
+	$include-font-family,
+	$include-progressive
+) {
 	// Check font variant is supported.
 	$font-without-fallbacks: oFontsGetFontFamilyWithoutFallbacks($font);
 	$variant-exists: oFontsVariantExists($font-without-fallbacks, $weight, $style);
@@ -161,14 +174,14 @@
 		@error 'Font family "#{$font-without-fallbacks}" of weight "#{if($weight, $weight, 'regular')}" and style "#{if($style, $style, 'normal')}" is not supported.';
 	}
 
-	@if $family {
+	@if $include-font-family {
 		font-family: if(type-of($font) == 'string', unquote($font), $font);
 	}
 
 	@if $scale {
-		@include oTypographySize($scale: $scale, $line-height: $custom-line-height, $font: $font);
-	} @else if $custom-line-height {
-		line-height: _oTypographyAdjustUnit($custom-line-height);
+		@include _oTypographySize($scale: $scale, $line-height: $line-height, $font: $font);
+	} @else if $line-height {
+		line-height: _oTypographyAdjustUnit($line-height);
 	}
 
 	@if $weight  {
@@ -179,7 +192,38 @@
 		font-style: unquote($style);
 	}
 
-	@if $progressive {
-		@include _oTypographyProgressiveFontFallback($font, $scale, $weight, $style);
+	@if $include-progressive {
+		@include _oTypographyProgressiveFontFallback($font, $scale, $weight, $style, $include-font-family);
+	}
+}
+
+/// Outputs the font size and line height based on the scale, also
+/// accepts an override line-height to output and a font adjustment
+/// parameter for when outputting styles for progressively loaded fonts
+///
+/// @param {Number} $scale number on scale the sizes are based on
+/// @param {Boolean | Number} $line-height size to override the line-height property
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
+@mixin _oTypographySize($scale, $line-height: false, $font: '') {
+	@if type-of($scale) == map {
+		@each $breakpoint, $scale in $scale {
+			$current-line-height: if(length($scale) == 2, nth($scale, 2), $line-height);
+			$current-scale: if(type-of($scale) == list and length($scale) != 0, nth($scale, 1), $scale);
+
+			@if $breakpoint == 'default' and $current-scale {
+				font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
+				line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
+			}
+
+			@if $breakpoint != 'default' and $current-scale {
+				@include oGridRespondTo($breakpoint) {
+					font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
+					line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
+				}
+			}
+		}
+	} @else {
+		font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
+		line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
 	}
 }
