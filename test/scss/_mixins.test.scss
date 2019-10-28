@@ -29,22 +29,6 @@
 				};
 			};
 		};
-		@include it('palette classes with only the "palette-classes" option') {
-			@include assert() {
-				@include output($selector: false) {
-					@include oColors($opts: (
-						'palette-classes': true
-					));
-				};
-
-				@include contains($selector: false) {
-					.o-colors-palette-white {
-						background-color: #ffffff;
-						color: black;
-					}
-				};
-			};
-		};
 	}
 
 	@include describe('oColorsSetColor') {

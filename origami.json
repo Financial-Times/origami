@@ -105,7 +105,7 @@
 			"title": "Tints",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
 			"display_html": false,
 			"brands": [
 				"master"
@@ -173,7 +173,7 @@
 			"title": "Tints",
 			"data": "demos/src/palettes/internal-palette.json",
 			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
 			"display_html": false,
 			"brands": [
 				"internal"
@@ -195,7 +195,7 @@
 			"title": "Tints",
 			"data": "demos/src/palettes/whitelabel-palette.json",
 			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs.",
+			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
 			"display_html": false,
 			"brands": [
 				"whitelabel"

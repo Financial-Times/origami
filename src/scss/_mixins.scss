@@ -172,14 +172,3 @@
 		@include oColorsSetUseCase('o-colors', $usecase, $colors, $opts);
 	}
 }
-
-/// Output all palette colors as CSS Variables
-/// @access private
-@mixin _oColorsCSSVariables {
-	:root {
-		@each $color-map in oColorsGetPalette() {
-			$name: map-get($color-map, 'name');
-			#{--o-colors-}#{$name}: oColorsByName($name);
-		}
-	}
-}

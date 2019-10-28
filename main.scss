@@ -12,33 +12,25 @@
 @include _oColorsSetDefaultUsecases;
 @include _oColorsSetPaletteTints;
 
-/// Output `o-colors` CSS classes and custom properties.
+/// Output `o-colors` CSS.
+///
+/// @example Output all `o-colors` styles.
+///     @include oColors();
+///
 /// @example Output only `o-colors` CSS custom properties ("CSS variables").
 ///     @include oColors($opts: (
 ///     	'palette-custom-properties': true
 ///     ));
 ///
 /// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
-@mixin oColors($opts: (
-	'palette-custom-properties': true,
-	'palette-classes': true
-)) {
+@mixin oColors($opts: ('palette-custom-properties': true)) {
 	$palette-proeprties: map-get($opts, 'palette-custom-properties');
-	$palette-classes: map-get($opts, 'palette-classes');
 
 	@if($palette-proeprties) {
-		@include _oColorsCSSVariables;
-	}
-
-	@if($palette-classes) {
-		@each $color-details in oColorsGetPalette() {
-			$name: map-get($color-details, 'name');
-			.o-colors-palette-#{$name} {
-				background-color: oColorsByName($name);
-
-				@if $name != 'transparent' and $name != 'inherit' {
-					color: oColorsGetTextColor($name, 100, $minimum-contrast: null);
-				}
+		:root {
+			@each $color-map in oColorsGetPalette() {
+				$name: map-get($color-map, 'name');
+				#{--o-colors-}#{$name}: oColorsByName($name);
 			}
 		}
 	}
