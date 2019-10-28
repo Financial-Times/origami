@@ -151,8 +151,7 @@
 
 /// Output styles for the byline timestamp.
 /// Font family and size are inherited from the
-/// parent element, for example if the timestamp
-/// is used within a byline.
+/// parent element.
 /// @see oEditorialTypographyByline
 @mixin oEditorialTypographyBylineTimestamp() {
 	text-transform: uppercase;
