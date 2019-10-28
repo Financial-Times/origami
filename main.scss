@@ -34,10 +34,6 @@
 	$footer-enabled: index($opts, 'footer');
 	$utilities-enabled: index($opts, 'utilities');
 
-	@if $o-typography-load-fonts == true {
-		@include oFonts();
-	}
-
 	// Headings
 	@if $headings-enabled {
 		.o-typography-heading-level-1 {
@@ -145,6 +141,12 @@
 
 // So the build service can output all typography styles.
 @if $o-typography-is-silent == false {
+	// Load fonts outside the primary mixin
+	// as they may be required by other mixins.
+	@if $o-typography-load-fonts == true {
+		@include oFonts();
+	}
+
 	@include oTypography();
 	// Don't output twice
 	$o-typography-is-silent: true !global;
