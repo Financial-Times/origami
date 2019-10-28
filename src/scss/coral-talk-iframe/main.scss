@@ -347,3 +347,20 @@
 		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
 	}
 }
+
+.coral-createComment-message a,
+.coral-createComment-message h1,
+.coral-createComment-message h2,
+.coral-createComment-message h3,
+.coral-createComment-message h4,
+.coral-createComment-message h5,
+.coral-createComment-message h6,
+.coral-configureMessageBox-messageBox a,
+.coral-configureMessageBox-messageBox h1,
+.coral-configureMessageBox-messageBox h2,
+.coral-configureMessageBox-messageBox h3,
+.coral-configureMessageBox-messageBox h4,
+.coral-configureMessageBox-messageBox h5,
+.coral-configureMessageBox-messageBox h6 {
+	color: inherit;
+}
