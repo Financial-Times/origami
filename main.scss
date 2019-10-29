@@ -12,25 +12,45 @@
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/wrapper';
 
-/// Output all default typography styles.
+/// Output o-typography features.
+///
+/// @example Output all o-typography css classes.
+/// 	@include oTypography();
+///
+/// @example Output a granular selection of o-typography css classes. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for a full list of options.
+///     @include oTypography((
+///     	'body': true,
+///     	'headings': (1, 2, 3),
+///     	'lists': ('unordered'),
+///     ));
+///
+/// @param {Map} $opts [('headings': (1, 2, 3, 4, 5, 6), 'wrapper': true, 'body': true, 'links': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'footer': true, 'utilities': true)] - The features of o-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for more details.
 @mixin oTypography($opts: (
-	'headings',
-	'wrapper',
-	'body',
-	'links',
-	'lists',
-	'caption',
-	'footer',
-	'utilities',
+	'headings': (1, 2, 3, 4, 5, 6),
+	'wrapper': true,
+	'body': true,
+	'links': true,
+	'lists': ('ordered', 'unordered'),
+	'caption': true,
+	'footer': true,
+	'utilities': true,
 )) {
-	$wrapper-enabled: index($opts, 'wrapper');
-	$headings-enabled: index($opts, 'headings');
-	$body-enabled: index($opts, 'body');
-	$links-enabled: index($opts, 'links');
-	$lists-enabled: index($opts, 'lists');
-	$caption-enabled: index($opts, 'caption');
-	$footer-enabled: index($opts, 'footer');
-	$utilities-enabled: index($opts, 'utilities');
+	$wrapper-enabled: map-get($opts, 'wrapper');
+	$body-enabled: map-get($opts, 'body');
+	$links-enabled: map-get($opts, 'links');
+	$caption-enabled: map-get($opts, 'caption');
+	$footer-enabled: map-get($opts, 'footer');
+	$utilities-enabled: map-get($opts, 'utilities');
+	$headings: map-get($opts, 'headings');
+	$headings: if($headings, $headings, ());
+	@if($headings and type-of($headings) != 'list') {
+		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5, 6)`.');
+	}
+	$lists: map-get($opts, 'lists');
+	$lists: if($lists, $lists, ());
+	@if($lists and type-of($lists) != 'list') {
+		@error ('The "lists" option must be a list of list types to include e.g. `(\'ordered\', \'unordered\')`.');
+	}
 
 	// Load fonts within the primary mixin in-case silent mode is on.
 	@if $o-typography-load-fonts == true {
@@ -40,29 +60,13 @@
 	}
 
 	// Headings
-	@if $headings-enabled {
-		.o-typography-heading-level-1 {
-			@include oTypographyHeading($level: 1);
-		}
-
-		.o-typography-heading-level-2 {
-			@include oTypographyHeading($level: 2);
-		}
-
-		.o-typography-heading-level-3 {
-			@include oTypographyHeading($level: 3);
-		}
-
-		.o-typography-heading-level-4 {
-			@include oTypographyHeading($level: 4);
-		}
-
-		.o-typography-heading-level-5 {
-			@include oTypographyHeading($level: 5);
+	@each $level in $headings {
+		.o-typography-heading-level-#{$level} {
+			@include oTypographyHeading($level);
 		}
 	}
 
-	// Body, Links, Lists, etc.
+	// Body, Italic, Superscript, Subscript.
 	@if $utilities-enabled {
 		.o-typography-bold {
 			@include oTypographySans (
@@ -84,12 +88,14 @@
 		}
 	}
 
+	// Body
 	@if $body-enabled {
 		.o-typography-body {
 			@include oTypographyBody;
 		}
 	}
 
+	// Links
 	@if $links-enabled {
 		.o-typography-link {
 			@include oTypographyLink;
@@ -103,29 +109,36 @@
 		}
 	}
 
-	@if $caption-enabled {
-		.o-typography-caption {
-			@include oTypographyCaption;
-		}
-	}
-
-	@if $lists-enabled {
+	// Lists
+	@if length($lists) >= 1 {
 		.o-typography-list {
 			// Output base styles shared by all list types.
 			@include oTypographyList();
 		}
+	}
 
+	@if index($lists, 'ordered') {
 		.o-typography-list--ordered {
 			// Output list styles unique to an ordered list.
 			@include oTypographyList($type: 'ordered', $include-base-styles: false);
 		}
+	}
 
+	@if index($lists, 'unordered') {
 		.o-typography-list--unordered {
 			// Output list styles unique to an unordered list.
 			@include oTypographyList($type: 'unordered', $include-base-styles: false);
 		}
 	}
 
+	// Caption
+	@if $caption-enabled {
+		.o-typography-caption {
+			@include oTypographyCaption;
+		}
+	}
+
+	// Footer
 	@if $footer-enabled {
 		.o-typography-footer {
 			@include oTypographyFooter;
@@ -134,6 +147,7 @@
 
 	// Wrapper
 	@if $wrapper-enabled {
+		.o-typography-wrapper > p,
 		.o-typography-wrapper {
 			@include _oTypographyWrapper;
 		}

@@ -8,7 +8,7 @@ The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bo
 
 #### Markup
 
-- Only direct children of `o-typography-wrapper` are styled. If your project nests multiple elements under an element with the `o-typography-wrapper` class, check typography styling on nested elements has not been lost.
+- `o-typography-wrapper` used to style any number of nested child elements. To avoid conflicting with other components `o-typography-wrapper` now only styles direct children plus the direct children of any paragraph element. If your project nests multiple elements under an element with the `o-typography-wrapper` class, check typography styling on nested elements has not been lost.
 - `o-typography-link--external` class must be used along with the `o-typography-link` class.
 - `o-typography-big-number` is removed, replace with [o-big-number](https://github.com/Financial-Times/o-big-number/) markup.
 - `o-typography-blockquote` is removed, replace with [o-quote](https://github.com/Financial-Times/o-quote/) markup.
@@ -272,6 +272,10 @@ For more consistent spacing use a [named space](https://registry.origami.ft.com/
 +$size: oSpacingByName('s1');
 ```
 
+##### oTypographyWrapper
+
+The mixin `oTypographyWrapper` has been removed. Instead include the wrapper class `.o-typography-wrapper` using the `oTypography` mixin. Alternatively use the other typography mixins provided to style elements directly.
+
 ##### Editorial Sass (Master Brand Only)
 
 - `oTypographyCollectionHeader` has been removed. Please contact Origami if your project requires this style to discuss using [o-teaser-collection](https://registry.origami.ft.com/components/o-teaser-collection) styles.
@@ -286,12 +290,6 @@ Editorial typography, such as that used in article pages, has moved to a new com
 - `oTypographyStandfirst` becomes `oEditorialTypographyStandfirst`
 - `oTypographyTimestamp` becomes `oEditorialTypographyBylineTimestamp`
 - `oTypographyReadNext` becomes `oEditorialTypographyReadNext`
-
-The previous default wrapper has been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
-- `oTypographyWrapper` becomes `oEditorialTypographyWrapper`
-
-The product wrapper is now the default. Previously for the master brand this styled headings in the sans-serif "product" style and everything else in the serif editorial style. This is now consistently non-editorial.
-- `oTypographyWrapper($style: 'product')` becomes `oTypographyWrapper`
 
 For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 

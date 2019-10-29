@@ -46,7 +46,7 @@
 /// Body text styles
 @mixin oTypographyBody {
 	@include oTypographySans(1);
-	margin: 0 0 oSpacingByName('s2');
+	margin: 0 0 oSpacingByName('s6');
 	color: oColorsGetColorFor('body', 'text');
 }
 
@@ -236,7 +236,7 @@
 @mixin oTypographyList($type: null, $include-base-styles: true) {
 	// Undo browser defaults.
 	@if($include-base-styles) {
-		margin: 0;
+		margin: 0 0 oSpacingByName('s6');
 		padding: 0;
 		list-style: none;
 	}
@@ -269,6 +269,7 @@
 			}
 
 			@if($type == 'ordered') {
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: "tnum";

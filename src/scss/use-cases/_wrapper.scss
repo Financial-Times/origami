@@ -1,6 +1,9 @@
 /// Typography wrapper
 @mixin _oTypographyWrapper() {
 
+	// Lists inherit font family and size from the wrapper.
+	@include oTypographyBody();
+
 	> h1 {
 		@include oTypographyHeading($level: 1);
 	}
@@ -26,11 +29,11 @@
 	}
 
 	> a {
-		@include oTypographyLink;
+		@include oTypographyLink();
 	}
 
 	> p {
-		@include oTypographyBody;
+		@include oTypographyBody();
 	}
 
 	> ol,
@@ -50,11 +53,11 @@
 	}
 
 	> footer {
-		@include oTypographyFooter;
+		@include oTypographyFooter();
 	}
 
 	> strong {
-		@include oTypographySans (
+		@include oTypographySans(
 			$weight: 'semibold',
 			$include-font-family: false
 		);
@@ -65,14 +68,14 @@
 	}
 
 	> sup {
-		@include oTypographySuper;
+		@include oTypographySuper();
 	}
 
 	> sub {
-		@include oTypographySub;
+		@include oTypographySub();
 	}
 
 	> figcaption {
-		@include oTypographyCaption;
+		@include oTypographyCaption();
 	}
 }
