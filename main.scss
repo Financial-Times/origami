@@ -29,8 +29,7 @@
 	'author': true,
 	'topic': true,
 	'byline': true,
-	'timestamp': true,
-	'fonts': true,
+	'timestamp': true
 )) {
 	$body: map-get($opts, 'body');
 	$lists: map-get($opts, 'lists');
@@ -50,10 +49,14 @@
 	$topic: map-get($opts, 'topic');
 	$byline: map-get($opts, 'byline');
 	$timestamp: map-get($opts, 'timestamp');
-	$fonts: map-get($opts, 'fonts');
 
-	@if $fonts {
+	// Load fonts within the primary mixin in-case silent mode is on.
+	// Don't load fonts if o-typography has output them already since
+	// `$o-editorial-typography-load-fonts` was set.
+	@if $o-editorial-typography-load-fonts == true and $o-typography-load-fonts == false {
 		@include oFonts();
+		// Set to false so fonts are not output twice by o-editorial-typography.
+		$o-editorial-typography-load-fonts: false !global;
 	}
 
 	@if $body {
