@@ -91,14 +91,13 @@ If `oTypographyBold` has been used along with `oTypographySans` add `$weight: 's
 - @include oTypographyBold('sans');
 + @include oTypographySans($weight: 'semibold');
 
-
 - @include oTypographySerif();
-- @include oTypographyBold();
+- @include oTypographyBold(); // with or without 'serif' argument
 + @include oTypographySerif($weight: 'bold');
 
-- @include oTypographySerif();
-- @include oTypographyBold('serif');
-+ @include oTypographySerif($weight: 'bold');
+- @include oTypographyDisplay();
+- @include oTypographyBold(); // with or without 'serif' argument
++ @include oTypographyDisplay($weight: 'bold');
 ```
 
 If `oTypographyBold` has been used without one of the three type mixins `oTypographySans`, `oTypographySerif`, or `oTypographyDisplay` swap it for a type mixin according to the font family it will style. For example if the selector using `oTypographyBold` is applied to a sans-serif element use `oTypographySans`. Set the `$include-font-family` argument to `false` so not to repeat the font family declaration.
@@ -107,11 +106,11 @@ If `oTypographyBold` has been used without one of the three type mixins `oTypogr
 - @include oTypographyBold('sans');
 + @include oTypographySans($weight: 'semibold', $include-font-family: false);
 
-- @include oTypographyBold();
+- @include oTypographyBold(); // with or without 'serif' argument
 + @include oTypographySerif($weight: 'bold', $include-font-family: false);
 
-- @include oTypographyBold('serif');
-+ @include oTypographySerif($weight: 'bold', $include-font-family: false);
+- @include oTypographyBold(); // with or without 'serif' argument
++ @include oTypographyDisplay($weight: 'bold', $include-font-family: false);
 ```
 
 ##### oTypographySerifItalic
@@ -132,14 +131,13 @@ If `oTypographyItalic` has been used along with a type mixin `oTypographySans`, 
 - @include oTypographyItalic();
 + @include oTypographySans($style: 'italic');
 
-
 - @include oTypographySerif();
 - @include oTypographyItalic();
 + @include oTypographySerif($style: 'italic');
 
-- @include oTypographySerif();
+- @include oTypographyDisplay();
 - @include oTypographyItalic();
-+ @include oTypographySerif($style: 'italic');
++ @include oTypographyDisplay($style: 'italic');
 ```
 
 If `oTypographyItalic` has been used without one of the three type mixins `oTypographySans`, `oTypographySerif`, or `oTypographyDisplay` swap it for a type mixin according to the font family it will style. For example if the selector using `oTypographyItalic` is applied to a sans-serif element use `oTypographySans`. Set the `$include-font-family` argument to `false` so not to repeat the font family declaration.
@@ -154,6 +152,8 @@ If `oTypographyItalic` has been used without one of the three type mixins `oTypo
 - @include oTypographyItalic();
 + @include oTypographyDisplay($style: 'italic', $include-font-family: false);
 ```
+
+Note: If it aids your projects migration you may swap oTypographyItalic for the css property `font-style: italic;` directly instead. We don't recommend this approach because you will not be warned if the required italic font does not exist.
 
 ##### oTypographySize
 
