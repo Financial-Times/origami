@@ -149,11 +149,12 @@
 	@include oTypographySans($scale: 0);
 }
 
-/// Output styles for the byline timestamp.
+/// Output styles for a timestamp.
 /// Font family and size are inherited from the
-/// parent element.
-/// @see oEditorialTypographyByline
-@mixin oEditorialTypographyBylineTimestamp() {
+/// parent element so this mixin may be used in
+/// multiple contexts. For example timestamps in
+/// a comment section or a byline.
+@mixin oEditorialTypographyTimestamp() {
 	text-transform: uppercase;
 	color: oColorsGetPaletteColor('black-60');
 }
