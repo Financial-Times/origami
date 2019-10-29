@@ -126,8 +126,8 @@
 	}
 
 	@if $timestamp {
-		.o-editorial-typography-byline-timestamp {
-			@include oEditorialTypographyBylineTimestamp();
+		.o-editorial-typography-timestamp {
+			@include oEditorialTypographyTimestamp();
 		}
 	}
 }
