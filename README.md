@@ -280,7 +280,7 @@ If you want to output only the font-family, font-size, and line-height, with no 
 
 These mixins take arguments:
 
-- **scale**: The number on the font scale from -2 to 10. This sets a font-size and line height according to the font scale.
+- **scale**: The number on the font scale from -2 to 10, or a map of scales to specify the scale responsively at different breakpoints. This sets a font-size and line height according to the font scale.
 - **line-height**: The line-height value to set. Defaults to the line-height for the chosen `scale` or `null` if no scale is chosen.
 - **weight**: The weight value to set, e.g. `regular`, `semibold`, `bold`. `null` by default.
 - **style**: The style value to set, `normal` or `italic`. `null` by default.
@@ -296,6 +296,11 @@ Output a font-family property only for the serif font.
 Output font-family, font-size, and line-height for the sans font.
 ```scss
 @include oTypographySans($scale: 1);
+```
+
+Output font-family, font-size, and line-height for the serif font responsively. The scale is 0 by default, 1 on a medium display, 2 on an extra large display.
+```scss
+@include oTypographySerif($scale: ('default': 0, 'M': 1, 'XL': 2));
 ```
 
 Output font-family, font-size, and line-height for the display font. Set a custom line-height of 1.6.
