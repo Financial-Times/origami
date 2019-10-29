@@ -1,19 +1,4 @@
 @include describe('oEditorialTypography mixins') {
 	@include describe('oEditorialTypography') {
-		@include it('does something') {
-			@include assert() {
-				@include output($selector: false) {
-					.test-mixin {
-						@include oEditorialTypography();
-					}
-				};
-
-				@include expect($selector: false) {
-					.test-mixin .o-editorial-typography {
-						display: block;
-					}
-				};
-			};
-		}
 	}
 }
