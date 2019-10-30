@@ -7,7 +7,6 @@ A component, integrated with FT authentication and user data services, to add a 
 	- [Stream](#stream)
 	- [Count](#count)
 - [JavaScript](#javascript)
-	- [Interface](#interface)
 	- [Events](#events)
 	- [Tracking](#tracking)
 - [Sass](#sass)
@@ -120,9 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-### Interface
-
-
 ### Events
 
 Events are emitted during key events or interactions and can be listened to by listening for events on the document.
@@ -193,9 +189,6 @@ Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%
 
 ## Troubleshooting
 _This is a good place to put problems that come up repeatedly_
-
-## Contributing
-If your component is particularly complicated (image sets fall into this category) then a contributing section or even a contributing.md might be useful.
 
 ## Migration
 

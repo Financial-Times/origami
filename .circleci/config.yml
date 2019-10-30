@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:10-browsers
+      - image: 'circleci/node:10-browsers'
     steps:
       - checkout
       - run: npm config set prefix "$HOME/.local"
@@ -17,7 +17,7 @@ jobs:
       - run: $HOME/.local/bin/obt test --ignore-bower
   publish_to_npm:
     docker:
-      - image: circleci/node:10
+      - image: 'circleci/node:10'
     steps:
       - checkout
       - run: npx occ ${CIRCLE_TAG##v}
