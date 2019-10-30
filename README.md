@@ -6,6 +6,7 @@ A component, integrated with FT authentication and user data services, to add a 
 - [Markup](#markup)
 	- [Stream](#stream)
 	- [Count](#count)
+	- [Staging environment](#use-staging-environment)
 - [JavaScript](#javascript)
 	- [Events](#events)
 	- [Tracking](#tracking)
