@@ -199,13 +199,14 @@ If your component is particularly complicated (image sets fall into this categor
 
 ## Migration
 
-_We use tables to represent our migration guides. Be sure to update it when there is a major release, and update MIGRATION.md, as well_
-
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.2.0 | - |
+╳ deprecated | 3 | 3.5.0 | - |
+╳ deprecated | 2 | 2.5.0 | - |
+╳ deprecated | 1 | 1.0.10 | - |
 
 ## Contact
 
