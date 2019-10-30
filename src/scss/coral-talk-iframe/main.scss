@@ -63,6 +63,10 @@
 	display: none;
 }
 
+body {
+	background: oColorsGetPaletteColor('paper');
+}
+
 // remove divider of the top tab bar
 .coral-tabBar {
 	border-bottom-width: 0;
