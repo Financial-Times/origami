@@ -238,10 +238,15 @@
 		&:after {
 			content: '';
 			display: block;
-			border-bottom: 0.4ex solid;
-			width: 6.5ch;
+			// 18px Metric = 4px
+			// 48px FinancierDisplayWeb = 8px
+			border-bottom: calc(0.34ex + 1px) solid;
+			// 18px Metric = ~60px
+			// 48px FinancierDisplayWeb = ~180px
+			width: calc(7ch - 10px);
 			max-width: 100%;
-			padding-top: 0.416em; // 20px assuming a 48px font size
+			// 20px assuming a 48px font size
+			padding-top: 0.416em;
 			@if($align == 'center') {
 				margin: auto;
 			}
