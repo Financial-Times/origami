@@ -22,7 +22,7 @@ The following editorial style css classes have been moved to [o-editorial-typogr
 - `o-typography-author` is now `o-editorial-typography-author`
 - `o-typography-standfirst` is now `o-editorial-typography-standfirst`
 - `o-typography-timestamp` is now `o-editorial-typography-byline-timestamp`
-- `o-typography-read-next` is now `o-editorial-typography-read-next`
+- `o-typography-read-next` has no direct replacement, but there is a mixin in the editorial typography component `oEditorialTypographyDecorated` to apply the decorative underline. Please speak to Origami if your team uses this class.
 
 The previous default wrapper has been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 - `o-typography-wrapper` is now `o-editorial-typography-wrapper`
@@ -289,7 +289,7 @@ Editorial typography, such as that used in article pages, has moved to a new com
 - `oTypographyAuthor` becomes `oEditorialTypographyTag($type: 'author')`
 - `oTypographyStandfirst` becomes `oEditorialTypographyStandfirst`
 - `oTypographyTimestamp` becomes `oEditorialTypographyBylineTimestamp`
-- `oTypographyReadNext` becomes `oEditorialTypographyReadNext`
+- `oTypographyReadNext` has no direct replacement as it didn't appear to be used, but `oEditorialTypographyDecorated` may be used to apply a decorative underline to typography of any size in the style of "read next".
 
 For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 
