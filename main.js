@@ -6,6 +6,7 @@ import event from './src/javascript/events/custom';
 import page from './src/javascript/events/page-view';
 import click from './src/javascript/events/click';
 import utils from './src/javascript/utils';
+import core from './src/javascript/core';
 
 /**
  * The version of the tracking module.
