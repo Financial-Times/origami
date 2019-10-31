@@ -1,12 +1,12 @@
-/*global require, describe, it, before, after, sinon, document */
-require('../setup');
-const assert = require("assert");
-const Queue = require("../../src/javascript/core/queue");
-const settings = require("../../src/javascript/core/settings");
-const send = require("../../src/javascript/core/send");
-const core = require("../../src/javascript/core");
-const click = require("../../src/javascript/events/click");
-const session = require("../../src/javascript/core/session");
+/*global describe, it, before, after, sinon, document */
+import '../setup';;
+import assert from 'assert';
+import Queue from '../../src/javascript/core/queue';
+import settings from '../../src/javascript/core/settings';
+import send from '../../src/javascript/core/send';
+import core from '../../src/javascript/core';
+import click from '../../src/javascript/events/click';
+import session from '../../src/javascript/core/session';
 
 describe('click', function () {
 

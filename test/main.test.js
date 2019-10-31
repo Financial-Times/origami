@@ -1,13 +1,13 @@
-/*global require, describe, it, before, after, sinon */
-require('./setup');
-const assert = require("assert");
-const settings = require("../src/javascript/core/settings");
-const Queue = require("../src/javascript/core/queue");
-const Send = require("../src/javascript/core/send");
+/*global describe, it, before, after, sinon */
+
+import './setup';
+import assert from 'assert';
+import settings from '../src/javascript/core/settings';
+import Queue from '../src/javascript/core/queue';
+import Send from '../src/javascript/core/send';
+import oTracking from '../main.js';
 
 describe('main', function () {
-
-	const oTracking = require("../main.js");
 	let root_id;
 
 	before(function () {

@@ -7,6 +7,7 @@ import page from './src/javascript/events/page-view';
 import click from './src/javascript/events/click';
 import utils from './src/javascript/utils';
 import core from './src/javascript/core';
+import componentView from './src/javascript/events/component-view'
 
 /**
  * The version of the tracking module.
@@ -89,7 +90,7 @@ Tracking.prototype.page = page;
 * To initalise view events for components/elements.
 * @see {@link view#init}
 */
-Tracking.prototype.view = require('./src/javascript/events/component-view');
+Tracking.prototype.view = componentView;
 
 /**
  * To initalise click events.

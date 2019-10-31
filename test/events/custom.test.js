@@ -1,14 +1,14 @@
-/*global require, describe, it, before, after, sinon */
-require('../setup');
-const assert = require("assert");
-const Queue = require("../../src/javascript/core/queue");
-const settings = require("../../src/javascript/core/settings");
-const send = require("../../src/javascript/core/send");
-const session = require("../../src/javascript/core/session");
+/*global describe, it, before, after, sinon */
+import '../setup';;
+import assert from 'assert';
+import Queue from '../../src/javascript/core/queue';
+import settings from '../../src/javascript/core/settings';
+import send from '../../src/javascript/core/send';
+import session from '../../src/javascript/core/session';
+import trackEvent from '../../src/javascript/events/custom.js';
 
 describe('event', function () {
 
-	const track_event = require("../../src/javascript/events/custom.js");
 
 	before(function () {
 		session.init();
@@ -25,7 +25,7 @@ describe('event', function () {
 		const callback = sinon.spy();
 		let sent_data;
 
-		track_event(new CustomEvent('oTracking.event', {
+		trackEvent(new CustomEvent('oTracking.event', {
 			detail: {
 				category: 'slideshow',
 				action: 'slide_viewed',
@@ -65,7 +65,7 @@ describe('event', function () {
 
 			const callback = sinon.spy();
 
-			track_event(e, callback);
+			trackEvent(e, callback);
 			assert.ok(callback.called, 'Callback not called.');
 
 			const sent_data = callback.getCall(0).thisValue;

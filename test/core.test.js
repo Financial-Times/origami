@@ -1,12 +1,12 @@
-/*global require, describe, it, before, after, sinon */
+/*global describe, it, before, after, sinon */
 
-const assert = require('assert');
-const settings = require("../src/javascript/core/settings");
-const Queue = require("../src/javascript/core/queue");
-const session = require("../src/javascript/core/session");
-const send = require("../src/javascript/core/send");
-const Core = require("../src/javascript/core.js");
-const { errorNextSend } = require('./setup');
+import assert from 'assert';
+import settings from '../src/javascript/core/settings';
+import Queue from '../src/javascript/core/queue';
+import session from '../src/javascript/core/session';
+import send from '../src/javascript/core/send';
+import Core from '../src/javascript/core.js';
+import { errorNextSend } from './setup';
 
 describe('Core', function () {
 
@@ -81,8 +81,8 @@ describe('Core', function () {
 
 			// Device
 			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
-			assert.equal(sent_data.device.spoor_session, require("../src/javascript/core/session").session().id);
-			assert.equal(sent_data.device.spoor_session_is_new, require("../src/javascript/core/session").session().isNew);
+			assert.equal(sent_data.device.spoor_session, session.session().id);
+			assert.equal(sent_data.device.spoor_session_is_new, session.session().isNew);
 
 		});
 
@@ -101,7 +101,7 @@ describe('Core', function () {
 			assert.equal(callback.called, 1, 'Callback called once.');
 
 			// Try again
-			require("../src/javascript/core/send").run();
+			send.run();
 
 			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});
