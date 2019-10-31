@@ -7,7 +7,7 @@ import page from './src/javascript/events/page-view';
 import click from './src/javascript/events/click';
 import utils from './src/javascript/utils';
 import core from './src/javascript/core';
-import componentView from './src/javascript/events/component-view'
+import componentView from './src/javascript/events/component-view';
 
 /**
  * The version of the tracking module.
