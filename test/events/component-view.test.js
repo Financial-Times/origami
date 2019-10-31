@@ -6,7 +6,6 @@ import send from '../../src/javascript/core/send';
 import core from '../../src/javascript/core';
 import session from '../../src/javascript/core/session';
 import componentView from '../../src/javascript/events/component-view';
-console.log(componentView);
 
 const config = {
 	context: {
