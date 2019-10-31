@@ -188,7 +188,6 @@ Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss
 
 Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%3Do-comments%406.0.0-beta.24%3A%2Fsrc%2Fscss%2Fcoral-talk-iframe%2Fmain.scss`
 
-## Troubleshooting
 _This is a good place to put problems that come up repeatedly_
 
 ## Migration
