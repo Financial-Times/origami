@@ -176,9 +176,11 @@ const comments = new Comments(commentsElement, {
 ```
 
 ## Sass
-_Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
 
-As with all Origami components, o-comments has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-comments-is-silent : false;` in your Sass before you import the o-comments Sass.
+Include all styles for o-comments with the mixin `oComments`:
+
+```scss
+@include oComments()
 
 ### Styling of Coral Talk iframe
 
@@ -188,7 +190,6 @@ Example: `modules=o-comments@6.0.0-beta.24:/src/scss/coral-talk-iframe/main.scss
 
 Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%3Do-comments%406.0.0-beta.24%3A%2Fsrc%2Fscss%2Fcoral-talk-iframe%2Fmain.scss`
 
-_This is a good place to put problems that come up repeatedly_
 
 ## Migration
 
