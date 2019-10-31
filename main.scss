@@ -53,7 +53,7 @@
 	// Load fonts within the primary mixin in-case silent mode is on.
 	// Don't load fonts if o-typography has output them already since
 	// `$o-editorial-typography-load-fonts` was set.
-	@if $o-editorial-typography-load-fonts == true and $o-typography-load-fonts == false {
+	@if $o-editorial-typography-load-fonts == true and $o-typography-load-fonts == true {
 		@include oFonts();
 		// Set to false so fonts are not output twice by o-editorial-typography.
 		$o-editorial-typography-load-fonts: false !global;
