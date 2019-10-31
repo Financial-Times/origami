@@ -1,5 +1,5 @@
 /// Output All oComments Features
-@mixin oComments ($class: 'o-comments') {
+@mixin oComments () {
 	.o-comments__staging-message-container {
 		margin-bottom: oSpacingByName('s2');
 		padding: 0;
