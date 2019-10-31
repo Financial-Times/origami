@@ -33,6 +33,18 @@ const coralEventMap = new Map([
 			oComments: 'oComments.likeComment',
 			oTracking: 'like'
 		}
+	],
+	['mutation.createCommentFlag',
+		{
+			oComments: 'oComments.reportComment',
+			oTracking: 'report'
+		}
+	],
+	['mutation.removeUserIgnore',
+		{
+			oComments: 'oComments.ignoreUser',
+			oTracking: 'ignore-user'
+		}
 	]
 ]);
 
