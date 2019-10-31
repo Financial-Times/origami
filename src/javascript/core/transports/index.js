@@ -1,9 +1,10 @@
 import xhr from './xhr';
 import sendBeacon from './send-beacon';
 import image from './image';
-const get = function (name) {
+
+function get(name) {
 	return this.mock || this[name];
-};
+}
 
 export default {
 	xhr,

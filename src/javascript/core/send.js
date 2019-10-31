@@ -1,8 +1,8 @@
 import settings from './settings';
-
 import utils from '../utils';
 import Queue from './queue';
 import transports from './transports';
+
 const isIe11 = function () { return !!window.MSInputMethodContext && !!document.documentMode; };
 /**
  * Default collection server.
@@ -221,7 +221,11 @@ function init() {
 
 	return queue;
 }
-function getDomain() { return domain;}
+
+function getDomain() {
+	return domain;
+}
+
 export default {
 	init,
 	setDomain,

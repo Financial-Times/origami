@@ -1,5 +1,4 @@
 import utils from '../utils';
-
 import Store from './store';
 
 /**

@@ -1,4 +1,4 @@
-const sendBeacon = function () {
+function sendBeacon() {
 	let resolver;
 	let rejecter;
 	const p = new Promise((resolve, reject) => {

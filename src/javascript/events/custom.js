@@ -1,5 +1,4 @@
 import Core from '../core';
-
 import utils from '../utils';
 
 /**

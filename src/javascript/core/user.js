@@ -1,8 +1,8 @@
-let userID;
-let store;
-
 import utils from '../utils';
 import Store from './store';
+
+let userID;
+let store;
 
 /**
  * Init
@@ -60,7 +60,11 @@ function setUser(id) {
 function destroy() {
 	store.destroy();
 }
-const id = function () { return userID; };
+
+function id() {
+	return userID;
+};
+
 export default {
 	init,
 	setUser,

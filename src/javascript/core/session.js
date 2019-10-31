@@ -1,12 +1,12 @@
+import utils from '../utils';
+import Store from './store';
+
 let store;
 const defaultSessionConfig = {
 	storage: 'best',
 	name: 'session',
 	expires: 30 * 60 * 1000 // 30 minutes
 };
-
-import utils from '../utils';
-import Store from './store';
 
 /**
  * Set the session in the store.

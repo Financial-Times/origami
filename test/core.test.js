@@ -1,7 +1,6 @@
 /*global require, describe, it, before, after, sinon */
 
 const assert = require('assert');
-
 const settings = require("../src/javascript/core/settings");
 const Queue = require("../src/javascript/core/queue");
 const session = require("../src/javascript/core/session");
