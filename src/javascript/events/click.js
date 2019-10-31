@@ -3,6 +3,7 @@ import Queue from '../core/queue';
 import Core from '../core';
 import utils from '../utils';
 import settings from '../core/settings';
+import getTrace from '../../libs/get-trace';
 
 let internalQueue;
 
