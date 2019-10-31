@@ -1,0 +1,370 @@
+/*
+ * NOTE:
+ * This file is used to apply our custom theme to Coral
+ * Talk V5 service.
+ *
+ * The stylesheet is built by the Origami Build Service
+ * and the URL for the CSS file is used in Coral Talk
+ * admin panel as the custom CSS URL.
+ *
+ * This is not a normal use case of Origami styles.
+ */
+
+// sass-lint:disable no-qualifying-elements nesting-depth no-important class-name-format
+@import 'o-buttons/main';
+@import 'o-fonts/main';
+@import 'o-colors/main';
+@import 'o-typography/main';
+
+:root {
+	--font-family-sans-serif: #{inspect($o-typography-sans)};
+	--font-family-serif: #{inspect($o-typography-sans)};
+
+	// make font sizes consistent in various places
+	--rem-base: 16;
+	--font-size-3: 14px;
+	--font-size-4: 14px;
+
+	// primary text color
+	--palette-text-primary: #{inspect(oColorsGetPaletteColor('black-80'))};
+
+
+	// error message (ex: edit time has expired)
+	// background
+	--palette-error-light: #{inspect(oColorsGetPaletteColor('claret-80'))};
+	// border-left
+	--palette-error-darkest: #{inspect(oColorsGetPaletteColor('claret-70'))};
+
+
+	// close stream button
+	--palette-error-main: #{inspect(oColorsGetPaletteColor('claret-70'))};
+
+
+	// apply button in configure tab
+	--palette-success-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+	--palette-success-light: #{inspect(oColorsGetPaletteColor('teal-60'))};
+
+
+	// stream section selected tab item, selected item count badge
+	--palette-primary-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+
+
+	// stream section unselected tab comment count badge
+	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('paper'))};
+
+}
+
+// If you don't like gross code then look away now
+// This is just used as a back up plan for hiding the "not you? sign out" part of coral
+// Coral should be removing this functionality for us but until they do we are using gross css to hide it
+
+.coral-viewerBox > div > div > span:not([class]):first-child,
+.coral-viewerBox-logoutButton {
+	display: none;
+}
+
+body {
+	background: oColorsGetPaletteColor('paper');
+}
+
+// remove divider of the top tab bar
+.coral-tabBar {
+	border-bottom-width: 0;
+}
+
+.coral-tabBarSecondary {
+	border-bottom-color: oColorsGetPaletteColor('teal-50');
+}
+
+
+// community guidelines box
+.coral-guidelines {
+	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsGetPaletteColor('wheat');
+}
+
+.coral-guidelines a {
+	@include oTypographyLink;
+}
+
+
+// top tab bar buttons
+.coral-tabBar-comments,
+.coral-tabBar-myProfile,
+.coral-tabBar-configure	{
+	@include oButtons;
+
+	border-width: 1px;
+
+	// normally, these should come for free with oButtons mixin
+	// but we have to declare this explicitly here because
+	// Coral styles override our styles for some reason
+	&[aria-selected=true],
+	&[aria-pressed=true],
+	&[aria-current] {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		border-top: 1px !important;
+		border-bottom: 1px !important;
+	}
+}
+
+
+// post comment buttons
+.coral-createComment-submit,
+.coral-commentReply-submit,
+.coral-createComment-signIn,
+.coral-createReplyComment-submit,
+.coral-editComment-submit {
+	@include oButtons;
+
+	// normally, these should come for free with oButtons mixin
+	// but we have to declare this explicitly here because
+	// Coral styles override our styles for some reason
+	color: oButtonsGetColor('', 'color', 'primary') !important;
+	background-color: oButtonsGetColor('', 'background', 'primary') !important;
+	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	}
+}
+
+
+// cancel buttons
+.coral-createReplyComment-cancel,
+.coral-editComment-cancel,
+.coral-editComment-close {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'secondary') !important;
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	}
+}
+
+
+// spacing and divider between comments
+.coral-comment {
+	padding-bottom: 6px;
+	padding-top: 10px;
+}
+
+
+// comment author
+.coral-comment-username span,
+.coral-comment-inReplyToUsername {
+	@include oTypographyAuthor;
+	font-size: 14px;
+
+	&:hover {
+		color: oColorsGetPaletteColor('black');
+	}
+}
+
+
+// comment buttons
+.coral-comment-reactButton,
+.coral-comment-reactedButton,
+.coral-comment-replyButton,
+.coral-comment-shareButton,
+.coral-comment-reportButton,
+.coral-featuredComment-reactButton,
+.coral-featuredComment-replies {
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: normal !important;
+
+	&:hover {
+		border-color: transparent !important;
+	}
+
+	span,
+	i {
+		color: oColorsGetPaletteColor('teal-50');
+	}
+}
+
+
+.coral-featuredComment-replies div {
+	color: oColorsGetPaletteColor('teal-50');
+}
+
+
+.coral-comment-replyButton,
+.coral-comment-shareButton {
+	// this is required for selected state
+	border-color: transparent !important;
+	background-color: transparent !important;
+
+	&:hover {
+		border-color: transparent !important;
+	}
+}
+
+
+// report button reported state
+.coral-comment-reportedButton {
+	background-color: oColorsGetPaletteColor('teal-50');
+
+	span,
+	i {
+		color: white;
+	}
+}
+
+
+// share comment - copy button
+.coral-sharePopover-copyButotn, // a spelling mistake on Coral side
+.coral-sharePopover-copyButton {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'primary') !important;
+	background-color: oButtonsGetColor('', 'background', 'primary') !important;
+	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'primary') !important;
+		background-color: oButtonsGetColor('', 'background', 'primary') !important;
+		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	}
+}
+
+
+// xx hours ago
+.coral-myComment-timestamp,
+.coral-myComment-timestamp span,
+.coral-comment-timestamp,
+.coral-comment-timestamp span {
+	@include oTypographyTimestamp;
+	font-size: 12px;
+	margin-bottom: 0;
+	color: oColorsGetPaletteColor('black-80');
+}
+
+
+// "staff" tag
+.coral-comment-userTag {
+	background-color: oColorsGetPaletteColor('claret-70');
+	color: oColorsGetPaletteColor('white');
+}
+
+
+// "featured comment" tag
+.coral-comment-commentTag {
+	background-color: oColorsGetPaletteColor('black') !important;
+	color: oColorsGetPaletteColor('white') !important;
+	border-radius: 0;
+}
+
+
+// comment content blockquote
+.coral-rte-content blockquote,
+.coral-comment-content blockquote,
+.coral-myComment-content blockquote {
+	background-color: oColorsGetPaletteColor('wheat');
+	font-size: 14px !important;
+}
+
+
+// load more buttons
+.coral-allComments-loadMoreButton,
+.coral-featuredComments-loadMoreButton,
+.coral-myComments-loadMoreButton {
+	@include oButtons;
+
+	color: oButtonsGetColor('', 'color', 'secondary') !important;
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+}
+
+
+// featured comments
+.coral-featuredComment {
+	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsGetPaletteColor('wheat');
+}
+
+
+// edit button
+.coral-comment-editButton {
+	@include oButtons;
+
+	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+	}
+}
+
+
+// replying to: <<user name>>
+.coral-createReplyComment-replyToUsername {
+	@include oTypographyAuthor;
+
+	font-size: 14px;
+
+	&:hover {
+		color: oColorsGetColorFor('body', 'text');
+	}
+}
+
+// In reply to <<author>>
+.coral-comment-inReplyToUsername {
+	&:hover {
+		color: oColorsGetPaletteColor('black-50');
+	}
+}
+
+// verify email resend button
+.coral-verifyEmail-resendButton {
+	&:hover {
+		color: oButtonsGetColor('', 'color', 'secondary') !important;
+	}
+}
+
+
+// verify email - message sent
+.coral-verifyEmail-resentMessage {
+	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsGetPaletteColor('wheat');
+}
+
+
+// my comment - view conversation
+// featured comment - go to conversation button
+.coral-myComment-viewConversationButton,
+.coral-myComments-viewConversationButton,
+.coral-myComment-viewConversationButton,
+.coral-myComments-viewConversationButton,
+.coral-featuredComment-goToConversationButton {
+	@include oTypographyLink;
+
+	color: oColorsGetPaletteColor(oColorsGetUseCase(link, text)) !important;
+
+	&:hover {
+		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
+	}
+}
+
+.coral-createComment-message a,
+.coral-createComment-message h1,
+.coral-createComment-message h2,
+.coral-createComment-message h3,
+.coral-createComment-message h4,
+.coral-createComment-message h5,
+.coral-createComment-message h6,
+.coral-configureMessageBox-messageBox a,
+.coral-configureMessageBox-messageBox h1,
+.coral-configureMessageBox-messageBox h2,
+.coral-configureMessageBox-messageBox h3,
+.coral-configureMessageBox-messageBox h4,
+.coral-configureMessageBox-messageBox h5,
+.coral-configureMessageBox-messageBox h6 {
+	color: inherit;
+}

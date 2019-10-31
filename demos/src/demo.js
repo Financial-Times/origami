@@ -1,5 +1,4 @@
-require('../../main');
+/*global require*/
+import Comments from '../../main.js';
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+Comments.init();

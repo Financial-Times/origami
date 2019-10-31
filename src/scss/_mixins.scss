@@ -1,0 +1,61 @@
+/// Output All oComments Features
+@mixin oComments () {
+	.o-comments__staging-message-container {
+		margin-bottom: oSpacingByName('s2');
+		padding: 0;
+	}
+
+	.o-comments__staging-message-content {
+		padding-top: oSpacingByName('s1');
+		padding-bottom: oSpacingByName('s1');
+		background-color: oColorsGetPaletteColor('claret-80');
+	}
+
+	.o-comments__staging-message {
+		color: white;
+		font-weight: bold;
+		padding-left: oSpacingByName('s4');
+	}
+
+	.o-overlay.o-comments__displayname-prompt {
+		background: oColorsGetPaletteColor('paper');
+		padding: 10px;
+		width: 100%;
+		max-width: 400px;
+
+		.o-overlay__title {
+			margin: 5px 10px 10px;
+			line-height: 25px;
+			font-family: MetricWeb;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.o-comments__displayname-form {
+			padding-right: 0px;
+			padding-left: 0px;
+		}
+
+		.o-comments__displayname-container {
+			margin-top: oSpacingByName('s2');
+			display: flex;
+		}
+
+		.o-comments__displayname-input {
+			margin-right: 15px;
+			margin-top: 0;
+		}
+
+		.o-comments__displayname-submit {
+			@include oButtons($theme: primary);
+		}
+	}
+}
+
+/// Provide a component specific error message
+///
+/// @param {String} $message - The message to insert in the error.
+/// @access Private
+@mixin _oComments($message) {
+	@error '*** oComments SCSS error: #{$message} ***';
+};

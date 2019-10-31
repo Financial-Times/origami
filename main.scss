@@ -1,21 +1,16 @@
-
+@import 'o-spacing/main';
+@import 'o-buttons/main';
+@import 'o-spacing/main';
+@import 'o-colors/main';
 @import 'o-fonts/main';
 
-@import './src/stylesheets/variables';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
 
+@if ($o-comments-is-silent == false) {
+	@include oComments;
 
-@if $o-comments-include-fonts == true {
-	// @font-face declarations for all Benton Sans weights
-	@include oFontsInclude(MetricWeb, light);
-	@include oFontsInclude(MetricWeb, regular);
-	@include oFontsInclude(MetricWeb, bold);
-}
-
-
-@import 'o-colors/main';
-@import 'o-assets/main';
-
-$o-comment-ui-font-family: $o-comments-font-family !default;
-@import 'o-comment-ui/main';
-
-@import './src/stylesheets/livefyre_widget_overrides';
+	// Set to silent again to avoid being output twice
+	$o-comments-is-silent: true !global;
+};
