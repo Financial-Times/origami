@@ -1,5 +1,5 @@
 /*global describe, it, before, beforeEach, after, sinon */
-import '../setup';;
+import '../setup';
 import assert from 'assert';
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';

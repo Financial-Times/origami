@@ -1,5 +1,5 @@
 /*global describe, it, before, after, sinon */
-import '../setup';;
+import '../setup';
 import assert from 'assert';
 import Queue from '../../src/javascript/core/queue';
 import settings from '../../src/javascript/core/settings';
