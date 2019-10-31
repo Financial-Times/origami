@@ -181,6 +181,7 @@ Include all styles for o-comments with the mixin `oComments`:
 
 ```scss
 @include oComments()
+```
 
 ### Styling of Coral Talk iframe
 
