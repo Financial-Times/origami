@@ -1,7 +1,6 @@
 /*global require, describe, it, beforeEach, afterEach */
 
 const assert = require('assert');
-
 const Store = require('../../src/javascript/core/store');
 const Session = require('../../src/javascript/core/session');
 

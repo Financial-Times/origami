@@ -1,7 +1,6 @@
 /*global require, describe, it, sinon */
 
 const assert = require('assert');
-
 const Utils = require('../src/javascript/utils');
 
 describe('Utils', function () {

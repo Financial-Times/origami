@@ -63,7 +63,7 @@ function destroy() {
 
 function id() {
 	return userID;
-};
+}
 
 export default {
 	init,

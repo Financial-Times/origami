@@ -1,7 +1,6 @@
 /*global require, describe, it, afterEach */
 
 const assert = require('assert');
-
 const User = require('../../src/javascript/core/user');
 
 describe('Core.User', function () {

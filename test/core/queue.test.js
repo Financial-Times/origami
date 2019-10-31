@@ -1,7 +1,6 @@
 /*global require, describe, it */
 
 const assert = require('assert');
-
 const Queue = require('../../src/javascript/core/queue');
 const queue_name = 'queue_test';
 

@@ -4,10 +4,10 @@ const assert = require("assert");
 const settings = require("../src/javascript/core/settings");
 const Queue = require("../src/javascript/core/queue");
 const Send = require("../src/javascript/core/send");
-const oTracking = require("../main.js");
 
 describe('main', function () {
 
+	const oTracking = require("../main.js");
 	let root_id;
 
 	before(function () {

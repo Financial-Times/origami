@@ -1,7 +1,6 @@
 /*global require, describe, it, after, sinon, before */
 
 const assert = require('assert');
-
 const Send = require('../../src/javascript/core/send');
 const Queue = require("../../src/javascript/core/queue");
 const request = {

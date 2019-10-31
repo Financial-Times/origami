@@ -5,10 +5,10 @@ const Queue = require("../../src/javascript/core/queue");
 const settings = require("../../src/javascript/core/settings");
 const send = require("../../src/javascript/core/send");
 const session = require("../../src/javascript/core/session");
-const track_event = require("../../src/javascript/events/custom.js");
 
 describe('event', function () {
 
+	const track_event = require("../../src/javascript/events/custom.js");
 
 	before(function () {
 		session.init();

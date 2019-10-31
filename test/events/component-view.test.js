@@ -1,6 +1,6 @@
 /*global require, describe, it, before, after, sinon, document */
 require('../setup');
-const assert = require("assert");
+const assert = require('assert');
 const settings = require('../../src/javascript/core/settings');
 const send = require('../../src/javascript/core/send');
 const core = require('../../src/javascript/core');
