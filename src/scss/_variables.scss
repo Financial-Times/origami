@@ -14,6 +14,10 @@ $o-typography-relative-units: false !default;
 /// @type Bool
 $o-typography-load-fonts: true !default;
 
+/// When true, progressive font fallbacks are output.
+/// @type Bool
+$o-typography-progressive-font-loading: true !default;
+
 /// Unitless size representing the baseline grid
 /// @type Number
 $o-typography-baseline-unit: 4;

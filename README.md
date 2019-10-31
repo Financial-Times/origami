@@ -67,9 +67,9 @@ See the [demos](http://registry.origami.ft.com/components/o-typography) for a fu
 
 ### Progressive Loading Web Fonts
 
-One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to use a system fallback font initially. Then, once the web font has loaded, remove a class from the html element used to display the fallback font.
+One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). The [font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) property may be used within font faces to show a system font fallback initially. Then either swap immediately when the font has loaded or on the next page load.
 
-The CSS would look a little like this:
+However `font-display` is not supported by Internet Explorer or mobile Safari 10, so `o-typography` provides a custom implementation which works by removing a class from the html element used to display the fallback font. Using this approach we're able to support older browsers and adjust the size of the fallback font so it looks more similar to our custom font. The CSS would look a little like this:
 
 ```css
 p {
@@ -84,7 +84,21 @@ p {
 }
 ```
 
-Include both the CSS and JavaScript for o-typography in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
+#### Disable Progressive Loading
+
+If you do not want to use `o-typography` progressive font loading set `$o-typography-progressive-font-loading: false;` at the top of your project before importing components:
+
+```scss
+// configure o-typography to not include progressive font fallback css
+$o-typography-progressive-font-loading:: false;
+// import dependencies
+@import 'o-typography/main';
+@import 'o-fonts/main';
+```
+
+#### Setup Progressive Loading
+
+To setup `o-typography` progressive font loading include both its CSS and JavaScript in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
 
 ```html
 <html class="o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold">

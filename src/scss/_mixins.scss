@@ -35,7 +35,7 @@
 	$weight: null,
 	$style: null,
 	$include-font-family: true,
-	$include-progressive: true
+	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
 		$o-typography-serif,
@@ -85,7 +85,7 @@
 	$weight: null,
 	$style: null,
 	$include-font-family: true,
-	$include-progressive: true
+	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
 		$o-typography-display,
@@ -136,7 +136,7 @@
 	$weight: null,
 	$style: null,
 	$include-font-family: true,
-	$include-progressive: true
+	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
 		$o-typography-sans,
@@ -299,6 +299,13 @@
 /// @param {String} $style [null] - The style of the font which needs a fallback e.g. 'italic'.
 /// @param {Boolean} $include-font-family [true] - Whether to output the font family of the fallback font (vs. just the size)
 @mixin _oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null, $include-font-family: true) {
+	@if not $o-typography-progressive-font-loading {
+		@error 'Progressive font fallbacks are disabled.' +
+			'If you are sure you want to output progressive font fallbacks in ' +
+			'your project set `$o-typography-progressive-font-loading: true;` ' +
+			'at the top of your project, before importing Sass files. ' +
+			'See the README for details and more options or contact the Origami team.';
+	}
 	@if $scale {
 		// If falsy weight/style default to regular/normal.
 		$weight: if($weight, $weight, 'regular');
