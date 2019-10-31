@@ -106,14 +106,14 @@ Add `useStagingEnvironment: true` to the options if you want to use Coral stagin
 If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 
 ```js
-const oComments = require('o-comments');
+import oComments from 'o-comments';
 oComments.init();
 ```
 
 ### Firing an oDomContentLoaded event
 
 ```js
-require('o-comments');
+import 'o-comments';
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
@@ -156,7 +156,7 @@ If you want to disable the o-tracking events and manage tracking / analytics you
 
 **Imperatively**
 ```js
-const oComments = require('o-comments');
+import oComments from 'o-comments';
 const commentsElement = document.querySelector('#element');
 const comments = new Comments(commentsElement, {
 	disableOTracking: true
