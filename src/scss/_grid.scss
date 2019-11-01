@@ -40,23 +40,18 @@
 /// Layout Bleed
 /// @access private
 @mixin _oLayoutBleed() {
-	html,
-	body {
-		margin: 0;
-	}
-
 	.o-layout--bleed {
 		max-width: none;
 		// Undo base padding
 		padding: 0;
-	}
 
-	.o-layout__footer,
-	.o-layout__header {
-		// Undo base positioning
-		position: relative;
-		width: 100%;
-		left: auto;
+		.o-layout__footer,
+		.o-layout__header {
+			// Undo base positioning
+			position: relative;
+			width: 100%;
+			left: auto;
+		}
 	}
 }
 
