@@ -522,7 +522,7 @@ You can include o-layout styles with the `oLayout` mixin.
 
 As `o-layout` only supports the internal brand, your project must also set its brand to internal `$o-brand: 'internal';`.
 
-```sass
+```scss
 $o-brand: 'internal';
 @import 'o-layout/main';
 
@@ -535,24 +535,25 @@ If your project does not use all layouts or other features provided by `o-layout
 - documentation
 - landing
 - query
+- bleed
 
 **Feature Options**
 - sidebar-nav (enables the [generated sidebar navigation](#custom-navigation) for the query layout. _Styles for the sidebar navigation are included by default with the documentation layout._)
 - linked-headings (enables clickable / highlighted anchors on the page)
 - typography (enables body typography applied with the class `o-layout-typography`)
 
-```sass
+```scss
 @mixin oLayout($opts: (
-	'layouts': ('documentation', 'landing', 'query'),
+	'layouts': ('documentation', 'landing', 'query', 'bleed'),
 	'features': ('sidebar-nav', 'linked-headings', 'typography')
 ));
 ```
 
 The landing layout supports an extra option, which sets a background image on the hero area:
 
-```sass
+```scss
 @mixin oLayout($opts: (
-	'layouts': ('documentation', 'landing', 'query'),
+	'layouts': ('documentation', 'landing', 'query', 'bleed'),
 	'features': ('linked-headings', 'typography'),
 	'hero-image': 'https://example.com/image.png',
 ));
