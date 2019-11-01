@@ -7,7 +7,7 @@ _Use `o-fonts` to include Origami provided fonts, or register supported custom f
 - [Fonts Included By Default](#fonts-included-by-default)
 - [Sass](#sass)
 - [Contributing](#contributing)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -141,6 +141,15 @@ $o-fonts-families: (
 2. Second, if adding an entirely new font, indicate brand support by adding the font name to `$_o-fonts-default-families`. This will determine when the [font is included by default](#fonts-included-by-default).
 
 3. Finally, update the demos (see `origami.json`).
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+⚠ maintained | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.3 | - |
+╳ deprecated | 1 | 1.5 | - |
 
 ---
 
