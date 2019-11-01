@@ -18,7 +18,7 @@ const data: THeaderProps = {
   userIsLoggedIn: true,
   showSubNavigation: true,
   showUserNavigation: false,
-  disableSticky: true,
+  showStickyHeader: true,
   data: {
     account: null,
     anon,
