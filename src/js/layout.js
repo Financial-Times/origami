@@ -144,7 +144,7 @@ class Layout {
 				return;
 			}
 			window.requestAnimationFrame(() => {
-				const currentHeadingBuffer = window.innerHeight * 0.166; // 1/6th of the viewport
+				const currentHeadingBuffer = window.innerHeight * 0.333; // 1/3th of the viewport
 				const headingsScrolledPast = this.navHeadings.filter(
 					heading => heading.getBoundingClientRect().y <= currentHeadingBuffer
 				);
