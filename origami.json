@@ -58,6 +58,16 @@
 			},
 			"template": "demos/src/base-layout.mustache",
 			"hidden": true
+		},
+		{
+			"title": "Bleed Layout",
+			"name": "bleed-layout",
+			"data": {
+				"tagline": "Bleed Layout",
+				"bleed": true
+			},
+			"template": "demos/src/bleed-layout.mustache",
+			"hidden": true
 		}
 	]
 }

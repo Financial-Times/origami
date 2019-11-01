@@ -11,9 +11,9 @@
 @import 'src/scss/grid';
 @import 'src/scss/grid-areas';
 
-/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query'), "features" ('linked-headings', 'typography'), and  "hero-image" (an image for the background of the "hero" area).
+/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query', 'bleed'), "features" ('linked-headings', 'typography'), and  "hero-image" (an image for the background of the "hero" area).
 @mixin oLayout($opts: (
-	'layouts': ('documentation', 'landing', 'query'),
+	'layouts': ('documentation', 'landing', 'query', 'bleed'),
 	'features': ('sidebar-nav', 'linked-headings', 'typography'),
 	'hero-image': '',
 )) {
@@ -30,6 +30,7 @@
 	$linked-headings: index($features, 'linked-headings');
 	$typography: index($features, 'typography');
 	$nav: index($features, 'sidebar-nav');
+	$bleed-layout: index($layouts, 'bleed');
 	$docs-layout: index($layouts, 'documentation');
 	$landing-layout: index($layouts, 'landing');
 	$query-layout: index($layouts, 'query');
@@ -62,6 +63,10 @@
 	}
 
 	// 	Layouts.
+	@if($bleed-layout) {
+		@include _oLayoutBleed();
+	}
+
 	@if($docs-layout) {
 		@include _oLayoutDocsGrid();
 		// Documentation page areas.

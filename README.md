@@ -19,6 +19,8 @@ o-layout [![Circle CI](https://circleci.com/gh/Financial-Times/o-layout/tree/mas
 
 `o-layout` provides page layouts and typography as a starting point to create internal tools or products. Layouts provided include:
 
+- An empty layout with contained content well (default).
+- An empty layout with full-width "bleed" content.
 - A documentation/blog page layout.
 - A landing/homepage layout.
 - A search/query page layout.
@@ -26,6 +28,84 @@ o-layout [![Circle CI](https://circleci.com/gh/Financial-Times/o-layout/tree/mas
 Typography is styled automatically using the `o-layout-typography` class. This will style headings, paragraphs, lists, anchor tags, etc. To opt-out of typography styling for specific elements apply the `.o-layout__unstyled-element`.
 
 You can share a direct link to a content section by clicking on its header. This will generate a new url in the browser that you can copy.
+
+## Default And Bleed Layout
+
+The default layout is intended for flexible use when another layout isn't suitable. We recommend using the [documentation](#documentation-layout), [landing](#landing-layout), or [query](#query-layout) layout where possible.
+
+The default layout has a single content area "Main Content"
+
+```
+┌————————————————————————————┐
+|           HEADER           |
+├————————————————————————————┤
+|        MAIN CONTENT        |
+|                            |
+|                            |
+|                            |
+├————————————————————————————┤
+|           FOOTER           |
+└————————————————————————————┘
+```
+
+```html
+<div class="o-layout" data-o-component="o-layout">
+	<div class="o-layout__header">
+	    <!-- Your header & navigation here. -->
+	</div>
+	<div class="o-layout__main o-layout-typography">
+		<!-- Your page content here. -->
+	</div>
+	<footer class="o-layout__footer">
+		<!-- Your footer & navigation here. -->
+	</footer>
+</div>
+```
+
+The content area has a max width by default. To make the content area full width use the bleed layout. To use the bleed layout add a modifier class `o-layout--bleed`. Do not use the bleed layout with any other layout. _Note: If you are using [o-header-services](https://registry.origami.ft.com/components/o-header-services) as your header set it to bleed also._
+
+```diff
+-<div class="o-layout" data-o-component="o-layout">
++<div class="o-layout o-layout--bleed" data-o-component="o-layout">
+</div>
+```
+
+## Documentation Layout
+
+The documentation layout is intended for text-heavy pages, such as technical documentation or blog posts. The documentation layout includes the following areas (in addition to a heading and footer):
+
+- Main Content
+- Sidebar _(optional)_
+
+```
+┌————————————————————————————┐
+|           HEADER           |
+├————————————————————————————┤
+| SIDE  |    MAIN CONTENT    |
+| BAR   |                    |
+|       |                    |
+|       |                    |
+├————————————————————————————┤
+|           FOOTER           |
+└————————————————————————————┘
+```
+
+```html
+<div class="o-layout o-layout--docs" data-o-component="o-layout">
+	<div class="o-layout__header">
+	    <!-- Your header & navigation here. -->
+	</div>
+	<div class="o-layout__sidebar o-layout-typography">
+		<!-- Your sidebar here (optional). -->
+	</div>
+	<div class="o-layout__main o-layout-typography">
+		<!-- Your page content here. -->
+	</div>
+	<footer class="o-layout__footer">
+		<!-- Your footer & navigation here. -->
+	</footer>
+</div>
+```
 
 ## Documentation Layout
 
