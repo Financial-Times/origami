@@ -488,14 +488,22 @@
                 text-decoration: none;
                 cursor: pointer;
                 border-bottom: 2px solid;
+                @supports (text-decoration-thickness: 2px) {
+                    border-bottom: 0;
+                    text-decoration-thickness: 2px; //sass-lint:disable-line no-misspelled-properties
+                    text-decoration-line: underline;
+                }
                 color: #0d7680;
                 border-bottom-color: #cfd8d1;
+                text-decoration-color: #cfd8d1;
                 &:hover {
                     color: #08474d;
                     border-bottom-color: #9ec0bd;
+                    text-decoration-color: #9ec0bd;
                 }
                 &:focus {
                     border-bottom-color: transparent;
+                    text-decoration-color: transparent;
                     color: #08474d;
                 }
             }
@@ -512,9 +520,11 @@
             @include expect {
                 color: #990f3d;
                 border-bottom-color: #ebc4c3;
+                text-decoration-color: #ebc4c3;
                 &:hover {
                     color: #4d081f;
                     border-bottom-color: #d697a2;
+                    text-decoration-color: #d697a2;
                 }
                 &:focus {
                     color: #4d081f;

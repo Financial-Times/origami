@@ -180,26 +180,38 @@
 		text-decoration: none;
 		cursor: pointer;
 		border-bottom: 2px solid;
+
+		@supports (text-decoration-thickness: 2px) {
+			border-bottom: 0;
+			text-decoration-thickness: 2px; //sass-lint:disable-line no-misspelled-properties
+			text-decoration-line: underline;
+		}
 	}
 
 	// Output base styles shared by all links, or
 	// required for a custom link theme.
 	@if($include-base-styles or $theme) {
 		color: $base-color;
-		border-bottom-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 20), null);
+		$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 20), null);
+		border-bottom-color: $decoration-color;
+		text-decoration-color: $decoration-color;
 	}
 
 	&:hover {
 		@if($include-base-styles or $theme) {
 			color: $hover-color;
-			border-bottom-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 40), null);
+			$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 40), null);
+			border-bottom-color: $decoration-color;
+			text-decoration-color: $decoration-color;
 		}
 	}
 
 	// o-normalise provides extra focus styles for links
 	&:focus {
 		@if($include-base-styles) {
-			border-bottom-color: transparent;
+			$decoration-color: transparent;
+			border-bottom-color: $decoration-color;
+			text-decoration-color: $decoration-color;
 		}
 		@if($include-base-styles or $theme) {
 			color: $hover-color;
