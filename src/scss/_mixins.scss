@@ -7,10 +7,12 @@
 
 /// Output a Font-face declaration for a given font family which is provided by Origami.
 ///
-/// @param {String} $family - one of $o-fonts-families
+/// @param {String} $family - one of $_o-fonts-families
 /// @param {String} $weight [regular] - one of $_o-fonts-weights
 /// @param {String} $style [normal]
-@mixin oFontsInclude($family, $weight: regular, $style: normal) {
+/// @param {String|Null} $display - the font-display property for this font face, defaults to $o-fonts-display
+/// @access private
+@mixin _oFontsInclude($family, $weight: regular, $style: normal, $display: $o-fonts-display) {
 	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
 		@error "#{$family} has been removed, no font will be included.";
 	}
@@ -20,8 +22,8 @@
 	}
 
 	// Check the font is an Origami font, not a custom font.
-	@if map-has-key($o-fonts-families, $family) {
-		$font-family-config: map-get($o-fonts-families, $family);
+	@if map-has-key($_o-fonts-families, $family) {
+		$font-family-config: map-get($_o-fonts-families, $family);
 		@if map-get($font-family-config, 'custom') {
 			@error 'Can not include a custom font "#{$family}". Include your custom font manually.';
 		}
@@ -33,8 +35,8 @@
 	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
 
 	@if $font-is-already-included == false {
-		@if map-has-key($o-fonts-families, $family) == false {
-			@warn 'Font #{$family} not found. Must be one of $o-fonts-families.';
+		@if map-has-key($_o-fonts-families, $family) == false {
+			@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
 		} @else {
 			@if (oFontsVariantExists($family, $weight, $style)) {
 				$font-exists: true;
@@ -65,22 +67,11 @@
 				font-family: $family;
 				font-weight: oFontsWeight($weight);
 				font-style: $style;
+				font-display: $display;
 			}
 
 			// Add to the list of already included families / variants
 			$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}-#{$weight}-#{$style}: true)) !global;
-		}
-	}
-}
-
-/// Output all Font-face declarations which are provided by Origami.
-/// @deprecated Use oFonts instead.
-@mixin oFontsIncludeAll {
-	@each $family, $properties in $o-fonts-families {
-		@if not map-get($properties, 'custom') {
-			@each $variant in map-get($properties, variants) {
-				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
-			}
 		}
 	}
 }
@@ -123,10 +114,10 @@
 		}
 	}
 	$font-key: oFontsGetFontFamilyWithoutFallbacks($font-family);
-	$o-fonts-families: map-merge(($font-key: (
+	$_o-fonts-families: map-merge(($font-key: (
 		'font-family': $font-family,
 		'variants': $variants,
 		'custom': true
-	)), $o-fonts-families) !global;
+	)), $_o-fonts-families) !global;
 	@content; // Output a custom Font-face declaration.
 }

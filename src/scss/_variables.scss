@@ -8,45 +8,70 @@ $o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-asse
 /// @type Bool
 $o-fonts-is-silent: true !default;
 
-/// The font families to include by default, which may vary per brand.
+/// The default `font-display` property of included font faces.
+/// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
+///
+/// @type String|Null
+$o-fonts-display: 'swap' !default;
+
+/// A list of all weight and style variants of the MetricWeb font.
+/// @type List
+/// @access private
+$_o-fonts-all-metric-variants: (
+	(weight: thin, style: normal),
+	(weight: light, style: normal),
+	(weight: light, style: italic),
+	(weight: regular, style: normal),
+	(weight: regular, style: italic),
+	(weight: medium, style: normal),
+	(weight: semibold, style: normal),
+	(weight: bold, style: normal),
+	(weight: bold, style: italic),
+);
+
+/// A list of all weight and style variants of the FinancierDisplayWeb font.
+/// @type List
+/// @access private
+$_o-fonts-all-financier-display-variants: (
+	(weight: light, style: italic),
+	(weight: regular, style: normal),
+	(weight: medium, style: italic),
+	(weight: semibold, style: italic),
+	(weight: bold, style: normal)
+);
+
+/// The MetricWeb variants to include by default, which vary per brand.
 /// @see oFonts
 /// @access private
-$_o-fonts-default-families: ();
+$_o-fonts-default-metric-variants: ();
+
+/// The FinancierDisplayWeb font variants to include by default, which vary per brand.
+/// @see oFonts
+/// @access private
+$_o-fonts-default-financier-display-variants: ();
+
 @if oBrandGetCurrentBrand() == 'master' {
-	$_o-fonts-default-families: ('MetricWeb', 'FinancierDisplayWeb')!global;
+	$_o-fonts-default-metric-variants: $_o-fonts-all-metric-variants !global;
+	$_o-fonts-default-financier-display-variants: $_o-fonts-all-financier-display-variants !global;
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-	$_o-fonts-default-families: ('MetricWeb')!global;
+	$_o-fonts-default-metric-variants: $_o-fonts-all-metric-variants !global;
+	$_o-fonts-default-financier-display-variants: () !global;
 }
 
 /// All available font families.
 ///
 /// @type Map
-$o-fonts-families: (
+/// @access private
+$_o-fonts-families: (
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',
-		variants: (
-			(weight: thin, style: normal),
-			(weight: light, style: normal),
-			(weight: light, style: italic),
-			(weight: regular, style: normal),
-			(weight: regular, style: italic),
-			(weight: medium, style: normal),
-			(weight: semibold, style: normal),
-			(weight: bold, style: normal),
-			(weight: bold, style: italic),
-		)
+		variants: $_o-fonts-all-metric-variants
 	),
 	FinancierDisplayWeb: (
 		font-family: 'FinancierDisplayWeb, serif',
-		variants: (
-			(weight: light, style: italic),
-			(weight: regular, style: normal),
-			(weight: medium, style: italic),
-			(weight: semibold, style: italic),
-			(weight: bold, style: normal)
-		)
+		variants: $_o-fonts-all-financier-display-variants
 	),
 ) !default;
 

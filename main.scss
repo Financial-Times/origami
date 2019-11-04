@@ -4,14 +4,53 @@
 @import "src/scss/functions";
 @import "src/scss/mixins";
 
-/// Output all default Font-face declarations for the current brand.
-@mixin oFonts {
-	@each $family in $_o-fonts-default-families {
-		$properties: map-get($o-fonts-families, $family);
-		@if not map-get($properties, 'custom') {
-			@each $variant in map-get($properties, variants) {
-				@include oFontsInclude($family, map-get($variant, weight), map-get($variant, style));
+/// Output all default font-face declarations for the current brand.
+///
+/// @example Include all fonts for the current brand (master, internal, whitelabel).
+///     @include oFonts();
+///
+/// @example Include only regular and semibold MetricWeb font faces.
+///     @include oFonts($opts: ('metric': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular and bold FinancierDisplayWeb font faces.
+///     @include oFonts($opts: ('financier-display': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular font faces for MetricWeb and FinancierDisplayWeb.
+///     @include oFonts($opts: (
+///     	'metric': ((weight: regular, style: normal)),
+///     	'financier-display': ((weight: regular, style: normal))
+///     ));
+@mixin oFonts($opts: (
+	'metric': $_o-fonts-default-metric-variants,
+	'financier-display': $_o-fonts-default-financier-display-variants
+)) {
+	// Map of options to font name.
+	$fonts: (
+		'metric': 'MetricWeb',
+		'financier-display': 'FinancierDisplayWeb'
+	);
+	// Include each font variant given.
+	@each $option, $family in $fonts {
+		$variants: map-get($opts, $option);
+		$variants: if($variants, $variants, ());
+		@each $variant in $variants {
+			// Validate that the variant style and weight is given.
+			$weight: map-get($variant, 'weight');
+			$style: map-get($variant, 'style');
+			@if(type-of($weight) != 'string') {
+				@error 'Could not include the "#{$family}" font with weight "#{inspect($weight)}". Excepted a string.';
 			}
+			@if(type-of($style) != 'string') {
+				@error 'Could not include the "#{$family}" font with style "#{inspect($style)}". Excepted a string.';
+			}
+			// Include the font face for this variant.
+			@include _oFontsInclude($family, $weight, $style);
 		}
 	}
 }
