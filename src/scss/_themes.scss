@@ -1,5 +1,5 @@
 /// Styles for the dark theme
-@mixin oFooterThemeDark() {
+@mixin _oFooterThemeDark() {
 	.o-footer--theme-dark {
 		@include oColorsFor('o-footer-dark', 'text' 'background');
 
@@ -28,7 +28,7 @@
 		}
 
 		.o-footer__external-link a:after {
-			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
+			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
 		}
 
 		.o-footer__copyright {
@@ -43,7 +43,7 @@
 }
 
 /// Styles for the light theme
-@mixin oFooterThemeLight() {
+@mixin _oFooterThemeLight() {
 	.o-footer--theme-light {
 		@include oColorsFor('o-footer-light', 'text' 'background');
 
@@ -78,7 +78,7 @@
 			@include oColorsFor('o-footer-light', 'text');
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $icon-size, $apply-base-styles: false, $iconset-version: 1);
+				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
 			}
 		}
 	}

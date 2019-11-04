@@ -11,12 +11,12 @@ $o-footer-image-service-version: "v2" !default;
 
 /// Footer spacing unit
 /// @type Number
-$o-footer-spacing-unit: oSpacingByIncrement(5);
+$_o-footer-spacing-unit: oSpacingByIncrement(5);
 
 /// Footer matrix
 /// The o-grid column sizes for groups and inner columns
 /// @type Map
-$o-footer-matrix: (
+$_o-footer-matrix: (
 	1: (
 		group: (default: 6, M: 3, L: 2),
 		columns: (default: 12)
@@ -35,4 +35,4 @@ $o-footer-matrix: (
 	)
 );
 
-$icon-size: 20;
+$_o-footer-icon-size: 20;

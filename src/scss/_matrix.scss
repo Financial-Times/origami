@@ -10,7 +10,7 @@
 		@include oGridColspan();
 	}
 
-	@each $key, $value in $o-footer-matrix {
+	@each $key, $value in $_o-footer-matrix {
 		.o-footer__matrix-group--#{$key} {
 			@include oGridColspan(map-get($value, 'group'), $width-only: true);
 
@@ -34,7 +34,7 @@
 		font-weight: 600;
 
 		&[aria-expanded] {
-			$line-size: $o-footer-spacing-unit * 2;
+			$line-size: $_o-footer-spacing-unit * 2;
 
 			position: relative;
 			border-top: 1px solid;
@@ -45,14 +45,14 @@
 				content: ' ';
 				position: absolute;
 				right: 0;
-				top: ($line-size - $icon-size) / 2;
+				top: ($line-size - $_o-footer-icon-size) / 2;
 
 				.o-footer--theme-dark & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $icon-size, $iconset-version: 1);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $_o-footer-icon-size, $iconset-version: 1);
 				}
 
 				.o-footer--theme-light & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $icon-size, $iconset-version: 1);
+					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $_o-footer-icon-size, $iconset-version: 1);
 				}
 			}
 		}

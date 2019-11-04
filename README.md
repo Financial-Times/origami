@@ -2,54 +2,163 @@
 
 FT page footer component
 
-- [Usage](#usage)
-	- [Data](#data)
-	- [Markup](#markup)
-	- [Styles](#sass)
-	- [JavaScript](#javascript)
-- [Migration guide](#migration-guide)
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
-## Usage
-### Data
+## Markup
 
-For convenience a JSON file with footer links has been provided (`footer.js`).
+The basic structure of a simple footer has a theme and includes legal links, a copyright notice, and a logo:
 
-### Markup
-
-There are full HTML examples in demos/src which you can copy and paste into your project to get started.
-
-### Styles
-
-If you're using the Build Service, there's not much to do except make sure the classes in your markup match up with those in the demos.
-
-If you're not using the build service then you'll need to be aware of silent mode. As with all Origami components, o-footer has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-footer-is-silent : false;` in your Sass before you import the o-footer Sass.
-
-```sass
-$o-footer-is-silent: false;
-
-// Output standard o-footer with dark theme and navigation matrix styles
-@include oFooter;
-
-// Output the footer with the light theme
-@include oFooter($theme: 'light');
-
-// Output the simple footer, with the dark theme.
-// Use the method above for a light themed simple footer
-@include oFooter($simple: true);
-
-// Output o-footer without the standard top margin.
-@include oFooter($margin: false);
+```html
+<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
+	<div class="o-footer__container">
+		<div>
+			<ul class="o-footer__legal-links">
+				<li><a href="#"><!-- legal link 1--></a></li>
+				<li><a href="#"><!-- legal link 2--></a></li>
+				<li><a href="#"><!-- legal link 3--></a></li>
+			</ul>
+		</div>
+		<div class="o-footer__copyright" role="contentinfo">
+			<small>
+				<!-- copyright notice -->
+			</small>
+		</div>
+	</div>
+	<div class="o-footer__brand">
+		<div class="o-footer__container">
+			<div class="o-footer__brand-logo"></div>
+		</div>
+	</div>
+</footer>
 ```
 
-### JavaScript
+### Themes
+
+Themes include `o-footer--theme-dark` and `o-footer--theme-light`:
+
+```diff
+-<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
++<footer class="o-footer o-footer--theme-light" data-o-component="o-footer" data-o-footer--no-js="">
+	<!-- ... -->
+</footer>
+```
+
+### Link Matrix
+
+A more complex footer with a matrix of links is also supported. Add a row `o-footer__row` with `o-footer__matrix`. Links within the matrix are grouped by `o-footer__matrix-group`. Each group has a title `o-footer__matrix-title` and an element to contain the links `o-footer__matrix-content`. To display the links in columns within the group they are also wrapped in `o-footer__matrix-column`.
+
+The width of the columns and the way they collapse on smaller viewports may be controlled by adding a modifier class to each group `o-footer__matrix-group--[NUMBER]`. Where `NUMBER` is the number of columns in a row on desktop (1, 2, 4, or 6).
+
+```html
+<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
+	<div class="o-footer__container">
+
+		<div class="o-footer__row">
+			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
+				<div class="o-footer__matrix-group o-footer__matrix-group--1">
+					<h6 class="o-footer__matrix-title">
+						<!-- link group title -->
+					</h6>
+					<div class="o-footer__matrix-content" id="o-footer-section-0">
+						<div class="o-footer__matrix-column">
+								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
+								<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="o-footer__matrix-group o-footer__matrix-group--1">
+					<h6 class="o-footer__matrix-title">
+						<!-- link group title -->
+					</h6>
+					<div class="o-footer__matrix-content" id="o-footer-section-1">
+						<div class="o-footer__matrix-column">
+							<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
+							<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="o-footer__matrix-group o-footer__matrix-group--2">
+					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
+						Services
+					</h6>
+					<div class="o-footer__matrix-content" id="o-footer-section-2">
+							<div class="o-footer__matrix-column">
+								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
+								<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+							</div>
+							<div class="o-footer__matrix-column">
+								<a class="o-footer__matrix-link" href="#"><!-- link 3 --></a>
+								<a class="o-footer__matrix-link" href="#"><!-- link 4 --></a>
+							</div>
+					</div>
+				</div>
+			</nav>
+
+			<h6 class="o-footer__external-link o-footer__matrix-title">
+				<a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
+			</h6>
+		</div>
+
+		<div class="o-footer__copyright" role="contentinfo">
+			<small>
+				<!-- copyright notice -->
+			</small>
+		</div>
+	</div>
+	<div class="o-footer__brand">
+		<div class="o-footer__container">
+			<div class="o-footer__brand-logo"></div>
+		</div>
+	</div>
+</footer>
+```
+
+See [demos in the registry for full markup examples](https://registry.origami.ft.com/components/o-footer).
+
+## Sass
+
+To include all o-footer css call the `oFooter` mixin. However, to keep your CSS bundle size low, we recommend using the `$opts` argument to include only the features you need.
+
+```scss
+@import 'o-footer/main';
+@include oFooter();
+```
+
+To output just the footer styles you need pass an options `$opts` map. The map accepts:
+
+- `themes`: A list of themes to include. Available themes are `light` and `dark`.
+- `martix`: Whether to output styles for a complex navigation structure (not required for a simple footer).
+- `margin`: A [length](https://developer.mozilla.org/en-US/docs/Web/CSS/length) to set a custom top margin for o-footer.
+
+E.g. include only the dark theme for a simple footer of legal links:
+```scss
+@include oFooter($opts: (
+	'themes': ('dark')
+));
+```
+
+E.g. include only the dark theme for a complex footer with a matrix of site links:
+```scss
+@include oFooter($opts: (
+	'themes': ('dark'),
+	'martix': true
+));
+```
+
+## JavaScript
 
 Unless you're using the Build Service no JS will run automatically.
 You must either construct an `o-footer` object or fire the `o.DOMContentLoaded` event, which oFooter listens for.
 
-#### Constructing an o-footer
+### Constructing an o-footer
 
 ```js
 const oFooter = require('o-footer');
@@ -57,7 +166,7 @@ const oFooter = require('o-footer');
 const ofooter = new oFooter();
 ```
 
-#### Firing an oDomContentLoaded event
+### Firing an oDomContentLoaded event
 
 ```js
 document.addEventListener('DOMContentLoaded', function() {
@@ -65,32 +174,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-## Migration guide
+## Migration
 
-### Upgrading from 5.x.x to 6.x.x
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.1 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.4 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.1 | - |
+╳ deprecated | 3 | 3.2 | - |
+╳ deprecated | 2 | 2.0 | - |
+╳ deprecated | 1 | 1.16 | - |
 
-V5 -> V6 introduces the new majors of o-colors and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors and o-typography. There are no other breaking changes in this release.
-
-### Upgrading from 4.x.x to 5.x.x
-Version 5 has significant markup changes compared to version 4. If you want to upgrade, the best option is to look at the demos: [footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/footer.mustache) and [simple footer](https://github.com/Financial-Times/o-footer/blob/master/demos/src/simple-footer.mustache).
-If you don't want to upgrade, some superficial visual changes have been back-ported to a minor version on 4.x.x.
-
-
-### Upgrading from 3.x.x to 4.x.x
-
-
-Note that o-footer v4 relies on o-grid v4.
-
-#### Markup changes
-
-```diff
- <nav class="o-footer__row o-footer__nav">
- 	<div class="o-footer__col o-footer__col--full-width">
- 		…
-+ 		<div class="o-footer__divider"></div>
- 	</div>
- </nav>
-```
 
 ---
 
