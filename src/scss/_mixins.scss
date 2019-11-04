@@ -45,9 +45,6 @@
 }
 
 @mixin oTeaserElementsDefault {
-	.o-teaser__meta {
-		@include oTeaserMeta;
-	}
 
 	.o-teaser__tag-prefix {
 		@include oTeaserTagPrefix;
@@ -55,6 +52,10 @@
 
 	.o-teaser__tag {
 		@include oTeaserTag;
+	}
+
+	.o-teaser__meta {
+		@include oTeaserMeta;
 	}
 
 	.o-teaser__tag-suffix {
