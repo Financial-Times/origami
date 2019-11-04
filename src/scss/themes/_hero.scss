@@ -6,6 +6,7 @@
 	.o-teaser__content {
 		@include oColorsFor('o-teaser-hero', background);
 		border: 0;
+		word-break: break-word;
 	}
 
 	.o-teaser__meta:after {
@@ -157,10 +158,6 @@
 @mixin oTeaserHeroCentre {
 	.o-teaser__content {
 		text-align: center;
-	}
-
-	.o-teaser__meta {
-		justify-content: center;
 	}
 
 	.o-teaser__meta:after {

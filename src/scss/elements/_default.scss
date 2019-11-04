@@ -44,9 +44,6 @@
 @mixin oTeaserMeta {
 	@include oTypographySize(0, 20px);
 	@include oColorsFor('o-teaser-tag', 'text');
-	display: flex;
-	flex-wrap: wrap;
-	word-break: break-word;
 }
 
 /// Tag styling.
