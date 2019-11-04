@@ -1,7 +1,7 @@
 $o-lazy-load-is-silent: true !default;
 
 /// List of placeholder aspect ratio class names to generate
-$o-lazy-load-placholder-ratios: (
+$_o-lazy-load-placholder-ratios: (
 	// HD video and most modern computer screens
 	(16, 9),
 	// Apple computer screens

@@ -3,26 +3,24 @@ o-lazy-load [![CircleCI](https://circleci.com/gh/Financial-Times/o-lazy-load/tre
 
 This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [JavaScript](#javascript)
-	- [Sass](#sass)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Sass](#sass)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
+## Markup
 
-### Markup
+The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>`. For each target `<img>` element add the `o-lazy-load` and optionally `o-lazy-load--transition` class names and change the `src` attribute to `data-src`. Because these changes will prevent the images from loading without JavaScript it is recommended to only lazy load decorative images which are "below the fold" of the page and _you should always consider the features you must provide as part of your [core experience]_.
 
-The most common use case for lazy loading is to delay the loading of images until they enter the viewport. To do this start by adding the component to the document `<body>`. For each target `<img>` element add the `o-lazy-load` class name and change the `src` attribute to `data-src`. Because these changes will prevent the images from loading without JavaScript it is recommended to only lazy load decorative images which are "below the fold" of the page and _you should always consider the features you must provide as part of your [core experience]_.
-
-[core experience]: https://origami.ft.com/docs/developer-guide/modules/core-vs-enhanced-experience/
+[core experience]: https://origami.ft.com/docs/components/compatibility/
 
 ```diff
 - <body>
 -   <img src="path/to/image.jpg">
 + <body data-o-component="o-lazy-load">
-+   <img class="o-lazy-load" data-src="path/to/image.jpg">
++   <img class="o-lazy-load o-lazy-load--transition" data-src="path/to/image.jpg">
 </body>
 ```
 
@@ -32,7 +30,7 @@ By default classes are provided to preserve space for content with either a 16:9
 
 ```html
 <div class="o-lazy-load-placeholder o-lazy-load-placeholder--16x9">
-	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
+	<img class="o-lazy-load o-lazy-load--transition" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
@@ -42,30 +40,30 @@ If you are using the Build Service, or are calculating aspect ratios dynamically
 <div class="o-lazy-load-placeholder">
 	<!-- Create custom 16:9 placeholder -->
 	<div style="padding-bottom: 56.25%"></div>
-	<img class="o-lazy-load" data-src="path/to/image.jpg" alt="">
+	<img class="o-lazy-load o-lazy-load--transition" data-src="path/to/image.jpg" alt="">
 </div>
 ```
 
 To lazy load a `<picture>` element add the `o-lazy-load` class and prefix the `src` and `srcset` attributes for each of the `<source>` and `<img>` elements contained inside:
 
 ```html
-<picture class="o-lazy-load">
+<picture class="o-lazy-load o-lazy-load--transition">
 	<source data-srcset="path/to/image-small.jpg" media="screen and (max-width: 480px)">
 	<source data-srcset="path/to/image-medium.jpg" media="screen and (max-width: 800px)">
 	<img data-src="path/to/image-large.jpg" alt="">
 </picture>
 ```
 
-o-lazy-load is also capable of lazy loading iframes and toggle class names. See the component demos for more information about these features.
+o-lazy-load is also capable of lazy loading iframes and toggle class names. [See the component demos](https://registry.origami.ft.com/components/o-lazy-load) for more information about these features.
 
-### JavaScript
+## JavaScript
 
 No code will run automatically unless you are using the Build Service.
 You must either construct an o-lazy-load instance or fire the `o.DOMContentLoaded` event, which each oComponent listens for.
 
 _Note: If the o-lazy-load root is set to the `<html>` or `<body>` element o-lazy-load will assume you want to base element visibility on the viewport._
 
-#### Constructing an o-lazy-load instance
+### Constructing an o-lazy-load instance
 
 To initialise o-lazy-load programmatically you can import the `oLazyLoad` class into your script:
 
@@ -85,7 +83,7 @@ The `oLazyLoad` class constructor accepts two arguments - the `root` element and
 
 All other options will be passed to the intersection observer, so check [the `IntersectionObserver` documentation](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for more information about its configuration.
 
-#### Firing an oDomContentLoaded event
+### Firing an oDomContentLoaded event
 
 To use o-lazy-load declaratively you must start by declaring the `root` element by appending the `data-o-component="o-lazy-load"` attribute to it. You can also add options to this element.
 
@@ -108,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-#### Updating observed elements
+### Updating observed elements
 
 If you are loading new or extra content into your document, for example using AJAX or building a single-page application, you may need to update the elements being observed. To do this you can call the `.observe()` method on the o-lazy-load instance you have previously constructed.
 
@@ -124,14 +122,34 @@ lazyLoader.observe();
 
 Calling this method will find all the elements matching the original options and append any new ones to the set to observe.
 
-### Sass
+## Sass
 
-As with all Origami components, o-lazy-load has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-lazy-load-is-silent: false;` in your Sass before you import the o-lazy-load Sass.
+To include all o-lazy-load CSS make a single call to `oLazyLoad`:
 
-This component currently provides two mixins:
+```scss
+@include oLazyLoad();
+```
 
-- `oLazyLoadTransition($class)` creates a fade in transition effect for when content is loaded which works best for image or picture elements.
-- `oLazyLoadPlaceholder($placeholderClass, $targetClass)` provides the basic layout styles for creating placeholder elements.
+o-lazy-load features may be included granularly using an options `$opts` map:
+
+- `transition`: Outputs the class `o-lazy-load--transition` to create a fade in transition effect for when content is loaded, which works best for image or picture elements.
+- `placeholder`: Outputs the class `o-lazy-load-placeholder` which provides basic styles for all placeholder elements.
+- `placeholder-ratios`: Outputs modifier classes for placeholder elements to match the loaded elements aspect ratio.
+
+```scss
+@include oLazyLoad($opts: (
+    'placeholder': true, // .o-lazy-load-placeholder
+    'placeholder-ratios': ((16, 9), (1, 1)), // e.g. .o-lazy-load-placeholder--16x9
+    'transition': true // .o-lazy-load--transition
+));
+```
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.0 | - |
 
 ---
 
