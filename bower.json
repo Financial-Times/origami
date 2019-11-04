@@ -7,6 +7,6 @@
     ""
   ],
   "dependencies": {
-    "o-brand": ">=2.3.0 <4"
+    "o-brand": "^3.2.5"
   }
 }
