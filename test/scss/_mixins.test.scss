@@ -1,54 +1,82 @@
-@include describe('oLazyLoad mixins') {
-	@include it('provides a mixin for image elements') {
+@include describe('oLazyLoad') {
+	@include it('outputs styles for image elements with a transition') {
 		@include assert() {
 			@include output() {
-				@include oLazyLoadTransition('test-target');
+				@include oLazyLoad();
 			};
 
 			@include contains() {
-				.test-target {
+				.o-lazy-load--transition {
 					opacity: 0;
 				}
 
-				.test-target[data-o-lazy-load] {
+				.o-lazy-load--transition[data-o-lazy-load] {
 					opacity: 1;
 				}
 			};
 		};
 	}
-	@include it('provides a mixin for placeholder elements') {
+	@include it('outputs styles for placeholder elements') {
 		@include assert() {
 			@include output() {
-				@include oLazyLoadPlaceholder('test-placeholder', 'test-target');
+				@include oLazyLoad();
 			};
 
 			@include contains() {
-				.test-placeholder {
+				.o-lazy-load-placeholder {
 					position: relative;
 				}
 
-				.test-placeholder .test-target {
+				.o-lazy-load-placeholder .o-lazy-load {
 					position: absolute;
 				}
 
-				.test-placeholder--16x9:after {
+				.o-lazy-load-placeholder--16x9:after {
 					padding-bottom: 56.25%;
 				}
 
-				.test-placeholder--16x10:after {
+				.o-lazy-load-placeholder--16x10:after {
 					padding-bottom: 62.5%;
 				}
 
-				.test-placeholder--3x2:after {
+				.o-lazy-load-placeholder--3x2:after {
 					padding-bottom: 66.66667%;
 				}
 
-				.test-placeholder--4x3:after {
+				.o-lazy-load-placeholder--4x3:after {
 					padding-bottom: 75%;
 				}
 
-				.test-placeholder--1x1:after {
+				.o-lazy-load-placeholder--1x1:after {
 					padding-bottom: 100%;
+				}
+			};
+		};
+	}
+	@include it('outputs custom placeholder ratios') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoad($opts: (
+					'placeholder': true,
+					'placeholder-ratios': ((32, 9), (4, 3))
+				));
+			};
+
+			@include contains() {
+				.o-lazy-load-placeholder {
+					position: relative;
+				}
+
+				.o-lazy-load-placeholder .o-lazy-load {
+					position: absolute;
+				}
+
+				.o-lazy-load-placeholder--32x9:after {
+					padding-bottom: 28.125%;
+				}
+
+				.o-lazy-load-placeholder--4x3:after {
+					padding-bottom: 75%;
 				}
 			};
 		};

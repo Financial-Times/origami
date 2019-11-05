@@ -41,7 +41,7 @@
 		}
 
 		$ratios: map-get($opts, 'placeholder-ratios');
-		$ratios: if($ratios), $ratios, ();
+		$ratios: if($ratios, $ratios, ());
 		@each $ratio in $ratios {
 			$ratioX: nth($ratio, 1);
 			$ratioY: nth($ratio, 2);
