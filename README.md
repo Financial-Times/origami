@@ -3,10 +3,9 @@ o-teaser [![Circle CI](https://circleci.com/gh/Financial-Times/o-teaser/tree/mas
 
 This component is for displaying teasers which link through to articles.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -15,7 +14,7 @@ Install the [Origami build tools](https://github.com/Financial-Times/origami-bui
 
 ## Usage
 
-### Markup
+## Markup
 
 The basic markup structure for a teaser will look something like this:
 
@@ -34,7 +33,7 @@ The basic markup structure for a teaser will look something like this:
 Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
 
 
-#### Images
+### Images
 
 To add an image to a teaser, you should use the following markup structure:
 
@@ -55,7 +54,7 @@ To support lazy-loading of images you can use the `o-teaser__image-placeholder` 
 ```
 
 
-#### Supported elements
+### Supported elements
 
 The following elements are supported by default:
 
@@ -73,24 +72,25 @@ The following elements are supported by default:
 ```
 
 
-### Sass:
+## Sass
 
-As with all Origami components, o-teaser has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-teaser-is-silent : false;` in your Sass before you import the o-teaser Sass:
-
-```sass
-$o-teaser-is-silent: false;
+To include styles for all teasers call `oTeaser`:
+```scss
 @import 'o-teaser/main';
+
+@include oTeaser();
 ```
 
-#### Using Sass mixins
-
-Teasers are made up of various elements (e.g. heading, standfirst, timestamp) and a series of themes (e.g. small, large, video). To get everything, use the `oTeaser()` mixin without arguments. To get only the stuff you need, you can pass in a list of elements and a list of themes:
+Teasers are made up of various elements (e.g. heading, standfirst, timestamp) and a series of themes (e.g. small, large, video). Pass a list of `elements` and `themes` in an options `$opts` argument to include only the styles you need:
 
 ```scss
-oTeaser(('default', 'images'), ('small', 'large', 'video'));
+@include oTeaser($opts:(
+	'elements': ('default', 'images'),
+	'themes': ('small', 'large', 'video')
+));
 ```
 
-The elements can be specified via groups:
+Elements are specified via groups, they include:
 
 - `default` - all basic text elements, including: heading, standfirst, meta, and tag.
 - `images` - all image element styles
@@ -98,7 +98,7 @@ The elements can be specified via groups:
 - `related-items` - styling for the related items elements
 - `timestamp` - styles for the timestamp and live post styles
 
-[Themes](#themes) are configurable using the second argument of `oTeaser` and can be any combination of:
+[Themes](#themes) include:
 
 - `small` - styling for [small teasers](#small-teasers)
 - `large` - styling for [large teasers](#large-teasers)
@@ -108,12 +108,11 @@ The elements can be specified via groups:
 - `top-stories` - outputs all top stories teaser styles and variations
 - `hero` - outputs all [hero](#hero-teasers) teaser styles and variations
 
-
-#### Themes
+### Themes
 
 `o-teaser` has a selection of themes to help highlight content and provide a diverse layout. Themes are separated into 3 types of layout, each with their own modifiers to add different variations on the styles.
 
-##### Small teasers
+#### Small teasers
 
 Uses the `o-teaser--small` modifier.
 
@@ -125,7 +124,7 @@ Additional modifiers:
 - `opinion`: changes the tag colour to blue
 - `live`: change background to red and position of elements to make the teaser stand out
 
-##### Large teasers
+#### Large teasers
 
 Uses the `o-teaser--large` modifier.
 
@@ -136,7 +135,7 @@ Additional modifiers:
 - `opinion`: adds a blue background
 - `highlight`: adds a claret background
 
-##### Hero teasers
+#### Hero teasers
 
 Uses the `o-teaser--hero` modifier.
 
@@ -149,121 +148,27 @@ Additional modifiers:
 - `highlight`: adds a claret background
 - `stretched`: makes the teaser take up the full height of the available space and anchors the standout and timestamp content to the bottom of the teaser.
 
-##### Video teasers
+#### Video teasers
 
 Uses the `o-teaser--video` modifier.
 
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-video)
 
-##### Video teasers
+#### Video teasers
 
 Uses the `o-teaser--audio` modifier.
 
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
 
-## Migration guide
 
-## Upgrade from v3.x.x to v4.x.x
+## Migration
 
-The following mixins have been removed:
-
-oTeaserElementsDefault
-oTeaserElementsImages
-oTeaserElementsTimestamp
-oTeaserElementsPromoted
-oTeaserElementsRelatedItems
-oTeaserThemeStandard
-oTeaserThemeSmall
-oTeaserThemeLarge
-oTeaserThemeHero
-oTeaserThemeTopStories
-oTeaserThemeAudio
-oTeaserThemeVideo
-oTeaserThemePackage
-
-oTeaserAudio
-
-oTeaserHero
-oTeaserHeroThemeBase
-oTeaserHeroOpinion
-oTeaserHeroImage
-oTeaserHeroMidSlice
-oTeaserHeroImageContainer
-oTeaserHeroCentre
-oTeaserHeroCentreImage
-oTeaserHeroStandalone
-oTeaserHeroExtra
-
-oTeaserLarge
-oTeaserLargeWithImage
-oTeaserLargeImagePortrait
-oTeaserLargeImageLandscape
-_oTeaserImageContainer
-
-oTeaserThemeLive
-
-oTeaserPackage
-oTeaserSpecialReportPackage
-oTeaserExtraPackage
-oTeaserExtraPackageList
-
-oTeaserSmall
-oTeaserSmallStacked
-oTeaserSmallImagePositionRight
-
-oTeaserInverse
-oTeaserStretched
-oTeaserOpinion
-oTeaserOpinionBackground
-oTeaserHighlight
-
-oTeaserTopStoryBase
-oTeaserTopStoryStandalone
-oTeaserTopStoryLandscape
-oTeaserTopStoryBigStory
-
-oTeaserVideo
-oTeaserBigVideo
-
-oTeaserClearfix
-
-oTeaserBase
-oTeaserTag
-oTeaserTagPrefix
-oTeaserTagSuffix
-oTeaserDuration
-oTeaserStandfirst
-oTeaserLink
-
-oTeaserImage
-oTeaserImagePlaceholder
-oTeaserHeadshot
-
-oTeaserPromotedContent
-oTeaserPaidPost
-
-oTeaserRelated
-oTeaserRelatedItem
-
-oTeaserTimestamp
-oTeaserTimestampVariants
-
-## Upgrade from v2.x.x to v3.x.x
-
-Version 3 uses a new major version of [o-labels](https://github.com/Financial-Times/o-labels/). Make sure your project is [compatible](https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md#migrating-from-v3-to-v4) with o-labels@4.0.0
-
-## Migrating from v1 to v2
-
-V1 -> V2 introduces the new major of o-colors, o-labels, and o-typography. Updating to this new version will mean updating any other components that you have which are using any of the updated major versions. There are no other breaking changes in this release.
-
-### From `o-card` to `o-teaser`.
-
-In most cases, migrating to `o-teaser` from `o-card` will be possible by simply replacing the `o-card` class prefix to `o-teaser`, i.e. `o-card__heading` becomes `o-teaser__heading`. However, there are some additional updates you will need to do, particularly around images and themes.
-
-Images now require a containing element, with the `o-teaser__image` class on the `<img>` tag itself, see [Images](#images).
-
-The `landscape` and `standout` themes have been removed, teasers are now responsive using `o-grid` and have a larger set of [themes](#themes).
-
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 4 | N/A  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+⚠ maintained | 3 | 3.5  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.5  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.9 | - |
 
 ----
 
