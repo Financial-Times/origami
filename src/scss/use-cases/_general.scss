@@ -160,7 +160,7 @@
 		$icon-size: 1em;
 		$icon-inbuilt-padding-size: #{$icon-size / 4};
 		$icon-padding-calc: #{$icon-size} + 0.5ch;
-		@include oIconsGetIcon('outside-page', $icon-color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+		@include oIconsContentIcon('outside-page', $icon-color, $size: null, $include-base-styles: false);
 		background-repeat: no-repeat;
 		// Add padding for icon background.
 		// To position the icon closer to the copy, minus the right/left padding

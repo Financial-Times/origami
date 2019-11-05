@@ -538,7 +538,7 @@
                 @include oTypographyLink($external: true);
             }
             @include contains {
-                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
             }
         }
     }
@@ -563,7 +563,7 @@
                 ), $external: true);
             }
             @include contains {
-                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23990F3D,%23990F3D&format=svg");
+                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23990F3D,%23990F3D&format=svg");
             }
         }
     }
