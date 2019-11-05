@@ -31,4 +31,4 @@ Use the options `$opts` map to include lazy load features granularly, including 
 ));
 ```
 
-`$o-lazy-load-placholder-ratios` is now private and must not be used, instead use the `oLazyLoad` option map above.
+`$o-lazy-load-placeholder-ratios` is now private and must not be used, instead use the `oLazyLoad` option map above.
