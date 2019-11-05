@@ -15,7 +15,7 @@
     "o-colors": "^4.0.1",
     "o-typography": "^5.7.3",
     "o-grid": "^4.2.3",
-    "o-icons": ">=4.4.2 <6",
+    "o-icons": "^5.11.2",
     "o-labels": "^4.2.1",
     "o-spacing": "^2.0.0",
     "o-normalise": "^1.7.4"
