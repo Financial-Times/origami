@@ -103,9 +103,9 @@ No code will run automatically unless you are using the Build Service. You must 
 If you have set up your banner declaratively:
 
 ```js
-const oBanner = require('o-banner');
+import Banner from 'o-banner';
 const bannerElement = document.getElementById('my-banner-element');
-const myBanner = new oBanner(bannerElement);
+const myBanner = new Banner(bannerElement);
 ```
 
 The second argument passed to `oBanner` is an [options object](#options), this can be used to change the behaviour and display of a banner.
@@ -113,8 +113,8 @@ The second argument passed to `oBanner` is an [options object](#options), this c
 If you wish to create a banner from scratch with no existing DOM elements, you can set up your banner like this:
 
 ```js
-const oBanner = require('o-banner');
-const myBanner = new oBanner(null, {
+import Banner from 'o-banner';
+const myBanner = new Banner(null, {
     contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
     contentShort: 'Try the new compact homepage.',
     buttonLabel: 'Try it now',
