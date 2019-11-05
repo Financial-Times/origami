@@ -25,6 +25,8 @@ The Sass mixin `oFontsInclude` and deprecated mixin `oFontsIncludeAll` is now pr
 +));
 ```
 
+The Sass mixin `oFontsSource` and function `oFontsUseAsset` have been removed. If you are unable to include your font with `oFonts` please contact the Origami team.
+
 ### Migrating from v2 to v3
 
 v3 removes Benton, Miller, and FinancierTextWeb fonts. Ensure your project does not use these fonts.

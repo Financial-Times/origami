@@ -12,7 +12,6 @@
 	$font-properties: map-get($_o-fonts-families, $family);
 	// Font is not registered.
 	@if type-of($font-properties) != 'map' {
-		@warn 'Could not find any supported font variants for "#{$family}". See `oFontsDefineCustomFont` to register a font and its supported weights/styles.';
 		@return false;
 	}
 	$font-variants: map-get($font-properties, variants);
@@ -27,44 +26,27 @@
 	@return false;
 }
 
-/// Capitalise first letter of $string
-///
-/// @param {String} $string - string to update
-///
-/// @return {String}
-@function _oFontsStringCapitalise($string) {
-	$string: $string + unquote(''); // Make sure $string has a type of String
-	$first-letter: to-upper-case(str-slice($string, 0, 1));
-	$rest-of-string: str-slice($string, 2);
-
-	@return $first-letter + $rest-of-string;
-}
-
 /// Get a font-family stack with the appropriate fallbacks
 ///
-/// @param {String} family
-///
-/// @return {String} - font-stack
-///
 /// @example scss
-/// font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+/// 	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+///
+/// @param {String} family
+/// @return {String} - font-stack
 @function oFontsGetFontFamilyWithFallbacks($family) {
-	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
-		@error "#{$family} has been removed. Please use either MetricWeb or FinancierDisplayWeb.";
+	@if not map-has-key($_o-fonts-families, $family) {
+		@error 'Font "#{inspect($family)}" not found. "$family" must be one of #{map-keys($_o-fonts-families)}.';
 	}
 
-
-	@if map-has-key($_o-fonts-families, $family) {
-		$properties: map-get($_o-fonts-families, $family);
-		@return unquote(map-get($properties, font-family));
-	}
-	@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
-	@return inherit;
+	$properties: map-get($_o-fonts-families, $family);
+	@return unquote(map-get($properties, font-family));
 }
 
 /// Removes a fonts fallbacks.
+///
 /// @example
 ///     $family: oFontsGetFontFamilyWithoutFallbacks('FinancierDisplayWeb, sans'); //FinancierDisplayWeb
+///
 /// @param {String|List} $family - Font family potentially with fallbacks.
 /// @returns {String} Font family without fallbacks.
 @function oFontsGetFontFamilyWithoutFallbacks($family) {
@@ -78,27 +60,30 @@
 	@return if($family, $family, '');
 }
 
-/// Path to a font asset
-///
-/// @param {String} $asset
-///
-/// @return {String} - Path to the font asset, without the file extension
-@function oFontsUseAsset($asset) {
-	@return $o-fonts-path + $asset;
-}
-
 /// Machine-readable CSS font-weight.
 ///
-/// @param {String} $keyword - Human-readable keyword, one of $_o-fonts-weights
-///
 /// @example scss
-/// font-weight: oFontsWeight(lighter);
+/// 	font-weight: oFontsWeight(lighter);
 ///
+/// @param {String} $keyword - Human-readable keyword e.g. 'semibold', 'regular', 'bold'.
 /// @return {Number} - CSS font-weight
 @function oFontsWeight($keyword) {
-	@if map-has-key($_o-fonts-weights, $keyword) {
-		@return map-get($_o-fonts-weights, $keyword);
-	} @else {
-		@warn 'Keyword "#{$keyword}" not found. Must be one of $_o-fonts-weights.';
+	@if not map-has-key($_o-fonts-weights, $keyword) {
+		@error 'Font weight "#{$keyword}" not found. Must be one of #{inspect(map-keys($_o-fonts-weights))}.';
 	}
+
+	@return map-get($_o-fonts-weights, $keyword);
+}
+
+/// Capitalise first letter of $string
+///
+/// @access private
+/// @param {String} $string - string to update
+/// @return {String} - the string with a capitalised first letter
+@function _oFontsStringCapitalise($string) {
+	$string: $string + unquote(''); // Make sure $string has a type of String
+	$first-letter: to-upper-case(str-slice($string, 0, 1));
+	$rest-of-string: str-slice($string, 2);
+
+	@return $first-letter + $rest-of-string;
 }

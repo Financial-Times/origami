@@ -1,81 +1,3 @@
-/// Font-face declaration sources
-///
-/// @param {String} fontName - path to the file, without the file extension
-@mixin oFontsSource($fontName) {
-	src: url(oFontsUseAsset($fontName + '.woff'));
-}
-
-/// Output a Font-face declaration for a given font family which is provided by Origami.
-///
-/// @param {String} $family - one of $_o-fonts-families
-/// @param {String} $weight [regular] - one of $_o-fonts-weights
-/// @param {String} $style [normal]
-/// @param {String|Null} $display - the font-display property for this font face, defaults to $o-fonts-display
-/// @access private
-@mixin _oFontsInclude($family, $weight: regular, $style: normal, $display: $o-fonts-display) {
-	@if $family == 'Clarion' or $family == 'Benton' or $family == 'Miller' or $family == 'FinancierTextWeb' {
-		@error "#{$family} has been removed, no font will be included.";
-	}
-
-	@if $weight == normal {
-		$weight: regular;
-	}
-
-	// Check the font is an Origami font, not a custom font.
-	@if map-has-key($_o-fonts-families, $family) {
-		$font-family-config: map-get($_o-fonts-families, $family);
-		@if map-get($font-family-config, 'custom') {
-			@error 'Can not include a custom font "#{$family}". Include your custom font manually.';
-		}
-	}
-
-	$font-exists: false;
-	// Check if the font has already been included
-	// If so, no need to output another @font-face declaration
-	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
-
-	@if $font-is-already-included == false {
-		@if map-has-key($_o-fonts-families, $family) == false {
-			@warn 'Font #{$family} not found. Must be one of $_o-fonts-families.';
-		} @else {
-			@if (oFontsVariantExists($family, $weight, $style)) {
-				$font-exists: true;
-			} @else {
-				@warn 'Variant "weight: #{$weight}, style: #{$style}" not found for "#{$family}". @font-face rule will not be output.';
-			}
-		}
-
-		@if ($font-exists) {
-			// Files are named as follows
-			// Name-WeightType
-			// MetricWeb-Regular              (regular normal)
-			// MetricWeb-RegularItalic        (regular italic)
-			// MetricWeb-Bold                 (bold normal)
-			// MetricWeb-BoldItalic           (bold italic)
-
-			// By default, suffix is the weight
-			$font-suffix: _oFontsStringCapitalise($weight);
-
-			@if ($style != 'normal') {
-				$capitalised-weight: _oFontsStringCapitalise($weight);
-				$capitalised-style: _oFontsStringCapitalise($style);
-				$font-suffix: #{$capitalised-weight}#{$capitalised-style};
-			}
-
-			@font-face {
-				@include oFontsSource(#{$family}-#{$font-suffix});
-				font-family: $family;
-				font-weight: oFontsWeight($weight);
-				font-style: $style;
-				font-display: $display;
-			}
-
-			// Add to the list of already included families / variants
-			$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}-#{$weight}-#{$style}: true)) !global;
-		}
-	}
-}
-
 /// Output custom Font-face declarations and register the family and variants with o-fonts.
 ///
 /// @example This example shows registering a custom font "MyFont" with "sans" fallback. The font allows regular or bold variants.
@@ -120,4 +42,69 @@
 		'custom': true
 	)), $_o-fonts-families) !global;
 	@content; // Output a custom Font-face declaration.
+}
+
+/// Output a Font-face declaration for a given font family which is provided by Origami.
+///
+/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $weight [regular] - e.g. 'regular', 'semibold', 'bold'
+/// @param {String} $style [normal] - e.g. 'italic'
+/// @param {String|Null} $display - the font-display property for this font face, defaults to $o-fonts-display
+/// @access private
+@mixin _oFontsInclude($family, $weight: regular, $style: normal, $display: $o-fonts-display) {
+	// Help user if they requested a normal rather than regular weight.
+	@if $weight == normal {
+		@warn '"normal" is not a font weight for "#{$family}". Request a "regular" weight instead.';
+		$weight: regular;
+	}
+
+	// Check the font is an Origami font, not a custom font.
+	@if map-has-key($_o-fonts-families, $family) {
+		$font-family-config: map-get($_o-fonts-families, $family);
+		@if map-get($font-family-config, 'custom') {
+			@error 'Can not include a custom font "#{$family}". Include your custom font manually.';
+		}
+	}
+
+	// Check if the font has already been included
+	// If so, no need to output another @font-face declaration
+	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
+
+	@if $font-is-already-included == false {
+		// Error if a font does not exist for the given variant.
+		@if not map-has-key($_o-fonts-families, $family) {
+			@error 'Font "#{inspect($family)}" not found. Must be one of #{map-keys($_o-fonts-families)}.';
+		}
+
+		@if not oFontsVariantExists($family, $weight, $style) {
+			@error 'Font for "#{$family}" at weight: "#{$weight}" and style "#{$style}" does not exist.';
+		}
+
+		// Files are named as follows
+		// Name-WeightType
+		// MetricWeb-Regular              (regular normal)
+		// MetricWeb-RegularItalic        (regular italic)
+		// MetricWeb-Bold                 (bold normal)
+		// MetricWeb-BoldItalic           (bold italic)
+
+		// By default, suffix is the weight
+		$font-suffix: _oFontsStringCapitalise($weight);
+
+		@if ($style != 'normal') {
+			$capitalised-weight: _oFontsStringCapitalise($weight);
+			$capitalised-style: _oFontsStringCapitalise($style);
+			$font-suffix: #{$capitalised-weight}#{$capitalised-style};
+		}
+
+		@font-face {
+			src: url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff');
+			font-family: $family;
+			font-weight: oFontsWeight($weight);
+			font-style: $style;
+			font-display: $display;
+		}
+
+		// Add to the list of already included families / variants
+		$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}-#{$weight}-#{$style}: true)) !global;
+	}
 }
