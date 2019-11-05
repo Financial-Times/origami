@@ -1,5 +1,5 @@
 /// Inverse theme styles - base all text content on white
-@mixin oTeaserInverse {
+@mixin _oTeaserInverse {
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -30,7 +30,7 @@
 /// Make a teaser fill the full height of its container
 /// (if the container is flex) and stretch the heading to
 /// move standfirst and timestamp to teaser footer
-@mixin oTeaserStretched {
+@mixin _oTeaserStretched {
 	display: flex;
 	flex-grow: 1;
 
@@ -47,14 +47,14 @@
 }
 
 /// General opinion theme teaser - turns tag content blue
-@mixin oTeaserOpinion {
+@mixin _oTeaserOpinion {
 	.o-teaser__meta {
 		@include oColorsFor('o-teaser-opinion-tag', text);
 	}
 }
 
 /// Opinion background theme - colours background blue and adjust text
-@mixin oTeaserOpinionBackground {
+@mixin _oTeaserOpinionBackground {
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
 		@include oColorsFor('o-teaser-theme-opinion', text, 60);
@@ -78,7 +78,7 @@
 }
 
 /// Highlight theme - colours background claret and adjust text colours
-@mixin oTeaserHighlight {
+@mixin _oTeaserHighlight {
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,

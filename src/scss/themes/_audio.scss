@@ -1,4 +1,4 @@
-@mixin oTeaserAudio {
+@mixin _oTeaserAudio {
 	.o-teaser__heading:before {
 		@include oIconsGetIcon('audio', oColorsGetPaletteColor('white'), 15, $apply-width-height: false);
 		content: '';

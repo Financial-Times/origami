@@ -163,6 +163,91 @@ Uses the `o-teaser--audio` modifier.
 
 ## Migration guide
 
+## Upgrade from v3.x.x to v4.x.x
+
+The following mixins have been removed:
+
+oTeaserElementsDefault
+oTeaserElementsImages
+oTeaserElementsTimestamp
+oTeaserElementsPromoted
+oTeaserElementsRelatedItems
+oTeaserThemeStandard
+oTeaserThemeSmall
+oTeaserThemeLarge
+oTeaserThemeHero
+oTeaserThemeTopStories
+oTeaserThemeAudio
+oTeaserThemeVideo
+oTeaserThemePackage
+
+oTeaserAudio
+
+oTeaserHero
+oTeaserHeroThemeBase
+oTeaserHeroOpinion
+oTeaserHeroImage
+oTeaserHeroMidSlice
+oTeaserHeroImageContainer
+oTeaserHeroCentre
+oTeaserHeroCentreImage
+oTeaserHeroStandalone
+oTeaserHeroExtra
+
+oTeaserLarge
+oTeaserLargeWithImage
+oTeaserLargeImagePortrait
+oTeaserLargeImageLandscape
+_oTeaserImageContainer
+
+oTeaserThemeLive
+
+oTeaserPackage
+oTeaserSpecialReportPackage
+oTeaserExtraPackage
+oTeaserExtraPackageList
+
+oTeaserSmall
+oTeaserSmallStacked
+oTeaserSmallImagePositionRight
+
+oTeaserInverse
+oTeaserStretched
+oTeaserOpinion
+oTeaserOpinionBackground
+oTeaserHighlight
+
+oTeaserTopStoryBase
+oTeaserTopStoryStandalone
+oTeaserTopStoryLandscape
+oTeaserTopStoryBigStory
+
+oTeaserVideo
+oTeaserBigVideo
+
+oTeaserClearfix
+
+oTeaserBase
+oTeaserTag
+oTeaserTagPrefix
+oTeaserTagSuffix
+oTeaserDuration
+oTeaserStandfirst
+oTeaserLink
+
+oTeaserImage
+oTeaserImagePlaceholder
+oTeaserHeadshot
+
+oTeaserPromotedContent
+oTeaserPaidPost
+
+oTeaserRelated
+oTeaserRelatedItem
+
+oTeaserTimestamp
+oTeaserTimestampVariants
+
 ## Upgrade from v2.x.x to v3.x.x
 
 Version 3 uses a new major version of [o-labels](https://github.com/Financial-Times/o-labels/). Make sure your project is [compatible](https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md#migrating-from-v3-to-v4) with o-labels@4.0.0

@@ -6,7 +6,6 @@
 @import "o-labels/main";
 
 @import "src/scss/variables";
-@import "src/scss/helpers";
 @import "src/scss/color-use-cases";
 @import "src/scss/mixins";
 
@@ -26,7 +25,45 @@
 @import "src/scss/themes/package";
 @import "src/scss/themes/live";
 
-@import "src/scss/teaser";
+/// Output styles for teasers.
+/// Can be passed a list of styles to output,
+/// or 'all' to output everything
+///
+/// @param {List} [all] $elements
+/// @param {List} [all] $themes
+@mixin oTeaser($elements: 'all', $themes: 'all') {
+	.o-teaser {
+		@include _oTeaserBase;
+	}
+
+	@if $elements == 'all' {
+		@each $group in $_o-teaser-elements {
+			@include _oTeaserGetElementsMixin($group);
+		}
+	} @else if $elements != false {
+		@each $group in $elements {
+			@if index($_o-teaser-elements, $group) != null {
+				@include _oTeaserGetElementsMixin($group);
+			} @else {
+				@error "There is no theme '#{$group}' available in o-teaser, please use one of the following: #{$_o-teaser-elements}.";
+			}
+		}
+	}
+
+	@if $themes == 'all' {
+		@each $theme in $_o-teaser-themes {
+			@include _oTeaserGetThemeMixin($theme);
+		}
+	} @else if $themes != false  {
+		@each $theme in $themes {
+			@if index($_o-teaser-themes, $theme) != null {
+				@include _oTeaserGetThemeMixin($theme);
+			} @else {
+				@error "There is no theme '#{$theme}' available in o-teaser, please use one of the following: #{$_o-teaser-themes}.";
+			}
+		}
+	}
+}
 
 @if ($o-teaser-is-silent == false) {
 

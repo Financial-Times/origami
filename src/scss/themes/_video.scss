@@ -1,4 +1,4 @@
-@mixin oTeaserVideo {
+@mixin _oTeaserVideo {
 	.o-teaser__heading:before {
 		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 15, $apply-width-height: false);
 		content: '';
@@ -49,7 +49,7 @@
 	}
 }
 
-@mixin oTeaserBigVideo {
+@mixin _oTeaserBigVideo {
 	// This variation assumes no --has-image variation as it
 	// is too specific and quirky to try and override!
 	// It is designed to work with --large, --hero and --top-story variations.

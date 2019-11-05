@@ -1,5 +1,5 @@
 /// Related content list styles
-@mixin oTeaserRelated {
+@mixin _oTeaserRelated {
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
@@ -11,7 +11,7 @@
 }
 
 /// Single related content item styles
-@mixin oTeaserRelatedItem {
+@mixin _oTeaserRelatedItem {
 	@include oTypographySize($scale: (default: (-1, 22px), L: (0, 24px)));
 	@include oColorsFor('o-teaser', text, 60);
 

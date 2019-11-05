@@ -1,6 +1,19 @@
+/// Teaser heading styles.
+/// Including styles for a nested link.
+/// @access public
+@mixin oTeaserHeading {
+	@include oTypographyDisplay(2);
+	@include oColorsFor('o-teaser', text, 100);
+	@include _oTeaserLink();
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: oFontsWeight(normal);
+}
+
+
 /// Base styles for a teaser
 /// sets the font and basic display properties
-@mixin oTeaserBase {
+@mixin _oTeaserBase {
 	@include oTypographySans(-1);
 	position: relative;
 	width: 100%;
@@ -29,26 +42,15 @@
 	}
 }
 
-/// Teaser heading styles.
-/// Including link and hover styling.
-@mixin oTeaserHeading {
-	@include oTypographyDisplay(2);
-	@include oColorsFor('o-teaser', text, 100);
-	@include oTeaserLink();
-	margin-top: 0;
-	margin-bottom: 0;
-	font-weight: oFontsWeight(normal);
-}
-
 /// Meta area and colouring styles
-@mixin oTeaserMeta {
+@mixin _oTeaserMeta {
 	@include oTypographySize(0, 20px);
 	@include oColorsFor('o-teaser-tag', 'text');
 }
 
 /// Tag styling.
-/// Element should be a link, otherwise use oTeaserMeta
-@mixin oTeaserTag {
+/// Element should be a link, otherwise use _oTeaserMeta
+@mixin _oTeaserTag {
 	@include oTypographyBold('sans');
 	color: inherit;
 	text-decoration: none;
@@ -65,27 +67,27 @@
 	}
 }
 
-@mixin oTeaserTagPrefix {
+@mixin _oTeaserTagPrefix {
 	margin-right: 0.25em;
 }
 
-@mixin oTeaserTagSuffix {
+@mixin _oTeaserTagSuffix {
 	@include _oTypographyFontSize(-1);
 	color: oColorsGetPaletteColor('black-60');
 }
 
 /// Video duration styles
 // NOTE: deprecate this element in next major version in favour of tag-suffix
-@mixin oTeaserDuration {
+@mixin _oTeaserDuration {
 	@include _oTypographyFontSize(-1);
 	color: oColorsGetPaletteColor('black-60');
 }
 
 /// Styles for standfirst element
-@mixin oTeaserStandfirst {
+@mixin _oTeaserStandfirst {
 	@include oTypographySize(0, 20px);
 	@include oColorsFor('o-teaser', text, 60);
-	@include oTeaserLink();
+	@include _oTeaserLink();
 	margin-top: 0;
 	margin-bottom: 0;
 
@@ -95,7 +97,7 @@
 }
 
 /// Links within title or standfirst
-@mixin oTeaserLink {
+@mixin _oTeaserLink {
 	a {
 		padding: 2px 0;
 		color: inherit;

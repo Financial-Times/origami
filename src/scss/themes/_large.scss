@@ -1,7 +1,7 @@
 /// Styles for large teasers.
 /// Also form the basis of styles for hero teasers
-@mixin oTeaserLarge {
-	@include oTeaserClearfix;
+@mixin _oTeaserLarge {
+	@include oNormaliseClearfix;
 
 	.o-teaser__content {
 		padding: oGridGutter(M);
@@ -25,7 +25,7 @@
 /// Adjusts large teasers to work with images.
 /// Appears in portrait at default-medium, landscape
 /// in medium-large, and portrait from large up
-@mixin oTeaserLargeWithImage {
+@mixin _oTeaserLargeWithImage {
 	.o-teaser__content {
 		@include oGridRespondTo($until: S) {
 			border-bottom: 0;
@@ -65,7 +65,7 @@
 
 /// Image container styles for large image
 /// at various breakpoints
-@mixin oTeaserImageContainer {
+@mixin _oTeaserImageContainer {
 	.o-teaser__image {
 		position: relative;
 		z-index: 1;
@@ -116,7 +116,7 @@
 
 /// Forces a large teaser to always appear in the portrait
 /// style, regardless of breakpoint
-@mixin oTeaserLargeImagePortrait {
+@mixin _oTeaserLargeImagePortrait {
 	.o-teaser__content {
 		border-bottom: 0;
 	}
@@ -149,7 +149,7 @@
 
 /// Forces a large teaser to always appear in the landscape
 /// style, regardless of breakpoint
-@mixin oTeaserLargeImageLandscape {
+@mixin _oTeaserLargeImageLandscape {
 	.o-teaser__content {
 		position: relative;
 		float: left;

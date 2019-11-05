@@ -1,5 +1,5 @@
 /// Promoted content theme
-@mixin oTeaserPromotedContent {
+@mixin _oTeaserPromotedContent {
 	@include oColorsFor('o-teaser-theme-promoted-content');
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px. This needs to be added three times
@@ -24,7 +24,7 @@
 }
 
 /// Paid post theme
-@mixin oTeaserPaidPost {
+@mixin _oTeaserPaidPost {
 	@include oColorsFor('o-teaser-theme-paid-post');
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px

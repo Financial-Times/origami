@@ -4,17 +4,17 @@
 /// @param {String} $group
 @mixin _oTeaserGetElementsMixin($group) {
 	@if $group == 'default' {
-		@include oTeaserElementsDefault;
+		@include _oTeaserElementsDefault;
 	} @else if $group == 'images' {
-		@include oTeaserElementsImages;
+		@include _oTeaserElementsImages;
 	} @else if $group == 'timestamp' {
-		@include oTeaserElementsTimestamp;
+		@include _oTeaserElementsTimestamp;
 	} @else if $group == 'promoted' {
-		@include oTeaserElementsPromoted;
+		@include _oTeaserElementsPromoted;
 	} @else if $group == 'related-items' {
-		@include oTeaserElementsRelatedItems;
+		@include _oTeaserElementsRelatedItems;
 	} @else if $group == 'syndication' {
-		@include oTeaserSyndicationIndicator;
+		@include _oTeaserSyndicationIndicator;
 	}
 }
 
@@ -24,41 +24,41 @@
 /// @param {String} $theme
 @mixin _oTeaserGetThemeMixin($theme) {
 	@if $theme == 'small' {
-		@include oTeaserThemeSmall;
+		@include _oTeaserThemeSmall;
 	} @else if $theme == 'large' {
-		@include oTeaserThemeLarge;
+		@include _oTeaserThemeLarge;
 	} @else if $theme == 'standard' {
-		@include oTeaserThemeStandard;
+		@include _oTeaserThemeStandard;
 	} @else if $theme == 'hero' {
-		@include oTeaserThemeHero;
+		@include _oTeaserThemeHero;
 	} @else if $theme == 'top-stories' {
-		@include oTeaserThemeTopStories;
+		@include _oTeaserThemeTopStories;
 	} @else if $theme == 'video' {
-		@include oTeaserThemeVideo;
+		@include _oTeaserThemeVideo;
 	} @else if $theme == 'audio' {
-		@include oTeaserThemeAudio;
+		@include _oTeaserThemeAudio;
 	} @else if $theme == 'package' {
-		@include oTeaserThemePackage;
+		@include _oTeaserThemePackage;
 	} @else if $theme == 'live' {
-		@include oTeaserThemeLive;
+		@include _oTeaserThemeLive;
 	}
 }
 
-@mixin oTeaserElementsDefault {
+@mixin _oTeaserElementsDefault {
 	.o-teaser__meta {
-		@include oTeaserMeta;
+		@include _oTeaserMeta;
 	}
 
 	.o-teaser__tag-prefix {
-		@include oTeaserTagPrefix;
+		@include _oTeaserTagPrefix;
 	}
 
 	.o-teaser__tag {
-		@include oTeaserTag;
+		@include _oTeaserTag;
 	}
 
 	.o-teaser__tag-suffix {
-		@include oTeaserTagSuffix;
+		@include _oTeaserTagSuffix;
 	}
 
 	.o-teaser__heading {
@@ -66,209 +66,209 @@
 	}
 
 	.o-teaser__standfirst {
-		@include oTeaserStandfirst;
+		@include _oTeaserStandfirst;
 	}
 }
 
-@mixin oTeaserElementsImages {
+@mixin _oTeaserElementsImages {
 	.o-teaser__image-placeholder {
-		@include oTeaserImagePlaceholder;
+		@include _oTeaserImagePlaceholder;
 	}
 
 	.o-teaser__image {
-		@include oTeaserImage;
+		@include _oTeaserImage;
 	}
 
-	@include oTeaserHeadshot;
+	@include _oTeaserHeadshot;
 }
 
-@mixin oTeaserElementsTimestamp {
+@mixin _oTeaserElementsTimestamp {
 	.o-teaser__timestamp {
-		@include oTeaserTimestamp;
+		@include _oTeaserTimestamp;
 	}
 
-	@include oTeaserTimestampVariants;
+	@include _oTeaserTimestampVariants;
 }
 
-@mixin oTeaserElementsPromoted {
+@mixin _oTeaserElementsPromoted {
 	.o-teaser--paid-post {
-		@include oTeaserPaidPost;
+		@include _oTeaserPaidPost;
 	}
 
 	.o-teaser--promoted-content {
-		@include oTeaserPromotedContent;
+		@include _oTeaserPromotedContent;
 	}
 }
 
-@mixin oTeaserElementsRelatedItems {
+@mixin _oTeaserElementsRelatedItems {
 	.o-teaser__related {
-		@include oTeaserRelated;
+		@include _oTeaserRelated;
 	}
 
 	.o-teaser__related-item {
-		@include oTeaserRelatedItem;
+		@include _oTeaserRelatedItem;
 	}
 }
 
-@mixin oTeaserThemeStandard {
+@mixin _oTeaserThemeStandard {
 	.o-teaser--opinion {
-		@include oTeaserOpinion;
+		@include _oTeaserOpinion;
 
 		&.o-teaser--opinion-background {
-			@include oTeaserOpinionBackground;
+			@include _oTeaserOpinionBackground;
 		}
 	}
 
 	.o-teaser--inverse {
-		@include oTeaserInverse;
+		@include _oTeaserInverse;
 	}
 }
 
-@mixin oTeaserThemeSmall {
+@mixin _oTeaserThemeSmall {
 	.o-teaser--small {
-		@include oTeaserSmall;
+		@include _oTeaserSmall;
 
 		&.o-teaser--stacked {
-			@include oTeaserSmallStacked;
+			@include _oTeaserSmallStacked;
 		}
 
 		&.o-teaser--image-position-right {
-			@include oTeaserSmallImagePositionRight;
+			@include _oTeaserSmallImagePositionRight;
 		}
 	}
 }
 
-@mixin oTeaserThemeLarge {
+@mixin _oTeaserThemeLarge {
 	.o-teaser--large,
 	.o-teaser--large-portrait,
 	.o-teaser--large-landscape {
-		@include oTeaserLarge;
+		@include _oTeaserLarge;
 	}
 
 	.o-teaser--large-portrait {
-		@include oTeaserLargeImagePortrait;
+		@include _oTeaserLargeImagePortrait;
 	}
 
 	.o-teaser--large-landscape {
-		@include oTeaserLargeImageLandscape;
+		@include _oTeaserLargeImageLandscape;
 	}
 
 	.o-teaser--large.o-teaser--has-image {
-		@include oTeaserImageContainer;
-		@include oTeaserLargeWithImage;
+		@include _oTeaserImageContainer;
+		@include _oTeaserLargeWithImage;
 	}
 }
 
-@mixin oTeaserThemeHero {
+@mixin _oTeaserThemeHero {
 	.o-teaser--hero {
-		@include oTeaserLarge;
-		@include oTeaserHero;
+		@include _oTeaserLarge;
+		@include _oTeaserHero;
 
 		&.o-teaser--has-image {
-			@include oTeaserImageContainer;
-			@include oTeaserHeroImageContainer;
+			@include _oTeaserImageContainer;
+			@include _oTeaserHeroImageContainer;
 
 			&.o-teaser--hero-image {
-				@include oTeaserHeroImage;
+				@include _oTeaserHeroImage;
 			}
 		}
 
 		&.o-teaser--standalone {
-			@include oTeaserHeroStandalone;
+			@include _oTeaserHeroStandalone;
 		}
 	}
 
 	.o-teaser--centre {
-		@include oTeaserHeroCentre;
+		@include _oTeaserHeroCentre;
 
 		&.o-teaser--has-image {
-			@include oTeaserHeroCentreImage;
+			@include _oTeaserHeroCentreImage;
 		}
 	}
 
 	.o-teaser--stretched {
-		@include oTeaserStretched;
+		@include _oTeaserStretched;
 	}
 
 	.o-teaser--hero {
 		&.o-teaser--highlight,
 		&.o-teaser--opinion {
-			@include oTeaserHeroThemeBase;
+			@include _oTeaserHeroThemeBase;
 		}
 
 		&.o-teaser--opinion {
-			@include oTeaserHeroOpinion;
+			@include _oTeaserHeroOpinion;
 		}
 
 		&.o-teaser--highlight {
-			@include oTeaserHighlight;
+			@include _oTeaserHighlight;
 		}
 
 		&.o-teaser--extra-article {
-			@include oTeaserHeroExtra;
+			@include _oTeaserHeroExtra;
 		}
 	}
 
 	.o-teaser--midslice.o-teaser--has-image {
-		@include oTeaserHeroMidSlice;
+		@include _oTeaserHeroMidSlice;
 	}
 }
 
-@mixin oTeaserThemeTopStories {
+@mixin _oTeaserThemeTopStories {
 	.o-teaser--top-story {
-		@include oTeaserLarge;
-		@include oTeaserTopStoryBase;
+		@include _oTeaserLarge;
+		@include _oTeaserTopStoryBase;
 
 		&.o-teaser--landscape,
 		&.o-teaser--standalone {
-			@include oTeaserTopStoryStandalone;
+			@include _oTeaserTopStoryStandalone;
 		}
 
 		&.o-teaser--landscape,
 		&.o-teaser--big-story {
-			@include oTeaserTopStoryLandscape;
+			@include _oTeaserTopStoryLandscape;
 		}
 
 		&.o-teaser--big-story {
-			@include oTeaserTopStoryBigStory;
+			@include _oTeaserTopStoryBigStory;
 		}
 	}
 }
 
-@mixin oTeaserThemeAudio {
+@mixin _oTeaserThemeAudio {
 	.o-teaser--audio {
-		@include oTeaserAudio;
+		@include _oTeaserAudio;
 	}
 }
 
-@mixin oTeaserThemeVideo {
+@mixin _oTeaserThemeVideo {
 	.o-teaser--video {
-		@include oTeaserVideo;
+		@include _oTeaserVideo;
 	}
 
 	.o-teaser--big-video, // TODO: clean this up when no longer used
 	.o-teaser--has-video {
-		@include oTeaserBigVideo;
+		@include _oTeaserBigVideo;
 	}
 
 	// NOTE: deprecate this element in next major version
 	.o-teaser__duration {
-		@include oTeaserDuration;
+		@include _oTeaserDuration;
 	}
 }
 
-@mixin oTeaserThemePackage {
+@mixin _oTeaserThemePackage {
 	.o-teaser--basic-package,
 	.o-teaser--special-report-package,
 	.o-teaser--extra-package {
-		@include oTeaserPackage;
+		@include _oTeaserPackage;
 	}
 
 	.o-teaser--special-report-package {
-		@include oTeaserSpecialReportPackage;
+		@include _oTeaserSpecialReportPackage;
 	}
 
 	.o-teaser--extra-package {
-		@include oTeaserExtraPackage;
+		@include _oTeaserExtraPackage;
 	}
 }

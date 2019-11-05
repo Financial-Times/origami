@@ -1,6 +1,6 @@
-@mixin oTeaserPackage {
-	@include oTeaserInverse;
-	@include oTeaserPackageList;
+@mixin _oTeaserPackage {
+	@include _oTeaserInverse;
+	@include _oTeaserPackageList;
 	width: 100%;
 	flex-flow: column nowrap;
 
@@ -44,8 +44,8 @@
 	}
 }
 
-@mixin oTeaserSpecialReportPackage {
-	@include oTeaserSpecialReportPackageList;
+@mixin _oTeaserSpecialReportPackage {
+	@include _oTeaserSpecialReportPackageList;
 
 	.o-teaser__content {
 		@include oColorsFor(o-teaser-package-special-report, background);
@@ -70,8 +70,8 @@
 	}
 }
 
-@mixin oTeaserExtraPackage {
-	@include oTeaserExtraPackageList;
+@mixin _oTeaserExtraPackage {
+	@include _oTeaserExtraPackageList;
 
 	.o-teaser__content {
 		@include oColorsFor(o-teaser-theme-hero-extra, background);
@@ -99,7 +99,7 @@
 	}
 }
 
-@mixin oTeaserPackageList {
+@mixin _oTeaserPackageList {
 	.package-teaser {
 		&__list {
 			margin: -12px 0 0;
@@ -144,7 +144,7 @@
 	}
 }
 
-@mixin oTeaserSpecialReportPackageList {
+@mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
 		&__list-item a {
 			color: oColorsGetPaletteColor('white');
@@ -168,7 +168,7 @@
 	}
 }
 
-@mixin oTeaserExtraPackageList {
+@mixin _oTeaserExtraPackageList {
 	.package-teaser {
 		&__list-item a {
 			color: oColorsGetPaletteColor('white');

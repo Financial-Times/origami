@@ -1,5 +1,5 @@
 /// Timestamp base styles
-@mixin oTeaserTimestamp {
+@mixin _oTeaserTimestamp {
 	@include oTypographySize(-2, 20px);
 	@include oColorsFor('o-teaser', text, 60);
 	display: block;
@@ -13,7 +13,7 @@
 /// Timestamp variant styles adding coloured prefixes.
 /// Includes keyframe declaration so must be used outside of
 /// a selector
-@mixin oTeaserTimestampVariants {
+@mixin _oTeaserTimestampVariants {
 	@keyframes live-blog-pulse {
 		0% {
 			transform: scale(1.5);

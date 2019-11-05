@@ -1,5 +1,5 @@
 /// Base Top story styles for all variants
-@mixin oTeaserTopStoryBase {
+@mixin _oTeaserTopStoryBase {
 	.o-teaser__content {
 		padding: 0 0 32px;
 		border: 0;
@@ -15,15 +15,15 @@
 }
 
 /// Standalone top story theme styles
-@mixin oTeaserTopStoryStandalone {
+@mixin _oTeaserTopStoryStandalone {
 	.o-teaser__image-container {
 		margin-bottom: 20px;
 	}
 }
 
 /// Landscape top story theme styles
-@mixin oTeaserTopStoryLandscape {
-	@include oTeaserClearfix;
+@mixin _oTeaserTopStoryLandscape {
+	@include oNormaliseClearfix;
 	@include oColorsFor('o-teaser-hero', background);
 	padding: 12px;
 
@@ -49,7 +49,7 @@
 }
 
 /// Big Story top story theme styles
-@mixin oTeaserTopStoryBigStory {
+@mixin _oTeaserTopStoryBigStory {
 	margin-bottom: 0;
 	padding: 0;
 	border-bottom: 0;

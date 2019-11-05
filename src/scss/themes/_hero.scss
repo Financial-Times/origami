@@ -1,5 +1,5 @@
 /// Base styles for a hero layout teaser
-@mixin oTeaserHero {
+@mixin _oTeaserHero {
 	display: flex;
 	flex-flow: column nowrap;
 
@@ -20,8 +20,8 @@
 }
 
 /// Base styles for themed hero teasers
-@mixin oTeaserHeroThemeBase {
-	@include oTeaserInverse;
+@mixin _oTeaserHeroThemeBase {
+	@include _oTeaserInverse;
 
 	&.o-teaser--hero {
 		.o-teaser__content,
@@ -39,7 +39,7 @@
 }
 
 /// Hero opinion theme - blue background white based text
-@mixin oTeaserHeroOpinion {
+@mixin _oTeaserHeroOpinion {
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -76,10 +76,10 @@
 }
 
 /// Hero image theme styles - full size image with text overlay
-@mixin oTeaserHeroImage {
+@mixin _oTeaserHeroImage {
 	@include oGridRespondTo($until: M) {
-		@include oTeaserHeroCentre;
-		@include oTeaserHeroCentreImage;
+		@include _oTeaserHeroCentre;
+		@include _oTeaserHeroCentreImage;
 	}
 
 	@include oGridRespondTo(M) {
@@ -126,7 +126,7 @@
 	}
 }
 
-@mixin oTeaserHeroMidSlice {
+@mixin _oTeaserHeroMidSlice {
 	@include oGridRespondTo(M, $until: L) {
 		.o-teaser__image-container {
 			padding: 0 30%;
@@ -135,7 +135,7 @@
 }
 
 /// Hero teaser image container - for standard hero teasers
-@mixin oTeaserHeroImageContainer {
+@mixin _oTeaserHeroImageContainer {
 	.o-teaser__image-container {
 		order: -1;
 		width: 100%;
@@ -155,7 +155,7 @@
 }
 
 /// Centred hero teaser styles for centering content
-@mixin oTeaserHeroCentre {
+@mixin _oTeaserHeroCentre {
 	.o-teaser__content {
 		text-align: center;
 	}
@@ -167,14 +167,14 @@
 }
 
 /// Centred hero teaser styles to centre image
-@mixin oTeaserHeroCentreImage {
+@mixin _oTeaserHeroCentreImage {
 	.o-teaser__image-container {
 		padding: 0 15%;
 	}
 }
 
 /// Hero standalone theme styles
-@mixin oTeaserHeroStandalone {
+@mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
 		@include oTypographySize(4);
 	}
@@ -190,7 +190,7 @@
 }
 
 // Hero Package theme — extra
-@mixin oTeaserHeroExtra {
+@mixin _oTeaserHeroExtra {
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__standfirst a:hover,

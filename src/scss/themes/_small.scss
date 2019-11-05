@@ -1,5 +1,5 @@
 /// Small teaser styles
-@mixin oTeaserSmall {
+@mixin _oTeaserSmall {
 	display: flex;
 	padding-bottom: oSpacingByName('s4');
 	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
@@ -25,7 +25,7 @@
 
 /// Small teaser styles for a stacked image
 /// image will appear 100% width at the top of the teaser
-@mixin oTeaserSmallStacked {
+@mixin _oTeaserSmallStacked {
 	flex-direction: column;
 
 	.o-teaser__content {
@@ -47,7 +47,7 @@
 	}
 }
 
-@mixin oTeaserSmallImagePositionRight {
+@mixin _oTeaserSmallImagePositionRight {
 	&.o-teaser--has-image .o-teaser__image-container {
 		order: 2;
 		padding-left: oGridGutter(M);

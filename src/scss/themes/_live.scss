@@ -1,4 +1,4 @@
-@mixin oTeaserThemeLive {
+@mixin _oTeaserThemeLive {
     .o-teaser--small.o-teaser--live .o-teaser__content {
         padding: 12px;
     }
@@ -12,7 +12,7 @@
 
     .o-teaser--small.o-teaser--live {
         // create white text red background
-        @include oTeaserInverse;
+        @include _oTeaserInverse;
         background: oColorsGetPaletteColor('crimson');
         .o-teaser__content * {
             color: white;
