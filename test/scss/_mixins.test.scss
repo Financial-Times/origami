@@ -487,10 +487,10 @@
             @include expect {
                 text-decoration: none;
                 cursor: pointer;
-                border-bottom: 2px solid;
-                @supports (text-decoration-thickness: 2px) {
+                border-bottom: 0.25ex solid;
+                @supports (text-decoration-thickness: 0.25ex) {
                     border-bottom: 0;
-                    text-decoration-thickness: 2px; //sass-lint:disable-line no-misspelled-properties
+                    text-decoration-thickness: 0.25ex; //sass-lint:disable-line no-misspelled-properties
                     text-decoration-line: underline;
                 }
                 color: #0d7680;

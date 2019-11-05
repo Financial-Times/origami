@@ -123,6 +123,7 @@
 	$base-color: oColorsGetColorFor(link, text);
 	$hover-color: oColorsGetColorFor(link-hover, text);
 	$context-color: oColorsGetColorFor(page, background);
+	$underline-size: 0.25ex; // 2px for 18px MetricWeb
 
 	// If a custom theme is given check it is a map with the required keys.
 	// And update the link colours.
@@ -156,16 +157,29 @@
 	// Fallback to a black icon if no link colour is given.
 	@if($external) {
 		$icon-color: if($base-color, $base-color, oColorsGetPaletteColor('black'));
-		$icon-padding: calc(1em + 0.5ch);
+		$icon-size: 1em;
+		$icon-inbuilt-padding-size: #{$icon-size / 4};
+		$icon-padding-calc: #{$icon-size} + 0.5ch;
 		@include oIconsGetIcon('outside-page', $icon-color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		background-repeat: no-repeat;
-		background-position-x: right;
-		padding-right: $icon-padding;
+		// Add padding for icon background.
+		// To position the icon closer to the copy, minus the right/left padding
+		// built into the icon svg (10px for a 40px icon)
+		// https://github.com/Financial-Times/fticons/blob/v1.20.5/contributing.md#design
+		padding-right: calc(#{$icon-padding-calc} - #{$icon-inbuilt-padding-size} - #{$icon-inbuilt-padding-size});
+		background-position-x: calc(100% + 0.5ch);
+		// Mimic baseline alignment.
+		@supports (background-size: contain) {
+			background-position-y: calc(100% + #{$underline-size} - 1px);
+		}
+		@supports (text-decoration-thickness: $underline-size) {
+			background-position-y: calc(100% + #{$icon-inbuilt-padding-size} - #{$underline-size} - 1px);
+		}
 		background-origin: border-box;
 		// IE11 does not size and position the svg icon background correctly
 		// using `background-size: contain`. Use @supports to exclude IE11,
 		// as IE11 does not support @supports
-		background-size: $icon-padding $icon-padding; // IE11 fallback
+		background-size: calc(#{$icon-padding-calc}) calc(#{$icon-padding-calc}); // IE11 fallback
 		@supports (background-size: contain) {
 			background-size: contain;
 		}
@@ -179,11 +193,11 @@
 	@if($include-base-styles) {
 		text-decoration: none;
 		cursor: pointer;
-		border-bottom: 2px solid;
+		border-bottom: $underline-size solid;
 
-		@supports (text-decoration-thickness: 2px) {
+		@supports (text-decoration-thickness: $underline-size) {
 			border-bottom: 0;
-			text-decoration-thickness: 2px; //sass-lint:disable-line no-misspelled-properties
+			text-decoration-thickness: $underline-size; //sass-lint:disable-line no-misspelled-properties
 			text-decoration-line: underline;
 		}
 	}
