@@ -59,13 +59,13 @@
 
 	@if($clearfix) {
 		.o-normalise-clearfix {
-			@include oNormaliseClearfixContent;
+			@include oNormaliseClearfix;
 		}
 	}
 
 	@if($visually-hidden) {
 		.o-normalise-visually-hidden {
-			@include oNormaliseVisuallyHiddenContent;
+			@include oNormaliseVisuallyHidden;
 		}
 	}
 }

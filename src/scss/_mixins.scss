@@ -1,6 +1,6 @@
 /// Visually hide an element while still
 /// allowing it to be read by a screenreader
-@mixin oNormaliseVisuallyHiddenContent {
+@mixin oNormaliseVisuallyHidden {
 	position: absolute;
 	clip: rect(0 0 0 0);
 	clip-path: polygon(0 0, 0 0);
@@ -15,7 +15,7 @@
 
 /// Clearfix helper styles
 /// Outputs clearfix styles on the current element
-@mixin oNormaliseClearfixContent {
+@mixin oNormaliseClearfix {
 	zoom: 1;
 
 	&:before,
@@ -32,7 +32,7 @@
 }
 
 /// Adds box sizing to current and all child elements
-@mixin oNormaliseBoxSizingContent {
+@mixin oNormaliseBoxSizing {
 	// sass-lint:disable no-vendor-prefixes
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box;
@@ -73,7 +73,7 @@
 		}
 
 		@if $box-sizing {
-			@include oNormaliseBoxSizingContent;
+			@include oNormaliseBoxSizing;
 		}
 
 		@if $reduce-motion {
