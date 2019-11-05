@@ -3,7 +3,7 @@ $o-typography-is-silent: false;
 @import '../../main';
 
 html {
-	@include oColorsFor(page);
+	background-color: oColorsByUsecase('page', 'background');
 	overflow-y: scroll;
 }
 
@@ -25,7 +25,7 @@ html {
 
 	.type-scale__label {
 		@include oTypographySans(1);
-		color: oColorsGetPaletteColor('black-60');
+		color: oColorsByName('black-60');
 		display: inline-block;
 		min-width: 1ch;
 		padding: 0 1em;

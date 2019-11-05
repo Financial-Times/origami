@@ -38,7 +38,7 @@
 		),
 		$weight: $weight
 	);
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 	margin: 0 0 oSpacingByName('s4');
 }
 
@@ -47,7 +47,7 @@
 @mixin oTypographyBody {
 	@include oTypographySans(1);
 	margin: 0 0 oSpacingByName('s6');
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
 
 /// Subscript text
@@ -120,9 +120,9 @@
 @mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
 	// Default link colours.
 	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
-	$base-color: oColorsGetColorFor(link, text);
-	$hover-color: oColorsGetColorFor(link-hover, text);
-	$context-color: oColorsGetColorFor(page, background);
+	$base-color: oColorsByUsecase(link, text, $fallback: null);
+	$hover-color: oColorsByUsecase(link-hover, text, $fallback: null);
+	$context-color: oColorsByUsecase(page, background);
 	$underline-size: 0.25ex; // 2px for 18px MetricWeb
 
 	// If a custom theme is given check it is a map with the required keys.
@@ -145,18 +145,18 @@
 		@if($theme-context and type-of($theme-context) != 'string') {
 			@error 'A custom link theme may optionally have a `context` property with a palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
 		}
-		$base-color: oColorsGetPaletteColor($theme-base);
-		$hover-color: oColorsGetPaletteColor($theme-hover);
+		$base-color: oColorsByName($theme-base);
+		$hover-color: oColorsByName($theme-hover);
 		// theme context is optional, use the default if not set
 		@if($theme-context) {
-			$context-color: oColorsGetPaletteColor($theme-context);
+			$context-color: oColorsByName($theme-context);
 		}
 	}
 
 	// Output external link styles.
 	// Fallback to a black icon if no link colour is given.
 	@if($external) {
-		$icon-color: if($base-color, $base-color, oColorsGetPaletteColor('black'));
+		$icon-color: if($base-color, $base-color, oColorsByName('black'));
 		$icon-size: 1em;
 		$icon-inbuilt-padding-size: #{$icon-size / 4};
 		$icon-padding-calc: #{$icon-size} + 0.5ch;
@@ -308,7 +308,7 @@
 /// Style for <footer> tags
 @mixin oTypographyFooter {
 	@include oTypographySans($scale: 1, $line-height: 24px);
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
 
 /// Styles for photo or video credit/caption
@@ -316,6 +316,6 @@
 	@include oTypographySans($scale: -1);
 	margin-top: oSpacingByName('s2');
 	margin-bottom: 0;
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text', $fallback: null);
 }
 

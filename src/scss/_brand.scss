@@ -89,8 +89,8 @@ $o-typography-display: '' !default;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
-            'author-color': oColorsGetColorFor('body', 'text'),
-            'author-hover-color': oColorsGetPaletteColor('claret'),
+            'author-color': oColorsByUsecase('body', 'text'),
+            'author-hover-color': oColorsByName('claret'),
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'

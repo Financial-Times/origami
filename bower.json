@@ -8,7 +8,7 @@
     ".travis.yml"
   ],
   "dependencies": {
-    "o-colors": "^4.7.9",
+    "o-colors": "5.0.0-beta.1",
     "o-fonts": "^3.2.0",
     "o-grid": "^4.3.1",
     "fontfaceobserver": "^2.0.9",
