@@ -35,7 +35,7 @@ This will include icons with a `128px` width/height by default. Or use the [Sass
 
 ### Includes icons of different sizes and colors
 
-Use `oIconsContentIcon` to output the styles for an icon of a given size and colour.
+Use `oIconsContent` to output the styles for an icon of a given size and colour.
 
 ```scss
 // Use o-colors so you can use colors from the Origami palette.
@@ -44,7 +44,7 @@ Use `oIconsContentIcon` to output the styles for an icon of a given size and col
 
 // Output a 32px, claret coloured plus icon.
 .my-icon-plus {
-	@include oIconsContentIcon(
+	@include oIconsContent(
 		$icon-name: 'plus',
 		$color: oColorsGetPaletteColor('claret'),
 		$size: 32
@@ -56,7 +56,7 @@ Use `oIconsContentIcon` to output the styles for an icon of a given size and col
 <span class="my-icon-plus"></span>
 ```
 
-The `oIconsContentIcon` mixins outputs styles used by each icon. This is inefficient if your project outputs multiple icons. In this case we recommend outputting the base styles separately with `oIconsContentBaseStyles`.
+The `oIconsContent` mixins outputs styles used by each icon. This is inefficient if your project outputs multiple icons. In this case we recommend outputting the base styles separately with `oIconsContentBaseStyles`.
 
 ```scss
 // Output a 32px, claret coloured plus icon.
@@ -65,7 +65,7 @@ The `oIconsContentIcon` mixins outputs styles used by each icon. This is ineffic
 }
 
 .my-icon--plus {
-	@include oIconsContentIcon(
+	@include oIconsContent(
 		$icon-name: 'plus',
 		$color: oColorsGetPaletteColor('claret'),
 		$size: 32,
@@ -82,7 +82,7 @@ The `oIconsContentIcon` mixins outputs styles used by each icon. This is ineffic
 
 ```scss
 .no-high-contrast-window {
-	@include oIconsContentIcon(
+	@include oIconsContent(
 		$icon-name: 'plus',
 		$color: oColorsGetPaletteColor('claret'),
 		$high-contrast-fallback: false

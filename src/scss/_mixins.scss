@@ -1,12 +1,15 @@
-/// Get an SVG icon with PNG fallback for ie6-8
+/// Output styles for an SVG icon.
+/// Styles the icon as a background image, setting a width and height on the element as requested.
+/// A fallback background for Windows High Contrast mode is also output.
 ///
+/// @access public
 /// @param {String} $icon-name - This should be a reference to an icon included in o-icons eg arrow-down
 /// @param {String} $color - This should be a hex colour value. Used to color the icon. We suggest using an o-colors function.
 /// @param {Number|Null} $size [128] - The width and height of the icon (units optional, defaults to px). Set to `null` to set no width or height.
 /// @param {Bool} $include-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
-/// @param {Integer} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
-/// @param {Integer} $iconset-version [1] - At present only 1 version of the icon set is available.
-@mixin oIconsContentIcon($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
+/// @param {Bool} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
+/// @param {Number} $iconset-version [1] - At present only 1 version of the icon set is available.
+@mixin oIconsContent($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
 	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
@@ -57,6 +60,7 @@
 }
 
 /// Base styles for all icons
+/// @access public
 @mixin oIconsContentBaseStyles() {
 	display: inline-block;
 	background-repeat: no-repeat;

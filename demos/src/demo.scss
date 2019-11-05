@@ -25,13 +25,13 @@ body {
 }
 
 .demo-icon-custom {
-	@include oIconsContentIcon('lock');
+	@include oIconsContent('lock');
 }
 
 .demo-icon-custom-color {
-	@include oIconsContentIcon('lock', $color: #0000ff);
+	@include oIconsContent('lock', $color: #0000ff);
 }
 
 .demo-icon-custom-color-resized {
-	@include oIconsContentIcon('lock', #0000ff, 40);
+	@include oIconsContent('lock', #0000ff, 40);
 }

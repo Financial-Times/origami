@@ -1,8 +1,8 @@
 @import "o-assets/main";
 
-@import "scss/variables";
-@import "scss/mixins";
-@import "scss/icon-list";
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/icon-list";
 
 
 /// @access public
@@ -20,7 +20,7 @@
 
 	@each $icon in map-get($opts, icons) {
 		.o-icons-icon--#{$icon} {
-			@include oIconsContentIcon($icon, $include-base-styles: false);
+			@include oIconsContent($icon, $include-base-styles: false);
 		}
 	}
 }

@@ -12,7 +12,7 @@ function runScript() {
 	let {images} = loadJson(`${__dirname}/../bower_components/fticons/imageset.json`);
 	images = images.filter(image => !iconBlacklist.includes(image.name));
 	writeDemoData(images, `${__dirname}/../demos/src/data.json`);
-	writeSassIconList(images, `${__dirname}/../scss/_icon-list.scss`);
+	writeSassIconList(images, `${__dirname}/../src/scss/_icon-list.scss`);
 }
 
 function loadJson(filePath) {
