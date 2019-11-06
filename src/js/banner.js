@@ -1,3 +1,18 @@
+const className = 'o-banner';
+const classNames = {
+	closed: `${className}--closed`,
+	outer: `${className}__outer`,
+	inner: `${className}__inner`,
+	content: `${className}__content`,
+	longContent: `${className}__content--long`,
+	shortContent: `${className}__content--short`,
+	actions: `${className}__actions`,
+	action: `${className}__action`,
+	secondaryAction: `${className}__action--secondary`,
+	button: `${className}__button`,
+	link: `${className}__link`,
+	close: `${className}__close`,
+}
 
 /**
  * Represents a banner.
@@ -8,32 +23,16 @@ class Banner {
 	 * Class constructor.
 	 * @param {HTMLElement} [bannerElement] - The banner element in the DOM
 	 * @param {Object} [options={}] - An options object for configuring the banner
+	 * @property {HTMLElement} bannerElement
 	 */
 	constructor (bannerElement, options) {
 		this.bannerElement = bannerElement;
-
 		// Default the options
-		const bannerClass = (options && options.bannerClass ? options.bannerClass : 'o-banner');
 		this.options = Object.assign({}, {
 			autoOpen: true,
 			suppressCloseButton: false,
 			closeExistingBanners: true,
 			appendTo: document.body,
-
-			bannerClass: bannerClass,
-			bannerClosedClass: `${bannerClass}--closed`,
-			outerClass: `${bannerClass}__outer`,
-			innerClass: `${bannerClass}__inner`,
-			contentClass: `${bannerClass}__content`,
-			contentLongClass: `${bannerClass}__content--long`,
-			contentShortClass: `${bannerClass}__content--short`,
-			actionsClass: `${bannerClass}__actions`,
-			actionClass: `${bannerClass}__action`,
-			actionSecondaryClass: `${bannerClass}__action--secondary`,
-			buttonClass: `${bannerClass}__button`,
-			linkClass: `${bannerClass}__link`,
-			closeButtonClass: `${bannerClass}__close`,
-
 			contentLong: '&hellip;',
 			contentShort: null,
 			buttonLabel: 'OK',
@@ -41,9 +40,7 @@ class Banner {
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
-
 			theme: null
-
 		}, options || Banner.getOptionsFromDom(bannerElement));
 
 		// Find the element to append the banner to if configured.
@@ -91,7 +88,7 @@ class Banner {
 			// If the banner element is empty, we construct the banner
 			this.bannerElement = this.buildBannerElement(this.bannerElement);
 
-		} else if (!this.bannerElement.querySelector(`.${this.options.outerClass}`)) {
+		} else if (!this.bannerElement.querySelector(`.${classNames.outer}`)) {
 			// If the banner element is not empty and also does not contain an outer element,
 			// we assume the element content is the banner content
 			this.options.contentLong = this.bannerElement.innerHTML;
@@ -113,7 +110,7 @@ class Banner {
 	 * Open the banner.
 	 */
 	open () {
-		this.bannerElement.classList.remove(this.options.bannerClosedClass);
+		this.bannerElement.classList.remove(classNames.closed);
 		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerOpened'));
 	}
 
@@ -121,7 +118,7 @@ class Banner {
 	 * Close the banner.
 	 */
 	close () {
-		this.bannerElement.classList.add(this.options.bannerClosedClass);
+		this.bannerElement.classList.add(classNames.closed);
 		this.bannerElement.dispatchEvent(new CustomEvent('o.bannerClosed'));
 	}
 
@@ -133,27 +130,27 @@ class Banner {
 	buildBannerElement (bannerElement) {
 		bannerElement = bannerElement || document.createElement('div');
 		bannerElement.innerHTML = '';
-		bannerElement.classList.add(this.options.bannerClass);
+		bannerElement.classList.add(className);
 		let themes = [];
 		if (this.options.theme) {
 			themes = (Array.isArray(this.options.theme) ? this.options.theme : [this.options.theme]);
 		}
 		themes.forEach(theme => {
-			bannerElement.classList.add(`${this.options.bannerClass}--${theme}`);
+			bannerElement.classList.add(`${className}--${theme}`);
 		});
 		let contentHtml;
 		if (this.options.contentShort) {
 			contentHtml = `
-				<div class="${this.options.contentClass} ${this.options.contentLongClass}">
+				<div class="${classNames.content} ${classNames.longContent}">
 					${this.options.contentLong}
 				</div>
-				<div class="${this.options.contentClass} ${this.options.contentShortClass}">
+				<div class="${classNames.content} ${classNames.shortContent}">
 					${this.options.contentShort}
 				</div>
 			`;
 		} else {
 			contentHtml = `
-				<div class="${this.options.contentClass}">
+				<div class="${classNames.content}">
 					${this.options.contentLong}
 				</div>
 			`;
@@ -161,18 +158,18 @@ class Banner {
 		let secondaryActionHtml = '';
 		if (this.options.linkLabel) {
 			secondaryActionHtml = `
-				<div class="${this.options.actionClass} ${this.options.actionSecondaryClass}">
-					<a href="${this.options.linkUrl}" class="${this.options.linkClass}">${this.options.linkLabel}</a>
+				<div class="${classNames.action} ${classNames.secondaryAction}">
+					<a href="${this.options.linkUrl}" class="${classNames.link}">${this.options.linkLabel}</a>
 				</div>
 			`;
 		}
 		bannerElement.innerHTML = `
-			<div class="${this.options.outerClass}">
-				<div class="${this.options.innerClass}" data-o-banner-inner="">
+			<div class="${classNames.outer}">
+				<div class="${classNames.inner}" data-o-banner-inner="">
 					${contentHtml}
-					<div class="${this.options.actionsClass}">
-						<div class="${this.options.actionClass}">
-							<a href="${this.options.buttonUrl}" class="${this.options.buttonClass}">${this.options.buttonLabel}</a>
+					<div class="${classNames.actions}">
+						<div class="${classNames.action}">
+							<a href="${this.options.buttonUrl}" class="${classNames.button}">${this.options.buttonLabel}</a>
 						</div>
 						${secondaryActionHtml}
 					</div>
@@ -188,7 +185,7 @@ class Banner {
 	 */
 	buildCloseButtonElement () {
 		const closeButton = document.createElement('button');
-		closeButton.className = this.options.closeButtonClass;
+		closeButton.className = classNames.close;
 		closeButton.setAttribute('aria-label', this.options.closeButtonLabel);
 		closeButton.setAttribute('title', this.options.closeButtonLabel);
 
