@@ -3,7 +3,7 @@
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
-	border-left: 1px solid oColorsGetPaletteColor('black-60');
+	border-left: 1px solid oColorsGetPaletteColor('black-20');
 
 	@include oGridRespondTo($until: M) {
 		display: none;
