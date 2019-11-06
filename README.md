@@ -63,7 +63,7 @@ So lists may be used in different contexts they inherit font properties such as 
 </div>
 ```
 
-### Topic Tag
+#### Topic Tag
 
 Reference categories of content with topic tags. A topic tag is usually an anchor but does not have to be if there is no page to link to.
 
@@ -74,7 +74,7 @@ No font size is set so the tag may be used in different contexts.
 <span class="o-editorial-typography-topic">Topic Without Link</span>
 ```
 
-### Author Tag
+#### Author Tag
 
 Style an author tag using the class `o-editorial-typography-author`. An author tag is usually an anchor but does not have to be if there is no author page to link to.
 
@@ -83,7 +83,7 @@ Style an author tag using the class `o-editorial-typography-author`. An author t
 <span class="o-editorial-typography-author">Joe Doe</span>
 ```
 
-### Timestamp
+#### Timestamp
 
 `o-editorial-typography-timestamp` styles a timestamp. It does not set font size or family so may be used in different contexts, such as an article byline or comments section.
 
@@ -91,7 +91,7 @@ Style an author tag using the class `o-editorial-typography-author`. An author t
 <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm" aria-label="October 11 2019">October 11 2019</time>
 ```
 
-### Byline
+#### Byline
 
 A story byline may be styled using `o-editorial-typography-byline`. It's often used along with author and timestamp styles.
 
@@ -103,7 +103,7 @@ A story byline may be styled using `o-editorial-typography-byline`. It's often u
 </div>
 ```
 
-### Captions
+#### Captions
 
 Style captions using `o-editorial-typography-caption`.
 
@@ -150,6 +150,53 @@ This example shows all options:
 	'byline': true,
 	'timestamp': true
 ));
+```
+
+We recommend including styles with `oEditorialTypography` and using default markup to reduce duplicated CSS in your project. However you may also use typography mixins provided if you are unable to update your markup to `o-editorial-typography` classes. Mixins include:
+
+- `oEditorialTypographyHeadline`
+- `oEditorialTypographyHeading`
+- `oEditorialTypographyBody`
+- `oEditorialTypographyList`
+- `oEditorialTypographyCaption`
+- `oEditorialTypographyStandfirst`
+- `oEditorialTypographyByline`
+- `oEditorialTypographyTimestamp`
+- `oEditorialTypographyTag`
+- `oEditorialTypographyDecorated`
+
+
+For example to output a heading:
+```scss
+.my-h2 {
+    @include oEditorialTypographyHeading(2);
+}
+```
+
+Or a topic tag:
+```scss
+.my-topic-tag {
+    @include oEditorialTypographyTag('topic');
+}
+```
+
+See the [o-editorial-typography Sassdoc](https://registry.origami.ft.com/components/o-editorial-typography/sassdoc) for full details and more examples.
+
+#### Font Loading
+
+Calling `oEditorialTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use set `$o-editorial-typography-load-fonts: false` and use [o-fonts](https://registry.origami.ft.com/components/o-fonts). This is not required if your project also uses o-typography and has already set [$o-typography-load-fonts](https://registry.origami.ft.com/components/o-typography).
+
+```scss
+// configure $o-editorial-typography-load-fonts to not include fonts
+$o-editorial-typography-load-fonts: false;
+// import dependencies
+@import 'o-editorial-typography/main';
+// include css for select fonts manually
+@include oFontsInclude(MetricWeb, semibold);
+@include oFontsInclude(FinancierDisplayWeb, regular);
+@include oFontsInclude(FinancierDisplayWeb, bold);
+// include css for all editorial typography
+@include oEditorialTypography();
 ```
 
 ## Contact
