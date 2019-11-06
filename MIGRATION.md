@@ -1,4 +1,4 @@
-## Migration guide
+# Migration guide
 
 ## Migrating from v3 to v4
 
