@@ -12,7 +12,7 @@ const classNames = {
 	button: `${className}__button`,
 	link: `${className}__link`,
 	close: `${className}__close`,
-}
+};
 
 /**
  * Represents a banner.
