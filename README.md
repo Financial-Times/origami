@@ -1,28 +1,24 @@
-
 # o-banner [![Circle CI](https://img.shields.io/circleci/project/github/Financial-Times/o-banner/master.svg)](https://circleci.com/gh/Financial-Times/o-banner/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
 
-- [Usage](#usage)
-  - [Behaviour](#behaviour)
-  - [Markup](#markup)
-  - [JavaScript](#javascript)
-  - [Sass](#sass)
-  - [Themes](#themes)
+- [Behaviour](#behaviour)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Sass](#sass)
+- [Themes](#themes)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
-## Usage
-
 o-banner includes Sass and JavaScript to show and hide the banner. Banners can be created declaratively by adding markup to the page, or imperatively using JavaScript (only when not using the Build Service).
 
-### Behaviour
+## Behaviour
 
 o-banner elements appear fixed to the bottom of the screen. You can dismiss a banner, which will hide it but not remove it from the DOM. By default the last banner to be created will be the one that automatically opens. Opening a new banner will close any that are currently open.
 
-### Markup
+## Markup
 
 This HTML demonstrates the declarative way to instantiate o-banner. If you are using the Build Service or firing your own `o.DOMContentLoaded` event, this is all you need to create a banner:
 
@@ -94,11 +90,11 @@ If the banner element has content, but does _not_ include an `o-banner__outer` e
 </div>
 ```
 
-### JavaScript
+## JavaScript
 
 No code will run automatically unless you are using the Build Service. You must either construct an o-banner object or fire an `o.DOMContentLoaded` event, which o-banner listens for.
 
-#### Constructing an o-banner
+### Constructing an o-banner
 
 If you have set up your banner declaratively:
 
@@ -126,14 +122,14 @@ const myBanner = new Banner(null, {
 
 The [available options](#options) are documented below.
 
-#### Manipulating an o-banner
+### Manipulating an o-banner
 
 Once you have an o-banner instance, you can manipulate it using the following methods (assume an instance named `myBanner` exists):
 
   - `myBanner.open()`: display a closed banner
   - `myBanner.close()`: hide an open banner
 
-#### Options
+### Options
 
 There are several options used to change the appearance or behaviour of o-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl`. Set the following as properties on the second argument to `oBanner`:
 
@@ -141,7 +137,6 @@ There are several options used to change the appearance or behaviour of o-banner
   - `appendTo`: String or Node. The element to append the banner to, when created imperatively with JavaScript. Defaults to `document.body`
   - `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
   - `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
-  - `bannerClass`: String. The top-level banner class, which other classes will be based on. Defaults to `o-banner`
   - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
   - `buttonLabel`: String. The banner button label. Defaults to `OK`
@@ -151,7 +146,7 @@ There are several options used to change the appearance or behaviour of o-banner
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
   - `theme`: String or Array. Themes to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
 
-### Sass
+## Sass
 
 As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
 
@@ -167,7 +162,7 @@ The `$themes` parameter can be either `all` or a list of [themes](#themes) to in
 @include oBanner($themes: ('small', 'compact', 'marketing', 'product'));
 ```
 
-### Themes
+## Themes
 
 o-banner is themeable, and has the following built-in themes, which can be used in combination with eachother:
 
@@ -175,7 +170,7 @@ o-banner is themeable, and has the following built-in themes, which can be used 
   - `compact`: Display the banner in the bottom left like the `small` theme, but with tighter spacing and smaller typography
   - `marketing`: Use the marketing colours for the banner
 
-In the markup, these can be applied as classes alongside the `o-banner class`. They are exposed as modifiers:
+In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
 <div class="o-banner o-banner--small o-banner--marketing">
@@ -192,6 +187,26 @@ const myBanner = new oBanner({
 ```
 
 ## Migration guide
+
+### Migrating from v2 to v3
+
+Custom classes have been removed, so you'll need to update your code to use the documented `o-banner` classes if you were setting any of these in `options`:
+
+```
+bannerClass,
+bannerClosedClass,
+outerClass,
+innerClass,
+contentClass,
+contentLongClass,
+contentShortClass,
+actionsClass,
+actionClass,
+actionSecondaryClass,
+buttonClass,
+linkClass,
+closeButtonClass,
+```
 
 ### Migrating from v1 to v2
 
