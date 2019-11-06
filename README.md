@@ -12,8 +12,6 @@ This component is for displaying teasers which link through to articles.
 ## Development
 Install the [Origami build tools](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md) to [build and run demos](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md#developing-modules-locally)
 
-## Usage
-
 ## Markup
 
 The basic markup structure for a teaser will look something like this:
