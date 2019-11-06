@@ -66,19 +66,6 @@ describe('Banner', () => {
 				suppressCloseButton: false,
 				appendTo: document.body,
 				closeExistingBanners: true,
-				bannerClass: 'o-banner',
-				bannerClosedClass: 'o-banner--closed',
-				outerClass: 'o-banner__outer',
-				innerClass: 'o-banner__inner',
-				contentClass: 'o-banner__content',
-				contentLongClass: 'o-banner__content--long',
-				contentShortClass: 'o-banner__content--short',
-				actionsClass: 'o-banner__actions',
-				actionClass: 'o-banner__action',
-				actionSecondaryClass: 'o-banner__action--secondary',
-				buttonClass: 'o-banner__button',
-				linkClass: 'o-banner__link',
-				closeButtonClass: 'o-banner__close',
 				contentLong: '&hellip;',
 				contentShort: null,
 				buttonLabel: 'OK',
@@ -192,40 +179,6 @@ describe('Banner', () => {
 				});
 			});
 
-
-		});
-
-		describe('when `options.bannerClass` is specified but no other classes are', () => {
-
-			beforeEach(() => {
-
-				// Stub out methods called in constructor
-				bannerRenderStub = sinon.stub(Banner.prototype, 'render');
-				bannerOpenStub = sinon.stub(Banner.prototype, 'open');
-
-				// Create a banner
-				options.bannerClass = 'bruce-banner';
-				banner = new Banner(bannerElement, options);
-
-				// Restore constructor stubs
-				Banner.prototype.render.restore();
-				Banner.prototype.open.restore();
-
-			});
-
-			it('defaults the other class options based on the banner class', () => {
-				assert.strictEqual(banner.options.bannerClosedClass, 'bruce-banner--closed');
-				assert.strictEqual(banner.options.outerClass, 'bruce-banner__outer');
-				assert.strictEqual(banner.options.innerClass, 'bruce-banner__inner');
-				assert.strictEqual(banner.options.contentClass, 'bruce-banner__content');
-				assert.strictEqual(banner.options.contentLongClass, 'bruce-banner__content--long');
-				assert.strictEqual(banner.options.contentShortClass, 'bruce-banner__content--short');
-				assert.strictEqual(banner.options.actionsClass, 'bruce-banner__actions');
-				assert.strictEqual(banner.options.actionClass, 'bruce-banner__action');
-				assert.strictEqual(banner.options.actionSecondaryClass, 'bruce-banner__action--secondary');
-				assert.strictEqual(banner.options.buttonClass, 'bruce-banner__button');
-				assert.strictEqual(banner.options.linkClass, 'bruce-banner__link');
-			});
 
 		});
 
@@ -410,7 +363,7 @@ describe('Banner', () => {
 
 			it('removes the banner closed class', () => {
 				assert.calledOnce(bannerElement.classList.remove);
-				assert.calledWith(bannerElement.classList.remove, banner.options.bannerClosedClass);
+				assert.calledWith(bannerElement.classList.remove, "o-banner--closed");
 			});
 
 			it('dispatches an `o.bannerOpened` event', () => {
@@ -435,7 +388,7 @@ describe('Banner', () => {
 
 			it('adds the banner closed class', () => {
 				assert.calledOnce(bannerElement.classList.add);
-				assert.calledWith(bannerElement.classList.add, banner.options.bannerClosedClass);
+				assert.calledWith(bannerElement.classList.add, "o-banner--closed");
 			});
 
 			it('dispatches an `o.bannerClosed` event', () => {
@@ -456,18 +409,6 @@ describe('Banner', () => {
 			beforeEach(() => {
 
 				// Mock options used to test output HTML
-				banner.options.bannerClass = 'mockBannerClass';
-				banner.options.bannerClosedClass = 'mockBannerClosedClass';
-				banner.options.outerClass = 'mockOuterClass';
-				banner.options.innerClass = 'mockInnerClass';
-				banner.options.contentClass = 'mockContentClass';
-				banner.options.contentLongClass = 'mockContentLongClass';
-				banner.options.contentShortClass = 'mockContentShortClass';
-				banner.options.actionsClass = 'mockActionsClass';
-				banner.options.actionClass = 'mockActionClass';
-				banner.options.actionSecondaryClass = 'mockActionSecondaryClass';
-				banner.options.buttonClass = 'mockButtonClass';
-				banner.options.linkClass = 'mockLinkClass';
 				banner.options.contentLong = 'mockContentLong';
 				banner.options.contentShort = 'mockContentShort';
 				banner.options.buttonLabel = 'mockButtonLabel';
@@ -484,21 +425,21 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<div class="mockBannerClass">
-						<div class="mockOuterClass">
-							<div class="mockInnerClass" data-o-banner-inner="">
-								<div class="mockContentClass mockContentLongClass">
+					<div class="o-banner">
+						<div class="o-banner__outer">
+							<div class="o-banner__inner" data-o-banner-inner="">
+								<div class="o-banner__content o-banner__content--long">
 									mockContentLong
 								</div>
-								<div class="mockContentClass mockContentShortClass">
+								<div class="o-banner__content o-banner__content--short">
 									mockContentShort
 								</div>
-								<div class="mockActionsClass">
-									<div class="mockActionClass">
-										<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+								<div class="o-banner__actions">
+									<div class="o-banner__action">
+										<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
 									</div>
-									<div class="mockActionClass mockActionSecondaryClass">
-										<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
+									<div class="o-banner__action o-banner__action--secondary">
+										<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
 									</div>
 								</div>
 							</div>
@@ -516,18 +457,18 @@ describe('Banner', () => {
 
 				it('outputs only one content element using `options.contentLong`', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass">
-							<div class="mockOuterClass">
-								<div class="mockInnerClass" data-o-banner-inner="">
-									<div class="mockContentClass">
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content">
 										mockContentLong
 									</div>
-									<div class="mockActionsClass">
-										<div class="mockActionClass">
-											<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
 										</div>
-										<div class="mockActionClass mockActionSecondaryClass">
-											<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
 										</div>
 									</div>
 								</div>
@@ -547,18 +488,18 @@ describe('Banner', () => {
 
 				it('does not include a secondary action/link', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass">
-							<div class="mockOuterClass">
-								<div class="mockInnerClass" data-o-banner-inner="">
-									<div class="mockContentClass mockContentLongClass">
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
 										mockContentLong
 									</div>
-									<div class="mockContentClass mockContentShortClass">
+									<div class="o-banner__content o-banner__content--short">
 										mockContentShort
 									</div>
-									<div class="mockActionsClass">
-										<div class="mockActionClass">
-											<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
 										</div>
 									</div>
 								</div>
@@ -578,21 +519,21 @@ describe('Banner', () => {
 
 				it('adds the theme class to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass mockBannerClass--mock-theme">
-							<div class="mockOuterClass">
-								<div class="mockInnerClass" data-o-banner-inner="">
-									<div class="mockContentClass mockContentLongClass">
+						<div class="o-banner o-banner--mock-theme">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
 										mockContentLong
 									</div>
-									<div class="mockContentClass mockContentShortClass">
+									<div class="o-banner__content o-banner__content--short">
 										mockContentShort
 									</div>
-									<div class="mockActionsClass">
-										<div class="mockActionClass">
-											<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
 										</div>
-										<div class="mockActionClass mockActionSecondaryClass">
-											<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
 										</div>
 									</div>
 								</div>
@@ -615,21 +556,21 @@ describe('Banner', () => {
 
 				it('adds all of the theme classes to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="mockBannerClass mockBannerClass--mock-theme mockBannerClass--test-theme">
-							<div class="mockOuterClass">
-								<div class="mockInnerClass" data-o-banner-inner="">
-									<div class="mockContentClass mockContentLongClass">
+						<div class="o-banner o-banner--mock-theme o-banner--test-theme">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
 										mockContentLong
 									</div>
-									<div class="mockContentClass mockContentShortClass">
+									<div class="o-banner__content o-banner__content--short">
 										mockContentShort
 									</div>
-									<div class="mockActionsClass">
-										<div class="mockActionClass">
-											<a href="mockButtonUrl" class="mockButtonClass">mockButtonLabel</a>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
 										</div>
-										<div class="mockActionClass mockActionSecondaryClass">
-											<a href="mockLinkUrl" class="mockLinkClass">mockLinkLabel</a>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
 										</div>
 									</div>
 								</div>
@@ -671,7 +612,6 @@ describe('Banner', () => {
 			beforeEach(() => {
 
 				// Mock options used to test output HTML
-				banner.options.closeButtonClass = 'mockCloseButtonClass';
 				banner.options.closeButtonLabel = 'mockCloseButtonLabel';
 
 				sinon.stub(HTMLElement.prototype, 'addEventListener');
@@ -689,7 +629,7 @@ describe('Banner', () => {
 
 			it('constructs the element HTML based on the given options', () => {
 				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-					<button class="mockCloseButtonClass" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></button>
+					<button class="o-banner__close" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></button>
 				`.replace(/[\t\n]+/g, ''));
 			});
 
