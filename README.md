@@ -58,7 +58,8 @@ The following elements are supported by default:
 
 ```css
 .o-teaser__tag 						// Small coloured tag at the top of the teaser
-.o-teaser__duration					// Duration of the content (for video content)
+.o-teaser__tag-suffix				// Small coloured content to come after the tag, such as timestamp or duration
+.o-teaser__tag-prefix				// A container for content before the tag
 .o-teaser__heading 					// Main heading of the teaser
 .o-teaser__standfirst 				// A short piece of content
 .o-teaser__image-container			// Wrapper element for an image
