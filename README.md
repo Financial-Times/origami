@@ -24,7 +24,7 @@ Headings 1-6 are provided with the class `o-editorial-typography-heading-level-[
 <h5 class="o-editorial-typography-heading-level-5">Heading level 5</h5>
 ```
 
-Heading level 1 is a suitable for most cases but for more emphasis use `o-editorial-typography-headline` instead.
+Heading level 1 is suitable for most cases but for more emphasis use `o-editorial-typography-headline` instead.
 ```html
 <h1 class="o-editorial-typography-headline">Don&rsquo;t settle for black and white</h1>
 ```
