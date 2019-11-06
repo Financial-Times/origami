@@ -1,12 +1,205 @@
-
 @mixin _oBannerGetThemeMixin($theme, $class) {
 	@if $theme == 'marketing' {
-		@include oBannerThemeMarketing($class);
+		@include _oBannerThemeMarketing($class);
 	} @else if $theme == 'product' {
-		@include oBannerThemeProduct($class);
+		@include _oBannerThemeProduct($class);
 	} @else if $theme == 'small' {
-		@include oBannerThemeSmall($class);
+		@include _oBannerThemeSmall($class);
 	} @else if $theme == 'compact' {
-		@include oBannerThemeCompact($class);
+		@include _oBannerThemeCompact($class);
 	}
+}
+
+@mixin _oBannerBase {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+}
+
+@mixin _oBannerClosed {
+	display: none;
+}
+
+@mixin _oBannerOuter {
+	@include oColorsFor(o-banner, background text);
+	@include oVisualEffectsShadowsElevation('high');
+}
+
+@mixin _oBannerInner {
+	@include oTypographySans($scale: 2);
+	// sass-lint:disable no-vendor-prefixes
+	-webkit-font-smoothing: antialiased;
+	// sass-lint:enable no-vendor-prefixes
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: map-get($o-grid-layouts, XL);
+	margin: 0 auto;
+	padding: $_o-banner-spacing 0;
+	box-sizing: border-box;
+
+	@include oGridRespondTo($until: S) {
+		@include oTypographySans($scale: 0);
+		display: block;
+		padding: $_o-banner-spacing;
+		padding-top: oSpacingByIncrement(7);
+	}
+}
+
+@mixin _oBannerContent {
+	padding: 0 $_o-banner-spacing;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 3);
+		@include oTypographyBold($font: 'sans');
+		margin-top: 0;
+		margin-bottom: oSpacingByName('s1');
+	}
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	b,
+	strong {
+		@include oTypographyBold($font: 'sans');
+	}
+	> ul {
+		@include oTypographyListUnordered;
+		margin-top: oSpacingByName('s3');
+		margin-bottom: 0;
+
+		li {
+			@include oTypographySans($scale: 2, $line-height: oSpacingByIncrement(7));
+		}
+		li:before {
+			color: inherit;
+		}
+	}
+	a {
+		@include oTypographyLinkCustom(
+			$baseColor: oColorsGetUseCase(o-banner-link, text),
+			$hoverColor: oColorsGetUseCase(o-banner-link, text),
+			$outlineColor: oColorsGetUseCase(o-banner-link, text),
+			$backgroundColor: oColorsGetUseCase(o-banner, background)
+		);
+	}
+
+	@include oGridRespondTo($until: S) {
+		padding: 0;
+	}
+}
+
+@mixin _oBannerContentLong {
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}
+
+@mixin _oBannerContentShort {
+	@include oGridRespondTo($from: M) {
+		display: none;
+	}
+}
+
+@mixin _oBannerHeading {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0;
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 100px;
+		margin-top: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s4');
+
+		// Color is set separately for easier overriding later
+		border-bottom: oSpacingByIncrement(2) solid;
+		border-color: oColorsGetColorFor(o-banner-heading-rule, background);
+	}
+}
+
+@mixin _oBannerActions {
+	@include oTypographySans($scale: 2);
+	display: flex;
+	align-items: center;
+
+	@include oGridRespondTo($until: S) {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: oSpacingByName('s6');
+	}
+}
+
+@mixin _oBannerAction {
+	padding-right: $_o-banner-spacing;
+
+	@include oGridRespondTo($until: S) {
+		padding-right: 0;
+	}
+}
+
+@mixin _oBannerActionSecondary {
+	@include oGridRespondTo($until: S) {
+		margin-top: $_o-banner-spacing / 4;
+	}
+}
+
+@mixin _oBannerButton {
+	@include oButtons(
+		$size: big,
+		$theme: (
+			'background': oColorsGetUseCase(o-banner-button, background),
+			'accent': oColorsGetUseCase(o-banner-button, text),
+			'colorizer': 'primary'
+	));
+	white-space: nowrap;
+	// This is a hack around the fact that custom buttons do not
+	// support buttons with three colours. TODO: add this to o-buttons
+	// https://github.com/Financial-Times/o-buttons/issues/128
+	&,
+	&:not([disabled]):active {
+		@include oColorsFor(o-banner-button-active, text);
+	}
+}
+
+@mixin _oBannerLink {
+	@include oTypographyLinkCustom(
+		$baseColor: oColorsGetUseCase(o-banner-link, text),
+		$hoverColor: oColorsGetUseCase(o-banner-link, text),
+		$outlineColor: oColorsGetUseCase(o-banner-link, text),
+		$backgroundColor: oColorsGetUseCase(o-banner, background)
+	);
+	@include oTypographySans($scale: 0);
+	white-space: nowrap;
+}
+
+@mixin _oBannerCloseButton {
+	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size, $iconset-version: 1);
+	// start: undo button styles
+	appearance: none;
+	color: inherit;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	// end: undo button styles
+	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
+	display: block;
+	position: absolute;
+	right: $close-button-position;
+	top: $close-button-position;
 }

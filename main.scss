@@ -1,24 +1,82 @@
-
 @import 'o-spacing/main';
 @import 'o-buttons/main';
 @import 'o-colors/main';
 @import 'o-grid/main';
 @import "o-icons/main";
-@import 'o-typography/main';
-@import 'o-visual-effects/main';
+@import "o-typography/main";
+@import "o-visual-effects/main";
 
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
 @import "src/scss/mixins";
-@import "src/scss/banner";
 
 @import "src/scss/themes/marketing";
 @import "src/scss/themes/product";
 @import "src/scss/themes/small";
 @import "src/scss/themes/compact";
 
-@if ($o-banner-is-silent == false) {
+@mixin oBanner($opts: (
+	themes: $_o-banner-themes
+)) {
+	// Base banner styles
+	.o-banner {
+		@include _oBannerBase;
 
+		&--closed {
+			@include _oBannerClosed;
+		}
+
+		&__outer {
+			@include _oBannerOuter;
+		}
+		&__inner {
+			@include _oBannerInner;
+		}
+		&__content {
+			@include _oBannerContent;
+		}
+		&__content--long {
+			@include _oBannerContentLong;
+		}
+		&__content--short {
+			@include _oBannerContentShort;
+		}
+		&__heading {
+			@include _oBannerHeading;
+		}
+		&__actions {
+			@include _oBannerActions;
+		}
+		&__action {
+			@include _oBannerAction;
+		}
+		&__action--secondary {
+			@include _oBannerActionSecondary;
+		}
+		&__button {
+			@include _oBannerButton;
+		}
+		&__link {
+			@include _oBannerLink;
+		}
+		&__close {
+			@include _oBannerCloseButton;
+		}
+	}
+
+	// Theme styles
+	@if $themes != false  {
+		@each $theme in $themes {
+			@if index($_o-banner-themes, $theme) != null {
+				@include _oBannerGetThemeMixin($theme, $class);
+			} @else {
+				@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
+			}
+		}
+	}
+}
+
+@if ($o-banner-is-silent == false) {
 	@include oBanner;
 
 	// Set to silent again to avoid being output twice
