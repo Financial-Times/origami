@@ -152,14 +152,12 @@ As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.
 
 o-banner includes mixins that you can use if you'd rather not have origami classnames in your page. These are only available if you're not using the Build Service:
 
-```scss
-@include oBanner($class: 'o-banner', $themes: 'all');
-```
-
-The `$themes` parameter can be either `all` or a list of [themes](#themes) to include:
+The `$themes` parameter can be a list of [themes](#themes) to include:
 
 ```scss
-@include oBanner($themes: ('small', 'compact', 'marketing', 'product'));
+@include oBanner($opts: (
+	'themes': ('small', 'compact', 'marketing', 'product')
+));
 ```
 
 ## Themes
@@ -207,6 +205,16 @@ buttonClass,
 linkClass,
 closeButtonClass,
 ```
+
+The main sass mixin, `oBanner`, no longer takes a custom class as an argument, and the themes are passed as part of the `$opts` map, as so:
+
+```
+oBanner($opts: (
+	'themes': ('small')
+))
+```
+
+The `themes` option used to take a map or the word 'all', but as 'all' is the default, one can get that effect by not specifying anything.
 
 ### Migrating from v1 to v2
 
