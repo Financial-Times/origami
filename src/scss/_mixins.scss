@@ -5,7 +5,7 @@
 ///     }
 @mixin oEditorialTypographyBody() {
 	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text');
 	margin: 0; // undo browser defaults
 }
 
@@ -14,6 +14,9 @@
 /// containing list element such as `ul` or `ol`.
 /// Does not output font styles, these are
 /// inherited (@see oEditorialTypographyBody).
+///
+/// Wraps an o-typography mixin so the two may diverge
+/// (@see oTypographyList)
 ///
 /// @example Output the styles for an unordered list.
 ///     .my-unordered-list {
@@ -36,48 +39,9 @@
 /// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
 /// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
 @mixin oEditorialTypographyList($type: null, $include-base-styles: true) {
-	// Undo browser defaults.
-	@if($include-base-styles) {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	// Reset number counter for new ordered list.
-	@if($type == 'ordered') {
-		counter-reset: item;
-	}
-	> li {
-		// Undo browser defaults.
-		@if($include-base-styles) {
-			margin: 0;
-		}
-		&:before {
-			// Allow space for 2-3 numbers for both ordered and unordered lists,
-			// so content aligns between both list types. As an inline pseudo
-			// element a longer count will push list content rather than overlap.
-			@if($include-base-styles) {
-				display: inline-block;
-				box-sizing: border-box;
-				min-width: 3ex;
-				padding-right: oSpacingByName('s1');
-			}
-
-			@if($type == 'unordered') {
-				content: '\2022'; // dot character
-				color: inherit;
-				transform: scale(1.778); // 32px dot character given a parent font-size of 18px
-				transform-origin: center left;
-				margin-left: -0.16ch; // remove kerning and align marker flush to the left
-			}
-
-			@if($type == 'ordered') {
-				@include oTypographyBold('sans');
-				content: counter(item);
-				counter-increment: item;
-				font-feature-settings: "tnum";
-				font-family: $o-typography-sans;
-			}
-		}
+	@include oTypographyList($type, $include-base-styles);
+	@if $include-base-styles {
+		margin: 0; // Do not assume the context the list is used.
 	}
 }
 
@@ -85,7 +49,7 @@
 /// e.g. for photo or video credit/caption.
 @mixin oEditorialTypographyCaption() {
 	@include oTypographySans($scale: -1);
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text');
 }
 
 /// Output styles for large headline text.
@@ -112,15 +76,14 @@
 	margin: 0;
 
 	// set color
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text');
 
 	@if($level == 1) {
 		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
 	}
 
 	@if($level == 2) {
-		@include oTypographySans($scale: 4);
-		@include oTypographyBold('sans');
+		@include oTypographySans($scale: 4, $weight: 'semibold');
 	}
 
 	@if($level == 3) {
@@ -141,7 +104,7 @@
 /// Output styles for editorial standfirst.
 @mixin oEditorialTypographyStandfirst() {
 	@include oTypographySans($scale: 2);
-	color: oColorsGetPaletteColor('black-60');
+	color: oColorsByName('black-60');
 }
 
 /// Output styles for the editorial byline.
@@ -156,7 +119,7 @@
 /// a comment section or a byline.
 @mixin oEditorialTypographyTimestamp() {
 	text-transform: uppercase;
-	color: oColorsGetPaletteColor('black-60');
+	color: oColorsByName('black-60');
 }
 
 /// Output specific tag styles, such as author and
@@ -178,7 +141,7 @@
 /// @param {Null|String} $type - the type of tag ('topic', 'author', or `null` for an unspecific kind of tag).
 @mixin oEditorialTypographyTag($type) {
 	// Non-linked tags and author tags are the same colour as the body copy.
-	color: oColorsGetColorFor('body', 'text');
+	color: oColorsByUsecase('body', 'text');
 
 	// Author and topic tags are bold.
 	// They inherit their font size but because we want
@@ -186,7 +149,7 @@
 	// rather than assume it, as our sans and serif fonts
 	// use different font weights.
 	@if($type == 'author' or $type == 'topic') {
-		@include oTypographyBold('sans');
+		@include oTypographySans($weight: 'semibold', $include-font-family: false);
 		font-family: $o-typography-sans;
 	}
 
@@ -196,12 +159,12 @@
 	// But author tags are the same colour as body copy until hover.
 	@at-root a#{&} {
 		@if($type != 'author') {
-			@include oColorsFor('tag-link', text);
+			color: oColorsByUsecase('tag-link', text);
 		}
 		text-decoration: none;
 		&:hover {
 			$hover-color: if($type != 'author', 'tag-link-hover', 'tag-link');
-			@include oColorsFor($hover-color, text);
+			color: oColorsByUsecase($hover-color, text);
 		}
 	}
 }

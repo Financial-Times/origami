@@ -22,7 +22,7 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-normalise@^1.0.0"
+			"o-normalise@2.0.0-beta.3"
 		]
 	},
 	"demos": [
