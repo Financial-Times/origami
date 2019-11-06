@@ -246,14 +246,8 @@
 		@include _oTeaserVideo;
 	}
 
-	.o-teaser--big-video, // TODO: clean this up when no longer used
 	.o-teaser--has-video {
 		@include _oTeaserBigVideo;
-	}
-
-	// NOTE: deprecate this element in next major version
-	.o-teaser__duration {
-		@include _oTeaserDuration;
 	}
 }
 

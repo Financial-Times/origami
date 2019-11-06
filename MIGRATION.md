@@ -2,6 +2,14 @@
 
 ## Migrating from v3 to v4
 
+### Markup
+
+Deprecated classes have been removed:
+- Replace `o-teaser--big-video` with `o-teaser--has-video`
+- Replace `o-teaser__duration` with `o-teaser__tag-suffix`
+
+### Sass
+
 The Sass variables `$o-teaser-themes` and `$o-teaser-elements` are now private and must not be used.
 
 All Sass mixins have been removed except `oTeaser` and `oTeaserHeading`. Instead of `oTeaserTag` use [oEditorialTypographyTag](https://github.com/Financial-Times/o-editorial-typography); instead of other mixins include styles using `oTeaser` and update your markup to use `o-teaser` classes.

@@ -76,13 +76,6 @@
 	color: oColorsGetPaletteColor('black-60');
 }
 
-/// Video duration styles
-// NOTE: deprecate this element in next major version in favour of tag-suffix
-@mixin _oTeaserDuration {
-	@include _oTypographyFontSize(-1);
-	color: oColorsGetPaletteColor('black-60');
-}
-
 /// Styles for standfirst element
 @mixin _oTeaserStandfirst {
 	@include oTypographySize(0, 20px);
