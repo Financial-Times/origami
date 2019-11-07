@@ -54,6 +54,19 @@ For master brand products, the "product" headings are now the default o-typograp
 
 #### Sass
 
+##### Variables
+
+`$o-typography-loading-prefix` is now private. Update your markup to use the `o-typography--loading` class.
+
+`$o-typography-font-scale` is now private. Use the function `oTypographyGetScale` to get font scale information; use `oTypographyDefineFontScale` to customise the scale.
+
+The font family variables `$o-typography-sans`, `$o-typography-serif`, `$o-typography-display` are now private. To set a custom font use `oTypographySetFont` instead; to set `font-family` only include `oTypographySans`, `oTypographySerif`, or `oTypographyDisplay`.
+
+```diff
+-font-family: $o-typography-display;
++@include oTypographyDisplay();
+```
+
 ##### Colour Usecases
 
 The following colour usecases have been removed. Replace the `o-typography-body` usecase with the default o-colors usecase `body`. If your project requires any other usecase please contact the Origami team:
@@ -311,6 +324,12 @@ For master brand products, the "product" headings are now the default o-typograp
 - `oTypographyProductHeadingLevel6` becomes `oTypographyHeading($level: 6)`
 - `oTypographyProductHeadingLevel7` becomes `oTypographyHeading($level: 6)` (level 7 is removed)
 - `oTypographyProductHeadingLevel8` becomes `oTypographyHeading($level: 6)` (level 8 is removed)
+
+#### JavaScript
+
+The option `fontLoadingPrefix` has been removed. Update your markup to use the default `o-typography--loading-` prefix instead.
+
+The legacy option `fontLoadedStorageName` has also been removed. Use `fontLoadedCookieName` instead.
 
 ### Migrating from v4 to v5
 

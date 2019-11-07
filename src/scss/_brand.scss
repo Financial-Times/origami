@@ -2,19 +2,39 @@
 /// @deprecated Output/set font family using the provided mixins.
 /// @see '_o-band.scss' where default typography variables are set.
 /// @type String
-$o-typography-sans: '' !default;
+$_o-typography-sans: '' !default;
 
 /// Serif font-family
 /// @deprecated Output/set font family using the provided mixins.
 /// @see '_o-brand.scss' where default typography variables are set.
 /// @type String
-$o-typography-serif: '' !default;
+$_o-typography-serif: '' !default;
 
 /// Display font-family
 /// @deprecated Output/set font family using the provided mixins.
 /// @see '_o-brand.scss' where default typography variables are set.
 /// @type String
-$o-typography-display: '' !default;
+$_o-typography-display: '' !default;
+
+/// The default font scale of font-sizes and line-heights.
+/// This may be customised per font, @see $_o-typography-font-scale-by-font
+/// @access private
+/// @type Map
+$_o-typography-font-scale: (
+   -2: (12, 16),
+   -1: (14, 16),
+    0: (16, 20),
+    1: (18, 20),
+    2: (20, 24),
+    3: (24, 28),
+    4: (28, 32),
+    5: (32, 32),
+    6: (40, 40),
+    7: (48, 48),
+    8: (56, 56),
+    9: (72, 72),
+   10: (84, 84),
+) !default;
 
 /// Helper for `o-brand` function.
 /// @access private
@@ -83,9 +103,9 @@ $o-typography-display: '' !default;
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
-    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
-    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
-    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
+    $_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
+    $_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
@@ -119,9 +139,9 @@ $o-typography-display: '' !default;
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
-    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
-    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
+    $_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
@@ -163,14 +183,12 @@ $o-typography-display: '' !default;
         (weight: bold, style: italic)
     ));
 
-    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, (Arial, sans)) !global;
-    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
-    $o-typography-display: if($o-typography-display != '', $o-typography-display, (Arial, sans)) !global;
+    $_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, (Arial, sans)) !global;
+    $_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
+    $_o-typography-display: if($_o-typography-display != '', $_o-typography-display, (Arial, sans)) !global;
 
-    // Other components may get values from the scale map and assume a px value.
-    // Therefore we must set a line height of px value.
-    // @breaking Allow scale to have `null` line-heights, for the default browser line height.
-    $o-typography-font-scale: (
+    // Change the default font scale for the whitelabel brand.
+    $_o-typography-font-scale: (
        -2: (12, (12 * 1.2)),
        -1: (14, (14 * 1.2)),
         0: (16, (16 * 1.2)),

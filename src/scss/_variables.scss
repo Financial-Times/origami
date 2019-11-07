@@ -23,36 +23,16 @@ $o-typography-progressive-font-loading: true !default;
 $o-typography-baseline-unit: 4;
 
 /// Prefix for the class used when loading fonts
+/// @access private
 /// @type String
-$o-typography-loading-prefix: 'o-typography--loading' !default;
-
-/// The default font scale of font-sizes and line-heights.
-/// For backward compatibility this scale is used by default when a scale is needed but the font family is not known.
-/// @see $_o-typography-font-scale-by-font
-/// @see '_o-brand.scss' where this default scale is updated by the whitelabel brand
-/// @type Map
-$o-typography-font-scale: (
-   -2: (12, 16),
-   -1: (14, 16),
-    0: (16, 20),
-    1: (18, 20),
-    2: (20, 24),
-    3: (24, 28),
-    4: (28, 32),
-    5: (32, 32),
-    6: (40, 40),
-    7: (48, 48),
-    8: (56, 56),
-    9: (72, 72),
-   10: (84, 84),
-) !default;
+$_o-typography-loading-prefix: 'o-typography--loading' !default;
 
 /// The "types" of fonts o-typography supports.
 /// @access private
 $_o-typography-types: ('sans', 'serif', 'display');
 
 /// Font scale of font-sizes and line-heights.
-/// Currently the default scale `$o-typography-font-scale` is used for all fonts and brands,
+/// Currently the default scale `$_o-typography-font-scale` is used for all fonts and brands,
 /// but branded products may choose to define their own scale on a per font basis.
 /// @access private
 /// @see oTypographyDefineFontScale

@@ -5,6 +5,8 @@ class Typography {
 	constructor (typographyEl, opts) {
 		this.typographyEl = typographyEl;
 
+		this.fontLoadingPrefix = 'o-typography--loading-';
+
 		this.opts = opts || Typography.getOptions(typographyEl);
 		if (typeof this.opts.loadOnInit === 'undefined') {
 			this.opts.loadOnInit = true;
@@ -73,13 +75,8 @@ class Typography {
 	 */
 	static checkOptions(opts) {
 
-		if (!opts.fontLoadingPrefix) {
-			opts.fontLoadingPrefix = 'o-typography--loading-';
-		}
-
 		if (!opts.fontLoadedCookieName) {
-			// backwards compatibility with old local storage implementation
-			opts.fontLoadedCookieName = opts.fontLoadedStorageName || 'o-typography-fonts-loaded';
+			opts.fontLoadedCookieName = 'o-typography-fonts-loaded';
 		}
 
 		return opts;
@@ -98,7 +95,7 @@ class Typography {
 
 	removeLoadingClasses() {
 		this.fontConfigs.forEach((config) => {
-			this.typographyEl.classList.remove(`${this.opts.fontLoadingPrefix}${config.label}`);
+			this.typographyEl.classList.remove(`${this.fontLoadingPrefix}${config.label}`);
 		});
 	}
 
@@ -117,7 +114,7 @@ class Typography {
 			return new FontFaceObserver(fontConfig.family, { weight: fontConfig.weight })
 				.load()
 				.then(() => {
-					this.typographyEl.classList.remove(`${this.opts.fontLoadingPrefix}${fontConfig.label}`);
+					this.typographyEl.classList.remove(`${this.fontLoadingPrefix}${fontConfig.label}`);
 				});
 		});
 

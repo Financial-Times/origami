@@ -36,7 +36,7 @@ html {
 		overflow: hidden;
 	}
 
-	@each $scale, $values in $o-typography-font-scale {
+	@each $scale, $values in $_o-typography-font-scale {
 		.type-scale__example-#{$scale} {
 			@include oTypographyDisplay($scale);
 		}
@@ -55,7 +55,7 @@ html {
 		max-width: oTypographyMaxLineWidth();
 	}
 
-	@each $scale, $values in $o-typography-font-scale {
+	@each $scale, $values in $_o-typography-font-scale {
 		.line-width-demo__scale--#{$scale} {
 			@include oTypographySans($scale);
 		}

@@ -337,7 +337,7 @@
             $type: 'sans',
             $family: 'system-ui'
         );
-        @include assert-equal($o-typography-sans, 'system-ui');
+        @include assert-equal($_o-typography-sans, 'system-ui');
     }
 
     @include test('Updates the global variable for the display font') {
@@ -351,7 +351,7 @@
             $type: 'display',
             $family: 'MyDisplayFont'
         );
-        @include assert-equal($o-typography-display, 'MyDisplayFont');
+        @include assert-equal($_o-typography-display, 'MyDisplayFont');
     }
 }
 

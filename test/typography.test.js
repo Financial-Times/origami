@@ -6,7 +6,7 @@ import sinon from 'sinon/pkg/sinon';
 import Typography from './../main';
 
 const fontLabels = ['display', 'sans', 'sans-bold', 'display-bold'];
-const stubPrefix = 'loading-font-';
+const prefix = 'o-typography--loading-';
 const stubCookieName = 'fonts-loaded';
 
 describe("Typography", () => {
@@ -85,21 +85,6 @@ describe("Typography", () => {
 			proclaim.isUndefined(options.fontLoadedCookieName);
 		});
 
-		it("doesn't extract fontLoadingPrefix if it's not set", () => {
-			const el = document.querySelector('html');
-			const options = Typography.getOptions(el);
-
-			proclaim.isUndefined(options.fontLoadingPrefix);
-		});
-
-		it("extracts fontLoadingPrefix if it's set on the el passed in", () => {
-			const el = document.querySelector('html');
-			el.setAttribute('data-o-typography-font-loading-prefix', stubPrefix);
-
-			const options = Typography.getOptions(el);
-			proclaim.equal(options.fontLoadingPrefix, stubPrefix);
-		});
-
 		it("extracts fontLoadedCookieName if it's set on the el passed in", () => {
 			const el = document.querySelector('html');
 			el.setAttribute('data-o-typography-font-loaded-cookie-name', stubCookieName);
@@ -119,18 +104,13 @@ describe("Typography", () => {
 
 	describe("checkOptions", () => {
 
-		it("sets opts.fontLoadingPrefix to o-typography--loading- if not specified", ()=>{
-			let opts = Typography.checkOptions({});
-			proclaim.strictEqual(opts.fontLoadingPrefix, 'o-typography--loading-');
-		});
-
 		it("sets opts.fontLoadedCookieName to o-typography-fonts-loaded if not specified", ()=>{
 			let opts = Typography.checkOptions({});
 			proclaim.strictEqual(opts.fontLoadedCookieName, 'o-typography-fonts-loaded');
 		});
 
 		it("returns the opts object", () => {
-			let opts = Typography.checkOptions({"fontLoadingPrefix": "o-typography-fonts-loaded"});
+			let opts = Typography.checkOptions({});
 			proclaim.isObject(opts);
 		});
 	});
@@ -139,13 +119,13 @@ describe("Typography", () => {
 		it("removes all loading classes from typography element", () => {
 			const el = document.querySelector('html');
 
-			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
+			fontLabels.forEach((label) => el.classList.add(`${prefix}${label}`) );
 
-			const typography = new Typography(el, {"fontLoadingPrefix": stubPrefix});
+			const typography = new Typography(el);
 			typography.removeLoadingClasses();
 
 			fontLabels.forEach((label) => {
-				proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
+				proclaim.isFalse(el.classList.contains(`${prefix}${label}`));
 			});
 
 		});
@@ -162,7 +142,6 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {
 				"loadOnInit": false,
-				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
 
@@ -179,7 +158,6 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {
 				"loadOnInit": false,
-				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
 
@@ -194,22 +172,21 @@ describe("Typography", () => {
 
 		it("Removes loading classes when fonts have loaded", () => {
 			const el = document.querySelector('html');
-			fontLabels.forEach((label) => el.classList.add(`${stubPrefix}${label}`) );
+			fontLabels.forEach((label) => el.classList.add(`${prefix}${label}`) );
 			const typography = new Typography(el, {
 				"loadOnInit": false,
-				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
 
 			sinon.stub(FontFaceObserver.prototype, 'load').returns(Promise.resolve());
 
 			fontLabels.forEach((label) => {
-				proclaim.isTrue(el.classList.contains(`${stubPrefix}${label}`));
+				proclaim.isTrue(el.classList.contains(`${prefix}${label}`));
 			});
 
 			return typography.loadFonts().then(() => {
 				fontLabels.forEach((label) => {
-					proclaim.isFalse(el.classList.contains(`${stubPrefix}${label}`));
+					proclaim.isFalse(el.classList.contains(`${prefix}${label}`));
 				});
 			});
 		});
@@ -218,7 +195,6 @@ describe("Typography", () => {
 			const el = document.querySelector('html');
 			const typography = new Typography(el, {
 				"loadOnInit": false,
-				"fontLoadingPrefix": stubPrefix,
 				"fontLoadedCookieName": stubCookieName
 			});
 

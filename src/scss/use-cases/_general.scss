@@ -299,7 +299,7 @@
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: "tnum";
-				font-family: $o-typography-sans;
+				font-family: $_o-typography-sans;
 			}
 		}
 	}

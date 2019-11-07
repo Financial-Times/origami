@@ -5,7 +5,7 @@
 /// @returns {List} List of the requested scale value.
 @function oTypographyGetScale($index: 0, $font: '') {
 	$scale: map-get($_o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
-	$scale: if(type-of($scale) == 'map', $scale, $o-typography-font-scale);
+	$scale: if(type-of($scale) == 'map', $scale, $_o-typography-font-scale);
 	@return map-get($scale, $index);
 }
 
@@ -64,13 +64,13 @@
 		@error 'Could not get the font-family for font of style "#{$type}", style must be one of "#{$_o-typography-types}".';
 	}
 	@if $type == 'sans' {
-		@return $o-typography-sans;
+		@return $_o-typography-sans;
 	}
 	@if $type == 'serif' {
-		@return $o-typography-serif;
+		@return $_o-typography-serif;
 	}
 	@if $type == 'display' {
-		@return $o-typography-display;
+		@return $_o-typography-display;
 	}
 }
 

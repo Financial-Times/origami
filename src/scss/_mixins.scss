@@ -38,7 +38,7 @@
 	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
-		$o-typography-serif,
+		$_o-typography-serif,
 		$scale,
 		$line-height,
 		$weight,
@@ -88,7 +88,7 @@
 	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
-		$o-typography-display,
+		$_o-typography-display,
 		$scale,
 		$line-height,
 		$weight,
@@ -139,7 +139,7 @@
 	$include-progressive: $o-typography-progressive-font-loading
 ) {
 	@include _oTypographyFor(
-		$o-typography-sans,
+		$_o-typography-sans,
 		$scale,
 		$line-height,
 		$weight,
@@ -166,13 +166,13 @@
 	}
 	// Set the custom font.
 	@if $type == 'sans' {
-		$o-typography-sans: $family !global;
+		$_o-typography-sans: $family !global;
 	}
 	@if $type == 'serif' {
-		$o-typography-serif: $family !global;
+		$_o-typography-serif: $family !global;
 	}
 	@if $type == 'display' {
-		$o-typography-display: $family !global;
+		$_o-typography-display: $family !global;
 	}
 }
 
@@ -329,7 +329,7 @@
 			$style-match: if($fallback-style, index($fallback-style, $style), true);
 			// Output the fallback if it matches.
 			@if ($label-match or ($family-match and $weight-match and $style-match)) {
-				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
+				.#{$_o-typography-loading-prefix}-#{$fallback-label} & {
 					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);
 					@if $include-font-family {
 						font-family: map-get($fallback, 'fallback');
