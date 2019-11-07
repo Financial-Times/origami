@@ -1,6 +1,6 @@
 @include describe('oColors mixins') {
 	@include describe('oColors') {
-		@include it('outputs palette custom properties, palette classes, and usecase classes by default') {
+		@include it('outputs palette custom properties by default') {
 			@include assert() {
 				@include output($selector: false) {
 					@include oColors();
@@ -13,8 +13,34 @@
 				};
 			};
 		};
+		@include it('outputs usecase custom properties by default') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors();
+				};
 
-		@include it('palette custom properties with only the "palette-custom-properties" option') {
+				@include contains($selector: false) {
+					:root {
+						--o-colors-page-background: #fff1e5;
+					}
+				};
+			};
+		};
+		@include it('outputs usecase classes by default') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors();
+				};
+
+				@include contains($selector: false) {
+					.o-colors-page-background {
+						background: #fff1e5;
+					}
+				};
+			};
+		};
+
+		@include it('outputs palette custom properties with only the "palette-custom-properties" option') {
 			@include assert() {
 				@include output($selector: false) {
 					@include oColors($opts: (
@@ -25,6 +51,55 @@
 				@include contains($selector: false) {
 					:root {
 						--o-colors-white: #ffffff;
+					}
+				};
+			};
+		};
+
+		@include it('outputs only usecase custom properties with only the "usecase-custom-properties" option') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors($opts: (
+						'usecase-custom-properties': true
+					));
+				};
+
+				@include expect($selector: false) {
+					:root {
+						--o-colors-page-background: #fff1e5;
+						--o-colors-box-background: #f2dfce;
+						--o-colors-body-text: #33302e;
+						--o-colors-muted-text: #ccc1b7;
+						--o-colors-link-text: #0d7680;
+						--o-colors-link-hover-text: #08474d;
+					}
+				};
+			};
+		};
+
+		@include it('outputs only usecase classes with only the "usecase-classes" option') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oColors($opts: (
+						'usecase-classes': true
+					));
+				};
+
+				@include expect($selector: false) {
+					.o-colors-page-background {
+					background: #fff1e5;
+					}
+
+					.o-colors-box-background {
+					background: #f2dfce;
+					}
+
+					.o-colors-body-text {
+					color: #33302e;
+					}
+
+					.o-colors-muted-text {
+					color: #ccc1b7;
 					}
 				};
 			};

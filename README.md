@@ -12,7 +12,11 @@ A component to manage colours. Includes the FT colour palette.
 
 ### Markup
 
-All palette colors, including default tints, are available as CSS Custom Properties (CSS Variables) in the format `--o-colors-[NAME]`. See the [demos in the registry](https://registry.origami.ft.com/components/o-colors) for all palette colours available.
+#### Colour Palette Custom Properties
+
+All palette colors, including default mixes and tones, are available as CSS Custom Properties (CSS Variables) in the format `--o-colors-[NAME]`.
+
+See [all palette colours available](https://registry.origami.ft.com/components/o-colors) in the registry.
 
 ```css
 .ft-pink {
@@ -21,14 +25,47 @@ All palette colors, including default tints, are available as CSS Custom Propert
 }
 ```
 
+#### Colour Usecase Custom Properties
+
+A limited number of colour [usecases](#usecases) are also available as CSS Custom Properties (CSS Variables), including:
+- `--o-colors-page-background`
+- `--o-colors-box-background`
+- `--o-colors-body-text`
+- `--o-colors-muted-text`
+- `--o-colors-link-text`
+- `--o-colors-link-hover-text`
+
+```css
+body {
+	background: var(--o-colors-page-background);
+}
+```
+
+#### Colour Usecase Classes
+
+A limited number of colour [usecases](#usecases) are available as CSS classes, including:
+- `.o-colors-page-background`
+- `.o-colors-box-background`
+- `.o-colors-body-text`
+- `.o-colors-muted-text`
+
+```html
+<body class="o-colors-page-background">
+	<!-- default background colour set -->
+	<!-- e.g. for the master brand `background: #fff1e5;` -->
+</body>
+```
+
 ### Sass
 
-o-colors has a number of mixins and functions for you to access the color palette in your project. We recommend Sass projects use these mixins and functions directly. E.g. [oColorsByName](#oColorsByName) and [oColorsByUsecase](#oColorsByUsecase). However, it is also possible to output all o-colors CSS Custom Properties (CSS Variables) using the `oColors` mixin.
+o-colors has a number of mixins and functions for you to access the color palette in your project. We recommend Sass projects use these mixins and functions directly. E.g. [oColorsByName](#oColorsByName) and [oColorsByUsecase](#oColorsByUsecase). However, it is also possible to output all o-colors CSS Custom Properties (CSS Variables) and classes using the `oColors` mixin.
 
 ```scss
 @import 'o-colors/main';
 @include oColors($opts: (
-	'palette-custom-properties': true
+	'palette-custom-properties': true, // e.g. --o-colors-paper
+	'usecase-custom-properties': true, // e.g. --o-colors-page-background
+	'usecase-classes': true // e.g. .o-colors-page-background
 ));
 ```
 
@@ -57,6 +94,8 @@ wasabi | master
 org-b2c | master
 org-b2c-dark | master
 org-b2c-light | master
+
+There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
 #### Default Palette Colours
 

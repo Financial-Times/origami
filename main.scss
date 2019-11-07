@@ -18,17 +18,69 @@
 /// @example Output all `o-colors` styles.
 ///     @include oColors();
 ///
-/// @example Output only `o-colors` CSS custom properties ("CSS variables").
+/// @example Output only `o-colors` CSS custom properties ("CSS variables") for palette colours and usecases.
 ///     @include oColors($opts: (
-///     	'palette-custom-properties': true
+///     	'palette-custom-properties': true,
+///     	'usecase-custom-properties': true
+///     ));
+///
+/// @example Output only `o-colors` classes for usecases.
+///     @include oColors($opts: (
+///     	'usecase-classes': true
 ///     ));
 ///
 /// @param {Map} $opts - The o-colors features to output. See the [readme](https://registry.origami.ft.com/components/o-colors) for a full list of options.
-@mixin oColors($opts: ('palette-custom-properties': true)) {
-	$palette-proeprties: map-get($opts, 'palette-custom-properties');
+@mixin oColors($opts: (
+	'palette-custom-properties': true,
+	'usecase-custom-properties': true,
+	'usecase-classes': true,
+)) {
+	$palette-properties: map-get($opts, 'palette-custom-properties');
+	$usecase-properties: map-get($opts, 'usecase-custom-properties');
+	$usecase-classes: map-get($opts, 'usecase-classes');
 
-	@if($palette-proeprties) {
-		:root {
+	// Output CSS classes for a limited number of usecases.
+	// E.g. .o-colors-page-background { background: #fff1e5; }
+	// Not all usecases are useful to have access to as classes,
+	// especially usecases which are intended for focus or hover states.
+	// Update the README when adding to this list.
+	@if $usecase-classes {
+		@each $usecase, $property in (
+			'page': ('background'),
+			'box': ('background'),
+			'body': ('text'),
+			'muted': ('text'),
+		) {
+			.o-colors-#{$usecase}-#{$property} {
+				$color-hex: oColorsByUsecase($usecase, $property, $fallback: null);
+				$css-property: if($property == 'text', 'color', $property);
+				#{$css-property}: $color-hex;
+			}
+		}
+	}
+
+	:root {
+		// Output CSS Custom Properties for a limited number of usecases.
+		// E.g. --o-colors-page-background: #fff1e5;
+		// Update the README when adding to this list.
+		@if $usecase-properties {
+			@each $usecase, $property in (
+				'page': ('background'),
+				'box': ('background'),
+				'body': ('text'),
+				'muted': ('text'),
+				'link': ('text'),
+				'link-hover': ('text'),
+			) {
+				$color-hex: oColorsByUsecase($usecase, $property, $fallback: null);
+				@if $color-hex {
+					#{--o-colors-}#{$usecase}-#{$property}: $color-hex;
+				}
+			}
+		}
+
+		// Output CSS Custom Properties for all palette colours.
+		@if $palette-properties {
 			@each $color-map in oColorsGetPalette() {
 				$name: map-get($color-map, 'name');
 				#{--o-colors-}#{$name}: oColorsByName($name);
