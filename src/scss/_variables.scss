@@ -12,6 +12,21 @@ $o-colors-is-silent: true !default;
 /// @access private
 $_o-colors-default-palette-colors: () !default;
 
+/// A map to define default tones in the palette.
+/// This is also used to decide which colours are
+/// allowed to have tones, when users request a
+/// non-default tone.
+/// @see _oColorsSetPaletteTones
+/// @type Map
+/// @access private
+$_o-colors-default-palette-tones: ();
+
+/// A map to define default mixes in the palette.
+/// @see _oColorsSetPaletteMixes
+/// @type Map
+/// @access private
+$_o-colors-default-palette-mixes: ();
+
 /// A map to define default colour usecases:
 /// A list of arguments for `oColorsSetUseCase`, except the project name.
 ///
@@ -20,13 +35,6 @@ $_o-colors-default-palette-colors: () !default;
 /// @type List
 /// @access private
 $_o-colors-default-usecases: () !default;
-
-
-/// A map to define allowed tints.
-/// @see _oColorsSetPaletteTints
-/// @type Map
-/// @access private
-$_o-colors-tints: ();
 
 /// A map to store all set colour usecases.
 /// @see oColorsSetUseCase

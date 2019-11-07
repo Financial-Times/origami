@@ -1,8 +1,8 @@
 {
-	"description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and tinting.",
+	"description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
 	"origamiType": "module",
 	"origamiCategory": "primitives",
-	"keywords": "o-colours, colours, themes, schemes, pink, salmon, slate, tint, mix, background, palette",
+	"keywords": "o-colours, colours, themes, schemes, pink, salmon, slate, tone, mix, background, palette",
 	"origamiVersion": 1,
 	"brands" : [
 		"master",
@@ -101,11 +101,11 @@
 			]
 		},
 		{
-			"name": "master-tints",
-			"title": "Tints",
+			"name": "master-tones",
+			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/master-palette.json",
-			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
+			"template": "demos/src/tones-mixes.mustache",
+			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"master"
@@ -169,11 +169,11 @@
 			]
 		},
 		{
-			"name": "internal-tints",
-			"title": "Tints",
+			"name": "internal-tones",
+			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/internal-palette.json",
-			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
+			"template": "demos/src/tones-mixes.mustache",
+			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"internal"
@@ -191,11 +191,11 @@
 			]
 		},
 		{
-			"name": "whitelabel-tints",
-			"title": "Tints",
+			"name": "whitelabel-tones",
+			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/whitelabel-palette.json",
-			"template": "demos/src/tints.mustache",
-			"description": "Dynamic tinting of the primary palette can be used to produce a broad spectrum of lighter and darker variations for creating scale and depth to your designs. For some colours (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. For other colours (e.g. slate) the tint is a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background is used.",
+			"template": "demos/src/tones-mixes.mustache",
+			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"whitelabel"

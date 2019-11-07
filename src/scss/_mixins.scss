@@ -119,38 +119,29 @@
 	)) !global;
 }
 
-/// Update the palette with calculated tints of
-/// each color from $_o-colors-tints
+/// Update the palette with default tones.
+/// e.g. teal-50, teal-40, teal-30
 /// @access private
-@mixin _oColorsSetPaletteTints {
-	@each $color, $settings in $_o-colors-tints {
-		$hue: map-get($settings, 'hue');
-		$tints: map-get($settings, 'tints');
-
-		$saturation: null;
-		$deprecated: null;
-
-		@if map-has-key($settings, 'saturation') {
-			$saturation: map-get($settings, 'saturation');
+@mixin _oColorsSetPaletteTones {
+	@each $color-name, $tone-values in $_o-colors-default-palette-tones {
+		@each $value in $tone-values {
+			$name: "#{$color-name}-#{$value}";
+			$tone: oColorsGetTone($color-name, $value);
+			@include oColorsSetColor('o-colors', $name, $tone);
 		}
+	}
+}
 
-		$deprecated:  map-has-key($settings, '_deprecated');
-
-		@if $tints != null {
-			@each $value in $tints {
-				$name: "#{$color}-#{$value}";
-				$tint: null;
-
-				@if $saturation == null {
-					$tint: oColorsMix($color, $percentage: $value);
-				} @else {
-					$tint: _oColorsHSB($hue, $saturation, $value);
-				}
-
-				@include oColorsSetColor('o-colors', $name, $tint, $opts: (
-					'deprecated': $deprecated
-				));
-			}
+/// Update the palette with default mixes (black and white with
+/// the default page background colour).
+/// e.g. black-5, black-10, white-10, white-20
+/// @access private
+@mixin _oColorsSetPaletteMixes {
+	@each $color-name, $mix-values in $_o-colors-default-palette-mixes {
+		@each $value in $mix-values {
+			$name: "#{$color-name}-#{$value}";
+			$mix: oColorsMix($color-name, $percentage: $value);
+			@include oColorsSetColor('o-colors', $name, $mix);
 		}
 	}
 }

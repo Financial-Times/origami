@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="demo-wrapper demo-wrapper--tones-mixes">
+		{{#mixes}}
+			<div class="demo-tone-column">
+				<h4>{{name}}</h4>
+				{{#values}}
+					<div class="swatch swatch--tone o-colors-demo-{{name}}-{{.}}" data-o-color="{{name}}-{{.}}">
+						<label for="o-color-input-{{name}}-{{.}}">{{name}}-{{.}}</label>
+						<input type="text" class="hex" id="o-color-input-{{name}}-{{.}}" value="" readonly>
+					</div>
+				{{/values}}
+			</div>
+		{{/mixes}}
+		{{#tones}}
+			<div class="demo-tone-column">
+				<h4>{{name}}</h4>
+				{{#values}}
+					<div class="swatch swatch--tone o-colors-demo-{{name}}-{{.}}" data-o-color="{{name}}-{{.}}">
+						<label for="o-color-input-{{name}}-{{.}}">{{name}}-{{.}}</label>
+						<input type="text" class="hex" id="o-color-input-{{name}}-{{.}}" value="" readonly>
+					</div>
+				{{/values}}
+			</div>
+		{{/tones}}
+	</div>
+</div>

@@ -80,10 +80,10 @@ The following mixins have been removed:
 #### Sass Functions
 
 The following functions have changed:
-- [oColorsGetTint](#oColorsGetTint)
 - [oColorsGetTextColor](#oColorsGetTextColor)
 
 The following functions have been removed:
+- [oColorsGetTint](#oColorsGetTint)
 - [oColorsGetPaletteColor](#oColorsGetPaletteColor)
 - [oColorsGetUseCase](#oColorsGetUseCase)
 - [oColorsGetColorFor](#oColorsGetColorFor)
@@ -281,12 +281,21 @@ The arguments of `oColorsGetContrastRatio` have been renamed. `$col1` becomes `$
 
 #### oColorsGetTint
 
-The first argument of `oColorsGetTint` has been renamed from `$color` to `$color-name`:
+Instead of `oColorsGetTint` use `oColorsGetTone`, with `$color-name` as the first argument instead of `$color`:
 
 ```diff
-$tint: oColorsGetTint('teal', 50);
+-$tint: oColorsGetTint('teal', 50);
++$tint: oColorsGetTone('teal', 50);
+
 -$tint: oColorsGetTint($color: 'teal', 50);
-+$tint: oColorsGetTint($color-name: 'teal', 50);
++$tint: oColorsGetTone($color-name: 'teal', 50);
+```
+
+`oColorsGetTint` used to fallback to a mix if a tone is not supported but `oColorsGetTone` now errors. In this case call `oColorsMix` explicitly:
+
+```diff
+-$tint: oColorsGetTint('black', 50);
++$tint: oColorsMix('black', $percentage: 50);
 ```
 
 #### oColorsCheckContrast

@@ -6,7 +6,8 @@ function oColorsDemoPalette() {
 	for (let swatch of swatches) {
 		let oColor = swatch.getAttribute('data-o-color');
 		let hexInput = swatch.querySelector('.hex');
-		hexInput.value = window.getComputedStyle(document.body, null).getPropertyValue(`--o-colors-${oColor}`);
+		let hex = window.getComputedStyle(document.body, null).getPropertyValue(`--o-colors-${oColor}`);
+		hexInput.value = hex ? hex.trim() : '';
 
 		if (clickToCopy) {
 			swatch.addEventListener('click', oColorsCopy, false);

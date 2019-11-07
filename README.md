@@ -241,23 +241,29 @@ Set `$minimum-contrast` to `null` to remove contrast checking. Only ignore contr
 
 `oColorsMix` will mix two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color. `oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
 
+By default `oColorsMix` mixes with the page background colour usecase:
 ```scss
-.example-mix {
-	border: 1px solid oColorsMix('paper', 'teal', 20);
+$color: oColorsMix($color: 'black', $percentage: 30); // same as black-30
+```
+
+But two colours may be given. For example to mix claret over slate at 20%:
+```scss
+$color: oColorsMix($color: 'claret', $background: 'slate', 20);
+```
+
+#### Tone Palette Colors
+
+An o-colors tone is a palette colour with modified saturation and luminosity, to create a lighter or darker colour whilst retaining vibrancy.
+
+Recommended tones are already in the colour palette, e.g. `teal-80` (see [default tones in the registry](https://registry.origami.ft.com/components/o-colors)). However for cases where a new tone is required use `oColorsGetTone`. It will return a new color based on a specified brightness.
+
+```scss
+.teal-tone-example {
+	background-color: oColorsGetTone('teal', 80);
 }
 ```
 
-#### Tint Palette Colors
-
-Recommended colour tints such as `black-50`, `teal-80`, `claret-20`, are already in the colour palette. However for cases where a new tint is required use `oColorsGetTint`. It will return a tinted palette color based on a specified brightness.
-
-For colours with default tints in the palette (e.g. teal, oxford and claret) the generated tint is a dynamic function of saturation and lightness. Note [in the registry demos](https://registry.origami.ft.com/components/o-colors) how these tints maintain vibrancy. For other colours the tint function falls back to a mix with black or white, for darker and lighter tints respectively. Given a colour with no hue (black or white) a mix with the page background usecase is returned.
-
-```scss
-.jade-tint-example {
-	background-color: oColorsGetTint('jade', 90);
-}
-```
+For design consistency not all colours are allowed to be toned. Only colours with default tones in the palette (e.g. teal, oxford, and claret) may be used. Other colours [may still be mixed](#mix-colors).
 
 #### Colour Tools
 

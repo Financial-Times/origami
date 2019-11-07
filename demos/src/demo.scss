@@ -27,9 +27,12 @@ body {
 		}
 	}
 
-	.o-colors-palette-#{$name} .hex,
-	.o-colors-palette-#{$name}:after {
+	.o-colors-demo-#{$name} {
+		background-color: oColorsByName($name);
 		color: oColorsGetTextColor($name, 95, $minimum-contrast: null);
+		> input {
+			color: inherit;
+		}
 	}
 }
 
@@ -87,7 +90,7 @@ body {
 		opacity: 1;
 	}
 
-	&.o-colors-palette-white {
+	&.o-colors-demo-white {
 		border: 2px solid oColorsMix(black, white, 20);
 	}
 
@@ -106,11 +109,11 @@ body {
 }
 
 
-.demo-wrapper--tints {
+.demo-wrapper--tones-mixes {
 	justify-content: space-between;
 }
 
-.demo-tint-column {
+.demo-tone-column {
 	margin: 0 5px;
 	flex: 1 0;
 
@@ -118,7 +121,7 @@ body {
 		text-align: center;
 	}
 
-	.swatch--tint {
+	.swatch--tone {
 		margin-bottom: 0;
 		height: 100px;
 		padding-top: 0px;

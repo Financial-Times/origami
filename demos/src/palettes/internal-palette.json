@@ -15,10 +15,12 @@
 		{ "name": "jade" },
 		{ "name": "crimson" }
 	],
-	"tints": [
-		{ "name": "black",  "tint-levels": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90] },
-		{ "name": "oxford", "tint-levels": [30, 40, 50, 60, 70, 80, 90, 100] },
-		{ "name": "teal",   "tint-levels": [20, 30, 40, 50, 60, 70, 80, 90, 100] }
+	"tones": [
+		{ "name": "oxford", "values": [30, 40, 50, 60, 70, 80, 90, 100] },
+		{ "name": "teal",   "values": [20, 30, 40, 50, 60, 70, 80, 90, 100] }
+	],
+	"mixes": [
+		{ "name": "black",  "values": [5, 10, 20, 30, 40, 50, 60, 70, 80, 90] }
 	],
 	"percentages": [
 		{ "value": 10 },

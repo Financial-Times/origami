@@ -116,31 +116,75 @@
 	@return oColorsByName($color);
 }
 
-/// Returns a customised version of our shade-able colors defined in
-/// $_o-colors-tints
+/// Returns a brighter or darker tone of a colour, where the hue remains
+/// the same but the saturation and luminance changes.
+///
+/// Not all our colours allow tones. If a colour cannot be toned an error is
+/// thrown. You may however mix the colour with another supported colour.
+/// @see oColorsMix
 ///
 /// @param {String} $color-name - the name of the color to be shaded
-/// @param {Number} $brightness - the brightness value of the new color
-@function oColorsGetTint($color-name, $brightness) {
-	$hue: null;
-	$saturation: null;
-	$mix: null;
-	$newcolor: null;
+/// @param {Number} $brightness - the brightness value of the new color, 0-100
+@function oColorsGetTone($color-name, $brightness) {
+	$color: oColorsByName($color-name);
+	$hue: hue($color);
+	// Find a tone from a base of 90% saturation.
+	// The reason for this is not known. It's here to preserve the tones we
+	// currently have. The base starting used to be configured per colour
+	// and may once have differed from colour to colour.
+	$saturation: 90;
 
-	@if not (map-has-key($_o-colors-tints, $color-name)) {
-		$color-tints: map-keys($_o-colors-tints);
-		@return _error("It is not possible to use a tint of: #{$color-name}, please use one of: #{$color-tints} instead.");
+	// Validate the given colour allows different tones.
+	$has-tone-config: map-has-key($_o-colors-default-palette-tones, $color-name);
+	@if (not $has-tone-config) {
+		@return _error('"#{$color-name}" does not support tones. ' +
+			'Consider using a mix instead e.g: ' +
+			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
 
-	@if (map-has-key(map-get($_o-colors-tints, $color-name), 'hue')) {
-		$hue: map-get(map-get($_o-colors-tints, $color-name), 'hue');
-		$saturation: map-get(map-get($_o-colors-tints, $color-name), 'saturation');
-		$newcolor: _oColorsHSB($hue, $saturation, $brightness);
+	// Validate brightness.
+	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
+		@return _error('"$brightness" must be a number between 0 and 100.');
+	}
+
+	@if $brightness == 0 {
+		@return hsla(0, 0, 0, 1);
 	} @else {
-		$newcolor: oColorsMix($color-name, $percentage: $brightness);
-	}
+		$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
+		$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
 
-	@return $newcolor;
+		@return hsla($hue, $hsl-saturation, $hsl-luminance, 1);
+	}
+}
+
+/// Figure out if a given colour is a tone. If it is a tone return the original
+/// colour name and its tone value, otherwise return null.
+///
+/// @example Get the tone value of 'claret-80'
+///    $tone-details: oColorsGetToneDetails('claret-80');
+///    $color: map-get($tone-details, 'color'); // claret
+///    $value: map-get($tone-details, 'value'); // 80
+///
+/// @param {String} $color - the palette colour hex or color name e.g. 'claret-80'
+/// @return {Map|Null} - the details of the given tone e.g. ('color': 'claret', 'value': 80)					)
+@function oColorsGetToneDetails($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+	$hue: hue($color);
+	@each $tone-color, $tone-config in $_o-colors-default-palette-tones {
+		// Check its hex against tone to find the tone value.
+		$value: 0;
+		@while $value <= 100 {
+			@if(inspect(oColorsGetTone($tone-color, $value)) == inspect($color)) {
+				@return (
+					'color': $tone-color,
+					'value': $value
+				);
+			}
+			$value: $value + 1;
+		}
+	}
+	// No tone matched.
+	@return null;
 }
 
 /// Returns a color based on the background context and base color
@@ -308,26 +352,6 @@
 	}
 
 	@return $public-palette-details;
-}
-
-/// Returns the web-safe HSLA color based on HSB/HSV values
-///
-/// @access private
-///
-/// @param {Number} $hue - number between 0-360
-/// @param {Number} $saturation - number between 0-100
-/// @param {Number} $brigthness - number between 0-100
-/// @param {Number} $alpha [1] - number between 0-1
-/// @access private
-@function _oColorsHSB($hue, $saturation, $brightness, $alpha: 1) {
-	@if $brightness == 0 {
-		@return hsla(0, 0, 0, $alpha);
-	} @else {
-		$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
-		$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
-
-		@return hsla($hue, $hsl-saturation, $hsl-luminance, $alpha);
-	}
 }
 
 /// @access private

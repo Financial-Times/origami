@@ -78,14 +78,26 @@
 		};
 	};
 
-	@include describe('oColorsGetTint') {
-		@include it('returns a customised version of palette colors that accept shading') {
-			@include assert-equal(oColorsGetTint('black', 10), (#e6d9ce));
+	@include describe('oColorsGetTone') {
+		@include it('returns a tone for palette colours that allow tones') {
+			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
 		};
 
-		@include it('returns an error if palette color doesn\'t accept shading') {
-			@include assert-equal(oColorsGetTint('paper', 10),
-			('ERROR: It is not possible to use a tint of: paper, please use one of: black, white, claret, oxford, teal, wheat, sky, slate, velvet, mandarin, lemon, candy, wasabi, jade, crimson instead.'));
+		@include it('returns an error for palette colours which do not allow tones') {
+			@include assert-equal(oColorsGetTone('paper', 10),
+			('ERROR: "paper" does not support tones. Consider using a mix instead e.g: `oColorsMix(\'paper\', $percentage: 10)`'),
+			 $inspect: true);
+		};
+	};
+
+	@include describe('oColorsGetToneDetails') {
+		@include it('returns tone details for a palette colour name which is a tone') {
+			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color': 'claret', 'value': 80));
+			@include assert-equal(oColorsGetToneDetails('claret'), ('color': 'claret', 'value': 60));
+		};
+
+		@include it('returns null for a palette colour name which is not a tone') {
+			@include assert-equal(oColorsGetToneDetails('paper'), null);
 		};
 	};
 

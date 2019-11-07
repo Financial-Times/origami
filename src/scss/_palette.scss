@@ -53,119 +53,42 @@ $_o-colors-default-palette-colors: join((
 	), $_o-colors-default-palette-colors);
 }
 
-// Master brand palette tints.
+// Default palette tones.
 @if oBrandGetCurrentBrand() == master {
-	$_o-colors-tints: map-merge((
-		'black': (
-			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
-		),
-		'white': (
-			tints: (10, 20, 40, 60, 80),
-		),
-		'claret': (
-			hue: 340,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-		),
-		'oxford': (
-			hue: 210,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-		),
-		'teal': (
-			hue: 185,
-			saturation: 90,
-			tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
-		),
-		'wheat': (
-			hue: 28,
-			saturation: 15,
-		),
-		'sky': (
-			hue: 210,
-			saturation: 20,
-		),
-		'slate': (
-			hue: 220,
-			saturation: 20,
-		),
-		'velvet': (
-			hue: 270,
-			saturation: 60,
-		),
-		'mandarin': (
-			hue: 25,
-			saturation: 80,
-		),
-		'lemon': (
-			hue: 55,
-			saturation: 90,
-		),
-		'candy': (
-			hue: 340,
-			saturation: 50,
-		),
-		'wasabi': (
-			hue: 80,
-			saturation: 80,
-		),
-		'jade': (
-			hue: 150,
-			saturation: 100,
-		),
-		'crimson': (
-			hue: 360,
-			saturation: 100,
-		)
-	), $_o-colors-tints);
+	$_o-colors-default-palette-tones: map-merge((
+		'claret': (30, 40, 50, 60, 70, 80, 90, 100),
+		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+	), $_o-colors-default-palette-tones);
 }
 
-// Internal brand palette tints.
 @if oBrandGetCurrentBrand() == internal {
-	$_o-colors-tints: map-merge((
-		'black': (
-			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
-		),
-		'white': (
-			tints: (10, 20, 40, 60, 80),
-		),
-		'oxford': (
-			hue: 210,
-			saturation: 90,
-			tints: (30, 40, 50, 60, 70, 80, 90, 100),
-		),
-		'teal': (
-			hue: 185,
-			saturation: 90,
-			tints: (20, 30, 40, 50, 60, 70, 80, 90, 100),
-		),
-		'slate': (
-			hue: 220,
-			saturation: 20,
-		),
-		'lemon': (
-			hue: 55,
-			saturation: 90,
-		),
-		'jade': (
-			hue: 150,
-			saturation: 100,
-		),
-		'crimson': (
-			hue: 360,
-			saturation: 100,
-		),
-	), $_o-colors-tints);
+	$_o-colors-default-palette-tones: map-merge((
+		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
+		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
+	), $_o-colors-default-palette-tones);
 }
 
-// Whitelabel brand palette tints.
 @if oBrandGetCurrentBrand() == whitelabel {
-	$_o-colors-tints: map-merge((
-		'black': (
-			tints: (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
-		),
-		'white': (
-			tints: (10, 20, 40, 60, 80),
-		)
-	), $_o-colors-tints);
+	$_o-colors-default-palette-tones: map-merge((), $_o-colors-default-palette-tones);
+}
+
+// Default palette mixes.
+@if oBrandGetCurrentBrand() == master {
+	$_o-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
+		'white': (10, 20, 40, 60, 80)
+	);
+}
+
+@if oBrandGetCurrentBrand() == internal {
+	$_o-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+	);
+}
+
+@if oBrandGetCurrentBrand() == whitelabel {
+	$_o-colors-default-palette-mixes: (
+		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+	);
 }
