@@ -1,17 +1,17 @@
-@mixin oBannerThemeMarketingOuter() {
+@mixin _oBannerThemeMarketingOuter() {
 	@include oColorsFor(o-banner-marketing, text background);
 }
 
-@mixin oBannerThemeMarketingSmallOuter() {
+@mixin _oBannerThemeMarketingSmallOuter() {
 	@include oColorsFor(o-banner-marketing, text);
 	background-color: transparent;
 }
 
-@mixin oBannerThemeMarketingSmallInner() {
+@mixin _oBannerThemeMarketingSmallInner() {
 	@include oColorsFor(o-banner-marketing, background);
 }
 
-@mixin oBannerThemeMarketingContent() {
+@mixin _oBannerThemeMarketingContent() {
 	a {
 		@include oTypographyLinkCustom(
 			$baseColor: oColorsGetUseCase(o-banner-marketing-link, text),
@@ -22,13 +22,13 @@
 	}
 }
 
-@mixin oBannerThemeMarketingHeading() {
+@mixin _oBannerThemeMarketingHeading() {
 	&:after {
 		border-color: oColorsGetColorFor(o-banner-marketing-heading-rule, background);
 	}
 }
 
-@mixin oBannerThemeMarketingButton() {
+@mixin _oBannerThemeMarketingButton() {
 	@include oButtonsTheme($theme: (
 		'background': oColorsGetUseCase(o-banner-marketing-button, background),
 		'accent': oColorsGetUseCase(o-banner-marketing-button, text),
@@ -44,7 +44,7 @@
 	}
 }
 
-@mixin oBannerThemeMarketingLink() {
+@mixin _oBannerThemeMarketingLink() {
 	@include oTypographyLinkCustom(
 		$baseColor: oColorsGetUseCase(o-banner-marketing-link, text),
 		$hoverColor: oColorsGetUseCase(o-banner-marketing-link, text),
@@ -53,39 +53,39 @@
 	);
 }
 
-@mixin oBannerThemeMarketingCloseButton() {
+@mixin _oBannerThemeMarketingCloseButton() {
 	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 }
 
-@mixin oBannerThemeMarketing {
+@mixin _oBannerThemeMarketing {
 	.o-banner--marketing {
 		.o-banner__outer {
-			@include oBannerThemeMarketingOuter;
+			@include _oBannerThemeMarketingOuter;
 		}
 		.o-banner__content {
-			@include oBannerThemeMarketingContent;
+			@include _oBannerThemeMarketingContent;
 		}
 		.o-banner__heading {
-			@include oBannerThemeMarketingHeading;
+			@include _oBannerThemeMarketingHeading;
 		}
 		.o-banner__button {
-			@include oBannerThemeMarketingButton;
+			@include _oBannerThemeMarketingButton;
 		}
 		.o-banner__link {
-			@include oBannerThemeMarketingLink;
+			@include _oBannerThemeMarketingLink;
 		}
 		.o-banner__close {
-			@include oBannerThemeMarketingCloseButton;
+			@include _oBannerThemeMarketingCloseButton;
 		}
 
 		// When combined with the "small" and "compact" themes
 		&.o-banner--small,
 		&.o-banner--compact {
 			.o-banner__outer {
-				@include oBannerThemeMarketingSmallOuter;
+				@include _oBannerThemeMarketingSmallOuter;
 			}
 			.o-banner__inner {
-				@include oBannerThemeMarketingSmallInner;
+				@include _oBannerThemeMarketingSmallInner;
 			}
 		}
 	}

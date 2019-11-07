@@ -1,17 +1,17 @@
-@mixin oBannerThemeProductOuter() {
+@mixin _oBannerThemeProductOuter() {
 	@include oColorsFor(o-banner-product, text background);
 }
 
-@mixin oBannerThemeProductSmallOuter() {
+@mixin _oBannerThemeProductSmallOuter() {
 	@include oColorsFor(o-banner-product, text);
 	background-color: transparent;
 }
 
-@mixin oBannerThemeProductSmallInner() {
+@mixin _oBannerThemeProductSmallInner() {
 	@include oColorsFor(o-banner-product, background);
 }
 
-@mixin oBannerThemeProductContent() {
+@mixin _oBannerThemeProductContent() {
 	a {
 		@include oTypographyLinkCustom(
 			$baseColor: oColorsGetUseCase(o-banner-product-link, text),
@@ -22,13 +22,13 @@
 	}
 }
 
-@mixin oBannerThemeProductHeading {
+@mixin _oBannerThemeProductHeading {
 	&:after {
 		border-color: oColorsGetColorFor(o-banner-product-heading-rule, background);
 	}
 }
 
-@mixin oBannerThemeProductButton {
+@mixin _oBannerThemeProductButton {
 	@include oButtonsTheme($theme: (
 		'background': oColorsGetUseCase(o-banner-product-button, background),
 		'accent': oColorsGetUseCase(o-banner-product-button, text),
@@ -44,7 +44,7 @@
 	}
 }
 
-@mixin oBannerThemeProductLink {
+@mixin _oBannerThemeProductLink {
 	@include oTypographyLinkCustom(
 		$baseColor: oColorsGetUseCase(o-banner-product-link, text),
 		$hoverColor: oColorsGetUseCase(o-banner-product-link, text),
@@ -53,39 +53,39 @@
 	);
 }
 
-@mixin oBannerThemeProductCloseButton {
+@mixin _oBannerThemeProductCloseButton {
 	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-product-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 }
 
-@mixin oBannerThemeProduct() {
+@mixin _oBannerThemeProduct() {
 	.o-banner--product {
 		.o-banner__outer {
-			@include oBannerThemeProductOuter;
+			@include _oBannerThemeProductOuter;
 		}
 		.o-banner__content {
-			@include oBannerThemeProductContent;
+			@include _oBannerThemeProductContent;
 		}
 		.o-banner__heading {
-			@include oBannerThemeProductHeading;
+			@include _oBannerThemeProductHeading;
 		}
 		.o-banner__button {
-			@include oBannerThemeProductButton;
+			@include _oBannerThemeProductButton;
 		}
 		.o-banner__link {
-			@include oBannerThemeProductLink;
+			@include _oBannerThemeProductLink;
 		}
 		.o-banner__close {
-			@include oBannerThemeProductCloseButton;
+			@include _oBannerThemeProductCloseButton;
 		}
 
 		// When combined with the "small" and "compact" themes
 		&.o-banner--small,
 		&.o-banner--compact {
 			.o-banner__outer {
-				@include oBannerThemeProductSmallOuter;
+				@include _oBannerThemeProductSmallOuter;
 			}
 			.o-banner__inner {
-				@include oBannerThemeProductSmallInner;
+				@include _oBannerThemeProductSmallInner;
 			}
 		}
 	}

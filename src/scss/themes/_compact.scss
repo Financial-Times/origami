@@ -1,4 +1,4 @@
-@mixin oBannerThemeCompactBase {
+@mixin _oBannerThemeCompactBase {
 	width: 100%;
 	margin: 0;
 
@@ -21,12 +21,12 @@
 	}
 }
 
-@mixin oBannerThemeCompactOuter {
+@mixin _oBannerThemeCompactOuter {
 	background-color: transparent;
 	box-shadow: none;
 }
 
-@mixin oBannerThemeCompactInner {
+@mixin _oBannerThemeCompactInner {
 	@include oColorsFor(o-banner, background);
 	@include oVisualEffectsShadowsElevation('high');
 	@include oTypographySans($scale: 0);
@@ -36,7 +36,7 @@
 	max-width: none;
 }
 
-@mixin oBannerThemeCompactContent {
+@mixin _oBannerThemeCompactContent {
 	padding: 0;
 
 	h1,
@@ -62,7 +62,7 @@
 	}
 }
 
-@mixin oBannerThemeCompactHeading {
+@mixin _oBannerThemeCompactHeading {
 	@include oTypographySans($scale: 3);
 	padding-right: $_o-banner-spacing;
 
@@ -94,42 +94,42 @@
 	}
 }
 
-@mixin oBannerThemeCompactActions {
-	@include oBannerThemeSmallActions;
+@mixin _oBannerThemeCompactActions {
+	@include _oBannerThemeSmallActions;
 }
 
-@mixin oBannerThemeCompactAction {
-	@include oBannerThemeSmallAction;
+@mixin _oBannerThemeCompactAction {
+	@include _oBannerThemeSmallAction;
 }
 
-@mixin oBannerThemeCompactActionSecondary {
-	@include oBannerThemeSmallActionSecondary;
+@mixin _oBannerThemeCompactActionSecondary {
+	@include _oBannerThemeSmallActionSecondary;
 }
 
-@mixin oBannerThemeCompact() {
+@mixin _oBannerThemeCompact() {
 	.o-banner--compact {
-		@include oBannerThemeCompactBase;
+		@include _oBannerThemeCompactBase;
 
 		.o-banner__outer {
-			@include oBannerThemeCompactOuter;
+			@include _oBannerThemeCompactOuter;
 		}
 		.o-banner__inner {
-			@include oBannerThemeCompactInner;
+			@include _oBannerThemeCompactInner;
 		}
 		.o-banner__content {
-			@include oBannerThemeCompactContent;
+			@include _oBannerThemeCompactContent;
 		}
 		.o-banner__heading {
-			@include oBannerThemeCompactHeading;
+			@include _oBannerThemeCompactHeading;
 		}
 		.o-banner__actions {
-			@include oBannerThemeCompactActions;
+			@include _oBannerThemeCompactActions;
 		}
 		.o-banner__action {
-			@include oBannerThemeCompactAction;
+			@include _oBannerThemeCompactAction;
 		}
 		.o-banner__action--secondary {
-			@include oBannerThemeCompactActionSecondary;
+			@include _oBannerThemeCompactActionSecondary;
 		}
 	}
 }

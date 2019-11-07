@@ -1,4 +1,4 @@
-@mixin oBannerThemeSmallBase {
+@mixin _oBannerThemeSmallBase {
 	width: 100%;
 	margin: 0;
 
@@ -21,12 +21,12 @@
 	}
 }
 
-@mixin oBannerThemeSmallOuter {
+@mixin _oBannerThemeSmallOuter {
 	background-color: transparent;
 	box-shadow: none;
 }
 
-@mixin oBannerThemeSmallInner {
+@mixin _oBannerThemeSmallInner {
 	@include oColorsFor(o-banner, background);
 	@include oVisualEffectsShadowsElevation('high');
 	@include oTypographySans($scale: 2);
@@ -36,7 +36,7 @@
 	max-width: none;
 }
 
-@mixin oBannerThemeSmallContent {
+@mixin _oBannerThemeSmallContent {
 	padding: 0;
 
 	h1,
@@ -62,7 +62,7 @@
 	}
 }
 
-@mixin oBannerThemeSmallHeading {
+@mixin _oBannerThemeSmallHeading {
 	@include oTypographySans($scale: 4);
 	padding-right: $_o-banner-spacing;
 
@@ -88,7 +88,7 @@
 	}
 }
 
-@mixin oBannerThemeSmallActions {
+@mixin _oBannerThemeSmallActions {
 	margin-top: oSpacingByName('s6');
 
 	@include oGridRespondTo($until: M) {
@@ -98,40 +98,40 @@
 	}
 }
 
-@mixin oBannerThemeSmallAction {
+@mixin _oBannerThemeSmallAction {
 	padding-right: $_o-banner-spacing / 2;
 }
 
-@mixin oBannerThemeSmallActionSecondary {
+@mixin _oBannerThemeSmallActionSecondary {
 	@include oGridRespondTo($until: M) {
 		margin-top: $_o-banner-spacing / 4;
 	}
 }
 
-@mixin oBannerThemeSmall() {
+@mixin _oBannerThemeSmall() {
 	.o-banner--small {
-		@include oBannerThemeSmallBase;
+		@include _oBannerThemeSmallBase;
 
 		.o-banner__outer {
-			@include oBannerThemeSmallOuter;
+			@include _oBannerThemeSmallOuter;
 		}
 		.o-banner__inner {
-			@include oBannerThemeSmallInner;
+			@include _oBannerThemeSmallInner;
 		}
 		.o-banner__content {
-			@include oBannerThemeSmallContent;
+			@include _oBannerThemeSmallContent;
 		}
 		.o-banner__heading {
-			@include oBannerThemeSmallHeading;
+			@include _oBannerThemeSmallHeading;
 		}
 		.o-banner__actions {
-			@include oBannerThemeSmallActions;
+			@include _oBannerThemeSmallActions;
 		}
 		.o-banner__action {
-			@include oBannerThemeSmallAction;
+			@include _oBannerThemeSmallAction;
 		}
 		.o-banner__action--secondary {
-			@include oBannerThemeSmallActionSecondary;
+			@include _oBannerThemeSmallActionSecondary;
 		}
 	}
 }
