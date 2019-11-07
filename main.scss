@@ -82,7 +82,7 @@
 	@if $themes != false  {
 		@each $theme in $themes {
 			@if index($_o-banner-themes, $theme) != null {
-				@include _oBannerGetThemeMixin($theme, $class);
+				@include _oBannerGetThemeMixin($theme);
 			} @else {
 				@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
 			}

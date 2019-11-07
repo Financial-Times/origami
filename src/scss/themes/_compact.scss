@@ -1,4 +1,3 @@
-
 @mixin oBannerThemeCompactBase {
 	width: 100%;
 	margin: 0;
@@ -107,29 +106,29 @@
 	@include oBannerThemeSmallActionSecondary;
 }
 
-@mixin oBannerThemeCompact($class: 'o-banner') {
-	.#{$class}--compact {
+@mixin oBannerThemeCompact() {
+	.o-banner--compact {
 		@include oBannerThemeCompactBase;
 
-		.#{$class}__outer {
+		.o-banner__outer {
 			@include oBannerThemeCompactOuter;
 		}
-		.#{$class}__inner {
+		.o-banner__inner {
 			@include oBannerThemeCompactInner;
 		}
-		.#{$class}__content {
+		.o-banner__content {
 			@include oBannerThemeCompactContent;
 		}
-		.#{$class}__heading {
+		.o-banner__heading {
 			@include oBannerThemeCompactHeading;
 		}
-		.#{$class}__actions {
+		.o-banner__actions {
 			@include oBannerThemeCompactActions;
 		}
-		.#{$class}__action {
+		.o-banner__action {
 			@include oBannerThemeCompactAction;
 		}
-		.#{$class}__action--secondary {
+		.o-banner__action--secondary {
 			@include oBannerThemeCompactActionSecondary;
 		}
 	}

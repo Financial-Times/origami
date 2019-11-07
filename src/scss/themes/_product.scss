@@ -1,4 +1,3 @@
-
 @mixin oBannerThemeProductOuter() {
 	@include oColorsFor(o-banner-product, text background);
 }
@@ -58,34 +57,34 @@
 	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-product-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 }
 
-@mixin oBannerThemeProduct($class: 'o-banner') {
-	.#{$class}--product {
-		.#{$class}__outer {
+@mixin oBannerThemeProduct() {
+	.o-banner--product {
+		.o-banner__outer {
 			@include oBannerThemeProductOuter;
 		}
-		.#{$class}__content {
+		.o-banner__content {
 			@include oBannerThemeProductContent;
 		}
-		.#{$class}__heading {
+		.o-banner__heading {
 			@include oBannerThemeProductHeading;
 		}
-		.#{$class}__button {
+		.o-banner__button {
 			@include oBannerThemeProductButton;
 		}
-		.#{$class}__link {
+		.o-banner__link {
 			@include oBannerThemeProductLink;
 		}
-		.#{$class}__close {
+		.o-banner__close {
 			@include oBannerThemeProductCloseButton;
 		}
 
 		// When combined with the "small" and "compact" themes
-		&.#{$class}--small,
-		&.#{$class}--compact {
-			.#{$class}__outer {
+		&.o-banner--small,
+		&.o-banner--compact {
+			.o-banner__outer {
 				@include oBannerThemeProductSmallOuter;
 			}
-			.#{$class}__inner {
+			.o-banner__inner {
 				@include oBannerThemeProductSmallInner;
 			}
 		}

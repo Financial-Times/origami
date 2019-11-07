@@ -1,12 +1,12 @@
-@mixin _oBannerGetThemeMixin($theme, $class) {
+@mixin _oBannerGetThemeMixin($theme) {
 	@if $theme == 'marketing' {
-		@include _oBannerThemeMarketing($class);
+		@include _oBannerThemeMarketing();
 	} @else if $theme == 'product' {
-		@include _oBannerThemeProduct($class);
+		@include _oBannerThemeProduct();
 	} @else if $theme == 'small' {
-		@include _oBannerThemeSmall($class);
+		@include _oBannerThemeSmall();
 	} @else if $theme == 'compact' {
-		@include _oBannerThemeCompact($class);
+		@include _oBannerThemeCompact();
 	}
 }
 

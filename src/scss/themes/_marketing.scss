@@ -1,4 +1,3 @@
-
 @mixin oBannerThemeMarketingOuter() {
 	@include oColorsFor(o-banner-marketing, text background);
 }
@@ -23,13 +22,13 @@
 	}
 }
 
-@mixin oBannerThemeMarketingHeading {
+@mixin oBannerThemeMarketingHeading() {
 	&:after {
 		border-color: oColorsGetColorFor(o-banner-marketing-heading-rule, background);
 	}
 }
 
-@mixin oBannerThemeMarketingButton {
+@mixin oBannerThemeMarketingButton() {
 	@include oButtonsTheme($theme: (
 		'background': oColorsGetUseCase(o-banner-marketing-button, background),
 		'accent': oColorsGetUseCase(o-banner-marketing-button, text),
@@ -45,7 +44,7 @@
 	}
 }
 
-@mixin oBannerThemeMarketingLink {
+@mixin oBannerThemeMarketingLink() {
 	@include oTypographyLinkCustom(
 		$baseColor: oColorsGetUseCase(o-banner-marketing-link, text),
 		$hoverColor: oColorsGetUseCase(o-banner-marketing-link, text),
@@ -54,38 +53,38 @@
 	);
 }
 
-@mixin oBannerThemeMarketingCloseButton {
+@mixin oBannerThemeMarketingCloseButton() {
 	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-marketing-close, text), $_o-banner-close-button-size, $iconset-version: 1);
 }
 
-@mixin oBannerThemeMarketing($class: 'o-banner') {
-	.#{$class}--marketing {
-		.#{$class}__outer {
+@mixin oBannerThemeMarketing {
+	.o-banner--marketing {
+		.o-banner__outer {
 			@include oBannerThemeMarketingOuter;
 		}
-		.#{$class}__content {
+		.o-banner__content {
 			@include oBannerThemeMarketingContent;
 		}
-		.#{$class}__heading {
+		.o-banner__heading {
 			@include oBannerThemeMarketingHeading;
 		}
-		.#{$class}__button {
+		.o-banner__button {
 			@include oBannerThemeMarketingButton;
 		}
-		.#{$class}__link {
+		.o-banner__link {
 			@include oBannerThemeMarketingLink;
 		}
-		.#{$class}__close {
+		.o-banner__close {
 			@include oBannerThemeMarketingCloseButton;
 		}
 
 		// When combined with the "small" and "compact" themes
-		&.#{$class}--small,
-		&.#{$class}--compact {
-			.#{$class}__outer {
+		&.o-banner--small,
+		&.o-banner--compact {
+			.o-banner__outer {
 				@include oBannerThemeMarketingSmallOuter;
 			}
-			.#{$class}__inner {
+			.o-banner__inner {
 				@include oBannerThemeMarketingSmallInner;
 			}
 		}
