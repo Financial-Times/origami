@@ -220,6 +220,8 @@ oBanner($opts: (
 
 The `themes` option used to take a map or the word 'all', but as 'all' is the default, one can get that effect by not specifying anything.
 
+All other mixins have been removed, you'll need to update your code to use the documented `o-banner` classes.
+
 ### Migrating from v1 to v2
 
 V2 of o-banner removes and renames several themes. This includes the removal of associated mixins and variables. The removed themes are `marketing-primary` and `marketing-secondary`. This should be replaced with `marketing`. E.g. the following classes should change:
