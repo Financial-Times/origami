@@ -1,0 +1,63 @@
+@import 'o-editorial-typography/main';
+
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/placeholders';
+
+/// Output All oEditorialLayout Features
+@mixin oEditorialLayout($opts: (
+	'headings': (1, 2, 3, 4, 5),
+	'body': true,
+)) {
+	$headings: map-get($opts, 'headings');
+	$headings: if($headings, $headings, ());
+	$body: map-get($opts, 'body');
+
+	@if($headings and type-of($headings) != 'list') {
+		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
+	}
+
+	@if index($headings, 1) {
+		.o-editorial-layout-heading-1 {
+			@include oEditorialLayoutHeading(1);
+		}
+	}
+
+	@if index($headings, 2) {
+		.o-editorial-layout-heading-2 {
+			@include oEditorialLayoutHeading(2);
+		}
+	}
+
+	@if index($headings, 3) {
+		.o-editorial-layout-heading-3 {
+			@include oEditorialLayoutHeading(3);
+		}
+	}
+
+	@if index($headings, 4) {
+		.o-editorial-layout-heading-4 {
+			@include oEditorialLayoutHeading(4);
+		}
+	}
+
+	@if index($headings, 5) {
+		.o-editorial-layout-heading-5 {
+			@include oEditorialLayoutHeading(5);
+		}
+	}
+
+	@if $body {
+		.o-editorial-layout-body {
+			@include oEditorialLayoutBody();
+		}
+	}
+}
+
+@if ($o-editorial-layout-is-silent == false) {
+	@include oEditorialLayout();
+
+	// Set to silent again to avoid being output twice
+	$o-editorial-layout-is-silent: true !global;
+}

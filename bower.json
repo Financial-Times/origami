@@ -1,0 +1,17 @@
+{
+  "name": "o-editorial-layout",
+  "description": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-editorial-typography": "^1.0.0-beta.1"
+  }
+}
