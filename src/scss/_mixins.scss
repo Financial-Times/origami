@@ -8,10 +8,10 @@
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
 
-	@extend %o-editorial-layout-heading-#{$level};
+	@extend %_o-editorial-layout-heading-#{$level};
 }
 
 /// Body typography and margin.
 @mixin oEditorialLayoutBody() {
-	@extend %o-editorial-layout-body;
+	@extend %_o-editorial-layout-body;
 }

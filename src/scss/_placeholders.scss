@@ -4,39 +4,39 @@
 
     // h1
     // - small margin below by default
-    %o-editorial-layout-heading-1 {
+    %_o-editorial-layout-heading-1 {
         @include oEditorialTypographyHeading($level: 1);
         margin-bottom: 4px;
     }
     // h2
     // - large margin above by default
     // - small margin below by default
-    %o-editorial-layout-heading-2 {
+    %_o-editorial-layout-heading-2 {
         @include oEditorialTypographyHeading($level: 2);
         margin-bottom: 4px;
         margin-top: 32px;
     }
     // h3
     // - small margin below by default
-    %o-editorial-layout-heading-3 {
+    %_o-editorial-layout-heading-3 {
         @include oEditorialTypographyHeading($level: 3);
         margin-bottom: 4px;
     }
     // h4
     // - medium margin below by default
-    %o-editorial-layout-heading-4 {
+    %_o-editorial-layout-heading-4 {
         @include oEditorialTypographyHeading($level: 4);
         margin-bottom: 12px;
     }
     // h5
     // - small margin below by default
-    %o-editorial-layout-heading-5 {
+    %_o-editorial-layout-heading-5 {
         @include oEditorialTypographyHeading($level: 5);
         margin-bottom: 4px;
     }
     // body
     // - medium margin below by default
-    %o-editorial-layout-body {
+    %_o-editorial-layout-body {
         @include oEditorialTypographyBody();
         margin-bottom: 28px;
         margin-top: 0;
@@ -45,12 +45,12 @@
     // all headings
     // - increase margin between certain elements
     // - increase margin by a smaller amount for body copy elements
-    %o-editorial-layout-heading-1,
-    %o-editorial-layout-heading-2,
-    %o-editorial-layout-heading-3,
-    %o-editorial-layout-heading-4,
-    %o-editorial-layout-heading-5 {
-        & + %o-editorial-layout-body {
+    %_o-editorial-layout-heading-1,
+    %_o-editorial-layout-heading-2,
+    %_o-editorial-layout-heading-3,
+    %_o-editorial-layout-heading-4,
+    %_o-editorial-layout-heading-5 {
+        & + %_o-editorial-layout-body {
             margin-top: 4px;
         }
 
