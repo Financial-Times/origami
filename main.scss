@@ -15,6 +15,17 @@
 @import "src/scss/themes/small";
 @import "src/scss/themes/compact";
 
+/// Output `o-banner` CSS.
+///
+/// @example Output all `o-banner` styles.
+///     @include oBanner();
+///
+/// @example Output only the small theme
+///     @include oColors($opts: (
+///     	'themes': ('small')
+///     ));
+///
+/// @param {Map} $opts - The o-banners features to output. See the [readme](https://registry.origami.ft.com/components/o-banner) for a full list of options.
 @mixin oBanner($opts: (
 	themes: $_o-banner-themes
 )) {
