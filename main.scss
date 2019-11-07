@@ -29,6 +29,9 @@
 @mixin oBanner($opts: (
 	themes: $_o-banner-themes
 )) {
+
+	$themes: map-get($opts, 'themes');
+
 	// Base banner styles
 	.o-banner {
 		@include _oBannerBase;
