@@ -16,12 +16,12 @@ body {
 .demo--light {
 	// @todo figure out how to brand demos without adding brand variables just for demos.
 	// https://github.com/Financial-Times/o-brand/issues/31
-	background: if($o-brand == 'whitelabel', oColorsGetPaletteColor('black'), oColorsGetPaletteColor('slate'));
+	background: if(oBrandGetCurrentBrand() == 'whitelabel', oColorsByName('black'), oColorsByName('slate'));
 }
 
 // reversed background
 .demo--dark {
-	@include oColorsFor(page);
+	background: oColorsByUsecase('page', 'background');
 }
 
 .demo-toggle {

@@ -34,47 +34,53 @@
 	@include oBrandCustomize('o-loading', $variables);
 }
 
-@include oBrandDefine('o-loading', 'master', (
-	'variables': (
-		'light': (
-			default-color: oColorsGetPaletteColor('white')
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-loading', 'master', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('black-80')
+			)
 		),
-		'dark': (
-			default-color: oColorsGetPaletteColor('black-80')
+		'supports-variants': (
+			'light',
+			'dark'
 		)
-	),
-	'supports-variants': (
-		'light',
-		'dark'
-	)
-));
+	));
+}
 
-@include oBrandDefine('o-loading', 'internal', (
-	'variables': (
-		'light': (
-			default-color: oColorsGetPaletteColor('white')
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-loading', 'internal', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('slate')
+			)
 		),
-		'dark': (
-			default-color: oColorsGetPaletteColor('slate')
+		'supports-variants': (
+			'light',
+			'dark'
 		)
-	),
-	'supports-variants': (
-		'light',
-		'dark'
-	)
-));
+	));
+}
 
-@include oBrandDefine('o-loading', 'whitelabel', (
-	'variables': (
-		'light': (
-			default-color: oColorsGetPaletteColor('white')
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-loading', 'whitelabel', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('black')
+			)
 		),
-		'dark': (
-			default-color: oColorsGetPaletteColor('black')
+		'supports-variants': (
+			'light',
+			'dark'
 		)
-	),
-	'supports-variants': (
-		'light',
-		'dark'
-	)
-));
+	));
+}
