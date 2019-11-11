@@ -95,6 +95,11 @@
 		@error 'Default o-colors usecases may not be deprecated by users of o-colors.';
 	}
 
+	// Error if usecase colours are not a map.
+	@if (type-of($colors) != 'map') {
+		@error '`$colors` must be a map of usecase properties (\'text\', \'background\', \'border\', or \'outline\') to colours.';
+	}
+
 	// Default o-colors usecases may be customised by users.
 	@if ($project-name == 'o-colors' and map-has-key($_o-colors-usecases, $namespaced-usecase)) {
 		$current-config: map-get($_o-colors-usecases, $namespaced-usecase);
