@@ -144,7 +144,7 @@
 /// Styles shared by all buttons of a given size.
 /// @param {Null|Number} $size
 @mixin _oButtonsBaseContent($size: null) {
-	@include oTypographySansBold();
+	@include oTypographySans($weight: 'semibold');
 	@include _oButtonsSizeContent($size);
 	display: inline-block;
 	box-sizing: border-box;
@@ -280,10 +280,10 @@
 	// This only needs to be output once, not for every button state.
 	// sass-lint:disable no-vendor-prefixes
 	@media screen and (-ms-high-contrast: active) {
-		@include oIconsGetIcon($icon-name: $icon, $apply-base-styles: false, $apply-width-height: false, $color: #ffffff, $iconset-version: 1, $high-contrast-fallback: false);
+		@include oIconsContent($icon-name: $icon, $size: null, $color: #ffffff, $include-base-styles: false, $high-contrast-fallback: false);
 	}
 	@media screen and (-ms-high-contrast: black-on-white) {
-		@include oIconsGetIcon($icon-name: $icon, $apply-base-styles: false, $apply-width-height: false, $color: #000000, $iconset-version: 1, $high-contrast-fallback: false);
+		@include oIconsContent($icon-name: $icon, $size: null, $color: #000000, $include-base-styles: false, $high-contrast-fallback: false);
 	}
 	// sass-lint:enable no-vendor-prefixes
 }

@@ -1,7 +1,7 @@
 @import "../../main";
 
 html {
-	@include oColorsFor(page);
+	background-color: oColorsByUsecase('page', 'background');
 }
 
 body {
@@ -16,10 +16,6 @@ h2 {
 p {
 	max-width: 900px;
 	font-size: 18px;
-}
-
-.test-page {
-	@include oColorsFor(page);
 }
 
 .faux-inline-block {
@@ -45,12 +41,12 @@ p {
 .inverse,
 .demo-inverse,
 .demo__custom-theme--slate {
-	background-color: oColorsGetPaletteColor(slate);
+	background-color: oColorsByName(slate);
 	padding: 1em;
 }
 
 .demo__custom-theme--lemon {
-	background-color: oColorsGetPaletteColor(slate);
+	background-color: oColorsByName(slate);
 	padding: 1em;
 }
 

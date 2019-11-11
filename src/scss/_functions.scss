@@ -93,7 +93,7 @@
 	// Get button context from custom theme map or brand config, see _brand.scss.
 	// The button context is the background colour the button is placed on.
 	$context-color-name: _oButtonsGet('context', $theme);
-	$context-color-name: if($context-color-name, $context-color-name, oColorsGetUseCase('page', 'background'));
+	$context-color-name: if($context-color-name, $context-color-name, oColorsNameByUsecase('page', 'background'));
 
 	// Get button colours depending on button type.
 	$color-map: ();
@@ -142,8 +142,9 @@
 /// @param {String} $context-color-name - The page colour behind the button (from `o-colors` palette).
 /// @return {Map} - Colours for a primary button. Including overrides for each button state.
 @function _oButtonsGetPrimaryButtonColors($color-name, $context-color-name) {
-	$default-background: oColorsGetPaletteColor($color-name);
-	$default-color: oColorsGetTextColor($color-name, 100);
+	$default-background: oColorsByName($color-name);
+	// o-buttons does makes custom contrast checks
+	$default-color: oColorsGetTextColor($color-name, 100, $minimum-contrast: null);
 
 	// Derive the hover/focus/active background colour from the default
 	// background colour.
@@ -151,7 +152,7 @@
 	$active-background: null;
 
 	// If the background color may be tinted use tints, otherwise use a mix.
-	$is-tint: _oButtonsGetTintDetails($default-background);
+	$is-tint: oColorsGetToneDetails($default-background);
 	@if($is-tint) {
 		// The hover/focus background tint should be lower than the default
 		// button background. Preferably with a contrast ratio of at least 1.5,
@@ -176,7 +177,7 @@
 		$slate-button: $color-name == 'slate';
 		$light-mix: if(
 			oBrandGetCurrentBrand() == 'master' and $slate-button,
-			oColorsGetPaletteColor('paper'),
+			oColorsByName('paper'),
 			'white'
 		);
 
@@ -187,7 +188,7 @@
 		$dark-mix: if(
 			(oBrandGetCurrentBrand() == 'master' or
 			oBrandGetCurrentBrand() == 'internal') and $slate-context,
-			oColorsGetPaletteColor('slate'),
+			oColorsByName('slate'),
 			'black'
 		);
 
@@ -195,7 +196,7 @@
 		// darker still for active states. Unless the button color has low
 		// luminance, in which case make the button lighter instead.
 		// E.g. white: 1, claret: 0.07451, slate: 0.02307
-		$color-luminance: oColorsColorLuminance(oColorsGetPaletteColor($color-name));
+		$color-luminance: oColorsColorLuminance(oColorsByName($color-name));
 		$mix-color: if($color-luminance > 0.05, $dark-mix, $light-mix);
 
 		// Mix the background colour to make the hover/focus state darker or
@@ -222,20 +223,24 @@
 		);
 	}
 
-	$hover-focus-color: oColorsGetTextColor($hover-focus-background, 100);
-	$active-color: oColorsGetTextColor($active-background, 100);
+	// o-buttons does makes custom contrast checks
+	$hover-focus-color: oColorsGetTextColor($hover-focus-background, 100, $minimum-contrast: null);
+	$active-color: oColorsGetTextColor($active-background, 100, $minimum-contrast: null);
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible primary button of colour "#{$color-name}" for a background context "#{$context-color-name}".';
-	@if(oColorsCheckContrast($default-color, $default-background, false) != 'pass') {
+	$default-contrast-ratio: oColorsGetContrastRatio($default-color, $default-background);
+	@if($default-contrast-ratio < 4.5) {
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the focus/hover state contrast.
-	@if(oColorsCheckContrast($hover-focus-color, $hover-focus-background, false) != 'pass') {
+	$hover-contrast-ratio: oColorsGetContrastRatio($hover-focus-color, $hover-focus-background);
+	@if($hover-contrast-ratio < 4.5) {
 		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the active state contrast.
-	@if(oColorsCheckContrast($active-color, $active-background, false) != 'pass') {
+	$active-contrast-ratio: oColorsGetContrastRatio($active-color, $active-background);
+	@if($active-contrast-ratio < 4.5) {
 		@error ($contrast-error-message + ' The text and background colour of the active state do not pass WCAG AA contrast checks.');
 	}
 
@@ -273,9 +278,9 @@
 /// @param {String} $context-color-name - The page colour behind the button (from `o-colors` palette).
 /// @return {Map} - Colours for a secondary button. Including overrides for each button state.
 @function _oButtonsGetSecondaryButtonColors($color-name, $context-color-name) {
-	$default-color: oColorsGetPaletteColor($color-name);
+	$default-color: oColorsByName($color-name);
 	$default-background: transparent;
-	$default-background-opaque: oColorsGetPaletteColor($context-color-name);
+	$default-background-opaque: oColorsByName($context-color-name);
 
 	// Get hover/focus colors:
 	// The secondary button hover/focus background is transparent.
@@ -292,7 +297,7 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix($color-name, 'transparent', $hover-focus-background-mix);
+	$hover-focus-background: oColorsMix($color-name, transparent, $hover-focus-background-mix);
 	$hover-focus-background-opaque: oColorsMix($color-name, $context-color-name, $hover-focus-background-mix);
 	// If the hover/focus state doesn't have high enough contrast darken/lighten
 	// the button foreground colour until it does.
@@ -306,20 +311,23 @@
 	);
 
 	// Get active colours.
-	$active-background: oColorsGetPaletteColor($color-name);
+	$active-background: oColorsByName($color-name);
 	$active-color: oColorsGetTextColor($active-background, 100);
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible secondary button of colour "#{$color-name}" for a background context "#{$context-color-name}".';
-	@if(oColorsCheckContrast($default-color, $default-background-opaque, false) != 'pass') {
+	$default-contrast-ratio: oColorsGetContrastRatio($default-color, $default-background-opaque);
+	@if $default-contrast-ratio < 4.5 {
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the focus/hover state contrast.
-	@if(oColorsCheckContrast($hover-focus-color, $hover-focus-background-opaque, false) != 'pass') {
+	$hover-contrast-ratio: oColorsGetContrastRatio($hover-focus-color, $hover-focus-background-opaque);
+	@if $hover-contrast-ratio < 4.5 {
 		@error ($contrast-error-message + ' The text and background colour of the hover and focus state do not pass WCAG AA contrast checks.');
 	}
 	// Confirm the active state contrast.
-	@if(oColorsCheckContrast($active-color, $active-background, false) != 'pass') {
+	$active-contrast-ratio: oColorsGetContrastRatio($active-color, $active-background);
+	@if $active-contrast-ratio < 4.5 {
 		@error ($contrast-error-message + ' The text and background colour of the active state do not pass WCAG AA contrast checks.');
 	}
 
@@ -368,7 +376,7 @@
 	$value: $preferred-mix;
 	@while $value >= $minimum-mix {
 		$mix: oColorsMix($color-a, $color-b, $value);
-		$ratio: oColorsGetContrastRatio($mix, oColorsGetPaletteColor($contrast-color));
+		$ratio: oColorsGetContrastRatio($mix, $contrast-color);
 		@if $ratio >= $contrast-aim {
 			@return $value;
 		}
@@ -386,7 +394,7 @@
 // team (each button state used to be specified manually).
 @function _oButtonsGetDarkerTint($tint, $contrast-aim, $minimum-tint-value) {
 	// Current tint.
-	$tint-details: _oButtonsGetTintDetails($tint);
+	$tint-details: oColorsGetToneDetails($tint);
 	$tint-color: map-get($tint-details, 'color');
 	$tint-value: map-get($tint-details, 'value');
 	// Lower the tint value.
@@ -397,8 +405,8 @@
 	$value: if($initial-tint-value > $minimum-tint-value, $initial-tint-value, $minimum-tint-value);
 	// Return the new tint if the current decrement is of high enough contrast.
 	@while $value >= $minimum-tint-value {
-		$darker-tint: oColorsGetTint($tint-color, $value);
-		$ratio: oColorsGetContrastRatio($darker-tint, oColorsGetPaletteColor($tint));
+		$darker-tint: oColorsGetTone($tint-color, $value);
+		$ratio: oColorsGetContrastRatio($darker-tint, $tint);
 		@if $ratio >= $contrast-aim {
 			@return $darker-tint;
 		}
@@ -406,38 +414,7 @@
 	}
 	// No tint of a high enough contrast could be produced.
 	// Return the darkest tint we'll allow.
-	@return oColorsGetTint($tint-color, $minimum-tint-value);
-}
-
-/// Get a tint name and value from a tinted colour such as `teal-50`.
-///
-/// @example
-/// 	$tint-details: _oButtonsGetTintDetails('claret-30'); // ('color': 'claret', 'value': 30)
-///
-/// @param {String|Color} $color
-/// @return {Map|Null} A map with tint details if the colour name provided is a tint, or `null` if the colour name is not a tint.
-@function _oButtonsGetTintDetails($color) {
-	$color: if(type-of($color) == 'string', oColorsGetPaletteColor($color), $color);
-	$hue: hue($color);
-	@each $tint-color, $tint-config in $o-colors-tints {
-		// If the given colour supports tints.
-		$tint-hue: map-get($tint-config, 'hue');
-		@if($tint-hue and (floor($tint-hue) == floor($hue))) {
-			// Check its hex against tint to find the tint value.
-			$value: 0;
-			@while $value <= 100 {
-				@if(inspect(oColorsGetTint($tint-color, $value)) == inspect($color)) {
-					@return (
-						'color': $tint-color,
-						'value': $value
-					);
-				}
-				$value: $value + 1;
-			}
-		}
-	}
-	// No tint matched.
-	@return null;
+	@return oColorsGetTone($tint-color, $minimum-tint-value);
 }
 
 /// Request an icon from o-icons of a specific colour for a button.
@@ -445,5 +422,5 @@
 /// @param {String} $icon-name - icon to request
 /// @param {Color} $icon-color - a hex for the button icon colour
 @mixin _oButtonsGetIcon($icon-name, $icon-color) {
-	@include oIconsGetIcon($icon-name: $icon-name, $apply-base-styles: false, $apply-width-height: false, $color: $icon-color, $iconset-version: 1, $high-contrast-fallback: false);
+	@include oIconsContent($icon-name: $icon-name, $size: null, $color: $icon-color, $include-base-styles: false, $high-contrast-fallback: false);
 }

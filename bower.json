@@ -4,10 +4,10 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "^4.3.0",
-    "o-icons": "^5.11.2",
-    "o-normalise": "^1.2.0",
+    "o-colors": "#breaking",
+    "o-icons": "#breaking",
+    "o-normalise": "#breaking",
     "o-brand": "^3.2.5",
-    "o-typography": "^5.7.8"
+    "o-typography": "#breaking"
   }
 }

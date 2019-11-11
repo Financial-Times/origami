@@ -53,7 +53,7 @@
 			// arrow-left is an example of an icon
 			@include contains($selector: false) {
 				.o-buttons--secondary.o-buttons-icon--arrow-left {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
 				}
 			};
 		};
@@ -189,7 +189,7 @@
 					background-repeat: no-repeat;
 					background-position: 3px;
 					padding-left: 40px;
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg");
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
 				}
 
 				.o-typography--loading-sans & {
@@ -226,18 +226,18 @@
 				}
 
 				&:not([disabled]):focus {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg");
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
 				}
 
 				@media screen and (-ms-high-contrast: active) {
 					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=o-icons&tint=%23FFFFFF,%23FFFFFF&format=svg");
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
 					}
 				}
 
 				@media screen and (-ms-high-contrast: black-on-white) {
 					& {
-						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=o-icons&tint=%23000000,%23000000&format=svg");
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
 					}
 				}
 			};
@@ -273,14 +273,14 @@
 				}
 
 				&:not([disabled]):hover {
-					background-color: #095359;
+					background-color: #095259;
 					color: white;
 					border-color: transparent;
 					text-decoration: none;
 				}
 
 				&:not([disabled]):focus {
-					background-color: #095359;
+					background-color: #095259;
 					color: white;
 					border-color: transparent;
 				}
