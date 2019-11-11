@@ -1,0 +1,17 @@
+
+
+/// Heading typography and margin.
+/// A placeholder is used, which may effect the source order of your CSS.
+/// @param {number} $level - The heading level 1-5.
+@mixin oEditorialLayoutHeading($level) {
+	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
+		@error 'Heading levels must be a number between 1 and 5.';
+	}
+
+	@extend %_o-editorial-layout-heading-#{$level};
+}
+
+/// Body typography and margin.
+@mixin oEditorialLayoutBody() {
+	@extend %_o-editorial-layout-body;
+}

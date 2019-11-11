@@ -1,0 +1,12 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oEditorialLayoutGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-editorial-layout', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oEditorialLayoutSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-editorial-layout', $variant: $variant);
+}
