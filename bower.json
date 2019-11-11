@@ -12,6 +12,6 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "5.0.0-beta.2"
+    "o-colors": "#breaking"
   }
 }
