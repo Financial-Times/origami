@@ -114,8 +114,15 @@
 	};
 
 	@include describe('oColorsGetTextColor') {
-		@include it('returns a text color based on background and opacity percentage') {
-			@include assert-equal(oColorsGetTextColor(oColorsByName('paper')), (#1a1817));
+		@include it('returns a text color based on background colour and opacity percentage') {
+			@include assert-equal(oColorsGetTextColor(oColorsByName('paper')), #1a1817);
+			@include assert-equal(oColorsGetTextColor(oColorsByName('oxford-80'), 100), white);
+			@include assert-equal(oColorsGetTextColor(oColorsByName('oxford-90'), 100), black);
+		};
+		@include it('returns a text color based on background colour name and opacity percentage') {
+			@include assert-equal(oColorsGetTextColor('paper'), #1a1817);
+			@include assert-equal(oColorsGetTextColor('oxford-80', 100), white);
+			@include assert-equal(oColorsGetTextColor('oxford-90', 100), black);
 		};
 		@include it('throws an error if a text color and background does not pass WCAG contrast guidelines') {
 			@include assert-equal(oColorsGetTextColor('black-40', 50),
