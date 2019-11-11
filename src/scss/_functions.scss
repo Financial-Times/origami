@@ -45,6 +45,33 @@
 /// @param {String|Color|Null} - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
 /// @return {Color} - The usecase colour.
 @function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
+	// Find the colour name of the requested usecase. Fallback to null so we can
+	// handle a fallback colour or colour name if no usecase is found.
+	$color: oColorsNameByUsecase($usecase, $property, $fallback: null, $from: $from);
+	// If no usecase was found and null was given as a fallback return null.
+	@if $color == null and $fallback == null {
+		@return null;
+	}
+	// If no usecase was found and a colour was given as a fallback return the fallback.
+	@if $color == null and type-of($fallback) == 'color' {
+		@return $fallback;
+	}
+	// If no usecase was found and a colour name was given as a fallback find the colour from the name.
+	@if $color == null and type-of($fallback) == 'string' {
+		@return oColorsByName($fallback);
+	}
+
+	@return oColorsByName($color);
+}
+
+/// Return the defined palette color name for a use case / property combination
+///
+/// @param {String} $usecase - The name of the usecase, e.g. 'page'.
+/// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
+/// @param {Color|Null} $fallback - The value to return if the usecase isn't found.
+/// @param {String|Null} - The fallback name if the usecase is not found. Either a palette colour string or `null` (note: the default is `false` to indicate no fallback).
+/// @return {String} - The usecase colour name.
+@function oColorsNameByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
 		@return _error('`$usecase` should be a string but found ' +
@@ -66,10 +93,9 @@
 
 	// Validate fallback is a colour or null.
 	// `false` is used as a default to indicate the user has not passed a fallback.
-	$fallback: if(type-of($fallback) == 'string', oColorsByName($fallback), $fallback);
-	$valid-fallback: type-of($fallback) == 'color' or type-of($fallback) == 'null';
+	$valid-fallback: type-of($fallback) == 'string' or type-of($fallback) == 'null';
 	@if($fallback != false and not $valid-fallback) {
-		@return _error('`$fallback` should be a valid colour or `null`, ' +
+		@return _error('`$fallback` should be a valid colour name or `null`, ' +
 		'found "#{inspect($fallback)}".');
 	}
 
@@ -113,7 +139,7 @@
 		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
 
-	@return oColorsByName($color);
+	@return $color;
 }
 
 /// Returns a brighter or darker tone of a colour, where the hue remains
