@@ -42,17 +42,18 @@
 		};
 	};
 
-	@include describe('oColorsNameByUsecase') {
+	@include describe('oColorsUsecaseDetails') {
 		@include it('returns the palette color name for a use case') {
-			@include assert-equal(oColorsNameByUsecase(focus, outline), 'black-50');
-			@include assert-equal(oColorsNameByUsecase(page, background), 'paper');
+			@include assert-equal(oColorsUsecaseDetails(focus, outline), ('color': 'black-50', 'from': 'o-colors'));
+			@include assert-equal(oColorsUsecaseDetails(page, background), ('color': 'paper', 'from': 'o-colors'));
 		};
 
-		@include it('returns a fallback for a usecase which does not exist') {
-			@include assert-equal(oColorsNameByUsecase('fake-usecase-does-not-exist', 'text', $fallback: null), null);
-			@include assert-equal(oColorsNameByUsecase('fake-usecase-does-not-exist', 'text', $fallback: 'teal'), 'teal');
+		@include it('returns null for a usecase which does not exist') {
+			@include assert-equal(oColorsUsecaseDetails('page', 'text'), null); // text property does not exist for page
+			@include assert-equal(oColorsUsecaseDetails('fake-usecase-does-not-exist', 'text'), null);
 		};
 	};
+
 	@include describe('oColorsByUsecase') {
 		@include it('returns the palette color for a use case') {
 			@include assert-equal(oColorsByUsecase(focus, outline), oColorsByName('black-50'));

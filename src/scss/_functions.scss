@@ -45,9 +45,11 @@
 /// @param {String|Color|Null} - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
 /// @return {Color} - The usecase colour.
 @function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
-	// Find the colour name of the requested usecase. Fallback to null so we can
-	// handle a fallback colour or colour name if no usecase is found.
-	$color: oColorsNameByUsecase($usecase, $property, $fallback: null, $from: $from);
+	// Find the colour name of the requested usecase.
+	$details: oColorsUsecaseDetails($usecase, $property, $from: $from);
+	$details: if($details, $details, ());
+	$color: map-get($details, 'color');
+	$from: map-get($details, 'from');
 	// If no usecase was found and null was given as a fallback return null.
 	@if $color == null and $fallback == null {
 		@return null;
@@ -58,20 +60,19 @@
 	}
 	// If no usecase was found and a colour name was given as a fallback find the colour from the name.
 	@if $color == null and type-of($fallback) == 'string' {
-		@return oColorsByName($fallback);
+		@return oColorsByName($fallback, $from: 'o-colors');
 	}
 
-	@return oColorsByName($color);
+	@return oColorsByName($color, $from: $from);
 }
 
-/// Return the defined palette color name for a use case / property combination
+/// Return the defined palette color name and the project it was set by for a use case / property combination
 ///
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
-/// @param {Color|Null} $fallback - The value to return if the usecase isn't found.
 /// @param {String|Null} - The fallback name if the usecase is not found. Either a palette colour string or `null` (note: the default is `false` to indicate no fallback).
-/// @return {String} - The usecase colour name.
-@function oColorsNameByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
+/// @return {Map|Null} - The usecase colour name "color" and the project it was set by "from" e.g. `('color': 'paper', 'from': 'o-colors')`. Or null if the usecase is not set.
+@function oColorsUsecaseDetails($usecase, $property, $from: 'o-colors') {
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
 		@return _error('`$usecase` should be a string but found ' +
@@ -91,35 +92,24 @@
 		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
 
-	// Validate fallback is a colour or null.
-	// `false` is used as a default to indicate the user has not passed a fallback.
-	$valid-fallback: type-of($fallback) == 'string' or type-of($fallback) == 'null';
-	@if($fallback != false and not $valid-fallback) {
-		@return _error('`$fallback` should be a valid colour name or `null`, ' +
-		'found "#{inspect($fallback)}".');
-	}
-
-	// Get properties for usecase. Error if none are found.
+	// Return null if no usecase is found.
 	$namespaced-usecase: '#{$from}-#{$usecase}';
 	$config: map-get($_o-colors-usecases, $namespaced-usecase);
 	@if($config == null) {
-		@return if($valid-fallback, $fallback, _error(
-			'The colour usecase #{inspect($usecase)} couldn\'t be found ' +
-			'for #{inspect($from)}'
-		));
+		@return null;
 	}
 
-	// Get colour for usecase property. If none are found look for the property
-	// specifically, see if the usecase has set a colour for `all` properties.
-	// Error if no colour is found.
+	// Get colour for usecase property.
+	// If the colour was defined as a map it's a custom colour.
+	// $color: ('color': 'my-color', 'from': 'my-project')
 	$colors: map-get($config, 'colors');
-	$color: map-get($colors, $property);
-	$color: if($color, $color, map-get($colors, all));
-	@if($color == null) {
-		@return if($valid-fallback, $fallback, _error(
-			'The colour usecase property #{inspect($property)} couldn\'t ' +
-			'be found within the #{inspect($from)} #{inspect($usecase)} usecase.'
-		));
+	$color-config: map-get($colors, $property);
+	$color-name: if(type-of($color-config) == 'map', map-get($color-config, 'color'), $color-config);
+	$color-from: if(type-of($color-config) == 'map', map-get($color-config, 'from'), 'o-colors');
+
+	// Return null if no property is found.
+	@if($color-name == null) {
+		@return null;
 	}
 
 	// Output any deprecation warnings, if not already.
@@ -139,7 +129,10 @@
 		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
 
-	@return $color;
+	@return (
+		'color': $color-name,
+		'from': $color-from,
+	);
 }
 
 /// Returns a brighter or darker tone of a colour, where the hue remains

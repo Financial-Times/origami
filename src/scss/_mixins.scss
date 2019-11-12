@@ -69,6 +69,12 @@
 ///     	'border': 'black-50'
 ///     ));
 ///
+/// @example Setting a custom colour to a 'stripe' usecase with background.
+///     @include oColorsSetColor($project-name: 'o-example', $color-name: 'my-pink', $color-hex: #ff69b4);
+///     @include oColorsSetUseCase('o-example', 'stripe', (
+///     	'background': ('color': 'my-pink', 'from': 'o-example'),
+///     ));
+///
 /// @example Deprecating all usecase properties (removing a colour usecase is a breaking change).
 ///     @include oColorsSetUseCase('o-example', 'stripe', (
 ///     	'text': 'white',
@@ -98,6 +104,24 @@
 	// Error if usecase colours are not a map.
 	@if (type-of($colors) != 'map') {
 		@error '`$colors` must be a map of usecase properties (\'text\', \'background\', \'border\', or \'outline\') to colours.';
+	}
+
+	// Error if any of the usecase colours are not a string, to define a default
+	// o-colors palette colour, or a map, to define a custom palette colour.
+	@each $property, $color in $colors {
+		@if(type-of($color) != 'map' and type-of($color) != 'string') {
+			@error 'A usecase "#{$usecase}" for "#{$project-name}" ' +
+			'cannot be set with a property "#{inspect($property)}" of colour "#{inspect($color)}". ' +
+			'Colours must be a default o-colors name such as "paper" or a map to use a custom colour ' +
+			'e.g. (\'color\': \'my-color\', \'from\': \'my-project\').';
+		}
+
+		@if(type-of($color) == 'map' and not map-has-key($color, 'color') and not map-has-key($color, 'from')) {
+			@error 'A usecase "#{$usecase}" for "#{$project-name}" ' +
+			'cannot be set with a property "#{inspect($property)}" of colour "#{inspect($color)}". ' +
+			'Expected a "color" and "from" key to use a custom colour ' +
+			'e.g. (\'color\': \'my-color\', \'from\': \'my-project\').';
+		}
 	}
 
 	// Default o-colors usecases may be customised by users.

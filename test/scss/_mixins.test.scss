@@ -126,6 +126,20 @@
 			));
 			@include assert-equal(oColorsByUsecase(test-case, text), oColorsByName('candy'));
 		};
+		@include it('add a custom use case property for a custom colour') {
+			// A custom colour set by an "o-example" component.
+			$example-color: #808000;
+			@include oColorsSetColor('o-example', 'paper', $example-color);
+			// A custom usecase by an "o-example" component, using a custom colour.
+			@include oColorsSetUseCase('o-example', 'page', (
+				'background': ('color': 'paper', 'from': 'o-example')
+			));
+			// Assert able to get the new "o-example" usecase.
+			@include assert-equal(
+				oColorsByUsecase('page', 'background', $from: 'o-example'),
+				$example-color
+			);
+		};
 		@include it('override a default o-colors custom use case property') {
 			@include oColorsSetUseCase('o-colors', 'page', (
 				'background': 'candy'
