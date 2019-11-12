@@ -16,6 +16,8 @@ The following Sass variables have been renamed:
 - `$o-visual-effects-transition-expand` is now `$o-visual-effects-timing-expand`
 - `$o-visual-effects-transition-fade` is now `$o-visual-effects-timing-fade`
 
+The Sass o-colors usecase `o-effects-shadows-elevation` has been replaced with the Sass variable `$o-visual-effects-shadow-color`.
+
 ### Migrating from v1 to v2
 
 The following changes have been made to the mixins in o-visual-effects:

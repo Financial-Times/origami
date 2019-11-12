@@ -2,7 +2,7 @@
 /// @param {String} $elevation - 'ultra', 'low', 'mid' or 'high'
 /// @param {Color} $color
 /// @output A repeating linear gradient background
-@mixin oVisualEffectsShadowContent($elevation: 'low', $color: oColorsGetColorFor('o-effects-shadows-elevation')) {
+@mixin oVisualEffectsShadowContent($elevation: 'low', $color: $o-visual-effects-shadow-color) {
 	@if $elevation == 'ultralow' {
 		box-shadow: 0 2px 2px rgba($color, 0.12), 0 4px 6px rgba($color, 0.1);
 	}

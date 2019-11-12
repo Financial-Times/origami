@@ -7,6 +7,6 @@
     "demo"
   ],
   "dependencies": {
-    "o-colors": "^4.0.1"
+    "o-colors": "#breaking"
   }
 }

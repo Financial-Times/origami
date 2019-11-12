@@ -8,3 +8,8 @@ $o-visual-effects-timing-expand: cubic-bezier(0.215, 0.61, 0.355, 1) !default;
 
 /// Timing function for elements that fade in and out
 $o-visual-effects-timing-fade: cubic-bezier(0.165, 0.84, 0.44, 1) !default;
+
+/// The base dropdown shadow colour.
+/// Used with opacity for shadows of different levels.
+/// @type Color
+$o-visual-effects-shadow-color: oColorsByName('black-70');
