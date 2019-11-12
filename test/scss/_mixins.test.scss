@@ -105,6 +105,8 @@
 					min-width: 60px;
 					padding: 0 8px;
 					display: inline-block;
+      				display: inline-flex;
+      				align-items: center;
 					box-sizing: border-box;
 					vertical-align: middle;
 					margin: 0;
@@ -167,6 +169,8 @@
 					min-width: 80px;
 					padding: 0 20px;
 					display: inline-block;
+      				display: inline-flex;
+      				align-items: center;
 					box-sizing: border-box;
 					vertical-align: middle;
 					margin: 0;
@@ -185,7 +189,6 @@
 					background-color: #262a33;
 					color: white;
 					border-color: transparent;
-					display: inline-block;
 					background-repeat: no-repeat;
 					background-position: 3px;
 					padding-left: 40px;
