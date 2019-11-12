@@ -43,7 +43,7 @@
 	};
 
 	@include describe('oColorsUsecaseDetails') {
-		@include it('returns the palette color name for a use case') {
+		@include it('returns the palette color name for a custom usecase') {
 			@include assert-equal(oColorsUsecaseDetails(focus, outline), ('color': 'black-50', 'from': 'o-colors'));
 			@include assert-equal(oColorsUsecaseDetails(page, background), ('color': 'paper', 'from': 'o-colors'));
 		};
@@ -51,6 +51,25 @@
 		@include it('returns null for a usecase which does not exist') {
 			@include assert-equal(oColorsUsecaseDetails('page', 'text'), null); // text property does not exist for page
 			@include assert-equal(oColorsUsecaseDetails('fake-usecase-does-not-exist', 'text'), null);
+		};
+
+		@include it('returns the palette color name for a usecase') {
+			// A custom usecase by an "o-example" component
+			@include oColorsSetUseCase('o-example', 'page-1', (
+				'background': 'paper'
+			));
+			@include assert-equal(oColorsUsecaseDetails('page-1', 'background', $from: 'o-example'), ('color': 'paper', 'from': 'o-colors'));
+		};
+
+		@include it('returns the palette color name for a usecase using a custom colour') {
+			// A custom colour set by an "o-example" component.
+			$example-color: #808000;
+			@include oColorsSetColor('o-example', 'paper-2', $example-color);
+			// A custom usecase by an "o-example" component, using a custom colour.
+			@include oColorsSetUseCase('o-example', 'page-2', (
+				'background': ('color': 'paper-2', 'from': 'o-example')
+			));
+			@include assert-equal(oColorsUsecaseDetails('page-2', 'background', $from: 'o-example'), ('color': 'paper-2', 'from': 'o-example'));
 		};
 	};
 

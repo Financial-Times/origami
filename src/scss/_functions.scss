@@ -48,22 +48,26 @@
 	// Find the colour name of the requested usecase.
 	$details: oColorsUsecaseDetails($usecase, $property, $from: $from);
 	$details: if($details, $details, ());
-	$color: map-get($details, 'color');
-	$from: map-get($details, 'from');
+	$color-name: map-get($details, 'color');
+	$color-from: map-get($details, 'from');
 	// If no usecase was found and null was given as a fallback return null.
-	@if $color == null and $fallback == null {
+	@if $color-name == null and $fallback == null {
 		@return null;
 	}
 	// If no usecase was found and a colour was given as a fallback return the fallback.
-	@if $color == null and type-of($fallback) == 'color' {
+	@if $color-name == null and type-of($fallback) == 'color' {
 		@return $fallback;
 	}
 	// If no usecase was found and a colour name was given as a fallback find the colour from the name.
-	@if $color == null and type-of($fallback) == 'string' {
+	@if $color-name == null and type-of($fallback) == 'string' {
 		@return oColorsByName($fallback, $from: 'o-colors');
 	}
+	// Error if no colour is found.
+	@if($color-name == null) {
+		@return _error('Could not find a colour for the "#{$usecase} #{$property}" usecase in "#{$from}".');
+	}
 
-	@return oColorsByName($color, $from: $from);
+	@return oColorsByName($color-name, $from: $color-from);
 }
 
 /// Return the defined palette color name and the project it was set by for a use case / property combination
