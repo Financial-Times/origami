@@ -89,10 +89,16 @@
 	$icon: map-get($opts, 'icon');
 
 	// Get button colours for the button type and theme.
-	$button-colors-map: _oButtonsGenerateColors($type, $theme);
+	$button-colors-map: if($type, _oButtonsGenerateColors($type, $theme), ());
 
 	@if $include-base-styles {
 		@include _oButtonsBaseContent($size);
+	}
+
+	// Include size styles if they haven't been included
+	// already as part of the base styles.
+	@if $size and not $include-base-styles {
+		@include _oButtonsSizeContent($size)
 	}
 
 	@if $type {
@@ -103,7 +109,7 @@
 		@include _oButtonsIconBaseContent($size);
 	}
 
-	@if $icon {
+	@if $icon and $type {
 		@include _oButtonsIconStatesContent($icon, $button-colors-map);
 	}
 
@@ -195,7 +201,10 @@
 /// Styles to size a button.
 /// @param {Null|Number} $size
 @mixin _oButtonsSizeContent($size: null) {
-	@include oTypographySans($scale: _oButtonsGet('scale', $size), $line-height: 1);
+	@include oTypographySans(
+		$scale: _oButtonsGet('scale', $size),
+		$line-height: 1
+	);
 	background-size: _oButtonsGet('background-size', $size);
 	min-height: _oButtonsGet('min-height', $size);
 	min-width: _oButtonsGet('min-width', $size);

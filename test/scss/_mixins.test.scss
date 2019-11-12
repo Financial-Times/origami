@@ -287,5 +287,34 @@
 			};
 		};
 	};
+	@include it('outputs only a size with base styles disabled') {
+		@include assert() {
+			@include output()  {
+				@include oButtonsContent(
+					$opts: (
+						'size': 'big'
+					),
+					$include-base-styles: false,
+					$include-base-icon-styles: false
+				);
+			};
+
+			// expect nothing is output
+			@include expect() {
+				font-family: MetricWeb, sans-serif;
+				font-size: 16px;
+				line-height: 1;
+				background-size: 40px;
+				min-height: 40px;
+				min-width: 80px;
+				padding: 0 20px;
+
+				.o-typography--loading-sans & {
+					font-size: 13.92px;
+					font-family: sans-serif;
+				}
+			}
+		};
+	};
 }
 // sass-lint:enable no-vendor-prefixes,no-duplicate-properties
