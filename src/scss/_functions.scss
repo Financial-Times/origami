@@ -148,8 +148,17 @@
 /// @return {Map} - Colours for a primary button. Including overrides for each button state.
 @function _oButtonsGetPrimaryButtonColors($color-name, $context-color-name) {
 	$default-background: oColorsByName($color-name);
-	// o-buttons does makes custom contrast checks
-	$default-color: oColorsGetTextColor($color-name, 100, $minimum-contrast: null);
+	$context-color: oColorsByName($context-color-name);
+	$default-context: $context-color == oColorsByUsecase('page', 'background');
+
+	// The default button text colour is black/white on the default page background.
+	// If a different context has been given the text colour matches.
+	// o-buttons does custom contrast checks
+	$default-color: if(
+		$default-context,
+		oColorsGetTextColor($color-name, 100, $minimum-contrast: null),
+		$context-color
+	);
 
 	// Derive the hover/focus/active background colour from the default
 	// background colour.
@@ -228,9 +237,17 @@
 		);
 	}
 
-	// o-buttons does makes custom contrast checks
-	$hover-focus-color: oColorsGetTextColor($hover-focus-background, 100, $minimum-contrast: null);
-	$active-color: oColorsGetTextColor($active-background, 100, $minimum-contrast: null);
+	// o-buttons does custom contrast checks
+	$hover-focus-color: if(
+		$default-context,
+		oColorsGetTextColor($hover-focus-background, 100, $minimum-contrast: null),
+		$context-color
+	);
+	$active-color: if(
+		$default-context,
+		oColorsGetTextColor($active-background, 100, $minimum-contrast: null),
+		$context-color
+	);
 
 	// Confirm the contrast of default state.
 	$contrast-error-message: 'Could not create an accessible primary button of colour "#{$color-name}" for a background context "#{$context-color-name}".';
