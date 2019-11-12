@@ -1,9 +1,9 @@
 {
   "name": "o-share",
   "dependencies": {
-    "ftdomdelegate": "^3.1.0",
-    "o-colors": "^4.0.2",
-    "o-normalise": "^1.2.1",
+    "ftdomdelegate": "#breaking",
+    "o-colors": "#breaking",
+    "o-normalise": "#breaking",
     "o-grid": "^4.3.1"
   },
   "main": [

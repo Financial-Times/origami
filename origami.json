@@ -30,7 +30,8 @@
 		"dependencies": [
 			"o-fonts@^3.0.0",
 			"o-normalise@^1.0.0"
-		]
+		],
+		"documentClasses": "demo"
 	},
 	"demos": [
 		{
@@ -43,8 +44,9 @@
 		{
 			"title": "Inverse",
 			"name": "inverse",
-			"template": "demos/src/inverse.mustache",
-			"data": "demos/src/data.json",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-inverse.json",
+			"documentClasses": "demo demo--inverse",
 			"description": "inverse share icons"
 		},
 		{
@@ -58,6 +60,7 @@
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
+			"documentClasses": "",
 			"data": "demos/src/data.json",
 			"hidden": true
 		}

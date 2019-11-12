@@ -2,6 +2,60 @@
 
 ## Migrating from v6.x.x to v7.x.x
 
+### Palette Colours
+
+Social palette colours have been renamed:
+- `o-share-color-twitter` is now `twitter`.
+- `o-share-color-facebook` is now `facebook`.
+- `o-share-color-linkedin` is now `linkedin`.
+- `o-share-color-pinterest` is now `pinterest`.
+- `o-share-color-whatsapp` is now `whatsapp`.
+
+```diff
+-$color: oColorsGetPaletteColor('o-share-color-twitter');
++$color: oColorsByName('twitter', $from: 'o-share');
+```
+
+### Colour Usecases
+
+The `tooltip` colour usecases have been removed. If used replace with `white` for text and `black-80` for backgrounds, e.g:
+```diff
+-$color: oColorsGetColorFor('tooltip', background);
++$color: oColorsByName('black-80');
+```
+
+The colour usecases for FT social icons have been replaced:
+- `o-share-button-inverse`: use `white`.
+- `o-share-button-hover`: use `white`.
+- `o-share-mail-color`: use the `ft-icon` usecase.
+- `o-share-link-color`: use the `ft-icon` usecase.
+- `o-share-share-color`: use the `ft-icon` usecase.
+
+```diff
+-border-color: oColorsGetColorFor('o-share-mail-color', 'background');
++border-color: oColorsByUsecase('ft-icon', 'background', $from: 'o-share');
+```
+
+The social icon colour usecases have also been renamed:
+- `o-share-twitter-color` is now `twitter-icon`.
+- `o-share-facebook-color` is now `facebook-icon`.
+- `o-share-linkedin-color` is now `linkedin-icon`.
+- `o-share-pinterest-color` is now `pinterest-icon`.
+- `o-share-whatsapp-color` is now `whatsapp-icon`.
+
+```diff
+-border-color: oColorsGetColorFor('o-share-twitter-color', background);
++border-color: oColorsByUsecase('twitter-icon', 'background', $from: 'o-share');
+```
+
+### Variables
+
+The variable `$o-share-colors` is now private ans must not be used. Instead use colour usecases, e.g:
+
+```scss
+$twitter-color: oColorsByName('facebook', $from: 'o-share')
+```
+
 ### Mixins
 
 `o-share v7` no longer has public mixins other than the primary mixin `oShare()`. It accepts a map `$opts` that allows you to include only the styles you need. Replace previous calls that used the mixins with one using `oShare` with an optional `$opts` map.

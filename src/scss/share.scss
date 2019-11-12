@@ -23,8 +23,7 @@
 		margin: 0 5px 0 0;
 		list-style-type: none;
 		line-height: $o-share-icon-size;
-		border: 1px solid oColorsGetColorFor('o-share-button-default', 'border');
-		border-radius: $o-normalise-border-radius;
+		border: 1px solid oColorsByName('black-50');
 		cursor: pointer;
 
 		@include oGridRespondTo(S) {
@@ -92,7 +91,7 @@
 	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 	$query: "?source=o-share";
 
-	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
+	$hover-color: oColorsByName('white');
 
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
@@ -115,22 +114,22 @@
 	// Targets displays using any of Windows’ High Contrast Mode themes:
 	// target all high-contrast themes and force a white icon with black background
 	@media screen and (-ms-high-contrast: active) {
-		$hover-color: oColorsGetColorFor('o-share-button-inverse', background);
+		$hover-color: oColorsByName('white');
 
 		$hover-color: str-slice(ie-hex-str($hover-color), 4);
 		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
 		.o-share__icon--#{$icon-name}:before {
-			background-color: oColorsGetPaletteColor('black');
+			background-color: oColorsByName('black');
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
 	}
 
 	.o-share__icon--#{$icon-name}:hover,
 	.o-share__icon--#{$icon-name}:focus {
-		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
-		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
-
+		$usecase: if(index($o-share-ft-icons-names, $icon-name), 'ft-icon', '#{$icon-name}-icon');
+		border-color: oColorsByUsecase($usecase, 'border', $from: 'o-share');
+		background-color: oColorsByUsecase($usecase, 'background', $from: 'o-share');
 		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
@@ -150,7 +149,7 @@
 @mixin _oShareInverse($icons) {
 	.o-share--inverse {
 		.o-share__action:not(:hover) {
-			border: 1px solid rgba(oColorsGetColorFor('o-share-button-inverse', 'border'), 0.5);
+			border: 1px solid rgba(oColorsByName('white'), 0.5);
 		}
 
 		@each $icon-name in $icons {
@@ -165,20 +164,21 @@
 			$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
 			$query: "?source=$system-code";
 
-			$hover-color: oColorsGetColorFor('o-share-button-inverse', background);
+			$hover-color: oColorsByName('white');
 
 			$hover-color: str-slice(ie-hex-str($hover-color), 4);
 			$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
 			.o-share__icon--#{$icon-name} {
-				border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
+				$usecase: if(index($o-share-ft-icons-names, $icon-name), 'ft-icon', '#{$icon-name}-icon');
+				border-color: oColorsByUsecase($usecase, 'border', $from: 'o-share');
 
 				&:before {
 					background-image: url($service-url + $query + "&format=svg#{$tint}");
 
 					// Force the background to be black in high-contrast mode
 					@media screen and (-ms-high-contrast: active) {
-						background-color: oColorsGetPaletteColor('black');
+						background-color: oColorsByName('black');
 					}
 				}
 			}

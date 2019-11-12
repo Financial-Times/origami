@@ -1,57 +1,12 @@
 $o-share-is-silent: false;
 @import '../../main';
 
-@mixin oShareDemoHoverStyles($icon-name) {
-	// sass-lint:disable-all
-	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
-
-	@if (index($o-share-ft-icons-names, $icon-name)) {
-		$scheme: "fticon-v#{$o-share-ft-icons-version}";
-	}
-
-	$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
-	$query: "?source=o-share";
-
-	$hover-color: oColorsGetColorFor('o-share-button-hover', background);
-
-	$hover-color: str-slice(ie-hex-str($hover-color), 4);
-	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
-
-	&.o-share__icon--#{$icon-name} {
-		border-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
-		background-color: oColorsGetColorFor('o-share-#{$icon-name}-color', background);
-
-		&:before {
-			background-image: url($service-url + $query + "&format=svg#{$tint}");
-		}
-	}
+.demo {
+	background-color: oColorsByName('paper');
+	margin: 1rem;
+	padding: 1rem;
 }
 
-body {
-	font-family: BentonSans, sans-serif;
-	background-color: oColorsGetPaletteColor('paper');
-}
-
-.container {
-	margin-top: 50px;
-	padding: 10px;
-	height: 25px;
-
-	&--inverse {
-		padding: 50px 10px 70px;
-		background-color: #333333;
-	}
-}
-
-.o-share--vertical {
-	position: absolute;
-	width: 48px;
-	left: 0;
-	top: 0;
-}
-
-.demo-hover {
-	@each $icon in $_o-share-icons {
-		@include oShareDemoHoverStyles($icon);
-	}
+.demo--inverse {
+	background-color: oColorsByName('slate');
 }

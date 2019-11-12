@@ -1,17 +1,21 @@
-@include oColorsSetUseCase(tooltip, text, 'white');
-@include oColorsSetUseCase(tooltip, background, 'black-80');
-
-@include oColorsSetUseCase('o-share-mail-color', background, 'teal-40');
-@include oColorsSetUseCase('o-share-link-color', background, 'teal-40');
-@include oColorsSetUseCase('o-share-share-color', background, 'teal-40');
-
-@include oColorsSetUseCase('o-share-button-default', border, 'black-50');
-@include oColorsSetUseCase('o-share-button-hover', background, 'white');
-
-@include oColorsSetUseCase('o-share-button-inverse', border, 'white');
-@include oColorsSetUseCase('o-share-button-inverse', background, 'white');
-
-@each $brand, $hex in $o-share-colors {
-	@include oColorsSetColor('o-share-color-#{$brand}', $hex);
-	@include oColorsSetUseCase('o-share-#{$brand}-color', background, 'o-share-color-#{$brand}');
+// Add social platform colours to the palette. E.g. the Twitter blue.
+@each $platform, $hex in $_o-share-colors {
+	@include oColorsSetColor('o-share', $platform, $hex);
 }
+
+// Add colour usecases for FT icon social buttons like email.
+@include oColorsSetUseCase('o-share', 'ft-icon', (
+	'background': 'teal-40',
+	'border': 'teal-40',
+));
+
+// Add colour usecases for social buttons like Twitter.
+@each $platform, $hex in $_o-share-colors {
+	@include oColorsSetUseCase('o-share', '#{$platform}-icon', (
+		'background': ('color': $platform, 'from': 'o-share'),
+		'border': ('color': $platform, 'from': 'o-share'),
+	));
+}
+
+
+
