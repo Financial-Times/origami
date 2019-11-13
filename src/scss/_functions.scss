@@ -152,12 +152,21 @@
 	$default-context: $context-color == oColorsByUsecase('page', 'background');
 
 	// The default button text colour is black/white on the default page background.
-	// If a different context has been given the text colour matches.
+	// If a different context has been given the text colour matches if possible,
+	// or is mixed to be darker/lighter for higher contrast.
 	// o-buttons does custom contrast checks
+	$default-base-color: oColorsGetTextColor($color-name, 100, $minimum-contrast: null);
 	$default-color: if(
 		$default-context,
-		oColorsGetTextColor($color-name, 100, $minimum-contrast: null),
-		$context-color
+		$default-base-color,
+		_oButtonsGetMixColor(
+			$color-a: $context-color,
+			$color-b: $default-base-color,
+			$contrast-color: $default-background,
+			$contrast-aim: 4.5,
+			$preferred-mix: 100,
+			$minimum-mix: 0
+		)
 	);
 
 	// Derive the hover/focus/active background colour from the default
@@ -237,16 +246,41 @@
 		);
 	}
 
-	// o-buttons does custom contrast checks
+
+	// Generate the hover/focus state text colour.
+	// The text colour is black/white on the default page background.
+	// If a different context has been given the text colour matches if possible,
+	// or is mixed to be darker/lighter for higher contrast.
+	$hover-focus-base-color: oColorsGetTextColor($hover-focus-background, 100, $minimum-contrast: null);
 	$hover-focus-color: if(
 		$default-context,
-		oColorsGetTextColor($hover-focus-background, 100, $minimum-contrast: null),
-		$context-color
+		$hover-focus-base-color,
+		_oButtonsGetMixColor(
+			$color-a: $context-color,
+			$color-b: $hover-focus-base-color,
+			$contrast-color: $hover-focus-background,
+			$contrast-aim: 4.5,
+			$preferred-mix: 100,
+			$minimum-mix: 0
+		)
 	);
+
+	// Generate the active state text colour.
+	// The text colour is black/white on the default page background.
+	// If a different context has been given the text colour matches if possible,
+	// or is mixed to be darker/lighter for higher contrast.
+	$active-base-color: oColorsGetTextColor($active-background, 100, $minimum-contrast: null);
 	$active-color: if(
 		$default-context,
-		oColorsGetTextColor($active-background, 100, $minimum-contrast: null),
-		$context-color
+		$active-base-color,
+		_oButtonsGetMixColor(
+			$color-a: $context-color,
+			$color-b: $active-base-color,
+			$contrast-color: $active-background,
+			$contrast-aim: 4.5,
+			$preferred-mix: 100,
+			$minimum-mix: 0
+		)
 	);
 
 	// Confirm the contrast of default state.
