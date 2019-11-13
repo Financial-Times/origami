@@ -12,8 +12,8 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "^4.0.1",
-    "o-grid": "^4.3.0",
-    "o-normalise": "^1.7.4"
+    "o-colors": "5.0.0-beta.2.1.0",
+    "o-grid": "5.0.0-beta.2",
+    "o-normalise": "2.0.0-beta.5"
   }
 }

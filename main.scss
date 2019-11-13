@@ -7,7 +7,7 @@
 
 @mixin oFtAffiliateRibbon() {
 	.o-ft-affiliate-ribbon {
-		background-color: oColorsGetPaletteColor('black-90');
+		background-color: oColorsByName('black-90');
 		padding: 15px 0;
 		height: 18px;
 		text-align: right;
