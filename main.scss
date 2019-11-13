@@ -46,7 +46,7 @@
 		}
 
 		&:after {
-			@include oIconsGetIcon('arrow-down', $icon-color, 15, 15, $iconset-version: 1);
+			@include oIconsContent('arrow-down', $icon-color, $size: 15);
 			content: '';
 			padding: 0 3px;
 			vertical-align: middle;
