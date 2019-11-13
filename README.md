@@ -80,7 +80,7 @@ function oTrackinginit() {
 
 Use the build service or require locally to load o-tracking and init manually.
 ```js
-var oTracking = require('o-tracking');
+import oTracking from 'o-tracking';
 ```
 
 ```js
@@ -202,9 +202,9 @@ o-tracking will
 * Automatically pickup ftsession from cookies for you.
 * Page events automatically pick up the url and the referrer.
 * Click events [initalised as above](#usage), will populate a `domPathTokens` property. If the clicked element has the `data-trackable` attribute, sibling elements will also be included within `domPathTokens`.
-* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]  
-_Note:_ This feature requires `window.IntersectionObserver` in order to track the events  
-_Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument  
+* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]
+_Note:_ This feature requires `window.IntersectionObserver` in order to track the events
+_Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument
 	```js
 	const opts = {
 		category: 'audio', // default: 'component'
