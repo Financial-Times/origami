@@ -1,5 +1,3 @@
-/* eslint-env mocha, sinon, proclaim */
-
 import Banner from './../src/js/banner';
 import * as assert from 'proclaim';
 import sinon from 'sinon/pkg/sinon';
@@ -73,7 +71,8 @@ describe('Banner', () => {
 				linkLabel: null,
 				linkUrl: '#',
 				closeButtonLabel: 'Close',
-				theme: null
+				theme: null,
+				layout: null
 			});
 		});
 
@@ -513,13 +512,13 @@ describe('Banner', () => {
 			describe('when `options.theme` is defined and is a string', () => {
 
 				beforeEach(() => {
-					banner.options.theme = 'mock-theme';
+					banner.options.theme = 'product';
 					returnValue = banner.buildBannerElement();
 				});
 
 				it('adds the theme class to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="o-banner o-banner--mock-theme">
+						<div class="o-banner o-banner--product">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -545,18 +544,35 @@ describe('Banner', () => {
 			});
 
 			describe('when `options.theme` is defined and is an array', () => {
+				it('errors', () => {
+					assert.throws(() => {
+						banner = new Banner(null, {
+							theme: ['marketing', 'product']
+						});
+					}, '');
+				});
+			});
+
+			describe('when `options.theme` is an invalid theme', () => {
+				it('errors', () => {
+					assert.throws(() => {
+						banner = new Banner(null, {
+							theme: 'not-a-real-theme'
+						});
+					}, '');
+				});
+			});
+
+			describe('when `options.layout` is defined and is a string', () => {
 
 				beforeEach(() => {
-					banner.options.theme = [
-						'mock-theme',
-						'test-theme'
-					];
+					banner.options.theme = 'small';
 					returnValue = banner.buildBannerElement();
 				});
 
-				it('adds all of the theme classes to the banner element', () => {
+				it('adds the layout class to the banner element', () => {
 					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
-						<div class="o-banner o-banner--mock-theme o-banner--test-theme">
+						<div class="o-banner o-banner--small">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
 									<div class="o-banner__content o-banner__content--long">
@@ -579,6 +595,16 @@ describe('Banner', () => {
 					`.replace(/[\t\n]+/g, ''));
 				});
 
+			});
+
+			describe('when `options.layout` is an invalid layout', () => {
+				it('errors', () => {
+					assert.throws(() => {
+						banner = new Banner(null, {
+							layout: 'not-a-real-layout'
+						});
+					}, '');
+				});
 			});
 
 			describe('when `bannerElement` is passed in', () => {

@@ -1,5 +1,3 @@
-/* eslint-env mocha, sinon, proclaim */
-
 import Banner from './../main';
 import {default as BannerSrc} from './../src/js/banner';
 import * as assert from 'proclaim';

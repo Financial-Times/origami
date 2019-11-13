@@ -144,17 +144,19 @@ There are several options used to change the appearance or behaviour of o-banner
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
-  - `theme`: String or Array. Themes to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
+  - `theme`: String. The theme to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
+  - `layout`: String. The layout to apply to the banner. [See the layouts documentation](#layouts) for available values. Defaults to `null`
 
 ## Sass
 
 As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
 
-o-banner includes a primary mixin that takes an `$opts` parameter. The `themes` parameter of `$opts` be a list of [themes](#themes) to include:
+o-banner includes a primary mixin that takes an `$opts` parameter. The `themes` key of `$opts` includes styles for [themes](#themes). The `layouts` key includes styles for [layouts](#layouts):
 
 ```scss
 @include oBanner($opts: (
-	'themes': ('small', 'compact', 'marketing', 'product')
+	'layouts': ('small', 'compact'),
+	'themes': ('marketing', 'product')
 ));
 ```
 
@@ -164,27 +166,49 @@ If you call the mixin without arguments you will get all the themes:
 @include oBanner();
 ```
 
-## Themes
+## Layouts
 
-o-banner is themeable, and has the following built-in themes, which can be used in combination with eachother:
+o-banner supports different layouts:
 
   - `small`: Display the banner in the bottom left of the screen at a smaller size, rather than full width
   - `compact`: Display the banner in the bottom left like the `small` theme, but with tighter spacing and smaller typography
+
+In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
+
+```html
+<div class="o-banner o-banner--small">
+    ...
+</div>
+```
+
+In the JavaScript, use the `layout` [option](#options):
+
+```js
+const myBanner = new oBanner({
+    layout: 'small'
+});
+```
+
+## Themes
+
+o-banner is themeable which may be used in combination with a [layout](#layouts):
+
+  - `product`: Use the product colours for the banner
   - `marketing`: Use the marketing colours for the banner
 
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
-<div class="o-banner o-banner--small o-banner--marketing">
+<div class="o-banner o-banner--marketing">
     ...
 </div>
 ```
 
-In the JavaScript, use the `theme` [option](#options) and pass in the unprefixed theme names:
+In the JavaScript, use the `theme` [option](#options):
 
 ```js
 const myBanner = new oBanner({
-    theme: ['small', 'marketing']
+    theme: 'marketing'
 });
 ```
 

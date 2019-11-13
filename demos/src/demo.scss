@@ -3,16 +3,20 @@ $o-banner-is-silent: false;
 @import '../../main';
 
 body {
-	font-family: MetricWeb;
+	@include oTypographySans();
 	min-height: 350px;
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByUsecase('page', 'background');
 }
 
 .demo-buttons {
 	padding: 20px 0 0 20px;
 }
+
 .demo-button {
-	@include oButtons($size: big);
+	@include oButtonsContent((
+		'type': 'secondary',
+		'size': 'big'
+	));
 }
 
 .o-banner--static {

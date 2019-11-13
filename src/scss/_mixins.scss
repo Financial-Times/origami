@@ -1,12 +1,36 @@
-@mixin _oBannerGetThemeMixin($theme) {
+@mixin _oBannerGetThemeMixin($theme, $include-layout-styles) {
+	@if not index($_o-banner-themes, $theme) {
+		@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
+	}
+
 	@if $theme == 'marketing' {
-		@include _oBannerThemeMarketing();
-	} @else if $theme == 'product' {
-		@include _oBannerThemeProduct();
-	} @else if $theme == 'small' {
-		@include _oBannerThemeSmall();
-	} @else if $theme == 'compact' {
-		@include _oBannerThemeCompact();
+		.o-banner--marketing {
+			@include _oBannerTheme('marketing', $include-layout-styles);
+		}
+	}
+
+	@if $theme == 'product' {
+		.o-banner--product {
+			@include _oBannerTheme('product', $include-layout-styles);
+		}
+	}
+}
+
+@mixin _oBannerGetLayoutMixin($layout) {
+	@if not index($_o-banner-layouts, $layout) {
+		@error "There is no layout '#{$layout}' available in o-banner, please use one of the following: #{$_o-banner-layouts}.";
+	}
+
+	@if $layout == 'small' {
+		.o-banner--small {
+			@include _oBannerSmall();
+		}
+	}
+
+	@if $layout == 'compact' {
+		.o-banner--compact {
+			@include _oBannerCompact();
+		}
 	}
 }
 
@@ -23,8 +47,9 @@
 }
 
 @mixin _oBannerOuter {
-	@include oColorsFor(o-banner, background text);
-	@include oVisualEffectsShadowsElevation('high');
+	@include oVisualEffectsShadowContent('high');
+	background: _oBannerGet('background');
+	color: _oBannerGet('text');
 }
 
 @mixin _oBannerInner {
@@ -58,8 +83,7 @@
 	h4,
 	h5,
 	h6 {
-		@include oTypographySans($scale: 3);
-		@include oTypographyBold($font: 'sans');
+		@include oTypographySans($scale: 3, $weight: 'semibold');
 		margin-top: 0;
 		margin-bottom: oSpacingByName('s1');
 	}
@@ -69,10 +93,10 @@
 	}
 	b,
 	strong {
-		@include oTypographyBold($font: 'sans');
+		@include oTypographySans($weight: 'semibold', $include-font-family: false);
 	}
 	> ul {
-		@include oTypographyListUnordered;
+		@include oTypographyList('unordered');
 		margin-top: oSpacingByName('s3');
 		margin-bottom: 0;
 
@@ -84,12 +108,7 @@
 		}
 	}
 	a {
-		@include oTypographyLinkCustom(
-			$baseColor: oColorsGetUseCase(o-banner-link, text),
-			$hoverColor: oColorsGetUseCase(o-banner-link, text),
-			$outlineColor: oColorsGetUseCase(o-banner-link, text),
-			$backgroundColor: oColorsGetUseCase(o-banner, background)
-		);
+		@include oTypographyLink();
 	}
 
 	@include oGridRespondTo($until: S) {
@@ -127,7 +146,7 @@
 
 		// Color is set separately for easier overriding later
 		border-bottom: oSpacingByIncrement(2) solid;
-		border-color: oColorsGetColorFor(o-banner-heading-rule, background);
+		border-color: _oBannerGet('heading-rule');
 	}
 }
 
@@ -158,36 +177,25 @@
 }
 
 @mixin _oBannerButton {
-	@include oButtons(
-		$size: big,
-		$theme: (
-			'background': oColorsGetUseCase(o-banner-button, background),
-			'accent': oColorsGetUseCase(o-banner-button, text),
-			'colorizer': 'primary'
+	@include oButtonsContent((
+		'size': 'big',
+		'type': 'primary',
+		'theme': (
+			'color': _oBannerGet('button-color-name'),
+			'context': _oBannerGet('background-color-name')
+		)
 	));
 	white-space: nowrap;
-	// This is a hack around the fact that custom buttons do not
-	// support buttons with three colours. TODO: add this to o-buttons
-	// https://github.com/Financial-Times/o-buttons/issues/128
-	&,
-	&:not([disabled]):active {
-		@include oColorsFor(o-banner-button-active, text);
-	}
 }
 
 @mixin _oBannerLink {
-	@include oTypographyLinkCustom(
-		$baseColor: oColorsGetUseCase(o-banner-link, text),
-		$hoverColor: oColorsGetUseCase(o-banner-link, text),
-		$outlineColor: oColorsGetUseCase(o-banner-link, text),
-		$backgroundColor: oColorsGetUseCase(o-banner, background)
-	);
+	@include oTypographyLink();
 	@include oTypographySans($scale: 0);
 	white-space: nowrap;
 }
 
 @mixin _oBannerCloseButton {
-	@include oIconsGetIcon('cross', oColorsGetColorFor(o-banner-close, text), $_o-banner-close-button-size, $iconset-version: 1);
+	@include oIconsContent('cross', _oBannerGet('text'), $size: $_o-banner-close-button-size);
 	// start: undo button styles
 	appearance: none;
 	color: inherit;

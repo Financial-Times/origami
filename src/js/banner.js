@@ -40,8 +40,23 @@ class Banner {
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
-			theme: null
+			theme: null,
+			layout: null
 		}, options || Banner.getOptionsFromDom(bannerElement));
+
+		// Validate theme choice.
+		const validThemes = ['product', 'marketing'];
+		const theme = this.options.theme;
+		if (theme && !validThemes.includes(theme)) {
+			throw new Error(`"${theme}" is not a valid theme. Use one of ${validThemes}.`);
+		}
+
+		// Validate layout choice.
+		const validLayouts = ['small', 'compact'];
+		const layout = this.options.layout;
+		if (layout && !validLayouts.includes(layout)) {
+			throw new Error(`"${layout}" is not a valid layout. Use one of ${validLayouts}.`);
+		}
 
 		// Find the element to append the banner to if configured.
 		try {
@@ -131,13 +146,12 @@ class Banner {
 		bannerElement = bannerElement || document.createElement('div');
 		bannerElement.innerHTML = '';
 		bannerElement.classList.add(className);
-		let themes = [];
 		if (this.options.theme) {
-			themes = (Array.isArray(this.options.theme) ? this.options.theme : [this.options.theme]);
+			bannerElement.classList.add(`${className}--${this.options.theme}`);
 		}
-		themes.forEach(theme => {
-			bannerElement.classList.add(`${className}--${theme}`);
-		});
+		if (this.options.layout) {
+			bannerElement.classList.add(`${className}--${this.options.layout}`);
+		}
 		let contentHtml;
 		if (this.options.contentShort) {
 			contentHtml = `

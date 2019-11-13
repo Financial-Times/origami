@@ -6,92 +6,98 @@
 @import "o-typography/main";
 @import "o-visual-effects/main";
 
-@import "src/scss/color-use-cases";
+@import "src/scss/brand";
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
-@import "src/scss/themes/marketing";
-@import "src/scss/themes/product";
-@import "src/scss/themes/small";
-@import "src/scss/themes/compact";
+@import "src/scss/layouts/small";
+@import "src/scss/layouts/compact";
+@import "src/scss/themes/theme";
 
 /// Output `o-banner` CSS.
 ///
 /// @example Output all `o-banner` styles.
 ///     @include oBanner();
 ///
-/// @example Output only the small theme
-///     @include oColors($opts: (
-///     	'themes': ('small')
+/// @example Output only the small layout
+///     @include oBanner($opts: (
+///     	'layouts': ('small')
+///     ));
+///
+/// @example Output the small layout and marketing theme
+///     @include oBanner($opts: (
+///     	'layouts': ('small'),
+///     	'themes': ('marketing'),
 ///     ));
 ///
 /// @param {Map} $opts - The o-banners features to output. See the [readme](https://registry.origami.ft.com/components/o-banner) for a full list of options.
 @mixin oBanner($opts: (
-	themes: $_o-banner-themes
+	'layouts': $_o-banner-layouts,
+	'themes': $_o-banner-themes
 )) {
-
 	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+	$layouts: map-get($opts, 'layouts');
+	$layouts: if($layouts, $layouts, ());
 
 	// Base banner styles
 	.o-banner {
 		@include _oBannerBase;
+	}
+	.o-banner--closed {
+		@include _oBannerClosed;
+	}
+	.o-banner__outer {
+		@include _oBannerOuter;
+	}
+	.o-banner__inner {
+		@include _oBannerInner;
+	}
+	.o-banner__content {
+		@include _oBannerContent;
+	}
+	.o-banner__content--long {
+		@include _oBannerContentLong;
+	}
+	.o-banner__content--short {
+		@include _oBannerContentShort;
+	}
+	.o-banner__heading {
+		@include _oBannerHeading;
+	}
+	.o-banner__actions {
+		@include _oBannerActions;
+	}
+	.o-banner__action {
+		@include _oBannerAction;
+	}
+	.o-banner__action--secondary {
+		@include _oBannerActionSecondary;
+	}
+	.o-banner__button {
+		@include _oBannerButton;
+	}
+	.o-banner__link {
+		@include _oBannerLink;
+	}
+	.o-banner__close {
+		@include _oBannerCloseButton;
+	}
 
-		&--closed {
-			@include _oBannerClosed;
-		}
-
-		&__outer {
-			@include _oBannerOuter;
-		}
-		&__inner {
-			@include _oBannerInner;
-		}
-		&__content {
-			@include _oBannerContent;
-		}
-		&__content--long {
-			@include _oBannerContentLong;
-		}
-		&__content--short {
-			@include _oBannerContentShort;
-		}
-		&__heading {
-			@include _oBannerHeading;
-		}
-		&__actions {
-			@include _oBannerActions;
-		}
-		&__action {
-			@include _oBannerAction;
-		}
-		&__action--secondary {
-			@include _oBannerActionSecondary;
-		}
-		&__button {
-			@include _oBannerButton;
-		}
-		&__link {
-			@include _oBannerLink;
-		}
-		&__close {
-			@include _oBannerCloseButton;
-		}
+	// Layout styles
+	@each $layout in $layouts {
+		@include _oBannerGetLayoutMixin($layout);
 	}
 
 	// Theme styles
-	@if $themes != false  {
-		@each $theme in $themes {
-			@if index($_o-banner-themes, $theme) != null {
-				@include _oBannerGetThemeMixin($theme);
-			} @else {
-				@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
-			}
-		}
+	@each $theme in $themes {
+		$include-layout-styles: if($layouts, true, false);
+		@include _oBannerGetThemeMixin($theme, $include-layout-styles);
 	}
 }
 
 @if ($o-banner-is-silent == false) {
-	@include oBanner;
+	@include oBanner();
 
 	// Set to silent again to avoid being output twice
 	$o-banner-is-silent: true !global;

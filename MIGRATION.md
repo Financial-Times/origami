@@ -2,6 +2,8 @@
 
 ## Migrating from v2 to v3
 
+### JavaScript
+
 Custom classes have been removed, so you'll need to update your code to use the documented `o-banner` classes if you were setting any of these in `options`:
 
 ```
@@ -20,17 +22,59 @@ linkClass,
 closeButtonClass,
 ```
 
-The main sass mixin, `oBanner`, no longer takes a custom class as an argument, and the themes are passed as part of the `$opts` map, as so:
+In addition `theme` no longer accepts an array. Instead pass a single `theme` ('marketing', 'product') and a `layout` ('small', 'compact').
 
+```diff
+-const myBanner = new oBanner({
+-    theme: ['small', 'marketing']
+-});
++const myBanner = new oBanner({
++    theme: 'marketing',
++    layout: 'small'
++});
 ```
-oBanner($opts: (
-	'themes': ('small')
+
+### Sass
+
+The main sass mixin, `oBanner`, no longer takes a custom class as an argument. Themes have been split into layouts ('small', 'compact') and themes ('marketing', 'product'). These are passed as part of the `$opts` map, as so:
+
+```scss
+@include oBanner($opts: (
+	'themes': ('small'),
+	'layouts': ('compact'),
 ))
 ```
 
 The `themes` option used to take a map or the word 'all', but as 'all' is the default, one can get that effect by not specifying anything.
 
+```scss
+@include oBanner()
+```
+
 All other mixins have been removed, you'll need to update your code to use the documented `o-banner` classes.
+
+#### Colour Usecases
+
+The following colour usecases have been removed. Please contact the Origami team if your project relied on these:
+- o-banner
+- o-banner-button
+- o-banner-button-active
+- o-banner-link
+- o-banner-close
+- o-banner-heading-rule
+- o-banner-marketing
+- o-banner-marketing-button
+- o-banner-marketing-button-active
+- o-banner-marketing-link
+- o-banner-marketing-close
+- o-banner-marketing-heading-rule
+- o-banner-product
+- o-banner-product-button
+- o-banner-product-button-active
+- o-banner-product-link
+- o-banner-product-close
+- o-banner-product-heading-rule
+
 
 ## Migrating from v1 to v2
 
