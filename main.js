@@ -11,7 +11,7 @@ const core = require('./src/javascript/core');
  * The version of the tracking module.
  * @type {string}
  */
-const version = '1.4.2';
+const version = '2.0.0';
 /**
  * The source of this event.
  * @type {string}
