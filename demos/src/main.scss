@@ -1,15 +1,9 @@
-$o-header-is-silent: false;
-$o-grid-is-silent: false;
-
-@import 'o-grid/main';
 @import '../../main';
 
-@include oFontsInclude(MetricWeb, $weight: regular);
-@include oFontsInclude(MetricWeb, $weight: semibold);
+@include oHeader();
 
 body {
-	font-family: 'MetricWeb';
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByUsecase('page', 'background');
 }
 
 .demo-sticky {
@@ -48,7 +42,7 @@ body {
 }
 
 .demo-transparent body {
-	background: oColorsGetPaletteColor('black-90');
+	background: oColorsByName('black-90');
 }
 
 .demo-o-header__subbrand-logo {

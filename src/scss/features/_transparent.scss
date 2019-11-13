@@ -8,11 +8,11 @@
 		}
 
 		.o-header__top-link--menu:before {
-			@include oIconsGetIcon('hamburger', _oHeaderGet('header-icon', $from: 'transparent'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+			@include oIconsContent('hamburger', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
 		}
 
 		.o-header__top-link--search:before {
-			@include oIconsGetIcon('search', _oHeaderGet('header-icon', $from: 'transparent'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+			@include oIconsContent('search', _oHeaderGet('header-icon', $from: 'transparent'), $size: null, $include-base-styles: false);
 		}
 
 		.o-header__top-link--myft:before {
@@ -24,7 +24,10 @@
 		}
 
 		.o-header__nav-button {
-			@include oButtons($theme: 'inverse');
+			@include oButtonsContent((
+				'type': 'primary',
+				'theme': 'inverse'
+			), $include-base-styles: false);
 		}
 
 		.o-header__nav-link,
@@ -38,13 +41,11 @@
 			}
 
 			&--highlight,
-			&[aria-selected="true"], // deprecated
 			&[aria-current] {
 				color: _oHeaderGet('link-highlight-text', $from: 'transparent');
 			}
 
 			&--highlight:after,
-			&[aria-selected="true"]:after, // deprecated
 			&[aria-current]:after {
 				background-color: _oHeaderGet('link-highlight-text', $from: 'transparent');
 			}

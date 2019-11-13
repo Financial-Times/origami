@@ -14,7 +14,6 @@
 	}
 
 	&--highlight,
-	&[aria-selected="true"], // deprecated
 	&[aria-current] {
 		color: _oHeaderGet('link-highlight-text');
 	}
@@ -41,7 +40,6 @@
 	}
 
 	&--highlight:after,
-	&[aria-selected="true"]:after, // deprecated
 	&[aria-current]:after {
 		background-color: _oHeaderGet('link-highlight-text');
 	}

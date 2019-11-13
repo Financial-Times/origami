@@ -66,7 +66,7 @@
 		}
 
 		&:before {
-			@include oIconsBaseStyles();
+			@include oIconsContentBaseStyles();
 			content: ' ';
 			width: #{$_o-header-icon-size-large}px;
 			height: #{$_o-header-icon-size-large}px;
@@ -82,13 +82,13 @@
 		&:before {
 			// container size (24) is only included for the fallback image.
 			// IE8 has a static stylesheet generated for the L breakpoint.
-			@include oIconsGetIcon('hamburger', _oHeaderGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+			@include oIconsContent('hamburger', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
 		}
 	}
 
 	.o-header__top-link--search {
 		&:before {
-			@include oIconsGetIcon('search', _oHeaderGet('header-icon'), $_o-header-icon-size-large, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
+			@include oIconsContent('search', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
 		}
 
 		// when used in tandem with the menu toggle, hide this on smaller screen sizes

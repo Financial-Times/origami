@@ -41,7 +41,6 @@
 
 		&:first-child {
 			padding-left: 0;
-			// @include oTypographyBold(sans); //TODO: enable when the myFtNavigationV2 flag has been switched on permanently -> related to GDPR
 		}
 
 		.o-header__nav--mobile & {
@@ -75,6 +74,9 @@
 	.o-header__nav-link--utility {}
 
 	.o-header__nav-button {
-		@include oButtons($theme: $_o-header-buttons-theme);
+		@include oButtonsContent((
+			'type': 'primary',
+			'theme': $_o-header-buttons-theme
+		));
 	}
 }

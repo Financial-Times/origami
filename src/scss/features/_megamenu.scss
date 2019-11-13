@@ -10,8 +10,7 @@
 
 	.o-header__mega {
 		@include oTypographySans(0);
-		@include oTypographyProgressiveFontFallback('sans', 0);
-		@include oVisualEffectsShadowsElevation('low');
+		@include oVisualEffectsShadowContent('low');
 		display: none;
 		position: absolute;
 		top: 100%;
@@ -58,7 +57,7 @@
 
 		.o-header__mega-item {
 			&:before {
-				@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('claret'), $_o-header-icon-size-small, $iconset-version: 1);
+				@include oIconsContent('arrow-right', oColorsByName('claret'), $size: $_o-header-icon-size-small);
 				vertical-align: text-top;
 				content: '';
 			}

@@ -6,7 +6,7 @@
 		width: 100%;
 		z-index: $_o-header-sticky-z-index;
 		transform: translateY(-100%);
-		transition: transform 0.35s $o-visual-effects-transition-slide;
+		transition: transform 0.35s $o-visual-effects-timing-slide;
 		will-change: transform;
 
 		// because the transition is slightly bouncy it will reveal some of the background
@@ -19,7 +19,7 @@
 	}
 
 	.o-header--sticky-active {
-		@include oVisualEffectsShadowsElevation('mid');
+		@include oVisualEffectsShadowContent('mid');
 		transform: translateY(0);
 	}
 }

@@ -20,20 +20,12 @@
 		margin: 0 auto;
 	}
 
-	.o-header__search-term,
-	.o-header__search-submit {
-		// This is mostly for <= IE9, flexbox should deal with everything else
-		line-height: normal;
-		box-sizing: border-box;
-		height: 32px;
-		vertical-align: middle;
-	}
-
 	.o-header__search-term {
-		@include oTypographySans();
-		// match o-buttons
-		@include oButtonsSize('default');
-		border-radius: $_o-buttons-border-radius;
+		@include oTypographySans($scale: -1);
+		box-sizing: border-box;
+		height: 32px; // match overridden o-buttons height
+		padding: 0 8px;
+		vertical-align: middle;
 		// normalize
 		background: white;
 		border-style: solid;
@@ -52,12 +44,16 @@
 	}
 
 	.o-header__search-submit {
-		@include oButtons($theme: $_o-header-buttons-theme);
+		@include oButtonsContent((
+			'type': 'primary',
+			'theme': $_o-header-buttons-theme
+		));
+		height: 32px; // override o-buttons height
 		margin-left: $_o-header-padding-x;
 	}
 
 	.o-header__search-close {
-		@include oIconsGetIcon('cross', white, $_o-header-icon-size-large, $iconset-version: 1);
+		@include oIconsContent('cross', white, $size: $_o-header-icon-size-large);
 		border: 0;
 		margin-left: $_o-header-padding-x;
 		vertical-align: middle;

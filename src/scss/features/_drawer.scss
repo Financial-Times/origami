@@ -1,8 +1,9 @@
 @mixin _oHeaderDrawer() {
 	// added to the document element, see n-ui/layout
 	.o-header__drawer {
+		@include oTypographySans();
 		background-color: _oHeaderGet('drawer-background');
-		font-family: $o-typography-sans;
+		box-sizing: content-box;
 
 		&[data-o-header-drawer--js] {
 			position: fixed;
@@ -26,7 +27,7 @@
 			}
 
 			&[aria-hidden] {
-				@include oVisualEffectsShadowsElevation('low');
+				@include oVisualEffectsShadowContent('low');
 
 				// because the transition is slightly bouncy it will reveal some of the background
 				border-left: 30px solid transparent;
@@ -65,7 +66,7 @@
 			// sass-lint:enable no-vendor-prefixes
 
 			// sass-lint:disable no-misspelled-properties
-			scrollbar-color: oColorsGetPaletteColor('black-30') transparent;
+			scrollbar-color: oColorsByName('black-30') transparent;
 			// sass-lint:enable no-misspelled-properties
 
 			// (╯°□°）╯︵ ┻━┻
@@ -77,7 +78,7 @@
 			// sass-lint:disable no-vendor-prefixes
 			&::-webkit-scrollbar-thumb {
 				// sass-lint:enable no-vendor-prefixes
-				background: oColorsGetPaletteColor('black-30');
+				background: oColorsByName('black-30');
 				// you can't set the dimensions so use a border as a margin...
 				background-clip: content-box;
 				border: 4px solid transparent;
@@ -96,8 +97,10 @@
 	}
 
 	.o-header__drawer-tools-logo {
-		@include oIconsBaseStyles;
 		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
 		width: 210px;
 		height: 18px;
 		border-bottom: 0;
@@ -105,7 +108,8 @@
 
 	.o-header__drawer-tools-close {
 		// dividing by 1px removes the unit
-		@include oIconsGetIcon('cross', _oHeaderGet('drawer-tools-close'), $_o-header-icon-size-large, $iconset-version: 1);
+		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
+		box-sizing: border-box;
 		float: right;
 		border: 0;
 		opacity: 0.75;
@@ -141,7 +145,6 @@
 			margin-left: 0;
 		}
 
-		&[aria-selected="true"], // deprecated
 		&[aria-current] {
 			color: _oHeaderGet('drawer-editions-link-highlight');
 			font-weight: 600;
@@ -191,7 +194,7 @@
 		border-color: _oHeaderGet('drawer-search-submit-border');
 
 		&:after {
-			@include oIconsGetIcon('search', oColorsGetPaletteColor('white'), $_o-header-icon-size, $iconset-version: 1);
+			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
 			content: '';
 			margin-top: -($_o-header-drawer-padding-y / 2);
 		}
@@ -303,7 +306,7 @@
 		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
 
 		&:before {
-			@include oIconsGetIcon('arrow-down', _oHeaderGet('drawer-selected-toggle-text'), $_o-header-icon-size, $iconset-version: 1);
+			@include oIconsContent('arrow-down', _oHeaderGet('drawer-selected-toggle-text'), $size: $_o-header-icon-size);
 		}
 	}
 
@@ -311,7 +314,7 @@
 		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
 
 		&:before {
-			@include oIconsGetIcon('arrow-down', _oHeaderGet('drawer-unselected-toggle-text'), $_o-header-icon-size, $iconset-version: 1);
+			@include oIconsContent('arrow-down', _oHeaderGet('drawer-unselected-toggle-text'), $size: $_o-header-icon-size);
 		}
 	}
 

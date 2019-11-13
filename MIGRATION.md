@@ -2,6 +2,12 @@
 
 ### Migrating from v7 to v8
 
+v8 removes support for the internal brand. Consider using [o-header-services](https://github.com/Financial-Times/o-header-services) instead, or contact the Origami team to discuss bring back support for the internal brand.
+
+#### Markup
+
+`aria-selected` is no longer used to style current links. If your project is still using `aria-selected` in header markup replace it with `aria-current="page"`.
+
 #### Sass
 
 Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
@@ -62,7 +68,9 @@ There is no direct replacement for the following mixins. Please contact the Orig
 - `oHeaderLogoSize`
 - `oHeaderBrandImage`
 
-Finally replace `oHeaderVisuallyHidden` with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc).
+Also replace `oHeaderVisuallyHidden` with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc).
+
+Finally [all deprecated colour usecases](https://github.com/Financial-Times/o-header/blob/v7.8.12/src/scss/_deprecated.scss) have been removed. Please contact the Origami team if your project requires these.
 
 ### Migrating from v6 to v7
 

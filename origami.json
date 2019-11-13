@@ -5,8 +5,7 @@
 	"origamiCategory": "components",
 	"origamiVersion": 1,
 	"brands" : [
-		"master",
-		"internal"
+		"master"
 	],
 	"support": "https://github.com/Financial-Times/o-header/issues",
 	"supportContact": {
@@ -33,7 +32,11 @@
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/main.js",
 		"documentClasses": "core",
-		"dependencies": "o-colors,o-normalise"
+		"dependencies": [
+			"o-grid@5.0.0-beta.2",
+			"o-normalise@2.0.0-beta.5",
+			"o-fonts@v4.0.0-beta.1"
+		]
 	},
 	"demos": [
 		{
