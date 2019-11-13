@@ -2,7 +2,6 @@
 	"name": "o-tracking",
 	"description": "This module should be included on your product to make sending tracking requests to the Spoor API easy.",
 	"version": "1.4.2",
-	"main": "main.js",
 	"private": true,
 	"devDependencies": {
 		"origami-build-tools": "^7.2.0",
