@@ -1,12 +1,9 @@
-/*global module, require */
-'use strict'; // eslint-disable-line strict
-
-const Delegate = require('ftdomdelegate');
-const Queue = require('../core/queue');
-const Core = require('../core');
-const utils = require('../utils');
-const settings = require('../core/settings');
-const getTrace = require('../../libs/get-trace');
+import Delegate from 'ftdomdelegate';
+import Queue from '../core/queue';
+import Core from '../core';
+import utils from '../utils';
+import settings from '../core/settings';
+import getTrace from '../../libs/get-trace';
 
 let internalQueue;
 
@@ -115,6 +112,10 @@ const init = (category, elementsToTrack) => {
 	utils.onPage(runQueue);
 };
 
-module.exports = {
-	init: init
+export default {
+	init
+};
+
+export {
+	init
 };

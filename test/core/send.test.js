@@ -1,8 +1,9 @@
-/*global require, describe, it, after, sinon, before */
+/*global describe, it, after, sinon, before */
 
-const assert = require('assert');
-const Send = require('../../src/javascript/core/send');
-const Queue = require("../../src/javascript/core/queue");
+import assert from 'assert';
+import Send from '../../src/javascript/core/send';
+import Queue from "../../src/javascript/core/queue";
+
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
 	meta: {
@@ -26,8 +27,8 @@ const request = {
 	}
 };
 
-const setup = require('../setup');
-const settings = require('../../src/javascript/core/settings');
+import setup from '../setup';
+import settings from '../../src/javascript/core/settings';
 
 // PhantomJS doesn't always create a "fresh" environment...
 

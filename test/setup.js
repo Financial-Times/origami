@@ -1,10 +1,10 @@
 /* global sinon*/
 
-const transports = require('../src/javascript/core/transports');
+import transports from '../src/javascript/core/transports';
 
 let willError = false;
 
-module.exports.mockTransport = function () {
+export function mockTransport() {
 	transports.mock = function () {
 		return {
 			send: sinon.spy(),
@@ -18,16 +18,22 @@ module.exports.mockTransport = function () {
 			}
 		};
 	};
-};
+}
 
-module.exports.unmockTransport = function () {
+export function unmockTransport() {
 	transports.mock = null;
-};
+}
 
-module.exports.errorNextSend = function () {
+export function errorNextSend() {
 	willError = true;
-};
+}
 
 // for the vast majority of tests we want to use a mock transport
 // so we setup the mock globally here
-module.exports.mockTransport();
+mockTransport();
+
+export default {
+	mockTransport,
+	unmockTransport,
+	errorNextSend
+};

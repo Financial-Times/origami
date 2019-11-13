@@ -1,13 +1,8 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
+import utils from '../utils';
+import Store from './store';
 
 let userID;
 let store;
-
-const utils = require('../utils');
-const Store = require('./store');
 
 /**
  * Init
@@ -66,9 +61,19 @@ function destroy() {
 	store.destroy();
 }
 
-module.exports = {
-	init: init,
-	setUser: setUser,
-	userID: function () { return userID; },
-	destroy: destroy
+function id() {
+	return userID;
+}
+
+export default {
+	init,
+	setUser,
+	userID: id,
+	destroy
+};
+export {
+	init,
+	setUser,
+	id as userID,
+	destroy
 };

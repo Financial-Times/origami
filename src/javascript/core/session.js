@@ -1,7 +1,5 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
+import utils from '../utils';
+import Store from './store';
 
 let store;
 const defaultSessionConfig = {
@@ -9,9 +7,6 @@ const defaultSessionConfig = {
 	name: 'session',
 	expires: 30 * 60 * 1000 // 30 minutes
 };
-
-const utils = require('../utils');
-const Store = require('./store');
 
 /**
  * Set the session in the store.
@@ -90,8 +85,8 @@ function init(config) {
 
 	return getSession();
 }
-
-module.exports = {
-	init: init,
+export default {
+	init,
 	session: getSession
 };
+export { getSession as session, init };

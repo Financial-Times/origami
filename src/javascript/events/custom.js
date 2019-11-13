@@ -1,10 +1,5 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
-
-const Core = require('../core');
-const utils = require('../utils');
+import Core from '../core';
+import utils from '../utils';
 
 /**
  * Default properties for events.
@@ -221,9 +216,11 @@ function _generateHash(str) {
 	return h >>> 0;
 }
 
-
-
-module.exports = event;
-module.exports.init = function () {
+const init = function init() {
 	utils.addEvent(window, 'oTracking.event', event);
 };
+event.init = init;
+
+export default event;
+export { event };
+
