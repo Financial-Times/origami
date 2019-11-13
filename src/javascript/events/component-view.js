@@ -63,7 +63,7 @@ const init = (opts = {}) => {
 		changes.forEach(change => {
 			if(change.isIntersecting || change.intersectionRatio > 0) {
 				const eventData = {
-					action: 'view',
+					action: opts.action || 'view',
 					category: opts.category || 'component'
 				};
 				const viewedEl = change.target;
