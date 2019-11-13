@@ -1,7 +1,7 @@
-/*global require, describe, it */
+/*global describe, it */
 
-const assert = require('assert');
-const Settings = require('../../src/javascript/core/settings');
+import assert from 'assert';
+import Settings from '../../src/javascript/core/settings';
 
 describe('Core.Settings', function () {
 
@@ -24,7 +24,7 @@ describe('Core.Settings', function () {
 	});
 
 	it("should work between different require'd files.", function () {
-		assert.equal(require("../../src/javascript/core/settings").get('key2'), "value2");
+		assert.equal(Settings.get('key2'), "value2");
 	});
 
 	it("should return a copy of an object to prevent mutating the store.", function () {

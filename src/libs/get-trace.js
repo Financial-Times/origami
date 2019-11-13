@@ -1,6 +1,6 @@
 // Trace the element and all of its parents, collecting properties as we go
 
-const utils = require('../javascript/utils');
+import utils from '../javascript/utils';
 
 const elementPropertiesToCollect = [
 	"nodeName",

@@ -1,4 +1,4 @@
-module.exports = function () {
+function sendBeacon() {
 	let resolver;
 	let rejecter;
 	const p = new Promise((resolve, reject) => {
@@ -21,4 +21,7 @@ module.exports = function () {
 			}
 		}
 	};
-};
+}
+
+export default sendBeacon;
+export { sendBeacon };

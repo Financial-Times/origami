@@ -1,11 +1,6 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
-
-const Core = require('../core');
-const utils = require('../utils');
-const settings = require('../core/settings');
+import Core from '../core';
+import utils from '../utils';
+import settings from '../core/settings';
 
 settings.set('page_viewed', false);
 
@@ -62,9 +57,9 @@ function listener(e) {
 	page(e.detail);
 }
 
-
-
-module.exports = page;
-module.exports.init = function () {
+const init = function init() {
 	utils.addEvent(window, 'oTracking.page', listener);
 };
+page.init = init;
+export default page;
+export { page };

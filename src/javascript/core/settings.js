@@ -1,7 +1,3 @@
-/*global module */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
 
 const settings = {};
 
@@ -57,9 +53,16 @@ function getValue(key) {
 function destroy(key) {
 	delete settings[key];
 }
+const set = setValue;
+const get = getValue;
 
-module.exports = {
-	'set': setValue,
-	'get': getValue,
-	'destroy': destroy
+export default {
+	set,
+	get,
+	destroy
+};
+export {
+	set,
+	get,
+	destroy
 };

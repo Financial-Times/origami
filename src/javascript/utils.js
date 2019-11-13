@@ -1,18 +1,13 @@
-/*global module, require, window */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
-
 /**
  * Shared 'internal' scope.
  * @private
  */
-const settings = require('./core/settings');
+import settings from './core/settings';
 
 /**
  * CUID Generator
  */
-const cuid = require('../libs/browser-cuid');
+import cuid from '../libs/browser-cuid';
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -215,6 +210,23 @@ function getValueFromJsVariable(str) {
 }
 
 /**
+ * Whitelist props
+ * @param {Object} props - An object whose props need to be whitelisted
+ * @param {Array} list - A list for whitelisting
+ * @return
+ */
+function whitelistProps (props, list) {
+	return list.reduce(
+		(acc, propName) => Object.assign(
+			{},
+			acc,
+			props[propName] ? { [propName]: props[propName] } : undefined
+		),
+		{}
+	);
+}
+
+/**
  * Trim strings
  * @param {String} str - The string to trim.
  * @return {String} The trimmed string.
@@ -240,42 +252,44 @@ function assignIfUndefined (subject, target) {
 }
 
 /**
- * Whitelist props
- * @param {Object} props - An object whose props need to be whitelisted
- * @param {Array} list - A list for whitelisting
- * @return
- */
-function whitelistProps (props, list) {
-	return list.reduce(
-		(acc, propName) => Object.assign(
-			{},
-			acc,
-			props[propName] ? { [propName]: props[propName] } : undefined
-		),
-		{}
-	);
-}
-
-/**
  * Utilities.
  * @alias utils
  */
-module.exports = {
-	log: log,
-	is: is,
+export default {
+	log,
+	is,
 	isUndefined: is,
-	merge: merge,
-	encode: encode,
-	decode: decode,
+	merge,
+	encode,
+	decode,
 	guid: cuid,
-	addEvent: addEvent,
-	broadcast: broadcast,
-	onPage: onPage,
-	triggerPage: triggerPage,
-	getValueFromCookie: getValueFromCookie,
-	getValueFromUrl: getValueFromUrl,
-	getValueFromJsVariable: getValueFromJsVariable,
-	sanitise: sanitise,
-	assignIfUndefined: assignIfUndefined,
-	whitelistProps: whitelistProps,
+	addEvent,
+	broadcast,
+	onPage,
+	triggerPage,
+	getValueFromCookie,
+	getValueFromUrl,
+	getValueFromJsVariable,
+	sanitise,
+	assignIfUndefined,
+	whitelistProps
+};
+export {
+	log,
+	is,
+	is as isUndefined,
+	merge,
+	encode,
+	decode,
+	cuid as guid,
+	addEvent,
+	broadcast,
+	onPage,
+	triggerPage,
+	getValueFromCookie,
+	getValueFromUrl,
+	getValueFromJsVariable,
+	sanitise,
+	assignIfUndefined,
+	whitelistProps
 };

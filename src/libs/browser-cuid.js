@@ -1,4 +1,3 @@
-/*eslint-disable*/
 /**
  * cuid.js
  * Collision-resistant UID generator for browsers and node.
@@ -10,101 +9,91 @@
  * Copyright (c) Eric Elliott 2012
  * MIT License
  */
+let c = 0;
+const blockSize = 4;
+const base = 36;
+const discreteValues = Math.pow(base, blockSize);
 
-/*global window, navigator, document, require, process, module */
-(function (app) {
-  'use strict';
-  var namespace = 'cuid',
-    c = 0,
-    blockSize = 4,
-    base = 36,
-    discreteValues = Math.pow(base, blockSize),
+const pad = function pad(num, size) {
+	const s = "000000000" + num;
+	return s.substr(s.length-size);
+};
 
-    pad = function pad(num, size) {
-      var s = "000000000" + num;
-      return s.substr(s.length-size);
-    },
+const randomBlock = function randomBlock() {
+	return pad((Math.random() *
+		discreteValues << 0)
+		.toString(base), blockSize);
+};
 
-    randomBlock = function randomBlock() {
-      return pad((Math.random() *
-            discreteValues << 0)
-            .toString(base), blockSize);
-    },
+const safeCounter = () => {
+	c = (c < discreteValues) ? c : 0;
+	c++; // this is not subliminal
+	return c - 1;
+};
 
-    safeCounter = function () {
-      c = (c < discreteValues) ? c : 0;
-      c++; // this is not subliminal
-      return c - 1;
-    },
+const api = function cuid() {
+	// Starting with a lowercase letter makes
+	// it HTML element ID friendly.
+	// hard-coded allows for sequential access
+	const letter = 'c';
 
-    api = function cuid() {
-      // Starting with a lowercase letter makes
-      // it HTML element ID friendly.
-      var letter = 'c', // hard-coded allows for sequential access
+	// timestamp
+	// warning: this exposes the exact date and time
+	// that the uid was created.
+	const timestamp = (new Date().getTime()).toString(base);
 
-        // timestamp
-        // warning: this exposes the exact date and time
-        // that the uid was created.
-        timestamp = (new Date().getTime()).toString(base),
+	// Prevent same-machine collisions.
+	let counter;
 
-        // Prevent same-machine collisions.
-        counter,
+	// A few chars to generate distinct ids for different
+	// clients (so different computers are far less
+	// likely to generate the same id)
+	const fingerprint = api.fingerprint();
 
-        // A few chars to generate distinct ids for different
-        // clients (so different computers are far less
-        // likely to generate the same id)
-        fingerprint = api.fingerprint(),
+	// Grab some more chars from Math.random()
+	const random = randomBlock() + randomBlock();
 
-        // Grab some more chars from Math.random()
-        random = randomBlock() + randomBlock();
+	counter = pad(safeCounter().toString(base), blockSize);
 
-        counter = pad(safeCounter().toString(base), blockSize);
+	return (letter + timestamp + counter + fingerprint + random);
+};
 
-      return  (letter + timestamp + counter + fingerprint + random);
-    };
+api.slug = function slug() {
+	const date = new Date().getTime().toString(36);
+	let counter;
 
-  api.slug = function slug() {
-    var date = new Date().getTime().toString(36),
-      counter,
-      print = api.fingerprint().slice(0,1) +
-        api.fingerprint().slice(-1),
-      random = randomBlock().slice(-2);
+	const print = api.fingerprint().slice(0,1) +
+		api.fingerprint().slice(-1);
 
-      counter = safeCounter().toString(36).slice(-4);
+	const random = randomBlock().slice(-2);
 
-    return date.slice(-2) +
-      counter + print + random;
-  };
+	counter = safeCounter().toString(36).slice(-4);
 
-  api.globalCount = function globalCount() {
-    // We want to cache the results of this
-    var cache = (function calc() {
-        var i,
-          count = 0;
+	return date.slice(-2) +
+		counter + print + random;
+};
 
-        for (i in window) {
-          count++;
-        }
+api.globalCount = function globalCount() {
+	// We want to cache the results of this
+	const cache = (function calc() {
+		let count = 0;
 
-        return count;
-      }());
+		for (let i in window) { // eslint-disable-line no-unused-vars, guard-for-in
+			count++;
+		}
 
-    api.globalCount = function () { return cache; };
-    return cache;
-  };
+		return count;
+	}());
 
-  api.fingerprint = function browserPrint() {
-    return pad((navigator.mimeTypes.length +
-      navigator.userAgent.length).toString(36) +
-      api.globalCount().toString(36), 4);
-  };
+	api.globalCount = () => cache;
+	return cache;
+};
 
-  // don't change anything from here down.
-  if (typeof module !== 'undefined') {
-    module.exports = api;
-  } else {
-    app[namespace] = api;
-  }
+api.fingerprint = function browserPrint() {
+	return pad((navigator.mimeTypes.length +
+		navigator.userAgent.length).toString(36) +
+		api.globalCount().toString(36), 4);
+};
 
-}(this));
-/*eslint-enable */
+export default api;
+export { api };
