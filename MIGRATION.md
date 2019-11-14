@@ -46,6 +46,8 @@ The following Sass has been made private or removed and must not be used. Instea
     - `oFooterThemeDark`
     - `oFooterThemeLight`
 
+All custom o-footer [colours and colour usecases](https://github.com/Financial-Times/o-footer/blob/v6.1.4/src/scss/_colors.scss) have also been removed. Please contact Origami if your project requires these colours.
+
 ### Migrating from v5 to v6
 
 V5 -> V6 introduces the new majors of o-colors and o-typography. Updating to this new version will mean updating any other components that you have which are using o-colors and o-typography. There are no other breaking changes in this release.

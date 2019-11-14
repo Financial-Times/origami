@@ -5,9 +5,9 @@
 @import "o-icons/main";
 @import "o-grid/main";
 
+@import "src/scss/brand";
 @import "src/scss/variables";
 @import 'src/scss/mixins';
-@import "src/scss/colors";
 
 /// Output all o-footer styles including a navigation matrix, and two themes.
 ///
@@ -75,14 +75,7 @@
 		position: relative;
 		border-top: 1px solid;
 		border-bottom: 1px solid;
-
-		// Hack to increase sepcificity to override overflow
-		// set on class used on the same element preventing use of !important.
-		// This Sass selector duplicates the class, creating:
-		// .o-footer__external-link.o-footer__external-link
-		&#{&} {
-			overflow: visible;
-		}
+		overflow: visible;
 
 		&:after,
 		&:before {
@@ -108,7 +101,7 @@
 			display: block;
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $_o-footer-icon-size, $iconset-version: 1);
+				@include oIconsGetIcon('arrow-right', _oFooterGet('title'), $_o-footer-icon-size, $iconset-version: 1);
 				vertical-align: middle;
 				content: ' ';
 			}
@@ -143,22 +136,12 @@
 	}
 
 	@if $martix {
-		@include _oFooterMatrix;
+		@include _oFooterMatrix($themes);
 	}
 
 	// Include the themes
 	@each $theme in $themes {
-		@if $theme == 'light' {
-			@include _oFooterThemeLight;
-		}
-
-		@if $theme == 'dark' {
-			@include _oFooterThemeDark;
-		}
-
-		@if $theme != 'light' and $theme != 'dark' {
-			@error 'No theme "#{inspect($theme)}" exists. Supported themes include "light" and "dark".';
-		}
+		@include _oFooterTheme($theme);
 	}
 }
 

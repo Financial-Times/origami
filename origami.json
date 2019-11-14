@@ -4,6 +4,9 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"brands": [
+		"master"
+	],
 	"support": "https://github.com/Financial-Times/o-footer/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -51,6 +54,7 @@
 		{
 			"title": "Pa11y",
 			"name": "pa11y",
+			"data": "demos/src/footer.json",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": ""

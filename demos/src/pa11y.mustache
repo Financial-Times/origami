@@ -1,119 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" class="o-hoverable-on ">
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<title>o-footer: footer pa11y demo</title>
-	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="https://polyfill.io/v2/polyfill.min.js?features=html5,svg,datauri,default"></script>
-	<style>body { margin: 0; } .core .o--if-js, .enhanced .o--if-no-js { display: none; }</style>
-	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
-	<link rel="stylesheet" href="demo.css" />
-</head>
-<body>
-<footer class="o-footer o-footer--theme-light" data-o-component="o-footer" data-o-footer--no-js>
+<footer class="o-footer o-footer--light" data-o-component="o-footer" data-o-footer--no-js>
 	<div class="o-footer__container">
-		<div class="o-footer__copyright" role="contentinfo">
-			<small>
-				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD .
-				<abbr title="Financial Times" aria-label="F T">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.<br>
-				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://aboutus.ft.com/en-gb/ft-editorial-code/" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a> .
-			</small>
-		</div>
-	</div>
-	<div class="o-footer__brand">
-		<div class="o-footer__container">
-			<div class="o-footer__brand-logo"></div>
-		</div>
-	</div>
-</footer>
-
-<footer class="o-footer o-footer--theme-light light-hover" data-o-component="o-footer" data-o-footer--no-js>
-	<div class="o-footer__container">
-		<div class="o-footer__copyright" role="contentinfo">
-			<small>
-				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD .
-				<abbr title="Financial Times" aria-label="F T">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.<br>
-				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a> .
-			</small>
-		</div>
-	</div>
-	<div class="o-footer__brand">
-		<div class="o-footer__container">
-			<div class="o-footer__brand-logo"></div>
-		</div>
-	</div>
-</footer>
-
-<footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js>
-	<div class="o-footer__container">
-
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
-				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title" >
-						Support
+				{{#matrix}}
+				<div class="o-footer__matrix-group o-footer__matrix-group--{{layout}}">
+					<h6 class="o-footer__matrix-title" {{#collapsible}}aria-controls="o-footer-section-{{index}}"{{/collapsible}}>
+						{{{title}}}
 					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-0">
+					<div class="o-footer__matrix-content" id="o-footer-section-{{index}}">
+						{{#columns}}
 							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;help">Help</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;aboutus">About Us</a>
+								{{#.}}
+									<a class="o-footer__matrix-link" {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}} href="{{href}}">{{{text}}}</a>
+								{{/.}}
 							</div>
+						{{/columns}}
 					</div>
 				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title" >
-						Legal & Privacy
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-1">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;terms">Terms & Conditions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;privacy">Privacy</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;cookiepolicy">Cookies</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;copyright">Copyright</a>
-							</div>
-					</div>
-				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--2">
-					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
-						Services
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-2">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;sub.ft.com&#x2F;spa_5">Individual Subscriptions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;enterprise.ft.com&#x2F;en-gb&#x2F;services&#x2F;group-subscriptions&#x2F;">Group Subscriptions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;enterprise.ft.com&#x2F;en-gb&#x2F;services&#x2F;republishing&#x2F;">Republishing</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.businessesforsale.com&#x2F;ft2&#x2F;notices">Contracts & Tenders</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;commerce.uk.reuters.com&#x2F;purchase&#x2F;mostPopular.do?rpc&amp;#x3D;471">Analysts Research</a>
-							</div>
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.exec-appointments.com&#x2F;">Executive Job Search</a>
-									<a class="o-footer__matrix-link" aria-label="Advertise with the F T" href="&#x2F;&#x2F;fttoolkit.co.uk&#x2F;d&#x2F;">Advertise with the FT</a>
-									<a class="o-footer__matrix-link" aria-label="Follow the F T on Twitter" href="&#x2F;&#x2F;twitter.com&#x2F;ft">Follow the FT on Twitter</a>
-							</div>
-					</div>
-				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--2">
-					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-3">
-						Tools
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-3">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;data&#x2F;portfolio&#x2F;dashboard">Portfolio</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;ftepaper.ft.com">Today's Paper</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;data&#x2F;alerts&#x2F;">Alerts Hub</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;lexicon.ft.com&#x2F;">Lexicon</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;rankings.ft.com&#x2F;businessschoolrankings&#x2F;global-mba-ranking-2016">MBA Rankings</a>
-							</div>
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;Research&#x2F;Economic-Calendar">Economic Calendar</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;nbe.ft.com&#x2F;nbe&#x2F;profile.cfm">Newsletters</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;research&#x2F;Markets&#x2F;Currencies?segid&amp;#x3D;70113">Currency Converter</a>
-									<a class="o-footer__matrix-link" aria-label="E-books" href="&#x2F;&#x2F;www.ft.com&#x2F;ebooks">Ebooks</a>
-							</div>
-					</div>
-				</div>
+				{{/matrix}}
 			</nav>
+
 			<h6 class="o-footer__external-link o-footer__matrix-title">
 				<a class ='o-footer__more-from-ft o-footer__matrix-title' href="http://ft.com/more-from-ft-group">More from the FT Group</a>
 			</h6>
@@ -121,9 +27,9 @@
 
 		<div class="o-footer__copyright" role="contentinfo">
 			<small>
-				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD 2016.
+				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD {{copyrightYear}}.
 				<abbr title="Financial Times" aria-label="F T">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.<br>
-				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
+				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://aboutus.ft.com/en-gb/ft-editorial-code/" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
 			</small>
 		</div>
 
@@ -135,75 +41,28 @@
 	</div>
 </footer>
 
-<footer class="o-footer o-footer--theme-dark dark-hover" data-o-component="o-footer" data-o-footer--no-js>
+<footer class="o-footer o-footer--dark" data-o-component="o-footer" data-o-footer--no-js>
 	<div class="o-footer__container">
-
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
-				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title" >
-						Support
+				{{#matrix}}
+				<div class="o-footer__matrix-group o-footer__matrix-group--{{layout}}">
+					<h6 class="o-footer__matrix-title" {{#collapsible}}aria-controls="o-footer-section-{{index}}"{{/collapsible}}>
+						{{{title}}}
 					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-0_">
+					<div class="o-footer__matrix-content" id="o-footer-section-{{index}}">
+						{{#columns}}
 							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;help">Help</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;aboutus">About Us</a>
+								{{#.}}
+									<a class="o-footer__matrix-link" {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}} href="{{href}}">{{{text}}}</a>
+								{{/.}}
 							</div>
+						{{/columns}}
 					</div>
 				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title" >
-						Legal & Privacy
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-1_">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;terms">Terms & Conditions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;privacy">Privacy</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;cookiepolicy">Cookies</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.ft.com&#x2F;servicestools&#x2F;help&#x2F;copyright">Copyright</a>
-							</div>
-					</div>
-				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--2">
-					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2_">
-						Services
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-2_">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;sub.ft.com&#x2F;spa_5">Individual Subscriptions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;enterprise.ft.com&#x2F;en-gb&#x2F;services&#x2F;group-subscriptions&#x2F;">Group Subscriptions</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;enterprise.ft.com&#x2F;en-gb&#x2F;services&#x2F;republishing&#x2F;">Republishing</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.businessesforsale.com&#x2F;ft2&#x2F;notices">Contracts & Tenders</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;commerce.uk.reuters.com&#x2F;purchase&#x2F;mostPopular.do?rpc&amp;#x3D;471">Analysts Research</a>
-							</div>
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;www.exec-appointments.com&#x2F;">Executive Job Search</a>
-									<a class="o-footer__matrix-link" aria-label="Advertise with the F T" href="&#x2F;&#x2F;fttoolkit.co.uk&#x2F;d&#x2F;">Advertise with the FT</a>
-									<a class="o-footer__matrix-link" aria-label="Follow the F T on Twitter" href="&#x2F;&#x2F;twitter.com&#x2F;ft">Follow the FT on Twitter</a>
-							</div>
-					</div>
-				</div>
-				<div class="o-footer__matrix-group o-footer__matrix-group--2">
-					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-3_">
-						Tools
-					</h6>
-					<div class="o-footer__matrix-content" id="o-footer-section-3_">
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;data&#x2F;portfolio&#x2F;dashboard">Portfolio</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;ftepaper.ft.com">Today's Paper</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;data&#x2F;alerts&#x2F;">Alerts Hub</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;lexicon.ft.com&#x2F;">Lexicon</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;rankings.ft.com&#x2F;businessschoolrankings&#x2F;global-mba-ranking-2016">MBA Rankings</a>
-							</div>
-							<div class="o-footer__matrix-column">
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;Research&#x2F;Economic-Calendar">Economic Calendar</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;nbe.ft.com&#x2F;nbe&#x2F;profile.cfm">Newsletters</a>
-									<a class="o-footer__matrix-link"  href="&#x2F;&#x2F;markets.ft.com&#x2F;research&#x2F;Markets&#x2F;Currencies?segid&amp;#x3D;70113">Currency Converter</a>
-									<a class="o-footer__matrix-link" aria-label="E-books" href="&#x2F;&#x2F;www.ft.com&#x2F;ebooks">Ebooks</a>
-							</div>
-					</div>
-				</div>
+				{{/matrix}}
 			</nav>
+
 			<h6 class="o-footer__external-link o-footer__matrix-title">
 				<a class ='o-footer__more-from-ft o-footer__matrix-title' href="http://ft.com/more-from-ft-group">More from the FT Group</a>
 			</h6>
@@ -211,9 +70,9 @@
 
 		<div class="o-footer__copyright" role="contentinfo">
 			<small>
-				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD 2016.
+				Markets data delayed by at least 15 minutes. &#169; THE FINANCIAL TIMES LTD {{copyrightYear}}.
 				<abbr title="Financial Times" aria-label="F T">FT</abbr> and ‘Financial Times’ are trademarks of The Financial Times Ltd.<br>
-				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://www.ft.com/editorialcode" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
+				The Financial Times and its journalism are subject to a self-regulation regime under the <a href="http://aboutus.ft.com/en-gb/ft-editorial-code/" aria-label="F T Editorial Code of Practice">FT Editorial Code of Practice</a>.
 			</small>
 		</div>
 
@@ -224,8 +83,3 @@
 		</div>
 	</div>
 </footer>
-
-<script src="demo.js"></script>
-<script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
-</body>
-</html>

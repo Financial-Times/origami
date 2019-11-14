@@ -1,32 +1,7 @@
-$o-footer-is-silent: false;
+@import '../../main';
 
-@import "../../main";
+@include oFooter();
 
 body {
 	@include oColorsFor(page);
-	font-family: MetricWeb, sans-serif;
-}
-
-.dark-hover {
-	@include oColorsFor('o-footer-dark', 'text');
-
-	// Make the white text look crisper and less bold on dark backgrounds
-	// sass-lint:disable no-vendor-prefixes
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	// sass-lint:enable no-vendor-prefixes
-
-	color: oColorsGetColorFor('o-footer-dark-link', 'text');
-	a {
-		color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
-	}
-}
-
-.light-hover {
-	@include oColorsFor('o-footer-light', 'text');
-
-	color: oColorsGetColorFor('o-footer-light-link', 'text');
-	a {
-		color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
-		}
 }

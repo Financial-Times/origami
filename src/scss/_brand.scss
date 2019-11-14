@@ -1,0 +1,43 @@
+/// Helper `o-brand` wrapper.
+/// @access private
+@function _oFooterGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-footer',  $variables: $variables, $from: $from);
+}
+
+/// Helper `o-brand` wrapper.
+/// @access private
+@function _oFooterSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-footer', $variant: $variant);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	$_o-footer-dark-link-text-color: oColorsMix('white', 'slate', 60);
+	$_o-footer-light-link-text-color: oColorsGetPaletteColor('black-60');
+
+	@include oBrandDefine('o-footer', 'master', (
+		'variables': (
+			'title': oColorsGetPaletteColor('white'),
+			'dark': (
+				'text': oColorsGetPaletteColor('white'),
+				'background': oColorsGetPaletteColor('slate'),
+				'border': oColorsMix('white', 'slate', 20),
+				'title': oColorsGetPaletteColor('white'),
+				'link': $_o-footer-dark-link-text-color,
+				'link-hover': oColorsGetPaletteColor('white'),
+				'brand-background': oColorsGetPaletteColor('black'),
+				'copyright': $_o-footer-dark-link-text-color,
+			),
+			'light': (
+				'text': oColorsGetPaletteColor('black-80'),
+				'background': oColorsGetPaletteColor('black-5'),
+				'border': oColorsGetPaletteColor('black-20'),
+				'title': oColorsGetPaletteColor('black'),
+				'link': $_o-footer-light-link-text-color,
+				'link-hover': oColorsGetPaletteColor('black'),
+				'brand-background': oColorsGetPaletteColor('black-20'),
+				'copyright': $_o-footer-light-link-text-color,
+			)
+		),
+		'supports-variants': ()
+	));
+}

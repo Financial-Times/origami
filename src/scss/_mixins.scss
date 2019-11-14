@@ -8,93 +8,56 @@
 }
 
 /// Styles for the dark theme
-@mixin _oFooterThemeDark() {
-	.o-footer--theme-dark {
-		@include oColorsFor('o-footer-dark', 'text' 'background');
+/// @param {String} $theme - The theme, see _brand.scss for theme configuration.
+@mixin _oFooterTheme($theme) {
+	@if $theme != 'light' and $theme != 'dark' {
+		@error 'No theme "#{inspect($theme)}" exists. Supported themes include "light" and "dark".';
+	}
 
-		// Make the white text look crisper and less bold on dark backgrounds
-		// sass-lint:disable no-vendor-prefixes
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		// sass-lint:enable no-vendor-prefixes
+	.o-footer--theme-#{$theme} {
+		color: _oFooterGet('text', $from: $theme);
+		background: _oFooterGet('background', $from: $theme);
+
+		.o-footer__title {
+			color: _oFooterGet('title', $from: $theme);
+		}
 
 		.o-footer__external-link,
 		.o-footer__matrix-title[aria-expanded] {
-			border-color: oColorsGetColorFor('o-footer-dark', 'border');
+			border-color: _oFooterGet('border', $from: $theme);
 		}
 
 		.o-footer__matrix-title a {
-			color: oColorsGetColorFor('o-footer-dark-title', 'text');
+			color: _oFooterGet('text', $from: $theme);
 		}
 
 		a {
-			color: oColorsGetColorFor('o-footer-dark-link', 'text');
+			color: _oFooterGet('link', $from: $theme);
 
 			&:hover,
 			&:focus {
-				color: oColorsGetColorFor('o-footer-dark-link-hover', 'text');
+				color: _oFooterGet('link-hover', $from: $theme);
 			}
 		}
 
 		.o-footer__external-link a:after {
-			@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-dark-title', 'text'), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
+			@include oIconsGetIcon('arrow-right', _oFooterGet('title', $from: $theme), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
 		}
 
 		.o-footer__copyright {
-			color: oColorsGetColorFor('o-footer-dark-copyright', 'text');
+			color: _oFooterGet('copyright', $from: $theme);
 		}
 
 		.o-footer__brand {
-			@include oColorsFor('o-footer-dark', 'text');
-			background-color: oColorsGetColorFor('o-footer-dark-brand', 'background');
-		}
-	}
-}
-
-/// Styles for the light theme
-@mixin _oFooterThemeLight() {
-	.o-footer--theme-light {
-		@include oColorsFor('o-footer-light', 'text' 'background');
-
-		.o-footer__title {
-			color: oColorsGetColorFor('o-footer-light-title', 'text');
-		}
-
-		.o-footer__matrix-title,
-		.o-footer__matrix-title[aria-expanded] {
-			border-color: oColorsGetColorFor('o-footer-light', 'border');
-		}
-
-		a {
-			color: oColorsGetColorFor('o-footer-light-link', 'text');
-
-			&:hover,
-			&:focus {
-				color: oColorsGetColorFor('o-footer-light-link-hover', 'text');
-			}
-		}
-
-		.o-footer__copyright {
-			color: oColorsGetColorFor('o-footer-light-copyright', 'text');
-		}
-
-		.o-footer__brand {
-			@include oColorsFor('o-footer-light', 'text');
-			background-color: oColorsGetColorFor('o-footer-light-brand', 'background');
-		}
-
-		.o-footer__external-link a {
-			@include oColorsFor('o-footer-light', 'text');
-
-			&:after {
-				@include oIconsGetIcon('arrow-right', oColorsGetColorFor('o-footer-light-title', 'text'), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
-			}
+			color: _oFooterGet('text', $from: $theme);
+			background: _oFooterGet('brand-background', $from: $theme);
 		}
 	}
 }
 
 /// Styles for the navigation matrix
-@mixin _oFooterMatrix() {
+/// @param {List} $themes - a list of themes include
+@mixin _oFooterMatrix($themes) {
 	.o-footer__matrix,
 	.o-footer__matrix-content {
 		@include oGridRow();
@@ -142,12 +105,10 @@
 				right: 0;
 				top: ($line-size - $_o-footer-icon-size) / 2;
 
-				.o-footer--theme-dark & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-dark', 'text'), $_o-footer-icon-size, $iconset-version: 1);
-				}
-
-				.o-footer--theme-light & {
-					@include oIconsGetIcon('arrow-down', oColorsGetColorFor('o-footer-light', 'text'), $_o-footer-icon-size, $iconset-version: 1);
+				@each $theme in $themes {
+					.o-footer--theme-#{$theme} & {
+						@include oIconsGetIcon('arrow-down', _oFooterGet('title', $theme), $_o-footer-icon-size, $iconset-version: 1);
+					}
 				}
 			}
 		}
