@@ -9,9 +9,9 @@
 
 // Set the palette colors programatically
 @include _oColorsSetDefaultPaletteColors();
-@include _oColorsSetDefaultUsecases();
 @include _oColorsSetPaletteMixes();
 @include _oColorsSetPaletteTones();
+@include _oColorsSetDefaultUsecases();
 
 /// Output `o-colors` CSS.
 ///
@@ -81,7 +81,7 @@
 
 		// Output CSS Custom Properties for all palette colours.
 		@if $palette-properties {
-			@each $color-map in oColorsGetPalette() {
+			@each $color-map in oColorsGetPaletteDetails() {
 				$name: map-get($color-map, 'name');
 				#{--o-colors-}#{$name}: oColorsByName($name);
 			}

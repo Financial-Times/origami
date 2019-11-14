@@ -1,60 +1,55 @@
 /// Define a new palette color.
 ///
 /// @example scss - Add a custom palette color
-///     @include oColorsSetColor($project-name: 'o-example', $color-name: 'pink', $color-hex: #ff69b4);
+///     @include oColorsSetColor($color-name: 'o-example/pink', $color-hex: #ff69b4);
 ///
 /// @example scss - Deprecate a set colour (removing a color from the palette is considered a breaking change and requires a major release).
 ///     @include oColorsSetColor(
-///     	$project-name: 'o-example',
-///     	$color-name: 'pink',
+///     	$color-name: 'o-example/pink',
 ///     	$color-hex #ff69b4,
 ///     	$opts: (deprecated: 'your deprecation message')
 ///     );
 ///
-/// @param {String} $project-name - The name of the component or project setting this colour, e.g. 'o-example'.
-/// @param {String} $color-name - The name of the colour e.g. 'paper'.
+/// @param {String} $color-name - The name of the colour e.g. 'o-example/paper'.
 /// @param {Color} $color-hex - The colour to set (hex) e.g. #ff69b4.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a message to deprecated a set colour e.g. `$opts: (deprecated: 'your deprecation message')`.
-@mixin oColorsSetColor($project-name, $color-name, $color-hex, $opts: ()) {
-	// Validate arguments are of correct type.
-	$missing-namespace: type-of($project-name) != 'string';
-	$missing-color-name: type-of($color-name) != 'string';
-	$missing-color-hex: type-of($color-hex) != 'color';
-	@if $missing-namespace or $missing-color-name {
-		@error 'Expected a string `$project-name` and `$color-name` to set a new colour.';
-	}
-	@if $missing-color-hex {
+@mixin oColorsSetColor($color-name, $color-hex, $opts: ()) {
+	// Validate color-hex.
+	@if type-of($color-hex) != 'color' {
 		@error 'Expected `$color-hex` to be a colour, found "#{$color-hex}" of type "#{type-of($color-hex)}".';
 	}
-	// Get the namespaced color name.
-	$namespaced-color-name: '#{$project-name}-#{$color-name}';
-	$color-exists: map-has-key($_o-colors-palette, $namespaced-color-name);
+	// Validate color-name.
+	@if type-of($color-name) != 'string' {
+		@error 'Expected `$color-name` to be a string, found "#{$color-name}" of type "#{type-of($color-name)}".';
+	}
+	$namespace: _oColorsGetNameSpace($color-name);
+	@if not $namespace {
+		@error 'The `$color-name` "#{inspect($color-name)}" has no namespace. ' +
+		'Prepend your color name with a namespace for your project e.g. for a component "o-example": ' +
+		'"o-example/#{inspect($color-name)}".';
+	}
 
 	// Get deprecation message.
 	$deprecation-message: map-get($opts, 'deprecated');
 
-	// Default o-colors palette colours may not be deprecated by users.
-	@if ($project-name == 'o-colors' and $color-exists and $deprecation-message) {
-		@error 'Default o-colors palette colours may not be deprecated by users of o-colors.';
-	}
-
 	// Default o-colors palette colours may be customised by users but
-	// existing project/component usecases may not:
-	// Error if the palette colour already exists and isn't an o-colors default.
-	// Palette colours may be used by projects to share colour values but
-	// customisation usually happens with component specific mixins.
-	@if ($project-name != 'o-colors' and $color-exists) {
-		@error 'A palette colour "#{$color-name}" has already been set for "#{$project-name}".\n' +
+	// existing project/component colors may not. Customisation of non-default
+	// colours usually happens at a component level.
+	$color-exists: _oColorsNameExists($color-name);
+	@if ($namespace != 'o-colors' and $color-exists) {
+		@error 'A palette colour "#{$color-name}" has already been set. ' +
 		'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
-		'If you would like to customise "#{$project-name}" colours, check its README for ' +
+		'If you would like to customise "#{$namespace}" colours, check its README for ' +
 		'customisation options, or contact the Origami team to propose new customisation features.';
 	}
 
 	// Set the new colour to the colour palette.
-	$new-color: ($namespaced-color-name: (
-		'color': $color-hex,
+	// Set colours without the default o-colors namespace so consumers
+	// do not have to check returned colour names with the namespace.
+	$color-name: _oColorsRemoveDefaultNamespace($color-name);
+	$new-color: ($color-name: (
+		'value': $color-hex,
 		'name': $color-name,
-		'from': $project-name,
 		'meta': ('deprecated': $deprecation-message)
 	));
 	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
@@ -63,88 +58,92 @@
 /// Add a custom use case property.
 ///
 /// @example Setting a 'stripe' usecase with background, text, and border colour within a component 'o-example'.
-///     @include oColorsSetUseCase('o-example', 'stripe', (
+///     @include oColorsSetUseCase('o-example/stripe', (
 ///     	'text': 'white',
 ///     	'background': 'black',
 ///     	'border': 'black-50'
 ///     ));
 ///
 /// @example Setting a custom colour to a 'stripe' usecase with background.
-///     @include oColorsSetColor($project-name: 'o-example', $color-name: 'my-pink', $color-hex: #ff69b4);
-///     @include oColorsSetUseCase('o-example', 'stripe', (
-///     	'background': ('color': 'my-pink', 'from': 'o-example'),
+///     @include oColorsSetColor('o-example/my-pink', #ff69b4);
+///     @include oColorsSetUseCase('o-example/stripe', (
+///     	'background': 'o-example/my-pink',
 ///     ));
 ///
 /// @example Deprecating all usecase properties (removing a colour usecase is a breaking change).
-///     @include oColorsSetUseCase('o-example', 'stripe', (
+///     @include oColorsSetUseCase('o-example/stripe', (
 ///     	'text': 'white',
 ///     	'background': 'black',
 ///     	'border': 'black-50'
 ///     ), (deprecated: 'o-example has no stripes anymore.'));
 ///
 /// @example Deprecating particular usecase properties e.g. "border" (removing a usecase property is a breaking change).
-///    @include oColorsSetUseCase('o-example', 'stripe', (
+///    @include oColorsSetUseCase('o-example/stripe', (
 ///     		'text': 'white',
 ///     		'background': 'black',
 ///     		'border': 'black-50',
 ///		), ('deprecated': ('border': 'o-example stripes have no border anymore.')));
 ///
-/// @param {String} $project-name - The name of the component or project setting this colour, e.g. 'o-example'.
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {Map} $colors - A map of properties ('text', 'background', 'border', or 'outline') to a color.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a deprecation message for the usecase e.g. `$opts: (deprecated: 'your deprecation message')`, or a map to deprecate a specific property e.g. `(deprecated: (background: 'your deprecation message'))`.
-@mixin oColorsSetUseCase($project-name, $usecase, $colors, $opts: ()) {
-	$namespaced-usecase: '#{$project-name}-#{$usecase}';
-
-	// Default o-colors usecases may not be deprecated by users.
-	@if ($project-name == 'o-colors' and map-has-key($opts, 'deprecated')) {
-		@error 'Default o-colors usecases may not be deprecated by users of o-colors.';
+@mixin oColorsSetUseCase($usecase, $colors, $opts: ()) {
+	$namespace: _oColorsGetNameSpace($usecase);
+	@if not $namespace {
+		@error 'The `$usecase` "#{inspect($usecase)}" has no namespace. ' +
+		'Prepend your usecase with a namespace for your project e.g. for a component "o-example": ' +
+		'"o-example/#{inspect($usecase)}".';
 	}
 
 	// Error if usecase colours are not a map.
+	$valid-properties: ('text', 'background', 'border', 'outline');
 	@if (type-of($colors) != 'map') {
-		@error '`$colors` must be a map of usecase properties (\'text\', \'background\', \'border\', or \'outline\') to colours.';
+		@error '`$colors` must be a map of usecase properties one or more of "#{$valid-properties}" to their colour name.';
 	}
 
-	// Error if any of the usecase colours are not a string, to define a default
-	// o-colors palette colour, or a map, to define a custom palette colour.
+	// Error if any of the usecase colours are not a string, or the property
+	// not supported.
 	@each $property, $color in $colors {
-		@if(type-of($color) != 'map' and type-of($color) != 'string') {
-			@error 'A usecase "#{$usecase}" for "#{$project-name}" ' +
-			'cannot be set with a property "#{inspect($property)}" of colour "#{inspect($color)}". ' +
-			'Colours must be a default o-colors name such as "paper" or a map to use a custom colour ' +
-			'e.g. (\'color\': \'my-color\', \'from\': \'my-project\').';
+		@if(not index($valid-properties, $property)) {
+			@error 'A property "#{inspect($property)}" cannot be set for usecase "#{$usecase}".' +
+			'A property may be one of "#{$valid-properties}".';
 		}
-
-		@if(type-of($color) == 'map' and not map-has-key($color, 'color') and not map-has-key($color, 'from')) {
-			@error 'A usecase "#{$usecase}" for "#{$project-name}" ' +
-			'cannot be set with a property "#{inspect($property)}" of colour "#{inspect($color)}". ' +
-			'Expected a "color" and "from" key to use a custom colour ' +
-			'e.g. (\'color\': \'my-color\', \'from\': \'my-project\').';
+		@if(type-of($color) != 'string') {
+			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
+			'cannot be set to "#{inspect($color)}". A usecase property may ' +
+			'only be set to an o-colors colour name such as "paper".';
+		}
+		@if(not _oColorsNameExists($color)) {
+			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
+			'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
+			'does not exist.';
 		}
 	}
+
+	// Remove the default o-colors namespace so returned color names
+	// do not include it.
+	$usecase: _oColorsRemoveDefaultNamespace($usecase);
 
 	// Default o-colors usecases may be customised by users.
-	@if ($project-name == 'o-colors' and map-has-key($_o-colors-usecases, $namespaced-usecase)) {
-		$current-config: map-get($_o-colors-usecases, $namespaced-usecase);
+	@if ($namespace == 'o-colors' and map-has-key($_o-colors-usecases, $usecase)) {
+		$current-config: map-get($_o-colors-usecases, $usecase);
 		$current-colors: map-get($current-config, 'colors');
 		$colors: map-merge($current-colors, $colors);
 	}
 
 	// Existing project/component usecases may not be customised by users:
-	// Error if the use-case already exists and isn't an o-colors usecase.
-	// Usecases may be used by projects to share colour values but customisation
-	// usually happens on the component level, with component specific mixins.
-	@if ($project-name != 'o-colors' and map-has-key($_o-colors-usecases, $namespaced-usecase)) {
-		@error 'A usecase "#{$usecase}" has already been set for "#{$project-name}".\n' +
+	// Customisation for non-default usecases usually happens on the component
+	// level, with component specific mixins.
+	@if ($namespace != 'o-colors' and map-has-key($_o-colors-usecases, $usecase)) {
+		@error 'A usecase "#{$usecase}" has already been set. ' +
 		'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
-		'If you would like to customise "#{$project-name}" colours, check its README for ' +
+		'If you would like to customise "#{$namespace}" colours, check its README for ' +
 		'customisation options, or contact the Origami team to propose new customisation features.';
 	}
 
 	// Add the use-case and its properties to the global use-case map.
 	$_o-colors-usecases: map-merge($_o-colors-usecases, (
-		$namespaced-usecase: ('colors': $colors, 'opts': $opts)
+		$usecase: ('colors': $colors, 'opts': $opts)
 	)) !global;
 }
 
@@ -156,7 +155,7 @@
 		@each $value in $tone-values {
 			$name: "#{$color-name}-#{$value}";
 			$tone: oColorsGetTone($color-name, $value);
-			@include oColorsSetColor('o-colors', $name, $tone);
+			@include oColorsSetColor('o-colors/#{$name}', $tone);
 		}
 	}
 }
@@ -166,11 +165,18 @@
 /// e.g. black-5, black-10, white-10, white-20
 /// @access private
 @mixin _oColorsSetPaletteMixes {
+	// Set the page usecase first, which is needed for mixes.
+	@each $usecase, $colors, $opts in $_o-colors-default-usecases {
+		@if $usecase == 'page' {
+			@include oColorsSetUseCase('o-colors/#{$usecase}', $colors, $opts);
+		}
+	}
+	// Output colour mixies.
 	@each $color-name, $mix-values in $_o-colors-default-palette-mixes {
 		@each $value in $mix-values {
 			$name: "#{$color-name}-#{$value}";
 			$mix: oColorsMix($color-name, $percentage: $value);
-			@include oColorsSetColor('o-colors', $name, $mix);
+			@include oColorsSetColor('o-colors/#{$name}', $mix);
 		}
 	}
 }
@@ -180,7 +186,7 @@
 @mixin _oColorsSetDefaultPaletteColors {
 	@each $color-name, $color-hex, $opts in $_o-colors-default-palette-colors {
 		$opts: if($opts, $opts, ());
-		@include oColorsSetColor('o-colors', $color-name, $color-hex, $opts);
+		@include oColorsSetColor('o-colors/#{$color-name}', $color-hex, $opts);
 	}
 }
 
@@ -189,6 +195,6 @@
 @mixin _oColorsSetDefaultUsecases {
 	@each $usecase, $colors, $opts in $_o-colors-default-usecases {
 		$opts: if($opts, $opts, ());
-		@include oColorsSetUseCase('o-colors', $usecase, $colors, $opts);
+		@include oColorsSetUseCase('o-colors/#{$usecase}', $colors, $opts);
 	}
 }

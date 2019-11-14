@@ -2,15 +2,33 @@
 
 A component to manage colours. Includes the FT colour palette.
 
-- [Sass](#sass)
 - [Markup](#markup)
-- [CSS Variables](#css-variables)
-- [Migration guide](#migration-guide)
-	- [Upgrading from v3.x.x to v4.x.x](#upgrading-from-v3xx-to-v4xx)
+- [CSS Custom Properties](#css-custom-properties)
+- [Sass](#sass)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ### Markup
+
+#### Colour Usecase Classes
+
+A limited number of colour [usecases](#usecases) are available as CSS classes, including:
+- `.o-colors-page-background`
+- `.o-colors-box-background`
+- `.o-colors-body-text`
+- `.o-colors-muted-text`
+
+```html
+<body class="o-colors-page-background">
+	<!-- default background colour set -->
+	<!-- e.g. for the master brand `background: #fff1e5;` -->
+</body>
+```
+
+More colours are available for build service users as [CSS Custom Properties](#css-custom-properties).
+
+### CSS Custom Properties
 
 #### Colour Palette Custom Properties
 
@@ -39,21 +57,6 @@ A limited number of colour [usecases](#usecases) are also available as CSS Custo
 body {
 	background: var(--o-colors-page-background);
 }
-```
-
-#### Colour Usecase Classes
-
-A limited number of colour [usecases](#usecases) are available as CSS classes, including:
-- `.o-colors-page-background`
-- `.o-colors-box-background`
-- `.o-colors-body-text`
-- `.o-colors-muted-text`
-
-```html
-<body class="o-colors-page-background">
-	<!-- default background colour set -->
-	<!-- e.g. for the master brand `background: #fff1e5;` -->
-</body>
 ```
 
 ### Sass
@@ -111,19 +114,18 @@ Get a default colour from the palette using `oColorsByName`.
 #### Custom Palette Colours
 
 To set a custom palette colour to share with other components call `oColorsSetColor`.
-Colours are namespaced by the project/component name. To get a custom palette colour use the `$from` argument.
+Colour names must be namespaced for the project or component using a forward slash.
 
 ```scss
 // Set a custom palette colour within a component `o-example`.
 @include oColorsSetColor(
-	$project-name: 'o-example',
-	$color-name: 'myhotpink',
+	$color-name: 'o-example/myhotpink',
 	$color-hex: #ff69b4
 );
 
 .example {
 	// Get a custom palette colour from a component `o-example`.
-	background: oColorsByName('myhotpink', $from: 'o-example');
+	background: oColorsByName('o-example/myhotpink');
 }
 ```
 
@@ -132,8 +134,7 @@ Removing a colour is considered a breaking change and requires a major release. 
 ```scss
 // Deprecate a custom colour, which will be removed in a future major release.
 @include oColorsSetColor(
-	$project-name: 'o-example',
-	$color-name: 'myhotpink',
+	$color-name: 'o-example/myhotpink',
 	$color-hex #ff69b4,
 	$opts: ('deprecated': 'Use the default colour claret instead.')
 );
@@ -195,30 +196,19 @@ To get a colour for a default usecase call `oColorsByUsecase`.
 
 To create a new usecase call `oColorsSetUseCase`.
 
-- `$project-name`: The name of the component or project setting this colour, e.g. 'o-example'.
-- `$usecase`:  The name of the usecase, e.g. 'page'.
+- `$usecase`:  The name of the usecase, e.g. 'page'. This must include a namespace for your component or project followed by a forward slash.
 - `$colors`:  A map of properties ('text', 'background', 'border', or 'outline') to a palette color name.
 - `$opts` (optional):
 	- `deprecated`: A deprecation message for the usecase.
 
 ```scss
 	// set colours for a "stripes" in o-example.
-	@include oColorsSetUseCase('o-example', 'stripes', (
+	@include oColorsSetUseCase('o-example/stripes', (
 		'text': 'white',
 		'background': 'black',
 		'border': 'black-50'
 	));
 ```
-
-Get custom usecases using the `$from` argument:
-
-```scss
-.example {
-	color: oColorsByUsecase('stripes', 'text', $from: 'o-example');
-	background: oColorsByUsecase('stripes', 'background', $from: 'o-example');
-	border: 1px solid oColorsByUsecase('stripes', 'border', $from: 'o-example');
-}
-````
 
 Removing a usecase is a breaking change and requires a major release. To inform users a usecase should not be used it should be deprecated. Deprecate a usecase by passing an `$opts` argument with a deprecation message.
 

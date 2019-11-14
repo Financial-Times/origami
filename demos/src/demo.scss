@@ -15,7 +15,7 @@ body {
 	}
 }
 
-@each $color-details in oColorsGetPalette() {
+@each $color-details in oColorsGetPaletteDetails() {
 	$name: map-get($color-details, 'name');
 	.o-colors-border-#{$name} {
 		border-width: 2px 2px 0;

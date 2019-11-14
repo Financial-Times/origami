@@ -108,20 +108,20 @@
 
 	@include describe('oColorsSetColor') {
 		@include it('adds a custom palette color') {
-			@include oColorsSetColor('o-colors', 'olive', #808000);
-			@include assert-equal(oColorsByName('olive'), (#808000));
+			@include oColorsSetColor('o-example/olive', #808000);
+			@include assert-equal(oColorsByName('o-example/olive'), (#808000));
 		};
 		@include it('override a default o-colors palette color') {
-			@include oColorsSetColor('o-colors', 'paper', #808000);
+			@include oColorsSetColor('o-colors/paper', #808000);
 			@include assert-equal(oColorsByName('paper'), (#808000));
 			// reset paper color
-			@include oColorsSetColor('o-colors', 'paper', #fff1e5);
+			@include oColorsSetColor('o-colors/paper', #fff1e5);
 		};
 	};
 
 	@include describe('oColorSetUseCase') {
 		@include it('add a custom use case property') {
-			@include oColorsSetUseCase('o-colors', 'test-case', (
+			@include oColorsSetUseCase('o-colors/test-case', (
 				'text': 'candy'
 			));
 			@include assert-equal(oColorsByUsecase(test-case, text), oColorsByName('candy'));
@@ -129,19 +129,19 @@
 		@include it('add a custom use case property for a custom colour') {
 			// A custom colour set by an "o-example" component.
 			$example-color: #808000;
-			@include oColorsSetColor('o-example', 'paper', $example-color);
+			@include oColorsSetColor('o-example/paper', $example-color);
 			// A custom usecase by an "o-example" component, using a custom colour.
-			@include oColorsSetUseCase('o-example', 'page', (
-				'background': ('color': 'paper', 'from': 'o-example')
+			@include oColorsSetUseCase('o-example/page', (
+				'background': 'o-example/paper'
 			));
 			// Assert able to get the new "o-example" usecase.
 			@include assert-equal(
-				oColorsByUsecase('page', 'background', $from: 'o-example'),
+				oColorsByUsecase('o-example/page', 'background'),
 				$example-color
 			);
 		};
 		@include it('override a default o-colors custom use case property') {
-			@include oColorsSetUseCase('o-colors', 'page', (
+			@include oColorsSetUseCase('o-colors/page', (
 				'background': 'candy'
 			));
 			@include assert-equal(oColorsByUsecase('page', 'background'), oColorsByName('candy'));

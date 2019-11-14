@@ -24,10 +24,6 @@
 			@include assert-equal(oColorsByName(null),
 			('ERROR: `$color-name` should be a string but found "null" of type "null".'));
 		};
-		@include it('returns an error if the `$from` argument is not a string') {
-			@include assert-equal(oColorsByName('candy', null),
-			('ERROR: `$from` should be a string but found "null" of type "null".'));
-		};
 	};
 
 	@include describe('oColorsMix') {
@@ -43,9 +39,9 @@
 	};
 
 	@include describe('oColorsUsecaseDetails') {
-		@include it('returns the palette color name for a custom usecase') {
-			@include assert-equal(oColorsUsecaseDetails(focus, outline), ('color': 'black-50', 'from': 'o-colors'));
-			@include assert-equal(oColorsUsecaseDetails(page, background), ('color': 'paper', 'from': 'o-colors'));
+		@include it('returns the palette color name for a usecase') {
+			@include assert-equal(oColorsUsecaseDetails(focus, outline), ('color-name': 'black-50'));
+			@include assert-equal(oColorsUsecaseDetails(page, background), ('color-name': 'paper'));
 		};
 
 		@include it('returns null for a usecase which does not exist') {
@@ -53,23 +49,23 @@
 			@include assert-equal(oColorsUsecaseDetails('fake-usecase-does-not-exist', 'text'), null);
 		};
 
-		@include it('returns the palette color name for a usecase') {
+		@include it('returns the palette color name for a custom usecase') {
 			// A custom usecase by an "o-example" component
-			@include oColorsSetUseCase('o-example', 'page-1', (
+			@include oColorsSetUseCase('o-example/page-1', (
 				'background': 'paper'
 			));
-			@include assert-equal(oColorsUsecaseDetails('page-1', 'background', $from: 'o-example'), ('color': 'paper', 'from': 'o-colors'));
+			@include assert-equal(oColorsUsecaseDetails('o-example/page-1', 'background'), ('color-name': 'paper'));
 		};
 
-		@include it('returns the palette color name for a usecase using a custom colour') {
+		@include it('returns the palette color name for a custom usecase using a custom colour') {
 			// A custom colour set by an "o-example" component.
 			$example-color: #808000;
-			@include oColorsSetColor('o-example', 'paper-2', $example-color);
+			@include oColorsSetColor('o-example/paper-2', $example-color);
 			// A custom usecase by an "o-example" component, using a custom colour.
-			@include oColorsSetUseCase('o-example', 'page-2', (
-				'background': ('color': 'paper-2', 'from': 'o-example')
+			@include oColorsSetUseCase('o-example/page-2', (
+				'background': 'o-example/paper-2'
 			));
-			@include assert-equal(oColorsUsecaseDetails('page-2', 'background', $from: 'o-example'), ('color': 'paper-2', 'from': 'o-example'));
+			@include assert-equal(oColorsUsecaseDetails('o-example/page-2', 'background'), ('color-name': 'o-example/paper-2'));
 		};
 	};
 
@@ -124,12 +120,37 @@
 
 	@include describe('oColorsGetToneDetails') {
 		@include it('returns tone details for a palette colour name which is a tone') {
-			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color': 'claret', 'value': 80));
-			@include assert-equal(oColorsGetToneDetails('claret'), ('color': 'claret', 'value': 60));
+			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color-name': 'claret', 'value': 80));
+			@include assert-equal(oColorsGetToneDetails('claret'), ('color-name': 'claret', 'value': 60));
 		};
 
 		@include it('returns null for a palette colour name which is not a tone') {
 			@include assert-equal(oColorsGetToneDetails('paper'), null);
+		};
+	};
+
+	@include describe('oColorsGetPaletteDetails') {
+		@include it('returns default palette colours without a namespace') {
+			$palette-names: ();
+			@each $color-map in oColorsGetPaletteDetails() {
+				$name: map-get($color-map, 'name');
+				$palette-names: append($palette-names, $name);
+			}
+			$has-paper: index($palette-names, 'paper') != null;
+			@include assert-equal($has-paper, true);
+		};
+
+		@include it('returns custom palette colours with a namespace') {
+			$example-color: #808000;
+			@include oColorsSetColor('o-example/palette-details-test', $example-color);
+
+			$palette-names: ();
+			@each $color-map in oColorsGetPaletteDetails() {
+				$name: map-get($color-map, 'name');
+				$palette-names: append($palette-names, $name);
+			}
+			$has-test-color: index($palette-names, 'o-example/palette-details-test') != null;
+			@include assert-equal($has-test-color, true);
 		};
 	};
 

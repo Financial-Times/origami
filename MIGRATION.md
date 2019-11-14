@@ -95,7 +95,7 @@ The following functions have been removed:
 
 The following variables have been removed:
 
-- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPalette` to iterate over each colour in the palette.
+- `$o-colors-palette` has been removed. Use `oColorsSetColor` to add to the palette or customise a default o-colors palette colour; `oColorsByName` to fetch colors from the palette; or `oColorsGetPaletteDetails` to iterate over each colour in the palette.
 - `$o-colors-tints` has been removed. Please contact the Origami team if you have a usecase for accessing this variable.
 - `$o-colors-usecases` has been removed. Use `oColorsSetUseCase` to add to add a usecase or customise a default o-colors usecase; or `oColorsByUsecase` to fetch a colour for a usecase.
 
@@ -148,7 +148,7 @@ The mixin `oColorsGetUseCase` returns a colour name. It has been removed and the
 
 #### oColorsGetPaletteColor
 
-`oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name` and it must be of type string. A second argument `$from` may also be given to get a colour set by a component or project other than o-colors.
+`oColorsGetPaletteColor` is now `oColorsByName`. The `$name` argument has been renamed `$color-name`.
 
 To fetch a default `o-colors` colour.
 ```diff
@@ -156,61 +156,54 @@ To fetch a default `o-colors` colour.
 +color: oColorsByName('paper');
 ```
 
-To fetch a colour set by a component or project other that `o-colors`.
+To fetch a colour set by a component or project other that `o-colors` include the namespace followed by a forward slash.
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor('o-example-story');
-+color: oColorsByName('stormy', 'o-example');
++color: oColorsByName('o-example/stormy');
 ```
 
 Or with argument names:
 ```diff
 // Fetch the colour 'stormy' from the component 'o-example'.
 -color: oColorsGetPaletteColor($name: 'o-example-story');
-+color: oColorsByName($color-name: 'stormy', $from: 'o-example');
++color: oColorsByName($color-name: 'o-example/stormy');
 ```
 
 #### oColorsSetColor
 
 - The arguments of `oColorsSetColor` have changed.
-- It now supports a colour deprecation message.
 - It errors when overriding an existing palette colour which was not set by o-colors.
 
-A project name must now be given explicitly, which is used to namespace the colour:
+A namespace, for your project or component, must now be given with a forward slash:
 ```diff
-// Setting a custom colour 'pink' within a component or project 'o-example'.
+// Setting a custom colour 'pink' within a component 'o-example'.
 - @include oColorsSetColor('o-example-pink', #ff69b4);
-+ @include oColorsSetColor('o-example', 'pink', #ff69b4);
++ @include oColorsSetColor('o-example/pink', #ff69b4);
 ```
 
 The color name argument no longer accepts a list to deprecate colours. Instead use the new `$opts` argument.
 ```diff
 // Setting a  custom colour 'pink', which is deprecated.
 - @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
-+ @include oColorsSetColor('o-example', 'pink', #ff69b4, (deprecated: true));
-```
-
-A custom deprecation message may be given:
-```diff
-// Setting a  custom colour 'pink', which is deprecated, with a custom deprecation warning.
-- @include oColorsSetColor('o-example-pink', (#ff69b4, _deprecated));
-+ @include oColorsSetColor('o-example', 'pink', #ff69b4, (deprecated: 'reason for deprecation'));
++ @include oColorsSetColor('o-example/pink', #ff69b4, (deprecated: true));
 ```
 
 #### oColorsSetUseCase
 
 - The arguments of `oColorsSetUseCase` have changed.
-- It may also deprecate the properties of a colour usecase more granularly.
 - It errors when overriding an existing usecase which was not set by o-colors.
 
-A project name must now be given explicitly, which is used to namespace the usecase, and properties are given with a map:
+A namespace, for your project or component, must now be given with a forward slash.
+And properties are given with a map:
+
 ```diff
 // Setting a custom usecase within a component 'o-example'.
 // The usecase describes stripes, which have a background, text colour, and border.
 -@include oColorsSetUseCase('o-example-stripe', 'text', 'white');
 -@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
 -@include oColorsSetUseCase('o-example-stripe', 'border', 'black-50');
-+@include oColorsSetUseCase('o-example', 'stripe', (
++@include oColorsSetUseCase('o-example/stripe', (
 +	'text': 'white',
 +	'background': 'black',
 +	'border': 'black-50'
@@ -223,7 +216,7 @@ To deprecate a usecase pass a second options argument:
 -@include oColorsSetUseCase('o-example-stripe', 'background', 'black');
 -@include oColorsSetUseCase('o-example-stripe', 'border', 'black-50');
 -@include oColorsSetUseCase('o-example-stripe', '_deprecated', 'There are no stripes anymore.');
-+@include oColorsSetUseCase('o-example', 'stripe', (
++@include oColorsSetUseCase('o-example/stripe', (
 +	'text': 'white',
 +	'background': 'black',
 +	'border': 'black-50'
@@ -243,8 +236,8 @@ E.g. setting the page background colour from o-colors. In this example no proper
 E.g. setting multiple colour properties to match a 'row-stripe' from an example component o-example.
 ```diff
 -@include oColorsFor(o-example-row-stripe, background border);
-+background: oColorsByUsecase('row-stripe', 'background', $from: 'o-example');
-+border: oColorsByUsecase('row-stripe', 'border', $from: 'o-example');
++background: oColorsByUsecase('o-example/row-stripe', 'background');
++border: oColorsByUsecase('o-example/row-stripe', 'border');
 ```
 
 #### oColorsGetColorFor

@@ -1,36 +1,32 @@
 /// Return the CSS color for a palette color name.
 ///
 /// @param {String} $color-name - The name of the colour to get.
-/// @param {String} $from ['o-colors'] - Which component or project to get the colour from (optional).
-@function oColorsByName($color-name, $from: 'o-colors') {
-	// Validate arguments are strings.
+@function oColorsByName($color-name) {
+	// Validate color name is a string.
 	@if(type-of($color-name) != 'string') {
-		@return _error('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
+		@return _oColorsError('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
 	}
-	@if(type-of($from) != 'string') {
-		@return _error('`$from` should be a string but found "#{inspect($from)}" of type "#{type-of($from)}".');
-	}
+
 	// Error when the color name is not found.
 	// Get the namespaced color name.
-	$namespaced-color-name: '#{$from}-#{$color-name}';
-	$color-map: map-get($_o-colors-palette, $namespaced-color-name);
-	@if (not $color-map) {
-		@return _error('The color "#{inspect($color-name)}" set by "#{inspect($from)}" does not exist.');
+	@if (not _oColorsNameExists($color-name)) {
+		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
 	}
 
 	// Get color details.
-	$color: map-get($color-map, 'color');
+	$color-map: map-get($_o-colors-palette, $color-name);
+	$color: map-get($color-map, 'value');
 	$meta: map-get($color-map, 'meta');
 
 	// Output any deprecation notice.
 	$deprecated: map-get($meta, 'deprecated');
-	$already-warned: index($_o-colors-deprecation-warnings-output, $namespaced-color-name) != null;
+	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
 	@if $deprecated and not $already-warned {
-		$deprecation-message: 'The color "#{$color-name}" from "#{$from}" is deprecated for the "#{oBrandGetCurrentBrand()}" palette, and will be removed in the next major.';
+		$deprecation-message: 'The color "#{$color-name}" is deprecated for the "#{oBrandGetCurrentBrand()}" palette, and will be removed in the next major.';
 		// Append any custom deprecation message.
 		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
 		// Output warning.
-		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $namespaced-color-name) !global;
+		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $color-name) !global;
 		@warn $deprecation-message;
 	}
 
@@ -41,15 +37,13 @@
 ///
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
-/// @param {Color|Null} $fallback - The value to return if the usecase isn't found.
-/// @param {String|Color|Null} - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
+/// @param {String|Color|Null} $fallback - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
 /// @return {Color} - The usecase colour.
-@function oColorsByUsecase($usecase, $property, $fallback: false, $from: 'o-colors') {
+@function oColorsByUsecase($usecase, $property, $fallback: false) {
 	// Find the colour name of the requested usecase.
-	$details: oColorsUsecaseDetails($usecase, $property, $from: $from);
+	$details: oColorsUsecaseDetails($usecase, $property);
 	$details: if($details, $details, ());
-	$color-name: map-get($details, 'color');
-	$color-from: map-get($details, 'from');
+	$color-name: map-get($details, 'color-name');
 	// If no usecase was found and null was given as a fallback return null.
 	@if $color-name == null and $fallback == null {
 		@return null;
@@ -58,58 +52,46 @@
 	@if $color-name == null and type-of($fallback) == 'color' {
 		@return $fallback;
 	}
-	// If no usecase was found and a colour name was given as a fallback find the colour from the name.
+	// If no usecase was found and a string was given as a fallback return the fallback color.
 	@if $color-name == null and type-of($fallback) == 'string' {
-		@return oColorsByName($fallback, $from: 'o-colors');
+		@return oColorsByName($fallback);
 	}
 	// Error if no colour is found.
 	@if($color-name == null) {
-		@return _error('Could not find a colour for the "#{$usecase} #{$property}" usecase in "#{$from}".');
+		@return _oColorsError('Could not find a colour for the "#{$usecase}" "#{$property}" usecase.');
 	}
 
-	@return oColorsByName($color-name, $from: $color-from);
+	@return oColorsByName($color-name);
 }
 
-/// Return the defined palette color name and the project it was set by for a use case / property combination
+/// Return usecase information such as its palette color name.
 ///
 /// @param {String} $usecase - The name of the usecase, e.g. 'page'.
 /// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
-/// @param {String|Null} - The fallback name if the usecase is not found. Either a palette colour string or `null` (note: the default is `false` to indicate no fallback).
-/// @return {Map|Null} - The usecase colour name "color" and the project it was set by "from" e.g. `('color': 'paper', 'from': 'o-colors')`. Or null if the usecase is not set.
-@function oColorsUsecaseDetails($usecase, $property, $from: 'o-colors') {
+/// @return {Map|Null} - The usecase colour name "color-name" e.g. `('color-name': 'paper')`. Or null if the usecase is not set.
+@function oColorsUsecaseDetails($usecase, $property) {
 	// Validate usecase is a string.
 	@if(type-of($usecase) != 'string') {
-		@return _error('`$usecase` should be a string but found ' +
+		@return _oColorsError('`$usecase` should be a string but found ' +
 		'"#{inspect($usecase)}" of type "#{type-of($usecase)}".');
-	}
-
-	// Validate from is a string.
-	@if(type-of($from) != 'string') {
-		@return _error('`$from` should be a string but found ' +
-		'"#{inspect($from)}" of type "#{type-of($from)}".');
 	}
 
 	// Validate property is allowed.
 	$valid-properties: ('text', 'background', 'border', 'outline');
 	@if(not index($valid-properties, $property)) {
-		@return _error('`$property` should be one of ' +
+		@return _oColorsError('`$property` should be one of ' +
 		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
 	}
 
 	// Return null if no usecase is found.
-	$namespaced-usecase: '#{$from}-#{$usecase}';
-	$config: map-get($_o-colors-usecases, $namespaced-usecase);
+	$config: map-get($_o-colors-usecases, $usecase);
 	@if($config == null) {
 		@return null;
 	}
 
 	// Get colour for usecase property.
-	// If the colour was defined as a map it's a custom colour.
-	// $color: ('color': 'my-color', 'from': 'my-project')
 	$colors: map-get($config, 'colors');
-	$color-config: map-get($colors, $property);
-	$color-name: if(type-of($color-config) == 'map', map-get($color-config, 'color'), $color-config);
-	$color-from: if(type-of($color-config) == 'map', map-get($color-config, 'from'), 'o-colors');
+	$color-name: map-get($colors, $property);
 
 	// Return null if no property is found.
 	@if($color-name == null) {
@@ -119,23 +101,21 @@
 	// Output any deprecation warnings, if not already.
 	$opts: map-get($config, 'opts');
 	$deprecated: if(type-of($opts) == 'map', map-get($opts, 'deprecated'), null);
-	$deprecated-key: 'usecase-#{$namespaced-usecase}-#{$property}';
+	$deprecated-key: 'usecase-#{$usecase}-#{$property}';
 	@if(not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
 		@if (type-of($deprecated) == 'string') {
-			@warn 'Color usecase "#{inspect($usecase)}" from #{inspect($from)} is deprecated ' +
+			@warn 'Color usecase "#{inspect($usecase)}" is deprecated ' +
 			'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
 		}
 		@if (type-of($deprecated) == 'map' and map-has-key($deprecated, $property)) {
-			@warn 'The "#{inspect($property)}" property of "#{inspect($from)}" ' +
-			'"#{inspect($usecase)}" color usecase is deprecated: ' +
-			'#{inspect(map-get($deprecated, $property))}';
+			@warn 'The "#{inspect($property)}" property of the "#{inspect($usecase)}" ' +
+			'color usecase is deprecated. #{inspect(map-get($deprecated, $property))}';
 		}
 		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
 
 	@return (
-		'color': $color-name,
-		'from': $color-from,
+		'color-name': $color-name
 	);
 }
 
@@ -160,14 +140,14 @@
 	// Validate the given colour allows different tones.
 	$has-tone-config: map-has-key($_o-colors-default-palette-tones, $color-name);
 	@if (not $has-tone-config) {
-		@return _error('"#{$color-name}" does not support tones. ' +
+		@return _oColorsError('"#{$color-name}" does not support tones. ' +
 			'Consider using a mix instead e.g: ' +
 			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
 
 	// Validate brightness.
 	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
-		@return _error('"$brightness" must be a number between 0 and 100.');
+		@return _oColorsError('"$brightness" must be a number between 0 and 100.');
 	}
 
 	@if $brightness == 0 {
@@ -185,11 +165,11 @@
 ///
 /// @example Get the tone value of 'claret-80'
 ///    $tone-details: oColorsGetToneDetails('claret-80');
-///    $color: map-get($tone-details, 'color'); // claret
+///    $color-name: map-get($tone-details, 'color-name'); // claret
 ///    $value: map-get($tone-details, 'value'); // 80
 ///
 /// @param {String} $color - the palette colour hex or color name e.g. 'claret-80'
-/// @return {Map|Null} - the details of the given tone e.g. ('color': 'claret', 'value': 80)					)
+/// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'value': 80)					)
 @function oColorsGetToneDetails($color) {
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$hue: hue($color);
@@ -199,7 +179,7 @@
 		@while $value <= 100 {
 			@if(inspect(oColorsGetTone($tone-color, $value)) == inspect($color)) {
 				@return (
-					'color': $tone-color,
+					'color-name': $tone-color,
 					'value': $value
 				);
 			}
@@ -221,11 +201,11 @@
 	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
 
 	@if type-of($base) != color {
-		@return _error("'#{inspect($background)}' is not a valid base color.");
+		@return _oColorsError("'#{inspect($background)}' is not a valid base color.");
 	}
 
 	@if type-of($mixer) != color {
-		@return _error("'#{inspect($color)}' is not a valid mixing color.");
+		@return _oColorsError("'#{inspect($color)}' is not a valid mixing color.");
 	}
 
 	@return mix($mixer, $base, $percentage);
@@ -252,16 +232,16 @@
 
 	// Validate arguments.
 	@if($minimum-contrast != null and not map-has-key($contrast-levels, $minimum-contrast)) {
-		@return _error('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
+		@return _oColorsError('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
 		'or `null`. Found "#{inspect($minimum-contrast)}".');
 	}
 
 	@if type-of($background) != color {
-		@return _error("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid hex code or color name for the background color'");
+		@return _oColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid hex code or color name for the background color'");
 	}
 
 	@if type-of($opacity) != 'number' {
-		@return _error("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
+		@return _oColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
 	}
 
 	$contrast-ratio-aim: map-get(
@@ -288,7 +268,7 @@
 	// Error if neither base colour produced a text colour of high enough contrast.
 	@if $minimum-contrast != null {
 		$best-contrast-ratio: if($contrast-ratio-a > $contrast-ratio-b, $contrast-ratio-a, $contrast-ratio-b);
-		@return _error(
+		@return _oColorsError(
 			'The text colour generated for #{inspect($background-name)} at ' +
 			'#{inspect($opacity)}% opacity has a contrast ratio of ' +
 			'"#{inspect($best-contrast-ratio)}" and does not pass the WCAG 2.1 ' +
@@ -330,7 +310,7 @@
 /// 1 is pure white, 0 is pure black.
 /// From: https://css-tricks.com/snippets/sass/luminance-color-function/
 /// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
-/// @return {Number}
+/// @return {Number} - a number between 0 and 1
 @function oColorsColorLuminance($color) {
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 
@@ -377,15 +357,14 @@
 	@return $ratio;
 }
 
-/// Return color names and the component/project name they're from.
-/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper', 'from': 'o-colors'), ('name': 'storm', 'from': 'o-example'))`
-@function oColorsGetPalette() {
+/// Get a list of palette colour details, including the colour name.
+/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper'), ('name': 'o-example/storm')`
+@function oColorsGetPaletteDetails() {
 	$public-palette-details: ();
 
 	@each $name, $color-map in $_o-colors-palette {
 		$details: (
-			'name': map-get($color-map, 'name'),
-			'from': map-get($color-map, 'from')
+			'name': map-get($color-map, 'name')
 		);
 		$public-palette-details: append($public-palette-details, $details);
 	}
@@ -400,12 +379,40 @@
 }
 
 /// Allows for errors to be tested in dev environments
-// Code from: https://github.com/oddbird/true/issues/92
+/// Code from: https://github.com/oddbird/true/issues/92
 /// @access private
-@function _error($message, $capture: $_o-colors-test-environment) {
+@function _oColorsError($message, $capture: $_o-colors-test-environment) {
 	@if $capture {
 		@return 'ERROR: #{$message}';
 	}
 
 	@error('#{$message}');
 };
+
+/// Get a namespace from a colour name.
+/// Returns null if there is no namespace.
+/// @example
+///    $namespace: _oColorsGetNameSpace('o-example/paper'); // o-example
+///    $namespace: _oColorsGetNameSpace('o-colors/paper'); // o-colors
+///    $namespace: _oColorsGetNameSpace('paper'); // null
+@function _oColorsGetNameSpace($color-name) {
+	$slash-index: str-index($color-name, '/');
+	@return if($slash-index, str-slice($color-name, 0, $slash-index - 1), null);
+}
+
+/// Add the default o-colors namespace if a namespace isn't given.
+/// @example
+///    $namespace: _oColorsRemoveDefaultNamespace('o-example/paper'); // o-example/paper
+///    $namespace: _oColorsRemoveDefaultNamespace('o-colors/paper'); // paper
+///    $namespace: _oColorsRemoveDefaultNamespace('paper'); // paper
+@function _oColorsRemoveDefaultNamespace($color-name) {
+	$namespace: _oColorsGetNameSpace($color-name);
+	$slash-index: str-index($color-name, '/');
+	$color-part: if($namespace, str-slice($color-name, $slash-index + 1, -1), $color-name);
+	@return if($namespace == 'o-colors', $color-part, $color-name);
+}
+
+/// Check if a colour name exists in the palette.
+@function _oColorsNameExists($color-name) {
+	@return map-has-key($_o-colors-palette, $color-name);
+}
