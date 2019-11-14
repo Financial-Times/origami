@@ -19,6 +19,7 @@
 			@include assert-equal(oColorsByName('org-b2c'), (#4e96eb));
 			@include assert-equal(oColorsByName('org-b2c-dark'), (#3a70af));
 			@include assert-equal(oColorsByName('org-b2c-light'), (#99c6fb));
+			@include assert-equal(oColorsByName('transparent'), (transparent));
 		};
 		@include it('returns an error if `$color-name` is not a string') {
 			@include assert-equal(oColorsByName(null),
@@ -35,6 +36,7 @@
 			@include assert-equal(oColorsMix($percentage: 20), (#ccc1b7));
 			@include assert-equal(oColorsMix($color: 'claret', $background: 'wheat', $percentage: 50), (#c67786));
 			@include assert-equal(oColorsMix('claret', 'wheat', 50), (#c67786));
+			@include assert-equal(oColorsMix('black', 'transparent', 50), rgba(0, 0, 0, 0.5));
 		};
 	};
 

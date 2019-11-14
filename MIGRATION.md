@@ -60,7 +60,6 @@ Removed CSS classes for palette colours:
 The following colours have been removed from the palette:
 
 - `inherit`. Replace `oColorsGetPaletteColor('inherit');` with `inherit`.
-- `transparent`. Replace `oColorsGetPaletteColor('transparent');` with `transparent`.
 
 Deprecated internal and whitelabel brand palette colours were removed. Please contact Origami if your product has a usecase for one of the removed colours:
 - Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, mandarin, claret.
