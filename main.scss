@@ -11,15 +11,15 @@
 
 /// Output all o-footer styles including a navigation matrix, and two themes.
 ///
-/// @param {string} $opts [('themes': ('light', 'dark'), 'margin': 40px, 'martix': true)] - a map of footer options. Keys include 'themes', a list of themes to support including "dark" and "light"; 'margin', a length to customise the footer's top margin; and 'matrix', a boolean value whether to support a complex footer with large navigation structure.
+/// @param {string} $opts [('themes': ('light', 'dark'), 'margin': 40px, 'matrix': true)] - a map of footer options. Keys include 'themes', a list of themes to support including "dark" and "light"; 'margin', a length to customise the footer's top margin; and 'matrix', a boolean value whether to support a complex footer with large navigation structure.
 @mixin oFooter($opts: (
 	'themes': ('light', 'dark'),
 	'margin': null,
-	'martix': true
+	'matrix': true
 )) {
 	$margin: map-get($opts, 'margin');
 	$margin: if($margin, $margin, (2 * $_o-footer-spacing-unit));
-	$martix: map-get($opts, 'martix');
+	$matrix: map-get($opts, 'matrix');
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
 
@@ -135,7 +135,7 @@
 		}
 	}
 
-	@if $martix {
+	@if $matrix {
 		@include _oFooterMatrix($themes);
 	}
 

@@ -135,7 +135,7 @@ To include all o-footer css call the `oFooter` mixin. However, to keep your CSS 
 To output just the footer styles you need pass an options `$opts` map. The map accepts:
 
 - `themes`: A list of themes to include. Available themes are `light` and `dark`.
-- `martix`: Whether to output styles for a complex navigation structure (not required for a simple footer).
+- `matrix`: Whether to output styles for a complex navigation structure (not required for a simple footer).
 - `margin`: A [length](https://developer.mozilla.org/en-US/docs/Web/CSS/length) to set a custom top margin for o-footer.
 
 E.g. include only the dark theme for a simple footer of legal links:
@@ -149,7 +149,7 @@ E.g. include only the dark theme for a complex footer with a matrix of site link
 ```scss
 @include oFooter($opts: (
 	'themes': ('dark'),
-	'martix': true
+	'matrix': true
 ));
 ```
 
