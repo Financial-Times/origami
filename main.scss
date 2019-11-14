@@ -52,9 +52,9 @@
 			'muted': ('text'),
 		) {
 			.o-colors-#{$usecase}-#{$property} {
-				$color-hex: oColorsByUsecase($usecase, $property, $fallback: null);
+				$color-value: oColorsByUsecase($usecase, $property, $fallback: null);
 				$css-property: if($property == 'text', 'color', $property);
-				#{$css-property}: $color-hex;
+				#{$css-property}: $color-value;
 			}
 		}
 	}
@@ -72,9 +72,9 @@
 				'link': ('text'),
 				'link-hover': ('text'),
 			) {
-				$color-hex: oColorsByUsecase($usecase, $property, $fallback: null);
-				@if $color-hex {
-					#{--o-colors-}#{$usecase}-#{$property}: $color-hex;
+				$color-value: oColorsByUsecase($usecase, $property, $fallback: null);
+				@if $color-value {
+					#{--o-colors-}#{$usecase}-#{$property}: $color-value;
 				}
 			}
 		}

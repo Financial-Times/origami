@@ -168,13 +168,13 @@
 ///    $color-name: map-get($tone-details, 'color-name'); // claret
 ///    $value: map-get($tone-details, 'value'); // 80
 ///
-/// @param {String} $color - the palette colour hex or color name e.g. 'claret-80'
+/// @param {String} $color - the palette colour or color name e.g. 'claret-80'
 /// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'value': 80)					)
 @function oColorsGetToneDetails($color) {
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$hue: hue($color);
 	@each $tone-color, $tone-config in $_o-colors-default-palette-tones {
-		// Check its hex against tone to find the tone value.
+		// Check the given colour against the tone to find the tone value.
 		$value: 0;
 		@while $value <= 100 {
 			@if(inspect(oColorsGetTone($tone-color, $value)) == inspect($color)) {
@@ -214,12 +214,12 @@
 /// Returns a text color based on the background and
 /// an opacity percentage the color should appear at
 ///
-/// @param {Color|String} $background - the palette name or hex of the background the text will appear on
+/// @param {Color|String} $background - the color or palette color name of the background the text will appear on
 /// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
 /// @param {String|Null} $minimum-contrast ['aa-normal'] - the minimum contrast ratio standard between the background and the returned text color, one of: aa-normal, aa-large, aaa-normal, aaa-large. See [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum). If the contrast ratio is too low to meet the selected guideline an error is thrown. Set to `null` to remove contrast checking and never throw an error.
 @function oColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
-	// Get background hex if palette colour name has been given.
 	$background-name: $background;
+	// Get background color if palette colour name has been given.
 	$background: if(type-of($background) == 'string', oColorsByName($background), $background);
 
 	// Contrast values. See https://www.w3.org/TR/WCAG21/#contrast-minimum
@@ -237,7 +237,7 @@
 	}
 
 	@if type-of($background) != color {
-		@return _oColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid hex code or color name for the background color'");
+		@return _oColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid color or palette color name for the background color'");
 	}
 
 	@if type-of($opacity) != 'number' {

@@ -1,22 +1,22 @@
 /// Define a new palette color.
 ///
 /// @example scss - Add a custom palette color
-///     @include oColorsSetColor($color-name: 'o-example/pink', $color-hex: #ff69b4);
+///     @include oColorsSetColor($color-name: 'o-example/pink', $color-value: #ff69b4);
 ///
 /// @example scss - Deprecate a set colour (removing a color from the palette is considered a breaking change and requires a major release).
-///     @include oColorsSetColor(
+///     @include oColorsSetColor (
 ///     	$color-name: 'o-example/pink',
-///     	$color-hex #ff69b4,
+///     	$color-value #ff69b4,
 ///     	$opts: (deprecated: 'your deprecation message')
 ///     );
 ///
 /// @param {String} $color-name - The name of the colour e.g. 'o-example/paper'.
-/// @param {Color} $color-hex - The colour to set (hex) e.g. #ff69b4.
+/// @param {Color} $color-value - The colour to set e.g. #ff69b4.
 /// @param {Map} $opts [()] - A map of options. Accepts a `deprecated` key with a message to deprecated a set colour e.g. `$opts: (deprecated: 'your deprecation message')`.
-@mixin oColorsSetColor($color-name, $color-hex, $opts: ()) {
-	// Validate color-hex.
-	@if type-of($color-hex) != 'color' {
-		@error 'Expected `$color-hex` to be a colour, found "#{$color-hex}" of type "#{type-of($color-hex)}".';
+@mixin oColorsSetColor($color-name, $color-value, $opts: ()) {
+	// Validate color-value.
+	@if type-of($color-value) != 'color' {
+		@error 'Expected `$color-value` to be a colour, found "#{$color-value}" of type "#{type-of($color-value)}".';
 	}
 	// Validate color-name.
 	@if type-of($color-name) != 'string' {
@@ -48,7 +48,7 @@
 	// do not have to check returned colour names with the namespace.
 	$color-name: _oColorsRemoveDefaultNamespace($color-name);
 	$new-color: ($color-name: (
-		'value': $color-hex,
+		'value': $color-value,
 		'name': $color-name,
 		'meta': ('deprecated': $deprecation-message)
 	));
@@ -184,9 +184,9 @@
 /// Add default o-colors palette colours.
 /// @access private
 @mixin _oColorsSetDefaultPaletteColors {
-	@each $color-name, $color-hex, $opts in $_o-colors-default-palette-colors {
+	@each $color-name, $color-value, $opts in $_o-colors-default-palette-colors {
 		$opts: if($opts, $opts, ());
-		@include oColorsSetColor('o-colors/#{$color-name}', $color-hex, $opts);
+		@include oColorsSetColor('o-colors/#{$color-name}', $color-value, $opts);
 	}
 }
 

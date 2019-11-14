@@ -120,7 +120,7 @@ Colour names must be namespaced for the project or component using a forward sla
 // Set a custom palette colour within a component `o-example`.
 @include oColorsSetColor(
 	$color-name: 'o-example/myhotpink',
-	$color-hex: #ff69b4
+	$color-value: #ff69b4
 );
 
 .example {
@@ -135,7 +135,7 @@ Removing a colour is considered a breaking change and requires a major release. 
 // Deprecate a custom colour, which will be removed in a future major release.
 @include oColorsSetColor(
 	$color-name: 'o-example/myhotpink',
-	$color-hex #ff69b4,
+	$color-value #ff69b4,
 	$opts: ('deprecated': 'Use the default colour claret instead.')
 );
 ```
