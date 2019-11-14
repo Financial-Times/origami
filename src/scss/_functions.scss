@@ -88,26 +88,42 @@
 	}
 
 	// Get button colour from custom theme map or brand config, see _brand.scss.
-	$color-name: _oButtonsGet('color', $theme);
+	$color: _oButtonsGet('color', $theme);
+	$context-color: _oButtonsGet('context', $theme);
+
+	// If a colour hex rather than a colour name has been given confirm the
+	// colour exists in the palette.
+	@if type-of($color) == 'color' {
+		$color-in-palette: _oButtonsColorIsInPalette($color);
+		@if not $color-in-palette {
+			@error 'The color "#{$color}" is not a colour in the o-colors palette.';
+		}
+	}
+
+	@if type-of($context-color) == 'color' {
+		$context-color-in-palette: _oButtonsColorIsInPalette($context-color);
+		@if not $context-color-in-palette {
+			@error 'The button context colour "#{$context-color}" is not a colour in the o-colors palette.';
+		}
+	}
 
 	// Get button context from custom theme map or brand config, see _brand.scss.
 	// The button context is the background colour the button is placed on.
-	$context-color-name: _oButtonsGet('context', $theme);
 	$page-background-usecase: oColorsUsecaseDetails('page', 'background');
-	$context-color-name: if(
-		$context-color-name,
-		$context-color-name,
+	$context-color: if(
+		$context-color,
+		$context-color,
 		map-get($page-background-usecase, 'color')
 	);
 
 	// Get button colours depending on button type.
 	$color-map: ();
 	@if($type == 'primary') {
-		$color-map: _oButtonsGetPrimaryButtonColors($color-name, $context-color-name);
+		$color-map: _oButtonsGetPrimaryButtonColors($color, $context-color);
 	}
 
 	@if($type == 'secondary') {
-		$color-map: _oButtonsGetSecondaryButtonColors($color-name, $context-color-name);
+		$color-map: _oButtonsGetSecondaryButtonColors($color, $context-color);
 	}
 
 	// If a button state does not have a property configured, set it to the
@@ -143,19 +159,21 @@
 ///     //  "active-color": black
 ///     // )
 ///
-/// @param {String} $color-name - The button colour e.g. 'teal' (from `o-colors` palette).
-/// @param {String} $context-color-name - The page colour behind the button (from `o-colors` palette).
+/// @param {String|Color} $color - The button colour e.g. 'teal' (from `o-colors` palette).
+/// @param {String|Color} $context-color - The page colour behind the button (from `o-colors` palette).
 /// @return {Map} - Colours for a primary button. Including overrides for each button state.
-@function _oButtonsGetPrimaryButtonColors($color-name, $context-color-name) {
-	$default-background: oColorsByName($color-name);
-	$context-color: oColorsByName($context-color-name);
+@function _oButtonsGetPrimaryButtonColors($color, $context-color) {
+	$color-arg: $color;
+	$context-color-arg: $context-color;
+	$default-background: if(type-of($color) == 'string', oColorsByName($color), $color);
+	$context-color: if(type-of($context-color) == 'string', oColorsByName($context-color), $context-color);
 	$default-context: $context-color == oColorsByUsecase('page', 'background');
 
 	// The default button text colour is black/white on the default page background.
 	// If a different context has been given the text colour matches if possible,
 	// or is mixed to be darker/lighter for higher contrast.
 	// o-buttons does custom contrast checks
-	$default-base-color: oColorsGetTextColor($color-name, 100, $minimum-contrast: null);
+	$default-base-color: oColorsGetTextColor($color, 100, $minimum-contrast: null);
 	$default-color: if(
 		$default-context,
 		$default-base-color,
@@ -197,9 +215,9 @@
 	} @else {
 		// When lightening buttons with a mix use white. Except for the
 		// master brand where a slate button should be mixed with paper.
-		$slate-button: $color-name == 'slate';
 		$light-mix: if(
-			oBrandGetCurrentBrand() == 'master' and $slate-button,
+			oBrandGetCurrentBrand() == 'master' and
+			$default-background == oColorsByName('slate'),
 			oColorsByName('paper'),
 			'white'
 		);
@@ -207,10 +225,10 @@
 		// When darkening buttons with a mix use black. Except for the
 		// master and internal brands, where buttons on slate should be mixed
 		// with slate.
-		$slate-context: $context-color-name == 'slate';
 		$dark-mix: if(
 			(oBrandGetCurrentBrand() == 'master' or
-			oBrandGetCurrentBrand() == 'internal') and $slate-context,
+			oBrandGetCurrentBrand() == 'internal') and
+			$context-color == oColorsByName('slate'),
 			oColorsByName('slate'),
 			'black'
 		);
@@ -219,16 +237,16 @@
 		// darker still for active states. Unless the button color has low
 		// luminance, in which case make the button lighter instead.
 		// E.g. white: 1, claret: 0.07451, slate: 0.02307
-		$color-luminance: oColorsColorLuminance(oColorsByName($color-name));
+		$color-luminance: oColorsColorLuminance($default-background);
 		$mix-color: if($color-luminance > 0.05, $dark-mix, $light-mix);
 
 		// Mix the background colour to make the hover/focus state darker or
 		// lighter. The contrast should be at least 1.5. If not try lowering
 		// the button colour until a minimum mix value we'll accept is reached.
 		$hover-focus-background: _oButtonsGetMixColor(
-			$color-a: $color-name,
+			$color-a: $color,
 			$color-b: $mix-color,
-			$contrast-color: $color-name,
+			$contrast-color: $color,
 			$contrast-aim: 1.5,
 			$preferred-mix: 80,
 			$minimum-mix: 60
@@ -237,7 +255,7 @@
 		// The active background tint should have at least a contrast of 1.5
 		// against the hover/focus background colour.
 		$active-background: _oButtonsGetMixColor(
-			$color-a: $color-name,
+			$color-a: $color,
 			$color-b: $mix-color,
 			$contrast-color: $hover-focus-background,
 			$contrast-aim: 1.5,
@@ -284,7 +302,7 @@
 	);
 
 	// Confirm the contrast of default state.
-	$contrast-error-message: 'Could not create an accessible primary button of colour "#{$color-name}" for a background context "#{$context-color-name}".';
+	$contrast-error-message: 'Could not create an accessible primary button of colour "#{$color-arg}" for a background context "#{$context-color-arg}".';
 	$default-contrast-ratio: oColorsGetContrastRatio($default-color, $default-background);
 	@if($default-contrast-ratio < 4.5) {
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
@@ -330,22 +348,22 @@
 ///		// 	"active-color": black
 ///		// )
 ///
-/// @param {String} $color-name - The button colour e.g. 'teal' (from `o-colors` palette).
-/// @param {String} $context-color-name - The page colour behind the button (from `o-colors` palette).
+/// @param {String|Color} $color - The button colour e.g. 'teal' (from `o-colors` palette).
+/// @param {String|Color} $context-color - The page colour behind the button (from `o-colors` palette).
 /// @return {Map} - Colours for a secondary button. Including overrides for each button state.
-@function _oButtonsGetSecondaryButtonColors($color-name, $context-color-name) {
-	$default-color: oColorsByName($color-name);
+@function _oButtonsGetSecondaryButtonColors($color, $context-color) {
+	$default-color: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$default-background: transparent;
-	$default-background-opaque: oColorsByName($context-color-name);
+	$default-background-opaque: if(type-of($context-color) == 'string', oColorsByName($context-color), $context-color);
 
 	// Get hover/focus colors:
 	// The secondary button hover/focus background is transparent.
 	// It should be 15% opacity if the contrast ratio against the button
 	// copy is passes WCAG AA contrast checks, otherwise use 10%.
 	$hover-focus-background-mix: _oButtonsGetMix(
-		$color-a: $color-name,
-		$color-b: $context-color-name,
-		$contrast-color: $color-name,
+		$color-a: $color,
+		$color-b: $context-color,
+		$contrast-color: $color,
 		$contrast-aim: 4.5,
 		$preferred-mix: 15,
 		$minimum-mix: 10
@@ -353,12 +371,12 @@
 	// Use transparency so the button may be used on a different background
 	// context, and trust the user to test accessibility in their app.
 	// But use an opaque mix to test contrast with the known context.
-	$hover-focus-background: oColorsMix($color-name, transparent, $hover-focus-background-mix);
-	$hover-focus-background-opaque: oColorsMix($color-name, $context-color-name, $hover-focus-background-mix);
+	$hover-focus-background: oColorsMix($color, transparent, $hover-focus-background-mix);
+	$hover-focus-background-opaque: oColorsMix($color, $context-color, $hover-focus-background-mix);
 	// If the hover/focus state doesn't have high enough contrast darken/lighten
 	// the button foreground colour until it does.
 	$hover-focus-color: _oButtonsGetMixColor(
-		$color-a: $color-name,
+		$color-a: $color,
 		$color-b: oColorsGetTextColor($hover-focus-background-opaque, 100),
 		$contrast-color: $hover-focus-background-opaque,
 		$contrast-aim: 4.5,
@@ -367,11 +385,11 @@
 	);
 
 	// Get active colours.
-	$active-background: oColorsByName($color-name);
+	$active-background: $default-color;
 	$active-color: oColorsGetTextColor($active-background, 100);
 
 	// Confirm the contrast of default state.
-	$contrast-error-message: 'Could not create an accessible secondary button of colour "#{$color-name}" for a background context "#{$context-color-name}".';
+	$contrast-error-message: 'Could not create an accessible secondary button of colour "#{$color}" for a background context "#{$context-color}".';
 	$default-contrast-ratio: oColorsGetContrastRatio($default-color, $default-background-opaque);
 	@if $default-contrast-ratio < 4.5 {
 		@error ($contrast-error-message + ' The default text and background colour do not pass WCAG AA contrast checks.');
@@ -473,10 +491,18 @@
 	@return oColorsGetTone($tint-color, $minimum-tint-value);
 }
 
-/// Request an icon from o-icons of a specific colour for a button.
-///
-/// @param {String} $icon-name - icon to request
-/// @param {Color} $icon-color - a hex for the button icon colour
-@mixin _oButtonsGetIcon($icon-name, $icon-color) {
-	@include oIconsContent($icon-name: $icon-name, $size: null, $color: $icon-color, $include-base-styles: false, $high-contrast-fallback: false);
+/// Check if a colour hex is in the o-colors palette.
+/// @returns {Boolean}
+/// @access private
+@function _oButtonsColorIsInPalette($color) {
+	$palette: oColorsGetPalette();
+	@each $color-details in $palette {
+		$name: map-get($color-details, 'name');
+		$from: map-get($color-details, 'from');
+		$palette-color-hex: oColorsByName($name, $from);
+		@if $palette-color-hex == $color {
+			@return true;
+		}
+	}
+	@return false;
 }

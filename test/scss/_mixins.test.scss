@@ -322,4 +322,54 @@
 		};
 	};
 }
+
+@include describe('oButtonsAddTheme') {
+	@include it('outputs a theme for given colour names') {
+		@include assert() {
+			@include output($selector: false)  {
+				@include oButtonsAddTheme(
+					$name: 'test-named-theme-colors',
+					$opts: (
+						'color': 'teal-90',
+						'context': 'slate'
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			};
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-named-theme-colors {
+					background-color: #17d4e6;
+					color: #262a33;
+					border-color: transparent;
+				}
+			};
+		};
+	}
+
+	@include it('outputs a theme for given colour hexes which are in the colour palette') {
+		@include assert() {
+			@include output($selector: false)  {
+				@include oButtonsAddTheme(
+					$name: 'test-hex-theme-colors',
+					$opts: (
+						'color': oColorsByName('teal-90'),
+						'context': oColorsByName('slate')
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			};
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-hex-theme-colors {
+					background-color: #17d4e6;
+					color: #262a33;
+					border-color: transparent;
+				}
+			};
+		};
+	}
+}
 // sass-lint:enable no-vendor-prefixes,no-duplicate-properties

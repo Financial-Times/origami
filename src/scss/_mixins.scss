@@ -299,3 +299,11 @@
 	}
 	// sass-lint:enable no-vendor-prefixes
 }
+
+/// Request an icon from o-icons of a specific colour for a button.
+///
+/// @param {String} $icon-name - icon to request
+/// @param {Color} $icon-color - a hex for the button icon colour
+@mixin _oButtonsGetIcon($icon-name, $icon-color) {
+	@include oIconsContent($icon-name: $icon-name, $size: null, $color: $icon-color, $include-base-styles: false, $high-contrast-fallback: false);
+}
