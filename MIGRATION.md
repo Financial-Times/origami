@@ -38,9 +38,11 @@ To remove the default margin set the `margin` option to false (alternatively set
 +));
 ```
 
-The following Sass has been made private or removed and must not be used:
+The following Sass has been made private or removed and must not be used. Instead use the `oFooter` mixin with related options. Please contract the Origami team if there are any extra options required by your project:
     - `$o-footer-matrix`
     - `$o-footer-spacing-unit`
+    - `oFooterBrandImage`
+    - `oFooterMatrix`
     - `oFooterThemeDark`
     - `oFooterThemeLight`
 

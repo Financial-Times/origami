@@ -9,9 +9,6 @@
 @import 'src/scss/mixins';
 @import "src/scss/colors";
 
-@import "src/scss/matrix";
-@import "src/scss/themes";
-
 /// Output all o-footer styles including a navigation matrix, and two themes.
 ///
 /// @param {string} $opts [('themes': ('light', 'dark'), 'margin': 40px, 'martix': true)] - a map of footer options. Keys include 'themes', a list of themes to support including "dark" and "light"; 'margin', a length to customise the footer's top margin; and 'matrix', a boolean value whether to support a complex footer with large navigation structure.
@@ -133,7 +130,7 @@
 	}
 
 	.o-footer__brand-logo {
-		@include oFooterBrandImage('brand-nikkei-tagline', 200);
+		@include _oFooterBrandImage('brand-nikkei-tagline', 200);
 		height: 20px;
 		background-repeat: no-repeat;
 		background-position: right;
@@ -146,7 +143,7 @@
 	}
 
 	@if $martix {
-		@include oFooterMatrix;
+		@include _oFooterMatrix;
 	}
 
 	// Include the themes
