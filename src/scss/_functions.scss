@@ -161,29 +161,29 @@
 }
 
 /// Figure out if a given colour is a tone. If it is a tone return the original
-/// colour name and its tone value, otherwise return null.
+/// colour name and its tone brightness, otherwise return null.
 ///
-/// @example Get the tone value of 'claret-80'
+/// @example Get the tone brightness of 'claret-80'
 ///    $tone-details: oColorsGetToneDetails('claret-80');
 ///    $color-name: map-get($tone-details, 'color-name'); // claret
-///    $value: map-get($tone-details, 'value'); // 80
+///    $brightness: map-get($tone-details, 'brightness'); // 80
 ///
 /// @param {String} $color - the palette colour or color name e.g. 'claret-80'
-/// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'value': 80)					)
+/// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'brightness': 80)					)
 @function oColorsGetToneDetails($color) {
 	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
 	$hue: hue($color);
 	@each $tone-color, $tone-config in $_o-colors-default-palette-tones {
-		// Check the given colour against the tone to find the tone value.
-		$value: 0;
-		@while $value <= 100 {
-			@if(inspect(oColorsGetTone($tone-color, $value)) == inspect($color)) {
+		// Check the given colour against the tone to find the tone brightness.
+		$brightness: 0;
+		@while $brightness <= 100 {
+			@if(inspect(oColorsGetTone($tone-color, $brightness)) == inspect($color)) {
 				@return (
 					'color-name': $tone-color,
-					'value': $value
+					'brightness': $brightness
 				);
 			}
-			$value: $value + 1;
+			$brightness: $brightness + 1;
 		}
 	}
 	// No tone matched.

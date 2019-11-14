@@ -122,8 +122,8 @@
 
 	@include describe('oColorsGetToneDetails') {
 		@include it('returns tone details for a palette colour name which is a tone') {
-			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color-name': 'claret', 'value': 80));
-			@include assert-equal(oColorsGetToneDetails('claret'), ('color-name': 'claret', 'value': 60));
+			@include assert-equal(oColorsGetToneDetails('claret-80'), ('color-name': 'claret', 'brightness': 80));
+			@include assert-equal(oColorsGetToneDetails('claret'), ('color-name': 'claret', 'brightness': 60));
 		};
 
 		@include it('returns null for a palette colour name which is not a tone') {
