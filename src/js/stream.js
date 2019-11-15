@@ -192,7 +192,9 @@ class Stream {
 		const signedInMessage = document.createElement('div');
 		signedInMessage.innerHTML = `
 								<div class="o-comments__signed-in-container">
-									<p class="o-comments__signed-in-text">Signed in as ${displayName}</p>
+									<p class="o-comments__signed-in-text">Signed in as
+										<span class="o-comments__signed-in-text--inner">${displayName}</span>.
+									</p>
 								</div>`;
 		streamEl.parentNode.insertBefore(signedInMessage, streamEl);
 	}

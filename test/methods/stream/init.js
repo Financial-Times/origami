@@ -64,8 +64,8 @@ module.exports = () => {
 
 			return stream.init()
 				.then(() => {
-					const divTag = document.querySelector('.o-comments__signed-in-text');
-					proclaim.equal(divTag.innerHTML, 'Signed in as fake-display-name');
+					const divTag = document.querySelector('.o-comments__signed-in-text--inner');
+					proclaim.equal(divTag.innerHTML, 'fake-display-name');
 				});
 		});
 	});
