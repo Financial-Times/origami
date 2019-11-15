@@ -12,6 +12,6 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "git://github.com/Financial-Times/o-colors.git#breaking"
+    "o-colors": "^5.0.0-beta.3"
   }
 }
