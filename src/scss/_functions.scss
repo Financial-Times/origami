@@ -113,7 +113,7 @@
 	$context-color: if(
 		$context-color,
 		$context-color,
-		map-get($page-background-usecase, 'color')
+		map-get($page-background-usecase, 'color-name')
 	);
 
 	// Get button colours depending on button type.
@@ -469,13 +469,13 @@
 @function _oButtonsGetDarkerTint($tint, $contrast-aim, $minimum-tint-value) {
 	// Current tint.
 	$tint-details: oColorsGetToneDetails($tint);
-	$tint-color: map-get($tint-details, 'color');
-	$tint-value: map-get($tint-details, 'value');
+	$tint-color: map-get($tint-details, 'color-name');
+	$tint-brightness: map-get($tint-details, 'brightness');
 	// Lower the tint value.
 	// Ensure the initial tint value isn't lower than the minimum value.
 	$initial-tint-decrement: 10;
 	$decrement: 5;
-	$initial-tint-value: $tint-value - $initial-tint-decrement;
+	$initial-tint-value: $tint-brightness - $initial-tint-decrement;
 	$value: if($initial-tint-value > $minimum-tint-value, $initial-tint-value, $minimum-tint-value);
 	// Return the new tint if the current decrement is of high enough contrast.
 	@while $value >= $minimum-tint-value {
@@ -495,11 +495,10 @@
 /// @returns {Boolean}
 /// @access private
 @function _oButtonsColorIsInPalette($color) {
-	$palette: oColorsGetPalette();
+	$palette: oColorsGetPaletteDetails();
 	@each $color-details in $palette {
 		$name: map-get($color-details, 'name');
-		$from: map-get($color-details, 'from');
-		$palette-color-hex: oColorsByName($name, $from);
+		$palette-color-hex: oColorsByName($name);
 		@if $palette-color-hex == $color {
 			@return true;
 		}
