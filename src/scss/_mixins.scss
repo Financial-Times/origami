@@ -149,8 +149,7 @@
 	// rather than assume it, as our sans and serif fonts
 	// use different font weights.
 	@if($type == 'author' or $type == 'topic') {
-		@include oTypographySans($weight: 'semibold', $include-font-family: false);
-		font-family: $o-typography-sans;
+		@include oTypographySans($weight: 'semibold');
 	}
 
 	// Apply tag link styles only to anchor elements.
