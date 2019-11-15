@@ -5,15 +5,15 @@
 ### Palette Colours
 
 Social palette colours have been renamed:
-- `o-share-color-twitter` is now `twitter`.
-- `o-share-color-facebook` is now `facebook`.
-- `o-share-color-linkedin` is now `linkedin`.
-- `o-share-color-pinterest` is now `pinterest`.
-- `o-share-color-whatsapp` is now `whatsapp`.
+- `o-share-color-twitter` is now `o-share/twitter`.
+- `o-share-color-facebook` is now `o-share/facebook`.
+- `o-share-color-linkedin` is now `o-share/linkedin`.
+- `o-share-color-pinterest` is now `o-share/pinterest`.
+- `o-share-color-whatsapp` is now `o-share/whatsapp`.
 
 ```diff
 -$color: oColorsGetPaletteColor('o-share-color-twitter');
-+$color: oColorsByName('twitter', $from: 'o-share');
++$color: oColorsByName('o-share/twitter');
 ```
 
 ### Colour Usecases
@@ -24,29 +24,24 @@ The `tooltip` colour usecases have been removed. If used replace with `white` fo
 +$color: oColorsByName('black-80');
 ```
 
-The colour usecases for FT social icons have been replaced:
-- `o-share-button-inverse`: use `white`.
-- `o-share-button-hover`: use `white`.
-- `o-share-mail-color`: use the `ft-icon` usecase.
-- `o-share-link-color`: use the `ft-icon` usecase.
-- `o-share-share-color`: use the `ft-icon` usecase.
+The colour usecases for social icons have been renamed:
+- `o-share-twitter-color` is now `o-share/twitter-icon`.
+- `o-share-facebook-color` is now `o-share/facebook-icon`.
+- `o-share-linkedin-color` is now `o-share/linkedin-icon`.
+- `o-share-pinterest-color` is now `o-share/pinterest-icon`.
+- `o-share-whatsapp-color` is now `o-share/whatsapp-icon`.
+- `o-share-mail-color` is now `o-share/ft-icon`.
+- `o-share-link-color` is now `o-share/ft-icon`.
+- `o-share-share-color` is now `o-share/ft-icon`.
 
 ```diff
 -border-color: oColorsGetColorFor('o-share-mail-color', 'background');
-+border-color: oColorsByUsecase('ft-icon', 'background', $from: 'o-share');
++border-color: oColorsByUsecase('o-share/ft-icon', 'background');
 ```
 
-The social icon colour usecases have also been renamed:
-- `o-share-twitter-color` is now `twitter-icon`.
-- `o-share-facebook-color` is now `facebook-icon`.
-- `o-share-linkedin-color` is now `linkedin-icon`.
-- `o-share-pinterest-color` is now `pinterest-icon`.
-- `o-share-whatsapp-color` is now `whatsapp-icon`.
-
-```diff
--border-color: oColorsGetColorFor('o-share-twitter-color', background);
-+border-color: oColorsByUsecase('twitter-icon', 'background', $from: 'o-share');
-```
+The following usecases have been removed. Please contact the Origami Team if your project requires these:
+- `o-share-button-inverse`
+- `o-share-button-hover`
 
 ### Variables
 
