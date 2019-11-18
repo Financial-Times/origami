@@ -50,13 +50,6 @@
 			"description": ""
 		},
 		{
-			"title": "Approved Alternative Cookie Banner with Privacy Policy",
-			"name": "privacy-policy-cookie-message",
-			"template": "demos/src/privacy-policy-cookie-message.mustache",
-			"hidden": true,
-			"description": "A temporary privacy policy message for FT products that are **not** FT.com, which will be removed from the component by mid-semptember"
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",

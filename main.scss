@@ -7,9 +7,6 @@
 @import "src/scss/cookie-message";
 @import "src/scss/mixins";
 
-//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-@import "src/scss/privacy-policy-message";
-
 @if ($o-cookie-message-is-silent == false) {
 
 	@include oCookieMessage;
