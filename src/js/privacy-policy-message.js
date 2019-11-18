@@ -1,6 +1,6 @@
 //TODO: remove file when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-const store = require('superstore-sync');
-const oViewport = require('o-viewport');
+import * as store from 'superstore-sync';
+import oViewport from 'o-viewport';
 
 class PrivacyPolicyMessage {
 	constructor (cookieMessageElement, baseClass, position) {

@@ -1,7 +1,7 @@
-const Banner = require('o-banner/src/js/banner');
+import Banner from 'o-banner/src/js/banner';
 
 //TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-const PrivacyPolicyMessage = require('./privacy-policy-message');
+import PrivacyPolicyMessage from './privacy-policy-message';
 
 class CookieMessage {
 	static get defaultOptions() {
