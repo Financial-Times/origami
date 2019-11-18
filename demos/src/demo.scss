@@ -3,5 +3,5 @@
 @include oFooter();
 
 body {
-	@include oColorsFor(page);
+	background: oColorsByUsecase('page', 'background');
 }

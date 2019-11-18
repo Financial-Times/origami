@@ -23,11 +23,13 @@
 	$themes: map-get($opts, 'themes');
 	$themes: if($themes, $themes, ());
 
-	// required by o-grid JS helper
-	@include oGridSurfaceCurrentLayout();
+	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
+	@include oGrid((
+		'surface': ('current-layout'),
+	));
 
 	.o-footer {
-		@include oTypographySans(0, 20px);
+		@include oTypographySans(0);
 		margin-top: $margin;
 		line-height: $_o-footer-spacing-unit;
 
@@ -55,7 +57,7 @@
 		}
 
 		li {
-			@include oTypographySans(-1);
+			@include oTypographySans(-1, $include-font-family: false);
 			list-style: none;
 			display: inline-block;
 
@@ -101,7 +103,7 @@
 			display: block;
 
 			&:after {
-				@include oIconsGetIcon('arrow-right', _oFooterGet('title'), $_o-footer-icon-size, $iconset-version: 1);
+				@include oIconsContent('arrow-right', _oFooterGet('title'), $size: $_o-footer-icon-size);
 				vertical-align: middle;
 				content: ' ';
 			}

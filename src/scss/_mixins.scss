@@ -41,7 +41,7 @@
 		}
 
 		.o-footer__external-link a:after {
-			@include oIconsGetIcon('arrow-right', _oFooterGet('title', $from: $theme), $_o-footer-icon-size, $apply-base-styles: false, $iconset-version: 1);
+			@include oIconsContent('arrow-right', _oFooterGet('title', $from: $theme), $size: $_o-footer-icon-size, $include-base-styles: false);
 		}
 
 		.o-footer__copyright {
@@ -107,7 +107,7 @@
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {
-						@include oIconsGetIcon('arrow-down', _oFooterGet('title', $theme), $_o-footer-icon-size, $iconset-version: 1);
+						@include oIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
 					}
 				}
 			}

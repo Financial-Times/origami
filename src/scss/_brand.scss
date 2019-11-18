@@ -12,29 +12,29 @@
 
 @if oBrandGetCurrentBrand() == 'master' {
 	$_o-footer-dark-link-text-color: oColorsMix('white', 'slate', 60);
-	$_o-footer-light-link-text-color: oColorsGetPaletteColor('black-60');
+	$_o-footer-light-link-text-color: oColorsByName('black-60');
 
 	@include oBrandDefine('o-footer', 'master', (
 		'variables': (
-			'title': oColorsGetPaletteColor('white'),
+			'title': oColorsByName('white'),
 			'dark': (
-				'text': oColorsGetPaletteColor('white'),
-				'background': oColorsGetPaletteColor('slate'),
+				'text': oColorsByName('white'),
+				'background': oColorsByName('slate'),
 				'border': oColorsMix('white', 'slate', 20),
-				'title': oColorsGetPaletteColor('white'),
+				'title': oColorsByName('white'),
 				'link': $_o-footer-dark-link-text-color,
-				'link-hover': oColorsGetPaletteColor('white'),
-				'brand-background': oColorsGetPaletteColor('black'),
+				'link-hover': oColorsByName('white'),
+				'brand-background': oColorsByName('black'),
 				'copyright': $_o-footer-dark-link-text-color,
 			),
 			'light': (
-				'text': oColorsGetPaletteColor('black-80'),
-				'background': oColorsGetPaletteColor('black-5'),
-				'border': oColorsGetPaletteColor('black-20'),
-				'title': oColorsGetPaletteColor('black'),
+				'text': oColorsByName('black-80'),
+				'background': oColorsByName('black-5'),
+				'border': oColorsByName('black-20'),
+				'title': oColorsByName('black'),
 				'link': $_o-footer-light-link-text-color,
-				'link-hover': oColorsGetPaletteColor('black'),
-				'brand-background': oColorsGetPaletteColor('black-20'),
+				'link-hover': oColorsByName('black'),
+				'brand-background': oColorsByName('black-20'),
 				'copyright': $_o-footer-light-link-text-color,
 			)
 		),
