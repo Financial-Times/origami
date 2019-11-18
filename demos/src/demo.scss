@@ -1,10 +1,8 @@
 $o-table-is-silent: false;
 @import "./../../main";
 
-// Default font and styles
 html {
-	font-family: BentonSans, sans-serif;
-	background: oColorsGetColorFor('page', 'background');
+	background: oColorsByUsecase('page', 'background');
 }
 
 .o-forms-field--demo {

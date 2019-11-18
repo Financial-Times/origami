@@ -29,7 +29,7 @@
 		padding: 0;
 		padding-right: $_o-table-sort-icon-size;
 		&:after {
-			@include oIconsGetIcon('arrows-up-down', $container-width: $_o-table-sort-icon-size,  $container-height: $_o-table-sort-icon-size, $iconset-version: 1);
+			@include oIconsContent('arrows-up-down', $size: $_o-table-sort-icon-size);
 			content: '';
 			vertical-align: middle;
 			margin: -($_o-table-sort-icon-size/2) 0;
@@ -40,7 +40,7 @@
 	// Show descending icon in sort button with DSC sort applied.
 	[aria-sort='descending'] .o-table__sort {
 		&:after {
-			@include oIconsGetIcon('arrow-down', $container-width: $_o-table-sort-icon-size,  $container-height: $_o-table-sort-icon-size, $iconset-version: 1);
+			@include oIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
 			vertical-align: middle;
 		}
 	}
@@ -50,7 +50,7 @@
 	th:not([aria-sort]) .o-table__sort:hover, // sass-lint:disable-line no-qualifying-elements
 	[aria-sort='ascending'] .o-table__sort {
 		&:after {
-			@include oIconsGetIcon('arrow-up', $container-width: 1.25rem,  $container-height: 1.25rem, $iconset-version: 1);
+			@include oIconsContent('arrow-up', $size: 1.25rem);
 			vertical-align: middle;
 		}
 	}

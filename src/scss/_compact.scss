@@ -2,17 +2,14 @@
 /// @access private
 @mixin _oTableCompact {
 	.o-table--compact {
-		th {
-			@include oTypographySansBold(0);
-		}
-
-		td {
-			@include oTypographySans(0);
-		}
-
 		th,
 		td {
+			@include oTypographySans(0);
 			padding: 4px 10px;
+		}
+
+		th {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 		}
 	}
 }

@@ -1,9 +1,7 @@
 {
-  "name": "o-table",
-  "description": "FT-branded tables",
-  "private": true,
-  "scripts": {
-    "heroku-postbuild": "npx origami-build-tools install && npm i serve && npx origami-build-tools demo",
-    "start": "serve -l $PORT"
-  }
+	"private": true,
+	"name": "o-table",
+	"devDependencies": {
+		"origami-ci-tools": "^1.0.0"
+	}
 }

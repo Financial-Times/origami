@@ -25,7 +25,10 @@
 			pointer-events: all;
 			transition: 1s opacity ease-in-out;
 			button {
-				@include oButtons($size: 'big', $theme: 'primary');
+				@include oButtonsContent((
+					'type': 'primary',
+					'size': 'big'
+				));
 			}
 		}
 
@@ -45,9 +48,17 @@
 			@supports (pointer-events: none)  {
 				position: absolute;
 				top: calc(50% - 20px);
-				transition: opacity 0.3s $o-visual-effects-transition-fade;
+				transition: opacity 0.3s $o-visual-effects-timing-fade;
 			}
 			z-index: 1;
+		}
+
+		.o-table-control--back button,
+		.o-table-control--forward button {
+				@include oButtonsContent((
+					'size': 'big',
+					'icon-only': true
+				), $include-base-styles: false);
 		}
 
 		.o-table-control--back {
@@ -55,11 +66,13 @@
 			float: left; //sticky
 			margin: 0 10px;
 			button {
-				@include oButtonsIconButton(
-					$icon-name: 'arrow-left',
-					$size: 'big',
-					$theme: 'primary',
-					$is-icon-only: true
+				@include oButtonsContent(
+					$opts: (
+						'type': 'primary',
+						'icon': 'arrow-left'
+					),
+					$include-base-styles: false,
+					$include-base-icon-styles: false
 				);
 			}
 		}
@@ -69,11 +82,13 @@
 			float: right; //sticky
 			margin: 0 10px;
 			button {
-				@include oButtonsIconButton(
-					$icon-name: 'arrow-right',
-					$size: 'big',
-					$theme: 'primary',
-					$is-icon-only: true
+				@include oButtonsContent(
+					$opts: (
+						'type': 'primary',
+						'icon': 'arrow-right'
+					),
+					$include-base-styles: false,
+					$include-base-icon-styles: false
 				);
 			}
 		}
@@ -96,7 +111,7 @@
 			bottom: 0;
 			height: 40px;
 			pointer-events: none;
-			border-color: oButtonsGetColor('default', 'background', $theme: 'primary');
+			border-color: oButtonsGetColor('default', 'background', $type: 'primary');
 			border-style: solid;
 			width: 1px;
 		}
