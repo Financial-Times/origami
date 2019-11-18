@@ -4,7 +4,7 @@ $o-stepped-progress-is-silent: false;
 @import '../../main';
 
 body {
-	@include oColorsFor('page', 'background');
+	background: oColorsByUsecase('page', 'background');
 	margin: 1em;
 }
 

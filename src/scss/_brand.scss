@@ -18,11 +18,18 @@ $_o-stepped-progress-shared-brand-config: (
 	step-border-size: 2px,
 	label-max-width: 10em,
 	bar-weight: 2px,
-	container-background: oColorsGetPaletteColor(oColorsGetUseCase('page', 'background')),
-	default-color: oColorsGetPaletteColor('black-40'),
-	interacted-color: oColorsGetPaletteColor('slate'),
-	error-color: oColorsMix('crimson', oColorsGetUseCase('page', 'background'), 90)
+	container-background: oColorsByUsecase('page', 'background'),
+	default-color: oColorsByName('black-40'),
+	error-color: oColorsMix('crimson', $percentage: 90)
 );
+
+// Define shared master/internal brand configurations
+@if oBrandGetCurrentBrand() == 'master'  or oBrandGetCurrentBrand() == 'internal' {
+	$_o-stepped-progress-shared-brand-config: map-merge(
+		$_o-stepped-progress-shared-brand-config,
+		(interacted-color: oColorsByName('slate'))
+	);
+}
 
 // Define masterbrand
 @if oBrandGetCurrentBrand() == 'master' {
@@ -52,7 +59,9 @@ $_o-stepped-progress-shared-brand-config: (
 // Define whitelabel brand
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-stepped-progress', 'whitelabel', (
-		'variables': map-merge($_o-stepped-progress-shared-brand-config, ()),
+		'variables': map-merge($_o-stepped-progress-shared-brand-config, (
+			interacted-color: oColorsByName('black'),
+		)),
 		'supports-variants': ()
 	));
 }

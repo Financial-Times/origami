@@ -185,11 +185,11 @@
 	// Completed step modifier
 	.o-stepped-progress__step--complete {
 		&::before {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: 'tick',
 				$color: _oSteppedProgressGet('container-background'),
-				$apply-base-styles: false,
-				$apply-width-height: false,
+				$size: null,
+				$include-base-styles: false,
 				$high-contrast-fallback: false
 			);
 			background-color: _oSteppedProgressGet('interacted-color');
@@ -209,11 +209,11 @@
 	// Errored step modifier
 	.o-stepped-progress__step--error {
 		&::before {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: 'warning',
 				$color: _oSteppedProgressGet('container-background'),
-				$apply-base-styles: false,
-				$apply-width-height: false,
+				$size: null,
+				$include-base-styles: false,
 				$high-contrast-fallback: false
 			);
 			background-color: _oSteppedProgressGet('error-color');
@@ -288,11 +288,11 @@
 		// Completed step modifier
 		.o-stepped-progress__step--complete {
 			&::before {
-				@include oIconsGetIcon(
+				@include oIconsContent(
 					$icon-name: 'tick',
 					$color: _oSteppedProgressGet('interacted-color'),
-					$apply-base-styles: false,
-					$apply-width-height: false,
+					$size: null,
+					$include-base-styles: false,
 					$high-contrast-fallback: false
 				);
 				background-color: _oSteppedProgressGet('container-background');

@@ -13,10 +13,10 @@
     "main.js"
   ],
   "dependencies": {
-    "o-colors": "^4.7.7",
-    "o-icons": "^5.8.0",
-    "o-normalise": "^1.6.2",
-    "o-typography": "^5.7.8",
+    "o-colors": "5.0.0-beta.3",
+    "o-icons": "6.0.0-beta.3",
+    "o-normalise": "v2.0.0-beta.6",
+    "o-typography": "6.0.0-beta.4",
     "o-spacing": "^2.0.0"
   }
 }
