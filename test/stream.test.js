@@ -7,6 +7,7 @@ import renderComments from './methods/stream/render-comments';
 import init from './methods/stream/init';
 import authenticateUser from './methods/stream/authenticate-user';
 import publishEvent from './methods/stream/publish-event';
+import renderSignedInMessage from './methods/stream/render-signed-in-message';
 
 describe("Stream", () => {
 	it("is defined", () => {
@@ -17,4 +18,5 @@ describe("Stream", () => {
 	describe('.renderComments', renderComments);
 	describe('.authenticateUser', authenticateUser);
 	describe('.publishEvent', publishEvent);
+	describe('.renderSignedInMessage', renderSignedInMessage);
 });

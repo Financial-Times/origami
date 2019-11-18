@@ -40,5 +40,40 @@ module.exports = () => {
 
 		proclaim.isTrue(authStub.calledOnce);
 	});
+
+	describe('.renderSignedInMessage', () => {
+		beforeEach(() => {
+			sandbox.stub(Stream.prototype, 'renderComments').resolves();
+			sandbox.stub(Stream.prototype, 'authenticateUser').resolves();
+		});
+
+		afterEach(() => {
+			sandbox.restore();
+		});
+
+		it("creates a div tag for the 'Signed in as' message", () => {
+			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			const stream = new Stream(mockStreamEl);
+			stream.displayName = 'fake-display-name';
+
+			return stream.init()
+				.then(() => {
+					const divTag = document.querySelector('.o-comments__signed-in-container');
+					proclaim.isTrue(!!divTag);
+				});
+		});
+
+		it("renders the correct display name within the 'Signed in as' message", () => {
+			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
+			const stream = new Stream(mockStreamEl);
+			stream.displayName = 'fake-display-name';
+
+			return stream.init()
+				.then(() => {
+					const divTag = document.querySelector('.o-comments__signed-in-inner-text');
+					proclaim.equal(divTag.innerHTML, 'fake-display-name');
+				});
+		});
+	});
 };
 

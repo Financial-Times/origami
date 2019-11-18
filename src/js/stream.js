@@ -19,6 +19,10 @@ class Stream {
 	init () {
 		return Promise.all([this.renderComments(), this.authenticateUser()])
 			.then(() => {
+				if (this.displayName) {
+					Stream.renderSignedInMessage(this.streamEl, this.displayName);
+				}
+
 				if (this.authenticationToken) {
 					this.embed.login(this.authenticationToken);
 				}
@@ -37,6 +41,8 @@ class Stream {
 
 		return auth.fetchJsonWebToken(fetchOptions)
 			.then(response => {
+				this.displayName = response.displayName;
+
 				if (response.token) {
 					if (this.embed) {
 						this.embed.login(response.token);
@@ -182,6 +188,17 @@ class Stream {
 					}
 				}
 			});
+	}
+
+	static renderSignedInMessage (streamEl, displayName) {
+		const signedInMessage = document.createElement('div');
+		signedInMessage.innerHTML = `
+								<div class="o-comments__signed-in-container">
+									<p class="o-comments__signed-in-text">Signed in as
+										<span class="o-comments__signed-in-inner-text">${displayName}</span>.
+									</p>
+								</div>`;
+		streamEl.parentNode.insertBefore(signedInMessage, streamEl);
 	}
 }
 

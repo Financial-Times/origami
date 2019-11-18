@@ -54,12 +54,7 @@
 
 }
 
-// If you don't like gross code then look away now
-// This is just used as a back up plan for hiding the "not you? sign out" part of coral
-// Coral should be removing this functionality for us but until they do we are using gross css to hide it
-
-.coral-viewerBox > div > div > span:not([class]):first-child,
-.coral-viewerBox-logoutButton {
+.coral-viewerBox {
 	display: none;
 }
 
