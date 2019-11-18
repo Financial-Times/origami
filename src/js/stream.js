@@ -19,7 +19,9 @@ class Stream {
 	init () {
 		return Promise.all([this.renderComments(), this.authenticateUser()])
 			.then(() => {
-				Stream.renderSignedInMessage(this.streamEl, this.displayName);
+				if (this.displayName) {
+					Stream.renderSignedInMessage(this.streamEl, this.displayName);
+				}
 
 				if (this.authenticationToken) {
 					this.embed.login(this.authenticationToken);
@@ -193,7 +195,7 @@ class Stream {
 		signedInMessage.innerHTML = `
 								<div class="o-comments__signed-in-container">
 									<p class="o-comments__signed-in-text">Signed in as
-										<span class="o-comments__signed-in-text--inner">${displayName}</span>.
+										<span class="o-comments__signed-in-inner-text">${displayName}</span>.
 									</p>
 								</div>`;
 		streamEl.parentNode.insertBefore(signedInMessage, streamEl);

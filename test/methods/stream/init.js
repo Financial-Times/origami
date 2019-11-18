@@ -42,11 +42,19 @@ module.exports = () => {
 	});
 
 	describe('.renderSignedInMessage', () => {
-		it("creates a div tag for the 'Signed in as' message", () => {
+		beforeEach(() => {
 			sandbox.stub(Stream.prototype, 'renderComments').resolves();
 			sandbox.stub(Stream.prototype, 'authenticateUser').resolves();
+		});
+
+		afterEach(() => {
+			sandbox.restore();
+		});
+
+		it("creates a div tag for the 'Signed in as' message", () => {
 			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 			const stream = new Stream(mockStreamEl);
+			stream.displayName = 'fake-display-name';
 
 			return stream.init()
 				.then(() => {
@@ -56,15 +64,13 @@ module.exports = () => {
 		});
 
 		it("renders the correct display name within the 'Signed in as' message", () => {
-			sandbox.stub(Stream.prototype, 'renderComments').resolves();
-			sandbox.stub(Stream.prototype, 'authenticateUser').resolves();
 			const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
 			const stream = new Stream(mockStreamEl);
 			stream.displayName = 'fake-display-name';
 
 			return stream.init()
 				.then(() => {
-					const divTag = document.querySelector('.o-comments__signed-in-text--inner');
+					const divTag = document.querySelector('.o-comments__signed-in-inner-text');
 					proclaim.equal(divTag.innerHTML, 'fake-display-name');
 				});
 		});
