@@ -1,6 +1,6 @@
 {
-	"private": true,
 	"name": "o-tabs",
+	"private": true,
 	"devDependencies": {
 		"origami-ci-tools": "^1.0.0"
 	}
