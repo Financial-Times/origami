@@ -13,7 +13,8 @@ module.exports = () => {
 
 	it("creates a div tag for the 'Signed in as' message", () => {
 		const mockStreamEl = document.querySelector('[data-o-comments-article-id="id"]');
-		Stream.renderSignedInMessage(mockStreamEl, 'fake-display-name');
+		const stream = new Stream(mockStreamEl);
+		stream.renderSignedInMessage();
 		const divTag = document.querySelector('.o-comments__signed-in-container');
 
 		proclaim.isTrue(!!divTag);

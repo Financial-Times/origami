@@ -78,21 +78,41 @@ module.exports = () => {
 			sandbox.restore();
 		});
 
-		it("calls embed.login with the new token", (done) => {
+		it("sets this.authenticationToken to the token", (done) => {
 			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
 				token: 'fake-jwt'
 			});
 
-			const loginStub = sandbox.stub();
 			const stream = new Stream();
-
-			stream.embed = {
-				login: loginStub
-			};
-
 			stream.authenticateUser()
 				.then(() => {
-					proclaim.isTrue(loginStub.calledWith('fake-jwt'));
+					proclaim.equal(stream.authenticationToken, 'fake-jwt');
+					done();
+				});
+
+		});
+
+	});
+
+	describe.only("fetchJsonWebToken returns a displayName", () => {
+		beforeEach(() => {
+			fixtures.streamMarkup();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+			sandbox.restore();
+		});
+
+		it("sets this.displayName to the display name", (done) => {
+			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+				displayName: 'fake-display-name'
+			});
+
+			const stream = new Stream();
+			stream.authenticateUser()
+				.then(() => {
+					proclaim.equal(stream.displayName, 'fake-display-name');
 					done();
 				});
 
