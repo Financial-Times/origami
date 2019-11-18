@@ -1,9 +1,9 @@
 $o-teaser-collection-is-silent: false !default;
 
 $_o-teaser-collection-color-bottom-border: oColorsMix(black, paper, 20);
-$_o-teaser-collection-color-special-bg: oColorsGetPaletteColor('wheat');
+$_o-teaser-collection-color-special-bg: oColorsByName('wheat');
 $_o-teaser-collection-color-thin-border: oColorsMix(black, paper, 20);
 
-$_o-teaser-collection-color-assassination-bg: oColorsGetPaletteColor('slate');
+$_o-teaser-collection-color-assassination-bg: oColorsByName('slate');
 $_o-teaser-collection-color-assassination-bottom-bg: oColorsMix(white, slate, 5);
-$_o-teaser-collection-color-assassination-heading: oColorsGetPaletteColor('white');
+$_o-teaser-collection-color-assassination-heading: oColorsByName('white');

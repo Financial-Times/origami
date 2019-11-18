@@ -3,7 +3,7 @@
 @include oTeaserCollection();
 
 body {
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByUsecase('page', 'background');
 	margin: oSpacingByName('s8');
 	max-width: map-get($o-grid-layouts, 'XL');
 	.demo-paragraph {
@@ -15,12 +15,12 @@ body {
 }
 
 .demo-inverse body {
-	background-color: oColorsGetPaletteColor('slate');
+	background-color: oColorsByName('slate');
 }
 
 .demo-inverse body,
 .demo-inverse-copy body {
 	.demo-paragraph {
-		color: oColorsGetPaletteColor('white');
+		color: oColorsByName('white');
 	}
 }

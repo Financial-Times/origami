@@ -49,6 +49,10 @@ If your project uses these mixins replace with a single call to `oTeaserCollecti
 }
 ```
 
+#### Colour Usecases
+
+The `o-teaser-collection-heading` background colour usecase has been removed, use the default o-colors `page` background usecase instead.
+
 #### Dependencies
 
 v3 updates its dependecy on `o-icons`. Confirm your project builds correctly and resolve any conflicts.

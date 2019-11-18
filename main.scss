@@ -4,7 +4,6 @@
 @import "o-icons/main";
 @import "o-grid/main";
 
-@import "src/scss/colors";
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
@@ -61,7 +60,7 @@
 				border: 0;
 			}
 			a:after {
-				@include oIconsGetIcon('arrow-right', $_o-teaser-collection-color-assassination-heading, 30, $iconset-version: 1);
+				@include oIconsContent('arrow-right', $_o-teaser-collection-color-assassination-heading, $size: 30);
 			}
 		}
 	}
@@ -177,12 +176,12 @@
 			// modifies borders when stacked(S) and horizontal(M+)
 			.o-teaser-collection__item {
 				margin: 0;
-				border-bottom: 1px solid rgba(oColorsGetPaletteColor('white'), 0.2);
+				border-bottom: 1px solid rgba(oColorsByName('white'), 0.2);
 				padding: 15px 0;
 
 				@include oGridRespondTo(M) {
 					margin: 20px 0;
-					border-right: 1px solid rgba(oColorsGetPaletteColor('white'), 0.2);
+					border-right: 1px solid rgba(oColorsByName('white'), 0.2);
 					border-bottom: 0;
 					padding: 0 10px;
 				};
