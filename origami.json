@@ -38,38 +38,41 @@
 	},
 	"demos": [
 		{
-			"title": "Base Style",
-			"name": "base-style",
-			"template": "demos/src/base-style.mustache",
-			"hidden": true,
-			"description": ""
-		},
-		{
 			"title": "Buttontabs",
 			"name": "buttontabs",
 			"template": "demos/src/buttontabs.mustache",
 			"description": ""
 		},
 		{
-			"title": "Buttontabs Big",
-			"name": "buttontabs-big",
-			"template": "demos/src/buttontabs-big.mustache",
-			"description": ""
-		},
-		{
-			"title": "Buttontabs Primary",
+			"title": "Button Tabs Primary",
 			"name": "buttontabs-primary",
 			"template": "demos/src/buttontabs-primary.mustache",
 			"description": "",
 			"hidden": true
 		},
 		{
-			"title": "Buttontabs Inverse",
+			"title": "Button Tabs Secondary Inverse",
 			"name": "buttontabs-inverse",
 			"template": "demos/src/buttontabs-inverse.mustache",
 			"documentClasses": "demo-inverse",
-			"description": "",
-			"hidden": true
+			"brands": [
+				"master",
+				"internal"
+			],
+			"description": ""
+		},
+		{
+			"title": "Button Tabs Big",
+			"name": "buttontabs-big",
+			"template": "demos/src/buttontabs-big.mustache",
+			"description": "Add the big modifier to any theme for larger tabs."
+		},
+		{
+			"title": "Base Style",
+			"name": "base-style",
+			"template": "demos/src/base-style.mustache",
+			"hidden": true,
+			"description": ""
 		},
 		{
 			"title": "Pa11y",

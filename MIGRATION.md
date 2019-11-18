@@ -3,6 +3,10 @@
 
 ## Migrating from v4 to v5
 
+### Markup
+
+Button tabs no longer have a default theme. Add the CSS class `o-tabs--secondary` to your markup where `o-tabs o-tabs--buttontabs` has been used alone without a theme
+
 ### Mixins
 
 - The `oTabs` mixin now includes all styles required for unstyled tabs and button tabs. See the [Sass documentation](README.md#sass) for information on the new parameters
