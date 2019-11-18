@@ -35,10 +35,8 @@ class CookieMessage {
 		if (this.shouldShowCookieMessage()) {
 			this.createCookieMessage();
 			this.showCookieMessage();
-			this.displayPrivacyMessage('top');
 		} else {
 			this.removeCookieMessage();
-			this.displayPrivacyMessage('bottom');
 		}
 	}
 
