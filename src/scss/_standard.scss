@@ -6,25 +6,19 @@
 @if $_o-quote-first-import == true {
 	%_o-quote--standard {
 		position: relative;
-		background-color: oColorsGetColorFor(o-quote, background);
-		border-left: 4px solid oColorsGetColorFor(o-quote, border);
-
+		border-left: 4px solid oColorsByName('black-90');
 		padding-top: 0px;
 		padding-bottom: 0px;
-
 		padding-left: oSpacingByName('s4');
+		color: oColorsByName('black');
 
 		a {
 			@include oTypographyLink;
 		}
-
-		p {
-			color: oColorsGetColorFor(o-quote, text);
-		}
 	}
 
 	%_o-quote__author {
-		@include oTypographySansBold($scale: 0);
+		@include oTypographySans($scale: 0, $weight: 'semibold');
 		text-transform: uppercase;
 		display: block;
 	}
@@ -34,10 +28,8 @@
 	}
 
 	%_o-quote-cite--standard {
-		@include oTypographySans($scale: 1);
-		font-weight: normal;
-		font-style: normal;
-		color: oColorsGetColorFor(body, text);
+		// Output weight and style to override browser defaults.
+		@include oTypographySans($scale: 1, $weight: 'regular', $style: 'normal');
 		a {
 			@include oTypographyLink;
 		}

@@ -20,6 +20,10 @@ Which will output the base styles, the citation styles and the special editorial
 
 This shouldn't affect how you work, but the mixins in this component have been implemented using Sass's [placeholder selectors](https://sass-lang.com/documentation/style-rules/placeholder-selectors). This should be transparent to you, the user, but it means multiple uses of the non-primary mixins will end up in the same place in the outputted CSS and if you're reading the outputted CSS when debugging that might just be something to bear in mind.
 
+### Colour Usecases
+
+The `o-quote` colour usecases have been removed, please contact the team if your projects needs `o-quote` colour usecases.
+
 ## Migrating from v1 to v2
 
 - v2 brings in the new majors of `o-colors` and `o-typography` and introduces a new dependency on `o-icons`. Some of these components may result in bower conflicts if you're using other Origami components which require different versions. The solution to this is to update your other dependencies.
