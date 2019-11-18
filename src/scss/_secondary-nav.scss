@@ -73,14 +73,14 @@
 		}
 
 		&:before {
-			@include oIconsGetIcon('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oSpacingByName('s4'));
+			@include oIconsContent('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oSpacingByName('s4'));
 			content: '';
 			position: relative;
 			top: 0.2em;
 		}
 
 		a {
-			@include oTypographyBold('sans');
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			text-transform: uppercase;
 		}
 	}
@@ -107,13 +107,16 @@
 	}
 
 	.o-header-services__scroll-button {
-		@include oButtonsTheme($theme: $_o-header-services-button-theme);
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary'
+		));
 		border: 1px solid _oHeaderServicesGet('nav-border');
 		display: inline-block;
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		transition: opacity 0.5s $o-visual-effects-transition-fade;
+		transition: opacity 0.5s $o-visual-effects-timing-fade;
 
 		&[disabled] {
 			opacity: 0;
@@ -126,22 +129,24 @@
 	}
 
 	.o-header-services__scroll-button--left {
-		@include oButtonsIconButton(
-			$icon-name: 'arrow-left',
-			$theme: $_o-header-services-button-theme,
-			$is-icon-only: true
-		);
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary',
+			'icon': 'arrow-left',
+			'icon-only': true,
+		));
 		border-width: 0 1px 0 0;
 		min-width: $_o-header-services-button-icon-size;
 		left: 0;
 	}
 
 	.o-header-services__scroll-button--right {
-		@include oButtonsIconButton(
-			$icon-name: 'arrow-right',
-			$theme: $_o-header-services-button-theme,
-			$is-icon-only: true
-		);
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary',
+			'icon': 'arrow-right',
+			'icon-only': true,
+		));
 		border-width: 0 0 0 1px;
 		min-width: $_o-header-services-button-icon-size;
 		right: 0;

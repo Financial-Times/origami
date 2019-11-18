@@ -37,7 +37,7 @@
 			.o-header-services__drawer-close-button:hover {
 				color: _oHeaderServicesGet('nav-text', $from: $theme);
 				&:after {
-					@include oIconsGetIcon('cross', _oHeaderServicesGet('nav-text', $from: $theme),  1.5rem);
+					@include oIconsContent('cross', _oHeaderServicesGet('nav-text', $from: $theme),  1.5rem);
 					vertical-align: inherit;
 				}
 			}

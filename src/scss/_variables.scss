@@ -8,7 +8,6 @@ $_o-header-services-top-icon-size: oSpacingByIncrement(10);
 $_o-header-services-button-icon-size: oSpacingByIncrement(6);
 
 $_o-header-services-button-theme: (
-	background: _oHeaderServicesGet('nav-text'),
-	accent: _oHeaderServicesGet('nav-hover-background'),
-	colorizer: 'primary'
+	'color': _oHeaderServicesGet('nav-text'),
+	'context': _oHeaderServicesGet('nav-hover-background')
 );

@@ -57,10 +57,10 @@
 	}
 
 	.o-header-services__hamburger-icon {
-		@include oIconsGetIcon(
+		@include oIconsContent(
 			$icon-name: 'hamburger',
 			$color: _oHeaderServicesGet('top-text'),
-			$container-width: $_o-header-services-top-icon-size
+			$size: $_o-header-services-top-icon-size
 		);
 		height: $_o-header-services-top-bar-short;
 		width: $_o-header-services-top-bar-short;
@@ -68,8 +68,7 @@
 	}
 
 	.o-header-services__product-name {
-		@include oTypographySans($scale: (default: 2, M: 4));
-		@include oTypographyBold('sans');
+		@include oTypographySans($scale: (default: 2, M: 4), $weight: 'semibold');
 		text-overflow: ellipsis;
 	}
 
@@ -97,7 +96,7 @@
 			background-color: _oHeaderServicesGet('top-background');
 
 			a {
-				@include oTypographyBold('sans');
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 				color: _oHeaderServicesGet('top-text');
 				display: inline-block;
 				padding: $_o-header-services-padding oSpacingByName('s3');

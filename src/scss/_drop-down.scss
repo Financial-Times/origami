@@ -12,7 +12,7 @@
 		padding: 0 0.25rem;
 
 		&:after {
-			@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 1.5rem);
+			@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 1.5rem);
 			content: '';
 			transition: transform 0.2s ease;
 		}
@@ -22,7 +22,7 @@
 
 			&:after {
 				@if _oHeaderServicesGet('arrow-icon-hover-color') {
-					@include oIconsGetIcon('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 1.5rem);
+					@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 1.5rem);
 				}
 			}
 		}

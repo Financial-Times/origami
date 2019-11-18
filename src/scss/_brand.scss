@@ -27,28 +27,28 @@
 	@include oBrandDefine('o-header-services', 'master', (
 		'variables': (
 			logo: 'ftlogo-v1:brand-ft-logo-square-coloured',
-			top-text: oColorsGetPaletteColor('white'),
-			top-background: oColorsGetPaletteColor('black'),
-			nav-text: oColorsGetPaletteColor('black'),
-			nav-background: oColorsGetPaletteColor('white-60'),
-			nav-border: oColorsGetPaletteColor('black-20'),
-			nav-hover-background: oColorsGetPaletteColor('black-5'),
-			nav-underline-color: oColorsGetPaletteColor('black'),
-			arrow-icon-color: oColorsGetPaletteColor('black'),
-			button-hover-color: oColorsGetPaletteColor('black-20'),
+			top-text: oColorsByName('white'),
+			top-background: oColorsByName('black'),
+			nav-text: oColorsByName('black'),
+			nav-background: oColorsByName('white-60'),
+			nav-border: oColorsByName('black-20'),
+			nav-hover-background: oColorsByName('black-5'),
+			nav-underline-color: oColorsByName('black'),
+			arrow-icon-color: oColorsByName('black'),
+			button-hover-color: oColorsByName('black-20'),
 			'b2b': (
-				product-title: oColorsGetPaletteColor('white'),
-				nav-text: oColorsGetPaletteColor('white'),
-				nav-background: oColorsGetPaletteColor('claret'),
-				nav-hover-background: oColorsGetPaletteColor('claret-30'),
-				arrow-icon-color: oColorsGetPaletteColor('white'),
+				product-title: oColorsByName('white'),
+				nav-text: oColorsByName('white'),
+				nav-background: oColorsByName('claret'),
+				nav-hover-background: oColorsByName('claret-30'),
+				arrow-icon-color: oColorsByName('white'),
 			),
 			'b2c': (
-				product-title: oColorsGetPaletteColor('org-b2c-light'),
-				nav-text: oColorsGetPaletteColor('white'),
-				nav-background: oColorsGetPaletteColor('org-b2c'),
-				nav-hover-background: oColorsGetPaletteColor('org-b2c-dark'),
-				arrow-icon-color: oColorsGetPaletteColor('white'),
+				product-title: oColorsByName('org-b2c-light'),
+				nav-text: oColorsByName('white'),
+				nav-background: oColorsByName('org-b2c'),
+				nav-hover-background: oColorsByName('org-b2c-dark'),
+				arrow-icon-color: oColorsByName('white'),
 			)
 		),
 		'supports-variants': (
@@ -62,15 +62,15 @@
 	@include oBrandDefine('o-header-services', 'internal', (
 		'variables': (
 			logo: 'ftlogo-v1:brand-ft-logo-squared-bw',
-			top-text: oColorsGetPaletteColor('white'),
-			top-background: oColorsGetPaletteColor('slate'),
-			nav-text: oColorsGetPaletteColor('black'),
-			nav-background: oColorsGetPaletteColor('slate-white-5'),
-			nav-border: oColorsGetPaletteColor('black-20'),
-			nav-hover-background: oColorsGetPaletteColor('slate-white-15'),
-			nav-underline-color: oColorsGetPaletteColor('black'),
-			arrow-icon-color: oColorsGetPaletteColor('slate'),
-			button-hover-color: oColorsGetPaletteColor('black-20')
+			top-text: oColorsByName('white'),
+			top-background: oColorsByName('slate'),
+			nav-text: oColorsByName('black'),
+			nav-background: oColorsByName('slate-white-5'),
+			nav-border: oColorsByName('black-20'),
+			nav-hover-background: oColorsByName('slate-white-15'),
+			nav-underline-color: oColorsByName('black'),
+			arrow-icon-color: oColorsByName('slate'),
+			button-hover-color: oColorsByName('black-20')
 		),
 		'supports-variants': ()
 	));
@@ -80,16 +80,16 @@
 	@include oBrandDefine('o-header-services', 'whitelabel', (
 		'variables': (
 			logo: null,
-			top-text: oColorsGetPaletteColor('white'),
-			top-background: oColorsGetPaletteColor('black'),
-			nav-text: oColorsGetPaletteColor('black'),
-			nav-background: oColorsGetPaletteColor('white'),
-			nav-border: oColorsGetPaletteColor('black'),
-			nav-hover-background: oColorsGetPaletteColor('white'),
-			nav-underline-color: oColorsGetPaletteColor('black'),
-			arrow-icon-color: oColorsGetPaletteColor('black'),
-			arrow-icon-hover-color: oColorsGetPaletteColor('white'),
-			button-hover-color: oColorsGetPaletteColor('black')
+			top-text: oColorsByName('white'),
+			top-background: oColorsByName('black'),
+			nav-text: oColorsByName('black'),
+			nav-background: oColorsByName('white'),
+			nav-border: oColorsByName('black'),
+			nav-hover-background: oColorsByName('white'),
+			nav-underline-color: oColorsByName('black'),
+			arrow-icon-color: oColorsByName('black'),
+			arrow-icon-hover-color: oColorsByName('white'),
+			button-hover-color: oColorsByName('black')
 		),
 		'supports-variants': ()
 	));

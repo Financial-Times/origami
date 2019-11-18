@@ -29,7 +29,7 @@
 		}
 
 		> li a {
-			@include oTypographyBold('sans');
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			position: relative;
 			color: _oHeaderServicesGet('nav-text');
 			display: inline-block;

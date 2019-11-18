@@ -20,13 +20,13 @@
 		bottom: 0;
 		visibility: hidden;
 		display: block;
-		transition: visibility 0.01s linear, opacity 0.5s $o-visual-effects-transition-fade;
+		transition: visibility 0.01s linear, opacity 0.5s $o-visual-effects-timing-fade;
 		// So the drawer stays on top of other elements.
 		z-index: 1;
 
 		// Drawer nav.
 		.o-header-services__primary-nav-list {
-			@include oVisualEffectsShadowsElevation('mid');
+			@include oVisualEffectsShadowContent('mid');
 			flex-direction: column;
 			display: block;
 			margin: 0;
@@ -37,7 +37,7 @@
 			background-color: _oHeaderServicesGet('drawer-background');
 			transform: translateX(-100%);
 			transition:
-				transform 0.5s $o-visual-effects-transition-expand;
+				transform 0.5s $o-visual-effects-timing-expand;
 		}
 
 		// First level nav item.
@@ -150,7 +150,7 @@
 		border: 0;
 		vertical-align: middle;
 		&:after {
-			@include oIconsGetIcon('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
+			@include oIconsContent('cross', _oHeaderServicesGet('arrow-icon-color'),  1.5rem);
 			content: '';
 			vertical-align: inherit;
 		}
@@ -159,7 +159,7 @@
 			color: _oHeaderServicesGet('text-hover-color');
 			&:after {
 				@if _oHeaderServicesGet('text-hover-color') {
-					@include oIconsGetIcon('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
+					@include oIconsContent('cross', _oHeaderServicesGet('text-hover-color'), 1.5rem);
 					vertical-align: inherit;
 				}
 			}
