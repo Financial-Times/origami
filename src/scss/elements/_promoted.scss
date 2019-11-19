@@ -1,7 +1,6 @@
 /// Promoted content theme
 @mixin _oTeaserPromotedContent {
-	$promoted-content-color: oColorsByUsecase('o-teaser/theme-promoted-content', 'text');
-	color: $promoted-content-color;
+	color: oColorsByUsecase('o-teaser/theme-promoted-content', 'text');
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px. This needs to be added three times
 	// so that it has a higher specificity than
