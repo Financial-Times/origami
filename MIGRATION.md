@@ -301,7 +301,7 @@ Editorial typography, such as that used in article pages, has moved to a new com
 - `oTypographyTopic` becomes `oEditorialTypographyTag($type: 'topic')`
 - `oTypographyAuthor` becomes `oEditorialTypographyTag($type: 'author')`
 - `oTypographyStandfirst` becomes `oEditorialTypographyStandfirst`
-- `oTypographyTimestamp` becomes `oEditorialTypographyBylineTimestamp`
+- `oTypographyTimestamp` becomes `oEditorialTypographyTimestamp`
 - `oTypographyReadNext` has no direct replacement as it didn't appear to be used, but `oEditorialTypographyDecorated` may be used to apply a decorative underline to typography of any size in the style of "read next".
 
 For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
