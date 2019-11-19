@@ -1,89 +1,89 @@
 // Base cookie message styles
-@mixin oCookieMessageBase($class: 'o-cookie-message') {
-	.#{$class} {
+@mixin _oCookieMessageBase() {
+	.o-cookie-message {
 		@include oBannerBase;
 		@include oBannerThemeCompactBase;
+	}
 
-		&--active {
-			display: block;
-		}
+	.o-cookie-message--active {
+		display: block;
+	}
 
-		&--closed {
-			@include oBannerClosed;
-		}
+	o-cookie-message--closed {
+		@include oBannerClosed;
+	}
 
-		&__outer {
-			@include oBannerOuter;
-			@include oBannerThemeCompactOuter;
-		}
+	o-cookie-message__outer {
+		@include oBannerOuter;
+		@include oBannerThemeCompactOuter;
+	}
 
-		&__inner {
-			@include oBannerInner;
-			@include oBannerThemeCompactInner;
-		}
+	o-cookie-message__inner {
+		@include oBannerInner;
+		@include oBannerThemeCompactInner;
+	}
 
-		&__content {
-			@include oBannerContent;
-			@include oBannerThemeCompactContent;
-		}
+	o-cookie-message__content {
+		@include oBannerContent;
+		@include oBannerThemeCompactContent;
+	}
 
-		&__actions {
-			@include oBannerActions;
-			@include oBannerThemeCompactActions;
-			flex-direction: row-reverse;
-			justify-content: space-between;
+	o-cookie-message__actions {
+		@include oBannerActions;
+		@include oBannerThemeCompactActions;
+		flex-direction: row-reverse;
+		justify-content: space-between;
 
-			@include oGridRespondTo($until: M) {
-				flex-direction: column-reverse;
-				align-items: flex-start;
-				margin-top: 0;
+		@include oGridRespondTo($until: M) {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			margin-top: 0;
 
-				.#{$class}__action {
-					align-self: stretch;
+			.o-cookie-message__action {
+				align-self: stretch;
 
-					.#{$class}__button {
-						width: 100%;
-						margin-top: oSpacingByName('s6');
-					}
+				.o-cookie-message__button {
+					width: 100%;
+					margin-top: oSpacingByName('s6');
 				}
 			}
 		}
+	}
 
-		&__action {
-			@include oBannerAction;
-			@include oBannerThemeCompactAction;
-			padding: 0;
-		}
+	o-cookie-message__action {
+		@include oBannerAction;
+		@include oBannerThemeCompactAction;
+		padding: 0;
+	}
 
-		&__button {
-			@include oBannerButton;
-		}
+	o-cookie-message__button {
+		@include oBannerButton;
 	}
 }
 
 // Standard cookie message styles (for master brand e.g. FT.com)
-@mixin oCookieMessageStandard($class: 'o-cookie-message') {
-	.#{$class} {
-		&__heading {
+@mixin _oCookieMessageStandard() {
+	.o-cookie-message {
+		.o-cookie-message__heading {
 			@include oBannerHeading;
 			@include oBannerThemeCompactHeading;
 		}
 
-		&__action--secondary {
+		.o-cookie-message__action--secondary {
 			@include oBannerActionSecondary;
 			@include oBannerThemeCompactActionSecondary;
 		}
 
-		&__link {
+		.o-cookie-message__link {
 			@include oBannerLink;
 		}
 
-		&__link--external {
+		.o-cookie-message__link--external {
 			@include oTypographyLinkExternalIcon(oColorsGetColorFor('link', 'text'));
 		}
 
-		&__link--external,
-		&__link {
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
 			@include oTypographyLinkCustom(
 				$baseColor: oColorsGetUseCase('link', 'text'),
 				$hoverColor: oColorsGetUseCase('link', 'text'),
@@ -96,36 +96,34 @@
 
 
 // Alternative cookie message styles (for whitelabel/specialist titles)
-@mixin oCookieMessageAlternative($class: 'o-cookie-message') {
-	.#{$class}--alternative {
-		.#{$class} {
-			&__button {
-				//TODO: revisit argument names in o-buttons
-				@include oButtonsTheme((
-					accent: oColorsGetUseCase(o-cookie-message-alternative-button, background),
-		 			background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
-		 			hover: oColorsGetUseCase(o-cookie-message-alternative-button, hover),
-					colorizer: primary
-				))
-			}
+@mixin _oCookieMessageAlternative() {
+	.o-cookie-message.o-cookie-message--alternative {
+		.o-cookie-message__button {
+			//TODO: revisit argument names in o-buttons
+			@include oButtonsTheme((
+				accent: oColorsGetUseCase(o-cookie-message-alternative-button, background),
+				background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
+				hover: oColorsGetUseCase(o-cookie-message-alternative-button, hover),
+				colorizer: primary
+			))
+		}
 
-			&__heading:after {
-				border-color: oColorsGetColorFor('o-cookie-message-alternative', 'border');
-			}
+		.o-cookie-message__heading:after {
+			border-color: oColorsGetColorFor('o-cookie-message-alternative', 'border');
+		}
 
-			&__link--external {
-				@include oTypographyLinkExternalIcon(oColorsGetColorFor('o-cookie-message-alternative-link', 'text'));
-			}
+		.o-cookie-message__link--external {
+			@include oTypographyLinkExternalIcon(oColorsGetColorFor('o-cookie-message-alternative-link', 'text'));
+		}
 
-			&__link--external,
-			&__link {
-				@include oTypographyLinkCustom(
-					$baseColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$hoverColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$outlineColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$backgroundColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'background')
-				);
-			}
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
+			@include oTypographyLinkCustom(
+				$baseColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+				$hoverColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+				$outlineColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
+				$backgroundColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'background')
+			);
 		}
 	}
 }

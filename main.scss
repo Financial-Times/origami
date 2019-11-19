@@ -4,12 +4,38 @@
 
 @import "src/scss/color-use-cases";
 @import "src/scss/variables";
-@import "src/scss/cookie-message";
 @import "src/scss/mixins";
 
-@if ($o-cookie-message-is-silent == false) {
+/// Output `o-cookie-message` CSS.
+///
+/// @example Output all `o-cookie-message` styles.
+///     @include oCookieMessage();
+///
+/// @example Output only the standard theme
+///     @include oCookieMessage($opts: (
+///     	'themes': ('standard'),
+///     ));
+///
+/// @param {Map} $opts - The o-cookie-message features to output. See the [readme](https://registry.origami.ft.com/components/o-cookie-message) for a full list of options.
+@mixin oCookieMessage($opts: ('themes': $_o-cookie-message-themes)) {
+	@include _oCookieMessageBase();
 
-	@include oCookieMessage;
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+
+	@each $theme in $themes {
+		@if not index($_o-cookie-message-themes, $theme) {
+			@error "There is no theme '#{$theme}' available in o-cookie-message, please use one of the following: #{$_o-cookie-message-themes}.";
+		} @else if $theme == 'standard' {
+			@include _oCookieMessageStandard();
+		} @else if $theme == 'alternative' {
+			@include _oCookieMessageAlternative();
+		}
+	}
+}
+
+@if ($o-cookie-message-is-silent == false) {
+	@include oCookieMessage();
 
 	// Set to silent again to avoid being output twice
 	$o-cookie-message-is-silent: true !global;
