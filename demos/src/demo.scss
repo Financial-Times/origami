@@ -4,7 +4,7 @@ $o-labels-is-silent: false;
 @import "../../main";
 
 body {
-	@include oColorsFor('page', 'background');
+	background: oColorsByUsecase('page', 'background');
 
 	// Important used to ensure that this overrides the `body` specificity
 	// provided by the build service

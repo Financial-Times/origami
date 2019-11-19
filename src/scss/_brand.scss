@@ -33,18 +33,18 @@ $_o-labels-shared-brand-config: (
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-labels', 'master', (
 		'variables': map-merge($_o-labels-shared-brand-config, (
-			text-color: oColorsGetPaletteColor('black'),
-			background-color: oColorsGetPaletteColor('wheat'),
+			text-color: oColorsByName('black'),
+			background-color: oColorsByName('wheat'),
 			'content-commercial': (
-				background-color: oColorsGetTint('jade', 50)
+				background-color: oColorsByName('o-labels/commercial-content')
 			),
 			'content-premium': (
-				background-color: oColorsGetPaletteColor('black')
+				background-color: oColorsByName('black')
 			),
 			'lifecycle-beta': (
-				background-color: oColorsGetPaletteColor('paper'),
-				border-color: oColorsGetPaletteColor('black-20'),
-				text-color: oColorsGetPaletteColor('black-80'),
+				background-color: oColorsByName('paper'),
+				border-color: oColorsByName('black-20'),
+				text-color: oColorsByName('black-80'),
 				text-transform: uppercase,
 				padding-vertical: oSpacingByName('s1'),
 				padding-horizontal: oSpacingByName('s3'),
@@ -69,13 +69,13 @@ $_o-labels-shared-brand-config: (
 				background-color: oColorsMix('jade', 'black', 70)
 			),
 			'support-dead': (
-				background-color: oColorsGetPaletteColor('black')
+				background-color: oColorsByName('black')
 			),
 			'support-deprecated': (
-				background-color: oColorsGetPaletteColor('crimson')
+				background-color: oColorsByName('crimson')
 			),
 			'support-experimental': (
-				background-color: oColorsGetPaletteColor('lemon')
+				background-color: oColorsByName('lemon')
 			),
 			'support-maintained': (
 				background-color: oColorsMix('jade', 'black', 70)

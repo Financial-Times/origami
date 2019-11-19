@@ -129,7 +129,7 @@ The `oLabelsAddState` mixin also accepts optional custom configurations, which o
 
 ```scss
 @include oLabelsAddState('citrus-fruit', (
-    background-color: oColorsGetPaletteColor('lemon')
+    background-color: oColorsByName('lemon')
 ));
 ```
 
@@ -165,7 +165,7 @@ To output a custom label:
 		'base': true,
 		'size': 'big',
 		'state': (
-			'background-color': oColorsGetPaletteColor('lemon')
+			'background-color': oColorsByName('lemon')
 		)
 	));
 }

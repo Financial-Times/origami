@@ -41,7 +41,7 @@
 ///   @include oLabelsAddState('tier-gold');
 /// @example scss - Custom label state
 ///   @include oLabelsAddState('citrus-fruit', (
-///       background-color: oColorsGetPaletteColor('lemon')
+///       background-color: oColorsByName('lemon')
 ///   ));
 /// @access public
 @mixin oLabelsAddState($state-name, $opts: null) {
@@ -69,7 +69,7 @@
 /// 			'base': true,
 /// 			'size': 'big',
 /// 			'state': (
-/// 				'background-color': oColorsGetPaletteColor('lemon')
+/// 				'background-color': oColorsByName('lemon')
 /// 			)
 /// 		));
 /// 	}
@@ -96,11 +96,9 @@
 /// @param {Sting} $size - The label size to output styles for. The valid sizes are `big` and `small`.
 /// @access private
 @mixin _oLabelsSizeContent($size) {
-		// We use the scale and set font size manually to rely on the cascade rather
-		// than repeating the font family and line height from the main label class
-		@if _oLabelsGet('font-scale', $size) {
-			// TODO is there a nicer way to get this number?
-			font-size: nth(oTypographyGetScale(_oLabelsGet('font-scale', $size)), 1) * 1px;
+		$scale: _oLabelsGet('font-scale', $size);
+		@if $scale {
+			@include oTypographySans($scale, $line-height: 1, $include-font-family: false);
 		}
 		padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
 }

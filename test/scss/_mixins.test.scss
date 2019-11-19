@@ -58,15 +58,19 @@
 		@include describe('with "size" and no "state"') {
 			@include it('outputs label dimentions only') {
 				@include assert() {
-					@include output() {
+					@include output($selector: false) {
 						.o-example-label {
 							@include oLabelsContent($opts: ('size': 'small'));
 						}
 					};
-					@include expect() {
+					@include expect($selector: false) {
 						.o-example-label {
-    						font-size: 12px;
+							font-size: 12px;
+							line-height: 1;
     						padding: 1px 3px;
+						}
+						.o-typography--loading-sans .o-example-label {
+						  font-size: 10.44px;
 						}
 					};
 				};
@@ -111,17 +115,22 @@
 		@include describe('with "state" and "size"') {
 			@include it('outputs state and size styles') {
 				@include assert() {
-					@include output() {
+					@include output($selector: false) {
 						.o-example-label {
 							@include oLabelsContent($opts: ('size': 'small', 'state': 'content-commercial'));
 						}
 					};
-					@include expect() {
+					@include expect($selector: false) {
 						.o-example-label {
     						background-color: #008040;
     						color: white;
-    						font-size: 12px;
+							font-size: 12px;
+							line-height: 1;
     						padding: 1px 3px;
+						}
+
+						.o-typography--loading-sans .o-example-label {
+							font-size: 10.44px;
 						}
 					};
 				};
