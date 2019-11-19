@@ -3,17 +3,14 @@
 
 Labels for content classification or to emphasise a value.
 
-- [Usage](#usage)
-  - [Markup](#markup)
-  - [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 
-## Usage
-
-### Markup
+## Markup
 
 The most minimal markup for a label is as follows:
 
@@ -32,7 +29,7 @@ There are several size modifier classes which can be used to change the general 
 
 Labels can also have one of several states. The available states depend on which brand you are using (there are no states for whitelabel branded components):
 
-#### Masterbrand
+### Masterbrand
 
 The following states are used to categorise content, mostly on FT.com:
 
@@ -47,7 +44,7 @@ The following state is used to indicate that a feature is in a beta state:
 <span class="o-labels o-labels--lifecycle-beta">Beta</span>
 ```
 
-#### Internal
+### Internal
 
 The following states are used to represent the different support levels of Origami components:
 
@@ -68,9 +65,9 @@ The following states are used to represent the FT's service tiers:
 <span class="o-labels o-labels--support-bronze">Bronze</span>
 ```
 
-### Sass
+## Sass
 
-#### Silent mode
+### Silent mode
 
 As with all Origami components, o-labels has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-labels-is-silent: false;` in your Sass before you import the o-labels Sass:
 
@@ -79,7 +76,7 @@ $o-labels-is-silent: false;
 @import 'o-labels/main';
 ```
 
-#### Mixin: `oLabels`
+### Mixin: `oLabels`
 
 If using o-labels in silent mode, you'll need to use the mixins outlined here to output styles.
 
@@ -111,7 +108,7 @@ If you wish to specify a subset of sizes and states to output styles for, you ca
 ));
 ```
 
-#### Mixin: `oLabelsAddState`
+### Mixin: `oLabelsAddState`
 
 The `oLabelsAddState` mixin can be used to output a class for one of the label states, outlined in the [states table](#states):
 
@@ -139,7 +136,7 @@ The `oLabelsAddState` mixin also accepts optional custom configurations, which o
 }
 ```
 
-#### Mixin: `oLabelsContent`
+### Mixin: `oLabelsContent`
 
 When it's not possible to use an `o-labels` CSS class, for example within another Origami component, use `oLabelsContent` to output a label with a custom class.
 
@@ -171,7 +168,7 @@ To output a custom label:
 }
 ```
 
-#### Sizes
+### Sizes
 
 This table outlines all of the possible sizes you can request in the [`oLabels` mixin](#mixin-olabels):
 
@@ -180,7 +177,7 @@ This table outlines all of the possible sizes you can request in the [`oLabels` 
 | big   | Label with increased font size and padding. | master, internal, whitelabel |
 | small | Label with decreased font size and padding. | master, internal, whitelabel |
 
-#### States
+### States
 
 This table outlines all of the possible states you can request in the [`oLabels` mixin](#mixin-olabels) and [`oLabelsAddState` mixin](#mixin-olabelsaddstate):
 
@@ -200,12 +197,13 @@ This table outlines all of the possible states you can request in the [`oLabels`
 | tier-bronze          | Used to indicate a service with a bronze service tier.        | internal      |
 
 
-## Migration guide
+## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.1.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.1.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ╳ deprecated | 2 | 2.1.0 | N/A |
 ╳ deprecated | 1 | 1.0.6 | N/A |
 
