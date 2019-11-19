@@ -140,6 +140,14 @@
 				$example-color
 			);
 		};
+		@include it('add a custom use case property for a colour mix') {
+			$mix: oColorsMix('teal', 'slate', 50);
+			@include oColorsSetUseCase('o-example/mix', (
+				 'background': $mix
+			));
+			// Assert able to get the new "o-example" mix usecase.
+			@include assert-equal(oColorsByUsecase('o-example/mix', 'background'), $mix);
+		};
 		@include it('override a default o-colors custom use case property') {
 			@include oColorsSetUseCase('o-colors/page', (
 				'background': 'candy'

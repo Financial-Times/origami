@@ -108,12 +108,12 @@
 			@error 'A property "#{inspect($property)}" cannot be set for usecase "#{$usecase}".' +
 			'A property may be one of "#{$valid-properties}".';
 		}
-		@if(type-of($color) != 'string') {
+		@if(type-of($color) != 'string' and type-of($color) != 'color') {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 			'cannot be set to "#{inspect($color)}". A usecase property may ' +
-			'only be set to an o-colors colour name such as "paper".';
+			'only be set to an o-colors colour or colour name such as "paper".';
 		}
-		@if(not _oColorsNameExists($color)) {
+		@if(type-of($color) == 'string' and not _oColorsNameExists($color)) {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
 			'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
 			'does not exist.';
