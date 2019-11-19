@@ -1,7 +1,7 @@
 @mixin _oFooterServicesBase() {
 	.o-footer-services {
 		@include oTypographySans(0);
-		background: oColorsGetPaletteColor(_oFooterServicesGet('default-background'));
+		background: oColorsByName(_oFooterServicesGet('default-background'));
 	}
 
 	.o-footer-services__container {
@@ -11,7 +11,7 @@
 		&:before {
 			content: '';
 			position: absolute;
-			border-top: 1px solid oColorsGetPaletteColor(_oFooterServicesGet('default-border'));
+			border-top: 1px solid oColorsByName(_oFooterServicesGet('default-border'));
 			top: 0;
 			left: 0;
 			right: 0;
@@ -33,7 +33,7 @@
 
 		&--legal {
 			@include oTypographySans($scale: -1, $line-height: 20px);
-			color: oColorsGetPaletteColor(_oFooterServicesGet('legal-text'));
+			color: oColorsByName(_oFooterServicesGet('legal-text'));
 			overflow: hidden;
 
 			p {
@@ -75,7 +75,15 @@
 		}
 
 		.o-footer-services__content--external {
-			@include oTypographyLinkExternalIcon(oColorsGetPaletteColor(_oFooterServicesGet('default-link-color')));
+			@include oTypographyLink(
+				$theme: (
+					'base': _oFooterServicesGet('default-link-color'),
+					'hover': _oFooterServicesGet('default-link-color'),
+					'context': _oFooterServicesGet('default-background')
+				),
+				$external: true,
+				$include-base-styles: false
+			);
 		}
 	}
 }
@@ -96,7 +104,7 @@
 	}
 
 	.o-footer-services__logo {
-		@include oTypographySansBold(1);
+		@include oTypographySans(1, $weight: 'semibold');
 		min-width: max-content;
 		min-height: 1em; //holds the logo in place if there is no text
 		margin: 0 1.5em 1.5em 0;
@@ -105,7 +113,11 @@
 		padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
 
 		&:before {
-			@include oIconsBaseStyles();
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50%;
+			vertical-align: baseline;
 			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
 			content: '';
 			width: $_o-footer-services-logo-size;
@@ -122,7 +134,10 @@
 	padding-left: $_o-footer-services-icon-size - 5;
 
 	&:before {
-		@include oIconsBaseStyles();
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
 		position: absolute;
 		content: '';
 		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}&format=svg');
@@ -135,17 +150,21 @@
 }
 
 @mixin _oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
-	@include oTypographyLinkCustom(
-		$custom-link-base,
-		$custom-link-hover,
-		$custom-link-background
-	);
+	@include oTypographyLink($theme: (
+		'base': $custom-link-base,
+		'hover': $custom-link-hover,
+		'context': $custom-link-background
+	));
 
+	// Link underline is different by design.
 	@if $link-hover != null {
 		&:hover {
-			border-bottom-color: oColorsGetPaletteColor($link-hover); // is different to custom link hover by design.
+			border-bottom-color: oColorsByName($link-hover);
 		}
 	} @else {
 		border-bottom: 0;
+		@supports (text-decoration-thickness: 0.25ex) {
+			text-decoration-line: none;
+		}
 	}
 }

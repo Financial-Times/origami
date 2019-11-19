@@ -38,7 +38,7 @@
 	// Output classes for footer icons.
 	@if($icons) {
 		.o-footer-services__icon-link {
-			@include oTypographyBold('sans');
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			@include _oFooterServicesLink(
 				$custom-link-base: _oFooterServicesGet('default-link-color'),
 				$custom-link-hover: _oFooterServicesGet('default-link-hover'),
