@@ -12,14 +12,14 @@
 		@if $small {
 			@include _oFormsInputSmall('select');
 		}
-		
+
 		@if $suffix {
 			@include _oFormsInputSuffix('select');
 		}
 
 		select {
 			@include _oFormsInputBase($disabled);
-			@include oIconsGetIcon('arrow-down', _oFormsGet('field-standard-text'), $apply-base-styles: false, $apply-width-height: false);
+			@include oIconsContent('arrow-down', _oFormsGet('field-standard-text'), $size: null, $include-base-styles: false);
 			appearance: none;
 			background-repeat: no-repeat;
 			background-size: auto $_o-forms-spacing-six;
@@ -41,13 +41,13 @@
 			// Hide stock browser arrow in IE 10+
 			// sass-lint:disable no-vendor-prefixes
 			&::-ms-expand {
-				color: oColorsGetPaletteColor('white');
+				color: oColorsByName('white');
 				display: none;
 			}
 			// sass-lint:enable no-vendor-prefixes
 
 			&:disabled {
-				@include oIconsGetIcon('arrow-down', _oFormsGet('disabled-text'), $apply-base-styles: false, $apply-width-height: false);
+				@include oIconsContent('arrow-down', _oFormsGet('disabled-text'), $size: null, $include-base-styles: false);
 			}
 
 			&[multiple] {

@@ -4,7 +4,7 @@
 	.o-forms-input__state {
 		// the loading spinner and tick icons for state are mismatched in terms of size/padding,
 		// the custom line-height aligns them as closely as possible (with minimal style changes)
-		@include oTypographySize($scale: -1, $line-height: 1.75);
+		@include oTypographySans($scale: -1, $line-height: 1.75, $include-font-family: false);
 		color: inherit;
 		display: flex;
 		align-items: center;
@@ -59,7 +59,7 @@
 			}
 
 			&:before {
-				@include oIconsGetIcon('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
+				@include oIconsContent('tick', _oFormsGet('valid-base'), $_o-forms-spacing-seven);
 			}
 		}
 	}

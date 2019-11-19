@@ -32,7 +32,11 @@
 @mixin _oFormsInputSmall($element) {
 	&.o-forms-input--small {
 		#{$element} {
-			@include oTypographySize($scale: -1, $line-height: 1.65);
+			@include oTypographySans(
+				$scale: -1,
+				$line-height: 1.65,
+				$include-font-family: false
+			);
 			min-height: $_o-forms-spacing-seven;
 			padding: 0 $_o-forms-spacing-two;
 		}

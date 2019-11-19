@@ -2,7 +2,7 @@ $o-forms-is-silent: false;
 @import "./../../main";
 
 body {
-	@include oColorsFor(page, background);
+	background: oColorsByUsecase(page, background);
 }
 
 .demo {

@@ -25,7 +25,7 @@
 			}
 
 			&:after {
-				background-color: oColorsGetColorFor(page, background);
+				background-color: oColorsByUsecase(page, background);
 				border: $_o-forms-spacing-half solid _oFormsGet('default-text');
 				border-radius: 50%;
 				box-sizing: border-box;

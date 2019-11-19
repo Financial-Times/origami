@@ -11,7 +11,7 @@
 			@include _oFormsControlsBase($disabled);
 
 			&:indeterminate + .o-forms-input__label:after {
-				@include oIconsGetIcon('minus', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
+				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
 				background-color: _oFormsGet('controls-base');
 				opacity: 1;
 			}
@@ -20,7 +20,7 @@
 		@if $right {
 			.o-forms-input__right {
 				display: inline-block;
-	
+
 				input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 					right: 0;
 				}
@@ -28,7 +28,7 @@
 				.o-forms-input__label {
 					padding-left: 0;
 					padding-right: $_o-forms-spacing-controls;
-	
+
 					&:before,
 					&:after {
 						// right: 0;
@@ -51,16 +51,16 @@
 
 			&:after {
 				@include _oFormsControlsPseudoElements();
-				@include oIconsGetIcon('tick', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
+				@include oIconsContent('tick', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
 				background-color: _oFormsGet('controls-base');
 				opacity: 0;
 				transition: opacity 0.1s ease;
 			}
 
-			// this handles spacing between two input__label spans for the same input element, 
+			// this handles spacing between two input__label spans for the same input element,
 			// which is necessary in the case of 'additional content'
 			& + .o-forms-input__label {
-				padding-top: $_o-forms-spacing-three; 
+				padding-top: $_o-forms-spacing-three;
 			}
 		}
 	}

@@ -11,7 +11,7 @@
 	*:invalid {
 		box-shadow: none;
 	}
-	
+
 	.o-forms-input__error {
 		display: none;
 	}
@@ -28,7 +28,10 @@
 		}
 
 		.o-forms-input__error {
-			@include oTypographySize($scale: -1);
+			@include oTypographySans(
+				$scale: -1,
+				$include-font-family: false
+			);
 			color: _oFormsGet('invalid-base');
 			display: block;
 			position: absolute;

@@ -80,8 +80,8 @@
 		}
 
 		&:focus + .o-forms-input__label {
-			border-color: $o-normalise-focus-color;
-			box-shadow: 0 0 0 $_o-forms-spacing-half $o-normalise-focus-color;
+			border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
+			box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
 			outline: none;
 		}
 

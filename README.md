@@ -516,7 +516,7 @@ It accepts four arguments:
 - `$icons`: (optional) accepts an icon or a list of icons to output according to the custom theme
 - `$theme`: (required) a map of the colors that define the custom theme:
 	- `'controls-base'`: the base color of the theme
-	- `'controls-checked'`: the background color of a checked input
+	- `'controls-checked-base'`: the background color of a checked input
 	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
 
 ```scss

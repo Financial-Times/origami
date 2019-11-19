@@ -3,25 +3,33 @@
 /// @param {map|null} $theme - A custom theme map.
 /// @return {map} Brand variables.
 @function _oFormsThemeToBrandVariants($theme) {
-	@if $theme {
-			@if not index(map-keys($theme), 'controls-base') {
-				@error "The custom theme for box-styled controls is missing a 'controls-base' key. (see @mixin _oFormsAnchorBox)";
-			}
-		// Add default value for checked background if not specified.
-		@if not map-get($theme, 'negative-checked-background') {
-			$theme: map-merge($theme, (
-				'negative-checked-background': map-get($theme, 'checked-background')
-			));
-		}
-
-		$theme: (
-			controls-base: oColorsGetPaletteColor(map-get($theme, 'controls-base')),
-			controls-checked-base: oColorsGetPaletteColor(map-get($theme, 'controls-checked-base')),
-			controls-negative-checked-background: oColorsGetPaletteColor(map-get($theme, 'controls-negative-checked-background'))
-		);
+	@if not $theme {
+		@return null;
 	}
 
-	@return $theme;
+	// Get given base colour.
+	$base: map-get($theme, 'controls-base');
+	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
+
+	// Get given checked base colour.
+	$checked-base: map-get($theme, 'controls-checked-base');
+	$checked-base: if(type-of($checked-base) == 'string', oColorsByName($checked-base), $checked-base);
+
+	// Get given negative checked colour.
+	$negative-background: map-get($theme, 'controls-negative-checked-background');
+	$negative-background: if(type-of($negative-background) == 'string', oColorsByName($negative-background), $negative-background);
+
+	// Error if no base colour.
+	@if not $base {
+		@error "The custom theme for box-styled controls is missing a 'controls-base' key.";
+	}
+
+	// Return brand options which the theme is a allowed to customise.
+	@return (
+		'controls-base': $base,
+		'controls-checked-base': $checked-base,
+		'controls-negative-checked-background': if($negative-background, $negative-background, $base)
+	);
 }
 
 /// @access private
@@ -52,8 +60,8 @@
 		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
 	} @else {
 		$element: 'a.o-forms-input__link--#{$icon}-icon';
-	} 
-	
+	}
+
 	#{$element} {
 		padding-left: $_o-forms-spacing-six;
 		padding-right: $_o-forms-spacing-two;
@@ -70,22 +78,20 @@
 		}
 
 		&:before {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-base', $from: $theme),
-				$apply-base-styles: false,
-				$high-contrast-fallback: true,
-				$container-width: $_o-forms-spacing-six
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
 			);
 		}
 
 		&:after {
-			@include oIconsGetIcon(
+			@include oIconsContent(
 				$icon-name: $icon,
 				$color: _oFormsGet('controls-checked-base', $from: $theme),
-				$apply-base-styles: false,
-				$high-contrast-fallback: true,
-				$container-width: $_o-forms-spacing-six
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
 			);
 			display: none;
 		}
@@ -99,7 +105,7 @@
 /// @param {Map|null} $theme Custom theme map
 @mixin oFormsAddCustom(
 	$input: null,
-	$class: null, 
+	$class: null,
 	$icons: null,
 	$theme: null
 ) {
