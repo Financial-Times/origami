@@ -213,8 +213,9 @@ Set the `$external` argument to to indicate the link leads to a different websit
 
 To create a custom link style set the `$theme` argument. Where `$theme` is a map of configuration including:
 
-- **base**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name for the link
-- **hover**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name for link on hover
+- **base**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for the link
+- **hover**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for link on hover
+- **context** (optional): an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour to indicate the background colour behind the link (defaults to paper for the master brand, white otherwise)
 
 ```scss
 .my-custom-link {

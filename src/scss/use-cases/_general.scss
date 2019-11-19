@@ -133,23 +133,26 @@
 		'Found: "#{inspect($theme)}"';
 	}
 	@if(type-of($theme) == 'map') {
+		// Get custom base colour.
 		$theme-base: map-get($theme, 'base');
+		$base-color: if(type-of($theme-base) == 'string', oColorsByName($theme-base), $theme-base);
+		// Get custom hover colour.
 		$theme-hover: map-get($theme, 'hover');
+		$hover-color: if(type-of($theme-hover) == 'string', oColorsByName($theme-hover), $theme-hover);
+		// Get optional context colour.
 		$theme-context: map-get($theme, 'context');
-		@if(type-of($theme-base) != 'string') {
-			@error 'A custom link theme must have a `base` property with a palette colour name e.g. `claret`. But found #{$theme-base}.';
+		@if $theme-context {
+			$context-color: if(type-of($theme-context) == 'string', oColorsByName($theme-context), $theme-context);
 		}
-		@if(type-of($theme-hover) != 'string') {
-			@error 'A custom link theme must have a `hover` property with a palette colour name e.g. `claret`. But found #{$theme-hover}.';
+		// Validate colours given.
+		@if(type-of($base-color) != 'color') {
+			@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$theme-base}.';
 		}
-		@if($theme-context and type-of($theme-context) != 'string') {
-			@error 'A custom link theme may optionally have a `context` property with a palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
+		@if(type-of($hover-color) != 'color') {
+			@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$theme-hover}.';
 		}
-		$base-color: oColorsByName($theme-base);
-		$hover-color: oColorsByName($theme-hover);
-		// theme context is optional, use the default if not set
-		@if($theme-context) {
-			$context-color: oColorsByName($theme-context);
+		@if($theme-context and type-of($context-color) != 'color') {
+			@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
 		}
 	}
 

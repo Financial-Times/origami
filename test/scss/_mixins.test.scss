@@ -532,6 +532,29 @@
             }
         }
     }
+    @include test('outputs styles for a custom theme using hex values') {
+        @include assert {
+            @include output {
+                @include oTypographyLink($theme: (
+                    'base': oColorsByName('claret'),
+                    'hover': oColorsByName('claret-30'),
+                ), $include-base-styles: false);
+            }
+            @include expect {
+                color: #990f3d;
+                border-bottom-color: #ebc4c3;
+                text-decoration-color: #ebc4c3;
+                &:hover {
+                    color: #4d081f;
+                    border-bottom-color: #d697a2;
+                    text-decoration-color: #d697a2;
+                }
+                &:focus {
+                    color: #4d081f;
+                }
+            }
+        }
+    }
     @include test('outputs an icon for an external link') {
         @include assert {
             @include output {
