@@ -131,18 +131,20 @@
 @function oColorsGetTone($color-name, $brightness) {
 	$color: oColorsByName($color-name);
 	$hue: hue($color);
-	// Find a tone from a base of 90% saturation.
-	// The reason for this is not known. It's here to preserve the tones we
-	// currently have. The base starting used to be configured per colour
-	// and may once have differed from colour to colour.
-	$saturation: 90;
+	// Find a tone from a base of saturation which differs per colour.
+	$saturation: map-get($_o-colors-tone-saturation, $color-name);
 
 	// Validate the given colour allows different tones.
-	$has-tone-config: map-has-key($_o-colors-default-palette-tones, $color-name);
+	$has-tone-config: map-has-key($_o-colors-tone-saturation, $color-name);
+	@if (not $has-tone-config and ($color-name == 'white' or $color-name == 'black')) {
+		@return _oColorsError('"#{$color-name}" does not support tones. ' +
+			'Use a mix instead: ' +
+			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+	}
 	@if (not $has-tone-config) {
 		@return _oColorsError('"#{$color-name}" does not support tones. ' +
-			'Consider using a mix instead e.g: ' +
-			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+			'Consider using the `oColorsMix` function to mix with black to ' +
+			'darken or mix with white to lighten.');
 	}
 
 	// Validate brightness.

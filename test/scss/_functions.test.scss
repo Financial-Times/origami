@@ -111,11 +111,18 @@
 	@include describe('oColorsGetTone') {
 		@include it('returns a tone for palette colours that allow tones') {
 			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
+			@include assert-equal(oColorsGetTone('wheat', 100), #ffebd9, $inspect: true);
 		};
 
 		@include it('returns an error for palette colours which do not allow tones') {
-			@include assert-equal(oColorsGetTone('paper', 10),
-			('ERROR: "paper" does not support tones. Consider using a mix instead e.g: `oColorsMix(\'paper\', $percentage: 10)`'),
+			@include assert-equal(oColorsGetTone('black', 10),
+			('ERROR: "black" does not support tones. Use a mix instead: `oColorsMix(\'black\', $percentage: 10)`'),
+			 $inspect: true);
+			@include assert-equal(oColorsGetTone('white', 10),
+			('ERROR: "white" does not support tones. Use a mix instead: `oColorsMix(\'white\', $percentage: 10)`'),
+			 $inspect: true);
+			@include assert-equal(oColorsGetTone('slate', 10),
+			('ERROR: "slate" does not support tones. Consider using the `oColorsMix` function to mix with black to darken or mix with white to lighten.'),
 			 $inspect: true);
 		};
 	};
