@@ -17,25 +17,25 @@
 	}
 
 	.syndi.o-teaser__syndication-indicator {
-		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('black-40');
+		@include oIconsContent('minus', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('black-40');
     }
 
 	.o-teaser__syndication-indicator--yes,
 	.syndi.o-teaser__syndication-indicator--yes {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('jade');
+		@include oIconsContent('tick', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('jade');
 	}
 
 	.o-teaser__syndication-indicator--no,
 	.syndi.o-teaser__syndication-indicator--no {
-		@include oIconsGetIcon('minus', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('crimson');
+		@include oIconsContent('minus', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('crimson');
 	}
 
 	.o-teaser__syndication-indicator--verify,
 	.syndi.o-teaser__syndication-indicator--verify {
-		@include oIconsGetIcon('tick', oColorsGetPaletteColor('white'), 20, $iconset-version: 1);
-		background-color: oColorsGetPaletteColor('mandarin');
+		@include oIconsContent('tick', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('mandarin');
 	}
 }

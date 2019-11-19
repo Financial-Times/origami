@@ -1,13 +1,13 @@
 @mixin _oTeaserVideo {
 	.o-teaser__heading:before {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 15, $apply-width-height: false);
+		@include oIconsContent('play', oColorsByName('white'), $size: null);
 		content: '';
 		width: 0.7em;
 		height: 0.7em;
 		min-width: 12px;
 		min-height: 12px;
 		margin-right: 0.15em;
-		background-color: oColorsGetPaletteColor('slate');
+		background-color: oColorsByName('slate');
 
 	}
 
@@ -28,7 +28,7 @@
 		position: relative;
 
 		&:after {
-			@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 30, $apply-width-height: false);
+			@include oIconsContent('play', oColorsByName('white'), $size: null);
 			pointer-events: none;
 			content: '';
 			position: absolute;
@@ -39,7 +39,7 @@
 			padding-top: 15%;
 			min-width: 20px;
 			min-height: 20px;
-			background-color: oColorsGetPaletteColor('slate');
+			background-color: oColorsByName('slate');
 		}
 	}
 

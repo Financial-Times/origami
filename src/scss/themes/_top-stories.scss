@@ -10,7 +10,7 @@
 	}
 
 	.o-teaser__standfirst {
-		@include oTypographySize(2);
+		@include oTypographySans(2, $include-font-family: false);
 	}
 }
 
@@ -24,7 +24,7 @@
 /// Landscape top story theme styles
 @mixin _oTeaserTopStoryLandscape {
 	@include oNormaliseClearfix;
-	@include oColorsFor('o-teaser-hero', background);
+	background: oColorsByUsecase('o-teaser/hero', 'background');
 	padding: 12px;
 
 	@include oGridRespondTo(M) {

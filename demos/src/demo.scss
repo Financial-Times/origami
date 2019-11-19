@@ -4,7 +4,7 @@ $o-teaser-is-silent: false;
 @include oFontsIncludeAll();
 
 body {
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByName('paper');
 }
 
 .demo-container {
@@ -21,7 +21,7 @@ body {
 	}
 
 	&--inverse {
-		background-color: oColorsGetPaletteColor('black');
+		background-color: oColorsByName('black');
 	}
 
 	&--stretched {
@@ -31,7 +31,7 @@ body {
 	&--big-story {
 		margin: 20px 0;
 		padding: 0 40px;
-		background-color: oColorsGetPaletteColor('wheat');
+		background-color: oColorsByName('wheat');
 	}
 }
 
@@ -42,25 +42,6 @@ body {
 }
 
 .demo-image {
-	background-color: oColorsGetPaletteColor('white');
+	background-color: oColorsByName('white');
 }
-
-.demo-hover {
-	&.o-teaser--small a {
-		@include oColorsFor('o-teaser', text, 55);
-	}
-
-	&.o-teaser--opinion a {
-		@include oColorsFor('o-teaser-hero-opinion', text, 73);
-	}
-
-	&.o-teaser--highlight a {
-		@include oColorsFor('o-teaser-hero-highlight', text, 73);
-	}
-
-	&.o-teaser--inverse a {
-		@include oColorsFor('o-teaser-inverse', text, 60);
-	}
-}
-
 

@@ -2,7 +2,24 @@
 $o-teaser-is-silent: true !default;
 
 /// List of theme styles available
+/// @access private
 $_o-teaser-themes: ('small', 'large', 'standard', 'video', 'audio', 'hero', 'top-stories', 'package', 'live');
 
 /// List of element styles available
+/// @access private
 $_o-teaser-elements: ('default', 'images', 'timestamp', 'promoted', 'related-items', 'syndication');
+
+/// Commonly used text colour.
+/// @type Color
+/// @access private
+$_o-teaser-base-color: oColorsByUsecase('o-teaser/base', 'text');
+
+/// Commonly used hover/focus text colour.
+/// @type Color
+/// @access private
+$_o-teaser-focus-hover: oColorsMix($_o-teaser-base-color, $percentage: 55);
+
+/// Commonly used text colour for muted copy, including visited text.
+/// @type Color
+/// @access private
+$_o-teaser-muted: oColorsMix($_o-teaser-base-color, $percentage: 60);

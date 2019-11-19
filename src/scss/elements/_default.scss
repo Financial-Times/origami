@@ -3,8 +3,8 @@
 /// @access public
 @mixin oTeaserHeading {
 	@include oTypographyDisplay(2);
-	@include oColorsFor('o-teaser', text, 100);
 	@include _oTeaserLink();
+	color: $_o-teaser-base-color;
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: oFontsWeight(normal);
@@ -44,14 +44,14 @@
 
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
-	@include oTypographySize(0, 20px);
-	@include oColorsFor('o-teaser-tag', 'text');
+	@include oTypographySans(0, 20px, $include-font-family: false);
+	color: oColorsByUsecase('o-teaser/tag', 'text');
 }
 
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	@include oTypographyBold('sans');
+	@include oTypographySans($weight: 'semibold', $include-font-family: false);
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -59,7 +59,7 @@
 
 	&:hover,
 	&:focus {
-		@include oColorsFor('o-teaser', text, 55);
+		color: $_o-teaser-focus-hover;
 	}
 
 	span {
@@ -72,15 +72,15 @@
 }
 
 @mixin _oTeaserTagSuffix {
-	@include _oTypographyFontSize(-1);
-	color: oColorsGetPaletteColor('black-60');
+	@include oTypographySans(-1, $include-font-family: false);
+	color: oColorsByName('black-60');
 }
 
 /// Styles for standfirst element
 @mixin _oTeaserStandfirst {
-	@include oTypographySize(0, 20px);
-	@include oColorsFor('o-teaser', text, 60);
+	@include oTypographySans(0, 20px, $include-font-family: false);
 	@include _oTeaserLink();
+	color: $_o-teaser-muted;
 	margin-top: 0;
 	margin-bottom: 0;
 
@@ -99,11 +99,11 @@
 
 		&:focus,
 		&:hover {
-			@include oColorsFor('o-teaser', text, 55);
+			color: $_o-teaser-focus-hover;
 		}
 
 		&:visited {
-			@include oColorsFor('o-teaser', text, 60);
+			color: $_o-teaser-muted;
 		}
 	}
 }

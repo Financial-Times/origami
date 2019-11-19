@@ -2,7 +2,7 @@
 @mixin _oTeaserSmall {
 	display: flex;
 	padding-bottom: oSpacingByName('s4');
-	border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
+	border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 
 	.o-teaser__content {
 		// IE needs a unit to apply flex-basis correctly 😐

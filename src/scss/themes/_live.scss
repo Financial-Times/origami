@@ -13,7 +13,7 @@
     .o-teaser--small.o-teaser--live {
         // create white text red background
         @include _oTeaserInverse;
-        background: oColorsGetPaletteColor('crimson');
+        background: oColorsByName('crimson');
         .o-teaser__content * {
             color: white;
             &:hover {

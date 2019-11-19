@@ -1,6 +1,7 @@
 /// Promoted content theme
 @mixin _oTeaserPromotedContent {
-	@include oColorsFor('o-teaser-theme-promoted-content');
+	$promoted-content-color: oColorsByUsecase('o-teaser/theme-promoted-content', 'text');
+	color: $promoted-content-color;
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px. This needs to be added three times
 	// so that it has a higher specificity than
@@ -10,12 +11,19 @@
 	}
 
 	.o-teaser__heading a {
-		@include oTypographyLinkExternalIcon(oColorsGetPaletteColor('black-80'));
+		@include oTypographyLink(
+			$external: true,
+			$include-base-styles: false,
+			$theme: (
+				'base': $_o-teaser-base-color,
+				'hover': $_o-teaser-focus-hover
+			)
+		);
 	}
 
 	.o-teaser__meta {
-		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black-80');
+		@include oTypographySans($weight: 'semibold');
+		color: oColorsByName('black-80');
 	}
 
 	.o-teaser__promoted-prefix {
@@ -25,7 +33,7 @@
 
 /// Paid post theme
 @mixin _oTeaserPaidPost {
-	@include oColorsFor('o-teaser-theme-paid-post');
+	color: oColorsByUsecase('o-teaser/theme-paid-post', 'text');
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px
 	&#{&} {
@@ -33,8 +41,8 @@
 	}
 
 	.o-teaser__meta {
-		@include oTypographyBold('sans');
-		color: oColorsGetPaletteColor('black-80');
+		@include oTypographySans($weight: 'semibold');
+		color: oColorsByName('black-80');
 	}
 
 	.o-teaser__promoted-prefix {

@@ -1,7 +1,7 @@
 /// Timestamp base styles
 @mixin _oTeaserTimestamp {
-	@include oTypographySize(-2, 20px);
-	@include oColorsFor('o-teaser', text, 60);
+	@include oTypographySans(-2, 20px, $include-font-family: false);
+	color: $_o-teaser-muted;
 	display: block;
 	text-transform: uppercase;
 
@@ -29,7 +29,7 @@
 	.o-teaser__timestamp--new,
 	.o-teaser__timestamp--updated,
 	.o-teaser__timestamp--inprogress {
-		color: oColorsGetPaletteColor('crimson');
+		color: oColorsByName('crimson');
 	}
 
 	.o-teaser__timestamp-prefix:before,
@@ -40,7 +40,7 @@
 		width: 10px;
 		height: 10px;
 		border-radius: 50%;
-		background-color: oColorsGetColorFor('fast-ft', 'text');
+		background-color: oColorsByUsecase('o-teaser/fast-ft', 'text');
 	}
 
 	.o-teaser__timestamp-prefix:before {
@@ -69,18 +69,18 @@
 	}
 
 	.o-teaser__timestamp--comingsoon {
-		color: oColorsGetPaletteColor('live-blog-coming-soon');
+		color: oColorsByName('o-teaser/live-blog-coming-soon');
 
 		.o-teaser__timestamp-prefix:before {
-			background-color: oColorsGetPaletteColor('live-blog-coming-soon');
+			background-color: oColorsByName('o-teaser/live-blog-coming-soon');
 		}
 	}
 
 	.o-teaser__timestamp--closed {
-		color: oColorsGetPaletteColor('live-blog-closed');
+		color: oColorsByName('o-teaser/live-blog-closed');
 
 		.o-teaser__timestamp-prefix:before {
-			background-color: oColorsGetPaletteColor('live-blog-closed');
+			background-color: oColorsByName('o-teaser/live-blog-closed');
 		}
 	}
 }

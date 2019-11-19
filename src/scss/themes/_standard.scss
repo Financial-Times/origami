@@ -1,5 +1,6 @@
 /// Inverse theme styles - base all text content on white
 @mixin _oTeaserInverse {
+	$inverse-color: oColorsByUsecase('o-teaser/inverse', 'text');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -8,22 +9,22 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		@include oColorsFor('o-teaser-inverse', text, 60);
+		color: oColorsMix($inverse-color, $percentage: 60);
 	}
 
 	.o-teaser__meta,
 	.o-teaser__duration,
 	.o-teaser__heading {
-		color: oColorsGetPaletteColor('white');
+		color: oColorsByName('white');
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		@include oColorsFor('o-teaser-inverse', text, 70);
+		color: oColorsMix($inverse-color, $percentage: 70);
 	}
 
 	&.o-teaser--hero .o-teaser__meta:after {
-		border-bottom-color: oColorsGetPaletteColor('white');
+		border-bottom-color: oColorsByName('white');
 	}
 }
 
@@ -49,27 +50,31 @@
 /// General opinion theme teaser - turns tag content blue
 @mixin _oTeaserOpinion {
 	.o-teaser__meta {
-		@include oColorsFor('o-teaser-opinion-tag', text);
+		color: oColorsByUsecase('o-teaser/opinion-tag', 'text');
 	}
 }
 
 /// Opinion background theme - colours background blue and adjust text
 @mixin _oTeaserOpinionBackground {
+	$theme-opinion-color: oColorsByUsecase('o-teaser/theme-opinion', 'text');
+	$theme-opinion-background: oColorsByUsecase('o-teaser/theme-opinion', 'background');
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		@include oColorsFor('o-teaser-theme-opinion', text, 60);
+		color: oColorsMix($theme-opinion-color, $percentage: 60);
 	}
 
 	&.o-teaser--large {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			@include oColorsFor('o-teaser-theme-opinion');
+			color: $theme-opinion-color;
+			background: $theme-opinion-background;
 			border: 0;
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				@include oColorsFor('o-teaser-theme-opinion');
+				color: $theme-opinion-color;
+				background: $theme-opinion-background;
 				top: 0;
 				border: 0;
 			}
@@ -79,6 +84,8 @@
 
 /// Highlight theme - colours background claret and adjust text colours
 @mixin _oTeaserHighlight {
+	$theme-highlight-color: oColorsByUsecase('o-teaser/hero-highlight', 'text');
+	$theme-highlight-background: oColorsByUsecase('o-teaser/hero-highlight', 'background');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -87,28 +94,30 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		@include oColorsFor('o-teaser-hero-highlight', text, 73);
+		color: oColorsMix($theme-highlight-color, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		@include oColorsFor('o-teaser-hero-highlight', text, 80);
+		color: oColorsMix($theme-highlight-color, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-highlight', background), 80);
+		background-color: oColorsMix(oColorsByName('white'), $theme-highlight-background, 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			@include oColorsFor('o-teaser-hero-highlight');
+			color: $theme-highlight-color;
+			background: $theme-highlight-background;
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				@include oColorsFor('o-teaser-hero-highlight');
+				color: $theme-highlight-color;
+				background: $theme-highlight-background;
 			}
 		}
 	}

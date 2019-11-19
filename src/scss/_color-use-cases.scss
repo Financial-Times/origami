@@ -1,46 +1,89 @@
-@include oColorsSetColor('fastft-brand', #cf191d); // TODO: Ask a designer what color from the palette this should be
-@include oColorsSetColor('fastft-highlight', #f5dfd9); // TODO: Ask a designer what color from the palette this should be
-@include oColorsSetColor('commercial-content', oColorsGetTint($color: 'jade', $brightness: 50));
-
-@include oColorsSetUseCase(o-teaser, background, 'paper');
-@include oColorsSetUseCase(o-teaser, border, 'black-20');
-
-@include oColorsSetUseCase(o-teaser-hero, background, 'wheat');
-@include oColorsSetUseCase(o-teaser-hero-highlight, background, 'claret');
-@include oColorsSetUseCase(o-teaser-hero-opinion, background, 'oxford');
-@include oColorsSetUseCase(o-teaser-inverse, background, 'black');
+@include oColorsSetUseCase('o-teaser/base', (
+    'background': 'paper',
+    'text': oColorsGetTextColor('paper'),
+    'border': 'black-20',
+));
+@include oColorsSetUseCase('o-teaser/hero', (
+    'background': 'wheat',
+    'text': oColorsGetTextColor('wheat'),
+));
+@include oColorsSetUseCase('o-teaser/hero-highlight', (
+    'background': 'claret',
+    'text': oColorsGetTextColor('claret'),
+));
+@include oColorsSetUseCase('o-teaser/hero-opinion', (
+    'background': 'oxford',
+    'text': oColorsGetTextColor('oxford'),
+));
+@include oColorsSetUseCase('o-teaser/inverse', (
+    'background': 'black',
+    'text': oColorsGetTextColor('black'),
+));
+@include oColorsSetUseCase('o-teaser/o-teaser-video-icon', (
+    'background': 'slate',
+    'text': 'white'
+));
 
 // Tags
-@include oColorsSetUseCase(o-teaser-tag, text, 'claret');
-@include oColorsSetUseCase(o-teaser-opinion-tag, text, 'oxford');
-@include oColorsSetUseCase(o-teaser-promoted-by, text, 'black');
-@include oColorsSetUseCase(o-teaser-promoted-prefix, text, 'commercial-content');
-@include oColorsSetUseCase(o-teaser-promoted-prefix, _deprecated, 'Color usecase `o-teaser-promoted-prefix` is no longer used by `o-teaser`.');
+@include oColorsSetUseCase('o-teaser/tag', (
+    'text': 'claret'
+));
+@include oColorsSetUseCase('o-teaser/opinion-tag', (
+    'text': 'oxford'
+));
+@include oColorsSetUseCase('o-teaser/promoted-by', (
+    'text': 'black'
+));
 
 // Themes
-@include oColorsSetUseCase(o-teaser-theme-opinion, background, 'sky');
-@include oColorsSetUseCase(o-teaser-theme-hero, background, 'claret');
-@include oColorsSetUseCase(o-teaser-theme-hero-extra, background, 'slate');
-@include oColorsSetUseCase(o-teaser-theme-hero-extra-highlight, border, 'lemon');
-@include oColorsSetUseCase(o-teaser-theme-hero-extra-highlight, text, 'lemon');
-@include oColorsSetUseCase(o-teaser-theme-paid-post, background, 'white');
-@include oColorsSetUseCase(o-teaser-theme-promoted-content, background, 'white');
+@include oColorsSetUseCase('o-teaser/theme-opinion', (
+    'background': 'sky',
+    'text': oColorsGetTextColor('sky')
+));
+@include oColorsSetUseCase('o-teaser/theme-hero', (
+    'background': 'claret',
+    'text': oColorsGetTextColor('claret')
+));
+@include oColorsSetUseCase('o-teaser/theme-hero-extra', (
+    'background': 'slate',
+    'text': oColorsGetTextColor('slate')
+));
+@include oColorsSetUseCase('o-teaser/theme-hero-extra-highlight', (
+    'border': 'lemon',
+    'text': 'lemon'
+));
+@include oColorsSetUseCase('o-teaser/theme-paid-post', (
+    'background': 'white',
+    'text': 'black'
+));
+@include oColorsSetUseCase('o-teaser/theme-promoted-content', (
+    'background': 'white',
+    'text': 'black'
+));
 
 // Package teasers
-@include oColorsSetUseCase(o-teaser-package-basic, background, 'wheat');
-@include oColorsSetUseCase(o-teaser-package-basic, text, 'claret-70');
-@include oColorsSetUseCase(o-teaser-package-basic, border, 'claret-70');
-@include oColorsSetUseCase(o-teaser-package-basic-hover, text, 'claret-30');
-@include oColorsSetUseCase(o-teaser-package-special-report, background, 'claret-70');
+@include oColorsSetUseCase('o-teaser/package-basic', (
+    'background': 'wheat',
+    'text': 'claret-70',
+    'border': 'claret-70'
+));
+@include oColorsSetUseCase('o-teaser/package-basic-hover', (
+    'text': 'claret-30'
+));
+@include oColorsSetUseCase('o-teaser/package-special-report', (
+    'background': 'claret-70',
+    'text': oColorsGetTextColor('claret-70')
+));
 
 // Timestamp - Live blog
-@include oColorsSetColor(live-blog-closed, oColorsGetPaletteColor('black-60'));
-@include oColorsSetColor(live-blog-coming-soon, #fd9d00); // TODO: Ask a designer what color from the palette this should be
-@include oColorsSetColor(live-blog-in-progress, oColorsGetPaletteColor('crimson'));
+@include oColorsSetColor('o-teaser/live-blog-closed', oColorsByName('black-60'));
+@include oColorsSetColor('o-teaser/live-blog-coming-soon', #fd9d00); // todo: replace with an o-colors tone or mix
+@include oColorsSetColor('o-teaser/live-blog-in-progress', oColorsByName('crimson'));
 
-@include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
-@include oColorsSetUseCase(fast-ft, border, 'fastft-brand');
-@include oColorsSetUseCase(fast-ft, background, 'fastft-highlight');
+@include oColorsSetColor('o-teaser/fastft-brand', #cf191d); // todo: replace with an o-colors tone or mix
+@include oColorsSetColor('o-teaser/fastft-highlight', #f5dfd9); // todo: replace with an o-colors tone or mix
 
-@include oColorsSetUseCase(o-teaser-video-icon, text, 'white');
-@include oColorsSetUseCase(o-teaser-video-icon, background, 'slate');
+@include oColorsSetUseCase('o-teaser/fast-ft', (
+    'text': 'o-teaser/fastft-brand',
+    'border': 'o-teaser/fastft-brand'
+));

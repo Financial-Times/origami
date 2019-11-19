@@ -3,7 +3,7 @@
 	list-style: disc outside;
 	padding-left: 30px;
 	margin: 0 0 20px;
-	border-left: 1px solid oColorsGetPaletteColor('black-20');
+	border-left: 1px solid oColorsByName('black-20');
 
 	@include oGridRespondTo($until: M) {
 		display: none;
@@ -12,12 +12,15 @@
 
 /// Single related content item styles
 @mixin _oTeaserRelatedItem {
-	@include oTypographySize($scale: (default: (-1, 22px), L: (0, 24px)));
-	@include oColorsFor('o-teaser', text, 60);
+	@include oTypographySans(
+		$scale: (default: (-1, 22px), L: (0, 24px)),
+		$include-font-family: false
+	);
+	color: $_o-teaser-muted;
 
 	&:hover,
 	&:focus {
-		@include oColorsFor('o-teaser', text, 55);
+		color: $_o-teaser-focus-hover;
 	}
 
 	a {
@@ -31,11 +34,11 @@
 	}
 
 	&.o-teaser__related-item--video a:after {
-		@include oIconsGetIcon('play', oColorsGetPaletteColor('white'), 13, $iconset-version: 1);
+		@include oIconsContent('play', oColorsByName('white'), $size: 13);
 		content: '';
 		position: relative;
 		top: 1px;
-		background-color: oColorsGetPaletteColor('black');
+		background-color: oColorsByName('black');
 		margin-left: 5px;
 	}
 }

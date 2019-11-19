@@ -5,7 +5,7 @@
 
 	.o-teaser__content {
 		padding: oGridGutter(M);
-		border: 1px solid oColorsGetColorFor('o-teaser', border);
+		border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 	}
 
 	.o-teaser__heading {
@@ -17,7 +17,10 @@
 	}
 
 	.o-teaser__standfirst {
-		@include oTypographySize($scale: (default: (1, 24px), L: (2, 24px)));
+		@include oTypographySans(
+			$scale: (default: (1, 24px), L: (2, 24px)),
+			$include-font-family: false
+		);
 		margin-top: oSpacingByName('s6');
 	}
 }
@@ -44,7 +47,7 @@
 				height: 100%;
 				width: 25%;
 				display: block;
-				border: 1px solid oColorsGetColorFor('o-teaser', border);
+				border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 				border-left: 0;
 			}
 		}
@@ -90,8 +93,8 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsGetColorFor('o-teaser', border);
-			border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
+			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 		}
 
 		@include oGridRespondTo(S, L) {
@@ -141,8 +144,8 @@
 			display: block;
 			width: 100%;
 			height: 50%;
-			border-left: 1px solid oColorsGetColorFor('o-teaser', border);
-			border-bottom: 1px solid oColorsGetColorFor('o-teaser', border);
+			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 		}
 	}
 }
@@ -164,7 +167,7 @@
 			height: 100%;
 			width: 25%;
 			display: block;
-			border: 1px solid oColorsGetColorFor('o-teaser', border);
+			border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
 			border-left: 0;
 		}
 	}

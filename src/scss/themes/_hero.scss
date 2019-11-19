@@ -4,7 +4,7 @@
 	flex-flow: column nowrap;
 
 	.o-teaser__content {
-		@include oColorsFor('o-teaser-hero', background);
+		background: oColorsByUsecase('o-teaser/hero', 'background');
 		border: 0;
 		word-break: break-word;
 	}
@@ -13,7 +13,7 @@
 		content: '';
 		display: block;
 		width: 60px;
-		border-bottom: oSpacingByIncrement(1) solid oColorsGetPaletteColor('claret');
+		border-bottom: oSpacingByIncrement(1) solid oColorsByName('claret');
 		margin-top: oSpacingByName('s1');
 		margin-bottom: oSpacingByName('s3');
 	}
@@ -40,6 +40,8 @@
 
 /// Hero opinion theme - blue background white based text
 @mixin _oTeaserHeroOpinion {
+	$opinion-color: oColorsByUsecase('o-teaser/hero-opinion', 'text');
+	$opinion-background: oColorsByUsecase('o-teaser/hero-opinion', 'background');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -48,28 +50,28 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		@include oColorsFor('o-teaser-hero-opinion', text, 73);
+		color: oColorsMix($opinion-color, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		@include oColorsFor('o-teaser-hero-opinion', text, 80);
+		color: oColorsMix($opinion-color, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
-		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-opinion', background), 80);
+		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
 	}
 
 	&.o-teaser--hero {
 		.o-teaser__content,
 		.o-teaser__image-container:after {
-			@include oColorsFor('o-teaser-hero-opinion', background);
+			background: $opinion-background;
 		}
 
 		.o-teaser__content:after {
 			@include oGridRespondTo(S, L) {
-				@include oColorsFor('o-teaser-hero-opinion', background);
+				background: $opinion-background;
 			}
 		}
 	}
@@ -104,7 +106,7 @@
 			width: 100%;
 			min-height: 30%;
 			background-color: transparent;
-			background-image: linear-gradient(to bottom, rgba(oColorsGetPaletteColor('black'), 0.75), transparent);
+			background-image: linear-gradient(to bottom, rgba(oColorsByName('black'), 0.75), transparent);
 			pointer-events: none;
 		}
 
@@ -116,12 +118,12 @@
 		.o-teaser__standfirst a,
 		.o-teaser__standfirst a:visited,
 		.o-teaser__timestamp {
-			color: oColorsGetPaletteColor('white');
+			color: oColorsByName('white');
 			pointer-events: auto;
 		}
 
 		.o-teaser__meta:after {
-			border-bottom-color: oColorsGetPaletteColor('white');
+			border-bottom-color: oColorsByName('white');
 		}
 	}
 }
@@ -142,7 +144,7 @@
 		padding-left: 30%;
 
 		&:after {
-			@include oColorsFor('o-teaser-hero', background);
+			background: oColorsByUsecase('o-teaser/hero', 'background');
 			display: block;
 			top: 50%;
 			border: 0;
@@ -176,7 +178,7 @@
 /// Hero standalone theme styles
 @mixin _oTeaserHeroStandalone {
 	.o-teaser__heading {
-		@include oTypographySize(4);
+		@include oTypographySans(4, $include-font-family: false);
 	}
 
 	.o-teaser__image-container {
@@ -191,47 +193,52 @@
 
 // Hero Package theme — extra
 @mixin _oTeaserHeroExtra {
+	$hero-extra-color: oColorsByUsecase('o-teaser/theme-hero-extra', 'text');
+	$hero-extra-background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+	// highlight colours
+	$hero-extra-highlight-border: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
+	$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__standfirst a:hover,
 	.o-teaser__standfirst a:focus {
-		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
+		color: $hero-extra-highlight-color;
 	}
 
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 73);
+		color: oColorsMix(oColorsByName('white'), $hero-extra-highlight-color, 73);
 	}
 
 	.o-teaser__meta {
-		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
+		color: $hero-extra-highlight-color;
 
 		&:after {
-			@include oColorsFor(o-teaser-theme-hero-extra-highlight, border);
+			border-color: $hero-extra-highlight-border;
 		}
 	}
 
 	.o-teaser__heading,
 	.o-teaser__standfirst {
-		color: oColorsGetPaletteColor('white');
+		color: oColorsByName('white');
 		a:visited {
-			@include oColorsFor(o-teaser-theme-hero-extra, text, 50);
+			color: oColorsMix($hero-extra-color, $percentage: 50);
 		}
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		@include oColorsFor(o-teaser-theme-hero-extra, text, 80);
+		color: oColorsMix($hero-extra-color, $percentage: 80);
 	}
 
 	.o-teaser__image-container:after,
 	.o-teaser__content {
-		@include oColorsFor(o-teaser-theme-hero-extra, background);
+		background: $hero-extra-background;
 	}
 
 	.o-teaser__content:after {
 		@include oGridRespondTo(S, L) {
-			@include oColorsFor(o-teaser-theme-hero-extra, background);
+			background: $hero-extra-background;
 		}
 	}
 }

@@ -2,6 +2,24 @@
 
 ## Migrating from v3 to v4
 
+### Colours and Colour Usecases
+
+All [o-teaser colours and colour usecases](https://github.com/Financial-Times/o-teaser/blob/v3.5.9/src/scss/_color-use-cases.scss) have been renamed to include an o-colors namespace. For example:
+- `o-teaser` is now `o-teaser/base`
+- `fast-ft` is now `o-teaser/fast-ft`
+- `o-teaser-tag` is now `o-teaser/tag`
+- `o-teaser-theme-opinion` is now `o-teaser/theme-opinion`
+- etc.
+
+```diff
+- @include oColorsFor('o-teaser-tag', 'text');
++ color: oColorsByUsecase('o-teaser/tag', 'text');
+```
+
+The `commercial-content` colour has been removed. Include [o-labels](https://registry.origami.ft.com/components/o-labels) and use `o-labels/commercial-content` instead.
+
+The deprecated `o-teaser-promoted-prefix` usecase has been removed. Include [o-labels](https://registry.origami.ft.com/components/o-labels) and use the `o-labels/commercial-content` colour instead.
+
 ### Markup
 
 Deprecated classes have been removed:
