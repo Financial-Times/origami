@@ -8,7 +8,7 @@
 /// @access private
 @mixin _oOverlayBase {
 	.o-overlay {
-		@include oVisualEffectsShadowsElevation($elevation: 'high');
+		@include oVisualEffectsShadowContent($elevation: 'high');
 		@include oTypographySans($scale: 0);
 		position: fixed;
 		z-index: 11; // Must always be higher than the shadow z-index
@@ -17,81 +17,46 @@
 		transition: opacity 0.3s ease-in-out;
 		border: $_o-overlay-border-width solid _oOverlayGet('default-border');
 		background: _oOverlayGet('default-background');
-		border-radius: $o-normalise-border-radius;
 	}
 	.o-overlay-shadow {
-		@include _oOverlayContentShadow();
+		background-color: rgba(0, 0, 0, 0.2);
+		position: fixed;
+		height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 10; // Must always be lower than the overlay z-index
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out;
 	}
 	.o-overlay__heading {
-		@include _oOverlayContentHeading();
+		@include oTypographySans($scale: 2, $include-font-family: false);
+		margin: 0;
+		overflow: hidden;
+		background: _oOverlayGet('heading-background');
+		color: _oOverlayGet('heading-text');
 	}
 	.o-overlay__title {
-		@include _oOverlayContentTitle();
+		margin: oSpacingByName('s3');
+		margin-right: oSpacingByName('s6');
+		display: block;
+		overflow: auto;
 	}
 	.o-overlay__close {
 		@include oOverlayContentClose();
 	}
 	.o-overlay__content {
-		@include _oOverlayContentBody();
-	}
-}
+		position: relative;
+		box-sizing: border-box;
+		overflow: auto;
+		padding: oSpacingByName('s4');
 
-/// Outputs styles for the overlay shadow.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayContentShadow {
-	// IE8 hack to get the opacity working
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#33000000', endColorstr='#33000000'); /* IE */
-	background-color: rgba(0, 0, 0, 0.2);
-	position: fixed;
-	height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 10; // Must always be lower than the overlay z-index
-	opacity: 1;
-	transition: opacity 0.3s ease-in-out;
-}
+		> *:first-child {
+			margin-top: 0;
+		}
 
-/// Outputs styles for the overlay heading.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayContentHeading {
-	@include oTypographySize($scale: 2);
-	margin: 0;
-	overflow: hidden;
-	background: _oOverlayGet('heading-background');
-	color: _oOverlayGet('heading-text');
-}
-
-/// Outputs styles for the overlay title.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayContentTitle {
-	margin: oSpacingByName('s3');
-	margin-right: oSpacingByName('s6');
-	display: block;
-	overflow: auto;
-}
-
-/// Outputs styles for the overlay body.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayContentBody {
-	position: relative;
-	box-sizing: border-box;
-	overflow: auto;
-	padding: oSpacingByName('s4');
-
-	> *:first-child {
-		margin-top: 0;
-	}
-
-	> *:last-child {
-		margin-bottom: 0;
+		> *:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

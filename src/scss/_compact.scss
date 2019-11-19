@@ -8,50 +8,18 @@
 @mixin _oOverlayCompact {
 	.o-overlay--compact {
 		.o-overlay__content {
-			@include _oOverlayCompactContentBody();
+			padding: oSpacingByName('s3');
 		}
 		.o-overlay__heading {
-			@include _oOverlayCompactContentHeading();
+			@include oTypographySans($scale: 0, $include-font-family: false);
 		}
 		.o-overlay__title {
-			@include _oOverlayCompactContentTitle();
+			margin-top: oSpacingByName('s2'); // Actually 10px - line-height adds some space too
+			margin-bottom: oSpacingByName('s1');
+			margin-left: oSpacingByName('s3');
 		}
 		.o-overlay__close {
-			@include _oOverlayCompactContentClose();
+			margin: oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s3');
 		}
 	}
-}
-
-/// Outputs styles for the compact variant overlay heading.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayCompactContentHeading {
-	@include oTypographySize($scale: 0);
-}
-
-/// Outputs styles for the compact variant overlay title.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayCompactContentTitle {
-	margin-top: oSpacingByName('s2'); // Actually 10px - line-height adds some space too
-	margin-bottom: oSpacingByName('s1');
-	margin-left: oSpacingByName('s3');
-}
-
-/// Outputs styles for the compact variant overlay close button.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayCompactContentClose {
-	margin: oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s3');
-}
-
-/// Outputs styles for the compact variant overlay body.
-///
-/// @output The output does not include a class definition, and should be wrapped in a selector.
-/// @access private
-@mixin _oOverlayCompactContentBody {
-	padding: oSpacingByName('s3');
 }

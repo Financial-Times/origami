@@ -10,19 +10,19 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-overlay', 'master', (
 		'variables': (
-			default-background: oColorsGetPaletteColor('white'),
-			default-border: oColorsGetPaletteColor('black-20'),
-			heading-background: oColorsGetPaletteColor('transparent'),
-			heading-text: oColorsGetPaletteColor('black-80'),
-			shaded-heading-background: oColorsGetPaletteColor('black-80'),
-			shaded-heading-border: oColorsGetPaletteColor('black-80'),
-			shaded-heading-text: oColorsGetPaletteColor('white'),
-			default-close-background: oColorsGetPaletteColor('white'),
-			default-close-text: oColorsGetPaletteColor('black-60'),
-			default-close-border: oColorsGetPaletteColor('black-50'),
-			shaded-close-background: oColorsGetPaletteColor('black-50'),
-			shaded-close-text: oColorsGetPaletteColor('white'),
-			shaded-close-border: oColorsGetPaletteColor('white')
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('black-20'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('black-80'),
+			shaded-heading-border: oColorsByName('black-80'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black-60'),
+			default-close-border: oColorsByName('black-50'),
+			shaded-close-background: oColorsByName('black-50'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
 		),
 		'supports-variants': ()
 	));
@@ -31,19 +31,19 @@
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-overlay', 'internal', (
 		'variables': (
-			default-background: oColorsGetPaletteColor('white'),
-			default-border: oColorsGetPaletteColor('transparent'),
-			heading-background: oColorsGetPaletteColor('transparent'),
-			heading-text: oColorsGetPaletteColor('black-80'),
-			shaded-heading-background: oColorsGetPaletteColor('slate'),
-			shaded-heading-border: oColorsGetPaletteColor('slate'),
-			shaded-heading-text: oColorsGetPaletteColor('white'),
-			default-close-background: oColorsGetPaletteColor('white'),
-			default-close-text: oColorsGetPaletteColor('black-60'),
-			default-close-border: oColorsGetPaletteColor('slate-white-5'),
-			shaded-close-background: oColorsGetPaletteColor('slate'),
-			shaded-close-text: oColorsGetPaletteColor('white'),
-			shaded-close-border: oColorsGetPaletteColor('white')
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('transparent'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('slate'),
+			shaded-heading-border: oColorsByName('slate'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black-60'),
+			default-close-border: oColorsByName('slate-white-5'),
+			shaded-close-background: oColorsByName('slate'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
 		),
 		'supports-variants': ()
 	));
@@ -52,19 +52,19 @@
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-overlay', 'whitelabel', (
 		'variables': (
-			default-background: oColorsGetPaletteColor('white'),
-			default-border: oColorsGetPaletteColor('transparent'),
-			heading-background: oColorsGetPaletteColor('transparent'),
-			heading-text: oColorsGetPaletteColor('black-80'),
-			shaded-heading-background: oColorsGetPaletteColor('black'),
-			shaded-heading-border: oColorsGetPaletteColor('black'),
-			shaded-heading-text: oColorsGetPaletteColor('white'),
-			default-close-background: oColorsGetPaletteColor('white'),
-			default-close-text: oColorsGetPaletteColor('black'),
-			default-close-border: oColorsGetPaletteColor('black'),
-			shaded-close-background: oColorsGetPaletteColor('black'),
-			shaded-close-text: oColorsGetPaletteColor('white'),
-			shaded-close-border: oColorsGetPaletteColor('white')
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('transparent'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('black'),
+			shaded-heading-border: oColorsByName('black'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black'),
+			default-close-border: oColorsByName('black'),
+			shaded-close-background: oColorsByName('black'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
 		),
 		'supports-variants': ()
 	));

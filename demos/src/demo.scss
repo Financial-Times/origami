@@ -2,6 +2,7 @@
 @include oOverlay();
 
 body {
+	@include oTypographySans();
 	padding: oSpacingByName('s3');
 	min-height: 500px;
 }
