@@ -1,7 +1,10 @@
 {
 	"primary": [
 		{ "name": "black", "baseText": true },
-		{ "name": "white", "baseBackground": true }
+		{ "name": "white", "baseBackground": true },
+
+		{ "name": "jade" },
+		{ "name": "crimson" }
 	],
 	"secondary": [],
 	"tertiary": [],

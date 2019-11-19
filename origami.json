@@ -184,7 +184,7 @@
 			"title": "Primary Palette",
 			"data": "demos/src/palettes/whitelabel-palette.json",
 			"template": "demos/src/primary-palette.mustache",
-			"description": "The whitelabel brand does not assume much colour. White and black, or a mix of the two, is common as a placeholder.",
+			"description": "The whitelabel brand does not assume much colour. White and black, or a mix of the two, is common as a placeholder. Jade and crimson are often used as a success/error placeholder colour.",
 			"display_html": false,
 			"brands": [
 				"whitelabel"

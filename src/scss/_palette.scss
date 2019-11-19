@@ -54,6 +54,15 @@ $_o-colors-default-palette-colors: join((
 	), $_o-colors-default-palette-colors);
 }
 
+// Whitelabel brand palette.
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	$_o-colors-default-palette-colors: join((
+		//tertiary palette
+		('jade', #00994d),
+		('crimson', #cc0000)
+	), $_o-colors-default-palette-colors);
+}
+
 // Default palette tones.
 @if oBrandGetCurrentBrand() == master {
 	$_o-colors-default-palette-tones: map-merge((
