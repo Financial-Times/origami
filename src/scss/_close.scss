@@ -21,8 +21,6 @@
 	float: right;
 	position: relative;
 	margin: oSpacingByName('s3');
-	width: oSpacingByName('s4');
-	height: oSpacingByName('s4');
 	padding: 0.25em;
 	cursor: pointer;
 	font-size: 8px;
@@ -47,5 +45,4 @@
 /// @access private
 @mixin _oOverlayContentCloseIcon($color) {
 	@include oIconsContent('cross', $color, $size: 20px);
-	background-size: contain;
 }
