@@ -1,5 +1,7 @@
 # Migration
 
+## Migrating from v3 to v4
+
 ## Migrating from v2 to v3
 
 - `o-layout` supports the internal brand only, so your project must set its brand to the internal brand:
@@ -22,7 +24,7 @@
  </div>
 ```
 
-- If you have added navigation manually, you'll need to move the `o-layout__navigation` class from the list (`ul` or `ol`) to the containing `nav` element. 
+- If you have added navigation manually, you'll need to move the `o-layout__navigation` class from the list (`ul` or `ol`) to the containing `nav` element.
 
 If your project relies on `o-layout` JavaScript to generate a nav, no action is required.
 
