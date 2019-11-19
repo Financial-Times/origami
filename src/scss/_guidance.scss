@@ -2,8 +2,6 @@
 /// Outputs styling for accessibility components
 
 @mixin _oVideoGuidance {
-    $white: oColorsGetPaletteColor('white');
-
     .o-video__guidance {
         @include oTypographySans(-1);
         background-color:  oColorsMix($color: 'black', $background: 'transparent', $percentage: 75);
@@ -22,7 +20,7 @@
         }
 
         a {
-            color: $white;
+            color: oColorsByName('white');
             text-decoration: none;
         }
 
@@ -48,14 +46,19 @@
     }
 
     .o-video__guidance__link {
-        @include oTypographyLinkCustom($white, $white);
-        @include oTypographyLinkExternalIcon($white);
-        color: $white;
+        @include oTypographyLink(
+            $theme: (
+                'base': 'white',
+                'hover': 'white'
+            ),
+            $external: true
+        );
+        color: oColorsByName('white');
         border-bottom: 0;
     }
 
     .o-video__guidance__close {
-        @include oIconsGetIcon('cross', $color: $white, $container-width: 20px);
+        @include oIconsContent('cross', $color: oColorsByName('white'), $size: 20px);
         border: 0;
         cursor: pointer;
 
