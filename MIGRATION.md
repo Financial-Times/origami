@@ -3,6 +3,8 @@
 
 ## Migrating from v3 to v4
 
+Tooltip typography is now included by default, and no longer inherits typography from its container. Confirm tooltip typography is correct for your project. If possible remove custom CSS which sets tooltip typography.
+
 ### Mixins
 
 - The `oTooltips` mixin now includes all styles required for tooltips. See the [Sass documentation](README.md#sass) for information on the new parameters

@@ -13,11 +13,13 @@
     "main.js"
   ],
   "dependencies": {
-    "ftdomdelegate": "^3.0.0",
-    "o-normalise": "^1.2.1",
-    "o-overlay": "^2.6.0",
-    "o-viewport": "^3.1.2",
-    "o-visual-effects": "^2.0.0",
-    "o-grid": "^4.3.6"
+    "ftdomdelegate": "4.0.0-beta.1",
+    "o-normalise": "2.0.0-beta.6",
+    "o-icons": "6.0.0-beta.3",
+    "o-viewport": "4.0.0-beta.1",
+    "o-visual-effects": "3.0.0-beta.2",
+    "o-grid": "5.0.0-beta.2",
+    "o-typography": "6.0.0-beta.4",
+    "o-overlay": "3.0.0-beta.1"
   }
 }

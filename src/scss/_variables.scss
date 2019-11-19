@@ -22,7 +22,7 @@ $_o-tooltip-animation-duration: 0.5s;
 ///
 /// @type {Color}
 /// @access private
-$_o-tooltip-background-color: oColorsGetPaletteColor('white');
+$_o-tooltip-background-color: oColorsByName('white');
 
 /// The border colour for tooltips.
 ///

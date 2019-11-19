@@ -2,6 +2,7 @@
 @import "o-normalise/main";
 @import "o-overlay/main";
 @import "o-visual-effects/main";
+@import "o-typography/main";
 
 @import "src/scss/variables";
 @import "src/scss/mixins";
@@ -16,8 +17,9 @@
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still spec-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
-	@include oGridSurfaceCurrentLayout();
-	@include oGridSurfaceLayoutSizes();
+	@include oGrid((
+		'surface': ('current-layout', 'layout-sizes'),
+	));
 
 	// Include base styles
 	@include _oTooltipBase();

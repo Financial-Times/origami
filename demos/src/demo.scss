@@ -1,9 +1,6 @@
-$o-tooltip-is-silent: false;
 @import '../../main';
 
-body {
-	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb); // todo, use o-fonts or o-typography in the next major
-}
+@include oTooltip();
 
 .demo-tooltip-container {
 	height: 200px;

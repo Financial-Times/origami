@@ -7,16 +7,15 @@
 /// @access private
 @mixin _oTooltipBase {
 	.o-tooltip {
-		@include oVisualEffectsShadowsElevation($elevation: 'high');
+		@include oVisualEffectsShadowContent($elevation: 'high');
 		position: absolute;
 		z-index: 10;
 		box-sizing: border-box;
 		opacity: 0;
-		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-transition-fade,
-					transform $_o-tooltip-animation-duration $o-visual-effects-transition-slide;
+		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade,
+					transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
 		border: 0;
 		background: $_o-tooltip-background-color;
-		border-radius: $o-normalise-border-radius;
 		display: none;
 
 		&.visible {
@@ -62,6 +61,7 @@
 /// @output The output includes all styles for tooltip content excluding a wrapping selector.
 /// @access private
 @mixin _oTooltipContentBody() {
+	@include oTypographySans();
 	position: relative;
 	box-sizing: border-box;
 	overflow: auto;
@@ -256,7 +256,7 @@
 /// @output The output includes all styles for top tooltip arrows excluding a wrapping selector.
 /// @access private
 @mixin _oTooltipContentClose() {
-	@include oOverlayClose;
+	@include oOverlayContentClose;
 	position: absolute;
 	top: 0;
 	right: 0;
