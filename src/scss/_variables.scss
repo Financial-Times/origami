@@ -1,13 +1,4 @@
 $o-footer-is-silent: true !default;
-/// Option to change the base of the image service url
-///
-/// @type String
-$o-footer-image-base-url: "https://www.ft.com/__origami/service/image" !default;
-
-/// Option to change the version of the image service url
-///
-/// @type String
-$o-footer-image-service-version: "v2" !default;
 
 /// Footer spacing unit
 /// @type Number

@@ -3,8 +3,14 @@
 /// @param {String} $logo-name
 /// @param {Number} $fallback-width
 @mixin _oFooterBrandImage($logo-name, $fallback-width) {
-	$base-url: "#{$o-footer-image-base-url}/#{$o-footer-image-service-version}/images/raw/ftlogo:";
-	background-image: url($base-url + $logo-name + "?source=o-footer&format=svg");
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
+	$base-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:";
+	background-image: url($base-url + $logo-name + "?source=#{$system-code}&format=svg");
 }
 
 /// Styles for the dark theme
