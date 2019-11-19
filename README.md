@@ -161,7 +161,7 @@ You must either construct an `o-footer` object or fire the `o.DOMContentLoaded` 
 ### Constructing an o-footer
 
 ```js
-const oFooter = require('o-footer');
+import oFooter from 'o-footer';
 
 const ofooter = new oFooter();
 ```
