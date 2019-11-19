@@ -30,7 +30,7 @@
 ///     	'themes': ('marketing'),
 ///     ));
 ///
-/// @param {Map} $opts - The o-banners features to output. See the [readme](https://registry.origami.ft.com/components/o-banner) for a full list of options.
+/// @param {Map} $opts - The o-banner features to output. See the [readme](https://registry.origami.ft.com/components/o-banner) for a full list of options.
 @mixin oBanner($opts: (
 	'layouts': $_o-banner-layouts,
 	'themes': $_o-banner-themes
