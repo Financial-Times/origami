@@ -34,12 +34,10 @@
 	$half-width: index($sizes, 'half-width');
 	$small: index($sizes, 'small');
 
-	@include oTypographySize(3);
+	@include oTypographySans(3, $weight: 'regular');
 	position: relative;
 	width: 100%;
 	margin: 0;
-	font-family: $o-typography-sans;
-	font-weight: normal;
 	padding-top: oSpacingByName('s3');
 	padding-bottom: oSpacingByIncrement(5);
 	// sass-lint:disable no-vendor-prefixes
@@ -49,7 +47,7 @@
 	@if($divider) {
 		&:before,
 		&:after {
-			border-top: 8px solid rgba(oColorsGetPaletteColor('black'), 0.05);
+			border-top: 8px solid rgba(oColorsByName('black'), 0.05);
 			content: '';
 			left: 0;
 			top: 0;
@@ -58,7 +56,7 @@
 		}
 
 		&:after {
-			border-top-color: oColorsGetPaletteColor('black');
+			border-top-color: oColorsByName('black');
 
 			@include oGridRespondTo(L) {
 				width: 32.5%;
@@ -109,11 +107,11 @@
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		@include oColorsFor('o-teaser-collection-heading', text, 55);
+		color: oColorsMix('black', $percentage: 55);
 	}
 
 	&:after {
-		@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 30, $iconset-version: 1);
+		@include oIconsContent('arrow-right', oColorsByName('black'), $size: 30);
 		content: '';
 		display: inline-block;
 		position: relative;
@@ -135,8 +133,7 @@
 		position: relative;
 
 		&:before {
-			@include oTypographySize(4);
-			font-family: $o-typography-display;
+			@include oTypographyDisplay(4);
 			content: counter(o-teaser-collection-items);
 			position: absolute;
 			top: 0;
