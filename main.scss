@@ -18,22 +18,17 @@
 /// @access public
 @mixin oTabs($opts: (
 	'sizes': ('big'),
-	'themes': ('primary', 'inverse')
+	'button-tabs': $_o-tabs-default-button-tabs
 )) {
 	$sizes: map-get($opts, 'sizes');
-	$themes: map-get($opts, 'themes');
+	$button-tabs: map-get($opts, 'button-tabs');
 
 	// Include base styles
 	@include _oTabsBase();
 
 	// Include base button tabs styles
-	@include _oTabsButtonTabs($sizes);
-
-	// Output default themes. Other themes avalible, see o-buttons themes.
-	@each $theme in $themes {
-		@if _oTabsSupports($theme) {
-			@include _oTabsButtonTabsTheme($theme);
-		}
+	@if type-of($button-tabs) == 'list' {
+		@include _oTabsButtonTabs($button-tabs, $sizes);
 	}
 }
 

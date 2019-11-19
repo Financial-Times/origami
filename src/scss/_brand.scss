@@ -11,29 +11,34 @@
     @return oBrandSupportsVariant('o-tabs', $variant);
 }
 
+/// The button tabs to include by default.
+/// @type List
+/// @access private
+$_o-tabs-default-button-tabs: ();
+
+
 // Define masterbrand
-@include oBrandDefine('o-tabs', 'master', (
-    'variables': (),
-    'supports-variants': (
-        'primary',
-        'inverse',
-        'mono',
-        'b2c'
-    )
-));
+@if oBrandGetCurrentBrand() == 'master' {
+    $_o-tabs-default-button-tabs: (
+		('type': 'primary'),
+		('type': 'secondary'),
+		('type': 'secondary', 'theme': 'inverse'),
+	) !global;
+}
 
 // Define internal brand
-@include oBrandDefine('o-tabs', 'internal', (
-    'variables': (),
-    'supports-variants': (
-        'primary',
-        'inverse',
-        'mono'
-    )
-));
+@if oBrandGetCurrentBrand() == 'internal' {
+    $_o-tabs-default-button-tabs: (
+		('type': 'primary'),
+		('type': 'secondary'),
+		('type': 'secondary', 'theme': 'inverse'),
+	) !global;
+}
 
 // Define whitelabel brand
-@include oBrandDefine('o-tabs', 'whitelabel', (
-    'variables': (),
-    'supports-variants': ()
-));
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+    $_o-tabs-default-button-tabs: (
+		('type': 'primary'),
+		('type': 'secondary')
+	) !global;
+}

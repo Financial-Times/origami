@@ -4,10 +4,10 @@
 @include oTabs();
 
 body {
-	margin: 10px;
+	margin: 1rem;
 }
 
 .demo-inverse {
-	color: #ffffff;
-	background: #333333;
+	color: oColorsByName('white');
+	background: oColorsByName('slate');
 }

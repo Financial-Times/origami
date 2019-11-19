@@ -1,21 +1,55 @@
 
-/// Outputs tabs with a default theme 'secondary'.
+/// Outputs button tabs.
 ///
 /// @access private
-@mixin _oTabsButtonTabs($sizes) {
+@mixin _oTabsButtonTabs($button-tabs, $sizes) {
 	.o-tabs--buttontabs[data-o-tabs--js] {
+
 		&[role=tablist] {
-			border-bottom: 1px solid _oTabsGetTablistBorderColor($theme: 'secondary');
-			font-size: 0; // Hack to remove the spacing between tabs when using <li>'s
+			display: flex; // prevent spacing between tabs
+			border-bottom: 1px solid;
 		}
 
 		[role=tab] {
-			@include oButtons($theme: 'secondary');
+			@include oButtonsContent(); // include base button styles
 		}
 
+		// Include tab button themes.
+		@each $button-tabs in $button-tabs {
+			$button-type: map-get($button-tabs, 'type');
+			$button-theme: map-get($button-tabs, 'theme');
+
+			$theme-selector: '.o-tabs--#{$button-type}';
+			@if $button-theme {
+				$theme-selector: selector-append($theme-selector, '.o-tabs--#{$button-theme}');
+			}
+
+			&#{$theme-selector} {
+				&[role=tablist] {
+					// Find a tab list border colour based on o-buttons.
+					$button-background: oButtonsGetColor('default', 'background', $type: $button-type, $theme: $button-theme);
+					$button-border: oButtonsGetColor('default', 'border', $type: $button-type, $theme: $button-theme);
+					$tablist-border: if($button-border and $button-border != transparent, $button-border, $button-background);
+
+					border-color: $tablist-border;
+				}
+
+				[role=tab] {
+					@include oButtonsContent((
+						'type': $button-type,
+						'theme': $button-theme,
+					), $include-base-styles: false);
+				}
+
+			}
+		}
+
+		// Include tab button sizes.
 		@if index($sizes, 'big') {
 			&.o-tabs--big [role=tab] {
-				@include oButtonsSize('big');
+				@include oButtonsContent((
+					'size': 'big'
+				), $include-base-styles: false);
 			}
 		}
 
@@ -40,29 +74,4 @@
 			}
 		}
 	}
-}
-
-/// Outputs a modifier class to theme tabs.
-///
-/// @param {String} $theme - A theme identifier (string), see o-buttons for a list of available themes.
-/// @access private
-@mixin _oTabsButtonTabsTheme($theme) {
-	.o-tabs--buttontabs.o-tabs--#{$theme} {
-		[role=tab] {
-			@include oButtonsTheme($theme);
-		}
-		&[data-o-tabs--js][role=tablist] {
-			border-bottom: 1px solid _oTabsGetTablistBorderColor($theme);
-		}
-	}
-}
-
-/// Gets the tablist border color for a given theme.
-/// @access private
-/// @return {color}
-@function _oTabsGetTablistBorderColor($theme) {
-	$button-background: oButtonsGetColor($state: 'default', $property: 'background', $theme: $theme);
-	$button-border: oButtonsGetColor($state: 'default', $property: 'border', $theme: $theme);
-	$tablist-border: if($button-border and $button-border != transparent, $button-border, $button-background);
-	@return $tablist-border;
 }

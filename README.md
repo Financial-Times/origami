@@ -149,38 +149,23 @@ The __buttontabs__ style comes in two sizes that conform to the `o-buttons` size
 
 ### Mixin: `oTabs`
 
-The `oTabs` mixin is used to output base styles as well as styles for several of the tab themes (primary and inverse). This output includes the `o-tabs` classes:
+Output all default `oTabs` styles using `oTabs`.
 
 ```scss
 @include oTabs();
 ```
 
-```css
-.o-tabs {
-    /* styles */
-}
-.o-tabs--buttontabs {
-    /* styles */
-}
-.o-tabs--primary {
-    /* styles */
-}
-/* etc. */
-```
-
-If you wish to specify more sizes and themes to output styles for, you can pass in options (see [sizes](#sizes) and [themes](#themes) for available options):
+Set `oTabs` options to output more [sizes](#sizes) and variations of button tabs ([types](#types) and [themes](#themes) of buttons from [o-buttons](https://registry.origami.ft.com/components/o-buttons/readme)).
 
 ```scss
 @include oTabs($opts: (
-    'sizes': ('big'),
-    'themes': ('mono')
+    'sizes': ('big'), //.o-tabs--big
+    'button-tabs': (
+		('type': 'primary'), //.o-tabs--primary
+		('type': 'secondary'), //.o-tabs--secondary
+		('type': 'secondary', 'theme': 'inverse'), //.o-tabs--secondary.o-tabs--inverse
+	)
 ));
-```
-
-```css
-.o-tabs--mono {
-    /* styles */
-}
 ```
 
 ### Sizes
@@ -191,18 +176,24 @@ This table outlines all of the possible sizes you can request in the [`oTabs` mi
 |------|---------------------|------------------------------|
 | big  | Included by default | master, internal, whitelabel |
 
+### Types
+
+This table outlines the button types you can request in the [`oTabs` mixin](#mixin-otabs). All of these are [types from o-buttons](https://registry.origami.ft.com/components/o-buttons/readme):
+
+| Type      | Notes                                    | Brand support                |
+|-----------|------------------------------------------|------------------------------|
+| secondary | Included by default                      | master, internal, whitelabel |
+| primary   | Included by default                      | master, internal, whitelabel |
+
 ### Themes
 
-This table outlines all of the possible themes you can request in the [`oTabs` mixin](#mixin-otabs). All of these are [themes in o-buttons](https://github.com/Financial-Times/o-buttons#themes):
+This table outlines some of the possible button themes you can request in the [`oTabs` mixin](#mixin-otabs) along with [button types](#types). All of these are [themes from o-buttons](https://registry.origami.ft.com/components/o-buttons/readme):
 
-| Theme     | Notes                                    | Brand support    |
-|-----------|------------------------------------------|------------------|
-| secondary | Always defined – no need to include this | master, internal |
-| primary   | Included by default                      | master, internal |
-| inverse   | Included by default                      | master, internal |
-| mono      | Not included by default                  | master, internal |
-| b2c       | Not included by default                  | master           |
-
+| Theme     | Notes                                    | Brand support                |
+|-----------|------------------------------------------|------------------------------|
+| inverse   | Included by default                      | master, internal             |
+| mono      | Not included by default                  | master, internal             |
+| b2c       | Not included by default                  | master                       |
 
 ## Migration Guide
 
