@@ -4,21 +4,21 @@
 
 			&.important,
 			&.atrule {
-				color: oColorsGetPaletteColor('oxford-crimson-50');
+				color: $_o-syntax-highlight-oxford-crimson-50;
 
-				.rule { color: oColorsGetPaletteColor('crimson-jade-80'); }
+				.rule { color: $_o-syntax-highlight-crimson-jade-80; }
 			}
 
-			&.function { color: oColorsGetPaletteColor('oxford-lemon-80'); }
-			&.important { color:  oColorsGetPaletteColor('oxford-crimson-50'); }
+			&.function { color: $_o-syntax-highlight-oxford-lemon-80; }
+			&.important { color:  $_o-syntax-highlight-oxford-crimson-50; }
 
 			&.property {
-				color: oColorsGetPaletteColor('grey-70');
+				color: $_o-syntax-highlight-grey-70;
 			}
 
 			&.selector,
 			&.url {
-				color: oColorsGetPaletteColor('oxford');
+				color: $_o-syntax-highlight-oxford;
 			}
 		}
 	}

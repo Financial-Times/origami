@@ -1,9 +1,9 @@
 /* eslint-env mocha, sinon, proclaim */
 
-const SyntaxHighlight = require('../src/js/syntax-highlight');
-const assert = require('proclaim');
-const sinon = require('sinon/pkg/sinon');
-const fixtures = require('./helpers/fixtures');
+import SyntaxHighlight from '../src/js/syntax-highlight';
+import assert from 'proclaim';
+import sinon from 'sinon/pkg/sinon';
+import fixtures from './helpers/fixtures';
 
 const flatten = string => string.replace(/\s/g, '');
 

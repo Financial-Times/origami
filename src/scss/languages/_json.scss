@@ -1,9 +1,9 @@
 @mixin _oSyntaxHighlightJSON () {
 	.o-syntax-highlight--json {
 		.token {
-			&.number { color: oColorsGetPaletteColor('crimson-jade-80'); }
-			&.operator { color: oColorsGetPaletteColor('grey-70'); }
-			&.property { color: oColorsGetPaletteColor('oxford'); }
+			&.number { color: $_o-syntax-highlight-crimson-jade-80; }
+			&.operator { color: $_o-syntax-highlight-grey-70; }
+			&.property { color: $_o-syntax-highlight-oxford; }
 		}
 	}
 }

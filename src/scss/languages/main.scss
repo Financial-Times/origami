@@ -10,21 +10,21 @@
 @mixin _oSyntaxHighlightBase() {
 	[data-o-component='o-syntax-highlight'] {
 		pre {
-			background: oColorsGetPaletteColor('grey-5');
+			background: $_o-syntax-highlight-grey-5;
 			padding: 1rem;
 			word-break: break-all;
 			tab-size: 4;
 			overflow-x: auto;
 
-			.token.comment { color: oColorsGetPaletteColor('grey-60'); }
-			.token.punctuation { color: oColorsGetPaletteColor('grey-70'); }
-			.token.string { color: oColorsGetPaletteColor('oxford-jade-60'); }
+			.token.comment { color: $_o-syntax-highlight-oxford-grey-60; }
+			.token.punctuation { color: $_o-syntax-highlight-grey-70; }
+			.token.string { color: $_o-syntax-highlight-oxford-jade-60; }
 		}
 
 		code,
 		var {
-			background: oColorsGetPaletteColor('grey-5');
-			color: oColorsGetPaletteColor('black');
+			background: $_o-syntax-highlight-grey-5;
+			color: oColorsByName('black');
 			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 			font-size: 14px;
 			line-height: 1.5;
@@ -37,7 +37,7 @@
 		}
 
 		var {
-			color: oColorsGetPaletteColor('teal');
+			color: $_o-syntax-highlight-teal;
 			font-weight: 600;
 		}
 	}

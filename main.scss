@@ -1,15 +1,14 @@
 @import 'o-colors/main';
 
 @import 'src/scss/variables';
-@import 'src/scss/colors';
 @import 'src/scss/languages/main';
 
 @mixin oSyntaxHighlight($opts: (
 	'languages': (
 		'bash',
 		'css',
-		'diff', 
-		'html', 
+		'diff',
+		'html',
 		'js',
 		'json',
 		'sass',
@@ -43,7 +42,7 @@
 	@if index($languages, 'json') {
 		@include _oSyntaxHighlightJSON();
 	}
-	
+
 	@if index($languages, 'yaml') or index($languages, 'yml') {
 		@include _oSyntaxHighlightYAML();
 	}

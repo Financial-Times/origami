@@ -1,9 +1,9 @@
 @mixin _oSyntaxHighlightHTML {
 	.o-syntax-highlight--html {
 		.token {
-			&.attr-name { color: oColorsGetPaletteColor('oxford'); }
-			&.attr-value { color: oColorsGetPaletteColor('oxford-jade-60'); }
-			&.tag { color: oColorsGetPaletteColor('crimson-jade-80'); }
+			&.attr-name { color: $_o-syntax-highlight-oxford; }
+			&.attr-value { color: $_o-syntax-highlight-oxford-jade-60; }
+			&.tag { color: $_o-syntax-highlight-crimson-jade-80; }
 		}
 	}
 }

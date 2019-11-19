@@ -1,1 +1,19 @@
 $o-syntax-highlight-is-silent: true !default;
+
+/// passes AAA for any size text
+$_o-syntax-highlight-teal: oColorsByName('teal');
+$_o-syntax-highlight-grey-70: oColorsMix('black', 'white', 70);
+$_o-syntax-highlight-oxford-crimson-50: oColorsMix('oxford', 'crimson', 50);
+
+/// Passes AA for any, AAA for 18pt or bold above 14px
+$_o-syntax-highlight-oxford: oColorsByName('oxford');
+$_o-syntax-highlight-black-crimson-25: oColorsMix('black', 'crimson', 25);
+$_o-syntax-highlight-black-lemon-55: oColorsMix('black', 'lemon', 55);
+$_o-syntax-highlight-black-jade-30: oColorsMix('black', 'jade', 30);
+$_o-syntax-highlight-crimson-jade-80: oColorsMix('crimson', 'jade', 80);
+$_o-syntax-highlight-oxford-grey-60: oColorsMix(black, white, 60);
+$_o-syntax-highlight-oxford-jade-60: oColorsMix('oxford', 'jade', 60);
+$_o-syntax-highlight-oxford-lemon-80: oColorsMix('oxford', 'lemon', 80);
+
+///background
+$_o-syntax-highlight-grey-5: oColorsMix('black', 'white', 5);

@@ -4,23 +4,23 @@
 		.token {
 			&.regex,
 			&.boolean {
-				color: oColorsGetPaletteColor('black-jade-30');
+				color: $_o-syntax-highlight-black-jade-30;
 			}
 
 			&.operator,
 			&.class-name {
-				color: oColorsGetPaletteColor('oxford-crimson-50');
+				color: $_o-syntax-highlight-oxford-crimson-50;
 			}
 
 			&.keyword,
 			&.function {
-				color: oColorsGetPaletteColor('oxford');
-				.function-variable { color: oColorsGetPaletteColor('oxford-crimson-50'); }
+				color: $_o-syntax-highlight-oxford;
+				.function-variable { color: $_o-syntax-highlight-oxford-crimson-50; }
 			}
 
 			&.number,
 			&.template-string .interpolation-punctuation {
-				color: oColorsGetPaletteColor('crimson-jade-80');
+				color: $_o-syntax-highlight-crimson-jade-80;
 			}
 		}
 	}
