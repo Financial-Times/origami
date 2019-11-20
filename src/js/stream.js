@@ -195,13 +195,18 @@ class Stream {
 
 	renderSignedInMessage () {
 		const signedInMessage = document.createElement('div');
+		signedInMessage.classList.add('o-comments__signed-in-container');
 		signedInMessage.innerHTML = `
-								<div class="o-comments__signed-in-container">
 									<p class="o-comments__signed-in-text">Signed in as
 										<span class="o-comments__signed-in-inner-text">${this.displayName}</span>.
 										<a class="o-comments__edit-display-name">Edit</a>
-									</p>
-								</div>`;
+									</p>`;
+
+		const oldSignedInMessage = this.streamEl.parentNode.querySelector('.o-comments__signed-in-container');
+		if (oldSignedInMessage) {
+			oldSignedInMessage.remove();
+		}
+
 		this.streamEl.parentNode.insertBefore(signedInMessage, this.streamEl);
 
 		document.querySelector('.o-comments__edit-display-name').onclick = () => {
