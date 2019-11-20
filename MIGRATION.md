@@ -2,7 +2,7 @@
 
 ### Migrating from v2 to v3
 
-All [o-syntax-highlight colour usecases](https://github.com/Financial-Times/o-syntax-highlight/blob/v2.1.0/src/scss/colors.scss) have been removed. Ensure your project build is not using these colours by checking for build errors. If so replace with an [o-colors](https://registry.origami.ft.com/components/o-colors) colour.
+All [o-syntax-highlight colour usecases](https://github.com/Financial-Times/o-syntax-highlight/blob/v2.1.0/src/scss/colors.scss) have been removed. Ensure your project is not using these colours by checking for build errors. If so replace with an [o-colors](https://registry.origami.ft.com/components/o-colors) colour.
 
 ### Migrating from v1 to v2
 
