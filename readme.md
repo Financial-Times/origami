@@ -2,19 +2,17 @@
 
 This component is for displaying header sections at the top of articles
 
-- [Usage](#usage)
-  - [Markup](#markup)
-  - [Sass](#sass)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## v1 Usage Warning
+## Usage Warning
 
 **Use of this component is not recommended outside FT.com / app.ft.com**. The [Javascript helper which currently extracts themes, colors, and other topper display data](/js/map-content-to-topper.js) is deeply tied to the FT.com content store and includes hardcoded UUIDs and business logic. In future this will be moved into another layer of the FT.com stack, and the new configuration used to control topper display and functionality will be documented, at which stage this topper will be more suitable for wider use.
 
-## Usage
-
-### Markup
+## Markup
 
 The basic markup structure for a topper will look something like this:
 
@@ -36,7 +34,7 @@ The basic markup structure for a topper will look something like this:
 
 Toppers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and [background colors](#colors). For a full list of examples, including example markup, see [o-topper in the Registry](http://registry.origami.ft.com/components/o-topper).
 
-#### Supported elements
+### Supported elements
 
 | Element                     | Use case                                                                                           |
 |-----------------------------|----------------------------------------------------------------------------------------------------|
@@ -55,7 +53,7 @@ Toppers support a wide array of [elements](#supported-elements) and can be custo
 | `.o-topper__image`          | An `<img>` tag visual element, usually used as fallback for a `<picture>`.                         |
 | `.o-topper__image-credit`   | Element showing credit/copyright for the `__picture` or `__image`. Should be a `<figcaption>` tag. |
 
-#### Themes
+### Themes
 
 These themes affect the layout and visual style of all elements. See the [demos](http://registry.origami.ft.com/components/o-topper) for examples.
 
@@ -69,7 +67,7 @@ These themes affect the layout and visual style of all elements. See the [demos]
 .o-topper--split-text-center
 ```
 
-#### Colors
+### Colors
 
 These colors affect the background of the `.o-topper__background` and `.o-topper__visual` elements, and select a contrasting text color for all other elements. See [`o-colors`](http://registry.origami.ft.com/components/o-colors) for examples of the colors.
 
@@ -86,7 +84,7 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 .o-topper--color-velvet
 ```
 
-### Sass
+## Sass
 
 As with all Origami components, o-topper has a silent mode. To use its compiled CSS (rather than incorporating its mixins into your own Sass) set $o-topper-is-silent : false; in your Sass before you import the o-topper Sass:
 
@@ -95,7 +93,7 @@ $o-topper-is-silent: false;
 @import 'o-topper/main';
 ```
 
-#### Using Sass mixins
+### Using Sass mixins
 
 - To output all the topper element and (non-theme, non-color) modifier classes, use `@include oTopperElements;`.
   - For a list of available element mixins, see the source of the [`oTopperElements` mixin in `_mixins.scss`](scss/_mixins.scss#L25-L47). Rules for nesting the elements from the [elements table](#supported-elements) should be followed for styles to work as expected.
@@ -115,7 +113,7 @@ const {mapContentToTopper} = require('o-topper');
 const topper = mapContentToTopper(ftArticle);
 ```
 
-### Topper data
+## Topper data
 
 Data returned by the topper helper should be used in the product's templates. Other keys may be returned but should not be relied on as documented behaviour.
 
@@ -128,6 +126,14 @@ Data returned by the topper helper should be used in the product's templates. Ot
 | `themeImageRatio` | Used to differentiate `split` and `full-bleed` topper images                           |
 | `includesImage`   | Use to disable main article image to prevent duplicate images when topper includes one |
 | `largeHeadline`   | Indicates whether to use `o-topper__headline--large` on `o-topper__headline`           |
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.7  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.2  | - |
 
 ## Contact
 
