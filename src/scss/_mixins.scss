@@ -60,7 +60,10 @@
 /// @see oEditorialTypographyHeading
 @mixin oEditorialTypographyHeadline() {
 	@include oEditorialTypographyDecorated();
-	@include oTypographyDisplay($scale: (default: 5, S: 6, L: 7));
+	@include oTypographyDisplay(
+		$scale: (default: 5, S: 6, L: 7),
+		$weight: 'bold'
+	);
 	margin: 0; // remove browser default margin from headings
 }
 
