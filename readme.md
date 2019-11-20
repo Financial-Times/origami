@@ -86,29 +86,73 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 
 ## Sass
 
-As with all Origami components, o-topper has a silent mode. To use its compiled CSS (rather than incorporating its mixins into your own Sass) set $o-topper-is-silent : false; in your Sass before you import the o-topper Sass:
+To include all o-topper CSS include `oTopper`:
 
 ```scss
-$o-topper-is-silent: false;
 @import 'o-topper/main';
+@include oTopper();
 ```
 
-### Using Sass mixins
+To include o-topper styles granularly specify which elements, themes, and colours to output styles for using the options `$opts` argument:
 
-- To output all the topper element and (non-theme, non-color) modifier classes, use `@include oTopperElements;`.
-  - For a list of available element mixins, see the source of the [`oTopperElements` mixin in `_mixins.scss`](scss/_mixins.scss#L25-L47). Rules for nesting the elements from the [elements table](#supported-elements) should be followed for styles to work as expected.
-- To output all the themes and theme-associated element and modifier classes, use `@include oTopperThemes;`.
-  - For a single theme's styles, use `@include oTopperThemeName;`, e.g. `@include oTopperThemeBranded;`, within a selector. For a list of themes see [`oTopperThemes` in `_mixins.scss`](scss/_mixins.scss#L8-L20).
-  - For the theme-associated element classes, use `@include oTopperThemeElements;`.
-- To output all the background color classes, use `@include oTopperColors;`.
-  - For a single color's styles to affect `background` and `visual` descendents, use `@include oTopperColor(%color);`, e.g. `@include oTopperColor(claret);`, within a selector. For a list of colors see [`$_o-topper-colors` in `_variables.scss`](scss/_variables.scss#L2).
+```scss
+@include oTopper($opts: (
+	'themes': (
+		'branded', // .o-topper--branded
+		'opinion', // .o-topper--opinion
+		'has-headshot', // .o-topper--has-headshot
+		'full-bleed-offset',
+		'split-text-left',
+		'split-text-center',
+		'full-bleed-image-center',
+		'full-bleed-image-left',
+		'package',
+		'package-extra',
+		'package-extra-wide',
+		'package-special-report',
+		'news-package',
+		'right-rail',
+		'centered',
+	),
+	'elements': (
+		'content', // .o-topper__content
+		'visual', // .o-topper__visual
+		'background', // .o-topper__background
+		'headline',
+		'headline--large',
+		'summary',
+		'standfirst',
+		'summary--body',
+		'tags',
+		'columnist',
+		'columnist-name',
+		'brand',
+		'topic',
+		'read-next',
+		'image',
+		'image-credit'
+	),
+	'colors': (
+		'white', // .o-topper--color-white
+		'black', // .o-topper--color-black
+		'claret',
+		'oxford',
+		'paper',
+		'slate',
+		'wheat',
+		'crimson',
+		'sky',
+		'velvet'
+	)
+));
+```
 
 ## Javascript
 
 This component includes a Javascript helper, which should be used to select the correct topper themes and colors, as well as other topper-overriden data, given a particular JSON-formatted FT article (such as from the Content API).
 
 ```js
-const {mapContentToTopper} = require('o-topper');
+import { mapContentToTopper } from 'o-topper';
 
 const topper = mapContentToTopper(ftArticle);
 ```

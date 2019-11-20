@@ -1,6 +1,6 @@
 // sass-lint:disable mixins-before-declarations
 
-@mixin oTopperThemeNewsPackage {
+@mixin _oTopperThemeNewsPackage {
 	@include oGridRespondTo($until: M) {
 		padding: 0;
 	}

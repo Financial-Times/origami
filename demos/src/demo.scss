@@ -1,11 +1,7 @@
-$o-typography-is-silent: false;
-@import 'o-typography/main';
-
-$o-topper-is-silent: false;
 @import '../../main';
 
-@include oTopperThemes;
+@include oTopper();
 
 body {
-	@include oColorsFor(page, background);
+	background: oColorsByUsecase('page', 'background');
 }

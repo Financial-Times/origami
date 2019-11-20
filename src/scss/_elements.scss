@@ -1,20 +1,9 @@
-@mixin oTopperHeadline {
-	@include oTypographyHeadline();
-}
-
-@mixin oTopperHeadlineLarge {
-	@include oTypographyHeadlineLarge();
-
-	position: relative; //so it appears above the full width background
-}
-
-@mixin oTopperStandfirst {
-	@include oTypographyStandfirst();
-	margin-bottom: 0;
+@mixin _oTopperStandfirst {
+	@include oEditorialTypographyStandfirst();
 	opacity: 0.8;
 
 	a {
-		@include oTypographySize(0);
+		@include oTypographySans(0, $include-font-family: false);
 	}
 
 	> p {
@@ -22,7 +11,7 @@
 	}
 }
 
-@mixin oTopperSummary {
+@mixin _oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
 		padding: 0 oSpacingByIncrement(5);
@@ -34,15 +23,14 @@
 }
 
 
-@mixin oTopperSummaryBody {
+@mixin _oTopperSummaryBody {
 	h2 {
-		@include oTypographySansBold(0);
+		@include oTypographySans(0, $weight: 'semibold');
 		margin: 5px 0 0;
 	}
 
 	ul {
-		@include oTypographyList;
-		@include oTypographyListUnordered();
+		@include oTypographyList('unordered');
 		margin: 0px;
 
 		li:first-child {
@@ -57,17 +45,17 @@
 	}
 }
 
-@mixin oTopperImageCredit {
+@mixin _oTopperImageCredit {
 	@include oTypographySans(-2);
-	color: oColorsGetPaletteColor('white');
+	color: oColorsByName('white');
 	position: absolute;
 	right: 12px;
 	bottom: 2px;
-	text-shadow: 1px 1px 1px oColorsGetPaletteColor('slate');
+	text-shadow: 1px 1px 1px oColorsByName('slate');
 }
 
 //IE9 support
-@mixin oTopperImage {
+@mixin _oTopperImage {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -80,36 +68,38 @@
 
 @include _oTopperDefineOnce(tag) {
 	%_o-topper__tag {
-		@include oTypographyTag;
-		@include oTypographySansBold;
+		@include oEditorialTypographyTag($type: 'topic');
 		color: unset;
 
-		&:hover {
+		@at-root a#{&} {
 			color: unset;
+			&:hover {
+				color: unset;
+			}
 		}
 	}
 }
 
-@mixin oTopperBrand {
+@mixin _oTopperBrand {
 	@extend %_o-topper__tag;
 	margin-right: 4px;
 }
 
-@mixin oTopperColumnist {
+@mixin _oTopperColumnist {
 	margin-top: oSpacingByName('s4');
 	text-transform: uppercase;
 }
 
-@mixin oTopperColumnistName {
+@mixin _oTopperColumnistName {
 	@extend %_o-topper__tag;
 	vertical-align: middle;
 }
 
-@mixin oTopperTags {
-	@include oTypographySize($scale: 0, $line-height: 28px);
+@mixin _oTopperTags {
+	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
 	padding-bottom: 5px;
 }
 
-@mixin oTopperTopic {
+@mixin _oTopperTopic {
 	@extend %_o-topper__tag;
 }

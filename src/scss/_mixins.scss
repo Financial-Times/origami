@@ -1,0 +1,345 @@
+@mixin _oTopperThemeElements($themes) {
+	@if index($themes, 'opinion') {
+		.o-topper__opinion-genre {
+			@include _oTopperOpinionGenre;
+		}
+	}
+
+	.o-topper__headshot {
+		@include _oTopperHeadshot;
+	}
+
+	.o-topper__headshot-image {
+		@include _oTopperHeadshotImage;
+	}
+
+	.o-topper__anchor-link {
+		@include _oTopperAnchorLink;
+	}
+}
+
+@mixin _oTopperThemes($themes) {
+	@include _oTopperThemeElements($themes);
+
+	@if index($themes, 'basic') {
+		.o-topper--basic {
+			@include _oTopperBasic;
+			@if index($themes, 'right-rail') {
+				&.o-topper--right-rail {
+					@include _oTopperGridRightRail;
+				}
+			}
+		}
+	}
+
+	@if index($themes, 'branded') {
+		.o-topper--branded {
+			@include _oTopperThemeBranded;
+			@if index($themes, 'right-rail') {
+				&.o-topper--right-rail {
+					@include _oTopperGridRightRail;
+				}
+			}
+		}
+	}
+
+	@if index($themes, 'opinion') {
+		.o-topper--opinion {
+			@include _oTopperThemeOpinion;
+			@if index($themes, 'right-rail') {
+				&.o-topper--right-rail {
+					@include _oTopperGridRightRail;
+				}
+			}
+		}
+	}
+
+	@if index($themes, 'has-headshot') {
+		.o-topper--has-headshot {
+			@include _oTopperHasHeadshot;
+		}
+	}
+
+	@if index($themes, 'full-bleed-offset') {
+		.o-topper--full-bleed-offset {
+			@include _oTopperThemeFullBleedOffset;
+			@if index($themes, 'right-rail') {
+				&.o-topper--right-rail {
+					@include _oTopperFullBleedGridRightRail;
+				}
+			}
+		}
+	}
+
+	@if index($themes, 'split-text-left') or index($themes, 'split-text-center') {
+		.o-topper--split-text-left,
+		.o-topper--split-text-center {
+			@include _oTopperThemeSplitText;
+		}
+	}
+
+	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
+		.o-topper--full-bleed-image-center,
+		.o-topper--full-bleed-image-left {
+			@include _oTopperThemeFullBleedImage;
+		}
+	}
+
+	@if index($themes, 'package') {
+		.o-topper--package {
+			@include _oTopperThemePackage;
+		}
+	}
+
+	@if index($themes, 'package-extra') or index($themes, 'package-extra-wide') {
+		.o-topper--package-extra,
+		.o-topper--package-extra-wide {
+			@include _oTopperThemePackageExtra;
+		}
+	}
+
+	@if index($themes, 'package-special-report') {
+		.o-topper--package-special-report {
+			@include _oTopperThemePackageSpecialReport;
+		}
+	}
+
+	@if index($themes, 'news-package') {
+		.o-topper--news-package {
+			@include _oTopperThemeNewsPackage;
+		}
+	}
+
+	@if index($themes, 'centered') {
+		.o-topper--centered {
+			@include _oTopperCentered;
+		}
+	}
+}
+
+@mixin _oTopperElements($elements) {
+	@if index($elements, 'content') {
+		.o-topper__content {
+			@include _oTopperContent;
+		}
+	}
+
+	@if index($elements, 'visual') {
+		.o-topper__visual {
+			@include _oTopperVisual;
+		}
+	}
+
+	@if index($elements, 'visual') or index($elements, 'background') {
+		.o-topper__visual,
+		.o-topper__background {
+			@include _oTopperBackground;
+		}
+	}
+
+	@if index($elements, 'headline') {
+		.o-topper__headline {
+			@include oEditorialTypographyHeading($level: 1);
+			margin-bottom: oSpacingByIncrement(5);
+		}
+
+		.o-topper__headline--large {
+			@include oEditorialTypographyHeadline();
+			position: relative; //so it appears above the full width background
+			margin-bottom: oSpacingByIncrement(7);
+		}
+	}
+
+	@if index($elements, 'summary') {
+		.o-topper__summary {
+			@include _oTopperSummary;
+		}
+	}
+
+	@if index($elements, 'standfirst') {
+		.o-topper__standfirst {
+			@include _oTopperStandfirst;
+		}
+	}
+
+	@if index($elements, 'summary--body') {
+		.o-topper__summary--body {
+			@include _oTopperSummaryBody;
+		}
+	}
+
+	@if index($elements, 'tags') {
+		.o-topper__tags {
+			@include _oTopperTags;
+		}
+	}
+
+	@if index($elements, 'columnist') {
+		.o-topper__columnist {
+			@include _oTopperColumnist;
+		}
+	}
+
+	@if index($elements, 'columnist-name') {
+		.o-topper__columnist-name {
+			@include _oTopperColumnistName;
+		}
+	}
+
+	@if index($elements, 'brand') {
+		.o-topper__brand {
+			@include _oTopperBrand;
+		}
+	}
+
+	@if index($elements, 'topic') {
+		.o-topper__topic {
+			@include _oTopperTopic;
+		}
+	}
+
+	@if index($elements, 'read-next') {
+		.o-topper__read-next {
+			@include _oTopperReadNext;
+		}
+	}
+
+	@if index($elements, 'image') {
+		.o-topper__image {
+			@include _oTopperImage;
+		}
+	}
+
+	@if index($elements, 'image-credit') {
+		.o-topper__image-credit {
+			@include _oTopperImageCredit;
+		}
+	}
+}
+
+@mixin _oTopperColors($colors) {
+	@each $color in $colors {
+		.o-topper--color-#{$color} {
+			@include _oTopperColor($color);
+		}
+	}
+}
+
+// uses topper background colour to set background and pick contrasting text color
+@mixin _oTopperColor($color-name) {
+	$background: oColorsByName($color-name);
+	$foreground: oColorsGetTextColor($background, $opacity: 100);
+	$is-light: $foreground == 'white';
+	$hover-color: lighten($foreground, 40%);
+
+	@if $is-light {
+		$hover-color: darken($foreground, 20%);
+	}
+
+	// include oTopperColor on a parent then extend this placeholder on a
+	// descendent to lend that descendent the color you specified in the mixin
+	.o-topper__background,
+	.o-topper__content {
+		@if $color-name == 'wheat' {
+			background-color: oColorsMix($color: 'wheat', $percentage: 40);
+		} @else {
+			background-color: $background;
+		}
+	}
+
+	@if not $is-light {
+		.o-topper__standfirst {
+			a {
+				color: $foreground;
+				border-bottom-color: $foreground;
+
+				&:hover {
+					color: $hover-color;
+					border-bottom-color: $hover-color;
+				}
+			}
+		}
+	}
+
+	.o-topper__headline {
+		&::after {
+			border-bottom: 6px solid $foreground;
+
+			@include oGridRespondTo($from: L) {
+				border-bottom-width: 8px;
+			}
+		}
+	}
+
+	.o-topper__tags,
+	.o-topper__columnist-name,
+	.o-topper__headline,
+	.o-topper__standfirst,
+	.o-topper__summary {
+		color: $foreground;
+	}
+
+	.o-topper__topic,
+	.o-topper__brand {
+		color: $foreground;
+
+		&:hover {
+			color: oColorsMix($foreground, $color-name, 73);
+		}
+	}
+
+	@if $color-name == 'paper' or $color-name == 'wheat' {
+		.o-topper__opinion-genre,
+		.o-topper__topic,
+		.o-topper__columnist-name {
+			color: oColorsByUsecase('tag-link', 'text');
+
+			&:hover {
+				color: oColorsByUsecase('tag-link-hover', 'text');
+			}
+		}
+	}
+
+	@if $color-name == 'sky' {
+		.o-topper__tags,
+		.o-topper__topic,
+		.o-topper__columnist-name {
+			color: oColorsByName('oxford');
+
+			&:hover {
+				color: oColorsByName('black-80');
+			}
+		}
+	}
+}
+
+@mixin _oTopperAlignText($position) {
+	$mleft: ('left': 0, 'center': auto, 'right': auto);
+	$mright: ('left': auto, 'center': auto, 'right': 0);
+	$value: ('left': flex-start, 'center': center, 'right': flex-end);
+
+	.o-topper__headline--large {
+		&:after {
+			margin-left: map-get($mleft, #{$position});
+			margin-right: map-get($mright, #{$position});
+		}
+	}
+
+	.o-topper__content {
+		text-align: $position;
+		align-self: map-get($value, #{$position});
+	}
+
+	.o-topper__tags {
+		justify-content: map-get($value, #{$position});
+	}
+}
+
+@mixin _oTopperDefineOnce($label) {
+	@if not map-has-key($_o-topper-defined, $label) {
+		@content;
+		$_o-topper-defined: map-merge($_o-topper-defined, (
+			$label: true
+		)) !global;
+	}
+}

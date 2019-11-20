@@ -1,4 +1,4 @@
-@mixin oTopperThemeBranded {
+@mixin _oTopperThemeBranded {
 	.o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
@@ -18,7 +18,7 @@
 	}
 }
 
-@mixin oTopperHasHeadshot {
+@mixin _oTopperHasHeadshot {
 	.o-topper__tags,
 	.o-topper__standfirst {
 		box-sizing: border-box;
@@ -39,20 +39,20 @@
 	}
 }
 
-@mixin oTopperThemeOpinion {
+@mixin _oTopperThemeOpinion {
 	.o-topper__topic,
 	.o-topper__opinion-genre {
-		@include oTypographySize($scale: 2, $line-height: 28px);
+		@include oTypographySans($scale: 2, $line-height: 28px, $include-font-family: false);
 	}
 }
 
-@mixin oTopperOpinionGenre {
+@mixin _oTopperOpinionGenre {
 	@extend %_o-topper__tag;
 	font-weight: normal;
-	color: oColorsGetPaletteColor('oxford');
+	color: oColorsByName('oxford');
 }
 
-@mixin oTopperHeadshot {
+@mixin _oTopperHeadshot {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -68,7 +68,7 @@
 	}
 }
 
-@mixin oTopperHeadshotImage {
+@mixin _oTopperHeadshotImage {
 	max-width: 100%;
 	display: block;
 }
