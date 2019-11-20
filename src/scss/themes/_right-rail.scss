@@ -1,6 +1,6 @@
 /* right-rail is content and right hand rail, with left hand rail reset to 0. */
 
-@mixin oTopperGridRightRail() {
+@mixin _oTopperGridRightRail() {
 	@include oGridRespondTo(L) {
 		grid-template-columns: 0 0 minmax(500px, 700px) minmax(20px, 1fr) 300px;
 	}
@@ -10,7 +10,7 @@
 	}
 }
 
-@mixin oTopperFullBleedGridRightRail() {
+@mixin _oTopperFullBleedGridRightRail() {
 	@include oGridRespondTo(L) {
 		grid-template-columns: 0 0 0 minmax(500px, 700px) 20px minmax(0, auto) 300px;
 		padding-left: 0;

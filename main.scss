@@ -1,20 +1,55 @@
 @import 'o-spacing/main';
 @import 'o-colors/main';
+@import 'o-editorial-typography/main';
 @import 'o-typography/main';
 @import 'o-grid/main';
 @import 'o-icons/main';
 
-@import 'scss/variables';
-@import 'scss/mixins';
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+@import 'src/scss/grid';
+@import 'src/scss/elements';
+@import 'src/scss/layout';
 
-@import 'scss/elements';
-@import 'scss/layout';
-@import 'scss/themes';
+@import 'src/scss/themes/branded';
+@import 'src/scss/themes/full-bleed-offset';
+@import 'src/scss/themes/split-text';
+@import 'src/scss/themes/full-bleed-image';
+@import 'src/scss/themes/package';
+@import 'src/scss/themes/news-package';
+@import 'src/scss/themes/right-rail';
+@import 'src/scss/themes/centered';
+
+@mixin oTopper($opts: (
+	'themes': $_o-topper-themes,
+	'elements': $_o-topper-elements,
+	'colors': $_o-topper-colors
+), $include-base-styles: true) {
+
+	// Get topper themes to include.
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+	// Get topper elements to include.
+	$elements: map-get($opts, 'elements');
+	$elements: if($elements, $elements, ());
+	// Get topper colors to include.
+	$colors: map-get($opts, 'colors');
+	$colors: if($colors, $colors, ());
+
+	// Output base styles required by all themes.
+	@if $include-base-styles {
+		.o-topper {
+			@include _oTopperBase;
+		}
+	}
+
+	// Output chosen elements, colours, and themes.
+	@include _oTopperElements($elements);
+	@include _oTopperColors($colors);
+	@include _oTopperThemes($themes);
+}
 
 @if ($o-topper-is-silent == false) {
-	@include oTopperElements;
-	@include oTopperColors;
-	@include oTopperThemes;
-
+	@include oTopper();
 	$o-topper-is-silent: true !global;
 }

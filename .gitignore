@@ -2,3 +2,4 @@ bower_components/
 demos/local
 node_modules
 /build/
+package-lock.json

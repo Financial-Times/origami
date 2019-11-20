@@ -1,1 +1,3 @@
-exports.mapContentToTopper = require('./src/js/map-content-to-topper');
+import mapContentToTopper from './src/js/map-content-to-topper';
+
+export { mapContentToTopper };
