@@ -3,7 +3,7 @@
 ///@param {String} $side — left or right rule to be styled
 /// @access private
 @mixin _oLayoutRule($side: 'left') {
-	border-#{$side}: 2px solid oColorsGetPaletteColor('teal');
+	border-#{$side}: 2px solid oColorsByName('teal');
 	padding-#{$side}: $_o-layout-gutter;
 }
 
@@ -36,27 +36,27 @@
 		}
 
 		h1:not(.o-layout__unstyled-element)	{
-			@include oTypographyHeadingLevel1();
+			@include oTypographyHeading($level: 1);
 		}
 
 		h2:not(.o-layout__unstyled-element) {
-			@include oTypographyHeadingLevel2();
+			@include oTypographyHeading($level: 2);
 		}
 
 		h3:not(.o-layout__unstyled-element) {
-			@include oTypographyHeadingLevel3();
+			@include oTypographyHeading($level: 3);
 		}
 
 		h4:not(.o-layout__unstyled-element) {
-			@include oTypographyHeadingLevel4();
+			@include oTypographyHeading($level: 4);
 		}
 
 		h5:not(.o-layout__unstyled-element) {
-			@include oTypographyHeadingLevel5();
+			@include oTypographyHeading($level: 5);
 		}
 
 		h6:not(.o-layout__unstyled-element) {
-			@include oTypographyHeadingLevel6();
+			@include oTypographyHeading($level: 6);
 		}
 
 		aside:not(.o-layout__unstyled-element) {
@@ -64,24 +64,26 @@
 			align-self: flex-start;
 		}
 
+		ol:not(.o-layout__unstyled-element),
 		ul:not(.o-layout__unstyled-element) {
-			@include oTypographyList;
-			@include oTypographyListUnordered;
+			@include oTypographyList();
+		}
+
+		ul:not(.o-layout__unstyled-element) {
+			@include oTypographyList($type: 'unordered', $include-base-styles: false);
 		}
 
 		ol:not(.o-layout__unstyled-element) {
-			@include oTypographyList;
-			@include oTypographyListOrdered;
+			@include oTypographyList($type: 'ordered', $include-base-styles: false);
 		}
 
 		blockquote:not(.o-layout__unstyled-element) {
-			@include oTypographyBlockquote;
-			// Override default browser margin to match that of `oTypographyBody`.
-			// Removes indent from the blockqupte provided by o-typography wrapper.
-			// https://github.com/Financial-Times/o-typography/issues/189
-			margin: 0 0 oSpacingByIncrement(7);
-			p:last-child {
-				margin-bottom: 0;
+			@include oQuoteBase;
+			@include oQuoteStandard;
+			margin-bottom: oSpacingByIncrement(7);
+			cite {
+				@include oQuoteBaseCite();
+				@include oQuoteStandardCite();
 			}
 		}
 
@@ -127,7 +129,7 @@
 
 		li {
 			&:not(.o-layout__navigation-title) [aria-current="location"] {
-				color: oColorsGetPaletteColor('teal-30');
+				color: oColorsByName('teal-30');
 				background: oColorsMix('teal', 'white', 20);
 			}
 
@@ -146,7 +148,7 @@
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
-				border-color: oColorsGetPaletteColor('teal');
+				border-color: oColorsByName('teal');
 				border-left: 2px solid;
 				@include oGridRespondTo($from: M) {
 					border-left: 0 solid;
@@ -155,7 +157,7 @@
 			}
 
 			&.o-layout__navigation-title a {
-				@include oTypographyBold('sans');
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 				@include oGridRespondTo($from: M) {
 					border: 0;
 				}
@@ -173,7 +175,7 @@
 	// Style sub-nav items.
 	.o-layout__navigation ul li:not(.o-layout__navigation-title) ul a,
 	.o-layout__navigation ol li:not(.o-layout__navigation-title) ol a {
-		border-color: rgba(oColorsGetPaletteColor('teal'), 0.4);
+		border-color: rgba(oColorsByName('teal'), 0.4);
 	}
 
 	@if $query-layout {
@@ -227,7 +229,7 @@
 		&:target .o-layout__linked-heading__link {
 			animation-delay: 0;
 			animation-duration: 5s;
-			animation-timing-function: $o-visual-effects-transition-fade;
+			animation-timing-function: $o-visual-effects-timing-fade;
 			animation-name: o-layout-linked-heading-fade;
 		}
 

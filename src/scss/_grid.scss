@@ -179,7 +179,7 @@
 		.o-layout__query-sidebar {
 			margin: 0;
 			@include oGridRespondTo($from: M) {
-				border-right: 1px solid oColorsGetPaletteColor('slate-white-15');
+				border-right: 1px solid oColorsByName('slate-white-15');
 				padding-right: $_o-layout-gutter;
 				margin: $_o-layout-gutter 0 oSpacingByName('s4');
 			}
@@ -190,7 +190,7 @@
 				width: $_o-layout-sidebar-max-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;
-				border-left: 1px solid oColorsGetPaletteColor('slate-white-15');
+				border-left: 1px solid oColorsByName('slate-white-15');
 			}
 		}
 	}
