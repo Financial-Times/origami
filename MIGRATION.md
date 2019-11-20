@@ -7,7 +7,7 @@ Tooltip typography is now included by default, and no longer inherits typography
 
 ### Mixins
 
-- The `oTooltips` mixin now includes all styles required for tooltips. See the [Sass documentation](README.md#sass) for information on the new parameters
+- The `oTooltip` mixin now includes all styles required for tooltips. See the [Sass documentation](README.md#sass) for information on the new parameters
 - The following mixins have been removed:
   - `oTooltipContent`
   - `oTooltipUpArrow`
