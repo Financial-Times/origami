@@ -1,6 +1,6 @@
 @if $_o-editorial-layout-placeholders-output == false {
     // Only output placeholders once.
-    $_o-editorial-layout-plxaceholders-output: true !global;
+    $_o-editorial-layout-placeholders-output: true !global;
 
     // h1
     // - small margin below by default
