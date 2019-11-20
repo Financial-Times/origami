@@ -1,3 +1,4 @@
+import Raven from 'raven-js';
 import Logger from './logger';
 
 function isFunction(fn) {
@@ -161,7 +162,7 @@ Errors.prototype._configureAndInstallRaven = function(options, raven) {
 	//
 	// It is optional so that it can be mocked in tests
 	if (!(raven || this.ravenClient)) {
-		raven = require('raven-js');
+		raven = Raven;
 	}
 
 	this.ravenClient = raven;

@@ -51,7 +51,7 @@ automatically if they occur _before_ initialisation, although any errors reporte
 Report errors using the [`oErrors.report`](http://codedocs.webservices.ft.com/v1/jsdoc/o-errors/Errors.html#report) method.
 
 ```JS
-var oErrors = require('o-errors');
+import oErrors from 'o-errors';
 
 oErrors.report(new Error("My error"));
 ```
@@ -168,7 +168,7 @@ will not be reported. Defaults to `true`.
 ##### filterError - optional
 
 A `function` that can be used to filter errors before they are reported.  The function
-should accept one argument, a complicated looking `object` that comes from the `n-raven` client, with a bunch of fields, of 
+should accept one argument, a complicated looking `object` that comes from the `n-raven` client, with a bunch of fields, of
 which the most important is `exception`:
 
 ```
@@ -297,7 +297,7 @@ If `sentryEndpoint` is not configured in the options,
 an `Error` is thrown.
 
 ```JS
-var oErrors = require('o-errors');
+import oErrors from 'o-errors';
 oErrors.init({
 	sentryEndpoint: "https://dsn@app.getsentry.com/appid",
 	siteVersion:    "v1.0.0",                              // Optional
