@@ -1,10 +1,16 @@
-## Migration Guide
+# Migration Guide
 
-### Migrating from v5 to v6
+## Migrating from v5 to v6
 
 v6 of o-buttons simplifies the `o-buttons` interface, encourages CSS reuse, and makes custom buttons consistent with default buttons.
 
-#### Markup
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
+### Markup
 
 If using the `o-buttons--b2c` theme class add a class for the button type also `o-buttons--primary`.
 ```diff
@@ -22,7 +28,7 @@ Buttons no longer default to the secondary type, the type modifier class `o-butt
 -<button class="o-buttons o-buttons--inverse">Secondary Inverse</button>
 +<button class="o-buttons o-buttons--secondary o-buttons--inverse">Secondary Inverse</button>
 ```
-#### Colour Usecases
+### Colour Usecases
 
 All deprecated [colour usecases](https://github.com/Financial-Times/o-buttons/blob/v5.15.1/scss/_deprecated.scss#L98) have been removed. If your project needs to match the colour of a button use the `oButtonsGetColor` function instead.
 
@@ -31,7 +37,7 @@ All deprecated [colour usecases](https://github.com/Financial-Times/o-buttons/bl
 +color: oButtonsGetColor($state: 'focus', $property: 'text', $type: 'primary');
 ```
 
-#### Mixins
+### Mixins
 
 The `oButtons` mixin is now a primary mixin. It can output the CSS classes for all buttons and features. We recommend your project use a single call to `oButtons` with the appropriate options to include the default `o-buttons` CSS classes your project needs. E.g.
 
@@ -80,7 +86,7 @@ Replace calls for the following mixins with a single `oButtons` call with the op
 
 Replace `oButtonsIconButtonLabel` with the o-normalise mixin [oNormaliseVisuallyHidden](https://registry.origami.ft.com/components/o-normalise/sassdoc).
 
-##### Themes
+#### Themes
 
 When adding a custom theme using mixins, the theme configuration has changed:
 - `accent` is now `color`. This is the main button colour.
@@ -129,7 +135,7 @@ E.g. a custom theme using custom markup (where o-buttons css classes can't be us
 }
 ```
 
-#### Functions
+### Functions
 
 The `oButtonsGetColor` function has updated parameters to accept type and theme arguments separately.
 
@@ -138,7 +144,7 @@ The `oButtonsGetColor` function has updated parameters to accept type and theme 
 +color: oButtonsGetColor($state: 'hover', $property: 'background', $type: 'primary', $theme: 'inverse');
 ```
 
-#### Variables
+### Variables
 
 The following variables are now removed or private and must not be used:
 - `o-buttons-class` (class names are no longer customisable, unless using `oButtonsContent`)
@@ -148,7 +154,7 @@ The following variables are now removed or private and must not be used:
 - `o-buttons-themes` (use the primary mixin `oButtons` to include required themes)
 - `o-buttons-icons` (use the primary mixin `oButtons` to include required icons)
 
-### Migrating from v4 to v5
+## Migrating from v4 to v5
 
 This major includes the new o-colors and updates the themes and sizes of buttons.
 

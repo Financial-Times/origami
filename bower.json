@@ -4,10 +4,10 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "5.0.0-beta.3",
-    "o-icons": "6.0.0-beta.3",
-    "o-normalise": "2.0.0-beta.6",
+    "o-colors": "^5.0.0",
+    "o-icons": "^6.0.0",
+    "o-normalise": "^2.0.0",
     "o-brand": "^3.2.5",
-    "o-typography": "6.0.0-beta.4"
+    "o-typography": "^6.0.0"
   }
 }

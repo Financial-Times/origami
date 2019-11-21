@@ -107,14 +107,9 @@
 		}
 	}
 
-	// Get button context from custom theme map or brand config, see _brand.scss.
-	// The button context is the background colour the button is placed on.
-	$page-background-usecase: oColorsUsecaseDetails('page', 'background');
-	$context-color: if(
-		$context-color,
-		$context-color,
-		map-get($page-background-usecase, 'color-name')
-	);
+	// Get button context, which is the background colour the button is placed on.
+	$page-background-usecase: oColorsByUsecase('page', 'background');
+	$context-color: if($context-color, $context-color, $page-background-usecase);
 
 	// Get button colours depending on button type.
 	$color-map: ();
