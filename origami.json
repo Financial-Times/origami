@@ -78,13 +78,13 @@
 			"name": "pagination",
 			"title": "Pagination layout",
 			"template": "/demos/src/pagination.mustache",
-			"description": "For pagination layouts. This layout can be combined with a theme for example o-buttons--standout."
+			"description": "For pagination layouts. This layout can be combined with a theme."
 		},
 		{
 			"name": "grouped",
 			"title": "Grouped layout",
 			"template": "/demos/src/grouped.mustache",
-			"description": "For button layouts where there is a choice of related options. This layout can be combined with themes for example o-buttons--b2c."
+			"description": "For button layouts where there is a choice of related options. This layout can be combined with themes."
 		},
 		{
 			"name": "icons",
