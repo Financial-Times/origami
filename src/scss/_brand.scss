@@ -116,21 +116,23 @@ $_o-typography-font-scale: (
                 'weight': 'semibold'
             ),
             'heading-level-two': (
-                'scale': 5
-            ),
-            'heading-level-three': (
                 'scale': 4,
                 'weight': 'semibold'
             ),
-            'heading-level-four': (
-                'scale': 4
-            ),
-            'heading-level-five': (
+            'heading-level-three': (
                 'scale': 3,
                 'weight': 'semibold'
             ),
-            'heading-level-six': (
+            'heading-level-four': (
                 'scale': 2,
+                'weight': 'semibold'
+            ),
+            'heading-level-five': (
+                'scale': 1,
+                'weight': 'semibold'
+            ),
+            'heading-level-six': (
+                'scale': 0,
                 'weight': 'semibold'
             )
         ),

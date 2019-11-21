@@ -40,7 +40,7 @@ For master brand products, the previous default headings have been moved to [o-e
 - `o-typography-heading-level-4` is now `o-editorial-typography-heading-level-4`
 - `o-typography-heading-level-5` is now `o-editorial-typography-heading-level-5`
 
-For master brand products, the "product" headings are now the default o-typography heading:
+For master brand products, the "product" headings are now the default o-typography heading. Note the size and weight of these headings have changed, so you may wish to choose a different heading level:
 - `o-typography-product-heading-level-1` is now `o-typography-heading-level-1`
 - `o-typography-product-heading-level-2` is now `o-typography-heading-level-2`
 - `o-typography-product-heading-level-3` is now `o-typography-heading-level-3`
@@ -315,7 +315,7 @@ For master brand products, the previous default headings have been moved to [o-e
 
 _Note: `o-editorial-typography` does not apply margin as it makes no assumption about where the editorial typography is being used -- it could be a page, another component, or email for example. Include margin as required by your project or, for article and article-like pages, use [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) instead._
 
-For master brand products, the "product" headings are now the default o-typography heading:
+For master brand products, the "product" headings are now the default o-typography heading. Note the size and weight of these headings have changed, so you may wish to choose a different heading level:
 - `oTypographyProductHeadingLevel1` becomes `oTypographyHeading($level: 1)`
 - `oTypographyProductHeadingLevel2` becomes `oTypographyHeading($level: 2)`
 - `oTypographyProductHeadingLevel3` becomes `oTypographyHeading($level: 3)`
