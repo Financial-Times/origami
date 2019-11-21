@@ -12,6 +12,7 @@ Social media buttons.
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
+- [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -119,6 +120,18 @@ The mixin can take an optional argument `$opts`, that allows you to specify styl
 @include oShare($opts: ('vertical': false, 'inverse': true, 'icons': ('twitter', 'pinterest')));
 ```
 ---
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 7 | N/A  | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.5  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | N/A  | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.0  | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.1  | - |
+╳ deprecated | 1 | 1.7  | - |
 
 ## Contact
 

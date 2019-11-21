@@ -1,6 +1,12 @@
 # Migration guide
 
-## Migrating from v6.x.x to v7.x.x
+## Migrating from v6 to v7
+
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
 
 ### Palette Colours
 
@@ -63,7 +69,7 @@ Google Plus was deprecated during the previous major version. It has now been re
 
 It's no longer possible to customise the class name used in `o-share`, use the `o-share` classes instead.
 
-## Migrating from v5.x.x to v6.x.x
+## Migrating from v5 to v6
 
 o-share v6 introduces a breaking change that you may need to update in your product:
 
@@ -120,7 +126,7 @@ href="#">
 </li>
 ```
 
-## Migrating from v4.x.x to v5.x.x
+## Migrating from v4 to v5
 
 o-share v5 introduces a breaking change that you may need to update in your product:
 
@@ -134,14 +140,14 @@ href="#"><i>Icon</i></a>
 ><i>Icon</i></button>
 ```
 
-## Migrating from v3.x.x to v4.x.x
+## Migrating from v3 to v4
 
 o-share v4 introduces a few breaking changes that you may need to update in your product:
 
   - V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
   - the link share option has been removed
 
-## Migrating from v2.x.x to v3.x.x
+## Migrating from v2 to v3
 
 o-share v3 introduces a few breaking changes that you may need to update in your product:
 
