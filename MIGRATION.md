@@ -4,56 +4,56 @@
 
 #### CSS Classes
 
-`o-colors` no longer outputs CSS classes for palette colours or usecases. Sass users should use Sass functions to set colours instead. Build service users should use the palette's CSS Custom Properties (CSS Variables). If that is not possible due to browser support requirements please contact the Origami team.
+`o-colors` no longer outputs CSS classes for palette colours or all usecases. Sass users should use Sass functions to set colours instead. Build service users should use the palette's CSS Custom Properties (CSS Variables). If that is not possible due to browser support requirements please contact the Origami team.
 
 Removed CSS classes for colour usecase:
 
-- o-colors-focus-outline
-- o-colors-page-background
-- o-colors-box-background
-- o-colors-link-text
-- o-colors-link-hover-text
-- o-colors-link-title-text
-- o-colors-link-title-hover-text
-- o-colors-tag-link-text
-- o-colors-tag-link-hover-text
-- o-colors-opinion-tag-link-text
-- o-colors-opinion-tag-link-hover-text
-- o-colors-title-text
-- o-colors-body-text
-- o-colors-muted-text
-- o-colors-opinion-background
-- o-colors-hero-background
-- o-colors-hero-opinion-background
-- o-colors-hero-highlight-background
-- o-colors-section-life-arts-all
-- o-colors-section-life-arts-alt-all
-- o-colors-section-magazine-all
-- o-colors-section-magazine-alt-all
-- o-colors-section-house-home-all
-- o-colors-section-house-home-alt-all
-- o-colors-section-money-all
-- o-colors-section-money-alt-all
+```diff
+- .o-colors-focus-outline
+- .o-colors-link-text
+- .o-colors-link-hover-text
+- .o-colors-link-title-text
+- .o-colors-link-title-hover-text
+- .o-colors-tag-link-text
+- .o-colors-tag-link-hover-text
+- .o-colors-opinion-tag-link-text
+- .o-colors-opinion-tag-link-hover-text
+- .o-colors-title-text
+- .o-colors-opinion-background
+- .o-colors-hero-background
+- .o-colors-hero-opinion-background
+- .o-colors-hero-highlight-background
+- .o-colors-section-life-arts-all
+- .o-colors-section-life-arts-alt-all
+- .o-colors-section-magazine-all
+- .o-colors-section-magazine-alt-all
+- .o-colors-section-house-home-all
+- .o-colors-section-house-home-alt-all
+- .o-colors-section-money-all
+- .o-colors-section-money-alt-all
+```
 
 Removed CSS classes for palette colours:
 
-- o-colors-palette-paper
-- o-colors-palette-claret
-- o-colors-palette-oxford
-- o-colors-palette-teal
-- o-colors-palette-wheat
-- o-colors-palette-sky
-- o-colors-palette-slate
-- o-colors-palette-velvet
-- o-colors-palette-mandarin
-- o-colors-palette-lemon
-- o-colors-palette-candy
-- o-colors-palette-wasabi
-- o-colors-palette-jade
-- o-colors-palette-crimson
-- o-colors-palette-org-b2c
-- o-colors-palette-org-b2c-dark
-- o-colors-palette-org-b2c-light
+```diff
+- .o-colors-palette-paper
+- .o-colors-palette-claret
+- .o-colors-palette-oxford
+- .o-colors-palette-teal
+- .o-colors-palette-wheat
+- .o-colors-palette-sky
+- .o-colors-palette-slate
+- .o-colors-palette-velvet
+- .o-colors-palette-mandarin
+- .o-colors-palette-lemon
+- .o-colors-palette-candy
+- .o-colors-palette-wasabi
+- .o-colors-palette-jade
+- .o-colors-palette-crimson
+- .o-colors-palette-org-b2c
+- .o-colors-palette-org-b2c-dark
+- .o-colors-palette-org-b2c-light
+```
 
 #### Sass
 
