@@ -20,19 +20,19 @@
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"documentClasses": "o-grid-container",
+		"documentClasses": "o-grid-container o-colors-page-background",
 		"dependencies": [
 			"o-grid@5.0.0-beta.2",
-			"o-normalise@2.0.0-beta.3",
-			"o-colors@5.0.0-beta.1"
+			"o-normalise@2.0.0-beta.6",
+			"o-colors@5.0.0-beta.3"
 		]
 	},
 	"demos": [
 		{
-			"title": "A Useful Demo",
-			"name": "demo",
+			"title": "Content Body Margins",
+			"name": "content-body-margins",
 			"template": "demos/src/demo.mustache",
-			"description": "Description of the demo"
+			"description": "This demo shows editorial typography and margins."
 		},
 		{
 			"title": "Pa11y",
