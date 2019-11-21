@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 You can also import `o-date` as a component.
 
-```
+```js
 import ODate from 'o-date'
 ```
 
