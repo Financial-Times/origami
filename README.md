@@ -2,21 +2,13 @@
 
 o-date provides javascript utilities for formatting and updating dates in FT style. This component is mainly useful when you want your dates formatted to express relative time.
 
-  - [Usage](#usage)
-    - [Browser support](#browser-support)
-    - [Markup](#markup)
-    - [JavaScript](#javascript)
-  - [Migration Guide](#migration-guide)
+  - [Markup](#markup)
+  - [JavaScript](#javascript)
+  - [Migration Guide](#migration)
   - [Contact](#contact)
   - [Licence](#licence)
 
-## Usage
-
-### Browser support
-
-This module has been verified in Internet Explorer 8+, modern desktop browsers (Chrome, Safari, Firefox, ...) and mobile browsers (Android browser, iOS safari, Chrome mobile).
-
-### Markup
+## Markup
 
 To provide the best non-JS fallback you should markup your dates as follows:
 
@@ -24,7 +16,7 @@ To provide the best non-JS fallback you should markup your dates as follows:
 <time data-o-component="o-date" class="o-date" datetime="{{iso8601String}}">{FT formatted date (including time if appropriate)}</time>
 ```
 
-### JavaScript
+## JavaScript
 
 To display dates in the standard relative time format, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct each element with a `data-o-component="o-date"` attribute:
 
@@ -34,17 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-You can also import `o-date` as a module.
+You can also import `o-date` as a component.
 
-```
+```js
 import ODate from 'o-date'
 ```
 
-You can run `ODate.init()` once the DOM has loaded if you don't want to initialise other modules at the same time.
+You can run `ODate.init()` once the DOM has loaded if you don't want to initialise other components at the same time.
 
 Run `ODate.init(el)` on any elements containing dates that are added to the page after DOM load, and if you keep a reference to the returned object you can clean them up with `oDateItem.destroy()` to stop processing.
 
-#### o-date#format(date, tpl)
+### o-date#format(date, tpl)
 
 Returns a date formatted as a string
 
@@ -54,23 +46,23 @@ Returns a date formatted as a string
     - `'date'`: formats the date in the standard FT long format. E.g. `May 15, 2014`
     - Any other string using [widespread conventions](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for time/date placeholders, which will be replaced with values extracted from the date provided. See `./main.js` for an up to date list of supported formats. To avoid e.g. the `mm` in `common` being replaced with the month prefix with a double backslash `co\\mmon` i.e. *In most cases custom date formats should not be used, in favour of the standard FT date and datetime formats*
 
-#### o-date#timeAgo(date)
+### o-date#timeAgo(date)
 
 Returns the relative time since the given date, formatted as a human readable string e.g. `13 minutes ago`.
 
-#### o-date#ftTime(date)
+### o-date#ftTime(date)
 
 Returns relative time or timestamp for a given date, in accordance with FT date formatting conventions.
 
   * `date`: A javascript `Date` object or a valid string to pass to the `Date` constructor
 
-#### o-date#asTodayOrYesterdayOrNothing(date)
+### o-date#asTodayOrYesterdayOrNothing(date)
 
 Returns `'yesterday'`, `'today'` or `''` for a given date. You can request this formatting for `o-date` components by adding `data-o-date-format="today-or-yesterday-or-nothing"`.
 
   * `date`: A javascript `Date` object or a valid string to pass to the `Date` constructor
 
-#### o-date#init(el)
+### o-date#init(el)
 
 Within a given container element, converts dates to ftTime (see above) and periodically updates their values. Within the container all `<time>` elements with `o-date` in `data-o-component` will be updated. If a given `<time>` element contains an element with the class `o-date__printer` the relative time will be output here, otherwise it will replace the contents of the entire `<time>` element. Once the `<time>` element has been formatted by o-date, the attribute `data-o-date-js` is added, enabling conditional styling and/or hiding the date until it is correctly formatted.
 
@@ -78,13 +70,21 @@ Within a given container element, converts dates to ftTime (see above) and perio
 
 If the `el` is a valid `<time>` element, the resulting o-date instance will be returned; otherwise, an array of created instances will be returned.
 
-#### o-date#destroy()
+### o-date#destroy()
 
 Call on any instances to stop processing date updates and release the item reference.
 
 ## Server-side
 
 See the npm package [@financial-times/ft-date-format](https://github.com/Financial-Times/ft-date-format) for server-side date formatting. _Note: It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time._
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.9 | - |
+╳ deprecated | 1 | 1.2 | - |
 
 ---
 
