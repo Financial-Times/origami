@@ -15,6 +15,12 @@ If your project uses `$o-loading-sizes` for any other reason, e.g. to customise 
 
 Finally the `$o-loading-animation-keyframes` variable is now private and should not be used.
 
+#### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### Migrating from 2 to 3
 
 V3 changes the internal structure of `o-loading`.
