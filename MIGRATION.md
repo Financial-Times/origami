@@ -331,6 +331,12 @@ The option `fontLoadingPrefix` has been removed. Update your markup to use the d
 
 The legacy option `fontLoadedStorageName` has also been removed. Use `fontLoadedCookieName` instead.
 
+#### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### Migrating from v4 to v5
 
 V5 of o-typography is a complete overhaul of the typographic system for FT products. The update includes:
