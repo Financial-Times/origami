@@ -5,9 +5,9 @@
     "main.js"
   ],
   "dependencies": {
-    "ftdomdelegate": "v4.0.0-beta.1",
-    "o-colors": "5.0.0-beta.3",
-    "o-normalise": "2.0.0-beta.6",
-    "o-grid": "5.0.0-beta.2"
+    "ftdomdelegate": "^4.0.0",
+    "o-colors": "^5.0.0",
+    "o-normalise": "^2.0.0",
+    "o-grid": "^5.0.0"
   }
 }
