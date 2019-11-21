@@ -3,7 +3,7 @@
 
 ## Migrating from v1 to v2
 
-o-tracking v2 has dropped support for ftdomdelegate v2, please ensure your project is not using ftdomdelegate v2 and can work with ftdomdelegate v3.
+o-tracking v2 has dropped support for ftdomdelegate v3, please ensure your project is not using ftdomdelegate v3 and can work with ftdomdelegate v4.
 
 v2 also uses [ES Modules over CommonJS](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) syntax. We recommend to include `o-tracking` using the es modules syntax.
 
