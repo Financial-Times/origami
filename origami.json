@@ -18,7 +18,10 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": "o-colors,o-buttons,o-forms"
+		"dependencies": [
+			"o-colors@^5.0.0",
+			"o-buttons@^6.0.0"
+		]
 	},
 	"demos": [
 		{
