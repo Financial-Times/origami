@@ -3,25 +3,26 @@
 
 Auto initalise Origami components
 
-- [Usage](#usage)
-	- [JavaScript](#javascript)
+- [JavaScript](#javascript)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
+This component comprises a standard way of firing the `o.DOMContentLoaded` event when the equivalent browser-native event fire, and will fire the Origami events even if the native ones have already been and gone, making this suitable for bundling with components that are loaded asyncronously.
 
-This module comprises a standard way of firing the `o.DOMContentLoaded` and `o.load` events when their equivalent browser-native events fire, and will fire the Origami events even if the native ones have already been and gone, making this suitable for bundling with modules that are loaded asyncronously.
-
-### JavaScript
+## JavaScript
 
 ```javascript
 import 'o-autoinit';
 ```
 
-The `autoinit` module must be imported after all modules that bind to the initialisation events.  If it is imported more than once, subsequent imports will not have any effect, and the initialisation events may be emitted as early as the first import point.
+The `autoinit` component must be imported after all components that bind to the initialisation events. If it is required more than once, subsequent requires will not have any effect, and the initialisation events may be emitted as early as the first require point.
 
+## Migration
 
----
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.5 | N/A |
 
 ## Contact
 

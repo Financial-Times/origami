@@ -1,5 +1,5 @@
 {
-  "description": "Provides a standard way of firing the 'o.DOMContentLoaded' and 'o.load' events if/when the equivalent browser-native events fire, to auto initialise other components that are in use.",
+  "description": "Provides a standard way of firing the 'o.DOMContentLoaded' events if/when the equivalent browser-native events fire, to auto initialise other components that are in use.",
   "origamiType": "module",
   "origamiCategory": "utilities",
   "origamiVersion": 1,

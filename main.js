@@ -8,14 +8,11 @@ function trigger(type) {
 	document.dispatchEvent(new CustomEvent('o.'+type));
 }
 
-window.addEventListener('load', trigger.bind(null, 'load'));
-window.addEventListener('load', trigger.bind(null, 'DOMContentLoaded'));
 document.addEventListener('DOMContentLoaded', trigger.bind(null, 'DOMContentLoaded'));
 
 document.onreadystatechange = function () {
 	if (document.readyState === 'complete') {
 		trigger('DOMContentLoaded');
-		trigger('load');
 	} else if (document.readyState === 'interactive' && !document.attachEvent) {
 		trigger('DOMContentLoaded');
 	}
@@ -23,7 +20,6 @@ document.onreadystatechange = function () {
 
 if (document.readyState === 'complete') {
 	trigger('DOMContentLoaded');
-	trigger('load');
 } else if (document.readyState === 'interactive' && !document.attachEvent) {
 	trigger('DOMContentLoaded');
 }
