@@ -1,0 +1,7 @@
+{
+	"private": true,
+	"name": "o-date",
+	"devDependencies": {
+		"origami-ci-tools": "^1.0.0"
+	}
+}
