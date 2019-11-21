@@ -1,6 +1,14 @@
-## Migration guide
+# Migration guide
 
-### Migrating from v4 to v5
+## Migrating from v4 to v5
+
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
+### Polyfills
 
 To support Internet Explorer include the `Element.prototype.classList` and `Array.from` polyfills in your project.
 

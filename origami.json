@@ -25,7 +25,9 @@
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
-		"dependencies": "o-normalise"
+		"dependencies": [
+			"o-normalise@^2.0.0"
+		]
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-expander"
