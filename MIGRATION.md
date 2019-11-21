@@ -4,6 +4,12 @@
 
 All [o-syntax-highlight colour usecases](https://github.com/Financial-Times/o-syntax-highlight/blob/v2.1.0/src/scss/colors.scss) have been removed. Ensure your project is not using these colours by checking for build errors. If so replace with an [o-colors](https://registry.origami.ft.com/components/o-colors) colour.
 
+#### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### Migrating from v1 to v2
 
 This major introduces the primary mixin, and enables branding for 'master' and 'internal' brands.
