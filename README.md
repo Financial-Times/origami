@@ -2,6 +2,14 @@
 
 Include in your product to send tracking requests to the Spoor API.
 
+- [The spoor ecosystem](#the-spoor-ecosystem)
+- [Usage](#usage)
+- [Events](#events)
+- [Parameters](#parameters)
+- [Migration Guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
+
 ## The Spoor ecosystem
 ![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
 
@@ -72,7 +80,7 @@ function oTrackinginit() {
 
 Use the build service or require locally to load o-tracking and init manually.
 ```js
-var oTracking = require('o-tracking');
+import oTracking from 'o-tracking';
 ```
 
 ```js
@@ -194,9 +202,9 @@ o-tracking will
 * Automatically pickup ftsession from cookies for you.
 * Page events automatically pick up the url and the referrer.
 * Click events [initalised as above](#usage), will populate a `domPathTokens` property. If the clicked element has the `data-trackable` attribute, sibling elements will also be included within `domPathTokens`.
-* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]  
-_Note:_ This feature requires `window.IntersectionObserver` in order to track the events  
-_Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument  
+* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]
+_Note:_ This feature requires `window.IntersectionObserver` in order to track the events
+_Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument
 	```js
 	const opts = {
 		category: 'audio', // default: 'component'
@@ -282,3 +290,23 @@ For example:
 [Look at all the properties](docs/event.md) available for an event.
 
 [JSDoc](https://registry.origami.ft.com/components/o-tracking/jsdoc#Tracking)
+
+
+## Migration Guide
+
+| State | Major Version | Last Minor Release | Migration guide |
+| :---: | :---: | :---: | :---: |
+| ✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+| ╳ deprecated | 1 | 1.7.2 | N/A |
+
+---
+
+## Contact
+
+If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tracking/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
+
+---
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).

@@ -1,10 +1,5 @@
-/*global module, require */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
-
-const utils = require('../utils');
-const Store = require('./store');
+import utils from '../utils';
+import Store from './store';
 
 /**
  * Class for handling a queue backed up by a store.
@@ -170,4 +165,5 @@ Queue.prototype.save = function () {
 	return this;
 };
 
-module.exports = Queue;
+export default Queue;
+export { Queue };

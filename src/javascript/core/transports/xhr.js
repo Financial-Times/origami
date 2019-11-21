@@ -1,4 +1,4 @@
-module.exports = function () {
+function xhr() {
 	const xhr = new window.XMLHttpRequest();
 
 	return {
@@ -22,4 +22,7 @@ module.exports = function () {
 			};
 		}
 	};
-};
+}
+
+export default xhr;
+export { xhr };

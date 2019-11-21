@@ -1,12 +1,8 @@
-/*global module, require, window */
-/*eslint-disable*/
-'use strict';
-/*eslint-enable*/
+import settings from './settings';
+import utils from '../utils';
+import Queue from './queue';
+import transports from './transports';
 
-const settings = require('./settings');
-const utils = require('../utils');
-const Queue = require('./queue');
-const transports = require('./transports');
 const isIe11 = function () { return !!window.MSInputMethodContext && !!document.documentMode; };
 /**
  * Default collection server.
@@ -226,11 +222,23 @@ function init() {
 	return queue;
 }
 
-module.exports = {
-	init: init,
-	setDomain: setDomain,
-	getDomain: function () { return domain;},
-	add: add,
-	run: run,
-	addAndRun: addAndRun
+function getDomain() {
+	return domain;
+}
+
+export default {
+	init,
+	setDomain,
+	getDomain,
+	add,
+	run,
+	addAndRun
+};
+export {
+	init,
+	setDomain,
+	getDomain,
+	add,
+	run,
+	addAndRun
 };

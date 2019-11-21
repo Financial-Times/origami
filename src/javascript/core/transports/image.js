@@ -1,6 +1,6 @@
-const utils = require('../../utils');
+import utils from '../../utils';
 
-module.exports = function () {
+function image () {
 	const image = new Image(1,1);
 
 	return {
@@ -19,4 +19,7 @@ module.exports = function () {
 			}
 		}
 	};
-};
+}
+
+export default image;
+export { image };
