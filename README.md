@@ -12,7 +12,7 @@ This component comprises a standard way of firing the `o.DOMContentLoaded` event
 ## JavaScript
 
 ```javascript
-require('o-autoinit');
+import 'o-autoinit';
 ```
 
 The `autoinit` component must be imported after all components that bind to the initialisation events. If it is required more than once, subsequent requires will not have any effect, and the initialisation events may be emitted as early as the first require point.
