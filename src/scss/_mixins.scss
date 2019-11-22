@@ -36,13 +36,13 @@
 	}
 
 	.o-cookie-message__outer {
-		@include oVisualEffectsShadowsElevation('high');
+		@include oVisualEffectsShadowContent('high');
 		background: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('black');
 	}
 
 	.o-cookie-message__inner {
-		@include oVisualEffectsShadowsElevation('high');
+		@include oVisualEffectsShadowContent('high');
 		@include oTypographySans($scale: 0);
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
@@ -107,10 +107,10 @@
 	}
 
 	.o-cookie-message__button {
-		@include oButtons(
-			$size: 'big',
-			$theme: 'primary'
-		);
+		@include oButtonsContent((
+			'size': 'big',
+			'theme': 'primary'
+		));
 		white-space: nowrap;
 	}
 }
@@ -120,8 +120,7 @@
 	.o-cookie-message {
 		.o-cookie-message__heading {
 			h1 {
-				@include oTypographySans($scale: 3);
-				@include oTypographyBold($font: 'sans');
+				@include oTypographySans($scale: 3, $weight: 'bold');
 				margin-bottom: 0;
 			}
 			&:after {
@@ -159,28 +158,26 @@
 		}
 
 		.o-cookie-message__link {
-			@include oTypographyLinkCustom(
-				$baseColor: 'teal',
-				$hoverColor: 'teal',
-				$outlineColor: 'teal',
-				$backgroundColor: 'white'
-			);
+			@include oTypographyLink($theme: (
+				base: 'teal',
+				hover: 'teal',
+				context: 'white'
+			));
 			@include oTypographySans($scale: 0);
 			white-space: nowrap;
 		}
 
 		.o-cookie-message__link--external {
-			@include oTypographyLinkExternalIcon(oColorsGetColorFor('link', 'text'));
+			@include oTypographyLink($external: true, $include-base-styles: false);
 		}
 
 		.o-cookie-message__link--external,
 		.o-cookie-message__link {
-			@include oTypographyLinkCustom(
-				$baseColor: 'teal',
-				$hoverColor: 'teal',
-				$outlineColor: 'teal',
-				$backgroundColor: 'white'
-			);
+			@include oTypographyLink($theme: (
+				'base': 'teal',
+				'hover': 'teal',
+				'context': 'white'
+			));
 		}
 	}
 }
@@ -190,31 +187,37 @@
 @mixin _oCookieMessageAlternative() {
 	.o-cookie-message.o-cookie-message--alternative {
 		.o-cookie-message__button {
-			//TODO: revisit argument names in o-buttons
-			@include oButtonsTheme((
-				accent: oColorsGetUseCase(o-cookie-message-alternative-button, background),
-				background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
-				hover: oColorsGetUseCase(o-cookie-message-alternative-button, hover),
-				colorizer: primary
-			));
+			@include oButtonsContent((
+				theme: (
+					accent: oColorsGetUseCase(o-cookie-message/alternative-button, background),
+					background: oColorsGetUseCase(o-cookie-message/alternative-button, text),
+					hover: oColorsGetUseCase(o-cookie-message/alternative-button-hover, background),
+					colorizer: primary
+				)));
 		}
 
 		.o-cookie-message__heading:after {
-			border-color: oColorsGetColorFor('o-cookie-message-alternative', 'border');
+			border-color: oColorsByUsecase(o-cookie-message/alternative, 'border');
 		}
 
 		.o-cookie-message__link--external {
-			@include oTypographyLinkExternalIcon(oColorsGetColorFor('o-cookie-message-alternative-link', 'text'));
+			@include oTypographyLink(
+				$external: true,
+				$theme: (
+					base: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
+					hover: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
+					background: oColorsByUsecase(o-cookie-message/alternative-link, 'background')
+				)
+			);
 		}
 
 		.o-cookie-message__link--external,
 		.o-cookie-message__link {
-			@include oTypographyLinkCustom(
-				$baseColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-				$hoverColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-				$outlineColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-				$backgroundColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'background')
-			);
+			@include oTypographyLink($theme: (
+				base: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
+				hover: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
+				background: oColorsByUsecase(o-cookie-message/alternative-link, 'background')
+			));
 		}
 	}
 }

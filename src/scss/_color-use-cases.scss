@@ -1,8 +1,19 @@
-@include oColorsSetColor('jade-black-70', oColorsMix('jade', 'black', 70));
+@include oColorsSetColor('o-cookie-message/jade-black-70', oColorsMix('jade', 'black', 70));
 
-@include oColorsSetUseCase('o-cookie-message-alternative', 'border', 'jade');
-@include oColorsSetUseCase('o-cookie-message-alternative-button', 'text', 'white');
-@include oColorsSetUseCase('o-cookie-message-alternative-button', 'background', 'jade');
-@include oColorsSetUseCase('o-cookie-message-alternative-button', 'hover', 'jade-black-70');
-@include oColorsSetUseCase('o-cookie-message-alternative-link', 'text', 'black');
-@include oColorsSetUseCase('o-cookie-message-alternative-link', 'background', 'white');
+@include oColorsSetUseCase('o-cookie-message/alternative', (
+	'border': 'jade'
+));
+
+@include oColorsSetUseCase('o-cookie-message/alternative-button', (
+	'text': 'white',
+	'background': 'jade'
+));
+
+@include oColorsSetUseCase('o-cookie-message/alternative-button-hover', (
+	'background': 'o-cookie-message/jade-black-70'
+));
+
+@include oColorsSetUseCase('o-cookie-message/alternative-link', (
+	'text': 'black',
+	'background': 'white'
+));
