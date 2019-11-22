@@ -18,7 +18,10 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"documentClasses": "",
-		"dependencies": "o-date@^2.2.1,o-normalise@^1.0.0"
+		"dependencies": [
+			"o-date@^4.0.0",
+			"o-normalise@^2.0.0"
+		]
 	},
 	"demos": [
 		{

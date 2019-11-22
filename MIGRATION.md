@@ -42,6 +42,12 @@ The `oTeaser` mixin has also been updated. Its two arguments are now accepted wi
 +));
 ```
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ## Migrating from v2 to v3
 
 Version 3 uses a new major version of [o-labels](https://github.com/Financial-Times/o-labels/). Make sure your project is [compatible](https://github.com/Financial-Times/o-labels/blob/master/MIGRATION.md#migrating-from-v3-to-v4) with o-labels@4.0.0
