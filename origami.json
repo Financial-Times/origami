@@ -18,7 +18,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"o-fonts@^3.0.0"
+			"o-fonts@^4.0.0"
 		]
 	},
 	"ci": {
