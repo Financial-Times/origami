@@ -141,7 +141,8 @@ There is [full Sass documentation available in the Origami Registry](https://reg
 
 | State | Major Version | Last Minor Release | Migration guide |
 | :---: | :---: | :---: | :---: |
-| ✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+| ✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ⚠︎ maintained | 3 | 3.5 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 | ╳ deprecated | 2 | 2.3.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 | ╳ deprecated | 1 | 1.1.1 | N/A |
 
