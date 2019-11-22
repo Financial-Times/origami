@@ -59,8 +59,8 @@ $_o-forms-shared-brand-config: (
 			controls-negative-checked-background: oColorsByName('black'),
 			toggle-inverse-selected: oColorsByName('white'),
 			toggle-inverse-knob: oColorsByName('black'),
-			invalid-base: #cc0000, // todo: restore to crimson
-			valid-base: #00994d // todo: restore to jade
+			invalid-base: oColorsByName('crimson'),
+			valid-base: oColorsByName('jade')
 		)),
 		'supports-variants': ()
 	));
