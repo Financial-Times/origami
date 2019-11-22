@@ -8,7 +8,13 @@
 	margin-bottom: oSpacingByName('s4');
 }
 ```
-- v8 updates the required version on the [o-icons](https://registry.origami.ft.com/components/o-icons) and [ftdomdelegate](https://github.com/Financial-Times/ftdomdelegate) dependencies. Make sure your project still builds with the new versions! 
+- v8 updates the required version on the [o-icons](https://registry.origami.ft.com/components/o-icons) and [ftdomdelegate](https://github.com/Financial-Times/ftdomdelegate) dependencies. Make sure your project still builds with the new versions!
+
+#### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
 
 ### Migrating from v6 to v7
 - To prevent errors in IE11, add support for `IntersectionObserverEntry` and `IntersectionObserver` with the [polyfill service](https://polyfill.io/).
