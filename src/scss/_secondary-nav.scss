@@ -134,7 +134,8 @@
 			'type': 'primary',
 			'icon': 'arrow-left',
 			'icon-only': true,
-		));
+		), $include-base-styles: false);
+		border-color: _oHeaderServicesGet('nav-border');
 		border-width: 0 1px 0 0;
 		min-width: $_o-header-services-button-icon-size;
 		left: 0;
@@ -146,7 +147,8 @@
 			'type': 'primary',
 			'icon': 'arrow-right',
 			'icon-only': true,
-		));
+		), $include-base-styles: false);
+		border-color: _oHeaderServicesGet('nav-border');
 		border-width: 0 0 0 1px;
 		min-width: $_o-header-services-button-icon-size;
 		right: 0;
