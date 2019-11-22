@@ -33,7 +33,7 @@ function insertSimple() {
 	insert(html);
 }
 
-export {
+export default {
 	insertSimple,
 	reset
 };

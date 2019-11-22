@@ -1,4 +1,3 @@
-/*global module */
 
 class Tabs {
 

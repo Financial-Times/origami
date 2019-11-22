@@ -1,0 +1,77 @@
+
+/// Outputs button tabs.
+///
+/// @access private
+@mixin _oTabsButtonTabs($button-tabs, $sizes) {
+	.o-tabs--buttontabs[data-o-tabs--js] {
+
+		&[role=tablist] {
+			display: flex; // prevent spacing between tabs
+			border-bottom: 1px solid;
+		}
+
+		[role=tab] {
+			@include oButtonsContent(); // include base button styles
+		}
+
+		// Include tab button themes.
+		@each $button-tabs in $button-tabs {
+			$button-type: map-get($button-tabs, 'type');
+			$button-theme: map-get($button-tabs, 'theme');
+
+			$theme-selector: '.o-tabs--#{$button-type}';
+			@if $button-theme {
+				$theme-selector: selector-append($theme-selector, '.o-tabs--#{$button-theme}');
+			}
+
+			&#{$theme-selector} {
+				&[role=tablist] {
+					// Find a tab list border colour based on o-buttons.
+					$button-background: oButtonsGetColor('default', 'background', $type: $button-type, $theme: $button-theme);
+					$button-border: oButtonsGetColor('default', 'border', $type: $button-type, $theme: $button-theme);
+					$tablist-border: if($button-border and $button-border != transparent, $button-border, $button-background);
+
+					border-color: $tablist-border;
+				}
+
+				[role=tab] {
+					@include oButtonsContent((
+						'type': $button-type,
+						'theme': $button-theme,
+					), $include-base-styles: false);
+				}
+
+			}
+		}
+
+		// Include tab button sizes.
+		@if index($sizes, 'big') {
+			&.o-tabs--big [role=tab] {
+				@include oButtonsContent((
+					'size': 'big'
+				), $include-base-styles: false);
+			}
+		}
+
+		// Note: this "big" selector is not included in the condition above
+		// because it'd have a negative impact on readability. The "big" here
+		// has minimal impact on the output bundle size
+		[role=tab],
+		&.o-tabs--big [role=tab] {
+			border-bottom-width: 0;
+
+			& + [role=tab] {
+				margin-left: 0;
+				border-left-width: 0;
+			}
+
+			&[aria-selected=true] a {
+				font-weight: normal; // reset weight set in the base styles
+			}
+
+			&:first-child {
+				border-left-width: 1px;
+			}
+		}
+	}
+}
