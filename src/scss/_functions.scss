@@ -91,22 +91,6 @@
 	$color: _oButtonsGet('color', $theme);
 	$context-color: _oButtonsGet('context', $theme);
 
-	// If a colour hex rather than a colour name has been given confirm the
-	// colour exists in the palette.
-	@if type-of($color) == 'color' {
-		$color-in-palette: _oButtonsColorIsInPalette($color);
-		@if not $color-in-palette {
-			@error 'The color "#{$color}" is not a colour in the o-colors palette.';
-		}
-	}
-
-	@if type-of($context-color) == 'color' {
-		$context-color-in-palette: _oButtonsColorIsInPalette($context-color);
-		@if not $context-color-in-palette {
-			@error 'The button context colour "#{$context-color}" is not a colour in the o-colors palette.';
-		}
-	}
-
 	// Get button context, which is the background colour the button is placed on.
 	$page-background-usecase: oColorsByUsecase('page', 'background');
 	$context-color: if($context-color, $context-color, $page-background-usecase);
@@ -484,19 +468,4 @@
 	// No tint of a high enough contrast could be produced.
 	// Return the darkest tint we'll allow.
 	@return oColorsGetTone($tint-color, $minimum-tint-value);
-}
-
-/// Check if a colour hex is in the o-colors palette.
-/// @returns {Boolean}
-/// @access private
-@function _oButtonsColorIsInPalette($color) {
-	$palette: oColorsGetPaletteDetails();
-	@each $color-details in $palette {
-		$name: map-get($color-details, 'name');
-		$palette-color-hex: oColorsByName($name);
-		@if $palette-color-hex == $color {
-			@return true;
-		}
-	}
-	@return false;
 }

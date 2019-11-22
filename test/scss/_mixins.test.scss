@@ -348,6 +348,30 @@
 		};
 	}
 
+	@include it('outputs a theme for a colour mix') {
+		@include assert() {
+			@include output($selector: false)  {
+				@include oButtonsAddTheme(
+					$name: 'test-mixed-theme-colors',
+					$opts: (
+						'color': oColorsMix('black', 'jade', $percentage: 43),
+						'context': oColorsMix('jade', $percentage: 20)
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			};
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-mixed-theme-colors {
+					background-color: #00572c;
+					color: #ccdfc7;
+					border-color: transparent;
+				}
+			};
+		};
+	}
+
 	@include it('outputs a theme for given colour hexes which are in the colour palette') {
 		@include assert() {
 			@include output($selector: false)  {
