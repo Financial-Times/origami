@@ -37,8 +37,8 @@
 
 	.o-cookie-message__outer {
 		@include oVisualEffectsShadowContent('high');
-		background: oColorsGetPaletteColor('white');
-		color: oColorsGetPaletteColor('black');
+		background: oColorsByName('white');
+		color: oColorsByName('black');
 	}
 
 	.o-cookie-message__inner {
@@ -109,7 +109,7 @@
 	.o-cookie-message__button {
 		@include oButtonsContent((
 			'size': 'big',
-			'theme': 'primary'
+			'type': 'primary'
 		));
 		white-space: nowrap;
 	}
@@ -120,8 +120,8 @@
 	.o-cookie-message {
 		.o-cookie-message__heading {
 			h1 {
-				@include oTypographySans($scale: 3, $weight: 'bold');
-				margin-bottom: 0;
+				@include oTypographySans($scale: 3, $weight: 'semibold');
+				margin: 0;
 			}
 			&:after {
 				content: '';
@@ -131,7 +131,7 @@
 				margin-bottom: oSpacingByName('s4');
 
 				border-bottom: oSpacingByIncrement(2) solid;
-				border-color: oColorsGetPaletteColor('teal');
+				border-color: oColorsByName('teal');
 			}
 
 			@include oTypographySans($scale: 3);
@@ -158,11 +158,12 @@
 		}
 
 		.o-cookie-message__link {
-			@include oTypographyLink($theme: (
-				base: 'teal',
-				hover: 'teal',
-				context: 'white'
-			));
+			$link-theme: (
+				'base': 'teal',
+				'hover': 'teal',
+				'context': 'white'
+			);
+			@include oTypographyLink($theme: $link-theme);
 			@include oTypographySans($scale: 0);
 			white-space: nowrap;
 		}
@@ -185,39 +186,35 @@
 
 // Alternative cookie message styles (for whitelabel/specialist titles)
 @mixin _oCookieMessageAlternative() {
+	$link-theme: (
+		'base': 'black',
+		'hover': 'black',
+		'context': 'white'
+	);
+
 	.o-cookie-message.o-cookie-message--alternative {
 		.o-cookie-message__button {
 			@include oButtonsContent((
-				theme: (
-					accent: oColorsGetUseCase(o-cookie-message/alternative-button, background),
-					background: oColorsGetUseCase(o-cookie-message/alternative-button, text),
-					hover: oColorsGetUseCase(o-cookie-message/alternative-button-hover, background),
-					colorizer: primary
-				)));
+				'type': 'primary',
+				'theme':  ('color': oColorsMix('jade', 'black', 89), 'context': 'white')
+			), $include-base-styles: false);
 		}
 
 		.o-cookie-message__heading:after {
-			border-color: oColorsByUsecase(o-cookie-message/alternative, 'border');
+			border-color: oColorsByName('jade');
+		}
+
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
+			@include oTypographyLink($theme: $link-theme);
 		}
 
 		.o-cookie-message__link--external {
 			@include oTypographyLink(
 				$external: true,
-				$theme: (
-					base: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
-					hover: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
-					background: oColorsByUsecase(o-cookie-message/alternative-link, 'background')
-				)
+				$theme: $link-theme,
+				$include-base-styles: false
 			);
-		}
-
-		.o-cookie-message__link--external,
-		.o-cookie-message__link {
-			@include oTypographyLink($theme: (
-				base: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
-				hover: oColorsByUsecase(o-cookie-message/alternative-link, 'text'),
-				background: oColorsByUsecase(o-cookie-message/alternative-link, 'background')
-			));
 		}
 	}
 }

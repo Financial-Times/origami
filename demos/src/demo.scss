@@ -5,5 +5,5 @@ $o-cookie-message-is-silent: false;
 body {
 	font-family: MetricWeb;
 	min-height: 350px;
-	background-color: oColorsGetPaletteColor('paper');
+	background-color: oColorsByUsecase('page', 'background');
 }
