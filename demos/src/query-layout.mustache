@@ -9,35 +9,66 @@
 
     <div class="o-layout__query-sidebar o-layout-typography">
 		<form action="/components" method="get" class="registry__form registry__container__sticky" data-o-component="o-filter-form" data-o-filter-form-browser-history="true">
-			<fieldset class="o-forms">
-				<label class="o-forms__label">Types</label>
-				<div class="o-forms__additional-info">Filter results by type</div>
-				<div class="o-forms__group">
-					<input id="type-module" type="checkbox" name="module" value="true" checked="" class="o-forms__checkbox">
-					<label for="type-module" class="o-forms__label">Modules</label>
-					<input id="type-imageset" type="checkbox" name="imageset" value="true" checked="" class="o-forms__checkbox">
-					<label for="type-imageset" class="o-forms__label">Imagesets</label>
-					<input id="type-service" type="checkbox" name="service" value="true" checked="" class="o-forms__checkbox">
-					<label for="type-service" class="o-forms__label">Services</label>
-				</div>
-			</fieldset>
 
-			<fieldset class="o-forms">
-				<label class="o-forms__label">Status</label>
-				<div class="o-forms__additional-info">Filter results by status</div>
-				<div class="o-forms__group">
-					<input id="status-active" type="checkbox" name="active" value="true" checked="" class="o-forms__checkbox">
-					<label for="status-active" class="o-forms__label">Active</label>
-					<input id="status-maintained" type="checkbox" name="maintained" value="true" checked="" class="o-forms__checkbox">
-					<label for="status-maintained" class="o-forms__label">Maintained</label>
-					<input id="status-experimental" type="checkbox" name="experimental" value="true" checked="" class="o-forms__checkbox">
-					<label for="status-experimental" class="o-forms__label">Experimental</label>
-					<input id="status-deprecated" type="checkbox" name="deprecated" value="true" class="o-forms__checkbox">
-					<label for="status-deprecated" class="o-forms__label">Deprecated</label>
-					<input id="status-dead" type="checkbox" name="dead" value="true" class="o-forms__checkbox">
-					<label for="status-dead" class="o-forms__label">Dead</label>
-				</div>
-			</fieldset>
+			<div class="o-forms-field" role="group" aria-labelledby="filter-type-title" aria-describedby="filter-type-info">
+				<span class="o-forms-title">
+					<span class="o-forms-title__main" id="filter-type-title">Types</span>
+					<span class="o-forms-title__prompt" id="filter-type-info">Filter results by type</span>
+				</span>
+				<span class="o-forms-input o-forms-input--checkbox">
+
+					<label>
+						<input type="checkbox" name="module" value="true" aria-label="Modules" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Modules</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="imageset" value="true" aria-label="Imagesets" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Imagesets</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="service" value="true" aria-label="Services" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Services</span>
+					</label>
+
+				</span>
+			</div>
+
+			<div class="o-forms-field" role="group" aria-labelledby="filter-status-title" aria-describedby="filter-status-info">
+				<span class="o-forms-title">
+					<span class="o-forms-title__main" id="filter-status-title">Status</span>
+					<span class="o-forms-title__prompt" id="filter-status-info">Filter results by status</span>
+				</span>
+				<span class="o-forms-input o-forms-input--checkbox">
+
+					<label>
+						<input type="checkbox" name="active" value="true" aria-label="Active" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Active</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="maintained" value="true" aria-label="Maintained" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Maintained</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="experimental" value="true" aria-label="Experimental" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Experimental</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="deprecated" value="true" aria-label="Deprecated" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Deprecated</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="dead" value="true" aria-label="Dead" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Dead</span>
+					</label>
+
+				</span>
+			</div>
 		</form>
     </div>
 

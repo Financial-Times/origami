@@ -2,6 +2,12 @@
 
 ## Migrating from v3 to v4
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ## Migrating from v2 to v3
 
 - `o-layout` supports the internal brand only, so your project must set its brand to the internal brand:
