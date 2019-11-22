@@ -8,7 +8,7 @@
 
 The following mixins have been removed or made private. Replace them with a single call to the `oNormalise` primary mixin, with appropriate options passed as an argument.
 
-- `oNormaliseHTML`: set the 'body' option with 'font-smoothing', 'box-sizing', and 'focus' features.
+- `oNormaliseHTML`: set the 'body' option with 'font-smoothing', and 'focus' features.
 - `oNormaliseLinks`: add 'links' to the 'elements' option.
 - `oNormaliseText`: add 'text' to the 'elements' option.
 - `oNormaliseImages`: add 'images' to the 'elements' option.
@@ -20,7 +20,7 @@ E.g.
 - @include oNormaliseForms();
 + @include oNormalise((
 +     'elements': ('forms'),
-+     'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion')
++     'body': ('font-smoothing', 'focus', 'reduce-motion')
 + ));
 ```
 

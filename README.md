@@ -12,7 +12,7 @@ Foundation styles and standardised utilities
 
 ## Sass
 
-To output all `o-normalise` styles call the mixin `oNormalise`:
+To output all default `o-normalise` styles call the mixin `oNormalise`:
 
 ```scss
 @include oNormalise();
@@ -23,7 +23,7 @@ To include features of `o-normalise` granularly, pass an `$opts` map. E.g. to ou
 ```scss
 @include oNormalise($opts: (
 	'elements': ('forms', 'images', 'text', 'links'),
-	'body': ('font-smoothing', 'box-sizing', 'focus', 'reduce-motion')
+	'body': ('font-smoothing', 'focus', 'reduce-motion')
 ));
 ```
 
@@ -32,7 +32,7 @@ Options include:
 | Feature             | Description                                                                                                         | Values                                  |
 |---------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | elements            | Element types to apply normalising styles to.                                                                       | 'forms', 'images', 'text', 'links'      |
-| body                | Features which apply to `html`, `body`, `main` elements and all elements with a `:focus` state.                     | 'font-smoothing', 'box-sizing', 'focus' |
+| body                | Features which apply to `html`, `body`, `main` elements and all elements with a `:focus` state.                     | 'font-smoothing', 'focus' |
 | helpers             | Classes which may be applied to elements manually.                                                                  | 'clearfix', 'visually-hidden'           |
 
 _Note: if using the "focus" option in your project also include the `:focus-visible` polyfill. See [Focus States](#focus-states)._
