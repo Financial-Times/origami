@@ -1,7 +1,7 @@
 $o-teaser-is-silent: false;
 @import '../../main';
 
-@include oFontsIncludeAll();
+@include oFonts();
 
 body {
 	background-color: oColorsByName('paper');
