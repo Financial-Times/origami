@@ -158,6 +158,7 @@ const defaultOpts = {
 	placeholderHint: '',
 	playsinline: false,
 	showCaptions: true,
+	showGuidance: true,
 	data: null
 };
 
@@ -197,7 +198,9 @@ class Video {
 			this.init();
 		}
 
-		this.guidance = new Guidance();
+		if (this.opts.showGuidance) {
+			this.guidance = new Guidance();
+		}
 	}
 
 	getData() {
@@ -320,7 +323,9 @@ class Video {
 		}
 
 		this.videoEl.src = this.rendition && this.rendition.url;
-		this.guidance.removeBanner();
+		if (this.guidance) {
+			this.guidance.removeBanner();
+		}
 		listenOnce(this.videoEl, 'playing', this.showGuidanceBanner.bind(this));
 
 		this.addCaptions();
@@ -357,7 +362,7 @@ class Video {
 		playCTA.appendChild(this.playButtonIconEl);
 
 		const { captionsUrl } = this.videoData || {};
-		if (!captionsUrl) {
+		if (!captionsUrl && this.guidance) {
 			playCTA.appendChild(this.guidance.createPlaceholder());
 		}
 		playButtonEl.appendChild(playCTA);
@@ -483,7 +488,7 @@ class Video {
 
 	showGuidanceBanner () {
 		const { captionsUrl } = this.videoData || {};
-		if (!this.didUserPressPlay && !captionsUrl) {
+		if (!this.didUserPressPlay && !captionsUrl && this.guidance) {
 			this.containerEl.appendChild(this.guidance.createBanner());
 		}
 	}
