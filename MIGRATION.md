@@ -1,7 +1,7 @@
 
 # Migration Guide
 
-## Migrating from 5.0 to 6.0
+## Migrating from v5 to v6
 
 ### Updated dependencies
 
@@ -23,7 +23,7 @@ const opts = {
 const video = new Video(document.body, opts);
 ```
 
-## Migrating from 4.0 to 5.0
+## Migrating from v4 to v5
 
 Version 5 introduces a new major of `o-loading`. Updating to this new version will mean updating any other components that you have which are using `o-loading`.
 
@@ -42,11 +42,11 @@ The following mixins are now private. Make sure your project does not use them, 
 +_oVideoInfoLarge
 ```
 
-## Migrating from 3.0 to 4.0
+## Migrating from v3 to v4
 
 Version 4 introduces the new majors of `o-colors`, `o-loading`, and `o-typography`. Updating to this new version will mean updating any other components that you have which are using `o-colors`, `o-loading`, or `o-typography`. There are no other breaking changes in this release.
 
-## Migrating from 2.0 to 3.0
+## Migrating from v2 to v3
 
 The `videoSource` and `captionsUrl` options no longer exist. Captions can be toggled on or off by using the `showCaptions` boolean. This defaults to `true`, so if the video data (now gotten from the [next-media-api](https://github.com/Financial-Times/next-media-api)) contains captions, then the component will present them to the user.
 
