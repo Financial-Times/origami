@@ -1,74 +1,117 @@
-@mixin oTeaserCollectionHeadingBorderTypography {
-	@include oTypographySize(3);
+/// Styles used witin o-teaser-collection__heading, including size modifiers.
+///
+/// @example - Include all heading styles.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading();
+///		}
+/// @example - Include the standard heading styles but do not style any child anchor element, and do not output modifier classes for different sized headings.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading($opts: (
+///				'anchor': false,
+///				'divider': true,
+///				'sizes': ()
+///			));
+///		}
+/// @example - Output a modifier class for a "small" collection heading.
+///		.my-collection-heading {
+///			@include oTeaserCollectionContentHeading($opts: (
+///				'anchor': true,
+///				'divider': true,
+///				'sizes': ('small') // .my-collection-heading--small
+///			));
+///		}
+/// @param {Map} $opts [('anchor': true,'divider': true,'sizes': ('full-width', 'half-width', 'small'))]
+@mixin oTeaserCollectionContentHeading($opts: (
+	'anchor': true,
+	'divider': true,
+	'sizes': ('full-width', 'half-width', 'small')
+)) {
+	$anchor: map-get($opts, 'anchor');
+	$divider: map-get($opts, 'divider');
+
+	$sizes: map-get($opts, 'sizes');
+	$full-width: index($sizes, 'full-width');
+	$half-width: index($sizes, 'half-width');
+	$small: index($sizes, 'small');
+
+	@include oTypographySans(3, $weight: 'regular');
 	position: relative;
 	width: 100%;
 	margin: 0;
-	font-family: $o-typography-sans;
-	font-weight: normal;
 	padding-top: oSpacingByName('s3');
 	padding-bottom: oSpacingByIncrement(5);
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
 
-	&:before,
-	&:after {
-		border-top: 8px solid rgba(oColorsGetPaletteColor('black'), 0.05);
-		content: '';
-		left: 0;
-		top: 0;
-		position: absolute;
-		width: 100%;
-	}
-
-	&:after {
-		border-top-color: oColorsGetPaletteColor('black');
-
-		@include oGridRespondTo(L) {
-			width: 32.5%;
+	@if($divider) {
+		&:before,
+		&:after {
+			border-top: 8px solid rgba(oColorsByName('black'), 0.05);
+			content: '';
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
 		}
-	}
-
-	&--full-width:after {
-		width: 100%;
-	}
-
-	&--half-width:after {
-		@include oGridRespondTo(L) {
-			width: 49%;
-		}
-	}
-
-	&--small {
-		margin-bottom: oSpacingByIncrement(5);
-		border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
 
 		&:after {
+			border-top-color: oColorsByName('black');
+
+			@include oGridRespondTo(L) {
+				width: 32.5%;
+			}
+		}
+	}
+
+	@if($divider and $full-width) {
+		&--full-width:after {
 			width: 100%;
 		}
 	}
-}
 
-@mixin oTeaserCollectionHeading {
-	@include oTeaserCollectionHeadingBorderTypography;
+	@if($divider and $half-width) {
+		&--half-width:after {
+			@include oGridRespondTo(L) {
+				width: 49%;
+			}
+		}
+	}
 
-	a {
-		@include oTeaserCollectionHeadingLink;
+	@if($small) {
+		&--small {
+			margin-bottom: oSpacingByIncrement(5);
+			border-bottom: 1px solid $_o-teaser-collection-color-bottom-border;
+
+			@if($divider) {
+				&:after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	@if ($anchor) {
+		> a {
+			@include _oTeaserCollectionHeadingLink;
+		}
 	}
 }
 
-@mixin oTeaserCollectionHeadingLink {
+
+/// @access private
+@mixin _oTeaserCollectionHeadingLink {
 	color: inherit;
 	text-decoration: none;
 	border: 0;
 	padding: 1px 0px 3px; // Magic numbers to make the focus style the same height for the text and > icon
 
 	&:hover {
-		@include oColorsFor('o-teaser-collection-heading', text, 55);
+		color: oColorsMix('black', $percentage: 55);
 	}
 
 	&:after {
-		@include oIconsGetIcon('arrow-right', oColorsGetPaletteColor('black'), 30, $iconset-version: 1);
+		@include oIconsContent('arrow-right', oColorsByName('black'), $size: 30);
 		content: '';
 		display: inline-block;
 		position: relative;
@@ -79,30 +122,83 @@
 	}
 }
 
-@mixin oTeaserCollectionHeadingInverse {
-	@include oTeaserCollectionHeading;
-	color: $_o-teaser-collection-color-assassination-heading;
+@mixin _oTeaserCollectionNumbered() {
+	.o-teaser-collection__items {
+		counter-reset: o-teaser-collection-items;
+	}
 
-	&:before,
+	.o-teaser-collection__item {
+		counter-increment: o-teaser-collection-items;
+		padding-left: 28px;
+		position: relative;
+
+		&:before {
+			@include oTypographyDisplay(4);
+			content: counter(o-teaser-collection-items);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+@mixin _oTeaserCollectionSpecial($colour) {
+	position: relative;
+	border-top: 0;
+	margin-bottom: 50px;
+
 	&:after {
-		border: 0;
-	}
+		content: '';
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		background-color: $colour;
+		right: -50%;
+		left: -50%;
+		height: 100%;
 
-	a:after {
-		@include oIconsGetIcon('arrow-right', $_o-teaser-collection-color-assassination-heading, 30, $iconset-version: 1);
+		@supports (width: 100vw) {
+			margin-left: -50vw;
+			width: 100vw;
+			right: auto;
+			left: 50%;
+		}
 	}
 }
 
-@mixin oTeaserCollectionItems {
-	list-style: none;
-	display: flex;
-	flex-flow: column wrap;
-	justify-content: flex-start;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-}
+@mixin _oTeaserCollectionBigStory() {
+	.o-teaser-collection__heading,
+	.o-teaser-collection__heading--inverse {
+		z-index: 1;
+		position: absolute;
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
 
-@mixin oTeaserCollectionItemStretched {
-	display: flex;
+		@include oGridRespondTo(L) {
+			width: 32.5%;
+		}
+
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			width: 100%;
+		}
+	}
+
+	.o-teaser-collection__related {
+		margin: 10px 0 0;
+
+		// Modify o-teaser: remove the related teaser borders when stacked
+		.o-teaser {
+			@include oGridRespondTo(M) {
+				border-bottom-width: 0;
+			}
+			@include oGridRespondTo(L) {
+				border-bottom-width: 1px;
+			}
+		}
+	}
 }

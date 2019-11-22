@@ -3,16 +3,13 @@ o-teaser-collection [![Circle CI](https://circleci.com/gh/Financial-Times/o-teas
 
 This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
+- [Markup](#markup)
+- [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
-
-### Markup
+## Markup
 
 The basic markup structure for a teaser collection will look something like this:
 
@@ -22,11 +19,11 @@ The basic markup structure for a teaser collection will look something like this
 		<a class="o-teaser-collection__heading-link" href="#">UK</a>
 	</h2>
 
-	<!-- Content goes here -->
+	<!-- Teasers go here -->
 </div>
 ```
 
-Content for teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
+Teaser collections can be arranged using [o-grid](http://registry.origami.ft.com/components/o-grid), or by using the `o-teaser-collection__items` and `o-teaser-collection__item` classes. These classes are designed to work on list elements, as seen in the `o-teaser-collection--numbered` example:
 
 ```html
 <div class="o-teaser-collection o-teaser-collection--numbered">
@@ -42,65 +39,80 @@ Content for teaser collections can be arranged using [o-grid](http://registry.or
 </div>
 ```
 
-Teaser Collections can be customised using several [themes](#themes), for a full list of examples including example markup, see [o-teaser-collection in the Registry](http://registry.origami.ft.com/components/o-teaser-collection).
+Teaser Collections can be customised using several [modifier classes](#options).
 
-### Sass:
+## Sass
 
-As with all Origami components, o-teaser-collection has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-teaser-collection-is-silent : false;` in your Sass before you import the o-teaser-collection Sass:
+To include all styles call the `oTeaserCollection` mixin.
 
-```sass
-$o-teaser-collection-is-silent: false;
-@import 'o-teaser-collection/main';
+```scss
+@include oTeaserCollection();
 ```
 
-#### Using Sass mixins
+### Options
 
-The `o-teaser-collection` styles are also available via Sass mixins. To include all styles for teaser collections, you can do:
+`o-teaser-collection` css may be included granularly by passing options to the `oTeaserCollection` mixin.
 
-```sass
-@include oTeaserCollection;
+```scss
+@include oTeaserCollection($opts: (
+	'collections': ('special'), // o-teaser-collection--special
+	'headings': ('inverse'), // o-teaser-collection__heading--inverse
+	'items': ('stretched') // o-teaser-collection__item--stretched
+));
 ```
 
-By default the `oTeaserCollection` mixin includes both [themes](#themes), to include a single theme or no themes you can pass an argument to the mixin:
+Options include:
 
-```sass
-@include oTeaserCollection('');
-@include oTeaserCollection('numbered');
-```
-
-#### Themes
-
-`o-teaser-collection` has two themes along with the standard collections styles.
-
-Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-numbered).
-
-Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection#demo-special).
+| Key                 | Possible Values                                                                                                                       | Classes Output  |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| collections         | 'horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'   | `o-teaser-collection--[option]`. Apply to `o-teaser-collection`, e.g. `class="o-teaser-collection o-teaser-collection--horizontal"`                                  |
+| headings            | 'inverse', 'full-width', 'half-width', 'small'                                                                                        | `o-teaser-collection__heading--[option]`. Apply to `o-teaser-collection__heading`, e.g. `class="o-teaser-collection__heading o-teaser-collection__heading--inverse"` |
+| items               | 'stretched'                                                                                                                           | `o-teaser-collection__item--[option]`. Apply to `o-teaser-collection__item`, e.g. `o-teaser-collection__item o-teaser-collection__item--stretched`                   |
 
 
-## Migration guide
+Use `o-teaser-collection--numbered` to number the list of teasers in the collection, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
-### Upgrading from v1.x.x to v2.x.x
+Use `o-teaser-collection--special` to add a darker background across the full width of the containing relative element, see an [example in the registry](http://registry.origami.ft.com/components/o-teaser-collection).
 
-- Deprecated classname `.o-teaser-collection--top-top-stories` has now been removed. __Resolution__ Please use `.o-teaser-collection--top-standalone` instead.
-- Styles for `.o-teaser-collection--stream .o-teaser__action` have been removed.
-- The o-colors and o-typography dependencies have been bumped to the latest major. These will create bower conflicts which should be resolved by updating to the newest release of o-colors and o-typography.
 
-### Deprecated v1 styles
+### Headings
 
-The classname `.o-teaser-collection--top-top-stories` is deprecated and will be removed in v2, please use `.o-teaser-collection--top-standalone` instead.
+To include heading styles output `o-teaser-collection__heading` classes using the `oTeaserCollection` mixin as described above. If your component or project would like to replicate only some parts of the heading style use `oTeaserCollectionContentHeading`.
 
-The following styles are also deprecated and will be removed in v2:
-
-```sass
-.o-teaser-collection--stream .o-teaser__action {
-	position: absolute;
-	right: 0;
-	top: 0;
+For example, to replicate only the basic heading style pass an empty map:
+```scss
+.my-heading {
+	@include oTeaserCollectionContentHeading($opts: ());
 }
 ```
 
+To replicate the header fully, but without the size modifiers such as `o-teaser-collection__heading--full-width`:
+```scss
+.my-heading {
+	@include oTeaserCollectionContentHeading($opts: (
+		'anchor': true, // Include child anchor styles `.my-heading > a`
+		'divider': true, // Include the top border styles.
+		'sizes': () // Do not output size modifiers such as `.my-heading--small`.
+	));
+}
+```
 
-----
+`oTeaserCollectionContentHeading` options include:
+
+| Key       | Possible Values                                 | Description                                                                  |
+|-----------|-------------------------------------------------|-------------------------------------------------------------------------------|
+| anchor    | Boolean                                         | Output styles for a nested anchor tag, for a collection heading with a link.  |
+| divider   | Boolean                                         | Output styles for a divider (border) above the collection heading.            |
+| sizes     | 'inverse', 'full-width', 'half-width', 'small'  | Output modifier classes for different sizes headings e.g. `my-heading--small`.|
+
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.2 | N/A |
 
 ## Contact
 

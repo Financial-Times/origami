@@ -4,17 +4,202 @@
 @import "o-icons/main";
 @import "o-grid/main";
 
-@import "src/scss/colors";
 @import "src/scss/variables";
 @import "src/scss/mixins";
-@import "src/scss/themes";
-@import "src/scss/teaser-collection";
+
+/// Output all o-teaser-collection styles. Accepts an options map to include features granularly.
+/// See the [README](https://registry.origami.ft.com/components/o-teaser-collection/readme) for more details of all available options.
+///
+/// @example To include all o-teaser-collection styles.
+///     @include oTeaserCollection();
+/// @example To include all o-teaser-collection styles with only the "big story" modifier.
+///     @include oTeaserCollection($opts: (
+///     	'collections': ('big-story', 'special'), // e.g. o-teaser-collection--special
+///     	'headings': ('inverse'), // i.e. o-teaser-collection__heading--inverse
+///     	'items': ('stretched') // i.e. o-teaser-collection__item--stretched
+///     ));
+/// @param {Map} $opts [('collections': ('horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'), 'headings': ('inverse', 'full-width', 'half-width', 'small'), 'items': ('stretched'))]
+@mixin oTeaserCollection($opts: (
+	'collections': ('horizontal', 'special', 'numbered', 'big-story', 'assassination', 'assassination-related', 'mid-slice', 'stream', 'top-standalone'),
+	'headings': ('inverse', 'full-width', 'half-width', 'small'),
+	'items': ('stretched')
+)) {
+	$collections: map-get($opts, 'collections');
+	$headings: map-get($opts, 'headings');
+	$items: map-get($opts, 'items');
+
+	// Base collection styles.
+	.o-teaser-collection {
+		margin-bottom: 35px;
+	}
+
+	.o-teaser-collection__heading {
+		@include oTeaserCollectionContentHeading($opts: (
+			'anchor': true,
+			'divider': true,
+			'sizes': $headings
+		));
+	}
+
+	.o-teaser-collection__items {
+		list-style: none;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: flex-start;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	// Heading modifiers.
+	@if(index($headings, 'inverse')) {
+		.o-teaser-collection__heading--inverse {
+			color: $_o-teaser-collection-color-assassination-heading;
+			&:before,
+			&:after {
+				border: 0;
+			}
+			a:after {
+				@include oIconsContent('arrow-right', $_o-teaser-collection-color-assassination-heading, $size: 30);
+			}
+		}
+	}
+
+	// Items modifiers.
+	@if(index($items, 'stretched')) {
+		.o-teaser-collection__item--stretched {
+			display: flex;
+		}
+	}
+
+	// Collection modifiers.
+	@if(index($collections, 'stream')) {
+		.o-teaser-collection--stream {
+			margin: 20px 0 50px;
+			.o-teaser-collection__list {
+				list-style: none;
+				margin: 20px 0 0;
+				padding: 0;
+			}
+			.o-teaser-collection__item {
+				position: relative;
+			}
+			.o-teaser__content {
+				padding-right: 50px;
+			}
+		}
+	}
+
+	@if(index($collections, 'top-standalone')) {
+		.o-teaser-collection--top-standalone {
+			border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+			.o-teaser {
+				display: flex;
+				flex-direction: column;
+			}
+			.o-teaser__content {
+				flex-grow: 1;
+			}
+			.o-teaser__related {
+				margin: 0;
+			}
+		}
+	}
+
+	@if(index($collections, 'mid-slice')) {
+		.o-teaser-collection--mid-slice {
+			border-bottom: 1px solid $_o-teaser-collection-color-thin-border;
+			border-top: 1px solid $_o-teaser-collection-color-thin-border;
+			padding: 20px 0 0;
+		}
+	}
+
+	@if (index($collections, 'numbered')) {
+		.o-teaser-collection--numbered {
+			@include _oTeaserCollectionNumbered();
+		}
+	}
+
+	@if (index($collections, 'special')) {
+		.o-teaser-collection--special {
+			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
+		}
+	}
+
+	@if (index($collections, 'horizontal')) {
+		.o-teaser-collection--horizontal {
+			// Change flex direction from column
+			.o-teaser-collection__items {
+				flex-direction: row;
+			}
+
+			// Change positioning of numbers to be on top
+			&.o-teaser-collection--numbered {
+				.o-teaser-collection__item {
+					padding-left: inherit;
+					padding-top: 28px;
+					padding-right: 16px;
+				}
+			}
+		}
+	}
+
+	@if (index($collections, 'big-story')) {
+		.o-teaser-collection--big-story {
+			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-special-bg);
+			@include _oTeaserCollectionBigStory();
+		}
+	}
+
+	@if (index($collections, 'assassination')) {
+		.o-teaser-collection--assassination {
+			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bg);
+			@include _oTeaserCollectionBigStory();
+		}
+	}
+
+	@if (index($collections, 'assassination-related')) {
+		.o-teaser-collection--assassination-related {
+			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+			z-index: 1;
+			margin-bottom: 0;
+			padding-left: 10px;
+
+			// this adapts to fit the screen based on left o-grid-row margins
+			&:after {
+				margin-left: calc(-50vw + 5px);
+				@include oGridRespondTo(M) {
+					margin-left: calc(-50vw + 10px);
+				};
+			}
+
+			// modifies borders when stacked(S) and horizontal(M+)
+			.o-teaser-collection__item {
+				margin: 0;
+				border-bottom: 1px solid rgba(oColorsByName('white'), 0.2);
+				padding: 15px 0;
+
+				@include oGridRespondTo(M) {
+					margin: 20px 0;
+					border-right: 1px solid rgba(oColorsByName('white'), 0.2);
+					border-bottom: 0;
+					padding: 0 10px;
+				};
+
+				&:last-child {
+					border: 0;
+				}
+
+				.o-teaser {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
 
 @if ($o-teaser-collection-is-silent == false) {
- 	@include oTeaserCollection;
-
-	@include oTeaserCollectionStream;
-	@include oTeaserCollectionFrontPage;
+	 @include oTeaserCollection();
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;
