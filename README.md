@@ -67,18 +67,7 @@ The following states are used to represent the FT's service tiers:
 
 ## Sass
 
-### Silent mode
-
-As with all Origami components, o-labels has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-labels-is-silent: false;` in your Sass before you import the o-labels Sass:
-
-```sass
-$o-labels-is-silent: false;
-@import 'o-labels/main';
-```
-
 ### Mixin: `oLabels`
-
-If using o-labels in silent mode, you'll need to use the mixins outlined here to output styles.
 
 The `oLabels` mixin is used to output base styles as well as styles for _all_ of the label sizes and states. This output includes the `o-labels` classes:
 
