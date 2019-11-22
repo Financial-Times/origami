@@ -2,7 +2,7 @@ $o-message-is-silent: false;
 @import '../../main';
 
 body {
-	@include oColorsFor(page);
+	background: oColorsByUsecase('page', 'background');
 }
 
 .o-message {
@@ -15,7 +15,7 @@ body {
 }
 
 .demo-button {
-	@include oButtons();
+	@include oButtonsContent(('type': 'secondary'));
 	margin: 10px;
 }
 

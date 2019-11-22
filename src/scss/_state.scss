@@ -2,51 +2,61 @@
 /// @param {String} $state - the name of the status for the message ('success', 'neutral', 'error', 'warning', 'warning-light', 'inform', 'inform-inverse')
 /// @access private
 @mixin _oMessageState ($state) {
+	// get foreground colour
+	$foreground-color: _oMessageGet('foreground-color', $from: $state);
+	$foreground-color: if(type-of($foreground-color) == 'string', oColorsByName($foreground-color), $foreground-color);
+	// get background colour
+	$background-color: _oMessageGet('background-color', $from: $state);
+	$background-color: if(type-of($background-color) == 'string', oColorsByName($background-color), $background-color);
+
 	.o-message--#{$state} {
-		color: oColorsGetPaletteColor(_oMessageGet('foreground-color', $from: $state));
-		background-color: oColorsGetPaletteColor(_oMessageGet('background-color', $from: $state));
+		color: $foreground-color;
+		background-color: $background-color;
 
 		.o-message__content-main a,
 		.o-message__content-additional a {
-			@include oTypographyLinkCustom(
-				$baseColor: _oMessageGet('foreground-color', $from: $state),
-				$hoverColor: _oMessageGet('foreground-color', $from: $state),
-				$backgroundColor: _oMessageGet('background-color', $from: $state)
+			@include oTypographyLink(
+				$theme: (
+					'base':  $foreground-color,
+					'hover':  $foreground-color,
+					'context':  $background-color
+				),
+				$include-base-styles: false
 			);
-			border-width: 1px;
 		}
 
 		.o-message__actions__primary {
-			@include oButtons($theme: (
-				background: _oMessageGet('background-color', $from: $state),
-				accent: _oMessageGet('foreground-color', $from: $state)
-			));
+			@include oButtonsContent((
+				'type': 'secondary',
+				'theme': (
+					'color': $foreground-color,
+					'context': $background-color
+				)
+			), $include-base-styles: false);
 			margin-right: oSpacingByName('s6');
 		}
 
 		.o-message__actions__secondary {
-			@include oTypographyLinkCustom(
-				$baseColor: _oMessageGet('foreground-color', $from: $state),
-				$hoverColor: _oMessageGet('foreground-color', $from: $state),
-				$backgroundColor: _oMessageGet('background-color', $from: $state)
+			@include oTypographyLink(
+				$theme: (
+					'base':  $foreground-color,
+					'hover':  $foreground-color,
+					'context':  $background-color
+				),
+				$include-base-styles: false
 			);
-			white-space: nowrap;
-
-			&:hover {
-				border-bottom-color: oColorsGetPaletteColor(_oMessageGet('foreground-color', $from: $state)); // is different to custom link hover by design.
-			}
 		}
 
 		@if (_oMessageGet('icon', $from: $state)) {
 			.o-message__container:before {
-				@include _oMessageIcon(_oMessageGet('icon', $from: $state), _oMessageGet('foreground-color', $from: $state), $_o-message-alert-icon-size);
+				@include _oMessageIcon(_oMessageGet('icon', $from: $state), $foreground-color, $_o-message-alert-icon-size);
 				min-width: $_o-message-alert-icon-size * 1px;
 				position: absolute;
 			}
 		}
 
 		.o-message__close {
-			@include _oMessageIcon('cross', _oMessageGet('foreground-color', $from: $state), $_o-message-close-icon-size);
+			@include _oMessageIcon('cross', $foreground-color, $_o-message-close-icon-size);
 			position: absolute;
 			top: ($_o-message-close-icon-size / 2) * 1px;
 			right: oSpacingByName('s2');

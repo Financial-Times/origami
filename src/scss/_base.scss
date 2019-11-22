@@ -32,13 +32,28 @@
 			}
 
 			.o-message__content-highlight {
-				@include oTypographyBold('sans');
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			}
+		}
+
+		.o-message__content-main a,
+		.o-message__content-additional a {
+			@include oTypographyLink();
+			border-width: 1px;
 		}
 
 		.o-message__actions {
 			display: inline-block;
 			padding: 0 ($_o-message-close-icon-size * 1px) $_o-message-text-spacing 0;
+		}
+
+		.o-message__actions__primary {
+			@include oButtonsContent();
+		}
+
+		.o-message__actions__secondary {
+			@include oTypographyLink();
+			white-space: nowrap;
 		}
 	}
 
