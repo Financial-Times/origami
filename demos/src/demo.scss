@@ -2,6 +2,10 @@
 
 @include oTooltip();
 
+body {
+	@include oTypographySans();
+}
+
 .demo-tooltip-container {
 	height: 200px;
 	display: inline-block;
