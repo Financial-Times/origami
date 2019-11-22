@@ -6,7 +6,7 @@ Responsive header for FT branded sites
 - [JavaScript](#JavaScript)
 - [Sass](#sass)
 - [Browser Support](#browser-support)
-- [Migration Guide](#migration-guide)
+- [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 

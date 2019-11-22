@@ -33,9 +33,9 @@
 		"js": "demos/src/main.js",
 		"documentClasses": "core",
 		"dependencies": [
-			"o-grid@5.0.0-beta.2",
-			"o-normalise@2.0.0-beta.5",
-			"o-fonts@v4.0.0-beta.1"
+			"o-grid@^5.0.0",
+			"o-normalise@^2.0.0",
+			"o-fonts@^4.0.0"
 		]
 	},
 	"demos": [
