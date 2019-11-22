@@ -10,7 +10,11 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "active",
-	"browserFeatures": {},
+	"browserFeatures": {
+		"required": [
+			"Element.prototype.classList"
+		]
+	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-cookie-message"
 	},
