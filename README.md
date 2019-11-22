@@ -199,10 +199,11 @@ This table outlines some of the possible button themes you can request in the [`
 
 | State | Major Version | Last Minor Release | Migration guide |
 | :---: | :---: | :---: | :---: |
-| ✨ active | 4 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v3-to-v4) |
-| ╳ deprecated | 3 | 3.0.0 | N/A |
-| ╳ deprecated | 2 | 2.2.0 | N/A |
-| ╳ deprecated | 1 | 1.0.2 | N/A |
+| ✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+| ⚠ maintained | 4 | 4.3 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+| ╳ deprecated | 3 | 3.0 | N/A |
+| ╳ deprecated | 2 | 2.2 | N/A |
+| ╳ deprecated | 1 | 1.0 | N/A |
 
 
 ## Contact
