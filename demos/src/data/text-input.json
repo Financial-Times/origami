@@ -65,7 +65,7 @@
 				"type": "text",
 				"modifiers": [ "suffix" ],
 				"value": "",
-				"button": "o-buttons o-buttons--big"
+				"button": "o-buttons o-buttons--secondary o-buttons--big"
 			}
 		},
 		{
@@ -77,7 +77,7 @@
 				"type": "text",
 				"modifiers": [ "small", "suffix" ],
 				"value": "",
-				"button": "o-buttons"
+				"button": "o-buttons o-buttons--secondary"
 			}
 		},
 		{

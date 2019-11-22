@@ -388,7 +388,7 @@
 						"suffix"
 					],
 					"value": "",
-					"button": "o-buttons o-buttons--big"
+					"button": "o-buttons o-buttons--secondary o-buttons--big"
 				}
 			},
 			{

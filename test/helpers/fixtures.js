@@ -63,6 +63,6 @@ export default `
 
 	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
 
-	<input class="o-buttons" type="submit">
+	<input class="o-buttons o-buttons--secondary" type="submit">
 </form>
 `;
