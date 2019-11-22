@@ -34,7 +34,7 @@ export const html = {
 	</div>`,
 	imperativeCookieMessage: `<div data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active">
 		<div class="o-cookie-message__outer">
-			<div class="o-cookie-message__inner" data-o-banner-inner="">
+			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">
 
@@ -62,9 +62,9 @@ export const html = {
 			</div>
 		</div>
 	</div>`,
-	imperativeAltCookieMessage: `<div data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--alternative o-cookie-message--active">
+	imperativeAltCookieMessage: `<div data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active o-cookie-message--alternative">
 		<div class="o-cookie-message__outer">
-			<div class="o-cookie-message__inner" data-o-banner-inner="">
+			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">
 
