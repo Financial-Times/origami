@@ -1,8 +1,14 @@
-## Migration
+# Migration
 
-### Migrating from v2 to v3
+## Migrating from v2 to v3
 
-#### Sass
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
+### Sass
 
 Origami components now require a `$system-code` variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
 
@@ -44,7 +50,7 @@ Multiple `o-footer-services` mixin calls should be replaced with one call to `oF
 
 - Many of the replaced mixins above accepted a `$class` argument to customise the class names output by `o-footer-services`. This feature has been removed, instead update your markup to use default `o-footer-services` classes.
 
-### Migrating from v1 to v2
+## Migrating from v1 to v2
 
 This major includes a change in markup and an entirely new design, which is compliant with legal requirements within internal FT tooling and products.
 

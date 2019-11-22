@@ -22,7 +22,10 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": "o-fonts@^3.0.0"
+		"dependencies": [
+			"o-fonts@^4.0.0",
+			"o-normalise@^2.0.0"
+		]
 	},
 	"demos": [
 		{

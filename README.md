@@ -2,16 +2,13 @@
 
 o-footer-services is a footer component for internal products and tooling at the FT.
 
--   [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
--   [Migration Guide](#migration-guide)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Migration Guide](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
-## Usage
-
-### Markup
+## Markup
 
 A footer requires the following markup:
 
@@ -42,7 +39,7 @@ All elements within the `.o-footer-services__wrapper--top` section are entirely 
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 
-### Sass
+## Sass
 
 To output all `o-footer-services` CSS call `oFooterServices()`.
 
