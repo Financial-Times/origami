@@ -49,6 +49,7 @@
 			"name": "simple-footer",
 			"title": "Short footer",
 			"template": "demos/src/simple-footer.mustache",
+			"data": "demos/src/footer-light.json",
 			"description": "Simple footer for shorter stand-alone pages."
 		},
 		{
