@@ -73,6 +73,12 @@ E.g to include only base styles and some themes:
 +));
 ```
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ## Migrating from v1 to v2
 
 - The class `.o-topper--right-rail` now applied to only relevant themes.

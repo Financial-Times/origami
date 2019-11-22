@@ -23,9 +23,9 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"o-fonts@^3",
-			"o-typography@^5.4.2",
-			"o-normalise@^1.5.3"
+			"o-fonts@^4.0.0",
+			"o-typography@^6.0.0",
+			"o-normalise@^2.0.0"
 		]
 	},
 	"demos": [
