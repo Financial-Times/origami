@@ -13,11 +13,11 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-table', 'master', (
 		'variables': (
-			table-background: oColorsGetPaletteColor('paper'),
-			table-alternate-background: oColorsGetPaletteColor('wheat'),
-			table-border-color: oColorsGetPaletteColor('black-20'),
-			table-data-color: oColorsGetColorFor(body, text),
-			table-footnote-color: oColorsGetPaletteColor('black-60'),
+			table-background: oColorsByName('paper'),
+			table-alternate-background: oColorsByName('wheat'),
+			table-border-color: oColorsByName('black-20'),
+			table-data-color: oColorsByUsecase('body', 'text'),
+			table-footnote-color: oColorsByName('black-60'),
 			'flat': (
 				table-item-alternate-background: oColorsMix('wheat', 'paper', 40)
 			)
@@ -32,13 +32,13 @@
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-table', 'internal', (
 		'variables': (
-			table-background: oColorsGetPaletteColor('white'),
-			table-alternate-background: oColorsGetPaletteColor('slate-white-5'),
-			table-border-color: oColorsGetPaletteColor('black-20'),
-			table-data-color: oColorsGetColorFor(body, text),
-			table-footnote-color: oColorsGetPaletteColor('black-60'),
+			table-background: oColorsByName('white'),
+			table-alternate-background: oColorsByName('slate-white-5'),
+			table-border-color: oColorsByName('black-20'),
+			table-data-color: oColorsByUsecase('body', 'text'),
+			table-footnote-color: oColorsByName('black-60'),
 			'flat': (
-				table-item-alternate-background: oColorsGetPaletteColor('slate-white-5')
+				table-item-alternate-background: oColorsByName('slate-white-5')
 			)
 		),
 		'supports-variants': (

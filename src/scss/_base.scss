@@ -13,6 +13,7 @@
 
 		th,
 		td {
+			@include oTypographySans(1);
 			padding: 10px;
 			text-align: left;
 			vertical-align: top;
@@ -22,7 +23,7 @@
 		}
 
 		th {
-			@include oTypographySansBold(1);
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			background-color: _oTableGet('header-background');
 			&:not([scope=row]) {
 				vertical-align: bottom;
@@ -30,10 +31,9 @@
 		}
 
 		td {
-			@include oTypographySans(1);
 			scroll-snap-align: none center;
 			&:empty:before {
-				@include oIconsGetIcon('minus', $container-width: 15,  $container-height: 15, $iconset-version: 1);
+				@include oIconsContent('minus', $size: 15);
 				content: '';
 				vertical-align: middle;
 			}
@@ -53,7 +53,7 @@
 		}
 
 		.o-table__cell--content-secondary {
-			@include oTypographySize(0);
+			@include oTypographySans(0, $include-font-family: false);
 			font-weight: normal;
 		}
 
@@ -69,14 +69,6 @@
 
 	.o-table-container > .o-table-footnote {
 		margin-left: 10px;
-	}
-
-	// A spacing class.
-	// e.g. .o-table.o-table-margin-bottom or .o-table-container.o-table-margin-bottom
-	// @deprecated - this is no longer needed now we have `o-spacing`.
-	// @see https://registry.origami.ft.com/components/o-spacing
-	.o-table-margin-bottom {
-		margin-bottom: oSpacingByName('s4');
 	}
 
 	// Visually hide any filtered rows.
