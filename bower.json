@@ -13,10 +13,11 @@
     "main.js"
   ],
   "dependencies": {
-    "o-banner": "^2.1.2",
     "superstore-sync": "^2.1.1",
     "o-viewport": "^3.1.5",
     "o-spacing": "^2.0.0",
-    "o-typography": "^5.0.0"
+    "o-typography": "^5.0.0",
+    "o-visual-effects": "^2.1.0",
+    "o-buttons": "^5.0.0"
   }
 }
