@@ -3,6 +3,12 @@
 
 ## Migrating from v4 to v5
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### Markup
 
 Button tabs no longer have a default theme. Add the CSS class `o-tabs--secondary` to your markup where `o-tabs o-tabs--buttontabs` has been used alone without a theme
