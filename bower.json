@@ -12,10 +12,10 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-colors": "5.0.0-beta.3",
-    "o-typography": "6.0.0-beta.4",
-    "o-icons": "6.0.0-beta.3",
-    "o-grid": "5.0.0-beta.2",
+    "o-colors": "^5.0.0",
+    "o-typography": "^6.0.0",
+    "o-icons": "^6.0.0",
+    "o-grid": "^5.0.0",
     "o-spacing": "^2.0.0"
   }
 }

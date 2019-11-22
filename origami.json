@@ -21,10 +21,9 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-teaser@^3.5.6",
-			"o-normalise@^1.0.0",
-			"o-grid@^4.5.3",
-			"o-fonts@^3.3.2"
+			"o-normalise@^2.0.0",
+			"o-grid@^5.0.0",
+			"o-fonts@^4.0.0"
 		]
 	},
 	"demos": [

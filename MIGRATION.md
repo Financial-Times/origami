@@ -53,9 +53,11 @@ If your project uses these mixins replace with a single call to `oTeaserCollecti
 
 The `o-teaser-collection-heading` background colour usecase has been removed, use the default o-colors `page` background usecase instead.
 
-#### Dependencies
+#### Updated dependencies
 
-v3 updates its dependecy on `o-icons`. Confirm your project builds correctly and resolve any conflicts.
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
 
 ### Migrating from v1 to v2
 
