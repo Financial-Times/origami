@@ -3,7 +3,11 @@
 
 ## Migrating from v4 to v5
 
+### Updated dependencies
 
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
 
 ## Migrating from v3 to v4
 
