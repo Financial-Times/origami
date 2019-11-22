@@ -35,7 +35,7 @@
 	}
 
 	.o-video__info-description {
-		@include oTypographySans(2, $line-height: 20px);
+		@include oTypographySans(1, $line-height: 20px);
 		display: block;
 	}
 
