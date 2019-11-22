@@ -263,11 +263,11 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 };
 
 const tracking = new Tracking();
-const init = tracking.init.bind(tracking);
-const link = tracking.link.bind(tracking);
+const link = tracking.link;
+const boundInit = tracking.init.bind(tracking);
 const boundPage = tracking.page.bind(tracking);
 const boundEvent = tracking.event.bind(tracking);
-const updateConfig = tracking.updateConfig.bind(tracking);
+const boundUpdateConfig = tracking.updateConfig.bind(tracking);
 
 function initialise() {
 	tracking.init();
@@ -287,9 +287,9 @@ document.addEventListener('o.DOMContentLoaded', initialise);
 export default tracking;
 export {
 	tracking,
-	init,
 	link,
+	boundInit as init,
 	boundPage as page,
 	boundEvent as event,
-	updateConfig
+	boundUpdateConfig as updateConfig
 };
