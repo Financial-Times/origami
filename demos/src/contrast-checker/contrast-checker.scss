@@ -15,204 +15,208 @@ $o-colors-is-silent: false;
 	}
 }
 
-:root {
-	--background: white;
-	--foreground: black;
-}
+@if oBrandGetCurrentBrand() != whitelabel {
 
-body {
-	font-family: MetricWeb, sans-serif;
-	max-width: 1300px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr repeat(5, auto) 1fr;
-	grid-gap: 20px;
-	padding-top: 20px;
-
-	background-color: var(--background);
-	color: var(--foreground);
-
-	@media (max-width: 690px) {
-		grid-template-columns: 1fr auto 1fr;
-
-		.contrast-info {
-			grid-row: 1;
-			grid-column: 2;
-		}
-
-		.color-selectors {
-			grid-row: 2;
-			grid-column: 2;
-		}
-
-		.contrast-showcase {
-			grid-row: 3;
-			grid-column: 2;
-		}
+	:root {
+		--background: white;
+		--foreground: black;
 	}
 
-	.o-forms-title__main,
-	.o-forms-title__prompt {
-		color: black;
-	}
+	body {
+		font-family: MetricWeb, sans-serif;
+		max-width: 1300px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr repeat(5, auto) 1fr;
+		grid-gap: 20px;
+		padding-top: 20px;
 
-	.swatches,
-	.contrast-info {
-		color: black;
-		background-color: white;
-		border: 1px solid black;
-	}
-}
+		background-color: var(--background);
+		color: var(--foreground);
 
-.color-selectors {
-	grid-area: 1 / 4 / span 3;
-	width: 320px;
+		@media (max-width: 690px) {
+			grid-template-columns: 1fr auto 1fr;
 
-	.o-tabs--buttontabs[data-o-tabs--js][role="tablist"] {
-		border-color: black;
+			.contrast-info {
+				grid-row: 1;
+				grid-column: 2;
+			}
 
-		[role=tab] {
-			color: black;
-			border-color: black;
-			background-color: oColorsByName('white');
-		}
+			.color-selectors {
+				grid-row: 2;
+				grid-column: 2;
+			}
 
-		[role=tab][aria-selected=true] {
-				background-color: oColorsByName('black-10');
-
-			a {
-				font-weight: 600;
+			.contrast-showcase {
+				grid-row: 3;
+				grid-column: 2;
 			}
 		}
 
-		[role=tab][aria-selected=false] a {
-			font-weight: 400;
+		.o-forms-title__main,
+		.o-forms-title__prompt {
+			color: black;
+		}
+
+		.swatches,
+		.contrast-info {
+			color: black;
+			background-color: white;
+			border: 1px solid black;
 		}
 	}
 
-	.swatches {
-		border-top: 0;
-		margin: 0;
+	.color-selectors {
+		grid-area: 1 / 4 / span 3;
+		width: 320px;
 
-		span,
-		br {
-			margin-bottom: 6px;
+		.o-tabs--buttontabs[data-o-tabs--js][role="tablist"] {
+			border-color: black;
+
+			[role=tab] {
+				color: black;
+				border-color: black;
+				background-color: oColorsByName('white');
+			}
+
+			[role=tab][aria-selected=true] {
+					background-color: oColorsByName('black-10');
+
+				a {
+					font-weight: 600;
+				}
+			}
+
+			[role=tab][aria-selected=false] a {
+				font-weight: 400;
+			}
+		}
+
+		.swatches {
+			border-top: 0;
+			margin: 0;
+
+			span,
+			br {
+				margin-bottom: 6px;
+			}
+		}
+
+		input[type=radio] { //sass-lint:disable-line no-qualifying-elements
+			@include swatchStyle();
+
+			&.o-overlay-trigger,
+			&.trigger-input {
+				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray');
+			}
 		}
 	}
 
-	input[type=radio] { //sass-lint:disable-line no-qualifying-elements
-		@include swatchStyle();
-
-		&.o-overlay-trigger,
-		&.trigger-input {
-			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray');
+	.o-overlay__content {
+		> :first-child {
+			margin: 0;
+			border: 0;
+			position: absolute;
+			right: 20px;
 		}
-	}
-}
 
-.o-overlay__content {
-	> :first-child {
-		margin: 0;
-		border: 0;
-		position: absolute;
-		right: 20px;
-	}
-
-	#add-mix { //sass-lint:disable-line no-ids
-		background-image: none;
-		font-size: inherit;
-		float: none;
-		margin: 10px 0 0;
-	}
-
-	fieldset {
-		border: 0;
-		padding: 0;
-	}
-
-	input[type=radio] { //sass-lint:disable-line no-qualifying-elements
-		@include swatchStyle();
-
-		&[name=range] {
-			height: 48px;
-			width: 22px;
+		#add-mix { //sass-lint:disable-line no-ids
+			background-image: none;
+			font-size: inherit;
+			float: none;
+			margin: 10px 0 0;
 		}
-	}
 
-	.o-forms-title__main {
-		margin: 4px 0 8px;
-	}
+		fieldset {
+			border: 0;
+			padding: 0;
+		}
 
-	button {
-		display: block;
-		margin-top: 12px;
-	}
-}
+		input[type=radio] { //sass-lint:disable-line no-qualifying-elements
+			@include swatchStyle();
 
-.contrast-info {
-	grid-area: 1 / 2 / auto / span 2 ;
-	padding: 12px;
-	margin-top: 28px;
-	width: 320px;
-
-	.contrast-combination {
-		margin-bottom: 12px;
-		max-width: 320px;
+			&[name=range] {
+				height: 48px;
+				width: 22px;
+			}
+		}
 
 		.o-forms-title__main {
-			display: inline-block;
+			margin: 4px 0 8px;
 		}
 
-		.combination {
-			float: right;
-		}
-	}
-
-	.contrast-details {
-		clear: both;
-	}
-
-	.wcag-rating {
-		margin-left: 12px;
-		font-weight: 600;
-	}
-
-	.rating-result {
-		&--aaa,
-		&--aa {
-			color: oColorsByName('jade');
-		}
-
-		&--aa18 {
-			color: oColorsMix('crimson', 'lemon', 50);
-		}
-
-		&--fail {
-			color: oColorsByName('crimson');
+		button {
+			display: block;
+			margin-top: 12px;
 		}
 	}
 
-	.rating-message {
-		margin-bottom: 0;
-	}
-}
+	.contrast-info {
+		grid-area: 1 / 2 / auto / span 2 ;
+		padding: 12px;
+		margin-top: 28px;
+		width: 320px;
 
-.contrast-showcase {
-	grid-area: 2 / 2 / auto / span 2;
-	font-size: 14px;
-	max-width: 340px;
+		.contrast-combination {
+			margin-bottom: 12px;
+			max-width: 320px;
 
-	code {
-		font-size: 12px;
+			.o-forms-title__main {
+				display: inline-block;
+			}
+
+			.combination {
+				float: right;
+			}
+		}
+
+		.contrast-details {
+			clear: both;
+		}
+
+		.wcag-rating {
+			margin-left: 12px;
+			font-weight: 600;
+		}
+
+		.rating-result {
+			&--aaa,
+			&--aa {
+				color: oColorsByName('jade');
+			}
+
+			&--aa18 {
+				color: oColorsMix('crimson', 'lemon', 50);
+			}
+
+			&--fail {
+				color: oColorsByName('crimson');
+			}
+		}
+
+		.rating-message {
+			margin-bottom: 0;
+		}
 	}
 
-	h3 {
-		font-size: 18px;
-		font-weight: 400;
-		margin-top: 0;
+	.contrast-showcase {
+		grid-area: 2 / 2 / auto / span 2;
+		font-size: 14px;
+		max-width: 340px;
+
+		code {
+			font-size: 12px;
+		}
+
+		h3 {
+			font-size: 18px;
+			font-weight: 400;
+			margin-top: 0;
+		}
+
+		a {
+			color: inherit;
+		}
 	}
 
-	a {
-		color: inherit;
-	}
 }
