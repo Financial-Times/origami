@@ -263,6 +263,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 };
 
 const tracking = new Tracking();
+const init = tracking.init.bind(tracking);
 
 function initialise() {
 	tracking.init();
@@ -280,4 +281,7 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  * @type {Tracking}
  */
 export default tracking;
-export { tracking };
+export {
+	tracking,
+	init
+};
