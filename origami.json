@@ -32,9 +32,9 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@^3.0.0",
-			"o-buttons@^5.0.0",
-			"o-normalise@^1.0.0"
+			"o-fonts@^4.0.0",
+			"o-buttons@^6.0.0",
+			"o-normalise@^2.0.0"
 		]
 	},
 	"demos": [

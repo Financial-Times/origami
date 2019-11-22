@@ -59,6 +59,12 @@ However to use the CommonJS syntax, without a plugin like [babel-plugin-transfor
 - The default `z-index` value for the overlay has increased from `10` to `11`. This _may_ cause issues on your site if anything has relied on the exact value of `10` in the past.
 - o-typography is now used for typographic styles, which results in small changes to element sizes, e.g. the heading element's height has been reduced by `1px`
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ## Migrating from v1 to v2
 
 - Arrows functionality has now been removed. __Resolution__ If you need an overlay with an arrow, please use [o-tooltip](http://github.com/financial-times/o-tooltip).
