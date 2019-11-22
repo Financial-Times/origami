@@ -24,7 +24,7 @@
 			"o-forms@^8.0.0",
 			"o-normalise@^2.0.0",
 			"o-overlay@^3.0.0",
-			"o-syntax-highlight@^2.0.0",
+			"o-syntax-highlight@^3.0.0",
 			"o-tabs@^5.0.0"
 		]
 	},
