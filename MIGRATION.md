@@ -1,5 +1,11 @@
 ## Migration Guide
 
+### Migrating from v3 to v4
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### Migrating from v2 to v3
 
 This major is an overhaul of the internal structure of `o-message`.
