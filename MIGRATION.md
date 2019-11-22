@@ -1,11 +1,17 @@
 
-## Migration Guide
+# Migration Guide
 
-### Migrating from 5.0 to 6.0
+## Migrating from 5.0 to 6.0
 
-Version 6 updates its dependency on `o-icons`. It is no longer compatible with `o-icons@^4`. Ensure your project builds successfully without conflicts.
+### Updated dependencies
 
-A `systemcode` option is also required, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`. Set this declaratively using `data-o-video-systemcode` or by adding to the `opts` constructor argument.
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
+### JavaScript
+
+A `systemcode` option is now required, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`. Set this declaratively using `data-o-video-systemcode` or by adding to the `opts` constructor argument.
 
 ```diff
 import Video from 'o-video';
@@ -17,7 +23,7 @@ const opts = {
 const video = new Video(document.body, opts);
 ```
 
-### Migrating from 4.0 to 5.0
+## Migrating from 4.0 to 5.0
 
 Version 5 introduces a new major of `o-loading`. Updating to this new version will mean updating any other components that you have which are using `o-loading`.
 
@@ -36,11 +42,11 @@ The following mixins are now private. Make sure your project does not use them, 
 +_oVideoInfoLarge
 ```
 
-### Migrating from 3.0 to 4.0
+## Migrating from 3.0 to 4.0
 
 Version 4 introduces the new majors of `o-colors`, `o-loading`, and `o-typography`. Updating to this new version will mean updating any other components that you have which are using `o-colors`, `o-loading`, or `o-typography`. There are no other breaking changes in this release.
 
-### Migrating from 2.0 to 3.0
+## Migrating from 2.0 to 3.0
 
 The `videoSource` and `captionsUrl` options no longer exist. Captions can be toggled on or off by using the `showCaptions` boolean. This defaults to `true`, so if the video data (now gotten from the [next-media-api](https://github.com/Financial-Times/next-media-api)) contains captions, then the component will present them to the user.
 

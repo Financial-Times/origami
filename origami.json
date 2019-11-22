@@ -21,7 +21,10 @@
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/demo.js",
-		"dependencies": "o-fonts@^3"
+		"dependencies": [
+			"o-fonts@^4.0.0",
+			"o-normalise@^2.0.0"
+		]
 	},
 	"demos": [
 		{
