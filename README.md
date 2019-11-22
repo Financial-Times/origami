@@ -2,16 +2,13 @@
 
 o-footer-services is a footer component for internal products and tooling at the FT.
 
--   [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
--   [Migration Guide](#migration-guide)
--   [Contact](#contact)
--   [Licence](#licence)
+- [Markup](#markup)
+- [Sass](#sass)
+- [Migration Guide](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
-## Usage
-
-### Markup
+## Markup
 
 A footer requires the following markup:
 
@@ -42,63 +39,54 @@ All elements within the `.o-footer-services__wrapper--top` section are entirely 
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 
-### Sass
+## Sass
 
-As with all Origami components, o-footer-services has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-footer-services-is-silent: false;` in your Sass before you import the o-footer-services Sass.
+To output all `o-footer-services` CSS call `oFooterServices()`.
 
-If you would rather _not_ have origami classnames on your page, don't switch off silent mode, and use the mixin as shown below. This will only be available if you are _not_ using the Build Service.
-
-```sass
-@include oFooterServicesBase($class: 'my-footer');
+```scss
+@include oFooterServices();
 ```
 
-This will only provide styling for footers without a logo, so if you are planning on incorporating a logo in your footer, you'll need to use the `oFooterServicesWithLogo` mixin. This mixin uses the [Image Service](https://www.ft.com/__origami/service/image/v2), so if you would like to add your logo to the [logo-images image set](https://registry.origami.ft.com/components/logo-images), please [get in touch with us](#contact).
+To keep your CSS bundle size small, include  `o-footer-services` features granularly using the `opts` argument.
+E.g. to output styles with a project logo but without the default icon link to Github:
 
-```sass
-@include oFooterServicesWithLogo($image: 'logo-name', class: 'my-footer');
+```scss
+@include oFooterServices($opts: (
+	'logo': 'ftlogo-v1:origami',
+	'icons': ('slack')
+));
+```
+All options include:
+
+| Option    | Description                                                                                                                                         | Brand support                |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| logo      | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).     | master, internal, whitelabel |
+| icons     | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
+
+
+Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to ommit fundamental base styles required by all options.
+```scss
+// Output o-footer-services with no icons.
+@include oFooterServices($opts: (
+    'logo': 'ftlogo-v1:origami',
+    'icons': ()
+));
+
+// Include o-footer-services icons separately,
+// without repeating base styles output above.
+// This is *not* recommended.
+@include oFooterServices($opts: (
+    'icons': ('slack', 'github')
+), $include-base-styles: false);
 ```
 
-## Migration Guide
+## Migration
 
-### Migrating from v1 to v2
-
-This major includes a change in markup and an entirely new design, which is compliant with legal requirements within internal FT tooling and products.
-
-All previous variations of the footer have been discontinued. To illustrate the change in markup, this difference is between the full footer and the new footer that has been introduced with this major:
-
-```diff
-<footer class="o-footer-services">
-	<div class="o-footer-services__container">
--		<div class="o-footer-services__info">
-+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
--			<span class="o-footer-services__logo">Origami</span>
-+			<p class="o-footer-services__logo">Origami</p>
-+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="#">View project on GitHub</a>
-+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="#">#slack-channel</a>
--			<p class="o-footer-services__content">Help or advice can be found here <a class="link" href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a href='/somewhere'>like this one</a> where you can find help, too.</p>
--			<p class="o-footer-services__contact-email">Help or advice can be found here <a class="link" href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a class="o-footer-services__content--external" href='external-link'>like this one</a> where you can find help, too.</p>
--			<p class="o-footer-services__contact-slack"><img src='link/to/icon'/><a href="https://slack.com/messages/[id]/">#slack-channel</a></p>
-		</div>
--		<div class="o-footer-services__base">
--			<p class="o-footer-services__source-code"><a href="http://github.com/financial-times/o-footer-services">View project on GitHub</a></p>
--			<p class="o-footer-services__copyright">&copy; THE FINANCIAL TIMES LTD. FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
--		</div>
-+		<div class="o-footer-services__container">
-+			<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
-+				<div class="o-footer-services__links">
-+					<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
-+					<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
-+					<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
-+					<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
-+				</div>
-+				<p><span>&copy; THE FINANCIAL TIMES LTD 2019.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
-+			</div>
-+		<div>
-	</div>
-</footer>
-```
-
-`o-footer-services--wide` is no longer an available class.
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.0.2 | N/A |
 
 ---
 

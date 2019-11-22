@@ -8,4 +8,7 @@ body  {
 	background: white;
 }
 
-@include oFooterServicesWithLogo($logo: 'origami');
+@include oFooterServices($opts: (
+	'logo': 'ftlogo-v1:origami',
+	'icons': ('slack', 'github')
+));

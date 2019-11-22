@@ -1,24 +1,24 @@
-@mixin oFooterServicesBase($class: 'o-footer-services') {
-	.#{$class} {
+@mixin _oFooterServicesBase() {
+	.o-footer-services {
 		@include oTypographySans(0);
-		background: oColorsGetPaletteColor(_oFooterServicesGet('default-background'));
+		background: oColorsByName(_oFooterServicesGet('default-background'));
 	}
 
-	.#{$class}__container {
+	.o-footer-services__container {
 		width: 100%;
 		position: relative;
 
 		&:before {
 			content: '';
 			position: absolute;
-			border-top: 1px solid oColorsGetPaletteColor(_oFooterServicesGet('default-border'));
+			border-top: 1px solid oColorsByName(_oFooterServicesGet('default-border'));
 			top: 0;
 			left: 0;
 			right: 0;
 		}
 	}
 
-	.#{$class}__wrapper {
+	.o-footer-services__wrapper {
 		max-width: 1220px;
 		margin: 0 auto;
 		padding: 0.5em 1em;
@@ -33,7 +33,7 @@
 
 		&--legal {
 			@include oTypographySans($scale: -1, $line-height: 20px);
-			color: oColorsGetPaletteColor(_oFooterServicesGet('legal-text'));
+			color: oColorsByName(_oFooterServicesGet('legal-text'));
 			overflow: hidden;
 
 			p {
@@ -47,12 +47,12 @@
 		}
 	}
 
-	.#{$class}__links {
+	.o-footer-services__links {
 		float: left;
 		margin: 0.5em 0;
 
 		a {
-			@include oFooterServicesLink(
+			@include _oFooterServicesLink(
 				$custom-link-base: _oFooterServicesGet('legal-text'),
 				$custom-link-hover: _oFooterServicesGet('legal-text'),
 				$custom-link-background: _oFooterServicesGet('default-background'),
@@ -62,11 +62,11 @@
 		}
 	}
 
-	.#{$class}__content {
+	.o-footer-services__content {
 		margin: 0 0 1.5em;
 
 		a {
-			@include oFooterServicesLink(
+			@include _oFooterServicesLink(
 				$custom-link-base: _oFooterServicesGet('default-link-color'),
 				$custom-link-hover: _oFooterServicesGet('default-link-color'),
 				$custom-link-background: _oFooterServicesGet('default-background'),
@@ -74,38 +74,37 @@
 			);
 		}
 
-		.#{$class}__content--external {
-			@include oTypographyLinkExternalIcon(oColorsGetPaletteColor(_oFooterServicesGet('default-link-color')));
-		}
-	}
-
-	.#{$class}__icon-link {
-		@include oTypographyBold('sans');
-		@include oFooterServicesLink(
-			$custom-link-base: _oFooterServicesGet('default-link-color'),
-			$custom-link-hover: _oFooterServicesGet('default-link-hover'),
-			$custom-link-background: _oFooterServicesGet('default-background')
-		);
-
-		display: inline-block;
-		min-width: max-content;
-		margin: 0 1em 1.5em 0;
-
-		&--slack {
-			@include oFooterServicesIcons('slack');
-		}
-
-		&--github {
-			@include oFooterServicesIcons('github');
+		.o-footer-services__content--external {
+			@include oTypographyLink(
+				$theme: (
+					'base': _oFooterServicesGet('default-link-color'),
+					'hover': _oFooterServicesGet('default-link-color'),
+					'context': _oFooterServicesGet('default-background')
+				),
+				$external: true,
+				$include-base-styles: false
+			);
 		}
 	}
 }
 
-@mixin oFooterServicesWithLogo($logo, $class: 'o-footer-services') {
-	@include oFooterServicesBase;
+@mixin _oFooterServicesLogo($logo) {
+	// Ensure logo is valid.
+	// Allows dash, underscore, and alphanumeric characters which are url safe.
+	// Also allows a colon, which is url encoded.
+	$valid-characters: ('-', '_', ':', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+	$url-encoded-logo: '';
+	@for $character-index from 1 through str-length($logo) {
+		$character: str-slice($logo, $character-index, $character-index);
+		@if not index($valid-characters, $character) {
+			@error 'The logo "#{$logo}" can only contain lowercase alphanumeric characters plus dash, underscore, or colon e.g. "ftlogo-v1:origami".';
+		}
+		// Url encode any colon character.
+		$url-encoded-logo: $url-encoded-logo + if($character == ':', '%3A', $character);
+	}
 
-	.#{$class}__logo {
-		@include oTypographySansBold(1);
+	.o-footer-services__logo {
+		@include oTypographySans(1, $weight: 'semibold');
 		min-width: max-content;
 		min-height: 1em; //holds the logo in place if there is no text
 		margin: 0 1.5em 1.5em 0;
@@ -114,8 +113,12 @@
 		padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
 
 		&:before {
-			@include oIconsBaseStyles();
-			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:#{$logo}?source=o-footer-services');
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50%;
+			vertical-align: baseline;
+			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
 			content: '';
 			width: $_o-footer-services-logo-size;
 			height: $_o-footer-services-logo-size;
@@ -126,15 +129,18 @@
 	}
 }
 
-@mixin oFooterServicesIcons($icon-name) {
+@mixin _oFooterServicesIcons($icon-name) {
 	position: relative;
 	padding-left: $_o-footer-services-icon-size - 5;
 
 	&:before {
-		@include oIconsBaseStyles();
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
 		position: absolute;
 		content: '';
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:#{$icon-name}?source=o-footer-services&format=svg');
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}&format=svg');
 		height: $_o-footer-services-icon-size;
 		width: $_o-footer-services-icon-size;
 		vertical-align: middle;
@@ -143,18 +149,22 @@
 	}
 }
 
-@mixin oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
-	@include oTypographyLinkCustom(
-		$custom-link-base,
-		$custom-link-hover,
-		$custom-link-background
-	);
+@mixin _oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
+	@include oTypographyLink($theme: (
+		'base': $custom-link-base,
+		'hover': $custom-link-hover,
+		'context': $custom-link-background
+	));
 
+	// Link underline is different by design.
 	@if $link-hover != null {
 		&:hover {
-			border-bottom-color: oColorsGetPaletteColor($link-hover); // is different to custom link hover by design.
+			border-bottom-color: oColorsByName($link-hover);
 		}
 	} @else {
 		border-bottom: 0;
+		@supports (text-decoration-thickness: 0.25ex) {
+			text-decoration-line: none;
+		}
 	}
 }
