@@ -3,17 +3,14 @@
 
 Track progress through a multi-step process, such as a form.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [JavaScript](#javascript)
-	- [Sass](#sass)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Sass](#sass)
+- [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-
-## Usage
-
-### Markup
+## Markup
 
 The markup for a stepped progress element is as follows. Markup is commented for clarity, and to explain why additional elements are used which may otherwise seem redundant.
 
@@ -90,11 +87,11 @@ Base class and attribute hook for JavaScript
 </div>
 ```
 
-### JavaScript
+## JavaScript
 
 No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/). You must either construct an o-stepped-progress object or trigger an `o.DOMContentLoaded` event, which o-stepped-progress listens for.
 
-#### Constructing an o-stepped-progress instance manually
+### Constructing an o-stepped-progress instance manually
 
 Assuming that you have an HTML element on the page to represent your stepped progress:
 
@@ -111,7 +108,7 @@ import SteppedProgress from 'o-stepped-progress';
 SteppedProgress.init();
 ```
 
-#### Constructing o-stepped-progress instances automatically
+### Constructing o-stepped-progress instances automatically
 
 You can also rely on the `o.DOMContentLoaded` event to initialise all Origami components that have been included in your JavaScript. Either use [o-autoinit](https://github.com/Financial-Times/o-autoinit) or dispatch the event yourself once all of your page content has loaded:
 
@@ -119,7 +116,7 @@ You can also rely on the `o.DOMContentLoaded` event to initialise all Origami co
 document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 ```
 
-### Interacting with an o-stepped-progress instance
+## Interacting with an o-stepped-progress instance
 
 Once you have stepped progress instances, you can interact with them using the methods below:
 
@@ -131,9 +128,9 @@ Once you have stepped progress instances, you can interact with them using the m
 
 There is [full API documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/jsdoc).
 
-### Sass
+## Sass
 
-#### Silent mode
+### Silent mode
 
 As with all Origami components, o-stepped-progress has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-stepped-progress-is-silent: false;` in your Sass before you import the o-stepped-progress Sass:
 
@@ -142,7 +139,7 @@ $o-stepped-progress-is-silent: false;
 @import 'o-stepped-progress/main';
 ```
 
-#### Mixin: `oSteppedProgress`
+### Mixin: `oSteppedProgress`
 
 If using o-stepped-progress in silent mode, you'll need to use the mixins outlined here to output styles.
 
@@ -175,7 +172,7 @@ If you wish to specify a subset of themes to output styles for, you can pass in 
 There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/sassdoc).
 
 
-#### Themes
+### Themes
 
 This table outlines all of the possible themes you can request in the [`oSteppedProgress` mixin](#mixin-osteppedprogress):
 
@@ -183,6 +180,13 @@ This table outlines all of the possible themes you can request in the [`oStepped
 |--------|-------------------------------------------|---------------|
 | heavy  | Label with heavier lines and larger type. | internal      |
 
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.0 | N/A |
 
 ## Contact
 
