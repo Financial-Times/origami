@@ -82,7 +82,7 @@
 		color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
 
 		&:after {
-			border: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
+			border-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
 		}
 	}
 
