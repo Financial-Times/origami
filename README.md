@@ -15,36 +15,16 @@ Add an `o-quote` class to any quote you wish to apply the styles to.
 		</p>
 	<cite class="o-quote__cite"><span class="o-quote__author">Henry Mance</span><span class="o-quote__source">Financial Times</span></cite>
 </blockquote>
-
 ```
 
-## Themeable
+## Migration Guide
 
-Either extend the base classes to create a custom theme or use the standard theme.
-
-## Silent mode ([docs](http://origami.ft.com/docs/syntax/scss/#silent-styles))
-
-With `$o-quote-is-silent` is set to `true`, the module won't output any styles.
-You can then use the mixins directly in your code:
-
-```html
-<div class="article-container">
-	<blockquote>
-		<p>…</p>
-		<cite>Anonymous</cite>
-	</blockquote>
-</div>
-```
-
-```scss
-.article-container blockquote {
-	@include oQuoteStandard;
-
-	cite {
-		@include oQuoteStandardCite;
-	}
-}
-```
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ broken | 3 | 3.0 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.2 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.3 | N/A |
 
 ----
 

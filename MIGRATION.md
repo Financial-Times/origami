@@ -1,6 +1,16 @@
 # Migration guide
 
+## Migrating from v3 to v4
+
+This major version was released to correct an error in the publishing of v3.0.0. There are no changes, aside from using stable major releases in dependencies rather than beta ones.
+
 ## Migrating from v2 to v3
+
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
 
 ### Primary mixin
 
