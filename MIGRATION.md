@@ -14,6 +14,13 @@ The following change will need to be made:
 +});
 ```
 
+#### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
+
 ### Migrating from v6 to v7
 
 Version 7 introduces a complete redesign to the `o-forms` markup, Sass and JavaScript API, and makes small design changes and additions.

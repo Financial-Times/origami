@@ -30,9 +30,9 @@
 		"js": "demos/src/demo.js",
 		"documentClasses": "demo",
 		"dependencies": [
-			"o-fonts@^3",
-			"o-buttons@^5",
-			"o-normalise@1"
+			"o-fonts@^4.0.0",
+			"o-buttons@^6.0.0",
+			"o-normalise@^2.0.0"
 		]
 	},
 	"demos": [
