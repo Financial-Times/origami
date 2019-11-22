@@ -33,6 +33,7 @@
 /// Paid post theme
 @mixin _oTeaserPaidPost {
 	color: oColorsByUsecase('o-teaser/theme-paid-post', 'text');
+	background-color: oColorsByUsecase('o-teaser/theme-paid-post', 'background');
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px
 	&#{&} {
