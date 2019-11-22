@@ -1,5 +1,3 @@
-import Banner from 'o-banner/src/js/banner';
-
 class CookieMessage {
 	static get defaultOptions() {
 		let domain = 'ft.com';
@@ -11,7 +9,6 @@ class CookieMessage {
 		}
 		const redirect = window.location.href;
 		return {
-			cookieMessageClass: 'o-cookie-message',
 			theme: null,
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
@@ -41,41 +38,34 @@ class CookieMessage {
 	}
 
 	createCookieMessage() {
-		if (!this.banner) {
-			this.banner = new Banner(this.cookieMessageElement, {
-				autoOpen: true,
-				suppressCloseButton: true,
-				theme: this.options.theme,
-				bannerClass: this.options.cookieMessageClass,
-				bannerClosedClass: `${this.options.cookieMessageClass}--closed`,
-				outerClass: `${this.options.cookieMessageClass}__outer`,
-				innerClass: `${this.options.cookieMessageClass}__inner`,
-				contentClass: `${this.options.cookieMessageClass}__content`,
-				contentLongClass: `${this.options.cookieMessageClass}__content--long`,
-				contentShortClass: `${this.options.cookieMessageClass}__content--short`,
-				actionsClass: `${this.options.cookieMessageClass}__actions`,
-				actionClass: `${this.options.cookieMessageClass}__action`,
-				actionSecondaryClass: `${
-					this.options.cookieMessageClass
-				}__action--secondary`,
-				buttonClass: `${this.options.cookieMessageClass}__button`,
-				linkClass: `${this.options.cookieMessageClass}__link`,
-				contentLong: `
-					<header class="${this.options.cookieMessageClass}__heading">
-						<h1>Cookies on the FT</h1>
-					</header>
-					<p>
-						We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
-						for a number of reasons, such as keeping FT Sites reliable and secure, personalising
-						content and ads, providing social media features and to analyse how our Sites are used.
-					</p>
-				`,
-				buttonLabel: 'Accept & continue',
-				buttonUrl: this.options.acceptUrlFallback,
-				linkLabel: 'Manage cookies',
-				linkUrl: this.options.manageCookiesUrl
-			});
-		}
+		this.cookieMessageElement.innerHTML = `
+<div class="o-cookie-message__outer">
+	<div class="o-cookie-message__inner">
+		<div class="o-cookie-message__content">
+			<header class="o-cookie-message__heading">
+				<h1>Cookies on the FT</h1>
+			</header>
+			<p>
+				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
+				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
+				content and ads, providing social media features and to analyse how our Sites are used.
+			</p>
+		</div>
+		<div class="o-cookie-message__actions">
+
+			<div class="o-cookie-message__action">
+				<a href="${this.options.acceptUrlFallback}" class="o-cookie-message__button">
+					Accept &amp; continue
+				</a>
+			</div>
+
+			<div class="o-cookie-message__action o-cookie-message__action--secondary">
+				<a href="${this.options.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+			</div>
+		</div>
+	</div>
+</div>
+`;
 	}
 
 	/**
@@ -84,7 +74,7 @@ class CookieMessage {
 	 */
 	updateConsent() {
 		const button = document.querySelector(
-			`.${this.banner.options.buttonClass}`
+			`.o-cookie-message__button`
 		);
 		if (button) {
 			button.addEventListener('click', e => {
@@ -111,8 +101,16 @@ class CookieMessage {
 	 */
 	showCookieMessage() {
 		this.cookieMessageElement.classList.add(
-			`${this.options.cookieMessageClass}--active`
+			'o-cookie-message',
+			'o-cookie-message--active'
 		);
+
+		if (this.options.theme) {
+			this.cookieMessageElement.classList.add(
+				`o-cookie-message--${this.options.theme}`
+			);
+		}
+
 		this.dispatchEvent('oCookieMessage.view');
 		this.updateConsent();
 	}

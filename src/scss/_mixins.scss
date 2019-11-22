@@ -36,36 +36,23 @@
 	}
 
 	.o-cookie-message__outer {
+		@include oVisualEffectsShadowsElevation('high');
 		background: oColorsGetPaletteColor('white');
 		color: oColorsGetPaletteColor('black');
-		@include oVisualEffectsShadowsElevation('high');
 	}
 
 	.o-cookie-message__inner {
-		@include oTypographySans($scale: 2);
+		@include oVisualEffectsShadowsElevation('high');
+		@include oTypographySans($scale: 0);
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		// sass-lint:enable no-vendor-prefixes
 		position: relative;
-		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: map-get($o-grid-layouts, XL);
 		margin: 0 auto;
-		padding: $_o-cookie-message-spacing 0;
 		box-sizing: border-box;
-
-		@include oGridRespondTo($until: S) {
-			@include oTypographySans($scale: 0);
-			display: block;
-			padding: $_o-cookie-message-spacing;
-			padding-top: oSpacingByIncrement(7);
-		}
-
 		background: white;
-
-		@include oVisualEffectsShadowsElevation('high');
-		@include oTypographySans($scale: 0);
 		display: block;
 		padding: $_o-cookie-message-spacing;
 		padding-top: oSpacingByIncrement(7);
@@ -133,9 +120,9 @@
 	.o-cookie-message {
 		.o-cookie-message__heading {
 			h1 {
-				margin-bottom: 0;
 				@include oTypographySans($scale: 3);
 				@include oTypographyBold($font: 'sans');
+				margin-bottom: 0;
 			}
 			&:after {
 				content: '';
