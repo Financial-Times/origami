@@ -5,3 +5,4 @@ build/
 bower_components/
 demos/local/
 .editorconfig
+node_modules
