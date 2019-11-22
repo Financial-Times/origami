@@ -13,12 +13,12 @@
     "main.js"
   ],
   "dependencies": {
-    "o-colors": "5.0.0-beta.3",
-    "o-grid": "5.0.0-beta.2",
-    "o-typography": "6.0.0-beta.4",
-    "o-buttons": "v6.0.0-beta.4",
-    "o-icons": "6.0.0-beta.3",
-    "o-visual-effects": "v3.0.0-beta.2",
+    "o-colors": "^5.0.0",
+    "o-grid": "^5.0.0",
+    "o-typography": "^6.0.0",
+    "o-buttons": "^6.0.0",
+    "o-icons": "^6.0.0",
+    "o-visual-effects": "^3.0.0",
     "o-spacing": "^2.0.0"
   }
 }

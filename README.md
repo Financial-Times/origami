@@ -7,7 +7,7 @@ o-banner is a component used for product messaging which could include feature p
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Themes](#themes)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -212,7 +212,13 @@ const myBanner = new oBanner({
 });
 ```
 
----
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.7 | N/A |
 
 ## Contact
 

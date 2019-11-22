@@ -2,6 +2,12 @@
 
 ## Migrating from v2 to v3
 
+### Updated dependencies
+
+The dependencies for this component have all been updated to the latest major versions.
+If you have any conflicts while installing this version, you'll need to first update
+its dependencies. See [the Bower config for these](./bower.json).
+
 ### JavaScript
 
 Custom classes have been removed, so you'll need to update your code to use the documented `o-banner` classes if you were setting any of these in `options`:
