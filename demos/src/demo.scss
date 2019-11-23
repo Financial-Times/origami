@@ -69,23 +69,25 @@ p {
 	'groups': true
 ));
 
-// Custom theme.
-@include oButtonsAddTheme (
-	$name: 'custom-lemon',
-	$opts: (
-		'color': 'lemon',
-		'context': 'slate'
-	),
-	$types: ('primary', 'secondary')
-);
+@if oBrandGetCurrentBrand() == 'master' {
+	// Custom theme.
+	@include oButtonsAddTheme (
+		$name: 'custom-lemon',
+		$opts: (
+			'color': 'lemon',
+			'context': 'slate'
+		),
+		$types: ('primary', 'secondary')
+	);
 
-// Custom theme with icons.
-@include oButtonsAddTheme(
-	$name: 'custom-claret',
-	$opts: (
-		'color': 'claret-80',
-		'context': 'paper'
-	),
-	$types: ('primary', 'secondary'),
-	$icons: ('book')
-);
+	// Custom theme with icons.
+	@include oButtonsAddTheme(
+		$name: 'custom-claret',
+		$opts: (
+			'color': 'claret-80',
+			'context': 'paper'
+		),
+		$types: ('primary', 'secondary'),
+		$icons: ('book')
+	);
+}

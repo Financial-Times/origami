@@ -94,9 +94,19 @@
 			"description": "oButtons includes styles for some common icon buttons and the ability to add more using Sass mixins."
 		},
 		{
+			"title": "Custom",
+			"name": "custom",
+			"template": "/demos/src/custom.mustache",
+			"brands": ["master"],
+			"hidden": true,
+			"bodyClasses": "custom-button-theme-demo",
+			"description": "Custom theme test"
+		},
+		{
 			"title": "Custom Icon Button",
 			"name": "custom icon button",
 			"template": "/demos/src/custom-icon-button.mustache",
+			"brands" : ["master"],
 			"hidden": true,
 			"description": "Visual tests for the icon buttons mixins"
 		},
@@ -105,18 +115,10 @@
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
 			"data": {
-				"themes": ["","mono","inverse", "custom-claret", "b2c"]
+				"themes": ["","mono","inverse","b2c"]
 			},
 			"hidden": true,
 			"description": "Pa11y test for accesibility"
-		},
-		{
-			"title": "Custom",
-			"name": "custom",
-			"template": "/demos/src/custom.mustache",
-			"hidden": true,
-			"bodyClasses": "custom-button-theme-demo",
-			"description": "Custom theme test"
 		}
 	]
 }
