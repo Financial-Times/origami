@@ -18,7 +18,7 @@ class CookieMessage {
 	}
 
 	constructor(cookieMessageElement, options) {
-		this.cookieMessageElement = cookieMessageElement;
+		this.cookieMessageElement = cookieMessageElement || document.createElement("div");
 
 		// Set cookie message options
 		this.options = Object.assign(
@@ -38,18 +38,11 @@ class CookieMessage {
 	}
 
 	createCookieMessage() {
-		this.cookieMessageElement.innerHTML = `
+		const wrapContent = content => `
 <div class="o-cookie-message__outer">
 	<div class="o-cookie-message__inner">
 		<div class="o-cookie-message__content">
-			<header class="o-cookie-message__heading">
-				<h1>Cookies on the FT</h1>
-			</header>
-			<p>
-				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
-				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
-				content and ads, providing social media features and to analyse how our Sites are used.
-			</p>
+				${content}
 		</div>
 		<div class="o-cookie-message__actions">
 
@@ -64,8 +57,27 @@ class CookieMessage {
 			</div>
 		</div>
 	</div>
-</div>
-`;
+</div>`;
+
+		const defaultContent = `
+<header class="o-cookie-message__heading">
+	<h1>Cookies on the FT</h1>
+</header>
+<p>
+	We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a> for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and ads, providing social media features and to analyse how our Sites are used.
+</p>`;
+
+		const child = this.cookieMessageElement.firstElementChild;
+		const html = this.cookieMessageElement.innerHTML;
+		if (child && child.classList.contains("o-cookie-message__outer")) {
+			// full custom html, leave it alone
+		} else if (html.trim() === "") {
+			// empty, provide default content
+			this.cookieMessageElement.innerHTML = wrapContent(defaultContent);
+		} else {
+			// some custom html, wrap it up
+			this.cookieMessageElement.innerHTML = wrapContent(html);
+		}
 	}
 
 	/**
