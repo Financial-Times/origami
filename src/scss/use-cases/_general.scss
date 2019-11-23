@@ -274,27 +274,30 @@
 		counter-reset: item;
 	}
 	> li {
-		// Undo browser defaults.
 		@if($include-base-styles) {
+			position: relative;
+			// Undo browser default.
 			margin: 0;
+			// Allow space for 2-3 numbers for both ordered and unordered lists,
+			// so content aligns between both list types.
+			padding-left: calc(2ch + #{oSpacingByName('s1')});
 		}
 		&:before {
-			// Allow space for 2-3 numbers for both ordered and unordered lists,
-			// so content aligns between both list types. As an inline pseudo
-			// element a longer count will push list content rather than overlap.
 			@if($include-base-styles) {
+				@include oTypographySans();
 				display: inline-block;
-				box-sizing: border-box;
-				min-width: 3ex;
-				padding-right: oSpacingByName('s1');
+				position: absolute;
+				left: 0;
+				transform-origin: center left;
 			}
 
 			@if($type == 'unordered') {
 				content: '\2022'; // dot character
 				color: inherit;
-				transform: scale(1.778); // 32px dot character given a parent font-size of 18px
-				transform-origin: center left;
-				margin-left: -0.16ch; // remove kerning and align marker flush to the left
+				// 28px marker given a parent font-size of 18px
+				transform: scale(#{(28 / 18)});
+				// magic number to center marker
+				margin-top: #{(28 / 18) * -0.16ch};
 			}
 
 			@if($type == 'ordered') {
@@ -302,7 +305,10 @@
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: "tnum";
-				font-family: $_o-typography-sans;
+				// 16px marker given a parent font-size of 18px
+				transform: scale(#{(16 / 18)});
+				// magic number to make marker flush to the left
+				margin-left: #{(16 / 18) * -0.16ch};
 			}
 		}
 	}
