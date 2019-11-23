@@ -9,7 +9,10 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
-	"supportStatus": "experimental",
+	"brands": [
+		"master"
+	],
+	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
 			"Array.from"
@@ -22,7 +25,7 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-normalise@2.0.0-beta.3"
+			"o-normalise@^2.0.0"
 		]
 	},
 	"demos": [

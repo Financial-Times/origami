@@ -12,9 +12,9 @@
     "main.scss"
   ],
   "dependencies": {
-    "o-typography": "v6.0.0-beta.4",
-    "o-fonts": "v4.0.0-beta.1",
+    "o-typography": "^6.0.1",
+    "o-fonts": "^4.0.0",
     "o-spacing": "^2.0.0",
-    "o-colors": "5.0.0-beta.3"
+    "o-colors": "^5.0.0"
   }
 }
