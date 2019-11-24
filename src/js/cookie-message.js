@@ -18,7 +18,12 @@ class CookieMessage {
 	}
 
 	constructor(cookieMessageElement, options) {
-		this.cookieMessageElement = cookieMessageElement || document.createElement("div");
+		if (cookieMessageElement === null || cookieMessageElement === undefined) {
+			cookieMessageElement = document.createElement("div");
+			document.body.append(cookieMessageElement);
+		}
+
+		this.cookieMessageElement = cookieMessageElement;
 
 		// Set cookie message options
 		this.options = Object.assign(
@@ -201,6 +206,7 @@ class CookieMessage {
 		const cookieMessageElement = rootElement.querySelector(
 			'[data-o-component="o-cookie-message"]'
 		);
+
 		return new CookieMessage(cookieMessageElement, options);
 	}
 }

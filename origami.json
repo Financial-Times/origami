@@ -12,7 +12,8 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-			"Element.prototype.classList"
+			"Element.prototype.classList",
+			"Element.prototype.append"
 		]
 	},
 	"ci": {
