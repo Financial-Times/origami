@@ -8,7 +8,7 @@
 	.o-comments__staging-message-content {
 		padding-top: oSpacingByName('s1');
 		padding-bottom: oSpacingByName('s1');
-		background-color: oColorsGetPaletteColor('claret-80');
+		background-color: oColorsByName('claret-80');
 	}
 
 	.o-comments__staging-message {
@@ -27,7 +27,7 @@
 	}
 
 	.o-overlay.o-comments__displayname-prompt {
-		background: oColorsGetPaletteColor('paper');
+		background: oColorsByName('paper');
 		padding: 10px;
 		width: 100%;
 		max-width: 400px;

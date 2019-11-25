@@ -25,31 +25,31 @@
 	--font-size-4: 14px;
 
 	// primary text color
-	--palette-text-primary: #{inspect(oColorsGetPaletteColor('black-80'))};
+	--palette-text-primary: #{inspect(oColorsByName('black-80'))};
 
 
 	// error message (ex: edit time has expired)
 	// background
-	--palette-error-light: #{inspect(oColorsGetPaletteColor('claret-80'))};
+	--palette-error-light: #{inspect(oColorsByName('claret-80'))};
 	// border-left
-	--palette-error-darkest: #{inspect(oColorsGetPaletteColor('claret-70'))};
+	--palette-error-darkest: #{inspect(oColorsByName('claret-70'))};
 
 
 	// close stream button
-	--palette-error-main: #{inspect(oColorsGetPaletteColor('claret-70'))};
+	--palette-error-main: #{inspect(oColorsByName('claret-70'))};
 
 
 	// apply button in configure tab
-	--palette-success-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
-	--palette-success-light: #{inspect(oColorsGetPaletteColor('teal-60'))};
+	--palette-success-main: #{inspect(oColorsByName('teal-50'))};
+	--palette-success-light: #{inspect(oColorsByName('teal-60'))};
 
 
 	// stream section selected tab item, selected item count badge
-	--palette-primary-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+	--palette-primary-main: #{inspect(oColorsByName('teal-50'))};
 
 
 	// stream section unselected tab comment count badge
-	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('paper'))};
+	--palette-grey-lightest: #{inspect(oColorsByName('paper'))};
 
 }
 
@@ -58,7 +58,7 @@
 }
 
 body {
-	background: oColorsGetPaletteColor('paper');
+	background: oColorsByName('paper');
 }
 
 // remove divider of the top tab bar
@@ -67,14 +67,14 @@ body {
 }
 
 .coral-tabBarSecondary {
-	border-bottom-color: oColorsGetPaletteColor('teal-50');
+	border-bottom-color: oColorsByName('teal-50');
 }
 
 
 // community guidelines box
 .coral-guidelines {
-	background-color: oColorsGetPaletteColor('wheat');
-	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
+	border-color: oColorsByName('wheat');
 }
 
 .coral-guidelines a {
@@ -158,7 +158,7 @@ body {
 	font-size: 14px;
 
 	&:hover {
-		color: oColorsGetPaletteColor('black');
+		color: oColorsByName('black');
 	}
 }
 
@@ -181,13 +181,13 @@ body {
 
 	span,
 	i {
-		color: oColorsGetPaletteColor('teal-50');
+		color: oColorsByName('teal-50');
 	}
 }
 
 
 .coral-featuredComment-replies div {
-	color: oColorsGetPaletteColor('teal-50');
+	color: oColorsByName('teal-50');
 }
 
 
@@ -205,7 +205,7 @@ body {
 
 // report button reported state
 .coral-comment-reportedButton {
-	background-color: oColorsGetPaletteColor('teal-50');
+	background-color: oColorsByName('teal-50');
 
 	span,
 	i {
@@ -239,21 +239,21 @@ body {
 	@include oTypographyTimestamp;
 	font-size: 12px;
 	margin-bottom: 0;
-	color: oColorsGetPaletteColor('black-80');
+	color: oColorsByName('black-80');
 }
 
 
 // "staff" tag
 .coral-comment-userTag {
-	background-color: oColorsGetPaletteColor('claret-70');
-	color: oColorsGetPaletteColor('white');
+	background-color: oColorsByName('claret-70');
+	color: oColorsByName('white');
 }
 
 
 // "featured comment" tag
 .coral-comment-commentTag {
-	background-color: oColorsGetPaletteColor('black') !important;
-	color: oColorsGetPaletteColor('white') !important;
+	background-color: oColorsByName('black') !important;
+	color: oColorsByName('white') !important;
 	border-radius: 0;
 }
 
@@ -262,7 +262,7 @@ body {
 .coral-rte-content blockquote,
 .coral-comment-content blockquote,
 .coral-myComment-content blockquote {
-	background-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
 	font-size: 14px !important;
 }
 
@@ -280,8 +280,8 @@ body {
 
 // featured comments
 .coral-featuredComment {
-	border-color: oColorsGetPaletteColor('wheat');
-	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsByName('wheat');
+	background-color: oColorsByName('wheat');
 }
 
 
@@ -304,14 +304,14 @@ body {
 	font-size: 14px;
 
 	&:hover {
-		color: oColorsGetColorFor('body', 'text');
+		color: oColorsByUsecase('body', 'text');
 	}
 }
 
 // In reply to <<author>>
 .coral-comment-inReplyToUsername {
 	&:hover {
-		color: oColorsGetPaletteColor('black-50');
+		color: oColorsByName('black-50');
 	}
 }
 
@@ -325,8 +325,8 @@ body {
 
 // verify email - message sent
 .coral-verifyEmail-resentMessage {
-	background-color: oColorsGetPaletteColor('wheat');
-	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
+	border-color: oColorsByName('wheat');
 }
 
 
@@ -339,10 +339,10 @@ body {
 .coral-featuredComment-goToConversationButton {
 	@include oTypographyLink;
 
-	color: oColorsGetPaletteColor(oColorsGetUseCase(link, text)) !important;
+	color: oColorsByUsecase(link, text) !important;
 
 	&:hover {
-		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
+		color: oColorsByUsecase(link-hover, text) !important;
 	}
 }
 
