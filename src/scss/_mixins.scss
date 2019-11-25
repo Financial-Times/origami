@@ -50,6 +50,10 @@
 			display: flex;
 		}
 
+		.o-comments__displayname-field {
+			margin-bottom: 0;
+		}
+
 		.o-comments__displayname-input {
 			width: 100%;
 			margin-right: 15px;
@@ -60,6 +64,11 @@
 			@include oButtonsContent($opts: (
 				'type': 'primary'
 			));
+		}
+
+		.o-comments__displayname-error {
+			position: relative;
+			bottom: 0;
 		}
 	}
 }

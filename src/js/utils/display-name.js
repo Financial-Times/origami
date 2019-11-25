@@ -1,12 +1,16 @@
 import Overlay from 'o-overlay';
 
 const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-comments__displayname-form">
-		<label for="o-comments-displayname-input" class="o-forms__label">Display name</label>
-		<div class="o-comments__displayname-container">
-			<input type="text" class="o-forms__text o-comments__displayname-input" id="o-comments-displayname-input">
-			<button type="submit" class="o-comments__displayname-submit">Save</button>
-		</div>
-		<div id="o-comments-displayname-error" class="o-forms__errortext"></div>
+		<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">
+			<span class="o-forms-title">Display name</span>
+			<div class="o-comments__displayname-container">
+				<span class="o-forms-input o-forms-input--text o-comments__displayname-input">
+					<input type="text" name="text" value="" required="">
+				</span>
+				<button type="submit" class="o-comments__displayname-submit">Save</button>
+			</div>
+			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error"></span>
+		</label>
 	</form>
 </form>`;
 
@@ -70,19 +74,19 @@ const validation = (event) => {
 		const invalidCharacters = findInvalidCharacters(displayName);
 
 		errorMessage.innerText = '';
-		displayNameForm.classList.remove('o-forms--error');
+		displayNameForm.classList.remove('o-forms-input--invalid');
 
 
 
 		if (invalidCharacters) {
 			errorMessage.innerText = `The display name contains the following invalid characters: ${invalidCharacters}`;
-			displayNameForm.classList.add('o-forms--error');
+			displayNameForm.classList.add('o-forms-input--invalid');
 		} else {
 			isUnique(displayName)
 				.then(isUnique => {
 					if (!isUnique) {
 						errorMessage.innerText = 'Unfortunately that display name is already taken';
-						displayNameForm.classList.add('o-forms--error');
+						displayNameForm.classList.add('o-forms-input--invalid');
 					} else {
 						return resolve(displayName);
 					}
