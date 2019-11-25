@@ -56,7 +56,9 @@
 		}
 
 		.o-comments__displayname-submit {
-			@include oButtons($theme: primary);
+			@include oButtonsContent($opts: (
+				'type': 'primary'
+			));
 		}
 	}
 }

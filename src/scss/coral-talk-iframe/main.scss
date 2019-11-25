@@ -86,8 +86,9 @@ body {
 .coral-tabBar-comments,
 .coral-tabBar-myProfile,
 .coral-tabBar-configure	{
-	@include oButtons;
-
+	@include oButtonsContent($opts: (
+		'type': 'secondary'
+	));
 	border-width: 1px;
 
 	// normally, these should come for free with oButtons mixin
@@ -96,9 +97,21 @@ body {
 	&[aria-selected=true],
 	&[aria-pressed=true],
 	&[aria-current] {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 		border-top: 1px !important;
 		border-bottom: 1px !important;
 	}
@@ -116,14 +129,38 @@ body {
 	// normally, these should come for free with oButtons mixin
 	// but we have to declare this explicitly here because
 	// Coral styles override our styles for some reason
-	color: oButtonsGetColor('', 'color', 'primary') !important;
-	background-color: oButtonsGetColor('', 'background', 'primary') !important;
-	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'primary'
+	) !important;
+	background-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'background',
+		$type: 'primary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'primary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 	}
 }
 
@@ -134,12 +171,28 @@ body {
 .coral-editComment-close {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'secondary') !important;
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'secondary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
-		border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
@@ -219,14 +272,38 @@ body {
 .coral-sharePopover-copyButton {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'primary') !important;
-	background-color: oButtonsGetColor('', 'background', 'primary') !important;
-	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'primary'
+	) !important;
+	background-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'background',
+		$type: 'primary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'primary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 	}
 }
 
@@ -273,8 +350,16 @@ body {
 .coral-myComments-loadMoreButton {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'secondary') !important;
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'secondary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 }
 
 
@@ -289,10 +374,18 @@ body {
 .coral-comment-editButton {
 	@include oButtons;
 
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
@@ -318,7 +411,11 @@ body {
 // verify email resend button
 .coral-verifyEmail-resendButton {
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
