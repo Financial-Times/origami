@@ -14,10 +14,11 @@
 @import 'o-buttons/main';
 @import 'o-colors/main';
 @import 'o-typography/main';
+@import 'o-editorial-typography/main';
 
 :root {
-	--font-family-sans-serif: #{inspect($o-typography-sans)};
-	--font-family-serif: #{inspect($o-typography-sans)};
+	--font-family-sans-serif: #{inspect(oTypographyGetFontFamily('sans'))};
+	--font-family-serif: #{inspect(oTypographyGetFontFamily('sans'))};
 
 	// make font sizes consistent in various places
 	--rem-base: 15;
@@ -207,7 +208,7 @@ body {
 // comment author
 .coral-comment-username span,
 .coral-comment-inReplyToUsername {
-	@include oTypographyAuthor;
+	@include oEditorialTypographyTag($type: 'author');
 	font-size: 14px;
 
 	&:hover {
@@ -313,7 +314,7 @@ body {
 .coral-myComment-timestamp span,
 .coral-comment-timestamp,
 .coral-comment-timestamp span {
-	@include oTypographyTimestamp;
+	@include oEditorialTypographyTimestamp;
 	font-size: 12px;
 	margin-bottom: 0;
 	color: oColorsByName('black-80');
@@ -392,7 +393,7 @@ body {
 
 // replying to: <<user name>>
 .coral-createReplyComment-replyToUsername {
-	@include oTypographyAuthor;
+	@include oEditorialTypographyTag($type: 'author');
 
 	font-size: 14px;
 
