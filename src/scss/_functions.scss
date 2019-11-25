@@ -21,6 +21,28 @@
 	@return $optimal-characters-per-line * $magic-number * 1ch;
 }
 
+/// Get font family for o-typography type i.e "sans", "serif", or "display".
+/// Note: we do not recommend setting `font-family` this way. Instead use
+/// mixins `oTypographySans`, `oTypographySerif`, `oTypographyDisplay` without
+/// any arguments.
+///
+/// @param {String} $type - One of 'sans', 'serif', or 'display'.
+/// @return {String} The font-family set for the given font style.
+@function oTypographyGetFontFamily($type) {
+	@if not index($_o-typography-types, $type) {
+		@error 'Could not get the font-family for font of style "#{$type}", style must be one of "#{$_o-typography-types}".';
+	}
+	@if $type == 'sans' {
+		@return #{$_o-typography-sans};
+	}
+	@if $type == 'serif' {
+		@return #{$_o-typography-serif};
+	}
+	@if $type == 'display' {
+		@return #{$_o-typography-display};
+	}
+}
+
 /// Returns the font-size value from the scale passed in
 /// modified by the font-adjust if present
 ///
@@ -48,29 +70,6 @@
 	} @else {
 		$line-height: nth($settings, 2);
 		@return if($line-height, _oTypographyAddUnit($line-height), null);
-	}
-}
-
-/// Get font family for family style i.e "sans", "serif", or "display".
-///
-/// @example
-/// 	font-family: oTypographyGetFamily('sans')
-///
-/// @access private
-/// @param {String} $type - One of 'sans', 'serif', or 'display'.
-/// @return {String|List} The font-family set for the given font style.
-@function _oTypographyFontFamilyForType($type) {
-	@if not index($_o-typography-types, $type) {
-		@error 'Could not get the font-family for font of style "#{$type}", style must be one of "#{$_o-typography-types}".';
-	}
-	@if $type == 'sans' {
-		@return $_o-typography-sans;
-	}
-	@if $type == 'serif' {
-		@return $_o-typography-serif;
-	}
-	@if $type == 'display' {
-		@return $_o-typography-display;
 	}
 }
 
