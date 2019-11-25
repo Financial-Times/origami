@@ -28,7 +28,8 @@ const LazyImage = ({ src, lazyLoad }) => {
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
 	const displayUrl = relativeUrl || url;
-	const imageSrc = image.url.startsWith('data:') ? image.url : imageService(image.url, ImageSizes[imageSize]);
+	const useImageService = !(image.url.startsWith('data:') || image.url.startsWith('blob:'));
+	const imageSrc = useImageService ? imageService(image.url, ImageSizes[imageSize]) : image.url;
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return image ? (
