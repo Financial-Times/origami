@@ -92,7 +92,7 @@
 
 	// Validate the requested brand is configured, throw an error if not.
 	@if $brand-config == null {
-		@return _oBrandError('The requested brand "#{$brand}" has not been defined. Please define this brand before using it.');
+		@return _oBrandError('The requested brand "#{$brand}" has not been defined for component "#{$component}". Please define this brand before using it.');
 	}
 
 	@return $brand-config;
