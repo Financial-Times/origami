@@ -3,6 +3,7 @@ o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree
 
 A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.
 
+- [Additional dependencies](#additional-dependencies)
 - [Markup](#markup)
 	- [Stream](#stream)
 	- [Count](#count)
@@ -16,6 +17,10 @@ A component, integrated with FT authentication and user data services, to add a 
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Additional dependencies
+
+o-comments is dependant on sass from o-overlay and o-forms and requires them to be included by the parent application.
 
 ## Markup
 

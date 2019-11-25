@@ -28,7 +28,10 @@
 		"js": "demos/src/demo.js",
 		"data": "demos/src/data/data.json",
 		"documentClasses": "",
-		"dependencies": ""
+		"dependencies": [
+			"o-forms@^8.0.0",
+			"o-overlay@^3.0.0"
+		]
 	},
 	"demos": [
 		{
