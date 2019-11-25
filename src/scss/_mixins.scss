@@ -1,131 +1,220 @@
 // Base cookie message styles
-@mixin oCookieMessageBase($class: 'o-cookie-message') {
-	.#{$class} {
-		@include oBannerBase;
-		@include oBannerThemeCompactBase;
+@mixin _oCookieMessageBase() {
+	.o-cookie-message {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		margin: 0;
 
-		&--active {
-			display: block;
+		@include oGridRespondTo(S) {
+			width: oGridColspan(7);
+			margin: $_o-cookie-message-spacing / 2;
 		}
 
-		&--closed {
-			@include oBannerClosed;
+		@include oGridRespondTo(M) {
+			width: oGridColspan(6);
 		}
 
-		&__outer {
-			@include oBannerOuter;
-			@include oBannerThemeCompactOuter;
+		@include oGridRespondTo(L) {
+			width: oGridColspan(5);
 		}
 
-		&__inner {
-			@include oBannerInner;
-			@include oBannerThemeCompactInner;
+		@include oGridRespondTo(XL) {
+			width: map-get($o-grid-layouts, XL) / 2.5; // width is 40% grid
+			left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+		}
+	}
+
+	.o-cookie-message--active {
+		display: block;
+	}
+
+	.o-cookie-message--closed {
+		display: none;
+	}
+
+	.o-cookie-message__outer {
+		@include oVisualEffectsShadowContent('high');
+		background: oColorsByName('white');
+		color: oColorsByName('black');
+	}
+
+	.o-cookie-message__inner {
+		@include oVisualEffectsShadowContent('high');
+		@include oTypographySans($scale: 0);
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
+		position: relative;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 auto;
+		box-sizing: border-box;
+		background: white;
+		display: block;
+		padding: $_o-cookie-message-spacing;
+		padding-top: oSpacingByIncrement(7);
+		max-width: none;
+	}
+
+	.o-cookie-message__content {
+		padding: 0;
+
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 
-		&__content {
-			@include oBannerContent;
-			@include oBannerThemeCompactContent;
+		h1 {
+			@include oTypographySans($scale: 0);
 		}
 
-		&__actions {
-			@include oBannerActions;
-			@include oBannerThemeCompactActions;
-			flex-direction: row-reverse;
-			justify-content: space-between;
+		@include oGridRespondTo($until: M) {
+			&,
+			h1 {
+				@include oTypographySans($scale: 0);
+			}
+		}
+	}
 
-			@include oGridRespondTo($until: M) {
-				flex-direction: column-reverse;
-				align-items: flex-start;
-				margin-top: 0;
+	.o-cookie-message__actions {
+		@include oTypographySans($scale: 2);
+		display: flex;
+		align-items: center;
+		margin-top: oSpacingByName('s6');
+		flex-direction: row-reverse;
+		justify-content: space-between;
 
-				.#{$class}__action {
-					align-self: stretch;
+		@include oGridRespondTo($until: M) {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			margin-top: 0;
+			.o-cookie-message__action {
+				align-self: stretch;
 
-					.#{$class}__button {
-						width: 100%;
-						margin-top: oSpacingByName('s6');
-					}
+				.o-cookie-message__button {
+					width: 100%;
+					margin-top: oSpacingByName('s6');
 				}
 			}
 		}
+	}
 
-		&__action {
-			@include oBannerAction;
-			@include oBannerThemeCompactAction;
-			padding: 0;
-		}
+	.o-cookie-message__action {
+		padding: 0;
+	}
 
-		&__button {
-			@include oBannerButton;
-		}
+	.o-cookie-message__button {
+		@include oButtonsContent((
+			'size': 'big',
+			'type': 'primary'
+		));
+		white-space: nowrap;
 	}
 }
 
 // Standard cookie message styles (for master brand e.g. FT.com)
-@mixin oCookieMessageStandard($class: 'o-cookie-message') {
-	.#{$class} {
-		&__heading {
-			@include oBannerHeading;
-			@include oBannerThemeCompactHeading;
+@mixin _oCookieMessageStandard() {
+	.o-cookie-message {
+		.o-cookie-message__heading {
+			h1 {
+				@include oTypographySans($scale: 3, $weight: 'semibold');
+				margin: 0;
+			}
+			&:after {
+				content: '';
+				display: block;
+				width: 100px;
+				margin-top: oSpacingByName('s2');
+				margin-bottom: oSpacingByName('s4');
+
+				border-bottom: oSpacingByIncrement(2) solid;
+				border-color: oColorsByName('teal');
+			}
+
+			@include oTypographySans($scale: 3);
+			padding-right: $_o-cookie-message-spacing;
+
+			@include oGridRespondTo($until: M) {
+				&,
+				h1 {
+					@include oTypographySans($scale: 2);
+				}
+			}
+			&:after {
+				margin-top: oSpacingByName('s2');
+				margin-bottom: oSpacingByName('s3');
+				width: 60px;
+				border-bottom-width: oSpacingByIncrement(1);
+			}
 		}
 
-		&__action--secondary {
-			@include oBannerActionSecondary;
-			@include oBannerThemeCompactActionSecondary;
+		.o-cookie-message__action--secondary {
+			@include oGridRespondTo($until: M) {
+				margin-top: $_o-cookie-message-spacing / 4;
+			}
 		}
 
-		&__link {
-			@include oBannerLink;
-		}
-
-		&__link--external {
-			@include oTypographyLinkExternalIcon(oColorsGetColorFor('link', 'text'));
-		}
-
-		&__link--external,
-		&__link {
-			@include oTypographyLinkCustom(
-				$baseColor: oColorsGetUseCase('link', 'text'),
-				$hoverColor: oColorsGetUseCase('link', 'text'),
-				$outlineColor: oColorsGetUseCase('link', 'text'),
-				$backgroundColor: oColorsGetUseCase('o-banner', 'background')
+		.o-cookie-message__link {
+			$link-theme: (
+				'base': 'teal',
+				'hover': 'teal',
+				'context': 'white'
 			);
+			@include oTypographyLink($theme: $link-theme);
+			@include oTypographySans($scale: 0);
+			white-space: nowrap;
+		}
+
+		.o-cookie-message__link--external {
+			@include oTypographyLink($external: true, $include-base-styles: false);
+		}
+
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
+			@include oTypographyLink($theme: (
+				'base': 'teal',
+				'hover': 'teal',
+				'context': 'white'
+			));
 		}
 	}
 }
 
 
 // Alternative cookie message styles (for whitelabel/specialist titles)
-@mixin oCookieMessageAlternative($class: 'o-cookie-message') {
-	.#{$class}--alternative {
-		.#{$class} {
-			&__button {
-				//TODO: revisit argument names in o-buttons
-				@include oButtonsTheme((
-					accent: oColorsGetUseCase(o-cookie-message-alternative-button, background),
-		 			background: oColorsGetUseCase(o-cookie-message-alternative-button, text),
-		 			hover: oColorsGetUseCase(o-cookie-message-alternative-button, hover),
-					colorizer: primary
-				))
-			}
+@mixin _oCookieMessageAlternative() {
+	$link-theme: (
+		'base': 'black',
+		'hover': 'black',
+		'context': 'white'
+	);
 
-			&__heading:after {
-				border-color: oColorsGetColorFor('o-cookie-message-alternative', 'border');
-			}
+	.o-cookie-message.o-cookie-message--alternative {
+		.o-cookie-message__button {
+			@include oButtonsContent((
+				'type': 'primary',
+				'theme':  ('color': oColorsMix('jade', 'black', 89), 'context': 'white')
+			), $include-base-styles: false);
+		}
 
-			&__link--external {
-				@include oTypographyLinkExternalIcon(oColorsGetColorFor('o-cookie-message-alternative-link', 'text'));
-			}
+		.o-cookie-message__heading:after {
+			border-color: oColorsByName('jade');
+		}
 
-			&__link--external,
-			&__link {
-				@include oTypographyLinkCustom(
-					$baseColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$hoverColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$outlineColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'text'),
-					$backgroundColor: oColorsGetUseCase('o-cookie-message-alternative-link', 'background')
-				);
-			}
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
+			@include oTypographyLink($theme: $link-theme);
+		}
+
+		.o-cookie-message__link--external {
+			@include oTypographyLink(
+				$external: true,
+				$theme: $link-theme,
+				$include-base-styles: false
+			);
 		}
 	}
 }

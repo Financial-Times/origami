@@ -1,8 +1,3 @@
-const Banner = require('o-banner/src/js/banner');
-
-//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-const PrivacyPolicyMessage = require('./privacy-policy-message');
-
 class CookieMessage {
 	static get defaultOptions() {
 		let domain = 'ft.com';
@@ -14,19 +9,20 @@ class CookieMessage {
 		}
 		const redirect = window.location.href;
 		return {
-			cookieMessageClass: 'o-cookie-message',
 			theme: null,
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: `https://cookies.${domain}/preferences/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
-			consentCookieName: 'FTCookieConsentGDPR',
-
-			//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-			privacyMessage: false
+			consentCookieName: 'FTCookieConsentGDPR'
 		};
 	}
 
 	constructor(cookieMessageElement, options) {
+		if (cookieMessageElement === null || cookieMessageElement === undefined) {
+			cookieMessageElement = document.createElement("div");
+			document.body.append(cookieMessageElement);
+		}
+
 		this.cookieMessageElement = cookieMessageElement;
 
 		// Set cookie message options
@@ -41,59 +37,51 @@ class CookieMessage {
 		if (this.shouldShowCookieMessage()) {
 			this.createCookieMessage();
 			this.showCookieMessage();
-			this.displayPrivacyMessage('top');
 		} else {
 			this.removeCookieMessage();
-			this.displayPrivacyMessage('bottom');
-		}
-	}
-
-	//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-	displayPrivacyMessage(position) {
-		if (this.options.privacyMessage) {
-			return new PrivacyPolicyMessage(
-				this.cookieMessageElement,
-				this.options.cookieMessageClass,
-				position
-			);
 		}
 	}
 
 	createCookieMessage() {
-		if (!this.banner) {
-			this.banner = new Banner(this.cookieMessageElement, {
-				autoOpen: true,
-				suppressCloseButton: true,
-				theme: this.options.theme,
-				bannerClass: this.options.cookieMessageClass,
-				bannerClosedClass: `${this.options.cookieMessageClass}--closed`,
-				outerClass: `${this.options.cookieMessageClass}__outer`,
-				innerClass: `${this.options.cookieMessageClass}__inner`,
-				contentClass: `${this.options.cookieMessageClass}__content`,
-				contentLongClass: `${this.options.cookieMessageClass}__content--long`,
-				contentShortClass: `${this.options.cookieMessageClass}__content--short`,
-				actionsClass: `${this.options.cookieMessageClass}__actions`,
-				actionClass: `${this.options.cookieMessageClass}__action`,
-				actionSecondaryClass: `${
-					this.options.cookieMessageClass
-				}__action--secondary`,
-				buttonClass: `${this.options.cookieMessageClass}__button`,
-				linkClass: `${this.options.cookieMessageClass}__link`,
-				contentLong: `
-					<header class="${this.options.cookieMessageClass}__heading">
-						<h1>Cookies on the FT</h1>
-					</header>
-					<p>
-						We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
-						for a number of reasons, such as keeping FT Sites reliable and secure, personalising
-						content and ads, providing social media features and to analyse how our Sites are used.
-					</p>
-				`,
-				buttonLabel: 'Accept & continue',
-				buttonUrl: this.options.acceptUrlFallback,
-				linkLabel: 'Manage cookies',
-				linkUrl: this.options.manageCookiesUrl
-			});
+		const wrapContent = content => `
+<div class="o-cookie-message__outer">
+	<div class="o-cookie-message__inner">
+		<div class="o-cookie-message__content">
+				${content}
+		</div>
+		<div class="o-cookie-message__actions">
+
+			<div class="o-cookie-message__action">
+				<a href="${this.options.acceptUrlFallback}" class="o-cookie-message__button">
+					Accept &amp; continue
+				</a>
+			</div>
+
+			<div class="o-cookie-message__action o-cookie-message__action--secondary">
+				<a href="${this.options.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+			</div>
+		</div>
+	</div>
+</div>`;
+
+		const defaultContent = `
+<header class="o-cookie-message__heading">
+	<h1>Cookies on the FT</h1>
+</header>
+<p>
+	We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a> for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and ads, providing social media features and to analyse how our Sites are used.
+</p>`;
+
+		const child = this.cookieMessageElement.firstElementChild;
+		const html = this.cookieMessageElement.innerHTML;
+		if (child && child.classList.contains("o-cookie-message__outer")) {
+			// full custom html, leave it alone
+		} else if (html.trim() === "") {
+			// empty, provide default content
+			this.cookieMessageElement.innerHTML = wrapContent(defaultContent);
+		} else {
+			// some custom html, wrap it up
+			this.cookieMessageElement.innerHTML = wrapContent(html);
 		}
 	}
 
@@ -103,7 +91,7 @@ class CookieMessage {
 	 */
 	updateConsent() {
 		const button = document.querySelector(
-			`.${this.banner.options.buttonClass}`
+			`.o-cookie-message__button`
 		);
 		if (button) {
 			button.addEventListener('click', e => {
@@ -130,8 +118,16 @@ class CookieMessage {
 	 */
 	showCookieMessage() {
 		this.cookieMessageElement.classList.add(
-			`${this.options.cookieMessageClass}--active`
+			'o-cookie-message',
+			'o-cookie-message--active'
 		);
+
+		if (this.options.theme) {
+			this.cookieMessageElement.classList.add(
+				`o-cookie-message--${this.options.theme}`
+			);
+		}
+
 		this.dispatchEvent('oCookieMessage.view');
 		this.updateConsent();
 	}
@@ -210,6 +206,7 @@ class CookieMessage {
 		const cookieMessageElement = rootElement.querySelector(
 			'[data-o-component="o-cookie-message"]'
 		);
+
 		return new CookieMessage(cookieMessageElement, options);
 	}
 }

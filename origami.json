@@ -10,7 +10,12 @@
 		"slack": "financialtimes/ft-origami"
 	},
 	"supportStatus": "active",
-	"browserFeatures": {},
+	"browserFeatures": {
+		"required": [
+			"Element.prototype.classList",
+			"Element.prototype.append"
+		]
+	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-cookie-message"
 	},
@@ -18,8 +23,8 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-fonts@^3.0.0",
-			"o-normalise@^1.0.0"
+			"o-fonts@^4.0.0",
+			"o-normalise@^2.0.1"
 		],
 		"js": "demos/src/demo.js"
 	},
@@ -51,13 +56,6 @@
 			"template": "demos/src/custom-html-full.mustache",
 			"hidden": true,
 			"description": ""
-		},
-		{
-			"title": "Approved Alternative Cookie Banner with Privacy Policy",
-			"name": "privacy-policy-cookie-message",
-			"template": "demos/src/privacy-policy-cookie-message.mustache",
-			"hidden": true,
-			"description": "A temporary privacy policy message for FT products that are **not** FT.com, which will be removed from the component by mid-semptember"
 		},
 		{
 			"title": "Pa11y",

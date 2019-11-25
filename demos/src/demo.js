@@ -35,7 +35,3 @@ document.body.addEventListener('oCookieMessage.act', () => {
 document.body.addEventListener('oCookieMessage.close', () => {
 	console.log('THE 🍪 MESSAGE HAS BEEN CLOSED');
 });
-
-//TODO: remove when time is up — https://github.com/Financial-Times/o-cookie-message/issues/65
-// in order for the demo to render the privacy policy message every time, we need to reach into localStorage
-localStorage.removeItem('PRIVACY_POLICY_DISMISSED');
