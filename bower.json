@@ -15,7 +15,7 @@
   "dependencies": {
     "o-buttons": "^5.16.6",
     "o-colors": "^5.0.2",
-    "o-overlay": "^2.7.10",
+    "o-overlay": "^3.0.0",
     "o-spacing": "^2.0.0",
     "o-typography": "^5.12.0"
   }
