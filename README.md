@@ -4,11 +4,10 @@ o-cookie-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-cookie-
 The cookie message and behaviour approved by the FT's legal team.
 All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant.
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [JavaScript](#javascript)
-	- [Sass](#sass)
-	- [Customising o-cookie-message HTML](customising-o-cookie-message-html)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Sass](#sass)
+- [Customising o-cookie-message HTML](customising-o-cookie-message-html)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -66,19 +65,30 @@ You may listen to three events that bubble out from the oCookieMessage DOM eleme
 
 ## Sass
 
-As with all Origami components, o-cookie-message has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-cookie-message-is-silent : false;` in your Sass before you import the o-cookie-message Sass:
+Use `@include oCookieMessage()` to include styles for all themes.
 
-```sass
-$o-cookie-message-is-silent: false;
-@import 'o-cookie-message/main';
+Themes may be included granularly with an $opts map.
+
+Include all themes:
+
+```
+@include oCookieMessage();
 ```
 
-The above code will include both style options that come with o-cookie-message; [`standard`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner) and [`alternative`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner). If you would like to incorporate just one style, you can include it by _not_ setting the component to silent, and then using this mixin with the name of the theme you want to display:
+Include only the [`standard`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner) theme:
 
-```sass
-@import 'o-cookie-message/main';
+```
+@include oCookieMessage($opts: (
+  $themes: ('standard')
+));
+```
 
-@include oCookieMessage($class: 'my-cookie-message', $theme: alternative);
+Include only the [`alternative`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner) theme:
+
+```
+@include oCookieMessage($opts: (
+  $themes: ('alternative')
+));
 ```
 
 ## Customising o-cookie-message HTML
