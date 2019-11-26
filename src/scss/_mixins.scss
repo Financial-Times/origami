@@ -8,7 +8,7 @@
 	.o-comments__staging-message-content {
 		padding-top: oSpacingByName('s1');
 		padding-bottom: oSpacingByName('s1');
-		background-color: oColorsGetPaletteColor('claret-80');
+		background-color: oColorsByName('claret-80');
 	}
 
 	.o-comments__staging-message {
@@ -27,7 +27,7 @@
 	}
 
 	.o-overlay.o-comments__displayname-prompt {
-		background: oColorsGetPaletteColor('paper');
+		background: oColorsByName('paper');
 		padding: 10px;
 		width: 100%;
 		max-width: 400px;
@@ -50,13 +50,25 @@
 			display: flex;
 		}
 
+		.o-comments__displayname-field {
+			margin-bottom: 0;
+		}
+
 		.o-comments__displayname-input {
+			width: 100%;
 			margin-right: 15px;
 			margin-top: 0;
 		}
 
 		.o-comments__displayname-submit {
-			@include oButtons($theme: primary);
+			@include oButtonsContent($opts: (
+				'type': 'primary'
+			));
+		}
+
+		.o-comments__displayname-error {
+			position: relative;
+			bottom: 0;
 		}
 	}
 }

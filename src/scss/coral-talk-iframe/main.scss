@@ -12,13 +12,13 @@
 
 // sass-lint:disable no-qualifying-elements nesting-depth no-important class-name-format
 @import 'o-buttons/main';
-@import 'o-fonts/main';
 @import 'o-colors/main';
 @import 'o-typography/main';
+@import 'o-editorial-typography/main';
 
 :root {
-	--font-family-sans-serif: #{inspect($o-typography-sans)};
-	--font-family-serif: #{inspect($o-typography-sans)};
+	--font-family-sans-serif: #{inspect(oTypographyGetFontFamily('sans'))};
+	--font-family-serif: #{inspect(oTypographyGetFontFamily('sans'))};
 
 	// make font sizes consistent in various places
 	--rem-base: 15;
@@ -26,31 +26,31 @@
 	--font-size-4: 14px;
 
 	// primary text color
-	--palette-text-primary: #{inspect(oColorsGetPaletteColor('black-80'))};
+	--palette-text-primary: #{inspect(oColorsByName('black-80'))};
 
 
 	// error message (ex: edit time has expired)
 	// background
-	--palette-error-light: #{inspect(oColorsGetPaletteColor('claret-80'))};
+	--palette-error-light: #{inspect(oColorsByName('claret-80'))};
 	// border-left
-	--palette-error-darkest: #{inspect(oColorsGetPaletteColor('claret-70'))};
+	--palette-error-darkest: #{inspect(oColorsByName('claret-70'))};
 
 
 	// close stream button
-	--palette-error-main: #{inspect(oColorsGetPaletteColor('claret-70'))};
+	--palette-error-main: #{inspect(oColorsByName('claret-70'))};
 
 
 	// apply button in configure tab
-	--palette-success-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
-	--palette-success-light: #{inspect(oColorsGetPaletteColor('teal-60'))};
+	--palette-success-main: #{inspect(oColorsByName('teal-50'))};
+	--palette-success-light: #{inspect(oColorsByName('teal-60'))};
 
 
 	// stream section selected tab item, selected item count badge
-	--palette-primary-main: #{inspect(oColorsGetPaletteColor('teal-50'))};
+	--palette-primary-main: #{inspect(oColorsByName('teal-50'))};
 
 
 	// stream section unselected tab comment count badge
-	--palette-grey-lightest: #{inspect(oColorsGetPaletteColor('paper'))};
+	--palette-grey-lightest: #{inspect(oColorsByName('paper'))};
 
 }
 
@@ -59,7 +59,7 @@
 }
 
 body {
-	background: oColorsGetPaletteColor('paper');
+	background: oColorsByName('paper');
 }
 
 // remove divider of the top tab bar
@@ -68,14 +68,14 @@ body {
 }
 
 .coral-tabBarSecondary {
-	border-bottom-color: oColorsGetPaletteColor('teal-50');
+	border-bottom-color: oColorsByName('teal-50');
 }
 
 
 // community guidelines box
 .coral-guidelines {
-	background-color: oColorsGetPaletteColor('wheat');
-	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
+	border-color: oColorsByName('wheat');
 }
 
 .coral-guidelines a {
@@ -87,8 +87,9 @@ body {
 .coral-tabBar-comments,
 .coral-tabBar-myProfile,
 .coral-tabBar-configure	{
-	@include oButtons;
-
+	@include oButtonsContent($opts: (
+		'type': 'secondary'
+	));
 	border-width: 1px;
 
 	// normally, these should come for free with oButtons mixin
@@ -97,9 +98,21 @@ body {
 	&[aria-selected=true],
 	&[aria-pressed=true],
 	&[aria-current] {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 		border-top: 1px !important;
 		border-bottom: 1px !important;
 	}
@@ -117,14 +130,38 @@ body {
 	// normally, these should come for free with oButtons mixin
 	// but we have to declare this explicitly here because
 	// Coral styles override our styles for some reason
-	color: oButtonsGetColor('', 'color', 'primary') !important;
-	background-color: oButtonsGetColor('', 'background', 'primary') !important;
-	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'primary'
+	) !important;
+	background-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'background',
+		$type: 'primary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'primary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 	}
 }
 
@@ -135,12 +172,28 @@ body {
 .coral-editComment-close {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'secondary') !important;
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'secondary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
-		border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
@@ -155,11 +208,11 @@ body {
 // comment author
 .coral-comment-username span,
 .coral-comment-inReplyToUsername {
-	@include oTypographyAuthor;
+	@include oEditorialTypographyTag($type: 'author');
 	font-size: 14px;
 
 	&:hover {
-		color: oColorsGetPaletteColor('black');
+		color: oColorsByName('black');
 	}
 }
 
@@ -182,13 +235,13 @@ body {
 
 	span,
 	i {
-		color: oColorsGetPaletteColor('teal-50');
+		color: oColorsByName('teal-50');
 	}
 }
 
 
 .coral-featuredComment-replies div {
-	color: oColorsGetPaletteColor('teal-50');
+	color: oColorsByName('teal-50');
 }
 
 
@@ -206,7 +259,7 @@ body {
 
 // report button reported state
 .coral-comment-reportedButton {
-	background-color: oColorsGetPaletteColor('teal-50');
+	background-color: oColorsByName('teal-50');
 
 	span,
 	i {
@@ -220,14 +273,38 @@ body {
 .coral-sharePopover-copyButton {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'primary') !important;
-	background-color: oButtonsGetColor('', 'background', 'primary') !important;
-	border-color: oButtonsGetColor('', 'border', 'primary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'primary'
+	) !important;
+	background-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'background',
+		$type: 'primary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'primary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'primary') !important;
-		background-color: oButtonsGetColor('', 'background', 'primary') !important;
-		border-color: oButtonsGetColor('', 'border', 'primary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'primary'
+		) !important;
+		background-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'background',
+			$type: 'primary'
+		) !important;
+		border-color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'border',
+			$type: 'primary'
+		) !important;
 	}
 }
 
@@ -237,24 +314,24 @@ body {
 .coral-myComment-timestamp span,
 .coral-comment-timestamp,
 .coral-comment-timestamp span {
-	@include oTypographyTimestamp;
+	@include oEditorialTypographyTimestamp;
 	font-size: 12px;
 	margin-bottom: 0;
-	color: oColorsGetPaletteColor('black-80');
+	color: oColorsByName('black-80');
 }
 
 
 // "staff" tag
 .coral-comment-userTag {
-	background-color: oColorsGetPaletteColor('claret-70');
-	color: oColorsGetPaletteColor('white');
+	background-color: oColorsByName('claret-70');
+	color: oColorsByName('white');
 }
 
 
 // "featured comment" tag
 .coral-comment-commentTag {
-	background-color: oColorsGetPaletteColor('black') !important;
-	color: oColorsGetPaletteColor('white') !important;
+	background-color: oColorsByName('black') !important;
+	color: oColorsByName('white') !important;
 	border-radius: 0;
 }
 
@@ -263,7 +340,7 @@ body {
 .coral-rte-content blockquote,
 .coral-comment-content blockquote,
 .coral-myComment-content blockquote {
-	background-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
 	font-size: 14px !important;
 }
 
@@ -274,15 +351,23 @@ body {
 .coral-myComments-loadMoreButton {
 	@include oButtons;
 
-	color: oButtonsGetColor('', 'color', 'secondary') !important;
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'color',
+		$type: 'secondary'
+	) !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 }
 
 
 // featured comments
 .coral-featuredComment {
-	border-color: oColorsGetPaletteColor('wheat');
-	background-color: oColorsGetPaletteColor('wheat');
+	border-color: oColorsByName('wheat');
+	background-color: oColorsByName('wheat');
 }
 
 
@@ -290,44 +375,56 @@ body {
 .coral-comment-editButton {
 	@include oButtons;
 
-	border-color: oButtonsGetColor('', 'border', 'secondary') !important;
+	border-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'border',
+		$type: 'secondary'
+	) !important;
 
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
 
 // replying to: <<user name>>
 .coral-createReplyComment-replyToUsername {
-	@include oTypographyAuthor;
+	@include oEditorialTypographyTag($type: 'author');
 
 	font-size: 14px;
 
 	&:hover {
-		color: oColorsGetColorFor('body', 'text');
+		color: oColorsByUsecase('body', 'text');
 	}
 }
 
 // In reply to <<author>>
 .coral-comment-inReplyToUsername {
 	&:hover {
-		color: oColorsGetPaletteColor('black-50');
+		color: oColorsByName('black-50');
 	}
 }
 
 // verify email resend button
 .coral-verifyEmail-resendButton {
 	&:hover {
-		color: oButtonsGetColor('', 'color', 'secondary') !important;
+		color: oButtonsGetColor(
+			$state: 'default',
+			$property: 'color',
+			$type: 'secondary'
+		) !important;
 	}
 }
 
 
 // verify email - message sent
 .coral-verifyEmail-resentMessage {
-	background-color: oColorsGetPaletteColor('wheat');
-	border-color: oColorsGetPaletteColor('wheat');
+	background-color: oColorsByName('wheat');
+	border-color: oColorsByName('wheat');
 }
 
 
@@ -340,10 +437,10 @@ body {
 .coral-featuredComment-goToConversationButton {
 	@include oTypographyLink;
 
-	color: oColorsGetPaletteColor(oColorsGetUseCase(link, text)) !important;
+	color: oColorsByUsecase(link, text) !important;
 
 	&:hover {
-		color: oColorsGetPaletteColor(oColorsGetUseCase(link-hover, text)) !important;
+		color: oColorsByUsecase(link-hover, text) !important;
 	}
 }
 
