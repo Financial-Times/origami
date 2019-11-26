@@ -1,6 +1,8 @@
 import Toast from './toast';
 
+const defaults = { duration: 5000 };
 const stack = [];
+
 const eventShow = e => show(e.detail);
 let isInstantiated = false;
 let container;
@@ -18,6 +20,8 @@ function init() {
 }
 
 function show(options) {
+	options = Object.assign({}, defaults, options);
+
 	if (!isInstantiated) {
 		init();
 	}
@@ -29,7 +33,7 @@ function show(options) {
 		clearTimeout(lastToast.timeout);
 		lastToast.timeout = setTimeout(
 			lastToast.hide.bind(lastToast),
-			timeoutDuration
+			options.duration
 		);
 	} else {
 		const toast = new Toast(options, clearToast.bind(this));

@@ -1,40 +1,43 @@
 {
-  "description": "Next FT - onsite notification bar",
-  "keywords": ["notification"],
-  "brands": ["master"],
-  "origamiType": "module",
-  "origamiVersion": 1,
-  "origamiCategory": "components",
-  "support": "https://github.com/Financial-Times/n-notification/issues",
-  "supportContact": {
-    "email": "next.team@ft.com",
-    "slack": "financial-times/ft-origami"
-  },
-  "supportStatus": "experimental",
-  "ci": {
-    "circle": "https://circleci.com/api/v1/project/Financial-Times/n-notification"
-  },
-  "demosDefaults": {
-    "dependencies": [
-      "o-fonts@^4.0.0",
-      "o-buttons@^6.0.0",
-      "o-normalise@^2.0.0"
-    ],
-    "sass": "demos/src/main.scss",
-    "js": "demos/src/main.js"
-  },
-  "demos": [
-    {
-      "title": "Display notifications",
-      "description": "All",
-      "name": "all",
-      "template": "demos/src/all.mustache"
-    },
-    {
-      "title": "Pa11y test",
-      "description": "Pa11y",
-      "name": "pa11y",
-      "template": "demos/src/pa11y.mustache"
-    }
-  ]
+	"description": "Next FT - onsite notification bar",
+	"keywords": ["notification"],
+	"brands": ["master"],
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"origamiCategory": "components",
+	"support": "https://github.com/Financial-Times/n-notification/issues",
+	"supportContact": {
+		"email": "next.team@ft.com",
+		"slack": "financial-times/ft-origami"
+	},
+	"supportStatus": "experimental",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/n-notification"
+	},
+	"demosDefaults": {
+		"dependencies": [
+			"o-fonts@^4.0.0",
+			"o-buttons@^6.0.0",
+			"o-normalise@^2.0.0"
+		],
+		"sass": "demos/src/main.scss",
+		"js": "demos/src/main.js"
+	},
+	"demos": [
+		{
+			"title": "Display notifications",
+			"description": "All",
+			"name": "all",
+			"template": "demos/src/all.mustache"
+		},
+		{
+			"title": "Pa11y test",
+			"description": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache"
+		}
+	],
+	"browserFeatures": {
+		"required": ["Object.assign"]
+	}
 }

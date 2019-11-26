@@ -1,6 +1,5 @@
 const template = require('./template');
 
-const timeoutDuration = 5000;
 const supportedTypes = ['error', 'success'];
 
 class Toast {
@@ -24,10 +23,7 @@ class Toast {
 		this.rootEl.querySelector('button').onclick = this.hide.bind(this);
 
 		if (options.duration !== 0) {
-			this.timeout = setTimeout(
-				this.hide.bind(this),
-				options.duration || timeoutDuration
-			);
+			this.timeout = setTimeout(this.hide.bind(this), options.duration);
 		}
 
 		this.optionsContent = options.content;
