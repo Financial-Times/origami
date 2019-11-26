@@ -6,7 +6,7 @@ body {
 	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	// sass-lint:enable no-vendor-prefixes
-	background-color: oColorsGetPaletteColor(paper);
+	background-color: oColorsByName(paper);
 }
 
 .o-subs-card__container {

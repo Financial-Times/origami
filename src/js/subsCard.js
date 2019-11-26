@@ -25,12 +25,20 @@ class SubsCard {
 			expandedToggleText: 'Read less',
 			collapsedToggleText: 'Read more',
 			toggleState: 'all',
-			toggleSelector: '.o-subs-card__read-more',
-			contentClassName: 'o-subs-card__copy-details',
+			selectors: {
+				toggle: '.o-subs-card__read-more',
+				content: '.o-subs-card__copy-details'
+			},
+			classnames: {
+				initialized: 'o-subs-card__expander--initialized',
+				inactive: 'o-subs-card__expander--inactive',
+				expanded: 'o-subs-card__expander--expanded',
+				collapsed: 'o-subs-card__expander--collapsed'
+			}
 		};
 
 		expander.setAttribute('data-o-component', 'o-expander');
-		oExpander.init(expander, opts);
+		oExpander.createCustom(expander, opts);
 	}
 
 
