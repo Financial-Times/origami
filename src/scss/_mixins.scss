@@ -71,8 +71,6 @@
 
 	.o-subs-card__copy-details {
 		border-top: 1px solid rgba(0, 0, 0, 0.25);
-		margin-left: $o-subs-card-horizontal-padding;
-		margin-right: $o-subs-card-horizontal-padding;
 		text-align: left;
 
 		@include oGridRespondTo(L) {
@@ -86,8 +84,9 @@
 
 	.o-subs-card__copy-benefits {
 		margin: 0;
-		padding-left: 0;
-		padding-top: oSpacingByName('s3');
+		padding: oSpacingByName('s3');
+		padding-left: $o-subs-card-horizontal-padding;
+		padding-right: $o-subs-card-horizontal-padding;
 		list-style: none;
 
 		li {
