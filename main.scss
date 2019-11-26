@@ -1,8 +1,9 @@
+@import "o-colors/main";
+@import "o-typography/main";
+
 $n-notification-is-silent: true !default;
 
-@import 'n-ui-foundations/main';
-
-@if $n-notification-is-silent == false {
+@mixin nNotification {	
 	@keyframes load-notice {
 		0% {
 			max-height: 0;
@@ -13,18 +14,18 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification {
-		@include nUiZIndexFor(notification);
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
+		z-index: 10;
 	}
 
 	.n-notification__item {
 		position: relative;
-		background-color: rgba(getColor('paper'), 0.95);
-		border-bottom: 3px solid getColor('black-80');
-		color: getColor('black-80');
+		background-color: rgba(oColorsByName('paper'), 0.95);
+		border-bottom: 3px solid oColorsByName('black-80');
+		color: oColorsByName('black-80');
 		box-sizing: border-box;
 		margin: 0;
 		padding: 14px 0;
@@ -42,7 +43,7 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification__title {
-		@include oTypographySansBold($scale: 2);
+		@include oTypographySans($scale: 2, $weight: "semibold");
 		display: inline-block;
 		padding-right: 10px;
 		margin: 0;
@@ -55,17 +56,17 @@ $n-notification-is-silent: true !default;
 
 		b,
 		strong {
-			@include oTypographySansBold($scale: 2);
+			@include oTypographySans($scale: 2, $weight: "semibold");
 		}
 
 		a {
-			color: getColor('black-80');
-			border-bottom-color: getColor('black-80');
+			color: oColorsByName('black-80');
+			border-bottom-color: oColorsByName('black-80');
 		}
 	}
 
 	.n-notification__close {
-		@include oIconsGetIcon('cross', getColor('black-80'), 40);
+		@include oIconsContent('cross', oColorsByName('black-80'), 40);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -81,15 +82,15 @@ $n-notification-is-silent: true !default;
 
 	.n-notification--error,
 	.n-notification--success {
-		color: getColor('white');
+		color: oColorsByName('white');
 		.n-notification__content {
 			a {
-				color: getColor('white');
-				border-bottom-color: getColor('white');
+				color: oColorsByName('white');
+				border-bottom-color: oColorsByName('white');
 			}
 		}
 		.n-notification__close {
-			@include oIconsGetIcon('cross', getColor('white'), 40);
+			@include oIconsContent('cross', oColorsByName('white'), 40);
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -105,13 +106,17 @@ $n-notification-is-silent: true !default;
 	}
 
 	.n-notification--error {
-		background-color: rgba(getColor('crimson'), 0.95);
+		background-color: rgba(oColorsByName('crimson'), 0.95);
 	}
 
 	.n-notification--success {
-		background-color: rgba(getColor('jade'), 0.95);
+		background-color: rgba(oColorsByName('jade'), 0.95);
 	}
+	
+}
 
-	// Set module to silent again
+@if $n-notification-is-silent == false {
+	@include nNotification();
+
 	$n-notification-is-silent: true !global;
 }
