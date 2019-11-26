@@ -110,7 +110,7 @@ We recommend the use of [named spaces](#named-space), but any space that multipl
 
 ```scss
 	.example {
-		margin-bottom: oSpacingByIncrement('4');
+		margin-bottom: oSpacingByIncrement(4);
 	}
 ```
 
