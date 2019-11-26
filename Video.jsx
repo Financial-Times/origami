@@ -20,6 +20,7 @@ const Embed = (props) => (
 			data-o-video-optimumvideowidth="640"
 			data-o-video-autorender="true"
 			data-o-video-playsinline="true"
+			data-o-video-disableGuidance={props.disableGuidance}
 			data-o-video-placeholder="true"
 			data-o-video-placeholder-info="[]"
 			data-o-video-placeholder-hint="Play video"
