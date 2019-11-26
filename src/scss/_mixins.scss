@@ -37,12 +37,16 @@
 	// colours usually happens at a component level.
 	$color-exists: _oColorsNameExists($color-name);
 	@if ($namespace != 'o-colors' and $color-exists) {
-		@error 'A palette colour "#{$color-name}" has already been set. ' +
-		'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
-		'If you would like to customise "#{$namespace}" colours, check its README for ' +
-		'customisation options, or contact the Origami team to propose new customisation features.';
+		$existing-current-color: oColorsByName($color-name);
+		// The colour may be set twice by the same component if it's included twice.
+		// So only error if it's being set again with a new colour.
+		@if ($existing-current-color != $color-value) {
+			@error 'A palette colour "#{$color-name}" has already been set. ' +
+			'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
+			'If you would like to customise "#{$namespace}" colours, check its README for ' +
+			'customisation options, or contact the Origami team to propose new customisation features.';
+		}
 	}
-
 	// Set the new colour to the colour palette.
 	// Set colours without the default o-colors namespace so consumers
 	// do not have to check returned colour names with the namespace.
@@ -131,10 +135,15 @@
 		$colors: map-merge($current-colors, $colors);
 	}
 
+	$new-usecase-config: (
+		$usecase: ('colors': $colors, 'opts': $opts)
+	);
+
 	// Existing project/component usecases may not be customised by users:
 	// Customisation for non-default usecases usually happens on the component
 	// level, with component specific mixins.
-	@if ($namespace != 'o-colors' and map-has-key($_o-colors-usecases, $usecase)) {
+	$current-usecase-config: map-get($_o-colors-usecases, $usecase);
+	@if ($namespace != 'o-colors' and $current-usecase-config and $current-usecase-config != $new-usecase-config) {
 		@error 'A usecase "#{$usecase}" has already been set. ' +
 		'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
 		'If you would like to customise "#{$namespace}" colours, check its README for ' +
@@ -142,9 +151,7 @@
 	}
 
 	// Add the use-case and its properties to the global use-case map.
-	$_o-colors-usecases: map-merge($_o-colors-usecases, (
-		$usecase: ('colors': $colors, 'opts': $opts)
-	)) !global;
+	$_o-colors-usecases: map-merge($_o-colors-usecases, $new-usecase-config) !global;
 }
 
 /// Update the palette with default tones.
