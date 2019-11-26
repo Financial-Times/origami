@@ -77,6 +77,25 @@ This will instantiate all subs-cards within the document. Alternatively you can 
 
 ## Migration Guide
 
+### Upgrading from v3.x.x to v4.x.x
+
+The dependencies for this component have all been updated to the latest major
+versions. If you have any conflicts while installing this version, you'll need
+to first update its dependencies. See [the Bower config for these](./bower.json).
+
+#### Color Use Cases
+
+The following color use cases have been removed:
+
+```diff
+- o-subs-card
+- o-subs-card-button
+- o-subs-card-copy-details
+- o-subs-card-read-more
+- o-subs-card-discount
+- o-subs-card-b2b
+```
+
 ### Upgrading from v2.x.x to v3.x.x
 
 o-subs-card v3.x.x changes the JavaScript from being a mix of ECMAScript Modules and CommonJS in a single file to being solely ECMAScript Modules. 

@@ -18,7 +18,7 @@
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
-		"dependencies": "o-fonts@^3.0.0,o-grid@^4.3.3,o-colors@^4.0.0,o-normalise@^1.0.0"
+		"dependencies": "o-fonts@^4.0.0,o-grid@^5.0.0,o-colors@^5.0.1,o-normalise@^2.0.0"
 	},
 	"demos": [
 		{
