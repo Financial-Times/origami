@@ -8,7 +8,7 @@
 	"support": "https://github.com/Financial-Times/n-notification/issues",
 	"supportContact": {
 		"email": "next.team@ft.com",
-		"slack": "financial-times/ft-origami"
+		"slack": "financial-times/next-dev-support"
 	},
 	"supportStatus": "experimental",
 	"ci": {
