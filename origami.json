@@ -57,6 +57,11 @@
 			"template": "demos/src/ordered-list.mustache"
 		},
 		{
+			"title": "Standfirst",
+			"name": "standfirst",
+			"template": "demos/src/standfirst.mustache"
+		},
+		{
 			"title": "Byline With Timestamp",
 			"name": "byline",
 			"template": "demos/src/byline.mustache"
