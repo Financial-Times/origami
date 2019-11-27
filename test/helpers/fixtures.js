@@ -32,9 +32,9 @@ function simple () {
 		<a href='#' class="o-expander__toggle click-for-testing"></a>
 	</div>
 
-	<div data-o-component="o-expander" class="o-expander height" data-o-expander-shrink-to="height">
+	<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="height">
 		<h2>Collapsing to height of content (resize window to see toggle appear and disappear in a content-aware manner)</h2>
-		<div class="o-expander__content">
+		<div class="o-expander__content" style="max-height: 0px; overflow: hidden;">
 			word word word word word word word word word word word word word word word word word word word word word word
 		</div>
 		<a href='#' class="o-expander__toggle"></a>

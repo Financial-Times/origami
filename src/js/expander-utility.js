@@ -218,7 +218,8 @@ class ExpanderUtility {
 		// If not check for dom attributes to decide if the user intends
 		// the expander to be expanded or collapsed by default.
 		if (this.options.shrinkTo === 'hidden') {
-			return this.contentElement.getAttribute('aria-hidden') === 'true';
+			// Check is not false so hidden expanders collapse by default.
+			return this.contentElement.getAttribute('aria-hidden') !== 'false';
 		}
 		return !this.contentElement.classList.contains(this.options.classnames.expanded);
 	}

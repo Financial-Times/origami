@@ -24,7 +24,7 @@ The  `o-expander` component has a content element `o-expander__content` (the DOM
 </div>
 ```
 
-By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded`.
+By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded` (or `aria-hidden="true"` for the [Hidden Expander](#hidden-expander)).
 
 ```diff
 <div data-o-component="o-expander" class="o-expander">
