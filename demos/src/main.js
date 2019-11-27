@@ -22,8 +22,7 @@ if (demoMethod) {
 	demoMethod.addEventListener('click', function() {
 		nNotification.show({
 			title: 'Title',
-			content:
-				'Notification generated via nNotification.show method duration set at 5s (timeout default)'
+			content: 'Notification generated via nNotification.show method duration set at 5s (timeout default)'
 		});
 	});
 }
@@ -54,8 +53,7 @@ if (demoKeep) {
 	demoKeep.addEventListener('click', function() {
 		nNotification.show({
 			title: 'Explicit dismissal',
-			content:
-				'Notification generated via nNotification.show keep, duration 0 requires explicit dismissal',
+			content: 'Notification generated via nNotification.show keep, duration 0 requires explicit dismissal',
 			duration: 0
 		});
 	});
