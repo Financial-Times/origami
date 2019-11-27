@@ -15,7 +15,7 @@
   "dependencies": {
     "o-buttons": "^6.0.2",
     "o-colors": "^5.0.1",
-    "o-expander": "^5.0.0",
+    "o-expander": "^5.0.1",
     "o-grid": "^5.0.0",
     "o-typography": "^6.0.1",
     "o-spacing": "^2.0.0"
