@@ -94,7 +94,7 @@ module.exports = () => {
 
 	});
 
-	describe.only("fetchJsonWebToken returns a displayName", () => {
+	describe("fetchJsonWebToken returns a displayName", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
 		});

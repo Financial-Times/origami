@@ -198,9 +198,10 @@ class Stream {
 		signedInMessage.classList.add('o-comments__signed-in-container');
 		signedInMessage.innerHTML = `
 									<p class="o-comments__signed-in-text">Signed in as
-										<span class="o-comments__signed-in-inner-text">${this.displayName}</span>.
+										<span class="o-comments__signed-in-inner-text"></span>.
 										<a class="o-comments__edit-display-name">Edit</a>
 									</p>`;
+		signedInMessage.querySelector('.o-comments__signed-in-inner-text').innerText = this.displayName;
 
 		const oldSignedInMessage = this.streamEl.parentNode.querySelector('.o-comments__signed-in-container');
 		if (oldSignedInMessage) {
