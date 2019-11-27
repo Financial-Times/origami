@@ -1,160 +1,27 @@
-# generator: n-circle2-cli
-# template: component
-
-references:
-
-  container_config_node8: &container_config_node8
-    working_directory: ~/project/build
-    docker:
-      - image: circleci/node:8-browsers
-
-  container_config_lambda_node8: &container_config_lambda_node8
-    working_directory: ~/project/build
-    docker:
-      - image: lambci/lambda:build-nodejs8.10
-
-  workspace_root: &workspace_root
-    ~/project
-
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
-
-  npm_cache_keys: &npm_cache_keys
-    keys:
-        - v2-dependency-npm-{{ checksum "package.json" }}-
-        - v2-dependency-npm-{{ checksum "package.json" }}
-        - v2-dependency-npm-
-
-  cache_npm_cache: &cache_npm_cache
-    save_cache:
-        key: v2-dependency-npm-{{ checksum "package.json" }}-{{ epoch }}
-        paths:
-        - ./node_modules/
-
-  restore_npm_cache: &restore_npm_cache
-    restore_cache:
-        <<: *npm_cache_keys
-
-  filters_only_master: &filters_only_master
-    branches:
-      only: master
-
-  filters_ignore_master: &filters_ignore_master
-    branches:
-      ignore: master
-
-  filters_ignore_tags: &filters_ignore_tags
-    tags:
-      ignore: /.*/
-
-  filters_version_tag: &filters_version_tag
-    tags:
-      only:
-        - /^v?\d+\.\d+\.\d+(?:-beta\.\d+)?$/
-    branches:
-      ignore: /.*/
-
 version: 2
-
 jobs:
-
-  build:
-    <<: *container_config_node8
+  test:
+    docker:
+      - image: 'circleci/node:10-browsers'
     steps:
       - checkout
-      - run:
-          name: Checkout next-ci-shared-helpers
-          command: git clone --depth 1 git@github.com:Financial-Times/next-ci-shared-helpers.git .circleci/shared-helpers
-      - *restore_npm_cache
-      - run:
-          name: Install project dependencies
-          command: make install
-      - run:
-          name: shared-helper / npm-install-peer-deps
-          command: .circleci/shared-helpers/helper-npm-install-peer-deps
-      - run:
-          name: shared-helper / npm-update
-          command: .circleci/shared-helpers/helper-npm-update
-      - run:
-          name: shared-helper / generate-build-state-artifacts
-          command: .circleci/shared-helpers/helper-generate-build-state-artifacts
-          when: always
-      - *cache_npm_cache
-      - store_artifacts:
-          path: build-state
-          destination: build-state
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - build
-
-  test:
-    <<: *container_config_node8
+      - run: npm install --only=dev
+      - run: npx origami-ci branch
+  publish_to_npm:
+    docker:
+      - image: 'circleci/node:10'
     steps:
-      - *attach_workspace
-      - run:
-          name: Run tests
-          command: make test
-          environment:
-            JEST_JUNIT_OUTPUT: test-results/jest/results.xml
-            MOCHA_FILE: test-results/mocha/results.xml
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: test-results
-          destination: test-results
-
-  publish:
-    <<: *container_config_node8
-    steps:
-      - *attach_workspace
-      - run:
-          name: shared-helper / npm-store-auth-token
-          command: .circleci/shared-helpers/helper-npm-store-auth-token
-      - run: npx snyk monitor --org=customer-products --project-name=Financial-Times/n-notification
-      - run:
-          name: shared-helper / npm-version-and-publish-public
-          command: .circleci/shared-helpers/helper-npm-version-and-publish-public
-
+      - checkout
+      - run: npm install --only=dev
+      - run: npx origami-ci release
 workflows:
-
   version: 2
-
-  build-test:
+  test:
     jobs:
-      - build:
+      - test
+      - publish_to_npm:
           filters:
-            <<: *filters_ignore_tags
-      - test:
-          requires:
-            - build
-
-  build-test-publish:
-    jobs:
-      - build:
-          filters:
-            <<: *filters_version_tag
-      - test:
-          filters:
-            <<: *filters_version_tag
-          requires:
-            - build
-      - publish:
-          filters:
-            <<: *filters_version_tag
-          requires:
-            - test
-
-  nightly:
-    triggers:
-      - schedule:
-          # TODO: Randomise this time to stop builds queueing up in CircleCI
-          cron: "0 0 * * *"
-          filters:
-            <<: *filters_only_master
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

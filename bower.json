@@ -5,7 +5,6 @@
     "main.scss",
     "main.js"
   ],
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "n-ui-foundations": "^3.0.0-beta"
+    "o-typography": "^6.1.0",
+    "o-colors": "^5.0.3"
   }
 }

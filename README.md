@@ -50,3 +50,8 @@ The timeout default is 5000ms.
 
 * Using the Notifications and PageVisibility APIs to show people notifications with the FT open in the background.
 * Firing messages and notifications from Server Sent Events
+
+# Development
+
+1. Install dependencies with `obt install`
+1. Watch and rebuild source and demos on change with `obt demo --watch --run-server`

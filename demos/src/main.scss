@@ -2,5 +2,8 @@ $n-notification-is-silent: false;
 @import "../../main";
 
 body {
-	padding: 80px;
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	grid-gap: 1rem;
 }
