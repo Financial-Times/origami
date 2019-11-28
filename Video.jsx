@@ -9,7 +9,9 @@ const formatData = (props) => JSON.stringify({
 
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
-const Embed = (props) => (
+const Embed = (props) => {
+	const showGuidance = typeof(props.showGuidance) === 'boolean' ? props.showGuidance : true;
+	return (
 	<div className="o-teaser__image-container js-image-container">
 		<div
 			className="o-video"
@@ -20,13 +22,14 @@ const Embed = (props) => (
 			data-o-video-optimumvideowidth="640"
 			data-o-video-autorender="true"
 			data-o-video-playsinline="true"
-			data-o-video-disableGuidance={props.disableGuidance}
+			data-o-video-show-guidance={showGuidance}
 			data-o-video-placeholder="true"
 			data-o-video-placeholder-info="[]"
 			data-o-video-placeholder-hint="Play video"
 			data-o-video-systemcode={props.systemCode} />
 	</div>
-);
+	)
+};
 
 export default (props) => (
 	<div className="o-teaser__video">
