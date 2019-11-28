@@ -11,62 +11,71 @@
 	}
 
 	.o-subs-card__top {
-		@include oTypographyPadding($bottom: 0);
-		@include oColorsFor('o-subs-card');
-
+		color: oColorsByName('black');
+		background-color: oColorsByName('white');
+		box-shadow: 0 5px 5px oColorsByName('black-5');
+		padding-bottom: 0;
 		padding-right: $o-subs-card-horizontal-padding;
 		padding-left: $o-subs-card-horizontal-padding;
-		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
 	}
 
 	.o-subs-card__copy-title {
-		@include oTypographySansBold(3);
-		@include oTypographyMargin($bottom: 5);
+		@include oTypographySans($scale: 3, $weight: 'semibold');
+
+		margin-bottom: oSpacingByIncrement(5);
 
 		&:first-child {
-			@include oTypographyPadding($top: 8);
+			padding-top: oSpacingByName('s8');
 		}
 
 		//Handle the height change when there is an offer in place
 		&:nth-child(2) {
-			@include oTypographyMargin($bottom: 2);
+			margin-bottom: oSpacingByName('s2');
 		}
 	}
 
 	.o-subs-card__copy-pitch {
 		@include oTypographySans(0);
-		@include oTypographyPadding($bottom: 3);
 
 		display: inline-block;
 		text-align: center;
+		padding-bottom: oSpacingByName('s3');
 	}
 
 	.o-subs-card__charge {
-		@include oTypographyPadding($bottom: 4);
+		padding-bottom: oSpacingByName('s4');
 	}
 
 	.o-subs-card__charge__value {
-		@include oTypographyPadding($bottom: 2);
+		padding-bottom: oSpacingByName('s2');
 	}
 
 	.o-subs-card__select-button {
-		@include oButtons($size: 'big', $theme: 'primary');
-		@include oTypographyMargin($bottom: 1);
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'size': 'big',
+		));
+		margin-bottom: oSpacingByName('s1');
 		width: 100%;
 	}
 
 	.o-subs-card__expander {
-		@include oColorsFor('o-subs-card');
-		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
+		color: oColorsByName('black');
+		background-color: oColorsByName('white');
+		box-shadow: 0 5px 5px oColorsByName('black-5');
+
+		&--collapsed {
+			display: none;
+		}
 	}
 
 	.o-subs-card__copy-details {
-		@include oExpanderContent();
-
 		border-top: 1px solid rgba(0, 0, 0, 0.25);
-		margin-left: $o-subs-card-horizontal-padding;
-		margin-right: $o-subs-card-horizontal-padding;
 		text-align: left;
+
+		@include oGridRespondTo(L) {
+			display: none;
+		}
 
 		.core & {
 			display: block;
@@ -74,25 +83,27 @@
 	}
 
 	.o-subs-card__copy-benefits {
-		@include oTypographyPadding($top: 3);
-
 		margin: 0;
-		padding-left: 0;
+		padding: oSpacingByName('s3');
+		padding-left: $o-subs-card-horizontal-padding;
+		padding-right: $o-subs-card-horizontal-padding;
 		list-style: none;
 
 		li {
-			@include oTypographyPadding($bottom: 3);
+			padding-bottom: oSpacingByName('s3');
 		}
 	}
 
 	.o-subs-card__read-more {
-		@include oColorsFor(o-subs-card-read-more, background text, 80);
-		@include oTypographySansBold(-1);
-		@include oTypographyPadding($top: 2, $bottom: 2);
+		@include oTypographySans($scale: -1, $weight: 'semibold');
 
-		cursor: pointer;
+		background-color: oColorsByName('wheat');
 		border-width: 0;
+		color: oColorsByName('teal-50');
+		cursor: pointer;
 		display: block;
+		padding-bottom: oSpacingByName('s2');
+		padding-top: oSpacingByName('s2');
 		width: 100%;
 
 		@include oGridRespondTo(L) {
@@ -101,7 +112,7 @@
 
 		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
 		&:after {
-			@include oIconsGetIcon('arrow-down', oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card-read-more, text)), 16);
+			@include oIconsContent('arrow-down', oColorsByName('teal-50'), $size: 16);
 			content: '';
 			position: relative;
 			vertical-align: middle;
@@ -119,7 +130,7 @@
 	.o-subs-card__swg {
 		background: white;
 		padding: 0 16px 16px;
-		box-shadow: 0 5px 5px oColorsGetPaletteColor(oColorsGetUseCase(o-subs-card, shadow));
+		box-shadow: 0 5px 5px oColorsByName('black-5');
 	}
 
 	.o-subs-card__separator {
@@ -172,7 +183,7 @@
 @mixin oSubsCardContainer {
 	border-spacing: $o-subs-card-horizontal-margin; //ie 9
 	display: table-cell; // ie 9
-	display: flex;  //sass-lint:disable-line no-duplicate-properties
+	display: flex;	//sass-lint:disable-line no-duplicate-properties
 	flex-direction: column;
 	flex: auto;
 	margin: 0 20px;
@@ -196,10 +207,8 @@
 	}
 
 	.o-subs-card {
-		@include oTypographyMargin($top: 3, $bottom: 3);
-
-		margin-left: $o-subs-card-horizontal-margin / 2; // no collapsing margins in display flex
-		margin-right: $o-subs-card-horizontal-margin / 2;
+		// no collapsing margins in display flex
+		margin: oSpacingByName('s3') $o-subs-card-horizontal-margin / 2;
 	}
 
 	.o-subs-card,
