@@ -22,7 +22,8 @@ const Embed = (props) => (
 			data-o-video-playsinline="true"
 			data-o-video-placeholder="true"
 			data-o-video-placeholder-info="[]"
-			data-o-video-placeholder-hint="Play video" />
+			data-o-video-placeholder-hint="Play video"
+			data-o-video-systemcode={props.systemCode} />
 	</div>
 );
 
