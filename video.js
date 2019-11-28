@@ -12,6 +12,7 @@ exports.knobs = [
 	'id',
 	'url',
 	'type',
+	'systemCode',
 	// Meta
 	'showMeta',
 	'metaPrefixText',

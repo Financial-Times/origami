@@ -5,12 +5,12 @@ exports.component = Teaser;
 exports.package = require('../package.json');
 
 exports.dependencies = {
-	'o-date': '^2.11.0',
-	'o-labels': '^4.2.1',
-	'o-normalise': '^1.6.0',
-	'o-teaser': '^3.5.0',
-	'o-typography': '^5.5.0',
-	'o-video': '^4.1.0'
+	'o-date': '^4.0.0',
+	'o-labels': '^5.0.0',
+	'o-normalise': '^2.0.0',
+	'o-teaser': '^4.0.0',
+	'o-typography': '^6.0.0',
+	'o-video': '^6.0.0'
 };
 
 exports.stories = [
