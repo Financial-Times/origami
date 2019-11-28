@@ -1,6 +1,7 @@
 import * as events from './utils/events';
 import * as displayName from './utils/display-name';
 import * as auth from './utils/auth';
+import purgeJwtCache from './utils/purge-jwt-cache';
 
 class Stream {
 	/**
@@ -108,7 +109,7 @@ class Stream {
 		});
 	}
 
-	displayNamePrompt () {
+	displayNamePrompt ({purgeCacheAfterCompletion = false}) {
 		const overlay = displayName.prompt();
 
 		document.addEventListener('oOverlay.ready', (event) => {
@@ -124,6 +125,9 @@ class Stream {
 								.then(() => {
 									this.login();
 								});
+							if (purgeCacheAfterCompletion) {
+								purgeJwtCache();
+							}
 						});
 				});
 			}
@@ -211,7 +215,7 @@ class Stream {
 		this.streamEl.parentNode.insertBefore(signedInMessage, this.streamEl);
 
 		document.querySelector('.o-comments__edit-display-name').onclick = () => {
-			this.displayNamePrompt();
+			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
 }
