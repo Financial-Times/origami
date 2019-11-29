@@ -32,6 +32,32 @@ For paragraphs use the `o-editorial-layout-body` class:
 
 Adjacent `figure`, `aside`, and `div` elements will have margin applied.
 
+A wrapper class `o-editorial-layout-wrapper` may be used to style child elements based on their semantic meaning. This includes headings, paragraphs, lists, figure captions, footers, blockquotes, and more. See a [full example in the wrapper registry](https://registry.origami.ft.com/components/o-editorial-layout). Only direct children, and in some cases the children of paragraph elements, are styled.
+
+```html
+<div class="o-editorial-layout-wrapper">
+	<h1>heading 1</h1>
+	<h2>heading 2</h2>
+
+	<p><a href="#">Lorem ipsum dolor sit amet consectetur</a> adipisicing elit.</p>
+
+	<blockquote>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, quaerat!</p>
+		<footer><cite>Lorem, ipsum dolor.</cite></footer>
+	</blockquote>
+
+	<p><em>Some italic copy</em> adipisci consectetur.</p>
+
+	<p>Quas<sup>sup</sup> and dolorem<sub>sub</sub> harum tempora omnis.</p>
+
+	<ol>
+		<li>Lorem ipsum&#xA0;adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ol>
+</div>
+```
+
 ### Sass
 
 Include all o-editorial-layout styles by including the `oEditorialLayout` mixin.
@@ -48,7 +74,8 @@ For example to include only heading levels 1-3 and body copy styles.
 ```scss
 @include oEditorialLayout($opts: (
 	'body': true,
-	'headings': (1, 2, 3)
+	'headings': (1, 2, 3),
+	'wrapper': true
 ));
 ```
 

@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "o-editorial-typography": "^1.0.0",
+    "o-typography": "^6.1.0",
+    "o-quote": "^4.0.0",
     "o-spacing": "^2.0.0"
   }
 }
