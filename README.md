@@ -133,7 +133,7 @@ For a pagination style wrap your buttons in `.o-buttons-pagination`. In this exa
 To output default o-buttons CSS make a single call to the primary mixin `oButtons`. It is recommended that you pass an options map as the first argument to include only the button styles you need. Without the options map, all o-buttons styles are included.
 
 ```scss
-@mixin oButtons($opts: (
+@include oButtons($opts: (
 	'sizes': ('big'), // e.g .o-buttons--big
 	'types': ('primary', 'secondary'), // e.g .o-buttons--primary
 	'themes': ('mono', 'inverse', 'b2c'), // e.g .o-buttons--inverse
