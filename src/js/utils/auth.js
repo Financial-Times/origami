@@ -9,10 +9,6 @@ export function fetchJsonWebToken (options = {}) {
 		url.searchParams.append('staging', '1');
 	}
 
-	if (options.sourceApp) {
-		url.searchParams.append('sourceApp', options.sourceApp);
-	}
-
 	return fetch(url, { credentials: 'include' }).then(response => {
 		// user is signed in and has a pseudonym
 		if (response.ok) {

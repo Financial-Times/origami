@@ -36,8 +36,7 @@ class Stream {
 
 	authenticateUser (displayName) {
 		const fetchOptions = {
-			useStagingEnvironment: this.useStagingEnvironment,
-			sourceApp: this.options.sourceApp
+			useStagingEnvironment: this.useStagingEnvironment
 		};
 
 		if (displayName) {

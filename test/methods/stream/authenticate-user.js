@@ -51,21 +51,6 @@ module.exports = () => {
 
 		});
 
-		it("source app option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
-
-			const stream = new Stream(null, {
-				sourceApp: 'next'
-			});
-
-			stream.authenticateUser()
-				.then(() => {
-					const options = fetchJWTStub.getCall(0).args[0];
-					proclaim.equal(options.sourceApp, 'next');
-					done();
-				});
-		});
-
 	});
 
 	describe("fetchJsonWebToken returns a token", () => {
