@@ -2,6 +2,12 @@
     // Only output placeholders once.
     $_o-editorial-layout-placeholders-output: true !global;
 
+    // lists
+    // - match body
+    %_o-editorial-layout-list {
+        @extend %_o-editorial-layout-body;
+        @include oEditorialTypographyList();
+    }
     // h1
     // - small margin below by default
     %_o-editorial-layout-heading-1 {

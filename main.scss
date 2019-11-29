@@ -1,5 +1,7 @@
 @import 'o-editorial-typography/main';
 @import 'o-spacing/main';
+@import 'o-typography/main';
+@import 'o-quote/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/functions';
@@ -10,10 +12,12 @@
 @mixin oEditorialLayout($opts: (
 	'headings': (1, 2, 3, 4, 5),
 	'body': true,
+	'wrapper': true,
 )) {
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
 	$body: map-get($opts, 'body');
+	$wrapper: map-get($opts, 'wrapper');
 
 	@if($headings and type-of($headings) != 'list') {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
@@ -52,6 +56,101 @@
 	@if $body {
 		.o-editorial-layout-body {
 			@include oEditorialLayoutBody();
+		}
+	}
+
+	@if $wrapper {
+		.o-editorial-layout-wrapper {
+			> h1 {
+				@include oEditorialLayoutHeading(1);
+			}
+
+			> h2 {
+				@include oEditorialLayoutHeading(2);
+			}
+
+			> h3 {
+				@include oEditorialLayoutHeading(3);
+			}
+
+			> h4 {
+				@include oEditorialLayoutHeading(4);
+			}
+
+			> h5 {
+				@include oEditorialLayoutHeading(5);
+			}
+
+			> ol,
+			> ul,
+			> p {
+				@include oEditorialLayoutBody();
+			}
+
+			> ol,
+			> ul {
+				@extend %_o-editorial-layout-list;
+			}
+
+			> ol {
+				@include oEditorialTypographyList('ordered', $include-base-styles: false);
+			}
+
+			> ul {
+				@include oEditorialTypographyList('unordered', $include-base-styles: false);
+			}
+
+			> footer {
+				@include oTypographyFooter;
+			}
+
+			> figure > figcaption,
+			> figcaption {
+				@include oEditorialTypographyCaption();
+			}
+
+			> blockquote {
+				@include oQuoteBase();
+				@include oQuoteStandard();
+				margin-bottom: oSpacingByIncrement(7);
+				max-width: oTypographyMaxLineWidth(75);
+
+				cite,
+				footer {
+					@include oQuoteBaseCite();
+					@include oQuoteStandardCite();
+				}
+
+				footer > cite {
+					@include oQuoteStandardCiteAuthor();
+				}
+			}
+		}
+
+		.o-editorial-layout-wrapper > p,
+		.o-editorial-layout-wrapper {
+			> a {
+				@include oTypographyLink;
+			}
+
+			> strong {
+				@include oTypographySerif(
+					$weight: 'bold',
+					$include-font-family: false
+				);
+			}
+
+			> em {
+				font-style: italic;
+			}
+
+			> sup {
+				@include oTypographySuper();
+			}
+
+			> sub {
+				@include oTypographySub();
+			}
 		}
 	}
 }
