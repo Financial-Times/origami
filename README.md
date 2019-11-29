@@ -74,7 +74,8 @@ For example to include only heading levels 1-3 and body copy styles.
 ```scss
 @include oEditorialLayout($opts: (
 	'body': true,
-	'headings': (1, 2, 3)
+	'headings': (1, 2, 3),
+	'wrapper': true
 ));
 ```
 
