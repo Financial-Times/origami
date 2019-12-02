@@ -10,7 +10,7 @@ const formatData = (props) => JSON.stringify({
 // To prevent React from touching the DOM after mounting… return an empty <div />
 // <https://reactjs.org/docs/integrating-with-other-libraries.html>
 const Embed = (props) => {
-	const showGuidance = typeof(props.showGuidance) === 'boolean' ? props.showGuidance : true;
+	const showGuidance = typeof props.showGuidance  === 'boolean' ? props.showGuidance.toString() : "true";
 	return (
 	<div className="o-teaser__image-container js-image-container">
 		<div
