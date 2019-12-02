@@ -108,7 +108,7 @@ class Stream {
 		});
 	}
 
-	displayNamePrompt ({purgeCacheAfterCompletion = false}) {
+	displayNamePrompt ({purgeCacheAfterCompletion = false} = {}) {
 		const overlay = displayName.prompt();
 
 		document.addEventListener('oOverlay.ready', (event) => {
