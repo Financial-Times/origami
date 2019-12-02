@@ -1,4 +1,4 @@
-const template = require('./template');
+import template from './template';
 
 const supportedTypes = ['error', 'success'];
 

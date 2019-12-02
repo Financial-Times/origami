@@ -1,4 +1,4 @@
-const nNotification = require('../../main');
+import nNotification from '../../main';
 const demoEvent = document.querySelector('.demo-notification--event');
 const demoMethod = document.querySelector('.demo-notification--method');
 const demoError = document.querySelector('.demo-notification--error');

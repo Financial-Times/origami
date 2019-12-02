@@ -6,7 +6,7 @@ Component for showing onsite notification bars to users. Concurrent notification
 ## Programatically
 
 ```js
-const nNotification = require('n-notification');
+import nNotification from 'n-notification';
 
 nNotification.show({
 	title: 'Optional title',
@@ -21,7 +21,8 @@ nNotification.show({
 ## Custom Events
 
 ```js
-require('n-notification').init();
+import nNotification from 'n-notification';
+nNotification.init();
 
 const event = new CustomEvent('nNotification.show', {detail: { content: 'Title' }});
 document.dispatchEvent(event);

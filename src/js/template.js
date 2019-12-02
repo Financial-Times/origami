@@ -1,4 +1,4 @@
-module.exports = (options) => {
+export default (options) => {
 
 	const noticeEl = document.createElement('div');
 
