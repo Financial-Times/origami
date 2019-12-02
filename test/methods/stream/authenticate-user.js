@@ -51,21 +51,6 @@ module.exports = () => {
 
 		});
 
-		it("source app option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
-
-			const stream = new Stream(null, {
-				sourceApp: 'next'
-			});
-
-			stream.authenticateUser()
-				.then(() => {
-					const options = fetchJWTStub.getCall(0).args[0];
-					proclaim.equal(options.sourceApp, 'next');
-					done();
-				});
-		});
-
 	});
 
 	describe("fetchJsonWebToken returns a token", () => {
@@ -78,21 +63,41 @@ module.exports = () => {
 			sandbox.restore();
 		});
 
-		it("calls embed.login with the new token", (done) => {
+		it("sets this.authenticationToken to the token", (done) => {
 			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
 				token: 'fake-jwt'
 			});
 
-			const loginStub = sandbox.stub();
 			const stream = new Stream();
-
-			stream.embed = {
-				login: loginStub
-			};
-
 			stream.authenticateUser()
 				.then(() => {
-					proclaim.isTrue(loginStub.calledWith('fake-jwt'));
+					proclaim.equal(stream.authenticationToken, 'fake-jwt');
+					done();
+				});
+
+		});
+
+	});
+
+	describe("fetchJsonWebToken returns a displayName", () => {
+		beforeEach(() => {
+			fixtures.streamMarkup();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+			sandbox.restore();
+		});
+
+		it("sets this.displayName to the display name", (done) => {
+			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+				displayName: 'fake-display-name'
+			});
+
+			const stream = new Stream();
+			stream.authenticateUser()
+				.then(() => {
+					proclaim.equal(stream.displayName, 'fake-display-name');
 					done();
 				});
 

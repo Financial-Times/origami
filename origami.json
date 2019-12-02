@@ -18,7 +18,8 @@
 		"required": [
 			"Map",
 			"fetch",
-			"Array.from"
+			"Array.from",
+			"Element.prototype.remove"
 		]
 	},
 	"ci": {

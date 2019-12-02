@@ -59,28 +59,6 @@ describe('Fetch JSON web token', () => {
 		});
 	});
 
-	describe("when the source app option is passed in", () => {
-		let commentsApiMock;
-
-		before(() => {
-			commentsApiMock = fetchMock.mock('https://comments-api.ft.com/user/auth/?sourceApp=next', {
-				token: '12345'
-			});
-		});
-
-		after(() => {
-			fetchMock.reset();
-		});
-
-		it("appends the source app query parameter to the comments api url", () => {
-			auth.fetchJsonWebToken({
-				sourceApp: 'next'
-			});
-
-			proclaim.isTrue(commentsApiMock.called());
-		});
-	});
-
 	describe("when comments api returns a valid response", () => {
 		before(() => {
 			fetchMock.mock('https://comments-api.ft.com/user/auth/', {

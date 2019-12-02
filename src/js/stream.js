@@ -1,6 +1,7 @@
 import * as events from './utils/events';
 import * as displayName from './utils/display-name';
 import * as auth from './utils/auth';
+import purgeJwtCache from './utils/purge-jwt-cache';
 
 class Stream {
 	/**
@@ -19,20 +20,23 @@ class Stream {
 	init () {
 		return Promise.all([this.renderComments(), this.authenticateUser()])
 			.then(() => {
-				if (this.displayName) {
-					Stream.renderSignedInMessage(this.streamEl, this.displayName);
-				}
-
-				if (this.authenticationToken) {
-					this.embed.login(this.authenticationToken);
-				}
+				this.login();
 			});
+	}
+
+	login () {
+		if (this.authenticationToken) {
+			this.embed.login(this.authenticationToken);
+
+			if (this.displayName) {
+				this.renderSignedInMessage();
+			}
+		}
 	}
 
 	authenticateUser (displayName) {
 		const fetchOptions = {
-			useStagingEnvironment: this.useStagingEnvironment,
-			sourceApp: this.options.sourceApp
+			useStagingEnvironment: this.useStagingEnvironment
 		};
 
 		if (displayName) {
@@ -44,11 +48,7 @@ class Stream {
 				this.displayName = response.displayName;
 
 				if (response.token) {
-					if (this.embed) {
-						this.embed.login(response.token);
-					} else {
-						this.authenticationToken = response.token;
-					}
+					this.authenticationToken = response.token;
 				} else {
 					this.userHasValidSession = response.userHasValidSession;
 				}
@@ -108,7 +108,7 @@ class Stream {
 		});
 	}
 
-	displayNamePrompt () {
+	displayNamePrompt ({purgeCacheAfterCompletion = false}) {
 		const overlay = displayName.prompt();
 
 		document.addEventListener('oOverlay.ready', (event) => {
@@ -120,7 +120,13 @@ class Stream {
 					displayName.validation(event)
 						.then(displayName => {
 							overlay.close();
-							this.authenticateUser(displayName);
+							this.authenticateUser(displayName)
+								.then(() => {
+									this.login();
+								});
+							if (purgeCacheAfterCompletion) {
+								purgeJwtCache();
+							}
 						});
 				});
 			}
@@ -190,15 +196,26 @@ class Stream {
 			});
 	}
 
-	static renderSignedInMessage (streamEl, displayName) {
+	renderSignedInMessage () {
 		const signedInMessage = document.createElement('div');
+		signedInMessage.classList.add('o-comments__signed-in-container');
 		signedInMessage.innerHTML = `
-								<div class="o-comments__signed-in-container">
 									<p class="o-comments__signed-in-text">Signed in as
-										<span class="o-comments__signed-in-inner-text">${displayName}</span>.
-									</p>
-								</div>`;
-		streamEl.parentNode.insertBefore(signedInMessage, streamEl);
+										<span class="o-comments__signed-in-inner-text"></span>.
+										<a class="o-comments__edit-display-name">Edit</a>
+									</p>`;
+		signedInMessage.querySelector('.o-comments__signed-in-inner-text').innerText = this.displayName;
+
+		const oldSignedInMessage = this.streamEl.parentNode.querySelector('.o-comments__signed-in-container');
+		if (oldSignedInMessage) {
+			oldSignedInMessage.remove();
+		}
+
+		this.streamEl.parentNode.insertBefore(signedInMessage, this.streamEl);
+
+		document.querySelector('.o-comments__edit-display-name').onclick = () => {
+			this.displayNamePrompt({purgeCacheAfterCompletion: true});
+		};
 	}
 }
 
