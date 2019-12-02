@@ -9,6 +9,6 @@ function click(el) {
 	el.dispatchEvent(evt);
 }
 
-module.exports = {
-	click: click
+export default {
+	click
 };

@@ -1,9 +1,9 @@
 /* global describe, it, beforeEach afterEach*/
 
-const proclaim = require('proclaim');
+import proclaim from 'proclaim';
 
-const helpers = require('./phantomjs-helpers.js');
-const nNotification = require('../main.js');
+import helpers from './phantomjs-helpers.js';
+import nNotification from '../main.js';
 
 describe('Notifications', () => {
 	describe('Programatically', () => {

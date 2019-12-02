@@ -69,7 +69,7 @@ function destroy() {
 	isInstantiated = false;
 }
 
-module.exports = {
+export default {
 	init,
 	show,
 	destroy
