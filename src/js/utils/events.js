@@ -10,7 +10,7 @@ const coralEventMap = new Map([
 			oComments: 'oComments.loginPrompt'
 		}
 	],
-	['mutation.createComment',
+	['createComment.success',
 		{
 			oComments: 'oComments.postComment',
 			oTracking: 'post'
@@ -22,25 +22,25 @@ const coralEventMap = new Map([
 			oTracking: 'reply'
 		}
 	],
-	['mutation.editComment',
+	['createCommentReply.success',
 		{
 			oComments: 'oComments.editComment',
 			oTracking: 'edit'
 		}
 	],
-	['mutation.createCommentReaction',
+	['createCommentReaction.success',
 		{
 			oComments: 'oComments.likeComment',
 			oTracking: 'like'
 		}
 	],
-	['mutation.createCommentFlag',
+	['reportComment.success',
 		{
 			oComments: 'oComments.reportComment',
 			oTracking: 'report'
 		}
 	],
-	['mutation.removeUserIgnore',
+	['ignoreUser.success',
 		{
 			oComments: 'oComments.ignoreUser',
 			oTracking: 'ignore-user'
