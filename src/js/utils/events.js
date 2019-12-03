@@ -49,7 +49,7 @@ const coralEventMap = new Map([
 ]);
 
 const coralErrorMap = new Map([
-	['COMMENT_IS_TOXIC',
+	['TOXIC_COMMENT',
 		{
 			oComments: 'oComments.toxicComment',
 			oTracking: 'post-rejected-toxic'
@@ -57,13 +57,12 @@ const coralErrorMap = new Map([
 	]
 ]);
 
-const findValidErrors = (errors = []) => {
-	return errors
-		.filter(error => coralErrorMap.get(error.translation_key))
-		.map(error => coralErrorMap.get(error.translation_key));
+const findValidError = (code) => {
+	const validError = coralErrorMap.get(code);
+	return validError ? [validError] : [];
 };
 
 export {
 	coralEventMap,
-	findValidErrors
+	findValidError
 };

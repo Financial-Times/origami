@@ -133,11 +133,7 @@ module.exports = () => {
 
 			stream.publishEvent({ name: 'oComments.postComment', data: {
 				error: {
-					errors: [
-						{
-							translation_key: 'COMMENT_IS_TOXIC'
-						}
-					]
+					code: 'TOXIC_COMMENT'
 				}
 			}});
 
@@ -157,11 +153,7 @@ module.exports = () => {
 
 			stream.publishEvent({ name: 'oComments.postComment', data: {
 				error: {
-					errors: [
-						{
-							translation_key: 'COMMENT_IS_TOXIC'
-						}
-					]
+					code: 'TOXIC_COMMENT'
 				}
 			}});
 
@@ -194,11 +186,7 @@ module.exports = () => {
 
 			stream.publishEvent({ name: 'oComments.postComment', data: {
 				error: {
-					errors: [
-						{
-							translation_key: 'COMMENT_IS_TOXIC'
-						}
-					]
+					code: 'TOXIC_COMMENT'
 				}
 			}});
 
@@ -219,11 +207,7 @@ module.exports = () => {
 			const interval = window.setInterval(() => {
 				stream.publishEvent({ name: 'oComments.postComment', data: {
 					error: {
-						errors: [
-							{
-								translation_key: 'COMMENT_IS_TOXIC'
-							}
-						]
+						code: 'TOXIC_COMMENT'
 					}
 				}});
 			}, 10);

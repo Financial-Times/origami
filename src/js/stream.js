@@ -152,7 +152,7 @@ class Stream {
 	publishEvent ({name, data = {}}) {
 		const {
 			error: {
-				errors
+				code
 			} = {}
 		} = data;
 
@@ -161,10 +161,10 @@ class Stream {
 		}
 
 		const mappedEvent = events.coralEventMap.get(name);
-		const validErrors = errors && Array.isArray(errors) ? events.findValidErrors(errors) : [];
+		const validError = code ? events.findValidError(code) : [];
 		const eventsToPublish = mappedEvent ?
-			[mappedEvent].concat(validErrors) :
-			validErrors;
+			[mappedEvent].concat(validError) :
+			validError;
 
 		eventsToPublish
 			.forEach(eventMapping => {
