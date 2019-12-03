@@ -92,7 +92,7 @@
 	}
 
 	@if ($anchor) {
-		> a {
+		a {
 			@include _oTeaserCollectionHeadingLink;
 		}
 	}
