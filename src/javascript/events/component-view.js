@@ -1,4 +1,3 @@
-
 import Core from '../core';
 import getTrace from '../../libs/get-trace';
 import utils from '../utils';
@@ -80,6 +79,6 @@ const init = (opts = {}) => {
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
-export default init;
+export default { init };
 export { init };
 
