@@ -368,6 +368,12 @@ body {
 		$property: 'border',
 		$type: 'secondary'
 	) !important;
+
+	background-color: oButtonsGetColor(
+		$state: 'default',
+		$property: 'background',
+		$type: 'secondary'
+	) !important;
 }
 
 // featured comments
