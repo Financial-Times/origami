@@ -6,7 +6,7 @@ Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Contributing](#contributing)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
