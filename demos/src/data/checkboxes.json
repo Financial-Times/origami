@@ -226,6 +226,13 @@
 				{
 					"type": "checkbox",
 					"name": "extra",
+					"value": "This is a disabled checkbox with extra content.",
+					"additionalContent": "Here is the extra content for this checkbox.",
+					"disabled": true
+				},
+				{
+					"type": "checkbox",
+					"name": "extra",
 					"value": "By submitting this form, you indicate your consent to also being contacted by the Financial Times by email. post or phone about our other products, services or special offers unless you untick this box. You can change your preferences anytime in the My Account section.",
 					"checked": true
 				}
