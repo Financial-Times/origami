@@ -13,6 +13,8 @@
 /// @param {Map|null} $theme Custom theme map
 /// Outpus styling for box-styled anchors
 @mixin _oFormsPseudoRadioLinkStyles($theme: null) {
+	border-color: _oFormsGet('default-border', $from: $theme);
+
 	a {
 		@include _oFormsControlsBoxBase();
 		box-sizing: border-box;
@@ -31,7 +33,7 @@
 		}
 
 		&:not(:first-of-type) {
-			border-left: $_o-forms-border;
+			border-color: _oFormsGet('default-border', $from: $theme);
 		}
 	}
 }

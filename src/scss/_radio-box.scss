@@ -68,7 +68,12 @@
 /// @param {Map|null} $theme Custom theme map
 /// @output styling for box-styled radio inputs
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
-	$theme: _oFormsThemeToBrandVariants($theme);
+	border-color: _oFormsGet('default-border', $from: $theme);
+
+	.o-forms-input--radio-box__container,
+	label:not(:first-of-type) {
+		border-color: _oFormsGet('default-border', $from: $theme);
+	}
 
 	input[type=radio] { // sass-lint:disable-line no-qualifying-elements
 		& + .o-forms-input__label {

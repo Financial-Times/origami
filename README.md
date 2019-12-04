@@ -518,6 +518,7 @@ It accepts four arguments:
 	- `'controls-base'`: the base color of the theme
 	- `'controls-checked-base'`: the background color of a checked input
 	- `'controls-negative-checked-background'`: the background color for a 'negative' checked input
+	- `'controls-border'`: the colour of the border around the controls
 
 ```scss
 @include oFormsAddCustom((

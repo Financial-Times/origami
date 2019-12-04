@@ -7,9 +7,11 @@
 		@return null;
 	}
 
-	// Get given base colour.
+	// Get given base and border colour.
 	$base: map-get($theme, 'controls-base');
 	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
+	$border: map-get($theme, 'controls-border');
+	$border: if(type-of($border) == 'string', oColorsByName($border), $border);
 
 	// Get given checked base colour.
 	$checked-base: map-get($theme, 'controls-checked-base');
@@ -28,7 +30,8 @@
 	@return (
 		'controls-base': $base,
 		'controls-checked-base': $checked-base,
-		'controls-negative-checked-background': if($negative-background, $negative-background, $base)
+		'controls-negative-checked-background': if($negative-background, $negative-background, $base),
+		'default-border': $border
 	);
 }
 
