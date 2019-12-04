@@ -6,7 +6,7 @@
 	width: $_o-forms-spacing-six;
 	height: $_o-forms-spacing-six;
 
-	&:checked + .o-forms-input__label:after {
+	&:checked ~ .o-forms-input__label:after {
 		opacity: 1;
 	}
 
@@ -14,7 +14,7 @@
 		&:disabled {
 			opacity: 0;
 
-			+ .o-forms-input__label {
+			~ .o-forms-input__label {
 				opacity: 0.4;
 			}
 		}
