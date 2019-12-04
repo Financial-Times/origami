@@ -84,7 +84,7 @@ describe('component:view', () => {
 			const text = 'component:view target for default props';
 
 			createTargetComponent(attributes, text);
-			componentView();
+			componentView.init();
 			viewed(targetComponent);
 		});
 
@@ -128,7 +128,7 @@ describe('component:view', () => {
 					},
 				};
 
-				componentView(opts);
+				componentView.init(opts);
 				viewed(targetComponent);
 			});
 
@@ -158,7 +158,7 @@ describe('component:view', () => {
 						getContextData: {},
 					};
 
-					componentView(opts);
+					componentView.init(opts);
 					viewed(targetComponent);
 				});
 
@@ -177,7 +177,7 @@ describe('component:view', () => {
 						getContextData: (el) => `${el}`,
 					};
 
-					componentView(opts);
+					componentView.init(opts);
 					viewed(targetComponent);
 				});
 
@@ -201,7 +201,7 @@ describe('component:view', () => {
 						},
 					};
 
-					componentView(opts);
+					componentView.init(opts);
 					viewed(targetComponent);
 				});
 
