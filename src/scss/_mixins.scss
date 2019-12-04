@@ -26,6 +26,14 @@
 		font-weight: bold;
 	}
 
+	.o-comments__signed-in-container {
+		margin-bottom: oSpacingByName('s4');
+	}
+
+	.o-comments__edit-display-name {
+		@include oTypographyLink;
+	}
+
 	.o-overlay.o-comments__displayname-prompt {
 		background: oColorsByName('paper');
 		padding: 10px;
