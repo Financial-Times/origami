@@ -132,14 +132,8 @@ class Stream {
 			}
 		});
 
-		document.addEventListener('oOverlay.close', (event) => {
-			const sourceOverlay = event.srcElement;
-			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
-
-			if (displayNameForm) {
-				overlay.destroy();
-			}
-
+		overlay.context.addEventListener('oLayers.close', () => {
+			overlay.destroy();
 		});
 	}
 
