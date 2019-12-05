@@ -45,6 +45,7 @@ module.exports = () => {
 				});
 			});
 		});
+
 		it("maps coral events to oComment events", (done) => {
 			const listenerStub = sandbox.stub();
 			document.addEventListener('oComments.ready', () => {
@@ -72,6 +73,23 @@ module.exports = () => {
 			stream.publishEvent({ name: 'ready' });
 
 			proclaim.isTrue(listenerStub.calledOnce);
+		});
+
+		it("sets isWithheld to true when a comment is withheld for moderation", (done) => {
+			const listener = (event) => {
+				proclaim.isTrue(event.detail.isWithheld);
+				done();
+			};
+			document.addEventListener('oTracking.event', listener);
+
+			const stream = new Stream();
+			stream.publishEvent({ name: 'createComment.success', data: {
+				success: {
+					status: 'SYSTEM_WITHHELD'
+				}
+			}});
+
+			document.removeEventListener('oTracking.event', listener);
 		});
 
 		it("doesn't emit oTracking events if it has been disabled", (done) => {
