@@ -1,5 +1,11 @@
-const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw';
-const OPTIONS = ['source=next', 'fit=scale-down', 'compression=best'];
+const { URL, URLSearchParams } = require('url');
+
+const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw/';
+const DEFAULT_OPTIONS = {
+	source: 'next',
+	fit: 'scale-down',
+	compression: 'best'
+};
 
 /**
  * Image Service
@@ -7,8 +13,14 @@ const OPTIONS = ['source=next', 'fit=scale-down', 'compression=best'];
  * @param {Number} width
  * @param {String} options
  */
-export default function imageService(url, width, options) {
+export default function imageService(url, width, options = {}) {
 	const encoded = encodeURIComponent(url);
-	const href = `${BASE_URL}/${encoded}?${OPTIONS.join('&')}&width=${width}`;
-	return options ? href + '&' + options : href;
+	const imageServiceUrl = new URL(encoded, BASE_URL);
+	imageServiceUrl.search = new URLSearchParams({
+		...DEFAULT_OPTIONS,
+		...options,
+		width
+	});
+
+	return imageServiceUrl.toString();
 }
