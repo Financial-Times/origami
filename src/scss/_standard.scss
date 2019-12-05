@@ -17,22 +17,22 @@
 		}
 	}
 
-	%_o-quote__author {
-		@include oTypographySans($scale: 0, $weight: 'semibold');
-		text-transform: uppercase;
-		display: block;
-	}
-
-	%_o-quote__source {
-		display: block;
-	}
-
 	%_o-quote-cite--standard {
 		// Output weight and style to override browser defaults.
 		@include oTypographySans($scale: 1, $weight: 'regular', $style: 'normal');
 		a {
 			@include oTypographyLink;
 		}
+	}
+
+	%_o-quote__source {
+		display: block;
+	}
+
+	%_o-quote__author {
+		@include oTypographySans($scale: 0, $weight: 'semibold');
+		text-transform: uppercase;
+		display: block;
 	}
 }
 
@@ -42,10 +42,10 @@
 	@extend %_o-quote--standard;
 }
 
-/// Standard quote author styles
-/// @output Adds to the %o-quote__author placeholder
-@mixin oQuoteStandardCiteAuthor {
-	@extend %_o-quote__author;
+/// Standard quote cite styles
+/// @output Adds to the %o-quote-cite--standard placeholder
+@mixin oQuoteStandardCite {
+	@extend %_o-quote-cite--standard;
 }
 
 /// Standard quote source styles
@@ -54,8 +54,9 @@
 	@extend %_o-quote__source;
 }
 
-/// Standard quote cite styles
-/// @output Adds to the %o-quote-cite--standard placeholder
-@mixin oQuoteStandardCite {
-	@extend %_o-quote-cite--standard;
+/// Standard quote author styles
+/// @output Adds to the %o-quote__author placeholder
+@mixin oQuoteStandardCiteAuthor {
+	@extend %_o-quote__author;
 }
+
