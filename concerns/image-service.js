@@ -4,7 +4,8 @@ const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw/';
 const DEFAULT_OPTIONS = {
 	source: 'next',
 	fit: 'scale-down',
-	compression: 'best'
+	quality: 'medium',
+	dpr: 2
 };
 
 /**

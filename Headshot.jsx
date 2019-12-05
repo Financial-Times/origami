@@ -7,7 +7,6 @@ const DEFAULT_TINT = '054593,d6d5d3';
 export default ({ headshot, headshotTint }) => {
 	const options = {
 		tint: DEFAULT_TINT || headshotTint,
-		dpr: 2
 	};
 
 	return headshot ? (
