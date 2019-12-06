@@ -7,7 +7,7 @@
   "ignore": [],
   "dependencies": {
     "o-colors": "^5.0.0",
-    "o-grid": "^5.0.0",
+    "o-grid": "^5.0.2",
     "o-toggle": "^2.0.0",
     "o-typography": "^6.0.0",
     "o-assets": "^3.4.1",

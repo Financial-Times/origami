@@ -24,9 +24,7 @@
 	$themes: if($themes, $themes, ());
 
 	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
-	@include oGrid((
-		'surface': ('current-layout'),
-	));
+	@include oGridSurfaceCurrentLayout();
 
 	.o-footer {
 		@include oTypographySans(0);
