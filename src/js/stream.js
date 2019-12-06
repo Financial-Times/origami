@@ -111,7 +111,7 @@ class Stream {
 	displayNamePrompt ({purgeCacheAfterCompletion = false} = {}) {
 		const overlay = displayName.prompt();
 
-		document.addEventListener('oOverlay.ready', (event) => {
+		const onOverlayReady = (event) => {
 			const sourceOverlay = event.srcElement;
 			const displayNameForm = sourceOverlay.querySelector('#o-comments-displayname-form');
 
@@ -130,11 +130,15 @@ class Stream {
 						});
 				});
 			}
-		});
+		};
+		document.addEventListener('oOverlay.ready', onOverlayReady);
 
-		overlay.context.addEventListener('oLayers.close', () => {
+		const onOverlayClosed = () => {
+			overlay.context.removeEventListener('oLayers.close', onOverlayClosed);
+			document.removeEventListener('oOverlay.ready', onOverlayReady);
 			overlay.destroy();
-		});
+		};
+		overlay.context.addEventListener('oLayers.close', onOverlayClosed);
 	}
 
 	/**
