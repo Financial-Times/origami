@@ -197,12 +197,13 @@ class Stream {
 	}
 
 	renderSignedInMessage () {
+		const editButtonId = `o-comments-edit-button--${this.streamEl.id}`;
 		const signedInMessage = document.createElement('div');
 		signedInMessage.classList.add('o-comments__signed-in-container');
 		signedInMessage.innerHTML = `
 									<p class="o-comments__signed-in-text">Signed in as
 										<span class="o-comments__signed-in-inner-text"></span>.
-										<a class="o-comments__edit-display-name">Edit</a>
+										<a id="${editButtonId}" class="o-comments__edit-display-name">Edit</a>
 									</p>`;
 		signedInMessage.querySelector('.o-comments__signed-in-inner-text').innerText = this.displayName;
 
@@ -213,7 +214,7 @@ class Stream {
 
 		this.streamEl.parentNode.insertBefore(signedInMessage, this.streamEl);
 
-		document.querySelector('.o-comments__edit-display-name').onclick = () => {
+		document.querySelector(`#${editButtonId}`).onclick = () => {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
