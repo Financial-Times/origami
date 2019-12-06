@@ -17,9 +17,7 @@
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still spec-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
-	@include oGrid((
-		'surface': ('current-layout', 'layout-sizes'),
-	));
+	@include oGridSurfaceCurrentLayout();
 
 	// Include base styles
 	@include _oTooltipBase();
