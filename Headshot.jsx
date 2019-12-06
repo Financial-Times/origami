@@ -6,9 +6,7 @@ import imageService from './concerns/image-service';
 const DEFAULT_TINT = '054593,d6d5d3';
 
 export default ({ headshot, headshotTint }) => {
-	const options = {
-		tint: headshotTint || DEFAULT_TINT,
-	};
+	const options = `tint=${headshotTint || DEFAULT_TINT}`;
 
 	return headshot ? (
 		<img
