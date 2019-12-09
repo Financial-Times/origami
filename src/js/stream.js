@@ -149,6 +149,9 @@ class Stream {
 	 */
 	publishEvent ({name, data = {}}) {
 		const {
+			success: {
+				status
+			} = {},
 			error: {
 				code
 			} = {}
@@ -158,40 +161,39 @@ class Stream {
 			return this.displayNamePrompt();
 		}
 
-		const mappedEvent = events.coralEventMap.get(name);
-		const validError = code ? events.findValidError(code) : [];
-		const eventsToPublish = mappedEvent ?
-			[mappedEvent].concat(validError) :
-			validError;
+		const eventNameExists = !!events.coralEventMap.get(name);
+		const mappedEvent = eventNameExists ?
+			events.coralEventMap.get(name):
+			events.coralErrorMap.get(code);
 
-		eventsToPublish
-			.forEach(eventMapping => {
-				const now = +new Date;
-				const delayInMilliseconds = 100;
-				const eventHasntBeenSeenRecently = !this.eventSeenTimes[eventMapping.oComments] ||
-					now > this.eventSeenTimes[eventMapping.oComments] + delayInMilliseconds;
+		if (mappedEvent) {
+			const now = +new Date;
+			const delayInMilliseconds = 100;
+			const eventHasntBeenSeenRecently = !this.eventSeenTimes[mappedEvent.oComments] ||
+				now > this.eventSeenTimes[mappedEvent.oComments] + delayInMilliseconds;
 
-				if (eventHasntBeenSeenRecently) {
-					this.eventSeenTimes[eventMapping.oComments] = now;
+			if (eventHasntBeenSeenRecently) {
+				this.eventSeenTimes[mappedEvent.oComments] = now;
 
-					const oCommentsEvent = new CustomEvent(eventMapping.oComments, {
+				const oCommentsEvent = new CustomEvent(mappedEvent.oComments, {
+					bubbles: true
+				});
+				this.streamEl.dispatchEvent(oCommentsEvent);
+
+				if (mappedEvent.oTracking && !this.options.disableOTracking) {
+					const oTrackingEvent = new CustomEvent('oTracking.event', {
+						detail: {
+							category: 'comment',
+							action: mappedEvent.oTracking,
+							coral: true,
+							isWithheld: status === 'SYSTEM_WITHHELD'
+						},
 						bubbles: true
 					});
-					this.streamEl.dispatchEvent(oCommentsEvent);
-
-					if (eventMapping.oTracking && !this.options.disableOTracking) {
-						const oTrackingEvent = new CustomEvent('oTracking.event', {
-							detail: {
-								category: 'comment',
-								action: eventMapping.oTracking,
-								coral: true
-							},
-							bubbles: true
-						});
-						document.body.dispatchEvent(oTrackingEvent);
-					}
+					document.body.dispatchEvent(oTrackingEvent);
 				}
-			});
+			}
+		}
 	}
 
 	renderSignedInMessage () {

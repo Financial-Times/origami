@@ -57,12 +57,7 @@ const coralErrorMap = new Map([
 	]
 ]);
 
-const findValidError = (code) => {
-	const validError = coralErrorMap.get(code);
-	return validError ? [validError] : [];
-};
-
 export {
 	coralEventMap,
-	findValidError
+	coralErrorMap
 };
