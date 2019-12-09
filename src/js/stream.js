@@ -214,7 +214,7 @@ class Stream {
 
 		this.streamEl.parentNode.insertBefore(signedInMessage, this.streamEl);
 
-		document.querySelector(`#${editButtonId}`).onclick = () => {
+		document.getElementById(editButtonId).onclick = () => {
 			this.displayNamePrompt({purgeCacheAfterCompletion: true});
 		};
 	}
