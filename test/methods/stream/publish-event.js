@@ -19,106 +19,97 @@ module.exports = () => {
 		describe("loginPrompt event", () => {
 			describe("this.userHasValidSession is truthy", () => {
 				it("calls displayNamePrompt", () => {
-					const stream = new Stream();
 					const displayNamePromptStub = sandbox.stub();
 
+					const stream = new Stream();
 					stream.userHasValidSession = true;
 					stream.displayNamePrompt = displayNamePromptStub;
 					stream.publishEvent({ name: 'loginPrompt' });
 
 					proclaim.isTrue(displayNamePromptStub.calledOnce);
-
 				});
 			});
 
 			describe("this.userHasValidSession is falsy", () => {
 				it("doesn't calls displayNamePrompt", () => {
-					const stream = new Stream();
 					const displayNamePromptStub = sandbox.stub();
 
+					const stream = new Stream();
 					stream.userHasValidSession = false;
 					stream.displayNamePrompt = displayNamePromptStub;
 					stream.publishEvent({ name: 'loginPrompt' });
 
 					proclaim.isFalse(displayNamePromptStub.calledOnce);
-
 				});
 			});
 		});
 
 		it("maps coral events to oComment events", (done) => {
-			const listenerStub = sandbox.stub();
-			document.addEventListener('oComments.ready', () => {
-				listenerStub();
+			const listener = () => {
+				document.removeEventListener('oComments.ready', listener);
 				done();
-			});
+			};
+			document.addEventListener('oComments.ready', listener);
 
 			const stream = new Stream();
 			stream.publishEvent({ name: 'ready' });
-
-			proclaim.isTrue(listenerStub.calledOnce);
 		});
 
 		it("maps coral events to oTracking events", (done) => {
-			const listenerStub = sandbox.stub();
-			document.addEventListener('oTracking.event', (event) => {
-
-				if (event.detail.category === 'comment' && event.detail.action === 'ready') {
-					listenerStub();
-					done();
-				}
-			});
+			const listener = (event) => {
+				document.removeEventListener('oTracking.event', listener);
+				proclaim.equal(event.detail.category, 'comment');
+				proclaim.equal(event.detail.action, 'ready');
+				done();
+			};
+			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
 			stream.publishEvent({ name: 'ready' });
-
-			proclaim.isTrue(listenerStub.calledOnce);
 		});
 
 		it("sets isWithheld to true when a comment is withheld for moderation", (done) => {
 			const listener = (event) => {
+				document.removeEventListener('oTracking.event', listener);
 				proclaim.isTrue(event.detail.isWithheld);
 				done();
 			};
 			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
-			stream.publishEvent({ name: 'createComment.success', data: {
-				success: {
-					status: 'SYSTEM_WITHHELD'
+			stream.publishEvent({
+				name: 'createComment.success',
+				data: {
+					success: {
+						status: 'SYSTEM_WITHHELD'
+					}
 				}
-			}});
-
-			document.removeEventListener('oTracking.event', listener);
+			});
 		});
 
 		it("doesn't emit oTracking events if it has been disabled", (done) => {
-			const listenerStub = sandbox.stub();
-			const commentsElement = document.getElementById('o-comments-stream');
-
-			document.addEventListener('oTracking.event', (event) => {
+			const oTrackingEventListener = (event) => {
 				if (event.detail.category === 'comment' && event.detail.action === 'ready') {
-					listenerStub();
+					document.removeEventListener('oTracking.event', oTrackingEventListener);
+					proclaim.fail('This event should not have been fired');
 				}
-			});
-
-			commentsElement.addEventListener('oComments.ready', () => {
-				listenerStub();
-
-				window.setTimeout(done, 500);
-
-			});
+			};
+			document.addEventListener('oTracking.event', oTrackingEventListener);
 
 			// Removing the o-component data attribute will prevent auto-initialisation
+			const commentsElement = document.getElementById('o-comments-stream');
 			delete commentsElement.dataset.oComponent;
 
 			const stream = new Stream(commentsElement, {
 				disableOTracking: true
 			});
-
 			stream.publishEvent({ name: 'ready' });
+			document.removeEventListener('oTracking.event', oTrackingEventListener);
 
-			proclaim.isTrue(listenerStub.calledOnce);
+			window.setTimeout(() => {
+				document.removeEventListener('oTracking.event', oTrackingEventListener);
+				done();
+			}, 500);
 		});
 
 		it("only maps 1 event every 100 milliseconds", (done) => {
@@ -126,14 +117,14 @@ module.exports = () => {
 			document.addEventListener('oComments.ready', listenerStub);
 
 			const stream = new Stream();
-
 			const interval = window.setInterval(() => {
 				stream.publishEvent({ name: 'ready' });
 			}, 10);
 
 			window.setTimeout(() => {
-				proclaim.isTrue(listenerStub.calledTwice);
 				window.clearInterval(interval);
+				document.removeEventListener('oComments.ready', listenerStub);
+				proclaim.isTrue(listenerStub.calledTwice);
 				done();
 			}, 120);
 		});
@@ -141,98 +132,101 @@ module.exports = () => {
 
 	describe("valid coral error", () => {
 		it("maps coral errors to oComment events", (done) => {
-			const listenerStub = sandbox.stub();
-			document.addEventListener('oComments.toxicComment', () => {
-				listenerStub();
+			const listener = () => {
+				document.removeEventListener('oComments.toxicComment', listener);
 				done();
-			});
+			};
+			document.addEventListener('oComments.toxicComment', listener);
 
 			const stream = new Stream();
-
-			stream.publishEvent({ name: 'oComments.postComment', data: {
-				error: {
-					code: 'TOXIC_COMMENT'
+			stream.publishEvent({
+				name: 'oComments.postComment',
+				data: {
+					error: {
+						code: 'TOXIC_COMMENT'
+					}
 				}
-			}});
-
-			proclaim.isTrue(listenerStub.calledOnce);
+			});
 		});
 
 		it("maps coral errors to oTracking events", (done) => {
-			const listenerStub = sandbox.stub();
-			document.addEventListener('oTracking.event', () => {
-				if (event.detail.category === 'comment' && event.detail.action === 'post-rejected-toxic') {
-					listenerStub();
-					done();
-				}
-			});
+			const listener = (event) => {
+				document.removeEventListener('oTracking.event', listener);
+				proclaim.equal(event.detail.category, 'comment');
+				proclaim.equal(event.detail.action, 'post-rejected-toxic');
+				done();
+			};
+			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
-
-			stream.publishEvent({ name: 'oComments.postComment', data: {
-				error: {
-					code: 'TOXIC_COMMENT'
+			stream.publishEvent({
+				name: 'oComments.postComment',
+				data: {
+					error: {
+						code: 'TOXIC_COMMENT'
+					}
 				}
-			}});
-
-			proclaim.isTrue(listenerStub.calledOnce);
+			});
 		});
 
 		it("doesn't emit oTracking events if it has been disabled", (done) => {
-			const listenerStub = sandbox.stub();
-			const commentsElement = document.getElementById('o-comments-stream');
-
-			document.addEventListener('oTracking.event', (event) => {
+			const listener = (event) => {
 				if (event.detail.category === 'comment' && event.detail.action === 'post-rejected-toxic') {
-					listenerStub();
+					document.removeEventListener('oTracking.event', listener);
+					proclaim.fail('This event should not have been fired');
 				}
-			});
-
-			commentsElement.addEventListener('oComments.toxicComment', () => {
-				listenerStub();
-
-				window.setTimeout(done, 500);
-
-			});
+			};
+			document.addEventListener('oTracking.event', listener);
 
 			// Removing the o-component data attribute will prevent auto-initialisation
+			const commentsElement = document.getElementById('o-comments-stream');
 			delete commentsElement.dataset.oComponent;
 
 			const stream = new Stream(commentsElement, {
 				disableOTracking: true
 			});
-
-			stream.publishEvent({ name: 'oComments.postComment', data: {
-				error: {
-					code: 'TOXIC_COMMENT'
+			stream.publishEvent({
+				name: 'oComments.postComment',
+				data: {
+					error: {
+						code: 'TOXIC_COMMENT'
+					}
 				}
-			}});
+			});
+			document.removeEventListener('oTracking.event', listener);
 
-			proclaim.isTrue(listenerStub.calledOnce);
+			window.setTimeout(() => {
+				document.removeEventListener('oTracking.event', listener);
+				done();
+			}, 500);
 		});
 
 
 		it("only maps 1 event every 100 milliseconds", (done) => {
 			const listenerStub = sandbox.stub();
-			document.addEventListener('oTracking.event', () => {
+			const listener = (event) => {
 				if (event.detail.category === 'comment' && event.detail.action === 'post-rejected-toxic') {
 					listenerStub();
-					done();
 				}
-			});
+			};
+			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
 			const interval = window.setInterval(() => {
-				stream.publishEvent({ name: 'oComments.postComment', data: {
-					error: {
-						code: 'TOXIC_COMMENT'
+				stream.publishEvent({
+					name: 'oComments.postComment',
+					data: {
+						error: {
+							code: 'TOXIC_COMMENT'
+						}
 					}
-				}});
+				});
 			}, 10);
 
 			window.setTimeout(() => {
-				proclaim.isTrue(listenerStub.calledTwice);
 				window.clearInterval(interval);
+				document.removeEventListener('oTracking.event', listener);
+				proclaim.isTrue(listenerStub.calledTwice);
 				done();
 			}, 120);
 		});
