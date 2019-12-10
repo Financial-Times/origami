@@ -135,9 +135,7 @@
 		$colors: map-merge($current-colors, $colors);
 	}
 
-	$new-usecase-config: (
-		$usecase: ('colors': $colors, 'opts': $opts)
-	);
+	$new-usecase-config: ('colors': $colors, 'opts': $opts);
 
 	// Existing project/component usecases may not be customised by users:
 	// Customisation for non-default usecases usually happens on the component
@@ -151,7 +149,9 @@
 	}
 
 	// Add the use-case and its properties to the global use-case map.
-	$_o-colors-usecases: map-merge($_o-colors-usecases, $new-usecase-config) !global;
+	$_o-colors-usecases: map-merge($_o-colors-usecases, (
+		#{$usecase}: $new-usecase-config
+	)) !global;
 }
 
 /// Update the palette with default tones.

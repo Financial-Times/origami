@@ -163,13 +163,13 @@
 		@include it('set a usecase twice with the same value') {
 			// if a component is imported twice it may attempt
 			// to set a usecase twice
-			@include oColorsSetUseCase('o-colors/page', (
+			@include oColorsSetUseCase('o-example/page-set-twice', (
 				'background': 'candy'
 			));
-			@include oColorsSetUseCase('o-colors/page', (
+			@include oColorsSetUseCase('o-example/page-set-twice', (
 				'background': 'candy'
 			));
-			@include assert-equal(oColorsByUsecase('page', 'background'), oColorsByName('candy'));
+			@include assert-equal(oColorsByUsecase('o-example/page-set-twice', 'background'), oColorsByName('candy'));
 		};
 	};
 };
