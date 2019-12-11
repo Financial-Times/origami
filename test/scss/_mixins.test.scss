@@ -1,7 +1,8 @@
 @include describe('oEditorialTypography mixins') {
 	@include describe('oEditorialTypographyTag') {
 
-		@include test('Styles nested links in topic tags') {
+		@include test('Styles non-link topic tags') {
+			// sass-lint:disable no-qualifying-elements
 			@include assert {
 				@include output($selector: false) {
 					.my-topic-tag {
@@ -25,9 +26,11 @@
 					}
 				}
 			}
+			// sass-lint:enable no-qualifying-elements
 		}
 
 		@include test('Styles topic tags which are links') {
+			// sass-lint:disable no-qualifying-elements
 			@include assert {
 				@include output($selector: false) {
 					a.my-topic-tag {
@@ -50,6 +53,7 @@
 					}
 				}
 			}
+			// sass-lint:enable no-qualifying-elements
 		}
 	}
 }
