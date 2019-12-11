@@ -124,7 +124,7 @@ module.exports = () => {
 			window.setTimeout(() => {
 				window.clearInterval(interval);
 				document.removeEventListener('oComments.ready', listenerStub);
-				proclaim.isTrue(listenerStub.calledTwice);
+				proclaim.equal(listenerStub.getCalls().length, 2);
 				done();
 			}, 120);
 		});
@@ -226,7 +226,7 @@ module.exports = () => {
 			window.setTimeout(() => {
 				window.clearInterval(interval);
 				document.removeEventListener('oTracking.event', listener);
-				proclaim.isTrue(listenerStub.calledTwice);
+				proclaim.equal(listenerStub.getCalls().length, 2);
 				done();
 			}, 120);
 		});
