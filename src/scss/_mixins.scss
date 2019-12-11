@@ -144,7 +144,9 @@
 /// @param {Null|String} $type - the type of tag ('topic', 'author', or `null` for an unspecific kind of tag).
 @mixin oEditorialTypographyTag($type) {
 	// Non-linked tags and author tags are the same colour as the body copy.
-	color: oColorsByUsecase('body', 'text');
+	@if not is-superselector('a', '#{&}') {
+		color: oColorsByUsecase('body', 'text');
+	}
 
 	// Author and topic tags are bold.
 	// They inherit their font size but because we want
@@ -159,7 +161,8 @@
 	// e.g. `a.my-author-tag:hover`
 	// Tags which are links are highlighted with colour by default.
 	// But author tags are the same colour as body copy until hover.
-	@at-root a#{&} {
+	$tag-link-selector: selector-unify('a', '#{&}');
+	@at-root #{$tag-link-selector} {
 		@if($type != 'author') {
 			color: oColorsByUsecase('tag-link', text);
 		}
