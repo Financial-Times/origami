@@ -1,4 +1,59 @@
 @include describe('oEditorialTypography mixins') {
-	@include describe('oEditorialTypography') {
+	@include describe('oEditorialTypographyTag') {
+
+		@include test('Styles non-link topic tags') {
+			// sass-lint:disable no-qualifying-elements
+			@include assert {
+				@include output($selector: false) {
+					.my-topic-tag {
+						@include oEditorialTypographyTag('topic');
+					}
+				}
+				@include expect($selector: false) {
+					.my-topic-tag {
+						color: #33302e;
+						font-family: MetricWeb, sans-serif;
+						font-weight: 600;
+					}
+
+					a.my-topic-tag {
+						color: #990f3d;
+						text-decoration: none;
+					}
+
+					a.my-topic-tag:hover {
+						color: #4d081f;
+					}
+				}
+			}
+			// sass-lint:enable no-qualifying-elements
+		}
+
+		@include test('Styles topic tags which are links') {
+			// sass-lint:disable no-qualifying-elements
+			@include assert {
+				@include output($selector: false) {
+					a.my-topic-tag {
+						@include oEditorialTypographyTag('topic');
+					}
+				}
+				@include expect($selector: false) {
+					a.my-topic-tag {
+						font-family: MetricWeb, sans-serif;
+						font-weight: 600;
+					}
+
+					a.my-topic-tag {
+						color: #990f3d;
+						text-decoration: none;
+					}
+
+					a.my-topic-tag:hover {
+						color: #4d081f;
+					}
+				}
+			}
+			// sass-lint:enable no-qualifying-elements
+		}
 	}
 }
