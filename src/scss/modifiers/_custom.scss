@@ -42,7 +42,7 @@
 		min-width: unset;
 	}
 
-	a.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
+	a.o-forms-input__link.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
 	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
 		&:after {
 			display: block;
@@ -55,7 +55,6 @@
 /// @param {String} $input Type of input to set icons on ('anchor' or radio)
 /// @param {Map|null} $theme Custom theme map
 @mixin _oFormsCustomIcon($icon, $input, $theme: null) {
-	@include _oFormsCustomIconBase();
 	$theme: _oFormsThemeToBrandVariants($theme);
 	$element: '';
 
@@ -134,6 +133,7 @@
 	}
 
 	@if $icons {
+		@include _oFormsCustomIconBase();
 		@each $icon in $icons {
 			@include _oFormsCustomIcon($icon, $input, $theme);
 		}
