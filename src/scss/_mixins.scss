@@ -100,8 +100,8 @@
 			src: url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff');
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
-			font-style: $style;
-			font-display: $display;
+			font-style: unquote($style);
+			font-display: unquote($display);
 		}
 
 		// Add to the list of already included families / variants
