@@ -315,6 +315,11 @@ class Overlay {
 			const shadow = document.createElement('div');
 			shadow.className = 'o-overlay-shadow';
 			this.shadow = shadow;
+
+			if (this.opts.zindex) {
+				shadow.style.zIndex = this.opts.zindex - 1;
+			}
+
 			document.body.appendChild(shadow);
 		}
 
