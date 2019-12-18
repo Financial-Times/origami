@@ -21,7 +21,7 @@ const isUnique = (displayName) => {
 		.then(response => response.json())
 		.then(({available}) => {
 			return available;
-		});
+		})
 };
 
 const findInvalidCharacters = (displayName) => {
@@ -63,30 +63,22 @@ const prompt = () => {
 	return overlay;
 };
 
-const validation = (event) => {
-	event.preventDefault();
+const validation = (displayName) => {
+	return new Promise((resolve, reject) => {
 
-	return new Promise(resolve => {
-		const displayNameForm = event.srcElement;
-		const input = displayNameForm.querySelector('input');
-		const displayName = input.value.trim();
-		const errorMessage = displayNameForm.querySelector('#o-comments-displayname-error');
+		if (!displayName) {
+			return reject(new Error('Empty display name'));
+		}
+
 		const invalidCharacters = findInvalidCharacters(displayName);
 
-		errorMessage.innerText = '';
-		displayNameForm.classList.remove('o-forms-input--invalid');
-
-
-
 		if (invalidCharacters) {
-			errorMessage.innerText = `The display name contains the following invalid characters: ${invalidCharacters}`;
-			displayNameForm.classList.add('o-forms-input--invalid');
+			return reject(new Error(`The display name contains the following invalid characters: ${invalidCharacters}`));
 		} else {
 			isUnique(displayName)
 				.then(isUnique => {
 					if (!isUnique) {
-						errorMessage.innerText = 'Unfortunately that display name is already taken';
-						displayNameForm.classList.add('o-forms-input--invalid');
+						return reject(new Error('Unfortunately that display name is already taken'));
 					} else {
 						return resolve(displayName);
 					}
@@ -95,7 +87,30 @@ const validation = (event) => {
 	});
 };
 
+const promptValidation = (event) => {
+	event.preventDefault();
+
+	return new Promise(resolve => {
+		const displayNameForm = event.srcElement;
+		const input = displayNameForm.querySelector('input');
+		const displayName = input.value.trim();
+		const errorMessage = displayNameForm.querySelector('#o-comments-displayname-error');
+
+		errorMessage.innerText = '';
+		displayNameForm.classList.remove('o-forms-input--invalid');
+
+
+		return validation(displayName)
+			.then(displayName => resolve(displayName))
+			.catch(error => {
+				errorMessage.innerText = error.message;
+				displayNameForm.classList.add('o-forms-input--invalid');
+			});
+	});
+};
+
 export {
 	prompt,
-	validation
+	validation,
+	promptValidation
 };
