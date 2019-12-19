@@ -21,7 +21,7 @@ const isUnique = (displayName) => {
 		.then(response => response.json())
 		.then(({available}) => {
 			return available;
-		})
+		});
 };
 
 const findInvalidCharacters = (displayName) => {
@@ -65,7 +65,6 @@ const prompt = () => {
 
 const validation = (displayName) => {
 	return new Promise((resolve, reject) => {
-
 		if (!displayName) {
 			return reject(new Error('Empty display name'));
 		}
@@ -82,6 +81,13 @@ const validation = (displayName) => {
 					} else {
 						return resolve(displayName);
 					}
+				})
+				.catch(() => {
+					const apiError = new Error('Sorry, we are unable to update display names. Please try again later.');
+
+					apiError.name = 'CommentsApiError';
+
+					return reject(apiError);
 				});
 		}
 	});
@@ -105,6 +111,10 @@ const promptValidation = (event) => {
 			.catch(error => {
 				errorMessage.innerText = error.message;
 				displayNameForm.classList.add('o-forms-input--invalid');
+
+				if (error.name === 'CommentsApiError') {
+					throw error;
+				}
 			});
 	});
 };

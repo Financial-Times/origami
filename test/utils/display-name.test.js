@@ -43,6 +43,17 @@ describe('Display name', () => {
 				});
 		});
 
+		it("rejects if the comments-api errors", (done) => {
+			fetchMock.mock('begin:https://comments-api.ft.com/displayname/isavailable', 500);
+
+			displayName.validation('test')
+				.catch(error => {
+					proclaim.isInstanceOf(error, Error);
+					proclaim.equal(error.message, 'Sorry, we are unable to update display names. Please try again later.');
+					done();
+				});
+		});
+
 		it("resolves if everything passes", (done) => {
 			fetchMock.mock('begin:https://comments-api.ft.com/displayname/isavailable', {
 				available: true
