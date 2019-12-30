@@ -355,23 +355,23 @@ class Video {
 		const playCTA = document.createElement('div');
 		playCTA.className = `o-video__play-cta ${this.opts.placeholderHint ? 'o-video__play-cta--with-hint' : 'o-video__play-cta--without-hint'}`;
 
-		const playButtonEl = document.createElement('button');
-		playButtonEl.className = 'o-video__play-button';
+		this.playButtonEl = document.createElement('button');
+		this.playButtonEl.className = 'o-video__play-button';
 
-		this.playButtonIconEl = document.createElement('span');
-		this.playButtonIconEl.className = 'o-video__play-button-icon';
-		this.playButtonIconEl.textContent = this.opts.placeholderHint;
+		const playButtonIconEl = document.createElement('span');
+		playButtonIconEl.className = 'o-video__play-button-icon';
+		playButtonIconEl.textContent = this.opts.placeholderHint;
 
 
-		playCTA.appendChild(this.playButtonIconEl);
+		playCTA.appendChild(playButtonIconEl);
 
 		const { captionsUrl } = this.videoData || {};
 		if (!captionsUrl && this.guidance) {
 			playCTA.appendChild(this.guidance.createPlaceholder());
 		}
-		playButtonEl.appendChild(playCTA);
+		this.playButtonEl.appendChild(playCTA);
 
-		this.placeholderEl.appendChild(playButtonEl);
+		this.placeholderEl.appendChild(this.playButtonEl);
 
 		this.placeholderEl.addEventListener('click', () => {
 			this.didUserPressPlay = true;
@@ -411,8 +411,8 @@ class Video {
 			this.infoPanel.update();
 		}
 
-		if (this.playButtonIconEl) {
-			this.playButtonIconEl.setAttribute('aria-label', `Play video ${this.videoData.title}`);
+		if (this.playButtonEl) {
+			this.playButtonEl.setAttribute('aria-label', `Play video ${this.videoData.title}`);
 		}
 	}
 
