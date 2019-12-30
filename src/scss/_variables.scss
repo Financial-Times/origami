@@ -3,6 +3,11 @@
 /// @access public
 $o-colors-is-silent: true !default;
 
+/// Ensure default mixins are only called once
+/// @type Bool
+/// @access private
+$_o-colors-is-initialised: false !default;
+
 /// A map to define default palette colours:
 /// A list of arguments for `oColorsSetColor`, except the project name.
 ///

@@ -8,10 +8,16 @@
 @import 'src/scss/mixins';
 
 // Set the palette colors programatically
-@include _oColorsSetDefaultPaletteColors();
-@include _oColorsSetPaletteMixes();
-@include _oColorsSetPaletteTones();
-@include _oColorsSetDefaultUsecases();
+// NOTE: Only do this once as this partial will be included by many other components
+// and the multiple nested loops can have a huge effect on compilation performance.
+@if ($_o-colors-is-initialised == false) {
+	@include _oColorsSetDefaultPaletteColors();
+	@include _oColorsSetPaletteMixes();
+	@include _oColorsSetPaletteTones();
+	@include _oColorsSetDefaultUsecases();
+
+	$_o-colors-is-initialised: true !global;
+}
 
 /// Output `o-colors` CSS.
 ///
