@@ -40,6 +40,56 @@ describe("Count", () => {
 				});
 			});
 
+			describe("when the comment count is 1", () => {
+				beforeEach(() => {
+					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(1);
+					fixtures.countMarkup();
+				});
+
+				afterEach(() => {
+					fixtures.reset();
+					Count.fetchCount.restore();
+				});
+
+				it("doesn't pluralise the text in the aria-label", () => {
+					const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+					const count = new Count(mockCountEl, {
+						articleId: 'id'
+					});
+
+					return count.renderCount()
+						.then(() => {
+							const countLabel = count.countEl.getAttribute('aria-label');
+							assert.equal(countLabel, 'There is 1 comment, click to go to the comment section.');
+						});
+				});
+			});
+
+			describe("when the comment count is greater than 1", () => {
+				beforeEach(() => {
+					sinon.stub(Count, 'fetchCount').withArgs('id').resolves(10);
+					fixtures.countMarkup();
+				});
+
+				afterEach(() => {
+					fixtures.reset();
+					Count.fetchCount.restore();
+				});
+
+				it("pluralises the text in the aria-label", () => {
+					const mockCountEl = document.querySelector('[data-o-comments-article-id="id"]');
+					const count = new Count(mockCountEl, {
+						articleId: 'id'
+					});
+
+					return count.renderCount()
+						.then(() => {
+							const countLabel = count.countEl.getAttribute('aria-label');
+							assert.equal(countLabel, 'There are 10 comments, click to go to the comment section.');
+						});
+				});
+			});
+
 			describe("when initialized with staging option", () => {
 				beforeEach(() => {
 					sinon.stub(Count, 'fetchCount').withArgs('id', true).resolves(20);
