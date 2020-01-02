@@ -29,7 +29,24 @@ class Count {
 		return Count.fetchCount(this.articleId, this.useStagingEnvironment)
 			.then((count) => {
 				this.countEl.textContent = count;
+
+				const countLabel = Count.getCountLabel(count);
+				this.countEl.setAttribute('aria-label', countLabel);
 			});
+	}
+
+	/**
+	 * Get the aria-label for the count element.
+	 *
+	 * @param {Number} count - The comment count
+	 * @returns {String}
+	 */
+	static getCountLabel (count) {
+		if (count === 1) {
+			return 'There is 1 comment, click to go to the comment section.';
+		} else {
+			return `There are ${count} comments, click to go to the comment section.`;
+		}
 	}
 
 	static fetchCount (id, useStaging) {
