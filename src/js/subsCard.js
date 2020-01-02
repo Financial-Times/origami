@@ -6,6 +6,7 @@ class SubsCard {
 
 	constructor (rootEl) {
 		this.rootEl = rootEl;
+		this.expander = null;
 		this.setExpanders();
 		this.checkTallest();
 	}
@@ -38,9 +39,26 @@ class SubsCard {
 		};
 
 		expander.setAttribute('data-o-component', 'o-expander');
-		oExpander.createCustom(expander, opts);
+		this.expander = oExpander.createCustom(expander, opts);
 	}
 
+	toggle() {
+		if (this.expander) {
+			this.expander.toggle();
+		}
+	}
+
+	expand() {
+		if (this.expander) {
+			this.expander.expand();
+		}
+	}
+
+	collapse() {
+		if (this.expander) {
+			this.expander.collapse();
+		}
+	}
 
 	static init (rootEl) {
 		if (!rootEl) {
