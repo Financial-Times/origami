@@ -9,7 +9,7 @@
 	$background-color: _oMessageGet('background-color', $from: $state);
 	$background-color: if(type-of($background-color) == 'string', oColorsByName($background-color), $background-color);
 
-	.o-message--#{$state} {
+	.o-message.o-message--#{$state} {
 		color: $foreground-color;
 		background-color: $background-color;
 
