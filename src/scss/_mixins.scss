@@ -42,7 +42,7 @@
 /// Outputs base styles for an type of message
 /// @access private
 @mixin _oMessageType($type) {
-	.o-message--#{$type} {
+	.o-message.o-message--#{$type} {
 		@if $type == 'alert' {
 			.o-message__content {
 				padding-left: $_o-message-spacing;
