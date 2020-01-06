@@ -63,6 +63,13 @@
 			"js": "demos/src/imperative.js"
 		},
 		{
+			"title": "Form",
+			"name": "form",
+			"template": "demos/src/form.mustache",
+			"hidden": true,
+			"description": "Testing that a form and submit button can be used"
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

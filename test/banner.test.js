@@ -68,6 +68,9 @@ describe('Banner', () => {
 				contentShort: null,
 				buttonLabel: 'OK',
 				buttonUrl: '#',
+				formAction: null,
+				formEncoding: 'application/x-www-form-urlencoded',
+				formMethod: 'post',
 				linkLabel: null,
 				linkUrl: '#',
 				closeButtonLabel: 'Close',
@@ -622,6 +625,42 @@ describe('Banner', () => {
 
 				it('returns the passed in banner element', () => {
 					assert.deepEqual(returnValue, bannerElement);
+				});
+
+			});
+
+			describe('when `options.formAction` is not null', () => {
+
+				beforeEach(() => {
+					banner.options.formAction = 'mock-form-action';
+					banner.options.formEncoding = 'mock-form-encoding';
+					banner.options.formMethod = 'mock-form-method';
+					returnValue = banner.buildBannerElement();
+				});
+
+				it('uses a form and submit button in place of an anchor for the primary action', () => {
+					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
+										mockContentLong
+									</div>
+									<div class="o-banner__content o-banner__content--short">
+										mockContentShort
+									</div>
+									<div class="o-banner__actions">
+										<form class="o-banner__action" action="mock-form-action" enctype="mock-form-encoding" method="mock-form-method">
+											<input class="o-banner__button" type="submit" value="mockButtonLabel">
+										</form>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					`.replace(/[\t\n]+/g, ''));
 				});
 
 			});

@@ -37,6 +37,9 @@ class Banner {
 			contentShort: null,
 			buttonLabel: 'OK',
 			buttonUrl: '#',
+			formAction: null,
+			formEncoding: 'application/x-www-form-urlencoded',
+			formMethod: 'post',
 			linkLabel: null,
 			linkUrl: '#',
 			closeButtonLabel: 'Close',
@@ -169,6 +172,20 @@ class Banner {
 				</div>
 			`;
 		}
+		let primaryActionHtml = '';
+		if (this.options.formAction !== null) {
+			primaryActionHtml = `
+				<form class="${classNames.action}" action="${this.options.formAction}" enctype="${this.options.formEncoding}" method="${this.options.formMethod}">
+					<input class="${classNames.button}" type="submit" value="${this.options.buttonLabel}"/>
+				</form>
+			`;
+		} else {
+			primaryActionHtml = `
+				<div class="${classNames.action}">
+					<a href="${this.options.buttonUrl}" class="${classNames.button}">${this.options.buttonLabel}</a>
+				</div>
+			`;
+		}
 		let secondaryActionHtml = '';
 		if (this.options.linkLabel) {
 			secondaryActionHtml = `
@@ -182,9 +199,7 @@ class Banner {
 				<div class="${classNames.inner}" data-o-banner-inner="">
 					${contentHtml}
 					<div class="${classNames.actions}">
-						<div class="${classNames.action}">
-							<a href="${this.options.buttonUrl}" class="${classNames.button}">${this.options.buttonLabel}</a>
-						</div>
+						${primaryActionHtml}
 						${secondaryActionHtml}
 					</div>
 				</div>

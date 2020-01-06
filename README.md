@@ -71,6 +71,17 @@ Variable content based on screen size as well as the link after the button are o
 </div>
 ```
 
+The banner's primary action can be a form with a submit button if required. Change the actions markup to the following:
+
+```html
+<div class="o-banner__actions">
+    <form class="o-banner__action" action="/example">
+        <input class="o-banner__button" type="submit" value="Try it now" />
+    </form>
+    …
+</div>
+```
+
 If the banner element is empty, then the appropriate structure will be constructed with JavaScript using data attributes to specify [options](#options):
 
 ```html
@@ -141,6 +152,9 @@ There are several options used to change the appearance or behaviour of o-banner
   - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
   - `buttonLabel`: String. The banner button label. Defaults to `OK`
   - `buttonUrl`: String. The URL the button links to. Defaults to `#`
+  - `formAction`: String. A form action, if specified then the primary button will be a submit button in a form. Defaults to `null`
+  - `formEncoding`: String. The form encoding. Only used if `formAction` is not null. Defaults to `application/x-www-form-urlencoded`
+  - `formMethod`: String. The form method. Only used if `formAction` is not null. Defaults to `post`
   - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
   - `linkUrl`: String. The URL the link links to. Defaults to `#`
   - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
