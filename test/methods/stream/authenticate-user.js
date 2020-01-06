@@ -35,6 +35,20 @@ module.exports = () => {
 
 		});
 
+		it("displayName option is not used if undefined", (done) => {
+			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
+
+			const stream = new Stream();
+
+			stream.authenticateUser(undefined)
+				.then(() => {
+					const options = fetchJWTStub.getCall(0).args[0];
+					proclaim.isNotString(options.displayName);
+					done();
+				});
+
+		});
+
 		it("staging option is passed to fetchJsonWebToken", (done) => {
 			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
 

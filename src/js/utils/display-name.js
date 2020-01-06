@@ -63,7 +63,37 @@ const prompt = () => {
 	return overlay;
 };
 
-const validation = (event) => {
+const validation = (displayName) => {
+	return new Promise((resolve, reject) => {
+		if (!displayName) {
+			return reject(new Error('Empty display name'));
+		}
+
+		const invalidCharacters = findInvalidCharacters(displayName);
+
+		if (invalidCharacters) {
+			return reject(new Error(`The display name contains the following invalid characters: ${invalidCharacters}`));
+		} else {
+			isUnique(displayName)
+				.then(isUnique => {
+					if (!isUnique) {
+						return reject(new Error('Unfortunately that display name is already taken'));
+					} else {
+						return resolve(displayName);
+					}
+				})
+				.catch(() => {
+					const apiError = new Error('Sorry, we are unable to update display names. Please try again later.');
+
+					apiError.name = 'CommentsApiError';
+
+					return reject(apiError);
+				});
+		}
+	});
+};
+
+const promptValidation = (event) => {
 	event.preventDefault();
 
 	return new Promise(resolve => {
@@ -71,31 +101,26 @@ const validation = (event) => {
 		const input = displayNameForm.querySelector('input');
 		const displayName = input.value.trim();
 		const errorMessage = displayNameForm.querySelector('#o-comments-displayname-error');
-		const invalidCharacters = findInvalidCharacters(displayName);
 
 		errorMessage.innerText = '';
 		displayNameForm.classList.remove('o-forms-input--invalid');
 
 
+		return validation(displayName)
+			.then(displayName => resolve(displayName))
+			.catch(error => {
+				errorMessage.innerText = error.message;
+				displayNameForm.classList.add('o-forms-input--invalid');
 
-		if (invalidCharacters) {
-			errorMessage.innerText = `The display name contains the following invalid characters: ${invalidCharacters}`;
-			displayNameForm.classList.add('o-forms-input--invalid');
-		} else {
-			isUnique(displayName)
-				.then(isUnique => {
-					if (!isUnique) {
-						errorMessage.innerText = 'Unfortunately that display name is already taken';
-						displayNameForm.classList.add('o-forms-input--invalid');
-					} else {
-						return resolve(displayName);
-					}
-				});
-		}
+				if (error.name === 'CommentsApiError') {
+					throw error;
+				}
+			});
 	});
 };
 
 export {
 	prompt,
-	validation
+	validation,
+	promptValidation
 };

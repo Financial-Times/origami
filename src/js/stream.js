@@ -18,10 +18,16 @@ class Stream {
 	}
 
 	init () {
-		return Promise.all([this.renderComments(), this.authenticateUser()])
-			.then(() => {
-				this.login();
-			});
+		const renderAndAuthenticate = (displayName) => {
+			return Promise.all([this.renderComments(), this.authenticateUser(displayName)])
+				.then(() => {
+					this.login();
+				});
+		};
+
+		return displayName.validation(this.options.displayName)
+			.then(displayName => renderAndAuthenticate(displayName))
+			.catch(() => renderAndAuthenticate());
 	}
 
 	login () {
@@ -117,7 +123,7 @@ class Stream {
 
 			if (displayNameForm) {
 				displayNameForm.addEventListener('submit', (event) => {
-					displayName.validation(event)
+					displayName.promptValidation(event)
 						.then(displayName => {
 							overlay.close();
 							this.authenticateUser(displayName)
