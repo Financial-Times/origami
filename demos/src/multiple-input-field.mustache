@@ -26,7 +26,7 @@
 			{{#info}}aria-describedby="{{info}}"{{/info}}
 		{{/field.aria}}>
 
-		<span class="o-forms-title">
+		<span class="o-forms-title{{#title.modifiers}} o-forms-title--{{.}}{{/title.modifiers}}">
 			<span class="o-forms-title__main" id="{{field.aria.label}}">{{title.main}}</span>
 			{{#title.prompt}}
 				<span class="o-forms-title__prompt" {{#field.aria.info}} id={{field.aria.info}} {{/field.aria.info}}>{{.}}</span>

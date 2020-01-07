@@ -34,8 +34,9 @@
 			);
 			color: _oFormsGet('invalid-base');
 			display: block;
-			position: absolute;
-			bottom: -$_o-forms-spacing-five;
+			position: relative;
+			margin-top: $_o-forms-spacing-one;
+			margin-bottom: -$_o-forms-spacing-five;
 		}
 	}
 }

@@ -49,17 +49,18 @@
 		@include oGridRespondTo(S) {
 			&.o-forms-input--inline .o-forms-input__state {
 				position: relative;
-				bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 
 		.o-forms-input__state {
-			position: absolute;
-			bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
+			position: relative;
+			margin-bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
 		}
 
 		.o-forms-input__error {
-			bottom: -$_o-forms-spacing-four;
+			margin-top: 0;
+			margin-bottom: -$_o-forms-spacing-four;
 		}
 	}
 }

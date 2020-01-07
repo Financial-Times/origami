@@ -174,14 +174,14 @@
 			"field": {
 				"type": "radio-box",
 				"aria": {
-					"label": "saving-state-group-title",
-					"info": "saving-state-group-info"
+					"label": "saving-state-group-title-long",
+					"info": "saving-state-group-info-long"
 				},
 				"modifiers": ["saving"],
 				"state": "Saving"
 			},
 			"title": {
-				"main": "Inline box-style radio buttons",
+				"main": "Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title",
 				"prompt": "With a stacked saving state"
 			},
 			"inputs": [
