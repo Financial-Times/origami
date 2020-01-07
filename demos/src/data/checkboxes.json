@@ -107,7 +107,7 @@
 				{
 					"type": "checkbox",
 					"name": "inline",
-					"value": "This is be a very long inlined checkbox to demonstrate the correct alignment of checkboxes"
+					"value": "This is a very long inlined checkbox to demonstrate the correct alignment of checkboxes"
 				},
 				{
 					"type": "checkbox",
