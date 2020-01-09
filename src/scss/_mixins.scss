@@ -88,6 +88,13 @@
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
 
+	@if $theme and not $type {
+		$theme-description: if(type-of($theme) == 'string', $theme, 'custom');
+		@warn 'A button theme cannot be output without specifying the button ' +
+		'type. To output styles for a "#{$theme-description}" button theme also ' +
+		'specify the button type as either a "primary" or "secondary" button';
+	}
+
 	// Get button colours for the button type and theme.
 	$button-colors-map: if($type, _oButtonsGenerateColors($type, $theme), ());
 
