@@ -9,6 +9,13 @@
 	.o-forms-input--checkbox {
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
 			@include _oFormsControlsBase($disabled);
+			@include oNormaliseVisuallyHidden;
+
+			&:focus + .o-forms-input__label:before {
+				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
+				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
+				outline: none;
+			}
 
 			&:indeterminate + .o-forms-input__label:after {
 				@include oIconsContent('minus', _oFormsGet('controls-checked-base'), $_o-forms-spacing-six);
