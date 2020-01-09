@@ -243,7 +243,7 @@ class Overlay {
 
 		if (this.opts.heading) {
 			const heading = document.createElement('header');
-			const headingId = this.opts.heading.title.replace(' ', '-').toLowerCase();
+			const headingId = this.opts.heading.title.replace(/\s+/g, '-').toLowerCase();
 			heading.classList.add('o-overlay__heading');
 			heading.setAttribute('id', headingId);
 			wrapperEl.setAttribute('aria-labelledby', headingId);
