@@ -34,19 +34,9 @@ p {
 	margin: 0;
 }
 
-.demo__custom-theme {
-	padding: 1em;
-}
-
-.inverse,
-.demo-inverse,
-.demo__custom-theme--slate {
-	background-color: oColorsByName(slate);
-	padding: 1em;
-}
-
-.demo__custom-theme--lemon {
-	background-color: oColorsByName(slate);
+.demo-inverse {
+	$background-color-name: _oButtonsGet('context', $from: 'inverse');
+	background-color: oColorsByName($background-color-name);
 	padding: 1em;
 }
 
@@ -90,4 +80,14 @@ p {
 		$types: ('primary', 'secondary'),
 		$icons: ('book')
 	);
+
+	// Demo containers for the custom buttons
+	.demo__custom-theme {
+		padding: 1em;
+	}
+
+	.demo__custom-theme--lemon,
+	.demo__custom-theme--slate {
+		background-color: oColorsByName('slate');
+	}
 }

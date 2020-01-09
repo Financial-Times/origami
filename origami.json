@@ -43,25 +43,33 @@
 			"name": "primary-inverse",
 			"title": "Primary button (inverse)",
 			"template": "/demos/src/primary-inverse.mustache",
-			"bodyClasses": "inverse",
-			"description": "Primary button which is inversed for use on an alternate background."
+			"bodyClasses": "demo-inverse",
+			"description": "Primary button for use on an alternate, dark background."
 		},
 		{
 			"name": "inverse",
 			"title": "Secondary/default button (inverse)",
 			"template": "/demos/src/inverse.mustache",
-			"bodyClasses": "inverse",
-			"description": "Secondary/default button which is inversed for use on an alternate background."
+			"bodyClasses": "demo-inverse",
+			"description": "Secondary/default button for use on an alternate, dark background."
 		},
 		{
 			"name": "primary-mono",
 			"title": "Primary button (mono)",
+			"brands": [
+				"master",
+				"internal"
+			],
 			"template": "/demos/src/primary-mono.mustache",
 			"description": "Primary \"monochrome\" theme."
 		},
 		{
 			"name": "mono",
 			"title": "Secondary/default button (mono)",
+			"brands": [
+				"master",
+				"internal"
+			],
 			"template": "/demos/src/mono.mustache",
 			"description": "Secondary/default \"monochrome\" theme."
 		},

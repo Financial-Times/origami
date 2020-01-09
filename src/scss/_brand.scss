@@ -80,11 +80,17 @@ $_o-buttons-shared-brand-config: (
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-buttons', 'whitelabel', (
 		'variables': map-merge($_o-buttons-shared-brand-config, (
-			'color': 'black'
+			'color': 'black',
+			'inverse': (
+				'color': 'white',
+				'context': 'black'
+			),
 		)),
 		'supports-variants': (
 			'primary',
 			'secondary',
+			'primary-inverse',
+			'secondary-inverse'
 		)
 	));
 }
