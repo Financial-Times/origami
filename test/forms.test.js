@@ -70,14 +70,14 @@ describe('Forms', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 4);
+				proclaim.equal(listItems.length, 2);
 			});
 
 			it('the summary gets updated on second submit if a form field has been amended', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 4);
+				proclaim.equal(listItems.length, 2);
 
 				textInput = formEl.elements['text'];
 				textInput.value = 'something';
@@ -85,7 +85,32 @@ describe('Forms', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
 				listItems = summary.querySelectorAll('a');
-				proclaim.equal(listItems.length, 3);
+				proclaim.equal(listItems.length, 1);
+			});
+
+			it('does not error if there is no field title for an input', () => {
+				// Add a form with a single checkbox, which has no field title.
+				const singleCheckboxFormString = `
+				<form action="" id="single-checkbox-form">
+					<div class="o-forms-field">
+						<span class="o-forms-input o-forms-input--checkbox">
+							<label>
+								<input id="my-single-checkbox" type="checkbox" name="my-single-checkbox" required/>
+								<span class="o-forms-input__label">I accept these terms.</span>
+							</label>
+						</span>
+					</div>
+					<input class="o-buttons o-buttons--secondary" type="submit">
+				</form>
+			`;
+				const range = document.createRange();
+				const formDocumentFragment = range.createContextualFragment(singleCheckboxFormString);
+				document.body.appendChild(formDocumentFragment);
+				const singleCheckboxFormEl = document.getElementById('single-checkbox-form');
+				const singleCheckboxFormSubmitEl = singleCheckboxFormEl.querySelector('[type="submit"]');
+				// initialise and submit the form, with no error
+				new Forms(singleCheckboxFormEl);
+				singleCheckboxFormSubmitEl.click();
 			});
 		});
 

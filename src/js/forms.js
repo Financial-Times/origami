@@ -89,7 +89,10 @@ class Forms {
 					} else {
 						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
 					}
-					this.summary.querySelector('a').focus();
+					const firstErrorAnchor = this.summary.querySelector('a');
+					if (firstErrorAnchor) {
+						firstErrorAnchor.focus();
+					}
 				}
 
 				return;
@@ -103,19 +106,24 @@ class Forms {
 	* Form validation
 	* Validates every element in the form and creates input objects for the error summary
 	*/
-	validateFormInputs () {
-		return this.formInputs.map(element => {
-			let valid = element.validate();
-			let input = element.input;
+	validateFormInputs() {
+		return this.formInputs.map(oFormInput => {
+			let valid = oFormInput.validate();
+			let input = oFormInput.input;
 			let field = input.closest('.o-forms-field');
-			let label = field ? field.querySelector('.o-forms-title__main').innerHTML : null;
+			let labelElement = field ? field.querySelector('.o-forms-title__main') : null;
+			// label is actually the field title, not for example the label of a single checkbox.
+			// this is used to generate an error summary
+			let label = labelElement ? labelElement.textContent : null;
 			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
-			let error = errorElement ? errorElement.innerHTML : input.validationMessage;
+			let error = errorElement ? errorElement.textContent : input.validationMessage;
 			return {
 				id: input.id,
 				valid,
 				error: !valid ? error : null,
-				label
+				label,
+				field,
+				element: oFormInput.input
 			};
 		});
 	}

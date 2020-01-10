@@ -456,11 +456,11 @@ In order to provide customised error messages for an invalid input field, you'll
 The message is hidden by default, until the input field becomes invalid.
 
 #### Error Summary
-`o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised.
+`o-forms` also generates an error message element when a form is submitted and invalid inputs are recognised. Inputs must have a unique id and a field title element to show in the error summary.
 
 This feature will collect the custom messages of the invalid fields if they are present in the markup, or will default to the browsers native error message if they aren't. It will associate the message to the title of the input that is invalid, generate a list of links at the top of the form, and focus on the first link.
 
-This markup will always be generated dynamically if the [errorSummary option](#form-instance) is set to `true`.
+This markup will always be generated dynamically if the [errorSummary option](#form-instance) is not set to `false`.
 
 ## Sass
 `o-forms` has a primary mixin; `oForms()`.
