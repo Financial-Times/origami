@@ -85,7 +85,9 @@ class Forms {
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
 					if (this.summary) {
-						this.summary = this.form.replaceChild(new ErrorSummary(checkedElements), this.summary);
+						const newSummary = new ErrorSummary(checkedElements);
+						this.form.replaceChild(newSummary, this.summary);
+						this.summary = newSummary;
 					} else {
 						this.summary = this.form.insertBefore(new ErrorSummary(checkedElements), this.form.firstElementChild);
 					}
