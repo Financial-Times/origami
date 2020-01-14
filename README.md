@@ -1,13 +1,14 @@
 o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
-A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.
+A component, integrated with FT authentication and [Coral Talk](https://coralproject.net), to add a comment stream or comment count to content.
 
 - [Additional dependencies](#additional-dependencies)
 - [Markup](#markup)
 	- [Stream](#stream)
 	- [Count](#count)
 	- [Staging environment](#use-staging-environment)
+	- [Pass a display name into Coral Talk](#pass-a-display-name-into-coral-talk)
 - [JavaScript](#javascript)
 	- [Events](#events)
 	- [Tracking](#tracking)
@@ -57,7 +58,7 @@ The comment count is rendered when the `data-o-comments-count` attribute value i
 
 #### getCount
 
-Should you require the count as a value there is also a `getCount` method that will return an integer.
+If you need the count as a value, use the `getCount` method which returns an integer.
 
 ```js
 Comments.getCount('article-id')
@@ -89,6 +90,20 @@ For count:
 </div>
 ```
 
+### Pass a display name into Coral Talk
+
+In rare cases, a user may have already set their display name in a different part of the website. In this instance, add the following attribute to pass the display name into Coral Talk when creating a user account:
+
+```diff
+<div class="o-comments"
+	id="o-comments-stream"
+	data-o-component="o-comments"
+	data-o-comments-article-id="{article-id}"
+	data-o-comments-article-url="{optional-article-url}"
++	data-o-comments-display-name="{display-name}">
+</div>
+```
+
 ## JavaScript
 
 No code will run automatically unless you are using the [Build Service](https://www.ft.com/__origami/service/build/v2/). You must either construct an `o-comments` object or fire the `o.DOMContentLoaded` event, which o-comments listens for.
@@ -98,7 +113,7 @@ No code will run automatically unless you are using the [Build Service](https://
 Assuming you have an HTML element on the page to represent your comment stream or count:
 
 ```js
-const oComments = require('o-comments');
+import oComments from 'o-comments';
 const commentsElement = document.querySelector('#element');
 const Comments = new oComments(commentsElement, {
 	articleId: 'article-id',
