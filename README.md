@@ -161,9 +161,11 @@ These events are anything to do with the component itself.
 These events are anything to do with comment interactions.
 
 - **oComments.postComment** - Emitted when a users has successfully left a comment
-- **oComments.replyComment** - Emitted when a user has successfully left a comment which is a reply to an existing comment.
-- **oComments.editComment** - Emitted when a user has successfully edited their existing comment.
+- **oComments.replyComment** - Emitted when a user has successfully left a comment which is a reply to an existing comment
+- **oComments.editComment** - Emitted when a user has successfully edited their existing comment
 - **oComments.likeComment** - Emitted when a users has liked a comment
+- **oComments.reportComment** - Emitted when a user reports a comment to the moderators
+- **oComments.ignoreUser** - Emmitted when a user ignores another user
 - **oComments.toxicComment** - Emitted when a user attempted to leave a comment that was flagged as toxic by the auto moderation
 
 ### Tracking
