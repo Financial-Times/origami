@@ -166,7 +166,10 @@
 		@if($type != 'author') {
 			color: oColorsByUsecase('tag-link', text);
 		}
+
 		text-decoration: none;
+		border-bottom: 0;
+
 		&:hover {
 			$hover-color: if($type != 'author', 'tag-link-hover', 'tag-link');
 			color: oColorsByUsecase($hover-color, text);
