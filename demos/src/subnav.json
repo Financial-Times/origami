@@ -468,6 +468,7 @@
 	"subnav": true,
 	"currentNav": {
 		"name": "US & Canada",
+		"selected": true,
 		"ancestors": [
 			{
 				"name": "World",
@@ -481,8 +482,7 @@
 			},
 			{
 				"name": "US Politics & Policy",
-				"href": "#",
-				"selected": true
+				"href": "#"
 			},
 			{
 				"name": "US Companies",

@@ -57,7 +57,7 @@
 							{{/currentNav.ancestors}}
 							{{#currentNav}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}" >
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
 									{{name}}
 								</a>
 							</li>
