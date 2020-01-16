@@ -162,7 +162,7 @@
 		$icon-color: if($base-color, $base-color, oColorsByName('black'));
 		$icon-size: 1em;
 		$icon-inbuilt-padding-size: #{$icon-size / 4};
-		$icon-padding-calc: #{$icon-size} + 0.5ch;
+		$icon-padding-calc: calc(#{$icon-size} + 0.5ch);
 		@include oIconsContent('outside-page', $icon-color, $size: null, $include-base-styles: false);
 		background-repeat: no-repeat;
 		// Add padding for icon background.
