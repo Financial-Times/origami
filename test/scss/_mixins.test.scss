@@ -8,12 +8,12 @@
 				}
 				@include contains($selector: false) {
 					.o-editorial-typography-heading-level-1 {
-						font-weight: normal;
 						margin: 0;
 						color: #33302e;
 						font-family: FinancierDisplayWeb, serif;
 						font-size: 28px;
 						line-height: 32px;
+						font-weight: 400;
 					}
 				}
 			}
@@ -26,16 +26,15 @@
 				}
 				@include contains($selector: false) {
 					.o-editorial-typography-heading-level-1 {
-						font-weight: normal;
 						margin: 0;
 						color: #33302e;
 						font-family: FinancierDisplayWeb, serif;
 						font-size: 28px;
 						line-height: 32px;
+						font-weight: 400;
 					}
 
 					.o-editorial-typography-heading-level-2 {
-						font-weight: normal;
 						margin: 0;
 						color: #33302e;
 						font-family: MetricWeb, sans-serif;
