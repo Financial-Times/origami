@@ -1,3 +1,58 @@
+@include test-module('oTypography') {
+    @include test('Can output styles for a single heading') {
+        @include assert {
+            @include output {
+                $o-typography-load-fonts: false !global;
+                $o-typography-progressive-font-loading: false !global;
+                @include oTypography(('headings': (1)));
+                $o-typography-load-fonts: true !global;
+                $o-typography-progressive-font-loading: true !global;
+            }
+            @include expect {
+                .o-typography-heading-level-1 {
+                    font-family: MetricWeb, sans-serif;
+                    font-size: 32px;
+                    line-height: 32px;
+                    font-weight: 600;
+                    color: #33302e;
+                    margin: 0 0 16px;
+                }
+            }
+        }
+    }
+
+    @include test('Can output styles for multiple headings') {
+        @include assert {
+            @include output($selector: false) {
+                $o-typography-load-fonts: false !global;
+                $o-typography-progressive-font-loading: false !global;
+                @include oTypography(('headings': (1, 2)));
+                $o-typography-load-fonts: true !global;
+                $o-typography-progressive-font-loading: true !global;
+            }
+            @include expect($selector: false) {
+                .o-typography-heading-level-1 {
+                    font-family: MetricWeb, sans-serif;
+                    font-size: 32px;
+                    line-height: 32px;
+                    font-weight: 600;
+                    color: #33302e;
+                    margin: 0 0 16px;
+                }
+
+                .o-typography-heading-level-2 {
+                    font-family: MetricWeb, sans-serif;
+                    font-size: 28px;
+                    line-height: 32px;
+                    font-weight: 600;
+                    color: #33302e;
+                    margin: 0 0 16px;
+                }
+            }
+        }
+    }
+}
+
 @include test-module('oTypographySans') {
     @include test('Outputs a font family.') {
         @include assert {
