@@ -1,4 +1,52 @@
 @include describe('oEditorialTypography mixins') {
+
+	@include test-module('oEditorialTypography') {
+		@include test('Can output styles for a single heading') {
+			@include assert {
+				@include output($selector: false) {
+					@include oEditorialTypography(('headings': (1)));
+				}
+				@include contains($selector: false) {
+					.o-editorial-typography-heading-level-1 {
+						margin: 0;
+						color: #33302e;
+						font-family: FinancierDisplayWeb, serif;
+						font-size: 28px;
+						line-height: 32px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+
+		@include test('Can output styles for multiple headings') {
+			@include assert {
+				@include output($selector: false) {
+					@include oEditorialTypography(('headings': (1, 2)));
+				}
+				@include contains($selector: false) {
+					.o-editorial-typography-heading-level-1 {
+						margin: 0;
+						color: #33302e;
+						font-family: FinancierDisplayWeb, serif;
+						font-size: 28px;
+						line-height: 32px;
+						font-weight: 400;
+					}
+
+					.o-editorial-typography-heading-level-2 {
+						margin: 0;
+						color: #33302e;
+						font-family: MetricWeb, sans-serif;
+						font-size: 28px;
+						line-height: 32px;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+
 	@include describe('oEditorialTypographyTag') {
 
 		@include test('Styles non-link topic tags') {

@@ -75,14 +75,13 @@
 	}
 
 	// undo browser defaults
-	font-weight: normal;
 	margin: 0;
 
 	// set color
 	color: oColorsByUsecase('body', 'text');
 
 	@if($level == 1) {
-		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6));
+		@include oTypographyDisplay($scale: (default: 4, S: 5, L: 6), $weight: 'regular');
 	}
 
 	@if($level == 2) {
@@ -90,15 +89,15 @@
 	}
 
 	@if($level == 3) {
-		@include oTypographySans($scale: 4);
+		@include oTypographySans($scale: 4, $weight: 'regular');
 	}
 
 	@if($level == 4) {
-		@include oTypographySans($scale: 3);
+		@include oTypographySans($scale: 3, $weight: 'regular');
 	}
 
 	@if($level == 5) {
-		@include oTypographySans($scale: 0);
+		@include oTypographySans($scale: 0, $weight: 'regular');
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
 	}

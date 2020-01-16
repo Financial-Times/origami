@@ -41,7 +41,7 @@
 	$headline: map-get($opts, 'headline');
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
-	@if($headings and type-of($headings) != 'list') {
+	@if($headings and type-of($headings) != 'list' and type-of($headings) != 'number') {
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
 	}
 	$standfirst: map-get($opts, 'standfirst');
