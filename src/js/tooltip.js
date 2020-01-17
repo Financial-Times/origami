@@ -327,6 +327,8 @@ class Tooltip {
 	drawTooltip() {
 		// render the tooltip so we know how big it is
 		this.tooltipEl.style.display = 'block';
+		// don't increase in size, i.e due to inline content, after positioning
+		this.tooltipEl.style['max-width'] = `${this.width()}px`;
 		// check bounds for every position (4 counts)
 		// if chosen position cannot fit flip the toolip.
 		let count = 0;
@@ -434,11 +436,14 @@ class Tooltip {
 
 		// Calculate for position above/below.
 		if (axis === 'y') {
+			// the arrow is placed 10% along the body of the tooltip
+			const arrowPosition = (this.width() / 10);
+
 			if (alignment === 'left') {
-				rect.left = this.target.right - this.width();
+				rect.left = this.target.centrePoint.x - this.width() + arrowPosition;
 			}
 			if (alignment === 'right') {
-				rect.left = this.target.left;
+				rect.left = this.target.centrePoint.x - arrowPosition;
 			}
 			if (alignment === 'middle') {
 				rect.left = this.target.centrePoint.x - (this.width() / 2);
