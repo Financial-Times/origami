@@ -617,6 +617,7 @@
             }
             @include contains {
                 background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+                padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
             }
         }
     }
