@@ -136,7 +136,6 @@
 			a {
 				@include oTypographySans(1);
 				@include oTypographyLink();
-				border: inherit;
 				display: inline-block;
 				padding: 0.4em 1em;
 				// Where supported `overflow-wrap: anywhere` is better than
@@ -154,6 +153,15 @@
 					border-left: 0 solid;
 					border-right: 2px solid;
 				}
+			}
+
+			// Remove standard Origami link decoration styles.
+			// This is in its own declaration to ensure correct
+			// source order after compilation because `oTypographyLink`
+			// uses `@supports`
+			a {
+				border: inherit;
+				text-decoration: none;
 			}
 
 			&.o-layout__navigation-title a {
