@@ -55,6 +55,7 @@ Attributes can be set declaratively, or passed in on instantiation in an options
 - `data-o-tooltip-close-after`: Optional. Integer value. Specify the number of seconds to wait before closing the tooltip. Only applies when `data-o-tooltip-show-on-construction` is set to `true`
 - `data-o-tooltip-z-index`: Optional. The z-index for the tooltip.
 - `data-o-tooltip-animation-distance`: Optional. String with `px` suffix. Distance away from target to start and end animation. Defaults to '10px'.
+- `data-o-tooltip-append-to-body`: Optional. Append the tooltip to the `body` element so it is positioned and sized according to the body rather than a parent element. By default the tooltip is appended as a sibling of the tooltip target. Defaults to `false`.
 
 ### JavaScript
 

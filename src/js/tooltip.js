@@ -360,10 +360,6 @@ class Tooltip {
 			}
 		}
 
-		if (count >= 5) {
-			console.warn("There is not enough space in the client window to draw the tooltip.");
-		}
-
 		// Draw tooltip with latest alignment and position.
 		this.tooltipRect = tooltipRect;
 		this.tooltipAlignment = alignment;
@@ -371,6 +367,7 @@ class Tooltip {
 		const targetLeftOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().left);
 		const targetTopOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().top);
 
+		const startWidth = this.tooltipEl.getBoundingClientRect().width;
 		if (this.opts.appendToBody) {
 			// If the tooltip will be apended directly to body:
 			// set an ID in order to be identified
@@ -381,9 +378,22 @@ class Tooltip {
 			this.tooltipEl.style.top = (this.tooltipRect.top - targetTopOffset) + 'px';
 			this.tooltipEl.style.left = (this.tooltipRect.left - targetLeftOffset) + 'px';
 		}
+		const endWidth = this.tooltipEl.getBoundingClientRect().width;
+
+		// The tooltip size changed when it was placed, e.g. because inline
+		// content overflowed a container and wrapped to more lines.
+		// Redraw with the new tooltip dimensions.
+		if (startWidth !== endWidth) {
+			return this.drawTooltip();
+		}
 
 		// Set Tooltip arrow.
 		this._setArrow();
+
+		// Warn all positions were tried and the tooltip is sill out of bounds.
+		if (count >= 5) {
+			console.warn("There is not enough space in the client window to draw the tooltip.");
+		}
 	}
 
 	/**
