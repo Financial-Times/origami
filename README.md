@@ -61,6 +61,7 @@ The header is made up of various features (e.g. `nav`, `search`, and `drawer`). 
 
 The list of options is as follows:
 
+* `top`: Styles for first header row including the logo and buttons for the drawer menu and search bar.
 * `nav`: The primary nav, this is the nav that sits directly under the top section of the header.
 * `search`: The search bar that appears when a user presses the search icon.
 * `anon`: Styles for the row that appears when a user is not logged in.
@@ -69,6 +70,7 @@ The list of options is as follows:
 * `transparent`: Styles for a header with no background colour and white text and logos. For use on dark backgrounds only.
 * `subbrand`: Styles for the subbranded section of the header (eg Life&Arts).
 * `megamenu`: Styles for the mega-menu that appears when users hover over a nav item.
+* `drawer`: Styles for the drawer menu which is used as the primary navigation on small screens.
 
 To output styles for a feature only, excluding base header styles required by all features, pass `false` as the second argument.
 
