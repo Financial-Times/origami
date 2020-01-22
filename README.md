@@ -132,11 +132,11 @@ All expanders update toggle text when the expander is toggled. To customise defa
 	</div>
 ```
 
-If you would not like toggle text to be updated set `data-o-expander-collapsed-toggle-text` to "aria". The toggle's `aria-expanded` will still be updated but its copy won't. If you would not like the toggle aria to update either set to "none".
+Set `data-o-expander-toggle-state="aria"` to update the toggle aria attributes but not its text. Set to `none` to neither update the toggle aria or text attributes.
 
 ```diff
 -	<div data-o-component="o-expander" class="o-expander">
-+	<div data-o-component="o-expander" class="o-expander" data-o-expander-collapsed-toggle-state="none">
++	<div data-o-component="o-expander" class="o-expander" data-o-expander-toggle-state="none">
 		<div class="o-expander__content">
 			<!-- Some content to expand -->
 		</div>
