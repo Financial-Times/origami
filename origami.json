@@ -36,7 +36,7 @@
 			"description": "Alert message for a positive response to an action",
 			"data": {
 				"type": "alert",
-				"status": "success",
+				"state": "success",
 				"highlight": "Hooray!",
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"actions": {
@@ -52,7 +52,7 @@
 			"data": {
 				"inner": true,
 				"type": "alert",
-				"status": "success",
+				"state": "success",
 				"highlight": "Hooray!",
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"additionalContent": "Did you know that that sentence uses all of the letters in the alphabet at least once?",
@@ -68,7 +68,7 @@
 			"description": "Alert message for an informative response to an action",
 			"data": {
 				"type": "alert",
-				"status": "neutral",
+				"state": "neutral",
 				"content": "There's a fox, and some lazy dogs. Many lazy dogs. Many, many, many lazy dogs. Only one fox. Many, many, many lazy dogs.",
 				"actions": {
 					"button": true,
@@ -83,7 +83,7 @@
 			"data": {
 				"inner": true,
 				"type": "alert",
-				"status": "neutral",
+				"state": "neutral",
 				"highlight": "Meh.",
 				"detail": "The quick brown fox did not jump over the lazy dogs.",
 				"actions": {
@@ -98,7 +98,7 @@
 			"description": "Alert message for a negative response to an action",
 			"data": {
 				"type": "alert",
-				"status": "error",
+				"state": "error",
 				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
 				"actions": {
 					"button": true,
@@ -113,7 +113,7 @@
 			"data": {
 				"inner": true,
 				"type": "alert",
-				"status": "error",
+				"state": "error",
 				"highlight": "Oops.",
 				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
 				"additionalContent": "But that sentence still uses all of the letters in the alphabet at least once!",
@@ -129,7 +129,7 @@
 			"description": "Notice message to convey information",
 			"data": {
 				"type": "notice",
-				"status": "inform",
+				"state": "inform",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 				"actions": {
 					"button": true,
@@ -144,7 +144,7 @@
 			"data": {
 				"inner": true,
 				"type": "notice",
-				"status": "inform",
+				"state": "inform",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
 				"actions": {
 					"button": true,
@@ -159,7 +159,7 @@
 			"description": "Notice message to emit a light warning",
 			"data": {
 				"type": "notice",
-				"status": "warning-light",
+				"state": "warning-light",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
 			},
 			"brands": [
@@ -173,7 +173,7 @@
 			"data": {
 				"inner": true,
 				"type": "notice",
-				"status": "warning-light",
+				"state": "warning-light",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
 				"actions": {
 					"button": true,
@@ -191,7 +191,7 @@
 			"description": "Notice message to emit a strong warning",
 			"data": {
 				"type": "notice",
-				"status": "warning",
+				"state": "warning",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact."
 			},
 			"brands": [
@@ -205,7 +205,7 @@
 			"data": {
 				"inner": true,
 				"type": "notice",
-				"status": "warning",
+				"state": "warning",
 				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed."
 			},
 			"brands": [
@@ -218,7 +218,7 @@
 			"description": "Action message, displaying a call to action",
 			"data":  {
 				"type": "action",
-				"status": "inform-inverse",
+				"state": "inform-inverse",
 				"centralised": true,
 				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
 				"actions": {

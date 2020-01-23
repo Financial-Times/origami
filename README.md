@@ -175,7 +175,7 @@ If you're setting up a message without existing DOM elements, `Message` will con
 import Message from 'o-message';
 const importantMessage = new Message(null, {
 	type: 'alert',
-	status: 'error',
+	state: 'error',
 	content: {
 		highlight: 'Something has gone wrong.',
 		detail: 'The quick brown fox did not jump over the lazy dogs.'
@@ -188,7 +188,7 @@ const importantMessage = new Message(null, {
 
 The only required options are listed in the example _above_. These are:
 - `type`: String. The o-message variant. The available variants are 'action', 'alert' and 'notice'.
-- `status`: String. All messages require a status, and you must supply one that combines with the type of message you've chosen, as listed in the [message types](#message-types)
+- `state`: String. All messages require a state, and you must supply one that combines with the type of message you've chosen, as listed in the [message types](#message-types)
 - `content.detail`: String. The detail about the nature of a message.
 
 The following options are not required, and all have a default value:
@@ -215,7 +215,7 @@ For example, to configure the `close` icon to not display:
 import Message from 'o-message';
 const importantMessage = new Message(null, {
 	type: 'alert',
-	status: 'error',
+	state: 'error',
 	content: {
 -		highlight: 'Something has gone wrong.',
 +		highlight: 'Something has gone very wrong.',

@@ -131,7 +131,7 @@ describe("Message", () => {
 
 			beforeEach(() => {
 				options = {
-					status: 'success',
+					state: 'success',
 					type: 'alert',
 					content: {
 						highlight: 'Good.'

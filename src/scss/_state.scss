@@ -1,5 +1,5 @@
-/// message status styling
-/// @param {String} $state - the name of the status for the message ('success', 'neutral', 'error', 'warning', 'warning-light', 'inform', 'inform-inverse')
+/// message state styling
+/// @param {String} $state - the name of the state for the message ('success', 'neutral', 'error', 'warning', 'warning-light', 'inform', 'inform-inverse')
 /// @access private
 @mixin _oMessageState ($state) {
 	// get foreground colour

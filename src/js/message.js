@@ -18,7 +18,7 @@ class Message {
 	 * @example To construct a message which does not already exist on the page.
  	 *      const errorAlert = new Message(null, {
  	 *      	type: 'alert',
- 	 *      	status: 'error',
+ 	 *      	state: 'error',
  	 *      	content: {
  	 *      		highlight: 'Something has gone wrong.',
  	 *      		detail: 'The quick brown fox did not jump over the lazy dogs.'

@@ -52,7 +52,7 @@ describe("constructElement", () => {
 			assert.throws(() => construct.message(mockObj.opts), error);
 		});
 
-		it('throws an error if no status is defined', () => {
+		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
 			let error = "*** o-message error:\nMessages require a state.\n***";
@@ -107,7 +107,7 @@ describe("constructElement", () => {
 			assert.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.notice));
 		});
 
-		it('throws an error if no status is defined', () => {
+		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
 			let error = "*** o-message error:\nMessages require a state.\n***";
