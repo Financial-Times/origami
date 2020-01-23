@@ -69,7 +69,7 @@ const init = (opts = {}) => {
 
 				decorateEventData(eventData, viewedEl, opts);
 				Core.track(eventData);
-				this.unobserve(viewedEl);
+				observer.unobserve(viewedEl);
 			}
 		});
 	}
