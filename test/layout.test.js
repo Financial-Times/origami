@@ -54,10 +54,9 @@ describe('Layout', () => {
 				navHeadingSelector: 'h1, h2, h3, h4, h5, h6'
 			});
 			setTimeout(() => {
-
 				assert.strictEqual(
 					documentationLayoutElement.querySelector('.o-layout__sidebar').innerHTML.replace(/[\n\t]/g, ''),
-					'<nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b">Sub heading 1b</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-2">Sub heading 2</a></li></ol></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-second-h2">This is a second heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-a">Sub heading a</a></li></ol></li></ol></nav>'
+					'<nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2" aria-current="false">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1" aria-current="false">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b" aria-current="false">Sub heading 1b</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-2" aria-current="false">Sub heading 2</a></li></ol></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-second-h2" aria-current="false">This is a second heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-a" aria-current="false">Sub heading a</a></li></ol></li></ol></nav>'
 				);
 				done();
 			}, 100);
@@ -92,6 +91,36 @@ describe('Layout', () => {
 			// allow for request animation frame
 			setTimeout(() => {
 				assert.notOk(document.querySelector('.o-layout__navigation'), null, 'Did not expect to find a navigation element.');
+				done();
+			}, 100);
+		});
+
+		it('updates `aria-current` on init for manually constructed navigation markup', (done) => {
+			// manually construct nav
+			const navMarkup = `
+				<nav class="o-layout__navigation">
+					<ol class="o-layout__unstyled-element">
+						<li class="o-layout__unstyled-element o-layout__navigation-title">
+							<a class="o-layout__unstyled-element" href="#this-is-a-h1">This is a heading level 1</a>
+						</li>
+						<li class="o-layout__unstyled-element ">
+							<a id="second-nav-link" class="o-layout__unstyled-element" aria-current="location" href="#this-is-a-h2">This is a heading level 2</a>
+						</li>
+					</ol>
+				</nav>
+			`;
+			const layoutSidebarElement = document.querySelector('.o-layout__sidebar');
+			layoutSidebarElement.innerHTML = navMarkup;
+			// the second nav link in the current location in our markup,
+			// although it's not actually when the page loads
+			const navLink = document.getElementById('second-nav-link');
+			assert.equal(navLink.getAttribute('aria-current'), 'location');
+			// init layout, with `constructNav: false` as we created our own
+			new Layout(documentationLayoutElement, { constructNav: false });
+			// allow for request animation frame
+			setTimeout(() => {
+				// assert the current location has been updated on init
+				assert.equal(navLink.getAttribute('aria-current'), 'false');
 				done();
 			}, 100);
 		});

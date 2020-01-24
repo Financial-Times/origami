@@ -123,10 +123,12 @@ class Layout {
 
 		//on page load, highlight the nav item that corresponds to the url
 		navAnchors.forEach((anchor, index) => {
-			if (location.hash === '' && index === 0) {
+			const currentLocation = anchor.hash === location.hash;
+			const defaultLocaiton = location.hash === '' && index === 0;
+			if (currentLocation || defaultLocaiton) {
 				anchor.setAttribute('aria-current', 'location');
-			} else if (anchor.hash === location.hash) {
-				anchor.setAttribute('aria-current', 'location');
+			} else {
+				anchor.setAttribute('aria-current', false);
 			}
 		});
 
