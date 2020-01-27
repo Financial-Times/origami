@@ -7,7 +7,7 @@ Backlog: https://github.com/Financial-Times/origami-proposals/projects/1
 
 If you need help with putting your proposal together then please
 contact the Origami team at origami.support@ft.com or
-#ft-origami on Slack.
+#origami-support on Slack.
 -->
 
 
