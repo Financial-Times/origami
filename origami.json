@@ -22,7 +22,9 @@
 		"required": [
 			"DOMTokenList",
 			"Element.prototype.closest",
-			"Array.prototype.includes"
+			"Array.prototype.includes",
+			"Array.from",
+			"Object.assign"
 		]
 	},
 	"demosDefaults": {
