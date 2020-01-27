@@ -16,13 +16,13 @@ const coralEventMap = new Map([
 			oTracking: 'post'
 		}
 	],
-	['mutation.createCommentReply',
+	['createCommentReply.success',
 		{
 			oComments: 'oComments.replyComment',
 			oTracking: 'reply'
 		}
 	],
-	['createCommentReply.success',
+	['editComment.success',
 		{
 			oComments: 'oComments.editComment',
 			oTracking: 'edit'
