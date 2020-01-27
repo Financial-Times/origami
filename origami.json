@@ -13,7 +13,7 @@
 	"support": "https://github.com/Financial-Times/o-loading/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
-		"slack": "financialtimes/ft-origami"
+		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "active",
 	"demosDefaults": {
