@@ -37,6 +37,8 @@ This will include icons with a `128px` width/height by default. Or use the [Sass
 
 Use `oIconsContent` to output the styles for an icon of a given size and colour.
 
+The `$color` argument should be set using an [o-colors](https://registry.origami.ft.com/components/o-colors) Sass function such as `oColorsByName`, but may be set to any hex value.
+
 ```scss
 // Use o-colors so you can use colors from the Origami palette.
 @import "o-icons/main";
@@ -46,7 +48,7 @@ Use `oIconsContent` to output the styles for an icon of a given size and colour.
 .my-icon-plus {
 	@include oIconsContent(
 		$icon-name: 'plus',
-		$color: oColorsGetPaletteColor('claret'),
+		$color: oColorsByName('claret'),
 		$size: 32
 	);
 }
@@ -67,7 +69,7 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 .my-icon--plus {
 	@include oIconsContent(
 		$icon-name: 'plus',
-		$color: oColorsGetPaletteColor('claret'),
+		$color: oColorsByName('claret'),
 		$size: 32,
 		$include-base-styles: false // do not duplicate the base styles
 	);
@@ -84,7 +86,7 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 .no-high-contrast-window {
 	@include oIconsContent(
 		$icon-name: 'plus',
-		$color: oColorsGetPaletteColor('claret'),
+		$color: oColorsByName('claret'),
 		$high-contrast-fallback: false
 	);
 }
