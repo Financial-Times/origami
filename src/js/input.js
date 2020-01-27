@@ -40,7 +40,8 @@ class Input {
 			return false;
 
 		} else if (this.input.validity.valid && this.parent.classList.contains(this.className.invalid)) {
-			this.parent.classList.replace(this.className.invalid, this.className.valid);
+			this.parent.classList.remove(this.className.invalid);
+			this.parent.classList.add(this.className.valid);
 		}
 
 		return true;
