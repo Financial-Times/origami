@@ -65,6 +65,10 @@ body {
 // remove divider of the top tab bar
 .coral-tabBar {
 	border-bottom-width: 0;
+
+	li:only-child {
+		display: none;
+	}
 }
 
 .coral-tabBarSecondary {
