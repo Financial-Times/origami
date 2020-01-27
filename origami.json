@@ -12,7 +12,7 @@
 	"support": "https://github.com/Financial-Times/o-overlay/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
-		"slack": "financialtimes/ft-origami"
+		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "active",
 	"keywords": "interstitial messaging modal popover notification hover",
