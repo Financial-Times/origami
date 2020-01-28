@@ -139,6 +139,7 @@ To enable these set `data-o-table-responsive` to the type of responsive table de
 </div>
 ```
 
+If your project does not use the build service, you may need to specify an [extra Sass option](#sass) for responsive features and initialise [o-table JavaScript](#JavaScript).
 More examples are available in [the registry](https://registry.origami.ft.com/components/o-table).
 
 ### Expander
