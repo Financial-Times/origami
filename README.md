@@ -29,7 +29,9 @@ To add an icon apply the `o-icons-icon` class to a `span`, along with the modifi
 <span class="o-icons-icon o-icons-icon--book"></span>
 ```
 
-This will include icons with a `128px` width/height by default. Or use the [Sass](#sass) mixins to include icons of a given dimension and colour.
+This will include icons with a `128px` width/height by default.
+
+If you would like to use an icon at a different dimension or colour, use `o-icon` [Sass](#sass) mixins or request the icon from the [Image Service](https://www.ft.com/__origami/service/image/v2/docs/url-builder?url=fticon-v1%3Aarrow-down&preview=true) directly (without using o-icons at all).
 
 ## Sass
 
