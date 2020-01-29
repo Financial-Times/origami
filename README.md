@@ -467,13 +467,13 @@ This markup will always be generated dynamically if the [errorSummary option](#f
 
 You can include styles for every input type and feature by calling that mixin:
 ```scss
-@import 'o-forms';
+@import 'o-forms/main';
 @include oForms();
 ```
 
 If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
 ```scss
-@import 'o-forms';
+@import 'o-forms/main';
 @include oForms($opts: (
 	'elements': ('text', 'checkbox'),
 	'features': ('inline')
