@@ -16,6 +16,12 @@ const coralEventMap = new Map([
 			oTracking: 'post'
 		}
 	],
+	['createComment.error',
+		{
+			oComments: 'oComments.errorComment',
+			oTracking: 'post-error'
+		}
+	],
 	['createCommentReply.success',
 		{
 			oComments: 'oComments.replyComment',
@@ -48,16 +54,6 @@ const coralEventMap = new Map([
 	]
 ]);
 
-const coralErrorMap = new Map([
-	['TOXIC_COMMENT',
-		{
-			oComments: 'oComments.toxicComment',
-			oTracking: 'post-rejected-toxic'
-		}
-	]
-]);
-
 export {
-	coralEventMap,
-	coralErrorMap
+	coralEventMap
 };

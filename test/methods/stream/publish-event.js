@@ -133,34 +133,27 @@ module.exports = () => {
 	describe("valid coral error", () => {
 		it("maps coral errors to oComment events", (done) => {
 			const listener = () => {
-				document.removeEventListener('oComments.toxicComment', listener);
+				document.removeEventListener('oComments.errorComment', listener);
 				done();
 			};
-			document.addEventListener('oComments.toxicComment', listener);
+			document.addEventListener('oComments.errorComment', listener);
 
 			const stream = new Stream();
-			stream.publishEvent({
-				name: 'oComments.postComment',
-				data: {
-					error: {
-						code: 'TOXIC_COMMENT'
-					}
-				}
-			});
+			stream.publishEvent({ name: 'createComment.error' });
 		});
 
 		it("maps coral errors to oTracking events", (done) => {
 			const listener = (event) => {
 				document.removeEventListener('oTracking.event', listener);
 				proclaim.equal(event.detail.category, 'comment');
-				proclaim.equal(event.detail.action, 'post-rejected-toxic');
+				proclaim.equal(event.detail.action, 'post-error');
 				done();
 			};
 			document.addEventListener('oTracking.event', listener);
 
 			const stream = new Stream();
 			stream.publishEvent({
-				name: 'oComments.postComment',
+				name: 'createComment.error',
 				data: {
 					error: {
 						code: 'TOXIC_COMMENT'
@@ -171,7 +164,7 @@ module.exports = () => {
 
 		it("doesn't emit oTracking events if it has been disabled", (done) => {
 			const listener = (event) => {
-				if (event.detail.category === 'comment' && event.detail.action === 'post-rejected-toxic') {
+				if (event.detail.category === 'comment' && event.detail.action === 'post-error') {
 					document.removeEventListener('oTracking.event', listener);
 					proclaim.fail('This event should not have been fired');
 				}
@@ -186,7 +179,7 @@ module.exports = () => {
 				disableOTracking: true
 			});
 			stream.publishEvent({
-				name: 'oComments.postComment',
+				name: 'createComment.error',
 				data: {
 					error: {
 						code: 'TOXIC_COMMENT'
@@ -205,7 +198,7 @@ module.exports = () => {
 		it("only maps 1 event every 100 milliseconds", (done) => {
 			const listenerStub = sandbox.stub();
 			const listener = (event) => {
-				if (event.detail.category === 'comment' && event.detail.action === 'post-rejected-toxic') {
+				if (event.detail.category === 'comment' && event.detail.action === 'post-error') {
 					listenerStub();
 				}
 			};
@@ -214,7 +207,7 @@ module.exports = () => {
 			const stream = new Stream();
 			const interval = window.setInterval(() => {
 				stream.publishEvent({
-					name: 'oComments.postComment',
+					name: 'createComment.error',
 					data: {
 						error: {
 							code: 'TOXIC_COMMENT'
