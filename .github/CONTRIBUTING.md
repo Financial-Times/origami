@@ -67,4 +67,4 @@ This section is for members of the Origami team, and acts as a guide for reviewi
 [origami registry]: https://registry.origami.ft.com/
 [proposal backlog]: https://github.com/Financial-Times/origami-proposals/projects/1
 [raise an issue]: https://github.com/Financial-Times/origami-proposals/issues/new
-[slack]: https://financialtimes.slack.com/messages/ft-origami
+[slack]: https://financialtimes.slack.com/messages/origami-support
