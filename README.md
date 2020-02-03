@@ -13,7 +13,9 @@ Accessible, content-aware component for expanding and collapsing content.
 
 The  `o-expander` component has a content element `o-expander__content` (the DOM to expand and collapse) and toggle elements `o-expander__toggle` (the triggers to toggle the expander).
 
-`o-expander__toggle` and `o-expander__content` can be put anywhere within `o-expander` as long as `o-expander__toggle` is not contained within `o-expander__content`. There are no restrictions on sibling markup.
+- `o-expander__toggle` and `o-expander__content` can be put anywhere within `o-expander` as long as `o-expander__toggle` is not contained within `o-expander__content`.
+- `o-expander__toggle` should be placed on a button or anchor element for keyboard accessibility.
+- There are no restrictions on sibling markup.
 
 ```html
 <div data-o-component="o-expander" class="o-expander">
