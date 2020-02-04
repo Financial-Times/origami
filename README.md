@@ -569,7 +569,7 @@ import oLayout from 'o-layout';
 oLayout.init();
 ```
 
-### Navigation
+### Custom Navigation
 
 The [documentation layout](#documentation-layout) uses JavaScript to construct a sidebar navigation out of headings (`h1`, `h2` and `h3`) in the content, and to highlight those items depending on the scroll position. The [query layout](#query-layout) also supports a generated nav but by default it is disabled.
 
