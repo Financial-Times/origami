@@ -5,7 +5,7 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"supportStatus": "active",
-	"support": "github.com/Financial-Times/o-video/issues",
+	"support": "https://github.com/Financial-Times/o-video/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
