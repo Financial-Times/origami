@@ -19,13 +19,8 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-buttons@^6.0.0",
 			"o-fonts@^4.0.0",
-			"o-forms@^8.0.0",
-			"o-normalise@^2.0.0",
-			"o-overlay@^3.0.0",
-			"o-syntax-highlight@^3.0.0",
-			"o-tabs@^5.0.0"
+			"o-normalise@^2.0.0"
 		]
 	},
 	"ci": {
@@ -40,6 +35,15 @@
 			"sass": "demos/src/contrast-checker/contrast-checker.scss",
 			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
+			"dependencies": [
+				"o-buttons@^6.0.0",
+				"o-fonts@^4.0.0",
+				"o-forms@^8.0.0",
+				"o-normalise@^2.0.0",
+				"o-overlay@^3.0.0",
+				"o-syntax-highlight@^3.0.0",
+				"o-tabs@^5.0.0"
+			],
 			"brands": [
 				"master"
 			]
@@ -52,6 +56,13 @@
 			"sass": "demos/src/color-mixer/color-mixer.scss",
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
+			"dependencies": [
+				"o-fonts@^4.0.0",
+				"o-forms@^8.0.0",
+				"o-normalise@^2.0.0",
+				"o-overlay@^3.0.0",
+				"o-syntax-highlight@^3.0.0"
+			],
 			"brands":	[
 				"master"
 			]
@@ -119,6 +130,15 @@
 			"sass": "demos/src/contrast-checker/contrast-checker.scss",
 			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
+			"dependencies": [
+				"o-buttons@^6.0.0",
+				"o-fonts@^4.0.0",
+				"o-forms@^8.0.0",
+				"o-normalise@^2.0.0",
+				"o-overlay@^3.0.0",
+				"o-syntax-highlight@^3.0.0",
+				"o-tabs@^5.0.0"
+			],
 			"brands": [
 				"internal"
 			]
@@ -131,6 +151,13 @@
 			"sass": "demos/src/color-mixer/color-mixer.scss",
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
+			"dependencies": [
+				"o-fonts@^4.0.0",
+				"o-forms@^8.0.0",
+				"o-normalise@^2.0.0",
+				"o-overlay@^3.0.0",
+				"o-syntax-highlight@^3.0.0"
+			],
 			"brands":	[
 				"internal"
 			]
