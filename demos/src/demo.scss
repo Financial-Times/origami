@@ -1,0 +1,9 @@
+@import '../../main';
+@include oMeter;
+
+.example {
+	--o-meter-background-color: hotpink;
+	--o-meter-optimum-color: deeppink;
+	--o-meter-sub-optimum-colo: pink;
+	--o-meter-sub-sub-optimum-color: red;
+}

@@ -1,0 +1,94 @@
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+/// Output All oMeter Features
+@mixin oMeter() {
+
+	meter {
+		--o-meter-background-color: white;
+		--o-meter-optimum-color: green;
+		--o-meter-sub-optimum-color: orange;
+		--o-meter-sub-sub-optimum-color: red; //bad
+
+		/* Background in Firefox */
+		background: var(--o-meter-background-color);
+	}
+
+	/* Background in Chrome, etc. */
+	meter::-webkit-meter-bar {
+		background: var(--o-meter-background-color);
+	}
+
+	/*  Optimum bar in Firefox */
+	meter:-moz-meter-optimum::-moz-meter-bar {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Optimum bar in Chrome etc. */
+	meter::-webkit-meter-optimum-value {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Sub-optimum bar in Firefox */
+	meter:-moz-meter-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-sub-optimum-color);
+	}
+
+	/* Ssub-optimum bar in Chrome etc. */
+	meter::-webkit-meter-suboptimum-value {
+		background: var(--o-meter-sub-optimum-color);
+	}
+
+	/* Even less good bar in Firefox */
+	meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-sub-sub-optimum-color);
+	}
+
+	/* Even less good bar in Chrome etc. */
+	meter::-webkit-meter-even-less-good-value {
+		background: var(--o-meter-sub-sub-optimum-color);
+	}
+
+	.o-meter {
+		display: block;
+	}
+
+	.o-meter__container {
+		position: relative;
+	}
+
+	.o-meter__value {
+		position: relative;
+		padding: 0 5px;
+		background: black;
+		color: white;
+		line-height: 24px;
+		text-align: center;
+		top: 4px;
+		display: inline-block;
+		transform: translateX(-50%);
+
+		&::before {
+			content: '';
+			transform: translateX(-50%);
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			border: 4px solid transparent;
+			border-bottom-width: 6px;
+			border-bottom-color: black;
+		}
+	}
+
+	.remove_me_later {
+		padding: 20px;
+	}
+};
+
+@if ($o-meter-is-silent == false) {
+	@include oMeter();
+
+	// Set to silent again to avoid being output twice
+	$o-meter-is-silent: true !global;
+}

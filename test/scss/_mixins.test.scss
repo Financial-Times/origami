@@ -1,0 +1,19 @@
+@include describe('oMeter mixins') {
+	@include describe('oMeter') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oMeter();
+					}
+				};
+
+				@include expect($selector: false) {
+					.test-mixin .o-meter {
+						display: block;
+					}
+				};
+			};
+		}
+	}
+}

@@ -1,0 +1,7 @@
+/// Provide a component specific error message
+///
+/// @param {String} $message - The message to insert in the error.
+/// @access Private
+@mixin _oMeter($message) {
+	@error '*** oMeter SCSS error: #{$message} ***';
+};
