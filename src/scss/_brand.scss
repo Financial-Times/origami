@@ -14,26 +14,23 @@
 	@include oBrandDefine('o-banner', 'master', (
 		'variables': (
 			'background': oColorsByName('white'),
-			'background-color-name': 'white',
 			'text': oColorsByName('black'),
 			'heading-rule': oColorsByName('teal'),
-			'button-color-name': 'teal',
+			'button-background': oColorsByName('teal'),
 			'marketing': (
 				'background': oColorsByName('white'),
-				'background-color-name': 'white',
 				'text': oColorsByName('black'),
 				'heading-rule': oColorsByName('teal-80'),
-				'link-color-name': 'black',
-				'button-color-name': 'black',
+				'link-text': oColorsByName('black'),
+				'button-background': oColorsByName('black')
 			),
 			'product': (
 				'background': oColorsByName('teal'),
-				'background-color-name': 'teal',
 				'text': oColorsByName('white'),
 				'heading-rule': oColorsByName('white'),
-				'link-color-name': 'white',
-				'button-color-name': 'white',
-			),
+				'link-text': oColorsByName('white'),
+				'button-background': oColorsByName('white')
+			)
 		),
 		'supports-variants': (
 			'marketing',

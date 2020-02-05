@@ -181,8 +181,8 @@
 		'size': 'big',
 		'type': 'primary',
 		'theme': (
-			'color': _oBannerGet('button-color-name'),
-			'context': _oBannerGet('background-color-name')
+			'color': _oBannerGet('button-background'),
+			'context': _oBannerGet('background')
 		)
 	));
 	white-space: nowrap;

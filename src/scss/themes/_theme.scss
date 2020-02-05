@@ -6,9 +6,9 @@
 	.o-banner__content {
 		a {
 			@include oTypographyLink($theme: (
-				'base': _oBannerGet('link-color-name', $from: $theme),
-				'hover': _oBannerGet('link-color-name', $from: $theme),
-				'context': _oBannerGet('background-color-name', $from: $theme)
+				'base': _oBannerGet('link-text', $from: $theme),
+				'hover': _oBannerGet('link-text', $from: $theme),
+				'context': _oBannerGet('background', $from: $theme)
 			));
 		}
 	}
@@ -22,16 +22,16 @@
 			'size': 'big',
 			'type': 'primary',
 			'theme': (
-				'color': _oBannerGet('button-color-name', $from: $theme),
-				'context': _oBannerGet('background-color-name', $from: $theme)
+				'color': _oBannerGet('button-background', $from: $theme),
+				'context': _oBannerGet('background', $from: $theme)
 			)
 		));
 	}
 	.o-banner__link {
 			@include oTypographyLink($theme: (
-				'base': _oBannerGet('link-color-name', $from: $theme),
-				'hover': _oBannerGet('link-color-name', $from: $theme),
-				'context': _oBannerGet('background-color-name', $from: $theme)
+				'base': _oBannerGet('link-text', $from: $theme),
+				'hover': _oBannerGet('link-text', $from: $theme),
+				'context': _oBannerGet('background', $from: $theme)
 			));
 	}
 	.o-banner__close {
