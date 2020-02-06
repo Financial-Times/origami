@@ -1,8 +1,8 @@
 @mixin _oBannerTheme($theme, $include-layout-styles: true) {
 
-	// Get and default some of the theme properties. Link, button, and rule colors
-	// default to text color, because we know this at least should be set to have
-	// a high enough contrast against the background
+	// Get and default the colour-based theme properties. Link, button, and rule
+	// colors default to text color, because we know this at least should be set
+	// to have a high enough contrast against the background
 	$text-color: _oBannerGet('text-color', $from: $theme);
 	$background-color: _oBannerGet('background-color', $from: $theme);
 	$link-text-color: _oBannerGet('link-text-color', $from: $theme);
@@ -14,8 +14,27 @@
 	$heading-rule-color: _oBannerGet('heading-rule-color', $from: $theme);
 	$heading-rule-color: if($heading-rule-color, $heading-rule-color, $text-color);
 
+	// Get and default background image theme properties
+	$background-image: _oBannerGet('background-image', $from: $theme);
+
+	// Background position defaults to bottom-right, because this is where all
+	// existing customisations keep their image. It's also the most sensible in
+	// terms of not obstructing content.
+	$background-position: _oBannerGet('background-position', $from: $theme);
+	$background-position: if($background-position, $background-position, bottom right);
+
+	// Background repeat defaults to no-repeat, because this matches all of
+	// the existing customisations and will not accidentally obstruct content.
+	$background-repeat: _oBannerGet('background-repeat', $from: $theme);
+	$background-repeat: if($background-repeat, $background-repeat, no-repeat);
+
 	.o-banner__outer {
-		background: $background-color;
+		@if ($background-image) {
+			background-image: url($background-image);
+			background-position: $background-position;
+			background-repeat: $background-repeat;
+		}
+		background-color: $background-color;
 		color: $text-color;
 	}
 	.o-banner__content {
@@ -58,11 +77,19 @@
 		&.o-banner--small,
 		&.o-banner--compact {
 			.o-banner__outer {
-				color: $text-color;
+				@if ($background-image) {
+					background-image: none;
+				}
 				background-color: transparent;
+				color: $text-color;
 			}
 			.o-banner__inner {
-				background: $background-color;
+				@if ($background-image) {
+					background-image: url($background-image);
+					background-position: $background-position;
+					background-repeat: $background-repeat;
+				}
+				background-color: $background-color;
 			}
 		}
 	}
