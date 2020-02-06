@@ -29,10 +29,7 @@
 			"data": {
 				"meterValue": 33
 			},
-			"description": "This demo shows a meter with a value of 33",
-			"brands": [
-				"internal"
-			]
+			"description": "This demo shows a meter with a value of 33"
 		},
 		{
 			"title": "A Meter with an additional value box",
@@ -41,10 +38,7 @@
 			"data": {
 				"meterValue": 75
 			},
-			"description": "This demo show a meter with a value of 75 with an extra value box",
-			"brands": [
-				"internal"
-			]
+			"description": "This demo show a meter with a value of 75 with an extra value box"
 		},
 		{
 			"title": "Customized Meter",
@@ -53,10 +47,7 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 that was colour-customised",
-			"brands": [
-				"internal"
-			]
+			"description": "This demo shows a meter with a value of 25 that was colour-customised"
 		},
 		{
 			"title": "Customized Basic Meter",
@@ -65,10 +56,7 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a basic meter with a value of 25 with customised width and length",
-			"brands": [
-				"internal"
-			]
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length"
 		},
 		{
 			"title": "Customized Meter",
@@ -77,17 +65,7 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 with customised width and length",
-			"brands": [
-				"internal"
-			]
-		},
-		{
-			"title": "Pa11y",
-			"name": "pa11y",
-			"template": "demos/src/pa11y.mustache",
-			"description": "Accessibility test will be run against this demo",
-			"hidden": true
+			"description": "This demo shows a meter with a value of 25 with customised width and length"
 		}
 	]
 }
