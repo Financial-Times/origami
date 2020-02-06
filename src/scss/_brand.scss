@@ -13,23 +13,23 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-banner', 'master', (
 		'variables': (
-			'background': oColorsByName('white'),
-			'text': oColorsByName('black'),
-			'heading-rule': oColorsByName('teal'),
-			'button-background': oColorsByName('teal'),
+			'background-color': oColorsByName('white'),
+			'text-color': oColorsByName('black'),
+			'heading-rule-color': oColorsByName('teal'),
+			'button-background-color': oColorsByName('teal'),
 			'marketing': (
-				'background': oColorsByName('white'),
-				'text': oColorsByName('black'),
-				'heading-rule': oColorsByName('teal-80'),
-				'link-text': oColorsByName('black'),
-				'button-background': oColorsByName('black')
+				'background-color': oColorsByName('white'),
+				'text-color': oColorsByName('black'),
+				'heading-rule-color': oColorsByName('teal-80'),
+				'link-text-color': oColorsByName('black'),
+				'button-background-color': oColorsByName('black')
 			),
 			'product': (
-				'background': oColorsByName('teal'),
-				'text': oColorsByName('white'),
-				'heading-rule': oColorsByName('white'),
-				'link-text': oColorsByName('white'),
-				'button-background': oColorsByName('white')
+				'background-color': oColorsByName('teal'),
+				'text-color': oColorsByName('white'),
+				'heading-rule-color': oColorsByName('white'),
+				'link-text-color': oColorsByName('white'),
+				'button-background-color': oColorsByName('white')
 			)
 		),
 		'supports-variants': (

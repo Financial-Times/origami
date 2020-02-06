@@ -1,20 +1,20 @@
 @mixin _oBannerTheme($theme, $include-layout-styles) {
 	.o-banner__outer {
-		background: _oBannerGet('background', $from: $theme);
-		color: _oBannerGet('text', $from: $theme);
+		background: _oBannerGet('background-color', $from: $theme);
+		color: _oBannerGet('text-color', $from: $theme);
 	}
 	.o-banner__content {
 		a {
 			@include oTypographyLink($theme: (
-				'base': _oBannerGet('link-text', $from: $theme),
-				'hover': _oBannerGet('link-text', $from: $theme),
-				'context': _oBannerGet('background', $from: $theme)
+				'base': _oBannerGet('link-text-color', $from: $theme),
+				'hover': _oBannerGet('link-text-color', $from: $theme),
+				'context': _oBannerGet('background-color', $from: $theme)
 			));
 		}
 	}
 	.o-banner__heading {
 		&:after {
-			border-color: _oBannerGet('heading-rule', $from: $theme);
+			border-color: _oBannerGet('heading-rule-color', $from: $theme);
 		}
 	}
 	.o-banner__button {
@@ -22,20 +22,20 @@
 			'size': 'big',
 			'type': 'primary',
 			'theme': (
-				'color': _oBannerGet('button-background', $from: $theme),
-				'context': _oBannerGet('background', $from: $theme)
+				'color': _oBannerGet('button-background-color', $from: $theme),
+				'context': _oBannerGet('background-color', $from: $theme)
 			)
 		));
 	}
 	.o-banner__link {
-			@include oTypographyLink($theme: (
-				'base': _oBannerGet('link-text', $from: $theme),
-				'hover': _oBannerGet('link-text', $from: $theme),
-				'context': _oBannerGet('background', $from: $theme)
-			));
+		@include oTypographyLink($theme: (
+			'base': _oBannerGet('link-text-color', $from: $theme),
+			'hover': _oBannerGet('link-text-color', $from: $theme),
+			'context': _oBannerGet('background-color', $from: $theme)
+		));
 	}
 	.o-banner__close {
-		@include oIconsContent('cross', _oBannerGet('text', $from: $theme), $size: $_o-banner-close-button-size);
+		@include oIconsContent('cross', _oBannerGet('text-color', $from: $theme), $size: $_o-banner-close-button-size);
 	}
 
 	// When combined with the "small" and "compact" themes
@@ -43,11 +43,11 @@
 		&.o-banner--small,
 		&.o-banner--compact {
 			.o-banner__outer {
-				color: _oBannerGet('text', $from: $theme);
+				color: _oBannerGet('text-color', $from: $theme);
 				background-color: transparent;
 			}
 			.o-banner__inner {
-				background: _oBannerGet('background', $from: $theme);
+				background: _oBannerGet('background-color', $from: $theme);
 			}
 		}
 	}

@@ -48,8 +48,8 @@
 
 @mixin _oBannerOuter {
 	@include oVisualEffectsShadowContent('high');
-	background: _oBannerGet('background');
-	color: _oBannerGet('text');
+	background: _oBannerGet('background-color');
+	color: _oBannerGet('text-color');
 }
 
 @mixin _oBannerInner {
@@ -146,7 +146,7 @@
 
 		// Color is set separately for easier overriding later
 		border-bottom: oSpacingByIncrement(2) solid;
-		border-color: _oBannerGet('heading-rule');
+		border-color: _oBannerGet('heading-rule-color');
 	}
 }
 
@@ -181,8 +181,8 @@
 		'size': 'big',
 		'type': 'primary',
 		'theme': (
-			'color': _oBannerGet('button-background'),
-			'context': _oBannerGet('background')
+			'color': _oBannerGet('button-background-color'),
+			'context': _oBannerGet('background-color')
 		)
 	));
 	white-space: nowrap;
@@ -195,7 +195,7 @@
 }
 
 @mixin _oBannerCloseButton {
-	@include oIconsContent('cross', _oBannerGet('text'), $size: $_o-banner-close-button-size);
+	@include oIconsContent('cross', _oBannerGet('text-color'), $size: $_o-banner-close-button-size);
 	// start: undo button styles
 	appearance: none;
 	color: inherit;

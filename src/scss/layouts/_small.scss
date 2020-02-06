@@ -29,7 +29,7 @@
 @mixin _oBannerSmallInner {
 	@include oVisualEffectsShadowContent('high');
 	@include oTypographySans($scale: 2);
-	background: _oBannerGet('background');
+	background: _oBannerGet('background-color');
 	display: block;
 	padding: $_o-banner-spacing;
 	padding-top: oSpacingByIncrement(7);
