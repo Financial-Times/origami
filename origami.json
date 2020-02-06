@@ -70,6 +70,13 @@
 			"description": "Testing that a form and submit button can be used"
 		},
 		{
+			"title": "Custom",
+			"name": "custom",
+			"template": "demos/src/custom.mustache",
+			"hidden": true,
+			"description": "Testing that custom banners work"
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

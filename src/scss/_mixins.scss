@@ -211,3 +211,27 @@
 	right: $close-button-position;
 	top: $close-button-position;
 }
+
+/// Add a theme modifier for banners.
+///
+/// @param {String} $theme-name - The banner theme to output styles for. See README for available themes, or specify a custom one if providing $opts.
+/// @param {Map} $opts [null] - A brand configuration which can be used to create a custom banner theme. See README for more examples.
+/// @output The output includes the `.o-banner--THEME` modifier class definition, which includes all overrides.
+/// @example scss - Existing banner theme
+///   @include oBannerAddTheme('marketing');
+/// @example scss - Custom banner theme
+///   @include oBannerAddTheme('bubblegum', (
+///       background-color: oColorsMix('candy', 'white', 75),
+///       text-color: oColorsByName('oxford-90')
+///   ));
+/// @access public
+@mixin oBannerAddTheme($theme-name, $opts: null) {
+
+	// If we have a custom config, we use that instead of one of the
+	// preconfigured themes
+	$variant: if($opts, $opts, $theme-name);
+
+	.o-banner--#{$theme-name} {
+		@include _oBannerTheme($variant);
+	}
+}

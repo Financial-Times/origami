@@ -22,3 +22,10 @@ body {
 .o-banner--static {
 	position: static !important; // sass-lint:disable-line no-important
 }
+
+@include oBannerAddTheme('pikachu', (
+	'text-color': oColorsByName('black'),
+	'background-color': oColorsByName('lemon'),
+	'heading-rule-color': oColorsByName('crimson'),
+	'button-background-color': oColorsByName('crimson')
+));
