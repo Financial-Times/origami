@@ -173,7 +173,7 @@ class Banner {
 			`;
 		}
 		let primaryActionHtml = '';
-		if (this.options.formAction !== null) {
+		if (this.options.formAction !== null && this.options.formAction !== undefined) {
 			primaryActionHtml = `
 				<form class="${classNames.action}" action="${this.options.formAction}" enctype="${this.options.formEncoding}" method="${this.options.formMethod}">
 					<input class="${classNames.button}" type="submit" value="${this.options.buttonLabel}"/>

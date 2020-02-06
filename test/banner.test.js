@@ -629,6 +629,66 @@ describe('Banner', () => {
 
 			});
 
+			describe('when `options.formAction` is not specified', () => {
+
+				it('uses an anchor in place of the form for the primary action when formAction is null', () => {
+					banner.options.formAction = null;
+					returnValue = banner.buildBannerElement();
+
+					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
+										mockContentLong
+									</div>
+									<div class="o-banner__content o-banner__content--short">
+										mockContentShort
+									</div>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
+										</div>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					`.replace(/[\t\n]+/g, ''));
+				});
+
+				it('uses an anchor in place of the form for the primary action when formAction is undefined', () => {
+					banner.options.formAction = undefined;
+					returnValue = banner.buildBannerElement();
+
+					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
+										mockContentLong
+									</div>
+									<div class="o-banner__content o-banner__content--short">
+										mockContentShort
+									</div>
+									<div class="o-banner__actions">
+										<div class="o-banner__action">
+											<a href="mockButtonUrl" class="o-banner__button">mockButtonLabel</a>
+										</div>
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					`.replace(/[\t\n]+/g, ''));
+				});
+
+			});
+
 			describe('when `options.formAction` is not null', () => {
 
 				beforeEach(() => {
