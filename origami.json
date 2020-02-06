@@ -29,7 +29,10 @@
 			"data": {
 				"meterValue": 33
 			},
-			"description": "This demo shows a meter with a value of 33"
+			"description": "This demo shows a meter with a value of 33",
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"title": "A Meter with an additional value box",
@@ -38,7 +41,10 @@
 			"data": {
 				"meterValue": 75
 			},
-			"description": "This demo show a meter with a value of 75 with an extra value box"
+			"description": "This demo show a meter with a value of 75 with an extra value box",
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"title": "Customized Meter",
@@ -47,7 +53,10 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 that was colour-customised"
+			"description": "This demo shows a meter with a value of 25 that was colour-customised",
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"title": "Customized Basic Meter",
@@ -56,7 +65,10 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a basic meter with a value of 25 with customised width and length"
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length",
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"title": "Customized Meter",
@@ -65,7 +77,10 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 with customised width and length"
+			"description": "This demo shows a meter with a value of 25 with customised width and length",
+			"brands": [
+				"internal"
+			]
 		},
 		{
 			"title": "Pa11y",
