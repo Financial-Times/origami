@@ -1,6 +1,6 @@
 {
-	"description": "component description",
-	"keywords": ["meter", "progress", "range", "franction", "gauge", "data"],
+	"description": "Provides customization for meter tag",
+	"keywords": ["meter", "progress", "range", "fraction", "gauge", "data"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -10,29 +10,62 @@
 		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "experimental",
-	"browserFeatures": {
-		"required": [
-			"Array.from"
-		]
-	},
+	"brands": [
+		"internal"
+	],
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-meter"
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
 		"documentClasses": "",
 		"dependencies": ""
 	},
 	"demos": [
 		{
-			"title": "A Useful Demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
+			"title": "Simple Meter",
+			"name": "demo1",
+			"template": "demos/src/demo.1.mustache",
 			"data": {
 				"meterValue": 33
 			},
-			"description": "Description of the demo"
+			"description": "This demo shows a meter with a value of 33"
+		},
+		{
+			"title": "A Meter with an additional value box",
+			"name": "demo2",
+			"template": "demos/src/demo.2.mustache",
+			"data": {
+				"meterValue": 75
+			},
+			"description": "This demo show a meter with a value of 75 with an extra value box"
+		},
+		{
+			"title": "Customized Meter",
+			"name": "demo3",
+			"template": "demos/src/demo.3.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a meter with a value of 25 that was colour-customised"
+		},
+		{
+			"title": "Customized Basic Meter",
+			"name": "demo4",
+			"template": "demos/src/demo.4.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length"
+		},
+		{
+			"title": "Customized Meter",
+			"name": "demo5",
+			"template": "demos/src/demo.5.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a meter with a value of 25 with customised width and length"
 		},
 		{
 			"title": "Pa11y",

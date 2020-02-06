@@ -1,68 +1,43 @@
+@import 'o-colors/main';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
 
 /// Output All oMeter Features
 @mixin oMeter() {
+	@include oColors;
 
-	meter {
-		--o-meter-background-color: white;
-		--o-meter-optimum-color: green;
-		--o-meter-sub-optimum-color: orange;
-		--o-meter-sub-sub-optimum-color: red; //bad
+	:root {
+		--o-meter-width: 100%; // we need width to synch .o-meter-container with .o-meter-value to display the value label in the right position
+		--o-meter-height: 1em;
+	}
+
+	.o-meter {
+		display: block;
+		width: var(--o-meter-width);
+		height: var(--o-meter-height);
+		--o-meter-background-color: #{oColorsByName('slate-white-15')};
+		--o-meter-optimum-color: #{oColorsByName('jade')};
+		--o-meter-sub-optimum-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
+		--o-meter-sub-sub-optimum-color: #{oColorsByName('crimson')}; // bad
 
 		/* Background in Firefox */
 		background: var(--o-meter-background-color);
 	}
 
-	/* Background in Chrome, etc. */
-	meter::-webkit-meter-bar {
-		background: var(--o-meter-background-color);
-	}
-
-	/*  Optimum bar in Firefox */
-	meter:-moz-meter-optimum::-moz-meter-bar {
-		background: var(--o-meter-optimum-color);
-	}
-
-	/* Optimum bar in Chrome etc. */
-	meter::-webkit-meter-optimum-value {
-		background: var(--o-meter-optimum-color);
-	}
-
-	/* Sub-optimum bar in Firefox */
-	meter:-moz-meter-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-sub-optimum-color);
-	}
-
-	/* Ssub-optimum bar in Chrome etc. */
-	meter::-webkit-meter-suboptimum-value {
-		background: var(--o-meter-sub-optimum-color);
-	}
-
-	/* Even less good bar in Firefox */
-	meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-sub-sub-optimum-color);
-	}
-
-	/* Even less good bar in Chrome etc. */
-	meter::-webkit-meter-even-less-good-value {
-		background: var(--o-meter-sub-sub-optimum-color);
-	}
-
-	.o-meter {
-		display: block;
-	}
-
-	.o-meter__container {
+	.o-meter-container {
+		width: var(--o-meter-width);
 		position: relative;
+		.o-meter {
+			width: 100%;
+		}
 	}
 
-	.o-meter__value {
+	.o-meter-value {
 		position: relative;
 		padding: 0 5px;
-		background: black;
-		color: white;
+		background: #{oColorsByName('black')};
+		color: #{oColorsByName('white')};
 		line-height: 24px;
 		text-align: center;
 		top: 4px;
@@ -77,13 +52,47 @@
 			left: 50%;
 			border: 4px solid transparent;
 			border-bottom-width: 6px;
-			border-bottom-color: black;
+			border-bottom-color: #{oColorsByName('black')};
 		}
 	}
 
-	.remove_me_later {
-		padding: 20px;
+	// sass-lint:disable no-vendor-prefixes
+	/* Background in Chrome, etc. */
+	.o-meter::-webkit-meter-bar {
+		background: var(--o-meter-background-color);
 	}
+
+	/*  Optimum bar in Firefox */
+	.o-meter:-moz-meter-optimum::-moz-meter-bar {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Optimum bar in Chrome etc. */
+	.o-meter::-webkit-meter-optimum-value {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Sub-optimum bar in Firefox */
+	.o-meter:-moz-meter-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-sub-optimum-color);
+	}
+
+	/* Ssub-optimum bar in Chrome etc. */
+	.o-meter::-webkit-meter-suboptimum-value {
+		background: var(--o-meter-sub-optimum-color);
+	}
+
+	/* Even less good bar in Firefox */
+	.o-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-sub-sub-optimum-color);
+	}
+
+	/* Even less good bar in Chrome etc. */
+	.o-meter::-webkit-meter-even-less-good-value {
+		background: var(--o-meter-sub-sub-optimum-color);
+	}
+
+	// sass-lint:enable no-vendor-prefixes
 };
 
 @if ($o-meter-is-silent == false) {

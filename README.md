@@ -1,81 +1,68 @@
 o-meter [![Circle CI](https://circleci.com/gh/Financial-Times/o-meter/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-meter/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
-_A short description of what this component does._
-
-
-_A table of contents to help people find things_
-
+Use the meter element to measure data within a given range. The <meter> tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.
 
 - [Markup](#markup)
-- [JavaScript](#javascript)
 - [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Migration](#migration)
+- [Support](#support)
 - [Contact](#contact)
 - [Licence](#licence)
 
-_Whatever usage instructions your component has. We've broken this down by Markup, JavaScript and Sass, but it depends how complex your component is._
-
 ### Markup
 
-_Common templating can go here, especially if there is only one template, but people can always check the demos for more._
-
-_Remember to start your codeblocks with three backticks and "html" so your markup is syntax highlighted correctly._
+This HTML demonstrates a way to use a basic o-meter
 
 ```html
-<div data-o-component="o-meter" class='o-meter'>
+<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="25">
+	25
+</meter>
+```
+
+This HTML demonstrates a way to use an extended o-meter with an additional value indicator
+```html
+<div class="o-meter-container">
+	<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="75">
+	75
+	</meter>
+	<span class="o-meter-value" style="left: 75%">
+		75
+	</span>
 </div>
 ```
-
-### JavaScript
-_Remember to start your codeblocks with three backticks and "js" so your js is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by modules not auto initialising, so this line is useful if you have JavaScript:_
-
-No code will run automatically unless you are using the Build Service.
-You must either construct an `o-meter` object or fire the `o.DOMContentLoaded` event, which oComponent listens for.
-
-#### Constructing an o-meter
-
-```js
-const oMeter = require('o-meter');
-oMeter.init();
+This HTML demonstrates a way to use a basic o-meter with customised colours
+```html
+	<meter class="o-meter" style="
+		--o-meter-background-color: hotpink;
+		--o-meter-optimum-color: deeppink;
+		--o-meter-sub-optimum-colo: pink;
+		--o-meter-sub-sub-optimum-color: red;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+	{{meterValue}}
+	</meter>
+```
+This HTML demonstrates a way to use an extended o-meter with customised width and height
+```html
+	<div class="o-meter-container" style="--o-meter-width: 70%; --o-meter-height: 2em">
+		<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+		{{meterValue}}
+		</meter>
+		<span class="o-meter-value" style="left: {{meterValue}}%">
+			{{meterValue}}
+		</span>
+	</div>
 ```
 
-#### Firing an oDomContentLoaded event
-
-```js
-require('o-meter');
-
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+#### Sass
+```scss
+@include oMeter;
 ```
 
-### Sass
-_Remember to start your codeblocks with three backticks and "sass" so your markup is syntax highlighted correctly._
-
-_Though it's not practical to repeat every aspect of Origami modules convention for every component, **A LOT** of people get tripped up by silent mode, so this line (remember to change the o-meter to your component name) is useful if you have Sass:_
-
-As with all Origami components, o-meter has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-meter-is-silent : false;` in your Sass before you import the o-meter Sass.
-
-## Troubleshooting
-_This is a good place to put problems that come up repeatedly_
-
-## Contributing
-If your component is particularly complicated (image sets fall into this category) then a contributing section or even a contributing.md might be useful.
-
-## Migration
-
-_We use tables to represent our migration guides. Be sure to update it when there is a major release, and update MIGRATION.md, as well_
-
-State | Major Version | Last Minor Release | Migration guide |
-:---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
-╳ deprecated | 1 | 1.0 | N/A |
+## Support
+Meter tag is currently supported by Chrome, Safari, Firefox, Edge browsers. It is not supported by IE.
+If needs to be used on IE, please use a fallback - include the value in the meter tag, for example:
+```
+<meter data-o-component="o-meter" class='o-meter' value="0.6">60%</meter>
+```
 
 ## Contact
 

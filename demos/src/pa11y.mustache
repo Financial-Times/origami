@@ -1,9 +1,31 @@
 <div>
-	<h1>Basic Demo</h1>
-	<div class="o-meter" data-o-component="o-meter"></div>
+	<h2>Basic Demo</h2>
+	<meter class="o-meter" data-o-component="o-meter"></meter>
 </div>
-
 <div>
-	<h1>Basic Demo:hover</h1>
-	<div class="o-meter" data-o-component="o-meter"></div>
+	<h2>Additional Value Indicator Demo</h2>
+	<div class="o-meter-container">
+		<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="75">
+		75
+		</meter>
+		<span class="o-meter-value" style="left: 75%">
+			75
+		</span>
+	</div>
+</div>
+<div>
+	<h2>Changing Colors on Meter</h2>
+	<meter class="o-meter" style="
+		--o-meter-background-color: hotpink;
+		--o-meter-optimum-color: deeppink;
+		--o-meter-sub-optimum-colo: pink;
+		--o-meter-sub-sub-optimum-color: red;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+		{{meterValue}}
+	</meter>
+</div>
+<div>
+	<h2>Changing Height and Width on Meter</h2>
+	<meter class="o-meter" style="--o-meter-width: 300px; --o-meter-height: 30px;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+		{{meterValue}}
+	</meter>
 </div>
