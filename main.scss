@@ -35,11 +35,11 @@
 	}
 
 	.o-meter-value {
+		@include oTypographySans($scale: -1, $line-height: 24px);
 		position: relative;
 		padding: 0 oSpacingByName('s1');
 		background: #{oColorsByName('black')};
 		color: #{oColorsByName('white')};
-		@include oTypographySans($scale: -1, $line-height: 24px);
 		text-align: center;
 		top: 4px;
 		display: inline-block;
