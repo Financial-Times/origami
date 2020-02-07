@@ -35,8 +35,8 @@ This HTML demonstrates a way to use a basic o-meter with customised colours
 	<meter class="o-meter" style="
 		--o-meter-background-color: hotpink;
 		--o-meter-optimum-color: deeppink;
-		--o-meter-sub-optimum-colo: pink;
-		--o-meter-sub-sub-optimum-color: red;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+		--o-meter-low-color: pink;
+		--o-meter-high-color: red;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
 	{{meterValue}}
 	</meter>
 ```
