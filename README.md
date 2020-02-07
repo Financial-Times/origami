@@ -59,7 +59,7 @@ This HTML demonstrates a way to use an extended o-meter with customised width an
 
 ## Support
 The `meter` tag is currently supported by Chrome, Safari, Firefox, Edge browsers. It is not supported by IE.
-If needs to be used on IE, please use a fallback - include the value in the meter tag, for example:
+If `o-meter` needs to be used on IE, please use a fallback - include the value in the meter tag, for example:
 ```
 <meter data-o-component="o-meter" class='o-meter' value="0.6">60%</meter>
 ```
