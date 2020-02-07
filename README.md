@@ -163,7 +163,7 @@ There are several options used to change the appearance or behaviour of o-banner
 
 ## Sass
 
-As with all Origami components, o-tooltip has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
+As with all Origami components, o-banner has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
 
 o-banner includes a primary mixin that takes an `$opts` parameter. The `themes` key of `$opts` includes styles for [themes](#themes). The `layouts` key includes styles for [layouts](#layouts):
 
@@ -174,7 +174,7 @@ o-banner includes a primary mixin that takes an `$opts` parameter. The `themes` 
 ));
 ```
 
-If you call the mixin without arguments you will get all the themes:
+If you call the mixin without arguments you will get all the built-in themes:
 
 ```scss
 @include oBanner();
@@ -225,6 +225,60 @@ const myBanner = new oBanner({
     theme: 'marketing'
 });
 ```
+
+### Custom Themes
+
+The `oBannerAddTheme` mixin can be used to create and output styles for a custom banner theme. This allows you to alter colours and backgrounds completely:
+
+```scss
+@include oBannerAddTheme('bubblegum', (
+    background-color: oColorsMix('candy', 'white', 75),
+    text-color: oColorsByName('oxford-90')
+));
+```
+
+The above Sass will output CSS like this:
+
+```css
+.o-banner--bubblegum {
+    /* styles */
+}
+```
+
+You can add this new class to your banner element, either in the HTML:
+
+```html
+<div class="o-banner o-banner--bubblegum">
+    ...
+</div>
+```
+
+or via the `theme` option in JavaScript:
+
+```js
+const myBanner = new Banner(null, {
+    theme: 'bubblegum',
+    ...
+});
+```
+
+#### Custom Theme Options
+
+You can change a lot of aspects of a banner's visual appearance. When using the `oBannerAddTheme` mixin, you can specify the following properties:
+
+| Property                  | Required? | Type      | Description                                                                                                                                                                                |
+|---------------------------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `background-color`        | Yes       | Colour*   | Sets the banner background colour                                                                                                                                                          |
+| `text-color`              | Yes       | Colour*   | Sets the banner's text colour                                                                                                                                                              |
+| `background-image`        | No        | String    | Sets the banner background image, this should be a URL. Defaults to no background                                                                                                          |
+| `background-position`     | No        | CSS value | Sets the banner background position, this can be any valid [`background-position` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position). Defaults to `bottom right` |
+| `background-repeat`       | No        | CSS Value | Sets the banner background repeat, this can be any valid [`background-repeat` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat). Defaults to `no-repeat`          |
+| `button-background-color` | No        | Colour*   | Sets the banner's primary action button colour. Defaults to the value of the `text-color` property                                                                                         |
+| `heading-rule-color`      | No        | Colour*   | Sets the banner's heading rule colour, the line that appears below the heading. Defaults to the value of the `text-color` property                                                         |
+| `link-text-color`         | No        | Colour*   | Sets the banner's link text colour, both in the banner content and the secondary action. Defaults to the value of the `text-color` property                                                |
+
+\* When a type of Colour is required, please specify a colour value and not an o-colors name. If you with to use an o-colors colour, then you can pass in `oColorsByName('<NAME>')`, replacing `<NAME>` with your desired color.
+
 
 ## Migration
 
