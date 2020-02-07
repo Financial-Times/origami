@@ -48,10 +48,8 @@ class Banner {
 		}, options || Banner.getOptionsFromDom(bannerElement));
 
 		// Validate theme choice.
-		const validThemes = ['product', 'marketing'];
-		const theme = this.options.theme;
-		if (theme && !validThemes.includes(theme)) {
-			throw new Error(`"${theme}" is not a valid theme. Use one of ${validThemes}.`);
+		if (this.options.theme && typeof this.options.theme !== 'string') {
+			throw new Error(`"${this.options.theme}" must be a string.`);
 		}
 
 		// Validate layout choice.

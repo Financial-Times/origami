@@ -180,6 +180,80 @@ const demoBannerConfigurations = [
 		}
 	},
 	{
+		elementId: 'banner-custom',
+		config: {
+			contentLong: `
+				<header class="o-banner__heading">
+					<p>Limited time only</p>
+					<h1>You qualify for a special offer: Save 33%</h1>
+				</header>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+				<ul>
+					<li>Global news and opinion from experts in 50+ countries</li>
+					<li>Access on desktop and mobile</li>
+					<li>Market-moving news, politics, tech, the arts and more</li>
+				</ul>
+			`,
+			contentShort: `
+				<h1>You qualify for a special offer: Save 33%</h1>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+			`,
+			buttonLabel: 'Save 33% now',
+			linkLabel: 'Terms and conditions',
+			theme: 'pikachu'
+		}
+	},
+	{
+		elementId: 'banner-custom-small',
+		config: {
+			contentLong: `
+				<header class="o-banner__heading">
+					<p>Limited time only</p>
+					<h1>You qualify for a special offer: Save 33%</h1>
+				</header>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+				<ul>
+					<li>Global news and opinion from experts in 50+ countries</li>
+					<li>Access on desktop and mobile</li>
+					<li>Market-moving news, politics, tech, the arts and more</li>
+				</ul>
+			`,
+			contentShort: `
+				<h1>You qualify for a special offer: Save 33%</h1>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+			`,
+			buttonLabel: 'Save 33% now',
+			linkLabel: 'Terms and conditions',
+			layout: 'small',
+			theme: 'pikachu'
+		}
+	},
+	{
+		elementId: 'banner-custom-compact',
+		config: {
+			contentLong: `
+				<header class="o-banner__heading">
+					<p>Limited time only</p>
+					<h1>You qualify for a special offer: Save 33%</h1>
+				</header>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+				<ul>
+					<li>Global news and opinion from experts in 50+ countries</li>
+					<li>Access on desktop and mobile</li>
+					<li>Market-moving news, politics, tech, the arts and more</li>
+				</ul>
+			`,
+			contentShort: `
+				<h1>You qualify for a special offer: Save 33%</h1>
+				<p>Pay just $4.29 per week for annual Standard Digital access.</p>
+			`,
+			buttonLabel: 'Save 33% now',
+			linkLabel: 'Terms and conditions',
+			layout: 'compact',
+			theme: 'pikachu'
+		}
+	},
+	{
 		elementId: 'banner-form',
 		config: {
 			contentLong: `

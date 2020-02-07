@@ -556,16 +556,6 @@ describe('Banner', () => {
 				});
 			});
 
-			describe('when `options.theme` is an invalid theme', () => {
-				it('errors', () => {
-					assert.throws(() => {
-						banner = new Banner(null, {
-							theme: 'not-a-real-theme'
-						});
-					}, '');
-				});
-			});
-
 			describe('when `options.layout` is defined and is a string', () => {
 
 				beforeEach(() => {
