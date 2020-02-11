@@ -85,7 +85,7 @@
 				"header header"
 				"sidebar main"
 				"footer footer";
-			grid-template-columns: $_o-layout-sidebar minmax($_o-layout-main-min-width + $_o-layout-sidebar-max-width + $_o-layout-gutter, 1fr);
+			grid-template-columns: $_o-layout-sidebar-width 1fr;
 			grid-template-rows: auto 1fr auto;
 		};
 	}
@@ -97,7 +97,7 @@
 		@include oGridRespondTo($from: L) {
 			> * {
 				box-sizing: border-box;
-				max-width: calc(100% - #{$_o-layout-sidebar-max-width} - #{$_o-layout-gutter});
+				max-width: calc(100% - #{$_o-layout-sidebar-width} - #{$_o-layout-gutter});
 				float: left;
 				clear: left;
 			}
@@ -107,7 +107,7 @@
 			}
 			> aside {
 				box-sizing: border-box;
-				width: $_o-layout-sidebar-max-width;
+				width: $_o-layout-sidebar-width;
 				margin-bottom: oSpacingByName('m12');
 				float: right;
 				clear: right;
@@ -153,7 +153,7 @@
 
 		@include oGridRespondTo($from: M) {
 			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $_o-layout-sidebar $_o-layout-main;
+			grid-template-columns: $_o-layout-sidebar-width $_o-layout-main;
 			grid-template-areas:
 				"header header"
 				"query-sidebar heading"
@@ -164,7 +164,7 @@
 
 		@include oGridRespondTo($from: L) {
 			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $_o-layout-sidebar $_o-layout-main fit-content($_o-layout-sidebar-max-width); // fit-content makes the aside collapse with no content (optional)
+			grid-template-columns: $_o-layout-sidebar-width $_o-layout-main fit-content($_o-layout-sidebar-width); // fit-content makes the aside collapse with no content, so the aside bar can be optional
 			grid-template-areas:
 				"header header header"
 				"query-sidebar heading aside-sidebar"
@@ -191,7 +191,7 @@
 
 		.o-layout__aside-sidebar {
 			@include oGridRespondTo($from: L) {
-				width: $_o-layout-sidebar-max-width; // So the sidebar can be deleted, the query area fits to content width.
+				width: $_o-layout-sidebar-width; // So the sidebar can be deleted, the query area fits to content width.
 				margin: $_o-layout-gutter 0;
 				padding-left: $_o-layout-gutter;
 				border-left: 1px solid oColorsByName('slate-white-15');
