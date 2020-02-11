@@ -29,16 +29,17 @@
 			"data": {
 				"meterValue": 33
 			},
-			"description": "This demo shows a meter with a value of 33"
+			"description": "This demo shows a meter with a value of 33. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
-			"title": "A Meter with an additional value box",
+			"title": "A Meter with an optional value box",
 			"name": "demo2",
 			"template": "demos/src/demo.2.mustache",
 			"data": {
-				"meterValue": 75
+				"meterValue": 2.5,
+				"percentValue": 25
 			},
-			"description": "This demo show a meter with a value of 75 with an extra value box"
+			"description": "This demo show a meter with a value of 2.5 with an optional value box. Note that meter value and percentage can be different. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
 			"title": "Customized Meter",
@@ -47,7 +48,7 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 that was colour-customised"
+			"description": "This demo shows a meter with a value of 25 that was colour-customised. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
 			"title": "Customized Basic Meter",
@@ -56,16 +57,17 @@
 			"data": {
 				"meterValue": 25
 			},
-			"description": "This demo shows a basic meter with a value of 25 with customised width and length"
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
 			"title": "Customized Meter",
 			"name": "demo5",
 			"template": "demos/src/demo.5.mustache",
 			"data": {
-				"meterValue": 25
+				"meterValue": 25,
+				"percentValue": 25
 			},
-			"description": "This demo shows a meter with a value of 25 with customised width and length"
+			"description": "This demo shows a meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter."
 		}
 	]
 }

@@ -19,8 +19,8 @@
 		height: var(--o-meter-height);
 		--o-meter-background-color: #{oColorsByName('slate-white-15')};
 		--o-meter-optimum-color: #{oColorsByName('jade')};
-		--o-meter-low-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
-		--o-meter-high-color: #{oColorsByName('crimson')}; // bad
+		--o-meter-low-color: #{oColorsByName('crimson')}; //bad
+		--o-meter-high-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
 
 		/* Background in Firefox */
 		background: var(--o-meter-background-color);
@@ -36,13 +36,13 @@
 
 	.o-meter-value {
 		@include oTypographySans($scale: -1, $line-height: 24px);
+		display: none; // we only display an optional value box for the browsers that support meter tag. See 
 		position: relative;
 		padding: 0 oSpacingByName('s1');
 		background: #{oColorsByName('black')};
 		color: #{oColorsByName('white')};
 		text-align: center;
 		top: 4px;
-		display: inline-block;
 		transform: translateX(-50%);
 
 		&::before {
@@ -55,6 +55,23 @@
 			border-bottom-width: 6px;
 			border-bottom-color: #{oColorsByName('black')};
 		}
+	}
+
+	// we only display additional bottom value (styled in .o-meter-value)
+	// if meter is an available browser tag
+	// to check if meter is available can be through pseudo element
+	// -webkit-meter-optimum-value for Chrome & other browsers, and
+	// -moz-meter-bar for Firefox
+	/* for Chrome, etc. */
+	.o-meter-value,
+	.o-meter::-webkit-meter-optimum-value {
+		display: inline-block;
+	}
+
+	/* for Firefox */
+	.o-meter-value,
+	.o-meter:-moz-meter-optimum::-moz-meter-bar {
+		display: inline-block;
 	}
 
 	// sass-lint:disable no-vendor-prefixes
