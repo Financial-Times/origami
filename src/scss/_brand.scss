@@ -15,14 +15,21 @@ $_o-buttons-shared-brand-config: (
 	'background-size': 21px, // Magic number to reduce poor antialiasing on icons at small sizes
 	'min-height': 28px,
 	'min-width': 60px,
-	'padding': 0 8px,
+	// Sorry for the magic numbers, we need to use vertical padding here because
+	// there is no other way to correctly align button text vertically when the button
+	// element is an anchor. Once we drop IE11 support, we can remove this and use
+	// a display of `inline-flex`.
+	//
+	// The vertical padding magic number is calculated like this:
+	// (min-height - line-height) / 2
+	'padding': 6px 8px,
 	'icon-padding': 22px,
 	'big': (
 		'scale': 0,
 		'background-size': 40px,
 		'min-height': 40px,
 		'min-width': 80px,
-		'padding': 0 20px,
+		'padding': 12px 20px, // See comment above regarding padding magic numbers
 		'icon-padding': 40px
 	),
 );

@@ -160,10 +160,6 @@
 	@include oTypographySans($weight: 'semibold');
 	@include _oButtonsSizeContent($size);
 	display: inline-block;
-	// Use flexbox to align text vertically when used with an anchor element.
-	display: inline-flex; // sass-lint:disable-line no-duplicate-properties
-	align-items: center;
-	justify-content: center;
 	box-sizing: border-box;
 	vertical-align: middle;
 	margin: 0;

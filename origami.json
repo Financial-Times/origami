@@ -34,10 +34,24 @@
 			"description": "Primary button."
 		},
 		{
+			"name": "primary-anchors",
+			"title": "Primary anchors",
+			"template": "/demos/src/primary-anchors.mustache",
+			"description": "Primary buttons that are actually anchors.",
+			"hidden": true
+		},
+		{
 			"name": "secondary",
 			"title": "Secondary/default button",
 			"template": "/demos/src/secondary.mustache",
 			"description": "The secondary button is the default and usually most used button."
+		},
+		{
+			"name": "secondary-anchors",
+			"title": "Secondary anchors",
+			"template": "/demos/src/secondary-anchors.mustache",
+			"description": "Secondary buttons that are actually anchors.",
+			"hidden": true
 		},
 		{
 			"name": "primary-inverse",

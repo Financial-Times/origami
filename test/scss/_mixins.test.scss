@@ -103,11 +103,8 @@
 					background-size: 21px;
 					min-height: 28px;
 					min-width: 60px;
-					padding: 0 8px;
+					padding: 6px 8px;
 					display: inline-block;
-      				display: inline-flex;
-					align-items: center;
-					justify-content: center;
 					box-sizing: border-box;
 					vertical-align: middle;
 					margin: 0;
@@ -168,11 +165,8 @@
 					background-size: 40px;
 					min-height: 40px;
 					min-width: 80px;
-					padding: 0 20px;
+					padding: 12px 20px;
 					display: inline-block;
-      				display: inline-flex;
-					align-items: center;
-					justify-content: center;
 					box-sizing: border-box;
 					vertical-align: middle;
 					margin: 0;
@@ -312,7 +306,7 @@
 				background-size: 40px;
 				min-height: 40px;
 				min-width: 80px;
-				padding: 0 20px;
+				padding: 12px 20px;
 
 				.o-typography--loading-sans & {
 					font-size: 13.92px;
