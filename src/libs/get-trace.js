@@ -107,4 +107,4 @@ function getTrace (el) {
 	return { trace, customContext };
 }
 
-module.exports = getTrace;
+export default getTrace;
