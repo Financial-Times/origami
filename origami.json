@@ -1,0 +1,73 @@
+{
+	"description": "Provides customization for meter tag",
+	"keywords": ["meter", "progress", "range", "fraction", "gauge", "data"],
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": 1,
+	"support": "https://github.com/Financial-Times/o-meter/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "maintained",
+	"brands": [
+		"internal"
+	],
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-meter"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"title": "Simple Meter",
+			"name": "demo1",
+			"template": "demos/src/demo.1.mustache",
+			"data": {
+				"meterValue": 33
+			},
+			"description": "This demo shows a meter with a value of 33. Do not forget to add an aria-label attribute to describe your meter."
+		},
+		{
+			"title": "A Meter with an optional value box",
+			"name": "demo2",
+			"template": "demos/src/demo.2.mustache",
+			"data": {
+				"meterValue": 2.5,
+				"percentValue": 25
+			},
+			"description": "This demo show a meter with a value of 2.5 with an optional value box. Note that meter value and percentage can be different. Do not forget to add an aria-label attribute to describe your meter."
+		},
+		{
+			"title": "Customized Meter",
+			"name": "demo3",
+			"template": "demos/src/demo.3.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a meter with a value of 25 that was colour-customised. Do not forget to add an aria-label attribute to describe your meter."
+		},
+		{
+			"title": "Customized Basic Meter",
+			"name": "demo4",
+			"template": "demos/src/demo.4.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter."
+		},
+		{
+			"title": "Customized Meter",
+			"name": "demo5",
+			"template": "demos/src/demo.5.mustache",
+			"data": {
+				"meterValue": 25,
+				"percentValue": 25
+			},
+			"description": "This demo shows a meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter."
+		}
+	]
+}

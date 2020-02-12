@@ -1,0 +1,122 @@
+@import 'o-colors/main';
+@import 'o-spacing/main';
+@import 'o-typography/main';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+/// Output All oMeter Features
+@mixin oMeter() {
+
+	:root {
+		--o-meter-width: 100%; // we need width to synch .o-meter-container with .o-meter-value to display the value label in the right position
+		--o-meter-height: 1em;
+	}
+
+	.o-meter {
+		display: block;
+		width: var(--o-meter-width);
+		height: var(--o-meter-height);
+		--o-meter-background-color: #{oColorsByName('slate-white-15')};
+		--o-meter-optimum-color: #{oColorsByName('jade')};
+		--o-meter-low-color: #{oColorsByName('crimson')}; //bad
+		--o-meter-high-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
+
+		/* Background in Firefox */
+		background: var(--o-meter-background-color);
+	}
+
+	.o-meter-container {
+		width: var(--o-meter-width);
+		position: relative;
+		.o-meter {
+			width: 100%;
+		}
+	}
+
+	.o-meter-value {
+		@include oTypographySans($scale: -1, $line-height: 24px);
+		display: none; // we only display an optional value box for the browsers that support meter tag. See 
+		position: relative;
+		padding: 0 oSpacingByName('s1');
+		background: #{oColorsByName('black')};
+		color: #{oColorsByName('white')};
+		text-align: center;
+		top: 4px;
+		transform: translateX(-50%);
+
+		&::before {
+			content: '';
+			transform: translateX(-50%);
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			border: 4px solid transparent;
+			border-bottom-width: 6px;
+			border-bottom-color: #{oColorsByName('black')};
+		}
+	}
+
+	// sass-lint:disable no-vendor-prefixes
+
+	// we only display additional bottom value (styled in .o-meter-value)
+	// if meter is an available browser tag
+	// to check if meter is available can be through pseudo element
+	// -webkit-meter-optimum-value for Chrome & other browsers, and
+	// -moz-meter-bar for Firefox
+	/* for Chrome, etc. */
+	.o-meter-value,
+	.o-meter::-webkit-meter-optimum-value {
+		display: inline-block;
+	}
+
+	/* for Firefox */
+	.o-meter-value,
+	.o-meter:-moz-meter-optimum::-moz-meter-bar {
+		display: inline-block;
+	}
+
+	/* Background in Chrome, etc. */
+	.o-meter::-webkit-meter-bar {
+		background: var(--o-meter-background-color);
+	}
+
+	/*  Optimum bar in Firefox */
+	.o-meter:-moz-meter-optimum::-moz-meter-bar {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Optimum bar in Chrome etc. */
+	.o-meter::-webkit-meter-optimum-value {
+		background: var(--o-meter-optimum-color);
+	}
+
+	/* Sub-optimum bar in Firefox */
+	.o-meter:-moz-meter-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-low-color);
+	}
+
+	/* Ssub-optimum bar in Chrome etc. */
+	.o-meter::-webkit-meter-suboptimum-value {
+		background: var(--o-meter-low-color);
+	}
+
+	/* Even less good bar in Firefox */
+	.o-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+		background: var(--o-meter-high-color);
+	}
+
+	/* Even less good bar in Chrome etc. */
+	.o-meter::-webkit-meter-even-less-good-value {
+		background: var(--o-meter-high-color);
+	}
+
+	// sass-lint:enable no-vendor-prefixes
+};
+
+@if ($o-meter-is-silent == false) {
+	@include oMeter();
+
+	// Set to silent again to avoid being output twice
+	$o-meter-is-silent: true !global;
+}

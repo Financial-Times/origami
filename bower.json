@@ -1,0 +1,19 @@
+{
+  "name": "o-meter",
+  "description": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "build"
+  ],
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "^5.0.6",
+    "o-spacing": "^2.0.0",
+    "o-typography": "^6.1.3"
+  }
+}
