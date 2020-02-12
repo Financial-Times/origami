@@ -1,7 +1,7 @@
 o-meter [![Circle CI](https://circleci.com/gh/Financial-Times/o-meter/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-meter/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
-Use the meter element to measure data within a given range. The <meter> tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.
+Use the meter element to measure data within a given range. The `<meter>` tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.
 
 - [Markup](#markup)
 - [Sass](#sass)
@@ -60,7 +60,7 @@ This HTML demonstrates a way to use an extended o-meter with customised width an
 ## Support
 The `meter` tag is currently supported by Chrome, Safari, Firefox, Edge browsers. It is not supported by IE.
 If `o-meter` needs to be used on IE, please use a fallback - include the value in the meter tag, for example:
-```
+```html
 <meter data-o-component="o-meter" class='o-meter' value="0.6">60%</meter>
 ```
 

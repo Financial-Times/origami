@@ -32,7 +32,7 @@
 			"description": "This demo shows a meter with a value of 33. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
-			"title": "A Meter with an optional value box",
+			"title": "A Meter With an Optional Value Box",
 			"name": "demo2",
 			"template": "demos/src/demo.2.mustache",
 			"data": {
@@ -60,7 +60,7 @@
 			"description": "This demo shows a basic meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter."
 		},
 		{
-			"title": "Customized Meter",
+			"title": "Customized Width and Length Meter",
 			"name": "demo5",
 			"template": "demos/src/demo.5.mustache",
 			"data": {
