@@ -14,7 +14,7 @@ Use the meter element to measure data within a given range. The <meter> tag defi
 This HTML demonstrates a way to use a basic o-meter
 
 ```html
-<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="25">
+<meter class="o-meter" aria-label="a meter component" data-o-component="o-meter" min="0" max="100" value="25">
 	25
 </meter>
 ```
@@ -22,7 +22,7 @@ This HTML demonstrates a way to use a basic o-meter
 This HTML demonstrates a way to use an extended o-meter with an additional value indicator
 ```html
 <div class="o-meter-container">
-	<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="75">
+	<meter class="o-meter" aria-label="a meter component" data-o-component="o-meter" min="0" max="100" value="75">
 	75
 	</meter>
 	<span class="o-meter-value" style="left: 75%">
@@ -36,18 +36,18 @@ This HTML demonstrates a way to use a basic o-meter with customised colours
 		--o-meter-background-color: hotpink;
 		--o-meter-optimum-color: deeppink;
 		--o-meter-low-color: pink;
-		--o-meter-high-color: red;" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
-	{{meterValue}}
+		--o-meter-high-color: red;" aria-label="a meter component" data-o-component="o-meter" min="0" max="100" value="35">
+	35
 	</meter>
 ```
 This HTML demonstrates a way to use an extended o-meter with customised width and height
 ```html
 	<div class="o-meter-container" style="--o-meter-width: 70%; --o-meter-height: 2em">
-		<meter class="o-meter" data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
-		{{meterValue}}
+		<meter class="o-meter" aria-label="a meter component" data-o-component="o-meter" min="0" max="10" value="2.5">
+		2.5
 		</meter>
-		<span class="o-meter-value" style="left: {{meterValue}}%">
-			{{meterValue}}
+		<span class="o-meter-value" style="left: 25%">
+			2.5
 		</span>
 	</div>
 ```
