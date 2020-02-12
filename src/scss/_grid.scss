@@ -22,18 +22,6 @@
 		/* autoprefixer: on */
 		box-sizing: border-box;
 		min-height: 100vh;
-		max-width: $_o-layout-container-max-width;
-		margin: auto;
-		padding: 0 (oGridGutter() * 2); // To align with o-header-services.
-	}
-
-	.o-layout__footer,
-	.o-layout__header {
-		// Position to the left of the viewport.
-		// Relative to the center aligned grid.
-		position: relative;
-		width: 100vw;
-		left: #{calc((100vw - 100%) * -0.5)};
 	}
 }
 
@@ -60,12 +48,16 @@
 /// @access private
 @mixin _oLayoutLandingGrid() {
 	.o-layout.o-layout--landing {
+		$column-gap-count: 2;
 		grid-template-areas:
-			"header"
-			"hero"
-			"main"
-			"footer";
+			"header header header"
+			". hero ."
+			". main ."
+			"footer footer footer";
 		grid-template-rows: auto auto 1fr auto;
+		// make the main area have a max width equal to the o-layout container
+		// size, accounting for grid gaps
+		grid-template-columns: 1fr minmax(auto, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) 1fr;
 	}
 }
 
@@ -74,18 +66,22 @@
 @mixin _oLayoutDocsGrid() {
 	.o-layout.o-layout--docs {
 		grid-template-rows: auto auto 1fr auto;
+		grid-template-columns: 0 1fr 0; // create a grid gap the header and footer can span
 		grid-template-areas:
-			"header"
-			"sidebar"
-			"main"
-			"footer";
+			"header header header"
+			". sidebar ."
+			". main ."
+			"footer footer footer";
 
 		@include oGridRespondTo($from: M) {
+			$column-gap-count: 3;
 			grid-template-areas:
-				"header header"
-				"sidebar main"
-				"footer footer";
-			grid-template-columns: $_o-layout-sidebar-width 1fr;
+				"header header header header"
+				". sidebar main ."
+				"footer footer footer footer";
+			// make the main and sidebar area have a max width equal to the
+			// o-layout container size, accounting for grid gaps
+			grid-template-columns: 1fr $_o-layout-sidebar-width minmax(0, calc(#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count * $_o-layout-gutter})) 1fr;
 			grid-template-rows: auto 1fr auto;
 		};
 	}
@@ -141,35 +137,40 @@
 /// Grid for query layout.
 /// @access private
 @mixin _oLayoutQueryGrid() {
+	// make the main and optional sidebar areas have a max width equal to the
+	// o-layout container size my having two extra columns for margin
+	$margin-grid-size: calc((100% - #{$_o-layout-container-max-width}) / 2);
 	.o-layout.o-layout--query {
 		grid-template-rows: auto auto auto 1fr auto auto;
+		grid-template-columns: $margin-grid-size 1fr $margin-grid-size;
 		grid-template-areas:
-			"header"
-			"heading"
-			"query-sidebar"
-			"main"
-			"aside-sidebar"
-			"footer";
+			"header header header"
+			". heading ."
+			". query-sidebar ."
+			". main ."
+			". aside-sidebar ."
+			"footer footer footer";
 
 		@include oGridRespondTo($from: M) {
 			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $_o-layout-sidebar-width $_o-layout-main;
+			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width $_o-layout-main $margin-grid-size;
 			grid-template-areas:
-				"header header"
-				"query-sidebar heading"
-				"query-sidebar main"
-				"query-sidebar aside-sidebar"
-				"footer footer";
+				"header header header header"
+				". query-sidebar heading ."
+				". query-sidebar main ."
+				". query-sidebar aside-sidebar ."
+				"footer footer footer footer";
 		};
 
 		@include oGridRespondTo($from: L) {
-			grid-template-rows: auto auto 1fr auto;
-			grid-template-columns: $_o-layout-sidebar-width $_o-layout-main fit-content($_o-layout-sidebar-width); // fit-content makes the aside collapse with no content, so the aside bar can be optional
 			grid-template-areas:
-				"header header header"
-				"query-sidebar heading aside-sidebar"
-				"query-sidebar main aside-sidebar"
-				"footer footer footer";
+				"header header header header header"
+				". query-sidebar heading aside-sidebar ."
+				". query-sidebar main aside-sidebar ."
+				"footer footer footer footer footer";
+			grid-template-rows: auto auto 1fr auto;
+			// fit-content makes the aside collapse with no content, so the aside bar can be optional
+			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width $_o-layout-main fit-content($_o-layout-sidebar-width) $margin-grid-size;
 		};
 
 		.o-layout__main {
