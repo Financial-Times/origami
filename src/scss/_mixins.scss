@@ -207,10 +207,12 @@
 /// Styles to size a button.
 /// @param {Null|Number} $size
 @mixin _oButtonsSizeContent($size: null) {
-	@include oTypographySans(
-		$scale: _oButtonsGet('scale', $size),
-		$line-height: 1
-	);
+	@include oTypographySans($scale: _oButtonsGet('scale', $size));
+	$line-height: nth(oTypographyGetScale(
+		$index: _oButtonsGet('scale', $size),
+		$font: oTypographyGetFontFamily('sans')
+	), 1);
+	line-height: #{$line-height}px;
 	background-size: _oButtonsGet('background-size', $size);
 	min-height: _oButtonsGet('min-height', $size);
 	min-width: _oButtonsGet('min-width', $size);

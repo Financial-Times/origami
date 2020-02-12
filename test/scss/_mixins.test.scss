@@ -99,7 +99,8 @@
 					font-weight: 600;
 					font-family: MetricWeb, sans-serif;
 					font-size: 14px;
-					line-height: 1;
+					line-height: 16px;
+					line-height: 14px;
 					background-size: 21px;
 					min-height: 28px;
 					min-width: 60px;
@@ -161,11 +162,12 @@
 					font-weight: 600;
 					font-family: MetricWeb, sans-serif;
 					font-size: 16px;
-					line-height: 1;
+					line-height: 20px;
+					line-height: 16px;
 					background-size: 40px;
 					min-height: 40px;
 					min-width: 80px;
-					padding: 12px 20px;
+					padding: 11px 20px;
 					display: inline-block;
 					box-sizing: border-box;
 					vertical-align: middle;
@@ -302,11 +304,12 @@
 			@include expect() {
 				font-family: MetricWeb, sans-serif;
 				font-size: 16px;
-				line-height: 1;
+				line-height: 20px;
+				line-height: 16px;
 				background-size: 40px;
 				min-height: 40px;
 				min-width: 80px;
-				padding: 12px 20px;
+				padding: 11px 20px;
 
 				.o-typography--loading-sans & {
 					font-size: 13.92px;

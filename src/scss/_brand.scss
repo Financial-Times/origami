@@ -21,7 +21,7 @@ $_o-buttons-shared-brand-config: (
 	// a display of `inline-flex`.
 	//
 	// The vertical padding magic number is calculated like this:
-	// (min-height - line-height) / 2
+	// ((min-height - line-height) / 2) - border-width
 	'padding': 6px 8px,
 	'icon-padding': 22px,
 	'big': (
@@ -29,7 +29,7 @@ $_o-buttons-shared-brand-config: (
 		'background-size': 40px,
 		'min-height': 40px,
 		'min-width': 80px,
-		'padding': 12px 20px, // See comment above regarding padding magic numbers
+		'padding': 11px 20px, // See comment above regarding padding magic numbers
 		'icon-padding': 40px
 	),
 );
