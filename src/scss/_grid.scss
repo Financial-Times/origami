@@ -8,17 +8,20 @@
 	}
 
 	.o-layout {
+		$column-gap-count: 2;
 		position: relative;
 		/* autoprefixer: off */
 		// o-layout does not cater for older `-ms-` versions of the grid spec.
 		display: grid;
-		grid-template-columns: 100%;
+		// make the main area have a max width equal to the o-layout container
+		// size, accounting for grid gaps
+		grid-template-columns: 1fr minmax(auto, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) 1fr;
 		grid-template-rows: auto 1fr auto;
 		grid-column-gap: $_o-layout-gutter;
 		grid-template-areas:
-			"header"
-			"main"
-			"footer";
+			"header header header"
+			". main ."
+			"footer footer footer";
 		/* autoprefixer: on */
 		box-sizing: border-box;
 		min-height: 100vh;
@@ -30,16 +33,11 @@
 @mixin _oLayoutBleed() {
 	.o-layout--bleed {
 		max-width: none;
-		// Undo base padding
-		padding: 0;
-
-		.o-layout__footer,
-		.o-layout__header {
-			// Undo base positioning
-			position: relative;
-			width: 100%;
-			left: auto;
-		}
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+		grid-template-columns: 1fr;
 	}
 }
 
