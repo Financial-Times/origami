@@ -213,7 +213,10 @@
 		$font: oTypographyGetFontFamily('sans')
 	), 1);
 	line-height: #{$line-height}px;
-	background-size: _oButtonsGet('background-size', $size);
+	// IE11 renders the background image at a very small size if you do not
+	// double-up the background size here, declaring a width _and_ height.
+	// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
+	background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
 	min-height: _oButtonsGet('min-height', $size);
 	min-width: _oButtonsGet('min-width', $size);
 	padding: _oButtonsGet('padding', $size);
