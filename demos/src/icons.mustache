@@ -26,19 +26,27 @@
 {{/icons}}
 
 <h2>Icon buttons with different themes</h2>
-	{{#themes}}
-		<div class='theme-box {{name}}'>
-			<button class="o-buttons o-buttons--secondary o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
-				Show
-			</button>
-		</div>
-	{{/themes}}
-	<br>
-	</br>
-	{{#themes}}
-		<div class='theme-box {{name}}'>
-			<button class="o-buttons o-buttons--secondary o-buttons--big o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
-				Show
-			</button>
-		</div>
-	{{/themes}}
+
+{{#themes}}
+	<div class='theme-box demo-{{name}}'>
+		<button class="o-buttons o-buttons--primary o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			Show
+		</button>
+		<button class="o-buttons o-buttons--secondary o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			Show
+		</button>
+	</div>
+{{/themes}}
+<br/>
+<br/>
+{{#themes}}
+	<div class='theme-box demo-{{name}}'>
+		<button class="o-buttons o-buttons--primary o-buttons--big o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			Show
+		</button>
+
+		<button class="o-buttons o-buttons--secondary o-buttons--big o-buttons--{{name}} o-buttons-icon o-buttons-icon--arrow-down">
+			Show
+		</button>
+	</div>
+{{/themes}}

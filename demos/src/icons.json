@@ -54,13 +54,12 @@
 		}
 	],
 	"themes": [
-			{"name": "primary"},
-			{"name": "secondary"},
-			{"name": "mono"},
-			{"name": "inverse"}
-		],
+		{"name": ""},
+		{"name": "mono"},
+		{"name": "inverse"}
+	],
 	"sizes": [
-			{"name": "small"},
-			{"name": "big"}
+		{"name": "small"},
+		{"name": "big"}
 	]
 }
