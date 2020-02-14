@@ -22,7 +22,7 @@
 			@include oIconsContent('arrow-down', _oFormsGet('field-standard-text'), $size: null, $include-base-styles: false);
 			appearance: none;
 			background-repeat: no-repeat;
-			background-size: auto $_o-forms-spacing-six;
+			background-size: $_o-forms-spacing-six $_o-forms-spacing-six;
 			border-radius: 0;
 			background-clip: padding-box;
 			color: _oFormsGet('default-text');
@@ -30,13 +30,10 @@
 			outline: none;
 
 			// For iOS 6 that doesn't support 4-value background-position
-			// Handles background sizing and positioning issues with IE10+
-			// sass-lint:disable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
+			// sass-lint:disable no-duplicate-properties
 			background-position: right center;
 			background-position: right $_o-forms-spacing-two center;
-			-ms-background-position-x: right -75%;
-			-ms-background-position-y: center;
-			// sass-lint:enable no-duplicate-properties no-vendor-prefixes no-misspelled-properties
+			// sass-lint:enable no-duplicate-properties
 
 			// Hide stock browser arrow in IE 10+
 			// sass-lint:disable no-vendor-prefixes
