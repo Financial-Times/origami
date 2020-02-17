@@ -17,9 +17,7 @@
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-meter"
 	},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
-		"documentClasses": "",
-		"dependencies": ""
+		"sass": "demos/src/demo.scss"
 	},
 	"demos": [
 		{
