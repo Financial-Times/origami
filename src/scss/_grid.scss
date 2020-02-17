@@ -25,6 +25,8 @@
 		/* autoprefixer: on */
 		box-sizing: border-box;
 		min-height: 100vh;
+		// create a break if an entire word cannot be placed on its own line without overflowing
+		overflow-wrap: break-word;
 	}
 }
 
