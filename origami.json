@@ -34,6 +34,7 @@
 			"js": "demos/src/contrast-checker/contrast-checker.js",
 			"sass": "demos/src/contrast-checker/contrast-checker.scss",
 			"template": "demos/src/contrast-checker/index.mustache",
+			"description": "",
 			"display_html": false,
 			"dependencies": [
 				"o-buttons@^6.0.0",
@@ -56,6 +57,7 @@
 			"sass": "demos/src/color-mixer/color-mixer.scss",
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
+			"description": "",
 			"dependencies": [
 				"o-fonts@^4.0.0",
 				"o-forms@^8.0.0",
@@ -139,6 +141,7 @@
 				"o-syntax-highlight@^3.0.0",
 				"o-tabs@^5.0.0"
 			],
+			"description": "",
 			"brands": [
 				"internal"
 			]
@@ -158,6 +161,7 @@
 				"o-overlay@^3.0.0",
 				"o-syntax-highlight@^3.0.0"
 			],
+			"description": "",
 			"brands":	[
 				"internal"
 			]
@@ -234,7 +238,8 @@
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
-			"display_html": false
+			"display_html": false,
+			"description": ""
 		}
 	]
 }
