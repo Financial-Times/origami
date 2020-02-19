@@ -63,6 +63,7 @@ class BaseTable {
 		this.container = this.rootEl.closest('.o-table-container');
 		this.overlayWrapper = this.rootEl.closest('.o-table-overlay-wrapper');
 		this.filterContainer = this.wrapper || this.container;
+		this._updateTableHeightListenerSet = false;
 
 		/**
 		 * @property {Object|Null} _currentSort - The current sort applied.
@@ -127,18 +128,6 @@ class BaseTable {
 		filter.addEventListener('change', debouncedFilterHandler);
 		this._listeners.push({ element: filter, debouncedFilterHandler, type: 'input' });
 		this._listeners.push({ element: filter, debouncedFilterHandler, type: 'change' });
-
-		let pendingTableHeightUpdate;
-		const updateTableHeightDebounced = function () {
-			if (pendingTableHeightUpdate) {
-				clearTimeout(pendingTableHeightUpdate);
-			}
-			pendingTableHeightUpdate = setTimeout(function() {
-				this._updateTableHeight();
-			}.bind(this), 33);
-		}.bind(this);
-		window.addEventListener('resize', updateTableHeightDebounced);
-		this._listeners.push({ element: window, updateTableHeightDebounced, type: 'resize' });
 	}
 
 	/**
@@ -201,7 +190,7 @@ class BaseTable {
 	/**
 	 * Hide filtered rows by updating the container height.
 	 * Filtered rows are not removed from the table so column width is not
-	 * recalculated. Unfortunately "visibility: collaposed" has inconsitent
+	 * recalculated. Unfortunately "visibility: collaposed" has inconsistent
 	 * support.
 	 */
 	_updateTableHeight() {
@@ -219,6 +208,30 @@ class BaseTable {
 		this._updateTableHeightScheduled = window.requestAnimationFrame(function () {
 			this.filterContainer.style.height = !isNaN(tableHeight) ? `${tableHeight}px` : '';
 		}.bind(this));
+
+		// If the table height has been set, it should be updated on resize,
+		// so listen to resize events.
+		if (!this._updateTableHeightListenerSet) {
+			// debounce the height update on resize
+			// breaking: on the next major release use the o-utils
+			// debounce function instead
+			let pendingTableHeightUpdate;
+			const updateTableHeightDebounced = function () {
+				if (pendingTableHeightUpdate) {
+					clearTimeout(pendingTableHeightUpdate);
+				}
+				pendingTableHeightUpdate = setTimeout(function () {
+					this._updateTableHeight();
+				}.bind(this), 33);
+			}.bind(this);
+			// set the resize listener
+			window.addEventListener('resize', updateTableHeightDebounced);
+			// add to the listeners array so it can be removed on `.destroy`
+			this._listeners.push({ element: window, updateTableHeightDebounced, type: 'resize' });
+			// set a flag so the listener isn't set again, without having to
+			// loop through `this._listeners`.
+			this._updateTableHeightListenerSet = true;
+		}
 	}
 
 	/**
