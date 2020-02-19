@@ -66,7 +66,8 @@
 		a:visited,
 		&:focus {
 			$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
-			color: oColorsMix($special-report-color, $percentage: 78);
+			$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+			color: oColorsMix($special-report-color, $special-report-background, $percentage: 78);
 		}
 	}
 }
@@ -131,8 +132,12 @@
 		&__landing-link a {
 			color: oColorsByUsecase('o-teaser/package-basic', 'text');
 
-			&:hover {
-				color: oColorsByUsecase('o-teaser/package-basic', 'text');
+			&:hover,
+			&:visited,
+			&:focus {
+				$special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
+				$special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
+				color: oColorsMix($special-report-color, $special-report-background, $percentage: 78);
 			}
 
 			&:after {
@@ -148,16 +153,17 @@
 @mixin _oTeaserSpecialReportPackageList {
 	.package-teaser {
 		$package-special-report-color: oColorsByUsecase('o-teaser/package-special-report', 'text');
+		$package-special-report-background: oColorsByUsecase('o-teaser/package-special-report', 'background');
 		&__list-item a {
 			color: oColorsByName('white');
 
 			&:hover {
-				color: oColorsMix($package-special-report-color, $percentage: 78);
+				color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 78);
 			}
 		}
 
 		&__landing-link a {
-			color: oColorsMix($package-special-report-color, $percentage: 80);
+			color: oColorsMix($package-special-report-color, $package-special-report-background, $percentage: 80);
 
 			&:hover {
 				color: oColorsByName('white');

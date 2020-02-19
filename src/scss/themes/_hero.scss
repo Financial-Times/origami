@@ -50,13 +50,13 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix($opinion-color, $percentage: 73);
+		color: oColorsMix($opinion-color, $opinion-background, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oColorsMix($opinion-color, $percentage: 80);
+		color: oColorsMix($opinion-color, $opinion-background, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
@@ -222,13 +222,13 @@
 	.o-teaser__standfirst {
 		color: oColorsByName('white');
 		a:visited {
-			color: oColorsMix($hero-extra-color, $percentage: 50);
+			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
 		}
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($hero-extra-color, $percentage: 80);
+		color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
 	}
 
 	.o-teaser__image-container:after,

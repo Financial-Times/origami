@@ -1,6 +1,7 @@
 /// Inverse theme styles - base all text content on white
 @mixin _oTeaserInverse {
 	$inverse-color: oColorsByUsecase('o-teaser/inverse', 'text');
+	$inverse-background: oColorsByUsecase('o-teaser/inverse', 'background');
 	.o-teaser__heading a:hover,
 	.o-teaser__heading a:focus,
 	.o-teaser__heading a:visited,
@@ -9,7 +10,7 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix($inverse-color, $percentage: 60);
+		color: oColorsMix($inverse-color, $inverse-background, $percentage: 60);
 	}
 
 	.o-teaser__meta,
@@ -20,7 +21,7 @@
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($inverse-color, $percentage: 70);
+		color: oColorsMix($inverse-color, $inverse-background, $percentage: 60);
 	}
 
 	&.o-teaser--hero .o-teaser__meta:after {
@@ -60,7 +61,7 @@
 	$theme-opinion-background: oColorsByUsecase('o-teaser/theme-opinion', 'background');
 	.o-teaser__standfirst,
 	.o-teaser__timestamp {
-		color: oColorsMix($theme-opinion-color, $percentage: 60);
+		color: oColorsMix($theme-opinion-color, $theme-opinion-background, $percentage: 60);
 	}
 
 	&.o-teaser--large {
@@ -94,13 +95,13 @@
 	.o-teaser__standfirst a:visited,
 	.o-teaser__tag:hover,
 	.o-teaser__tag:focus {
-		color: oColorsMix($theme-highlight-color, $percentage: 73);
+		color: oColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 73);
 	}
 
 	.o-teaser__standfirst,
 	.o-teaser__timestamp,
 	.o-teaser__timestamp-prefix:before {
-		color: oColorsMix($theme-highlight-color, $percentage: 80);
+		color: oColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 80);
 	}
 
 	.o-teaser__timestamp-prefix:before {
