@@ -3,6 +3,7 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"keywords": ["tabs", "ui"],
 	"brands" : [
 		"master",
 		"internal",
