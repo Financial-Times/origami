@@ -33,6 +33,8 @@
 	.o-video__play-button {
 		position: absolute;
 		bottom: 0;
+		// always align left, even when `text-align:center` is inherited
+		left: 0;
 		padding: 0;
 		border: 0;
 		background-color: transparent;
