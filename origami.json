@@ -242,7 +242,8 @@
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
-			"hidden": true
+			"hidden": true,
+			"description": "Highlight accesibility errors"
 		}
 	]
 }
