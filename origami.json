@@ -62,7 +62,8 @@
 			"template": "demos/src/pa11y.mustache",
 			"documentClasses": "",
 			"data": "demos/src/data.json",
-			"hidden": true
+			"hidden": true,
+			"description": "Highlight accessibility issues"
 		}
 	]
 }
