@@ -9,15 +9,15 @@ export default `
 		<span class="o-forms-input o-forms-input--date">
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">DD</span>
-				<input id="date" type="text" name="date" value="" pattern="[0-9]{2}" aria-label="" required>
+				<input class="o-forms-input__day-part" id="date" type="text" name="date" value="" pattern="0[1-9]|[12]\\d|3[01]" aria-label="" required>
 			</label>
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">MM</span>
-				<input id="date1" type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="" required>
+				<input class="o-forms-input__month-part" id="date1" type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="" required>
 			</label>
 			<label>
 				<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
-				<input id="date2" type="text" name="date" value="" pattern="[0-9]{4}" aria-label="" required>
+				<input class="o-forms-input__year-part" id="date2" type="text" name="date" value="" pattern="[0-9]{4}" aria-label="" required>
 			</label>
 		</span>
 	</div>

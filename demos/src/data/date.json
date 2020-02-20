@@ -17,7 +17,8 @@
 				{
 					"type": "text",
 					"name": "date",
-					"pattern":"[0-9]{2}",
+					"pattern":"0[1-9]|[12]\\d|3[01]",
+					"classes": "o-forms-input__day-part",
 					"date": "DD"
 				},
 				{
@@ -48,7 +49,8 @@
 				{
 					"type": "text",
 					"name": "disabled-date",
-					"pattern":"[0-9]{2}",
+					"pattern":"0[1-9]|[12]\\d|3[01]",
+					"classes": "o-forms-input__day-part",
 					"date": "DD",
 					"disabled": true
 				},
@@ -56,6 +58,7 @@
 					"type": "text",
 					"name": "disabled-date",
 					"pattern": "0?[1-9]|1[012]",
+					"classes": "o-forms-input__month-part",
 					"date": "MM",
 					"disabled": true
 				},
@@ -63,6 +66,7 @@
 					"type": "text",
 					"name": "disabled-date",
 					"pattern": "[0-9]{4}",
+					"classes": "o-forms-input__year-part",
 					"date": "YYYY",
 					"disabled": true
 				}
@@ -86,7 +90,8 @@
 				{
 					"type": "text",
 					"name": "invalid-date",
-					"pattern":"[0-9]{2}",
+					"pattern":"0[1-9]|[12]\\d|3[01]",
+					"classes": "o-forms-input__day-part",
 					"date": "DD",
 					"value": "01"
 				},
@@ -94,6 +99,7 @@
 					"type": "text",
 					"name": "invalid-date",
 					"pattern": "0?[1-9]|1[012]",
+					"classes": "o-forms-input__month-part",
 					"date": "MM",
 					"value": "24"
 				},
@@ -101,6 +107,7 @@
 					"type": "text",
 					"name": "invalid-date",
 					"pattern": "[0-9]{4}",
+					"classes": "o-forms-input__year-part",
 					"date": "YYYY",
 					"value": "2019"
 				}
@@ -122,7 +129,8 @@
 				{
 					"type": "text",
 					"name": "inline-date",
-					"pattern":"[0-9]{2}",
+					"pattern":"0[1-9]|[12]\\d|3[01]",
+					"classes": "o-forms-input__day-part",
 					"date": "DD"
 				},
 				{

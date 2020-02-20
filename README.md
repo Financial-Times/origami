@@ -390,15 +390,15 @@ We do not use `input[type=date]`, but instead combine three `input[type=text]` w
 ...
 	<span class="o-forms-input o-forms-input--date">
 		<label>
-			<input type="text" pattern="[0-9]{2}" name="my-date"/>
+			<input class="o-forms-input__day-part" type="text" pattern="0[1-9]|[12]\d|3[01]" name="my-date"/>
 			<span class="o-forms-input__label">DD</span>
 		</label>
 		<label>
-			<input type="text" pattern="0?[1-9]|1[012]" name="my-date"/>
+			<input class="o-forms-input__month-part" type="text" pattern="0?[1-9]|1[012]" name="my-date"/>
 			<span class="o-forms-input__label">MM</span>
 		</label>
 		<label>
-			<input type="text" pattern="[0-9]{4}" name="my-date"/>
+			<input class="o-forms-input__year-part" type="text" pattern="[0-9]{4}" name="my-date"/>
 			<span class="o-forms-input__label">YYYY</span>
 		</label>
 	</span>

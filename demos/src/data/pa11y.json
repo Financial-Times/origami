@@ -75,17 +75,20 @@
 				"inputs": [
 					{
 						"type": "text",
-						"pattern": "[0-9]{2}",
+						"pattern": "0[1-9]|[12]\\d|3[01]",
+						"classes": "o-forms-input__day-part",
 						"date": "DD"
 					},
 					{
 						"type": "text",
 						"pattern": "0?[1-9]|1[012]",
+						"classes": "o-forms-input__month-part",
 						"date": "MM"
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
+						"classs": "o-forms-input__year-part",
 						"date": "YYYY"
 					}
 				]
@@ -107,12 +110,14 @@
 				"inputs": [
 					{
 						"type": "text",
-						"pattern": "[0-9]{2}",
+						"pattern": "0[1-9]|[12]\\d|3[01]",
+						"classes": "o-forms-input__day-part",
 						"date": "DD",
 						"value": "01"
 					},
 					{
 						"type": "text",
+						"classes": "o-forms-input__month-part",
 						"pattern": "0?[1-9]|1[012]",
 						"date": "MM",
 						"value": "24"

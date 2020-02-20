@@ -43,6 +43,7 @@
 						type="{{type}}"
 						name="{{name}}"
 						value="{{value}}"
+						{{#classes}}class={{.}}{{/classes}}
 						{{#pattern}}pattern={{.}}{{/pattern}}
 						aria-label="{{#date}}{{date}}{{/date}}{{^date}}{{value}}{{/date}}"
 						{{#checked}}checked{{/checked}}

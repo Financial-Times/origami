@@ -16,17 +16,29 @@
 			margin-bottom: 0;
 		}
 
-		input[type=text] { 
+		input[type=text] {
 			@include _oFormsInputBase($disabled);
 			display: block;
 			margin: $_o-forms-spacing-one $_o-forms-spacing-three 0 0;
-			
+
+			// The pattern attribute used to be used to select the day/month
+			// parts of date input. When the day pattern needed to change the
+			// class "o-forms-input__day-part" and ".o-forms-input__month-part"
+			// was added. For backwards compatibility select on both the patterns.
+			// @breaking remove pattern selector
+			&.o-forms-input__day-part,
+			&.o-forms-input__month-part,
 			&[pattern$='{2}'],
 			&[pattern$='[012]'] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(2.2ch + 1em);
 			}
-			
+
+			// The pattern attribute used to be used to select the year part of
+			// date input. "o-forms-input__year-part" was added later.
+			// For backwards compatibility select on both.
+			// @breaking remove pattern selector
+			&.o-forms-input__year-part,
 			&[pattern$='{4}'] {
 				// Based on character width (plus kerning) and line height.
 				width: calc(4.2ch + 1em);
