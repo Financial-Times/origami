@@ -29,13 +29,15 @@
 			"title": "Standard",
 			"name": "standard",
 			"template": "demos/src/standard.mustache",
-			"hidden": false
+			"hidden": false,
+			"description": ""
 		},
 		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
-			"hidden": true
+			"hidden": true,
+			"description": "Highlight accessibility issues"
 		}
 	]
 }
