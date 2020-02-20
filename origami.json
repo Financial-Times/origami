@@ -91,7 +91,7 @@
 			"template": "demos/src/pa11y.mustache",
 			"data": "demos/src/data/pa11y.json",
 			"hidden": true,
-			"description: "Highlight accessibility issues"
+			"description": "Highlight accessibility issues"
 		}
 	]
 }
