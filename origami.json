@@ -102,7 +102,8 @@
 			"name": "pa11y",
 			"data": "demos/src/header.json",
 			"template": "demos/src/pa11y.mustache",
-			"hidden": true
+			"hidden": true,
+			"description": "Highlight accessibility issues"
 		}
 	]
 }
