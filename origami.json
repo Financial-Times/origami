@@ -65,7 +65,8 @@
 				"tagline": "Base Layout"
 			},
 			"template": "demos/src/base-layout.mustache",
-			"hidden": true
+			"hidden": true,
+			"description": ""
 		},
 		{
 			"title": "Bleed Layout",
@@ -75,7 +76,8 @@
 				"bleed": true
 			},
 			"template": "demos/src/bleed-layout.mustache",
-			"hidden": true
+			"hidden": true,
+			"description": ""
 		}
 	]
 }
