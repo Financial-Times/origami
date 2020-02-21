@@ -40,7 +40,7 @@ describe("BaseTable", () => {
 	});
 
 	describe('constructor', () => {
-		it('applies declaritive table filters', (done) => {
+		it('applies declarative table filters', (done) => {
 			// Setup markup: Table + filter input.
 			const data = ['Dragonfruit', 'Durian', 'Naseberry', 'Strawberry', 'Apple'];
 			const tableId = 'constructor-test-table';
@@ -58,7 +58,7 @@ describe("BaseTable", () => {
 			`);
 			// Init table.
 			table = new BaseTable(oTableEl, sorter);
-			// Confirm default filter (set declaritively).
+			// Confirm default filter (set declaratively).
 			setTimeout(() => {
 				try {
 					assertFilter(data, ['Naseberry']);
@@ -66,7 +66,7 @@ describe("BaseTable", () => {
 				} catch(error) {
 					done(error);
 				}
-			}, 100); // wait for window.requestAnimationFrame
+			}, 1000); // wait for window.requestAnimationFrame
 		});
 	});
 

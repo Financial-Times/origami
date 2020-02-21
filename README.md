@@ -243,7 +243,7 @@ OTable.init(document.body, {
 
 ### Filtering
 
-All `o-table` instances support filtering. Filters may be applied declaritively in HTML or the `filter` method may be called against a table instance.
+All `o-table` instances support filtering. Filters may be applied declaratively in HTML or the `filter` method may be called against a table instance.
 
 #### Filter (declarative)
 

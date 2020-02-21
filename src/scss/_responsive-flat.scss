@@ -4,46 +4,58 @@
 	.o-table.o-table--responsive-flat {
 		width: 100%;
 
-		.o-table__duplicate-heading {
+		// hide elements added for the mobile version of the flat table
+		.o-table__duplicate-row,
+		.o-table__responsive-body {
 			display: none;
 		}
 
 		@include oGridRespondTo($until: S) {
-			display: block;
+			// hide elements for the desktop version of the table
+			thead,
+			thead tr,
+			thead th {
+				display: none;
+			}
 
-			td,
+			tbody:not(.o-table__responsive-body),
+			tr:not(.o-table__duplicate-row) {
+				display: none;
+			}
+
+			// show elements created for the mobile version of the flat table
+			.o-table__responsive-body {
+				display: table-row-group;
+			}
+
+			.o-table__duplicate-row {
+				display: table-row;
+			}
+
 			th,
-			tr {
-				box-sizing: border-box;
-			}
-
-			tr {
-				display: flex;
-				flex-flow: row wrap;
-				width: 100%;
-			}
-
 			td {
+				box-sizing: border-box;
 				padding: 10px;
 				width: 50%;
 			}
 
-			thead th {
-				display: none;
-				padding: 10px;
+			// Add border between items
+			tbody:not(:last-child) {
+				border-bottom: 1px solid _oTableGet('table-data-color');
 			}
 
-			thead tr {
-				display: none;
+			// Remove stripes when flat.
+			&.o-table--row-stripes tr,
+			&.o-table--row-stripes tr th {
+				background-color: transparent;
 			}
 
-			tbody tr:not(:first-child) {
-				border-top: 1px solid _oTableGet('table-data-color');
-			}
-
-			&.o-table--row-stripes tbody tr:nth-child(even) th, // Remove stripes when flat.
-			tbody tr:nth-child(even) {
-				background-color: _oTableGet('table-item-alternate-background', 'flat');
+			// Alternate background colour of each item
+			tbody {
+				background-color: _oTableGet('table-background');
+				&:nth-child(even) {
+					background-color: _oTableGet('table-item-alternate-background', 'flat');
+				}
 			}
 
 			&.o-table--horizontal-lines th:not(:last-of-type),
@@ -53,13 +65,6 @@
 				@if _oTableGet('table-border-color') {
 					border-bottom: 1px solid _oTableGet('table-border-color');
 				}
-			}
-
-			.o-table__duplicate-heading {
-				display: block;
-				float: left;
-				padding: 10px;
-				width: 50%;
 			}
 
 			.o-table__cell--numeric {

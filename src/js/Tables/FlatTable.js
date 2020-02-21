@@ -62,18 +62,35 @@ class FlatTable extends BaseTable {
 	_createFlatTableStructure(rows = this.tableRows) {
 		rows
 			.filter(row => !row.hasAttribute('data-o-table-flat-headings')) // only process rows once
-			.forEach((row) => {
+			.forEach(row => {
 				const data = Array.from(row.getElementsByTagName('td'));
 				row.setAttribute('data-o-table-flat-headings', true);
 				window.requestAnimationFrame(() => {
+					// Create a new table body for every row.
+					const newGroupBody = document.createElement('tbody');
+					newGroupBody.classList.add('o-table__responsive-body');
+					// Append all the other rows as heading / value pairs.
 					this._tableHeadersWithoutSort.forEach((header, index) => {
-						const td = data[index];
+						// Create the row.
+						const newRow = document.createElement('tr');
+						newRow.classList.add('o-table__duplicate-row');
+						// Duplicate the original heading cell.
 						const clonedHeader = header.cloneNode(true);
+						clonedHeader.classList.add('o-table__duplicate-heading');
 						clonedHeader.setAttribute('scope', 'row');
 						clonedHeader.setAttribute('role', 'rowheader');
-						clonedHeader.classList.add('o-table__duplicate-heading');
-						td.parentNode.insertBefore(clonedHeader, td);
+						// Duplicate the original data cell.
+						const clonedTd = data[index].cloneNode(true);
+						// Append the header and data cell to the row.
+						newRow.appendChild(clonedHeader);
+						newRow.appendChild(clonedTd);
+						// Append the row to the body.
+						newGroupBody.appendChild(newRow);
 					});
+
+					// Append the new bodies, which represent each row on
+					// desktop, to the root element.
+					this.rootEl.appendChild(newGroupBody);
 				});
 			});
 	}
