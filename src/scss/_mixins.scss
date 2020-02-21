@@ -178,6 +178,7 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	// sass-lint:enable no-vendor-prefixes
+	border-radius: 0; // Edge 80 insists on a boarder radius.
 
 	// Same as aria-disabled:
 	// http://www.w3.org/TR/wai-aria/states_and_properties#aria-disabled
