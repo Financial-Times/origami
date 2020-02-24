@@ -2,6 +2,30 @@ import template from './template';
 
 const supportedTypes = ['error', 'success'];
 
+const isVisible = function (element) {
+	return !!element.offsetHeight;
+};
+
+// Focus trap is an accessibility technique to keep users' focus within the toast window
+const focusTrap = function(event) {
+	const tabKeyCode = 9;
+	const toastFocusableElements = [].slice.call(
+		this.rootEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+	).filter(element => isVisible(element) && !element.disabled);
+
+	if (toastFocusableElements.length && event.keyCode === tabKeyCode) {
+		const lastElement = toastFocusableElements[toastFocusableElements.length - 1];
+		// Loop focus back to the first element if focus has reached the focusable element
+		if (event.target === lastElement) {
+			toastFocusableElements[0].focus();
+			event.preventDefault();
+		} else if (event.shiftKey && event.target === toastFocusableElements[0]) { // loop to the bottom when shift+tabbing.
+			lastElement.focus();
+			event.preventDefault();
+		}
+	}
+};
+
 class Toast {
 	constructor(options, clearToast) {
 		this.clearToast = clearToast;
@@ -28,6 +52,8 @@ class Toast {
 
 		this.optionsContent = options.content;
 
+		document.addEventListener('keydown', focusTrap.bind(this));
+
 		return this;
 	}
 
@@ -39,6 +65,8 @@ class Toast {
 		clearTimeout(this.timeout);
 		this.clearToast(this);
 		Toast.dispatchNotificationCloseEvent();
+
+		document.removeEventListener('keydown', focusTrap);
 
 		if (this.options.returnFocusSelector) {
 			this.options.returnFocusSelector.focus();
