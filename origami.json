@@ -62,7 +62,7 @@
 			"name": "demo3",
 			"template": "demos/src/demo.3.mustache",
 			"data": {
-				"meterValue": 25
+				"meterValue": 80
 			},
 			"description": "This demo shows a meter with a value of 25 that was colour-customised. Do not forget to add an aria-label attribute to describe your meter."
 		},
