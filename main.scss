@@ -36,7 +36,7 @@
 
 	.o-meter-value {
 		@include oTypographySans($scale: -1, $line-height: 24px);
-		display: none; // we only display an optional value box for the browsers that support meter tag. See 
+		display: none; // we only display an optional value box for the browsers that support meter tag. See
 		position: relative;
 		padding: 0 oSpacingByName('s1');
 		background: #{oColorsByName('black')};
@@ -93,22 +93,22 @@
 
 	/* Sub-optimum bar in Firefox */
 	.o-meter:-moz-meter-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-low-color);
+		background: var(--o-meter-high-color);
 	}
 
-	/* Ssub-optimum bar in Chrome etc. */
+	/* Sub-optimum bar in Chrome etc. */
 	.o-meter::-webkit-meter-suboptimum-value {
-		background: var(--o-meter-low-color);
+		background: var(--o-meter-high-color);
 	}
 
 	/* Even less good bar in Firefox */
 	.o-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-high-color);
+		background: var(--o-meter-low-color);
 	}
 
 	/* Even less good bar in Chrome etc. */
 	.o-meter::-webkit-meter-even-less-good-value {
-		background: var(--o-meter-high-color);
+		background: var(--o-meter-low-color);
 	}
 
 	// sass-lint:enable no-vendor-prefixes

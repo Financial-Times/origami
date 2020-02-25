@@ -30,7 +30,22 @@ This HTML demonstrates a way to use an extended o-meter with an additional value
 	</span>
 </div>
 ```
-This HTML demonstrates a way to use a basic o-meter with customised colours
+
+This HTML demonstrates a way to use a basic o-meter with customised colours. Colours are used to indicate how close the meter is to its [optimum value](https://html.spec.whatwg.org/multipage/form-elements.html#attr-meter-optimum).
+
+To customise meter colours set the following CSS Customer Properties:
+- `--o-meter-low-color` (bad): The CSS colour for the meter element when its value is at its worse, less than sub optimal. E.g:
+	- value < low and optimum > high; or
+	- value > high and optimum < low
+- `--o-meter-high-color` (suboptimal): The CSS colour for the meter element when its value is suboptimal. E.g:
+	- value > low, value < high, and optimum > high
+	- value < high, value > lower, and optimum < low
+- `--o-meter-optimum-color` (good): The CSS colour for the meter element when its value is optimal. E.g:
+	- value > high and optimum > high
+	- value < low and optimum < low
+
+This example uses inline styles but you may want to create a custom CSS class to share these styles with other meter elements in your project.
+
 ```html
 	<meter class="o-meter" style="
 		--o-meter-background-color: hotpink;
