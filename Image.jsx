@@ -34,15 +34,15 @@ export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props })
 
 	return image ? (
 		<div className="o-teaser__image-container js-teaser-image-container">
-			<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
-				<Link {...props} url={displayUrl} attrs={{
+			<Link {...props} url={displayUrl} attrs={{
 					'data-trackable': 'image-link',
 					'tabIndex': '-1',
 					'aria-hidden': 'true',
 				}}>
+				<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
 					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
-				</Link>
-			</div>
+				</div>
+			</Link>
 		</div>
 	) : null;
 };
