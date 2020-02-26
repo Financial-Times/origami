@@ -19,8 +19,8 @@
 		height: var(--o-meter-height);
 		--o-meter-background-color: #{oColorsByName('slate-white-15')};
 		--o-meter-optimum-color: #{oColorsByName('jade')};
-		--o-meter-low-color: #{oColorsByName('crimson')}; //bad
-		--o-meter-high-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
+		--o-meter-sub-optimum-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
+		--o-meter-less-than-sub-optimum-color: #{oColorsByName('crimson')};
 
 		/* Background in Firefox */
 		background: var(--o-meter-background-color);
@@ -93,22 +93,22 @@
 
 	/* Sub-optimum bar in Firefox */
 	.o-meter:-moz-meter-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-high-color);
+		background: var(--o-meter-sub-optimum-color);
 	}
 
 	/* Sub-optimum bar in Chrome etc. */
 	.o-meter::-webkit-meter-suboptimum-value {
-		background: var(--o-meter-high-color);
+		background: var(--o-meter-sub-optimum-color);
 	}
 
 	/* Even less good bar in Firefox */
 	.o-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-		background: var(--o-meter-low-color);
+		background: var(--o-meter-less-than-sub-optimum-color);
 	}
 
 	/* Even less good bar in Chrome etc. */
 	.o-meter::-webkit-meter-even-less-good-value {
-		background: var(--o-meter-low-color);
+		background: var(--o-meter-less-than-sub-optimum-color);
 	}
 
 	// sass-lint:enable no-vendor-prefixes

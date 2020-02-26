@@ -1,8 +1,8 @@
 <meter class="o-meter" aria-label="demo meter {{meterValue}}" style="
-	--o-meter-background-color: hotpink;
+	--o-meter-background-color: lightgray;
 	--o-meter-optimum-color: deeppink;
-	--o-meter-low-color: pink;
-	--o-meter-high-color: red;"
-	data-o-component="o-meter" min="0" max="100" value="{{meterValue}}">
+	--o-meter-sub-optimum-color: hotpink;
+	--o-meter-less-than-sub-optimum-color: pink;"
+	data-o-component="o-meter" min="0" max="100" low="25" high="75" optimum="100" value="{{meterValue}}">
 {{meterValue}}
 </meter>

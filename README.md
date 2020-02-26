@@ -6,10 +6,11 @@ Use the meter element to measure data within a given range. The `<meter>` tag de
 - [Markup](#markup)
 - [Sass](#sass)
 - [Support](#support)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-### Markup
+## Markup
 
 This HTML demonstrates a way to use a basic o-meter
 
@@ -34,6 +35,7 @@ This HTML demonstrates a way to use an extended o-meter with an additional value
 This HTML demonstrates a way to use a basic o-meter with customised colours. Colours are used to indicate how close the meter is to its [optimum value](https://html.spec.whatwg.org/multipage/form-elements.html#attr-meter-optimum).
 
 To customise meter colours set the following CSS Customer Properties:
+- `--o-meter-background-color`: The background colour for the empty meter.
 - `--o-meter-low-color` (bad): The CSS colour for the meter element when its value is at its worse, less than sub optimal. E.g:
 	- value < low and optimum > high; or
 	- value > high and optimum < low
@@ -48,10 +50,10 @@ This example uses inline styles but you may want to create a custom CSS class to
 
 ```html
 	<meter class="o-meter" style="
-		--o-meter-background-color: hotpink;
+		--o-meter-background-color: lightgray;
 		--o-meter-optimum-color: deeppink;
-		--o-meter-low-color: pink;
-		--o-meter-high-color: red;" aria-label="a meter component" data-o-component="o-meter" min="0" max="100" value="35">
+		--o-meter-sub-optimum-color: hotpink;
+		--o-meter-less-than-sub-optimum-color: pink;" aria-label="a meter component" data-o-component="o-meter" min="0" max="100" low="25" high="75" optimum="100" value="35">
 	35
 	</meter>
 ```
@@ -67,7 +69,7 @@ This HTML demonstrates a way to use an extended o-meter with customised width an
 	</div>
 ```
 
-#### Sass
+## Sass
 ```scss
 @include oMeter;
 ```
@@ -78,6 +80,13 @@ If `o-meter` needs to be used on IE, please use a fallback - include the value i
 ```html
 <meter data-o-component="o-meter" class='o-meter' value="0.6">60%</meter>
 ```
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.0 | N/A |
 
 ## Contact
 
