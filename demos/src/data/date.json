@@ -19,6 +19,7 @@
 					"name": "date",
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
+					"inputmode": "numeric",
 					"date": "DD"
 				},
 				{
@@ -51,6 +52,7 @@
 					"name": "disabled-date",
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
+					"inputmode": "numeric",
 					"date": "DD",
 					"disabled": true
 				},
@@ -59,6 +61,7 @@
 					"name": "disabled-date",
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
+					"inputmode": "numeric",
 					"date": "MM",
 					"disabled": true
 				},
@@ -67,6 +70,7 @@
 					"name": "disabled-date",
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
+					"inputmode": "numeric",
 					"date": "YYYY",
 					"disabled": true
 				}
@@ -92,6 +96,7 @@
 					"name": "invalid-date",
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
+					"inputmode": "numeric",
 					"date": "DD",
 					"value": "01"
 				},
@@ -100,6 +105,7 @@
 					"name": "invalid-date",
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
+					"inputmode": "numeric",
 					"date": "MM",
 					"value": "24"
 				},
@@ -108,6 +114,7 @@
 					"name": "invalid-date",
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
+					"inputmode": "numeric",
 					"date": "YYYY",
 					"value": "2019"
 				}
@@ -131,6 +138,7 @@
 					"name": "inline-date",
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
+					"inputmode": "numeric",
 					"date": "DD"
 				},
 				{

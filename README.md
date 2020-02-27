@@ -385,25 +385,28 @@ For this you'll need to add the `o-forms-field--inverse` to the parent element:
 Date inputs and anchor elements with box-like styling are outliers to the rules above.
 
 #### Date inputs
-We do not use `input[type=date]`, but instead combine three `input[type=text]` within the [base structure for a multiple input field](#multiple-input-fields), as shown below:
+We do not use `input[type=date]`, but instead combine three `input[type=text]` within the [base structure for a multiple input field](#multiple-input-fields). We use `inputmode="numeric"` to show a numeric keyboard in mobile browsers which support the attribute. And use a `pattern` attribute for basic client side date validation. As shown below:
 ```html
 ...
 	<span class="o-forms-input o-forms-input--date">
 		<label>
-			<input class="o-forms-input__day-part" type="text" pattern="0[1-9]|[12]\d|3[01]" name="my-date"/>
+			<input class="o-forms-input__day-part" type="text" inputmode="numeric" pattern="0[1-9]|[12]\d|3[01]" name="my-date"/>
 			<span class="o-forms-input__label">DD</span>
 		</label>
 		<label>
-			<input class="o-forms-input__month-part" type="text" pattern="0?[1-9]|1[012]" name="my-date"/>
+			<input class="o-forms-input__month-part" type="text" inputmode="numeric" pattern="0?[1-9]|1[012]" name="my-date"/>
 			<span class="o-forms-input__label">MM</span>
 		</label>
 		<label>
-			<input class="o-forms-input__year-part" type="text" pattern="[0-9]{4}" name="my-date"/>
+			<input class="o-forms-input__year-part" type="text" inputmode="numeric" pattern="[0-9]{4}" name="my-date"/>
 			<span class="o-forms-input__label">YYYY</span>
 		</label>
 	</span>
 ...
 ```
+
+We avoid `type="number"` here for a number of reasons related to accessibility and how browsers handle number inputs, which [gov.uk explain thoroughly in a blogpost](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
+
 [_See the full markup for date inputs in the registry_](https://registry.origami.ft.com/components/o-forms#date)
 
 #### Pseudo Radio Links
