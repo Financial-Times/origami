@@ -3,9 +3,10 @@
 /// @output styles for toggle based on a checkbox input
 @mixin _oFormsToggle($disabled: null) {
 	.o-forms-input--toggle {
+		$toggle-width: $_o-forms-spacing-ten;
 		.o-forms-input__label {
 			display: inline-block;
-			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-eight;
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half #{$toggle-width + $_o-forms-spacing-one};
 			vertical-align: top;
 
 			&:before,
@@ -21,7 +22,7 @@
 				background-color: _oFormsGet('toggle');
 				border-radius: $_o-forms-spacing-ten;
 				height: $_o-forms-spacing-six;
-				width: $_o-forms-spacing-ten;
+				width: $toggle-width;
 			}
 
 			&:after {
@@ -36,9 +37,6 @@
 		}
 
 		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
-			position: relative;
-			left: $_o-forms-spacing-three;
-
 			&:checked + .o-forms-input__label {
 				&:before {
 					background-color: _oFormsGet('toggle-selected');
