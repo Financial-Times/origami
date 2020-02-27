@@ -47,5 +47,10 @@
 
 	.o-forms-input {
 		margin-top: $_o-forms-spacing-three;
+		// remove default browser styles
+		input {
+			border-radius: 0;
+			appearance: none;
+		}
 	}
 }
