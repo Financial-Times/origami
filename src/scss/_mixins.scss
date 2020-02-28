@@ -6,8 +6,11 @@
 ///   @include _oLabelsBaseContent();
 /// @access private
 @mixin _oLabelsBaseContent() {
-	@include oTypographySans($scale: _oLabelsGet('font-scale'), $line-height: 1em);
-	font-weight: 500;
+	@include oTypographySans(
+		$scale: _oLabelsGet('font-scale'),
+		$weight: 'regular',
+		$line-height: 1em
+	);
 	text-align: center;
 	display: inline-block;
 	box-sizing: border-box;
