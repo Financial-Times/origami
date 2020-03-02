@@ -9,7 +9,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographySans($scale: 4);
+		@include oTypographySerif($scale: 4);
 	}
 
 	.o-teaser__timestamp {
