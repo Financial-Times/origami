@@ -19,7 +19,7 @@
 		height: var(--o-meter-height);
 		--o-meter-background-color: #{oColorsByName('slate-white-15')};
 		--o-meter-optimum-color: #{oColorsByName('jade')};
-		--o-meter-sub-optimum-color: #ff8833; // 'mandarin' color used as hex because isn't an internal brand color
+		--o-meter-sub-optimum-color: #{oColorsByName('mandarin')};
 		--o-meter-less-than-sub-optimum-color: #{oColorsByName('crimson')};
 
 		/* Background in Firefox */
