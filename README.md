@@ -85,13 +85,13 @@ teal | master, internal
 slate | master, internal,
 lemon | master, internal,
 jade | master, internal
+mandarin | master, internal
 crimson | master, internal
 paper | master
 claret | master
 wheat | master
 sky | master
 velvet | master
-mandarin | master
 candy | master
 wasabi | master
 org-b2c | master
