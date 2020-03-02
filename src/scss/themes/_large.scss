@@ -9,8 +9,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographySerif($scale: 4);
-		font-family: FinancierDisplayWeb, serif;
+		@include oTypographyDisplay($scale: 4);
 	}
 
 	.o-teaser__timestamp {

@@ -30,8 +30,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographySerif(4);
-		font-family: FinancierDisplayWeb, serif;
+		@include oTypographyDisplay($scale: 4);
 		color: $_o-teaser-base-color;
 		background: inherit;
 		padding: 20px;
