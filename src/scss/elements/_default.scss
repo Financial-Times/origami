@@ -68,8 +68,8 @@
 }
 
 @mixin _oTeaserTagPrefix {
-	margin-right: 0.25em;
 	@include oTypographySans($weight: 'semibold');
+	margin-right: 0.25em;
 }
 
 @mixin _oTeaserTagSuffix {
