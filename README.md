@@ -3,18 +3,67 @@ o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?sty
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
 
-- [Fonts Available](#fonts-available)
+- [Recommended Fonts](#recommended-fonts)
 - [Fonts Included By Default](#fonts-included-by-default)
+- [All Available Fonts](#all-available-fonts)
 - [Sass](#sass)
 - [Contributing](#contributing)
 - [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Recommended Fonts
 
-## Fonts Available
+Origami components use a limited set of recommended font faces which vary per brand. We recommend [Sass users](#sass) include only these recommended fonts and carefully consider performance implications before including another font. However a wider selection of fonts [are included by default](#fonts-included-by-default) so they are available to Build Service users. [Sass users](#sass) may choose to include only recommended fonts, or any of the [available fonts](#all-available-fonts).
 
-Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But the [fonts included by default](#fonts-included-by-default) vary per brand.
+### Master Brand Recommended Fonts
+
+| Weight   | FinancierDisplayWeb | MetricWeb |
+|----------|:-------------------:|:---------:|
+| thin     |                     |           |
+| light    |                     |           |
+| regular  |                     |    ✓      |
+| medium   |         ✓           |           |
+| semibold |                     |    ✓      |
+| bold     |         ✓           |           |
+| black    |                     |           |
+
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
+
+### Internal Brand Recommended Fonts
+
+| Weight   | MetricWeb |
+|----------|:---------:|
+| thin     |           |
+| light    |           |
+| regular  |    ✓      |
+| medium   |           |
+| semibold |    ✓      |
+| bold     |           |
+| black    |           |
+
+- **✓**: normal style available
+- **i**: italic style available (if not, faux-italic will be displayed)
+
+### Whitelabel Brand Recommended Fonts
+
+_(None)_. Origami components make no font assumptions for whitelabel brands and default to a system font.
+
+## Fonts Included By Default
+
+A selection wider than [recommended fonts](#recommended-fonts) are included by default so they are available to Build Service users. Font faces included by default, if using the Origami Build Service or [including default fonts with SASS](#include-default-fonts), depend on your products chosen brand:
+
+| Brand       | Fonts included by default ([all weights and styles available](#all-available-fonts)) |
+|-------------|--------------------------------------------------------------------------------------|
+| master      | FinancierDisplayWeb, MetricWeb                                                       |
+| internal    | MetricWeb                                                                            |
+| whitelabel  | _(none)_                                                                             |
+
+
+## All Available Fonts
+
+Any of the below fonts may be included with `o-fonts` using [SASS](#sass). Build Service users are limited to [fonts included by default](#fonts-included-by-default).
 
 | Weight   | FinancierDisplayWeb | MetricWeb |
 |----------|:-------------------:|:---------:|
@@ -29,35 +78,31 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But t
 - **✓**: normal style available
 - **i**: italic style available (if not, faux-italic will be displayed)
 
-## Fonts Included By Default
-
-Font faces included by default, if using the Origami Build Service or [including default fonts with SASS](#include-default-fonts), depends on your products chosen brand:
-
-| Brand       | Fonts included by default (all weights and styles) |
-|-------------|----------------------------------------------------|
-| master      | FinancierDisplayWeb, MetricWeb                     |
-| internal    | MetricWeb                                          |
-| whitelabel  | _(none)_                                           |
-
 ## Sass
 
 ### Include Default Fonts
 
-To include [default fonts for your brand](#fonts-included-by-default), call `oFonts`.
+To include [all fonts for your brand](#fonts-included-by-default), call `oFonts`.
 
 ```scss
 @import 'o-fonts/main';
 @include oFonts();
 ```
 
+To improve site performance, Origami components use a more limited set of font faces. To included only the recommended set of font faces, set `recommended: true` in the options `$opts` map.
+```scss
+@import 'o-fonts/main';
+@include oFonts($opts: ('recommended': true));
+```
+
 You may also include specific fonts granularly using an options `$opts` map. The map has a key for each font `metric` or `financier-display`, which accepts a list of weight and styles to include.
 
-For example to include font faces for `MetricWeb` in normal and semibold weights, and regular `FinancierDisplayWeb`:
+For example to include recommended fonts used by Origami components and an extra font, `MetricWeb` in a medium weight, and regular `FinancierDisplayWeb`:
 ```scss
 @include oFonts($opts: (
+    'recommended': true,
 	'metric': (
-        ('weight': 'regular', 'style': 'normal'),
-        ('weight': 'semibold', 'style': 'normal')
+        ('weight': 'medium', 'style': 'normal')
     ),
 	'financier-display': (
         ('weight': 'regular', 'style': 'normal')
@@ -136,7 +181,7 @@ Note: font files are contained in a separate, private repository ([o-fonts-asset
 
 1. Open `src/scss/_variables.scss` and add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
 
-2. Second, if adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) for only some brands assign a variable of default variants conditionally (see `$_o-fonts-default-financier-display-variants`).
+2. Second, if adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
 
 3. Finally, update the demos (see `origami.json`).
 

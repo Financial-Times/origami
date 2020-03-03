@@ -42,24 +42,54 @@ $_o-fonts-all-financier-display-variants: (
 	(weight: bold, style: normal)
 );
 
-/// The MetricWeb variants to include by default, which vary per brand.
+/// The fonts to include by default, which vary per brand.
 /// @see oFonts
 /// @access private
-$_o-fonts-default-metric-variants: ();
-
-/// The FinancierDisplayWeb font variants to include by default, which vary per brand.
-/// @see oFonts
-/// @access private
-$_o-fonts-default-financier-display-variants: ();
+$_o-fonts-default: ();
 
 @if oBrandGetCurrentBrand() == 'master' {
-	$_o-fonts-default-metric-variants: $_o-fonts-all-metric-variants !global;
-	$_o-fonts-default-financier-display-variants: $_o-fonts-all-financier-display-variants !global;
+	$_o-fonts-default: (
+		'metric': $_o-fonts-all-metric-variants,
+		'financier-display': $_o-fonts-all-financier-display-variants
+	) !global;
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-	$_o-fonts-default-metric-variants: $_o-fonts-all-metric-variants !global;
-	$_o-fonts-default-financier-display-variants: () !global;
+	$_o-fonts-default: (
+		'metric': $_o-fonts-all-metric-variants,
+		'financier-display': ()
+	) !global;
+}
+
+/// The MetricWeb variants to include by recommended, which vary per brand.
+/// @see oFonts
+/// @access private
+$_o-fonts-recommended: (
+	'metric': (),
+	'financier-display': ()
+);
+
+@if oBrandGetCurrentBrand() == 'master' {
+	$_o-fonts-recommended: (
+		'metric': (
+			(weight: regular, style: normal),
+			(weight: semibold, style: normal)
+		),
+		'financier-display': (
+			(weight: medium, style: normal),
+			(weight: bold, style: normal)
+		)
+	);
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	$_o-fonts-recommended: (
+		'metric': (
+			(weight: regular, style: normal),
+			(weight: semibold, style: normal)
+		),
+		'financier-display': ()
+	);
 }
 
 /// All available font families.

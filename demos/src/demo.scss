@@ -1,5 +1,6 @@
-$o-fonts-is-silent: false;
 @import "../../main";
+
+@include oFonts();
 
 .demo-container {
 	margin: 0 20px;

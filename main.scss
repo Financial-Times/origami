@@ -9,6 +9,17 @@
 /// @example Include all fonts for the current brand (master, internal, whitelabel).
 ///     @include oFonts();
 ///
+/// @example Include a limited set of recommended fonts for the current brand (master, internal, whitelabel).
+///     @include oFonts($opts: ('recommended': true));
+///
+/// @example Include a limited set of recommended fonts for the current brand, plus an extra FinancierDisplayWeb font.
+/// 	@include oFonts($opts: (
+/// 		'recommended': true,
+/// 		'financier-display': (
+/// 			(weight: regular, style: normal)
+/// 		)
+/// 	));
+///
 /// @example Include only regular and semibold MetricWeb font faces.
 ///     @include oFonts($opts: ('metric': (
 ///     	(weight: regular, style: normal),
@@ -26,10 +37,7 @@
 ///     	'metric': ((weight: regular, style: normal)),
 ///     	'financier-display': ((weight: regular, style: normal))
 ///     ));
-@mixin oFonts($opts: (
-	'metric': $_o-fonts-default-metric-variants,
-	'financier-display': $_o-fonts-default-financier-display-variants
-)) {
+@mixin oFonts($opts: $_o-fonts-default) {
 	// Map of options to font name.
 	$fonts: (
 		'metric': 'MetricWeb',
@@ -37,8 +45,18 @@
 	);
 	// Include each font variant given.
 	@each $option, $family in $fonts {
+		// Get font variants to include from the opt map by font family.
 		$variants: map-get($opts, $option);
 		$variants: if($variants, $variants, ());
+		// Merge recommended font variants if recommended fonts were requested.
+		@if map-get($opts, 'recommended') == true {
+			$recommended-variants: map-get($_o-fonts-recommended, $option);
+			@if length($variants) > 0 {
+				$variants: append($recommended-variants, $variants);
+			} @else {
+				$variants: $recommended-variants;
+			}
+		}
 		@each $variant in $variants {
 			// Validate that the variant style and weight is given.
 			$weight: map-get($variant, 'weight');
