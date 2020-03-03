@@ -21,7 +21,7 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass). But t
 | thin     |                     |    ✓      |
 | light    |           i         |    ✓ i    |
 | regular  |         ✓ i         |    ✓ i    |
-| medium   |           i         |    ✓      |
+| medium   |         ✓ i         |    ✓      |
 | semibold |           i         |    ✓      |
 | bold     |         ✓           |    ✓ i    |
 | black    |                     |           |
