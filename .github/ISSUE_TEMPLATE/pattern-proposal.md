@@ -12,9 +12,9 @@ contact the Origami team at origami.support@ft.com or
 
 ## What
 
-> Give a brief description of the pattern you wish to propose.
+> Give a brief description of the pattern you're proposing.
 >
-> This should be a short pitch so we can quickly spot previousy proposed patterns.
+> Make it a short pitch so we can quickly spot previousy proposed patterns.
 
 ## Why
 
@@ -22,9 +22,10 @@ contact the Origami team at origami.support@ft.com or
 >
 > - What problem does the proposal aim to address?
 > - Are there any known caveats to the proposal?
-> - Which components, if any, would be affected by the proposal if it were accepted?
-> - How would the proposal, if accepted, impact your workflow or that of other Origami users?
+> - Which components would be affected by the proposal if it were accepted?
+> - How would the proposal impact your workflow or that of other Origami users if it were accepted?
 
 ## Supporting Examples
 
-> Include links to examples, research, or code to support your proposal, if any is available. It's also useful to have links to designs if there are any
+> Include links to examples, research, or code to support your proposal, if any is available.
+> It's also useful to have links to designs if there are any
