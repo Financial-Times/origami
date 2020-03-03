@@ -63,8 +63,8 @@ This section is for members of the Origami team, and acts as a guide for reviewi
 	 If the proposal is not going to be accepted then we should also provide some reasoning and move to the "Not Accepted" column. It's important to also note that if somebody in future has a need for the same proposal then we can reopen the proposal and accept further evidence and reasoning.
 
 
-[issue template]: https://github.com/Financial-Times/origami-proposals/blob/master/.github/ISSUE_TEMPLATE.md
+[issue template]: https://github.com/Financial-Times/origami/blob/master/.github/ISSUE_TEMPLATE.md
 [origami registry]: https://registry.origami.ft.com/
-[proposal backlog]: https://github.com/Financial-Times/origami-proposals/projects/1
-[raise an issue]: https://github.com/Financial-Times/origami-proposals/issues/new
+[proposal backlog]: https://github.com/Financial-Times/origami/projects/1
+[raise an issue]: https://github.com/Financial-Times/origami/issues/new
 [slack]: https://financialtimes.slack.com/messages/origami-support
