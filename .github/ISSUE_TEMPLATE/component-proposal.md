@@ -1,9 +1,7 @@
 ---
 name: Component proposal
 about: Propose a new component. Make sure you've checked the Origami Registry and the Components Backlog first!
-labels:
-  - component
-  - proposal
+labels: component, proposal
 ---
 <!--
 Please ensure that you have checked both the Origami Registry and the Component Backlog for similar components:

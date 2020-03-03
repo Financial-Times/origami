@@ -1,9 +1,7 @@
 ---
 name: Pattern proposal
 about: Propose a new pattern which impacts multiple components.
-labels:
-  - pattern
-  - proposal
+labels: pattern, proposal
 ---
 <!--
 If you need help with putting your proposal together then please
