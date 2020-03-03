@@ -1,9 +1,9 @@
 {
-	"description": "Propose and track new Origami components",
-	"origamiType": null,
+	"description": "A repository for tracking the work of the Origami project",
+	"origamiType": "meta",
 	"origamiVersion": 1,
 	"keywords": [],
-	"support": "https://github.com/Financial-Times/origami-proposals/issues",
+	"support": "https://github.com/Financial-Times/origami/issues",
 	"supportStatus": "active",
 	"supportContact": {
 		"email": "origami.support@ft.com",
