@@ -21,7 +21,7 @@
         // The font faces are output.
         @include assert-equal(
             $_o-fonts-families,
-            ("MyFont": ("font-family": "MyFont, sans", "variants": ((weight: regular, style: normal), (weight: bold, style: normal)), "custom": true), MetricWeb: (font-family: "MetricWeb, sans-serif", variants: ((weight: thin, style: normal), (weight: light, style: normal), (weight: light, style: italic), (weight: regular, style: normal), (weight: regular, style: italic), (weight: medium, style: normal), (weight: semibold, style: normal), (weight: bold, style: normal), (weight: bold, style: italic))), FinancierDisplayWeb: (font-family: "FinancierDisplayWeb, serif", variants: ((weight: light, style: italic), (weight: regular, style: normal), (weight: regular, style: italic), (weight: medium, style: italic), (weight: semibold, style: italic), (weight: bold, style: normal))))
+            ("MyFont": ("font-family": "MyFont, sans", "variants": ((weight: regular, style: normal), (weight: bold, style: normal)), "custom": true), MetricWeb: (font-family: "MetricWeb, sans-serif", variants: ((weight: thin, style: normal), (weight: light, style: normal), (weight: light, style: italic), (weight: regular, style: normal), (weight: regular, style: italic), (weight: medium, style: normal), (weight: semibold, style: normal), (weight: bold, style: normal), (weight: bold, style: italic))), FinancierDisplayWeb: (font-family: "FinancierDisplayWeb, serif", variants: ((weight: light, style: italic), (weight: regular, style: normal), (weight: regular, style: italic), (weight: medium, style: italic), (weight: medium, style: normal), (weight: semibold, style: italic), (weight: bold, style: normal))))
         );
 	}
 }
