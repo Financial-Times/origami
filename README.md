@@ -442,10 +442,27 @@ The query layout is intended for search, filter, and result pages. It provides f
 </div>
 ```
 
+### Query Sidebars
+
 The query sidebar supports a [generated navigation like the documentation layout](#sidebar) but it is disabled by default and must be turned on with `data-o-layout-construct-nav="true"`:
 ```html
 <div class="o-layout o-layout--query" data-o-component="o-layout" data-o-layout-construct-nav="true">
 	<!-- query layout -->
+</div>
+```
+
+Alternatively the `.sticky-sidebar-container` class may be used as a child of the query sidebars. Its contents will stick to the top of the viewport as the user scrolls.
+
+```html
+<div class="o-layout o-layout--query" data-o-component="o-layout">
+    <!-- ... -->
+    <div class="o-layout__aside-sidebar o-layout-typography">
+		<!-- Sticky container for sidebar content (optional) -->
+    	<div class="o-layout__aside-sidebar o-layout-typography">
+	    	<!-- Your asides / additional information (optional). -->
+    	</div>
+	</div>
+	<!-- ... -->
 </div>
 ```
 
@@ -539,13 +556,14 @@ If your project does not use all layouts or other features provided by `o-layout
 
 **Feature Options**
 - sidebar-nav (enables the [generated sidebar navigation](#custom-navigation) for the query layout. _Styles for the sidebar navigation are included by default with the documentation layout._)
+- sticky-sidebar-container (A containing element for use within o-layout sidebars. Sticks to the top of the viewport as the user scrolls. See query layout examples.)
 - linked-headings (enables clickable / highlighted anchors on the page)
 - typography (enables body typography applied with the class `o-layout-typography`)
 
 ```scss
 @mixin oLayout($opts: (
 	'layouts': ('documentation', 'landing', 'query', 'bleed'),
-	'features': ('sidebar-nav', 'linked-headings', 'typography')
+	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography')
 ));
 ```
 

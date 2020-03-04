@@ -15,7 +15,7 @@
 /// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query', 'bleed'), "features" ('linked-headings', 'typography'), and  "hero-image" (an image for the background of the "hero" area).
 @mixin oLayout($opts: (
 	'layouts': ('documentation', 'landing', 'query', 'bleed'),
-	'features': ('sidebar-nav', 'linked-headings', 'typography'),
+	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography'),
 	'hero-image': '',
 )) {
 	@if(oBrandGetCurrentBrand() != 'internal') {
@@ -31,6 +31,7 @@
 	$linked-headings: index($features, 'linked-headings');
 	$typography: index($features, 'typography');
 	$nav: index($features, 'sidebar-nav');
+	$sticky-sidebar-container: index($features, 'sticky-sidebar-container');
 	$bleed-layout: index($layouts, 'bleed');
 	$docs-layout: index($layouts, 'documentation');
 	$landing-layout: index($layouts, 'landing');
@@ -87,6 +88,13 @@
 		@include _oLayoutAreaHeading();
 		@include _oLayoutAreaQuerySidebar();
 		@include _oLayoutAreaAsideSidebar();
+	}
+
+	@if($sticky-sidebar-container) {
+		.sticky-sidebar-container {
+			position: sticky;
+			top: oSpacingByName('s3');
+		}
 	}
 }
 
