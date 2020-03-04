@@ -37,7 +37,7 @@
 ///     	'metric': ((weight: regular, style: normal)),
 ///     	'financier-display': ((weight: regular, style: normal))
 ///     ));
-/// @param {Map} $opts - the font faces to included, see the README or examples for more details.
+/// @param {Map} $opts - the font faces to include, see the README or examples for more details.
 @mixin oFonts($opts: $_o-fonts-default) {
 	$variants: _oFontsOptionsToVariants($opts);
 
