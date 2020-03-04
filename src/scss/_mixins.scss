@@ -68,7 +68,7 @@
 
 	// Check if the font has already been included
 	// If so, no need to output another @font-face declaration
-	$font-is-already-included: map-has-key($_o-fonts-families-included, #{$family}-#{$weight}-#{$style});
+	$font-is-already-included: oFontsVariantIncluded($family, $weight, $style);
 
 	@if $font-is-already-included == false {
 		// Error if a font does not exist for the given variant.
@@ -105,6 +105,7 @@
 		}
 
 		// Add to the list of already included families / variants
-		$_o-fonts-families-included: map-merge($_o-fonts-families-included, (#{$family}-#{$weight}-#{$style}: true)) !global;
+		$variant-key: _oFontsVariantKey($family, $weight, $style);
+		$_o-fonts-families-included: map-merge($_o-fonts-families-included, ($variant-key: true)) !global;
 	}
 }

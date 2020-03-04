@@ -26,6 +26,43 @@
 	}
 }
 
+@include test-module('oFontsVariantIncluded') {
+	@include test('Returns false when no fonts have been included.') {
+        @include assert-equal(
+            oFontsVariantIncluded('MetricWeb', 'regular', 'normal'),
+            false
+        );
+	}
+	@include test('Returns true when the font has been included.') {
+        // The font faces are output.
+        // o-fonts keeps track of included fonts, so reset this
+        // private variable for each test :mask:
+        $original-o-fonts-families-included: $_o-fonts-families-included;
+        @include oFonts($opts: (
+        	'metric': ((weight: regular, style: normal),)
+        ));
+        @include assert-equal(
+            oFontsVariantIncluded('MetricWeb', 'regular', 'normal'),
+            true
+        );
+        $_o-fonts-families-included: $original-o-fonts-families-included !global;
+    }
+	@include test('Defaults to regular/normal for falsy weight/style.') {
+        // The font faces are output.
+        // o-fonts keeps track of included fonts, so reset this
+        // private variable for each test :mask:
+        $original-o-fonts-families-included: $_o-fonts-families-included;
+        @include oFonts($opts: (
+        	'metric': ((weight: regular, style: normal),)
+        ));
+        @include assert-equal(
+            oFontsVariantIncluded('MetricWeb', false, false),
+            true
+        );
+        $_o-fonts-families-included: $original-o-fonts-families-included !global;
+    }
+}
+
 @include test-module('oFontsGetFontFamilyWithoutFallbacks') {
 	@include test('Does nothing to a font family which has no fallback') {
         @include assert-equal(

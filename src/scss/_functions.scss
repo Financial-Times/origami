@@ -26,6 +26,23 @@
 	@return false;
 }
 
+/// Check if a font variant has been included
+/// in your project with the `oFonts` mixin.
+///
+/// @access public
+/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $weight [regular] - The font weight.
+/// @param {String} $style [normal] - The font style.
+/// @return {Bool}
+/// @see oFonts To include fonts
+@function oFontsVariantIncluded($family, $weight, $style) {
+	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
+	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
+	$variant-key: _oFontsVariantKey($family, $weight, $style);
+
+	@return map-has-key($_o-fonts-families-included, $variant-key);
+}
+
 /// Get a font-family stack with the appropriate fallbacks
 ///
 /// @example scss
@@ -86,4 +103,17 @@
 	$rest-of-string: str-slice($string, 2);
 
 	@return $first-letter + $rest-of-string;
+}
+
+
+/// For a font variant (family, weight, style) return
+/// a key to identify the variant.
+///
+/// @access private
+/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $weight [regular] - The font weight.
+/// @param {String} $style [normal] - The font style.
+/// @return {String} - the key
+@function _oFontsVariantKey($family, $weight, $style) {
+	@return "#{$family}-#{$weight}-#{$style}";
 }
