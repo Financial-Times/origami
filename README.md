@@ -173,6 +173,23 @@ $allowed: oFontsVariantExists('MetricWeb', 'bold', 'normal'); // true
 $allowed: oFontsVariantExists('MetricWeb', 'black', 'italic'); // false
 ```
 
+### Check a font of weight or style has been included
+
+To check if a font weight/style has been output in your project use `oFontsVariantIncluded`.
+
+```scss
+// including fonts in project
+@include oFonts($opts: (
+	'metric': (
+        ('weight': 'medium', 'style': 'normal')
+    ),
+));
+
+
+$included: oFontsVariantIncluded('MetricWeb', 'medium', 'normal'); // true
+$included: oFontsVariantIncluded('MetricWeb', 'bold', 'normal'); // false
+```
+
 ## Contributing
 
 ### Add a new font or font variant
