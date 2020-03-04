@@ -455,12 +455,12 @@ Alternatively the `.sticky-sidebar-container` class may be used as a child of th
 
 ```html
 <div class="o-layout o-layout--query" data-o-component="o-layout">
-    <!-- ... -->
-    <div class="o-layout__aside-sidebar o-layout-typography">
+	<!-- ... -->
+	<div class="o-layout__aside-sidebar o-layout-typography">
 		<!-- Sticky container for sidebar content (optional) -->
-    	<div class="o-layout__aside-sidebar o-layout-typography">
-	    	<!-- Your asides / additional information (optional). -->
-    	</div>
+		<div class="sticky-sidebar-container">
+			<!-- Your asides / additional information (optional). -->
+		</div>
 	</div>
 	<!-- ... -->
 </div>
