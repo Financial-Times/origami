@@ -37,39 +37,15 @@
 ///     	'metric': ((weight: regular, style: normal)),
 ///     	'financier-display': ((weight: regular, style: normal))
 ///     ));
+/// @param {Map} $opts - the font faces to included, see the README or examples for more details.
 @mixin oFonts($opts: $_o-fonts-default) {
-	// Map of options to font name.
-	$fonts: (
-		'metric': 'MetricWeb',
-		'financier-display': 'FinancierDisplayWeb'
-	);
-	// Include each font variant given.
-	@each $option, $family in $fonts {
-		// Get font variants to include from the opt map by font family.
-		$variants: map-get($opts, $option);
-		$variants: if($variants, $variants, ());
-		// Merge recommended font variants if recommended fonts were requested.
-		@if map-get($opts, 'recommended') == true {
-			$recommended-variants: map-get($_o-fonts-recommended, $option);
-			@if length($variants) > 0 {
-				$variants: append($recommended-variants, $variants);
-			} @else {
-				$variants: $recommended-variants;
-			}
-		}
-		@each $variant in $variants {
-			// Validate that the variant style and weight is given.
-			$weight: map-get($variant, 'weight');
-			$style: map-get($variant, 'style');
-			@if(type-of($weight) != 'string') {
-				@error 'Could not include the "#{$family}" font with weight "#{inspect($weight)}". Excepted a string.';
-			}
-			@if(type-of($style) != 'string') {
-				@error 'Could not include the "#{$family}" font with style "#{inspect($style)}". Excepted a string.';
-			}
-			// Include the font face for this variant.
-			@include _oFontsInclude($family, $weight, $style);
-		}
+	$variants: _oFontsOptionsToVariants($opts);
+
+	@each $variant in $variants {
+		$family: map-get($variant, 'family');
+		$weight: map-get($variant, 'weight');
+		$style: map-get($variant, 'style');
+		@include _oFontsInclude($family, $weight, $style);
 	}
 }
 

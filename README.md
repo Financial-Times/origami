@@ -110,6 +110,8 @@ For example to include recommended fonts used by Origami components and an extra
 ));
 ```
 
+_Note: If your project has multiple Sass entry points call `oFontsVariantsIncluded` with the same options as `oFonts`, to tell `o-fonts` which font faces have been output._
+
 ### Font Loading
 
 By default [font-display](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) is set to `swap`. In supporting browsers a system font is shown until fonts are loaded. To update your font loading method set `$o-fonts-display` at the top of your Sass, before including any other component.
@@ -189,6 +191,8 @@ To check if a font weight/style has been output in your project use `oFontsVaria
 $included: oFontsVariantIncluded('MetricWeb', 'medium', 'normal'); // true
 $included: oFontsVariantIncluded('MetricWeb', 'bold', 'normal'); // false
 ```
+
+_Note: If your project has multiple Sass entry points call `oFontsVariantsIncluded` with the same options as `oFonts`, to tell `o-fonts` which font faces have been output._
 
 ## Contributing
 

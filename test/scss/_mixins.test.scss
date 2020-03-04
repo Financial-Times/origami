@@ -52,9 +52,90 @@
         $_o-fonts-families-included: $original-o-fonts-families-included !global;
 	}
 
-	@include test('Includes recommended fonts and specified addition fonts') {
+	@include test('Includes recommended fonts and specified additional fonts') {
 
         @include oFonts($opts: (
+        	'recommended': true,
+        	'financier-display': (
+        		(weight: regular, style: normal) // extra font, not a recommended font
+        	)
+        ));
+
+        // The font faces are output.
+        // o-fonts keeps track of included fonts, we can't test font-faces
+        // with true-sass so test against this private variable and reset
+        // it for each test :mask:
+        @include assert-equal(
+            $_o-fonts-families-included,
+            (
+                'MetricWeb-regular-normal': true,
+                'MetricWeb-semibold-normal': true,
+                'FinancierDisplayWeb-medium-normal': true,
+                'FinancierDisplayWeb-bold-normal': true,
+                'FinancierDisplayWeb-regular-normal': true
+            )
+        );
+        $_o-fonts-families-included: $original-o-fonts-families-included !global;
+	}
+}
+
+@include test-module('oFontsVariantsIncluded') {
+    $original-o-fonts-families-included: $_o-fonts-families-included;
+	@include test('Marks default fonts as having been included when given no options') {
+
+       @include oFontsVariantsIncluded();
+
+        // The font faces are output.
+        // o-fonts keeps track of included fonts, we can't test font-faces
+        // with true-sass so test against this private variable and reset
+        // it for each test :mask:
+        @include assert-equal(
+            $_o-fonts-families-included,
+            (
+                'MetricWeb-thin-normal': true,
+                'MetricWeb-light-normal': true,
+                'MetricWeb-light-italic': true,
+                'MetricWeb-regular-normal': true,
+                'MetricWeb-regular-italic': true,
+                'MetricWeb-medium-normal': true,
+                'MetricWeb-semibold-normal': true,
+                'MetricWeb-bold-normal': true,
+                'MetricWeb-bold-italic': true,
+                'FinancierDisplayWeb-light-italic': true,
+                'FinancierDisplayWeb-regular-normal': true,
+                'FinancierDisplayWeb-regular-italic': true,
+                'FinancierDisplayWeb-medium-italic': true,
+                'FinancierDisplayWeb-medium-normal': true,
+                'FinancierDisplayWeb-semibold-italic': true,
+                'FinancierDisplayWeb-bold-normal': true
+            )
+        );
+        $_o-fonts-families-included: $original-o-fonts-families-included !global;
+    }
+
+	@include test('Marks recommended fonts as having been included only when "recommended" option given') {
+
+       @include oFontsVariantsIncluded(('recommended': true));
+
+        // The font faces are output.
+        // o-fonts keeps track of included fonts, we can't test font-faces
+        // with true-sass so test against this private variable and reset
+        // it for each test :mask:
+        @include assert-equal(
+            $_o-fonts-families-included,
+            (
+                'MetricWeb-regular-normal': true,
+                'MetricWeb-semibold-normal': true,
+                'FinancierDisplayWeb-medium-normal': true,
+                'FinancierDisplayWeb-bold-normal': true
+            )
+        );
+        $_o-fonts-families-included: $original-o-fonts-families-included !global;
+	}
+
+	@include test('Marks recommended fonts as having been included and specified additional fonts') {
+
+        @include oFontsVariantsIncluded($opts: (
         	'recommended': true,
         	'financier-display': (
         		(weight: regular, style: normal) // extra font, not a recommended font

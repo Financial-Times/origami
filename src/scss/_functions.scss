@@ -117,3 +117,49 @@
 @function _oFontsVariantKey($family, $weight, $style) {
 	@return "#{$family}-#{$weight}-#{$style}";
 }
+
+/// Given an o-fonts options map, return a list of variant maps e.g.
+/// (('family': 'MetricWeb', 'weight': 'regular', 'style': 'normal'),
+/// ('family': 'FinancierDisplayWeb', 'weight': 'bold', 'style': 'normal'))
+/// @param {Maps} $opts - An o-fonts options map (see `oFonts` and `oFontsVariantsIncluded`)
+/// @return {List} - A list of font variant maps, which include 'family', 'weight', and 'style'.
+@function _oFontsOptionsToVariants($opts) {
+	$all-validated-variants: ();
+	// Map of options to font name.
+	$fonts: (
+		'metric': 'MetricWeb',
+		'financier-display': 'FinancierDisplayWeb'
+	);
+	// Include each font variant given.
+	@each $option, $family in $fonts {
+		// Get font variants to include from the opt map by font family.
+		$variants: map-get($opts, $option);
+		$variants: if($variants, $variants, ());
+		// Merge recommended font variants if recommended fonts were requested.
+		@if map-get($opts, 'recommended') == true {
+			$recommended-variants: map-get($_o-fonts-recommended, $option);
+			@if length($variants) > 0 {
+				$variants: append($recommended-variants, $variants);
+			} @else {
+				$variants: $recommended-variants;
+			}
+		}
+		@each $variant in $variants {
+			// Validate that the variant style and weight is given.
+			$weight: map-get($variant, 'weight');
+			$style: map-get($variant, 'style');
+			@if(type-of($weight) != 'string') {
+				@error 'Could not include the "#{$family}" font with weight "#{inspect($weight)}". Excepted a string.';
+			}
+			@if(type-of($style) != 'string') {
+				@error 'Could not include the "#{$family}" font with style "#{inspect($style)}". Excepted a string.';
+			}
+			// Include the font face for this variant.
+			$all-validated-variants: append(
+				$all-validated-variants,
+				('family': $family, 'weight': $weight, 'style': $style)
+			);
+		}
+	}
+	@return $all-validated-variants;
+}

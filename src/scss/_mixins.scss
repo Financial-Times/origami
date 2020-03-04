@@ -44,6 +44,54 @@
 	@content; // Output a custom Font-face declaration.
 }
 
+/// Register which fonts have been output by already for your project.
+/// This mixin is useful if a project calls the `oFonts` mixin is in a different
+/// entry point.
+///
+/// @example Include all fonts for the current brand (master, internal, whitelabel).
+///     @include oFontsVariantsIncluded();
+///
+/// @example Include a limited set of recommended fonts for the current brand (master, internal, whitelabel).
+///     @include oFontsVariantsIncluded($opts: ('recommended': true));
+///
+/// @example Include a limited set of recommended fonts for the current brand, plus an extra FinancierDisplayWeb font.
+/// 	@include oFontsVariantsIncluded($opts: (
+/// 		'recommended': true,
+/// 		'financier-display': (
+/// 			(weight: regular, style: normal)
+/// 		)
+/// 	));
+///
+/// @example Include only regular and semibold MetricWeb font faces.
+///     @include oFontsVariantsIncluded($opts: ('metric': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular and bold FinancierDisplayWeb font faces.
+///     @include oFontsVariantsIncluded($opts: ('financier-display': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular font faces for MetricWeb and FinancierDisplayWeb.
+///     @include oFontsVariantsIncluded($opts: (
+///     	'metric': ((weight: regular, style: normal)),
+///     	'financier-display': ((weight: regular, style: normal))
+///     ));
+/// @param {Map} $opts - the font faces to included, see the README or examples for more details.
+/// @see oFonts - Use `oFonts` to include font faces.
+@mixin oFontsVariantsIncluded($opts: $_o-fonts-default) {
+	$variants: _oFontsOptionsToVariants($opts);
+
+	@each $variant in $variants {
+		$family: map-get($variant, 'family');
+		$weight: map-get($variant, 'weight');
+		$style: map-get($variant, 'style');
+		@include _oFontsVariantIncluded($family, $weight, $style);
+	}
+}
+
 /// Output a Font-face declaration for a given font family which is provided by Origami.
 ///
 /// @param {String} $family - one of $_o-fonts-families
@@ -105,7 +153,17 @@
 		}
 
 		// Add to the list of already included families / variants
-		$variant-key: _oFontsVariantKey($family, $weight, $style);
-		$_o-fonts-families-included: map-merge($_o-fonts-families-included, ($variant-key: true)) !global;
+		@include _oFontsVariantIncluded($family, $weight, $style);
 	}
+}
+
+/// Log a given font variant as having been output.
+///
+/// @param {String} $family - one of $_o-fonts-families
+/// @param {String} $weight [regular] - The font weight.
+/// @param {String} $style [normal] - The font style.
+@mixin _oFontsVariantIncluded($family, $weight, $style) {
+	// Add to the list of already included families / variants
+	$variant-key: _oFontsVariantKey($family, $weight, $style);
+	$_o-fonts-families-included: map-merge($_o-fonts-families-included, ($variant-key: true)) !global;
 }
