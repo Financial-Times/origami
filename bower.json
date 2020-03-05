@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "o-colors": "^5.0.0",
-    "o-fonts": "^4.3.0",
+    "o-fonts": "^4.3.1",
     "o-grid": "^5.0.0",
     "fontfaceobserver": "^2.0.9",
     "o-icons": "^6.0.0",
