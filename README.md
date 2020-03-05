@@ -200,11 +200,13 @@ _Note: If your project has multiple Sass entry points call `oFontsVariantsInclud
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets)).
 
-1. Open `src/scss/_variables.scss` and add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
+1. Open `src/scss/_variables.scss` and update the `$o-fonts-path` variable to the release of [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets) which includes your new font.
 
-2. Second, if adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
+2. Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
 
-3. Finally, update the demos (see `origami.json`).
+3. If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
+
+4. Finally, update the demos (see `origami.json`).
 
 ## Migration
 
