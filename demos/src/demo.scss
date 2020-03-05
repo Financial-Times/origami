@@ -1,6 +1,6 @@
-$o-typography-is-silent: false;
-
 @import '../../main';
+
+@include oTypography();
 
 html {
 	background-color: oColorsByUsecase('page', 'background');

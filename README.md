@@ -152,18 +152,38 @@ To include typography styles granularly pass an options argument with the featur
 Calling `oTypography` will output font faces to download custom Financial Times fonts. However IE11 may download fonts which are not used. To include font faces more granularly based on your use of o-typography set `$o-typography-load-fonts: false` and use [o-fonts](https://registry.origami.ft.com/components/o-fonts).
 
 ```scss
-// configure o-typography to not include fonts
-$o-typography-load-fonts: false;
 // import dependencies
 @import 'o-typography/main';
 @import 'o-fonts/main';
-// include css for select fonts manually
-@include oFontsInclude(MetricWeb, regular);
-@include oFontsInclude(FinancierDisplayWeb, regular);
-@include oFontsInclude(FinancierDisplayWeb, bold);
+// configure o-typography to not include fonts
+$o-typography-load-fonts: false;
+// include a limited set of recommended font families manually
+@include oFonts($opts: ('recommended': true));
 // include css for all typography
 @include oTypography();
 ```
+
+If an `oTypography` mixin outputs a font family/weight/style for a font face which hasn't been included in the project it is possible to throw an error by setting `$o-typography-error-for-missing-fonts` to an error message. A custom error message is useful as what the engineer should do depends on the project.
+
+```scss
+// import dependencies
+@import 'o-typography/main';
+@import 'o-fonts/main';
+// configure o-typography to not include fonts
+$o-typography-load-fonts: false;
+// error if a font is used which has not been included
+$o-typography-error-for-missing-fonts: 'This project only allows recommended o-fonts! No fun for you without first discussing performance with the Font Guardians of this project.';
+// include a limited set of recommended font families manually
+@include oFonts($opts: ('recommended': true));
+// try to use a font which is not recommended,
+// and has not been included with o-fonts
+.fancy-typography-used-only-here {
+  // throws an error which includes the `$o-typography-error-for-missing-fonts` message.
+  // a thin/italic font face has not been included
+  @include oTypographySans($scale: 1, $weight: 'thin', $style: 'normal');
+}
+```
+
 
 The Sass in o-typography also provides several mixins for use in your project. To explore all functions/mixins see the [SassDoc documentation](sassdoc) in the registry.
 

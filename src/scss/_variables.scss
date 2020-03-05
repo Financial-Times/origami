@@ -3,7 +3,8 @@
 $o-typography-is-silent: true !default;
 
 /// Use relative units (rem) or not (px) when outputting typographic styles.
-/// When `true`, the user will be able to modify their font size using browser settings.
+/// When `true`, the user will be able to modify their font size using browser
+/// settings.
 ///
 /// For legacy reasons, this defaults to `false` (outputs px units).
 /// Components and projects may need to be updated to support relative units.
@@ -13,6 +14,11 @@ $o-typography-relative-units: false !default;
 /// When true, webfonts will be downloaded
 /// @type Bool
 $o-typography-load-fonts: true !default;
+
+/// The error message to throw if o-typography is used to apply a font face
+/// which has not been included by the project. By default no error is thrown.
+/// @type String|Null
+$o-typography-error-for-missing-fonts: null !default;
 
 /// When true, progressive font fallbacks are output.
 /// @type Bool
@@ -32,15 +38,17 @@ $_o-typography-loading-prefix: 'o-typography--loading' !default;
 $_o-typography-types: ('sans', 'serif', 'display');
 
 /// Font scale of font-sizes and line-heights.
-/// Currently the default scale `$_o-typography-font-scale` is used for all fonts and brands,
-/// but branded products may choose to define their own scale on a per font basis.
+/// Currently the default scale `$_o-typography-font-scale` is used for all
+/// fonts and brands, but branded products may choose to define their own scale
+/// on a per font basis.
 /// @access private
 /// @see oTypographyDefineFontScale
 /// @type Map
 $_o-typography-font-scale-by-font: () !default;
 
 /// Configuration for fallback fonts when loading fonts progressively.
-/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb fonts.
+/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb
+/// fonts.
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
 	(
