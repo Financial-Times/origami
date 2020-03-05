@@ -1,5 +1,9 @@
 # Migration guide
 
+## Migrating from v4 to v5
+
+v5 introduces the font FinancierDisplayWeb at medium weight and normal style. To upgrade make sure your project includes the FinancierDisplayWeb medium font face using [o-fonts](https://registry.origami.ft.com/components/o-fonts).
+
 ## Migrating from v3 to v4
 
 ### Colours and Colour Usecases

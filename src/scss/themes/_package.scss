@@ -30,7 +30,7 @@
 	}
 
 	.o-teaser__heading {
-		@include oTypographySans(4);
+		@include oTypographyDisplay($scale: 4);
 		color: $_o-teaser-base-color;
 		background: inherit;
 		padding: 20px;

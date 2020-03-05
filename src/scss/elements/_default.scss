@@ -7,7 +7,7 @@
 	color: $_o-teaser-base-color;
 	margin-top: 0;
 	margin-bottom: 0;
-	font-weight: oFontsWeight(normal);
+	font-weight: oFontsWeight(medium);
 }
 
 
@@ -51,7 +51,7 @@
 /// Tag styling.
 /// Element should be a link, otherwise use _oTeaserMeta
 @mixin _oTeaserTag {
-	@include oTypographySans($weight: 'semibold', $include-font-family: false);
+	@include oTypographySans($weight: 'regular', $include-font-family: false);
 	color: inherit;
 	text-decoration: none;
 	border: 0;
@@ -68,6 +68,7 @@
 }
 
 @mixin _oTeaserTagPrefix {
+	@include oTypographySans($weight: 'semibold');
 	margin-right: 0.25em;
 }
 
