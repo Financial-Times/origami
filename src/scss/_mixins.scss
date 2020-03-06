@@ -8,7 +8,7 @@
 @mixin _oLabelsBaseContent() {
 	@include oTypographySans(
 		$scale: _oLabelsGet('font-scale'),
-		$weight: 'regular',
+		$weight: 'semibold',
 		$line-height: 1em
 	);
 	text-align: center;
