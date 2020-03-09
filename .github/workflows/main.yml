@@ -19,7 +19,7 @@ jobs:
         do
           cd $pkg;
           ref='${{github.ref}}'
-          npm version --no-git-tag-version --force ${ref#refs/tags/}
+          npm version --no-git-tag-version ${ref#refs/tags/}
           npm publish --access=public;
           cd -;
         done
