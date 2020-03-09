@@ -46,7 +46,7 @@ async function main() {
   fs.writeFileSync('./package.json', JSON.stringify(rootPackage), "utf-8");
 
   await execa.command(
-    `npm version --no-git-tag-version --force --allow-same-version ${version}`,
+    `npm version ${version}`,
     {
       cwd: __dirname
     }
