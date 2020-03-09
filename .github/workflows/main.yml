@@ -1,4 +1,9 @@
-release:
+name: Main
+
+on: push
+
+jobs:
+  release:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
