@@ -13,7 +13,8 @@
     "@financial-times/sass-windows-x64": "*"
   },
   "scripts": {
-    "postinstall": "node ./postinstall.js"
+    "postinstall": "node ./postinstall.js",
+    "update": "node ./update.js"
   },
   "devDependencies": {
     "axios": "^0.19.2",
