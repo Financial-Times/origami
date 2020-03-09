@@ -1,0 +1,25 @@
+release:
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://registry.npmjs.org'
+    - name: package sub-packages for npm
+      shell: bash
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        for pkg in `ls sass*`; 
+        do
+          cd pkg;
+          npm publish --access=public;
+          cd -;
+        done
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Publish meta-package to npm
+      shell: bash
+      if: startsWith(github.ref, 'refs/tags/')
+      run: npm publish --access=public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
