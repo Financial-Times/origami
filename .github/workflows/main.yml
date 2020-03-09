@@ -29,11 +29,12 @@ jobs:
       shell: bash
       if: startsWith(github.ref, 'refs/tags/')
       run: |
-        for pkg in `ls -1d ./*/`;
-        do
-          npm i --save-optional "@financial-times/$pkg"
-        done
         ref='${{github.ref}}'
+        for pkg in `ls -1d sass-*/`;
+        do
+          # npm install --save-optional "@financial-times/$pkg@${ref#refs/tags/}";
+          node -e "const pkg = require('./package.json'); pkg.optionalDependencies['@financial-times/$pkg'] = '${ref#refs/tags/}'; require('fs').writeFileSync('./package.json', JSON.stringify(pkg, undefined, 4), 'utf-8');"
+        done
         npm version -f ${ref#refs/tags/}
         npm publish --access=public
       env:
