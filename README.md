@@ -274,6 +274,7 @@ You can change a lot of aspects of a banner's visual appearance. When using the 
 | `background-position`     | No        | CSS value | Sets the banner background position, this can be any valid [`background-position` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position). Defaults to `bottom right` |
 | `background-repeat`       | No        | CSS Value | Sets the banner background repeat, this can be any valid [`background-repeat` value](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat). Defaults to `no-repeat`          |
 | `button-background-color` | No        | Colour*   | Sets the banner's primary action button colour. Defaults to the value of the `text-color` property                                                                                         |
+| `button-type`             | No        | String        | Sets the banner's button type, this can be either `primary` or `secondary`. Defaults to `primary`                                                                                      |
 | `heading-rule-color`      | No        | Colour*   | Sets the banner's heading rule colour, the line that appears below the heading. Defaults to the value of the `text-color` property                                                         |
 | `link-text-color`         | No        | Colour*   | Sets the banner's link text colour, both in the banner content and the secondary action. Defaults to the value of the `text-color` property                                                |
 

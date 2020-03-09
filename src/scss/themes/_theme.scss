@@ -11,6 +11,8 @@
 	$button-background-color: if($button-background-color, $button-background-color, $text-color);
 	$button-background-color: _oBannerGet('button-background-color', $from: $theme);
 	$button-background-color: if($button-background-color, $button-background-color, $text-color);
+	$button-type: _oBannerGet('button-type', $from: $theme);
+	$button-type: if($button-type, $button-type, 'primary');
 	$heading-rule-color: _oBannerGet('heading-rule-color', $from: $theme);
 	$heading-rule-color: if($heading-rule-color, $heading-rule-color, $text-color);
 
@@ -54,17 +56,7 @@
 	.o-banner__button {
 		@include oButtonsContent((
 			'size': 'big',
-			'type': 'primary',
-			'theme': (
-				'color': $button-background-color,
-				'context': $background-color
-			)
-		));
-	}
-	.o-banner__button--secondary {
-		@include oButtonsContent((
-			'size': 'big',
-			'type': 'secondary',
+			'type': $button-type,
 			'theme': (
 				'color': $button-background-color,
 				'context': $background-color
