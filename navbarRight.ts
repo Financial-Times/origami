@@ -9,7 +9,7 @@ const data: TNavMenu = {
       submenu: null
     },
     {
-      label: 'Account Settings',
+      label: 'Settings & Account',
       url: 'https://www.ft.com/myaccount',
       submenu: null
     }
