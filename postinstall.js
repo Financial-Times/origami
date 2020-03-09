@@ -22,5 +22,7 @@ if (process.platform === "win32" && process.arch === "x64") {
 
 const binaryDestination = "./sass";
 
-fs.unlinkSync(binaryDestination);
+if (fs.existsSync(binaryDestination)) {
+  fs.unlinkSync(binaryDestination);
+}
 fs.symlinkSync(path.relative(__dirname, pathToBinary), binaryDestination);
