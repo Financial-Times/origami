@@ -17,7 +17,7 @@ jobs:
       run: |
         for pkg in `ls sass*`; 
         do
-          cd pkg;
+          cd $pkg;
           npm version --no-git-tag-version --force ${ref#refs/tags/}
           npm publish --access=public;
           cd -;
