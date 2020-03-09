@@ -18,6 +18,7 @@ jobs:
         for pkg in `ls -1d ./*/`;
         do
           cd $pkg;
+          ref='${{github.ref}}'
           npm version --no-git-tag-version --force ${ref#refs/tags/}
           npm publish --access=public;
           cd -;
