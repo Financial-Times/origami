@@ -1,0 +1,16 @@
+{
+  "name": "@financial-times/sass-macos-ia32",
+  "version": "1.26.2",
+  "description": "Pre-compiled sass binary for 32-bit linux",
+  "license": "MIT",
+  "repository": "Financial-times/sass",
+  "bin": {
+    "sass": "dart-sass/sass"
+  },
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "ia32"
+  ]
+}
