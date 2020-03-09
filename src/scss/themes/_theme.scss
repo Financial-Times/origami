@@ -61,6 +61,16 @@
 			)
 		));
 	}
+	.o-banner__button--secondary {
+		@include oButtonsContent((
+			'size': 'big',
+			'type': 'secondary',
+			'theme': (
+				'color': $button-background-color,
+				'context': $background-color
+			)
+		));
+	}
 	.o-banner__link {
 		@include oTypographyLink($theme: (
 			'base': $link-text-color,
