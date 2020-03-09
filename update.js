@@ -29,7 +29,7 @@ async function main() {
       }
     );
 
-    const destination = path(__dirname, `sass-${platform}`);
+    const destination = path.resolve(__dirname, `sass-${platform}`);
     await decompress(archive, destination);
     await execa.command(
       `npm version --no-git-tag-version --force --allow-same-version ${version}`,
