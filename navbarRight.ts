@@ -10,7 +10,7 @@ const data: TNavMenu = {
     },
     {
       label: 'Account Settings',
-      url: 'https://myaccount.ft.com/details/core/view',
+      url: 'https://www.ft.com/myaccount',
       submenu: null
     }
   ]
