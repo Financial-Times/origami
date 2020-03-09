@@ -34,23 +34,10 @@ async function main() {
 
     const destination = path.resolve(__dirname, `sass-${platform}`);
     await decompress(archive, destination);
-    await execa.command(
-      `npm version --no-git-tag-version --force --allow-same-version ${version}`,
-      {
-        cwd: destination
-      }
-    );
     rootPackage.optionalDependencies[`@financial-times/sass-${platform}`] = version;
   }
 
   fs.writeFileSync('./package.json', JSON.stringify(rootPackage), "utf-8");
-
-  await execa.command(
-    `npm version ${version}`,
-    {
-      cwd: __dirname
-    }
-  );
 }
 
 try {
