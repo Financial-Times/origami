@@ -30,7 +30,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       run: |
         ref='${{github.ref}}'
-        for pkg in `ls -1d sass-*/`;
+        for pkg in `/bin/ls -1d sass-*`;
         do
           npm install -f --ignore-scripts --save-optional "@financial-times/$pkg@*";
         done
