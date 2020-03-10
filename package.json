@@ -4,7 +4,7 @@
     "description": "Native Sass binaries for your platform",
     "license": "MIT",
     "repository": "Financial-times/sass",
-    "bin": "sass",
+    "bin": "sass.bat",
     "optionalDependencies": {
         "@financial-times/sass-linux-ia32": "*",
         "@financial-times/sass-linux-x64": "*",
