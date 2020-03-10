@@ -1,11 +1,6 @@
 node_modules
-sass-linux-ia32/dart-sass
-sass-linux-x64/dart-sass
-sass-macos-x64/dart-sass
-sass-windows-ia32/dart-sass
-sass-windows-x64/dart-sass
-!sass-linux-ia32/dart-sass/sass
-!sass-linux-x64/dart-sass/sass
-!sass-macos-x64/dart-sass/sass
-!sass-windows-ia32/dart-sass/sass
-!sass-windows-x64/dart-sass/sass
+sass-linux-ia32/dart-sass/src
+sass-linux-x64/dart-sass/src
+sass-macos-x64/dart-sass/src
+sass-windows-ia32/dart-sass/src
+sass-windows-x64/dart-sass/src
