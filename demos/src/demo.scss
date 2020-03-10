@@ -24,3 +24,11 @@ body {
 	margin: auto;
 	max-width: 400px;
 }
+
+@include oMessageAddState('pikachu', (
+	'foreground-color': 'white',
+	'background-color': 'slate',
+	'highlight-color': 'lemon',
+	'button-type': 'primary',
+	'icon': 'user',
+), $types: ('notice', 'alert'));

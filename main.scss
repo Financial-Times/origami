@@ -37,7 +37,12 @@
 
 	@each $state in $states {
 		@if index($o-message-states, $state) and _oMessageSupports($state) {
-			@include _oMessageState($state);
+			$state-types: map-get($_o-message-states-to-types, $state);
+			@include oMessageAddState(
+				$name: $state,
+				$opts: null,
+				$types: $state-types
+			);
 		}
 	}
 

@@ -37,7 +37,7 @@
 			"data": {
 				"type": "alert",
 				"state": "success",
-				"highlight": "Hooray!",
+				"highlight": [{"copy": "Hooray!", "color": false}],
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"actions": {
 					"button": true,
@@ -53,7 +53,7 @@
 				"inner": true,
 				"type": "alert",
 				"state": "success",
-				"highlight": "Hooray!",
+				"highlight": [{"copy": "Hooray!", "color": false}],
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"additionalContent": "Did you know that that sentence uses all of the letters in the alphabet at least once?",
 				"actions": {
@@ -84,7 +84,7 @@
 				"inner": true,
 				"type": "alert",
 				"state": "neutral",
-				"highlight": "Meh.",
+				"highlight": [{"copy": "Meh.", "color": false}],
 				"detail": "The quick brown fox did not jump over the lazy dogs.",
 				"actions": {
 					"button": true,
@@ -114,7 +114,7 @@
 				"inner": true,
 				"type": "alert",
 				"state": "error",
-				"highlight": "Oops.",
+				"highlight": [{"copy": "Oops.", "color": false}],
 				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
 				"additionalContent": "But that sentence still uses all of the letters in the alphabet at least once!",
 				"actions": {
@@ -226,6 +226,105 @@
 				},
 				"noCloseButton": true
 			},
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Alert: Custom",
+			"name": "alert-custom",
+			"description": "Sass users may customise alert messages. See the README for more information.",
+			"data": {
+				"type": "alert",
+				"state": "pikachu",
+				"highlight": [
+					{
+						"copy": "Hurray",
+						"color": false
+					},
+					{
+						"copy": "thing",
+						"color": true
+					},
+					{
+						"copy": "happened",
+						"color": false
+					}
+				],
+				"content": "The quick brown fox jumped over the lazy dogs!",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			},
+			"display_html": false,
+			"brands": [
+				"master",
+				"internal"
+			]
+		},
+		{
+			"title": "Notice: Custom",
+			"name": "notice-custom",
+			"description": "Sass users may customise notice messages. See the README for more information.",
+			"data": {
+				"type": "notice",
+				"state": "pikachu",
+				"highlight": [
+					{
+						"copy": "The status of",
+						"color": false
+					},
+					{
+						"copy": "thing",
+						"color": true
+					},
+					{
+						"copy": "is notable",
+						"color": false
+					}
+				],
+				"content": "The quick brown fox jumped over the lazy dogs!",
+				"actions": {
+					"button": true,
+					"link": true
+				}
+			},
+			"display_html": false,
+			"brands": [
+				"master",
+				"internal"
+			]
+		},
+		{
+			"title": "Action: Custom",
+			"name": "action-custom",
+			"description": "Sass users may customise action messages. See the README for more information.",
+			"data": {
+				"type": "action",
+				"state": "pikachu",
+				"highlight": [
+					{
+						"copy": "Are you enjoying",
+						"color": false
+					},
+					{
+						"copy": "thing",
+						"color": true
+					},
+					{
+						"copy": "?",
+						"color": false
+					}
+				],
+				"content": "The quick brown fox jumped over the lazy dogs!",
+				"actions": {
+					"button": true,
+					"link": true
+				},
+				"noCloseButton": true
+			},
+			"display_html": false,
 			"brands": [
 				"internal"
 			]

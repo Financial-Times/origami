@@ -3,8 +3,21 @@
 		<div class="o-message__container">
 			<div class="o-message__content {{#centralised}}o-message__content--center-align{{/centralised}}">
 				<p class="o-message__content-main">
-					{{#highlight}}<span class="o-message__content-highlight">{{highlight}}</span>{{/highlight}}
-					{{#detail}}<span class="o-message__content-detail">The quick brown fox did not jump over the lazy dogs.</span>{{/detail}}
+					{{#highlight.length}}
+						<span class="o-message__content-highlight">
+						{{#highlight}}
+							{{#color}}
+								<span class="o-message__content-highlight-color">{{copy}}</span>
+							{{/color}}
+							{{^color}}
+								{{copy}}
+							{{/color}}
+						{{/highlight}}
+						</span>
+					{{/highlight.length}}
+					{{#detail}}
+						<span class="o-message__content-detail">The quick brown fox did not jump over the lazy dogs.</span>
+					{{/detail}}
 					{{{content}}}
 				</p>
 				{{#additionalContent}}<p class="o-message__content-additional">{{additionalContent}}</p>{{/additionalContent}}

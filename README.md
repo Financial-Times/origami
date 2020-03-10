@@ -18,13 +18,14 @@ o-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-message/tree/m
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
 
 ### Message Types
-`o-message` provides three types of messages: **action**, **alert**, and **notice**.
+`o-message` provides three types of messages: **alert**, **notice**, and **action**.
 
-- An **action** message should be used as a static call to action, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
-
-- An **alert** message should be used as feedback to a users interaction with a product (e.g. payment declined warning)
+- An **alert** message should be used as feedback to a users interaction with a product (e.g. payment declined warning). Unlike other messages, alert messages have an icon.
 
 - A **notice** message should be used to provide information or warnings about a product. (e.g. beta version of a product).
+
+- An **action** message should be used as a static call to action, usually within or below main content, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
+
 
 You can find a demo for each of the messages above in the [Origami registry](https://registry.origami.ft.com/components/o-message).
 
@@ -143,6 +144,22 @@ For any message, you can highlight any portion of copy within a paragraph by usi
 </div>
 ```
 
+[Sass](#sass) users may create custom messages with a highlight colour. This is useful to highlight key words in the message. To apply the highlight colour to message copy use the class `o-message__content-highlight-color`.
+```html
+<div class="o-message o-message--alert o-message--success" data-o-component="o-message">
+	<div class="o-message__container">
+		<div class="o-message__content">
+				<p class="o-message__content-main">
+					<span class="o-message__content-highlight">
+						Hurray<span class="o-message__content-highlight-color">thing</span>happened
+					</span>
+					The quick brown fox jumped over the lazy dogs!
+				</p>
+		</div>
+	</div>
+</div>
+```
+
 For **action messages only**, you can centralise the text with a specific class (`.o-message__content--center-align`):
 ```diff
 <div class="o-message o-message--action o-message--inform" data-o-component="o-message">
@@ -249,6 +266,33 @@ Options include:
 | types               | The message to support (e.g. alert, notice, action) see [message types](#message-types).                                                    |
 | state               | The kinds of messages to support (e.g. 'inform', 'warning', 'error') see [message types](#message-types).                                   |
 | layouts             | By default messages should span the page, to support messages within content pass the 'inner' option. See [message types](#message-types).  |
+
+#### Custom Message
+
+To create a new message with a unique look call `oMessageAddSate`. The mixin accepts three arguments:
+
+- `name`: The name of your state. This is used for the modifier class output o-message--{name}.
+- `opts`: A map of options for your state. Note colours may be an [o-colors](https://registry.origami.ft.com/components/o-colors) colour name or a hex value:
+    - `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
+	- `background-color`: The background colour used for the message.
+	- `icon`: The [o-icons](https://registry.origami.ft.com/components/o-icons) icon name to show in an alert message. Required only for your state to support an alert message type.
+	- `button-type` (optional): The type of [o-buttons](https://registry.origami.ft.com/components/o-buttons) button the message should have. One of `primary` or `secondary` (defaults to `secondary`).
+	- `highlight-color` (optional): The highlight colour is used for the message button. It can also be used to highlight message copy with the CSS class `o-message__content-highlight-color`.
+- `types`: A list of [message types](#message-types) your state supports, one or more of (`alert`, `notice`, `action`).
+
+```scss
+// Outputs CSS for a custom message state called "pikachu"
+// Outputs a modifier class `o-message--pikachu`
+@include oMessageAddState(
+	$name: 'pikachu', // the custom state is named "pikachu"
+	$opts: (
+	'background-color': 'slate', // slate message
+	'foreground-color': 'white', // white text
+	'highlight-color': 'lemon', // lemon highlights with `o-message__content-highlight-color` and a lemon button
+	'button-type': 'primary', // a primary o-buttons button`o-message__content-highlight` highlight copy
+	'icon': 'user', // show a 'user' o-icons icon if used as an alert
+), $types: ('notice', 'alert')); // this state should work with notice and alert message types
+```
 
 ## Migration
 
