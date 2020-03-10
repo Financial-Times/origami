@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "Financial-times/sass",
   "bin": {
-    "sass": "dart-sass/sass"
+    "sass": "dart-sass/sass.bat"
   },
   "os": [
     "win32"
