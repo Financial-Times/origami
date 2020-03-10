@@ -1,0 +1,17 @@
+{
+	"description": "Native Sass binaries for your platform.",
+	"origamiType": null,
+	"origamiVersion": 1,
+	"keywords": [
+		"sass",
+		"build",
+		"bundle",
+		"css"
+	],
+	"support": "https://github.com/Financial-Times/sass/issues",
+	"supportStatus": "active",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	}
+}
