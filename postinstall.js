@@ -20,36 +20,20 @@ if (process.platform === "win32" && process.arch === "x64") {
   );
 }
 
-const platformSpecificSassPath = path.dirname(platformSpecificPackagePath, 'dart-sass')
-
-// Copy the sass files to the root package (@financial-times/sass).
-// We need to copy and not symlink because the dart-sass entrypoint file does 
-// not work correctly when used via a symlink which is in another folder.
-copyDir(platformSpecificSassPath, __dirname);
-
-// Nodejs does not have a built-in implementation of `cp -R`, so we've built it.
-function copyDir(src, dest) {
-  const entries = fs.readdirSync(src, {
-    withFileTypes: true
-  });
-  const exists = fs.existsSync(dest);
-  if (!exists) {
-    fs.mkdirSync(dest);
-  }
-  for (let entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
-  }
-}
+const platformSpecificSassPath = path.join(path.dirname(platformSpecificPackagePath), 'dart-sass')
 
 // We need to remove the sass entrypoint file if it exists already.
 if (fs.existsSync(path.join(__dirname, './sass'))) {
   fs.unlinkSync(path.join(__dirname, './sass'));
 }
 
-fs.symlinkSync(path.join(__dirname, 'dart-sass/sass'), path.join(__dirname, './sass'))
+// Create our own sass entrypoint which uses absolute paths to the dartvm and snapshot.
+// This will ensure it works when symlinked to, which the entrypoint file in dart-sass
+// does not support on macos.
+fs.writeFileSync(path.join(__dirname, 'sass'), `
+#!/bin/sh
+exec "${path.join(platformSpecificSassPath, '/src/dart')}" "${path.join(platformSpecificSassPath, '/src/sass.dart.snapshot')}" "$@"
+`, {
+  encoding: 'utf-8',
+  mode: 0o777
+})
