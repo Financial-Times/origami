@@ -21,8 +21,6 @@ async function main() {
 
   const version = latest.data.tag_name;
 
-  const rootPackage = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-
   for (const platform of platforms) {
     const extension = platform.startsWith("windows") ? "zip" : "tar.gz";
     const { data: archive } = await axios.get(
@@ -34,10 +32,10 @@ async function main() {
 
     const destination = path.resolve(__dirname, `sass-${platform}`);
     await decompress(archive, destination);
-    rootPackage.optionalDependencies[`@financial-times/sass-${platform}`] = version;
+    fs.writeFileSync('./dart-sass-version.txt', JSON.stringify(version), "utf-8");
   }
 
-  fs.writeFileSync('./package.json', JSON.stringify(rootPackage), "utf-8");
+  fs.writeFileSync('./dart-sass-version.txt', JSON.stringify(version), "utf-8");
 }
 
 try {
