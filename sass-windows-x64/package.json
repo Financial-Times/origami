@@ -12,5 +12,8 @@
   ],
   "cpu": [
     "x64"
-  ]
+  ],
+  "scripts": {
+    "postinstall": "node ./postinstall.js"
+  }
 }

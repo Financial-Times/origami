@@ -9,5 +9,8 @@
   },
   "os": [
     "darwin"
-  ]
+  ],
+  "scripts": {
+    "postinstall": "node ./postinstall.js"
+  }
 }
