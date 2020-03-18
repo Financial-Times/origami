@@ -561,7 +561,7 @@ If your project does not use all layouts or other features provided by `o-layout
 - typography (enables body typography applied with the class `o-layout-typography`)
 
 ```scss
-@mixin oLayout($opts: (
+@include oLayout($opts: (
 	'layouts': ('documentation', 'landing', 'query', 'bleed'),
 	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography')
 ));
@@ -570,7 +570,7 @@ If your project does not use all layouts or other features provided by `o-layout
 The landing layout supports an extra option, which sets a background image on the hero area:
 
 ```scss
-@mixin oLayout($opts: (
+@include oLayout($opts: (
 	'layouts': ('documentation', 'landing', 'query', 'bleed'),
 	'features': ('linked-headings', 'typography'),
 	'hero-image': 'https://example.com/image.png',
