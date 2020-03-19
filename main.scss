@@ -160,7 +160,7 @@
 
 	@if (index($collections, 'assassination-related')) {
 		.o-teaser-collection--assassination-related {
-			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+			@include _oTeaserCollectionSpecial(oColorsMix('white', 'slate', 3));
 			z-index: 1;
 			margin-bottom: 0;
 			padding-left: 10px;
