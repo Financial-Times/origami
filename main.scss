@@ -193,6 +193,16 @@
 				.o-teaser {
 					margin-bottom: 0;
 				}
+
+				// Live timestamps are usually ordered so they move
+				// to the top of a teaser, above the heading and tag.
+				// In the assassination related section, where multiple
+				// teasers (live and not-live) are displayed in a row,
+				// the live timestamp should remain in place to align
+				// with other timestamps.
+				.o-teaser--live .o-teaser__timestamp {
+					order: initial;
+				}
 			}
 		}
 	}
