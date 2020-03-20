@@ -146,6 +146,12 @@
 	position: relative;
 	border-top: 0;
 	margin-bottom: 50px;
+	// A pseudo element is used to break out of any container and set
+	// a background colour for the full width of the page. This
+	// background-color is visually superfluous, but enable automated
+	// accessibility tools such as pa11y to correctly identify the
+	// background colour for contrast checks.
+	background-color: $colour;
 
 	&:after {
 		content: '';
