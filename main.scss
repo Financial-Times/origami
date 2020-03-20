@@ -160,7 +160,7 @@
 
 	@if (index($collections, 'assassination-related')) {
 		.o-teaser-collection--assassination-related {
-			@include _oTeaserCollectionSpecial($_o-teaser-collection-color-assassination-bottom-bg);
+			@include _oTeaserCollectionSpecial(oColorsMix('white', 'slate', 3));
 			z-index: 1;
 			margin-bottom: 0;
 			padding-left: 10px;
@@ -192,6 +192,16 @@
 
 				.o-teaser {
 					margin-bottom: 0;
+				}
+
+				// Live timestamps are usually ordered so they move
+				// to the top of a teaser, above the heading and tag.
+				// In the assassination related section, where multiple
+				// teasers (live and not-live) are displayed in a row,
+				// the live timestamp should remain in place to align
+				// with other timestamps.
+				.o-teaser--live .o-teaser__timestamp {
+					order: initial;
 				}
 			}
 		}
