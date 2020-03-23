@@ -2,6 +2,7 @@
 	"private": true,
 	"main": "main.js",
 	"devDependencies": {
+		"eslint-config-origami-component": "^2.0.1",
 		"mock-raf": "^1.0.0",
 		"origami-ci-tools": "^1.0.0"
 	},
