@@ -2,6 +2,7 @@
 	"private": true,
 	"name": "o-buttons",
 	"devDependencies": {
+		"eslint-config-origami-component": "^2.0.1",
 		"origami-ci-tools": "^1.0.0"
 	}
 }
