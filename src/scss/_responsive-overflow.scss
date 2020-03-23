@@ -95,6 +95,9 @@
 
 		.o-table-control--hide {
 			opacity: 0;
+			// ensure buttons/links within a table
+			// are not obscured by table controls
+			pointer-events: none;
 		}
 
 		.o-table-control--sticky {
