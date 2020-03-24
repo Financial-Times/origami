@@ -157,7 +157,7 @@ function ftDateTimeToNumber(text) {
 	let year = date && date[3] ? parseInt(date[3], 10) : null;
 	if (month && !year) {
 		// For sorting purposes, assume a month is for this year if not otherwise specified.
-		year = (new Date()).getFullYear();
+		year = new Date().getFullYear();
 	}
 	// Get time.
 	const hour = time && time[1] ? parseInt(time[1], 10) : null;
@@ -287,7 +287,7 @@ class CellFormatter {
 		let sortValue = cell.getAttribute('data-o-table-sort-value');
 		if (sortValue === null) {
 			if (this.filters[type]) {
-				let cellClone = cell.cloneNode({ deep: true });
+				const cellClone = cell.cloneNode({ deep: true });
 				sortValue = cellClone;
 				this.filters[type].forEach(fn => { sortValue = fn(sortValue); });
 			}

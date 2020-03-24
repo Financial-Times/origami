@@ -24,9 +24,9 @@ function getIntlCollator() {
 function ascendingSort(a, b, intlCollator) {
 	if ((typeof a === 'string' || a instanceof String) && (typeof b === 'string' || b instanceof String)) {
 		return intlCollator ? intlCollator.compare(a, b) : a.localeCompare(b);
-	} else if ((!isNaN(b) && isNaN(a)) || a < b) {
+	} else if (!isNaN(b) && isNaN(a) || a < b) {
 		return -1;
-	} else if ((!isNaN(a) && isNaN(b)) || b < a) {
+	} else if (!isNaN(a) && isNaN(b) || b < a) {
 		return 1;
 	} else {
 		return 0;
@@ -103,7 +103,7 @@ class TableSorter {
 		// Update table headings.
 		window.requestAnimationFrame(() => {
 			table.tableHeaders.forEach((header) => {
-				const headerSort = (header === tableHeaderElement ? sortOrder : 'none');
+				const headerSort = header === tableHeaderElement ? sortOrder : 'none';
 				header.setAttribute('aria-sort', headerSort);
 			});
 		});

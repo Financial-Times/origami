@@ -69,7 +69,7 @@ class OverflowTable extends BaseTable {
 	 * @returns {Bool}
 	 */
 	canExpand() {
-		return typeof this._opts.expanded === 'boolean' && (this._minimumRowCount < (this.tableRows.length - this._filteredTableRows.length));
+		return typeof this._opts.expanded === 'boolean' && this._minimumRowCount < this.tableRows.length - this._filteredTableRows.length;
 	}
 
 	/**
@@ -108,7 +108,7 @@ class OverflowTable extends BaseTable {
 			this.rootEl.setAttribute('data-o-table-expanded', Boolean(expand));
 			this.container.classList.toggle('o-table-container--expanded', expand);
 			this.container.classList.toggle('o-table-container--contracted', contract);
-			expanderButton.style.display = (canExpand ? '' : 'none');
+			expanderButton.style.display = canExpand ? '' : 'none';
 
 			if (!canExpand) {
 				this.rootEl.removeAttribute('aria-expanded');
@@ -266,7 +266,7 @@ class OverflowTable extends BaseTable {
 		if (this.controls.forwardButton) {
 			const scrollForward = function () {
 				this.wrapper.scrollBy({
-					left: (document.body.clientWidth / 2),
+					left: document.body.clientWidth / 2,
 					behavior: 'smooth'
 				});
 			}.bind(this);
@@ -426,7 +426,7 @@ class OverflowTable extends BaseTable {
 		const showStickyArrows = this._stickyArrows;
 		const canScrollTable = this._canScrollTable;
 		const arrowsDocked = this._showArrowDock && !showStickyArrows;
-		const scrolledToBoundary = (this._fromEnd <= 0 && element === this.controls.forwardButton) || (this._fromStart <= 0 && element === this.controls.backButton);
+		const scrolledToBoundary = this._fromEnd <= 0 && element === this.controls.forwardButton || this._fromStart <= 0 && element === this.controls.backButton;
 		const hideAtBoundary = !arrowsDocked && (!this._stickyArrows || this._stickyArrows && !this._canScrollPastTable);
 		const outsideTable = element.getAttribute('data-o-table-intersection') === 'true';
 		const elementButton = element.querySelector('button');
@@ -505,7 +505,7 @@ class OverflowTable extends BaseTable {
 	 * @returns {Boolean}
 	 */
 	get _canScrollPastTable() {
-		return this.container.getBoundingClientRect().bottom + (document.documentElement.clientHeight / 2) < document.documentElement.getBoundingClientRect().bottom;
+		return this.container.getBoundingClientRect().bottom + document.documentElement.clientHeight / 2 < document.documentElement.getBoundingClientRect().bottom;
 	}
 
 	/**
