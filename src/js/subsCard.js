@@ -70,7 +70,7 @@ class SubsCard {
 		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-subs-card]')) {
 			return new SubsCard(rootEl);
 		}
-		let cards = Array.from(rootEl.querySelectorAll('[data-o-component="o-subs-card"]'), rootEl => new SubsCard(rootEl));
+		const cards = Array.from(rootEl.querySelectorAll('[data-o-component="o-subs-card"]'), rootEl => new SubsCard(rootEl));
 
 		if (cards.length > 1) {
 			SubsCard.matchHeights(cards);
@@ -81,7 +81,7 @@ class SubsCard {
 
 	static matchHeights(cards) {
 		for (let i = 0; i < cards.length; i++) {
-			let cardTop = cards[i].rootEl.querySelector('.o-subs-card__top');
+			const cardTop = cards[i].rootEl.querySelector('.o-subs-card__top');
 
 			cardTop.style.flex = `0 1 ${tallestTopHeight}px`;
 		}
