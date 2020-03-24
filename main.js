@@ -37,10 +37,10 @@ ODate.prototype.handleEvent = function(e) {
 };
 
 ODate.prototype.update = function() {
-	let el = this.el;
+	const el = this.el;
 
 	let date = el.getAttribute('datetime');
-	let format = el.getAttribute('data-o-date-format');
+	const format = el.getAttribute('data-o-date-format');
 
 	const printer = el.querySelector('.o-date__printer') || el;
 	const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;

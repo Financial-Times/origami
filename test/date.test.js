@@ -28,9 +28,9 @@ describe('o-date', () => {
 				new Date(2000, 5, 15, 6, 37, 22, 499),
 			];
 
-			for (let date of validDates) {
-				let testDate = oDate.toDate(date);
-				let testDateAsDate = new Date(testDate);
+			for (const date of validDates) {
+				const testDate = oDate.toDate(date);
+				const testDateAsDate = new Date(testDate);
 
 				proclaim.isInstanceOf(testDate, Date); // It should be a Date object
 				proclaim.strictEqual(testDateAsDate.getTime(), testDate.getTime()); // It should represent the date passed in
@@ -157,7 +157,7 @@ describe('o-date', () => {
 				sinon.stub(window, 'Date').returns(fakeNow);
 				Date.now = now;
 
-				for (let date of publishDatesInTheLast4Hours) {
+				for (const date of publishDatesInTheLast4Hours) {
 					proclaim.notStrictEqual(oDate.ftTime(date), oDateTimeAgoReturn);
 					proclaim.isTrue(oDate.timeAgo.neverCalledWith(date));
 				}
@@ -213,19 +213,19 @@ describe('o-date', () => {
 		it('returns true if the dates passed in are the same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isTrue(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates passed in are not same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isFalse(oDate.isToday(publishDate, now, interval));
 		});
 		it('returns false if the dates are both tuesday but more than 24h apart', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.week;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 
 			// These two dates are the "same day" but a week apart.
 			proclaim.strictEqual(publishDate.getDay(), now.getDay());
@@ -237,21 +237,21 @@ describe('o-date', () => {
 		it('returns true if the date passed in is yesterday', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.day;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isTrue(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the dates passed are the same day', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.hour;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 			proclaim.isFalse(oDate.isYesterday(publishDate, now, interval));
 		});
 
 		it('returns false if the weekdays are 1 apart but more than 24h apart', () => {
 			const publishDate = new Date("Jul 13 2016 10:02:00");
 			const interval = inSeconds.week + inSeconds.day;
-			const now = new Date(publishDate.getTime() + (interval * 1000));
+			const now = new Date(publishDate.getTime() + interval * 1000);
 
 			// These two dates are the "day after eachother (wednesday and thursday)"
 			// but a week apart.
@@ -310,13 +310,13 @@ describe('o-date', () => {
 
 			Object.keys(formatsLow).forEach(function (format) {
 				let date = new Date();
-				date = date - (formatsLow[format] * 1000);
+				date = date - formatsLow[format] * 1000;
 				proclaim.strictEqual(oDate.timeAgo(date), format);
 			});
 
 			Object.keys(formatsHigh).forEach(function (format) {
 				let date = new Date();
-				date = date - (formatsHigh[format] * 1000);
+				date = date - formatsHigh[format] * 1000;
 				proclaim.strictEqual(oDate.timeAgo(date), format, `HIGH: ${format}`);
 			});
 			Date = OriginalDate; // eslint-disable-line no-global-assign
@@ -334,7 +334,7 @@ describe('o-date', () => {
 				'Jul 13 2016 10:02:50' // 1 second later
 			];
 
-			for (let date of datesWithinLimit) {
+			for (const date of datesWithinLimit) {
 				mockDate = date;
 				proclaim.notStrictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
@@ -349,7 +349,7 @@ describe('o-date', () => {
 				'Jul 14 2016 10:02:49' // the next day
 			];
 
-			for (let date of datesWithinLimit) {
+			for (const date of datesWithinLimit) {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
@@ -364,7 +364,7 @@ describe('o-date', () => {
 				'Jul 14 2016 10:02:49'
 			];
 
-			for (let date of dates) {
+			for (const date of dates) {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
 			}
@@ -379,7 +379,7 @@ describe('o-date', () => {
 				'Jul 14 2016 10:02:49'
 			];
 
-			for (let date of dates) {
+			for (const date of dates) {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, 5), '5 seconds ago');
 			}
@@ -403,7 +403,7 @@ describe('o-date', () => {
 
 			Object.keys(abbreviations).forEach(function (abbreviation) {
 				let date = new Date();
-				date = date - (abbreviations[abbreviation] * 1000);
+				date = date - abbreviations[abbreviation] * 1000;
 				proclaim.strictEqual(oDate.timeAgo(date, { abbreviated: true }), abbreviation);
 			});
 			Date = OriginalDate; // eslint-disable-line no-global-assign
@@ -436,13 +436,13 @@ describe('o-date', () => {
 	describe('oDate.timeAgoNoSeconds', () => {
 		it('returns \'Less than a minute ago\' if time was less than a minute ago', () => {
 			let date;
-			date = new Date() - (2 * inSeconds.second * 1000); // 1 second ago
+			date = new Date() - 2 * inSeconds.second * 1000; // 1 second ago
 			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-			date = new Date() - (59 * inSeconds.second * 1000); // 59 seconds ago
+			date = new Date() - 59 * inSeconds.second * 1000; // 59 seconds ago
 			proclaim.strictEqual(oDate.timeAgoNoSeconds(date), 'Less than a minute ago');
 
-			date = new Date() - (60 * inSeconds.second * 1000); // 1 minute ago
+			date = new Date() - 60 * inSeconds.second * 1000; // 1 minute ago
 			oDate.timeAgoNoSeconds(date);
 		});
 	});
