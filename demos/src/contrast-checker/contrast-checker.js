@@ -77,7 +77,7 @@ const generateRange = () => {
 };
 
 const addMixedSwatch = (panelName, color) => {
-	let label = document.createElement('label');
+	const label = document.createElement('label');
 	label.setAttribute('title', color);
 
 	label.innerHTML = `

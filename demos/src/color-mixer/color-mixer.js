@@ -9,8 +9,8 @@ document.addEventListener('o.DOMContentLoaded', function() {
 	forms[0].addEventListener('change', () => {
 		mixColors(mixer.value, base.value);
 
-		let hex = document.querySelector('input[type=radio]:checked');
-		let percent = hex.nextElementSibling.innerText.replace('%', '');
+		const hex = document.querySelector('input[type=radio]:checked');
+		const percent = hex.nextElementSibling.innerText.replace('%', '');
 		fillCodeSnippets(hex.value, mixer.value, base.value, percent);
 	});
 
@@ -18,7 +18,7 @@ document.addEventListener('o.DOMContentLoaded', function() {
 
 	//set visible hex value and sass function to default values of mixColors
 	forms[1]['range'][5].checked = true;
-	let defaultHex = getComputedStyle(document.documentElement).getPropertyValue(`--o-colors-${mixer.value}-50`);
+	const defaultHex = getComputedStyle(document.documentElement).getPropertyValue(`--o-colors-${mixer.value}-50`);
 	fillCodeSnippets(defaultHex, mixer.value, base.value, 50);
 });
 
@@ -36,8 +36,8 @@ const checkTextContrast = (background) => {
 };
 
 const mixColors = (mixer = 'black', base = 'paper') => {
-	let root = document.documentElement;
-	let hexes = getHexValues(mixer, base);
+	const root = document.documentElement;
+	const hexes = getHexValues(mixer, base);
 	root.style.setProperty('--background', `#${hexes.base}`);
 
 	const hexArray = mixHexes(hexes.mixer, hexes.base);
@@ -48,7 +48,7 @@ const mixColors = (mixer = 'black', base = 'paper') => {
 const fillSwatches = (hexes, mixer, base) => {
 	const range = document.forms[1]['range'];
 	hexes.forEach((hex, index) => {
-		let swatch = range[index];
+		const swatch = range[index];
 		swatch.style.backgroundColor = swatch.value = hex;
 
 		swatch.addEventListener('click', (e) => fillCodeSnippets(e.target.value, mixer, base, index * 10));

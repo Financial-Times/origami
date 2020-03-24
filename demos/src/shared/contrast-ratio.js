@@ -1,7 +1,7 @@
 function getWCAGRating(ratio, foreground, background) {
 	let wcagRating;
 	let message = 'This combination passes WCAG color contrast guidelines';
-	let combination = `<code>${foreground}</code> on <code>${background}</code>`;
+	const combination = `<code>${foreground}</code> on <code>${background}</code>`;
 
 	if (ratio >= 7) {
 		wcagRating = 'AAA';

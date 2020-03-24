@@ -3,10 +3,10 @@ let clickToCopy = false;
 function oColorsDemoPalette() {
 	const swatches = document.querySelectorAll('.swatch');
 
-	for (let swatch of swatches) {
-		let oColor = swatch.getAttribute('data-o-color');
-		let hexInput = swatch.querySelector('.hex');
-		let hex = window.getComputedStyle(document.body, null).getPropertyValue(`--o-colors-${oColor}`);
+	for (const swatch of swatches) {
+		const oColor = swatch.getAttribute('data-o-color');
+		const hexInput = swatch.querySelector('.hex');
+		const hex = window.getComputedStyle(document.body, null).getPropertyValue(`--o-colors-${oColor}`);
 		hexInput.value = hex ? hex.trim() : '';
 
 		if (clickToCopy) {
@@ -48,7 +48,7 @@ function oColorsCopy(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-	let randomInput = document.querySelectorAll('input')[0];
+	const randomInput = document.querySelectorAll('input')[0];
 	if (randomInput.select && document.execCommand) {
 		document.body.classList.add('o-copy-true');
 		clickToCopy = true;
