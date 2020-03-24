@@ -48,7 +48,7 @@ class ExpanderUtility {
 		// If `shrinkTo` is a number, cast to an actual number using the
 		// unary operator `+`. I.e so `typeof` returns `number`.
 		if (!isNaN(this.options.shrinkTo)) {
-			this.options.shrinkTo = +this.options.shrinkTo;
+			this.options.shrinkTo = Number(this.options.shrinkTo);
 		}
 
 		// Validate the required selectors are configured.
@@ -325,9 +325,9 @@ class ExpanderUtility {
 		if (this.options.toggleState !== 'none') {
 			this.toggles.forEach(toggle => {
 				if (this.options.toggleState !== 'aria') {
-					toggle.innerHTML = (state === 'expand' ?
+					toggle.innerHTML = state === 'expand' ?
 						this.options.expandedToggleText :
-						this.options.collapsedToggleText);
+						this.options.collapsedToggleText;
 				}
 				toggle.setAttribute('aria-expanded', state === 'expand' ? 'true' : 'false');
 			});
