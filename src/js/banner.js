@@ -66,7 +66,7 @@ class Banner {
 				this.options.appendTo = document.querySelector(this.options.appendTo);
 			}
 			// Confirm a html element has been given or found.
-			if ((this.options.appendTo instanceof HTMLElement) !== true) {
+			if (this.options.appendTo instanceof HTMLElement !== true) {
 				throw new Error('It is not an Node instance.');
 			}
 		} catch (error) {
