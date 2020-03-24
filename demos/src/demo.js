@@ -1,5 +1,5 @@
 const switchState = function(element, state) {
-	element.setAttribute(state, (!element.getAttribute(state) || element.getAttribute(state) === 'false' ? true : false));
+	element.setAttribute(state, !element.getAttribute(state) || element.getAttribute(state) === 'false' ? true : false);
 };
 
 document.addEventListener('click', function(e) {
