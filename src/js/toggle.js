@@ -98,7 +98,7 @@ class Toggle {
 		}
 
 		if (this.callback){
-			let stateName = (this.target.isOpen() ? 'open' : 'close');
+			const stateName = this.target.isOpen() ? 'open' : 'close';
 			this.callback(stateName, e);
 		}
 	}
@@ -124,7 +124,7 @@ class Toggle {
 		}
 		const toggleEls = el.querySelectorAll('[data-o-component="o-toggle"]');
 		const toggles = [];
-		for (let toggleEl of toggleEls) {
+		for (const toggleEl of toggleEls) {
 			if (!toggleEl.hasAttribute('data-o-toggle--js')) {
 				toggles.push(new Toggle(toggleEl, config));
 			}

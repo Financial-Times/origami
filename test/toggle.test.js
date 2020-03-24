@@ -59,36 +59,36 @@ describe("oToggle", () => {
 			});
 
 			it("sets a callback if one is set declaratively on the element", () => {
-				let testToggle = new OToggle(toggleEl);
+				const testToggle = new OToggle(toggleEl);
 
 				proclaim.isTypeOf(testToggle.callback, 'function');
 			});
 
 			it("does not set a callback if one isn't declaratively set on the toggleEl", () => {
 				toggleEl.removeAttribute("data-o-toggle-callback");
-				let testToggle = new OToggle(toggleEl);
+				const testToggle = new OToggle(toggleEl);
 
 				proclaim.isTypeOf(testToggle.callback, 'undefined');
 			});
 
 			it("sets the targetEl if one is set declaratively on the element", () => {
-				let testToggle = new OToggle(toggleEl);
-				let targetEl = document.querySelector('.declarativeTestTarget');
+				const testToggle = new OToggle(toggleEl);
+				const targetEl = document.querySelector('.declarativeTestTarget');
 
 				proclaim.equal(testToggle.targetEl, targetEl);
 			});
 
 			it("does not set up a toggle if it has the data-o-toggle--js class", () => {
 				toggleEl.setAttribute('data-o-toggle--js', true);
-				let testToggle = new OToggle(toggleEl);
+				const testToggle = new OToggle(toggleEl);
 
 				proclaim.isTypeOf(testToggle.callback, 'undefined');
 				proclaim.isTypeOf(testToggle.targetEl, 'undefined');
 			});
 
 			it("creates a new target and adds it to the _targets map", () => {
-				let targetSpy = sinon.spy(OToggle, "Target");
-				let testToggle = new OToggle(toggleEl);
+				const targetSpy = sinon.spy(OToggle, "Target");
+				const testToggle = new OToggle(toggleEl);
 
 				proclaim.equal(targetSpy.called, true);
 
@@ -102,9 +102,9 @@ describe("oToggle", () => {
 				fixtures.twoTogglesOneTarget();
 				const toggleEl1 = document.getElementById("testToggle1");
 				const toggleEl2 = document.getElementById("testToggle2");
-				let testToggle1 = new OToggle(toggleEl1);
-				let target = new OToggle.Target(testToggle1);
-				let targetSpy = sinon.spy(target, "addToggle");
+				const testToggle1 = new OToggle(toggleEl1);
+				const target = new OToggle.Target(testToggle1);
+				const targetSpy = sinon.spy(target, "addToggle");
 				OToggle._targets.set(testToggle1.targetEl, target);
 
 				// Now add another toggle with the same target
@@ -116,7 +116,7 @@ describe("oToggle", () => {
 			it("adds a role=button if the toggle element is a link", () => {
 				fixtures.reset();
 				fixtures.toggleAsALink();
-				let linkToggleEl = document.getElementById("linkToggle");
+				const linkToggleEl = document.getElementById("linkToggle");
 
 				proclaim.isFalse(linkToggleEl.hasAttribute('role'));
 
@@ -133,7 +133,7 @@ describe("oToggle", () => {
 			});
 
 			it("sets aria-hidden to true on the target", () => {
-				let testToggle = new OToggle(toggleEl);
+				const testToggle = new OToggle(toggleEl);
 
 				proclaim.isTrue(testToggle.targetEl.hasAttribute('aria-hidden'));
 				proclaim.equal(testToggle.targetEl.getAttribute('aria-hidden'), 'true');
@@ -150,7 +150,7 @@ describe("oToggle", () => {
 			let toggleEl;
 
 			beforeEach(() => {
-				let callback = `document.querySelector('.declarativeTestTarget').classList.toggle('hidden');`;
+				const callback = `document.querySelector('.declarativeTestTarget').classList.toggle('hidden');`;
 				fixtures.declarativeMarkup(callback);
 				toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			});
@@ -185,8 +185,8 @@ describe("oToggle", () => {
 		});
 
 		it("calls target.removeToggle on it's target", () => {
-			let target = new OToggle.Target(testToggle);
-			let targetSpy = sinon.spy(target, "removeToggle");
+			const target = new OToggle.Target(testToggle);
+			const targetSpy = sinon.spy(target, "removeToggle");
 			testToggle.target = target;
 
 			testToggle.destroy();
@@ -195,14 +195,14 @@ describe("oToggle", () => {
 		});
 
 		it("removes the event listener from the toggleEl", () => {
-			let elSpy = sinon.spy(toggleEl, 'removeEventListener');
+			const elSpy = sinon.spy(toggleEl, 'removeEventListener');
 			testToggle.destroy();
 
 			proclaim.isTrue(elSpy.called);
 		});
 
 		it("removes aria-expanded from the toggleEl", () => {
-			let elSpy = sinon.spy(toggleEl, 'removeAttribute');
+			const elSpy = sinon.spy(toggleEl, 'removeAttribute');
 
 			proclaim.isTrue(testToggle.toggleEl.hasAttribute('aria-expanded'));
 
@@ -212,7 +212,7 @@ describe("oToggle", () => {
 		});
 
 		it("removes the aria role from the toggleEl", () => {
-			let elSpy = sinon.spy(toggleEl, 'removeAttribute');
+			const elSpy = sinon.spy(toggleEl, 'removeAttribute');
 
 			testToggle.destroy();
 
@@ -220,7 +220,7 @@ describe("oToggle", () => {
 		});
 
 		it("removes the data-o-toggle--js from the toggleEl", () => {
-			let elSpy = sinon.spy(toggleEl, 'removeAttribute');
+			const elSpy = sinon.spy(toggleEl, 'removeAttribute');
 
 			proclaim.isTrue(testToggle.toggleEl.hasAttribute('data-o-toggle--js'));
 
@@ -247,7 +247,7 @@ describe("oToggle", () => {
 				document.querySelector('.declarativeTestTarget').classList.toggle('hidden');
 			};
 			fixtures.declarativeMarkup('myCallback');
-			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			const toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			testToggle = new OToggle(toggleEl);
 		});
 
@@ -257,8 +257,8 @@ describe("oToggle", () => {
 
 
 		it("calls target.toggle", () => {
-			let target = new OToggle.Target(testToggle);
-			let targetSpy = sinon.spy(target, "toggle");
+			const target = new OToggle.Target(testToggle);
+			const targetSpy = sinon.spy(target, "toggle");
 			testToggle.target = target;
 
 			testToggle.toggle();
@@ -267,10 +267,10 @@ describe("oToggle", () => {
 		});
 
 		it("calls preventDefault on if an event is passed in", () => {
-			let target = new OToggle.Target(testToggle);
+			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
-			let event = new Event('click');
-			let eventSpy = sinon.spy(event, "preventDefault");
+			const event = new Event('click');
+			const eventSpy = sinon.spy(event, "preventDefault");
 
 			testToggle.toggle(event);
 
@@ -278,12 +278,12 @@ describe("oToggle", () => {
 		});
 
 		it("calls the callback if defined with the value 'open' if the target.isOpen is true", () => {
-			let event = new Event('click');
-			let target = new OToggle.Target(testToggle);
+			const event = new Event('click');
+			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(true);
 			testToggle.callback = () => {};
-			let callbackSpy = sinon.spy(testToggle, "callback");
+			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);
 
@@ -292,14 +292,14 @@ describe("oToggle", () => {
 		});
 
 		it("calls the callback with `this` bound to the correct context (the toggle not the event)", () => {
-			let target = new OToggle.Target(testToggle);
+			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			testToggle.callback = () => {};
 
 			sinon.stub(target, "isOpen").returns(true);
 
-			let callbackSpy = sinon.spy(testToggle, "callback");
-			let toggleSpy = sinon.spy(testToggle, "toggle");
+			const callbackSpy = sinon.spy(testToggle, "callback");
+			const toggleSpy = sinon.spy(testToggle, "toggle");
 
 			testToggle.toggleEl.addEventListener('customEvent', testToggle.toggle);
 			testToggle.toggleEl.dispatchEvent(new CustomEvent('customEvent'));
@@ -310,12 +310,12 @@ describe("oToggle", () => {
 		});
 
 		it("calls the callback if defined with the value 'close' if the target.isOpen is false", () => {
-			let event = new Event('click');
-			let target = new OToggle.Target(testToggle);
+			const event = new Event('click');
+			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
 			sinon.stub(target, "isOpen").returns(false);
 			testToggle.callback = () => {};
-			let callbackSpy = sinon.spy(testToggle, "callback");
+			const callbackSpy = sinon.spy(testToggle, "callback");
 
 			testToggle.toggle(event);
 
@@ -324,9 +324,9 @@ describe("oToggle", () => {
 		});
 
 		it("does not call a callback if none is defined", () => {
-			let target = new OToggle.Target(testToggle);
+			const target = new OToggle.Target(testToggle);
 			testToggle.target = target;
-			let callbackSpy = sinon.spy(testToggle, "callback");
+			const callbackSpy = sinon.spy(testToggle, "callback");
 			testToggle.callback = undefined;
 
 			testToggle.toggle();
@@ -338,7 +338,7 @@ describe("oToggle", () => {
 	describe("open", () => {
 		it("sets aria-expanded to true", () => {
 			fixtures.declarativeMarkup();
-			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			const toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			const testToggle = new OToggle(toggleEl);
 			testToggle.toggleEl.setAttribute('aria-expanded', 'false');
 			proclaim.isTrue(testToggle.toggleEl.hasAttribute("aria-expanded"));
@@ -354,7 +354,7 @@ describe("oToggle", () => {
 	describe("close", () => {
 		it("sets aria-expanded to false", () => {
 			fixtures.declarativeMarkup();
-			let toggleEl = document.querySelector('[data-o-component="o-toggle"]');
+			const toggleEl = document.querySelector('[data-o-component="o-toggle"]');
 			const testToggle = new OToggle(toggleEl);
 			testToggle.toggleEl.setAttribute('aria-expanded', 'true');
 			proclaim.isTrue(testToggle.toggleEl.hasAttribute("aria-expanded"));

@@ -43,14 +43,14 @@ describe("oToggle", () => {
 
 		it("creates an array of oToggles when passed no arguments", () => {
 			const toggles = oToggle.init();
-			for (let toggle of toggles) {
+			for (const toggle of toggles) {
 				proclaim.equal(toggle instanceof oToggle, true);
 			}
 		});
 
 		it("creates an array of Toggles limited to the selector when a selector is passed in", () => {
 			const toggles = oToggle.init('.declarativeToggleContainer');
-			for (let toggle of toggles) {
+			for (const toggle of toggles) {
 				proclaim.equal(toggle instanceof oToggle, true);
 			}
 			proclaim.equal(toggles.length, document.querySelector('.declarativeToggleContainer').querySelectorAll('[data-o-component="o-toggle"]').length);
