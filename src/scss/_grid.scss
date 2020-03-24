@@ -87,6 +87,9 @@
 	}
 
 	.o-layout.o-layout--docs > .o-layout__main {
+		> aside {
+			margin-bottom: oSpacingByName('s6');
+		}
 		@include oGridRespondTo($until: M) {
 			margin-top: 0;
 		}
