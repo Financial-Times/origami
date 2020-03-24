@@ -32,7 +32,7 @@ class Target {
 	}
 
 	get centrePoint(){
-		return { x: this.left + (this.width/2), y: this.top + (this.height/2)};
+		return { x: this.left + this.width/2, y: this.top + this.height/2};
 	}
 }
 

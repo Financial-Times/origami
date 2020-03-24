@@ -173,7 +173,7 @@ describe("Tooltip", () => {
 
 		it("extracts target if it's set on the el passed in", () => {
 			const el = document.createElement('div');
-			let stubTarget = '#someValue';
+			const stubTarget = '#someValue';
 
 			el.setAttribute('data-o-tooltip-target', stubTarget);
 
@@ -183,7 +183,7 @@ describe("Tooltip", () => {
 
 		it("extracts arrowPosition if it's set on the el passed in", () => {
 			const el = document.createElement('div');
-			let stubPosition = 'someValue';
+			const stubPosition = 'someValue';
 			el.setAttribute('data-o-tooltip-position', stubPosition);
 
 			const options = Tooltip.getOptions(el);
@@ -229,7 +229,7 @@ describe("Tooltip", () => {
 		});
 
 		it("sets opts.position to below if no position was specified", ()=>{
-			let opts = Tooltip.checkOptions({"target": "#el"});
+			const opts = Tooltip.checkOptions({"target": "#el"});
 			proclaim.isFalse(throwStub.called);
 			proclaim.strictEqual(opts.position, 'below');
 		});
@@ -242,14 +242,14 @@ describe("Tooltip", () => {
 		});
 
 		it("returns the opts object", () => {
-			let opts = Tooltip.checkOptions({"target": "#el"});
+			const opts = Tooltip.checkOptions({"target": "#el"});
 			proclaim.isObject(opts);
 		});
 	});
 
 	describe('constructElement', () => {
 		it("returns a tooltip element", () => {
-			let targetEl = document.createElement('div');
+			const targetEl = document.createElement('div');
 			const tooltip = Tooltip.constructElement(targetEl, {content: '<p>my content</p>'});
 			proclaim.strictEqual(tooltip.nodeName, 'DIV');
 			proclaim.strictEqual(tooltip.getAttribute('data-o-component'), 'o-tooltip');
@@ -791,18 +791,18 @@ describe("Tooltip", () => {
 
 		it("only closes of the key was Esc", () => {
 
-			let closeStub = sinon.stub(Tooltip.prototype, 'close');
+			const closeStub = sinon.stub(Tooltip.prototype, 'close');
 
 			const testTooltip = Tooltip.init('#tooltip-demo');
 			testTooltip.show();
 
-			let enterKeypress = document.createEvent('Event');
+			const enterKeypress = document.createEvent('Event');
 			enterKeypress.keyCode = 13;
 
 			testTooltip.closeOnKeyUp(enterKeypress);
 			proclaim.isFalse(closeStub.called);
 
-			let escKeypress = document.createEvent('Event');
+			const escKeypress = document.createEvent('Event');
 			escKeypress.keyCode = 27;
 			testTooltip.closeOnKeyUp(escKeypress);
 

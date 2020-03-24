@@ -364,19 +364,19 @@ class Tooltip {
 		this.tooltipRect = tooltipRect;
 		this.tooltipAlignment = alignment;
 		this.tooltipPosition = position;
-		const targetLeftOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().left);
-		const targetTopOffset = (this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().top);
+		const targetLeftOffset = this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().left;
+		const targetTopOffset = this.target.targetEl.offsetParent && this.target.targetEl.offsetParent.getBoundingClientRect().top;
 
 		const startWidth = this.tooltipEl.getBoundingClientRect().width;
 		if (this.opts.appendToBody) {
 			// If the tooltip will be apended directly to body:
 			// set an ID in order to be identified
 			this.tooltipEl.id = this.opts.target + Tooltip.idSuffix;
-			this.tooltipEl.style.top = (this.tooltipRect.top + document.documentElement.scrollTop) + 'px';
-			this.tooltipEl.style.left = (this.tooltipRect.left + document.documentElement.scrollLeft) + 'px';
+			this.tooltipEl.style.top = this.tooltipRect.top + document.documentElement.scrollTop + 'px';
+			this.tooltipEl.style.left = this.tooltipRect.left + document.documentElement.scrollLeft + 'px';
 		} else {
-			this.tooltipEl.style.top = (this.tooltipRect.top - targetTopOffset) + 'px';
-			this.tooltipEl.style.left = (this.tooltipRect.left - targetLeftOffset) + 'px';
+			this.tooltipEl.style.top = this.tooltipRect.top - targetTopOffset + 'px';
+			this.tooltipEl.style.left = this.tooltipRect.left - targetLeftOffset + 'px';
 		}
 		const endWidth = this.tooltipEl.getBoundingClientRect().width;
 
@@ -414,8 +414,8 @@ class Tooltip {
 	 * @returns {Boolean} If the set position is out of bounds.
 	*/
 	_evaulateTooltip(position) {
-		const axis = (position === 'above' || position === 'below' ? 'y' : 'x');
-		const alignments = (axis === 'y' ? ['middle', 'right', 'left'] : ['middle', 'top', 'bottom']);
+		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
+		const alignments = axis === 'y' ? ['middle', 'right', 'left'] : ['middle', 'top', 'bottom'];
 
 		// Attempt all position alignments.
 		let isOutOfBounds = true;
@@ -442,12 +442,12 @@ class Tooltip {
 	*/
 	_calculateTooltipRectangle(position, alignment) {
 		const rect = {};
-		const axis = (position === 'above' || position === 'below' ? 'y' : 'x');
+		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
 
 		// Calculate for position above/below.
 		if (axis === 'y') {
 			// the arrow is placed 10% along the body of the tooltip
-			const arrowPosition = (this.width() / 10);
+			const arrowPosition = this.width() / 10;
 
 			if (alignment === 'left') {
 				rect.left = this.target.centrePoint.x - this.width() + arrowPosition;
@@ -456,7 +456,7 @@ class Tooltip {
 				rect.left = this.target.centrePoint.x - arrowPosition;
 			}
 			if (alignment === 'middle') {
-				rect.left = this.target.centrePoint.x - (this.width() / 2);
+				rect.left = this.target.centrePoint.x - this.width() / 2;
 			}
 			if (position === 'above') {
 				rect.top = this.target.top - this.height() - Tooltip.arrowDepth;
@@ -475,7 +475,7 @@ class Tooltip {
 				rect.top = this.target.bottom - this.height();
 			}
 			if (alignment === 'middle') {
-				rect.top = this.target.centrePoint.y - (this.height() / 2);
+				rect.top = this.target.centrePoint.y - this.height() / 2;
 			}
 			if (position === 'right') {
 				rect.left = this.target.right + Tooltip.arrowDepth;
@@ -517,7 +517,7 @@ class Tooltip {
 		const arrowClassRoot = 'o-tooltip--arrow-';
 		const alignmentClassRoot = 'o-tooltip-arrow--align-';
 
-		let classesToRemove = [
+		const classesToRemove = [
 			"o-tooltip--arrow-left",
 			"o-tooltip--arrow-right",
 			"o-tooltip--arrow-above",
@@ -562,9 +562,9 @@ class Tooltip {
 				return true;
 			}
 		} else {
-			if (axis === 'y' && (point > document.documentElement.clientHeight)) {
+			if (axis === 'y' && point > document.documentElement.clientHeight) {
 				return true;
-			} else if (axis === 'x' && (point > document.documentElement.clientWidth)) {
+			} else if (axis === 'x' && point > document.documentElement.clientWidth) {
 				return true;
 			}
 		}

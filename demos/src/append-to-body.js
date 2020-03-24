@@ -1,7 +1,7 @@
 import Tooltip from './../../main.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-	let tooltipElement = document.querySelector('.imperative-tooltip-target');
+	const tooltipElement = document.querySelector('.imperative-tooltip-target');
 	new Tooltip(tooltipElement, {
 		target: 'tooltip-target-imperative',
 		content: '<p>Click to save to somewhere</p>',

@@ -69,8 +69,8 @@ describe('Target', () => {
 	context('get centrePoint()', () => {
 		it('should return the centre point of the target', () => {
 			proclaim.deepEqual(target.centrePoint, {
-				x: target.left + (target.width/2),
-				y: target.top + (target.height/2)
+				x: target.left + target.width/2,
+				y: target.top + target.height/2
 			});
 		});
 	});
