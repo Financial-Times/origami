@@ -34,7 +34,7 @@ class VideoAds {
 				document.getElementsByTagName("head")[0].appendChild(googleSdkScript);
 			}
 
-			if (sdkScriptLoaded || (window.google && window.google.ima)) {
+			if (sdkScriptLoaded || window.google && window.google.ima) {
 				resolve();
 			} else {
 				googleSdkScript.addEventListener('load', () => {
@@ -105,7 +105,7 @@ class VideoAds {
 			targeting += `&brand=${brand}`;
 		}
 
-		let advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`;
+		const advertisingUrl = `http://pubads.g.doubleclick.net/gampad/ads?env=vp&gdfp_req=1&impl=s&output=xml_vast2&iu=${this.video.targeting.site}&sz=${this.video.targeting.sizes}&unviewed_position_start=1&scp=${encodeURIComponent(targeting)}`;
 
 		adsRequest.adTagUrl = advertisingUrl;
 
@@ -341,7 +341,7 @@ class VideoAds {
 
 	adErrorHandler(adError) {
 		// NOTE: has the API changed? now need to call `getError` method to get the ad error
-		const actualError = ('getError' in adError && typeof adError.getError === 'function') ? adError.getError() : adError;
+		const actualError = 'getError' in adError && typeof adError.getError === 'function' ? adError.getError() : adError;
 
 		// convert the Google Ad error to a JS one
 		const message = `${actualError.getErrorCode()}, ${actualError.getType()}, ${actualError.getMessage()}, ${actualError.getVastErrorCode()}`;

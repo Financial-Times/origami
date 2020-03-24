@@ -145,7 +145,7 @@ function visibilityListener(ev) {
 	}
 }
 
-const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
 
 const defaultOpts = {
 	advertising: false,
@@ -453,12 +453,12 @@ class Video {
 
 	getAmountWatched(decimalPoints) {
 		const secondsWatched = this.amountWatched / 1000;
-		return decimalPoints !== undefined ? +(secondsWatched).toFixed(decimalPoints) : secondsWatched;
+		return decimalPoints !== undefined ? Number(secondsWatched.toFixed(decimalPoints)) : secondsWatched;
 	}
 
 	getAmountWatchedPercentage(decimalPoints) {
-		const percentageWatched = this.videoEl && this.videoEl.duration ? (100 / this.videoEl.duration) * this.getAmountWatched() : 0;
-		return decimalPoints !== undefined ? +(percentageWatched).toFixed(decimalPoints) : percentageWatched;
+		const percentageWatched = this.videoEl && this.videoEl.duration ? 100 / this.videoEl.duration * this.getAmountWatched() : 0;
+		return decimalPoints !== undefined ? Number(percentageWatched.toFixed(decimalPoints)) : percentageWatched;
 	}
 
 	pauseOtherVideos() {

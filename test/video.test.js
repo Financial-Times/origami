@@ -359,7 +359,7 @@ describe('Video', () => {
 				return visibiltyEvent;
 			};
 
-			const unloadEventName = ('onbeforeunload' in window) ? 'beforeunload' : 'unload';
+			const unloadEventName = 'onbeforeunload' in window ? 'beforeunload' : 'unload';
 
 			const preventPageReload = ev => ev.preventDefault();
 
@@ -452,7 +452,7 @@ describe('Video', () => {
 	describe('#addPlaceholder', () => {
 
 		const realAddVideo = Video.prototype.addVideo;
-		let addVideoSpy = sinon.spy();
+		const addVideoSpy = sinon.spy();
 
 		beforeEach(() => {
 			Video.prototype.addVideo = addVideoSpy;
