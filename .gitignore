@@ -1,5 +1,9 @@
-/bower_components/
-/demos/local/
-/.sass-cache
-/build/
-node_modules
+.idea/
+.jshintrc
+.sass-cache/
+bower_components/
+build/
+demos/local/
+node_modules/
+.editorconfig
+.DS_Store
