@@ -462,7 +462,7 @@ Errors.prototype._updatePayloadBeforeSend = function(data) {
  * @returns {boolean} - Boolean value indicating if there's declarative config
  */
 Errors.prototype._hasDeclarativeConfig = function() {
-	return !!this._getDeclarativeConfig();
+	return Boolean(this._getDeclarativeConfig());
 };
 
 /**
