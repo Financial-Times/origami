@@ -27,9 +27,9 @@ describe('State', () => {
 		});
 
 		it('throws an error if input type is not `o-forms-input--radio-box`', () => {
-			let field = form.elements['optional'];
+			const field = form.elements['optional'];
 
-			let message = 'State can only be applied to `radio` type inputs.';
+			const message = 'State can only be applied to `radio` type inputs.';
 			proclaim.throws(() => new State(field), message);
 		});
 	});
@@ -95,7 +95,7 @@ describe('State', () => {
 		it('accepts an options object with iconOnly key', () => {
 			state = new State(nodeList, { iconOnly: true });
 			state.set('saving');
-			let icon = document.querySelector('.o-forms-input__state--icon-only');
+			const icon = document.querySelector('.o-forms-input__state--icon-only');
 			proclaim.isNotNull(icon);
 		});
 	});

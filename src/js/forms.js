@@ -72,7 +72,7 @@ class Forms {
 	 */
 	handleEvent(e) {
 		const RETURN_KEY = 13;
-		if (e.type === 'click' || (e.type === 'keydown' && e.key === RETURN_KEY)) {
+		if (e.type === 'click' || e.type === 'keydown' && e.key === RETURN_KEY) {
 			if (this.form.checkValidity() === false) {
 				this.validateFormInputs();
 			}
@@ -80,7 +80,7 @@ class Forms {
 
 		if (e.type === 'submit') {
 			e.preventDefault();
-			let checkedElements = this.validateFormInputs();
+			const checkedElements = this.validateFormInputs();
 
 			if (checkedElements.some(input => input.valid === false)) {
 				if (this.opts.errorSummary) {
@@ -110,15 +110,15 @@ class Forms {
 	*/
 	validateFormInputs() {
 		return this.formInputs.map(oFormInput => {
-			let valid = oFormInput.validate();
-			let input = oFormInput.input;
-			let field = input.closest('.o-forms-field');
-			let labelElement = field ? field.querySelector('.o-forms-title__main') : null;
+			const valid = oFormInput.validate();
+			const input = oFormInput.input;
+			const field = input.closest('.o-forms-field');
+			const labelElement = field ? field.querySelector('.o-forms-title__main') : null;
 			// label is actually the field title, not for example the label of a single checkbox.
 			// this is used to generate an error summary
-			let label = labelElement ? labelElement.textContent : null;
-			let errorElement = field ? field.querySelector('.o-forms-input__error') : null;
-			let error = errorElement ? errorElement.textContent : input.validationMessage;
+			const label = labelElement ? labelElement.textContent : null;
+			const errorElement = field ? field.querySelector('.o-forms-input__error') : null;
+			const error = errorElement ? errorElement.textContent : input.validationMessage;
 			return {
 				id: input.id,
 				valid,

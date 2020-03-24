@@ -18,7 +18,7 @@ describe('Input', () => {
 	it('validation ignores an input that is not required or invalid', () => {
 		document.body.innerHTML = formFixture;
 		form = document.forms[0];
-		let optionalField = form.elements['optional'];
+		const optionalField = form.elements['optional'];
 		new Input(optionalField);
 
 		proclaim.isFalse(parentClass(optionalField, 'invalid'));

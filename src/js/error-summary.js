@@ -42,7 +42,7 @@ class ErrorSummary {
 	 * Generate list of anchors
 	 */
 	static createList(inputs) {
-		let list = document.createElement('ul');
+		const list = document.createElement('ul');
 		const fieldsInTheList = [];
 		inputs.forEach(input => {
 			// A field may contain multiple invalid inputs. E.g. a date field
@@ -62,7 +62,7 @@ class ErrorSummary {
 			}
 			// invalid input, add to error summary
 			if (input.valid === false && input.label) {
-				let listItem = ErrorSummary.createItem(input);
+				const listItem = ErrorSummary.createItem(input);
 				list.appendChild(listItem);
 			}
 		});
@@ -98,7 +98,7 @@ class ErrorSummary {
 	 * @return {Element} - a
 	 */
 	static createAnchor(input) {
-		let anchor = document.createElement('a');
+		const anchor = document.createElement('a');
 		anchor.setAttribute('href', `#${input.id}`);
 		anchor.innerHTML = `<span>${input.label}</span>: ${input.error}`;
 		anchor.addEventListener('click', (e) => {

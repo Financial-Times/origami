@@ -6,7 +6,7 @@ class State {
 	 * @param {String} options.iconOnly [null] - when true display an icon only, hiding the status label
 	*/
 	constructor(inputs, opts) {
-		let radioInputs = inputs instanceof RadioNodeList;
+		const radioInputs = inputs instanceof RadioNodeList;
 		if (radioInputs) {
 			this.inputs = inputs;
 			this.parent = this.inputs[0].closest('.o-forms-input');
@@ -31,7 +31,7 @@ class State {
 	*/
 	_generateStateEl() {
 		this.stateEl = document.createElement('span');
-		let classNames = this.opts.iconOnly ? ['o-forms-input__state', 'o-forms-input__state--icon-only'] : ['o-forms-input__state'];
+		const classNames = this.opts.iconOnly ? ['o-forms-input__state', 'o-forms-input__state--icon-only'] : ['o-forms-input__state'];
 		 this.stateEl.classList.add(...classNames);
 		this.parent.append(this.stateEl);
 	}
