@@ -15,7 +15,7 @@ describe("Message", () => {
 	let testArea;
 	let message;
 	let messageElement;
-	let stubs = {};
+	const stubs = {};
 	let options = {};
 
 	before(() => {

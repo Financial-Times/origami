@@ -1,6 +1,6 @@
 import Message from './../../main.js';
 
-let options = {
+const options = {
 	type: 'alert',
 	content: {
 		highlight: 'Highlight!',
@@ -16,7 +16,7 @@ let options = {
 	}
 };
 
-let actionOptions = {
+const actionOptions = {
 	type: 'action',
 	content: {
 		detail: 'Some request for action goes here.'
@@ -30,7 +30,7 @@ let actionOptions = {
 	close: false
 };
 
-let innerOptions = Object.assign({}, options, {
+const innerOptions = Object.assign({}, options, {
 	type: 'alert',
 	inner: true,
 	parentElement: '.demo-inner',

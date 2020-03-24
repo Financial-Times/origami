@@ -48,14 +48,14 @@ describe("constructElement", () => {
 		it('throws an error if no type is defined', () => {
 			mockObj.opts.type = null;
 
-			let error = "*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***";
+			const error = "*** o-message error:\nMessages require a type. Available types are:\n- action\n- alert\n- notice\n***";
 			assert.throws(() => construct.message(mockObj.opts), error);
 		});
 
 		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
-			let error = "*** o-message error:\nMessages require a state.\n***";
+			const error = "*** o-message error:\nMessages require a state.\n***";
 			assert.throws(() => construct.message(mockObj.opts), error);
 		});
 
@@ -110,7 +110,7 @@ describe("constructElement", () => {
 		it('throws an error if no state is defined', () => {
 			mockObj.opts.state = null;
 
-			let error = "*** o-message error:\nMessages require a state.\n***";
+			const error = "*** o-message error:\nMessages require a state.\n***";
 			assert.throws(() => construct.message(mockObj.opts), error);
 		});
 	});
