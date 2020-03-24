@@ -52,7 +52,7 @@ class SyntaxHighlight {
 	* @param {HTMLElement} - The element with a language-relevant class name
 	*/
 	_getLanguage (element) {
-		let className = element.className;
+		const className = element.className;
 
 		if (className.includes('o-syntax-highlight--')) {
 			this.opts.language = className.replace('o-syntax-highlight--', '');

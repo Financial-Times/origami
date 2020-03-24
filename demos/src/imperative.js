@@ -1,6 +1,6 @@
 import SyntaxHighlight from '../../main.js';
 
-let highlighter = new SyntaxHighlight('<div>There is a <a href="#">link</a>here.</div>', {
+const highlighter = new SyntaxHighlight('<div>There is a <a href="#">link</a>here.</div>', {
 	language: 'html'
 });
 
