@@ -1,0 +1,7 @@
+{
+    "private": true,
+    "name": "o-brand",
+    "devDependencies": {
+        "eslint-config-origami-component": "^2.0.1"
+    }
+}
