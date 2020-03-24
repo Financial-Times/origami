@@ -84,14 +84,14 @@ class Scroll {
 
 		if (!currentSelection) { return; }
 
-		let currentSelectionEnd = currentSelection.getBoundingClientRect().right;
+		const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
 
 		//if the current selection is wider than the end of the list
 		if (currentSelectionEnd > this.width.container) {
 			// check by how much
 			let diff = currentSelectionEnd - this.width.container;
 			// if the difference is greater than half of the list, scroll to the end of the current selection.
-			diff = (diff > this.width.container / 2) ? currentSelectionEnd : this.width.container / 2;
+			diff = diff > this.width.container / 2 ? currentSelectionEnd : this.width.container / 2;
 
 			this.list.scrollTo({ left: diff, top: 0, behaviour: 'smooth' });
 		}

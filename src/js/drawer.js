@@ -39,7 +39,7 @@ class Drawer {
 		this.navList = this.nav.querySelector('.o-header-services__primary-nav-list');
 
 		// Create drawer header.
-		let drawerHeader = document.createElement('li');
+		const drawerHeader = document.createElement('li');
 		drawerHeader.classList.add('o-header-services__drawer-header');
 		this.drawerCloseButton = document.createElement('button');
 		this.drawerCloseButton.classList.add('o-header-services__drawer-close-button');
@@ -81,7 +81,7 @@ class Drawer {
 			}
 		}
 
-		if ((e.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(e.target))) {
+		if (e.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(e.target)) {
 			e.preventDefault();
 			this.toggleDrawer();
 		}
@@ -134,11 +134,11 @@ class Drawer {
 	 * Shift related content (sign in, etc) between drawer and header title section
 	 */
 	_shiftRelatedContentList (shiftItems) {
-		let relatedContent = this.relatedContent;
+		const relatedContent = this.relatedContent;
 
 		if (!relatedContent) { return; }
 
-		let headerTop = this.headerEl.querySelector('.o-header-services__top');
+		const headerTop = this.headerEl.querySelector('.o-header-services__top');
 
 		return shiftItems ? this.navList.appendChild(relatedContent) : headerTop.appendChild(relatedContent);
 	}

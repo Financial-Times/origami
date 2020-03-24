@@ -37,7 +37,7 @@ class DropDown {
 				return;
 			}
 
-			let target = e.target.closest('li');
+			const target = e.target.closest('li');
 			if (!DropDown.isExpanded(target) && e.target.type === 'button') {
 				if (!this.isDrawer()) {
 					DropDown.collapseAll(this.navItems);
@@ -86,7 +86,7 @@ class DropDown {
 	 * Expands closed nav menu
 	 */
 	static expand(item) {
-		let childList = item.querySelector('ul');
+		const childList = item.querySelector('ul');
 		item.setAttribute('aria-expanded', true);
 		childList.setAttribute('aria-hidden', false);
 		DropDown.position(childList);
@@ -105,7 +105,7 @@ class DropDown {
 	 * Collapses open nav menu
 	 */
 	static collapse(item) {
-		let childList = item.querySelector('ul');
+		const childList = item.querySelector('ul');
 		item.setAttribute('aria-expanded', false);
 		childList.setAttribute('aria-hidden', true);
 	}
