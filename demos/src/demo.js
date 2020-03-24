@@ -1,10 +1,10 @@
 import './../../main.js';
 
 function setWidths () {
-	let selection = document.querySelector('#select-scale');
+	const selection = document.querySelector('#select-scale');
 
 	if (selection) {
-		let text = document.querySelector('p');
+		const text = document.querySelector('p');
 		selection.addEventListener('change', () => {
 			text.classList = '';
 			text.classList.add('line-width-demo__scale');

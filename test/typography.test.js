@@ -105,12 +105,12 @@ describe("Typography", () => {
 	describe("checkOptions", () => {
 
 		it("sets opts.fontLoadedCookieName to o-typography-fonts-loaded if not specified", ()=>{
-			let opts = Typography.checkOptions({});
+			const opts = Typography.checkOptions({});
 			proclaim.strictEqual(opts.fontLoadedCookieName, 'o-typography-fonts-loaded');
 		});
 
 		it("returns the opts object", () => {
-			let opts = Typography.checkOptions({});
+			const opts = Typography.checkOptions({});
 			proclaim.isObject(opts);
 		});
 	});
