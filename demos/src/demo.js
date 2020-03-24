@@ -6,8 +6,8 @@ if (toggle && canvas) {
 		const classes = ['demo-on', 'demo-off'];
 		const status = canvas.classList.contains(classes[0]);
 
-		canvas.classList.add(classes[+status]);
-		canvas.classList.remove(classes[+!status]);
+		canvas.classList.add(classes[Number(status)]);
+		canvas.classList.remove(classes[Number(!status)]);
 
 		toggle.disabled = true;
 
