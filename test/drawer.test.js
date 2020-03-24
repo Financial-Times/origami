@@ -18,11 +18,11 @@ describe('Drawer instance', () => {
 		});
 
 		it('sets a timeout for a callback if the drawer does not take up the full screen', () => {
-			let originalWindowValue = window.innerWidth;
+			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 401;
 
-			let scope = { offsetWidth: 400 };
-			let callback = () => {};
+			const scope = { offsetWidth: 400 };
+			const callback = () => {};
 
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();
@@ -32,11 +32,11 @@ describe('Drawer instance', () => {
 		});
 
 		it('does nothing if the drawer is full width', () => {
-			let originalWindowValue = window.innerWidth;
+			const originalWindowValue = window.innerWidth;
 			window.innerWidth = 400;
 
-			let scope = { offsetWidth: 401 };
-			let callback = () => {};
+			const scope = { offsetWidth: 401 };
+			const callback = () => {};
 
 
 			Drawer.handleCloseEvents(scope, callback).handleMouseleave();

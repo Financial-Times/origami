@@ -11,19 +11,19 @@ function init(headerEl) {
 	const wrapper = subnav.querySelector('[data-o-header-subnav-wrapper]');
 
 	let scrollWidth;
-	let wrapperWidth = wrapper.clientWidth;
+	const wrapperWidth = wrapper.clientWidth;
 
 	function checkCurrentPosition() {
 		const currentSelection = wrapper.querySelector('[aria-current]');
 		if (currentSelection) {
-			let currentSelectionEnd = currentSelection.getBoundingClientRect().right;
+			const currentSelectionEnd = currentSelection.getBoundingClientRect().right;
 
 			//if the current selection is wider than the end of the wrapper
 			if (currentSelectionEnd > wrapperWidth) {
 				// check by how much
 				let diff = currentSelectionEnd - wrapperWidth;
 				// if the difference is greater than half of the wrapper, scroll to the end of the current selection.
-				diff = (diff > wrapperWidth / 2) ? currentSelectionEnd : wrapperWidth / 2;
+				diff = diff > wrapperWidth / 2 ? currentSelectionEnd : wrapperWidth / 2;
 
 				wrapper.scrollTo(diff, 0);
 			}
