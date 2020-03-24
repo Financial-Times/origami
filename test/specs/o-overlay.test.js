@@ -21,19 +21,19 @@ describe("Overlay", () => {
 
 	describe("Constructor", () => {
 		it("Adds itself to the overlays array", () => {
-			let testOverlay = new Overlay('myID', {html: 'hello'});
+			const testOverlay = new Overlay('myID', {html: 'hello'});
 			proclaim.strictEqual(Overlay.getOverlays()['myID'], testOverlay);
 		});
 
 		it("Sets up delegates", () => {
-			let testOverlay = new Overlay('myID', {html: 'hello'});
+			const testOverlay = new Overlay('myID', {html: 'hello'});
 			proclaim.isTypeOf(testOverlay.delegates.doc, 'object');
 			proclaim.isTypeOf(testOverlay.delegates.wrap, 'object');
 			proclaim.isTypeOf(testOverlay.delegates.context, 'object');
 		});
 
 		it("Allows the heading to be optional", () => {
-			let testOverlay = new Overlay('myID', {html: 'hello'});
+			const testOverlay = new Overlay('myID', {html: 'hello'});
 			proclaim.strictEqual(testOverlay.heading, undefined);
 		});
 
@@ -82,8 +82,8 @@ describe("Overlay", () => {
 		});
 
 		it("Adds an event listener to the trigger if one has been set", (done) => {
-			let openSpy = sinon.spy(Overlay.prototype, 'open');
-			let closeSpy = sinon.spy(Overlay.prototype, 'close');
+			const openSpy = sinon.spy(Overlay.prototype, 'open');
+			const closeSpy = sinon.spy(Overlay.prototype, 'close');
 			document.getElementById('testTrigger').click();
 			proclaim.isFalse(openSpy.called);
 			proclaim.isFalse(closeSpy.called);
@@ -201,7 +201,7 @@ describe("Overlay", () => {
 			// meaning the overlay will expand to the size of the viewport and allow scrolling for its child div, not become the size of the child div
 			testOverlay.realign();
 
-			const viewportHeight = (window.innerHeight - borders) + 'px';
+			const viewportHeight = window.innerHeight - borders + 'px';
 			proclaim.equal(overlayContent.style.height, viewportHeight);
 		});
 	});

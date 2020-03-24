@@ -57,7 +57,7 @@ const triggerClickHandler = function(id, ev) {
 };
 
 const isVisible = function (element) {
-	return !!element.offsetHeight;
+	return Boolean(element.offsetHeight);
 };
 
 const focusTrap = function(event) {

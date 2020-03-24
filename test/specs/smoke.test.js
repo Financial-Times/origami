@@ -218,8 +218,8 @@ describe("smoke-tests (./overlay.js)", function() {
 			Overlay.prototype.close = stubbedCloseFunction;
 
 			const trigger = document.querySelector('.o-overlay-trigger');
-			let overlays = Overlay.init();
-			let currentOverlay = overlays[0];
+			const overlays = Overlay.init();
+			const currentOverlay = overlays[0];
 
 			o.fireEvent(trigger, 'click');
 
@@ -252,8 +252,8 @@ describe("smoke-tests (./overlay.js)", function() {
 
 			const trigger = document.querySelector('.o-overlay-trigger');
 			trigger.setAttribute('data-o-overlay-layer', 'false');
-			let overlays = Overlay.init();
-			let currentOverlay = overlays[0];
+			const overlays = Overlay.init();
+			const currentOverlay = overlays[0];
 
 			o.fireEvent(trigger, 'click');
 
