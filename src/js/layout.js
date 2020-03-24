@@ -14,7 +14,7 @@ class Layout {
 		const isQueryLayout = this.layoutEl.classList.contains('o-layout--query');
 
 		this.options = Object.assign({}, {
-			constructNav: (isDocsLayout ? true : false),
+			constructNav: isDocsLayout ? true : false,
 			navHeadingSelector: 'h1, h2, h3',
 			linkHeadings: true,
 			linkedHeadingSelector: 'h1, h2, h3, h4, h5, h6',
@@ -55,7 +55,7 @@ class Layout {
 	 */
 	static _getContentFromHeading(heading) {
 		const contentElement = heading.querySelector(`.o-layout__linked-heading__content`);
-		const headingText = (contentElement ? contentElement.textContent : heading.textContent);
+		const headingText = contentElement ? contentElement.textContent : heading.textContent;
 		return headingText;
 	}
 
@@ -81,9 +81,9 @@ class Layout {
 		}, []);
 
 		// Create the nav markup.
-		let nav = document.createElement('nav');
+		const nav = document.createElement('nav');
 		nav.classList.add(`o-layout__navigation`);
-		let list = document.createElement('ol');
+		const list = document.createElement('ol');
 		list.classList.add(`o-layout__unstyled-element`);
 		const listInnerHTML = Array.from(headingsWithHierarchy).reduce((html, heading) => {
 			const pageTitleClass = heading.nodeName === 'H1' ? 'o-layout__navigation-title' : '';
@@ -150,10 +150,10 @@ class Layout {
 				const headingsScrolledPast = this.navHeadings.filter(
 					heading => heading.getBoundingClientRect().y <= currentHeadingBuffer
 				);
-				const currentHeading = (headingsScrolledPast.length ? headingsScrolledPast[headingsScrolledPast.length - 1] : null);
+				const currentHeading = headingsScrolledPast.length ? headingsScrolledPast[headingsScrolledPast.length - 1] : null;
 				navAnchors.forEach(anchor => {
 					const current = currentHeading && `#${currentHeading.id}` === anchor.hash;
-					anchor.setAttribute('aria-current', (current ? 'location' : false));
+					anchor.setAttribute('aria-current', current ? 'location' : false);
 				});
 			});
 		}.bind(this), 300));
