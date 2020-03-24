@@ -3,7 +3,7 @@ import utils from '../utils';
 import Queue from './queue';
 import transports from './transports';
 
-const isIe11 = function () { return !!window.MSInputMethodContext && !!document.documentMode; };
+const isIe11 = function () { return Boolean(window.MSInputMethodContext) && Boolean(document.documentMode); };
 /**
  * Default collection server.
  */
@@ -75,7 +75,7 @@ function sendRequest(request, callback) {
 		if (error) {
 			// If IE11 XHR error, try using image method
 			if (isIe11() && transport.name === 'xhr') {
-				let image_method = transports.get('image')();
+				const image_method = transports.get('image')();
 				// Append image label to transport value so that we know it tried xhr first
 				request.system.transport = [request.system.transport,image_method.name].join('-');
 				image_method.send(url, JSON.stringify(request));

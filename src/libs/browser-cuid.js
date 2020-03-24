@@ -26,7 +26,7 @@ const randomBlock = function randomBlock() {
 };
 
 const safeCounter = () => {
-	c = (c < discreteValues) ? c : 0;
+	c = c < discreteValues ? c : 0;
 	c++; // this is not subliminal
 	return c - 1;
 };
@@ -40,7 +40,7 @@ const api = function cuid() {
 	// timestamp
 	// warning: this exposes the exact date and time
 	// that the uid was created.
-	const timestamp = (new Date().getTime()).toString(base);
+	const timestamp = new Date().getTime().toString(base);
 
 	// Prevent same-machine collisions.
 	let counter;
@@ -55,7 +55,7 @@ const api = function cuid() {
 
 	counter = pad(safeCounter().toString(base), blockSize);
 
-	return (letter + timestamp + counter + fingerprint + random);
+	return letter + timestamp + counter + fingerprint + random;
 };
 
 api.slug = function slug() {
@@ -78,7 +78,7 @@ api.globalCount = function globalCount() {
 	const cache = (function calc() {
 		let count = 0;
 
-		for (let i in window) { // eslint-disable-line no-unused-vars, guard-for-in
+		for (const i in window) { // eslint-disable-line no-unused-vars, guard-for-in
 			count++;
 		}
 

@@ -19,7 +19,7 @@ const track = eventData => {
 	const firstDomPathToken = eventData.context.domPathTokens[0];
 	const href = firstDomPathToken.href || null;
 	const oTrackingSkipQueueAttr = firstDomPathToken['data-o-tracking-skip-queue'];
-	const skipQueue = (oTrackingSkipQueueAttr && oTrackingSkipQueueAttr.toLowerCase() === 'true') || false;
+	const skipQueue = oTrackingSkipQueueAttr && oTrackingSkipQueueAttr.toLowerCase() === 'true' || false;
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal && !skipQueue) {
