@@ -8,7 +8,7 @@ class Count {
 	constructor (countEl, opts = {}) {
 		this.countEl = countEl;
 		this.articleId = opts.articleId;
-		this.useStagingEnvironment = !!opts.useStagingEnvironment;
+		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
 	}
 
 	/**

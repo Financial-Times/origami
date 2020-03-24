@@ -14,7 +14,7 @@ class Stream {
 		this.streamEl = streamEl || document;
 		this.options = opts;
 		this.eventSeenTimes = {};
-		this.useStagingEnvironment = !!opts.useStagingEnvironment;
+		this.useStagingEnvironment = Boolean(opts.useStagingEnvironment);
 	}
 
 	init () {
@@ -167,13 +167,13 @@ class Stream {
 			return this.displayNamePrompt();
 		}
 
-		const eventNameExists = !!events.coralEventMap.get(name);
+		const eventNameExists = Boolean(events.coralEventMap.get(name));
 		const mappedEvent = eventNameExists ?
 			events.coralEventMap.get(name):
 			events.coralErrorMap.get(code);
 
 		if (mappedEvent) {
-			const now = +new Date;
+			const now = Number(new Date);
 			const delayInMilliseconds = 100;
 			const eventHasntBeenSeenRecently = !this.eventSeenTimes[mappedEvent.oComments] ||
 				now > this.eventSeenTimes[mappedEvent.oComments] + delayInMilliseconds;

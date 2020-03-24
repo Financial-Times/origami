@@ -17,7 +17,7 @@ module.exports = () => {
 		stream.renderSignedInMessage();
 		const containerEl = document.querySelector('.o-comments__signed-in-container');
 
-		proclaim.isTrue(!!containerEl);
+		proclaim.isTrue(Boolean(containerEl));
 	});
 
 	it("renders the display name in the 'Signed in as' message", () => {
