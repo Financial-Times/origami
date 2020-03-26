@@ -1,6 +1,6 @@
 # o-header [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-Responsive header for FT branded sites
+Responsive header for FT branded sites. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data.
 
 - [Markup](#markup)
 - [JavaScript](#JavaScript)
@@ -12,7 +12,7 @@ Responsive header for FT branded sites
 
 ## Markup
 
-As there are variations on the header, and the markup for each is specific and somewhat extensive, we recommend visiting the [component page](http://registry.origami.ft.com/components/o-header) in the registry to find the markup that is most suited to your product.
+As there are variations on the header, and the markup for each is specific and somewhat extensive, we recommend visiting the [component page](http://registry.origami.ft.com/components/o-header) in the registry to find the markup that is most suited to your product. The demo on the component page does not use real navigation data as it may become out of date. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data. The Origami Navigation Service is a JSON API which provides navigation structures for use across FT websites.
 
 _There are intentionally no classes to switch between logged in and out as we don't want to do that in the client side. This is left up to the product._
 

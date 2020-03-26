@@ -8,63 +8,63 @@
 	"nav": {
 		"mobile": [
 			{
-				"name": "Home",
+				"name": "xxxx",
 				"url": "#",
 				"selected": false
 			},
 			{
-				"name": "FastFT",
+				"name": "xxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "Markets Data",
+				"name": "xxxxxxx xxxx",
 				"url": "#"
 			}
 		],
 		"desktop": [
 			{
-				"name": "Home",
+				"name": "xxxx",
 				"url": "#",
 				"selected": true
 			},
 			{
-				"name": "World",
+				"name": "xxxxx",
 				"url": "#"
 			},
 			{
-				"name": "UK",
+				"name": "xx",
 				"url": "#"
 			},
 			{
-				"name": "Companies",
+				"name": "xxxxxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "Tech",
+				"name": "xxxx",
 				"url": "#"
 			},
 			{
-				"name": "Markets",
+				"name": "xxxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "Opinion",
+				"name": "xxxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "Work & Careers",
+				"name": "xxxx x xxxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "Life & Arts",
+				"name": "xxxx x xxxx",
 				"url": "#"
 			},
 			{
-				"name": "Graphics",
+				"name": "xxxxxxxx",
 				"url": "#"
 			},
 			{
-				"name": "How to spend it",
+				"name": "xxx xx xxxxx xx",
 				"url": "#"
 			}
 		],
@@ -74,309 +74,309 @@
 		"nav": [
 			{
 				"heading": {
-					"name": "Top sections"
+					"name": "xxx xxxxxxxx"
 				},
 				"items": [
 					{
-						"name": "Home",
+						"name": "xxxx",
 						"href": "#",
 						"selected": true,
 						"index": 0
 					},
 					{
-						"name": "World",
+						"name": "xxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "World Economy",
+								"name": "xxxxx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "UK",
+								"name": "xx",
 								"href": "#"
 							},
 							{
-								"name": "US",
+								"name": "xx",
 								"href": "#"
 							},
 							{
-								"name": "China",
+								"name": "xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Africa",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Asia Pacific",
+								"name": "xxxx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Emerging Markets",
+								"name": "xxxxxxxx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Europe",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Latin America",
+								"name": "xxxxx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Middle East and Africa",
+								"name": "xxxxxx xxxx xxx xxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 1
 					},
 					{
-						"name": "UK",
+						"name": "xx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "UK Economy",
+								"name": "xx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "UK Politics & Policy",
+								"name": "xx xxxxxxxx x xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "UK Companies",
+								"name": "xx xxxxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 2
 					},
 					{
-						"name": "Companies",
+						"name": "xxxxxxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "Energy",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Financials",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Health",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Industrials",
+								"name": "xxxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Media",
+								"name": "xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Retail & Consumer",
+								"name": "xxxxxx x xxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Technology",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Telecoms",
+								"name": "xxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Transport",
+								"name": "xxxxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 3
 					},
 					{
-						"name": "Markets",
+						"name": "xxxxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "Alphaville",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Markets Data",
+								"name": "xxxxxxx xxxx",
 								"href": "#"
 							},
 							{
-								"name": "Capital Markets",
+								"name": "xxxxxxx xxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Commodities",
+								"name": "xxxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Currencies",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Equities",
+								"name": "xxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Fund Management",
+								"name": "xxxx xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Trading",
+								"name": "xxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 4
 					},
 					{
-						"name": "Opinion",
+						"name": "xxxxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "Columnists",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "FT View",
+								"name": "xx xxxx",
 								"href": "#"
 							},
 							{
-								"name": "The Big Read",
+								"name": "xxx xxx xxxx",
 								"href": "#"
 							},
 							{
-								"name": "Lex",
+								"name": "xxx",
 								"href": "#"
 							},
 							{
-								"name": "Alphaville",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Obituaries",
+								"name": "xxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Letters",
+								"name": "xxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 5
 					},
 					{
-						"name": "Work & Careers",
+						"name": "xxxx x xxxxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "Business School Rankings",
+								"name": "xxxxxxxx xxxxxx xxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Business Education",
+								"name": "xxxxxxxx xxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Entrepreneurship",
+								"name": "xxxxxxxxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Recruitment",
+								"name": "xxxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Business Books",
+								"name": "xxxxxxxx xxxxx",
 								"href": "#"
 							}
 						],
 						"index": 6
 					},
 					{
-						"name": "Life & Arts",
+						"name": "xxxx x xxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "House & Home",
+								"name": "xxxxx x xxxx",
 								"href": "#"
 							},
 							{
-								"name": "Books",
+								"name": "xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Food & Drink",
+								"name": "xxxx x xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Travel",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Style",
+								"name": "xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Arts",
+								"name": "xxxx",
 								"href": "#"
 							},
 							{
-								"name": "Sports",
+								"name": "xxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Music",
+								"name": "xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Film, TV & Radio",
+								"name": "xxxxx xx x xxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Magazine",
+								"name": "xxxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 7
 					},
 					{
-						"name": "Personal Finance",
+						"name": "xxxxxxxx xxxxxxx",
 						"href": "#",
 						"hasChildren": true,
 						"children": [
 							{
-								"name": "Property & Mortgages",
+								"name": "xxxxxxxx x xxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Investments",
+								"name": "xxxxxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Pensions",
+								"name": "xxxxxxxx",
 								"href": "#"
 							},
 							{
-								"name": "Tax",
+								"name": "xxx",
 								"href": "#"
 							},
 							{
-								"name": "Bankings & Savings",
+								"name": "xxxxxxxx x xxxxxxx",
 								"href": "#"
 							}
 						],
 						"index": 8
 					},
 					{
-						"name": "Science & Environment",
+						"name": "xxxxxxx x xxxxxxxxxxx",
 						"href": "#",
 						"index": 9
 					}
@@ -384,41 +384,41 @@
 			},
 			{
 				"heading": {
-					"name": "FT recommends"
+					"name": "xx xxxxxxxxxx"
 				},
 				"items": [
 					{
-						"name": "Lex",
+						"name": "xxx",
 						"href": "#",
 						"index": 0
 					},
 					{
-						"name": "Alphaville",
+						"name": "xxxxxxxxxx",
 						"href": "#",
 						"index": 1
 					},
 					{
-						"name": "Lunch with the FT",
+						"name": "xxxxx xxxx xxx xx",
 						"href": "#",
 						"index": 2
 					},
 					{
-						"name": "Video",
+						"name": "xxxxx",
 						"href": "#",
 						"index": 3
 					},
 					{
-						"name": "Special Reports",
+						"name": "xxxxxxx xxxxxxx",
 						"href": "#",
 						"index": 4
 					},
 					{
-						"name": "News feed",
+						"name": "xxxx xxxx",
 						"href": "#",
 						"index": 5
 					},
 					{
-						"name": "Newsletters",
+						"name": "xxxxxxxxxxx",
 						"href": "#",
 						"index": 6
 					}
@@ -427,20 +427,20 @@
 			{
 				"items": [
 					{
-						"name": "My FT",
+						"name": "xx xx",
 						"href": "#",
 						"variation": "secondary",
 						"divide": true,
 						"index": 0
 					},
 					{
-						"name": "Portfolio",
+						"name": "xxxxxxxxx",
 						"href": "#",
 						"variation": "secondary",
 						"index": 1
 					},
 					{
-						"name": "Today's Paper",
+						"name": "xxxxxxx xxxxx",
 						"href": "#",
 						"variation": "secondary",
 						"index": 2
@@ -450,42 +450,42 @@
 		],
 		"editions": {
 			"current": {
-				"name": "UK",
+				"name": "xx",
 				"id": "uk"
 			},
 			"others": [
 				{
-					"name": "International",
+					"name": "xxxxxxxxxxxxx",
 					"id": "international"
 				}
 			]
 		},
 		"user": {
 			"isSignedIn": false,
-			"name": "User's name"
+			"name": "xxxxxx xxxx"
 		}
 	},
 	"subnav": true,
 	"currentNav": {
-		"name": "US & Canada",
+		"name": "xx x xxxxxx",
 		"selected": true,
 		"ancestors": [
 			{
-				"name": "World",
+				"name": "xxxxx",
 				"href": "#"
 			}
 		],
 		"children": [
 			{
-				"name": "US Economy",
+				"name": "xx xxxxxxx",
 				"href": "#"
 			},
 			{
-				"name": "US Politics & Policy",
+				"name": "xx xxxxxxxx x xxxxxx",
 				"href": "#"
 			},
 			{
-				"name": "US Companies",
+				"name": "xx xxxxxxxxx",
 				"href": "#"
 			}
 		]

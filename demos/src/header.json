@@ -1,468 +1,468 @@
 {
-	"anon": true,
-	"top": {
-		"hasMenu": true,
-		"hasMyFT": true
-	},
-	"search": true,
-	"nav": {
-		"mobile": [
-			{
-				"name": "Home",
-				"url": "#",
-				"selected": true
-			},
-			{
-				"name": "FastFT",
-				"url": "#"
-			},
-			{
-				"name": "Markets Data",
-				"url": "#"
-			}
-		],
-		"desktop": [
-			{
-				"name": "Home",
-				"url": "#",
-				"selected": true
-			},
-			{
-				"name": "World",
-				"url": "#"
-			},
-			{
-				"name": "UK",
-				"url": "#"
-			},
-			{
-				"name": "Companies",
-				"url": "#"
-			},
-			{
-				"name": "Tech",
-				"url": "#"
-			},
-			{
-				"name": "Markets",
-				"url": "#"
-			},
-			{
-				"name": "Opinion",
-				"url": "#"
-			},
-			{
-				"name": "Work & Careers",
-				"url": "#"
-			},
-			{
-				"name": "Life & Arts",
-				"url": "#"
-			},
-			{
-				"name": "Graphics",
-				"url": "#"
-			},
-			{
-				"name": "How to spend it",
-				"url": "#"
-			}
-		],
-		"isSignedIn": true
-	},
-	"drawer": {
-		"nav": [
-			{
-				"heading": {
-					"name": "Top sections"
-				},
-				"items": [
-					{
-						"name": "Home",
-						"href": "#",
-						"selected": true,
-						"index": 0
-					},
-					{
-						"name": "World",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "World Economy",
-								"href": "#"
-							},
-							{
-								"name": "UK",
-								"href": "#"
-							},
-							{
-								"name": "US",
-								"href": "#"
-							},
-							{
-								"name": "China",
-								"href": "#"
-							},
-							{
-								"name": "Africa",
-								"href": "#"
-							},
-							{
-								"name": "Asia Pacific",
-								"href": "#"
-							},
-							{
-								"name": "Emerging Markets",
-								"href": "#"
-							},
-							{
-								"name": "Europe",
-								"href": "#"
-							},
-							{
-								"name": "Latin America",
-								"href": "#"
-							},
-							{
-								"name": "Middle East and Africa",
-								"href": "#"
-							}
-						],
-						"index": 1
-					},
-					{
-						"name": "UK",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "UK Economy",
-								"href": "#"
-							},
-							{
-								"name": "UK Politics & Policy",
-								"href": "#"
-							},
-							{
-								"name": "UK Companies",
-								"href": "#"
-							}
-						],
-						"index": 2
-					},
-					{
-						"name": "Companies",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Energy",
-								"href": "#"
-							},
-							{
-								"name": "Financials",
-								"href": "#"
-							},
-							{
-								"name": "Health",
-								"href": "#"
-							},
-							{
-								"name": "Industrials",
-								"href": "#"
-							},
-							{
-								"name": "Media",
-								"href": "#"
-							},
-							{
-								"name": "Retail & Consumer",
-								"href": "#"
-							},
-							{
-								"name": "Technology",
-								"href": "#"
-							},
-							{
-								"name": "Telecoms",
-								"href": "#"
-							},
-							{
-								"name": "Transport",
-								"href": "#"
-							}
-						],
-						"index": 3
-					},
-					{
-						"name": "Markets",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Alphaville",
-								"href": "#"
-							},
-							{
-								"name": "Markets Data",
-								"href": "#"
-							},
-							{
-								"name": "Capital Markets",
-								"href": "#"
-							},
-							{
-								"name": "Commodities",
-								"href": "#"
-							},
-							{
-								"name": "Currencies",
-								"href": "#"
-							},
-							{
-								"name": "Equities",
-								"href": "#"
-							},
-							{
-								"name": "Fund Management",
-								"href": "#"
-							},
-							{
-								"name": "Trading",
-								"href": "#"
-							}
-						],
-						"index": 4
-					},
-					{
-						"name": "Opinion",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Columnists",
-								"href": "#"
-							},
-							{
-								"name": "FT View",
-								"href": "#"
-							},
-							{
-								"name": "The Big Read",
-								"href": "#"
-							},
-							{
-								"name": "Lex",
-								"href": "#"
-							},
-							{
-								"name": "Alphaville",
-								"href": "#"
-							},
-							{
-								"name": "Obituaries",
-								"href": "#"
-							},
-							{
-								"name": "Letters",
-								"href": "#"
-							}
-						],
-						"index": 5
-					},
-					{
-						"name": "Work & Careers",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Business School Rankings",
-								"href": "#"
-							},
-							{
-								"name": "Business Education",
-								"href": "#"
-							},
-							{
-								"name": "Entrepreneurship",
-								"href": "#"
-							},
-							{
-								"name": "Recruitment",
-								"href": "#"
-							},
-							{
-								"name": "Business Books",
-								"href": "#"
-							}
-						],
-						"index": 6
-					},
-					{
-						"name": "Life & Arts",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "House & Home",
-								"href": "#"
-							},
-							{
-								"name": "Books",
-								"href": "#"
-							},
-							{
-								"name": "Food & Drink",
-								"href": "#"
-							},
-							{
-								"name": "Travel",
-								"href": "#"
-							},
-							{
-								"name": "Style",
-								"href": "#"
-							},
-							{
-								"name": "Arts",
-								"href": "#"
-							},
-							{
-								"name": "Sports",
-								"href": "#"
-							},
-							{
-								"name": "Music",
-								"href": "#"
-							},
-							{
-								"name": "Film, TV & Radio",
-								"href": "#"
-							},
-							{
-								"name": "Magazine",
-								"href": "#"
-							}
-						],
-						"index": 7
-					},
-					{
-						"name": "Personal Finance",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Property & Mortgages",
-								"href": "#"
-							},
-							{
-								"name": "Investments",
-								"href": "#"
-							},
-							{
-								"name": "Pensions",
-								"href": "#"
-							},
-							{
-								"name": "Tax",
-								"href": "#"
-							},
-							{
-								"name": "Bankings & Savings",
-								"href": "#"
-							}
-						],
-						"index": 8
-					},
-					{
-						"name": "Science & Environment",
-						"href": "#",
-						"index": 9
-					}
-				]
-			},
-			{
-				"heading": {
-					"name": "FT recommends"
-				},
-				"items": [
-					{
-						"name": "Lex",
-						"href": "#",
-						"index": 0
-					},
-					{
-						"name": "Alphaville",
-						"href": "#",
-						"index": 1
-					},
-					{
-						"name": "Lunch with the FT",
-						"href": "#",
-						"index": 2
-					},
-					{
-						"name": "Video",
-						"href": "#",
-						"index": 3
-					},
-					{
-						"name": "Special Reports",
-						"href": "#",
-						"index": 4
-					},
-					{
-						"name": "News feed",
-						"href": "#",
-						"index": 5
-					},
-					{
-						"name": "Newsletters",
-						"href": "#",
-						"index": 6
-					}
-				]
-			},
-			{
-				"items": [
-					{
-						"name": "My FT",
-						"href": "#",
-						"variation": "secondary",
-						"divide": true,
-						"index": 0
-					},
-					{
-						"name": "Portfolio",
-						"href": "#",
-						"variation": "secondary",
-						"index": 1
-					},
-					{
-						"name": "Today's Paper",
-						"href": "#",
-						"variation": "secondary",
-						"index": 2
-					}
-				]
-			}
-		],
-		"editions": {
-			"current": {
-				"name": "UK",
-				"id": "uk"
-			},
-			"others": [
-				{
-					"name": "International",
-					"id": "international"
-				}
-			]
-		},
-		"user": {
-			"isSignedIn": false,
-			"name": "User's name"
-		}
-	}
+    "anon": true,
+    "top": {
+        "hasMenu": true,
+        "hasMyFT": true
+    },
+    "search": true,
+    "nav": {
+        "mobile": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true
+            },
+            {
+                "name": "xxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx xxxx",
+                "url": "#"
+            }
+        ],
+        "desktop": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true
+            },
+            {
+                "name": "xxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx x xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx x xxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxx xx xxxxx xx",
+                "url": "#"
+            }
+        ],
+        "isSignedIn": true
+    },
+    "drawer": {
+        "nav": [
+            {
+                "heading": {
+                    "name": "xxx xxxxxxxx"
+                },
+                "items": [
+                    {
+                        "name": "xxxx",
+                        "href": "#",
+                        "selected": true,
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx xxxx xxx xxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "name": "xx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxxxxxx x xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 2
+                    },
+                    {
+                        "name": "xxxxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx x xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 3
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 4
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx xxx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 5
+                    },
+                    {
+                        "name": "xxxx x xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxx xxxxxx xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 6
+                    },
+                    {
+                        "name": "xxxx x xxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxx x xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx x xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx xx x xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 7
+                    },
+                    {
+                        "name": "xxxxxxxx xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxx x xxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx x xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 8
+                    },
+                    {
+                        "name": "xxxxxxx x xxxxxxxxxxx",
+                        "href": "#",
+                        "index": 9
+                    }
+                ]
+            },
+            {
+                "heading": {
+                    "name": "xx xxxxxxxxxx"
+                },
+                "items": [
+                    {
+                        "name": "xxx",
+                        "href": "#",
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "href": "#",
+                        "index": 1
+                    },
+                    {
+                        "name": "xxxxx xxxx xxx xx",
+                        "href": "#",
+                        "index": 2
+                    },
+                    {
+                        "name": "xxxxx",
+                        "href": "#",
+                        "index": 3
+                    },
+                    {
+                        "name": "xxxxxxx xxxxxxx",
+                        "href": "#",
+                        "index": 4
+                    },
+                    {
+                        "name": "xxxx xxxx",
+                        "href": "#",
+                        "index": 5
+                    },
+                    {
+                        "name": "xxxxxxxxxxx",
+                        "href": "#",
+                        "index": 6
+                    }
+                ]
+            },
+            {
+                "items": [
+                    {
+                        "name": "xx xx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "divide": true,
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxxxxxx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "index": 1
+                    },
+                    {
+                        "name": "xxxxxxx xxxxx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "index": 2
+                    }
+                ]
+            }
+        ],
+        "editions": {
+            "current": {
+                "name": "xx",
+                "id": "uk"
+            },
+            "others": [
+                {
+                    "name": "xxxxxxxxxxxxx",
+                    "id": "international"
+                }
+            ]
+        },
+        "user": {
+            "isSignedIn": false,
+            "name": "xxxxxx xxxx"
+        }
+    }
 }

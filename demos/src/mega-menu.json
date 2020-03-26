@@ -1,863 +1,863 @@
 {
-	"anon": true,
-	"top": {
-		"hasMenu": true,
-		"hasMyFT": true
-	},
-	"search": true,
-	"nav": {
-		"mobile": [
-			{
-				"name": "Home",
-				"url": "#",
-				"selected": true
-			},
-			{
-				"name": "FastFT",
-				"url": "#"
-			},
-			{
-				"name": "Markets Data",
-				"url": "#"
-			}
-		],
-		"desktop": [
-			{
-				"name": "Home",
-				"url": "#",
-				"selected": true,
-				"index": 0
-			},
-			{
-				"name": "World",
-				"url": "#",
-				"index": 1,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All World",
-						"url": "#"
-					},
-					{
-						"name": "World Economy",
-						"url": "#"
-					},
-					{
-						"name": "US",
-						"url": "#"
-					},
-					{
-						"name": "Europe",
-						"url": "#"
-					},
-					{
-						"name": "Latin America",
-						"url": "#"
-					},
-					{
-						"name": "Asia Pacific",
-						"url": "#"
-					},
-					{
-						"name": "Africa",
-						"url": "#"
-					},
-					{
-						"name": "Middle East and Africa",
-						"url": "#"
-					},
-					{
-						"name": "Emerging Markets",
-						"url": "#"
-					},
-					{
-						"name": "Science & Environment",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "UK",
-				"url": "#",
-				"index": 2,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All UK",
-						"url": "#"
-					},
-					{
-						"name": "UK Politics & Policy",
-						"url": "#"
-					},
-					{
-						"name": "UK Economy",
-						"url": "#"
-					},
-					{
-						"name": "England",
-						"url": "#"
-					},
-					{
-						"name": "Scotland",
-						"url": "#"
-					},
-					{
-						"name": "Wales",
-						"url": "#"
-					},
-					{
-						"name": "N. Ireland",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "Companies",
-				"url": "#",
-				"index": 3,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All Companies",
-						"url": "#"
-					},
-					{
-						"name": "Technology",
-						"url": "#"
-					},
-					{
-						"name": "Financials",
-						"url": "#"
-					},
-					{
-						"name": "Energy",
-						"url": "#"
-					},
-					{
-						"name": "Retail & Consumer",
-						"url": "#"
-					},
-					{
-						"name": "Industrials",
-						"url": "#"
-					},
-					{
-						"name": "Telecoms",
-						"url": "#"
-					},
-					{
-						"name": "Health",
-						"url": "#"
-					},
-					{
-						"name": "Media",
-						"url": "#"
-					},
-					{
-						"name": "Transport",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "Markets",
-				"url": "#",
-				"index": 4,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All Markets",
-						"url": "#"
-					},
-					{
-						"name": "Markets Data",
-						"url": "#"
-					},
-					{
-						"name": "Commodities",
-						"url": "#"
-					},
-					{
-						"name": "Currencies",
-						"url": "#"
-					},
-					{
-						"name": "Equities",
-						"url": "#"
-					},
-					{
-						"name": "Capital Markets",
-						"url": "#"
-					},
-					{
-						"name": "Trading",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "Opinion",
-				"url": "#",
-				"index": 5,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All Opinion",
-						"url": "#"
-					},
-					{
-						"name": "FT View",
-						"url": "#"
-					},
-					{
-						"name": "The Big Read",
-						"url": "#"
-					},
-					{
-						"name": "Lex",
-						"url": "#"
-					},
-					{
-						"name": "Columnists",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "Work & Careers",
-				"url": "#",
-				"index": 6,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All Work & Career",
-						"url": "#"
-					},
-					{
-						"name": "Business Education",
-						"url": "#"
-					},
-					{
-						"name": "Management",
-						"url": "#"
-					},
-					{
-						"name": "Entrepreneurship",
-						"url": "#"
-					},
-					{
-						"name": "Recruitment",
-						"url": "#"
-					},
-					{
-						"name": "Business Books",
-						"url": "#"
-					}
-				]
-			},
-			{
-				"name": "Life & Arts",
-				"url": "#",
-				"index": 7,
-				"hasMega": true,
-				"articles": [
-					{
-						"title": "The UK expats voting for Brexit no matter what the cost",
-						"url": "#"
-					},
-					{
-						"title": "Lunch with the FT: Adair Turner",
-						"url": "#"
-					},
-					{
-						"title": "English carpenter who makes beehives that sell across the world",
-						"url": "#"
-					},
-					{
-						"title": "French ambassador urges UK to help shape a ‘reformed Europe’",
-						"url": "#"
-					},
-					{
-						"title": "Where do politicians live? How MPs across the world find city digs",
-						"url": "#"
-					}
-				],
-				"subsections": [
-					{
-						"name": "All Life & Arts",
-						"url": "#"
-					},
-					{
-						"name": "Magazine",
-						"url": "#"
-					},
-					{
-						"name": "House & Home",
-						"url": "#"
-					},
-					{
-						"name": "Books",
-						"url": "#"
-					},
-					{
-						"name": "Food & Drink",
-						"url": "#"
-					},
-					{
-						"name": "Travel",
-						"url": "#"
-					},
-					{
-						"name": "Style",
-						"url": "#"
-					},
-					{
-						"name": "Arts",
-						"url": "#"
-					},
-					{
-						"name": "Sports",
-						"url": "#"
-					},
-					{
-						"name": "Music",
-						"url": "#"
-					},
-					{
-						"name": "Film, TV & Radio",
-						"url": "#"
-					}
-				]
-			}
-		],
-		"isSignedIn": false
-	},
-	"drawer": {
-		"nav": [
-			{
-				"heading": {
-					"name": "Top sections"
-				},
-				"items": [
-					{
-						"name": "Home",
-						"href": "#",
-						"selected": true,
-						"index": 0
-					},
-					{
-						"name": "World",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "World Economy",
-								"href": "#"
-							},
-							{
-								"name": "UK",
-								"href": "#"
-							},
-							{
-								"name": "US",
-								"href": "#"
-							},
-							{
-								"name": "China",
-								"href": "#"
-							},
-							{
-								"name": "Africa",
-								"href": "#"
-							},
-							{
-								"name": "Asia Pacific",
-								"href": "#"
-							},
-							{
-								"name": "Emerging Markets",
-								"href": "#"
-							},
-							{
-								"name": "Europe",
-								"href": "#"
-							},
-							{
-								"name": "Latin America",
-								"href": "#"
-							},
-							{
-								"name": "Middle East and Africa",
-								"href": "#"
-							}
-						],
-						"index": 1
-					},
-					{
-						"name": "UK",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "UK Economy",
-								"href": "#"
-							},
-							{
-								"name": "UK Politics & Policy",
-								"href": "#"
-							},
-							{
-								"name": "UK Companies",
-								"href": "#"
-							}
-						],
-						"index": 2
-					},
-					{
-						"name": "Companies",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Energy",
-								"href": "#"
-							},
-							{
-								"name": "Financials",
-								"href": "#"
-							},
-							{
-								"name": "Health",
-								"href": "#"
-							},
-							{
-								"name": "Industrials",
-								"href": "#"
-							},
-							{
-								"name": "Media",
-								"href": "#"
-							},
-							{
-								"name": "Retail & Consumer",
-								"href": "#"
-							},
-							{
-								"name": "Technology",
-								"href": "#"
-							},
-							{
-								"name": "Telecoms",
-								"href": "#"
-							},
-							{
-								"name": "Transport",
-								"href": "#"
-							}
-						],
-						"index": 3
-					},
-					{
-						"name": "Markets",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Alphaville",
-								"href": "#"
-							},
-							{
-								"name": "Markets Data",
-								"href": "#"
-							},
-							{
-								"name": "Capital Markets",
-								"href": "#"
-							},
-							{
-								"name": "Commodities",
-								"href": "#"
-							},
-							{
-								"name": "Currencies",
-								"href": "#"
-							},
-							{
-								"name": "Equities",
-								"href": "#"
-							},
-							{
-								"name": "Fund Management",
-								"href": "#"
-							},
-							{
-								"name": "Trading",
-								"href": "#"
-							}
-						],
-						"index": 4
-					},
-					{
-						"name": "Opinion",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Columnists",
-								"href": "#"
-							},
-							{
-								"name": "FT View",
-								"href": "#"
-							},
-							{
-								"name": "The Big Read",
-								"href": "#"
-							},
-							{
-								"name": "Lex",
-								"href": "#"
-							},
-							{
-								"name": "Alphaville",
-								"href": "#"
-							},
-							{
-								"name": "Obituaries",
-								"href": "#"
-							},
-							{
-								"name": "Letters",
-								"href": "#"
-							}
-						],
-						"index": 5
-					},
-					{
-						"name": "Work & Careers",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Business School Rankings",
-								"href": "#"
-							},
-							{
-								"name": "Business Education",
-								"href": "#"
-							},
-							{
-								"name": "Entrepreneurship",
-								"href": "#"
-							},
-							{
-								"name": "Recruitment",
-								"href": "#"
-							},
-							{
-								"name": "Business Books",
-								"href": "#"
-							}
-						],
-						"index": 6
-					},
-					{
-						"name": "Life & Arts",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "House & Home",
-								"href": "#"
-							},
-							{
-								"name": "Books",
-								"href": "#"
-							},
-							{
-								"name": "Food & Drink",
-								"href": "#"
-							},
-							{
-								"name": "Travel",
-								"href": "#"
-							},
-							{
-								"name": "Style",
-								"href": "#"
-							},
-							{
-								"name": "Arts",
-								"href": "#"
-							},
-							{
-								"name": "Sports",
-								"href": "#"
-							},
-							{
-								"name": "Music",
-								"href": "#"
-							},
-							{
-								"name": "Film, TV & Radio",
-								"href": "#"
-							},
-							{
-								"name": "Magazine",
-								"href": "#"
-							}
-						],
-						"index": 7
-					},
-					{
-						"name": "Personal Finance",
-						"href": "#",
-						"hasChildren": true,
-						"children": [
-							{
-								"name": "Property & Mortgages",
-								"href": "#"
-							},
-							{
-								"name": "Investments",
-								"href": "#"
-							},
-							{
-								"name": "Pensions",
-								"href": "#"
-							},
-							{
-								"name": "Tax",
-								"href": "#"
-							},
-							{
-								"name": "Bankings & Savings",
-								"href": "#"
-							}
-						],
-						"index": 8
-					},
-					{
-						"name": "Science & Environment",
-						"href": "#",
-						"index": 9
-					}
-				]
-			},
-			{
-				"heading": {
-					"name": "FT recommends"
-				},
-				"items": [
-					{
-						"name": "Lex",
-						"href": "#",
-						"index": 0
-					},
-					{
-						"name": "Alphaville",
-						"href": "#",
-						"index": 1
-					},
-					{
-						"name": "Lunch with the FT",
-						"href": "#",
-						"index": 2
-					},
-					{
-						"name": "Video",
-						"href": "#",
-						"index": 3
-					},
-					{
-						"name": "Special Reports",
-						"href": "#",
-						"index": 4
-					},
-					{
-						"name": "News feed",
-						"href": "#",
-						"index": 5
-					},
-					{
-						"name": "Newsletters",
-						"href": "#",
-						"index": 6
-					}
-				]
-			},
-			{
-				"items": [
-					{
-						"name": "My FT",
-						"href": "#",
-						"variation": "secondary",
-						"divide": true,
-						"index": 0
-					},
-					{
-						"name": "Portfolio",
-						"href": "#",
-						"variation": "secondary",
-						"index": 1
-					},
-					{
-						"name": "Today's Paper",
-						"href": "#",
-						"variation": "secondary",
-						"index": 2
-					}
-				]
-			}
-		],
-		"editions": {
-			"current": {
-				"name": "UK",
-				"id": "uk"
-			},
-			"others": [
-				{
-					"name": "International",
-					"id": "international"
-				}
-			]
-		},
-		"user": {
-			"isSignedIn": false,
-			"name": "User's name"
-		}
-	}
+    "anon": true,
+    "top": {
+        "hasMenu": true,
+        "hasMyFT": true
+    },
+    "search": true,
+    "nav": {
+        "mobile": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true
+            },
+            {
+                "name": "xxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx xxxx",
+                "url": "#"
+            }
+        ],
+        "desktop": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true,
+                "index": 0
+            },
+            {
+                "name": "xxxxx",
+                "url": "#",
+                "index": 1,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx xxxx xxx xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxx x xxxxxxxxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xx",
+                "url": "#",
+                "index": 2,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xx xxxxxxxx x xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xx xxxxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xxxxxxxxx",
+                "url": "#",
+                "index": 3,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx x xxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#",
+                "index": 4,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxx xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#",
+                "index": 5,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xx xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxx xxx xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xxxx x xxxxxxx",
+                "url": "#",
+                "index": 6,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxx x xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx xxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx xxxxx",
+                        "url": "#"
+                    }
+                ]
+            },
+            {
+                "name": "xxxx x xxxx",
+                "url": "#",
+                "index": 7,
+                "hasMega": true,
+                "articles": [
+                    {
+                        "title": "The UK expats voting for Brexit no matter what the cost",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Lunch with the FT: Adair Turner",
+                        "url": "#"
+                    },
+                    {
+                        "title": "English carpenter who makes beehives that sell across the world",
+                        "url": "#"
+                    },
+                    {
+                        "title": "French ambassador urges UK to help shape a ‘reformed Europe’",
+                        "url": "#"
+                    },
+                    {
+                        "title": "Where do politicians live? How MPs across the world find city digs",
+                        "url": "#"
+                    }
+                ],
+                "subsections": [
+                    {
+                        "name": "xxx xxxx x xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx x xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxx x xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx",
+                        "url": "#"
+                    },
+                    {
+                        "name": "xxxxx xx x xxxxx",
+                        "url": "#"
+                    }
+                ]
+            }
+        ],
+        "isSignedIn": false
+    },
+    "drawer": {
+        "nav": [
+            {
+                "heading": {
+                    "name": "xxx xxxxxxxx"
+                },
+                "items": [
+                    {
+                        "name": "xxxx",
+                        "href": "#",
+                        "selected": true,
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx xxxx xxx xxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "name": "xx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxxxxxx x xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 2
+                    },
+                    {
+                        "name": "xxxxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx x xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 3
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx xxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 4
+                    },
+                    {
+                        "name": "xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx xxx xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 5
+                    },
+                    {
+                        "name": "xxxx x xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxx xxxxxx xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx xxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 6
+                    },
+                    {
+                        "name": "xxxx x xxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxx x xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx x xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxx xx x xxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 7
+                    },
+                    {
+                        "name": "xxxxxxxx xxxxxxx",
+                        "href": "#",
+                        "hasChildren": true,
+                        "children": [
+                            {
+                                "name": "xxxxxxxx x xxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxx",
+                                "href": "#"
+                            },
+                            {
+                                "name": "xxxxxxxx x xxxxxxx",
+                                "href": "#"
+                            }
+                        ],
+                        "index": 8
+                    },
+                    {
+                        "name": "xxxxxxx x xxxxxxxxxxx",
+                        "href": "#",
+                        "index": 9
+                    }
+                ]
+            },
+            {
+                "heading": {
+                    "name": "xx xxxxxxxxxx"
+                },
+                "items": [
+                    {
+                        "name": "xxx",
+                        "href": "#",
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxxxxxxx",
+                        "href": "#",
+                        "index": 1
+                    },
+                    {
+                        "name": "xxxxx xxxx xxx xx",
+                        "href": "#",
+                        "index": 2
+                    },
+                    {
+                        "name": "xxxxx",
+                        "href": "#",
+                        "index": 3
+                    },
+                    {
+                        "name": "xxxxxxx xxxxxxx",
+                        "href": "#",
+                        "index": 4
+                    },
+                    {
+                        "name": "xxxx xxxx",
+                        "href": "#",
+                        "index": 5
+                    },
+                    {
+                        "name": "xxxxxxxxxxx",
+                        "href": "#",
+                        "index": 6
+                    }
+                ]
+            },
+            {
+                "items": [
+                    {
+                        "name": "xx xx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "divide": true,
+                        "index": 0
+                    },
+                    {
+                        "name": "xxxxxxxxx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "index": 1
+                    },
+                    {
+                        "name": "xxxxxxx xxxxx",
+                        "href": "#",
+                        "variation": "secondary",
+                        "index": 2
+                    }
+                ]
+            }
+        ],
+        "editions": {
+            "current": {
+                "name": "xx",
+                "id": "uk"
+            },
+            "others": [
+                {
+                    "name": "xxxxxxxxxxxxx",
+                    "id": "international"
+                }
+            ]
+        },
+        "user": {
+            "isSignedIn": false,
+            "name": "xxxxxx xxxx"
+        }
+    }
 }

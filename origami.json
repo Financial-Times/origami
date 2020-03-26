@@ -44,35 +44,35 @@
 			"title": "Header",
 			"data": "demos/src/header.json",
 			"template": "demos/src/header.mustache",
-			"description": ""
+			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "mega-menu",
 			"title": "Mega menu",
 			"data": "demos/src/mega-menu.json",
 			"template": "demos/src/mega-menu.mustache",
-			"description": ""
+			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "subnav",
 			"title": "Header with subnav",
 			"data": "demos/src/subnav.json",
 			"template": "demos/src/subnav.mustache",
-			"description": ""
+			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "simple-header",
 			"title": "Simple header",
 			"data": "demos/src/header.json",
 			"template": "demos/src/simple-header.mustache",
-			"description": ""
+			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "transparent-header",
 			"title": "Transparent header",
 			"data": "demos/src/header.json",
 			"template": "demos/src/transparent-header.mustache",
-			"description": "",
+			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
 			"documentClasses": "demo-transparent"
 		},
 		{
@@ -80,7 +80,7 @@
 			"title": "Sticky header",
 			"data": "demos/src/header.json",
 			"template": "demos/src/sticky-header.mustache",
-			"description": "Sticky variation of the simple header",
+			"description": "Sticky variation of the simple header. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
 			"documentClasses": "demo-sticky"
 		},
 		{
@@ -88,7 +88,7 @@
 			"title": "Subbranded header",
 			"data": "demos/src/subbrand.json",
 			"template": "demos/src/subbrand.mustache",
-			"description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness."
+			"description": "For Subbrands of the FT, eg Alphaville or Life&Arts, a subheader can be added to mark out their subbrandness. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
 			"name": "grid-demo",
