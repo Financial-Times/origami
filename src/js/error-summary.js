@@ -32,7 +32,7 @@ class ErrorSummary {
 		div.classList.add('o-forms__error-summary');
 		div.setAttribute('aria-labelledby', 'error-summary');
 		div.setAttribute('role', 'alert');
-		div.innerHTML = '<h4 id="error-summary">There is a problem</h4>';
+		div.innerHTML = '<h4 class="o-forms__error-summary__heading" id="error-summary">There is a problem</h4>';
 
 		div.appendChild(ErrorSummary.createList(invalidInputs));
 		return div;
@@ -43,6 +43,7 @@ class ErrorSummary {
 	 */
 	static createList(inputs) {
 		const list = document.createElement('ul');
+		list.classList.add('o-forms__error-summary__list');
 		const fieldsInTheList = [];
 		inputs.forEach(input => {
 			// A field may contain multiple invalid inputs. E.g. a date field
@@ -77,18 +78,18 @@ class ErrorSummary {
 	 */
 	static createItem(input) {
 		const item = document.createElement('li');
+		item.classList.add('o-forms__error-summary__item');
 
 		// Return a error summary item which links to the input if an id exists.
 		if (input.id) {
 			const itemAnchor = ErrorSummary.createAnchor(input);
-			item.appendChild(itemAnchor);
-			return item;
+			return item.appendChild(itemAnchor);
 		}
-
 		// If no id exist return an error summary item without a link.
 		console.warn(`Could not link to an invalid input from the error summary. ` +
 			`Add a unique id attribute to the input element.`, input.element);
-		item.innerHTML = `<span>${input.label}</span>: ${input.error}`;
+
+		item.innerHTML = ErrorSummary._getItemContent(input);
 		return item;
 	}
 
@@ -100,12 +101,23 @@ class ErrorSummary {
 	static createAnchor(input) {
 		const anchor = document.createElement('a');
 		anchor.setAttribute('href', `#${input.id}`);
-		anchor.innerHTML = `<span>${input.label}</span>: ${input.error}`;
-		anchor.addEventListener('click', (e) => {
+		anchor.addEventListener('click', function(e) {
 			e.preventDefault();
-			document.querySelector(e.target.hash).focus();
-		});
+			document.getElementById(this.id).focus();
+		}.bind(input));
+		anchor.innerHTML = ErrorSummary._getItemContent(input);
 		return anchor;
+	}
+
+	/**
+	 * @access private
+	 * @param {Node} input - The input element which has an error
+	 * @return {Node}
+	 */
+	static _getItemContent(input) {
+		return '<span class="o-forms__error-summary__item-overview">' +
+			`${input.label}</span>: ` +
+			`<span class="o-forms__error-summary__item-detail">${input.error}</span>`;
 	}
 }
 

@@ -7,29 +7,29 @@
 		margin-bottom: $_o-forms-spacing-four;
 		padding: $_o-forms-spacing-three;
 
-		h4 {
+		.o-forms__error-summary__heading {
 			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
 			margin: 0 0 $_o-forms-spacing-one;
 		}
 
-		ul {
+		.o-forms__error-summary__list {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
 
-			span {
+			a {
+				color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+				display: inline-block;
+				font-weight: 400;
+				margin-top: $_o-forms-spacing-one;
+				text-decoration: none;
+				border-bottom: 1px solid _oFormsGet('invalid-base');
+			}
+
+			.o-forms__error-summary__item-overview {
 				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 			}
-		}
-
-		a {
-			color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
-			display: inline-block;
-			font-weight: 400;
-			margin-top: $_o-forms-spacing-one;
-			text-decoration: none;
-			border-bottom: 1px solid _oFormsGet('invalid-base');
 		}
 	}
 }

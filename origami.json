@@ -110,19 +110,18 @@
 			"data": "/demos/src/data/select.json"
 		},
 		{
+			"name": "interactive",
+			"title": "Interactive form demo",
+			"template": "/demos/src/interactive.mustache",
+			"description": "Illustrates validation and state behaviour with form JS",
+			"js": "demos/src/interactive.js"
+		},
+		{
 			"name": "pa11y",
 			"title": "Accessibility testing",
 			"template": "/demos/src/pa11y.mustache",
 			"description": "pa11y",
 			"data": "/demos/src/data/pa11y.json",
-			"hidden": true
-		},
-		{
-			"name": "interactive",
-			"title": "Interactive form demo",
-			"template": "/demos/src/interactive.mustache",
-			"description": "Illustrates validation and state behaviour with form JS",
-			"js": "demos/src/interactive.js",
 			"hidden": true
 		}
 	]
