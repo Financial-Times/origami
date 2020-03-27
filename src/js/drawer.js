@@ -107,7 +107,6 @@ class Drawer {
 
 		this._shiftRelatedContentList(this.enabled);
 		this.nav.classList.toggle(this.class.drawer, this.enabled);
-		this.nav.classList.toggle(this.class.open, !this.enabled);
 
 		this.nav.setAttribute('aria-hidden', this.enabled);
 	}

@@ -23,9 +23,9 @@ describe('Drawer', () => {
 	});
 
 	context('on viewports above 740px', () => {
-		it('primary nav is visibile', (done) => {
+		it('drawer is not enabled', (done) => {
 			setTimeout(() => {
-				proclaim.isTrue(primaryNav.classList.contains('o-header-services__primary-nav--open'));
+				proclaim.isFalse(primaryNav.classList.contains('o-header-services__primary-nav--drawer'));
 				done();
 			}, 100);
 		});
