@@ -57,4 +57,4 @@ const query = `
 </div>
 `;
 
-export default { docs, query, docsWithSubHeading};
+export { docs, query, docsWithSubHeading};
