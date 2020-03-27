@@ -1,16 +1,8 @@
 /* eslint-env mocha, sinon, proclaim */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import * as fixtures from './helpers/fixtures';
 
-sinon.assert.expose(proclaim, {
-	includeFail: false,
-	prefix: ''
-});
-
-const Share = require('./../main');
-
+import Share from './../main';
 
 let testShare;
 let shareEl;
