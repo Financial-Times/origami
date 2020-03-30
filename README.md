@@ -24,7 +24,7 @@ The basic structure of a simple footer has a theme and includes legal links, a c
 				<li><a href="#"><!-- legal link 3--></a></li>
 			</ul>
 		</div>
-		<div class="o-footer__copyright" role="contentinfo">
+		<div class="o-footer__copyright">
 			<small>
 				<!-- copyright notice -->
 			</small>
@@ -107,7 +107,7 @@ The width of the columns and the way they collapse on smaller viewports may be c
 			</h6>
 		</div>
 
-		<div class="o-footer__copyright" role="contentinfo">
+		<div class="o-footer__copyright">
 			<small>
 				<!-- copyright notice -->
 			</small>

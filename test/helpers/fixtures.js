@@ -98,7 +98,7 @@ function htmlCode () {
 				</h6>
 			</div>
 
-			<div class="o-footer__copyright" role="contentinfo">
+			<div class="o-footer__copyright">
 				<small>
 					Markets data delayed by at least 15 minutes. &#xA9; THE FINANCIAL TIMES LTD 2016.
 					<abbr title="Financial Times" aria-label="F T">FT</abbr> and &#x2020;Financial Times&#x2020; are trademarks of The Financial Times Ltd.<br>
