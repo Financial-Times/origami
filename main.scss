@@ -1,3 +1,4 @@
+@import "o-normalise/main";
 @import "o-spacing/main";
 @import "o-assets/main";
 @import "o-colors/main";
@@ -142,6 +143,10 @@
 	// Include the themes
 	@each $theme in $themes {
 		@include _oFooterTheme($theme);
+	}
+
+	.o-footer-visually-hidden {
+		@include oNormaliseVisuallyHidden();
 	}
 }
 

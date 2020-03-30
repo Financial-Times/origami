@@ -29,9 +29,9 @@ function htmlCode () {
 			<div class="o-footer__row">
 				<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
 					<div class="o-footer__matrix-group o-footer__matrix-group--1">
-						<h6 class="o-footer__matrix-title">
+						<h3 class="o-footer__matrix-title">
 							Support
-						</h6>
+						</h3>
 						<div class="o-footer__matrix-content" id="o-footer-section-0">
 								<div class="o-footer__matrix-column">
 										<a class="o-footer__matrix-link" href="//www.ft.com/help">Help</a>
@@ -40,9 +40,9 @@ function htmlCode () {
 						</div>
 					</div>
 					<div class="o-footer__matrix-group o-footer__matrix-group--1">
-						<h6 class="o-footer__matrix-title">
+						<h3 class="o-footer__matrix-title">
 							Legal &amp; Privacy
-						</h6>
+						</h3>
 						<div class="o-footer__matrix-content" id="o-footer-section-1">
 								<div class="o-footer__matrix-column">
 										<a class="o-footer__matrix-link" href="//www.ft.com/servicestools/help/terms">Terms &amp; Conditions</a>
@@ -53,9 +53,9 @@ function htmlCode () {
 						</div>
 					</div>
 					<div class="o-footer__matrix-group o-footer__matrix-group--2">
-						<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
+						<h3 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
 							Services
-						</h6>
+						</h3>
 						<div class="o-footer__matrix-content" id="o-footer-section-2">
 								<div class="o-footer__matrix-column">
 										<a class="o-footer__matrix-link" href="//sub.ft.com/spa_5">Individual Subscriptions</a>
@@ -72,9 +72,9 @@ function htmlCode () {
 						</div>
 					</div>
 					<div class="o-footer__matrix-group o-footer__matrix-group--2">
-						<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-3">
+						<h3 class="o-footer__matrix-title" aria-controls="o-footer-section-3">
 							Tools
-						</h6>
+						</h3>
 						<div class="o-footer__matrix-content" id="o-footer-section-3">
 								<div class="o-footer__matrix-column">
 										<a class="o-footer__matrix-link" href="//markets.ft.com/data/portfolio/dashboard">Portfolio</a>
@@ -93,9 +93,9 @@ function htmlCode () {
 					</div>
 				</nav>
 
-				<h6 class="o-footer__external-link o-footer__matrix-title">
+				<h3 class="o-footer__external-link o-footer__matrix-title">
 					<a class="o-footer__more-from-ft o-footer__matrix-title" href="http://ft.com/more-from-ft-group">More from the FT Group</a>
-				</h6>
+				</h3>
 			</div>
 
 			<div class="o-footer__copyright">

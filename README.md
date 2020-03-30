@@ -62,9 +62,9 @@ The width of the columns and the way they collapse on smaller viewports may be c
 		<div class="o-footer__row">
 			<nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title">
+					<h3 class="o-footer__matrix-title">
 						<!-- link group title -->
-					</h6>
+					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-0">
 						<div class="o-footer__matrix-column">
 								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
@@ -74,9 +74,9 @@ The width of the columns and the way they collapse on smaller viewports may be c
 				</div>
 
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h6 class="o-footer__matrix-title">
+					<h3 class="o-footer__matrix-title">
 						<!-- link group title -->
-					</h6>
+					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-1">
 						<div class="o-footer__matrix-column">
 							<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
@@ -86,9 +86,9 @@ The width of the columns and the way they collapse on smaller viewports may be c
 				</div>
 
 				<div class="o-footer__matrix-group o-footer__matrix-group--2">
-					<h6 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
+					<h3 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
 						Services
-					</h6>
+					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-2">
 							<div class="o-footer__matrix-column">
 								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
@@ -102,9 +102,9 @@ The width of the columns and the way they collapse on smaller viewports may be c
 				</div>
 			</nav>
 
-			<h6 class="o-footer__external-link o-footer__matrix-title">
+			<h3 class="o-footer__external-link o-footer__matrix-title">
 				<a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
-			</h6>
+			</h3>
 		</div>
 
 		<div class="o-footer__copyright">
