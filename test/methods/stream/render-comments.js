@@ -19,7 +19,7 @@ module.exports = () => {
 
 		const scriptTag = document.querySelector('script[src="https://ft.coral.coralproject.net/assets/js/embed.js"]');
 
-		proclaim.isTrue(!!scriptTag);
+		proclaim.isTrue(Boolean(scriptTag));
 	});
 
 	it("creates a script tag for staging environment", () => {
@@ -30,6 +30,6 @@ module.exports = () => {
 
 		const scriptTag = document.querySelector('script[src="https://ft.staging.coral.coralproject.net/assets/js/embed.js"]');
 
-		proclaim.isTrue(!!scriptTag);
+		proclaim.isTrue(Boolean(scriptTag));
 	});
 };

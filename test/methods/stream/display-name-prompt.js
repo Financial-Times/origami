@@ -22,7 +22,7 @@ module.exports = () => {
 
 		document.addEventListener('oOverlay.ready', () => {
 			const displayNameForm = document.getElementById('o-comments-displayname-form');
-			proclaim.isTrue(!!displayNameForm);
+			proclaim.isTrue(Boolean(displayNameForm));
 		});
 	});
 };
