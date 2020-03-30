@@ -2,6 +2,7 @@
 
 import * as fixtures from './helpers/fixtures';
 
+import proclaim from 'proclaim';
 import Share from './../main';
 
 let testShare;
