@@ -96,5 +96,17 @@
 			transform: rotate(-180deg);
 		}
 	}
+
+	// Used to disable transitions between drawer states on viewport
+	// resize. They should only happen on direct user interaction.
+	.o-header-services--disable-transition {
+		.o-header-services__drop-down-button:after {
+			transition: none;
+		}
+		// Drop down list.
+		ul[data-o-header-services-level="2"] {
+			transition: none;
+		}
+	}
 }
 // sass-lint:enable no-qualifying-elements

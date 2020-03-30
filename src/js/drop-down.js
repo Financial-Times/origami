@@ -9,6 +9,7 @@ class DropDown {
 	constructor(headerEl, drawer = null) {
 		this.primaryNav = headerEl.querySelector('.o-header-services__primary-nav');
 		this.drawer = drawer;
+		this.headerEl = headerEl;
 
 		this.navItems = [...headerEl.querySelectorAll('[data-o-header-services-level="1"]')];
 		this.navItems.forEach(item => {
@@ -22,8 +23,20 @@ class DropDown {
 		// the event listener is added to the body here to handle cases where a
 		// user might click anywhere else on the body to collapse open dropdowns
 		document.body.addEventListener('click', this);
-		window.addEventListener('resize', oUtils.debounce(() => this.reset(), 33));
 		window.addEventListener('keydown', this);
+
+		// When the drawer is enabled or disabled reset the dropdowns.
+		// The breakpoint the drawer is enabled is customisable with SASS,
+		// we use the drawer burger icon visibility to decide when it is enabled.
+		// Use ResizeObserver where supported to detect drawer icon changes where
+		// possible, otherwise fallback to a debounced resize listener.
+		if (ResizeObserver && this.drawer && this.drawer.burger) {
+			const resizeObserver = new ResizeObserver(this.reset.bind(this));
+			resizeObserver.observe(this.drawer.burger);
+		} else {
+			window.addEventListener('resize', oUtils.debounce(() => this.reset(), 33));
+		}
+
 	}
 
 	/**
@@ -69,10 +82,22 @@ class DropDown {
 	 * set to true remain expanded.
 	 */
 	reset() {
-		DropDown.collapseAll(this.navItems);
-		if (this.isDrawer()) {
-			DropDown.expandAll(DropDown.getCurrent(this.navItems));
-		}
+		// Disable transitions immediately. These should only happen on user
+		// interaction. We do not want the dropdowns to transition when we are
+		// resetting them i.e. due to the drawer being enabled on a viewport
+		// change.
+		this.headerEl.classList.add('o-header-services--disable-transition');
+		// In the next animation frame...
+		window.requestAnimationFrame(function () {
+			// Close all dropdowns except within the drawer only, where the
+			// dropdown for the current page should be open.
+			DropDown.collapseAll(this.navItems);
+			if (this.isDrawer()) {
+				DropDown.expandAll(DropDown.getCurrent(this.navItems));
+			}
+			// Enable transitions again, which should happen on user interaction
+			this.headerEl.classList.remove('o-header-services--disable-transition');
+		}.bind(this));
 	}
 
 	/**

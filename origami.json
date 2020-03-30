@@ -19,6 +19,9 @@
 		"required": [
 			"customevent",
 			"Array.from"
+		],
+		"optional": [
+			"ResizeObserverEntry"
 		]
 	},
 	"ci": {
