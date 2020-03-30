@@ -51,13 +51,21 @@ describe('Dropdown', () => {
 			proclaim.isTrue(attribute);
 		});
 
-		it('hides all menus if click outside of nav items', () => {
+		it('hides all menus if click outside of nav items', (done) => {
 			click(navItems[0], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'true';
-			proclaim.isTrue(attribute);
-			click(document, 'body');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'false';
-			proclaim.isTrue(attribute);
+			setTimeout(() => {
+				// Assert expanded dropdown
+				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				proclaim.isTrue(attribute);
+				// Click on body
+				click(document, 'body');
+				setTimeout(() => {
+					// Assert collapsed dropdown
+					attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+					proclaim.isTrue(attribute);
+					done();
+				}, 100); // allow time for requestAnimationFrame
+			}, 100); // allow time for requestAnimationFrame
 		});
 	});
 
