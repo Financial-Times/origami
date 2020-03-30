@@ -60,10 +60,6 @@
 			// sass-lint:enable no-vendor-prefixes
 			// working draft
 			scroll-behavior: smooth;
-			// Windows 8+
-			// sass-lint:disable no-vendor-prefixes
-			-ms-overflow-style: -ms-autohiding-scrollbar;
-			// sass-lint:enable no-vendor-prefixes
 
 			// sass-lint:disable no-misspelled-properties
 			scrollbar-color: oColorsByName('black-30') transparent;
