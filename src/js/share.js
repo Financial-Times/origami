@@ -116,7 +116,7 @@ function Share(rootEl, config) {
 	  */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];
-		templateUrl = templateUrl.replace('{{url}}', config.url)
+		templateUrl = templateUrl.replace('{{url}}', encodeURIComponent(config.url))
 			.replace('{{title}}', encodeURIComponent(config.title))
 			.replace('{{titleExtra}}', encodeURIComponent(config.titleExtra))
 			.replace('{{summary}}', encodeURIComponent(config.summary))
