@@ -7,7 +7,6 @@ All FT websites must have a cookie message. Using o-cookie-message will ensure y
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
-- [Customising o-cookie-message HTML](customising-o-cookie-message-html)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -16,10 +15,59 @@ All FT websites must have a cookie message. Using o-cookie-message will ensure y
 
 Use the following HTML to get a full width banner with the legal approved cookie message.
 
-```diff
+```html
 <div data-o-component="o-cookie-message"></div>
 ```
-If you would like to construct an alternative cookie message, declare `data-o=cookie-message-theme="alternative"` on the div in the markup above, with the same JavaScript.
+
+Optionally add a theme attribute to change the colours of the cookie message `data-o=cookie-message-theme="alternative"`, see [`the registry demos`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner) for an example.
+
+### Custom Cookie Message
+
+To display custom cookie message content with default buttons, add child HTML:
+```html
+<div data-o-component="o-cookie-message" class="o-cookie-message">
+	<!-- custom cookie message copy / html here -->
+</div>
+```
+
+### Core Experience Cookie Message
+
+To support a core experience without JavaScript, add the full `o-cookie-message` markup as below. Update the anchors `redirect` query param with your sites URL, preferably the current page the cookie message is displayed on. This is used to send users back after setting cookie preferences in a core experience (where JavaScript is unavailable).
+
+```html
+<div data-o-component="o-cookie-message" class="o-cookie-message">
+	<div class="o-cookie-message__outer">
+		<div class="o-cookie-message__inner">
+			<div class="o-cookie-message__content">
+				<div class="o-cookie-message__heading">
+					<h2>Cookies on the FT</h2>
+				</div>
+				<p>
+					We use
+					<a href="http://help.ft.com/help/legal-privacy/cookies/"
+						class="o-cookie-message__link o-cookie-message__link--external"
+						target="_blank"
+						rel="noopener">cookies</a>
+					for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and
+					ads, providing social media features and to analyse how our Sites are used.
+				</p>
+			</div>
+
+			<div class="o-cookie-message__actions">
+				<div class="o-cookie-message__action">
+					<a href="https://consent.ft.com/__consent/consent-record-cookie?redirect=#" class="o-cookie-message__button">
+						Accept &amp; continue
+					</a>
+				</div>
+
+				<div class="o-cookie-message__action o-cookie-message__action--secondary">
+					<a href="https://cookies.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
 
 ## JavaScript
 
@@ -34,7 +82,7 @@ There are two available variations of o-cookie-message: `standard` and `alternat
 If you would like to initialise a `standard` cookie message, you will need to implement the following:
 
 ```js
-const oCookieMessage = require('o-cookie-message');
+import oCookieMessage from 'o-cookie-message';
 
 const cookieMessage = new oCookieMessage();
 ```
@@ -42,7 +90,7 @@ const cookieMessage = new oCookieMessage();
 If you would like to initialise a `alternative` cookie message without declaring the data attribute in the markup, you will need to implement the following:
 
 ```js
-const oCookieMessage = require('o-cookie-message');
+import oCookieMessage from 'o-cookie-message';
 const cookieMessage = new oCookieMessage(null, { theme: 'alternative' });
 ```
 
@@ -67,17 +115,17 @@ You may listen to three events that bubble out from the oCookieMessage DOM eleme
 
 Use `@include oCookieMessage()` to include styles for all themes.
 
-Themes may be included granularly with an $opts map.
+Themes may be included granularly with an `$opts` map.
 
 Include all themes:
 
-```
+```scss
 @include oCookieMessage();
 ```
 
 Include only the [`standard`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner) theme:
 
-```
+```scss
 @include oCookieMessage($opts: (
   $themes: ('standard')
 ));
@@ -85,24 +133,11 @@ Include only the [`standard`](https://registry.origami.ft.com/components/o-cooki
 
 Include only the [`alternative`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner) theme:
 
-```
+```scss
 @include oCookieMessage($opts: (
   $themes: ('alternative')
 ));
 ```
-
-## Customising o-cookie-message HTML
-
-The default behaviour for this component is to populate any div with a `data-o-component` attribute of `o-cookie-message` with some HTML and a cookie message approved by the FT legal team.
-
-If you need a different message, this can be added with HTML of your choosing. For example:
-```html
-<div data-o-component="o-cookie-message">
-	<h2>My Cookies</h2>
-	<p>A message about those specific cookies, here.</p>
-</div>
-```
-o-cookie-message will incorporate that HTML into its content, and build the rest of the banner normally.
 
 ## Migration
 
