@@ -67,15 +67,12 @@
 			margin-bottom: 0;
 		}
 
+		// Styling h1 elements within cookie message content
+		// is redundant but may be relied upon by users who
+		// have chosen to use custom markup.
+		// @breaking - remove `.o-cookie-message__content h1` styles
 		h1 {
 			@include oTypographySans($scale: 0);
-		}
-
-		@include oGridRespondTo($until: M) {
-			&,
-			h1 {
-				@include oTypographySans($scale: 0);
-			}
 		}
 	}
 
@@ -118,36 +115,29 @@
 // Standard cookie message styles (for master brand e.g. FT.com)
 @mixin _oCookieMessageStandard() {
 	.o-cookie-message {
+		// default headings used to include a h1,
+		// so style for backward compatibility for users with custom cookie message markup
+		.o-cookie-message__heading,
+		.o-cookie-message__heading h1,
+		.o-cookie-message__heading h2 {
+			@include oTypographySans(
+				$scale: ('default': 2, 'M': 3),
+				$weight: 'semibold'
+			);
+			margin: 0;
+		}
+
 		.o-cookie-message__heading {
-			h1 {
-				@include oTypographySans($scale: 3, $weight: 'semibold');
-				margin: 0;
-			}
+			padding-right: $_o-cookie-message-spacing;
+
 			&:after {
 				content: '';
 				display: block;
-				width: 100px;
-				margin-top: oSpacingByName('s2');
-				margin-bottom: oSpacingByName('s4');
-
-				border-bottom: oSpacingByIncrement(2) solid;
-				border-color: oColorsByName('teal');
-			}
-
-			@include oTypographySans($scale: 3);
-			padding-right: $_o-cookie-message-spacing;
-
-			@include oGridRespondTo($until: M) {
-				&,
-				h1 {
-					@include oTypographySans($scale: 2);
-				}
-			}
-			&:after {
+				width: 60px;
 				margin-top: oSpacingByName('s2');
 				margin-bottom: oSpacingByName('s3');
-				width: 60px;
-				border-bottom-width: oSpacingByIncrement(1);
+				border-bottom: oSpacingByIncrement(1) solid;
+				border-color: oColorsByName('teal');
 			}
 		}
 

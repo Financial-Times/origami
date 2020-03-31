@@ -98,9 +98,7 @@ The default behaviour for this component is to populate any div with a `data-o-c
 If you need a different message, this can be added with HTML of your choosing. For example:
 ```html
 <div data-o-component="o-cookie-message">
-	<header>
-		<h1>My Cookies</h1>
-	</header>
+	<h2>My Cookies</h2>
 	<p>A message about those specific cookies, here.</p>
 </div>
 ```

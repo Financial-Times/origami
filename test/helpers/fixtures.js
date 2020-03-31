@@ -38,9 +38,9 @@ export const html = {
 
 			<div class="o-cookie-message__content">
 
-			<header class="o-cookie-message__heading">
-				<h1>Cookies on the FT</h1>
-			</header>
+			<div class="o-cookie-message__heading">
+				<h2>Cookies on the FT</h2>
+			</div>
 			<p>
 				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
@@ -68,9 +68,9 @@ export const html = {
 
 			<div class="o-cookie-message__content">
 
-			<header class="o-cookie-message__heading">
-				<h1>Cookies on the FT</h1>
-			</header>
+			<div class="o-cookie-message__heading">
+				<h2>Cookies on the FT</h2>
+			</div>
 			<p>
 				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
