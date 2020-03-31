@@ -158,19 +158,14 @@ class Stream {
 			success: {
 				status
 			} = {},
-			error: {
-				code
-			} = {}
+			error
 		} = data;
 
 		if (name === 'loginPrompt' && this.userHasValidSession) {
 			return this.displayNamePrompt();
 		}
 
-		const eventNameExists = Boolean(events.coralEventMap.get(name));
-		const mappedEvent = eventNameExists ?
-			events.coralEventMap.get(name):
-			events.coralErrorMap.get(code);
+		const mappedEvent = events.coralEventMap.get(name);
 
 		if (mappedEvent) {
 			const now = Number(new Date);
@@ -181,21 +176,30 @@ class Stream {
 			if (eventHasntBeenSeenRecently) {
 				this.eventSeenTimes[mappedEvent.oComments] = now;
 
-				const oCommentsEvent = new CustomEvent(mappedEvent.oComments, {
-					bubbles: true
-				});
+				const oCommentsEventOptions = { bubbles: true };
+				if (error) {
+					oCommentsEventOptions.detail = { error };
+				}
+
+				const oCommentsEvent = new CustomEvent(mappedEvent.oComments, oCommentsEventOptions);
 				this.streamEl.dispatchEvent(oCommentsEvent);
 
 				if (mappedEvent.oTracking && !this.options.disableOTracking) {
-					const oTrackingEvent = new CustomEvent('oTracking.event', {
+					const oTrackingEventOptions = {
+						bubbles: true,
 						detail: {
 							category: 'comment',
 							action: mappedEvent.oTracking,
 							coral: true,
 							isWithheld: status === 'SYSTEM_WITHHELD'
-						},
-						bubbles: true
-					});
+						}
+					};
+
+					if (error) {
+						oTrackingEventOptions.detail.error = error;
+					}
+
+					const oTrackingEvent = new CustomEvent('oTracking.event', oTrackingEventOptions);
 					document.body.dispatchEvent(oTrackingEvent);
 				}
 			}
