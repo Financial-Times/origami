@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-import proclaim from 'proclaim';
+/* global proclaim */
 
 import * as fixtures from './helpers/fixtures';
 import CookieMessage from './../src/js/cookie-message';
