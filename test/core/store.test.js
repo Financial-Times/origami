@@ -1,6 +1,6 @@
-/*global describe, it, document, navigator */
+/* eslint-env mocha */
+/* global proclaim */
 
-import assert from 'assert';
 import Store from '../../src/javascript/core/store';
 
 describe('Core.Store', function () {
@@ -8,16 +8,16 @@ describe('Core.Store', function () {
 	describe('init()', function () {
 
 		it('should use local storage by default', function () {
-			assert.equal((new Store('test')).storage._type, 'localStorage');
+			proclaim.equal((new Store('test')).storage._type, 'localStorage');
 		});
 
 		if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') > -1) {
 			it('should still work if there is no storage mechanism available', function () {
-				assert.equal((new Store('test', { storage: 'cookie' })).storage._type, 'none');
+				proclaim.equal((new Store('test', { storage: 'cookie' })).storage._type, 'none');
 			});
 		} else {
 			it('can use cookies for storage', function () {
-				assert.equal((new Store('test', { storage: 'cookie' })).storage._type, 'cookie');
+				proclaim.equal((new Store('test', { storage: 'cookie' })).storage._type, 'cookie');
 			});
 		}
 	});
@@ -26,13 +26,13 @@ describe('Core.Store', function () {
 
 	describe('write()', function () {
 		it('should save a value', function () {
-			assert.equal(store.write('TESTING').read(), 'TESTING');
+			proclaim.equal(store.write('TESTING').read(), 'TESTING');
 		});
 	});
 
 	describe('read()', function () {
 		it('should retrieve a value', function () {
-			assert.equal(store.read(), 'TESTING');
+			proclaim.equal(store.read(), 'TESTING');
 		});
 	});
 
@@ -43,7 +43,7 @@ describe('Core.Store', function () {
 			cookie_store.write(['one', 'two']);
 
 			cookie_store = new Store('test-cookies', { storage: 'cookie' });
-			assert.deepEqual(cookie_store.read(), ['one', 'two']);
+			proclaim.deepEqual(cookie_store.read(), ['one', 'two']);
 		});
 	});
 

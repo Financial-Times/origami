@@ -1,6 +1,8 @@
-/*global describe, it, before, after, sinon, document */
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import '../setup';
-import assert from 'assert';
+
 import Queue from '../../src/javascript/core/queue';
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';
@@ -58,7 +60,7 @@ describe('click', function () {
 
 		setTimeout(() => {
 
-			assert.equal(core.track.calledOnce, true, "click event tracked");
+			proclaim.equal(core.track.calledOnce, true, "click event tracked");
 
 			core.track.restore();
 			done();
@@ -94,7 +96,7 @@ describe('click', function () {
 		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			assert.equal(core.track.getCall(0).args[0].context.foo, 'bar');
+			proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
 
 			core.track.restore();
 			done();
@@ -130,7 +132,7 @@ describe('click', function () {
 
 		setTimeout(() => {
 
-			assert.equal(core.track.notCalled, true, "click event not tracked");
+			proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
 			core.track.restore();
 			done();
@@ -167,7 +169,7 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			assert.equal(core.track.notCalled, true, "click event not tracked");
+			proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
 			core.track.restore();
 			done();
@@ -205,7 +207,7 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			assert.equal(core.track.calledOnce, true, "click event not tracked");
+			proclaim.equal(core.track.calledOnce, true, "click event not tracked");
 
 			core.track.restore();
 			done();

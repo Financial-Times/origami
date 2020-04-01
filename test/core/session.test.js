@@ -1,6 +1,6 @@
-/*global describe, it, beforeEach, afterEach */
+/* eslint-env mocha */
+/* global proclaim */
 
-import assert from 'assert';
 import Store from '../../src/javascript/core/store';
 import Session from '../../src/javascript/core/session';
 
@@ -17,15 +17,15 @@ describe('Core.Session', function () {
 
 	describe('no preset value', function () {
 		it('should init', function () {
-			assert.doesNotThrow(function () {
+			proclaim.doesNotThrow(function () {
 				Session.init();
 			});
 		});
 
 		it('should use generate an ID if one does not exist', function () {
 			const session = Session.init();
-			assert.notEqual(session.id, null);
-			assert.equal(session.isNew, true);
+			proclaim.notEqual(session.id, null);
+			proclaim.equal(session.isNew, true);
 		});
 	});
 
@@ -33,8 +33,8 @@ describe('Core.Session', function () {
 		it('should use the existing value until it expires.', function () {
 			const session = Session.init();
 			const newSession = Session.session();
-			assert.equal(newSession.id, session.id);
-			assert.equal(newSession.isNew, false);
+			proclaim.equal(newSession.id, session.id);
+			proclaim.equal(newSession.isNew, false);
 		});
 	});
 

@@ -1,12 +1,12 @@
-/*global describe, it, sinon */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
-import assert from 'assert';
 import Utils from '../src/javascript/utils';
 
 describe('Utils', function () {
 
 	it('should provide log functionality', function () {
-		assert.ok(Utils.log);
+		proclaim.ok(Utils.log);
 	});
 
 	it('should provide is functionality', function () {
@@ -21,53 +21,53 @@ describe('Utils', function () {
 			{ value: {}, answer: 'object' },
 			{ value: function () {}, answer: 'function' }
 		].forEach(function (test) {
-			assert.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
+			proclaim.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
 		});
 	});
 
 	it('should provide isUndefined functionality', function () {
-		assert.ok(Utils.isUndefined(undefined));
+		proclaim.ok(Utils.isUndefined(undefined));
 	});
 
 	it('should provide merge functionality', function () {
-		assert.deepEqual(Utils.merge({ 'one' : 'one'}, { 'two': 'two' }), { 'one' : 'one', 'two': 'two' });
+		proclaim.deepEqual(Utils.merge({ 'one' : 'one'}, { 'two': 'two' }), { 'one' : 'one', 'two': 'two' });
 	});
 
 	it('should provide encode functionality', function () {
-		assert.equal(Utils.encode('http://www.ft.com?foo=bar&testing=yay!'), "http%3A%2F%2Fwww.ft.com%3Ffoo%3Dbar%26testing%3Dyay!");
+		proclaim.equal(Utils.encode('http://www.ft.com?foo=bar&testing=yay!'), "http%3A%2F%2Fwww.ft.com%3Ffoo%3Dbar%26testing%3Dyay!");
 	});
 
 	it('should provide guid generation', function () {
 		const guid = Utils.guid();
 		const re = /^\w{25}$/; // cifnulwv2000030ds4avpbm9f
-		assert.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{25}$/);
+		proclaim.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{25}$/);
 	});
 
 	describe('internal page event', function () {
 		const callback = sinon.spy();
 
 		it('should provide onPage functionality', function () {
-			assert.doesNotThrow(function () {
+			proclaim.doesNotThrow(function () {
 				Utils.onPage(callback);
 			});
 		});
 
 		it('should call the callback when page is triggered', function () {
 			Utils.triggerPage();
-			assert.ok(callback.called, 'callback was triggered.');
+			proclaim.ok(callback.called, 'callback was triggered.');
 		});
 	});
 
 	it('should provide getValueFromCookie functionality', function () {
-		assert.ok(Utils.getValueFromCookie);
+		proclaim.ok(Utils.getValueFromCookie);
 	});
 
 	it('should provide getValueFromUrl functionality', function () {
-		assert.ok(Utils.getValueFromUrl);
+		proclaim.ok(Utils.getValueFromUrl);
 	});
 
 	it('should provide getValueFromJsVariable functionality', function () {
-		assert.ok(Utils.getValueFromJsVariable);
+		proclaim.ok(Utils.getValueFromJsVariable);
 	});
 
 	it('should provide sanitise functionality', function () {
@@ -75,7 +75,7 @@ describe('Utils', function () {
 			{ param: '   with space  ', result: 'with space' },
 			{ param: 'noSpace', result: 'noSpace' }
 	 	].forEach(function (test) {
-			assert.equal(Utils.sanitise(test.param), test.result);
+			proclaim.equal(Utils.sanitise(test.param), test.result);
 		});
 	});
 
@@ -88,7 +88,7 @@ describe('Utils', function () {
 			}
 		].forEach(function (test) {
 			Utils.assignIfUndefined(test.subject, test.target);
-			assert.deepEqual(test.target, test.result);
+			proclaim.deepEqual(test.target, test.result);
 		});
 	});
 
@@ -109,7 +109,7 @@ describe('Utils', function () {
 				result: {}
 			}
 		].forEach(function (test) {
-			assert.deepEqual(Utils.whitelistProps(test.target, whitelist), test.result);
+			proclaim.deepEqual(Utils.whitelistProps(test.target, whitelist), test.result);
 		});
 	});
 

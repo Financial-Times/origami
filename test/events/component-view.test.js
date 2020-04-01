@@ -1,6 +1,8 @@
-/*global describe, it, before, after, sinon, document */
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import '../setup';
-import assert from 'assert';
+
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';
 import core from '../../src/javascript/core';
@@ -89,16 +91,16 @@ describe('component:view', () => {
 		});
 
 		it('should track an event for a component view ', () => {
-			assert.equal(errorThrown, undefined);
-			assert.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-			assert.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-			assert.equal(core.track.calledOnce, true, 'view event tracked');
+			proclaim.equal(errorThrown, undefined);
+			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+			proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+			proclaim.equal(core.track.calledOnce, true, 'view event tracked');
 		});
 
 		it('should track with correct detail', () => {
-			assert.equal(core.track.getCall(0).args[0].category, 'component');
-			assert.equal(core.track.getCall(0).args[0].action, 'view');
-			assert.ok(core.track.getCall(0).args[0].context.domPathTokens, true);
+			proclaim.equal(core.track.getCall(0).args[0].category, 'component');
+			proclaim.equal(core.track.getCall(0).args[0].action, 'view');
+			proclaim.ok(core.track.getCall(0).args[0].context.domPathTokens, true);
 		});
 	});
 
@@ -133,20 +135,20 @@ describe('component:view', () => {
 			});
 
 			it('should track an event for a component view', () => {
-				assert.equal(errorThrown, undefined);
-				assert.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-				assert.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-				assert.equal(core.track.calledOnce, true, 'view event tracked');
+				proclaim.equal(errorThrown, undefined);
+				proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+				proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+				proclaim.equal(core.track.calledOnce, true, 'view event tracked');
 			});
 
 			it('should track with correct detail', () => {
 				const trackedDetail = core.track.getCall(0).args[0];
 
-				assert.equal(trackedDetail.category, category);
-				assert.equal(trackedDetail.action, 'view');
-				assert.ok(trackedDetail.context.domPathTokens, true);
-				assert.equal(trackedDetail.context.componentContentId, id);
-				assert.equal(trackedDetail.context.type, type);
+				proclaim.equal(trackedDetail.category, category);
+				proclaim.equal(trackedDetail.action, 'view');
+				proclaim.ok(trackedDetail.context.domPathTokens, true);
+				proclaim.equal(trackedDetail.context.componentContentId, id);
+				proclaim.equal(trackedDetail.context.type, type);
 			});
 		});
 
@@ -163,10 +165,10 @@ describe('component:view', () => {
 				});
 
 				it('should throw an error', () => {
-					assert.equal(errorThrown.message, 'opts.getContextData is not a function');
-					assert.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					assert.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
-					assert.equal(core.track.calledOnce, false, 'view event tracked');
+					proclaim.equal(errorThrown.message, 'opts.getContextData is not a function');
+					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
+					proclaim.equal(core.track.calledOnce, false, 'view event tracked');
 				});
 			});
 
@@ -182,10 +184,10 @@ describe('component:view', () => {
 				});
 
 				it('should throw an error', () => {
-					assert.equal(errorThrown.message, 'opts.getContextData function should return {Object}');
-					assert.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					assert.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
-					assert.equal(core.track.calledOnce, false, 'view event tracked');
+					proclaim.equal(errorThrown.message, 'opts.getContextData function should return {Object}');
+					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
+					proclaim.equal(core.track.calledOnce, false, 'view event tracked');
 				});
 			});
 
@@ -206,17 +208,17 @@ describe('component:view', () => {
 				});
 
 				it('should not throw an error', () => {
-					assert.equal(errorThrown, undefined);
-					assert.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
-					assert.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-					assert.equal(core.track.calledOnce, true, 'view event tracked');
+					proclaim.equal(errorThrown, undefined);
+					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
+					proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
+					proclaim.equal(core.track.calledOnce, true, 'view event tracked');
 				});
 
 				it('should not have non-whitelist props in event detail', () => {
 					const trackedDetail = core.track.getCall(0).args[0];
 
-					assert.equal(trackedDetail.context.componentContentId, id);
-					assert.equal(trackedDetail.context.name, undefined);
+					proclaim.equal(trackedDetail.context.componentContentId, id);
+					proclaim.equal(trackedDetail.context.name, undefined);
 				});
 			});
 

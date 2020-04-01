@@ -1,6 +1,6 @@
-/*global describe, it, afterEach */
+/* eslint-env mocha */
+/* global proclaim */
 
-import assert from 'assert';
 import User from '../../src/javascript/core/user';
 
 describe('Core.User', function () {
@@ -13,13 +13,13 @@ describe('Core.User', function () {
 
 	describe('no preset value', function () {
 		it('should init', function () {
-			assert.doesNotThrow(function () {
+			proclaim.doesNotThrow(function () {
 				userID = User.init();
 			});
 		});
 
 		it('should use generate an ID if one does not exist', function () {
-			assert.equal(User.userID(), userID);
+			proclaim.equal(User.userID(), userID);
 		});
 	});
 
@@ -29,7 +29,7 @@ describe('Core.User', function () {
 		});
 
 		it('should retrieve the userID ', function () {
-			assert.equal(User.userID(), 'value1');
+			proclaim.equal(User.userID(), 'value1');
 		});
 
 		it('should use a string', function () {
@@ -37,7 +37,7 @@ describe('Core.User', function () {
 		});
 
 		it('should retrieve the userID ', function () {
-			assert.equal(User.userID(), 'value2');
+			proclaim.equal(User.userID(), 'value2');
 		});
 	});
 
@@ -45,7 +45,7 @@ describe('Core.User', function () {
 		it('should use the existing value, even if a new one is provided.', function () {
 			User.init('value2');
 			User.init('value3');
-			assert.equal(User.userID(), 'value2');
+			proclaim.equal(User.userID(), 'value2');
 		});
 	});
 

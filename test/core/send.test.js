@@ -1,6 +1,6 @@
-/*global describe, it, after, sinon, before */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
-import assert from 'assert';
 import Send from '../../src/javascript/core/send';
 import Queue from "../../src/javascript/core/queue";
 
@@ -40,13 +40,13 @@ describe('Core.Send', function () {
 	});
 
 	it('should init first', function () {
-		assert.doesNotThrow(function () {
+		proclaim.doesNotThrow(function () {
 			Send.init();
 		});
 	});
 
 	it('should add a request', function () {
-		assert.doesNotThrow(function () {
+		proclaim.doesNotThrow(function () {
 			Send.add(request);
 		});
 	});
@@ -76,15 +76,15 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.equal(typeof dummyXHR.onerror, 'function');
-				assert.equal(typeof dummyXHR.onload, 'function');
-				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-				assert.ok(dummyXHR.withCredentials);
+				proclaim.equal(typeof dummyXHR.onerror, 'function');
+				proclaim.equal(typeof dummyXHR.onload, 'function');
+				// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
+				// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
+				proclaim.ok(dummyXHR.withCredentials);
 
-				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true));
-				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
-				assert.ok(dummyXHR.send.calledOnce);
+				proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true));
+				proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
+				proclaim.ok(dummyXHR.send.calledOnce);
 				window.XMLHttpRequest = xhr;
 				if (typeof navigator.sendBeacon === 'boolean') {
 					delete navigator.sendBeacon;
@@ -100,8 +100,8 @@ describe('Core.Send', function () {
 				Send.init();
 				Send.addAndRun(request);
 				setTimeout(() => {
-					assert.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
-					assert.ok(navigator.sendBeacon.called);
+					proclaim.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
+					proclaim.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
 					settings.destroy('config');
 					done();
@@ -128,14 +128,14 @@ describe('Core.Send', function () {
 			};
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.equal(typeof dummyXHR.onerror, 'function');
-				assert.equal(typeof dummyXHR.onload, 'function');
-				// assert.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-				// assert.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-				assert.ok(dummyXHR.withCredentials, 'withCredentials');
-				assert.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true), 'is POST');
-				assert.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
-				assert.ok(dummyXHR.send.calledOnce, 'calledOnce');
+				proclaim.equal(typeof dummyXHR.onerror, 'function');
+				proclaim.equal(typeof dummyXHR.onload, 'function');
+				// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
+				// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
+				proclaim.ok(dummyXHR.withCredentials, 'withCredentials');
+				proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true), 'is POST');
+				proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
+				proclaim.ok(dummyXHR.send.calledOnce, 'calledOnce');
 				window.XMLHttpRequest = xhr;
 				navigator.sendBeacon = b;
 				settings.destroy('config');
@@ -159,11 +159,11 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
-				assert.equal(dummyImage.addEventListener.args[0][0], 'error');
-				assert.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
-				assert.equal(dummyImage.addEventListener.args[1][0], 'load');
-				assert.equal(dummyImage.addEventListener.args[1][1].length, 0);// it will get passed the error
+				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				proclaim.equal(dummyImage.addEventListener.args[0][0], 'error');
+				proclaim.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
+				proclaim.equal(dummyImage.addEventListener.args[1][0], 'load');
+				proclaim.equal(dummyImage.addEventListener.args[1][1].length, 0);// it will get passed the error
 				window.XMLHttpRequest = xhr;
 				window.Image = i;
 				navigator.sendBeacon = b;
@@ -186,11 +186,11 @@ describe('Core.Send', function () {
 			window.Image = sinon.stub().returns(dummyImage);
 			Send.addAndRun(request);
 			setTimeout(() => {
-				assert.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
-				assert.equal(dummyImage.attachEvent.args[0][0], 'onerror');
-				assert.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
-				assert.equal(dummyImage.attachEvent.args[1][0], 'onload');
-				assert.equal(dummyImage.attachEvent.args[1][1].length, 0);// it will get passed the error
+				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				proclaim.equal(dummyImage.attachEvent.args[0][0], 'onerror');
+				proclaim.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
+				proclaim.equal(dummyImage.attachEvent.args[1][0], 'onload');
+				proclaim.equal(dummyImage.attachEvent.args[1][1].length, 0);// it will get passed the error
 				window.XMLHttpRequest = xhr;
 				window.Image = i;
 				navigator.sendBeacon = b;
@@ -221,7 +221,7 @@ describe('Core.Send', function () {
 			setTimeout(() => {
 				// console.log((new Queue('requests')).all());
 
-				assert.ok((new Queue('requests')).last().queueTime);
+				proclaim.ok((new Queue('requests')).last().queueTime);
 				navigator.sendBeacon = b;
 				server.restore();
 				done();
@@ -253,7 +253,7 @@ describe('Core.Send', function () {
 			// Wait for localStorage
 			setTimeout(() => {
 				// console.log((new Queue('requests')).all());
-				assert.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22xhr-image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
+				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22xhr-image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
 
 				window.Image = i;
 				server.restore();
@@ -289,7 +289,7 @@ describe('Core.Send', function () {
 			queue = new Queue('requests');
 
 			// Event added for the debugging info
-			assert.equal(queue.all().length, 0);
+			proclaim.equal(queue.all().length, 0);
 
 			// console.log(queue.all());
 			server.restore();

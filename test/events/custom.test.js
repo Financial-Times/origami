@@ -1,6 +1,8 @@
-/*global describe, it, before, after, sinon */
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import '../setup';
-import assert from 'assert';
+
 import Queue from '../../src/javascript/core/queue';
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';
@@ -35,18 +37,18 @@ describe('event', function () {
 			}
 		}), callback);
 
-		assert.ok(callback.called, 'Callback not called.');
+		proclaim.ok(callback.called, 'Callback not called.');
 
 		sent_data = callback.getCall(0).thisValue;
 
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Event
-		assert.equal(sent_data.category, "slideshow");
-		assert.equal(sent_data.action, "slide_viewed");
-		assert.equal(sent_data.context.slide_number, 5);
-		assert.equal(sent_data.context.component_id, "123456");
-		assert.equal(sent_data.context.component_name, 'custom-o-tracking');
+		proclaim.equal(sent_data.category, "slideshow");
+		proclaim.equal(sent_data.action, "slide_viewed");
+		proclaim.equal(sent_data.context.slide_number, 5);
+		proclaim.equal(sent_data.context.component_id, "123456");
+		proclaim.equal(sent_data.context.component_name, 'custom-o-tracking');
 	});
 
 	it('should listen to a dom event and generate a component_id', function () {
@@ -66,19 +68,19 @@ describe('event', function () {
 			const callback = sinon.spy();
 
 			trackEvent(e, callback);
-			assert.ok(callback.called, 'Callback not called.');
+			proclaim.ok(callback.called, 'Callback not called.');
 
 			const sent_data = callback.getCall(0).thisValue;
 
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 			// Event
-			assert.equal(sent_data.category, "video");
-			assert.equal(sent_data.action, "play");
-			assert.equal(sent_data.context.key, 'id');
-			assert.equal(sent_data.context.value, 51234);
-			assert.equal(typeof sent_data.context.component_id, "number");
-			assert.equal(sent_data.context.component_name, "o-tracking");
+			proclaim.equal(sent_data.category, "video");
+			proclaim.equal(sent_data.action, "play");
+			proclaim.equal(sent_data.context.key, 'id');
+			proclaim.equal(sent_data.context.value, 51234);
+			proclaim.equal(typeof sent_data.context.component_id, "number");
+			proclaim.equal(sent_data.context.component_name, "o-tracking");
 
 		});
 

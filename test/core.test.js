@@ -1,6 +1,6 @@
-/*global describe, it, before, after, sinon */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
-import assert from 'assert';
 import settings from '../src/javascript/core/settings';
 import Queue from '../src/javascript/core/queue';
 import session from '../src/javascript/core/session';
@@ -17,18 +17,18 @@ describe('Core', function () {
 
 		it('should generate a root_id', function () {
 			root_id = Core.setRootID();
-			assert.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
+			proclaim.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
 		});
 
 		it('should use the previous root_id for subsequent calls', function () {
-			assert.equal(Core.getRootID(), root_id);
-			assert.equal(Core.getRootID(), root_id);
+			proclaim.equal(Core.getRootID(), root_id);
+			proclaim.equal(Core.getRootID(), root_id);
 		});
 
 		it('should change the root_id on request', function () {
 			const new_root_id = Core.setRootID();
-			assert.equal(Core.getRootID(), new_root_id);
-			assert.notEqual(new_root_id, root_id);
+			proclaim.equal(Core.getRootID(), new_root_id);
+			proclaim.notEqual(new_root_id, root_id);
 		});
 	});
 
@@ -59,30 +59,30 @@ describe('Core', function () {
 				user: { "user_id": "userID" }
 			}, callback);
 
-			assert.ok(callback.called, 'Callback not called.');
+			proclaim.ok(callback.called, 'Callback not called.');
 
 			sent_data = callback.getCall(0).thisValue;
-			assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+			proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 			// System
-			assert.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
-			assert.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
-			assert.equal(sent_data.system.version, "1.0.0");
-			assert.equal(sent_data.system.source, "o-tracking");
+			proclaim.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
+			proclaim.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+			proclaim.equal(sent_data.system.version, "1.0.0");
+			proclaim.equal(sent_data.system.source, "o-tracking");
 
 			// Context
-			assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
-			assert.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
-			assert.equal(sent_data.context.root_id, root_id);
-			assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+			proclaim.deepEqual(Object.keys(sent_data.context), ["id","root_id","url"]);
+			proclaim.ok(guid_re.test(sent_data.context.id), "Request ID is invalid. " + sent_data.context.id);
+			proclaim.equal(sent_data.context.root_id, root_id);
+			proclaim.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 
 			// User
-			assert.deepEqual(Object.keys(sent_data.user), ["passport_id","ft_session","ft_session_s","user_id"]);
-			assert.equal(sent_data.user.user_id, "userID");
+			proclaim.deepEqual(Object.keys(sent_data.user), ["passport_id","ft_session","ft_session_s","user_id"]);
+			proclaim.equal(sent_data.user.user_id, "userID");
 
 			// Device
-			assert.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
-			assert.equal(sent_data.device.spoor_session, session.session().id);
-			assert.equal(sent_data.device.spoor_session_is_new, session.session().isNew);
+			proclaim.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
+			proclaim.equal(sent_data.device.spoor_session, session.session().id);
+			proclaim.equal(sent_data.device.spoor_session_is_new, session.session().isNew);
 
 		});
 
@@ -98,12 +98,12 @@ describe('Core', function () {
 				user: { "userID": "userID" }
 			}, callback);
 
-			assert.equal(callback.called, 1, 'Callback called once.');
+			proclaim.equal(callback.called, 1, 'Callback called once.');
 
 			// Try again
 			send.run();
 
-			assert.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
+			proclaim.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});
 	});
 

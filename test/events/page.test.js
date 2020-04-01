@@ -1,6 +1,8 @@
-/*global describe, it, before, beforeEach, after, sinon */
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import '../setup';
-import assert from 'assert';
+
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';
 import session from '../../src/javascript/core/session';
@@ -33,21 +35,21 @@ describe('page', function () {
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
-		assert.ok(callback.called, 'Callback not called.');
+		proclaim.ok(callback.called, 'Callback not called.');
 
 		sent_data = callback.getCall(0).thisValue;
 		// Basics
-		assert.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
-		assert.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
+		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
+		proclaim.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
 
 		// Type
-		assert.equal(sent_data.category, "page");
-		assert.equal(sent_data.action, "view");
+		proclaim.equal(sent_data.category, "page");
+		proclaim.equal(sent_data.action, "view");
 
 		// Page
-		assert.equal(sent_data.context.url, "http://www.ft.com/home/uk");
+		proclaim.equal(sent_data.context.url, "http://www.ft.com/home/uk");
 		/*eslint-disable*/
-		assert.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
+		proclaim.ok((sent_data.context.referrer != null), "referrer is invalid. " + sent_data.context.referrer);
 		/*eslint-enable*/
 	});
 
@@ -62,27 +64,27 @@ describe('page', function () {
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
-		assert.ok(callback.called, 'Callback not called.');
+		proclaim.ok(callback.called, 'Callback not called.');
 
 		page1_root_id = callback.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback2);
-		assert.ok(callback2.called, 'Callback not called.');
+		proclaim.ok(callback2.called, 'Callback not called.');
 
 		page2_root_id = callback2.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback3);
-		assert.ok(callback3.called, 'Callback not called.');
+		proclaim.ok(callback3.called, 'Callback not called.');
 
 		page3_root_id = callback3.getCall(0).thisValue.context.root_id;
 
-		assert.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
-		assert.notEqual(page2_root_id, page3_root_id, 'root_id is not unique');
-		assert.notEqual(page1_root_id, page3_root_id, 'root_id is not unique');
+		proclaim.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
+		proclaim.notEqual(page2_root_id, page3_root_id, 'root_id is not unique');
+		proclaim.notEqual(page1_root_id, page3_root_id, 'root_id is not unique');
 	});
 
 	it('should have an event sent before a PV attached to the next PV sent', function () {
@@ -97,16 +99,16 @@ describe('page', function () {
 				action: 'click'
 			}
 		}), callback);
-		assert.ok(callback.called, 'Callback not called.');
+		proclaim.ok(callback.called, 'Callback not called.');
 
 		event_root_id = callback.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback2);
-		assert.ok(callback2.called, 'Callback not called.');
+		proclaim.ok(callback2.called, 'Callback not called.');
 
 		page_root_id = callback2.getCall(0).thisValue.context.root_id;
-		assert.equal(event_root_id, page_root_id, 'root_id should match: ' + event_root_id + '===' + page_root_id);
+		proclaim.equal(event_root_id, page_root_id, 'root_id should match: ' + event_root_id + '===' + page_root_id);
 	});
 });
