@@ -1,10 +1,9 @@
 /* eslint-env mocha */
+/* global proclaim sinon */
 
 import LinkedHeading from '../src/js/linked-heading';
-import * as assert from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 
-sinon.assert.expose(assert, {
+sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
@@ -39,24 +38,24 @@ describe('LinkedHeading', () => {
 		});
 
 		it('has a `headingElement` property set to the passed in element', () => {
-			assert.strictEqual(instance.headingElement, headingElement);
+			proclaim.strictEqual(instance.headingElement, headingElement);
 		});
 
 		it('has an `id` property set to the heading element ID', () => {
-			assert.strictEqual(instance.id, 'mock-id');
+			proclaim.strictEqual(instance.id, 'mock-id');
 		});
 
 		it('has an `options` property set to the default options', () => {
-			assert.deepEqual(instance.options, {
+			proclaim.deepEqual(instance.options, {
 				content: '#',
 				title: 'Link directly to this section of the page'
 			});
 		});
 
 		it('has a `linkElement` property set to a constructed link element', () => {
-			assert.calledOnce(LinkedHeading.prototype.constructLinkElement);
-			assert.calledWithExactly(LinkedHeading.prototype.constructLinkElement);
-			assert.strictEqual(instance.linkElement, 'mock-link-element');
+			proclaim.calledOnce(LinkedHeading.prototype.constructLinkElement);
+			proclaim.calledWithExactly(LinkedHeading.prototype.constructLinkElement);
+			proclaim.strictEqual(instance.linkElement, 'mock-link-element');
 		});
 
 		describe('.constructLinkElement()', () => {
@@ -81,7 +80,7 @@ describe('LinkedHeading', () => {
 				// allow for request animation frame
 				setTimeout(() => {
 					const actualHtml = headingElement.outerHTML.replace(/\s+/g, '');
-					assert.strictEqual(actualHtml, expectedHtml);
+					proclaim.strictEqual(actualHtml, expectedHtml);
 					done();
 				}, 100);
 			});
@@ -89,7 +88,7 @@ describe('LinkedHeading', () => {
 			it('returns the created link element', (done) => {
 				// allow for request animation frame
 				setTimeout(() => {
-					assert.strictEqual(returnValue, headingElement.querySelector('a'));
+					proclaim.strictEqual(returnValue, headingElement.querySelector('a'));
 					done();
 				}, 100);
 			});
@@ -102,7 +101,7 @@ describe('LinkedHeading', () => {
 				});
 
 				it('returns `null`', () => {
-					assert.isNull(returnValue);
+					proclaim.isNull(returnValue);
 				});
 
 			});
@@ -119,11 +118,11 @@ describe('LinkedHeading', () => {
 				});
 
 				it('returns the existing link element', () => {
-					assert.strictEqual(returnValue, existingLinkElement);
+					proclaim.strictEqual(returnValue, existingLinkElement);
 				});
 
 				it('does nothing to the DOM', () => {
-					assert.strictEqual(headingElement.innerHTML, expectedHtml);
+					proclaim.strictEqual(headingElement.innerHTML, expectedHtml);
 				});
 
 			});
@@ -153,8 +152,8 @@ describe('LinkedHeading', () => {
 		});
 
 		it('has an `options` property set to the given options', () => {
-			assert.deepEqual(instance.options, options);
-			assert.notStrictEqual(instance.options, options);
+			proclaim.deepEqual(instance.options, options);
+			proclaim.notStrictEqual(instance.options, options);
 		});
 
 	});
