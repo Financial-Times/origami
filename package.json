@@ -2,7 +2,7 @@
 	"name": "o-comments",
 	"devDependencies": {
 		"eslint-config-origami-component": "^2.0.1",
-		"fetch-mock": "^7.3.3",
+		"fetch-mock": "^9.3.1",
 		"origami-ci-tools": "^1.1.1"
 	},
 	"dependencies": {}
