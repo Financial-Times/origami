@@ -1,6 +1,6 @@
 /* eslint-env mocha */
+/* global proclaim */
 
-import proclaim from 'proclaim';
 import mega from '../src/js/mega';
 
 function dispatch (target, type) {

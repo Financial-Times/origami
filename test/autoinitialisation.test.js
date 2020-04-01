@@ -1,8 +1,7 @@
 /* eslint-env mocha */
+/* global proclaim sinon */
 
 import fixtures from './helpers/fixtures';
-import sinon from 'sinon/pkg/sinon';
-import proclaim from 'proclaim';
 import Header from '../main.js';
 
 let pcfEl;
