@@ -18,29 +18,13 @@
 	.o-share__action {
 		box-sizing: border-box;
 		float: left;
-		width: $o-share-icon-size;
-		height: $o-share-icon-size;
-		margin: 0 5px 0 0;
 		list-style-type: none;
-		line-height: $o-share-icon-size;
 		border: 1px solid oColorsByName('black-50');
 		cursor: pointer;
-
-		@include oGridRespondTo(S) {
-			margin-right: 10px;
-		}
 	}
 
 	.o-share__text {
-		position: absolute;
-		clip: rect(0 0 0 0);
-		margin: -1px;
-		border: 0;
-		overflow: hidden;
-		padding: 0;
-		width: 1px;
-		height: 1px;
-		white-space: nowrap;
+		@include oNormaliseVisuallyHidden();
 	}
 
 	.o-share__icon {
@@ -48,31 +32,30 @@
 		position: relative;
 		top: -1px;
 		left: -1px;
-		width: $o-share-icon-size;
-		height: $o-share-icon-size;
 		border: 0;
 		cursor: pointer;
 		padding: 0;
 		background-color: transparent;
+		width: inherit;
+		height: inherit;
+
+		&:before {
+			content: '';
+			display: block;
+			width: inherit;
+			height: inherit;
+		}
 
 		// Increase the hit target to improve a11y
 		&:after {
 			position: absolute;
 			display: block;
 			content: '';
-			width: $o-share-icon-size + 5;
-			height: $o-share-icon-size + 5;
-			top: -2px;
-			left: -2px;
-
-			@include oGridRespondTo(S) {
-				width: $o-share-icon-size + 10px;
-				height: $o-share-icon-size + 10px;
-				top: -5px;
-				left: -5px;
-			}
 		}
 	}
+
+	// Include styles to size the share icons by default
+	@include _oShareSize('default');
 }
 
 /// Icon
@@ -96,17 +79,11 @@
 	$hover-color: str-slice(ie-hex-str($hover-color), 4);
 	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
 
-	// scss-lint:disable DuplicateProperty
 	.o-share__icon--#{$icon-name}:before {
-		content: '';
-		display: block;
-		width: #{$o-share-icon-size};
-		height: #{$o-share-icon-size};
 		background-image: url($service-url + $query + "&format=svg");
 
 		// Hack to load icon early to prevent FOIC on hover
 		&:after {
-			content: '';
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
 	}
@@ -138,7 +115,6 @@
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
 	}
-	// scss-lint:enable DuplicateProperty
 }
 
 @mixin _oShareVertical() {
@@ -190,6 +166,74 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+@mixin _oShareSize($size) {
+	$sizes: (
+		// default o-share size configuration
+		// changes the margin size responsively
+		'default': (
+			'width': $o-share-icon-size,
+			'breakpoint-to-margin': (
+				'default': oSpacingByName('s1'),
+				'S': oSpacingByName('s3')
+			)
+		),
+		// small o-share size configuration
+		'small': (
+			'width': $o-share-icon-small-size,
+			'breakpoint-to-margin': (
+				'default': oSpacingByName('s3'),
+			)
+		)
+	);
+
+	// validate the size requested is supported (has configuration)
+	$size-config: map-get($sizes, $size);
+	@if not $size-config {
+		@error '"#{$size}" is not an o-share size. Must be one of #{$size-options}';
+	}
+
+	// for the current variant get the width and margins per breakpoint
+	$width: map-get($size-config, 'width');
+	$margins: map-get($size-config, 'breakpoint-to-margin');
+
+	// size the action element and set a margin
+	.o-share__action {
+		width: $width;
+		height: $width;
+		line-height: $width;
+		margin: 0;
+		@each $breakpoint, $margin in $margins {
+			@include _oShareDefaultOrBreakpoint($breakpoint) {
+				margin-right: $margin;
+			}
+		}
+	}
+
+	// size the icon element and set a margin
+	.o-share__icon {
+		&:after {
+			@each $breakpoint, $margin in $margins {
+				@include _oShareDefaultOrBreakpoint($breakpoint) {
+					width: calc(100% + #{$margin});
+					height: calc(100% + #{$margin});
+					top: -#{$margin / 2};
+					left: -#{$margin / 2};
+				}
+			}
+		}
+	}
+}
+
+@mixin _oShareDefaultOrBreakpoint($breakpoint) {
+	@if $breakpoint == 'default' {
+		@content;
+	} @else {
+		@include oGridRespondTo($breakpoint) {
+			@content;
 		}
 	}
 }

@@ -42,6 +42,20 @@
 			"description": "horizontal"
 		},
 		{
+			"title": "Small",
+			"name": "small",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-small.json",
+			"description": "small icons"
+		},
+		{
+			"title": "Thingy",
+			"name": "thingy",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-thingy.json",
+			"description": "thingy icons"
+		},
+		{
 			"title": "Inverse",
 			"name": "inverse",
 			"template": "demos/src/main.mustache",

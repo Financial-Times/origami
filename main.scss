@@ -1,6 +1,7 @@
 @import 'o-colors/main';
 @import 'o-grid/main';
 @import 'o-normalise/main';
+@import 'o-spacing/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
@@ -9,12 +10,14 @@
 
 @mixin oShare($opts: (
   'icons': $_o-share-icons,
+  'sizes': ('small', 'thingy'),
   'vertical': true,
   'inverse': true
 )) {
   $icons: map-get($opts, 'icons');
   $vertical-enabled: map-get($opts, 'vertical');
   $inverse-enabled: map-get($opts, 'inverse');
+  $sizes: map-get($opts, 'sizes');
 
   // Error if the global $system-code variable is not set.
   @if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
@@ -25,6 +28,21 @@
 
   @each $icon in $_o-share-icons {
 	  @include _oShareActionIcon($icon);
+  }
+
+  @if index($sizes, 'small') != null {
+    .o-share--small {
+      @include _oShareSize('small');
+    }
+  }
+
+  @if index($sizes, 'thingy') != null {
+    .o-share--thingy {
+      @include _oShareSize('default');
+      @include oGridRespondTo('M') {
+        @include _oShareSize('small');
+      }
+    }
   }
 
   @if $inverse-enabled {
