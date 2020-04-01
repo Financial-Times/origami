@@ -1,8 +1,7 @@
-/* eslint-env mocha, sinon, proclaim */
-import proclaim from 'proclaim';
-import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 
+import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
 import Typography from './../main';
 
 const fontLabels = ['display', 'sans', 'sans-bold', 'display-bold'];
