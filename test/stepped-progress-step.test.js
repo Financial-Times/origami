@@ -1,15 +1,14 @@
 /* eslint-env mocha */
+/* global proclaim sinon */
 
-import * as assert from 'proclaim';
 import * as fixtures from './helpers/fixtures';
-import sinon from 'sinon/pkg/sinon';
 import SteppedProgressStep from '../src/js/stepped-progress-step';
 
 describe('src/js/stepped-progress-step', () => {
 
 	it('exports a class constructor', () => {
-		assert.isFunction(SteppedProgressStep);
-		assert.throws(SteppedProgressStep, TypeError);
+		proclaim.isFunction(SteppedProgressStep);
+		proclaim.throws(SteppedProgressStep, TypeError);
 	});
 
 	describe('new SteppedProgressStep(stepElement, parent)', () => {
@@ -31,30 +30,30 @@ describe('src/js/stepped-progress-step', () => {
 
 		describe('.stepElement', () => {
 			it('is set to the `stepElement` that was passed into the constructor', () => {
-				assert.strictEqual(step.stepElement, mockStepElement);
+				proclaim.strictEqual(step.stepElement, mockStepElement);
 			});
 		});
 
 		describe('.parent', () => {
 			it('is set to the `parent` that was passed into the constructor', () => {
-				assert.strictEqual(step.parent, mockParent);
+				proclaim.strictEqual(step.parent, mockParent);
 			});
 		});
 
 		describe('.labelElement', () => {
 			it('is set to the label element found inside `stepElement`', () => {
-				assert.strictEqual(step.labelElement, mockLabelElement);
+				proclaim.strictEqual(step.labelElement, mockLabelElement);
 			});
 		});
 
 		describe('.statusElement', () => {
 
 			it('is set to the status element found inside `stepElement`', () => {
-				assert.strictEqual(step.statusElement, mockStatusElement);
+				proclaim.strictEqual(step.statusElement, mockStatusElement);
 			});
 
 			it('is emptied of any text', () => {
-				assert.strictEqual(step.statusElement.textContent.trim(), '');
+				proclaim.strictEqual(step.statusElement.textContent.trim(), '');
 			});
 
 		});
@@ -64,14 +63,14 @@ describe('src/js/stepped-progress-step', () => {
 			describe('when the step has the "complete" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--complete');
-					assert.isTrue(step.isComplete());
+					proclaim.isTrue(step.isComplete());
 				});
 			});
 
 			describe('when the step does not have the "complete" modifier class', () => {
 				it('returns `false`', () => {
 					mockStepElement.classList.remove('o-stepped-progress__step--complete');
-					assert.isFalse(step.isComplete());
+					proclaim.isFalse(step.isComplete());
 				});
 			});
 
@@ -82,14 +81,14 @@ describe('src/js/stepped-progress-step', () => {
 			describe('when the step has the "current" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--current');
-					assert.isTrue(step.isCurrent());
+					proclaim.isTrue(step.isCurrent());
 				});
 			});
 
 			describe('when the step does not have the "current" modifier class', () => {
 				it('returns `false`', () => {
 					mockStepElement.classList.remove('o-stepped-progress__step--current');
-					assert.isFalse(step.isCurrent());
+					proclaim.isFalse(step.isCurrent());
 				});
 			});
 
@@ -100,14 +99,14 @@ describe('src/js/stepped-progress-step', () => {
 			describe('when the step has the "error" modifier class', () => {
 				it('returns `true`', () => {
 					mockStepElement.classList.add('o-stepped-progress__step--error');
-					assert.isTrue(step.isError());
+					proclaim.isTrue(step.isError());
 				});
 			});
 
 			describe('when the step does not have the "error" modifier class', () => {
 				it('returns `false`', () => {
 					mockStepElement.classList.remove('o-stepped-progress__step--error');
-					assert.isFalse(step.isError());
+					proclaim.isFalse(step.isError());
 				});
 			});
 
@@ -129,28 +128,28 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('when the step has no explicit state', () => {
 				it('returns `true`', () => {
-					assert.isTrue(step.isFuture());
+					proclaim.isTrue(step.isFuture());
 				});
 			});
 
 			describe('when the step is considered to be in a "complete" state', () => {
 				it('returns `false`', () => {
 					step.isComplete.returns(true);
-					assert.isFalse(step.isFuture());
+					proclaim.isFalse(step.isFuture());
 				});
 			});
 
 			describe('when the step is considered to be in a "current" state', () => {
 				it('returns `false`', () => {
 					step.isCurrent.returns(true);
-					assert.isFalse(step.isFuture());
+					proclaim.isFalse(step.isFuture());
 				});
 			});
 
 			describe('when the step is considered to be in a "error" state', () => {
 				it('returns `false`', () => {
 					step.isError.returns(true);
-					assert.isFalse(step.isFuture());
+					proclaim.isFalse(step.isFuture());
 				});
 			});
 
@@ -165,16 +164,16 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
 			});
 
 			it('adds the "complete" status class', () => {
-				assert.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
+				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
 			});
 
 			it('sets the status element text to indicate the new state', () => {
-				assert.strictEqual(step.statusElement.textContent.trim(), '(completed)');
+				proclaim.strictEqual(step.statusElement.textContent.trim(), '(completed)');
 			});
 
 		});
@@ -188,16 +187,16 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
 			});
 
 			it('adds the "current" status class', () => {
-				assert.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--current'));
 			});
 
 			it('sets the status element text to indicate the new state', () => {
-				assert.strictEqual(step.statusElement.textContent.trim(), '(current step)');
+				proclaim.strictEqual(step.statusElement.textContent.trim(), '(current step)');
 			});
 
 		});
@@ -211,16 +210,16 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes any other status classes', () => {
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
 			});
 
 			it('adds the "error" status class', () => {
-				assert.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isTrue(mockStepElement.classList.contains('o-stepped-progress__step--error'));
 			});
 
 			it('sets the status element text to indicate the new state', () => {
-				assert.strictEqual(step.statusElement.textContent.trim(), '(error)');
+				proclaim.strictEqual(step.statusElement.textContent.trim(), '(error)');
 			});
 
 		});
@@ -236,13 +235,13 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('removes all status classes', () => {
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
-				assert.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--complete'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--current'));
+				proclaim.isFalse(mockStepElement.classList.contains('o-stepped-progress__step--error'));
 			});
 
 			it('clears the status element text', () => {
-				assert.strictEqual(step.statusElement.textContent.trim(), '');
+				proclaim.strictEqual(step.statusElement.textContent.trim(), '');
 			});
 
 		});
@@ -255,8 +254,8 @@ describe('src/js/stepped-progress-step', () => {
 			});
 
 			it('is created', () => {
-				assert.isDefined(step.statusElement);
-				assert.strictEqual(step.statusElement.outerHTML, '<span class="o-stepped-progress__status"></span>');
+				proclaim.isDefined(step.statusElement);
+				proclaim.strictEqual(step.statusElement.outerHTML, '<span class="o-stepped-progress__status"></span>');
 			});
 
 		});
@@ -271,7 +270,7 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					assert.strictEqual(step.statusElement.textContent.trim(), '(completed)');
+					proclaim.strictEqual(step.statusElement.textContent.trim(), '(completed)');
 				});
 			});
 
@@ -287,7 +286,7 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					assert.strictEqual(step.statusElement.textContent.trim(), '(current step)');
+					proclaim.strictEqual(step.statusElement.textContent.trim(), '(current step)');
 				});
 			});
 
@@ -303,7 +302,7 @@ describe('src/js/stepped-progress-step', () => {
 
 			describe('.statusElement', () => {
 				it('has its text set to indicate the initial state', () => {
-					assert.strictEqual(step.statusElement.textContent.trim(), '(error)');
+					proclaim.strictEqual(step.statusElement.textContent.trim(), '(error)');
 				});
 			});
 

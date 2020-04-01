@@ -1,13 +1,11 @@
 /* eslint-env mocha */
-/* eslint-disable no-loop-func */
+/* global proclaim sinon */
 
-import * as assert from 'proclaim';
 import * as fixtures from './helpers/fixtures';
-import sinon from 'sinon/pkg/sinon';
 import SteppedProgress from '../src/js/stepped-progress';
 import SteppedProgressStep from '../src/js/stepped-progress-step';
 
-sinon.assert.expose(assert, {
+sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
@@ -15,8 +13,8 @@ sinon.assert.expose(assert, {
 describe('src/js/stepped-progress', () => {
 
 	it('exports a class constructor', () => {
-		assert.isFunction(SteppedProgress);
-		assert.throws(SteppedProgress, TypeError);
+		proclaim.isFunction(SteppedProgress);
+		proclaim.throws(SteppedProgress, TypeError);
 	});
 
 	describe('new SteppedProgress(steppedProgressElement)', () => {
@@ -42,23 +40,23 @@ describe('src/js/stepped-progress', () => {
 		});
 
 		it('fetches options set via HTML data attributes', () => {
-			assert.calledOnce(SteppedProgress.getDataAttributes);
-			assert.calledWithExactly(SteppedProgress.getDataAttributes, mockSteppedProgressElement);
+			proclaim.calledOnce(SteppedProgress.getDataAttributes);
+			proclaim.calledWithExactly(SteppedProgress.getDataAttributes, mockSteppedProgressElement);
 		});
 
 		describe('.options', () => {
 			it('is a defaulted options object', () => {
-				assert.isObject(steppedProgress.options);
-				assert.deepEqual(steppedProgress.options, {
+				proclaim.isObject(steppedProgress.options);
+				proclaim.deepEqual(steppedProgress.options, {
 					isMockDataAttributeOptions: true
 				});
-				assert.notStrictEqual(steppedProgress.options, mockDataAttributeOptions);
+				proclaim.notStrictEqual(steppedProgress.options, mockDataAttributeOptions);
 			});
 		});
 
 		describe('.steppedProgressElement', () => {
 			it('is set to the `steppedProgressElement` that was passed into the constructor', () => {
-				assert.strictEqual(steppedProgress.steppedProgressElement, mockSteppedProgressElement);
+				proclaim.strictEqual(steppedProgress.steppedProgressElement, mockSteppedProgressElement);
 			});
 		});
 
@@ -71,11 +69,11 @@ describe('src/js/stepped-progress', () => {
 			});
 
 			it('returns an array of all of the steps', () => {
-				assert.deepEqual(returnValue, steppedProgress._steps);
+				proclaim.deepEqual(returnValue, steppedProgress._steps);
 			});
 
 			it('does not return the exact array instance used internally', () => {
-				assert.notStrictEqual(returnValue, steppedProgress._steps);
+				proclaim.notStrictEqual(returnValue, steppedProgress._steps);
 			});
 
 		});
@@ -102,14 +100,14 @@ describe('src/js/stepped-progress', () => {
 			});
 
 			it('returns an array of all of the steps which are completed', () => {
-				assert.deepEqual(returnValue, [
+				proclaim.deepEqual(returnValue, [
 					steppedProgress._steps[0],
 					steppedProgress._steps[2]
 				]);
 			});
 
 			it('does not return the exact array instance used internally', () => {
-				assert.notStrictEqual(returnValue, steppedProgress._steps);
+				proclaim.notStrictEqual(returnValue, steppedProgress._steps);
 			});
 
 		});
@@ -122,13 +120,13 @@ describe('src/js/stepped-progress', () => {
 
 			describe('when a step exists at `index`', () => {
 				it('returns `true`', () => {
-					assert.isTrue(steppedProgress.hasStepAtIndex(1));
+					proclaim.isTrue(steppedProgress.hasStepAtIndex(1));
 				});
 			});
 
 			describe('when a step does not exist at `index`', () => {
 				it('returns `false`', () => {
-					assert.isFalse(steppedProgress.hasStepAtIndex(10));
+					proclaim.isFalse(steppedProgress.hasStepAtIndex(10));
 				});
 			});
 
@@ -142,13 +140,13 @@ describe('src/js/stepped-progress', () => {
 
 			describe('when a step exists at `index`', () => {
 				it('returns the step at the given index', () => {
-					assert.strictEqual(steppedProgress.getStepAtIndex(1), 'b');
+					proclaim.strictEqual(steppedProgress.getStepAtIndex(1), 'b');
 				});
 			});
 
 			describe('when a step does not exist at `index`', () => {
 				it('throws an error', () => {
-					assert.throws(() => steppedProgress.getStepAtIndex(10), /no step at index: 10/i);
+					proclaim.throws(() => steppedProgress.getStepAtIndex(10), /no step at index: 10/i);
 				});
 			});
 
@@ -179,7 +177,7 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('returns the last step with a "current" status', () => {
-					assert.strictEqual(steppedProgress.getCurrentStep(), steppedProgress._steps[3]);
+					proclaim.strictEqual(steppedProgress.getCurrentStep(), steppedProgress._steps[3]);
 				});
 
 			});
@@ -195,7 +193,7 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('returns `undefined`', () => {
-					assert.isUndefined(steppedProgress.getCurrentStep());
+					proclaim.isUndefined(steppedProgress.getCurrentStep());
 				});
 
 			});
@@ -209,7 +207,7 @@ describe('src/js/stepped-progress', () => {
 			});
 
 			it('returns the last step', () => {
-				assert.strictEqual(steppedProgress.getLastStep(), 'c');
+				proclaim.strictEqual(steppedProgress.getLastStep(), 'c');
 			});
 
 		});
@@ -233,7 +231,7 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('returns `true`', () => {
-					assert.isTrue(steppedProgress.isComplete());
+					proclaim.isTrue(steppedProgress.isComplete());
 				});
 
 			});
@@ -255,7 +253,7 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('returns `false`', () => {
-					assert.isFalse(steppedProgress.isComplete());
+					proclaim.isFalse(steppedProgress.isComplete());
 				});
 
 			});
@@ -297,7 +295,7 @@ describe('src/js/stepped-progress', () => {
 					});
 
 					it('returns the next step which has no status', () => {
-						assert.strictEqual(steppedProgress.getNextStep(), steppedProgress._steps[1]);
+						proclaim.strictEqual(steppedProgress.getNextStep(), steppedProgress._steps[1]);
 					});
 
 				});
@@ -320,7 +318,7 @@ describe('src/js/stepped-progress', () => {
 					});
 
 					it('returns the last step', () => {
-						assert.strictEqual(steppedProgress.getNextStep(), 'mock last');
+						proclaim.strictEqual(steppedProgress.getNextStep(), 'mock last');
 					});
 
 				});
@@ -336,7 +334,7 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('returns the last step', () => {
-					assert.strictEqual(steppedProgress.getNextStep(), 'mock last');
+					proclaim.strictEqual(steppedProgress.getNextStep(), 'mock last');
 				});
 
 			});
@@ -374,13 +372,13 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('marks the current step as complete', () => {
-					assert.calledOnce(steppedProgress.getCurrentStep);
-					assert.calledOnce(mockCurrentStep.markAsComplete);
+					proclaim.calledOnce(steppedProgress.getCurrentStep);
+					proclaim.calledOnce(mockCurrentStep.markAsComplete);
 				});
 
 				it('marks the next step as current', () => {
-					assert.calledOnce(steppedProgress.getNextStep);
-					assert.calledOnce(mockNextStep.markAsCurrent);
+					proclaim.calledOnce(steppedProgress.getNextStep);
+					proclaim.calledOnce(mockNextStep.markAsCurrent);
 				});
 
 			});
@@ -394,13 +392,13 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('marks the current step as complete', () => {
-					assert.calledOnce(steppedProgress.getCurrentStep);
-					assert.calledOnce(mockCurrentStep.markAsComplete);
+					proclaim.calledOnce(steppedProgress.getCurrentStep);
+					proclaim.calledOnce(mockCurrentStep.markAsComplete);
 				});
 
 				it('does not mark the next step as current', () => {
-					assert.notCalled(steppedProgress.getNextStep);
-					assert.notCalled(mockNextStep.markAsCurrent);
+					proclaim.notCalled(steppedProgress.getNextStep);
+					proclaim.notCalled(mockNextStep.markAsCurrent);
 				});
 
 			});
@@ -415,13 +413,13 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('does not mark the current step as complete', () => {
-					assert.calledOnce(steppedProgress.getCurrentStep);
-					assert.notCalled(mockCurrentStep.markAsComplete);
+					proclaim.calledOnce(steppedProgress.getCurrentStep);
+					proclaim.notCalled(mockCurrentStep.markAsComplete);
 				});
 
 				it('marks the next step as current', () => {
-					assert.calledOnce(steppedProgress.getNextStep);
-					assert.calledOnce(mockNextStep.markAsCurrent);
+					proclaim.calledOnce(steppedProgress.getNextStep);
+					proclaim.calledOnce(mockNextStep.markAsCurrent);
 				});
 
 			});
@@ -435,13 +433,13 @@ describe('src/js/stepped-progress', () => {
 				});
 
 				it('does not mark the current step as complete', () => {
-					assert.notCalled(steppedProgress.getCurrentStep);
-					assert.notCalled(mockCurrentStep.markAsComplete);
+					proclaim.notCalled(steppedProgress.getCurrentStep);
+					proclaim.notCalled(mockCurrentStep.markAsComplete);
 				});
 
 				it('does not mark the next step as current', () => {
-					assert.notCalled(steppedProgress.getNextStep);
-					assert.notCalled(mockNextStep.markAsCurrent);
+					proclaim.notCalled(steppedProgress.getNextStep);
+					proclaim.notCalled(mockNextStep.markAsCurrent);
 				});
 
 			});
@@ -451,9 +449,9 @@ describe('src/js/stepped-progress', () => {
 		describe('._steps', () => {
 
 			it('is an array of `SteppedProgressStep` instances', () => {
-				assert.isArray(steppedProgress._steps);
+				proclaim.isArray(steppedProgress._steps);
 				for (const step of steppedProgress._steps) {
-					assert.instanceOf(step, SteppedProgressStep);
+					proclaim.instanceOf(step, SteppedProgressStep);
 				}
 			});
 
@@ -466,19 +464,50 @@ describe('src/js/stepped-progress', () => {
 
 				// The length of this array is based on mock HTML
 				// found in: ./helpers/fixtures.js
-				for (const index of Array(4).keys()) {
-					describe(`\`SteppedProgressStep\` instance #${index}`, () => {
+				describe(`\`SteppedProgressStep\` instance #${0}`, () => {
 
-						it('has a `.stepElement` property set to the corresponding HTML element', () => {
-							assert.strictEqual(steppedProgress._steps[index].stepElement, stepElements[index]);
-						});
-
-						it('has a `.parent` property set to the `SteppedProgress` instance', () => {
-							assert.strictEqual(steppedProgress._steps[index].parent, steppedProgress);
-						});
-
+					it('has a `.stepElement` property set to the corresponding HTML element', () => {
+						proclaim.strictEqual(steppedProgress._steps[0].stepElement, stepElements[0]);
 					});
-				}
+
+					it('has a `.parent` property set to the `SteppedProgress` instance', () => {
+						proclaim.strictEqual(steppedProgress._steps[0].parent, steppedProgress);
+					});
+
+				});
+				describe(`\`SteppedProgressStep\` instance #${1}`, () => {
+
+					it('has a `.stepElement` property set to the corresponding HTML element', () => {
+						proclaim.strictEqual(steppedProgress._steps[1].stepElement, stepElements[1]);
+					});
+
+					it('has a `.parent` property set to the `SteppedProgress` instance', () => {
+						proclaim.strictEqual(steppedProgress._steps[1].parent, steppedProgress);
+					});
+
+				});
+				describe(`\`SteppedProgressStep\` instance #${2}`, () => {
+
+					it('has a `.stepElement` property set to the corresponding HTML element', () => {
+						proclaim.strictEqual(steppedProgress._steps[2].stepElement, stepElements[2]);
+					});
+
+					it('has a `.parent` property set to the `SteppedProgress` instance', () => {
+						proclaim.strictEqual(steppedProgress._steps[2].parent, steppedProgress);
+					});
+
+				});
+				describe(`\`SteppedProgressStep\` instance #${3}`, () => {
+
+					it('has a `.stepElement` property set to the corresponding HTML element', () => {
+						proclaim.strictEqual(steppedProgress._steps[3].stepElement, stepElements[3]);
+					});
+
+					it('has a `.parent` property set to the `SteppedProgress` instance', () => {
+						proclaim.strictEqual(steppedProgress._steps[3].parent, steppedProgress);
+					});
+
+				});
 
 			});
 
