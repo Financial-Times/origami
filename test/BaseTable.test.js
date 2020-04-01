@@ -1,7 +1,6 @@
-/* eslint-env mocha, sinon */
+/* eslint-env mocha */
+/* global proclaim, sinon */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import * as sandbox from './helpers/sandbox';
 import * as fixtures from './helpers/fixtures';
 import BaseTable from './../src/js/Tables/BaseTable';
@@ -187,6 +186,7 @@ describe("BaseTable", () => {
 			sandbox.setContents(fixtures.shortTableWithContainer);
 			oTableEl = document.querySelector('[data-o-component=o-table]');
 			table = new BaseTable(oTableEl, sorter);
+			self.console.warn = sinon.spy();
 		});
 
 		it('adds buttons in the table column headers', done => {
@@ -464,7 +464,8 @@ describe("BaseTable", () => {
 			setTimeout(() => {
 				// The filter includes the original Apple row and the clone
 				// added after the table was initialised.
-				done(assertFilter(data, [cloneData, cloneData]));
+				assertFilter(data, [cloneData, cloneData]);
+				done();
 			}, 100); // wait for window.requestAnimationFrame
 		});
 

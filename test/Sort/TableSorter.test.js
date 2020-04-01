@@ -1,7 +1,6 @@
-/* eslint-env mocha, sinon */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import * as sandbox from './../helpers/sandbox';
 import * as fixtures from './../helpers/fixtures';
 import BaseTable from './../../src/js/Tables/BaseTable';
@@ -96,9 +95,9 @@ describe("BaseTable", () => {
 			const columnIndex = 0;
 			const sortOrder = 'ascending';
 			const expected = ['Æ', 'apple', 'café', 'caffeine'];
-			// Remove global.Intl
+			// Remove self.Intl
 			const intlBackup = Intl;
-			delete global.Intl;
+			delete self.Intl;
 			sorter.sortRowsByColumn(table, columnIndex, sortOrder);
 			let error;
 			assertSortOrder({ sortOrder, columnIndex, expected })
@@ -106,7 +105,7 @@ describe("BaseTable", () => {
 					error = err;
 				})
 				.finally(() => {
-					global.Intl = intlBackup; // Retore global.Intl
+					self.Intl = intlBackup; // Retore self.Intl
 					done(error);
 				});
 		});

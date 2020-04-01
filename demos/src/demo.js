@@ -1,5 +1,1 @@
-/*global require*/
-
-(function() {
-	require('./../../main');
-}());
+import './../../main';

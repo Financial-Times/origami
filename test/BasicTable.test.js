@@ -1,7 +1,6 @@
 /* eslint-env mocha */
+/* global proclaim, sinon */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import * as sandbox from './helpers/sandbox';
 import * as fixtures from './helpers/fixtures';
 import BasicTable from './../src/js/Tables/BasicTable';

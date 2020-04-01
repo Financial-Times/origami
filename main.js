@@ -1,4 +1,3 @@
-/*global require, module*/
 import oTable from './src/js/oTable';
 
 const constructAll = function() {

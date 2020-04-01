@@ -1,6 +1,6 @@
 /* eslint-env mocha */
+/* global proclaim */
 
-import proclaim from 'proclaim';
 import * as sandbox from './helpers/sandbox';
 import * as fixtures from './helpers/fixtures';
 import ScrollTable from './../src/js/Tables/ScrollTable';
