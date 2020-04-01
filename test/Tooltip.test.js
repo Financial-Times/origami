@@ -1,8 +1,8 @@
-/* eslint-env mocha, sinon, proclaim */
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import * as fixtures from './helpers/fixtures';
-import createMockRaf from 'mock-raf';
+import {createMockRaf} from './helpers/mock-raf';
 import Tooltip from './../main';
 import Viewport from 'o-viewport';
 
@@ -11,7 +11,7 @@ describe("Tooltip", () => {
 	let sandbox;
 
 	beforeEach(() => {
-		sandbox = sinon.sandbox.create();
+		sandbox = sinon.createSandbox();
 	});
 
 	afterEach(() => {
@@ -197,6 +197,7 @@ describe("Tooltip", () => {
 			const options = Tooltip.getOptions(el);
 			proclaim.isTrue(options.showOnConstruction);
 		});
+
 		it("extracts showOnConstruction if it's set on the el passed in", () => {
 			const el = document.createElement('div');
 			el.setAttribute('data-o-tooltip-z-index', "20");
