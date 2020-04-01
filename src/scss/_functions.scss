@@ -1,16 +1,13 @@
-////
-/// @group o-share
-/// @link http://registry.origami.ft.com/components/o-share
-////
-
 /// Strip units from a number
 /// @param {Number} $number
+/// @access private
 @function _oShareStripUnits($number) {
 	@return $number / ($number * 0 + 1);
 }
 
 /// Return 0 instead of 0px or 0em…
 /// @param {Number} $number
+/// @access private
 @function _oShareStripUnitIfZero($number) {
 	@if (_oShareStripUnits($number) == 0) {
 		@return 0;

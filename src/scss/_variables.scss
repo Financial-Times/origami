@@ -1,8 +1,3 @@
-////
-/// @group o-share
-/// @link http://registry.origami.ft.com/components/o-share
-////
-
 /// Silent mode
 /// @type Bool
 $o-share-is-silent: true !default;
@@ -29,13 +24,16 @@ $o-share-social-icons-version: "2" !default;
 $o-share-ft-icons-version: "1" !default;
 
 // Icon names that will use fticons instead of ftsocial
-/// @type map
+/// @type Map
 $o-share-ft-icons-names: (mail link share);
 
 /// List of accepted social network icons, and the version
-/// @type map
+/// @type Map
 $_o-share-icons: (twitter, facebook, linkedin, link, share, mail, pinterest, whatsapp);
 
+/// A map of icons to their colour.
+/// @type Map
+/// @access private
 $_o-share-colors: (
 	twitter: #1da1f2,
 	facebook: #3b579d,
@@ -45,5 +43,5 @@ $_o-share-colors: (
 );
 
 /// Tooltip background
-/// @type color
+/// @type Color
 $_o-share-tooltip-bg: rgba(0, 0, 0, 0.6);

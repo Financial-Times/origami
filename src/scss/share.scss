@@ -1,10 +1,5 @@
-////
-/// @group o-share
-/// @link http://registry.origami.ft.com/components/o-share
-////
-
 /// Generate base share styles
-/// @param {String}
+/// @access private
 @mixin _oShareBase() {
 	.o-share {
 		display: inline-block;
@@ -59,11 +54,12 @@
 	@include _oShareSize('default');
 }
 
-/// Icon
+/// Output styles for a share icon
 ///
 /// @param {String}  $name - Name of the icon
 /// @param {String}  $classname [o-share] - base class name
 /// @param {Boolean} $hover [true] - whether to output the hover styles
+/// @access private
 @mixin _oShareActionIcon($icon-name, $hover: true) {
 	// sass-lint:disable-all
 	$scheme: "ftsocial-v#{$o-share-social-icons-version}";
@@ -118,6 +114,8 @@
 	}
 }
 
+/// Output styles for the vertical variant
+/// @access private
 @mixin _oShareVertical() {
 	.o-share--vertical {
 		.o-share__action {
@@ -127,6 +125,9 @@
 	}
 }
 
+/// Output styles for the inverse variant
+/// @param {List} $icons - A list of icons to support.
+/// @access private
 @mixin _oShareInverse($icons) {
 	.o-share--inverse {
 		.o-share__action:not(:hover) {
@@ -171,6 +172,9 @@
 	}
 }
 
+/// Output styles to set the size of o-share icons.
+/// @param {String} $size - One of 'default' or 'small'.
+/// @access private
 @mixin _oShareSize($size) {
 	$sizes: (
 		// default o-share variant configuration
@@ -227,6 +231,10 @@
 	}
 }
 
+/// Output mixin content directly given a 'default' breakpoint,
+/// otherwise wrap mixin content in `oGridRespondTo`.
+/// @access private
+/// @param {String} $breakpoint - 'default' or an o-grid breakpoint, e.g. 'S', 'M'
 @mixin _oShareDefaultOrBreakpoint($breakpoint) {
 	@if $breakpoint == 'default' {
 		@content;
