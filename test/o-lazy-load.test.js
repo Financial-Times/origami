@@ -1,15 +1,18 @@
 /* eslint-env mocha */
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* global proclaim sinon */
+
 import * as fixtures from './helpers/fixtures';
 import waitUntil from './helpers/wait-until';
 import Subject from './../main';
 
-const sandbox = sinon.sandbox.create();
-
 describe('o-lazy-load', () => {
+	let sandbox;
+	beforeEach(() => {
+		sandbox = sinon.createSandbox();
+	});
+
 	afterEach(() => {
-		sinon.sandbox.restore();
+		sandbox.restore();
 	});
 
 	it('is defined', () => {
