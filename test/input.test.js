@@ -1,7 +1,6 @@
-/* eslint-env mocha, sinon, proclaim */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import formFixture from './helpers/fixtures';
 import Input from '../src/js/input';
 
