@@ -10,8 +10,8 @@ Social media buttons.
 ---
 
 - [Markup](#markup)
-- [JavaScript](#javascript)
 - [Sass](#sass)
+- [JavaScript](#javascript)
 - [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -55,6 +55,44 @@ The different social networks are (in the order suggested by the design team):
 To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/demos/src/main.mustache) directly.
 
 Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
+
+## Sass
+
+```scss
+@import 'o-share/main';
+```
+
+The `oShare` mixin is used to output the `o-share` styles.
+
+```scss
+@include oShare();
+```
+
+We recommend passing the `oShare` mixin an optional argument `$opts`, to specify styles granularly and keep your CSS bundle small.
+
+For example:
+```scss
+@include oShare($opts: (
+    'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
+    'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
+    'icons': ('twitter', 'facebook', 'whatsapp') // output styles for select share icons
+));
+```
+
+All `$opts` options include:
+- `icons` (list) a list of social share icons to output. One or more of:
+    - `twitter`
+    - `facebook`
+    - `linkedin`
+    - `link`
+    - `share`
+    - `mail`
+    - `pinterest`
+    - `whatsapp`
+- `sizes` (list, optional) output styles for different size variants of `o-share`
+    - `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
+- `vertical` (boolean) - Whether to output styles for the vertical variant, i.e `o-share--vertical`
+- `inverse` (boolean) - Whether to output the inverse theme for dark backgrounds, i.e `o-share--inverse`
 
 ## JavaScript
 
@@ -102,23 +140,6 @@ The event provides the following properties:
 - `detail.action` - The kind of share i.e. "social".
 - `detail.url` - The social share url opened.
 
-## Sass
-
-```scss
-@import 'o-share/main';
-```
-
-The `oShare` mixin is used to output the `o-share` styles.
-
-```scss
-@include oShare();
-```
-
-The mixin can take an optional argument `$opts`, that allows you to specify styles more granularly.
-
-```scss
-@include oShare($opts: ('vertical': false, 'inverse': true, 'icons': ('twitter', 'pinterest')));
-```
 ---
 
 ## Migration

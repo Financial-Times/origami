@@ -49,11 +49,11 @@
 			"description": "small icons"
 		},
 		{
-			"title": "Thingy",
-			"name": "thingy",
+			"title": "Scale",
+			"name": "scale",
 			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-thingy.json",
-			"description": "thingy icons"
+			"data": "demos/src/data-scale.json",
+			"description": "scale icons"
 		},
 		{
 			"title": "Inverse",

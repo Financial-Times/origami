@@ -39,6 +39,7 @@
 		width: inherit;
 		height: inherit;
 
+		// Used for the icon background
 		&:before {
 			content: '';
 			display: block;
@@ -46,7 +47,7 @@
 			height: inherit;
 		}
 
-		// Increase the hit target to improve a11y
+		// Used as an overlay to increase the hit target for accessibility
 		&:after {
 			position: absolute;
 			display: block;
@@ -172,7 +173,7 @@
 
 @mixin _oShareSize($size) {
 	$sizes: (
-		// default o-share size configuration
+		// default o-share variant configuration
 		// changes the margin size responsively
 		'default': (
 			'width': $o-share-icon-size,
@@ -181,7 +182,7 @@
 				'S': oSpacingByName('s3')
 			)
 		),
-		// small o-share size configuration
+		// small o-share variant configuration
 		'small': (
 			'width': $o-share-icon-small-size,
 			'breakpoint-to-margin': (
@@ -213,16 +214,14 @@
 		}
 	}
 
-	// size the icon element and set a margin
-	.o-share__icon {
-		&:after {
-			@each $breakpoint, $margin in $margins {
-				@include _oShareDefaultOrBreakpoint($breakpoint) {
-					width: calc(100% + #{$margin});
-					height: calc(100% + #{$margin});
-					top: -#{$margin / 2};
-					left: -#{$margin / 2};
-				}
+	// increase the icon hit size according to the margin size
+	.o-share__icon:after {
+		@each $breakpoint, $margin in $margins {
+			@include _oShareDefaultOrBreakpoint($breakpoint) {
+				width: calc(100% + #{$margin});
+				height: calc(100% + #{$margin});
+				top: -#{$margin / 2};
+				left: -#{$margin / 2};
 			}
 		}
 	}

@@ -8,9 +8,23 @@
 @import 'src/scss/functions';
 @import 'src/scss/share';
 
+/// Output all o-share styles.
+///
+/// @access public
+/// @param {Map} $opts [('icons': ('twitter', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp'), 'sizes': ('small', 'scale'), 'vertical': true, 'inverse': true)] The o-share variants to include styles for (see the README for more details).
+/// @example Output all styles.
+///		@include oShare();
+///
+/// @example Output styles for select variants.
+///		@include oShare($opts: (
+///       'icons': ('twitter', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp'),
+///       'sizes': ('small', 'scale'),
+///       'vertical': true,
+///       'inverse': true
+///   ));
 @mixin oShare($opts: (
   'icons': $_o-share-icons,
-  'sizes': ('small', 'thingy'),
+  'sizes': ('small', 'scale'),
   'vertical': true,
   'inverse': true
 )) {
@@ -36,8 +50,8 @@
     }
   }
 
-  @if index($sizes, 'thingy') != null {
-    .o-share--thingy {
+  @if index($sizes, 'scale') != null {
+    .o-share--scale {
       @include _oShareSize('default');
       @include oGridRespondTo('M') {
         @include _oShareSize('small');

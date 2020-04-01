@@ -13,6 +13,6 @@
         "withLink": true,
         "withMail": true,
         "withShare": true,
-        "isThingy": true
+        "isScale": true
     }
 }
