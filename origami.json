@@ -49,13 +49,6 @@
 			"description": "small icons"
 		},
 		{
-			"title": "Scale",
-			"name": "scale",
-			"template": "demos/src/main.mustache",
-			"data": "demos/src/data-scale.json",
-			"description": "scale icons"
-		},
-		{
 			"title": "Inverse",
 			"name": "inverse",
 			"template": "demos/src/main.mustache",

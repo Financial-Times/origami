@@ -11,20 +11,20 @@
 /// Output all o-share styles.
 ///
 /// @access public
-/// @param {Map} $opts [('icons': ('twitter', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp'), 'sizes': ('small', 'scale'), 'vertical': true, 'inverse': true)] The o-share variants to include styles for (see the README for more details).
+/// @param {Map} $opts [('icons': ('twitter', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp'), 'sizes': ('small'), 'vertical': true, 'inverse': true)] The o-share variants to include styles for (see the README for more details).
 /// @example Output all styles.
 ///		@include oShare();
 ///
 /// @example Output styles for select variants.
 ///		@include oShare($opts: (
 ///       'icons': ('twitter', 'facebook', 'linkedin', 'link', 'share', 'mail', 'pinterest', 'whatsapp'),
-///       'sizes': ('small', 'scale'),
+///       'sizes': ('small'),
 ///       'vertical': true,
 ///       'inverse': true
 ///   ));
 @mixin oShare($opts: (
   'icons': $_o-share-icons,
-  'sizes': ('small', 'scale'),
+  'sizes': ('small'),
   'vertical': true,
   'inverse': true
 )) {
@@ -47,15 +47,6 @@
   @if index($sizes, 'small') != null {
     .o-share--small {
       @include _oShareSize('small');
-    }
-  }
-
-  @if index($sizes, 'scale') != null {
-    .o-share--scale {
-      @include _oShareSize('default');
-      @include oGridRespondTo('M') {
-        @include _oShareSize('small');
-      }
     }
   }
 
