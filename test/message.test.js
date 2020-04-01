@@ -1,12 +1,11 @@
-/* eslint-env mocha, sinon, proclaim */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
 import Message from '../src/js/message';
 import construct from '../src/js/construct-element';
-import * as assert from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import fixtures from './helpers/fixtures';
 
-sinon.assert.expose(assert, {
+sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
@@ -46,13 +45,13 @@ describe("Message", () => {
 		});
 
 		it('stores `messageElement` in a `messageElement` property', () => {
-			assert.strictEqual(message.messageElement, messageElement);
+			proclaim.strictEqual(message.messageElement, messageElement);
 		});
 
 		it('has default options, and stores them in an `opts` property', () => {
-			assert.isObject(message.opts);
-			assert.notStrictEqual(message.opts, {});
-			assert.deepEqual(message.opts, {
+			proclaim.isObject(message.opts);
+			proclaim.notStrictEqual(message.opts, {});
+			proclaim.deepEqual(message.opts, {
 				autoOpen: true,
 				type: null,
 				state: null,
@@ -80,15 +79,15 @@ describe("Message", () => {
 		});
 
 		it('extracts options from the DOM', () => {
-			assert.calledOnce(stubs.getDataAttributes);
+			proclaim.calledOnce(stubs.getDataAttributes);
 		});
 
 		it('opens the message by default', () => {
-			assert.calledOnce(stubs.open);
+			proclaim.calledOnce(stubs.open);
 		});
 
 		it('does not close the message', () => {
-			assert.notCalled(stubs.close);
+			proclaim.notCalled(stubs.close);
 		});
 	});
 
@@ -111,15 +110,15 @@ describe("Message", () => {
 			});
 
 			it('does not open the message', () => {
-				assert.notCalled(stubs.open);
+				proclaim.notCalled(stubs.open);
 			});
 
 			it('closes the message', () => {
-				assert.calledOnce(stubs.close);
+				proclaim.calledOnce(stubs.close);
 			});
 
 			it('does not extract options from the DOM', () => {
-				assert.notCalled(stubs.getDataAttributes);
+				proclaim.notCalled(stubs.getDataAttributes);
 			});
 
 		});
@@ -159,7 +158,7 @@ describe("Message", () => {
 
 			it('calls `construct.message` if messageEl is not an HTML element', () => {
 				message = new Message(null, options);
-				assert.calledOnce(construct.message);
+				proclaim.calledOnce(construct.message);
 			});
 
 			it('calls `construct.message` if opts.parentElement is present', () => {
@@ -169,25 +168,25 @@ describe("Message", () => {
 
 				options.parentElement = '.some-class';
 				message = new Message(null, options);
-				assert.calledOnce(construct.message);
+				proclaim.calledOnce(construct.message);
 			});
 
 			it('calls `construct.closeButton` if opts.close is true', () => {
 				message = new Message(null, options);
-				assert.calledOnce(construct.closeButton);
+				proclaim.calledOnce(construct.closeButton);
 			});
 
 			it('does not call `construct.closeButton` if opts.close is false', () => {
 				options.close = false;
 				message = new Message(null, options);
-				assert.notCalled(construct.closeButton);
+				proclaim.notCalled(construct.closeButton);
 			});
 
 			it('does not call `construct.closeButton` if there is already one', () => {
 				messageElement = document.createElement('div');
 				messageElement.innerHTML = `<a href='#' class='o-message__close'></a>`;
 				message = new Message(messageElement, options);
-				assert.notCalled(construct.closeButton);
+				proclaim.notCalled(construct.closeButton);
 			});
 		});
 
@@ -209,37 +208,37 @@ describe("Message", () => {
 			});
 
 			it('returns an object', () => {
-				assert.isObject(returnValue);
+				proclaim.isObject(returnValue);
 			});
 
 			it('extracts values from data attributes and returns them as object keys', () => {
-				assert.strictEqual(returnValue.key, 'value');
+				proclaim.strictEqual(returnValue.key, 'value');
 			});
 
 			it('converts the keys to camel-case', () => {
-				assert.isUndefined(returnValue['another-key']);
-				assert.strictEqual(returnValue.anotherKey, 'value');
+				proclaim.isUndefined(returnValue['another-key']);
+				proclaim.strictEqual(returnValue.anotherKey, 'value');
 			});
 
 			it('ignores the `data-o-component` attribute', () => {
-				assert.isUndefined(returnValue.oComponent);
+				proclaim.isUndefined(returnValue.oComponent);
 			});
 
 			it('strips "o-banner" from the key', () => {
-				assert.isUndefined(returnValue.oMessageFoo);
-				assert.strictEqual(returnValue.foo, 'bar');
+				proclaim.isUndefined(returnValue.oMessageFoo);
+				proclaim.strictEqual(returnValue.foo, 'bar');
 			});
 
 			it('parses the key as JSON if it\'s valid', () => {
-				assert.isObject(returnValue.json);
-				assert.deepEqual(returnValue.json, {
+				proclaim.isObject(returnValue.json);
+				proclaim.deepEqual(returnValue.json, {
 					foo: 'bar'
 				});
 			});
 
 			it('parses the key as JSON even if single quotes are used', () => {
-				assert.isObject(returnValue.jsonSingle);
-				assert.deepEqual(returnValue.jsonSingle, {
+				proclaim.isObject(returnValue.jsonSingle);
+				proclaim.deepEqual(returnValue.jsonSingle, {
 					foo: 'bar'
 				});
 			});
@@ -252,8 +251,8 @@ describe("Message", () => {
 				});
 
 				it('returns an empty object', () => {
-					assert.isObject(returnValue);
-					assert.deepEqual(returnValue, {});
+					proclaim.isObject(returnValue);
+					proclaim.deepEqual(returnValue, {});
 				});
 			});
 		});
