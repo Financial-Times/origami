@@ -1,7 +1,5 @@
 /* eslint-env mocha */
-
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* global proclaim sinon */
 
 describe("o-autoinit", () => {
 	// autoinit is executed upon being required
