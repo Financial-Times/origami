@@ -24,6 +24,11 @@
 		color: _oFormsGet('disabled-text');
 		background-color: _oFormsGet('disabled-base');
 		border-color: _oFormsGet('disabled-base');
+		// Ensure Safari uses the correct text colour
+		// for disabled inputs.
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-text-fill-color: currentColor;
+		// sass-lint:enable no-vendor-prefixes
 	}
 }
 
