@@ -9,6 +9,15 @@ const socialUrls = {
 	link: "{{url}}"
 };
 
+const descriptiveLinkText = {
+	twitter: 'Share on Twitter (opens a new window)',
+	facebook: 'Share on Facebook (opens a new window)',
+	linkedin: 'Share on LinkedIn (opens a new window)',
+	pinterest: 'Share on Pinterest (opens a new window)',
+	whatsapp: 'Share on Whatsapp (opens a new window)',
+	link: 'Open link in new window'
+};
+
 /**
  * The `oShare.open` open event fires when a social network share action is
  * triggered, to open a new window.
@@ -140,9 +149,14 @@ function Share(rootEl, config) {
 			const aElement = document.createElement('a');
 
 			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
+
 			spanElement.classList.add('o-share__text');
+			spanElement.innerText = descriptiveLinkText[config.links[i]];
+
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
 			aElement.href = generateSocialUrl(config.links[i]);
+			aElement.setAttribute('target', '_blank');
+			aElement.setAttribute('rel', 'noopener');
 
 			aElement.appendChild(spanElement);
 			liElement.appendChild(aElement);
