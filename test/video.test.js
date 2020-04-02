@@ -1,11 +1,9 @@
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
+/* global proclaim sinon */
 
 import Video from './../src/js/video';
-import mediaApiResponse1 from './fixtures/media-api-1.json';
-import mediaApiResponse2 from './fixtures/media-api-2.json';
-import sinon from 'sinon/pkg/sinon';
-import proclaim from 'proclaim';
+import {mediaApiResponse1} from './fixtures/media-api-1.js';
+import {mediaApiResponse2} from './fixtures/media-api-2.js';
 
 describe('Video', () => {
 

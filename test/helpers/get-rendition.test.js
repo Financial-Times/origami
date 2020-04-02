@@ -1,9 +1,10 @@
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
+/* global proclaim */
 
 import getRendition from './../../src/js/helpers/get-rendition';
-import { renditions } from './../fixtures/media-api-1.json';
-import proclaim from 'proclaim';
+import { mediaApiResponse1 } from '../fixtures/media-api-1.js';
+
+const renditions = mediaApiResponse1.renditions;
 
 describe('Get Appropriate Renditions', () => {
 

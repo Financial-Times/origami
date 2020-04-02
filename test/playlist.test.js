@@ -1,10 +1,8 @@
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions */
+/* global proclaim sinon */
 
 import Player from '../src/js/video';
 import Subject from '../src/js/playlist';
-import sinon from 'sinon/pkg/sinon';
-import proclaim from 'proclaim';
 
 function createPlayer () {
 	const stub = sinon.createStubInstance(Player);

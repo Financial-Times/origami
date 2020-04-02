@@ -1,4 +1,3 @@
-/* global fetch */
 import oViewport from 'o-viewport';
 
 import getRendition from './helpers/get-rendition';
