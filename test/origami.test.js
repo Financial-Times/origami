@@ -1,9 +1,7 @@
-/* eslint-env mocha, sinon, proclaim */
+/* eslint-env mocha */
+/* global proclaim sinon */
 
 import * as fixtures from './helpers/fixtures';
-
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import Share from './../main';
 
 describe("Share", () => {
