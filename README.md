@@ -30,6 +30,7 @@ The simplest markup you might need looks like this:
     data-o-share-titleExtra="{{titleExtra}}"
     data-o-share-summary="{{summary}}"
     data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
+    data-o-share-location="{{locationOfShareComponent}}"
 </div>
 ```
 
@@ -41,6 +42,7 @@ The different options are:
 * `titleExtra`: Any additional text relating to the title, e.g. site _section_.
 * `summary`: Summary text to be shared.
 * `relatedTwitterAccounts`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+* `locationOfShareComponent`: A unique identifier for the share component which is used to track shares when multiple components exist on the page.
 
 The different social networks are (in the order suggested by the design team):
 

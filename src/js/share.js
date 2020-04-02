@@ -80,11 +80,13 @@ function Share(rootEl, config) {
 			ev.stopPropagation();
 
 			const url = actionEl.querySelector('a[href]').href;
+			const shareLocation = oShare.rootEl.dataset.oShareLocation || '';
 
 			dispatchCustomEvent('event', {
 				category: 'share',
 				action: 'click',
-				button: actionEl.textContent.trim().toLowerCase()
+				button: actionEl.textContent.trim().toLowerCase(),
+				location: shareLocation
 			}, 'oTracking');
 
 			shareSocial(url);
