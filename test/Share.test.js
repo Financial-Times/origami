@@ -86,6 +86,20 @@ describe('component', () => {
 		proclaim.instanceOf(document.querySelector('.o-share__icon--pinterest'), HTMLElement);
 	});
 
+	it('generates descriptive link text', () => {
+		const twitterText = document.querySelector('.o-share__icon--twitter .o-share__text').innerText;
+		const facebookText = document.querySelector('.o-share__icon--facebook .o-share__text').innerText;
+		const linkedinText = document.querySelector('.o-share__icon--linkedin .o-share__text').innerText;
+		const whatsappText = document.querySelector('.o-share__icon--whatsapp .o-share__text').innerText;
+		const pinterestText = document.querySelector('.o-share__icon--pinterest .o-share__text').innerText;
+
+		proclaim.strictEqual(twitterText, 'Share on Twitter (opens a new window)');
+		proclaim.strictEqual(facebookText, 'Share on Facebook (opens a new window)');
+		proclaim.strictEqual(linkedinText, 'Share on LinkedIn (opens a new window)');
+		proclaim.strictEqual(whatsappText, 'Share on Whatsapp (opens a new window)');
+		proclaim.strictEqual(pinterestText, 'Share on Pinterest (opens a new window)');
+	});
+
 	it('responds correctly to twitter clicks in the component', () => {
 		const twitterLinkElement = document.querySelector('.o-share__icon--twitter');
 		const event = document.createEvent('Event');
