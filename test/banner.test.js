@@ -1,9 +1,10 @@
+/* eslint-env mocha */
+/* global proclaim sinon */
+
 import Banner from './../src/js/banner';
-import * as assert from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
 import mainFixture from './fixture/main';
 
-sinon.assert.expose(assert, {
+sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
@@ -53,13 +54,13 @@ describe('Banner', () => {
 		});
 
 		it('stores `bannerElement` in a `bannerElement` property', () => {
-			assert.strictEqual(banner.bannerElement, bannerElement);
+			proclaim.strictEqual(banner.bannerElement, bannerElement);
 		});
 
 		it('defaults the options and stores them in an `options` property', () => {
-			assert.isObject(banner.options);
-			assert.notStrictEqual(banner.options, options);
-			assert.deepEqual(banner.options, {
+			proclaim.isObject(banner.options);
+			proclaim.notStrictEqual(banner.options, options);
+			proclaim.deepEqual(banner.options, {
 				autoOpen: true,
 				suppressCloseButton: false,
 				appendTo: document.body,
@@ -80,19 +81,19 @@ describe('Banner', () => {
 		});
 
 		it('does not extract options from the DOM', () => {
-			assert.notCalled(bannerGetOptionsFromDomStub);
+			proclaim.notCalled(bannerGetOptionsFromDomStub);
 		});
 
 		it('opens the banner', () => {
-			assert.calledOnce(bannerOpenStub);
+			proclaim.calledOnce(bannerOpenStub);
 		});
 
 		it('does not close the banner', () => {
-			assert.notCalled(bannerCloseStub);
+			proclaim.notCalled(bannerCloseStub);
 		});
 
 		it('renders the banner', () => {
-			assert.calledOnce(bannerRenderStub);
+			proclaim.calledOnce(bannerRenderStub);
 		});
 
 		describe('when `options.autoOpen` is `false`', () => {
@@ -117,11 +118,11 @@ describe('Banner', () => {
 			});
 
 			it('does not open the banner', () => {
-				assert.notCalled(bannerOpenStub);
+				proclaim.notCalled(bannerOpenStub);
 			});
 
 			it('closes the banner', () => {
-				assert.calledOnce(bannerCloseStub);
+				proclaim.calledOnce(bannerCloseStub);
 			});
 
 		});
@@ -164,7 +165,7 @@ describe('Banner', () => {
 					banner = new Banner(null, {
 						appendTo: '.test'
 					});
-					assert.equal([].slice.call(testDiv.childNodes).length, 1, 'Did not find the banner within the expected element.');
+					proclaim.equal([].slice.call(testDiv.childNodes).length, 1, 'Did not find the banner within the expected element.');
 				});
 			});
 
@@ -208,14 +209,14 @@ describe('Banner', () => {
 			});
 
 			it('extracts the options from the DOM', () => {
-				assert.calledOnce(bannerGetOptionsFromDomStub);
-				assert.strictEqual(banner.options.mockOption, 'from dom');
+				proclaim.calledOnce(bannerGetOptionsFromDomStub);
+				proclaim.strictEqual(banner.options.mockOption, 'from dom');
 			});
 
 		});
 
 		it('has a render method', () => {
-			assert.isFunction(banner.render);
+			proclaim.isFunction(banner.render);
 		});
 
 		describe('.render()', () => {
@@ -238,22 +239,22 @@ describe('Banner', () => {
 			});
 
 			it('does not build a banner element', () => {
-				assert.notCalled(banner.buildBannerElement);
+				proclaim.notCalled(banner.buildBannerElement);
 			});
 
 			it('selects the inner element and stores it on the `innerElement` property', () => {
-				assert.calledWithExactly(bannerElement.querySelector, '[data-o-banner-inner]');
-				assert.strictEqual(banner.innerElement, mockBannerInnerElement);
+				proclaim.calledWithExactly(bannerElement.querySelector, '[data-o-banner-inner]');
+				proclaim.strictEqual(banner.innerElement, mockBannerInnerElement);
 			});
 
 			it('builds a close button element and stores it on the `closeButtonElement` property', () => {
-				assert.calledOnce(banner.buildCloseButtonElement);
-				assert.strictEqual(banner.closeButtonElement, mockCloseButtonElement);
+				proclaim.calledOnce(banner.buildCloseButtonElement);
+				proclaim.strictEqual(banner.closeButtonElement, mockCloseButtonElement);
 			});
 
 			it('appends the close button element to the inner element', () => {
-				assert.calledOnce(mockBannerInnerElement.appendChild);
-				assert.calledWithExactly(mockBannerInnerElement.appendChild, mockCloseButtonElement);
+				proclaim.calledOnce(mockBannerInnerElement.appendChild);
+				proclaim.calledWithExactly(mockBannerInnerElement.appendChild, mockCloseButtonElement);
 			});
 
 			describe('when the `bannerElement` property is not an HTML element', () => {
@@ -269,14 +270,14 @@ describe('Banner', () => {
 				});
 
 				it('builds a banner element and stores it on the `bannerElement` property', () => {
-					assert.calledOnce(banner.buildBannerElement);
-					assert.calledWithExactly(banner.buildBannerElement);
-					assert.strictEqual(banner.bannerElement, mockBannerElement);
+					proclaim.calledOnce(banner.buildBannerElement);
+					proclaim.calledWithExactly(banner.buildBannerElement);
+					proclaim.strictEqual(banner.bannerElement, mockBannerElement);
 				});
 
 				it('appends the banner element to the body', () => {
-					assert.calledOnce(document.body.appendChild);
-					assert.calledWithExactly(document.body.appendChild, mockBannerElement);
+					proclaim.calledOnce(document.body.appendChild);
+					proclaim.calledWithExactly(document.body.appendChild, mockBannerElement);
 				});
 
 			});
@@ -295,13 +296,13 @@ describe('Banner', () => {
 				});
 
 				it('fully constructs the banner element and stores it on the `bannerElement` property', () => {
-					assert.calledOnce(banner.buildBannerElement);
-					assert.calledWith(banner.buildBannerElement, bannerElement);
-					assert.strictEqual(banner.bannerElement, mockBannerElement);
+					proclaim.calledOnce(banner.buildBannerElement);
+					proclaim.calledWith(banner.buildBannerElement, bannerElement);
+					proclaim.strictEqual(banner.bannerElement, mockBannerElement);
 				});
 
 				it('does not append the banner element to the body', () => {
-					assert.notCalled(document.body.appendChild);
+					proclaim.notCalled(document.body.appendChild);
 				});
 
 			});
@@ -323,15 +324,15 @@ describe('Banner', () => {
 				});
 
 				it('fully constructs the banner element using the element HTML as content', () => {
-					assert.strictEqual(banner.options.contentLong, 'mock-content');
-					assert.strictEqual(banner.options.contentShort, null);
-					assert.calledOnce(banner.buildBannerElement);
-					assert.calledWith(banner.buildBannerElement, bannerElement);
-					assert.strictEqual(banner.bannerElement, mockBannerElement);
+					proclaim.strictEqual(banner.options.contentLong, 'mock-content');
+					proclaim.strictEqual(banner.options.contentShort, null);
+					proclaim.calledOnce(banner.buildBannerElement);
+					proclaim.calledWith(banner.buildBannerElement, bannerElement);
+					proclaim.strictEqual(banner.bannerElement, mockBannerElement);
 				});
 
 				it('does not append the banner element to the body', () => {
-					assert.notCalled(document.body.appendChild);
+					proclaim.notCalled(document.body.appendChild);
 				});
 
 			});
@@ -345,14 +346,14 @@ describe('Banner', () => {
 				});
 
 				it('does not build the close button', () => {
-					assert.notCalled(banner.buildCloseButtonElement);
+					proclaim.notCalled(banner.buildCloseButtonElement);
 				});
 			});
 
 		});
 
 		it('has an open method', () => {
-			assert.isFunction(banner.open);
+			proclaim.isFunction(banner.open);
 		});
 
 		describe('.open()', () => {
@@ -364,20 +365,20 @@ describe('Banner', () => {
 			});
 
 			it('removes the banner closed class', () => {
-				assert.calledOnce(bannerElement.classList.remove);
-				assert.calledWith(bannerElement.classList.remove, "o-banner--closed");
+				proclaim.calledOnce(bannerElement.classList.remove);
+				proclaim.calledWith(bannerElement.classList.remove, "o-banner--closed");
 			});
 
 			it('dispatches an `o.bannerOpened` event', () => {
-				assert.calledOnce(bannerElement.dispatchEvent);
-				assert.instanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
-				assert.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerOpened');
+				proclaim.calledOnce(bannerElement.dispatchEvent);
+				proclaim.isInstanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
+				proclaim.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerOpened');
 			});
 
 		});
 
 		it('has a close method', () => {
-			assert.isFunction(banner.close);
+			proclaim.isFunction(banner.close);
 		});
 
 		describe('.close()', () => {
@@ -389,20 +390,20 @@ describe('Banner', () => {
 			});
 
 			it('adds the banner closed class', () => {
-				assert.calledOnce(bannerElement.classList.add);
-				assert.calledWith(bannerElement.classList.add, "o-banner--closed");
+				proclaim.calledOnce(bannerElement.classList.add);
+				proclaim.calledWith(bannerElement.classList.add, "o-banner--closed");
 			});
 
 			it('dispatches an `o.bannerClosed` event', () => {
-				assert.calledOnce(bannerElement.dispatchEvent);
-				assert.instanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
-				assert.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerClosed');
+				proclaim.calledOnce(bannerElement.dispatchEvent);
+				proclaim.isInstanceOf(bannerElement.dispatchEvent.firstCall.args[0], CustomEvent);
+				proclaim.strictEqual(bannerElement.dispatchEvent.firstCall.args[0].type, 'o.bannerClosed');
 			});
 
 		});
 
 		it('has a buildBannerElement method', () => {
-			assert.isFunction(banner.buildBannerElement);
+			proclaim.isFunction(banner.buildBannerElement);
 		});
 
 		describe('.buildBannerElement()', () => {
@@ -422,11 +423,11 @@ describe('Banner', () => {
 			});
 
 			it('returns an HTML element', () => {
-				assert.instanceOf(returnValue, HTMLElement);
+				proclaim.isInstanceOf(returnValue, HTMLElement);
 			});
 
 			it('constructs the element HTML based on the given options', () => {
-				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+				proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 					<div class="o-banner">
 						<div class="o-banner__outer">
 							<div class="o-banner__inner" data-o-banner-inner="">
@@ -458,7 +459,7 @@ describe('Banner', () => {
 				});
 
 				it('outputs only one content element using `options.contentLong`', () => {
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -489,7 +490,7 @@ describe('Banner', () => {
 				});
 
 				it('does not include a secondary action/link', () => {
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -520,7 +521,7 @@ describe('Banner', () => {
 				});
 
 				it('adds the theme class to the banner element', () => {
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner o-banner--product">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -548,7 +549,7 @@ describe('Banner', () => {
 
 			describe('when `options.theme` is defined and is an array', () => {
 				it('errors', () => {
-					assert.throws(() => {
+					proclaim.throws(() => {
 						banner = new Banner(null, {
 							theme: ['marketing', 'product']
 						});
@@ -564,7 +565,7 @@ describe('Banner', () => {
 				});
 
 				it('adds the layout class to the banner element', () => {
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner o-banner--small">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -592,7 +593,7 @@ describe('Banner', () => {
 
 			describe('when `options.layout` is an invalid layout', () => {
 				it('errors', () => {
-					assert.throws(() => {
+					proclaim.throws(() => {
 						banner = new Banner(null, {
 							layout: 'not-a-real-layout'
 						});
@@ -610,11 +611,11 @@ describe('Banner', () => {
 				});
 
 				it('strips the banner element HTML before constructing', () => {
-					assert.doesNotInclude(returnValue.outerHTML, 'mock-original-content');
+					proclaim.doesNotInclude(returnValue.outerHTML, 'mock-original-content');
 				});
 
 				it('returns the passed in banner element', () => {
-					assert.deepEqual(returnValue, bannerElement);
+					proclaim.deepEqual(returnValue, bannerElement);
 				});
 
 			});
@@ -625,7 +626,7 @@ describe('Banner', () => {
 					banner.options.formAction = null;
 					returnValue = banner.buildBannerElement();
 
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -653,7 +654,7 @@ describe('Banner', () => {
 					banner.options.formAction = undefined;
 					returnValue = banner.buildBannerElement();
 
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -689,7 +690,7 @@ describe('Banner', () => {
 				});
 
 				it('uses a form and submit button in place of an anchor for the primary action', () => {
-					assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 						<div class="o-banner">
 							<div class="o-banner__outer">
 								<div class="o-banner__inner" data-o-banner-inner="">
@@ -718,7 +719,7 @@ describe('Banner', () => {
 		});
 
 		it('has a buildCloseButtonElement method', () => {
-			assert.isFunction(banner.buildCloseButtonElement);
+			proclaim.isFunction(banner.buildCloseButtonElement);
 		});
 
 		describe('.buildCloseButtonElement()', () => {
@@ -739,19 +740,19 @@ describe('Banner', () => {
 			});
 
 			it('returns an HTML element', () => {
-				assert.instanceOf(returnValue, HTMLElement);
+				proclaim.isInstanceOf(returnValue, HTMLElement);
 			});
 
 			it('constructs the element HTML based on the given options', () => {
-				assert.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+				proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
 					<button class="o-banner__close" aria-label="mockCloseButtonLabel" title="mockCloseButtonLabel"></button>
 				`.replace(/[\t\n]+/g, ''));
 			});
 
 			it('adds a handler for the button click event', () => {
-				assert.calledOnce(returnValue.addEventListener);
-				assert.calledWith(returnValue.addEventListener, 'click');
-				assert.isFunction(returnValue.addEventListener.firstCall.args[1]);
+				proclaim.calledOnce(returnValue.addEventListener);
+				proclaim.calledWith(returnValue.addEventListener, 'click');
+				proclaim.isFunction(returnValue.addEventListener.firstCall.args[1]);
 			});
 
 			describe('click handler', () => {
@@ -767,11 +768,11 @@ describe('Banner', () => {
 				});
 
 				it('closes the banner', () => {
-					assert.calledOnce(banner.close);
+					proclaim.calledOnce(banner.close);
 				});
 
 				it('prevents the default click behaviour', () => {
-					assert.calledOnce(event.preventDefault);
+					proclaim.calledOnce(event.preventDefault);
 				});
 
 			});
@@ -796,37 +797,37 @@ describe('Banner', () => {
 		});
 
 		it('returns an object', () => {
-			assert.isObject(returnValue);
+			proclaim.isObject(returnValue);
 		});
 
 		it('extracts values from data attributes and returns them as object keys', () => {
-			assert.strictEqual(returnValue.key, 'value');
+			proclaim.strictEqual(returnValue.key, 'value');
 		});
 
 		it('converts the keys to camel-case', () => {
-			assert.isUndefined(returnValue['another-key']);
-			assert.strictEqual(returnValue.anotherKey, 'value');
+			proclaim.isUndefined(returnValue['another-key']);
+			proclaim.strictEqual(returnValue.anotherKey, 'value');
 		});
 
 		it('ignores the `data-o-component` attribute', () => {
-			assert.isUndefined(returnValue.oComponent);
+			proclaim.isUndefined(returnValue.oComponent);
 		});
 
 		it('strips "o-banner" from the key', () => {
-			assert.isUndefined(returnValue.oBannerFoo);
-			assert.strictEqual(returnValue.foo, 'bar');
+			proclaim.isUndefined(returnValue.oBannerFoo);
+			proclaim.strictEqual(returnValue.foo, 'bar');
 		});
 
 		it('parses the key as JSON if it\'s valid', () => {
-			assert.isObject(returnValue.json);
-			assert.deepEqual(returnValue.json, {
+			proclaim.isObject(returnValue.json);
+			proclaim.deepEqual(returnValue.json, {
 				foo: 'bar'
 			});
 		});
 
 		it('parses the key as JSON even if single quotes are used', () => {
-			assert.isObject(returnValue.jsonSingle);
-			assert.deepEqual(returnValue.jsonSingle, {
+			proclaim.isObject(returnValue.jsonSingle);
+			proclaim.deepEqual(returnValue.jsonSingle, {
 				foo: 'bar'
 			});
 		});
@@ -839,8 +840,8 @@ describe('Banner', () => {
 			});
 
 			it('returns an empty object', () => {
-				assert.isObject(returnValue);
-				assert.deepEqual(returnValue, {});
+				proclaim.isObject(returnValue);
+				proclaim.deepEqual(returnValue, {});
 			});
 
 		});
@@ -876,13 +877,13 @@ describe('Banner', () => {
 			});
 
 			it('does not query the the document', () => {
-				assert.notCalled(document.querySelector);
+				proclaim.notCalled(document.querySelector);
 			});
 
 			it('creates a new Banner instance with the passed in arguments, and returns it', () => {
-				assert.instanceOf(returnValue, Banner);
-				assert.strictEqual(returnValue.bannerElement, mockRootElement);
-				assert.strictEqual(returnValue.options.mockOption, 'test');
+				proclaim.isInstanceOf(returnValue, Banner);
+				proclaim.strictEqual(returnValue.bannerElement, mockRootElement);
+				proclaim.strictEqual(returnValue.options.mockOption, 'test');
 			});
 
 		});
@@ -906,23 +907,23 @@ describe('Banner', () => {
 			});
 
 			it('does not query the the document', () => {
-				assert.notCalled(document.querySelector);
+				proclaim.notCalled(document.querySelector);
 			});
 
 			it('queries the `rootElement` for banner elements', () => {
-				assert.calledOnce(mockRootElement.querySelectorAll);
-				assert.calledWithExactly(mockRootElement.querySelectorAll, '[data-o-component="o-banner"]');
+				proclaim.calledOnce(mockRootElement.querySelectorAll);
+				proclaim.calledWithExactly(mockRootElement.querySelectorAll, '[data-o-component="o-banner"]');
 			});
 
 			it('creates a new Banner instance with each banner element in `rootElement`, and returns an array of them', () => {
-				assert.isArray(returnValue);
-				assert.lengthEquals(returnValue, 2);
-				assert.instanceOf(returnValue[0], Banner);
-				assert.strictEqual(returnValue[0].bannerElement, mockBanner1);
-				assert.strictEqual(returnValue[0].options.mockOption, 'test');
-				assert.instanceOf(returnValue[1], Banner);
-				assert.strictEqual(returnValue[1].bannerElement, mockBanner2);
-				assert.strictEqual(returnValue[1].options.mockOption, 'test');
+				proclaim.isArray(returnValue);
+				proclaim.lengthEquals(returnValue, 2);
+				proclaim.isInstanceOf(returnValue[0], Banner);
+				proclaim.strictEqual(returnValue[0].bannerElement, mockBanner1);
+				proclaim.strictEqual(returnValue[0].options.mockOption, 'test');
+				proclaim.isInstanceOf(returnValue[1], Banner);
+				proclaim.strictEqual(returnValue[1].bannerElement, mockBanner2);
+				proclaim.strictEqual(returnValue[1].options.mockOption, 'test');
 			});
 
 		});
@@ -938,14 +939,14 @@ describe('Banner', () => {
 			});
 
 			it('queries the DOM using `rootElement` as a selector', () => {
-				assert.calledOnce(document.querySelector);
-				assert.calledWithExactly(document.querySelector, 'mock-selector');
+				proclaim.calledOnce(document.querySelector);
+				proclaim.calledWithExactly(document.querySelector, 'mock-selector');
 			});
 
 			it('creates a new Banner instance with the found element, and returns it', () => {
-				assert.instanceOf(returnValue, Banner);
-				assert.strictEqual(returnValue.bannerElement, foundElement);
-				assert.strictEqual(returnValue.options.mockOption, 'test');
+				proclaim.isInstanceOf(returnValue, Banner);
+				proclaim.strictEqual(returnValue.bannerElement, foundElement);
+				proclaim.strictEqual(returnValue.options.mockOption, 'test');
 			});
 
 		});
@@ -970,23 +971,23 @@ describe('Banner', () => {
 			});
 
 			it('does not query the the document', () => {
-				assert.notCalled(document.querySelector);
+				proclaim.notCalled(document.querySelector);
 			});
 
 			it('queries `document.body` for banner elements', () => {
-				assert.calledOnce(document.body.querySelectorAll);
-				assert.calledWithExactly(document.body.querySelectorAll, '[data-o-component="o-banner"]');
+				proclaim.calledOnce(document.body.querySelectorAll);
+				proclaim.calledWithExactly(document.body.querySelectorAll, '[data-o-component="o-banner"]');
 			});
 
 			it('creates a new Banner instance with each banner element in `document.body`, and returns an array of them', () => {
-				assert.isArray(returnValue);
-				assert.lengthEquals(returnValue, 2);
-				assert.instanceOf(returnValue[0], Banner);
-				assert.strictEqual(returnValue[0].bannerElement, mockBanner1);
-				assert.strictEqual(returnValue[0].options.mockOption, 'test');
-				assert.instanceOf(returnValue[1], Banner);
-				assert.strictEqual(returnValue[1].bannerElement, mockBanner2);
-				assert.strictEqual(returnValue[1].options.mockOption, 'test');
+				proclaim.isArray(returnValue);
+				proclaim.lengthEquals(returnValue, 2);
+				proclaim.isInstanceOf(returnValue[0], Banner);
+				proclaim.strictEqual(returnValue[0].bannerElement, mockBanner1);
+				proclaim.strictEqual(returnValue[0].options.mockOption, 'test');
+				proclaim.isInstanceOf(returnValue[1], Banner);
+				proclaim.strictEqual(returnValue[1].bannerElement, mockBanner2);
+				proclaim.strictEqual(returnValue[1].options.mockOption, 'test');
 			});
 		});
 
