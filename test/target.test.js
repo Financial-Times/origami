@@ -1,6 +1,5 @@
-/* eslint-env mocha, sinon, proclaim */
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 
 import OToggle from './../main';
 
