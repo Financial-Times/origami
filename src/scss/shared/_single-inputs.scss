@@ -57,6 +57,10 @@
 
 		#{$element} {
 			flex: 1;
+			// Allow form inputs with a suffix to shrink fully,
+			// regardless of the input `size` attribute.
+			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#htmlattrdefsize
+			min-width: 0;
 			margin-right: $_o-forms-spacing-two;
 		}
 
