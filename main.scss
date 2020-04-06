@@ -91,7 +91,11 @@
 	}
 
 	@if($sticky-sidebar-container) {
-		.sticky-sidebar-container {
+		// @breaking - Remove `.sticky-sidebar-container` class
+		// as it is not specification compliant, class names
+		// must be prefixed with the component name.
+		.sticky-sidebar-container,
+		.o-layout-sticky-sidebar-container {
 			position: sticky;
 			top: oSpacingByName('s3');
 		}

@@ -451,14 +451,14 @@ The query sidebar supports a [generated navigation like the documentation layout
 </div>
 ```
 
-Alternatively the `.sticky-sidebar-container` class may be used as a child of the query sidebars. Its contents will stick to the top of the viewport as the user scrolls.
+Alternatively the `.o-layout-sticky-sidebar-container` class may be used as a child of the query sidebars. Its contents will stick to the top of the viewport as the user scrolls.
 
 ```html
 <div class="o-layout o-layout--query" data-o-component="o-layout">
 	<!-- ... -->
 	<div class="o-layout__aside-sidebar o-layout-typography">
 		<!-- Sticky container for sidebar content (optional) -->
-		<div class="sticky-sidebar-container">
+		<div class="o-layout-sticky-sidebar-container">
 			<!-- Your asides / additional information (optional). -->
 		</div>
 	</div>
