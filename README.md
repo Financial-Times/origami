@@ -87,7 +87,7 @@ You may also use o-quote mixins with custom HTML markup. For example if your mar
 }
 ```
 
-The "oQuoteEditorial" mixins shown here are only available to master brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
+The `oQuoteEditorial` mixins shown here are only available to master brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
 
 
 ## Migration Guide
