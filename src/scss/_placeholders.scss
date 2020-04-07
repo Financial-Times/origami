@@ -76,17 +76,17 @@
 	%_o-quote-blockquote-editorial {
 		&:before  {
 			$icon-size: 36px;
-			$icon-whitespace: $icon-size * 0.2;
-			position: relative;
-			left: -$icon-whitespace;
-			margin-top: -$icon-whitespace;
-			margin-bottom: calc(#{oSpacingByName('s4')} - #{$icon-whitespace * 2});
-			content: '';
 			@include oIconsContent(
 				$icon-name: 'speech-left',
 				$color: oColorsByName('black-90'),
 				$size: $icon-size
 			);
+			content: '';
+			$icon-whitespace: $icon-size * 0.2;
+			position: relative;
+			left: -$icon-whitespace;
+			margin-top: -$icon-whitespace;
+			margin-bottom: calc(#{oSpacingByName('s4')} - #{$icon-whitespace * 2});
 		}
 
 		p {
