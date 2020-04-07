@@ -4,7 +4,6 @@ Styling for quotes
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
