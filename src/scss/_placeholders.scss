@@ -1,4 +1,6 @@
-@if $_o-editorial-layout-placeholders-output == false {
+// Only output placeholders if the current brand is the master brand.
+// This allows components which support multiple brands to use o-editorial-layout.
+@if $_o-editorial-layout-placeholders-output == false and oBrandGetCurrentBrand() == 'master' {
     // Only output placeholders once.
     $_o-editorial-layout-placeholders-output: true !global;
 
