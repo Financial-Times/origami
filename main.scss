@@ -5,11 +5,13 @@ $_o-quote-first-import: true !default;
 @import "o-spacing/main";
 @import "o-colors/main";
 @import "o-typography/main";
+@import "o-editorial-layout/main";
 @import "o-icons/main";
 
 @import "src/scss/variables";
-@import "src/scss/base";
-@import "src/scss/standard";
+@import "src/scss/brand";
+@import "src/scss/placeholders";
+@import "src/scss/mixins";
 
 /// Default styles for o-quote
 ///
@@ -22,27 +24,55 @@ $_o-quote-first-import: true !default;
 ///     	'editorial': true
 ///     ));
 ///
-/// @param {Map} $opts [('cite': true, 'standard': true] - The feature set to output rules for.
+/// @param {Map} $opts [('cite': true, 'standard': true, 'editorial': true] - The feature set to output rules for.
 /// @output The output includes the `.o-quote*` selectors
 @mixin oQuote($opts: (
-	cite: true,
-	standard: true
+	'cite': true,
+	'standard': true,
+	'editorial': true,
 )) {
+	// Enabled if the option is given and the current brand supports the feature.
+	$standard-enabled: map-get($opts, 'standard') and _oQuoteSupports('standard');
+	$editorial-enabled: map-get($opts, 'editorial') and _oQuoteSupports('editorial');
 	$cite-enabled: map-get($opts, 'cite');
-	$standard-enabled: map-get($opts, 'standard');
 
+	// Output base quote styles.
 	.o-quote {
-		@include oQuoteBase();
+		@extend %_o-quote;
 	}
 
 	@if $cite-enabled {
-		.o-quote__cite {
-			@include oQuoteBaseCite();
+		.o-quote__cite,
+		.o-quote__source,
+		.o-quote__author {
+			display: block;
 		}
 	}
 
+	// Output editorial quote styles.
+	@if $editorial-enabled {
+		.o-quote.o-quote--editorial {
+			@include oQuoteEditorial();
+		}
+	}
+
+	@if $editorial-enabled and $cite-enabled {
+		.o-quote--editorial .o-quote__cite {
+			@include oQuoteEditorialCite();
+		}
+
+		.o-quote--editorial .o-quote__author {
+			@include oQuoteEditorialCiteAuthor();
+		}
+
+		.o-quote--editorial .o-quote__source {
+			@include oQuoteEditorialCiteSource();
+		}
+	}
+
+	// Output standard quote styles.
 	@if $standard-enabled {
-		.o-quote--standard {
+		.o-quote.o-quote--standard {
 			@include oQuoteStandard();
 		}
 	}
@@ -52,10 +82,11 @@ $_o-quote-first-import: true !default;
 			@include oQuoteStandardCite();
 		}
 
-		.o-quote__author {
+		.o-quote--standard .o-quote__author {
 			@include oQuoteStandardCiteAuthor();
 		}
-		.o-quote__source {
+
+		.o-quote--standard .o-quote__source {
 			@include oQuoteStandardCiteSource();
 		}
 	}

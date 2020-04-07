@@ -18,7 +18,8 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"o-fonts@^4.0.0"
+			"o-fonts@^4.0.0",
+			"o-normalise@^2.0.0"
 		]
 	},
 	"ci": {
@@ -26,11 +27,54 @@
 	},
 	"demos": [
 		{
+			"title": "Editorial",
+			"name": "editorial",
+			"template": "demos/src/main.mustache",
+			"data": {
+				"modifier": "editorial",
+				"copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente placeat ducimus blanditiis, deleniti necessitatibus quo vel itaque omnis ipsum voluptas. Debitis omnis nobis optio minus vero quaerat quasi perspiciatis aliquid?",
+				"author": "Lorem ipsum",
+				"source": "Lorem, ipsum dolor."
+			},
+			"description": "A blockquote style for editorial contexts such as articles.",
+			"brands": [
+				"master"
+			]
+		},
+		{
 			"title": "Standard",
 			"name": "standard",
-			"template": "demos/src/standard.mustache",
-			"hidden": false,
-			"description": ""
+			"template": "demos/src/main.mustache",
+			"data": {
+				"modifier": "standard",
+				"copy": "Origami is about empowering developers of all levels to build robust, on-brand products ranging from simple static sites through to rich, dynamic web applications, to do it faster, to do it cheaper, and leave them more supportable and more maintainable.",
+				"author": "Financial Times",
+				"source": "The Origami Spec"
+			},
+			"description": "A blockquote style for product contexts.",
+			"brands": [
+				"master",
+				"internal",
+				"whitelabel"
+			]
+		},
+		{
+			"title": "Base",
+			"name": "base",
+			"template": "demos/src/main.mustache",
+			"data": {
+				"modifier": "",
+				"copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente placeat ducimus blanditiis, deleniti necessitatibus quo vel itaque omnis ipsum voluptas. Debitis omnis nobis optio minus vero quaerat quasi perspiciatis aliquid?",
+				"author": "Lorem ipsum",
+				"source": "Lorem, ipsum dolor."
+			},
+			"description": "A skeleton blockquote style.",
+			"hidden": true,
+			"brands": [
+				"master",
+				"internal",
+				"whitelabel"
+			]
 		},
 		{
 			"title": "Pa11y",

@@ -1,0 +1,63 @@
+/// Base quote styles
+// @deprecated - Use `oQuoteStandard` instead, or `oQuoteEditorial` if outputting an editorial-style quote.
+@mixin oQuoteBase {
+	@extend %_o-quote;
+	@warn 'oQuoteBase is deprecated: Use `oQuoteStandard` instead, or ' +
+	'`oQuoteEditorial` if outputting an editorial-style quote.';
+}
+
+/// Base quote cite styles
+// @deprecated - Use `oQuoteStandardCite` instead, or `oQuoteEditorialCite` if outputting an editorial-style quote.
+@mixin oQuoteBaseCite {
+	display: block;
+	@warn 'oQuoteBaseCite is deprecated: Use `oQuoteStandardCite` instead, or ' +
+	'`oQuoteEditorialCite` if outputting an editorial-style quote.';
+}
+
+/// Editorial quote styles
+/// @brand master
+@mixin oQuoteEditorial {
+	@extend %_o-quote;
+	@extend %_o-quote-blockquote;
+	@extend %_o-quote-blockquote-editorial;
+}
+
+/// Editorial quote cite styles
+/// @brand master
+@mixin oQuoteEditorialCite {
+	@extend %_o-quote-blockquote-cite;
+}
+
+/// Editorial quote source styles
+/// @brand master
+@mixin oQuoteEditorialCiteSource {
+	display: block;
+}
+
+/// Editorial quote author styles
+/// @brand master
+@mixin oQuoteEditorialCiteAuthor {
+	@extend %_o-quote-blockquote-author;
+}
+
+/// Standard quote styles
+@mixin oQuoteStandard {
+	@extend %_o-quote;
+	@extend %_o-quote-blockquote;
+	@extend %_o-quote-blockquote-standard;
+}
+
+/// Standard quote cite styles
+@mixin oQuoteStandardCite {
+	@extend %_o-quote-blockquote-cite;
+}
+
+/// Standard quote source styles
+@mixin oQuoteStandardCiteSource {
+	display: block;
+}
+
+/// Standard quote author styles
+@mixin oQuoteStandardCiteAuthor {
+	@extend %_o-quote-blockquote-author;
+}
