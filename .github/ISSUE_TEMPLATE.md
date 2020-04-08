@@ -5,6 +5,7 @@ title: Issue: [type] [short description]
 
 <!--
 Please make sure you've checked that your issue hasn't already been raised within this repository.
+
 If you need help with submitting an issue, please get in touch with the Origami Team at origami.support@ft.com or #origami-support on Slack.
 -->
 ## What
@@ -19,6 +20,7 @@ If it is a bug:
 	- Browser + version (e.g. Chrome 70)
 	- Device (e.g. iPhone X, Desktop)
 	- provide screenshots to illustrate your problem
+
 If it is a feature request:
 	- explain what prompted this request — e.g. is it something that you regularly make a workaround for?
 	- describe what the new feature would do and how it would be used
