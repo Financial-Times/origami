@@ -3,6 +3,14 @@
 		@include oTypographySans($scale: -1, $line-height: 20px);
 	}
 
+	.o-header__nav--hide-s {
+		display: none;
+
+		@include oGridRespondTo('S') {
+			display: block;
+		}
+	}
+
 	.o-header__nav--mobile {
 		white-space: nowrap;
 
