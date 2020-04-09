@@ -22,6 +22,7 @@ jobs:
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - run: npx origami-ci release
       env:
+        NPM_CONFIG_USERCONFIG: ~/.npmrc
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         ORIGAMI_CI_NAME: ${{ steps.repo_name.outputs.REPO_NAME }}
         ORIGAMI_CI_VERSION: ${{ steps.version.outputs.VERSION }}
