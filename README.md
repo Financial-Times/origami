@@ -10,7 +10,7 @@ Styling for quotes
 
 ## Markup
 
-For an standard blockquote style use classes `o-quote o-quote--standard` and the following markup:
+For a standard blockquote style use classes `o-quote o-quote--standard` and the following markup:
 
 ```html
 <blockquote class="o-quote o-quote--standard">
