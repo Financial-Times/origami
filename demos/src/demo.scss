@@ -1,10 +1,7 @@
-$o-quote-is-silent: false;
-$o-fonts-is-silent: false;
+@import "./../../main";
 
 body {
-	font-family: Metric, sans-serif;
-	padding: 20px 50px;
+	padding: 1.5rem;
 }
 
-
-@import "./../../main";
+@include oQuote();

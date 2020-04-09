@@ -1,0 +1,102 @@
+// Minimal, base quote styles.
+@if $_o-quote-first-import == true {
+	%_o-quote {
+		display: block;
+		margin: 0;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		padding-left: oSpacingByName('s4');
+
+		p {
+			margin-top: 0;
+			margin-bottom: oSpacingByName('s4');
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// Styles shared by both standard and editorial block quotes.
+@if $_o-quote-first-import == true {
+	%_o-quote-blockquote {
+		position: relative;
+		border-left: 4px solid oColorsByName('black-90');
+		color: oColorsByName('black');
+
+		a {
+			@include oTypographyLink;
+		}
+	}
+
+	%_o-quote-blockquote-cite {
+		// Output weight and style to override browser defaults.
+		@include oTypographySans(
+			$scale: 1,
+			$weight: 'regular',
+			$style: 'normal'
+		);
+		a {
+			@include oTypographyLink;
+		}
+	}
+
+	%_o-quote-blockquote-author {
+		// Output weight and style to override browser defaults.
+		@include oTypographySans(
+			$scale: 0,
+			$weight: 'semibold',
+			$style: 'normal'
+		);
+		text-transform: uppercase;
+	}
+}
+
+// Standard block quote styles.
+@if $_o-quote-first-import == true and _oQuoteSupports('standard') {
+	%_o-quote-blockquote-standard {
+		padding-top: 0px;
+		padding-bottom: 0px;
+		padding-left: oSpacingByName('s4');
+
+		p {
+			@include oTypographyBody();
+			// repeated margin as `oTypographyBody`
+			// outputs a margin property
+			margin-bottom: oSpacingByName('s4');
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+// Editorial block quote styles.
+@if $_o-quote-first-import == true and _oQuoteSupports('editorial') {
+	%_o-quote-blockquote-editorial {
+		&:before  {
+			$icon-size: 36px;
+			@include oIconsContent(
+				$icon-name: 'speech-left',
+				$color: oColorsByName('black-90'),
+				$size: $icon-size
+			);
+			content: '';
+			$icon-whitespace: $icon-size * 0.2;
+			position: relative;
+			left: -$icon-whitespace;
+			margin-top: -$icon-whitespace;
+			margin-bottom: calc(#{oSpacingByName('s4')} - #{$icon-whitespace * 2});
+		}
+
+		p {
+			@include oEditorialTypographyBody();
+			// repeated margin as `oEditorialTypographyBody`
+			// outputs a margin property
+			margin-bottom: oSpacingByName('s4');
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
