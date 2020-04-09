@@ -47,7 +47,7 @@ To output all o-quote styles include the `oQuote` mixin.
 @include oQuote();
 ```
 
-Pass an options `$opts` map to include only the o-quote styles you need. For example o-quote has styles for a standard and editorial blockquote. To only include styles for the editorial blockquote:
+Pass an options `$opts` map to include only the o-quote styles you need. For example o-quote has styles for standard and editorial blockquotes. To only include styles for the editorial blockquote:
 ```scss
 @include oQuote($opts: (
 	'standard': false, // do not output .o-quote--standard variant styles
