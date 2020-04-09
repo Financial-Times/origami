@@ -14,4 +14,4 @@ jobs:
     - run: npm install --only=dev
     - run: npx origami-ci release
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
