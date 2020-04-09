@@ -117,15 +117,32 @@ To set a custom palette colour to share with other components call `oColorsSetCo
 Colour names must be namespaced for the project or component using a forward slash.
 
 ```scss
-// Set a custom palette colour within a component `o-example`.
+// Set a custom palette colour within a project `o-example`.
 @include oColorsSetColor(
 	$color-name: 'o-example/myhotpink',
 	$color-value: #ff69b4
 );
 
 .example {
-	// Get a custom palette colour from a component `o-example`.
+	// Get a custom palette colour from a project `o-example`.
 	background: oColorsByName('o-example/myhotpink');
+}
+```
+
+By default custom colours do not allow [tones](#tone-palette-colors) to reduce the number of colours used within a project. To allow tones set the `allow-tones` option.
+
+```scss
+// Set a custom palette colour within a project `o-example`,
+// which allows tones of the same colour.
+@include oColorsSetColor(
+	$color-name: 'o-example/myhotpink',
+	$color-value: #ff69b4,
+	$opts: ('allow-tones': true)
+);
+
+.example {
+	// Get a toned custom palette colour from a project `o-example`.
+	background-color: oColorsGetTone('o-example/myhotpink', 80);
 }
 ```
 
@@ -292,7 +309,7 @@ Recommended tones are already in the colour palette, e.g. `teal-80` (see [defaul
 }
 ```
 
-For design consistency not all colours are allowed to be toned. Only colours with default tones in the palette (e.g. teal, oxford, and claret) may be used. Other colours [may still be mixed](#mix-colors).
+For design consistency not all colours are allowed to be toned. Only colours with default tones in the palette (e.g. teal, oxford, and claret) may be used. Other colours [may still be mixed](#mix-colors). If your project has defined custom colours using `oColorsSetColor`, these may be toned by setting the [`allow-tones` option](#custom-palette-colours).
 
 #### Colour Tools
 

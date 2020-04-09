@@ -108,37 +108,42 @@
 /// @param {String} $color-name - the name of the color to be shaded
 /// @param {Number} $brightness - the brightness value of the new color, 0-100
 @function oColorsGetTone($color-name, $brightness) {
+	// Find palette colour information.
 	$color: oColorsByName($color-name);
-	$hue: hue($color);
-	// Find a tone from a base of saturation which differs per colour.
-	$saturation: map-get($_o-colors-tone-saturation, $color-name);
-
-	// Validate the given colour allows different tones.
-	$has-tone-config: map-has-key($_o-colors-tone-saturation, $color-name);
-	@if (not $has-tone-config and ($color-name == 'white' or $color-name == 'black')) {
-		@return _oColorsError('"#{$color-name}" does not support tones. ' +
-			'Use a mix instead: ' +
-			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
-	}
-	@if (not $has-tone-config) {
-		@return _oColorsError('"#{$color-name}" does not support tones. ' +
-			'Consider using the `oColorsMix` function to mix with black to ' +
-			'darken or mix with white to lighten.');
-	}
+	$color-map: map-get($_o-colors-palette, $color-name);
+	$color-meta: map-get($color-map, 'meta');
 
 	// Validate brightness.
 	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
 		@return _oColorsError('"$brightness" must be a number between 0 and 100.');
 	}
 
-	@if $brightness == 0 {
-		@return hsla(0, 0, 0, 1);
-	} @else {
-		$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
-		$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
-
-		@return hsla($hue, $hsl-saturation, $hsl-luminance, 1);
+	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
+	@if (hue($color) == 0) {
+		@return _oColorsError('"#{$color-name}" does not support tones. ' +
+			'Use a mix instead: ' +
+			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
+
+	// Error for any palette colour which hasn't been configured to allow tones.
+	$allows-tones: map-get($color-meta, 'allow-tones');
+	@if (not $allows-tones) {
+		@return _oColorsError('"#{$color-name}" does not allow tones. ' +
+			'We only allow tones for some colours, to reduce the number ' +
+			'of different colours used across sites. ' +
+			'For custom colours, set the `allow-tones` option ' +
+			'of `oColorsSetColor` to enable tones. ' +
+			'If using a default o-colors colour consider using the `oColorsMix` ' +
+			'function to mix with black to darken or white to lighten.');
+	}
+
+	// Convert the given colour to the HSB colour space.
+	$hsb: _oColorsHexToHsbValues($color);
+	$hsb-hue: map-get($hsb, 'h');
+	$hsb-saturation: map-get($hsb, 's');
+	// Update the colours brightness with the given brightness value,
+	// using the HSB colour space.
+	@return _oColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
 }
 
 /// Figure out if a given colour is a tone. If it is a tone return the original
@@ -396,4 +401,62 @@
 /// Check if a colour name exists in the palette.
 @function _oColorsNameExists($color-name) {
 	@return map-has-key($_o-colors-palette, $color-name);
+}
+
+/// Converts HSB/HSV values to a hex colour
+///
+/// @access private
+///
+/// @param {Number} $hue - number between 0-360
+/// @param {Number} $saturation - number between 0-100
+/// @param {Number} $brigthness - number between 0-100
+///
+/// @return {Colour} - the hex representation of given hsb values
+@function _oColorsHsbToHex($hue, $saturation, $brightness) {
+	@if $brightness == 0 {
+		@return hsl(0, 0, 0);
+	}
+
+	$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
+	$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
+	@return hsl($hue, $hsl-saturation, $hsl-luminance);
+}
+
+/// Returns HSB/HSV colour values for a given colour hex.
+///
+/// Logic derived from chroma.js
+/// https://github.com/gka/chroma.js/blob/088e18f50a3b5b1d009ce68f540265cafa0cb6a1/src/io/hsv/rgb2hsv.js#L10
+/// HSL to HSB is also documented here, if you prefer math:
+/// https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+///
+/// @access private
+///
+/// @param {Color} $hex - The hex colour value to find hsb values for.
+/// @return {Map} - map of `h`, `s`, `b` colour values.
+@function _oColorsHexToHsbValues($hex) {
+	$redValue: red($hex);
+	$greenValue: green($hex);
+	$blueValue: blue($hex);
+
+	// Find smallest and largest amount of colour.
+	$min: null;
+	$max: null;
+	@each $var in ($redValue, $greenValue, $blueValue) {
+		@if $min == null or $var < $min {
+			$min: $var;
+		}
+
+		@if $max == null or $var > $max {
+			$max: $var;
+		}
+	}
+
+	// Difference between the smallest and largest amount of colour.
+	$delta: $max - $min;
+
+	$hue: hue($hex);
+	$saturation: if($max == 0, 0, $delta / $max);
+	$brightness: $max / 255;
+
+    @return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
 }

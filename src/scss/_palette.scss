@@ -1,3 +1,5 @@
+
+
 // Define universal primary palette.
 $_o-colors-default-palette-colors: join((
 	('black', #000000),
@@ -10,12 +12,12 @@ $_o-colors-default-palette-colors: join((
 	$_o-colors-default-palette-colors: join((
 		// primary palette
 		('paper', #fff1e5),
-		('claret', #990f3d),
-		('oxford', #0f5499),
-		('teal', #0d7680),
+		('claret', #990f3d, ('allow-tones': true)),
+		('oxford', #0f5499, ('allow-tones': true)),
+		('teal', #0d7680, ('allow-tones': true)),
 
 		//secondary palette
-		('wheat', #f2dfce),
+		('wheat', #f2dfce, ('allow-tones': true)),
 		('sky', #cce6ff),
 		('slate', #262a33),
 		('velvet', #593380),
@@ -39,8 +41,8 @@ $_o-colors-default-palette-colors: join((
 @if oBrandGetCurrentBrand() == internal {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
-		('oxford', #0f5499),
-		('teal', #0d7680),
+		('oxford', #0f5499, ('allow-tones': true)),
+		('teal', #0d7680, ('allow-tones': true)),
 
 		//secondary palette
 		('lemon', #ffec1a),

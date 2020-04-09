@@ -118,7 +118,7 @@
 			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/tones-mixes.mustache",
-			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
+			"description": "Tones (colours with modified brightness using the HSB colour space) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"master"
@@ -204,7 +204,7 @@
 			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/internal-palette.json",
 			"template": "demos/src/tones-mixes.mustache",
-			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
+			"description": "Tones (colours with modified brightness using the HSB colour space) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"internal"
@@ -226,7 +226,7 @@
 			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/whitelabel-palette.json",
 			"template": "demos/src/tones-mixes.mustache",
-			"description": "Tones (colours with modified saturation and lightness) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
+			"description": "Tones (colours with modified brightness using the HSB colour space) can be used to produce a broad spectrum of lighter and darker variations of palette colours for creating scale and depth to your designs. To reduce our number of colour combinations not all colours may be toned, but mixes of black/white may be used instead.",
 			"display_html": false,
 			"brands": [
 				"whitelabel"

@@ -7,7 +7,10 @@
 ///     @include oColorsSetColor (
 ///     	$color-name: 'o-example/pink',
 ///     	$color-value #ff69b4,
-///     	$opts: (deprecated: 'your deprecation message')
+///     	$opts: (
+///     		'allow-tones': true,
+///     		'deprecated': 'your deprecation message'
+///     	)
 ///     );
 ///
 /// @param {String} $color-name - The name of the colour e.g. 'o-example/paper'.
@@ -32,6 +35,9 @@
 	// Get deprecation message.
 	$deprecation-message: map-get($opts, 'deprecated');
 
+	// Get tones option.
+	$allow-tones: map-get($opts, 'allow-tones');
+
 	// Default o-colors palette colours may be customised by users but
 	// existing project/component colors may not. Customisation of non-default
 	// colours usually happens at a component level.
@@ -54,7 +60,10 @@
 	$new-color: ($color-name: (
 		'value': $color-value,
 		'name': $color-name,
-		'meta': ('deprecated': $deprecation-message)
+		'meta': (
+			'deprecated': $deprecation-message,
+			'allow-tones': if($allow-tones == true, true, false)
+		)
 	));
 	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
 };

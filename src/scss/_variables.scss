@@ -17,14 +17,6 @@ $_o-colors-is-initialised: false !default;
 /// @access private
 $_o-colors-default-palette-colors: () !default;
 
-/// A map of colours which allow tones to their base tone saturation.
-$_o-colors-tone-saturation: (
-    'claret': 90,
-    'oxford': 90,
-    'teal': 90,
-    'wheat': 15
-);
-
 /// A map to define default tones in the palette.
 /// This is also used to decide which colours are
 /// allowed to have tones, when users request a

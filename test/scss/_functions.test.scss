@@ -78,12 +78,26 @@
 	};
 
 	@include describe('oColorsGetTone') {
-		@include it('returns a tone for palette colours that allow tones') {
+		@include it('returns a tone for default palette colours that allow tones') {
+			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
 			@include assert-equal(oColorsGetTone('claret', 30), #4d081f, $inspect: true);
 			@include assert-equal(oColorsGetTone('wheat', 100), #ffebd9, $inspect: true);
 		};
 
-		@include it('returns an error for palette colours which do not allow tones') {
+		@include it('returns a tone for custom palette colours that allow tones') {
+			@include oColorsSetColor(
+				'o-example/olive-with-tones-allowed',
+				#808000,
+				('allow-tones': true)
+			);
+			@include assert-equal(
+				oColorsGetTone('o-example/olive-with-tones-allowed', 100),
+				yellow,
+				$inspect: true
+			);
+		};
+
+		@include it('returns an error for default palette colours which do not allow tones') {
 			@include assert-equal(oColorsGetTone('black', 10),
 			('ERROR: "black" does not support tones. Use a mix instead: `oColorsMix(\'black\', $percentage: 10)`'),
 			 $inspect: true);
@@ -91,7 +105,17 @@
 			('ERROR: "white" does not support tones. Use a mix instead: `oColorsMix(\'white\', $percentage: 10)`'),
 			 $inspect: true);
 			@include assert-equal(oColorsGetTone('slate', 10),
-			('ERROR: "slate" does not support tones. Consider using the `oColorsMix` function to mix with black to darken or mix with white to lighten.'),
+			('ERROR: "slate" does not allow tones. We only allow tones for some colours, to reduce the number of different colours used across sites. For custom colours, set the `allow-tones` option of `oColorsSetColor` to enable tones. If using a default o-colors colour consider using the `oColorsMix` function to mix with black to darken or white to lighten.'),
+			 $inspect: true);
+		};
+
+		@include it('returns an error for default palette colours which do not allow tones') {
+			@include oColorsSetColor(
+				'o-example/olive-without-tones',
+				#808000
+			);
+			@include assert-equal(oColorsGetTone('o-example/olive-without-tones', 100),
+			('ERROR: "o-example/olive-without-tones" does not allow tones. We only allow tones for some colours, to reduce the number of different colours used across sites. For custom colours, set the `allow-tones` option of `oColorsSetColor` to enable tones. If using a default o-colors colour consider using the `oColorsMix` function to mix with black to darken or white to lighten.'),
 			 $inspect: true);
 		};
 	};
