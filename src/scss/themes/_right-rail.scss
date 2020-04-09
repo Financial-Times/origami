@@ -1,4 +1,4 @@
-/* right-rail is content and right hand rail, with left hand rail reset to 0. */
+// right-rail is content and right hand rail, with left hand rail reset to 0.
 
 @mixin _oTopperGridRightRail() {
 	@include oGridRespondTo(L) {
