@@ -119,7 +119,7 @@
 	}
 
 	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
-	@if (hue($color) == 0) {
+	@if (hue($color) == 0 and saturation($color) == 0) {
 		@return _oColorsError('"#{$color-name}" does not support tones. ' +
 			'Use a mix instead: ' +
 			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
