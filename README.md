@@ -26,12 +26,24 @@ The  `o-expander` component has a content element `o-expander__content` (the DOM
 </div>
 ```
 
-By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded` (or `aria-hidden="true"` for the [Hidden Expander](#hidden-expander)).
+By default o-expander will collapse content on initialisation. To prevent this add the class `.o-expander__content--expanded` (or `aria-hidden="false"` for the [Hidden Expander](#hidden-expander)).
 
 ```diff
 <div data-o-component="o-expander" class="o-expander">
 -    <div class="o-expander__content">
 +    <div class="o-expander__content o-expander__content--expanded">
+      <!-- Some content to expand and collapse. -->
+    </div>
+    <button class="o-expander__toggle">Toggle Content</button>
+</div>
+```
+
+or
+
+```diff
+<div data-o-component="o-expander" class="o-expander" data-o-expander-shrink-to="hidden">
+-    <div class="o-expander__content">
++    <div class="o-expander__content" aria-hidden="false">
       <!-- Some content to expand and collapse. -->
     </div>
     <button class="o-expander__toggle">Toggle Content</button>
