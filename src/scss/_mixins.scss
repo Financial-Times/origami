@@ -230,6 +230,20 @@
 	background-color: map-get($button-colors-map, 'background');
 	color: map-get($button-colors-map, 'color');
 	border-color: map-get($button-colors-map, 'border');
+
+	&:hover {
+		background-color: map-get($button-colors-map, 'hover-background');
+		color: map-get($button-colors-map, 'hover-color');
+		border-color: map-get($button-colors-map, 'hover-border');
+		text-decoration: none;
+	}
+
+	&:focus {
+		background-color: map-get($button-colors-map, 'focus-background');
+		color: map-get($button-colors-map, 'focus-color');
+		border-color: map-get($button-colors-map, 'focus-border');
+	}
+
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 	// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 	&[aria-selected=true], // e.g. A selected tab or page number in pagination.
@@ -239,19 +253,6 @@
 		background-color: map-get($button-colors-map, 'active-background');
 		color: map-get($button-colors-map, 'active-color');
 		border-color: map-get($button-colors-map, 'active-border');
-	}
-	&:not([disabled]) {
-		&:hover {
-			background-color: map-get($button-colors-map, 'hover-background');
-			color: map-get($button-colors-map, 'hover-color');
-			border-color: map-get($button-colors-map, 'hover-border');
-			text-decoration: none;
-		}
-		&:focus {
-			background-color: map-get($button-colors-map, 'focus-background');
-			color: map-get($button-colors-map, 'focus-color');
-			border-color: map-get($button-colors-map, 'focus-border');
-		}
 	}
 }
 
@@ -266,8 +267,28 @@
 
 	@include _oButtonsGetIcon($icon, $normal-icon-color);
 
-	// Only output the active icon if it is different to the default icon.
-	@if($normal-icon-color != $active-icon-color) {
+	// Only output the hover icon if it is different to the default icon.
+	@if($hover-icon-color != $normal-icon-color) {
+		&:hover {
+			@include _oButtonsGetIcon($icon, $hover-icon-color);
+		}
+		// Hack to get the hover state colour svg to download to prevent flash
+		// as icon is downloaded on hover
+		&:before {
+			@include _oButtonsGetIcon($icon, $hover-icon-color);
+			content: '';
+		}
+	}
+
+	// Only output the focus icon if it is different to the default or hover icon.
+	@if($focus-icon-color != $normal-icon-color or $focus-icon-color != $hover-icon-color) {
+		&:focus {
+			@include _oButtonsGetIcon($icon, $focus-icon-color);
+		}
+	}
+
+	// Only output the active icon if it is different to states with less specificity.
+	@if($active-icon-color != $normal-icon-color or $active-icon-color != $hover-icon-color or $active-icon-color != $focus-icon-color) {
 		// https://www.w3.org/TR/wai-aria-1.1/#aria-selected
 		// https://www.w3.org/TR/wai-aria-1.1/#aria-pressed
 		&[aria-selected=true], // e.g. A selected tab or page number in pagination.
@@ -276,24 +297,11 @@
 		&:active {
 			@include _oButtonsGetIcon($icon, $active-icon-color);
 		}
-		// Hack to get the active state colour svg to download to prevent FOIC
+		// Hack to get the active state colour svg to download to prevent flash
+		// as icon is downloaded on active
 		&:after {
 			@include _oButtonsGetIcon($icon, $active-icon-color);
 			content: '';
-		}
-	}
-
-	&:not([disabled]) {
-		// The hover state has higher specificity than the default or active state.
-		// So output the hover icon if it is different to either of these.
-		$unique-hover-icon: ($hover-icon-color != $active-icon-color) or ($hover-icon-color != $normal-icon-color);
-		@if($unique-hover-icon) {
-			&:hover {
-				@include _oButtonsGetIcon($icon, $hover-icon-color);
-			}
-		}
-		&:focus {
-			@include _oButtonsGetIcon($icon, $focus-icon-color);
 		}
 	}
 

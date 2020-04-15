@@ -206,6 +206,19 @@
 					cursor: default;
 				}
 
+				&:hover {
+					background-color: #515257;
+					color: white;
+					border-color: transparent;
+					text-decoration: none;
+				}
+
+				&:focus {
+					background-color: #515257;
+					color: white;
+					border-color: transparent;
+				}
+
 				&[aria-selected=true],
 				&[aria-current],
 				&[aria-pressed=true],
@@ -213,23 +226,6 @@
 					background-color: #727071;
 					color: white;
 					border-color: transparent;
-				}
-
-				&:not([disabled]):hover {
-					background-color: #515257;
-					color: white;
-					border-color: transparent;
-					text-decoration: none;
-				}
-
-				&:not([disabled]):focus {
-					background-color: #515257;
-					color: white;
-					border-color: transparent;
-				}
-
-				&:not([disabled]):focus {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
 				}
 
 				@media screen and (-ms-high-contrast: active) {
@@ -266,24 +262,24 @@
 					border-color: transparent;
 				}
 
-				&[aria-selected=true],
-				&[aria-current],
-				&[aria-pressed=true],
-				&:active {
-					background-color: #052f33;
-					color: white;
-					border-color: transparent;
-				}
-
-				&:not([disabled]):hover {
+				&:hover {
 					background-color: #095259;
 					color: white;
 					border-color: transparent;
 					text-decoration: none;
 				}
 
-				&:not([disabled]):focus {
+				&:focus {
 					background-color: #095259;
+					color: white;
+					border-color: transparent;
+				}
+
+				&[aria-selected=true],
+				&[aria-current],
+				&[aria-pressed=true],
+				&:active {
+					background-color: #052f33;
 					color: white;
 					border-color: transparent;
 				}
