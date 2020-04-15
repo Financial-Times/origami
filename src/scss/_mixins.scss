@@ -276,7 +276,12 @@
 		// as icon is downloaded on hover
 		&:before {
 			@include _oButtonsGetIcon($icon, $hover-icon-color);
-			content: '';
+			// For an unknown reason when button copy has leading whitespace
+			// Safari renders the before pseudo element above the content with
+			// a height of 16px and width 1px, making the button too tall.
+			// If whitespace is included in the pseudo element Safari does not
+			// do this: https://github.com/Financial-Times/o-buttons/issues/250
+			content: ' ';
 		}
 	}
 
