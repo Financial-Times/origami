@@ -60,6 +60,14 @@
 		}
 	}
 
+	.o-header__nav-item--hide-s {
+		display: none;
+
+		@include oGridRespondTo('S') {
+			display: table-cell;
+		}
+	}
+
 	.o-header__nav-item--expanded {
 		@include oGridRespondTo($until: 'M') {
 			display: none;
