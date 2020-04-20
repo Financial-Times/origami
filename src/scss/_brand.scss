@@ -15,19 +15,19 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-share', 'master', (
 		'variables': (
-            'size': $o-share-icon-size,
-            'border-color': oColorsByName('black-50'),
-            'color': oColorsByName('black'),
-            'hover-color': oColorsByName('white'),
-            'small': (
-			    'size': $o-share-icon-small-size,
-			    'margin': oSpacingByName('s3'),
-            ),
-            'inverse': (
-			    'border-color': oColorsMix('slate', 'white', 50),
-			    'color': oColorsByName('white'),
-			    'hover-color': oColorsByName('white'),
-            )
+			'size': $o-share-icon-size,
+			'border-color': oColorsByName('black-50'),
+			'color': oColorsByName('black'),
+			'hover-color': oColorsByName('white'),
+			'small': (
+				'size': $o-share-icon-small-size,
+				'margin': oSpacingByName('s3'),
+			),
+			'inverse': (
+				'border-color': oColorsMix('slate', 'white', 50),
+				'color': oColorsByName('white'),
+				'hover-color': oColorsByName('white'),
+			)
 		),
 		'supports-variants': ()
 	));

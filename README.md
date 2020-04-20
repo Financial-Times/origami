@@ -23,14 +23,14 @@ The following markup is the simplest but requires JavaScript to work and does no
 
 ```html
 <div data-o-component="o-share"
-    class="o-share"
-    data-o-share-links="{{links}}"
-    data-o-share-url="{{url}}"
-    data-o-share-title="{{title}}"
-    data-o-share-titleExtra="{{titleExtra}}"
-    data-o-share-summary="{{summary}}"
-    data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
-    data-o-share-location="{{locationOfShareComponent}}">
+	class="o-share"
+	data-o-share-links="{{links}}"
+	data-o-share-url="{{url}}"
+	data-o-share-title="{{title}}"
+	data-o-share-titleExtra="{{titleExtra}}"
+	data-o-share-summary="{{summary}}"
+	data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
+	data-o-share-location="{{locationOfShareComponent}}">
 </div>
 ```
 
@@ -57,7 +57,7 @@ Add the `o-share--small` class for smaller icons. This is useful when including 
 ```diff
 -<div data-o-component="o-share" class="o-share">
 +<div data-o-component="o-share" class="o-share o-share--small">
-    <!-- more o-share markup -->
+	<!-- more o-share markup -->
 </div>
 ```
 
@@ -71,16 +71,16 @@ Include the [complete markup, available in the Origami registry](https://registr
 <!-- see the registry demos for full markup -->
 <div data-o-component="o-share" class="o-share">
 	<ul>
-        <!-- a share to twitter action example -->
-        <!-- href tag is not shown, see the registry demos for full markup  -->
+		<!-- a share to twitter action example -->
+		<!-- href tag is not shown, see the registry demos for full markup  -->
 		<li class="o-share__action">
-            <a class="o-share__icon o-share__icon--twitter"
-                href="#twitter-link-here"
-                rel="noopener">
-                <span class="o-share__text">Twitter</span>
-            </a>
-        </li>
-        <!-- more o-share actions -->
+			<a class="o-share__icon o-share__icon--twitter"
+				href="#twitter-link-here"
+				rel="noopener">
+				<span class="o-share__text">Twitter</span>
+			</a>
+		</li>
+		<!-- more o-share actions -->
 	</ul>
 </div>
 ```
@@ -99,13 +99,13 @@ Add the `o-share__action--labelled` class to any share action to display the act
 	<ul>
 -		<li class="o-share__action">
 +		<li class="o-share__action o-share__action--labelled">
-            <a class="o-share__icon o-share__icon--twitter"
-                href="#twitter-link-here"
-                rel="noopener">
-                <span class="o-share__text">Twitter</span>
-            </a>
-        </li>
-        <!-- more o-share actions -->
+			<a class="o-share__icon o-share__icon--twitter"
+				href="#twitter-link-here"
+				rel="noopener">
+				<span class="o-share__text">Twitter</span>
+			</a>
+		</li>
+		<!-- more o-share actions -->
 	</ul>
 </div>
 ```
@@ -118,16 +118,16 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 <!-- see the registry demos for full markup -->
 <div data-o-component="o-share" class="o-share">
 	<ul>
-        <!-- a custom share action example which includes a text label -->
-        <li class="o-share__action o-share__action--labelled">
-            <!-- form markup is allowed to handle custom share actions -->
+		<!-- a custom share action example which includes a text label -->
+		<li class="o-share__action o-share__action--labelled">
+			<!-- form markup is allowed to handle custom share actions -->
 			<form method="POST" action="#">
 				<button type="submit" class="o-share__icon o-share__icon--share">
 					<span class="o-share__text">Save</span>
 				</button>
 			</form>
-        </li>
-        <!-- more o-share actions -->
+		</li>
+		<!-- more o-share actions -->
 	</ul>
 </div>
 ```
@@ -149,24 +149,24 @@ We recommend passing the `oShare` mixin an optional argument `$opts`, to specify
 For example:
 ```scss
 @include oShare($opts: (
-    'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
-    'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
-    'icons': ('twitter', 'facebook', 'whatsapp') // output styles for select share icons
+	'sizes': ('small'), // output styles for a small variation of o-share i.e. o-share--small
+	'vertical': true, // output styles for a vertical o-share i.e. o-share--vertical
+	'icons': ('twitter', 'facebook', 'whatsapp') // output styles for select share icons
 ));
 ```
 
 All `$opts` options include:
 - `icons` (list) a list of social share icons to output. One or more of:
-    - `twitter`
-    - `facebook`
-    - `linkedin`
-    - `link`
-    - `share`
-    - `mail`
-    - `pinterest`
-    - `whatsapp`
+	- `twitter`
+	- `facebook`
+	- `linkedin`
+	- `link`
+	- `share`
+	- `mail`
+	- `pinterest`
+	- `whatsapp`
 - `sizes` (list, optional) output styles for different size variants of `o-share`
-    - `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
+	- `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
 - `vertical` (boolean) - Whether to output styles for the vertical variant, i.e `o-share--vertical`
 - `inverse` (boolean) - Whether to output the inverse theme for dark backgrounds, i.e `o-share--inverse`
 
@@ -187,7 +187,7 @@ Alternatively, an `o.DOMContentLoaded` event can be dispatched on the `document`
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
