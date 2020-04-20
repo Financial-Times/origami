@@ -19,7 +19,7 @@ Social media buttons.
 
 ## Markup
 
-The simplest markup you might need looks like this:
+The following markup is the simplest but requires JavaScript to work and does not support custom share icons or icon labels. If your project requires either of those features see the [full markup](#full-markup) seciton.
 
 ```html
 <div data-o-component="o-share"
@@ -29,19 +29,17 @@ The simplest markup you might need looks like this:
     data-o-share-title="{{title}}"
     data-o-share-titleExtra="{{titleExtra}}"
     data-o-share-summary="{{summary}}"
-    data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}">
-    data-o-share-location="{{locationOfShareComponent}}"
+    data-o-share-relatedTwitterAccounts="{{relatedTwitterAccounts}}"
+    data-o-share-location="{{locationOfShareComponent}}">
 </div>
 ```
 
-The different options are:
-
 * `links`: List of lower case social networks to be added separated by a space.
-* `url`: The URL to be shared.
-* `title`: The title of the content to be shared
-* `titleExtra`: Any additional text relating to the title, e.g. site _section_.
-* `summary`: Summary text to be shared.
-* `relatedTwitterAccounts`: Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+* `url` (optional): The URL to be shared. Defaults to the current url.
+* `title` (optional): The title of the content to be shared
+* `titleExtra` (optional): Any additional text relating to the title, e.g. site _section_.
+* `summary` (optional): Summary text to be shared.
+* `relatedTwitterAccounts` (optional): Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
 * `locationOfShareComponent` (optional): A unique identifier for the share component which is used to track shares when multiple components exist on the page.
 
 The different social networks are (in the order suggested by the design team):
@@ -52,11 +50,87 @@ The different social networks are (in the order suggested by the design team):
 * Whatsapp (note: this link does nothing if Whatsapp is not installed)
 * Pinterest
 
-### Core experience
+### Small
 
-To support core experience, you need to include the [complete markup](https://github.com/Financial-Times/o-share/blob/master/demos/src/main.mustache) directly.
+Add the `o-share--small` class for smaller icons. This is useful when including multiple instances of o-share to share items within a page, rather than to share the current page itself.
 
-Social media share buttons will function as plain `<a>` elements (and can be set to `target="_blank"` if the product wishes.
+```diff
+-<div data-o-component="o-share" class="o-share">
++<div data-o-component="o-share" class="o-share o-share--small">
+    <!-- more o-share markup -->
+</div>
+```
+
+### Full Markup
+
+Include the [complete markup, available in the Origami registry](https://registry.origami.ft.com/components/o-share) directly to:
+- Support a core experience, where JavaScript is unavailable or has failed.
+- Add [custom share actions](#custom-actions) with [text labels](#text-labels).
+
+```html
+<!-- see the registry demos for full markup -->
+<div data-o-component="o-share" class="o-share">
+	<ul>
+        <!-- a share to twitter action example -->
+        <!-- href tag is not shown, see the registry demos for full markup  -->
+		<li class="o-share__action">
+            <a class="o-share__icon o-share__icon--twitter"
+                href="#twitter-link-here"
+                rel="noopener">
+                <span class="o-share__text">Twitter</span>
+            </a>
+        </li>
+        <!-- more o-share actions -->
+	</ul>
+</div>
+```
+
+#### Open In A New Tab
+
+Social share actions open in the same frame, but you may add `target="_blank"` to the `<a>` element if your project requires share links are opened in a new tab/window where supported.
+
+#### Text Labels
+
+Add the `o-share__action--labelled` class to any share action to display the action text alongside the icon. This example uses the twitter action, but we recommend this only for [custom actions](#custom-actions) which are less recognisable compared with big social media brands.
+
+```diff
+<!-- see the registry demos for a full markup example -->
+<div data-o-component="o-share" class="o-share">
+	<ul>
+-		<li class="o-share__action">
++		<li class="o-share__action o-share__action--labelled">
+            <a class="o-share__icon o-share__icon--twitter"
+                href="#twitter-link-here"
+                rel="noopener">
+                <span class="o-share__text">Twitter</span>
+            </a>
+        </li>
+        <!-- more o-share actions -->
+	</ul>
+</div>
+```
+
+#### Custom Actions
+
+Form markup is allowed within the `o-share__action` label to to handle custom share actions.
+
+```html
+<!-- see the registry demos for full markup -->
+<div data-o-component="o-share" class="o-share">
+	<ul>
+        <!-- a custom share action example which includes a text label -->
+        <li class="o-share__action o-share__action--labelled">
+            <!-- form markup is allowed to handle custom share actions -->
+			<form method="POST" action="#">
+				<button type="submit" class="o-share__icon o-share__icon--share">
+					<span class="o-share__text">Save</span>
+				</button>
+			</form>
+        </li>
+        <!-- more o-share actions -->
+	</ul>
+</div>
+```
 
 ## Sass
 

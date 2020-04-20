@@ -74,9 +74,19 @@
 			</li>
 			{{/o-share.withMail}}
 			{{#o-share.withShare}}
-				<li class="o-share__action">
-					<button class="o-share__icon o-share__icon--share"><span class="o-share__text">Share</span></button>
-				</li>
+			<li class="o-share__action o-share__action--labelled">
+				<form method="POST" action="#">
+					<button type="submit" class="o-share__icon o-share__icon--share">
+						<span class="o-share__text">Save</span>
+					</button>
+				</form>
+			</li>
+
+			<li class="o-share__action o-share__action--labelled">
+				<a href="#" class="o-share__icon o-share__icon--share">
+					<span class="o-share__text">Share</span>
+				</a>
+			</li>
 			{{/o-share.withShare}}
 		</ul>
 	</div>

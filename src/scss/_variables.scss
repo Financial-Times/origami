@@ -10,6 +10,10 @@ $o-share-icon-size: 40px !default;
 /// @type Number
 $o-share-icon-small-size: 28px !default;
 
+/// Border size
+/// @type Number
+$o-share-border-size: 1px !default;
+
 /// Option to change the base of the image service url
 ///
 /// @type String
@@ -41,7 +45,3 @@ $_o-share-colors: (
 	pinterest: #bd081c,
 	whatsapp: #25d366
 );
-
-/// Tooltip background
-/// @type Color
-$_o-share-tooltip-bg: rgba(0, 0, 0, 0.6);

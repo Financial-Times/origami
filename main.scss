@@ -2,6 +2,7 @@
 @import 'o-grid/main';
 @import 'o-normalise/main';
 @import 'o-spacing/main';
+@import 'o-typography/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/color-use-cases';
@@ -40,13 +41,18 @@
 
   @include _oShareBase();
 
+  // Include styles to size the share icons by default
+  .o-share {
+    @include _oShareSize('default', $vertical-enabled);
+  }
+
   @each $icon in $_o-share-icons {
 	  @include _oShareActionIcon($icon);
   }
 
   @if index($sizes, 'small') != null {
     .o-share--small {
-      @include _oShareSize('small');
+      @include _oShareSize('small', $vertical-enabled);
     }
   }
 

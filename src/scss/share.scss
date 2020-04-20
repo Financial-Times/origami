@@ -14,33 +14,29 @@
 		box-sizing: border-box;
 		float: left;
 		list-style-type: none;
-		border: 1px solid oColorsByName('black-50');
 		cursor: pointer;
-	}
-
-	.o-share__text {
-		@include oNormaliseVisuallyHidden();
+		line-height: 1;
 	}
 
 	.o-share__icon {
-		display: block;
+		display: flex; // flex ignores whitespace
+		align-items: center;
 		position: relative;
-		top: -1px;
-		left: -1px;
 		border: 0;
 		cursor: pointer;
 		padding: 0;
 		background-color: transparent;
-		width: inherit;
-		height: inherit;
+		border: $o-share-border-size solid oColorsByName('black-50');
+		// undo browser default anchor tag styles
+		color: oColorsByName('black');
+		text-decoration: none;
 
 		// Used for the icon background
 		&:before {
 			content: '';
-			display: block;
-			width: inherit;
-			height: inherit;
+			display: inline-block;
 			background-repeat: no-repeat;
+			background-position: center;
 		}
 
 		// Used as an overlay to increase the hit target for accessibility
@@ -51,8 +47,15 @@
 		}
 	}
 
-	// Include styles to size the share icons by default
-	@include _oShareSize('default');
+	.o-share__text {
+		@include oTypographySans($scale: -1);
+	}
+
+	// Icon text is visually hidden by default without the class
+	// `.o-share__action--labelled`.
+	.o-share__action:not(.o-share__action--labelled) .o-share__text {
+		@include oNormaliseVisuallyHidden();
+	}
 }
 
 /// Output styles for a share icon
@@ -74,8 +77,8 @@
 
 	$hover-color: oColorsByName('white');
 
-	$hover-color: str-slice(ie-hex-str($hover-color), 4);
-	$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
+	$hover-color-encoded: '%23' + str-slice(ie-hex-str($hover-color), 4);
+	$tint: "&tint=#{$hover-color-encoded},#{$hover-color-encoded}";
 
 	.o-share__icon--#{$icon-name}:before {
 		background-image: url($service-url + $query + "&format=svg");
@@ -89,14 +92,12 @@
 	// Targets displays using any of Windows’ High Contrast Mode themes:
 	// target all high-contrast themes and force a white icon with black background
 	@media screen and (-ms-high-contrast: active) {
-		$hover-color: oColorsByName('white');
-
-		$hover-color: str-slice(ie-hex-str($hover-color), 4);
-		$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
+		$tint: "&tint=#{$hover-color-encoded},#{$hover-color-encoded}";
 
 		.o-share__icon--#{$icon-name}:before {
 			background-color: oColorsByName('black');
-			background-image: url($service-url + $query + "&format=svg#{$tint}");
+			border-color: oColorsByName('white');
+			background-image: url($service-url + $query + "&format=svg#{oColorsByName('white')}");
 		}
 	}
 
@@ -107,8 +108,9 @@
 			'o-share/ft-icon',
 			'o-share/#{$icon-name}-icon'
 		);
-		border-color: oColorsByUsecase($usecase, 'border');
+		border-color: oColorsByUsecase($usecase, 'background');
 		background-color: oColorsByUsecase($usecase, 'background');
+		color: $hover-color;
 		&:before {
 			background-image: url($service-url + $query + "&format=svg#{$tint}");
 		}
@@ -123,6 +125,15 @@
 			float: none;
 			margin-bottom: 5px;
 		}
+		.o-share__icon {
+			flex-direction: column;
+		}
+		.o-share__text {
+			// Horizontal space is tight for vertical share labels.
+			@include oTypographySans($scale: -2, $include-font-family: false);
+			word-wrap: anywhere;
+			overflow-wrap: anywhere;
+		}
 	}
 }
 
@@ -131,8 +142,13 @@
 /// @access private
 @mixin _oShareInverse($icons) {
 	.o-share--inverse {
-		.o-share__action:not(:hover) {
-			border: 1px solid rgba(oColorsByName('white'), 0.5);
+
+		.o-share__icon {
+			color: oColorsByName('white');
+		}
+
+		.o-share__icon:not(:hover) {
+			border-color: rgba(oColorsByName('white'), 0.5);
 		}
 
 		@each $icon-name in $icons {
@@ -149,8 +165,8 @@
 
 			$hover-color: oColorsByName('white');
 
-			$hover-color: str-slice(ie-hex-str($hover-color), 4);
-			$tint: "&tint=%23#{$hover-color},%23#{$hover-color}";
+			$hover-color-encoded: str-slice(ie-hex-str($hover-color), 4);
+			$tint: "&tint=#{$hover-color-encoded},#{$hover-color-encoded}";
 
 			.o-share__icon--#{$icon-name} {
 				$usecase: if(
@@ -175,13 +191,14 @@
 
 /// Output styles to set the size of o-share icons.
 /// @param {String} $size - One of 'default' or 'small'.
+/// @param {Boolean} $vertical - Whether to output styles to support the vertical variant
 /// @access private
-@mixin _oShareSize($size) {
+@mixin _oShareSize($size, $vertical) {
 	$sizes: (
 		// default o-share variant configuration
 		// changes the margin size responsively
 		'default': (
-			'width': $o-share-icon-size,
+			'size': $o-share-icon-size,
 			'breakpoint-to-margin': (
 				'default': oSpacingByName('s1'),
 				'S': oSpacingByName('s3')
@@ -189,7 +206,7 @@
 		),
 		// small o-share variant configuration
 		'small': (
-			'width': $o-share-icon-small-size,
+			'size': $o-share-icon-small-size,
 			'breakpoint-to-margin': (
 				'default': oSpacingByName('s3'),
 			)
@@ -203,20 +220,43 @@
 	}
 
 	// for the current variant get the width and margins per breakpoint
-	$width: map-get($size-config, 'width');
+	$size: map-get($size-config, 'size');
 	$margins: map-get($size-config, 'breakpoint-to-margin');
+	// fticons SVG icons align to a 40x40 pixel grid, with 10px padding
+	// built in on each side. Used to match the icon's inherent margin on the text.
+	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
+	$default-icon-whitespace: 10/40;
+	$icon-whitespace: $default-icon-whitespace * $size;
+
+	.o-share__text {
+		margin-right: $icon-whitespace;
+	}
+
+	// For vertical share icons negate the bottom whitespace which is built into
+	// the icon svg with a calculated negative margin.
+	&.o-share--vertical .o-share__action--labelled .o-share__text {
+		margin: oSpacingByName('s1');
+		margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
+	}
+
+	&.o-share--vertical .o-share__action {
+		max-width: $size;
+	}
 
 	// size the action element and set a margin
 	.o-share__action {
-		width: $width;
-		height: $width;
-		line-height: $width;
 		margin: 0;
 		@each $breakpoint, $margin in $margins {
 			@include _oShareDefaultOrBreakpoint($breakpoint) {
 				margin-right: $margin;
 			}
 		}
+	}
+
+	.o-share__icon:before {
+		width: $size - ($o-share-border-size * 2);
+		height: $size - ($o-share-border-size * 2);
+		background-size: $size $size;
 	}
 
 	// increase the icon hit size according to the margin size
