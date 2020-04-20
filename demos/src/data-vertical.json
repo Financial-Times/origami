@@ -13,6 +13,7 @@
         "withPinterest": true,
         "withLink": true,
         "withShare": true,
+        "withSave": true,
         "isVertical": true
     }
 }

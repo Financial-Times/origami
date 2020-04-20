@@ -13,6 +13,7 @@
         "withLink": true,
         "withMail": true,
         "withShare": true,
+        "withSave": true,
         "isSmall": true
     }
 }

@@ -132,6 +132,9 @@ Form markup is allowed within the `o-share__action` label to to handle custom sh
 </div>
 ```
 
+
+The `bookmark-outline` and `share` icons are made available by default for custom share features as shown in the [Origami registry demos](https://registry.origami.ft.com/components/o-share).
+
 ## Sass
 
 ```scss
