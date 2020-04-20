@@ -73,9 +73,10 @@
 		// undo browser default anchor tag styles
 		color: oColorsByName('black');
 		text-decoration: none;
-		// add z-index on hover so the border of the icon is
+		// add z-index on hover or focus so the border of the icon is
 		// always displayed over the border of the next icon
-		&:hover {
+		&:hover,
+		&:focus {
 			z-index: 1;
 		}
 
