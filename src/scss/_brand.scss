@@ -1,0 +1,34 @@
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oShareGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-share', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oShareSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-share', $variant: $variant);
+}
+
+// Define masterbrand
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-share', 'master', (
+		'variables': (
+            'size': $o-share-icon-size,
+            'border-color': oColorsByName('black-50'),
+            'color': oColorsByName('black'),
+            'hover-color': oColorsByName('white'),
+            'small': (
+			    'size': $o-share-icon-small-size,
+			    'margin': oSpacingByName('s3'),
+            ),
+            'inverse': (
+			    'border-color': oColorsMix('slate', 'white', 50),
+			    'color': oColorsByName('white'),
+			    'hover-color': oColorsByName('white'),
+            )
+		),
+		'supports-variants': ()
+	));
+}

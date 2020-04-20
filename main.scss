@@ -5,8 +5,8 @@
 @import 'o-typography/main';
 
 @import 'src/scss/variables';
+@import 'src/scss/brand';
 @import 'src/scss/color-use-cases';
-@import 'src/scss/functions';
 @import 'src/scss/share';
 
 /// Output all o-share styles.
@@ -24,45 +24,112 @@
 ///       'inverse': true
 ///   ));
 @mixin oShare($opts: (
-  'icons': $_o-share-icons,
-  'sizes': ('small'),
-  'vertical': true,
-  'inverse': true
+	'icons': $_o-share-icons,
+	'sizes': ('small'),
+	'vertical': true,
+	'inverse': true
 )) {
-  $icons: map-get($opts, 'icons');
-  $vertical-enabled: map-get($opts, 'vertical');
-  $inverse-enabled: map-get($opts, 'inverse');
-  $sizes: map-get($opts, 'sizes');
+	$icons: map-get($opts, 'icons');
+	$vertical-enabled: map-get($opts, 'vertical');
+	$inverse-enabled: map-get($opts, 'inverse');
+	$sizes: map-get($opts, 'sizes');
 
-  // Error if the global $system-code variable is not set.
-  @if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
-	  @error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
-  }
+	// Error if the global $system-code variable is not set.
+	@if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
+	}
 
-  @include _oShareBase();
+	.o-share {
+		// Include styles for the default theme.
+		@include _oShareTheme($icons: $icons);
+		// Include styles for the default size.
+		@include _oShareSize($vertical: $vertical-enabled);
+		display: inline-block;
 
-  // Include styles to size the share icons by default
-  .o-share {
-    @include _oShareSize('default', $vertical-enabled);
-  }
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+	}
 
-  @each $icon in $_o-share-icons {
-	  @include _oShareActionIcon($icon);
-  }
+	.o-share__action {
+		box-sizing: border-box;
+		float: left;
+		list-style-type: none;
+		cursor: pointer;
+		line-height: 1;
+	}
 
-  @if index($sizes, 'small') != null {
-    .o-share--small {
-      @include _oShareSize('small', $vertical-enabled);
-    }
-  }
+	.o-share__icon {
+		display: flex; // flex ignores whitespace
+		align-items: center;
+		position: relative;
+		border: 0;
+		cursor: pointer;
+		padding: 0;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		border: $o-share-border-size solid oColorsByName('black-50');
+		// undo browser default anchor tag styles
+		color: oColorsByName('black');
+		text-decoration: none;
 
-  @if $inverse-enabled {
-	  @include _oShareInverse($icons);
-  }
+		// Used for the icon background
+		&:before {
+			content: '';
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
 
-  @if $vertical-enabled {
-    @include _oShareVertical();
-  }
+		// Used as an overlay to increase the hit target for accessibility
+		&:after {
+			position: absolute;
+			display: block;
+			content: '';
+		}
+	}
+
+	.o-share__text {
+		@include oTypographySans($scale: -1);
+	}
+
+	// Icon text is visually hidden by default without the class
+	// `.o-share__action--labelled`.
+	.o-share__action:not(.o-share__action--labelled) .o-share__text {
+		@include oNormaliseVisuallyHidden();
+	}
+
+
+	@if index($sizes, 'small') != null {
+		.o-share--small {
+			@include _oShareSize('small', $vertical-enabled);
+		}
+	}
+
+	@if $inverse-enabled {
+		.o-share--inverse {
+			@include _oShareTheme('inverse', $icons);
+		}
+	}
+
+	@if $vertical-enabled {
+		.o-share--vertical {
+			.o-share__action {
+				float: none;
+			}
+
+			.o-share__icon {
+				flex-direction: column;
+			}
+			.o-share__text {
+				// Horizontal space is tight for vertical share labels.
+				@include oTypographySans($scale: -2, $include-font-family: false);
+				word-wrap: anywhere;
+				overflow-wrap: anywhere;
+			}
+		}
+	}
 }
 
 @if (not $o-share-is-silent) {
