@@ -16,6 +16,11 @@
 		list-style-type: none;
 		cursor: pointer;
 		line-height: 1;
+		margin-right: -$o-share-border-size;
+	}
+
+	.o-share__action:last-child {
+		margin-right: 0;
 	}
 
 	.o-share__icon {
@@ -123,8 +128,13 @@
 	.o-share--vertical {
 		.o-share__action {
 			float: none;
-			margin-bottom: 5px;
+			margin: 0 0 -#{$o-share-border-size} 0;
 		}
+
+		.o-share__action:last-child {
+			margin: 0;
+		}
+
 		.o-share__icon {
 			flex-direction: column;
 		}
@@ -199,17 +209,11 @@
 		// changes the margin size responsively
 		'default': (
 			'size': $o-share-icon-size,
-			'breakpoint-to-margin': (
-				'default': oSpacingByName('s1'),
-				'S': oSpacingByName('s3')
-			)
 		),
 		// small o-share variant configuration
 		'small': (
 			'size': $o-share-icon-small-size,
-			'breakpoint-to-margin': (
-				'default': oSpacingByName('s3'),
-			)
+			'margin': oSpacingByName('s3'),
 		)
 	);
 
@@ -219,9 +223,9 @@
 		@error '"#{$size}" is not an o-share size. Must be one of #{$size-options}';
 	}
 
-	// for the current variant get the width and margins per breakpoint
+	// for the current variant get the width and margin
 	$size: map-get($size-config, 'size');
-	$margins: map-get($size-config, 'breakpoint-to-margin');
+	$margin: map-get($size-config, 'margin');
 	// fticons SVG icons align to a 40x40 pixel grid, with 10px padding
 	// built in on each side. Used to match the icon's inherent margin on the text.
 	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
@@ -232,27 +236,6 @@
 		margin-right: $icon-whitespace;
 	}
 
-	// For vertical share icons negate the bottom whitespace which is built into
-	// the icon svg with a calculated negative margin.
-	&.o-share--vertical .o-share__action--labelled .o-share__text {
-		margin: oSpacingByName('s1');
-		margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
-	}
-
-	&.o-share--vertical .o-share__action {
-		max-width: $size;
-	}
-
-	// size the action element and set a margin
-	.o-share__action {
-		margin: 0;
-		@each $breakpoint, $margin in $margins {
-			@include _oShareDefaultOrBreakpoint($breakpoint) {
-				margin-right: $margin;
-			}
-		}
-	}
-
 	.o-share__icon:before {
 		width: $size - ($o-share-border-size * 2);
 		height: $size - ($o-share-border-size * 2);
@@ -260,28 +243,25 @@
 	}
 
 	// increase the icon hit size according to the margin size
-	.o-share__icon:after {
-		@each $breakpoint, $margin in $margins {
-			@include _oShareDefaultOrBreakpoint($breakpoint) {
-				width: calc(100% + #{$margin});
-				height: calc(100% + #{$margin});
-				top: -#{$margin / 2};
-				left: -#{$margin / 2};
-			}
+	@if $margin {
+		.o-share__icon:after {
+			width: calc(100% + #{$margin});
+			height: calc(100% + #{$margin});
+			top: -#{$margin / 2};
+			left: -#{$margin / 2};
 		}
 	}
-}
 
-/// Output mixin content directly given a 'default' breakpoint,
-/// otherwise wrap mixin content in `oGridRespondTo`.
-/// @access private
-/// @param {String} $breakpoint - 'default' or an o-grid breakpoint, e.g. 'S', 'M'
-@mixin _oShareDefaultOrBreakpoint($breakpoint) {
-	@if $breakpoint == 'default' {
-		@content;
-	} @else {
-		@include oGridRespondTo($breakpoint) {
-			@content;
+	// For vertical share icons negate the bottom whitespace which is built into
+	// the icon svg with a calculated negative margin.
+	@if $vertical {
+		&.o-share--vertical .o-share__action--labelled .o-share__text {
+			margin: oSpacingByName('s1');
+			margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
+		}
+
+		&.o-share--vertical .o-share__action {
+			max-width: $size;
 		}
 	}
 }
