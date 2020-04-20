@@ -44,6 +44,7 @@
 
 		// Windows high contrast mode removes background images,
 		// unless they are specifically added for high contrast mode.
+		// sass-lint:disable no-vendor-prefixes
 		@media screen and (-ms-high-contrast: active) {
 			background-color: oColorsByName('black');
 			color: oColorsByName('white');
@@ -51,6 +52,7 @@
 				background-image: url($service-url + $query + "&format=svg&tint=#{$color-encoded}");
 			}
 		}
+		// sass-lint:enable no-vendor-prefixes
 	}
 }
 
@@ -117,13 +119,13 @@
 		// Margin between actions goes below.
 		@if $margin {
 			&.o-share--vertical .o-share__action {
-				margin: 0 0 #{$margin} 0;
+				margin: 0 0 #{$margin};
 			}
 		}
 		@if not $margin {
 			// Negative margins to make icon borders overlap goes below.
 			&.o-share--vertical .o-share__icon {
-				margin: 0 0 -#{$o-share-border-size} 0;
+				margin: 0 0 -#{$o-share-border-size};
 			}
 		}
 		// Margins between the icon and the text need setting.
