@@ -12,6 +12,7 @@
 	    "withPinterest": true,
         "withLink": true,
         "withMail": true,
-        "withShare": true
+        "withShare": true,
+        "withSave": true
     }
 }
