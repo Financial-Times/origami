@@ -19,7 +19,7 @@ Social media buttons.
 
 ## Markup
 
-The following markup is the simplest but requires JavaScript to work and does not support custom share icons or icon labels. If your project requires either of those features see the [full markup](#full-markup) seciton.
+The following markup is the simplest but requires JavaScript to work and does not support custom share icons or icon labels. If your project requires either of those features see the [full markup](#full-markup) section.
 
 ```html
 <div data-o-component="o-share"
