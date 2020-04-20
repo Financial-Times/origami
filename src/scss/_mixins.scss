@@ -45,11 +45,20 @@
 		// Windows high contrast mode removes background images,
 		// unless they are specifically added for high contrast mode.
 		// sass-lint:disable no-vendor-prefixes
-		@media screen and (-ms-high-contrast: active) {
-			background-color: oColorsByName('black');
-			color: oColorsByName('white');
-			.o-share__icon--#{$icon-name}:before {
-				background-image: url($service-url + $query + "&format=svg&tint=#{$color-encoded}");
+		.o-share__icon--#{$icon-name} {
+			@media screen and (-ms-high-contrast: active) {
+				background-color: oColorsByName('black');
+				color: oColorsByName('white');
+				&:before {
+					background-image: url($service-url + $query + "&format=svg&tint=%23ffffff");
+				}
+			}
+			@media screen and (-ms-high-contrast: black-on-white) {
+				background-color: oColorsByName('white');
+				color: oColorsByName('black');
+				&:before {
+					background-image: url($service-url + $query + "&format=svg&tint=%23000000");
+				}
 			}
 		}
 		// sass-lint:enable no-vendor-prefixes
