@@ -107,43 +107,6 @@ The documentation layout is intended for text-heavy pages, such as technical doc
 </div>
 ```
 
-## Documentation Layout
-
-The documentation layout is intended for text-heavy pages, such as technical documentation or blog posts. The documentation layout includes the following areas (in addition to a heading and footer):
-
-- Main Content
-- Sidebar _(optional)_
-
-```
-┌————————————————————————————┐
-|           HEADER           |
-├————————————————————————————┤
-| SIDE  |    MAIN CONTENT    |
-| BAR   |                    |
-|       |                    |
-|       |                    |
-├————————————————————————————┤
-|           FOOTER           |
-└————————————————————————————┘
-```
-
-```html
-<div class="o-layout o-layout--docs" data-o-component="o-layout">
-	<div class="o-layout__header">
-	    <!-- Your header & navigation here. -->
-	</div>
-	<div class="o-layout__sidebar o-layout-typography">
-		<!-- Your sidebar here (optional). -->
-	</div>
-	<div class="o-layout__main o-layout-typography">
-		<!-- Your page content here. -->
-	</div>
-	<footer class="o-layout__footer">
-		<!-- Your footer & navigation here. -->
-	</footer>
-</div>
-```
-
 ### Main Content
 
 On large viewports the main content area (`o-layout__main`) is split into two columns.
