@@ -23,4 +23,4 @@ jobs:
         ORIGAMI_CI_NAME: ${{ steps.repo_name.outputs.REPO_NAME }}
         ORIGAMI_CI_VERSION: 0.0.0
         ORIGAMI_PULL_REQUEST: ${{ steps.findPr.outputs.pr }}
-        GITHUB_TOKEN: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
