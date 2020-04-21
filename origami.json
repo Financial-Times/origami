@@ -2,7 +2,7 @@
 	"description": "Content-aware helper for expanding and collapsing content or lists.",
 	"keywords": [ "expand", "content", "more", "less" ],
 	"origamiVersion": 1,
-	"origamiCategory": "utilities",
+	"origamiCategory": "primitives",
 	"origamiType": "module",
 	"browserFeatures": {
 		"required": [
