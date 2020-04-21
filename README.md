@@ -107,6 +107,7 @@ The documentation layout is intended for text-heavy pages, such as technical doc
 </div>
 ```
 
+
 ### Main Content
 
 On large viewports the main content area (`o-layout__main`) is split into two columns.
