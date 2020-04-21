@@ -2,7 +2,7 @@
 	"description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
 	"keywords": ["datetime", "time", "timestamp"],
 	"origamiType": "module",
-	"origamiCategory": "utilities",
+	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-date/issues",
 	"supportContact": {
