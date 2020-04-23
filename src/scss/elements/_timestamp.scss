@@ -1,13 +1,13 @@
 /// Timestamp base styles
 @mixin _oTeaserTimestamp {
-	@include oTypographySans(-2, 20px, $include-font-family: false);
+	@include oTypographySans(-2, $include-font-family: false);
 	color: $_o-teaser-muted;
 	display: block;
+	// Moves timestamp to the bottom when stretched modifier is used
+	margin-top: auto;
+	// and ensures there is always some gap above
+	padding-top: oSpacingByName('s4');
 	text-transform: uppercase;
-
-	.o-teaser__heading + &:not(:empty) {
-		margin-top: 5px;
-	}
 }
 
 /// Timestamp variant styles adding coloured prefixes.
@@ -53,7 +53,7 @@
 
 		&:before {
 			position: absolute;
-			top: 5px;
+			top: oSpacingByName('s4') + 3;
 			opacity: 0.2;
 			transform: scale(1.5);
 			animation: live-blog-pulse 1.7s ease infinite;

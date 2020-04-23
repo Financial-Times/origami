@@ -30,8 +30,8 @@
 }
 
 /// Make a teaser fill the full height of its container
-/// (if the container is flex) and stretch the heading to
-/// move standfirst and timestamp to teaser footer
+/// (if the container is flex) and stretch the content to
+/// move timestamp to teaser footer
 @mixin _oTeaserStretched {
 	display: flex;
 	flex-grow: 1;
@@ -41,10 +41,6 @@
 		flex-direction: column;
 		flex-grow: 1;
 		flex-basis: auto;
-	}
-
-	.o-teaser__heading {
-		flex-grow: 1;
 	}
 }
 

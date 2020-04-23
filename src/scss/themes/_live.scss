@@ -43,6 +43,11 @@
         }
         .o-teaser__timestamp {
             order: -1;
+            padding-top: 0;
+
+            &:before {
+              top: 3px;
+            }
         }
         .o-teaser__timestamp time {
             display: none;
