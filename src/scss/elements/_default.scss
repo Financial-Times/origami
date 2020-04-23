@@ -87,14 +87,13 @@
 	margin-bottom: 0;
 
 	.o-teaser__heading + & {
-		margin-top: 10px;
+		margin-top: oSpacingByName('s2');
 	}
 }
 
 /// Links within title or standfirst
 @mixin _oTeaserLink {
 	a {
-		padding: 2px 0;
 		color: inherit;
 		text-decoration: none;
 		border: 0;
