@@ -14,7 +14,6 @@
 		width: 30%;
 		// because flex items are allowed to shrink implicitly
 		flex-shrink: 0;
-		padding-top: 4px; // to line up with tag cap-height
 		padding-right: oGridGutter(M);
 
 		@include oGridRespondTo($until: M) { // Mobile screens only

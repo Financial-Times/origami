@@ -44,7 +44,7 @@
 
 /// Meta area and colouring styles
 @mixin _oTeaserMeta {
-	@include oTypographySans(0, 20px, $include-font-family: false);
+	@include oTypographySans(0, $include-font-family: false);
 	color: oColorsByUsecase('o-teaser/tag', 'text');
 }
 
