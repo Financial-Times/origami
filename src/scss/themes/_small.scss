@@ -37,7 +37,7 @@
 	}
 
 	.o-teaser__image-container {
-		margin-bottom: 16px;
+		margin-bottom: oSpacingByName('s3');
 		width: 100%;
 		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
 		min-height: 1px;
