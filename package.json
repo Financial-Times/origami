@@ -3,6 +3,6 @@
     "description": "Financial Times audio player",
     "private": true,
     "devDependencies": {
-        "origami-ci-tools": "^1.3.11"
+        "origami-ci-tools": "^1.3.12"
     }
 }
