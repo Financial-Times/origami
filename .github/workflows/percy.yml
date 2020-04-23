@@ -1,18 +1,19 @@
 name: Percy
-on: [pull_request]
+on: 
+  pull_request:
+    types:
+      - labeled
+      - opened
+      - reopened
+      - synchronize
 jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - run: npm install --only=dev
     - if: contains(github.event.pull_request.labels.*.name, 'wontfix')
       run: npx origami-build-tools install
     - if: contains(github.event.pull_request.labels.*.name, 'wontfix')
@@ -46,4 +47,3 @@ jobs:
             repo: context.repo.repo,
             labels: ['wontfix']
           })
-    - run: npx origami-ci branch
