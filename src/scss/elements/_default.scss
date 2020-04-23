@@ -46,6 +46,7 @@
 @mixin _oTeaserMeta {
 	@include oTypographySans(0, $include-font-family: false);
 	color: oColorsByUsecase('o-teaser/tag', 'text');
+	margin-bottom: oSpacingByName('s1');
 }
 
 /// Tag styling.
