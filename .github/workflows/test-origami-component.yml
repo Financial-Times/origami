@@ -9,10 +9,12 @@ jobs:
       with:
         node-version: 12.x
     - run: npm install --only=dev
-    - run: npx origami-ci branch
+    - run: npx origami-build-tools install
+    - run: npx origami-build-tools demo
     - name: Percy Test
       uses: percy/snapshot-action@v0.1.0
       with:
         build-directory: "demos/local"
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    - run: npx origami-ci branch
