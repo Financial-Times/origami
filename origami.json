@@ -2,7 +2,7 @@
 	"description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
 	"keywords": ["normalise", "clearfix", "box-sizing", "html", "visually hidden" ],
 	"origamiType": "module",
-	"origamiCategory": "utilities",
+	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-normalise/issues",
 	"supportContact": {
