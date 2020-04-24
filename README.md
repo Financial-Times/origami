@@ -47,8 +47,19 @@ E.g.
 <h2 class="o-typography-heading-level-2">Heading level 2</h2>
 <p class="o-typography-body">Some body copy.</p>
 <a class="o-typography-link" href="#" >Some link.</a>
+<a class="o-typography-link o-typography-link--external" href="#" >Some external link.</a>
 <!-- etc. -->
 ```
+
+An external link _may_ open in a new window/tab with `target="_blank"` but we recommend against this for most cases as it may disorientate users (see the [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG20-TECHS/G200.html) for advice on when it may be appropriate to open in a new window/tab). Use the `rel="noreferrer noopener"` attribute with `target="_blank"` to avoid [exploitation of the `window.opener` API](https://mathiasbynens.github.io/rel-noopener/).
+
+```html
+<a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html" rel="noreferrer noopener" target="_blank" class="o-typography-link o-typography-link--external">Some external link (opens a new window/tab).</a>
+```
+
+See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
+
+### Wrapper Class
 
 `o-typography` also provides wrapper classes. These reduce the need for developers to apply styles to specific elements. By using a wrapper, body styles get applied to the HTML element and descendent typographic elements: h1, h2, h3, h4, h5, p, a, footer, strong, em, small, sup, sub, ul, ol, li.
 

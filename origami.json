@@ -51,6 +51,12 @@
 			"description": "Headings."
 		},
 		{
+			"name": "links",
+			"title": "Links",
+			"template": "demos/src/links.mustache",
+			"description": ""
+		},
+		{
 			"name": "body",
 			"title": "Body",
 			"template": "demos/src/body.mustache",
