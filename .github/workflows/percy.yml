@@ -16,11 +16,11 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - if: contains(github.event.pull_request.labels.*.name, 'percy')
+    - if: contains(github.event.pull_request.labels.*.name, 'percy') || endsWith(github.ref, '/master')
       run: npx origami-build-tools install
-    - if: contains(github.event.pull_request.labels.*.name, 'percy')
+    - if: contains(github.event.pull_request.labels.*.name, 'percy') || endsWith(github.ref, '/master')
       run: npx origami-build-tools demo
-    - if: contains(github.event.pull_request.labels.*.name, 'percy')
+    - if: contains(github.event.pull_request.labels.*.name, 'percy') || endsWith(github.ref, '/master')
       name: Percy Test
       uses: percy/snapshot-action@v0.1.0
       with:
