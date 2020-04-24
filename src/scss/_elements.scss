@@ -2,10 +2,6 @@
 	@include oEditorialTypographyStandfirst();
 	opacity: 0.8;
 
-	a {
-		@include oTypographySans(0, $include-font-family: false);
-	}
-
 	> p {
 		margin: 0;
 	}
