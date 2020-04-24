@@ -28,7 +28,7 @@ jobs:
     - if: contains(github.event.pull_request.labels.*.name, 'percy')
       uses: actions/github-script@0.9.0
       with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
         script: |
           github.issues.createComment({
             issue_number: context.issue.number,
