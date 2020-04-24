@@ -17,7 +17,7 @@
 /// Standalone top story theme styles
 @mixin _oTeaserTopStoryStandalone {
 	.o-teaser__image-container {
-		margin-bottom: 20px;
+		margin-bottom: oSpacingByName('s3');
 	}
 }
 
