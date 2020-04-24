@@ -111,19 +111,17 @@
 			}
 
 			> blockquote {
-				@include oQuoteBase();
-				@include oQuoteStandard();
+				@include oQuoteEditorial();
 				margin-bottom: oSpacingByIncrement(7);
 				max-width: oTypographyMaxLineWidth(75);
 
 				cite,
 				footer {
-					@include oQuoteBaseCite();
-					@include oQuoteStandardCite();
+					@include oQuoteEditorialCite();
 				}
 
 				footer > cite {
-					@include oQuoteStandardCiteAuthor();
+					@include oQuoteEditorialCiteAuthor();
 				}
 			}
 		}
