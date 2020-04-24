@@ -65,17 +65,17 @@ describe('Forms', () => {
 				proclaim.isNotNull(summary);
 			});
 
-			it('the summary reflects the number of invalid inputs', () => {
+			it('the summary reflects the number of invalid inputs as list items with links', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
-				listItems = summary.querySelectorAll('a');
+				listItems = summary.querySelectorAll('li > a');
 				proclaim.equal(listItems.length, 2);
 			});
 
 			it('the summary gets updated on second submit if a form field has been amended', () => {
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
-				listItems = summary.querySelectorAll('a');
+				listItems = summary.querySelectorAll('li > a');
 				proclaim.equal(listItems.length, 2);
 
 				textInput = formEl.elements['text'];
@@ -83,7 +83,7 @@ describe('Forms', () => {
 
 				submit.click();
 				summary = formEl.querySelector('.o-forms__error-summary');
-				listItems = summary.querySelectorAll('a');
+				listItems = summary.querySelectorAll('li > a');
 				proclaim.equal(listItems.length, 1);
 			});
 

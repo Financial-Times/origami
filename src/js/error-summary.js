@@ -83,7 +83,8 @@ class ErrorSummary {
 		// Return a error summary item which links to the input if an id exists.
 		if (input.id) {
 			const itemAnchor = ErrorSummary.createAnchor(input);
-			return item.appendChild(itemAnchor);
+			item.appendChild(itemAnchor);
+			return item;
 		}
 		// If no id exist return an error summary item without a link.
 		console.warn(`Could not link to an invalid input from the error summary. ` +

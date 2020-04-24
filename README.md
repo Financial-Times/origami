@@ -526,6 +526,7 @@ The `$opts` map accepts two lists with the following options:
 	- `'small'`
 	- `'state'`
 	- `'suffix'`
+	- `error-summary`
 
 _Note 1: `valid` and `invalid` styles are output with the base of `o-forms` so there is no need to include them in the list above._
 
