@@ -18,7 +18,7 @@ jobs:
         node-version: 12.x
     - if: contains(github.event.pull_request.labels.*.name, 'percy') || endsWith(github.ref, '/master')
       name: Percy Test
-      uses: Financial-Times/origami-percy
+      uses: Financial-Times/origami-percy@master
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
     - if: contains(github.event.pull_request.labels.*.name, 'percy')
