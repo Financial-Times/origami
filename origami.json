@@ -2,7 +2,7 @@
 	"description": "Provides page layouts and typography as a starting point to create internal tools or products.",
 	"keywords": [ "layout", "documentation", "grid", "page"],
 	"origamiType": "module",
-	"origamiCategory": "components",
+	"origamiCategory": "layouts",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-layout/issues",
 	"supportContact": {
