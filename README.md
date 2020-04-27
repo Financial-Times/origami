@@ -95,6 +95,8 @@ p {
 }
 ```
 
+_To remove the need for o-typography's progressive font loading on ft.com, and the fallback font resizing it gives us, [may require work across ft.com projects](https://github.com/Financial-Times/o-typography/issues/248)._
+
 #### Disable Progressive Loading
 
 If you do not want to use `o-typography` progressive font loading set `$o-typography-progressive-font-loading: false;` at the top of your project before importing components:
