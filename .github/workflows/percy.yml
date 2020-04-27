@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Percy Test
-      uses: Financial-Times/origami-percy@master
+    - uses: Financial-Times/origami-percy@master
       with:
         github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
       env:
