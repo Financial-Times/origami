@@ -106,7 +106,7 @@
 /// Output styles for editorial standfirst.
 @mixin oEditorialTypographyStandfirst() {
 	@include oTypographySans($scale: 2);
-	color: oColorsByName('black-60');
+	color: oColorsByName('black-80');
 }
 
 /// Output styles for the editorial byline.
