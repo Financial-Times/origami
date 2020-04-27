@@ -1,5 +1,5 @@
 name: Test Origami Component
-on: [push]
+on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,3 +24,4 @@ jobs:
         ORIGAMI_CI_VERSION: 0.0.0
         ORIGAMI_PULL_REQUEST: ${{ steps.findPr.outputs.pr }}
         GITHUB_TOKEN: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
+  
