@@ -15,6 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: Financial-Times/origami-percy@master
       with:
-        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}} # To comment as the Fox mascot GitHub user
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
