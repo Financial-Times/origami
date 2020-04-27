@@ -135,6 +135,12 @@ You can also be more specific about which languages you would like styling outpu
 - 'yaml'
 
 
+## Troubleshooting
+
+### How do I use Marked to convert Markdown files to HTML with o-syntax-highlight code blocks?
+
+When using [Marked](https://www.npmjs.com/package/marked) it is possible to override its default renderer so you can create custom output for code blocks. To get `o-syntax-highlight` compatible output see the [example in this Github issue](https://github.com/Financial-Times/o-syntax-highlight/issues/49).
+
 ## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
