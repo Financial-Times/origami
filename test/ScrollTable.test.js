@@ -30,6 +30,25 @@ describe("ScrollTable", () => {
 		proclaim.isInstanceOf(table, BaseTable);
 	});
 
+	it('does not add any sort button to column headers when table has "data-o-table-sortable" set to false', done => {
+		// Disable sort.
+		oTableEl.setAttribute('data-o-table-sortable', false);
+		// Try to add sort buttons.
+		const table = new ScrollTable(oTableEl, sorter);
+		table.addSortButtons();
+		setTimeout(() => {
+			try {
+				const thead = oTableEl.querySelector('thead');
+				const sortButtons = thead.querySelectorAll('button');
+				proclaim.equal(sortButtons.length, 0, 'Expected to find no sort buttons when table has been set to non-sortable.');
+			} catch (error) {
+				done(error);
+			} finally {
+				done();
+			}
+		}, 100);
+	});
+
 	it('clones column data into a new row with row header for the "scroll" version of the table (mobile version)', (done) => {
 		new ScrollTable(oTableEl, sorter);
 		setTimeout(() => {
