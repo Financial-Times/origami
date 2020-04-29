@@ -129,6 +129,12 @@
 			"description": "This demo shows sorting columns of various data types, including FT style dates, times, and abbreviated numbers. The demo also shows a column with sort disabled."
 		},
 		{
+			"title": "Sorting Disabled",
+			"name": "sorting-disabled",
+			"template": "demos/src/sorting-disabled.mustache",
+			"description": "This demo shows how to disable sorting on an entire table."
+		},
+		{
 			"title": "Row Stripes",
 			"name": "row-stripes",
 			"template": "demos/src/basic.mustache",
