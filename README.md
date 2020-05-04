@@ -159,7 +159,7 @@ For example:
 ```
 
 All `$opts` options include:
-- `icons` (list) a list of social share icons to output. One or more of:
+- `icons` (list) a list of social share icons to output. One or more of the following, or any [o-icon name](https://registry.origami.ft.com/components/o-icons):
 	- `twitter`
 	- `facebook`
 	- `linkedin`
@@ -172,6 +172,24 @@ All `$opts` options include:
 	- `small` - a variant to make o-share smaller than default, i.e. `o-share--small`
 - `vertical` (boolean) - Whether to output styles for the vertical variant, i.e `o-share--vertical`
 - `inverse` (boolean) - Whether to output the inverse theme for dark backgrounds, i.e `o-share--inverse`
+
+### Colour Usecases
+
+`o-share` sets custom colour usecases for matching the colour of share buttons. These usecases are limited, for example they do not provide colours for the inverse variant, and not recommended for new projects (it is possible to output custom icons using the `oShare` mixin, without matching colours).
+
+Usecase | Property | Uses |
+---|---|---
+`o-share/default-icon` | background, border, text | Default colours, used by icons without a state (e.g. before hover).
+`o-share/ft-icon` | background, border, text | Colours to highlight FT icon social buttons like email (e.g. on hover).
+`o-share/[social-icon-name]-icon` | background, border, text | Colours to highlight social buttons with a brand, like Twitter (e.g. `o-share/twitter-icon` on hover).
+
+Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=master#function-ocolorsbyusecase) to retrieve custom colour usecases set by o-share.
+
+```scss
+.my-icon:hover {
+	background-color: oColorsByUsecase('o-share/ft-icon', 'background');
+}
+```
 
 ## JavaScript
 

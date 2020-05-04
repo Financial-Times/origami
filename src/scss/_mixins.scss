@@ -6,8 +6,6 @@
 	$border-color: _oShareGet('border-color', $name);
 	$color: _oShareGet('color', $name);
 	$color-encoded: str-slice(ie-hex-str($color), 4);
-	$hover-color: _oShareGet('hover-color', $name);
-	$hover-color-encoded: str-slice(ie-hex-str($hover-color), 4);
 
 	.o-share__icon {
 		color: $color;
@@ -36,9 +34,9 @@
 			$usecase: if($is-ft-icon, 'o-share/ft-icon', 'o-share/#{$icon-name}-icon');
 			border-color: oColorsByUsecase($usecase, 'border');
 			background-color: oColorsByUsecase($usecase, 'background');
-			color: $hover-color;
+			color: oColorsByUsecase($usecase, 'text');
 			&:before {
-				background-image: url($service-url + $query + "&format=svg&tint=#{$hover-color-encoded}");
+				background-image: url($service-url + $query + "&format=svg&tint=#{oColorsByUsecase($usecase, 'text')}");
 			}
 		}
 

@@ -16,9 +16,8 @@
 	@include oBrandDefine('o-share', 'master', (
 		'variables': (
 			'size': $o-share-icon-size,
-			'border-color': oColorsByName('black-50'),
-			'color': oColorsByName('black'),
-			'hover-color': oColorsByName('white'),
+			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
+			'color': oColorsByUsecase('o-share/default-icon', 'text'),
 			'small': (
 				'size': $o-share-icon-small-size,
 				'margin': oSpacingByName('s3'),
@@ -26,7 +25,6 @@
 			'inverse': (
 				'border-color': oColorsMix('slate', 'white', 50),
 				'color': oColorsByName('white'),
-				'hover-color': oColorsByName('white'),
 			)
 		),
 		'supports-variants': ()

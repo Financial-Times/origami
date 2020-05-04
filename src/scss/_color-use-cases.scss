@@ -3,17 +3,26 @@
 	@include oColorsSetColor('o-share/#{$platform}', $hex);
 }
 
-// Add colour usecases for FT icon social buttons like email.
+// Add default colour usecases, used by icons without a state.
+@include oColorsSetUseCase('o-share/default-icon', (
+	'background': 'transparent',
+	'border': 'black-50',
+	'text': 'black'
+));
+
+// Add colour usecases to highlight FT icon social buttons like email.
 @include oColorsSetUseCase('o-share/ft-icon', (
 	'background': 'teal-40',
 	'border': 'teal-40',
+	'text': 'white'
 ));
 
-// Add colour usecases for social buttons like Twitter.
+// Add colour usecases to highlight social buttons with a brand, like Twitter.
 @each $platform, $hex in $_o-share-colors {
 	@include oColorsSetUseCase('o-share/#{$platform}-icon', (
 		'background': 'o-share/#{$platform}',
 		'border': 'o-share/#{$platform}',
+		'text': 'white'
 	));
 }
 
