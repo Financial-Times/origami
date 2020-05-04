@@ -64,6 +64,13 @@
 			"description": "vertical"
 		},
 		{
+			"title": "Custom Share",
+			"name": "custom-share",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-custom.json",
+			"description": "A custom share action may also be used alongside a form or with custom JavaScript behaviour attached, as shown with the last icon in this demo. Labels may be added to describe a custom share button."
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

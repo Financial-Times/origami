@@ -29,11 +29,11 @@ $o-share-ft-icons-version: "1" !default;
 
 // Icon names that will use fticons instead of ftsocial
 /// @type Map
-$o-share-ft-icons-names: (mail, link, share, bookmark-outline);
+$o-share-ft-icons-names: (mail, link, share);
 
 /// List of accepted social network icons, and the version
 /// @type Map
-$_o-share-icons: (twitter, facebook, linkedin, link, share, mail, pinterest, whatsapp, bookmark-outline);
+$_o-share-icons: (twitter, facebook, linkedin, link, share, mail, pinterest, whatsapp);
 
 /// A map of icons to their colour.
 /// @type Map

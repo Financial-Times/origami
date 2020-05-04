@@ -73,20 +73,20 @@
 				<button class="o-share__icon o-share__icon--mail"><span class="o-share__text">Mail</span></button>
 			</li>
 			{{/o-share.withMail}}
-			{{#o-share.withSave}}
+			{{#o-share.withShare}}
 			<li class="o-share__action o-share__action--labelled">
 				<!-- demo only: buttons with custom JavaScript behaviour may be used for custom share features -->
 				<button class="o-share__icon o-share__icon--share">
 					<span class="o-share__text">Share</span>
 				</button>
 			</li>
-			{{/o-share.withSave}}
+			{{/o-share.withShare}}
 			{{#o-share.withShare}}
 			<li class="o-share__action o-share__action--labelled">
 				<!-- demo only: forms with a submit button may be used for custom share features -->
 				<form method="POST" action="#">
-					<button type="submit" class="o-share__icon o-share__icon--bookmark-outline">
-						<span class="o-share__text">Save</span>
+					<button type="submit" class="o-share__icon o-share__icon--share">
+						<span class="o-share__text">Share</span>
 					</button>
 				</form>
 			</li>

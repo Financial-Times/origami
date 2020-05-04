@@ -8,9 +8,6 @@
         "withTwitter": true,
         "withFacebook": true,
         "withLinkedin": true,
-        "withWhatsapp": true,
-	    "withPinterest": true,
-        "withLink": true,
-        "withMail": true
+        "withShare": true
     }
 }
