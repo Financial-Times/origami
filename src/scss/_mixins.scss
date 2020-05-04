@@ -36,7 +36,8 @@
 			background-color: oColorsByUsecase($usecase, 'background');
 			color: oColorsByUsecase($usecase, 'text');
 			&:before {
-				background-image: url($service-url + $query + "&format=svg&tint=#{oColorsByUsecase($usecase, 'text')}");
+				$color-usecase-encoded: str-slice(ie-hex-str(oColorsByUsecase($usecase, 'text')), 4);
+				background-image: url($service-url + $query + "&format=svg&tint=#{$color-usecase-encoded}");
 			}
 		}
 
