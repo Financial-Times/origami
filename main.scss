@@ -69,9 +69,9 @@
 		padding: 0;
 		background-color: transparent;
 		background-repeat: no-repeat;
-		border: $o-share-border-size solid oColorsByName('black-50');
+		border: $o-share-border-size $o-share-border-style oColorsByUsecase('o-share/default-icon', 'border');
 		// undo browser default anchor tag styles
-		color: oColorsByName('black');
+		color: oColorsByUsecase('o-share/default-icon', 'text');
 		text-decoration: none;
 		// add z-index on hover or focus so the border of the icon is
 		// always displayed over the border of the next icon
