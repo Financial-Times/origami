@@ -22,19 +22,11 @@
 	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot get variable(s) "#{$variables}" for component "#{$component}"');
 	// Validate variant name if getting the variables from a pre-defined variant.
 	@if type-of($from) != 'map' and type-of($from) != 'null' {
-		$validated: _oBrandValidateName(
-			'Variant',
-			$from,
-			'Get variables "#{$variables}" for "#{$component}" from "#{inspect($from)}"'
-		);
+		$validated: _oBrandValidateName('Variant', $from, 'Get variables "#{$variables}" for "#{$component}" from "#{inspect($from)}"');
 	}
 	// Validate names of the variables we are trying to get.
 	@each $variable-name in $variables {
-		$validated-variable-names: _oBrandValidateName(
-			'Variable',
-			$variable-name,
-			'Cannot get variable "#{$variable-name}" for component "#{$component}" from variant "#{inspect($from)}"'
-		);
+		$validated-variable-names: _oBrandValidateName('Variable', $variable-name, 'Cannot get variable "#{$variable-name}" for component "#{$component}" from variant "#{inspect($from)}"');
 	}
 	// If from default component variables or a pre-defined variant.
 	@if type-of($from) == 'string' or type-of($from) == 'null' {
@@ -93,11 +85,7 @@
 	}
 
 	// Confirm the variant is valid, to provide a useful error in case of typos etc.
-	$validated: _oBrandValidateName(
-		'Variant',
-		$variant,
-		'Cannot check if component "#{$component}" supports variant "#{$variant}"'
-	);
+	$validated: _oBrandValidateName('Variant', $variant, 'Cannot check if component "#{$component}" supports variant "#{$variant}"');
 
 	// Check support for a pre-defined variant.
 	$brand: oBrandGetCurrentBrand();

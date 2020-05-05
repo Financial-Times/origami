@@ -19,7 +19,7 @@
 		// Restore brand after test.
 		$o-brand: $original-brand !global;
 	}
-};
+}
 
 @include test-module('oBrandGet') {
 	@include test('Gets a default variable value for a defined brand') {
