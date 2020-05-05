@@ -49,9 +49,6 @@ function event(trackingEvent, callback) {
 	if (origamiElement) {
 		config.context.component_name = origamiElement.getAttribute('data-o-component');
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
-	} else {
-		config.context.component_name = config.context.component_name;
-		config.context.component_id = config.context.component_id;
 	}
 
 	Core.track(config, callback);
