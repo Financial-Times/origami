@@ -30,10 +30,14 @@
 	'vertical': true,
 	'inverse': true
 )) {
-	$icons: map-get($opts, 'icons');
 	$vertical-enabled: map-get($opts, 'vertical');
 	$inverse-enabled: map-get($opts, 'inverse');
+	// Default to an empty list if no icons are given.
+	$icons: map-get($opts, 'icons');
+	$icons: if($icons, $icons, ());
+	// Default to an empty list if no sizes are given.
 	$sizes: map-get($opts, 'sizes');
+	$sizes: if($sizes, $sizes, ());
 
 	// Error if the global $system-code variable is not set.
 	@if (global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
