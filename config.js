@@ -22,7 +22,8 @@ module.exports = {
          },
          {
             "type": "at-rule",
-            "name": "include"
+            "name": "include",
+            "parameter": "^((?!oGridRespondTo).)*$"
          },
          "declarations"
       ],
