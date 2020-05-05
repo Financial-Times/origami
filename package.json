@@ -6,7 +6,7 @@
 		"eslint-config-origami-component": "^2.0.1",
 		"origami-build-tools": "^9.0.13",
 		"origami-ci-tools": "^1.3.12",
-		"stylelint-config-origami-component": "^1.0.0"
+		"stylelint-config-origami-component": "^1.0.1"
 	},
 	"repository": {
 		"type": "git",
