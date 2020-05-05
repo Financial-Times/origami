@@ -16,11 +16,13 @@
     "url": "https://github.com/Financial-Times/stylelint-config-origami-component/issues"
   },
   "homepage": "https://github.com/Financial-Times/stylelint-config-origami-component#readme",
+  "dependencies": {
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.1"
+  },
   "devDependencies": {
     "@financial-times/origami-service-makefile": "^7.0.3",
     "mocha": "^7.1.2",
-    "proclaim": "^3.6.0",
-    "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.17.1"
+    "proclaim": "^3.6.0"
   }
 }
