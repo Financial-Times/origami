@@ -75,7 +75,7 @@ module.exports = {
       "selector-no-vendor-prefix": true,
       "media-feature-name-no-vendor-prefix": true,
       "at-rule-no-vendor-prefix": true,
-      "function-comma-space-after": "always",
+      "function-comma-space-after": "always-single-line",
       "function-parentheses-space-inside": "never",
       "indentation": "tab",
       "max-nesting-depth": [3, {
