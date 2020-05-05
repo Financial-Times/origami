@@ -20,7 +20,7 @@ body {
 }
 
 .o-banner--static {
-	position: static !important; // sass-lint:disable-line no-important
+	position: static !important; // stylelint-disable-line declaration-no-important
 }
 
 @include oBannerAddTheme('pikachu', (

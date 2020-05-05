@@ -1,6 +1,4 @@
 @mixin _oBannerSmallBase {
-	width: 100%;
-	margin: 0;
 
 	@include oGridRespondTo(S) {
 		width: oGridColspan(8);
@@ -19,6 +17,8 @@
 		width: map-get($o-grid-layouts, XL) / 2; // width is 50% grid
 		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
 	}
+	width: 100%;
+	margin: 0;
 }
 
 @mixin _oBannerSmallOuter {
@@ -37,17 +37,6 @@
 }
 
 @mixin _oBannerSmallContent {
-	padding: 0;
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	ul li {
-		@include oTypographySans($scale: 2);
-	}
 	@include oGridRespondTo($until: M) {
 		&,
 		h1,
@@ -60,20 +49,21 @@
 			@include oTypographySans($scale: 0);
 		}
 	}
-}
-
-@mixin _oBannerSmallHeading {
-	@include oTypographySans($scale: 4);
-	padding-right: $_o-banner-spacing;
+	padding: 0;
 
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
-	h6 {
-		@include oTypographySans($scale: 4, $weight: 'semibold');
+	h6,
+	ul li {
+		@include oTypographySans($scale: 2);
 	}
+}
+
+@mixin _oBannerSmallHeading {
+	@include oTypographySans($scale: 4);
 	@include oGridRespondTo($until: M) {
 		&,
 		h1,
@@ -85,16 +75,26 @@
 			@include oTypographySans($scale: 3);
 		}
 	}
+	padding-right: $_o-banner-spacing;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 4, $weight: 'semibold');
+	}
 }
 
 @mixin _oBannerSmallActions {
-	margin-top: oSpacingByName('s6');
 
 	@include oGridRespondTo($until: M) {
 		flex-direction: column;
 		align-items: flex-start;
 		margin-top: oSpacingByName('s6');
 	}
+	margin-top: oSpacingByName('s6');
 }
 
 @mixin _oBannerSmallAction {
