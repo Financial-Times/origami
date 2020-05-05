@@ -1,0 +1,12 @@
+{
+    "description": "Stylelint configuration which helps catch bugs and ensure consistency between Origami component Sass.",
+    "origamiType": "config",
+    "origamiVersion": 1,
+    "keywords": [],
+    "support": "https://github.com/Financial-Times/stylelint-config-origami-component/issues",
+    "supportStatus": "active",
+    "supportContact": {
+        "email": "origami.support@ft.com",
+        "slack": "financialtimes/origami-support"
+    }
+}
