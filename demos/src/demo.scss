@@ -5,9 +5,7 @@ body {
 	margin: var(--o-spacing-s4, 1rem);
 }
 
-// sass-lint:disable no-ids
-#demo-target {
+#demo-target { // stylelint-disable-line selector-max-id
 	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb);
 	margin: var(--o-spacing-s4, 1rem) 0;
 }
-// sass-lint:enable no-ids

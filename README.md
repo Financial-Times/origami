@@ -1,4 +1,4 @@
-# o-toggle [![CircleCI](https://circleci.com/gh/Financial-Times/o-toggle.png?style=shield)](https://circleci.com/gh/Financial-Times/o-toggle) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-toggle [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>` tag and a target.
 
