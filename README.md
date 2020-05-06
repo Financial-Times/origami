@@ -1,4 +1,4 @@
-# o-tabs [![Build Status](https://circleci.com/gh/Financial-Times/o-tabs.png?style=shield&circle-token=a2788d79ccb1fe983aa41c739f4e4129ed81a3f4)](https://circleci.com/gh/Financial-Times/o-tabs) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-tabs
 
 Tabs component for dividing content into meaningful sections.
 
