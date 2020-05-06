@@ -1,4 +1,4 @@
-# FT Video [![Circle CI](https://circleci.com/gh/Financial-Times/o-video.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-video) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# FT Video [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Creates a video player and attaches analytics. Also supports pre roll ads.
 

@@ -65,7 +65,7 @@
 		background-color: oColorsByName('claret');
 		color: oColorsByName('white');
 		&:empty {
-			display: none !important;// sass-lint:disable-line no-important
+			display: none !important; // stylelint-disable-line declaration-no-important
 		}
 	}
 
