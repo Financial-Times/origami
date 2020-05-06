@@ -45,7 +45,7 @@
 
 		.o-table-control--forward,
 		.o-table-control--back {
-			@supports (pointer-events: none)  {
+			@supports (pointer-events: none) {
 				position: absolute;
 				top: calc(50% - 20px);
 				transition: opacity 0.3s $o-visual-effects-timing-fade;
@@ -55,10 +55,10 @@
 
 		.o-table-control--back button,
 		.o-table-control--forward button {
-				@include oButtonsContent((
-					'size': 'big',
-					'icon-only': true
-				), $include-base-styles: false);
+			@include oButtonsContent((
+				'size': 'big',
+				'icon-only': true
+			), $include-base-styles: false);
 		}
 
 		.o-table-control--back {
@@ -159,8 +159,7 @@
 	// Show horizontal fade when the table is scrolled.
 	.o-table-overflow-fade-overlay--scroll {
 		@if _oTableGet('table-background') {
-			background: linear-gradient(to right, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)),
-			linear-gradient(to left, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end));
+			background: linear-gradient(to right, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-start)), linear-gradient(to left, _oTableGet('table-background') 2px, rgba(_oTableGet('table-background'), 0) var(--o-table-fade-from-end));
 		}
 	}
 

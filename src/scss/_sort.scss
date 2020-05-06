@@ -10,12 +10,10 @@
 
 	// Sort button.
 	.o-table__sort {
-		// sass-lint:disable no-vendor-prefixes
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		// sass-lint:enable no-vendor-prefixes
+		-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+		-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 		background: none;
 		color: inherit;
 		border: 0;
@@ -46,8 +44,9 @@
 	}
 
 	// Show ascending icon in sort button with ascending sort applied or on hover with no sort.
-	th[aria-sort='none'] .o-table__sort:hover, // sass-lint:disable-line no-qualifying-elements
-	th:not([aria-sort]) .o-table__sort:hover, // sass-lint:disable-line no-qualifying-elements
+	// stylelint-disable-next-line selector-no-qualifying-type
+	th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
 	[aria-sort='ascending'] .o-table__sort {
 		&:after {
 			@include oIconsContent('arrow-up', $size: 1.25rem);

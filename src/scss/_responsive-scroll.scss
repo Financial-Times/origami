@@ -44,8 +44,7 @@
 			}
 
 			// Whilst scrollable, remove all hidden cells.
-			// sass-lint:disable no-qualifying-elements
-			td[aria-hidden="true"] {
+			td[aria-hidden="true"] { // stylelint-disable-line selector-no-qualifying-type
 				display: none;
 			}
 			// sass-lint:enable no-qualifying-elements

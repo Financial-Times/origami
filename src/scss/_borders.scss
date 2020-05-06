@@ -18,8 +18,7 @@
 		border-left: 1px solid _oTableGet('table-border-color');
 		border-right: 1px solid _oTableGet('table-border-color');
 
-		// sass-lint:disable no-qualifying-elements
-		th[scope=row] {
+		th[scope=row] { // stylelint-disable-line selector-no-qualifying-type
 			border-left: 1px solid _oTableGet('table-border-color');
 		}
 		// sass-lint:enable no-qualifying-elements

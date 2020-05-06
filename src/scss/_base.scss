@@ -74,7 +74,7 @@
 	// Visually hide any filtered rows.
 	// `display: none` is not used to avoid recalculating column row.
 	// `visibility: collaposed` is not used due to inconsistent browser support.
-	// sass-lint:disable no-qualifying-elements
+	// stylelint-disable-next-line selector-no-qualifying-type
 	tr[data-o-table-filtered="true"] {
 		visibility: hidden;
 	}
