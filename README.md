@@ -1,4 +1,4 @@
-o-editorial-typography [![Circle CI](https://circleci.com/gh/Financial-Times/o-editorial-typography/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-editorial-typography/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-editorial-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 _Typography styles for editorial content._

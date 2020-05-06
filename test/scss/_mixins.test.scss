@@ -50,7 +50,6 @@
 	@include describe('oEditorialTypographyTag') {
 
 		@include test('Styles non-link topic tags') {
-			// sass-lint:disable no-qualifying-elements
 			@include assert {
 				@include output($selector: false) {
 					.my-topic-tag {
@@ -63,47 +62,43 @@
 						font-family: MetricWeb, sans-serif;
 						font-weight: 600;
 					}
-
-					a.my-topic-tag {
+					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
 						color: #990f3d;
 						text-decoration: none;
 						border-bottom: 0;
 					}
 
-					a.my-topic-tag:hover {
+					a.my-topic-tag:hover { // stylelint-disable-line selector-no-qualifying-type
 						color: #4d081f;
 					}
 				}
 			}
-			// sass-lint:enable no-qualifying-elements
 		}
 
 		@include test('Styles topic tags which are links') {
-			// sass-lint:disable no-qualifying-elements
 			@include assert {
 				@include output($selector: false) {
-					a.my-topic-tag {
+					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
 						@include oEditorialTypographyTag('topic');
 					}
 				}
 				@include expect($selector: false) {
-					a.my-topic-tag {
+					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
 						font-family: MetricWeb, sans-serif;
 						font-weight: 600;
 					}
 
-					a.my-topic-tag {
+					a.my-topic-tag { // stylelint-disable-line selector-no-qualifying-type
 						color: #990f3d;
 						text-decoration: none;
 						border-bottom: 0;
 					}
 
-					a.my-topic-tag:hover {
+					a.my-topic-tag:hover { // stylelint-disable-line selector-no-qualifying-type
 						color: #4d081f;
 					}
 				}
 			}
-			// sass-lint:enable no-qualifying-elements
 		}
 	}
 }

@@ -3,6 +3,6 @@
 @include oEditorialTypography();
 
 body {
-    background: oColorsByUsecase('page', 'background');
-    margin: oSpacingByName('s2');
+	background: oColorsByUsecase('page', 'background');
+	margin: oSpacingByName('s2');
 }
