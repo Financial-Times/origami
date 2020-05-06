@@ -83,7 +83,7 @@
 			// o-layout container size, accounting for grid gaps
 			grid-template-columns: minmax(0, 1fr) $_o-layout-sidebar-width minmax(0, calc(#{$_o-layout-container-max-width} - #{$_o-layout-sidebar-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
 			grid-template-rows: auto 1fr auto;
-		};
+		}
 	}
 
 	.o-layout.o-layout--docs > .o-layout__main {
@@ -114,7 +114,7 @@
 					margin-bottom: 0;
 				}
 			}
-		};
+		}
 
 		> table:not(.o-layout__main__single-span) {
 			max-width: none;
@@ -163,7 +163,7 @@
 				". query-sidebar main ."
 				". query-sidebar aside-sidebar ."
 				"footer footer footer footer";
-		};
+		}
 
 		@include oGridRespondTo($from: L) {
 			grid-template-areas:
@@ -174,7 +174,7 @@
 			grid-template-rows: auto auto 1fr auto;
 			// fit-content makes the aside collapse with no content, so the aside bar can be optional
 			grid-template-columns: $margin-grid-size $_o-layout-sidebar-width minmax(0, 1fr) fit-content($_o-layout-sidebar-width) $margin-grid-size;
-		};
+		}
 
 		.o-layout__main {
 			margin-top: 0;

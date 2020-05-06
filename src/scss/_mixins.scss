@@ -35,7 +35,7 @@
 			@include oTypographyLink();
 		}
 
-		h1:not(.o-layout__unstyled-element)	{
+		h1:not(.o-layout__unstyled-element) {
 			@include oTypographyHeading($level: 1);
 		}
 
@@ -143,7 +143,7 @@
 				// no otherwise-acceptable break points exist.
 				overflow-wrap: anywhere;
 				word-break: break-all; // For browsers which do not support break-word, or overflow-wrap: anywhere.
-				word-break: break-word; // sass-lint:disable-line no-duplicate-properties
+				word-break: break-word; // stylelint-disable-line declaration-block-no-duplicate-properties
 				@supports (overflow-wrap: anywhere) {
 					word-break: normal;
 				}
@@ -164,7 +164,7 @@
 				text-decoration: none;
 			}
 
-			&.o-layout__navigation-title a {
+			&.o-layout__navigation-title a { // stylelint-disable-line selector-no-qualifying-type
 				@include oTypographySans($weight: 'semibold', $include-font-family: false);
 				@include oGridRespondTo($from: M) {
 					border: 0;
