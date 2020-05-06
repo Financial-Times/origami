@@ -3,6 +3,8 @@
 /// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
 @mixin _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down) {
+
+	@include _oHeaderServicesDrawer($drawer-breakpoint, $drop-down);
 	.o-header-services__primary-nav {
 		position: relative;
 		background-color: _oHeaderServicesGet('nav-background');
@@ -22,7 +24,7 @@
 		// Unless the nav items have custom padding which is smaller than the grid container's grid gap.
 		@include oGridRespondTo(S) {
 			padding: 0 if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), calc(#{map-get($o-grid-gutters, 'M')} - #{_oHeaderServicesGet('primary-nav-item-horizontal-padding')}), 0);
-		};
+		}
 
 		> li {
 			position: relative;
@@ -42,8 +44,8 @@
 				color: _oHeaderServicesGet('text-hover-color');
 			}
 
-			&:hover,
-			&[aria-current=true] {
+			&:hover, // stylelint-disable-line selector-no-qualifying-type
+			&[aria-current=true] { // stylelint-disable-line selector-no-qualifying-type
 				background-color: _oHeaderServicesGet('nav-hover-background');
 			}
 		}
@@ -53,19 +55,15 @@
 		}
 
 		[data-o-header-services-level="2"] {
-			> li a {
-				display: block;
-			}
 			max-width: 50vw;
 			overflow: hidden;
 			white-space: nowrap;
 			> li a {
+				display: block;
 				text-overflow: ellipsis;
 				max-width: 100%;
 				overflow: hidden;
 			}
 		}
 	}
-
-	@include _oHeaderServicesDrawer($drawer-breakpoint, $drop-down);
-};
+}

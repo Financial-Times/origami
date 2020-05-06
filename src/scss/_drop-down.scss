@@ -1,4 +1,3 @@
-// sass-lint:disable no-qualifying-elements
 /// @access private
 /// @outputs styling for primary navigation drop down menus
 @mixin _oHeaderServicesDropDown() {
@@ -29,7 +28,7 @@
 	}
 
 	// Current drop down button.
-	li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button {
+	li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
 		background-color: _oHeaderServicesGet('nav-hover-background');
 		&:hover {
 			background-color: _oHeaderServicesGet('button-hover-color');
@@ -37,7 +36,7 @@
 	}
 
 	// Drop down list.
-	ul[data-o-header-services-level="2"] {
+	ul[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
 		@include oTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
@@ -61,22 +60,23 @@
 			pointer-events: none;
 		}
 
-		&.o-header-services__list--right {
+		&.o-header-services__list--right { // stylelint-disable-line selector-no-qualifying-type
 			right: -1px;
 			left: auto;
 		}
 	}
 
 	// Completely hide visually hidden elements untill the dropdown is open.
-	ul[data-o-header-services-level] .o-header-services__visually-hidden {
+	ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
 		display: none;
 	}
 
 	// Drop down list (opened state).
+	// stylelint-disable-next-line selector-no-qualifying-type
 	.core li[data-o-header-services-level]:hover,
-	li[aria-expanded=true] {
+	li[aria-expanded=true] { // stylelint-disable-line selector-no-qualifying-type
 		// Reveal the dropdown.
-		ul[data-o-header-services-level] {
+		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
 			height: auto;
 			@supports (pointer-events: none) {
 				pointer-events: all;
@@ -87,12 +87,12 @@
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
-		ul[data-o-header-services-level] .o-header-services__visually-hidden {
+		ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
 			display: initial;
 		}
 
 		// Update the dropdown icon to show the drawer is open.
-		.o-header-services__drop-down-button:after {
+		.o-header-services__drop-down-button:after { // stylelint-disable-line selector-no-qualifying-type
 			transform: rotate(-180deg);
 		}
 	}
@@ -105,8 +105,7 @@
 		}
 		// Drop down list.
 		ul[data-o-header-services-level="2"] {
-			transition: none;
+			transition: none; // stylelint-disable-line selector-no-qualifying-type
 		}
 	}
 }
-// sass-lint:enable no-qualifying-elements

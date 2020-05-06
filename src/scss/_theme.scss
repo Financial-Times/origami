@@ -25,10 +25,10 @@
 				background-color: rgba(0, 0, 0, 0.2);
 				.o-header-services__related-content li {
 					background-color: _oHeaderServicesGet('nav-background', $from: $theme);
+				}
 
-					a {
-						color: _oHeaderServicesGet('nav-text', $from: $theme);
-					}
+				.o-header-services__related-content li a {
+					color: _oHeaderServicesGet('nav-text', $from: $theme);
 				}
 			}
 
@@ -50,6 +50,7 @@
 				a {
 					color: _oHeaderServicesGet('nav-text', $from: $theme);
 
+					// stylelint-disable-next-line max-nesting-depth
 					&:hover,
 					&[aria-current=true] {
 						color: _oHeaderServicesGet('nav-text', $from: $theme);

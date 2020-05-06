@@ -41,13 +41,13 @@
 				padding: oSpacingByName('s2') 0;
 				margin: 0;
 
-				&:hover,
-				&[aria-current=true] {
+				&:hover, // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current=true] { // stylelint-disable-line selector-no-qualifying-type
 					color: _oHeaderServicesGet('text-hover-color');
 				}
 
-				&:hover:before,
-				&[aria-current=true]:before {
+				&:hover:before, // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current=true]:before { // stylelint-disable-line selector-no-qualifying-type
 					content: '';
 					position: absolute;
 					bottom: 0;
@@ -86,14 +86,14 @@
 	}
 
 	.o-header-services__secondary-nav-list--children li {
-		padding-left:  oSpacingByName('s4');
+		padding-left: oSpacingByName('s4');
 
 		&:first-child {
-			margin-left:  oSpacingByName('s3');
+			margin-left: oSpacingByName('s3');
 		}
 
 		&:last-child {
-			padding-right:  oSpacingByName('s3');
+			padding-right: oSpacingByName('s3');
 		}
 
 		&:first-child:before {

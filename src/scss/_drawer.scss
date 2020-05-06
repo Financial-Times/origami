@@ -2,7 +2,6 @@
 /// @outputs styling for the drawer
 /// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
 /// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
-// sass-lint:disable no-qualifying-elements
 @mixin _oHeaderServicesDrawer($draw-breakpoint, $drop-down) {
 	.o-header-services__primary-nav {
 		@include oGridRespondTo($until: $draw-breakpoint) {
@@ -36,8 +35,7 @@
 			width: 75vw;
 			background-color: _oHeaderServicesGet('drawer-background');
 			transform: translateX(-100%);
-			transition:
-				transform 0.5s $o-visual-effects-timing-expand;
+			transition: transform 0.5s $o-visual-effects-timing-expand;
 		}
 
 		// First level nav item.
@@ -70,7 +68,7 @@
 			// Override the background colour of the draw's dropdown button.
 			.o-header-services__drop-down-button,
 			a[aria-current="true"] + .o-header-services__drop-down-button {
-				@if  _oHeaderServicesGet('drawer-button-background') {
+				@if  _oHeaderServicesGet('drawer-button-background') { // stylelint-disable-line selector-no-qualifying-type
 					border: 0;
 					background-color: _oHeaderServicesGet('drawer-button-background');
 					&:hover {
@@ -100,7 +98,7 @@
 
 			// Expanded first level nav item.
 			li[data-o-header-services-level][aria-expanded=true] {
-				[data-o-header-services-level="2"] {
+				[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
 					position: relative;
 					opacity: 1;
 				}
@@ -177,4 +175,3 @@
 		}
 	}
 }
-// sass-lint:enable no-qualifying-elements
