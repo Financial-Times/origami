@@ -32,7 +32,11 @@
 	@if type-of($variables) == 'map' {
 		@each $variable-name, $value in $variables {
 			@if type-of($value) != 'map' {
-				$validated-default-variables: _oBrandValidateName('Variable', $variable-name, 'Cannot set variable(s) "#{$variable-name}" of component "#{$component}" for brand "#{$brand}"');
+				$validated-default-variables: _oBrandValidateName(
+					'Variable',
+					$variable-name,
+					'Cannot set variable(s) "#{$variable-name}" of component "#{$component}" for brand "#{$brand}"'
+				);
 			}
 		}
 	}
@@ -40,11 +44,19 @@
 	// Validate variant names.
 	@each $variant-name, $variant-variables in $variables {
 		@if type-of($variant-variables) == 'map' {
-			$validated-variant-name: _oBrandValidateName('Variant', $variant-name, 'Cannot set variables for variant "#{$variant-name}" of component "#{$component}" for brand "#{$brand}"');
+			$validated-variant-name: _oBrandValidateName(
+				'Variant',
+				$variant-name,
+				'Cannot set variables for variant "#{$variant-name}" of component "#{$component}" for brand "#{$brand}"'
+			);
 
 			// Validate variant variable names.
 			@each $variable-name, $variant-variables in $variant-variables {
-				$validated-variant-variables: _oBrandValidateName('Variable', $variable-name, 'Cannot set variable "#{$variable-name}" for variant "#{$variant-name}" of component "#{$component}" and brand "#{$brand}"');
+				$validated-variant-variables: _oBrandValidateName(
+					'Variable',
+					$variable-name,
+					'Cannot set variable "#{$variable-name}" for variant "#{$variant-name}" of component "#{$component}" and brand "#{$brand}"'
+				);
 			}
 		}
 	}
@@ -56,7 +68,11 @@
 
 	// Check variant names within supports variants.
 	@each $variant-name in $supports-variants {
-		$validated: _oBrandValidateName('Variant', $variant-name, 'Cannot set supported variants for component "#{$component}" and brand "#{$brand}"');
+		$validated: _oBrandValidateName(
+			'Variant',
+			$variant-name,
+			'Cannot set supported variants for component "#{$component}" and brand "#{$brand}"'
+		);
 	}
 	@return true;
 }
