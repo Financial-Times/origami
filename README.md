@@ -1,4 +1,4 @@
-o-message [![Circle CI](https://circleci.com/gh/Financial-Times/o-message/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-message/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-message [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 `o-message` is a messaging component used for alerting, informing or making calls to action.

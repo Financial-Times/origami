@@ -114,7 +114,7 @@
 	$supports-alert-type: index($types, 'alert');
 	@if ($supports-alert-type and not $state-icon) {
 		@error '#{$error-message}: To support the "alert" type include an "icon". ' +
-		'If an alert with icon is not needed update the "types" argument.';
+			'If an alert with icon is not needed update the "types" argument.';
 	}
 
 	@if $supports-alert-type and $state-icon {
