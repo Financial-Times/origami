@@ -179,7 +179,7 @@
 @mixin oSubsCardContainer {
 	border-spacing: $o-subs-card-horizontal-margin; //ie 9
 	display: table-cell; // ie 9
-	display: flex;	//sass-lint:disable-line no-duplicate-properties
+	display: flex;	// stylelint-disable-line declaration-block-no-duplicate-properties
 	flex-direction: column;
 	flex: auto;
 	margin: 0 20px;
@@ -210,7 +210,7 @@
 	.o-subs-card,
 	.o-subs-card__top {
 		display: table-cell; //ie 9
-		display: flex; //sass-lint:disable-line no-duplicate-properties
+		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 		flex-direction: column;
 	}
 
