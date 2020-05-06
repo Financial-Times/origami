@@ -12,8 +12,7 @@
 		z-index: 10;
 		box-sizing: border-box;
 		opacity: 0;
-		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade,
-					transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
+		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
 		border: 0;
 		background: $_o-tooltip-background-color;
 		display: none;

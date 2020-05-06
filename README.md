@@ -1,4 +1,4 @@
-o-tooltip [![Circle CI](https://circleci.com/gh/Financial-Times/o-tooltip/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-tooltip/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-tooltip [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 o-tooltip is a component usually used for annotating or highlighting bits of user interface.
