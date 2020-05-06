@@ -1,4 +1,4 @@
-# o-topper [![CircleCI](https://circleci.com/gh/Financial-Times/o-topper.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-topper) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-topper
 
 This component is for displaying header sections at the top of articles
 

@@ -1,6 +1,7 @@
+/* eslint-env mocha */
+/* global proclaim */
 
 import { mapContentToTopper as subject } from '../main';
-import proclaim from 'proclaim';
 
 describe('Topper content map', () => {
 	const articleContentFixture = {

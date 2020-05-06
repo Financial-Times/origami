@@ -2,6 +2,8 @@
   "private": true,
   "name": "o-topper",
   "devDependencies": {
-    "origami-ci-tools": "^1.0.0"
+    "eslint-config-origami-component": "^1.0.4",
+    "origami-ci-tools": "^2.0.0",
+    "stylelint-config-origami-component": "^1.0.2"
   }
 }
