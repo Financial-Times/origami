@@ -99,11 +99,11 @@
 /// @param {Sting} $size - The label size to output styles for. The valid sizes are `big` and `small`.
 /// @access private
 @mixin _oLabelsSizeContent($size) {
-		$scale: _oLabelsGet('font-scale', $size);
-		@if $scale {
-			@include oTypographySans($scale, $line-height: 1, $include-font-family: false);
-		}
-		padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
+	$scale: _oLabelsGet('font-scale', $size);
+	@if $scale {
+		@include oTypographySans($scale, $line-height: 1, $include-font-family: false);
+	}
+	padding: (_oLabelsGet('padding-vertical', $size) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $size) - _oLabelsGet('border-width'));
 }
 
 /// Styles for a state.

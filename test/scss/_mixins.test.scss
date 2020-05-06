@@ -6,15 +6,15 @@
 			@include assert() {
 				@include output() {
 					@include _oLabelsBaseContent;
-				};
+				}
 				@include contains() {
 					$expected-vertical-padding: oSpacingByName('s1') - 1px;
 					$expected-horizontal-padding: oSpacingByName('s2') - 1px;
 					padding: $expected-vertical-padding $expected-horizontal-padding;
-				};
-			};
-		};
-	};
+				}
+			}
+		}
+	}
 
 	@include describe('_oLabelsSize') {
 		@include describe('with $size set to "big"') {
@@ -22,18 +22,18 @@
 				@include assert() {
 					@include output($selector: false) {
 						@include _oLabelsSize('big');
-					};
+					}
 					@include contains($selector: false) {
 						$expected-vertical-padding: oSpacingByName('s2') - 1px;
 						$expected-horizontal-padding: oSpacingByName('s2') - 1px;
 						.o-labels--big {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
-					};
-				};
-			};
-		};
-	};
+					}
+				}
+			}
+		}
+	}
 
 	@include describe('_oLabelsSize') {
 		@include describe('with $size set to "small"') {
@@ -41,18 +41,18 @@
 				@include assert() {
 					@include output($selector: false) {
 						@include _oLabelsSize('small');
-					};
+					}
 					@include contains($selector: false) {
 						$expected-vertical-padding: 1px;
 						$expected-horizontal-padding: 3px;
 						.o-labels--small {
 							padding: $expected-vertical-padding $expected-horizontal-padding;
 						}
-					};
-				};
-			};
-		};
-	};
+					}
+				}
+			}
+		}
+	}
 
 	@include describe('oLabelsContent') {
 		@include describe('with "size" and no "state"') {
@@ -62,20 +62,20 @@
 						.o-example-label {
 							@include oLabelsContent($opts: ('size': 'small'));
 						}
-					};
+					}
 					@include expect($selector: false) {
 						.o-example-label {
 							font-size: 12px;
 							line-height: 1;
-    						padding: 1px 3px;
+							padding: 1px 3px;
 						}
 						.o-typography--loading-sans .o-example-label {
-						  font-size: 10.44px;
+							font-size: 10.44px;
 						}
-					};
-				};
-			};
-		};
+					}
+				}
+			}
+		}
 		@include describe('with "state" and no "size"') {
 			@include it('outputs state styles only') {
 				@include assert() {
@@ -83,16 +83,16 @@
 						.o-example-label {
 							@include oLabelsContent($opts: ('state': 'content-commercial'));
 						}
-					};
+					}
 					@include expect() {
 						.o-example-label {
-    						background-color: #008040;
-    						color: white;
+							background-color: #008040;
+							color: white;
 						}
-					};
-				};
-			};
-		};
+					}
+				}
+			}
+		}
 		@include describe('with a custom "state" and no "size"') {
 			@include it('outputs custom state styles only') {
 				@include assert() {
@@ -102,16 +102,16 @@
 								'background-color': hotpink
 							)));
 						}
-					};
+					}
 					@include expect() {
 						.o-example-label {
-    						background-color: hotpink;
-    						color: black;
+							background-color: hotpink;
+							color: black;
 						}
-					};
-				};
-			};
-		};
+					}
+				}
+			}
+		}
 		@include describe('with "state" and "size"') {
 			@include it('outputs state and size styles') {
 				@include assert() {
@@ -119,36 +119,36 @@
 						.o-example-label {
 							@include oLabelsContent($opts: ('size': 'small', 'state': 'content-commercial'));
 						}
-					};
+					}
 					@include expect($selector: false) {
 						.o-example-label {
-    						background-color: #008040;
-    						color: white;
+							background-color: #008040;
+							color: white;
 							font-size: 12px;
 							line-height: 1;
-    						padding: 1px 3px;
+							padding: 1px 3px;
 						}
 
 						.o-typography--loading-sans .o-example-label {
 							font-size: 10.44px;
 						}
-					};
-				};
-			};
-		};
+					}
+				}
+			}
+		}
 		@include describe('with "base"') {
 			@include it('outputs fundamental label styles required by all labels') {
 				@include assert() {
 					@include output() {
 						@include oLabelsContent($opts: ('base': true));
-					};
+					}
 					@include contains() {
-    					box-sizing: border-box;
-					};
-				};
-			};
-		};
-	};
+						box-sizing: border-box;
+					}
+				}
+			}
+		}
+	}
 
 
-};
+}

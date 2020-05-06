@@ -1,5 +1,5 @@
 // Set commercial content colour. The precise jade mix maintains the same colour
 // as was previously generated with an o-colors tone.
 @if oBrandGetCurrentBrand() == 'master' {
-    @include oColorsSetColor('o-labels/commercial-content', oColorsMix('jade', 'black', $percentage: 83.334));
+	@include oColorsSetColor('o-labels/commercial-content', oColorsMix('jade', 'black', $percentage: 83.334));
 }

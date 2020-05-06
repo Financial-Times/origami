@@ -8,7 +8,7 @@ body {
 
 	// Important used to ensure that this overrides the `body` specificity
 	// provided by the build service
-	margin: 1em !important; // sass-lint:disable-line no-important
+	margin: 1em !important; // stylelint-disable-line declaration-no-important
 }
 
 .demo-container {
