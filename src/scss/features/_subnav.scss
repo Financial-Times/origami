@@ -57,7 +57,7 @@
 					top: 50%;
 					margin-top: - $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height / 2;
 					height: $_o-header-subnav-height-base * $_o-header-item-separator-percentage-height;
-					@include oGridRespondTo('M') {
+					@include oGridRespondTo('M') { // stylelint-disable-line max-nesting-depth
 						margin-top: - $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height / 2;
 						height: $_o-header-subnav-height-medium * $_o-header-item-separator-percentage-height;
 					}

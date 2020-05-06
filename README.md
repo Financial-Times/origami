@@ -1,4 +1,4 @@
-# o-header [![CircleCI](https://circleci.com/gh/Financial-Times/o-header.png?style=shield&circle-token=41f2b7b7e669f2d4adb55ad97cf755d3ed4b93c3)](https://circleci.com/gh/Financial-Times/o-header) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-header
 
 Responsive header for FT branded sites. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data.
 

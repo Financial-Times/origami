@@ -87,8 +87,6 @@
 		// sass-lint:enable no-vendor-prefixes
 	}
 
-	.o-header__nav-link--utility {}
-
 	.o-header__nav-button {
 		@include oButtonsContent((
 			'type': 'primary',

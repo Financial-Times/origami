@@ -14,10 +14,8 @@
 			width: 100%;
 			border-right: 1px solid _oHeaderGet('drawer-border');
 			// use a 2D transform because 3D are unsupported by IE9
-			// sass-lint:disable no-duplicate-properties
 			transform: translateX(-100%);
-			transform: translate3d(-100%, 0, 0);
-			// sass-lint:enable no-duplicate-properties
+			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// this is literally the spec example for will-change
 			will-change: transform;
@@ -36,10 +34,8 @@
 
 			&[aria-hidden="false"] {
 				// use a 2D transform because 3D are unsupported by IE9
-				// sass-lint:disable no-duplicate-properties
 				transform: translateX(0);
-				transform: translate3d(0, 0, 0);
-				// sass-lint:enable no-duplicate-properties
+				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
 			}
 		}
 	}
@@ -55,25 +51,17 @@
 			height: 100%;
 			overflow-y: auto;
 			// intertial scrolling for iOS Safari
-			// sass-lint:disable no-vendor-prefixes
 			-webkit-overflow-scrolling: touch;
-			// sass-lint:enable no-vendor-prefixes
 			// working draft
 			scroll-behavior: smooth;
 
-			// sass-lint:disable no-misspelled-properties
 			scrollbar-color: oColorsByName('black-30') transparent;
-			// sass-lint:enable no-misspelled-properties
 
 			// (╯°□°）╯︵ ┻━┻
-			// sass-lint:disable no-vendor-prefixes
 			&::-webkit-scrollbar {
-				// sass-lint:enable no-vendor-prefixes
 				width: 12px;
 			}
-			// sass-lint:disable no-vendor-prefixes
 			&::-webkit-scrollbar-thumb {
-				// sass-lint:enable no-vendor-prefixes
 				background: oColorsByName('black-30');
 				// you can't set the dimensions so use a border as a margin...
 				background-clip: content-box;
@@ -350,8 +338,6 @@
 			background-color: _oHeaderGet('drawer-menu-selected-link-background');
 		}
 	}
-
-	.o-header__drawer-menu-link--parent {}
 
 	.o-header__drawer-menu-link--child {
 		padding-left: 40px;

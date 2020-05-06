@@ -36,9 +36,7 @@
 			display: block;
 
 			& ~ * {
-				// sass-lint:disable no-important
-				display: none !important;
-				// sass-lint:enable no-important
+				display: none !important; //stylelint-disable-line declaration-no-important
 			}
 		}
 	}

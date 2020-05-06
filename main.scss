@@ -40,7 +40,7 @@
 		// Check the feature exists.
 		@if index($_o-header-features, $feature) == null {
 			@error "There is no feature '#{$feature}' available in o-header please use one of "
-			+ "the following: #{$_o-header-features}";
+				+ "the following: #{$_o-header-features}";
 		}
 
 		// Output feature.
