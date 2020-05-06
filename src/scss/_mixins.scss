@@ -63,12 +63,10 @@
 		// the steps are stacked vertically there. However the
 		// hack also targets IE10/11, so we have to re-add the
 		// background colour using a different hack
-		// sass-lint:disable-all
-		background-color: transparent\9;
+		background-color: transparent\9; // stylelint-disable-line declaration-block-no-duplicate-properties
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 			background-color: _oSteppedProgressGet('default-color');
 		}
-		// sass-lint:enable-all
 	}
 
 	.o-stepped-progress__steps {
@@ -173,12 +171,10 @@
 			// the steps are stacked vertically there. However the
 			// hack also targets IE10/11, so we have to re-add the
 			// background colour using a different hack
-			// sass-lint:disable-all
-			background-color: transparent\9;
+			background-color: transparent\9; // stylelint-disable-line declaration-block-no-duplicate-properties
 			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 				background-color: _oSteppedProgressGet('interacted-color');
 			}
-			// sass-lint:enable-all
 		}
 	}
 

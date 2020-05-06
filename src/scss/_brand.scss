@@ -25,10 +25,7 @@ $_o-stepped-progress-shared-brand-config: (
 
 // Define shared master/internal brand configurations
 @if oBrandGetCurrentBrand() == 'master'  or oBrandGetCurrentBrand() == 'internal' {
-	$_o-stepped-progress-shared-brand-config: map-merge(
-		$_o-stepped-progress-shared-brand-config,
-		(interacted-color: oColorsByName('slate'))
-	);
+	$_o-stepped-progress-shared-brand-config: map-merge($_o-stepped-progress-shared-brand-config, (interacted-color: oColorsByName('slate')));
 }
 
 // Define masterbrand
