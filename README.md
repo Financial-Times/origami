@@ -1,4 +1,4 @@
-# o-footer-services [![Circle CI](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-footer-services/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-footer-services [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 o-footer-services is a footer component for internal products and tooling at the FT.
 

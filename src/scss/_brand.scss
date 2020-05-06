@@ -1,13 +1,13 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oFooterServicesGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-footer-services', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-footer-services', $variables: $variables, $from: $from);
 }
 
 /// Helper for `o-brand` function.
 /// @access private
 @function _oFooterServicesSupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-footer-services', $variant: $variant);
+	@return oBrandSupportsVariant($component: 'o-footer-services', $variant: $variant);
 }
 
 $_o-footer-services-shared-brand-config: (
