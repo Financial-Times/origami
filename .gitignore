@@ -8,3 +8,4 @@
 /demos/local
 npm-debug.log
 .bowerrc
+package-lock.json
