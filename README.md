@@ -1,4 +1,4 @@
-o-normalise [![Circle CI](https://circleci.com/gh/Financial-Times/o-normalise/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-normalise/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-normalise [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 Foundation styles and standardised utilities
