@@ -20,7 +20,7 @@ $card-size: 160px;
 .shadows-demo div,
 .demo-card {
 	display: inline-block;
-	display: inline-flex; // sass-lint:disable-line no-duplicate-properties fallback for no flex support
+	display: inline-flex; // stylelint-disable-line declaration-block-no-duplicate-properties
 	background: white;
 	width: $card-size;
 	height: $card-size;

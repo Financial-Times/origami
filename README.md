@@ -1,4 +1,4 @@
-# Visual Effects  [![Circle CI](https://circleci.com/gh/Financial-Times/o-visual-effects/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-visual-effects/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# Visual Effects
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
