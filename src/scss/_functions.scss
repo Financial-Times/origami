@@ -107,7 +107,7 @@
 		@warn #{$message};
 		$_o-typography-warnings: map-merge($_o-typography-warnings, (
 			#{$key}: true
-		))!global;
+		)) !global;
 	}
 	@return null;
 }

@@ -1,649 +1,649 @@
 @include test-module('oTypography') {
-    @include test('Can output styles for a single heading') {
-        @include assert {
-            @include output {
-                $o-typography-load-fonts: false !global;
-                $o-typography-progressive-font-loading: false !global;
-                @include oTypography(('headings': (1)));
-                $o-typography-load-fonts: true !global;
-                $o-typography-progressive-font-loading: true !global;
-            }
-            @include expect {
-                .o-typography-heading-level-1 {
-                    font-family: MetricWeb, sans-serif;
-                    font-size: 32px;
-                    line-height: 32px;
-                    font-weight: 600;
-                    color: #33302e;
-                    margin: 0 0 16px;
-                }
-            }
-        }
-    }
+	@include test('Can output styles for a single heading') {
+		@include assert {
+			@include output {
+				$o-typography-load-fonts: false !global;
+				$o-typography-progressive-font-loading: false !global;
+				@include oTypography(('headings': (1)));
+				$o-typography-load-fonts: true !global;
+				$o-typography-progressive-font-loading: true !global;
+			}
+			@include expect {
+				.o-typography-heading-level-1 {
+					font-family: MetricWeb, sans-serif;
+					font-size: 32px;
+					line-height: 32px;
+					font-weight: 600;
+					color: #33302e;
+					margin: 0 0 16px;
+				}
+			}
+		}
+	}
 
-    @include test('Can output styles for multiple headings') {
-        @include assert {
-            @include output($selector: false) {
-                $o-typography-load-fonts: false !global;
-                $o-typography-progressive-font-loading: false !global;
-                @include oTypography(('headings': (1, 2)));
-                $o-typography-load-fonts: true !global;
-                $o-typography-progressive-font-loading: true !global;
-            }
-            @include expect($selector: false) {
-                .o-typography-heading-level-1 {
-                    font-family: MetricWeb, sans-serif;
-                    font-size: 32px;
-                    line-height: 32px;
-                    font-weight: 600;
-                    color: #33302e;
-                    margin: 0 0 16px;
-                }
+	@include test('Can output styles for multiple headings') {
+		@include assert {
+			@include output($selector: false) {
+				$o-typography-load-fonts: false !global;
+				$o-typography-progressive-font-loading: false !global;
+				@include oTypography(('headings': (1, 2)));
+				$o-typography-load-fonts: true !global;
+				$o-typography-progressive-font-loading: true !global;
+			}
+			@include expect($selector: false) {
+				.o-typography-heading-level-1 {
+					font-family: MetricWeb, sans-serif;
+					font-size: 32px;
+					line-height: 32px;
+					font-weight: 600;
+					color: #33302e;
+					margin: 0 0 16px;
+				}
 
-                .o-typography-heading-level-2 {
-                    font-family: MetricWeb, sans-serif;
-                    font-size: 28px;
-                    line-height: 32px;
-                    font-weight: 600;
-                    color: #33302e;
-                    margin: 0 0 16px;
-                }
-            }
-        }
-    }
+				.o-typography-heading-level-2 {
+					font-family: MetricWeb, sans-serif;
+					font-size: 28px;
+					line-height: 32px;
+					font-weight: 600;
+					color: #33302e;
+					margin: 0 0 16px;
+				}
+			}
+		}
+	}
 }
 
 @include test-module('oTypographySans') {
-    @include test('Outputs a font family.') {
-        @include assert {
-            @include output {
-                @include oTypographySans();
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-            }
-        }
-    }
+	@include test('Outputs a font family.') {
+		@include assert {
+			@include output {
+				@include oTypographySans();
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-                font-size: 18px;
-                line-height: 20px;
-                .o-typography--loading-sans & {
-                    font-size: 15.66px;
-                    font-family: sans-serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+				font-size: 18px;
+				line-height: 20px;
+				.o-typography--loading-sans & {
+					font-size: 15.66px;
+					font-family: sans-serif;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1, 1.6);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-                font-size: 18px;
-                line-height: 1.6;
-                .o-typography--loading-sans & {
-                    font-size: 15.66px;
-                    font-family: sans-serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1, 1.6);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+				font-size: 18px;
+				line-height: 1.6;
+				.o-typography--loading-sans & {
+					font-size: 15.66px;
+					font-family: sans-serif;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1, $weight: 'bold');
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-                font-size: 18px;
-                line-height: 20px;
-                font-weight: 700;
-                .o-typography--loading-sans-bold & {
-                    font-size: 14.94px;
-                    font-family: sans-serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1, $weight: 'bold');
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+				font-size: 18px;
+				line-height: 20px;
+				font-weight: 700;
+				.o-typography--loading-sans-bold & {
+					font-size: 14.94px;
+					font-family: sans-serif;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, style, and progressive loading sizes for a given scale and style.') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1, $style: 'italic');
-            }
+	@include test('Outputs a font family, size, line height, style, and progressive loading sizes for a given scale and style.') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1, $style: 'italic');
+			}
 
-            // there are no progressive loading scale defined for an italic sans font
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-                font-size: 18px;
-                line-height: 20px;
-                font-style: italic;
-            }
-        }
-    }
+			// there are no progressive loading scale defined for an italic sans font
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+				font-size: 18px;
+				line-height: 20px;
+				font-style: italic;
+			}
+		}
+	}
 
-    @include test('Does not output a font-family when the option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1, 1.6, $include-font-family: false);
-            }
-            @include expect {
-                font-size: 18px;
-                line-height: 1.6;
+	@include test('Does not output a font-family when the option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1, 1.6, $include-font-family: false);
+			}
+			@include expect {
+				font-size: 18px;
+				line-height: 1.6;
 
-                .o-typography--loading-sans & {
-                    font-size: 15.66px;
-                }
-            }
-        }
-    }
+				.o-typography--loading-sans & {
+					font-size: 15.66px;
+				}
+			}
+		}
+	}
 
-    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographySans(1, 1.6, $include-progressive: false);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-                font-size: 18px;
-                line-height: 1.6;
-            }
-        }
-    }
+	@include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographySans(1, 1.6, $include-progressive: false);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+				font-size: 18px;
+				line-height: 1.6;
+			}
+		}
+	}
 
 
-    @include test('Includes a font size and line height for a given responsive scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySans($scale: (default: 1, L: 2));
-            }
-            @include contains {
-                font-size: 18px;
-                line-height: 20px;
+	@include test('Includes a font size and line height for a given responsive scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySans($scale: (default: 1, L: 2));
+			}
+			@include contains {
+				font-size: 18px;
+				line-height: 20px;
 
-                @media (min-width: 61.25em) {
-                    font-size: 20px;
-                    line-height: 24px;
-                }
-            }
-        }
-    }
+				@media (min-width: 61.25em) {
+					font-size: 20px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
 
-    @include test('Includes a custom line height for a given scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySans($scale: 1, $line-height: 1.4);
-            }
-            @include contains {
-                font-size: 18px;
-                line-height: 1.4;
-            }
-        }
-    }
+	@include test('Includes a custom line height for a given scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySans($scale: 1, $line-height: 1.4);
+			}
+			@include contains {
+				font-size: 18px;
+				line-height: 1.4;
+			}
+		}
+	}
 
-    @include test('Includes a custom line height for a responsive scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySans($scale: (default: 1, L: 2), $line-height: 24px);
-            }
-            @include contains {
-                font-size: 18px;
-                line-height: 24px;
+	@include test('Includes a custom line height for a responsive scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySans($scale: (default: 1, L: 2), $line-height: 24px);
+			}
+			@include contains {
+				font-size: 18px;
+				line-height: 24px;
 
-                @media (min-width: 61.25em) {
-                    font-size: 20px;
-                    line-height: 24px;
-                }
-            }
-        }
-    }
+				@media (min-width: 61.25em) {
+					font-size: 20px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
 
-    @include test('Includes separate custom line heights for each scale in a responsive scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySans($scale: (default: (1, 18px), L: (2, 24px)));
-            }
-            @include contains {
-                font-size: 18px;
-                line-height: 18px;
+	@include test('Includes separate custom line heights for each scale in a responsive scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySans($scale: (default: (1, 18px), L: (2, 24px)));
+			}
+			@include contains {
+				font-size: 18px;
+				line-height: 18px;
 
-                @media (min-width: 61.25em) {
-                    font-size: 20px;
-                    line-height: 24px;
-                }
-            }
-        }
-    }
+				@media (min-width: 61.25em) {
+					font-size: 20px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
 
-    @include test('Priorities custom line heights in responsive scales.') {
-        @include assert {
-            @include output {
-                @include oTypographySans($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
-            }
-            @include contains {
-                font-size: 18px;
-                line-height: 18px;
+	@include test('Priorities custom line heights in responsive scales.') {
+		@include assert {
+			@include output {
+				@include oTypographySans($scale: (default: (1, 18px), L: 2), $line-height: 1.4);
+			}
+			@include contains {
+				font-size: 18px;
+				line-height: 18px;
 
-                @media (min-width: 61.25em) {
-                    font-size: 20px;
-                    line-height: 1.4;
-                }
-            }
-        }
-    }
+				@media (min-width: 61.25em) {
+					font-size: 20px;
+					line-height: 1.4;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a custom line height "unset"') {
-        @include assert {
-            @include output {
-                $o-typography-relative-units: true !global;
-                @include oTypographySans($scale: 1, $line-height: unset);
-                $o-typography-relative-units: false !global;
-            }
-            @include contains {
-                font-size: 1.125rem;
-                line-height: unset;
-            }
-        }
-    }
+	@include test('Outputs a custom line height "unset"') {
+		@include assert {
+			@include output {
+				$o-typography-relative-units: true !global;
+				@include oTypographySans($scale: 1, $line-height: unset);
+				$o-typography-relative-units: false !global;
+			}
+			@include contains {
+				font-size: 1.125rem;
+				line-height: unset;
+			}
+		}
+	}
 
-    @include test('Outputs rem units when relative units are enabled.') {
-        @include assert {
-            @include output {
-                $o-typography-relative-units: true !global;
-                @include oTypographySans($scale: 1);
-                $o-typography-relative-units: false !global;
-            }
-            @include contains {
-                font-size: 1.125rem;
-                line-height: 1.25rem;
-            }
-        }
-    }
+	@include test('Outputs rem units when relative units are enabled.') {
+		@include assert {
+			@include output {
+				$o-typography-relative-units: true !global;
+				@include oTypographySans($scale: 1);
+				$o-typography-relative-units: false !global;
+			}
+			@include contains {
+				font-size: 1.125rem;
+				line-height: 1.25rem;
+			}
+		}
+	}
 
-    @include test('Outputs a custom line height "unset" when relative units are enabled.') {
-        @include assert {
-            @include output {
-                $o-typography-relative-units: true !global;
-                @include oTypographySans($scale: 1, $line-height: unset);
-                $o-typography-relative-units: false !global;
-            }
-            @include contains {
-                font-size: 1.125rem;
-                line-height: unset;
-            }
-        }
-    }
+	@include test('Outputs a custom line height "unset" when relative units are enabled.') {
+		@include assert {
+			@include output {
+				$o-typography-relative-units: true !global;
+				@include oTypographySans($scale: 1, $line-height: unset);
+				$o-typography-relative-units: false !global;
+			}
+			@include contains {
+				font-size: 1.125rem;
+				line-height: unset;
+			}
+		}
+	}
 }
 
 @include test-module('oTypographySerif') {
-    @include test('Outputs a font family.') {
-        @include assert {
-            @include output {
-                @include oTypographySerif();
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-            }
-        }
-    }
+	@include test('Outputs a font family.') {
+		@include assert {
+			@include output {
+				@include oTypographySerif();
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, and line height for a given scale.') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-                font-size: 18px;
-                line-height: 20px;
-            }
-        }
-    }
+	@include test('Outputs a font family, size, and line height for a given scale.') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+				font-size: 18px;
+				line-height: 20px;
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, and line height for a given scale and custom line height.') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1, 1.6);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-                font-size: 18px;
-                line-height: 1.6;
-            }
-        }
-    }
+	@include test('Outputs a font family, size, and line height for a given scale and custom line height.') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1, 1.6);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+				font-size: 18px;
+				line-height: 1.6;
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, and weight for a given scale and weight.') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1, $weight: 'bold');
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-                font-size: 18px;
-                line-height: 20px;
-                font-weight: 700;
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, and weight for a given scale and weight.') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1, $weight: 'bold');
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+				font-size: 18px;
+				line-height: 20px;
+				font-weight: 700;
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, style, for a given scale and style.') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1, $style: 'italic');
-            }
+	@include test('Outputs a font family, size, line height, style, for a given scale and style.') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1, $style: 'italic');
+			}
 
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-                font-size: 18px;
-                line-height: 20px;
-                font-style: italic;
-            }
-        }
-    }
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+				font-size: 18px;
+				line-height: 20px;
+				font-style: italic;
+			}
+		}
+	}
 
-    @include test('Does not output a font-family when the option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1, 1.6, $include-font-family: false);
-            }
-            @include expect {
-                font-size: 18px;
-                line-height: 1.6;
-            }
-        }
-    }
+	@include test('Does not output a font-family when the option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1, 1.6, $include-font-family: false);
+			}
+			@include expect {
+				font-size: 18px;
+				line-height: 1.6;
+			}
+		}
+	}
 
-    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographySerif(1, 1.6, $include-progressive: false);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
-                font-size: 18px;
-                line-height: 1.6;
-            }
-        }
-    }
+	@include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographySerif(1, 1.6, $include-progressive: false);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
+				font-size: 18px;
+				line-height: 1.6;
+			}
+		}
+	}
 }
 
 @include test-module('oTypographyDisplay') {
-    @include test('Outputs a font family.') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay();
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-            }
-        }
-    }
+	@include test('Outputs a font family.') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay();
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay(1);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-                font-size: 18px;
-                line-height: 20px;
-                .o-typography--loading-display & {
-                    font-size: 16.2px;
-                    font-family: serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale.') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay(1);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+				font-size: 18px;
+				line-height: 20px;
+				.o-typography--loading-display & {
+					font-size: 16.2px;
+					font-family: serif;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay(1, 1.6);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-                font-size: 18px;
-                line-height: 1.6;
-                .o-typography--loading-display & {
-                    font-size: 16.2px;
-                    font-family: serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, and progressive loading sizes for a given scale and custom line height.') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay(1, 1.6);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+				font-size: 18px;
+				line-height: 1.6;
+				.o-typography--loading-display & {
+					font-size: 16.2px;
+					font-family: serif;
+				}
+			}
+		}
+	}
 
-    @include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay(1, $weight: 'bold');
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-                font-size: 18px;
-                line-height: 20px;
-                font-weight: 700;
-                .o-typography--loading-display-bold & {
-                    font-size: 16.2px;
-                    font-family: serif;
-                }
-            }
-        }
-    }
+	@include test('Outputs a font family, size, line height, weight, and progressive loading sizes for a given scale and weight.') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay(1, $weight: 'bold');
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+				font-size: 18px;
+				line-height: 20px;
+				font-weight: 700;
+				.o-typography--loading-display-bold & {
+					font-size: 16.2px;
+					font-family: serif;
+				}
+			}
+		}
+	}
 
-    @include test('Does not output a font-family when the option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay(1, 1.6, $include-font-family: false);
-            }
-            @include expect {
-                font-size: 18px;
-                line-height: 1.6;
+	@include test('Does not output a font-family when the option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay(1, 1.6, $include-font-family: false);
+			}
+			@include expect {
+				font-size: 18px;
+				line-height: 1.6;
 
-                .o-typography--loading-display & {
-                    font-size: 16.2px;
-                }
-            }
-        }
-    }
+				.o-typography--loading-display & {
+					font-size: 16.2px;
+				}
+			}
+		}
+	}
 
-    @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
-        @include assert {
-            @include output {
-                @include oTypographyDisplay(1, 1.6, $include-progressive: false);
-            }
-            @include expect {
-                font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
-                font-size: 18px;
-                line-height: 1.6;
-            }
-        }
-    }
+	@include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
+		@include assert {
+			@include output {
+				@include oTypographyDisplay(1, 1.6, $include-progressive: false);
+			}
+			@include expect {
+				font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+				font-size: 18px;
+				line-height: 1.6;
+			}
+		}
+	}
 }
 
 @include test-module('oTypographyDefineFontScale') {
-    $custom-font-scale: (
-        -2: (1, 1),
-        -1: (2, 2),
-        0: (3, 3),
-        1: (4, 4),
-        2: (5, 6),
-        3: (6, 8),
-        4: (8, 10),
-        5: (10, 12),
-        6: (12, 14),
-        7: (14, 16),
-        8: (16, 18),
-        9: (18, 20),
-        10: (20, 22)
-    );
-    @include test('Adds scale to font scale map.') {
-        // Set custom scale for custom font.
-        @include oTypographyDefineFontScale('MyFont, sans', $custom-font-scale);
+	$custom-font-scale: (
+		-2: (1, 1),
+		-1: (2, 2),
+		0: (3, 3),
+		1: (4, 4),
+		2: (5, 6),
+		3: (6, 8),
+		4: (8, 10),
+		5: (10, 12),
+		6: (12, 14),
+		7: (14, 16),
+		8: (16, 18),
+		9: (18, 20),
+		10: (20, 22)
+	);
+	@include test('Adds scale to font scale map.') {
+		// Set custom scale for custom font.
+		@include oTypographyDefineFontScale('MyFont, sans', $custom-font-scale);
 
-        // The custom scale is added to the font scale map.
-        @include assert-equal(
-            $_o-typography-font-scale-by-font,
-            (
-                'MyFont': $custom-font-scale
-            )
-        );
-    }
+		// The custom scale is added to the font scale map.
+		@include assert-equal(
+			$_o-typography-font-scale-by-font,
+			(
+				'MyFont': $custom-font-scale
+			)
+		);
+	}
 }
 
 @include test-module('oTypographySetFont') {
-    @include test('Updates the global variable for the sans font') {
-        @include oFontsDefineCustomFont('system-ui', (
-            (weight: semibold, style: normal),
-            (weight: regular, style: normal),
-            (weight: bold, style: normal)
-        ));
-        // Set sans font.
-        @include oTypographySetFont(
-            $type: 'sans',
-            $family: 'system-ui'
-        );
-        @include assert-equal($_o-typography-sans, 'system-ui');
-    }
+	@include test('Updates the global variable for the sans font') {
+		@include oFontsDefineCustomFont('system-ui', (
+			(weight: semibold, style: normal),
+			(weight: regular, style: normal),
+			(weight: bold, style: normal)
+		));
+		// Set sans font.
+		@include oTypographySetFont(
+			$type: 'sans',
+			$family: 'system-ui'
+		);
+		@include assert-equal($_o-typography-sans, 'system-ui');
+	}
 
-    @include test('Updates the global variable for the display font') {
-        @include oFontsDefineCustomFont('MyDisplayFont, serif', (
-            (weight: semibold, style: normal),
-            (weight: regular, style: normal),
-            (weight: bold, style: normal)
-        ));
-        // Set display font.
-        @include oTypographySetFont(
-            $type: 'display',
-            $family: 'MyDisplayFont'
-        );
-        @include assert-equal($_o-typography-display, 'MyDisplayFont');
-    }
+	@include test('Updates the global variable for the display font') {
+		@include oFontsDefineCustomFont('MyDisplayFont, serif', (
+			(weight: semibold, style: normal),
+			(weight: regular, style: normal),
+			(weight: bold, style: normal)
+		));
+		// Set display font.
+		@include oTypographySetFont(
+			$type: 'display',
+			$family: 'MyDisplayFont'
+		);
+		@include assert-equal($_o-typography-display, 'MyDisplayFont');
+	}
 }
 
 @include test-module('oTypographyLink') {
-    @include test('outputs default styles with no external link by default') {
-        @include assert {
-            @include output {
-                @include oTypographyLink();
-            }
-            @include expect {
-                text-decoration: none;
-                cursor: pointer;
-                border-bottom: 0.25ex solid;
-                @supports (text-decoration-thickness: 0.25ex) {
-                    border-bottom: 0;
-                    text-decoration-thickness: 0.25ex; //sass-lint:disable-line no-misspelled-properties
-                    text-decoration-line: underline;
-                }
-                color: #0d7680;
-                border-bottom-color: #cfd8d1;
-                text-decoration-color: #cfd8d1;
-                &:hover {
-                    color: #08474d;
-                    border-bottom-color: #9ec0bd;
-                    text-decoration-color: #9ec0bd;
-                }
-                &:focus {
-                    border-bottom-color: transparent;
-                    text-decoration-color: transparent;
-                    color: #08474d;
-                }
-            }
-        }
-    }
-    @include test('outputs styles for a custom theme only when base styles are disabled') {
-        @include assert {
-            @include output {
-                @include oTypographyLink($theme: (
-                    'base': 'claret',
-                    'hover': 'claret-30',
-                ), $include-base-styles: false);
-            }
-            @include expect {
-                color: #990f3d;
-                border-bottom-color: #ebc4c3;
-                text-decoration-color: #ebc4c3;
-                &:hover {
-                    color: #4d081f;
-                    border-bottom-color: #d697a2;
-                    text-decoration-color: #d697a2;
-                }
-                &:focus {
-                    color: #4d081f;
-                }
-            }
-        }
-    }
-    @include test('outputs styles for a custom theme using hex values') {
-        @include assert {
-            @include output {
-                @include oTypographyLink($theme: (
-                    'base': oColorsByName('claret'),
-                    'hover': oColorsByName('claret-30'),
-                ), $include-base-styles: false);
-            }
-            @include expect {
-                color: #990f3d;
-                border-bottom-color: #ebc4c3;
-                text-decoration-color: #ebc4c3;
-                &:hover {
-                    color: #4d081f;
-                    border-bottom-color: #d697a2;
-                    text-decoration-color: #d697a2;
-                }
-                &:focus {
-                    color: #4d081f;
-                }
-            }
-        }
-    }
-    @include test('outputs an icon for an external link') {
-        @include assert {
-            @include output {
-                @include oTypographyLink($external: true);
-            }
-            @include contains {
-                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
-                padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
-            }
-        }
-    }
-    @include test('outputs a notice for screen reader users that an external link is opened') {
-        @include assert {
-            @include output {
-                @include oTypographyLink($external: true);
-            }
-            @include contains {
-                &[target="_blank"]:after {
-                    content: '(opens a new window)';
-                }
-            }
-        }
-    }
-    @include test('colours an external link icon according to a custom theme') {
-        @include assert {
-            @include output {
-                @include oTypographyLink($theme: (
-                    'base': 'claret',
-                    'hover': 'claret-30',
-                ), $external: true);
-            }
-            @include contains {
-                background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23990F3D,%23990F3D&format=svg");
-            }
-        }
-    }
+	@include test('outputs default styles with no external link by default') {
+		@include assert {
+			@include output {
+				@include oTypographyLink();
+			}
+			@include expect {
+				text-decoration: none;
+				cursor: pointer;
+				border-bottom: 0.25ex solid;
+				@supports (text-decoration-thickness: 0.25ex) {
+					border-bottom: 0;
+					text-decoration-thickness: 0.25ex; //sass-lint:disable-line no-misspelled-properties
+					text-decoration-line: underline;
+				}
+				color: #0d7680;
+				border-bottom-color: #cfd8d1;
+				text-decoration-color: #cfd8d1;
+				&:hover {
+					color: #08474d;
+					border-bottom-color: #9ec0bd;
+					text-decoration-color: #9ec0bd;
+				}
+				&:focus {
+					border-bottom-color: transparent;
+					text-decoration-color: transparent;
+					color: #08474d;
+				}
+			}
+		}
+	}
+	@include test('outputs styles for a custom theme only when base styles are disabled') {
+		@include assert {
+			@include output {
+				@include oTypographyLink($theme: (
+					'base': 'claret',
+					'hover': 'claret-30',
+				), $include-base-styles: false);
+			}
+			@include expect {
+				color: #990f3d;
+				border-bottom-color: #ebc4c3;
+				text-decoration-color: #ebc4c3;
+				&:hover {
+					color: #4d081f;
+					border-bottom-color: #d697a2;
+					text-decoration-color: #d697a2;
+				}
+				&:focus {
+					color: #4d081f;
+				}
+			}
+		}
+	}
+	@include test('outputs styles for a custom theme using hex values') {
+		@include assert {
+			@include output {
+				@include oTypographyLink($theme: (
+					'base': oColorsByName('claret'),
+					'hover': oColorsByName('claret-30'),
+				), $include-base-styles: false);
+			}
+			@include expect {
+				color: #990f3d;
+				border-bottom-color: #ebc4c3;
+				text-decoration-color: #ebc4c3;
+				&:hover {
+					color: #4d081f;
+					border-bottom-color: #d697a2;
+					text-decoration-color: #d697a2;
+				}
+				&:focus {
+					color: #4d081f;
+				}
+			}
+		}
+	}
+	@include test('outputs an icon for an external link') {
+		@include assert {
+			@include output {
+				@include oTypographyLink($external: true);
+			}
+			@include contains {
+				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+				padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
+			}
+		}
+	}
+	@include test('outputs a notice for screen reader users that an external link is opened') {
+		@include assert {
+			@include output {
+				@include oTypographyLink($external: true);
+			}
+			@include contains {
+				&[target="_blank"]:after {
+					content: '(opens a new window)';
+				}
+			}
+		}
+	}
+	@include test('colours an external link icon according to a custom theme') {
+		@include assert {
+			@include output {
+				@include oTypographyLink($theme: (
+					'base': 'claret',
+					'hover': 'claret-30',
+				), $external: true);
+			}
+			@include contains {
+				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23990F3D,%23990F3D&format=svg");
+			}
+		}
+	}
 }

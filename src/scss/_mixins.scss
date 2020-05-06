@@ -234,8 +234,8 @@
 	$variant-exists: oFontsVariantExists($font-without-fallbacks, $weight, $style);
 	@if not $variant-exists {
 		@error 'Font family "#{$font-without-fallbacks}" of weight ' +
-		'"#{if($weight, $weight, 'regular')}" and style ' +
-		'"#{if($style, $style, 'normal')}" is not supported.';
+			'"#{if($weight, $weight, 'regular')}" and style ' +
+			'"#{if($style, $style, 'normal')}" is not supported.';
 	}
 
 	// Check font variant has been included, and error if an error message
@@ -243,9 +243,9 @@
 	$variant-included: oFontsVariantIncluded($font-without-fallbacks, $weight, $style);
 	@if not $variant-included and type-of($o-typography-error-for-missing-fonts) == 'string' {
 		@error 'The font face for font family "#{$font-without-fallbacks}" of ' +
-		'weight "#{if($weight, $weight, 'regular')}" and style ' +
-		'"#{if($style, $style, 'normal')}" has not been included in your ' +
-		'project. #{inspect($o-typography-error-for-missing-fonts)}';
+			'weight "#{if($weight, $weight, 'regular')}" and style ' +
+			'"#{if($style, $style, 'normal')}" has not been included in your ' +
+			'project. #{inspect($o-typography-error-for-missing-fonts)}';
 	}
 
 	@if $include-font-family {
@@ -258,11 +258,11 @@
 		line-height: _oTypographyAdjustUnit($line-height);
 	}
 
-	@if $weight  {
+	@if $weight {
 		font-weight: oFontsWeight($weight);
 	}
 
-	@if $style  {
+	@if $style {
 		font-style: unquote($style);
 	}
 

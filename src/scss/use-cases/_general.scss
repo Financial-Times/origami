@@ -130,7 +130,7 @@
 	$required-theme-keys: ('base', 'hover');
 	@if($theme and type-of($theme) != 'map') {
 		@error 'The link $theme argument must `null` or a map. ' +
-		'Found: "#{inspect($theme)}"';
+			'Found: "#{inspect($theme)}"';
 	}
 	@if(type-of($theme) == 'map') {
 		// Get custom base colour.

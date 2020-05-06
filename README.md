@@ -1,4 +1,4 @@
-# o-typography [![Build Status](https://circleci.com/gh/Financial-Times/o-typography.png?style=shield&circle-token=9ca314332de2a9b6a80eb8477e097d9acbc96e0b)](https://circleci.com/gh/Financial-Times/o-typography) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Typographical styles for FT branded sites. The component provides typographical fundamentals such as font scales, vertical rhythm, and font fallbacks. Plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases such as [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), or [big numbers](https://github.com/Financial-Times/o-big-number/).
 
