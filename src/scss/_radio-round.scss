@@ -28,27 +28,25 @@
 				width: $_o-forms-spacing-three;
 				margin: $_o-forms-spacing-three / 2;
 				opacity: 0;
-				// sass-lint:disable no-vendor-prefixes
 				@media screen and (-ms-high-contrast: active) {
 					background-color: windowText;
 				}
-				// sass-lint:enable no-vendor-prefixes
 			}
 		}
 
-		input[type=radio] { // sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
 			@include oNormaliseVisuallyHidden;
 
-			&:checked + .o-forms-input__label:before {
+			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: _oFormsGet('controls-base');
 			}
 
-			&:focus + .o-forms-input__label:before {
+			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
 				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
 				outline: none;
 			}
 		}
 	}
-};
+}

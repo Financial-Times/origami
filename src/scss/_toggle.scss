@@ -36,8 +36,8 @@
 			}
 		}
 
-		input[type=checkbox] { // sass-lint:disable-line no-qualifying-elements
-			&:checked + .o-forms-input__label {
+		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
+			&:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 				&:before {
 					background-color: _oFormsGet('toggle-selected');
 				}
@@ -47,13 +47,13 @@
 				}
 			}
 
-			&:invalid:not(:disabled) + .o-forms-input__label:after {
+			&:invalid:not(:disabled) + .o-forms-input__label:after { // stylelint-disable-line selector-no-qualifying-type
 				border-color: inherit;
 			}
 		}
 
 		@if $disabled {
-			input[type=checkbox]:disabled + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
+			input[type=checkbox]:disabled + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 				color: _oFormsGet('disabled-text');
 
 				&:after {

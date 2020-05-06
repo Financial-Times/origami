@@ -42,8 +42,9 @@
 		min-width: unset;
 	}
 
-	a.o-forms-input__link.o-forms-input__link--current, // sass-lint:disable-line no-qualifying-elements
-	input[type=radio]:checked + .o-forms-input__label { // sass-lint:disable-line no-qualifying-elements
+	// stylelint-disable-next-line selector-no-qualifying-type
+	a.o-forms-input__link.o-forms-input__link--current,
+	input[type=radio]:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
 		&:after {
 			display: block;
 		}

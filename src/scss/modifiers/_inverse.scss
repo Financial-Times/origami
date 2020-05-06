@@ -20,12 +20,12 @@
 			border-color: _oFormsGet('toggle-inverse');
 		}
 
-		input[type=checkbox]:checked { // sass-lint:disable-line no-qualifying-elements
-			+ .o-forms-input__label:before {
+		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
+			+ .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
 				background-color: _oFormsGet('toggle-inverse-selected');
 			}
 
-			+ .o-forms-input__label:after {
+			+ .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
 				border-color: _oFormsGet('toggle-inverse-selected');
 			}
 		}

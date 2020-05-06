@@ -27,7 +27,7 @@
 			background-color: rgba(_oFormsGet('controls-base', $from: $theme), 0.15);
 		}
 
-		&.o-forms-input__link--current {
+		&.o-forms-input__link--current { //stylelint-disable-line selector-no-qualifying-type
 			background-color: _oFormsGet('controls-base', $from: $theme);
 			color: _oFormsGet('controls-checked-base', $from: $theme);
 		}

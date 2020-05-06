@@ -30,24 +30,20 @@
 			outline: none;
 
 			// For iOS 6 that doesn't support 4-value background-position
-			// sass-lint:disable no-duplicate-properties
 			background-position: right center;
-			background-position: right $_o-forms-spacing-two center;
-			// sass-lint:enable no-duplicate-properties
+			background-position: right $_o-forms-spacing-two center; // stylelint-disable-line declaration-block-no-duplicate-properties
 
 			// Hide stock browser arrow in IE 10+
-			// sass-lint:disable no-vendor-prefixes
 			&::-ms-expand {
 				color: oColorsByName('white');
 				display: none;
 			}
-			// sass-lint:enable no-vendor-prefixes
 
 			&:disabled {
 				@include oIconsContent('arrow-down', _oFormsGet('disabled-text'), $size: null, $include-base-styles: false);
 			}
 
-			&[multiple] {
+			&[multiple] { //stylelint-disable-line selector-no-qualifying-type
 				background-image: none;
 			}
 		}

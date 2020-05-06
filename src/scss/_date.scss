@@ -1,4 +1,3 @@
-// sass-lint:disable no-qualifying-elements
 /// @access private
 /// @param {Boolean} $disabled Whether to output disabled state styling
 /// @param {Boolean} $invalid Whether to output invalid state styling
@@ -16,7 +15,7 @@
 			margin-bottom: 0;
 		}
 
-		input[type=text] {
+		input[type=text] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsInputBase($disabled);
 			display: block;
 			margin: $_o-forms-spacing-one $_o-forms-spacing-three 0 0;
