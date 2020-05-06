@@ -247,6 +247,30 @@ body {
 	}
 }
 
+// Because we have increased the margin for .coral-indent-{number} classes
+// We need to hide the icons on comment utility buttons at a wider breakpoint
+// Otherwise the buttons get cut off on smaller screens
+
+// We aren't using o-grid breakpoints because these styles are used within an iframe
+// Which means the width of the document can be controlled by the parent document
+// So the o-grid named sizes (s,m,l) would be confusing in this case
+
+@media (max-width: 400px) {
+	.coral-comment-reactButton,
+	.coral-comment-reactedButton,
+	.coral-comment-replyButton,
+	.coral-comment-shareButton,
+	.coral-comment-reportButton,
+	.coral-featuredComment-reactButton,
+	.coral-featuredComment-replies {
+
+		// This isn't great but its the only way for us to target the icons
+		// If Coral change this markup it could cause a regression
+		i {
+			display: none;
+		}
+	}
+}
 
 .coral-featuredComment-replies div {
 	color: oColorsByName('teal-50');
@@ -405,6 +429,50 @@ body {
 			$property: 'color',
 			$type: 'secondary'
 		) !important;
+	}
+}
+
+// reply indent
+
+// Unfortunately at the moment it looks like there is a bug in Corals code
+// I believe there should be a .coral-indent class we could use here
+// If this is fixed in the future we can reduce this to a single selector
+.coral-comment .coral-indent-1,
+.coral-comment .coral-indent-2,
+.coral-comment .coral-indent-3,
+.coral-comment .coral-indent-4,
+.coral-comment .coral-indent-5,
+.coral-comment .coral-indent-6 {
+	border-width: 2px;
+	border-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fft-next-assets-prod%2Fassets%2Fcomments%2Fborder-dots.svg?source=next&format=svg");
+	border-image-slice: 30%;
+	border-image-repeat: round;
+}
+
+// Replies aren't nested inside each other so each level needs a greater margin
+// There are reply levels from 1 - 6 so we loop over these are produce styles for 2 breakpoints
+// Smaller screens have a smaller indentation than larger screens
+
+@for $i from 1 through 6 {
+	$baseIndent: 20;
+	$largeBaseIndent: 44;
+
+	// Example
+	// .coral-indent-1 will have 20px left margin
+	// .coral-indent-2 will have a 40px left margin
+
+	.coral-comment .coral-indent-#{$i} {
+		margin-left: unquote(($baseIndent * $i) + 'px');
+	}
+
+	// We aren't using o-grid breakpoints because these styles are used within an iframe
+	// Which means the width of the document can be controlled by the parent document
+	// So the o-grid named sizes (s,m,l) would be confusing in this case
+
+	@media (min-width: 500px) {
+		.coral-comment .coral-indent-#{$i} {
+			margin-left: unquote(($largeBaseIndent * $i) + 'px');
+		}
 	}
 }
 
