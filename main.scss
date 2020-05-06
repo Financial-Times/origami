@@ -13,7 +13,7 @@
 	// guarantee higher specificity. Users may use the `createCustom` method
 	// and totally custom CSS for an expander with different behaviour.
 	.o-expander__content--expanded {
-		max-height: none !important; //sass-lint:disable-line no-important
+		max-height: none !important; //stylelint-disable-line declaration-no-important
 	}
 
 	// Hide overflow when collapsed.
