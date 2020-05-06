@@ -1,4 +1,4 @@
-o-share [![Build Status](https://circleci.com/gh/Financial-Times/o-share.png?style=shield&circle-token=38faae5e0f0b4e39810a511b4004f396aff8718a)](https://circleci.com/gh/Financial-Times/o-share) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-share [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =======
 
 Social media buttons.

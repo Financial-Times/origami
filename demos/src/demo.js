@@ -1,4 +1,3 @@
-/*global require*/
 import Share from '../../main';
 window.oShare = Share;
 

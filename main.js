@@ -1,4 +1,3 @@
-/*global require, module*/
 import Share from './src/js/share';
 
 const constructAll = function() {
