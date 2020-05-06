@@ -91,8 +91,8 @@
 	@if $theme and not $type {
 		$theme-description: if(type-of($theme) == 'string', $theme, 'custom');
 		@warn 'A button theme cannot be output without specifying the button ' +
-		'type. To output styles for a "#{$theme-description}" button theme also ' +
-		'specify the button type as either a "primary" or "secondary" button';
+			'type. To output styles for a "#{$theme-description}" button theme also ' +
+			'specify the button type as either a "primary" or "secondary" button';
 	}
 
 	// Get button colours for the button type and theme.
@@ -105,7 +105,7 @@
 	// Include size styles if they haven't been included
 	// already as part of the base styles.
 	@if $size and not $include-base-styles {
-		@include _oButtonsSizeContent($size)
+		@include _oButtonsSizeContent($size);
 	}
 
 	@if $type {
@@ -172,12 +172,10 @@
 	background-clip: border-box;
 	border-width: 1px;
 	// Prevent fat white type on a dark background
-	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	// sass-lint:enable no-vendor-prefixes
+	-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+	-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 	border-radius: 0; // Edge 80 insists on a boarder radius.
 
 	// Same as aria-disabled:

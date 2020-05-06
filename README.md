@@ -1,4 +1,4 @@
-# o-buttons [![CircleCI](https://circleci.com/gh/Financial-Times/o-buttons.png?style=shield&circle-token=c3d55d3f5d2edbde5999e6cf3f542d288bdae302)](https://circleci.com/gh/Financial-Times/o-buttons) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-buttons
 
 o-buttons provides Sass mixins and variables to create buttons.
 

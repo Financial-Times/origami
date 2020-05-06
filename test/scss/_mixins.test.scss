@@ -2,105 +2,105 @@
 @include describe('oButtons') {
 	@include it('outputs big modifier by default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			@include contains($selector: false) {
-	  			.o-buttons--big {
-	  				min-height: 40px;
-	  			}
-			};
-		};
-	};
+				.o-buttons--big {
+					min-height: 40px;
+				}
+			}
+		}
+	}
 
 	@include it('outputs types by default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			// primary is a type of button
 			@include contains($selector: false) {
-	  			.o-buttons--primary {
-	  			  background-color: #0d7680;
-	  			}
-			};
-		};
-	};
+				.o-buttons--primary {
+					background-color: #0d7680;
+				}
+			}
+		}
+	}
 
 	@include it('outputs themes by default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			// inverse is an example of a theme
 			@include contains($selector: false) {
-	  			.o-buttons--primary.o-buttons--inverse {
-	  			  background-color: #ffffff;
-	  			}
-			};
-		};
-	};
+				.o-buttons--primary.o-buttons--inverse {
+					background-color: #ffffff;
+				}
+			}
+		}
+	}
 
 	@include it('outputs icons by default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			// arrow-left is an example of an icon
 			@include contains($selector: false) {
 				.o-buttons--secondary.o-buttons-icon--arrow-left {
 					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
 				}
-			};
-		};
-	};
+			}
+		}
+	}
 
 	@include it('outputs pagination styles default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			@include contains($selector: false) {
-	  			.o-buttons-pagination > .o-buttons {
-	  			  padding-left: 5px;
-	  			}
-			};
-		};
-	};
+				.o-buttons-pagination > .o-buttons {
+					padding-left: 5px;
+				}
+			}
+		}
+	}
 
 	@include it('outputs group styles default') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons();
-			};
+			}
 
 			@include contains($selector: false) {
-	  			.o-buttons-group {
-	  			  display: flex;
-	  			}
-			};
-		};
-	};
+				.o-buttons-group {
+					display: flex;
+				}
+			}
+		}
+	}
 
 	@include it('outputs only base styles when an empty options map is given') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtons($opts: ());
-			};
+			}
 
 			@include expect($selector: false) {
 				.o-buttons {
 					font-family: MetricWeb, sans-serif;
 					font-weight: 600;
-					font-family: MetricWeb, sans-serif;
+					font-family: MetricWeb, sans-serif; // stylelint-disable-line declaration-block-no-duplicate-properties
 					font-size: 14px;
 					line-height: 16px;
-					line-height: 14px;
+					line-height: 14px; // stylelint-disable-line declaration-block-no-duplicate-properties
 					background-size: 21px 21px;
 					min-height: 28px;
 					min-width: 60px;
@@ -119,8 +119,8 @@
 					border-width: 1px;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
-					-moz-appearance: none;
-					-webkit-appearance: none;
+					-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 					border-radius: 0;
 				}
 
@@ -138,15 +138,15 @@
 				.o-buttons--hide-disabled[disabled] {
 					visibility: hidden;
 				}
-			};
-		};
-	};
-};
+			}
+		}
+	}
+}
 
 @include describe('oButtonsContent') {
 	@include it('outputs a button of type, theme, size, and with an icon') {
 		@include assert() {
-			@include output()  {
+			@include output() {
 				@include oButtonsContent(
 					$opts: (
 						'type': 'primary',
@@ -155,16 +155,16 @@
 						'icon': 'arrow-left'
 					)
 				);
-			};
+			}
 
 			@include expect() {
 				& {
 					font-family: MetricWeb, sans-serif;
 					font-weight: 600;
-					font-family: MetricWeb, sans-serif;
+					font-family: MetricWeb, sans-serif; // stylelint-disable-line declaration-block-no-duplicate-properties
 					font-size: 16px;
 					line-height: 20px;
-					line-height: 16px;
+					line-height: 16px; // stylelint-disable-line declaration-block-no-duplicate-properties
 					background-size: 40px 40px;
 					min-height: 40px;
 					min-width: 80px;
@@ -183,8 +183,8 @@
 					border-width: 1px;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
-					-moz-appearance: none;
-					-webkit-appearance: none;
+					-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 					border-radius: 0;
 					background-color: #262a33;
 					color: white;
@@ -239,12 +239,12 @@
 						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
 					}
 				}
-			};
-		};
-	};
+			}
+		}
+	}
 	@include it('outputs only a type with base styles disabled') {
 		@include assert() {
-			@include output()  {
+			@include output() {
 				@include oButtonsContent(
 					$opts: (
 						'type': 'primary'
@@ -252,7 +252,7 @@
 					$include-base-styles: false,
 					$include-base-icon-styles: false
 				);
-			};
+			}
 
 			// expect nothing is output
 			@include expect() {
@@ -283,12 +283,12 @@
 					color: white;
 					border-color: transparent;
 				}
-			};
-		};
-	};
+			}
+		}
+	}
 	@include it('outputs only a size with base styles disabled') {
 		@include assert() {
-			@include output()  {
+			@include output() {
 				@include oButtonsContent(
 					$opts: (
 						'size': 'big'
@@ -296,14 +296,14 @@
 					$include-base-styles: false,
 					$include-base-icon-styles: false
 				);
-			};
+			}
 
 			// expect nothing is output
 			@include expect() {
 				font-family: MetricWeb, sans-serif;
 				font-size: 16px;
 				line-height: 20px;
-				line-height: 16px;
+				line-height: 16px; // stylelint-disable-line declaration-block-no-duplicate-properties
 				background-size: 40px 40px;
 				min-height: 40px;
 				min-width: 80px;
@@ -314,14 +314,14 @@
 					font-family: sans-serif;
 				}
 			}
-		};
-	};
+		}
+	}
 }
 
 @include describe('oButtonsAddTheme') {
 	@include it('outputs a theme for given colour names') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtonsAddTheme(
 					$name: 'test-named-theme-colors',
 					$opts: (
@@ -331,7 +331,7 @@
 					$types: ('primary', 'secondary'),
 					$icons: null
 				);
-			};
+			}
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-named-theme-colors {
@@ -339,13 +339,13 @@
 					color: #262a33;
 					border-color: transparent;
 				}
-			};
-		};
+			}
+		}
 	}
 
 	@include it('outputs a theme for a colour mix') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtonsAddTheme(
 					$name: 'test-mixed-theme-colors',
 					$opts: (
@@ -355,7 +355,7 @@
 					$types: ('primary', 'secondary'),
 					$icons: null
 				);
-			};
+			}
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-mixed-theme-colors {
@@ -363,13 +363,13 @@
 					color: #ccdfc7;
 					border-color: transparent;
 				}
-			};
-		};
+			}
+		}
 	}
 
 	@include it('outputs a theme for given colour hexes which are in the colour palette') {
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oButtonsAddTheme(
 					$name: 'test-hex-theme-colors',
 					$opts: (
@@ -379,7 +379,7 @@
 					$types: ('primary', 'secondary'),
 					$icons: null
 				);
-			};
+			}
 
 			@include contains($selector: false) {
 				.o-buttons--primary.o-buttons--test-hex-theme-colors {
@@ -387,8 +387,8 @@
 					color: #262a33;
 					border-color: transparent;
 				}
-			};
-		};
+			}
+		}
 	}
 }
 // sass-lint:enable no-vendor-prefixes,no-duplicate-properties

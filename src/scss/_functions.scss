@@ -54,7 +54,7 @@
 		// Cache colours.
 		$_o-buttons-generated-themes: map-merge($_o-buttons-generated-themes, (
 			$id: $button-colors
-		))!global;
+		)) !global;
 	}
 	@return $button-colors;
 }
