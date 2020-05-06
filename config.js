@@ -50,7 +50,7 @@ module.exports = {
       "declaration-bang-space-after": "never",
       "declaration-block-no-duplicate-properties": true,
       "declaration-block-trailing-semicolon": "always",
-      "declaration-colon-space-after": "always",
+      "declaration-colon-space-after": "always-single-line",
       "declaration-colon-space-before": "never",
       "no-duplicate-at-import-rules": true,
       "declaration-no-important": true,
@@ -77,7 +77,7 @@ module.exports = {
       "media-feature-name-no-vendor-prefix": true,
       "at-rule-no-vendor-prefix": true,
       "function-comma-space-after": "always-single-line",
-      "function-parentheses-space-inside": "never",
+      "function-parentheses-space-inside": "never-single-line",
       "indentation": "tab",
       "max-nesting-depth": [3, {
          "ignore": ["blockless-at-rules"]
