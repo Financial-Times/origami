@@ -54,16 +54,7 @@
 
 @mixin _oBannerInner {
 	@include oTypographySans($scale: 2);
-
-	@include oGridRespondTo($until: S) {
-		@include oTypographySans($scale: 0);
-		display: block;
-		padding: $_o-banner-spacing;
-		padding-top: oSpacingByIncrement(7);
-	}
-	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
-	// sass-lint:enable no-vendor-prefixes
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -72,13 +63,16 @@
 	margin: 0 auto;
 	padding: $_o-banner-spacing 0;
 	box-sizing: border-box;
+
+	@include oGridRespondTo($until: S) {
+		@include oTypographySans($scale: 0);
+		display: block;
+		padding: $_o-banner-spacing;
+		padding-top: oSpacingByIncrement(7);
+	}
 }
 
 @mixin _oBannerContent {
-
-	@include oGridRespondTo($until: S) {
-		padding: 0;
-	}
 	padding: 0 $_o-banner-spacing;
 
 	h1,
@@ -113,6 +107,10 @@
 	}
 	a {
 		@include oTypographyLink();
+	}
+
+	@include oGridRespondTo($until: S) {
+		padding: 0;
 	}
 }
 
@@ -152,22 +150,22 @@
 
 @mixin _oBannerActions {
 	@include oTypographySans($scale: 2);
+	display: flex;
+	align-items: center;
 
 	@include oGridRespondTo($until: S) {
 		flex-direction: column;
 		align-items: flex-start;
 		margin-top: oSpacingByName('s6');
 	}
-	display: flex;
-	align-items: center;
 }
 
 @mixin _oBannerAction {
+	padding-right: $_o-banner-spacing;
 
 	@include oGridRespondTo($until: S) {
 		padding-right: 0;
 	}
-	padding-right: $_o-banner-spacing;
 }
 
 @mixin _oBannerActionSecondary {
@@ -204,12 +202,12 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+	// end: undo button styles
+	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
 	display: block;
 	position: absolute;
 	right: $close-button-position;
 	top: $close-button-position;
-	// end: undo button styles
-	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
 }
 
 /// Add a theme modifier for banners.
