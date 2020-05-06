@@ -1,5 +1,5 @@
 
-# o-syntax-highlight [![Circle CI](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-syntax-highlight/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-syntax-highlight
 
 A syntax highlighter for Origami-supported documentation that wraps [PrismJs](https://github.com/PrismJS/prism).
 
