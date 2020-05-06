@@ -70,7 +70,7 @@
 			'outline': 'white'
 		)),
 	);
-};
+}
 
 // Internal brand usecases.
 @if oBrandGetCurrentBrand() == internal {
@@ -86,11 +86,11 @@
 		('body', ('text': 'slate')),
 		('muted', ('text': 'black-20')),
 	);
-};
+}
 
 // Whitelabel brand usecases.
 @if oBrandGetCurrentBrand() == whitelabel {
 	$_o-colors-default-usecases: (
 		('page', ('background': 'white')),
 	);
-};
+}

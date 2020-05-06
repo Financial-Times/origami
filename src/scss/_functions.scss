@@ -69,11 +69,11 @@
 	@if(not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
 		@if (type-of($deprecated) == 'string') {
 			@warn 'Color usecase "#{inspect($usecase)}" is deprecated ' +
-			'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
+				'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
 		}
 		@if (type-of($deprecated) == 'map' and map-has-key($deprecated, $property)) {
 			@warn 'The "#{inspect($property)}" property of the "#{inspect($usecase)}" ' +
-			'color usecase is deprecated. #{inspect(map-get($deprecated, $property))}';
+				'color usecase is deprecated. #{inspect(map-get($deprecated, $property))}';
 		}
 		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
 	}
@@ -121,20 +121,20 @@
 	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
 	@if (hue($color) == 0 and saturation($color) == 0) {
 		@return _oColorsError('"#{$color-name}" does not support tones. ' +
-			'Use a mix instead: ' +
-			'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+		'Use a mix instead: ' +
+		'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
 	}
 
 	// Error for any palette colour which hasn't been configured to allow tones.
 	$allows-tones: map-get($color-meta, 'allow-tones');
 	@if (not $allows-tones) {
 		@return _oColorsError('"#{$color-name}" does not allow tones. ' +
-			'We only allow tones for some colours, to reduce the number ' +
-			'of different colours used across sites. ' +
-			'For custom colours, set the `allow-tones` option ' +
-			'of `oColorsSetColor` to enable tones. ' +
-			'If using a default o-colors colour consider using the `oColorsMix` ' +
-			'function to mix with black to darken or white to lighten.');
+		'We only allow tones for some colours, to reduce the number ' +
+		'of different colours used across sites. ' +
+		'For custom colours, set the `allow-tones` option ' +
+		'of `oColorsSetColor` to enable tones. ' +
+		'If using a default o-colors colour consider using the `oColorsMix` ' +
+		'function to mix with black to darken or white to lighten.');
 	}
 
 	// Convert the given colour to the HSB colour space.
@@ -230,10 +230,7 @@
 		@return _oColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
 	}
 
-	$contrast-ratio-aim: map-get(
-		$contrast-levels,
-		if($minimum-contrast, $minimum-contrast, 'aa-normal')
-	);
+	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
 
 	// Calculate text colour for background and opacity.
 	$base-color-a: if(oColorsColorBrightness($background) < 65%, 'white', 'black');
@@ -373,7 +370,7 @@
 	}
 
 	@error('#{$message}');
-};
+}
 
 /// Get a namespace from a colour name.
 /// Returns null if there is no namespace.
@@ -458,5 +455,5 @@
 	$saturation: if($max == 0, 0, $delta / $max);
 	$brightness: $max / 255;
 
-    @return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
+	@return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
 }

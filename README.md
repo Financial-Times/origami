@@ -1,4 +1,4 @@
-# o-colors [![Build Status](https://circleci.com/gh/Financial-Times/o-colors.png?style=shield&circle-token=0d3884dacba2fdd8aec8afbd2eaa84c79040ddd5)](https://circleci.com/gh/Financial-Times/o-colors) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-colors [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 A component to manage colours. Includes the FT colour palette.
 

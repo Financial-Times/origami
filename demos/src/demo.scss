@@ -20,7 +20,7 @@ body {
 	.o-colors-border-#{$name} {
 		border-width: 2px 2px 0;
 		border-style: solid;
-		border-color:  oColorsByName($name);
+		border-color: oColorsByName($name);
 
 		@if $name == 'white' {
 			border-color: oColorsMix(black, white, 20);

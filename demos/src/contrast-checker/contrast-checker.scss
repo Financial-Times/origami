@@ -80,7 +80,7 @@ $o-colors-is-silent: false;
 			}
 
 			[role=tab][aria-selected=true] {
-					background-color: oColorsByName('black-10');
+				background-color: oColorsByName('black-10');
 
 				a {
 					font-weight: 600;
@@ -102,11 +102,12 @@ $o-colors-is-silent: false;
 			}
 		}
 
-		input[type=radio] { //sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include swatchStyle();
 
+			// stylelint-disable-next-line selector-no-qualifying-type
 			&.o-overlay-trigger,
-			&.trigger-input {
+			&.trigger-input { // stylelint-disable-line selector-no-qualifying-type
 				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1%3Aplus?source=o-colors&width=24&height=24&tint=gray');
 			}
 		}
@@ -120,7 +121,7 @@ $o-colors-is-silent: false;
 			right: 20px;
 		}
 
-		#add-mix { //sass-lint:disable-line no-ids
+		#add-mix { //stylelint-disable-line selector-max-id
 			background-image: none;
 			font-size: inherit;
 			float: none;
@@ -132,10 +133,10 @@ $o-colors-is-silent: false;
 			padding: 0;
 		}
 
-		input[type=radio] { //sass-lint:disable-line no-qualifying-elements
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include swatchStyle();
 
-			&[name=range] {
+			&[name=range] { // stylelint-disable-line selector-no-qualifying-type
 				height: 48px;
 				width: 22px;
 			}

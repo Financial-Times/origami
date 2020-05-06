@@ -28,8 +28,8 @@
 	$namespace: _oColorsGetNameSpace($color-name);
 	@if not $namespace {
 		@error 'The `$color-name` "#{inspect($color-name)}" has no namespace. ' +
-		'Prepend your color name with a namespace for your project e.g. for a component "o-example": ' +
-		'"o-example/#{inspect($color-name)}".';
+			'Prepend your color name with a namespace for your project e.g. for a component "o-example": ' +
+			'"o-example/#{inspect($color-name)}".';
 	}
 
 	// Get deprecation message.
@@ -48,9 +48,9 @@
 		// So only error if it's being set again with a new colour.
 		@if ($existing-current-color != $color-value) {
 			@error 'A palette colour "#{$color-name}" has already been set. ' +
-			'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
-			'If you would like to customise "#{$namespace}" colours, check its README for ' +
-			'customisation options, or contact the Origami team to propose new customisation features.';
+				'Only default o-colors palette colours may be overridden with `oColorsSetColor`. ' +
+				'If you would like to customise "#{$namespace}" colours, check its README for ' +
+				'customisation options, or contact the Origami team to propose new customisation features.';
 		}
 	}
 	// Set the new colour to the colour palette.
@@ -66,7 +66,7 @@
 		)
 	));
 	$_o-colors-palette: map-merge($_o-colors-palette, $new-color) !global;
-};
+}
 
 /// Add a custom use case property.
 ///
@@ -104,8 +104,8 @@
 	$namespace: _oColorsGetNameSpace($usecase);
 	@if not $namespace {
 		@error 'The `$usecase` "#{inspect($usecase)}" has no namespace. ' +
-		'Prepend your usecase with a namespace for your project e.g. for a component "o-example": ' +
-		'"o-example/#{inspect($usecase)}".';
+			'Prepend your usecase with a namespace for your project e.g. for a component "o-example": ' +
+			'"o-example/#{inspect($usecase)}".';
 	}
 
 	// Error if usecase colours are not a map.
@@ -119,17 +119,17 @@
 	@each $property, $color in $colors {
 		@if(not index($valid-properties, $property)) {
 			@error 'A property "#{inspect($property)}" cannot be set for usecase "#{$usecase}".' +
-			'A property may be one of "#{$valid-properties}".';
+				'A property may be one of "#{$valid-properties}".';
 		}
 		@if(type-of($color) != 'string' and type-of($color) != 'color') {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
-			'cannot be set to "#{inspect($color)}". A usecase property may ' +
-			'only be set to an o-colors colour or colour name such as "paper".';
+				'cannot be set to "#{inspect($color)}". A usecase property may ' +
+				'only be set to an o-colors colour or colour name such as "paper".';
 		}
 		@if(type-of($color) == 'string' and not _oColorsNameExists($color)) {
 			@error 'The "#{$usecase}" usecase property "#{inspect($property)}" ' +
-			'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
-			'does not exist.';
+				'cannot be set to "#{inspect($color)}". The colour "#{inspect($color)}" ' +
+				'does not exist.';
 		}
 	}
 
@@ -152,9 +152,9 @@
 	$current-usecase-config: map-get($_o-colors-usecases, $usecase);
 	@if ($namespace != 'o-colors' and $current-usecase-config and $current-usecase-config != $new-usecase-config) {
 		@error 'A usecase "#{$usecase}" has already been set. ' +
-		'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
-		'If you would like to customise "#{$namespace}" colours, check its README for ' +
-		'customisation options, or contact the Origami team to propose new customisation features.';
+			'Only default o-colors usecases may be overridden with `oColorsSetUseCase`. ' +
+			'If you would like to customise "#{$namespace}" colours, check its README for ' +
+			'customisation options, or contact the Origami team to propose new customisation features.';
 	}
 
 	// Add the use-case and its properties to the global use-case map.
