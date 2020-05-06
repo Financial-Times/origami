@@ -1,4 +1,4 @@
-# o-icons [![CircleCI](https://circleci.com/gh/Financial-Times/o-icons.svg?style=shield&circle-token=cf2a28827a03270506ee12ca8dfd0c233709b1a7)](https://circleci.com/gh/Financial-Times/o-icons) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-icons
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
