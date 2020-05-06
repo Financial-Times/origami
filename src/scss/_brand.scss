@@ -4,7 +4,7 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oOverlayGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
 }
 
 @if oBrandGetCurrentBrand() == 'master' {

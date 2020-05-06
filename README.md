@@ -1,4 +1,4 @@
-# o-overlay [![Build Status](https://circleci.com/gh/Financial-Times/o-overlay.png?style=shield&circle-token=c4f56f04215e38c04bec85cd382cd41c863dd8e8)](https://circleci.com/gh/Financial-Times/o-overlay) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-overlay [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens.
 
