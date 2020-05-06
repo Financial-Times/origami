@@ -3,97 +3,91 @@
 @include oSpacing();
 
 body {
-    font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb); // todo use o-typography when it has a new major with sans default
+	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb); // todo use o-typography when it has a new major with sans default
 }
 
 .demo-utilities div {
-    height: 0.5rem;
-    background-color: black;
-    background-color: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
+	height: 0.5rem;
+	background-color: black;
+	background-color: var(--o-colors-teal, black); // stylelint-disable-line declaration-block-no-duplicate-properties
 }
 
 .demo-named-spaces-container {
-    padding-top: oSpacingByIncrement(3);
-    padding-left: oSpacingByIncrement(3);
-    background: repeating-linear-gradient(
-        0deg,
-        white,
-        white oSpacingByIncrement(1),
-        lightgrey oSpacingByIncrement(1),
-        lightgrey oSpacingByIncrement(2)
-    );
+	padding-top: oSpacingByIncrement(3);
+	padding-left: oSpacingByIncrement(3);
+	background: repeating-linear-gradient(0deg, white, white oSpacingByIncrement(1), lightgrey oSpacingByIncrement(1), lightgrey oSpacingByIncrement(2));
 }
 
 .demo-named-space__name {
-    position: relative;
-    background-color: white;
-    border: 1px solid black;
-    padding: 0 oSpacingByIncrement(1);
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -0.5ch;
-        width: 0.5ch;
-        border-top: 1px solid black;
-    }
+	position: relative;
+	background-color: white;
+	border: 1px solid black;
+	padding: 0 oSpacingByIncrement(1);
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -0.5ch;
+		width: 0.5ch;
+		border-top: 1px solid black;
+	}
 }
 
 .demo-named-space::before {
-    content: '';
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: oSpacingByIncrement(5);
-    background: black;
-    background: var(--o-colors-teal, black); // sass-lint:disable-line no-duplicate-properties
+	content: '';
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: oSpacingByIncrement(5);
+	background: black;
+	background: var(--o-colors-teal, black); // stylelint-disable-line declaration-block-no-duplicate-properties
 }
 
 .demo-named-space--s1::before {
-    height: oSpacingByName('s1');
-    width: oSpacingByName('s1');
+	height: oSpacingByName('s1');
+	width: oSpacingByName('s1');
 }
 
 .demo-named-space--s2::before {
-    height: oSpacingByName('s2');
-    width: oSpacingByName('s2');
+	height: oSpacingByName('s2');
+	width: oSpacingByName('s2');
 }
 
 .demo-named-space--s3::before {
-    height: oSpacingByName('s3');
-    width: oSpacingByName('s3');
+	height: oSpacingByName('s3');
+	width: oSpacingByName('s3');
 }
 
 .demo-named-space--s4::before {
-    height: oSpacingByName('s4');
-    width: oSpacingByName('s4');
+	height: oSpacingByName('s4');
+	width: oSpacingByName('s4');
 }
 
 .demo-named-space--s6::before {
-    height: oSpacingByName('s6');
-    width: oSpacingByName('s6');
+	height: oSpacingByName('s6');
+	width: oSpacingByName('s6');
 }
 
 .demo-named-space--s8::before {
-    height: oSpacingByName('s8');
-    width: oSpacingByName('s8');
+	height: oSpacingByName('s8');
+	width: oSpacingByName('s8');
 }
 
 .demo-named-space--m12::before {
-    height: oSpacingByName('m12');
-    width: oSpacingByName('m12');
+	height: oSpacingByName('m12');
+	width: oSpacingByName('m12');
 }
 
 .demo-named-space--m16::before {
-    height: oSpacingByName('m16');
-    width: oSpacingByName('m16');
+	height: oSpacingByName('m16');
+	width: oSpacingByName('m16');
 }
 
 .demo-named-space--l18::before {
-    height: oSpacingByName('l18');
-    width: oSpacingByName('l18');
+	height: oSpacingByName('l18');
+	width: oSpacingByName('l18');
 }
 
 .demo-named-space--l24::before {
-    height: oSpacingByName('l24');
-    width: oSpacingByName('l24');
+	height: oSpacingByName('l24');
+	width: oSpacingByName('l24');
 }

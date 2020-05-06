@@ -11,7 +11,7 @@
 				oSpacingByName('l24'),
 				96px
 			);
-		};
+		}
 
 		@include it('returns a rem value for a named space when relative units are enabled') {
 			$o-spacing-relative-units: true !global;
@@ -25,7 +25,7 @@
 				6rem
 			);
 			$o-spacing-relative-units: false !global;
-		};
+		}
 	}
 
 	@include describe('oSpacingByIncrement') {
@@ -39,7 +39,7 @@
 				oSpacingByIncrement(100),
 				400px
 			);
-		};
+		}
 
 		@include it('returns a rem value based on the baseline when relative units are enabled') {
 			$o-spacing-relative-units: true !global;
@@ -53,7 +53,7 @@
 				25rem
 			);
 			$o-spacing-relative-units: false !global;
-		};
+		}
 	}
 
 	@include describe('oSpacing') {
@@ -63,7 +63,7 @@
 					@include oSpacing($opts: (
 						'custom-properties': true
 					));
-				};
+				}
 
 				@include expect($selector: false) {
 					:root {
@@ -79,8 +79,8 @@
 						--o-spacing-l24: 96px;
 						--o-spacing-baseline: 4px;
 					}
-				};
-			};
+				}
+			}
 		}
 		@include it('outputs only CSS utility classes when "margin-bottom-utilities" is the only option enabled') {
 			@include assert() {
@@ -88,7 +88,7 @@
 					@include oSpacing($opts: (
 						'margin-bottom-utilities': true
 					));
-				};
+				}
 
 				@include expect($selector: false) {
 					.o-spacing-s1 {
@@ -121,14 +121,14 @@
 					.o-spacing-l24 {
 						margin-bottom: 96px;
 					}
-				};
-			};
+				}
+			}
 		}
 		@include it('outputs CSS Custom Properties and utility classes by default') {
 			@include assert() {
 				@include output($selector: false) {
 					@include oSpacing();
-				};
+				}
 
 				@include contains($selector: false) {
 					:root {
@@ -145,8 +145,8 @@
 					.o-spacing-s6 {
 						margin-bottom: 24px;
 					}
-				};
-			};
+				}
+			}
 		}
 	}
 }

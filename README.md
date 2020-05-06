@@ -1,4 +1,4 @@
-o-spacing [![Circle CI](https://circleci.com/gh/Financial-Times/o-spacing/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-spacing/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-spacing
 =================
 
 A styling utility component to aid projects and component with consistent spacing, according to the baseline grid within the design guidelines.

@@ -1,26 +1,26 @@
 /// @param {String} $size-name - Get a recommended space size by name.
 /// @return {Number} - A px value (or rem value if relative units have been enabled).
 @function oSpacingByName($size-name) {
-    $value: map-get($_o-spacing-sizes, $size-name);
-    @if(type-of($value) != 'number') {
-        @error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($_o-spacing-sizes)}.';
-    }
-    @return oSpacingByIncrement($value);
+	$value: map-get($_o-spacing-sizes, $size-name);
+	@if(type-of($value) != 'number') {
+		@error 'There is no recommended space named "#{$size-name}". Should be one of #{map-keys($_o-spacing-sizes)}.';
+	}
+	@return oSpacingByIncrement($value);
 }
 
 /// @param {Number} $increment - The number to multiply the baseline size by.
 /// @return {Number} - A px value (or rem value if relative units have been enabled).
 @function oSpacingByIncrement($increment) {
-    @if(type-of($increment) != 'number' and floor($increment) != $increment) {
-        @error 'Expected a whole number but was given "#{$increment}".';
-    }
-    @return $increment * oSpacingGetBaselineValue();
+	@if(type-of($increment) != 'number' and floor($increment) != $increment) {
+		@error 'Expected a whole number but was given "#{$increment}".';
+	}
+	@return $increment * oSpacingGetBaselineValue();
 }
 
 /// @return {Number} - A px value representing our spacing baseline (or rem value if relative units have been enabled).
 @function oSpacingGetBaselineValue() {
-    @if($o-spacing-relative-units) {
-        @return ($_o-spacing-baseline / 16) * 1rem;
-    }
-    @return $_o-spacing-baseline * 1px;
+	@if($o-spacing-relative-units) {
+		@return ($_o-spacing-baseline / 16) * 1rem;
+	}
+	@return $_o-spacing-baseline * 1px;
 }
