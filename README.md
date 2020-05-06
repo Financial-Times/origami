@@ -1,4 +1,4 @@
-# o-quote [![Build Status](https://circleci.com/gh/Financial-Times/o-quote.png?style=shield&circle-token=87d81370851f7666617cb65f664064af826052d1)](https://circleci.com/gh/Financial-Times/o-quote) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-quote [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Styling for quotes
 

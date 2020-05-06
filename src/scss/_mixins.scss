@@ -3,7 +3,7 @@
 @mixin oQuoteBase {
 	@extend %_o-quote;
 	@warn 'oQuoteBase is deprecated: Use `oQuoteStandard` instead, or ' +
-	'`oQuoteEditorial` if outputting an editorial-style quote.';
+		'`oQuoteEditorial` if outputting an editorial-style quote.';
 }
 
 /// Base quote cite styles
@@ -11,7 +11,7 @@
 @mixin oQuoteBaseCite {
 	display: block;
 	@warn 'oQuoteBaseCite is deprecated: Use `oQuoteStandardCite` instead, or ' +
-	'`oQuoteEditorialCite` if outputting an editorial-style quote.';
+		'`oQuoteEditorialCite` if outputting an editorial-style quote.';
 }
 
 /// Editorial quote styles

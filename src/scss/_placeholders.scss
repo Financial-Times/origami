@@ -74,7 +74,7 @@
 // Editorial block quote styles.
 @if $_o-quote-first-import == true and _oQuoteSupports('editorial') {
 	%_o-quote-blockquote-editorial {
-		&:before  {
+		&:before {
 			$icon-size: 36px;
 			@include oIconsContent(
 				$icon-name: 'speech-left',
