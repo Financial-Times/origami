@@ -19,7 +19,7 @@
 	.syndi.o-teaser__syndication-indicator {
 		@include oIconsContent('minus', oColorsByName('white'), $size: 20);
 		background-color: oColorsByName('black-40');
-    }
+	}
 
 	.o-teaser__syndication-indicator--yes,
 	.syndi.o-teaser__syndication-indicator--yes {

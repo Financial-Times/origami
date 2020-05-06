@@ -1,78 +1,78 @@
 @include oColorsSetUseCase('o-teaser/base', (
-    'background': 'paper',
-    'text': oColorsGetTextColor('paper', 100),
-    'border': 'black-20',
+	'background': 'paper',
+	'text': oColorsGetTextColor('paper', 100),
+	'border': 'black-20',
 ));
 @include oColorsSetUseCase('o-teaser/hero', (
-    'background': 'wheat',
-    'text': oColorsGetTextColor('wheat', 100)
+	'background': 'wheat',
+	'text': oColorsGetTextColor('wheat', 100)
 ));
 @include oColorsSetUseCase('o-teaser/hero-highlight', (
-    'background': 'claret',
-    'text': oColorsGetTextColor('claret', 100)
+	'background': 'claret',
+	'text': oColorsGetTextColor('claret', 100)
 ));
 @include oColorsSetUseCase('o-teaser/hero-opinion', (
-    'background': 'oxford',
-    'text': oColorsGetTextColor('oxford', 100)
+	'background': 'oxford',
+	'text': oColorsGetTextColor('oxford', 100)
 ));
 @include oColorsSetUseCase('o-teaser/inverse', (
-    'background': 'black',
-    'text': oColorsGetTextColor('black', 100)
+	'background': 'black',
+	'text': oColorsGetTextColor('black', 100)
 ));
 @include oColorsSetUseCase('o-teaser/o-teaser-video-icon', (
-    'background': 'slate',
-    'text': 'white'
+	'background': 'slate',
+	'text': 'white'
 ));
 
 // Tags
 @include oColorsSetUseCase('o-teaser/tag', (
-    'text': 'claret'
+	'text': 'claret'
 ));
 @include oColorsSetUseCase('o-teaser/opinion-tag', (
-    'text': 'oxford'
+	'text': 'oxford'
 ));
 @include oColorsSetUseCase('o-teaser/promoted-by', (
-    'text': 'black'
+	'text': 'black'
 ));
 
 // Themes
 @include oColorsSetUseCase('o-teaser/theme-opinion', (
-    'background': 'sky',
-    'text': oColorsGetTextColor('sky', 100)
+	'background': 'sky',
+	'text': oColorsGetTextColor('sky', 100)
 ));
 @include oColorsSetUseCase('o-teaser/theme-hero', (
-    'background': 'claret',
-    'text': oColorsGetTextColor('claret', 100)
+	'background': 'claret',
+	'text': oColorsGetTextColor('claret', 100)
 ));
 @include oColorsSetUseCase('o-teaser/theme-hero-extra', (
-    'background': 'slate',
-    'text': oColorsGetTextColor('slate', 100)
+	'background': 'slate',
+	'text': oColorsGetTextColor('slate', 100)
 ));
 @include oColorsSetUseCase('o-teaser/theme-hero-extra-highlight', (
-    'border': 'lemon',
-    'text': 'lemon'
+	'border': 'lemon',
+	'text': 'lemon'
 ));
 @include oColorsSetUseCase('o-teaser/theme-paid-post', (
-    'background': 'white',
-    'text': 'black'
+	'background': 'white',
+	'text': 'black'
 ));
 @include oColorsSetUseCase('o-teaser/theme-promoted-content', (
-    'background': 'white',
-    'text': 'black'
+	'background': 'white',
+	'text': 'black'
 ));
 
 // Package teasers
 @include oColorsSetUseCase('o-teaser/package-basic', (
-    'background': 'wheat',
-    'text': 'claret-70',
-    'border': 'claret-70'
+	'background': 'wheat',
+	'text': 'claret-70',
+	'border': 'claret-70'
 ));
 @include oColorsSetUseCase('o-teaser/package-basic-hover', (
-    'text': 'claret-30'
+	'text': 'claret-30'
 ));
 @include oColorsSetUseCase('o-teaser/package-special-report', (
-    'background': 'claret-70',
-    'text': oColorsGetTextColor('claret-70', 100)
+	'background': 'claret-70',
+	'text': oColorsGetTextColor('claret-70', 100)
 ));
 
 // Timestamp - Live blog
@@ -84,7 +84,7 @@
 @include oColorsSetColor('o-teaser/fastft-highlight', #f5dfd9); // todo: replace with an o-colors tone or mix
 
 @include oColorsSetUseCase('o-teaser/fast-ft', (
-    'text': 'o-teaser/fastft-brand',
-    'border': 'o-teaser/fastft-brand',
-    'background': 'o-teaser/fastft-brand'
+	'text': 'o-teaser/fastft-brand',
+	'border': 'o-teaser/fastft-brand',
+	'background': 'o-teaser/fastft-brand'
 ));

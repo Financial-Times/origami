@@ -1,4 +1,4 @@
-o-teaser [![Circle CI](https://circleci.com/gh/Financial-Times/o-teaser/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-teaser/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-teaser
 =================
 
 This component is for displaying teasers which link through to articles.

@@ -1,56 +1,56 @@
 @mixin _oTeaserThemeLive {
-    .o-teaser--small.o-teaser--live .o-teaser__content {
-        padding: 12px;
-    }
+	.o-teaser--small.o-teaser--live .o-teaser__content {
+		padding: 12px;
+	}
 
-    .o-teaser--small.o-teaser--live.o-teaser--has-image {
-        padding: 12px;
-        .o-teaser__content {
-            padding: 0px;
-        }
-    }
+	.o-teaser--small.o-teaser--live.o-teaser--has-image {
+		padding: 12px;
+		.o-teaser__content {
+			padding: 0px;
+		}
+	}
 
-    .o-teaser--small.o-teaser--live {
-        // create white text red background
-        @include _oTeaserInverse;
-        background: oColorsByName('crimson');
-        .o-teaser__content * {
-            color: white;
-            &:hover {
-                color: white;
-            }
-        }
+	.o-teaser--small.o-teaser--live {
+		// create white text red background
+		@include _oTeaserInverse;
+		background: oColorsByName('crimson');
+		.o-teaser__content * {
+			color: white;
+			&:hover {
+				color: white;
+			}
+		}
 
-        .o-teaser__heading a,
-        .o-teaser__standfirst a {
-            &:focus,
-            &:hover,
-            &:visited {
-                color: oColorsMix(white, crimson, 90);
-            }
-        }
+		.o-teaser__heading a,
+		.o-teaser__standfirst a {
+			&:focus,
+			&:hover,
+			&:visited {
+				color: oColorsMix(white, crimson, 90);
+			}
+		}
 
-        .o-teaser__timestamp-prefix:before,
-        .o-teaser__timestamp--inprogress:before {
-            background-color: white;
-        }
-    }
-    .o-teaser--live {
-        // move "LIVE" to the top without changing the HTML
-        .o-teaser__content {
-            display: flex;
-            flex-direction: column;
-        }
-        .o-teaser__timestamp {
-            order: -1;
-            padding-top: 0;
+		.o-teaser__timestamp-prefix:before,
+		.o-teaser__timestamp--inprogress:before {
+			background-color: white;
+		}
+	}
+	.o-teaser--live {
+		// move "LIVE" to the top without changing the HTML
+		.o-teaser__content {
+			display: flex;
+			flex-direction: column;
+		}
+		.o-teaser__timestamp {
+			order: -1;
+			padding-top: 0;
 
-            &:before {
-              top: 3px;
-            }
-        }
-        .o-teaser__timestamp time {
-            display: none;
-        }
-    }
+			&:before {
+				top: 3px;
+			}
+		}
+		.o-teaser__timestamp time {
+			display: none;
+		}
+	}
 }

@@ -20,25 +20,21 @@
 	text-rendering: optimizeLegibility;
 	margin-bottom: oSpacingByName('s4');
 
-	// sass-lint:disable no-vendor-prefixes
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	/*autoprefixer: off*/
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
+	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	box-sizing: border-box;
-	// sass-lint:enable no-vendor-prefixes
 
 	& *,
 	& *:before,
 	& *:after {
-		// sass-lint:disable no-vendor-prefixes
 		/*autoprefixer: off*/
-		-webkit-box-sizing: inherit;
-		-moz-box-sizing: inherit;
+		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
+		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		box-sizing: inherit;
-		// sass-lint:enable no-vendor-prefixes
 	}
 }
 

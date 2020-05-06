@@ -7,7 +7,7 @@
 	// so that it has a higher specificity than
 	// .o-teaser-small.o-teaser-stacked
 	&#{&}#{&} {
-	    padding: 12px;
+		padding: 12px;
 	}
 
 	.o-teaser__heading a {
@@ -38,7 +38,7 @@
 	// Hack to force a higher specificity than .o-teaser--small which
 	// adds a padding-bottom of 16px
 	&#{&} {
-	        padding: 12px;
+		padding: 12px;
 	}
 
 	.o-teaser__meta {
