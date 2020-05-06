@@ -1,4 +1,4 @@
-# o-errors [![Build Status](https://circleci.com/gh/Financial-Times/o-errors.png?style=shield&circle-token=81872b7aa8adef0547cc51f8b0642f4f877c7f43)](https://circleci.com/gh/Financial-Times/o-errors) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-errors [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This module provides a decoupled events-based mechanism for modules to report errors and an API for products to report client-side errors.
 

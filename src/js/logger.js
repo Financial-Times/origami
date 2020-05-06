@@ -1,5 +1,3 @@
-/* global console */
-
 /**
  * Create a new Logger class. Used internally by {@link Errors}.
  *
