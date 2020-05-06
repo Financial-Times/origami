@@ -1,4 +1,4 @@
-o-teaser-collection [![Circle CI](https://circleci.com/gh/Financial-Times/o-teaser-collection/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-teaser-collection/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-teaser-collection [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).

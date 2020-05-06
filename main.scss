@@ -170,7 +170,7 @@
 				margin-left: calc(-50vw + 5px);
 				@include oGridRespondTo(M) {
 					margin-left: calc(-50vw + 10px);
-				};
+				}
 			}
 
 			// modifies borders when stacked(S) and horizontal(M+)
@@ -184,7 +184,7 @@
 					border-right: 1px solid rgba(oColorsByName('white'), 0.2);
 					border-bottom: 0;
 					padding: 0 10px;
-				};
+				}
 
 				&:last-child {
 					border: 0;
@@ -209,7 +209,7 @@
 }
 
 @if ($o-teaser-collection-is-silent == false) {
-	 @include oTeaserCollection();
+	@include oTeaserCollection();
 
 	// Set to silent again to avoid being output twice
 	$o-teaser-collection-is-silent: true !global;

@@ -6,3 +6,4 @@
 /build/
 .idea/
 /demos/local
+package-lock.json

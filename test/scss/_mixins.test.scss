@@ -1,79 +1,79 @@
 @include test-module('oTeaserCollection') {
-    @include test('Outputs collection, heading, and items default') {
-        // collection
-        @include assert {
-            @include output($selector: false) {
-                @include oTeaserCollection();
-            }
-            @include contains($selector: false) {
-                .o-teaser-collection {
-		            margin-bottom: 35px;
-	            }
-            }
-        }
-        // heading
-        @include assert {
-            @include output($selector: false) {
-                @include oTeaserCollection();
-            }
-            @include contains($selector: false) {
-                .o-teaser-collection__heading {
-                    width: 100%;
-                }
-            }
-        }
-        // items
-        @include assert {
-            @include output($selector: false) {
-                @include oTeaserCollection();
-            }
-            @include contains($selector: false) {
-                .o-teaser-collection__items {
-	                list-style: none;
-                }
-            }
-        }
-    }
-    @include test('Outputs a given collection modifer') {
-        @include assert {
-            @include output() {
-                @include oTeaserCollection($opts: (
-                    'collections': ('special')
-                ));
-            }
-            @include contains() {
-                .o-teaser-collection--special {
-                    position: relative;
-                }
-            }
-        }
-    }
-    @include test('Outputs a given heading modifer') {
-        @include assert {
-            @include output() {
-                @include oTeaserCollection($opts: (
-                    'headings': ('inverse')
-                ));
-            }
-            @include contains() {
-		        .o-teaser-collection__heading--inverse {
-			        color: #ffffff;
-                }
-            }
-        }
-    }
-    @include test('Outputs a given items modifer') {
-        @include assert {
-            @include output() {
-                @include oTeaserCollection($opts: (
-                    'items': ('stretched')
-                ));
-            }
-            @include contains() {
-                .o-teaser-collection__item--stretched {
-                    display: flex;
-                }
-            }
-        }
-    }
+	@include test('Outputs collection, heading, and items default') {
+		// collection
+		@include assert {
+			@include output($selector: false) {
+				@include oTeaserCollection();
+			}
+			@include contains($selector: false) {
+				.o-teaser-collection {
+					margin-bottom: 35px;
+				}
+			}
+		}
+		// heading
+		@include assert {
+			@include output($selector: false) {
+				@include oTeaserCollection();
+			}
+			@include contains($selector: false) {
+				.o-teaser-collection__heading {
+					width: 100%;
+				}
+			}
+		}
+		// items
+		@include assert {
+			@include output($selector: false) {
+				@include oTeaserCollection();
+			}
+			@include contains($selector: false) {
+				.o-teaser-collection__items {
+					list-style: none;
+				}
+			}
+		}
+	}
+	@include test('Outputs a given collection modifer') {
+		@include assert {
+			@include output() {
+				@include oTeaserCollection($opts: (
+					'collections': ('special')
+				));
+			}
+			@include contains() {
+				.o-teaser-collection--special {
+					position: relative;
+				}
+			}
+		}
+	}
+	@include test('Outputs a given heading modifer') {
+		@include assert {
+			@include output() {
+				@include oTeaserCollection($opts: (
+					'headings': ('inverse')
+				));
+			}
+			@include contains() {
+				.o-teaser-collection__heading--inverse {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+	@include test('Outputs a given items modifer') {
+		@include assert {
+			@include output() {
+				@include oTeaserCollection($opts: (
+					'items': ('stretched')
+				));
+			}
+			@include contains() {
+				.o-teaser-collection__item--stretched {
+					display: flex;
+				}
+			}
+		}
+	}
 }
