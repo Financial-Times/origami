@@ -264,7 +264,6 @@
 	.o-topper__headline {
 		&::after {
 			border-bottom: 6px solid $foreground;
-
 			@include oGridRespondTo($from: L) {
 				border-bottom-width: 8px;
 			}

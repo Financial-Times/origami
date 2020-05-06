@@ -1,4 +1,5 @@
 @mixin _oTopperThemeBranded {
+
 	.o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
