@@ -3,7 +3,7 @@
 		@include assert() {
 			@include output() {
 				@include oLazyLoad();
-			};
+			}
 
 			@include contains() {
 				.o-lazy-load--transition {
@@ -13,14 +13,14 @@
 				.o-lazy-load--transition[data-o-lazy-load] {
 					opacity: 1;
 				}
-			};
-		};
+			}
+		}
 	}
 	@include it('outputs styles for placeholder elements') {
 		@include assert() {
 			@include output() {
 				@include oLazyLoad();
-			};
+			}
 
 			@include contains() {
 				.o-lazy-load-placeholder {
@@ -50,8 +50,8 @@
 				.o-lazy-load-placeholder--1x1:after {
 					padding-bottom: 100%;
 				}
-			};
-		};
+			}
+		}
 	}
 	@include it('outputs custom placeholder ratios') {
 		@include assert() {
@@ -60,7 +60,7 @@
 					'placeholder': true,
 					'placeholder-ratios': ((32, 9), (4, 3))
 				));
-			};
+			}
 
 			@include contains() {
 				.o-lazy-load-placeholder {
@@ -78,7 +78,7 @@
 				.o-lazy-load-placeholder--4x3:after {
 					padding-bottom: 75%;
 				}
-			};
-		};
+			}
+		}
 	}
 }
