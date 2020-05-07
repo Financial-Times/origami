@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim, sinon */
 
-const ODate = require('../main');
-const ftDateFormat = require('ft-date-format');
+import ODate from '../main';
+import ftDateFormat from 'ft-date-format';
 
 describe('o-date DOM', () => {
 	let clock;

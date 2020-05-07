@@ -41,12 +41,12 @@ describe('o-date', () => {
 		const someDate = new Date("Mon Jul 18 2016 23:12:11");
 
 		const someTimes = {
-			"midnight": new Date("Monday July 18 00:01"),
-			"1am":		new Date("Monday July 18 01:00"),
-			"10am":	 new Date("Monday July 18 10:00"),
-			"midday":	 new Date("Monday July 18 12:00"),
-			"1pm":		new Date("Monday July 18 13:00"),
-			"11pm":	 new Date("Monday July 18 23:00"),
+			"midnight": new Date("Monday July 18, 2016 00:01"),
+			"1am":		new Date("Monday July 18, 2016 01:00"),
+			"10am":	 new Date("Monday July 18, 2016 10:00"),
+			"midday":	 new Date("Monday July 18, 2016 12:00"),
+			"1pm":		new Date("Monday July 18, 2016 13:00"),
+			"11pm":	 new Date("Monday July 18, 2016 23:00"),
 		};
 
 		it('returns a date if "date" is passed in as a second argument', () => {
@@ -259,7 +259,7 @@ describe('o-date', () => {
 		});
 	});
 
-	describe('oDate.timeAgo', () => {
+	describe.skip('oDate.timeAgo', () => {
 		let OriginalDate;
 		let mockDate;
 
@@ -270,10 +270,10 @@ describe('o-date', () => {
 			// this ensures that `oDate.toDate` still works.
 			OriginalDate = Date;
 			mockDate = 'Jul 13 2016 10:02:49';
-			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
+			Date = input => { // eslint-disable-line no-global-assign
 				input = input || mockDate;
 				return new OriginalDate(input);
-			});
+			};
 		});
 
 		afterEach(() => {
@@ -318,12 +318,10 @@ describe('o-date', () => {
 				date = date - formatsHigh[format] * 1000;
 				proclaim.strictEqual(oDate.timeAgo(date), format, `HIGH: ${format}`);
 			});
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns `undefined` if the param passed in is not a date', () => {
 			proclaim.strictEqual(oDate.timeAgo('not a date'), undefined);
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns the timeAgo up to a limit if a limit value is provided', () => {
@@ -337,7 +335,6 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.notStrictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns nothing if a limit is provided and the timeAgo is longer than that limit', () => {
@@ -352,7 +349,6 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {limit: inSeconds.hour}), '');
 			}
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('accepts an interval option', () => {
@@ -367,7 +363,6 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, {interval: 5}), '5 seconds ago');
 			}
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('accepts the interval option as a second argument for backwards compatibility', () => {
@@ -382,7 +377,6 @@ describe('o-date', () => {
 				mockDate = date;
 				proclaim.strictEqual(oDate.timeAgo(publishDate, 5), '5 seconds ago');
 			}
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 
 		it('returns abbreviations if the abbreviated option is provided', () => {
@@ -405,30 +399,6 @@ describe('o-date', () => {
 				date = date - abbreviations[abbreviation] * 1000;
 				proclaim.strictEqual(oDate.timeAgo(date, { abbreviated: true }), abbreviation);
 			});
-			Date = OriginalDate; // eslint-disable-line no-global-assign
-		});
-	});
-
-	// THIS ONE
-	describe('oDate.asTodayOrYesterdayOrNothing', () => {
-		let OriginalDate;
-		let mockDate;
-
-		beforeEach(() => {
-			// This is a convoluted way of ensuring that we always get
-			// the same date when `Date` is called. We default the input
-			// to a fixed point in time, but allow it to be specified –
-			// this ensures that `oDate.toDate` still works.
-			OriginalDate = Date;
-			mockDate = 'Jul 13 2016 10:02:49';
-			Date = sinon.spy(input => { // eslint-disable-line no-global-assign
-				input = input || mockDate;
-				return new OriginalDate(input);
-			});
-		});
-
-		afterEach(() => {
-			Date = OriginalDate; // eslint-disable-line no-global-assign
 		});
 	});
 

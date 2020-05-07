@@ -1,4 +1,4 @@
-# o-date [![Build Status](https://circleci.com/gh/Financial-Times/o-date.png?style=shield&circle-token=bfaf24c9b2d891efa96a820159e5e5780be4514d)](https://circleci.com/gh/Financial-Times/o-date) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-date
 
 o-date provides javascript utilities for formatting and updating dates in FT style. This component is mainly useful when you want your dates formatted to express relative time.
 
