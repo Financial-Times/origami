@@ -453,7 +453,7 @@ body {
 // There are reply levels from 1 - 6 so we loop over these are produce styles for 2 breakpoints
 // Smaller screens have a smaller indentation than larger screens
 
-@for $i from 1 through 6 {
+@for $index from 1 through 6 {
 	$baseIndent: 20;
 	$largeBaseIndent: 44;
 
@@ -461,8 +461,8 @@ body {
 	// .coral-indent-1 will have 20px left margin
 	// .coral-indent-2 will have a 40px left margin
 
-	.coral-comment .coral-indent-#{$i} {
-		margin-left: unquote(($baseIndent * $i) + 'px');
+	.coral-comment .coral-indent-#{$index} {
+		margin-left: unquote(($baseIndent * $index) + 'px');
 	}
 
 	// We aren't using o-grid breakpoints because these styles are used within an iframe
@@ -470,8 +470,8 @@ body {
 	// So the o-grid named sizes (s,m,l) would be confusing in this case
 
 	@media (min-width: 500px) {
-		.coral-comment .coral-indent-#{$i} {
-			margin-left: unquote(($largeBaseIndent * $i) + 'px');
+		.coral-comment .coral-indent-#{$index} {
+			margin-left: unquote(($largeBaseIndent * $index) + 'px');
 		}
 	}
 }
