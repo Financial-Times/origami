@@ -84,7 +84,7 @@ const getTopperSettings = content => {
 		//converts old palette colours to new palette colours from Methode
 		if (content.topper.layout === 'full-bleed-offset') {
 			backgroundColour = 'paper';
-		} else if (content.topper.backgroundColour === 'pink') {
+		} else if (content.topper.backgroundColour === 'pink' || content.topper.backgroundColour === 'auto') {
 			backgroundColour = 'paper';
 		} else if (content.topper.backgroundColour === 'blue') {
 			backgroundColour = 'oxford';
