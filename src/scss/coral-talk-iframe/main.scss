@@ -443,7 +443,7 @@ body {
 .coral-comment .coral-indent-4,
 .coral-comment .coral-indent-5,
 .coral-comment .coral-indent-6 {
-	border-width: 2px;
+	border-width: 0 0 0 2px;
 	border-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fft-next-assets-prod%2Fassets%2Fcomments%2Fborder-dots.svg?source=next&format=svg");
 	border-image-slice: 30%;
 	border-image-repeat: round;
