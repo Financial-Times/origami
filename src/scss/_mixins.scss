@@ -87,4 +87,4 @@
 /// @access Private
 @mixin _oComments($message) {
 	@error '*** oComments SCSS error: #{$message} ***';
-};
+}

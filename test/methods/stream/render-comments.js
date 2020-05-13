@@ -1,8 +1,9 @@
-import proclaim from 'proclaim';
+/* eslint-env mocha */
+/* global proclaim */
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 
-module.exports = () => {
+export default function renderComments () {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -32,4 +33,4 @@ module.exports = () => {
 
 		proclaim.isTrue(Boolean(scriptTag));
 	});
-};
+}

@@ -152,6 +152,7 @@ class Stream {
 	 *
 	 * @param {String} name - The event name
 	 * @param {Object} data - The event payload
+	 * @returns {void}
 	 */
 	publishEvent ({name, data = {}}) {
 		const {

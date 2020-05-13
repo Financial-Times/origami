@@ -1,12 +1,12 @@
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 import * as auth from '../../../src/js/utils/auth';
 
-const sandbox = sinon.createSandbox();
+let fetchJWTStub;
 
-module.exports = () => {
+export default function authenticateUser () {
 	it("is a function", () => {
 		proclaim.isFunction(new Stream().authenticateUser);
 	});
@@ -14,53 +14,63 @@ module.exports = () => {
 	describe("comments api options", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
+			/*
+			 * origami-build-tools version 10 compiles exports to getters for
+			 * compatibility with as many browsers as possible in addition to the
+			 * ecmascript specification. A slight divergence from the
+			 * specification is that these getters are configurable, so we can
+			 * override it here and stub the validation function.
+			 *
+			 * This should be removed if a future version of origami-build-tools
+			 * includes a bundler that behaves differently.
+			 */
+			fetchJWTStub = sinon.stub();
+			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
+			fetchJWTStub.rejects();
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			sandbox.restore();
+			sinon.restore();
 		});
 
-		it("displayName option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
+		it("displayName option is passed to fetchJsonWebToken", () => {
+			fetchJWTStub.resolves({});
 
 			const stream = new Stream();
 
-			stream.authenticateUser('Glynn')
+			return stream.authenticateUser('Glynn')
 				.then(() => {
 					const options = fetchJWTStub.getCall(0).args[0];
 					proclaim.equal(options.displayName, 'Glynn');
-					done();
 				});
 
 		});
 
-		it("displayName option is not used if undefined", (done) => {
-			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
+		it("displayName option is not used if undefined", () => {
+			fetchJWTStub.resolves({});
 
 			const stream = new Stream();
 
-			stream.authenticateUser(undefined)
+			return stream.authenticateUser(undefined)
 				.then(() => {
 					const options = fetchJWTStub.getCall(0).args[0];
 					proclaim.isNotString(options.displayName);
-					done();
 				});
 
 		});
 
-		it("staging option is passed to fetchJsonWebToken", (done) => {
-			const fetchJWTStub = sandbox.stub(auth, 'fetchJsonWebToken').resolves({});
+		it("staging option is passed to fetchJsonWebToken", () => {
+			fetchJWTStub.resolves({});
 
 			const stream = new Stream(null, {
 				useStagingEnvironment: true
 			});
 
-			stream.authenticateUser()
+			return stream.authenticateUser()
 				.then(() => {
 					const options = fetchJWTStub.getCall(0).args[0];
 					proclaim.equal(options.useStagingEnvironment, true);
-					done();
 				});
 
 		});
@@ -70,23 +80,25 @@ module.exports = () => {
 	describe("fetchJsonWebToken returns a token", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
+			fetchJWTStub = sinon.stub();
+			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			sandbox.restore();
+			sinon.restore();
 		});
 
-		it("sets this.authenticationToken to the token", (done) => {
-			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+		it("sets this.authenticationToken to the token", () => {
+			fetchJWTStub.resolves({
 				token: 'fake-jwt'
 			});
 
 			const stream = new Stream();
-			stream.authenticateUser()
+
+			return stream.authenticateUser()
 				.then(() => {
 					proclaim.equal(stream.authenticationToken, 'fake-jwt');
-					done();
 				});
 
 		});
@@ -96,23 +108,25 @@ module.exports = () => {
 	describe("fetchJsonWebToken returns a displayName", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
+			fetchJWTStub = sinon.stub();
+			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			sandbox.restore();
+			sinon.restore();
 		});
 
-		it("sets this.displayName to the display name", (done) => {
-			sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+		it("sets this.displayName to the display name", () => {
+			fetchJWTStub.resolves({
 				displayName: 'fake-display-name'
 			});
 
 			const stream = new Stream();
-			stream.authenticateUser()
+
+			return stream.authenticateUser()
 				.then(() => {
 					proclaim.equal(stream.displayName, 'fake-display-name');
-					done();
 				});
 
 		});
@@ -122,45 +136,43 @@ module.exports = () => {
 	describe("fetchJsonWebToken returns userHasValidSession", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
+			fetchJWTStub = sinon.stub();
+			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
 		});
 
 		afterEach(() => {
 			fixtures.reset();
-			sandbox.restore();
+			sinon.restore();
 		});
 
 		describe("userHasValidSession is true", () => {
-			it("sets this.userHasValidSession to true", (done) => {
-				sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+			it("sets this.userHasValidSession to true", () => {
+				fetchJWTStub.resolves({
 					userHasValidSession: true
 				});
 
 				const stream = new Stream();
-				stream.authenticateUser()
+				return stream.authenticateUser()
 					.then(() => {
 						proclaim.isTrue(stream.userHasValidSession);
-						done();
 					});
 
 			});
 		});
 
 		describe("userHasValidSession is false", () => {
-			it("sets this.userHasValidSession to false", (done) => {
-				sandbox.stub(auth, 'fetchJsonWebToken').resolves({
+			it("sets this.userHasValidSession to false", () => {
+				fetchJWTStub.resolves({
 					userHasValidSession: false
 				});
 
 				const stream = new Stream();
-				stream.authenticateUser()
+				return stream.authenticateUser()
 					.then(() => {
 						proclaim.isFalse(stream.userHasValidSession);
-						done();
 					});
-
 			});
 		});
 
 	});
-};
-
+}

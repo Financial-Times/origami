@@ -1,19 +1,18 @@
 /* eslint-env mocha */
-import * as assert from 'proclaim';
+/* global proclaim sinon */
 import * as fixtures from './helpers/fixtures';
 import fetchMock from 'fetch-mock';
-import sinon from 'sinon/pkg/sinon';
 import Count from '../src/js/count';
 
-sinon.assert.expose(assert, {
+sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
 
 describe("Count", () => {
 	it("is defined", () => {
-		assert.isFunction(Count);
-		assert.throws(Count, TypeError);
+		proclaim.isFunction(Count);
+		proclaim.throws(Count, TypeError);
 	});
 
 	describe(".renderCount()", () => {
@@ -36,7 +35,7 @@ describe("Count", () => {
 					});
 
 					return count.renderCount()
-						.then(() => assert.equal(count.countEl.innerHTML, 10));
+						.then(() => proclaim.equal(count.countEl.innerHTML, 10));
 				});
 			});
 
@@ -60,7 +59,7 @@ describe("Count", () => {
 					return count.renderCount()
 						.then(() => {
 							const countLabel = count.countEl.getAttribute('aria-label');
-							assert.equal(countLabel, 'There is 1 comment, click to go to the comment section.');
+							proclaim.equal(countLabel, 'There is 1 comment, click to go to the comment section.');
 						});
 				});
 			});
@@ -85,7 +84,7 @@ describe("Count", () => {
 					return count.renderCount()
 						.then(() => {
 							const countLabel = count.countEl.getAttribute('aria-label');
-							assert.equal(countLabel, 'There are 10 comments, click to go to the comment section.');
+							proclaim.equal(countLabel, 'There are 10 comments, click to go to the comment section.');
 						});
 				});
 			});
@@ -109,7 +108,7 @@ describe("Count", () => {
 					});
 
 					return count.renderCount()
-						.then(() => assert.equal(count.countEl.innerHTML, 20));
+						.then(() => proclaim.equal(count.countEl.innerHTML, 20));
 				});
 			});
 		});
@@ -122,7 +121,7 @@ describe("Count", () => {
 					articleId: 'id'
 				});
 
-				assert.throws(() => count.renderCount());
+				proclaim.throws(() => count.renderCount());
 			});
 		});
 
@@ -134,7 +133,7 @@ describe("Count", () => {
 					articleId: 'id'
 				});
 
-				assert.throws(() => count.renderCount());
+				proclaim.throws(() => count.renderCount());
 			});
 		});
 	});
@@ -153,7 +152,7 @@ describe("Count", () => {
 
 			it("returns the comment count", () => {
 				return Count.fetchCount('article-id')
-					.then(count => assert.equal(count, 10));
+					.then(count => proclaim.equal(count, 10));
 			});
 		});
 
@@ -167,7 +166,7 @@ describe("Count", () => {
 					.then(() => {
 						throw new Error('This should never happen, its just here to make sure the .then is never entered');
 					}).catch((error) => {
-						assert.include(error.message, 'Error with fetching comment count:');
+						proclaim.include(error.message, 'Error with fetching comment count:');
 					});
 			});
 		});
@@ -182,7 +181,7 @@ describe("Count", () => {
 			it("returns the comment count from staging", () => {
 				const useStaging = true;
 				return Count.fetchCount('article-id', useStaging)
-					.then(count => assert.equal(count, 20));
+					.then(count => proclaim.equal(count, 20));
 			});
 		});
 	});

@@ -1,23 +1,21 @@
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 
-const sandbox = sinon.createSandbox();
-
-module.exports = () => {
+export default function login () {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
 
 	afterEach(() => {
 		fixtures.reset();
-		sandbox.restore();
+		sinon.restore();
 	});
 
 	describe("authenticationToken exists", () => {
 		it("calls embed.login with the authentication token", () => {
-			const loginStub = sandbox.stub();
+			const loginStub = sinon.stub();
 			const stream = new Stream();
 			stream.authenticationToken = 'fake-jwt';
 
@@ -32,8 +30,8 @@ module.exports = () => {
 
 	describe("displayName exists", () => {
 		it("calls .renderSignedInMessage", () => {
-			const loginStub = sandbox.stub();
-			const signedInMessageStub = sandbox.stub();
+			const loginStub = sinon.stub();
+			const signedInMessageStub = sinon.stub();
 
 			const stream = new Stream();
 			stream.renderSignedInMessage = signedInMessageStub;
@@ -48,4 +46,4 @@ module.exports = () => {
 			proclaim.isTrue(signedInMessageStub.calledOnce);
 		});
 	});
-};
+}

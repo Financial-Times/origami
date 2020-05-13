@@ -1,36 +1,30 @@
-import * as assert from 'proclaim';
+/* eslint-env mocha */
+/* global proclaim sinon */
 import fetchMock from 'fetch-mock';
 import * as fixtures from './helpers/fixtures';
-import sinon from 'sinon/pkg/sinon';
 import Comments from '../src/js/comments';
 import Count from '../src/js/count';
 import Stream from '../src/js/stream';
 
-sinon.assert.expose(assert, {
-	includeFail: false,
-	prefix: ''
-});
-
 describe("Comments", () => {
 	it("is defined", () => {
-		assert.isFunction(Comments);
-		assert.throws(Comments, TypeError);
+		proclaim.isFunction(Comments);
+		proclaim.throws(Comments, TypeError);
 	});
 
 	describe("new Comments(rootEl, opts)", () => {
 		describe(".options", () => {
 			let mockDataAttributeOptions;
-			let sandbox;
 			let mockRootEl;
 
 			beforeEach(() => {
 				mockDataAttributeOptions = {
 					isMockDataAttributeOptions: true
 				};
-				sandbox = sinon.createSandbox();
-				sandbox.stub(Stream.prototype, 'init');
-				sandbox.stub(Comments, 'getDataAttributes').returns(mockDataAttributeOptions);
-				sandbox.stub(Count.prototype, 'renderCount').callsFake(() => true);
+
+				sinon.stub(Stream.prototype, 'init');
+				sinon.stub(Comments, 'getDataAttributes').returns(mockDataAttributeOptions);
+				sinon.stub(Count.prototype, 'renderCount').callsFake(() => true);
 
 				fixtures.countMarkup();
 
@@ -40,113 +34,105 @@ describe("Comments", () => {
 
 			afterEach(() => {
 				fixtures.reset();
-				sandbox.restore();
+				sinon.restore();
 			});
 
 			it("fetches options set via HTML data attributes", () => {
-				assert.calledOnce(Comments.getDataAttributes);
-				assert.calledWithExactly(Comments.getDataAttributes, mockRootEl);
+				sinon.assert.calledOnce(Comments.getDataAttributes);
+				sinon.assert.calledWithExactly(Comments.getDataAttributes, mockRootEl);
 			});
 		});
 	});
 
 	describe("when 'data-o-comments-count' is set to true", () => {
 		let comments;
-		let sandbox;
 
 		beforeEach(() => {
 			fixtures.countMarkup();
-			sandbox = sinon.createSandbox();
-			sandbox.stub(Count.prototype, 'renderCount');
+			sinon.stub(Count.prototype, 'renderCount');
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
-			sandbox.restore();
+			sinon.restore();
 			fixtures.reset();
 		});
 
 		it("returns the new count instance", () => {
-			assert.isInstanceOf(comments, Count);
+			proclaim.isInstanceOf(comments, Count);
 		});
 
 		it("exposes the renderCount method", () => {
-			assert.isInstanceOf(comments.renderCount, Function);
+			proclaim.isInstanceOf(comments.renderCount, Function);
 		});
 	});
 
 	describe("when 'data-o-comments-count' is set to false", () => {
 		let comments;
-		let sandbox;
 
 		beforeEach(() => {
 			fixtures.streamMarkup();
-			sandbox = sinon.createSandbox();
-			sandbox.stub(Stream.prototype, 'init');
+			sinon.stub(Stream.prototype, 'init');
 
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
-			sandbox.restore();
+			sinon.restore();
 			fixtures.reset();
 		});
 
 		it("returns the new Stream instance", () => {
-			assert.isInstanceOf(comments, Stream);
+			proclaim.isInstanceOf(comments, Stream);
 		});
 
 		['init', 'authenticateUser', 'renderComments', 'publishEvent']
 			.forEach(method => it(`exposes the ${method} method`, () => {
-				assert.isInstanceOf(comments[method], Function);
+				proclaim.isInstanceOf(comments[method], Function);
 			}));
 	});
 
 	describe("when 'data-o-comments-use-staging-environment' is set to true", () => {
 		let comments;
-		let sandbox;
 
 		beforeEach(() => {
 			fixtures.useStagingEnvironmentMarkup();
-			sandbox = sinon.createSandbox();
-			sandbox.stub(Count.prototype, 'renderCount');
+			sinon.stub(Count.prototype, 'renderCount');
 
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
-			sandbox.restore();
+			sinon.restore();
 			fixtures.reset();
 		});
 
 		it("initializes Stream with staging environment option set to true", () => {
-			assert.isTrue(comments.useStagingEnvironment);
+			proclaim.isTrue(comments.useStagingEnvironment);
 		});
 	});
 
 	describe("when 'data-o-comments-use-staging-environment' is set to false", () => {
 		let comments;
-		let sandbox;
 
 		beforeEach(() => {
 			fixtures.doNotUseStagingEnvironmentMarkup();
-			sandbox = sinon.createSandbox();
-			sandbox.stub(Count.prototype, 'renderCount');
+			sinon.stub(Count.prototype, 'renderCount');
 
 			const mockRootEl = document.querySelector('[data-o-comments-article-id="id"]');
 			comments = new Comments(mockRootEl);
 		});
 
 		afterEach(() => {
-			sandbox.restore();
+			sinon.restore();
 			fixtures.reset();
 		});
 
 		it("initializes Stream with staging environment option set to false", () => {
-			assert.isFalse(comments.useStagingEnvironment);
+			proclaim.isFalse(comments.useStagingEnvironment);
 		});
 	});
 
@@ -162,15 +148,15 @@ describe("Comments", () => {
 		});
 
 		it('returns a promise', () => {
-			assert.isInstanceOf(Comments.getCount(), Promise);
+			proclaim.isInstanceOf(Comments.getCount(), Promise);
 		});
 
 		describe('getting the count is successful', () => {
 			it('returns a integer', (done) => {
 				Comments.getCount('article-id')
 					.then(count => {
-						assert.isNumber(count);
-						assert.equal(count, 4);
+						proclaim.isNumber(count);
+						proclaim.equal(count, 4);
 						done();
 					});
 			});
@@ -199,4 +185,3 @@ describe("Comments", () => {
 		});
 	});
 });
-

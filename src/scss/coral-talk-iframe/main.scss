@@ -10,7 +10,7 @@
  * This is not a normal use case of Origami styles.
  */
 
-// sass-lint:disable no-qualifying-elements nesting-depth no-important class-name-format
+// stylelint-disable selector-class-pattern, declaration-no-important 
 @import 'o-buttons/main';
 @import 'o-colors/main';
 @import 'o-typography/main';
@@ -90,7 +90,7 @@ body {
 // top tab bar buttons
 .coral-tabBar-comments,
 .coral-tabBar-myProfile,
-.coral-tabBar-configure	{
+.coral-tabBar-configure {
 	@include oButtonsContent($opts: (
 		'type': 'secondary'
 	));
@@ -102,21 +102,9 @@ body {
 	&[aria-selected=true],
 	&[aria-pressed=true],
 	&[aria-current] {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'primary'
-		) !important;
-		background-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'background',
-			$type: 'primary'
-		) !important;
-		border-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'border',
-			$type: 'primary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 		border-top: 1px !important;
 		border-bottom: 1px !important;
 	}
@@ -136,38 +124,14 @@ body {
 	// normally, these should come for free with oButtons mixin
 	// but we have to declare this explicitly here because
 	// Coral styles override our styles for some reason
-	color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'color',
-		$type: 'primary'
-	) !important;
-	background-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'background',
-		$type: 'primary'
-	) !important;
-	border-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'border',
-		$type: 'primary'
-	) !important;
+	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+	background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 
 	&:hover {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'primary'
-		) !important;
-		background-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'background',
-			$type: 'primary'
-		) !important;
-		border-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'border',
-			$type: 'primary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 	}
 }
 
@@ -180,28 +144,12 @@ body {
 		'type': 'secondary'
 	));
 
-	color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'color',
-		$type: 'secondary'
-	) !important;
-	border-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'border',
-		$type: 'secondary'
-	) !important;
+	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
+	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
 
 	&:hover {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'secondary'
-		) !important;
-		border-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'border',
-			$type: 'secondary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
+		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
 	}
 }
 
@@ -307,38 +255,14 @@ body {
 		'type': 'primary'
 	));
 
-	color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'color',
-		$type: 'primary'
-	) !important;
-	background-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'background',
-		$type: 'primary'
-	) !important;
-	border-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'border',
-		$type: 'primary'
-	) !important;
+	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+	background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 
 	&:hover {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'primary'
-		) !important;
-		background-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'background',
-			$type: 'primary'
-		) !important;
-		border-color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'border',
-			$type: 'primary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 	}
 }
 
@@ -386,22 +310,10 @@ body {
 	@include oButtonsContent($opts: (
 		'type': 'secondary'
 	));
-	color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'color',
-		$type: 'secondary'
-	) !important;
-	border-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'border',
-		$type: 'secondary'
-	) !important;
+	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
+	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
 
-	background-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'background',
-		$type: 'secondary'
-	) !important;
+	background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'secondary') !important;
 }
 
 // featured comments
@@ -417,18 +329,10 @@ body {
 		'type': 'secondary'
 	));
 
-	border-color: oButtonsGetColor(
-		$state: 'default',
-		$property: 'border',
-		$type: 'secondary'
-	) !important;
+	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
 
 	&:hover {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'secondary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 	}
 }
 
@@ -498,11 +402,7 @@ body {
 // verify email resend button
 .coral-verifyEmail-resendButton {
 	&:hover {
-		color: oButtonsGetColor(
-			$state: 'default',
-			$property: 'color',
-			$type: 'secondary'
-		) !important;
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 	}
 }
 

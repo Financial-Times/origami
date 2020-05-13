@@ -15,7 +15,7 @@ class Count {
 	 * Render a comment count instance.
 	 *
 	 * @access private
-	 * @returns {HTMLElement}
+	 * @returns {Promise<void>} A promise that resolves when the count has been updated
 	 */
 	renderCount () {
 		if (this.countEl && !(this.countEl instanceof HTMLElement)) {
@@ -39,7 +39,7 @@ class Count {
 	 * Get the aria-label for the count element.
 	 *
 	 * @param {Number} count - The comment count
-	 * @returns {String}
+	 * @returns {String} The string that should be used as the aria-label
 	 */
 	static getCountLabel (count) {
 		if (count === 1) {

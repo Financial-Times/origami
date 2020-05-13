@@ -1,15 +1,13 @@
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 import fetchMock from 'fetch-mock';
 import * as displayName from '../../src/js/utils/display-name';
-
-const sandbox = sinon.createSandbox();
 
 describe('Display name', () => {
 	describe('Validation', () => {
 
 		afterEach(() => {
-			sandbox.restore();
+			sinon.restore();
 			fetchMock.reset();
 		});
 

@@ -1,18 +1,16 @@
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
+/* eslint-env mocha */
+/* global proclaim sinon */
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 
-const sandbox = sinon.createSandbox();
-
-module.exports = () => {
+export default function displayNamePrompt () {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
 
 	afterEach(() => {
 		fixtures.reset();
-		sandbox.restore();
+		sinon.restore();
 	});
 
 	it("renders the display name prompt on the page", () => {
@@ -25,4 +23,4 @@ module.exports = () => {
 			proclaim.isTrue(Boolean(displayNameForm));
 		});
 	});
-};
+}

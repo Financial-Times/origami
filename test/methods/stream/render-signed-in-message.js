@@ -1,8 +1,9 @@
-import proclaim from 'proclaim';
+/* eslint-env mocha */
+/* global proclaim */
 import * as fixtures from '../../helpers/fixtures';
 import Stream from '../../../src/js/stream';
 
-module.exports = () => {
+export default function renderSignedInMessage () {
 	beforeEach(() => {
 		fixtures.streamMarkup();
 	});
@@ -44,4 +45,4 @@ module.exports = () => {
 			proclaim.equal(containerEls.length, 1);
 		});
 	});
-};
+}
