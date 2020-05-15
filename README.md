@@ -1,4 +1,4 @@
-# o-footer [![Build Status](https://circleci.com/gh/Financial-Times/o-footer.png?style=shield&circle-token=e3626fa5fcb3e2f16bbf587ee697d441b93a6aa2)](https://circleci.com/gh/Financial-Times/o-footer) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-footer [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 FT page footer component
 
