@@ -4,4 +4,4 @@
 /// @access Private
 @mixin _oMeter($message) {
 	@error '*** oMeter SCSS error: #{$message} ***';
-};
+}

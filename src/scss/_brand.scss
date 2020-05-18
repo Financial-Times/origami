@@ -2,11 +2,11 @@
 /// Helper for `o-brand` function.
 /// @access private
 @function _oMeterGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-meter', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-meter', $variables: $variables, $from: $from);
 }
 
 /// Helper for `o-brand` function.
 /// @access private
 @function _oMeterSupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-meter', $variant: $variant);
+	@return oBrandSupportsVariant($component: 'o-meter', $variant: $variant);
 }

@@ -112,7 +112,7 @@
 	}
 
 	// sass-lint:enable no-vendor-prefixes
-};
+}
 
 @if ($o-meter-is-silent == false) {
 	@include oMeter();
