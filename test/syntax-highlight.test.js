@@ -53,7 +53,7 @@ describe("Syntax Highlight", () => {
 
 				const warningSpy = sinon.spy(console, 'warn');
 				new SyntaxHighlight(syntaxEl);
-				assert(warningSpy.withArgs(warning, sinon.match.any).calledOnce);
+				proclaim.isTrue(warningSpy.withArgs(warning, sinon.match.any).calledOnce);
 				warningSpy.restore();
 			});
 
