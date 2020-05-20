@@ -53,7 +53,8 @@ class SyntaxHighlight {
 	* @return {String | Null} - The language name e.g. `js` or null if not defined.
 	*/
 	_getLanguage(element) {
-		const highlightClassName = [...element.classList].find(c => c.includes('o-syntax-highlight--'));
+		const highlightClassNames = [...element.classList].filter(c => c.includes('o-syntax-highlight--'));
+		const highlightClassName = highlightClassNames ? highlightClassNames[0]: null;
 
 		if (!highlightClassName) {
 			console.warn(
