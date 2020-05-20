@@ -46,6 +46,20 @@ describe("Syntax Highlight", () => {
 				proclaim.strictEqual(highlight.opts.language, 'json');
 			});
 
+			it('fetches the language to highlight from the element with multiple classes', () => {
+				testArea.innerHTML = fixtures.classlessJSON;
+				syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
+				// Set classes. One with the expected language another random class for the test
+				// with a decoy language.
+				const expectedLanguage = 'json';
+				document.querySelectorAll('code').forEach(el => {
+					el.className = `some-other-class--html o-syntax-highlight--${expectedLanguage}`;
+				});
+				new SyntaxHighlight(syntaxEl);
+				// Check the expected language was found.
+				proclaim.strictEqual(highlight.opts.language, expectedLanguage);
+			});
+
 			it('logs a warning if the <code> tag does not have a class', () => {
 				const warning = `In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"`;
 				testArea.innerHTML = fixtures.classlessJSON;
