@@ -10,7 +10,9 @@ Styling for quotes
 
 ## Markup
 
-For a standard blockquote style use classes `o-quote o-quote--standard` and the following markup:
+A block quote is a passage of text from another source, or a passage of text that’s been spoken by a person. Used to attribute another source of information, or to quote the spoken words of a person.
+
+For a standard blockquote style use classes `o-quote o-quote--standard` and the following markup. We recommend the editorial style instead for editorial contexts such as within articles.
 
 ```html
 <blockquote class="o-quote o-quote--standard">

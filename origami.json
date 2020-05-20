@@ -36,7 +36,7 @@
 				"author": "Lorem ipsum",
 				"source": "Lorem, ipsum dolor."
 			},
-			"description": "A blockquote style for editorial contexts such as articles.",
+			"description": "A blockquote style for editorial contexts such as articles. A block quote is a passage of text from another source, or a passage of text that’s been spoken by a person. Used to attribute another source of information, or to quote the spoken words of a person.",
 			"brands": [
 				"master"
 			]
@@ -51,7 +51,7 @@
 				"author": "Financial Times",
 				"source": "The Origami Spec"
 			},
-			"description": "A blockquote style for product contexts.",
+			"description": "An alternative blockquote. We recommend the editorial style for editorial contexts such as within articles.",
 			"brands": [
 				"master",
 				"internal",
