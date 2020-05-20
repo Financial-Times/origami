@@ -46,24 +46,25 @@ describe("Syntax Highlight", () => {
 				proclaim.strictEqual(highlight.opts.language, 'json');
 			});
 
-			it('throws an error if the <code> tag does not have a class', () => {
-				const error = `*** o-syntax-highlight error:\nIn order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"\n***`;
+			it('logs a warning if the <code> tag does not have a class', () => {
+				const warning = `In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"`;
 				testArea.innerHTML = fixtures.classlessJSON;
 				syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
 
-				proclaim.throws(() => { new SyntaxHighlight(syntaxEl); }, error);
+				const warningSpy = sinon.spy(console, 'warn');
+				new SyntaxHighlight(syntaxEl);
+				proclaim.isTrue(warningSpy.withArgs(warning, sinon.match.any).calledOnce);
+				warningSpy.restore();
 			});
 
 			it('tokenises string within a <code> tag', () => {
 				proclaim.strictEqual(flatten(syntaxEl.innerHTML), flatten(fixtures.tokenisedJSON));
 			});
 
-			it('throws an error if code block is not built semantically', () => {
-				const error = "*** o-syntax-highlight error:\nNo '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.\n***";
+			it('does not throw an error if a pre tag is found with no code block', () => {
 				testArea.innerHTML = fixtures.unsemanticJSON;
 				syntaxEl = document.querySelector('[data-o-component=o-syntax-highlight]');
-
-				proclaim.throws(() => { new SyntaxHighlight(syntaxEl); }, error);
+				proclaim.doesNotThrow(() => { new SyntaxHighlight(syntaxEl); });
 			});
 		});
 
