@@ -50,17 +50,25 @@ class SyntaxHighlight {
 	/**
 	* Get language from HTML element
 	* @param {HTMLElement} - The element with a language-relevant class name
+	* @return {String | Null} - The language name e.g. `js` or null if not defined.
 	*/
 	_getLanguage (element) {
 		const className = element.className;
 
-		if (className.includes('o-syntax-highlight--')) {
-			this.opts.language = className.replace('o-syntax-highlight--', '');
-		} else {
-			throwError(`In order to highlight a codeblock, the '<code>' requires a specific class to define a language. E.g. class="o-syntax-highlight--html" or class="o-syntax-highlight--js"`);
+		if (!className.includes('o-syntax-highlight--')) {
+			console.warn(
+				`In order to highlight a codeblock, the '<code>' ` +
+				`requires a specific class to define a language. E.g. ` +
+				`class="o-syntax-highlight--html" or ` +
+				`class="o-syntax-highlight--js"`, element);
+			return null;
 		}
 
+		this.opts.language = className.replace('o-syntax-highlight--', '');
+
 		this._checkLanguage();
+
+		return this.opts.language;
 	}
 
 	/**
@@ -76,15 +84,9 @@ class SyntaxHighlight {
  * Fetch and tokenise every <code> tag's content under the syntaxEl
  */
 	_tokeniseCodeBlocks () {
-		/* eslint-disable array-callback-return */
-		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'), pre => {
-			if (pre.firstElementChild && pre.firstElementChild.tagName === 'CODE') {
-				return pre.firstElementChild;
-			} else {
-				throwError(`No '<code>' tag found. In order to highlight a codeblock semantically, a '<pre>' tag must wrap a '<code>' tag.`);
-			}
-		});
-		/* eslint-enable array-callback-return */
+		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'))
+			.filter(pre => pre.firstElementChild && pre.firstElementChild.tagName === 'CODE')
+			.map(pre => pre.firstElementChild);
 
 		codeBlocks.forEach(this._tokeniseBlock.bind(this));
 	}
@@ -94,9 +96,11 @@ class SyntaxHighlight {
  * @param {HTMLElement} - The html element that holds the syntax to highlight
  */
 	_tokeniseBlock (element) {
-		this._getLanguage(element);
-		this.opts.syntaxString = element.innerText;
-		element.innerHTML = this.tokenise();
+		const language = this._getLanguage(element);
+		if (language) {
+			this.opts.syntaxString = element.innerText;
+			element.innerHTML = this.tokenise();
+		}
 	}
 
 	/**
