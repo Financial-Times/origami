@@ -6,7 +6,7 @@
   "author": "Jake Champion",
   "license": "MIT",
   "devDependencies": {
-    "@financial-times/origami-service-makefile": "^6.0.1",
+    "@financial-times/origami-service-makefile": "^7.0.3",
     "mocha": "^4.0.1",
     "proclaim": "^3.4.2"
   }
