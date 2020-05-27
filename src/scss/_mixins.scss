@@ -6,14 +6,14 @@
 /// 		(weight: bold, style: normal)
 /// 	)) {
 /// 		@font-face {
-/// 			src: url('MyFont-Thin.woff');
+/// 			src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
 /// 			font-family: MyFont;
 /// 			font-weight: 100;
 /// 			font-style: normal;
 /// 		}
 ///
 /// 		@font-face{
-/// 			src: url('MyFont-Bold.woff');
+/// 			src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
 /// 			font-family: MyFont;
 /// 			font-weight: 700;
 /// 			font-style: normal;
@@ -145,7 +145,7 @@
 		}
 
 		@font-face {
-			src: url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff');
+			src: url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff2') format('woff2'), url($o-fonts-path + '#{$family}-#{$font-suffix}' + '.woff') format('woff');
 			font-family: $family;
 			font-weight: oFontsWeight($weight);
 			font-style: unquote($style);

@@ -136,13 +136,13 @@ In this example we register a custom font "MyFont" with sans fallback `MyFont, s
     (weight: bold, style: normal)
 )) {
     @font-face {
-        src: url('MyFont-Thin.woff');
+        src: url('MyFont-Thin.woff2') format('woff2'), url('MyFont-Thin.woff') format('woff');
         font-family: MyFont;
         font-weight: 100;
         font-style: normal;
     }
     @font-face{
-        src: url('MyFont-Bold.woff');
+        src: url('MyFont-Bold.woff2') format('woff2'), url('MyFont-Bold.woff') format('woff');
         font-family: MyFont;
         font-weight: 700;
         font-style: normal;
