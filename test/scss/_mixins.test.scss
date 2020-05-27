@@ -2,29 +2,29 @@
 	@include it('outputs both the light and dark variants by default') {
 		// assert the light variant is output
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oLoading();
-			};
+			}
 
 			@include contains($selector: false) {
-      			.o-loading--light {
-      			  border-top-color: #ffffff;
-      			}
-			};
-		};
+				.o-loading--light {
+					border-top-color: #ffffff;
+				}
+			}
+		}
 
 		// assert the dark variant is output
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				// output o-loading.
 				@include oLoading();
-			};
+			}
 
 			@include contains($selector: false) {
-      			.o-loading--dark {
-      			  border-top-color: #33302e;
-      			}
-			};
-		};
-	};
-};
+				.o-loading--dark {
+					border-top-color: #33302e;
+				}
+			}
+		}
+	}
+}

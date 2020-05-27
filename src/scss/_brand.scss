@@ -26,7 +26,7 @@
 @mixin oLoadingCustomize($variables) {
 	$keys: map-keys($variables);
 	@each $key in $keys {
-		@if($key != 'dark' and $key != 'light')	{
+		@if($key != 'dark' and $key != 'light') {
 			@error 'Only light and dark o-loading variants may be customised. Found "#{$key}".';
 		}
 	}

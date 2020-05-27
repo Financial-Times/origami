@@ -17,32 +17,32 @@ $o-brand: 'whitelabel' !global;
 
 		// assert the light variant is customised
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				@include oLoading();
-			};
+			}
 
 			@include contains($selector: false) {
-      			.o-loading--light {
-      			  border-top-color: hotpink;
-      			}
-			};
-		};
+				.o-loading--light {
+					border-top-color: hotpink;
+				}
+			}
+		}
 
 		// assert the dark variant is customised
 		@include assert() {
-			@include output($selector: false)  {
+			@include output($selector: false) {
 				// output o-loading.
 				@include oLoading();
-			};
+			}
 
 			@include contains($selector: false) {
-      			.o-loading--dark {
-      			  border-top-color: black;
-      			}
-			};
-		};
-	};
-};
+				.o-loading--dark {
+					border-top-color: black;
+				}
+			}
+		}
+	}
+}
 
 // Restore default brand
 $o-brand: $o-brand-stash !global;
