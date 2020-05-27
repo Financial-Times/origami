@@ -70,6 +70,12 @@
 		display: inline-block;
 	}
 
+	meter::-webkit-meter-inner-element {
+		// Chrome 83 added a display grid which we want to override
+		display: inline-block;
+	}
+
+
 	/* for Firefox */
 	.o-meter-value,
 	.o-meter:-moz-meter-optimum::-moz-meter-bar {
@@ -79,6 +85,9 @@
 	/* Background in Chrome, etc. */
 	.o-meter::-webkit-meter-bar {
 		background: var(--o-meter-background-color);
+		// Chrome 83 added a border which we want to remove
+		border-radius: 0px;
+		border: 0;
 	}
 
 	/*  Optimum bar in Firefox */
