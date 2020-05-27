@@ -3,7 +3,7 @@
 	"name": "o-autoinit",
 	"devDependencies": {
 		"eslint-config-origami-component": "^2.0.1",
-		"origami-ci-tools": "^2.0.1",
+		"origami-ci-tools": "^2.0.2",
 		"stylelint-config-origami-component": "^1.0.3"
 	}
 }
