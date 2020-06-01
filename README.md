@@ -5,8 +5,6 @@ and suggestions in the [origami component specification](https://origami.ft.com/
 
 ## installation
 
-[npm][]:
-
 ```sh
 npm install remark-preset-lint-origami-component-readme
 ```
@@ -19,7 +17,7 @@ You can use it by adding it to the plugins in a `.remarkrc.js` file in the root 
 module.exports.plugins = [require("remark-preset-lint-origami-component")]
 ```
 
-Or use it directly through the cli:
+Or use it directly through [the remark cli](https://github.com/remarkjs/remark/tree/master/packages/remark-cli):
 
 ```sh
 remark -u preset-lint-consistent README.md
