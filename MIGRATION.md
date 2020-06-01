@@ -33,7 +33,7 @@ The product wrapper is now the default wrapper:
 For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
 - `o-typography-headline--large` is now `o-editorial-typography-headline`
 - `o-typography-heading-level-1--large` is now `o-editorial-typography-headline`
-- `o-typography-headline` is now `o-editorial-typography-heading-1`
+- `o-typography-headline` is now `o-editorial-typography-heading-level-1`
 - `o-typography-heading-level-1` is now `o-editorial-typography-heading-level-1`
 - `o-typography-heading-level-2` is now `o-editorial-typography-heading-level-2`
 - `o-typography-heading-level-3` is now `o-editorial-typography-heading-level-3`
