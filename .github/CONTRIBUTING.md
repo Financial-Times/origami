@@ -1,4 +1,3 @@
-
 # Contributing Guide
 
 There are several ways to contribute to this proposal process:
@@ -35,12 +34,17 @@ Anybody can propose a new component or pattern for inclusion in Origami. This ca
 
   3. ### Raise an Issue
 
-     If your idea is not already proposed in the backlog, please [raise an issue] on this repository and follow the provided template. The more detail you include the better. We prefer you to open an issue yourself, but if you don't have a GitHub account then you can also [email a proposal to the team](mailto:origami.support@ft.com?subject=Component%20Proposal). If you're doing this then please [follow the issue template][issue template].
+     If your idea is not already proposed in the backlog, please [create a new proposal PR](#creating-a-proposal-pr). Alternatively, you can [raise a component or proposal issue] on this repository and follow the provided template. The more detail you include the better. If you don't have a GitHub account then you can also [email a proposal to the team](mailto:origami.support@ft.com?subject=Proposal).
 
   4. ### Request Feedback
 
-     Once you've got a proposal, request feedback from the Origami team and feel free to share it to relevant stakeholders in the business – they may have something to add, and more evidence is always good. You can contact the Origami team via [email](mailto:origami.support@ft.com?subject=Component%20Proposal) or [Slack], alternatively assign the Origami Core GitHub team to the issue.
+     Once you've got a proposal, request feedback from the Origami team and feel free to share it to relevant stakeholders in the business – they may have something to add, and more evidence is always good. You can contact the Origami team via [email](mailto:origami.support@ft.com?subject=Proposal) or [Slack], alternatively assign the Origami Core GitHub team to the issue.
 
+### Creating a proposal PR
+
+1. Copy `proposals/0000-template.md` to `proposals/0000-my-new-proposal-title.md`
+2. Edit your new file, filling in the sections of the template appropriately
+3. File a pull request and add the `proposal` label, as well as the `component` or `pattern` label if applicable.
 
 ## Review a Proposal
 
@@ -66,5 +70,5 @@ This section is for members of the Origami team, and acts as a guide for reviewi
 [issue template]: https://github.com/Financial-Times/origami/blob/master/.github/ISSUE_TEMPLATE.md
 [origami registry]: https://registry.origami.ft.com/
 [proposal backlog]: https://github.com/Financial-Times/origami/projects/1
-[raise an issue]: https://github.com/Financial-Times/origami/issues/new
+[raise a component or proposal issue]: https://github.com/Financial-Times/origami-proposals/issues/new
 [slack]: https://financialtimes.slack.com/messages/origami-support
