@@ -1,5 +1,5 @@
 {
-	"name": "remark-preset-lint-origami-component-readme",
+	"name": "remark-preset-lint-origami-component",
 	"version": "1.0.0",
 	"description": "remark lint preset for Origami component README.md",
 	"main": "index.js",

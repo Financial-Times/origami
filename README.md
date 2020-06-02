@@ -1,4 +1,4 @@
-# remark-preset-lint-origami-component-readme
+# remark-preset-lint-origami-component
 
 remark preset to configure `remark-lint` with settings that enforce the rules
 and suggestions in the [origami component specification](https://origami.ft.com/spec/v1/components/#readme).
@@ -6,7 +6,7 @@ and suggestions in the [origami component specification](https://origami.ft.com/
 ## installation
 
 ```sh
-npm install remark-preset-lint-origami-component-readme
+npm install remark-preset-lint-origami-component
 ```
 
 ## use
@@ -20,5 +20,5 @@ module.exports.plugins = [require("remark-preset-lint-origami-component")]
 Or use it directly through [the remark cli](https://github.com/remarkjs/remark/tree/master/packages/remark-cli):
 
 ```sh
-remark -u preset-lint-consistent README.md
+remark -u preset-lint-origami-component README.md
 ```
