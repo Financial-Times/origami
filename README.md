@@ -6,6 +6,7 @@ o-banner is a component used for product messaging which could include feature p
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
+- [Layouts](#layouts)
 - [Themes](#themes)
 - [Migration guide](#migration)
 - [Contact](#contact)
