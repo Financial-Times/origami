@@ -2,11 +2,12 @@
 
 o-date provides javascript utilities for formatting and updating dates in FT style. This component is mainly useful when you want your dates formatted to express relative time.
 
-  - [Markup](#markup)
-  - [JavaScript](#javascript)
-  - [Migration Guide](#migration)
-  - [Contact](#contact)
-  - [Licence](#licence)
+- [Markup](#markup)
+- [JavaScript](#javascript)
+- [Server-side](#server-side)
+- [Migration](#migration)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Markup
 
