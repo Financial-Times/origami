@@ -24,31 +24,31 @@ This HTML demonstrates the declarative way to instantiate o-banner. If you are u
 
 ```html
 <div class="o-banner" data-o-component="o-banner">
-    <div class="o-banner__outer">
-        <div class="o-banner__inner" data-o-banner-inner="">
+	<div class="o-banner__outer">
+		<div class="o-banner__inner" data-o-banner-inner="">
 
-            <!-- Content to display on larger screens -->
-            <div class="o-banner__content o-banner__content--long">
-                <p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
-            </div>
+			<!-- Content to display on larger screens -->
+			<div class="o-banner__content o-banner__content--long">
+				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
+			</div>
 
-            <!-- Content to display on smaller screens -->
-            <div class="o-banner__content o-banner__content--short">
-                <p>Try the new compact homepage.</p>
-            </div>
+			<!-- Content to display on smaller screens -->
+			<div class="o-banner__content o-banner__content--short">
+				<p>Try the new compact homepage.</p>
+			</div>
 
-            <!-- Button and link -->
-            <div class="o-banner__actions">
-                <div class="o-banner__action">
-                    <a href="#" class="o-banner__button">Try it now</a>
-                </div>
-                <div class="o-banner__action o-banner__action--secondary">
-                    <a href="#" class="o-banner__link">Give feedback</a>
-                </div>
-            </div>
+			<!-- Button and link -->
+			<div class="o-banner__actions">
+				<div class="o-banner__action">
+					<a href="#" class="o-banner__button">Try it now</a>
+				</div>
+				<div class="o-banner__action o-banner__action--secondary">
+					<a href="#" class="o-banner__link">Give feedback</a>
+				</div>
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </div>
 ```
 
@@ -56,18 +56,18 @@ Variable content based on screen size as well as the link after the button are o
 
 ```html
 <div class="o-banner" data-o-component="o-banner">
-    <div class="o-banner__outer">
-        <div class="o-banner__inner" data-o-banner-inner="">
-            <div class="o-banner__content">
-                <p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
-            </div>
-            <div class="o-banner__actions">
-                <div class="o-banner__action">
-                    <a href="#" class="o-banner__button">Try it now</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="o-banner__outer">
+		<div class="o-banner__inner" data-o-banner-inner="">
+			<div class="o-banner__content">
+				<p>Try the new compact homepage. A list view of today's homepage with fewer images.</p>
+			</div>
+			<div class="o-banner__actions">
+				<div class="o-banner__action">
+					<a href="#" class="o-banner__button">Try it now</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 ```
 
@@ -75,10 +75,10 @@ The banner's primary action can be a form with a submit button if required. Chan
 
 ```html
 <div class="o-banner__actions">
-    <form class="o-banner__action" action="/example">
-        <input class="o-banner__button" type="submit" value="Try it now" />
-    </form>
-    …
+	<form class="o-banner__action" action="/example">
+		<input class="o-banner__button" type="submit" value="Try it now" />
+	</form>
+	…
 </div>
 ```
 
@@ -86,10 +86,10 @@ If the banner element is empty, then the appropriate structure will be construct
 
 ```html
 <div
-    class="o-banner"
-    data-o-component="o-banner"
-    data-o-banner-content-long="Do you like o-banner?"
-    data-o-banner-button-label="Yes"
+	class="o-banner"
+	data-o-component="o-banner"
+	data-o-banner-content-long="Do you like o-banner?"
+	data-o-banner-button-label="Yes"
 ></div>
 ```
 
@@ -97,7 +97,7 @@ If the banner element has content, but does _not_ include an `o-banner__outer` e
 
 ```html
 <div class="o-banner" data-o-component="o-banner">
-    <p>This is the banner content</p>
+	<p>This is the banner content</p>
 </div>
 ```
 
@@ -122,12 +122,12 @@ If you wish to create a banner from scratch with no existing DOM elements, you c
 ```js
 import Banner from 'o-banner';
 const myBanner = new Banner(null, {
-    contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
-    contentShort: 'Try the new compact homepage.',
-    buttonLabel: 'Try it now',
-    buttonUrl: '#try-button',
-    linkLabel: 'Give feedback',
-    linkUrl: '#feedback-link'
+	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
+	contentShort: 'Try the new compact homepage.',
+	buttonLabel: 'Try it now',
+	buttonUrl: '#try-button',
+	linkLabel: 'Give feedback',
+	linkUrl: '#feedback-link'
 });
 ```
 
@@ -137,29 +137,29 @@ The [available options](#options) are documented below.
 
 Once you have an o-banner instance, you can manipulate it using the following methods (assume an instance named `myBanner` exists):
 
-  - `myBanner.open()`: display a closed banner
-  - `myBanner.close()`: hide an open banner
+- `myBanner.open()`: display a closed banner
+- `myBanner.close()`: hide an open banner
 
 ### Options
 
 There are several options used to change the appearance or behaviour of o-banner. All of these are optional, but it's recommended to set at least `contentLong`, `buttonLabel`, and `buttonUrl`. Set the following as properties on the second argument to `oBanner`:
 
-  - `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
-  - `appendTo`: String or Node. The element to append the banner to, when created imperatively with JavaScript. Defaults to `document.body`
-  - `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
-  - `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
-  - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
-  - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
-  - `buttonLabel`: String. The banner button label. Defaults to `OK`
-  - `buttonUrl`: String. The URL the button links to. Defaults to `#`
-  - `formAction`: String. A form action, if specified then the primary button will be a submit button in a form. Defaults to `null`
-  - `formEncoding`: String. The form encoding. Only used if `formAction` is not null. Defaults to `application/x-www-form-urlencoded`
-  - `formMethod`: String. The form method. Only used if `formAction` is not null. Defaults to `post`
-  - `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
-  - `linkUrl`: String. The URL the link links to. Defaults to `#`
-  - `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
-  - `theme`: String. The theme to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
-  - `layout`: String. The layout to apply to the banner. [See the layouts documentation](#layouts) for available values. Defaults to `null`
+- `autoOpen`: Boolean. Whether to automatically open the banner. Defaults to `true`
+- `appendTo`: String or Node. The element to append the banner to, when created imperatively with JavaScript. Defaults to `document.body`
+- `suppressCloseButton`: Boolean. Whether to hide the close button. Defaults to `false`
+- `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
+- `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
+- `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
+- `buttonLabel`: String. The banner button label. Defaults to `OK`
+- `buttonUrl`: String. The URL the button links to. Defaults to `#`
+- `formAction`: String. A form action, if specified then the primary button will be a submit button in a form. Defaults to `null`
+- `formEncoding`: String. The form encoding. Only used if `formAction` is not null. Defaults to `application/x-www-form-urlencoded`
+- `formMethod`: String. The form method. Only used if `formAction` is not null. Defaults to `post`
+- `linkLabel`: String. The banner link label. Set to `null` to hide the link. Defaults to `null`
+- `linkUrl`: String. The URL the link links to. Defaults to `#`
+- `closeButtonLabel`: String. The hidden accessible label for the close button. Defaults to `Close`.
+- `theme`: String. The theme to apply to the banner. [See the themes documentation](#themes) for available values. Defaults to `null`
+- `layout`: String. The layout to apply to the banner. [See the layouts documentation](#layouts) for available values. Defaults to `null`
 
 ## Sass
 
@@ -184,14 +184,14 @@ If you call the mixin without arguments you will get all the built-in themes:
 
 o-banner supports different layouts:
 
-  - `small`: Display the banner in the bottom left of the screen at a smaller size, rather than full width
-  - `compact`: Display the banner in the bottom left like the `small` theme, but with tighter spacing and smaller typography
+- `small`: Display the banner in the bottom left of the screen at a smaller size, rather than full width
+- `compact`: Display the banner in the bottom left like the `small` theme, but with tighter spacing and smaller typography
 
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
 <div class="o-banner o-banner--small">
-    ...
+	...
 </div>
 ```
 
@@ -199,7 +199,7 @@ In the JavaScript, use the `layout` [option](#options):
 
 ```js
 const myBanner = new oBanner({
-    layout: 'small'
+	layout: 'small'
 });
 ```
 
@@ -207,14 +207,14 @@ const myBanner = new oBanner({
 
 o-banner is themeable which may be used in combination with a [layout](#layouts):
 
-  - `product`: Use the product colours for the banner
-  - `marketing`: Use the marketing colours for the banner
+- `product`: Use the product colours for the banner
+- `marketing`: Use the marketing colours for the banner
 
 In the markup, these can be applied as classes alongside the `o-banner` class. They are exposed as modifiers:
 
 ```html
 <div class="o-banner o-banner--marketing">
-    ...
+	...
 </div>
 ```
 
@@ -222,7 +222,7 @@ In the JavaScript, use the `theme` [option](#options):
 
 ```js
 const myBanner = new oBanner({
-    theme: 'marketing'
+	theme: 'marketing'
 });
 ```
 
@@ -232,8 +232,8 @@ The `oBannerAddTheme` mixin can be used to create and output styles for a custom
 
 ```scss
 @include oBannerAddTheme('bubblegum', (
-    background-color: oColorsMix('candy', 'white', 75),
-    text-color: oColorsByName('oxford-90')
+	background-color: oColorsMix('candy', 'white', 75),
+	text-color: oColorsByName('oxford-90')
 ));
 ```
 
@@ -241,7 +241,7 @@ The above Sass will output CSS like this:
 
 ```css
 .o-banner--bubblegum {
-    /* styles */
+	/* styles */
 }
 ```
 
@@ -249,7 +249,7 @@ You can add this new class to your banner element, either in the HTML:
 
 ```html
 <div class="o-banner o-banner--bubblegum">
-    ...
+	...
 </div>
 ```
 
@@ -257,8 +257,8 @@ or via the `theme` option in JavaScript:
 
 ```js
 const myBanner = new Banner(null, {
-    theme: 'bubblegum',
-    ...
+	theme: 'bubblegum',
+	...
 });
 ```
 
