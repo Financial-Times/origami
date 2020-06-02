@@ -1,4 +1,4 @@
-# o-autoinit [![Circle CI](https://circleci.com/gh/Financial-Times/o-autoinit/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-autoinit/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-autoinit [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 
 Auto initalise Origami components
