@@ -29,6 +29,8 @@
 		// sass-lint:disable no-vendor-prefixes
 		-webkit-text-fill-color: currentColor;
 		// sass-lint:enable no-vendor-prefixes
+		// iOS Safari has a default opacity of 0.4
+		opacity: 1;
 	}
 }
 
