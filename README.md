@@ -156,10 +156,10 @@ To create a new button theme call `oButtonsAddTheme` with the colour of your the
 ```scss
 /// .o-buttons--my-special-button
 @include oButtonsAddTheme(
-    $name: 'my-special-button',
-    $opts: ('color': 'claret-80'),
-    $types: ('primary', 'secondary'),
-    $icons: ('arrow-up', 'arrow-down')
+	$name: 'my-special-button',
+	$opts: ('color': 'claret-80'),
+	$types: ('primary', 'secondary'),
+	$icons: ('arrow-up', 'arrow-down')
 );
 ```
 
@@ -169,25 +169,25 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 ```scss
 .my-button {
-    @include oButtonsContent($opts: ('type': 'primary'));
+	@include oButtonsContent($opts: ('type': 'primary'));
 }
 ```
 
 ```scss
 .my-icon-button {
-    @include oButtonsContent($opts: (
-        'type': 'primary',
-        'icon': 'arrow-right'
-    ));
+	@include oButtonsContent($opts: (
+		'type': 'primary',
+		'icon': 'arrow-right'
+	));
 }
 ```
 
 ```scss
 .my-lemon-button {
-    @include oButtonsContent($opts: (
-        'type': 'primary',
-        'theme': ('color': 'lemon')
-    ));
+	@include oButtonsContent($opts: (
+		'type': 'primary',
+		'theme': ('color': 'lemon')
+	));
 }
 ```
 
