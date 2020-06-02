@@ -5,13 +5,13 @@ A component to manage colours. Includes the FT colour palette.
 - [Markup](#markup)
 - [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
-- [Migration guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
-### Markup
+## Markup
 
-#### Colour Usecase Classes
+### Colour Usecase Classes
 
 A limited number of colour [usecases](#usecases) are available as CSS classes, including:
 - `.o-colors-page-background`
@@ -28,9 +28,9 @@ A limited number of colour [usecases](#usecases) are available as CSS classes, i
 
 More colours are available for build service users as [CSS Custom Properties](#css-custom-properties).
 
-### CSS Custom Properties
+## CSS Custom Properties
 
-#### Colour Palette Custom Properties
+### Colour Palette Custom Properties
 
 All palette colors, including default mixes and tones, are available as CSS Custom Properties (CSS Variables) in the format `--o-colors-[NAME]`.
 
@@ -43,7 +43,7 @@ See [all palette colours available](https://registry.origami.ft.com/components/o
 }
 ```
 
-#### Colour Usecase Custom Properties
+### Colour Usecase Custom Properties
 
 A limited number of colour [usecases](#usecases) are also available as CSS Custom Properties (CSS Variables), including:
 - `--o-colors-page-background`
@@ -59,7 +59,7 @@ body {
 }
 ```
 
-### Sass
+## Sass
 
 o-colors has a number of mixins and functions for you to access the color palette in your project. We recommend Sass projects use these mixins and functions directly. E.g. [oColorsByName](#oColorsByName) and [oColorsByUsecase](#oColorsByUsecase). However, it is also possible to output all o-colors CSS Custom Properties (CSS Variables) and classes using the `oColors` mixin.
 
@@ -72,7 +72,7 @@ o-colors has a number of mixins and functions for you to access the color palett
 ));
 ```
 
-#### Palette Colours
+### Palette Colours
 
 o-colors defines a colour palette (a set of named colours) which may be [previewed in the registry](https://registry.origami.ft.com/components/o-colors). Custom palette colours may be added to the palette to share them with dependencies.
 
@@ -100,7 +100,7 @@ org-b2c-light | master
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
-#### Default Palette Colours
+### Default Palette Colours
 
 Get a default colour from the palette using `oColorsByName`.
 
@@ -159,7 +159,7 @@ Removing a colour is considered a breaking change and requires a major release. 
 
 See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=master#o-colors-mixin-ocolorssetusecase) for more details and examples.
 
-#### Usecases
+### Usecases
 
 A [colour palette](#palette-colours) helps products use the same set of colours, but does not help them use the colours consistently. Therefore o-colors provides tools to return colours based on usecases. E.g. a colour for the page background or body text.
 
@@ -209,7 +209,7 @@ To get a colour for a default usecase call `oColorsByUsecase`.
 	}
 ```
 
-#### Custom Usecase
+### Custom Usecase
 
 To create a new usecase call `oColorsSetUseCase`.
 
@@ -249,7 +249,7 @@ Deprecate individual usecase properties:
 	), ('deprecated': ('background': 'o-example stripes has no background anymore, use a different colour')));
 ```
 
-#### Generated Text Colors
+### Generated Text Colors
 
 `oColorsGetTextColor` will return a light or dark text color based on the background and an opacity specified.
 
@@ -283,7 +283,7 @@ The contrast of the background and resulting text colour is checked against [WCA
 
 Set `$minimum-contrast` to `null` to remove contrast checking. Only ignore contrast for [incidental or logo text](https://www.w3.org/TR/WCAG21/#contrast-minimum), otherwise your project may be inaccessible.
 
-#### Mix colors
+### Mix colors
 
 `oColorsMix` will mix two colors based on a percentage. This gives the impression of the base color appearing at the percentage opacity over the background color. `oColorsMix` will accept either a color value or the name of an o-colors palette color as arguments.
 
@@ -297,7 +297,7 @@ But two colours may be given. For example to mix claret over slate at 20%:
 $color: oColorsMix($color: 'claret', $background: 'slate', 20);
 ```
 
-#### Tone Palette Colors
+### Tone Palette Colors
 
 An o-colors tone is a palette colour with modified saturation and luminosity, to create a lighter or darker colour whilst retaining vibrancy.
 
@@ -311,7 +311,7 @@ Recommended tones are already in the colour palette, e.g. `teal-80` (see [defaul
 
 For design consistency not all colours are allowed to be toned. Only colours with default tones in the palette (e.g. teal, oxford, and claret) may be used. Other colours [may still be mixed](#mix-colors). If your project has defined custom colours using `oColorsSetColor`, these may be toned by setting the [`allow-tones` option](#custom-palette-colours).
 
-#### Colour Tools
+### Colour Tools
 
 o-colors provides other useful functions for working with colours, including:
 
@@ -337,8 +337,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-colors/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-
-----
+---
 
 ## Licence
 
