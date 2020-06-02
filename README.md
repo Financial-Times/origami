@@ -8,10 +8,9 @@ o-banner is a component used for product messaging which could include feature p
 - [Sass](#sass)
 - [Layouts](#layouts)
 - [Themes](#themes)
-- [Migration guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
-
 
 o-banner includes Sass and JavaScript to show and hide the banner. Banners can be created declaratively by adding markup to the page, or imperatively using JavaScript (only when not using the Build Service).
 
