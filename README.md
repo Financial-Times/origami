@@ -1,5 +1,4 @@
-o-cookie-message
-=================
+# o-cookie-message
 
 The cookie message and behaviour approved by the FT's legal team.
 All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant.
@@ -7,7 +6,7 @@ All FT websites must have a cookie message. Using o-cookie-message will ensure y
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
-- [Migration guide](#migration-guide)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
