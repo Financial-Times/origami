@@ -4,6 +4,7 @@
 Auto initalise Origami components
 
 - [JavaScript](#javascript)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
