@@ -5,10 +5,9 @@ FT page footer component
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-- [Migration guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
-
 
 ## Markup
 
