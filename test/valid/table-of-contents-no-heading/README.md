@@ -1,16 +1,16 @@
-# valid [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# table-of-contents-no-heading [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 a valid origami readme
 
-- [Markup](#markup) 
-	- [Basic Table](#basic-table) 
+- [Markup](#markup)
+	- [Basic Table](#basic-table)
 	- [Disable sort](#disable-sort)
-	- [Responsive options](#responsive-options) 
-	- [Expander](#expander) 
+	- [Responsive options](#responsive-options)
+	- [Expander](#expander)
 	- [Additional Markup](#additional-markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-	- [Filtering](#filtering)  
+	- [Filtering](#filtering)
 	- [Sorting](#sorting)
 	- [Dynamic rows](#dynamic-rows)
 	- [Events](#events)

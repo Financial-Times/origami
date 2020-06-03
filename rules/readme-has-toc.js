@@ -33,13 +33,24 @@ function readmeHasToc(tree, file) {
 		headingLinks[link] = node
 	})
 
-	let toc = find(
+	let tocHeading = find(
 		tree,
 		node =>
 			node.type == "heading" &&
 			node.depth == 2 &&
-			toString(node).trim() == "Table of Contents"
+			toString(node).trim().toLowerCase() == "table of contents"
 	)
+
+	let toc
+
+	if (tocHeading) {
+		toc = findAllBetween(
+			tree,
+			tocHeading,
+			find(tree, n => n != tocHeading && n.depth == 2),
+			"list"
+		)[0]
+	}
 
 	if (!toc) {
 		let betweenHOneAndHTwo = findAllBetween(
@@ -57,6 +68,7 @@ function readmeHasToc(tree, file) {
 
 	let previousSubheadings = findAllBefore(tree, toc, {
 		type: "heading",
+		depth: 2,
 	})
 
 	if (previousSubheadings.length > 1) {
@@ -101,7 +113,7 @@ function checkTocItems({tree, file, list, headingLinks, headings, depth}) {
 				)
 			}
 
-			let {url} = link
+			let url = link && link.url
 			let text = toString(link)
 			let heading = headings[index]
 			let headingText = heading && toString(heading)

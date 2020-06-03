@@ -1,6 +1,11 @@
 # o-table
 
-- [Markup](#markup) - [Basic Table](#basic-table) - [Disable sort](#disable-sort) - [Responsive options](#responsive-options) - [Expander](#expander) - [Additional Markup](#additional-markup)
+- [Markup](#markup)
+	- [Basic Table](#basic-table)
+	- [Disable sort](#disable-sort)
+	- [Responsive options](#responsive-options)
+	- [Expander](#expander)
+	- [Additional Markup](#additional-markup)
 - [Sass](#sass)
 - [JavaScript](#javascript) - [Sorting](#sorting) - [Filtering](#filtering) - [Events](#events)
 - [Troubleshooting](#troubleshooting)
