@@ -1,14 +1,12 @@
-
 # o-labels
 
 Labels for content classification or to emphasise a value.
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
-
 
 ## Markup
 
@@ -77,10 +75,10 @@ The `oLabels` mixin is used to output base styles as well as styles for _all_ of
 
 ```css
 .o-labels {
-    /* styles */
+	/* styles */
 }
 .o-labels--big {
-    /* styles */
+	/* styles */
 }
 /* etc. */
 ```
@@ -89,11 +87,11 @@ If you wish to specify a subset of sizes and states to output styles for, you ca
 
 ```scss
 @include oLabels($opts: (
-    'sizes': ('big'),
-    'states': (
-        'content-commercial',
-        'content-premium'
-    )
+	'sizes': ('big'),
+	'states': (
+		'content-commercial',
+		'content-premium'
+	)
 ));
 ```
 
@@ -107,7 +105,7 @@ The `oLabelsAddState` mixin can be used to output a class for one of the label s
 
 ```css
 .o-labels--content-commercial {
-    /* styles */
+	/* styles */
 }
 ```
 
@@ -115,13 +113,13 @@ The `oLabelsAddState` mixin also accepts optional custom configurations, which o
 
 ```scss
 @include oLabelsAddState('citrus-fruit', (
-    background-color: oColorsByName('lemon')
+	background-color: oColorsByName('lemon')
 ));
 ```
 
 ```css
 .o-labels--citrus-fruit {
-    /* styles */
+	/* styles */
 }
 ```
 
@@ -137,10 +135,10 @@ To output an existing label:
 ```scss
 .o-example-my-label {
 	@include oLabelsContent($opts: (
-        'base': true,
-        'size': 'big',
-        'state': 'tier-gold'
-    ));
+		'base': true,
+		'size': 'big',
+		'state': 'tier-gold'
+	));
 }
 ```
 
@@ -186,7 +184,7 @@ This table outlines all of the possible states you can request in the [`oLabels`
 | tier-bronze          | Used to indicate a service with a bronze service tier.        | internal      |
 
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
@@ -205,4 +203,3 @@ If you have any questions or comments about this component, or need help using i
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
-
