@@ -12,9 +12,9 @@ This header is for tools and services built by the Financial Times.
 - [Sass](#sass)
 	- [Customisation](#customisation)
 - [JavaScript](#javascript)
-- [Migration](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
-- [License](#license)
+- [Licence](#licence)
 
 ## Markup
 
@@ -121,7 +121,7 @@ You can be more selective about which types you would like to output, by using a
 
 To use a logo that is **not** the FT logo, the logo can be modified in one of two ways:
 - By using a logo name from the logo image set (e.g. 'origami')
-- By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. 'https://www.example.com/logo.svg'). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
+- By passing in a full url or data url that points at the SVG you want to use as a logo (e.g. `'https://www.example.com/logo.svg'`). Bear in mind that you can also run your chosen SVG through the [Image Service's URL Builder](https://www.ft.com/__origami/service/image/v2/docs/url-builder), which will optimise the image and provide a URL for it.
 
 In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the [logo image set](https://registry.origami.ft.com/components/logo-images@1.8.0).
 
@@ -189,7 +189,7 @@ import oHeaderServices from ('o-header-services');
 oHeaderServices.init();
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:

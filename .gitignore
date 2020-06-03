@@ -4,3 +4,4 @@ demos/local
 build/
 demos/*.html
 bower_components
+package-lock.json
