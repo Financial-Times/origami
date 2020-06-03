@@ -1,21 +1,19 @@
-o-share [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=======
+# o-share [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Social media buttons.
 
-* Provides the ability to share a URL provided by the product
-* Uses a standard set of social media icons.
-
-
----
-
+- [Overview](#overview)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-- [Migration Guide](#migration)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Overview
+
+* Provides the ability to share a URL provided by the product
+* Uses a standard set of social media icons.
 
 ## Markup
 
@@ -239,7 +237,7 @@ The event provides the following properties:
 
 ---
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
