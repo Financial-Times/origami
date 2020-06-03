@@ -1,5 +1,4 @@
-o-teaser-collection [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-teaser-collection [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
 
@@ -106,7 +105,7 @@ To replicate the header fully, but without the size modifiers such as `o-teaser-
 | sizes     | 'inverse', 'full-width', 'half-width', 'small'  | Output modifier classes for different sizes headings e.g. `my-heading--small`.|
 
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
