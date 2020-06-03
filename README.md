@@ -206,11 +206,11 @@ const myExpander = new Expander(myExpanderElement, {
 
 All the following can be passed to JavaScript or may be set declaratively via [Markup](#markup) as data-attributes (hyphenated and prefixed by `o-expander` e.g. `data-o-expander-shrink-to="height"`):
 
-- `shrinkTo` [`height`]: The expander collapse method, "height", "hidden", or a number of items.
-- `itemSelector` [`li`]: A selector for items to count when  `shrinkTo` is set to a number, relative to `.o-expander__content`.
-- `expandedToggleText` [`less|fewer`]: Toggle text for when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
-- `collapsedToggleText` [`more`]: Toggle text for when the expander is collapsed. Defaults to "more", or "show" when `shrinkTo` is "hidden".
-- `toggleState` [`all|aria|none`]: How to update the expander toggles: "all" to update text and aria-expanded attributes, "aria" to update only aria-expanded attributes, "none" to avoid updating toggles on click.
+- `shrinkTo` `[height]`: The expander collapse method, "height", "hidden", or a number of items.
+- `itemSelector` `[li]`: A selector for items to count when  `shrinkTo` is set to a number, relative to `.o-expander__content`.
+- `expandedToggleText` `[less|fewer]`: Toggle text for when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
+- `collapsedToggleText` `[more]`: Toggle text for when the expander is collapsed. Defaults to "more", or "show" when `shrinkTo` is "hidden".
+- `toggleState` `[all|aria|none]`: How to update the expander toggles: "all" to update text and aria-expanded attributes, "aria" to update only aria-expanded attributes, "none" to avoid updating toggles on click.
 
 ### Custom Expander
 
