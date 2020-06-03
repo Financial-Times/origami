@@ -6,7 +6,7 @@ Responsive header for FT branded sites. See the [Origami Navigation Service](htt
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Browser Support](#browser-support)
-- [Migration Guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -84,7 +84,7 @@ E.g. To get all of the CSS needed for the FT homepage you would call:
 
 We use the [standard](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
