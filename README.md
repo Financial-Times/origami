@@ -4,7 +4,7 @@ A ribbon denoting affiliation with the Financial Times. This ribbon should be us
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -33,7 +33,7 @@ Call the primary mixin `oFtAffiliateRibbon` to include all CSS for the o-ft-affi
 	@include oFtAffiliateRibbon();
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
