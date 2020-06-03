@@ -4,7 +4,7 @@ o-footer-services is a footer component for internal products and tooling at the
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -80,7 +80,7 @@ Your project should call `oFooterServices` once, and add to the `opts` argument 
 ), $include-base-styles: false);
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
