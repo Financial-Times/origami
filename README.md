@@ -1,14 +1,13 @@
-o-normalise [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-normalise [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Foundation styles and standardised utilities
 
 - [Sass](#sass)
 - [Focus States](#focus-states)
 - [Contributing](#contributing)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
-
 
 ## Sass
 
@@ -57,7 +56,7 @@ If you think there is something that could be added to `o-normalise`, either [ra
 
 If you think of any JavaScript functions or utilities that would be useful to have in a module like this, please raise an issue on [o-utils](https://github.com/Financial-Times/o-utils/issues).
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
