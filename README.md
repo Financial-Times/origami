@@ -1,8 +1,8 @@
-o-teaser
-=================
+# o-teaser
 
 This component is for displaying teasers which link through to articles.
 
+- [Development](#development)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Migration guide](#migration)
@@ -10,6 +10,7 @@ This component is for displaying teasers which link through to articles.
 - [Licence](#licence)
 
 ## Development
+
 Install the [Origami build tools](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md) to [build and run demos](https://github.com/Financial-Times/origami-build-tools/blob/master/README.md#developing-modules-locally)
 
 ## Markup
