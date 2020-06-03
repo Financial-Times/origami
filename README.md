@@ -436,7 +436,7 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 1 | 1.7 | N/A |
 
 
-# License
+## Licence
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 
