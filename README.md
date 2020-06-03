@@ -1,22 +1,20 @@
-o-subs-card [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-subs-card [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This component is used for showing information about various FT subscription packages.
 
-
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-	- [JS](#js)
-	- [Migration Guide](#migration-guide)
+- [Overview](#overview)
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Usage
+## Overview
 
 This component is largely Sass styles, but there is a small amount of JavaScript used to show and hide content at smaller screen widths.
 
-### Markup
+## Markup
 
 The subs card will expand to fill the width of its containing element, so you will need to build your own container system depending on how you want to arrange your page. An example of several subs packages together in a collection can be seen in the demos on the [registry](http://registry.origami.ft.com/components/o-subs-card)
 
@@ -43,17 +41,17 @@ The subs card will expand to fill the width of its containing element, so you wi
 </div>
 ```
 
-### Sass
+## Sass
 
 As with all Origami components, o-subs-card has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-subs-card Sass.
 
-#### Themes
+### Themes
 
 The subs card standard theme is teal. To differentiate amongst different subscription tiers, there are some additional themes which you can use with either the mixin or concrete classes:
 - `oSubsCardDiscount` / `o-subs-card--discount`
 - `oSubsCardB2B` / `o-subs-card--b2b`
 
-### JavaScript
+## JavaScript
 
 If you're using the [Build Service](https://www.ft.com/__origami/service/build/v2/) to get this component, you won't need to initialise your JavaScript, it should just work.
 
@@ -98,7 +96,7 @@ The following color use cases have been removed:
 
 ### Upgrading from v2.x.x to v3.x.x
 
-o-subs-card v3.x.x changes the JavaScript from being a mix of ECMAScript Modules and CommonJS in a single file to being solely ECMAScript Modules. 
+o-subs-card v3.x.x changes the JavaScript from being a mix of ECMAScript Modules and CommonJS in a single file to being solely ECMAScript Modules.
 
 You will need to change from using a CommonJS `require` to an ECMAScript Module `import`:
 
@@ -118,7 +116,7 @@ The following themes have been removed:
 - oSubsCardPremiumPlus / 'o-subs-card--premium-plus'
 ```
 
-And the available themes (and their respective classes) are now:  
+And the available themes (and their respective classes) are now:
 
 ```diff
 + oSubsCardB2B / 'o-subs-card--b2b'
@@ -164,7 +162,7 @@ The markup has been rearranged, and some classes have been removed.
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-subs-card/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
