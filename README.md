@@ -4,7 +4,7 @@ o-footer-services is a footer component for internal products and tooling at the
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration Guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -68,15 +68,15 @@ Your project should call `oFooterServices` once, and add to the `opts` argument 
 ```scss
 // Output o-footer-services with no icons.
 @include oFooterServices($opts: (
-    'logo': 'ftlogo-v1:origami',
-    'icons': ()
+	'logo': 'ftlogo-v1:origami',
+	'icons': ()
 ));
 
 // Include o-footer-services icons separately,
 // without repeating base styles output above.
 // This is *not* recommended.
 @include oFooterServices($opts: (
-    'icons': ('slack', 'github')
+	'icons': ('slack', 'github')
 ), $include-base-styles: false);
 ```
 
