@@ -1,12 +1,10 @@
-
-# o-stepped-progress [![Circle CI](https://circleci.com/gh/Financial-Times/o-stepped-progress/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-stepped-progress/tree/master)
-
+# o-stepped-progress
 Track progress through a multi-step process, such as a form.
 
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
-- [Migration Guide](#migration)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -116,15 +114,15 @@ You can also rely on the `o.DOMContentLoaded` event to initialise all Origami co
 document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 ```
 
-## Interacting with an o-stepped-progress instance
+### Interacting with an o-stepped-progress instance
 
 Once you have stepped progress instances, you can interact with them using the methods below:
 
-  - `mySteppedProgress.getSteps()`: Get an array of the steps in the stepped progress component
-  - `mySteppedProgress.getCompletedSteps()`: Get an array of the steps that are completed
-  - `mySteppedProgress.getCurrentStep()`: Get the step marked as current
-  - `mySteppedProgress.isComplete()`: Get whether the stepped progress has been completed
-  - `mySteppedProgress.progress()`: Mark the current step as complete, and move onto the next step
+- `mySteppedProgress.getSteps()`: Get an array of the steps in the stepped progress component
+- `mySteppedProgress.getCompletedSteps()`: Get an array of the steps that are completed
+- `mySteppedProgress.getCurrentStep()`: Get the step marked as current
+- `mySteppedProgress.isComplete()`: Get whether the stepped progress has been completed
+- `mySteppedProgress.progress()`: Mark the current step as complete, and move onto the next step
 
 There is [full API documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/jsdoc).
 
@@ -181,7 +179,7 @@ This table outlines all of the possible themes you can request in the [`oStepped
 | heavy  | Label with heavier lines and larger type. | internal      |
 
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
