@@ -10,3 +10,4 @@ node_modules/
 /.project
 .DS_Store
 .env
+package-lock.json
