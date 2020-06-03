@@ -1,8 +1,9 @@
-# Visual Effects
+# o-visual-effects
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
 - [Markup](#markup)
+- [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
@@ -71,7 +72,7 @@ The `oVisualEffectsShadowContent` mixin is used to add a consistent shadow to yo
 
 Example:
 
-```sass
+```scss
 .my-element {
 	@include oVisualEffectsShadowContent('mid');
 }
@@ -80,7 +81,7 @@ Example:
 Output:
 
 ```css
-.my-element{
+.my-element {
 	box-shadow: 0 1px 3px rgba(77, 72, 69, 0.2), 0 6px 10px rgba(77, 72, 69, 0.15);
 }
 ```
@@ -91,7 +92,7 @@ When adding transitions to elements in CSS, you should use o-visual-effects vari
 
 Example:
 
-```sass
+```scss
 .transition--slide {
 	transition: all 0.5s $o-visual-effects-timing-slide;
 }
@@ -121,7 +122,7 @@ Output:
 }
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
