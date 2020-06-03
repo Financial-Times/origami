@@ -9,6 +9,6 @@
 		"remark-lint": "^7.0.0",
 		"remark-preset-lint-origami-component": "^1.0.0",
 		"stylelint": "^13.5.0",
-		"stylelint-config-origami-component": "^1.0.3"
+		"stylelint-config-origami-component": "^1.0.4"
 	}
 }
