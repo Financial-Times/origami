@@ -3,8 +3,9 @@
 This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>` tag and a target.
 
 - [Markup](#markup)
-- [JavaScript](#javascript)
 - [Sass](#sass)
+- [JavaScript](#javascript)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -23,13 +24,13 @@ The data attribute `data-o-toggle-callback` may also be set to the name of a fun
 
 ```html
 <script>
-    window.myToggleCallback = function(state, event) {
-        if (state === 'open') {
-            console.log('Target opened');
-        } else if (state === 'close') {
-            console.log('Target closed');
-        }
-    };
+	window.myToggleCallback = function(state, event) {
+		if (state === 'open') {
+			console.log('Target opened');
+		} else if (state === 'close') {
+			console.log('Target closed');
+		}
+	};
 </script>
 <button data-o-component="o-toggle" data-o-toggle-target="#my-target" data-o-toggle-callback="myToggleCallback">My button</button>
 <div id='my-target' class="o-toggle o-toggle-display">Some toggleable content</div>
@@ -60,7 +61,7 @@ As with other Origami components, all `o-toggle` instances on the page with the 
 ```js
 import 'o-toggle';
 document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
@@ -76,25 +77,25 @@ Toggles may also be constructed individually without `data-o-component="o-toggle
 import Toggle from 'o-toggle';
 const toggleEl = document.querySelector('.o-toggle');
 const toggle = new Toggle(toggleEl, {
-        target: '.my-target',
-        callback: function(state, event) {
-            if (state === 'open') {
-                console.log('Target opened');
-            } else if (state === 'close') {
-                console.log('Target closed');
-            }
-        }
-    });
+		target: '.my-target',
+		callback: function(state, event) {
+			if (state === 'open') {
+				console.log('Target opened');
+			} else if (state === 'close') {
+				console.log('Target closed');
+			}
+		}
+	});
 ```
 
 A second parameter can be passed to the oToggle constructor or to the `.init()` function with a config object that has the following options:
 
-- *target*: HTMLElement or selector of the element that will be toggled
-- *callback*: Function or content of a function as _string_ that will be executed every time a toggle happens. It has the following parameters:
-    - State. 'open' or 'close'
-    - Click event object if it comes from the event handler on the toggle
+- _target_: HTMLElement or selector of the element that will be toggled
+- _callback_: Function or content of a function as _string_ that will be executed every time a toggle happens. It has the following parameters:
+	- State. 'open' or 'close'
+	- Click event object if it comes from the event handler on the toggle
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
