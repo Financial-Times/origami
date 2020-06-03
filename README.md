@@ -57,18 +57,18 @@ To support lazy-loading of images you can use the `o-teaser__image-placeholder` 
 
 The following elements are supported by default:
 
-```css
-.o-teaser__tag 						// Small coloured tag at the top of the teaser
-.o-teaser__tag-suffix				// Small coloured content to come after the tag, such as timestamp or duration
-.o-teaser__tag-prefix				// A container for content before the tag
-.o-teaser__heading 					// Main heading of the teaser
-.o-teaser__standfirst 				// A short piece of content
-.o-teaser__image-container			// Wrapper element for an image
-.o-teaser__image       				// An image for the teaser
-.o-teaser__headshot					// Author's headshot image
-.o-teaser__timestamp 				// A styled timestamp for the teaser
-.o-teaser__related 				 	// A list of related content links
-.o-teaser__related-item 			// A single item of a related content list
+```sh
+.o-teaser__tag              # Small coloured tag at the top of the teaser
+.o-teaser__tag-suffix       # Small coloured content to come after the tag, such as timestamp or duration
+.o-teaser__tag-prefix       # A container for content before the tag
+.o-teaser__heading          # Main heading of the teaser
+.o-teaser__standfirst       # A short piece of content
+.o-teaser__image-container  # Wrapper element for an image
+.o-teaser__image            # An image for the teaser
+.o-teaser__headshot         # Author's headshot image
+.o-teaser__timestamp        # A styled timestamp for the teaser
+.o-teaser__related          # A list of related content links
+.o-teaser__related-item     # A single item of a related content list
 ```
 
 
