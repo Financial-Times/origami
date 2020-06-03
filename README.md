@@ -6,7 +6,7 @@ Responsive header for FT branded sites. See the [Origami Navigation Service](htt
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Browser Support](#browser-support)
-- [Migration guide](#migration-guide)
+- [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
