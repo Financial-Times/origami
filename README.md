@@ -5,7 +5,7 @@ This component is for displaying teasers which link through to articles.
 - [Development](#development)
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -161,7 +161,7 @@ Uses the `o-teaser--audio` modifier.
 [View example on the Registry](http://registry.origami.ft.com/components/o-teaser#demo-audio)
 
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
