@@ -1,4 +1,4 @@
-# FT Video [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-video [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Creates a video player and attaches analytics. Also supports pre roll ads.
 
@@ -10,7 +10,7 @@ Creates a video player and attaches analytics. Also supports pre roll ads.
 - [Testing](#testing)
 - [Migration](#migration)
 - [Contact](#contact)
-- [License](#license)
+- [Licence](#licence)
 
 ## Markup
 
@@ -77,20 +77,20 @@ const video = new Video(document.body, opts);
 
 Where `opts` is an optional object with properties
 
- * `id` [`String`] Source's ID of the video (`brightcoveId` or `uuid`)
- * `autorender` [`Boolean`] Whether to have the video render automatically. If *false* then you will need to call `init()` when ready
- * `optimumwidth` [`Number`] The optimum width of the video placeholder image
- * `optimumvideowidth` [`Number`] The optimum width of the video itself, used when there are multiple video renditions available to
+- `id` `[String]` Source's ID of the video (`brightcoveId` or `uuid`)
+- `autorender` `[Boolean]` Whether to have the video render automatically. If-false* then you will need to call `init()` when ready
+- `optimumwidth` `[Number]` The optimum width of the video placeholder image
+- `optimumvideowidth` `[Number]` The optimum width of the video itself, used when there are multiple video renditions available to
  decide which to display (the smallest one that's at least as large as this width, if it exists)
- * `placeholder` [`Boolean`] Show just the poster image, load (and play) video on click
- * `placeholderHint` [`String`] An optional hint to display alongside the play icon (defaults to empty)
- * `placeholderInfo` [`Array`] A list of extra information to display on the placeholder (Available: title, description, brand)
- * `playsinline` [`Boolean`] Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
- * `classes` [`Array`] Classes to add to the video (and placeholder) element
- * `advertising` [`Boolean`] whether or not to show ads on the video
- * `showCaptions` [`Boolean`] whether or not to add captions to the video. Defaults to *true*.
- * `data` [`Object`] JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
- * `systemcode` [`String`] a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`.
+- `placeholder` `[Boolean]` Show just the poster image, load (and play) video on click
+- `placeholderHint` `[String]` An optional hint to display alongside the play icon (defaults to empty)
+- `placeholderInfo` `[Array]` A list of extra information to display on the placeholder (Available: title, description, brand)
+- `playsinline` `[Boolean]` Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
+- `classes` `[Array]` Classes to add to the video (and placeholder) element
+- `advertising` `[Boolean]` whether or not to show ads on the video
+- `showCaptions` `[Boolean]` whether or not to add captions to the video. Defaults to *true*.
+- `data` `[Object]` JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
+- `systemcode` `[String]` a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`.
 
 The config options can also be set as data attribute to instantiate the module declaratively:
 
