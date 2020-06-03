@@ -649,7 +649,7 @@ myForm.setState('saving', 'my-radio-box', {
 });
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
