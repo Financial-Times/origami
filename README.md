@@ -1,4 +1,4 @@
-# o-forms [![CircleCI](https://circleci.com/gh/Financial-Times/o-forms.png?style=shield&circle-token=8d39afee1e3c3b1f586770034db9673b791cb4f8)](https://circleci.com/gh/Financial-Times/o-forms) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-forms [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 FT-branded styles for form elements.
 
