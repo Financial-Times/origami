@@ -1,11 +1,14 @@
-o-layout
-=================
+# o-layout
+
+Page layouts and typography for internal tools and products.
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Default and Bleed Layout](#default-and-bleed-layout)
 - [Documentation Layout](#documentation-layout)
 - [Landing Layout](#landing-layout)
+- [Overview Sections](#overview-sections)
 - [Query Layout](#query-layout)
 - [Sass](#sass)
 - [JavaScript](#javascript)
@@ -13,7 +16,6 @@ o-layout
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
-
 
 ## Overview
 
