@@ -43,8 +43,8 @@ constructing the `CustomEvent` and should dispatch it on the component's owned D
 
 Uncaught errors are handled by a `window.onerror` function
 installed on initialisation. *Note* uncaught errors will not be reported
-automatically if they occur _before_ initialisation, although any errors reported using the
-`o-errors` API _will_ be buffered and reported once initialised.
+automatically if they occur *before* initialisation, although any errors reported using the
+`o-errors` API *will* be buffered and reported once initialised.
 
 ### Reporting errors
 
