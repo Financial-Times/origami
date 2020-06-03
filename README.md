@@ -21,19 +21,21 @@ This is an example of an HTML structure that __o-tabs__ will accept:
 
 ```html
 <ul data-o-component="o-tabs" class="o-tabs" role="tablist">
-    <li role="tab"><a href="#tabContent1">Tab 1</a></li>
-    <li role="tab"><a href="#tabContent2">Tab 2</a></li>
-    <li role="tab"><a href="#tabContent3">Tab 3</a></li>
+	<li role="tab"><a href="#tabContent1">Tab 1</a></li>
+	<li role="tab"><a href="#tabContent2">Tab 2</a></li>
+	<li role="tab"><a href="#tabContent3">Tab 3</a></li>
 </ul>
 <div id="tabContent1" class="o-tabs__tabpanel">
-    Tab content 1
+	Tab content 1
 </div>
 <div id="tabContent2" class="o-tabs__tabpanel">
-    Tab content 2
+	Tab content 2
 </div>
 <div id="tabContent3" class="o-tabs__tabpanel">
-    <div>Note: first elements of each tab will get focused when it is selected. In this case, this div will receive focus.</div>
-    Tab content 3
+	<div>
+		Note: first elements of each tab will get focused when it is selected. In this case, this div will receive focus.
+	</div>
+	Tab content 3
 </div>
 ```
 
@@ -45,8 +47,8 @@ You can set config options declaratively by using `[data-o-tabs-]` prefixed data
 
 Options consist of:
 
-* `data-o-tabs-disablefocus="true"` - prevent the tabpanel being focused when selected.
-* `data-o-tabs-update-url="true"` - update the URL with the `#` of the selected panel.
+- `data-o-tabs-disablefocus="true"` - prevent the tabpanel being focused when selected.
+- `data-o-tabs-update-url="true"` - update the URL with the `#` of the selected panel.
 
 ### Core experience
 
@@ -67,8 +69,8 @@ __On init__, `aria-controls` is added to each tab element, with value being the 
 
 __On init and selected tab change__ these attributes are set and updated as appropriate:
 
-* `aria-selected` is set on the tab elements
-* `aria-hidden` and `aria-expanded` are set on the tabpanels
+- `aria-selected` is set on the tab elements
+- `aria-hidden` and `aria-expanded` are set on the tabpanels
 
 These state attributes are used by the __o-tabs__ CSS.
 
@@ -81,7 +83,7 @@ A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-constru
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
@@ -92,7 +94,7 @@ Note that for browsers that do not support `DOMContentLoaded` (IE8 etc), the eve
 ```javascript
 import Tabs from 'o-tabs';
 const tabsObjects = Tabs.init(document.body, {
-    disablefocus: false
+	disablefocus: false
 });
 ```
 
@@ -105,7 +107,7 @@ An array of any constructed Tabs objects will be returned.
 ```javascript
 import Tabs from 'o-tabs';
 const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
-    disablefocus: false
+	disablefocus: false
 });
 ```
 
@@ -113,12 +115,12 @@ const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
 
 The following events will be dispatched on the Tabs' root DOM element:
 
-* `oTabs.ready`: The Tabs object has initialised. Event detail:
-  * `tabs`: The __o-tabs__ object.
-* `oTabs.tabSelect`: A tab has been selected. Event detail:
-  * `tabs`: The __o-tabs__ object.
-  * `selected`: The index of the selected tab.
-  * `lastSelected`: The index of the last selected tab.
+- `oTabs.ready`: The Tabs object has initialised. Event detail:
+	- `tabs`: The __o-tabs__ object.
+- `oTabs.tabSelect`: A tab has been selected. Event detail:
+	- `tabs`: The __o-tabs__ object.
+	- `selected`: The index of the selected tab.
+	- `lastSelected`: The index of the last selected tab.
 
 ### API
 
@@ -126,10 +128,10 @@ Tabs are indexed starting from 0.
 
 The following API methods are provided:
 
-* `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
-  - `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
-* `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
-* `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
+- `init(config)`: Set attributes/classes, bind events. Called automatically on construction. Does nothing if already been called. `config` object accepts:
+	- `disablefocus`: If set to `true`, it will stop the aria-selected tab from receiving focus.
+- `selectTab(idx)`: Select tab `idx`. Does nothing if tab `idx` does not exist or is already selected.
+- `destroy()`: Unbind events, remove `o-tabs--js` class. After calling this, `init()` can be called again to re-initialise the tabs.
 
 ## Sass
 
@@ -159,8 +161,8 @@ Set `oTabs` options to output more [sizes](#sizes) and variations of button tabs
 
 ```scss
 @include oTabs($opts: (
-    'sizes': ('big'), //.o-tabs--big
-    'button-tabs': (
+	'sizes': ('big'), //.o-tabs--big
+	'button-tabs': (
 		('type': 'primary'), //.o-tabs--primary
 		('type': 'secondary'), //.o-tabs--secondary
 		('type': 'secondary', 'theme': 'inverse'), //.o-tabs--secondary.o-tabs--inverse
@@ -205,11 +207,9 @@ This table outlines some of the possible button themes you can request in the [`
 | ╳ deprecated | 2 | 2.2 | N/A |
 | ╳ deprecated | 1 | 1.0 | N/A |
 
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tabs/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
-
 
 ## Licence
 
