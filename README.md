@@ -1,15 +1,18 @@
-
 # o-syntax-highlight
 
 A syntax highlighter for Origami-supported documentation that wraps [PrismJs](https://github.com/PrismJS/prism).
 
+- [Overview](#overview)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 	- [Construction](#construction)
-	- [Sass](#sass)
+- [Sass](#sass)
 - [Troubleshooting](#troubleshooting)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Overview
 
 This component provides accessible syntax highlighting for `bash`, `diff`, Javascript, JSON, YAML/YML, HTML, CSS and Sass/SCSS.
 _If there are any languages you would like to highlight that we don't currently support, please open an issue and we will provide it._
@@ -141,7 +144,7 @@ You can also be more specific about which languages you would like styling outpu
 
 When using [Marked](https://www.npmjs.com/package/marked) it is possible to override its default renderer so you can create custom output for code blocks. To get `o-syntax-highlight` compatible output see the [example in this Github issue](https://github.com/Financial-Times/o-syntax-highlight/issues/49).
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
