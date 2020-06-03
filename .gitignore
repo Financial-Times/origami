@@ -6,4 +6,5 @@
 /build/
 .idea/
 /demos/local
-/coveragepackage-lock.json
+/coverage
+package-lock.json
