@@ -120,7 +120,11 @@ function checkTocItems({tree, file, list, headingLinks, headings, depth}) {
 				)
 			}
 
-			if (text.trim().toLowerCase() !== headingText.trim().toLowerCase()) {
+			if (
+				text &&
+				headingText &&
+				text.trim().toLowerCase() !== headingText.trim().toLowerCase()
+			) {
 				file.message(
 					`The table of contents items should be in the same order as the headings in the readme. Item "${text}" does not match heading "${headingText}"`,
 					listItem
@@ -177,7 +181,7 @@ function checkTocItems({tree, file, list, headingLinks, headings, depth}) {
 		for (; index < headings.length; ++index) {
 			let heading = headings[index]
 			file.message(
-				`The table of contents should contain a link to every h2. Missing item for "${toString(
+				`The table of contents top-level contain a link to every h2 in the document, and sub-levels should contain a link to every h3 in their section. Missing item for "${toString(
 					heading
 				)}"`,
 				list
