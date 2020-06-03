@@ -5,7 +5,7 @@ FT page footer component
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-- [Migration](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
