@@ -7,3 +7,4 @@ demos/local/
 node_modules/
 docs/
 coverage/
+package-lock.json
