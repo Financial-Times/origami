@@ -1,9 +1,10 @@
-# o-ft-affiliate-ribbon [![Circle CI](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-ft-affiliate-ribbon/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-ft-affiliate-ribbon [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 A ribbon denoting affiliation with the Financial Times. This ribbon should be used in products that are owned by the Financial Times but have a separate brand identity to the Financial Times.
 
 - [Markup](#markup)
 - [Sass](#sass)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -45,7 +46,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-ft-affiliate-ribbon/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
