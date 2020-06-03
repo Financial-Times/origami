@@ -3,7 +3,7 @@
 Responsive header for FT branded sites. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data.
 
 - [Markup](#markup)
-- [JavaScript](#JavaScript)
+- [JavaScript](#javascript)
 - [Sass](#sass)
 - [Browser Support](#browser-support)
 - [Migration Guide](#migration)
