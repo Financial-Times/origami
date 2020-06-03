@@ -1,10 +1,10 @@
-# o-loading [![CircleCI](https://circleci.com/gh/Financial-Times/o-loading.png?style=shield&circle-token=03cae109ceaa7cf8e0c0df732ee0db6a42f61fb7)](https://circleci.com/gh/Financial-Times/o-loading) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-loading [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This is an [Origami](http://origami.ft.com/) component that provides a visual loading indicator.
 
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -58,7 +58,7 @@ If you need to build a loading spinner into a component, for example, you can us
 }
 ```
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
