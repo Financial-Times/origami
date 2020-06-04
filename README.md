@@ -1,17 +1,21 @@
 # o-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-Typographical styles for FT branded sites. The component provides typographical fundamentals such as font scales, vertical rhythm, and font fallbacks. Plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases such as [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), or [big numbers](https://github.com/Financial-Times/o-big-number/).
+Typographical styles for FT branded sites.
 
-----
-
+- [Overview](#overview)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
-- [Migration guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
+## Overview
+
+ The component provides typographical fundamentals such as font scales, vertical rhythm, and font fallbacks. Plus styles for UI including links, headings, and titles.
+
+ Other components build on o-typography to provide for more specific usecases such as [editorial typography](https://github.com/Financial-Times/o-editorial-typography), [quotes](https://github.com/Financial-Times/o-quote/), or [big numbers](https://github.com/Financial-Times/o-big-number/).
 
 By default, o-typography uses a single typographic scale for use with all fonts. The scale consists of font-size and line-height combinations, as shown below:
 
@@ -103,7 +107,7 @@ If you do not want to use `o-typography` progressive font loading set `$o-typogr
 
 ```scss
 // configure o-typography to not include progressive font fallback css
-$o-typography-progressive-font-loading:: false;
+$o-typography-progressive-font-loading: false;
 // import dependencies
 @import 'o-typography/main';
 @import 'o-fonts/main';
@@ -120,18 +124,18 @@ To setup `o-typography` progressive font loading include both its CSS and JavaSc
 The fallback font will be switched for the custom font on each page load, as o-typography JavaScript detects the font has loaded and removes the above CSS classes. This causes a visual "flash". To prevent that add the following JavaScript snippet in the `head` of your page:
 
 ```js
-  var rootElement = document.querySelector('html')
-  if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
-    for (var i = 0; i < fontLabels.length; i++) {
-      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
-    }
-  }
+	var rootElement = document.querySelector('html')
+	if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+		var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+		for (var i = 0; i < fontLabels.length; i++) {
+			rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+		}
+	}
 ```
 
 If you build your projects using Sass, styles for progressively loading fonts are output by default when using the [use case mixins](#use-case-mixins) or [type mixins](#type-mixins).
 
-### Sass
+## Sass
 
 To include all typography classes use the `oTypography` mixin:
 
@@ -191,9 +195,9 @@ $o-typography-error-for-missing-fonts: 'This project only allows recommended o-f
 // try to use a font which is not recommended,
 // and has not been included with o-fonts
 .fancy-typography-used-only-here {
-  // throws an error which includes the `$o-typography-error-for-missing-fonts` message.
-  // a thin/italic font face has not been included
-  @include oTypographySans($scale: 1, $weight: 'thin', $style: 'normal');
+	// throws an error which includes the `$o-typography-error-for-missing-fonts` message.
+	// a thin/italic font face has not been included
+	@include oTypographySans($scale: 1, $weight: 'thin', $style: 'normal');
 }
 ```
 
@@ -401,19 +405,19 @@ If defining a scale for a custom font, first [set the custom font](#use-a-custom
 ```scss
 $example-custom-font-family: 'MySansFont, sans';
 $example-custom-font-scale: (
-   -2: (12, 16), // $scale: ($font-size, $line-height)
-   -1: (14, 16),
-    0: (16, 20),
-    1: (18, 20),
-    2: (20, 24),
-    3: (24, 28),
-    4: (28, 32),
-    5: (32, 32),
-    6: (40, 40),
-    7: (48, 48),
-    8: (56, 56),
-    9: (72, 72),
-   10: (84, 84),
+	-2: (12, 16), // $scale: ($font-size, $line-height)
+	-1: (14, 16),
+	0: (16, 20),
+	1: (18, 20),
+	2: (20, 24),
+	3: (24, 28),
+	4: (28, 32),
+	5: (32, 32),
+	6: (40, 40),
+	7: (48, 48),
+	8: (56, 56),
+	9: (72, 72),
+	10: (84, 84),
 );
 
 @include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
@@ -437,13 +441,13 @@ $o-brand: whitelabel;
 
 // 3. Customise typography variants.
 @include oTypographyCustomize((
-    'blockquote-color': hotpink, // Update the blockquote border color to hotpink.
-    'heading-level-one': (
-        'scale': 7, // Update the size of h1.
-    ),
-    'heading-level-two': (
-        'scale': 6 // Update the size of h2 (up to h6 is supported heading-level-six).
-    )
+	'blockquote-color': hotpink, // Update the blockquote border color to hotpink.
+	'heading-level-one': (
+		'scale': 7, // Update the size of h1.
+	),
+	'heading-level-two': (
+		'scale': 6 // Update the size of h2 (up to h6 is supported heading-level-six).
+	)
 ));
 
 // 4. Output typography styles.
@@ -489,7 +493,7 @@ This is likely due to a misconfigured `Vary` header. In IE11 if the `Vary` heade
 This is likely due to the server sending the fonts having misconfigured Cross Origin Resource Sharing (CORS). The solution to this is to set the header `Access-Control-Allow-Origin` with the value `*` for any font requests.
 
 
-## Migration
+## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
@@ -507,12 +511,9 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-typography/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 For more see the [demos in the registry](registry).
-
-[registry]: https://registry.origami.ft.com/components/o-typography/
-[sassdoc]: https://registry.origami.ft.com/components/o-typography/sassdoc
