@@ -41,6 +41,13 @@
         "type": "visibility"
       },
       "description": "This toggle target has a class \"o-toggle-visibility\" which visually hides it, whilst still occupying space, until clicking the toggle updates its aria attributes and adds the \"o-toggle--active\" class."
-    }
+    },
+		{
+			"hidden": true,
+			"title": "Anchor toggle",
+			"name": "anchor",
+			"template": "demos/src/anchor.mustache",
+			"description": "Demonstrate toggle use on anchors"
+		}
   ]
 }
