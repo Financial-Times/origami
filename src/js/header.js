@@ -10,10 +10,10 @@ import sticky from './sticky';
 // In the future we should consider using the 'button' element instead.
 function handleSpaceKeydown (e) {
 	// get the target element
-	const target = e.target;
-	const targetIsRoleButton = target.getAttribute('role') === 'button';
+	const target = e.target
+	const targetIsRoleButton = target.getAttribute('role') === 'button'
 	// if the pressed key is a space, we'll simulate a click
-	const keyPressIsSpace = e.keyCode === 32;
+	const keyPressIsSpace = e.keyCode === 32
 	if (targetIsRoleButton && keyPressIsSpace) {
 		// prevent space from scrolling the page
 		e.preventDefault();
