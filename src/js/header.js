@@ -4,24 +4,6 @@ import drawer from './drawer';
 import subnav from './subnav';
 import sticky from './sticky';
 
-// Some assistive technologies, like screen readers, suggest to press 'space'
-// when interacting with a link with a role of 'button'.
-// We need to ensure that we replicate this functionality that exists on a button element.
-// In the future we should consider using the 'button' element instead.
-function handleSpaceKeydown (e) {
-	// get the target element
-	const target = e.target
-	const targetIsRoleButton = target.getAttribute('role') === 'button'
-	// if the pressed key is a space, we'll simulate a click
-	const keyPressIsSpace = e.keyCode === 32
-	if (targetIsRoleButton && keyPressIsSpace) {
-		// prevent space from scrolling the page
-		e.preventDefault();
-		// trigger the target's click event
-		target.click();
-	}
-}
-
 class Header {
 
 	constructor (headerEl) {
@@ -42,8 +24,6 @@ class Header {
 		drawer.init(this.headerEl);
 		subnav.init(this.headerEl);
 		sticky.init(this.headerEl);
-
-		headerEl.addEventListener('keydown', handleSpaceKeydown);
 
 		this.headerEl.removeAttribute('data-o-header--no-js');
 		this.headerEl.setAttribute('data-o-header--js', '');
