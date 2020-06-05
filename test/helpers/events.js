@@ -1,8 +1,10 @@
 export function dispatch (target, type, eventProperties) {
 	const event = new Event(type, { bubbles: true });
 	for (const property in eventProperties) {
-		event[property] = eventProperties[property];
-	} 
+		if (eventProperties.hasOwnProperty(property)) {
+			event[property] = eventProperties[property];
+		}
+	}
 	target.dispatchEvent(event);
 }
 
