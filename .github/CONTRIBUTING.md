@@ -42,7 +42,7 @@ Anybody can propose a new component or pattern for inclusion in Origami. This ca
 
 ### Creating a proposal PR
 
-1. Copy `proposals/0000-template.md` to `proposals/0000-my-new-proposal-title.md`
+1. Copy `proposals/accepted/0000-template.md` to `proposals/accepted/0000-my-new-proposal-title.md`
 2. Edit your new file, filling in the sections of the template appropriately
 3. File a pull request and add the `proposal` label, as well as the `component` or `pattern` label if applicable.
 
