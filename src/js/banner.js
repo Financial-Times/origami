@@ -171,18 +171,20 @@ class Banner {
 			`;
 		}
 		let primaryActionHtml = '';
-		if (this.options.formAction !== null && this.options.formAction !== undefined) {
-			primaryActionHtml = `
-				<form class="${classNames.action}" action="${this.options.formAction}" enctype="${this.options.formEncoding}" method="${this.options.formMethod}">
-					<input class="${classNames.button}" type="submit" value="${this.options.buttonLabel}"/>
-				</form>
-			`;
-		} else {
-			primaryActionHtml = `
-				<div class="${classNames.action}">
-					<a href="${this.options.buttonUrl}" class="${classNames.button}">${this.options.buttonLabel}</a>
-				</div>
-			`;
+		if (this.options.buttonLabel) {
+			if (this.options.formAction !== null && this.options.formAction !== undefined) {
+				primaryActionHtml = `
+					<form class="${classNames.action}" action="${this.options.formAction}" enctype="${this.options.formEncoding}" method="${this.options.formMethod}">
+						<input class="${classNames.button}" type="submit" value="${this.options.buttonLabel}"/>
+					</form>
+				`;
+			} else {
+				primaryActionHtml = `
+					<div class="${classNames.action}">
+						<a href="${this.options.buttonUrl}" class="${classNames.button}">${this.options.buttonLabel}</a>
+					</div>
+				`;
+			}
 		}
 		let secondaryActionHtml = '';
 		if (this.options.linkLabel) {
@@ -196,10 +198,11 @@ class Banner {
 			<div class="${classNames.outer}">
 				<div class="${classNames.inner}" data-o-banner-inner="">
 					${contentHtml}
-					<div class="${classNames.actions}">
+					${(primaryActionHtml || secondaryActionHtml) &&
+					`<div class="${classNames.actions}">
 						${primaryActionHtml}
 						${secondaryActionHtml}
-					</div>
+					</div>`}
 				</div>
 			</div>
 		`;

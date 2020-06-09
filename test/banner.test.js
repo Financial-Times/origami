@@ -513,6 +513,64 @@ describe('Banner', () => {
 
 			});
 
+			describe('when `options.buttonLabel` is not a string', () => {
+
+				beforeEach(() => {
+					banner.options.buttonLabel = null;
+					returnValue = banner.buildBannerElement();
+				});
+
+				it('does not include a primary action', () => {
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
+										mockContentLong
+									</div>
+									<div class="o-banner__content o-banner__content--short">
+										mockContentShort
+									</div>
+									<div class="o-banner__actions">
+										<div class="o-banner__action o-banner__action--secondary">
+											<a href="mockLinkUrl" class="o-banner__link">mockLinkLabel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					`.replace(/[\t\n]+/g, ''));
+				});
+
+			});
+
+			describe('when `options.buttonLabel` and `options.linkLabel` are not a string', () => {
+
+				beforeEach(() => {
+					banner.options.buttonLabel = null;
+					banner.options.linkLabel = null;
+					returnValue = banner.buildBannerElement();
+				});
+
+				it('does not include the actions element', () => {
+					proclaim.strictEqual(returnValue.outerHTML.replace(/[\t\n]+/g, ''), `
+						<div class="o-banner">
+							<div class="o-banner__outer">
+								<div class="o-banner__inner" data-o-banner-inner="">
+									<div class="o-banner__content o-banner__content--long">
+										mockContentLong
+									</div>
+									<div class="o-banner__content o-banner__content--short">
+										mockContentShort
+									</div>
+								</div>
+							</div>
+						</div>
+					`.replace(/[\t\n]+/g, ''));
+				});
+
+			});
+
 			describe('when `options.theme` is defined and is a string', () => {
 
 				beforeEach(() => {

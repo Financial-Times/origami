@@ -73,6 +73,12 @@
 }
 
 @mixin _oBannerContent {
+	// flex grow so banner content takes the full width
+	// when there are no banner actions, e.g. if the user
+	// only wants a banner to be dismissed with a close button,
+	// or they want a custom call to action within banner
+	// content
+	flex-grow: 1;
 	padding: 0 $_o-banner-spacing;
 
 	h1,

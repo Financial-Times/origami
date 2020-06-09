@@ -101,6 +101,28 @@ If the banner element has content, but does _not_ include an `o-banner__outer` e
 </div>
 ```
 
+To customise the layout of banner actions, for example to bring actions below banner content on desktop, remove both actions (`o-banner__actions`) and include your own action within banner content (`o-banner__content`). This allows more control of banner styles whilst avoiding CSS overrides which may visually break with `o-banner` style changes. Removing default actions is not recommended for design consistency, but may be used to create experimental banners.
+
+```diff
+<div class="o-banner" data-o-component="o-banner">
+	<div class="o-banner__outer">
+		<div class="o-banner__inner" data-o-banner-inner="">
+			<div class="o-banner__content">
++				<div class="my-custom-banner-content">
+					<p>Try the new compact homepage. A list view of today's homepage with fewer images.	</p>
++					<a href="#" class="my-custom-action">Try it now</a>
++				</div>
+			</div>
+-			<div class="o-banner__actions">
+-				<div class="o-banner__action">
+-					<a href="#" class="o-banner__button">Try it now</a>
+-				</div>
+-			</div>
+		</div>
+	</div>
+</div>
+```
+
 ## JavaScript
 
 No code will run automatically unless you are using the Build Service. You must either construct an o-banner object or fire an `o.DOMContentLoaded` event, which o-banner listens for.
@@ -150,7 +172,7 @@ There are several options used to change the appearance or behaviour of o-banner
 - `closeExistingBanners`: Boolean. Whether to automatically close all other banners when the new banner is instantiated. Defaults to `true`
 - `contentLong`: String. The content to display on larger screens, or all screens if `contentShort` is not specified. Defaults to `&hellip;`
 - `contentShort`: String. The content to display on smaller screens. Defaults to the value of `contentLong`
-- `buttonLabel`: String. The banner button label. Defaults to `OK`
+- `buttonLabel`: String. The banner button label. Set to `null` to hide the button. Defaults to `OK`
 - `buttonUrl`: String. The URL the button links to. Defaults to `#`
 - `formAction`: String. A form action, if specified then the primary button will be a submit button in a form. Defaults to `null`
 - `formEncoding`: String. The form encoding. Only used if `formAction` is not null. Defaults to `application/x-www-form-urlencoded`

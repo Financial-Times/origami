@@ -1,6 +1,7 @@
 
-$o-banner-is-silent: false;
 @import '../../main';
+
+@include oBanner();
 
 body {
 	@include oTypographySans();
@@ -19,7 +20,7 @@ body {
 	));
 }
 
-.o-banner--static {
+.demo-banner-static {
 	position: static !important; // stylelint-disable-line declaration-no-important
 }
 
@@ -27,6 +28,10 @@ body {
 	'text-color': oColorsByName('black'),
 	'background-color': oColorsByName('lemon'),
 	'heading-rule-color': oColorsByName('crimson'),
-	'button-background-color': oColorsByName('crimson'),
-	'background-image': 'https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fi.imgur.com%2FIZmzrN7g.jpg?source=pikachu&width=200&format=png'
+	'button-background-color': oColorsByName('crimson')
 ));
+
+.demo-custom-content {
+	@include oTypographySerif(1);
+	text-align: center;
+}
