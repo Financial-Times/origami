@@ -107,11 +107,11 @@ $o-brand: whitelabel;
 
 Available brand variables include:
 - `text-color`: The default text colour.
-- `background-color`: The default background colour.
+- `background-color`: The background colour.
 - `border-color`: The border colour used around and within the footer.
 - `link-color`: The default link colour.
-- `link-hover-color`: The default link colour when hovered.
-- `legal-text-color`: The colour of legal links within the footer. By design, this is also used for the legal link hover colour.
+- `link-hover-color`: The hover colour of links with no underline, i.e. icon links.
+- `legal-text-color`: The colour of legal links.
 
 
 ## Migration guide
