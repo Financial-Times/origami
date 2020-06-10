@@ -39,11 +39,16 @@
 	@if($icons) {
 		.o-footer-services__icon-link {
 			@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			@include _oFooterServicesLink(
-				$custom-link-base: _oFooterServicesGet('default-link-color'),
-				$custom-link-hover: _oFooterServicesGet('default-link-hover'),
-				$custom-link-background: _oFooterServicesGet('default-background')
-			);
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('link-color'),
+				'hover': _oFooterServicesGet('link-hover-color'),
+				'context': _oFooterServicesGet('background-color')
+			));
+			// Remove link enderline.
+			border-bottom: 0;
+			@supports (text-decoration-thickness: 0.25ex) {
+				text-decoration-line: none;
+			}
 
 			display: inline-block;
 			min-width: max-content;

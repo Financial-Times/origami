@@ -80,6 +80,40 @@ Your project should call `oFooterServices` once, and add to the `opts` argument 
 ), $include-base-styles: false);
 ```
 
+### Customisation
+
+For users of the `whitelabel` brand, `o-footer-services` customise brand variables using the `oFooterServicesCustomize` mixin.
+
+```scss
+$o-brand: whitelabel;
+@import 'o-footer-services/main';
+
+// Customise o-footer-services colours
+@include oFooterServicesCustomize((
+	'text-color': rgb(73, 0, 39),
+	'background-color': rgb(251, 238, 240),
+	'border-color': hotpink,
+	'link-color': rgb(156, 4, 85),
+	'link-hover-color': rgb(156, 4, 85),
+	'legal-text-color': rgb(214, 73, 148)
+));
+
+// Output o-footer-services css
+@include oFooterServices($opts: (
+	'logo': 'ftlogo-v1:origami',
+	'icons': ()
+));
+```
+
+Available brand variables include:
+- `text-color`: The default text colour.
+- `background-color`: The default background colour.
+- `border-color`: The border colour used around and within the footer.
+- `link-color`: The default link colour.
+- `link-hover-color`: The default link colour when hovered.
+- `legal-text-color`: The colour of legal links within the footer. By design, this is also used for the legal link hover colour.
+
+
 ## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |

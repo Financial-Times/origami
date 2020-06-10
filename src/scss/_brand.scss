@@ -10,29 +10,48 @@
 	@return oBrandSupportsVariant($component: 'o-footer-services', $variant: $variant);
 }
 
+/// Helper for `whitelabel` varibale customisation
+/// @brand whitelabel
+/// @param {Map} $variables - Brand variables to customise
+/// @access public
+/// @example scss
+///		@include oFooterServicesCustomize((
+///			'nav-background': hotpink;
+///			'nav-hover-background': candy;
+///		))
+@mixin oFooterServicesCustomize($variables) {
+	@include oBrandCustomize('o-footer-services', $variables);
+}
+
 $_o-footer-services-shared-brand-config: (
-	default-background: 'black-5',
-	default-border: 'black-20',
-	default-link-color: 'black-80',
-	default-link-hover: 'black-60',
-	legal-text: 'black-60',
-	legal-link-hover: 'black-80',
+	text-color: oColorsByName('black'),
+	background-color: oColorsByName('black-5'),
+	border-color: oColorsByName('black-20'),
+	link-color: oColorsByName('black-80'),
+	link-hover-color: oColorsByName('black-60'),
+	legal-text-color: oColorsByName('black-60')
 );
 
-@include oBrandDefine('o-footer-services', 'master', (
-	'variables': $_o-footer-services-shared-brand-config,
-	'supports-variants': ()
-));
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-footer-services', 'master', (
+		'variables': $_o-footer-services-shared-brand-config,
+		'supports-variants': ()
+	));
+}
 
-@include oBrandDefine('o-footer-services', 'internal', (
-	'variables': map-merge($_o-footer-services-shared-brand-config, (
-		'default-background': 'slate-white-5',
-		'default-border': 'slate-white-15',
-	)),
-	'supports-variants': ()
-));
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-footer-services', 'internal', (
+		'variables': map-merge($_o-footer-services-shared-brand-config, (
+			'background-color': oColorsByName('slate-white-5'),
+			'border-color': oColorsByName('slate-white-15'),
+		)),
+		'supports-variants': ()
+	));
+}
 
-@include oBrandDefine('o-footer-services', 'whitelabel', (
-	'variables': $_o-footer-services-shared-brand-config,
-	'supports-variants': ()
-));
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-footer-services', 'whitelabel', (
+		'variables': $_o-footer-services-shared-brand-config,
+		'supports-variants': ()
+	));
+}

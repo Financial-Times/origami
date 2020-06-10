@@ -1,7 +1,8 @@
 @mixin _oFooterServicesBase() {
 	.o-footer-services {
 		@include oTypographySans(0);
-		background: oColorsByName(_oFooterServicesGet('default-background'));
+		color: _oFooterServicesGet('text-color');
+		background: _oFooterServicesGet('background-color');
 	}
 
 	.o-footer-services__container {
@@ -11,7 +12,7 @@
 		&:before {
 			content: '';
 			position: absolute;
-			border-top: 1px solid oColorsByName(_oFooterServicesGet('default-border'));
+			border-top: 1px solid _oFooterServicesGet('border-color');
 			top: 0;
 			left: 0;
 			right: 0;
@@ -33,7 +34,7 @@
 
 		&--legal {
 			@include oTypographySans($scale: -1, $line-height: 20px);
-			color: oColorsByName(_oFooterServicesGet('legal-text'));
+			color: _oFooterServicesGet('legal-text-color');
 			overflow: hidden;
 
 			p {
@@ -52,12 +53,11 @@
 		margin: 0.5em 0;
 
 		a {
-			@include _oFooterServicesLink(
-				$custom-link-base: _oFooterServicesGet('legal-text'),
-				$custom-link-hover: _oFooterServicesGet('legal-text'),
-				$custom-link-background: _oFooterServicesGet('default-background'),
-				$link-hover: _oFooterServicesGet('legal-link-hover')
-			);
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('legal-text-color'),
+				'hover': _oFooterServicesGet('legal-text-color'),
+				'context': _oFooterServicesGet('background-color')
+			));
 			margin-right: 0.5em;
 		}
 	}
@@ -66,20 +66,19 @@
 		margin: 0 0 1.5em;
 
 		a {
-			@include _oFooterServicesLink(
-				$custom-link-base: _oFooterServicesGet('default-link-color'),
-				$custom-link-hover: _oFooterServicesGet('default-link-color'),
-				$custom-link-background: _oFooterServicesGet('default-background'),
-				$link-hover: _oFooterServicesGet('default-link-hover')
-			);
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('link-color'),
+				'hover': _oFooterServicesGet('link-hover-color'),
+				'context': _oFooterServicesGet('background-color')
+			));
 		}
 
 		.o-footer-services__content--external {
 			@include oTypographyLink(
 				$theme: (
-					'base': _oFooterServicesGet('default-link-color'),
-					'hover': _oFooterServicesGet('default-link-color'),
-					'context': _oFooterServicesGet('default-background')
+					'base': _oFooterServicesGet('link-color'),
+					'hover': _oFooterServicesGet('link-color'),
+					'context': _oFooterServicesGet('background-color')
 				),
 				$external: true,
 				$include-base-styles: false
@@ -146,25 +145,5 @@
 		vertical-align: middle;
 		top: -5px;
 		left: -5px;
-	}
-}
-
-@mixin _oFooterServicesLink($custom-link-base, $custom-link-hover, $custom-link-background, $link-hover: null) {
-	@include oTypographyLink($theme: (
-		'base': $custom-link-base,
-		'hover': $custom-link-hover,
-		'context': $custom-link-background
-	));
-
-	// Link underline is different by design.
-	@if $link-hover != null {
-		&:hover {
-			border-bottom-color: oColorsByName($link-hover);
-		}
-	} @else {
-		border-bottom: 0;
-		@supports (text-decoration-thickness: 0.25ex) {
-			text-decoration-line: none;
-		}
 	}
 }
