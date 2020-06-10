@@ -82,7 +82,7 @@ Your project should call `oFooterServices` once, and add to the `opts` argument 
 
 ### Customisation
 
-For users of the `whitelabel` brand, `o-footer-services` customise brand variables using the `oFooterServicesCustomize` mixin.
+For users of the `whitelabel` brand, `o-footer-services` allows customisation using the `oFooterServicesCustomize` mixin.
 
 ```scss
 $o-brand: whitelabel;
