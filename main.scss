@@ -44,7 +44,7 @@
 				'hover': _oFooterServicesGet('link-hover-color'),
 				'context': _oFooterServicesGet('background-color')
 			));
-			// Remove link enderline.
+			// Remove link underline.
 			border-bottom: 0;
 			@supports (text-decoration-thickness: 0.25ex) {
 				text-decoration-line: none;
