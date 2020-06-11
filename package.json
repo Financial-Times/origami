@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@financial-times/origami-service-makefile": "^7.0.3",
-    "mocha": "^7.1.2",
+    "mocha": "^8.0.1",
     "proclaim": "^3.6.0"
   }
 }
