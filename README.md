@@ -218,8 +218,9 @@ Encoded URL: `https://www.ft.com/__origami/service/build/v2/bundles/css?modules%
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.2.0 | - |
 ╳ deprecated | 3 | 3.5.0 | - |
 ╳ deprecated | 2 | 2.5.0 | - |

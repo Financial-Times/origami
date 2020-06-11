@@ -1,5 +1,9 @@
 ## Migration
 
+### Migrating from v6 to v7
+
+Dependencies have all been updated to the latest major versions. If you have any conflicts while installing this version, you'll need to first upgrade those dependencies also. See [the Bower config for these](./bower.json).
+
 ### Migrating from v5 to v6
 
 In version 6 the commenting provider has been updated from Livefyre to [Coral Talk](https://coralproject.net/talk/) and as a result version 6 is a complete rewrite.
