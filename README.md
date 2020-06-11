@@ -1,6 +1,9 @@
 # o-footer [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-FT page footer component
+Master brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data.
+
+_See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
+
 
 - [Markup](#markup)
 - [Sass](#sass)
@@ -11,7 +14,7 @@ FT page footer component
 
 ## Markup
 
-The basic structure of a simple footer has a theme and includes legal links, a copyright notice, and a logo:
+The basic structure of a simple footer has a theme and includes legal links, a copyright notice, and a logo. The demo on the component page does not use real navigation data as it may become out of date. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. The Origami Navigation Service is a JSON API which provides navigation structures for use across FT websites.
 
 ```html
 <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">

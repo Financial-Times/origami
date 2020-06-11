@@ -39,14 +39,14 @@
 			"title": "Dark theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer.json",
-			"description": "This is the standard masterbrand footer used on most pages."
+			"description": "This is the standard masterbrand footer used on most pages. Use the Origami Navigation Service to populate o-footer with real navigation data. "
 		},
 		{
 			"name": "footer-light",
 			"title": "Light theme",
 			"template": "demos/src/footer.mustache",
 			"data": "demos/src/footer-light.json",
-			"description": "A light theme masterbrand footer"
+			"description": "A light theme masterbrand footer. Use the Origami Navigation Service to populate o-footer with real navigation data. "
 		},
 		{
 			"name": "simple-footer",

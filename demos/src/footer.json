@@ -2,14 +2,14 @@
 	"theme": "theme-dark",
 	"matrix": [
 		{
-			"title": "Support",
+			"title": "xxxxxxx",
 			"items": [
 				{
-					"text": "Help",
+					"text": "xxxx",
 					"href": "//www.ft.com/help"
 				},
 				{
-					"text": "About Us",
+					"text": "xxxxx xx",
 					"href": "//www.ft.com/aboutus"
 				}
 			],
@@ -18,11 +18,11 @@
 			"columns": [
 				[
 					{
-						"text": "Help",
+						"text": "xxxx",
 						"href": "//www.ft.com/help"
 					},
 					{
-						"text": "About Us",
+						"text": "xxxxx xx",
 						"href": "//www.ft.com/aboutus"
 					}
 				]
@@ -30,26 +30,26 @@
 			"collapsible": false
 		},
 		{
-			"title": "Legal & Privacy",
+			"title": "xxxxx x xxxxxxx",
 			"items": [
 				{
-					"text": "Terms & Conditions",
+					"text": "xxxxx x xxxxxxxxxx",
 					"href": "//www.ft.com/servicestools/help/terms"
 				},
 				{
-					"text": "Privacy",
+					"text": "xxxxxxx",
 					"href": "//www.ft.com/servicestools/help/privacy"
 				},
 				{
-					"text": "Cookies",
+					"text": "xxxxxxx",
 					"href": "//www.ft.com/cookiepolicy"
 				},
 				{
-					"text": "Copyright",
+					"text": "xxxxxxxxx",
 					"href": "//www.ft.com/servicestools/help/copyright"
 				},
 				{
-					"text": "Slavery Statement & Policies",
+					"text": "xxxxxxx xxxxxxxxx x xxxxxxxx",
 					"href": "//help.ft.com/help/legal/slavery-statement/"
 				}
 			],
@@ -58,19 +58,19 @@
 			"columns": [
 				[
 					{
-						"text": "Terms & Conditions",
+						"text": "xxxxx x xxxxxxxxxx",
 						"href": "//www.ft.com/servicestools/help/terms"
 					},
 					{
-						"text": "Privacy",
+						"text": "xxxxxxx",
 						"href": "//www.ft.com/servicestools/help/privacy"
 					},
 					{
-						"text": "Cookies",
+						"text": "xxxxxxx",
 						"href": "//www.ft.com/cookiepolicy"
 					},
 					{
-						"text": "Copyright",
+						"text": "xxxxxxxxx",
 						"href": "//www.ft.com/servicestools/help/copyright"
 					}
 				]
@@ -78,39 +78,39 @@
 			"collapsible": false
 		},
 		{
-			"title": "Services",
+			"title": "xxxxxxxx",
 			"items": [
 				{
-					"text": "Individual Subscriptions",
+					"text": "xxxxxxxxxx xxxxxxxxxxxxx",
 					"href": "//sub.ft.com/spa_5"
 				},
 				{
-					"text": "Group Subscriptions",
+					"text": "xxxxx xxxxxxxxxxxxx",
 					"href": "//enterprise.ft.com/en-gb/services/group-subscriptions/"
 				},
 				{
-					"text": "Republishing",
+					"text": "xxxxxxxxxxxx",
 					"href": "//enterprise.ft.com/en-gb/services/republishing/"
 				},
 				{
-					"text": "Contracts & Tenders",
+					"text": "xxxxxxxxx x xxxxxxx",
 					"href": "//www.businessesforsale.com/ft2/notices"
 				},
 				{
-					"text": "Analysts Research",
+					"text": "xxxxxxxx xxxxxxxx",
 					"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
 				},
 				{
-					"text": "Executive Job Search",
+					"text": "xxxxxxxxx xxx xxxxxx",
 					"href": "//www.exec-appointments.com/"
 				},
 				{
-					"text": "Advertise with the FT",
+					"text": "xxxxxxxxx xxxx xxx xx",
 					"href": "//fttoolkit.co.uk/d/",
 					"aria-label": "Advertise with the F T"
 				},
 				{
-					"text": "Follow the FT on Twitter",
+					"text": "xxxxxx xxx xx xx xxxxxxx",
 					"href": "//twitter.com/ft",
 					"aria-label": "Follow the F T on Twitter"
 				}
@@ -120,38 +120,38 @@
 			"columns": [
 				[
 					{
-						"text": "Individual Subscriptions",
+						"text": "xxxxxxxxxx xxxxxxxxxxxxx",
 						"href": "//sub.ft.com/spa_5"
 					},
 					{
-						"text": "Group Subscriptions",
+						"text": "xxxxx xxxxxxxxxxxxx",
 						"href": "//enterprise.ft.com/en-gb/services/group-subscriptions/"
 					},
 					{
-						"text": "Republishing",
+						"text": "xxxxxxxxxxxx",
 						"href": "//enterprise.ft.com/en-gb/services/republishing/"
 					},
 					{
-						"text": "Contracts & Tenders",
+						"text": "xxxxxxxxx x xxxxxxx",
 						"href": "//www.businessesforsale.com/ft2/notices"
 					},
 					{
-						"text": "Analysts Research",
+						"text": "xxxxxxxx xxxxxxxx",
 						"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
 					}
 				],
 				[
 					{
-						"text": "Executive Job Search",
+						"text": "xxxxxxxxx xxx xxxxxx",
 						"href": "//www.exec-appointments.com/"
 					},
 					{
-						"text": "Advertise with the FT",
+						"text": "xxxxxxxxx xxxx xxx xx",
 						"href": "//fttoolkit.co.uk/d/",
 						"aria-label": "Advertise with the F T"
 					},
 					{
-						"text": "Follow the FT on Twitter",
+						"text": "xxxxxx xxx xx xx xxxxxxx",
 						"href": "//twitter.com/ft",
 						"aria-label": "Follow the F T on Twitter"
 					}
@@ -160,42 +160,42 @@
 			"collapsible": true
 		},
 		{
-			"title": "Tools",
+			"title": "xxxxx",
 			"items": [
 				{
-					"text": "Portfolio",
+					"text": "xxxxxxxxx",
 					"href": "//markets.ft.com/data/portfolio/dashboard"
 				},
 				{
-					"text": "Today's Paper",
+					"text": "xxxxxxx xxxxx",
 					"href": "//ftepaper.ft.com"
 				},
 				{
-					"text": "Alerts Hub",
+					"text": "xxxxxx xxx",
 					"href": "//markets.ft.com/data/alerts/"
 				},
 				{
-					"text": "Lexicon",
+					"text": "xxxxxxx",
 					"href": "//lexicon.ft.com/"
 				},
 				{
-					"text": "MBA Rankings",
+					"text": "xxx xxxxxxxx",
 					"href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016"
 				},
 				{
-					"text": "Economic Calendar",
+					"text": "xxxxxxxx xxxxxxxx",
 					"href": "//markets.ft.com/Research/Economic-Calendar"
 				},
 				{
-					"text": "Newsletters",
+					"text": "xxxxxxxxxxx",
 					"href": "//nbe.ft.com/nbe/profile.cfm"
 				},
 				{
-					"text": "Currency Converter",
+					"text": "xxxxxxxx xxxxxxxxx",
 					"href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113"
 				},
 				{
-					"text": "Ebooks",
+					"text": "xxxxxx",
 					"href": "//www.ft.com/ebooks",
 					"aria-label": "E-books"
 				}
@@ -205,41 +205,41 @@
 			"columns": [
 				[
 					{
-						"text": "Portfolio",
+						"text": "xxxxxxxxx",
 						"href": "//markets.ft.com/data/portfolio/dashboard"
 					},
 					{
-						"text": "Today's Paper",
+						"text": "xxxxxxx xxxxx",
 						"href": "//ftepaper.ft.com"
 					},
 					{
-						"text": "Alerts Hub",
+						"text": "xxxxxx xxx",
 						"href": "//markets.ft.com/data/alerts/"
 					},
 					{
-						"text": "Lexicon",
+						"text": "xxxxxxx",
 						"href": "//lexicon.ft.com/"
 					},
 					{
-						"text": "MBA Rankings",
+						"text": "xxx xxxxxxxx",
 						"href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016"
 					}
 				],
 				[
 					{
-						"text": "Economic Calendar",
+						"text": "xxxxxxxx xxxxxxxx",
 						"href": "//markets.ft.com/Research/Economic-Calendar"
 					},
 					{
-						"text": "Newsletters",
+						"text": "xxxxxxxxxxx",
 						"href": "//nbe.ft.com/nbe/profile.cfm"
 					},
 					{
-						"text": "Currency Converter",
+						"text": "xxxxxxxx xxxxxxxxx",
 						"href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113"
 					},
 					{
-						"text": "Ebooks",
+						"text": "xxxxxx",
 						"href": "//www.ft.com/ebooks",
 						"aria-label": "E-books"
 					}
