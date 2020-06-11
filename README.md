@@ -427,7 +427,16 @@ $example-custom-font-scale: (
 
 `o-typography` provides mixins to [set a custom font](#use-a-custom-font) and a [custom font scale](#use-a-custom-font-scale). If your project uses the `whitelabel` brand, `o-typography` provides the option to customise typography further with the `oTypographyCustomize` mixin.
 
-With `oTypographyCustomize` you can change the size of heading levels and update the colour of `o-typography`'s blockquote. In the below example, we update the size of `h1` and `h2` headings, and change the blockquote colour to `hotpink`. For a full list of brand variables which may be customised, see the [oTypographyCustomize SassDoc](https://registry.origami.ft.com/components/o-typography/sassdoc?brand=whitelabel#mixin-oTypographyCustomize).
+Currently `oTypographyCustomize` can only update heading styles of whitelabel brand projects (_please contact Origami to request more options_). `oTypographyCustomize` accepts a map of configuration where each key is a heading level (one-six) `heading-level-[level]` to a map of heading scales and weights:
+
+- `weight`: The heading weight (e.g. `semibold`)
+- `scale`: The default heading scale, used when no other scales are set (e.g. 5)
+- `scale-s`: The heading scale for [small viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
+- `scale-m`: The heading scale for [medium viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
+- `scale-l`: The heading scale for [large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
+- `scale-xl`: The heading scale for [extra-large viewports](https://registry.origami.ft.com/components/o-grid/readme?brand=master#layout-sizes) and above.
+
+In the below example, we update the size and weight of h1 and h2 headings:
 
 ```scss
 $o-brand: whitelabel;
@@ -441,9 +450,10 @@ $o-brand: whitelabel;
 
 // 3. Customise typography variants.
 @include oTypographyCustomize((
-	'blockquote-color': hotpink, // Update the blockquote border color to hotpink.
 	'heading-level-one': (
-		'scale': 7, // Update the size of h1.
+		'scale': 5, // Update the size of h1.
+		'scale-s': 7, // Increase the size of h1 on small devices and above.
+		'weight': 'semibold' // Update the weight of the h1.
 	),
 	'heading-level-two': (
 		'scale': 6 // Update the size of h2 (up to h6 is supported heading-level-six).
@@ -459,6 +469,8 @@ h2 {
 	@include oTypographyHeading($level: 2);
 }
 ```
+
+_For more details is the [oTypographyCustomize SassDoc](https://registry.origami.ft.com/components/o-typography/sassdoc?brand=whitelabel#mixin-oTypographyCustomize)._
 
 ## JavaScript
 

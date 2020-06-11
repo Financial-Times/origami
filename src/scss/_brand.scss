@@ -49,13 +49,16 @@ $_o-typography-font-scale: (
 }
 
 /// Helper for `whitelabel` brand variable customisation.
+///
 /// @brand whitelabel
 /// @param {Map} $variables - Brand variables to customise
 /// @access public
 /// @example scss
 ///    @include oTypographyCustomize((
 ///        'heading-level-one': (
-///            'scale': 7,
+///            'scale': 5,
+///            'scale-s': 7,
+///            'weight': 'semibold'
 ///        ),
 ///        'heading-level-two': (
 ///            'scale': 6
