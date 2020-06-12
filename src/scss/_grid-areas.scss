@@ -84,13 +84,15 @@
 /// @access private
 @mixin _oLayoutAreaOverview() {
 	.o-layout__overview {
-		/* autoprefixer: off */
+		/*! autoprefixer: ignore next */
 		// o-layout does not cater for older `-ms-` versions of the grid spec.
 		display: grid;
+		/*! autoprefixer: ignore next */
 		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
+		/*! autoprefixer: ignore next */
 		grid-gap: $_o-layout-gutter * 3;
+		/*! autoprefixer: ignore next */
 		grid-row-gap: $_o-layout-gutter;
-		/* autoprefixer: on */
 	}
 
 	.o-layout__overview--consistent-columns {
@@ -102,11 +104,11 @@
 		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
 
 		.o-layout-item {
-			/* autoprefixer: off */
+			/*! autoprefixer: ignore next */
 			// o-layout does not cater for older `-ms-` versions of the grid spec.
 			display: grid;
+			/*! autoprefixer: ignore next */
 			grid-template-rows: 1fr min-content;
-			/* autoprefixer: on */
 			background-color: oColorsByName('slate-white-5');
 			padding: $_o-layout-gutter;
 		}

@@ -10,19 +10,22 @@
 	.o-layout {
 		$column-gap-count: 2;
 		position: relative;
-		/* autoprefixer: off */
+		/*! autoprefixer: ignore next */
 		// o-layout does not cater for older `-ms-` versions of the grid spec.
 		display: grid;
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
+		/*! autoprefixer: ignore next */
 		grid-template-columns: minmax(0, 1fr) minmax(auto, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		/*! autoprefixer: ignore next */
 		grid-template-rows: auto 1fr auto;
+		/*! autoprefixer: ignore next */
 		grid-column-gap: $_o-layout-gutter;
+		/*! autoprefixer: ignore next */
 		grid-template-areas:
 			"header header header"
 			". main ."
 			"footer footer footer";
-		/* autoprefixer: on */
 		box-sizing: border-box;
 		min-height: 100vh;
 		// create a break if an entire word cannot be placed on its own line without overflowing
