@@ -83,7 +83,7 @@ body {
 }
 
 .coral-guidelines a {
-	@include oTypographyLink;
+	@include oTypographyLink($theme: ('base': 'teal-40', 'hover': 'teal-30'));
 }
 
 
