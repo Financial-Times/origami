@@ -72,10 +72,42 @@
 		}
 	}
 
+	.o-footer__copyright {
+		margin-top: $_o-footer-spacing-unit;
+		margin-bottom: $_o-footer-spacing-unit;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	.o-footer__brand {
+		padding-top: oSpacingByName('s4');
+		padding-bottom: oSpacingByName('s4');
+	}
+
+	.o-footer__brand-logo {
+		@include _oFooterBrandImage('brand-nikkei-tagline', 200);
+		height: 20px;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+
+	@media print {
+		.o-footer {
+			display: none;
+		}
+	}
+
+	@if $matrix {
+		@include _oFooterMatrix($themes);
+	}
+
 	.o-footer__external-link {
 		position: relative;
 		border-top: 1px solid;
 		border-bottom: 1px solid;
+		// Ensure focus outline is visible.
 		overflow: visible;
 
 		&:after,
@@ -107,37 +139,6 @@
 				content: ' ';
 			}
 		}
-	}
-
-	.o-footer__copyright {
-		margin-top: $_o-footer-spacing-unit;
-		margin-bottom: $_o-footer-spacing-unit;
-
-		a {
-			text-decoration: underline;
-		}
-	}
-
-	.o-footer__brand {
-		padding-top: oSpacingByName('s4');
-		padding-bottom: oSpacingByName('s4');
-	}
-
-	.o-footer__brand-logo {
-		@include _oFooterBrandImage('brand-nikkei-tagline', 200);
-		height: 20px;
-		background-repeat: no-repeat;
-		background-position: right;
-	}
-
-	@media print {
-		.o-footer {
-			display: none;
-		}
-	}
-
-	@if $matrix {
-		@include _oFooterMatrix($themes);
 	}
 
 	// Include the themes
