@@ -88,6 +88,13 @@
 	$size: map-get($opts, 'size');
 	$icon: map-get($opts, 'icon');
 
+	// If a size is given, enforce its an actual button size
+	@if $size and not index($_o-buttons-sizes, $size) {
+		@error '"#{$size}" is not a button size. Allowed sizes include ' +
+			'"#{$_o-buttons-sizes}". Or, do not set the button size to output ' +
+			'the default size.';
+	}
+
 	@if $theme and not $type {
 		$theme-description: if(type-of($theme) == 'string', $theme, 'custom');
 		@warn 'A button theme cannot be output without specifying the button ' +
