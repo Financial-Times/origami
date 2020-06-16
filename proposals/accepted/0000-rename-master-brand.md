@@ -18,8 +18,6 @@ I believe the master brand originally came from the design team. To avoid confus
 
 As the default brand, renaming the master brand effects quite a few projects. Tools and services would need to introduce an alias to support current and future component releases; `o-brand` would need a major release; and all branded components would require Sass and `origami.json` updates, but that could happen over time.
 
-### minimum
-
 To replace the brand in user facing contexts, updates are required to the following projects:
 
 - [`o-brand`](https://github.com/Financial-Times/o-brand): requires updates so users and the Origami Build Service can set the current brand to either `master` or the new name. I.e. the `$o-brand` variable needs to be aliased where accessed internally; with `oBrandGetCurrentBrand` continuing to return `master` in both cases. With a major `o-brand` release to swap the return of `oBrandGetCurrentBrand` to the new name
