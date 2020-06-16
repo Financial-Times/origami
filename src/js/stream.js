@@ -213,8 +213,8 @@ class Stream {
 		signedInMessage.classList.add('o-comments__signed-in-container');
 		signedInMessage.innerHTML = `
 									<p class="o-comments__signed-in-text">Signed in as
-										<span class="o-comments__signed-in-inner-text"></span>.
-										<a id="${editButtonId}" class="o-comments__edit-display-name">Edit</a>
+										<span class="o-comments__signed-in-inner-text"></span>
+										<button id="${editButtonId}" class="o-comments__edit-display-name">Edit</button>
 									</p>`;
 		signedInMessage.querySelector('.o-comments__signed-in-inner-text').innerText = this.displayName;
 

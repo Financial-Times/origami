@@ -27,11 +27,16 @@
 	}
 
 	.o-comments__signed-in-container {
-		margin-bottom: oSpacingByName('s4');
+		margin-bottom: oSpacingByName('s6');
 	}
 
 	.o-comments__edit-display-name {
-		@include oTypographyLink;
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'icon': 'edit'
+		));
+
+		margin-left: oSpacingByName('s2');
 	}
 
 	.o-overlay.o-comments__displayname-prompt {
