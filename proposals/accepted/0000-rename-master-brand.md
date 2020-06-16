@@ -14,6 +14,8 @@ https://financialtimes.slack.com/archives/C02FU5ARJ/p1592311869388000
 
 ## work required
 
+I believe the master brand originally came from the design team. To avoid confusion we would need to communicate with other teams to ensure we all refer to the master brand by its new name.
+
 As the default brand, renaming the master brand effects quite a few projects. Tools and services would need to introduce an alias to support current component and future releases; `o-brand` would need a major release; and all branded components would require Sass and `origami.json` updates, but that could happen over time.
 
 ### minimum
