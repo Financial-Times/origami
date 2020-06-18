@@ -1,23 +1,24 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+/* global proclaim */
+// autoinit is executed upon being imported
+// so we must import a test helper before to
+// count the times o-autoinit events are fired
+import getEventCount from './helpers/event-count';
+import './../main';
 
 describe("o-autoinit", () => {
-	let docAddEventListenerStub;
-
-	beforeEach(() => {
-		docAddEventListenerStub = sinon.stub(document, 'addEventListener');
-
-		// autoinit is executed upon being required
-		require('./../main');
-	});
-
-	afterEach(() => {
-		docAddEventListenerStub.restore();
-	});
-
-
-	it('sets event listeners', () => {
-		proclaim.isTrue(docAddEventListenerStub.calledWith('DOMContentLoaded'));
-		proclaim.isTrue(docAddEventListenerStub.calledOnce);
+	it('fires o.DOMContentLoaded only once by the time the page is loaded', (done) => {
+		const testInterval = setInterval(() => {
+			if (document.readyState === 'complete') {
+				clearInterval(testInterval);
+				try {
+					const eventCount = getEventCount();
+					proclaim.equal(eventCount, 1, `o.DOMContentLoaded was fired ${eventCount} times.`);
+				} catch (error) {
+					done(error);
+				}
+				done();
+			}
+		}, 100);
 	});
 });
