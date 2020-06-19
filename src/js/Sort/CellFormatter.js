@@ -175,6 +175,24 @@ function ftDateTimeToNumber(text) {
 }
 
 /**
+ * Parses a datetime string as a number for sorting. -- https://html.spec.whatwg.org/multipage/text-level-semantics.html#attr-time-datetime
+ * @example
+ *  dateTimeToNumber('11-17') //UNIX epoch, assumes current year
+ *  dateTimeToNumber('2011-11-18') //UNIX epoch
+ *  dateTimeToNumber('2011-11') //UNIX epoch, first of month
+ *  dateTimeToNumber('2011-11-18T14:54') //UNIX epoch including time
+ *  dateTimeToNumber('14.54') //14.54
+ *  dateTimeToNumber('Not a known date') //Note a known date
+ * @param {String} text The datetime string to operate on
+ * @access private
+ * @returns {Number|String} Number representation of datetime string or the original datetime string if it could not be turned into a number.
+ */
+function dateTimeToNumber(text) {
+	const dateObj = new Date(text);
+	return isNaN(dateObj.getTime()) ? text : dateObj.getTime();
+}
+
+/**
  * Removes and number of asterisk's which are at the end of the line.
  * @example
  *  removeRefereneAsterisk('Durian*') //Durian
@@ -243,7 +261,7 @@ class CellFormatter {
 			percent: [extractNodeContent, extractNumber],
 			currency: [extractNodeContent, extractNumber],
 			numeric: [extractNodeContent, extractNumber],
-			date: [extractNodeContent, ftDateTimeToNumber]
+			date: [extractNodeContent, dateTimeToNumber, ftDateTimeToNumber]
 		};
 	}
 
