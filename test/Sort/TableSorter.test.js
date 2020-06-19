@@ -169,6 +169,16 @@ describe("BaseTable", () => {
 			sorter.sortRowsByColumn(table, columnIndex, sortOrder);
 			assertSortOrder({sortOrder, columnIndex, expected}).catch(done).finally(done);
 		});
+		
+		it('sorts "date" type with based on dateTime attribute', done => {
+			oTableEl = getTableElementWithData('date', ['<time datetime="2020-06-19T10:18:23+0000">8 minutes ago</time>', '<time datetime="2020-06-19T10:17:23+0000">9 minutes ago</time>', '<time datetime="2020-06-19T10:19:23+0000">7 minutes ago</time>', '<time datetime="2020-06-19T10:16:23+0000">10 minutes ago</time>']);
+			table = new BaseTable(oTableEl, sorter);
+			const columnIndex = 0;
+			const sortOrder = 'descending';
+			const expected = ['7pm', '6.30pm', '7am', '6.30am'];
+			sorter.sortRowsByColumn(table, columnIndex, sortOrder);
+			assertSortOrder({sortOrder, columnIndex, expected}).catch(done).finally(done);
+		});
 
 		it('sorts "date" type with FT style dates and time ascending', done => {
 			// assumes current year where not specified
