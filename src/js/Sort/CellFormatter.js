@@ -31,7 +31,14 @@ function extractAltFromImages(cell){
  * @returns {HTMLElement} text representation of the HTML node
  */
 function extractText(cell){
-	let text = cell.dateTime || cell.textContent.trim();
+	const time = cell.querySelector('time');
+	if (time && time.dateTime) {
+		const date = new Date(time.dateTime);
+		if (!isNaN(date.getTime())){
+			return date.getTime() + '';
+		}
+	}
+	let text = cell.textContent.trim();
 	// No text found, check aria labels and titles.
 	// Useful for icon-only cells.
 	if (text === '') {
