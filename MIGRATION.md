@@ -1,5 +1,10 @@
 ## Migration
 
+### Migrating from v8 to v9
+
+- o-table now uses `Array.prototype.findIndex` which is not natively supported by IE11. If you support IE11, make sure to include a polyfill for `Array.prototype.findIndex`. It is included in the default set of polyfills in [polyfill.io](https://polyfill.io).
+
+
 ### Migrating from v7 to v8
 - `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing) instead, or apply margin as needed, depending on the context of the table e.g.
 
