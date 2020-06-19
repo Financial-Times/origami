@@ -27,10 +27,11 @@ describe("BaseTable", () => {
 					if (tableRows.length === 0) {
 						throw new Error('Could not find rows to test against.');
 					}
-					tableRows.forEach((row, index) => {
+					const sortedCells = Array.from(tableRows).map((row) => {
 						const cells = row.querySelectorAll('td,th:not(.o-table__duplicate-heading)');
-						proclaim.equal(cells[columnIndex].innerHTML, expected[index], `Expected a sort order of "${expected}".`);
+						return cells[columnIndex].innerHTML;
 					});
+					proclaim.deepStrictEqual(sortedCells, expected);
 					// Assert correct aria labels.
 					const tableHeaders = thead.querySelectorAll('th');
 					if (tableHeaders.length === 0) {
