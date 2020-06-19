@@ -171,7 +171,7 @@ describe("BaseTable", () => {
 			assertSortOrder({sortOrder, columnIndex, expected}).catch(done).finally(done);
 		});
 
-		it.only('sorts "date" type with based on dateTime attribute', done => {
+		it('sorts "date" type with based on dateTime attribute', done => {
 			const sevenMinutesAgo = '<time datetime="2020-06-19T10:19:23+0000">7 minutes ago</time>';
 			const eightMinutesAgo = '<time datetime="2020-06-19T10:18:23+0000">8 minutes ago</time>';
 			const nineMinutesAgo = '<time datetime="2020-06-19T10:17:23+0000">9 minutes ago</time>';
