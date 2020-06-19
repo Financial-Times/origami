@@ -158,9 +158,15 @@ function ftDateTimeToNumber(text) {
 	// Get date.
 	const month = date && date[1] ? date[1] : null;
 	// Get index of the month name from a given month e.g. 'January' for 'Jan'.
-	let monthIndex = month && monthNames.findIndex((name) => name.startsWith(month));
-	if (monthIndex === -1) {
-		monthIndex = null;
+	let monthIndex = null;
+	if (month) {
+		for (let index = 0; index < monthNames.length; index++) {
+			const name = monthNames[index];
+			if (name.startsWith(month)) {
+				monthIndex = index;
+				break;
+			}
+		}
 	}
 	const day = date && date[2] ? parseInt(date[2], 10) : null;
 	let year = date && date[3] ? parseInt(date[3], 10) : null;
