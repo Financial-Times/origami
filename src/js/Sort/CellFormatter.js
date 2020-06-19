@@ -150,10 +150,11 @@ function ftDateTimeToNumber(text) {
 	const time = text.match(/(?:\s|^)(\d{1,2}(?:[.](\d{2}))?)(pm|am)$/);
 	// Get date.
 	const month = date && date[1] ? date[1] : null;
-	// Get full month name from a given month e.g. 'January' for 'Jan'.
-	const matchingMonthNames = monthNames.filter((name) => name.indexOf(month) !== -1);
-	// Get the index of the matching month name.
-	const monthIndex = matchingMonthNames && matchingMonthNames[0] ? monthNames.indexOf(matchingMonthNames[0]) : null;
+	// Get index of the month name from a given month e.g. 'January' for 'Jan'.
+	let monthIndex = month && monthNames.findIndex((name) => name.startsWith(month));
+	if (monthIndex === -1) {
+		monthIndex = null;
+	}
 	const day = date && date[2] ? parseInt(date[2], 10) : null;
 	let year = date && date[3] ? parseInt(date[3], 10) : null;
 	if (month && !year) {
@@ -162,34 +163,21 @@ function ftDateTimeToNumber(text) {
 	}
 	// Get time.
 	const hour = time && time[1] ? parseInt(time[1], 10) : null;
-	const minute = time && time[2] ? parseInt(time[2], 10) : 0;
+	const minute = time && time[2] ? parseInt(time[2], 10) : null;
 	const period = time ? time[3] : null;
 	const twentyFourHour = hour && period === 'pm' ? hour + 12 : hour;
 	// Sort number for FT formated time.
 	if (hour && !(year && monthIndex)) {
 		return parseFloat(`${twentyFourHour}.${minute}`);
 	}
-	// Unix epoch to sort FT formated date.
-	const dateObj = new Date(Date.UTC(year, monthIndex, day, twentyFourHour, minute));
-	return isNaN(dateObj.getTime()) ? text : dateObj.getTime();
-}
 
-/**
- * Parses a datetime string as a number for sorting. -- https://html.spec.whatwg.org/multipage/text-level-semantics.html#attr-time-datetime
- * @example
- *  dateTimeToNumber('11-17') //UNIX epoch, assumes current year
- *  dateTimeToNumber('2011-11-18') //UNIX epoch
- *  dateTimeToNumber('2011-11') //UNIX epoch, first of month
- *  dateTimeToNumber('2011-11-18T14:54') //UNIX epoch including time
- *  dateTimeToNumber('14.54') //14.54
- *  dateTimeToNumber('Not a known date') //Note a known date
- * @param {String} text The datetime string to operate on
- * @access private
- * @returns {Number|String} Number representation of datetime string or the original datetime string if it could not be turned into a number.
- */
-function dateTimeToNumber(text) {
-	const dateObj = new Date(text);
-	return isNaN(dateObj.getTime()) ? text : dateObj.getTime();
+	if (year !== null || monthIndex !== null || day !== null || twentyFourHour !== null || minute !== null) {
+		// Unix epoch to sort FT formated date.
+		const dateObj = new Date(Date.UTC(year, monthIndex, day, twentyFourHour, minute));
+		return isNaN(dateObj.getTime()) ? text : dateObj.getTime();
+	} else {
+		return text;
+	}
 }
 
 /**
@@ -261,7 +249,7 @@ class CellFormatter {
 			percent: [extractNodeContent, extractNumber],
 			currency: [extractNodeContent, extractNumber],
 			numeric: [extractNodeContent, extractNumber],
-			date: [extractNodeContent, dateTimeToNumber, ftDateTimeToNumber]
+			date: [extractNodeContent, ftDateTimeToNumber]
 		};
 	}
 
