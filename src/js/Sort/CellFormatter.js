@@ -19,18 +19,19 @@ function extractAltFromImages(cell){
 
 /**
  * Returns the text represantation of an HTML node.
- * If a node contains no content `aria-label` or `title` attributes of <a>, <span>, or <i> child nodes are used.
+ * If a node contains no `dateTime` attribute, content, `aria-label` or `title` attributes of <a>, <span>, or <i> child nodes are used.
  * @example String argument for example purposes only, to represent a HTMLElement.
  * 	extractText('<i class="o-icons-icon o-icons-icon--mail"><a href="mailto:example@ft.com" title="Email Example at example@ft.com"></a>'); //Email Example at example@ft.com
- * 	extractText('<span class="o-icons-icon o-icons-icon--tick">Correct</span>); //Correct
-* 	extractText('<span class="o-icons-icon o-icons-icon--tick" title="Correct"></span>); //Correct
-* 	extractText('<span class="o-icons-icon o-icons-icon--tick" aria-label="Correct"></span>); //Correct
+ * 	extractText('<span class="o-icons-icon o-icons-icon--tick">Correct</span>'); //Correct
+ * 	extractText('<span class="o-icons-icon o-icons-icon--tick" title="Correct"></span>'); //Correct
+ * 	extractText('<span class="o-icons-icon o-icons-icon--tick" aria-label="Correct"></span>'); //Correct
+ * 	extractText('<time class="o-date" data-o-component="o-date" datetime="2020-06-19T07:56:18Z">2 hours ago</time>'); //Correct
  * @param {HTMLElement} cell The DOM node to operate on, possibly a <td>
  * @access private
  * @returns {HTMLElement} text representation of the HTML node
  */
 function extractText(cell){
-	let text = cell.textContent.trim();
+	let text = cell.dateTime || cell.textContent.trim();
 	// No text found, check aria labels and titles.
 	// Useful for icon-only cells.
 	if (text === '') {
