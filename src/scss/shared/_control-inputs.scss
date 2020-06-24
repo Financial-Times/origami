@@ -1,6 +1,11 @@
 /// @access private
 /// @output Shared base styles for checkboxes, toggles, round- and box-style radio buttons.
 @mixin _oFormsControlsBase($disabled: null) {
+	// Hide visually while remaining accessible to voice control like Dragon
+	// Dragon requires the input it is trying to click to be actually clickable
+	z-index: 1;
+	opacity: 0;
+
 	position: absolute;
 	padding: 0;
 	width: $_o-forms-spacing-six;

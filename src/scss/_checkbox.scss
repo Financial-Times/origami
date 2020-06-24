@@ -9,7 +9,6 @@
 	.o-forms-input--checkbox {
 		input[type=checkbox] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
-			@include oNormaliseVisuallyHidden;
 
 			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);

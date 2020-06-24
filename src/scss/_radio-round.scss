@@ -36,7 +36,6 @@
 
 		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			@include _oFormsControlsBase($disabled);
-			@include oNormaliseVisuallyHidden;
 
 			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
 				border-color: _oFormsGet('controls-base');
