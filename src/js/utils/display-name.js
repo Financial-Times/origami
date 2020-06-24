@@ -10,7 +10,7 @@ const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-co
 				</span>
 				<button type="submit" class="o-comments__displayname-submit">Save</button>
 			</div>
-			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error"></span>
+			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error" aria-live="assertive"></span>
 	</form>
 </form>`;
 
