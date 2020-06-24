@@ -1,16 +1,16 @@
 import Overlay from 'o-overlay';
 
 const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-comments__displayname-form">
-		<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">
-			<span class="o-forms-title">Display name</span>
+			<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">		
+				<span class="o-forms-title">Display name</span>
+			</label>
 			<div class="o-comments__displayname-container">
 				<span class="o-forms-input o-forms-input--text o-comments__displayname-input">
-					<input type="text" name="text" value="" required="">
+					<input id="o-comments-displayname-input" type="text" name="text" value="" required="">
 				</span>
 				<button type="submit" class="o-comments__displayname-submit">Save</button>
 			</div>
 			<span id="o-comments-displayname-error" class="o-forms-input__error o-comments__displayname-error"></span>
-		</label>
 	</form>
 </form>`;
 
