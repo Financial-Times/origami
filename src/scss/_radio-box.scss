@@ -36,7 +36,13 @@
 
 		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 			position: absolute;
+			// Hide visually while remaining accessible to voice control like Dragon
+			// Dragon requires the input it is trying to click to be actually clickable
 			opacity: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
 
 			@if $disabled {
 				&:disabled + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
