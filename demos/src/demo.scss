@@ -91,3 +91,10 @@ body {
 	height: oSpacingByName('l24');
 	width: oSpacingByName('l24');
 }
+
+.demo-named-space__value {
+	position: relative;
+	background-color: white;
+	padding: 0 oSpacingByIncrement(1);
+	font-size: 0.8em;
+}
