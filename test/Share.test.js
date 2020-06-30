@@ -93,11 +93,11 @@ describe('component', () => {
 		const whatsappText = document.querySelector('.o-share__icon--whatsapp .o-share__text').innerText;
 		const pinterestText = document.querySelector('.o-share__icon--pinterest .o-share__text').innerText;
 
-		proclaim.strictEqual(twitterText, 'Share on Twitter (opens a new window)');
-		proclaim.strictEqual(facebookText, 'Share on Facebook (opens a new window)');
-		proclaim.strictEqual(linkedinText, 'Share on LinkedIn (opens a new window)');
-		proclaim.strictEqual(whatsappText, 'Share on Whatsapp (opens a new window)');
-		proclaim.strictEqual(pinterestText, 'Share on Pinterest (opens a new window)');
+		proclaim.strictEqual(twitterText, 'Share Test Article on Twitter (opens a new window)');
+		proclaim.strictEqual(facebookText, 'Share Test Article on Facebook (opens a new window)');
+		proclaim.strictEqual(linkedinText, 'Share Test Article on LinkedIn (opens a new window)');
+		proclaim.strictEqual(whatsappText, 'Share Test Article on Whatsapp (opens a new window)');
+		proclaim.strictEqual(pinterestText, 'Share Test Article on Pinterest (opens a new window)');
 	});
 
 	it('responds correctly to twitter clicks in the component', () => {
