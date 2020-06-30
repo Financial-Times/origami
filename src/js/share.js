@@ -10,11 +10,11 @@ const socialUrls = {
 };
 
 const descriptiveLinkText = {
-	twitter: 'Share on Twitter (opens a new window)',
-	facebook: 'Share on Facebook (opens a new window)',
-	linkedin: 'Share on LinkedIn (opens a new window)',
-	pinterest: 'Share on Pinterest (opens a new window)',
-	whatsapp: 'Share on Whatsapp (opens a new window)',
+	twitter: 'Share {{title}} on Twitter (opens a new window)',
+	facebook: 'Share {{title}} on Facebook (opens a new window)',
+	linkedin: 'Share {{title}} on LinkedIn (opens a new window)',
+	pinterest: 'Share {{title}} on Pinterest (opens a new window)',
+	whatsapp: 'Share {{title}} on Whatsapp (opens a new window)',
 	link: 'Open link in new window'
 };
 
@@ -136,6 +136,19 @@ function Share(rootEl, config) {
 	}
 
 	/**
+	  * Transforms the descriptive text for social links
+	  *
+	  * @private
+	  * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
+	  * @returns {string}
+	  */
+	function generateDesriptiveLinkText (socialNetwork) {
+		let templateLinkText = descriptiveLinkText[socialNetwork];
+		templateLinkText = templateLinkText.replace('{{title}}', config.title);
+		return templateLinkText;
+	}
+
+	/**
 	  * Renders the list of social networks in {@link config.links}
 	  *
 	  * @returns {undefined}
@@ -153,7 +166,7 @@ function Share(rootEl, config) {
 			liElement.classList.add('o-share__action', `o-share__action--${config.links[i]}`);
 
 			spanElement.classList.add('o-share__text');
-			spanElement.innerText = descriptiveLinkText[config.links[i]];
+			spanElement.innerText = generateDesriptiveLinkText(config.links[i]);
 
 			aElement.classList.add('o-share__icon', `o-share__icon--${config.links[i]}`);
 			aElement.href = generateSocialUrl(config.links[i]);
