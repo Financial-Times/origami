@@ -10,7 +10,8 @@
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-comments/issues",
 	"supportContact": {
-		"slack": "financialtimes/content-innovation"
+		"slack": "financialtimes/content-innovation",
+		"email": "content-innovation-team.customer-products@ft.com"
 	},
 	"supportStatus": "active",
 	"browserFeatures": {
