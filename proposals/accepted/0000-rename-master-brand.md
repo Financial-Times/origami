@@ -1,4 +1,4 @@
-# put your proposal title here
+# Rename the master brand
 
 Proposal to rename the "master brand" to the "main brand", or similar.
 
