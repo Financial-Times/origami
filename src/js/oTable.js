@@ -78,7 +78,7 @@ class OTable {
 	 * Set a custom sort formatter for a given data type.
 	 *
 	 * @example <caption>Mapping table cells which contain emojis to a numerical sort value.</caption>
-	 *	const OTable = require('o-table');
+	 *	import OTable from 'o-table';
 	 *	// Set a filter for custom data type "emoji-time".
 	 *	// The return value may be a string or number.
 	 *	OTable.setSortFormatterForType('emoji-time', (cell) => {

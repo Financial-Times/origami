@@ -88,6 +88,15 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 </table>
 ```
 
+### Sort Order
+
+When a sortable table column is clicked an ascending sort is applied by default. If clicked again the sort order is toggled to a descending sort. Set the preferred sort order attribute `data-o-table-preferred-sort-order="descending"` to inverse this, so a descending sort is applied on the first click.
+
+```html
+<table class="o-table" data-o-component="o-table" data-o-table-preferred-sort-order="descending">
+</table>
+```
+
 ### Disable sort
 
 Table columns are sortable by default but may be disabled by adding `data-o-table-sortable="false"` to the table.
@@ -219,12 +228,12 @@ Alternatively include base styles with only selected optional features. E.g. to 
 To manually instantiate `o-table`:
 
 ``` js
-const OTable = require('o-table');
+import OTable from 'o-table';
 OTable.init();
 ```
 or
 ``` js
-const OTable = require('o-table');
+import OTable from 'o-table';
 oTable = new OTable(document.body);
 ```
 
@@ -233,10 +242,11 @@ This will return an instance of `BasicTable` (default), `OverflowTable`, `FlatTa
 Instantiation will add column sorting to all tables. It will also add scroll controls and, if configured, an [expander](#expander) to any `OverflowTable`. These can be configured with [data attributes](#disable-sort) or imperatively with an options object:
 
 ``` js
-const OTable = require('o-table');
+import OTable from 'o-table';
 OTable.init(document.body, {
 	sortable: true,
 	expanded: true,
+	preferredSortOrder: 'ascending',
 	minimumRowCount: 10,
 });
 ```
@@ -392,7 +402,7 @@ The formatter accepts the table cell (HTMLElement) and returns a sort value (Num
 In this case we add support for our custom type `emoji-time` by assigning the emoji a numerical sort value. This will effect all tables instantiated by `OTable`.
 
 ``` js
-const OTable = require('o-table');
+import OTable from 'o-table';
 // Set a filter for custom data type "emoji-time".
 // The return value may be a string or number.
 OTable.setSortFormatterForType('emoji-time', (cell) => {

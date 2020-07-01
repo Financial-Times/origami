@@ -51,7 +51,8 @@ class BaseTable {
 		this._sorter = sorter;
 		this.rootEl = rootEl;
 		this._opts = Object.assign({
-			sortable: this.rootEl.getAttribute('data-o-table-sortable') !== 'false'
+			sortable: this.rootEl.getAttribute('data-o-table-sortable') !== 'false',
+			preferredSortOrder: this.rootEl.getAttribute('data-o-table-preferred-sort-order')
 		}, opts);
 		this.thead = this.rootEl.querySelector('thead');
 		this.tbody = this.rootEl.querySelector('tbody');
@@ -556,7 +557,14 @@ class BaseTable {
 		const columnIndex = this.tableHeaders.indexOf(th);
 		if (th && !isNaN(columnIndex)) {
 			const currentSort = th.getAttribute('aria-sort');
-			const sortOrder = [null, 'none', 'descending'].indexOf(currentSort) !== -1 ? 'ascending' : 'descending';
+			// Order the column ascending by default, or descending if the
+			// column is already sorted ascending.
+			let sortOrder = currentSort !== 'ascending' ? 'ascending' : 'descending';
+			// Unless there is no existing sort and a descending is preferred.
+			const noExistingSort = [null, 'none'].indexOf(currentSort) !== -1;
+			if (noExistingSort && this._opts.preferredSortOrder === 'descending') {
+				sortOrder = 'descending';
+			}
 			this.sortRowsByColumn(columnIndex, sortOrder);
 		}
 	}

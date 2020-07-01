@@ -298,6 +298,40 @@ describe("BaseTable", () => {
 				}, 100);
 			}, 100);
 		});
+
+		it('buttons toggle column sort by preferred sort order with header button click (descending first)', done => {
+			// Set preferred sort order on first column.
+			sandbox.init();
+			sandbox.setContents(fixtures.shortTableWithContainer);
+			oTableEl = document.querySelector('[data-o-component=o-table]');
+			oTableEl.setAttribute('data-o-table-preferred-sort-order', 'descending');
+			table = new BaseTable(oTableEl, sorter);
+			// Add sort buttons
+			table.addSortButtons();
+			// Test sort order on click
+			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+			setTimeout(() => {
+				try {
+					click('thead th button');
+					proclaim.isTrue(sorterSpy.calledWith(table, 0, 'descending'), 'Expected the table to be sorted "descending" on first click of the header button, given a descending preferred sort order.');
+				} catch (error) {
+					sorterSpy.restore();
+					done(error);
+				}
+				setTimeout(() => {
+					try {
+						click('thead th button');
+						proclaim.isTrue(sorterSpy.calledWith(table, 0, 'ascending'), 'Expected the table to be sorted "ascending" on second click of the header button, given a descending preferred sort order.');
+					} catch (error) {
+						sorterSpy.restore();
+						done(error);
+					} finally {
+						sorterSpy.restore();
+						done();
+					}
+				}, 100);
+			}, 100);
+		});
 	});
 
 	describe('sortRowsByColumn', () => {
