@@ -53,14 +53,14 @@ set SCRIPTPATH=%~dp0
 set arguments=%*
 "${path.join(platformSpecificSassPath, "/src/dart.exe")}" "${path.join(
   platformSpecificSassPath,
-  "/src/sass.dart.snapshot"
+  "/src/sass.snapshot"
 )}" %arguments%`;
 
 const linuxAndMacEntrypoint = `
 #!/bin/sh
 exec "${path.join(platformSpecificSassPath, "/src/dart")}" "${path.join(
   platformSpecificSassPath,
-  "/src/sass.dart.snapshot"
+  "/src/sass.snapshot"
 )}" "$@"`;
 
 const windows = windows64bit || windows32bit;

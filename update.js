@@ -2,7 +2,6 @@
 
 const axios = require("axios").default;
 const decompress = require("decompress");
-const execa = require("execa");
 const path = require("path");
 const fs = require("fs");
 
