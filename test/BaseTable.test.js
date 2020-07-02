@@ -276,17 +276,21 @@ describe("BaseTable", () => {
 		it('buttons toggle column sort with header button click (ascending first)', done => {
 			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
 			table.addSortButtons();
+			const buttonQuery = 'thead th button';
 			setTimeout(() => {
+				const button = oTableEl.querySelector(buttonQuery);
+				proclaim.include(button.getAttribute('title'), 'ascending', 'Expected the sort button to describe the next sort "ascending".');
 				try {
-					click('thead th button');
+					click(buttonQuery);
 					proclaim.isTrue(sorterSpy.calledWith(table, 0, 'ascending'), 'Expected the table to be sorted "ascending" on first click of the header button.');
 				} catch (error) {
 					sorterSpy.restore();
 					done(error);
 				}
 				setTimeout(() => {
+					proclaim.include(button.getAttribute('title'), 'descending', 'Expected the sort button to describe the next sort "descending".');
 					try {
-						click('thead th button');
+						click(buttonQuery);
 						proclaim.isTrue(sorterSpy.calledWith(table, 0, 'descending'), 'Expected the table to be sorted "descending" on second click of the header button.');
 					} catch (error) {
 						sorterSpy.restore();

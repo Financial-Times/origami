@@ -469,7 +469,8 @@ class BaseTable {
 			sortButton.classList.add('o-table__sort');
 			// In VoiceOver, button `aria-label` is repeated when moving from one column of tds to the next.
 			// Using `title` avoids this, but risks not being announced by other screen readers.
-			sortButton.setAttribute('title', `sort table by ${th.textContent}`);
+			const nextSort = this._getNextSortOrder(th);
+			sortButton.setAttribute('title', `sort table by "${th.textContent}" ${nextSort}`);
 			return sortButton;
 		});
 
@@ -509,6 +510,18 @@ class BaseTable {
 			sortOrder,
 			columnIndex
 		};
+
+		// Update the button title to reflect the new sort.
+		const th = this.getTableHeader(columnIndex);
+		const sortButton = th.querySelector('button');
+		if (sortButton) {
+			let buttonTitle = sortButton.getAttribute('title');
+			buttonTitle = sortOrder === 'ascending' ?
+				buttonTitle.replace('ascending', 'descending') :
+				buttonTitle.replace('descending', 'ascending');
+			sortButton.setAttribute('title', buttonTitle);
+		}
+
 		this._dispatchEvent('sorted', this._currentSort);
 	}
 
@@ -547,6 +560,27 @@ class BaseTable {
 	}
 
 	/**
+	 * Column sort orders are toggled. For a given column heading, return
+	 * the next sort order which should be applied.
+	 * @param {Element} th - The heading for the column to be sorted.
+	 * @returns {String} - What the next sort order for the heading should be, 'ascending' or 'descending'.
+	 */
+	_getNextSortOrder(th) {
+		// Get the current table sort. Use the `aria-sort` attribute
+		// which may have been applied by a client or server side sort.
+		const currentSort = th.getAttribute('aria-sort');
+		// If there is no existing sort use a descending sort if that has been
+		// configured as a preferred sort order for the given heading.
+		const noExistingSort = [null, 'none'].indexOf(currentSort) !== -1;
+		if (noExistingSort && this._opts.preferredSortOrder === 'descending') {
+			return 'descending';
+		}
+		// Otherwise the next sort will be ascending by default, or descending
+		// if the column is already sorted ascending.
+		return currentSort !== 'ascending' ? 'ascending' : 'descending';
+	}
+
+	/**
 	 * Handles a sort button click event. Toggles column sort.
 	 * @param {MouseEvent} event - The click event.
 	 * @returns {undefined}
@@ -556,15 +590,7 @@ class BaseTable {
 		const th = sortButton.closest('th');
 		const columnIndex = this.tableHeaders.indexOf(th);
 		if (th && !isNaN(columnIndex)) {
-			const currentSort = th.getAttribute('aria-sort');
-			// Order the column ascending by default, or descending if the
-			// column is already sorted ascending.
-			let sortOrder = currentSort !== 'ascending' ? 'ascending' : 'descending';
-			// Unless there is no existing sort and a descending is preferred.
-			const noExistingSort = [null, 'none'].indexOf(currentSort) !== -1;
-			if (noExistingSort && this._opts.preferredSortOrder === 'descending') {
-				sortOrder = 'descending';
-			}
+			const sortOrder = this._getNextSortOrder(th);
 			this.sortRowsByColumn(columnIndex, sortOrder);
 		}
 	}

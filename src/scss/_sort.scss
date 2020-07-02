@@ -35,7 +35,12 @@
 		}
 	}
 
-	// Show descending icon in sort button with DSC sort applied.
+	// Show descending icon in sort button with DSC sort applied,
+	// or on hover if no sort has been applied and a descending sort
+	// is the preferred sort.
+	// stylelint-disable-next-line selector-no-qualifying-type
+	[data-o-table-preferred-sort-order='descending'] th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	[data-o-table-preferred-sort-order='descending'] th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
 	[aria-sort='descending'] .o-table__sort {
 		&:after {
 			@include oIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
