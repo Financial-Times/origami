@@ -6,8 +6,23 @@ on:
       - opened
       - reopened
       - synchronize
+    paths: 
+     - "bower.json"
+     - "origami.json"
+     - "main.js"
+     - "main.scss"
+     - "demos/**"
+     - "src/**"
   push:
     branches: master
+    paths: 
+     - "bower.json"
+     - "origami.json"
+     - "main.js"
+     - "main.scss"
+     - "demos/**"
+     - "src/**"
+
 jobs:
   percy:
     runs-on: ubuntu-latest
