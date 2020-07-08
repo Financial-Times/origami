@@ -26,7 +26,7 @@ For a standard blockquote style use classes `o-quote o-quote--standard` and the 
 </blockquote>
 ```
 
-For an editorial style blockquote swap the `o-quote--standard` class for `o-quote--editorial`. The editorial variant is only available to master brand users.
+For an editorial style blockquote swap the `o-quote--standard` class for `o-quote--editorial`. The editorial variant inherits font size and colour to support multiple editorial contexts. For example at the time of writing [live blogs](https://www.ft.com/content/f61c179d-fd47-38ba-b1ab-df158fa62dd9) and article pages have different font sizes on large viewports but both should share the editorial quote style. Therefore the editorial quote must be within an element that sets typography styles such as [o-editorial-typography-body](https://registry.origami.ft.com/components/o-editorial-typography/readme?brand=master#body).
 ```diff
 -<blockquote class="o-quote o-quote--standard">
 +<blockquote class="o-quote o-quote--editorial">
