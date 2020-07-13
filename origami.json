@@ -18,6 +18,7 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
+			"o-editorial-typography@^1.0.7",
 			"o-fonts@^4.0.0",
 			"o-normalise@^2.0.0"
 		]
@@ -36,6 +37,7 @@
 				"author": "Lorem ipsum",
 				"source": "Lorem, ipsum dolor."
 			},
+			"documentClasses": "o-editorial-typography-body",
 			"description": "A blockquote style for editorial contexts such as articles. A block quote is a passage of text from another source, or a passage of text that’s been spoken by a person. Used to attribute another source of information, or to quote the spoken words of a person.",
 			"brands": [
 				"master"

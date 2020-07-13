@@ -90,13 +90,12 @@
 		}
 
 		p {
-			@include oEditorialTypographyBody();
-			// repeated margin as `oEditorialTypographyBody`
-			// outputs a margin property
-			margin-bottom: oSpacingByName('s4');
-			&:last-child {
-				margin-bottom: 0;
-			}
+			// Output editorial font family.
+			// Do not output other typography properties as these should be
+			// inherited depending on the context of the editorial blockquote.
+			// E.g. At the time of writing the font size of stories differed
+			// on article pages and live blogs by design.
+			@include oTypographySerif();
 		}
 	}
 }
