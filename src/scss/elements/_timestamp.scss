@@ -1,86 +1,48 @@
 /// Timestamp base styles
 @mixin _oTeaserTimestamp {
-	@include oTypographySans(-2, $include-font-family: false);
-	color: $_o-teaser-muted;
+	@include oLabelsTimestampContent();
 	display: block;
 	// Moves timestamp to the bottom when stretched modifier is used
 	margin-top: auto;
 	// and ensures there is always some gap above
 	padding-top: oSpacingByName('s4');
-	text-transform: uppercase;
 }
 
 /// Timestamp variant styles adding coloured prefixes.
 /// Includes keyframe declaration so must be used outside of
 /// a selector
 @mixin _oTeaserTimestampVariants {
-	@keyframes live-blog-pulse {
-		0% {
-			transform: scale(1.5);
-		}
-		50% {
-			transform: scale(1);
-		}
-		100% {
-			transform: scale(1.5);
-		}
+	// Output o-labels indicators.
+	.o-teaser__timestamp {
+		@include oLabelsIndicatorContent($opts: ('block': true));
 	}
 
-	.o-teaser__timestamp--new,
-	.o-teaser__timestamp--updated,
-	.o-teaser__timestamp--inprogress {
-		color: oColorsByName('crimson');
+	.o-teaser__timestamp--new {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'new'));
 	}
 
-	.o-teaser__timestamp-prefix:before,
-	.o-teaser__timestamp--inprogress:before {
-		content: '';
-		display: inline-block;
-		margin-right: 5px;
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background-color: oColorsByUsecase('o-teaser/fast-ft', 'background');
-	}
-
-	.o-teaser__timestamp-prefix:before {
-		position: relative;
-		top: 1px;
+	.o-teaser__timestamp--updated {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'updated'));
 	}
 
 	.o-teaser__timestamp--inprogress {
-		position: relative;
-
-		&:before {
-			position: absolute;
-			top: oSpacingByName('s4') + 3;
-			opacity: 0.2;
-			transform: scale(1.5);
-			animation: live-blog-pulse 1.7s ease infinite;
-		}
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
 	}
 
 	.o-teaser__timestamp-prefix {
-		color: inherit;
+		@include oLabelsIndicatorContent($opts: ('element': 'status'));
 	}
 
-	.o-teaser__timestamp--inprogress.o-teaser__timestamp-prefix:before {
-		margin-right: 7px;
+	.o-teaser__timestamp-date {
+		@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
 	}
 
+	// Output modifiers for custom, teaser specific indicator styles.
 	.o-teaser__timestamp--comingsoon {
 		color: oColorsByName('o-teaser/live-blog-coming-soon');
-
-		.o-teaser__timestamp-prefix:before {
-			background-color: oColorsByName('o-teaser/live-blog-coming-soon');
-		}
 	}
 
 	.o-teaser__timestamp--closed {
 		color: oColorsByName('o-teaser/live-blog-closed');
-
-		.o-teaser__timestamp-prefix:before {
-			background-color: oColorsByName('o-teaser/live-blog-closed');
-		}
 	}
 }
