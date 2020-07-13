@@ -1,0 +1,19 @@
+@include oColorsSetColor(
+	'o-teaser/fastft-brand',
+	#cf191d,
+	(
+		'deprecated': 'consider using the "crimson" color instead or contact the Origami team if you would still like to use the o-teaser/fastft-brand colour'
+	)
+);
+
+@include oColorsSetUseCase(
+	'o-teaser/fast-ft',
+	(
+		'text': 'o-teaser/fastft-brand',
+		'border': 'o-teaser/fastft-brand',
+		'background': 'o-teaser/fastft-brand'
+	),
+	(
+		'deprecated': 'consider using the "crimson" color instead or contact the Origami team if you would still like to use the o-teaser/fast-ft usecase'
+	)
+);
