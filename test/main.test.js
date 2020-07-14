@@ -16,9 +16,6 @@ describe('main', function () {
 		settings.destroy('config'); // Empty settings.
 	});
 
-	after(function () {
-	});
-
 	it('should quit without any config to init with', function() {
 		oTracking.destroy();
 		const tracking = oTracking.init();
