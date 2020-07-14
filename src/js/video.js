@@ -172,6 +172,8 @@ class Video {
 
 		this.opts = Object.assign({}, defaultOpts, opts, getOptionsFromDataAttributes(this.containerEl.attributes));
 
+		this.containerEl.setAttribute('aria-label', 'Video Player');
+
 		if(typeof this.opts.systemcode !== 'string') {
 			throw new Error('o-video requires "systemcode" is configured using the "data-o-video-systemcode" data attribute, or configured with the `opts` constructor argument. It must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).');
 		}

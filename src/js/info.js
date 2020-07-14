@@ -17,7 +17,7 @@ class VideoInfo {
 		}
 
 		if (this.opts.title) {
-			this.titleEl = document.createElement('h4');
+			this.titleEl = document.createElement('span');
 			this.titleEl.className = 'o-video__info-title';
 			this.infoEl.appendChild(this.titleEl);
 		}
