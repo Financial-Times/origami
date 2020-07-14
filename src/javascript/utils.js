@@ -214,7 +214,7 @@ function getValueFromJsVariable(str) {
 /**
  * @param {Object} props - An object whose props need to be filtered
  * @param {Array} list - The list of props to allow
- * @return {Object} An objetc containing only the allowed props
+ * @return {Object} An object containing only the allowed props
  */
 function whitelistProps (props, list) {
 	return list.reduce(
