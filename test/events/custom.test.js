@@ -25,7 +25,6 @@ describe('event', function () {
 	it('should track an event, adds custom component_id', function () {
 
 		const callback = sinon.spy();
-		let sent_data;
 
 		trackEvent(new CustomEvent('oTracking.event', {
 			detail: {
@@ -39,7 +38,7 @@ describe('event', function () {
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		sent_data = callback.getCall(0).thisValue;
+		const sent_data = callback.getCall(0).thisValue;
 
 		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 

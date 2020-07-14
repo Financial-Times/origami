@@ -254,7 +254,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 	}
 
 	for (const property in declarativeOptions) {
-		if (declarativeOptions.hasOwnProperty(property)) {
+		if (Object.prototype.hasOwnProperty.call(declarativeOptions, property)) {
 			options[property] = options[property] || declarativeOptions[property];
 		}
 	}

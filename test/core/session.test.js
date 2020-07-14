@@ -8,11 +8,11 @@ describe('Core.Session', function () {
 
 	beforeEach(function () {
 		// clean up previous tests' pollution
-		(new Store('session')).destroy();
+		new Store('session').destroy();
 	});
 
 	afterEach(function () {
-		(new Store('session')).destroy();
+		new Store('session').destroy();
 	});
 
 	describe('no preset value', function () {

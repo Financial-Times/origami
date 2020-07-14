@@ -15,11 +15,6 @@ const Store = function (name, config) {
 	 */
 	const keyPrefix = 'o-tracking';
 
-	/**
-	 * Temporary var containing data from a previously saved store.
-	 * @property loadStore
-	 */
-	let loadStore;
 
 	if (utils.isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the store.');
@@ -40,7 +35,7 @@ const Store = function (name, config) {
 	/**
 	 * The key/name of this store.
 	 */
-	this.storageKey = this.config.hasOwnProperty('nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_');
+	this.storageKey = Object.prototype.hasOwnProperty.call(this.config, 'nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_');
 
 	/**
 	 * The storage method to use. Determines best storage method.
@@ -100,7 +95,6 @@ const Store = function (name, config) {
 		function cookieSave(name, value, expiry) {
 			let d;
 			let expires = '';
-			let cookie;
 
 			if (utils.is(expiry, 'number')) {
 				d = new Date();
@@ -108,7 +102,7 @@ const Store = function (name, config) {
 				expires = 'expires=' + d.toGMTString() + ';';
 			}
 
-			cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
+			const cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
 			window.document.cookie = cookie;
 		}
 
@@ -131,14 +125,21 @@ const Store = function (name, config) {
 
 		return {
 			_type: 'none',
+			// eslint-disable-next-line no-empty-function
 			load: function () {},
+			// eslint-disable-next-line no-empty-function
 			save: function () {},
+			// eslint-disable-next-line no-empty-function
 			remove: function () {}
 		};
 	}(this.config, window));
 
+	/**
+	 * Temporary var containing data from a previously saved store.
+	 * @property loadStore
+	 */
 	// Retrieve any previous store with the same name.
-	loadStore = this.storage.load(this.storageKey);
+	const loadStore = this.storage.load(this.storageKey);
 	if (loadStore) {
 		try {
 			this.data = JSON.parse(loadStore);

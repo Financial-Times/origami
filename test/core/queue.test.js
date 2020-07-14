@@ -6,7 +6,7 @@ import Queue from '../../src/javascript/core/queue';
 const queue_name = 'queue_test';
 
 // PhantomJS doesn't always create a "fresh" environment...
-(new Queue(queue_name)).replace([]);
+new Queue(queue_name).replace([]);
 
 describe('Core.Queue', function () {
 
@@ -18,6 +18,7 @@ describe('Core.Queue', function () {
 		});
 	});
 
+	// eslint-disable-next-line no-empty-function
 	const a_function = function () {};
 	const queue = new Queue(queue_name);
 

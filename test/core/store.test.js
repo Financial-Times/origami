@@ -8,16 +8,16 @@ describe('Core.Store', function () {
 	describe('init()', function () {
 
 		it('should use local storage by default', function () {
-			proclaim.equal((new Store('test')).storage._type, 'localStorage');
+			proclaim.equal(new Store('test').storage._type, 'localStorage');
 		});
 
 		if (document.location.toString().match('^file://') && navigator.userAgent.indexOf('PhantomJS') > -1) {
 			it('should still work if there is no storage mechanism available', function () {
-				proclaim.equal((new Store('test', { storage: 'cookie' })).storage._type, 'none');
+				proclaim.equal(new Store('test', { storage: 'cookie' }).storage._type, 'none');
 			});
 		} else {
 			it('can use cookies for storage', function () {
-				proclaim.equal((new Store('test', { storage: 'cookie' })).storage._type, 'cookie');
+				proclaim.equal(new Store('test', { storage: 'cookie' }).storage._type, 'cookie');
 			});
 		}
 	});

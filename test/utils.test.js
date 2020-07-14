@@ -19,6 +19,7 @@ describe('Utils', function () {
 			{ value: 1, answer: 'number' },
 			{ value: [], answer: 'object' },
 			{ value: {}, answer: 'object' },
+			// eslint-disable-next-line no-empty-function
 			{ value: function () {}, answer: 'function' }
 		].forEach(function (test) {
 			proclaim.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);

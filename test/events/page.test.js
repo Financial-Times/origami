@@ -30,14 +30,13 @@ describe('page', function () {
 
 	it('should track a page', function () {
 		const callback = sinon.spy();
-		let sent_data;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		sent_data = callback.getCall(0).thisValue;
+		const sent_data = callback.getCall(0).thisValue;
 		// Basics
 		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 		proclaim.deepEqual(Object.keys(sent_data.context), ["id","root_id","url","referrer"]);
@@ -57,30 +56,27 @@ describe('page', function () {
 		const callback = sinon.spy();
 		const callback2 = sinon.spy();
 		const callback3 = sinon.spy();
-		let page1_root_id;
-		let page2_root_id;
-		let page3_root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback);
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		page1_root_id = callback.getCall(0).thisValue.context.root_id;
+		const page1_root_id = callback.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback2);
 		proclaim.ok(callback2.called, 'Callback not called.');
 
-		page2_root_id = callback2.getCall(0).thisValue.context.root_id;
+		const page2_root_id = callback2.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback3);
 		proclaim.ok(callback3.called, 'Callback not called.');
 
-		page3_root_id = callback3.getCall(0).thisValue.context.root_id;
+		const page3_root_id = callback3.getCall(0).thisValue.context.root_id;
 
 		proclaim.notEqual(page1_root_id, page2_root_id, 'root_id is not unique');
 		proclaim.notEqual(page2_root_id, page3_root_id, 'root_id is not unique');
@@ -90,8 +86,6 @@ describe('page', function () {
 	it('should have an event sent before a PV attached to the next PV sent', function () {
 		const callback = sinon.spy();
 		const callback2 = sinon.spy();
-		let event_root_id;
-		let page_root_id;
 
 		event(new CustomEvent('oTracking.event', {
 			detail: {
@@ -101,14 +95,14 @@ describe('page', function () {
 		}), callback);
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		event_root_id = callback.getCall(0).thisValue.context.root_id;
+		const event_root_id = callback.getCall(0).thisValue.context.root_id;
 
 		page({
 			url: "http://www.ft.com/home/uk"
 		}, callback2);
 		proclaim.ok(callback2.called, 'Callback not called.');
 
-		page_root_id = callback2.getCall(0).thisValue.context.root_id;
+		const page_root_id = callback2.getCall(0).thisValue.context.root_id;
 		proclaim.equal(event_root_id, page_root_id, 'root_id should match: ' + event_root_id + '===' + page_root_id);
 	});
 });

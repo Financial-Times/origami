@@ -35,7 +35,7 @@ function getSession() {
 	let isNew = false;
 
 	if (s) {
-		const d = (new Date()).valueOf();
+		const d = new Date().valueOf();
 		const exp = parseInt(s.expiry, 10);
 
 		// If current session is active.

@@ -42,8 +42,6 @@ const api = function cuid() {
 	// that the uid was created.
 	const timestamp = new Date().getTime().toString(base);
 
-	// Prevent same-machine collisions.
-	let counter;
 
 	// A few chars to generate distinct ids for different
 	// clients (so different computers are far less
@@ -53,21 +51,21 @@ const api = function cuid() {
 	// Grab some more chars from Math.random()
 	const random = randomBlock() + randomBlock();
 
-	counter = pad(safeCounter().toString(base), blockSize);
+	// Prevent same-machine collisions.
+	const counter = pad(safeCounter().toString(base), blockSize);
 
 	return letter + timestamp + counter + fingerprint + random;
 };
 
 api.slug = function slug() {
 	const date = new Date().getTime().toString(36);
-	let counter;
 
 	const print = api.fingerprint().slice(0,1) +
 		api.fingerprint().slice(-1);
 
 	const random = randomBlock().slice(-2);
 
-	counter = safeCounter().toString(36).slice(-4);
+	const counter = safeCounter().toString(36).slice(-4);
 
 	return date.slice(-2) +
 		counter + print + random;

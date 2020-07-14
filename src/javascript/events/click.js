@@ -43,6 +43,7 @@ const getEventProperties = event => {
 			if (event[property]) {returnObject[property] = utils.sanitise(event[property]);}
 		}
 		catch (e) {
+			// eslint-disable-next-line no-console
 			console.log(e);
 		}
 		return returnObject;

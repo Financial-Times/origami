@@ -66,8 +66,6 @@ function getOrigamiEventTarget(event) {
 
 	if (element && element.getAttribute('data-o-component')) {
 		return element;
-	} else {
-
 	}
 }
 

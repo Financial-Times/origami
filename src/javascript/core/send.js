@@ -119,7 +119,7 @@ function sendRequest(request, callback) {
  * @return {undefined}
  */
 function add(request) {
-	request.queueTime = (new Date()).getTime();
+	request.queueTime = new Date().getTime();
 	if (should_use_sendBeacon()) {
 		sendRequest(request);
 	} else {
@@ -136,6 +136,7 @@ function add(request) {
  */
 function run(callback) {
 	if (utils.isUndefined(callback)) {
+		// eslint-disable-next-line no-empty-function
 		callback = function () {};
 	}
 
@@ -149,7 +150,7 @@ function run(callback) {
 		all_events.forEach(function (event) {
 			const label = [event.category, event.action].join(':');
 
-			if (!counts.hasOwnProperty(label)) {
+			if (!Object.prototype.hasOwnProperty.call(counts, label)) {
 				counts[label] = 0;
 			}
 

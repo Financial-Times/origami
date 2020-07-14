@@ -140,7 +140,9 @@ function broadcast(namespace, eventType, detail) {
 			detail: detail,
 			bubbles: true
 		}));
-	} catch (error) {}
+	} catch (error) {
+		// empty
+	}
 }
 
 /**
@@ -210,10 +212,9 @@ function getValueFromJsVariable(str) {
 }
 
 /**
- * Whitelist props
- * @param {Object} props - An object whose props need to be whitelisted
- * @param {Array} list - A list for whitelisting
- * @return
+ * @param {Object} props - An object whose props need to be filtered
+ * @param {Array} list - The list of props to allow
+ * @return {Object} An objetc containing only the allowed props
  */
 function whitelistProps (props, list) {
 	return list.reduce(
@@ -239,13 +240,14 @@ function sanitise (str) {
  * Assign the subject value if the target properties are undefined
  * @param {Object} subject - assign the value
  * @param {Object} target - be assigned the value
- * @return
+ * @return {void}
  */
 function assignIfUndefined (subject, target) {
 	for (const prop in subject) {
 		if (!target[prop]) {
 			target[prop] = subject[prop];
 		} else {
+			// eslint-disable-next-line no-console
 			console.warn(`You can't set a custom property called ${prop}`);
 		}
 	}

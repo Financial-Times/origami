@@ -35,7 +35,7 @@ import settings from '../../src/javascript/core/settings';
 describe('Core.Send', function () {
 
 	after(function () {
-		(new Queue('requests')).replace([]);
+		new Queue('requests').replace([]);
 		settings.destroy('config'); // Empty settings.
 	});
 
@@ -111,7 +111,7 @@ describe('Core.Send', function () {
 
 
 		it('fallback to xhr when sendBeacon not supported', function (done) {
-			(new Queue('requests')).replace([]);
+			new Queue('requests').replace([]);
 			settings.set('config', {useSendBeacon: true});
 			Send.init();
 			const b = navigator.sendBeacon;
@@ -144,7 +144,7 @@ describe('Core.Send', function () {
 		});
 
 		it('fallback to image when xhr withCredentials and sendBeacon not supported', function (done) {
-			(new Queue('requests')).replace([]);
+			new Queue('requests').replace([]);
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
@@ -201,7 +201,7 @@ describe('Core.Send', function () {
 		it('should remember offline lag if a request fails.', function (done) {
 			const server = sinon.fakeServer.create(); // Catch AJAX requests
 
-			(new Queue('requests')).replace([]);
+			new Queue('requests').replace([]);
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
@@ -221,7 +221,7 @@ describe('Core.Send', function () {
 			setTimeout(() => {
 				// console.log((new Queue('requests')).all());
 
-				proclaim.ok((new Queue('requests')).last().queueTime);
+				proclaim.ok(new Queue('requests').last().queueTime);
 				navigator.sendBeacon = b;
 				server.restore();
 				done();
@@ -235,7 +235,7 @@ describe('Core.Send', function () {
 			window.MSInputMethodContext = true;
 			document.documentMode = true;
 
-			(new Queue('requests')).replace([]);
+			new Queue('requests').replace([]);
 			Send.init();
 			const dummyImage = {
 				attachEvent: sinon.stub()

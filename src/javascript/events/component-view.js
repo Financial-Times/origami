@@ -47,6 +47,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  */
 const init = (opts = {}) => {
 	if(!window.IntersectionObserver) {
+		// eslint-disable-next-line no-console
 		console.warn('o-tracking: Unable to track component view events as "window.IntersectionObserver" is not supported.');
 		return;
 	}

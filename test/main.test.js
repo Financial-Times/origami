@@ -58,7 +58,6 @@ describe('main', function () {
 		});
 
 		const callback = sinon.spy();
-		let sent_data;
 
 		oTracking.page({
 			url: 'http://www.ft.com/cms/s/0/576f5f1c-0509-11e5-9627-00144feabdc0.html'
@@ -66,7 +65,7 @@ describe('main', function () {
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		sent_data = callback.getCall(0).thisValue;
+		const sent_data = callback.getCall(0).thisValue;
 
 		root_id = sent_data.context.root_id;
 
@@ -93,7 +92,6 @@ describe('main', function () {
 	it('should track an event', function () {
 
 		const callback = sinon.spy();
-		let sent_data;
 
 		oTracking.event(new CustomEvent('oTracking.event', {
 			detail: {
@@ -106,7 +104,7 @@ describe('main', function () {
 		proclaim.ok(callback.called, 'Callback not called.');
 
 
-		sent_data = callback.getCall(0).thisValue;
+		const sent_data = callback.getCall(0).thisValue;
 
 		// Basics
 		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
@@ -128,8 +126,6 @@ describe('main', function () {
 
 		const callback1 = sinon.spy();
 		const callback2 = sinon.spy();
-		let sent_data1;
-		let sent_data2;
 
 		oTracking.page({
 			my_key: "my_val"
@@ -137,7 +133,7 @@ describe('main', function () {
 
 		proclaim.ok(callback1.called, 'Callback not called.');
 
-		sent_data1 = callback1.getCall(0).thisValue;
+		const sent_data1 = callback1.getCall(0).thisValue;
 		proclaim.equal(sent_data1.context.my_key, "my_val");
 
 		// Track another page
@@ -145,7 +141,7 @@ describe('main', function () {
 		proclaim.ok(callback2.called, 'Callback not called.');
 
 		// Ensure vars from the first track don't leak into the second
-		sent_data2 = callback2.getCall(0).thisValue;
+		const sent_data2 = callback2.getCall(0).thisValue;
 		proclaim.equal(sent_data2.context.my_key, undefined);
 	});
 
@@ -161,13 +157,12 @@ describe('main', function () {
 
 
 		const callback = sinon.spy();
-		let sent_data;
 
 		oTracking.page({}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
-		sent_data = callback.getCall(0).thisValue;
+		const sent_data = callback.getCall(0).thisValue;
 
 		proclaim.equal(sent_data.system.environment, "prod");
 		proclaim.equal(sent_data.system.is_live, true);

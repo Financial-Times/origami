@@ -49,7 +49,6 @@ describe('Core', function () {
 
 		it('should send a tracking request', function () {
 			const callback = sinon.spy();
-			let sent_data;
 
 			const root_id = Core.setRootID();
 			Core.track({
@@ -61,7 +60,7 @@ describe('Core', function () {
 
 			proclaim.ok(callback.called, 'Callback not called.');
 
-			sent_data = callback.getCall(0).thisValue;
+			const sent_data = callback.getCall(0).thisValue;
 			proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 			// System
 			proclaim.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);

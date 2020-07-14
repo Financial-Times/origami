@@ -98,7 +98,7 @@ Queue.prototype.add = function (item) {
 
 	function doAdd(item) {
 		self.queue.push({
-			created_at: (new Date()).valueOf(),
+			created_at: new Date().valueOf(),
 			item: item
 		});
 	}

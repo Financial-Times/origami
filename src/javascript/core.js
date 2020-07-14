@@ -39,6 +39,7 @@ function getRootID() {
  */
 function track(config, callback) {
 	if (utils.isUndefined(callback)) {
+		// eslint-disable-next-line no-empty-function
 		callback = function () {};
 	}
 	const session = Session.session();
@@ -46,6 +47,7 @@ function track(config, callback) {
 	// Set up the base request object with some values which should always be sent.
 	const request = {
 		async: true,
+		// eslint-disable-next-line no-empty-function
 		callback: callback || function() {},
 		context: {
 			id: config.id || utils.guid(), // Use a supplied id or generate one for this request
