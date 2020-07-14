@@ -2,7 +2,23 @@
 	'o-teaser/fastft-brand',
 	#cf191d,
 	(
-		'deprecated': 'consider using the "crimson" color instead or contact the Origami team if you would still like to use the o-teaser/fastft-brand colour'
+		'deprecated': 'contact the Origami team if you need a fastft brand colour or would like to match the colour of the live indicator label which is now located in the o-labels component'
+	)
+);
+
+@include oColorsSetColor(
+	'o-teaser/live-blog-in-progress',
+	oColorsByName('crimson'),
+	(
+		'deprecated': 'consider using the "crimson" color directory or contact the Origami team if you would still like to match the colour of the live indicator label which is now located in the o-labels component'
+	)
+);
+
+@include oColorsSetColor(
+	'o-teaser/fastft-highlight',
+	#f5dfd9,
+	(
+		'deprecated': 'contact the Origami team if you would still like to use the o-teaser/fastft-highlight colour'
 	)
 );
 
@@ -14,6 +30,22 @@
 		'background': 'o-teaser/fastft-brand'
 	),
 	(
-		'deprecated': 'consider using the "crimson" color instead or contact the Origami team if you would still like to use the o-teaser/fast-ft usecase'
+		'deprecated': 'contact the Origami team if you need a fastft brand colour or would like to match the colour of the live indicator label which is now located in the o-labels component'
+	)
+);
+
+@include oColorsSetColor(
+	'o-teaser/live-blog-closed',
+	oColorsByName('black-60'),
+	(
+		'deprecated': 'contact the Origami team if you would still like to match the colour of the closed indicator label which is now located in the o-labels component'
+	)
+);
+
+@include oColorsSetColor(
+	'o-teaser/live-blog-coming-soon',
+	$_o-teaser-deprecated-coming-soon-color,
+	(
+		'deprecated': 'contact the Origami team if you would still like to use the o-teaser/live-blog-coming-soon colour'
 	)
 );

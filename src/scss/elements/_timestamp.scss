@@ -29,6 +29,10 @@
 		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
 	}
 
+	.o-teaser__timestamp--closed {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'closed'));
+	}
+
 	.o-teaser__timestamp-prefix {
 		@include oLabelsIndicatorContent($opts: ('element': 'status'));
 	}
@@ -38,11 +42,9 @@
 	}
 
 	// Output modifiers for custom, teaser specific indicator styles.
+	// @deprecated - remove the `comingsoon` modifier in the next major.
+	// https://github.com/Financial-Times/o-teaser/issues/173
 	.o-teaser__timestamp--comingsoon {
-		color: oColorsByName('o-teaser/live-blog-coming-soon');
-	}
-
-	.o-teaser__timestamp--closed {
-		color: oColorsByName('o-teaser/live-blog-closed');
+		color: $_o-teaser-deprecated-coming-soon-color;
 	}
 }

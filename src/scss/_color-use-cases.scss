@@ -74,10 +74,3 @@
 	'background': 'claret-70',
 	'text': oColorsGetTextColor('claret-70', 100)
 ));
-
-// Timestamp - Live blog
-@include oColorsSetColor('o-teaser/live-blog-closed', oColorsByName('black-60'));
-@include oColorsSetColor('o-teaser/live-blog-coming-soon', #fd9d00); // todo: replace with an o-colors tone or mix
-@include oColorsSetColor('o-teaser/live-blog-in-progress', oColorsByName('crimson'));
-
-@include oColorsSetColor('o-teaser/fastft-highlight', #f5dfd9); // todo: replace with an o-colors tone or mix

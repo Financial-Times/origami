@@ -23,3 +23,8 @@ $_o-teaser-focus-hover: oColorsMix($_o-teaser-base-color, $percentage: 55);
 /// @type Color
 /// @access private
 $_o-teaser-muted: oColorsMix($_o-teaser-base-color, $percentage: 60);
+
+/// @type Color
+/// @deprecated
+/// @access private
+$_o-teaser-deprecated-coming-soon-color: #fd9d00;
