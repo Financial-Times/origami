@@ -4,6 +4,7 @@ o-buttons provides Sass mixins and variables to create buttons.
 
 - [Markup](#markup)
 - [Sass](#sass)
+- [References](#references)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -117,7 +118,10 @@ For a pagination style wrap your buttons in `.o-buttons-pagination`. In this exa
 ```
 
 ### Disabled
-`o-buttons` styles buttons with the `disabled` attribute to show they are inactive. In some cases it is preferred to visually hide the button until it is active. For this case add the class `o-buttons--hide-disabled`.
+
+Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have [poor contrast which makes them difficult to read](#references). They also [do not give feedback to a user why they are disabled](#references).
+
+To make a button disabled add the `disabled` attribute. To visually hide the disabled button until it is active add the class `o-buttons--hide-disabled`.
 
 ```html
 <!-- Visibly disabled because of the `disabled` attribute. -->
@@ -193,6 +197,10 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 `oButtonsContent` has options to recreate all buttons, including for different sizes and icon only buttons. See the [o-buttons SassDoc](https://registry.origami.ft.com/components/o-buttons/sassdoc) for more details and examples.
 
+## References
+
+- Hampus Sethfors explains the issues with disabled buttons in more detail in an [axesslab.com article](https://axesslab.com/disabled-buttons-suck/). In the article Hampus suggests alternative design approaches for common uses of disabled buttons.
+
 ## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
@@ -204,7 +212,6 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.0 | - |
 ╳ deprecated | 1 | 1.8 | - |
 
----
 
 ## Contact
 
