@@ -2,10 +2,12 @@
 @import 'o-brand/main';
 @import "o-colors/main";
 @import "o-typography/main";
+@import "o-editorial-typography/main";
 
 @import "src/scss/colors";
 @import "src/scss/brand";
 @import "src/scss/variables";
+@import "src/scss/placeholders";
 @import "src/scss/mixins";
 
 /// Outputs all available features and styles for labels.
@@ -14,32 +16,98 @@
 /// @output The output includes the `.o-labels` class definition as well as class definitions for every variant.
 /// @example scss - All label styles
 ///   @include oLabels();
-/// @example scss - Base styles, big size variant, and gold tier state variant
+/// @example scss - Standard label styles including big size and gold tier state variants
 ///   @include oLabels($opts: ('sizes': ('big'), 'states': ('tier-gold'));
+/// @example scss - Indicator label styles including live and new variants
+///   @include oLabels($opts: ('indicators': ('status': ('live', 'new')));
+/// @example scss - Indicator label styles with inverse modifier class
+///   @include oLabels($opts: ('indicators': ('status': ('live', 'new'), 'inverse': true));
+/// @example scss - Timestamp label with inverse modifier class
+///   @include oLabels($opts: ('timestamp': ('inverse': true));
 /// @access public
 @mixin oLabels($opts: (
-	'sizes': $_o-labels-sizes,
-	'states': $_o-labels-states
+	'sizes': $_o-labels-standard-sizes,
+	'states': $_o-labels-standard-states,
+	'indicators': (
+		'status': $_o-labels-indicator-status,
+		'inverse': true,
+	),
+	'timestamp': (
+		'inverse': true
+	)
 )) {
-	$sizes: map-get($opts, 'sizes');
-	$states: map-get($opts, 'states');
+	// Get standard labels to include
+	$standard-label-sizes: map-get($opts, 'sizes');
+	$standard-label-states: map-get($opts, 'states');
+	// Get indicator labels to include
+	$indicator-label-opts: map-get($opts, 'indicators');
+	$indicator-label-opts: if(
+		type-of($indicator-label-opts) == 'map',
+		$indicator-label-opts,
+		()
+	);
+	$indicator-label-status: map-get($indicator-label-opts, 'status');
+	$indicator-label-inverse: map-get($indicator-label-opts, 'inverse');
+	// Get whether to include the timestamp label
+	$timestamp-label: map-get($opts, 'timestamp');
+	$timestamp-label-inverse: if(
+		type-of($timestamp-label) == 'map',
+		map-get($timestamp-label, 'inverse'),
+		$timestamp-label
+	);
 
-	// Base label styles
+	// Base standard label styles
 	.o-labels {
 		@include _oLabelsBaseContent();
 	}
 
-	// Label size variants
-	@each $size in $_o-labels-sizes {
-		@if index($sizes, $size) and _oLabelsSupports($size) {
+	// Standard label size variants
+	@each $size in $_o-labels-standard-sizes {
+		@if index($standard-label-sizes, $size) and _oLabelsSupports($size) {
 			@include _oLabelsSize($size);
 		}
 	}
 
-	// Label state variants
-	@each $state in $_o-labels-states {
-		@if index($states, $state) and _oLabelsSupports($state) {
+	// Standard label state variants
+	@each $state in $_o-labels-standard-states {
+		@if index($standard-label-states, $state) and _oLabelsSupports($state) {
 			@include oLabelsAddState($state);
+		}
+	}
+
+	// Timestamp label styles
+	@if $indicator-label-status and _oLabelsSupports('timestamps') {
+		.o-labels-timestamp {
+			@include oLabelsTimestampContent();
+		}
+
+		@if $timestamp-label-inverse {
+			.o-labels-timestamp--inverse {
+				@extend %_o-labels-timestamp--inverse;
+			}
+		}
+	}
+
+	// Indicator label styles
+	@if $indicator-label-status and _oLabelsSupports('indicators') {
+		.o-labels-indicator {
+			@include oLabelsIndicatorContent($opts: ('block': true));
+		}
+
+		.o-labels-indicator__status {
+			@include oLabelsIndicatorContent($opts: ('element': 'status'));
+		}
+
+		@each $indicator-status in $indicator-label-status {
+			.o-labels-indicator--#{$indicator-status} {
+				@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': $indicator-status));
+			}
+		}
+
+		@if $indicator-label-inverse {
+			.o-labels-indicator--inverse {
+				@extend %_o-labels-timestamp--inverse;
+			}
 		}
 	}
 }

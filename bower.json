@@ -7,6 +7,7 @@
     "o-colors": "^5.0.0",
     "o-typography": "^6.0.0",
     "o-brand": "^3.2.5",
-    "o-spacing": "^2.0.0"
+    "o-spacing": "^2.0.0",
+    "o-editorial-typography": "^1.0.10"
   }
 }

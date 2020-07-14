@@ -86,6 +86,63 @@
 			"template": "/demos/src/typography.mustache"
 		},
 		{
+			"name": "indicators",
+			"title": "Indicators",
+			"description": "",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/indicators.mustache"
+		},
+		{
+			"name": "indicators-inverse",
+			"title": "Inverse Indicators",
+			"description": "",
+			"data": {"modifiers": ["inverse"]},
+			"documentClasses": "demo-inverse",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/indicators.mustache"
+		},
+		{
+			"name": "timestamp",
+			"title": "Timestamp",
+			"description": "",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/timestamp.mustache"
+		},
+		{
+			"name": "timestamp-inverse",
+			"title": "Inverse Timestamp",
+			"description": "",
+			"data": {"modifiers": ["inverse"]},
+			"documentClasses": "demo-inverse",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/timestamp.mustache"
+		},
+		{
+			"title": "Standard Label With Custom Markup",
+			"name": "custom",
+			"template": "demos/src/custom.mustache",
+			"data": {"standard": true},
+			"hidden": true
+		},
+		{
+			"title": "Indicator Label With Custom Markup",
+			"name": "custom-indicator",
+			"template": "demos/src/custom.mustache",
+			"data": {"indicator": true},
+			"brands": [
+				"master"
+			],
+			"hidden": true
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

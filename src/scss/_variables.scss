@@ -6,24 +6,28 @@
 /// @access public
 $o-labels-is-silent: true !default;
 
-/// Label sizes
-/// A list used to loop over all label sizes.
+/// Standard label sizes
+/// A list used to loop over all standard label sizes.
+/// These do not apply to other label types such as
+// indicator labels.
 /// For actual values: (@see _brand.scss).
 ///
 /// @type List
 /// @access private
-$_o-labels-sizes: (
+$_o-labels-standard-sizes: (
 	'big',
 	'small'
 );
 
-/// Label states
-/// A list used to loop over all label states.
+/// Standard label states
+/// A list used to loop over all standard label states.
+/// These do not apply to other label types such as
+// indicator labels.
 /// For actual values: (@see _brand.scss).
 ///
 /// @type List
 /// @access private
-$_o-labels-states: (
+$_o-labels-standard-states: (
 	'content-commercial',
 	'content-premium',
 	'lifecycle-beta',
@@ -37,3 +41,26 @@ $_o-labels-states: (
 	'tier-platinum',
 	'tier-silver'
 );
+
+/// Indicator label states
+/// A list used to loop over all indicator label states.
+///
+/// @type List
+/// @access private
+$_o-labels-indicator-status: (
+	'live',
+	'closed',
+	'new',
+	'updated'
+);
+
+/// The width/height of the circle used in the indicator label.
+/// @type Number
+/// @access private
+$_o-labels-indicator-circle-size: #{(10/12)}em; // 10px given 12px font size
+
+/// Whether or not the animation keyframes for the live indicator
+/// label has already been output.
+/// @type Boolean
+/// @access private
+$_o-labels-indicator-live-pulse-output: false !default;

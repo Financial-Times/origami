@@ -35,14 +35,15 @@
 	}
 }
 
-/// Add a state modifier for labels.
+/// Add a state modifier for standard labels.
+/// Note this mixin is dor standard labels only, not indicator labels.
 ///
-/// @param {String|Map} $state-name - The label state to output styles for. See README for available states.
-/// @param {Map} $opts [null] - A brand configuration which can be used to create custom label states. See README for more examples.
+/// @param {String|Map} $state-name - The standard label state to output styles for. See README for available states.
+/// @param {Map} $opts [null] - A brand configuration which can be used to create custom standard label states. See README for more examples.
 /// @output The output includes the `.o-labels--STATE` modifier class definition, which includes all overrides.
-/// @example scss - Existing label state
+/// @example scss - Existing standard label state
 ///   @include oLabelsAddState('tier-gold');
-/// @example scss - Custom label state
+/// @example scss - Custom standard label state
 ///   @include oLabelsAddState('citrus-fruit', (
 ///       background-color: oColorsByName('lemon')
 ///   ));
@@ -54,11 +55,11 @@
 	$variant: if($opts, $opts, $state-name);
 
 	.o-labels--#{$state-name} {
-		@include _oLabelsStateContent($variant);
+		@include _oLabelsStandardStateContent($variant);
 	}
 }
 
-/// Styles for a label without an `o-loading` CSS class.
+/// Styles for a standard label without an `o-labels` CSS class.
 /// Recommended only when a custom class name is required, for example within another component.
 /// @output Styles for a label without a CSS selector.
 /// @param {Map} $opts - A map containing a boolean to output base label styles, plus the label size and state (a state name or custom state map).
@@ -87,7 +88,7 @@
 	}
 
 	@if $state {
-		@include _oLabelsStateContent($state);
+		@include _oLabelsStandardStateContent($state);
 	}
 
 	@if $size {
@@ -95,7 +96,78 @@
 	}
 }
 
-/// Styles to change the size of the label.
+
+/// Styles for a timestamp label i.e. .o-labels-timestamp.
+/// This mixin is not recommend. Instead the the `oLabels` primary mixin and
+/// o-labels markup. This should only be used where using o-labels markup is
+/// not possible.
+///
+/// If outputting a timestamp in a non-label context see
+/// [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography).
+///
+/// @example Output a timestamp label with custom markup.
+///    .my-timestamp-label {
+///        @include oLabelsTimestampContent();
+///    }
+/// @access public
+@mixin oLabelsTimestampContent() {
+	@extend %_o-labels-timestamp;
+}
+
+/// Styles for indicator label elements e.g. .o-labels-indicator.
+/// This mixin is not recommend. Instead the the `oLabels` primary mixin and
+/// o-labels markup. This should only be used where using o-labels markup is
+/// not possible.
+/// @example Output indicator labels with custom markup.
+///    .my-indicator-label {
+///        @include oLabelsIndicatorContent($opts: ('block': true));
+///    }
+///    .my-indicator-label--new {
+///        @include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'new'));
+///    }
+///    .my-indicator-label--updated {
+///        @include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'updated'));
+///    }
+///    .my-indicator-label--closed {
+///        @include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'closed'));
+///    }
+///    .my-indicator-label--live {
+///        @include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
+///    }
+///    .my-indicator-label__status {
+///        @include oLabelsIndicatorContent($opts: ('element': 'status'));
+///    }
+///    .my-indicator-label__timestamp {
+///        @include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
+///    }
+/// @param {Sting|Map} $ops - the BEM element to output styles for, see example.
+/// @access public
+@mixin oLabelsIndicatorContent($opts: ()) {
+	$modifier: map-get($opts, 'modifier');
+	$element: map-get($opts, 'element');
+	$block: map-get($opts, 'block');
+	// Validate element.
+	// The timestamp element .o-labels-indicator__timestamp element
+	// currently has no styles but may do in the future.
+	$valid-elements: ('status', 'timestamp');
+	@if $element and not index($valid-elements, $element) {
+		@error 'Element must be one of "#{$valid-elements}" if set. "#{$element}" given.';
+	}
+	// Output block "base" styles i.e .o-labels-indicator
+	@if $block and not $modifier {
+		@extend %_o-labels-indicator;
+	}
+	// Output modifier styles e.g .o-labels-indicator--live
+	@if $block and $modifier {
+		@include _oLabelsIndicatorStatusContent($modifier);
+	}
+	// Output status element styles i.e .o-labels-indicator__status
+	@if $element == 'status' {
+		@extend %_o-labels-indicator__status;
+	}
+}
+
+/// Styles to change the size of a standard label.
 /// @param {Sting} $size - The label size to output styles for. The valid sizes are `big` and `small`.
 /// @access private
 @mixin _oLabelsSizeContent($size) {
@@ -109,7 +181,7 @@
 /// Styles for a state.
 /// @param {Sting|Map} $variant - An existing state name or a custom state map.
 /// @access private
-@mixin _oLabelsStateContent($variant) {
+@mixin _oLabelsStandardStateContent($variant) {
 	background-color: _oLabelsGet('background-color', $variant);
 	border-color: _oLabelsGet('border-color', $variant);
 	text-transform: _oLabelsGet('text-transform', $variant);
@@ -124,5 +196,64 @@
 	// Set the spacing
 	@if _oLabelsGet('padding-vertical', $variant) and _oLabelsGet('padding-horizontal', $variant) {
 		padding: (_oLabelsGet('padding-vertical', $variant) - _oLabelsGet('border-width')) (_oLabelsGet('padding-horizontal', $variant) - _oLabelsGet('border-width'));
+	}
+}
+
+/// Styles for indicator label statuses.
+/// @param {Sting} $status - An existing indicator status e.g. live, closed, new, updated
+/// @access private
+@mixin _oLabelsIndicatorStatusContent($status) {
+	@if not index($_o-labels-indicator-status, $status) {
+		@error '"#{$status}" is not an indicator label status. ' +
+			'Expected one or more of the following statuses: #{$_o-labels-indicator-status}.';
+	}
+	// All indicator labels currently use the same colour except the "closed".
+	// It is not possible to customise indicator labels currently but this
+	// may be added in the future, e.g. for the internal brand:
+	// https://github.com/Financial-Times/o-labels/issues/58
+	@if $status == 'closed' {
+		@extend %_o-labels-indicator-closed-color;
+	} @else {
+		@extend %_o-labels-indicator-live-color;
+	}
+	@extend %_o-labels-timestamp-typography;
+
+	@if($status == 'live') {
+		& > %_o-labels-indicator__status:after {
+			@extend %_o-labels-indicator-circle;
+		}
+
+		& > %_o-labels-indicator__status:after {
+			margin-right: -$_o-labels-indicator-circle-size;
+			opacity: 0.2;
+			transform: scale(1.5);
+			animation: _o-labels-live-pulse 1.7s ease infinite;
+			order: -1;
+			// Prevent animation of the live label if the reader has indicated
+			// that they prefer reduced motion. This may be conservative but
+			// as the live indicator is presented alongside content (including
+			// the front page at the time of writing) we do not want to risk
+			// severely distracting some readers.
+			// https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html
+			@media (prefers-reduced-motion) {
+				animation: none;
+			}
+		}
+
+		// output keyframes once when live status is output
+		@if($status == 'live' and $_o-labels-indicator-live-pulse-output: false) {
+			$_o-labels-indicator-live-pulse-output: true !global;
+			@keyframes _o-labels-live-pulse {
+				0% {
+					transform: scale(1.5);
+				}
+				50% {
+					transform: scale(1);
+				}
+				100% {
+					transform: scale(1.5);
+				}
+			}
+		}
 	}
 }

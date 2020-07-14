@@ -4,13 +4,37 @@ $o-labels-is-silent: false;
 @import "../../main";
 
 body {
-	background: oColorsByUsecase('page', 'background');
-
-	// Important used to ensure that this overrides the `body` specificity
-	// provided by the build service
-	margin: 1em !important; // stylelint-disable-line declaration-no-important
+	padding: 1rem;
 }
 
-.demo-container {
-	margin-bottom: 1em;
+html {
+	background: oColorsByUsecase('page', 'background');
+}
+
+.demo-inverse {
+	background: oColorsByName('slate');
+}
+
+// custom standard label markup
+.my-label {
+	@include oLabelsContent($opts: (
+		'base': true
+	));
+}
+
+// custom indicator label markup
+.my-indicator-label {
+	@include oLabelsIndicatorContent($opts: ('block': true));
+}
+
+.my-indicator-label--live {
+	@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
+}
+
+.my-indicator-label__status {
+	@include oLabelsIndicatorContent($opts: ('element': 'status'));
+}
+
+.my-indicator-label__date {
+	@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
 }
