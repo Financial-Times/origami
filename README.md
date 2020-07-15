@@ -13,7 +13,7 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 
 ### Tracking without JavaScript
 
-o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://spoor-api.ft.com/px.gif`).
+o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://spoor-api.ft.com/px.gif`). Click events and other interactive events will not be tracked without JavaScript but basic page view events can be tracked.
 
 The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-encoded JSON string that represents the data to track in Spoor.
 
