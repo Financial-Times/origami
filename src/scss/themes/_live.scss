@@ -30,8 +30,12 @@
 			}
 		}
 
+
+		// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
+		// https://github.com/Financial-Times/o-teaser/issues/173
 		.o-teaser__timestamp-prefix:before,
-		.o-teaser__timestamp--inprogress:before {
+		.o-teaser__timestamp--inprogress:before,
+		.o-teaser__timestamp--live:before {
 			background-color: white;
 		}
 	}

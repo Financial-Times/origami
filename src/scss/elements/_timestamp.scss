@@ -25,7 +25,10 @@
 		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'updated'));
 	}
 
-	.o-teaser__timestamp--inprogress {
+	// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
+	// https://github.com/Financial-Times/o-teaser/issues/173
+	.o-teaser__timestamp--inprogress,
+	.o-teaser__timestamp--live {
 		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
 	}
 
