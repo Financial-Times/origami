@@ -173,7 +173,22 @@ Store.prototype.read = function () {
 Store.prototype.write = function (data) {
 	// Set this.data, in-case we're on a file:// domain and can't set cookies.
 	this.data = data;
-	this.storage.save(this.storageKey, typeof this.data === 'string' ? this.data : JSON.stringify(this.data), this.config.expires);
+	let value;
+
+	if (typeof this.data === 'string') {
+		value = this.data;
+	} else {
+		if (utils.containsCircularPaths(this.data)) {
+			const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
+			"Please remove the circular references in the data.\n" +
+			"Here are the paths in the data which are circular:\n" +
+			JSON.stringify(utils.findCircularPathsIn(this.data), undefined, 4);
+			throw new Error(errorMessage);
+		}
+		value = JSON.stringify(this.data);
+	}
+
+	this.storage.save(this.storageKey, value, this.config.expires);
 
 	return this;
 };

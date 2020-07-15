@@ -85,4 +85,33 @@ describe('event', function () {
 
 		document.body.dispatchEvent(event);
 	});
+
+	it('should throw custom error message if the tracking event object contains circular references', function () {
+
+		const callback = sinon.spy();
+
+		const customTrackingData = {ohh: 'ahh'};
+		customTrackingData.circular = customTrackingData;
+		const errorMessage = `o-tracking does not support circular references in the analytics data.
+Please remove the circular references in the data.
+Here are the paths in the data which are circular:
+[
+    "[0].item.context.context.circular"
+]`;
+		proclaim.throws(function(){
+			trackEvent(
+				new CustomEvent("oTracking.event", {
+					detail: {
+						category: "slideshow",
+						action: "slide_viewed",
+						slide_number: 5,
+						component_id: "123456",
+						component_name: "custom-o-tracking",
+						context: customTrackingData,
+					},
+				}),
+				callback
+			);
+		}, errorMessage);
+	});
 });

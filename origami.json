@@ -14,7 +14,11 @@
 		"required": [
 			"CustomEvent",
 			"IntersectionObserver",
-			"IntersectionObserverEntry"
+			"IntersectionObserverEntry",
+			"WeakSet",
+			"Object.entries",
+			"Object.values",
+			"Array.isArray"
 		],
 		"optional": [
 			"Promise",

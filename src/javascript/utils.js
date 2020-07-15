@@ -254,6 +254,99 @@ function assignIfUndefined (subject, target) {
 }
 
 /**
+ * Used to find out all the paths which contain a circular reference.
+ * @param {*} rootObject The object we want to search within for circular references
+ * @returns {string[]} Returns an array of strings, the strings are the full paths to the circular references within the rootObject
+ */
+function findCircularPathsIn(rootObject) {
+	const traversedValues = new WeakSet();
+	const circularPaths = [];
+
+	function _findCircularPathsIn(currentObject, path) {
+		// If we already saw this object
+		// the rootObject contains a circular reference
+		// and we can stop looking any further into this currentObj
+		if (traversedValues.has(currentObject)) {
+			circularPaths.push(path);
+			return;
+		}
+
+		// Only Objects and things which inherit from Objects can contain circular references
+		// I.E. string/number/boolean/template literals can not contain circular references
+		if (currentObject instanceof Object) {
+			traversedValues.add(currentObject);
+
+			// Loop through all the values of the current object and search those for circular references
+			for (const [key, value] of Object.entries(currentObject)) {
+				// No need to recurse on every value because only things which inherit
+				// from Objects can contain circular references
+				if (value instanceof Object) {
+					const parentObjectIsAnArray = Array.isArray(currentObject);
+					if (parentObjectIsAnArray) {
+					// Store path in bracket notation when value is an array
+						_findCircularPathsIn(value, `${path}[${key}]`);
+					} else {
+					// Store path in dot-notation when value is an object
+						_findCircularPathsIn(value, `${path}.${key}`);
+					}
+				}
+			}
+		}
+	}
+
+	_findCircularPathsIn(rootObject, "");
+	return circularPaths;
+}
+
+/**
+ * Used to find out whether an object contains a circular reference.
+ * @param {*} rootObject The object we want to search within for circular references
+ * @returns {bool} Returns true if a circular reference was found, otherwise returns false
+ */
+function containsCircularPaths(rootObject) {
+	// Used to keep track of all the values the rootObject contains
+	const traversedValues = new WeakSet();
+
+	/**
+	 *
+	 * @param {*} currentObject The current object we want to search within for circular references
+	 * @returns {true|undefined} Returns true if a circular reference was found, otherwise returns undefined
+	 */
+	function _containsCircularPaths(currentObject) {
+		// If we already saw this object
+		// the rootObject contains a circular reference
+		// and we can stop looking any further
+		if (traversedValues.has(currentObject)) {
+			return true;
+		}
+
+		// Only Objects and things which inherit from Objects can contain circular references
+		// I.E. string/number/boolean/template literals can not contain circular references
+		if (currentObject instanceof Object) {
+			traversedValues.add(currentObject);
+			// Loop through all the values of the current object and search those for circular references
+			for (const value of Object.values(currentObject)) {
+				// No need to recurse on every value because only things which inherit
+				// from Objects can contain circular references
+				if (value instanceof Object) {
+					if (_containsCircularPaths(value)) {
+						return true;
+					}
+				}
+			}
+		}
+	}
+
+	// _containsCircularPaths returns true or undefined.
+	// By using Boolean we convert the undefined into false.
+	return Boolean(
+		_containsCircularPaths(
+			rootObject
+		)
+	);
+}
+
+/**
  * Utilities.
  * @alias utils
  */
@@ -274,7 +367,9 @@ export default {
 	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
-	filterProperties
+	filterProperties,
+	findCircularPathsIn,
+	containsCircularPaths
 };
 export {
 	log,
@@ -293,5 +388,7 @@ export {
 	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
-	filterProperties
+	filterProperties,
+	findCircularPathsIn,
+	containsCircularPaths
 };

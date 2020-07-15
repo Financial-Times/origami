@@ -114,4 +114,76 @@ describe('Utils', function () {
 		});
 	});
 
+	describe('findCircularPathsIn', function() {
+		it('should return an empty array if object contains no circular references', function() {
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn({ a: 1, b: 2 }), []);
+		});
+
+		it('should return an empty array if given a string literal', function() {
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn(''), []);
+		});
+
+		it('should return an empty array if given a number literal', function() {
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn(137), []);
+		});
+
+		it('should return an empty array if given a boolean literal', function() {
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn(true), []);
+		});
+
+		it('should return an empty array if given null', function() {
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn(null), []);
+		});
+
+		it('should return an array containing all the paths which are circular', function() {
+			const rootObject = {};
+			rootObject.a = rootObject;
+			rootObject.b = 2;
+			rootObject.c = '';
+			rootObject.d = null;
+			rootObject.e = true;
+			rootObject.f = [rootObject.a, 'carrot', rootObject];
+			rootObject.f.push(rootObject.f);
+			proclaim.deepStrictEqual(Utils.findCircularPathsIn(rootObject), [
+				'.a',
+				'.f[0]',
+				'.f[2]',
+				'.f[3]'
+			]);
+		});
+	});
+
+	describe('containsCircularPaths', function() {
+		it('should return false if object contains no circular references', function() {
+			proclaim.isFalse(Utils.containsCircularPaths({ a: 1, b: 2 }));
+		});
+
+		it('should return false if given a string literal', function() {
+			proclaim.isFalse(Utils.containsCircularPaths(''));
+		});
+
+		it('should return false if given a number literal', function() {
+			proclaim.isFalse(Utils.containsCircularPaths(137));
+		});
+
+		it('should return false if given a boolean literal', function() {
+			proclaim.isFalse(Utils.containsCircularPaths(true));
+		});
+
+		it('should return false if given null', function() {
+			proclaim.isFalse(Utils.containsCircularPaths(null));
+		});
+
+		it('should return true if given an object which contains circular references', function() {
+			const rootObject = {};
+			rootObject.a = rootObject;
+			rootObject.b = 2;
+			rootObject.c = '';
+			rootObject.d = null;
+			rootObject.e = true;
+			rootObject.f = [rootObject.a, 'carrot', rootObject];
+			rootObject.f.push(rootObject.f);
+			proclaim.isTrue(Utils.containsCircularPaths(rootObject));
+		});
+	});
 });
