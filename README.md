@@ -2,18 +2,12 @@
 
 Include in your product to send tracking requests to the Spoor API.
 
-- [The spoor ecosystem](#the-spoor-ecosystem)
 - [Usage](#usage)
 - [Events](#events)
 - [Parameters](#parameters)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
-
-## The Spoor ecosystem
-![ScreenShot](https://rawgit.com/Financial-Times/o-tracking/master/resources/images/ngda-system-design.svg)
-
-[Spoor API docs](https://spoor-docs.herokuapp.com/)
 
 ## Usage
 
