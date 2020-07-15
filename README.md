@@ -11,22 +11,41 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 
 ## Usage
 
-### Requirement: Polyfills & Doesn't cut the mustard
-_Applies to both quickstart examples below_
+### Tracking without JavaScript
 
+o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://spoor-api.ft.com/px.gif`).
 
-Add the [polyfill](https://cdn.polyfill.io/) service to your site to make sure o-tracking runs in as many browsers as possible.
+The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-encoded JSON string that represents the data to track in Spoor.
 
-Require the noscript version of o-tracking incase the browser doesn't cut the mustard.
-
-Checkout the [Origami spec](http://origami.ft.com/docs/developer-guide/using-modules/#core-vs-enhanced-experience) for the correct CTM logic, [html and css changes](http://origami.ft.com/docs/developer-guide/using-modules/#styles-for-fallbacks-and-enhancements) needed.
-
-
-
-o-tracking should have the following piece of html added, with the correct server and data filled in.
 ```html
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-	<div style="background: url('http://server?data={}');"></div>
+	<div style="background: url('https://spoor-api.ft.com/px.gif?data=YOUR_URL_ENCODED_JSON_DATA_HERE');"></div>
+</div>
+```
+
+For example, if you have the following data you want to track in Spoor:
+
+```json
+{
+  "category": "page",
+  "action": "view",
+  "system": {
+    "apiKey": "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP",
+    "source": "o-tracking",
+    "version": "1.0.0"
+  },
+  "context": {
+    "product": "ft.com",
+    "content": {
+      "asset_type": "page"
+    }
+  }
+}
+```
+Here is the corresponding tracking pixel setup:
+```html
+<div class="o-tracking o--if-no-js" data-o-component="o-tracking">
+    <div style="background: url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
 </div>
 ```
 
