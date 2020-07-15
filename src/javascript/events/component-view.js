@@ -19,13 +19,13 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 			throw new Error('opts.getContextData is not a function');
 		}
 
-		const dataBeforeWhitelist = opts.getContextData(viewedEl);
+		const contextData = opts.getContextData(viewedEl);
 
-		if (typeof dataBeforeWhitelist !== 'object') {
+		if (typeof contextData !== 'object') {
 			throw new Error('opts.getContextData function should return {Object}');
 		}
 
-		context = utils.whitelistProps(dataBeforeWhitelist, TRACKING_ATTRIBUTES);
+		context = utils.filterProperties(contextData, TRACKING_ATTRIBUTES);
 	} else {
 		context = {};
 	}

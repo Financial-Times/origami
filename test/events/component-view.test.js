@@ -191,7 +191,7 @@ describe('component:view', () => {
 				});
 			});
 
-			context('getContextData returns an Object includes non-whitelist props', () => {
+			context('getContextData returns an Object which includes unfiltered props', () => {
 				beforeEach(() => {
 					const opts = {
 						selector: `[${targetAttribute}]`,
@@ -214,7 +214,7 @@ describe('component:view', () => {
 					proclaim.equal(core.track.calledOnce, true, 'view event tracked');
 				});
 
-				it('should not have non-whitelist props in event detail', () => {
+				it('should not have unfiltered props in event detail', () => {
 					const trackedDetail = core.track.getCall(0).args[0];
 
 					proclaim.equal(trackedDetail.context.componentContentId, id);

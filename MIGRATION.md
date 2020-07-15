@@ -1,6 +1,16 @@
 
 # Migration
 
+## Migrating from v2 to v3
+
+The method `whitelistProps` has been renamed to `filterProperties`.
+
+
+```diff
+-Tracking.prototype.utils.whitelistProps
++Tracking.prototype.utils.filterProperties
+```
+
 ## Migrating from v1 to v2
 
 o-tracking v2 has dropped support for ftdomdelegate v3, please ensure your project is not using ftdomdelegate v3 and can work with ftdomdelegate v4.

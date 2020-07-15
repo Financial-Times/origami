@@ -93,8 +93,8 @@ describe('Utils', function () {
 		});
 	});
 
-	it('should provide whitelistProps functionality', function () {
-		const whitelist = [ 'componentContentId', 'type' ];
+	it('should provide filterProperties functionality', function () {
+		const allowedPropertyNames = [ 'componentContentId', 'type' ];
 
 		[
 			{
@@ -110,7 +110,7 @@ describe('Utils', function () {
 				result: {}
 			}
 		].forEach(function (test) {
-			proclaim.deepEqual(Utils.whitelistProps(test.target, whitelist), test.result);
+			proclaim.deepEqual(Utils.filterProperties(test.target, allowedPropertyNames), test.result);
 		});
 	});
 

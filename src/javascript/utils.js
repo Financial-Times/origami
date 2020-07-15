@@ -212,19 +212,19 @@ function getValueFromJsVariable(str) {
 }
 
 /**
- * @param {Object} props - An object whose props need to be filtered
- * @param {Array} list - The list of props to allow
+ * Filter an object to only have the properties which are listed in the `allowlist` parameter.
+ * @param {Object} objectToFilter - An object whose props need to be filtered
+ * @param {Array} allowedPropertyNames - The list of props to allow
  * @return {Object} An object containing only the allowed props
  */
-function whitelistProps (props, list) {
-	return list.reduce(
-		(acc, propName) => Object.assign(
-			{},
-			acc,
-			props[propName] ? { [propName]: props[propName] } : undefined
-		),
-		{}
-	);
+function filterProperties (objectToFilter, allowedPropertyNames) {
+	const filteredObject = {};
+	for (const allowedName of allowedPropertyNames) {
+		if (objectToFilter[allowedName]) {
+			filteredObject[allowedName] = objectToFilter[allowedName];
+		}
+	}
+	return filteredObject;
 }
 
 /**
@@ -274,7 +274,7 @@ export default {
 	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
-	whitelistProps
+	filterProperties
 };
 export {
 	log,
@@ -293,5 +293,5 @@ export {
 	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
-	whitelistProps
+	filterProperties
 };
