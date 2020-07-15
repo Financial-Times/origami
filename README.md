@@ -32,7 +32,7 @@ Checkout the [Origami spec](http://origami.ft.com/docs/developer-guide/using-mod
 o-tracking should have the following piece of html added, with the correct server and data filled in.
 ```html
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-	<div style="background:url('http://server?data={}');"></div>
+	<div style="background: url('http://server?data={}');"></div>
 </div>
 ```
 
@@ -110,9 +110,11 @@ if (cutsTheMustard) {
     <title>Full example</title>
     <!-- Add CTM styles -->
     <style type="text/css">
-        /* Hide any enhanced experience content when in core mode, and vice versa. */
-        .core .o--if-js,
-        .enhanced .o--if-no-js { display: none !important; }
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important; /* stylelint-disable-line declaration-no-important */
+		}
     </style>
     <!-- Add CTM check -->
     <script>
@@ -169,7 +171,7 @@ if (cutsTheMustard) {
 <body>
 <!-- Add fallback if browsers don't cut the mustard -->
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-    <div style="background:url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
+    <div style="background: url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
 </div>
 <!-- Send an event -->
 <button onclick="document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click' }, bubbles: true}));">Send an event</button>
