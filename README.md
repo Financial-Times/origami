@@ -113,7 +113,7 @@ You can be more selective about which types you would like to output, by using a
 - `'b2c'`
 
 **logo**
-- The logo image to show in the navigation. The image must come from an Origami [image set](https://registry.origami.ft.com/components?imageset=true&active=true&maintained=true). Specify the image set and image name as a string `[imageset]:[image]` e.g `ftlogo-v1:origami`. Defaults to the FT logo.
+- The logo image to show in the header. The image must come from an Origami [image set](https://registry.origami.ft.com/components?imageset=true&active=true&maintained=true). Specify the image set and image name as a string `[imageset]:[image]` e.g `ftlogo-v1:origami`. Defaults to the FT logo.
 
 **drawer-breakpoint**
 - The breakpoint to move the primary navigation into a drawer. We recommend a `rem` value or a layout size from [o-grid](https://github.com/Financial-Times/o-grid/#layout-sizes) e.g. 'M'. Defaults to the medium grid size 'M'.
