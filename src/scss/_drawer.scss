@@ -67,7 +67,7 @@
 
 			// Override the background colour of the draw's dropdown button.
 			.o-header-services__drop-down-button,
-			a[aria-current="true"] + .o-header-services__drop-down-button {
+			a[aria-current] + .o-header-services__drop-down-button {
 				@if  _oHeaderServicesGet('drawer-button-background') { // stylelint-disable-line selector-no-qualifying-type
 					border: 0;
 					background-color: _oHeaderServicesGet('drawer-button-background');

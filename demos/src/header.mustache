@@ -28,7 +28,7 @@
 	<nav class="o-header-services__primary-nav" aria-label="primary">
 		<ul class="o-header-services__primary-nav-list">
 			<li {{#drop-down}}data-o-header-services-level="1"{{/drop-down}}>
-				<a {{^drop-down}}aria-current="true"{{/drop-down}} href="{{href}}">Docs</a>{{#drop-down}}<!--
+				<a {{^drop-down}}aria-current="page"{{/drop-down}} href="{{href}}">Docs</a>{{#drop-down}}<!--
 				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
 				<ul data-o-header-services-level="2" aria-hidden="true">
 					<li>
@@ -41,7 +41,7 @@
 						<a href="{{href}}">Services</a>
 					</li>
 					<li>
-						<a aria-current="true" href="{{href}}">Tutorials</a>
+						<a aria-current="page" href="{{href}}">Tutorials</a>
 					</li>
 					<li>
 						<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
@@ -96,7 +96,7 @@
 					<a href="{{href}}">Build Service</a>
 				</li>
 				<li>
-					<a aria-current="true" href="{{href}}">The manual build process</a>
+					<a aria-current="page" href="{{href}}">The manual build process</a>
 				</li>
 			</ul>
 		</div>

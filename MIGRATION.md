@@ -64,7 +64,7 @@ The markup for a full header (**not** including dropdown menus) has changed in t
 -			<li class="o-header-services__nav-item">
 +			<li>
 -				<a class="o-header-services__nav-link o-header-services__nav-link--selected" href="#item-1">
-+				<a aria-current="true" aria-label="Current page" href="#item-1">
++				<a aria-current="page" aria-label="Current page" href="#item-1">
 					Nav item 1
 				</a>
 			</li>
@@ -85,7 +85,7 @@ The markup for a full header (**not** including dropdown menus) has changed in t
 -						<li class="o-header-services__subnav-item">
 +						<li>
 -							<a class="o-header-services__subnav-link" href={{href}} aria-selected="true" aria-label="Current page">
-+							<a href={{href}} aria-current="true" aria-label="Current page">
++							<a href={{href}} aria-current="page" aria-label="Current page">
 								current section
 							</a>
 						</li>

@@ -42,12 +42,12 @@
 				margin: 0;
 
 				&:hover, // stylelint-disable-line selector-no-qualifying-type
-				&[aria-current=true] { // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current] { // stylelint-disable-line selector-no-qualifying-type
 					color: _oHeaderServicesGet('text-hover-color');
 				}
 
 				&:hover:before, // stylelint-disable-line selector-no-qualifying-type
-				&[aria-current=true]:before { // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current]:before { // stylelint-disable-line selector-no-qualifying-type
 					content: '';
 					position: absolute;
 					bottom: 0;

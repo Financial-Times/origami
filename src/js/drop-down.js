@@ -151,13 +151,17 @@ class DropDown {
 
 	/**
 	 * Returns items which contain an anchor
-	 * with the attribute `aria-current` set to true.
+	 * with the attribute `aria-current` set to true or "page".
 	 */
 	static getCurrent(items) {
 		return items.filter(item => {
 			const links = item.querySelectorAll('a');
 			const hasCurrentLink = Array.from(links).reduce((result, link) => {
-				return result || link.getAttribute('aria-current') === 'true';
+				// Check against "page" and "true" as o-header-services
+				// used "true" in its markup before switching to "page".
+				// https://www.aditus.io/aria/aria-current/#aria-current-page
+				const ariaCurrent = link.getAttribute('aria-current') ;
+				return result || (ariaCurrent === 'true' || ariaCurrent === 'page');
 			}, false);
 			return hasCurrentLink;
 		});

@@ -52,7 +52,7 @@
 
 					// stylelint-disable-next-line max-nesting-depth
 					&:hover,
-					&[aria-current=true] {
+					&[aria-current] {
 						color: _oHeaderServicesGet('nav-text', $from: $theme);
 						background-color: _oHeaderServicesGet('nav-hover-background', $from: $theme);
 					}

@@ -45,7 +45,7 @@
 			}
 
 			&:hover, // stylelint-disable-line selector-no-qualifying-type
-			&[aria-current=true] { // stylelint-disable-line selector-no-qualifying-type
+			&[aria-current] { // stylelint-disable-line selector-no-qualifying-type
 				background-color: _oHeaderServicesGet('nav-hover-background');
 			}
 		}
