@@ -1,6 +1,6 @@
 # o-date
 
-o-date provides javascript utilities for formatting and updating dates in FT style. This component is mainly useful when you want your dates formatted to express relative time.
+o-date formats `time` elements in the FT style, and supports formatting dates in relative time.
 
 - [Markup](#markup)
 - [JavaScript](#javascript)
@@ -11,65 +11,79 @@ o-date provides javascript utilities for formatting and updating dates in FT sty
 
 ## Markup
 
-To provide the best non-JS fallback you should markup your dates as follows:
+To render a human readable date in the FT format create a [time element](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element). Add a standard `datetime` attribute in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Then add the `data-o-component="o-date"` attribute with a class `o-date`.
 
 ```html
-<time data-o-component="o-date" class="o-date" datetime="{{iso8601String}}">{FT formatted date (including time if appropriate)}</time>
+<time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">
+</time>
+```
+
+_The rendered date will be a relative time or timestamp for a given date, in accordance with FT date formatting conventions E.g. `10 seconds ago`, `a minute ago`, `3 hours ago`, `yesterday`, `July 18 2020`._
+
+### Core Experience
+
+We recommend a human readable date is added to the `time` element to support a [core experience](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) without JavaScript:
+```html
+<time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">
+  June 15 2000
+</time>
+```
+_Node.js applications could provide a core experience fallback using the [Financial-Times/ft-date-format](https://github.com/Financial-Times/ft-date-format) library._
+
+### Format Options
+
+Set the `data-o-date-format` attribute to customise how the `time` element is presented:
+- `date-only`: only show the date, without relative or time information.
+- `time-ago-no-seconds`: always display a relative time but if the relative time is under a minute display "Less than a minute ago" (e.g. `Less than a minute ago`, `10 minutes ago`, `an hour ago`, `4 hours ago`).
+- `time-ago-limit-4-hours`: always display a relative time but hide the `time` element if the `datetime` is older than 4 hours (e.g. `4 seconds ago`, `10 minutes ago`, `4 hours ago`).
+- `time-ago-abbreviated`: always display a relative time with units abbreviated (e.g. `4s ago`, `10m ago`, `1h ago`).
+- `time-ago-abbreviated-limit-4-hours`: hide the `time` element when the `datetime` is older than 4 hours, otherwise render the same as `time-ago-abbreviated`.
+- `today-or-yesterday-or-nothing`: display `today` if the `datetime` is today, `yesterday` if it was yesterday, or hide the `time` element if the `datetime` is older than yesterday.
+- [custom format](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html): it is recommended to use a standard FT format but a [custom format](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) may be used e.g. `h:mm a`.
+
+### Copy Options
+
+By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `o-date__printer` class. `o-date` will output the formatted date within the `o-date__printer` element and will not change other child elements.
+
+For example to show a relative time followed by the actual time:
+
+```html
+<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
+    <span class="o-date__printer">
+			<!-- show the abbreviated time ago here -->
+			<!-- fallback to the date if o-date JavaScript fails  -->
+      20 July 2020
+		</span>
+		<!-- always include the exact time -->
+    <span>14:36</span>
+</time>
+
 ```
 
 ## JavaScript
 
-To display dates in the standard relative time format, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct each element with a `data-o-component="o-date"` attribute:
+Instantiate o-date JavaScript in the [same way as other Origami components](https://origami.ft.com/docs/components/initialising/).
+
+For example call the `init` method to initialise all `o-date` instances on the page:
+```js
+import ODate from 'o-date'
+ODate.init();
+```
+
+Pass a specific element:
+```js
+import ODate from 'o-date'
+const myDateElement = document.querySelector('#my-date');
+ODate.init(myDateElement);
+```
+
+Or dispatch the `o.DOMContentLoaded` event to auto-construct all Origami components on the page, including each `o-date` element with a `data-o-component="o-date"` attribute:
 
 ```js
 document.addEventListener('DOMContentLoaded', function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
-
-You can also import `o-date` as a component.
-
-```js
-import ODate from 'o-date'
-```
-
-You can run `ODate.init()` once the DOM has loaded if you don't want to initialise other components at the same time.
-
-Run `ODate.init(el)` on any elements containing dates that are added to the page after DOM load, and if you keep a reference to the returned object you can clean them up with `oDateItem.destroy()` to stop processing.
-
-### o-date#format(date, tpl)
-
-Returns a date formatted as a string
-
-- `date`: A javascript `Date` object or a valid string to pass to the `Date` constructor
-- `tpl`: A string specifying what format to output the date in:
-  - `'datetime'`: formats the date in the standard FT long format, including the time. E.g. `May 15, 2014 8:10 am`
-  - `'date'`: formats the date in the standard FT long format. E.g. `May 15, 2014`
-  - Any other string using [widespread conventions](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for time/date placeholders, which will be replaced with values extracted from the date provided. See `./main.js` for an up to date list of supported formats. To avoid e.g. the `mm` in `common` being replaced with the month prefix with a double backslash `co\\mmon` i.e. *In most cases custom date formats should not be used, in favour of the standard FT date and datetime formats*
-
-### o-date#timeAgo(date)
-
-Returns the relative time since the given date, formatted as a human readable string e.g. `13 minutes ago`.
-
-### o-date#ftTime(date)
-
-Returns relative time or timestamp for a given date, in accordance with FT date formatting conventions.
-
-- `date`: A javascript `Date` object or a valid string to pass to the `Date` constructor
-
-### o-date#asTodayOrYesterdayOrNothing(date)
-
-Returns `'yesterday'`, `'today'` or `''` for a given date. You can request this formatting for `o-date` components by adding `data-o-date-format="today-or-yesterday-or-nothing"`.
-
-- `date`: A javascript `Date` object or a valid string to pass to the `Date` constructor
-
-### o-date#init(el)
-
-Within a given container element, converts dates to ftTime (see above) and periodically updates their values. Within the container all `<time>` elements with `o-date` in `data-o-component` will be updated. If a given `<time>` element contains an element with the class `o-date__printer` the relative time will be output here, otherwise it will replace the contents of the entire `<time>` element. Once the `<time>` element has been formatted by o-date, the attribute `data-o-date-js` is added, enabling conditional styling and/or hiding the date until it is correctly formatted.
-
-- `el`: An `HTMLElement` within which to scan for `o-date` elements. If the element itself is a `<time>` element with `o-date` in `data-o-component`, then o-date will run directly on this element rather than querying for suitable elements within it.
-
-If the `el` is a valid `<time>` element, the resulting o-date instance will be returned; otherwise, an array of created instances will be returned.
 
 ### o-date#destroy()
 

@@ -1,3 +1,5 @@
+import ODate from '../../main';
+
 const times = document.querySelectorAll('[data-o-component="o-date"]');
 
 const now = new Date();
@@ -10,4 +12,4 @@ times[0].setAttribute('datetime', today.toISOString());
 times[1].setAttribute('datetime', new Date(today.getTime() - 1000 * 60 * 60 * 20).toISOString());
 times[2].setAttribute('datetime', lastMonth.toISOString());
 
-require('./demo');
+ODate.init();

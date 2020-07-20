@@ -3,6 +3,10 @@ import ftDateFormat from 'ft-date-format';
 const updateEventName = 'oDate.update';
 let interval;
 
+/**
+ * Initialise the o-date component.
+ * @param {(HTMLElement|String)} rootElement - The root element or CSS selector to initialise
+ */
 export default function ODate(rootEl) {
 	if (!rootEl) {
 		rootEl = document.body;
@@ -36,6 +40,9 @@ ODate.prototype.handleEvent = function(e) {
 	}
 };
 
+/**
+ * Re-render the formatted date within the `time` element.
+ */
 ODate.prototype.update = function() {
 	const el = this.el;
 
@@ -100,23 +107,75 @@ ODate.prototype.update = function() {
 	}
 };
 
+/**
+ * Remove o-date from the `time` element i.e. remove event
+ * listeners and drop references to the element.
+ */
 ODate.prototype.destroy = function() {
 	document.body.removeEventListener(updateEventName, this);
 	this.el = null;
 };
 
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.toDate = ftDateFormat.toDate;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.format = ftDateFormat.format;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.getSecondsBetween = ftDateFormat.getSecondsBetween;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.ftTime = ftDateFormat.ftTime;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.isNearFuture = ftDateFormat.isNearFuture;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.isFarFuture = ftDateFormat.isFarFuture;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.isToday = ftDateFormat.isToday;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.isYesterday = ftDateFormat.isYesterday;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.timeAgo = ftDateFormat.timeAgo;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.asTodayOrYesterdayOrNothing = ftDateFormat.asTodayOrYesterdayOrNothing;
+
+/**
+ * @deprecated - Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+ */
 ODate.timeAgoNoSeconds = ftDateFormat.timeAgoNoSeconds;
 
+/**
+ * Initialise the o-date component.
+ * @param {(HTMLElement|String)} rootElement - The root element or CSS selector to initialise
+ * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
+ */
 ODate.init = function(el) {
 	if (!el) {
 		el = document.body;
