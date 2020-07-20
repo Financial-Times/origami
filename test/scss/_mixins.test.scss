@@ -6,7 +6,7 @@
 			}
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
-				.o-footer-services__container {
+				.o-footer-services .o-footer-services__container {
 					width: 100%;
 					position: relative;
 				}
@@ -18,8 +18,8 @@
 			}
 			// o-footer-services__icon-link--github icon styles
 			@include contains($selector: false) {
-				.o-footer-services__icon-link--github:before {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&format=svg");
+				.o-footer-services .o-footer-services__icon-link--github:before {
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Agithub?source=#{$system-code}&tint=000000&format=svg");
 				}
 			}
 		}
@@ -46,8 +46,8 @@
 			}
 			// o-footer-service__container base styles
 			@include contains($selector: false) {
-				.o-footer-services__icon-link--whatsapp:before {
-					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&format=svg");
+				.o-footer-services .o-footer-services__icon-link--whatsapp:before {
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3Awhatsapp?source=#{$system-code}&tint=000000&format=svg");
 				}
 			}
 		}

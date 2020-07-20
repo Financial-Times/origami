@@ -1,6 +1,6 @@
 # o-footer-services [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-o-footer-services is a footer component for internal products and tooling at the FT.
+o-footer-services is an [o-footer](https://registry.origami.ft.com/components/o-footer) alternative for tools, internal products, and specialist titles at the FT.
 
 - [Markup](#markup)
 - [Sass](#sass)
@@ -39,6 +39,17 @@ All elements within the `.o-footer-services__wrapper--top` section are entirely 
 
 As a move to future proof this component and the products that may use it, **`.o-footer-services__wrapper--legal` is not optional.**
 
+### Themes
+
+To use a dark theme, apply the `o-footer-services--dark` modifier class:
+
+```diff
+-<footer class="o-footer-services">
++<footer class="o-footer-services o-footer-services--dark">
+	<!-- ... -->
+</footer>
+```
+
 ## Sass
 
 To output all `o-footer-services` CSS call `oFooterServices()`.
@@ -48,12 +59,13 @@ To output all `o-footer-services` CSS call `oFooterServices()`.
 ```
 
 To keep your CSS bundle size small, include  `o-footer-services` features granularly using the `opts` argument.
-E.g. to output styles with a project logo but without the default icon link to Github:
+E.g. to output styles for the dark theme with a project logo, but without the default icon link to Github:
 
 ```scss
 @include oFooterServices($opts: (
 	'logo': 'ftlogo-v1:origami',
-	'icons': ('slack')
+	'icons': ('slack'),
+	'themes': ('dark'),
 ));
 ```
 All options include:
@@ -62,9 +74,10 @@ All options include:
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | logo      | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).     | master, internal, whitelabel |
 | icons     | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
+| theme    | A list of themes to include. Currently the only theme is `dark`, which is only supported by the master brand.         | master |
 
 
-Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to ommit fundamental base styles required by all options.
+Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to omit fundamental base styles required by all options.
 ```scss
 // Output o-footer-services with no icons.
 @include oFooterServices($opts: (

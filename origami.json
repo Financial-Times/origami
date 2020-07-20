@@ -68,7 +68,17 @@
 			"title": "Footer",
 			"name": "footer",
 			"template": "demos/src/footer.mustache",
-			"description": "The full internal product and tooling footer"
+			"description": "The full services footer"
+		},
+		{
+			"title": "Dark Theme",
+			"name": "dark-footer",
+			"template": "demos/src/footer.mustache",
+			"data": {
+				"theme": "dark"
+			},
+			"brands": ["master"],
+			"description": "A dark theme, shown on the full services footer."
 		}
 	]
 }
