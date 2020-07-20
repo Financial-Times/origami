@@ -74,7 +74,7 @@ All options include:
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | logo      | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).     | master, internal, whitelabel |
 | icons     | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
-| theme    | A list of themes to include. Currently the only theme is `dark`, which is only supported by the master brand.         | master |
+| themes    | A list of themes to include. Currently the only theme is `dark`, which is only supported by the master brand.         | master |
 
 
 Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to omit fundamental base styles required by all options.
