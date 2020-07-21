@@ -215,9 +215,9 @@ Tracking.prototype.updateConfig = function(newConfig) {
 };
 
 /**
- * Checks if the <script type='application/json' data-o-tracking-config> element is in the DOM
+ * Retrieves the <script type='application/json' data-o-tracking-config> element that is in the DOM, otherwise returns null.
  * @private
- * @return {HTMLElement} - Returns the <script> element if found
+ * @return {HTMLElement|null} - Returns the <script> element if found otherwise returns null.
  */
 Tracking.prototype._getDeclarativeConfigElement = function() {
 	return document.querySelector('script[data-o-tracking-config]');
