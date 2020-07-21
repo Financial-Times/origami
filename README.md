@@ -45,7 +45,7 @@ Set the `data-o-date-format` attribute to customise how the `time` element is pr
 
 By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `data-o-date-printer` attribute. `o-date` will output the formatted date within the `data-o-date-printer` element and will not change other child elements.
 
-For example to include "update at" copy within the `time` element followed by an abbreviated relative time:
+For example to include "updated at" copy within the `time` element followed by an abbreviated relative time:
 
 ```html
 <time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated"
