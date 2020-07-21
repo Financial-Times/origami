@@ -12,7 +12,6 @@ describe('o-date DOM', () => {
 	describe('11 minutes ago', () => {
 		let elevenMinutesAgo;
 		let elevenMinutesAgoDateTime;
-		let elevenMinutesAgoCustomFormat;
 
 		beforeEach(() => {
 			const fakeNow = new Date();
