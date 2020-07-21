@@ -25,7 +25,7 @@ _The rendered date will be a relative time or timestamp for a given date, in acc
 We recommend a human readable date is added to the `time` element to support a [core experience](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) without JavaScript:
 ```html
 <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">
-  June 15 2000
+	June 15 2000
 </time>
 ```
 _Node.js applications could provide a core experience fallback using the [Financial-Times/ft-date-format](https://github.com/Financial-Times/ft-date-format) library._
@@ -48,25 +48,26 @@ By default `o-date` will replace the contents of the `time` element with the for
 For example to include "update at" copy within the `time` element followed by an abbreviated relative time:
 
 ```html
-<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
-		<!-- some arbitrary content -->
-    <span>updated at</span>
-		<!-- show the abbreviated time ago here in the printed element -->
-		<!-- fallback to the date if o-date JavaScript fails  -->
-    <span data-o-date-printer>
-      20 July 2020
-		</span>
+<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated"
+	datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
+	<!-- some arbitrary content -->
+	<span>updated at</span>
+	<!-- show the abbreviated time ago here in the printed element -->
+	<!-- fallback to the date if o-date JavaScript fails  -->
+	<span data-o-date-printer>
+		20 July 2020
+	</span>
 </time>
 ```
 
 Render a date multiple times within the same `o-date` component by including multiple `data-o-date-printer` elements. Each printer element may have a unique format by adding the `data-o-date-format` attribute. If `data-o-date-format` is not set on the printer element the parent `data-o-date-format` element will be used:
 
 ```html
-<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="date-only" >
+<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="date-only">
 	<!-- render the date in the "date-only" format here -->
 	<!-- (as set on the parent "time" element) -->
-  <span data-o-date-printer></span>
-  <!-- render the date in the "time-ago-abbreviated" format here -->
+	<span data-o-date-printer></span>
+	<!-- render the date in the "time-ago-abbreviated" format here -->
 	<span data-o-date-printer data-o-date-format="time-ago-abbreviated"></span>
 	<!-- render the date in the custom format "h:mm" here -->
 	<span data-o-date-printer data-o-date-format="h:mm"></span>
@@ -97,7 +98,7 @@ Or dispatch the `o.DOMContentLoaded` event to auto-construct all Origami compone
 ```js
 import 'o-date';
 document.addEventListener('DOMContentLoaded', function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
