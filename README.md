@@ -48,8 +48,7 @@ By default `o-date` will replace the contents of the `time` element with the for
 For example to include "updated at" copy within the `time` element followed by an abbreviated relative time:
 
 ```html
-<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated"
-	datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
+<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
 	<!-- some arbitrary content -->
 	<span>updated at</span>
 	<!-- show the abbreviated time ago here in the printed element -->
