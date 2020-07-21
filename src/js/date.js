@@ -4,6 +4,7 @@ const updateEventName = 'update';
 let interval;
 
 function ftDateFormatWarning(methodName) {
+	// eslint-disable-next-line no-console
 	console.warn(`The o-date method "${methodName}" is deprecated. Use the "ft-date-format" package instead or contact the Origami team for help: https://github.com/Financial-Times/ft-date-format`);
 }
 
@@ -16,12 +17,14 @@ class ODate {
 	constructor(rootEl) {
 
 		if (!rootEl) {
+			// eslint-disable-next-line no-console
 			console.warn('To initialise all o-date elements on the page use ' +
 				'the `init` method. Passing no arguments to the constructor ' +
 				'is deprecated.');
 		}
 
 		if (rootEl && !(rootEl instanceof HTMLElement)) {
+			// eslint-disable-next-line no-console
 			console.warn('Using the constructor to initialise one or more ' +
 				'o-date elements with a query selector is deprecated. ' +
 				'Pass a single o-date HTMLElement to initialise or use the ' +
@@ -63,6 +66,7 @@ class ODate {
 
 	/**
 	 * Re-render the formatted date within the `time` element.
+	 * @returns {undefined}
 	 */
 	update() {
 		const el = this.el;
@@ -106,6 +110,7 @@ class ODate {
 	/**
 	 * Remove o-date from the `time` element i.e. remove event
 	 * listeners and drop references to the element.
+	 * @returns {undefined}
 	 */
 	destroy() {
 		document.body.removeEventListener(updateEventName, this);
@@ -114,7 +119,7 @@ class ODate {
 
 	/**
 	 * Initialise the o-date component.
-	 * @param {HTMLElement|String} rootElement - The root element or CSS selector to initialise
+	 * @param {HTMLElement|String} el - The root element or CSS selector to initialise
 	 * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
 	 */
 	static init (el) {
@@ -139,8 +144,9 @@ class ODate {
 
 	/**
 	 * Render the date to the "printer" element in the requested format.
-	 * @param {HTMLElement} printer
-	 * @param {Date} date
+	 * @param {HTMLElement} printer - The element to render the date in
+	 * @param {Date} date - The date to format
+	 * @returns {undefined}
 	 */
 	_renderDateFor(printer, date) {
 		// Use the printer `data-o-date-format` if found or fallback to the
@@ -192,6 +198,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static toDate() {
 		ftDateFormatWarning('toDate');
@@ -200,6 +207,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static format() {
 		ftDateFormatWarning('format');
@@ -208,6 +216,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static getSecondsBetween() {
 		ftDateFormatWarning('getSecondsBetween');
@@ -216,6 +225,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static ftTime() {
 		ftDateFormatWarning('ftTime');
@@ -224,6 +234,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static isNearFuture() {
 		ftDateFormatWarning('isNearFuture');
@@ -232,6 +243,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static isFarFuture() {
 		ftDateFormatWarning('isFarFuture');
@@ -240,6 +252,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static isToday() {
 		ftDateFormatWarning('isToday');
@@ -248,6 +261,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static isYesterday() {
 		ftDateFormatWarning('isYesterday');
@@ -256,6 +270,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static timeAgo() {
 		ftDateFormatWarning('timeAgo');
@@ -264,6 +279,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static asTodayOrYesterdayOrNothing() {
 		ftDateFormatWarning('asTodayOrYesterdayOrNothing');
@@ -272,6 +288,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
+	 * @return {String} - A formatted date or empty string.
 	 */
 	static timeAgoNoSeconds() {
 		ftDateFormatWarning('timeAgoNoSeconds');
