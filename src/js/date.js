@@ -40,14 +40,14 @@ class ODate {
 			this.el = rootEl.querySelector('[data-o-component~="o-date"]');
 		}
 
-		if (this.el !== undefined) {
+		if (this.el) {
 			document.body.addEventListener(updateEventName, this);
 
 			this.update();
 			this.el.setAttribute('data-o-date-js', '');
 		}
 
-		if (this.el !== undefined && !interval) {
+		if (this.el && !interval) {
 			interval = setInterval(function () {
 				document.body.dispatchEvent(new CustomEvent(updateEventName));
 			}, 60000);
