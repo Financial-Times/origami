@@ -1,3 +1,13 @@
+<time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time> (dates far in the past are formatted as exact dates)
+<br>
+<time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)
+<br>
+<time data-o-component="o-date" class="o-date" data-o-date-format="today-or-yesterday-or-nothing"></time> (Using the o-date-format option)
+<br>
+<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-limit-4-hours"></time> (Using the o-date-format with time-ago-limit-4-hours)
+<br>
+<time data-o-component="o-date" class="o-date" data-o-date-format="h:mm a"></time> (Using the o-date-format with custom format string)
+<br>
 <time data-o-component="o-date" class="o-date" data-o-date-format="date-only">
 	<!-- render date-only here, set on the parent "time" element -->
 	<span data-o-date-printer>
@@ -8,14 +18,4 @@
 	<!-- render a custom format here, the absolute time -->
 	<span data-o-date-printer data-o-date-format="h:mm">
 	</span>
-</time>
-<br>
-<time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time> (dates far in the past are formatted as exact dates)
-<br>
-<time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)
-<br>
-<time data-o-component="o-date" class="o-date" data-o-date-format="today-or-yesterday-or-nothing"></time> (Using the o-date-format option)
-<br>
-<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-limit-4-hours"></time> (Using the o-date-format with time-ago-limit-4-hours)
-<br>
-<time data-o-component="o-date" class="o-date" data-o-date-format="h:mm a"></time> (Using the o-date-format with custom format string)
+</time> (Using multiple o-date-format elements)
