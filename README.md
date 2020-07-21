@@ -118,7 +118,15 @@ oTracking.click.init(category);
 
 To track when an element has come into view of the user, add the attribute `data-o-tracking-view` to the element in the page and then call the `oTracking.view.init` method:
 
-* View events are fired for elements with the `data-o-tracking-view` attribute by default, unless `o-tracking`'s `selector` option is configured. Like click events, view events populate a `domPathTokens` property. To collect data for events, set the `category` option, or provide a callback[`getContextData`]
+- By default, elements with the `data-o-tracking-view` attribute are tracked.
+- To track different elements, set the `selector` option property to a CSS selector.
+- Like click events, view events will also track the path from the root of the DOM tree to the element which triggered the tracking event into a property called `domPathTokens`.
+- To categorise the view events, set the `category` option property.
+- To collect extra data to send with the tracking event, add a function named `getContextData` to the options. The function receives as it's single argument the element which triggered the tracking event and needs to return an object with any of these optional properties set:
+	- `componentContentId`
+	- `type`
+	- `subtype`
+	- `component`
 _Note:_ This feature requires `window.IntersectionObserver` in order to track the events
 _Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument
 
