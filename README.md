@@ -80,6 +80,7 @@ ODate.init(myDateElement);
 Or dispatch the `o.DOMContentLoaded` event to auto-construct all Origami components on the page, including each `o-date` element with a `data-o-component="o-date"` attribute:
 
 ```js
+import 'o-date';
 document.addEventListener('DOMContentLoaded', function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
