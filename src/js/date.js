@@ -22,7 +22,7 @@ class ODate {
         }
 
         if (rootEl && !(rootEl instanceof HTMLElement)) {
-            console.warn('Using the constructor to initalise one of more ' +
+            console.warn('Using the constructor to initialise one or more ' +
                 'o-date elements with a query selector is deprecated. ' +
                 'Pass a single o-date HTMLElement to initalise or use the ' +
                 '`init` method.');
