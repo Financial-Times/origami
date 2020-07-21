@@ -58,7 +58,7 @@ class ODate {
 		if (e.type === updateEventName) {
 			this.update();
 		}
-	};
+	}
 
 	/**
 	 * Re-render the formatted date within the `time` element.
@@ -125,7 +125,7 @@ class ODate {
 			el.removeAttribute('aria-label');
 			el.setAttribute('aria-hidden', '');
 		}
-	};
+	}
 
 	/**
 	 * Remove o-date from the `time` element i.e. remove event
@@ -134,7 +134,7 @@ class ODate {
 	destroy() {
 		document.body.removeEventListener(updateEventName, this);
 		this.el = null;
-	};
+	}
 
 	/**
 	 * Initialise the o-date component.
@@ -159,7 +159,7 @@ class ODate {
 		return [].map.call(dateEls, function (el) {
 			return new ODate(el);
 		});
-	};
+	}
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
