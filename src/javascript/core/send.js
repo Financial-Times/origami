@@ -204,8 +204,8 @@ function setDomain() {
 }
 
 /**
- * Init the queue and send any leftover events.
- * @return {undefined}
+ * Init a queue and send any leftover events.
+ * @return {Queue} An initialised queue.
  */
 function init() {
 	queue = new Queue('requests');
