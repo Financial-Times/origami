@@ -10,11 +10,13 @@ describe('o-date DOM', () => {
 	let mockDateElement;
 
 	describe('11 minutes ago', () => {
+		let elevenMinutesAgo;
 		let elevenMinutesAgoDateTime;
+		let elevenMinutesAgoCustomFormat;
 
 		beforeEach(() => {
 			const fakeNow = new Date();
-			const elevenMinutesAgo = new Date(fakeNow);
+			elevenMinutesAgo = new Date(fakeNow);
 
 			elevenMinutesAgo.setMinutes(fakeNow.getMinutes() - 11);
 			clock = sinon.useFakeTimers(fakeNow);
@@ -33,7 +35,11 @@ describe('o-date DOM', () => {
 		});
 
 		describe('multiple prints with multiple formats', () => {
+			let elevenMinutesAgoCustomFormat;
 			beforeEach(() => {
+				const customFormat = 'h:mm';
+				elevenMinutesAgoCustomFormat = ftDateFormat.format(elevenMinutesAgo, customFormat);
+
 				mockDateElement.dataset.odateformat = 'date-only';
 				mockDateElement.innerHTML = `
 					<!-- render date-only here, set on the parent "time" element -->
@@ -43,7 +49,7 @@ describe('o-date DOM', () => {
 					<span data-o-date-printer data-o-date-format="time-ago-abbreviated">
 					</span>
 					<!-- render a custom format here, the absolute time -->
-					<span data-o-date-printer data-o-date-format="h:mm">
+					<span data-o-date-printer data-o-date-format="${customFormat}">
 					</span>
 				`;
 				new ODate(mockDateElement);
@@ -51,8 +57,8 @@ describe('o-date DOM', () => {
 
 			it('renders all dates in the element', () => {
 				proclaim.include(mockDateElement.textContent, '11 minutes ago');
-				proclaim.include(mockDateElement.textContent, '1m ago');
-				proclaim.include(mockDateElement.textContent, '2:55');
+				proclaim.include(mockDateElement.textContent, '11m ago');
+				proclaim.include(mockDateElement.textContent, elevenMinutesAgoCustomFormat);
 			});
 
 			it('adds an aria-label attribute containing the ultimate date', () => {
