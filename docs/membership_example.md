@@ -75,7 +75,7 @@
 <body>
 <!-- Add fallback if browsers don't cut the mustard -->
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-    <div style="background:url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22url%22:%22URL%22,%22product%22:%22ft.com%22,%22content%22:%7B%22uuid%22:%22UUID%22,%22hurdle%22:%22HURDLE%22%7D%7D%7D');"></div>
+    <div style="background:url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22url%22:%22URL%22,%22product%22:%22ft.com%22,%22content%22:%7B%22uuid%22:%22UUID%22,%22hurdle%22:%22HURDLE%22%7D%7D%7D');"></div>
 </div>
 <!-- Send an event -->
 <button onclick="document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click' }, bubbles: true}));">Send an event</button>

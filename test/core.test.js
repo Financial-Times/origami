@@ -36,7 +36,6 @@ describe('Core', function () {
 
 		before(function () {
 			settings.set('version', '1.0.0');
-			settings.set('api_key', 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP');
 			settings.set('source', 'o-tracking');
 			session.init(); // Session
 			send.init(); // Init the sender.
@@ -63,8 +62,7 @@ describe('Core', function () {
 			const sent_data = callback.getCall(0).thisValue;
 			proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 			// System
-			proclaim.deepEqual(Object.keys(sent_data.system), ["api_key","version","source"]);
-			proclaim.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
+			proclaim.deepEqual(Object.keys(sent_data.system), ["version","source"]);
 			proclaim.equal(sent_data.system.version, "1.0.0");
 			proclaim.equal(sent_data.system.source, "o-tracking");
 

@@ -19,11 +19,6 @@ const version = '2.0.10';
  * @type {string}
  */
 const source = 'o-tracking';
-/**
- * The API key.
- * @type {string}
- */
-const api_key = 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP';
 
 /**
  * @class Tracking
@@ -31,7 +26,6 @@ const api_key = 'qUb9maKfKbtpRsdp0p2J7uWxRPGJEP';
 function Tracking() {
 	this.version = version;
 	this.source = source;
-	this.api_key = api_key;
 
 	/**
 	 * The initialised state of the object.
@@ -162,7 +156,6 @@ Tracking.prototype.init = function(config) {
 
 	settings.set('version', this.version);
 	settings.set('source', this.source);
-	settings.set('api_key', this.api_key);
 
 	settings.set('page_sent', false);
 

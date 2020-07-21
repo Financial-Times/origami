@@ -73,7 +73,6 @@ describe('main', function () {
 		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Meta
-		proclaim.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
 		proclaim.ok(sent_data.system.version.match(/\d+\.\d+.\d+/));
 		proclaim.equal(sent_data.system.source, "o-tracking");
 

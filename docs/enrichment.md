@@ -11,7 +11,6 @@
 	"system": {
 		"source": "o-tracking",								// Name of the sender's system [1]
 		"version": "1.0.0",									// Source semver
-		"api_key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
 	},
 	"device": {
 		"spoor_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Unique ID for this device
