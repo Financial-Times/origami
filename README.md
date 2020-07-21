@@ -73,6 +73,7 @@ oTracking.init(config);
 
 To track a page view for the product you call the `oTracking.page` method.
 Page events automatically track the url and the referrer.
+Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 ```js
 const pageConfig = {
   content: {
@@ -115,6 +116,8 @@ Call the `oTracking.click.init` method to track click events. Pass the category 
 - Add the attribute `data-o-tracking-skip-queue` to the element to send the data to Spoor immediately.
 - O-tracking click events will also track the path from the root of the DOM tree to the element which was clicked. This is recorded in a property called `domPathTokens`.
 - If the clicked element has the `data-trackable` attribute set, sibling elements will also be included within the `domPathTokens` property.
+
+Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 ```js
 // Tracking a click
 const category = 'element';
@@ -136,6 +139,8 @@ To track when an element has come into view of the user, add the attribute `data
 	- `component`
 _Note:_ This feature requires `window.IntersectionObserver` in order to track the events
 _Note:_ `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument
+
+Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 
 ```js
 const opts = {
@@ -164,6 +169,8 @@ const eventConfig = {
 };
 oTracking.event(eventConfig);
 ```
+Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
+
 
 #### Events
 
@@ -197,34 +204,6 @@ document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: customD
 
 - [ft.com](docs/ftcom_example.md)
 - [membership](docs/membership_example.md)
-
-
-### Event
-
-__Important__: To decide how to name the category and action fields, consider this sentence (square brackets denote that part is optional):
-
-#### A user can {action} a {category}[ with/having a {context}[ to {destination}]]
-
-For example:
-* A user can view a page having a uuid.
-* A user can play a video having a video ID.
-* A user can share a comment having a comment ID to Facebook.
-* A user can share an article having a uuid to email.
-* A user can scroll a page with a asset type.
-* A user can open an email.
-* A user can click an element.
-
-```js
-{
-    category: 'video',
-    action: 'play',
-    ... any other key-values ...
-    id: '512346789',
-    pos: '10'
-}
-```
-
-[Look at all the properties](docs/event.md) available for an event.
 
 
 ## Migration Guide
