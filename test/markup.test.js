@@ -50,9 +50,9 @@ describe('o-date DOM', () => {
 			});
 
 			it('renders all dates in the element', () => {
-				proclaim.contains(mockDateElement.textContent, '11 minutes ago');
-				proclaim.contains(mockDateElement.textContent, '1m ago');
-				proclaim.contains(mockDateElement.textContent, '2:55');
+				proclaim.include(mockDateElement.textContent, '11 minutes ago');
+				proclaim.include(mockDateElement.textContent, '1m ago');
+				proclaim.include(mockDateElement.textContent, '2:55');
 			});
 
 			it('adds an aria-label attribute containing the ultimate date', () => {
