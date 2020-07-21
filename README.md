@@ -51,10 +51,11 @@ Here is the corresponding tracking pixel setup:
 
 ### Tracking with JavaScript
 
+#### Methods
+
+##### oTracking.init
+
 To manually instantiate `o-tracking`, import the component and call the `init` method with configuration which is specific to your product:
-
-If o-tracking is running on a page which has an ftsession cookie, it will automatically add that information to the data it is tracking.
-
 
 ``` js
 import oTracking from 'o-tracking';
@@ -67,6 +68,8 @@ const config = {
 };
 oTracking.init(config);
 ```
+
+##### oTracking.page
 
 To track a page view for the product you call the `oTracking.page` method.
 Page events automatically track the url and the referrer.
@@ -104,6 +107,8 @@ const pageConfig = {
 oTracking.page(pageConfig);
 ```
 
+##### oTracking.click.init
+
 Call the `oTracking.click.init` method to track click events. Pass the category you would like the click events to have as an argument:
 
 - If the element being clicked is a link which goes to a page on the same domain as the current page, o-tracking will put the tracking data into a queue to send to Spoor at a later time.
@@ -115,6 +120,8 @@ Call the `oTracking.click.init` method to track click events. Pass the category 
 const category = 'element';
 oTracking.click.init(category);
 ```
+
+##### oTracking.view.init
 
 To track when an element has come into view of the user, add the attribute `data-o-tracking-view` to the element in the page and then call the `oTracking.view.init` method:
 
@@ -147,6 +154,8 @@ const opts = {
 oTracking.view.init(opts);
 ```
 
+##### oTracking.event
+
 To track a custom event call the `oTracking.event` method:
 ```js
 const eventConfig = {
@@ -162,7 +171,7 @@ Instead of calling the `page` and `event` methods `o-tracking` can be configured
 
 ##### oTracking.page
 
-Call the `oTracking.page.init()` method to listen for `oTracking.page` events :
+Call the `oTracking.page.init()` method to listen for `oTracking.page` events:
 ```js
 // Tell o-tracking to listen for `oTracking.page` events
 oTracking.page.init();
@@ -184,51 +193,11 @@ const customData = { category: 'video', action: 'play', id: '512346789', pos: '1
 document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: customData}, bubbles: true}));
 ```
 
-### Example implementations
+## Example implementations
 
 - [ft.com](docs/ftcom_example.md)
 - [membership](docs/membership_example.md)
 
-
-Events are decorated with config values you pass in via `init()` or `updateConfig()` if they are part of `context`, `user`, or `device` objects. Values passed in as `context` to individual events will override context values from init.
-
-### Init
-```js
-{
-    server: "...",
-    context: {
-        product: "..."
-    },
-    user: {
-        ft_session: "..."
-    },
-    device: {
-        orientation: "..."
-    }
-}
-```
-
-### Updating core configuration
-```js
-{
-    device: {
-        orientation: "..."
-    }
-}
-```
-
-### Page
-```js
-{
-    url: "...",
-    referrer: "..."
-    content: {
-        uuid: "...",
-        hurdle: "..."
-    }
-    ... any other key-values ...
-}
-```
 
 ### Event
 
