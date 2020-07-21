@@ -6,6 +6,29 @@
 
 This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 
+__Important__: To decide how to name the category and action fields, consider this sentence (square brackets denote that part is optional):
+
+*A user can {action} a {category}[ with/having a {context}[ to {destination}]]*
+
+For example:
+* A user can view a page having a uuid.
+* A user can play a video having a video ID.
+* A user can share a comment having a comment ID to Facebook.
+* A user can share an article having a uuid to email.
+* A user can scroll a page with a asset type.
+* A user can open an email.
+* A user can click an element.
+
+```js
+{
+    category: 'video',
+    action: 'play',
+    ... any other key-values ...
+    id: '512346789',
+    pos: '10'
+}
+```
+
 ## Format
 
 ```
@@ -15,7 +38,6 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 	"system": {
 		"source": "o-tracking",									// Name of the sender's system [1]
 		"version": "1.0.0",										// Source semver
-		"api_key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
 	},
 	"device": {
 		"spoor_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// Unique ID for this device
@@ -73,6 +95,7 @@ This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 - It is intentionally abstracted away from any particular database format and meant to represent a logical, easy to understand data structure.
 - It assumes the consumers of the event stream can manipulate the data in to their desired storage format.
 - It doesn't assume users of the data will need to join the data across tables to find the information they want.
+
 
 ## References
 1.  The general convention might be something like `product.sub-system.environment` - Eg, 'webapp.render.uat'
