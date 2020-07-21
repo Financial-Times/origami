@@ -55,7 +55,6 @@ To manually instantiate `o-tracking`, import the component and call the `init` m
 
 If o-tracking is running on a page which has an ftsession cookie, it will automatically add that information to the data it is tracking.
 
-* Automatically pickup ftsession from cookies for you.
 
 ``` js
 import oTracking from 'o-tracking';
@@ -105,10 +104,10 @@ const pageConfig = {
 oTracking.page(pageConfig);
 ```
 
-To track click events you call the `oTracking.click.init` method and pass it the category you would like the events to have:
+Call the `oTracking.click.init` method to track click events. Pass the category you would like the click events to have as an argument:
 
 - If the element being clicked is a link which goes to a page on the same domain as the current page, o-tracking will put the tracking data into a queue to send to Spoor at a later time.
-- If you want to send the data to Spoor immediately, you can add the attribute `data-o-tracking-skip-queue` onto the element.
+- Add the attribute `data-o-tracking-skip-queue` to the element to send the data to Spoor immediately.
 - O-tracking click events will also track the path from the root of the DOM tree to the element which was clicked. This is recorded in a property called `domPathTokens`.
 - If the clicked element has the `data-trackable` attribute set, sibling elements will also be included within the `domPathTokens` property.
 ```js
@@ -140,7 +139,7 @@ const opts = {
 oTracking.view.init(opts);
 ```
 
-To track a custom event you call the `oTracking.event` method:
+To track a custom event call the `oTracking.event` method:
 ```js
 const eventConfig = {
     "category": "video",
@@ -151,11 +150,11 @@ oTracking.event(eventConfig);
 
 #### Events
 
-You can configure o-tracking to listen for `oTracking.page` and `oTracking.event` events instead of using the `page` and `event` methods.
+Instead of calling the `page` and `event` methods `o-tracking` can be configured to fire events based on the custom DOM Events `oTracking.page` and `oTracking.event`.
 
 ##### oTracking.page
 
-To make o-tracking listen for `oTracking.page` events, you call `oTracking.page.init()`:
+Call the `oTracking.page.init()` method to listen for `oTracking.page` events :
 ```js
 // Tell o-tracking to listen for `oTracking.page` events
 oTracking.page.init();
