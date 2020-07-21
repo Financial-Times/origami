@@ -14,10 +14,12 @@
 /// @access public
 @mixin oFooterServices($opts: (
 	'logo': false,
-	'icons': ('slack', 'github')
+	'icons': ('slack', 'github'),
+	'themes': ('dark')
 ), $include-base-styles: true) {
 	$logo: map-get($opts, 'logo');
 	$icons: map-get($opts, 'icons');
+	$themes: map-get($opts, 'themes');
 
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
@@ -27,46 +29,56 @@
 
 	// Output fundamental o-footer-services styles required by all users.
 	@if($include-base-styles) {
-		@include _oFooterServicesBase();
+		.o-footer-services {
+			@include _oFooterServicesBase();
+			// include default theme with base styles
+			@include _oFooterServicesTheme($theme-name: null, $icons: $icons);
+		}
 	}
 
 	// Output classes for a logo in the footer.
 	@if($logo) {
-		@include _oFooterServicesLogo($logo);
+		.o-footer-services__logo {
+			@include _oFooterServicesLogo($logo);
+		}
 	}
 
 	// Output classes for footer icons.
 	@if($icons) {
 		.o-footer-services__icon-link {
 			@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			@include oTypographyLink($theme: (
-				'base': _oFooterServicesGet('link-color'),
-				'hover': _oFooterServicesGet('link-hover-color'),
-				'context': _oFooterServicesGet('background-color')
-			));
+			@include oTypographyLink();
 			// Remove link underline.
 			border-bottom: 0;
 			@supports (text-decoration-thickness: 0.25ex) {
 				text-decoration-line: none;
 			}
 
+			position: relative;
 			display: inline-block;
 			min-width: max-content;
 			margin: 0 1em 1.5em 0;
-		}
+			padding-left: $_o-footer-services-icon-size - 5;
 
-		// Output a footer class for each requested icon.
-		@each $icon in $icons {
-			// Allowed social images: https://registry.origami.ft.com/components/social-images
-			$allowed-social-images: (facebook, github, linkedin, pinterest, slack, tumblr, twitter, whatsapp, youtube);
-			// Error if one of the requested icons are not an Origami social share image.
-			@if(index($allowed-social-images, unquote($icon)) == null) {
-				@error '"#{$icon}" is not an Origami supported social image, please contact that Origami team if you would like support for this icon to be added. Available icons are currently: #{$allowed-social-images}';
+			&:before {
+				display: inline-block;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: 50%;
+				position: absolute;
+				content: '';
+				height: $_o-footer-services-icon-size;
+				width: $_o-footer-services-icon-size;
+				vertical-align: middle;
+				top: -5px;
+				left: -5px;
 			}
-			// Output icon class e.g. `.o-footer-services__icon-link--slack`
-			.o-footer-services__icon-link--#{$icon} {
-				@include _oFooterServicesIcons($icon);
-			}
+		}
+	}
+
+	@if(index($themes, 'dark') and _oFooterServicesSupports('dark')) {
+		.o-footer-services--dark {
+			@include _oFooterServicesTheme($theme-name: 'dark', $icons: $icons);
 		}
 	}
 }

@@ -38,8 +38,19 @@ $_o-footer-services-shared-brand-config: (
 
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-footer-services', 'master', (
-		'variables': $_o-footer-services-shared-brand-config,
-		'supports-variants': ()
+		'variables': map-merge($_o-footer-services-shared-brand-config, (
+			'dark': (
+				text-color: oColorsByName('white'),
+				background-color: oColorsByName('slate'),
+				border-color: oColorsMix('white', 'slate', 20),
+				link-color: oColorsByName('white'),
+				link-hover-color: oColorsByName('white'),
+				legal-text-color: oColorsMix('white', 'slate', 60)
+			)
+		)),
+		'supports-variants': (
+			'dark'
+		)
 	));
 }
 

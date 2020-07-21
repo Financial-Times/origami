@@ -1,9 +1,5 @@
 @mixin _oFooterServicesBase() {
-	.o-footer-services {
-		@include oTypographySans(0);
-		color: _oFooterServicesGet('text-color');
-		background: _oFooterServicesGet('background-color');
-	}
+	@include oTypographySans(0);
 
 	.o-footer-services__container {
 		width: 100%;
@@ -12,7 +8,8 @@
 		&:before {
 			content: '';
 			position: absolute;
-			border-top: 1px solid _oFooterServicesGet('border-color');
+			border-top-width: 1px;
+			border-top-style: solid;
 			top: 0;
 			left: 0;
 			right: 0;
@@ -34,7 +31,6 @@
 
 		&--legal {
 			@include oTypographySans($scale: -1, $line-height: 20px);
-			color: _oFooterServicesGet('legal-text-color');
 			overflow: hidden;
 
 			p {
@@ -48,42 +44,22 @@
 		}
 	}
 
+	.o-footer-services__links a,
+	.o-footer-services__content a {
+		@include oTypographyLink();
+	}
+
 	.o-footer-services__links {
 		float: left;
 		margin: 0.5em 0;
 
 		a {
-			@include oTypographyLink($theme: (
-				'base': _oFooterServicesGet('legal-text-color'),
-				'hover': _oFooterServicesGet('legal-text-color'),
-				'context': _oFooterServicesGet('background-color')
-			));
 			margin-right: 0.5em;
 		}
 	}
 
 	.o-footer-services__content {
 		margin: 0 0 1.5em;
-
-		a {
-			@include oTypographyLink($theme: (
-				'base': _oFooterServicesGet('link-color'),
-				'hover': _oFooterServicesGet('link-hover-color'),
-				'context': _oFooterServicesGet('background-color')
-			));
-		}
-
-		.o-footer-services__content--external {
-			@include oTypographyLink(
-				$theme: (
-					'base': _oFooterServicesGet('link-color'),
-					'hover': _oFooterServicesGet('link-color'),
-					'context': _oFooterServicesGet('background-color')
-				),
-				$external: true,
-				$include-base-styles: false
-			);
-		}
 	}
 }
 
@@ -102,48 +78,94 @@
 		$url-encoded-logo: $url-encoded-logo + if($character == ':', '%3A', $character);
 	}
 
-	.o-footer-services__logo {
-		@include oTypographySans(1, $weight: 'semibold');
-		min-width: max-content;
-		min-height: 1em; //holds the logo in place if there is no text
-		margin: 0 1.5em 1.5em 0;
+	@include oTypographySans(1, $weight: 'semibold');
+	min-width: max-content;
+	min-height: 1em; //holds the logo in place if there is no text
+	margin: 0 1.5em 1.5em 0;
 
-		position: relative;
-		padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
-
-		&:before {
-			display: inline-block;
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: 50%;
-			vertical-align: baseline;
-			background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
-			content: '';
-			width: $_o-footer-services-logo-size;
-			height: $_o-footer-services-logo-size;
-			position: absolute;
-			top: -50%;
-			left: 0;
-		}
-	}
-}
-
-@mixin _oFooterServicesIcons($icon-name) {
 	position: relative;
-	padding-left: $_o-footer-services-icon-size - 5;
+	padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
 
 	&:before {
 		display: inline-block;
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: 50%;
-		position: absolute;
+		vertical-align: baseline;
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
 		content: '';
-		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon-name}?source=#{$system-code}&format=svg');
-		height: $_o-footer-services-icon-size;
-		width: $_o-footer-services-icon-size;
-		vertical-align: middle;
-		top: -5px;
-		left: -5px;
+		width: $_o-footer-services-logo-size;
+		height: $_o-footer-services-logo-size;
+		position: absolute;
+		top: -50%;
+		left: 0;
+	}
+}
+
+@mixin _oFooterServicesTheme($theme-name, $icons) {
+	color: _oFooterServicesGet('text-color', $from: $theme-name);
+	background: _oFooterServicesGet('background-color', $from: $theme-name);
+
+	.o-footer-services__container:before {
+		border-color: _oFooterServicesGet('border-color', $from: $theme-name);
+	}
+
+	.o-footer-services__wrapper--legal {
+		color: _oFooterServicesGet('legal-text-color', $from: $theme-name);
+	}
+
+	.o-footer-services__links a {
+		@include oTypographyLink($theme: (
+			'base': _oFooterServicesGet('legal-text-color', $from: $theme-name),
+			'hover': _oFooterServicesGet('legal-text-color', $from: $theme-name),
+			'context': _oFooterServicesGet('background-color', $from: $theme-name)
+		), $include-base-styles: false);
+	}
+
+	.o-footer-services__content {
+		a {
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('link-color', $from: $theme-name),
+				'hover': _oFooterServicesGet('link-hover-color', $from: $theme-name),
+				'context': _oFooterServicesGet('background-color', $from: $theme-name)
+			), $include-base-styles: false);
+		}
+
+		.o-footer-services__content--external {
+			@include oTypographyLink(
+				$theme: (
+					'base': _oFooterServicesGet('link-color', $from: $theme-name),
+					'hover': _oFooterServicesGet('link-color', $from: $theme-name),
+					'context': _oFooterServicesGet('background-color', $from: $theme-name)
+				),
+				$external: true,
+				$include-base-styles: false
+			);
+		}
+	}
+
+	// Output a footer class for each requested icon.
+	@if $icons {
+		.o-footer-services__icon-link {
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('text-color', $from: $theme-name),
+				'hover': _oFooterServicesGet('link-hover-color', $from: $theme-name),
+				'context': _oFooterServicesGet('background-color', $from: $theme-name)
+			), $include-base-styles: false);
+		}
+
+		@each $icon in $icons {
+			// Allowed social images: https://registry.origami.ft.com/components/social-images
+			$allowed-social-images: (facebook, github, linkedin, pinterest, slack, tumblr, twitter, whatsapp, youtube);
+			// Error if one of the requested icons are not an Origami social share image.
+			@if(index($allowed-social-images, unquote($icon)) == null) {
+				@error '"#{$icon}" is not an Origami supported social image, please contact that Origami team if you would like support for this icon to be added. Available icons are currently: #{$allowed-social-images}';
+			}
+			// Output icon class e.g. `.o-footer-services__icon-link--slack`
+			.o-footer-services__icon-link--#{$icon}:before {
+				$text-color-encoded: str-slice(ie-hex-str(_oFooterServicesGet('text-color', $from: $theme-name)), 4);
+				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon}?source=#{$system-code}&tint=#{$text-color-encoded}&format=svg');
+			}
+		}
 	}
 }
