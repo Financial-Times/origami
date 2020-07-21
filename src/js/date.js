@@ -16,7 +16,7 @@ class ODate {
 	constructor(rootEl) {
 
 		if (!rootEl) {
-			console.warn('To initalise all o-date elements on the page use ' +
+			console.warn('To initialise all o-date elements on the page use ' +
 				'the `init` method. Passing no arguments to the constructor ' +
 				'is deprecated.');
 		}
@@ -24,7 +24,7 @@ class ODate {
 		if (rootEl && !(rootEl instanceof HTMLElement)) {
 			console.warn('Using the constructor to initialise one or more ' +
 				'o-date elements with a query selector is deprecated. ' +
-				'Pass a single o-date HTMLElement to initalise or use the ' +
+				'Pass a single o-date HTMLElement to initialise or use the ' +
 				'`init` method.');
 		}
 
