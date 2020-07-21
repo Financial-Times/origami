@@ -1,3 +1,15 @@
+<time data-o-component="o-date" class="o-date" data-o-date-format="date-only">
+	<!-- render date-only here, set on the parent "time" element -->
+	<span data-o-date-printer>
+	</span>
+	<!-- render an abbreviated, relative time ago here -->
+	<span data-o-date-printer data-o-date-format="time-ago-abbreviated">
+	</span>
+	<!-- render a custom format here, the absolute time -->
+	<span data-o-date-printer data-o-date-format="h:mm">
+	</span>
+</time>
+<br>
 <time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time> (dates far in the past are formatted as exact dates)
 <br>
 <time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)

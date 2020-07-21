@@ -43,22 +43,37 @@ Set the `data-o-date-format` attribute to customise how the `time` element is pr
 
 ### Copy Options
 
-By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `o-date__printer` class. `o-date` will output the formatted date within the `o-date__printer` element and will not change other child elements.
+By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `data-o-date-printer` attribute. `o-date` will output the formatted date within the `data-o-date-printer` element and will not change other child elements.
 
-For example to show a relative time followed by the actual time:
+For example to include "update at" copy within the `time` element followed by an abbreviated relative time:
 
 ```html
 <time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
-    <span class="o-date__printer">
-			<!-- show the abbreviated time ago here -->
-			<!-- fallback to the date if o-date JavaScript fails  -->
+		<!-- some arbitrary content -->
+    <span>updated at</span>
+		<!-- show the abbreviated time ago here in the printed element -->
+		<!-- fallback to the date if o-date JavaScript fails  -->
+    <span data-o-date-printer>
       20 July 2020
 		</span>
-		<!-- always include the exact time -->
-    <span>14:36</span>
 </time>
-
 ```
+
+Render a date multiple times within the same `o-date` component by including multiple `data-o-date-printer` elements. Each printer element may have a unique format by adding the `data-o-date-format` attribute. If `data-o-date-format` is not set on the printer element the parent `data-o-date-format` element will be used:
+
+```html
+<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="date-only" >
+	<!-- render the date in the "date-only" format here -->
+	<!-- (as set on the parent "time" element) -->
+  <span data-o-date-printer></span>
+  <!-- render the date in the "time-ago-abbreviated" format here -->
+	<span data-o-date-printer data-o-date-format="time-ago-abbreviated"></span>
+	<!-- render the date in the custom format "h:mm" here -->
+	<span data-o-date-printer data-o-date-format="h:mm"></span>
+</time>
+```
+
+_Previously a CSS class `o-date__printer` was used instead of the `data-o-date-printer` attribute. The class `o-date__printer` is now deprecated._
 
 ## JavaScript
 

@@ -44,9 +44,10 @@ class ODate {
 			document.body.addEventListener(updateEventName, this);
 
 			this.update();
+			this.el.setAttribute('data-o-date-js', '');
 		}
 
-		if (!interval) {
+		if (this.el !== undefined && !interval) {
 			interval = setInterval(function () {
 				document.body.dispatchEvent(new CustomEvent(updateEventName));
 			}, 60000);
@@ -66,16 +67,12 @@ class ODate {
 	update() {
 		const el = this.el;
 
-		let date = el.getAttribute('datetime');
-		const format = el.getAttribute('data-o-date-format');
-
-		const printer = el.querySelector('.o-date__printer') || el;
-		const hasTextNode = printer.firstChild && printer.firstChild.nodeType === 3;
-
-		if (date) {
-			date = ftDateFormat.toDate(date);
-		} else if (hasTextNode) {
-			// Only define new date if printer is empty
+		// Find the date to render.
+		// Use the current date if the `datetime` attribute is not set and
+		// the o-date `time` element has no text content.
+		const dateTime = el.getAttribute('datetime');
+		let date = dateTime ? ftDateFormat.toDate(dateTime) : null;
+		if (!date && this.el.textContent === '') {
 			date = new Date();
 		}
 
@@ -83,47 +80,26 @@ class ODate {
 			return;
 		}
 
-		let dateString;
-		let labelString;
+		// Find elements to render formatted dates to.
+		// @deprecated - The class `.o-date__printer` is deprecated.
+		// `.o-date__printer` should be removed in the next major.
+		// Use `[data-o-date-printer]` instead of `.o-date__printer`.
+		let printers = el.querySelectorAll('.o-date__printer,[data-o-date-printer]');
+		printers = printers.length ? printers : [el];
 
-		if (format === 'today-or-yesterday-or-nothing') {
-			dateString = ftDateFormat.asTodayOrYesterdayOrNothing(date);
-		} else if (format === 'date-only') {
-			dateString = ftDateFormat.format(date, 'date');
-		} else if (format === 'time-ago-limit-4-hours') {
-			dateString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
-		} else if (format === 'time-ago-abbreviated') {
-			dateString = ftDateFormat.timeAgo(date, { abbreviated: true });
-			labelString = ftDateFormat.timeAgo(date);
-		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
-			dateString = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4 * ftDateFormat.inSeconds.hour });
-			labelString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
-		} else if (format === 'time-ago-no-seconds') {
-			dateString = ftDateFormat.timeAgoNoSeconds(date);
-		} else if (format !== null) {
-			dateString = ftDateFormat.format(date, format);
-		} else {
-			dateString = ftDateFormat.ftTime(date);
+		// Render the found date in each printer element.
+		for (const printer of printers) {
+			this._renderDateFor(printer, date);
 		}
 
-		// To avoid triggering a parent live region unnecessarily
-		// <https://github.com/Financial-Times/o-date/pull/43>
-		if (hasTextNode) {
-			printer.firstChild.nodeValue = dateString;
-		} else {
-			printer.innerHTML = dateString;
-		}
-
-		el.setAttribute('data-o-date-js', '');
-
-		if (dateString) {
+		// If no printers result in output, e.g. because the,
+		// format chosen does not output the time after x hours,
+		// then hide the `time` element.
+		if (el.textContent) {
 			el.setAttribute('title', ftDateFormat.format(date, 'datetime'));
-			el.setAttribute('aria-label', labelString || dateString);
 			el.removeAttribute('aria-hidden');
 		} else {
-			el.removeAttribute('title');
-			el.removeAttribute('aria-label');
-			el.setAttribute('aria-hidden', '');
+			el.setAttribute('aria-hidden', true);
 		}
 	}
 
@@ -159,6 +135,59 @@ class ODate {
 		return [].map.call(dateEls, function (el) {
 			return new ODate(el);
 		});
+	}
+
+	/**
+	 * Render the date to the "printer" element in the requested format.
+	 * @param {HTMLElement} printer
+	 * @param {Date} date
+	 */
+	_renderDateFor(printer, date) {
+		// Use the printer `data-o-date-format` if found or fallback to the
+		// root element if not found.
+		const format = printer.getAttribute('data-o-date-format') ||
+			this.el.getAttribute('data-o-date-format');
+
+		let dateString;
+		let labelString;
+
+		if (format === 'today-or-yesterday-or-nothing') {
+			dateString = ftDateFormat.asTodayOrYesterdayOrNothing(date);
+		} else if (format === 'date-only') {
+			dateString = ftDateFormat.format(date, 'date');
+		} else if (format === 'time-ago-limit-4-hours') {
+			dateString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+		} else if (format === 'time-ago-abbreviated') {
+			dateString = ftDateFormat.timeAgo(date, { abbreviated: true });
+			labelString = ftDateFormat.timeAgo(date);
+		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
+			dateString = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4 * ftDateFormat.inSeconds.hour });
+			labelString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+		} else if (format === 'time-ago-no-seconds') {
+			dateString = ftDateFormat.timeAgoNoSeconds(date);
+		} else if (format !== null) {
+			dateString = ftDateFormat.format(date, format);
+		} else {
+			dateString = ftDateFormat.ftTime(date);
+		}
+
+		// To avoid triggering a parent live region unnecessarily
+		// <https://github.com/Financial-Times/o-date/pull/43>
+		const hasSingleTextNode = printer.childNodes.length === 1 &&
+			printer.firstChild &&
+			printer.firstChild.nodeType === 3;
+
+		if (hasSingleTextNode) {
+			printer.firstChild.nodeValue = dateString;
+		} else {
+			printer.innerHTML = dateString;
+		}
+
+		if (dateString) {
+			printer.setAttribute('aria-label', labelString || dateString);
+		} else {
+			printer.removeAttribute('aria-label');
+		}
 	}
 
 	/**

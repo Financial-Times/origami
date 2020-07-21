@@ -32,6 +32,39 @@ describe('o-date DOM', () => {
 			mockDateElement = null;
 		});
 
+		describe('multiple prints with multiple formats', () => {
+			beforeEach(() => {
+				mockDateElement.dataset.odateformat = 'date-only';
+				mockDateElement.innerHTML = `
+					<!-- render date-only here, set on the parent "time" element -->
+					<span data-o-date-printer>
+					</span>
+					<!-- render an abbreviated, relative time ago here -->
+					<span data-o-date-printer data-o-date-format="time-ago-abbreviated">
+					</span>
+					<!-- render a custom format here, the absolute time -->
+					<span data-o-date-printer data-o-date-format="h:mm">
+					</span>
+				`;
+				new ODate(mockDateElement);
+			});
+
+			it('renders all dates in the element', () => {
+				proclaim.contains(mockDateElement.textContent, '11 minutes ago');
+				proclaim.contains(mockDateElement.textContent, '1m ago');
+				proclaim.contains(mockDateElement.textContent, '2:55');
+			});
+
+			it('adds an aria-label attribute containing the ultimate date', () => {
+				const abbreviatedPrinter = mockDateElement.querySelector('[data-o-date-format="time-ago-abbreviated"]');
+				proclaim.equal(abbreviatedPrinter.getAttribute('aria-label'), '11 minutes ago');
+			});
+
+			it('adds a title attribute to all printers containing the full date', () => {
+				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+			});
+		});
+
 		describe('time-ago-limit-4-hours', () => {
 			beforeEach(() => {
 				mockDateElement.dataset.odateformat = 'time-ago-limit-4-hours';
@@ -229,7 +262,7 @@ describe('o-date DOM', () => {
 			});
 
 			it('adds an aria-hidden attribute', () => {
-				proclaim.strictEqual(mockDateElement.getAttribute('aria-hidden'), '');
+				proclaim.equal(mockDateElement.getAttribute('aria-hidden'), 'true');
 			});
 		});
 
