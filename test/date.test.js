@@ -1,6 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim, sinon */
-
+/* global proclaim sinon */
+import * as fixtures from './helpers/fixtures';
 import oDate from '../main';
 
 describe('o-date', () => {
@@ -16,6 +16,52 @@ describe('o-date', () => {
 	};
 
 	describe('toDate', () => {
+
+		it('is defined', () => {
+			proclaim.equal(typeof oDate, 'function');
+		});
+
+		it('has a static init method', () => {
+			proclaim.equal(typeof oDate.init, 'function');
+		});
+
+		it("should autoinitialize", (done) => {
+			const initSpy = sinon.spy(oDate, 'init');
+			document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+			setTimeout(function () {
+				proclaim.equal(initSpy.called, true);
+				initSpy.restore();
+				done();
+			}, 100);
+		});
+
+		it("should not autoinitialize when the event is not dispached", () => {
+			const initSpy = sinon.spy(oDate, 'init');
+			proclaim.equal(initSpy.called, false);
+		});
+
+		describe("should create a new o-date", () => {
+
+			beforeEach(() => {
+				fixtures.htmlCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+
+			it("component array when initialized", () => {
+				const boilerplate = oDate.init();
+				proclaim.equal(boilerplate instanceof Array, true);
+				proclaim.equal(boilerplate[0] instanceof oDate, true);
+			});
+
+			it("single component when initialized with a root element", () => {
+				const boilerplate = oDate.init('#element');
+				proclaim.equal(boilerplate instanceof oDate, true);
+			});
+		});
+
 		it('returns `undefined` if the passed in argument isnt a date', () => {
 			proclaim.isUndefined(oDate.toDate('hello'));
 		});
