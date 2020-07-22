@@ -67,15 +67,11 @@ describe('Utils', function () {
 		proclaim.ok(Utils.getValueFromUrl);
 	});
 
-	it('should provide getValueFromJsVariable functionality', function () {
-		proclaim.ok(Utils.getValueFromJsVariable);
-	});
-
 	it('should provide sanitise functionality', function () {
 		[
 			{ param: '   with space  ', result: 'with space' },
 			{ param: 'noSpace', result: 'noSpace' }
-	 	].forEach(function (test) {
+		].forEach(function (test) {
 			proclaim.equal(Utils.sanitise(test.param), test.result);
 		});
 	});

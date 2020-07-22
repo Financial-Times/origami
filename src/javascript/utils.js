@@ -182,32 +182,6 @@ function getValueFromUrl(matcher) {
 }
 
 /**
- * Get a value from a specified JavaScript variable.
- * @param {String} str - The name of variable, in dot syntax.
- * @return {String} The value from the JS variable.
- */
-function getValueFromJsVariable(str) {
-	if (typeof str !== 'string') {
-		return null;
-
-	}
-
-	let i;
-	const namespaces = str.split('.');
-	let test = window;
-
-	for (i = 0; i < namespaces.length; i = i + 1) {
-		if (typeof test[namespaces[i]] === 'undefined') {
-			return null;
-		}
-
-		test = test[namespaces[i]];
-	}
-
-	return test !== '' ? test : null;
-}
-
-/**
  * Filter an object to only have the properties which are listed in the `allowlist` parameter.
  * @param {Object} objectToFilter - An object whose props need to be filtered
  * @param {Array} allowedPropertyNames - The list of props to allow
@@ -360,7 +334,6 @@ export default {
 	triggerPage,
 	getValueFromCookie,
 	getValueFromUrl,
-	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,
@@ -381,7 +354,6 @@ export {
 	triggerPage,
 	getValueFromCookie,
 	getValueFromUrl,
-	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,
