@@ -112,7 +112,7 @@ function sendRequest(request, callback) {
 /**
  * Adds a new request to the list of pending requests
  *
- * @param {Tracking} request The request to queue
+ * @param {Object} request The request to queue
  * @return {void}
  */
 function add(request) {
