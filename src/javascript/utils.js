@@ -17,13 +17,13 @@ const page_callbacks = [];
 /**
  * Log messages to the browser console. Requires 'log' to be set on init.
  *
- * @param {*} List of objects to log
+ * @param {*} args items to log
  * @return {void}
  */
-function log() {
+function log(...args) {
 	if (settings.get('developer') && window.console) {
-		for (let i=0;i<arguments.length;i++) {
-			window.console.log(arguments[i]);
+		for (const arg of args) {
+			window.console.log(arg);
 		}
 	}
 }
