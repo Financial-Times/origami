@@ -5,8 +5,8 @@ import send from './core/send';
 import event from './events/custom';
 import page from './events/page-view';
 import click from './events/click';
-import utils from './utils';
 import core from './core';
+import utils from './utils';
 import componentView from './events/component-view';
 
 /**
@@ -89,12 +89,6 @@ Tracking.prototype.view = componentView;
  * @see {@link click#init}
  */
 Tracking.prototype.click = click;
-
-/**
- * Tracking utilities.
- * @see {@link utils}
- */
-Tracking.prototype.utils = utils;
 
 /**
  * Get the rootID.
@@ -180,7 +174,7 @@ Tracking.prototype.init = function(config) {
 Tracking.prototype.updateConfig = function(newConfig) {
 	let config = settings.get('config') || {};
 
-	config = this.utils.merge(config, newConfig);
+	config = utils.merge(config, newConfig);
 	settings.set('config', config);
 
 	// Developer mode
@@ -229,7 +223,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
 		const configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
-		this.utils.broadcast('oErrors', 'log', {
+		utils.broadcast('oErrors', 'log', {
 			error: configError.message,
 			info: { module: 'o-tracking' }
 		});

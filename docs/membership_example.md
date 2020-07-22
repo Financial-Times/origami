@@ -32,11 +32,6 @@
                 server: 'https://spoor-api.ft.com/px.gif',
                 context: {
                     product: 'ft.com'
-                },
-                user: {
-                    passport_id: otracking.utils.getValueFromCookie(/USERID=([0-9]+):/) || otracking.utils.getValueFromCookie(/PID=([0-9]+)\_/),
-                    ft_session: otracking.utils.getValueFromCookie(/FTSession=([^;]+)/),
-                    ft_session_s: otracking.utils.getValueFromCookie(/FTSession_s=([^;]+)/)
                 }
             }
             // oTracking
