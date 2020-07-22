@@ -32,7 +32,7 @@ function log() {
  * Tests if variable is a certain type. Defaults to check for undefined if no type specified.
  *
  * @param {*} variable - The variable to check.
- * @param {string} type - The type to test for. Defaults to undefined.
+ * @param {string=} type - The type to test for. Defaults to undefined.
  *
  * @return {boolean} - The answer for if the variable is of type.
  */
