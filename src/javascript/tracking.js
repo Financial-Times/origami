@@ -1,13 +1,13 @@
-import settings from './src/javascript/core/settings';
-import user from './src/javascript/core/user';
-import session from './src/javascript/core/session';
-import send from './src/javascript/core/send';
-import event from './src/javascript/events/custom';
-import page from './src/javascript/events/page-view';
-import click from './src/javascript/events/click';
-import utils from './src/javascript/utils';
-import core from './src/javascript/core';
-import componentView from './src/javascript/events/component-view';
+import settings from './core/settings';
+import user from './core/user';
+import session from './core/session';
+import send from './core/send';
+import event from './events/custom';
+import page from './events/page-view';
+import click from './events/click';
+import utils from './utils';
+import core from './core';
+import componentView from './events/component-view';
 
 /**
  * @class Tracking
@@ -89,12 +89,6 @@ Tracking.prototype.view = componentView;
  * @see {@link click#init}
  */
 Tracking.prototype.click = click;
-
-/**
- * Previously, the click handler was initialised as "link".
- * @deprecated Use {@link Tracking#click} instead.
- */
-Tracking.prototype.link = { init: _ => Tracking.prototype.click.init('link') }; // eslint-disable-line no-unused-vars
 
 /**
  * Tracking utilities.
@@ -201,8 +195,6 @@ Tracking.prototype.updateConfig = function(newConfig) {
 	if (config.user && config.user.user_id) {
 		user.setUser(config.user.user_id);
 	}
-
-	send.setDomain();
 };
 
 /**

@@ -13,6 +13,12 @@ The methods `setDomain` and `getDomain` have been removed, o-tracking only works
 
 The `api_key` configuration settings has been removed, it is no longer required as it is not used by Spoor or o-tracking in anyway.
 
+`tracking.link` has been removed, it's replacement is `tracking.click`.
+```diff
+-tracking.link.init();
++tracking.click.init();
+```
+
 ## Migrating from v1 to v2
 
 o-tracking v2 has dropped support for ftdomdelegate v3, please ensure your project is not using ftdomdelegate v3 and can work with ftdomdelegate v4.
