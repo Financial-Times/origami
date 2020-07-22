@@ -173,15 +173,6 @@ function getValueFromCookie(matcher) {
 }
 
 /**
- * Get a value from the url, used for uuid or querystring parameters
- * @param {RegExp} matcher - The Regex to match with
- * @return {String} - The value from the URL
- */
-function getValueFromUrl(matcher) {
-	return document.location.href.match(matcher) && RegExp.$1 !== '' ? RegExp.$1 : null;
-}
-
-/**
  * Filter an object to only have the properties which are listed in the `allowlist` parameter.
  * @param {Object} objectToFilter - An object whose props need to be filtered
  * @param {Array} allowedPropertyNames - The list of props to allow
@@ -333,7 +324,6 @@ export default {
 	onPage,
 	triggerPage,
 	getValueFromCookie,
-	getValueFromUrl,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,
@@ -353,7 +343,6 @@ export {
 	onPage,
 	triggerPage,
 	getValueFromCookie,
-	getValueFromUrl,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,

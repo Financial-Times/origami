@@ -63,10 +63,6 @@ describe('Utils', function () {
 		proclaim.ok(Utils.getValueFromCookie);
 	});
 
-	it('should provide getValueFromUrl functionality', function () {
-		proclaim.ok(Utils.getValueFromUrl);
-	});
-
 	it('should provide sanitise functionality', function () {
 		[
 			{ param: '   with space  ', result: 'with space' },
