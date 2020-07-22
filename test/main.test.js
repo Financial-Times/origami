@@ -5,7 +5,6 @@ import './setup';
 
 import settings from '../src/javascript/core/settings';
 import Queue from '../src/javascript/core/queue';
-import Send from '../src/javascript/core/send';
 import oTracking from '../main.js';
 
 describe('main', function () {
@@ -199,7 +198,6 @@ describe('main', function () {
 		proclaim.equal(data_one.device.orientation, 'landscape');
 		proclaim.equal(data_one.device.is_offline, true);
 		proclaim.equal(data_one.user.user_id, 'c2nb134j8hz2p');
-		proclaim.equal(Send.getDomain(), 'https://spoor-api.ft.com/px.gif');
 
 		oTracking.updateConfig({
 			server: 'somewhere over the rainbow',
@@ -229,7 +227,6 @@ describe('main', function () {
 		proclaim.equal(data_two.device.orientation, 'portrait');
 		proclaim.equal(data_two.device.is_offline, true);
 		proclaim.equal(data_two.user.user_id, 'cjw30zh3bxei6');
-		proclaim.equal(Send.getDomain(), 'somewhere over the rainbow');
 	});
 
 	it('should override core configuration with individual calls', function () {

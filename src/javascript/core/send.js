@@ -4,10 +4,6 @@ import Queue from './queue';
 import transports from './transports';
 
 const isIe11 = function () { return Boolean(window.MSInputMethodContext) && Boolean(document.documentMode); };
-/**
- * Default collection server.
- */
-let domain = 'https://spoor-api.ft.com/px.gif';
 
 /**
  * Queue queue.
@@ -98,11 +94,13 @@ function sendRequest(request, callback) {
 			callback();
 		}
 	});
-	let url = domain;
+	/**
+	 * Default collection server.
+	 */
+	let url = 'https://spoor-api.ft.com/px.gif';
 
 	if (request && request.category && request.action) {
-		const type = `type=${request.category}:${request.action}`;
-		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`;
+		url += `?type=${request.category}:${request.action}`;
 	}
 
 	// Both developer and noSend flags have to be set to stop the request sending.
@@ -196,20 +194,12 @@ function addAndRun(request) {
 	run();
 }
 
-function setDomain() {
-	if (settings.get('config') && settings.get('config').server) {
-		domain = settings.get('config').server;
-	}
-}
-
 /**
  * Init a queue and send any leftover events.
  * @return {Queue} An initialised queue.
  */
 function init() {
 	queue = new Queue('requests');
-
-	setDomain();
 
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
 	utils.addEvent(window, 'online', function() {
@@ -222,22 +212,14 @@ function init() {
 	return queue;
 }
 
-function getDomain() {
-	return domain;
-}
-
 export default {
 	init,
-	setDomain,
-	getDomain,
 	add,
 	run,
 	addAndRun
 };
 export {
 	init,
-	setDomain,
-	getDomain,
 	add,
 	run,
 	addAndRun

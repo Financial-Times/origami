@@ -204,7 +204,6 @@ Tracking.prototype.updateConfig = function(newConfig) {
 		user.setUser(config.user.user_id);
 	}
 
-	send.setDomain();
 };
 
 /**
