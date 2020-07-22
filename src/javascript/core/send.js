@@ -155,7 +155,7 @@ function run(callback = function () { /* empty */}) {
 			category: 'o-tracking',
 			action: 'queue-bug',
 			context: {
-				url: document.url,
+				url: document.URL,
 				queue_length: all_events.length,
 				counts: counts,
 				storage: queue.storage.storage._type
