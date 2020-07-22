@@ -36,10 +36,7 @@ function log() {
  *
  * @return {boolean} - The answer for if the variable is of type.
  */
-function is(variable, type) {
-	if (!type) {
-		type = 'undefined';
-	}
+function is(variable, type = 'undefined') {
 	return typeof variable === type;
 }
 
