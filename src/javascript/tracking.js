@@ -35,7 +35,7 @@ function Tracking() {
 /**
  * Turn on/off developer mode. (Can also be activated on init.)
  * @param {boolean} level - Turn on or off, defaults to false if omitted.
- * @return {undefined}
+ * @return {void}
  */
 Tracking.prototype.developer = function(level) {
 	if (level) {
@@ -48,7 +48,7 @@ Tracking.prototype.developer = function(level) {
 
 /**
  * Clean up the tracking module.
- * @return {undefined}
+ * @return {void}
  */
 Tracking.prototype.destroy = function() {
 	this.developer(false);
