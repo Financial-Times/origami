@@ -121,10 +121,11 @@ Tracking.prototype.getRootID = core.getRootID;
  * </script>
  *
  * @param {Object} config 					- See {@link Tracking} for the configuration options.
- * @param {boolean} config.developer        - Optional, if `true`, logs certain actions.
- * @param {boolean} config.noSend           - Optional, if `true`, won't send events.
- * @param {string} config.configId          - Optional
- * @param {string} config.session           - Optional
+ * @param {boolean=} config.developer        - Optional, if `true`, logs certain actions.
+ * @param {boolean=} config.noSend           - Optional, if `true`, won't send events.
+ * @param {string=} config.configId          - Optional
+ * @param {string=} config.session           - Optional
+ * @param {string=} config.cookieDomain      - Optional
  *
  * @return {Tracking} - Returns the tracking object
  */
