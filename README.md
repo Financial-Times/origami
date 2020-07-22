@@ -1,10 +1,9 @@
-# Origami Tracking component
+# o-tracking
 
 Include in your product to send tracking requests to the [Spoor API](https://spoor-docs.herokuapp.com/).
 
 - [Usage](#usage)
-- [Events](#events)
-- [Parameters](#parameters)
+- [Example Implementations](#example-implementations)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
