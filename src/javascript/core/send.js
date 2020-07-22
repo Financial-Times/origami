@@ -128,15 +128,10 @@ function add(request) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @param {Function} callback - Optional callback
+ * @param {Function=} callback - Optional callback
  * @return {void}
  */
-function run(callback) {
-	if (utils.isUndefined(callback)) {
-		// eslint-disable-next-line no-empty-function
-		callback = function () {};
-	}
-
+function run(callback = function () { /* empty */}) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
