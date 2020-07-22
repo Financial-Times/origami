@@ -18,7 +18,7 @@ const page_callbacks = [];
  * Log messages to the browser console. Requires 'log' to be set on init.
  *
  * @param {*} List of objects to log
- * @return {undefined}
+ * @return {void}
  */
 function log() {
 	if (settings.get('developer') && window.console) {
@@ -146,7 +146,7 @@ function broadcast(namespace, eventType, detail) {
  * Listen for page tracking requests.
  *
  * @param {Function} cb - The callback to be called whenever a page is tracked.
- * @return {undefined}
+ * @return {void}
  */
 function onPage(cb) {
 	if (is(cb, 'function')) {
@@ -156,7 +156,7 @@ function onPage(cb) {
 
 /**
  * Trigger the 'page' listeners.
- * @return {undefined}
+ * @return {void}
  */
 function triggerPage() {
 	for (let i = 0; i < page_callbacks.length; i++) {

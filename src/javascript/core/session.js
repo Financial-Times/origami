@@ -12,7 +12,7 @@ const defaultSessionConfig = {
  * Set the session in the store.
  *
  * @param {String} session - The session to be stored.
- * @return {undefined}
+ * @return {void}
  */
 function setSession(session) {
 	const d = new Date();

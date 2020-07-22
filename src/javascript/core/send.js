@@ -26,7 +26,7 @@ function should_use_sendBeacon() {
  *
  * @param {Object} request The request to be sent.
  * @param {Function} callback Callback to fire the next item in the queue.
- * @return {undefined}
+ * @return {void}
  */
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
@@ -113,7 +113,7 @@ function sendRequest(request, callback) {
  * Adds a new request to the list of pending requests
  *
  * @param {Tracking} request The request to queue
- * @return {undefined}
+ * @return {void}
  */
 function add(request) {
 	request.queueTime = new Date().getTime();
@@ -129,7 +129,7 @@ function add(request) {
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
  * @param {Function} callback - Optional callback
- * @return {undefined}
+ * @return {void}
  */
 function run(callback) {
 	if (utils.isUndefined(callback)) {
@@ -187,7 +187,7 @@ function run(callback) {
  * Convenience function to add and run a request all in one go.
  *
  * @param {Object} request The request to queue and run.
- * @return {undefined}
+ * @return {void}
  */
 function addAndRun(request) {
 	add(request);

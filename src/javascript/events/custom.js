@@ -24,7 +24,7 @@ const defaultEventConfig = function () {
  *   [component_id] - Optional. The ID for the component instance.
  *
  * @param {Function} callback - Optional, Callback function. Called when request completed.
- * @return {undefined}
+ * @return {void}
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {

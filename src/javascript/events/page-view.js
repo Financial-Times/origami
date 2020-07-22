@@ -27,7 +27,7 @@ const defaultPageConfig = function () {
  *
  * @param {Object} config - Configuration object. If omitted, will use the defaults.
  * @param {Function} callback - Callback function. Called when request completed.
- * @return {undefined}
+ * @return {void}
  */
 function page(config, callback) {
 	config = utils.merge(defaultPageConfig(), {
@@ -51,7 +51,7 @@ function page(config, callback) {
  *
  * @param {CustomEvent} e - The CustomEvent
  * @private
- * @return {undefined}
+ * @return {void}
  */
 function listener(e) {
 	page(e.detail);

@@ -72,7 +72,7 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @return {undefined}
+ * @return {void}
  */
 /*eslint-disable no-unused-vars*/
 const runQueue = _ => {
@@ -90,7 +90,7 @@ const runQueue = _ => {
  * @alias click#init
  * @param {String} category - The event category for clicks.
  * @param {String} elementsToTrack - A query selector string to select elements to track links on {@link https://github.com/ftlabs/ftdomdelegate#selector-string}.
- * @return {undefined}
+ * @return {void}
  */
 const init = (category, elementsToTrack) => {
 	elementsToTrack = elementsToTrack || 'a, button, input, [role="button"]'; // See https://github.com/ftlabs/ftdomdelegate#selector-string
