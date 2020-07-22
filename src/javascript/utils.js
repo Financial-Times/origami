@@ -1,6 +1,5 @@
 /**
  * Shared 'internal' scope.
- * @private
  */
 import settings from './core/settings';
 
