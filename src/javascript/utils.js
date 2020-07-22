@@ -262,7 +262,7 @@ function findCircularPathsIn(rootObject) {
 /**
  * Used to find out whether an object contains a circular reference.
  * @param {*} rootObject The object we want to search within for circular references
- * @returns {bool} Returns true if a circular reference was found, otherwise returns false
+ * @returns {Boolean} Returns true if a circular reference was found, otherwise returns false
  */
 function containsCircularPaths(rootObject) {
 	// Used to keep track of all the values the rootObject contains
