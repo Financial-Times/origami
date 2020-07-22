@@ -6,7 +6,7 @@ import utils from '../utils';
  *
  * @class  Store
  * @param {string} name - The name of the store
- * @param {Object} config - Optional, config object for extra configuration
+ * @param {Object=} config - Optional, config object for extra configuration
  */
 const Store = function (name, config) {
 
