@@ -25,7 +25,7 @@ function should_use_sendBeacon() {
  * Attempts to send a tracking request.
  *
  * @param {Object} request The request to be sent.
- * @param {Function} callback Callback to fire the next item in the queue.
+ * @param {Function=} callback Callback to fire the next item in the queue.
  * @return {void}
  */
 function sendRequest(request, callback) {
