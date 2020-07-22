@@ -99,7 +99,7 @@ const Store = function (name, config) {
 			if (utils.is(expiry, 'number')) {
 				d = new Date();
 				d.setTime(d.getTime() + expiry);
-				expires = 'expires=' + d.toGMTString() + ';';
+				expires = 'expires=' + d.toUTCString() + ';';
 			}
 
 			const cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
