@@ -41,8 +41,8 @@ Tracking.prototype.developer = function(level) {
 	if (level) {
 		settings.set('developer', true);
 	} else {
-		settings.destroy('developer', null);
-		settings.destroy('no_send', null);
+		settings.destroy('developer');
+		settings.destroy('no_send');
 	}
 };
 
