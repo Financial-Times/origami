@@ -24,7 +24,6 @@
 		}
 	},
 	"user": {
-		"passport_id": "<hidden>",
 		"ft_session": "<hidden>"
 	},
 	"device": {
