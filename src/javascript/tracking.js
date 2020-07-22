@@ -129,14 +129,13 @@ Tracking.prototype.getRootID = core.getRootID;
  *
  * @return {Tracking} - Returns the tracking object
  */
-Tracking.prototype.init = function(config) {
+Tracking.prototype.init = function(config = {}) {
 	if (this.initialised) {
 		return this;
 	}
 
 	const hasDeclarativeConfig = Boolean(this._getDeclarativeConfigElement());
 
-	config = config || {};
 	if (hasDeclarativeConfig) {
 		config = this._getDeclarativeConfig(config);
 	}
