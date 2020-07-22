@@ -19,6 +19,13 @@ The `api_key` configuration settings has been removed, it is no longer required 
 +tracking.click.init();
 ```
 
+The export interface now only has a single default export. All the named exports have been removed.
+
+```diff
+- import { tracking, link, init, page, event, updateConfig } from 'o-tracking';
++ import tracking from 'o-tracking';
+```
+
 ## Migrating from v1 to v2
 
 o-tracking v2 has dropped support for ftdomdelegate v3, please ensure your project is not using ftdomdelegate v3 and can work with ftdomdelegate v4.
