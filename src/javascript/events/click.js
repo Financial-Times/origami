@@ -7,13 +7,6 @@ import getTrace from '../../libs/get-trace';
 
 let internalQueue;
 
-const eventPropertiesToCollect = [
-	"ctrlKey",
-	"altKey",
-	"shiftKey",
-	"metaKey",
-];
-
 // Trigger the event tracking
 const track = eventData => {
 	const firstDomPathToken = eventData.context.domPathTokens[0];
@@ -35,19 +28,28 @@ const track = eventData => {
 	}
 };
 
+const eventPropertiesToCollect = [
+	"ctrlKey",
+	"altKey",
+	"shiftKey",
+	"metaKey",
+];
+
 // Get properties for the event (as opposed to properties of the clicked element)
 // Available properties include mouse x- and y co-ordinates, for example.
 const getEventProperties = event => {
-	const eventProperties = eventPropertiesToCollect.reduce((returnObject, property) => {
-		try {
-			if (event[property]) {returnObject[property] = utils.sanitise(event[property]);}
+	const eventProperties = {};
+	for (const property of eventPropertiesToCollect) {
+		if (event[property]) {
+			try {
+				eventProperties[property] = utils.sanitise(event[property]);
+			} catch (e) {
+				// eslint-disable-next-line no-console
+				console.log(e);
+			}
 		}
-		catch (e) {
-			// eslint-disable-next-line no-console
-			console.log(e);
-		}
-		return returnObject;
-	}, {});
+	}
+
 	return eventProperties;
 };
 
