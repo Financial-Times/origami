@@ -33,22 +33,17 @@ function getRootID() {
  * Make a tracking request.
  *
  * @param {Object} config - Should be passed an object containing a format and the values for that format
- * @param {function} callback - Fired when the request has been made.
+ * @param {function=} callback - Fired when the request has been made.
  *
  * @return {Object} request
  */
-function track(config, callback) {
-	if (utils.isUndefined(callback)) {
-		// eslint-disable-next-line no-empty-function
-		callback = function () {};
-	}
+function track(config, callback = function(){ /* empty */}) {
 	const session = Session.session();
 
 	// Set up the base request object with some values which should always be sent.
 	const request = {
 		async: true,
-		// eslint-disable-next-line no-empty-function
-		callback: callback || function() {},
+		callback,
 		context: {
 			id: config.id || utils.guid(), // Use a supplied id or generate one for this request
 			root_id: getRootID(),

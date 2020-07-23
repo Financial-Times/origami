@@ -1,6 +1,5 @@
 /**
  * Shared 'internal' scope.
- * @private
  */
 import settings from './core/settings';
 
@@ -17,13 +16,13 @@ const page_callbacks = [];
 /**
  * Log messages to the browser console. Requires 'log' to be set on init.
  *
- * @param {*} List of objects to log
- * @return {undefined}
+ * @param {*} args items to log
+ * @return {void}
  */
-function log() {
+function log(...args) {
 	if (settings.get('developer') && window.console) {
-		for (let i=0;i<arguments.length;i++) {
-			window.console.log(arguments[i]);
+		for (const arg of args) {
+			window.console.log(arg);
 		}
 	}
 }
@@ -32,14 +31,11 @@ function log() {
  * Tests if variable is a certain type. Defaults to check for undefined if no type specified.
  *
  * @param {*} variable - The variable to check.
- * @param {string} type - The type to test for. Defaults to undefined.
+ * @param {string=} type - The type to test for. Defaults to undefined.
  *
  * @return {boolean} - The answer for if the variable is of type.
  */
-function is(variable, type) {
-	if (!type) {
-		type = 'undefined';
-	}
+function is(variable, type = 'undefined') {
 	return typeof variable === type;
 }
 
@@ -149,7 +145,7 @@ function broadcast(namespace, eventType, detail) {
  * Listen for page tracking requests.
  *
  * @param {Function} cb - The callback to be called whenever a page is tracked.
- * @return {undefined}
+ * @return {void}
  */
 function onPage(cb) {
 	if (is(cb, 'function')) {
@@ -159,7 +155,7 @@ function onPage(cb) {
 
 /**
  * Trigger the 'page' listeners.
- * @return {undefined}
+ * @return {void}
  */
 function triggerPage() {
 	for (let i = 0; i < page_callbacks.length; i++) {
@@ -174,41 +170,6 @@ function triggerPage() {
  */
 function getValueFromCookie(matcher) {
 	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
-}
-
-/**
- * Get a value from the url, used for uuid or querystring parameters
- * @param {RegExp} matcher - The Regex to match with
- * @return {String} - The value from the URL
- */
-function getValueFromUrl(matcher) {
-	return document.location.href.match(matcher) && RegExp.$1 !== '' ? RegExp.$1 : null;
-}
-
-/**
- * Get a value from a specified JavaScript variable.
- * @param {String} str - The name of variable, in dot syntax.
- * @return {String} The value from the JS variable.
- */
-function getValueFromJsVariable(str) {
-	if (typeof str !== 'string') {
-		return null;
-
-	}
-
-	let i;
-	const namespaces = str.split('.');
-	let test = window;
-
-	for (i = 0; i < namespaces.length; i = i + 1) {
-		if (typeof test[namespaces[i]] === 'undefined') {
-			return null;
-		}
-
-		test = test[namespaces[i]];
-	}
-
-	return test !== '' ? test : null;
 }
 
 /**
@@ -301,7 +262,7 @@ function findCircularPathsIn(rootObject) {
 /**
  * Used to find out whether an object contains a circular reference.
  * @param {*} rootObject The object we want to search within for circular references
- * @returns {bool} Returns true if a circular reference was found, otherwise returns false
+ * @returns {Boolean} Returns true if a circular reference was found, otherwise returns false
  */
 function containsCircularPaths(rootObject) {
 	// Used to keep track of all the values the rootObject contains
@@ -363,8 +324,6 @@ export default {
 	onPage,
 	triggerPage,
 	getValueFromCookie,
-	getValueFromUrl,
-	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,
@@ -384,8 +343,6 @@ export {
 	onPage,
 	triggerPage,
 	getValueFromCookie,
-	getValueFromUrl,
-	getValueFromJsVariable,
 	sanitise,
 	assignIfUndefined,
 	filterProperties,

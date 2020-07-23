@@ -35,20 +35,20 @@ function Tracking() {
 /**
  * Turn on/off developer mode. (Can also be activated on init.)
  * @param {boolean} level - Turn on or off, defaults to false if omitted.
- * @return {undefined}
+ * @return {void}
  */
 Tracking.prototype.developer = function(level) {
 	if (level) {
 		settings.set('developer', true);
 	} else {
-		settings.destroy('developer', null);
-		settings.destroy('no_send', null);
+		settings.destroy('developer');
+		settings.destroy('no_send');
 	}
 };
 
 /**
  * Clean up the tracking module.
- * @return {undefined}
+ * @return {void}
  */
 Tracking.prototype.destroy = function() {
 	this.developer(false);
@@ -115,21 +115,21 @@ Tracking.prototype.getRootID = core.getRootID;
  * </script>
  *
  * @param {Object} config 					- See {@link Tracking} for the configuration options.
- * @param {boolean} config.developer        - Optional, if `true`, logs certain actions.
- * @param {boolean} config.noSend           - Optional, if `true`, won't send events.
- * @param {string} config.configId          - Optional
- * @param {string} config.session           - Optional
+ * @param {boolean=} config.developer        - Optional, if `true`, logs certain actions.
+ * @param {boolean=} config.noSend           - Optional, if `true`, won't send events.
+ * @param {string=} config.configId          - Optional
+ * @param {string=} config.session           - Optional
+ * @param {string=} config.cookieDomain      - Optional
  *
  * @return {Tracking} - Returns the tracking object
  */
-Tracking.prototype.init = function(config) {
+Tracking.prototype.init = function(config = {}) {
 	if (this.initialised) {
 		return this;
 	}
 
 	const hasDeclarativeConfig = Boolean(this._getDeclarativeConfigElement());
 
-	config = config || {};
 	if (hasDeclarativeConfig) {
 		config = this._getDeclarativeConfig(config);
 	}
@@ -145,10 +145,10 @@ Tracking.prototype.init = function(config) {
 
 	settings.set('page_sent', false);
 
-	const cookieDomain = config ? config.cookieDomain : false;
+	const cookieDomain = config ? config.cookieDomain : '';
 
 	// Set up the user from stored - may later be updated by config
-	user.init(false, cookieDomain);
+	user.init('', cookieDomain);
 	this.updateConfig(config);
 
 	// Session

@@ -6,7 +6,7 @@ import utils from '../utils';
  *
  * @class  Store
  * @param {string} name - The name of the store
- * @param {Object} config - Optional, config object for extra configuration
+ * @param {Object=} config - Optional, config object for extra configuration
  */
 const Store = function (name, config) {
 
@@ -99,7 +99,7 @@ const Store = function (name, config) {
 			if (utils.is(expiry, 'number')) {
 				d = new Date();
 				d.setTime(d.getTime() + expiry);
-				expires = 'expires=' + d.toGMTString() + ';';
+				expires = 'expires=' + d.toUTCString() + ';';
 			}
 
 			const cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');

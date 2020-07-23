@@ -27,7 +27,7 @@ function clone(value) {
  *
  * @param {string} key - The key to use to store the object
  * @param {*} value - The value
- * @return {undefined}
+ * @return {void}
  */
 function setValue(key, value) {
 	settings[key] = clone(value);
@@ -48,7 +48,7 @@ function getValue(key) {
  * Deletes a value
  *
  * @param  {string} key - The key to delete
- * @return {undefined}
+ * @return {void}
  */
 function destroy(key) {
 	delete settings[key];

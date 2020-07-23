@@ -1,6 +1,12 @@
 import utils from '../utils';
 import Store from './store';
 
+/**
+ * @typedef {Object} Session
+ * @property {string} id - The id of the session
+ * @property {boolean} isNew - Whether it is a brand new session
+ */
+
 let store;
 const defaultSessionConfig = {
 	storage: 'best',
@@ -12,7 +18,7 @@ const defaultSessionConfig = {
  * Set the session in the store.
  *
  * @param {String} session - The session to be stored.
- * @return {undefined}
+ * @return {void}
  */
 function setSession(session) {
 	const d = new Date();
@@ -27,7 +33,7 @@ function setSession(session) {
 /**
  * Get the session from the store. Expiry and gen of a new session are handled here.
  *
- * @return {Object} the current session
+ * @return {Session} the current session
  */
 function getSession() {
 	const s = store.read();

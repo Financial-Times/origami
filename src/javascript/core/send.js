@@ -25,8 +25,8 @@ function should_use_sendBeacon() {
  * Attempts to send a tracking request.
  *
  * @param {Object} request The request to be sent.
- * @param {Function} callback Callback to fire the next item in the queue.
- * @return {undefined}
+ * @param {Function=} callback Callback to fire the next item in the queue.
+ * @return {void}
  */
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
@@ -112,8 +112,8 @@ function sendRequest(request, callback) {
 /**
  * Adds a new request to the list of pending requests
  *
- * @param {Tracking} request The request to queue
- * @return {undefined}
+ * @param {Object} request The request to queue
+ * @return {void}
  */
 function add(request) {
 	request.queueTime = new Date().getTime();
@@ -128,15 +128,10 @@ function add(request) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @param {Function} callback - Optional callback
- * @return {undefined}
+ * @param {Function=} callback - Optional callback
+ * @return {void}
  */
-function run(callback) {
-	if (utils.isUndefined(callback)) {
-		// eslint-disable-next-line no-empty-function
-		callback = function () {};
-	}
-
+function run(callback = function () { /* empty */}) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
@@ -160,7 +155,7 @@ function run(callback) {
 			category: 'o-tracking',
 			action: 'queue-bug',
 			context: {
-				url: document.url,
+				url: document.URL,
 				queue_length: all_events.length,
 				counts: counts,
 				storage: queue.storage.storage._type
@@ -187,7 +182,7 @@ function run(callback) {
  * Convenience function to add and run a request all in one go.
  *
  * @param {Object} request The request to queue and run.
- * @return {undefined}
+ * @return {void}
  */
 function addAndRun(request) {
 	add(request);

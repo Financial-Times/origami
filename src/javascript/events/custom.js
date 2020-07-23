@@ -2,6 +2,18 @@ import Core from '../core';
 import utils from '../utils';
 
 /**
+ * @typedef {Object} TrackingEvent
+ * @property {EventDetail} detail - The custom o-tracking event details
+ *
+ * @typedef {Event & TrackingEvent} OTrackingEvent
+ *
+ * @typedef {Object} EventDetail
+ * @property {number} category - Category for this event e.g. page
+ * @property {number} action - Action for this event e.g. view
+ * @property {Object} context - Extra context to add to the event
+ */
+
+/**
  * Default properties for events.
  *
  * @type {Object}
@@ -18,13 +30,13 @@ const defaultEventConfig = function () {
 /**
  * Track an event.
  *
- * @param {Event} trackingEvent - The event, which could the following properties in its 'detail' key:
+ * @param {OTrackingEvent} trackingEvent - The event, which could the following properties in its 'detail' key:
  *   [category] - The category, for example: video
  *   [action] - The action performed, for example: play
  *   [component_id] - Optional. The ID for the component instance.
  *
  * @param {Function} callback - Optional, Callback function. Called when request completed.
- * @return {undefined}
+ * @return {void}
  */
 function event(trackingEvent, callback) {
 	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
@@ -74,7 +86,7 @@ function getOrigamiEventTarget(event) {
  *
  * @param {HTMLElement} element - The HTML Element to gen an ID for.
  *
- * @return {string} hash
+ * @return {number} hash
  */
 function getComponentId(element) {
 	const path = _getElementPath(element);
