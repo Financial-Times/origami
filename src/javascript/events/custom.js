@@ -74,7 +74,7 @@ function getOrigamiEventTarget(event) {
  *
  * @param {HTMLElement} element - The HTML Element to gen an ID for.
  *
- * @return {string} hash
+ * @return {number} hash
  */
 function getComponentId(element) {
 	const path = _getElementPath(element);
