@@ -3,20 +3,25 @@
 
 ## Migrating from v2 to v3
 
-The method `whitelistProps` has been renamed to `filterProperties`.
-```diff
--Tracking.prototype.utils.whitelistProps
-+Tracking.prototype.utils.filterProperties
-```
+The `Tracking.prototype.utils` object has been removed.
 
 The methods `setDomain` and `getDomain` have been removed, o-tracking only works with the spoor domain, which is set automatically.
 
 The `api_key` configuration settings has been removed, it is no longer required as it is not used by Spoor or o-tracking in anyway.
 
+The deprecated `user.passport_id` data property has been removed.
+
 `tracking.link` has been removed, it's replacement is `tracking.click`.
 ```diff
 -tracking.link.init();
 +tracking.click.init();
+```
+
+The export interface now only has a single default export. All the named exports have been removed.
+
+```diff
+- import { tracking, link, init, page, event, updateConfig } from 'o-tracking';
++ import tracking from 'o-tracking';
 ```
 
 ## Migrating from v1 to v2

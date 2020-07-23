@@ -49,7 +49,6 @@ function track(config, callback = function(){ /* empty */}) {
 			root_id: getRootID(),
 		},
 		user: {
-			passport_id: utils.getValueFromCookie(/USERID=([0-9]+):/) || utils.getValueFromCookie(/PID=([0-9]+)_/),
 			ft_session: utils.getValueFromCookie(/FTSession=([^;]+)/),
 			ft_session_s: utils.getValueFromCookie(/FTSession_s=([^;]+)/)
 		},

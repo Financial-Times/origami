@@ -55,8 +55,6 @@ For example:
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",			// FT Session token
 		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// FT User GUID
-		"passport_id": "1234556789",							// Passport ID - soon to be deprecated
-		"erights_id": "12345567"								// eRights ID - soon to be deprecated
 	},
 	"time": {
 		 "offset": 234											// Lag between event being created and sent (milliseconds) e.g. if offline.
