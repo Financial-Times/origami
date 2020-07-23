@@ -151,10 +151,10 @@ Tracking.prototype.init = function(config = {}) {
 
 	settings.set('page_sent', false);
 
-	const cookieDomain = config ? config.cookieDomain : false;
+	const cookieDomain = config ? config.cookieDomain : '';
 
 	// Set up the user from stored - may later be updated by config
-	user.init(false, cookieDomain);
+	user.init('', cookieDomain);
 	this.updateConfig(config);
 
 	// Session
