@@ -2,6 +2,18 @@ import Core from '../core';
 import utils from '../utils';
 
 /**
+ * @typedef {Object} TrackingEvent
+ * @property {EventDetail} detail - The custom o-tracking event details
+ *
+ * @typedef {Event & TrackingEvent} OTrackingEvent
+ *
+ * @typedef {Object} EventDetail
+ * @property {number} category - Category for this event e.g. page
+ * @property {number} action - Action for this event e.g. view
+ * @property {Object} context - Extra context to add to the event
+ */
+
+/**
  * Default properties for events.
  *
  * @type {Object}
@@ -18,7 +30,7 @@ const defaultEventConfig = function () {
 /**
  * Track an event.
  *
- * @param {Event} trackingEvent - The event, which could the following properties in its 'detail' key:
+ * @param {OTrackingEvent} trackingEvent - The event, which could the following properties in its 'detail' key:
  *   [category] - The category, for example: video
  *   [action] - The action performed, for example: play
  *   [component_id] - Optional. The ID for the component instance.
