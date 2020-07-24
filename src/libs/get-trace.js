@@ -24,16 +24,16 @@ const elementPropertiesToCollect = [
 	"role",
 ];
 // Get all (sanitised) properties of a given element.
-const getAllElementProperties = el => {
+const getAllElementProperties = element => {
 
 	const properties = {};
 	for (const property of elementPropertiesToCollect) {
-		if (el[property]) {
-			properties[property] = utils.sanitise(el[property]);
-		} else if (el.getAttribute(property)) {
-			properties[property] = utils.sanitise(el.getAttribute(property));
-		} else if (el.hasAttribute(property)) {
-			properties[property] = el.hasAttribute(property);
+		if (element[property]) {
+			properties[property] = utils.sanitise(element[property]);
+		} else if (element.getAttribute(property)) {
+			properties[property] = utils.sanitise(element.getAttribute(property));
+		} else if (element.hasAttribute(property)) {
+			properties[property] = element.hasAttribute(property);
 		}
 	}
 
