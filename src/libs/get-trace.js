@@ -2,15 +2,6 @@
 
 import utils from '../javascript/utils';
 
-const elementPropertiesToCollect = [
-	"nodeName",
-	"className",
-	"id",
-	"href",
-	"text",
-	"role",
-];
-
 // For a given container element, get the number of elements that match the
 // original element (siblings); and the index of the original element (position).
 const getSiblingsAndPosition = (el, originalEl, selector) => {
@@ -23,20 +14,30 @@ const getSiblingsAndPosition = (el, originalEl, selector) => {
 	};
 };
 
+
+const elementPropertiesToCollect = [
+	"nodeName",
+	"className",
+	"id",
+	"href",
+	"text",
+	"role",
+];
 // Get all (sanitised) properties of a given element.
 const getAllElementProperties = el => {
-	return elementPropertiesToCollect.reduce((returnObject, property) => {
+
+	const properties = {};
+	for (const property of elementPropertiesToCollect) {
 		if (el[property]) {
-			returnObject[property] = utils.sanitise(el[property]);
+			properties[property] = utils.sanitise(el[property]);
+		} else if (el.getAttribute(property)) {
+			properties[property] = utils.sanitise(el.getAttribute(property));
+		} else if (el.hasAttribute(property)) {
+			properties[property] = el.hasAttribute(property);
 		}
-		else if (el.getAttribute(property)) {
-			returnObject[property] = utils.sanitise(el.getAttribute(property));
-		}
-		else if (el.hasAttribute(property)) {
-			returnObject[property] = el.hasAttribute(property);
-		}
-		return returnObject;
-	}, {});
+	}
+
+	return properties;
 };
 
 // Get some properties of a given element.
