@@ -3,8 +3,6 @@ import utils from '../utils';
 import Queue from './queue';
 import transports from './transports';
 
-const isIe11 = function () { return Boolean(window.MSInputMethodContext) && Boolean(document.documentMode); };
-
 /**
  * Queue queue.
  *
@@ -68,28 +66,15 @@ function sendRequest(request, callback) {
 		}
 
 		if (error) {
-			// If IE11 XHR error, try using image method
-			if (isIe11() && transport.name === 'xhr') {
-				const image_method = transports.get('image')();
-				// Append image label to transport value so that we know it tried xhr first
-				request.system.transport = [request.system.transport,image_method.name].join('-');
-				image_method.send(url, JSON.stringify(request));
-				image_method.complete(function () {
-					if (callback) {
-						callback();
-					}
-				});
-			} else {
-				// Re-add to the queue if it failed.
-				// Re-apply queueTime here
-				request.queueTime = queueTime;
-				queue.add(request).save();
+			// Re-add to the queue if it failed.
+			// Re-apply queueTime here
+			request.queueTime = queueTime;
+			queue.add(request).save();
 
-				utils.broadcast('oErrors', 'log', {
-					error: error.message,
-					info: { module: 'o-tracking' }
-				});
-			}
+			utils.broadcast('oErrors', 'log', {
+				error: error.message,
+				info: { module: 'o-tracking' }
+			});
 		} else if (callback) {
 			callback();
 		}
