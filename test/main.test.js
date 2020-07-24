@@ -15,6 +15,30 @@ describe('main', function () {
 		settings.destroy('config'); // Empty settings.
 	});
 
+	it('should only allow a single tracking instance to exist', function() {
+		oTracking.destroy();
+		const confEl = document.createElement('script');
+		confEl.type = 'application/json';
+		confEl.dataset.oTrackingConfig = 'true';
+		const config = {
+			context: {
+				product: 'desktop'
+			},
+			user: {
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+			}
+		};
+		confEl.innerText = JSON.stringify(config);
+
+		document.head.appendChild(confEl);
+		const tracking1 = oTracking.init();
+		const tracking2 = oTracking.init();
+		document.head.removeChild(confEl);
+		proclaim.deepStrictEqual(tracking1, oTracking);
+		proclaim.deepStrictEqual(tracking1, tracking2);
+		oTracking.destroy();
+	});
+
 	it('should quit without any config to init with', function() {
 		oTracking.destroy();
 		const tracking = oTracking.init();
