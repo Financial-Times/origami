@@ -1,6 +1,4 @@
-import { Tracking } from './src/javascript/tracking';
-
-const tracking = new Tracking();
+import tracking from './src/javascript/tracking';
 
 function initialise() {
 	tracking.init();
@@ -15,6 +13,6 @@ document.addEventListener('o.DOMContentLoaded', initialise);
  * A constructed object, this module is a Singleton as we only want one
  * instance sending events. See {@link Tracking} for the publicly available
  * interface.
- * @type {Tracking}
+ * @type {tracking}
  */
 export default tracking;

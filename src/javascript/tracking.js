@@ -5,96 +5,85 @@ import send from './core/send';
 import event from './events/custom';
 import page from './events/page-view';
 import click from './events/click';
-import core from './core';
-import utils from './utils';
-import componentView from './events/component-view';
+import { getRootID } from './core';
+import { merge, broadcast } from './utils';
+import view from './events/component-view';
 
 /**
- * @class Tracking
+* The version of the tracking module.
+* @type {string}
+
+*/
+const version = '2.0.10';
+
+/**
+* The source of this event.
+* @type {string}
+
+*/
+const source = 'o-tracking';
+
+/**
+ * Update the tracking configuration with any state changes. The supplied
+ * config is merged with any existing config; to unset a value, set it as
+ * null or undefined.
+ *
+ * @param {Object} newConfig The configuration object to merge in - see init()
+ * @return {void}
  */
-function Tracking() {
-	/**
-	 * The version of the tracking module.
-	 * @type {string}
-	 */
-	this.version = '2.0.10';
+function updateConfig(newConfig) {
+	let config = settings.get('config') || {};
 
-	/**
-	 * The source of this event.
-	 * @type {string}
-	 */
-	this.source = 'o-tracking';
+	config = merge(config, newConfig);
+	settings.set('config', config);
 
-	/**
-	 * The initialised state of the object.
-	 * @type {boolean}
-	 */
-	this.initialised = false;
+	// Developer mode
+	if (config.developer) {
+		developer(config.developer);
+
+		if (config.noSend) {
+			settings.set('no_send', true);
+		}
+	}
+
+	if (config.user && config.user.user_id) {
+		user.setUser(config.user.user_id);
+	}
 }
 
 /**
  * Turn on/off developer mode. (Can also be activated on init.)
  * @param {boolean} level - Turn on or off, defaults to false if omitted.
  * @return {void}
+
  */
-Tracking.prototype.developer = function(level) {
+function developer(level) {
 	if (level) {
 		settings.set('developer', true);
 	} else {
 		settings.destroy('developer');
 		settings.destroy('no_send');
 	}
-};
+}
 
 /**
  * Clean up the tracking module.
  * @return {void}
  */
-Tracking.prototype.destroy = function() {
-	this.developer(false);
-	this.initialised = false;
+function destroy() {
+	developer(false);
+	tracking.initialised = false;
 
 	settings.destroy('config');
 	settings.destroy('page_sent');
-};
-
+}
 /**
  * Overload toString method to show the version.
  * @return {string} The module's version.
  */
-Tracking.prototype.toString = function() {
-	return 'oTracking version ' + this.version;
-};
-
-/**
- * Track a custom event.
- * @see {@link event}
- */
-Tracking.prototype.event = event;
-
-/**
- * Make the page tracking request.
- * @see {@link page}
- */
-Tracking.prototype.page = page;
-
-/**
-* To initalise view events for components/elements.
-* @see {@link view#init}
-*/
-Tracking.prototype.view = componentView;
-
-/**
- * To initalise click events.
- * @see {@link click#init}
- */
-Tracking.prototype.click = click;
-
-/**
- * Get the rootID.
- * @see {@link utils}
- */
-Tracking.prototype.getRootID = core.getRootID;
+function toString() {
+	return 'oTracking version ' + version;
+}
 
 /**
  * Initialises the Tracking object.
@@ -120,18 +109,24 @@ Tracking.prototype.getRootID = core.getRootID;
  * @param {string=} config.configId          - Optional
  * @param {string=} config.session           - Optional
  * @param {string=} config.cookieDomain      - Optional
+ * @param {object=} config.context           - Optional
+ * @param {object=} config.user              - Optional
+ * @param {object=} config.system            - Optional
+ * @param {object=} config.device            - Optional
  *
- * @return {Tracking} - Returns the tracking object
+ * @return {tracking} - The initialised tracking object.
  */
-Tracking.prototype.init = function(config = {}) {
-	if (this.initialised) {
-		return this;
+function init(config = {}) {
+	if (tracking.initialised) {
+		return tracking;
 	}
 
-	const hasDeclarativeConfig = Boolean(this._getDeclarativeConfigElement());
+	const hasDeclarativeConfig = Boolean(
+		getDeclarativeConfigElement()
+	);
 
 	if (hasDeclarativeConfig) {
-		config = this._getDeclarativeConfig(config);
+		config = getDeclarativeConfig(config);
 	}
 
 	// If there's no config, there is no point initialising!
@@ -140,8 +135,8 @@ Tracking.prototype.init = function(config = {}) {
 		return null;
 	}
 
-	settings.set('version', this.version);
-	settings.set('source', this.source);
+	settings.set('version', version);
+	settings.set('source', source);
 
 	settings.set('page_sent', false);
 
@@ -149,7 +144,7 @@ Tracking.prototype.init = function(config = {}) {
 
 	// Set up the user from stored - may later be updated by config
 	user.init('', cookieDomain);
-	this.updateConfig(config);
+	updateConfig(config);
 
 	// Session
 	session.init(config.session);
@@ -157,48 +152,20 @@ Tracking.prototype.init = function(config = {}) {
 	// Initialize the sending queue.
 	send.init();
 
-	this.event.init();
-	this.page.init();
-	this.initialised = true;
-	return this;
-};
-
-/**
- * Update the tracking configuration with any state changes. The supplied
- * config is merged with any existing config; to unset a value, set it as
- * null or undefined.
- *
- * @param {Object} newConfig The configuration object to merge in - see init()
- * @return {void}
- */
-Tracking.prototype.updateConfig = function(newConfig) {
-	let config = settings.get('config') || {};
-
-	config = utils.merge(config, newConfig);
-	settings.set('config', config);
-
-	// Developer mode
-	if (config.developer) {
-		this.developer(config.developer);
-
-		if (config.noSend) {
-			settings.set('no_send', true);
-		}
-	}
-
-	if (config.user && config.user.user_id) {
-		user.setUser(config.user.user_id);
-	}
-};
+	event.init();
+	page.init();
+	tracking.initialised = true;
+	return tracking;
+}
 
 /**
  * Retrieves the <script type='application/json' data-o-tracking-config> element that is in the DOM, otherwise returns null.
  * @private
  * @return {HTMLElement|null} - Returns the <script> element if found otherwise returns null.
  */
-Tracking.prototype._getDeclarativeConfigElement = function() {
+function getDeclarativeConfigElement() {
 	return document.querySelector('script[data-o-tracking-config]');
-};
+}
 
 /**
  * Initialises additional data using the <script type='application/json' data-o-tracking-config> element in the DOM.
@@ -208,8 +175,8 @@ Tracking.prototype._getDeclarativeConfigElement = function() {
  *                           initialise it from the DOM.
  * @return {Object} - The options modified to include the options gathered from the DOM
  */
-Tracking.prototype._getDeclarativeConfig = function(options) {
-	const configEl = this._getDeclarativeConfigElement();
+function getDeclarativeConfig(options) {
+	const configEl = getDeclarativeConfigElement();
 	let declarativeConfigString;
 	if (configEl) {
 		declarativeConfigString = configEl.textContent || configEl.innerText || configEl.innerHTML;
@@ -223,7 +190,7 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 		declarativeOptions = JSON.parse(declarativeConfigString);
 	} catch(e) {
 		const configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
-		utils.broadcast('oErrors', 'log', {
+		broadcast('oErrors', 'log', {
 			error: configError.message,
 			info: { module: 'o-tracking' }
 		});
@@ -237,6 +204,26 @@ Tracking.prototype._getDeclarativeConfig = function(options) {
 	}
 
 	return options;
+}
+
+const tracking = {
+	/**
+	* The initialised state of the object.
+	* @type {boolean}
+	*/
+	initialised: false,
+	version,
+	updateConfig,
+	source,
+	developer,
+	destroy,
+	toString,
+	init,
+	click,
+	event,
+	page,
+	view,
+	getRootID
 };
 
-export { Tracking };
+export default tracking;
