@@ -114,7 +114,7 @@ function toString() {
  * @param {object=} config.system            - Optional
  * @param {object=} config.device            - Optional
  *
- * @return {tracking} - The initialised tracking object.
+ * @return {tracking|null} - The initialised tracking object or null if no configuration has been given.
  */
 function init(config = {}) {
 	if (tracking.initialised) {
