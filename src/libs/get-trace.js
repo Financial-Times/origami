@@ -28,12 +28,13 @@ const getAllElementProperties = element => {
 
 	const properties = {};
 	for (const property of elementPropertiesToCollect) {
-		if (element[property]) {
-			properties[property] = utils.sanitise(element[property]);
-		} else if (element.getAttribute(property)) {
-			properties[property] = utils.sanitise(element.getAttribute(property));
-		} else if (element.hasAttribute(property)) {
-			properties[property] = element.hasAttribute(property);
+		const value = element[property] || element.getAttribute(property) || element.hasAttribute(property);
+		if (value !== undefined) {
+			if (typeof value === 'boolean') {
+				properties[property] = value;
+			} else {
+				properties[property] = utils.sanitise(value);
+			}
 		}
 	}
 
