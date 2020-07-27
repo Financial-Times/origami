@@ -3,6 +3,8 @@
 
 ## Migrating from v2 to v3
 
+o-tracking now uses the Beacon API in all browsers which support it. In v2 this was an opt-in feature, now it is always enabled in browsers which support it. For browsers which do not support Beacon API o-tracking will revert to the XMLHTTPRequest API.
+
 The `Tracking.prototype.utils` object has been removed.
 
 The methods `setDomain` and `getDomain` have been removed, o-tracking only works with the spoor domain, which is set automatically.
