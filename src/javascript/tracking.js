@@ -173,7 +173,7 @@ function getDeclarativeConfigElement() {
  * @param {Object} options - A partially, or fully filled options object.  If
  *                           an option is missing, this method will attempt to
  *                           initialise it from the DOM.
- * @return {Object} - The options modified to include the options gathered from the DOM
+ * @return {Object|false} - The options modified to include the options gathered from the DOM
  */
 function getDeclarativeConfig(options) {
 	const configEl = getDeclarativeConfigElement();
