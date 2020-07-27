@@ -50,7 +50,6 @@ function sendRequest(request, callback) {
 		request.time.offset = offlineLag;
 	}
 	delete request.callback;
-	delete request.async;
 	delete request.type;
 	delete request.queueTime;
 

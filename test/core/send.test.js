@@ -17,7 +17,6 @@ const request = {
 	device: {
 		user_agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34'
 	},
-	async: true,
 	category: 'video',
 	action: 'seek',
 	context: {

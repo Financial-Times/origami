@@ -23,7 +23,6 @@ const track = eventData => {
 	}
 	else {
 		// Send now, before leaving this page
-		eventData.async = false;
 		Core.track(eventData);
 	}
 };
