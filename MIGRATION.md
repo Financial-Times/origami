@@ -17,6 +17,14 @@ The deprecated `user.passport_id` data property has been removed.
 +tracking.click.init();
 ```
 
+`tracking.developer` has been removed, it has been replaced by the configuration parameter `test`. Set `test` to `true` to turn send events in test mode.
+```diff
+-tracking.developer(true);
++tracking.init({
+    test: true
+});
+```
+
 The export interface now only has a single default export. All the named exports have been removed.
 
 ```diff

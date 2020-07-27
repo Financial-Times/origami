@@ -172,8 +172,7 @@ describe('main', function () {
 
 		oTracking.init({
 			system: {
-				environment: 'prod',
-				is_live: true
+				environment: 'prod'
 			}
 		});
 
@@ -187,6 +186,76 @@ describe('main', function () {
 		const sent_data = callback.getCall(0).thisValue;
 
 		proclaim.equal(sent_data.system.environment, "prod");
+	});
+
+	it('should not allow system.is_live to be set on init', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			system: {
+				is_live: "carrot"
+			}
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, true);
+	});
+
+	it('should set system.is_live to be false if `test` is set to true', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test: true
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, false);
+	});
+
+	it('should set system.is_live to be true if `test` is set to false', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test: false
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, true);
+	});
+
+	it('should set system.is_live to be true if `test` is not set', function () {
+		const callback = sinon.spy();
+
+		oTracking.page({}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
 		proclaim.equal(sent_data.system.is_live, true);
 	});
 

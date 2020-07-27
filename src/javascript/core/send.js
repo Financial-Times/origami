@@ -42,6 +42,13 @@ function sendRequest(request, callback) {
 		transport: transport.name, // The transport method used.
 	});
 
+	if (settings.get('config').test) {
+		system.is_live = false;
+	} else {
+		system.is_live = true;
+	}
+
+
 	request = utils.merge({ system: system }, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
@@ -88,10 +95,7 @@ function sendRequest(request, callback) {
 		url += `?type=${request.category}:${request.action}`;
 	}
 
-	// Both developer and noSend flags have to be set to stop the request sending.
-	if (!(settings.get('developer') && settings.get('no_send'))) {
-		transport.send(url, stringifiedData);
-	}
+	transport.send(url, stringifiedData);
 }
 
 /**

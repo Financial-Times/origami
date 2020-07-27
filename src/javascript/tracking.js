@@ -37,32 +37,8 @@ function updateConfig(newConfig) {
 	config = merge(config, newConfig);
 	settings.set('config', config);
 
-	// Developer mode
-	if (config.developer) {
-		developer(config.developer);
-
-		if (config.noSend) {
-			settings.set('no_send', true);
-		}
-	}
-
 	if (config.user && config.user.user_id) {
 		user.setUser(config.user.user_id);
-	}
-}
-
-/**
- * Turn on/off developer mode. (Can also be activated on init.)
- * @param {boolean} level - Turn on or off, defaults to false if omitted.
- * @return {void}
-
- */
-function developer(level) {
-	if (level) {
-		settings.set('developer', true);
-	} else {
-		settings.destroy('developer');
-		settings.destroy('no_send');
 	}
 }
 
@@ -71,7 +47,6 @@ function developer(level) {
  * @return {void}
  */
 function destroy() {
-	developer(false);
 	tracking.initialised = false;
 
 	settings.destroy('config');
@@ -104,8 +79,7 @@ function toString() {
  * </script>
  *
  * @param {Object} config 					- See {@link Tracking} for the configuration options.
- * @param {boolean=} config.developer        - Optional, if `true`, logs certain actions.
- * @param {boolean=} config.noSend           - Optional, if `true`, won't send events.
+ * @param {boolean=} config.test             - Optional, if `true`, the data sent to Spoor will be marked as test data.
  * @param {string=} config.configId          - Optional
  * @param {string=} config.session           - Optional
  * @param {string=} config.cookieDomain      - Optional
@@ -215,7 +189,6 @@ const tracking = {
 	version,
 	updateConfig,
 	source,
-	developer,
 	destroy,
 	toString,
 	init,

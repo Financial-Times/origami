@@ -62,7 +62,7 @@ describe('Core', function () {
 			const sent_data = callback.getCall(0).thisValue;
 			proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 			// System
-			proclaim.deepEqual(Object.keys(sent_data.system), ["version","source"]);
+			proclaim.deepEqual(Object.keys(sent_data.system), ["version","source", "is_live"]);
 			proclaim.equal(sent_data.system.version, "1.0.0");
 			proclaim.equal(sent_data.system.source, "o-tracking");
 
