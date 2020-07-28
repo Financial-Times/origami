@@ -61,35 +61,16 @@ describe('Core.Send', function () {
 			setup.mockTransport();
 		});
 
-		it('use xhr by default', function (done) {
+		it('use sendBeacon by default', function (done) {
+			sinon.stub(navigator, 'sendBeacon');
 			Send.init();
-			navigator.sendBeacon = navigator.sendBeacon || true;
-			const xhr = window.XMLHttpRequest;
-			const dummyXHR = {
-				withCredentials: false,
-				open: sinon.stub(),
-				setRequestHeader: sinon.stub(),
-				send: sinon.stub()
-			};
-			window.XMLHttpRequest = function () {
-				return dummyXHR;
-			};
 			Send.addAndRun(request);
 			setTimeout(() => {
 				try {
-					proclaim.equal(typeof dummyXHR.onerror, 'function');
-					proclaim.equal(typeof dummyXHR.onload, 'function');
-					// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-					// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-					proclaim.ok(dummyXHR.withCredentials);
-
-					proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true));
-					proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
-					proclaim.ok(dummyXHR.send.calledOnce);
-					window.XMLHttpRequest = xhr;
-					if (typeof navigator.sendBeacon === 'boolean') {
-						delete navigator.sendBeacon;
-					}
+					proclaim.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
+					proclaim.ok(navigator.sendBeacon.called);
+					navigator.sendBeacon.restore();
+					settings.destroy('config');
 					done();
 				} catch (error) {
 					done(error);
@@ -97,30 +78,9 @@ describe('Core.Send', function () {
 			}, 100);
 		});
 
-		if (navigator.sendBeacon) {
-			it('use sendBeacon when configured', function (done) {
-				settings.set('config', {useSendBeacon: true});
-				sinon.stub(navigator, 'sendBeacon');
-				Send.init();
-				Send.addAndRun(request);
-				setTimeout(() => {
-					try {
-						proclaim.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
-						proclaim.ok(navigator.sendBeacon.called);
-						navigator.sendBeacon.restore();
-						settings.destroy('config');
-						done();
-					} catch (error) {
-						done(error);
-					}
-				}, 100);
-			});
-		}
-
 
 		it('fallback to xhr when sendBeacon not supported', function (done) {
 			new Queue('requests').replace([]);
-			settings.set('config', {useSendBeacon: true});
 			Send.init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
