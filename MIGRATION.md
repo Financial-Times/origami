@@ -21,10 +21,19 @@ The deprecated `user.passport_id` data property has been removed.
 ```diff
 -tracking.developer(true);
 +tracking.init({
-    test: true
-});
++    test: true
++});
 ```
 
+
+The configuration parameter `no_send` has been removed, it has been replaced by the configuration parameter `test`. Set `test` to `true` to turn send events in test mode.
+```diff
+-tracking.init({
+-	no_send: true
+-});
++tracking.init({
++    test: true
++});
 The export interface now only has a single default export. All the named exports have been removed.
 
 ```diff
