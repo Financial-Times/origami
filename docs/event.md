@@ -6,9 +6,9 @@
 
 This allows a low barrier to entry for anyone wanting to submit events to Spoor.
 
-__Important__: To decide how to name the category and action fields, consider this sentence (angle brackets denote that part is optional):
+__Important__: To decide how to name the category and action fields, consider this sentence (square brackets denote that part is optional):
 
-*A user can {action} a {category}< with/having a {context}< to {destination}>>*
+*A user can {action} a {category}\[ with/having a {context}\[ to {destination}]]*
 
 For example:
 * A user can view a page having a uuid.
