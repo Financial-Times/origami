@@ -100,6 +100,6 @@ For example:
 2. Or in absence appended by Spoor.
 3. Spoor will scan any Cookies in the header for a FTSession token as well.
 4. Content will typically be a page, but could be a uuid for something else like a video. Will be expanded in to a CAPI v2 object -> capi: { "headline", "...", "published": "...", ... }
-5. Expanded in to a URL object -> http://nodejs.org/api/url.html
+5. Expanded in to a URL object using the [NodeJS URL API](http://nodejs.org/api/url.html)
 6. Spoor will also allow this in a `authorization` header.
-7. Enum of `account, ad, blog, front, image, page, report, search, section, story, topic, video` (see https://github.com/Financial-Times/spoor-enrichment/issues/94).
+7. Enum of `account, ad, blog, front, image, page, report, search, section, story, topic, video` ([see spoor-enrichment issue 94](https://github.com/Financial-Times/spoor-enrichment/issues/94])).
