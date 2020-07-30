@@ -1,5 +1,6 @@
 let rule = require("unified-lint-rule")
 let walk = require("unist-util-visit")
+let {join} = require("path")
 let {existsSync, readFileSync} = require("fs")
 
 /** @param {import("mdast").Root} tree */
@@ -7,7 +8,8 @@ function readmeHasName(tree, file) {
 	if (file.basename.toLowerCase() != "readme.md") {
 		return
 	}
-	let bowerJsonPath = process.cwd() + "/" + file.dirname + "/bower.json"
+
+	let bowerJsonPath = join(process.cwd(), "/bower.json")
 
 	if (!existsSync(bowerJsonPath)) {
 		file.message("bower.json with name is required to be in the component root")

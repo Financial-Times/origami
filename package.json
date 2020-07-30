@@ -4,7 +4,7 @@
 	"description": "remark lint preset for Origami component README.md",
 	"main": "index.js",
 	"scripts": {
-		"test": "for invalid in test/invalid/*; do if remark -f $invalid/README.md 1>/dev/null 2>/dev/null; then echo \"expected $invalid to fail\"; exit 22; fi; done && for valid in test/valid/*; do remark -f $valid/README.md 1>/dev/null; done"
+		"test": "for invalid in test/invalid/*; do cd $invalid; if remark -f README.md 1>/dev/null 2>/dev/null; then echo \"expected $invalid to fail\"; exit 22; fi; cd ../../../; done && for valid in test/valid/*; do cd $valid; remark -f README.md 1>/dev/null; cd ../../..; done"
 	},
 	"author": "chee <chee@snoot.club>",
 	"license": "MIT",
