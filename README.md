@@ -22,16 +22,17 @@ The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-
 </div>
 ```
 
+
 For example, if you have the following data you want to track in Spoor:
+
+*Recommendation:* Using a different `system.source` value from the one used in o-tracking JavaScript mode will help your project be able to more easily group the data for those users without JavaScript. The example below uses the source `o-tracking-fallback`.
 
 ```json
 {
   "category": "page",
   "action": "view",
   "system": {
-    "apiKey": "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP",
-    "source": "o-tracking",
-    "version": "1.0.0"
+    "source": "o-tracking-fallback",
   },
   "context": {
     "product": "ft.com",
