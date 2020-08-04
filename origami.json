@@ -2,7 +2,7 @@
 	"description": "remark lint preset for Origami component README.md",
 	"origamiType": "config",
 	"origamiVersion": 1,
-	"keywords": [],
+	"keywords": ["readme", "linting"],
 	"support": "https://github.com/Financial-Times/remark-preset-lint-origami-component-readme/issues",
 	"supportStatus": "active",
 	"supportContact": {
