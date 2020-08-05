@@ -1,12 +1,35 @@
 import construct from './construct-element';
 
+/**
+ * A number, or a string containing a number.
+ * @typedef {Object} MessageOptions
+ * @property {String} type - The o-message type e.g. 'action', 'alert' and 'notice'.
+ * @property {String} state - The o-message state e.g. `success`, `neutral`, `error`, `inform-inverse`.
+ * @property {Boolean} autoOpen [true] - Whether to show the message automatically.
+ * @property {String} parentElement [null] - The element to append the message to. If none is declared it will leave any existing message elements in place or append to the body when creating a new message element.
+ * @property {Object} content - Configuration for the message copy.
+ * @property {String} content.detail - Copy for of the message e.g "Thing saved to the place you requested.".
+ * @property {String} content.highlight [null] - Highlighted copy to prepend the main message copy "Success!".
+ * @property {String} content.additionalInfo [null] - More copy with additional information – only applies to a message with an `inner` layout.
+ * @property {Object} [actions] - Links to display on the message.
+ * @property {Object} [actions.primary] - Show a link in the style of a primary button within the message.
+ * @property {String} actions.primary.text - The copy for the link.
+ * @property {String} actions.primary.url - The url for the link.
+ * @property {Boolean} actions.primary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+ * @property {Object} [actions.secondary] - Show a link with less emphasis that the primary action.
+ * @property {String} actions.secondary.text - The copy for the link.
+ * @property {String} actions.secondary.url - The url for the link.
+ * @property {Boolean} actions.secondary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+ * @property {Boolean} close [true] -  Whether or not to display a close button.
+ */
+
 class Message {
 	/**
 	 * Initialises an `o-message` component.
 	 *
 	 * @access public
 	 * @param {HTMLElement} messageElement [undefined] - The `o-message` element (optional).
-	 * @param {Object} [options={}] - An options object for configuring the message (see the README for details).
+	 * @param {MessageOptions} options - An options object for configuring the message.
 	 *
 	 * @example To construct all elements on the page with the `data-o-component="o-message"` attribute.
  	 *      Message.init();
@@ -70,6 +93,7 @@ class Message {
 
 	/**
 	 * Render the message.
+	 * @returns {undefined}
 	 */
 	render () {
 		// If the message element is not an HTML Element, or if a parent element has been specified, build a new message element
@@ -95,6 +119,7 @@ class Message {
 
 	/**
 	 * Open the message.
+	 * @returns {undefined}
 	 */
 	open () {
 		this.messageElement.classList.remove('o-message--closed');
@@ -103,6 +128,7 @@ class Message {
 
 	/**
 	 * Close the message.
+	 * @returns {undefined}
 	 */
 	close () {
 		this.messageElement.classList.add('o-message--closed');
@@ -113,6 +139,7 @@ class Message {
 	 * Get the data attributes from the messageElement. If the message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 * @param {HTMLElement} messageElement - The message element in the DOM
+	 * @returns {Object} - An object of options defined via data attributes on the message element
 	 */
 	static getDataAttributes (messageElement) {
 		if (!(messageElement instanceof HTMLElement)) {
@@ -144,6 +171,7 @@ class Message {
 	 * Initialise message component.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the banners
+	 * @returns {Message|Message[]} The newly constructed message components
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
