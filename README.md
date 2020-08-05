@@ -54,7 +54,7 @@ Here is the corresponding tracking pixel setup:
 
 #### Developer/Test Mode
 
-O-tracking has a development/test mode which will mark the events as test events, and also write to the console extra debugging information.
+o-tracking has a development/test mode which will mark the events as test events, and also write to the console extra debugging information.
 
 To activate the mode, set `test` to `true` during the intialisation of `o-tracking` like so:
 
