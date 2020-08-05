@@ -1,5 +1,4 @@
-o-editorial-layout
-=================
+# o-editorial-layout
 
 _Typography styles and layout for editorial content._
 
@@ -12,7 +11,7 @@ o-editorial-layout builds on [o-editorial-typography](https://registry.origami.f
 
 o-editorial-layout currently provides margins between typographical elements, asides, and figures. It could be expanded to include the layout of article pages themselves.
 
-### Markup
+## Markup
 
 Headings 1-5 are provided with their margin with the class `o-editorial-layout-heading-level-[level]`:
 
@@ -58,7 +57,7 @@ A wrapper class `o-editorial-layout-wrapper` may be used to style child elements
 </div>
 ```
 
-### Sass
+## Sass
 
 Include all o-editorial-layout styles by including the `oEditorialLayout` mixin.
 
