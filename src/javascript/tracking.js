@@ -147,7 +147,7 @@ function getDeclarativeConfigElement() {
  * @param {Object} options - A partially, or fully filled options object.  If
  *                           an option is missing, this method will attempt to
  *                           initialise it from the DOM.
- * @return {Object} - The options modified to include the options gathered from the DOM
+ * @return {Object|false} - The options modified to include the options gathered from the DOM
  */
 function getDeclarativeConfig(options) {
 	const configEl = getDeclarativeConfigElement();
@@ -158,10 +158,9 @@ function getDeclarativeConfig(options) {
 		return false;
 	}
 
-	let declarativeOptions;
-
 	try {
-		declarativeOptions = JSON.parse(declarativeConfigString);
+		const declarativeOptions = JSON.parse(declarativeConfigString);
+		Object.assign(options, declarativeOptions);
 	} catch(e) {
 		const configError = new Error('Invalid JSON configuration syntax, check validity for o-tracking configuration: "' + e.message + '"');
 		broadcast('oErrors', 'log', {
@@ -169,12 +168,6 @@ function getDeclarativeConfig(options) {
 			info: { module: 'o-tracking' }
 		});
 		throw configError;
-	}
-
-	for (const property in declarativeOptions) {
-		if (Object.prototype.hasOwnProperty.call(declarativeOptions, property)) {
-			options[property] = options[property] || declarativeOptions[property];
-		}
 	}
 
 	return options;

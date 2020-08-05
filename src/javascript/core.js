@@ -42,7 +42,6 @@ function track(config, callback = function(){ /* empty */}) {
 
 	// Set up the base request object with some values which should always be sent.
 	const request = {
-		async: true,
 		callback,
 		context: {
 			id: config.id || utils.guid(), // Use a supplied id or generate one for this request

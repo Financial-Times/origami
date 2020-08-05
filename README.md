@@ -3,6 +3,7 @@
 Include in your product to send tracking requests to the [Spoor API](https://spoor-docs.herokuapp.com/).
 
 - [Usage](#usage)
+- [How To View The Data](#how-to-view-the-data)
 - [Example Implementations](#example-implementations)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
@@ -22,16 +23,17 @@ The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-
 </div>
 ```
 
+
 For example, if you have the following data you want to track in Spoor:
+
+*Recommendation:* Using a different `system.source` value from the one used in o-tracking JavaScript mode will help your project be able to more easily group the data for those users without JavaScript. The example below uses the source `o-tracking-fallback`.
 
 ```json
 {
   "category": "page",
   "action": "view",
   "system": {
-    "apiKey": "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP",
-    "source": "o-tracking",
-    "version": "1.0.0"
+    "source": "o-tracking-fallback",
   },
   "context": {
     "product": "ft.com",
@@ -198,6 +200,19 @@ oTracking.event.init();
 const customData = { category: 'video', action: 'play', id: '512346789', pos: '10' };
 document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: customData}, bubbles: true}));
 ```
+
+## How to view the data
+
+Onec you have sent data into Spoor, you can view the data via Chartio.
+
+The FT has a Slack channel named #chartio_q_a where anyone can get help with Chartio.
+
+If you have never used Chartio before, you will need to [request access via this form](https://docs.google.com/forms/d/e/1FAIpQLSc1z1hTtnhe4KSXuZ220Zf53wTm0ucYVf2B3jYY5ZSyNW2VSw/viewform).
+
+To sign in to Chartio:
+- Open the [FT Chartio](https://chartio.com/financialtimes/) in your browser.
+- Press the "Sign in with Google" button and select your FT Google Account.
+
 
 ## Example implementations
 

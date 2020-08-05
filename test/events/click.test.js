@@ -59,11 +59,14 @@ describe('click', function () {
 		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event tracked");
 
-			proclaim.equal(core.track.calledOnce, true, "click event tracked");
-
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -96,10 +99,14 @@ describe('click', function () {
 		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
+			try {
+				proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 		}, 10);
 
 	});
@@ -132,10 +139,14 @@ describe('click', function () {
 
 		setTimeout(() => {
 
-			proclaim.equal(core.track.notCalled, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -169,10 +180,14 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.notCalled, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -207,10 +222,14 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.calledOnce, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 

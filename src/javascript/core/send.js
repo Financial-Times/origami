@@ -16,7 +16,7 @@ let queue;
  * @return {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
-	return navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon;
+	return Boolean(navigator.sendBeacon);
 }
 
 /**
@@ -57,12 +57,19 @@ function sendRequest(request, callback) {
 		request.time.offset = offlineLag;
 	}
 	delete request.callback;
-	delete request.async;
 	delete request.type;
 	delete request.queueTime;
 
 	utils.log('user_callback', user_callback);
 	utils.log('PreSend', request);
+
+	if (utils.containsCircularPaths(request)) {
+		const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
+		"Please remove the circular references in the data.\n" +
+		"Here are the paths in the data which are circular:\n" +
+		JSON.stringify(utils.findCircularPathsIn(request), undefined, 4);
+		throw new Error(errorMessage);
+	}
 
 	const stringifiedData = JSON.stringify(request);
 

@@ -16,9 +16,7 @@ const defaultPageConfig = function () {
 		context: {
 			url: document.URL,
 			referrer: document.referrer
-		},
-
-		async: true // Send this event asyncronously - as sync doesn't work in FF, as it doesn't send cookies. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+		}
 	};
 };
 

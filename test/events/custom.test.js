@@ -96,7 +96,7 @@ describe('event', function () {
 Please remove the circular references in the data.
 Here are the paths in the data which are circular:
 [
-    "[0].item.context.context.circular"
+    ".context.context.circular"
 ]`;
 		proclaim.throws(function(){
 			trackEvent(
