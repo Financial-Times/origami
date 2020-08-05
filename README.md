@@ -45,7 +45,7 @@ You can add extra information to o-tracking events by using the `data-trackable`
 
 To add extra context to events you may add custom attributes in the form: `data-trackable-context-name="data"` where `name` is the name of the extra context and `data` is the extra data.
 
-For example, when the anchor element is clicked, it will add extra event fields `article_guid` and `article_source` to the data being tracked.
+For example, when the below anchor element is clicked, it will add extra event fields `article_guid` and `article_source` to the data being tracked.
 
 ```html
 <a href="https://www.ft.com/content/1234-1234-1234-1234"
