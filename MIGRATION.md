@@ -28,7 +28,7 @@ The `tracking.developer` function has been removed, it has been replaced by a co
 ```
 
 
-The configuration parameter `no_send` has been removed, it has been replaced by the configuration parameter `test`. Set `test` to `true` to turn send events in test mode.
+The configuration parameter `no_send` has been removed, it has been replaced by a configuration parameter named `test`. The events will be sent but will be marked as test events, which Spoor will ignore.
 ```diff
 -tracking.init({
 -	no_send: true
