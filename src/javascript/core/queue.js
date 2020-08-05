@@ -122,7 +122,7 @@ Queue.prototype.add = function (item) {
  * @return {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.replace = function (items) {
-	if (utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
+	if (Array.isArray(items)) {
 		this.queue = [];
 		this.add(items).save();
 
