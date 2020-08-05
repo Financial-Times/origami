@@ -1,7 +1,7 @@
 import construct from './construct-element';
 
 /**
- * A number, or a string containing a number.
+ * An object of options to configure a message instance.
  * @typedef {Object} MessageOptions
  * @property {String} type - The o-message type e.g. 'action', 'alert' and 'notice'.
  * @property {String} state - The o-message state e.g. `success`, `neutral`, `error`, `inform-inverse`.
@@ -170,7 +170,7 @@ class Message {
 	/**
 	 * Initialise message component.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the banners
+	 * @typedef {Object} MessageOptions - An options object for configuring the messages
 	 * @returns {Message|Message[]} The newly constructed message components
 	 */
 	static init (rootEl, opts) {
