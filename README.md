@@ -34,7 +34,7 @@ You can add extra information to o-tracking events by using the `data-trackable`
 	<span>
 		<div data-trackable="country-selector">
 			<ul>
-				<li data-trackable="china" role="button">China</li>
+				<li data-trackable="china"><button>China</button></li>
 			</ul>
 		</div>
 	</span>
