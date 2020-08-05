@@ -52,6 +52,22 @@ Here is the corresponding tracking pixel setup:
 
 ### Tracking with JavaScript
 
+#### Developer/Test Mode
+
+o-tracking has a development/test mode which will mark the events as test events, and also write to the console extra debugging information.
+
+To activate the mode, set `test` to `true` during the intialisation of `o-tracking` like so:
+
+```js
+import oTracking from 'o-tracking';
+
+const config = {
+    test: true, // Mark the events as test events and turn on extra debug logging.
+    ...
+};
+oTracking.init(config);
+```
+
 #### Methods
 
 ##### oTracking.init

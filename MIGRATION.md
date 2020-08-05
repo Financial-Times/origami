@@ -19,6 +19,23 @@ The deprecated `user.passport_id` data property has been removed.
 +tracking.click.init();
 ```
 
+The `tracking.developer` function has been removed, it has been replaced by a configuration parameter named `test`. Set the `test` configuration parameter to `true` to have similar behavior to the old `developer` mode.
+```diff
+-tracking.developer(true);
++tracking.init({
++    test: true
++});
+```
+
+
+The configuration parameter `no_send` has been removed, it has been replaced by a configuration parameter named `test`. The events will be sent but will be marked as test events, which Spoor will ignore.
+```diff
+-tracking.init({
+-	no_send: true
+-});
++tracking.init({
++    test: true
++});
 The export interface now only has a single default export. All the named exports have been removed.
 
 ```diff

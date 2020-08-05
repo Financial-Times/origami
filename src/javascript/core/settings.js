@@ -1,5 +1,5 @@
 
-const settings = {};
+const settings = {config:{}};
 
 /**
  * Very basic implementation of deep clone, and only supports simple POJO objects and
