@@ -93,7 +93,7 @@ class Message {
 
 	/**
 	 * Render the message.
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	render () {
 		// If the message element is not an HTML Element, or if a parent element has been specified, build a new message element
@@ -119,7 +119,7 @@ class Message {
 
 	/**
 	 * Open the message.
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	open () {
 		this.messageElement.classList.remove('o-message--closed');
@@ -128,7 +128,7 @@ class Message {
 
 	/**
 	 * Close the message.
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	close () {
 		this.messageElement.classList.add('o-message--closed');
