@@ -11,6 +11,15 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 
 ## Usage
 
+### How to view the data
+Onec you have sent data into Spoor, you can view the data via Chartio.
+The FT has a Slack channel named #chartio_q_a where anyone can get help with Chartio.
+If you have never used Chartio before, you will need to [request access via this form](https://docs.google.com/forms/d/e/1FAIpQLSc1z1hTtnhe4KSXuZ220Zf53wTm0ucYVf2B3jYY5ZSyNW2VSw/viewform).
+To sign in to Chartio:
+- Open the [FT Chartio](https://chartio.com/financialtimes/) in your browser.
+- Press the "Sign in with Google" button and select your FT Google Account.
+
+
 ### Tracking without JavaScript
 
 o-tracking does not work without JavaScript but, you can still send basic tracking requests to the Spoor API by setting a css background image url which points to the Spoor tracking pixel endpoint (`https://spoor-api.ft.com/px.gif`). Click events and other interactive events will not be tracked without JavaScript but basic page view events can be tracked.
