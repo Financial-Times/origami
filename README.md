@@ -1,5 +1,4 @@
-o-message [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-message [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 `o-message` is a messaging component used for alerting, informing or making calls to action.
 
@@ -17,13 +16,11 @@ o-message [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#
 
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
 
-### Message Types
+## Message Types
 `o-message` provides three types of messages: **alert**, **notice**, and **action**.
 
 - An **alert** message should be used as feedback to a users interaction with a product (e.g. payment declined warning). Unlike other messages, alert messages have an icon.
-
 - A **notice** message should be used to provide information or warnings about a product. (e.g. beta version of a product).
-
 - An **action** message should be used as a static call to action, usually within or below main content, that is not necessarily a response to a user's interaction with a product (e.g. requesting feedback in general).
 
 
@@ -42,7 +39,7 @@ However, not every message accepts every state, or every layout, and not every m
 **notice message** | `inform`, `warning`, `warning-light` | default, inner | master: `inform` state only <br> internal: all states <br> whitelabel: `inform` state only
 
 
-### Markup
+## Markup
 
 All messages have the same markup. What will style them differently are the following modifiers:
 
@@ -174,10 +171,10 @@ For **action messages only**, you can centralise the text with a specific class 
 </div>
 ```
 
-### JavaScript
+## JavaScript
 No code will run automatically unless you are using the Build Service. You must either construct an `o-message` object or fire an o.DOMContentLoaded event, which `o-message` listens for.
 
-#### Construction
+### Construction
 If you have set up your message declaratively, use the following to initialise your message.
 ```js
 import Message from 'o-message';
@@ -200,7 +197,7 @@ const importantMessage = new Message(null, {
 });
 ```
 
-#### Options
+### Options
 `o-message` allows for several configuration options that will change the type of message and its visual styling.
 
 The only required options are listed in the example _above_. These are:
@@ -242,7 +239,7 @@ const importantMessage = new Message(null, {
 });
 ```
 
-### Sass
+## Sass
 
 You can include all styles and variations for every message type by calling:
 ```scss
@@ -267,13 +264,13 @@ Options include:
 | state               | The kinds of messages to support (e.g. 'inform', 'warning', 'error') see [message types](#message-types).                                   |
 | layouts             | By default messages should span the page, to support messages within content pass the 'inner' option. See [message types](#message-types).  |
 
-#### Custom Message
+### Custom Message
 
 To create a new message with a unique look call `oMessageAddSate`. The mixin accepts three arguments:
 
 - `name`: The name of your state. This is used for the modifier class output o-message--{name}.
 - `opts`: A map of options for your state. Note colours may be an [o-colors](https://registry.origami.ft.com/components/o-colors) colour name or a hex value:
-    - `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
+	- `foreground-color`: The colour used for message text, and the button where a highlight colour has not been given.
 	- `background-color`: The background colour used for the message.
 	- `icon`: The [o-icons](https://registry.origami.ft.com/components/o-icons) icon name to show in an alert message. Required only for your state to support an alert message type.
 	- `button-type` (optional): The type of [o-buttons](https://registry.origami.ft.com/components/o-buttons) button the message should have. One of `primary` or `secondary` (defaults to `secondary`).
