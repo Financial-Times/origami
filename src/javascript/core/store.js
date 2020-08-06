@@ -25,7 +25,7 @@ const Store = function (name, config) {
 		throw undefinedName;
 	}
 
-	this.config = utils.merge({ storage: 'best', expires: 10 * 365 * 24 * 60 * 60 * 1000 }, config);
+	this.config = Object.assign({}, config);
 
 	/**
 	 * Store data.
@@ -38,101 +38,22 @@ const Store = function (name, config) {
 	this.storageKey = Object.prototype.hasOwnProperty.call(this.config, 'nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_');
 
 	/**
-	 * The storage method to use. Determines best storage method.
+	 * The storage method to use.
 	 *
 	 * @type {Object}
 	 */
-	this.storage = (function (config, window) {
-		const test_key = keyPrefix + '_InternalTest';
-
-		// If cookie has been manually specified, don't bother with local storage.
-		if (config.storage !== 'cookie') {
-			try {
-				if (window.localStorage) {
-					window.localStorage.setItem(test_key, 'TEST');
-
-					if (window.localStorage.getItem(test_key) === 'TEST') {
-						window.localStorage.removeItem(test_key);
-						return {
-							_type: 'localStorage',
-							load: function (name) {
-								return window.localStorage.getItem(name);
-							},
-							save: function (name, value) {
-								return window.localStorage.setItem(name, value);
-							},
-							remove: function (name) {
-								return window.localStorage.removeItem(name);
-							}
-						};
-					}
-				}
-			} catch (error) {
-				utils.broadcast('oErrors', 'log', {
-					error: error.message,
-					info: { module: 'o-tracking' }
-				});
-			}
+	this.storage = {
+		_type: 'localStorage',
+		load: function (name) {
+			return window.localStorage.getItem(name);
+		},
+		save: function (name, value) {
+			return window.localStorage.setItem(name, value);
+		},
+		remove: function (name) {
+			return window.localStorage.removeItem(name);
 		}
-
-		function cookieLoad(name) {
-			name = name + '=';
-
-			const cookies = window.document.cookie.split(';');
-			let i;
-			let cookie;
-
-			for (i = 0; i < cookies.length; i = i + 1) {
-				cookie = cookies[i].replace(/^\s+|\s+$/g, '');
-				if (cookie.indexOf(name) === 0) {
-					return utils.decode(cookie.substring(name.length, cookie.length));
-				}
-			}
-
-			return null;
-		}
-
-		function cookieSave(name, value, expiry) {
-			let d;
-			let expires = '';
-
-			if (utils.is(expiry, 'number')) {
-				d = new Date();
-				d.setTime(d.getTime() + expiry);
-				expires = 'expires=' + d.toUTCString() + ';';
-			}
-
-			const cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
-			window.document.cookie = cookie;
-		}
-
-		function cookieRemove(name) {
-			cookieSave(name, '', -1);
-		}
-
-		cookieSave(test_key, 'TEST');
-
-		if (cookieLoad(test_key) === 'TEST') {
-			cookieRemove(test_key);
-
-			return {
-				_type: 'cookie',
-				load: cookieLoad,
-				save: cookieSave,
-				remove: cookieRemove
-			};
-		}
-
-		return {
-			_type: 'none',
-			// eslint-disable-next-line no-empty-function
-			load: function () {},
-			// eslint-disable-next-line no-empty-function
-			save: function () {},
-			// eslint-disable-next-line no-empty-function
-			remove: function () {}
-		};
-	}(this.config, window));
+	};
 
 	/**
 	 * Temporary var containing data from a previously saved store.
@@ -188,7 +109,7 @@ Store.prototype.write = function (data) {
 		value = JSON.stringify(this.data);
 	}
 
-	this.storage.save(this.storageKey, value, this.config.expires);
+	this.storage.save(this.storageKey, value);
 
 	return this;
 };
