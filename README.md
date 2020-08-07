@@ -2,11 +2,16 @@
 
 o-footer-services is an [o-footer](https://registry.origami.ft.com/components/o-footer) alternative for tools, internal products, and specialist titles at the FT.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-footer-services`.
 
 ## Markup
 
