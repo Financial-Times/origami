@@ -2,6 +2,7 @@
 
 _Typography styles and layout for editorial content._
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Contact](#contact)
@@ -10,6 +11,10 @@ _Typography styles and layout for editorial content._
 o-editorial-layout builds on [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography) to provide margin and layout for editorial typography for specific contexts such as an article page.
 
 o-editorial-layout currently provides margins between typographical elements, asides, and figures. It could be expanded to include the layout of article pages themselves.
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-editorial-layout`.
 
 ## Markup
 
