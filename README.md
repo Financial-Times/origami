@@ -5,6 +5,7 @@ Page layouts and typography for internal tools and products.
 ## Table of Contents
 
 - [Overview](#overview)
+- [Usage](#usage)
 - [Default and Bleed Layout](#default-and-bleed-layout)
 - [Documentation Layout](#documentation-layout)
 - [Landing Layout](#landing-layout)
@@ -27,9 +28,11 @@ Page layouts and typography for internal tools and products.
 - A landing/homepage layout.
 - A search/query page layout.
 
-Typography is styled automatically using the `o-layout-typography` class. This will style headings, paragraphs, lists, anchor tags, etc. To opt-out of typography styling for specific elements apply the `.o-layout__unstyled-element`.
+## Usage
 
-You can share a direct link to a content section by clicking on its header. This will generate a new url in the browser that you can copy.
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-layout`.
+
+Typography is styled automatically using the `o-layout-typography` class. This will style headings, paragraphs, lists, anchor tags, etc. To opt-out of typography styling for specific elements apply the `.o-layout__unstyled-element`.
 
 ## Default And Bleed Layout
 
