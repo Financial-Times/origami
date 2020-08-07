@@ -3,6 +3,7 @@ o-fonts [![Build Status](https://circleci.com/gh/Financial-Times/o-fonts.png?sty
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
 
+- [Usage](#usage)
 - [Recommended Fonts](#recommended-fonts)
 - [Fonts Included By Default](#fonts-included-by-default)
 - [All Available Fonts](#all-available-fonts)
@@ -11,6 +12,10 @@ _Use `o-fonts` to include Origami provided fonts, or register supported custom f
 - [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-fonts`.
 
 ## Recommended Fonts
 
