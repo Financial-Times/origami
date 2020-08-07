@@ -2,6 +2,7 @@
 
 `o-message` is a messaging component used for alerting, informing or making calls to action.
 
+- [Usage](#usage)
 - [Message Types](#message-types)
 - [Markup](#markup)
 - [JavaScript](#javascript)
@@ -15,6 +16,10 @@
 `o-message` uses Sass and Javascript to show and hide a message component.
 
 It can be initialised declaratively if markup is provided on the page, or it can be initialised imperatively when using the [manual build process](http://origami.ft.com/docs/developer-guide/modules/building-modules/).
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-message`.
 
 ## Message Types
 `o-message` provides three types of messages: **alert**, **notice**, and **action**.
