@@ -2,12 +2,17 @@
 
 Foundation styles and standardised utilities
 
+- [Usage](#usage)
 - [Sass](#sass)
 - [Focus States](#focus-states)
 - [Contributing](#contributing)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-normalise`.
 
 ## Sass
 
