@@ -17,7 +17,7 @@ const Store = function (name, config = {}) {
 	const keyPrefix = 'o-tracking';
 
 
-	if (utils.isUndefined(name)) {
+	if (typeof name !== 'string' || name === '') {
 		const undefinedName = new Error('You must specify a name for the store.');
 		utils.broadcast('oErrors', 'log', {
 			error: undefinedName.message,
