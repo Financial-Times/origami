@@ -3,12 +3,17 @@
 
 Auto initalise Origami components
 
+- [Usage](#usage)
 - [JavaScript](#javascript)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 This component comprises a standard way of firing the `o.DOMContentLoaded` event when the equivalent browser-native event fire, and will fire the Origami events even if the native ones have already been and gone, making this suitable for bundling with components that are loaded asyncronously.
+
+## Usage
+
+`o-autoinit` is included automatically by the [Origami Build Service](https://www.ft.com/__origami/service/build/v2/). Manual build users may include `o-autoinit` to initialise Origami components but it is not the only option. See the component [initialisation documentation](https://origami.ft.com/docs/components/initialising/) for more information.
 
 ## JavaScript
 
