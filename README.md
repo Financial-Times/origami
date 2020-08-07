@@ -2,12 +2,17 @@
 
 This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>` tag and a target.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-toggle`.
 
 ## Markup
 
