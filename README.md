@@ -5,12 +5,17 @@ Master brand FT page footer component. See the [Origami Navigation Service](http
 _See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
 
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-footer`.
 
 ## Markup
 
