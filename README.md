@@ -2,12 +2,17 @@
 
 A component to manage colours. Includes the FT colour palette.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-colors`.
 
 ## Markup
 
