@@ -3,6 +3,7 @@
 Social media buttons.
 
 - [Overview](#overview)
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
@@ -14,6 +15,10 @@ Social media buttons.
 
 * Provides the ability to share a URL provided by the product
 * Uses a standard set of social media icons.
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-share`.
 
 ## Markup
 
