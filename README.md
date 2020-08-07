@@ -4,11 +4,16 @@ Typographical styles to highlight and describe a big number. Positioning of the 
 
 ----
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-big-number`.
 
 ## Markup
 
