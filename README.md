@@ -2,6 +2,7 @@
 
 FT-branded styles for form elements.
 
+- [Usage](#usage)
 - [Markup](#markup)
 	- [Single input fields](#single-input-fields)
 		- [`input[type=text]`](#inputtypetext)
@@ -37,6 +38,10 @@ FT-branded styles for form elements.
 - [Contact](#contact)
 - [Licence](#licence)
 
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-forms`.
 
 ## Markup
 `o-forms` defines form elements as a combination of 'fields' and 'inputs'. At its core, a field holds the information about an input (such as a label) and the input itself.
