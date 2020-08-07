@@ -2,6 +2,10 @@
 
 Utility for attaching debounced listeners to resize, scroll, orientation and visibility events on `window`.
 
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-viewport`.
+
 *Note: within the component's API and in the documentation below `orientation` and `visibility` are used instead of `orientationchange` or `visibilitychange`, but the actual browser event listened to is `orientationchange` or `visibilitychange`*
 
 ## Methods
