@@ -2,7 +2,7 @@
 
 This component is used for showing information about various FT subscription packages.
 
-- [Overview](#overview)
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
@@ -10,9 +10,9 @@ This component is used for showing information about various FT subscription pac
 - [Contact](#contact)
 - [Licence](#licence)
 
-## Overview
+## Usage
 
-This component is largely Sass styles, but there is a small amount of JavaScript used to show and hide content at smaller screen widths.
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-subs-card`.
 
 ## Markup
 
