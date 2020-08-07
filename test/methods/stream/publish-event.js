@@ -56,9 +56,13 @@ export default function publishEvent () {
 		it("maps coral events to oTracking events", (done) => {
 			const listener = (event) => {
 				document.removeEventListener('oTracking.event', listener);
-				proclaim.equal(event.detail.category, 'comment');
-				proclaim.equal(event.detail.action, 'ready');
-				done();
+				try {
+					proclaim.equal(event.detail.category, 'comment');
+					proclaim.equal(event.detail.action, 'ready');
+					done();
+				} catch (error) {
+					done(error);
+				}
 			};
 			document.addEventListener('oTracking.event', listener);
 
@@ -69,8 +73,12 @@ export default function publishEvent () {
 		it("sets isWithheld to true when a comment is withheld for moderation", (done) => {
 			const listener = (event) => {
 				document.removeEventListener('oTracking.event', listener);
-				proclaim.isTrue(event.detail.isWithheld);
-				done();
+				try {
+					proclaim.isTrue(event.detail.isWithheld);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			};
 			document.addEventListener('oTracking.event', listener);
 
@@ -89,7 +97,7 @@ export default function publishEvent () {
 			const oTrackingEventListener = (event) => {
 				if (event.detail.category === 'comment' && event.detail.action === 'ready') {
 					document.removeEventListener('oTracking.event', oTrackingEventListener);
-					proclaim.fail('This event should not have been fired');
+					done(new Error('This event should not have been fired'));
 				}
 			};
 			document.addEventListener('oTracking.event', oTrackingEventListener);
@@ -122,8 +130,12 @@ export default function publishEvent () {
 			window.setTimeout(() => {
 				window.clearInterval(interval);
 				document.removeEventListener('oComments.ready', listenerStub);
-				proclaim.equal(listenerStub.getCalls().length, 2);
-				done();
+				try {
+					proclaim.equal(listenerStub.getCalls().length, 2);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 120);
 		});
 	});
@@ -143,9 +155,13 @@ export default function publishEvent () {
 		it("maps coral errors to oTracking events", (done) => {
 			const listener = (event) => {
 				document.removeEventListener('oTracking.event', listener);
-				proclaim.equal(event.detail.category, 'comment');
-				proclaim.equal(event.detail.action, 'post-error');
-				done();
+				try {
+					proclaim.equal(event.detail.category, 'comment');
+					proclaim.equal(event.detail.action, 'post-error');
+					done();
+				} catch (error) {
+					done(error);
+				}
 			};
 			document.addEventListener('oTracking.event', listener);
 
@@ -164,7 +180,7 @@ export default function publishEvent () {
 			const listener = (event) => {
 				if (event.detail.category === 'comment' && event.detail.action === 'post-error') {
 					document.removeEventListener('oTracking.event', listener);
-					proclaim.fail('This event should not have been fired');
+					done(new Error('This event should not have been fired'));
 				}
 			};
 			document.addEventListener('oTracking.event', listener);
@@ -217,8 +233,12 @@ export default function publishEvent () {
 			window.setTimeout(() => {
 				window.clearInterval(interval);
 				document.removeEventListener('oTracking.event', listener);
-				proclaim.equal(listenerStub.getCalls().length, 2);
-				done();
+				try {
+					proclaim.equal(listenerStub.getCalls().length, 2);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 120);
 		});
 	});
