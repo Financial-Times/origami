@@ -1,5 +1,4 @@
-o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 A component, integrated with FT authentication and [Coral Talk](https://coralproject.net), to add a comment stream or comment count to content.
 
@@ -8,9 +7,11 @@ A component, integrated with FT authentication and [Coral Talk](https://coralpro
 - [Markup](#markup)
 	- [Stream](#stream)
 	- [Count](#count)
-	- [Staging environment](#use-staging-environment)
+	- [Use staging environment](#use-staging-environment)
 	- [Pass a display name into Coral Talk](#pass-a-display-name-into-coral-talk)
 - [JavaScript](#javascript)
+	- [Constructing an o-comments](#constructing-an-o-comments)
+	- [Firing an oDomContentLoaded event](#firing-an-odomcontentloaded-event)
 	- [Events](#events)
 	- [Tracking](#tracking)
 - [Sass](#sass)
