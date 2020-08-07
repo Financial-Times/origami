@@ -11,6 +11,8 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 
 ## Usage
 
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
+
 ### How to view the data
 
 Once you have sent data into Spoor, you can view the data via Chartio.
@@ -22,8 +24,7 @@ To sign in to Chartio:
 
 ### How to track extra click data using `data-trackable` attributes
 
-You can add extra information to o-tracking events by using the `data-trackable` and `data-trackable-context-*` custom attributes. 
-
+You can add extra information to o-tracking events by using the `data-trackable` and `data-trackable-context-*` custom attributes.
 
 #### `data-trackable`
 
