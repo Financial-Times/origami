@@ -36,7 +36,7 @@ const Store = function (name, config = {}) {
 	/**
 	 * The key/name of this store.
 	 */
-	this.storageKey = Object.prototype.hasOwnProperty.call(this.config, 'nameOverride') ? this.config.nameOverride : [keyPrefix, name].join('_');
+	this.storageKey = this.config.nameOverride ? this.config.nameOverride : [keyPrefix, name].join('_');
 
 	/**
 	 * The storage method to use.
