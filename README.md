@@ -22,19 +22,27 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
-Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
+A new overlay may be created [imperatively](#imperative) with JavaScript, without any markup. Alternatively, define an overlay declaratively by adding a template of overlay content and a button to open the overlay.
+
+To define a template add the following `script` tag with the content of your overlay. Ensure you specify a unique `id` for your template:
 
 ```html
-<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1">Open!</button>
 <script type="text/template" id="overlay1-content">
 	<p>Content of overlay</p>
 </script>
 ```
 
-To activate overlays declared in markup, you can:
+Then add a trigger `button` with the class `o-overlay-trigger`, which will open the overlay on click. Connect the trigger to your overlay by specifying the template `id` in `data-o-overlay-src` with a `#` (in the format of an [id selector](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors)). Then name your overlay with a unique id using the `data-o-overlay-id` attribute.
 
-* Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
-* Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
+```html
+<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1">Open!</button>
+```
+
+Configure [overlay options](#option-reference) by adding them as data attributes to the trigger element, `data-o-overlay-[OPTION]`. For instance add `data-o-overlay-compact="true"` for a compact overlay:
+
+```html
+<button class="o-overlay-trigger" data-o-overlay-src="#overlay1-content" data-o-overlay-id="overlay1" data-o-overlay-compact="true">Open!</button>
+```
 
 ## Sass
 
