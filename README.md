@@ -2,6 +2,7 @@
 
 Accessible, content-aware component for expanding and collapsing content.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
@@ -11,6 +12,10 @@ Accessible, content-aware component for expanding and collapsing content.
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-expander`.
 
 ## Markup
 
