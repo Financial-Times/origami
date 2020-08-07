@@ -2,6 +2,7 @@
 
 Styling for tables.
 
+- [Usage](#usage)
 - [Markup](#markup)
 	- [Basic Table](#basic-table)
 	- [Disable sort](#disable-sort)
@@ -17,6 +18,10 @@ Styling for tables.
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-table`.
 
 ## Markup
 
