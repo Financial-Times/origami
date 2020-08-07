@@ -13,7 +13,7 @@ This component comprises a standard way of firing the `o.DOMContentLoaded` event
 
 ## Usage
 
-`o-autoinit` is included automatically by the Origami Build Service. Manual build users may include `o-autoinit` to initialise Origami components but it is not the only option. See the component [initialisation documentation](https://origami.ft.com/docs/components/initialising/) for more information.
+`o-autoinit` is included automatically by the [Origami Build Service](https://www.ft.com/__origami/service/build/v2/). Manual build users may include `o-autoinit` to initialise Origami components but it is not the only option. See the component [initialisation documentation](https://origami.ft.com/docs/components/initialising/) for more information.
 
 ## JavaScript
 
