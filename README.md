@@ -2,12 +2,17 @@
 
 o-date formats `time` elements in the FT style, and supports formatting dates in relative time.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Server-side](#server-side)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-date`.
 
 ## Markup
 
