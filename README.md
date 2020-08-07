@@ -1,12 +1,17 @@
 # o-stepped-progress
 Track progress through a multi-step process, such as a form.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-stepped-progress`.
 
 ## Markup
 
