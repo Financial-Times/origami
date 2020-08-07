@@ -2,6 +2,7 @@
 
 Responsive header for FT branded sites. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-header` markup with real navigation data.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
@@ -9,6 +10,10 @@ Responsive header for FT branded sites. See the [Origami Navigation Service](htt
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-header`.
 
 ## Markup
 
