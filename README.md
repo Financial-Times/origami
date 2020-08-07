@@ -3,6 +3,7 @@ o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree
 
 A component, integrated with FT authentication and [Coral Talk](https://coralproject.net), to add a comment stream or comment count to content.
 
+- [Usage](#usage)
 - [Additional dependencies](#additional-dependencies)
 - [Markup](#markup)
 	- [Stream](#stream)
@@ -18,6 +19,12 @@ A component, integrated with FT authentication and [Coral Talk](https://coralpro
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-comments`.
+
+Unlike other Origami components [`o-comments` requires additional peer dependencies](#additional-dependencies).
 
 ## Additional dependencies
 
