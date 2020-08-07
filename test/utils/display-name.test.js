@@ -13,19 +13,33 @@ describe('Display name', () => {
 
 		it("rejects if the display name doesn't exist", (done) => {
 			displayName.validation()
+				.then(() => {
+					done(new Error("Should have rejected but instead resolved"));
+				})
 				.catch(error => {
-					proclaim.isInstanceOf(error, Error);
-					proclaim.equal(error.message, 'Empty display name');
-					done();
+					try {
+						proclaim.isInstanceOf(error, Error);
+						proclaim.equal(error.message, 'Empty display name');
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 		});
 
 		it("rejects if the display name contains invalid characters", (done) => {
 			displayName.validation('test~')
+				.then(() => {
+					done(new Error("Should have rejected but instead resolved"));
+				})
 				.catch(error => {
-					proclaim.isInstanceOf(error, Error);
-					proclaim.equal(error.message, 'The display name contains the following invalid characters: ~');
-					done();
+					try {
+						proclaim.isInstanceOf(error, Error);
+						proclaim.equal(error.message, 'The display name contains the following invalid characters: ~');
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 		});
 
@@ -34,10 +48,17 @@ describe('Display name', () => {
 				available: false
 			});
 			displayName.validation('test')
+				.then(() => {
+					done(new Error("Should have rejected but instead resolved"));
+				})
 				.catch(error => {
-					proclaim.isInstanceOf(error, Error);
-					proclaim.equal(error.message, 'Unfortunately that display name is already taken');
-					done();
+					try {
+						proclaim.isInstanceOf(error, Error);
+						proclaim.equal(error.message, 'Unfortunately that display name is already taken');
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 		});
 
@@ -45,10 +66,17 @@ describe('Display name', () => {
 			fetchMock.mock('begin:https://comments-api.ft.com/displayname/isavailable', 500);
 
 			displayName.validation('test')
+				.then(() => {
+					done(new Error("Should have rejected but instead resolved"));
+				})
 				.catch(error => {
-					proclaim.isInstanceOf(error, Error);
-					proclaim.equal(error.message, 'Sorry, we are unable to update display names. Please try again later.');
-					done();
+					try {
+						proclaim.isInstanceOf(error, Error);
+						proclaim.equal(error.message, 'Sorry, we are unable to update display names. Please try again later.');
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 		});
 
@@ -59,8 +87,12 @@ describe('Display name', () => {
 
 			displayName.validation('test')
 				.then(displayName => {
-					proclaim.equal(displayName, 'test');
-					done();
+					try {
+						proclaim.equal(displayName, 'test');
+						done();
+					} catch (error) {
+						done(error);
+					}
 				});
 		});
 	});

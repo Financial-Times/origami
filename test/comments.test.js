@@ -155,9 +155,13 @@ describe("Comments", () => {
 			it('returns a integer', (done) => {
 				Comments.getCount('article-id')
 					.then(count => {
-						proclaim.isNumber(count);
-						proclaim.equal(count, 4);
-						done();
+						try {
+							proclaim.isNumber(count);
+							proclaim.equal(count, 4);
+							done();
+						} catch (error) {
+							done(error);
+						}
 					});
 			});
 		});
@@ -178,6 +182,9 @@ describe("Comments", () => {
 
 			it('returns a rejected promise', (done) => {
 				Comments.getCount('article-id')
+					.then(() => {
+						done(new Error('should have rejected the promise but instead it was resolved'));
+					})
 					.catch(() => {
 						done();
 					});
