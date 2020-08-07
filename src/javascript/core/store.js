@@ -8,6 +8,7 @@ import utils from '../utils';
  * @param {string} name - The name of the store
  * @param {Object} config - Optional, config object for extra configuration
  * @param {String=} config.nameOverride - The internal name for the store
+ * @param {String=} config.domain - The domain that should be used to store cookies on
  */
 const Store = function (name, config = {}) {
 
@@ -56,6 +57,41 @@ const Store = function (name, config = {}) {
 		}
 	};
 
+	function cookieLoad(name) {
+		name = name + '=';
+
+		const cookies = window.document.cookie.split(';');
+		let i;
+		let cookie;
+
+		for (i = 0; i < cookies.length; i = i + 1) {
+			cookie = cookies[i].replace(/^\s+|\s+$/g, '');
+			if (cookie.indexOf(name) === 0) {
+				return utils.decode(cookie.substring(name.length, cookie.length));
+			}
+		}
+
+		return null;
+	}
+
+	function cookieSave(name, value, expiry) {
+		let d;
+		let expires = '';
+
+		if (utils.is(expiry, 'number')) {
+			d = new Date();
+			d.setTime(d.getTime() + expiry);
+			expires = 'expires=' + d.toUTCString() + ';';
+		}
+
+		const cookie = utils.encode(name) + '=' + utils.encode(value) + ';' + expires + 'path=/;' + (config.domain ? 'domain=.' + config.domain + ';' : '');
+		window.document.cookie = cookie;
+	}
+
+	function cookieRemove(name) {
+		cookieSave(name, '', -1);
+	}
+
 	/**
 	 * Temporary var containing data from a previously saved store.
 	 * @property loadStore
@@ -65,6 +101,29 @@ const Store = function (name, config = {}) {
 	if (loadStore) {
 		try {
 			this.data = JSON.parse(loadStore);
+		} catch (error) {
+			utils.broadcast('oErrors', 'log', {
+				error: error.message,
+				module: 'o-tracking'
+			});
+			this.data = loadStore;
+		}
+	}
+
+	// If the user has previous data stored in the old cookie storage system
+	// import the data into the new storage system and remove them from the cookie.
+	const oldCookieStoreData = cookieLoad(this.storageKey);
+	if (oldCookieStoreData) {
+		try {
+			const data = JSON.parse(oldCookieStoreData);
+			if (this.data) {
+				Object.assign(this.data, data);
+			} else {
+				this.data = data;
+			}
+			for (const name of Object.keys(data)) {
+				cookieRemove(name);
+			}
 		} catch (error) {
 			utils.broadcast('oErrors', 'log', {
 				error: error.message,
