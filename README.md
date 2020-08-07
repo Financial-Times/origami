@@ -3,11 +3,13 @@
 Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens.
 
 - [Usage](#usage)
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
 	- [Declarative](#declarative)
 	- [Imperative](#imperative)
 	- [Option reference](#option-reference)
-	- [Sass](#sass)
-- [API](#api)
+	- [API Overview](#api-overview)
 - [Events](#events)
 - [Troubleshooting](#troubleshooting)
 - [Migration Guide](#migration-guide)
@@ -16,9 +18,9 @@ Configurable custom overlay box that can be used to show overlay windows. The ov
 
 ## Usage
 
-o-overlay can be instantiated in two ways:
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-overlay`.
 
-### Declarative
+## Markup
 
 Set options as `data-` attributes on any element that has a `o-overlay-trigger` class, to create an overlay and open it when that element is clicked.
 
@@ -34,9 +36,78 @@ To activate overlays declared in markup, you can:
 * Dispatch the `o.DOMContentLoaded` event (which will also initialise all other compatible Origami modules on the page); or
 * Run `o-overlay#init([el])` (optionally pass a parent element to search for trigger elements, which will form its o-layers context.  The default is `document.body`)
 
+## Sass
+
+Include the `oOverlay` mixin to output style for all `o-overlay` features:
+
+```scss
+@include oOverlay();
+```
+
+```css
+.o-overlay {
+	/* styles */
+}
+.o-overlay--compact {
+	/* styles */
+}
+.o-overlay--full-screen {
+	/* styles */
+}
+/* etc. */
+```
+
+To specify specific variants to output styles for pass options (see [variants](#variants) for available options).
+
+For example, to output only the base styles and the `compact` variant, ignoring other variants:
+
+```scss
+@include oOverlay($opts: (
+	'variants': ('compact')
+));
+```
+
+```css
+.o-overlay {
+	/* styles */
+}
+.o-overlay--compact {
+	/* styles */
+}
+```
+
+### Variants
+
+This table outlines all of the possible variants you can request in the [`oOverlay` mixin](#mixin-ooverlay):
+
+| Size          | Notes               | Brand support                |
+|---------------|---------------------|------------------------------|
+| compact       | Included by default | master, internal, whitelabel |
+| full-screen   | Included by default | master, internal, whitelabel |
+| header-shaded | Included by default | master, internal, whitelabel |
+
+## JavaScript
+
+### Declarative
+
+JavaScript is initialised on `o-overlay` elements automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v2/) users. If your project is using a manual build process, [initialise `o-overlay` manually](https://origami.ft.com/docs/components/initialising/).
+
+For example call the `init` method to initialise all `o-overlay` instances in the document:
+```js
+import oOverlay from 'o-overlay';
+oOverlay.init();
+```
+
+Or pass an element to initialise a specific `o-overlay` instance:
+```js
+import oOverlay from 'o-overlay';
+const oOverlayElement = document.getElementById('#my-o-overlay-element');
+oOverlay.init(oOverlayElement);
+```
+
 ### Imperative
 
-The constructor function accepts two arguments:
+You may also construct a new overlay without existing `o-overlay` elements. The constructor accepts two arguments:
 
 * id: Unique identifier string for the overlay within the page
 * options: JSON object that configures the overlay
@@ -77,67 +148,15 @@ Data- attributes have the same name as in the JSON format, but with dashes. So f
 
 _o-overlays will throw an error if the options aren't set correctly._
 
-### Sass
+### API Overview
 
-#### Mixin: `oOverlay`
-
-The `oOverlay` mixin is used to output base styles as well as styles for all of the overlay variants (`compact`, `full-screen`, and `heading-shaded`). This output includes the `o-overlay` class declarations:
-
-```scss
-@include oOverlay();
-```
-
-```css
-.o-overlay {
-	/* styles */
-}
-.o-overlay--compact {
-	/* styles */
-}
-.o-overlay--full-screen {
-	/* styles */
-}
-/* etc. */
-```
-
-If you wish to specify specific variants to output styles for, you can pass in options (see [variants](#variants) for available options).
-
-For example, to output only the base styles and the `compact` variant, ignoring other variants:
-
-```scss
-@include oOverlay($opts: (
-	'variants': ('compact')
-));
-```
-
-```css
-.o-overlay {
-	/* styles */
-}
-.o-overlay--compact {
-	/* styles */
-}
-```
-
-#### Variants
-
-This table outlines all of the possible variants you can request in the [`oOverlay` mixin](#mixin-ooverlay):
-
-| Size          | Notes               | Brand support                |
-|---------------|---------------------|------------------------------|
-| compact       | Included by default | master, internal, whitelabel |
-| full-screen   | Included by default | master, internal, whitelabel |
-| header-shaded | Included by default | master, internal, whitelabel |
-
-## API
-
-### Static methods
+#### Static methods
 
 * `getOverlays()`: Returns an array of all overlays on the page
 * `init([el])`: Instantiates Overlays for all `o-overlay-trigger` elements within `el` (or `document.body` if not specified)
 * `destroy()`: Destroys all Overlay objects and unbinds event handlers from trigger elements.
 
-### Object methods
+#### Object methods
 
 * `open`: Display the overlay.  Content is loaded every time the overlay is opened.
 * `close`: Close (hide) the overlay.
