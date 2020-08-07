@@ -3,6 +3,7 @@
 Typographical styles for FT branded sites.
 
 - [Overview](#overview)
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
@@ -38,6 +39,10 @@ By default, o-typography uses a single typographic scale for use with all fonts.
 _Note: The whitelabel branded version of o-typography has a different default scale. The font sizes are the same, but the line-height is 1.2x the font size at every scale._
 
 This scale makes up all typographic styles available through o-typography. It is available when using Sass through the [typography mixins](#mixins).
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-typography`.
 
 ## Markup
 
