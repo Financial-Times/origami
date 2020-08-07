@@ -2,12 +2,17 @@
 
 This component is for displaying teasers which link through to articles.
 
+- [Usage](#usage)
 - [Development](#development)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-teaser`.
 
 ## Development
 
