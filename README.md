@@ -3,12 +3,17 @@
 The cookie message and behaviour approved by the FT's legal team.
 All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-cookie-message`.
 
 ## Markup
 
