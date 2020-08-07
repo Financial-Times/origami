@@ -2,12 +2,17 @@
 
 This component provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [JavaScript](#javascript)
 - [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-lazy-load`.
 
 ## Markup
 
