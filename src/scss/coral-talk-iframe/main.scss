@@ -163,7 +163,7 @@
 
 	&:disabled {
 		pointer-events: none !important;
-		opacity: .4 !important;
+		opacity: 0.4 !important;
 		cursor: default !important;
 	}
 }
@@ -504,7 +504,8 @@
 	border-radius: 0;
 }
 
-.coral-createComment-message, .coral-configureMessageBox-messageBox {
+.coral-createComment-message,
+.coral-configureMessageBox-messageBox {
 	background: var(--palette-text-500);
 }
 
@@ -550,7 +551,7 @@
 .coral-replyList-showAllButton[disabled],
 .coral-replyList-showMoreButton[disabled] {
 	pointer-events: none;
-	opacity: .4;
+	opacity: 0.4;
 	cursor: default;
 }
 
