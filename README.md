@@ -3,12 +3,17 @@ o-spacing
 
 A styling utility component to aid projects and component with consistent spacing, according to the baseline grid within the design guidelines.
 
+- [Usage](#usage)
 - [Spaces](#spaces)
 - [Markup](#markup)
 - [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-spacing`.
 
 For [Build Service](https://www.ft.com/__origami/service/build/v2/) users, `o-spacing` provides [CSS classes](#markup) for vertical space and [CSS Custom Properties (CSS Variables)](#css-custom-properties) for other usecases. For Sass users `o-spacing` also provides a number of [Sass functions and mixins](#sass) for applying space to a project.
 
