@@ -2,12 +2,17 @@
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [CSS Custom Properties](#css-custom-properties)
 - [Sass](#sass)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-visual-effects`.
 
 ## Markup
 
