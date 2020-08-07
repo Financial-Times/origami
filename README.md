@@ -2,6 +2,7 @@
 
 A syntax highlighter for Origami-supported documentation that wraps [PrismJs](https://github.com/PrismJS/prism).
 
+- [Usage](#usage)
 - [Overview](#overview)
 - [Markup](#markup)
 - [JavaScript](#javascript)
@@ -11,6 +12,10 @@ A syntax highlighter for Origami-supported documentation that wraps [PrismJs](ht
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-syntax-highlight`.
 
 ## Overview
 
