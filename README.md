@@ -2,12 +2,17 @@
 
 Labels for content classification, to emphasise a value, or highlight a status.
 
+- [Usage](#usage)
 - [Label Types](#label-types)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-labels`.
 
 ## Label Types
 
