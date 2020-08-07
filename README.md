@@ -12,7 +12,8 @@ o-tooltip is a component usually used for annotating or highlighting bits of use
 - [Licence](#licence)
 
 ## Usage
-o-tooltip has Sass and JavaScript to show and hide a tooltip which points at a target.
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
 
 ### Markup
 
