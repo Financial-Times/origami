@@ -6,9 +6,10 @@ import utils from '../utils';
  *
  * @class  Store
  * @param {string} name - The name of the store
- * @param {Object=} config - Optional, config object for extra configuration
+ * @param {Object} config - Optional, config object for extra configuration
+ * @param {String=} config.nameOverride - The internal name for the store
  */
-const Store = function (name, config) {
+const Store = function (name, config = {}) {
 
 	/**
 	 * Internal Storage key prefix.
