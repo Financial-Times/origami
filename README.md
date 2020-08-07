@@ -2,6 +2,7 @@
 
 o-banner is a component used for product messaging which could include feature promotion, education, feedback, and legal information.
 
+- [Usage](#usage)
 - [Behaviour](#behaviour)
 - [Markup](#markup)
 - [JavaScript](#javascript)
@@ -13,6 +14,10 @@ o-banner is a component used for product messaging which could include feature p
 - [Licence](#licence)
 
 o-banner includes Sass and JavaScript to show and hide the banner. Banners can be created declaratively by adding markup to the page, or imperatively using JavaScript (only when not using the Build Service).
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-banner`.
 
 ## Behaviour
 
