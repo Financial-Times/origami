@@ -2,6 +2,7 @@
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
+- [Usage](#usage)
 - [Summary](#summary)
 - [Markup](#markup)
 - [Sass](#sass)
@@ -9,6 +10,10 @@ Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons)
 - [Migration guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-icons`.
 
 ## Summary
 
