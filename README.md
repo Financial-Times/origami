@@ -15,8 +15,6 @@ A component, integrated with FT authentication and [Coral Talk](https://coralpro
 	- [Events](#events)
 	- [Tracking](#tracking)
 - [Sass](#sass)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
