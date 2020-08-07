@@ -2,6 +2,7 @@
 
 This header is for tools and services built by the Financial Times.
 
+- [Usage](#usage)
 - [Markup](#markup)
 	- [Title Section](#title-section)
 	- [Primary navigation](#primary-navigation)
@@ -15,6 +16,10 @@ This header is for tools and services built by the Financial Times.
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-header-services`.
 
 ## Markup
 
