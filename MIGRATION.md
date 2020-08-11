@@ -43,6 +43,9 @@ The export interface now only has a single default export. All the named exports
 + import tracking from 'o-tracking';
 ```
 
+
+Using cookies as a storage mechanism for queuing up events to send to Spoor has been removed. The only available storage mechanism is localStorage. o-tracking v3 will read already existing queued events in a cookie and transfer them to localStorage. The reason to remove the cookie based storage machanism is because we were getting users who had their cookie size become too large and it was effecting the performance of the website (cookies were getting to be 5kb in size).
+
 ## Migrating from v1 to v2
 
 o-tracking v2 has dropped support for ftdomdelegate v3, please ensure your project is not using ftdomdelegate v3 and can work with ftdomdelegate v4.
