@@ -8,7 +8,7 @@ import Store from './store';
  * @param {String} name - The name of the queue.
  * @return {Queue} - Returns the instance of the queue.
  */
-const Queue = function (name) {
+function Queue (name) {
 	if (utils.isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the queue.');
 		utils.broadcast('oErrors', 'log', {
@@ -165,5 +165,4 @@ Queue.prototype.save = function () {
 	return this;
 };
 
-export default Queue;
 export { Queue };

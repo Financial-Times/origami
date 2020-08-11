@@ -1,6 +1,6 @@
 import settings from './settings';
 import utils from '../utils';
-import Queue from './queue';
+import {Queue} from './queue';
 import transports from './transports';
 
 /**

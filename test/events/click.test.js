@@ -3,7 +3,7 @@
 
 import '../setup';
 
-import Queue from '../../src/javascript/core/queue';
+import {Queue} from '../../src/javascript/core/queue';
 import settings from '../../src/javascript/core/settings';
 import send from '../../src/javascript/core/send';
 import core from '../../src/javascript/core';

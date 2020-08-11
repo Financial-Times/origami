@@ -4,7 +4,7 @@
 import './setup';
 
 import settings from '../src/javascript/core/settings';
-import Queue from '../src/javascript/core/queue';
+import {Queue} from '../src/javascript/core/queue';
 import oTracking from '../main.js';
 
 describe('main', function () {

@@ -2,7 +2,7 @@
 /* global proclaim sinon */
 
 import Send from '../../src/javascript/core/send';
-import Queue from "../../src/javascript/core/queue";
+import {Queue} from "../../src/javascript/core/queue";
 
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',

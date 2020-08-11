@@ -2,7 +2,7 @@
 /* global proclaim */
 
 
-import Queue from '../../src/javascript/core/queue';
+import {Queue} from '../../src/javascript/core/queue';
 const queue_name = 'queue_test';
 
 // PhantomJS doesn't always create a "fresh" environment...
