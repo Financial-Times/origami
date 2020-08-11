@@ -36,7 +36,7 @@ function Queue (name) {
 	}
 
 	return this;
-};
+}
 
 /**
  * Gets the contents of the store.
