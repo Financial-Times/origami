@@ -1,4 +1,6 @@
-# o-table
+# table-of-contents-no-heading [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+
+an invalid origami readme
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -8,11 +10,15 @@
 	- [Expander](#expander)
 	- [Additional Markup](#additional-markup)
 - [Sass](#sass)
-- [JavaScript](#javascript) - [Sorting](#sorting) - [Filtering](#filtering) - [Events](#events)
+- [JavaScript](#javascript)
+	- [Filtering](#filtering)
+	- [Sorting](#sorting)
+	- [Dynamic rows](#dynamic-rows)
+	- [Events](#events)
 - [Troubleshooting](#troubleshooting)
 - [Migration](#migration)
 - [Contact](#contact)
-- [Chungus](#chungus)
+- [Licence](#licence)
 
 ## Usage
 
@@ -20,7 +26,7 @@
 
 ## Markup
 
-### o-table
+### Basic table
 
 Add an `o-table` class to any table you wish to apply the styles to:
 
@@ -464,9 +470,7 @@ If rows are added or removed dynamically after the table is initialised call `up
 The following events are fired by `o-table`.
 
 - `oTable.ready`
-
-* `oTable.sorting`
-
+- `oTable.sorting`
 - `oTable.sorted`
 
 #### oTable.ready
@@ -550,14 +554,10 @@ Known issues:
 | ╳ deprecated |       2       |        2.0         |                          N/A                          |
 | ╳ deprecated |       1       |        1.7         |                          N/A                          |
 
-## Hefty hungus
-
-Hello
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-table/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
 ## Licence
 
-I eat the cheese
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
