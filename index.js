@@ -44,4 +44,5 @@ module.exports.plugins = [
 	require("./rules/readme-has-short-description"),
 	require("./rules/readme-has-toc"),
 	require("./rules/readme-has-licence"),
+	require("./rules/readme-has-general-usage"),
 ]
