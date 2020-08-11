@@ -1,6 +1,6 @@
 # table-of-contents-no-heading [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
-a valid origami readme
+an invalid origami readme
 
 - [Usage](#usage)
 - [Markup](#markup)
