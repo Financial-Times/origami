@@ -27,6 +27,7 @@ origami-build-system
 │   │   ├── create-origami-component
 │   │   ├── eslint-config-origami-component
 │   │   ├── origami-build-tools
+│   │   ├── origami-bundle-size-cli
 │   │   ├── origami-ci-tools
 │   │   ├── remark-preset-lint-origami-component
 │   │   ├── sass
@@ -51,7 +52,9 @@ When package `x` depends on package `y`, its package.json dependencies section
 looks like this:
 
 ```json
-"dependencies":
+"dependencies": {
+	"y": "file:./y"
+}
 ```
 
 Athloi is more convenient to use if all the subpackages are at the same version,
