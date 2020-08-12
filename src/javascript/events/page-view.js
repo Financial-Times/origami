@@ -2,7 +2,7 @@ import Core from '../core';
 import utils from '../utils';
 import settings from '../core/settings';
 
-settings.set('page_viewed', false);
+settings.set('page_has_already_been_viewed', false);
 
 /**
  * Default properties for page tracking requests.
@@ -32,15 +32,21 @@ function page(config, callback) {
 		context: config
 	});
 
-	// New PageID for a new Page... Unless... It's the first pageview, and some events may have been sent before this.
-	if(settings.get('page_viewed')) {
+	// Set a new root ID only if the page function has already been called once before.
+	// This is because o-tracking assumes each page function call is for a different page being viewed
+	// And o-tracking wants all other events on the page to share the same root_id so that Spoor can
+	// relate those other events with the page view they were from.
+	// If o-tracking events were fired before this `page` function was ever called, then the first
+	// of those events would have created a `root_id` and we want the first page view event to reuse
+	// that `root_id` so those earlier events can be related to the page view they were from.
+	if (settings.get('page_has_already_been_viewed')) {
 		Core.setRootID();
 	}
+	settings.set('page_has_already_been_viewed', true);
 
 	Core.track(config, callback);
 
 	// Alert internally that a new page has been tracked - for single page apps for example.
-	settings.set('page_viewed', true);
 	utils.triggerPage();
 }
 

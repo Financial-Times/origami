@@ -14,7 +14,7 @@ import event from '../../src/javascript/events/custom.js';
 describe('page', function () {
 
 	beforeEach(function () {
-		settings.destroy('page_viewed'); // Empty settings.
+		settings.destroy('page_has_already_been_viewed'); // Empty settings.
 	});
 
 	before(function () {
