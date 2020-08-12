@@ -59,15 +59,15 @@
 		}
 	}
 
+	// Show the toggle when the expander is initialised.
+	.o-expander--initialized .o-expander__toggle {
+		display: inline-block;
+	}
+
 	// Hide the toggle by default, or when the expander is inactive.
 	.o-expander__toggle,
 	.o-expander--inactive .o-expander__toggle {
 		display: none;
-	}
-
-	// Show the toggle when the expander is initialised.
-	.o-expander--initialized .o-expander__toggle {
-		display: inline-block;
 	}
 }
 
