@@ -7,7 +7,9 @@ body {
 	margin: 1rem;
 }
 
-.demo-inverse {
-	color: oColorsByName('white');
-	background: oColorsByName('slate');
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	.demo-inverse {
+		color: oColorsByName('white');
+		background: oColorsByName('slate');
+	}
 }
