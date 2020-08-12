@@ -3,6 +3,7 @@ o-editorial-typography [![MIT licensed](https://img.shields.io/badge/license-MIT
 
 _Typography styles for editorial content._
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [Contact](#contact)
@@ -10,7 +11,11 @@ _Typography styles for editorial content._
 
 [o-typography](https://registry.origami.ft.com/components/o-typography) provides fundamental typographic tooling and styles for user interfaces. o-editorial-typography builds on that with typography for editorial content including headlines, tags, and bylines. It makes no assumption about where the editorial typography will be used -- it could be a page, another component, or email for example -- so no default margins are provided. To apply typography and layout editorial typography within an article see [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout).
 
-### Markup
+### Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-editorial-typography`.
+
+## Markup
 
 #### Headings
 
