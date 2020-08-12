@@ -62,7 +62,7 @@
 				padding: 0 0.4375rem;
 				height: oSpacingByIncrement(10);
 				border: 1px solid _oHeaderServicesGet('nav-border');
-				border-top: 0px;
+				border-top-color: transparent;
 			}
 
 			// Override the background colour of the draw's dropdown button.

@@ -28,7 +28,7 @@
 	}
 
 	// Current drop down button.
-	li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+	.o-header-services__primary-nav li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
 		background-color: _oHeaderServicesGet('nav-hover-background');
 		&:hover {
 			background-color: _oHeaderServicesGet('button-hover-color');
@@ -36,7 +36,7 @@
 	}
 
 	// Drop down list.
-	ul[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
+	.o-header-services__primary-nav ul[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
 		@include oTypographySans(-1);
 		background: _oHeaderServicesGet('nav-background');
 		border: 1px solid _oHeaderServicesGet('nav-border');
@@ -67,14 +67,14 @@
 	}
 
 	// Completely hide visually hidden elements untill the dropdown is open.
-	ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
+	.o-header-services__primary-nav ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
 		display: none;
 	}
 
 	// Drop down list (opened state).
 	// stylelint-disable-next-line selector-no-qualifying-type
-	.core li[data-o-header-services-level]:hover,
-	li[aria-expanded=true] { // stylelint-disable-line selector-no-qualifying-type
+	.core .o-header-services__primary-nav li[data-o-header-services-level]:hover,
+	.o-header-services__primary-nav li[aria-expanded=true] { // stylelint-disable-line selector-no-qualifying-type
 		// Reveal the dropdown.
 		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
 			height: auto;
@@ -91,6 +91,11 @@
 			display: initial;
 		}
 
+		// Hide the bottom border which will clash with the top
+		// border of the dropdown list.
+		.o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+			border-bottom-color: transparent;
+		}
 		// Update the dropdown icon to show the drawer is open.
 		.o-header-services__drop-down-button:after { // stylelint-disable-line selector-no-qualifying-type
 			transform: rotate(-180deg);
