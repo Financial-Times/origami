@@ -99,7 +99,7 @@
 			"name": "pagination",
 			"title": "Pagination layout",
 			"template": "/demos/src/pagination.mustache",
-			"description": "For pagination layouts. This layout can be combined with a theme."
+			"description": "This demo shows a pagination layout with anchor tags and the default theme. The number of pages to show and button theme may be chosen by the project."
 		},
 		{
 			"name": "grouped",

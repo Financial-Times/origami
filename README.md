@@ -104,23 +104,27 @@ Wrap buttons with `.o-buttons-group` to group them together:
 
 ### Pagination
 
-For a pagination style wrap your buttons in `.o-buttons-pagination`. In this example we show pages 1-3 and use icon buttons to indicate more and fewer results:
+For a pagination style wrap your buttons in `.o-buttons-pagination`. Most pagination usecases anchor `a` tags for links which look like buttons instead of a `button` tag. When using an anchor tag in pagination do not use the `aria-selected` data attribute. Instead use `aria-current="page"` to indicate the current page, this will highlight the button for the current page visually and to screen readers.
+
+In the following example we use links to show pages 1-3 and use icon buttons to indicate more and fewer results:
 
 ```html
 <div class="o-buttons-pagination">
-	<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled="disabled">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled="disabled">
 		<span class='o-buttons-icon__label'>Fewer results</span>
-	</button>
+	</a>
 
-	<button class="o-buttons o-buttons--secondary" aria-selected="true">1</button>
-	<button class="o-buttons o-buttons--secondary">2</button>
-	<button class="o-buttons o-buttons--secondary">3</button>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
 
-	<button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
 		<span class='o-buttons-icon__label'>More results</span>
-	</button>
+	</a>
 </div>
 ```
+
+A theme modifier such as `o-buttons--inverse` may be added to the buttons within a pagination block.
 
 ### Disabled
 
