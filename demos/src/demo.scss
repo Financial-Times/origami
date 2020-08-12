@@ -11,8 +11,10 @@ html {
 	background: oColorsByUsecase('page', 'background');
 }
 
-.demo-inverse {
-	background: oColorsByName('slate');
+@if oBrandGetCurrentBrand() == 'master' {
+	.demo-inverse {
+		background: oColorsByName('slate');
+	}
 }
 
 // custom standard label markup
