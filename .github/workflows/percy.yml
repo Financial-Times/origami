@@ -14,7 +14,7 @@ on:
      - "demos/**"
      - "src/**"
   push:
-    branches: master
+    branches: $default-branch
     paths: 
      - "bower.json"
      - "origami.json"
