@@ -99,10 +99,10 @@
 
 		@include it('returns an error for default palette colours which do not allow tones') {
 			@include assert-equal(oColorsGetTone('black', 10),
-			('ERROR: "black" does not support tones. Use a mix instead: `oColorsMix(\'black\', $percentage: 10)`'),
+			('ERROR: "black" does not allow tones. We only allow tones for some colours, to reduce the number of different colours used across sites. For custom colours, set the `allow-tones` option of `oColorsSetColor` to enable tones. If using a default o-colors colour consider using the `oColorsMix` function to mix with black to darken or white to lighten.'),
 			$inspect: true);
 			@include assert-equal(oColorsGetTone('white', 10),
-			('ERROR: "white" does not support tones. Use a mix instead: `oColorsMix(\'white\', $percentage: 10)`'),
+			('ERROR: "white" does not allow tones. We only allow tones for some colours, to reduce the number of different colours used across sites. For custom colours, set the `allow-tones` option of `oColorsSetColor` to enable tones. If using a default o-colors colour consider using the `oColorsMix` function to mix with black to darken or white to lighten.'),
 			$inspect: true);
 			@include assert-equal(oColorsGetTone('slate', 10),
 			('ERROR: "slate" does not allow tones. We only allow tones for some colours, to reduce the number of different colours used across sites. For custom colours, set the `allow-tones` option of `oColorsSetColor` to enable tones. If using a default o-colors colour consider using the `oColorsMix` function to mix with black to darken or white to lighten.'),
@@ -169,15 +169,15 @@
 		}
 		@include it('throws an error if a text color and background does not pass WCAG contrast guidelines') {
 			@include assert-equal(oColorsGetTextColor('black-40', 50),
-			('ERROR: The text colour generated for black-40 at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-normal required contrast ratio of at least 4.5:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
+			('ERROR: The text colour generated for "black-40" at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-normal required contrast ratio of at least 4.5:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
 		}
 		@include it('throws an error for an invalid contrast ratio check') {
 			@include assert-equal(oColorsGetTextColor('black-40', 50, 'aaaaaaaa-large'),
-			('ERROR: The minimum contrast must by one of "aa-normal, aa-large, aaa-normal, aaa-large" or `null`. Found "aaaaaaaa-large".'));
+			('ERROR: The minimum contrast must by one of "aa-normal, aa-large, aaa-normal, aaa-large" or `null`. Found ""aaaaaaaa-large"".'));
 		}
 		@include it('throws an error if a text color and background does not pass a custom contrast ratio check') {
 			@include assert-equal(oColorsGetTextColor('black-40', 50, 'aa-large'),
-			('ERROR: The text colour generated for black-40 at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-large required contrast ratio of at least 3:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
+			('ERROR: The text colour generated for "black-40" at 50% opacity has a contrast ratio of "2.87" and does not pass the WCAG 2.1 aa-large required contrast ratio of at least 3:1. Update the `$minimum-contrast` argument if a lower contrast is acceptable.'));
 		}
 		@include it('does not throw an error when a text color and background does not pass WCAG contrast guidelines and `$minimum-contrast` is set the `null`') {
 			@include assert-equal(oColorsGetTextColor(oColorsByName('black-40'), 50, $minimum-contrast: null),  #4d4945);
@@ -201,7 +201,7 @@
 			@include assert-equal(oColorsColorLuminance(#000000), 0);
 		}
 		@include test('returns luminance of a palette color as float') {
-			@include assert-equal(oColorsColorLuminance('teal'), 0.14601, $inspect: true);
+			@include assert-equal(oColorsColorLuminance('teal'), 0.1460094504, $inspect: true);
 		}
 	}
 
