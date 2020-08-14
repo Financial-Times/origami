@@ -45,9 +45,9 @@ The financier text variable font would replace a system font adding an extra wei
 We don't have a Metric variable font yet.
 
 Notes / Questions:
-- What new financier display variants do design want to use? Is our goal to enable new weights but not italics we can save some page weight.
-- Does the design team ideally want to replace Georgia with Financier Text? If so need to review the performance impact.
-- We don't use many Metric font variants. How much bigger will the variable font be?
+- What new financier display variants do design want to use? _Do we need italics? If not we can save on file size which makes introducing financier text an easier proposition._
+- We don't use many Metric font variants. How much bigger in file size will the variable font be?
+- Are the design team ready to replace Georgia with financier text or does this require more work with stakeholders? _Could this be a follow up proposal?_
 
 ### Fallback Fonts
 
@@ -67,4 +67,36 @@ For users who can view variable fonts but have a slow connection, we could [serv
 
 Notes / Questions:
 - Are we happy to serve fallback fonts to some users?
-- How much would the resized Metric variable font cost?
+- How much would the resized Metric variable font cost to commission?
+
+### benefits
+
+- the design team can make greater use of typography
+- progressive font loading is more reliable for readers
+- saved engineering time through reduced code complexity
+
+### drawbacks
+
+- a minority but significant group of users, including IE11 users, always see fallback fonts
+
+## work required
+
+- Commission a resized MetricWeb variable font.
+- Add variable font files to `o-font-assets`.
+- Update `o-fonts` font faces with variable fonts and functions such as `oFontsVariantExists`.
+- Remove progressive font loading from `o-typography` and deprecate the interface.
+- Update the serif font in `o-typography` to use `Financier Text`, if using.
+- Update the MetricWeb type scale in `o-typography` to account for the resizing.
+- Update [`dotcom-page-kit` font preloading](https://github.com/Financial-Times/dotcom-page-kit/blob/v2.0.2/packages/dotcom-ui-base-styles/src/lib/fontFaces.ts).
+
+## alternatives
+
+### do nothing
+
+Accept the drawbacks of our current approach, continue to serve a limited set of custom fonts including to users with older operating systems / browsers.
+
+### do part
+
+As a significant visual change for all users, that could impact the readability of stories, we could consider swapping `Georgia` for `Financier Text` in a follow up proposal. (@todo lets do this)
+
+It makes less sense to switch to `Financier Display` and `MetricWeb` variable fonts separately as both need to be complete for the progressive font loading benefits; although we could to enable more variants of one font with fallbacks for old browsers, whilst continuing to serve the other to all browsers.
