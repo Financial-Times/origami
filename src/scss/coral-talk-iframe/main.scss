@@ -10,56 +10,61 @@
  * This is not a normal use case of Origami styles.
  */
 
-// stylelint-disable selector-class-pattern, declaration-no-important 
+// stylelint-disable selector-class-pattern, declaration-no-important
 @import 'o-buttons/main';
 @import 'o-colors/main';
 @import 'o-typography/main';
 @import 'o-editorial-typography/main';
 
 :root {
-	--font-family-sans-serif: #{inspect(oTypographyGetFontFamily('sans'))};
-	--font-family-serif: #{inspect(oTypographyGetFontFamily('sans'))};
+	--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
+	--font-family-secondary: #{inspect(oTypographyGetFontFamily('sans'))};
+	--font-weight-primary-bold: 600;
+	--font-weight-primary-semiBold: 500;
+	--font-weight-primary-regular: 400;
+	--font-weight-secondary-regular: 400;
 
-	// make font sizes consistent in various places
-	--rem-base: 15;
-	--font-size-3: 14px;
-	--font-size-4: 14px;
+	--palette-background-body: #{inspect(oColorsByName('paper'))};
+	--palette-text-500: #{inspect(oColorsByName('black-80'))};
+	--palette-error-400: #{inspect(oColorsByName('claret-80'))};
+	--palette-error-800: #{inspect(oColorsByName('claret-70'))};
+	--palette-error-900: #{inspect(oColorsByName('claret-70'))};
+	--palette-error-500: #{inspect(oColorsByName('claret-70'))};
+	--palette-success-500: #{inspect(oColorsByName('teal-50'))};
+	--palette-success-400: #{inspect(oColorsByName('teal-60'))};
+	--palette-grey-100: #{inspect(oColorsByName('paper'))};
+	--palette-grey-200: #{inspect(oColorsByName('paper'))};
 
-	// primary text color
-	--palette-text-primary: #{inspect(oColorsByName('black-80'))};
+	--palette-primary-400: #{inspect(oColorsByName('teal-50'))};
+	--palette-primary-500: #{inspect(oColorsByName('teal-50'))};
+	--palette-primary-600: #{inspect(oColorsByName('teal-50'))};
+	--palette-primary-700: #{inspect(oColorsByName('teal-50'))};
 
+	--ft-magnify: 1.0666666667;
 
-	// error message (ex: edit time has expired)
-	// background
-	--palette-error-light: #{inspect(oColorsByName('claret-80'))};
-	// border-left
-	--palette-error-darkest: #{inspect(oColorsByName('claret-70'))};
+	--font-size-1: calc(0.75rem * var(--ft-magnify));
+	--font-size-2: calc(0.875rem * var(--ft-magnify));
+	--font-size-3: calc(1rem * var(--ft-magnify));
+	--font-size-4: calc(1.125rem * var(--ft-magnify));
+	--font-size-5: calc(1.25rem * var(--ft-magnify));
+	--font-size-6: calc(1.5rem * var(--ft-magnify));
+	--font-size-7: calc(1.75rem * var(--ft-magnify));
+	--font-size-8: calc(2rem * var(--ft-magnify));
+	--font-size-9: calc(2.25rem * var(--ft-magnify));
+}
 
-
-	// close stream button
-	--palette-error-main: #{inspect(oColorsByName('claret-70'))};
-
-
-	// apply button in configure tab
-	--palette-success-main: #{inspect(oColorsByName('teal-50'))};
-	--palette-success-light: #{inspect(oColorsByName('teal-60'))};
-
-
-	// stream section selected tab item, selected item count badge
-	--palette-primary-main: #{inspect(oColorsByName('teal-50'))};
-
-
-	// stream section unselected tab comment count badge
-	--palette-grey-lightest: #{inspect(oColorsByName('paper'))};
-
+.coral-comment-content {
+	font-family: var(--font-family-primary);
+	font-style: normal;
+	font-weight: var(--font-weight-primary-regular);
+	font-size: 1rem;
+	line-height: 1.45rem;
+	color: var(--palette-text-900);
+	word-wrap: break-word;
 }
 
 .coral-viewerBox {
 	display: none;
-}
-
-body {
-	background: oColorsByName('paper');
 }
 
 // remove divider of the top tab bar
@@ -80,6 +85,7 @@ body {
 .coral-guidelines {
 	background-color: oColorsByName('wheat');
 	border-color: oColorsByName('wheat');
+	border-radius: 0;
 }
 
 .coral-guidelines a {
@@ -146,10 +152,19 @@ body {
 
 	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
+	font-size: 12.18pt !important;
+	font-family: var(--font-family-primary) !important;
 
 	&:hover {
 		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
+		text-decoration: none !important;
+	}
+
+	&:disabled {
+		pointer-events: none !important;
+		opacity: 0.4 !important;
+		cursor: default !important;
 	}
 }
 
@@ -181,8 +196,8 @@ body {
 .coral-comment-reportButton,
 .coral-featuredComment-reactButton,
 .coral-featuredComment-replies {
-	font-weight: 400;
-	font-size: 14px;
+	font-weight: 400 !important;
+	font-size: 14px !important;
 	letter-spacing: normal !important;
 
 	&:hover {
@@ -215,7 +230,7 @@ body {
 		// This isn't great but its the only way for us to target the icons
 		// If Coral change this markup it could cause a regression
 		i {
-			display: none;
+			display: none !important;
 		}
 	}
 }
@@ -239,11 +254,16 @@ body {
 
 // report button reported state
 .coral-comment-reportedButton {
-	background-color: oColorsByName('teal-50');
+	background-color: oColorsByName('teal-50') !important;
 
 	span,
 	i {
-		color: white;
+		color: white !important;
+		padding: 3px 7px;
+		border-radius: var(--round-corners);
+		font-weight: var(--font-weight-primary-regular);
+		opacity: 0.4;
+		pointer-events: none;
 	}
 }
 
@@ -263,6 +283,7 @@ body {
 		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
 		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
 		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
+		font-weight: var(--font-weight-primary-regular) !important;
 	}
 }
 
@@ -291,6 +312,7 @@ body {
 	background-color: oColorsByName('black') !important;
 	color: oColorsByName('white') !important;
 	border-radius: 0;
+	border: 0 !important;
 }
 
 
@@ -312,6 +334,7 @@ body {
 	));
 	color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'secondary') !important;
 	border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'secondary') !important;
+	border-radius: 0 !important;
 
 	background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'secondary') !important;
 }
@@ -445,4 +468,96 @@ body {
 .coral-configureMessageBox-messageBox h5,
 .coral-configureMessageBox-messageBox h6 {
 	color: inherit;
+}
+
+.coral-selectField {
+	background: oColorsByName('paper');
+	border-radius: 0;
+}
+
+.coral-rte-container {
+	background: white;
+}
+
+.coral-rte-toolbar {
+	background: white;
+
+	border-top: 1px solid var(--palette-grey-400);
+}
+
+.coral-commentForm {
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--palette-grey-400);
+	border-radius: 0;
+}
+
+.coral-createReplyComment-replyTo {
+	background-color: oColorsByName('paper');
+}
+
+.coral-createReplyComment-replyTo {
+	color: var(--palette-grey-500);
+
+	border-bottom-width: 0;
+	border-color: var(--palette-grey-400);
+	border-radius: 0;
+}
+
+.coral-createComment-message,
+.coral-configureMessageBox-messageBox {
+	background: var(--palette-text-500);
+}
+
+.coral-selectField {
+	background: white !important;
+	font-weight: var(--font-family-primary-regular) !important;
+}
+
+.coral-comment-userTag,
+.coral-rootParent-userTag {
+	font-size: var(--font-size-1) !important;
+	line-height: 1 !important;
+}
+
+.coral-counter {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.coral-comment-commentTag {
+	padding: 2px 6px !important;
+	font-size: var(--font-size-1) !important;
+}
+
+.coral-createReplyComment-replyToText {
+	color: var(--palette-grey-500) !important;
+}
+
+.coral-comment-inReplyToText {
+	font-weight: var(--font-weight-primary-regular) !important;
+}
+
+.coral-comment-reportButton[aria-pressed=true] {
+	color: var(--palette-text-000) !important;
+	background: var(--palette-primary-500) !important;
+	border: 0;
+}
+
+.coral-featuredComment-content {
+	font-size: var(--font-size-3) !important;
+}
+
+.coral-replyList-showAllButton[disabled],
+.coral-replyList-showMoreButton[disabled] {
+	pointer-events: none;
+	opacity: 0.4;
+	cursor: default;
+}
+
+.coral-replyList-showAllButton:hover,
+.coral-replyList-showMoreButton:hover {
+	border-color: var(--palette-grey-400) !important;
+	color: var(--palette-grey-400) !important;
+	background: none !important;
 }
