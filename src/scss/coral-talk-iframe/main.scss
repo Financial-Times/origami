@@ -105,7 +105,6 @@
 	// normally, these should come for free with oButtons mixin
 	// but we have to declare this explicitly here because
 	// Coral styles override our styles for some reason
-	&[aria-selected=true],
 	&[aria-pressed=true],
 	&[aria-current] {
 		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
@@ -114,8 +113,19 @@
 		border-top: 1px !important;
 		border-bottom: 1px !important;
 	}
+
+	&[aria-selected=true] {
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+		border-top: 1px !important;
+		border-bottom: 1px solid oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+	}
 }
 
+.coral-tabBar-comments div i,
+.coral-tabBar-myProfile div i {
+	display: none;
+}
 
 // post comment buttons
 .coral-createComment-submit,
@@ -207,31 +217,6 @@
 	span,
 	i {
 		color: oColorsByName('teal-50');
-	}
-}
-
-// Because we have increased the margin for .coral-indent-{number} classes
-// We need to hide the icons on comment utility buttons at a wider breakpoint
-// Otherwise the buttons get cut off on smaller screens
-
-// We aren't using o-grid breakpoints because these styles are used within an iframe
-// Which means the width of the document can be controlled by the parent document
-// So the o-grid named sizes (s,m,l) would be confusing in this case
-
-@media (max-width: 400px) {
-	.coral-comment-reactButton,
-	.coral-comment-reactedButton,
-	.coral-comment-replyButton,
-	.coral-comment-shareButton,
-	.coral-comment-reportButton,
-	.coral-featuredComment-reactButton,
-	.coral-featuredComment-replies {
-
-		// This isn't great but its the only way for us to target the icons
-		// If Coral change this markup it could cause a regression
-		i {
-			display: none !important;
-		}
 	}
 }
 
