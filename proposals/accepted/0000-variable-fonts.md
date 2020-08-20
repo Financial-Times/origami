@@ -62,7 +62,7 @@ Browsers [may layout and paint the page before custom fonts are downloaded](http
 
 ### Current Font Loading Strategy
 
-We preload fonts on ft.com so they may [start downloading before CSS has been downloaded and parsed, etc](](https://web.dev/optimize-webfont-loading/)). Prioritising the download of custom fonts means we can reduce the Flash of Invisible Text (FOIT) and Flash of Unstyled Text (FOUT).
+We preload fonts on ft.com so they may [start downloading before CSS has been downloaded and parsed, etc](https://web.dev/optimize-webfont-loading/). Prioritising the download of custom fonts means we can reduce the Flash of Invisible Text (FOIT) and Flash of Unstyled Text (FOUT).
 
 In addition `o-typography` currently aims to improve the experience by:
 - Normalising the size of fallback fonts so they are closer to our custom fonts, reducing the impact of switching from fallback fonts both visually and minimising page layout changes.
