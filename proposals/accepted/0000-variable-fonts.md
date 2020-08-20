@@ -76,6 +76,23 @@ This is good but `o-typography` has a number of problems:
 - It [doesn't always resize well](https://github.com/Financial-Times/o-typography/issues/248), depending on the font variant in use.
 - In the context of Customer Products its [a bit complicated, breaks, and can be difficult to debug](https://github.com/Financial-Times/dotcom-page-kit/pull/803).
 
+<details>
+    <summary>gif: current o-typography progressive font loading, 3g connection</summary>
+    <img src="../../assets/variable-fonts/current-regular-3g-js.gif" alt="`o-typography` progressive font loading, 3g connection">
+</details>
+
+<details>
+    <summary>gif: current o-typography progressive font loading, 3g connection, where cookie is out of sync with font cache</summary>
+    Note there is more shifting of the layout around the teasers and nav.
+    <img src="../../assets/variable-fonts/current-regular-3g-js-cookie.gif" alt="`o-typography` progressive font loading, 3g connection, where cookie is out of sync with font cache">
+</details>
+
+<details>
+    <summary>screenshot: core experience fallback fonts, with o-typography fallback font resizing</summary>
+    <img src="../../assets/variable-fonts/current-core.png" alt="`o-typography` progressive font loading, 3g connection, where cookie is out of sync with font cache">
+</details>
+
+
 Though minor given the overall size, the `o-typography` progressive fallback increases the bundle size of projects. Taking `next-front-page` as an example:
 
 |`next-front-page` asset|`o-typography` progressive font loading|uncompressed|gzip|brotli|
