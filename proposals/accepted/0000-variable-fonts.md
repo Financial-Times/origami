@@ -149,9 +149,14 @@ We could deliver our limited set of custom fonts to older browsers without progr
 - Would be a bad experience for some Safari users who would not see a font fallback and would have to wait for the custom fonts to download.
 - May lead to ugly faux weight/styles.
 
+### variable fonts with current progressive font loading
+
+If we keep o-typography's progressive font loading we won't need to commission resized fonts but lose some of the performance, reliability, and reduced complexity benefits. We may need to add new classes to o-typography and coordinate with teams to add those to their project to roll out variable fonts.
+
 ## Questions:
 
 - Are we happy to serve fallback fonts to some users?
 - Is a resized Metric variable font actually possible, and how much would it cost to commission?
+- Do we want to commission a resized Financier too? See headline shift in screenshots.
 - If we resized Metric and updated the scale, are design ok with remembering the new scale?
 - We don't use many Metric font variants. How much bigger in file size will the variable font be?
