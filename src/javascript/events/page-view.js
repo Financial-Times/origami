@@ -20,7 +20,7 @@ const defaultPageConfig = function () {
 	};
 };
 
-let previousPageConfig = {};
+let previousPageConfigWithoutContextIDs = {};
 /**
  * Make the page tracking request.
  *
@@ -44,13 +44,17 @@ function page(config, callback) {
 		Core.setRootID();
 	}
 	settings.set('page_has_already_been_viewed', true);
-	if (isDeepEqual(previousPageConfig, config)) {
+	const configWithoutContextIDs = JSON.parse(JSON.stringify(config));
+	delete configWithoutContextIDs.context.id;
+	delete configWithoutContextIDs.context.root_id;
+
+	if (isDeepEqual(previousPageConfigWithoutContextIDs, configWithoutContextIDs)) {
 		if (settings.get('config').test) {
 			// eslint-disable-next-line no-console
 			console.warn('A page event has already been sent for this page, refusing to send a duplicate page event.');
 		}
 	} else {
-		previousPageConfig = config;
+		previousPageConfigWithoutContextIDs = configWithoutContextIDs;
 		Core.track(config, callback);
 		// Alert internally that a new page has been tracked - for single page apps for example.
 		triggerPage();
