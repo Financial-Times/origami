@@ -307,6 +307,70 @@ function containsCircularPaths(rootObject) {
 	);
 }
 
+function isDeepEqual(actual, expected) {
+	if (actual === expected) {
+		return true;
+	}
+
+	if (
+		actual &&
+		expected &&
+		typeof actual === "object" &&
+		typeof expected === "object"
+	) {
+		if (actual.constructor !== expected.constructor) {
+			return false;
+		}
+
+		if (Array.isArray(actual)) {
+			const length = actual.length;
+			if (length !== expected.length) {
+				return false;
+			}
+			for (let i = length; i-- !== 0; ) {
+				if (!isDeepEqual(actual[i], expected[i])) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		if (actual.constructor === RegExp) {
+			return (
+				actual.source === expected.source && actual.flags === expected.flags
+			);
+		}
+		if (actual.valueOf !== Object.prototype.valueOf) {
+			return actual.valueOf() === expected.valueOf();
+		}
+		if (actual.toString !== Object.prototype.toString) {
+			return actual.toString() === expected.toString();
+		}
+
+		const keys = Object.keys(actual);
+		const length = keys.length;
+		if (length !== Object.keys(expected).length) {
+			return false;
+		}
+
+		for (let i = length; i-- !== 0; ) {
+			if (!Object.prototype.hasOwnProperty.call(expected, keys[i])) {
+				return false;
+			}
+		}
+
+		for (let i = length; i-- !== 0; ) {
+			const key = keys[i];
+
+			if (!isDeepEqual(actual[key], expected[key])) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+}
+
 /**
  * Utilities.
  * @alias utils
@@ -347,5 +411,6 @@ export {
 	assignIfUndefined,
 	filterProperties,
 	findCircularPathsIn,
-	containsCircularPaths
+	containsCircularPaths,
+	isDeepEqual
 };

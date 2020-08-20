@@ -1,5 +1,5 @@
 import Core from '../core';
-import utils from '../utils';
+import {merge, triggerPage, addEvent, isDeepEqual} from '../utils';
 import settings from '../core/settings';
 
 settings.set('page_has_already_been_viewed', false);
@@ -20,6 +20,7 @@ const defaultPageConfig = function () {
 	};
 };
 
+let previousPageConfig = {};
 /**
  * Make the page tracking request.
  *
@@ -28,7 +29,7 @@ const defaultPageConfig = function () {
  * @return {void}
  */
 function page(config, callback) {
-	config = utils.merge(defaultPageConfig(), {
+	config = merge(defaultPageConfig(), {
 		context: config
 	});
 
@@ -43,11 +44,17 @@ function page(config, callback) {
 		Core.setRootID();
 	}
 	settings.set('page_has_already_been_viewed', true);
-
-	Core.track(config, callback);
-
-	// Alert internally that a new page has been tracked - for single page apps for example.
-	utils.triggerPage();
+	if (isDeepEqual(previousPageConfig, config)) {
+		if (settings.get('config').test) {
+			// eslint-disable-next-line no-console
+			console.warn('A page event has already been sent for this page, refusing to send a duplicate page event.');
+		}
+	} else {
+		previousPageConfig = config;
+		Core.track(config, callback);
+		// Alert internally that a new page has been tracked - for single page apps for example.
+		triggerPage();
+	}
 }
 
 /**
@@ -62,7 +69,7 @@ function listener(e) {
 }
 
 const init = function init() {
-	utils.addEvent(window, 'oTracking.page', listener);
+	addEvent(window, 'oTracking.page', listener);
 };
 page.init = init;
 export default page;

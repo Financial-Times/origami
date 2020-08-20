@@ -159,7 +159,9 @@ describe('main', function () {
 		proclaim.equal(sent_data1.context.my_key, "my_val");
 
 		// Track another page
-		oTracking.page({}, callback2);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk"
+		}, callback2);
 		proclaim.ok(callback2.called, 'Callback not called.');
 
 		// Ensure vars from the first track don't leak into the second
@@ -179,7 +181,9 @@ describe('main', function () {
 
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?1"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -200,7 +204,9 @@ describe('main', function () {
 
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?2"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -219,7 +225,9 @@ describe('main', function () {
 
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?3"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -238,7 +246,9 @@ describe('main', function () {
 
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?4"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
@@ -250,7 +260,9 @@ describe('main', function () {
 	it('should set system.is_live to be true if `test` is not set', function () {
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?5"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
