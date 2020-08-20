@@ -214,31 +214,6 @@
 	}
 }
 
-// Because we have increased the margin for .coral-indent-{number} classes
-// We need to hide the icons on comment utility buttons at a wider breakpoint
-// Otherwise the buttons get cut off on smaller screens
-
-// We aren't using o-grid breakpoints because these styles are used within an iframe
-// Which means the width of the document can be controlled by the parent document
-// So the o-grid named sizes (s,m,l) would be confusing in this case
-
-@media (max-width: 400px) {
-	.coral-comment-reactButton,
-	.coral-comment-reactedButton,
-	.coral-comment-replyButton,
-	.coral-comment-shareButton,
-	.coral-comment-reportButton,
-	.coral-featuredComment-reactButton,
-	.coral-featuredComment-replies {
-
-		// This isn't great but its the only way for us to target the icons
-		// If Coral change this markup it could cause a regression
-		i {
-			display: none !important;
-		}
-	}
-}
-
 .coral-featuredComment-replies div {
 	color: oColorsByName('teal-50');
 }
