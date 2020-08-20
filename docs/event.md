@@ -88,7 +88,7 @@ For example:
 
 ## Notes
 
-- If certain properties are present in the payload they will enriched by Spoor and appended to the payload.
+- If certain properties are not present in the payload they will be appended via Spoor enrichment.
 - It's for use by server and client-side systems sending events to Spoor.
 - It is intentionally abstracted away from any particular database format and meant to represent a logical, easy to understand data structure.
 - It assumes the consumers of the event stream can manipulate the data in to their desired storage format.
