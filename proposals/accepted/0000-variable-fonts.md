@@ -2,10 +2,10 @@
 
 ## Motivation
 
-There are two motivations for using variable fonts:
+There are three motivations for using variable fonts:
 - Allow the design team to use more variations of Financier Display and Metric on ft.com, weight/style.
 - Allow the design team to use Financier Text on ft.com (pending further work).
-- Remove the unreliable and relatively complex progressive font loading from o-typography.
+- Remove the unreliable and relatively complex progressive font loading from `o-typography`.
 
 ## Explanation
 
@@ -13,7 +13,7 @@ There are two motivations for using variable fonts:
 
 The design team are limited to a small number of weights and styles for our custom fonts due to performance. Variable fonts combine variants into one, smaller file and would allow the design team to make greater use of typography within Financial Times products without degrading current performance.
 
-Given older browsers don't support variable fonts we can use newer standards to load them. And since we are commissioning variable fonts we can update the fonts to more closely match their fallback font (the font that is used if a custom font is not supported or takes too long to load). Together this means we can remove custom font loading JavaScript/Sass from o-typography.
+Given older browsers don't support variable fonts we can use newer standards to load them. And since we are commissioning variable fonts we can update the fonts to more closely match their fallback font (the font that is used if a custom font is not supported or takes too long to load). Together this means we can remove custom font loading JavaScript/Sass from `o-typography`.
 
 ### Support
 
@@ -26,7 +26,7 @@ Users with browsers which do not support variable fonts will instead see fallbac
 The file size of fonts is not the only performance indicator but is one of the main reasons, with our current font loading strategy, why we haven't been able to include more non-variable font files. This section evaluates how this proposal would change the download size of our custom fonts:
 
 The [font variants currently used on ft.com](
-https://github.com/Financial-Times/n-ui-foundations/blob/62be704f649442c65356708183998e90cc78340c/typography/main.scss#L5) include:
+https://github.com/Financial-Times/n-ui-foundations/blob/62be704f649442c65356708183998e90cc78340c/typography/main.scss#L5) are:
 
 |family|weight|style|size (bytes)|
 |---|---|---|---|
@@ -46,33 +46,33 @@ The variable fonts which we have are as follows (we do not have a Metric variabl
 |financier display|n/a|regular|64380|
 |financier display|n/a|italic|69628|
 |total variable financier display size |||134008|
-|financier text|normal|regular|52336|
-|financier text|semibold|regular|54112|
+|financier text|n/a|regular|52336|
+|financier text|n/a|italic|54112|
 |total financier text size |||106448|
 
-- The Financier Display variable font totals 134kb; ~1kb larger than the variants currently used.
-- We don't have a Metric variable font yet but its likely to be slightly but not significantly larger than the two currently used.
+- The Financier Display variable font totals 134kb; only ~1kb larger than the variants currently used.
+- We don't have a Metric variable font yet but its likely to be slightly larger than the two currently used.
 - The financier text variable font would replace a system font adding an extra 106kb to download.
 
 From a font download perspective we can expect a small increase to enable all variants of the font families we currently use. There is a ~100kb increase if we also introduce Financier Text, which we can justify by considering other changes to our progressive font loading strategy.
 
-#### Font Loading Strategy
+### Font Loading Strategy
 
-##### Default Browser Behaviour
+#### Default Browser Behaviour
 
-Browsers may layout and paint the page before fonts are custom fonts are downloaded. This causes a Flash of Invisible Text (FOIT). Some browsers, for example some versions of Safari, will hide text until the font is downloaded which could mean users are unable to access any content for a long time. Other browsers use a fallback system font either immediately or if it hasn't loaded within 3 seconds. When the custom font is loaded the browser swaps the fallback font for the custom font. Swapping fonts can be jarring visually, its sometimes refereed to a Flash of Unstyled Text (FOUT), and has performance implications due to the browser needing to layout and paint the page again.
+Browsers [may layout and paint the page before custom fonts are downloaded](https://web.dev/optimize-webfont-loading/). This causes a Flash of Invisible Text (FOIT) whilst the page loads. Some browsers, for example some versions of Safari, hide text until the font is downloaded which could mean users are unable to access any content for a long time. Other browsers use a fallback system font either immediately or if the custom font hasn't loaded within 3 seconds. When the custom font is loaded these browsers swaps the fallback font for the custom font. Swapping fonts can be jarring visually, its sometimes refereed to as a Flash of Unstyled Text (FOUT). This has user experience and performance implications due to the browser needing to layout and paint the page again.
 
-##### Our Current Progressive Font Loading Strategy
+#### Our Current Progressive Font Loading Strategy
 
-We preload fonts on ft.com so they may start downloading before CSS has been downloaded and parsed, etc. Prioritising the download of custom fonts means we can reduce Flash of Unstyled Text (FOUT).
+We preload fonts on ft.com so they may [start downloading before CSS has been downloaded and parsed, etc](](https://web.dev/optimize-webfont-loading/)). Prioritising the download of custom fonts means we can reduce the Flash of Invisible Text (FOIT) and Flash of Unstyled Text (FOUT).
 
 In addition `o-typography` currently aims to improve the experience by:
 - Normalising the size of fallback fonts so they are closer to our custom fonts, reducing the impact of switching from fallback fonts both visually and minimising page layout changes.
 - Using the fallback font immediately in all browsers and swapping for the custom font when its downloaded; unless the download takes longer than 3 seconds in which case the fallback font remains in use.
 
 This is good but `o-typography` has a number of problems:
-- It requires JavaScript, which means core experience users get no fallback font resizing whilst the custom fonts load.
-- Its not reliable. Even with JavaScript, the progressive font loading in `o-typography` remembers fonts have loaded with a cookie which may persist after the browser cache has removed fonts, in which case fallback fonts aren't resized.
+- It requires JavaScript, which means core experience users never see custom fonts.
+- Its not reliable. `o-typography` remembers fonts have loaded with a cookie which may persist after the browser cache has removed fonts; in which case the browsers default fallback behaviour is used and fallback fonts aren't resized.
 - It [doesn't always resize well](https://github.com/Financial-Times/o-typography/issues/248), depending on the font variant in use.
 - In the context of Customer Products its [a bit complicated, breaks, and can be difficult to debug](https://github.com/Financial-Times/dotcom-page-kit/pull/803).
 
@@ -89,7 +89,7 @@ Though minor given the overall size, the `o-typography` progressive fallback inc
 
 By moving to variable fonts we can also replace the `o-typography` font loading strategy with a more reliable, standards based approach, and trim the CSS/JS bundle size of our projects as a bonus.
 
-##### Proposed Font Loading Strategy
+#### Proposed Font Loading Strategy
 
 Replace `o-typography`'s progressive font loading:
 - Commission a Metric Web variable font at a size more comparable to the fallback font. The [main benefit of o-typography fallback resizing is for Metric Web to fallback to Arial](https://github.com/Financial-Times/o-typography/issues/248).
