@@ -20,7 +20,6 @@ const defaultPageConfig = function () {
 	};
 };
 
-let previousPageConfigWithoutContextIDs = {};
 /**
  * Make the page tracking request.
  *
@@ -44,20 +43,33 @@ function page(config, callback) {
 		Core.setRootID();
 	}
 	settings.set('page_has_already_been_viewed', true);
-	const configWithoutContextIDs = JSON.parse(JSON.stringify(config));
-	delete configWithoutContextIDs.context.id;
-	delete configWithoutContextIDs.context.root_id;
 
-	if (isDeepEqual(previousPageConfigWithoutContextIDs, configWithoutContextIDs)) {
+	// Some applications which use o-tracking have a bug where they send thousands of page-view events
+	// Instead of forwarding these errorneous events to Spoor, we ignore them.
+	// GitHub Issue: https://github.com/Financial-Times/o-tracking/issues/296
+	if (pageViewEventHasAlreadyBeenSentBefore(config)) {
 		if (settings.get('config').test) {
 			// eslint-disable-next-line no-console
 			console.warn('A page event has already been sent for this page, refusing to send a duplicate page event.');
 		}
 	} else {
-		previousPageConfigWithoutContextIDs = configWithoutContextIDs;
 		Core.track(config, callback);
 		// Alert internally that a new page has been tracked - for single page apps for example.
 		triggerPage();
+	}
+}
+
+let previousPageConfigWithoutContextIDs = {};
+function pageViewEventHasAlreadyBeenSentBefore(config) {
+	const configWithoutContextIDs = JSON.parse(JSON.stringify(config));
+	delete configWithoutContextIDs.context.id;
+	delete configWithoutContextIDs.context.root_id;
+
+	if (isDeepEqual(previousPageConfigWithoutContextIDs, configWithoutContextIDs)) {
+		return true;
+	} else {
+		previousPageConfigWithoutContextIDs = configWithoutContextIDs;
+		return false;
 	}
 }
 
