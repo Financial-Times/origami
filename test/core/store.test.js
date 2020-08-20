@@ -33,7 +33,7 @@ describe('Core.Store', function () {
 				new Store(null);
 			});
 			proclaim.throws(function() {
-				new Store(function(){});
+				new Store(function(){ /* empty */ });
 			});
 		});
 
@@ -44,12 +44,12 @@ describe('Core.Store', function () {
 		});
 
 		it('constructs a store if given a name which is a string', function() {
-			let store = new Store('test');
+			const store = new Store('test');
 			proclaim.equal(store.storageKey, 'o-tracking_test');
 		});
 
 		it('can override the internal storageKey', function() {
-			let store = new Store('test', {nameOverride: '13.7'});
+			const store = new Store('test', {nameOverride: '13.7'});
 			proclaim.equal(store.storageKey, '13.7');
 		});
 	});
