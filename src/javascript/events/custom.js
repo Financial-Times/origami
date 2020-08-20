@@ -25,7 +25,7 @@ const defaultEventConfig = function () {
  * @param {string} [trackingEvent.detail.component_id] - The ID for the component instance.
  * @param {Object} [trackingEvent.detail.context] - Extra context to add to the event
  *
- * @param {Function=} callback - Optional, Callback function. Called when request completed.
+ * @param {Function} [callback] - Optional, Callback function. Called when request completed.
  * @return {void}
  */
 function event(trackingEvent, callback) {
@@ -220,4 +220,3 @@ event.init = init;
 
 export default event;
 export { event };
-
