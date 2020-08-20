@@ -127,4 +127,32 @@ describe('page', function () {
 		proclaim.isFalse(callback3.called);
 
 	});
+
+	it('should not send multiple events if the page id or root_id are the only changes from the previously sent page event', function () {
+		const callback = sinon.spy();
+		const callback2 = sinon.spy();
+		const callback3 = sinon.spy();
+
+		page({
+			url: "http://www.ft.com/home/uk",
+			id: 11,
+			root_id: 22
+		}, callback);
+		proclaim.isTrue(callback.called, 'Callback not called.');
+
+		page({
+			url: "http://www.ft.com/home/uk",
+			id: 12,
+			root_id: 22
+		}, callback2);
+		proclaim.isFalse(callback2.called);
+
+		page({
+			url: "http://www.ft.com/home/uk",
+			id: 13,
+			root_id: 23
+		}, callback3);
+		proclaim.isFalse(callback3.called);
+
+	});
 });
