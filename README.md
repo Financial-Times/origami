@@ -227,8 +227,8 @@ oTracking.view.init(opts);
 To track a custom event call the `oTracking.event` method:
 ```js
 const eventConfig = {
-    "category": "video",
-    "action": "play",
+    "category": "video", // optional
+    "action": "play", // optional
 };
 oTracking.event(eventConfig);
 ```
