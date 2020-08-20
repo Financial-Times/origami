@@ -9,6 +9,8 @@
 		-   [a generator](#a-generator)
 		-   [only sharing `.github/workflows`](#only-sharing-~-github-workflows~)
 		-   [no modifications](#no-modifications)
+			-   [git submodule](#git-submodule)
+			-   [git read-tree](#git-read-tree)
 	-   [supporting examples](#supporting-examples)
 	-   [notes](#notes)
 
@@ -102,17 +104,23 @@ this might actually be desirable for our own components, to make them all have t
 
 it would also not be desirable for component creators outside the origami team, who would want to diverge on at least CODEOWNERS.
 
--   git submodule
 
-	git [submodule](https://git-scm.com/docs/git-submodule) is probably a more straight-forward concept and we could configure dependabot to keep it up to date for us. but, no consumer-level modifications could be made.
+<a id="git-submodule"></a>
 
-	it also makes cloning a repository less straightforward (people need to clone with `--recursive` or use `submodule init` and `submodule update`).
+#### git submodule
 
-	it used to be hard to work with different branches in a submodule, but that got cleaned up in git v1.8
+git [submodule](https://git-scm.com/docs/git-submodule) is probably a more straight-forward concept and we could configure dependabot to keep it up to date for us. but, no consumer-level modifications could be made.
 
--   git read-tree
+it also makes cloning a repository less straightforward (people need to clone with `--recursive` or use `submodule init` and `submodule update`).
 
-	[read-tree](https://git-scm.com/docs/git-read-tree) would allow us to use a subdirectory instead of a branch, but it wouldn't allow a component to apply its own modifications on top.
+it used to be hard to work with different branches in a submodule, but that got cleaned up in git v1.8
+
+
+<a id="git-read-tree"></a>
+
+#### git read-tree
+
+[read-tree](https://git-scm.com/docs/git-read-tree) would allow us to use a subdirectory instead of a branch, but it wouldn't allow a component to apply its own modifications on top.
 
 
 <a id="supporting-examples"></a>
