@@ -62,7 +62,7 @@ From a font download perspective we can expect a small increase to enable all va
 
 Browsers [may layout and paint the page before custom fonts are downloaded](https://web.dev/optimize-webfont-loading/). This causes a Flash of Invisible Text (FOIT) whilst the page loads. Some browsers, for example some versions of Safari, hide text until the font is downloaded which could mean users are unable to access any content for a long time. Other browsers use a fallback system font either immediately or if the custom font hasn't loaded within 3 seconds. When the custom font is loaded these browsers swaps the fallback font for the custom font. Swapping fonts can be jarring visually, its sometimes refereed to as a Flash of Unstyled Text (FOUT). This has user experience and performance implications due to the browser needing to layout and paint the page again.
 
-#### Our Current Progressive Font Loading Strategy
+#### Our Current Font Loading Strategy
 
 We preload fonts on ft.com so they may [start downloading before CSS has been downloaded and parsed, etc](](https://web.dev/optimize-webfont-loading/)). Prioritising the download of custom fonts means we can reduce the Flash of Invisible Text (FOIT) and Flash of Unstyled Text (FOUT).
 
@@ -70,11 +70,24 @@ In addition `o-typography` currently aims to improve the experience by:
 - Normalising the size of fallback fonts so they are closer to our custom fonts, reducing the impact of switching from fallback fonts both visually and minimising page layout changes.
 - Using the fallback font immediately in all browsers and swapping for the custom font when its downloaded; unless the download takes longer than 3 seconds in which case the fallback font remains in use.
 
-This is good but `o-typography` has a number of problems:
+#### Issues With Of Our Current Font Loading Strategy
+
 - It requires JavaScript, which means core experience users never see custom fonts.
 - Its not reliable. `o-typography` remembers fonts have loaded with a cookie which may persist after the browser cache has removed fonts; in which case the browsers default fallback behaviour is used and fallback fonts aren't resized.
 - It [doesn't always resize well](https://github.com/Financial-Times/o-typography/issues/248), depending on the font variant in use.
 - In the context of Customer Products its [a bit complicated, breaks, and can be difficult to debug](https://github.com/Financial-Times/dotcom-page-kit/pull/803).
+- Though minor given the overall size it increases the bundle size of projects, see the `next-front-page` example below.
+
+|`next-front-page` asset|`o-typography` progressive font loading|uncompressed|gzip|brotli|
+|---|---|---|---|---|
+|css|yes|428|60|52|
+|css|no|412|56|48|
+|reduction||16 (3.6%)|4 (6.7%)|4 (7.7%)|
+|js|yes|636|276| 248|
+|js|no|628|272|240|
+|reduction||8 (1.3%)|4 (1.4%)|8 (3.2%)|
+
+#### Screenshots Of Our Current Font Loading Strategy
 
 <details>
     <summary>gif: current o-typography progressive font loading, 3g connection</summary>
@@ -91,18 +104,6 @@ This is good but `o-typography` has a number of problems:
     <summary>screenshot: core experience fallback fonts, with o-typography fallback font resizing</summary>
     <img src="../../assets/variable-fonts/current-core.png" alt="`o-typography` progressive font loading, 3g connection, where cookie is out of sync with font cache">
 </details>
-
-
-Though minor given the overall size, the `o-typography` progressive fallback increases the bundle size of projects. Taking `next-front-page` as an example:
-
-|`next-front-page` asset|`o-typography` progressive font loading|uncompressed|gzip|brotli|
-|---|---|---|---|---|
-|css|yes|428|60|52|
-|css|no|412|56|48|
-|reduction||16 (3.6%)|4 (6.7%)|4 (7.7%)|
-|js|yes|636|276| 248|
-|js|no|628|272|240|
-|reduction||8 (1.3%)|4 (1.4%)|8 (3.2%)|
 
 By moving to variable fonts we can also replace the `o-typography` font loading strategy with a more reliable, standards based approach, and trim the CSS/JS bundle size of our projects as a bonus.
 
