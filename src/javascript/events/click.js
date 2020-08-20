@@ -12,6 +12,8 @@ const track = eventData => {
 	const firstDomPathToken = eventData.context.domPathTokens[0];
 	const href = firstDomPathToken.href || null;
 	const oTrackingSkipQueueAttr = firstDomPathToken['data-o-tracking-skip-queue'];
+	// TODO: Decide if we should also allow the attribute without a value to mean the same as having a value of `'true'`.
+	// TODO: Decide is all anchor elements with a download attribute should also skip the queue.
 	const skipQueue = oTrackingSkipQueueAttr && oTrackingSkipQueueAttr.toLowerCase() === 'true' || false;
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
