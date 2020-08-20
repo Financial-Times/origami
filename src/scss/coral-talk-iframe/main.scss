@@ -105,7 +105,6 @@
 	// normally, these should come for free with oButtons mixin
 	// but we have to declare this explicitly here because
 	// Coral styles override our styles for some reason
-	&[aria-selected=true],
 	&[aria-pressed=true],
 	&[aria-current] {
 		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
@@ -113,6 +112,13 @@
 		border-color: oButtonsGetColor($state: 'default', $property: 'border', $type: 'primary') !important;
 		border-top: 1px !important;
 		border-bottom: 1px !important;
+	}
+
+	&[aria-selected=true] {
+		color: oButtonsGetColor($state: 'default', $property: 'color', $type: 'primary') !important;
+		background-color: oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
+		border-top: 1px !important;
+		border-bottom: 1px solid oButtonsGetColor($state: 'default', $property: 'background', $type: 'primary') !important;
 	}
 }
 
