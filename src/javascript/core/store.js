@@ -6,9 +6,9 @@ import utils from '../utils';
  *
  * @class  Store
  * @param {string} name - The name of the store
- * @param {Object} config - Optional, config object for extra configuration
- * @param {String=} config.nameOverride - The internal name for the store
- * @param {String=} config.domain - The domain that should be used to store cookies on
+ * @param {object} config - Optional, config object for extra configuration
+ * @param {string} [config.nameOverride] - The internal name for the store
+ * @param {string} [config.domain] - The domain that should be used to store cookies on
  */
 const Store = function (name, config = {}) {
 
@@ -42,7 +42,7 @@ const Store = function (name, config = {}) {
 	/**
 	 * The storage method to use.
 	 *
-	 * @type {Object}
+	 * @type {object}
 	 */
 	this.storage = {
 		_type: 'localStorage',
@@ -94,7 +94,8 @@ const Store = function (name, config = {}) {
 
 	/**
 	 * Temporary var containing data from a previously saved store.
-	 * @property loadStore
+	 *
+	 * @property {string|undefined} loadStore - JSON string of the previously saved store or undefined.
 	 */
 	// Retrieve any previous store with the same name.
 	const loadStore = this.storage.load(this.storageKey);
@@ -139,7 +140,7 @@ const Store = function (name, config = {}) {
 /**
  * Get/Read the current data.
  *
- * @return {Object} Returns the data from the store.
+ * @returns {object} Returns the data from the store.
  */
 Store.prototype.read = function () {
 	return this.data;
@@ -148,8 +149,8 @@ Store.prototype.read = function () {
 /**
  * Write the supplied data to the store.
  *
- * @param {String} data - The data to write.
- * @return {Store} - The instance of the store
+ * @param {string} data - The data to write.
+ * @returns {Store} - The instance of the store
  */
 Store.prototype.write = function (data) {
 	// Set this.data, in-case we're on a file:// domain and can't set cookies.
@@ -176,7 +177,8 @@ Store.prototype.write = function (data) {
 
 /**
  * Delete the current data.
- * @return {Store} - The instance of the store
+ *
+ * @returns {Store} - The instance of the store
  */
 Store.prototype.destroy = function () {
 	this.data = null;

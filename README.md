@@ -201,7 +201,7 @@ To track when an element has come into view of the user, add the attribute `data
 	- `subtype`
 	- `component`
 *Note:* This feature requires `window.IntersectionObserver` in order to track the events
-*Note:* `getContextData` should be a function which returns `{Object}`. It accepts the viewed element as an argument
+*Note:* `getContextData` should be a function which returns `{object}`. It accepts the viewed element as an argument
 
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 

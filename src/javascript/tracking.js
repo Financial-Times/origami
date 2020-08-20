@@ -10,17 +10,17 @@ import { merge, broadcast } from './utils';
 import view from './events/component-view';
 
 /**
-* The version of the tracking module.
-* @type {string}
-
-*/
+ * The version of the tracking module.
+ *
+ * @type {string}
+ */
 const version = '2.0.10';
 
 /**
-* The source of this event.
-* @type {string}
-
-*/
+ * The source of this event.
+ *
+ * @type {string}
+ */
 const source = 'o-tracking';
 
 /**
@@ -28,8 +28,8 @@ const source = 'o-tracking';
  * config is merged with any existing config; to unset a value, set it as
  * null or undefined.
  *
- * @param {Object} newConfig The configuration object to merge in - see init()
- * @return {void}
+ * @param {object} newConfig The configuration object to merge in - see init()
+ * @returns {void}
  */
 function updateConfig(newConfig) {
 	let config = settings.get('config') || {};
@@ -44,7 +44,8 @@ function updateConfig(newConfig) {
 
 /**
  * Clean up the tracking module.
- * @return {void}
+ *
+ * @returns {void}
  */
 function destroy() {
 	tracking.initialised = false;
@@ -54,7 +55,8 @@ function destroy() {
 }
 /**
  * Overload toString method to show the version.
- * @return {string} The module's version.
+ *
+ * @returns {string} The module's version.
  */
 function toString() {
 	return 'oTracking version ' + version;
@@ -78,7 +80,7 @@ function toString() {
  * }
  * </script>
  *
- * @param {Object} config 					- See {@link Tracking} for the configuration options.
+ * @param {object} config 					- See {@link Tracking} for the configuration options.
  * @param {boolean=} config.test             - Optional, if `true`, the data sent to Spoor will be marked as test data.
  * @param {string=} config.configId          - Optional
  * @param {string=} config.session           - Optional
@@ -88,7 +90,7 @@ function toString() {
  * @param {object=} config.system            - Optional
  * @param {object=} config.device            - Optional
  *
- * @return {tracking|null} - The initialised tracking object or null if no configuration has been given.
+ * @returns {tracking|null} - The initialised tracking object or null if no configuration has been given.
  */
 function init(config = {}) {
 	if (tracking.initialised) {
@@ -134,8 +136,9 @@ function init(config = {}) {
 
 /**
  * Retrieves the <script type='application/json' data-o-tracking-config> element that is in the DOM, otherwise returns null.
+ *
  * @private
- * @return {HTMLElement|null} - Returns the <script> element if found otherwise returns null.
+ * @returns {HTMLElement|null} - Returns the <script> element if found otherwise returns null.
  */
 function getDeclarativeConfigElement() {
 	return document.querySelector('script[data-o-tracking-config]');
@@ -143,11 +146,12 @@ function getDeclarativeConfigElement() {
 
 /**
  * Initialises additional data using the <script type='application/json' data-o-tracking-config> element in the DOM.
+ *
  * @private
- * @param {Object} options - A partially, or fully filled options object.  If
+ * @param {object} options - A partially, or fully filled options object.  If
  *                           an option is missing, this method will attempt to
  *                           initialise it from the DOM.
- * @return {Object|false} - The options modified to include the options gathered from the DOM
+ * @returns {object|boolean} - The options modified to include the options gathered from the DOM
  */
 function getDeclarativeConfig(options) {
 	const configEl = getDeclarativeConfigElement();
@@ -175,9 +179,10 @@ function getDeclarativeConfig(options) {
 
 const tracking = {
 	/**
-	* The initialised state of the object.
-	* @type {boolean}
-	*/
+	 * The initialised state of the object.
+	 *
+	 * @type {boolean}
+	 */
 	initialised: false,
 	version,
 	updateConfig,

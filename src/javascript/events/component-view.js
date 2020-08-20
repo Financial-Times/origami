@@ -22,7 +22,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 		const contextData = opts.getContextData(viewedEl);
 
 		if (typeof contextData !== 'object') {
-			throw new Error('opts.getContextData function should return {Object}');
+			throw new Error('opts.getContextData function should return {object}');
 		}
 
 		context = utils.filterProperties(contextData, TRACKING_ATTRIBUTES);
@@ -42,8 +42,8 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  * Listen for view events.
  *
  * @alias view#init
- * @param {Object} opts - To set custom category[String], selector[String], getContextData[Function]
- * @return {undefined}
+ * @param {object} opts - To set custom category[String], selector[String], getContextData[Function]
+ * @returns {undefined}
  */
 const init = (opts = {}) => {
 	if(!window.IntersectionObserver) {

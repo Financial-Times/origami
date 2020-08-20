@@ -7,9 +7,9 @@ let store;
 /**
  * Init
  *
- * @param {String} value The value of a userID to use if one is not stored
- * @param {String} cookieDomain The domain that should be used to cookie te user
- * @return {String} - The user ID if present, or a generated UID if not
+ * @param {string} value The value of a userID to use if one is not stored
+ * @param {string} cookieDomain The domain that should be used to cookie te user
+ * @returns {string} - The user ID if present, or a generated UID if not
  */
 function init(value, cookieDomain) {
 	const defaultUserConfig = {
@@ -38,8 +38,8 @@ function init(value, cookieDomain) {
 /**
  * setUser
  *
- * @param {String} id The userID to set.
- * @return {String} - The user ID if present, or a generated UID if not
+ * @param {string} id The userID to set.
+ * @returns {string} - The user ID if present, or a generated UID if not
  */
 function setUser(id) {
 	userID = id;
@@ -55,12 +55,18 @@ function setUser(id) {
 
 /**
  * Delete the current user data.
- * @return {void}
+ *
+ * @returns {void}
  */
 function destroy() {
 	store.destroy();
 }
 
+/**
+ * Get the user ID
+ *
+ * @returns {string} - The user ID
+ */
 function id() {
 	return userID;
 }

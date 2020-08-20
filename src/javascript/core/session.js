@@ -2,7 +2,7 @@ import utils from '../utils';
 import Store from './store';
 
 /**
- * @typedef {Object} Session
+ * @typedef {object} Session
  * @property {string} id - The id of the session
  * @property {boolean} isNew - Whether it is a brand new session
  */
@@ -17,8 +17,8 @@ const defaultSessionConfig = {
 /**
  * Set the session in the store.
  *
- * @param {String} session - The session to be stored.
- * @return {void}
+ * @param {string} session - The session to be stored.
+ * @returns {void}
  */
 function setSession(session) {
 	const d = new Date();
@@ -33,7 +33,7 @@ function setSession(session) {
 /**
  * Get the session from the store. Expiry and gen of a new session are handled here.
  *
- * @return {Session} the current session
+ * @returns {Session} the current session
  */
 function getSession() {
 	const s = store.read();
@@ -68,8 +68,8 @@ function getSession() {
 /**
  * Init
  *
- * @param {String|Object} config The name used to store the session or configuration object.
- * @return {Session} - The session
+ * @param {string|object} config The name used to store the session or configuration object.
+ * @returns {Session} - The session
  */
 function init(config) {
 	if (utils.is(config, 'string')) {

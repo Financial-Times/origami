@@ -17,7 +17,7 @@ const page_callbacks = [];
  * Log messages to the browser console. Requires 'log' to be set on init.
  *
  * @param {*} args items to log
- * @return {void}
+ * @returns {void}
  */
 function log(...args) {
 	if (settings.get('config').test && window.console) {
@@ -33,7 +33,7 @@ function log(...args) {
  * @param {*} variable - The variable to check.
  * @param {string=} type - The type to test for. Defaults to undefined.
  *
- * @return {boolean} - The answer for if the variable is of type.
+ * @returns {boolean} - The answer for if the variable is of type.
  */
 function is(variable, type = 'undefined') {
 	return typeof variable === type;
@@ -42,10 +42,10 @@ function is(variable, type = 'undefined') {
 /**
  * Merge objects together. Will remove undefined and null values.
  *
- * @param {Object} target - The original object to merge in to.
- * @param {Object} options - The object to merge into the target. If omitted, will merge target into a new empty Object.
+ * @param {object} target - The original object to merge in to.
+ * @param {object} options - The object to merge into the target. If omitted, will merge target into a new empty Object.
  *
- * @return {Object} The merged object.
+ * @returns {object} The merged object.
  */
 function merge(target, options) {
 	if (!options) {
@@ -81,9 +81,9 @@ function merge(target, options) {
 
 /**
  * URL encode a string.
- * @param {string} str - The string to be encoded.
  *
- * @return {string} The encoded string.
+ * @param {string} str - The string to be encoded.
+ * @returns {string} The encoded string.
  */
 function encode(str) {
 	if (window.encodeURIComponent) {
@@ -95,9 +95,9 @@ function encode(str) {
 
 /**
  * URL decode a string.
- * @param {string} str - The string to be decoded.
  *
- * @return {string} The decoded string.
+ * @param {string} str - The string to be decoded.
+ * @returns {string} The decoded string.
  */
 function decode(str) {
 	if (window.decodeURIComponent) {
@@ -107,12 +107,13 @@ function decode(str) {
 	}
 }
 
-/*
+/**
  * Utility to add event listeners.
  *
  * @param {Element} element
  * @param {string} event
- * @param {Function} listener
+ * @param {EventListenerOrEventListenerObject} listener
+ * @returns {void}
  */
 function addEvent(element, event, listener) {
 	if (element.addEventListener) {
@@ -122,12 +123,13 @@ function addEvent(element, event, listener) {
 	}
 }
 
-/*
+/**
  * Utility for dispatching custom events from window
  *
  * @param {string} namespace
  * @param {string} eventType
- * @param {Object} detail
+ * @param {object} detail
+ * @returns {void}
  */
 function broadcast(namespace, eventType, detail) {
 	detail = detail || {};
@@ -145,7 +147,7 @@ function broadcast(namespace, eventType, detail) {
  * Listen for page tracking requests.
  *
  * @param {Function} cb - The callback to be called whenever a page is tracked.
- * @return {void}
+ * @returns {void}
  */
 function onPage(cb) {
 	if (is(cb, 'function')) {
@@ -155,7 +157,8 @@ function onPage(cb) {
 
 /**
  * Trigger the 'page' listeners.
- * @return {void}
+ *
+ * @returns {void}
  */
 function triggerPage() {
 	for (let i = 0; i < page_callbacks.length; i++) {
@@ -165,8 +168,9 @@ function triggerPage() {
 
 /**
  * Get a value from document.cookie matching the first match of the regexp you supply
+ *
  * @param {RegExp} matcher - The Regex to match with
- * @return {String} - The vale from the cookie
+ * @returns {string} - The vale from the cookie
  */
 function getValueFromCookie(matcher) {
 	return document.cookie.match(matcher) && RegExp.$1 !== '' && RegExp.$1 !== 'null' ? RegExp.$1 : null;
@@ -174,9 +178,10 @@ function getValueFromCookie(matcher) {
 
 /**
  * Filter an object to only have the properties which are listed in the `allowlist` parameter.
- * @param {Object} objectToFilter - An object whose props need to be filtered
+ *
+ * @param {object} objectToFilter - An object whose props need to be filtered
  * @param {Array} allowedPropertyNames - The list of props to allow
- * @return {Object} An object containing only the allowed props
+ * @returns {object} An object containing only the allowed props
  */
 function filterProperties (objectToFilter, allowedPropertyNames) {
 	const filteredObject = {};
@@ -190,8 +195,9 @@ function filterProperties (objectToFilter, allowedPropertyNames) {
 
 /**
  * Trim strings
- * @param {String} str - The string to trim.
- * @return {String} The trimmed string.
+ *
+ * @param {string} str - The string to trim.
+ * @returns {string} The trimmed string.
  */
 function sanitise (str) {
 	return typeof str === 'string' ? str.trim() : str;
@@ -199,9 +205,10 @@ function sanitise (str) {
 
 /**
  * Assign the subject value if the target properties are undefined
- * @param {Object} subject - assign the value
- * @param {Object} target - be assigned the value
- * @return {void}
+ *
+ * @param {object} subject - assign the value
+ * @param {object} target - be assigned the value
+ * @returns {void}
  */
 function assignIfUndefined (subject, target) {
 	for (const prop in subject) {
@@ -216,6 +223,7 @@ function assignIfUndefined (subject, target) {
 
 /**
  * Used to find out all the paths which contain a circular reference.
+ *
  * @param {*} rootObject The object we want to search within for circular references
  * @returns {string[]} Returns an array of strings, the strings are the full paths to the circular references within the rootObject
  */
@@ -261,8 +269,9 @@ function findCircularPathsIn(rootObject) {
 
 /**
  * Used to find out whether an object contains a circular reference.
- * @param {*} rootObject The object we want to search within for circular references
- * @returns {Boolean} Returns true if a circular reference was found, otherwise returns false
+ *
+ * @param {object} rootObject The object we want to search within for circular references
+ * @returns {boolean} Returns true if a circular reference was found, otherwise returns false
  */
 function containsCircularPaths(rootObject) {
 	// Used to keep track of all the values the rootObject contains
@@ -271,7 +280,7 @@ function containsCircularPaths(rootObject) {
 	/**
 	 *
 	 * @param {*} currentObject The current object we want to search within for circular references
-	 * @returns {true|undefined} Returns true if a circular reference was found, otherwise returns undefined
+	 * @returns {boolean|undefined} Returns true if a circular reference was found, otherwise returns undefined
 	 */
 	function _containsCircularPaths(currentObject) {
 		// If we already saw this object
@@ -307,54 +316,61 @@ function containsCircularPaths(rootObject) {
 	);
 }
 
-function isDeepEqual(actual, expected) {
-	if (actual === expected) {
+/**
+ * Find out whether two objects are deeply equal to each other.
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns {boolean} - true if the two arguments are deeply equal
+ */
+function isDeepEqual(a, b) {
+	if (a === b) {
 		return true;
 	}
 
 	if (
-		actual &&
-		expected &&
-		typeof actual === "object" &&
-		typeof expected === "object"
+		a &&
+		b &&
+		typeof a === "object" &&
+		typeof b === "object"
 	) {
-		if (actual.constructor !== expected.constructor) {
+		if (a.constructor !== b.constructor) {
 			return false;
 		}
 
-		if (Array.isArray(actual)) {
-			const length = actual.length;
-			if (length !== expected.length) {
+		if (Array.isArray(a)) {
+			const length = a.length;
+			if (length !== b.length) {
 				return false;
 			}
 			for (let i = length; i-- !== 0; ) {
-				if (!isDeepEqual(actual[i], expected[i])) {
+				if (!isDeepEqual(a[i], b[i])) {
 					return false;
 				}
 			}
 			return true;
 		}
 
-		if (actual.constructor === RegExp) {
+		if (a.constructor === RegExp) {
 			return (
-				actual.source === expected.source && actual.flags === expected.flags
+				a.source === b.source && a.flags === b.flags
 			);
 		}
-		if (actual.valueOf !== Object.prototype.valueOf) {
-			return actual.valueOf() === expected.valueOf();
+		if (a.valueOf !== Object.prototype.valueOf) {
+			return a.valueOf() === b.valueOf();
 		}
-		if (actual.toString !== Object.prototype.toString) {
-			return actual.toString() === expected.toString();
+		if (a.toString !== Object.prototype.toString) {
+			return a.toString() === b.toString();
 		}
 
-		const keys = Object.keys(actual);
+		const keys = Object.keys(a);
 		const length = keys.length;
-		if (length !== Object.keys(expected).length) {
+		if (length !== Object.keys(b).length) {
 			return false;
 		}
 
 		for (let i = length; i-- !== 0; ) {
-			if (!Object.prototype.hasOwnProperty.call(expected, keys[i])) {
+			if (!Object.prototype.hasOwnProperty.call(b, keys[i])) {
 				return false;
 			}
 		}
@@ -362,7 +378,7 @@ function isDeepEqual(actual, expected) {
 		for (let i = length; i-- !== 0; ) {
 			const key = keys[i];
 
-			if (!isDeepEqual(actual[key], expected[key])) {
+			if (!isDeepEqual(a[key], b[key])) {
 				return false;
 			}
 		}
@@ -371,10 +387,6 @@ function isDeepEqual(actual, expected) {
 	}
 }
 
-/**
- * Utilities.
- * @alias utils
- */
 export default {
 	log,
 	is,

@@ -13,7 +13,7 @@ let queue;
 /**
  * Consistent check to see if we should use sendBeacon or not.
  *
- * @return {boolean} Should we use sendBeacon?
+ * @returns {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
 	return Boolean(navigator.sendBeacon);
@@ -22,9 +22,9 @@ function should_use_sendBeacon() {
 /**
  * Attempts to send a tracking request.
  *
- * @param {Object} request The request to be sent.
+ * @param {object} request The request to be sent.
  * @param {Function=} callback Callback to fire the next item in the queue.
- * @return {void}
+ * @returns {void}
  */
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
@@ -108,8 +108,8 @@ function sendRequest(request, callback) {
 /**
  * Adds a new request to the list of pending requests
  *
- * @param {Object} request The request to queue
- * @return {void}
+ * @param {object} request The request to queue
+ * @returns {void}
  */
 function add(request) {
 	request.queueTime = new Date().getTime();
@@ -124,8 +124,9 @@ function add(request) {
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @param {Function=} callback - Optional callback
- * @return {void}
+ *
+ * @param {Function} [callback] - Optional callback
+ * @returns {void}
  */
 function run(callback = function () { /* empty */}) {
 	// Investigate queue lengths bug
@@ -177,8 +178,8 @@ function run(callback = function () { /* empty */}) {
 /**
  * Convenience function to add and run a request all in one go.
  *
- * @param {Object} request The request to queue and run.
- * @return {void}
+ * @param {object} request The request to queue and run.
+ * @returns {void}
  */
 function addAndRun(request) {
 	add(request);
@@ -187,7 +188,8 @@ function addAndRun(request) {
 
 /**
  * Init a queue and send any leftover events.
- * @return {Queue} An initialised queue.
+ *
+ * @returns {Queue} An initialised queue.
  */
 function init() {
 	queue = new Queue('requests');

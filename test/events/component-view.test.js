@@ -184,7 +184,7 @@ describe('component:view', () => {
 				});
 
 				it('should throw an error', () => {
-					proclaim.equal(errorThrown.message, 'opts.getContextData function should return {Object}');
+					proclaim.equal(errorThrown.message, 'opts.getContextData function should return {object}');
 					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
 					proclaim.equal(core.track.calledOnce, false, 'view event tracked');

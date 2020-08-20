@@ -4,8 +4,9 @@ const settings = {config:{}};
 /**
  * Very basic implementation of deep clone, and only supports simple POJO objects and
  * native arrays.
+ *
  * @param  {*} value Any value
- * @return {*}       Copy of value
+ * @returns {*}       Copy of value
  * @private
  */
 function clone(value) {
@@ -27,7 +28,7 @@ function clone(value) {
  *
  * @param {string} key - The key to use to store the object
  * @param {*} value - The value
- * @return {void}
+ * @returns {void}
  */
 function setValue(key, value) {
 	settings[key] = clone(value);
@@ -38,7 +39,7 @@ function setValue(key, value) {
  * avoid mutations leaking.
  *
  * @param {string} key - The key to get
- * @return {*} - The setting.
+ * @returns {*} - The setting.
  */
 function getValue(key) {
 	return clone(settings[key]);
@@ -48,7 +49,7 @@ function getValue(key) {
  * Deletes a value
  *
  * @param  {string} key - The key to delete
- * @return {void}
+ * @returns {void}
  */
 function destroy(key) {
 	delete settings[key];

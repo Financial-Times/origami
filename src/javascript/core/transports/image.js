@@ -1,5 +1,10 @@
 import utils from '../../utils';
 
+/**
+ * Image based transport mechanism
+ *
+ * @returns {object} - Object with three properties: name, send and complete
+ */
 function image () {
 	const image = new Image(1,1);
 
