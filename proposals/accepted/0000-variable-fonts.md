@@ -56,13 +56,11 @@ The variable fonts which we have are as follows (we do not have a Metric variabl
 
 From a font download perspective we can expect a small increase to enable all variants of the font families we currently use. There is a ~100kb increase if we also introduce Financier Text, which we can justify by considering other changes to our progressive font loading strategy.
 
-### Font Loading Strategy
-
-#### Default Browser Behaviour
+### Font Loading Strategy Background
 
 Browsers [may layout and paint the page before custom fonts are downloaded](https://web.dev/optimize-webfont-loading/). This causes a Flash of Invisible Text (FOIT) whilst the page loads. Some browsers, for example some versions of Safari, hide text until the font is downloaded which could mean users are unable to access any content for a long time. Other browsers use a fallback system font either immediately or if the custom font hasn't loaded within 3 seconds. When the custom font is loaded these browsers swaps the fallback font for the custom font. Swapping fonts can be jarring visually, its sometimes refereed to as a Flash of Unstyled Text (FOUT). This has user experience and performance implications due to the browser needing to layout and paint the page again.
 
-#### Our Current Font Loading Strategy
+### Current Font Loading Strategy
 
 We preload fonts on ft.com so they may [start downloading before CSS has been downloaded and parsed, etc](](https://web.dev/optimize-webfont-loading/)). Prioritising the download of custom fonts means we can reduce the Flash of Invisible Text (FOIT) and Flash of Unstyled Text (FOUT).
 
@@ -107,7 +105,7 @@ In addition `o-typography` currently aims to improve the experience by:
 
 By moving to variable fonts we can also replace the `o-typography` font loading strategy with a more reliable, standards based approach, and trim the CSS/JS bundle size of our projects as a bonus.
 
-#### Proposed Font Loading Strategy
+### Proposed Font Loading Strategy
 
 Replace `o-typography`'s progressive font loading:
 - Commission a Metric Web variable font at a size more comparable to the fallback font. The [main benefit of o-typography fallback resizing is for Metric Web to fallback to Arial](https://github.com/Financial-Times/o-typography/issues/248).
@@ -115,17 +113,17 @@ Replace `o-typography`'s progressive font loading:
 
 _Note: To closely imitate current behaviour we would set `font-display: fallback`. Our fonts would block for a short period (100ms) and have a short swap period (3s). However we could review other strategies. For example if we find introducing Financier Text impacts performance negatively we may be able to load some variants with a low priority by not preloading them and setting `font-display: optional`._
 
-### benefits
+### Benefits
 
 - The design team can make greater use of typography; to strengthen the brand and explore new design possibilities using typography, such as to provide a clear link between story 'genre' (news/opinion).
 - Progressive font loading is more reliable for readers.
 - Saved engineering time through reduced code complexity.
 
-### drawbacks
+### Drawbacks
 
 - A minority but significant group of users, including IE11 users, always see fallback fonts.
 
-## work required
+## Work Required
 
 Required:
 - Commission a resized MetricWeb variable font.
@@ -138,19 +136,19 @@ Required:
 Follow up:
 - Work with the design team to validate `Financier Text` and swap the serif font in `o-typography`.
 
-## alternatives
+## Alternatives
 
-### do nothing
+### Do Nothing
 
 Accept the drawbacks of our current approach, continue to serve a limited set of custom fonts including to users with older operating systems / browsers.
 
-### hybrid
+### Hybrid
 
 We could deliver our limited set of custom fonts to older browsers without progressive font loading. But this:
 - Would be a bad experience for some Safari users who would not see a font fallback and would have to wait for the custom fonts to download.
 - May lead to ugly faux weight/styles.
 
-### variable fonts with current progressive font loading
+### Variable Fonts With Current Progressive Font Loading
 
 If we keep o-typography's progressive font loading we won't need to commission resized fonts but lose some of the performance, reliability, and reduced complexity benefits. We may need to add new classes to o-typography and coordinate with teams to add those to their project to roll out variable fonts.
 
