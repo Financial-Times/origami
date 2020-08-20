@@ -116,6 +116,10 @@
 	}
 }
 
+.coral-tabBar-comments div i,
+.coral-tabBar-myProfile div i {
+	display: none;
+}
 
 // post comment buttons
 .coral-createComment-submit,
