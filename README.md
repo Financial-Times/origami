@@ -224,7 +224,7 @@ oTracking.view.init(opts);
 
 ##### oTracking.event
 
-To track a custom event call the `oTracking.event` method:
+To track a custom event call the `oTracking.event` method. For example to track that a video is played:
 ```js
 const eventConfig = {
     "category": "video", // optional
