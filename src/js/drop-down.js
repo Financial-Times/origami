@@ -59,8 +59,17 @@ class DropDown {
 				return;
 			}
 
-			// Bail if there's no parent menu to toggle.
-			const parentMenu = event.target.closest('[data-o-header-services-level="1"]');
+			// Bail if there's no parent menu to toggle. Note: IE11 does not
+			// support `Array.prototype.find()` or `Element.closest()`,
+			// adding a polyfill requirement is a breaking change
+			let parentMenu;
+			for (const navItem of this.navItems) {
+				if (navItem.contains(event.target)) {
+					parentMenu = navItem;
+					break; // found the parent menu
+				}
+			}
+
 			if (!parentMenu) {
 				return;
 			}
