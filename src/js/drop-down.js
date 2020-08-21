@@ -45,27 +45,37 @@ class DropDown {
 	 * @return {void}
 	 */
 	handleEvent(event) {
-		if (event.type === 'click') {
-			if (!event.target.parentNode || !event.target.parentNode.getAttribute('data-o-header-services-level')) {
+		if (event.key === 'Escape') {
+			this.reset();
+		}
+
+		if (event.type === 'click' && event.target) {
+			// Close dropdown if some non-nav element on the page is clicked.
+			if (event.target.nodeName !== 'BUTTON' &&
+				event.target.nodeName !== 'A' &&
+				event.target !== this.drawer.navList
+			) {
 				this.reset();
 				return;
 			}
 
-			const target = event.target.closest('li');
-			if (!DropDown.isExpanded(target) && event.target.type === 'button') {
+			// Bail if there's no parent menu to toggle.
+			const parentMenu = event.target.closest('[data-o-header-services-level="1"]');
+			if (!parentMenu) {
+				return;
+			}
+
+			// Toggle the menu. Close other open menus when not in the drawer.
+			if (!DropDown.isExpanded(parentMenu)) {
 				if (!this.isDrawer()) {
 					DropDown.collapseAll(this.navItems);
 				}
-				DropDown.expand(target);
+				DropDown.expand(parentMenu);
 			} else {
-				DropDown.collapse(target);
+				DropDown.collapse(parentMenu);
 			}
 
 			event.stopPropagation();
-		}
-
-		if (event.key === 'Escape') {
-			this.reset();
 		}
 	}
 

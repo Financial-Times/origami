@@ -47,6 +47,17 @@ describe('Dropdown', () => {
 			proclaim.isTrue(attribute);
 		});
 
+		it('hides when the hidden button at the end of a menu is clicked', () => {
+			// open with main button
+			const navItem = navItems[0];
+			click(navItem, 'button');
+			// close with button at end of menu
+			const navItemDropdown = navItem.querySelector('[data-o-header-services-level="2"]');
+			click(navItemDropdown, 'button');
+			attribute = navItem.getAttribute('aria-expanded') === 'false';
+			proclaim.isTrue(attribute);
+		});
+
 		it('hides open dropdowns when different nav item is toggled', (done) => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
