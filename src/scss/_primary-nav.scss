@@ -39,6 +39,9 @@
 			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oSpacingByIncrement(5));
 			text-transform: uppercase;
 			box-sizing: border-box;
+			&:focus {
+				outline-offset: -2px;
+			}
 
 			&:hover {
 				color: _oHeaderServicesGet('text-hover-color');
