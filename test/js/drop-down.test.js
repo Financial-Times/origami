@@ -31,8 +31,12 @@ describe('Dropdown', () => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
 				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
-				proclaim.isTrue(attribute);
-				done();
+				try {
+					proclaim.isTrue(attribute);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 100);
 		});
 
@@ -47,14 +51,23 @@ describe('Dropdown', () => {
 			click(navItems[0], 'button');
 			setTimeout(() => {
 				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
-				proclaim.isTrue(attribute);
+				try {
+					proclaim.isTrue(attribute);
+				} catch (error) {
+					done(error);
+					return;
+				}
 				click(navItems[1], 'button');
 				setTimeout(() => {
-					attribute = navItems[0].getAttribute('aria-expanded') === 'false';
-					proclaim.isTrue(attribute);
-					attribute = navItems[1].getAttribute('aria-expanded') === 'true';
-					proclaim.isTrue(attribute);
-					done();
+					try {
+						attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+						proclaim.isTrue(attribute);
+						attribute = navItems[1].getAttribute('aria-expanded') === 'true';
+						proclaim.isTrue(attribute);
+						done();
+					} catch (error) {
+						done(error);
+					}
 				}, 100);
 			}, 100);
 		});
