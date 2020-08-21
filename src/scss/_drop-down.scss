@@ -87,9 +87,10 @@
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
-		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
+		// stylelint-disable-next-line selector-no-qualifying-type
+		ul[data-o-header-services-level] {
 			display: block;
-		}
+		}  // stylelint-disable-line selector-no-qualifying-type
 
 		// Hide the bottom border which will clash with the top
 		// border of the dropdown list.
