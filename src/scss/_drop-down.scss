@@ -66,8 +66,8 @@
 		}
 	}
 
-	// Completely hide visually hidden elements untill the dropdown is open.
-	.o-header-services__primary-nav ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
+	// Completely hide visually hidden elements until the dropdown is open.
+	.o-header-services__primary-nav ul[data-o-header-services-level="2"][aria-hidden=true] { // stylelint-disable-line selector-no-qualifying-type
 		display: none;
 	}
 
@@ -87,8 +87,8 @@
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
-		ul[data-o-header-services-level] .o-header-services__visually-hidden { // stylelint-disable-line selector-no-qualifying-type
-			display: initial;
+		ul[data-o-header-services-level]{ // stylelint-disable-line selector-no-qualifying-type
+			display: block;
 		}
 
 		// Hide the bottom border which will clash with the top

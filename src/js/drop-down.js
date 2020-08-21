@@ -112,9 +112,13 @@ class DropDown {
 	 */
 	static expand(item) {
 		const childList = item.querySelector('ul');
-		item.setAttribute('aria-expanded', true);
-		childList.setAttribute('aria-hidden', false);
-		DropDown.position(childList);
+		requestAnimationFrame(() => {
+			childList.setAttribute('aria-hidden', false);
+			DropDown.position(childList);
+			requestAnimationFrame(() => {
+				item.setAttribute('aria-expanded', true);
+			});
+		});
 	}
 
 	/**
