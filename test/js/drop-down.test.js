@@ -27,10 +27,13 @@ describe('Dropdown', () => {
 	});
 
 	describe('toggles drop down menu via `aria-expanded`', () => {
-		it('open on click', () => {
+		it('open on click', (done) => {
 			click(navItems[0], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'true';
-			proclaim.isTrue(attribute);
+			setTimeout(() => {
+				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				proclaim.isTrue(attribute);
+				done();
+			}, 100);
 		});
 
 		it('hides on double click', () => {
@@ -40,15 +43,20 @@ describe('Dropdown', () => {
 			proclaim.isTrue(attribute);
 		});
 
-		it('hides open dropdowns when different nav item is toggled', () => {
+		it('hides open dropdowns when different nav item is toggled', (done) => {
 			click(navItems[0], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'true';
-			proclaim.isTrue(attribute);
-			click(navItems[1], 'button');
-			attribute = navItems[0].getAttribute('aria-expanded') === 'false';
-			proclaim.isTrue(attribute);
-			attribute = navItems[1].getAttribute('aria-expanded') === 'true';
-			proclaim.isTrue(attribute);
+			setTimeout(() => {
+				attribute = navItems[0].getAttribute('aria-expanded') === 'true';
+				proclaim.isTrue(attribute);
+				click(navItems[1], 'button');
+				setTimeout(() => {
+					attribute = navItems[0].getAttribute('aria-expanded') === 'false';
+					proclaim.isTrue(attribute);
+					attribute = navItems[1].getAttribute('aria-expanded') === 'true';
+					proclaim.isTrue(attribute);
+					done();
+				}, 100);
+			}, 100);
 		});
 
 		it('hides all menus if click outside of nav items', (done) => {
