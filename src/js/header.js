@@ -18,18 +18,19 @@ class HeaderServices {
 	 * Initialise header component
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @return {Array<HTMLElement>|HTMLElement} - The header(s) initalised.
 	 */
-	static init (rootEl, opts) {
-		if (!rootEl) {
-			rootEl = document.body;
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
 		}
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-header-services]')) {
-			return new HeaderServices(rootEl, opts);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-header-services]')) {
+			return new HeaderServices(rootElement, options);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-header-services"]'), rootEl => new HeaderServices(rootEl, opts));
+		return Array.from(rootElement.querySelectorAll('[data-o-component="o-header-services"]'), rootElement => new HeaderServices(rootElement, options));
 	}
 }
 
