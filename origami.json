@@ -96,7 +96,12 @@
 		{
 			"title": "Pa11y",
 			"name": "pa11y",
-			"template": "demos/src/pa11y.mustache",
+			"template": "demos/src/header.mustache",
+			"data": {
+				"primary-navigation": true,
+				"drop-down": true,
+				"sub-navigation": true
+			},
 			"hidden": true,
 			"description": "Accessibility test will be run against this demo"
 		}
