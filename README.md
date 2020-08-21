@@ -6,6 +6,7 @@ This header is for tools and services built by the Financial Times.
 - [Markup](#markup)
 	- [Title Section](#title-section)
 	- [Primary navigation](#primary-navigation)
+	- [Core experience of the drawer](#core-experience-of-the-drawer)
 	- [Primary navigation with drop down](#primary-navigation-with-drop-down)
 	- [Secondary navigation](#secondary-navigation)
 	- [Themes](#themes)
