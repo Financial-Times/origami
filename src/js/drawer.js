@@ -67,22 +67,23 @@ class Drawer {
 
 	/**
 	 * Event Handler
-	 * @param {Object} event - The revent emitted by element/window interactions
+	 * @param {Object} event - The event emitted by element/window interactions
+	 * @return {void}
 	 */
-	handleEvent(e) {
-		if (e.type === 'resize') {
+	handleEvent(event) {
+		if (event.type === 'resize') {
 			this.debouncedRender();
 		}
 
-		if (e.type === 'keydown' && this.burger) {
-			if (e.key === 'Escape' && this.nav.classList.contains(this.class.open)) {
+		if (event.type === 'keydown' && this.burger) {
+			if (event.key === 'Escape' && this.nav.classList.contains(this.class.open)) {
 				this.toggleDrawer();
 				this.burger.focus();
 			}
 		}
 
-		if (e.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(e.target)) {
-			e.preventDefault();
+		if (event.type === 'click' && this.burger && [this.nav, this.burger, this.drawerCloseButton].includes(event.target)) {
+			event.preventDefault();
 			this.toggleDrawer();
 		}
 	}
@@ -97,6 +98,7 @@ class Drawer {
 
 	/**
 	 * Drawer rendering
+	 * @return {void}
 	 */
 	render () {
 		if (this.enabled) {
@@ -105,7 +107,15 @@ class Drawer {
 			this.nav.removeEventListener('click', this);
 		}
 
-		this._shiftRelatedContentList(this.enabled);
+		// Shift related content (sign in, etc) between drawer and header title section
+		if (this.relatedContent && this.enabled) {
+			this.navList.appendChild(this.relatedContent);
+		}
+		if (this.relatedContent && !this.enabled) {
+			const headerTop = this.headerEl.querySelector('.o-header-services__top');
+			headerTop.appendChild(this.relatedContent);
+		}
+
 		this.nav.classList.toggle(this.class.drawer, this.enabled);
 
 		this.nav.setAttribute('aria-hidden', this.enabled);
@@ -113,6 +123,7 @@ class Drawer {
 
 	/**
 	 * Drawer hide/show functionality
+	 * @return {void}
 	 */
 	toggleDrawer () {
 		this.nav.classList.toggle(this.class.open);
@@ -127,19 +138,6 @@ class Drawer {
 				this.drawerCloseButton.focus();
 			}.bind(this), 50); // Wait for drawer to be open
 		}
-	}
-
-	/**
-	 * Shift related content (sign in, etc) between drawer and header title section
-	 */
-	_shiftRelatedContentList (shiftItems) {
-		const relatedContent = this.relatedContent;
-
-		if (!relatedContent) { return; }
-
-		const headerTop = this.headerEl.querySelector('.o-header-services__top');
-
-		return shiftItems ? this.navList.appendChild(relatedContent) : headerTop.appendChild(relatedContent);
 	}
 }
 

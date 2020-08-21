@@ -27,6 +27,7 @@ class Scroll {
 
 	/**
 	 * Scroll functionality rendering
+	 * @return {void}
 	 */
 	render () {
 		this.showCurrentSelection();
@@ -35,6 +36,7 @@ class Scroll {
 
 	/**
 	 * Hide/show scroll buttons
+	 * @return {void}
 	 */
 	toggleScrollButtons () {
 		this._getWidths();
@@ -50,11 +52,14 @@ class Scroll {
 
 	/**
 	 * Scrolling functionality
+	 * @param {Object} event - A scroll event
+	 * @return {void}
 	 */
-	scroll (e) {
+	scroll(event) {
+		const target = event.currentTarget;
 		let distance = 100;
 
-		if(e.currentTarget.className.match('left')) {
+		if (target.className.match('left')) {
 			distance = (this.list.scrollLeft > distance ? distance : this.list.scrollLeft) * -1;
 		} else {
 			const remaining = this._remaining();
@@ -77,6 +82,7 @@ class Scroll {
 
 	/**
 	 * Scroll secondary nav to 'current selection'
+	 * @return {void}
 	 */
 	showCurrentSelection () {
 		this._getWidths();
