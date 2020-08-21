@@ -124,7 +124,7 @@
 		}
 	}
 
-	.core .o-header-services__scroll-button {
+	.o-header-services:not([data-o-header-services-js]) .o-header-services__scroll-button {
 		display: none;
 	}
 

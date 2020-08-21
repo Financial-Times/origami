@@ -11,6 +11,7 @@ class HeaderServices {
 		const drawer = new Drawer(headerEl);
 		new DropDown(headerEl, drawer);
 		new Scroll(headerEl);
+		headerEl.setAttribute('data-o-header-services-js', true);
 	}
 
 	/**

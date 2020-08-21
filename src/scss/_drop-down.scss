@@ -73,7 +73,7 @@
 
 	// Drop down list (opened state).
 	// stylelint-disable-next-line selector-no-qualifying-type
-	.core .o-header-services__primary-nav li[data-o-header-services-level]:hover,
+	.o-header-services:not([data-o-header-services-js]) .o-header-services__primary-nav li[data-o-header-services-level]:hover,
 	.o-header-services__primary-nav li[aria-expanded=true] { // stylelint-disable-line selector-no-qualifying-type
 		// Reveal the dropdown.
 		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type

@@ -29,7 +29,6 @@
 			"o-fonts@^4.0.0",
 			"o-normalise@^2.0.0"
 		],
-		"documentClasses": "core",
 		"sass": "demos/src/main.scss",
 		"template": "demos/src/header.mustache",
 		"js": "demos/src/main.js"
