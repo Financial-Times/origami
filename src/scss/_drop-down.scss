@@ -78,7 +78,7 @@
 		// Reveal the dropdown.
 		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
 			height: auto;
-			@supports (pointer-events: none) {
+			@supports (pointer-events: none) { // stylelint-disable-line selector-no-qualifying-type
 				pointer-events: all;
 			}
 			transform: translateY(0);
@@ -87,7 +87,7 @@
 		}
 
 		// Reveal visually hidden elements within the dropdown to screen readers.
-		ul[data-o-header-services-level]{ // stylelint-disable-line selector-no-qualifying-type
+		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
 			display: block;
 		}
 
