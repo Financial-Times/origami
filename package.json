@@ -10,7 +10,7 @@
         "update": "node ./update.js"
     },
     "devDependencies": {
-        "axios": "^0.19.2",
+        "axios": "^0.20.0",
         "decompress": "^4.2.0"
     }
 }
