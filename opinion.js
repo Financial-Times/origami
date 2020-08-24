@@ -19,6 +19,7 @@ exports.knobs = [
 	'metaPrefixText',
 	'metaSuffixText',
 	'metaLink',
+	'dataTrackable',
 	// Title
 	'showTitle',
 	'title',
