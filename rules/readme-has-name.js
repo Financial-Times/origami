@@ -1,6 +1,6 @@
 let rule = require("unified-lint-rule")
 let walk = require("unist-util-visit")
-let {join} = require("path")
+let {join, basename} = require("path")
 let {existsSync, readFileSync} = require("fs")
 
 /** @param {import("mdast").Root} tree */
@@ -9,7 +9,13 @@ function readmeHasName(tree, file) {
 		return
 	}
 
-	let bowerJsonPath = join(process.cwd(), "/bower.json")
+	let cwd = process.cwd()
+	// HACK this is a workaround for the vscode plugin for remark-lint, which
+	// runs the check with a cwd of ".."
+	let filename = basename(cwd) == file.dirname
+		? "bower.json"
+		: join(file.dirname, "bower.json")
+	let bowerJsonPath = join(cwd, filename)
 
 	if (!existsSync(bowerJsonPath)) {
 		file.message("bower.json with name is required to be in the component root")
@@ -24,7 +30,7 @@ function readmeHasName(tree, file) {
 		return
 	}
 
-	if (!typeof bowerJson.name == "string") {
+	if (typeof bowerJson.name != "string") {
 		file.message("bower.json requires `name` set to the name of the component")
 		return
 	}
