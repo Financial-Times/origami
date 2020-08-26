@@ -1,5 +1,5 @@
 on:
-  pull_request_target:
+  pull_request:
     types: [closed] # Merged pull-requests count as closed pull-requests.
 
 jobs:
