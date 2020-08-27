@@ -26,9 +26,6 @@
 		"dependencies": ["o-grid@^5.0.0", "o-normalise@^2.0.0"],
 		"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display-bold"
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"
-	},
 	"demos": [
 		{
 			"name": "scale",
