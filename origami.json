@@ -15,9 +15,6 @@
 		"bodyClasses": "",
 		"dependencies": []
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-errors"
-	},
 	"demos": [
 		{
 			"name": "declarative",
