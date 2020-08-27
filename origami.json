@@ -24,9 +24,6 @@
 			"ResizeObserver"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-header-services"
-	},
 	"demosDefaults": {
 		"dependencies": [
 			"o-fonts@^4.0.0",
