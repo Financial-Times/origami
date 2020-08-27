@@ -1,6 +1,6 @@
 {
 	"description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
-	"keywords": [ "overlay" , "modal"],
+	"keywords": [ "overlay" , "modal", "interstitial", "messaging", "popover", "notification", "hover"],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
@@ -15,7 +15,6 @@
 		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "active",
-	"keywords": "interstitial messaging modal popover notification hover",
 	"browserFeatures": {
 		"required": [
 			"es5object",
@@ -24,9 +23,6 @@
 			"customevent",
 			"requestanimationframe"
 		]
-	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
 	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
