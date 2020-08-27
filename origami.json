@@ -12,9 +12,6 @@
 	"brands": ["master", "internal", "whitelabel"],
 	"supportStatus": "active",
 	"browserFeatures": {},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-normalise"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
