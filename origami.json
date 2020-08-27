@@ -18,9 +18,6 @@
 			"Array.from"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-editorial-layout"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "o-grid-container o-colors-page-background",
