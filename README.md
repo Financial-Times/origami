@@ -1,4 +1,4 @@
-# o-comments [![Circle CI](https://circleci.com/gh/Financial-Times/o-comments/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-comments/tree/master) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-comments [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 A component, integrated with FT authentication and [Coral Talk](https://coralproject.net), to add a comment stream or comment count to content.
 
