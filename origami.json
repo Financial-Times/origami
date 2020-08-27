@@ -21,9 +21,6 @@
 	},
 	"supportStatus": "active",
 	"browserFeatures": {},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-stepped-progress"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
