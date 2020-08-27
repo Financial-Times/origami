@@ -10,9 +10,6 @@
     "slack": "financialtimes/origami-support"
   },
   "supportStatus": "active",
-  "ci": {
-    "circle": "https://circleci.com/api/v1/project/Financial-Times/o-toggle"
-  },
   "demosDefaults": {
     "js": "demos/src/demo.js",
     "sass": "demos/src/demo.scss",
