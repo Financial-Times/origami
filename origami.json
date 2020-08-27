@@ -25,9 +25,6 @@
 			"requestAnimationFrame"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/gh/Financial-Times/o-header"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/main.scss",
 		"js": "demos/src/main.js",
