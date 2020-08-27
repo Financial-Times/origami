@@ -15,9 +15,6 @@
 		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "active",
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-fonts"
-	},
 	"demosDefaults": {
 		"template": "demos/src/family.mustache",
 		"sass": "demos/src/demo.scss"
