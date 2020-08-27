@@ -23,9 +23,6 @@
 			"o-normalise@^2.0.0"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-overlay"
-	},
 	"demos": [
 		{
 			"title": "Editorial",
