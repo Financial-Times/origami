@@ -11,9 +11,6 @@
 	},
 	"supportStatus": "active",
 	"browserFeatures": {},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-subs-card"
-	},
 	"demosDefaults": {
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
