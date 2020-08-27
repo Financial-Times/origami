@@ -132,7 +132,7 @@ The queue is an `array` containing Brightcove video ID strings.
 ```
 $ npm test
 ```
-Requires Firefox (v38.0.0 to test with polyfills and mirror CircleCI)
+Requires Firefox (v38.0.0 to test with polyfills and mirror CI)
 
 
 ## Migration
