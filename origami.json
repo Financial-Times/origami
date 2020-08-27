@@ -16,9 +16,6 @@
 			"NodeList.prototype.forEach"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/gh/Financial-Times/o-lazy-load"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
