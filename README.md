@@ -1,4 +1,4 @@
-o-meter [![Circle CI](https://circleci.com/gh/Financial-Times/o-meter/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/o-meter/tree/master)[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+o-meter [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 =================
 
 Use the meter element to measure data within a given range. The `<meter>` tag defines a scalar measurement within a known range, or a fractional value. This is also known as a gauge.
