@@ -1,8 +1,7 @@
 {
 	"description": "A visual loading indicator, available in two colours and four sizes",
-	"keywords": [ "loading", "spinner" ],
+	"keywords": [ "loading", "spinner", "wait", "loader" ],
 	"origamiType": "module",
-	"keywords": "spinner, wait, loader",
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"brands": [
@@ -19,9 +18,6 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"template": "demos/src/loading-spinner.mustache"
-	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-loading"
 	},
 	"demos": [
 		{
