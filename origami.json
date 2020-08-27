@@ -14,9 +14,6 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js"
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-visual-effects"
-	},
 	"demos": [
 		{
 			"title": "Shadows",
