@@ -15,9 +15,6 @@
 	},
 	"supportStatus": "active",
 	"keywords": "pagination",
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-buttons"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
