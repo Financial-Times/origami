@@ -16,9 +16,6 @@
 			"Element.prototype.append"
 		]
 	},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-cookie-message"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
