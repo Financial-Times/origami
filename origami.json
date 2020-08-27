@@ -14,9 +14,6 @@
 	],
 	"supportStatus": "active",
 	"browserFeatures": {},
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-teaser-collection"
-	},
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
