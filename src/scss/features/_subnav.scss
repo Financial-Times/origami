@@ -36,6 +36,8 @@
 	}
 
 	.o-header__subnav-content {
+		// Use flexbox to support right aligned subnav children
+		display: flex;
 		white-space: nowrap;
 		margin-left: $_o-header-sub-header-focus-margin;
 		margin-right: $_o-header-sub-header-focus-margin;
@@ -50,7 +52,7 @@
 		// to avoid positioning subnavs relative. This is so absolute children of the subnav are
 		// positioned relative to their closest positioned ancestor `o-header__container`.
 		// An example benefit is o-tooltip support against sub nav items.
-		& + & .o-header__subnav-item {
+		& + &:not(.o-header__subnav-list--right) .o-header__subnav-item {
 			&:first-child {
 				@include _oHeaderItemSeparatorContent();
 				&:before {
@@ -75,7 +77,7 @@
 			padding-left: 16px;
 		}
 
-		&:first-child {
+		.o-header__subnav-list--children:not(.o-header__subnav-list--right) &:first-child {
 			// align left side correctly
 			padding-left: 0;
 		}
@@ -94,6 +96,12 @@
 			}
 		}
 	}
+
+
+	.o-header__subnav-list--children.o-header__subnav-list--right {
+		margin-left: auto;
+	}
+
 
 	.o-header__subnav-link {
 		@include _oHeaderLink;

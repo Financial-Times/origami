@@ -73,6 +73,18 @@
 							</li>
 							{{/currentNav.children}}
 						</ul>
+
+						{{#currentNav.childrenRight.length}}
+						<ul class="o-header__subnav-list o-header__subnav-list--children o-header__subnav-list--right" aria-label="Actions">
+							{{#currentNav.childrenRight}}
+							<li class="o-header__subnav-item">
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
+									{{name}}
+								</a>
+							</li>
+							{{/currentNav.childrenRight}}
+						</ul>
+						{{/currentNav.childrenRight.length}}
 					</div>
 				</div>
 				<button class="o-header__subnav-button o-header__subnav-button--left" aria-hidden="true" disabled></button>

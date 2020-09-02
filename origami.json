@@ -58,6 +58,13 @@
 			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
+			"name": "subnav-right-aligned",
+			"title": "Header with subnav and right aligned items",
+			"data": "demos/src/subnav-right-align.json",
+			"template": "demos/src/subnav.mustache",
+			"description": "The subnav may have right aligned actions, for example to sign out of an admin area. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
+		},
+		{
 			"name": "simple-header",
 			"title": "Simple header",
 			"data": "demos/src/header.json",
