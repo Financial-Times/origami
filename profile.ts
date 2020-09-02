@@ -5,7 +5,7 @@ import navbarRight from './navbarRight'
 import navbarRightAnon from './navbarRightAnon'
 import navbarSimple from './navbarSimple'
 import navbarUK from './navbarUK'
-import subNavigation from './subNavigationUK'
+import subNavigation from './subNavigationProfile'
 import user from './user'
 
 import { THeaderProps } from '../../interfaces'
@@ -31,7 +31,12 @@ const data: THeaderProps = {
     'navbar-right-anon': navbarRightAnon,
     'navbar-simple': navbarSimple,
     subsections,
-    subsectionsRight: [],
+    subsectionsRight: [
+      {
+        label: 'sign out',
+        url: '#'
+      }
+    ],
     user
   }
 }
