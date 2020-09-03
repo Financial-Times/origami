@@ -31,7 +31,7 @@ const data: THeaderProps = {
     'navbar-right-anon': navbarRightAnon,
     'navbar-simple': navbarSimple,
     subsections,
-    subsectionsRight: [],
+    'subsections-right': [],
     user
   }
 }
