@@ -1,4 +1,4 @@
-import Target from './target';
+import Target from './target.js';
 
 // Some assistive technologies, like screen readers, suggest to press 'space'
 // when interacting with a link with a role of 'button'.

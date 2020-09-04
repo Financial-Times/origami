@@ -1,4 +1,4 @@
-import Toggle from './src/js/toggle';
+import Toggle from './src/js/toggle.js';
 
 const constructAll = () => {
 	Toggle.init();

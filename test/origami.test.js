@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import oToggle from './../main';
+import oToggle from './../main.js';
 
 describe("oToggle", () => {
 	it('is defined', () => {

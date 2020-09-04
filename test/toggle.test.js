@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import OToggle from './../main';
+import OToggle from './../main.js';
 
 export function dispatch (target, type, eventProperties) {
 	const event = new Event(type, { bubbles: true });

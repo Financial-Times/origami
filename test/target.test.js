@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import OToggle from './../main';
+import OToggle from './../main.js';
 
 describe("Target", () => {
 
