@@ -12,7 +12,7 @@ module.exports = {
 	},
 	"plugins": ["import"],
 	"rules": {
-		"import/extensions": [2, "ignorePackages"],
+		"import/extensions": [1, "ignorePackages"],
 		"no-unused-vars": 2,
 		"no-undef": 2,
 		"eqeqeq": 2,
