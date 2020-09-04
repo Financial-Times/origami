@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import {SubsCard} from './../main';
+import {SubsCard} from './../main.js';
 
 describe("SubsCard", () => {
 	it('is defined', () => {

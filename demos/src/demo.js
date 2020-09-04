@@ -1,4 +1,4 @@
-import { SubsCard } from './../../main.js';
+import { SubsCard } from './../../main.js.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 	const cards = SubsCard.init();

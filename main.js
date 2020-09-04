@@ -1,4 +1,4 @@
-import {SubsCard} from './src/js/subsCard';
+import {SubsCard} from './src/js/subsCard.js';
 
 const constructAll = function() {
 	SubsCard.init();
