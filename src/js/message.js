@@ -1,4 +1,4 @@
-import construct from './construct-element';
+import construct from './construct-element.js';
 
 /**
  * An object of options to configure a message instance.

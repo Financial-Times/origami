@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Message from '../src/js/message';
-import construct from '../src/js/construct-element';
-import fixtures from './helpers/fixtures';
+import Message from '../src/js/message.js';
+import construct from '../src/js/construct-element.js';
+import fixtures from './helpers/fixtures.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

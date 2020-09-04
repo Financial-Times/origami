@@ -1,5 +1,5 @@
 
-import Message from './src/js/message';
+import Message from './src/js/message.js';
 
 const constructAll = () => {
 	Message.init();
