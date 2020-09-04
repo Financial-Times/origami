@@ -1,6 +1,6 @@
-import Core from '../core';
-import getTrace from '../../libs/get-trace';
-import utils from '../utils';
+import Core from '../core.js';
+import getTrace from '../../libs/get-trace.js';
+import utils from '../utils.js';
 
 const TRACKING_ATTRIBUTES = [
 	'componentContentId',

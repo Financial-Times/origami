@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import User from '../../src/javascript/core/user';
+import User from '../../src/javascript/core/user.js';
 
 describe('Core.User', function () {
 

@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import Store from '../../src/javascript/core/store';
-import Session from '../../src/javascript/core/session';
+import Store from '../../src/javascript/core/store.js';
+import Session from '../../src/javascript/core/session.js';
 
 describe('Core.Session', function () {
 

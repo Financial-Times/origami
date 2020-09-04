@@ -1,12 +1,12 @@
 /**
  * Shared 'internal' scope.
  */
-import settings from './core/settings';
+import settings from './core/settings.js';
 
 /**
  * CUID Generator
  */
-import cuid from '../libs/browser-cuid';
+import cuid from '../libs/browser-cuid.js';
 
 /**
  * Record of callbacks to call when a page is tracked.

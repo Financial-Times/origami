@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Utils from '../src/javascript/utils';
+import Utils from '../src/javascript/utils.js';
 
 describe('Utils', function () {
 

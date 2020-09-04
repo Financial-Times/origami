@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import '../setup';
+import '../setup.js';
 
-import {Queue} from '../../src/javascript/core/queue';
-import settings from '../../src/javascript/core/settings';
-import send from '../../src/javascript/core/send';
-import core from '../../src/javascript/core';
-import click from '../../src/javascript/events/click';
-import session from '../../src/javascript/core/session';
+import {Queue} from '../../src/javascript/core/queue.js';
+import settings from '../../src/javascript/core/settings.js';
+import send from '../../src/javascript/core/send.js';
+import core from '../../src/javascript/core.js';
+import click from '../../src/javascript/events/click.js';
+import session from '../../src/javascript/core/session.js';
 
 describe('click', function () {
 

@@ -1,4 +1,4 @@
-import utils from '../../utils';
+import utils from '../../utils.js';
 
 /**
  * Image based transport mechanism

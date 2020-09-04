@@ -1,9 +1,9 @@
 import Delegate from 'ftdomdelegate';
-import {Queue} from '../core/queue';
-import Core from '../core';
-import utils from '../utils';
-import settings from '../core/settings';
-import getTrace from '../../libs/get-trace';
+import {Queue} from '../core/queue.js';
+import Core from '../core.js';
+import utils from '../utils.js';
+import settings from '../core/settings.js';
+import getTrace from '../../libs/get-trace.js';
 
 let internalQueue;
 

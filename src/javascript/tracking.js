@@ -1,13 +1,13 @@
-import settings from './core/settings';
-import user from './core/user';
-import session from './core/session';
-import send from './core/send';
-import event from './events/custom';
-import page from './events/page-view';
-import click from './events/click';
-import { getRootID } from './core';
-import { merge, broadcast } from './utils';
-import view from './events/component-view';
+import settings from './core/settings.js';
+import user from './core/user.js';
+import session from './core/session.js';
+import send from './core/send.js';
+import event from './events/custom.js';
+import page from './events/page-view.js';
+import click from './events/click.js';
+import { getRootID } from './core.js';
+import { merge, broadcast } from './utils.js';
+import view from './events/component-view.js';
 
 /**
  * The version of the tracking module.

@@ -1,9 +1,9 @@
-import Send from './core/send';
+import Send from './core/send.js';
 
-import User from './core/user';
-import Session from './core/session';
-import settings from './core/settings';
-import utils from './utils';
+import User from './core/user.js';
+import Session from './core/session.js';
+import settings from './core/settings.js';
+import utils from './utils.js';
 
 let rootID;
 

@@ -1,6 +1,6 @@
-import Core from '../core';
-import {merge, triggerPage, addEvent, isDeepEqual} from '../utils';
-import settings from '../core/settings';
+import Core from '../core.js';
+import {merge, triggerPage, addEvent, isDeepEqual} from '../utils.js';
+import settings from '../core/settings.js';
 
 settings.set('page_has_already_been_viewed', false);
 

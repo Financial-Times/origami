@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import '../setup';
+import '../setup.js';
 
-import settings from '../../src/javascript/core/settings';
-import send from '../../src/javascript/core/send';
-import session from '../../src/javascript/core/session';
-import {Queue} from '../../src/javascript/core/queue';
-import page from '../../src/javascript/events/page-view.js';
-import event from '../../src/javascript/events/custom.js';
+import settings from '../../src/javascript/core/settings.js';
+import send from '../../src/javascript/core/send.js';
+import session from '../../src/javascript/core/session.js';
+import {Queue} from '../../src/javascript/core/queue.js';
+import page from '../../src/javascript/events/page-view.js.js';
+import event from '../../src/javascript/events/custom.js.js';
 
 
 describe('page', function () {

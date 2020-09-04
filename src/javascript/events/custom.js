@@ -1,5 +1,5 @@
-import Core from '../core';
-import utils from '../utils';
+import Core from '../core.js';
+import utils from '../utils.js';
 
 /**
  * Default properties for events.

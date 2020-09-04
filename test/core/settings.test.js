@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import Settings from '../../src/javascript/core/settings';
+import Settings from '../../src/javascript/core/settings.js';
 
 describe('Core.Settings', function () {
 

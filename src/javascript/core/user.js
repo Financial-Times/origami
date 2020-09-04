@@ -1,5 +1,5 @@
-import utils from '../utils';
-import Store from './store';
+import utils from '../utils.js';
+import Store from './store.js';
 
 let userID;
 let store;

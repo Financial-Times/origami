@@ -1,6 +1,6 @@
-import xhr from './xhr';
-import sendBeacon from './send-beacon';
-import image from './image';
+import xhr from './xhr.js';
+import sendBeacon from './send-beacon.js';
+import image from './image.js';
 
 /**
  * Given the name of a transport, returns that transpor if it exists.

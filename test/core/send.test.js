@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Send from '../../src/javascript/core/send';
-import {Queue} from "../../src/javascript/core/queue";
+import Send from '../../src/javascript/core/send.js';
+import {Queue} from "../../src/javascript/core/queue.js";
 
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
@@ -26,8 +26,8 @@ const request = {
 	}
 };
 
-import setup from '../setup';
-import settings from '../../src/javascript/core/settings';
+import setup from '../setup.js';
+import settings from '../../src/javascript/core/settings.js';
 
 // PhantomJS doesn't always create a "fresh" environment...
 

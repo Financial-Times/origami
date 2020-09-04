@@ -1,6 +1,6 @@
 // Trace the element and all of its parents, collecting properties as we go
 
-import utils from '../javascript/utils';
+import utils from '../javascript/utils.js';
 
 // For a given container element, get the number of elements that match the
 // original element (siblings); and the index of the original element (position).

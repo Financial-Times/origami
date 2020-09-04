@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import './setup';
+import './setup.js';
 
-import settings from '../src/javascript/core/settings';
-import {Queue} from '../src/javascript/core/queue';
+import settings from '../src/javascript/core/settings.js';
+import {Queue} from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
 
 describe('main', function () {

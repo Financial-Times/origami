@@ -1,7 +1,7 @@
-import settings from './settings';
-import utils from '../utils';
-import {Queue} from './queue';
-import transports from './transports';
+import settings from './settings.js';
+import utils from '../utils.js';
+import {Queue} from './queue.js';
+import transports from './transports.js';
 
 /**
  * Queue queue.
