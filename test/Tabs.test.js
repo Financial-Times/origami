@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import fixtures from './helpers/fixtures';
+import fixtures from './helpers/fixtures.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
 	prefix: ''
 });
 
-import Tabs from '../main';
+import Tabs from '../main.js';
 
 let testTabs;
 let tabsEl;

@@ -1,5 +1,5 @@
 
-import Tabs from './src/js/Tabs';
+import Tabs from './src/js/Tabs.js';
 
 const constructAll = function() {
 	Tabs.init();

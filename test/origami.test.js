@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import fixtures from './helpers/fixtures';
+import fixtures from './helpers/fixtures.js';
 
-import Tabs from '../main';
+import Tabs from '../main.js';
 
 describe("Tabs", () => {
 	it('is defined', () => {
