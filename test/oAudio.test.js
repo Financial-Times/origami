@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import OAudio from './../main';
+import OAudio from './../main.js';
 
 describe("OAudio", () => {
 	it('is defined', () => {

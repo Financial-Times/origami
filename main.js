@@ -1,5 +1,5 @@
-import oAudio from './src/js/o-audio';
-import Tracking from './src/js/tracking';
+import oAudio from './src/js/o-audio.js';
+import Tracking from './src/js/tracking.js';
 
 const constructAll = function () {
 	oAudio.init();

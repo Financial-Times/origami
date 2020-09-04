@@ -1,4 +1,4 @@
-import Tracking from './tracking';
+import Tracking from './tracking.js';
 
 class OAudio {
 	/**

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import Tracking from './../src/js/tracking';
-import OTrackingCollector from './helpers/o-tracking-collector';
+import Tracking from './../src/js/tracking.js';
+import OTrackingCollector from './helpers/o-tracking-collector.js';
 
 
 const contentId = 'abc-123';
