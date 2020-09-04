@@ -1,8 +1,6 @@
-o-audio
-=================
+# o-audio
 
 The FT audio player.
-
 
 - [Usage](#usage)
 	- [Markup](#markup)
@@ -20,11 +18,12 @@ The expectation is that oAudio will eventually render it's own player interface,
 ### Markup
 
 ```html
-	<audio controls data-o-component="o-audio">
-		<source
-			src="https://media.acast.com/ftnewsbriefing/wednesday-november14/media.mp3"
-			type="audio/mpeg" />
-	</audio>
+<audio controls data-o-component="o-audio">
+	<source
+		src="https://media.acast.com/ftnewsbriefing/wednesday-november14/media.mp3"
+		type="audio/mpeg"
+	/>
+</audio>
 ```
 
 ### JavaScript
@@ -35,28 +34,29 @@ You must either construct an `o-audio` object or fire the `o.DOMContentLoaded` e
 #### Constructing an o-audio
 
 ```js
-import oAudio from 'o-audio';
-oAudio.init();
+import oAudio from "o-audio"
+oAudio.init()
 ```
 
 #### Firing an oDomContentLoaded event
 
 ```js
-import 'o-audio';
+import "o-audio"
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+document.addEventListener("DOMContentLoaded", function () {
+	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"))
+})
 ```
 
 ### Sass
+
 Since oAudio renders as a native HTML `<audio>` element only, there are no styles _as yet_.
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-audio/issues) or visit [#ft-next-support](https://financialtimes.slack.com/messages/ft-next-support).
 
-----
+---
 
 ## Licence
 

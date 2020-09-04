@@ -9,6 +9,7 @@ class OAudio {
 	constructor (oAudioEl, opts) {
 
 		if (!(oAudioEl instanceof HTMLAudioElement)) {
+			// eslint-disable-next-line no-console
 			console.warn('oAudioEl should be an instance of HTMLAudioElement');
 		}
 		this.oAudioEl = oAudioEl;
@@ -21,6 +22,7 @@ class OAudio {
 
 	/**
 	 * Destroy this component. Unbinds listeners and dispatches any final tracking events
+	 * @returns {void}
 	 */
 	destroy() {
 		this.tracking.destroy();

@@ -3,6 +3,7 @@ import './../../main.js';
 function initDemos() {
 
 	document.addEventListener('oTracking.event', ({detail}) => {
+		// eslint-disable-next-line no-console
 		console.log(
 			`%cReceived oTracking ${detail.category} event %c${detail.action}`,
 			'color: green','color: blue',

@@ -3,8 +3,10 @@
     "description": "Financial Times audio player",
     "private": true,
     "devDependencies": {
-        "eslint-config-origami-component": "^1.0.4",
-        "origami-ci-tools": "^2.0.0",
-        "stylelint-config-origami-component": "^1.0.2"
+        "eslint": "^7.8.1",
+        "eslint-config-origami-component": "^2.1.0",
+        "origami-ci-tools": "^2.0.2",
+        "stylelint": "^13.7.0",
+        "stylelint-config-origami-component": "^1.0.4"
     }
 }
