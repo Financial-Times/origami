@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import Errors from '../src/js/oErrors';
+import Errors from '../src/js/oErrors.js';
 
 describe("oErrors", function() {
 	let mockRavenClient = null;

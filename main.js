@@ -4,7 +4,7 @@
  * @module oErrors
  * @see Errors
  */
-import Errors from './src/js/oErrors';
+import Errors from './src/js/oErrors.js';
 
 const errors = new Errors();
 

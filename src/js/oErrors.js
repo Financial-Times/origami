@@ -1,5 +1,5 @@
 import Raven from 'raven-js';
-import Logger from './logger';
+import Logger from './logger.js';
 
 function isFunction(fn) {
 	return typeof fn === 'function';
