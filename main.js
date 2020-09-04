@@ -1,4 +1,4 @@
-import Share from './src/js/share';
+import Share from './src/js/share.js';
 
 const constructAll = function() {
 	Share.init();

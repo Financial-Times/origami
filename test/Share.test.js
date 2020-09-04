@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import * as fixtures from './helpers/fixtures';
-import Share from './../main';
+import * as fixtures from './helpers/fixtures.js';
+import Share from './../main.js';
 
 let testShare;
 let shareEl;

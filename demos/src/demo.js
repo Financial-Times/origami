@@ -1,4 +1,4 @@
-import Share from '../../main';
+import Share from '../../main.js';
 window.oShare = Share;
 
 document.addEventListener('DOMContentLoaded', function() {

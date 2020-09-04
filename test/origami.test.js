@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import Share from './../main';
+import * as fixtures from './helpers/fixtures.js';
+import Share from './../main.js';
 
 describe("Share", () => {
 	it('is defined', () => {
