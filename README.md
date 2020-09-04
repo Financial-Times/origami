@@ -16,7 +16,7 @@ Attaches a debounced/throttled (as appropriate) listener to events on window [`r
 *Note: all will enable all o-viewport events.*
 
 ```js
-import oViewport from './../main.js.js';
+import oViewport from './../main.js';
 
 // Fire for orientation events.
 oViewport.listenTo('orientation');
@@ -93,7 +93,7 @@ Turns on debug mode (logging event details to the console).
 Each of these custom events are fired on `document.body`. For each custom event `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.viewport` the result of `o-viewport#getSize()`. For example:
 
 ```js
-import oViewport from './../main.js.js';
+import oViewport from './../main.js';
 
 // Fire for all viewport events.
 oViewport.listenTo('all');

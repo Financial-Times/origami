@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import oViewport from './../main.js.js';
-import utils from './../src/utils.js.js';
+import oViewport from './../main.js';
+import utils from './../src/utils.js';
 
 function isPhantom() {
 	return /PhantomJS/.test(navigator.userAgent);
