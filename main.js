@@ -1,4 +1,4 @@
-import utils from './src/utils';
+import utils from './src/utils.js';
 
 const throttle = utils.throttle;
 const debounce = utils.debounce;
