@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import * as fixtures from './helpers/fixtures';
-import CookieMessage from './../src/js/cookie-message';
+import * as fixtures from './helpers/fixtures.js';
+import CookieMessage from './../src/js/cookie-message.js';
 
 const flatten = string => string.replace(/\s/g, '');
 

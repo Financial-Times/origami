@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import oCookieMessage from '../main';
+import * as fixtures from './helpers/fixtures.js';
+import oCookieMessage from '../main.js';
 
 describe("oCookieMessage", () => {
 	beforeEach(() => {

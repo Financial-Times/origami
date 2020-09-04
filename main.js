@@ -1,4 +1,4 @@
-import CookieMessage from './src/js/cookie-message';
+import CookieMessage from './src/js/cookie-message.js';
 
 function constructAll () {
 	CookieMessage.init();
