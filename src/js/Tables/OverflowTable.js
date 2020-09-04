@@ -1,4 +1,4 @@
-import BaseTable from './BaseTable.js.js';
+import BaseTable from './BaseTable.js';
 
 class OverflowTable extends BaseTable {
 
