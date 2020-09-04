@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global sinon, proclaim */
 
-import Layout from '../src/js/layout';
-import { docs, docsWithSubHeading, query } from './helpers/fixtures';
+import Layout from '../src/js/layout.js';
+import { docs, docsWithSubHeading, query } from './helpers/fixtures.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

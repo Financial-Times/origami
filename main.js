@@ -1,4 +1,4 @@
-import oLayout from './src/js/layout';
+import oLayout from './src/js/layout.js';
 
 const constructAll = function() {
 	oLayout.init();

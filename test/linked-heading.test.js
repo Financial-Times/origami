@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import LinkedHeading from '../src/js/linked-heading';
+import LinkedHeading from '../src/js/linked-heading.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

@@ -1,5 +1,5 @@
 import { throttle } from 'o-utils';
-import LinkedHeading from './linked-heading';
+import LinkedHeading from './linked-heading.js';
 
 class Layout {
 	/**
