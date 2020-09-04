@@ -2,10 +2,11 @@
 	"private": true,
 	"main": "main.js",
 	"devDependencies": {
-		"eslint-config-origami-component": "^2.0.1",
-		"mock-raf": "^1.0.0",
-		"origami-ci-tools": "^2.0.0",
-		"stylelint-config-origami-component": "^1.0.2"
+		"eslint": "^7.8.1",
+		"eslint-config-origami-component": "^2.1.0",
+		"mock-raf": "^1.0.1",
+		"origami-ci-tools": "^2.0.2",
+		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"name": "o-tooltip"
 }
