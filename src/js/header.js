@@ -1,6 +1,6 @@
-import Drawer from './drawer';
-import DropDown from './drop-down';
-import Scroll from './scroll';
+import Drawer from './drawer.js';
+import DropDown from './drop-down.js';
+import Scroll from './scroll.js';
 
 class HeaderServices {
 	/**

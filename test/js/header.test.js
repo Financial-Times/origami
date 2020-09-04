@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import HeaderServices from '../../src/js/header';
+import HeaderServices from '../../src/js/header.js';
 
 describe('Header instance', () => {
 	let headerEl;

@@ -1,4 +1,4 @@
-import HeaderServices from './src/js/header';
+import HeaderServices from './src/js/header.js';
 
 const constructAll = () => {
 	HeaderServices.init();

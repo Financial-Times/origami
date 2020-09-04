@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import HeaderServices from '../../src/js/header';
-import * as fixtures from '../helpers/fixtures';
+import HeaderServices from '../../src/js/header.js';
+import * as fixtures from '../helpers/fixtures.js';
 
 describe('Dropdown', () => {
 	let attribute;
