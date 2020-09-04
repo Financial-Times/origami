@@ -1,9 +1,9 @@
-import FlatTable from './Tables/FlatTable';
-import ScrollTable from './Tables/ScrollTable';
-import OverflowTable from './Tables/OverflowTable';
-import BasicTable from './Tables/BasicTable';
+import FlatTable from './Tables/FlatTable.js.js';
+import ScrollTable from './Tables/ScrollTable.js.js';
+import OverflowTable from './Tables/OverflowTable.js.js';
+import BasicTable from './Tables/BasicTable.js.js';
 
-import TableSorter from './Sort/TableSorter';
+import TableSorter from './Sort/TableSorter.js.js';
 const sorter = new TableSorter();
 
 

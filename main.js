@@ -1,4 +1,4 @@
-import oTable from './src/js/oTable';
+import oTable from './src/js/oTable.js';
 
 const constructAll = function() {
 	oTable.init();

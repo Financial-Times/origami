@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import * as sandbox from './helpers/sandbox';
-import * as fixtures from './helpers/fixtures';
-import FlatTable from './../src/js/Tables/FlatTable';
-import BaseTable from './../src/js/Tables/BaseTable';
-import TableSorter from './../src/js/Sort/TableSorter';
+import * as sandbox from './helpers/sandbox.js';
+import * as fixtures from './helpers/fixtures.js';
+import FlatTable from './../src/js/Tables/FlatTable.js';
+import BaseTable from './../src/js/Tables/BaseTable.js';
+import TableSorter from './../src/js/Sort/TableSorter.js';
 const sorter = new TableSorter();
 
 describe("FlatTable", () => {

@@ -1,4 +1,4 @@
-import BaseTable from './BaseTable';
+import BaseTable from './BaseTable.js.js';
 
 class ScrollTable extends BaseTable {
 	/**

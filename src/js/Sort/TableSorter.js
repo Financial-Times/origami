@@ -1,4 +1,4 @@
-import CellFormatter from "./CellFormatter";
+import CellFormatter from "./CellFormatter.js.js";
 
 /**
  * Construct Intl.Collator if supported.

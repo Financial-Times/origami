@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import * as sandbox from './helpers/sandbox';
-import * as fixtures from './helpers/fixtures';
-import OTable from './../main';
-import BaseTable from './../src/js/Tables/BaseTable';
-import OverflowTable from './../src/js/Tables/OverflowTable';
-import FlatTable from './../src/js/Tables/FlatTable';
-import ScrollTable from './../src/js/Tables/ScrollTable';
-import BasicTable from './../src/js/Tables/BasicTable';
+import * as sandbox from './helpers/sandbox.js';
+import * as fixtures from './helpers/fixtures.js';
+import OTable from './../main.js';
+import BaseTable from './../src/js/Tables/BaseTable.js';
+import OverflowTable from './../src/js/Tables/OverflowTable.js';
+import FlatTable from './../src/js/Tables/FlatTable.js';
+import ScrollTable from './../src/js/Tables/ScrollTable.js';
+import BasicTable from './../src/js/Tables/BasicTable.js';
 
 describe('OTable constructs', () => {
 	let oTableEl;
