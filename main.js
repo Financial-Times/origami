@@ -1,5 +1,5 @@
 
-import SteppedProgress from './src/js/stepped-progress';
+import SteppedProgress from './src/js/stepped-progress.js';
 
 const constructAll = function () {
 	SteppedProgress.init();

@@ -1,5 +1,5 @@
 
-import SteppedProgressStep from './stepped-progress-step';
+import SteppedProgressStep from './stepped-progress-step.js';
 
 /**
  * Component class names.

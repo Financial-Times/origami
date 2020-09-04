@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import SteppedProgress from '../src/js/stepped-progress';
-import SteppedProgressStep from '../src/js/stepped-progress-step';
+import * as fixtures from './helpers/fixtures.js';
+import SteppedProgress from '../src/js/stepped-progress.js';
+import SteppedProgressStep from '../src/js/stepped-progress-step.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

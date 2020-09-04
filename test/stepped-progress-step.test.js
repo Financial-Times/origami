@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import SteppedProgressStep from '../src/js/stepped-progress-step';
+import * as fixtures from './helpers/fixtures.js';
+import SteppedProgressStep from '../src/js/stepped-progress-step.js';
 
 describe('src/js/stepped-progress-step', () => {
 
