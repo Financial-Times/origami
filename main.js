@@ -1,4 +1,4 @@
-import Comments from './src/js/comments';
+import Comments from './src/js/comments.js';
 
 const constructAll = function () {
 	Comments.init();

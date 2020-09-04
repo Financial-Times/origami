@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 import fetchMock from 'fetch-mock';
-import Count from '../src/js/count';
+import Count from '../src/js/count.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

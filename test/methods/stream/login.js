@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from '../../helpers/fixtures';
-import Stream from '../../../src/js/stream';
+import * as fixtures from '../../helpers/fixtures.js';
+import Stream from '../../../src/js/stream.js';
 
 export default function login () {
 	beforeEach(() => {

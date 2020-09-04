@@ -1,3 +1,3 @@
-import Comments from '../../main.js';
+import Comments from '../../main.js.js';
 
 Comments.init();

@@ -1,5 +1,5 @@
-import Stream from './stream';
-import Count from './count';
+import Stream from './stream.js';
+import Count from './count.js';
 
 class Comments {
 	constructor (rootEl, opts) {

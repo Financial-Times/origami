@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 import fetchMock from 'fetch-mock';
-import * as displayName from '../../src/js/utils/display-name';
+import * as displayName from '../../src/js/utils/display-name.js';
 
 describe('Display name', () => {
 	describe('Validation', () => {

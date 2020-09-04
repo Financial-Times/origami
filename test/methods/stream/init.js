@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from '../../helpers/fixtures';
-import Stream from '../../../src/js/stream';
-import * as displayName from '../../../src/js/utils/display-name';
+import * as fixtures from '../../helpers/fixtures.js';
+import Stream from '../../../src/js/stream.js';
+import * as displayName from '../../../src/js/utils/display-name.js';
 
 export default function init () {
 	let validationStub;
