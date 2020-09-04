@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 import Toggle from 'o-toggle';
 
-import oFooter from './../main';
+import oFooter from './../main.js';
 
 describe("oFooter", () => {
 

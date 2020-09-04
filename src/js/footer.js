@@ -1,5 +1,5 @@
 import Toggle from 'o-toggle';
-import layout from './layout';
+import layout from './layout.js';
 
 
 const COLLAPSIBLE_BREAKPOINTS = ['default', 'XS', 'S'];

@@ -1,4 +1,4 @@
-import Footer from './src/js/footer';
+import Footer from './src/js/footer.js';
 
 const constructAll = () => {
 	Footer.init();
