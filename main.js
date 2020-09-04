@@ -1,4 +1,4 @@
-import LazyLoad from './src/js/o-lazy-load';
+import LazyLoad from './src/js/o-lazy-load.js';
 
 const constructAll = function () {
 	LazyLoad.init();

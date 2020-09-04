@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import waitUntil from './helpers/wait-until';
-import Subject from './../main';
+import * as fixtures from './helpers/fixtures.js';
+import waitUntil from './helpers/wait-until.js';
+import Subject from './../main.js';
 
 describe('o-lazy-load', () => {
 	let sandbox;
