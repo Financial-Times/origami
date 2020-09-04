@@ -1,6 +1,6 @@
-import Input from './input';
-import State from './state';
-import ErrorSummary from './error-summary';
+import Input from './input.js';
+import State from './state.js';
+import ErrorSummary from './error-summary.js';
 
 class Forms {
 	/**

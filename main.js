@@ -1,4 +1,4 @@
-import oForms from './src/js/forms';
+import oForms from './src/js/forms.js';
 
 const constructAll = function() {
 	oForms.init();

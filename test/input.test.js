@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import formFixture from './helpers/fixtures';
-import Input from '../src/js/input';
+import formFixture from './helpers/fixtures.js';
+import Input from '../src/js/input.js';
 
 describe('Input', () => {
 	let form;

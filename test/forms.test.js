@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import formFixture from './helpers/fixtures';
-import Forms from './../main';
+import formFixture from './helpers/fixtures.js';
+import Forms from './../main.js';
 
 describe('Forms', () => {
 	let formEl;

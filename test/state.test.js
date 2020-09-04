@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import formFixture from './helpers/fixtures';
-import State from '../src/js/state';
+import formFixture from './helpers/fixtures.js';
+import State from '../src/js/state.js';
 
 describe('State', () => {
 	let form;
