@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as Utils from './../main';
+import * as Utils from './../main.js';
 
 describe("getIndex()", function() {
 
