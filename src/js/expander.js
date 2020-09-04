@@ -1,4 +1,4 @@
-import ExpanderUtility from './expander-utility';
+import ExpanderUtility from './expander-utility.js';
 
 class Expander extends ExpanderUtility {
 

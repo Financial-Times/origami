@@ -1,4 +1,4 @@
-import Expander from './src/js/expander';
+import Expander from './src/js/expander.js';
 
 const constructAll = function () {
 	Expander.init();
