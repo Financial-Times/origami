@@ -1,4 +1,4 @@
-import oTypography from './src/js/typography';
+import oTypography from './src/js/typography.js';
 
 const constructAll = function() {
 	oTypography.init();

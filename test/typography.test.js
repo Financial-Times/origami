@@ -2,7 +2,7 @@
 /* global proclaim sinon */
 
 import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
-import Typography from './../main';
+import Typography from './../main.js';
 
 const fontLabels = ['display', 'sans', 'sans-bold', 'display-bold'];
 const prefix = 'o-typography--loading-';

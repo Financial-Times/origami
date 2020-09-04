@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import Typography from './../main';
+import Typography from './../main.js';
 
 describe("Typography", () => {
 	it('is defined', () => {
