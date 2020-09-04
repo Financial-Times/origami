@@ -2,8 +2,9 @@
 	"private": true,
 	"name": "o-fonts",
 	"devDependencies": {
+		"eslint": "^7.8.1",
 		"eslint-config-origami-component": "^2.1.0",
-		"origami-ci-tools": "^2.0.0",
-		"stylelint-config-origami-component": "^1.0.2"
+		"origami-ci-tools": "^2.0.2",
+		"stylelint-config-origami-component": "^1.0.4"
 	}
 }
