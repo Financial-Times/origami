@@ -1,4 +1,4 @@
-import LazyLoad from './../../main.js.js';
+import LazyLoad from './../../main.js';
 
 document.addEventListener('DOMContentLoaded', function () {
 	const doc = document.documentElement;
