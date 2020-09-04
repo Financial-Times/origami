@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
-import Tooltip from './../main';
+import Tooltip from './../main.js';
 
 describe("Tooltip", () => {
 	it('is defined', () => {

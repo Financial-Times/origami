@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from './helpers/fixtures';
-import {createMockRaf} from './helpers/mock-raf';
-import Tooltip from './../main';
+import * as fixtures from './helpers/fixtures.js';
+import {createMockRaf} from './helpers/mock-raf.js';
+import Tooltip from './../main.js';
 import Viewport from 'o-viewport';
 
 describe("Tooltip", () => {

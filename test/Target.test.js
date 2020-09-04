@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import * as fixtures from './helpers/fixtures';
+import * as fixtures from './helpers/fixtures.js';
 
 import Target from'./../src/js/target';
 

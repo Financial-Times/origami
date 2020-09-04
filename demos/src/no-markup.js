@@ -1,5 +1,5 @@
 
-import Tooltip from './../../main.js';
+import Tooltip from './../../main.js.js';
 
 document.addEventListener('DOMContentLoaded', function() {
 	const tooltipElement = document.querySelector('.imperative-tooltip-target');

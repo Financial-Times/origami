@@ -1,7 +1,7 @@
 import Delegate from 'ftdomdelegate';
 import Viewport from 'o-viewport';
 import oGrid from 'o-grid';
-import Target from './target';
+import Target from './target.js';
 
 class Tooltip {
 	static _getCurrentLayout() {

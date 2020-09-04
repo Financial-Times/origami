@@ -1,4 +1,4 @@
-import Tooltip from './src/js/tooltip';
+import Tooltip from './src/js/tooltip.js';
 
 const constructAll = function() {
 	Tooltip.init();
