@@ -1,5 +1,5 @@
 
-import Banner from './src/js/banner';
+import Banner from './src/js/banner.js';
 
 function constructAll () {
 	Banner.init();

@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Banner from './../src/js/banner';
-import mainFixture from './fixture/main';
+import Banner from './../src/js/banner.js';
+import mainFixture from './fixture/main.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,

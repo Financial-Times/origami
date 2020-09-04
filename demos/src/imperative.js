@@ -1,5 +1,5 @@
 
-import Banner from '../../main';
+import Banner from '../../main.js';
 
 const demoBannerConfigurations = [
 	{

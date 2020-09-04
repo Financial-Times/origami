@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Banner from './../main';
-import {default as BannerSrc} from './../src/js/banner';
+import Banner from './../main.js';
+import {default as BannerSrc} from './../src/js/banner.js';
 
 sinon.assert.expose(proclaim, {
 	includeFail: false,
