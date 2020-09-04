@@ -1,4 +1,4 @@
-import Overlay from '../../main';
+import Overlay from '../../main.js';
 
 document.addEventListener("DOMContentLoaded", function() {
 	const myOverlay = new Overlay('demo-overlay', {

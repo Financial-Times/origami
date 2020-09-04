@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as fixtures from '../helpers/fixtures';
+import * as fixtures from '../helpers/fixtures.js';
 
-import Overlay from './../../main';
+import Overlay from './../../main.js';
 
 describe("Overlay", () => {
 	it('is defined', () => {

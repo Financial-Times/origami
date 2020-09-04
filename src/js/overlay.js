@@ -1,7 +1,7 @@
 import Delegate from 'ftdomdelegate';
 import viewport from 'o-viewport';
 import oLayers from 'o-layers';
-import utils from './utils';
+import utils from './utils.js';
 const overlays = {};
 
 const checkOptions = function(opts) {

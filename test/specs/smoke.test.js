@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import * as o from '../helpers/events';
-import Overlay from '../../src/js/overlay';
+import * as o from '../helpers/events.js';
+import Overlay from '../../src/js/overlay.js';
 
 const testContent = '<div class="test-overlay"><span class="test-overlay__text">Hello Overlay</span></div>';
 

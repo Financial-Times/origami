@@ -1,5 +1,5 @@
 
-import Overlay from './src/js/overlay';
+import Overlay from './src/js/overlay.js';
 
 const constructAll = function() {
 	Overlay.init();
