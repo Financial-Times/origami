@@ -1,10 +1,10 @@
 import oViewport from 'o-viewport';
 
-import getRendition from './helpers/get-rendition';
-import VideoAds from './ads';
-import VideoInfo from './info';
-import Playlist from './playlist';
-import Guidance from './guidance';
+import getRendition from './helpers/get-rendition.js';
+import VideoAds from './ads.js';
+import VideoInfo from './info.js';
+import Playlist from './playlist.js';
+import Guidance from './guidance.js';
 
 function listenOnce(el, eventName, fn) {
 	const wrappedFn = function(...args) {

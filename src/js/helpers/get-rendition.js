@@ -1,4 +1,4 @@
-import supportedFormats from './supported-formats';
+import supportedFormats from './supported-formats.js';
 
 function getRendition(renditions, options) {
 	// allow mocking of supported formats module

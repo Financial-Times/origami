@@ -1,4 +1,4 @@
-import OVideo from '../../src/js/video';
+import OVideo from '../../src/js/video.js';
 
 document.addEventListener("DOMContentLoaded", function() {
 	const video = new OVideo(document.querySelector('[data-o-component="o-video"]'));

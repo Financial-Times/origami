@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import getRendition from './../../src/js/helpers/get-rendition';
-import { mediaApiResponse1 } from '../fixtures/media-api-1.js';
+import getRendition from './../../src/js/helpers/get-rendition.js';
+import { mediaApiResponse1 } from '../fixtures/media-api-1.js.js';
 
 const renditions = mediaApiResponse1.renditions;
 

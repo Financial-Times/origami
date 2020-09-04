@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Player from '../src/js/video';
-import Subject from '../src/js/playlist';
+import Player from '../src/js/video.js';
+import Subject from '../src/js/playlist.js';
 
 function createPlayer () {
 	const stub = sinon.createStubInstance(Player);

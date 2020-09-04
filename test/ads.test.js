@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon google */
 
-import Ads from './../src/js/ads';
+import Ads from './../src/js/ads.js';
 
 describe('Ads', () => {
 

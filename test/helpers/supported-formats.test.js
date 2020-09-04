@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import supportedFormats from './../../src/js/helpers/supported-formats';
+import supportedFormats from './../../src/js/helpers/supported-formats.js';
 
 describe('Supported Formats', () => {
 

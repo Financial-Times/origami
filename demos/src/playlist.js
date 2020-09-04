@@ -1,4 +1,4 @@
-import Video from '../../src/js/video';
+import Video from '../../src/js/video.js';
 
 document.addEventListener("DOMContentLoaded", function() {
 	const select = document.querySelector('select');
