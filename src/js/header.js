@@ -1,8 +1,8 @@
-import search from './search';
-import mega from './mega';
-import drawer from './drawer';
-import subnav from './subnav';
-import sticky from './sticky';
+import search from './search.js';
+import mega from './mega.js';
+import drawer from './drawer.js';
+import subnav from './subnav.js';
+import sticky from './sticky.js';
 
 class Header {
 

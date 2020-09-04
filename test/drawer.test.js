@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Drawer from '../src/js/drawer';
+import Drawer from '../src/js/drawer.js';
 
 describe('Drawer instance', () => {
 

@@ -1,4 +1,4 @@
-import Header from './src/js/header';
+import Header from './src/js/header.js';
 
 const constructAll = () => {
 	Header.init();

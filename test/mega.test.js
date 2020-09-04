@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import mega from '../src/js/mega';
+import mega from '../src/js/mega.js';
 
 function dispatch (target, type) {
 	target.dispatchEvent(new Event(type, { bubbles: true }));
