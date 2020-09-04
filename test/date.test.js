@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from './helpers/fixtures';
-import oDate from '../main';
+import * as fixtures from './helpers/fixtures.js';
+import oDate from '../main.js';
 
 describe('o-date', () => {
 

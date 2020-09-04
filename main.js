@@ -1,4 +1,4 @@
-import oDate from './src/js/date';
+import oDate from './src/js/date.js';
 const constructAll = function () {
 	oDate.init();
 	document.removeEventListener('o.DOMContentLoaded', constructAll);

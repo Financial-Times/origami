@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim, sinon */
 
-import ODate from '../main';
+import ODate from '../main.js';
 import ftDateFormat from 'ft-date-format';
 
 describe('o-date DOM', () => {

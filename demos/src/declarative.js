@@ -1,4 +1,4 @@
-import ODate from '../../main';
+import ODate from '../../main.js';
 
 const now = new Date();
 const today = new Date();

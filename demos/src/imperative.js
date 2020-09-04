@@ -1,4 +1,4 @@
-import ODate from '../../main';
+import ODate from '../../main.js';
 
 const times = document.querySelectorAll('[data-o-component="o-date"]');
 
