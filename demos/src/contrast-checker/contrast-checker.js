@@ -1,5 +1,5 @@
-import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio';
-import { getHexValues, mixHexes } from '../shared/colors-mix';
+import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
+import { getHexValues, mixHexes } from '../shared/colors-mix.js';
 
 document.addEventListener('o.DOMContentLoaded', () => {
 	const form = document.forms[0];
