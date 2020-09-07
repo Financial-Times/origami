@@ -33,7 +33,7 @@ const data: THeaderProps = {
     subsections,
     'subsections-right': [
       {
-        label: 'sign out',
+        label: 'Sign Out',
         url: '#'
       }
     ],
