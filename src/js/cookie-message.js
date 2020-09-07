@@ -25,11 +25,33 @@ class CookieMessage {
 
 		this.cookieMessageElement = cookieMessageElement;
 
+		// Get cookie message options
+		options = options || CookieMessage.getOptionsFromDom(cookieMessageElement);
+
+		// @deprecated - Remove seemingly unused options in the next major
+		// release. These options are not documented and could cause problems if
+		// not used carefully.
+		// https://github.com/Financial-Times/o-cookie-message/issues/126
+		const deprecatedOptions = [
+			'acceptUrl',
+			'acceptUrlFallback',
+			'manageCookiesUrl',
+			'consentCookieName'
+		];
+		for (const option of Object.keys(options)) {
+			if (deprecatedOptions.includes(option)) {
+				console.warn(
+					`The following o-cookie-message options are deprecated: ${deprecatedOptions.join(', ')}. ` +
+					`Please speak to the Origami team if you would like to use these options within your project.`
+				);
+			}
+		}
+
 		// Set cookie message options
 		this.options = Object.assign(
 			{},
 			CookieMessage.defaultOptions,
-			options || CookieMessage.getOptionsFromDom(cookieMessageElement)
+			options
 		);
 
 		this.options.theme = this.options.theme ? 'alternative' : null;
