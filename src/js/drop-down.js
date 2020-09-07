@@ -63,7 +63,9 @@ class DropDown {
 			// support `Array.prototype.find()` or `Element.closest()`,
 			// adding a polyfill requirement is a breaking change
 			let parentMenu;
-			for (const navItem of this.navItems) {
+			for (let itemIndex = 0; itemIndex < this.navItems.length; itemIndex++) {
+				const navItem = this.navItems[itemIndex];
+
 				if (navItem.contains(event.target)) {
 					parentMenu = navItem;
 					break; // found the parent menu
