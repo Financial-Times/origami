@@ -116,7 +116,15 @@ class Drawer {
 			headerTop.appendChild(this.relatedContent);
 		}
 
-		this.nav.classList.toggle(this.class.drawer, this.enabled);
+		// Toggle drawer classlist. Cannot use `toggle` as IE11 does not support
+		// the `toggle` method, and adding a new polyfill requirement is a
+		// breaking change.
+		if(this.enabled) {
+			this.nav.classList.add(this.class.drawer);
+		}
+		if(!this.enabled) {
+			this.nav.classList.remove(this.class.drawer);
+		}
 
 		this.nav.setAttribute('aria-hidden', this.enabled);
 	}

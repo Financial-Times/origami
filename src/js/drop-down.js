@@ -30,7 +30,7 @@ class DropDown {
 		// we use the drawer burger icon visibility to decide when it is enabled.
 		// Use ResizeObserver where supported to detect drawer icon changes where
 		// possible, otherwise fallback to a debounced resize listener.
-		if (ResizeObserver && this.drawer && this.drawer.burger) {
+		if (window.ResizeObserver && this.drawer && this.drawer.burger) {
 			const resizeObserver = new ResizeObserver(this.reset.bind(this));
 			resizeObserver.observe(this.drawer.burger);
 		} else {
