@@ -1,4 +1,4 @@
-import tracking from './src/javascript/tracking';
+import tracking from './src/javascript/tracking.js';
 
 /**
  * Automatically initilise o-tracking

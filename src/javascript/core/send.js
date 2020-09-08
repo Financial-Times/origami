@@ -1,7 +1,7 @@
 import settings from './settings.js';
 import utils from '../utils.js';
 import {Queue} from './queue.js';
-import transports from './transports.js';
+import transports from './transports/index.js';
 
 /**
  * Queue queue.
