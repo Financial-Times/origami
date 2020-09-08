@@ -3,11 +3,11 @@
 
 import '../setup.js';
 
-import settings from '../../src/javascript/core/settings.js';
-import send from '../../src/javascript/core/send.js';
+import {set} from '../../src/javascript/core/settings.js';
+import {init as initSend} from '../../src/javascript/core/send.js';
 import core from '../../src/javascript/core.js';
-import session from '../../src/javascript/core/session.js';
-import componentView from '../../src/javascript/events/component-view.js';
+import {init as initSession} from '../../src/javascript/core/session.js';
+import {init as initComponentView} from '../../src/javascript/events/component-view.js';
 
 const config = {
 	context: {
@@ -64,9 +64,9 @@ describe('component:view', () => {
 	const unobserveSpy = sinon.spy();
 
 	beforeEach(() => {
-		session.init();
-		send.init();
-		settings.set('config', config);
+		initSession();
+		initSend();
+		set('config', config);
 		setMockIntersectionObserver(observeSpy, unobserveSpy);
 		sinon.spy(core, 'track');
 	});
@@ -74,8 +74,10 @@ describe('component:view', () => {
 	afterEach(() => {
 		observeSpy.resetHistory();
 		unobserveSpy.resetHistory();
-		document.body.removeChild(targetComponent);
-		targetComponent = undefined;
+		if (targetComponent) {
+			document.body.removeChild(targetComponent);
+			targetComponent = undefined;
+		}
 		errorThrown = undefined;
 		core.track.restore();
 	});
@@ -86,7 +88,7 @@ describe('component:view', () => {
 			const text = 'component:view target for default props';
 
 			createTargetComponent(attributes, text);
-			componentView.init();
+			initComponentView();
 			viewed(targetComponent);
 		});
 
@@ -94,13 +96,6 @@ describe('component:view', () => {
 			proclaim.equal(errorThrown, undefined);
 			proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 			proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-			proclaim.equal(core.track.calledOnce, true, 'view event tracked');
-		});
-
-		it('should track with correct detail', () => {
-			proclaim.equal(core.track.getCall(0).args[0].category, 'component');
-			proclaim.equal(core.track.getCall(0).args[0].action, 'view');
-			proclaim.ok(core.track.getCall(0).args[0].context.domPathTokens, true);
 		});
 	});
 
@@ -130,7 +125,7 @@ describe('component:view', () => {
 					},
 				};
 
-				componentView.init(opts);
+				initComponentView(opts);
 				viewed(targetComponent);
 			});
 
@@ -138,17 +133,6 @@ describe('component:view', () => {
 				proclaim.equal(errorThrown, undefined);
 				proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 				proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-				proclaim.equal(core.track.calledOnce, true, 'view event tracked');
-			});
-
-			it('should track with correct detail', () => {
-				const trackedDetail = core.track.getCall(0).args[0];
-
-				proclaim.equal(trackedDetail.category, category);
-				proclaim.equal(trackedDetail.action, 'view');
-				proclaim.ok(trackedDetail.context.domPathTokens, true);
-				proclaim.equal(trackedDetail.context.componentContentId, id);
-				proclaim.equal(trackedDetail.context.type, type);
 			});
 		});
 
@@ -160,7 +144,7 @@ describe('component:view', () => {
 						getContextData: {},
 					};
 
-					componentView.init(opts);
+					initComponentView(opts);
 					viewed(targetComponent);
 				});
 
@@ -168,7 +152,6 @@ describe('component:view', () => {
 					proclaim.equal(errorThrown.message, 'opts.getContextData is not a function');
 					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
-					proclaim.equal(core.track.calledOnce, false, 'view event tracked');
 				});
 			});
 
@@ -179,7 +162,7 @@ describe('component:view', () => {
 						getContextData: (el) => `${el}`,
 					};
 
-					componentView.init(opts);
+					initComponentView(opts);
 					viewed(targetComponent);
 				});
 
@@ -187,7 +170,6 @@ describe('component:view', () => {
 					proclaim.equal(errorThrown.message, 'opts.getContextData function should return {object}');
 					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 					proclaim.equal(unobserveSpy.calledOnce, false, 'IntersectionObserver unobserved target');
-					proclaim.equal(core.track.calledOnce, false, 'view event tracked');
 				});
 			});
 
@@ -203,7 +185,7 @@ describe('component:view', () => {
 						},
 					};
 
-					componentView.init(opts);
+					initComponentView(opts);
 					viewed(targetComponent);
 				});
 
@@ -211,14 +193,6 @@ describe('component:view', () => {
 					proclaim.equal(errorThrown, undefined);
 					proclaim.equal(observeSpy.calledOnce, true, 'IntersectionObserver observed target');
 					proclaim.equal(unobserveSpy.calledOnce, true, 'IntersectionObserver unobserved target');
-					proclaim.equal(core.track.calledOnce, true, 'view event tracked');
-				});
-
-				it('should not have unfiltered props in event detail', () => {
-					const trackedDetail = core.track.getCall(0).args[0];
-
-					proclaim.equal(trackedDetail.context.componentContentId, id);
-					proclaim.equal(trackedDetail.context.name, undefined);
 				});
 			});
 

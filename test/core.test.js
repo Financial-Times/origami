@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import settings from '../src/javascript/core/settings.js';
+import {set, destroy} from '../src/javascript/core/settings.js';
 import {Queue} from '../src/javascript/core/queue.js';
-import session from '../src/javascript/core/session.js';
-import send from '../src/javascript/core/send.js';
-import Core from '../src/javascript/core.js';
+import {session, init} from '../src/javascript/core/session.js';
+import {init as initSend, run} from '../src/javascript/core/send.js';
+import core from '../src/javascript/core.js';
 import { errorNextSend } from './setup.js';
 
 describe('Core', function () {
@@ -16,18 +16,18 @@ describe('Core', function () {
 		let root_id;
 
 		it('should generate a root_id', function () {
-			root_id = Core.setRootID();
+			root_id = core.setRootID();
 			proclaim.ok(root_id.match(guid_re), "'" + root_id + "'.match(" + guid_re + ")");
 		});
 
 		it('should use the previous root_id for subsequent calls', function () {
-			proclaim.equal(Core.getRootID(), root_id);
-			proclaim.equal(Core.getRootID(), root_id);
+			proclaim.equal(core.getRootID(), root_id);
+			proclaim.equal(core.getRootID(), root_id);
 		});
 
 		it('should change the root_id on request', function () {
-			const new_root_id = Core.setRootID();
-			proclaim.equal(Core.getRootID(), new_root_id);
+			const new_root_id = core.setRootID();
+			proclaim.equal(core.getRootID(), new_root_id);
 			proclaim.notEqual(new_root_id, root_id);
 		});
 	});
@@ -35,22 +35,22 @@ describe('Core', function () {
 	describe('track', function () {
 
 		before(function () {
-			settings.set('version', '1.0.0');
-			settings.set('source', 'o-tracking');
-			session.init(); // Session
-			send.init(); // Init the sender.
+			set('version', '1.0.0');
+			set('source', 'o-tracking');
+			init(); // Session
+			initSend(); // Init the sender.
 		});
 
 		after(function () {
 			new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
-			settings.destroy('config'); // Empty settings.
+			destroy('config'); // Empty settings.
 		});
 
 		it('should send a tracking request', function () {
 			const callback = sinon.spy();
 
-			const root_id = Core.setRootID();
-			Core.track({
+			const root_id = core.setRootID();
+			core.track({
 				category: 'page',
 				action: 'view',
 				context: { url: "http://www.ft.com/home/uk" },
@@ -78,8 +78,8 @@ describe('Core', function () {
 
 			// Device
 			proclaim.deepEqual(Object.keys(sent_data.device), ["spoor_session","spoor_session_is_new","spoor_id"]);
-			proclaim.equal(sent_data.device.spoor_session, session.session().id);
-			proclaim.equal(sent_data.device.spoor_session_is_new, session.session().isNew);
+			proclaim.equal(sent_data.device.spoor_session, session().id);
+			proclaim.equal(sent_data.device.spoor_session_is_new, session().isNew);
 
 		});
 
@@ -88,7 +88,7 @@ describe('Core', function () {
 			errorNextSend();
 			const callback = sinon.spy();
 
-			Core.track({
+			core.track({
 				category: 'page',
 				action: 'view',
 				context: { url: "http://www.google.co.uk" },
@@ -98,7 +98,7 @@ describe('Core', function () {
 			proclaim.equal(callback.called, 1, 'Callback called once.');
 
 			// Try again
-			send.run();
+			run();
 
 			proclaim.ok(callback.calledOnce, 'Callback should only be called once as next send could be on a different page.');
 		});

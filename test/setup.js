@@ -1,11 +1,11 @@
 /* global sinon*/
 
-import transports from '../src/javascript/core/transports/index.js';
+import {mock} from '../src/javascript/core/transports/index.js';
 
 let willError = false;
 
 export function mockTransport() {
-	transports.mock = function () {
+	mock.transport = function () {
 		return {
 			send: sinon.spy(),
 			complete: function (callback) {
@@ -21,7 +21,7 @@ export function mockTransport() {
 }
 
 export function unmockTransport() {
-	transports.mock = null;
+	delete mock.transport;
 }
 
 export function errorNextSend() {
@@ -32,8 +32,3 @@ export function errorNextSend() {
 // so we setup the mock globally here
 mockTransport();
 
-export default {
-	mockTransport,
-	unmockTransport,
-	errorNextSend
-};

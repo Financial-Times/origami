@@ -1,5 +1,9 @@
-import Core from '../core.js';
-import utils from '../utils.js';
+import core from '../core.js';
+import {
+	is,
+	broadcast,
+	merge,
+	addEvent} from '../utils.js';
 
 /**
  * Default properties for events.
@@ -29,16 +33,16 @@ const defaultEventConfig = function () {
  * @returns {void}
  */
 function event(trackingEvent, callback) {
-	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
+	if (is(trackingEvent.detail.category) || is(trackingEvent.detail.action)) {
 		const noCategoryActionVals = 'Missing category or action values';
-		utils.broadcast('oErrors', 'log', {
+		broadcast('oErrors', 'log', {
 			error: noCategoryActionVals,
 			info: { module: 'o-tracking' }
 		});
 		throw noCategoryActionVals;
 	}
 
-	const config = utils.merge(defaultEventConfig(), {
+	const config = merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
 		context: trackingEvent.detail
@@ -53,7 +57,7 @@ function event(trackingEvent, callback) {
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
 	}
 
-	Core.track(config, callback);
+	core.track(config, callback);
 }
 
 /**
@@ -215,9 +219,8 @@ function _generateHash(str) {
 }
 
 const init = function init() {
-	utils.addEvent(window, 'oTracking.event', event);
+	addEvent(window, 'oTracking.event', event);
 };
 event.init = init;
 
-export default event;
 export { event };

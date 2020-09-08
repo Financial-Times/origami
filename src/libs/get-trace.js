@@ -1,6 +1,5 @@
 // Trace the element and all of its parents, collecting properties as we go
-
-import utils from '../javascript/utils.js';
+import {sanitise, assignIfUndefined} from '../javascript/utils.js';
 
 // For a given container element, get the number of elements that match the
 // original element (siblings); and the index of the original element (position).
@@ -33,7 +32,7 @@ const getAllElementProperties = element => {
 			if (typeof value === 'boolean') {
 				properties[property] = value;
 			} else {
-				properties[property] = utils.sanitise(value);
+				properties[property] = sanitise(value);
 			}
 		}
 	}
@@ -78,7 +77,7 @@ const getContextProps = (attrs, props, isOriginalEl) => {
 	return customProps;
 };
 
-function getTrace (el) {
+export function getTrace (el) {
 	const rootEl = document;
 	const originalEl = el;
 	const selector = originalEl.getAttribute('data-trackable') ? `[data-trackable="${originalEl.getAttribute('data-trackable')}"]` : originalEl.nodeName;
@@ -102,11 +101,9 @@ function getTrace (el) {
 
 		const contextProps = getContextProps(attrs, props, el === originalEl);
 
-		utils.assignIfUndefined(contextProps, customContext);
+		assignIfUndefined(contextProps, customContext);
 
 		el = el.parentNode;
 	}
 	return { trace, customContext };
 }
-
-export default getTrace;

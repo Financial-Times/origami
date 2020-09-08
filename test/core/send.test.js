@@ -1,8 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Send from '../../src/javascript/core/send.js';
+import {
+	init,
+	add,
+	addAndRun
+} from '../../src/javascript/core/send.js';
 import {Queue} from "../../src/javascript/core/queue.js";
+import {unmockTransport, mockTransport} from '../setup.js';
+import {set, destroy} from '../../src/javascript/core/settings.js';
 
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
@@ -26,53 +32,50 @@ const request = {
 	}
 };
 
-import setup from '../setup.js';
-import settings from '../../src/javascript/core/settings.js';
-
 // PhantomJS doesn't always create a "fresh" environment...
 
 describe('Core.Send', function () {
 	beforeEach(function() {
-		settings.set('config', {});
+		set('config', {});
 	});
 
 	after(function () {
 		new Queue('requests').replace([]);
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should init first', function () {
 		proclaim.doesNotThrow(function () {
-			Send.init();
+			init();
 		});
 	});
 
 	it('should add a request', function () {
 		proclaim.doesNotThrow(function () {
-			Send.add(request);
+			add(request);
 		});
 	});
 
 
 	describe('fallback transports', function () {
 		before(function () {
-			setup.unmockTransport();
+			unmockTransport();
 		});
 
 		after(function () {
-			setup.mockTransport();
+			mockTransport();
 		});
 
 		it('use sendBeacon by default', function (done) {
 			sinon.stub(navigator, 'sendBeacon');
-			Send.init();
-			Send.addAndRun(request);
+			init();
+			addAndRun(request);
 			setTimeout(() => {
 				try {
 					proclaim.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
 					proclaim.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
-					settings.destroy('config');
+					destroy('config');
 					done();
 				} catch (error) {
 					done(error);
@@ -83,7 +86,7 @@ describe('Core.Send', function () {
 
 		it('fallback to xhr when sendBeacon not supported', function (done) {
 			new Queue('requests').replace([]);
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -96,7 +99,7 @@ describe('Core.Send', function () {
 			window.XMLHttpRequest = function () {
 				return dummyXHR;
 			};
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
 				try {
 					proclaim.equal(typeof dummyXHR.onerror, 'function');
@@ -109,7 +112,7 @@ describe('Core.Send', function () {
 					proclaim.ok(dummyXHR.send.calledOnce, 'calledOnce');
 					window.XMLHttpRequest = xhr;
 					navigator.sendBeacon = b;
-					settings.destroy('config');
+					destroy('config');
 					done();
 				} catch (error) {
 					done(error);
@@ -119,7 +122,7 @@ describe('Core.Send', function () {
 
 		it('fallback to image when xhr withCredentials and sendBeacon not supported', function (done) {
 			new Queue('requests').replace([]);
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -131,7 +134,7 @@ describe('Core.Send', function () {
 			};
 			const i = window.Image;
 			window.Image = sinon.stub().returns(dummyImage);
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
 				try {
 					const payload = dummyImage.src.split('?')[1];
@@ -151,7 +154,7 @@ describe('Core.Send', function () {
 		});
 
 		it('fallback to image with attachEvent() when user is living in the past', function (done) {
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -163,7 +166,7 @@ describe('Core.Send', function () {
 			};
 			const i = window.Image;
 			window.Image = sinon.stub().returns(dummyImage);
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
 				try {
 					const payload = dummyImage.src.split('?')[1];
@@ -186,13 +189,13 @@ describe('Core.Send', function () {
 			const server = sinon.fakeServer.create(); // Catch AJAX requests
 
 			new Queue('requests').replace([]);
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
 
-			Send.addAndRun(request);
+			addAndRun(request);
 
 			// console.log((new Queue('requests')).storage.storage._type);
 
@@ -234,7 +237,7 @@ describe('Core.Send', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		// Run the queue
-		Send.init();
+		init();
 
 		server.respond();
 

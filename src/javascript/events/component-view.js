@@ -1,6 +1,6 @@
-import Core from '../core.js';
-import getTrace from '../../libs/get-trace.js';
-import utils from '../utils.js';
+import core from '../core.js';
+import {getTrace} from '../../libs/get-trace.js';
+import {assignIfUndefined, filterProperties} from '../utils.js';
 
 const TRACKING_ATTRIBUTES = [
 	'componentContentId',
@@ -25,7 +25,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 			throw new Error('opts.getContextData function should return {object}');
 		}
 
-		context = utils.filterProperties(contextData, TRACKING_ATTRIBUTES);
+		context = filterProperties(contextData, TRACKING_ATTRIBUTES);
 	} else {
 		context = {};
 	}
@@ -33,7 +33,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
 
-	utils.assignIfUndefined(customContext, context);
+	assignIfUndefined(customContext, context);
 
 	eventData.context = context;
 };
@@ -69,7 +69,7 @@ const init = (opts = {}) => {
 				const viewedEl = change.target;
 
 				decorateEventData(eventData, viewedEl, opts);
-				Core.track(eventData);
+				core.track(eventData);
 				observer.unobserve(viewedEl);
 			}
 		});
@@ -80,6 +80,5 @@ const init = (opts = {}) => {
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
-export default { init };
 export { init };
 

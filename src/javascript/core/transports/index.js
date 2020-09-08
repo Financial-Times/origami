@@ -1,26 +1,40 @@
-import xhr from './xhr.js';
-import sendBeacon from './send-beacon.js';
-import image from './image.js';
+import {xhr} from './xhr.js';
+import {sendBeacon} from './send-beacon.js';
+import {image} from './image.js';
+
+export {
+	xhr,
+	sendBeacon,
+	image
+};
 
 /**
- * Given the name of a transport, returns that transpor if it exists.
+ * @type {object|undefined} - mock transport for testing
+ */
+export const mock = {};
+
+/**
+ * Given the name of a transport, returns that transport if it exists.
  *
  * @param {string} name - The name of the transport to use
  * @returns {Function|undefined} - The transport function or undefined if not found.
  */
-function get(name) {
-	return this.mock || this[name];
+export function get(name) {
+	if (mock.transport) {
+		return mock.transport;
+	}
+	switch (name) {
+		case 'xhr': {
+			return xhr;
+		}
+		case 'sendBeacon': {
+			return sendBeacon;
+		}
+		case 'image': {
+			return image;
+		}
+		default: {
+			return undefined;
+		}
+	}
 }
-
-export default {
-	xhr,
-	sendBeacon,
-	image,
-	get
-};
-export {
-	xhr,
-	sendBeacon,
-	image,
-	get
-};

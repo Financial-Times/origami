@@ -1,51 +1,51 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import User from '../../src/javascript/core/user.js';
+import {init, destroy, userID} from '../../src/javascript/core/user.js';
 
 describe('Core.User', function () {
 
-	let userID;
+	let id;
 
 	afterEach(function () {
-		User.destroy();
+		destroy();
 	});
 
 	describe('no preset value', function () {
 		it('should init', function () {
 			proclaim.doesNotThrow(function () {
-				userID = User.init();
+				id = init();
 			});
 		});
 
 		it('should use generate an ID if one does not exist', function () {
-			proclaim.equal(User.userID(), userID);
+			proclaim.equal(userID(), id);
 		});
 	});
 
 	describe('use init with an existing value', function () {
 		it('should use an object', function () {
-			User.init('value1');
+			init('value1');
 		});
 
 		it('should retrieve the userID ', function () {
-			proclaim.equal(User.userID(), 'value1');
+			proclaim.equal(userID(), 'value1');
 		});
 
 		it('should use a string', function () {
-			User.init('value2');
+			init('value2');
 		});
 
 		it('should retrieve the userID ', function () {
-			proclaim.equal(User.userID(), 'value2');
+			proclaim.equal(userID(), 'value2');
 		});
 	});
 
 	describe('retrieving values.', function () {
 		it('should use the existing value, even if a new one is provided.', function () {
-			User.init('value2');
-			User.init('value3');
-			proclaim.equal(User.userID(), 'value2');
+			init('value2');
+			init('value3');
+			proclaim.equal(userID(), 'value2');
 		});
 	});
 

@@ -4,22 +4,22 @@
 import '../setup.js';
 
 import {Queue} from '../../src/javascript/core/queue.js';
-import settings from '../../src/javascript/core/settings.js';
-import send from '../../src/javascript/core/send.js';
-import session from '../../src/javascript/core/session.js';
-import trackEvent from '../../src/javascript/events/custom.js';
+import {destroy} from '../../src/javascript/core/settings.js';
+import {init as initSend} from '../../src/javascript/core/send.js';
+import {init as initSession} from '../../src/javascript/core/session.js';
+import {event as trackEvent} from '../../src/javascript/events/custom.js';
 
 describe('event', function () {
 
 
 	before(function () {
-		session.init();
-		send.init(); // Init the sender.
+		initSession();
+		initSend(); // Init the sender.
 	});
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should track an event, adds custom component_id', function () {

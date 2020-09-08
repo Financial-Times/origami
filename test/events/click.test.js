@@ -4,17 +4,17 @@
 import '../setup.js';
 
 import {Queue} from '../../src/javascript/core/queue.js';
-import settings from '../../src/javascript/core/settings.js';
-import send from '../../src/javascript/core/send.js';
+import {destroy, set} from '../../src/javascript/core/settings.js';
+import {init as initSend} from '../../src/javascript/core/send.js';
 import core from '../../src/javascript/core.js';
-import click from '../../src/javascript/events/click.js';
-import session from '../../src/javascript/core/session.js';
+import {init as initClick} from '../../src/javascript/events/click.js';
+import {init as initSession} from '../../src/javascript/core/session.js';
 
 describe('click', function () {
 
 	before(function () {
-		session.init();
-		send.init(); // Init the sender.
+		initSession();
+		initSend();
 
 		const config = {
 			context: {
@@ -25,19 +25,19 @@ describe('click', function () {
 			}
 		};
 
-		settings.set("config",config);
+		set("config",config);
 	});
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should track an event for a click', function (done) {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorA');
+		initClick("blah", '#anchorA');
 
 		const aLinkToGoogle = document.createElement('a');
 
@@ -76,7 +76,7 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorB');
+		initClick("blah", '#anchorB');
 
 		const aLinkToGoogle = document.createElement('a');
 
@@ -115,7 +115,7 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorC');
+		initClick("blah", '#anchorC');
 
 		const aLinkToSecuredrop = document.createElement('a');
 
@@ -155,9 +155,9 @@ describe('click', function () {
 	it('should not track straight away when the link points to the same domain we are currently on', function (done) {
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorD');
+		initClick("blah", '#anchorD');
 
-		core.track.resetHistory(); // click.init() makes a call to core.track() so clearing the history here to avoid false positives
+		core.track.resetHistory(); // initClick() makes a call to track() so clearing the history here to avoid false positives
 
 		const aLinkToPageOnSameDomain = document.createElement('a');
 		const currentHost = window.document.location.hostname;
@@ -196,9 +196,9 @@ describe('click', function () {
 	it('should skip the queue when data-o-tracking-skip-queue is "true" on the link', function (done) {
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorE');
+		initClick("blah", '#anchorE');
 
-		core.track.resetHistory(); // click.init() makes a call to core.track() so clearing the history here to avoid false positives
+		core.track.resetHistory(); // initClick() makes a call to track() so clearing the history here to avoid false positives
 
 		const aLinkToPageOnSameDomain = document.createElement('a');
 		const currentHost = window.document.location.hostname;

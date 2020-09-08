@@ -93,5 +93,4 @@ api.fingerprint = function browserPrint() {
 		api.globalCount().toString(36), 4);
 };
 
-export default api;
 export { api };

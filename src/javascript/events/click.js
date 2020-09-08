@@ -1,9 +1,9 @@
 import Delegate from 'ftdomdelegate';
 import {Queue} from '../core/queue.js';
-import Core from '../core.js';
-import utils from '../utils.js';
-import settings from '../core/settings.js';
-import getTrace from '../../libs/get-trace.js';
+import core from '../core.js';
+import {sanitise, assignIfUndefined, merge, onPage} from '../utils.js';
+import {get as getSetting} from '../core/settings.js';
+import {getTrace} from '../../libs/get-trace.js';
 
 let internalQueue;
 
@@ -18,14 +18,14 @@ const track = eventData => {
 	const isInternal = href && href.indexOf(window.document.location.hostname) > -1;
 
 	if (isInternal && !skipQueue) {
-		eventData.context.source_id = Core.getRootID();
+		eventData.context.source_id = core.getRootID();
 
 		// Queue the event and send it on the next page load
 		internalQueue.add(eventData).save();
 	}
 	else {
 		// Send now, before leaving this page
-		Core.track(eventData);
+		core.track(eventData);
 	}
 };
 
@@ -43,7 +43,7 @@ const getEventProperties = event => {
 	for (const property of eventPropertiesToCollect) {
 		if (event[property]) {
 			try {
-				eventProperties[property] = utils.sanitise(event[property]);
+				eventProperties[property] = sanitise(event[property]);
 			} catch (e) {
 				// eslint-disable-next-line no-console
 				console.log(e);
@@ -63,12 +63,12 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
 
-	utils.assignIfUndefined(customContext, context);
+	assignIfUndefined(customContext, context);
 
 	eventData.context = context;
 
 	// Merge the event data into the "parent" config data
-	const config = utils.merge(settings.get('config'), eventData);
+	const config = merge(getSetting('config'), eventData);
 	track(config);
 };
 
@@ -83,7 +83,7 @@ const runQueue = _ => {
 	const next = _ => { runQueue(); };
 	const nextLink = internalQueue.shift();
 	if (nextLink) {
-		Core.track(nextLink, next);
+		core.track(nextLink, next);
 	}
 };
 /*eslint-enable no-unused-vars*/
@@ -114,11 +114,7 @@ const init = (category, elementsToTrack) => {
 	runQueue();
 
 	// Listen for page requests. If this is a single page app, we can send link requests now.
-	utils.onPage(runQueue);
-};
-
-export default {
-	init
+	onPage(runQueue);
 };
 
 export {

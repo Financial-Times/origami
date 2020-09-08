@@ -1,4 +1,4 @@
-import utils from '../../utils.js';
+import {encode} from '../../utils.js';
 
 /**
  * Image based transport mechanism
@@ -12,7 +12,7 @@ function image () {
 		name: 'image',
 		send: function (url, data) {
 			url = url.replace('https://spoor-api.ft.com/ingest', 'https://spoor-api.ft.com/px.gif');
-			image.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'data=' + utils.encode(data);
+			image.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'data=' + encode(data);
 		},
 		complete: function (callback) {
 			if (image.addEventListener) {
@@ -26,5 +26,4 @@ function image () {
 	};
 }
 
-export default image;
 export { image };

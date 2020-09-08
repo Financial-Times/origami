@@ -3,7 +3,7 @@
 
 import './setup.js';
 
-import settings from '../src/javascript/core/settings.js';
+import {destroy, get} from '../src/javascript/core/settings.js';
 import {Queue} from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
 
@@ -12,7 +12,7 @@ describe('main', function () {
 
 	before(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should only allow a single tracking instance to exist', function() {
@@ -63,7 +63,7 @@ describe('main', function () {
 		document.head.appendChild(confEl);
 		const tracking = oTracking.init();
 
-		proclaim.deepEqual(settings.get('config'), config);
+		proclaim.deepEqual(get('config'), config);
 		proclaim.equal(tracking.initialised, true);
 
 		document.head.removeChild(confEl);

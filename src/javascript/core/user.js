@@ -1,5 +1,5 @@
-import utils from '../utils.js';
-import Store from './store.js';
+import {guid} from '../utils.js';
+import {Store} from './store.js';
 
 let userID;
 let store;
@@ -45,7 +45,7 @@ function setUser(id) {
 	userID = id;
 
 	if (!userID) {
-		userID = utils.guid();
+		userID = guid();
 	}
 
 	store.write(userID); // Refreshes the cookie...
@@ -71,12 +71,6 @@ function id() {
 	return userID;
 }
 
-export default {
-	init,
-	setUser,
-	userID: id,
-	destroy
-};
 export {
 	init,
 	setUser,

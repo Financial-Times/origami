@@ -1,7 +1,7 @@
-import settings from './settings.js';
-import utils from '../utils.js';
+import {get as getSetting} from './settings.js';
+import {broadcast, is, findCircularPathsIn, containsCircularPaths, merge, addEvent, log} from '../utils.js';
 import {Queue} from './queue.js';
-import transports from './transports/index.js';
+import {get as getTransport} from './transports/index.js';
 
 /**
  * Queue queue.
@@ -30,26 +30,26 @@ function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 
-	const transport = should_use_sendBeacon() ? transports.get('sendBeacon')() :
-		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
-			transports.get('image')();
+	const transport = should_use_sendBeacon() ? getTransport('sendBeacon')() :
+		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? getTransport('xhr')() :
+			getTransport('image')();
 	const user_callback = request.callback;
 
-	const core_system = settings.get('config') && settings.get('config').system || {};
-	const system = utils.merge(core_system, {
-		version: settings.get('version'), // Version of the tracking client e.g. '1.2'
-		source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
+	const core_system = getSetting('config') && getSetting('config').system || {};
+	const system = merge(core_system, {
+		version: getSetting('version'), // Version of the tracking client e.g. '1.2'
+		source: getSetting('source'), // Source of the tracking client e.g. 'o-tracking'
 		transport: transport.name, // The transport method used.
 	});
 
-	if (settings.get('config').test) {
+	if (getSetting('config').test) {
 		system.is_live = false;
 	} else {
 		system.is_live = true;
 	}
 
 
-	request = utils.merge({ system: system }, request);
+	request = merge({ system: system }, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < 12 * 30 * 24 * 60 * 60 * 1000) {
@@ -60,23 +60,23 @@ function sendRequest(request, callback) {
 	delete request.type;
 	delete request.queueTime;
 
-	utils.log('user_callback', user_callback);
-	utils.log('PreSend', request);
+	log('user_callback', user_callback);
+	log('PreSend', request);
 
-	if (utils.containsCircularPaths(request)) {
+	if (containsCircularPaths(request)) {
 		const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
 		"Please remove the circular references in the data.\n" +
 		"Here are the paths in the data which are circular:\n" +
-		JSON.stringify(utils.findCircularPathsIn(request), undefined, 4);
+		JSON.stringify(findCircularPathsIn(request), undefined, 4);
 		throw new Error(errorMessage);
 	}
 
 	const stringifiedData = JSON.stringify(request);
 
 	transport.complete(function (error) {
-		if (utils.is(user_callback, 'function')) {
+		if (is(user_callback, 'function')) {
 			user_callback.call(request);
-			utils.log('calling user_callback');
+			log('calling user_callback');
 		}
 
 		if (error) {
@@ -85,7 +85,7 @@ function sendRequest(request, callback) {
 			request.queueTime = queueTime;
 			queue.add(request).save();
 
-			utils.broadcast('oErrors', 'log', {
+			broadcast('oErrors', 'log', {
 				error: error.message,
 				info: { module: 'o-tracking' }
 			});
@@ -118,7 +118,7 @@ function add(request) {
 	} else {
 		queue.add(request).save();
 	}
-	utils.log('AddedToQueue', queue);
+	log('AddedToQueue', queue);
 }
 
 /**
@@ -195,7 +195,7 @@ function init() {
 	queue = new Queue('requests');
 
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
-	utils.addEvent(window, 'online', function() {
+	addEvent(window, 'online', function() {
 		run();
 	});
 
@@ -205,12 +205,6 @@ function init() {
 	return queue;
 }
 
-export default {
-	init,
-	add,
-	run,
-	addAndRun
-};
 export {
 	init,
 	add,

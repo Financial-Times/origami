@@ -1,12 +1,12 @@
 /**
  * Shared 'internal' scope.
  */
-import settings from './core/settings.js';
+import {get} from './core/settings.js';
 
 /**
  * CUID Generator
  */
-import cuid from '../libs/browser-cuid.js';
+import {api as cuid} from '../libs/browser-cuid.js';
 
 /**
  * Record of callbacks to call when a page is tracked.
@@ -20,7 +20,7 @@ const page_callbacks = [];
  * @returns {void}
  */
 function log(...args) {
-	if (settings.get('config').test && window.console) {
+	if (get('config').test && window.console) {
 		for (const arg of args) {
 			window.console.log(arg);
 		}
@@ -387,25 +387,6 @@ function isDeepEqual(a, b) {
 	}
 }
 
-export default {
-	log,
-	is,
-	isUndefined: is,
-	merge,
-	encode,
-	decode,
-	guid: cuid,
-	addEvent,
-	broadcast,
-	onPage,
-	triggerPage,
-	getValueFromCookie,
-	sanitise,
-	assignIfUndefined,
-	filterProperties,
-	findCircularPathsIn,
-	containsCircularPaths
-};
 export {
 	log,
 	is,

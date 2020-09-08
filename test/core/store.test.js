@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim */
 
-import Store from '../../src/javascript/core/store.js';
+import {Store} from '../../src/javascript/core/store.js';
 
 describe('Core.Store', function () {
 

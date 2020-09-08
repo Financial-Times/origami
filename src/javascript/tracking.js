@@ -1,13 +1,16 @@
-import settings from './core/settings.js';
-import user from './core/user.js';
-import session from './core/session.js';
-import send from './core/send.js';
-import event from './events/custom.js';
-import page from './events/page-view.js';
-import click from './events/click.js';
-import { getRootID } from './core.js';
+import {set, get, destroy as destroySetting} from './core/settings.js';
+import {setUser, init as initUser} from './core/user.js';
+import {init as initSession} from './core/session.js';
+import {init as initSend} from './core/send.js';
+import {event} from './events/custom.js';
+import {page} from './events/page-view.js';
+import {init as initClick} from './events/click.js';
+import core from './core.js';
 import { merge, broadcast } from './utils.js';
-import view from './events/component-view.js';
+import {init as initView} from './events/component-view.js';
+
+const initEvent = event.init;
+const initPage = page.init;
 
 /**
  * The version of the tracking module.
@@ -32,13 +35,13 @@ const source = 'o-tracking';
  * @returns {void}
  */
 function updateConfig(newConfig) {
-	let config = settings.get('config') || {};
+	let config = get('config') || {};
 
 	config = merge(config, newConfig);
-	settings.set('config', config);
+	set('config', config);
 
 	if (config.user && config.user.user_id) {
-		user.setUser(config.user.user_id);
+		setUser(config.user.user_id);
 	}
 }
 
@@ -50,8 +53,8 @@ function updateConfig(newConfig) {
 function destroy() {
 	tracking.initialised = false;
 
-	settings.destroy('config');
-	settings.destroy('page_sent');
+	destroySetting('config');
+	destroySetting('page_sent');
 }
 /**
  * Overload toString method to show the version.
@@ -111,25 +114,25 @@ function init(config = {}) {
 		return null;
 	}
 
-	settings.set('version', version);
-	settings.set('source', source);
+	set('version', version);
+	set('source', source);
 
-	settings.set('page_sent', false);
+	set('page_sent', false);
 
 	const cookieDomain = config ? config.cookieDomain : '';
 
 	// Set up the user from stored - may later be updated by config
-	user.init('', cookieDomain);
+	initUser('', cookieDomain);
 	updateConfig(config);
 
 	// Session
-	session.init(config.session);
+	initSession(config.session);
 
 	// Initialize the sending queue.
-	send.init();
+	initSend();
 
-	event.init();
-	page.init();
+	initEvent();
+	initPage();
 	tracking.initialised = true;
 	return tracking;
 }
@@ -190,11 +193,11 @@ const tracking = {
 	destroy,
 	toString,
 	init,
-	click,
+	click: initClick,
 	event,
 	page,
-	view,
-	getRootID
+	view: initView,
+	getRootID: core.getRootID
 };
 
 export default tracking;
