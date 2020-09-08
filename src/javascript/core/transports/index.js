@@ -5,7 +5,7 @@ import image from './image.js';
 /**
  * Given the name of a transport, returns that transpor if it exists.
  *
- * @param {string} name
+ * @param {string} name - The name of the transport to use
  * @returns {Function|undefined} - The transport function or undefined if not found.
  */
 function get(name) {
