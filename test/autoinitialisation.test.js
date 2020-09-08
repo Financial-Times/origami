@@ -2,7 +2,7 @@
 /* global proclaim sinon */
 
 import fixtures from './helpers/fixtures.js';
-import Header from '../main.js.js';
+import Header from '../main.js';
 
 let pcfEl;
 
