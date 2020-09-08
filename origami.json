@@ -17,8 +17,8 @@
 	"supportStatus": "active",
 	"browserFeatures": {
 		"required": [
-			"customevent",
-			"Array.from"
+			"Array.from",
+			"Element.prototype.matches"
 		],
 		"optional": [
 			"ResizeObserver"
