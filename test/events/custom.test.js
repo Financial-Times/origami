@@ -7,7 +7,7 @@ import {Queue} from '../../src/javascript/core/queue.js';
 import settings from '../../src/javascript/core/settings.js';
 import send from '../../src/javascript/core/send.js';
 import session from '../../src/javascript/core/session.js';
-import trackEvent from '../../src/javascript/events/custom.js.js';
+import trackEvent from '../../src/javascript/events/custom.js';
 
 describe('event', function () {
 

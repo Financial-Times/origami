@@ -5,7 +5,7 @@ import settings from '../src/javascript/core/settings.js';
 import {Queue} from '../src/javascript/core/queue.js';
 import session from '../src/javascript/core/session.js';
 import send from '../src/javascript/core/send.js';
-import Core from '../src/javascript/core.js.js';
+import Core from '../src/javascript/core.js';
 import { errorNextSend } from './setup.js';
 
 describe('Core', function () {

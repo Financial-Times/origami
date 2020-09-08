@@ -7,8 +7,8 @@ import settings from '../../src/javascript/core/settings.js';
 import send from '../../src/javascript/core/send.js';
 import session from '../../src/javascript/core/session.js';
 import {Queue} from '../../src/javascript/core/queue.js';
-import page from '../../src/javascript/events/page-view.js.js';
-import event from '../../src/javascript/events/custom.js.js';
+import page from '../../src/javascript/events/page-view.js';
+import event from '../../src/javascript/events/custom.js';
 
 
 describe('page', function () {
