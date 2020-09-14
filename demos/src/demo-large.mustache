@@ -23,7 +23,9 @@
 			{{#article-timestamp}}
 			<div class="o-teaser__timestamp {{#is-live}}o-teaser__timestamp--live{{/is-live}}">
 				{{#is-live}}<span class="o-teaser__timestamp-prefix">Live</span>{{/is-live}}
-				<time data-o-component="o-date" class="o-date o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				{{^is-live}}
+				<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				{{/is-live}}
 			</div>
 			{{/article-timestamp}}
 		</div>

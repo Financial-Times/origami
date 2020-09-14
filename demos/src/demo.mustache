@@ -4,7 +4,9 @@
 		<div class="o-teaser__content">
 			<div class="o-teaser__meta">
 				{{#article-tag-prefix}}<span class="o-teaser__tag-prefix">{{.}}</span>{{/article-tag-prefix}}
+				{{#article-tag}}
 				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				{{/article-tag}}
 				{{#article-duration}}
 					<time class="o-teaser__tag-suffix" datetime="PT3M07S">3:07min</time>
 				{{/article-duration}}
@@ -31,9 +33,13 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
-				<div class="o-teaser__timestamp o-teaser__timestamp--live">
+				<div class="o-teaser__timestamp{{#is-live}} o-teaser__timestamp--live{{/is-live}}">
+					{{#is-live}}
 					<span class="o-teaser__timestamp-prefix">Live</span>
-					<time data-o-component="o-date" class="o-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+					{{/is-live}}
+					{{^is-live}}
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+					{{/is-live}}
 				</div>
 			{{/article-timestamp}}
 

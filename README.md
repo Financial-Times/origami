@@ -28,11 +28,13 @@ The basic markup structure for a teaser will look something like this:
 		<a href="#" class="o-teaser__tag">World</a>
 		<h2 class="o-teaser__heading"><a href="#">Japan sells negative yield 10-year bonds</a></h2>
 		<div class="o-teaser__timestamp">
-			<time data-o-component="o-date" class="o-date" datetime="2016-02-29T12:35:48Z">2016-02-29T12:35:48Z</time>
+			<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="2016-02-29T12:35:48Z">2016-02-29T12:35:48Z</time>
 		</div>
 	</div>
 </div>
 ```
+
+Optionally include the [o-date](https://registry.origami.ft.com/components/o-date) component within your project to render a formatted date within the timestamp element `o-teaser__timestamp`. This is required to render relative timestamps e.g. "1hr ago".
 
 Teasers support a wide array of [elements](#supported-elements) and can be customised using several [themes](#themes) and should be used as required. For a full list of examples including example markup, see [o-teaser in the Registry](http://registry.origami.ft.com/components/o-teaser).
 

@@ -1,6 +1,6 @@
 <div class="demo-container {{#article-modifier}} demo-container--{{.}} {{/article-modifier}}">
 
-	<div class="o-teaser o-teaser--small {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
+	<div class="o-teaser o-teaser--small {{#is-live}}o-teaser--live{{/is-live}} {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			<div class="o-teaser__meta">
 				{{#article-tag-prefix}}<span class="o-teaser__tag-prefix">{{.}}</span>{{/article-tag-prefix}}
@@ -31,10 +31,12 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
-				<div class="o-teaser__timestamp o-teaser__timestamp--live">
-					<span class="o-teaser__timestamp-prefix">Live</span>
-					<time data-o-component="o-date" class="o-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
-				</div>
+			<div class="o-teaser__timestamp {{#is-live}}o-teaser__timestamp--live{{/is-live}}">
+				{{#is-live}}<span class="o-teaser__timestamp-prefix">Live</span>{{/is-live}}
+				{{^is-live}}
+				<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				{{/is-live}}
+			</div>
 			{{/article-timestamp}}
 
 			{{#article-headshot}}
