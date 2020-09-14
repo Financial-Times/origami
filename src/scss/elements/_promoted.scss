@@ -1,52 +1,21 @@
-/// Promoted content theme
-@mixin _oTeaserPromotedContent {
-	color: oColorsByUsecase('o-teaser/theme-promoted-content', 'text');
-	background-color: oColorsByUsecase('o-teaser/theme-promoted-content', 'background');
-	// Hack to force a higher specificity than .o-teaser--small which
-	// adds a padding-bottom of 16px. This needs to be added three times
-	// so that it has a higher specificity than
-	// .o-teaser-small.o-teaser-stacked
-	&#{&}#{&} {
-		padding: 12px;
-	}
-
-	.o-teaser__heading a {
-		@include oTypographyLink(
-			$external: true,
-			$include-base-styles: false,
-			$theme: (
-				'base': $_o-teaser-base-color,
-				'hover': $_o-teaser-focus-hover
-			)
-		);
-	}
+@mixin _oTeaserPartnerContent {
+	color: oColorsByName('black');
 
 	.o-teaser__meta {
 		@include oTypographySans($weight: 'semibold');
-		color: oColorsByName('black-80');
+		color: $_o-teaser-muted;
+		margin-bottom: oSpacingByName('s2');
 	}
 
 	.o-teaser__promoted-prefix {
-		@include oLabelsContent($opts: ('state': 'content-commercial', 'base': true, 'size': 'small'));
-	}
-}
-
-/// Paid post theme
-@mixin _oTeaserPaidPost {
-	color: oColorsByUsecase('o-teaser/theme-paid-post', 'text');
-	background-color: oColorsByUsecase('o-teaser/theme-paid-post', 'background');
-	// Hack to force a higher specificity than .o-teaser--small which
-	// adds a padding-bottom of 16px
-	&#{&} {
-		padding: 12px;
+		@include oTypographySans($scale: 0);
+		text-transform: uppercase;
+		color: oColorsByName('oxford-50');
+		display: block;
 	}
 
-	.o-teaser__meta {
-		@include oTypographySans($weight: 'semibold');
-		color: oColorsByName('black-80');
-	}
-
-	.o-teaser__promoted-prefix {
-		@include oLabelsContent($opts: ('state': 'content-commercial', 'base': true, 'size': 'small'));
+	.o-teaser__promoted-by {
+		@include oTypographySans($scale: -1, $include-font-family: false);
+		text-transform: uppercase;
 	}
 }

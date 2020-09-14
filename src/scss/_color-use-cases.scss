@@ -52,14 +52,6 @@
 	'border': 'lemon',
 	'text': 'lemon'
 ));
-@include oColorsSetUseCase('o-teaser/theme-paid-post', (
-	'background': 'white',
-	'text': 'black'
-));
-@include oColorsSetUseCase('o-teaser/theme-promoted-content', (
-	'background': 'white',
-	'text': 'black'
-));
 
 // Package teasers
 @include oColorsSetUseCase('o-teaser/package-basic', (

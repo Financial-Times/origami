@@ -91,12 +91,22 @@
 }
 
 @mixin _oTeaserElementsPromoted {
+	.o-teaser--promoted-content,
 	.o-teaser--paid-post {
-		@include _oTeaserPaidPost;
+		@include _oTeaserPartnerContent;
 	}
 
 	.o-teaser--promoted-content {
-		@include _oTeaserPromotedContent;
+		.o-teaser__heading a {
+			@include oTypographyLink(
+				$external: true,
+				$include-base-styles: false,
+				$theme: (
+					'base': $_o-teaser-base-color,
+					'hover': $_o-teaser-focus-hover
+				)
+			);
+		}
 	}
 }
 

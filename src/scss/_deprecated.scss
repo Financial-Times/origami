@@ -49,3 +49,17 @@
 		'deprecated': 'contact the Origami team if you would still like to use the o-teaser/live-blog-coming-soon colour'
 	)
 );
+
+@include oColorsSetUseCase('o-teaser/theme-paid-post', (
+	'background': 'white',
+	'text': 'black'
+), (
+	'deprecated': 'contact the Origami team if you would still like to use the o-teaser/theme-paid-post colour'
+));
+
+@include oColorsSetUseCase('o-teaser/theme-promoted-content', (
+	'background': 'white',
+	'text': 'black'
+),(
+	'deprecated': 'contact the Origami team if you would still like to use the o-teaser/theme-promoted-content colour'
+));
