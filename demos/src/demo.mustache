@@ -1,6 +1,6 @@
 <div class="demo-container {{#article-modifier}} demo-container--{{.}} {{/article-modifier}}">
 
-	<div class="o-teaser o-teaser--small {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}} {{#is-live}}o-teaser--live{{/is-live}}" data-o-component="o-teaser">
+	<div class="o-teaser o-teaser--small {{#is-live}}o-teaser--stacked{{/is-live}} {{#article-modifier}} o-teaser--{{.}} {{/article-modifier}} {{#article-image-url}}o-teaser--has-image{{/article-image-url}}" data-o-component="o-teaser">
 		<div class="o-teaser__content">
 			<div class="o-teaser__meta">
 				{{#article-tag-prefix}}<span class="o-teaser__tag-prefix">{{.}}</span>{{/article-tag-prefix}}

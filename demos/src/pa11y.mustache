@@ -15,9 +15,37 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
+				<div class="o-teaser__timestamp">
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--stacked o-teaser--has-image o-teaser--live" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
 				<div class="o-teaser__timestamp o-teaser__timestamp--live">
 					<span class="o-teaser__timestamp-prefix">Live</span>
-					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 				</div>
 			{{/article-timestamp}}
 		</div>
@@ -45,8 +73,7 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
-				<div class="o-teaser__timestamp o-teaser__timestamp--live">
-					<span class="o-teaser__timestamp-prefix">Live</span>
+				<div class="o-teaser__timestamp">
 					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 				</div>
 			{{/article-timestamp}}
@@ -68,8 +95,7 @@
 			{{/article-standfirst}}
 
 			{{#article-timestamp}}
-				<div class="o-teaser__timestamp o-teaser__timestamp--live">
-					<span class="o-teaser__timestamp-prefix">Live</span>
+				<div class="o-teaser__timestamp">
 					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
 				</div>
 			{{/article-timestamp}}

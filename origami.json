@@ -39,6 +39,7 @@
 			"template": "demos/src/demo.mustache",
 			"data": {
 				"is-live": true,
+				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",
 				"article-modifier": "live",
 				"article-tag": "World",
 				"article-heading": "Japan sells negative yield 10-year bonds",
