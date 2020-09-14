@@ -38,6 +38,7 @@
 			"description": "Small live teaser",
 			"template": "demos/src/demo.mustache",
 			"data": {
+				"is-live": true,
 				"article-modifier": "live",
 				"article-tag": "World",
 				"article-heading": "Japan sells negative yield 10-year bonds",
