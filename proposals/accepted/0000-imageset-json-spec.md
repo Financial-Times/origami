@@ -1,4 +1,4 @@
-# put your proposal title here
+# Imageset Specification
 
 Create a specification for `imageset.json`, found in the route of Origami image sets, which includes a `deprecated` key.
 
