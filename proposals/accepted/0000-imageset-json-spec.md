@@ -4,7 +4,7 @@ Create a specification for `imageset.json`, found in the root of Origami image s
 
 ## motivation
 
-So that we may display old images in the Registry as deprecated, I would like to add an optional `deprecated` (boolean) key to images defined in `imageset.json`. As an optional key it should be documented so future team members know it exists.
+So that we may display old images in the Registry as deprecated, I would like to add an optional `deprecated` key to images defined in `imageset.json`. As an optional key it should be documented so future team members know it exists.
 
 In addition, we have build processes and services (e.g. Origami Repo Data) that already depend on the implicit structure of `imageset.json`.
 
