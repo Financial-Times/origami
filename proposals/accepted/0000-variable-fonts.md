@@ -159,3 +159,4 @@ If we keep o-typography's progressive font loading we won't need to commission r
 - Do we want to commission a resized Financier too? See headline shift in screenshots.
 - If we resized Metric and updated the scale, are design ok with remembering the new scale?
 - We don't use many Metric font variants. How much bigger in file size will the variable font be?
+- How will we preload the variable and non-variable fonts conditionally? rely on woff2 `type` being close enough? `media`? Add the link tag with a script?
