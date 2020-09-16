@@ -1,6 +1,6 @@
 # Imageset Specification
 
-Create a specification for `imageset.json`, found in the route of Origami image sets, which includes a `deprecated` key.
+Create a specification for `imageset.json`, found in the root of Origami image sets, which includes a `deprecated` key.
 
 ## motivation
 
