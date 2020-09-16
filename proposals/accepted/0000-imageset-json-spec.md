@@ -14,7 +14,7 @@ This proposal could be split into two, but I think it makes enough sense to cons
 - Write a specification for `imageset.json` in its current form
 - Add a new optional key `deprecated`, of type string.
 
-The new `deprecated` key should be a string, to allow for a deprecation message, and should be optional. We can use the deprecation message to, for example, instruct that a new logo should be used pending a review that it works visually in context.
+The new `deprecated` key should be a string, to allow for a deprecation message, and should be optional. We can use the deprecation message to, for example, instruct that a new logo should be used pending a review that it works visually in context. The existence of the `deprecated` key with an empty string, i.e. no deprecation message, would still indicate the image is deprecated. 
 
 ## work required
 
