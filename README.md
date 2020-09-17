@@ -299,7 +299,7 @@ $color: oColorsMix($color: 'black', $percentage: 30); // same as black-30
 
 But two colours may be given. For example to mix claret over slate at 20%:
 ```scss
-$color: oColorsMix($color: 'claret', $background: 'slate', 20);
+$color: oColorsMix($color: 'claret', $background: 'slate', $percentage: 20);
 ```
 
 ### Tone Palette Colors
