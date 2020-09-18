@@ -12,7 +12,7 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/ft-origami"
 	},
-	"supportStatus": "experimental",
+	"supportStatus": "maintained",
 	"browserFeatures": {
 		"required": [],
 		"optional": []
