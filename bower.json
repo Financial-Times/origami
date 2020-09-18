@@ -10,6 +10,7 @@
     "o-grid": "^5.0.0",
     "o-colors": "^5.0.0",
     "o-icons": "^6.0.0",
-    "o-spacing": "^2.0.0"
+    "o-spacing": "^2.0.0",
+    "n-map-content-to-topper": "^1.1.0"
   }
 }

@@ -1,16 +1,13 @@
 # o-topper
 
-This component is for displaying header sections at the top of articles
+This component is used for styling the topper sections of an article.
 
 - [Markup](#markup)
 - [Sass](#sass)
+- [JavaScript](#javascript)
 - [Migration Guide](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
-
-## Usage Warning
-
-**Use of this component is not recommended outside FT.com / app.ft.com**. The [Javascript helper which currently extracts themes, colors, and other topper display data](/js/map-content-to-topper.js) is deeply tied to the FT.com content store and includes hardcoded UUIDs and business logic. In future this will be moved into another layer of the FT.com stack, and the new configuration used to control topper display and functionality will be documented, at which stage this topper will be more suitable for wider use.
 
 ## Markup
 
@@ -147,29 +144,19 @@ To include o-topper styles granularly specify which elements, themes, and colour
 ));
 ```
 
-## Javascript
+## JavaScript
 
-This component includes a Javascript helper, which should be used to select the correct topper themes and colors, as well as other topper-overriden data, given a particular JSON-formatted FT article (such as from the Content API).
+### Mapping Content to Topper
+
+This component exports a JavaScript helper from [`n-map-content-to-topper`](https://github.com/Financial-Times/n-map-content-to-topper). Use this helper to select the correct topper for an article given a JSON-formatteed FT article and flags.
+
+**Note:** This helper is deeply tied to the FT.com content store, and includes hardcoded UUIDs and business logic.
 
 ```js
 import { mapContentToTopper } from 'o-topper';
 
-const topper = mapContentToTopper(ftArticle);
+const topper = mapContentToTopper(ftArticle, flags);
 ```
-
-## Topper data
-
-Data returned by the topper helper should be used in the product's templates. Other keys may be returned but should not be relied on as documented behaviour.
-
-| Key               | Usage                                                                                  |
-|-------------------|----------------------------------------------------------------------------------------|
-| `headline`        | Should be used in place of the standard article headline                               |
-| `standfirst`      | Should be used in place of the standard article standfirst                             |
-| `modifiers`       | Should be included as `o-topper--[modifier]` classes on the `o-topper` wrapper element |
-| `backgroundColor` | Should be included as an `o-topper--color-[color]` class on the wrapper element        |
-| `themeImageRatio` | Used to differentiate `split` and `full-bleed` topper images                           |
-| `includesImage`   | Use to disable main article image to prevent duplicate images when topper includes one |
-| `largeHeadline`   | Indicates whether to use `o-topper__headline--large` on `o-topper__headline`           |
 
 ## Migration
 
