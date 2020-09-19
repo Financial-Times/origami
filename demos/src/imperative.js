@@ -1,4 +1,4 @@
-import Message from './../../main.js.js';
+import Message from './../../main.js';
 
 const options = {
 	type: 'alert',
