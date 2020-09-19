@@ -1,4 +1,4 @@
-import Forms from '../../src/js/forms.js.js';
+import Forms from '../../src/js/forms.js';
 
 const formEl = document.forms[0];
 const form = new Forms(formEl);
