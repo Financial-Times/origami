@@ -90,7 +90,7 @@ Required:
 - Add variable font files to `o-font-assets`.
 - Update `o-fonts` font faces with variable fonts and functions such as `oFontsVariantExists`. Use `@supports` to load variable fonts conditionally.
 - Update `o-typography` to [remove font loading classes when the variable fonts have loaded](https://github.com/Financial-Times/o-typography/blob/040377b8fd2f2ea8df9bc85e366f88b82e8284d2/src/js/typography.js#L118).
-- Update [dotcom-page-kit font preloads](https://github.com/Financial-Times/dotcom-page-kit/blob/bb503876231b9ab5a118e6306f07df457636b41a/packages/dotcom-ui-base-styles/src/lib/fontFaces.ts#L3) to preload the variable fonts given `woff2` support and the fallback fonts if `woff2` is not supported. _Note some browsers support `woff2` but not variable fonts and will preload the font unnecessarily. The case seems small be we could maybe inline a script to check for variable font support and preload the fonts that way._
+- Update [dotcom-page-kit font preloads](https://github.com/Financial-Times/dotcom-page-kit/blob/bb503876231b9ab5a118e6306f07df457636b41a/packages/dotcom-ui-base-styles/src/lib/fontFaces.ts#L3) to preload the variable fonts given `woff2` support and the fallback fonts if `woff2` is not supported. _Note some browsers support `woff2` but not variable fonts and will preload the font unnecessarily. The group seems small but we could consider inlining a script to check for variable font support and preload the fonts conditionally that way._
 
 Follow up:
 - Work with the design team to validate `Financier Text` and swap the serif font in `o-typography`.
