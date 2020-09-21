@@ -4,7 +4,7 @@
 	"devDependencies": {
 		"eslint": "^7.9.0",
 		"eslint-config-origami-component": "^2.1.0",
-		"origami-ci-tools": "^2.0.2",
+		"origami-ci-tools": "^2.1.0",
 		"remark": "^12.0.1",
 		"remark-lint": "^7.0.1",
 		"remark-preset-lint-origami-component": "^1.2.0",
