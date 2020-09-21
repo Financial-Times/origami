@@ -87,6 +87,7 @@ The design team can make greater use of typography; to strengthen the brand and 
 
 Required:
 - Commission a MetricWeb variable font.
+- Work with the design team to define which font variants should be allowed, to limit the variable font set sensibly. Update the readme of `o-fonts`/`o-typography` accordingly and throw an error in `o-typography` if a non-recommended variant is used.
 - Add variable font files to `o-font-assets`.
 - Update `o-fonts` font faces with variable fonts and functions such as `oFontsVariantExists`. Use `@supports` to load variable fonts conditionally.
 - Update `o-typography` to [remove font loading classes when the variable fonts have loaded](https://github.com/Financial-Times/o-typography/blob/040377b8fd2f2ea8df9bc85e366f88b82e8284d2/src/js/typography.js#L118).
