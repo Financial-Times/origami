@@ -4,7 +4,7 @@
 		<ul class="o-header__nav-list">
 			{{#mobile}}
 			<li class="o-header__nav-item">
-				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>{{name}}</a>
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
 			</li>
 			{{/mobile}}
 		</ul>
@@ -15,7 +15,7 @@
 			<ul class="o-header__nav-list o-header__nav-list--left">
 				{{#desktop}}
 				<li class="o-header__nav-item">
-					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
 					{{#hasMega}}
 					<div class="o-header__mega" id="o-header-mega-{{index}}" role="group" aria-labelledby="o-header-link-{{index}}" data-o-header-mega>
 						<div class="o-header__container">
@@ -28,7 +28,7 @@
 										<ul class="o-header__mega-list">
 											{{#subsections}}
 											<li class="o-header__mega-item">
-												<a class="o-header__mega-link" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>
+												<a class="o-header__mega-link" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>
 													{{name}}
 												</a>
 											</li>

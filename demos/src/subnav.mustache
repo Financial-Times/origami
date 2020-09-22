@@ -57,7 +57,7 @@
 							{{/currentNav.ancestors}}
 							{{#currentNav}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
 									{{name}}
 								</a>
 							</li>
@@ -67,7 +67,7 @@
 						<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
 							{{#currentNav.children}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
 									{{name}}
 								</a>
 							</li>
@@ -78,7 +78,7 @@
 						<ul class="o-header__subnav-list o-header__subnav-list--children o-header__subnav-list--right" aria-label="Actions">
 							{{#currentNav.childrenRight}}
 							<li class="o-header__subnav-item">
-								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="Current page"{{/selected}}>
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
 									{{name}}
 								</a>
 							</li>

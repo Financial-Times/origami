@@ -54,7 +54,7 @@
 			<ul class="o-header__nav-list o-header__nav-list--left">
 				{{#desktop}}
 				<li class="o-header__nav-item">
-					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}} id="o-header-link-{{index}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
 					{{#hasMega}}
 					<div class="o-header__mega" id="o-header-mega-{{index}}" role="group" aria-labelledby="o-header-link-{{index}}" data-o-header-mega>
 						<div class="o-header__container">
@@ -67,7 +67,7 @@
 										<ul class="o-header__mega-list">
 											{{#subsections}}
 											<li class="o-header__mega-item">
-												<a class="o-header__mega-link" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>
+												<a class="o-header__mega-link" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>
 													{{name}}
 												</a>
 											</li>
@@ -165,7 +165,7 @@
 						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
 							{{#hasChildren}}
 								<div class="o-header__drawer-menu-toggle-wrapper">
-									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>{{name}}</a>
+									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
 									<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
 										Show more {{name}} links
 									</button>
@@ -173,13 +173,13 @@
 								<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
 									{{#children}}
 									<li class="o-header__drawer-menu-item">
-										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>{{name}}</a>
+										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
 									</li>
 									{{/children}}
 								</ul>
 							{{/hasChildren}}
 							{{^hasChildren}}
-								<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="Current page" aria-current="page"{{/selected}}>{{name}}</a>
+								<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
 							{{/hasChildren}}
 						</li>
 						{{/items}}
