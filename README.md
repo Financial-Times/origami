@@ -3,11 +3,16 @@
 Include in your product to send tracking requests to the [Spoor API](https://spoor-docs.herokuapp.com/).
 
 - [Usage](#usage)
-- [How To View The Data](#how-to-view-the-data)
-- [Example Implementations](#example-implementations)
+  - [How to view the data](#how-to-view-the-data)
+  - [How to track extra click data using `data-trackable` attributes](#how-to-track-extra-click-data-using-data-trackable-attributes)
+  - [Tracking without JavaScript](#tracking-without-javascript)
+  - [Tracking with JavaScript](#tracking-with-javascript)
+- [How to view the data](#how-to-view-the-data-1)
+- [Example implementations](#example-implementations)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
 
 ## Usage
 

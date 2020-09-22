@@ -1,6 +1,9 @@
 
 # Migration
 
+- [Migrating from v2 to v3](#migrating-from-v2-to-v3)
+- [Migrating from v1 to v2](#migrating-from-v1-to-v2)
+
 ## Migrating from v2 to v3
 
 o-tracking now uses the Beacon API in all browsers which support it. In v2 this was an opt-in feature, now it is always enabled in browsers which support it. For browsers which do not support Beacon API o-tracking will revert to the XMLHTTPRequest API.
