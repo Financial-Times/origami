@@ -139,7 +139,7 @@
 								</ul>
 							{{/hasChildren}}
 							{{^hasChildren}}
-								<a class="o-header__drawer-menu-link o-header__drawer-menu-link--{{variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+								<a class="o-header__drawer-menu-link {{#variation}}o-header__drawer-menu-link--{{variation}}{{/variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
 							{{/hasChildren}}
 						</li>
 						{{/items}}
