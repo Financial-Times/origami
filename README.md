@@ -87,7 +87,7 @@ E.g. To get all of the CSS needed for the FT homepage you would call:
 
 ## Browser Support
 
-We use the [standard](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) `o--if-js` and `o--if-no-js` classes to hide elements in enhanced and core experience respectively
+To use `o-header` setup a [core and enhanced experience](https://origami.ft.com/docs/components/compatibility/#core--enhanced-experiences) within your project. `o-header` depends on the `o--if-js` and `o--if-no-js` classes.
 
 ## Migration guide
 

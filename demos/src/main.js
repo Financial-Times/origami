@@ -1,7 +1,23 @@
 import '../../main.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', setupDemo);
 
+document.onreadystatechange = function () {
+	if (document.readyState === 'complete') {
+		setupDemo();
+	} else if (document.readyState === 'interactive' && !document.attachEvent) {
+		setupDemo();
+	}
+};
+
+if (document.readyState === 'complete') {
+	setupDemo();
+} else if (document.readyState === 'interactive' && !document.attachEvent) {
+	setupDemo();
+}
+
+
+function setupDemo() {
 	if (document.documentElement.classList.contains('demo-sticky')) {
 		const p = document.createElement('p');
 		p.className = 'demo-sticky-message demo-sticky-message--';
@@ -19,4 +35,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	document.documentElement.className = document.documentElement.className.replace('core', 'enhanced');
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
-});
+}

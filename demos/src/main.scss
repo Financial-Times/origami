@@ -61,3 +61,12 @@ body {
 	background-color: rgba(0, 0, 0, 0.2);
 	height: 60px;
 }
+
+// Components do not usually depend on these classes
+// since they are not part of the Origami component specification.
+// Instead consider removing an o-header specific class with
+// JavaScript in the future to indicate a core or enhances experience.
+.core .o--if-js,
+.enhanced .o--if-no-js {
+	display: none !important; //stylelint-disable-line declaration-no-important
+}
