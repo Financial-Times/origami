@@ -197,7 +197,7 @@ Please refer to the [event document](docs/event.md) for information about all th
 
 #### Events
 
-Instead of calling the `page` and `event` methods `o-tracking` can be configured to fire events based on the custom DOM Events `oTracking.page` and `oTracking.event`.
+Instead of calling the `page` and `event` methods `o-tracking` can be configured to capture events based on the custom DOM Events `oTracking.page` and `oTracking.event`.
 
 ##### oTracking.page
 
