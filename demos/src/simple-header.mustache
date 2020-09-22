@@ -61,16 +61,20 @@
 			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
 				<span class="o-header__visually-hidden">Close drawer menu</span>
 			</button>
+			{{#editions}}
+			<p class="o-header__drawer-current-edition">{{editions.current.name}} Edition</p>
+			{{/editions}}
 		</div>
 
 		{{#editions}}
-		<nav class="o-header__drawer-editions" aria-label="Edition switcher">
-			{{#editions.current}}
-			<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}" aria-label="Current edition" aria-current="page">{{name}} Edition</a>
-			{{/editions.current}}
-			{{#editions.others}}
-			<a class="o-header__drawer-editions-link" href="/{{id}}?edition={{id}}">{{name}} Edition</a>
-			{{/editions.others}}
+		<nav class="o-header__drawer-menu" aria-label="Edition switcher">
+			<ul class="o-header__drawer-menu-list">
+				{{#editions.others}}
+				<li class="o-header__drawer-menu-item"></li>
+					<a class="o-header__drawer-menu-link" href="/?edition={{id}}">Switch to {{name}} Edition</a>
+				</li>
+				{{/editions.others}}
+			</ul>
 		</nav>
 		{{/editions}}
 

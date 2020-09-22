@@ -845,12 +845,12 @@
         ],
         "editions": {
             "current": {
-                "name": "xx",
+                "name": "UK",
                 "id": "uk"
             },
             "others": [
                 {
-                    "name": "xxxxxxxxxxxxx",
+                    "name": "International",
                     "id": "international"
                 }
             ]

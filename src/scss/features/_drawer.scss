@@ -112,10 +112,18 @@
 	//
 	// Editions
 	//
+	.o-header__drawer-current-edition {
+		@include oTypographySans($scale: -1);
+		color: oColorsByName('black-60');
+		margin: 0.5em 0;
+	}
+
+	// @deprecated - Remove `o-header__drawer-editions` in the next major
 	.o-header__drawer-editions {
 		padding: 0 $_o-header-drawer-padding-x;
 	}
 
+	// @deprecated - Remove `o-header__drawer-editions-link` in the next major
 	.o-header__drawer-editions-link {
 		color: _oHeaderGet('drawer-editions-link');
 		display: inline-block;
