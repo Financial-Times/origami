@@ -164,7 +164,6 @@
 	.o-header__drawer-search-term,
 	.o-header__drawer-search-submit {
 		box-sizing: border-box;
-		// ಥ_ಥ
 		height: 32px;
 		padding: 8px ($_o-header-drawer-padding-x / 2);
 		border: 1px solid;
@@ -176,6 +175,15 @@
 		background-color: _oHeaderGet('drawer-search-term-background');
 		border-color: _oHeaderGet('drawer-search-term-border');
 		flex-grow: 1;
+		// normalize
+		appearance: none;
+		background: white;
+		border-style: solid;
+		box-shadow: none;
+		border-radius: 0;
+		// margin copied from o-forms since introducing a new dependency would
+		// be a breaking change, this colour could go in o-colors as a usecase
+		border: 1px solid oColorsByName('black-50');
 
 		&:focus { //currently overriden by o-normalise
 			border-color: _oHeaderGet('drawer-search-term-highlight-border');

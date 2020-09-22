@@ -27,11 +27,12 @@
 		padding: 0 8px;
 		vertical-align: middle;
 		// normalize
+		appearance: none;
 		background: white;
 		border-style: solid;
 		border-color: transparent;
-		// oh, webkit...
 		box-shadow: none;
+		border-radius: 0;
 		// fill!
 		min-width: 50%;
 		flex-grow: 1;
