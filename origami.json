@@ -44,12 +44,12 @@
 			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details."
 		},
 		{
-			"name": "header-deprecated-editions-markup",
-			"title": "Header with deprecated editions markup in the drawer.",
+			"name": "header-deprecated-markup",
+			"title": "Header with deprecated markup in the drawer.",
 			"data": "demos/src/header.json",
-			"template": "demos/src/deprecated-editions-drawer.mustache",
+			"template": "demos/src/deprecated-markup.mustache",
 			"hidden": true,
-			"description": "This demo shows old editions markup in the drawer. This markup is deprecated and should be removed in the next major version."
+			"description": "This demo shows outdated drawer markup. This includes previous edition switcher markup and a different element order, where the search element is first before the edition switcher. This markup is deprecated and should be removed in the next major version."
 		},
 		{
 			"name": "mega-menu",

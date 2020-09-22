@@ -62,6 +62,16 @@
 			{{/editions}}
 		</div>
 
+		<div class="o-header__drawer-search">
+			<form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
+				<button class="o-header__drawer-search-submit" type="submit">
+					<span class="o-header__visually-hidden">Search</span>
+				</button>
+			</form>
+		</div>
+
 		{{#editions}}
 		<nav class="o-header__drawer-menu" aria-label="Edition switcher">
 			<ul class="o-header__drawer-menu-list">
@@ -73,16 +83,6 @@
 			</ul>
 		</nav>
 		{{/editions}}
-
-		<div class="o-header__drawer-search">
-			<form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
-				<label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
-				<input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
-				<button class="o-header__drawer-search-submit" type="submit">
-					<span class="o-header__visually-hidden">Search</span>
-				</button>
-			</form>
-		</div>
 
 		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
 			<ul class="o-header__drawer-menu-list">
