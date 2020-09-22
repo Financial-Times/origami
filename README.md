@@ -3,11 +3,10 @@
 Include in your product to send tracking requests to the [Spoor API](https://spoor-docs.herokuapp.com/).
 
 - [Usage](#usage)
-  - [How to view the data](#how-to-view-the-data)
   - [How to track extra click data using `data-trackable` attributes](#how-to-track-extra-click-data-using-data-trackable-attributes)
   - [Tracking without JavaScript](#tracking-without-javascript)
   - [Tracking with JavaScript](#tracking-with-javascript)
-- [How to view the data](#how-to-view-the-data-1)
+- [How to view the data](#how-to-view-the-data)
 - [Example implementations](#example-implementations)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
@@ -17,15 +16,6 @@ Include in your product to send tracking requests to the [Spoor API](https://spo
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-tracking`.
-
-### How to view the data
-
-Once you have sent data into Spoor, you can view the data via Chartio.
-The FT has a Slack channel named #chartio_q_a where anyone can get help with Chartio.
-If you have never used Chartio before, you will need to [request access via this form](https://docs.google.com/forms/d/e/1FAIpQLSc1z1hTtnhe4KSXuZ220Zf53wTm0ucYVf2B3jYY5ZSyNW2VSw/viewform).
-To sign in to Chartio:
-- Open the [FT Chartio](https://chartio.com/financialtimes/) in your browser.
-- Press the "Sign in with Google" button and select your FT Google Account.
 
 ### How to track extra click data using `data-trackable` attributes
 
@@ -270,7 +260,7 @@ document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: customD
 
 ## How to view the data
 
-Onec you have sent data into Spoor, you can view the data via Chartio.
+Once you have sent data into Spoor, you can view the data via Chartio.
 
 The FT has a Slack channel named #chartio_q_a where anyone can get help with Chartio.
 
