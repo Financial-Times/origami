@@ -106,6 +106,7 @@
 			"name": "grid-demo",
 			"title": "Grid demo",
 			"template": "demos/src/grid-demo.mustache",
+			"data": "demos/src/header.json",
 			"hidden": true,
 			"description": "A bug we keep having is things (eg the hamburger) not lining up with the grid padding. This demo adds a grid demo below the header to make it easy to quickly check alignment"
 		},

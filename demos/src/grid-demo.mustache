@@ -1,4 +1,4 @@
-<header class="o-header" data-o-component="o-header" data-o-header--no-js>
+<header class="o-header{{#variants}} o-header--{{.}}{{/variants}}" data-o-component="o-header" data-o-header--no-js>
 
 	{{#anon}}
 	<div class="o-header__row o-header__anon">
@@ -23,9 +23,11 @@
 						<span class="o-header__top-link-label">Open side navigation menu</span>
 					</a>
 					{{/drawer}}
+					{{#hasSearch}}
 					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-js" title="Open search bar">
 						<span class="o-header__top-link-label">Open search bar</span>
 					</a>
+					{{/hasSearch}}
 				</div>
 				<div class="o-header__top-column o-header__top-column--center">
 					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
@@ -214,6 +216,8 @@
 	</div>
 </div>
 {{/drawer}}
+
+
 <div class='body-content-container o-grid-container'>
 	<div class='body-content o-grid-row'>
 		<div data-o-grid-colspan="6" class="first-column">
