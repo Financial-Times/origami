@@ -67,6 +67,11 @@ describe('Core.Send', function () {
 		});
 
 		it('use sendBeacon by default', function (done) {
+			if (!navigator.sendBeacon) {
+				// The browser being tested does not have sendBeacon support and sinon will throw an error if trying to stub a property which does not exist.
+				done();
+				return;
+			}
 			sinon.stub(navigator, 'sendBeacon');
 			init();
 			addAndRun(request);

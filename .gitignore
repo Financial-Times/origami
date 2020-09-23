@@ -9,3 +9,5 @@ demos/local
 ws-log-*
 whitesource.config.json
 package-lock.json
+browserstack.err
+local.log
