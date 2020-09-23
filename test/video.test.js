@@ -3,7 +3,7 @@
 
 import Video from './../src/js/video.js';
 import {mediaApiResponse1} from './fixtures/media-api-1.js';
-import {mediaApiResponse2} from './fixtures/media-api-2.js.js';
+import {mediaApiResponse2} from './fixtures/media-api-2.js';
 
 describe('Video', () => {
 
