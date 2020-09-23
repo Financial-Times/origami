@@ -2,7 +2,7 @@
 /* global proclaim */
 
 import getRendition from './../../src/js/helpers/get-rendition.js';
-import { mediaApiResponse1 } from '../fixtures/media-api-1.js.js';
+import { mediaApiResponse1 } from '../fixtures/media-api-1.js';
 
 const renditions = mediaApiResponse1.renditions;
 
