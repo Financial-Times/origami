@@ -1,5 +1,6 @@
 @mixin _oHeaderTransparent() {
 	.o-header--transparent {
+		color: _oHeaderGet('header-text', $from: 'transparent');
 		border-color: _oHeaderGet('header-border', $from: 'transparent');
 		background-color: _oHeaderGet('header-background', $from: 'transparent');
 

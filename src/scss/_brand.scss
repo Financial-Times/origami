@@ -61,6 +61,7 @@
 			drawer-unselected-toggle-text: oColorsByName('teal-40'),
 			drawer-unselected-toggle-background: oColorsByName('black-10'),
 			'transparent': (
+				header-text: oColorsByName('white'),
 				header-border: rgba(oColorsByName('white'), 0.4),
 				header-background: transparent,
 				header-icon: oColorsByName('white'),

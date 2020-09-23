@@ -81,10 +81,10 @@
 		},
 		{
 			"name": "transparent-header",
-			"title": "Transparent header",
-			"data": "demos/src/header.json",
-			"template": "demos/src/transparent-header.mustache",
-			"description": "Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
+			"title": "Simple transparent (inverse) header",
+			"data": "demos/src/transparent-header.json",
+			"template": "demos/src/header.mustache",
+			"description": "The \"transparent\" header is useful for use on dark backgrounds. This variant doesn't support the drawer. Please speak to Origami if you would like to add drawer support to this variant. Use the Origami Navigation Service to populate o-header with real navigation data. See the readme for more details.",
 			"documentClasses": "demo-transparent"
 		},
 		{

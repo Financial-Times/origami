@@ -1,0 +1,73 @@
+{
+    "anon": true,
+    "variants": ["transparent", "simple"],
+    "top": {
+        "hasMyFT": false
+    },
+    "hasSearch": false,
+    "nav": {
+        "mobile": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true
+            },
+            {
+                "name": "xxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx xxxx",
+                "url": "#"
+            }
+        ],
+        "desktop": [
+            {
+                "name": "xxxx",
+                "url": "#",
+                "selected": true
+            },
+            {
+                "name": "xxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx x xxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxx x xxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxxxxxxx",
+                "url": "#"
+            },
+            {
+                "name": "xxx xx xxxxx xx",
+                "url": "#"
+            }
+        ],
+        "isSignedIn": true
+    }
+}
