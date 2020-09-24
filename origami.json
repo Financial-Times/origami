@@ -114,6 +114,14 @@
 			"js": "demos/src/interactive.js"
 		},
 		{
+			"name": "interactive-suffix",
+			"title": "Interactive form demo with suffice",
+			"template": "/demos/src/interactive-suffix.mustache",
+			"description": "Illustrates validation and state behaviour with form JS on an input with a suffix.",
+			"js": "demos/src/interactive.js",
+			"hidden": true
+		},
+		{
 			"name": "pa11y",
 			"title": "Accessibility testing",
 			"template": "/demos/src/pa11y.mustache",

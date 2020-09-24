@@ -2,7 +2,7 @@
 /// @output styles for valid and invalid inputs
 @mixin _oFormsValidityStates() {
 	.o-forms-input--valid {
-		*:valid:not(:disabled) {
+		*:valid:not(button):not(:disabled) {
 			color: _oFormsGet('valid-base');
 			border-color: _oFormsGet('valid-base');
 		}
