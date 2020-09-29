@@ -22,3 +22,9 @@ Or use it directly through [the remark cli](https://github.com/remarkjs/remark/t
 ```sh
 remark -u preset-lint-origami-component README.md
 ```
+
+## origami build tools
+
+this project is consumed by [origami-build-tools](https://github.com/Financial-Times/origami-build-tools/)
+and used as part of its [verify](https://github.com/Financial-Times/origami-build-tools/#verify-or-v)
+step.
