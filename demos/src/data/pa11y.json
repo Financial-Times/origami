@@ -77,18 +77,21 @@
 						"type": "text",
 						"pattern": "0[1-9]|[12]\\d|3[01]",
 						"classes": "o-forms-input__day-part",
+						"aria-label": "Day (DD)",
 						"date": "DD"
 					},
 					{
 						"type": "text",
 						"pattern": "0?[1-9]|1[012]",
 						"classes": "o-forms-input__month-part",
+						"aria-label": "Month (MM)",
 						"date": "MM"
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
 						"classs": "o-forms-input__year-part",
+						"aria-label": "Year (YYYY)",
 						"date": "YYYY"
 					}
 				]
@@ -112,6 +115,7 @@
 						"type": "text",
 						"pattern": "0[1-9]|[12]\\d|3[01]",
 						"classes": "o-forms-input__day-part",
+						"aria-label": "Day (DD)",
 						"date": "DD",
 						"value": "01"
 					},
@@ -119,12 +123,14 @@
 						"type": "text",
 						"classes": "o-forms-input__month-part",
 						"pattern": "0?[1-9]|1[012]",
+						"aria-label": "Month (MM)",
 						"date": "MM",
 						"value": "24"
 					},
 					{
 						"type": "text",
 						"pattern": "[0-9]{4}",
+						"aria-label": "Year (YYYY)",
 						"date": "YYYY",
 						"value": "2019"
 					}

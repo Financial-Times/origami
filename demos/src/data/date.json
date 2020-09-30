@@ -20,18 +20,21 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
+					"aria-label": "Day (DD)",
 					"date": "DD"
 				},
 				{
 					"type": "text",
 					"name": "date",
 					"pattern": "0?[1-9]|1[012]",
+					"aria-label": "Month (MM)",
 					"date": "MM"
 				},
 				{
 					"type": "text",
 					"name": "date",
 					"pattern": "[0-9]{4}",
+					"aria-label": "Year (YYYY)",
 					"date": "YYYY"
 				}
 			]
@@ -53,6 +56,7 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
+					"aria-label": "Day (DD)",
 					"date": "DD",
 					"disabled": true
 				},
@@ -62,6 +66,7 @@
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
+					"aria-label": "Month (MM)",
 					"date": "MM",
 					"disabled": true
 				},
@@ -71,6 +76,7 @@
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
+					"aria-label": "Year (YYYY)",
 					"date": "YYYY",
 					"disabled": true
 				}
@@ -97,6 +103,7 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
+					"aria-label": "Day (DD)",
 					"date": "DD",
 					"value": "01"
 				},
@@ -106,6 +113,7 @@
 					"pattern": "0?[1-9]|1[012]",
 					"classes": "o-forms-input__month-part",
 					"inputmode": "numeric",
+					"aria-label": "Month (MM)",
 					"date": "MM",
 					"value": "24"
 				},
@@ -115,6 +123,7 @@
 					"pattern": "[0-9]{4}",
 					"classes": "o-forms-input__year-part",
 					"inputmode": "numeric",
+					"aria-label": "Year (YYYY)",
 					"date": "YYYY",
 					"value": "2019"
 				}
@@ -139,18 +148,21 @@
 					"pattern":"0[1-9]|[12]\\d|3[01]",
 					"classes": "o-forms-input__day-part",
 					"inputmode": "numeric",
+					"aria-label": "Day (DD)",
 					"date": "DD"
 				},
 				{
 					"type": "text",
 					"name": "inline-date",
 					"pattern": "0?[1-9]|1[012]",
+					"aria-label": "Month (MM)",
 					"date": "MM"
 				},
 				{
 					"type": "text",
 					"name": "inline-date",
 					"pattern": "[0-9]{4}",
+					"aria-label": "Year (YYYY)",
 					"date": "YYYY"
 				}
 			]

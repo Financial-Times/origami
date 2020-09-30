@@ -220,7 +220,7 @@
 				{
 					"type": "checkbox",
 					"name": "extra",
-					"value": "I confirm I have read and agree to the terms &amp; conditions, privacy policy and cookie policy*.",
+					"value": "I confirm I have read and agree to the terms & conditions, privacy policy and cookie policy*.",
 					"additionalContent": "We will send you occasional emails to improve your experience of the Financial Times."
 				},
 				{
