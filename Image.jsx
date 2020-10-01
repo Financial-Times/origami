@@ -26,10 +26,11 @@ const LazyImage = ({ src, lazyLoad }) => {
 	return <img className={`o-teaser__image ${lazyClassName}`} data-src={src} alt="" />;
 };
 
-export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, ...props }) => {
+export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, imageHighestQuality, ...props }) => {
 	const displayUrl = relativeUrl || url;
 	const useImageService = !(image.url.startsWith('data:') || image.url.startsWith('blob:'));
-	const imageSrc = useImageService ? imageService(image.url, ImageSizes[imageSize]) : image.url;
+  const options = imageSize === 'XXL' && imageHighestQuality ? { quality: 'highest' } : {};
+	const imageSrc = useImageService ? imageService(image.url, ImageSizes[imageSize], options) : image.url;
 	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage;
 
 	return image ? (
