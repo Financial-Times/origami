@@ -224,7 +224,7 @@
 		}
 
 		& > %_o-labels-indicator__status:after {
-			margin-right: -$_o-labels-indicator-circle-size;
+			margin-right: calc((#{$_o-labels-indicator-circle-size-calc}) * -1);
 			opacity: 0.2;
 			transform: scale(1.5);
 			animation: _o-labels-live-pulse 1.7s ease infinite;

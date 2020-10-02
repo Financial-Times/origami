@@ -30,12 +30,13 @@ $_o-labels-first-import: true !default;
 		content: '';
 		position: relative;
 		left: 0;
-		width: $_o-labels-indicator-circle-size;
-		height: $_o-labels-indicator-circle-size;
+		width: calc(#{$_o-labels-indicator-circle-size-calc});
+		height: calc(#{$_o-labels-indicator-circle-size-calc});
 		margin-right: 5px;
 		border-radius: 50%;
 		background-color: currentcolor;
 		display: inline-block;
+		align-self: center;
 	}
 
 	// timestamp block placeholders
@@ -60,7 +61,7 @@ $_o-labels-first-import: true !default;
 
 	%_o-labels-indicator__status {
 		display: inline-flex;
-		align-items: center;
+		align-items: baseline;
 		&:before {
 			@extend %_o-labels-indicator-circle;
 		}
