@@ -24,6 +24,15 @@
 		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
 	}
 
+	// Load fonts within the primary mixin in-case silent mode is on.
+	// Don't load fonts if o-typography has output them already since
+	// `$o-editorial-layout-load-fonts` was set.
+	@if $o-editorial-layout-load-fonts == true and $o-typography-load-fonts == true {
+		@include oFonts();
+		// Set to false so fonts are not output twice by o-editorial-typography.
+		$o-editorial-layout-load-fonts: false !global;
+	}
+
 	@if index($headings, 1) {
 		.o-editorial-layout-heading-1 {
 			@include oEditorialLayoutHeading(1);
