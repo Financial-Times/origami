@@ -122,7 +122,10 @@ module.exports = (data, { object, text, number, boolean, date, select }) => {
 		},
 		imageSize() {
 			return select('Image size', ['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL'], data.imageSize, Groups.Image);
-		}
+		},
+    imageHighestQuality(){
+      return boolean('Image hi-quality', data.imageHighestQuality, Groups.Image);
+    }
 	};
 
 	const Headshot = {

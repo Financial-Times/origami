@@ -32,6 +32,7 @@ exports.knobs = [
 	'showImage',
 	'image',
 	'imageSize',
+  'imageHighestQuality',
 	// Variants
 	'layout',
 	'theme',
