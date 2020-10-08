@@ -22,3 +22,11 @@
 	@include oEditorialTypographyBody();
 	@extend %_o-editorial-layout-body;
 }
+
+/// Apply body typography layout, such as margin in relation to other elements,
+/// without including typographic styles such as font size and family. Useful
+/// when inheriting typographic styles from a parent element.
+/// @see oEditorialLayoutBody - Use `oEditorialLayoutBody` to also include typographic styles.
+@mixin oEditorialLayoutBodyWithoutTypography() {
+	@extend %_o-editorial-layout-body;
+}
