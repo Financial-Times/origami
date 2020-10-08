@@ -3,10 +3,16 @@
 ///     p {
 ///     	@include oEditorialTypographyBody();
 ///     }
-@mixin oEditorialTypographyBody() {
+/// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
+@mixin oEditorialTypographyBody($opts: (
+	'margin-reset': true
+)) {
 	@include oTypographySerif($scale: (default: 1, XL: 2), $line-height: 1.6);
 	color: oColorsByUsecase('body', 'text');
-	margin: 0; // undo browser defaults
+	// undo browser defaults
+	@if(map-get($opts,'margin-reset')) {
+		margin: 0;
+	}
 }
 
 /// Output editorial styles for lists.
@@ -69,13 +75,18 @@
 
 /// Output styles for editorial page heading copy.
 /// @param {number} $level - The heading level 1-5.
-@mixin oEditorialTypographyHeading($level) {
+/// @param {map} $opts [('margin-reset': true)] - Options. Set `margin-reset` to false to avoid outputting a margin.
+@mixin oEditorialTypographyHeading($level, $opts: (
+	'margin-reset': true
+)) {
 	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
 
 	// undo browser defaults
-	margin: 0;
+	@if(map-get($opts, 'margin-reset')) {
+		margin: 0;
+	}
 
 	// set color
 	color: oColorsByUsecase('body', 'text');
