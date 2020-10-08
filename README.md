@@ -155,7 +155,7 @@ $o-brand: whitelabel;
 
 @include oHeaderServices($opts: (
 	'types': ('primary-nav'),
-	'features': ('drop-dowm')
+	'features': ('drop-down')
 ));
 ```
 
