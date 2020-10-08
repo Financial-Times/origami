@@ -41,7 +41,7 @@
 	// body
 	// - medium margin below by default
 	%_o-editorial-layout-body {
-		margin-bottom: oSpacingByIncrement(7);
+		margin-bottom: oSpacingByName('s6');
 		margin-top: 0;
 	}
 
@@ -62,7 +62,7 @@
 		& + ol,
 		& + aside,
 		& + div {
-			margin-top: oSpacingByIncrement(5);
+			margin-top: oSpacingByIncrement(4);
 		}
 	}
 }
