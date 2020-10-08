@@ -14,6 +14,7 @@
 	// - small margin below by default
 	%_o-editorial-layout-heading-1 {
 		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
 	}
 	// h2
 	// - large margin above by default
@@ -27,16 +28,19 @@
 	// - small margin below by default
 	%_o-editorial-layout-heading-3 {
 		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
 	}
 	// h4
 	// - medium margin below by default
 	%_o-editorial-layout-heading-4 {
 		margin-bottom: oSpacingByName('s3');
+		margin-top: 0;
 	}
 	// h5
 	// - small margin below by default
 	%_o-editorial-layout-heading-5 {
 		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
 	}
 	// body
 	// - medium margin below by default
