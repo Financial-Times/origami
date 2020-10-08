@@ -13,14 +13,12 @@
 	// h1
 	// - small margin below by default
 	%_o-editorial-layout-heading-1 {
-		@include oEditorialTypographyHeading($level: 1);
 		margin-bottom: oSpacingByName('s1');
 	}
 	// h2
 	// - large margin above by default
 	// - small margin below by default
 	%_o-editorial-layout-heading-2 {
-		@include oEditorialTypographyHeading($level: 2);
 		margin-bottom: oSpacingByName('s1');
 		margin-top: oSpacingByName('s8');
 	}
@@ -28,25 +26,21 @@
 
 	// - small margin below by default
 	%_o-editorial-layout-heading-3 {
-		@include oEditorialTypographyHeading($level: 3);
 		margin-bottom: oSpacingByName('s1');
 	}
 	// h4
 	// - medium margin below by default
 	%_o-editorial-layout-heading-4 {
-		@include oEditorialTypographyHeading($level: 4);
 		margin-bottom: oSpacingByName('s3');
 	}
 	// h5
 	// - small margin below by default
 	%_o-editorial-layout-heading-5 {
-		@include oEditorialTypographyHeading($level: 5);
 		margin-bottom: oSpacingByName('s1');
 	}
 	// body
 	// - medium margin below by default
 	%_o-editorial-layout-body {
-		@include oEditorialTypographyBody();
 		margin-bottom: oSpacingByIncrement(7);
 		margin-top: 0;
 	}

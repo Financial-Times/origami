@@ -7,11 +7,18 @@
 	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
 		@error 'Heading levels must be a number between 1 and 5.';
 	}
-
+	// Do not include typography styles within the placeholder, as `@extend`
+	// interleaves selectors unnecessarily for the progressive font fallback.
+	// This may cause large selectors.
+	@include oEditorialTypographyHeading($level);
 	@extend %_o-editorial-layout-heading-#{$level};
 }
 
 /// Body typography and margin.
 @mixin oEditorialLayoutBody() {
+	// Do not include typography styles within the placeholder, as `@extend`
+	// interleaves selectors unnecessarily for the progressive font fallback.
+	// This may cause large selectors.
+	@include oEditorialTypographyBody();
 	@extend %_o-editorial-layout-body;
 }
