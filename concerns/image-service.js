@@ -1,9 +1,6 @@
+const { URL, URLSearchParams } = require('url');
 const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw';
-const OPTIONS = Object.freeze({
-  source: 'next',
-  fit: 'scale-down',
-  dpr: 2,
-});
+const OPTIONS = { source:'next', fit:'scale-down', dpr:2 };
 
 /**
  * Image Service
