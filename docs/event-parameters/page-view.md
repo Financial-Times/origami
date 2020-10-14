@@ -546,26 +546,6 @@ oTracking.init({
 });
 ```
 
-### system_is_live
-
-- Key: `system.is_live`
-- Required: no
-- Default: true
-- o-tracking automatic: no
-- spoor pipeline automatic: no
-
-A boolean value identifying the live system. As we can't work out all the possible values from `system.environment` above, we use this boolean to filter out test traffic.
-
-If using o-tracking, this is usually set at init e.g.
-
-```js
-oTracking.init({
-  system: {
-    is_live: true
-  }
-});
-```
-
 ### system_ticket
 
 - Key: `ingest._headers.spoor-ticket`

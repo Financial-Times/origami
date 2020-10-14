@@ -1,5 +1,10 @@
-import utils from '../../utils';
+import {encode} from '../../utils.js';
 
+/**
+ * Image based transport mechanism
+ *
+ * @returns {object} - Object with three properties: name, send and complete
+ */
 function image () {
 	const image = new Image(1,1);
 
@@ -7,7 +12,7 @@ function image () {
 		name: 'image',
 		send: function (url, data) {
 			url = url.replace('https://spoor-api.ft.com/ingest', 'https://spoor-api.ft.com/px.gif');
-			image.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'data=' + utils.encode(data);
+			image.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'data=' + encode(data);
 		},
 		complete: function (callback) {
 			if (image.addEventListener) {
@@ -21,5 +26,4 @@ function image () {
 	};
 }
 
-export default image;
 export { image };

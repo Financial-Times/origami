@@ -1,20 +1,20 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import '../setup';
+import '../setup.js';
 
-import Queue from '../../src/javascript/core/queue';
-import settings from '../../src/javascript/core/settings';
-import send from '../../src/javascript/core/send';
-import core from '../../src/javascript/core';
-import click from '../../src/javascript/events/click';
-import session from '../../src/javascript/core/session';
+import {Queue} from '../../src/javascript/core/queue.js';
+import {destroy, set} from '../../src/javascript/core/settings.js';
+import {init as initSend} from '../../src/javascript/core/send.js';
+import core from '../../src/javascript/core.js';
+import {init as initClick} from '../../src/javascript/events/click.js';
+import {init as initSession} from '../../src/javascript/core/session.js';
 
 describe('click', function () {
 
 	before(function () {
-		session.init();
-		send.init(); // Init the sender.
+		initSession();
+		initSend();
 
 		const config = {
 			context: {
@@ -25,19 +25,19 @@ describe('click', function () {
 			}
 		};
 
-		settings.set("config",config);
+		set("config",config);
 	});
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should track an event for a click', function (done) {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorA');
+		initClick("blah", '#anchorA');
 
 		const aLinkToGoogle = document.createElement('a');
 
@@ -59,11 +59,14 @@ describe('click', function () {
 		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event tracked");
 
-			proclaim.equal(core.track.calledOnce, true, "click event tracked");
-
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -73,7 +76,7 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorB');
+		initClick("blah", '#anchorB');
 
 		const aLinkToGoogle = document.createElement('a');
 
@@ -96,10 +99,14 @@ describe('click', function () {
 		aLinkToGoogle.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
+			try {
+				proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 		}, 10);
 
 	});
@@ -108,7 +115,7 @@ describe('click', function () {
 
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorC');
+		initClick("blah", '#anchorC');
 
 		const aLinkToSecuredrop = document.createElement('a');
 
@@ -132,10 +139,14 @@ describe('click', function () {
 
 		setTimeout(() => {
 
-			proclaim.equal(core.track.notCalled, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -144,9 +155,9 @@ describe('click', function () {
 	it('should not track straight away when the link points to the same domain we are currently on', function (done) {
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorD');
+		initClick("blah", '#anchorD');
 
-		core.track.resetHistory(); // click.init() makes a call to core.track() so clearing the history here to avoid false positives
+		core.track.resetHistory(); // initClick() makes a call to track() so clearing the history here to avoid false positives
 
 		const aLinkToPageOnSameDomain = document.createElement('a');
 		const currentHost = window.document.location.hostname;
@@ -169,10 +180,14 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.notCalled, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 
@@ -181,9 +196,9 @@ describe('click', function () {
 	it('should skip the queue when data-o-tracking-skip-queue is "true" on the link', function (done) {
 		sinon.spy(core, 'track');
 
-		click.init("blah", '#anchorE');
+		initClick("blah", '#anchorE');
 
-		core.track.resetHistory(); // click.init() makes a call to core.track() so clearing the history here to avoid false positives
+		core.track.resetHistory(); // initClick() makes a call to track() so clearing the history here to avoid false positives
 
 		const aLinkToPageOnSameDomain = document.createElement('a');
 		const currentHost = window.document.location.hostname;
@@ -207,10 +222,14 @@ describe('click', function () {
 		aLinkToPageOnSameDomain.dispatchEvent(event, true);
 
 		setTimeout(() => {
-			proclaim.equal(core.track.calledOnce, true, "click event not tracked");
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event not tracked");
 
-			core.track.restore();
-			done();
+				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 
 		}, 10);
 

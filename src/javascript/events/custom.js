@@ -1,11 +1,15 @@
-import Core from '../core';
-import utils from '../utils';
+import core from '../core.js';
+import {
+	is,
+	broadcast,
+	merge,
+	addEvent} from '../utils.js';
 
 /**
  * Default properties for events.
  *
- * @type {Object}
- * @return {Object} - Default configuration for events
+ * @type {object}
+ * @returns {object} - Default configuration for events
  */
 const defaultEventConfig = function () {
 	return {
@@ -18,25 +22,27 @@ const defaultEventConfig = function () {
 /**
  * Track an event.
  *
- * @param {Event} trackingEvent - The event, which could the following properties in its 'detail' key:
- *   [category] - The category, for example: video
- *   [action] - The action performed, for example: play
- *   [component_id] - Optional. The ID for the component instance.
+ * @param {object} trackingEvent - The event, which could the following properties in its 'detail' key:
+ * @param {object} [trackingEvent.detail] - Custom properties to add to the event.
+ * @param {string} [trackingEvent.detail.category] - Category for this event e.g. page
+ * @param {string} [trackingEvent.detail.action] - Action for this event e.g. view
+ * @param {string} [trackingEvent.detail.component_id] - The ID for the component instance.
+ * @param {object} [trackingEvent.detail.context] - Extra context to add to the event
  *
- * @param {Function} callback - Optional, Callback function. Called when request completed.
- * @return {undefined}
+ * @param {Function} [callback] - Optional, Callback function. Called when request completed.
+ * @returns {void}
  */
 function event(trackingEvent, callback) {
-	if (utils.is(trackingEvent.detail.category) || utils.is(trackingEvent.detail.action)) {
+	if (is(trackingEvent.detail.category) || is(trackingEvent.detail.action)) {
 		const noCategoryActionVals = 'Missing category or action values';
-		utils.broadcast('oErrors', 'log', {
+		broadcast('oErrors', 'log', {
 			error: noCategoryActionVals,
 			info: { module: 'o-tracking' }
 		});
 		throw noCategoryActionVals;
 	}
 
-	const config = utils.merge(defaultEventConfig(), {
+	const config = merge(defaultEventConfig(), {
 		category: trackingEvent.detail.category,
 		action: trackingEvent.detail.action,
 		context: trackingEvent.detail
@@ -51,13 +57,14 @@ function event(trackingEvent, callback) {
 		config.context.component_id = config.context.component_id || getComponentId(origamiElement);
 	}
 
-	Core.track(config, callback);
+	core.track(config, callback);
 }
 
 /**
  * Helper function that gets the target of an event if it's an Origami component
+ *
  * @param  {Event} event - The event triggered.
- * @return {HTMLElement|undefined} - Returns the HTML element if an Origami component, else undefined.
+ * @returns {HTMLElement|undefined} - Returns the HTML element if an Origami component, else undefined.
  */
 function getOrigamiEventTarget(event) {
 	// IE backwards compatibility (get the actual target). If not IE, uses
@@ -74,7 +81,7 @@ function getOrigamiEventTarget(event) {
  *
  * @param {HTMLElement} element - The HTML Element to gen an ID for.
  *
- * @return {string} hash
+ * @returns {number} hash
  */
 function getComponentId(element) {
 	const path = _getElementPath(element);
@@ -133,7 +140,7 @@ function getComponentId(element) {
  *
  * @private
  *
- * @return {array} The xpath
+ * @returns {Array} The xpath
  */
 function _getElementPath(element) {
 	const path = [];
@@ -163,7 +170,7 @@ function _getElementPath(element) {
  *
  * @param {string} str  - The string to hash, ASCII only.
  *
- * @return {number} 32-bit positive integer hash
+ * @returns {number} 32-bit positive integer hash
  *
  * @private
  */
@@ -212,10 +219,8 @@ function _generateHash(str) {
 }
 
 const init = function init() {
-	utils.addEvent(window, 'oTracking.event', event);
+	addEvent(window, 'oTracking.event', event);
 };
 event.init = init;
 
-export default event;
 export { event };
-

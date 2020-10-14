@@ -1,8 +1,14 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Send from '../../src/javascript/core/send';
-import Queue from "../../src/javascript/core/queue";
+import {
+	init,
+	add,
+	addAndRun
+} from '../../src/javascript/core/send.js';
+import {Queue} from "../../src/javascript/core/queue.js";
+import {unmockTransport, mockTransport} from '../setup.js';
+import {set, destroy} from '../../src/javascript/core/settings.js';
 
 const request = {
 	id: '1.199.83760034665465.1432907605043.-56cf00f',
@@ -17,7 +23,6 @@ const request = {
 	device: {
 		user_agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34'
 	},
-	async: true,
 	category: 'video',
 	action: 'seek',
 	context: {
@@ -27,93 +32,66 @@ const request = {
 	}
 };
 
-import setup from '../setup';
-import settings from '../../src/javascript/core/settings';
-
 // PhantomJS doesn't always create a "fresh" environment...
 
 describe('Core.Send', function () {
+	beforeEach(function() {
+		set('config', {});
+	});
 
 	after(function () {
 		new Queue('requests').replace([]);
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
 	});
 
 	it('should init first', function () {
 		proclaim.doesNotThrow(function () {
-			Send.init();
+			init();
 		});
 	});
 
 	it('should add a request', function () {
 		proclaim.doesNotThrow(function () {
-			Send.add(request);
+			add(request);
 		});
 	});
 
 
 	describe('fallback transports', function () {
 		before(function () {
-			setup.unmockTransport();
+			unmockTransport();
 		});
 
 		after(function () {
-			setup.mockTransport();
+			mockTransport();
 		});
 
-		it('use xhr by default', function (done) {
-			Send.init();
-			navigator.sendBeacon = navigator.sendBeacon || true;
-			const xhr = window.XMLHttpRequest;
-			const dummyXHR = {
-				withCredentials: false,
-				open: sinon.stub(),
-				setRequestHeader: sinon.stub(),
-				send: sinon.stub()
-			};
-			window.XMLHttpRequest = function () {
-				return dummyXHR;
-			};
-			Send.addAndRun(request);
-			setTimeout(() => {
-				proclaim.equal(typeof dummyXHR.onerror, 'function');
-				proclaim.equal(typeof dummyXHR.onload, 'function');
-				// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-				// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-				proclaim.ok(dummyXHR.withCredentials);
-
-				proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true));
-				proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'));
-				proclaim.ok(dummyXHR.send.calledOnce);
-				window.XMLHttpRequest = xhr;
-				if (typeof navigator.sendBeacon === 'boolean') {
-					delete navigator.sendBeacon;
-				}
+		it('use sendBeacon by default', function (done) {
+			if (!navigator.sendBeacon) {
+				// The browser being tested does not have sendBeacon support and sinon will throw an error if trying to stub a property which does not exist.
 				done();
-			}, 100);
-		});
-
-		if (navigator.sendBeacon) {
-			it('use sendBeacon when configured', function (done) {
-				settings.set('config', {useSendBeacon: true});
-				sinon.stub(navigator, 'sendBeacon');
-				Send.init();
-				Send.addAndRun(request);
-				setTimeout(() => {
+				return;
+			}
+			sinon.stub(navigator, 'sendBeacon');
+			init();
+			addAndRun(request);
+			setTimeout(() => {
+				try {
 					proclaim.equal(navigator.sendBeacon.args[0][0], 'https://spoor-api.ft.com/px.gif?type=video:seek');
 					proclaim.ok(navigator.sendBeacon.called);
 					navigator.sendBeacon.restore();
-					settings.destroy('config');
+					destroy('config');
 					done();
-				}, 100);
-			});
-		}
+				} catch (error) {
+					done(error);
+				}
+			}, 100);
+		});
 
 
 		it('fallback to xhr when sendBeacon not supported', function (done) {
 			new Queue('requests').replace([]);
-			settings.set('config', {useSendBeacon: true});
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -126,26 +104,30 @@ describe('Core.Send', function () {
 			window.XMLHttpRequest = function () {
 				return dummyXHR;
 			};
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
-				proclaim.equal(typeof dummyXHR.onerror, 'function');
-				proclaim.equal(typeof dummyXHR.onload, 'function');
-				// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
-				// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
-				proclaim.ok(dummyXHR.withCredentials, 'withCredentials');
-				proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true), 'is POST');
-				proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
-				proclaim.ok(dummyXHR.send.calledOnce, 'calledOnce');
-				window.XMLHttpRequest = xhr;
-				navigator.sendBeacon = b;
-				settings.destroy('config');
-				done();
+				try {
+					proclaim.equal(typeof dummyXHR.onerror, 'function');
+					proclaim.equal(typeof dummyXHR.onload, 'function');
+					// proclaim.equal(dummyXHR.onerror.length, 1) // it will get passed the error
+					// proclaim.equal(dummyXHR.onload.length, 0) // it will not get passed an error
+					proclaim.ok(dummyXHR.withCredentials, 'withCredentials');
+					proclaim.ok(dummyXHR.open.calledWith("POST", "https://spoor-api.ft.com/px.gif?type=video:seek", true), 'is POST');
+					proclaim.ok(dummyXHR.setRequestHeader.calledWith('Content-type', 'application/json'), 'is application/json');
+					proclaim.ok(dummyXHR.send.calledOnce, 'calledOnce');
+					window.XMLHttpRequest = xhr;
+					navigator.sendBeacon = b;
+					destroy('config');
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 100);
 		});
 
 		it('fallback to image when xhr withCredentials and sendBeacon not supported', function (done) {
 			new Queue('requests').replace([]);
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -157,22 +139,27 @@ describe('Core.Send', function () {
 			};
 			const i = window.Image;
 			window.Image = sinon.stub().returns(dummyImage);
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
-				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
-				proclaim.equal(dummyImage.addEventListener.args[0][0], 'error');
-				proclaim.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
-				proclaim.equal(dummyImage.addEventListener.args[1][0], 'load');
-				proclaim.equal(dummyImage.addEventListener.args[1][1].length, 0);// it will get passed the error
-				window.XMLHttpRequest = xhr;
-				window.Image = i;
-				navigator.sendBeacon = b;
-				done();
+				try {
+					const payload = dummyImage.src.split('?')[1];
+					proclaim.equal(decodeURIComponent(payload), 'type=video:seek&data={"system":{"transport":"image","is_live":true},"id":"1.199.83760034665465.1432907605043.-56cf00f","meta":{"page_id":"page_id","type":"event"},"user":{"spoor_session":"MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg==","spoor_id":"value3"},"device":{"user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34"},"category":"video","action":"seek","context":{"key":"pos","value":"10","parent_id":"1.990.74606760405.1432907605040.-56cf00f"}}');
+					proclaim.equal(dummyImage.addEventListener.args[0][0], 'error');
+					proclaim.equal(dummyImage.addEventListener.args[0][1].length, 1);// it will get passed the error
+					proclaim.equal(dummyImage.addEventListener.args[1][0], 'load');
+					proclaim.equal(dummyImage.addEventListener.args[1][1].length, 0);// it will get passed the error
+					window.XMLHttpRequest = xhr;
+					window.Image = i;
+					navigator.sendBeacon = b;
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 100);
 		});
 
 		it('fallback to image with attachEvent() when user is living in the past', function (done) {
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 			const xhr = window.XMLHttpRequest;
@@ -184,17 +171,22 @@ describe('Core.Send', function () {
 			};
 			const i = window.Image;
 			window.Image = sinon.stub().returns(dummyImage);
-			Send.addAndRun(request);
+			addAndRun(request);
 			setTimeout(() => {
-				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
-				proclaim.equal(dummyImage.attachEvent.args[0][0], 'onerror');
-				proclaim.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
-				proclaim.equal(dummyImage.attachEvent.args[1][0], 'onload');
-				proclaim.equal(dummyImage.attachEvent.args[1][1].length, 0);// it will get passed the error
-				window.XMLHttpRequest = xhr;
-				window.Image = i;
-				navigator.sendBeacon = b;
-				done();
+				try {
+					const payload = dummyImage.src.split('?')[1];
+					proclaim.equal(decodeURIComponent(payload), 'type=video:seek&data={"system":{"transport":"image","is_live":true},"id":"1.199.83760034665465.1432907605043.-56cf00f","meta":{"page_id":"page_id","type":"event"},"user":{"spoor_session":"MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg==","spoor_id":"value3"},"device":{"user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34"},"category":"video","action":"seek","context":{"key":"pos","value":"10","parent_id":"1.990.74606760405.1432907605040.-56cf00f"}}');
+					proclaim.equal(dummyImage.attachEvent.args[0][0], 'onerror');
+					proclaim.equal(dummyImage.attachEvent.args[0][1].length, 1);// it will get passed the error
+					proclaim.equal(dummyImage.attachEvent.args[1][0], 'onload');
+					proclaim.equal(dummyImage.attachEvent.args[1][1].length, 0);// it will get passed the error
+					window.XMLHttpRequest = xhr;
+					window.Image = i;
+					navigator.sendBeacon = b;
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 100);
 		});
 
@@ -202,13 +194,13 @@ describe('Core.Send', function () {
 			const server = sinon.fakeServer.create(); // Catch AJAX requests
 
 			new Queue('requests').replace([]);
-			Send.init();
+			init();
 			const b = navigator.sendBeacon;
 			navigator.sendBeacon = null;
 
 			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
 
-			Send.addAndRun(request);
+			addAndRun(request);
 
 			// console.log((new Queue('requests')).storage.storage._type);
 
@@ -221,43 +213,14 @@ describe('Core.Send', function () {
 			setTimeout(() => {
 				// console.log((new Queue('requests')).all());
 
-				proclaim.ok(new Queue('requests').last().queueTime);
-				navigator.sendBeacon = b;
-				server.restore();
-				done();
-			}, 100);
-		});
-
-		it('should try image transport in IE11 if XHR fails.', function (done) {
-			const server = sinon.fakeServer.create(); // Catch AJAX requests
-
-			// Fake IE11
-			window.MSInputMethodContext = true;
-			document.documentMode = true;
-
-			new Queue('requests').replace([]);
-			Send.init();
-			const dummyImage = {
-				attachEvent: sinon.stub()
-			};
-			const i = window.Image;
-			window.Image = sinon.stub().returns(dummyImage);
-
-			server.respondWith([500, { "Content-Type": "plain/text", "Content-Length": 5 }, "NOT OK"]);
-			Send.addAndRun(request);
-			server.respond();
-			// Respond OK for the image
-			server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
-			server.respond();
-
-			// Wait for localStorage
-			setTimeout(() => {
-				// console.log((new Queue('requests')).all());
-				proclaim.equal(dummyImage.src, 'https://spoor-api.ft.com/px.gif?type=video:seek&data=%7B%22system%22%3A%7B%22transport%22%3A%22xhr-image%22%7D%2C%22id%22%3A%221.199.83760034665465.1432907605043.-56cf00f%22%2C%22meta%22%3A%7B%22page_id%22%3A%22page_id%22%2C%22type%22%3A%22event%22%7D%2C%22user%22%3A%7B%22spoor_session%22%3A%22MS4zMTMuNTYxODY1NTk0MjM4MDQuMTQzMjkwNzYwNTAzNi4tNTZjZjAwZg%3D%3D%22%2C%22spoor_id%22%3A%22value3%22%7D%2C%22device%22%3A%7B%22user_agent%22%3A%22Mozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X)%20AppleWebKit%2F534.34%20(KHTML%2C%20like%20Gecko)%20PhantomJS%2F1.9.8%20Safari%2F534.34%22%7D%2C%22category%22%3A%22video%22%2C%22action%22%3A%22seek%22%2C%22context%22%3A%7B%22key%22%3A%22pos%22%2C%22value%22%3A%2210%22%2C%22parent_id%22%3A%221.990.74606760405.1432907605040.-56cf00f%22%7D%7D');
-
-				window.Image = i;
-				server.restore();
-				done();
+				try {
+					proclaim.ok(new Queue('requests').last().queueTime);
+					navigator.sendBeacon = b;
+					server.restore();
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 100);
 		});
 	});
@@ -279,21 +242,25 @@ describe('Core.Send', function () {
 		server.respondWith([200, { "Content-Type": "plain/text", "Content-Length": 2 }, "OK"]);
 
 		// Run the queue
-		Send.init();
+		init();
 
 		server.respond();
 
 		// Wait for localStorage
 		setTimeout(() => {
-			// Refresh our queue as it's kept in memory
-			queue = new Queue('requests');
+			try {
+				// Refresh our queue as it's kept in memory
+				queue = new Queue('requests');
 
-			// Event added for the debugging info
-			proclaim.equal(queue.all().length, 0);
+				// Event added for the debugging info
+				proclaim.equal(queue.all().length, 0);
 
-			// console.log(queue.all());
-			server.restore();
-			done();
+				// console.log(queue.all());
+				server.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
 		}, 200);
 	});
 

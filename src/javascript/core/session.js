@@ -1,5 +1,11 @@
-import utils from '../utils';
-import Store from './store';
+import {is, merge, isUndefined, guid} from '../utils.js';
+import {Store} from './store.js';
+
+/**
+ * @typedef {object} Session
+ * @property {string} id - The id of the session
+ * @property {boolean} isNew - Whether it is a brand new session
+ */
 
 let store;
 const defaultSessionConfig = {
@@ -11,8 +17,8 @@ const defaultSessionConfig = {
 /**
  * Set the session in the store.
  *
- * @param {String} session - The session to be stored.
- * @return {undefined}
+ * @param {string} session - The session to be stored.
+ * @returns {void}
  */
 function setSession(session) {
 	const d = new Date();
@@ -27,7 +33,7 @@ function setSession(session) {
 /**
  * Get the session from the store. Expiry and gen of a new session are handled here.
  *
- * @return {Object} the current session
+ * @returns {Session} the current session
  */
 function getSession() {
 	const s = store.read();
@@ -46,7 +52,7 @@ function getSession() {
 
 	// No active session, gen a new one.
 	if (!session) {
-		session = utils.guid();
+		session = guid();
 		isNew = true;
 	}
 
@@ -62,19 +68,19 @@ function getSession() {
 /**
  * Init
  *
- * @param {String|Object} config The name used to store the session or configuration object.
- * @return {Session} - The session
+ * @param {string|object} [config] The name used to store the session or configuration object.
+ * @returns {Session} - The session
  */
 function init(config) {
-	if (utils.is(config, 'string')) {
+	if (is(config, 'string')) {
 		config = { name: config };
 	}
 
-	if (utils.isUndefined(config)) {
+	if (isUndefined(config)) {
 		config = {};
 	}
 
-	const c = utils.merge(defaultSessionConfig, config);
+	const c = merge(defaultSessionConfig, config);
 
 	// config.name is important here, means the user has specifically asked for a cookie name.
 	if (c.storage === 'cookie' && config.name) {
@@ -85,8 +91,5 @@ function init(config) {
 
 	return getSession();
 }
-export default {
-	init,
-	session: getSession
-};
+
 export { getSession as session, init };

@@ -1,13 +1,7 @@
-import settings from './settings';
-import utils from '../utils';
-import Queue from './queue';
-import transports from './transports';
-
-const isIe11 = function () { return Boolean(window.MSInputMethodContext) && Boolean(document.documentMode); };
-/**
- * Default collection server.
- */
-let domain = 'https://spoor-api.ft.com/px.gif';
+import {get as getSetting} from './settings.js';
+import {broadcast, is, findCircularPathsIn, containsCircularPaths, merge, addEvent, log} from '../utils.js';
+import {Queue} from './queue.js';
+import {get as getTransport} from './transports/index.js';
 
 /**
  * Queue queue.
@@ -19,37 +13,43 @@ let queue;
 /**
  * Consistent check to see if we should use sendBeacon or not.
  *
- * @return {boolean} Should we use sendBeacon?
+ * @returns {boolean} Should we use sendBeacon?
  */
 function should_use_sendBeacon() {
-	return navigator.sendBeacon && Promise && (settings.get('config') || {}).useSendBeacon;
+	return Boolean(navigator.sendBeacon);
 }
 
 /**
  * Attempts to send a tracking request.
  *
- * @param {Object} request The request to be sent.
- * @param {Function} callback Callback to fire the next item in the queue.
- * @return {undefined}
+ * @param {object} request The request to be sent.
+ * @param {Function=} callback Callback to fire the next item in the queue.
+ * @returns {void}
  */
 function sendRequest(request, callback) {
 	const queueTime = request.queueTime;
 	const offlineLag = new Date().getTime() - queueTime;
 
-	const transport = should_use_sendBeacon() ? transports.get('sendBeacon')() :
-		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? transports.get('xhr')() :
-			transports.get('image')();
+	const transport = should_use_sendBeacon() ? getTransport('sendBeacon')() :
+		window.XMLHttpRequest && 'withCredentials' in new window.XMLHttpRequest() ? getTransport('xhr')() :
+			getTransport('image')();
 	const user_callback = request.callback;
 
-	const core_system = settings.get('config') && settings.get('config').system || {};
-	const system = utils.merge(core_system, {
-		api_key: settings.get('api_key'), // String - API key - Make sure the request is from a valid client (idea nicked from Keen.io) useful if a page gets copied onto a Russian website and creates noise
-		version: settings.get('version'), // Version of the tracking client e.g. '1.2'
-		source: settings.get('source'), // Source of the tracking client e.g. 'o-tracking'
+	const core_system = getSetting('config') && getSetting('config').system || {};
+	const system = merge(core_system, {
+		version: getSetting('version'), // Version of the tracking client e.g. '1.2'
+		source: getSetting('source'), // Source of the tracking client e.g. 'o-tracking'
 		transport: transport.name, // The transport method used.
 	});
 
-	request = utils.merge({ system: system }, request);
+	if (getSetting('config').test) {
+		system.is_live = false;
+	} else {
+		system.is_live = true;
+	}
+
+
+	request = merge({ system: system }, request);
 
 	// Only bothered about offlineLag if it's longer than a second, but less than 12 months. (Especially as Date can be dodgy)
 	if (offlineLag > 1000 && offlineLag < 12 * 30 * 24 * 60 * 60 * 1000) {
@@ -57,66 +57,59 @@ function sendRequest(request, callback) {
 		request.time.offset = offlineLag;
 	}
 	delete request.callback;
-	delete request.async;
 	delete request.type;
 	delete request.queueTime;
 
-	utils.log('user_callback', user_callback);
-	utils.log('PreSend', request);
+	log('user_callback', user_callback);
+	log('PreSend', request);
+
+	if (containsCircularPaths(request)) {
+		const errorMessage = "o-tracking does not support circular references in the analytics data.\n" +
+		"Please remove the circular references in the data.\n" +
+		"Here are the paths in the data which are circular:\n" +
+		JSON.stringify(findCircularPathsIn(request), undefined, 4);
+		throw new Error(errorMessage);
+	}
 
 	const stringifiedData = JSON.stringify(request);
 
 	transport.complete(function (error) {
-		if (utils.is(user_callback, 'function')) {
+		if (is(user_callback, 'function')) {
 			user_callback.call(request);
-			utils.log('calling user_callback');
+			log('calling user_callback');
 		}
 
 		if (error) {
-			// If IE11 XHR error, try using image method
-			if (isIe11() && transport.name === 'xhr') {
-				const image_method = transports.get('image')();
-				// Append image label to transport value so that we know it tried xhr first
-				request.system.transport = [request.system.transport,image_method.name].join('-');
-				image_method.send(url, JSON.stringify(request));
-				image_method.complete(function () {
-					if (callback) {
-						callback();
-					}
-				});
-			} else {
-				// Re-add to the queue if it failed.
-				// Re-apply queueTime here
-				request.queueTime = queueTime;
-				queue.add(request).save();
+			// Re-add to the queue if it failed.
+			// Re-apply queueTime here
+			request.queueTime = queueTime;
+			queue.add(request).save();
 
-				utils.broadcast('oErrors', 'log', {
-					error: error.message,
-					info: { module: 'o-tracking' }
-				});
-			}
+			broadcast('oErrors', 'log', {
+				error: error.message,
+				info: { module: 'o-tracking' }
+			});
 		} else if (callback) {
 			callback();
 		}
 	});
-	let url = domain;
+	/**
+	 * Default collection server.
+	 */
+	let url = 'https://spoor-api.ft.com/px.gif';
 
 	if (request && request.category && request.action) {
-		const type = `type=${request.category}:${request.action}`;
-		url = url.indexOf('?') > -1 ? `${url}&${type}` : `${url}?${type}`;
+		url += `?type=${request.category}:${request.action}`;
 	}
 
-	// Both developer and noSend flags have to be set to stop the request sending.
-	if (!(settings.get('developer') && settings.get('no_send'))) {
-		transport.send(url, stringifiedData);
-	}
+	transport.send(url, stringifiedData);
 }
 
 /**
  * Adds a new request to the list of pending requests
  *
- * @param {Tracking} request The request to queue
- * @return {undefined}
+ * @param {object} request The request to queue
+ * @returns {void}
  */
 function add(request) {
 	request.queueTime = new Date().getTime();
@@ -125,21 +118,17 @@ function add(request) {
 	} else {
 		queue.add(request).save();
 	}
-	utils.log('AddedToQueue', queue);
+	log('AddedToQueue', queue);
 }
 
 /**
  * If there are any requests queued, attempts to send the next one
  * Otherwise, does nothing
- * @param {Function} callback - Optional callback
- * @return {undefined}
+ *
+ * @param {Function} [callback] - Optional callback
+ * @returns {void}
  */
-function run(callback) {
-	if (utils.isUndefined(callback)) {
-		// eslint-disable-next-line no-empty-function
-		callback = function () {};
-	}
-
+function run(callback = function () { /* empty */}) {
 	// Investigate queue lengths bug
 	// https://jira.ft.com/browse/DTP-330
 	const all_events = queue.all();
@@ -163,7 +152,7 @@ function run(callback) {
 			category: 'o-tracking',
 			action: 'queue-bug',
 			context: {
-				url: document.url,
+				url: document.URL,
 				queue_length: all_events.length,
 				counts: counts,
 				storage: queue.storage.storage._type
@@ -189,31 +178,24 @@ function run(callback) {
 /**
  * Convenience function to add and run a request all in one go.
  *
- * @param {Object} request The request to queue and run.
- * @return {undefined}
+ * @param {object} request The request to queue and run.
+ * @returns {void}
  */
 function addAndRun(request) {
 	add(request);
 	run();
 }
 
-function setDomain() {
-	if (settings.get('config') && settings.get('config').server) {
-		domain = settings.get('config').server;
-	}
-}
-
 /**
- * Init the queue and send any leftover events.
- * @return {undefined}
+ * Init a queue and send any leftover events.
+ *
+ * @returns {Queue} An initialised queue.
  */
 function init() {
 	queue = new Queue('requests');
 
-	setDomain();
-
 	// If any tracking calls are made whilst offline, try sending them the next time the device comes online
-	utils.addEvent(window, 'online', function() {
+	addEvent(window, 'online', function() {
 		run();
 	});
 
@@ -223,22 +205,8 @@ function init() {
 	return queue;
 }
 
-function getDomain() {
-	return domain;
-}
-
-export default {
-	init,
-	setDomain,
-	getDomain,
-	add,
-	run,
-	addAndRun
-};
 export {
 	init,
-	setDomain,
-	getDomain,
 	add,
 	run,
 	addAndRun

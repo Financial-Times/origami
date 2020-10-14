@@ -1,3 +1,8 @@
+/**
+ * XHR based transport mechanism
+ *
+ * @returns {object} - Object with three properties: name, send and complete
+ */
 function xhr() {
 	const xhr = new window.XMLHttpRequest();
 
@@ -24,5 +29,4 @@ function xhr() {
 	};
 }
 
-export default xhr;
 export { xhr };

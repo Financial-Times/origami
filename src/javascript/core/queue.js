@@ -1,17 +1,18 @@
-import utils from '../utils';
-import Store from './store';
+import {is, isUndefined, broadcast} from '../utils.js';
+import {Store} from './store.js';
 
 /**
  * Class for handling a queue backed up by a store.
+ *
  * @class Queue
  *
- * @param {String} name - The name of the queue.
- * @return {Queue} - Returns the instance of the queue.
+ * @param {string} name - The name of the queue.
+ * @returns {Queue} - Returns the instance of the queue.
  */
-const Queue = function (name) {
-	if (utils.isUndefined(name)) {
+function Queue (name) {
+	if (isUndefined(name)) {
 		const undefinedName = new Error('You must specify a name for the queue.');
-		utils.broadcast('oErrors', 'log', {
+		broadcast('oErrors', 'log', {
 			error: undefinedName.message,
 			info: { module: 'o-tracking' }
 		});
@@ -20,13 +21,15 @@ const Queue = function (name) {
 
 	/**
 	 * Queue data.
+	 *
 	 * @type {Array}
 	 */
 	this.queue = [];
 
 	/**
 	 * The storage method to use. Determines best storage method.
-	 * @type {Object}
+	 *
+	 * @type {object}
 	 */
 	this.storage = new Store(name);
 
@@ -36,12 +39,12 @@ const Queue = function (name) {
 	}
 
 	return this;
-};
+}
 
 /**
  * Gets the contents of the store.
  *
- * @return {Array} The array of items.
+ * @returns {Array} The array of items.
  */
 Queue.prototype.all = function () {
 	if (this.queue.length === 0) {
@@ -60,7 +63,7 @@ Queue.prototype.all = function () {
 /**
  * Gets the first item in the store.
  *
- * @return {Object} Returns the item.
+ * @returns {object} Returns the item.
  */
 Queue.prototype.first = function () {
 	if (this.queue.length === 0) {
@@ -73,7 +76,7 @@ Queue.prototype.first = function () {
 /**
  * Gets the last item in the store.
  *
- * @return {Object} Returns the item.
+ * @returns {object} Returns the item.
  */
 Queue.prototype.last = function () {
 	if (this.queue.length === 0) {
@@ -86,9 +89,9 @@ Queue.prototype.last = function () {
 /**
  * Add data to the store.
  *
- * @param {Object} item - An item or an array of items.
+ * @param {object} item - An item or an array of items.
  *
- * @return {Queue} - Returns the instance of the queue.
+ * @returns {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.add = function (item) {
 	// I was trying to turn this whole add function into a little module, to stop doAdd function being created everytime, but couldn't work out how to get to 'this' from within the module.
@@ -103,7 +106,7 @@ Queue.prototype.add = function (item) {
 		});
 	}
 
-	if (utils.is(item, 'object') && item.constructor.toString().match(/array/i)) {
+	if (is(item, 'object') && item.constructor.toString().match(/array/i)) {
 		for (i = 0; i < item.length; i = i + 1) {
 			doAdd(item[i]);
 		}
@@ -119,10 +122,10 @@ Queue.prototype.add = function (item) {
  *
  * @param {Array} items The new array of data.
  *
- * @return {Queue} - Returns the instance of the queue.
+ * @returns {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.replace = function (items) {
-	if (utils.is(items, 'object') && items.constructor.toString().match(/array/i)) {
+	if (Array.isArray(items)) {
 		this.queue = [];
 		this.add(items).save();
 
@@ -130,7 +133,7 @@ Queue.prototype.replace = function (items) {
 	}
 
 	const invalidArg = new Error('Argument invalid, must be an array.');
-	utils.broadcast('oErrors', 'log', {
+	broadcast('oErrors', 'log', {
 		error: invalidArg.message,
 		info: { module: 'o-tracking' }
 	});
@@ -140,7 +143,7 @@ Queue.prototype.replace = function (items) {
 /**
  * Pop the first item from the queue.
  *
- * @return {Object} The item.
+ * @returns {object} The item.
  */
 Queue.prototype.shift = function () {
 	if (this.queue.length === 0) {
@@ -157,7 +160,7 @@ Queue.prototype.shift = function () {
 /**
  * Save the current store to localStorage so that old requests can still be sent after a page refresh.
  *
- * @return {Queue} - Returns the instance of the queue.
+ * @returns {Queue} - Returns the instance of the queue.
  */
 Queue.prototype.save = function () {
 	this.storage.write(this.queue);
@@ -165,5 +168,4 @@ Queue.prototype.save = function () {
 	return this;
 };
 
-export default Queue;
 export { Queue };

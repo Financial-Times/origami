@@ -2,7 +2,6 @@
 	"system": {
 		"environment": "p",
 		"is_live": true,
-		"api_key": "<hidden>",
 		"version": "1.1.8",
 		"source": "o-tracking"
 	},
@@ -16,7 +15,6 @@
 		}
 	},
 	"user": {
-		"passport_id": "<hidden>",
 		"ft_session": "<hidden>"
 	},
 	"device": {

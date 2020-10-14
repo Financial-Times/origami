@@ -11,7 +11,6 @@
 	"system": {
 		"source": "o-tracking",								// Name of the sender's system [1]
 		"version": "1.0.0",									// Source semver
-		"api_key":	"0f7464b4-3f4d-11e4-984b-00144feabdc0"		// Sender-specific key [6]
 	},
 	"device": {
 		"spoor_id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// Unique ID for this device
@@ -32,8 +31,6 @@
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",		// FT Session token
 		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// FT User GUID
-		"passport_id": "1234556789",							// Passport ID - soon to be deprecated
-		"erights_id": "12345567",								// eRights ID - soon to be deprecated
 		"isStaff": true,
 		"ab": {
             "test_name": "variant"								// [9]

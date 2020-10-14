@@ -1,3 +1,8 @@
+/**
+ * Beacon based transport mechanism
+ *
+ * @returns {object} - Object with three properties: name, send and complete
+ */
 function sendBeacon() {
 	let resolver;
 	let rejecter;
@@ -23,5 +28,4 @@ function sendBeacon() {
 	};
 }
 
-export default sendBeacon;
 export { sendBeacon };

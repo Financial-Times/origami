@@ -1,11 +1,10 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import './setup';
+import './setup.js';
 
-import settings from '../src/javascript/core/settings';
-import Queue from '../src/javascript/core/queue';
-import Send from '../src/javascript/core/send';
+import {destroy, get} from '../src/javascript/core/settings.js';
+import {Queue} from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
 
 describe('main', function () {
@@ -13,7 +12,31 @@ describe('main', function () {
 
 	before(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
-		settings.destroy('config'); // Empty settings.
+		destroy('config'); // Empty settings.
+	});
+
+	it('should only allow a single tracking instance to exist', function() {
+		oTracking.destroy();
+		const confEl = document.createElement('script');
+		confEl.type = 'application/json';
+		confEl.dataset.oTrackingConfig = 'true';
+		const config = {
+			context: {
+				product: 'desktop'
+			},
+			user: {
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+			}
+		};
+		confEl.innerText = JSON.stringify(config);
+
+		document.head.appendChild(confEl);
+		const tracking1 = oTracking.init();
+		const tracking2 = oTracking.init();
+		document.head.removeChild(confEl);
+		proclaim.deepStrictEqual(tracking1, oTracking);
+		proclaim.deepStrictEqual(tracking1, tracking2);
+		oTracking.destroy();
 	});
 
 	it('should quit without any config to init with', function() {
@@ -40,7 +63,7 @@ describe('main', function () {
 		document.head.appendChild(confEl);
 		const tracking = oTracking.init();
 
-		proclaim.deepEqual(settings.get('config'), config);
+		proclaim.deepEqual(get('config'), config);
 		proclaim.equal(tracking.initialised, true);
 
 		document.head.removeChild(confEl);
@@ -73,7 +96,6 @@ describe('main', function () {
 		proclaim.deepEqual(Object.keys(sent_data), ["system","context","user","device","category","action"]);
 
 		// Meta
-		proclaim.equal(sent_data.system.api_key, "qUb9maKfKbtpRsdp0p2J7uWxRPGJEP");
 		proclaim.ok(sent_data.system.version.match(/\d+\.\d+.\d+/));
 		proclaim.equal(sent_data.system.source, "o-tracking");
 
@@ -137,7 +159,9 @@ describe('main', function () {
 		proclaim.equal(sent_data1.context.my_key, "my_val");
 
 		// Track another page
-		oTracking.page({}, callback2);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk"
+		}, callback2);
 		proclaim.ok(callback2.called, 'Callback not called.');
 
 		// Ensure vars from the first track don't leak into the second
@@ -150,21 +174,100 @@ describe('main', function () {
 
 		oTracking.init({
 			system: {
-				environment: 'prod',
-				is_live: true
+				environment: 'prod'
 			}
 		});
 
 
 		const callback = sinon.spy();
 
-		oTracking.page({}, callback);
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?1"
+		}, callback);
 
 		proclaim.ok(callback.called, 'Callback not called.');
 
 		const sent_data = callback.getCall(0).thisValue;
 
 		proclaim.equal(sent_data.system.environment, "prod");
+	});
+
+	it('should not allow system.is_live to be set on init', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			system: {
+				is_live: "carrot"
+			}
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?2"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, true);
+	});
+
+	it('should set system.is_live to be false if `test` is set to true', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test: true
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?3"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, false);
+	});
+
+	it('should set system.is_live to be true if `test` is set to false', function () {
+		oTracking.destroy();
+
+		oTracking.init({
+			test: false
+		});
+
+
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?4"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
+		proclaim.equal(sent_data.system.is_live, true);
+	});
+
+	it('should set system.is_live to be true if `test` is not set', function () {
+		const callback = sinon.spy();
+
+		oTracking.page({
+			url: "http://www.ft.com/home/uk?5"
+		}, callback);
+
+		proclaim.ok(callback.called, 'Callback not called.');
+
+		const sent_data = callback.getCall(0).thisValue;
+
 		proclaim.equal(sent_data.system.is_live, true);
 	});
 
@@ -200,7 +303,6 @@ describe('main', function () {
 		proclaim.equal(data_one.device.orientation, 'landscape');
 		proclaim.equal(data_one.device.is_offline, true);
 		proclaim.equal(data_one.user.user_id, 'c2nb134j8hz2p');
-		proclaim.equal(Send.getDomain(), 'https://spoor-api.ft.com/px.gif');
 
 		oTracking.updateConfig({
 			server: 'somewhere over the rainbow',
@@ -230,7 +332,6 @@ describe('main', function () {
 		proclaim.equal(data_two.device.orientation, 'portrait');
 		proclaim.equal(data_two.device.is_offline, true);
 		proclaim.equal(data_two.user.user_id, 'cjw30zh3bxei6');
-		proclaim.equal(Send.getDomain(), 'somewhere over the rainbow');
 	});
 
 	it('should override core configuration with individual calls', function () {

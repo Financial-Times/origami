@@ -1,6 +1,6 @@
-import Core from '../core';
-import getTrace from '../../libs/get-trace';
-import utils from '../utils';
+import core from '../core.js';
+import {getTrace} from '../../libs/get-trace.js';
+import {assignIfUndefined, filterProperties} from '../utils.js';
 
 const TRACKING_ATTRIBUTES = [
 	'componentContentId',
@@ -19,13 +19,13 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 			throw new Error('opts.getContextData is not a function');
 		}
 
-		const dataBeforeWhitelist = opts.getContextData(viewedEl);
+		const contextData = opts.getContextData(viewedEl);
 
-		if (typeof dataBeforeWhitelist !== 'object') {
-			throw new Error('opts.getContextData function should return {Object}');
+		if (typeof contextData !== 'object') {
+			throw new Error('opts.getContextData function should return {object}');
 		}
 
-		context = utils.whitelistProps(dataBeforeWhitelist, TRACKING_ATTRIBUTES);
+		context = filterProperties(contextData, TRACKING_ATTRIBUTES);
 	} else {
 		context = {};
 	}
@@ -33,7 +33,7 @@ const decorateEventData = (eventData, viewedEl, opts) => {
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
 
-	utils.assignIfUndefined(customContext, context);
+	assignIfUndefined(customContext, context);
 
 	eventData.context = context;
 };
@@ -42,8 +42,8 @@ const decorateEventData = (eventData, viewedEl, opts) => {
  * Listen for view events.
  *
  * @alias view#init
- * @param {Object} opts - To set custom category[String], selector[String], getContextData[Function]
- * @return {undefined}
+ * @param {object} opts - To set custom category[String], selector[String], getContextData[Function]
+ * @returns {undefined}
  */
 const init = (opts = {}) => {
 	if(!window.IntersectionObserver) {
@@ -69,7 +69,7 @@ const init = (opts = {}) => {
 				const viewedEl = change.target;
 
 				decorateEventData(eventData, viewedEl, opts);
-				Core.track(eventData);
+				core.track(eventData);
 				observer.unobserve(viewedEl);
 			}
 		});
@@ -80,6 +80,5 @@ const init = (opts = {}) => {
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
-export default { init };
 export { init };
 

@@ -1,12 +1,27 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 
-import Utils from '../src/javascript/utils';
+import {
+	log,
+	is,
+	isUndefined,
+	merge,
+	encode,
+	onPage,
+	triggerPage,
+	getValueFromCookie,
+	sanitise,
+	assignIfUndefined,
+	filterProperties,
+	findCircularPathsIn,
+	containsCircularPaths,
+	guid
+} from '../src/javascript/utils.js';
 
 describe('Utils', function () {
 
 	it('should provide log functionality', function () {
-		proclaim.ok(Utils.log);
+		proclaim.ok(log);
 	});
 
 	it('should provide is functionality', function () {
@@ -22,26 +37,26 @@ describe('Utils', function () {
 			// eslint-disable-next-line no-empty-function
 			{ value: function () {}, answer: 'function' }
 		].forEach(function (test) {
-			proclaim.ok(Utils.is(test.value, test.answer), test.value + " is a " + test.answer);
+			proclaim.ok(is(test.value, test.answer), test.value + " is a " + test.answer);
 		});
 	});
 
 	it('should provide isUndefined functionality', function () {
-		proclaim.ok(Utils.isUndefined(undefined));
+		proclaim.ok(isUndefined(undefined));
 	});
 
 	it('should provide merge functionality', function () {
-		proclaim.deepEqual(Utils.merge({ 'one' : 'one'}, { 'two': 'two' }), { 'one' : 'one', 'two': 'two' });
+		proclaim.deepEqual(merge({ 'one' : 'one'}, { 'two': 'two' }), { 'one' : 'one', 'two': 'two' });
 	});
 
 	it('should provide encode functionality', function () {
-		proclaim.equal(Utils.encode('http://www.ft.com?foo=bar&testing=yay!'), "http%3A%2F%2Fwww.ft.com%3Ffoo%3Dbar%26testing%3Dyay!");
+		proclaim.equal(encode('http://www.ft.com?foo=bar&testing=yay!'), "http%3A%2F%2Fwww.ft.com%3Ffoo%3Dbar%26testing%3Dyay!");
 	});
 
 	it('should provide guid generation', function () {
-		const guid = Utils.guid();
+		const id = guid();
 		const re = /^\w{25}$/; // cifnulwv2000030ds4avpbm9f
-		proclaim.ok(re.test(guid), 'Guid ' + guid + 'should match ' + /^\w{25}$/);
+		proclaim.ok(re.test(id), 'Guid ' + id + 'should match ' + /^\w{25}$/);
 	});
 
 	describe('internal page event', function () {
@@ -49,34 +64,26 @@ describe('Utils', function () {
 
 		it('should provide onPage functionality', function () {
 			proclaim.doesNotThrow(function () {
-				Utils.onPage(callback);
+				onPage(callback);
 			});
 		});
 
 		it('should call the callback when page is triggered', function () {
-			Utils.triggerPage();
+			triggerPage();
 			proclaim.ok(callback.called, 'callback was triggered.');
 		});
 	});
 
 	it('should provide getValueFromCookie functionality', function () {
-		proclaim.ok(Utils.getValueFromCookie);
-	});
-
-	it('should provide getValueFromUrl functionality', function () {
-		proclaim.ok(Utils.getValueFromUrl);
-	});
-
-	it('should provide getValueFromJsVariable functionality', function () {
-		proclaim.ok(Utils.getValueFromJsVariable);
+		proclaim.ok(getValueFromCookie);
 	});
 
 	it('should provide sanitise functionality', function () {
 		[
 			{ param: '   with space  ', result: 'with space' },
 			{ param: 'noSpace', result: 'noSpace' }
-	 	].forEach(function (test) {
-			proclaim.equal(Utils.sanitise(test.param), test.result);
+		].forEach(function (test) {
+			proclaim.equal(sanitise(test.param), test.result);
 		});
 	});
 
@@ -88,13 +95,13 @@ describe('Utils', function () {
 				result: { a: 'a', b: 'b', c: 'c' }
 			}
 		].forEach(function (test) {
-			Utils.assignIfUndefined(test.subject, test.target);
+			assignIfUndefined(test.subject, test.target);
 			proclaim.deepEqual(test.target, test.result);
 		});
 	});
 
-	it('should provide whitelistProps functionality', function () {
-		const whitelist = [ 'componentContentId', 'type' ];
+	it('should provide filterProperties functionality', function () {
+		const allowedPropertyNames = [ 'componentContentId', 'type' ];
 
 		[
 			{
@@ -110,8 +117,80 @@ describe('Utils', function () {
 				result: {}
 			}
 		].forEach(function (test) {
-			proclaim.deepEqual(Utils.whitelistProps(test.target, whitelist), test.result);
+			proclaim.deepEqual(filterProperties(test.target, allowedPropertyNames), test.result);
 		});
 	});
 
+	describe('findCircularPathsIn', function() {
+		it('should return an empty array if object contains no circular references', function() {
+			proclaim.deepStrictEqual(findCircularPathsIn({ a: 1, b: 2 }), []);
+		});
+
+		it('should return an empty array if given a string literal', function() {
+			proclaim.deepStrictEqual(findCircularPathsIn(''), []);
+		});
+
+		it('should return an empty array if given a number literal', function() {
+			proclaim.deepStrictEqual(findCircularPathsIn(137), []);
+		});
+
+		it('should return an empty array if given a boolean literal', function() {
+			proclaim.deepStrictEqual(findCircularPathsIn(true), []);
+		});
+
+		it('should return an empty array if given null', function() {
+			proclaim.deepStrictEqual(findCircularPathsIn(null), []);
+		});
+
+		it('should return an array containing all the paths which are circular', function() {
+			const rootObject = {};
+			rootObject.a = rootObject;
+			rootObject.b = 2;
+			rootObject.c = '';
+			rootObject.d = null;
+			rootObject.e = true;
+			rootObject.f = [rootObject.a, 'carrot', rootObject];
+			rootObject.f.push(rootObject.f);
+			proclaim.deepStrictEqual(findCircularPathsIn(rootObject), [
+				'.a',
+				'.f[0]',
+				'.f[2]',
+				'.f[3]'
+			]);
+		});
+	});
+
+	describe('containsCircularPaths', function() {
+		it('should return false if object contains no circular references', function() {
+			proclaim.isFalse(containsCircularPaths({ a: 1, b: 2 }));
+		});
+
+		it('should return false if given a string literal', function() {
+			proclaim.isFalse(containsCircularPaths(''));
+		});
+
+		it('should return false if given a number literal', function() {
+			proclaim.isFalse(containsCircularPaths(137));
+		});
+
+		it('should return false if given a boolean literal', function() {
+			proclaim.isFalse(containsCircularPaths(true));
+		});
+
+		it('should return false if given null', function() {
+			proclaim.isFalse(containsCircularPaths(null));
+		});
+
+		it('should return true if given an object which contains circular references', function() {
+			const rootObject = {};
+			rootObject.a = rootObject;
+			rootObject.b = 2;
+			rootObject.c = '';
+			rootObject.d = null;
+			rootObject.e = true;
+			rootObject.f = [rootObject.a, 'carrot', rootObject];
+			rootObject.f.push(rootObject.f);
+			proclaim.isTrue(containsCircularPaths(rootObject));
+		});
+	});
 });
