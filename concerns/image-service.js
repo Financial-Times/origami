@@ -9,7 +9,7 @@ const OPTIONS = { source:'next', fit:'scale-down', dpr:2 };
  * @param {String} options
  */
 export default function imageService(url, width, options) {
-  const imageSrc = new URL(`${BASE_URL}/${encodeURIComponent(url)}`);
+	const imageSrc = new URL(`${BASE_URL}/${encodeURIComponent(url)}`);
 	imageSrc.search = new URLSearchParams({...OPTIONS, ...options });
 	imageSrc.searchParams.set('width', width);
 	return imageSrc.href;
