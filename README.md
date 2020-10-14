@@ -192,6 +192,18 @@ const eventConfig = {
 };
 oTracking.event(eventConfig);
 ```
+
+The `event` method also accepts an optional callback which is run after the event has been processed.
+```js
+const eventConfig = {
+    "category": "video", // optional
+    "action": "play", // optional
+};
+oTracking.event(eventConfig, () => {
+  console.log('The custom video event has been processed!');
+});
+```
+
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 
 
