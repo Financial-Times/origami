@@ -38,7 +38,7 @@ exports.knobs = [
 	'showImage',
 	'image',
 	'imageSize',
-  'imageHighestQuality',
+	'imageHighestQuality',
 	// Variants
 	'layout',
 	'modifiers',
