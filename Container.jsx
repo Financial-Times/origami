@@ -30,7 +30,7 @@ export default (props) => {
 		.join(' ');
 
 	return (
-		<div className={`o-teaser ${classNames} js-teaser`} data-id={props.id}>
+		<div className={`o-teaser ${classNames} js-teaser`} data-id={props.id} data-trackable={props.dataTrackable}>
 			{props.children}
 		</div>
 	);
