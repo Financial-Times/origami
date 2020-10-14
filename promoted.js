@@ -16,6 +16,7 @@ exports.knobs = [
 	'showMeta',
 	'promotedPrefixText',
 	'promotedSuffixText',
+	'dataTrackable',
 	// Title
 	'showTitle',
 	'title',

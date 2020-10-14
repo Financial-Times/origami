@@ -17,6 +17,7 @@ exports.knobs = [
 	// Meta
 	'showMeta',
 	'metaLink',
+	'dataTrackable',
 	// Title
 	'showTitle',
 	'title',

@@ -66,6 +66,9 @@ module.exports = (data, { object, text, number, boolean, date, select }) => {
 		},
 		promotedSuffixText() {
 			return text('Promoted suffix text', data.promotedSuffixText, Groups.Meta);
+		},
+		dataTrackable() {
+			return text('Tracking data', data.dataTrackable, Groups.Meta);
 		}
 	};
 
