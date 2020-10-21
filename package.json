@@ -1,10 +1,15 @@
 {
-    "private": true,
+    "main": "main.js",
     "name": "o-brand",
     "devDependencies": {
         "eslint": "^7.25.0",
         "eslint-config-origami-component": "^2.1.1",
         "origami-ci-tools": "^2.4.1",
         "stylelint-config-origami-component": "^1.0.4"
-    }
+    },
+    "description": "Tools to \"brand\" other Origami components.",
+    "publishConfig": {
+        "registry": "http://localhost:4873"
+    },
+    "version": "4.0.0-0"
 }
