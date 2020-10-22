@@ -233,7 +233,7 @@ Example Component (o-example):
 Example Project:
 ```scss
 $o-brand: 'whitelabel';
-@import 'o-table/main';
+@import '@financial-times/o-table/main';
 
 // Customise the example component.
 // Here we change the variable "example-background" from "white" to "lightblue".
