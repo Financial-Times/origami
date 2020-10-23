@@ -17,6 +17,9 @@ on:
     types:
       - completed
   status: {}
+  push:
+    branches-ignore: 
+      - master
 jobs:
   automerge:
     runs-on: ubuntu-latest
