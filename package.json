@@ -1,23 +1,33 @@
 {
-    "name": "@financial-times/o-brand",
-    "version": "100.0.0-8",
-    "description": "Tools to \"brand\" other Origami components.",
-    "license": "MIT",
-    "type": "module",
-    "exports": {
-        ".": {
-            "browser": "./main.js"
-        }
-    },
-    "browser": "./main.js",
-    "types": "types",
-    "devDependencies": {
-        "eslint": "^7.25.0",
-        "eslint-config-origami-component": "^2.1.1",
-        "origami-ci-tools": "^2.4.1",
-        "stylelint-config-origami-component": "^1.0.4"
-    },
-    "publishConfig": {
-        "registry": "https://origami-npm-registry-prototype.herokuapp.com"
+  "name": "@financial-times/o-brand",
+  "version": "100.0.0-10",
+  "description": "Tools to \"brand\" other Origami components.",
+  "keywords": [],
+  "homepage": "https://github.com/Financial-Times/o-brand#readme",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/o-brand/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/o-brand.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": "./main.js"
     }
+  },
+  "browser": "./main.js",
+  "types": "types",
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-origami-component": "^2.1.0",
+    "origami-ci-tools": "^2.1.0",
+    "stylelint-config-origami-component": "^1.0.4"
+  },
+  "publishConfig": {
+    "registry": "https://origami-npm-registry-prototype.herokuapp.com"
+  }
 }
