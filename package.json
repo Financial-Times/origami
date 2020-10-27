@@ -2,7 +2,15 @@
     "name": "@financial-times/o-brand",
     "version": "100.0.0-7",
     "description": "Tools to \"brand\" other Origami components.",
-    "browser": "main.js",
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        ".": {
+            "browser": "./main.js"
+        }
+    },
+    "browser": "./main.js",
+    "types": "types",
     "devDependencies": {
         "eslint": "^7.25.0",
         "eslint-config-origami-component": "^2.1.1",
