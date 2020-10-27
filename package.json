@@ -1,6 +1,6 @@
 {
     "name": "@financial-times/o-brand",
-    "version": "100.0.0-7",
+    "version": "100.0.0-8",
     "description": "Tools to \"brand\" other Origami components.",
     "license": "MIT",
     "type": "module",
