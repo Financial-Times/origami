@@ -1,15 +1,15 @@
 {
-    "browser": "main.js",
     "name": "@financial-times/o-brand",
+    "version": "100.0.0-7",
+    "description": "Tools to \"brand\" other Origami components.",
+    "browser": "main.js",
     "devDependencies": {
         "eslint": "^7.25.0",
         "eslint-config-origami-component": "^2.1.1",
         "origami-ci-tools": "^2.4.1",
         "stylelint-config-origami-component": "^1.0.4"
     },
-    "description": "Tools to \"brand\" other Origami components.",
     "publishConfig": {
         "registry": "http://localhost:4873"
-    },
-    "version": "100.0.0-7"
+    }
 }
