@@ -111,6 +111,17 @@
 			]
 		},
 		{
+			"name": "master-brand-palette",
+			"title": "Brand Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/brand-palette.mustache",
+			"description": "<var>brand-ft-pink</var> should not be used in digital products, instead use <var>paper</var>. However since <var>brand-ft-pink</var> is used in some digital assets, such as the FT logo, there are a limited number of valid use-cases. For example <var>brand-ft-pink</var> could be used to prevent a flash of the wrong colour as the logo loads",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
 			"name": "master-tones",
 			"title": "Tones and Mixes",
 			"data": "demos/src/palettes/master-palette.json",
