@@ -1,4 +1,4 @@
-import { Newish, Recent } from './constants';
+import { Newish, Recent } from './constants'
 
 /**
  * To Date
@@ -7,14 +7,14 @@ import { Newish, Recent } from './constants';
  */
 export function toDate(date) {
 	if (typeof date === 'string') {
-		return new Date(date);
+		return new Date(date)
 	}
 
 	if (typeof date === 'number') {
-		return new Date(date);
+		return new Date(date)
 	}
 
-	return date;
+	return date
 }
 
 /**
@@ -23,7 +23,7 @@ export function toDate(date) {
  * @returns {Number}
  */
 export function getRelativeDate(date) {
-	return Date.now() - toDate(date).getTime();
+	return Date.now() - toDate(date).getTime()
 }
 
 /**
@@ -35,13 +35,13 @@ export function getRelativeDate(date) {
 export function getStatus(publishedDate, firstPublishedDate) {
 	if (getRelativeDate(publishedDate) < Newish) {
 		if (publishedDate === firstPublishedDate) {
-			return 'new';
+			return 'new'
 		} else {
-			return 'updated';
+			return 'updated'
 		}
 	}
 
-	return '';
+	return ''
 }
 
 /**
@@ -50,5 +50,5 @@ export function getStatus(publishedDate, firstPublishedDate) {
  * @returns {Boolean}
  */
 export function isRecent(relativeDate) {
-	return relativeDate < Recent;
+	return relativeDate < Recent
 }

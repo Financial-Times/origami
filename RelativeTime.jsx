@@ -1,6 +1,6 @@
-import { h } from '@financial-times/x-engine';
-import { isRecent, getRelativeDate, getStatus } from './concerns/date-time';
-import dateformat from 'dateformat';
+import { h } from '@financial-times/x-engine'
+import { isRecent, getRelativeDate, getStatus } from './concerns/date-time'
+import dateformat from 'dateformat'
 
 /**
  * Display Time
@@ -8,16 +8,16 @@ import dateformat from 'dateformat';
  * @returns {String}
  */
 const displayTime = (date) => {
-	const hours = Math.floor(Math.abs(date / 3600000));
-	const plural = hours === 1 ? 'hour' : 'hours';
-	const suffix = hours === 0 ? '' : `${plural} ago`;
+	const hours = Math.floor(Math.abs(date / 3600000))
+	const plural = hours === 1 ? 'hour' : 'hours'
+	const suffix = hours === 0 ? '' : `${plural} ago`
 
-	return `${hours} ${suffix}`;
-};
+	return `${hours} ${suffix}`
+}
 
 export default ({ publishedDate, firstPublishedDate }) => {
-	const relativeDate = getRelativeDate(publishedDate);
-	const status = getStatus(publishedDate, firstPublishedDate);
+	const relativeDate = getRelativeDate(publishedDate)
+	const status = getStatus(publishedDate, firstPublishedDate)
 
 	return isRecent(relativeDate) ? (
 		<div className={`o-teaser__timestamp o-teaser__timestamp--${status}`}>
@@ -31,5 +31,5 @@ export default ({ publishedDate, firstPublishedDate }) => {
 				{status ? '' : displayTime(relativeDate)}
 			</time>
 		</div>
-	) : null;
-};
+	) : null
+}

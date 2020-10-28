@@ -1,4 +1,4 @@
-import { h } from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine'
 
 /**
  * Render
@@ -8,12 +8,11 @@ import { h } from '@financial-times/x-engine';
 const render = (action) => {
 	// Allow parent components to pass raw HTML strings
 	if (typeof action === 'string') {
-		return <span dangerouslySetInnerHTML={{ __html: action }} />;
+		return <span dangerouslySetInnerHTML={{ __html: action }} />
 	} else {
-		return action;
+		return action
 	}
-};
+}
 
-export default ({ customSlot }) => (
+export default ({ customSlot }) =>
 	customSlot ? <div className="o-teaser__action">{render(customSlot)}</div> : null
-);

@@ -1,17 +1,17 @@
-import { h } from '@financial-times/x-engine';
-import Container from './Container';
-import Content from './Content';
-import CustomSlot from './CustomSlot';
-import Headshot from './Headshot';
-import Image from './Image';
-import Meta from './Meta';
-import RelatedLinks from './RelatedLinks';
-import Status from './Status';
-import Standfirst from './Standfirst';
-import Title from './Title';
-import Video from './Video';
-import { media } from './concerns/rules';
-import presets from './concerns/presets';
+import { h } from '@financial-times/x-engine'
+import Container from './Container'
+import Content from './Content'
+import CustomSlot from './CustomSlot'
+import Headshot from './Headshot'
+import Image from './Image'
+import Meta from './Meta'
+import RelatedLinks from './RelatedLinks'
+import Status from './Status'
+import Standfirst from './Standfirst'
+import Title from './Title'
+import Video from './Video'
+import { media } from './concerns/rules'
+import presets from './concerns/presets'
 
 const Teaser = (props) => (
 	<Container {...props}>
@@ -27,7 +27,7 @@ const Teaser = (props) => (
 		{media(props) === 'image' ? <Image {...props} /> : null}
 		{props.showRelatedLinks ? <RelatedLinks {...props} /> : null}
 	</Container>
-);
+)
 
 export {
 	Container,
@@ -43,4 +43,4 @@ export {
 	Title,
 	Video,
 	presets
-};
+}

@@ -1,7 +1,7 @@
-import { h } from '@financial-times/x-engine';
+import { h } from '@financial-times/x-engine'
 
 const renderLink = ({ id, type, title, url, relativeUrl }, i) => {
-	const displayUrl = relativeUrl || url;
+	const displayUrl = relativeUrl || url
 	return (
 		<li
 			key={`related-${i}`}
@@ -11,11 +11,10 @@ const renderLink = ({ id, type, title, url, relativeUrl }, i) => {
 				{title}
 			</a>
 		</li>
-	);
+	)
 }
 
-export default ({ relatedLinks = [] }) => (
+export default ({ relatedLinks = [] }) =>
 	relatedLinks && relatedLinks.length ? (
 		<ul className="o-teaser__related">{relatedLinks.map(renderLink)}</ul>
 	) : null
-);
