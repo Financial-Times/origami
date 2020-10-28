@@ -1,8 +1,8 @@
-const { Teaser } = require('../');
+const { Teaser } = require('../')
 
-exports.component = Teaser;
+exports.component = Teaser
 
-exports.package = require('../package.json');
+exports.package = require('../package.json')
 
 exports.dependencies = {
 	'o-date': '^4.0.0',
@@ -11,7 +11,7 @@ exports.dependencies = {
 	'o-teaser': '^4.0.0',
 	'o-typography': '^6.0.0',
 	'o-video': '^6.0.0'
-};
+}
 
 exports.stories = [
 	require('./article'),
@@ -22,6 +22,6 @@ exports.stories = [
 	require('./promoted'),
 	require('./top-story'),
 	require('./video')
-];
+]
 
-exports.knobs = require('./knobs');
+exports.knobs = require('./knobs')
