@@ -102,8 +102,11 @@ wasabi | master
 org-b2c | master
 org-b2c-dark | master
 org-b2c-light | master
+brand-ft-pink | master
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
+
+`brand-ft-pink` should not be used in digital products, instead use `paper`. However since `brand-ft-pink` is used in some digital assets, such as the FT logo, there are a limited number of valid use-cases. For example  `brand-ft-pink` could be used to prevent a flash of the wrong colour as the logo loads.
 
 ### Default Palette Colours
 
