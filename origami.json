@@ -115,7 +115,7 @@
 			"title": "Brand Palette",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/brand-palette.mustache",
-			"description": "These colors are specifically designed for use in in some digital assets, such as the FT logo. For example, brand-ft-pink could be used to prevent a flash of the wrong color as the logo loads",
+			"description": "These colours are specifically designed for use in some digital assets, such as the FT logo. For example, brand-ft-pink could be used to prevent a flash of the wrong colours as the logo loads",
 			"display_html": false,
 			"brands": [
 				"master"
