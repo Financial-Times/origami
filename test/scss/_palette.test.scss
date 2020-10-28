@@ -9,7 +9,7 @@
 		@include assert-equal(oColorsByName('org-b2c'), (#4e96eb));
 		@include assert-equal(oColorsByName('org-b2c-dark'), (#3a70af));
 		@include assert-equal(oColorsByName('org-b2c-light'), (#99c6fb));
-		@include assert-equal(oColorsByName('ft-pink'), (#fcd0b1));
+		@include assert-equal(oColorsByName('brand-ft-pink'), (#fcd0b1));
 	}
 
 	@include test('does not have internal brand colours') {
