@@ -12,7 +12,7 @@ config:
 
 ```
 {
-    "extends": "eslint-config-origami-components"
+    "extends": "eslint-config-origami-component"
 }
 ```
 
