@@ -10,7 +10,7 @@
 	@return oBrandSupportsVariant($component: 'o-message', $variant: $variant);
 }
 
-/// Shared variables between master and internal brands.
+/// Shared variables between all brands
 /// @access private
 $_o-message-shared-brand-variables: (
 	'success': (
@@ -22,19 +22,19 @@ $_o-message-shared-brand-variables: (
 		'foreground-color': oColorsMix('black', 'crimson', $percentage: 12.5),
 		'background-color': oColorsMix('crimson', $percentage: 10),
 		'icon': 'warning-alt'
-	),
-	'feedback': (
-		'foreground-color': oColorsByUsecase('body', 'text'),
-		'highlight-color': oColorsByName('teal'),
-		'button-type': 'primary',
-		'background-color': oColorsByName('white'),
-		'text-align': center
 	)
 );
 
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-message', 'master', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
+			'feedback': (
+				'foreground-color': oColorsByUsecase('body', 'text'),
+				'highlight-color': oColorsByName('teal'),
+				'button-type': 'primary',
+				'background-color': oColorsByName('white'),
+				'text-align': center
+			),
 			'neutral': (
 				'foreground-color': 'black',
 				'background-color': 'white-60',
@@ -60,6 +60,13 @@ $_o-message-shared-brand-variables: (
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-message', 'internal', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
+			'feedback': (
+				'foreground-color': oColorsByUsecase('body', 'text'),
+				'highlight-color': oColorsByName('teal'),
+				'button-type': 'primary',
+				'background-color': oColorsByName('white'),
+				'text-align': center
+			),
 			'neutral': (
 				'foreground-color': 'black',
 				'background-color': 'slate-white-15',
