@@ -19,7 +19,7 @@ $_o-message-text-spacing: ($_o-message-line-height / 2) * 1px;
 /// List of states that can be applied to alert type messages
 ///
 /// @type List
-$o-message-states: ('error', 'inform', 'inform-inverse', 'neutral', 'success', 'warning', 'warning-light');
+$o-message-states: ('error', 'inform', 'inform-inverse', 'neutral', 'success', 'warning', 'warning-light', 'feedback');
 
 /// List of message types
 ///
@@ -32,6 +32,7 @@ $o-message-types: ('alert', 'notice', 'action');
 /// @access private
 /// @type Map
 $_o-message-states-to-types: (
+	'feedback': ('notice'),
 	'inform': ('action', 'notice'),
 	'inform-inverse': ('action'),
 	'success': ('alert'),

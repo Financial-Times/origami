@@ -210,6 +210,41 @@
 			]
 		},
 		{
+			"title": "Notice: Feedback",
+			"name": "notice-feedback",
+			"description": "Notice message to emit a strong feedback",
+			"data": {
+				"type": "notice",
+				"state": "feedback",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact.",
+				"actions": {
+					"button": true
+				}
+			},
+			"brands": [
+				"master",
+				"internal"
+			]
+		},
+		{
+			"title": "Notice Inner: Feedback",
+			"name": "notice-inner-feedback",
+			"description": "Notice message to request feedback",
+			"data": {
+				"inner": true,
+				"type": "notice",
+				"state": "feedback",
+				"content": "There are lazy dogs, maybe in a field, maybe not. It's important that you are informed of this fact. There may also be a fox. This is unconfirmed.",
+				"actions": {
+					"button": true
+				}
+			},
+			"brands": [
+				"master",
+				"internal"
+			]
+		},
+		{
 			"title": "Action: Inform Inverse",
 			"name": "action-inform-inverse",
 			"description": "Action message, displaying a call to action",

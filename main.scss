@@ -23,10 +23,10 @@
 ///     	'types': ('alert'),
 ///     	'states': ('error', 'success'),
 ///     ));
-/// @param {Map} $opts ['types': ('alert', 'notice', 'action), 'states': ('error', 'success', 'inform', 'neutral', 'inform-inverse', 'warning', 'warning-light'), 'layouts': ('inner')]
+/// @param {Map} $opts ['types': ('alert', 'notice', 'action), 'states': ('error', 'success', 'inform', 'neutral', 'inform-inverse', 'warning', 'warning-light', 'feedback'), 'layouts': ('inner')]
 @mixin oMessage($opts: (
 	'types': ('action', 'alert', 'notice'),
-	'states': ('error', 'success', 'neutral', 'inform', 'inform-inverse', 'warning', 'warning-light'),
+	'states': ('error', 'success', 'neutral', 'inform', 'inform-inverse', 'warning', 'warning-light', 'feedback'),
 	'layouts': ('inner')
 )) {
 	$types: map-get($opts, 'types');

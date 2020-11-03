@@ -22,6 +22,13 @@ $_o-message-shared-brand-variables: (
 		'foreground-color': oColorsMix('black', 'crimson', $percentage: 12.5),
 		'background-color': oColorsMix('crimson', $percentage: 10),
 		'icon': 'warning-alt'
+	),
+	'feedback': (
+		'foreground-color': oColorsByUsecase('body', 'text'),
+		'highlight-color': oColorsByName('teal'),
+		'button-type': 'primary',
+		'background-color': oColorsByName('white'),
+		'text-align': center
 	)
 );
 
@@ -44,7 +51,8 @@ $_o-message-shared-brand-variables: (
 			'inform',
 			'neutral',
 			'notice',
-			'success'
+			'success',
+			'feedback'
 		)
 	));
 }
@@ -84,7 +92,8 @@ $_o-message-shared-brand-variables: (
 			'notice',
 			'success',
 			'warning',
-			'warning-light'
+			'warning-light',
+			'feedback'
 		)
 	));
 }

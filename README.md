@@ -41,7 +41,7 @@ However, not every message accepts every state, or every layout, and not every m
 ---|:---|:---|:---
 **action message** | `inform`, `inform-inverse` | default | internal, whitelabel
 **alert message** | `success`, `neutral`, `error` | default, inner | all
-**notice message** | `inform`, `warning`, `warning-light` | default, inner | master: `inform` state only <br> internal: all states <br> whitelabel: `inform` state only
+**notice message** | `inform`, `feedback`, `warning`, `warning-light` | default, inner | master: `inform` or `feedback` state only <br> internal: all states <br> whitelabel: `inform` state only
 
 
 ## Markup
@@ -49,7 +49,7 @@ However, not every message accepts every state, or every layout, and not every m
 All messages have the same markup. What will style them differently are the following modifiers:
 
 - `type`: one of `o-message--action`, `o-message--alert`, `o-message--notice`
-- `state`: one of `o-message--success`, `o-message--neutral`, `o-message--error`, `o-message--warning`, `o-message--warning-light`, `o-message--inform`, `o-message--inform-inverse`
+- `state`: one of `o-message--success`, `o-message--neutral`, `o-message--error`, `o-message--feedback`, `o-message--warning`, `o-message--warning-light`, `o-message--inform`, `o-message--inform-inverse`
 - `layout`: currently only `o-message--inner`
 
 _Note: as mentioned in the description of the [message types](#message-types), not all states will work for all message types. In addition to that, the layout modifier only applies to `alert` and `notice` type messages._
