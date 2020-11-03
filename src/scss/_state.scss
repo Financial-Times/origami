@@ -98,6 +98,10 @@
 		margin-right: oSpacingByName('s6');
 	}
 
+	.o-message__actions__primary:only-child {
+		margin-right: 0;
+	}
+
 	// action link
 	.o-message__actions__secondary {
 		@include oTypographyLink(
