@@ -168,10 +168,12 @@ demos still.
 
 ### other proposals
 
-These abandoned proposals:
+These abandoned proposals when demos and docs where conflated.
 
-https://github.com/Financial-Times/origami/blob/5b52d7ba831ccbfc17a7babb7b83c83bd8694d90/proposals/accepted/0000-component-docs-as-static-site.md
-https://github.com/Financial-Times/origami/blob/5b52d7ba831ccbfc17a7babb7b83c83bd8694d90/proposals/accepted/0000-component-docs-convention-over-configuration.md
+- [https://github.com/Financial-Times/origami/blob/5b52d7ba831ccbfc17a7babb7b83c83bd8694d90/proposals/accepted/0000-component-docs-as-static-site.md](component
+  docs as static site)
+- [https://github.com/Financial-Times/origami/blob/5b52d7ba831ccbfc17a7babb7b83c83bd8694d90/proposals/accepted/0000-component-docs-convention-over-configuration.md](component
+  docs convention over configuration)
 
 ## notes
 
