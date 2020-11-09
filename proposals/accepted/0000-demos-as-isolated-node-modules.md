@@ -91,6 +91,7 @@ commands:
 	watch               build demos on every change
 	serve               start a live-reloading demo server that builds on every change
 	lint                lint the demo index.md
+	create              create a new demo
 ```
 
 Each command takes a single optional position argument of `pattern`, and it will
@@ -118,6 +119,43 @@ reloads the user's browser on every build.
 
 This lints the demos index.md files to ensure it will work with the rest of the
 tool.
+
+### create
+
+This takes a positional argument of `name`.
+
+Options are:
+
+| -d | --description | set the description                                         |
+| -b | --brands      | the supported brands for this demo (default: all supported) |
+
+
+It slugifies the name to use as the demo path and creates `package.json` that
+includes a dependency of `component-name@file:../..`, a name, description,
+version and `origamiBrands` array.
+
+It creates an `index.md` containing the following:
+
+~~~md
+# {{title}}
+
+{{description || "enter a description for your demo here"}}
+
+```html
+```
+~~~
+
+a `script.js` containing the following:
+
+~~~js
+import {{component-name-without-prefix}} from ("{{component-name}}")
+~~~
+
+and a `style.scss` containing the following:
+
+~~~scss
+import "{{component-name}}"
+~~~
 
 ## alternatives
 
