@@ -126,9 +126,10 @@ This takes a positional argument of `name`.
 
 Options are:
 
-| -d | --description | set the description                                         |
-| -b | --brands      | the supported brands for this demo (default: all supported) |
-
+| shortopt | longopt       | meaning                                                     |
+|----------|---------------|-------------------------------------------------------------|
+| -d       | --description | set the description                                         |
+| -b       | --brands      | the supported brands for this demo (default: all supported) |
 
 It slugifies the name to use as the demo path and creates `package.json` that
 includes a dependency of `component-name@file:../..`, a name, description,
