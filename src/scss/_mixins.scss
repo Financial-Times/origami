@@ -31,22 +31,22 @@
 
 /// Adds box sizing to current and all child elements
 @mixin oNormaliseBoxSizing {
-	
+
 	/*autoprefixer: off*/
 	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
 	box-sizing: border-box;
-	
+
 
 	& *,
 	& *:before,
 	& *:after {
-		
+
 		/*autoprefixer: off*/
 		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
 		box-sizing: inherit;
-		
+
 	}
 }
 
@@ -58,16 +58,16 @@
 	body {
 		margin: 0;
 		text-rendering: optimizeLegibility;
-		
+
 		-ms-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
 		-webkit-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
-		
+
 
 		@if $font-smoothing {
-			
+
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			
+
 		}
 
 		@if $box-sizing {
@@ -82,11 +82,11 @@
 				*,
 				*:before,
 				*:after {
-					
+
 					animation-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					transition-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
 					animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
-					
+
 				}
 			}
 		}
@@ -123,7 +123,7 @@
 
 	// When the focus-visible polyfill is applied `.js-focus-visible` is added to the html dom node
 	// (the body node in v4 of the 3rd party polyfill)
-	
+
 	// stylelint-disable-next-line selector-no-qualifying-type
 	body.js-focus-visible, // stylelint-disable-next-line selector-no-qualifying-type
 	html.js-focus-visible {
@@ -144,7 +144,7 @@
 			outline: 0;
 		}
 	}
-	
+
 
 	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
 	// If a browser supports :focus-visible we unset the :focus styles that were applied above
@@ -165,10 +165,20 @@
 		box-shadow: unset;
 	}
 
+	// Styles given :focus-visible support. Extra selectors needed to match
+	// previous `:focus` selector specificity.
+	body:not(.js-focus-visible) :focus-visible,
+	html:not(.js-focus-visible) :focus-visible,
 	:focus-visible {
 		outline: 2px solid $_o-normalise-focus-color;
 	}
 
+	body:not(.js-focus-visible) input:focus-visible,
+	html:not(.js-focus-visible) input:focus-visible,
+	body:not(.js-focus-visible) textarea:focus-visible,
+	html:not(.js-focus-visible) textarea:focus-visible,
+	body:not(.js-focus-visible) select:focus-visible,
+	html:not(.js-focus-visible) select:focus-visible,
 	input:focus-visible,
 	textarea:focus-visible,
 	select:focus-visible {
@@ -211,10 +221,10 @@
 	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
 	// stylelint-disable-next-line selector-no-qualifying-type
 	abbr[title] {
-		border-bottom: 0; // [1]	
+		border-bottom: 0; // [1]
 		text-decoration: underline; // [2]
 		// stylelint-disable-next-line declaration-block-no-duplicate-properties
-		text-decoration: underline dotted; // [2]	
+		text-decoration: underline dotted; // [2]
 	}
 
 	// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
