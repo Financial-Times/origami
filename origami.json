@@ -1,6 +1,6 @@
 {
 	"description": "Native Sass binaries for your platform.",
-	"origamiType": null,
+	"origamiType": "library",
 	"origamiVersion": 1,
 	"keywords": [
 		"sass",
