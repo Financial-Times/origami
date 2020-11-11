@@ -32,6 +32,12 @@ $_o-labels-first-import: true !default;
 		left: 0;
 		width: calc(#{$_o-labels-indicator-circle-size-calc});
 		height: calc(#{$_o-labels-indicator-circle-size-calc});
+		// At some font sizes the width/height of the circle is a decimal.
+		// For small font sizes, i.e 14px, the browser renders the circle
+		// squashed, even though the width/height are equal. Setting the
+		// transform property changes the way the browser renders the circle,
+		// in a way which overcomes this problem
+		transform: scale(1);
 		margin-right: 5px;
 		border-radius: 50%;
 		background-color: currentcolor;
