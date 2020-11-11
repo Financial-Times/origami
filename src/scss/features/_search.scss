@@ -54,10 +54,15 @@
 	}
 
 	.o-header__search-close {
-		@include oIconsContent('cross', white, $size: $_o-header-icon-size-large);
+		@include oIconsContent('cross', _oHeaderGet('search-close'), $size: $_o-header-icon-size-large);
 		border: 0;
 		margin-left: $_o-header-padding-x;
 		vertical-align: middle;
+		// Match the search button's hover/focus state.
+		&:hover,
+		&:focus {
+			opacity: 0.75;
+		}
 
 		@include oGridRespondTo($until: 'M') {
 			display: none;
