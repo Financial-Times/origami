@@ -103,6 +103,15 @@
 			"template": "/demos/src/indicators.mustache"
 		},
 		{
+			"name": "indicators-sizes",
+			"title": "Indicator Sizes",
+			"description": "All indicator labels adapt to the set font size. This demo shows using custom CSS to set the font size of indicator labels.",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/indicators-sizes.mustache"
+		},
+		{
 			"name": "timestamp",
 			"title": "Timestamp",
 			"description": "",

@@ -26,25 +26,6 @@ $_o-labels-first-import: true !default;
 		color: oColorsByName('black-60');
 	}
 
-	%_o-labels-indicator-circle {
-		content: '';
-		position: relative;
-		left: 0;
-		width: calc(#{$_o-labels-indicator-circle-size-calc});
-		height: calc(#{$_o-labels-indicator-circle-size-calc});
-		// At some font sizes the width/height of the circle is a decimal.
-		// For small font sizes, i.e 14px, the browser renders the circle
-		// squashed, even though the width/height are equal. Setting the
-		// transform property changes the way the browser renders the circle,
-		// in a way which overcomes this problem
-		transform: scale(1);
-		margin-right: 5px;
-		border-radius: 50%;
-		background-color: currentcolor;
-		display: inline-block;
-		align-self: center;
-	}
-
 	// timestamp block placeholders
 	%_o-labels-timestamp {
 		@extend %_o-labels-timestamp-typography;
@@ -61,15 +42,23 @@ $_o-labels-first-import: true !default;
 	// indicator block placeholders
 	%_o-labels-indicator {
 		@extend %_o-labels-indicator-size;
-		position: relative;
 		display: inline-block;
 	}
 
 	%_o-labels-indicator__status {
-		display: inline-flex;
-		align-items: baseline;
 		&:before {
-			@extend %_o-labels-indicator-circle;
+			content: '';
+			width: calc(0.5em + 4px);
+			height: calc(0.5em + 4px);
+			min-width: 10px;
+			min-height: 10px;
+			margin-right: 2px;
+			border-radius: 50%;
+			background-color: currentcolor;
+			display: inline-block;
+			vertical-align: baseline;
+			// align better with MetricWeb
+			margin-bottom: -1px;
 		}
 	}
 }

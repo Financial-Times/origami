@@ -17,6 +17,19 @@ html {
 	}
 }
 
+.demo-scale-m1 {
+	@include oTypographySans($scale: -1);
+}
+.demo-scale-0 {
+	@include oTypographySans($scale: 0);
+}
+.demo-scale-1 {
+	@include oTypographySans($scale: 1);
+}
+.demo-scale-2 {
+	@include oTypographySans($scale: 3);
+}
+
 // custom standard label markup
 .my-label {
 	@include oLabelsContent($opts: (
@@ -40,3 +53,5 @@ html {
 .my-indicator-label__date {
 	@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
 }
+
+

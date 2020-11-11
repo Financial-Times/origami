@@ -54,11 +54,6 @@ $_o-labels-indicator-status: (
 	'updated'
 );
 
-/// The width/height of the circle used in the indicator label.
-/// @type Number
-/// @access private
-$_o-labels-indicator-circle-size-calc: #{(4/12)}em #{'+'} 6px; // 10px given 12px font size, 12px given 18px font size
-
 /// Whether or not the animation keyframes for the live indicator
 /// label has already been output.
 /// @type Boolean

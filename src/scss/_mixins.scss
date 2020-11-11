@@ -219,16 +219,8 @@
 	@extend %_o-labels-timestamp-typography;
 
 	@if($status == 'live') {
-		& > %_o-labels-indicator__status:after {
-			@extend %_o-labels-indicator-circle;
-		}
-
-		& > %_o-labels-indicator__status:after {
-			margin-right: calc((#{$_o-labels-indicator-circle-size-calc}) * -1);
-			opacity: 0.2;
-			transform: scale(1.5);
-			animation: _o-labels-live-pulse 1.7s ease infinite;
-			order: -1;
+		& > %_o-labels-indicator__status:before {
+			animation: _o-labels-live-pulse 1.2s ease-in-out infinite;
 			// Prevent animation of the live label if the reader has indicated
 			// that they prefer reduced motion. This may be conservative but
 			// as the live indicator is presented alongside content (including
@@ -245,13 +237,16 @@
 			$_o-labels-indicator-live-pulse-output: true !global;
 			@keyframes _o-labels-live-pulse {
 				0% {
-					transform: scale(1.5);
+					opacity: 1;
 				}
-				50% {
-					transform: scale(1);
+				30% {
+					opacity: 0.4;
+				}
+				70% {
+					opacity: 0.4;
 				}
 				100% {
-					transform: scale(1.5);
+					opacity: 1;
 				}
 			}
 		}
