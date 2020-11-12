@@ -1,6 +1,11 @@
 {
   "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
   "keywords": [ "toggle", "show", "hide" ],
+  "brands": [
+    "master",
+    "internal",
+    "whitelabel"
+  ],
   "origamiType": "module",
   "origamiCategory": "primitives",
   "origamiVersion": 1,
