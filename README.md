@@ -64,7 +64,7 @@ To include all `o-visual-effects` css call the `oVisualEffects` mixin. This will
 `o-visual-effects` may also be output granularly. For example ommit the CSS custom properties if you are using Sass variables such as `$o-visual-effects-timing-slide` instead:
 
 ```scss
-@mixin oVisualEffects($opts: (
+@include oVisualEffects($opts: (
 	'shadows': ('ultralow', 'low', 'mid', 'high')
 ));
 ```
