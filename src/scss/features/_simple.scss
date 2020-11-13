@@ -2,7 +2,7 @@
 	.o-header--simple {
 		// fix heights
 		.o-header__top-wrapper {
-			height: $_o-header-sticky-height;
+			height: $o-header-sticky-height;
 		}
 
 		.o-header__top-link {
@@ -21,7 +21,7 @@
 
 		.o-header__top-takeover .o-header__nav-link {
 			padding: 0;
-			line-height: $_o-header-sticky-height;
+			line-height: $o-header-sticky-height;
 		}
 	}
 }

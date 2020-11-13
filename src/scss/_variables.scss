@@ -11,12 +11,16 @@ $_o-header-drawer-width: 320px;
 $_o-header-drawer-divide-height: 40px;
 $_o-header-drawer-padding-x: 16px;
 $_o-header-drawer-padding-y: 12px;
-$_o-header-sticky-z-index: 99;
-$_o-header-sticky-height: 55px;
 $_o-header-subnav-height-base: 44px;
 $_o-header-subnav-height-medium: 36px;
 $_o-header-item-separator-percentage-height: 0.7;
 $_o-header-sub-header-focus-margin: 5px;
+$_o-header-sticky-z-index: 99;
+/// @access public
+/// public so users may position elements below the sticky nav,
+/// in cases where the element must align with other elements in the page
+/// and thus cannot be a child of the o-header element
+$o-header-sticky-height: 55px;
 
 // at some point these should be normalised in o-icons
 $_o-header-icon-size-large: 40;
