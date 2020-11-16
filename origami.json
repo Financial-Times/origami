@@ -4,6 +4,9 @@
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
+	"brands": [
+		"master"
+	],
 	"support": "https://github.com/Financial-Times/o-teaser/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
