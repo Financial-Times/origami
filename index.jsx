@@ -1,6 +1,5 @@
 const { Teaser } = require('../')
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 import { Helmet } from 'react-helmet'
 import BuildService from '../../../.storybook/build-service'
@@ -20,125 +19,147 @@ const dependencies = {
 
 const knobs = require('./knobs')
 
-storiesOf('x-teaser', module)
-	.addDecorator(withKnobs)
-	.add('Article', () => {
-		const { data, knobs: storyKnobs } = require('./article')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('Podcast', () => {
-		const { data, knobs: storyKnobs } = require('./podcast')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('Opinion', () => {
-		const { data, knobs: storyKnobs } = require('./opinion')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('ContentPackage', () => {
-		const { data, knobs: storyKnobs } = require('./content-package')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('PackageItem', () => {
-		const { data, knobs: storyKnobs } = require('./package-item')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('Promoted', () => {
-		const { data, knobs: storyKnobs } = require('./promoted')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('TopStory', () => {
-		const { data, knobs: storyKnobs } = require('./top-story')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
-	.add('Video', () => {
-		const { data, knobs: storyKnobs } = require('./video')
-		const props = createProps(data, storyKnobs, knobs)
-		return (
-			<div className="story-container">
-				{dependencies && <BuildService dependencies={dependencies} />}
-				{pkg.style && (
-					<Helmet>
-						<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-					</Helmet>
-				)}
-				<Teaser {...props} />
-			</div>
-		)
-	})
+export default {
+	title: 'x-teaser',
+	decorators: [withKnobs]
+}
+
+export const Article = () => {
+	const { data, knobs: storyKnobs } = require('./article')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+export const Podcast = () => {
+	const { data, knobs: storyKnobs } = require('./podcast')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+export const Opinion = () => {
+	const { data, knobs: storyKnobs } = require('./opinion')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+export const ContentPackage = () => {
+	const { data, knobs: storyKnobs } = require('./content-package')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+ContentPackage.story = {
+	name: 'ContentPackage'
+}
+
+export const PackageItem = () => {
+	const { data, knobs: storyKnobs } = require('./package-item')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+PackageItem.story = {
+	name: 'PackageItem'
+}
+
+export const Promoted = () => {
+	const { data, knobs: storyKnobs } = require('./promoted')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+export const TopStory = () => {
+	const { data, knobs: storyKnobs } = require('./top-story')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
+
+TopStory.story = {
+	name: 'TopStory'
+}
+
+export const Video = () => {
+	const { data, knobs: storyKnobs } = require('./video')
+	const props = createProps(data, storyKnobs, knobs)
+	return (
+		<div className="story-container">
+			{dependencies && <BuildService dependencies={dependencies} />}
+			{pkg.style && (
+				<Helmet>
+					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
+				</Helmet>
+			)}
+			<Teaser {...props} />
+		</div>
+	)
+}
