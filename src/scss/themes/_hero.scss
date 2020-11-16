@@ -63,16 +63,14 @@
 		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
 	}
 
-	&.o-teaser--hero {
-		.o-teaser__content,
-		.o-teaser__image-container:after {
-			background: $opinion-background;
-		}
+	.o-teaser__content,
+	.o-teaser__image-container:after {
+		background: $opinion-background;
+	}
 
-		.o-teaser__content:after {
-			@include oGridRespondTo(S, L) {
-				background: $opinion-background;
-			}
+	.o-teaser__content:after {
+		@include oGridRespondTo(S, L) {
+			background: $opinion-background;
 		}
 	}
 }

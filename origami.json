@@ -418,13 +418,13 @@
 			}
 		},
 		{
-			"title": "Hero Image",
+			"title": "Hero With Featured Image",
 			"name": "hero-image",
-			"description": "Hero image teaser",
-			"template": "demos/src/demo-hero.mustache",
+			"description": "Hero teaser with featured image. On large viewports the teaser title overlays the image. On smaller viewports the typical hero teaser is shown, including themes such as opinion and highlight.",
+			"template": "demos/src/demo-hero-image.mustache",
 			"data": {
 				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=280&source=o-teaser-demo",
-				"article-modifier": "hero-image",
+				"article-modifier": "opinion",
 				"article-tag": "Brexit",
 				"article-heading": "Japan sells negative yield 10-year bonds"
 			}
