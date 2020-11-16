@@ -7,11 +7,8 @@
 @import 'o-typography/main';
 
 @import './src/scss/brand';
-@import './src/scss/mixins';
 @import './src/scss/variables';
-
-@import './src/scss/base';
-@import './src/scss/state';
+@import './src/scss/mixins';
 
 /// Output all o-message features. Accepts an options map to include features granularly.
 /// Options include which types, states, and layouts of o-message to include.
@@ -33,7 +30,64 @@
 	$states: map-get($opts, 'states');
 	$layouts: map-get($opts, 'layouts');
 
-	@include _oMessageBase();
+	.o-message {
+		@include oTypographySans($_o-message-typography-scale);
+
+		.o-message__container {
+			@include oGridContainer($bleed: true);
+			padding-left: $_o-message-spacing / 4;
+			padding-right: $_o-message-spacing / 4;
+
+			&:before {
+				top: $_o-message-text-spacing / 2;
+			}
+		}
+
+		.o-message__content {
+			position: relative;
+			margin-top: 0;
+			margin-bottom: 0;
+
+			.o-message__content-main {
+				display: inline-block;
+				margin-top: oSpacingByName('s4');
+				margin-bottom: oSpacingByName('s4');
+				margin-right: oSpacingByName('s6');
+			}
+
+			.o-message__content-highlight {
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			}
+		}
+
+		.o-message__content-main a,
+		.o-message__content-additional a {
+			@include oTypographyLink();
+			border-width: 1px;
+		}
+
+		.o-message__actions {
+			display: inline-block;
+			padding: 0 ($_o-message-close-icon-size * 1px) $_o-message-text-spacing 0;
+		}
+
+		.o-message__actions__primary {
+			@include oButtonsContent();
+			margin-right: oSpacingByName('s6');
+			&:only-child {
+				margin-right: 0;
+			}
+		}
+
+		.o-message__actions__secondary {
+			@include oTypographyLink();
+			white-space: nowrap;
+		}
+	}
+
+	.o-message--closed {
+		display: none;
+	}
 
 	@each $state in $states {
 		@if index($o-message-states, $state) and _oMessageSupports($state) {
@@ -46,14 +100,85 @@
 		}
 	}
 
-	@each $type in $types {
-		@if _oMessageSupports($type) {
-			@include _oMessageType($type);
+	@if index($types, 'alert') != null and _oMessageSupports('alert') {
+		.o-message.o-message--alert {
+			.o-message__content {
+				padding-left: $_o-message-spacing;
+			}
+		}
+	}
+
+	@if index($types, 'notice') != null and _oMessageSupports('notice') {
+		.o-message.o-message--notice {
+			.o-message__content {
+				padding-left: $_o-message-spacing / 2;
+			}
+		}
+	}
+
+	@if index($types, 'action') != null and _oMessageSupports('action') {
+		.o-message.o-message--action {
+			.o-message__content {
+				padding: oSpacingByName('s4') 0;
+
+				@include oGridRespondTo(S) {
+					padding: $_o-message-spacing 0 $_o-message-spacing $_o-message-spacing;
+				}
+
+				.o-message__content-main {
+					margin: oSpacingByName('s2') oSpacingByName('s6') oSpacingByName('s2') 0;
+				}
+
+				.o-message__actions {
+					margin: oSpacingByName('s2') 0;
+					padding: 0 $_o-message-close-icon-size * 1px 0 0;
+				}
+			}
+
+			.o-message__content--center-align {
+				margin: 0 auto;
+				padding-left: 0;
+
+				@include oGridRespondTo(S) {
+					text-align: center;
+				}
+			}
 		}
 	}
 
 	@if index($layouts, 'inner') {
-		@include _oMessageInner();
+		.o-message.o-message--inner {
+			.o-message__container {
+				padding: oSpacingByName('s2') oSpacingByIncrement(5) oSpacingByName('s2') ($_o-message-spacing / 4);
+
+				&:before {
+					top: unset;
+				}
+
+				.o-message__close {
+					right: oSpacingByName('s2');
+
+					@include oGridRespondTo(S) {
+						right: oSpacingByName('s4');
+					}
+				}
+			}
+
+			.o-message__content {
+				max-width: oTypographyMaxLineWidth();
+				margin-top: oSpacingByName('s3');
+				margin-bottom: 0;
+
+				.o-message__content-main {
+					margin-top: 0;
+					margin-bottom: oSpacingByName('s3');
+				}
+			}
+
+			.o-message__actions {
+				padding-bottom: oSpacingByName('s3');
+			}
+		}
 	}
 }
 

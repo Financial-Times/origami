@@ -1,98 +1,157 @@
-/// Inner Message base
-///
-/// Outputs base styles for an inner variant of a message
+/// Output a new message state (i.e. theme) which supports one or more types of messages.
+/// @param {String} $opts - the name of the state e.g. 'success'
+/// @param {List} $opts - a map of options for the state
+/// @param {List} $types - the types of message the state supports e.g. ('alert', 'notice', 'action')
+/// @example - Output a Pikachu (lemon/slate) state for notice and alert messages.
+///     // Outputs CSS for a custom message state called "pikachu"
+///     // Outputs a modifier class `o-message--pikachu`
+///     @include oMessageAddState(
+///     	$name: 'pikachu', // the custom state is named "pikachu"
+///     	$opts: (
+///     	    'background-color': 'slate', // slate message
+///     	    'foreground-color': 'white', // white text
+///     	    'highlight-color': 'lemon', // lemon highlights with `o-message__content-highlight-color` and a lemon button
+///     	    'button-type': 'primary', // a primary o-buttons button`o-message__content-highlight` highlight copy
+///     	    'icon': 'user', // show a 'user' o-icons icon if used as an alert
+///     ), $types: ('notice', 'alert')); // this state should work with notice and alert message types
 /// @access private
-@mixin _oMessageInner() {
-	.o-message.o-message--inner {
-		.o-message__container {
-			padding: oSpacingByName('s2') oSpacingByIncrement(5) oSpacingByName('s2') ($_o-message-spacing / 4);
-
-			&:before {
-				top: unset;
-			}
-
-			.o-message__close {
-				right: oSpacingByName('s2');
-
-				@include oGridRespondTo(S) {
-					right: oSpacingByName('s4');
-				}
-			}
-		}
-
-		.o-message__content {
-			max-width: oTypographyMaxLineWidth();
-			margin-top: oSpacingByName('s3');
-			margin-bottom: 0;
-
-			.o-message__content-main {
-				margin-top: 0;
-				margin-bottom: oSpacingByName('s3');
-			}
-		}
-
-		.o-message__actions {
-			padding-bottom: oSpacingByName('s3');
-		}
+@mixin oMessageAddState($name, $opts, $types) {
+	// If no options are given assume we are adding a default state.
+	// @see _brand.scss for configuration by name.
+	$opts: if($opts, $opts, $name);
+	.o-message.o-message--#{$name} {
+		@include _oMessageState($name, $opts, $types);
 	}
 }
 
-/// Type styling
-///
-/// Outputs base styles for an type of message
+/// Output a new message state (i.e. theme) which supports one or more types of messages.
+/// @param {String} $opts - the name of the state e.g. 'success'
+/// @param {List} $opts - a map of options for the state
+/// @param {List} $types - the types of message the state supports e.g. ('alert', 'notice', 'action')
 /// @access private
-@mixin _oMessageType($type) {
-	.o-message.o-message--#{$type} {
-		@if $type == 'alert' {
-			.o-message__content {
-				padding-left: $_o-message-spacing;
-			}
+@mixin _oMessageState($name, $opts, $types) {
+	$error-message: 'Cannot add o-message state "#{$name}"';
+	// get foreground colour
+	$foreground-color-arg: _oMessageGet('foreground-color', $from: $opts);
+	$foreground-color: if(
+		type-of($foreground-color-arg) == 'string',
+		oColorsByName($foreground-color-arg),
+		$foreground-color-arg
+	);
+	// get highlight colour
+	$highlight-color-arg: _oMessageGet('highlight-color', $from: $opts);
+	$highlight-color: if(
+		type-of($highlight-color-arg) == 'string',
+		oColorsByName($highlight-color-arg),
+		$highlight-color-arg
+	);
+	// get background colour
+	$background-color-arg: _oMessageGet('background-color', $from: $opts);
+	$background-color: if(
+		type-of($background-color-arg) == 'string',
+		oColorsByName($background-color-arg),
+		$background-color-arg
+	);
 
-		}
-
-		@if $type == 'notice' {
-			.o-message__content {
-				padding-left: $_o-message-spacing / 2;
-			}
-
-		}
-
-		@if $type == 'action' {
-			.o-message__content {
-				padding: oSpacingByName('s4') 0;
-
-				@include oGridRespondTo(S) {
-					padding: $_o-message-spacing 0 $_o-message-spacing $_o-message-spacing;
-				}
-
-				.o-message__content-main {
-					margin: oSpacingByName('s2') oSpacingByName('s6') oSpacingByName('s2') 0;
-				}
-
-				.o-message__actions {
-					margin: oSpacingByName('s2') 0;
-					padding: 0 $_o-message-close-icon-size * 1px 0 0;
-				}
-			}
-
-			.o-message__content--center-align {
-				margin: 0 auto;
-				padding-left: 0;
-
-				@include oGridRespondTo(S) {
-					text-align: center;
-				}
-			}
+	// Confirm minimum foreground contrast ratio.
+	@if $foreground-color {
+		$foreground-contrast: oColorsGetContrastRatio(
+			$foreground-color,
+			$background-color
+		);
+		@if($foreground-contrast < 4.5) {
+			@error ('#{$error-message}: The foreground colour ' +
+			'"#{$foreground-color-arg}" and background colour ' +
+			'"#{$background-color-arg}" do not pass WCAG AA contrast checks.');
 		}
 	}
-}
 
-/// Customised icon for messages
-/// @param {String} $icon-name - name of the icon (accepts any icon name from fticons)
-/// @param {String} $icon-color - name of the icon color (accepts any color from o-colors)
-/// @param {String} $icon-size - size of the icon
-/// @access private
-@mixin _oMessageIcon ($icon-name, $icon-color, $icon-size) {
-	@include oIconsContent($icon-name, $icon-color, $icon-size);
-	content: '';
+	// Confirm minimum highlight contrast ratio.
+	@if $highlight-color {
+		$highlight-contrast: oColorsGetContrastRatio(
+			$highlight-color,
+			$background-color
+		);
+		@if($highlight-contrast < 4.5) {
+			@error ('#{$error-message}: The highlight colour ' +
+			'"#{$highlight-color-arg}" and background colour ' +
+			'"#{$background-color-arg}" do not pass WCAG AA contrast checks.');
+		}
+	}
+
+	// set default foreground and background colour
+	color: $foreground-color;
+	background-color: $background-color;
+	text-align: _oMessageGet('text-align', $from: $opts);
+
+	// class to set the highlight colour
+	.o-message__content-highlight-color {
+		color: $highlight-color;
+	}
+
+	// content links
+	.o-message__content-main a,
+	.o-message__content-additional a {
+		@include oTypographyLink(
+			$theme: (
+				'base':  $foreground-color,
+				'hover':  $foreground-color,
+				'context':  $background-color
+			),
+			$include-base-styles: false
+		);
+	}
+
+	// action button
+	.o-message__actions__primary {
+		$button-type: _oMessageGet('button-type', $from: $opts);
+		$button-type: if($button-type, $button-type, 'secondary');
+		$button-color: if($highlight-color, $highlight-color, $foreground-color);
+		@include oButtonsContent((
+			'type': $button-type,
+			'theme': (
+				'color': $button-color,
+				'context': $background-color
+			)
+		), $include-base-styles: false);
+	}
+
+	// action link
+	.o-message__actions__secondary {
+		@include oTypographyLink(
+			$theme: (
+				'base':  $foreground-color,
+				'hover':  $foreground-color,
+				'context':  $background-color
+			),
+			$include-base-styles: false
+		);
+	}
+
+	// state icon, only for alert messages
+	$state-icon: _oMessageGet('icon', $from: $opts);
+	$supports-alert-type: index($types, 'alert');
+	@if ($supports-alert-type and not $state-icon) {
+		@error '#{$error-message}: To support the "alert" type include an "icon". ' +
+			'If an alert with icon is not needed update the "types" argument.';
+	}
+
+	@if $supports-alert-type and $state-icon {
+		&.o-message--alert .o-message__container:before {
+			@include oIconsContent($state-icon, $foreground-color, $_o-message-alert-icon-size);
+			content: '';
+			min-width: $_o-message-alert-icon-size * 1px;
+			position: absolute;
+		}
+	}
+
+	.o-message__close {
+		@include oIconsContent('cross', $foreground-color, $_o-message-close-icon-size);
+		content: '';
+		position: absolute;
+		top: ($_o-message-close-icon-size / 2) * 1px;
+		right: oSpacingByName('s2');
+		vertical-align: middle;
+		border: 0;
+	}
 }
