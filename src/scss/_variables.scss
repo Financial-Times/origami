@@ -31,5 +31,6 @@ $_o-spacing-sizes: (
 	'l24': 24,
 );
 
-
-
+/// All space names supported by o-spacing.
+/// @type Map
+$o-spacing-names: map-keys($_o-spacing-sizes);
