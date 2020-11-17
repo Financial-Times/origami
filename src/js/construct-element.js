@@ -11,7 +11,15 @@ export default {
 		}
 
 		messageElement.classList.add('o-message', `o-message--${opts.type}`, 'o-message--closed');
-		if (opts.inner) { messageElement.classList.add('o-message--inner'); }
+		if (!opts.close) {
+			// when close is disabled add the declarative close attribute
+			// which is used to apply style
+			messageElement.setAttribute('data-close', false);
+		}
+
+		if (opts.inner) {
+			messageElement.classList.add('o-message--inner');
+		}
 
 		if (!opts.state) {
 			throw new Error(`*** o-message error:\nMessages require a state.\n***`);

@@ -139,19 +139,11 @@
 	@if $supports-alert-type and $state-icon {
 		&.o-message--alert .o-message__container:before {
 			@include oIconsContent($state-icon, $foreground-color, $_o-message-alert-icon-size);
-			content: '';
-			min-width: $_o-message-alert-icon-size * 1px;
-			position: absolute;
+			vertical-align: middle;
 		}
 	}
 
 	.o-message__close {
 		@include oIconsContent('cross', $foreground-color, $_o-message-close-icon-size);
-		content: '';
-		position: absolute;
-		top: ($_o-message-close-icon-size / 2) * 1px;
-		right: oSpacingByName('s2');
-		vertical-align: middle;
-		border: 0;
 	}
 }

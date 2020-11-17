@@ -30,50 +30,58 @@
 	$states: map-get($opts, 'states');
 	$layouts: map-get($opts, 'layouts');
 
+	$alert: index($types, 'alert') != null and _oMessageSupports('alert');
+	$notice: index($types, 'notice') != null and _oMessageSupports('notice');
+	$action: index($types, 'action') != null and _oMessageSupports('action');
+	$inner: index($layouts, 'inner');
+
 	.o-message {
-		@include oTypographySans($_o-message-typography-scale);
+		@include oTypographySans($scale: 0);
 
 		.o-message__container {
 			@include oGridContainer($bleed: true);
-			padding-left: $_o-message-spacing / 4;
-			padding-right: $_o-message-spacing / 4;
+			display: flex;
+			align-items: baseline;
+			padding: $_o-message-default-block-spacing $_o-message-default-inline-spacing;
+		}
 
-			&:before {
-				top: $_o-message-text-spacing / 2;
+		// Content
+
+		// Add space between content items. Use negative margin on the content
+		// element to ensure there is no excess margin when content wraps onto
+		// a new line. I.e. when message actions wrap onto a new line.
+		.o-message__content {
+			margin-left: -#{$_o-message-default-content-spacing};
+			margin-bottom: -#{$_o-message-default-content-spacing};
+			& > * {
+				margin: 0 0 $_o-message-default-content-spacing $_o-message-default-content-spacing;
 			}
 		}
 
-		.o-message__content {
-			position: relative;
-			margin-top: 0;
-			margin-bottom: 0;
+		.o-message__content-main {
+			display: inline-block;
+		}
 
-			.o-message__content-main {
-				display: inline-block;
-				margin-top: oSpacingByName('s4');
-				margin-bottom: oSpacingByName('s4');
-				margin-right: oSpacingByName('s6');
-			}
-
-			.o-message__content-highlight {
-				@include oTypographySans($weight: 'semibold', $include-font-family: false);
-			}
+		.o-message__content-highlight {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
 		}
 
 		.o-message__content-main a,
 		.o-message__content-additional a {
 			@include oTypographyLink();
 			border-width: 1px;
+			text-decoration-thickness: 1px;
 		}
+
+		// Actions
 
 		.o-message__actions {
 			display: inline-block;
-			padding: 0 ($_o-message-close-icon-size * 1px) $_o-message-text-spacing 0;
 		}
 
 		.o-message__actions__primary {
 			@include oButtonsContent();
-			margin-right: oSpacingByName('s6');
+			margin-right: $_o-message-default-content-spacing;
 			&:only-child {
 				margin-right: 0;
 			}
@@ -85,99 +93,118 @@
 		}
 	}
 
+	// Close Button
+	.o-message[data-close="false"] .o-message__close {
+		display: none;
+	}
+
 	.o-message--closed {
 		display: none;
 	}
 
-	@each $state in $states {
-		@if index($o-message-states, $state) and _oMessageSupports($state) {
-			$state-types: map-get($_o-message-states-to-types, $state);
-			@include oMessageAddState(
-				$name: $state,
-				$opts: null,
-				$types: $state-types
-			);
+	// Inner Variant
+	@if $inner {
+		.o-message--inner .o-message__content {
+			max-width: oTypographyMaxLineWidth();
 		}
 	}
 
-	@if index($types, 'alert') != null and _oMessageSupports('alert') {
-		.o-message.o-message--alert {
-			.o-message__content {
-				padding-left: $_o-message-spacing;
+	// Alert/Notice Message Types
+
+	// Alert/notice types of message are similar but the alert message has extra
+	// iconography.
+	@if $alert or $notice {
+		// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
+		// This is what the size of the close icon would be without the whitespace.
+		$true-close-icon-size: $_o-message-close-icon-size / 2;
+
+		// By default alert and notice messages are dismissible. Unless
+		// configured otherwise, create space to accommodate the close button
+		// with padding, so the close button can be added by JS without reflow.
+		.o-message--notice:not([data-close="false"]) .o-message__container,
+		.o-message--alert:not([data-close="false"]) .o-message__container {
+			padding-right: calc(#{$true-close-icon-size} + #{oSpacingByName('s4') * 2});
+		}
+
+		.o-message--notice .o-message__close,
+		.o-message--alert .o-message__close {
+			// start: undo default button styles
+			appearance: none;
+			border: 0;
+			font: inherit;
+			outline: inherit;
+			padding: 0;
+			// end: undo default button styles
+			content: '';
+			position: absolute;
+			// Use negative margins to effectively remove the whitespace from
+			// the icon svg, to to position the visible close icon more
+			// intuitively
+			margin: -$_o-message-close-icon-inbuilt-space;
+			right: $_o-message-default-block-spacing;
+			// Match message padding plus a "magic" rem value to center with
+			// the message.
+			top: calc(#{$_o-message-default-block-spacing} + 0.35rem);
+		}
+	}
+
+	@if $alert {
+		// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
+		// This is what the size of the close alert would be without the whitespace.
+		$true-alert-icon-size: $_o-message-alert-icon-size / 2;
+		$alert-icon-left-padding: oSpacingByName('s4');
+		$alert-icon-right-padding: oSpacingByName('s2');
+
+		.o-message--alert .o-message__container {
+			// Add padding for the icon to sit in:
+			// whitespace, icon, whitespace.
+			padding-left: calc(#{$alert-icon-left-padding} + #{$true-alert-icon-size} + #{$alert-icon-right-padding});
+			&:before {
+				content: '';
+				position: absolute;
+				// Use negative margins to effectively remove the whitespace
+				// from the icon svg, to to position the visible alert icon more
+				// intuitively
+				margin: -$_o-message-alert-icon-inbuilt-space;
+				left: $alert-icon-left-padding;
+				// Match message padding plus a "magic" rem value to center with
+				// the message.
+				top: calc(#{$_o-message-default-block-spacing} + 0.1rem);
 			}
 		}
 	}
 
-	@if index($types, 'notice') != null and _oMessageSupports('notice') {
-		.o-message.o-message--notice {
-			.o-message__content {
-				padding-left: $_o-message-spacing / 2;
-			}
-		}
-	}
+	// Action Message Type
 
-	@if index($types, 'action') != null and _oMessageSupports('action') {
-		.o-message.o-message--action {
-			.o-message__content {
-				padding: oSpacingByName('s4') 0;
-
+	@if $action {
+		.o-message--action {
+			.o-message__container {
 				@include oGridRespondTo(S) {
-					padding: $_o-message-spacing 0 $_o-message-spacing $_o-message-spacing;
-				}
-
-				.o-message__content-main {
-					margin: oSpacingByName('s2') oSpacingByName('s6') oSpacingByName('s2') 0;
-				}
-
-				.o-message__actions {
-					margin: oSpacingByName('s2') 0;
-					padding: 0 $_o-message-close-icon-size * 1px 0 0;
+					padding: oSpacingByName('m12') oSpacingByName('s6');
 				}
 			}
 
 			.o-message__content--center-align {
-				margin: 0 auto;
-				padding-left: 0;
-
 				@include oGridRespondTo(S) {
+					width: 100%;
 					text-align: center;
 				}
 			}
 		}
 	}
 
-	@if index($layouts, 'inner') {
-		.o-message.o-message--inner {
-			.o-message__container {
-				padding: oSpacingByName('s2') oSpacingByIncrement(5) oSpacingByName('s2') ($_o-message-spacing / 4);
+	// Message States
+	// E.g. success, error, inform, etc.
 
-				&:before {
-					top: unset;
-				}
-
-				.o-message__close {
-					right: oSpacingByName('s2');
-
-					@include oGridRespondTo(S) {
-						right: oSpacingByName('s4');
-					}
-				}
-			}
-
-			.o-message__content {
-				max-width: oTypographyMaxLineWidth();
-				margin-top: oSpacingByName('s3');
-				margin-bottom: 0;
-
-				.o-message__content-main {
-					margin-top: 0;
-					margin-bottom: oSpacingByName('s3');
-				}
-			}
-
-			.o-message__actions {
-				padding-bottom: oSpacingByName('s3');
-			}
+	@each $state in $states {
+		$state-supported: index($o-message-states, $state) and _oMessageSupports($state);
+		@if $state-supported {
+			$state-types: map-get($_o-message-states-to-types, $state);
+			@include oMessageAddState(
+				$name: $state,
+				$opts: null,
+				$types: $state-types
+			);
 		}
 	}
 }
