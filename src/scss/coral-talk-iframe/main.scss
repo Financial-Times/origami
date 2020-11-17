@@ -239,15 +239,13 @@
 
 // report button reported state
 .coral-comment-reportedButton {
-	background-color: oColorsByName('teal-50') !important;
+	background-color: transparent !important;
 
 	span,
 	i {
-		color: white !important;
 		padding: 3px 7px;
 		border-radius: var(--round-corners);
 		font-weight: var(--font-weight-primary-regular);
-		opacity: 0.4;
 		pointer-events: none;
 	}
 }
