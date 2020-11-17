@@ -1,0 +1,8 @@
+@include describe('$o-spacing-names') {
+    @include it('includes all space names') {
+        @include assert-equal(
+            $o-spacing-names,
+            ('s1','s2','s3','s4','s6','s8','m12','m16','l18','l24')
+        );
+    }
+}
