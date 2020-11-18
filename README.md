@@ -146,6 +146,28 @@ A theme modifier such as `o-buttons--inverse` may be added to the buttons within
 
 #### Pagination Size
 
+Big buttons may also be used in a pagination style. Add the `o-buttons--big` modifier to each button and `o-buttons-pagination__ellipsis--big` to the ellipsis element.
+
+```html
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary" aria-current="page">1</a>
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis o-buttons-pagination__ellipsis--big">...</span>
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">18</a>
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary">20</a>
+
+	<a href="#" class="o-buttons o-buttons--big o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+```
+
 ### Disabled
 
 Avoid disabled buttons unless user research shows they improve your interface. Disabled buttons have [poor contrast which makes them difficult to read](#references). They also [do not give feedback to a user why they are disabled](#references).
