@@ -1,25 +1,192 @@
+<!-- we recommend showing no more than 7 pages at a time, for more  than 7 pages use the pagination ellipsis -->
+
 <div class="o-buttons-pagination">
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled><span class='o-buttons-icon__label'>Fewer results</span></a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
 	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">1</a>
 	<a href="#" class="o-buttons o-buttons--secondary">2</a>
 	<a href="#" class="o-buttons o-buttons--secondary">3</a>
-	<span>...</span>
-	<a href="#" class="o-buttons o-buttons--secondary">25</a>
-	<a href="#" class="o-buttons o-buttons--secondary">26</a>
-	<a href="#" class="o-buttons o-buttons--secondary">27</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only"><span class='o-buttons-icon__label'>More results</span></a>
+	<a href="#" class="o-buttons o-buttons--secondary">4</a>
+	<a href="#" class="o-buttons o-buttons--secondary">5</a>
+	<a href="#" class="o-buttons o-buttons--secondary">6</a>
+	<a href="#" class="o-buttons o-buttons--secondary">7</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only" disabled>
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
 </div>
 
-<br />
+<br class="demo-break">
+
+<!-- when the there are more than 7 pages, and the selected page is below 3, show ellipsis with 3 pages either side -->
 
 <div class="o-buttons-pagination">
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big o-buttons-icon o-buttons-icon--big o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled><span class='o-buttons-icon__label'>Fewer results</span></a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big" aria-current="page">1</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big">2</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big">3</a>
-	<span>...</span>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big">25</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big">26</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big">27</a>
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons--big o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only"><span class='o-buttons-icon__label'>More results</span></a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">18</a>
+	<a href="#" class="o-buttons o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">18</a>
+	<a href="#" class="o-buttons o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<!-- when the there are more than 7 pages, and the selected page is one of the last 2 pages, show ellipsis with 3 pages either side -->
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">18</a>
+	<a href="#" class="o-buttons o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary"  aria-current="page">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only" disabled>
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">18</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<!-- when the there are more than 7 pages, and the 3rd page is selected, show 4 pages, the ellipsis, and 2 more pages -->
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">3</a>
+	<a href="#" class="o-buttons o-buttons--secondary">4</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<!-- when the there are more than 7 pages, and the 3rd from last page is selected, show 2 pages, the ellipsis, and 4 more pages -->
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary">2</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">17</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">18</a>
+	<a href="#" class="o-buttons o-buttons--secondary">19</a>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<!-- when the there are more than 7 pages, and the selected page is more than 3 from the first of last page -->
+<!-- show the first page, ellipsis, three pages, ellipsis, and the last page -->
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">13</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">14</a>
+	<a href="#" class="o-buttons o-buttons--secondary">15</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<!-- note that a large number of pages (3 or more digits) will effect the size and alignment of pagination -->
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">2</a>
+	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">198</a>
+	<a href="#" class="o-buttons o-buttons--secondary">199</a>
+	<a href="#" class="o-buttons o-buttons--secondary">200</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
+</div>
+
+<br class="demo-break">
+
+<div class="o-buttons-pagination">
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>Fewer results</span>
+	</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">100</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">101</a>
+	<a href="#" class="o-buttons o-buttons--secondary">102</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">200</a>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
+		<span class='o-buttons-icon__label'>More results</span>
+	</a>
 </div>

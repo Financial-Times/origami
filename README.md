@@ -106,17 +106,21 @@ Wrap buttons with `.o-buttons-group` to group them together:
 
 For a pagination style wrap your buttons in `.o-buttons-pagination`. Most pagination usecases use an anchor `a` tags for links which look like buttons instead of a `button` tag. When using an anchor tag in pagination do not use the `aria-selected` data attribute. Instead use `aria-current="page"` to indicate the current page, this will highlight the button for the current page visually and to screen readers.
 
-In the following example we use links to show pages 1-3 and use icon buttons to indicate more and fewer results:
+The following markup example shows pagination for 20 pages, where the 14th page is the current page. Following the [pagination rules](#pagination-rules) we recommend displaying no more than 7 pages and using the ellipsis element to show hidden results.
 
 ```html
 <div class="o-buttons-pagination">
-	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" disabled>
+	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only">
 		<span class='o-buttons-icon__label'>Fewer results</span>
 	</a>
 
-	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">1</a>
-	<a href="#" class="o-buttons o-buttons--secondary">2</a>
-	<a href="#" class="o-buttons o-buttons--secondary">3</a>
+	<a href="#" class="o-buttons o-buttons--secondary">1</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">13</a>
+	<a href="#" class="o-buttons o-buttons--secondary" aria-current="page">14</a>
+	<a href="#" class="o-buttons o-buttons--secondary">15</a>
+	<span class="o-buttons-pagination__ellipsis">...</span>
+	<a href="#" class="o-buttons o-buttons--secondary">20</a>
 
 	<a href="#" class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only">
 		<span class='o-buttons-icon__label'>More results</span>
@@ -124,7 +128,23 @@ In the following example we use links to show pages 1-3 and use icon buttons to 
 </div>
 ```
 
+#### Pagination Rules
+
+The number of pages to display is not enforced by Origami. However we recommend the following:
+- Show no more than 7 pages at a time. When there are more than 7 pages, hide more pages behind the pagination ellipsis in the following way. Given:
+	- The selected page is below 3 show ellipsis with 3 pages either side.
+	- The selected page is one of the last 2 pages show ellipsis with 3 pages either side.
+	- The 3rd page is selected show 4 pages, the ellipsis, and 2 more pages.
+	- The 3rd from last page is selected show 2 pages, the ellipsis, and 4 more pages.
+	- The selected page is more than 3 from the first of last page show the first page, ellipsis, three pages, ellipsis, and the last page.
+
+For an example see the [pagination demos in the Origami registry](https://registry.origami.ft.com/components/o-buttons@6.0.19#demo-pagination-layout).
+
+#### Pagination Theme
+
 A theme modifier such as `o-buttons--inverse` may be added to the buttons within a pagination block.
+
+#### Pagination Size
 
 ### Disabled
 

@@ -99,6 +99,12 @@
 			"description": "This demo shows a pagination layout with anchor tags and the default theme. The number of pages to show and button theme may be chosen by the project."
 		},
 		{
+			"name": "pagination-size",
+			"title": "Pagination layout size",
+			"template": "/demos/src/pagination-size.mustache",
+			"description": "Pagination layouts may also use big buttons."
+		},
+		{
 			"name": "grouped",
 			"title": "Grouped layout",
 			"template": "/demos/src/grouped.mustache",
