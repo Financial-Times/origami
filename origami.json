@@ -1,6 +1,6 @@
 {
 	"description": "eslint-config-origami-component",
-	"origamiType": null,
+	"origamiType": "config",
 	"origamiVersion": 1,
 	"keywords": [],
 	"support": "https://github.com/Financial-Times/eslint-config-origami-component/issues",
