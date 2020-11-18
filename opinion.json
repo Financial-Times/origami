@@ -27,5 +27,11 @@
   "indicators": {
     "isOpinion": true,
     "isColumn": true
-  }
+  },
+  "status": "",
+  "headshotTint": "",
+  "accessLevel": "free",
+  "theme": "",
+  "parentTheme": "",
+  "modifiers": ""
 }

@@ -25,5 +25,11 @@
   },
   "indicators": {
     "isEditorsChoice": true
-  }
+  },
+  "status": "",
+  "headshotTint": "",
+  "accessLevel": "free",
+  "theme": "",
+  "parentTheme": "",
+  "modifiers": ""
 }

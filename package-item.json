@@ -19,5 +19,11 @@
   },
   "indicators": {
     "isOpinion": true
-  }
+  },
+  "status": "",
+  "headshotTint": "",
+  "accessLevel": "free",
+  "theme": "",
+  "parentTheme": "",
+  "modifiers": ""
 }
