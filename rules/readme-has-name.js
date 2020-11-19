@@ -9,16 +9,10 @@ function readmeHasName(tree, file) {
 		return
 	}
 
-	let cwd = process.cwd()
-	// HACK this is a workaround for the vscode plugin for remark-lint, which
-	// runs the check with a cwd of ".."
-	let filename = basename(cwd) == file.dirname
-		? "bower.json"
-		: join(file.dirname, "bower.json")
-	let bowerJsonPath = join(cwd, filename)
+	let bowerJsonPath = join("bower.json")
 
 	if (!existsSync(bowerJsonPath)) {
-		file.message("bower.json with name is required to be in the component root")
+		file.message(`${process.cwd()}/bower.json not found.`)
 		return
 	}
 
