@@ -91,6 +91,30 @@ describe("Message", () => {
 		});
 	});
 
+	describe('uses declarative "close" options', () => {
+		beforeEach(() => {
+			testArea.innerHTML = fixtures.main;
+			messageElement = document.querySelector('[data-o-component=o-message]');
+		});
+
+		it('configures the message as dismissible by default', () => {
+			message = new Message(messageElement);
+			proclaim.deepEqual(message.opts.close, true);
+		});
+
+		it('configures the message as non-dismissible using the close data attribute', () => {
+			messageElement.setAttribute('data-o-message-close', false);
+			message = new Message(messageElement);
+			proclaim.deepEqual(message.opts.close, false);
+		});
+
+		it('configures the message as non-dismissible using the deprecated close data attribute', () => {
+			messageElement.setAttribute('data-close', false);
+			message = new Message(messageElement);
+			proclaim.deepEqual(message.opts.close, false);
+		});
+	});
+
 	describe('new Message initialised imperatively', () => {
 		describe('when `opts.autoOpen` is false', () => {
 			beforeEach(() => {

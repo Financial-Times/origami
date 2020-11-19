@@ -14,7 +14,7 @@ export default {
 		if (!opts.close) {
 			// when close is disabled add the declarative close attribute
 			// which is used to apply style
-			messageElement.setAttribute('data-close', false);
+			messageElement.setAttribute('data-o-message-close', false);
 		}
 
 		if (opts.inner) {

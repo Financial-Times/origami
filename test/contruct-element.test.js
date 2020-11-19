@@ -44,6 +44,13 @@ describe("constructElement", () => {
 			proclaim.strictEqual(flatten(construct.message(mockObj.opts).innerHTML), flatten(fixtures.alert));
 		});
 
+		it('includes the close data attribute when configured as non-dismissible', () => {
+			const opts = Object.assign({}, mockObj.opts, {
+				close: false
+			});
+			proclaim.include(flatten(construct.message(opts).outerHTML), 'data-o-message-close="false"');
+		});
+
 		it('throws an error if no type is defined', () => {
 			mockObj.opts.type = null;
 

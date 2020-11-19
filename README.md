@@ -186,7 +186,7 @@ import Message from 'o-message';
 Message.init();
 ```
 
-`Message` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-close="false"` to the message element.
+`Message` will initialise its element with a close button by default. With a declaratively set up message, this can be avoided by adding `data-o-message-close="false"` to the message element.
 
 If you're setting up a message without existing DOM elements, `Message` will construct an element for you. As long as your markup contains an element with the data attribute `data-o-component=o-message`, you can initialise a message with specific [options](#options).
 

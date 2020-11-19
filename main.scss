@@ -94,7 +94,7 @@
 	}
 
 	// Close Button
-	.o-message[data-close="false"] .o-message__close {
+	.o-message[data-o-message-close="false"] .o-message__close {
 		display: none;
 	}
 
@@ -121,8 +121,8 @@
 		// By default alert and notice messages are dismissible. Unless
 		// configured otherwise, create space to accommodate the close button
 		// with padding, so the close button can be added by JS without reflow.
-		.o-message--notice:not([data-close="false"]) .o-message__container,
-		.o-message--alert:not([data-close="false"]) .o-message__container {
+		.o-message--notice:not([data-o-message-close="false"]) .o-message__container,
+		.o-message--alert:not([data-o-message-close="false"]) .o-message__container {
 			padding-right: calc(#{$true-close-icon-size} + #{oSpacingByName('s4') * 2});
 		}
 
