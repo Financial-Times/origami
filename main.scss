@@ -94,6 +94,9 @@
 	}
 
 	// Close Button
+	// The is defensive CSS. No close icon should be added when the close
+	// attribute is set to false, hence it does not support the deprecated
+	// `data-close` option.
 	.o-message[data-o-message-close="false"] .o-message__close {
 		display: none;
 	}
@@ -121,6 +124,9 @@
 		// By default alert and notice messages are dismissible. Unless
 		// configured otherwise, create space to accommodate the close button
 		// with padding, so the close button can be added by JS without reflow.
+		// @deprecated the `data-close` attribute is deprecated in favour of `data-o-message-close`.
+		.o-message--notice:not([data-close="false"]) .o-message__container,
+		.o-message--alert:not([data-close="false"]) .o-message__container,
 		.o-message--notice:not([data-o-message-close="false"]) .o-message__container,
 		.o-message--alert:not([data-o-message-close="false"]) .o-message__container {
 			padding-right: calc(#{$true-close-icon-size} + #{oSpacingByName('s4') * 2});
