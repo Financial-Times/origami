@@ -146,11 +146,11 @@
 
 	.o-layout__listing__item__title {
 		@include oTypographyHeading($level: 2);
-		margin: 0 0 8px 0 ;
+		margin: 0 0 oSpacingByName('s2') 0 ;
 	}
 
 	.o-layout__listing__item__description {
-		margin: 0 0 4px 0;
+		margin: 0 0 oSpacingByName('s1') 0;
 	}
 
 	.o-layout__listing__item__meta {
