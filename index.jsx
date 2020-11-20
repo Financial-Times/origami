@@ -84,9 +84,7 @@ export const ContentPackage = (args) => {
 	)
 }
 
-ContentPackage.story = {
-	name: 'ContentPackage'
-}
+ContentPackage.storyName = 'ContentPackage'
 ContentPackage.args = require('./content-package').args
 ContentPackage.argTypes = argTypes
 
@@ -104,9 +102,7 @@ export const PackageItem = (args) => {
 	)
 }
 
-PackageItem.story = {
-	name: 'PackageItem'
-}
+PackageItem.storyName = 'PackageItem'
 PackageItem.args = require('./package-item').args
 PackageItem.argTypes = argTypes
 
@@ -141,9 +137,7 @@ export const TopStory = (args) => {
 	)
 }
 
-TopStory.story = {
-	name: 'TopStory'
-}
+TopStory.storyName = 'TopStory'
 TopStory.args = require('./top-story').args
 TopStory.argTypes = argTypes
 
