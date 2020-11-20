@@ -146,7 +146,7 @@
 
 	.o-layout__listing__item__title {
 		@include oTypographyHeading($level: 2);
-		margin: 0 0 oSpacingByName('s2') 0 ;
+		margin: 0 0 oSpacingByName('s2') 0;
 	}
 
 	.o-layout__listing__item__description {
