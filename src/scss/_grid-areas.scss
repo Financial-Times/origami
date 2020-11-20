@@ -124,6 +124,41 @@
 	}
 }
 
+/// Listing of article items
+/// @access private
+@mixin _oLayoutAreaListing() {
+	.o-layout__listing {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.o-layout__listing__item {
+		@include oTypographySans($scale: 1, $line-height: 1.4);
+		color: oColorsByUsecase('body', 'text', $fallback: null);
+		margin: 0 0 oSpacingByName('s6');
+		max-width: 60ch;
+	}
+
+	.o-layout__listing a {
+		@include oTypographyLink();
+	}
+
+	.o-layout__listing__item__title {
+		@include oTypographyHeading($level: 2);
+		margin: 0 0 8px 0 ;
+	}
+
+	.o-layout__listing__item__description {
+		margin: 0 0 4px 0;
+	}
+
+	.o-layout__listing__item__meta {
+		@include oTypographySans($scale: 0, $line-height: 1.4);
+		margin: 0;
+	}
+}
+
 /// Main Area
 /// Outputs grid main content area
 /// @access private

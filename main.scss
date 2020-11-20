@@ -80,6 +80,7 @@
 		// Landing page areas.
 		@include _oLayoutAreaHero($hero-image);
 		@include _oLayoutAreaOverview();
+		@include _oLayoutAreaListing();
 	}
 
 	@if($query-layout) {

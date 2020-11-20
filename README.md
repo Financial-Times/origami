@@ -56,7 +56,7 @@ The default layout has a single content area "Main Content"
 ```html
 <div class="o-layout" data-o-component="o-layout">
 	<div class="o-layout__header">
-	    <!-- Your header & navigation here. -->
+		<!-- Your header & navigation here. -->
 	</div>
 	<div class="o-layout__main o-layout-typography">
 		<!-- Your page content here. -->
@@ -98,7 +98,7 @@ The documentation layout is intended for text-heavy pages, such as technical doc
 ```html
 <div class="o-layout o-layout--docs" data-o-component="o-layout">
 	<div class="o-layout__header">
-	    <!-- Your header & navigation here. -->
+		<!-- Your header & navigation here. -->
 	</div>
 	<div class="o-layout__sidebar o-layout-typography">
 		<!-- Your sidebar here (optional). -->
@@ -252,7 +252,7 @@ When the landing page is a sub-page of the site, the hero area may create a visu
  </div>
 ```
 
-## Overview Sections
+### Overview Sections
 
 Within the main content area the landing layout provides an overview section. The overview section is ideal for outlining key points of the landing page.
 
@@ -269,20 +269,20 @@ Overview with 3 items:
 	<div class="o-layout__main o-layout-typography">
 		<!-- Your landing page content here. -->
 		<!-- Overview -->
-        <div class="o-layout__overview">
-            <div class="o-layout-item">
-                <h2>Great For This</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-            <div class="o-layout-item">
-                <h2>Good For That</h2>
-                <p>Blanditiis, dolor. Autem recusandae vero ut labore?</p>
-            </div>
-            <div class="o-layout-item">
-                <h2>And More</h2>
-                <p>Corrupti nemo voluptate aperiam explicabo vitae cupiditate atque fugiat dignissimos.</p>
-            </div>
-        </div>
+		<div class="o-layout__overview">
+			<div class="o-layout-item">
+				<h2>Great For This</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			</div>
+			<div class="o-layout-item">
+				<h2>Good For That</h2>
+				<p>Blanditiis, dolor. Autem recusandae vero ut labore?</p>
+			</div>
+			<div class="o-layout-item">
+				<h2>And More</h2>
+				<p>Corrupti nemo voluptate aperiam explicabo vitae cupiditate atque fugiat dignissimos.</p>
+			</div>
+		</div>
 	</div>
 ```
 
@@ -379,6 +379,40 @@ Sometimes a page may have multiple overview sections. In this case it can appear
 
 [See the registry demos](https://registry.origami.ft.com/components/o-layout#demo-landing-layout) for an example landing page.
 
+### Article List
+
+The landing layout can also be used to display a list of articles. This is useful for a blog for example, especially when combined with the muted hero element `o-layout__hero--muted`.
+
+To list articles within the hero layout remove the `o-layout-typography` class from the `o-layout__main` element. Then add a child unordered list element `ul` with class `o-layout__listing` and a number of list items, as shown in the following example:
+
+```html
+ <div class="o-layout o-layout--landing" data-o-component="o-layout">
+	<div class="o-layout__header">
+		<!-- Your header & navigation here. -->
+	</div>
+	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
+		<!-- Your hero content here.  -->
+	</div>
+ 	 <div class="o-layout__main">
+		<ul class="o-layout__listing">
+			<li class="o-layout__listing__item">
+				<h2 class="o-layout__listing__item__title">
+					<a href="#">Example Article Title</a>
+				</h2>
+				<p class="o-layout__listing__item__description">Example article description / blurb.</p>
+				<p class="o-layout__listing__item__meta">
+					Posted <time datetime="2020-10-28T00:00:00Z">20 November 2020</time>
+					by Author Name. Tagged: <span>Newsletter</span>.
+				</p>
+			</li>
+		</ul>
+ 	 </div>
+	<footer class="o-layout__footer">
+		<!-- Your footer & navigation here. -->
+	</footer>
+ </div>
+```
+
 ## Query Layout
 
 The query layout is intended for search, filter, and result pages. It provides four areas (in addition to a header and a footer):
@@ -390,24 +424,24 @@ The query layout is intended for search, filter, and result pages. It provides f
 
 ```html
 <div class="o-layout o-layout--query" data-o-component="o-layout">
-    <div class="o-layout__header">
-    	<!-- Your header & navigation here. -->
-    </div>
-    <div class="o-layout__heading o-layout-typography">
-    	<!-- Your title / heading content here. -->
-    </div>
-    <div class="o-layout__query-sidebar o-layout-typography">
-    	<!-- Your search or filter inputs. -->
-    </div>
+	<div class="o-layout__header">
+		<!-- Your header & navigation here. -->
+	</div>
+	<div class="o-layout__heading o-layout-typography">
+		<!-- Your title / heading content here. -->
+	</div>
+	<div class="o-layout__query-sidebar o-layout-typography">
+		<!-- Your search or filter inputs. -->
+	</div>
 	<div class="o-layout__main o-layout-typography">
 		<!-- Your search results or other main content. -->
 	</div>
-    <div class="o-layout__aside-sidebar o-layout-typography">
-    	<!-- Your asides / additional information (optional). -->
-    </div>
-    <div class="o-layout__footer">
-    	<!-- Your footer & navigation here. -->
-    </div>
+	<div class="o-layout__aside-sidebar o-layout-typography">
+		<!-- Your asides / additional information (optional). -->
+	</div>
+	<div class="o-layout__footer">
+		<!-- Your footer & navigation here. -->
+	</div>
 </div>
 ```
 
@@ -563,7 +597,7 @@ The [documentation layout](#documentation-layout) uses JavaScript to construct a
 To generate a nav for the query layout, or turn it off for the documentation layout, explicitly set the "construct navigation" option to `true` or `false`. Either declaritively in your html with the `data-o-layout-construct-nav` attribute:
 ```html
 <div class="o-layout o-layout--query" data-o-layout-construct-nav="true" data-o-component="o-layout">
-    <!-- Layout markup. -->
+	<!-- Layout markup. -->
 </div>
 ```
 
@@ -576,7 +610,7 @@ oLayout.init(null, { constructNav: true });
 If you would like to change what items show in the generated navigation, set the "navigation heading selector" option to any valid CSS selector. Do this declaritively in your html with the `data-o-layout-nav-heading-selector` attribute:
 ```html
 <div class="o-layout o-layout--query" data-o-layout-nav-heading-selector="h1, h2, .nav-heading" data-o-component="o-layout">
-    <!-- Layout markup. -->
+	<!-- Layout markup. -->
 </div>
 ```
 
