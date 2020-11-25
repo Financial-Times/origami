@@ -81,9 +81,9 @@ You must either construct an `o-cookie-message` object or fire the `o.DOMContent
 
 ### Constructing an o-cookie-message
 
-There are two available variations of o-cookie-message: `standard` and `alternative`.
+There are two available variations of o-cookie-message the default (standard) cookie message and `alternative`.
 
-If you would like to initialise a `standard` cookie message, you will need to implement the following:
+If you would like to initialise a standard cookie message, you will need to implement the following:
 
 ```js
 import oCookieMessage from 'o-cookie-message';
@@ -127,19 +127,21 @@ Include all themes:
 @include oCookieMessage();
 ```
 
-Include only the [`standard`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner) theme:
+Include only the [default cookie message](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-cookie-banner):
 
 ```scss
 @include oCookieMessage($opts: (
-  $themes: ('standard')
+	'themes': ()
 ));
 ```
 
-Include only the [`alternative`](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner) theme:
+_Note: "standard" used to be required as a theme option to output the default theme, this is now output by default without any themes set._
+
+Include the [`alternative` cookie message theme](https://registry.origami.ft.com/components/o-cookie-message#demo-approved-alternative-cookie-banner):
 
 ```scss
 @include oCookieMessage($opts: (
-  $themes: ('alternative')
+	'themes': ('alternative')
 ));
 ```
 

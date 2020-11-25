@@ -1,5 +1,11 @@
 // Base cookie message styles
 @mixin _oCookieMessageBase() {
+	$link-theme: (
+		'base': 'teal',
+		'hover': 'teal',
+		'context': 'white'
+	);
+
 	.o-cookie-message {
 		position: fixed;
 		bottom: 0;
@@ -76,6 +82,33 @@
 		}
 	}
 
+	.o-cookie-message__heading {
+		padding-right: $_o-cookie-message-spacing;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 60px;
+			margin-top: oSpacingByName('s2');
+			margin-bottom: oSpacingByName('s3');
+			border-bottom: oSpacingByIncrement(1) solid;
+			border-color: oColorsByName('teal');
+		}
+	}
+
+	// default headings used to include a h1,
+	// so style for backward compatibility for users with custom cookie message markup
+	.o-cookie-message__heading,
+	.o-cookie-message__heading h1,
+	.o-cookie-message__heading h2 {
+		@include oTypographySans(
+			$scale: ('default': 2, 'M': 3),
+			$weight: 'semibold'
+		);
+		margin: 0;
+	}
+
+
 	.o-cookie-message__actions {
 		@include oTypographySans($scale: 2);
 		display: flex;
@@ -99,6 +132,12 @@
 		}
 	}
 
+	.o-cookie-message__action--secondary {
+		@include oGridRespondTo($until: M) {
+			margin-top: $_o-cookie-message-spacing / 4;
+		}
+	}
+
 	.o-cookie-message__action {
 		padding: 0;
 	}
@@ -110,69 +149,22 @@
 		));
 		white-space: nowrap;
 	}
-}
 
-// Standard cookie message styles (for master brand e.g. FT.com)
-@mixin _oCookieMessageStandard() {
-	.o-cookie-message {
-		// default headings used to include a h1,
-		// so style for backward compatibility for users with custom cookie message markup
-		.o-cookie-message__heading,
-		.o-cookie-message__heading h1,
-		.o-cookie-message__heading h2 {
-			@include oTypographySans(
-				$scale: ('default': 2, 'M': 3),
-				$weight: 'semibold'
-			);
-			margin: 0;
-		}
+	.o-cookie-message__link--external,
+	.o-cookie-message__link {
+		@include oTypographySans($scale: 0);
+		@include oTypographyLink($theme: $link-theme);
+		white-space: nowrap;
+	}
 
-		.o-cookie-message__heading {
-			padding-right: $_o-cookie-message-spacing;
-
-			&:after {
-				content: '';
-				display: block;
-				width: 60px;
-				margin-top: oSpacingByName('s2');
-				margin-bottom: oSpacingByName('s3');
-				border-bottom: oSpacingByIncrement(1) solid;
-				border-color: oColorsByName('teal');
-			}
-		}
-
-		.o-cookie-message__action--secondary {
-			@include oGridRespondTo($until: M) {
-				margin-top: $_o-cookie-message-spacing / 4;
-			}
-		}
-
-		.o-cookie-message__link {
-			$link-theme: (
-				'base': 'teal',
-				'hover': 'teal',
-				'context': 'white'
-			);
-			@include oTypographyLink($theme: $link-theme);
-			@include oTypographySans($scale: 0);
-			white-space: nowrap;
-		}
-
-		.o-cookie-message__link--external {
-			@include oTypographyLink($external: true, $include-base-styles: false);
-		}
-
-		.o-cookie-message__link--external,
-		.o-cookie-message__link {
-			@include oTypographyLink($theme: (
-				'base': 'teal',
-				'hover': 'teal',
-				'context': 'white'
-			));
-		}
+	.o-cookie-message__link--external {
+		@include oTypographyLink(
+			$external: true,
+			$theme: $link-theme,
+			$include-base-styles: false
+		);
 	}
 }
-
 
 // Alternative cookie message styles (for whitelabel/specialist titles)
 @mixin _oCookieMessageAlternative() {

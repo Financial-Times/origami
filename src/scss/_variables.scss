@@ -1,4 +1,6 @@
 $o-cookie-message-is-silent: true !default;
 
 $_o-cookie-message-spacing: oSpacingByIncrement(10);
+// @deprecated "standard" is no longer a theme, it is the default, output with
+// base styles. Remove in the next breaking release.
 $_o-cookie-message-themes: ('standard', 'alternative');

@@ -26,8 +26,6 @@
 	@each $theme in $themes {
 		@if not index($_o-cookie-message-themes, $theme) {
 			@error "There is no theme '#{$theme}' available in o-cookie-message, please use one of the following: #{$_o-cookie-message-themes}.";
-		} @else if $theme == 'standard' {
-			@include _oCookieMessageStandard();
 		} @else if $theme == 'alternative' {
 			@include _oCookieMessageAlternative();
 		}
