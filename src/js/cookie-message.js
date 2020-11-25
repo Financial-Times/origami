@@ -86,11 +86,13 @@ class CookieMessage {
 	</div>
 </div>`;
 
+		const labelId = 'o-cookie-message-label';
+		const descriptionId = 'o-cookie-message-description';
 		const defaultContent = `
 <div class="o-cookie-message__heading">
-	<h2>Cookies on the FT</h2>
+	<h2 id="${labelId}">Cookies on the FT</h2>
 </div>
-<p>
+<p id="${descriptionId}">
 	We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a> for a number of reasons, such as keeping FT Sites reliable and secure, personalising content and ads, providing social media features and to analyse how our Sites are used.
 </p>`;
 
@@ -101,6 +103,10 @@ class CookieMessage {
 		} else if (html.trim() === "") {
 			// empty, provide default content
 			this.cookieMessageElement.innerHTML = wrapContent(defaultContent);
+			// with default content ids we can setup a labeled dialog role
+			this.cookieMessageElement.setAttribute('role', 'dialog');
+			this.cookieMessageElement.setAttribute('aria-labelledby', labelId);
+			this.cookieMessageElement.setAttribute('aria-describedby', descriptionId);
 		} else {
 			// some custom html, wrap it up
 			this.cookieMessageElement.innerHTML = wrapContent(html);

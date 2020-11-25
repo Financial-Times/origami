@@ -27,10 +27,19 @@ Optionally add a theme attribute to change the colours of the cookie message `da
 
 ### Custom Cookie Message
 
-To display custom cookie message content with default buttons, add child HTML:
+To display custom cookie message content with default buttons, add child HTML along with associated `aria-labelledby` and `aria-describedby` attributes:
 ```html
-<div data-o-component="o-cookie-message" class="o-cookie-message">
+<div
+	role="dialog"
+	aria-labelledby="demo-label-element-id"
+	aria-describedby="demo-description-element-id"
+	data-o-component="o-cookie-message"
+	class="o-cookie-message">
 	<!-- custom cookie message copy / html here -->
+	<!-- include ids for the aria labelledby and describedby attributes -->
+	<!-- e.g. -->
+	<h2 id="demo-label-element-id">Custom Cookie Message</h2>
+	<p id="demo-description-element-id">We use cookies because...</p>
 </div>
 ```
 
@@ -39,14 +48,19 @@ To display custom cookie message content with default buttons, add child HTML:
 To support a core experience without JavaScript, add the full `o-cookie-message` markup as below. Update the anchors `redirect` query param with your sites URL, preferably the current page the cookie message is displayed on. This is used to send users back after setting cookie preferences in a core experience (where JavaScript is unavailable).
 
 ```html
-<div data-o-component="o-cookie-message" class="o-cookie-message">
+<div
+	role="dialog"
+	aria-labelledby="o-cookie-message-label"
+	aria-describedby="o-cookie-message-description"
+	data-o-component="o-cookie-message"
+	class="o-cookie-message">
 	<div class="o-cookie-message__outer">
 		<div class="o-cookie-message__inner">
 			<div class="o-cookie-message__content">
 				<div class="o-cookie-message__heading">
-					<h2>Cookies on the FT</h2>
+					<h2 id="o-cookie-message-label">Cookies on the FT</h2>
 				</div>
-				<p>
+				<p id="o-cookie-message-description">
 					We use
 					<a href="http://help.ft.com/help/legal-privacy/cookies/"
 						class="o-cookie-message__link o-cookie-message__link--external"

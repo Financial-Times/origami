@@ -22,9 +22,9 @@ function insert(html) {
 export function generateHTML(type) { insert(html[type]); }
 
 export const html = {
-	standard: `<div data-o-component="o-cookie-message" class='o-cookie-message'></div>`,
-	domAttributes: `<div data-o-component="o-cookie-message" data-o-cookie-message-accept-url="example.com" class='o-cookie-message'></div>`,
-	customCookieMessage: `<div data-o-component="o-cookie-message" data-o-cookie-message-use-custom-html="true" class='o-cookie-message'>
+	standard: `<div role="dialog" data-o-component="o-cookie-message" class='o-cookie-message'></div>`,
+	domAttributes: `<div role="dialog" data-o-component="o-cookie-message" data-o-cookie-message-accept-url="example.com" class='o-cookie-message'></div>`,
+	customCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" data-o-cookie-message-use-custom-html="true" class='o-cookie-message'>
 		Custom cookie message!
 		<div class="o-cookie-message__close-btn-container">
 			<button class="o-cookie-message__close-btn" data-o-component="o-cookie-message-close">
@@ -32,16 +32,16 @@ export const html = {
 			</button>
 		</div>
 	</div>`,
-	imperativeCookieMessage: `<div data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active">
+	imperativeCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active" aria-labelledby="o-cookie-message-label" aria-describedby="o-cookie-message-description">
 		<div class="o-cookie-message__outer">
 			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">
 
 			<div class="o-cookie-message__heading">
-				<h2>Cookies on the FT</h2>
+				<h2 id="o-cookie-message-label">Cookies on the FT</h2>
 			</div>
-			<p>
+			<p id="o-cookie-message-description">
 				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
 				content and ads, providing social media features and to analyse how our Sites are used.
@@ -62,16 +62,16 @@ export const html = {
 			</div>
 		</div>
 	</div>`,
-	imperativeAltCookieMessage: `<div data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active o-cookie-message--alternative">
+	imperativeAltCookieMessage: `<div role="dialog" data-o-component="o-cookie-message" class="o-cookie-message o-cookie-message--active o-cookie-message--alternative" aria-labelledby="o-cookie-message-label" aria-describedby="o-cookie-message-description">
 		<div class="o-cookie-message__outer">
 			<div class="o-cookie-message__inner">
 
 			<div class="o-cookie-message__content">
 
 			<div class="o-cookie-message__heading">
-				<h2>Cookies on the FT</h2>
+				<h2 id="o-cookie-message-label">Cookies on the FT</h2>
 			</div>
-			<p>
+			<p id="o-cookie-message-description">
 				We use <a href="http://help.ft.com/help/legal-privacy/cookies/" class="o-cookie-message__link o-cookie-message__link--external" target="_blank" rel="noopener">cookies</a>
 				for a number of reasons, such as keeping FT Sites reliable and secure, personalising
 				content and ads, providing social media features and to analyse how our Sites are used.
