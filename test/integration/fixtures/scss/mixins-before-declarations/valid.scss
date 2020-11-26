@@ -1,0 +1,22 @@
+@mixin baz {
+	content: '';
+}
+
+// mixins are included before other properties,
+// so they do not unexpectedly introduce and override
+// properties defined in the class
+.foo {
+	@include baz;
+	content: 'baz';
+}
+
+// we make an exception for oGridRespondTo,
+// as this includes a media query
+@mixin oGridRespondTo {
+	content: 'media query here';
+}
+
+.foo {
+	content: 'baz';
+	@include oGridRespondTo();
+}

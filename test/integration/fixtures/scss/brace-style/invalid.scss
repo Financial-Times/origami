@@ -1,0 +1,23 @@
+.foo
+{
+	content: 'foo';
+}
+
+.foo,
+.bar
+{
+	content: 'bar';
+}
+
+@function foo()
+{
+	@return 'foo';
+}
+
+@mixin bar()
+{
+	content: 'bar';
+}
+
+@if ($foo) { $bar: 'foo'; }
+@else { $bar: false; }

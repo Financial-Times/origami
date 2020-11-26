@@ -1,0 +1,5 @@
+/* we allow css comments */
+.css-comment {
+	// look, I'm a sass comment.
+	content: ''; /* but I am a lovely css comment*/
+}
