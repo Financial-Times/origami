@@ -127,6 +127,9 @@
 			"name": "refresh"
 		},
 		{
+			"name": "scroll-to"
+		},
+		{
 			"name": "search"
 		},
 		{
