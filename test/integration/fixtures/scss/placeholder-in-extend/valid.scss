@@ -1,0 +1,15 @@
+%bar {
+	content: 'bar';
+}
+
+%qux {
+	content: 'qux';
+}
+
+.baz {
+	content: 'baz';
+}
+
+.foo {
+	@extend %bar;
+}

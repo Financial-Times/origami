@@ -1,0 +1,8 @@
+.foo {
+	margin: 15px;
+	margin-bottom: 0; // this is not counted as a duplicate property
+	// line can be disabled successfully,
+	// e.g. to use a 2D transform because 3D are unsupported by IE9
+	transform: translateX(-100%);
+	transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+}

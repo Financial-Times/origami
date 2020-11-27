@@ -1,0 +1,16 @@
+// we allow zero, with and without units
+.foo {
+	margin: 0;
+}
+
+.bar {
+	padding: 5px 0 0;
+}
+
+.foo {
+	margin: 0px;
+}
+
+.bar {
+	padding: 5px 0px 0px;
+}

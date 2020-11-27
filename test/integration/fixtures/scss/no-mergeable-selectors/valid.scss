@@ -1,0 +1,17 @@
+div p {
+	color: red;
+}
+
+// will not be warned as mergeable / duplicate
+div p {
+	content: '';
+}
+
+div a {
+	color: blue;
+}
+
+// will not be warned as mergeable / duplicate
+div a {
+	content: '';
+}

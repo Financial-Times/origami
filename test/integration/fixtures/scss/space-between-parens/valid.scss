@@ -1,0 +1,32 @@
+@function foo($bar) {
+	@return $bar;
+}
+
+@mixin bar($baz) {
+	content: $baz;
+}
+
+.foo {
+	@include bar('Hello');
+	content: foo('bar');
+	width: calc(100% - 10px);
+}
+
+
+$some-very-very-very-large-conditional: true;
+$foreground-color: if(
+	$some-very-very-very-large-conditional == true,
+	"then each argument should go on a newline for readability",
+	"otherwise each argument could be on the same line"
+);
+
+// We do not lint against Sass parameter spaces.
+// Previously origami-build-tools did lint for this, but
+// no stylelint rule appears to exist at time of writing
+@function fooWithParamSpace( $bar ) {
+	@return $bar;
+}
+
+@mixin barWithParamSpace($baz ) {
+	content: $baz;
+}

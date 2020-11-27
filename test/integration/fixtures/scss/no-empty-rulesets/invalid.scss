@@ -1,0 +1,12 @@
+// we allow empty rulesets
+.foo {
+
+}
+
+.bar {
+	content: 'baz';
+
+	.qux {}
+}
+
+.waldo {}
