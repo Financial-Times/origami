@@ -1,10 +1,6 @@
 const { Teaser } = require('../')
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import BuildService from '../../../.storybook/build-service'
-const path = require('path')
-const pkg = require('../package.json')
-const name = path.basename(pkg.name)
 
 const dependencies = {
 	'o-date': '^4.0.0',
@@ -25,11 +21,6 @@ export const Article = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -42,11 +33,6 @@ export const Podcast = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -58,11 +44,6 @@ export const Opinion = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -74,11 +55,6 @@ export const ContentPackage = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -92,11 +68,6 @@ export const PackageItem = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -110,11 +81,6 @@ export const Promoted = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -127,11 +93,6 @@ export const TopStory = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
@@ -145,11 +106,6 @@ export const Video = (args) => {
 	return (
 		<div className="story-container">
 			{dependencies && <BuildService dependencies={dependencies} />}
-			{pkg.style && (
-				<Helmet>
-					<link rel="stylesheet" href={`components/${name}/${pkg.style}`} />
-				</Helmet>
-			)}
 			<Teaser {...args} />
 		</div>
 	)
