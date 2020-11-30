@@ -1,6 +1,10 @@
 {
 	"description": "Provides styling for social media sharing links",
 	"keywords": [ "share", "link", "social", "facebook", "twitter", "linkedin", "whatsapp", "email" ],
+	"brands" : [
+		"master",
+		"internal"
+	],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,

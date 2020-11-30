@@ -30,3 +30,22 @@
 		'supports-variants': ()
 	));
 }
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-share', 'internal', (
+		'variables': (
+			'size': $o-share-icon-size,
+			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
+			'color': oColorsByUsecase('o-share/default-icon', 'text'),
+			'small': (
+				'size': $o-share-icon-small-size,
+				'margin': oSpacingByName('s3'),
+			),
+			'inverse': (
+				'border-color': oColorsMix('slate', 'white', 50),
+				'color': oColorsByName('white'),
+			)
+		),
+		'supports-variants': ()
+	));
+}
