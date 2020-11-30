@@ -74,6 +74,8 @@ To add an icon to your button add the class `o-buttons-icon` and `o-buttons-icon
 - edit
 - download
 - search
+- refresh
+- cross
 
 ```html
 <button class="o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-down">Down Arrow</button>
