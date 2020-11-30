@@ -1,4 +1,3 @@
-const { URL, URLSearchParams } = require('url')
 const BASE_URL = 'https://www.ft.com/__origami/service/image/v2/images/raw'
 const OPTIONS = { source: 'next', fit: 'scale-down', dpr: 2 }
 
