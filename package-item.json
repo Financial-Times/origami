@@ -24,6 +24,6 @@
   "headshotTint": "",
   "accessLevel": "free",
   "theme": "",
-  "parentTheme": "",
-  "modifiers": ""
+  "parentTheme": "extra-article",
+	"modifiers": "centre"
 }
