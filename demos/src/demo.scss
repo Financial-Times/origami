@@ -2,7 +2,7 @@ $o-share-is-silent: false;
 @import '../../main';
 
 .demo {
-	background-color: oColorsByName('paper');
+	background-color: oColorsByUsecase('page', 'background');
 	margin: 1rem;
 	padding: 1rem;
 }
