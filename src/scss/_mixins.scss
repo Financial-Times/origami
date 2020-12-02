@@ -14,7 +14,7 @@
 ///     	    'button-type': 'primary', // a primary o-buttons button`o-message__content-highlight` highlight copy
 ///     	    'icon': 'user', // show a 'user' o-icons icon if used as an alert
 ///     ), $types: ('notice', 'alert')); // this state should work with notice and alert message types
-/// @access private
+/// @access public
 @mixin oMessageAddState($name, $opts, $types) {
 	// If no options are given assume we are adding a default state.
 	// @see _brand.scss for configuration by name.
