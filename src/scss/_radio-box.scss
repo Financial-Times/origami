@@ -27,7 +27,7 @@
 				box-sizing: border-box;
 				display: inline-block;
 				max-height: $_o-forms-spacing-controls;
-				padding: $_o-forms-spacing-one;
+				padding: $_o-forms-spacing-one $_o-forms-spacing-two;
 				transition: 0.3s background-color, 0.15s color ease-out;
 				white-space: nowrap;
 				width: 100%;
