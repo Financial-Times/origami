@@ -40,7 +40,16 @@
 			"title": "Inverse Form",
 			"template": "/demos/src/inverse-form.mustache",
 			"description": "Inverse form",
-			"sass": "demos/src/inverse.scss"
+			"sass": "demos/src/inverse.scss",
+			"brands": ["master", "internal"]
+		},
+		{
+			"name": "inverse-form-whitelabel",
+			"title": "Inverse Form",
+			"template": "/demos/src/inverse-form-whitelabel.mustache",
+			"description": "Inverse form",
+			"sass": "demos/src/inverse.scss",
+			"brands": ["master", "internal", "whitelabel"]
 		},
 		{
 			"name": "pseudo-radio-links",
