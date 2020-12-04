@@ -20,6 +20,8 @@ class ErrorSummary {
 		const hasAnInverseField = elements.some(elem => {
 			if (elem.field) {
 				return elem.field.classList.contains('o-forms-field--inverse');
+			} else {
+				return false;
 			}
 		});
 		this.inverse = hasAnInverseField;
