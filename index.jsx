@@ -1,4 +1,4 @@
-const { Teaser } = require('../')
+import { Teaser } from '../src/Teaser'
 import React from 'react'
 import BuildService from '../../../.storybook/build-service'
 
