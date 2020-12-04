@@ -20,6 +20,9 @@
 @import 'src/scss/themes/right-rail';
 @import 'src/scss/themes/centered';
 
+/// Outputs all features and styles available.
+/// @param {list} $opts [('themes', 'elements', 'colors')] - Topper features to output. Defaults to all topper features.
+/// @access public
 @mixin oTopper($opts: (
 	'themes': $_o-topper-themes,
 	'elements': $_o-topper-elements,
