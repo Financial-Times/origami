@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperAnchorLink {
 	@include oTypographySans(0);
 	display: inline-block;
@@ -25,6 +26,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperThemePackage {
 	margin-bottom: oSpacingByIncrement(10);
 
@@ -41,6 +43,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperThemePackageExtra {
 	.o-topper__package-sequence-id,
 	&.o-topper--package .o-topper__headline {
@@ -61,6 +64,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperThemePackageSpecialReport {
 	.o-topper__tag {
 		opacity: 0.6;

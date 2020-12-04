@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperThemeBranded {
 
 	.o-topper__content {
@@ -19,6 +20,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperHasHeadshot {
 	.o-topper__tags,
 	.o-topper__standfirst {

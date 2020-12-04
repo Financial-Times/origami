@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperStandfirst {
 	@include oEditorialTypographyStandfirst();
 	opacity: 0.8;
@@ -7,6 +8,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
@@ -18,7 +20,7 @@
 	}
 }
 
-
+/// @access private
 @mixin _oTopperSummaryBody {
 	h2 {
 		@include oTypographySans(0, $weight: 'semibold');
@@ -41,6 +43,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperImageCredit {
 	@include oTypographySans(-2);
 	color: oColorsByName('white');
@@ -51,6 +54,7 @@
 }
 
 //IE9 support
+/// @access private
 @mixin _oTopperImage {
 	display: block;
 	position: relative;
@@ -62,6 +66,7 @@
 	}
 }
 
+/// @access private
 @include _oTopperDefineOnce(tag) {
 	%_o-topper__tag {
 		@include oEditorialTypographyTag($type: 'topic');
@@ -76,26 +81,31 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperBrand {
 	@extend %_o-topper__tag;
 	margin-right: 4px;
 }
 
+/// @access private
 @mixin _oTopperColumnist {
 	margin-top: oSpacingByName('s4');
 	text-transform: uppercase;
 }
 
+/// @access private
 @mixin _oTopperColumnistName {
 	@extend %_o-topper__tag;
 	vertical-align: middle;
 }
 
+/// @access private
 @mixin _oTopperTags {
 	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
 	padding-bottom: 5px;
 }
 
+/// @access private
 @mixin _oTopperTopic {
 	@extend %_o-topper__tag;
 }

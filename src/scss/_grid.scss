@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperArticleGrid() {
 	@include oGridContainer();
 	display: flex;
@@ -24,6 +25,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperArticleGridCentered() {
 	@include oGridRespondTo(L) {
 		grid-template-columns: 40px 1fr minmax(500px, 700px) 1fr 40px;

@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperThemeElements($themes) {
 	@if index($themes, 'opinion') {
 		.o-topper__opinion-genre {
@@ -18,6 +19,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperThemes($themes) {
 	@include _oTopperThemeElements($themes);
 
@@ -117,6 +119,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperElements($elements) {
 	@if index($elements, 'content') {
 		.o-topper__content {
@@ -217,6 +220,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
 		.o-topper--color-#{$color} {
@@ -226,6 +230,7 @@
 }
 
 // uses topper background colour to set background and pick contrasting text color
+/// @access private
 @mixin _oTopperColor($color-name) {
 	$background: oColorsByName($color-name);
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
@@ -312,6 +317,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperAlignText($position) {
 	$mleft: ('left': 0, 'center': auto, 'right': auto);
 	$mright: ('left': auto, 'center': auto, 'right': 0);
@@ -334,6 +340,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperDefineOnce($label) {
 	@if not map-has-key($_o-topper-defined, $label) {
 		@content;
