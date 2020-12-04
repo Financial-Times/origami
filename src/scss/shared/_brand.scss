@@ -33,6 +33,8 @@ $_o-forms-shared-brand-config: (
 		controls-negative-checked-background: oColorsByName('teal-30'),
 		toggle-inverse-selected: oColorsByName('teal-100'),
 		invalid-base: oColorsByName('crimson'),
+		invalid-base-inverse: oColorsByName('white'),
+		invalid-base-color-inverse: oColorsByName('black'),
 		valid-base: oColorsMix('jade', 'black', 80),
 		toggle-inverse-knob: oColorsByName('slate'),
 	)) !global;
@@ -40,14 +42,22 @@ $_o-forms-shared-brand-config: (
 
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-forms', 'master', (
-		'variables': $_o-forms-shared-brand-config,
+		'variables': map-merge($_o-forms-shared-brand-config, (
+			invalid-base-border-inverse: oColorsByName('claret-100'),
+			error-summary-background-inverse: rgba(oColorsByName('claret-100'), 0.11),
+			error-summary-border-inverse: oColorsByName('claret-100'),
+		)),
 		'supports-variants': ()
 	));
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-forms', 'internal', (
-		'variables': $_o-forms-shared-brand-config,
+		'variables': map-merge($_o-forms-shared-brand-config, (
+			invalid-base-border-inverse: oColorsByName('crimson'),
+			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
+			error-summary-border-inverse: oColorsByName('crimson'),
+		)),
 		'supports-variants': ()
 	));
 }
@@ -60,6 +70,8 @@ $_o-forms-shared-brand-config: (
 			toggle-inverse-selected: oColorsByName('white'),
 			toggle-inverse-knob: oColorsByName('black'),
 			invalid-base: oColorsByName('crimson'),
+			invalid-base-inverse: oColorsByName('white'),
+			invalid-base-color-inverse: oColorsByName('black'),
 			valid-base: oColorsByName('jade')
 		)),
 		'supports-variants': ()

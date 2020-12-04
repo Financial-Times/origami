@@ -36,6 +36,13 @@
 	},
 	"demos": [
 		{
+			"name": "inverse-form",
+			"title": "Inverse Form",
+			"template": "/demos/src/inverse-form.mustache",
+			"description": "Inverse form",
+			"sass": "demos/src/inverse.scss"
+		},
+		{
 			"name": "pseudo-radio-links",
 			"title": "Pseudo Radio Links",
 			"template": "/demos/src/multiple-input-field.mustache",
