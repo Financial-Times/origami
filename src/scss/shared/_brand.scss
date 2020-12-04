@@ -72,7 +72,10 @@ $_o-forms-shared-brand-config: (
 			invalid-base: oColorsByName('crimson'),
 			invalid-base-inverse: oColorsByName('white'),
 			invalid-base-color-inverse: oColorsByName('black'),
-			valid-base: oColorsByName('jade')
+			invalid-base-border-inverse: oColorsByName('crimson'),
+			valid-base: oColorsByName('jade'),
+			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
+			error-summary-border-inverse: oColorsByName('crimson'),
 		)),
 		'supports-variants': ()
 	));
