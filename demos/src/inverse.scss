@@ -1,5 +1,7 @@
 @import "./demo";
 
 body {
-	background: oColorsByName('slate');
+	// This is the slate colour in master and internal
+	// We hardcode the value because the whitelabel palette does not contain slate.
+	background: #262a33;
 }
