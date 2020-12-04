@@ -17,6 +17,12 @@ class ErrorSummary {
 	*/
 	constructor(elements) {
 		this.elements = elements;
+		const hasAnInverseField = elements.some(elem => {
+			if (elem.field) {
+				return elem.field.classList.contains('o-forms-field--inverse');
+			}
+		});
+		this.inverse = hasAnInverseField;
 		this.invalidInputs = [];
 
 		return this.createSummary();
@@ -30,6 +36,9 @@ class ErrorSummary {
 
 		const div = document.createElement('div');
 		div.classList.add('o-forms__error-summary');
+		if (this.inverse) {
+			div.classList.add('o-forms__error-summary--inverse');
+		}
 		div.setAttribute('aria-labelledby', 'error-summary');
 		div.setAttribute('role', 'alert');
 		div.innerHTML = '<h4 class="o-forms__error-summary__heading" id="error-summary">There is a problem</h4>';
