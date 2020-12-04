@@ -1,6 +1,6 @@
-import Overlay from '../../main.js';
+import Overlay from '../..';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function () {
 	const myOverlay = new Overlay('demo-overlay', {
 		nested: 'true',
 		parentnode: '.right-rail',
