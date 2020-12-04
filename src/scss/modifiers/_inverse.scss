@@ -71,6 +71,8 @@
 			}
 
 			.o-forms__error-summary__list {
+				color: oColorsByName('white');
+
 				a {
 					color: oColorsByName('white');
 					border-bottom: 1px solid _oFormsGet('invalid-base-inverse');
