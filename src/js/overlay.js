@@ -4,13 +4,15 @@ import oLayers from 'o-layers';
 import utils from './utils.js';
 const overlays = {};
 
-const checkOptions = function(opts) {
+const checkOptions = function (opts) {
 	if (opts.trigger && !(opts.trigger instanceof HTMLElement)) {
 		opts.trigger = document.querySelector(opts.trigger);
 	}
 
 	if (opts.heading && (!opts.heading.title || !opts.heading.title.trim())) {
-		throw new Error('"o-overlay error": To have a heading, a non-empty title needs to be set');
+		throw new Error(
+			'"o-overlay error": To have a heading, a non-empty title needs to be set'
+		);
 	}
 
 	// Overlays should be modal and layers by default
@@ -22,17 +24,19 @@ const checkOptions = function(opts) {
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
-		throw new Error('"o-overlay error": Compact overlays can\'t have a shaded header');
+		throw new Error(
+			'"o-overlay error": Compact overlays can\'t have a shaded header'
+		);
 	}
 
 	return opts;
 };
 
-const getOptionsFromTrigger = function(trigger) {
+const getOptionsFromTrigger = function (trigger) {
 	let opts = {};
 	// Get config from data attributes set in the trigger if they haven't been passed via JS
 	if (trigger instanceof HTMLElement) {
-		Array.prototype.forEach.call(trigger.attributes, function(attr) {
+		Array.prototype.forEach.call(trigger.attributes, function (attr) {
 			if (attr.name.indexOf('data-o-overlay') === 0) {
 				// Remove the unnecessary part of the string the first time this is run for each attribute
 				const key = attr.name.replace('data-o-overlay-', '');
@@ -44,7 +48,7 @@ const getOptionsFromTrigger = function(trigger) {
 	return opts;
 };
 
-const triggerClickHandler = function(id, ev) {
+const triggerClickHandler = function (id, ev) {
 	ev.stopPropagation();
 	const overlay = overlays[id];
 	if (overlay) {
@@ -60,28 +64,40 @@ const isVisible = function (element) {
 	return Boolean(element.offsetHeight);
 };
 
-const focusTrap = function(event) {
+const focusTrap = function (event) {
 	const tabKeyCode = 9;
-	const overlayFocusableElements = [].slice.call(
-		this.wrapper.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
-	).filter(element => {
-		const elementVisible = isVisible(element);
-		// Inputs for radio and checkboxes are visually hidden,
-		// so check the label visibility of inputs too when determining
-		// whether to trap focus.
-		const elementLabelVisible = element.labels && [].slice.call(element.labels).some(l => isVisible(l));
-		// When tabbing, the checked radio input of a group is focused, not each radio input.
-		const elementIsUncheckedRadio = element.type === 'radio' && element.checked !== true;
-		return !element.disabled && !elementIsUncheckedRadio && (elementVisible || elementLabelVisible);
-	});
+	const overlayFocusableElements = [].slice
+		.call(
+			this.wrapper.querySelectorAll(
+				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+			)
+		)
+		.filter(element => {
+			const elementVisible = isVisible(element);
+			// Inputs for radio and checkboxes are visually hidden,
+			// so check the label visibility of inputs too when determining
+			// whether to trap focus.
+			const elementLabelVisible =
+				element.labels && [].slice.call(element.labels).some(l => isVisible(l));
+			// When tabbing, the checked radio input of a group is focused, not each radio input.
+			const elementIsUncheckedRadio =
+				element.type === 'radio' && element.checked !== true;
+			return (
+				!element.disabled &&
+				!elementIsUncheckedRadio &&
+				(elementVisible || elementLabelVisible)
+			);
+		});
 
 	if (overlayFocusableElements.length && event.keyCode === tabKeyCode) {
-		const lastElement = overlayFocusableElements[overlayFocusableElements.length - 1];
+		const lastElement =
+			overlayFocusableElements[overlayFocusableElements.length - 1];
 		// Loop focus back to the first element if focus has reached the focusable element
 		if (event.target === lastElement) {
 			overlayFocusableElements[0].focus();
 			event.preventDefault();
-		} else if (event.shiftKey && event.target === overlayFocusableElements[0]) { // loop to the bottom when shift+tabbing.
+		} else if (event.shiftKey && event.target === overlayFocusableElements[0]) {
+			// loop to the bottom when shift+tabbing.
 			lastElement.focus();
 			event.preventDefault();
 		}
@@ -92,7 +108,6 @@ const focusTrap = function(event) {
  * Represents an Overlay.
  */
 class Overlay {
-
 	/**
 	 * Construct an overlay.
 	 * @constructor
@@ -114,10 +129,12 @@ class Overlay {
 	 * @param {Boolean} opts.nofocus - If set to true, the tabindex will not be set on the wrapper element. Useful in conjunction with the nested and parentnode options. Default: false.
 	 * @param {Boolean} opts.fullscreen - If set to true, the overlay will display full screen. This overlay disables scroll on the underlying document and is dismissible with the back button.
 	 * @throws {Error} Will throw an error if the `id` parameter is not unique.
-	*/
+	 */
 	constructor(id, opts) {
 		if (overlays[id]) {
-			throw new Error(`o-overlay with id "${id}" already exists. Creating an overlay twice with the same id may result in unexpected behaviour.`);
+			throw new Error(
+				`o-overlay with id "${id}" already exists. Creating an overlay twice with the same id may result in unexpected behaviour.`
+			);
 		}
 
 		viewport.listenTo('resize');
@@ -126,22 +143,28 @@ class Overlay {
 
 		try {
 			this.opts = checkOptions(opts);
-		} catch(e) {
+		} catch (e) {
 			this.broadcast('log', 'oErrors', {
-				error: e
+				error: e,
 			});
 			throw e;
 		}
 
 		if (!this.opts) {
-			const noOptError = new Error('"o-overlay error": Required options have not been set');
+			const noOptError = new Error(
+				'"o-overlay error": Required options have not been set'
+			);
 			this.broadcast('log', 'oErrors', {
-				error: noOptError
+				error: noOptError,
 			});
 			throw noOptError;
 		}
 		if (this.opts.trigger) {
-			this.opts.trigger.addEventListener('click', triggerClickHandler.bind(this.opts.trigger, id), false);
+			this.opts.trigger.addEventListener(
+				'click',
+				triggerClickHandler.bind(this.opts.trigger, id),
+				false
+			);
 			this.context = oLayers.getLayerContext(this.opts.trigger);
 		} else {
 			if (document.querySelector(this.opts.parentnode)) {
@@ -154,7 +177,7 @@ class Overlay {
 		this.delegates = {
 			doc: new Delegate(),
 			wrap: new Delegate(),
-			context: new Delegate()
+			context: new Delegate(),
 		};
 
 		// Add this overlay to the overlays hashmap
@@ -172,15 +195,20 @@ class Overlay {
 		// The browser back button can then be used to close a full-screen overlay.
 		if (window.history.pushState && this.opts.fullscreen) {
 			// Push overlay state to history.
-			window.history.pushState({ [`o-overlay-${this.id}`]: 'fullscreen' }, window.location.href);
+			window.history.pushState(
+				{[`o-overlay-${this.id}`]: 'fullscreen'},
+				window.location.href
+			);
 			// When history changes check for the overlay and close it.
 			this.popstateHandler = function () {
-				if (window.history.state &&
-					window.history.state[`o-overlay-${this.id}`]) {
+				if (
+					window.history.state &&
+					window.history.state[`o-overlay-${this.id}`]
+				) {
 					this.close();
 				}
 			}.bind(this);
-			window.addEventListener("popstate", this.popstateHandler);
+			window.addEventListener('popstate', this.popstateHandler);
 		}
 
 		if (this.opts.trigger) {
@@ -189,10 +217,12 @@ class Overlay {
 
 		if (!this.content) {
 			const overlay = this;
-			this.loadContent(function(html) {
+			this.loadContent(function (html) {
 				overlay.opts.html = html;
 				if (!overlay.opts.html) {
-					throw new Error('"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.');
+					throw new Error(
+						'"o-overlay error": Content for the overlay needs to be set via the "html" or the "src" option.'
+					);
 				}
 				overlay.render();
 			});
@@ -204,13 +234,16 @@ class Overlay {
 	loadContent(callback) {
 		if (!this.opts.html && this.opts.src) {
 			if (/^(https?\:\/)?\//.test(this.opts.src)) {
-				utils.copyContentFromUrl(this.opts.src, function(html) {
+				utils.copyContentFromUrl(this.opts.src, function (html) {
 					callback(html);
 				});
 			} else {
-				utils.copyContentFromElement(document.querySelector(this.opts.src), function(html) {
-					callback(html);
-				});
+				utils.copyContentFromElement(
+					document.querySelector(this.opts.src),
+					function (html) {
+						callback(html);
+					}
+				);
 			}
 		} else {
 			callback(this.opts.html);
@@ -243,7 +276,12 @@ class Overlay {
 
 		if (this.opts.heading) {
 			const heading = document.createElement('header');
-			const headingId = this.opts.heading.title.replace(/\s+/g, '-').toLowerCase();
+			const headingId = this.opts.heading.title
+				.toLowerCase()
+				// replace non-ascii alphanums with hyphens
+				.replace(/[^a-z0-9-]/g, '-')
+				// replace repeated hyphens with a single hyphen
+				.replace(/[\s-]+/g, '-');
 			heading.classList.add('o-overlay__heading');
 			heading.setAttribute('id', headingId);
 			wrapperEl.setAttribute('aria-labelledby', headingId);
@@ -255,8 +293,8 @@ class Overlay {
 			if (!this.opts.preventclosing) {
 				const button = document.createElement('button');
 				button.className = 'o-overlay__close';
-				button.setAttribute('aria-label', "Close");
-				button.setAttribute('title', "Close");
+				button.setAttribute('aria-label', 'Close');
+				button.setAttribute('title', 'Close');
 
 				if (!this.opts.nofocus) {
 					button.setAttribute('tabindex', '0');
@@ -304,7 +342,7 @@ class Overlay {
 		this.show();
 	}
 
-	_trapFocus () {
+	_trapFocus() {
 		// Trap the focus inside the overlay so keyboard navigation doesn't escape the overlay
 		document.addEventListener('keydown', focusTrap.bind(this));
 	}
@@ -332,7 +370,11 @@ class Overlay {
 		// If the overlay is nested within a DOM element don't attach the viewport resize listeners.
 		if (!this.opts.nested) {
 			this.resizeListenerHandler = this.resizeListener.bind(this);
-			this.delegates.doc.on('oViewport.resize', 'body', this.resizeListenerHandler);
+			this.delegates.doc.on(
+				'oViewport.resize',
+				'body',
+				this.resizeListenerHandler
+			);
 
 			this.closeOnEscapePressHandler = this.closeOnEscapePress.bind(this);
 			this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
@@ -347,7 +389,11 @@ class Overlay {
 
 		if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
 			this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
-			this.delegates.wrap.on('touchend', '.o-overlay__close', this.closeHandler);
+			this.delegates.wrap.on(
+				'touchend',
+				'.o-overlay__close',
+				this.closeHandler
+			);
 		}
 
 		this.closeOnExternalClickHandler = this.closeOnExternalClick.bind(this);
@@ -365,35 +411,37 @@ class Overlay {
 		// Renders content after overlay has been added so css is applied before that
 		// Thay way if an element has autofocus, the window won't scroll to the bottom
 		// in Safari as the overlay is already in position
-		window.requestAnimationFrame(function() {
-			if (!this.content.innerHTML) {
-				if (typeof this.opts.html === 'string') {
-					this.content.innerHTML = this.opts.html;
-				} else {
-					this.content.appendChild(this.opts.html);
+		window.requestAnimationFrame(
+			function () {
+				if (!this.content.innerHTML) {
+					if (typeof this.opts.html === 'string') {
+						this.content.innerHTML = this.opts.html;
+					} else {
+						this.content.appendChild(this.opts.html);
+					}
 				}
-			}
 
-			this.width = this.getWidth();
-			this.height = this.getHeight();
+				this.width = this.getWidth();
+				this.height = this.getHeight();
 
-			// If the overlay is nested within a DOM element don't resize according to the viewport.
-			if (!this.opts.nested) {
-				this.realign();
-			}
-			this.visible = true;
-			this.wrapper.focus();
-			this.broadcast('ready');
+				// If the overlay is nested within a DOM element don't resize according to the viewport.
+				if (!this.opts.nested) {
+					this.realign();
+				}
+				this.visible = true;
+				this.wrapper.focus();
+				this.broadcast('ready');
 
-			// Add o-tracking integration
-			this.broadcast('event', 'oTracking', {
-				category: 'overlay',
-				action: 'show',
-				overlay_id: this.id
-			});
+				// Add o-tracking integration
+				this.broadcast('event', 'oTracking', {
+					category: 'overlay',
+					action: 'show',
+					overlay_id: this.id,
+				});
 
-			this._trapFocus();
-		}.bind(this));
+				this._trapFocus();
+			}.bind(this)
+		);
 	}
 
 	close() {
@@ -408,11 +456,12 @@ class Overlay {
 
 		// Remove fullscreen popstate handler and re-enable document scroll.
 		if (this.opts.fullscreen) {
-			window.removeEventListener("popstate", this.popstateHandler);
+			window.removeEventListener('popstate', this.popstateHandler);
 		}
 		// Remove state from history if fullscreen state is still in history.
 		// E.g.The close button was clicked directly rather than the browser back button.
-		if (window.history.pushState &&
+		if (
+			window.history.pushState &&
 			window.history.state &&
 			window.history.state[`o-overlay-${this.id}`] === 'fullscreen'
 		) {
@@ -425,7 +474,7 @@ class Overlay {
 		this.broadcast('event', 'oTracking', {
 			category: 'overlay',
 			action: 'close',
-			overlay_id: this.id
+			overlay_id: this.id,
 		});
 
 		this.context.removeChild(this.wrapper);
@@ -442,7 +491,6 @@ class Overlay {
 
 		this.visible = false;
 
-
 		if (this.opts.layer) {
 			this.broadcast('close', 'oLayers');
 		}
@@ -451,7 +499,12 @@ class Overlay {
 	}
 
 	closeOnExternalClick(ev) {
-		if (!this.wrapper.contains(ev.target) && !this.opts.modal && (this.opts.trigger && !this.opts.trigger.contains(ev.target))) {
+		if (
+			!this.wrapper.contains(ev.target) &&
+			!this.opts.modal &&
+			this.opts.trigger &&
+			!this.opts.trigger.contains(ev.target)
+		) {
 			this.close();
 		}
 	}
@@ -476,7 +529,8 @@ class Overlay {
 
 	broadcast(eventType, namespace, detail) {
 		namespace = namespace || 'oOverlay';
-		const target = namespace === 'oLayers' ? this.context : this.wrapper || document.body;
+		const target =
+			namespace === 'oLayers' ? this.context : this.wrapper || document.body;
 
 		detail = detail || {};
 
@@ -484,11 +538,13 @@ class Overlay {
 			detail.el = this;
 		}
 
-		target.dispatchEvent(new CustomEvent(namespace + '.' + eventType, {
-			detail: detail,
-			// Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
-			bubbles: namespace !== 'oLayers' ? true : false
-		}));
+		target.dispatchEvent(
+			new CustomEvent(namespace + '.' + eventType, {
+				detail: detail,
+				// Don't bubble above the overlay's layer context otherwise we risk triggering a listener on a parent context
+				bubbles: namespace !== 'oLayers' ? true : false,
+			})
+		);
 	}
 
 	realign(dimension, size) {
@@ -508,14 +564,17 @@ class Overlay {
 		this._align(dimension, size);
 	}
 
-	_align (dimension, size) {
-
+	_align(dimension, size) {
 		if (dimension !== 'width' && dimension !== 'height') {
-			throw new Error(`Can not realign the overlay for the dimension "${dimension}". "height" or "width" expected.`);
+			throw new Error(
+				`Can not realign the overlay for the dimension "${dimension}". "height" or "width" expected.`
+			);
 		}
 
 		if (isNaN(size)) {
-			throw new Error(`Can not realign the overlay for the size ${size}. A number is expected.`);
+			throw new Error(
+				`Can not realign the overlay for the size ${size}. A number is expected.`
+			);
 		}
 
 		const edge = dimension === 'width' ? 'left' : 'top';
@@ -534,8 +593,15 @@ class Overlay {
 				// Set the exact height that the content of the overlay will have which is the total
 				// height of the overlay minus the heading if there is one. If height = 100%, the
 				// heading is part of that 100%, so some content is truncated.
-				const borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
-				this.content.style.height = this.wrapper.offsetHeight - (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) - borderHeight + 'px';
+				const borderHeight =
+					this.wrapper.offsetHeight - this.wrapper.clientHeight;
+				this.content.style.height =
+					this.wrapper.offsetHeight -
+					(this.opts.heading
+						? this.wrapper.querySelector('header').offsetHeight
+						: 0) -
+					borderHeight +
+					'px';
 			}
 		} else {
 			if (dimension === 'height') {
@@ -543,7 +609,8 @@ class Overlay {
 				this.content.style.height = null;
 			}
 			this.wrapper.classList.remove('o-overlay--full-' + dimension);
-			this.wrapper.style['margin' + utils.capitalise(edge)] = -(this.wrapper['offset' + utils.capitalise(dimension)] / 2) + 'px';
+			this.wrapper.style['margin' + utils.capitalise(edge)] =
+				-(this.wrapper['offset' + utils.capitalise(dimension)] / 2) + 'px';
 
 			// Set alignment in JavaScript (not via CSS) after all other styles have been applied
 			// so that browsers compute it properly. If it's applied earlier, when the negative
@@ -573,7 +640,13 @@ class Overlay {
 
 	getHeight() {
 		const borderHeight = this.wrapper.offsetHeight - this.wrapper.clientHeight;
-		return this.content.scrollHeight + (this.opts.heading ? this.wrapper.querySelector('header').offsetHeight : 0) + borderHeight;
+		return (
+			this.content.scrollHeight +
+			(this.opts.heading
+				? this.wrapper.querySelector('header').offsetHeight
+				: 0) +
+			borderHeight
+		);
 	}
 
 	getWidth() {
@@ -593,7 +666,12 @@ class Overlay {
 		for (let t = 0; t < triggers.length; t++) {
 			// There can only be one overlay per trigger when set declaratively, so the first trigger found for a given overlay will be the one used to create the overlay
 			if (!overlays[triggers[t].getAttribute('data-o-overlay-id')]) {
-				overlaysArray.push(new Overlay(triggers[t].getAttribute('data-o-overlay-id'), getOptionsFromTrigger(triggers[t])));
+				overlaysArray.push(
+					new Overlay(
+						triggers[t].getAttribute('data-o-overlay-id'),
+						getOptionsFromTrigger(triggers[t])
+					)
+				);
 			}
 		}
 
@@ -602,7 +680,7 @@ class Overlay {
 
 	static destroy() {
 		const overlayIds = Object.keys(overlays);
-		overlayIds.forEach(function(id) {
+		overlayIds.forEach(function (id) {
 			overlays[id].destroy();
 		});
 	}
@@ -610,7 +688,6 @@ class Overlay {
 	static getOverlays() {
 		return overlays;
 	}
-
 }
 
 export default Overlay;
