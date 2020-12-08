@@ -275,7 +275,7 @@ class Video {
 		this.containerEl.appendChild(this.liveRegionEl);
 		this.containerEl.appendChild(this.videoEl);
 
-		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked', 'error', 'stalled']);
+		addEvents(this, ['playing', 'pause', 'ended', 'progress', 'seeked', 'error', 'stalled', 'waiting']);
 		this.videoEl.addEventListener('playing', this.pauseOtherVideos.bind(this));
 		this.videoEl.addEventListener('playing', this.markPlayStart.bind(this));
 		this.videoEl.addEventListener('pause', this.updateAmountWatched.bind(this));
