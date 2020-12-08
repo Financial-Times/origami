@@ -49,7 +49,7 @@
 			"template": "/demos/src/inverse-form-whitelabel.mustache",
 			"description": "Inverse form",
 			"sass": "demos/src/inverse.scss",
-			"brands": ["master", "internal", "whitelabel"]
+			"brands": ["whitelabel"]
 		},
 		{
 			"name": "pseudo-radio-links",
