@@ -12,7 +12,11 @@ body {
 
 .demo-inverse {
 	margin-top: 16px;
-	background-color: #262a33;
+	background-color: if(
+		index(('master', 'internal'), oBrandGetCurrentBrand()) != null,
+		oColorsByName('slate'),
+		oColorsByName('black')
+	);
 	padding: 10px;
 
 	.o-forms {
