@@ -1,7 +1,10 @@
 @import "./demo";
 
 body {
-	// This is the slate colour in master and internal
-	// We hardcode the value because the whitelabel palette does not contain slate.
-	background: #262a33;
+	// slate is in the master and internal brand palette
+	background: if(
+		index(('master', 'internal'), oBrandGetCurrentBrand()) != null,
+		oColorsByName('slate'),
+		oColorsByName('black')
+	);
 }
