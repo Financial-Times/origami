@@ -347,6 +347,11 @@ class Overlay {
 		document.addEventListener('keydown', focusTrap.bind(this));
 	}
 
+	/**
+	 * Show the overlay
+	 *
+	 * @fires oOverlay#ready
+	 */
 	show() {
 		if (this.opts.modal) {
 			this.wrapper.classList.add('o-overlay--modal');
