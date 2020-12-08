@@ -430,7 +430,9 @@ class Overlay {
 				}
 				this.visible = true;
 				this.wrapper.focus();
-				this.broadcast('ready');
+				this.broadcast('ready', 'oOverlay', {
+					overlay: this
+				});
 
 				// Add o-tracking integration
 				this.broadcast('event', 'oTracking', {
