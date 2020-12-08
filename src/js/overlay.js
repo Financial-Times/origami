@@ -435,6 +435,13 @@ class Overlay {
 				}
 				this.visible = true;
 				this.wrapper.focus();
+				/**
+				 * Ready event
+				 *
+				 * @event oOverlay#ready
+				 * @type {object}
+				 * @property {oOverlay} instance - the firing instance
+				 */
 				this.broadcast('ready', 'oOverlay', {
 					instance: this
 				});
