@@ -179,8 +179,15 @@ We implement [o-layers](https://github.com/Financial-Times/o-layers) events:
 
 We also dispatch custom events:
 
-* `oOverlay.ready`: Dispatched when the overlay is loaded in the DOM
-* `oOverlay.destroy`: Dispatched when the overlay is removed from the DOM
+### oOverlay.ready:
+`oOverlay.ready` is dispatched when the overlay is loaded in the DOM. 
+
+The event detail has the following properties:
+- `detail.instance` the initialised `o-overlay` instance
+
+### oOverlay.ready
+
+`oOverlay.destroy` is dispatched when the overlay is removed from the DOM
 
 ## Troubleshooting
 
