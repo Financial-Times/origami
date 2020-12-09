@@ -240,11 +240,7 @@
 	// descendent to lend that descendent the color you specified in the mixin
 	.o-topper__background,
 	.o-topper__content {
-		@if $color-name == 'wheat' {
-			background-color: oColorsMix($color: 'wheat', $percentage: 40);
-		} @else {
-			background-color: $background;
-		}
+		background-color: $background;
 	}
 
 	@if not $is-light {
