@@ -64,12 +64,8 @@
 
 	@if index($themes, 'full-bleed-offset') {
 		.o-topper--full-bleed-offset {
-			@include _oTopperThemeFullBleedOffset;
-			@if index($themes, 'right-rail') {
-				&.o-topper--right-rail {
-					@include _oTopperFullBleedGridRightRail;
-				}
-			}
+			$right-rail: index($themes, 'right-rail');
+			@include _oTopperThemeFullBleedOffset($right-rail);
 		}
 	}
 
