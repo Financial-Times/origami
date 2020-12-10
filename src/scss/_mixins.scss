@@ -339,13 +339,3 @@
 		justify-content: map-get($value, #{$position});
 	}
 }
-
-/// @access private
-@mixin _oTopperDefineOnce($label) {
-	@if not map-has-key($_o-topper-defined, $label) {
-		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
-	}
-}

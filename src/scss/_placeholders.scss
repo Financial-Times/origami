@@ -1,0 +1,13 @@
+@if $_o-topper-first-import == true {
+    %_o-topper__tag {
+        @include oEditorialTypographyTag($type: 'topic');
+        color: unset;
+
+        @at-root a#{&} {
+            color: unset;
+            &:hover {
+                color: unset;
+            }
+        }
+    }
+}

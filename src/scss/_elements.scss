@@ -67,21 +67,6 @@
 }
 
 /// @access private
-@include _oTopperDefineOnce(tag) {
-	%_o-topper__tag {
-		@include oEditorialTypographyTag($type: 'topic');
-		color: unset;
-
-		@at-root a#{&} {
-			color: unset;
-			&:hover {
-				color: unset;
-			}
-		}
-	}
-}
-
-/// @access private
 @mixin _oTopperBrand {
 	@extend %_o-topper__tag;
 	margin-right: 4px;

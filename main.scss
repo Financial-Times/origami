@@ -6,6 +6,7 @@
 @import 'o-icons/main';
 
 @import 'src/scss/variables';
+@import 'src/scss/placeholders';
 @import 'src/scss/mixins';
 @import 'src/scss/grid';
 @import 'src/scss/elements';
@@ -56,3 +57,5 @@
 	@include oTopper();
 	$o-topper-is-silent: true !global;
 }
+
+$_o-topper-first-import: false;
