@@ -73,6 +73,36 @@
 }
 
 /// @access private
+@mixin _oTopperOpinionGenre {
+	@extend %_o-topper__tag;
+	font-weight: normal;
+	color: oColorsByName('oxford');
+}
+
+/// @access private
+@mixin _oTopperHeadshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: $_o-topper-headshot-width;
+	overflow: hidden;
+
+	@include oGridRespondTo(M) {
+		width: $_o-topper-headshot-width-M;
+	}
+
+	@include oGridRespondTo(L) {
+		bottom: -20px;
+	}
+}
+
+/// @access private
+@mixin _oTopperHeadshotImage {
+	max-width: 100%;
+	display: block;
+}
+
+/// @access private
 @mixin _oTopperColumnist {
 	margin-top: oSpacingByName('s4');
 	text-transform: uppercase;

@@ -1,6 +1,9 @@
+/// Modify the base topper style to display a branded topper.
+/// This is used for articles which are classified as part of a brand,
+/// such as Climate Capital.
+/// @link https://www.ft.com/content/ae1f6fba-641e-46c1-a6ba-3d960d0bc9f6 An example branded article.
 /// @access private
 @mixin _oTopperThemeBranded {
-
 	.o-topper__content {
 		grid-row: 2 / span 3;
 		@include oGridRespondTo($until: L) {
@@ -20,6 +23,8 @@
 	}
 }
 
+/// Modifies the branded theme to support an author headshot within the topper.
+/// @see _oTopperThemeBranded
 /// @access private
 @mixin _oTopperHasHeadshot {
 	.o-topper__tags,
@@ -42,40 +47,14 @@
 	}
 }
 
+/// Used with the branded theme, and optionally the has-headshot styles,
+/// for opinion articles.
+/// @see _oTopperThemeBranded
+/// @see _oTopperHasHeadshot
 /// @access private
 @mixin _oTopperThemeOpinion {
 	.o-topper__topic,
 	.o-topper__opinion-genre {
 		@include oTypographySans($scale: 2, $line-height: 28px, $include-font-family: false);
 	}
-}
-
-/// @access private
-@mixin _oTopperOpinionGenre {
-	@extend %_o-topper__tag;
-	font-weight: normal;
-	color: oColorsByName('oxford');
-}
-
-/// @access private
-@mixin _oTopperHeadshot {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: $_o-topper-headshot-width;
-	overflow: hidden;
-
-	@include oGridRespondTo(M) {
-		width: $_o-topper-headshot-width-M;
-	}
-
-	@include oGridRespondTo(L) {
-		bottom: -20px;
-	}
-}
-
-/// @access private
-@mixin _oTopperHeadshotImage {
-	max-width: 100%;
-	display: block;
 }
