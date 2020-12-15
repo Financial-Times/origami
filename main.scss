@@ -136,30 +136,31 @@
 			}
 		}
 
-		.o-editorial-layout-wrapper > p,
-		.o-editorial-layout-wrapper {
-			> a {
-				@include oTypographyLink;
-			}
+		.o-editorial-layout-wrapper > p a,
+		.o-editorial-layout-wrapper > a {
+			@include oTypographyLink;
+		}
 
-			> strong {
-				@include oTypographySerif(
-					$weight: 'bold',
-					$include-font-family: false
-				);
-			}
+		.o-editorial-layout-wrapper > p strong,
+		.o-editorial-layout-wrapper > strong {
+			@include oTypographySerif(
+				$weight: 'bold',
+				$include-font-family: false
+			);
+		}
 
-			> em {
-				font-style: italic;
-			}
+		.o-editorial-layout-wrapper > p em,
+		.o-editorial-layout-wrapper > em {
+			font-style: italic;
+		}
 
-			> sup {
-				@include oTypographySuper();
-			}
+		.o-editorial-layout-wrapper > p sup {
+			@include oTypographySuper();
+		}
 
-			> sub {
-				@include oTypographySub();
-			}
+
+		.o-editorial-layout-wrapper > p sub {
+			@include oTypographySub();
 		}
 	}
 }
