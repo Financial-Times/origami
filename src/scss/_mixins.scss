@@ -76,10 +76,20 @@
 		}
 	}
 
+	// @deprecated full-bleed-image-center is deprecated
+	// https://github.com/Financial-Times/o-topper/issues/75
 	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
 			@include _oTopperThemeFullBleedImage;
+		}
+	}
+
+	@if index($themes, 'full-bleed-image-center') {
+		.o-topper--full-bleed-image-center {
+			@include oGridRespondTo(S) {
+				@include _oTopperAlignText(center);
+			}
 		}
 	}
 

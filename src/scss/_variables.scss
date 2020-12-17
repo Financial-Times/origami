@@ -34,7 +34,7 @@ $_o-topper-themes: (
 	'full-bleed-offset',
 	'split-text-left',
 	'split-text-center',
-	'full-bleed-image-center',
+	'full-bleed-image-center', // @deprecated https://github.com/Financial-Times/o-topper/issues/75
 	'full-bleed-image-left',
 	'package',
 	'package-extra',

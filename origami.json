@@ -51,6 +51,13 @@
 			"description": "This is a theme that editorial can choose, which comes through the API"
 		},
 		{
+			"name": "Full Bleed Image Center",
+			"title": "Left-Aligned Full-Bleed Image Topper",
+			"template": "/demos/src/full-bleed-image-center.mustache",
+			"description": "This theme is deprecated, it does not appear to be a theme that editorial can choose",
+			"hidden": true
+		},
+		{
 			"name": "Full Bleed Offset",
 			"title": "Offset Full-Bleed Image Topper",
 			"template": "/demos/src/full-bleed-offset.mustache",
