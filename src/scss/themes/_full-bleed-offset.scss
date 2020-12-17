@@ -1,3 +1,11 @@
+/// Output styles for the full bleed offset topper theme.
+/// This is characterised by a full-screen image on desktop, with topper content
+/// below with an opaque background, partially overlaying the image.
+///
+/// The offset theme may be used with the `o-topper--right-rail` modifier, which
+/// appears to be ft-app specific. This overrides the default layout to remove
+/// columns from the left to place offset content to the left of the page.
+///
 /// @param {boolean} $right-rail [false] - Whether to output styles to support offset teasers with the right-rail modifier.
 /// @access private
 @mixin _oTopperThemeFullBleedOffset($right-rail: false) {
