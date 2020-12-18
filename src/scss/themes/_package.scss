@@ -70,6 +70,12 @@
 		opacity: 0.6;
 	}
 
+	// @todo what is this?
+	// next-article adds an anchor link if a package "is intro article", that
+	// is it has no "body html" or "display introduction" is true:
+	// - https://github.com/Financial-Times/next-article/blob/3a0ac82c9066c82efad2b71be10bca578d881489/server/model/package.js#L77
+	// - https://github.com/Financial-Times/next-article/blob/3a0ac82c9066c82efad2b71be10bca578d881489/views/partials/topper/components/anchor-link.html#L1
+	// - https://github.com/Financial-Times/next-es-interface/blob/c861ab111bd91e1557c7ced6a6d7dccbd54f01ba/server/models/package.js#L28
 	.o-topper__anchor-link {
 		border-color: oColorsByName('white');
 		color: oColorsByName('white');

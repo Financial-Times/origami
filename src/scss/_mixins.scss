@@ -99,6 +99,10 @@
 		}
 	}
 
+	// @todo extra is the same as extra-wide, can we deprecated extra-wide? Where is it set?
+	// - https://github.com/Financial-Times/next-es-interface/blob/10ef5314b6e0156f6f0052ebd5c47a6eb4eb8688/server/models/article/design.js#L7
+	// - https://github.com/Financial-Times/n-map-content-to-topper/blob/e482969abd03aa98924650c4252fe47bfbe50b93/src/lib/get-topper-settings.js#L101
+	// updateL we can deprecate, pending checking old articles, it can't be set for new packages in spark
 	@if index($themes, 'package-extra') or index($themes, 'package-extra-wide') {
 		.o-topper--package-extra,
 		.o-topper--package-extra-wide {
@@ -106,6 +110,7 @@
 		}
 	}
 
+	// @todo https://www.ft.com/reports
 	@if index($themes, 'package-special-report') {
 		.o-topper--package-special-report {
 			@include _oTopperThemePackageSpecialReport;
