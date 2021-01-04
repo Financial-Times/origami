@@ -411,12 +411,12 @@
 /// @return {Colour} - the hex representation of given hsb values
 @function _oColorsHsbToHex($hue, $saturation, $brightness) {
 	@if $brightness == 0 {
-		@return hsl(0, 0, 0);
+		@return hsl(0, 0%, 0%);
 	}
 
 	$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
 	$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
-	@return hsl($hue, $hsl-saturation, $hsl-luminance);
+	@return hsl($hue, $hsl-saturation * 1%, $hsl-luminance * 1%);
 }
 
 /// Returns HSB/HSV colour values for a given colour hex.
