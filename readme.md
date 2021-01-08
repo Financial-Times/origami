@@ -110,7 +110,6 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'full-bleed-image-left',
 		'package',
 		'package-extra',
-		'package-extra-wide',
 		'package-special-report',
 		'news-package',
 		'right-rail',
@@ -148,6 +147,8 @@ To include o-topper styles granularly specify which elements, themes, and colour
 	)
 ));
 ```
+
+There is also a theme `package-extra-wide` which is deprecated, use `package-extra` instead.
 
 ## JavaScript
 
