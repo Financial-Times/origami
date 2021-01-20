@@ -6,6 +6,7 @@ import {get as getSetting} from '../core/settings.js';
 import {getTrace} from '../../libs/get-trace.js';
 
 let internalQueue;
+let delegate;
 
 // Trigger the event tracking
 const track = eventData => {
@@ -106,11 +107,11 @@ const init = (category, elementsToTrack) => {
 	};
 
 	// Activate the click event listener
-	const delegate = new Delegate(document.body);
+	delegate = delegate || new Delegate(document.body);
 	delegate.on('click', elementsToTrack, handleClickEvent(eventData), true);
 
 	// Track any queued events
-	internalQueue = new Queue('clicks');
+	internalQueue = internalQueue || new Queue('clicks');
 	runQueue();
 
 	// Listen for page requests. If this is a single page app, we can send link requests now.

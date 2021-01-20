@@ -150,7 +150,7 @@ function broadcast(namespace, eventType, detail) {
  * @returns {void}
  */
 function onPage(cb) {
-	if (is(cb, 'function')) {
+	if (is(cb, 'function') && !page_callbacks.includes(cb)) {
 		page_callbacks.push(cb);
 	}
 }
