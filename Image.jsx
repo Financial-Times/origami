@@ -27,28 +27,27 @@ const LazyImage = ({ src, lazyLoad }) => {
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, imageHighestQuality, ...props }) => {
 	if (!image || (image && !image.url)) {
 		return null
-	} else {
-		const displayUrl = relativeUrl || url
-		const useImageService = !(image.url.startsWith('data:') || image.url.startsWith('blob:'))
-		const options = imageSize === 'XXL' && imageHighestQuality ? { quality: 'highest' } : {}
-		const imageSrc = useImageService ? imageService(image.url, ImageSizes[imageSize], options) : image.url
-		const ImageComponent = imageLazyLoad ? LazyImage : NormalImage
-
-		return (
-			<div className="o-teaser__image-container js-teaser-image-container">
-				<Link
-					{...props}
-					url={displayUrl}
-					attrs={{
-						'data-trackable': 'image-link',
-						tabIndex: '-1',
-						'aria-hidden': 'true'
-					}}>
-					<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
-						<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
-					</div>
-				</Link>
-			</div>
-		)
 	}
+	const displayUrl = relativeUrl || url
+	const useImageService = !(image.url.startsWith('data:') || image.url.startsWith('blob:'))
+	const options = imageSize === 'XXL' && imageHighestQuality ? { quality: 'highest' } : {}
+	const imageSrc = useImageService ? imageService(image.url, ImageSizes[imageSize], options) : image.url
+	const ImageComponent = imageLazyLoad ? LazyImage : NormalImage
+
+	return (
+		<div className="o-teaser__image-container js-teaser-image-container">
+			<Link
+				{...props}
+				url={displayUrl}
+				attrs={{
+					'data-trackable': 'image-link',
+					tabIndex: '-1',
+					'aria-hidden': 'true'
+				}}>
+				<div className="o-teaser__image-placeholder" style={{ paddingBottom: aspectRatio(image) }}>
+					<ImageComponent src={imageSrc} lazyLoad={imageLazyLoad} />
+				</div>
+			</Link>
+		</div>
+	)
 }
