@@ -25,7 +25,7 @@ const LazyImage = ({ src, lazyLoad }) => {
 }
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, imageHighestQuality, ...props }) => {
-	if (!image) {
+	if (!image || (image && !image.url)) {
 		return null
 	} else {
 		const displayUrl = relativeUrl || url
