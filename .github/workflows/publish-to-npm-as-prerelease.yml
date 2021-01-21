@@ -1,14 +1,14 @@
-name: Publish to npm
+name: Publish to npm as prerelease version
 on:
-  release:
-    types: [created]
-
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+-*' # prerelease tag
 jobs:
-  release:
+  publish-prerelease:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.1.4
+    - uses: actions/setup-node@v2.1.2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -20,7 +20,7 @@ jobs:
           cd $pkg;
           ref='${{github.ref}}'
           npm version --no-git-tag-version ${ref#refs/tags/}
-          npm publish --access=public;
+          npm publish --access=public --tag prerelease
           cd -;
         done
       env:
@@ -34,6 +34,6 @@ jobs:
           npm install -f --ignore-scripts --save-optional "@financial-times/$pkg@*";
         done
         npm version -f --no-git-tag-version ${ref#refs/tags/}
-        npm publish --access=public
+        npm publish --access=public --tag prerelease
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
