@@ -25,7 +25,9 @@ const LazyImage = ({ src, lazyLoad }) => {
 }
 
 export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, imageHighestQuality, ...props }) => {
-	if (image) {
+	if (!image) {
+		return null
+	} else {
 		const displayUrl = relativeUrl || url
 		const useImageService = !(image.url.startsWith('data:') || image.url.startsWith('blob:'))
 		const options = imageSize === 'XXL' && imageHighestQuality ? { quality: 'highest' } : {}
@@ -48,7 +50,5 @@ export default ({ relativeUrl, url, image, imageSize, imageLazyLoad, imageHighes
 				</Link>
 			</div>
 		)
-	} else {
-		return null
 	}
 }
