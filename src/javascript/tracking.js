@@ -4,10 +4,10 @@ import {init as initSession} from './core/session.js';
 import {init as initSend} from './core/send.js';
 import {event} from './events/custom.js';
 import {page} from './events/page-view.js';
-import {init as initClick} from './events/click.js';
+import {click} from './events/click.js';
 import core from './core.js';
 import { merge, broadcast } from './utils.js';
-import {init as initView} from './events/component-view.js';
+import {view} from './events/component-view.js';
 
 const initEvent = event.init;
 const initPage = page.init;
@@ -193,10 +193,10 @@ const tracking = {
 	destroy,
 	toString,
 	init,
-	click: initClick,
+	click,
 	event,
 	page,
-	view: initView,
+	view,
 	getRootID: core.getRootID
 };
 

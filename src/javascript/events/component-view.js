@@ -80,5 +80,10 @@ const init = (opts = {}) => {
 	elementsToTrack.forEach(el => observer.observe(el));
 };
 
-export { init };
+const view = {
+	init
+};
+
+export { view };
+
 

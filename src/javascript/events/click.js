@@ -118,6 +118,8 @@ const init = (category, elementsToTrack) => {
 	onPage(runQueue);
 };
 
-export {
+const click = {
 	init
 };
+
+export { click };

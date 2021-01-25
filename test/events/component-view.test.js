@@ -7,7 +7,7 @@ import {set} from '../../src/javascript/core/settings.js';
 import {init as initSend} from '../../src/javascript/core/send.js';
 import core from '../../src/javascript/core.js';
 import {init as initSession} from '../../src/javascript/core/session.js';
-import {init as initComponentView} from '../../src/javascript/events/component-view.js';
+import {view} from '../../src/javascript/events/component-view.js';
 
 const config = {
 	context: {
@@ -88,7 +88,7 @@ describe('component:view', () => {
 			const text = 'component:view target for default props';
 
 			createTargetComponent(attributes, text);
-			initComponentView();
+			view.init();
 			viewed(targetComponent);
 		});
 
@@ -125,7 +125,7 @@ describe('component:view', () => {
 					},
 				};
 
-				initComponentView(opts);
+				view.init(opts);
 				viewed(targetComponent);
 			});
 
@@ -144,7 +144,7 @@ describe('component:view', () => {
 						getContextData: {},
 					};
 
-					initComponentView(opts);
+					view.init(opts);
 					viewed(targetComponent);
 				});
 
@@ -162,7 +162,7 @@ describe('component:view', () => {
 						getContextData: (el) => `${el}`,
 					};
 
-					initComponentView(opts);
+					view.init(opts);
 					viewed(targetComponent);
 				});
 
@@ -185,7 +185,7 @@ describe('component:view', () => {
 						},
 					};
 
-					initComponentView(opts);
+					view.init(opts);
 					viewed(targetComponent);
 				});
 
