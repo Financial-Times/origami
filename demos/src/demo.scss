@@ -11,5 +11,6 @@ body {
 @include oFooterServices($opts: (
 	'logo': 'ftlogo-v1:origami',
 	'icons': ('slack', 'github'),
+	'brand-strip': true,
 	'themes': ('dark')
 ));

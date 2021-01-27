@@ -75,11 +75,12 @@ E.g. to output styles for the dark theme with a project logo, but without the de
 ```
 All options include:
 
-| Option    | Description                                                                                                                                         | Brand support                |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| logo      | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).     | master, internal, whitelabel |
-| icons     | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
-| themes    | A list of themes to include. Currently the only theme is `dark`, which is only supported by the master brand.         | master |
+| Option      | Description                                                                                                                                               | Brand support                |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| logo        | A logo from the [image service](https://github.com/Financial-Times/origami-image-service.) to include in the footer (e.g. `ftlogo-v1:origami`).           | master, internal, whitelabel |
+| icons       | A list of [social share](https://registry.origami.ft.com/components/social-images) icons to include links for, defaults to '('slack', 'github')`.         | master, internal, whitelabel |
+| brand-strip | Whether to include styles for the brand strip at the bottom of the footer, "a Nikkei company".                                                            | master, internal, whitelabel |
+| themes      | A list of themes to include. Currently the only theme is `dark`, which is only supported by the master brand.                                             | master                       |
 
 
 Your project should call `oFooterServices` once, and add to the `opts` argument when new features are needed. However, if `oFooterServices` is called multiple times, for example for code splitting across multiple bundles, the `$include-base-styles` argument may be set to `false` to omit fundamental base styles required by all options.
@@ -113,7 +114,9 @@ $o-brand: whitelabel;
 	'border-color': hotpink,
 	'link-color': rgb(156, 4, 85),
 	'link-hover-color': rgb(156, 4, 85),
-	'legal-text-color': rgb(214, 73, 148)
+	'legal-text-color': rgb(214, 73, 148),
+	'brand-background-color': oColorsByName('black'),
+	'brand-foreground-color': oColorsByName('white'),
 ));
 
 // Output o-footer-services css
@@ -130,6 +133,8 @@ Available brand variables include:
 - `link-color`: The default link colour.
 - `link-hover-color`: The hover colour of links with no underline, i.e. icon links.
 - `legal-text-color`: The colour of legal links.
+- `brand-background-color`: The background colour of the brand strip, at the bottom of the footer, "a Nikkei company".
+- `brand-foreground-color`: The foreground colour for the logo in the brand strip, at the bottom of the footer, "a Nikkei company".
 
 
 ## Migration guide

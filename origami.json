@@ -62,6 +62,12 @@
 			"description": "Minimal footer without content"
 		},
 		{
+			"title": "Brand Strip",
+			"name": "brand-strip",
+			"template": "demos/src/brand-strip.mustache",
+			"description": "A brand strip may optionally be included."
+		},
+		{
 			"title": "Footer",
 			"name": "footer",
 			"template": "demos/src/footer.mustache",
