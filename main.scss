@@ -9,17 +9,19 @@
 @import 'src/scss/variables';
 
 /// Outputs all features and styles available for o-footer-services.
-/// @param {map} $opts [('logo': 'ftlogo-v1:origami', 'icons': ('slack', 'github'))] - A map of optional footer features to output, including the footer logo and list of social icon links.
+/// @param {map} $opts [('logo': 'ftlogo-v1:origami', 'icons': ('slack', 'github'), 'brand-strip': true)] - A map of optional footer features to output, including the footer logo, list of social icon links, and "a Nikkei company" brand strip.
 /// @param {bool} $include-base-styles [true] - Whether to output fundamental o-footer-services styles required by the optional features.
 /// @access public
 @mixin oFooterServices($opts: (
 	'logo': false,
 	'icons': ('slack', 'github'),
+	'brand-strip': true,
 	'themes': ('dark')
 ), $include-base-styles: true) {
 	$logo: map-get($opts, 'logo');
 	$icons: map-get($opts, 'icons');
 	$themes: map-get($opts, 'themes');
+	$include-brand-strip: map-get($opts, 'brand-strip');
 
 	// Error if the global $system-code variable is not set.
 	// This is required for image service requests.
@@ -32,7 +34,24 @@
 		.o-footer-services {
 			@include _oFooterServicesBase();
 			// include default theme with base styles
-			@include _oFooterServicesTheme($theme-name: null, $icons: $icons);
+			@include _oFooterServicesTheme($theme-name: null, $icons: $icons, $brand-strip: $include-brand-strip);
+		}
+	}
+
+	// Include structural styles for the brand strip,
+	// background and logo colours are applied by the theme.
+	@if($include-brand-strip) {
+		.o-footer-services__container--brand {
+			&:before {
+				content: initial;
+			}
+		}
+
+		.o-footer-services__brand-logo {
+			height: 1.25em;
+			padding: oSpacingByName('s2');
+			background-repeat: no-repeat;
+			background-position: right;
 		}
 	}
 
@@ -78,7 +97,7 @@
 
 	@if(index($themes, 'dark') and _oFooterServicesSupports('dark')) {
 		.o-footer-services--dark {
-			@include _oFooterServicesTheme($theme-name: 'dark', $icons: $icons);
+			@include _oFooterServicesTheme($theme-name: 'dark', $icons: $icons, $brand-strip: $include-brand-strip);
 		}
 	}
 }

@@ -102,7 +102,7 @@
 	}
 }
 
-@mixin _oFooterServicesTheme($theme-name, $icons) {
+@mixin _oFooterServicesTheme($theme-name, $icons, $brand-strip) {
 	color: _oFooterServicesGet('text-color', $from: $theme-name);
 	background: _oFooterServicesGet('background-color', $from: $theme-name);
 
@@ -144,6 +144,20 @@
 		}
 	}
 
+	@if $brand-strip {
+		.o-footer-services__container--brand {
+			$brand-background: _oFooterServicesGet('brand-background-color', $theme-name);
+			$default-background: _oFooterServicesGet('background-color', $theme-name);
+			background: if($brand-background, $brand-background, $default-background);
+		}
+
+		.o-footer-services__brand-logo {
+			$logo-color: _oFooterServicesGet('brand-foreground-color', $theme-name);
+			@include _oFooterServicesBrandImage('brand-nikkei-tagline', 200, $logo-color);
+		}
+	}
+
+
 	// Output a footer class for each requested icon.
 	@if $icons {
 		.o-footer-services__icon-link {
@@ -168,4 +182,21 @@
 			}
 		}
 	}
+}
+
+/// Construct a logo image URL
+///
+/// @param {String} $logo-name
+/// @param {Number} $fallback-width
+/// @param {String|Null} $color [null]
+@mixin _oFooterServicesBrandImage($logo-name, $fallback-width, $color: null) {
+	$url-encoded-color: if($color, '%23#{str-slice(ie-hex-str($color), 4)}', null);
+	$base-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:';
+	$url:
+		$base-url +
+		$logo-name +
+		'?source=#{$system-code}' +
+		if($url-encoded-color, '&tint=#{$url-encoded-color}', '')
+		+ '&format=svg';
+	background-image: url($url);
 }
