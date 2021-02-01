@@ -79,7 +79,7 @@ To support a core experience without JavaScript, add the full `o-cookie-message`
 				</div>
 
 				<div class="o-cookie-message__action o-cookie-message__action--secondary">
-					<a href="https://cookies.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
+					<a href="https://www.ft.com/preferences/manage-cookies?redirect=#" class="o-cookie-message__link">Manage cookies</a>
 				</div>
 			</div>
 		</div>
