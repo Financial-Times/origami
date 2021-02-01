@@ -1,9 +1,9 @@
 {
   "name": "@financial-times/o-brand",
-  "version": "100.0.0-13",
+  "version": "0.0.0",
   "description": "Tools to \"brand\" other Origami components.",
   "keywords": [],
-  "homepage": "https://github.com/Financial-Times/o-brand#readme",
+  "homepage": "https://registry.origami.ft.com/components/o-brand",
   "bugs": {
     "url": "https://github.com/Financial-Times/o-brand/issues"
   },
@@ -14,25 +14,16 @@
   "license": "MIT",
   "author": "",
   "type": "module",
-  "exports": {
-    ".": {
-      "browser": "./main.js"
-    }
-  },
-  "browser": "./main.js",
-  "types": "./types/main.d.ts",
   "devDependencies": {
     "eslint": "^7.9.0",
     "eslint-config-origami-component": "^2.1.0",
-    "origami-ci-tools": "^2.1.0",
+    "origami-ci-tools": "3.0.0-beta.5",
+    "remark": "^12.0.1",
+    "remark-lint": "^7.0.1",
+    "remark-preset-lint-origami-component": "^2.0.0-beta.1",
+    "stylelint": "^13.7.0",
     "stylelint-config-origami-component": "^1.0.4",
     "typescript": "^4.0.5"
-  },
-  "publishConfig": {
-    "registry": "https://origami-npm-registry-prototype.herokuapp.com"
-  },
-  "scripts": {
-    "build": "tsc src/**/*.js main.js --declaration --allowJs --emitDeclarationOnly --outDir types"
   },
   "engines": {
     "npm": "^7"

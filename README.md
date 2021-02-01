@@ -1,12 +1,11 @@
-o-brand [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# @financial-times/o-brand
 
 Tools to tailor Origami components for distinct use cases.
 
-**&#x26A0;&#xFE0F; Non-Origami projects must not depend on `o-brand` directly.**
-
 - [Terms](#terms)
+- [Usage](#usage)
 - [Sass](#sass)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -24,7 +23,13 @@ Brands include:
 
 ### Variant
 
-A variant is an addition or modification to a component within a given brand. Variants __must__ be optional and build upon a fully functional component. E.g. A button component may have an "inverse" variant, a "big" variant, etc. A header component may have a "subnav" variant, a "sticky" variant, etc.
+A variant is an addition or modification to a component within a given brand. Variants **must** be optional and build upon a fully functional component. E.g. A button component may have an "inverse" variant, a "big" variant, etc. A header component may have a "subnav" variant, a "sticky" variant, etc.
+
+## Usage
+
+**&#x26A0;&#xFE0F; Non-Origami projects must not depend on `o-brand` directly.**
+
+Non-Origami projects must not depend on `o-brand` directly. Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started using Origami components. If you would like to learn how develop a branded Origami component, the [Create An Origami Component tutorial](https://origami.ft.com/docs/tutorials/create-a-new-component-part-1/) shows how to use `o-brand` to build a customisable component.
 
 ## Sass
 
@@ -187,7 +192,7 @@ $custom-variant: (
 
 - `oBrandGet` returns `null` if a variable is undefined. Sass removes css properties which are set to `null`. This is a useful feature to conditionally output css properties for different variants.
 
-## oBrandSupportsVariant
+### oBrandSupportsVariant
 
 To check if a brand supports a variant call `oBrandSupportsVariant`. First create a private, component-specifc function which wraps `oBrandSupportsVariant`, e.g. for a component `o-example`, create `_oExampleSupports`:
 ```scss
@@ -233,7 +238,7 @@ Example Component (o-example):
 Example Project:
 ```scss
 $o-brand: 'whitelabel';
-@import '@financial-times/o-table/main';
+@import '@financial-times/o-table';
 
 // Customise the example component.
 // Here we change the variable "example-background" from "white" to "lightblue".
@@ -246,13 +251,18 @@ $o-brand: 'whitelabel';
 @include oExample();
 ```
 
----
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+⚠ maintained | 3 | 3.2 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+⚠ maintained | 2 | 2.4 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.1 | N/A |
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-brand/issues), visit [#ft-origami](https://financialtimes.slack.com/messages/ft-origami/) or email [Origami Support](mailto:origami-support@ft.com).
-
-----
 
 ## Licence
 
