@@ -3,7 +3,7 @@
 	"name": "o-autoinit",
 	"devDependencies": {
 		"eslint": "^7.19.0",
-		"eslint-config-origami-component": "^2.1.0",
+		"eslint-config-origami-component": "^2.1.1",
 		"origami-ci-tools": "^2.3.0",
 		"remark": "^13.0.0",
 		"remark-lint": "^8.0.0",
