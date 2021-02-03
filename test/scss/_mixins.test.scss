@@ -73,4 +73,25 @@
 		// Restore brand before test.
 		$o-brand: $origami-set-brand !global;
 	}
+
+	@include test('Modifies a non-whitelabel brand.') {
+		$origami-set-brand: $o-brand;
+		$o-brand: 'master' !global;
+		@include oBrandCustomize('o-example', (
+			'example-background': hotpink
+		));
+		$brand-config: map-get($_o-brands, "o-example");
+		$master-brand-config: map-get($brand-config, "master");
+		@include assert-equal($master-brand-config, (
+			'variables': (
+				example-background: hotpink // example-background is now hotpink
+			),
+			'supports-variants': (
+				'stripe',
+				'compact'
+			)
+		));
+		// Restore brand before test.
+		$o-brand: $origami-set-brand !global;
+	}
 }

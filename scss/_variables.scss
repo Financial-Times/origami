@@ -1,4 +1,10 @@
-$o-brand: null !default; // The chosen current brand.
+/// Set your projects chosen brand.
+$o-brand: null !default;
+
+/// Output extra `debug` notices. For example to see when component brands
+/// are customised.
+$o-brand-debug: false !default;
+
 $_o-brands: () !default; // A map of components to their defined brands.
 $_o-brand-available-brands: ('master', 'internal', 'whitelabel'); // A list of available brands to use for a component
 $_o-brand-default: 'master'; // The fallback current brand.

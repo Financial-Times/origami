@@ -16,27 +16,26 @@
 }
 
 /// Customise the brand variables for the current brand.
-/// Only the whitelabel brand may be customised.
 ///
 /// @access public
 /// @param {string} $component
 /// @param {map} $variables
 @mixin oBrandCustomize($component, $variables) {
-	@if oBrandGetCurrentBrand() != 'whitelabel' {
-		@error 'Only the whitelabel brand may be customised. To use the whitelabel brand, set the SCSS variable "$o-brand: \'whitelabel\'" before including any Origami components. If you would like to customise a different brand, please discuss your usecase with the Origami team.';
+	@if $o-brand-debug {
+		@debug 'Customising the "#{oBrandGetCurrentBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-line at-rule-blacklist
 	}
 	// Validate component.
 	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot customise component "#{$component}"');
-	$whitelabel-brand-config: _oBrandGetConfig($component, 'whitelabel');
-	@if type-of($whitelabel-brand-config) != 'map' {
-		@error 'Could not customise "#{$component}". Make sure that component supports the whitelabel brand.';
+	$existing-brand-config: _oBrandGetConfig($component, oBrandGetCurrentBrand());
+	@if type-of($existing-brand-config) != 'map' {
+		@error 'Could not customise brand "#{oBrandGetCurrentBrand()}" of the "#{$component}" component. Make sure that component supports the "#{oBrandGetCurrentBrand()}" brand.';
 	}
 	// Variables.
 	@if type-of($variables) != 'map' {
 		@error 'Could not customise "#{$component}". oBrandCustomize expects variables of type map but found "#{type-of($variables)}".';
 	}
 	@if map-get($variables, 'supports-variants') {
-		@error 'Could not customise "#{$component}". oBrandCustomize expects a map of brand variables to custmoise variants. It is not possible to add or remove support for variants.';
+		@error 'Could not customise "#{$component}". oBrandCustomize expects a map of brand variables to customise variants. It is not possible to add or remove support for variants.';
 	}
 	// Update config.
 	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: (oBrandGetCurrentBrand(): ('variables': $variables)))) !global;

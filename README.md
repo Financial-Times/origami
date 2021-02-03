@@ -211,8 +211,6 @@ Then call your new function `_oExampleSupports` to determine whether to output C
 
 `oBrandCustomize` allows existing brand variables to be modified, so long as those variables have been defined with `oBrandDefine`. This customisation is component-specific, so a branded component must wrap `oBrandCustomize` within a mixin of its own, as `o-brand` must not be used directly outside Origami components.
 
-Currently only the `whitelabel` brand is allowed to be customised in this way.
-
 Example Component (o-example):
 ```scss
 /// Create a component-specific mixin to wrap `oBrandCustomize`.
