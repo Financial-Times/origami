@@ -244,7 +244,8 @@
 	}
 
 	@if not $is-light {
-		.o-topper__standfirst {
+		.o-topper__standfirst,
+		.o-topper__summary {
 			a {
 				color: $foreground;
 				border-bottom-color: $foreground;
