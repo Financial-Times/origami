@@ -81,6 +81,12 @@
 			"description": "Theme for Packages that editorial can choose, which comes through the API."
 		},
 		{
+			"name": "Package Special Report",
+			"title": "Special Report Package Landing Page Topper",
+			"template": "/demos/src/package-special-report.mustache",
+			"description": "Used for Special Reports, such as FT Wealth"
+		},
+		{
 			"name": "News Package",
 			"title": "News Series Landing Page Topper",
 			"template": "/demos/src/news-package.mustache",
