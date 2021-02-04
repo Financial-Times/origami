@@ -129,9 +129,12 @@ document.querySelector('.prev-btn').onclick = () => playlist.prev();
 The queue is an `array` containing Brightcove video ID strings.
 
 ## Testing
+See [Origami build tools](https://github.com/Financial-Times/origami-build-tools).
+
 ```
-$ npm test
+$ obt test
 ```
+
 Requires Firefox (v38.0.0 to test with polyfills and mirror CI)
 
 
