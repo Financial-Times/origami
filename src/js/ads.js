@@ -1,6 +1,7 @@
 /* global google */
 
 let sdkScriptLoaded = false;
+let sdkScriptError = null;
 
 function createVideoOverlayElement() {
 	const overlayEl = document.createElement('div');
@@ -36,6 +37,8 @@ class VideoAds {
 
 			if (sdkScriptLoaded || window.google && window.google.ima) {
 				resolve();
+			} else if (sdkScriptError) {
+				reject(sdkScriptError);
 			} else {
 				googleSdkScript.addEventListener('load', () => {
 					sdkScriptLoaded = true;
@@ -43,6 +46,7 @@ class VideoAds {
 				});
 
 				googleSdkScript.addEventListener('error', (e) => {
+					sdkScriptError = e;
 					reject(e);
 				});
 			}
