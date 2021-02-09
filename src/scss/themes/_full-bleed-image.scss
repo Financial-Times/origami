@@ -21,10 +21,6 @@
 			padding: 20px;
 			min-height: 350px;
 		}
-
-		.o-topper__visual {
-			min-height: 350px;
-		}
 	}
 
 	@include oGridRespondTo(M) {
