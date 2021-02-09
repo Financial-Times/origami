@@ -13,6 +13,7 @@
 	}
 
 	@include oGridRespondTo($until: M) {
+		padding: 0;
 		.o-topper__content {
 			display: flex;
 			flex-direction: column;
