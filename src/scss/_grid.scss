@@ -16,7 +16,7 @@
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
 		/*! autoprefixer: ignore next */
-		grid-template-columns: minmax(0, 1fr) minmax(auto, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
 		/*! autoprefixer: ignore next */
 		grid-template-rows: auto 1fr auto;
 		/*! autoprefixer: ignore next */
@@ -60,7 +60,7 @@
 		grid-template-rows: auto auto 1fr auto;
 		// make the main area have a max width equal to the o-layout container
 		// size, accounting for grid gaps
-		grid-template-columns: minmax(0, 1fr)  minmax(auto, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr)  minmax(0, calc(#{$_o-layout-container-max-width} - #{$column-gap-count * $_o-layout-gutter})) minmax(0, 1fr);
 	}
 }
 
