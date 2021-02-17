@@ -62,6 +62,12 @@ class CookieMessage {
 		} else {
 			this.removeCookieMessage();
 		}
+
+		window.addEventListener("pageshow", (event) => {
+			if (event.persisted === true && this.shouldShowCookieMessage() === false) {
+				return this.removeCookieMessage();
+			}
+		});
 	}
 
 	createCookieMessage() {
@@ -165,7 +171,13 @@ class CookieMessage {
 	 */
 	removeCookieMessage() {
 		this.dispatchEvent('oCookieMessage.close');
-		this.cookieMessageElement.parentNode.removeChild(this.cookieMessageElement);
+
+		try {
+			this.cookieMessageElement.parentNode.removeChild(this.cookieMessageElement);
+		}
+		catch (err) {
+			// cookieMessageElement or its parentNode has already been removed
+		}
 	}
 
 	dispatchEvent(eventName) {

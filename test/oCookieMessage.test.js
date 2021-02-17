@@ -4,13 +4,12 @@
 import * as fixtures from './helpers/fixtures.js';
 import CookieMessage from './../src/js/cookie-message.js';
 
-const flatten = string => string.replace(/\s/g, '');
+const flatten = (string) => string.replace(/\s/g, '');
 
-describe("Cookie Message", () => {
+describe('Cookie Message', () => {
 	let cookieMessage;
 
 	describe('new cookie banner', () => {
-
 		beforeEach(() => {
 			document.cookie = `FTCookieConsentGDPR=; Max-Age=-9999999999;; Path=/`;
 			fixtures.generateHTML('standard');
@@ -45,7 +44,7 @@ describe("Cookie Message", () => {
 		});
 
 		it('sets theme to `alternative` if theme option provided', () => {
-			cookieMessage = CookieMessage.init(null, { theme: 'surprise-cookie'});
+			cookieMessage = CookieMessage.init(null, { theme: 'surprise-cookie' });
 			proclaim.deepEqual(cookieMessage.options.theme, 'alternative');
 		});
 	});
@@ -60,7 +59,7 @@ describe("Cookie Message", () => {
 
 			it('with alternative theme', () => {
 				fixtures.generateHTML('standard');
-				cookieMessage = CookieMessage.init(null, { theme: 'alternative'});
+				cookieMessage = CookieMessage.init(null, { theme: 'alternative' });
 				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML), flatten(fixtures.html.imperativeAltCookieMessage));
 			});
 		});
@@ -137,6 +136,56 @@ describe("Cookie Message", () => {
 				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
 				button.click();
 				proclaim.isTrue(consentGiven, 'Expected `oCookieMessage.close` event to be emitted but it was not.');
+			});
+		});
+
+		describe('bfcache behaviour', () => {
+			let hasClosed;
+
+			/**
+			 * @param {"pageshow"|"pagehide"} type
+			 * @param {PageTransitionEventInit} [props]
+			 */
+			function firePageTransitionEvent(type, props) {
+				const evt = new PageTransitionEvent(type, props);
+				evt.initEvent(type);
+				window.dispatchEvent(evt);
+			}
+
+			beforeEach(() => {
+				hasClosed = false;
+				document.cookie = 'FTCookieConsentGDPR=; Max-Age=-9999999999;';
+				document.body.addEventListener('oCookieMessage.close', () => {
+					hasClosed = true;
+				});
+				fixtures.generateHTML('standard');
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+
+			it('The pageshow event is not responded to unless swiping back', () => {
+				cookieMessage = CookieMessage.init();
+				firePageTransitionEvent('pageshow');
+
+				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML), flatten(fixtures.html.imperativeCookieMessage));
+			});
+
+			it('emits `oCookieMessage.close` when swiping back with consent granted', () => {
+				cookieMessage = CookieMessage.init();
+
+				document.cookie = 'FTCookieConsentGDPR=true; Max-Age=500;';
+				firePageTransitionEvent('pageshow', { persisted: true });
+
+				proclaim.isTrue(hasClosed, 'Expected the `oCookieMessage.close` to be emitted but it was not.');
+			});
+
+			it('Remains open when when swiping back and consent has not been given', () => {
+				cookieMessage = CookieMessage.init();
+				firePageTransitionEvent('pageshow', { persisted: true });
+
+				proclaim.isFalse(hasClosed, 'Expected the banner to remain open.');
 			});
 		});
 	});
