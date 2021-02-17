@@ -67,6 +67,12 @@
 			"name": "ipad"
 		},
 		{
+			"name": "label-outline"
+		},
+		{
+			"name": "label"
+		},
+		{
 			"name": "last"
 		},
 		{
@@ -125,6 +131,9 @@
 		},
 		{
 			"name": "refresh"
+		},
+		{
+			"name": "restore"
 		},
 		{
 			"name": "scroll-to"
