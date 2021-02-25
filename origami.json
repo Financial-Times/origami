@@ -123,6 +123,13 @@
 			"template": "/demos/src/podcast.mustache",
 			"description": "This is used for podcast articles",
 			"hidden": true
+		},
+		{
+			"name": "Live Blog Package",
+			"title": "Live Blog Package",
+			"template": "/demos/src/live-blog-package.mustache",
+			"description": "Topper used in live blog packages",
+			"hidden": true
 		}
 	]
 }
