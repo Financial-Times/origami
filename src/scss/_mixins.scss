@@ -244,13 +244,20 @@
 	}
 
 	@if not $is-light {
+		$hover-color: darken($foreground, 20%);
+
 		.o-topper__standfirst,
 		.o-topper__summary {
-			a,
-			a:hover {
-				color: currentColor;
-				border-bottom-color: currentColor;
-				text-decoration-color: currentColor;
+			a {
+				color: $foreground;
+				border-bottom-color: $foreground;
+				text-decoration-color: $foreground;
+
+				&:hover {
+					color: $hover-color;
+					border-bottom-color: $hover-color;
+					text-decoration-color: $hover-color;
+				}
 			}
 		}
 	}
