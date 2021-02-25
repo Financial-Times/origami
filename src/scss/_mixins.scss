@@ -246,14 +246,11 @@
 	@if not $is-light {
 		.o-topper__standfirst,
 		.o-topper__summary {
-			a {
-				color: $foreground;
-				border-bottom-color: $foreground;
-
-				&:hover {
-					color: $hover-color;
-					border-bottom-color: $hover-color;
-				}
+			a,
+			a:hover {
+				color: currentColor;
+				border-bottom-color: currentColor;
+				text-decoration-color: currentColor;
 			}
 		}
 	}
