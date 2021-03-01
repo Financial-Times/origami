@@ -1,6 +1,6 @@
 {
 	"description": "Provides styling for social media sharing links",
-	"keywords": [ "share", "link", "social", "facebook", "twitter", "linkedin", "whatsapp", "email" ],
+	"keywords": [ "share", "link", "social", "facebook", "twitter", "linkedin", "whatsapp", "email", "corporate" ],
 	"brands" : [
 		"master",
 		"internal"

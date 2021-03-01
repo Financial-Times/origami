@@ -6,7 +6,8 @@ const socialUrls = {
 	linkedin: "http://www.linkedin.com/shareArticle?mini=true&url={{url}}&title={{title}}+%7C+{{titleExtra}}&summary={{summary}}&source=Financial+Times",
 	pinterest: "http://www.pinterest.com/pin/create/button/?url={{url}}&description={{title}}",
 	whatsapp: "whatsapp://send?text={{title}}%20({{titleExtra}})%20-%20{{url}}",
-	link: "{{url}}"
+	link: "{{url}}",
+	enterpriseSharing: "{{url}}",
 };
 
 const descriptiveLinkText = {
@@ -15,7 +16,8 @@ const descriptiveLinkText = {
 	linkedin: 'Share {{title}} on LinkedIn (opens a new window)',
 	pinterest: 'Share {{title}} on Pinterest (opens a new window)',
 	whatsapp: 'Share {{title}} on Whatsapp (opens a new window)',
-	link: 'Open link in new window'
+	link: 'Open link in new window',
+	enterpriseSharing: 'Share {{title}} with your Enterprise Sharing tools (opens a new window)',
 };
 
 /**

@@ -8,6 +8,7 @@
         "withTwitter": true,
         "withFacebook": true,
         "withLinkedin": true,
+        "withEnterpriseSharing": true,
         "withShare": true
     }
 }
