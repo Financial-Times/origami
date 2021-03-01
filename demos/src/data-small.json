@@ -10,7 +10,7 @@
         "withLinkedin": true,
         "withWhatsapp": true,
         "withPinterest": true,
-        "withEnterpriseSharing": true,
+        "withEnterpriseSharing": false,
         "withShare": true,
         "withLink": true,
         "withMail": true,

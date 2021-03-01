@@ -11,7 +11,7 @@
         "withWhatsapp": true,
         "withMail": true,
         "withPinterest": true,
-        "withEnterpriseSharing": true,
+        "withEnterpriseSharing": false,
         "withShare": true,
         "withLink": true,
         "isVertical": true
