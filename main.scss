@@ -102,6 +102,7 @@
 
 	.o-share__text {
 		@include oTypographySans($scale: -1);
+		text-align: center;
 	}
 
 	// Icon text is visually hidden by default without the class
