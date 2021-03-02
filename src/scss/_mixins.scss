@@ -239,12 +239,16 @@
 		background-color: $background;
 	}
 
-	@if not $link-contrasts-with-background {
-		$hover-color: darken($foreground, 20%);
 
-		.o-topper__standfirst,
-		.o-topper__summary {
+	.o-topper__standfirst,
+	.o-topper__summary {
+		@if $link-contrasts-with-background {
 			a {
+				@include oTypographyLink();
+			}
+		} @else {
+			a {
+				$hover-color: darken($foreground, 20%);
 				color: $foreground;
 				border-bottom-color: $foreground;
 				text-decoration-color: $foreground;
