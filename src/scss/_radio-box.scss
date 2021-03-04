@@ -77,6 +77,10 @@
 @mixin _oFormsRadioBoxInputStyles($theme: null) {
 	border-color: _oFormsGet('default-border', $from: $theme);
 
+	.o-forms-input--radio-box__container {
+		background-color: _oFormsGet('radio-background');
+	}
+
 	.o-forms-input--radio-box__container,
 	label:not(:first-of-type) {
 		border-color: _oFormsGet('default-border', $from: $theme);

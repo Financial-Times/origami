@@ -14,7 +14,7 @@
 				@include _oFormsControlsPseudoElements;
 				border-radius: 50%;
 				transition: opacity 0.1s ease-in;
-				background-color: transparent;
+				background-color: _oFormsGet('radio-background');
 			}
 
 			&:before {
