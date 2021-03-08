@@ -6,5 +6,9 @@
 		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"name": "o-spacing",
-	"private": true
+	"private": true,
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@^10\" install && npm_config_yes=true npx \"origami-build-tools@^10\" demo"
+	}
 }
