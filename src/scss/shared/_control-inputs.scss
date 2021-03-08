@@ -43,9 +43,9 @@
 /// @access private
 /// @output Shared styles for box-style radio buttons and anchor controls
 @mixin _oFormsControlsBoxBase {
-	display: inline-block;
+	display: inline-flex;
+	flex-grow: 1;
 	cursor: pointer;
-	float: left;
 	margin: 0;
 	min-height: $_o-forms-spacing-seven;
 	min-width: 8ch;
@@ -62,7 +62,8 @@
 	);
 	box-sizing: border-box;
 	border: $_o-forms-border;
-	display: inline-block;
-	padding: $_o-forms-spacing-half;
+	display: inline-flex;
+	flex-wrap: wrap;
 	text-align: center;
+	padding: $_o-forms-spacing-half;
 }

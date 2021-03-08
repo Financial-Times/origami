@@ -25,12 +25,13 @@
 
 			.o-forms-input__label {
 				box-sizing: border-box;
-				display: inline-block;
-				max-height: $_o-forms-spacing-controls;
 				padding: $_o-forms-spacing-one $_o-forms-spacing-two;
 				transition: 0.3s background-color, 0.15s color ease-out;
-				white-space: nowrap;
 				width: 100%;
+				height: 100%;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 
@@ -62,11 +63,6 @@
 		.o-forms-input__state {
 			position: relative;
 			margin-bottom: -($_o-forms-spacing-five + $_o-forms-spacing-half);
-		}
-
-		.o-forms-input__error {
-			margin-top: 0;
-			margin-bottom: -$_o-forms-spacing-four;
 		}
 	}
 }
