@@ -1,0 +1,12 @@
+{
+  "name": "o-comments",
+  "scripts": {},
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

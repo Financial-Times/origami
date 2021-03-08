@@ -7,5 +7,9 @@
 		"origami-ci-tools": "^2.0.2",
 		"stylelint-config-origami-component": "^1.0.4"
 	},
-	"dependencies": {}
+	"dependencies": {},
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@^10\" install && npm_config_yes=true npx \"origami-build-tools@^10\" demo"
+	}
 }
