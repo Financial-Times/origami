@@ -1,6 +1,4 @@
-# put your proposal title here
-
-> Standardising live blog teasers labels (and hierachy).
+# Standardising live blog teasers labels (and hierarchy).
 
 ## motivation
 
