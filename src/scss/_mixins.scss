@@ -84,8 +84,15 @@
 	background-color: $background-color;
 	text-align: _oMessageGet('align', $from: $opts);
 
+	// when centred with a close button match the right and left padding
 	.o-message__container {
 		justify-content: _oMessageGet('align', $from: $opts);
+	}
+
+	&:not([data-o-message-close="false"]) .o-message__container {
+		@if _oMessageGet('align', $from: $opts) == 'center' {
+			padding-left: $_o-message-close-inline-spacing;
+		}
 	}
 
 	// class to set the highlight colour
