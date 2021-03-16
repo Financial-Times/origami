@@ -82,7 +82,11 @@
 	// set default foreground and background colour
 	color: $foreground-color;
 	background-color: $background-color;
-	text-align: _oMessageGet('text-align', $from: $opts);
+	text-align: _oMessageGet('align', $from: $opts);
+
+	.o-message__container {
+		justify-content: _oMessageGet('align', $from: $opts);
+	}
 
 	// class to set the highlight colour
 	.o-message__content-highlight-color {
