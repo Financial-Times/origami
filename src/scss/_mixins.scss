@@ -87,6 +87,15 @@
 			}
 		}
 
+		figure img {
+			display: block;
+		}
+
+		figcaption:not(.o-layout__unstyled-element) {
+			@include oTypographyCaption();
+		}
+
+		figure,
 		table {
 			margin: 0 0 oSpacingByName('s4');
 		}
