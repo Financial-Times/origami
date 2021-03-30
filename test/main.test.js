@@ -98,8 +98,7 @@ describe('main', function () {
 				<body>
 				</body>
 				</html>
-			`], { type: 'text/html' })
-
+			`], { type: 'text/html' });
 
 			iframe.onload = () => {
 				// init second instance of o-tracking in the iframe
