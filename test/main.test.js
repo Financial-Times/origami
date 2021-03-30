@@ -2,10 +2,10 @@
 /* global proclaim sinon */
 
 import './setup.js';
-
 import {destroy, get} from '../src/javascript/core/settings.js';
-import {Queue} from '../src/javascript/core/queue.js';
+import { Queue } from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
+import { sendSpy } from './setup.js';
 
 const clickEvent = new MouseEvent('click', {
 	'view': window,
@@ -74,12 +74,6 @@ describe('main', function () {
 
 			// Click the link.
 			link.dispatchEvent(clickEvent, true);
-			const clickQueue = new Queue('clicks');
-			try {
-				proclaim.lengthEquals(clickQueue.queue, 1, 'Expected 1 event to be in the click queue.');
-			} catch (error) {
-				done(error);
-			}
 
 			// Generate iframe content.
 			const karmaFile = '/base/test/o-tracking-test.js';
@@ -112,12 +106,14 @@ describe('main', function () {
 				// fire a page event, as if navigated to a new page
 				// in a new tab with cmd-click
 				iframe.contentWindow.oTracking.init(config);
-				parentTracking.click.init();
+				iframe.contentWindow.oTracking.click.init();
 				iframe.contentWindow.oTracking.page(config);
 				// previous click events should have been sent,
 				// the queue should be empty
+				sendSpy.resetHistory();
+				parentTracking.page(config);
 				try {
-					proclaim.lengthEquals(clickQueue.queue, 0, 'Expected 0 events to be in the click queue.');
+					proclaim.equal(sendSpy.callCount, 1, 'Expected 1 event to be sent, the latest page view, no more.');
 				} catch (error) {
 					done(error);
 				}

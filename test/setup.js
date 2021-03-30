@@ -4,10 +4,12 @@ import {mock} from '../src/javascript/core/transports/index.js';
 
 let willError = false;
 
+const sendSpy = sinon.spy();
+
 export function mockTransport() {
 	mock.transport = function () {
 		return {
-			send: sinon.spy(),
+			send: sendSpy,
 			complete: function (callback) {
 				if (willError) {
 					willError = false;
@@ -19,6 +21,8 @@ export function mockTransport() {
 		};
 	};
 }
+
+export { sendSpy };
 
 export function unmockTransport() {
 	delete mock.transport;
