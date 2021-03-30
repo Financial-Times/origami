@@ -135,8 +135,7 @@ oTracking.page(pageConfig);
 
 Call the `oTracking.click.init` method to track click events. Pass the category you would like the click events to have as an argument:
 
-- If the element being clicked is a link which goes to a page on the same domain as the current page, o-tracking will put the tracking data into a queue to send to Spoor at a later time.
-- O-tracking click events will also track the path from the root of the DOM tree to the element which was clicked. This is recorded in a property called `domPathTokens`.
+- o-tracking click events will also track the path from the root of the DOM tree to the element which was clicked. This is recorded in a property called `domPathTokens`.
 - If the clicked element has the `data-trackable` attribute set, sibling elements will also be included within the `domPathTokens` property.
 
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
