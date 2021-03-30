@@ -7,6 +7,13 @@ import {destroy, get} from '../src/javascript/core/settings.js';
 import {Queue} from '../src/javascript/core/queue.js';
 import oTracking from '../main.js';
 
+const clickEvent = new MouseEvent('click', {
+	'view': window,
+	'bubbles': true,
+	'cancelable': true
+});
+
+
 describe('main', function () {
 	let root_id;
 
@@ -15,7 +22,7 @@ describe('main', function () {
 		destroy('config'); // Empty settings.
 	});
 
-	it('should only allow a single tracking instance to exist', function() {
+	it('should only allow a single tracking instance to exist per context', function() {
 		oTracking.destroy();
 		const confEl = document.createElement('script');
 		confEl.type = 'application/json';
@@ -37,6 +44,87 @@ describe('main', function () {
 		proclaim.deepStrictEqual(tracking1, oTracking);
 		proclaim.deepStrictEqual(tracking1, tracking2);
 		oTracking.destroy();
+	});
+
+	describe('link clicks are to the same origin', function () {
+
+		it('should empty parent queue when the next page is loaded in a new context', function(done) {
+			const config = {
+				context: {
+					product: 'desktop'
+				},
+				user: {
+					user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+				}
+			};
+
+			// Create iframe (new context to mimic a new tab)
+			// and a local link click to track.
+			document.documentElement.innerHTML = `
+				<a href="#mock">A local link to click.</a>
+				<iframe></iframe>
+			`;
+
+			const iframe = document.querySelector('iframe');
+			const link = document.querySelector('a');
+
+			// Initialise o-tracking on the parent window.
+			const parentTracking = oTracking.init(config);
+			parentTracking.click.init();
+
+			// Click the link.
+			link.dispatchEvent(clickEvent, true);
+			const clickQueue = new Queue('clicks');
+			try {
+				proclaim.lengthEquals(clickQueue.queue, 1, 'Expected 1 event to be in the click queue.');
+			} catch (error) {
+				done(error);
+			}
+
+			// Generate iframe content.
+			const karmaFile = '/base/test/o-tracking-test.js';
+			const bundleUrl =
+				window.__karma__ &&
+				window.__karma__.files &&
+				window.__karma__.files[karmaFile] ? karmaFile : null;
+
+			proclaim.ok(
+				bundleUrl,
+				'Could not find the o-tracking bundle served from a url, to ' +
+				'test instances across different browser contexts. Unfortunately ' +
+				'this depends on the Karma test runner. Has the test setup changed?'
+			);
+
+			const iFrameContent = new Blob([`
+				<html>
+				<head>
+					<!-- load o-tracking fixture -->
+					<script src="${window.location.origin}${bundleUrl}"></script>
+				</head>
+				<body>
+				</body>
+				</html>
+			`], { type: 'text/html' })
+
+
+			iframe.onload = () => {
+				// init second instance of o-tracking in the iframe
+				// fire a page event, as if navigated to a new page
+				// in a new tab with cmd-click
+				iframe.contentWindow.oTracking.init(config);
+				parentTracking.click.init();
+				iframe.contentWindow.oTracking.page(config);
+				// previous click events should have been sent,
+				// the queue should be empty
+				try {
+					proclaim.lengthEquals(clickQueue.queue, 0, 'Expected 0 events to be in the click queue.');
+				} catch (error) {
+					done(error);
+				}
+				done();
+			};
+			iframe.src = URL.createObjectURL(iFrameContent);
+		});
 	});
 
 	it('should quit without any config to init with', function() {
