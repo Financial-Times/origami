@@ -145,7 +145,7 @@ const category = 'element';
 oTracking.click.init(category);
 ```
 
-_Note: The attribute `data-o-tracking-skip-queue` is no longer used, it is now the default behaviour._
+*Note: The attribute `data-o-tracking-skip-queue` is no longer used, it is now the default behaviour.*
 
 ##### oTracking.view.init
 

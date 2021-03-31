@@ -99,7 +99,7 @@ describe('main', function () {
 				</html>
 			`], { type: 'text/html' });
 
-			iframeSrc = URL.createObjectURL(iframeContent)
+			iframeSrc = URL.createObjectURL(iframeContent);
 		});
 
 		it('should not send the same click event multiple times from the parent page', function(done) {
