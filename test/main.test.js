@@ -46,18 +46,20 @@ describe('main', function () {
 		oTracking.destroy();
 	});
 
-	describe('link clicks are to the same origin', function () {
+	describe('a second instance of o-tracking exists in a separate browser context (e.g. new tab)', function () {
+		let iframe;
+		let iframeSrc;
+		let parentLink;
+		const config = {
+			context: {
+				product: 'desktop'
+			},
+			user: {
+				user_id: '023ur9jfokwenvcklwnfiwhfoi324'
+			}
+		};
 
-		it('should empty parent queue when the next page is loaded in a new context', function(done) {
-			const config = {
-				context: {
-					product: 'desktop'
-				},
-				user: {
-					user_id: '023ur9jfokwenvcklwnfiwhfoi324'
-				}
-			};
-
+		beforeEach(function () {
 			// Create iframe (new context to mimic a new tab)
 			// and a local link click to track.
 			document.documentElement.innerHTML = `
@@ -65,15 +67,12 @@ describe('main', function () {
 				<iframe></iframe>
 			`;
 
-			const iframe = document.querySelector('iframe');
-			const link = document.querySelector('a');
+			iframe = document.querySelector('iframe');
+			parentLink = document.querySelector('a');
 
-			// Initialise o-tracking on the parent window.
+			// Initialise o-tracking on the parent context.
 			const parentTracking = oTracking.init(config);
 			parentTracking.click.init();
-
-			// Click the link.
-			link.dispatchEvent(clickEvent, true);
 
 			// Generate iframe content.
 			const karmaFile = '/base/test/o-tracking-test.js';
@@ -89,7 +88,7 @@ describe('main', function () {
 				'this depends on the Karma test runner. Has the test setup changed?'
 			);
 
-			const iFrameContent = new Blob([`
+			const iframeContent = new Blob([`
 				<html>
 				<head>
 					<!-- load o-tracking fixture -->
@@ -100,25 +99,33 @@ describe('main', function () {
 				</html>
 			`], { type: 'text/html' });
 
+			iframeSrc = URL.createObjectURL(iframeContent)
+		});
+
+		it('should not send the same click event multiple times from the parent page', function(done) {
+			// First click, e.g. like a cmd-click on macOS which opens a new tab
+			// (the iframe is used to mimic this)
+			parentLink.dispatchEvent(clickEvent, true);
+
 			iframe.onload = () => {
 				// init second instance of o-tracking in the iframe
 				// fire a page event, as if navigated to a new page
-				// in a new tab with cmd-click
+				// in a new tab e.g. with cmd-click on macOS
 				iframe.contentWindow.oTracking.init(config);
 				iframe.contentWindow.oTracking.click.init();
 				iframe.contentWindow.oTracking.page(config);
-				// previous click events should have been sent,
-				// the queue should be empty
+				// another click in the parent context, after a second instance
+				// of o-tracking has loaded in the iframe (e.g. a new tab)
 				sendSpy.resetHistory();
-				parentTracking.page(config);
+				parentLink.dispatchEvent(clickEvent, true);
 				try {
-					proclaim.equal(sendSpy.callCount, 1, 'Expected 1 event to be sent, the latest page view, no more.');
+					proclaim.equal(sendSpy.callCount, 1, 'Expected 1 event to be sent, the latest click event, no more.');
 				} catch (error) {
 					done(error);
 				}
 				done();
 			};
-			iframe.src = URL.createObjectURL(iFrameContent);
+			iframe.src = iframeSrc;
 		});
 	});
 
