@@ -116,14 +116,20 @@ const Store = function (name, config = {}) {
 	const oldCookieStoreData = cookieLoad(this.storageKey);
 	if (oldCookieStoreData) {
 		try {
-			const data = JSON.parse(oldCookieStoreData);
-			if (this.data) {
-				Object.assign(this.data, data);
+			if (this.storageKey === 'spoor-id') {
+				// spoor-id is stored directly as a string and not as an object
+				this.data = oldCookieStoreData;
+				cookieRemove('spoor-id');
 			} else {
-				this.data = data;
-			}
-			for (const name of Object.keys(data)) {
-				cookieRemove(name);
+				const data = JSON.parse(oldCookieStoreData);
+				if (this.data) {
+					Object.assign(this.data, data);
+				} else {
+					this.data = data;
+				}
+				for (const name of Object.keys(data)) {
+					cookieRemove(name);
+				}
 			}
 		} catch (error) {
 			broadcast('oErrors', 'log', {

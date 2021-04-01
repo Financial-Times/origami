@@ -100,5 +100,17 @@ describe('Core.Store', function () {
 				number: 13.7
 			});
 		});
+
+		context('spoor-id migration from cookie to localstorage', function() {
+			it('should load data from the old cookie storage system if the cookie exists', function() {
+				const spoorID = 'ckmypa3l700003g6e6wb33708';
+				cookieSave('spoor-id', spoorID);
+				const store = new Store('test', {
+					nameOverride: 'spoor-id',
+				});
+
+				proclaim.deepStrictEqual(store.read(), spoorID);
+			});
+		});
 	});
 });
