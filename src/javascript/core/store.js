@@ -53,6 +53,10 @@ const Store = function (name, config = {}) {
 			return window.localStorage.setItem(name, value);
 		},
 		remove: function (name) {
+			// We attempt to remove the item from the old cookie storage
+			// because otherwise the next time o-tracking is initialised for
+			// this user, it will import the old value which was meant to
+			// have been removed.
 			cookieRemove(name);
 			return window.localStorage.removeItem(name);
 		}
