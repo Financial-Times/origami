@@ -17,7 +17,7 @@ const initPage = page.init;
  *
  * @type {string}
  */
-const version = '2.0.10';
+const version = '3.0.3';
 
 /**
  * The source of this event.
