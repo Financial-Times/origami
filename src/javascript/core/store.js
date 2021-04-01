@@ -53,6 +53,7 @@ const Store = function (name, config = {}) {
 			return window.localStorage.setItem(name, value);
 		},
 		remove: function (name) {
+			cookieRemove(name);
 			return window.localStorage.removeItem(name);
 		}
 	};
