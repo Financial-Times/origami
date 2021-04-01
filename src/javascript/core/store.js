@@ -119,7 +119,6 @@ const Store = function (name, config = {}) {
 			if (this.storageKey === 'spoor-id') {
 				// spoor-id is stored directly as a string and not as an object
 				this.data = oldCookieStoreData;
-				cookieRemove('spoor-id');
 			} else {
 				const data = JSON.parse(oldCookieStoreData);
 				if (this.data) {
@@ -128,7 +127,9 @@ const Store = function (name, config = {}) {
 					this.data = data;
 				}
 				for (const name of Object.keys(data)) {
-					cookieRemove(name);
+					if (name !== 'spoor-id') {
+						cookieRemove(name);
+					}
 				}
 			}
 		} catch (error) {
