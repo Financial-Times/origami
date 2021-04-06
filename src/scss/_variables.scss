@@ -6,7 +6,7 @@ $o-fonts-is-silent: true !default;
 /// Path to default font files.
 ///
 /// @type String
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.6.0/' !default;
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/' !default;
 
 /// The default `font-display` property of included font faces.
 /// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
@@ -18,30 +18,41 @@ $o-fonts-display: swap !default;
 /// @type List
 /// @access private
 $_o-fonts-all-metric-variants: (
-	(weight: thin, style: normal),
-	(weight: light, style: normal),
-	(weight: light, style: italic),
-	(weight: regular, style: normal),
-	(weight: regular, style: italic),
-	(weight: medium, style: normal),
-	(weight: semibold, style: normal),
-	(weight: bold, style: normal),
-	(weight: bold, style: italic),
+	(weight: 'thin', style: normal),
+	(weight: 'light', style: normal),
+	(weight: 'light', style: italic),
+	(weight: 'regular', style: normal),
+	(weight: 'regular', style: italic),
+	(weight: 'medium', style: normal),
+	(weight: 'semibold', style: normal),
+	(weight: 'bold', style: normal),
+	(weight: 'bold', style: italic),
+	(weight: 'black', style: normal)
 );
 
 /// A list of all weight and style variants of the FinancierDisplayWeb font.
 /// @type List
 /// @access private
 $_o-fonts-all-financier-display-variants: (
-	(weight: light, style: normal),
-	(weight: light, style: italic),
-	(weight: regular, style: normal),
-	(weight: regular, style: italic),
-	(weight: medium, style: italic),
-	(weight: medium, style: normal),
-	(weight: semibold, style: normal),
-	(weight: semibold, style: italic),
-	(weight: bold, style: normal)
+	(weight: 'light', style: normal),
+	(weight: 'light', style: italic),
+	(weight: 'regular', style: normal),
+	(weight: 'regular', style: italic),
+	(weight: 'medium', style: italic),
+	(weight: 'medium', style: normal),
+	(weight: 'semibold', style: normal),
+	(weight: 'semibold', style: italic),
+	(weight: 'bold', style: normal),
+	(weight: 'black', style: normal)
+);
+
+/// A list of all weight and style variants of the FinancierTextWeb font.
+/// @type List
+/// @access private
+$_o-fonts-all-financier-text-variants: (
+	(weight: 'medium', style: normal),
+	(weight: 'bold', style: normal),
+	(weight: 'black', style: normal)
 );
 
 /// The fonts to include by default, which vary per brand.
@@ -68,7 +79,8 @@ $_o-fonts-default: ();
 /// @access private
 $_o-fonts-recommended: (
 	'metric': (),
-	'financier-display': ()
+	'financier-display': (),
+	'financier-text': ()
 );
 
 @if oBrandGetCurrentBrand() == 'master' {
@@ -80,7 +92,8 @@ $_o-fonts-recommended: (
 		'financier-display': (
 			(weight: medium, style: normal),
 			(weight: bold, style: normal)
-		)
+		),
+		'financier-text': ()
 	);
 }
 
@@ -90,7 +103,8 @@ $_o-fonts-recommended: (
 			(weight: regular, style: normal),
 			(weight: semibold, style: normal)
 		),
-		'financier-display': ()
+		'financier-display': (),
+		'financier-text': ()
 	);
 }
 
@@ -106,6 +120,10 @@ $_o-fonts-families: (
 	FinancierDisplayWeb: (
 		font-family: 'FinancierDisplayWeb, serif',
 		variants: $_o-fonts-all-financier-display-variants
+	),
+	FinancierTextWeb: (
+		font-family: 'FinancierTextWeb, serif',
+		variants: $_o-fonts-all-financier-text-variants
 	),
 ) !default;
 

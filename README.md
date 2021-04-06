@@ -67,17 +67,17 @@ A selection wider than [recommended fonts](#recommended-fonts) are included by d
 
 ## All Available Fonts
 
-Any of the below fonts may be included with `o-fonts` using [SASS](#sass). Build Service users are limited to [fonts included by default](#fonts-included-by-default).
+Any of the below fonts may be included with `o-fonts` using [SASS](#sass), this is usual for brands such as specialist titles who may use additional fonts. Build Service users are limited to [fonts included by default](#fonts-included-by-default).
 
-| Weight   | FinancierDisplayWeb | MetricWeb |
-|----------|:-------------------:|:---------:|
-| thin     |                     |    ✓      |
-| light    |         ✓ i         |    ✓ i    |
-| regular  |         ✓ i         |    ✓ i    |
-| medium   |         ✓ i         |    ✓      |
-| semibold |         ✓ i         |    ✓      |
-| bold     |         ✓           |    ✓ i    |
-| black    |                     |           |
+| Weight   | FinancierDisplayWeb | FinancierTextWeb    | MetricWeb |
+|----------|:-------------------:|:-------------------:|:---------:|
+| thin     |                     |                     |    ✓      |
+| light    |         ✓ i         |                     |    ✓ i    |
+| regular  |         ✓ i         |                     |    ✓ i    |
+| medium   |         ✓ i         |          ✓          |    ✓      |
+| semibold |         ✓ i         |                     |    ✓      |
+| bold     |         ✓           |          ✓          |    ✓ i    |
+| black    |         ✓           |          ✓          |    ✓      |
 
 - **✓**: normal style available
 - **i**: italic style available (if not, faux-italic will be displayed)
@@ -99,7 +99,7 @@ To improve site performance, Origami components use a more limited set of font f
 @include oFonts($opts: ('recommended': true));
 ```
 
-You may also include specific fonts granularly using an options `$opts` map. The map has a key for each font `metric` or `financier-display`, which accepts a list of weight and styles to include.
+You may also include specific fonts granularly using an options `$opts` map. The map has a key for each font `metric`, `financier-display`, or `financier-text`, which accepts a list of weight and styles to include.
 
 For example to include recommended fonts used by Origami components and an extra font, `MetricWeb` in a medium weight, and regular `FinancierDisplayWeb`:
 ```scss

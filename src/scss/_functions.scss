@@ -128,7 +128,8 @@
 	// Map of options to font name.
 	$fonts: (
 		'metric': 'MetricWeb',
-		'financier-display': 'FinancierDisplayWeb'
+		'financier-display': 'FinancierDisplayWeb',
+		'financier-text': 'FinancierTextWeb',
 	);
 	// Include each font variant given.
 	@each $option, $family in $fonts {
