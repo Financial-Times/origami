@@ -72,10 +72,10 @@ Any of the below fonts may be included with `o-fonts` using [SASS](#sass). Build
 | Weight   | FinancierDisplayWeb | MetricWeb |
 |----------|:-------------------:|:---------:|
 | thin     |                     |    ✓      |
-| light    |           i         |    ✓ i    |
+| light    |         ✓ i         |    ✓ i    |
 | regular  |         ✓ i         |    ✓ i    |
 | medium   |         ✓ i         |    ✓      |
-| semibold |           i         |    ✓      |
+| semibold |         ✓ i         |    ✓      |
 | bold     |         ✓           |    ✓ i    |
 | black    |                     |           |
 

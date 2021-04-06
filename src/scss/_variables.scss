@@ -6,7 +6,7 @@ $o-fonts-is-silent: true !default;
 /// Path to default font files.
 ///
 /// @type String
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/' !default;
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.6.0/' !default;
 
 /// The default `font-display` property of included font faces.
 /// https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
@@ -33,11 +33,13 @@ $_o-fonts-all-metric-variants: (
 /// @type List
 /// @access private
 $_o-fonts-all-financier-display-variants: (
+	(weight: light, style: normal),
 	(weight: light, style: italic),
 	(weight: regular, style: normal),
 	(weight: regular, style: italic),
 	(weight: medium, style: italic),
 	(weight: medium, style: normal),
+	(weight: semibold, style: normal),
 	(weight: semibold, style: italic),
 	(weight: bold, style: normal)
 );
