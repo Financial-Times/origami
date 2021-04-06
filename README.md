@@ -8,7 +8,7 @@ _Use `o-fonts` to include Origami provided fonts, or register supported custom f
 - [All Available Fonts](#all-available-fonts)
 - [Sass](#sass)
 - [Contributing](#contributing)
-- [Migration guide](#migration)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -204,13 +204,13 @@ _Note: If your project has multiple Sass entry points call `oFontsVariantsInclud
 
 Note: font files are contained in a separate, private repository ([o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets)).
 
-1. Open `src/scss/_variables.scss` and update the `$o-fonts-path` variable to the release of [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets) which includes your new font.
+ 1. Open `src/scss/_variables.scss` and update the `$o-fonts-path` variable to the release of [o-fonts-assets](https://github.com/Financial-Times/o-fonts-assets) which includes your new font.
 
-2. Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
+ 2. Add the font family name (if it's an entirely new family) and the variant styles to the private `$_o-fonts-families` map.
 
-3. If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
+ 3. If adding an entirely new font, add a new option to the `oFonts` mixin. To include the new [font by default](#fonts-included-by-default) or with [recommended fonts](#recommended-fonts)  (see `$_o-fonts-default` and `$_o-fonts-recommended`).
 
-4. Finally, update the demos (see `origami.json`).
+ 4. Finally, update the demos (see `origami.json`).
 
 ## Migration Guide
 
@@ -227,7 +227,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-fonts/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+---
 
 ## Licence
 
