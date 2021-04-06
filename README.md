@@ -67,7 +67,7 @@ A selection wider than [recommended fonts](#recommended-fonts) are included by d
 
 ## All Available Fonts
 
-Any of the below fonts may be included with `o-fonts` using [SASS](#sass), this is usual for brands such as specialist titles who may use additional fonts. Build Service users are limited to [fonts included by default](#fonts-included-by-default).
+Any of the below fonts may be included with `o-fonts` using [SASS](#sass), this is useful for brands such as specialist titles who may use additional fonts. Build Service users are limited to [fonts included by default](#fonts-included-by-default).
 
 | Weight   | FinancierDisplayWeb | FinancierTextWeb    | MetricWeb |
 |----------|:-------------------:|:-------------------:|:---------:|
