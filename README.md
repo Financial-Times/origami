@@ -1,5 +1,4 @@
-o-fonts [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
-=================
+# o-fonts [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 _Use `o-fonts` to include Origami provided fonts, or register supported custom fonts._
 
