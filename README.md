@@ -212,7 +212,7 @@ Note: font files are contained in a separate, private repository ([o-fonts-asset
 
 4. Finally, update the demos (see `origami.json`).
 
-## Migration
+## Migration Guide
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
