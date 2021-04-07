@@ -2,6 +2,7 @@
 	"description": "A decoupled events-based mechanism for components to report errors and an API for products to report client-side errors.",
 	"keywords": ["error", "errors"],
 	"name": "@financial-times/o-errors",
+	"browser": "main.js",
 	"dependencies": {
 		"raven-js": "^3.14.0"
 	},
