@@ -19,7 +19,7 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
     - run: npm install -g "npm@^7"
-    - uses: ybiquitous/npm-audit-fix-action@v2.1.5
+    - uses: ybiquitous/npm-audit-fix-action@v3
       with:
         github_token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
         # branch: "npm-audit-fix"
