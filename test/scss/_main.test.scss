@@ -1,0 +1,18 @@
+@include describe('oAutocomplete mixins') {
+	@include describe('oAutocomplete') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oAutocomplete();
+					}
+				}
+				@include expect($selector: false) {
+					.test-mixin .o-autocomplete {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

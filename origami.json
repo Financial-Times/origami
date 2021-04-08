@@ -1,0 +1,34 @@
+{
+	"origamiType": "module",
+	"origamiCategory": "components",
+	"origamiVersion": "2.0",
+	"brands": ["master"],
+	"support": "https://github.com/Financial-Times/o-autocomplete/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/#origami-support"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": []
+	},
+	"demos": [
+		{
+			"title": "A Useful Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Description of the demo"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
+}

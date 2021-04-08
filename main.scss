@@ -1,0 +1,25 @@
+@import '@financial-times/o-brand';
+
+@import 'src/scss/variables';
+@import 'src/scss/brand';
+
+/// Output all oAutocomplete features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oAutocomplete($opts: (
+///			// your opts here
+///		))
+@mixin oAutocomplete ($opts: ()) {
+	// content of primary mixin
+	.o-autocomplete {
+		display: block;
+	}
+}
+
+@if ($o-autocomplete-is-silent == false) {
+	@include oAutocomplete();
+
+	// Set to silent again to avoid being output twice
+	$o-autocomplete-is-silent: true !global;
+}
