@@ -1,3 +1,5 @@
+import accessibleAutocomplete from 'accessible-autocomplete';
+
 class Autocomplete {
 	/**
 	 * Class constructor.
@@ -8,6 +10,22 @@ class Autocomplete {
 		this.autocompleteEl = autocompleteEl;
 		this.options = Object.assign({}, {
 		}, options || Autocomplete.getDataAttributes(autocompleteEl));
+
+		const element = autocompleteEl.querySelector('select');
+
+		if (this.options.source) {
+			accessibleAutocomplete({
+				element: autocompleteEl,
+				id: autocompleteEl.id,
+				source: window[this.options.source],
+				cssNamespace: 'o-autocomplete'
+			});
+		} else {
+			accessibleAutocomplete.enhanceSelectElement({
+				selectElement: element,
+				cssNamespace: 'o-autocomplete'
+			});
+		}
 	}
 	/**
 	 * Get the data attributes from the AutocompleteElement. If the element is being set up

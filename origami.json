@@ -11,17 +11,24 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {},
 	"demosDefaults": {
-		"sass": "demos/src/demo.scss",
-		"js": "demos/src/demo.js",
+		"sass": "demos/src/shared.scss",
+		"js": "demos/src/shared.js",
 		"documentClasses": "",
 		"dependencies": []
 	},
 	"demos": [
 		{
-			"title": "A Useful Demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
+			"title": "Autocomplete based on static data",
+			"name": "static",
+			"template": "demos/src/basic/demo.mustache",
 			"description": "Description of the demo"
+		},
+		{
+			"title": "Autocomplete based on data from an API call",
+			"name": "custom",
+			"template": "demos/src/custom-sort/demo.mustache",
+			"description": "Description of the demo",
+			"js": "demos/src/custom-sort/demo.js"
 		},
 		{
 			"title": "Pa11y",
