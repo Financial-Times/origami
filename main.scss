@@ -32,10 +32,6 @@
 	$query-layout: index($layouts, 'query') and _oLayoutSupports('query');
 	$hero-image: map-get($opts, $key: 'hero-image');
 
-	@if(not ($docs-layout or $landing-layout or $query-layout)) {
-		@error 'Please specify the layouts to output within the `$opts` argument of `oLayout`. See the Sass documentation for more: https://registry.origami.ft.com/components/o-layout@2.2.4/sassdoc';
-	}
-
 	// Base styles.
 	@include _oLayoutBase();
 
