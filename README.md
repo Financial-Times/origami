@@ -1,6 +1,6 @@
 # o-layout
 
-Page layouts and typography for internal tools and products.
+Whole page layouts including typography.
 
 ## Table of Contents
 
@@ -9,24 +9,28 @@ Page layouts and typography for internal tools and products.
 - [Default and Bleed Layout](#default-and-bleed-layout)
 - [Documentation Layout](#documentation-layout)
 - [Landing Layout](#landing-layout)
-- [Overview Sections](#overview-sections)
+	- [Overview Sections](#overview-sections)
+	- [Article List](#article-list)
 - [Query Layout](#query-layout)
 - [Sass](#sass)
 - [JavaScript](#javascript)
 	- [Custom Navigation](#custom-navigation)
+	- [Linking Headings](#linking-headings)
 - [Migration Guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
 ## Overview
 
-`o-layout` provides page layouts and typography as a starting point to create internal tools or products. Layouts provided include:
+`o-layout` provides page layouts and typography as a starting point for new pages. Layouts provided vary per brand and include:
 
-- An empty layout with contained content well (default).
-- An empty layout with full-width "bleed" content.
-- A documentation/blog page layout.
-- A landing/homepage layout.
-- A search/query page layout.
+layout | description | master brand | internal brand | whitelabel brand |
+--- | --- | :---: | :---: | :---:
+default | An empty layout with contained content well. | ✓ | ✓ | |
+bleed | An empty layout with full-width "bleed" content. | ✓ | ✓ | |
+documentation | A documentation/blog page layout. | ✓ | ✓ | |
+landing | A landing/homepage layout. | | ✓ | |
+query | A search/query page layout. | | ✓ | |
 
 ## Usage
 

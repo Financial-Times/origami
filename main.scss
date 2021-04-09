@@ -1,3 +1,4 @@
+@import 'o-brand/main';
 @import 'o-spacing/main';
 @import 'o-fonts/main';
 @import 'o-colors/main';
@@ -6,6 +7,7 @@
 @import 'o-visual-effects/main';
 @import 'o-quote/main';
 
+@import 'src/scss/brand';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
@@ -18,24 +20,16 @@
 	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography'),
 	'hero-image': '',
 )) {
-	@if(oBrandGetCurrentBrand() != 'internal') {
-		@error "o-layout doesn't support the \"#{oBrandGetCurrentBrand()}\" brand. " +
-			"If you are using o-layout for an internal tool or product set " +
-			"`$o-brand: 'internal';` at the top of your Sass file. To learn more about " +
-			"branded components see https://origami.ft.com/docs/components/branding/ " +
-			"or contact the Origami team.";
-	}
-
 	$layouts: map-get($opts, $key: 'layouts');
 	$features: map-get($opts, $key: 'features');
 	$linked-headings: index($features, 'linked-headings');
 	$typography: index($features, 'typography');
 	$nav: index($features, 'sidebar-nav');
 	$sticky-sidebar-container: index($features, 'sticky-sidebar-container');
-	$bleed-layout: index($layouts, 'bleed');
-	$docs-layout: index($layouts, 'documentation');
-	$landing-layout: index($layouts, 'landing');
-	$query-layout: index($layouts, 'query');
+	$bleed-layout: index($layouts, 'bleed') and _oLayoutSupports('bleed');
+	$docs-layout: index($layouts, 'documentation') and _oLayoutSupports('documentation');
+	$landing-layout: index($layouts, 'landing') and _oLayoutSupports('landing');
+	$query-layout: index($layouts, 'query') and _oLayoutSupports('query');
 	$hero-image: map-get($opts, $key: 'hero-image');
 
 	@if(not ($docs-layout or $landing-layout or $query-layout)) {

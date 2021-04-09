@@ -22,6 +22,7 @@
     "o-colors": "^5.0.0",
     "o-normalise": "^2.0.0",
     "o-utils": "^1.0.5",
-    "o-spacing": "^2.0.0"
+    "o-spacing": "^2.0.0",
+    "o-brand": "^3.3.0"
   }
 }
