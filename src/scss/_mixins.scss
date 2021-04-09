@@ -78,11 +78,9 @@
 		}
 
 		blockquote:not(.o-layout__unstyled-element) {
-			@include oQuoteBase;
 			@include oQuoteStandard;
 			margin-bottom: oSpacingByIncrement(7);
 			cite {
-				@include oQuoteBaseCite();
 				@include oQuoteStandardCite();
 			}
 		}
