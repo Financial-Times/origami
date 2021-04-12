@@ -5,6 +5,10 @@
 	html,
 	body {
 		margin: 0;
+		// Apply to the body rather than o-layout to avoid
+		// obscuring the hero element, which makes use of a
+		// negative z-index at the time of writing.
+		background-color: oColorsByUsecase('page', 'background');
 	}
 
 	.o-layout {
@@ -30,7 +34,6 @@
 		min-height: 100vh;
 		// create a break if an entire word cannot be placed on its own line without overflowing
 		overflow-wrap: break-word;
-		background-color: oColorsByUsecase('page', 'background');
 	}
 }
 
