@@ -1,7 +1,0 @@
-{
-	"name": "o-autoinit",
-	"main": "main.js",
-	"ignore": [
-		".gitignore"
-	]
-}

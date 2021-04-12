@@ -1,8 +1,7 @@
 {
-  "description": "Provides a standard way of firing the 'o.DOMContentLoaded' events if/when the equivalent browser-native events fire, to auto initialise other components that are in use.",
   "origamiType": "module",
   "origamiCategory": "utilities",
-  "origamiVersion": 1,
+  "origamiVersion": "2.0",
   "support": "https://github.com/Financial-Times/o-autoinit/issues",
   "supportContact": {
     "email": "origami.support@ft.com",
@@ -13,13 +12,5 @@
       "CustomEvent"
     ]
   },
-  "supportStatus": "active",
-  "keywords": [
-    "initialize",
-    "initialise",
-    "auto",
-    "event",
-    "ready",
-    "domcontentloaded"
-  ]
+  "supportStatus": "active"
 }
