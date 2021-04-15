@@ -5,6 +5,9 @@
 	html,
 	body {
 		margin: 0;
+	}
+
+	body {
 		// Apply to the body rather than o-layout to avoid
 		// obscuring the hero element, which makes use of a
 		// negative z-index at the time of writing.
