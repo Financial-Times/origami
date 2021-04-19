@@ -1,6 +1,6 @@
 {
 	"description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
-	"keywords": [ "form", "input", "field", "fieldset", "submit" ],
+	"keywords": [ "form", "input", "field", "fieldset", "submit", "file" ],
 	"origamiType": "module",
 	"origamiCategory": "components",
 	"origamiVersion": 1,
