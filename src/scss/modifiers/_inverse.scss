@@ -64,7 +64,7 @@
 				@include oButtonsContent($opts: (
 					'type': 'primary',
 					'theme': 'inverse'
-				));
+				), $include-base-styles: false);
 			}
 		}
 	}
