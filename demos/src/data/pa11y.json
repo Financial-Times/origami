@@ -405,6 +405,15 @@
 			{
 				"textInput": true,
 				"title": {
+					"main": "File input"
+				},
+				"input": {
+					"type": "file"
+				}
+			},
+			{
+				"textInput": true,
+				"title": {
 					"main": "Password input"
 				},
 				"input": {
