@@ -1,0 +1,32 @@
+{
+	"states": [
+		{
+			"id": "oxford",
+			"content": "oxford"
+		},
+		{
+			"id": "teal",
+			"content": "teal"
+		},
+		{
+			"id": "lemon",
+			"content": "lemon"
+		},
+		{
+			"id": "slate",
+			"content": "slate"
+		},
+		{
+			"id": "jade",
+			"content": "jade"
+		},
+		{
+			"id": "crimson",
+			"content": "crimson"
+		},
+		{
+			"id": "mandarin",
+			"content": "mandarin"
+		}
+	]
+}

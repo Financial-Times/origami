@@ -77,6 +77,16 @@
 			]
 		},
 		{
+			"name": "palette-states",
+			"title": "Colour Palette States",
+			"description": "Colour palette based states do not specify a particular usecase, and may be used flexibility.",
+			"template": "/demos/src/states.mustache",
+			"data": "demos/src/data/color-palette-states.json",
+			"brands": [
+				"internal"
+			]
+		},
+		{
 			"name": "typography",
 			"title": "Typography",
 			"description": "Labels sitting in line with text that's styled with o-typography.",

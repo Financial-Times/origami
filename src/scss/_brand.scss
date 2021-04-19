@@ -102,6 +102,27 @@ $_o-labels-shared-brand-config: (
 				// component needs to use these colours
 				background-color: #c0c0c0
 			),
+			'oxford': (
+				background-color: oColorsByName('oxford')
+			),
+			'teal': (
+				background-color: oColorsByName('teal')
+			),
+			'lemon': (
+				background-color: oColorsByName('lemon')
+			),
+			'slate': (
+				background-color: oColorsByName('slate')
+			),
+			'jade': (
+				background-color: oColorsByName('jade')
+			),
+			'crimson': (
+				background-color: oColorsByName('crimson')
+			),
+			'mandarin': (
+				background-color: oColorsByName('mandarin')
+			)
 		)),
 		'supports-variants': (
 			'big',
@@ -114,7 +135,14 @@ $_o-labels-shared-brand-config: (
 			'tier-bronze',
 			'tier-gold',
 			'tier-platinum',
-			'tier-silver'
+			'tier-silver',
+			'oxford',
+			'teal',
+			'lemon',
+			'slate',
+			'jade',
+			'crimson',
+			'mandarin'
 		)
 	));
 }

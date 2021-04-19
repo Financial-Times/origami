@@ -30,16 +30,27 @@ $_o-labels-standard-sizes: (
 $_o-labels-standard-states: (
 	'content-commercial',
 	'content-premium',
+
 	'lifecycle-beta',
+
 	'support-active',
 	'support-dead',
 	'support-deprecated',
 	'support-experimental',
 	'support-maintained',
+
 	'tier-bronze',
 	'tier-gold',
 	'tier-platinum',
-	'tier-silver'
+	'tier-silver',
+
+	'oxford',
+	'teal',
+	'lemon',
+	'slate',
+	'jade',
+	'crimson',
+	'mandarin'
 );
 
 /// Indicator label states

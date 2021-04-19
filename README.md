@@ -38,7 +38,7 @@ This table outlines the possible standard label sizes.
 
 This table outlines the possible standard label states. Custom states may also be created.
 
-| Size                 | Description                                                   | Brand support |
+| State                | Description                                                   | Brand support |
 |----------------------|---------------------------------------------------------------|---------------|
 | content-commercial   | Used to identify paid posts or promoted content.              | master        |
 | content-premium      | Used to identify premium content.                             | master        |
@@ -52,6 +52,13 @@ This table outlines the possible standard label states. Custom states may also b
 | tier-gold            | Used to indicate a service with a gold service tier.          | internal      |
 | tier-silver          | Used to indicate a service with a silver service tier.        | internal      |
 | tier-bronze          | Used to indicate a service with a bronze service tier.        | internal      |
+| oxford               | A colour based label with no specific meaning specified.      | internal      |
+| teal                 | A colour based label with no specific meaning specified.      | internal      |
+| lemon                | A colour based label with no specific meaning specified.      | internal      |
+| slate                | A colour based label with no specific meaning specified.      | internal      |
+| jade                 | A colour based label with no specific meaning specified.      | internal      |
+| crimson              | A colour based label with no specific meaning specified.      | internal      |
+| mandarin             | A colour based label with no specific meaning specified.      | internal      |
 
 ### Indicator Label
 
@@ -61,7 +68,7 @@ The indicator label is used to show story status with new, updated, and live var
 
 This table outlines the possible indicator label statuses:
 
-| Size                 | Description                                                   | Brand support |
+| Indicator            | Description                                                   | Brand support |
 |----------------------|---------------------------------------------------------------|---------------|
 | live                 | Indicate a story is live.                                     | master        |
 | closed               | Indicate a live story is no longer live.                      | master        |
@@ -123,6 +130,18 @@ The following internal brand states are used to represent the FT's service tiers
 <span class="o-labels o-labels--support-gold">Gold</span>
 <span class="o-labels o-labels--support-silver">Silver</span>
 <span class="o-labels o-labels--support-bronze">Bronze</span>
+```
+
+The internal brand may also use colour palette based states, these do not specify a particular usecase for flexibility:
+
+```html
+<span class="o-labels o-labels--oxford">oxford</span>
+<span class="o-labels o-labels--teal">teal</span>
+<span class="o-labels o-labels--lemon">lemon</span>
+<span class="o-labels o-labels--slate">slate</span>
+<span class="o-labels o-labels--jade">jade</span>
+<span class="o-labels o-labels--crimson">crimson</span>
+<span class="o-labels o-labels--mandarin">mandarin</span>
 ```
 
 ### Indicator Label Markup
