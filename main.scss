@@ -54,6 +54,7 @@
 	$suffix: index($features, 'suffix');
 	$radio-round: index($elements, 'radio-round');
 	$radio-box: index($elements, 'radio-box');
+	$file: index($elements, 'file');
 
 	@include _oFormsBase();
 
@@ -74,7 +75,7 @@
 		);
 	}
 
-	@if index($elements, 'file') {
+	@if $file {
 		@include _oFormsFileInput();
 	}
 
@@ -124,7 +125,7 @@
 	}
 
 	@if $inverse {
-		@include _oFormsInverse($error-summary, $radio-box);
+		@include _oFormsInverse($error-summary, $radio-box, $file);
 	}
 
 	@if $state {

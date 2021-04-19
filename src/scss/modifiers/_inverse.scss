@@ -1,8 +1,9 @@
 /// @access private
 /// @param {Boolean} $error-summary Whether to output inverse error summary styling
 /// @param {Boolean} $radio Whether to output inverse radio input styling
+/// @param {Boolean} $file Whether to output inverse file input styling
 /// @output styles for inverse toggle based on a checkbox input
-@mixin _oFormsInverse($error-summary: null, $radio: null) {
+@mixin _oFormsInverse($error-summary: null, $radio: null, $file: null) {
 	.o-forms-field--inverse {
 		color: _oFormsGet('toggle-inverse');
 
@@ -55,6 +56,15 @@
 			}
 			.o-forms-input--radio-box__container {
 				background-color: oColorsByName('white');
+			}
+		}
+
+		@if $file {
+			.o-forms-input--file ::file-selector-button {
+				@include oButtonsContent($opts: (
+					'type': 'primary',
+					'themes': ('inverse')
+				));
 			}
 		}
 	}
