@@ -109,6 +109,13 @@
 			"data": "/demos/src/data/text-input.json"
 		},
 		{
+			"name": "file-input",
+			"title": "File input",
+			"template": "/demos/src/file-input-field.mustache",
+			"description": "Regular file input",
+			"data": "/demos/src/data/file-input.json"
+		},
+		{
 			"name": "text-area",
 			"title": "Text Area",
 			"template": "/demos/src/single-input-field.mustache",

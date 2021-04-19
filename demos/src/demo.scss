@@ -45,3 +45,5 @@ $icon-list: ('grid', 'list');
 	$icons: $icon-list,
 	$theme: $custom-theme
 );
+
+@include oForms();

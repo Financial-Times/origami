@@ -20,6 +20,7 @@
 	'elements': (
 		'checkbox',
 		'date',
+		'file',
 		'password',
 		'pseudo-radio-link',
 		'radio-round',
@@ -71,6 +72,10 @@
 		@include _oFormsDate(
 			$disabled
 		);
+	}
+
+	@if index($elements, 'file') {
+		@include _oFormsFileInput();
 	}
 
 	@if $radio-round {

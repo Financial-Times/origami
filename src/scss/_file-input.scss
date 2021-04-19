@@ -1,0 +1,11 @@
+/// @access private
+/// @output Styling for file inputs
+@mixin _oFormsFileInput(
+) {
+
+	.o-forms-input--file ::file-selector-button {
+		@include oButtonsContent($opts: (
+			'type': 'primary'
+		));
+	}
+}
