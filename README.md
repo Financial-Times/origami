@@ -103,6 +103,22 @@ To create a text input use a [single input](#single-input-fields) field structur
 </label>
 ```
 
+#### File input
+
+To create a file input use a [single input](#single-input-fields) field structure, with an `o-forms-input--file` modifier class on the `o-forms-input` element and an input type of `type="file"`.
+
+```html
+<label class="o-forms-field">
+	<span class="o-forms-title">
+		<span class="o-forms-title__main">Label for input here</span>
+	</span>
+
+	<span class="o-forms-input o-forms-input--file">
+		<input type="file" name="file-example" value>
+	</span>
+</label>
+```
+
 #### Password input
 
 To create a password input use a [single input](#single-input-fields) field structure, with an `o-forms-input--password` modifier class on the `o-forms-input` element and an input type of `type="password"`.
@@ -652,6 +668,7 @@ The `$opts` map accepts two lists with the following options:
 - `'elements'`:
 	- `'checkbox'`
 	- `'date'`
+	- `'file'`
 	- `'password'`
 	- `'pseudo-radio-link'`
 	- `'radio-round'`
