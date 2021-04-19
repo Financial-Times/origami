@@ -63,7 +63,7 @@
 			.o-forms-input--file ::file-selector-button {
 				@include oButtonsContent($opts: (
 					'type': 'primary',
-					'themes': ('inverse')
+					'theme': 'inverse'
 				));
 			}
 		}
