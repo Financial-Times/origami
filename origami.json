@@ -1,9 +1,7 @@
 {
-	"description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
-	"origamiType": "module",
-	"origamiCategory": "primitives",
-	"keywords": "o-colours, colours, themes, schemes, pink, salmon, slate, tone, mix, background, palette",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"type": "module",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",

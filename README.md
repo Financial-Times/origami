@@ -69,7 +69,7 @@ body {
 o-colors has a number of mixins and functions for you to access the color palette in your project. We recommend Sass projects use these mixins and functions directly. E.g. [oColorsByName](#oColorsByName) and [oColorsByUsecase](#oColorsByUsecase). However, it is also possible to output all o-colors CSS Custom Properties (CSS Variables) and classes using the `oColors` mixin.
 
 ```scss
-@import 'o-colors/main';
+@import '@financial-times/o-colors/main';
 @include oColors($opts: (
 	'palette-custom-properties': true, // e.g. --o-colors-paper
 	'usecase-custom-properties': true, // e.g. --o-colors-page-background
