@@ -1,4 +1,4 @@
-import ftDateFormat from 'ft-date-format';
+import ftDateFormat from '@financial-times/ft-date-format';
 
 const updateEventName = 'update';
 let interval;
