@@ -17,7 +17,7 @@ Error tracking requires a project to be configured with
 See the [Sentry documentation](https://app.getsentry.com/docs/platforms/) for
 setup specifics.
 
-----
+***
 
 ## Quick Start
 
@@ -46,9 +46,9 @@ Component developers should ensure that `{ bubbles: true }` is set when
 constructing the `CustomEvent` and should dispatch it on the component's owned DOM.
 
 Uncaught errors are handled by a `window.onerror` function
-installed on initialisation. *Note* uncaught errors will not be reported
-automatically if they occur *before* initialisation, although any errors reported using the
-`o-errors` API *will* be buffered and reported once initialised.
+installed on initialisation. _Note_ uncaught errors will not be reported
+automatically if they occur _before_ initialisation, although any errors reported using the
+`o-errors` API _will_ be buffered and reported once initialised.
 
 ### Reporting errors
 
