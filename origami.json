@@ -1,9 +1,6 @@
 {
-	"description": "Provides JS helper functions, such as throttling and debouncing",
-	"keywords": ["debounce", "throttle"],
-	"origamiType": "module",
-	"origamiCategory": "utilities",
-	"origamiVersion": 1,
+	"origamiType": "library",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-utils/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
