@@ -230,6 +230,7 @@ describe("oErrors", function() {
 			new Errors().init({
 				sentryEndpoint: "//123@app.getsentry.com/123",
 				logLevel: "contextonly",
+				// eslint-disable-next-line no-empty-function
 				transportFunction: function() {}
 			}, mockRavenClient);
 
@@ -260,6 +261,7 @@ describe("oErrors", function() {
 		});
 
 		it("should return a function", function() {
+			// eslint-disable-next-line no-empty-function
 			const fn = function() {};
 			const wrappedFunction = errors.wrapWithContext({ context: "object" }, fn);
 			proclaim.isTypeOf(wrappedFunction, 'function');
@@ -286,6 +288,7 @@ describe("oErrors", function() {
 		});
 
 		it("should return a function", function() {
+			// eslint-disable-next-line no-empty-function
 			const fn = function() {};
 			const wrappedFunction = errors.wrap(fn);
 			proclaim.isTypeOf(wrappedFunction, 'function');
@@ -411,6 +414,7 @@ function mockRaven() {
 		install: function() {
 			this.installed = true;
 		},
+		// eslint-disable-next-line no-empty-function
 		uninstall: function() {},
 		wrap: function() {
 			this.lastWrapArgs = arguments;

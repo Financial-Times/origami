@@ -142,7 +142,9 @@ Errors.prototype.init = function(options, raven) {
 		this._configureAndInstallRaven(options, raven);
 	} else {
 		this.ravenClient = {
+			// eslint-disable-next-line no-empty-function
 			captureException: function(){},
+			// eslint-disable-next-line no-empty-function
 			uninstall: function(){}
 		};
 	}
@@ -509,6 +511,7 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 	}
 
 	for (const property in declarativeOptions) {
+		// eslint-disable-next-line no-prototype-builtins
 		if (declarativeOptions.hasOwnProperty(property)) {
 			options[property] = options[property] || declarativeOptions[property];
 		}
@@ -521,4 +524,3 @@ Errors.prototype._initialiseDeclaratively = function(options) {
 
 export default Errors;
 export { Errors };
-

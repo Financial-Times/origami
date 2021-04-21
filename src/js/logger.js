@@ -131,6 +131,7 @@ Logger.level = {
 	consoleonly: 3
 };
 
+// eslint-disable-next-line no-empty-function
 function noop() {}
 
 export default Logger;
