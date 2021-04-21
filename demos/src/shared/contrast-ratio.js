@@ -70,7 +70,7 @@ function oColorsColorLuminance(hex) {
 	return colors['red'] * 0.2126 + colors['green'] * 0.7152 + colors['blue'] * 0.0722;
 }
 
-export default {
+export {
 	getWCAGRating,
 	getContrastRatio
 };

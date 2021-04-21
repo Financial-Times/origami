@@ -33,7 +33,7 @@ const mixHexes = (mixer, base) => {
 	});
 };
 
-export default {
+export {
 	getHexValues,
 	mixHexes
 };
