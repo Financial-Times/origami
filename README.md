@@ -1,13 +1,13 @@
-# @financial-times/o-brand
+# o-brand
 
 Tools to tailor Origami components for distinct use cases.
 
-- [Terms](#terms)
-- [Usage](#usage)
-- [Sass](#sass)
-- [Migration](#migration)
-- [Contact](#contact)
-- [Licence](#licence)
+-  [Terms](#terms)
+-  [Usage](#usage)
+-  [Sass](#sass)
+-  [Migration](#migration)
+-  [Contact](#contact)
+-  [Licence](#licence)
 
 ## Terms
 
@@ -17,9 +17,9 @@ A brand represents an environment which requires components to offer a distinct 
 
 Brands include:
 
-- master: FT branding for public ft.com sites and affiliates.
-- internal: Style suitable for internal products, tools, and documentation.
-- whitelabel: Base, structural styles only.
+-  master: FT branding for public ft.com sites and affiliates.
+-  internal: Style suitable for internal products, tools, and documentation.
+-  whitelabel: Base, structural styles only.
 
 ### Variant
 
@@ -37,11 +37,11 @@ Mixins within `o-brand` help configure components to support brands. There is no
 
 The following mixins and functions help brand a component.
 
-- [oBrandGetCurrentBrand](#obrandgetcurrentbrand) - Set a default brand if necessary
-- [oBrandDefine](#obranddefine) - Define brand configuration (variables & supported variants).
-- [oBrandGet](#obrandget) - Retrieve brand variables.
-- [oBrandSupportsVariant](#obrandsupportsvariant) - Check if the brand supports a variant.
-- [oBrandCustomize](#obrandcustomize) - Update brand variables for a unique project.
+-  [oBrandGetCurrentBrand](#obrandgetcurrentbrand) - Set a default brand if necessary
+-  [oBrandDefine](#obranddefine) - Define brand configuration (variables & supported variants).
+-  [oBrandGet](#obrandget) - Retrieve brand variables.
+-  [oBrandSupportsVariant](#obrandsupportsvariant) - Check if the brand supports a variant.
+-  [oBrandCustomize](#obrandcustomize) - Update brand variables for a unique project.
 
 ### oBrandGetCurrentBrand
 
@@ -50,7 +50,7 @@ This function will return the brand defined at a product level.
 If `$o-brand` has been defined by a project `oBrandGetCurrentBrand` will return that value.
 
 ```scss
-$o-brand: internal // Defined in the product using branded Origami components.
+$o-brand: internal; // Defined in the product using branded Origami components.
 
 $chosen-brand: oBrandGetCurrentBrand(); // internal
 ```
@@ -67,8 +67,8 @@ $chosen-brand: oBrandGetCurrentBrand(); // master
 Components are individually responsible for defining the configuration for each brand they support. In order to add configuration for a new brand, use the mixin `oBrandDefine`.
 
 Where `$component` is the component's name; `$brand` is one of "master", "internal", or "whitelabel"; and `$config` is a map which comprises of variables and supported variants:
-- [`variables`](#brand-variables)
-- [`supported variants`](#supported-variants)
+-  [`variables`](#brand-variables)
+-  [`supported variants`](#supported-variants)
 
 ```scss
 @if oBrandGetCurrentBrand() == 'master' {
@@ -99,9 +99,9 @@ $variables: (
 );
 ```
 
-- Variable names _must_ be a string and should be alphanumeric, including dashes e.g. `example-background`.
-- Variable names _should not_ match css properties exactly e.g. `example-background` over `background`.
-- A variant _must_ be an alphanumeric string e.g. `inverse`, `b2b-inverse`.
+-  Variable names _must_ be a string and should be alphanumeric, including dashes e.g. `example-background`.
+-  Variable names _should not_ match css properties exactly e.g. `example-background` over `background`.
+-  A variant _must_ be an alphanumeric string e.g. `inverse`, `b2b-inverse`.
 
 #### Supported Variants
 
@@ -151,7 +151,7 @@ Use `oBrandGet` to retrieve a brand variable. First create a private, component-
 /// Helper for `o-brand` function.
 /// @access private
 @function _oExampleGet($variables, $from: null) {
-    @return oBrandGet($component: 'o-example', $variables: $variables, $from: $from);
+	@return oBrandGet($component: 'o-example', $variables: $variables, $from: $from);
 }
 ```
 
@@ -199,7 +199,7 @@ To check if a brand supports a variant call `oBrandSupportsVariant`. First creat
 /// Helper for `o-brand` function.
 /// @access private
 @function _oExampleSupports($variant) {
-    @return oBrandSupportsVariant($component: 'o-example', $variant: $variant);
+	@return oBrandSupportsVariant($component: 'o-example', $variant: $variant);
 }
 ```
 
@@ -220,7 +220,7 @@ Example Component (o-example):
 ```scss
 /// Create a component-specific mixin to wrap `oBrandCustomize`.
 @mixin oExampleCustomize($variables) {
-    @include oBrandCustomize('o-example', $variables);
+	@include oBrandCustomize('o-example', $variables);
 }
 
 // Define the whitelabel brand for the component.
@@ -244,7 +244,7 @@ $o-brand: 'whitelabel';
 // Here we change the variable "example-background" from "white" to "lightblue".
 // The "example-color" variable has not been customised so remains "black".
 @include oExampleCustomize((
-    example-background: lightblue
+	example-background: lightblue
 ));
 
 // Output the example component CSS.
