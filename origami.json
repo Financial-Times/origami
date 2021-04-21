@@ -1,9 +1,7 @@
 {
-	"description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
-	"keywords": "syntax, highlight",
-	"origamiType": "module",
+	"origamiType": "component",
 	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiVersion": "2.0",
 	"brands": [
 		"master",
 		"internal"

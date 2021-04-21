@@ -102,14 +102,14 @@ You must either construct an `o-syntax-highlight` object or fire the `o.DOMConte
 
 In order to use `o-syntax-highlight` with already declared markup, you can use:
 ```js
-import oSyntaxHighlight from 'o-syntax-highlight';
+import oSyntaxHighlight from '@financial-times/o-syntax-highlight';
 oSyntaxHighlight.init();
 ```
 
 If you are initialising the component imperatively, you will need to supply a string of code that you want to highlight, and an options object that defines the language of that code. To tokenise the string you will need be explicit about the element that will hold the highlighted syntax:
 
 ```js
-import oSyntaxHighlight from 'o-syntax-highlight';
+import oSyntaxHighlight from '@financial-times/o-syntax-highlight';
 const highlighter = new oSyntaxHighlight('code to highlight', { language: 'html'});
 
 myElement.innerHTML = highlighter.tokenise();
