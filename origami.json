@@ -1,9 +1,6 @@
 {
-	"description": "Financial Times audio player",
-	"keywords": "audio",
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-audio/issues",
 	"supportContact": {
 		"slack": "financialtimes/content-innovation",

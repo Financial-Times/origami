@@ -1,5 +1,5 @@
 import Delegate from 'ftdomdelegate';
-import * as Utils from 'o-utils';
+import * as Utils from '@financial-times/o-utils';
 
 function fireEvent(action, audioObject, extraDetail = {}) {
 	const error = audioObject.audio.error ? {

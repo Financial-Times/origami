@@ -34,14 +34,14 @@ You must either construct an `o-audio` object or fire the `o.DOMContentLoaded` e
 #### Constructing an o-audio
 
 ```js
-import oAudio from "o-audio"
+import oAudio from "@financial-times/o-audio"
 oAudio.init()
 ```
 
 #### Firing an oDomContentLoaded event
 
 ```js
-import "o-audio"
+import "@financial-times/o-audio"
 
 document.addEventListener("DOMContentLoaded", function () {
 	document.dispatchEvent(new CustomEvent("o.DOMContentLoaded"))
