@@ -1,4 +1,4 @@
-import oViewport from 'o-viewport';
+import oViewport from '@financial-times/o-viewport';
 
 import getRendition from './helpers/get-rendition.js';
 import VideoAds from './ads.js';

@@ -1,10 +1,10 @@
 $o-video-is-silent: true !default;
 
-@import "o-colors/main";
-@import "o-icons/main";
-@import "o-loading/main";
-@import "o-normalise/main";
-@import "o-typography/main";
+@import "@financial-timse/o-colors/main";
+@import "@financial-timse/o-icons/main";
+@import "@financial-timse/o-loading/main";
+@import "@financial-timse/o-normalise/main";
+@import "@financial-timse/o-typography/main";
 
 @import "src/scss/ads";
 @import "src/scss/base";

@@ -34,7 +34,7 @@ Videos can be styled in three different sizes, namely 'small', 'medium' and 'lar
 In order to output every size and attribute of `o-video`, you'll need to include the following:
 
 ```scss
-@import 'o-video/main';
+@import '@financial-times/o-video/main';
 
 @include oVideo();
 ```
@@ -52,7 +52,7 @@ You can be more selective about which sizes and attributes you would like to out
 - `'large'`
 
 ```scss
-@import 'o-video';
+@import '@financial-times/o-video';
 
 @include oVideo($opts:(
 	'attributes': ('ads'),
@@ -67,7 +67,7 @@ You can be more selective about which sizes and attributes you would like to out
 In order to initialise `o-video`, you will need the following:
 
 ```js
-import Video from 'o-video';
+import Video from '@financial-times/o-video';
 const opts = {
 	id: 4165329773001,
 	optimumwidth: 710,
@@ -111,7 +111,7 @@ The config options can also be set as data attribute to instantiate the module d
 Playlists may take a queue of videos and play them one after another.
 
 ```js
-import Video from 'o-video';
+import Video from '@financial-times/o-video';
 
 const queue = [
 	'4165329773001',
