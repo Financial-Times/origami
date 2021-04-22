@@ -1,8 +1,6 @@
 {
-	"description": "FT buttons styles. Provides customisation options with the FT colour palette.",
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",
@@ -14,7 +12,6 @@
 		"slack": "financialtimes/origami-support"
 	},
 	"supportStatus": "active",
-	"keywords": "pagination",
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
