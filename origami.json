@@ -1,9 +1,6 @@
 {
-	"description": "Loads CSS declarations for FT web fonts. Does not include font assets.",
-	"keywords": [ "font", "web", "fonts" ],
-	"origamiType": "module",
-	"origamiCategory": "primitives",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": [
 		"master",
 		"internal",
