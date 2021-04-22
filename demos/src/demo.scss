@@ -1,5 +1,6 @@
-$o-normalise-is-silent: false;
 @import '../../main';
+
+@include oNormalise();
 
 body {
 	background: var(--o-colors-paper);
