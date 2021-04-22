@@ -15,6 +15,7 @@ const intervals = {
  *
  * @param {string} eventType - The type of event to throttle for this duration.
  * @param {number} interval - The duration to throttle in ms.
+ * @returns {void}
  * @example
  * 	   // throttle for different events at different durations
  *     setThrottleInterval('scroll', 100)

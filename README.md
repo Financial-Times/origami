@@ -6,17 +6,17 @@ Utility for attaching debounced listeners to resize, scroll, orientation and vis
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-viewport`.
 
-*Note: within the component's API and in the documentation below `orientation` and `visibility` are used instead of `orientationchange` or `visibilitychange`, but the actual browser event listened to is `orientationchange` or `visibilitychange`*
+_Note: within the component's API and in the documentation below `orientation` and `visibility` are used instead of `orientationchange` or `visibilitychange`, but the actual browser event listened to is `orientationchange` or `visibilitychange`_
 
 ## Methods
 
 ### `o-viewport#listenTo(eventType)`
-Attaches a debounced/throttled (as appropriate) listener to events on window [`resize`, `scroll`, `orientation`, `visibility` or `all`] which in turn fires events within the `oViewport` namespace (see **Events** below).
+Attaches a debounced/throttled (as appropriate) listener to events on window \[`resize`, `scroll`, `orientation`, `visibility` or `all`\] which in turn fires events within the `oViewport` namespace (see **Events** below).
 
-*Note: all will enable all o-viewport events.*
+_Note: all will enable all o-viewport events._
 
 ```js
-import oViewport from './../main.js';
+import oViewport from '@financial-times/o-viewport';
 
 // Fire for orientation events.
 oViewport.listenTo('orientation');
@@ -33,9 +33,9 @@ document.body.addEventListener('oViewport.orientation', function(event) {
 See [events](#events) for more examples.
 
 ### `o-viewport#stopListeningTo(eventType)`
-Remove the attached listener from the window for the named event [`resize`, `scroll`, `orientation`, `visibility` or `all`].
+Remove the attached listener from the window for the named event \[`resize`, `scroll`, `orientation`, `visibility` or `all`\].
 
-*Note: all will disable all o-viewport events.*
+_Note: all will disable all o-viewport events._
 
 ```js
 // Stop listening to the orientation event.
@@ -73,8 +73,8 @@ Provides a reliable way of obtaining the current scroll position of the viewport
 oViewport.getScrollPosition(); // {width: 100, height: 100, left: 0, top: 10}
 ```
 
-### `o-viewport#setThrottleInterval(eventType, interval)` *Product use only*
-Sets the debounce/throttle interval for a given event [`scroll`, `resize` or `orientation`].
+### `o-viewport#setThrottleInterval(eventType, interval)` _Product use only_
+Sets the debounce/throttle interval for a given event \[`scroll`, `resize` or `orientation`\].
 As a shorthand, calling `setThrottleInterval` with 1 - 3 numbers will set the intervals for `scroll`, `resize` and `orientation` in that order e.g. `setThrottleInterval(100, undefined, 300)` is equivalent to:
 
 ```js
@@ -93,7 +93,7 @@ Turns on debug mode (logging event details to the console).
 Each of these custom events are fired on `document.body`. For each custom event `event.detail.originalEvent` contains a reference to the original browser event and `event.detail.viewport` the result of `o-viewport#getSize()`. For example:
 
 ```js
-import oViewport from './../main.js';
+import oViewport from '@financial-times/o-viewport';
 
 // Fire for all viewport events.
 oViewport.listenTo('all');
@@ -110,27 +110,27 @@ Note `event.detail.hidden` is unique to the `oViewport.visibility` event. Additi
 
 ### `oViewport.resize`
 
-- No additional properties.
+-   No additional properties.
 
 ### `oViewport.orientation`
 
-- data.orientation: 'portrait' or 'landscape'
+-   data.orientation: 'portrait' or 'landscape'
 
 ### `oViewport.visibility`
 
-- data.hidden: true or false
+-   data.hidden: true or false
 
 ### `oViewport.scroll`
 
-- data.scrollLeft: unitless px value of scroll position
-- data.scrollTop: unitless px value of scroll position
-- data.scrollHeight: unitless px value of scroll height
-- data.scrollWidth: unitless px value of scroll width
+-   data.scrollLeft: unitless px value of scroll position
+-   data.scrollTop: unitless px value of scroll position
+-   data.scrollHeight: unitless px value of scroll height
+-   data.scrollWidth: unitless px value of scroll width
 
 ## Throttling
 
-* `oViewport.resize`, `oViewport.orientation` and  `oViewport.visibility` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
-* `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` milliseconds, where `n` is the throttle interval
+-   `oViewport.resize`, `oViewport.orientation` and  `oViewport.visibility` are debounced i.e. if the native event fires several times in quick succession the custom event will fire only once `n` milliseconds after the last event, where `n` is the throttle interval
+-   `oViewport.scroll` is throttled i.e. if the native `scroll` event fires several times in quick succession the custom event will fire at most once every `n` milliseconds, where `n` is the throttle interval
 
 Use the [setThrottleInterval](#o-viewportsetthrottleintervaleventtype-interval-product-use-only) method to customise throttling.
 
@@ -143,9 +143,9 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.5 | N/A |
 
-----
+***
 
-## License
+## Licence
 
 Copyright (c) 2016 Financial Times Ltd. All rights reserved.
 

@@ -1,7 +1,9 @@
 .DS_Store
-.sass-cache/
-bower_components/
-node_modules/
-demos/local
-public/
-build/
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
+/build/
+.idea/
+/demos/local
+/coverage

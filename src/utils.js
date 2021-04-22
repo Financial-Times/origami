@@ -1,4 +1,4 @@
-import * as Utils from 'o-utils';
+import * as Utils from '@financial-times/o-utils';
 
 let debug;
 
