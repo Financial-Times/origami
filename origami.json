@@ -1,14 +1,6 @@
 {
-	"description": "Track progress through a multi-step process, such as a form",
-	"keywords": [
-		"indicator",
-		"progress",
-		"step",
-		"stepped"
-	],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",

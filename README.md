@@ -99,7 +99,7 @@ No code will run automatically unless you are using the [Build Service](https://
 Assuming that you have an HTML element on the page to represent your stepped progress:
 
 ```js
-import SteppedProgress from 'o-stepped-progress';
+import SteppedProgress from '@financial-times/o-stepped-progress';
 const steppedProgressElement = document.getElementById('my-stepped-progress');
 const mySteppedProgress = new SteppedProgress(steppedProgressElement);
 ```
@@ -107,7 +107,7 @@ const mySteppedProgress = new SteppedProgress(steppedProgressElement);
 If you want to initialise every stepped progress element on the page (based on the presence of the attribute: `data-o-component="o-stepped-progress"`):
 
 ```js
-import SteppedProgress from 'o-stepped-progress';
+import SteppedProgress from '@financial-times/o-stepped-progress';
 SteppedProgress.init();
 ```
 
@@ -139,7 +139,7 @@ As with all Origami components, o-stepped-progress has a [silent mode](http://or
 
 ```scss
 $o-stepped-progress-is-silent: false;
-@import 'o-stepped-progress/main';
+@import '@financial-times/o-stepped-progress/main';
 ```
 
 ### Mixin: `oSteppedProgress`
