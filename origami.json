@@ -1,9 +1,6 @@
 {
-	"description": "A card for showing different subscription packages offered by the Financial Times",
-	"keywords": "card, subscription, subs, pack, packages, masterbrand",
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-subs-card/issues",
 	"supportContact": {
 		"email": "conversion.tech@ft.com",
