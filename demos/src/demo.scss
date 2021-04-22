@@ -1,5 +1,6 @@
-$o-loading-is-silent: false;
 @import '../../main';
+
+@include oLoading();
 
 body {
 	display: flex;

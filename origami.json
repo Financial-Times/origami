@@ -1,9 +1,6 @@
 {
-	"description": "A visual loading indicator, available in two colours and four sizes",
-	"keywords": [ "loading", "spinner", "wait", "loader" ],
-	"origamiType": "module",
-	"origamiCategory": "primitives",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": [
 		"master",
 		"internal",
