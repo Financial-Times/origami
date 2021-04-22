@@ -34,7 +34,7 @@ Use the following HTML to get a full-width FT affiliation ribbon. This should be
 Call the primary mixin `oFtAffiliateRibbon` to include all CSS for the o-ft-affiliate-ribbon component:
 
 ```scss
-	@import 'o-ft-affiliate-ribbon/main';
+	@import '@financial-times/o-ft-affiliate-ribbon/main';
 	@include oFtAffiliateRibbon();
 ```
 
