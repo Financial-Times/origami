@@ -1,9 +1,6 @@
 {
-	"description": "Provides message elements for alerting, informing or making calls to action.",
-	"keywords": ["message", "alert", "notice", "cta", "banner" ],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": [
 		"master",
 		"internal",
