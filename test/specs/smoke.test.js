@@ -91,48 +91,7 @@ describe("smoke-tests (./overlay.js)", function() {
 				o.fireEvent(document.body, 'keyup', {
 					keyCode: 27
 				});
-				o.fireCustomEvent(document.body, 'oLayers.new');
-				proclaim.equal(Overlay.prototype.close.callCount, 3);
-
-				Overlay.prototype.close = realCloseFunction;
-				currentOverlay.close();
-
-				document.body.removeEventListener('oOverlay.ready', overlayReadyHandler);
-				done();
-			}
-
-			document.body.addEventListener('oOverlay.ready', overlayReadyHandler);
-			o.fireEvent(trigger, 'click');
-
-		});
-
-		it('modal with prevent closing should not be closable with esc key, close button, but can with new layer ', done => {
-
-			const realCloseFunction = Overlay.prototype.close;
-			const stubbedCloseFunction = sinon.stub();
-			Overlay.prototype.close = stubbedCloseFunction;
-
-			const trigger = document.querySelector('.o-overlay-trigger');
-			trigger.setAttribute('data-o-overlay-preventclosing', true);
-
-			const overlays = Overlay.init();
-			const currentOverlay = overlays[0];
-
-			function overlayReadyHandler() {
-				const overlayClose = document.querySelector('.o-overlay__close');
-				if (overlayClose) {
-					o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
-				}
-				o.fireEvent(document.body, 'click');
-				o.fireEvent(document.body, 'keyup', {
-					keyCode: 27
-				});
-
-				proclaim.equal(Overlay.prototype.close.callCount, 0);
-
-				o.fireCustomEvent(document.body, 'oLayers.new');
-
-				proclaim.equal(Overlay.prototype.close.callCount, 1);
+				proclaim.equal(Overlay.prototype.close.callCount, 2);
 
 				Overlay.prototype.close = realCloseFunction;
 				currentOverlay.close();
@@ -164,9 +123,8 @@ describe("smoke-tests (./overlay.js)", function() {
 			o.fireEvent(document.body, 'keyup', {
 				keyCode: 27
 			});
-			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 
-			proclaim.equal(Overlay.prototype.close.callCount, 4);
+			proclaim.equal(Overlay.prototype.close.callCount, 3);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
@@ -192,81 +150,11 @@ describe("smoke-tests (./overlay.js)", function() {
 			});
 			proclaim.equal(Overlay.prototype.close.callCount, 0);
 
-			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			proclaim.equal(Overlay.prototype.close.callCount, 1);
-
 			o.fireEvent(document.querySelector('.o-overlay__close'), 'click');
-			proclaim.equal(Overlay.prototype.close.callCount, 2);
-
-			Overlay.prototype.close = realCloseFunction;
-			currentOverlay.close();
-		});
-
-		it('should act as a layer by default', () => {
-			let newLayers = 0;
-			let closedLayers = 0;
-			document.body.addEventListener('oLayers.new', () => {
-				newLayers++;
-			});
-			document.body.addEventListener('oLayers.close', () => {
-				closedLayers++;
-			});
-
-			const realCloseFunction = Overlay.prototype.close;
-			const stubbedCloseFunction = sinon.stub();
-			Overlay.prototype.close = stubbedCloseFunction;
-
-			const trigger = document.querySelector('.o-overlay-trigger');
-			const overlays = Overlay.init();
-			const currentOverlay = overlays[0];
-
-			o.fireEvent(trigger, 'click');
-
-			proclaim.equal(newLayers, 1);
-			proclaim.equal(closedLayers, 0);
-
-			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
 			proclaim.equal(Overlay.prototype.close.callCount, 1);
 
 			Overlay.prototype.close = realCloseFunction;
 			currentOverlay.close();
-
-			proclaim.equal(newLayers, 2);
-			proclaim.equal(closedLayers, 1);
-		});
-
-		it('should support having layer functionality disabled', () => {
-			let newLayers = 0;
-			let closedLayers = 0;
-			document.body.addEventListener('oLayers.new', () => {
-				newLayers++;
-			});
-			document.body.addEventListener('oLayers.close', () => {
-				closedLayers++;
-			});
-
-			const realCloseFunction = Overlay.prototype.close;
-			const stubbedCloseFunction = sinon.stub();
-			Overlay.prototype.close = stubbedCloseFunction;
-
-			const trigger = document.querySelector('.o-overlay-trigger');
-			trigger.setAttribute('data-o-overlay-layer', 'false');
-			const overlays = Overlay.init();
-			const currentOverlay = overlays[0];
-
-			o.fireEvent(trigger, 'click');
-
-			proclaim.equal(newLayers, 0);
-			proclaim.equal(closedLayers, 0);
-
-			o.fireCustomEvent(document.body, 'oLayers.new', {el: 'something'});
-			proclaim.equal(Overlay.prototype.close.callCount, 0);
-
-			Overlay.prototype.close = realCloseFunction;
-			currentOverlay.close();
-
-			proclaim.equal(newLayers, 1);
-			proclaim.equal(closedLayers, 0);
 		});
 
 		it('should remove all traces on close', function() {
@@ -292,7 +180,6 @@ describe("smoke-tests (./overlay.js)", function() {
 			sinon.spy(Overlay.prototype, 'closeOnEscapePress');
 
 			o.fireCustomEvent(document.body, 'oViewport.resize');
-			o.fireCustomEvent(document.body, 'oLayers.new');
 			o.fireEvent(document.body, 'click');
 			o.fireEvent(document.body, 'keyup');
 

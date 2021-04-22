@@ -3,7 +3,6 @@
 
 import * as fixtures from '../helpers/fixtures.js';
 
-import oLayers from 'o-layers';
 import Overlay from './../../main.js';
 
 describe("Overlay", () => {
@@ -96,11 +95,6 @@ describe("Overlay", () => {
 				Overlay.prototype.close.restore();
 				done();
 			}, 10);
-		});
-
-		it("Sets the context to the trigger if it's been set", () => {
-			const testOverlay = new Overlay('myID', {html: 'hello', trigger: '#testTrigger'});
-			proclaim.strictEqual(oLayers.getLayerContext(document.getElementById('testTrigger')), testOverlay.context);
 		});
 
 		it("Sets the context to the parentnode if it's been set but the trigger hasn't", () => {

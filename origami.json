@@ -1,9 +1,6 @@
 {
-	"description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
-	"keywords": [ "overlay" , "modal", "interstitial", "messaging", "popover", "notification", "hover"],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",
