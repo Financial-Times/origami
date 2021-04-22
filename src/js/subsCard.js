@@ -1,4 +1,4 @@
-import oExpander from 'o-expander';
+import oExpander from '@financial-times/o-expander';
 
 let tallestTopHeight = 0;
 

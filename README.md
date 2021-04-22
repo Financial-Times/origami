@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 Instantiating your own oSubsCard:
 
 ```js
-import { SubsCard } from 'o-subs-card';
+import { SubsCard } from '@financial-times/o-subs-card';
 subsCard.init();
 ```
 This will instantiate all subs-cards within the document. Alternatively you can pass in a HTMLElement, or String to be used as a selector to limit the scope of the instantiated subs cards to only child elements of the passed in scope.
