@@ -1,9 +1,6 @@
 {
-	"description": "Provides visual effects through SCSS mixins, such as shadows and animations",
-	"keywords": [ "animation", "effect", "animate" ],
-	"origamiType": "module",
-	"origamiCategory": "primitives",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-visual-effects/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",

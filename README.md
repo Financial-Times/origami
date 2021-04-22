@@ -2,13 +2,13 @@
 
 This [Origami](http://origami.ft.com/) component provides CSS visual effects via a set of Sass variables and mixins.
 
-- [Usage](#usage)
-- [Markup](#markup)
-- [CSS Custom Properties](#css-custom-properties)
-- [Sass](#sass)
-- [Migration Guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+-   [Usage](#usage)
+-   [Markup](#markup)
+-   [CSS Custom Properties](#css-custom-properties)
+-   [Sass](#sass)
+-   [Migration Guide](#migration-guide)
+-   [Contact](#contact)
+-   [Licence](#licence)
 
 ## Usage
 
@@ -17,10 +17,10 @@ Check out [how to include Origami components in your project](https://origami.ft
 ## Markup
 
 `o-visual-effects` provides helper classes to style with different levels of box shadow:
-- `.o-visual-effects-shadow-ultralow`
-- `.o-visual-effects-shadow-low`
-- `.o-visual-effects-shadow-mid`
-- `.o-visual-effects-shadow-high`
+-   `.o-visual-effects-shadow-ultralow`
+-   `.o-visual-effects-shadow-low`
+-   `.o-visual-effects-shadow-mid`
+-   `.o-visual-effects-shadow-high`
 
 ```html
 <div class="o-visual-effects-shadow-high">Box content</div>
@@ -32,9 +32,9 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 Build Service users may use CSS Custom Properties (CSS Variables) to apply consistent [timing functions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) within custom CSS. The variables avalible are:
 
-- `--o-visual-effects-timing-slide`
-- `--o-visual-effects-timing-expand`
-- `--o-visual-effects-timing-fade`
+-   `--o-visual-effects-timing-slide`
+-   `--o-visual-effects-timing-expand`
+-   `--o-visual-effects-timing-fade`
 
 E.g.
 ```css
@@ -140,7 +140,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-visual-effects/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+***
 
 ## Licence
 
