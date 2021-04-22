@@ -6,7 +6,4 @@
 /build/
 .idea/
 /demos/local
-npm-debug.log
-.bowerrc
-.prettierrc
-package-lock.json
+/coverage

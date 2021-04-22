@@ -1,18 +1,51 @@
 {
-	"private": true,
-	"name": "o-cookie-message",
-	"devDependencies": {
-		"eslint": "^7.8.1",
-		"eslint-config-origami-component": "^2.1.0",
-		"origami-ci-tools": "^2.0.2",
-		"remark": "^13.0.0",
-		"remark-lint": "^8.0.0",
-		"remark-preset-lint-origami-component": "^1.1.3",
-		"stylelint": "^13.7.0",
-		"stylelint-config-origami-component": "^1.0.4"
+	"name": "@financial-times/o-cookie-message",
+	"version": "0.0.0",
+	"description": "The cookie message and behaviour approved by the FT's legal team. All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant according to EU regulatory law.",
+	"keywords": [
+		"cookie",
+		"cookies",
+		"message",
+		"legal",
+		"regulation",
+		"privacy",
+		"policy"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-cookie-message",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-cookie-message"
 	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
 	"scripts": {
 		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^10\" install && npm_config_yes=true npx \"origami-build-tools@^10\" demo"
+		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+	},
+	"dependencies": {
+		"superstore-sync": "^2.1.1"
+	},
+	"devDependencies": {
+		"eslint": "^7.24.0",
+		"eslint-config-origami-component": "^2.1.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^7.0.1",
+		"remark-preset-lint-origami-component": "prerelease",
+		"stylelint": "^13.12.0",
+		"stylelint-config-origami-component": "^1.0.4"
+	},
+	"peerDependencies": {
+		"@financial-times/o-buttons": "prerelease",
+		"@financial-times/o-spacing": "prerelease",
+		"@financial-times/o-typography": "prerelease",
+		"@financial-times/o-viewport": "prerelease",
+		"@financial-times/o-visual-effects": "prerelease"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.10.0"
 	}
 }

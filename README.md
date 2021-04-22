@@ -100,7 +100,7 @@ There are two available variations of o-cookie-message the default (standard) co
 If you would like to initialise a standard cookie message, you will need to implement the following:
 
 ```js
-import oCookieMessage from 'o-cookie-message';
+import oCookieMessage from '@financial-times/o-cookie-message';
 
 const cookieMessage = new oCookieMessage();
 ```
@@ -108,7 +108,7 @@ const cookieMessage = new oCookieMessage();
 If you would like to initialise a `alternative` cookie message without declaring the data attribute in the markup, you will need to implement the following:
 
 ```js
-import oCookieMessage from 'o-cookie-message';
+import oCookieMessage from '@financial-times/o-cookie-message';
 const cookieMessage = new oCookieMessage(null, { theme: 'alternative' });
 ```
 
