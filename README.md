@@ -649,13 +649,13 @@ If you are not using `o-forms` JavaScript you may manually create the error summ
 
 You can include styles for every input type and feature by calling that mixin:
 ```scss
-@import 'o-forms/main';
+@import '@financial-times/o-forms/main';
 @include oForms();
 ```
 
 If you would like to be more specific about what aspects of the styles get output, then you'll need to provide the primary mixin with an `$opts` map. For example, in order to output styles for text inputs and checkboxes, and add the ability to inlne them, you would use the following:
 ```scss
-@import 'o-forms/main';
+@import '@financial-times/o-forms/main';
 @include oForms($opts: (
 	'elements': ('text', 'checkbox'),
 	'features': ('inline')
@@ -737,7 +737,7 @@ The main `o-forms` JavaScript has been written to identify and run on a `<form>`
 
 By default, `o-forms` is initialised _without_ native browser validation, and with an error summary for invalid elements when the form is submitted. In order to use the default behaviour, you'll need to do the following:
 ```js
-import oForms from 'o-forms';
+import oForms from '@financial-times/o-forms';
 oForms.init()
 ```
 The default behaviour can be changed by configuring the options object:
@@ -753,7 +753,7 @@ You can also set these values to the data attributes `data-o-forms-use-browser-v
 
 In the case where a single input is enough for a product but requires validation, you can initialise an `Input` instance:
 ```js
-import Input from 'o-forms/src/js/input';
+import Input from '@financial-times/o-forms/src/js/input';
 new Input(myInputEl);
 ```
 
@@ -780,7 +780,7 @@ The `setState` method accepts three arguments: the state, name, and label. State
 ```
 
 ```js
-import oForms from 'o-forms';
+import oForms from '@financial-times/o-forms';
 let myForm = oForms.init();
 // on event, e.g. click
 myForm.setState('saving', 'my-radio-box');
