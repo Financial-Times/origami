@@ -141,7 +141,7 @@ The `share` icon is made available by default for custom share features as shown
 ## Sass
 
 ```scss
-@import 'o-share/main';
+@import '@financial-times/o-share/main';
 ```
 
 The `oShare` mixin is used to output the `o-share` styles.
@@ -199,7 +199,7 @@ Use the [oColorsByUsecase mixin from o-colors](https://registry.origami.ft.com/c
 To instantiate the JavaScript:
 
 ```javascript
-var oShare = require('o-share');
+import oShare from '@financial-times/o-share';
 var oShareInstance = new oShare(document.querySelector('[data-o-component=o-share]'));
 ```
 
