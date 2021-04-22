@@ -1,9 +1,6 @@
 {
-	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
-	"keywords": ["tooltip", "tool", "tip", "annotate", "highlight", "hover"],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-tooltip/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",

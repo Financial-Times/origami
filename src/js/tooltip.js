@@ -1,6 +1,6 @@
 import Delegate from 'ftdomdelegate';
-import Viewport from 'o-viewport';
-import oGrid from 'o-grid';
+import Viewport from '@financial-times/o-viewport';
+import oGrid from '@financial-times/o-grid';
 import Target from './target.js';
 
 class Tooltip {
