@@ -59,7 +59,7 @@ class LazyLoad {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [rootEl] - The component element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (rootEl, opts) {
 		this.rootEl = rootEl;
@@ -120,8 +120,8 @@ class LazyLoad {
 
 	/**
 	 * Initialise component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {Object} [opts={}] - An options object for configuring the component
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
