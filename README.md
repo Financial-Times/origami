@@ -2,14 +2,14 @@
 
 Helper Sass for the [fticons](http://registry.origami.ft.com/components/fticons) image set.
 
-- [Usage](#usage)
-- [Summary](#summary)
-- [Markup](#markup)
-- [Sass](#sass)
-- [Contributing](#contributing)
-- [Migration guide](#migration)
-- [Contact](#contact)
-- [Licence](#licence)
+-   [Usage](#usage)
+-   [Summary](#summary)
+-   [Markup](#markup)
+-   [Sass](#sass)
+-   [Contributing](#contributing)
+-   [Migration](#migration)
+-   [Contact](#contact)
+-   [Licence](#licence)
 
 ## Usage
 
@@ -19,9 +19,9 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 There are a few ways to get icons from `fticons`:
 
-1. Use [o-icons CSS classes](#markup)
-2. Use [o-icons Sass mixins](#sass) with your own CSS.
-3. Request the icon directly from the [Image Service](https://www.ft.com/__origami/service/image/v2/docs/url-builder?url=fticon-v1%3Aarrow-down&preview=true) (without using o-icons at all).
+1.  Use [o-icons CSS classes](#markup)
+2.  Use [o-icons Sass mixins](#sass) with your own CSS.
+3.  Request the icon directly from the [Image Service](https://www.ft.com/__origami/service/image/v2/docs/url-builder?url=fticon-v1%3Aarrow-down&preview=true) (without using o-icons at all).
 
 
 ## Markup
@@ -48,8 +48,8 @@ The `$color` argument should be set using an [o-colors](https://registry.origami
 
 ```scss
 // Use o-colors so you can use colors from the Origami palette.
-@import "o-icons/main";
-@import "o-colors/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-colors/main";
 
 // Output a 32px, claret coloured plus icon.
 .my-icon-plus {
@@ -103,7 +103,7 @@ The `oIconsContent` mixins outputs styles used by each icon. This is inefficient
 
 To output all icon [helper classes](#markup) include the `oIcons` mixin.
 ```scss
-@import "o-icons/main";
+@import "@financial-times/o-icons/main";
 @include oIcons(); // include helper classes for all icons
 ```
 
@@ -134,7 +134,7 @@ State | Major Version | Last Minor Release | Migration guide |
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-icons/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
 
-----
+***
 
 ## Licence
 

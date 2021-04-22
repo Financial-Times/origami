@@ -1,9 +1,6 @@
 {
-    "description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
-    "keywords": [ "icons", "images" ],
-    "origamiType": "module",
-    "origamiCategory": "primitives",
-    "origamiVersion": 1,
+    "origamiType": "component",
+    "origamiVersion": "2.0",
     "support": "https://github.com/Financial-Times/o-icons/issues",
     "supportContact": {
         "email": "origami.support@ft.com",

@@ -1,14 +1,38 @@
 {
-	"private": true,
-	"name": "o-icons",
+	"name": "@financial-times/o-icons",
+	"version": "0.0.0",
+	"description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
+	"keywords": [
+		"icons",
+		"images"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-icons",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-icons"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+	},
 	"devDependencies": {
 		"eslint": "^7.25.0",
 		"eslint-config-origami-component": "^2.1.1",
-		"origami-ci-tools": "^2.4.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^7.0.1",
+		"remark-preset-lint-origami-component": "prerelease",
+		"stylelint": "^13.12.0",
 		"stylelint-config-origami-component": "^1.0.4"
 	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^10\" install && npm_config_yes=true npx \"origami-build-tools@^10\" demo"
+	"peerDependencies": {
+		"@financial-times/fticons": "^1.23.1"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.10.0"
 	}
 }
