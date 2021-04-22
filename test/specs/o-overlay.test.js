@@ -212,7 +212,6 @@ Overlay.prototype.show
 Overlay.prototype.close
 Overlay.prototype.closeOnExternalClick
 Overlay.prototype.closeOnEscapePress
-Overlay.prototype.closeOnNewLayer
 Overlay.prototype.resizeListener
 Overlay.prototype.broadcast
 Overlay.prototype.realign

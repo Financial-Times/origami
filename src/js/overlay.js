@@ -514,12 +514,6 @@ class Overlay {
 		}
 	}
 
-	closeOnNewLayer(ev) {
-		if (!ev.detail || ev.detail.el !== this) {
-			this.close();
-		}
-	}
-
 	resizeListener(ev) {
 		if (!this.wrapper.contains(ev.target)) {
 			this.respondToWindow();
