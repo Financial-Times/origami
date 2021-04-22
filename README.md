@@ -2,13 +2,13 @@
 
 This utility component adds toggle (show/hide) behaviour to a `<button>` or `<a>` tag and a target.
 
-- [Usage](#usage)
-- [Markup](#markup)
-- [Sass](#sass)
-- [JavaScript](#javascript)
-- [Migration guide](#migration-guide)
-- [Contact](#contact)
-- [Licence](#licence)
+-   [Usage](#usage)
+-   [Markup](#markup)
+-   [Sass](#sass)
+-   [JavaScript](#javascript)
+-   [Migration guide](#migration-guide)
+-   [Contact](#contact)
+-   [Licence](#licence)
 
 ## Usage
 
@@ -64,7 +64,7 @@ or
 As with other Origami components, all `o-toggle` instances on the page with the data attribute `data-o-component="o-toggle"` may be constructed with the `o.DOMContentLoaded` event.
 
 ```js
-import 'o-toggle';
+import '@financial-times/o-toggle';
 document.addEventListener("DOMContentLoaded", function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
@@ -72,14 +72,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Or by calling the `init` method:
 ```js
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 Toggle.init();
 ```
 
 Toggles may also be constructed individually without `data-o-component="o-toggle"`:
 
 ```js
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 const toggleEl = document.querySelector('.o-toggle');
 const toggle = new Toggle(toggleEl, {
 		target: '.my-target',
@@ -95,10 +95,10 @@ const toggle = new Toggle(toggleEl, {
 
 A second parameter can be passed to the oToggle constructor or to the `.init()` function with a config object that has the following options:
 
-- _target_: HTMLElement or selector of the element that will be toggled
-- _callback_: Function or content of a function as _string_ that will be executed every time a toggle happens. It has the following parameters:
-	- State. 'open' or 'close'
-	- Click event object if it comes from the event handler on the toggle
+-   _target_: HTMLElement or selector of the element that will be toggled
+-   _callback_: Function or content of a function as _string_ that will be executed every time a toggle happens. It has the following parameters:
+	-   State. 'open' or 'close'
+	-   Click event object if it comes from the event handler on the toggle
 
 ## Migration guide
 
@@ -111,7 +111,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-toggle/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+***
 
 ## Licence
 

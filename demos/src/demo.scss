@@ -1,5 +1,6 @@
-$o-toggle-is-silent: false;
 @import "./../../main";
+
+@include oToggle();
 
 body {
 	margin: var(--o-spacing-s4, 1rem);

@@ -1,14 +1,11 @@
 {
-  "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
-  "keywords": [ "toggle", "show", "hide" ],
   "brands": [
     "master",
     "internal",
     "whitelabel"
   ],
-  "origamiType": "module",
-  "origamiCategory": "primitives",
-  "origamiVersion": 1,
+  "origamiType": "component",
+  "origamiVersion": "2.0",
   "support": "https://github.com/Financial-Times/o-toggle/issues",
   "supportContact": {
     "email": "origami.support@ft.com",
