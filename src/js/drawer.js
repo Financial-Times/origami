@@ -1,4 +1,4 @@
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 
 const LISTEN_DELAY = 300;
 const INTENT_DELAY = 1000;

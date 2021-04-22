@@ -1,4 +1,4 @@
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 
 function init (headerEl) {
 	const target = headerEl.querySelector('[data-o-header-search]');

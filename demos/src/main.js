@@ -1,4 +1,4 @@
-import '../../';
+import '../../main.js';
 
 document.addEventListener('DOMContentLoaded', setupDemo);
 

@@ -1,4 +1,4 @@
-import { debounce } from 'o-utils';
+import { debounce } from '@financial-times/o-utils';
 
 function init (headerEl) {
 	if (!headerEl.hasAttribute('data-o-header--sticky')) {
