@@ -188,20 +188,20 @@ No JavaScript will run automatically unless you are using the Build Service. You
 
 If you have set up your expander declaratively, use the following to initialise all expanders on the page with the `data-o-component="o-expander"` attribute:
 ```js
-import Expander from 'o-expander';
+import Expander from '@financial-times/o-expander';
 Expander.init();
 ```
 
 Or initialise a specific declarative expander:
 ```js
-import Expander from 'o-expander';
+import Expander from '@financial-times/o-expander';
 const myExpanderElement = document.querySelector('my-expander');
 const myExpander = new Expander(myExpanderElement);
 ```
 
 All declarative options set via [Markup](#markup) may also be passed as an `opts` object. See the [options section](#options) for a full list. e.g:
 ```js
-import Expander from 'o-expander';
+import Expander from '@financial-times/o-expander';
 const myExpanderElement = document.querySelector('my-expander');
 const myExpander = new Expander(myExpanderElement, {
 	shrinkTo: 4,
@@ -226,7 +226,7 @@ All the following can be passed to JavaScript or may be set declaratively via [M
 To create a custom expander call the static `createCustom` method. The `createCustom` method accepts the [same options](#options) as the `init` method except `itemSelector`. Instead of `itemSelector` it accepts two extra objects, `selectors` and `classnames`, to customise all CSS selectors and classes.
 
 ```js
-import Expander from 'o-expander';
+import Expander from '@financial-times/o-expander';
 const myExpanderElement = document.querySelector('my-expander');
 const myCustomExpander = Expander.createCustom(myExpanderElement, {
 	shrinkTo: 4,

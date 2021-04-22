@@ -1,4 +1,4 @@
-import viewport from 'o-viewport';
+import viewport from '@financial-times/o-viewport';
 
 // Used to create a unique o-expander id.
 let count = 0;
