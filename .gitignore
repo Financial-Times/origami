@@ -1,5 +1,9 @@
-bower_components/
-demos/local
-node_modules
+.DS_Store
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
 /build/
-package-lock.json
+.idea/
+/demos/local
+/coverage
