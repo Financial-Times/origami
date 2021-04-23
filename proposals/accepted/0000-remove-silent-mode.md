@@ -45,6 +45,7 @@ Drop the silent mode variable completely from [Origami spec v2](https://github.c
 ## work required
 
 - Update the v2 component spec draft to make primary mixins a `must` instead of a `should`, remove the silent mode variable requirement entirely.
+- Ensure each v2 component has a primary mixin as part of its v2 migration. All Origami maintained components should. If not, at its simplest this involves wrapping all the component's Sass in a single mixin of the same name as the component.
 - Update the `create-origami-component` boilerplate.
 - Search `origami-website` site and `origami-registry-ui` to update any other documentation.
 - Update `origmai-build-tools` to verify the existence of the primary mixin.
@@ -56,7 +57,7 @@ Drop the silent mode variable completely from [Origami spec v2](https://github.c
 /// @see {mixin} oExample
 /// @type Bool
 ```
-- Remove the silent mode variable from every component for its spec v2 major release, update its migration guide to recommend the primary mixin instead. All Origami maintained components have a primary mixin already but there may be instances of components which need to add one. At its simplest this involves wrapping all the component's Sass in a single mixin of the same name as the component.
+- Remove the silent mode variable from every component in a new major release, update its migration guide to recommend the primary mixin instead.
 
 Note: the `mixin-exists` Sass function could be used to throw a helpful error in build tools / build service when the component is missing a primary mixin:
 ```scss
