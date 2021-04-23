@@ -1,6 +1,9 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
+	"brands" : [
+		"master"
+	],
 	"support": "https://github.com/Financial-Times/o-banner/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
