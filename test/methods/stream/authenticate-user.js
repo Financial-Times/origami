@@ -14,16 +14,6 @@ export default function authenticateUser () {
 	describe("comments api options", () => {
 		beforeEach(() => {
 			fixtures.streamMarkup();
-			/*
-			 * origami-build-tools version 10 compiles exports to getters for
-			 * compatibility with as many browsers as possible in addition to the
-			 * ecmascript specification. A slight divergence from the
-			 * specification is that these getters are configurable, so we can
-			 * override it here and stub the validation function.
-			 *
-			 * This should be removed if a future version of origami-build-tools
-			 * includes a bundler that behaves differently.
-			 */
 			fetchJWTStub = sinon.stub();
 			sinon.stub(auth, 'fetchJsonWebToken').get(() => fetchJWTStub);
 			fetchJWTStub.rejects();
