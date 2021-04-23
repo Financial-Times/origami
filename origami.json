@@ -1,12 +1,6 @@
 {
-	"description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
-	"keywords": [
-		"label",
-		"tag"
-	],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",

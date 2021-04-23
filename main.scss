@@ -1,8 +1,8 @@
-@import 'o-spacing/main';
-@import 'o-brand/main';
-@import "o-colors/main";
-@import "o-typography/main";
-@import "o-editorial-typography/main";
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-brand/main';
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-editorial-typography/main";
 
 @import "src/scss/colors";
 @import "src/scss/brand";
