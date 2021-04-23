@@ -119,7 +119,7 @@ const promptValidation = (event) => {
 	});
 };
 
-export {
+export default {
 	prompt,
 	validation,
 	promptValidation

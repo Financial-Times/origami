@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from '../../helpers/fixtures.js';
+import fixtures from '../../helpers/fixtures.js';
 import Stream from '../../../src/js/stream.js';
-import * as auth from '../../../src/js/utils/auth.js';
+import auth from '../../../src/js/utils/auth.js';
 
 let fetchJWTStub;
 

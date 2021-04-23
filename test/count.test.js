@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
-import * as fixtures from './helpers/fixtures.js';
+import fixtures from './helpers/fixtures.js';
 import fetchMock from 'fetch-mock';
 import Count from '../src/js/count.js';
 

@@ -54,6 +54,6 @@ const coralEventMap = new Map([
 	]
 ]);
 
-export {
+export default {
 	coralEventMap
 };

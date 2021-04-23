@@ -73,7 +73,7 @@ function doNotUseStagingEnvironmentMarkup () {
 	insert(html);
 }
 
-export {
+export default {
 	reset,
 	streamMarkup,
 	countMarkup,

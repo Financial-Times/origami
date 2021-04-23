@@ -1,6 +1,6 @@
-import * as events from './utils/events.js';
-import * as displayName from './utils/display-name.js';
-import * as auth from './utils/auth.js';
+import events from './utils/events.js';
+import displayName from './utils/display-name.js';
+import auth from './utils/auth.js';
 import purgeJwtCache from './utils/purge-jwt-cache.js';
 
 class Stream {

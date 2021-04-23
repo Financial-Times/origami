@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* global proclaim sinon */
 import fetchMock from 'fetch-mock';
-import * as fixtures from './helpers/fixtures.js';
+import fixtures from './helpers/fixtures.js';
 import Comments from '../src/js/comments.js';
 import Count from '../src/js/count.js';
 import Stream from '../src/js/stream.js';
