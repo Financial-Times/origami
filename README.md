@@ -67,7 +67,7 @@ A wrapper class `o-editorial-layout-wrapper` may be used to style child elements
 Include all o-editorial-layout styles by including the `oEditorialLayout` mixin.
 
 ```scss
-@import "o-editorial-layout/main";
+@import "@financial-times/o-editorial-layout/main";
 
 @include oEditorialLayout();
 ```
