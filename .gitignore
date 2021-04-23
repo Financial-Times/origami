@@ -5,5 +5,5 @@
 /node_modules/
 /build/
 .idea/
-/demos/local/
-package-lock.json
+/demos/local
+/coverage
