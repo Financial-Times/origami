@@ -233,12 +233,12 @@ Alternatively include base styles with only selected optional features. E.g. to 
 To manually instantiate `o-table`:
 
 ``` js
-import OTable from 'o-table';
+import OTable from '@financial-times/o-table';
 OTable.init();
 ```
 or
 ``` js
-import OTable from 'o-table';
+import OTable from '@financial-times/o-table';
 oTable = new OTable(document.body);
 ```
 
@@ -247,7 +247,7 @@ This will return an instance of `BasicTable` (default), `OverflowTable`, `FlatTa
 Instantiation will add column sorting to all tables. It will also add scroll controls and, if configured, an [expander](#expander) to any `OverflowTable`. These can be configured with [data attributes](#disable-sort) or imperatively with an options object:
 
 ``` js
-import OTable from 'o-table';
+import OTable from '@financial-times/o-table';
 OTable.init(document.body, {
 	sortable: true,
 	expanded: true,
@@ -407,7 +407,7 @@ The formatter accepts the table cell (HTMLElement) and returns a sort value (Num
 In this case we add support for our custom type `emoji-time` by assigning the emoji a numerical sort value. This will effect all tables instantiated by `OTable`.
 
 ``` js
-import OTable from 'o-table';
+import OTable from '@financial-times/o-table';
 // Set a filter for custom data type "emoji-time".
 // The return value may be a string or number.
 OTable.setSortFormatterForType('emoji-time', (cell) => {

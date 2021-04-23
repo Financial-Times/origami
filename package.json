@@ -1,18 +1,53 @@
 {
-	"private": true,
-	"name": "o-table",
+	"name": "@financial-times/o-table",
+	"version": "0.0.0",
+	"description": "Provides styling and behvaiour for tables across FT products.",
+	"keywords": [
+		"table",
+		"data",
+		"columns",
+		"rows",
+		"filter",
+		"sort"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-table",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-table"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+	},
+	"dependencies": {
+		"ftdomdelegate": "^4.0.6"
+	},
 	"devDependencies": {
-		"eslint": "^7.8.1",
-		"eslint-config-origami-component": "^2.1.0",
-		"origami-ci-tools": "^2.0.2",
+		"eslint": "^7.24.0",
+		"eslint-config-origami-component": "^2.1.1",
 		"remark": "^13.0.0",
-		"remark-lint": "^8.0.0",
-		"remark-preset-lint-origami-component": "^1.1.3",
-		"stylelint": "^13.7.0",
+		"remark-lint": "^7.0.1",
+		"remark-preset-lint-origami-component": "prerelease",
+		"stylelint": "^13.12.0",
 		"stylelint-config-origami-component": "^1.0.4"
 	},
-	"scripts": {
-		"build": "npm_config_yes=true npx \"origami-build-tools@^10\" install && npm_config_yes=true npx \"origami-build-tools@^10\" demo",
-		"start": "npx serve ./demos/local"
+	"peerDependencies": {
+		"@financial-times/o-brand": "prerelease",
+		"@financial-times/o-buttons": "prerelease",
+		"@financial-times/o-colors": "prerelease",
+		"@financial-times/o-grid": "prerelease",
+		"@financial-times/o-icons": "prerelease",
+		"@financial-times/o-spacing": "prerelease",
+		"@financial-times/o-typography": "prerelease",
+		"@financial-times/o-visual-effects": "prerelease"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.10.0"
 	}
 }
