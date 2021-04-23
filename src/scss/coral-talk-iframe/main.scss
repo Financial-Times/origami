@@ -11,10 +11,10 @@
  */
 
 // stylelint-disable selector-class-pattern, declaration-no-important
-@import 'o-buttons/main';
-@import 'o-colors/main';
-@import 'o-typography/main';
-@import 'o-editorial-typography/main';
+@import '@financial-times/o-buttons/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-editorial-typography/main';
 
 :root {
 	--font-family-primary: #{inspect(oTypographyGetFontFamily('sans'))};
