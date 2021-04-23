@@ -1,7 +1,9 @@
-.sass-cache
-bower_components
-coverage
-demos/local
-node_modules
-npm-debug.log
-package-lock.json
+.DS_Store
+.env
+/.sass-cache/
+/bower_components/
+/node_modules/
+/build/
+.idea/
+/demos/local
+/coverage

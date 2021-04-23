@@ -137,7 +137,7 @@ No code will run automatically unless you are using the Build Service. You must 
 If you have set up your banner declaratively:
 
 ```js
-import Banner from 'o-banner';
+import Banner from '@financial-times/o-banner';
 const bannerElement = document.getElementById('my-banner-element');
 const myBanner = new Banner(bannerElement);
 ```
@@ -147,7 +147,7 @@ The second argument passed to `oBanner` is an [options object](#options), this c
 If you wish to create a banner from scratch with no existing DOM elements, you can set up your banner like this:
 
 ```js
-import Banner from 'o-banner';
+import Banner from '@financial-times/o-banner';
 const myBanner = new Banner(null, {
 	contentLong: 'Try the new compact homepage. A list view of today\'s homepage with fewer images.',
 	contentShort: 'Try the new compact homepage.',

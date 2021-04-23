@@ -1,9 +1,6 @@
 {
-	"description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
-	"keywords": "banner, message, messaging",
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-banner/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
