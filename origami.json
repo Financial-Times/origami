@@ -1,9 +1,6 @@
 {
-	"description": "Tabs component for dividing content into meaningful sections",
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
-	"keywords": ["tabs", "ui"],
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands" : [
 		"master",
 		"internal",
