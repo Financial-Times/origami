@@ -1,5 +1,5 @@
 import Delegate from 'ftdomdelegate';
-import viewport from 'o-viewport';
+import viewport from '@financial-times/o-viewport';
 import utils from './utils.js';
 const overlays = {};
 
