@@ -1,9 +1,6 @@
 {
-	"description": "Provides styling for teaser elements, which contain information about an article and link through to it",
-	"keywords": ["article", "teaser", "card", "link"],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": [
 		"master"
 	],

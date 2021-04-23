@@ -83,7 +83,7 @@ The following elements are supported by default:
 
 To include styles for all teasers call `oTeaser`:
 ```scss
-@import 'o-teaser/main';
+@import '@financial-times/o-teaser/main';
 
 @include oTeaser();
 ```
