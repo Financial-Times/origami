@@ -1,5 +1,6 @@
 {
 	"name": "@financial-times/o-syntax-highlight",
+	"version": "0.0.0",
 	"description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
 	"keywords": [
 		"syntax",
@@ -10,19 +11,20 @@
 		"url": "https://registry.origami.ft.com/components/o-syntax-highlight"
 	},
 	"license": "MIT",
-	"engines": {
-		"npm": "^7"
-	},
+	"type": "module",
 	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+	},
 	"devDependencies": {
-		"eslint": "^7.1.0",
-		"eslint-config-origami-component": "^2.0.1",
-		"origami-ci-tools": "^2.0.0",
+		"eslint": "^7.24.0",
+		"eslint-config-origami-component": "^2.1.1",
 		"remark": "^13.0.0",
-		"remark-lint": "^8.0.0",
+		"remark-lint": "^7.0.1",
 		"remark-preset-lint-origami-component": "prerelease",
-		"stylelint": "^13.5.0",
-		"stylelint-config-origami-component": "^1.0.2"
+		"stylelint": "^13.12.0",
+		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"dependencies": {
 		"prismjs": "^1.14.0"
@@ -30,9 +32,8 @@
 	"peerDependencies": {
 		"@financial-times/o-colors": "prerelease"
 	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+	"engines": {
+		"npm": "^7"
 	},
 	"volta": {
 		"node": "14.16.1",
