@@ -1,4 +1,4 @@
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 import layout from './layout.js';
 
 
