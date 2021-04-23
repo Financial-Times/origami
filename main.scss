@@ -2,11 +2,11 @@
 // that will not have the problem of re-outputting placeholders on every import
 $_o-quote-first-import: true !default;
 
-@import "o-spacing/main";
-@import "o-colors/main";
-@import "o-typography/main";
-@import "o-editorial-typography/main";
-@import "o-icons/main";
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-editorial-typography/main";
+@import "@financial-times/o-icons/main";
 
 @import "src/scss/variables";
 @import "src/scss/brand";
