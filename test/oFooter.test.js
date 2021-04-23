@@ -2,7 +2,7 @@
 /* global proclaim sinon */
 
 import * as fixtures from './helpers/fixtures.js';
-import Toggle from 'o-toggle';
+import Toggle from '@financial-times/o-toggle';
 
 import oFooter from './../main.js';
 
