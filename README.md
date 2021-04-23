@@ -119,7 +119,7 @@ No code will run automatically unless you are using the [Build Service](https://
 Assuming you have an HTML element on the page to represent your comment stream or count:
 
 ```js
-import oComments from 'o-comments';
+import oComments from '@financial-times/o-comments';
 const commentsElement = document.querySelector('#element');
 const Comments = new oComments(commentsElement, {
 	articleId: 'article-id',
@@ -132,14 +132,14 @@ Add `useStagingEnvironment: true` to the options if you want to use Coral stagin
 If you want to initialise every comment stream or count element on the page (based on the presence of the attribute: `data-o-component="o-comments"`):
 
 ```js
-import oComments from 'o-comments';
+import oComments from '@financial-times/o-comments';
 oComments.init();
 ```
 
 ### Firing an oDomContentLoaded event
 
 ```js
-import 'o-comments';
+import '@financial-times/o-comments';
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
@@ -184,7 +184,7 @@ If you want to disable the o-tracking events and manage tracking / analytics you
 
 **Imperatively**
 ```js
-import oComments from 'o-comments';
+import oComments from '@financial-times/o-comments';
 const commentsElement = document.querySelector('#element');
 const comments = new Comments(commentsElement, {
 	disableOTracking: true

@@ -1,13 +1,6 @@
 {
-	"description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content",
-	"keywords": [
-		"comments",
-		"stream",
-		"count"
-	],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-comments/issues",
 	"supportContact": {
 		"slack": "financialtimes/content-innovation",

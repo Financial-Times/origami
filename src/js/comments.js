@@ -6,12 +6,15 @@ class Comments {
 		this.options = Object.assign({}, {}, opts || Comments.getDataAttributes(rootEl));
 		const isCount = rootEl.getAttribute('data-o-comments-count') === 'true';
 		if (!this.options.articleId) {
+			// eslint-disable-next-line no-console
 			console.error('Missing required configuration option: `articleId`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
 		}
 		if (!this.options.articleUrl) {
+			// eslint-disable-next-line no-console
 			console.error('Missing required configuration option: `articleUrl`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
 		}
 		if (!this.options.title) {
+			// eslint-disable-next-line no-console
 			console.error('Missing required configuration option: `title`. Documentation on how to construct an instance of Comments is at https://registry.origami.ft.com/components/o-comments@7.7.3/readme#constructing-an-o-comments');
 		}
 

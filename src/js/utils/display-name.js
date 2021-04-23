@@ -1,7 +1,7 @@
-import Overlay from 'o-overlay';
+import Overlay from '@financial-times/o-overlay';
 
 const form = `<form id="o-comments-displayname-form" class="o-forms o-forms o-comments__displayname-form">
-			<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">		
+			<label for="o-comments-displayname-input" class="o-forms-field o-comments__displayname-field">
 				<span class="o-forms-title">Display name</span>
 			</label>
 			<div class="o-comments__displayname-container">
