@@ -1,5 +1,11 @@
-
 # Migration
+
+## Migrating from v3 to v4
+
+- The `oLayers.new` event is removed, use `oOverlay.layerOpen` instead.
+- The `oLayers.close` event is removed, use `oOverlay.layerClose` instead.
+
+_Note: When replacing `o-layers` events (`oLayers.close`, `oLayers.new`) make sure they are used only for responding to `o-overlay` and not other packages your project depends on, which may also fire `o-layers` events. That's unlikely. `o-layers` is deprecated and is not used by any other maintained Origami components._
 
 ## Migrating from v2 to v3
 

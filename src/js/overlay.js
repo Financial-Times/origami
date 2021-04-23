@@ -1,5 +1,5 @@
 import Delegate from 'ftdomdelegate';
-import viewport from '@financial-times/o-viewport';
+import viewport from 'o-viewport';
 import utils from './utils.js';
 const overlays = {};
 
@@ -17,6 +17,9 @@ const checkOptions = function (opts) {
 	// Overlays should be modal and layers by default
 	if (typeof opts.modal === 'undefined') {
 		opts.modal = true;
+	}
+	if (typeof opts.layer === 'undefined') {
+		opts.layer = true;
 	}
 
 	if (opts.compact && opts.heading && opts.heading.shaded) {
@@ -381,6 +384,13 @@ class Overlay {
 			this.delegates.doc.on('keyup', this.closeOnEscapePressHandler);
 		}
 
+		if (this.opts.layer) {
+			this.closeOnNewLayerHandler = this.closeOnNewLayer.bind(this);
+			this.delegates.context.on('oOverlay.layerOpen', this.closeOnNewLayerHandler);
+
+			this.broadcast('layerOpen');
+		}
+
 		if (this.opts.heading || this.opts.tooltip || this.opts.customclose) {
 			this.delegates.wrap.on('click', '.o-overlay__close', this.closeHandler);
 			this.delegates.wrap.on(
@@ -494,6 +504,10 @@ class Overlay {
 
 		this.visible = false;
 
+		if (this.opts.layer) {
+			this.broadcast('layerClose');
+		}
+
 		return false;
 	}
 
@@ -510,6 +524,12 @@ class Overlay {
 
 	closeOnEscapePress(ev) {
 		if (!this.opts.preventclosing && ev.keyCode === 27) {
+			this.close();
+		}
+	}
+
+	closeOnNewLayer(ev) {
+		if (!ev.detail || ev.detail.el !== this) {
 			this.close();
 		}
 	}

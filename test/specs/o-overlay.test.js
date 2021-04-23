@@ -97,6 +97,11 @@ describe("Overlay", () => {
 			}, 10);
 		});
 
+		it("Sets the context when the trigger has been set", () => {
+			const testOverlay = new Overlay('myID', {html: 'hello', trigger: '#testTrigger'});
+			proclaim.strictEqual(document.body, testOverlay.context);
+		});
+
 		it("Sets the context to the parentnode if it's been set but the trigger hasn't", () => {
 			const testOverlay = new Overlay('myID', {html: 'hello', parentnode: '#element'});
 			proclaim.strictEqual(document.querySelector('#element'), testOverlay.context);
@@ -212,6 +217,7 @@ Overlay.prototype.show
 Overlay.prototype.close
 Overlay.prototype.closeOnExternalClick
 Overlay.prototype.closeOnEscapePress
+Overlay.prototype.closeOnNewLayer
 Overlay.prototype.resizeListener
 Overlay.prototype.broadcast
 Overlay.prototype.realign
