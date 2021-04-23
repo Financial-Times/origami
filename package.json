@@ -2,6 +2,7 @@
 	"name": "@financial-times/o-big-number",
 	"version": "0.0.0",
 	"description": "Typographical styles to highlight a big number.",
+	"keywords": [],
 	"homepage": "https://registry.origami.ft.com/components/o-big-number",
 	"bugs": {
 		"url": "https://registry.origami.ft.com/components/o-big-number"
