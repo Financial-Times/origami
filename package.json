@@ -32,5 +32,9 @@
 	},
 	"dependencies": {
 		"@financial-times/ft-date-format": "^1.0.5"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
 	}
 }
