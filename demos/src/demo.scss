@@ -1,6 +1,6 @@
-$o-teaser-is-silent: false;
 @import '../../main';
 
+@include oTeaser();
 @include oFonts();
 
 body {
@@ -44,4 +44,3 @@ body {
 .demo-image {
 	background-color: oColorsByName('white');
 }
-
