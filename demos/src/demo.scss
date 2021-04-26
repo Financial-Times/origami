@@ -1,5 +1,5 @@
-$o-message-is-silent: false;
 @import '../../main';
+@include oMessage();
 
 body {
 	background: oColorsByUsecase('page', 'background');
