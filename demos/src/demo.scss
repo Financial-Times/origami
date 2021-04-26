@@ -1,7 +1,5 @@
-
-$o-stepped-progress-is-silent: false;
-
 @import '../../main';
+@include oSteppedProgress();
 
 body {
 	background: oColorsByUsecase('page', 'background');

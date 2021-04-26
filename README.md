@@ -135,11 +135,11 @@ There is [full API documentation available in the Origami Registry](https://regi
 
 ### Silent mode
 
-As with all Origami components, o-stepped-progress has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) set `$o-stepped-progress-is-silent: false;` in your Sass before you import the o-stepped-progress Sass:
+As with all Origami components, o-stepped-progress has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) call `@include oSteppedProgress();` in your Sass after you import the o-stepped-progress Sass:
 
 ```scss
-$o-stepped-progress-is-silent: false;
 @import '@financial-times/o-stepped-progress/main';
+@include oSteppedProgress();
 ```
 
 ### Mixin: `oSteppedProgress`
