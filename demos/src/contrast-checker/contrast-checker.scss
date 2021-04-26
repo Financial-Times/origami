@@ -1,7 +1,6 @@
-$o-colors-is-silent: false;
-
 // Import colors module
 @import '../../../main';
+@include oColors();
 
 @mixin swatchStyle() {
 	appearance: none;
