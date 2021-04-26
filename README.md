@@ -190,7 +190,7 @@ There are several options used to change the appearance or behaviour of o-banner
 
 ## Sass
 
-As with all Origami components, o-banner has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-banner-is-silent: false;` in your Sass before you've imported the o-banner Sass.
+As with all Origami components, o-banner has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) call `@include oBanner();` in your Sass after you've imported the o-banner Sass.
 
 o-banner includes a primary mixin that takes an `$opts` parameter. The `themes` key of `$opts` includes styles for [themes](#themes). The `layouts` key includes styles for [layouts](#layouts):
 
