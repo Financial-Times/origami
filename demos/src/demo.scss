@@ -1,5 +1,5 @@
-$o-share-is-silent: false;
 @import '../../main';
+@include oShare();
 
 .demo {
 	background-color: oColorsByUsecase('page', 'background');
