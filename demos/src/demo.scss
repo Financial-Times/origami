@@ -1,6 +1,5 @@
-
-$o-cookie-message-is-silent: false;
 @import '../../main';
+@include oCookieMessage();
 
 body {
 	font-family: MetricWeb;
