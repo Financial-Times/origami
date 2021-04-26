@@ -1,5 +1,5 @@
-$o-lazy-load-is-silent: false;
 @import '../../main';
+@include oLazyLoad();
 
 // Warning message to display if a demo should be viewed in a new window
 .demo-popout-message {
