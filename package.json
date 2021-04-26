@@ -46,7 +46,7 @@
 	},
 	"volta": {
 		"node": "14.16.1",
-		"npm": "7.10.0"
+		"npm": "7.11.1"
 	},
 	"dependencies": {
 		"ftdomdelegate": "^4.0.6"
