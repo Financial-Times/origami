@@ -1,6 +1,6 @@
-$o-video-is-silent: false;
-
 @import "../../main";
+
+@include oVideo();
 
 body {
 	font-family: MetricWeb, sans-serif;
