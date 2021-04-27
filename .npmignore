@@ -6,10 +6,9 @@ demos/local
 .DS_Store
 node_modules/
 bower_components/
-package-lock.json
-.eslintrc.js
+.eslintrc.cjs
 .github
 .gitignore
-.remarkrc.js
-.stylelintrc.js
+.remarkrc.cjs
+.stylelintrc.cjs
 test
