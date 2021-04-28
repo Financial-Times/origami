@@ -17,8 +17,8 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@^4.0.0",
-			"o-normalise@^2.0.0"
+			"@financial-times/o-fonts@5.0.0-1",
+			"@financial-times/o-normalise@3.0.0-0"
 		]
 	},
 	"demos": [
@@ -32,13 +32,13 @@
 			"description": "",
 			"display_html": false,
 			"dependencies": [
-				"o-buttons@^6.0.0",
-				"o-fonts@^4.0.0",
-				"o-forms@^8.0.0",
-				"o-normalise@^2.0.0",
-				"o-overlay@^3.0.0",
-				"o-syntax-highlight@^3.0.0",
-				"o-tabs@^5.0.0"
+				"@financial-times/o-buttons@7.0.0-0",
+				"@financial-times/o-fonts@5.0.0-1",
+				"@financial-times/o-forms@9.0.0-0",
+				"@financial-times/o-normalise@3.0.0-0",
+				"@financial-times/o-overlay@4.0.0-0",
+				"@financial-times/o-syntax-highlight@4.0.0-0",
+				"@financial-times/o-tabs@6.0.0-0"
 			],
 			"brands": [
 				"master"
@@ -54,11 +54,11 @@
 			"display_html": false,
 			"description": "",
 			"dependencies": [
-				"o-fonts@^4.0.0",
-				"o-forms@^8.0.0",
-				"o-normalise@^2.0.0",
-				"o-overlay@^3.0.0",
-				"o-syntax-highlight@^3.0.0"
+				"@financial-times/o-fonts@5.0.0-1",
+				"@financial-times/o-forms@9.0.0-0",
+				"@financial-times/o-normalise@3.0.0-0",
+				"@financial-times/o-overlay@4.0.0-0",
+				"@financial-times/o-syntax-highlight@4.0.0-0"
 			],
 			"brands":	[
 				"master"
@@ -150,13 +150,13 @@
 			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
 			"dependencies": [
-				"o-buttons@^6.0.0",
-				"o-fonts@^4.0.0",
-				"o-forms@^8.0.0",
-				"o-normalise@^2.0.0",
-				"o-overlay@^3.0.0",
-				"o-syntax-highlight@^3.0.0",
-				"o-tabs@^5.0.0"
+				"@financial-times/o-buttons@7.0.0-0",
+				"@financial-times/o-fonts@5.0.0-1",
+				"@financial-times/o-forms@9.0.0-0",
+				"@financial-times/o-normalise@3.0.0-0",
+				"@financial-times/o-overlay@4.0.0-0",
+				"@financial-times/o-syntax-highlight@4.0.0-0",
+				"@financial-times/o-tabs@6.0.0-0"
 			],
 			"description": "",
 			"brands": [
@@ -172,11 +172,11 @@
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
 			"dependencies": [
-				"o-fonts@^4.0.0",
-				"o-forms@^8.0.0",
-				"o-normalise@^2.0.0",
-				"o-overlay@^3.0.0",
-				"o-syntax-highlight@^3.0.0"
+				"@financial-times/o-fonts@5.0.0-1",
+				"@financial-times/o-forms@9.0.0-0",
+				"@financial-times/o-normalise@3.0.0-0",
+				"@financial-times/o-overlay@4.0.0-0",
+				"@financial-times/o-syntax-highlight@4.0.0-0"
 			],
 			"description": "",
 			"brands":	[
