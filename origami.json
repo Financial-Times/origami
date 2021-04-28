@@ -17,9 +17,9 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@^4.0.0",
-			"o-icons@^6.0.0",
-			"o-normalise@^2.0.1"
+			"@financial-times/o-fonts@5.0.0-1",
+			"@financial-times/o-icons@7.0.0-0",
+			"@financial-times/o-normalise@3.0.0-0"
 		]
 	},
 	"demos": [
