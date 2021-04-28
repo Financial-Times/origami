@@ -542,7 +542,9 @@ class Overlay {
 
 	broadcast(eventType, namespace, detail) {
 		namespace = namespace || 'oOverlay';
-		const target = this.wrapper || document.body;
+
+		const isLayerEvent = eventType === 'layerOpen' || eventType === 'layerClose';
+		const target = isLayerEvent ? this.context : this.wrapper || document.body;
 
 		detail = detail || {};
 
