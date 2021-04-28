@@ -19,8 +19,8 @@
 		"template": "demos/src/message-template.mustache",
 		"documentClasses": "",
 		"dependencies": [
-			"o-fonts@^4.0.0",
-			"o-normalise@^2.0.0"
+			"@financial-times/o-fonts@5.0.0-1",
+			"@financial-times/o-normalise@3.0.0-0"
 		]
 	},
 	"demos": [
