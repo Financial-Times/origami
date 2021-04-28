@@ -16,8 +16,8 @@
 		"js": "demos/src/demo.js",
 		"documentClasses": "",
 		"dependencies": [
-			"o-date@^4.0.0",
-			"o-normalise@^2.0.0"
+			"@financial-times/o-date@5.0.0-0",
+			"@financial-times/o-normalise@3.0.0-0"
 		]
 	},
 	"demos": [
