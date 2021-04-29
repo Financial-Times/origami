@@ -125,10 +125,9 @@ describe("OverflowTable", () => {
 				const thead = oTableEl.querySelector('thead');
 				const sortButtons = thead.querySelectorAll('button');
 				proclaim.equal(sortButtons.length, 0, 'Expected to find no sort buttons when table has been set to non-sortable.');
+				done();
 			} catch (error) {
 				done(error);
-			} finally {
-				done();
 			}
 		}, 100);
 	});
@@ -139,10 +138,14 @@ describe("OverflowTable", () => {
 			oTableEl = noTableWrapperOrContainer(oTableEl);
 			expandable(oTableEl, { expanded: false });
 			window.onerror = function (message, file, line, col, error) {
-				proclaim.include(error.message, 'container', 'Expected an error when a table is configured to be expandable but has no container element.');
-				window.onerror = null;
-				done();
-				return true;
+				try {
+					proclaim.include(error.message, 'container', 'Expected an error when a table is configured to be expandable but has no container element.');
+					window.onerror = null;
+					done();
+					return true;
+				} catch (error) {
+					done(error);
+				}
 			};
 			new OverflowTable(oTableEl, sorter);
 		});
@@ -156,8 +159,12 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { expanded: true });
 			const table = new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertExpanded(table, { expanded: true });
-				done();
+				try {
+					assertExpanded(table, { expanded: true });
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -165,8 +172,12 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { expanded: false });
 			const table = new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertExpanded(table, { expanded: false });
-				done();
+				try {
+					assertExpanded(table, { expanded: false });
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -175,12 +186,20 @@ describe("OverflowTable", () => {
 			const table = new OverflowTable(oTableEl, sorter);
 			table.contractTable();
 			setTimeout(() => {
-				assertExpanded(table, { expanded: false });
-				table.expandTable();
-				setTimeout(() => {
-					assertExpanded(table, { expanded: true });
-					done();
-				}, 500);
+				try {
+					assertExpanded(table, { expanded: false });
+					table.expandTable();
+					setTimeout(() => {
+						try {
+							assertExpanded(table, { expanded: true });
+							done();
+						} catch (error) {
+							done(error);
+						}
+					}, 500);
+				} catch (error) {
+					done(error);
+				}
 			}, 500);
 		});
 
@@ -188,8 +207,12 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { minimumRowCount: 2, expanded: false });
 			const table = new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertExpanded(table, { expanded: false, minimumRowCount: 2});
-				done();
+				try {
+					assertExpanded(table, { expanded: false, minimumRowCount: 2});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -197,9 +220,13 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { minimumRowCount: 200, expanded: false });
 			const table = new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				proclaim.isFalse(table.canExpand());
-				proclaim.isFalse(table.rootEl.hasAttribute('aria-expanded'), `Did not expect "aria-expanded" on a table which can not expand.`);
-				done();
+				try {
+					proclaim.isFalse(table.canExpand());
+					proclaim.isFalse(table.rootEl.hasAttribute('aria-expanded'), `Did not expect "aria-expanded" on a table which can not expand.`);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 	});
@@ -214,18 +241,26 @@ describe("OverflowTable", () => {
 			oTableEl = noTableWrapperOrContainer(oTableEl);
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				proclaim.isNull(oTableEl.querySelector('.o-table-control--forward'), 'Did not expect to find a forward button.');
-				proclaim.isNull(oTableEl.querySelector('.o-table-control--back'), 'Did not expect to find a back button.');
-				done();
+				try {
+					proclaim.isNull(oTableEl.querySelector('.o-table-control--forward'), 'Did not expect to find a forward button.');
+					proclaim.isNull(oTableEl.querySelector('.o-table-control--back'), 'Did not expect to find a back button.');
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
-		it("forward / backward buttons are added given wrapper and container elements", (done) => {
+		it('forward / backward buttons are added given wrapper and container elements', done => {
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				proclaim.isNotNull(document.querySelector('.o-table-control--forward'), 'Did not find forward button.');
-				proclaim.isNotNull(document.querySelector('.o-table-control--back'), 'Did not find back button.');
-				done();
+				try {
+					proclaim.isNotNull(document.querySelector('.o-table-control--forward'), 'Did not find forward button.');
+					proclaim.isNotNull(document.querySelector('.o-table-control--back'), 'Did not find back button.');
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -236,11 +271,15 @@ describe("OverflowTable", () => {
 			oTableEl = document.querySelector('[data-o-component=o-table]');
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true,
-					visuallyHidden: true
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true,
+						visuallyHidden: true,
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -251,11 +290,15 @@ describe("OverflowTable", () => {
 			new OverflowTable(oTableEl, sorter);
 			scrollTable(oTableEl, { toEnd: true });
 			setTimeout(() => {
-				assertForwardButton({
-					disabled: true,
-					visuallyHidden: true
-				});
-				done();
+				try {
+					assertForwardButton({
+						disabled: true,
+						visuallyHidden: true
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -263,11 +306,15 @@ describe("OverflowTable", () => {
 			canScrollPastTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true,
-					visuallyHidden: false
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true,
+						visuallyHidden: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 
@@ -276,11 +323,15 @@ describe("OverflowTable", () => {
 			new OverflowTable(oTableEl, sorter);
 			scrollTable(oTableEl, { toEnd: true });
 			setTimeout(() => {
-				assertForwardButton({
-					disabled: true,
-					visuallyHidden: false
-				});
-				done();
+				try {
+					assertForwardButton({
+						disabled: true,
+						visuallyHidden: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("forward / backward buttons are sticky and hidden when the table is scrolled past", (done) => {
@@ -288,17 +339,21 @@ describe("OverflowTable", () => {
 			scrollPastTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true,
-					visuallyHidden: true,
-					sticky: true
-				});
-				assertForwardButton({
-					disabled: true,
-					visuallyHidden: true,
-					sticky: true
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true,
+						visuallyHidden: true,
+						sticky: true
+					});
+					assertForwardButton({
+						disabled: true,
+						visuallyHidden: true,
+						sticky: true
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("forward / backward buttons are not sticky when the table can not be scrolled past", (done) => {
@@ -307,17 +362,21 @@ describe("OverflowTable", () => {
 			oTableEl = document.querySelector('[data-o-component=o-table]');
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true, // disabled as at the start of the table
-					visuallyHidden: true, // hidden as at the start of the table
-					sticky: false
-				});
-				assertForwardButton({
-					disabled: false,
-					visuallyHidden: false,
-					sticky: false
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true, // disabled as at the start of the table
+						visuallyHidden: true, // hidden as at the start of the table
+						sticky: false
+					});
+					assertForwardButton({
+						disabled: false,
+						visuallyHidden: false,
+						sticky: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 	});
@@ -334,8 +393,12 @@ describe("OverflowTable", () => {
 			canScrollPastTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertDock(true);
-				done();
+				try {
+					assertDock(true);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("is not added given the table is smaller than the viewport", (done) => {
@@ -343,8 +406,12 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { minimumRowCount: 3, expanded: false }); // assumes a contracted table is smaller than the viewport
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertDock(false);
-				done();
+				try {
+					assertDock(false);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("is added if the table is smaller than the viewport and can be scrolled past", (done) => {
@@ -353,24 +420,36 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { minimumRowCount: 3, expanded: false }); // assumes a contracted table is smaller than the viewport
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertDock(true);
-				done();
+				try {
+					assertDock(true);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("is not added given the table is not scrollable", (done) => {
 			expandable(oTableEl, { expanded: false });
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertDock(false);
-				done();
+				try {
+					assertDock(false);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("is not added given the table is not expandable", (done) => {
 			canScrollTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertDock(false);
-				done();
+				try {
+					assertDock(false);
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("scroll controls are not sticky and instead \"dock\" given the dock exists and the table is shorter than the viewport", (done) => {
@@ -378,25 +457,33 @@ describe("OverflowTable", () => {
 			expandable(oTableEl, { minimumRowCount: 3, expanded: false }); // assumes non-expanded table is shorter than viewport
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertForwardButton({
-					disabled: false,
-					visuallyHidden: false,
-					sticky: false,
-					dock: true
-				});
-				done();
+				try {
+					assertForwardButton({
+						disabled: false,
+						visuallyHidden: false,
+						sticky: false,
+						dock: true
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("scroll controls do not \"dock\" if the dock does not exist", (done) => {
 			canScrollTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true, // disabled as at the start
-					visuallyHidden: true, // hidden as at the start and not in a dock
-					dock: false
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true, // disabled as at the start
+						visuallyHidden: true, // hidden as at the start and not in a dock
+						dock: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("scroll controls do not \"dock\" when the table is taller than the viewport", (done) => {
@@ -405,12 +492,16 @@ describe("OverflowTable", () => {
 			forceExpandedTableTallerThanViewport(oTableEl);
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true, // disabled as at the start
-					visuallyHidden: true, // hidden as at the start and not in a dock
-					dock: false
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true, // disabled as at the start
+						visuallyHidden: true, // hidden as at the start and not in a dock
+						dock: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("sticky scroll controls are visually hidden when scrolling past a table with no \"dock\".", (done) => {
@@ -419,13 +510,17 @@ describe("OverflowTable", () => {
 			scrollPastTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertForwardButton({
-					disabled: true,
-					visuallyHidden: true, // hidden as scrolled past the table
-					sticky: true,
-					dock: false
-				});
-				done();
+				try {
+					assertForwardButton({
+						disabled: true,
+						visuallyHidden: true, // hidden as scrolled past the table
+						sticky: true,
+						dock: false
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 		it("sticky scroll controls remain visible when scrolling past a table with a \"dock\".", (done) => {
@@ -435,13 +530,17 @@ describe("OverflowTable", () => {
 			scrollPastTable();
 			new OverflowTable(oTableEl, sorter);
 			setTimeout(() => {
-				assertBackButton({
-					disabled: true, // disabled as at the start
-					visuallyHidden: false, // visible in dock (does not scroll off table)
-					sticky: true,
-					dock: true
-				});
-				done();
+				try {
+					assertBackButton({
+						disabled: true, // disabled as at the start
+						visuallyHidden: false, // visible in dock (does not scroll off table)
+						sticky: true,
+						dock: true
+					});
+					done();
+				} catch (error) {
+					done(error);
+				}
 			}, 150);
 		});
 	});
