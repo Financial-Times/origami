@@ -50,7 +50,7 @@ For an editorial style blockquote swap the `o-quote--standard` class for `o-quot
 To output all o-quote styles include the `oQuote` mixin.
 
 ```scss
-@import 'o-quote/main';
+@import '@financial-times/o-quote/main';
 @include oQuote();
 ```
 
