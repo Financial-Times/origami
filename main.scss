@@ -1,13 +1,13 @@
 /// @group o-overlay
 /// @link http://registry.origami.ft.com/components/o-overlay
 
-@import 'o-brand/main';
-@import 'o-colors/main';
-@import 'o-typography/main';
-@import 'o-spacing/main';
-@import 'o-normalise/main';
-@import 'o-icons/main';
-@import 'o-visual-effects/main';
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-visual-effects/main';
 @import 'src/scss/variables';
 @import 'src/scss/brand';
 @import 'src/scss/close';
