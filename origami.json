@@ -24,7 +24,7 @@
 		"documentClasses": "",
 		"dependencies": [
 			"@financial-times/o-forms@9.0.0-1",
-			"@financial-times/o-overlay@4.0.0-0"
+			"@financial-times/o-overlay@4.0.0-beta.1"
 		]
 	},
 	"demos": [
