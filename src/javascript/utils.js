@@ -20,7 +20,8 @@ const page_callbacks = [];
  * @returns {void}
  */
 function log(...args) {
-	if (get('config').test && window.console) {
+	const config = get('config');
+	if (config && config.test && window.console) {
 		for (const arg of args) {
 			window.console.log(arg);
 		}

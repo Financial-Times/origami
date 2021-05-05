@@ -35,14 +35,15 @@ function sendRequest(request, callback) {
 			getTransport('image')();
 	const user_callback = request.callback;
 
-	const core_system = getSetting('config') && getSetting('config').system || {};
+	const config = getSetting('config');
+	const core_system = config && config.system || {};
 	const system = merge(core_system, {
 		version: getSetting('version'), // Version of the tracking client e.g. '1.2'
 		source: getSetting('source'), // Source of the tracking client e.g. 'o-tracking'
 		transport: transport.name, // The transport method used.
 	});
 
-	if (getSetting('config').test) {
+	if (config && config.test) {
 		system.is_live = false;
 	} else {
 		system.is_live = true;
