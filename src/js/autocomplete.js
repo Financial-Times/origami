@@ -8,25 +8,134 @@ class Autocomplete {
 	 */
 	constructor (autocompleteEl, options) {
 		this.autocompleteEl = autocompleteEl;
-		this.options = Object.assign({}, {
+		this.options = Object.assign({
+			placeholder: '',
+			cssNamespace: 'o-autocomplete',
+			displayMenu: 'overlay',
+			showNoOptionsFound: false,
+			templates: {
+				suggestion: this.suggestionTemplate.bind(this)
+			}
 		}, options || Autocomplete.getDataAttributes(autocompleteEl));
 
-		const element = autocompleteEl.querySelector('select');
+		// If highlighter is a string, then it is the name of a global function to use.
+		// If highlighter is not a string, then it is a function to use.
+		if (typeof this.options.highlighter === 'string') {
+			this.options.highlighter = window[this.options.highlighter];
+		}
 
 		if (this.options.source) {
-			accessibleAutocomplete({
+			// If source is a string, then it is the name of a global function to use.
+			// If source is not a string, then it is a function to use.
+			if (typeof this.options.source === 'string') {
+				this.options.source = window[this.options.source];
+			}
+			autocompleteEl.innerHTML = '';
+			const options = Object.assign({
 				element: autocompleteEl,
 				id: autocompleteEl.id,
-				source: window[this.options.source],
-				cssNamespace: 'o-autocomplete'
-			});
+			}, this.options);
+			accessibleAutocomplete(options);
 		} else {
-			accessibleAutocomplete.enhanceSelectElement({
+			const element = autocompleteEl.querySelector('select');
+			const options = Object.assign({
 				selectElement: element,
-				cssNamespace: 'o-autocomplete'
-			});
+				defaultValue: '',
+				autoselect: false,
+			}, this.options);
+			accessibleAutocomplete.enhanceSelectElement(options);
 		}
+
+		/*
+			The below block of code will create this HTML:
+			<button
+				class="o-autocomplete__clear"
+				type="button"
+				aria-controls=${autocompleteEl.id}
+				title="Clear input"
+			>
+				<span class="o-autocomplete__visually-hidden">Clear input</span>
+			</button>
+		*/
+		const clearButton = document.createElement('button');
+		clearButton.classList.add('o-autocomplete__clear');
+		clearButton.setAttribute('type', 'button');
+		clearButton.setAttribute('title', 'Clear input');
+		clearButton.setAttribute('aria-controls', autocompleteEl.id);
+		const span = document.createElement('span');
+		span.classList.add("o-autocomplete__visually-hidden");
+		span.innerText = 'Clear input';
+		clearButton.appendChild(span);
+
+		const input = this.autocompleteEl.querySelector('input');
+		let timeout = null;
+		clearButton.addEventListener('click', function clearInput() {
+			input.value = '';
+			clearButton.parentElement.removeChild(clearButton);
+			// We need to wait longer than 100ms before focusing
+			// onto the input element because accessible-autocomplete
+			// only checks the value of the input every 100ms.
+			// If we modify input.value and then focus into the input in less
+			// than 100ms, accessible-autocomplete would not have the updated
+			// value and would instead write the old value back into the input.
+			// https://github.com/alphagov/accessible-autocomplete/blob/935f0d43aea1c606e6b38985e3fe7049ddbe98be/src/autocomplete.js#L107-L125
+			if (!timeout) {
+				// The user could press the button multiple times
+				// whilst the setTimeout handler has yet to execute
+				// We only want to call the handler once
+				timeout = setTimeout(() => {
+					input.focus();
+					timeout = null;
+				}, 110);
+			}
+		});
+
+		input.addEventListener('input', function onInputListener(event) {
+			const textInInput = event.target.value.length > 0;
+
+			const clearButtonOnPage = input.parentElement.parentElement.contains(clearButton);
+			if (textInInput) {
+				if (!clearButtonOnPage) {
+					input.parentElement.insertAdjacentElement('afterend', clearButton);
+				}
+			} else {
+				if (clearButtonOnPage) {
+					clearButton.parentElement.removeChild(clearButton);
+				}
+			}
+		});
 	}
+
+	/**
+	 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
+	 * @param {string} suggestedValue The suggestion to apply the template with.
+	 * @returns {string} HTML string to be represent a single suggestion.
+	 */
+	suggestionTemplate (suggestedValue) {
+		// If the component has not defined a highlighter to apply to the suggestions
+		// Then return the suggestion unmodified
+		if (!this.options.highlighter) {
+			return suggestedValue;
+		}
+
+		// o-autocomplete has a UI design option to highlight characters in the suggestions.
+		// The product using o-autocomplete decides upon the logic behind which characters to highlight and which to not.
+		/**
+		 * @type {[string, boolean][]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+		 */
+		const characters = this.options.highlighter(suggestedValue, this.autocompleteEl.querySelector('input').value);
+
+		let output = '';
+		for (const [character, shoudHighlight] of characters) {
+			if (shoudHighlight) {
+				output += `<span class="o-autocomplete__option--highlight">${character}</span>`;
+			} else {
+				output += `${character}`;
+			}
+		}
+		return output;
+	}
+
 	/**
 	 * Get the data attributes from the AutocompleteElement. If the element is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.

@@ -12,7 +12,6 @@
 	"browserFeatures": {},
 	"demosDefaults": {
 		"sass": "demos/src/shared.scss",
-		"js": "demos/src/shared.js",
 		"documentClasses": "",
 		"dependencies": []
 	},
@@ -20,15 +19,16 @@
 		{
 			"title": "Autocomplete based on static data",
 			"name": "static",
-			"template": "demos/src/basic/demo.mustache",
-			"description": "Description of the demo"
+			"template": "demos/src/basic/basic.mustache",
+			"description": "Description of the demo",
+			"js": "demos/src/basic/basic.js"
 		},
 		{
 			"title": "Autocomplete based on data from an API call",
 			"name": "custom",
-			"template": "demos/src/custom-sort/demo.mustache",
+			"template": "demos/src/custom-sort/custom.mustache",
 			"description": "Description of the demo",
-			"js": "demos/src/custom-sort/demo.js"
+			"js": "demos/src/custom-sort/custom.js"
 		},
 		{
 			"title": "Pa11y",

@@ -16,9 +16,21 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 ## Markup
 
+### For a static set of suggestions
 ```html
-<div data-o-component="o-autocomplete" class='o-autocomplete'>
+<label for="my-autocomplete">Select your country</label>
+<div data-o-component="o-autocomplete" class="o-autocomplete">
+    <select id="my-autocomplete">
+        <option value="fr">France</option>
+        <option value="de">Germany</option>
+        <option value="gb">United Kingdom</option>
+    </select>
 </div>
+```
+
+### For a dynamic set of suggestions
+```html
+<div data-o-component="o-autocomplete" class="o-autocomplete" id="my-autocomplete"></div>
 ```
 
 ## Sass
