@@ -1,4 +1,4 @@
-# @financial-times/o-autocomplete
+# o-autocomplete
 
 An origami component for autocomplete inputs
 
