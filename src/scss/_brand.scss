@@ -8,3 +8,15 @@
 @function _oAutocompleteSupports($variant) {
 	@return oBrandSupportsVariant($component: 'o-autocomplete', $variant: $variant);
 }
+
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-autocomplete', 'master', (
+		'variables': (
+			search-border: oColorsByName('teal-40'),
+			search-background: oColorsByName('black-20'),
+			search-close: oColorsByName('black-80'),
+		),
+		'supports-variants': ()
+	));
+}
