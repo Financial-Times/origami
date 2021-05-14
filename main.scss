@@ -1,4 +1,12 @@
-@import '@financial-times/o-brand';
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-loading/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-visual-effects/main';
 
 @import 'src/scss/variables';
 @import 'src/scss/brand';
@@ -18,67 +26,50 @@
 		position: relative;
 	}
 	.o-autocomplete__wrapper {
+		@include oTypographySans($scale: 0);
 		position: relative;
-		margin-top: 12px;
-		font-family: MetricWeb, sans-serif;
-		font-size: 16px;
-		line-height: 20px;
+		margin-top: oSpacingByName('s3');
 		box-sizing: border-box;
-		border: 1px solid #807973;
+		border: 1px solid _oAutocompleteGet('search-border');
 	}
 	.o-autocomplete__wrapper:focus-within {
-		outline: 2px solid #807973;
+		outline: 2px solid _oAutocompleteGet('search-border');
 		outline-offset: 0;
-		box-shadow: 0 0 0 1px #807973;
+		box-shadow: 0 0 0 1px _oAutocompleteGet('search-border');
 	}
 
 	.o-autocomplete__visually-hidden {
-		position: absolute;
-		clip: rect(0 0 0 0);
-		clip-path: polygon(0 0,0 0);
-		margin: -1px;
-		border: 0;
-		overflow: hidden;
-		padding: 0;
-		width: 1px;
-		height: 1px;
-		white-space: nowrap;
+		@include oNormaliseVisuallyHidden;
 	}
 	.o-autocomplete__clear {
-		display: inline-block;
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 50%;
-		background-color: transparent;
-		vertical-align: baseline;
-		width: 40px;
-		height: 40px;
-		background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?format=svg&source=page-kit-layout&tint=%2333302E%2C%2333302E);
+		@include oIconsContent('cross', _oAutocompleteGet('search-close'), $size: $_o-autocomplete-icon-size-large);
 		border: 0;
-		// margin-left: 14px;
 		vertical-align: middle;
 	}
+
 
 	.o-autocomplete__hint,
 	.o-autocomplete__input {
 		appearance: none;
 		font-family: inherit;
 		font-size: inherit;
-		background-color: #ffffff;
+		background-color: oColorsByName('white');
 		border: 0;
 		// box-sizing: border-box;
 		min-height: 40px;
-		padding: 8px;
+		padding: oSpacingByName('s2');
 		width: 100%;
 	}
 
 	.o-autocomplete__input {
 		font-family: inherit;
 		font-size: inherit;
-		background-color: #ffffff;
+		background-color: oColorsByName('white');
 		min-height: 40px;
-		padding: 8px;
+		padding: oSpacingByName('s2');
 		width: 100%;
+		// This is to make the input stop before the clear button.
+		// Without this, the input's text would flow behind the clear button.
 		max-width: calc(100% - (18px * 2));
 		margin-left: 3px;
 	}
@@ -105,20 +96,20 @@
 		z-index: 1;
 		display: inline-block;
 		position: absolute;
-		right: 8px;
-		width: 24px;
-		height: 24px;
-		top: calc(50% - 7px);
+		right: oSpacingByName('s2');
+		width: oSpacingByName('s6');
+		height: oSpacingByName('s6');
+		top: calc(50% - #{oSpacingByName('s2') - 1});
 	}
 	.o-autocomplete__clear:focus {
-		outline: 2px solid #807973;
+		outline: 2px solid _oAutocompleteGet('search-border');
 		// outline-offset: 0;
-		box-shadow: 0 0 0 1px #807973;
+		box-shadow: 0 0 0 1px _oAutocompleteGet('search-border');
 	}
 
 	.o-autocomplete__menu {
-		background-color: #ffffff;
-		border: 1px solid #efefef;
+		@include oVisualEffectsShadowContent('high');
+		background-color: oColorsByName('white');
 		border-top: 0;
 		color: #0b0c0c;
 		margin: 0;
@@ -126,12 +117,10 @@
 		overflow-x: hidden;
 		padding-left: 13px;
 		padding-right: 13px;
-		padding-top: 16px;
-		padding-bottom: 16px;
+		padding-top: oSpacingByName('s4');
+		padding-bottom: oSpacingByName('s4');
 		width: 100%;
-		top: 6px;
-		// From .o-visual-effects-shadow-high
-		box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+		top: oSpacingByName('s1');
 	}
 
 	.o-autocomplete__menu--visible {
@@ -143,11 +132,11 @@
 	}
 
 	.o-autocomplete__menu--overlay {
+		@include oVisualEffectsShadowContent('high');
 		box-sizing: border-box;
-		box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
 		left: 0;
 		position: absolute;
-		top: calc(100% + 6px);
+		top: calc(100% + #{oSpacingByName('s1')});
 		z-index: 100;
 	}
 
@@ -175,30 +164,26 @@
 		border-bottom-width: 0;
 	}
 
-	.o-autocomplete__option--odd {
-		// background-color: #fafafa;
-	}
-
 	.o-autocomplete__option--focused,
 	.o-autocomplete__option:hover {
-		background-color: #2a7680;
-		border-color: #2a7680;
-		color: white;
+		background-color: oColorsByName('teal');
+		border-color: oColorsByName('teal');
+		color: oColorsByName('white');
 		outline: none;
 	}
 
 	.o-autocomplete__option--no-results {
-		background-color: #fafafa;
-		color: #646b6f;
+		background-color: oColorsMix(white, black, 98); // #fafafa
+		color: oColorsGetTextColor(oColorsMix(white, black, 98), $minimum-contrast: 'aa-normal');
 		cursor: not-allowed;
 	}
 
-	.o-autocomplete__hint,
-	.o-autocomplete__input,
-	.o-autocomplete__option {
-		font-size: 16px;
-		line-height: 1.25;
-	}
+	// .o-autocomplete__hint,
+	// .o-autocomplete__input,
+	// .o-autocomplete__option {
+	// 	font-size: 16px;
+	// 	line-height: 1.25;
+	// }
 
 	.o-autocomplete__hint,
 	.o-autocomplete__option {
@@ -213,20 +198,13 @@
 		font-weight: bolder;
 	}
 
-	@media (min-width: 641px) {
-		.o-autocomplete__hint,
-		.o-autocomplete__input,
-		.o-autocomplete__option {
-			font-size: 16px;
-			line-height: 18px;
-		}
-	}
+	// @media (min-width: 641px) {
+	// 	.o-autocomplete__hint,
+	// 	.o-autocomplete__input,
+	// 	.o-autocomplete__option {
+	// 		font-size: 16px;
+	// 		line-height: 18px;
+	// 	}
+	// }
 
-}
-
-@if ($o-autocomplete-is-silent == false) {
-	@include oAutocomplete();
-
-	// Set to silent again to avoid being output twice
-	$o-autocomplete-is-silent: true !global;
 }
