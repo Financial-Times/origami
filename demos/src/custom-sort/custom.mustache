@@ -1,5 +1,11 @@
-<label for="my-autocomplete">Select your country</label>
-<div data-o-component="o-autocomplete" data-o-autocomplete-source="customSort" data-o-autocomplete-highlighter="customHighlighter" class="o-autocomplete" id="my-autocomplete">
-    {{! If the JavaScript executes, then this input will be progressively enhanced to an autocomplete component }}
-    <input type="text" value="">
-</div>
+<label class="o-forms-field" for="my-autocomplete">
+    <span class="o-forms-title">
+        <span class="o-forms-title__main">Select your country</span>
+    </span>
+    <div data-o-component="o-autocomplete" data-o-autocomplete-source="customSort" data-o-autocomplete-highlighter="customHighlighter" class="o-autocomplete" id="my-autocomplete">
+        {{! If the JavaScript executes, then this input will be progressively enhanced to an autocomplete component }}
+        <span class="o-forms-input o-forms-input--text">
+            <input type="text" name="text-example">
+        </span>
+    </div>
+</label>

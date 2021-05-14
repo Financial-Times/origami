@@ -13,7 +13,9 @@
 	"demosDefaults": {
 		"sass": "demos/src/shared.scss",
 		"documentClasses": "",
-		"dependencies": []
+		"dependencies": [
+			"o-forms@9.0.0-beta.1"
+		]
 	},
 	"demos": [
 		{
