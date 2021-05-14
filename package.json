@@ -41,7 +41,8 @@
 		"@financial-times/o-loading": "prerelease",
 		"@financial-times/o-normalise": "prerelease",
 		"@financial-times/o-spacing": "prerelease",
-		"@financial-times/o-typography": "prerelease"
+		"@financial-times/o-typography": "prerelease",
+		"@financial-times/o-visual-effects": "^4.0.0-beta.0"
 	},
 	"dependencies": {
 		"accessible-autocomplete": "^2.0.3"
