@@ -18,6 +18,7 @@ on:
     branches: master
     paths:
       - "package.json"
+      - "package-lock.json"
       - "origami.json"
       - "main.js"
       - "main.scss"
