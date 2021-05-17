@@ -1,0 +1,5 @@
+- I wonder whether spec v2 allows output of other components CSS classes? I don't think so at the moment. We could output o-form CSS in this component to make it easier to use. Copy/paste html.
+
+- autocomplete could have a hint feature (such as the one in govuk), if we want that, we need a design for it
+
+- make sure only supported options can be set, `autoselect` and more?
