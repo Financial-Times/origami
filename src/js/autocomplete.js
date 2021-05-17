@@ -41,8 +41,8 @@ class Autocomplete {
 			const options = Object.assign({
 				selectElement: element,
 				defaultValue: '',
-				autoselect: false,
 			}, this.options);
+			options.autoselect = false; // TODO: Find out if we should allow autoselect/hinting in the input
 			accessibleAutocomplete.enhanceSelectElement(options);
 		}
 
