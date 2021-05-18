@@ -1,20 +1,22 @@
 {
 	"name": "@financial-times/o-autocomplete",
 	"version": "0.0.0",
-	"description": "autocomplete",
+	"description": "An origami component for autocomplete inputs",
 	"keywords": [
-		"autocomplete"
+		"autocomplete",
+		"typeahead"
 	],
 	"homepage": "https://registry.origami.ft.com/components/o-autocomplete",
 	"bugs": {
-		"url": "https://github.com/Financial-Times/o-autocomplete/issues"
+		"url": "https://github.com/Financial-Times/o-autocomplete/issues",
+		"email": "origami.support@ft.com",
+		"slack": "#origami-support"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Financial-Times/o-autocomplete.git"
 	},
 	"license": "MIT",
-	"author": "",
 	"type": "module",
 	"devDependencies": {
 		"eslint": "^7.26.0",
