@@ -1,15 +1,13 @@
-- I wonder whether spec v2 allows output of other components CSS classes? I don't think so at the moment. We could output o-form CSS in this component to make it easier to use. Copy/paste html.
+- [ ] I wonder whether spec v2 allows output of other components CSS classes? I don't think so at the moment. We could output o-form CSS in this component to make it easier to use. Copy/paste html.
 
-- autocomplete could have a hint feature (such as the one in govuk), if we want that, we need a design for it
+- [ ] autocomplete could have a hint feature (such as the one in govuk), if we want that, we need a design for it
 
-- make sure only supported options can be set, `autoselect` and more? E.g. showAllValues
+- [ ] make sure only supported options can be set, `autoselect` and more? E.g. showAllValues
 
-- having the clear button causes complications with how to create the design in css/html
+- [ ] obt dev should error when no brand parameter is set
 
-- obt dev should error when no brand parameter is set
+- [x] Look at focus style for clear button
 
-- look at focus style for clear button
+- [ ] Look at updating o-normalise to remove default button styles
 
-- Look at updating o-normalise to remove default button styles
-
-- the max-height on the suggestions, the design showed 200px, is that what we want?
+- [x] The max-height on the suggestions, the design showed 200px, is that what we want? -- Update: We want to have 5-7 results be visible without scrolling. On phones, we want to have the results box be fully visible on the screen, even when the virtual keyboard is open.
