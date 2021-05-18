@@ -38,6 +38,10 @@ describe("BaseTable", () => {
 		sandbox.init();
 	});
 
+	afterEach(() => {
+		sinon.restore();
+	});
+
 	describe('constructor', () => {
 		it('applies declarative table filters', (done) => {
 			// Setup markup: Table + filter input.
@@ -474,46 +478,121 @@ describe("BaseTable", () => {
 	describe('updateRows', () => {
 		const headerIndex = 0;
 		const sortOrder = 'descending';
-		const data = ['Apple', 'Durian', 'Naseberry', 'Strawberry', 'Dragonfruit'];
-		const cloneData = data[0];
-		beforeEach((done) => {
+		let data;
+		beforeEach(() => {
+			data = ['Apple', 'Durian', 'Naseberry', 'Strawberry', 'Dragonfruit'];
 			sandbox.init();
 			// Create table.
 			oTableEl = getTableElementWithData('', data);
-			// Clone the first "Apple" row.
-			const trClone = oTableEl.querySelector('tbody > tr:first-of-type').cloneNode({ deep: true });
-			table = new BaseTable(oTableEl, sorter);
-			// Sort.
-			table.sortRowsByColumn(headerIndex, sortOrder);
-			// Filter.
-			table.filter(headerIndex, cloneData);
-			setTimeout(() => {
-				// Table initialised and rendered.
-				// Add a new "Apple" row.
-				table.tbody.appendChild(trClone);
-				data.push(cloneData);
-				done();
-			}, 100); // wait for window.requestAnimationFrame
 		});
 
-		it('applies an existing filter to any row inserted after it was initialised', (done) => {
-			// Tell o-table the rows have updated.
-			table.updateRows();
-			setTimeout(() => {
-				// The filter includes the original Apple row and the clone
-				// added after the table was initialised.
-				assertFilter(data, [cloneData, cloneData]);
-				done();
-			}, 100); // wait for window.requestAnimationFrame
+		describe('when a row has been added', () => {
+			let cloneData;
+			beforeEach((done) => {
+				// Clone the first "Apple" row.
+				cloneData = data[0];
+				const trClone = oTableEl.querySelector('tbody > tr:first-of-type').cloneNode({ deep: true });
+				table = new BaseTable(oTableEl, sorter);
+				// Sort.
+				table.sortRowsByColumn(headerIndex, sortOrder);
+				// Filter.
+				table.filter(headerIndex, cloneData);
+				setTimeout(() => {
+					// Table initialised and rendered.
+					// Add a new "Apple" row.
+					table.tbody.appendChild(trClone);
+					data.push(cloneData);
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing filter', (done) => {
+				table.updateRows();
+				setTimeout(() => {
+					// The filter includes the original Apple row and the clone
+					// added after the table was initialised.
+					assertFilter(data, [cloneData, cloneData]);
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing sort', (done) => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+				table.updateRows();
+				setTimeout(() => {
+					done(proclaim.isTrue(sorterSpy.calledWith(table, headerIndex, sortOrder)));
+				}, 100); // wait for window.requestAnimationFrame
+			});
 		});
 
-		it('applies an existing sort to any row inserted after it was initialised', (done) => {
-			const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
-			// Tell o-table the rows have updated.
-			table.updateRows();
-			setTimeout(() => {
-				done(proclaim.isTrue(sorterSpy.calledWith(table, headerIndex, sortOrder)));
-			}, 100); // wait for window.requestAnimationFrame
+		describe('when a row has been removed', () => {
+			beforeEach((done) => {
+				const index = 0;
+				const row = oTableEl.querySelector(`tbody > tr:nth-child(${index + 1})`);
+				table = new BaseTable(oTableEl, sorter);
+				// Sort.
+				table.sortRowsByColumn(headerIndex, sortOrder);
+				// Filter.
+				table.filter(headerIndex, data[index]);
+				setTimeout(() => {
+					// Table initialised and rendered.
+					row.remove();
+					data.splice(index, 1);
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing filter', (done) => {
+				table.updateRows();
+				setTimeout(() => {
+					assertFilter(data, []); // We removed the only result.
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing sort', (done) => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+				table.updateRows();
+				setTimeout(() => {
+					done(proclaim.isTrue(sorterSpy.calledWith(table, headerIndex, sortOrder)));
+				}, 100); // wait for window.requestAnimationFrame
+			});
+		});
+
+		describe('when a row has updated data', () => {
+			const newCellContent = 'New Fruit';
+			beforeEach((done) => {
+				const index = 0;
+				const cell = oTableEl.querySelector(`tbody > tr:first-of-type > td:nth-child(${index + 1})`);
+				table = new BaseTable(oTableEl, sorter);
+				// Sort.
+				table.sortRowsByColumn(headerIndex, sortOrder);
+				// Filter.
+				table.filter(headerIndex, newCellContent);
+				setTimeout(() => {
+					// Table initialised and rendered.
+					// Add a new "Apple" row.
+					cell.textContent = newCellContent;
+					data.splice(index, 1, newCellContent);
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing filter', (done) => {
+				table.updateRows();
+				setTimeout(() => {
+					assertFilter(data, [newCellContent]);
+					done();
+				}, 100); // wait for window.requestAnimationFrame
+			});
+
+			it('applies an existing sort', (done) => {
+				const sorterSpy = sinon.spy(sorter, "sortRowsByColumn");
+				table.updateRows();
+				setTimeout(() => {
+					done(proclaim.isTrue(sorterSpy.calledWith(table, headerIndex, sortOrder)));
+				}, 100); // wait for window.requestAnimationFrame
+			});
 		});
 	});
 

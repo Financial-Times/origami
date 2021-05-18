@@ -139,19 +139,15 @@ class BaseTable {
 	 */
 	updateRows() {
 		const rows = this._getLatestRowNodes();
-		// Find rows added.
-		const newRows = rows.filter(function (row) {
-			return this.tableRows.indexOf(row) === -1;
-		}, this);
 		// Set o-table rows.
 		this.tableRows = rows;
-		// Re-apply sort if rows added.
-		if (newRows.length > 0 && this._currentSort) {
+		// Re-apply sort.
+		if (this._currentSort) {
 			const { columnIndex, sortOrder } = this._currentSort;
 			this.sortRowsByColumn(columnIndex, sortOrder);
 		}
-		// Re-apply filter if rows added.
-		if (newRows.length > 0 && this._currentFilter) {
+		// Re-apply filter.
+		if (this._currentFilter) {
 			const { columnIndex, filter } = this._currentFilter;
 			this._filterRowsByColumn(columnIndex, filter);
 		}
