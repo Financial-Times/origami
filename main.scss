@@ -21,87 +21,55 @@
 @mixin oAutocomplete ($opts: ()) {
 	// content of primary mixin
 	.o-autocomplete {
-		display: flex;
-		width: fit-content;
+		display: inline-grid;
 		position: relative;
 	}
 	.o-autocomplete__wrapper {
 		@include oTypographySans($scale: 0);
-		position: relative;
-		margin-top: oSpacingByName('s3');
-		box-sizing: border-box;
-		border: 1px solid _oAutocompleteGet('search-border');
-	}
-	.o-autocomplete__wrapper:focus-within {
-		outline: 2px solid _oAutocompleteGet('search-border');
-		outline-offset: 0;
-		box-shadow: 0 0 0 1px _oAutocompleteGet('search-border');
+		grid-row: 1;
+		grid-column: 1;
 	}
 
 	.o-autocomplete__visually-hidden {
 		@include oNormaliseVisuallyHidden;
 	}
+
 	.o-autocomplete__clear {
-		@include oIconsContent('cross', _oAutocompleteGet('search-close'), $size: $_o-autocomplete-icon-size-large);
+		@include oIconsContent('cross', _oAutocompleteGet('search-close'), $size: $_o-autocomplete-icon-size);
 		border: 0;
-		vertical-align: middle;
+		padding: 0;
+		appearance: none;
+
+		grid-row: 1;
+		grid-column: 1;
+		align-self: center;
+		justify-self: end;
+
+		$margin-size: calc(#{$_o-autocomplete-input-space} - #{$_o-autocomplete-icon-size-excess-whitespace});
+		margin-left: $margin-size;
+		margin-right: $margin-size;
+
+		z-index: 1;
 	}
 
 
-	.o-autocomplete__hint,
-	.o-autocomplete__input {
-
-		border: 0;
+	.o-autocomplete .o-autocomplete__input {
+		box-sizing: border-box;
 		// This is to make the input stop before the clear button.
 		// Without this, the input's text would flow behind the clear button.
-		max-width: calc(100% - (18px * 2));
-		margin-left: 3px;
-	}
-
-	// TODO: Find out if we should allow autoselect/hinting in the input
-	// .o-autocomplete__hint {
-	// 	color: #b1b4b6;
-	// 	position: absolute;
-	// }
-
-	.o-autocomplete__input--default {
-		padding: 5px;
-	}
-	.o-autocomplete__input:focus,
-	.o-autocomplete__input--focused {
-		outline: none;
-	}
-
-	.o-autocomplete__input--show-all-values {
-		padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .o-autocomplete__input--default. */
-		cursor: pointer;
-	}
-
-	.o-autocomplete__clear {
-		z-index: 1;
-		display: inline-block;
-		position: absolute;
-		right: oSpacingByName('s2');
-		width: oSpacingByName('s6');
-		height: oSpacingByName('s6');
-		top: calc(50% - #{oSpacingByName('s2') - 1});
-	}
-	.o-autocomplete__clear:focus {
-		outline: 2px solid _oAutocompleteGet('search-border');
-		// outline-offset: 0;
-		box-shadow: 0 0 0 1px _oAutocompleteGet('search-border');
+		padding-right: calc(#{$_o-autocomplete-icon-size} + #{$_o-autocomplete-input-space * 2});
 	}
 
 	.o-autocomplete__menu {
 		@include oVisualEffectsShadowContent('high');
 		background-color: oColorsByName('white');
 		border-top: 0;
-		color: #0b0c0c;
+		color: oColorsByName('black');
 		margin: 0;
-		max-height: 342px; // Make this configurable as it decides how many rows to show
+		max-height: 200px; // Make this configurable as it decides how many rows to show
 		overflow-x: hidden;
-		padding-left: 13px;
-		padding-right: 13px;
+		padding-left: oSpacingByName('s3');
+		padding-right: oSpacingByName('s3');
 		padding-top: oSpacingByName('s4');
 		padding-bottom: oSpacingByName('s4');
 		width: 100%;
@@ -170,15 +138,13 @@
 	// 	line-height: 1.25;
 	// }
 
-	.o-autocomplete__hint,
 	.o-autocomplete__option {
-		padding-left: 5px;
-		padding-right: 5px;
-		padding-top: 7px;
-		padding-bottom: 7px;
+		padding-left: oSpacingByName('s1');
+		padding-right: oSpacingByName('s1');
+		padding-top: oSpacingByName('s2');
+		padding-bottom: oSpacingByName('s2');
 	}
 
-	.o-autocomplete__hint--highlight,
 	.o-autocomplete__option--highlight {
 		font-weight: bolder;
 	}

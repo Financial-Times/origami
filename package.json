@@ -36,6 +36,7 @@
 	"peerDependencies": {
 		"@financial-times/o-brand": "prerelease",
 		"@financial-times/o-colors": "prerelease",
+		"@financial-times/o-forms": "^8.5.1",
 		"@financial-times/o-grid": "prerelease",
 		"@financial-times/o-icons": "prerelease",
 		"@financial-times/o-loading": "prerelease",
