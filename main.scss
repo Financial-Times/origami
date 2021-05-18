@@ -20,7 +20,7 @@
 ///		))
 @mixin oAutocomplete ($opts: ()) {
 	// content of primary mixin
-	.o-autocomplete {
+	.o-autocomplete div:first-of-type {
 		display: inline-grid;
 		position: relative;
 	}

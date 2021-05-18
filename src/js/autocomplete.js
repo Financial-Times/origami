@@ -30,10 +30,15 @@ class Autocomplete {
 			if (typeof this.options.source === 'string') {
 				this.options.source = window[this.options.source];
 			}
+			const div = document.createElement('div');
 			autocompleteEl.innerHTML = '';
+			autocompleteEl.appendChild(div);
+			const id = autocompleteEl.getAttribute('id');
+			autocompleteEl.removeAttribute('id');
+			div.setAttribute('id', id);
 			const options = Object.assign({
-				element: autocompleteEl,
-				id: autocompleteEl.id,
+				element: div,
+				id: div.id,
 			}, this.options);
 			accessibleAutocomplete(options);
 		} else {
