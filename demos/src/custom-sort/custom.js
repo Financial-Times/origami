@@ -297,7 +297,7 @@ window.customHighlighter = function customHighlighter(suggestion, query) {
 	return result.map(function(character, index) {
 		let shoudHighlight = true;
 		const hasMatched = matchIndex > -1;
-		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1
+		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
 		if (hasMatched && characterIsWithinMatch) {
 			shoudHighlight = false;
 		}
