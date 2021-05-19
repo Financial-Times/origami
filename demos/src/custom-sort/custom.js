@@ -280,7 +280,9 @@ window.customSort = function customSort(query, populateResults) {
 			filteredResults.push(suggestion);
 		}
 	}
-	populateResults(filteredResults);
+	setTimeout(() => {
+		populateResults(filteredResults);
+	}, 3000);
 };
 
 /**
