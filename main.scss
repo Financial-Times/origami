@@ -69,8 +69,8 @@
 		margin: 0;
 		max-height: 200px; // Make this configurable as it decides how many rows to show
 		overflow-x: hidden;
-		padding-left: oSpacingByName('s3');
-		padding-right: oSpacingByName('s3');
+		padding-left: oSpacingByName('s2');
+		padding-right: oSpacingByName('s2');
 		padding-top: oSpacingByName('s4');
 		padding-bottom: oSpacingByName('s4');
 		width: 100%;
@@ -104,6 +104,10 @@
 		cursor: pointer;
 		display: block;
 		position: relative;
+		padding-left: oSpacingByName('s1');
+		padding-right: oSpacingByName('s1');
+		padding-top: oSpacingByName('s2');
+		padding-bottom: oSpacingByName('s2');
 	}
 
 	.o-autocomplete__option > * {
@@ -132,31 +136,8 @@
 		cursor: not-allowed;
 	}
 
-	// .o-autocomplete__hint,
-	// .o-autocomplete__input,
-	// .o-autocomplete__option {
-	// 	font-size: 16px;
-	// 	line-height: 1.25;
-	// }
-
-	.o-autocomplete__option {
-		padding-left: oSpacingByName('s1');
-		padding-right: oSpacingByName('s1');
-		padding-top: oSpacingByName('s2');
-		padding-bottom: oSpacingByName('s2');
-	}
-
 	.o-autocomplete__option--highlight {
 		font-weight: bolder;
 	}
-
-	// @media (min-width: 641px) {
-	// 	.o-autocomplete__hint,
-	// 	.o-autocomplete__input,
-	// 	.o-autocomplete__option {
-	// 		font-size: 16px;
-	// 		line-height: 18px;
-	// 	}
-	// }
 
 }
