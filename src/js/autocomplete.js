@@ -24,31 +24,37 @@ class Autocomplete {
 			this.options.highlighter = window[this.options.highlighter];
 		}
 
+		const container = document.createElement('div');
+		this.container = container;
+		container.classList.add('o-autocomplete__container');
+
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
 			if (typeof this.options.source === 'string') {
 				this.options.source = window[this.options.source];
 			}
-			const div = document.createElement('div');
 			autocompleteEl.innerHTML = '';
-			autocompleteEl.appendChild(div);
+			autocompleteEl.appendChild(container);
 			const id = autocompleteEl.getAttribute('id');
 			autocompleteEl.removeAttribute('id');
-			div.setAttribute('id', id);
+			container.setAttribute('id', id);
 			const options = Object.assign({
-				element: div,
-				id: div.id,
+				element: container,
+				id: container.id,
 			}, this.options);
 			accessibleAutocomplete(options);
 		} else {
 			const element = autocompleteEl.querySelector('select');
+			autocompleteEl.appendChild(container);
+			container.appendChild(element);
 			const options = Object.assign({
 				selectElement: element,
 				defaultValue: '',
 			}, this.options);
 			options.autoselect = false; // TODO: Find out if we should allow autoselect/hinting in the input
 			accessibleAutocomplete.enhanceSelectElement(options);
+			element.parentElement.removeChild(element); // Remove the original select element
 		}
 
 		/*
@@ -98,10 +104,10 @@ class Autocomplete {
 		input.addEventListener('input', function onInputListener(event) {
 			const textInInput = event.target.value.length > 0;
 
-			const clearButtonOnPage = input.parentElement.parentElement.contains(clearButton);
+			const clearButtonOnPage = container.contains(clearButton);
 			if (textInInput) {
 				if (!clearButtonOnPage) {
-					input.parentElement.insertAdjacentElement('afterend', clearButton);
+					container.appendChild(clearButton);
 				}
 			} else {
 				if (clearButtonOnPage) {

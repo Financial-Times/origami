@@ -1,6 +1,6 @@
 {
-	"type": "component",
-	"origami": "2.0",
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": ["master"],
 	"status": "experimental",
 
