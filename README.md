@@ -17,6 +17,9 @@ Check out [how to include Origami components in your project](https://origami.ft
 ## Markup
 
 ### For a static set of suggestions
+
+To provide a static set of suggestions, it is recommended to provide the suggestions via a `select` element, o-autocomplete will then progressively enhance the `select` element, using the provided `option` elements as the source for the suggestions.
+
 ```html
 <label for="my-autocomplete">Select your country</label>
 <div data-o-component="o-autocomplete" class="o-autocomplete">
