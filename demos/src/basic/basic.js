@@ -11,7 +11,9 @@ window.customHighlighter = function customHighlighter(suggestion, query) {
 	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query);
 	return result.map(function(character, index) {
 		let shoudHighlight = true;
-		if (index >= matchIndex && index <= matchIndex + query.length - 1) {
+		const hasMatched = matchIndex > -1;
+		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
+		if (hasMatched && characterIsWithinMatch) {
 			shoudHighlight = false;
 		}
 		return [character, shoudHighlight];
