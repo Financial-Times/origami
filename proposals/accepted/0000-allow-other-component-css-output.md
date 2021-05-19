@@ -10,7 +10,7 @@ Allowing one component to output the styles of another will make it easier to au
 
 ## explanation
 
-This example shows component Sass for a component `o-no` outputting CSS from a dependent component `o-forms`, this is currently not allowed, which means a user has to include `o-forms` CSS in their project themselves to use `o-no`:
+This example shows component Sass for a component `o-no` outputting CSS from a component dependency `o-forms`, this is currently not allowed, which means a user has to include `o-forms` CSS in their project themselves to use `o-no`:
 ```scss
 // o-no/main.scss
 @mixin oNo() {
