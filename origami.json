@@ -9,7 +9,8 @@
 		"documentClasses": "",
 		"dependencies": [
 			"o-forms@9.0.0-beta.1",
-			"o-normalise@3.0.0-beta.0"
+			"o-normalise@3.0.0-beta.0",
+			"o-utils@2.0.0-beta.0"
 		]
 	},
 	"demos": [
@@ -26,6 +27,13 @@
 			"template": "demos/src/custom-sort/custom.mustache",
 			"description": "Description of the demo",
 			"js": "demos/src/custom-sort/custom.js"
+		},
+		{
+			"title": "Autocomplete based on data from an API call which is delayed",
+			"name": "custom-delayed",
+			"template": "demos/src/custom-sort-delayed/custom.mustache",
+			"description": "Description of the demo",
+			"js": "demos/src/custom-sort-delayed/custom.js"
 		},
 		{
 			"title": "Pa11y",
