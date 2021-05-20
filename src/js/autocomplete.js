@@ -31,9 +31,15 @@ class Autocomplete {
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
-			if (typeof this.options.source === 'string') {
-				this.options.source = window[this.options.source];
-			}
+			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			this.options.source = function(query, populateResults) {
+				showLoadingPane();
+				let callback = function(results) {
+					hideLoadingPane();
+					populateResults(results);
+				};
+				customSource(query, callback);
+			};
 			autocompleteEl.innerHTML = '';
 			autocompleteEl.appendChild(container);
 			const id = autocompleteEl.getAttribute('id');
@@ -101,8 +107,38 @@ class Autocomplete {
 			}
 		});
 
-		input.addEventListener('input', function onInputListener(event) {
-			const textInInput = event.target.value.length > 0;
+		input.addEventListener('input', function() {
+			addOrRemoveClearButton();
+		});
+
+		// <div class="o-autocomplete__menu-loading-container">
+		//     <div class="o-autocomplete__menu-loading"></div>
+		// </div>
+		const loadingContainer = document.createElement('div');
+		loadingContainer.classList.add('o-autocomplete__menu-loading-container');
+		const loading = document.createElement('div');
+		loadingContainer.appendChild(loading);
+		loading.classList.add('o-autocomplete__menu-loading');
+		function showLoadingPane() {
+			container.appendChild(loadingContainer);
+			const menu = document.querySelector('.o-autocomplete__menu');
+			if (menu) {
+				menu.classList.replace('o-autocomplete__menu--visible', 'o-autocomplete__menu--hidden');
+			}
+		}
+		function hideLoadingPane() {
+			//TODO: display none it
+			if (container.contains(loadingContainer)) {
+				container.removeChild(loadingContainer);
+			}
+			const menu = document.querySelector('.o-autocomplete__menu');
+			if (menu) {
+				menu.classList.replace('o-autocomplete__menu--hidden', 'o-autocomplete__menu--visible');
+			}
+		}
+
+		function addOrRemoveClearButton() {
+			const textInInput = input.value.length > 0;
 
 			const clearButtonOnPage = container.contains(clearButton);
 			if (textInInput) {
@@ -114,7 +150,7 @@ class Autocomplete {
 					clearButton.parentElement.removeChild(clearButton);
 				}
 			}
-		});
+		}
 	}
 
 	/**

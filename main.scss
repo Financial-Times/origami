@@ -25,7 +25,7 @@
 		position: relative;
 	}
 
-	.o-autocomplete .o-autocomplete__container > div {
+	.o-autocomplete .o-autocomplete__container > div:first-child {
 		@include oTypographySans($scale: 0);
 		grid-row: 1;
 		grid-column: 1;
@@ -63,6 +63,7 @@
 
 	.o-autocomplete__menu {
 		@include oVisualEffectsShadowContent('high');
+		top: oSpacingByName('s1');
 		background-color: oColorsByName('white');
 		border-top: 0;
 		color: oColorsByName('black');
@@ -74,7 +75,6 @@
 		padding-top: oSpacingByName('s4');
 		padding-bottom: oSpacingByName('s4');
 		width: 100%;
-		top: oSpacingByName('s1');
 	}
 
 	.o-autocomplete__menu--visible {
@@ -138,6 +138,32 @@
 
 	.o-autocomplete__option--highlight {
 		font-weight: bolder;
+	}
+
+
+	.o-autocomplete__menu-loading {
+		@include oLoadingContent($opts: (
+			size: 'mini',
+			theme: 'dark'
+		));
+	}
+
+	// `.o-autocomplete__menu-loading` is declared twice intentionally.
+	// `oLoadingContent` outputs css at the root using `@at-root`
+	// and creates a new rule set. So custom styles that follow
+	// `oLoadingContent` do not come after the mixin output.
+	// https://github.com/Financial-Times/o-loading/blob/082a9c5e35f1fa61b3adce755b1df5193b72e0c8/src/scss/_mixins.scss#L79
+	.o-autocomplete .o-autocomplete__menu-loading {
+		grid-row: 2;
+	}
+	.o-autocomplete .o-autocomplete__menu-loading-container {
+		@include oVisualEffectsShadowContent('high');
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: oSpacingByName('s2');
+		box-sizing: border-box;
+		min-height: 40px;
 	}
 
 }
