@@ -67,6 +67,28 @@ oAutocomplete.init(oAutocompleteElement);
 
 [Learn more about Origami component initialisation](https://origami.ft.com/docs/components/initialising/).
 
+## Keyboard Support
+
+### When focus is within the text input
+
+Key|Function
+---|---
+Down Arrow | If the results menu is displayed, moves focus to the first suggested value in the results menu.
+Enter | Does nothing.
+Escape | If the results menu is displayed, closes it.
+
+### When focus is within the results menu
+
+Key|Function
+---|---
+Enter | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
+Tab | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
+Space | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
+Up Arrow | If focus is on the first option, returns focus to the text input. Otherwise, moves focus to and selects the previous option in the results menu.
+Down Arrow | If focus is on the last option, does nothing. Otherwise, moves focus to and selects the next option in the results menu.
+Printable Characters | <ul><li>Moves focus to the text input.</li><li>Types the characters into the text input.</li></ul>
+
+
 
 ## Migration
 
