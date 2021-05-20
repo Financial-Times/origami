@@ -33,7 +33,7 @@ To provide a static set of suggestions, it is recommended to provide the suggest
 
 ### For a dynamic set of suggestions
 
-To provide a dynamic set of suggestions, you will need to provide a javascript function or name of a javascript function on the window object which implements the, using the provided `option` elements as the source for the suggestions.
+To provide a dynamic set of suggestions, you will need to provide a javascript function or name of a javascript function on the window object which follows the [dynamic-suggestions-function](dynamic-suggestions-function) <abbr title="application programming interface">API</abbr>.
 ```html
 <div data-o-component="o-autocomplete" class="o-autocomplete" id="my-autocomplete"></div>
 ```
