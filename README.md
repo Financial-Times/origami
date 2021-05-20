@@ -1,6 +1,6 @@
 # o-autocomplete
 
-An origami component for autocomplete inputs
+An origami component for autocomplete inputs. This is built on top of the excellent [accessible autocomplete component](https://github.com/alphagov/accessible-autocomplete) by AlphaGov.
 
 - [Usage](#usage)
 - [Markup](#markup)
