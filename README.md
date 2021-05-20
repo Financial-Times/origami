@@ -91,6 +91,25 @@ If wanting to supply dynamic suggestions, you will need to provide a function wh
 | --- | --- | --- |
 | results | <code>Array.&lt;string&gt;</code> | The results to show in the suggestions menu |
 
+##### Example
+
+```js
+async function customSuggestions(query, populateResults) {
+	const suggestions = await fetch('https://www.example.com/api/suggestions', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(query)
+    });
+
+    try {
+        const data = await response.json();
+	    populateResults(data);
+    } catch {
+        populateResults([]);
+    }
+}
+```
+
 
 ## Keyboard Support
 
