@@ -32,6 +32,8 @@ To provide a static set of suggestions, it is recommended to provide the suggest
 ```
 
 ### For a dynamic set of suggestions
+
+To provide a dynamic set of suggestions, you will need to provide a javascript function or name of a javascript function on the window object which implements the, using the provided `option` elements as the source for the suggestions.
 ```html
 <div data-o-component="o-autocomplete" class="o-autocomplete" id="my-autocomplete"></div>
 ```
@@ -67,25 +69,48 @@ oAutocomplete.init(oAutocompleteElement);
 
 [Learn more about Origami component initialisation](https://origami.ft.com/docs/components/initialising/).
 
+### dynamic suggestions function
+
+If wanting to supply dynamic suggestions, you will need to provide a function which implements the following <abbr title="application programming interface">API</abbr>:
+
+<a name="customSuggestions"></a>
+
+#### (query, suggestionsCallback) ⇒ <code>void</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| query | <code>string</code> | Text which was typed into the text input |
+| suggestionsCallback | [<code>suggestionsCallback</code>](#suggestionsCallback) | Function to call when ready to update the suggestions menu |
+
+<a name="suggestionsCallback"></a>
+
+#### suggestionsCallback : <code>function</code>
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| results | <code>Array.&lt;string&gt;</code> | The results to show in the suggestions menu |
+
+
 ## Keyboard Support
 
 ### When focus is within the text input
 
 Key|Function
 ---|---
-Down Arrow | If the results menu is displayed, moves focus to the first suggested value in the results menu.
-Enter | If the results menu is displayed, does nothing.
-Escape | If the results menu is displayed, closes it.
+Down Arrow | If the suggestions menu is displayed, moves focus to the first suggested value in the suggestions menu.
+Enter | If the suggestions menu is displayed, does nothing.
+Escape | If the suggestions menu is displayed, closes it.
 
-### When focus is within the results menu
+### When focus is within the suggestions menu
 
 Key|Function
 ---|---
-Enter | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
-Tab | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the clear button.</li></ul>
-Space | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
-Up Arrow | If focus is on the first option, returns focus to the text input. Otherwise, moves focus to and selects the previous option in the results menu.
-Down Arrow | If focus is on the last option, does nothing. Otherwise, moves focus to and selects the next option in the results menu.
+Enter | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Closes the suggestions menu.</li><li>Sets focus on the text input.</li></ul>
+Tab | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Closes the suggestions menu.</li><li>Sets focus on the clear button.</li></ul>
+Space | <ul><li>Sets the text input value to the content of the focused option in the suggestions menu.</li><li>Closes the suggestions menu.</li><li>Sets focus on the text input.</li></ul>
+Up Arrow | If focus is on the first option, returns focus to the text input. Otherwise, moves focus to and selects the previous option in the suggestions menu.
+Down Arrow | If focus is on the last option, does nothing. Otherwise, moves focus to and selects the next option in the suggestions menu.
 Backspace | Returns focus to the text input and deletes the character prior to the cursor
 Printable Characters | <ul><li>Moves focus to the text input.</li><li>Types the characters into the text input.</li></ul>
 
