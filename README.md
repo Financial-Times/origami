@@ -89,6 +89,12 @@ Down Arrow | If focus is on the last option, does nothing. Otherwise, moves focu
 Backspace | Returns focus to the text input and deletes the character prior to the cursor
 Printable Characters | <ul><li>Moves focus to the text input.</li><li>Types the characters into the text input.</li></ul>
 
+### When focus is within the clear button
+
+Key|Function
+---|---
+Enter | <ul><li>Moves focus to the text input.</li><li>Removes all the characters within the text input.</li></ul>
+Space | <ul><li>Moves focus to the text input.</li><li>Removes all the characters within the text input.</li></ul>
 
 
 ## Migration
