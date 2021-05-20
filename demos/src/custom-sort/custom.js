@@ -10,7 +10,7 @@ import '../../../main.js';
  * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-window.customSource = function customSource(query, populateResults) {
+window.customSuggestions = function customSuggestions(query, populateResults) {
 	const suggestions = [
 		'Afghanistan',
 		'Akrotiri',

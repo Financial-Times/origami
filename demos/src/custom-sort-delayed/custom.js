@@ -10,7 +10,7 @@ import '../../../main.js';
  * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-function customSource(query, populateResults) {
+function customSuggestions(query, populateResults) {
 	const suggestions = [
 		'Afghanistan',
 		'Akrotiri',
@@ -285,7 +285,7 @@ function customSource(query, populateResults) {
 	}, 1000);
 }
 
-window.customSource = window.Origami['o-utils'].debounce(customSource, 100);
+window.customSuggestions = window.Origami['o-utils'].debounce(customSuggestions, 100);
 
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user

@@ -31,14 +31,14 @@ class Autocomplete {
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
-			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 			this.options.source = function(query, populateResults) {
 				showLoadingPane();
 				let callback = function(results) {
 					hideLoadingPane();
 					populateResults(results);
 				};
-				customSource(query, callback);
+				customSuggestions(query, callback);
 			};
 			autocompleteEl.innerHTML = '';
 			autocompleteEl.appendChild(container);
