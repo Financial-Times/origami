@@ -82,7 +82,7 @@ Escape | If the results menu is displayed, closes it.
 Key|Function
 ---|---
 Enter | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
-Tab | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
+Tab | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the clear button.</li></ul>
 Space | <ul><li>Sets the text input value to the content of the focused option in the results menu.</li><li>Closes the results menu.</li><li>Sets focus on the text input.</li></ul>
 Up Arrow | If focus is on the first option, returns focus to the text input. Otherwise, moves focus to and selects the previous option in the results menu.
 Down Arrow | If focus is on the last option, does nothing. Otherwise, moves focus to and selects the next option in the results menu.
