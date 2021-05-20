@@ -74,7 +74,7 @@ oAutocomplete.init(oAutocompleteElement);
 Key|Function
 ---|---
 Down Arrow | If the results menu is displayed, moves focus to the first suggested value in the results menu.
-Enter | Does nothing.
+Enter | If the results menu is displayed, does nothing.
 Escape | If the results menu is displayed, closes it.
 
 ### When focus is within the results menu
