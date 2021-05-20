@@ -1,5 +1,11 @@
 import accessibleAutocomplete from 'accessible-autocomplete';
 
+
+/**
+ * @typedef {Function} PopulateResults
+ * @property {Array<string>} results - The results to show in the suggestions dropdown
+ */
+
 class Autocomplete {
 	/**
 	 * Class constructor.
@@ -31,6 +37,12 @@ class Autocomplete {
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
+			/**
+			 * @function
+			 * @param {string} query - Text which was typed into the autocomplete by the user
+			 * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+			 * @returns {void}
+			 */
 			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 			this.options.source = function(query, populateResults) {
 				showLoadingPane();
