@@ -8,7 +8,7 @@ import '../../../main.js';
 window.customHighlighter = function customHighlighter(suggestion, query) {
 	const result = suggestion.split('');
 
-	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query);
+	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
 	return result.map(function(character, index) {
 		let shoudHighlight = true;
 		const hasMatched = matchIndex > -1;

@@ -10,7 +10,7 @@ import '../../../main.js';
  * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-window.customSort = function customSort(query, populateResults) {
+window.customSource = function customSource(query, populateResults) {
 	const suggestions = [
 		'Afghanistan',
 		'Akrotiri',
@@ -276,13 +276,11 @@ window.customSort = function customSort(query, populateResults) {
 	const filteredResults = [];
 	for (const suggestion of suggestions) {
 		const lowercaseSuggestion = suggestion.toLocaleLowerCase();
-		if (lowercaseSuggestion.includes(query.toLocaleLowerCase())) {
+		if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
 			filteredResults.push(suggestion);
 		}
 	}
-	setTimeout(() => {
-		populateResults(filteredResults);
-	}, 3000);
+	populateResults(filteredResults);
 };
 
 /**
@@ -293,7 +291,7 @@ window.customSort = function customSort(query, populateResults) {
 window.customHighlighter = function customHighlighter(suggestion, query) {
 	const result = suggestion.split('');
 
-	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query);
+	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
 	return result.map(function(character, index) {
 		let shoudHighlight = true;
 		const hasMatched = matchIndex > -1;
