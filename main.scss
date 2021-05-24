@@ -9,18 +9,20 @@
 
 /// Outputs all available features and styles for tooltips.
 ///
+/// @param {Color} tooltip-background-color [$_o-tooltip-background-color] - The background color of the tooltip.
+/// @param {Color} text-color [$_o-tooltip-text-color] - The color of the tooltip text.
 /// @output The output includes the `.o-tooltip` class definition.
 /// @example scss - All tooltip styles
 ///   @include oTooltip();
 /// @access public
-@mixin oTooltip() {
+@mixin oTooltip($tooltip-background-color: $_o-tooltip-background-color, $text-color: $_o-tooltip-text-color) {
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still spec-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
 	@include oGridSurfaceCurrentLayout();
 
 	// Include base styles
-	@include _oTooltipBase();
+	@include _oTooltipBase($tooltip-background-color, $text-color);
 }
 
 // If silent mode is disabled, output all of the default tooltip styles.

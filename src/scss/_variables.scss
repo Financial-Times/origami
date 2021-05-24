@@ -24,6 +24,12 @@ $_o-tooltip-animation-duration: 0.5s;
 /// @access private
 $_o-tooltip-background-color: oColorsByName('white');
 
+/// The text colour for tooltips.
+///
+/// @type {Color}
+/// @access private
+$_o-tooltip-text-color: oColorsByName('black');
+
 /// The border colour for tooltips.
 ///
 /// @type {Color}
