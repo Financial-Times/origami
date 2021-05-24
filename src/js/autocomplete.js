@@ -46,7 +46,7 @@ class Autocomplete {
 			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 			this.options.source = function(query, populateResults) {
 				showLoadingPane();
-				let callback = function(results) {
+				const callback = function(results) {
 					hideLoadingPane();
 					populateResults(results);
 				};
@@ -135,7 +135,7 @@ class Autocomplete {
 			container.appendChild(loadingContainer);
 			const menu = document.querySelector('.o-autocomplete__menu');
 			if (menu) {
-				menu.classList.replace('o-autocomplete__menu--visible', 'o-autocomplete__menu--hidden');
+				menu.classList.add('o-autocomplete__menu--loading');
 			}
 		}
 		function hideLoadingPane() {
@@ -145,7 +145,7 @@ class Autocomplete {
 			}
 			const menu = document.querySelector('.o-autocomplete__menu');
 			if (menu) {
-				menu.classList.replace('o-autocomplete__menu--hidden', 'o-autocomplete__menu--visible');
+				menu.classList.remove('o-autocomplete__menu--loading');
 			}
 		}
 

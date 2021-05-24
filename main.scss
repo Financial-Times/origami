@@ -81,6 +81,10 @@
 		display: block;
 	}
 
+	.o-autocomplete__menu--loading {
+		display: none;
+	}
+
 	.o-autocomplete__menu--hidden {
 		display: none;
 	}
