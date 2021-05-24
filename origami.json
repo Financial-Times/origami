@@ -15,25 +15,25 @@
 	},
 	"demos": [
 		{
-			"title": "Autocomplete based on static data",
+			"title": "Autocomplete progressively enhanced select element",
 			"name": "static",
-			"template": "demos/src/basic/basic.mustache",
-			"description": "Description of the demo",
-			"js": "demos/src/basic/basic.js"
+			"template": "demos/src/static/static.mustache",
+			"description": "Autocomplete based on static data provided by a select element",
+			"js": "demos/src/static/static.js"
 		},
 		{
-			"title": "Autocomplete based on data from an API call",
-			"name": "custom",
-			"template": "demos/src/custom-sort/custom.mustache",
-			"description": "Description of the demo",
-			"js": "demos/src/custom-sort/custom.js"
+			"title": "Autocomplete progressively enhanced from a text input",
+			"name": "dynamic",
+			"template": "demos/src/dynamic/dynamic.mustache",
+			"description": "Autocomplete data is provided by a JavaScript function",
+			"js": "demos/src/dynamic/dynamic.js"
 		},
 		{
-			"title": "Autocomplete based on data from an API call which is delayed",
-			"name": "custom-delayed",
-			"template": "demos/src/custom-sort-delayed/custom.mustache",
-			"description": "Description of the demo",
-			"js": "demos/src/custom-sort-delayed/custom.js"
+			"title": "Autocomplete progressively enhanced from a text input",
+			"name": "dynamic-delayed",
+			"template": "demos/src/dynamic-delayed/dynamic-delayed.mustache",
+			"description": "Same as the other demo but the data is purposefully delayed to show the loading state",
+			"js": "demos/src/dynamic-delayed/dynamic-delayed.js"
 		},
 		{
 			"title": "Pa11y",

@@ -269,23 +269,56 @@ function customSuggestions(query, populateResults) {
 		'Zambia',
 		'Zimbabwe'
 	];
-	suggestions.sort(function(a,b) {
-		return a.localeCompare(b);
-	});
-
-	const filteredResults = [];
-	for (const suggestion of suggestions) {
-		const lowercaseSuggestion = suggestion.toLocaleLowerCase();
-		if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-			filteredResults.push(suggestion);
-		}
-	}
 	setTimeout(() => {
+		if (!query) {
+			populateResults([]);
+			return;
+		}
+		suggestions.sort(function(a,b) {
+			return a.localeCompare(b);
+		});
+
+		const filteredResults = [];
+		for (const suggestion of suggestions) {
+			const lowercaseSuggestion = suggestion.toLocaleLowerCase();
+			if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+				filteredResults.push(suggestion);
+			}
+		}
 		populateResults(filteredResults);
 	}, 1000);
 }
 
-window.customSuggestions = window.Origami['o-utils'].debounce(customSuggestions, 100);
+/**
+*
+* Debounces function so it is only called after n milliseconds
+* without it not being called
+*
+* @example
+* Utils.debounce(myFunction() {}, 100);
+*
+* @param {Function} func - Function to be debounced
+* @param {number} wait - Time in miliseconds
+*
+* @returns {Function} - Debounced function
+*/
+function debounce(func, wait) {
+	let timeout;
+	return function() {
+		console.log('debouncer called');
+		const args = arguments;
+		const later = () => {
+			timeout = null;
+			func.apply(this, args);
+		};
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+	};
+}
+
+window.customSuggestions = customSuggestions;
+// window.customSuggestions = debounce(customSuggestions, 100);
+// window.customSuggestions = window.Origami['o-utils'].debounce(customSuggestions, 100);
 
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user

@@ -269,6 +269,11 @@ window.customSuggestions = function customSuggestions(query, populateResults) {
 		'Zambia',
 		'Zimbabwe'
 	];
+
+	if (!query) {
+		populateResults([]);
+		return;
+	}
 	suggestions.sort(function(a,b) {
 		return a.localeCompare(b);
 	});
