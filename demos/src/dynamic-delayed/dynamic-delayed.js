@@ -5,12 +5,19 @@ import '../../../main.js';
  * @property {Array<string>} results - The results to show in the suggestions dropdown
  */
 
+
+let suggestionTimeoutId;
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
  * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
 function customSuggestions(query, populateResults) {
+	clearTimeout(suggestionTimeoutId);
+	if (!query) {
+		populateResults([]);
+		return;
+	}
 	const suggestions = [
 		'Afghanistan',
 		'Akrotiri',
@@ -269,11 +276,7 @@ function customSuggestions(query, populateResults) {
 		'Zambia',
 		'Zimbabwe'
 	];
-	setTimeout(() => {
-		if (!query) {
-			populateResults([]);
-			return;
-		}
+	suggestionTimeoutId = setTimeout(() => {
 		suggestions.sort(function(a,b) {
 			return a.localeCompare(b);
 		});
