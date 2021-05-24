@@ -43,8 +43,8 @@ describe("Autocomplete", () => {
 			proclaim.equal(boilerplate[0] instanceof Autocomplete, true);
 		});
 
-		it("single component when initialized with a root element", () => {
-			const boilerplate = Autocomplete.init('#element');
+		it("single component when initialized with a root my-autocomplete", () => {
+			const boilerplate = Autocomplete.init('#my-autocomplete');
 			proclaim.equal(boilerplate instanceof Autocomplete, true);
 		});
 	});

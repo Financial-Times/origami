@@ -21,7 +21,19 @@ function insert(html) {
 
 function htmlCode () {
 	const html = `<div>
-		<div class="o-autocomplete" data-o-component="o-autocomplete" id="element"></div>
+	<label class="o-forms-field" for="my-autocomplete">
+    <span class="o-forms-title">
+        <span class="o-forms-title__main">Select your country</span>
+    </span>
+    <span class="o-forms-input o-forms-input--select o-forms-input--text">
+        <div data-o-component="o-autocomplete" class="o-autocomplete" id="my-autocomplete">
+            <select id="my-autocomplete">
+                <option value=""></option>
+                <option>Afghanistan</option>
+            </select>
+        </div>
+    </span>
+</label>
 	</div>
 	`;
 	insert(html);

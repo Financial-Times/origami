@@ -7,9 +7,10 @@
 						@include oAutocomplete();
 					}
 				}
-				@include expect($selector: false) {
-					.test-mixin .o-autocomplete {
-						display: block;
+				@include contains($selector: false) {
+					.test-mixin .o-autocomplete .o-autocomplete__container {
+						display: inline-grid;
+						position: relative;
 					}
 				}
 			}
