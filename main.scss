@@ -1,28 +1,196 @@
+@import "o-brand/main";
 @import "o-grid/main";
 @import "o-normalise/main";
-@import "o-overlay/main";
 @import "o-visual-effects/main";
 @import "o-typography/main";
 
 @import "src/scss/variables";
+@import "src/scss/brand";
 @import "src/scss/mixins";
 
 /// Outputs all available features and styles for tooltips.
 ///
-/// @param {Color} tooltip-background-color [$_o-tooltip-background-color] - The background color of the tooltip.
-/// @param {Color} text-color [$_o-tooltip-text-color] - The color of the tooltip text.
 /// @output The output includes the `.o-tooltip` class definition.
 /// @example scss - All tooltip styles
 ///   @include oTooltip();
 /// @access public
-@mixin oTooltip($tooltip-background-color: $_o-tooltip-background-color, $text-color: $_o-tooltip-text-color) {
+@mixin oTooltip() {
 	// Tooltip relies on the o-grid layout sizes being defined.
 	// This is still spec-compliant, as these mixins only output
 	// element selectors – nothing prefixed with o-grid
 	@include oGridSurfaceCurrentLayout();
 
-	// Include base styles
-	@include _oTooltipBase($tooltip-background-color, $text-color);
+	.o-tooltip {
+		@include oVisualEffectsShadowContent($elevation: 'high');
+		position: absolute;
+		z-index: 10;
+		box-sizing: border-box;
+		opacity: 0;
+		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
+		border: 0;
+		display: none;
+
+		&.visible {
+			transform: translate(0, 0);
+			opacity: 1;
+		}
+
+		&[data-o-tooltip-position="left"]:not(.visible) {
+			transform: translate(-$_o-tooltip-animation-distance, 0);
+		}
+		&[data-o-tooltip-position="right"]:not(.visible) {
+			transform: translate($_o-tooltip-animation-distance, 0);
+		}
+		&[data-o-tooltip-position="top"]:not(.visible) {
+			transform: translate(0, -$_o-tooltip-animation-distance);
+		}
+		&[data-o-tooltip-position="bottom"]:not(.visible) {
+			transform: translate(0, $_o-tooltip-animation-distance);
+		}
+
+		// Style for the default theme.
+		@include _oTooltipThemeContent();
+	}
+
+	.o-tooltip-content {
+		@include oTypographySans();
+		position: relative;
+		box-sizing: border-box;
+		overflow: auto;
+		padding: 15px 35px 15px 20px;
+		float: left;
+		line-height: 1;
+		hyphens: auto; // Breaks long words to fit into smaller screen sizes
+
+		> *:first-child {
+			margin-top: 0;
+		}
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.o-tooltip--arrow-above,
+	.o-tooltip--arrow-below,
+	.o-tooltip--arrow-left,
+	.o-tooltip--arrow-right {
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			border: solid transparent;
+		}
+		&:before {
+			// 1px offset so it appears properly
+			border-width: $_o-tooltip-arrow-size + $_o-tooltip-border-width + 1;
+		}
+		&:after {
+			border-width: $_o-tooltip-arrow-size;
+		}
+	}
+
+	.o-tooltip--arrow-left {
+		&:before,
+		&:after {
+			right: 100%;
+			border-left-width: 0;
+		}
+		&:before {
+			border-right-color: $_o-tooltip-shadow-color;
+		}
+	}
+
+	.o-tooltip--arrow-right {
+		&:before,
+		&:after {
+			left: 100%;
+			border-right-width: 0;
+		}
+		&:before {
+			border-left-color: $_o-tooltip-shadow-color;
+		}
+	}
+
+	.o-tooltip--arrow-above,
+	.o-tooltip--arrow-below {
+		&.o-tooltip-arrow--align-left:before,
+		&.o-tooltip-arrow--align-left:after {
+			left: 10%;
+		}
+
+		&.o-tooltip-arrow--align-right:before,
+		&.o-tooltip-arrow--align-right:after {
+			left: 90%;
+		}
+
+		&:before,
+		&:after {
+			left: 50%;
+		}
+		&:before {
+			// 1px offset so it appears properly
+			margin-left: -$_o-tooltip-arrow-size - $_o-tooltip-border-width - 1;
+		}
+		&:after {
+			margin-left: -$_o-tooltip-arrow-size;
+		}
+	}
+
+	.o-tooltip--arrow-above {
+		&:before,
+		&:after {
+			bottom: 100%;
+			border-top-width: 0;
+		}
+		&:before {
+			border-bottom-color: $_o-tooltip-shadow-color;
+		}
+	}
+
+	.o-tooltip--arrow-below {
+		&:before,
+		&:after {
+			top: 100%;
+			border-bottom-width: 0;
+		}
+		&:before {
+			border-top-color: $_o-tooltip-shadow-color;
+		}
+	}
+
+	.o-tooltip-close {
+		@include oIconsContent(
+			'cross',
+			_oTooltipGet('close-foreground-color'),
+			$size: 20px
+		);
+		// start: undo button styles
+		appearance: none;
+		border: 0;
+		font: inherit;
+		outline: inherit;
+		// end: undo button styles
+		box-sizing: content-box;
+		position: absolute;
+		margin: 5px 5px 15px 15px;
+		padding: 0;
+		cursor: pointer;
+		font-size: 8px;
+		line-height: 1;
+		user-select: none;
+		top: 0;
+		right: 0;
+
+		// Increase hit zone of the button around it for better usability
+		&:after {
+			position: absolute;
+			content: '';
+			top: -(oSpacingByName('s3'));
+			right: -(oSpacingByName('s3'));
+			left: -(oSpacingByName('s3'));
+			bottom: -(oSpacingByName('s3'));
+		}
+	}
 }
 
 // If silent mode is disabled, output all of the default tooltip styles.

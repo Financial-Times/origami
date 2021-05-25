@@ -41,3 +41,9 @@ body {
 	position: fixed;
 	top: 0;
 }
+
+
+@include oTooltipAddTheme('demo-custom-theme', (
+	'background-color': oColorsByName('black'),
+	'foreground-color': oColorsByName('white')
+));

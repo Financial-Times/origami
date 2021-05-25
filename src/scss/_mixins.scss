@@ -1,274 +1,88 @@
-
-/// Base styles for tooltips.
-///
-/// @param {Color} tooltip-background-color [$_o-tooltip-background-color] - The background color of the tooltip.
-/// @param {Color} text-color [$_o-tooltip-text-color] - The tooltip text color.
-/// @output The output includes all selectors and styles for tooltips.
-/// @example scss - Base tooltip styles
-///   @include _oTooltipBase();
-/// @access private
-@mixin _oTooltipBase($tooltip-background-color: $_o-tooltip-background-color, $text-color: $_o-tooltip-text-color) {
-	.o-tooltip {
-		@include oVisualEffectsShadowContent($elevation: 'high');
-		position: absolute;
-		z-index: 10;
-		box-sizing: border-box;
-		opacity: 0;
-		transition: opacity $_o-tooltip-animation-duration $o-visual-effects-timing-fade, transform $_o-tooltip-animation-duration $o-visual-effects-timing-slide;
-		border: 0;
-		background: $tooltip-background-color;
-		display: none;
-
-		&.visible {
-			transform: translate(0, 0);
-			opacity: 1;
-		}
-
-		&[data-o-tooltip-position="left"]:not(.visible) {
-			transform: translate(-$_o-tooltip-animation-distance, 0);
-		}
-		&[data-o-tooltip-position="right"]:not(.visible) {
-			transform: translate($_o-tooltip-animation-distance, 0);
-		}
-		&[data-o-tooltip-position="top"]:not(.visible) {
-			transform: translate(0, -$_o-tooltip-animation-distance);
-		}
-		&[data-o-tooltip-position="bottom"]:not(.visible) {
-			transform: translate(0, $_o-tooltip-animation-distance);
-		}
+/// Output styles for a custom o-tooltip theme.
+/// @param {string} $name - The name of the custom theme. This is used to create a new CSS class name so should be descriptive and include the project name.
+/// @param {map} $opts - A map of theme options including "background-color" (color), "foreground-color" (color), and optionally "close-foreground-color" (color).
+/// @example Output a custom tooltip theme named "my-product-modifier" with a slate background, and white foreground. Outputs a class 'o-tooltip--my-product-modifier'
+/// 	// Outputs CSS class "o-tooltip--my-product-modifier"
+/// 	@include oTooltipAddTheme('my-product-modifier', (
+/// 		'background-color': oColorsByName('slate'),
+/// 		'foreground-color': oColorsByName('white'),
+/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 	));
+/// @access public
+@mixin oTooltipAddTheme($name, $opts) {
+	@if type-of($name) != 'string' {
+		@error 'Expected a custom tooltip name as a string.';
 	}
+
+	@if type-of($opts) != 'map' {
+		@error 'Expected a map of tooltip theme options.';
+	}
+
+	@if type-of(map-get($opts, 'background-color')) != 'color' {
+		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
+		'a "color" `background-colour` option. Found type ' +
+		'"#{type-of(map-get($opts, 'background-color'))}".';
+	}
+
+	@if type-of(map-get($opts, 'foreground-color')) != 'color' {
+		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
+		'a "color" `foreground-colour` option. Found type ' +
+		'"#{type-of(map-get($opts, 'foreground-color'))}".';
+	}
+
+	.o-tooltip.o-tooltip--#{$name} {
+		@include _oTooltipThemeContent($opts);
+	}
+}
+
+/// Output styles required to theme the tooltip.
+/// @example Output styles for the default theme.
+/// 	@include _oTooltipThemeContent();
+/// @example Output styles for an o-brand variant (example only, at the time of writing o-tooltip only has one, default variant).
+/// 	@include _oTooltipThemeContent('inverse');
+/// @example Output styles for a custom variant
+/// 	@include _oTooltipThemeContent((
+/// 		'background-color': oColorsByName('slate'),
+/// 		'foreground-color': oColorsByName('white'),
+/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 	));
+/// @see {oTooltipAddTheme}
+/// @access public
+@mixin _oTooltipThemeContent($theme: null) {
+	// Default theme values.
+	@if(type-of($theme) == 'map') {
+		$theme: map-merge((
+			'close-foreground-color': map-get($theme, 'foreground-color')
+		), $theme);
+	}
+
+	// Output theme CSS.
+	background: _oTooltipGet('background-color', $theme);
+
+	&.o-tooltip--arrow-left:after {
+		border-right-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-right:after {
+		border-left-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-above:after {
+		border-bottom-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-below:after {
+		border-top-color: _oTooltipGet('background-color', $theme);
+	}
+
 	.o-tooltip-content {
-		@include _oTooltipContentBody($text-color);
+		color: _oTooltipGet('foreground-color', $theme);
 	}
-	.o-tooltip--arrow-left {
-		@include _oTooltipContentLeftArrow($tooltip-background-color);
-	}
-	.o-tooltip--arrow-right {
-		@include _oTooltipContentRightArrow($tooltip-background-color);
-	}
-	.o-tooltip--arrow-above {
-		@include _oTooltipContentUpArrow($tooltip-background-color);
-	}
-	.o-tooltip--arrow-below {
-		@include _oTooltipContentDownArrow($tooltip-background-color);
-	}
+
 	.o-tooltip-close {
-		@include _oTooltipContentClose();
+		@include oIconsContent(
+			'cross',
+			_oTooltipGet('foreground-color', $theme),
+			$size: 20px,
+			$include-base-styles: false
+		);
 	}
 }
 
-/// Outputs styles for tooltip content.
-///
-/// @output The output includes all styles for tooltip content excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentBody($text-color: $_o-tooltip-text-color) {
-	@include oTypographySans();
-	color: $text-color;
-	position: relative;
-	box-sizing: border-box;
-	overflow: auto;
-	padding: 15px 35px 15px 20px;
-	float: left;
-	line-height: 1;
-	hyphens: auto; // Breaks long words to fit into smaller screen sizes
-
-	> *:first-child {
-		margin-top: 0;
-	}
-	> *:last-child {
-		margin-bottom: 0;
-	}
-}
-
-/// Outputs base styles for tooltip arrows.
-///
-/// @param {Number} size [10px] - The size of the arrow
-/// @output The output includes all styles for tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentArrow($size: 10px) {
-	// :before for the outer arrow that has the bordered colour,
-	// and :after for the inner arrow with the white background colour
-	&:before,
-	&:after {
-		content: "";
-		position: absolute;
-		border: solid transparent;
-	}
-	&:before {
-		// 1px offset so it appears properly
-		border-width: $size + $_o-tooltip-border-width + 1;
-	}
-	&:after {
-		border-width: $size;
-	}
-}
-
-/// Outputs base styles for top and bottom tooltip arrows.
-///
-/// @param {Number} size [10px] - The size of the arrow
-/// @output The output includes all styles for top and bottom tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentVerticalArrow($size: 10px) {
-	@include _oTooltipContentArrow;
-
-	&.o-tooltip-arrow--align-left:before,
-	&.o-tooltip-arrow--align-left:after {
-		left: 10%;
-	}
-
-	&.o-tooltip-arrow--align-right:before,
-	&.o-tooltip-arrow--align-right:after {
-		left: 90%;
-	}
-
-	&:before,
-	&:after {
-		left: 50%;
-	}
-	&:before {
-		// 1px offset so it appears properly
-		margin-left: -$size - $_o-tooltip-border-width - 1;
-	}
-	&:after {
-		margin-left: -$size;
-	}
-}
-
-/// Outputs base styles for top tooltip arrows.
-///
-/// @param {Color} color [$_o-tooltip-background-color] - The color of the arrow.
-/// @param {Color} shadow-color [$_o-tooltip-border-color] - The color of the arrow shadow.
-/// @output The output includes all styles for top tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentUpArrow($color: $_o-tooltip-background-color, $shadow-color: $_o-tooltip-border-color) {
-	@include _oTooltipContentVerticalArrow;
-
-	&:before,
-	&:after {
-		bottom: 100%;
-		border-top-width: 0;
-	}
-	&:before {
-		border-bottom-color: $shadow-color;
-	}
-	&:after {
-		border-bottom-color: $color;
-	}
-}
-
-/// Outputs base styles for bottom tooltip arrows.
-///
-/// @param {Color} color [$_o-tooltip-background-color] - The color of the arrow.
-/// @param {Color} shadow-color [$_o-tooltip-border-color] - The color of the arrow shadow.
-/// @output The output includes all styles for bottom tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentDownArrow($color: $_o-tooltip-background-color, $shadow-color: $_o-tooltip-border-color) {
-	@include _oTooltipContentVerticalArrow;
-
-	&:before,
-	&:after {
-		top: 100%;
-		border-bottom-width: 0;
-	}
-	&:before {
-		border-top-color: $shadow-color;
-	}
-	&:after {
-		border-top-color: $color;
-	}
-}
-
-/// Outputs base styles for left and right tooltip arrows.
-///
-/// @param {Number} size [10px] - The size of the arrow
-/// @output The output includes all styles for left and right tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentHorizontalArrow($size: 10px) {
-	@include _oTooltipContentArrow;
-
-	&.o-tooltip-arrow--align-top:before,
-	&.o-tooltip-arrow--align-top:after {
-		top: 0;
-		margin-top: 0;
-	}
-
-	&.o-tooltip-arrow--align-bottom:before,
-	&.o-tooltip-arrow--align-bottom:after {
-		top: auto;
-		bottom: 0;
-		margin-top: 0;
-	}
-
-
-	&:before,
-	&:after {
-		top: 50%;
-	}
-	&:before {
-		// 1px offset so it appears properly
-		margin-top: -$size - $_o-tooltip-border-width - 1;
-	}
-	&:after {
-		margin-top: -$size;
-	}
-}
-
-/// Outputs base styles for left tooltip arrows.
-///
-/// @param {Color} color [$_o-tooltip-background-color] - The color of the arrow.
-/// @param {Color} shadow-color [$_o-tooltip-border-color] - The color of the arrow shadow.
-/// @output The output includes all styles for left tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentLeftArrow($color: $_o-tooltip-background-color, $shadow-color: $_o-tooltip-border-color) {
-	@include _oTooltipContentHorizontalArrow;
-
-	&:before,
-	&:after {
-		right: 100%;
-		border-left-width: 0;
-	}
-	&:before {
-		border-right-color: $shadow-color;
-	}
-	&:after {
-		border-right-color: $color;
-	}
-}
-
-/// Outputs base styles for right tooltip arrows.
-///
-/// @param {Color} color [$_o-tooltip-background-color] - The color of the arrow.
-/// @param {Color} shadow-color [$_o-tooltip-border-color] - The color of the arrow shadow.
-/// @output The output includes all styles for right tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentRightArrow($color: $_o-tooltip-background-color, $shadow-color: $_o-tooltip-border-color) {
-	@include _oTooltipContentHorizontalArrow;
-
-	&:before,
-	&:after {
-		left: 100%;
-		border-right-width: 0;
-	}
-	&:before {
-		border-left-color: $shadow-color;
-	}
-	&:after {
-		border-left-color: $color;
-	}
-}
-
-/// Outputs base styles for tooltip close buttons.
-///
-/// @param {Color} color [$_o-tooltip-text-color] - The color of the close icon.
-/// @output The output includes all styles for top tooltip arrows excluding a wrapping selector.
-/// @access private
-@mixin _oTooltipContentClose($color: $_o-tooltip-text-color) {
-	// TODO add support for passing color to close button
-	@include oOverlayContentClose; // ($color);
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 0;
-	margin: 5px 5px 15px 15px;
-	border: 0;
-}

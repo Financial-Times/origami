@@ -119,8 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Sass
 
-#### Mixin: `oTooltip`
-
 The `oTooltip` mixin is used to output tooltip selectors and styles. This output includes all of the `.o-tooltip` classes:
 
 ```scss
@@ -138,6 +136,29 @@ The `oTooltip` mixin is used to output tooltip selectors and styles. This output
 ```
 
 There is [full Sass documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-tooltip/sassdoc).
+
+## Customisation
+
+Include the `oTooltipAddTheme` mixin to output a custom tooltip theme. The mixin accepts a name for your theme and a map of options:
+
+- `name`: The name of your theme. This is used for the modifier class output `o-tooltip--[name]`.
+- `opts`: A map of options for your theme.
+	- `background-color`: The background color for your tooltip.
+	- `foreground-color`: The foreground/text color for your tooltip.
+	- `close-foreground-color` (optional): The colour of the close button. If not set the `foreground-color` is used.
+
+The following example shows how to add a custom theme named "my-product-modifier", with a slate background and white foreground. Instead of "my-product-modifier" choose a descriptive name that includes your project name, so it's clear where the custom theme is added.
+
+```scss
+// Outputs CSS class o-tooltip--my-product-modifier.
+// Uses an o-colors function to fetch Origami colour values.
+@include oTooltipAddTheme('my-product-modifier', (
+	'background-color': oColorsByName('slate'),
+	'foreground-color': oColorsByName('white')
+));
+```
+
+This will output a CSS class `o-tooltip--[name]`. Add this class to your tooltip to view your custom theme.
 
 ## Migration Guide
 

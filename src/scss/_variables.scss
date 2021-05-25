@@ -18,26 +18,18 @@ $_o-tooltip-animation-distance: 50px;
 /// @access private
 $_o-tooltip-animation-duration: 0.5s;
 
-/// The background colour for tooltips.
-///
-/// @type {Color}
-/// @access private
-$_o-tooltip-background-color: oColorsByName('white');
-
-/// The text colour for tooltips.
-///
-/// @type {Color}
-/// @access private
-$_o-tooltip-text-color: oColorsByName('black');
-
 /// The border colour for tooltips.
 ///
 /// @type {Color}
 /// @access private
-$_o-tooltip-border-color: rgba(0, 0, 0, 0.05);
+$_o-tooltip-shadow-color: rgba(0, 0, 0, 0.05);
 
 /// The border width for tooltips.
 ///
 /// @type {Number}
 /// @access private
 $_o-tooltip-border-width: 1px;
+
+/// @type {Number}
+/// @access private
+$_o-tooltip-arrow-size: 10px;
