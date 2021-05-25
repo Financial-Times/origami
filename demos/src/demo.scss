@@ -44,6 +44,6 @@ body {
 
 
 @include oTooltipAddTheme('demo-custom-theme', (
-	'background-color': oColorsByName('slate'),
+	'background-color': oColorsByName('black'),
 	'foreground-color': oColorsByName('white')
 ));
