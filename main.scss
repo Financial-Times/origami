@@ -87,6 +87,36 @@
 		}
 	}
 
+	.o-tooltip--arrow-left,
+	.o-tooltip--arrow-right {
+
+		&.o-tooltip-arrow--align-top:before,
+		&.o-tooltip-arrow--align-top:after {
+			top: 0;
+			margin-top: 0;
+		}
+
+		&.o-tooltip-arrow--align-bottom:before,
+		&.o-tooltip-arrow--align-bottom:after {
+			top: auto;
+			bottom: 0;
+			margin-top: 0;
+		}
+
+
+		&:before,
+		&:after {
+			top: 50%;
+		}
+		&:before {
+			// 1px offset so it appears properly
+			margin-top: -$_o-tooltip-arrow-size - $_o-tooltip-border-width - 1;
+		}
+		&:after {
+			margin-top: -$_o-tooltip-arrow-size;
+		}
+	}
+
 	.o-tooltip--arrow-left {
 		&:before,
 		&:after {
