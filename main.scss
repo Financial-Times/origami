@@ -22,6 +22,7 @@
 
 	.o-tooltip {
 		@include oVisualEffectsShadowContent($elevation: 'high');
+		@include _oTooltipThemeContent(); // Style for the default theme.
 		position: absolute;
 		z-index: 10;
 		box-sizing: border-box;
@@ -47,9 +48,6 @@
 		&[data-o-tooltip-position="bottom"]:not(.visible) {
 			transform: translate(0, $_o-tooltip-animation-distance);
 		}
-
-		// Style for the default theme.
-		@include _oTooltipThemeContent();
 	}
 
 	.o-tooltip-content {

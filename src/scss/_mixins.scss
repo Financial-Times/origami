@@ -20,14 +20,14 @@
 
 	@if type-of(map-get($opts, 'background-color')) != 'color' {
 		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
-		'a "color" `background-colour` option. Found type ' +
-		'"#{type-of(map-get($opts, 'background-color'))}".';
+			'a "color" `background-colour` option. Found type ' +
+			'"#{type-of(map-get($opts, 'background-color'))}".';
 	}
 
 	@if type-of(map-get($opts, 'foreground-color')) != 'color' {
 		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
-		'a "color" `foreground-colour` option. Found type ' +
-		'"#{type-of(map-get($opts, 'foreground-color'))}".';
+			'a "color" `foreground-colour` option. Found type ' +
+			'"#{type-of(map-get($opts, 'foreground-color'))}".';
 	}
 
 	.o-tooltip.o-tooltip--#{$name} {

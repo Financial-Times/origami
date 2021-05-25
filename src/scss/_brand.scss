@@ -13,9 +13,9 @@
 @if oBrandGetCurrentBrand() == 'master' {
 	@include oBrandDefine('o-tooltip', 'master', (
 		'variables': (
-            'background-color': oColorsByName('white'),
-            'foreground-color': null, // inherit by default
-            'close-foreground-color': oColorsByName('black-60')
+			'background-color': oColorsByName('white'),
+			'foreground-color': null, // inherit by default
+			'close-foreground-color': oColorsByName('black-60')
 		),
 		'supports-variants': ()
 	));
@@ -24,9 +24,9 @@
 @if oBrandGetCurrentBrand() == 'internal' {
 	@include oBrandDefine('o-tooltip', 'internal', (
 		'variables': (
-            'background-color': oColorsByName('white'),
-            'foreground-color': null, // inherit by default
-            'close-foreground-color': oColorsByName('black-60')
+			'background-color': oColorsByName('white'),
+			'foreground-color': null, // inherit by default
+			'close-foreground-color': oColorsByName('black-60')
 		),
 		'supports-variants': ()
 	));
@@ -35,8 +35,8 @@
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	@include oBrandDefine('o-tooltip', 'whitelabel', (
 		'variables': (
-            'background-color': oColorsByName('white'),
-            'foreground-color': null, // inherit by default,
+			'background-color': oColorsByName('white'),
+			'foreground-color': null, // inherit by default,
 			'close-foreground-color': oColorsByName('black')
 		),
 		'supports-variants': ()
