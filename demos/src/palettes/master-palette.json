@@ -19,13 +19,15 @@
 		{ "name": "jade" },
 		{ "name": "wasabi" },
 		{ "name": "crimson" },
-		{ "name": "candy" },
-		{ "name": "matisse" }
+		{ "name": "candy" }
 	],
 	"b2c": [
 		{ "name": "org-b2c" },
 		{ "name": "org-b2c-dark" },
 		{ "name": "org-b2c-light" }
+	],
+	"partner-content": [
+		{ "name": "matisse" }
 	],
 	"brand": [
 		{ "name": "brand-ft-pink" }

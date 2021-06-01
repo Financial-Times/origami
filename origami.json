@@ -111,6 +111,17 @@
 			]
 		},
 		{
+			"name": "master-partner-content-palette",
+			"title": "Partner Content Palette",
+			"data": "demos/src/palettes/master-palette.json",
+			"template": "demos/src/partner-content-palette.mustache",
+			"description": "",
+			"display_html": false,
+			"brands": [
+				"master"
+			]
+		},
+		{
 			"name": "master-brand-palette",
 			"title": "Brand Palette",
 			"data": "demos/src/palettes/master-palette.json",
