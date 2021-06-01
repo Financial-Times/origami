@@ -19,7 +19,8 @@
 		{ "name": "jade" },
 		{ "name": "wasabi" },
 		{ "name": "crimson" },
-		{ "name": "candy" }
+		{ "name": "candy" },
+		{ "name": "matisse" }
 	],
 	"b2c": [
 		{ "name": "org-b2c" },
