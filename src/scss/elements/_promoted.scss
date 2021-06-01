@@ -10,7 +10,7 @@
 	.o-teaser__promoted-prefix {
 		@include oTypographySans($scale: 0, $include-font-family: false);
 		text-transform: uppercase;
-		color: oColorsByName('oxford-50');
+		color: oColorsByName('matisse');
 		display: block;
 	}
 
