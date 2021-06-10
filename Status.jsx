@@ -2,6 +2,7 @@ import { h } from '@financial-times/x-engine'
 import TimeStamp from './TimeStamp'
 import RelativeTime from './RelativeTime'
 import LiveBlogStatus from './LiveBlogStatus'
+import AlwaysShowTimestamp from './AlwaysShowTimestamp'
 
 export default (props) => {
 	if (props.status) {
@@ -9,7 +10,9 @@ export default (props) => {
 	}
 
 	if (props.publishedDate) {
-		if (props.useRelativeTime) {
+		if (props.alwaysDisplayTimestamp) {
+			return <AlwaysShowTimestamp {...props} />
+		} else if (props.useRelativeTime) {
 			return <RelativeTime {...props} />
 		} else {
 			return <TimeStamp {...props} />
