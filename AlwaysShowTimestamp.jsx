@@ -2,7 +2,6 @@ import { h } from '@financial-times/x-engine'
 import TimeStamp from './TimeStamp'
 import RelativeTime from './RelativeTime'
 import { differenceInCalendarDays } from 'date-fns'
-import { getDateOnly } from '../../x-teaser-timeline/src/lib/date'
 
 /**
  * Timestamp shown always, the default 4h limit does not apply here
@@ -10,8 +9,8 @@ import { getDateOnly } from '../../x-teaser-timeline/src/lib/date'
  * If different calendar day, we show full Date time e.g. June 9, 2021
  */
 export default (props) => {
-	const localTodayDate = getDateOnly(new Date().toISOString())
-	const dateToCompare = getDateOnly(new Date(props.publishedDate).toISOString())
+	const localTodayDate = new Date().toISOString().substr(0, 10)
+	const dateToCompare = new Date(props.publishedDate).toISOString().substr(0, 10)
 
 	if (differenceInCalendarDays(localTodayDate, dateToCompare) >= 1) {
 		return <TimeStamp {...props} />
