@@ -2,7 +2,7 @@
 
 ### Migrating from v3 to v4
 
-V4 has been dropped support for use through Bower. When using Sass, you will need to add `node_modules` to your `includePath` as well as either:
+V4 has dropped support for use through Bower. When using Sass, you will need to add `node_modules` to your `includePath` as well as either:
 - Update your code to use the fully qualified package name, i.e.: `@import "@financial-times/o-brand/main"`, or
 - Also `node_modules/@financial-times` to the Sass include path
 
@@ -18,5 +18,4 @@ Deprecated features have been removed:
 ### Migrating from v1 to v2
 
 The `oBrandGet` function has changed. The `$component` argument can be omitted when used with `oBrandConfigureFor` or `oBrandOverride`, and the `$force-variant` argument renamed `$configure-for`.
-
 
