@@ -2,9 +2,9 @@
 
 ### Migrating from v3 to v4
 
-V4 has been updated to meet v2 of the Origami component specification, dropping support for Bower. Therefore this version of `o-brand` is only compatible with other Origami components which follow v2 of the component specification. To use `o-brand` ensure your component is following [v2 of the origami component specification](https://origami.ft.com/spec/v2/), including:
-- Add `@financial-times/o-brand` as a peer dependency in `package.json`
-- Rewrite your Sass `import` to use the full npm package name `@import '@financial-times/o-brand';`.
+V4 has been dropped support for use through Bower. When using Sass, you will need to add `node_modules` to your `includePath` as well as either:
+- Update your code to use the fully qualified package name, i.e.: `@import "@financial-times/o-brand/main"`, or
+- Also `node_modules/@financial-times` to the Sass include path
 
 ### Migrating from v2 to v3
 
