@@ -163,6 +163,8 @@ class ODate {
 			dateString = ftDateFormat.format(date, 'date');
 		} else if (format === 'time-ago-limit-4-hours') {
 			dateString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+		} else if (format === 'time-ago-limit-24-hours') {
+			dateString = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-abbreviated') {
 			dateString = ftDateFormat.timeAgo(date, { abbreviated: true });
 			labelString = ftDateFormat.timeAgo(date);
