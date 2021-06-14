@@ -41,6 +41,7 @@ Set the `data-o-date-format` attribute to customise how the `time` element is pr
 - `date-only`: only show the date, without relative or time information.
 - `time-ago-no-seconds`: always display a relative time but if the relative time is under a minute display "Less than a minute ago" (e.g. `Less than a minute ago`, `10 minutes ago`, `an hour ago`, `4 hours ago`).
 - `time-ago-limit-4-hours`: always display a relative time but hide the `time` element if the `datetime` is older than 4 hours (e.g. `4 seconds ago`, `10 minutes ago`, `4 hours ago`).
+- `time-ago-limit-24-hours`: always display a relative time but hide the `time` element if the `datetime` is older than 24 hours (e.g. `4 seconds ago`, `10 minutes ago`, `10 hours ago`).
 - `time-ago-abbreviated`: always display a relative time with units abbreviated (e.g. `4s ago`, `10m ago`, `1h ago`).
 - `time-ago-abbreviated-limit-4-hours`: hide the `time` element when the `datetime` is older than 4 hours, otherwise render the same as `time-ago-abbreviated`.
 - `today-or-yesterday-or-nothing`: display `today` if the `datetime` is today, `yesterday` if it was yesterday, or hide the `time` element if the `datetime` is older than yesterday.
