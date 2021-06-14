@@ -18,7 +18,11 @@
 	},
 	"license": "MIT",
 	"type": "module",
+	"browser": "main.js",
 	"devDependencies": {
+		"@testing-library/dom": "^7.31.2",
+		"@testing-library/user-event": "^13.1.9",
+		"chai": "^4.3.4",
 		"eslint": "^7.26.0",
 		"eslint-config-origami-component": "^2.1.1",
 		"remark": "^13.0.0",
@@ -34,7 +38,6 @@
 	"engines": {
 		"npm": ">=7"
 	},
-	"browser": "main.js",
 	"peerDependencies": {
 		"@financial-times/o-brand": "prerelease",
 		"@financial-times/o-colors": "prerelease",

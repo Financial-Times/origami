@@ -1,6 +1,5 @@
 import accessibleAutocomplete from 'accessible-autocomplete';
 
-
 /**
  * @typedef {Function} PopulateResults
  * @property {Array<string>} results - The results to show in the suggestions dropdown
