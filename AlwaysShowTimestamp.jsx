@@ -9,7 +9,7 @@ import { differenceInCalendarDays } from 'date-fns'
  * If different calendar day, we show full Date time e.g. June 9, 2021
  */
 export default (props) => {
-	const localTodayDate = new Date().toISOString().substr(0, 10)
+	const localTodayDate = new Date().toISOString().substr(0, 10) // keep only the date bit
 	const dateToCompare = new Date(props.publishedDate).toISOString().substr(0, 10)
 
 	if (differenceInCalendarDays(localTodayDate, dateToCompare) >= 1) {
