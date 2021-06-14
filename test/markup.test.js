@@ -89,6 +89,25 @@ describe('o-date DOM', () => {
 			});
 		});
 
+		describe('time-ago-limit-24-hours', () => {
+			beforeEach(() => {
+				mockDateElement.dataset.odateformat = 'time-ago-limit-24-hours';
+				new ODate(mockDateElement);
+			});
+
+			it('renders the date in the element', () => {
+				proclaim.equal(mockDateElement.innerHTML, '11 minutes ago');
+			});
+
+			it('adds an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), '11 minutes ago');
+			});
+
+			it('adds a title attribute containing the full date', () => {
+				proclaim.equal(mockDateElement.getAttribute('title'), elevenMinutesAgoDateTime);
+			});
+		});
+
 		describe('time-ago-abbreviated', () => {
 
 			beforeEach(() => {
@@ -212,6 +231,25 @@ describe('o-date DOM', () => {
 		describe('time-ago-limit-4-hours', () => {
 			beforeEach(() => {
 				mockDateElement.dataset.odateformat = 'time-ago-limit-4-hours';
+				new ODate(mockDateElement);
+			});
+
+			it('renders the date in the element', () => {
+				proclaim.equal(mockDateElement.innerHTML, '5 hours ago');
+			});
+
+			it('adds an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), '5 hours ago');
+			});
+
+			it('adds a title attribute containing the full date', () => {
+				proclaim.equal(mockDateElement.getAttribute('title'), fiveHoursAgoDateTime);
+			});
+		});
+
+		describe('time-ago-limit-24-hours', () => {
+			beforeEach(() => {
+				mockDateElement.dataset.odateformat = 'time-ago-limit-24-hours';
 				new ODate(mockDateElement);
 			});
 
