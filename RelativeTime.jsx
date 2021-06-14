@@ -15,17 +15,17 @@ const displayTime = (date) => {
 	return `${hours} ${suffix}`
 }
 
-export default ({ publishedDate, firstPublishedDate, override4hLimit = false }) => {
+export default ({ publishedDate, firstPublishedDate, showAlways = false }) => {
 	const relativeDate = getRelativeDate(publishedDate)
 	const status = getStatus(publishedDate, firstPublishedDate)
 
-	return override4hLimit === true || isRecent(relativeDate) ? (
+	return showAlways === true || isRecent(relativeDate) ? (
 		<div className={`o-teaser__timestamp o-teaser__timestamp--${status}`}>
 			{status ? <span className="o-teaser__timestamp-prefix">{`${status} `} </span> : null}
 			<time
 				className="o-teaser__timestamp-date o-date"
 				data-o-component="o-date"
-				data-o-date-format={override4hLimit ? null : 'time-ago-limit-4-hours'}
+				data-o-date-format={showAlways ? null : 'time-ago-limit-4-hours'}
 				dateTime={dateformat(publishedDate, dateformat.masks.isoDateTime, true)}>
 				{/* Let o-date handle anything < 1 hour on the client */}
 				{status ? '' : displayTime(relativeDate)}

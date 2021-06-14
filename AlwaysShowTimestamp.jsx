@@ -15,6 +15,6 @@ export default (props) => {
 	if (differenceInCalendarDays(localTodayDate, dateToCompare) >= 1) {
 		return <TimeStamp {...props} />
 	} else {
-		return <RelativeTime {...props} override4hLimit={true} />
+		return <RelativeTime {...props} showAlways={true} />
 	}
 }
