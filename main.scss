@@ -54,7 +54,7 @@
 	}
 
 
-	.o-autocomplete .o-autocomplete__input {
+	.o-autocomplete__input {
 		box-sizing: border-box;
 		// This is to make the input stop before the clear button.
 		// Without this, the input's text would flow behind the clear button.
@@ -92,10 +92,6 @@
 	.o-autocomplete__menu--overlay {
 		@include oVisualEffectsShadowContent('high');
 		box-sizing: border-box;
-		left: 0;
-		position: absolute;
-		top: calc(100% + #{oSpacingByName('s1')});
-		z-index: 100;
 	}
 
 	.o-autocomplete__menu--inline {
@@ -157,10 +153,10 @@
 	// and creates a new rule set. So custom styles that follow
 	// `oLoadingContent` do not come after the mixin output.
 	// https://github.com/Financial-Times/o-loading/blob/082a9c5e35f1fa61b3adce755b1df5193b72e0c8/src/scss/_mixins.scss#L79
-	.o-autocomplete .o-autocomplete__menu-loading {
+	.o-autocomplete__menu-loading {
 		grid-row: 2;
 	}
-	.o-autocomplete .o-autocomplete__menu-loading-container {
+	.o-autocomplete__menu-loading-container {
 		@include oVisualEffectsShadowContent('high');
 		display: flex;
 		justify-content: center;
@@ -168,6 +164,16 @@
 		padding: oSpacingByName('s2');
 		box-sizing: border-box;
 		min-height: 40px;
+		background-color: oColorsByName('white');
 	}
 
+
+	.o-autocomplete__menu-loading-container,
+	.o-autocomplete__menu--overlay {
+		position: absolute;
+		top: calc(100% + #{oSpacingByName('s1')});
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
 }
