@@ -56,7 +56,6 @@ class Autocomplete {
 			accessibleAutocomplete(options);
 		} else {
 			const element = autocompleteEl.querySelector('select');
-			autocompleteEl.appendChild(autocompleteEl);
 			autocompleteEl.appendChild(element);
 			const options = Object.assign({
 				selectElement: element,
