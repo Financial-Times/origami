@@ -50,7 +50,7 @@ To provide a dynamic set of suggestions, you will need to provide a javascript f
 Use `@include oAutocomplete()` to include styles for all `o-autocomplete` features.
 
 ```scss
-@import "@financial-times/o-autocomplete";
+@import "@financial-times/o-autocomplete/main";
 
 @include oAutocomplete();
 ```
