@@ -138,7 +138,6 @@ class Autocomplete {
 			}
 		}
 		function hideLoadingPane() {
-			//TODO: display none it
 			if (container.contains(loadingContainer)) {
 				container.removeChild(loadingContainer);
 			}
