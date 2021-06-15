@@ -20,12 +20,12 @@
 ///		))
 @mixin oAutocomplete ($opts: ()) {
 	// content of primary mixin
-	.o-autocomplete .o-autocomplete__container {
+	.o-autocomplete {
 		display: inline-grid;
 		position: relative;
 	}
 
-	.o-autocomplete .o-autocomplete__container > div:first-child {
+	.o-autocomplete__wrapper {
 		@include oTypographySans($scale: 0);
 		grid-row: 1;
 		grid-column: 1;

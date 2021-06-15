@@ -29,10 +29,6 @@ class Autocomplete {
 			this.options.highlighter = window[this.options.highlighter];
 		}
 
-		const container = document.createElement('div');
-		this.container = container;
-		container.classList.add('o-autocomplete__container');
-
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
@@ -52,19 +48,16 @@ class Autocomplete {
 				customSuggestions(query, callback);
 			};
 			autocompleteEl.innerHTML = '';
-			autocompleteEl.appendChild(container);
 			const id = autocompleteEl.getAttribute('id');
-			autocompleteEl.removeAttribute('id');
-			container.setAttribute('id', id);
 			const options = Object.assign({
-				element: container,
-				id: container.id,
+				element: autocompleteEl,
+				id: id,
 			}, this.options);
 			accessibleAutocomplete(options);
 		} else {
 			const element = autocompleteEl.querySelector('select');
-			autocompleteEl.appendChild(container);
-			container.appendChild(element);
+			autocompleteEl.appendChild(autocompleteEl);
+			autocompleteEl.appendChild(element);
 			const options = Object.assign({
 				selectElement: element,
 				defaultValue: '',
@@ -131,15 +124,15 @@ class Autocomplete {
 		loadingContainer.appendChild(loading);
 		loading.classList.add('o-autocomplete__menu-loading');
 		function showLoadingPane() {
-			container.appendChild(loadingContainer);
+			autocompleteEl.appendChild(loadingContainer);
 			const menu = document.querySelector('.o-autocomplete__menu');
 			if (menu) {
 				menu.classList.add('o-autocomplete__menu--loading');
 			}
 		}
 		function hideLoadingPane() {
-			if (container.contains(loadingContainer)) {
-				container.removeChild(loadingContainer);
+			if (autocompleteEl.contains(loadingContainer)) {
+				autocompleteEl.removeChild(loadingContainer);
 			}
 			const menu = document.querySelector('.o-autocomplete__menu');
 			if (menu) {
@@ -150,10 +143,10 @@ class Autocomplete {
 		function addOrRemoveClearButton() {
 			const textInInput = input.value.length > 0;
 
-			const clearButtonOnPage = container.contains(clearButton);
+			const clearButtonOnPage = autocompleteEl.contains(clearButton);
 			if (textInInput) {
 				if (!clearButtonOnPage) {
-					container.appendChild(clearButton);
+					autocompleteEl.appendChild(clearButton);
 				}
 			} else {
 				if (clearButtonOnPage) {
