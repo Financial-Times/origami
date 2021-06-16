@@ -34,7 +34,7 @@
 		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"peerDependencies": {
-		"@financial-times/o-brand": "^4.0.0-beta.1",
+		"@financial-times/o-brand": "^4.0.1",
 		"mathsass": "^0.10.1"
 	},
 	"scripts": {
