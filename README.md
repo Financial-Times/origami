@@ -49,6 +49,26 @@ The input element requires an `id` attribute, this is used within the component 
 </div>
 ```
 
+### Use with o-forms
+
+To have styling for labels, you will need to use o-forms as part of the autocomplete implementation.
+
+Below is an example of how to combine o-forms and o-autocomplete components together:
+```html
+<label class="o-forms-field" >
+    <span class="o-forms-title">
+        <span class="o-forms-title__main">Select your country</span>
+    </span>
+    <span class="o-forms-input o-forms-input--select o-forms-input--text">
+        <div data-o-component="o-autocomplete" class="o-autocomplete">
+            <select id="my-autocomplete">
+                <option value=""></option>
+                <option>Afghanistan</option>
+            </select>
+        </div>
+    </span>
+</label>
+```
 ## Sass
 
 Use `@include oAutocomplete()` to include styles for all `o-autocomplete` features.
