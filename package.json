@@ -29,17 +29,17 @@
 		"eslint-config-origami-component": "^2.1.0",
 		"remark": "^13.0.0",
 		"remark-lint": "^8.0.0",
-		"remark-preset-lint-origami-component": "prerelease",
+		"remark-preset-lint-origami-component": "^2.0.0-beta.3",
 		"stylelint": "^13.7.0",
 		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"peerDependencies": {
-		"@financial-times/o-brand": "prerelease",
+		"@financial-times/o-brand": "^4.0.0-beta.1",
 		"mathsass": "^0.10.1"
 	},
 	"scripts": {
 		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@prerelease\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
 	},
 	"volta": {
 		"node": "14.16.1",
