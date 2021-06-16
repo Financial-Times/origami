@@ -37,15 +37,29 @@ function createLoadingContainer() {
 }
 
 /**
- * @typedef {Function} PopulateResults
- * @property {Array<string>} results - The results to show in the suggestions dropdown
+ * @callback PopulateResults
+ * @param {Array<string>} results - The results to show in the suggestions dropdown
+ * @returns {void}
+ */
+
+/**
+ * @callback Suggestions
+ * @param {string} query - Text which was typed into the autocomplete by the user
+ * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @returns {void}
+*/
+
+
+/**
+ * @typedef {Object} AutocompleteOptions
+ * @property {Suggestions} source - The function which retrieves the suggestions to display
  */
 
 class Autocomplete {
 	/**
 	 * Class constructor.
 	 * @param {HTMLElement} [autocompleteEl] - The component element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 * @param {AutocompleteOptions} [options={}] - An options object for configuring the component
 	 */
 	constructor (autocompleteEl, options) {
 		this.autocompleteEl = autocompleteEl;
@@ -63,14 +77,20 @@ class Autocomplete {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
 			/**
-			 * @function
+			 * @type {Suggestions}
+			 */
+			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			/**
 			 * @param {string} query - Text which was typed into the autocomplete by the user
 			 * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
 			 * @returns {void}
-			 */
-			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			*/
 			this.options.source = (query, populateResults) => {
 				this.showLoadingPane();
+				/**
+				 * @param {Array<string>} results - The results to show in the suggestions dropdown
+				 * @returns {void}
+				 */
 				const callback = (results) => {
 					this.hideLoadingPane();
 					populateResults(results);
