@@ -76,7 +76,7 @@ Or pass an element to initialise a specific `o-autocomplete` instance:
 ```js
 import oAutocomplete from 'o-autocomplete';
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
-oAutocomplete.init(oAutocompleteElement);
+new oAutocomplete(oAutocompleteElement);
 ```
 
 ### dynamic suggestions function
@@ -84,10 +84,17 @@ oAutocomplete.init(oAutocompleteElement);
 #### Example
 
 ```js
+import oAutocomplete from 'o-autocomplete';
+
 async function customSuggestions(query, populateResults) {
 	const suggestions = await getSuggestions(query);
 	populateResults(suggestions);
 }
+
+const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    source: customSuggestions
+});
 ```
 
 If wanting to supply dynamic suggestions, you will need to provide a function which implements the following <abbr title="application programming interface">API</abbr>:
