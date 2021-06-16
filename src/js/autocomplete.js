@@ -159,9 +159,12 @@ class Autocomplete {
 
 		const input = this.autocompleteEl.querySelector('input');
 		let timeout = null;
-		clearButton.addEventListener('click', function clearInput() {
-			input.value = '';
+		clearButton.addEventListener('click', () => {
+			// Remove the loading pane, in-case of a slow response.
+			this.hideLoadingPane();
 			clearButton.parentElement.removeChild(clearButton);
+			// Clear the input
+			input.value = '';
 			// We need to wait longer than 100ms before focusing
 			// onto the input element because accessible-autocomplete
 			// only checks the value of the input every 100ms.
