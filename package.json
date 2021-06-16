@@ -29,7 +29,7 @@
 		"eslint-config-origami-component": "^2.1.0",
 		"remark": "^13.0.0",
 		"remark-lint": "^8.0.0",
-		"remark-preset-lint-origami-component": "^2.0.0-beta.3",
+		"remark-preset-lint-origami-component": "^2.0.0",
 		"stylelint": "^13.7.0",
 		"stylelint-config-origami-component": "^1.0.4"
 	},
