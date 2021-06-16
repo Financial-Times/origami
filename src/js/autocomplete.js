@@ -1,6 +1,26 @@
 import accessibleAutocomplete from 'accessible-autocomplete';
 
 /**
+ * @param {string} suggestion - Text which is going to be suggested to the user
+ * @param {string} query - Text which was typed into the autocomplete by the user
+ * @returns {[string, boolean][]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+ */
+function highlightSuggestion(suggestion, query) {
+	const result = suggestion.split('');
+
+	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
+	return result.map(function(character, index) {
+		let shoudHighlight = true;
+		const hasMatched = matchIndex > -1;
+		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
+		if (hasMatched && characterIsWithinMatch) {
+			shoudHighlight = false;
+		}
+		return [character, shoudHighlight];
+	});
+}
+
+/**
  * @typedef {Function} PopulateResults
  * @property {Array<string>} results - The results to show in the suggestions dropdown
  */
@@ -22,12 +42,6 @@ class Autocomplete {
 				suggestion: this.suggestionTemplate.bind(this)
 			}
 		}, options || Autocomplete.getDataAttributes(autocompleteEl));
-
-		// If highlighter is a string, then it is the name of a global function to use.
-		// If highlighter is not a string, then it is a function to use.
-		if (typeof this.options.highlighter === 'string') {
-			this.options.highlighter = window[this.options.highlighter];
-		}
 
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
@@ -161,18 +175,11 @@ class Autocomplete {
 	 * @returns {string} HTML string to be represent a single suggestion.
 	 */
 	suggestionTemplate (suggestedValue) {
-		// If the component has not defined a highlighter to apply to the suggestions
-		// Then return the suggestion unmodified
-		if (!this.options.highlighter) {
-			return suggestedValue;
-		}
-
-		// o-autocomplete has a UI design option to highlight characters in the suggestions.
-		// The product using o-autocomplete decides upon the logic behind which characters to highlight and which to not.
+		// o-autocomplete has a UI design to highlight characters in the suggestions.
 		/**
 		 * @type {[string, boolean][]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
 		 */
-		const characters = this.options.highlighter(suggestedValue, this.autocompleteEl.querySelector('input').value);
+		const characters = highlightSuggestion(suggestedValue, this.autocompleteEl.querySelector('input').value);
 
 		let output = '';
 		for (const [character, shoudHighlight] of characters) {
