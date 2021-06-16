@@ -41,8 +41,12 @@ To provide a static set of suggestions, we recommend using a `select` element. o
 ### For a dynamic set of suggestions
 
 To provide a dynamic set of suggestions, you will need to provide a javascript function or name of a javascript function on the window object which follows the [dynamic-suggestions-function](dynamic-suggestions-function) <abbr title="application programming interface">API</abbr>.
+
+The input element requires an `id` attribute, this is used within the component to implement the accessibility features.
 ```html
-<div data-o-component="o-autocomplete" class="o-autocomplete" id="my-autocomplete"></div>
+<div data-o-component="o-autocomplete" class="o-autocomplete">
+    <input id="my-autocomplete" type="text" >
+</div>
 ```
 
 ## Sass
