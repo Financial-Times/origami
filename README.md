@@ -61,8 +61,9 @@ Use `@include oAutocomplete()` to include styles for all `o-autocomplete` featur
 
 ## JavaScript
 
-JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) users. If your project is using a manual build process, [initialise  `o-autocomplete` manually](https://origami.ft.com/docs/components/initialising/).
+JavaScript is initialised automatically for [Origami Build Service](https://www.ft.com/__origami/service/build/v3/) users.
 
+If your project is using a manual build process, initialise  `o-autocomplete` manually.
 For example call the `init` method to initialise all `o-autocomplete` instances in the document:
 
 ```js
@@ -77,8 +78,6 @@ import oAutocomplete from 'o-autocomplete';
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
 oAutocomplete.init(oAutocompleteElement);
 ```
-
-[Learn more about Origami component initialisation](https://origami.ft.com/docs/components/initialising/).
 
 ### dynamic suggestions function
 
