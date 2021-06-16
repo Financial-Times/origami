@@ -40,11 +40,10 @@ describe("Autocomplete", () => {
 			assert.isFunction(Autocomplete.init);
 		});
 
-
 		describe("should create a new o-autocomplete", () => {
 
 			beforeEach(() => {
-				fixtures.htmlCode();
+				fixtures.htmlSelectCode();
 			});
 
 			afterEach(() => {
@@ -58,7 +57,7 @@ describe("Autocomplete", () => {
 			});
 
 			it("single component when initialized with a root my-autocomplete", () => {
-				const boilerplate = Autocomplete.init('#my-autocomplete');
+				const boilerplate = Autocomplete.init('[data-o-component="o-autocomplete"]');
 				assert.instanceOf(boilerplate, Autocomplete);
 			});
 		});
@@ -66,7 +65,7 @@ describe("Autocomplete", () => {
 
 	context('constructor', () => {
 		beforeEach(() => {
-			fixtures.htmlCode();
+			fixtures.htmlSelectCode();
 		});
 
 		afterEach(() => {
@@ -74,9 +73,9 @@ describe("Autocomplete", () => {
 		});
 		describe('when provided with no options', () => {
 			it("constructs an instance with the default options", () => {
-				const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
-				assert.deepEqual(autocomplete.autocompleteEl, document.getElementById('my-autocomplete'));
+				assert.deepEqual(autocomplete.autocompleteEl, document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.equal(autocomplete.options.placeholder, '');
 				assert.equal(autocomplete.options.cssNamespace, 'o-autocomplete');
 				assert.equal(autocomplete.options.displayMenu, 'overlay');
@@ -89,14 +88,14 @@ describe("Autocomplete", () => {
 
 		context('input matches a single suggestion', () => {
 			beforeEach(() => {
-				fixtures.htmlCode();
+				fixtures.htmlSelectCode();
 			});
 
 			afterEach(() => {
-				// fixtures.reset();
+				fixtures.reset();
 			});
 			it("shows a clear button when text has been input by the user", () => {
-				const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
 				const input = screen.getByRole('combobox', {
 					name: /select your country/i
@@ -109,7 +108,7 @@ describe("Autocomplete", () => {
 			});
 
 			it("shows the suggestion box with the filtered results", async () => {
-				const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
 				const input = screen.getByRole('combobox', {
 					name: /select your country/i
@@ -125,7 +124,7 @@ describe("Autocomplete", () => {
 
 			context('clicking the clear button', () => {
 				it("clears the input's value", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -144,7 +143,7 @@ describe("Autocomplete", () => {
 
 			context('tabbing to the clear button and pressing enter', () => {
 				it("clears the input's value", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -168,7 +167,7 @@ describe("Autocomplete", () => {
 
 			context('pressing Escape key after typing into the input', () => {
 				it("hides the suggestion box", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -186,7 +185,7 @@ describe("Autocomplete", () => {
 
 			context('clicking a suggestion', () => {
 				it("updates the input with the selected suggestion", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -203,7 +202,7 @@ describe("Autocomplete", () => {
 			});
 			context('keyboard navigating to a suggestion and pressing enter on it', () => {
 				it("updates the input with the selected suggestion", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -226,7 +225,7 @@ describe("Autocomplete", () => {
 			});
 			context('keyboard navigating to a suggestion and pressing tab on it', () => {
 				it("updates the input with the selected suggestion and focus the clear button", async () => {
-					const autocomplete = new Autocomplete(document.getElementById('my-autocomplete'));
+					const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 					assert.instanceOf(autocomplete, Autocomplete);
 					const input = screen.getByRole('combobox', {
 						name: /select your country/i
@@ -248,6 +247,94 @@ describe("Autocomplete", () => {
 					});
 					assert.equal(clearButton, activeElement);
 				});
+			});
+		});
+	});
+
+	describe('dynamic suggestions', () => {
+		beforeEach(() => {
+			fixtures.htmlInputCode();
+		});
+
+		afterEach(() => {
+			fixtures.reset();
+		});
+
+		context('synchronous source function', () => {
+			it("shows the suggestion box with the filtered results", async () => {
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					source: function customSuggestions(query, populateResults) {
+						const suggestions = [
+							'Origami',
+						];
+
+						if (!query) {
+							populateResults([]);
+							return;
+						}
+
+						const filteredResults = [];
+						for (const suggestion of suggestions) {
+							const lowercaseSuggestion = suggestion.toLocaleLowerCase();
+							if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+								filteredResults.push(suggestion);
+							}
+						}
+						populateResults(filteredResults);
+					}
+				});
+				assert.instanceOf(autocomplete, Autocomplete);
+				const input = screen.getByRole('combobox', {
+					name: /select your team/i
+				});
+				userEvent.type(input, 'o');
+				// The sleep is required because accessible-autocomplete renders asynchronously
+				await sleep(100);
+				const list = screen.getByRole('listbox');
+				assert.equal(list.childElementCount, 1);
+				const option = getByRole(list, 'option');
+				assert.equal(option.textContent, 'Origami');
+			});
+		});
+
+		context('asynchronous source function', () => {
+			it("shows the suggestion box with the filtered results", async () => {
+				let suggestionTimeoutId;
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					source: function customSuggestions(query, populateResults) {
+						clearTimeout(suggestionTimeoutId);
+						const suggestions = [
+							'Origami',
+						];
+
+						if (!query) {
+							populateResults([]);
+							return;
+						}
+
+						suggestionTimeoutId = setTimeout(() => {
+							const filteredResults = [];
+							for (const suggestion of suggestions) {
+								const lowercaseSuggestion = suggestion.toLocaleLowerCase();
+								if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+									filteredResults.push(suggestion);
+								}
+							}
+							populateResults(filteredResults);
+						}, 1000);
+					}
+				});
+				assert.instanceOf(autocomplete, Autocomplete);
+				const input = screen.getByRole('combobox', {
+					name: /select your team/i
+				});
+				userEvent.type(input, 'o');
+				// The sleep is required because the suggestions are being returned asynchronously as part of the test
+				await sleep(1100);
+				const list = screen.getByRole('listbox');
+				assert.equal(list.childElementCount, 1);
+				const option = getByRole(list, 'option');
+				assert.equal(option.textContent, 'Origami');
 			});
 		});
 	});

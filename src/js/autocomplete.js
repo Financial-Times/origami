@@ -97,7 +97,8 @@ class Autocomplete {
 				};
 				customSuggestions(query, callback);
 			};
-			const id = autocompleteEl.querySelector('input').getAttribute('id');
+			const input = autocompleteEl.querySelector('input');
+			const id = input.getAttribute('id');
 			autocompleteEl.innerHTML = '';
 			const options = Object.assign({
 				element: autocompleteEl,
