@@ -21,6 +21,22 @@ function highlightSuggestion(suggestion, query) {
 }
 
 /**
+ * Create the DOM tree which corresponds to
+ * <div class="o-autocomplete__menu-loading-container">
+ * 	<div class="o-autocomplete__menu-loading"></div>
+ * </div>
+ * @returns {HTMLDivElement} The loading container as a HTMLDivElement
+ */
+function createLoadingContainer() {
+	const loadingContainer = document.createElement('div');
+	loadingContainer.classList.add('o-autocomplete__menu-loading-container');
+	const loading = document.createElement('div');
+	loading.classList.add('o-autocomplete__menu-loading');
+	loadingContainer.appendChild(loading);
+	return loadingContainer;
+}
+
+/**
  * @typedef {Function} PopulateResults
  * @property {Array<string>} results - The results to show in the suggestions dropdown
  */
@@ -53,10 +69,10 @@ class Autocomplete {
 			 * @returns {void}
 			 */
 			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
-			this.options.source = function(query, populateResults) {
-				showLoadingPane();
-				const callback = function(results) {
-					hideLoadingPane();
+			this.options.source = (query, populateResults) => {
+				this.showLoadingPane();
+				const callback = (results) => {
+					this.hideLoadingPane();
 					populateResults(results);
 				};
 				customSuggestions(query, callback);
@@ -80,26 +96,66 @@ class Autocomplete {
 			element.parentElement.removeChild(element); // Remove the original select element
 		}
 
-		/*
-			The below block of code will create this HTML:
-			<button
-				class="o-autocomplete__clear"
-				type="button"
-				aria-controls=${autocompleteEl.id}
-				title="Clear input"
-			>
-				<span class="o-autocomplete__visually-hidden">Clear input</span>
-			</button>
-		*/
+		this.loadingContainer = createLoadingContainer();
+		this.initClearButton();
+	}
+
+	/**
+	 * Show the loading panel
+	 * @private
+	 * @returns {void}
+	 */
+	showLoadingPane() {
+		this.autocompleteEl.appendChild(this.loadingContainer);
+		const menu = this.autocompleteEl.querySelector('.o-autocomplete__menu');
+		if (menu) {
+			menu.classList.add('o-autocomplete__menu--loading');
+		}
+	}
+
+	/**
+	 * Hide the loading panel
+	 * @private
+	 * @returns {void}
+	 */
+	hideLoadingPane() {
+		if (this.autocompleteEl.contains(this.loadingContainer)) {
+			this.autocompleteEl.removeChild(this.loadingContainer);
+		}
+		const menu = this.autocompleteEl.querySelector('.o-autocomplete__menu');
+		if (menu) {
+			menu.classList.remove('o-autocomplete__menu--loading');
+		}
+	}
+
+	/**
+	 * Create the DOM tree which corresponds to
+	 * <button class="o-autocomplete__clear" type="button" aria-controls=${autocompleteEl.id} title="Clear input">
+	 * 	<span class="o-autocomplete__visually-hidden">Clear input</span>
+	 * </button>
+	 * @private
+	 * @returns {HTMLButtonElement} The clear button DOM tree
+	 */
+	createClearButton(){
 		const clearButton = document.createElement('button');
 		clearButton.classList.add('o-autocomplete__clear');
 		clearButton.setAttribute('type', 'button');
 		clearButton.setAttribute('title', 'Clear input');
-		clearButton.setAttribute('aria-controls', autocompleteEl.id);
+		clearButton.setAttribute('aria-controls', this.autocompleteEl.id);
 		const span = document.createElement('span');
 		span.classList.add("o-autocomplete__visually-hidden");
 		span.innerText = 'Clear input';
 		clearButton.appendChild(span);
+		return clearButton;
+	}
+
+	/**
+	 * Attach the clear button and corresponding event listeners to the o-autocomplete instance
+	 * @private
+	 * @returns {void}
+	 */
+	initClearButton() {
+		const clearButton = this.createClearButton();
 
 		const input = this.autocompleteEl.querySelector('input');
 		let timeout = null;
@@ -123,50 +179,20 @@ class Autocomplete {
 				}, 110);
 			}
 		});
-
-		input.addEventListener('input', function() {
-			addOrRemoveClearButton();
-		});
-
-		// <div class="o-autocomplete__menu-loading-container">
-		//     <div class="o-autocomplete__menu-loading"></div>
-		// </div>
-		const loadingContainer = document.createElement('div');
-		loadingContainer.classList.add('o-autocomplete__menu-loading-container');
-		const loading = document.createElement('div');
-		loadingContainer.appendChild(loading);
-		loading.classList.add('o-autocomplete__menu-loading');
-		function showLoadingPane() {
-			autocompleteEl.appendChild(loadingContainer);
-			const menu = document.querySelector('.o-autocomplete__menu');
-			if (menu) {
-				menu.classList.add('o-autocomplete__menu--loading');
-			}
-		}
-		function hideLoadingPane() {
-			if (autocompleteEl.contains(loadingContainer)) {
-				autocompleteEl.removeChild(loadingContainer);
-			}
-			const menu = document.querySelector('.o-autocomplete__menu');
-			if (menu) {
-				menu.classList.remove('o-autocomplete__menu--loading');
-			}
-		}
-
-		function addOrRemoveClearButton() {
+		input.addEventListener('input', () => {
 			const textInInput = input.value.length > 0;
 
-			const clearButtonOnPage = autocompleteEl.contains(clearButton);
+			const clearButtonOnPage = this.autocompleteEl.contains(clearButton);
 			if (textInInput) {
 				if (!clearButtonOnPage) {
-					autocompleteEl.appendChild(clearButton);
+					this.autocompleteEl.appendChild(clearButton);
 				}
 			} else {
 				if (clearButtonOnPage) {
 					clearButton.parentElement.removeChild(clearButton);
 				}
 			}
-		}
+		});
 	}
 
 	/**
