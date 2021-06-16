@@ -86,6 +86,16 @@ new oAutocomplete(oAutocompleteElement);
 ```js
 import oAutocomplete from 'o-autocomplete';
 
+/**
+ * @callback PopulateResults
+ * @param {Array<string>} results - The results to show in the suggestions dropdown
+ * @returns {void}
+ */
+/**
+ * @param {string} query - Text which was typed into the autocomplete by the user
+ * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @returns {void}
+*/
 async function customSuggestions(query, populateResults) {
 	const suggestions = await getSuggestions(query);
 	populateResults(suggestions);
