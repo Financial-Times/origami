@@ -25,7 +25,7 @@ export default ({ publishedDate, firstPublishedDate, showAlways = false }) => {
 			<time
 				className="o-teaser__timestamp-date o-date"
 				data-o-component="o-date"
-				data-o-date-format={showAlways ? null : 'time-ago-limit-4-hours'}
+				data-o-date-format={showAlways ? 'time-ago-limit-24-hours' : 'time-ago-limit-4-hours'}
 				dateTime={dateformat(publishedDate, dateformat.masks.isoDateTime, true)}>
 				{/* Let o-date handle anything < 1 hour on the client */}
 				{status ? '' : displayTime(relativeDate)}
