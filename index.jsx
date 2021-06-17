@@ -3,7 +3,7 @@ import React from 'react'
 import BuildService from '../../../.storybook/build-service'
 
 const dependencies = {
-	'o-date': '^4.0.0',
+	'o-date': '^4.2.0',
 	'o-labels': '^5.0.0',
 	'o-normalise': '^2.0.0',
 	'o-teaser': '^4.0.0',
