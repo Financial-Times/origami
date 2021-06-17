@@ -5,9 +5,7 @@
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
-If you were already using npm, no changes should be required.
-
-If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/)
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
 
 ### Migrating from v5 to v6
 
