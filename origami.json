@@ -13,8 +13,8 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"@financial-times/o-colors@6.0.0-0",
-			"@financial-times/o-buttons@7.0.0-0"
+			"o-colors@6.0.0-0",
+			"o-buttons@7.0.0-0"
 		]
 	},
 	"demos": [
