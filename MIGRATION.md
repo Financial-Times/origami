@@ -4,10 +4,7 @@
 
 V6 has dropped support for use through Bower.
 
-If you were already using npm, no changes should be required.
-
-If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
-
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
 ### Migrating from v3 to v4
 
 The Sass variable `$o-fonts-families` is now private. Use `oFonts` options to include fonts granularly and `oFontsDefineCustomFont` to register new fonts. Contact the Origami team if you need this variable for any other reason.
