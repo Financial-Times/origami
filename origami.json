@@ -1,5 +1,5 @@
 {
-	"origamiType": "module",
+	"origamiType": "library",
 	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-errors/issues",
 	"supportContact": {
