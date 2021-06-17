@@ -1,5 +1,13 @@
 ## Migration guide
 
+### Migrating from v6 to v7
+
+V7 drops support for Bower and version 2 of Origami Build Service.
+
+If you were already using npm, no changes should be required.
+
+If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ### Migrating from v5 to v6
 
 #### Progressive Font Loading

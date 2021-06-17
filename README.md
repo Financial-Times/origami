@@ -1,4 +1,4 @@
-# o-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-typography
 
 Typographical styles for FT branded sites.
 
@@ -514,8 +514,9 @@ This is likely due to the server sending the fonts having misconfigured Cross Or
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.4.6 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.3 | - |
 ╳ deprecated | 3 | 3.3 | - |
 ╳ deprecated | 2 | 2.0 | - |
