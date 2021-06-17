@@ -1,5 +1,14 @@
 ## Migration guide
 
+### Migrating from v6 to v7
+
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+If you were already using npm, no changes should be required.
+
+If you have been using Bower or the Origami Build Service, follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/)
+
 ### Migrating from v5 to v6
 
 
@@ -79,4 +88,3 @@ When using the [Build Service](https://origami-build.ft.com), you're using this 
 
 * There is a PNG fallback, and when using the default CSS classes, the size of the image served is _128px_ so it can be resized down, but not up
 * The colour of the icon served is _black_. This cannot be changed. If you need a custom colour (or even a custom size), [option 3](#3-manually-using-the-responsive-image-service) of the suggested ways of using this module is the way to go
-
