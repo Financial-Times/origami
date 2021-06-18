@@ -108,7 +108,7 @@ class Autocomplete {
 				selectElement: element,
 				defaultValue: '',
 			}, this.options);
-			options.autoselect = false; // TODO: Find out if we should allow autoselect/hinting in the input
+			options.autoselect = false;
 			accessibleAutocomplete.enhanceSelectElement(options);
 			element.parentElement.removeChild(element); // Remove the original select element
 		}
