@@ -258,8 +258,9 @@ We recommend using `o-buttons` markup as this encourages CSS reuse and smaller b
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.16 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.2 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.16 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.5 | - |
 ╳ deprecated | 3 | 3.1 | - |
 ╳ deprecated | 2 | 2.0 | - |
