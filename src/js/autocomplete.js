@@ -25,11 +25,12 @@ function highlightSuggestion(suggestion, query) {
  * @returns {HTMLDivElement} The loading container.
  */
 function createLoadingContainer() {
-	return document.createRange().createContextualFragment(`
+	const fragment = document.createRange().createContextualFragment(`
 		<div class="o-autocomplete__menu-loading-container">
 			<div class="o-autocomplete__menu-loading"></div>
 		</div>
-	`).querySelector(':first-child'); // IE does not support firstElementChild
+	`);
+	return fragment.querySelector('*');
 }
 
 /**
