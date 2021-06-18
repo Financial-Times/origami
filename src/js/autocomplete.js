@@ -70,16 +70,12 @@ function hideLoadingPane(instance) {
  * @returns {HTMLButtonElement} The clear button DOM tree
  */
 function createClearButton(id) {
-	const clearButton = document.createElement('button');
-	clearButton.classList.add('o-autocomplete__clear');
-	clearButton.setAttribute('type', 'button');
-	clearButton.setAttribute('title', 'Clear input');
-	clearButton.setAttribute('aria-controls', id);
-	const span = document.createElement('span');
-	span.classList.add("o-autocomplete__visually-hidden");
-	span.innerText = 'Clear input';
-	clearButton.appendChild(span);
-	return clearButton;
+	const fragment = document.createRange().createContextualFragment(`
+		<button class="o-autocomplete__clear" type="button" aria-controls=${id} title="Clear input">
+			<span class="o-autocomplete__visually-hidden">Clear input</span>
+		</button>
+	`);
+	return fragment.querySelector('*');
 }
 
 /**
