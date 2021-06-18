@@ -1,9 +1,6 @@
 {
-	"description": "Typography styles for editorial content.",
-	"keywords": [],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-editorial-typography/issues",
 	"supportContact": {
 		"email": "origami.support@ft.com",
@@ -22,7 +19,7 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-normalise@^2.0.0"
+			"o-normalise@3.0.0"
 		]
 	},
 	"demos": [
