@@ -1,5 +1,11 @@
 # Migration Guide
 
+### Migrating from v4 to v5
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ## Migrating from v3 to v4
 `o-date` is an [esm module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) now. We recommend using the esm syntax:
 
