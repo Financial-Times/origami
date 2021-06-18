@@ -29,7 +29,7 @@
 		"@financial-times/o-colors": "^6.0.1",
 		"@financial-times/o-icons": "^7.0.0",
 		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-typography": "^6.4.6"
+		"@financial-times/o-typography": "^7.0.1"
 	},
 	"engines": {
 		"npm": "^7"
