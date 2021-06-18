@@ -24,9 +24,9 @@
 	},
 	"peerDependencies": {
 		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-fonts": "^4.5.0",
+		"@financial-times/o-fonts": "^5.0.0",
 		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^6.4.6"
+		"@financial-times/o-typography": "^7.0.1"
 	},
 	"engines": {
 		"npm": "^7"
