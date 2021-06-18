@@ -38,7 +38,7 @@
 		"@financial-times/o-spacing": "^3.0.0",
 		"@financial-times/o-typography": "^7.0.1",
 		"@financial-times/o-utils": "^2.0.0",
-		"@financial-times/o-visual-effects": "^3.0.6"
+		"@financial-times/o-visual-effects": "^4.0.0"
 	},
 	"engines": {
 		"npm": "^7"
