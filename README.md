@@ -6,6 +6,7 @@ An Origami component for autocomplete inputs. This is built on top of the excell
 - [Markup](#markup)
     - [For a static set of suggestions](#for-a-static-set-of-suggestions)
     - [For a dynamic set of suggestions](#for-a-dynamic-set-of-suggestions)
+    - [Use with o-forms](#use-with-o-forms)
 - [Sass](#sass)
 - [JavaScript](#javascript)
     - [dynamic suggestions function](#dynamic-suggestions-function)
