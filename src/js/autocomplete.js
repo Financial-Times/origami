@@ -10,13 +10,13 @@ function highlightSuggestion(suggestion, query) {
 
 	const matchIndex = suggestion.toLocaleLowerCase().indexOf(query.toLocaleLowerCase());
 	return result.map(function(character, index) {
-		let shoudHighlight = true;
+		let shouldHighlight = true;
 		const hasMatched = matchIndex > -1;
 		const characterIsWithinMatch = index >= matchIndex && index <= matchIndex + query.length - 1;
 		if (hasMatched && characterIsWithinMatch) {
-			shoudHighlight = false;
+			shouldHighlight = false;
 		}
-		return [character, shoudHighlight];
+		return [character, shouldHighlight];
 	});
 }
 
