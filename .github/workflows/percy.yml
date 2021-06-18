@@ -7,7 +7,7 @@ on:
       - reopened
       - synchronize
     paths:
-      - "bower.json"
+      - "package.json"
       - "origami.json"
       - "main.js"
       - "main.scss"
@@ -16,7 +16,7 @@ on:
   push:
     branches: master
     paths:
-      - "bower.json"
+      - "package.json"
       - "origami.json"
       - "main.js"
       - "main.scss"
@@ -27,9 +27,15 @@ jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: Financial-Times/origami-percy@v1
-        with:
-          github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}} # To comment as the Fox mascot GitHub user
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2.1.5
+      with:
+        node-version: '14.x'
+        registry-url: 'https://registry.npmjs.org'
+    - run: npm install -g "npm@^7"
+    - run: npm ci
+    - uses: Financial-Times/origami-percy@v2
+      with:
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}} # To comment as the Fox mascot GitHub user
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

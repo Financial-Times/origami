@@ -104,7 +104,7 @@ If your application requires a bleed header, you'll need to add the `o-header-se
 
 In order to output every type of `o-header-services` style, you'll need to include the following:
 ```scss
-	@import 'o-header-services/main';
+	@import '@financial-times/o-header-services/main';
 
 	@include oHeaderServices();
 ```
@@ -132,7 +132,7 @@ To use a logo that is **not** the FT logo, the logo can be modified in one of tw
 In this example we include only the styles for a [primary navigation](#primary-navigation) with the [bleed modifier](#bleed-header). We opt to use the Origami logo from the [logo image set](https://registry.origami.ft.com/components/logo-images@1.8.0).
 
 ```scss
-	@import 'o-header-services/main';
+	@import '@financial-times/o-header-services/main';
 
 	@include oHeaderServices($opts: (
 		'types': ('primary-nav', 'bleed');
@@ -147,7 +147,7 @@ In this example we include only the styles for a [primary navigation](#primary-n
 
 ```scss
 $o-brand: whitelabel;
-@import 'o-header-services/main';
+@import '@financial-times/o-header-services/main';
 
 @include oHeaderServicesCustomize((
 	'nav-hover-background': hotpink // will apply to background colors on hover, where appropriate
@@ -190,7 +190,7 @@ You'll need to set up your header declaratively, as the JavaScript for `o-header
 The JavaScript is responsible for generating the drawer and enabling scrolling on the secondary navigation. You can implement that with the following:
 
 ```js
-import oHeaderServices from ('o-header-services');
+import oHeaderServices from '@financial-times/o-header-services';
 
 oHeaderServices.init();
 ```
@@ -199,8 +199,9 @@ oHeaderServices.init();
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | 4.0 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.2 | N/A |
 

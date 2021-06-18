@@ -1,5 +1,5 @@
-$o-header-services-is-silent: false;
 @import '../../main';
+@include oHeaderServices();
 
 body {
 	font-family: arial;

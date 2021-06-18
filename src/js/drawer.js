@@ -1,4 +1,4 @@
-import * as oUtils from 'o-utils';
+import * as oUtils from '@financial-times/o-utils';
 
 class Drawer {
 	/**

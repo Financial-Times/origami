@@ -1,9 +1,6 @@
 {
-	"description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
-	"keywords": [ "header", "page", "top" ],
-	"origamiType": "module",
-	"origamiCategory": "components",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0",
 	"brands": [
 		"master",
 		"internal",
@@ -26,8 +23,8 @@
 	},
 	"demosDefaults": {
 		"dependencies": [
-			"o-fonts@^4.0.0",
-			"o-normalise@^2.0.0"
+			"o-fonts@5.0.0",
+			"o-normalise@3.0.0"
 		],
 		"sass": "demos/src/main.scss",
 		"template": "demos/src/header.mustache",
