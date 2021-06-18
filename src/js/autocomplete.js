@@ -1,4 +1,7 @@
-import accessibleAutocomplete from 'accessible-autocomplete';
+// We use our own fork of accessible-autocomplete because of this bug -- https://github.com/alphagov/accessible-autocomplete/issues/210#issuecomment-845860595
+// Our fork uses this change -- https://github.com/alphagov/accessible-autocomplete/pull/491
+// If the bug is fixed in accessible-autocomplete then we can stop using our fork
+import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
  * @param {string} suggestion - Text which is going to be suggested to the user
@@ -177,6 +180,7 @@ class Autocomplete {
 			 * @returns {void}
 			*/
 			this.options.source = (query, populateResults) => {
+				console.log({query});
 				showLoadingPane(this);
 				/**
 				 * @param {Array<string>} results - The results to show in the suggestions dropdown
