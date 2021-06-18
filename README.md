@@ -240,19 +240,19 @@ When the landing page is a sub-page of the site, the hero area may create a visu
 
 ```diff
  <div class="o-layout o-layout--landing" data-o-component="o-layout">
- 	 <div class="o-layout__header">
- 	 	 <!-- Your header & navigation here. -->
- 	 </div>
-+ 	 <div class="o-layout__hero o-layout__hero--muted o-layout-typography">
-- 	 <div class="o-layout__hero o-layout-typography">
- 	 	 <!-- Your hero content here (optional). -->
- 	 </div>
- 	 <div class="o-layout__main o-layout-typography">
- 	 	 <!-- Your landing page content here. -->
- 	 </div>
- 	 <footer class="o-layout__footer">
- 	 	 <!-- Your footer & navigation here. -->
- 	 </footer>
+	 <div class="o-layout__header">
+		 <!-- Your header & navigation here. -->
+	 </div>
++	 <div class="o-layout__hero o-layout__hero--muted o-layout-typography">
+-	 <div class="o-layout__hero o-layout-typography">
+		 <!-- Your hero content here (optional). -->
+	 </div>
+	 <div class="o-layout__main o-layout-typography">
+		 <!-- Your landing page content here. -->
+	 </div>
+	 <footer class="o-layout__footer">
+		 <!-- Your footer & navigation here. -->
+	 </footer>
  </div>
 ```
 
@@ -397,7 +397,7 @@ To list articles within the hero layout remove the `o-layout-typography` class f
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<!-- Your hero content here.  -->
 	</div>
- 	 <div class="o-layout__main">
+	 <div class="o-layout__main">
 		<ul class="o-layout__listing">
 			<li class="o-layout__listing__item">
 				<h2 class="o-layout__listing__item__title">
@@ -410,7 +410,7 @@ To list articles within the hero layout remove the `o-layout-typography` class f
 				</p>
 			</li>
 		</ul>
- 	 </div>
+	 </div>
 	<footer class="o-layout__footer">
 		<!-- Your footer & navigation here. -->
 	</footer>
@@ -647,8 +647,9 @@ oLayout.init(null, { linkHeadings: true });
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
-⚠ maintained | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.3 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ╳ deprecated | 2 | 2.2.5 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.3.4 | N/A |
 

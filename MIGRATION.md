@@ -1,5 +1,11 @@
 # Migration
 
+## Migrating from v4 to v5
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ## Migrating from v3 to v4
 
 ### Updated dependencies
@@ -23,10 +29,10 @@ its dependencies. See [the Bower config for these](./bower.json).
 ```diff
 -<div class="o-layout" data-o-component="o-layout">
 +<div class="o-layout o-layout--docs" data-o-component="o-layout">
-   	 <div class="o-layout__header"></div>
+	 <div class="o-layout__header"></div>
 -	 <div class="o-layout__main"></div>
-+ 	 <div class="o-layout__main o-layout-typography"></div>
-   	 <div class="o-layout__footer"></div>
++	 <div class="o-layout__main o-layout-typography"></div>
+	 <div class="o-layout__footer"></div>
  </div>
 ```
 
@@ -58,8 +64,8 @@ If your project relies on `o-layout` JavaScript to generate a nav, no action is 
 <div class="o-layout" data-o-component="o-layout" data-o-layout-construct-nav="false">
 +	<div class="o-layout__header">
 -	<header class="o-header-services o-layout__header" data-o-component="o-header">
-+	    <header class="o-header-services" data-o-component="o-header">
-		    <!-- more o-header-services markup -->
++		<header class="o-header-services" data-o-component="o-header">
+			<!-- more o-header-services markup -->
 +       </header>
 -	</header>
 +	</div>
