@@ -5,6 +5,7 @@ Origami JS helpers.
 - [Usage](#usage)
 - [JavaScript](#javascript)
 - [Contributing](#contributing)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -29,13 +30,20 @@ For more detailed explanation, refer to our [JSDoc](http://codedocs.webservices.
 This module is suitable for helper functions that need to be used commonly in other modules like throttle and debounce. These **must** be kept to a minimum.
 
 
----
+## Migration Guide
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.1 | -   |
+
+***
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-utils/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 
