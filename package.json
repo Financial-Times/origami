@@ -34,9 +34,9 @@
 		"@financial-times/o-fonts": "^5.0.0",
 		"@financial-times/o-grid": "^6.0.0",
 		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-quote": "^5.0.0",
+		"@financial-times/o-quote": "^5.0.1",
 		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^6.4.6",
+		"@financial-times/o-typography": "^7.0.1",
 		"@financial-times/o-utils": "^2.0.0",
 		"@financial-times/o-visual-effects": "^3.0.6"
 	},
