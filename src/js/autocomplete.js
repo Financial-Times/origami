@@ -243,7 +243,10 @@ class Autocomplete {
 				output += `${character}`;
 			}
 		}
-		return output;
+		const span = document.createElement('span');
+		span.setAttribute('aria-label', suggestedValue);
+		span.innerHTML = output;
+		return span.outerHTML;
 	}
 
 	/**
