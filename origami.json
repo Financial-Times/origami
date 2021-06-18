@@ -8,7 +8,11 @@
 		"slack": "financialtimes/#origami-support"
 	},
 	"supportStatus": "experimental",
-
+	"browserFeatures": {
+		"required": [
+			"String.prototype.startsWith"
+		]
+	},
 	"demosDefaults": {
 		"sass": "demos/src/shared.scss",
 		"documentClasses": "",
