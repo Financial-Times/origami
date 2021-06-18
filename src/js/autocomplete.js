@@ -193,6 +193,9 @@ class Autocomplete {
 			};
 			const input = autocompleteEl.querySelector('input');
 			const id = input.getAttribute('id');
+			if (!id) {
+				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
+			}
 			autocompleteEl.innerHTML = '';
 			const options = Object.assign({
 				element: autocompleteEl,
@@ -201,6 +204,10 @@ class Autocomplete {
 			accessibleAutocomplete(options);
 		} else {
 			const element = autocompleteEl.querySelector('select');
+			const id = element.getAttribute('id');
+			if (!id) {
+				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
+			}
 			autocompleteEl.appendChild(element);
 			const options = Object.assign({
 				selectElement: element,

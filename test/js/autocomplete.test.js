@@ -64,14 +64,14 @@ describe("Autocomplete", () => {
 	});
 
 	context('constructor', () => {
-		beforeEach(() => {
-			fixtures.htmlSelectCode();
-		});
-
-		afterEach(() => {
-			fixtures.reset();
-		});
 		describe('when provided with no options', () => {
+			beforeEach(() => {
+				fixtures.htmlSelectCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
 			it("constructs an instance with the default options", () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
@@ -80,6 +80,36 @@ describe("Autocomplete", () => {
 				assert.equal(autocomplete.options.cssNamespace, 'o-autocomplete');
 				assert.equal(autocomplete.options.displayMenu, 'overlay');
 				assert.isFalse(autocomplete.options.showNoOptionsFound);
+			});
+		});
+
+		describe('when provided select element has no id attribute set', () => {
+			beforeEach(() => {
+				fixtures.invalidHtmlSelectCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+			it("throws an error", () => {
+				assert.throws(() =>new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]')),
+					"Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features."
+				);
+			});
+		});
+
+		describe('when provided input element has no id attribute set', () => {
+			beforeEach(() => {
+				fixtures.invalidHtmlInputCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+			it("throws an error", () => {
+				assert.throws(() =>new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]')),
+					"Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features."
+				);
 			});
 		});
 	});
