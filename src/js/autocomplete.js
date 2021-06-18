@@ -33,6 +33,104 @@ function createLoadingContainer() {
 }
 
 /**
+ * Show the loading panel
+ * @param {AutoComplete} instance The autocomplete instance whose loading panel should be shown
+ * @returns {void}
+ */
+function showLoadingPane(instance) {
+	instance.autocompleteEl.appendChild(instance.loadingContainer);
+	const menu = instance.autocompleteEl.querySelector('.o-autocomplete__menu');
+	if (menu) {
+		menu.classList.add('o-autocomplete__menu--loading');
+	}
+}
+
+/**
+ * Hide the loading panel
+ * @param {AutoComplete} instance The autocomplete instance whose loading panel should be hidden
+ * @returns {void}
+ */
+function hideLoadingPane(instance) {
+	if (instance.autocompleteEl.contains(instance.loadingContainer)) {
+		instance.autocompleteEl.removeChild(instance.loadingContainer);
+	}
+	const menu = instance.autocompleteEl.querySelector('.o-autocomplete__menu');
+	if (menu) {
+		menu.classList.remove('o-autocomplete__menu--loading');
+	}
+}
+
+/**
+ * Create the DOM tree which corresponds to
+ * <button class="o-autocomplete__clear" type="button" aria-controls=${autocompleteEl.id} title="Clear input">
+ * 	<span class="o-autocomplete__visually-hidden">Clear input</span>
+ * </button>
+ * @param {string} id The id of the autocomplete input to associate the clear button with
+ * @returns {HTMLButtonElement} The clear button DOM tree
+ */
+function createClearButton(id) {
+	const clearButton = document.createElement('button');
+	clearButton.classList.add('o-autocomplete__clear');
+	clearButton.setAttribute('type', 'button');
+	clearButton.setAttribute('title', 'Clear input');
+	clearButton.setAttribute('aria-controls', id);
+	const span = document.createElement('span');
+	span.classList.add("o-autocomplete__visually-hidden");
+	span.innerText = 'Clear input';
+	clearButton.appendChild(span);
+	return clearButton;
+}
+
+/**
+ * Attach the clear button and corresponding event listeners to the o-autocomplete instance
+ * @param {AutoComplete} instance The autocomplete instance to setup the clear button for
+ * @returns {void}
+ */
+function initClearButton(instance) {
+	const clearButton = createClearButton(instance.autocompleteEl.id);
+
+	const input = instance.autocompleteEl.querySelector('input');
+	let timeout = null;
+	clearButton.addEventListener('click', () => {
+		// Remove the loading pane, in-case of a slow response.
+		hideLoadingPane(instance);
+		clearButton.parentElement.removeChild(clearButton);
+		// Clear the input
+		input.value = '';
+		// We need to wait longer than 100ms before focusing
+		// onto the input element because accessible-autocomplete
+		// only checks the value of the input every 100ms.
+		// If we modify input.value and then focus into the input in less
+		// than 100ms, accessible-autocomplete would not have the updated
+		// value and would instead write the old value back into the input.
+		// https://github.com/alphagov/accessible-autocomplete/blob/935f0d43aea1c606e6b38985e3fe7049ddbe98be/src/autocomplete.js#L107-L125
+		if (!timeout) {
+			// The user could press the button multiple times
+			// whilst the setTimeout handler has yet to execute
+			// We only want to call the handler once
+			timeout = setTimeout(() => {
+				input.focus();
+				timeout = null;
+			}, 110);
+		}
+	});
+	input.addEventListener('input', () => {
+		const textInInput = input.value.length > 0;
+
+		const clearButtonOnPage = instance.autocompleteEl.contains(clearButton);
+		if (textInInput) {
+			if (!clearButtonOnPage) {
+				instance.autocompleteEl.appendChild(clearButton);
+			}
+		} else {
+			if (clearButtonOnPage) {
+				clearButton.parentElement.removeChild(clearButton);
+			}
+		}
+	});
+}
+
+/**
  * @callback PopulateResults
  * @param {Array<string>} results - The results to show in the suggestions dropdown
  * @returns {void}
@@ -82,13 +180,13 @@ class Autocomplete {
 			 * @returns {void}
 			*/
 			this.options.source = (query, populateResults) => {
-				this.showLoadingPane();
+				showLoadingPane(this);
 				/**
 				 * @param {Array<string>} results - The results to show in the suggestions dropdown
 				 * @returns {void}
 				 */
 				const callback = (results) => {
-					this.hideLoadingPane();
+					hideLoadingPane(this);
 					populateResults(results);
 				};
 				customSuggestions(query, callback);
@@ -114,105 +212,7 @@ class Autocomplete {
 		}
 
 		this.loadingContainer = createLoadingContainer();
-		this.initClearButton();
-	}
-
-	/**
-	 * Show the loading panel
-	 * @private
-	 * @returns {void}
-	 */
-	showLoadingPane() {
-		this.autocompleteEl.appendChild(this.loadingContainer);
-		const menu = this.autocompleteEl.querySelector('.o-autocomplete__menu');
-		if (menu) {
-			menu.classList.add('o-autocomplete__menu--loading');
-		}
-	}
-
-	/**
-	 * Hide the loading panel
-	 * @private
-	 * @returns {void}
-	 */
-	hideLoadingPane() {
-		if (this.autocompleteEl.contains(this.loadingContainer)) {
-			this.autocompleteEl.removeChild(this.loadingContainer);
-		}
-		const menu = this.autocompleteEl.querySelector('.o-autocomplete__menu');
-		if (menu) {
-			menu.classList.remove('o-autocomplete__menu--loading');
-		}
-	}
-
-	/**
-	 * Create the DOM tree which corresponds to
-	 * <button class="o-autocomplete__clear" type="button" aria-controls=${autocompleteEl.id} title="Clear input">
-	 * 	<span class="o-autocomplete__visually-hidden">Clear input</span>
-	 * </button>
-	 * @private
-	 * @returns {HTMLButtonElement} The clear button DOM tree
-	 */
-	createClearButton(){
-		const clearButton = document.createElement('button');
-		clearButton.classList.add('o-autocomplete__clear');
-		clearButton.setAttribute('type', 'button');
-		clearButton.setAttribute('title', 'Clear input');
-		clearButton.setAttribute('aria-controls', this.autocompleteEl.id);
-		const span = document.createElement('span');
-		span.classList.add("o-autocomplete__visually-hidden");
-		span.innerText = 'Clear input';
-		clearButton.appendChild(span);
-		return clearButton;
-	}
-
-	/**
-	 * Attach the clear button and corresponding event listeners to the o-autocomplete instance
-	 * @private
-	 * @returns {void}
-	 */
-	initClearButton() {
-		const clearButton = this.createClearButton();
-
-		const input = this.autocompleteEl.querySelector('input');
-		let timeout = null;
-		clearButton.addEventListener('click', () => {
-			// Remove the loading pane, in-case of a slow response.
-			this.hideLoadingPane();
-			clearButton.parentElement.removeChild(clearButton);
-			// Clear the input
-			input.value = '';
-			// We need to wait longer than 100ms before focusing
-			// onto the input element because accessible-autocomplete
-			// only checks the value of the input every 100ms.
-			// If we modify input.value and then focus into the input in less
-			// than 100ms, accessible-autocomplete would not have the updated
-			// value and would instead write the old value back into the input.
-			// https://github.com/alphagov/accessible-autocomplete/blob/935f0d43aea1c606e6b38985e3fe7049ddbe98be/src/autocomplete.js#L107-L125
-			if (!timeout) {
-				// The user could press the button multiple times
-				// whilst the setTimeout handler has yet to execute
-				// We only want to call the handler once
-				timeout = setTimeout(() => {
-					input.focus();
-					timeout = null;
-				}, 110);
-			}
-		});
-		input.addEventListener('input', () => {
-			const textInInput = input.value.length > 0;
-
-			const clearButtonOnPage = this.autocompleteEl.contains(clearButton);
-			if (textInInput) {
-				if (!clearButtonOnPage) {
-					this.autocompleteEl.appendChild(clearButton);
-				}
-			} else {
-				if (clearButtonOnPage) {
-					clearButton.parentElement.removeChild(clearButton);
-				}
-			}
-		});
+		initClearButton(this);
 	}
 
 	/**
