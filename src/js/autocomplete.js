@@ -21,19 +21,15 @@ function highlightSuggestion(suggestion, query) {
 }
 
 /**
- * Create the DOM tree which corresponds to
- * <div class="o-autocomplete__menu-loading-container">
- * 	<div class="o-autocomplete__menu-loading"></div>
- * </div>
- * @returns {HTMLDivElement} The loading container as a HTMLDivElement
+ * Create DOM for the loading container.
+ * @returns {HTMLDivElement} The loading container.
  */
 function createLoadingContainer() {
-	const loadingContainer = document.createElement('div');
-	loadingContainer.classList.add('o-autocomplete__menu-loading-container');
-	const loading = document.createElement('div');
-	loading.classList.add('o-autocomplete__menu-loading');
-	loadingContainer.appendChild(loading);
-	return loadingContainer;
+	return document.createRange().createContextualFragment(`
+		<div class="o-autocomplete__menu-loading-container">
+			<div class="o-autocomplete__menu-loading"></div>
+		</div>
+	`).querySelector(':first-child'); // IE does not support firstElementChild
 }
 
 /**
