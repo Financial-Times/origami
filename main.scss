@@ -61,6 +61,10 @@
 		padding-right: calc(#{$_o-autocomplete-icon-size} + #{$_o-autocomplete-input-space * 2});
 	}
 
+	.o-autocomplete__input::-ms-clear {
+		display: none;
+	}
+
 	.o-autocomplete__menu {
 		@include oVisualEffectsShadowContent('high');
 		top: oSpacingByName('s1');
