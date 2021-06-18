@@ -59,7 +59,7 @@ Below is an example of how to combine o-forms and o-autocomplete components toge
     <span class="o-forms-title">
         <span class="o-forms-title__main">Select your country</span>
     </span>
-    <span class="o-forms-input o-forms-input--select o-forms-input--text">
+    <span class="o-forms-input o-forms-input--select">
         <div data-o-component="o-autocomplete" class="o-autocomplete">
             <select id="my-autocomplete">
                 <option value=""></option>
