@@ -1,5 +1,11 @@
 ## Migration guide
 
+### Migrating from v4 to v5
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ### Migrating from v3 to v4
 
 Origami components now require a `$system-code` Sass variable is set by the project, which must be a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).
