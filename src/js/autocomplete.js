@@ -42,8 +42,8 @@ function createLoadingContainer() {
  * @returns {void}
  */
 function showLoadingPane(instance) {
-	instance.autocompleteEl.appendChild(instance.loadingContainer);
-	const menu = instance.autocompleteEl.querySelector('.o-autocomplete__menu');
+	instance.container.appendChild(instance.loadingContainer);
+	const menu = instance.container.querySelector('.o-autocomplete__menu');
 	if (menu) {
 		menu.classList.add('o-autocomplete__menu--loading');
 	}
@@ -55,10 +55,10 @@ function showLoadingPane(instance) {
  * @returns {void}
  */
 function hideLoadingPane(instance) {
-	if (instance.autocompleteEl.contains(instance.loadingContainer)) {
-		instance.autocompleteEl.removeChild(instance.loadingContainer);
+	if (instance.container.contains(instance.loadingContainer)) {
+		instance.container.removeChild(instance.loadingContainer);
 	}
-	const menu = instance.autocompleteEl.querySelector('.o-autocomplete__menu');
+	const menu = instance.container.querySelector('.o-autocomplete__menu');
 	if (menu) {
 		menu.classList.remove('o-autocomplete__menu--loading');
 	}
@@ -167,6 +167,10 @@ class Autocomplete {
 			}
 		}, options || Autocomplete.getDataAttributes(autocompleteEl));
 
+		const container = document.createElement('div');
+		container.classList.add('o-autocomplete__listbox-container');
+		this.container = container;
+
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
@@ -197,26 +201,28 @@ class Autocomplete {
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
 			}
-			autocompleteEl.innerHTML = '';
+			this.autocompleteEl.innerHTML = '';
+			this.autocompleteEl.appendChild(this.container);
 			const options = Object.assign({
-				element: autocompleteEl,
+				element: this.container,
 				id: id,
 			}, this.options);
 			accessibleAutocomplete(options);
 		} else {
-			const element = autocompleteEl.querySelector('select');
-			const id = element.getAttribute('id');
+			const selectInputElement = autocompleteEl.querySelector('select');
+			const id = selectInputElement.getAttribute('id');
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
 			}
-			autocompleteEl.appendChild(element);
+			this.autocompleteEl.appendChild(this.container);
+			this.container.appendChild(selectInputElement);
 			const options = Object.assign({
-				selectElement: element,
+				selectElement: selectInputElement,
 				defaultValue: '',
 			}, this.options);
 			options.autoselect = false;
 			accessibleAutocomplete.enhanceSelectElement(options);
-			element.parentElement.removeChild(element); // Remove the original select element
+			selectInputElement.parentElement.removeChild(selectInputElement); // Remove the original select element
 		}
 
 		this.loadingContainer = createLoadingContainer();

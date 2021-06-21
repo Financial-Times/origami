@@ -21,11 +21,11 @@
 @mixin oAutocomplete ($opts: ()) {
 	// content of primary mixin
 	.o-autocomplete {
-		display: inline-grid;
 		position: relative;
+		display: inline-grid;
 	}
 
-	.o-autocomplete__wrapper {
+	.o-autocomplete__listbox-container {
 		@include oTypographySans($scale: 0);
 		grid-row: 1;
 		grid-column: 1;
