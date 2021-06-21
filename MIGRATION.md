@@ -1,6 +1,12 @@
 ## Migration Guide
 
-### Migrating from 3 to 4
+### Migrating from v4 to v5
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
+### Migrating from v3 to v4
 
 The `$o-loading-themes` variable is now private. If you are a whitelabel brand user and would like to customise the colours of `o-loading`, use the `oLoadingCustomize` mixin instead. See [o-loading Sassdoc](https://registry.origami.ft.com/components/o-loading/sassdoc?brand=whitelabel) for more details.
 
@@ -21,7 +27,7 @@ The dependencies for this component have all been updated to the latest major ve
 If you have any conflicts while installing this version, you'll need to first update
 its dependencies. See [the Bower config for these](./bower.json).
 
-### Migrating from 2 to 3
+### Migrating from v2 to v3
 
 V3 changes the internal structure of `o-loading`.
 
@@ -53,6 +59,6 @@ If you can't use `o-loading` classes, you can add styles to a specific element b
 
 There is also a new size available in `o-loading`, namely `mini`.
 
-### Migrating from 1 to 2
+### Migrating from v1 to v2
 
 V1 -> V2 introduces the new majors of o-colors. Updating to this new version will mean updating any other components that you have which are using o-colors. There are no other breaking changes in this release.
