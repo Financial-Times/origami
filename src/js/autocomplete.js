@@ -157,6 +157,7 @@ class Autocomplete {
 	 */
 	constructor (autocompleteEl, options) {
 		this.autocompleteEl = autocompleteEl;
+
 		this.options = Object.assign({
 			placeholder: '',
 			cssNamespace: 'o-autocomplete',
@@ -184,7 +185,6 @@ class Autocomplete {
 			 * @returns {void}
 			*/
 			this.options.source = (query, populateResults) => {
-				console.log({query});
 				showLoadingPane(this);
 				/**
 				 * @param {Array<string>} results - The results to show in the suggestions dropdown
