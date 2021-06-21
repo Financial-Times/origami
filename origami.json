@@ -1,5 +1,5 @@
 {
-	"origamiType": "module",
+	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"support": "https://github.com/Financial-Times/o-lazy-load/issues",
 	"supportContact": {
