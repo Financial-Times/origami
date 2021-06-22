@@ -15,9 +15,9 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"@financial-times/o-normalise@3.0.0-0",
-			"@financial-times/o-grid@6.0.0-0",
-			"@financial-times/o-fonts@5.0.0-1"
+			"o-normalise@^3.0.0",
+			"o-grid@^6.0.0",
+			"o-fonts@^5.0.0"
 		]
 	},
 	"demos": [
