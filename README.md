@@ -1,4 +1,4 @@
-# o-teaser-collection [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-teaser-collection
 
 This component is for displaying collections of [o-teasers](http://registry.origami.ft.com/components/o-teaser).
 
