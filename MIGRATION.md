@@ -1,8 +1,15 @@
 
 # Migration
 
+- [Migrating from v3 to v4](#migrating-from-v3-to-v4)
 - [Migrating from v2 to v3](#migrating-from-v2-to-v3)
 - [Migrating from v1 to v2](#migrating-from-v1-to-v2)
+
+## Migrating from v3 to v4
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
 
 ## Migrating from v2 to v3
 
