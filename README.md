@@ -141,8 +141,6 @@ To output all styles call `@include oSteppedProgress();` in your Sass:
 
 ### Mixin: `oSteppedProgress`
 
-If using o-stepped-progress in silent mode, you'll need to use the mixins outlined here to output styles.
-
 The `oSteppedProgress` mixin is used to output base styles as well as styles for all of the available themes. This output includes all of the `.o-stepped-progress` classes:
 
 ```scss
