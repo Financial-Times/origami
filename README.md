@@ -16,6 +16,8 @@ This is a beta version of oAudio. It will accept an `<audio>` element + attach o
 
 The expectation is that oAudio will eventually render it's own player interface, potentially with different skins, to be used on ft.com and the app.
 
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-audio`.
+
 ### Markup
 
 ```html
@@ -65,7 +67,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-audio/issues) or visit [#ft-next-support](https://financialtimes.slack.com/messages/ft-next-support).
 
----
+***
 
 ## Licence
 
