@@ -9,7 +9,7 @@ const iconBlacklist = [
 runScript();
 
 function runScript() {
-	let {images} = loadJson(`${__dirname}/../bower_components/fticons/imageset.json`);
+	let {images} = loadJson(`${__dirname}/../node_modules/@financial-times/fticons/imageset.json`);
 	images = images.filter(image => !iconBlacklist.includes(image.name));
 	writeDemoData(images, `${__dirname}/../demos/src/data.json`);
 	writeSassIconList(images, `${__dirname}/../src/scss/_icon-list.scss`);
