@@ -25,9 +25,9 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@5.0.0-1",
-			"o-buttons@7.0.0-0",
-			"o-normalise@3.0.0-0"
+			"o-fonts@^5.0.0",
+			"o-buttons@^7.0.0",
+			"o-normalise@^3.0.0"
 		]
 	},
 	"demos": [
