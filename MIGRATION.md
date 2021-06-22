@@ -2,7 +2,7 @@
 
 ### Migrating from v3 to v4
 
-The sass variable named `$o-teaser-collection-is-silent` has had its default value changed from `false` to `true`.
+The sass variable named `$o-teaser-collection-is-silent` has had its default value changed from `false` to `true. This means no CSS will be output when `o-teaser-collection`  is imported. Include the `oTeaserCollection` primary mixin to output `o-teaser-collection` CSS.
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
