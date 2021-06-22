@@ -132,9 +132,6 @@ Once you have stepped progress instances, you can interact with them using the m
 There is [full API documentation available in the Origami Registry](https://registry.origami.ft.com/components/o-stepped-progress/jsdoc).
 
 ## Sass
-
-### Silent mode
-
 As with all Origami components, o-stepped-progress has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than incorporating its mixins into your own Sass) call `@include oSteppedProgress();` in your Sass after you import the o-stepped-progress Sass:
 
 ```scss
