@@ -23,7 +23,7 @@
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"@financial-times/o-normalise@3.0.0-0"
+			"o-normalise@^3.0.0"
 		]
 	},
 	"demos": [
