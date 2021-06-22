@@ -1,6 +1,6 @@
 {
   "name": "o-teaser-collection",
-  "description": "A collection of article teasers.",
+  "description": "A collection of article teasers",
   "ignore": [
     "**/.*",
     "node_modules",
