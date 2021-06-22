@@ -1,5 +1,11 @@
 ## Migration guide
 
+### Migrating from v2 to v3
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ### Migrating from v1 to v2
 
 v2 updates its o-colors dependency to a new major and introduces a dependency on o-typography and o-spacing. Ensure your project dependencies do not conflict and update these components if required.
