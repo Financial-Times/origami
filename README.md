@@ -259,8 +259,9 @@ o-expander fires the following events, which always fire before any repainting/l
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 5 | N/A  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
-⚠ maintained | 4 | 4.7  | - |
+✨ active | 6 | N/A  | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | 5.0.11  | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+╳ deprecated | 4 | 4.7  | - |
 ╳ deprecated | 3 | 3.0  | - |
 ╳ deprecated | 2 | 2.0 | - |
 ╳ deprecated | 1 | 1.4 | - |
