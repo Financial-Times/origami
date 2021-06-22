@@ -6,6 +6,7 @@ The FT audio player.
 	- [Markup](#markup)
 	- [JavaScript](#javascript)
 	- [Sass](#sass)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -51,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
 ### Sass
 
 Since oAudio renders as a native HTML `<audio>` element only, there are no styles _as yet_.
+
+## Migration
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.4 | N/A |
+
 
 ## Contact
 
