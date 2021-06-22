@@ -6,7 +6,6 @@
   ],
   "ignore": [
     "package.json",
-    "Gruntfile.js",
     "test"
   ],
   "dependencies": {
