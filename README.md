@@ -73,90 +73,17 @@ subsCard.init();
 ```
 This will instantiate all subs-cards within the document. Alternatively you can pass in a HTMLElement, or String to be used as a selector to limit the scope of the instantiated subs cards to only child elements of the passed in scope.
 
-## Migration Guide
+## Migration guide
 
-### Upgrading from v3.x.x to v4.x.x
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+⚠ maintained | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+╳ deprecated | 3 | 3.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.4 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+╳ deprecated | 1 | 1.1 | N/A |
 
-The dependencies for this component have all been updated to the latest major
-versions. If you have any conflicts while installing this version, you'll need
-to first update its dependencies. See [the Bower config for these](./bower.json).
-
-#### Color Use Cases
-
-The following color use cases have been removed:
-
-```diff
-- o-subs-card
-- o-subs-card-button
-- o-subs-card-copy-details
-- o-subs-card-read-more
-- o-subs-card-discount
-- o-subs-card-b2b
-```
-
-### Upgrading from v2.x.x to v3.x.x
-
-o-subs-card v3.x.x changes the JavaScript from being a mix of ECMAScript Modules and CommonJS in a single file to being solely ECMAScript Modules.
-
-You will need to change from using a CommonJS `require` to an ECMAScript Module `import`:
-
-```diff
-- const SubsCard = require('o-subs-card');
-+ import { SubsCard } from 'o-subs-card';
-```
-
-### Upgrading from v1.x.x to v2.x.x
-
-o-subs-card v2.x.x changes the underlying style of all cards, removes two themes, adds a new B2B variation, and has updated markup. In this version, the expanding functionality is limited to the mobile and tablet viewports.
-
-The following themes have been removed:
-
-```diff
-- oSubsCardPremium / 'o-subs-card--premium'
-- oSubsCardPremiumPlus / 'o-subs-card--premium-plus'
-```
-
-And the available themes (and their respective classes) are now:
-
-```diff
-+ oSubsCardB2B / 'o-subs-card--b2b'
-oSubsCardDiscount / 'o-subs-card--discount' //no change
-```
-
-The markup has been rearranged, and some classes have been removed.
-
-```diff
-+ <div class='o-subs-card__container'>
-		<div class="o-subs-card" data-o-component="o-subs-card">
-			<div class="o-subs-card__top">
-				<div class="o-subs-card__copy-title">Subscription title</div>
--				<img class="o-subs-card__copy-image" src='/demos/src/demo-placeholder.png' alt='photo of FT subscription options'>
-				<div class="o-subs-card__charge">
--					<span class="o-subs-card__charge__value">£XX.XX</span> per week
-+					<div class="o-subs-card__charge__value">£XX.XX per week </div>
-					<button class="o-subs-card__select-button">Select</button>
-				</div>
-			</div>
--			<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
-				<div class="o-subs-card__expander">
--		 		<div class='o-subs-card__read-more'>Read more</div>
-					<div class="o-subs-card__copy-details">
-						<ul class="o-subs-card__copy-benefits">
-							<li>...</li>
-						</ul>
-					</div>
-+					<div class='o-subs-card__read-more'>Read more</div>
-				</div>
-		</div>
-+ </div>
-```
-- There is now a container to wrap all cards in.
-- The `<img>` tag has been removed.
-- The charge value has been moved into a `div` of its down and has been moved below the 'select' button.
-- The read more element has been moved to be the last child in the card.
-
-
----
+***
 
 ## Contact
 
