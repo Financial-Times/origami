@@ -312,8 +312,9 @@ You can change a lot of aspects of a banner's visual appearance. When using the 
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
-⚠ maintained | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+✨ active | 4 | N/A | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
+⚠ maintained | 3 | 3.4 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
+╳ deprecated | 2 | 2.3 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.7 | N/A |
 
 ## Contact
