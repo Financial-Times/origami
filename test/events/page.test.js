@@ -3,7 +3,7 @@
 
 import '../setup.js';
 
-import {destroy} from '../../src/javascript/core/settings.js';
+import {destroy, set} from '../../src/javascript/core/settings.js';
 import {init as initSend} from '../../src/javascript/core/send.js';
 import {init as initSession} from '../../src/javascript/core/session.js';
 import {Queue} from '../../src/javascript/core/queue.js';
@@ -25,7 +25,7 @@ describe('page', function () {
 
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue as PhantomJS doesn't always start fresh.
-		destroy('config'); // Empty settings.
+		set('config', {}); // Empty settings.
 	});
 
 	it('should track a page', function () {
