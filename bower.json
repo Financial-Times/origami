@@ -1,6 +1,6 @@
 {
   "name": "o-subs-card",
-  "description": "Component description",
+  "description": "A card for showing different subscription packages offered by the Financial Times",
   "ignore": [
     "**/.*",
     "node_modules",
