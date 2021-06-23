@@ -22,11 +22,11 @@
 		"js": "demos/src/demo.js",
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"@financial-times/o-fonts@5.0.0-1",
-			"@financial-times/o-normalise@3.0.0-0",
-			"@financial-times/o-typography@7.0.0-0",
-			"@financial-times/o-forms@9.0.0-1",
-			"@financial-times/o-buttons@7.0.0-0"
+			"o-fonts@^5",
+			"o-normalise@^3",
+			"o-typography@^7",
+			"o-forms@^9",
+			"o-buttons@^7"
 		]
 	},
 	"demos": [
