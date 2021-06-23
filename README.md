@@ -32,7 +32,7 @@ The Spoor tracking pixel endpoint takes a `data` query parameter which is a url-
 
 For example, if you have the following data you want to track in Spoor:
 
-*Recommendation:* Using a different `system.source` value from the one used in o-tracking JavaScript mode will help your project be able to more easily group the data for those users without JavaScript. The example below uses the source `o-tracking-fallback`.
+_Recommendation:_ Using a different `system.source` value from the one used in o-tracking JavaScript mode will help your project be able to more easily group the data for those users without JavaScript. The example below uses the source `o-tracking-fallback`.
 
 ```json
 {
@@ -145,7 +145,7 @@ const category = 'element';
 oTracking.click.init(category);
 ```
 
-*Note: The attribute `data-o-tracking-skip-queue` is no longer used, it is now the default behaviour.*
+_Note:_ The attribute `data-o-tracking-skip-queue` is no longer used, it is now the default behaviour.*
 
 ##### oTracking.view.init
 
@@ -160,8 +160,8 @@ To track when an element has come into view of the user, add the attribute `data
 	- `type`
 	- `subtype`
 	- `component`
-*Note:* This feature requires `window.IntersectionObserver` in order to track the events
-*Note:* `getContextData` should be a function which returns `{object}`. It accepts the viewed element as an argument
+_Note:_ This feature requires `window.IntersectionObserver` in order to track the events
+_Note:_ `getContextData` should be a function which returns `{object}`. It accepts the viewed element as an argument
 
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 
@@ -298,13 +298,13 @@ To sign in to Chartio:
 | ╳ deprecated | 2 | 2.0.10 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 | ╳ deprecated | 1 | 1.7.2 | N/A |
 
----
+***
 
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tracking/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 
