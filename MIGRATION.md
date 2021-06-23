@@ -1,5 +1,11 @@
 ## Migration
 
+### Migrating from v8 to v9
+
+Support for Bower and version 2 of the Origami Build Service have been removed.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ### Migrating from v7 to v8
 - `.o-table-margin-bottom` has been removed. Use `.o-spacing-s4` from [o-spacing](https://registry.origami.ft.com/components/o-spacing) instead, or apply margin as needed, depending on the context of the table e.g.
 
