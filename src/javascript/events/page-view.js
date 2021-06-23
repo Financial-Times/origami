@@ -48,8 +48,7 @@ function page(config, callback) {
 	// Instead of forwarding these errorneous events to Spoor, we ignore them.
 	// GitHub Issue: https://github.com/Financial-Times/o-tracking/issues/296
 	if (pageViewEventHasAlreadyBeenSentBefore(config)) {
-		const config = getSetting('config');
-		if (config && config.test) {
+		if (getSetting('config').test) {
 			// eslint-disable-next-line no-console
 			console.warn('A page event has already been sent for this page, refusing to send a duplicate page event.');
 		}
