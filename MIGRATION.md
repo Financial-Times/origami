@@ -1,12 +1,11 @@
 # Migration
 
-## Migrating from v4 to v5
+## Migrating from v3 to v4
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
-
 Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
 
-## Migrating from v3 to v4
+In addition the following `oLayers` events have been replaced, find and replace them in your project:
 
 - The `oLayers.new` event is removed, use `oOverlay.layerOpen` instead.
 - The `oLayers.close` event is removed, use `oOverlay.layerClose` instead.
