@@ -46,7 +46,7 @@ describe('main', function () {
 		oTracking.destroy();
 	});
 
-	describe.skip('a second instance of o-tracking exists in a separate browser context (e.g. new tab)', function () {
+	describe('a second instance of o-tracking exists in a separate browser context (e.g. new tab)', function () {
 		let iframe;
 		let iframeSrc;
 		let parentLink;
