@@ -1,5 +1,5 @@
 {
-	"description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
+	"description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content",
 	"keywords": [
 		"comments",
 		"stream",
