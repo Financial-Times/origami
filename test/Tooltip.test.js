@@ -3,7 +3,7 @@
 
 import * as fixtures from './helpers/fixtures.js';
 import {createMockRaf} from './helpers/mock-raf.js';
-import Tooltip from './../main.js';
+import Tooltip from '../main.js';
 import Viewport from '@financial-times/o-viewport';
 
 describe("Tooltip", () => {

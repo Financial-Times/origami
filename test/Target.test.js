@@ -3,7 +3,7 @@
 
 import * as fixtures from './helpers/fixtures.js';
 
-import Target from'./../src/js/target';
+import Target from '../src/js/target.js';
 
 describe('Target', () => {
 	let target;

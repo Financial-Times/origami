@@ -1,5 +1,5 @@
 
-import '../..';
+import '../../main.js';
 
 function initDemos() {
 	document.addEventListener('DOMContentLoaded', function() {

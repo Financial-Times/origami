@@ -3,7 +3,7 @@
 
 import * as fixtures from './helpers/fixtures.js';
 
-import Tooltip from './../main.js';
+import Tooltip from '../main.js';
 
 describe("Tooltip", () => {
 	it('is defined', () => {
