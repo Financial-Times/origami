@@ -170,13 +170,11 @@ This will output a CSS class `o-tooltip--[name]`. Add this class to your tooltip
 | ╳ deprecated | 2 | 2.3.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 | ╳ deprecated | 1 | 1.1.1 | N/A |
 
----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-tooltip/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-----
+***
 
 ## Licence
 
