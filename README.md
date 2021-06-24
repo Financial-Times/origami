@@ -107,7 +107,7 @@ const opts = {
 const tooltip = new Tooltip(tooltipEl, opts);
 ```
 
-*Note! this property can only be used only when constructing the tooltip declaratively*
+_Note! this property can only be used only when constructing the tooltip declaratively_
 
 #### Firing an oDomContentLoaded event
 
