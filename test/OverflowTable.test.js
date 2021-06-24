@@ -315,7 +315,7 @@ describe("OverflowTable", () => {
 				} catch (error) {
 					done(error);
 				}
-			}, 1000);
+			}, 350);
 		});
 
 		it("forward button is disabled but visible at the end of the table, when the table can be scrolled past", (done) => {
