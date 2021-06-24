@@ -34,10 +34,10 @@ describe('Target', () => {
 	});
 
 	context('get right()', () => {
-	   it('should return the right edge of the target', () => {
-		   const rightEdge = target.width + target.left;
-		   proclaim.equal(target.right, rightEdge);
-	   });
+		it('should return the right edge of the target', () => {
+			const rightEdge = target.width + target.left;
+			proclaim.equal(target.right, rightEdge);
+		});
 	});
 
 	context('get top()', () => {
