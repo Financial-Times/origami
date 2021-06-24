@@ -28,6 +28,14 @@ describe('click', function () {
 		set("config",config);
 	});
 
+	beforeEach(function() {
+		sinon.spy(core, 'track');
+	});
+
+	afterEach(function() {
+		core.track.restore();
+	});
+
 	after(function () {
 		new Queue('requests').replace([]); // Empty the queue
 		destroy('config'); // Empty settings.
@@ -35,9 +43,8 @@ describe('click', function () {
 
 	it('should track an event for a click', function (done) {
 
-		sinon.spy(core, 'track');
-
 		click.init("blah", '#anchorA');
+		const rootID = core.getRootID();
 
 		const aLinkToGoogle = document.createElement('a');
 
@@ -61,8 +68,88 @@ describe('click', function () {
 		setTimeout(() => {
 			try {
 				proclaim.equal(core.track.calledOnce, true, "click event tracked");
+				proclaim.deepStrictEqual(core.track.firstCall.firstArg, {
+					"context": {
+						"product": "desktop",
+						"domPathTokens": [
+							{
+								"nodeName": "A",
+								"className": false,
+								"id": "anchorA",
+								"href": "http://www.google.com/",
+								"text": "A link to Google's website",
+								"role": false
+							},
+							{
+								"nodeName": "BODY",
+								"className": false,
+								"id": false,
+								"href": false,
+								"text": false,
+								"role": false
+							},
+							{
+								"nodeName": "HTML",
+								"className": false,
+								"id": false,
+								"href": false,
+								"text": false,
+								"role": false
+							}
+						],
+						"url": window.location.toString(),
+						"source_id": rootID,
+						"nodeName": "A",
+						"className": false,
+						"href": "http://www.google.com/",
+						"text": "A link to Google's website",
+						"role": false
+					},
+					"user": {
+						"user_id": "123456"
+					},
+					"action": "click",
+					"category": "blah"
+				});
 
-				core.track.restore();
+				done();
+			} catch (error) {
+				done(error);
+			}
+
+		}, 10);
+
+	});
+
+	it('should add the root_id as the value to context.source_id', function (done) {
+
+		click.init("blah", '#anchorB');
+		const rootID = core.getRootID();
+
+		const aLinkToGoogle = document.createElement('a');
+
+		aLinkToGoogle.href = "http://www.google.com";
+		aLinkToGoogle.text = "A link to Google's website";
+		aLinkToGoogle.id = "anchorB";
+
+		aLinkToGoogle.addEventListener('click', function(e){
+			e.preventDefault();
+		}); //we don't want the browser to follow click in test
+
+		const event = new MouseEvent('click', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': true
+		});
+
+		document.body.appendChild(aLinkToGoogle);
+		aLinkToGoogle.dispatchEvent(event, true);
+
+		setTimeout(() => {
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event tracked");
+				proclaim.deepStrictEqual(core.track.firstCall.firstArg.context.source_id, rootID);
+
 				done();
 			} catch (error) {
 				done(error);
@@ -73,8 +160,6 @@ describe('click', function () {
 	});
 
 	it('should track custom event properties and send through in the context', (done) => {
-
-		sinon.spy(core, 'track');
 
 		click.init("blah", '#anchorB');
 
@@ -102,7 +187,7 @@ describe('click', function () {
 			try {
 				proclaim.equal(core.track.getCall(0).args[0].context.foo, 'bar');
 
-				core.track.restore();
+
 				done();
 			} catch (error) {
 				done(error);
@@ -112,8 +197,6 @@ describe('click', function () {
 	});
 
 	it('should not track an event for a securedrop click', function (done) {
-
-		sinon.spy(core, 'track');
 
 		click.init("blah", '#anchorC');
 
@@ -142,7 +225,7 @@ describe('click', function () {
 			try {
 				proclaim.equal(core.track.notCalled, true, "click event not tracked");
 
-				core.track.restore();
+
 				done();
 			} catch (error) {
 				done(error);

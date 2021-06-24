@@ -39,6 +39,9 @@ const handleClickEvent = eventData => (clickEvent, clickElement) => {
 	const { trace, customContext} = getTrace(clickElement);
 	context.domPathTokens = trace;
 	context.url = window.document.location.href || null;
+	// source_id is a field that is currently being used in some data analytics
+	// before removing this field - check with the data analytics team first to see if it is still being used
+	context.source_id = core.getRootID();
 
 	assignIfUndefined(customContext, context);
 
