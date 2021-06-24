@@ -23,8 +23,8 @@
 		"data": "demos/src/data/data.json",
 		"documentClasses": "",
 		"dependencies": [
-			"@financial-times/o-forms@9.0.0-1",
-			"@financial-times/o-overlay@4.0.0-beta.1"
+			"o-forms@^9.0.0",
+			"o-overlay@^4.0.0"
 		]
 	},
 	"demos": [
