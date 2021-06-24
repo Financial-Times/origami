@@ -1,5 +1,12 @@
 # Migration Guide
 
+## Migrating from v8 to v9
+
+v9 drops support for Bower and version 2 of the Origami Build Service.
+
+Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
+
 ## Migrating from v7 to v8
 
 v8 removes support for the internal brand. Consider using [o-header-services](https://github.com/Financial-Times/o-header-services) instead, or contact the Origami team to discuss bring back support for the internal brand.
