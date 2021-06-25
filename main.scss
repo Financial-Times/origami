@@ -15,7 +15,7 @@ $o-subs-card-is-silent: true !default;
 
 @if ($o-subs-card-is-silent == false) {
 	.o-subs-card {
-		@include oSubsCard;
+		@include oSubsCardBase;
 	}
 
 	.o-subs-card--b2b {
