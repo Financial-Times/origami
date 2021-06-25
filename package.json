@@ -28,13 +28,13 @@
 		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"peerDependencies": {
-		"@financial-times/o-colors": "prerelease",
-		"@financial-times/o-grid": "prerelease",
-		"@financial-times/o-icons": "prerelease",
-		"@financial-times/o-labels": "prerelease",
-		"@financial-times/o-normalise": "prerelease",
-		"@financial-times/o-spacing": "prerelease",
-		"@financial-times/o-typography": "prerelease"
+		"@financial-times/o-colors": "^6.0.1",
+		"@financial-times/o-grid": "^6.0.0",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-labels": "^6.0.0",
+		"@financial-times/o-normalise": "^3.0.0",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-typography": "^7.0.1"
 	},
 	"engines": {
 		"npm": "^7"
