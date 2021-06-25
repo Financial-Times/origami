@@ -1,4 +1,4 @@
-@mixin oSubsCard {
+@mixin oSubsCardBase {
 	@include oTypographySans(0);
 
 	text-align: center;
