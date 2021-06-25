@@ -43,7 +43,19 @@ The subs card will expand to fill the width of its containing element, so you wi
 
 ## Sass
 
-As with all Origami components, o-subs-card has a [silent mode](http://origami.ft.com/docs/syntax/scss/#silent-styles). To use its compiled CSS (rather than using its mixins with your own Sass) set `$o-subs-card-is-silent : false;` in your Sass before you import the o-subs-card Sass.
+To include all o-subs-card classes use the `oSubsCard` mixin with no arguments:
+
+```scss
+@include oSubsCard();
+```
+
+To include a specific theme, pass an options argument with the themes to include:
+
+```scss
+@include oSubsCard($opts: (
+	'themes': ('discount', 'b2b')
+));
+```
 
 ### Themes
 
