@@ -1,5 +1,11 @@
 # Migration guide
 
+## Migrating from v5 to v6
+
+v6 drops support for Bower and version 2 of the Origami Build Service.
+
+Follow  [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
 ## Migrating from v4 to v5
 
 v5 introduces the font FinancierDisplayWeb at medium weight and normal style. To upgrade make sure your project includes the FinancierDisplayWeb medium font face using [o-fonts](https://registry.origami.ft.com/components/o-fonts).
