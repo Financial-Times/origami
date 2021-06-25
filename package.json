@@ -52,6 +52,6 @@
 		"@financial-times/o-visual-effects": "prerelease"
 	},
 	"dependencies": {
-		"@financial-times/accessible-autocomplete": "^2.1.0"
+		"@financial-times/accessible-autocomplete": "^2.1.1"
 	}
 }
