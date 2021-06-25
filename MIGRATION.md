@@ -2,6 +2,19 @@
 
 ## Migrating from v4 to v5
 
+The mixin `oSubsCard` has been renamed to `oSubsCardBase`.
+```diff
+- @include oSubsCard;
++ @include oSubsCardBase;
+```
+
+A "primary mixin" has been added named `oSubsCard`. The primary mixin outputs all component CSS when no arguments are given.
+
+```scss
+@import '@financial-times/o-subs-card/main';
+@include oSubsCard();
+```
+
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
 Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
