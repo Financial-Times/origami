@@ -5,6 +5,7 @@ _Typography styles and layout for editorial content._
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
+- [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
@@ -93,6 +94,13 @@ For example to output a heading:
 ```
 
 See the [o-editorial-layout Sassdoc](https://registry.origami.ft.com/components/o-editorial-layout/sassdoc) for more details.
+
+## Migration guide
+
+State | Major Version | Last Minor Release | Migration guide |
+:---: | :---: | :---: | :---:
+✨ active | 2 | N/A | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
+⚠ maintained | 1 | 1.4 | N/A |
 
 ## Contact
 
