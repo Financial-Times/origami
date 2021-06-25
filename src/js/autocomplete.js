@@ -172,6 +172,11 @@ class Autocomplete {
 		container.classList.add('o-autocomplete__listbox-container');
 		this.container = container;
 
+		const selectInputElement = autocompleteEl.querySelector('select');
+		if (!this.options.source && !selectInputElement) {
+			throw new Error("Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options.");
+		}
+
 		if (this.options.source) {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
@@ -209,7 +214,6 @@ class Autocomplete {
 			}, this.options);
 			accessibleAutocomplete(options);
 		} else {
-			const selectInputElement = autocompleteEl.querySelector('select');
 			const id = selectInputElement.getAttribute('id');
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");

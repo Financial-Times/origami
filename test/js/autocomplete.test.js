@@ -98,7 +98,11 @@ describe("Autocomplete", () => {
 			});
 		});
 
-		describe('when provided input element has no id attribute set', () => {
+	});
+
+	describe('enhanced select element', () => {
+
+		describe('when no select element is provided', () => {
 			beforeEach(() => {
 				fixtures.invalidHtmlInputCode();
 			});
@@ -107,14 +111,26 @@ describe("Autocomplete", () => {
 				fixtures.reset();
 			});
 			it("throws an error", () => {
-				assert.throws(() =>new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]')),
+				assert.throws(() => new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]')),
+					"Could not find a source for auto-completion options. Add a `select` element to your markup, or configure a `source` function to fetch autocomplete options."
+				);
+			});
+		});
+
+		describe('when provided select element has no id attribute set', () => {
+			beforeEach(() => {
+				fixtures.invalidHtmlSelectCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+			it("throws an error", () => {
+				assert.throws(() => new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]')),
 					"Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features."
 				);
 			});
 		});
-	});
-
-	describe('enhanced select element', () => {
 
 		context('input matches a single suggestion', () => {
 			beforeEach(() => {
