@@ -27,7 +27,7 @@
 					}
 				]
 			],
-			"collapsible": false
+			"collapsible": true
 		},
 		{
 			"title": "xxxxx x xxxxxxx",
@@ -47,10 +47,6 @@
 				{
 					"text": "xxxxxxxxx",
 					"href": "//www.ft.com/servicestools/help/copyright"
-				},
-				{
-					"text": "xxxxxxx xxxxxxxxx x xxxxxxxx",
-					"href": "//help.ft.com/help/legal/slavery-statement/"
 				}
 			],
 			"index": 1,
@@ -75,7 +71,7 @@
 					}
 				]
 			],
-			"collapsible": false
+			"collapsible": true
 		},
 		{
 			"title": "xxxxxxxx",
@@ -99,24 +95,10 @@
 				{
 					"text": "xxxxxxxx xxxxxxxx",
 					"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
-				},
-				{
-					"text": "xxxxxxxxx xxx xxxxxx",
-					"href": "//www.exec-appointments.com/"
-				},
-				{
-					"text": "xxxxxxxxx xxxx xxx xx",
-					"href": "//fttoolkit.co.uk/d/",
-					"aria-label": "Advertise with the F T"
-				},
-				{
-					"text": "xxxxxx xxx xx xx xxxxxxx",
-					"href": "//twitter.com/ft",
-					"aria-label": "Follow the F T on Twitter"
 				}
 			],
 			"index": 2,
-			"layout": 2,
+			"layout": 1,
 			"columns": [
 				[
 					{
@@ -138,22 +120,6 @@
 					{
 						"text": "xxxxxxxx xxxxxxxx",
 						"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
-					}
-				],
-				[
-					{
-						"text": "xxxxxxxxx xxx xxxxxx",
-						"href": "//www.exec-appointments.com/"
-					},
-					{
-						"text": "xxxxxxxxx xxxx xxx xx",
-						"href": "//fttoolkit.co.uk/d/",
-						"aria-label": "Advertise with the F T"
-					},
-					{
-						"text": "xxxxxx xxx xx xx xxxxxxx",
-						"href": "//twitter.com/ft",
-						"aria-label": "Follow the F T on Twitter"
 					}
 				]
 			],
@@ -201,7 +167,7 @@
 				}
 			],
 			"index": 3,
-			"layout": 2,
+			"layout": 1,
 			"columns": [
 				[
 					{
@@ -224,29 +190,55 @@
 						"text": "xxx xxxxxxxx",
 						"href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016"
 					}
-				],
-				[
-					{
-						"text": "xxxxxxxx xxxxxxxx",
-						"href": "//markets.ft.com/Research/Economic-Calendar"
-					},
-					{
-						"text": "xxxxxxxxxxx",
-						"href": "//nbe.ft.com/nbe/profile.cfm"
-					},
-					{
-						"text": "xxxxxxxx xxxxxxxxx",
-						"href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113"
-					},
-					{
-						"text": "xxxxxx",
-						"href": "//www.ft.com/ebooks",
-						"aria-label": "E-books"
-					}
 				]
 			],
 			"collapsible": true
-		}
+		},        
+        {
+            "title": "xxxxxxx",
+            "items": [
+                {
+                    "text": "xxxxxxxxx",
+                    "href": "//markets.ft.com/data/portfolio/dashboard"
+                },
+                {
+                    "text": "xxxxxxx xxxxx",
+                    "href": "//ftepaper.ft.com"
+                },
+                {
+                    "text": "xxxxxx xxx",
+                    "href": "//markets.ft.com/data/alerts/"
+                },
+                {
+                    "text": "xxxxxxx",
+                    "href": "//lexicon.ft.com/"
+                }
+            ],
+            "index": 4,
+            "layout": 1,
+            "columns": [
+                [
+                    {
+                        "text": "xxxxxxxxx",
+                        "href": "//markets.ft.com/data/portfolio/dashboard"
+                    },
+                    {
+                        "text": "xxxxxxx xxxxx",
+                        "href": "//ftepaper.ft.com"
+                    },
+                    {
+                        "text": "xxxxxx xxx",
+                        "href": "//markets.ft.com/data/alerts/"
+                    },
+                    {
+                        "text": "xxxxxxx",
+                        "href": "//lexicon.ft.com/"
+                    }
+                ]
+            ],
+            "collapsible": true
+        }
+
 	],
 	"copyrightYear": 2020
 }

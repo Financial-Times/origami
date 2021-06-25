@@ -28,6 +28,7 @@
 			color: _oFooterGet('title', $from: $theme);
 		}
 
+		.o-footer__matrix-title--external-link,
 		.o-footer__external-link,
 		.o-footer__matrix-title[aria-expanded] {
 			border-color: _oFooterGet('border', $from: $theme);
@@ -96,6 +97,16 @@
 		line-height: inherit;
 		font-size: inherit;
 		font-weight: 600;
+
+		&--external-link {
+			line-height: $_o-footer-spacing-unit * 2;
+			
+			border-top: 1px solid;
+			@include oGridRespondTo(M) {
+				border-top: 0;
+				line-height: initial;
+			}
+		}
 
 		&[aria-expanded] {
 			$line-size: $_o-footer-spacing-unit * 2;

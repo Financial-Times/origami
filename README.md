@@ -92,7 +92,7 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</div>
 				</div>
 
-				<div class="o-footer__matrix-group o-footer__matrix-group--2">
+				<div class="o-footer__matrix-group o-footer__matrix-group--1">
 					<h3 class="o-footer__matrix-title" aria-controls="o-footer-section-2">
 						Services
 					</h3>
@@ -107,11 +107,12 @@ The width of the columns and the way they collapse on smaller viewports may be c
 							</div>
 					</div>
 				</div>
+				<div class="o-footer__matrix-group o-footer__matrix-group--1">
+					<h3 class="o-footer__matrix-title o-footer__matrix-title--external-link">
+						<a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
+					</h3>
+				</div>
 			</nav>
-
-			<h3 class="o-footer__external-link o-footer__matrix-title">
-				<a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
-			</h3>
 		</div>
 
 		<div class="o-footer__copyright">
