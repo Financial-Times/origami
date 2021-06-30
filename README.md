@@ -74,8 +74,12 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-0">
 						<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
-								<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+								</a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
+								</a>
 						</div>
 					</div>
 				</div>
@@ -86,8 +90,12 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-1">
 						<div class="o-footer__matrix-column">
-							<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
-							<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+							</a>
+							<a class="o-footer__matrix-link" href="#">
+								<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -98,18 +106,28 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</h3>
 					<div class="o-footer__matrix-content" id="o-footer-section-2">
 							<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#"><!-- link 1 --></a>
-								<a class="o-footer__matrix-link" href="#"><!-- link 2 --></a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+								</a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 2 --></span>
+								</a>
 							</div>
 							<div class="o-footer__matrix-column">
-								<a class="o-footer__matrix-link" href="#"><!-- link 3 --></a>
-								<a class="o-footer__matrix-link" href="#"><!-- link 4 --></a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 3 --></span>
+								</a>
+								<a class="o-footer__matrix-link" href="#">
+									<span class="o-footer__matrix-link__copy"><!-- link 4 --></span>
+								</a>
 							</div>
 					</div>
 				</div>
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
 					<h3 class="o-footer__matrix-title o-footer__matrix-title--external-link">
-						<a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
+						<a class ='o-footer__matrix-link o-footer__matrix-link--more' id="o-footer-section-5" href="#">
+							<span class="o-footer__matrix-link__copy"><!-- link  --></span>
+						</a>
 					</h3>
 				</div>
 			</nav>

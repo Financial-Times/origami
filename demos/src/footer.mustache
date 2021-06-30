@@ -14,7 +14,9 @@
 						{{#columns}}
 							<div class="o-footer__matrix-column">
 								{{#.}}
-									<a class="o-footer__matrix-link" {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}} href="{{href}}">{{{text}}}</a>
+									<a class="o-footer__matrix-link" {{#aria-label}}aria-label="{{aria-label}}"{{/aria-label}} href="{{href}}">
+										<span class="o-footer__matrix-link__copy">{{{text}}}</span>
+									</a>
 								{{/.}}
 							</div>
 						{{/columns}}
