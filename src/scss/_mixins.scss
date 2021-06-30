@@ -3,186 +3,172 @@
 /// @param {String} $logo-name
 /// @param {Number} $fallback-width
 @mixin _oFooterBrandImage($logo-name, $fallback-width) {
-  // Error if the global $system-code variable is not set.
-  // This is required for image service requests.
-  @if (
-    global-variable-exists("system-code") ==
-      false or
-      type-of($system-code) !=
-      "string"
-  ) {
-    @error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
-  }
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
 
-  $base-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:";
-  background-image: url($base-url + $logo-name + "?source=#{$system-code}&format=svg");
+	$base-url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:";
+	background-image: url($base-url + $logo-name + "?source=#{$system-code}&format=svg");
 }
 
 /// Styles for the dark theme
 /// @param {String} $theme - The theme, see _brand.scss for theme configuration.
 @mixin _oFooterTheme($theme) {
-  @if $theme != "light" and $theme != "dark" {
-    @error 'No theme "#{inspect($theme)}" exists. Supported themes include "light" and "dark".';
-  }
+	@if $theme != 'light' and $theme != 'dark' {
+		@error 'No theme "#{inspect($theme)}" exists. Supported themes include "light" and "dark".';
+	}
 
-  .o-footer--theme-#{$theme} {
-    color: _oFooterGet("text", $from: $theme);
-    background: _oFooterGet("background", $from: $theme);
+	.o-footer--theme-#{$theme} {
+		color: _oFooterGet('text', $from: $theme);
+		background: _oFooterGet('background', $from: $theme);
 
-    .o-footer__title {
-      color: _oFooterGet("title", $from: $theme);
-    }
+		.o-footer__title {
+			color: _oFooterGet('title', $from: $theme);
+		}
 
-    .o-footer__matrix-link--more {
-      display: flex;
+		.o-footer__matrix-link--more {
+			display: flex;
 
-      &:after {
-        @include oIconsContent(
-          $icon-name: "arrow-right",
-          $size: 16,
-          $color: _oFooterGet("text", $from: $theme)
-        );
-        content: "";
-        align-self: center;
-      }
-    }
+			&:after {
+				@include oIconsContent(
+					$icon-name: 'arrow-right',
+					$size: 16,
+					$color: _oFooterGet('text', $from: $theme)
+				);
+				content: '';
+				align-self: center;
+			}
+		}
 
-    .o-footer__matrix-title--external-link,
-    .o-footer__external-link,
-    .o-footer__matrix-title[aria-expanded] {
-      border-color: _oFooterGet("border", $from: $theme);
-    }
+		.o-footer__matrix-title--external-link,
+		.o-footer__external-link,
+		.o-footer__matrix-title[aria-expanded] {
+			border-color: _oFooterGet('border', $from: $theme);
+		}
 
-    .o-footer__matrix-title a {
-      color: _oFooterGet("text", $from: $theme);
-    }
+		.o-footer__matrix-title a {
+			color: _oFooterGet('text', $from: $theme);
+		}
 
-    a {
-      color: _oFooterGet("link", $from: $theme);
+		a {
+			color: _oFooterGet('link', $from: $theme);
 
-      &:hover,
-      &:focus {
-        color: _oFooterGet("link-hover", $from: $theme);
-      }
-    }
+			&:hover,
+			&:focus {
+				color: _oFooterGet('link-hover', $from: $theme);
+			}
+		}
 
-    .o-footer__external-link a:after {
-      @include oIconsContent(
-        "arrow-right",
-        _oFooterGet("title", $from: $theme),
-        $size: $_o-footer-icon-size,
-        $include-base-styles: false
-      );
-    }
+		.o-footer__external-link a:after {
+			@include oIconsContent('arrow-right', _oFooterGet('title', $from: $theme), $size: $_o-footer-icon-size, $include-base-styles: false);
+		}
 
-    .o-footer__copyright {
-      color: _oFooterGet("copyright", $from: $theme);
-    }
+		.o-footer__copyright {
+			color: _oFooterGet('copyright', $from: $theme);
+		}
 
-    .o-footer__brand {
-      color: _oFooterGet("text", $from: $theme);
-      background: _oFooterGet("brand-background", $from: $theme);
-    }
-  }
+		.o-footer__brand {
+			color: _oFooterGet('text', $from: $theme);
+			background: _oFooterGet('brand-background', $from: $theme);
+		}
+	}
 }
 
 /// Styles for the navigation matrix
 /// @param {List} $themes - a list of themes include
 @mixin _oFooterMatrix($themes) {
-  .o-footer__matrix,
-  .o-footer__matrix-content {
-    @include oGridRow();
-  }
+	.o-footer__matrix,
+	.o-footer__matrix-content {
+		@include oGridRow();
+	}
 
-  .o-footer__matrix-group,
-  .o-footer__matrix-column {
-    @include oGridColspan();
-  }
+	.o-footer__matrix-group,
+	.o-footer__matrix-column {
+		@include oGridColspan();
+	}
 
-  @each $key, $value in $_o-footer-matrix {
-    .o-footer__matrix-group--#{$key} {
-      @include oGridColspan(map-get($value, "group"), $width-only: true);
+	@each $key, $value in $_o-footer-matrix {
+		.o-footer__matrix-group--#{$key} {
+			@include oGridColspan(map-get($value, 'group'), $width-only: true);
 
-      .o-footer__matrix-column {
-        @include oGridColspan(map-get($value, "columns"), $width-only: true);
-      }
-    }
-  }
+			.o-footer__matrix-column {
+				@include oGridColspan(map-get($value, 'columns'), $width-only: true);
+			}
+		}
+	}
 
-  .o-footer__matrix-link__copy {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+	.o-footer__matrix-link__copy {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 
-  .o-footer__matrix-title {
-    margin: 0;
-    line-height: inherit;
-    font-size: inherit;
-    font-weight: 600;
+	.o-footer__matrix-title {
+		margin: 0;
+		line-height: inherit;
+		font-size: inherit;
+		font-weight: 600;
 
-    &--external-link {
-      line-height: $_o-footer-spacing-unit * 2;
+		&--external-link {
+			line-height: $_o-footer-spacing-unit * 2;
 
-      border-top: 1px solid;
-      @include oGridRespondTo(M) {
-        border-top: 0;
-        line-height: initial;
-      }
-    }
+			border-top: 1px solid;
+			@include oGridRespondTo(M) {
+				border-top: 0;
+				line-height: initial;
+			}
+		}
 
-    &[aria-expanded] {
-      $line-size: $_o-footer-spacing-unit * 2;
+		&[aria-expanded] {
+			$line-size: $_o-footer-spacing-unit * 2;
 
-      position: relative;
-      border-top: 1px solid;
-      line-height: $line-size;
-      cursor: pointer;
+			position: relative;
+			border-top: 1px solid;
+			line-height: $line-size;
+			cursor: pointer;
 
-      &:after {
-        content: " ";
-        position: absolute;
-        right: 0;
-        top: ($line-size - $_o-footer-icon-size) / 2;
+			&:after {
+				content: ' ';
+				position: absolute;
+				right: 0;
+				top: ($line-size - $_o-footer-icon-size) / 2;
 
-        @each $theme in $themes {
-          .o-footer--theme-#{$theme} & {
-            @include oIconsContent(
-              "arrow-down",
-              _oFooterGet("title", $theme),
-              $size: $_o-footer-icon-size
-            );
-          }
-        }
-      }
-    }
+				@each $theme in $themes {
+					.o-footer--theme-#{$theme} & {
+						@include oIconsContent('arrow-down', _oFooterGet('title', $theme), $size: $_o-footer-icon-size);
+					}
+				}
+			}
+		}
 
-    &[aria-expanded="true"] {
-      &:after {
-        // don't download another icon...
-        transform: rotate(180deg);
-      }
-    }
-  }
+		&[aria-expanded="true"] {
+			&:after {
+				// don't download another icon...
+				transform: rotate(180deg);
+			}
+		}
+	}
 
-  .o-footer__matrix-content {
-    &[aria-hidden="true"] {
-      display: none;
-    }
-  }
+	.o-footer__matrix-content {
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
 
-  .o-footer__matrix-column {
-    margin-top: oSpacingByName("s4");
-    margin-bottom: oSpacingByName("s4");
-  }
+	.o-footer__matrix-column {
+		margin-top: oSpacingByName('s4');
+		margin-bottom: oSpacingByName('s4');
+	}
 
-  .o-footer__matrix-link {
-    padding-top: oSpacingByName("s2");
-    padding-bottom: oSpacingByName("s2");
-    display: block;
+	.o-footer__matrix-link {
+		padding-top: oSpacingByName('s2');
+		padding-bottom: oSpacingByName('s2');
+		display: block;
 
-    &:first-child {
-      padding-top: 0;
-    }
-  }
+		&:first-child {
+			padding-top: 0;
+		}
+	}
 }
