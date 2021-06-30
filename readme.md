@@ -78,7 +78,6 @@ These colors affect the background of the `.o-topper__background` and `.o-topper
 .o-topper--color-slate
 .o-topper--color-crimson
 .o-topper--color-sky
-.o-topper--color-velvet
 ```
 
 ## Sass
@@ -127,7 +126,7 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'topic',
 		'read-next',
 		'image',
-		'image-credit'
+		'image-credit',
 	),
 	'colors': (
 		'white', // .o-topper--color-white
@@ -139,7 +138,6 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'wheat',
 		'crimson',
 		'sky',
-		'velvet'
 	)
 ));
 ```
