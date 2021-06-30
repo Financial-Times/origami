@@ -20,7 +20,7 @@
 	"type": "module",
 	"browser": "main.js",
 	"devDependencies": {
-		"@testing-library/dom": "^7.31.2",
+		"@testing-library/dom": "^8.0.0",
 		"@testing-library/user-event": "^13.1.9",
 		"chai": "^4.3.4",
 		"eslint": "^7.26.0",

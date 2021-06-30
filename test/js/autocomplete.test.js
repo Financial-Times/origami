@@ -1,6 +1,5 @@
 /* eslint-env mocha */
 /* global sinon */
-import './helpers/hack.js';
 import * as fixtures from './helpers/fixtures.js';
 import Autocomplete from '../../main.js';
 import { screen, getByRole } from '@testing-library/dom';
