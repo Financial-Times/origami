@@ -1,10 +1,47 @@
 # Migration guide
 
+## Migrating from v8 to v9
+
+Markup has been updated to support 2 extra columns of links, one for Community Events and another for "More from the FT Group". All nav items are now behind a dropdown on mobile devices.
+
+Update `o-footer` markup in your project according to the README and component demos. The changes are as follows:
+
+1. Each `o-footer__matrix-link` element must now include a child element `o-footer__matrix-link__copy`.
+```diff
+<a class="o-footer__matrix-link" href="#">
++        <span class="o-footer__matrix-link__copy"><!-- link 1 --></span>
+-        <!-- link 1 -->
+</a>
+```
+2. The markup for the "More from the FT Group" link has changed. It has been moved inside the `nav` element alongside other links, within  it's is matrix group. Unlink other matrix title element there is an extra class `o-footer__matrix-title--link`, to indicate the title contains a link. The link itself also has an extra class `o-footer__matrix-link--more`, which applies the right arrow, etc. Note in the diff below some classes such as `o-footer__more-from-ft` are deleted.
+```diff
+<!-- ... more o-footer markup ...  -->
+<nav>
+<!-- ... o-footer links ...  -->
++       <div class="o-footer__matrix-group o-footer__matrix-group--1">
++           <h3 class="o-footer__matrix-title o-footer__matrix-title--link">
++               <a class ='o-footer__matrix-link o-footer__matrix-link--more' id="o-footer-section-5" href="#">
++                   <span class="o-footer__matrix-link__copy"><!-- link  --></span>
++               </a>
++           </h3>
++       </div>
+</nav>
+-
+-<h3 class="o-footer__external-link o-footer__matrix-title">
+-        <a class="o-footer__more-from-ft o-footer__matrix-title" href="#"><!-- link --></a>
+-</h3>
+<!-- ... more o-footer markup ...  -->
+```
+
+_Note: These changes have also been released in `v9.0.0-bower`, a temporary backport which includes Bower and Origami Build Service v2 support which was dropped in v8. `v9.0.0-bower` is not recommended outside a temporary measure for those unable to complete the [v7 to v8 migration](MIGRATION.md#migrating-from-v7-to-v8) immediately._
+
 ## Migrating from v7 to v8
 
 Support for Bower and version 2 of the Origami Build Service have been removed.
 
 Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
+
+_Note: If you are not able to upgrade to `v8` immediately, you may temporarily skip this upgrade and instead [upgrade to `v9.0.0-bower`](MIGRATION.md#migrating-from-v8-to-v9). `v9.0.0` introduces new features which are backported in `v9.0.0-bower` to support Bower and version 2 of the Origami Build Service. We do not recommend this as you may miss future updates, and will be required to upgrade fully eventually._
 
 ## Migrating from v6 to v7
 
