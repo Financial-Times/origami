@@ -101,27 +101,11 @@
 		text-overflow: ellipsis;
 	}
 
-
-	// Do not hide overflowing focus state for titles which contain links.
-	.o-footer__matrix-title--external-link {
-		overflow: visible;
-	}
-
 	.o-footer__matrix-title {
 		margin: 0;
 		line-height: inherit;
 		font-size: inherit;
 		font-weight: 600;
-
-		&--external-link {
-			line-height: $_o-footer-spacing-unit * 2;
-
-			border-top: 1px solid;
-			@include oGridRespondTo(M) {
-				border-top: 0;
-				line-height: initial;
-			}
-		}
 
 		&[aria-expanded] {
 			$line-size: $_o-footer-spacing-unit * 2;
@@ -150,6 +134,18 @@
 				// don't download another icon...
 				transform: rotate(180deg);
 			}
+		}
+	}
+
+	.o-footer__matrix-title--external-link {
+		// Do not hide overflowing focus state for titles which contain links.
+		overflow: visible;
+		line-height: $_o-footer-spacing-unit * 2;
+
+		border-top: 1px solid;
+		@include oGridRespondTo(M) {
+			border-top: 0;
+			line-height: initial;
 		}
 	}
 
