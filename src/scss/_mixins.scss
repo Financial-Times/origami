@@ -28,18 +28,13 @@
 			color: _oFooterGet('title', $from: $theme);
 		}
 
-		.o-footer__matrix-link--more {
-			display: flex;
-
-			&:after {
-				@include oIconsContent(
-					$icon-name: 'arrow-right',
-					$size: $_o-footer-icon-size,
-					$color: _oFooterGet('text', $from: $theme)
-				);
-				content: '';
-				align-self: center;
-			}
+		.o-footer__matrix-link--more:after {
+			@include oIconsContent(
+				$icon-name: 'arrow-right',
+				$size: $_o-footer-icon-size,
+				$color: _oFooterGet('text', $from: $theme),
+				$include-base-styles: false
+			);
 		}
 
 		.o-footer__matrix-title--link,
@@ -168,6 +163,21 @@
 
 		&:first-child {
 			padding-top: 0;
+		}
+	}
+
+	.o-footer__matrix-link--more {
+		display: flex;
+
+		&:after {
+			@include oIconsContent(
+				$icon-name: 'arrow-right',
+				$size: $_o-footer-icon-size,
+				$color: _oFooterGet('text'),
+				$include-base-styles: true
+			);
+			content: '';
+			align-self: center;
 		}
 	}
 }
