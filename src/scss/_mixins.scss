@@ -43,7 +43,6 @@
 		}
 
 		.o-footer__matrix-title--external-link,
-		.o-footer__external-link,
 		.o-footer__matrix-title[aria-expanded] {
 			border-color: _oFooterGet('border', $from: $theme);
 		}
@@ -59,10 +58,6 @@
 			&:focus {
 				color: _oFooterGet('link-hover', $from: $theme);
 			}
-		}
-
-		.o-footer__external-link a:after {
-			@include oIconsContent('arrow-right', _oFooterGet('title', $from: $theme), $size: $_o-footer-icon-size, $include-base-styles: false);
 		}
 
 		.o-footer__copyright {

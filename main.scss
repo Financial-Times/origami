@@ -102,44 +102,6 @@
 		@include _oFooterMatrix($themes);
 	}
 
-	.o-footer__external-link {
-		position: relative;
-		border-top: 1px solid;
-		border-bottom: 1px solid;
-		// Ensure focus outline is visible.
-		overflow: visible;
-
-		&:after,
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			width: 100vw;
-			left: 50%;
-			margin-left: -50vw;
-		}
-
-		&:before {
-			top: 0;
-		}
-
-		&:after {
-			bottom: 0;
-		}
-
-		a {
-			padding-top: oSpacingByName('s3');
-			padding-bottom: oSpacingByName('s3');
-			display: block;
-
-			&:after {
-				@include oIconsContent('arrow-right', _oFooterGet('title'), $size: $_o-footer-icon-size);
-				vertical-align: middle;
-				content: ' ';
-			}
-		}
-	}
-
 	// Include the themes
 	@each $theme in $themes {
 		@include _oFooterTheme($theme);
