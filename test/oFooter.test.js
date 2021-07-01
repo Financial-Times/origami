@@ -79,7 +79,7 @@ describe("oFooter", () => {
 				footer.setup();
 
 				proclaim.equal(typeof footer._toggles, 'object');
-				proclaim.equal(footer._toggles.length, 2);
+				proclaim.equal(footer._toggles.length, 5);
 			});
 		});
 		describe("destroy()", () => {
