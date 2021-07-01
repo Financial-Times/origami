@@ -34,7 +34,7 @@
 			&:after {
 				@include oIconsContent(
 					$icon-name: 'arrow-right',
-					$size: 16,
+					$size: $_o-footer-icon-size,
 					$color: _oFooterGet('text', $from: $theme)
 				);
 				content: '';
