@@ -13,7 +13,7 @@ Update `o-footer` markup in your project according to the README and component d
 -        <!-- link 1 -->
 </a>
 ```
-2. The markup for the "More from the FT Group" link has changed. It has been moved inside the `nav` element alongside other links, within  it's is matrix group. Unlink other matrix title element there is an extra class `o-footer__matrix-title--link`, to indicate the title contains a link. The link itself also has an extra class `o-footer__matrix-link--more`, which applies the right arrow, etc. Note in the diff below some classes such as `o-footer__more-from-ft` are deleted.
+2. The markup for the "More from the FT Group" link has changed. It has been moved inside the `nav` element alongside other links, within  it's matrix group. Unlike other matrix title elements there is an extra class `o-footer__matrix-title--link`, to indicate the title contains a link. The link itself also has an extra class `o-footer__matrix-link--more`, which applies the right arrow, etc. Note in the diff below some classes such as `o-footer__more-from-ft` are deleted.
 ```diff
 <!-- ... more o-footer markup ...  -->
 <nav>
