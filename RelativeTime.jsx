@@ -21,7 +21,7 @@ export default ({ publishedDate, firstPublishedDate, showAlways = false }) => {
 
 	return showAlways === true || isRecent(relativeDate) ? (
 		<div className={`o-teaser__timestamp o-teaser__timestamp--${status}`}>
-			{status ? <span className="o-teaser__timestamp-prefix">{`${status} `} </span> : null}
+			{status ? <span className="o-teaser__timestamp-prefix">{` ${status} `} </span> : null}
 			<time
 				className="o-teaser__timestamp-date o-date"
 				data-o-component="o-date"
