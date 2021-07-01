@@ -42,7 +42,6 @@
 	"peerDependencies": {
 		"@financial-times/o-brand": "prerelease",
 		"@financial-times/o-colors": "prerelease",
-		"@financial-times/o-forms": "prerelease",
 		"@financial-times/o-grid": "prerelease",
 		"@financial-times/o-icons": "prerelease",
 		"@financial-times/o-loading": "prerelease",
