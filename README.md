@@ -124,7 +124,7 @@ The width of the columns and the way they collapse on smaller viewports may be c
 					</div>
 				</div>
 				<div class="o-footer__matrix-group o-footer__matrix-group--1">
-					<h3 class="o-footer__matrix-title o-footer__matrix-title--external-link">
+					<h3 class="o-footer__matrix-title o-footer__matrix-title--link">
 						<a class ='o-footer__matrix-link o-footer__matrix-link--more' id="o-footer-section-5" href="#">
 							<span class="o-footer__matrix-link__copy"><!-- link  --></span>
 						</a>

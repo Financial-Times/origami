@@ -42,7 +42,7 @@
 			}
 		}
 
-		.o-footer__matrix-title--external-link,
+		.o-footer__matrix-title--link,
 		.o-footer__matrix-title[aria-expanded] {
 			border-color: _oFooterGet('border', $from: $theme);
 		}
@@ -137,7 +137,8 @@
 		}
 	}
 
-	.o-footer__matrix-title--external-link {
+	// I.e. `.o-footer__matrix-title:has(.o-footer__matrix-link)`
+	.o-footer__matrix-title--link {
 		// Do not hide overflowing focus state for titles which contain links.
 		overflow: visible;
 		line-height: $_o-footer-spacing-unit * 2;
