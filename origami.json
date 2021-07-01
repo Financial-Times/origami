@@ -17,9 +17,9 @@
 		"sass": "demos/src/shared.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-forms@9.0.0-beta.1",
-			"o-normalise@3.0.0-beta.0",
-			"o-utils@2.0.0-beta.0"
+			"o-forms@^9.0.0",
+			"o-normalise@^3.0.0",
+			"o-utils@^2.0.0"
 		]
 	},
 	"demos": [
