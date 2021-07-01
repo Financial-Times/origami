@@ -193,7 +193,7 @@
 				]
 			],
 			"collapsible": true
-		},        
+		},
         {
             "title": "xxxxxxx",
             "items": [
@@ -240,5 +240,5 @@
         }
 
 	],
-	"copyrightYear": 2020
+	"copyrightYear": 2021
 }
