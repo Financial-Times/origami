@@ -96,7 +96,7 @@ function sendRequest(request, callback) {
 	/**
 	 * Default collection server.
 	 */
-	let url = 'https://spoor-api.ft.com/px.gif';
+	let url = 'https://spoor-api.ft.com/ingest';
 
 	if (request && request.category && request.action) {
 		url += `?type=${request.category}:${request.action}`;
