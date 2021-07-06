@@ -41,6 +41,38 @@ describe('click', function () {
 		destroy('config'); // Empty settings.
 	});
 
+	it('should track an event for a click stored on the old clicks queue', function (done) {
+		const clcikEventStoredInQueue = {
+			"created_at": 1625589236422,
+			"item": {
+				"server": "https://spoor-api.ft.com/ingest",
+				"context": {
+					"product": "desktop",
+					"url": "https://www.example.com/",
+					"href": "https://www.example.com/",
+				},
+				"action": "click",
+				"category": "cta"
+			}
+		};
+		// Add the click event to the old 'clicks' queue which o-tracking v2 uses
+		new Queue('clicks').replace([clcikEventStoredInQueue]);
+
+		click.init("blah", '#anchorA');
+		setTimeout(() => {
+			try {
+				proclaim.equal(core.track.calledOnce, true, "click event tracked");
+				proclaim.deepStrictEqual(core.track.firstCall.firstArg, clcikEventStoredInQueue);
+
+				done();
+			} catch (error) {
+				done(error);
+			}
+
+		}, 10);
+
+	});
+
 	it('should track an event for a click', function (done) {
 
 		click.init("blah", '#anchorA');
