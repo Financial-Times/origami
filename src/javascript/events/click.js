@@ -3,6 +3,7 @@ import core from '../core.js';
 import {sanitise, assignIfUndefined, merge } from '../utils.js';
 import {get as getSetting} from '../core/settings.js';
 import {getTrace} from '../../libs/get-trace.js';
+import { Queue } from '../core/queue.js';
 
 let delegate;
 
@@ -72,7 +73,18 @@ const init = (category, elementsToTrack) => {
 	// Activate the click event listener
 	delegate = delegate || new Delegate(document.body);
 	delegate.on('click', elementsToTrack, handleClickEvent(eventData), true);
+
+	// Fire all click events that were stored in the old queue used by o-tracking v2
+	const clickQueue = new Queue('clicks');
+	sendAllEventsFromQueue(clickQueue);
 };
+
+function sendAllEventsFromQueue(queue) {
+	const nextLink = queue.shift();
+	if (nextLink) {
+		core.track(nextLink, () => sendAllEventsFromQueue(queue));
+	}
+}
 
 const click = {
 	init

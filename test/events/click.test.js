@@ -41,8 +41,8 @@ describe('click', function () {
 		destroy('config'); // Empty settings.
 	});
 
-	it('should track an event for a click stored on the old clicks queue', function (done) {
-		const clcikEventStoredInQueue = {
+	describe('when the old clicks queue exists', function() {
+		const clickEventStoredInQueue = {
 			"created_at": 1625589236422,
 			"item": {
 				"server": "https://spoor-api.ft.com/ingest",
@@ -55,22 +55,29 @@ describe('click', function () {
 				"category": "cta"
 			}
 		};
-		// Add the click event to the old 'clicks' queue which o-tracking v2 uses
-		new Queue('clicks').replace([clcikEventStoredInQueue]);
+		beforeEach(function() {
+			// Add the click event to the old 'clicks' queue which o-tracking v2 uses
+			new Queue('clicks').replace([clickEventStoredInQueue]);
+		});
+		beforeEach(function() {
+			// Remove the events from the old 'clicks' queue
+			new Queue('clicks').replace([]);
+		});
 
-		click.init("blah", '#anchorA');
-		setTimeout(() => {
-			try {
-				proclaim.equal(core.track.calledOnce, true, "click event tracked");
-				proclaim.deepStrictEqual(core.track.firstCall.firstArg, clcikEventStoredInQueue);
+		it('should track an event for a click stored on the old clicks queue', function (done) {
+			click.init("blah", '#anchorA');
+			setTimeout(() => {
+				try {
+					proclaim.equal(core.track.calledOnce, true, "click event tracked");
+					proclaim.deepStrictEqual(core.track.firstCall.firstArg, clickEventStoredInQueue);
+					done();
+				} catch (error) {
+					done(error);
+				}
 
-				done();
-			} catch (error) {
-				done(error);
-			}
+			}, 10);
 
-		}, 10);
-
+		});
 	});
 
 	it('should track an event for a click', function (done) {
@@ -99,6 +106,7 @@ describe('click', function () {
 
 		setTimeout(() => {
 			try {
+				console.log(core.track)
 				proclaim.equal(core.track.calledOnce, true, "click event tracked");
 				proclaim.deepStrictEqual(core.track.firstCall.firstArg, {
 					"context": {
