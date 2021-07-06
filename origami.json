@@ -10,6 +10,9 @@
 	"supportStatus": "experimental",
 	"browserFeatures": {
 		"required": [
+			"Array.from",
+			"Element.prototype.closest",
+			"Element.prototype.matches",
 			"String.prototype.startsWith"
 		]
 	},
