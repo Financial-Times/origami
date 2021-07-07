@@ -59,7 +59,7 @@ describe('click', function () {
 			// Add the click event to the old 'clicks' queue which o-tracking v2 uses
 			new Queue('clicks').replace([clickEventStoredInQueue]);
 		});
-		beforeEach(function() {
+		afterEach(function() {
 			// Remove the events from the old 'clicks' queue
 			new Queue('clicks').replace([]);
 		});
