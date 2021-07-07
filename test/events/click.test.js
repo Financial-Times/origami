@@ -106,7 +106,6 @@ describe('click', function () {
 
 		setTimeout(() => {
 			try {
-				console.log(core.track)
 				proclaim.equal(core.track.calledOnce, true, "click event tracked");
 				proclaim.deepStrictEqual(core.track.firstCall.firstArg, {
 					"context": {
