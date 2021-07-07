@@ -150,6 +150,8 @@ describe("Autocomplete", () => {
 					name: /clear input/i
 				});
 				assert.exists(clearButton);
+				// Check that the button is associated with the correct input
+				assert.equal(clearButton.getAttribute('aria-controls'), 'my-autocomplete');
 			});
 
 			it("shows the suggestion box with the filtered results", async () => {
