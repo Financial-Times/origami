@@ -78,7 +78,7 @@ function hideLoadingPane(instance) {
  */
 function createClearButton(id) {
 	const fragment = document.createRange().createContextualFragment(`
-		<button class="o-autocomplete__clear" type="button" aria-controls=${id} title="Clear input">
+		<button class="o-autocomplete__clear" type="button" aria-controls="${id}" title="Clear input">
 			<span class="o-autocomplete__visually-hidden">Clear input</span>
 		</button>
 	`);
@@ -91,9 +91,8 @@ function createClearButton(id) {
  * @returns {void}
  */
 function initClearButton(instance) {
-	const clearButton = createClearButton(instance.autocompleteEl.id);
-
 	const input = instance.autocompleteEl.querySelector('input');
+	const clearButton = createClearButton(input.id);
 	let timeout = null;
 	clearButton.addEventListener('click', () => {
 		// Remove the loading pane, in-case of a slow response.
