@@ -146,6 +146,11 @@ function initClearButton(instance) {
  * @returns {void}
 */
 
+/**
+ * @callback OptionToSuggestion
+ * @param {*} option - The option to transform into a suggestion string
+ * @returns {string} The string to display in the suggestions dropdown for this option
+*/
 
 /**
  * @typedef {Object} AutocompleteOptions
@@ -185,10 +190,10 @@ class Autocomplete {
 			 */
 			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 
-			// If source is a string, then it is the name of a global function to use.
-			// If source is not a string, then it is a function to use.
+			// If optionToSuggestion is a string, then it is the name of a global function to use.
+			// If optionToSuggestion is not a string, then it is a function to use.
 			/**
-			 * @type {Function}
+			 * @type {OptionToSuggestion}
 			 */
 			this.optionToSuggestion = typeof this.options.optionToSuggestion === 'string' ? window[this.options.optionToSuggestion] : this.options.optionToSuggestion;
 
