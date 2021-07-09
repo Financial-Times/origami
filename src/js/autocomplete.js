@@ -150,6 +150,7 @@ function initClearButton(instance) {
 /**
  * @typedef {Object} AutocompleteOptions
  * @property {Suggestions} source - The function which retrieves the suggestions to display
+ * @property {Function} [optionToSuggestion] - Function which transforms a suggestion before rendering
  */
 
 class Autocomplete {
@@ -183,6 +184,14 @@ class Autocomplete {
 			 * @type {Suggestions}
 			 */
 			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+
+			// If source is a string, then it is the name of a global function to use.
+			// If source is not a string, then it is a function to use.
+			/**
+			 * @type {Function}
+			 */
+			this.optionToSuggestion = typeof this.options.optionToSuggestion === 'string' ? window[this.options.optionToSuggestion] : this.options.optionToSuggestion;
+
 			/**
 			 * @param {string} query - Text which was typed into the autocomplete by the user
 			 * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
@@ -216,7 +225,25 @@ class Autocomplete {
 				displayMenu: 'overlay',
 				showNoOptionsFound: false,
 				templates: {
-					suggestion: this.suggestionTemplate.bind(this)
+					/**
+					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
+					 * @param {*} option The suggestion to apply the template with.
+					 * @returns {string} HTML string to represent a single suggestion.
+					 */
+					suggestion: (option) => {
+						// If a optionToSuggestion function is defined
+						// Apply the function to the option before
+						// calling the suggestionTemplate. This is a way for the
+						// consuming application to decide what text should be
+						// shown in the suggestion based on the option.
+						// This is usually defined when the option is not already a string.
+						// For example, if the option is an object.
+						if (typeof this.optionToSuggestion === 'function') {
+							option = this.optionToSuggestion(option);
+						}
+
+						return this.suggestionTemplate(option);
+					}
 				}
 			});
 		} else {
