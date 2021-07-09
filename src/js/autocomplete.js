@@ -135,7 +135,7 @@ function initClearButton(instance) {
 
 /**
  * @callback PopulateResults
- * @param {Array<string>} results - The results to show in the suggestions dropdown
+ * @param {Array<*>} results - The results to show in the suggestions dropdown
  * @returns {void}
  */
 
