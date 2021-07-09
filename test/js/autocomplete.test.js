@@ -15,7 +15,8 @@ function isHidden(el) {
 	return el.offsetParent === null;
 }
 
-describe("Autocomplete", () => {
+describe("Autocomplete", function () {
+	this.timeout(5000);
 	it('is defined', () => {
 		assert.isFunction(Autocomplete);
 	});
@@ -442,6 +443,64 @@ describe("Autocomplete", () => {
 				assert.equal(list.childElementCount, 1);
 				const option = getByRole(list, 'option');
 				assert.equal(option.textContent, 'Origami');
+			});
+		});
+
+		context('custom source and optionToSuggestion functions defined', () => {
+			it("applies the optionToSuggestion function on each suggestion supplied by the source function", async () => {
+				const source = sinon.spy(function customSuggestions(query, populateResults) {
+					const suggestions = [
+						{team: 'Infrastructure Delivery'},
+						{team: 'Infrastructure & Data Hosting'},
+						{team: 'API Gateway'},
+						{team: 'Cloud Enablement'},
+						{team: 'Cyber Security Engineering'},
+						{team: 'Foundation Services'},
+						{team: 'Infrastructure Management'},
+						{team: 'Microsites Team'},
+						{team: 'Operations Support'},
+						{team: 'Origami team'},
+						{team: 'Reliability Engineering'}
+					];
+
+					if (!query) {
+						populateResults([]);
+						return;
+					}
+
+					const filteredResults = [];
+					for (const suggestion of suggestions) {
+						const lowercaseSuggestion = suggestion.team.toLocaleLowerCase();
+						if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+							filteredResults.push(suggestion);
+						}
+					}
+					populateResults(filteredResults);
+				});
+				const optionToSuggestion = sinon.spy(option => {
+					if (option) {
+						return option.team;
+					}
+				});
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					source,
+					optionToSuggestion
+				});
+				assert.instanceOf(autocomplete, Autocomplete);
+				const input = screen.getByRole('combobox', {
+					name: /select your team/i
+				});
+				userEvent.type(input, 'o');
+				// The sleep is required because the suggestions are being returned asynchronously as part of the test
+				await sleep(1100);
+				assert.isTrue(optionToSuggestion.calledWith({team: "Operations Support"}));
+				assert.isTrue(optionToSuggestion.calledWith({team: "Origami team"}));
+				const list = screen.getByRole('listbox');
+				assert.equal(list.childElementCount, 2);
+				const option = list.firstElementChild;
+				userEvent.click(option);
+				await sleep(1100);
+				assert.equal(input.value, 'Operations Support');
 			});
 		});
 	});
