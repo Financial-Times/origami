@@ -48,6 +48,14 @@
 			"js": "demos/src/dynamic-delayed/dynamic-delayed.js"
 		},
 		{
+			"title": "Complex dynamic autocomplete",
+			"name": "dynamic-complex",
+			"template": "demos/src/dynamic-complex/dynamic-complex.mustache",
+			"description": "The source function returns objects and the optionToSuggestion transforms the objects into string to suggestion",
+			"js": "demos/src/dynamic-complex/dynamic-complex.js",
+			"hidden": true
+		},
+		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
