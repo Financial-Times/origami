@@ -140,7 +140,7 @@ function initClearButton(instance) {
  */
 
 /**
- * @callback Suggestions
+ * @callback Source
  * @param {string} query - Text which was typed into the autocomplete by the user
  * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
  * @returns {void}
@@ -149,7 +149,7 @@ function initClearButton(instance) {
 
 /**
  * @typedef {Object} AutocompleteOptions
- * @property {Suggestions} source - The function which retrieves the suggestions to display
+ * @property {Source} source - The function which retrieves the suggestions to display
  * @property {Function} [optionToSuggestion] - Function which transforms a suggestion before rendering
  */
 
@@ -181,9 +181,9 @@ class Autocomplete {
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
 			/**
-			 * @type {Suggestions}
+			 * @type {Source}
 			 */
-			const customSuggestions = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
+			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 
 			// If source is a string, then it is the name of a global function to use.
 			// If source is not a string, then it is a function to use.
@@ -207,7 +207,7 @@ class Autocomplete {
 					hideLoadingPane(this);
 					populateResults(results);
 				};
-				customSuggestions(query, callback);
+				customSource(query, callback);
 			};
 			const input = autocompleteEl.querySelector('input');
 			const id = input.getAttribute('id');
