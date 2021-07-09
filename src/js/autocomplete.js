@@ -148,8 +148,8 @@ function initClearButton(instance) {
 
 /**
  * @callback OptionToSuggestion
- * @param {*} option - The option to transform into a suggestion string
- * @returns {string} The string to display in the suggestions dropdown for this option
+ * @param {*|undefined} option - The option to transform into a suggestion string or undefined
+ * @returns {string} The string to display as the suggestions for this option
 */
 
 /**
@@ -236,18 +236,37 @@ class Autocomplete {
 					 * @returns {string} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option) => {
-						// If a optionToSuggestion function is defined
-						// Apply the function to the option before
-						// calling the suggestionTemplate. This is a way for the
+						// If the `optionToSuggestion` function is defined
+						// Apply the function to the option. This is a way for the
 						// consuming application to decide what text should be
-						// shown in the suggestion based on the option.
+						// shown for this option.
 						// This is usually defined when the option is not already a string.
-						// For example, if the option is an object.
+						// For example, if the option is an object which contains a property
+						// which should be used as the suggestion string.
 						if (typeof this.optionToSuggestion === 'function') {
 							option = this.optionToSuggestion(option);
 						}
 
 						return this.suggestionTemplate(option);
+					},
+					/**
+					 * Used when a suggestion is selected, the return value of this will be used as the value for the input element.
+					 * @param {*} option The suggestion which was selected.
+					 * @returns {string} String to represent the suggestion.
+					 */
+					inputValue: (option) => {
+						// If the `optionToSuggestion` function is defined
+						// Apply the function to the option. This is a way for the
+						// consuming application to decide what text should be
+						// shown for this option.
+						// This is usually defined when the option is not already a string.
+						// For example, if the option is an object which contains a property
+						// which should be used as the suggestion string.
+						if (typeof this.optionToSuggestion === 'function') {
+							option = this.optionToSuggestion(option);
+						}
+
+						return option;
 					}
 				}
 			});
