@@ -318,13 +318,6 @@ describe("Autocomplete", function () {
 	});
 
 	describe('dynamic suggestions', () => {
-		beforeEach(() => {
-			fixtures.htmlInputCode();
-		});
-
-		afterEach(() => {
-			fixtures.reset();
-		});
 
 		describe('only assigns options which are supported by o-autocomplete', () => {
 			beforeEach(() => {
@@ -369,6 +362,13 @@ describe("Autocomplete", function () {
 		});
 
 		context('synchronous source function', () => {
+			beforeEach(() => {
+				fixtures.htmlInputCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
 			it("shows the suggestion box with the filtered options", async () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 					source: function customSuggestions(query, populateOptions) {
@@ -406,6 +406,13 @@ describe("Autocomplete", function () {
 		});
 
 		context('asynchronous source function', () => {
+			beforeEach(() => {
+				fixtures.htmlInputCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
 			it("shows the suggestion box with the filtered options", async () => {
 				let suggestionTimeoutId;
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
@@ -447,6 +454,13 @@ describe("Autocomplete", function () {
 		});
 
 		context('custom source and mapOptionToSuggestedValue functions defined', () => {
+			beforeEach(() => {
+				fixtures.htmlInputCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
 			it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
 				const source = sinon.spy(function customSuggestions(query, populateOptions) {
 					const suggestions = [
@@ -506,6 +520,7 @@ describe("Autocomplete", function () {
 
 		context('custom source where the options are not strings and no mapOptionToSuggestedValue function is defined', () => {
 			beforeEach(() => {
+				fixtures.htmlInputCode();
 				new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 					source: function customSuggestions(query, populateOptions) {
 						const suggestions = [
@@ -535,10 +550,6 @@ describe("Autocomplete", function () {
 						populateOptions(filteredOptions);
 					}
 				});
-			});
-			afterEach(() => {
-				// Remove the unhandled rejections event handler as that is only wanted for this particular test
-				delete window.onunhandledrejection;
 			});
 			it("throws an error indicating that a mapOptionToSuggestedValue needs to be defined in order to convert the options into strings", async () => {
 				const input = screen.getByRole('combobox', {
