@@ -134,21 +134,21 @@ function initClearButton(instance) {
 }
 
 /**
- * @callback PopulateResults
- * @param {Array<*>} results - The results to show in the suggestions dropdown
+ * @callback PopulateOptions
+ * @param {Array<*>} options - The options which match the rext which was typed into the autocomplete by the user
  * @returns {void}
  */
 
 /**
  * @callback Source
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
 */
 
 /**
  * @callback MapOptionToSuggestedValue
- * @param {*|undefined} option - The option to transform into a suggestion string or undefined
+ * @param {*} option - The option to transform into a suggestion string
  * @returns {string} The string to display as the suggestions for this option
 */
 
@@ -199,18 +199,18 @@ class Autocomplete {
 
 			/**
 			 * @param {string} query - Text which was typed into the autocomplete by the user
-			 * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+			 * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
 			 * @returns {void}
 			*/
-			this.options.source = (query, populateResults) => {
+			this.options.source = (query, populateOptions) => {
 				showLoadingPane(this);
 				/**
-				 * @param {Array<string>} results - The results to show in the suggestions dropdown
+				 * @param {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
 				 * @returns {void}
 				 */
-				const callback = (results) => {
+				const callback = (options) => {
 					hideLoadingPane(this);
-					populateResults(results);
+					populateOptions(options);
 				};
 				customSource(query, callback);
 			};

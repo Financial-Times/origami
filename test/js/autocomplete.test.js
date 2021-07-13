@@ -173,7 +173,7 @@ describe("Autocomplete", function () {
 				assert.equal(clearButton.getAttribute('aria-controls'), 'my-autocomplete');
 			});
 
-			it("shows the suggestion box with the filtered results", async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
 				const input = screen.getByRole('combobox', {
@@ -369,26 +369,26 @@ describe("Autocomplete", function () {
 		});
 
 		context('synchronous source function', () => {
-			it("shows the suggestion box with the filtered results", async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
-					source: function customSuggestions(query, populateResults) {
+					source: function customSuggestions(query, populateOptions) {
 						const suggestions = [
 							'Origami',
 						];
 
 						if (!query) {
-							populateResults([]);
+							populateOptions([]);
 							return;
 						}
 
-						const filteredResults = [];
+						const filteredOptions = [];
 						for (const suggestion of suggestions) {
 							const lowercaseSuggestion = suggestion.toLocaleLowerCase();
 							if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-								filteredResults.push(suggestion);
+								filteredOptions.push(suggestion);
 							}
 						}
-						populateResults(filteredResults);
+						populateOptions(filteredOptions);
 					}
 				});
 				assert.instanceOf(autocomplete, Autocomplete);
@@ -406,29 +406,29 @@ describe("Autocomplete", function () {
 		});
 
 		context('asynchronous source function', () => {
-			it("shows the suggestion box with the filtered results", async () => {
+			it("shows the suggestion box with the filtered options", async () => {
 				let suggestionTimeoutId;
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
-					source: function customSuggestions(query, populateResults) {
+					source: function customSuggestions(query, populateOptions) {
 						clearTimeout(suggestionTimeoutId);
 						const suggestions = [
 							'Origami',
 						];
 
 						if (!query) {
-							populateResults([]);
+							populateOptions([]);
 							return;
 						}
 
 						suggestionTimeoutId = setTimeout(() => {
-							const filteredResults = [];
+							const filteredOptions = [];
 							for (const suggestion of suggestions) {
 								const lowercaseSuggestion = suggestion.toLocaleLowerCase();
 								if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-									filteredResults.push(suggestion);
+									filteredOptions.push(suggestion);
 								}
 							}
-							populateResults(filteredResults);
+							populateOptions(filteredOptions);
 						}, 1000);
 					}
 				});
@@ -448,7 +448,7 @@ describe("Autocomplete", function () {
 
 		context('custom source and mapOptionToSuggestedValue functions defined', () => {
 			it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
-				const source = sinon.spy(function customSuggestions(query, populateResults) {
+				const source = sinon.spy(function customSuggestions(query, populateOptions) {
 					const suggestions = [
 						{team: 'Infrastructure Delivery'},
 						{team: 'Infrastructure & Data Hosting'},
@@ -464,18 +464,18 @@ describe("Autocomplete", function () {
 					];
 
 					if (!query) {
-						populateResults([]);
+						populateOptions([]);
 						return;
 					}
 
-					const filteredResults = [];
+					const filteredOptions = [];
 					for (const suggestion of suggestions) {
 						const lowercaseSuggestion = suggestion.team.toLocaleLowerCase();
 						if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-							filteredResults.push(suggestion);
+							filteredOptions.push(suggestion);
 						}
 					}
-					populateResults(filteredResults);
+					populateOptions(filteredOptions);
 				});
 				const mapOptionToSuggestedValue = sinon.spy(option => {
 					if (option) {
@@ -507,7 +507,7 @@ describe("Autocomplete", function () {
 		context('custom source where the options are not strings and no mapOptionToSuggestedValue function is defined', () => {
 			beforeEach(() => {
 				new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
-					source: function customSuggestions(query, populateResults) {
+					source: function customSuggestions(query, populateOptions) {
 						const suggestions = [
 							{team: 'Infrastructure Delivery'},
 							{team: 'Infrastructure & Data Hosting'},
@@ -522,17 +522,17 @@ describe("Autocomplete", function () {
 							{team: 'Reliability Engineering'}
 						];
 						if (!query) {
-							populateResults([]);
+							populateOptions([]);
 							return;
 						}
-						const filteredResults = [];
+						const filteredOptions = [];
 						for (const suggestion of suggestions) {
 							const lowercaseSuggestion = suggestion.team.toLocaleLowerCase();
 							if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-								filteredResults.push(suggestion);
+								filteredOptions.push(suggestion);
 							}
 						}
-						populateResults(filteredResults);
+						populateOptions(filteredOptions);
 					}
 				});
 			});

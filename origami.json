@@ -34,14 +34,14 @@
 			"js": "demos/src/static/static.js"
 		},
 		{
-			"title": "Dynamic results",
+			"title": "Dynamic options",
 			"name": "dynamic",
 			"template": "demos/src/dynamic/dynamic.mustache",
 			"description": "Autocomplete data is provided by a JavaScript function",
 			"js": "demos/src/dynamic/dynamic.js"
 		},
 		{
-			"title": "Delayed dynamic results",
+			"title": "Delayed dynamic options",
 			"name": "dynamic-delayed",
 			"template": "demos/src/dynamic-delayed/dynamic-delayed.mustache",
 			"description": "Same as the dynamic demo but the data is purposefully delayed to show the loading state",

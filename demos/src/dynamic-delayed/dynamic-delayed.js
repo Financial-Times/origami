@@ -1,21 +1,21 @@
 import '../../../main.js';
 
 /**
- * @typedef {Function} PopulateResults
- * @property {Array<string>} results - The results to show in the suggestions dropdown
+ * @typedef {Function} PopulateOptions
+ * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
  */
 
 
 let suggestionTimeoutId;
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-function customSuggestions(query, populateResults) {
+function customSuggestions(query, populateOptions) {
 	clearTimeout(suggestionTimeoutId);
 	if (!query) {
-		populateResults([]);
+		populateOptions([]);
 		return;
 	}
 	const suggestions = [
@@ -281,14 +281,14 @@ function customSuggestions(query, populateResults) {
 			return a.localeCompare(b);
 		});
 
-		const filteredResults = [];
+		const filteredOptions = [];
 		for (const suggestion of suggestions) {
 			const lowercaseSuggestion = suggestion.toLocaleLowerCase();
 			if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-				filteredResults.push(suggestion);
+				filteredOptions.push(suggestion);
 			}
 		}
-		populateResults(filteredResults);
+		populateOptions(filteredOptions);
 	}, 1000);
 }
 

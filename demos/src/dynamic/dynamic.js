@@ -1,16 +1,16 @@
 import '../../../main.js';
 
 /**
- * @typedef {Function} PopulateResults
- * @property {Array<string>} results - The results to show in the suggestions dropdown
+ * @typedef {Function} PopulateOptions
+ * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
  */
 
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-window.customSuggestions = function customSuggestions(query, populateResults) {
+window.customSuggestions = function customSuggestions(query, populateOptions) {
 	const suggestions = [
 		'Afghanistan',
 		'Akrotiri',
@@ -271,21 +271,21 @@ window.customSuggestions = function customSuggestions(query, populateResults) {
 	];
 
 	if (!query) {
-		populateResults([]);
+		populateOptions([]);
 		return;
 	}
 	suggestions.sort(function(a,b) {
 		return a.localeCompare(b);
 	});
 
-	const filteredResults = [];
+	const filteredOptions = [];
 	for (const suggestion of suggestions) {
 		const lowercaseSuggestion = suggestion.toLocaleLowerCase();
 		if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-			filteredResults.push(suggestion);
+			filteredOptions.push(suggestion);
 		}
 	}
-	populateResults(filteredResults);
+	populateOptions(filteredOptions);
 };
 
 document.addEventListener('DOMContentLoaded', function() {

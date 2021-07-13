@@ -23,34 +23,34 @@ window.mapOptionToSuggestedValue = function mapOptionToSuggestedValue(option) {
 };
 
 /**
- * @typedef {Function} PopulateResults
- * @property {Array<string>} results - The results to show in the suggestions dropdown
+ * @typedef {Function} PopulateOptions
+ * @property {Array<string>} options - The options which match the rext which was typed into the autocomplete by the user
  */
 
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-window.customSuggestions = function customSuggestions(query, populateResults) {
+window.customSuggestions = function customSuggestions(query, populateOptions) {
 	const suggestions = data;
 
 	if (!query) {
-		populateResults([]);
+		populateOptions([]);
 		return;
 	}
 	suggestions.sort(function(a,b) {
 		return a.Country_Name.localeCompare(b.Country_Name);
 	});
 
-	const filteredResults = [];
+	const filteredOptions = [];
 	for (const suggestion of suggestions) {
 		const lowercaseSuggestion = suggestion.Country_Name.toLocaleLowerCase();
 		if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
-			filteredResults.push(suggestion);
+			filteredOptions.push(suggestion);
 		}
 	}
-	populateResults(filteredResults);
+	populateOptions(filteredOptions);
 };
 
 document.addEventListener('DOMContentLoaded', function() {
