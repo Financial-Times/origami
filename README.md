@@ -108,18 +108,18 @@ new oAutocomplete(oAutocompleteElement);
 import oAutocomplete from 'o-autocomplete';
 
 /**
- * @callback PopulateResults
- * @param {Array<string>} results - The results to show in the suggestions dropdown
+ * @callback PopulateOptions
+ * @param {Array<*>} options - The options which match the rext which was typed into the autocomplete by the user
  * @returns {void}
  */
 /**
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @param {PopulateResults} populateResults - Function to call when ready to update the suggestions dropdown
+ * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
 */
-async function customSuggestions(query, populateResults) {
+async function customSuggestions(query, populateOptions) {
 	const suggestions = await getSuggestions(query);
-	populateResults(suggestions);
+	populateOptions(suggestions);
 }
 
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
@@ -146,7 +146,49 @@ If wanting to supply dynamic suggestions, you will need to provide a function wh
 
 | Name | Type | Description |
 | --- | --- | --- |
-| results | <code>Array.&lt;string&gt;</code> | The results to show in the suggestions menu |
+| options | <code>Array.&lt;*&gt;</code> | The options which match the entered query |
+
+
+### mapOptionToSuggestedValue
+
+This function is used to convert the options returned from the `source` function into a their respective strings to be used as the suggestion values within the suggestions menu.
+If the `source` function is returning an array of strings which are already suitable to be displayed in within the suggestions menu, then there is no need to define a `mapOptionToSuggestedValue` function.
+
+The most common scenario which requires having to define a `mapOptionToSuggestedValue` function is when the `source` function is returning an array of objects, where one of the properties in the object should be used as the suggestion.
+
+#### Example
+
+```js
+import oAutocomplete from 'o-autocomplete';
+
+async function customSuggestions(query, populateOptions) {
+	const suggestions = await getSuggestions(query);
+	populateOptions(suggestions);
+}
+
+/**
+ * @param {{"suggestionText": string}} option - The option to transform into a suggestion string
+ * @returns {string} The string to display as the suggestions for this option
+*/
+function mapOptionToSuggestedValue(option) {
+	return option.suggestionText;
+}
+
+const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    mapOptionToSuggestedValue,
+    source: customSuggestions,
+});
+```
+
+<a name="MapOptionToSuggestedValue"></a>
+
+#### MapOptionToSuggestedValue ⇒ <code>string</code>
+**Returns**: <code>string</code> - The string to display as the suggestions for this option
+
+| Param | Type | Description |
+| --- | --- | --- |
+| option | <code>\*</code> | The option to transform into a suggestion string |
 
 
 ## Keyboard Support
