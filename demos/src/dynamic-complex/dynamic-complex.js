@@ -16,7 +16,7 @@ import {data} from './data.js';
  * @param {CustomOption|undefined} option - The option to transform into a suggestion string
  * @returns {string} The string to display in the suggestions dropdown for this option
 */
-window.optionToSuggestion = function optionToSuggestion(option) {
+window.mapOptionToSuggestedValue = function mapOptionToSuggestedValue(option) {
 	if (option) {
 		return option.Country_Name;
 	}

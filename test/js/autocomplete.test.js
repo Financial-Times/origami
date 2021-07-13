@@ -446,8 +446,8 @@ describe("Autocomplete", function () {
 			});
 		});
 
-		context('custom source and optionToSuggestion functions defined', () => {
-			it("applies the optionToSuggestion function on each suggestion supplied by the source function", async () => {
+		context('custom source and mapOptionToSuggestedValue functions defined', () => {
+			it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
 				const source = sinon.spy(function customSuggestions(query, populateResults) {
 					const suggestions = [
 						{team: 'Infrastructure Delivery'},
@@ -477,14 +477,14 @@ describe("Autocomplete", function () {
 					}
 					populateResults(filteredResults);
 				});
-				const optionToSuggestion = sinon.spy(option => {
+				const mapOptionToSuggestedValue = sinon.spy(option => {
 					if (option) {
 						return option.team;
 					}
 				});
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 					source,
-					optionToSuggestion
+					mapOptionToSuggestedValue
 				});
 				assert.instanceOf(autocomplete, Autocomplete);
 				const input = screen.getByRole('combobox', {
@@ -493,8 +493,8 @@ describe("Autocomplete", function () {
 				userEvent.type(input, 'o');
 				// The sleep is required because the suggestions are being returned asynchronously as part of the test
 				await sleep(1100);
-				assert.isTrue(optionToSuggestion.calledWith({team: "Operations Support"}));
-				assert.isTrue(optionToSuggestion.calledWith({team: "Origami team"}));
+				assert.isTrue(mapOptionToSuggestedValue.calledWith({team: "Operations Support"}));
+				assert.isTrue(mapOptionToSuggestedValue.calledWith({team: "Origami team"}));
 				const list = screen.getByRole('listbox');
 				assert.equal(list.childElementCount, 2);
 				const option = list.firstElementChild;

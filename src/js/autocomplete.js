@@ -147,7 +147,7 @@ function initClearButton(instance) {
 */
 
 /**
- * @callback OptionToSuggestion
+ * @callback MapOptionToSuggestedValue
  * @param {*|undefined} option - The option to transform into a suggestion string or undefined
  * @returns {string} The string to display as the suggestions for this option
 */
@@ -155,7 +155,7 @@ function initClearButton(instance) {
 /**
  * @typedef {Object} AutocompleteOptions
  * @property {Source} source - The function which retrieves the suggestions to display
- * @property {Function} [optionToSuggestion] - Function which transforms a suggestion before rendering
+ * @property {Function} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
  */
 
 class Autocomplete {
@@ -190,12 +190,12 @@ class Autocomplete {
 			 */
 			const customSource = typeof this.options.source === 'string' ? window[this.options.source] : this.options.source;
 
-			// If optionToSuggestion is a string, then it is the name of a global function to use.
-			// If optionToSuggestion is not a string, then it is a function to use.
+			// If mapOptionToSuggestedValue is a string, then it is the name of a global function to use.
+			// If mapOptionToSuggestedValue is not a string, then it is a function to use.
 			/**
-			 * @type {OptionToSuggestion}
+			 * @type {MapOptionToSuggestedValue}
 			 */
-			this.optionToSuggestion = typeof this.options.optionToSuggestion === 'string' ? window[this.options.optionToSuggestion] : this.options.optionToSuggestion;
+			this.mapOptionToSuggestedValue = typeof this.options.mapOptionToSuggestedValue === 'string' ? window[this.options.mapOptionToSuggestedValue] : this.options.mapOptionToSuggestedValue;
 
 			/**
 			 * @param {string} query - Text which was typed into the autocomplete by the user
@@ -236,15 +236,15 @@ class Autocomplete {
 					 * @returns {string} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option) => {
-						// If the `optionToSuggestion` function is defined
+						// If the `mapOptionToSuggestedValue` function is defined
 						// Apply the function to the option. This is a way for the
 						// consuming application to decide what text should be
 						// shown for this option.
 						// This is usually defined when the option is not already a string.
 						// For example, if the option is an object which contains a property
 						// which should be used as the suggestion string.
-						if (typeof this.optionToSuggestion === 'function') {
-							option = this.optionToSuggestion(option);
+						if (typeof this.mapOptionToSuggestedValue === 'function') {
+							option = this.mapOptionToSuggestedValue(option);
 						}
 
 						return this.suggestionTemplate(option);
@@ -255,15 +255,15 @@ class Autocomplete {
 					 * @returns {string} String to represent the suggestion.
 					 */
 					inputValue: (option) => {
-						// If the `optionToSuggestion` function is defined
+						// If the `mapOptionToSuggestedValue` function is defined
 						// Apply the function to the option. This is a way for the
 						// consuming application to decide what text should be
 						// shown for this option.
 						// This is usually defined when the option is not already a string.
 						// For example, if the option is an object which contains a property
 						// which should be used as the suggestion string.
-						if (typeof this.optionToSuggestion === 'function') {
-							option = this.optionToSuggestion(option);
+						if (typeof this.mapOptionToSuggestedValue === 'function') {
+							option = this.mapOptionToSuggestedValue(option);
 						}
 
 						return option;
