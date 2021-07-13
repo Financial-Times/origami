@@ -236,15 +236,19 @@ class Autocomplete {
 					 * @returns {string} HTML string to represent a single suggestion.
 					 */
 					suggestion: (option) => {
-						// If the `mapOptionToSuggestedValue` function is defined
-						// Apply the function to the option. This is a way for the
-						// consuming application to decide what text should be
-						// shown for this option.
-						// This is usually defined when the option is not already a string.
-						// For example, if the option is an object which contains a property
-						// which should be used as the suggestion string.
-						if (typeof this.mapOptionToSuggestedValue === 'function') {
-							option = this.mapOptionToSuggestedValue(option);
+						if (typeof option !== 'undefined') {
+							// If the `mapOptionToSuggestedValue` function is defined
+							// Apply the function to the option. This is a way for the
+							// consuming application to decide what text should be
+							// shown for this option.
+							// This is usually defined when the option is not already a string.
+							// For example, if the option is an object which contains a property
+							// which should be used as the suggestion string.
+							if (typeof this.mapOptionToSuggestedValue === 'function') {
+								option = this.mapOptionToSuggestedValue(option);
+							} else if (typeof option !== 'string') {
+								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
+							}
 						}
 
 						return this.suggestionTemplate(option);
@@ -255,15 +259,19 @@ class Autocomplete {
 					 * @returns {string} String to represent the suggestion.
 					 */
 					inputValue: (option) => {
-						// If the `mapOptionToSuggestedValue` function is defined
-						// Apply the function to the option. This is a way for the
-						// consuming application to decide what text should be
-						// shown for this option.
-						// This is usually defined when the option is not already a string.
-						// For example, if the option is an object which contains a property
-						// which should be used as the suggestion string.
-						if (typeof this.mapOptionToSuggestedValue === 'function') {
-							option = this.mapOptionToSuggestedValue(option);
+						if (typeof option !== 'undefined') {
+							// If the `mapOptionToSuggestedValue` function is defined
+							// Apply the function to the option. This is a way for the
+							// consuming application to decide what text should be
+							// shown for this option.
+							// This is usually defined when the option is not already a string.
+							// For example, if the option is an object which contains a property
+							// which should be used as the suggestion string.
+							if (typeof this.mapOptionToSuggestedValue === 'function') {
+								option = this.mapOptionToSuggestedValue(option);
+							} else if (typeof option !== 'string') {
+								throw new Error(`The option trying to be displayed as a suggestion is not a string, it is "${typeof option}". o-autocomplete can only display strings as suggestions. Define a \`mapOptionToSuggestedValue\` function to convert the option into a string to be used as the suggestion.`);
+							}
 						}
 
 						return option;

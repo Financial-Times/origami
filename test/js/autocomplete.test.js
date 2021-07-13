@@ -503,5 +503,58 @@ describe("Autocomplete", function () {
 				assert.equal(input.value, 'Operations Support');
 			});
 		});
+
+		context('custom source where the options are not strings and no mapOptionToSuggestedValue function is defined', () => {
+			beforeEach(() => {
+				new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					source: function customSuggestions(query, populateResults) {
+						const suggestions = [
+							{team: 'Infrastructure Delivery'},
+							{team: 'Infrastructure & Data Hosting'},
+							{team: 'API Gateway'},
+							{team: 'Cloud Enablement'},
+							{team: 'Cyber Security Engineering'},
+							{team: 'Foundation Services'},
+							{team: 'Infrastructure Management'},
+							{team: 'Microsites Team'},
+							{team: 'Operations Support'},
+							{team: 'Origami team'},
+							{team: 'Reliability Engineering'}
+						];
+						if (!query) {
+							populateResults([]);
+							return;
+						}
+						const filteredResults = [];
+						for (const suggestion of suggestions) {
+							const lowercaseSuggestion = suggestion.team.toLocaleLowerCase();
+							if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+								filteredResults.push(suggestion);
+							}
+						}
+						populateResults(filteredResults);
+					}
+				});
+			});
+			afterEach(() => {
+				// Remove the unhandled rejections event handler as that is only wanted for this particular test
+				delete window.onunhandledrejection;
+			});
+			it("throws an error indicating that a mapOptionToSuggestedValue needs to be defined in order to convert the options into strings", async () => {
+				const input = screen.getByRole('combobox', {
+					name: /select your team/i
+				});
+				// The error is thrown when o-autocomplete attempts to render the suggestions to the page using Accessible-autocomplete.
+				// Accessible-autocomplete is rendered via Preact and Preact renders asynchronously.
+				// This means when the error is thrown, it is not within the call-stack of this test.
+				// One way we can catch the error is by registering an event handler for unhandled rejections.
+				window.onunhandledrejection = event => {
+					assert.equal(event.reason.message, 'The option trying to be displayed as a suggestion is not a string, it is "object". o-autocomplete can only display strings as suggestions. Define a `mapOptionToSuggestedValue` function to convert the option into a string to be used as the suggestion.');
+					event.preventDefault();
+				};
+				userEvent.type(input, 'o');
+				await sleep(1100);
+			});
+		});
 	});
 });
