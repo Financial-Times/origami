@@ -151,7 +151,7 @@ If wanting to supply dynamic suggestions, you will need to provide a function wh
 
 ### mapOptionToSuggestedValue
 
-This function is used to convert the options returned from the `source` function into a their respective strings to be used as the suggestion values within the suggestions menu.
+This function is used to convert the options returned from the `source` function into strings for the suggestions menu.
 If the `source` function is returning an array of strings which are already suitable to be displayed in within the suggestions menu, then there is no need to define a `mapOptionToSuggestedValue` function.
 
 The most common scenario which requires having to define a `mapOptionToSuggestedValue` function is when the `source` function is returning an array of objects, where one of the properties in the object should be used as the suggestion.
