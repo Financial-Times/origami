@@ -75,10 +75,28 @@ describe("Autocomplete", () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
 				assert.deepEqual(autocomplete.autocompleteEl, document.querySelector('[data-o-component="o-autocomplete"]'));
-				assert.equal(autocomplete.options.placeholder, '');
-				assert.equal(autocomplete.options.cssNamespace, 'o-autocomplete');
-				assert.equal(autocomplete.options.displayMenu, 'overlay');
-				assert.isFalse(autocomplete.options.showNoOptionsFound);
+			});
+		});
+
+		describe('only assigns options which are supported by o-autocomplete', () => {
+			beforeEach(() => {
+				fixtures.htmlSelectCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+			it('the unsupported options are not set on this.options', () => {
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					placeholder: 'Placeholder Text',
+					cssNamespace: 'custom-autocomplete',
+					displayMenu: 'whimsical',
+					showNoOptionsFound: "sometimes",
+					id: "hello"
+				});
+				assert.instanceOf(autocomplete, Autocomplete);
+
+				assert.deepEqual(autocomplete.options, {});
 			});
 		});
 
@@ -305,6 +323,48 @@ describe("Autocomplete", () => {
 
 		afterEach(() => {
 			fixtures.reset();
+		});
+
+		describe('only assigns options which are supported by o-autocomplete', () => {
+			beforeEach(() => {
+				fixtures.htmlInputCode();
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+			});
+			it('the unsupported options are not set on this.options', () => {
+				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+					placeholder: 'Placeholder Text',
+					cssNamespace: 'custom-autocomplete',
+					displayMenu: 'whimsical',
+					showNoOptionsFound: "sometimes",
+					id: "hello",
+					source: function customSuggestions(query, populateResults) {
+						const suggestions = [
+							'Origami',
+						];
+
+						if (!query) {
+							populateResults([]);
+							return;
+						}
+
+						const filteredResults = [];
+						for (const suggestion of suggestions) {
+							const lowercaseSuggestion = suggestion.toLocaleLowerCase();
+							if (lowercaseSuggestion.startsWith(query.toLocaleLowerCase())) {
+								filteredResults.push(suggestion);
+							}
+						}
+						populateResults(filteredResults);
+					}
+				});
+				assert.instanceOf(autocomplete, Autocomplete);
+
+				assert.deepEqual(Object.keys(autocomplete.options), ['source']);
+				assert.isFunction(autocomplete.options.source,);
+			});
 		});
 
 		context('synchronous source function', () => {

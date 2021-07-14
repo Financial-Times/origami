@@ -161,15 +161,11 @@ class Autocomplete {
 	constructor (autocompleteEl, options) {
 		this.autocompleteEl = autocompleteEl;
 
-		this.options = Object.assign({
-			placeholder: '',
-			cssNamespace: 'o-autocomplete',
-			displayMenu: 'overlay',
-			showNoOptionsFound: false,
-			templates: {
-				suggestion: this.suggestionTemplate.bind(this)
-			}
-		}, options || Autocomplete.getDataAttributes(autocompleteEl));
+		const opts = options || Autocomplete.getDataAttributes(autocompleteEl);
+		this.options = {};
+		if (opts.source) {
+			this.options.source = opts.source;
+		}
 
 		const container = document.createElement('div');
 		container.classList.add('o-autocomplete__listbox-container');
@@ -211,11 +207,18 @@ class Autocomplete {
 			}
 			this.autocompleteEl.innerHTML = '';
 			this.autocompleteEl.appendChild(this.container);
-			const options = Object.assign({
+			accessibleAutocomplete({
 				element: this.container,
 				id: id,
-			}, this.options);
-			accessibleAutocomplete(options);
+				source: this.options.source,
+				placeholder: '',
+				cssNamespace: 'o-autocomplete',
+				displayMenu: 'overlay',
+				showNoOptionsFound: false,
+				templates: {
+					suggestion: this.suggestionTemplate.bind(this)
+				}
+			});
 		} else {
 			const id = selectInputElement.getAttribute('id');
 			if (!id) {
@@ -223,12 +226,18 @@ class Autocomplete {
 			}
 			this.autocompleteEl.appendChild(this.container);
 			this.container.appendChild(selectInputElement);
-			const options = Object.assign({
+			accessibleAutocomplete.enhanceSelectElement({
 				selectElement: selectInputElement,
+				autoselect: false,
 				defaultValue: '',
-			}, this.options);
-			options.autoselect = false;
-			accessibleAutocomplete.enhanceSelectElement(options);
+				placeholder: '',
+				cssNamespace: 'o-autocomplete',
+				displayMenu: 'overlay',
+				showNoOptionsFound: false,
+				templates: {
+					suggestion: this.suggestionTemplate.bind(this)
+				}
+			});
 			selectInputElement.parentElement.removeChild(selectInputElement); // Remove the original select element
 		}
 
@@ -272,22 +281,14 @@ class Autocomplete {
 		if (!(autocompleteEl instanceof HTMLElement)) {
 			return {};
 		}
-		return Object.keys(autocompleteEl.dataset).reduce((options, key) => {
-			// Ignore keys which are not in the component's namespace
-			if (!key.match(/^oAutocomplete(\w)(\w+)$/)) {
-				return options;
-			}
-			// Build a concise key and get the option value
-			const shortKey = key.replace(/^oAutocomplete(\w)(\w+)$/, (m, m1, m2) => m1.toLowerCase() + m2);
-			const value = autocompleteEl.dataset[key];
-			// Try parsing the value as JSON, otherwise just set it as a string
-			try {
-				options[shortKey] = JSON.parse(value.replace(/'/g, '"'));
-			} catch (error) {
-				options[shortKey] = value;
-			}
-			return options;
-		}, {});
+
+		if (autocompleteEl.dataset.oAutocompleteSource) {
+			return {
+				source: autocompleteEl.dataset.oAutocompleteSource
+			};
+		} else {
+			return {};
+		}
 	}
 	/**
 	 * Initialise o-autocomplete component/s.
