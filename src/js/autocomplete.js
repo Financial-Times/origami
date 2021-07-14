@@ -172,6 +172,9 @@ class Autocomplete {
 		if (opts.source) {
 			this.options.source = opts.source;
 		}
+		if (opts.mapOptionToSuggestedValue) {
+			this.options.mapOptionToSuggestedValue = opts.mapOptionToSuggestedValue;
+		}
 
 		const container = document.createElement('div');
 		container.classList.add('o-autocomplete__listbox-container');
