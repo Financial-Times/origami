@@ -1,4 +1,4 @@
-import '../../../main.js';
+import Autocomplete from '../../../main.js';
 import {data} from './data.js';
 
 /**
@@ -16,11 +16,11 @@ import {data} from './data.js';
  * @param {CustomOption|undefined} option - The option to transform into a suggestion string
  * @returns {string} The string to display in the suggestions dropdown for this option
 */
-window.mapOptionToSuggestedValue = function mapOptionToSuggestedValue(option) {
+function mapOptionToSuggestedValue(option) {
 	if (option) {
 		return option.Country_Name;
 	}
-};
+}
 
 /**
  * @typedef {Function} PopulateOptions
@@ -32,7 +32,7 @@ window.mapOptionToSuggestedValue = function mapOptionToSuggestedValue(option) {
  * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
  */
-window.customSuggestions = function customSuggestions(query, populateOptions) {
+function customSuggestions(query, populateOptions) {
 	const suggestions = data;
 
 	if (!query) {
@@ -51,8 +51,12 @@ window.customSuggestions = function customSuggestions(query, populateOptions) {
 		}
 	}
 	populateOptions(filteredOptions);
-};
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+	source: customSuggestions,
+	mapOptionToSuggestedValue,
+	onConfirm: function (option) {
+		console.log('You chose option', option);
+	}
 });

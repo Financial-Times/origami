@@ -153,9 +153,16 @@ function initClearButton(instance) {
 */
 
 /**
+ * @callback onConfirm
+ * @param {*} option - The option the user selected
+ * @returns {void}
+*/
+
+/**
  * @typedef {Object} AutocompleteOptions
- * @property {Source} source - The function which retrieves the suggestions to display
- * @property {Function} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
+ * @property {Source} [source] - The function which retrieves the suggestions to display
+ * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
+ * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
  */
 
 class Autocomplete {
@@ -174,6 +181,9 @@ class Autocomplete {
 		}
 		if (opts.mapOptionToSuggestedValue) {
 			this.options.mapOptionToSuggestedValue = opts.mapOptionToSuggestedValue;
+		}
+		if (opts.onConfirm) {
+			this.options.onConfirm = opts.onConfirm;
 		}
 
 		const container = document.createElement('div');
@@ -227,6 +237,11 @@ class Autocomplete {
 			accessibleAutocomplete({
 				element: this.container,
 				id: id,
+				onConfirm: (option) => {
+					if (option && this.options.onConfirm) {
+						this.options.onConfirm(option);
+					}
+				},
 				source: this.options.source,
 				placeholder: '',
 				cssNamespace: 'o-autocomplete',
@@ -290,6 +305,11 @@ class Autocomplete {
 			this.container.appendChild(selectInputElement);
 			accessibleAutocomplete.enhanceSelectElement({
 				selectElement: selectInputElement,
+				onConfirm: (option) => {
+					if (option && this.options.onConfirm) {
+						this.options.onConfirm(option);
+					}
+				},
 				autoselect: false,
 				defaultValue: '',
 				placeholder: '',

@@ -190,6 +190,51 @@ new oAutocomplete(oAutocompleteElement, {
 | --- | --- | --- |
 | option | <code>\*</code> | The option to transform into a suggestion string |
 
+### onConfirm
+
+This function is called when the user selects an option and is called with the option the user selected.
+
+#### Example
+
+```js
+import oAutocomplete from 'o-autocomplete';
+
+async function customSuggestions(query, populateOptions) {
+	const suggestions = await getSuggestions(query);
+	populateOptions(suggestions);
+}
+
+/**
+ * @param {{"suggestionText": string}} option - The option to transform into a suggestion string
+ * @returns {string} The string to display as the suggestions for this option
+*/
+function mapOptionToSuggestedValue(option) {
+	return option.suggestionText;
+}
+
+/**
+ * @param {{"suggestionText": string}} option - The option the user selected
+*/
+function onConfirm(option) {
+    console.log('You selected option: ', option);
+}
+
+const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
+new oAutocomplete(oAutocompleteElement, {
+    onConfirm
+    mapOptionToSuggestedValue,
+    source: customSuggestions,
+});
+```
+
+<a name="onConfirm"></a>
+
+#### onConfirm ⇒ <code>void</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| option | <code>\*</code> | The option the user selected |
+
 
 ## Keyboard Support
 

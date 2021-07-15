@@ -314,6 +314,25 @@ describe("Autocomplete", function () {
 					assert.equal(clearButton, activeElement);
 				});
 			});
+
+			context('onConfirm function is defined and an option is selected by the user', () => {
+				it("calls the onConfirm function with the selected option", async () => {
+					const onConfirm = sinon.spy();
+					new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {onConfirm});
+					const input = screen.getByRole('combobox', {
+						name: /select your country/i
+					});
+					userEvent.type(input, 'Af');
+					// The sleeps are required because accessible-autocomplete renders asynchronously
+					await sleep(100);
+					const list = screen.getByRole('listbox');
+					assert.equal(list.childElementCount, 1);
+					const option = getByRole(list, 'option');
+					userEvent.click(option);
+					assert.equal(input.value, 'Afghanistan');
+					assert.isTrue(onConfirm.calledWith("Afghanistan"));
+				});
+			});
 		});
 	});
 
@@ -454,15 +473,13 @@ describe("Autocomplete", function () {
 		});
 
 		context('custom source and mapOptionToSuggestedValue functions defined', () => {
+			let onConfirm;
+			let source;
+			let mapOptionToSuggestedValue;
 			beforeEach(() => {
 				fixtures.htmlInputCode();
-			});
-
-			afterEach(() => {
-				fixtures.reset();
-			});
-			it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
-				const source = sinon.spy(function customSuggestions(query, populateOptions) {
+				onConfirm = sinon.spy();
+				source = sinon.spy(function customSuggestions(query, populateOptions) {
 					const suggestions = [
 						{team: 'Infrastructure Delivery'},
 						{team: 'Infrastructure & Data Hosting'},
@@ -491,11 +508,20 @@ describe("Autocomplete", function () {
 					}
 					populateOptions(filteredOptions);
 				});
-				const mapOptionToSuggestedValue = sinon.spy(option => {
+				mapOptionToSuggestedValue = sinon.spy(option => {
 					if (option) {
 						return option.team;
 					}
 				});
+			});
+
+			afterEach(() => {
+				fixtures.reset();
+				source.resetHistory();
+				onConfirm.resetHistory();
+				mapOptionToSuggestedValue.resetHistory();
+			});
+			it("applies the mapOptionToSuggestedValue function on each suggestion supplied by the source function", async () => {
 				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 					source,
 					mapOptionToSuggestedValue
@@ -515,6 +541,28 @@ describe("Autocomplete", function () {
 				userEvent.click(option);
 				await sleep(1100);
 				assert.equal(input.value, 'Operations Support');
+			});
+
+			context('onConfirm function is defined and an option is selected by the user', () => {
+				it("calls the onConfirm function with the selected option", async () => {
+					new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+						source,
+						mapOptionToSuggestedValue,
+						onConfirm
+					});
+					const input = screen.getByRole('combobox', {
+						name: /select your team/i
+					});
+					userEvent.type(input, 'o');
+					// The sleep is required because the suggestions are being returned asynchronously as part of the test
+					await sleep(1100);
+					const list = screen.getByRole('listbox');
+					assert.equal(list.childElementCount, 2);
+					const option = list.firstElementChild;
+					userEvent.click(option);
+					await sleep(1100);
+					assert.isTrue(onConfirm.calledWith({team: "Operations Support"}));
+				});
 			});
 		});
 
