@@ -65,17 +65,26 @@ describe("Autocomplete", function () {
 
 	context('constructor', () => {
 		describe('when provided with no options', () => {
+			let autocomplete;
+
 			beforeEach(() => {
 				fixtures.htmlSelectCode();
+				autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 			});
 
 			afterEach(() => {
 				fixtures.reset();
 			});
+
 			it("constructs an instance with the default options", () => {
-				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'));
 				assert.instanceOf(autocomplete, Autocomplete);
 				assert.deepEqual(autocomplete.autocompleteEl, document.querySelector('[data-o-component="o-autocomplete"]'));
+			});
+
+			it("preserves attributes from the unenhanced element", () => {
+				const input = screen.getByRole('combobox');
+				assert.equal(input.getAttribute("name"), "country");
+				assert.equal(input.hasAttribute("required"), true);
 			});
 		});
 

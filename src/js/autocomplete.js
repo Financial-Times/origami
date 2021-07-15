@@ -229,6 +229,10 @@ class Autocomplete {
 			};
 			const input = autocompleteEl.querySelector('input');
 			const id = input.getAttribute('id');
+			const name = input.getAttribute('name');
+			const placeholder = input.getAttribute('placeholder');
+			const isRequired = input.hasAttribute('required');
+
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
 			}
@@ -237,13 +241,15 @@ class Autocomplete {
 			accessibleAutocomplete({
 				element: this.container,
 				id: id,
+				name: name,
+				placeholder: placeholder,
+				required: isRequired,
 				onConfirm: (option) => {
 					if (option && this.options.onConfirm) {
 						this.options.onConfirm(option);
 					}
 				},
 				source: this.options.source,
-				placeholder: '',
 				cssNamespace: 'o-autocomplete',
 				displayMenu: 'overlay',
 				showNoOptionsFound: false,
@@ -298,6 +304,9 @@ class Autocomplete {
 			});
 		} else {
 			const id = selectInputElement.getAttribute('id');
+			const name = selectInputElement.getAttribute('name');
+			const isRequired = selectInputElement.hasAttribute('required');
+
 			if (!id) {
 				throw new Error("Missing `id` attribute on the o-autocomplete input. An `id` needs to be set as it is used within the o-autocomplete to implement the accessibility features.");
 			}
@@ -305,6 +314,8 @@ class Autocomplete {
 			this.container.appendChild(selectInputElement);
 			accessibleAutocomplete.enhanceSelectElement({
 				selectElement: selectInputElement,
+				name: name,
+				required: isRequired,
 				onConfirm: (option) => {
 					if (option && this.options.onConfirm) {
 						this.options.onConfirm(option);
