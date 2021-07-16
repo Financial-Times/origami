@@ -83,6 +83,7 @@ describe("Autocomplete", function () {
 
 			it("preserves attributes from the unenhanced select element", () => {
 				const input = screen.getByRole('combobox');
+				assert.equal(input instanceof HTMLInputElement, true);
 				assert.equal(input.getAttribute("name"), "country");
 				assert.equal(input.hasAttribute("required"), true);
 			});
@@ -393,6 +394,7 @@ describe("Autocomplete", function () {
 
 			it("preserves attributes from the unenhanced input element", () => {
 				const input = screen.getByRole('combobox');
+				assert.equal(input instanceof HTMLInputElement, true);
 				assert.equal(input.getAttribute("name"), "country");
 				assert.equal(input.getAttribute("placeholder"), "Please enter a country");
 				assert.equal(input.hasAttribute("required"), true);
