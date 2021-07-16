@@ -81,7 +81,7 @@ describe("Autocomplete", function () {
 				assert.deepEqual(autocomplete.autocompleteEl, document.querySelector('[data-o-component="o-autocomplete"]'));
 			});
 
-			it("preserves attributes from the unenhanced element", () => {
+			it("preserves attributes from the unenhanced select element", () => {
 				const input = screen.getByRole('combobox');
 				assert.equal(input.getAttribute("name"), "country");
 				assert.equal(input.hasAttribute("required"), true);
@@ -348,15 +348,12 @@ describe("Autocomplete", function () {
 	describe('dynamic suggestions', () => {
 
 		describe('only assigns options which are supported by o-autocomplete', () => {
+			let autocomplete;
+
 			beforeEach(() => {
 				fixtures.htmlInputCode();
-			});
 
-			afterEach(() => {
-				fixtures.reset();
-			});
-			it('the unsupported options are not set on this.options', () => {
-				const autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
+				autocomplete = new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), {
 					placeholder: 'Placeholder Text',
 					cssNamespace: 'custom-autocomplete',
 					displayMenu: 'whimsical',
@@ -382,10 +379,23 @@ describe("Autocomplete", function () {
 						populateResults(filteredResults);
 					}
 				});
-				assert.instanceOf(autocomplete, Autocomplete);
+			});
 
+			afterEach(() => {
+				fixtures.reset();
+			});
+
+			it('the unsupported options are not set on this.options', () => {
+				assert.instanceOf(autocomplete, Autocomplete);
 				assert.deepEqual(Object.keys(autocomplete.options), ['source']);
 				assert.isFunction(autocomplete.options.source,);
+			});
+
+			it("preserves attributes from the unenhanced input element", () => {
+				const input = screen.getByRole('combobox');
+				assert.equal(input.getAttribute("name"), "country");
+				assert.equal(input.getAttribute("placeholder"), "Please enter a country");
+				assert.equal(input.hasAttribute("required"), true);
 			});
 		});
 

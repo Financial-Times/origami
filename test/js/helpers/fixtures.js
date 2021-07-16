@@ -67,7 +67,7 @@ function htmlInputCode () {
 		</span>
 		<span class="o-forms-input o-forms-input--select o-forms-input--text">
 			<div data-o-component="o-autocomplete" class="o-autocomplete">
-				<input id="my-autocomplete" type="text" name="country" required>
+				<input id="my-autocomplete" type="text" name="country" placeholder="Please enter a country" required>
 			</div>
 		</span>
 	</label>
