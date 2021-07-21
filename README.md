@@ -333,7 +333,7 @@ See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassd
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v5-to-v6) |
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
 ⚠ maintained | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.10 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
 ╳ deprecated | 3 | 3.6 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
