@@ -17,9 +17,9 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-fonts@5.0.0-1",
-			"o-normalise@3.0.0-0",
-			"o-autoinit@3.0.0-beta.0"
+			"o-fonts@5.0.0",
+			"o-normalise@3.0.0",
+			"o-autoinit@3.0.0"
 		]
 	},
 	"demos": [
@@ -33,14 +33,14 @@
 			"description": "",
 			"display_html": false,
 			"dependencies": [
-				"o-buttons@7.0.0-0",
-				"o-fonts@5.0.0-1",
-				"o-forms@9.0.0-1",
-				"o-normalise@3.0.0-0",
-				"o-overlay@4.0.0-beta.1",
-				"o-syntax-highlight@4.0.0-0",
-				"o-tabs@6.0.0-0",
-				"o-autoinit@3.0.0-beta.0"
+				"o-buttons@7.0.0",
+				"o-fonts@5.0.0",
+				"o-forms@9.0.0",
+				"o-normalise@3.0.0",
+				"o-overlay@4.0.0",
+				"o-syntax-highlight@4.0.0",
+				"o-tabs@6.0.0",
+				"o-autoinit@3.0.0"
 			],
 			"brands": [
 				"master"
@@ -56,12 +56,12 @@
 			"display_html": false,
 			"description": "",
 			"dependencies": [
-				"o-fonts@5.0.0-1",
-				"o-forms@9.0.0-1",
-				"o-normalise@3.0.0-0",
-				"o-overlay@4.0.0-beta.1",
-				"o-syntax-highlight@4.0.0-0",
-				"o-autoinit@3.0.0-beta.0"
+				"o-fonts@5.0.0",
+				"o-forms@9.0.0",
+				"o-normalise@3.0.0",
+				"o-overlay@4.0.0",
+				"o-syntax-highlight@4.0.0",
+				"o-autoinit@3.0.0"
 			],
 			"brands":	[
 				"master"
@@ -153,14 +153,14 @@
 			"template": "demos/src/contrast-checker/index.mustache",
 			"display_html": false,
 			"dependencies": [
-				"o-buttons@7.0.0-0",
-				"o-fonts@5.0.0-1",
-				"o-forms@9.0.0-1",
-				"o-normalise@3.0.0-0",
-				"o-overlay@4.0.0-beta.1",
-				"o-syntax-highlight@4.0.0-0",
-				"o-tabs@6.0.0-0",
-				"o-autoinit@3.0.0-beta.0"
+				"o-buttons@7.0.0",
+				"o-fonts@5.0.0",
+				"o-forms@9.0.0",
+				"o-normalise@3.0.0",
+				"o-overlay@4.0.0",
+				"o-syntax-highlight@4.0.0",
+				"o-tabs@6.0.0",
+				"o-autoinit@3.0.0"
 			],
 			"description": "",
 			"brands": [
@@ -176,12 +176,12 @@
 			"template": "demos/src/color-mixer/index.mustache",
 			"display_html": false,
 			"dependencies": [
-				"o-fonts@5.0.0-1",
-				"o-forms@9.0.0-1",
-				"o-normalise@3.0.0-0",
-				"o-overlay@4.0.0-beta.1",
-				"o-syntax-highlight@4.0.0-0",
-				"o-autoinit@3.0.0-beta.0"
+				"o-fonts@5.0.0",
+				"o-forms@9.0.0",
+				"o-normalise@3.0.0",
+				"o-overlay@4.0.0",
+				"o-syntax-highlight@4.0.0",
+				"o-autoinit@3.0.0"
 			],
 			"description": "",
 			"brands":	[

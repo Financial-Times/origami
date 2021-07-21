@@ -1,7 +1,7 @@
 import { getContrastRatio } from '../shared/contrast-ratio.js';
 import { getHexValues, mixHexes } from '../shared/colors-mix.js';
 
-document.addEventListener('o.DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 	const forms = document.forms;
 	const mixer = forms[0]['mixer'];
 	const base = forms[0]['base'];

@@ -1,7 +1,7 @@
 import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
 import { getHexValues, mixHexes } from '../shared/colors-mix.js';
 
-document.addEventListener('o.DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 	const form = document.forms[0];
 	const foreground = form['foreground'];
 	const background = form['background'];
