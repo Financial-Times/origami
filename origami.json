@@ -97,6 +97,18 @@
 			"description": "Open demo and shrink browser to preview. Each entry in the flat table is shown individually with headers on small viewports. This demo includes the optional row stripes from the previous demo."
 		},
 		{
+			"title": "Multiple Columns",
+			"name": "multiple-columns-responsive-overflow",
+			"template": "demos/src/base.mustache",
+			"data": {
+				"tableType": "overflow",
+				"multipleHeaderRows": true
+			},
+			"hidden": true,
+			"documentClasses": "o-table-demo-constrain",
+			"description": "Multiple heading rows in a responsive-overflow table are partially supported. Styles are not supported yet. https://github.com/Financial-Times/o-table/issues/255"
+		},
+		{
 			"title": "Expanding Table",
 			"name": "expanding",
 			"template": "demos/src/expanding.mustache",

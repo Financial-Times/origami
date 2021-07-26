@@ -57,7 +57,9 @@ class BaseTable {
 		this.thead = this.rootEl.querySelector('thead');
 		this.tbody = this.rootEl.querySelector('tbody');
 		this.tableCaption = this.rootEl.querySelector('caption');
-		this.tableHeaders = this.thead ? Array.from(this.thead.querySelectorAll('th:not([data-o-table-duplicate-header])')) : [];
+		this.tableHeaders = this.thead ? Array.from(
+			this.thead.querySelectorAll('tr:last-of-type > th')
+		) : [];
 		this.tableRows = this.tbody ? Array.from(this.tbody.getElementsByTagName('tr')) : [];
 		this._filteredTableRows = [];
 		this.wrapper = this.rootEl.closest('.o-table-scroll-wrapper');

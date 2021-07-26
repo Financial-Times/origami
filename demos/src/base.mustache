@@ -33,6 +33,12 @@
 				data-o-component="o-table"
 				{{#tableType}}data-o-table-responsive="{{tableType}}"{{/tableType}}>
 				<thead>
+					{{#multipleHeaderRows}}
+					<tr>
+						<th scope="col" role="columnheader" scope="col" role="columnheader" colspan="4">Description</th>
+						<th scope="col" role="columnheader" scope="col" role="columnheader" colspan="4">Price</th>
+					</tr>
+					{{/multipleHeaderRows}}
 					<tr>
 						<th scope="col" role="columnheader">Fruit</th>
 						<th scope="col" role="columnheader">Genus</th>
