@@ -68,8 +68,10 @@ The following colours have been removed from the palette:
 - `inherit`. Replace `oColorsGetPaletteColor('inherit');` with `inherit`.
 
 Deprecated internal and whitelabel brand palette colours were removed. Please contact Origami if your product has a usecase for one of the removed colours:
-- Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, mandarin, claret.
+- Internal brand: candy, wasabi, org-b2c, org-b2c-dark, org-b2c-light, paper, wheat, sky, velvet, claret.
 - Whitelabel brand: all colours except black and white have been removed.
+
+Note: mandarin was removed from the internal brand in v5.0.0 but restored in v5.1.1.
 
 #### Sass Mixins
 
