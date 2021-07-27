@@ -539,9 +539,9 @@ By default the inline label and input will be a set width to ensure multiple inl
 ```diff
 -<label class="o-forms-field">
 +<label class="o-forms-field o-forms-field--inline">
-	<span class="o-forms-title">
--		<span class="o-forms-title__main">short label</span>
-+		<span class="o-forms-title__main o-forms-title--shrink">short label</span>
+-	<span class="o-forms-title o-forms-title--shrink">
++	<span class="o-forms-title o-forms-title--shrink">
+		<span class="o-forms-title__main">short label</span>
 	</span>
 
 	<span class="o-forms-input o-forms-input--text">

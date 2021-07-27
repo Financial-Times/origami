@@ -69,7 +69,7 @@ The customisation mixin outputs a custom modifier, and can be applied as follows
 // the custom class modifier will be: .o-forms-input--my-theme
 ```
 
-The markup has been changed entirely to accomodate the following structure:
+The markup has been changed entirely to accommodate the following structure:
 ```
 ┌— field container (.o-forms-field) —————┐
 |      (one of div or label)             |
@@ -110,6 +110,9 @@ The root `o-forms` class is no longer used. Instead, there are modifiers for eac
 	- `.o-forms-input--toggle`
 	- `.o-forms-input--valid`
 
+Unlike with the previous `o-forms` class no `max-width` is set, as this was often overridden by projects based on context. Place your form field elements within a containing element or set your own `max-width`.
+
+Note that in some cases the above modifiers must be used to recreate previously default behaviour. The inline input titles now require the `o-forms-title--vertical-center` class to vertically with the input, where the label is short and prompt text has not been provided.
 
 The JavaScript for `o-forms` now accepts two options:
 - `useBrowserValidation`: whether to use the browsers validtion and error messages. Defaults to `false`
