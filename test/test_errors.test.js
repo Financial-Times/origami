@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* global proclaim */
+/* global proclaim, sinon */
 
 import Errors from '../src/js/oErrors.js';
 
@@ -95,7 +95,7 @@ describe("oErrors", function() {
 				logLevel: "consoleonly"
 			}, mockRavenClient);
 
-			const loggerProto = Object.getPrototypeOf(errors.logger)
+			const loggerProto = Object.getPrototypeOf(errors.logger);
 			sinon.spy(loggerProto, "error");
 
 			errors.report({ message: "Something failed" });
