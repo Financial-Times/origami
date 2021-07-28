@@ -89,6 +89,24 @@ describe("oErrors", function() {
 			proclaim.isUndefined(mockRavenClient.lastCaptureMessageArgs[0]);
 		});
 
+		it("should log messages if configured to the consoleonly log level", function() {
+			const errors = new Errors().init({
+				sentryEndpoint: "//app.getsentry.com/123",
+				logLevel: "consoleonly"
+			}, mockRavenClient);
+
+			const loggerProto = Object.getPrototypeOf(errors.logger)
+			sinon.spy(loggerProto, "error");
+
+			errors.report({ message: "Something failed" });
+			// in this case oErrors will pass the logger.error method
+			// the error and context using the arguments keyword, so
+			// args will be a nested array
+			proclaim.deepEqual(loggerProto.error.getCall(0).args[0][0], { message: "Something failed" });
+
+			loggerProto.error.restore();
+		});
+
 		it("should configure itself from the DOM if no options are present", function() {
 			const sentryConfiguration = document.createElement("script");
 			sentryConfiguration.type = "application/json";

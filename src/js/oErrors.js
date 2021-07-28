@@ -141,9 +141,11 @@ Errors.prototype.init = function(options, raven) {
 	if (Logger.level[logLevel] !== Logger.level.consoleonly) {
 		this._configureAndInstallRaven(options, raven);
 	} else {
+		const logger = this.logger;
 		this.ravenClient = {
-			// eslint-disable-next-line no-empty-function
-			captureException: function(){},
+			captureException: function() {
+				return logger.error(arguments);
+			},
 			// eslint-disable-next-line no-empty-function
 			uninstall: function(){}
 		};
