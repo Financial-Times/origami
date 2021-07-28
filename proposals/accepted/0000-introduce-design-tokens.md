@@ -1,10 +1,12 @@
-# put your proposal title here
+# Introduce Design Tokens
 
-> Provide a brief one line summary of your proposal.
+**Draft: This document is more of a brain dump at the moment.**
 
-## motivation
+Design tokens are a method to store, document, and distribute design decisions across platforms; for example brand colour, spacing, and typographic scale values across web, native apps, and design tooling. There is a growing ecosystem of methodologies and tools around design tokens to support team collaboration and new product development.
 
-Draft: this is a shopping list of motivation, which may or may not be met by different options.
+## Motivation
+
+**Draft: These are possibilities, not refined motivations.**
 
 - To provide a mechanism to introduce dark mode branding to Origami. The app currently implements dark mode but it’s difficult to implement at the app level in a consistent way as styles must be overridden, which would be [time consuming and unreliable](https://origami.ft.com/docs/components/customisation/#avoid-css-overrides). The app instead relies on inverting everything and then opting out some elements (images, slate backgrounds). This is limited. As Mark Limb, designer on the apps team, writes "the brand is completely lost and in some places the colours become meaningless, often distracting, [...] I believe we do need a dark variant of our FT palette".
 - To make it easier to customise Origami by adding new brands or variants with brands.
@@ -17,6 +19,7 @@ Draft: this is a shopping list of motivation, which may or may not be met by dif
 - To improve designer and engineer communication, by using the same terminology/values across developer and designer tooling more often.
 - Make it easier to find and edit values which represent design decisions. Currently values are spread across multiple component repositories, with multiple formats, across platform specific Sass and JavaScript.
 - Simplify component Sass by abstracting complex logic to a design token compile step. For example the complex logic used to [calculate the colour of a button](https://github.com/Financial-Times/o-buttons/blob/v7.0.0/src/scss/_functions.scss#L144), this is hard to reason about or improve in Sass.
+- To distribute tint-able FT icons to native apps?
 
 ## explanation
 
@@ -34,11 +37,29 @@ Draft: this is a shopping list of motivation, which may or may not be met by dif
 > Provide some alternatives to your proposal and their benefits and drawbacks
 > This section is required
 
-## supporting examples
+## research notes
 
-> Include links to prior art, examples, research, or code to support your proposal, if any is available.
-> If this is a component proposal, it's also useful to have links to designs if there are any.
-> This section is required
+Reading list 👀
+
+* [GitHub - sturobson/Awesome-Design-Tokens: A list of resources on all things to do with Design Tokens](https://github.com/sturobson/Awesome-Design-Tokens)
+* [CSS Tricks: What are design tokens](https://css-tricks.com/what-are-design-tokens/)
+* [Design Token Community Group (glossary)](https://www.designtokens.org/glossary/)
+* [Bradfrost Design token architecture](https://bradfrost.com/blog/link/building-better-products-with-a-design-token-pipeline/)
+* https://mobile.twitter.com/svorklab/status/141138043182460109
+* [Design token 101 talk](https://youtu.be/G4mui3OCMVA?t=5376)
+* [Dark Mode with Style Dictionary | dbanksdesign](https://dbanks.design/blog/dark-mode-with-style-dictionary/)
+* [Announcement: Adobe XD extension for Visual Studio Code and Design System Packages (DSP)](https://vimeo.com/466431987)(invites guests from other tools/platforms to talk)
+* [Specify: Introduction to design tokens](https://specifyapp.com/blog/introduction-to-design-tokens)
+
+Related tools / platforms 👀
+
+- [Theo](https://github.com/salesforce-ux/theo)
+- [Style Dictionary](https://amzn.github.io/style-dictionary/#/)
+- [Diez](https://diez.org/)
+- [Specify](https://specifyapp.com/)
+- [Adobe Design System Package](https://github.com/AdobeXD/design-system-package-dsp) (DSP)
+- [Knapsack](https://www.knapsack.cloud/)
+- [InVision Design System Manager](https://www.invisionapp.com/design-system-manager)
 
 ## notes
 
