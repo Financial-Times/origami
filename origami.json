@@ -17,8 +17,8 @@
 		"sass": "demos/src/demo.scss",
 		"documentClasses": "",
 		"dependencies": [
-			"o-fonts@5.0.0",
-			"o-normalise@3.0.0"
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0"
 		]
 	},
 	"demos": [
