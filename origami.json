@@ -21,8 +21,8 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": [
-			"o-grid@6.0.0",
-			"o-normalise@3.0.0"
+			"o-grid@^6.0.0",
+			"o-normalise@^3.0.0"
 		],
 		"documentClasses": "o-grid-container o-typography--loading-display o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display-bold"
 	},
