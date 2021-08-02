@@ -16,14 +16,14 @@
 		"js": "demos/src/demo.js",
 		"documentClasses": "",
 		"dependencies": [
-			"o-table@9.0.0-0",
-			"o-syntax-highlight@4.0.0-0",
-			"o-tabs@6.0.0-0",
-			"o-header-services@5.0.0-0",
-			"o-footer-services@4.0.0-0",
-			"o-buttons@7.0.0-0",
-			"o-forms@9.0.0-1",
-			"o-normalise@3.0.0-0"
+			"o-table@^9.0.0",
+			"o-syntax-highlight@^4.0.0",
+			"o-tabs@^6.0.0",
+			"o-header-services@^5.0.0",
+			"o-footer-services@^4.0.0",
+			"o-buttons@^7.0.0",
+			"o-forms@^9.0.0",
+			"o-normalise@^3.0.0"
 		]
 	},
 	"demos": [
