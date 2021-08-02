@@ -27,9 +27,9 @@
 		"js": "demos/src/main.js",
 		"documentClasses": "core",
 		"dependencies": [
-			"o-grid@6.0.0",
-			"o-normalise@3.0.0",
-			"o-fonts@5.0.0"
+			"o-grid@^6.0.0",
+			"o-normalise@^3.0.0",
+			"o-fonts@^5.0.0"
 		]
 	},
 	"demos": [
