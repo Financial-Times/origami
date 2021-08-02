@@ -19,7 +19,7 @@
 		],
 		"optional": [
 			"Promise",
-			"sendBeacon"
+			"navigator.sendBeacon"
 		]
 	},
 	"demos": [
