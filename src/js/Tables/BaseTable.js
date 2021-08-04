@@ -194,7 +194,7 @@ class BaseTable {
 	 */
 	_updateTableHeight() {
 		if (!this.filterContainer) {
-			console.warn(`The table has missing markup. A resposnive or filterable table must be within a div with class "o-table-container".`, this.rootEl);
+			console.warn(`The table has missing markup. A responsive or filterable table must be within a div with class "o-table-container".`, this.rootEl);
 			return;
 		}
 

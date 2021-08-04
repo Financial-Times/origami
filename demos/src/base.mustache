@@ -5,10 +5,16 @@
 		<label class="o-forms-field o-forms-field--inline o--if-js o-forms-field--demo">
 			<span class="o-forms-title o-forms-title--vertical-center o-forms-title--shrink">
 				<span class="o-forms-title__main">
-					Showing data for:
+					Filter by characteristic:
 				</span>
 			</span>
 
+			{{#showTextFilter}}
+			<span class="o-forms-input o-forms-input--text o-forms-input--invalid">
+				<input type="text" data-o-table-filter-id="{{tableId}}" data-o-table-filter-column="2" id="demo-filter-select" class="o-forms__text"/>
+			</span>
+			{{/showTextFilter}}
+			{{#showSelectFilter}}
 			<span class="o-forms-input o-forms-input--select o-forms-input--invalid">
 				<select data-o-table-filter-id="{{tableId}}" data-o-table-filter-column="2" id="demo-filter-select" class="o-forms__select">
 					<option value="">All</option>
@@ -19,10 +25,10 @@
 					<option value="Crunchy">Crunchy</option>
 				</select>
 			</span>
+			{{/showSelectFilter}}
 		</label>
 	</div>
 {{/showFilter}}
-
 <div class="o-table-container">
 	<div class="o-table-overlay-wrapper">
 		<div class="o-table-scroll-wrapper">

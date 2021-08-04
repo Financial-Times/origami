@@ -258,9 +258,13 @@ OTable.init(document.body, {
 
 ### Filtering
 
-All `o-table` instances support filtering. Filters may be applied declaratively in HTML or the `filter` method may be called against a table instance.
+All `o-table` instances support filtering on a single column. Filters may be applied declaratively in HTML or by calling the `o-table` JavaScript method `filter`.
+
+The style of form elements used to filter a table are not determined by `o-table`. However we recommend using [o-form](https://registry.origami.ft.com/components/o-forms) to style form elements used to filter an `o-table`, such as `input` or `select` elements. See the [o-table filter demos](https://registry.origami.ft.com/components/o-table#demo-filter) in the component registry for a demo using `o-form` styles.
 
 #### Filter (declarative)
+
+Declarative filters are case insensitive and perform partial matches, e.g. a filter of "Kingdom" would reveal "United Kingdom".
 
 To enable declarative table filtering add the `data-o-table-filter-id` and `data-o-table-filter-column` to a form input. Where `data-o-table-filter-id` matches the `id` of the table to filter and `data-o-table-filter-column` is the numerical index of the column to filter (starting at 0).
 
@@ -275,7 +279,7 @@ For example, to filter a table based on a users selected option:
 		<!-- more options  -->
 	</select>
 
-	<!-- the table markup, this may be a resposnive table -->
+	<!-- the table markup, this may be a responsive table -->
 	<div class="o-table-container">
 		<!-- the table element with an id -->
 		<table id="example-table">
@@ -284,7 +288,20 @@ For example, to filter a table based on a users selected option:
 	</div>
 ```
 
-Declarative filters are case insensitive and perform partial matches, e.g. a filter of "Kingdom" would reveal "United Kingdom".
+Or to filter a table based on a users selected option:
+```html
+	<label>Filter the table by country:</label>
+	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
+	<input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0">
+
+	<!-- the table markup, this may be a responsive table -->
+	<div class="o-table-container">
+		<!-- the table element with an id -->
+		<table id="example-table">
+			<!-- ... -->
+		</table>
+	</div>
+```
 
 #### Filter (imperative)
 

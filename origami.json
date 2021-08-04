@@ -159,15 +159,28 @@
 			"description": ""
 		},
 		{
-			"title": "Filter",
-			"name": "filter",
+			"title": "Filter with a select box",
+			"name": "filter-select",
 			"data": {
 				"tableId": "fruit-table",
 				"showFilter": true,
+				"showSelectFilter": true,
 				"tableType": "overflow"
 			},
 			"template": "demos/src/base.mustache",
-			"description": "This demo shows a table with columns which may be filtered by a value."
+			"description": "This demo shows a table with columns which may be filtered by selecting from a dropdown of given value."
+		},
+		{
+			"title": "Filter with a text input",
+			"name": "filter-input",
+			"data": {
+				"tableId": "fruit-table",
+				"showFilter": true,
+				"showTextFilter": true,
+				"tableType": "overflow"
+			},
+			"template": "demos/src/base.mustache",
+			"description": "This demo shows a table with columns which may be filtered by searching for a specified value."
 		},
 		{
 			"title": "Huge sortable table",
