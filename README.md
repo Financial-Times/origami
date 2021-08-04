@@ -292,7 +292,7 @@ Or to filter a table based on a users selected option:
 ```html
 	<label>Filter the table by country:</label>
 	<!-- the filter input specifies the table id in "data-o-table-filter-id" -->
-	<input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0">
+	<input type="text" data-o-table-filter-id="example-table" data-o-table-filter-column="0"/>
 
 	<!-- the table markup, this may be a responsive table -->
 	<div class="o-table-container">
