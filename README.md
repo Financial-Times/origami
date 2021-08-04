@@ -260,7 +260,7 @@ OTable.init(document.body, {
 
 All `o-table` instances support filtering on a single column. Filters may be applied declaratively in HTML or by calling the `o-table` JavaScript method `filter`.
 
-The style of form elements used to filter a table are not determined by `o-table`. However we recommend using [o-form](https://registry.origami.ft.com/components/o-forms) to style form elements used to filter an `o-table`, such as `input` or `select` elements. See the [o-table filter demos](https://registry.origami.ft.com/components/o-table#demo-filter) in the component registry for a demo using `o-form` styles.
+The style of form elements used to filter a table are not determined by `o-table`. However we recommend using [o-forms](https://registry.origami.ft.com/components/o-forms) to style form elements used to filter an `o-table`, such as `input` or `select` elements. See the [o-table filter demos](https://registry.origami.ft.com/components/o-table#demo-filter) in the component registry for a demo using `o-forms` styles.
 
 #### Filter (declarative)
 
