@@ -68,14 +68,13 @@ class Stream {
 		return new Promise((resolve) => {
 			try {
 				/*global Coral*/
-				const scriptElement = document.createElement('script');
-				scriptElement.src = this.useStagingEnvironment
-					? 'https://ft.staging.coral.coralproject.net/assets/js/embed.js'
-					: 'https://ft.coral.coralproject.net/assets/js/embed.js';
-
+				const cacheBuster = 'cachebust=20210806';
 				const rootUrl = this.useStagingEnvironment
 					? 'https://ft.staging.coral.coralproject.net'
 					: 'https://ft.coral.coralproject.net';
+
+				const scriptElement = document.createElement('script');
+				scriptElement.src = `${rootUrl}/assets/js/embed.js?${cacheBuster}`;
 
 				scriptElement.onload = () => {
 					this.embed = Coral.createStreamEmbed(
