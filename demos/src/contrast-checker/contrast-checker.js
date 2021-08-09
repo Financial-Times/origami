@@ -1,5 +1,5 @@
 import { getContrastRatio, getWCAGRating } from '../shared/contrast-ratio.js';
-import { getHexValues, mixHexes } from '../shared/colors-mix.js';
+import { getHexValues, mixHexes, expandHexValues } from '../shared/colors-mix.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	const form = document.forms[0];
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showContrastRatio(text, background) {
-	const textHex = changeColor(text.value, 'foreground');
-	const backgroundHex = changeColor(background.value, 'background');
+	const textHex = expandHexValues(changeColor(text.value, 'foreground'));
+	const backgroundHex = expandHexValues(changeColor(background.value, 'background'));
 
 	const ratio = getContrastRatio(textHex, backgroundHex);
 	const rating = getWCAGRating(ratio, text.value, background.value);
@@ -42,7 +42,7 @@ function changeColor(colorName, property) {
 	if (hexValue.length <= 0) { hexValue = colorName; }
 
 	root.style.setProperty(`--${property}`, hexValue);
-	return hexValue;
+	return hexValue.replace('#', '').trim();
 }
 
 let eventsAdded = false;
