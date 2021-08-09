@@ -30,8 +30,8 @@ const mixHexes = (mixer, base) => {
 		let hexValue = "#";
 
 		for (let i = 0; i <= 5; i += 2) {
-			const mixPair = expandHexValues(hexToDecimal(mixer.substr(i, 2))); // extract r, g, b pairs for mixer color
-			const basePair = expandHexValues(hexToDecimal(base.substr(i, 2))); // extract r, g, b pairs for base color
+			const mixPair = hexToDecimal(expandHexValues(mixer.substr(i, 2))); // extract r, g, b pairs for mixer color
+			const basePair = hexToDecimal(expandHexValues(base.substr(i, 2))); // extract r, g, b pairs for base color
 
 			// combine the r/g/b pairs from each color, based on percentage
 			let combinedPair = decimalToHex(Math.round(basePair + (mixPair - basePair) * (percent / 100.0)));
