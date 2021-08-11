@@ -3,7 +3,7 @@
 	"origamiType": "component",
 	"supportStatus": "active",
 	"brands" : [
-		"main"
+		"master"
 	],
 	"support": "https://github.com/Financial-Times/o-video/issues",
 	"supportContact": {
