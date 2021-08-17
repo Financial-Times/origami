@@ -1,5 +1,5 @@
 class CookieMessage {
-	static get defaultOptions() {
+	static getCookieInfo() {
 		let domain = 'ft.com';
 		let manageCookiesPath = 'manage-cookies';
 		if (!/\.ft\.com$/i.test(window.location.hostname)) {
@@ -9,7 +9,6 @@ class CookieMessage {
 		}
 		const redirect = window.location.href;
 		return {
-			theme: null,
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: `https://cookies.${domain}/preferences/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
@@ -28,33 +27,15 @@ class CookieMessage {
 		// Get cookie message options
 		options = options || CookieMessage.getOptionsFromDom(cookieMessageElement);
 
-		// @deprecated - Remove seemingly unused options in the next major
-		// release. These options are not documented and could cause problems if
-		// not used carefully.
-		// https://github.com/Financial-Times/o-cookie-message/issues/126
-		const deprecatedOptions = [
-			'acceptUrl',
-			'acceptUrlFallback',
-			'manageCookiesUrl',
-			'consentCookieName'
-		];
-		for (const option of Object.keys(options)) {
-			if (deprecatedOptions.includes(option)) {
-				console.warn(
-					`The following o-cookie-message options are deprecated: ${deprecatedOptions.join(', ')}. ` +
-					`Please speak to the Origami team if you would like to use these options within your project.`
-				);
-			}
-		}
-
 		// Set cookie message options
 		this.options = Object.assign(
 			{},
-			CookieMessage.defaultOptions,
 			options
 		);
 
 		this.options.theme = this.options.theme ? 'alternative' : null;
+
+		this.cookieInfo = CookieMessage.getCookieInfo();
 
 		if (this.shouldShowCookieMessage()) {
 			this.createCookieMessage();
@@ -80,13 +61,13 @@ class CookieMessage {
 		<div class="o-cookie-message__actions">
 
 			<div class="o-cookie-message__action">
-				<a href="${this.options.acceptUrlFallback}" class="o-cookie-message__button">
+				<a href="${this.cookieInfo.acceptUrlFallback}" class="o-cookie-message__button">
 					Accept &amp; continue
 				</a>
 			</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="${this.options.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
+				<a href="${this.cookieInfo.manageCookiesUrl}" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 		</div>
 	</div>
@@ -132,7 +113,7 @@ class CookieMessage {
 				e.preventDefault();
 				this.dispatchEvent('oCookieMessage.act');
 				this.removeCookieMessage();
-				return fetch(this.options.acceptUrl, {
+				return fetch(this.cookieInfo.acceptUrl, {
 					method: 'get',
 					credentials: 'include'
 				});
@@ -144,7 +125,7 @@ class CookieMessage {
 	 * Checks whether cookie is set
 	 */
 	shouldShowCookieMessage() {
-		return !document.cookie.includes(`${this.options.consentCookieName}`);
+		return !document.cookie.includes(`${this.cookieInfo.consentCookieName}`);
 	}
 
 	/**
