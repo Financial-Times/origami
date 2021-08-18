@@ -14,6 +14,7 @@
 		// create white text red background
 		@include _oTeaserInverse;
 		background: oColorsByName('crimson');
+
 		.o-teaser__content * {
 			color: white;
 			&:hover {
@@ -21,15 +22,16 @@
 			}
 		}
 
+		.o-teaser__meta a,
 		.o-teaser__heading a,
 		.o-teaser__standfirst a {
 			&:focus,
 			&:hover,
 			&:visited {
 				color: oColorsMix(white, crimson, 90);
+				outline-color: currentColor;
 			}
 		}
-
 
 		// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
 		// https://github.com/Financial-Times/o-teaser/issues/173
