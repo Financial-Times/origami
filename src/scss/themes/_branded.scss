@@ -25,6 +25,7 @@
 		box-sizing: border-box;
 	}
 
+	.o-topper__headline--no-standfirst,
 	.o-topper__standfirst {
 		padding-right: calc(#{$_o-topper-headshot-width} + #{oSpacingByName('s2')});
 		@include oGridRespondTo(M) {
@@ -32,9 +33,8 @@
 		}
 	}
 
-	.o-topper__headline,
-	.o-topper__tags {
-		padding-right: calc(#{$_o-topper-headshot-width} + #{oSpacingByName('s2')});
+	.o-topper__tags,
+	.o-topper__headline {
 		@include oGridRespondTo(M) {
 			padding-right: calc(#{$_o-topper-headshot-width-M} + #{oSpacingByName('s2')});
 		}
