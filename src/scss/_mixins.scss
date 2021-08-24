@@ -39,6 +39,10 @@
 		margin-left: oSpacingByName('s2');
 	}
 
+	.o-comments__edit-display-name-descriptive {
+		@include oNormaliseVisuallyHidden();
+	}
+
 	.o-overlay.o-comments__displayname-prompt {
 		background: oColorsByName('paper');
 		padding: 10px;
