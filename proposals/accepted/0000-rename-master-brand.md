@@ -1,6 +1,8 @@
 # Rename the master brand
 
-Proposal to rename the "master brand" to the "pink brand", or similar.
+Proposal to rename the "master brand" ~to the "pink brand", or similar~ core.
+
+Kati (creative director) took this to her team and other stakeholders who decided on "core". They are moving forward with "core brand" over "master brand" in future brand guidelines.
 
 ## motivation
 
