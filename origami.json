@@ -72,7 +72,7 @@
 			"title": "Primary Palette",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/primary-palette.mustache",
-			"description": "Color is a fundamental attribute of the FT visual language. Consistent use of the primary palette across the platform strengthens our brand by evoking familiarity and trust.",
+			"description": "The primary FT brand colours are FT pink, FT grey, black, and white. These are the established colours that make up the FT corporate identity and FT brand. FT pink and FT grey are not used for digital UI, but may be helpful for use alongside FT branded static assets such as the FT logo. For example, FT Pink could be used to prevent a flash of the wrong colour as the logo loads",
 			"display_html": false,
 			"brands": [
 				"master"
@@ -117,17 +117,6 @@
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/partner-content-palette.mustache",
 			"description": "",
-			"display_html": false,
-			"brands": [
-				"master"
-			]
-		},
-		{
-			"name": "master-brand-palette",
-			"title": "Brand Palette",
-			"data": "demos/src/palettes/master-palette.json",
-			"template": "demos/src/brand-palette.mustache",
-			"description": "These colours are specifically designed for use in some digital assets, such as the FT logo. For example, brand-ft-pink could be used to prevent a flash of the wrong colours as the logo loads",
 			"display_html": false,
 			"brands": [
 				"master"

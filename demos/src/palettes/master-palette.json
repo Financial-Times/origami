@@ -1,25 +1,26 @@
 {
 	"primary": [
-		{ "name": "paper", "baseBackground": true },
 		{ "name": "black", "baseText": true },
 		{ "name": "white" },
-		{ "name": "claret" },
-		{ "name": "oxford" },
-		{ "name": "teal" }
+		{ "name": "brand-ft-pink" }
 	],
 	"secondary": [
-		{ "name": "wheat" },
-		{ "name": "sky" },
+		{ "name": "claret" },
+		{ "name": "teal" },
+		{ "name": "oxford" },
 		{ "name": "slate" },
-		{ "name": "velvet" },
-		{ "name": "mandarin" },
-		{ "name": "lemon" }
+		{ "name": "paper", "baseBackground": true }
 	],
 	"tertiary": [
-		{ "name": "jade" },
-		{ "name": "wasabi" },
+		{ "name": "mandarin" },
 		{ "name": "crimson" },
-		{ "name": "candy" }
+		{ "name": "wheat" },
+		{ "name": "candy" },
+		{ "name": "wasabi" },
+		{ "name": "jade" },
+		{ "name": "velvet" },
+		{ "name": "lemon" },
+		{ "name": "sky" }
 	],
 	"b2c": [
 		{ "name": "org-b2c" },
@@ -28,9 +29,6 @@
 	],
 	"partner-content": [
 		{ "name": "matisse" }
-	],
-	"brand": [
-		{ "name": "brand-ft-pink" }
 	],
 	"tones": [
 		{ "name": "claret", "values": [30, 40, 50, 60, 70, 80, 90, 100] },

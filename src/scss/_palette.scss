@@ -2,8 +2,6 @@
 
 // Define universal primary palette.
 $_o-colors-default-palette-colors: join((
-	('black', #000000),
-	('white', #ffffff),
 	('transparent', transparent),
 ), $_o-colors-default-palette-colors);
 
@@ -11,24 +9,27 @@ $_o-colors-default-palette-colors: join((
 @if oBrandGetCurrentBrand() == master {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
-		('paper', #fff1e5),
-		('claret', #990f3d, ('allow-tones': true)),
-		('oxford', #0f5499, ('allow-tones': true)),
-		('teal', #0d7680, ('allow-tones': true)),
+		('black', #000000),
+		('white', #ffffff),
+		('brand-ft-pink', #fcd0b1),
 
 		//secondary palette
-		('wheat', #f2dfce, ('allow-tones': true)),
-		('sky', #cce6ff),
+		('claret', #990f3d, ('allow-tones': true)),
+		('teal', #0d7680, ('allow-tones': true)),
+		('oxford', #0f5499, ('allow-tones': true)),
 		('slate', #262a33),
-		('velvet', #593380),
-		('mandarin', #ff8833),
-		('lemon', #ffec1a),
+		('paper', #fff1e5),
 
 		//tertiary palette
+		('mandarin', #ff8833),
+		('crimson', #cc0000),
+		('wheat', #f2dfce, ('allow-tones': true)),
 		('candy', #ff7faa),
 		('wasabi', #96cc28),
 		('jade', #00994d),
-		('crimson', #cc0000),
+		('velvet', #593380),
+		('lemon', #ffec1a),
+		('sky', #cce6ff),
 
 		//b2c palette
 		('org-b2c', #4e96eb),
@@ -37,9 +38,6 @@ $_o-colors-default-palette-colors: join((
 
 		//partner content palette
 		('matisse', #355778),
-
-		//brand palette
-		('brand-ft-pink', #fcd0b1),
 	), $_o-colors-default-palette-colors);
 }
 
@@ -47,6 +45,8 @@ $_o-colors-default-palette-colors: join((
 @if oBrandGetCurrentBrand() == internal {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
+		('black', #000000),
+		('white', #ffffff),
 		('oxford', #0f5499, ('allow-tones': true)),
 		('teal', #0d7680, ('allow-tones': true)),
 
@@ -66,6 +66,9 @@ $_o-colors-default-palette-colors: join((
 // Whitelabel brand palette.
 @if oBrandGetCurrentBrand() == 'whitelabel' {
 	$_o-colors-default-palette-colors: join((
+		// primary palette
+		('black', #000000),
+		('white', #ffffff),
 		//tertiary palette
 		('jade', #00994d),
 		('crimson', #cc0000)
