@@ -1,8 +1,6 @@
 # Rename the master brand
 
-Proposal to rename the "master brand" ~to the "pink brand", or similar~ core.
-
-Kati (creative director) took this to her team and other stakeholders who decided on "core". They are moving forward with "core brand" over "master brand" in future brand guidelines.
+Proposal to rename the "master brand" ~to the "pink brand", or similar~ "core brand".
 
 ## motivation
 
@@ -16,13 +14,15 @@ https://financialtimes.slack.com/archives/C02FU5ARJ/p1592311869388000
 
 Since, a proposal to the Tech Governance Group has been endorsed to [address offensive and objectionable technology terms](https://docs.google.com/document/d/1v6z7_NkLFeYAFotTYB8C1OguO5iMHHLpAOv_yG5EKHI/edit#heading=h.tzfu5ukd61s) which does a good job of explaining the motivation.
 
-Separately from avoiding the use of master, it implies that to Origami one brand is more important than another, which isn't necessarily true, and its not very clear what master means. We often explain the master brand as "ft.com look" or "the pink one", including in our intro to Origami sessions. We're [not the only ones](https://financialtimes.slack.com/archives/CSW6B2VAN/p1616516634025100?thread_ts=1616500932.023500&cid=CSW6B2VAN) to use these terms to explain the master brand.
+Changing the "master brand" to the "core brand" will hopefully contribute in some way to a more welcoming environment for a diverse and inclusive workforce.
 
-Changing the "master brand" to the "pink brand" will hopefully contribute in some way to a more welcoming environment for a diverse and inclusive workforce; avoid implying one brand is always a higher priority over another; and be more clear/easier to explain.
+### why "core"
+
+Kati (creative director) took this proposal to her team and other stakeholders who decided on "core" collectively. The brand team are now moving forward with "core brand" over "master brand" in future brand guidelines. Previous iterations of the proposal listed additional motivations to make it easier to explain/visualise the brand and avoid suggesting one brand was the most important - with name "ft pink" or "ft paper". However the brand team's feedback on that was that other brands do build of the core brand and they felt it was important to reflect that in the name, and that whilst paper/pink can refer to an FT editorial offering, it is also a colour and one that we use often, not always.
 
 ## work required
 
-I believe the master brand originally came from the design team. To avoid confusion we would need to communicate with other teams to ensure we all refer to the master brand by its new name.
+~I believe the master brand originally came from the design team. To avoid confusion we would need to communicate with other teams to ensure we all refer to the master brand by its new name.~ 
 
 As the default brand, renaming the master brand effects quite a few projects. We could do this work cleanly, all at once, as part of our [move to NPM](https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/), as that work already demands a new major of all components and a new version of the Origami Build Service. However we would need to complete the work within Q2 2021, else do the work later and maintain backward compatibility, which is much harder (see alternatives for steps required).
 
