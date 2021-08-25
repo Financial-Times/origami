@@ -105,11 +105,12 @@
 			"title": "B2C Palette",
 			"data": "demos/src/palettes/master-palette.json",
 			"template": "demos/src/b2c-palette.mustache",
-			"description": "These colors are specifically designed for use in B2C products.",
+			"description": "A candidate for deprecation. These colors were specifically designed for use in B2C products.",
 			"display_html": false,
 			"brands": [
 				"master"
-			]
+			],
+			"hidden": true
 		},
 		{
 			"name": "master-partner-content-palette",
