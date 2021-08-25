@@ -24,19 +24,17 @@ Kati (creative director) took this proposal to her team and other stakeholders w
 
 ~I believe the master brand originally came from the design team. To avoid confusion we would need to communicate with other teams to ensure we all refer to the master brand by its new name.~ 
 
-As the default brand, renaming the master brand effects quite a few projects. We could do this work cleanly, all at once, as part of our [move to NPM](https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/), as that work already demands a new major of all components and a new version of the Origami Build Service. However we would need to complete the work within Q2 2021, else do the work later and maintain backward compatibility, which is much harder (see alternatives for steps required).
-
-- [`origami-build-service`](https://github.com/Financial-Times/origami-build-service): the brand query parameter has an allowed list of brands which needs updating, etc.
-- [`origami-build-tools`](https://github.com/Financial-Times/origami-build-tools), the default brand when building demos, component verification, etc.
-- [`o-brand`](https://github.com/Financial-Times/o-brand): requires a major release so users and the Origami Build Service can set the current brand the new name.
-- all components: use the latest release of `o-brand` and replace references in Sass and `origami.json`.
+Introduce an alias in o-brand and services, and update documentation:
+- [`origami-build-service`](https://github.com/Financial-Times/origami-build-service): the brand query parameter has an allowed list of brands which needs updating / aliasing.
+- [`origami-build-tools`](https://github.com/Financial-Times/origami-build-tools), an alias for building demos, component verification, etc.
+- [`o-brand`](https://github.com/Financial-Times/o-brand): requires an alias
+- all components: update `origami.json`.
 - [`origami-repo-data`](https://github.com/Financial-Times/origami-repo-data): has apis which accept a brand list and need to be aliased, to support old and new components.
 - [`origami-registry-ui`](https://github.com/Financial-Times/origami-registry-ui): has hardcoded references to the master brand in templates etc
 - [`create-origami-component`](https://github.com/Financial-Times/create-origami-component/): component boilerplate uses the master brand
-- [origami-website](https://github.com/Financial-Times/origami-website/): documentation references the master brand, the v1 spec should document the master brand but include a note to say that v2 components switch to the new brand name
+- [origami-website](https://github.com/Financial-Times/origami-website/): documentation references the master brand
 - [`origami-codedocs`](https://github.com/Financial-Times/origami-codedocs) `@brand` annotation tests
-
-The extra work for users of components to upgrade would be minimal (updating a variable per project).
+- Create issues to remove the deprecated master alias in the next major version of o-brand and affected services. Code changes for users would be minimal but would cause a major cascade (major release of all components), so perhaps one to batch with other major releases.
 
 ## Alternatives
 
@@ -50,9 +48,3 @@ The same plan but a different name instead of master:
 ### Do nothing
 
 As the related [TGG proposal states](https://docs.google.com/document/d/1v6z7_NkLFeYAFotTYB8C1OguO5iMHHLpAOv_yG5EKHI/edit#heading=h.tzfu5ukd61s) "means we are not actively supporting and fostering an inclusive environment". It also means we have to keep explaining master means the pink/paper/ft.com one.
-
-### Rollout after the transition to npm
-
-This is more work and requires maintenance of both names over a period of time, until we release a new major of every component again.
-
-All tools and services would need to introduce an alias to support current and future component releases; `o-brand` would need a major release; and all branded components would require Sass and `origami.json` updates, but that could happen over time.
