@@ -99,14 +99,17 @@ sky | master
 velvet | master
 candy | master
 wasabi | master
+light-blue | master
+graphics-dark-blue | master
+ft-pink (previously brand-ft-pink) | master
+ft-grey | master
 org-b2c | master
 org-b2c-dark | master
 org-b2c-light | master
-brand-ft-pink | master
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
-`brand-ft-pink` should not be used in digital products, instead use `paper`. However since `brand-ft-pink` is used in some digital assets, such as the FT logo, there are a limited number of valid use-cases. For example  `brand-ft-pink` could be used to prevent a flash of the wrong colour as the logo loads.
+`ft-pink` and `ft-grey` are brand colours which are used in some digital assets, such as the FT logo, but have a limited number of valid use-cases for digital UI. Instead consider `paper` and `slate` or a black/paper mix such as `black-80`. As an example of a usecase for `ft-pink`, it could be used to prevent a flash of the wrong colour as a logo image loads.
 
 ### Default Palette Colours
 

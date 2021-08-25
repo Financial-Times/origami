@@ -2,8 +2,8 @@
 	"primary": [
 		{ "name": "black", "baseText": true },
 		{ "name": "white" },
-		{ "name": "brand-ft-pink" },
-		{ "name": "brand-ft-grey" }
+		{ "name": "ft-pink" },
+		{ "name": "ft-grey" }
 	],
 	"secondary": [
 		{ "name": "claret" },
