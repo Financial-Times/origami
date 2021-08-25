@@ -12,6 +12,7 @@ $_o-colors-default-palette-colors: join((
 		('black', #000000),
 		('white', #ffffff),
 		('brand-ft-pink', #fcd0b1),
+		('brand-ft-grey', #333333),
 
 		//secondary palette
 		('claret', #990f3d, ('allow-tones': true)),
@@ -22,7 +23,9 @@ $_o-colors-default-palette-colors: join((
 
 		//tertiary palette
 		('mandarin', #ff8833),
+		('light-blue', #00a0dd),
 		('crimson', #cc0000),
+		('graphics-dark-blue', #006f9b),
 		('wheat', #f2dfce, ('allow-tones': true)),
 		('candy', #ff7faa),
 		('wasabi', #96cc28),

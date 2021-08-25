@@ -2,7 +2,8 @@
 	"primary": [
 		{ "name": "black", "baseText": true },
 		{ "name": "white" },
-		{ "name": "brand-ft-pink" }
+		{ "name": "brand-ft-pink" },
+		{ "name": "brand-ft-grey" }
 	],
 	"secondary": [
 		{ "name": "claret" },
@@ -13,7 +14,9 @@
 	],
 	"tertiary": [
 		{ "name": "mandarin" },
+		{ "name": "light-blue" },
 		{ "name": "crimson" },
+		{ "name": "graphics-dark-blue" },
 		{ "name": "wheat" },
 		{ "name": "candy" },
 		{ "name": "wasabi" },
