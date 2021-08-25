@@ -7,13 +7,13 @@
 <br>
 {{#secondary}}
 	<label title="{{name}}">
-		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseBackground}}checked{{/baseBackground}}>
 	</label>
 {{/secondary}}
 <br>
 {{#tertiary}}
 	<label title="{{name}}">
-		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+		<input type=radio name="background" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseBackground}}checked{{/baseBackground}}>
 	</label>
 {{/tertiary}}
 

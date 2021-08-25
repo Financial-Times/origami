@@ -10,13 +10,13 @@
 		<br>
 		{{#secondary}}
 			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseText}}checked{{/baseText}}>
 			</label>
 		{{/secondary}}
 		<br>
 		{{#tertiary}}
 			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+				<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseText}}checked{{/baseText}}>
 			</label>
 		{{/tertiary}}
 
@@ -29,13 +29,13 @@
 		<br>
 		{{#secondary}}
 			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseBackground}}checked{{/baseBackground}}>
 			</label>
 		{{/secondary}}
 		<br>
 		{{#tertiary}}
 			<label title="{{name}}">
-				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}">
+				<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-{{name}})" value="{{name}}" {{#baseBackground}}checked{{/baseBackground}}>
 			</label>
 		{{/tertiary}}
 
