@@ -35,7 +35,7 @@ The subs card will expand to fill the width of its containing element, so you wi
 					<li>...</li>
 				</ul>
 			</div>
-			<div class='o-subs-card__read-more'>Read more</div>
+			<button class='o-subs-card__read-more'></button>
 		</div>
 	</div>
 </div>
@@ -89,7 +89,8 @@ This will instantiate all subs-cards within the document. Alternatively you can 
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 5 | N/A | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+⚠ maintained | 5 | 5.0.1 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ⚠ maintained | 4 | 4.1 | [migrate to v4](MIGRATION.md#migrating-from-v3-to-v4) |
 ╳ deprecated | 3 | 3.1 | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ╳ deprecated | 2 | 2.4 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |

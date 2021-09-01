@@ -27,7 +27,7 @@ function htmlCode () {
 				<div class="o-subs-card__copy-details">
 					Some content
 				</div>
-				<div class="o-subs-card__read-more"></div>
+				<button class="o-subs-card__read-more"></button>
 			</div>
 		</div>
 	</div>
@@ -45,7 +45,7 @@ function htmlCodeMulti () {
 					<div class="o-subs-card__copy-details">
 						Some content
 					</div>
-					<div class="o-subs-card__read-more"></div>
+					<button class="o-subs-card__read-more"></button>
 				</div>
 			</div>
 			<div class="o-subs-card" data-o-component="o-subs-card">
@@ -54,7 +54,7 @@ function htmlCodeMulti () {
 					<div class="o-subs-card__copy-details">
 						Some content
 					</div>
-					<div class="o-subs-card__read-more"></div>
+					<button class="o-subs-card__read-more"></button>
 				</div>
 			</div>
 		</div>

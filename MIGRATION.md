@@ -1,5 +1,23 @@
 # Migration Guide
 
+## Migrating from v5 to v6
+
+The "more/less" toggle has been updated to use a `button` element instead of a `div` to improve keyboard accessibility.
+
+To upgrade, replace the "read more" `div` tag with a `button` tag in your markup.
+```diff
+- <div class='o-subs-card__read-more'>Read more</div>
++ <button class='o-subs-card__read-more'></button>
+```
+
+The button copy is added dynamically, and now includes hidden text to provide screen reader users more context based on the title of the card e.g. `Read more about Print`.
+A new CSS class has been added to have visually hidden elements but to be used for screen reader users.
+```
+.o-subs-card-visually-hidden {
+    @include oNormaliseVisuallyHidden;
+}
+```
+
 ## Migrating from v4 to v5
 
 The mixin `oSubsCard` has been renamed to `oSubsCardBase`.
@@ -83,13 +101,13 @@ The markup has been rearranged, and some classes have been removed.
 			</div>
 -			<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
 				<div class="o-subs-card__expander">
--		 		<div class='o-subs-card__read-more'>Read more</div>
+-		 		<div class='o-subs-card__read-more'></div>
 					<div class="o-subs-card__copy-details">
 						<ul class="o-subs-card__copy-benefits">
 							<li>...</li>
 						</ul>
 					</div>
-+					<div class='o-subs-card__read-more'>Read more</div>
++					<button class='o-subs-card__read-more'></button>
 				</div>
 		</div>
 + </div>
