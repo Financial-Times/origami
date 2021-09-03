@@ -28,9 +28,8 @@ export default ({ title, altTitle, headlineTesting, relativeUrl, url, indicators
 			{indicators && indicators.accessLevel === 'premium' ? (
 				<span>
 					{' '}
-					<span className={premiumClass} aria-label="Premium content">
-						Premium
-					</span>
+					<span className={premiumClass}>Premium</span>
+					<span className="o-normalise-visually-hidden">&nbsp;content</span>
 				</span>
 			) : null}
 		</div>
