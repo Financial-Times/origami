@@ -2,11 +2,13 @@
  * Do not edit directly
  * Generated on Tue, 14 Sep 2021 10:48:02 GMT
  */
-
 :root {
-  --size-font-large: 2rem; /* the large size of the font */
-  --size-font-medium: 1rem; /* the medium size of the font */
-  --size-font-small: 0.75rem; /* the small size of the font */
+  --size-font-large: 2rem;
+  /* the large size of the font */
+  --size-font-medium: 1rem;
+  /* the medium size of the font */
+  --size-font-small: 0.75rem;
+  /* the small size of the font */
   --color-teal-100: #198cff;
   --color-teal-90: #167ee6;
   --color-teal-80: #1470cc;
@@ -54,7 +56,8 @@
   --color-oxford: #0f5499;
   --color-claret: #000000;
   --color-paper: #fff1e5;
-  --size-font-base: var(--size-font-medium); /* the base size of the font */
+  --size-font-base: var(--size-font-medium);
+  /* the base size of the font */
   --color-foreground-logo: var(--color-ft-grey);
   --color-background-logo: var(--color-ft-pink);
   --color-background-page: var(--color-white);
@@ -70,3 +73,37 @@
   --color-button-primary-foreground: var(--color-white);
   --color-button-primary-background: var(--color-teal);
 }
+
+body {
+  background-color: #ffffff;
+  background-color: var(--color-background-page);
+}
+
+button {
+  color: #ffffff;
+  color: var(--color-button-primary-foreground);
+  background: #0d7680;
+  background: var(--color-button-primary-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  /**
+   * Do not edit directly
+   * Generated on Tue, 14 Sep 2021 10:48:02 GMT
+   */
+  :root {
+    --color-foreground-logo: var(--color-velvet);
+    --color-background-logo: var(--color-white);
+    --color-background-page: var(--color-velvet);
+    --color-button-primary-focus-foreground: var(--color-white);
+    --color-button-primary-focus-background: var(--color-teal-30);
+    --color-button-primary-active-foreground: var(--color-white);
+    --color-button-primary-active-background: var(--color-teal-20);
+    --color-button-primary-hover-foreground: var(--color-white);
+    --color-button-primary-hover-background: var(--color-teal-30);
+    --color-button-primary-foreground: var(--color-slate);
+    --color-button-primary-background: var(--color-white);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
