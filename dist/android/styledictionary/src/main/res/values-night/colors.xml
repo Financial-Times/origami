@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly
+  Generated on Tue, 14 Sep 2021 09:51:57 GMT
+-->
+<resources>
+  <color name="color_button_primary_background">#ffffffff</color>
+  <color name="color_button_primary_foreground">#ff262a33</color>
+  <color name="color_button_primary_hover_background">#ff072a4d</color>
+  <color name="color_button_primary_hover_foreground">#ffffffff</color>
+  <color name="color_button_primary_active_background">#ff051c33</color>
+  <color name="color_button_primary_active_foreground">#ffffffff</color>
+  <color name="color_button_primary_focus_background">#ff072a4d</color>
+  <color name="color_button_primary_focus_foreground">#ffffffff</color>
+  <color name="color_background_page">#ff593380</color>
+  <color name="color_background_logo">#ffffffff</color>
+  <color name="color_foreground_logo">#ff593380</color>
+  
+</resources>

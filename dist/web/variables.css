@@ -1,0 +1,73 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 14 Sep 2021 09:51:57 GMT
+ */
+
+:root {
+  --size-font-large: 2rem; /* the large size of the font */
+  --size-font-medium: 1rem; /* the medium size of the font */
+  --size-font-small: 0.75rem; /* the small size of the font */
+  --color-teal-100: #198cff;
+  --color-teal-90: #167ee6;
+  --color-teal-80: #1470cc;
+  --color-teal-70: #1162b3;
+  --color-teal-60: #0f5499;
+  --color-teal-50: #0c4680;
+  --color-teal-40: #0a3866;
+  --color-teal-30: #072a4d;
+  --color-teal-20: #051c33;
+  --color-oxford-100: #198cff;
+  --color-oxford-90: #167ee6;
+  --color-oxford-80: #1470cc;
+  --color-oxford-70: #1162b3;
+  --color-oxford-60: #0f5499;
+  --color-oxford-50: #0c4680;
+  --color-oxford-40: #0a3866;
+  --color-oxford-30: #072a4d;
+  --color-claret-100: #198cff;
+  --color-claret-90: #167ee6;
+  --color-claret-80: #1470cc;
+  --color-claret-70: #1162b3;
+  --color-claret-60: #0f5499;
+  --color-claret-50: #0c4680;
+  --color-claret-40: #0a3866;
+  --color-claret-30: #072a4d;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-ft-grey: #333333;
+  --color-ft-pink: #fcd0b1;
+  --color-matisse: #355778;
+  --color-org-b2c-light: #99c6fb;
+  --color-org-b2c-dark: #3a70af;
+  --color-org-b2c: #4e96eb;
+  --color-crimson: #cc0000;
+  --color-jade: #00994d;
+  --color-wasabi: #96cc28;
+  --color-candy: #ff7faa;
+  --color-lemon: #ffec1a;
+  --color-mandarin: #ff8833;
+  --color-velvet: #593380;
+  --color-slate: #262a33;
+  --color-sky: #cce6ff;
+  --color-wheat: #000000;
+  --color-teal: #0d7680;
+  --color-oxford: #0f5499;
+  --color-claret: #000000;
+  --color-paper: #fff1e5;
+  --image-logo: assets/svg/brand-ft-logo-square-coloured.svg;
+  --size-font-base: var(--size-font-medium); /* the base size of the font */
+  --color-foreground-logo: var(--color-ft-grey);
+  --color-background-logo: var(--color-ft-pink);
+  --color-background-page: var(--color-white);
+  --color-font-tertiary: var(--color-black);
+  --color-font-secondary: var(--color-black);
+  --color-font-base: var(--color-black);
+  --color-button-primary-focus-foreground: var(--color-white);
+  --color-button-primary-focus-background: var(--color-teal-30);
+  --color-button-primary-active-foreground: var(--color-white);
+  --color-button-primary-active-background: var(--color-teal-20);
+  --color-button-primary-hover-foreground: var(--color-white);
+  --color-button-primary-hover-background: var(--color-teal-30);
+  --color-button-primary-foreground: var(--color-white);
+  --color-button-primary-background: var(--color-teal);
+}
