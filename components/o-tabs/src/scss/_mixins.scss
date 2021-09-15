@@ -1,0 +1,44 @@
+
+/// Base styles for tabs.
+///
+/// @output The output includes all styles for basic tabs.
+/// @example scss - Base tab styles
+///   @include _oTabsBase();
+/// @access private
+@mixin _oTabsBase() {
+
+	// We only want these tab styles to apply when JavaScript has loaded,
+	// so we don't make any content inaccessible to non-JavaScript users.
+	// The o-tabs JavaScript adds the `data-o-tabs--js` attribute
+	.o-tabs[data-o-tabs--js] {
+		&[role=tablist] {
+			margin: 0;
+			padding: 0;
+			text-align: left;
+		}
+
+		&.o-tabs--alignright[role=tablist] {
+			text-align: right;
+		}
+
+		[role=tab] {
+			display: inline;
+			padding: 0;
+			list-style-type: none;
+
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			&[aria-selected=true] a {
+				color: inherit;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.o-tabs__tabpanel[role=tabpanel][aria-hidden=true] {
+		display: none;
+	}
+}

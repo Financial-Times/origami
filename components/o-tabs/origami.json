@@ -1,0 +1,81 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands" : [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"support": "https://github.com/Financial-Times/o-tabs/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"queryselector",
+			"addeventlistener",
+			"classlist",
+			"String.prototype.trim"
+		],
+		"optional": [
+			"domcontentready",
+			"customevent"
+		]
+	},
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^5",
+			"o-normalise@^3"
+		]
+	},
+	"demos": [
+		{
+			"title": "Buttontabs",
+			"name": "buttontabs",
+			"template": "demos/src/buttontabs.mustache",
+			"description": ""
+		},
+		{
+			"title": "Button Tabs Primary",
+			"name": "buttontabs-primary",
+			"template": "demos/src/buttontabs-primary.mustache",
+			"description": "",
+			"hidden": true
+		},
+		{
+			"title": "Button Tabs Secondary Inverse",
+			"name": "buttontabs-inverse",
+			"template": "demos/src/buttontabs-inverse.mustache",
+			"documentClasses": "demo-inverse",
+			"brands": [
+				"master",
+				"internal"
+			],
+			"description": ""
+		},
+		{
+			"title": "Button Tabs Big",
+			"name": "buttontabs-big",
+			"template": "demos/src/buttontabs-big.mustache",
+			"description": "Add the big modifier to any theme for larger tabs."
+		},
+		{
+			"title": "Base Style",
+			"name": "base-style",
+			"template": "demos/src/base-style.mustache",
+			"hidden": true,
+			"description": ""
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "",
+			"hidden": true
+		}
+	]
+}

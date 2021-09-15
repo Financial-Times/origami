@@ -1,0 +1,15 @@
+
+@import "../../main";
+
+@include oTabs();
+
+body {
+	margin: 1rem;
+}
+
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	.demo-inverse {
+		color: oColorsByName('white');
+		background: oColorsByName('slate');
+	}
+}
