@@ -1,0 +1,44 @@
+name: Percy components/o-toggle
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "components/o-toggle/package.json"
+     - "components/o-toggle/package-lock.json"
+     - "components/o-toggle/origami.json"
+     - "components/o-toggle/main.js"
+     - "components/o-toggle/main.scss"
+     - "components/o-toggle/demos/**"
+     - "components/o-toggle/src/**"
+  push:
+    branches: main
+    paths:
+     - "components/o-toggle/package.json"
+     - "components/o-toggle/package-lock.json"
+     - "components/o-toggle/origami.json"
+     - "components/o-toggle/main.js"
+     - "components/o-toggle/main.scss"
+     - "components/o-toggle/demos/**"
+     - "components/o-toggle/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+        registry-url: 'https://origami-npm-registry-prototype.herokuapp.com'
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_TOGGLE }}
+        WORKSPACE: components/o-toggle

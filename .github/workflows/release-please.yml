@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - main
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          token: ${{ secrets.ORIGAMI_GITHUB_TOKEN }}
+          command: manifest
+          monorepo-tags: true
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.releases_created }}
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: 16
+          registry-url: 'https://origami-npm-registry-prototype.herokuapp.com'
+        if: ${{ steps.release.outputs.releases_created }}
+      - run: npm ci
+        if: ${{ steps.release.outputs.releases_created }}
+      - run: node ./scripts/publish.js '${{toJSON(steps.release.outputs)}}'
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          REPO_DATA_KEY: ${{secrets.REPO_DATA_KEY}}
+          REPO_DATA_SECRET: ${{secrets.REPO_DATA_SECRET}}
+        if: ${{ steps.release.outputs.releases_created }}
