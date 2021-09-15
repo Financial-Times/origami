@@ -1,5 +1,5 @@
 {
-	"bootstrap-sha": "1b975669fa23f7344f7d0b2e62ae477357139312",
+	"bootstrap-sha": "fd786c42affbe1a13b891e0b143b225b55f43035",
 	"packages": {
 		"components/o-autocomplete": {},
 		"libraries/o-autoinit": {},
