@@ -1,0 +1,20 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oAutocompleteGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-autocomplete', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oAutocompleteSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-autocomplete', $variant: $variant);
+}
+
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-autocomplete', 'master', (
+		'variables': (
+			search-close: oColorsByName('black-80'),
+		),
+		'supports-variants': ()
+	));
+}

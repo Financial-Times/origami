@@ -1,0 +1,66 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": ["master"],
+	"support": "https://github.com/Financial-Times/o-autocomplete/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/#origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"Array.from",
+			"Element.prototype.closest",
+			"Element.prototype.matches",
+			"String.prototype.startsWith"
+		]
+	},
+	"demosDefaults": {
+		"sass": "demos/src/shared.scss",
+		"documentClasses": "",
+		"dependencies": [
+			"o-forms@^9.0.0",
+			"o-normalise@^3.0.0",
+			"o-utils@^2.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Enhanced select element",
+			"name": "static",
+			"template": "demos/src/static/static.mustache",
+			"description": "Autocomplete based on static data provided by a select element",
+			"js": "demos/src/static/static.js"
+		},
+		{
+			"title": "Dynamic options",
+			"name": "dynamic",
+			"template": "demos/src/dynamic/dynamic.mustache",
+			"description": "Autocomplete data is provided by a JavaScript function",
+			"js": "demos/src/dynamic/dynamic.js"
+		},
+		{
+			"title": "Delayed dynamic options",
+			"name": "dynamic-delayed",
+			"template": "demos/src/dynamic-delayed/dynamic-delayed.mustache",
+			"description": "Same as the dynamic demo but the data is purposefully delayed to show the loading state",
+			"js": "demos/src/dynamic-delayed/dynamic-delayed.js"
+		},
+		{
+			"title": "Complex dynamic autocomplete",
+			"name": "dynamic-complex",
+			"template": "demos/src/dynamic-complex/dynamic-complex.mustache",
+			"description": "The source function returns objects and the mapOptionToSuggestedValue transforms the objects into string to suggestion",
+			"js": "demos/src/dynamic-complex/dynamic-complex.js",
+			"hidden": true
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
+}
