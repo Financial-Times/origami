@@ -1,0 +1,25 @@
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+
+/// Outputs selectors and styles for the compact variant overlay.
+///
+/// @output The output includes the `.o-overlay--compact` class definition.
+/// @access private
+@mixin _oOverlayCompact {
+	.o-overlay--compact {
+		.o-overlay__content {
+			padding: oSpacingByName('s3');
+		}
+		.o-overlay__heading {
+			@include oTypographySans($scale: 0, $include-font-family: false);
+		}
+		.o-overlay__title {
+			margin-top: oSpacingByName('s2'); // Actually 10px - line-height adds some space too
+			margin-bottom: oSpacingByName('s1');
+			margin-left: oSpacingByName('s3');
+		}
+		.o-overlay__close {
+			margin: oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s2') oSpacingByName('s3');
+		}
+	}
+}

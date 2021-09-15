@@ -1,0 +1,62 @@
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+
+/// Outputs selectors and styles for the base overlay.
+///
+/// @output The output includes the `.o-overlay` class definition as well as selectors for required
+/// child elements.
+/// @access private
+@mixin _oOverlayBase {
+	.o-overlay {
+		@include oVisualEffectsShadowContent($elevation: 'high');
+		@include oTypographySans($scale: 0);
+		position: fixed;
+		z-index: 11; // Must always be higher than the shadow z-index
+		box-sizing: border-box;
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out;
+		border: $_o-overlay-border-width solid _oOverlayGet('default-border');
+		background: _oOverlayGet('default-background');
+	}
+	.o-overlay-shadow {
+		background-color: rgba(0, 0, 0, 0.2);
+		position: fixed;
+		height: 150%; // because on some phones scrolling upwards detaches a 100% height overlay from the bottom of the screen
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 10; // Must always be lower than the overlay z-index
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out;
+	}
+	.o-overlay__heading {
+		@include oTypographySans($scale: 2, $include-font-family: false);
+		margin: 0;
+		overflow: hidden;
+		background: _oOverlayGet('heading-background');
+		color: _oOverlayGet('heading-text');
+	}
+	.o-overlay__title {
+		margin: oSpacingByName('s3');
+		margin-right: oSpacingByName('s6');
+		display: block;
+		overflow: auto;
+	}
+	.o-overlay__close {
+		@include oOverlayContentClose();
+	}
+	.o-overlay__content {
+		position: relative;
+		box-sizing: border-box;
+		overflow: auto;
+		padding: oSpacingByName('s4');
+
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

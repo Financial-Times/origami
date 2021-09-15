@@ -1,0 +1,71 @@
+/// @group o-overlay
+/// @link http://registry.origami.ft.com/components/o-overlay
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oOverlayGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-overlay', 'master', (
+		'variables': (
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('black-20'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('black-80'),
+			shaded-heading-border: oColorsByName('black-80'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black-60'),
+			default-close-border: oColorsByName('black-50'),
+			shaded-close-background: oColorsByName('black-50'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
+		),
+		'supports-variants': ()
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-overlay', 'internal', (
+		'variables': (
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('transparent'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('slate'),
+			shaded-heading-border: oColorsByName('slate'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black-60'),
+			default-close-border: oColorsByName('slate-white-5'),
+			shaded-close-background: oColorsByName('slate'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
+		),
+		'supports-variants': ()
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-overlay', 'whitelabel', (
+		'variables': (
+			default-background: oColorsByName('white'),
+			default-border: oColorsByName('transparent'),
+			heading-background: oColorsByName('transparent'),
+			heading-text: oColorsByName('black-80'),
+			shaded-heading-background: oColorsByName('black'),
+			shaded-heading-border: oColorsByName('black'),
+			shaded-heading-text: oColorsByName('white'),
+			default-close-background: oColorsByName('white'),
+			default-close-text: oColorsByName('black'),
+			default-close-border: oColorsByName('black'),
+			shaded-close-background: oColorsByName('black'),
+			shaded-close-text: oColorsByName('white'),
+			shaded-close-border: oColorsByName('white')
+		),
+		'supports-variants': ()
+	));
+}

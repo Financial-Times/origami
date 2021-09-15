@@ -1,0 +1,25 @@
+@import "../../main";
+@include oOverlay();
+
+body {
+	@include oTypographySans();
+	padding: oSpacingByName('s3');
+	min-height: 500px;
+}
+
+.demo-button {
+	margin-right: oSpacingByName('s1');
+}
+
+.demo-overlay-container {
+	height: 220px;
+}
+
+.demo-overlay {
+	width: 100%;
+	max-width: 500px;
+}
+
+strong {
+	font-weight: 600;
+}
