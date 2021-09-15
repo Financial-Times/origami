@@ -1,0 +1,39 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oQuoteGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-quote', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oQuoteSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-quote', $variant: $variant);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-quote', 'master', (
+		'variables': (),
+		'supports-variants': (
+			'editorial',
+			'standard'
+		)
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-quote', 'internal', (
+		'variables': (),
+		'supports-variants': (
+			'standard'
+		)
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-quote', 'whitelabel', (
+		'variables': (),
+		'supports-variants': (
+			'standard'
+		)
+	));
+}

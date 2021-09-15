@@ -1,0 +1,7 @@
+@import "./../../main";
+
+body {
+	padding: 1.5rem;
+}
+
+@include oQuote();
