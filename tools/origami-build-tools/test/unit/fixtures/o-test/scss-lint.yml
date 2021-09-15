@@ -1,0 +1,14 @@
+linters:
+
+  # "value !important;" not "value!important ;"
+  BangFormat:
+    enabled: true
+    space_before_bang: false # Is true in default config
+    space_after_bang: false
+    severity: error
+
+  TrailingSemicolon:
+    enabled: false
+
+  ImportantRule:
+    enabled: false

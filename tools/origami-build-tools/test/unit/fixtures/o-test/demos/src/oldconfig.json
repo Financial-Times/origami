@@ -1,0 +1,18 @@
+{
+	"options": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"bodyClasses": "o-hoverable-on"
+	},
+	"demos": {
+		"test1": {
+			"description": "First test",
+			"template": "demos/src/test1.mustache"
+		},
+		"test2": {
+			"description": "Second test",
+			"template": "demos/src/test2.mustache",
+			"hidden": true
+		}
+	}
+}

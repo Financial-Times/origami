@@ -1,0 +1,50 @@
+{
+	"description": "a fixture to test the demo command of origami-build-tools",
+	"keywords": [],
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": ["master"],
+	"support": "https://github.com/Financial-Times/o-multiple-demos/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/#origami-support"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {
+		"required": [
+			"Array.from"
+		]
+	},
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"@financial-times/o-fonts@5.0.0-1"
+		]
+	},
+	"demos": [
+		{
+			"title": "Demo One",
+			"name": "demo-1",
+			"template": "demos/src/demo-1.mustache",
+			"documentClasses": "demo-1",
+			"description": "This demo uses the default demo JavaScript and Sass."
+		},
+		{
+			"title": "Demo Two",
+			"name": "demo-2",
+			"template": "demos/src/demo-2.mustache",
+			"documentClasses": "demo-2",
+			"js": "demos/src/demo-2.js",
+			"sass": "demos/src/demo-2.scss",
+			"description": "This demo has its own JavaScript and Sass."
+		},
+		{
+			"title": "Data OK",
+			"name": "data-ok",
+			"template": "demos/src/demo-1.mustache",
+			"description": "This demo has data",
+			"data": "demos/src/data-ok.json"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultipleDemosGet($variables, $from: null) {
+    @return oBrandGet($component: 'o-multiple-demos', $variables: $variables, $from: $from);
+}
+/// Helper for `o-brand` function.
+/// @access private
+@function _oMultipleDemosSupports($variant) {
+    @return oBrandSupportsVariant($component: 'o-multiple-demos', $variant: $variant);
+}

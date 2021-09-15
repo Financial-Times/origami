@@ -1,0 +1,13 @@
+.hyphenated-lowercase {
+	content: '';
+}
+
+.snake_case {
+	content: '';
+}
+
+// we allow leading with an underscore,
+// but maybe shouldn't for css class names
+._with-leading-underscore {
+	content: '';
+}

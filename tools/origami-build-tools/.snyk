@@ -1,0 +1,470 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:braces:20180219':
+    - karma > chokidar > anymatch > micromatch > braces:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.917Z'
+    - karma > expand-braces > braces:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:ws:20171108':
+    - karma > socket.io > socket.io-client > engine.io-client > ws:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > engine.io > ws:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.919Z'
+  'npm:debug:20170905':
+    - karma > socket.io > engine.io > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > socket.io-adapter > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > socket.io-client > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > socket.io-parser > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.918Z'
+    - karma > socket.io > socket.io-client > socket.io-parser > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.919Z'
+    - karma > socket.io > debug:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:ms:20170412':
+    - karma > socket.io > socket.io-client > socket.io-parser > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > engine.io > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-adapter > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-client > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-client > engine.io-client > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-parser > debug > ms:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:lodash:20180130':
+    - karma > lodash:
+        reason: Big Karma update scheduled.
+        expires: '2019-02-03T15:08:10.920Z'
+  'npm:diff:20180305':
+    - mocha > diff:
+        reason: Big Mocha update scheduled.
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:serve:20180529':
+    - serve:
+        reason: Update scheduled.
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:serve:20180531':
+    - serve:
+        reason: Update scheduled.
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:mem:20180117':
+    - webpack > yargs > os-locale > mem:
+        reason: Webpack update scheduled.
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:chownr:20180731':
+    - chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+    - karma > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+    - webpack > watchpack > chokidar > fsevents > node-pre-gyp > tar > chownr:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:eslint:20180222':
+    - sass-lint > eslint:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:https-proxy-agent:20180402':
+    - karma-browserstack-launcher > browserstack > https-proxy-agent:
+        reason: None given
+        expires: '2019-02-03T15:08:10.921Z'
+  'npm:parsejson:20170908':
+    - karma > socket.io > socket.io-client > engine.io-client > parsejson:
+        reason: None given
+        expires: '2019-02-03T15:08:10.922Z'
+  'npm:shelljs:20140723':
+    - sass-lint > eslint > shelljs:
+        reason: None given
+        expires: '2019-02-03T15:08:10.922Z'
+  'snyk:lic:npm:pa11y:LGPL-3.0':
+    - pa11y:
+        reason: None given
+        expires: '2019-02-03T15:08:10.922Z'
+  SNYK-JS-FLAT-596927:
+    - mocha > yargs-unparser > flat:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-535497:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-535498:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-535502:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540956:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540958:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540964:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540974:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540978:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540980:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540990:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540992:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540994:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540996:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-540998:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-541000:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+  SNYK-JS-NODESASS-541002:
+    - node-sass:
+        reason: not vulnerable
+        expires: '2020-09-04T11:44:19.165Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - karma > socket.io > socket.io-adapter > socket.io-parser > debug > ms:
+        patched: '2020-03-20T13:54:14.814Z'
+  SNYK-JS-LODASH-567746:
+    - '@swc/cli > lodash':
+        patched: '2020-05-04T13:24:23.777Z'
+    - eslint > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - karma > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - karma-scss-preprocessor > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - node-sass > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint-scss > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - eslint > table > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > table > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - portfinder > async > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - mocha > yargs-unparser > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/ruby-semver > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > postcss-reporter > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - karma > log4js > streamroller > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - karma > log4js > streamroller > async > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/generator > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T13:24:23.777Z'
+    - '@swc/cli > lodash':
+        patched: '2020-05-05T10:49:49.903Z'
+    - eslint > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - karma > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - karma-scss-preprocessor > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - node-sass > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - eslint > table > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > table > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - portfinder > async > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - mocha > yargs-unparser > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > postcss-reporter > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint-config-origami-component > stylelint-order > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint-config-origami-component > stylelint-scss > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - karma > log4js > streamroller > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint-config-origami-component > stylelint-order > postcss-sorting > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - karma > log4js > streamroller > async > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/generator > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-member-expression-to-functions > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'
+    - stylelint > @stylelint/postcss-css-in-js > @babel/core > @babel/helper-module-transforms > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-05T10:49:49.903Z'

@@ -1,0 +1,10 @@
+{
+	"name": "@financial-times/with-npm-dependencies",
+	"type": "module",
+	"engines": {
+		"npm": "^7"
+	},
+	"dependencies": {
+		"lodash": "*"
+	}
+}

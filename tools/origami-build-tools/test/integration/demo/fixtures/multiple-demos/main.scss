@@ -1,0 +1,12 @@
+/// Output all oMultipleDemos features
+/// @param {Map} $opts - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oMultipleDemos($opts: (
+///			// your opts here
+///		))
+@mixin oMultipleDemos ($opts: ()) {
+	.o-multiple-demos {
+		background: #ffffff;
+	}
+}

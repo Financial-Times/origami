@@ -1,0 +1,12 @@
+@mixin oTestComponent() {
+	.o-test {
+		font-size: 18px;
+
+		&--error {
+			background-color: red;
+			color: white;
+		}
+	}
+}
+
+@include oTestComponent;

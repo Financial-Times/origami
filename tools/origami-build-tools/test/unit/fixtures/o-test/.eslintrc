@@ -1,0 +1,36 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "eqeqeq": 2,
+    "guard-for-in": 2,
+    "no-extend-native": 2,
+    "wrap-iife": 2,
+    "new-cap": 2,
+    "no-caller": 2,
+    "no-irregular-whitespace": 1,
+    "no-trailing-spaces": 2,
+    "no-multi-str": 0,
+    "dot-notation": 0,
+    "strict": [2, "function"],
+    "quotes": [1, "single"],
+    "valid-jsdoc": 1,
+    "no-multi-spaces": 2,
+    "no-multiple-empty-lines": 2,
+    "one-var": [2, "never"],
+    "constructor-super": 2,
+    "no-this-before-super": 2,
+    "no-var": 2,
+    "no-unused-vars": 0,
+    "prefer-const": 1,
+	"no-const-assign": 2
+  },
+  "globals": {
+    "require": true,
+    "module": true,
+    "exports": true,
+    "requireText": true
+  }
+}

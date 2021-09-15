@@ -1,0 +1,6 @@
+{
+  "name": "@financial-times/error",
+  "devDependencies": {
+    "eslint-config-origami-component": "^2.1.0"
+  }
+}

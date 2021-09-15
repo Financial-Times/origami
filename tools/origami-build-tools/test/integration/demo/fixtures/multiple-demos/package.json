@@ -1,0 +1,5 @@
+{
+  "name": "@financial-times/o-multiple-demos",
+  "description": "a fixture to test the demo command of origami-build-tools",
+  "browser": "main.js"
+}

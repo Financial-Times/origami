@@ -1,0 +1,15 @@
+{
+  "name": "@financial-times/sass-invalid",
+  "version": "1.0.0",
+  "description": "for a fixture",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "stylelint": "^13.7.0",
+    "stylelint-config-origami-component": "^1.0.4"
+  }
+}
