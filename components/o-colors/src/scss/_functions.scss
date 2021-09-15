@@ -1,0 +1,459 @@
+/// Return the CSS color for a palette color name.
+///
+/// @param {String} $color-name - The name of the colour to get.
+@function oColorsByName($color-name) {
+	// Validate color name is a string.
+	@if(type-of($color-name) != 'string') {
+		@return _oColorsError('`$color-name` should be a string but found "#{inspect($color-name)}" of type "#{type-of($color-name)}".');
+	}
+
+	// Error when the color name is not found.
+	// Get the namespaced color name.
+	@if (not _oColorsNameExists($color-name)) {
+		@return _oColorsError('The color "#{inspect($color-name)}" does not exist.');
+	}
+
+	// Get color details.
+	$color-map: map-get($_o-colors-palette, $color-name);
+	$color: map-get($color-map, 'value');
+	$meta: map-get($color-map, 'meta');
+
+	// Output any deprecation notice.
+	$deprecated: map-get($meta, 'deprecated');
+	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
+	@if $deprecated and not $already-warned {
+		$deprecation-message: 'The color "#{$color-name}" is deprecated for the "#{oBrandGetCurrentBrand()}" palette, and will be removed in the next major.';
+		// Append any custom deprecation message.
+		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
+		// Output warning.
+		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $color-name) !global;
+		@warn $deprecation-message;
+	}
+
+	@return $color;
+}
+
+/// Return the defined palette color for a use case / property combination
+///
+/// @param {String} $usecase - The name of the usecase, e.g. 'page'.
+/// @param {String} $property - The usecase property e.g. 'text', 'background', 'border', 'outline'
+/// @param {String|Color|Null} $fallback - The fallback if the usecase is not found. Either a colour, palette colour string, or `null` (note: the default is `false` to indicate no fallback).
+/// @return {Color} - The usecase colour.
+@function oColorsByUsecase($usecase, $property, $fallback: false) {
+	// Find the colour name of the requested usecase.
+	// Validate usecase is a string.
+	@if(type-of($usecase) != 'string') {
+		@return _oColorsError('`$usecase` should be a string but found ' +
+		'"#{inspect($usecase)}" of type "#{type-of($usecase)}".');
+	}
+
+	// Validate property is allowed.
+	$valid-properties: ('text', 'background', 'border', 'outline');
+	@if(not index($valid-properties, $property)) {
+		@return _oColorsError('`$property` should be one of ' +
+		'"#{inspect($valid-properties)}" but found "#{inspect($property)}".');
+	}
+
+	// Find usecase config.
+	$config: map-get($_o-colors-usecases, $usecase);
+	$config: if($config, $config, ());
+
+	// Get colour for usecase property.
+	$colors: if($config, map-get($config, 'colors'), null);
+	$color: if($colors, map-get($colors, $property), null);
+
+	// Output any deprecation warnings, if not already.
+	$opts: if($config, map-get($config, 'opts'), ());
+	$deprecated: if(type-of($opts) == 'map', map-get($opts, 'deprecated'), null);
+	$deprecated-key: 'usecase-#{$usecase}-#{$property}';
+	@if(not index($_o-colors-deprecation-warnings-output, $deprecated-key)) {
+		@if (type-of($deprecated) == 'string') {
+			@warn 'Color usecase "#{inspect($usecase)}" is deprecated ' +
+				'(property "#{inspect($property)}" was requested): #{inspect($deprecated)}';
+		}
+		@if (type-of($deprecated) == 'map' and map-has-key($deprecated, $property)) {
+			@warn 'The "#{inspect($property)}" property of the "#{inspect($usecase)}" ' +
+				'color usecase is deprecated. #{inspect(map-get($deprecated, $property))}';
+		}
+		$_o-colors-deprecation-warnings-output: append($_o-colors-deprecation-warnings-output, $deprecated-key) !global;
+	}
+
+	// If no usecase was found and null was given as a fallback return null.
+	@if $color == null and $fallback == null {
+		@return null;
+	}
+	// If no usecase was found and a colour was given as a fallback return the fallback.
+	@if $color == null and type-of($fallback) == 'color' {
+		@return $fallback;
+	}
+	// If no usecase was found and a string was given as a fallback return the fallback color.
+	@if $color == null and type-of($fallback) == 'string' {
+		@return oColorsByName($fallback);
+	}
+	// Error if no colour is found.
+	@if($color == null) {
+		@return _oColorsError('Could not find a colour for the "#{$usecase}" "#{$property}" usecase.');
+	}
+
+	@return if(type-of($color) == 'string', oColorsByName($color), $color);
+}
+
+/// Returns a brighter or darker tone of a colour, where the hue remains
+/// the same but the saturation and luminance changes.
+///
+/// Not all our colours allow tones. If a colour cannot be toned an error is
+/// thrown. You may however mix the colour with another supported colour.
+/// @see oColorsMix
+///
+/// @param {String} $color-name - the name of the color to be shaded
+/// @param {Number} $brightness - the brightness value of the new color, 0-100
+@function oColorsGetTone($color-name, $brightness) {
+	// Find palette colour information.
+	$color: oColorsByName($color-name);
+	$color-map: map-get($_o-colors-palette, $color-name);
+	$color-meta: map-get($color-map, 'meta');
+
+	// Validate brightness.
+	@if(type-of($brightness) != 'number' or $brightness > 100 or $brightness < 0) {
+		@return _oColorsError('"$brightness" must be a number between 0 and 100.');
+	}
+
+	// Error for colours which have no hue, such as white and black, which we do not allow tones of.
+	@if (hue($color) == 0 and saturation($color) == 0) {
+		@return _oColorsError('"#{$color-name}" does not support tones. ' +
+		'Use a mix instead: ' +
+		'`oColorsMix(\'#{$color-name}\', $percentage: #{$brightness})`');
+	}
+
+	// Error for any palette colour which hasn't been configured to allow tones.
+	$allows-tones: map-get($color-meta, 'allow-tones');
+	@if (not $allows-tones) {
+		@return _oColorsError('"#{$color-name}" does not allow tones. ' +
+		'We only allow tones for some colours, to reduce the number ' +
+		'of different colours used across sites. ' +
+		'For custom colours, set the `allow-tones` option ' +
+		'of `oColorsSetColor` to enable tones. ' +
+		'If using a default o-colors colour consider using the `oColorsMix` ' +
+		'function to mix with black to darken or white to lighten.');
+	}
+
+	// Convert the given colour to the HSB colour space.
+	$hsb: _oColorsHexToHsbValues($color);
+	$hsb-hue: map-get($hsb, 'h');
+	$hsb-saturation: map-get($hsb, 's');
+	// Update the colours brightness with the given brightness value,
+	// using the HSB colour space.
+	@return _oColorsHsbToHex($hsb-hue, $hsb-saturation, $brightness);
+}
+
+/// Figure out if a given colour is a tone. If it is a tone return the original
+/// colour name and its tone brightness, otherwise return null.
+///
+/// @example Get the tone brightness of 'claret-80'
+///    $tone-details: oColorsGetToneDetails('claret-80');
+///    $color-name: map-get($tone-details, 'color-name'); // claret
+///    $brightness: map-get($tone-details, 'brightness'); // 80
+///
+/// @param {String} $color - the palette colour or color name e.g. 'claret-80'
+/// @return {Map|Null} - the details of the given tone e.g. ('color-name': 'claret', 'brightness': 80)					)
+@function oColorsGetToneDetails($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+	$hue: hue($color);
+	@each $tone-color, $tone-config in $_o-colors-default-palette-tones {
+		// Check the given colour against the tone to find the tone brightness.
+		$brightness: 0;
+		@while $brightness <= 100 {
+			@if(inspect(oColorsGetTone($tone-color, $brightness)) == inspect($color)) {
+				@return (
+					'color-name': $tone-color,
+					'brightness': $brightness
+				);
+			}
+			$brightness: $brightness + 1;
+		}
+	}
+	// No tone matched.
+	@return null;
+}
+
+/// Returns a color based on the background context and base color
+/// at the supplied percentage
+///
+/// @param {String|Color} $color [black] - palette name of color
+/// @param {String|Color} $background [paper] - palette name of background color
+/// @param {Number} $percentage [60] - percentage opacity of the foreground color over the background
+@function oColorsMix($color: 'black', $background: oColorsByUsecase('page', 'background'), $percentage: 80) {
+	$base: if(type-of($background) == 'string', oColorsByName($background), $background);
+	$mixer: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	@if type-of($base) != color {
+		@return _oColorsError("'#{inspect($background)}' is not a valid base color.");
+	}
+
+	@if type-of($mixer) != color {
+		@return _oColorsError("'#{inspect($color)}' is not a valid mixing color.");
+	}
+
+	@return mix($mixer, $base, $percentage);
+}
+
+/// Returns a text color based on the background and
+/// an opacity percentage the color should appear at
+///
+/// @param {Color|String} $background - the color or palette color name of the background the text will appear on
+/// @param {Number} $opacity [100] - the opacity percentage the text color should appear at
+/// @param {String|Null} $minimum-contrast ['aa-normal'] - the minimum contrast ratio standard between the background and the returned text color, one of: aa-normal, aa-large, aaa-normal, aaa-large. See [WCAG 2.1 guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum). If the contrast ratio is too low to meet the selected guideline an error is thrown. Set to `null` to remove contrast checking and never throw an error.
+@function oColorsGetTextColor($background, $opacity: 90, $minimum-contrast: 'aa-normal') {
+	$background-name: $background;
+	// Get background color if palette colour name has been given.
+	$background: if(type-of($background) == 'string', oColorsByName($background), $background);
+
+	// Contrast values. See https://www.w3.org/TR/WCAG21/#contrast-minimum
+	$contrast-levels: (
+		'aa-normal': 4.5,
+		'aa-large': 3,
+		'aaa-normal': 7,
+		'aaa-large': 4.5
+	);
+
+	// Validate arguments.
+	@if($minimum-contrast != null and not map-has-key($contrast-levels, $minimum-contrast)) {
+		@return _oColorsError('The minimum contrast must by one of "#{map-keys($contrast-levels)}" '+
+		'or `null`. Found "#{inspect($minimum-contrast)}".');
+	}
+
+	@if type-of($background) != color {
+		@return _oColorsError("'#{inspect($background)}' is not a valid color. To get a text color, please supply a valid color or palette color name for the background color'");
+	}
+
+	@if type-of($opacity) != 'number' {
+		@return _oColorsError("'#{inspect($opacity)}' is not a valid opacity, set to a number.'");
+	}
+
+	$contrast-ratio-aim: map-get($contrast-levels, if($minimum-contrast, $minimum-contrast, 'aa-normal'));
+
+	// Calculate text colour for background and opacity.
+	$base-color-a: if(oColorsColorBrightness($background) < 65%, 'white', 'black');
+	$text-color-a: oColorsMix($base-color-a, $background, $opacity);
+	$contrast-ratio-a: oColorsGetContrastRatio($text-color-a, $background);
+	@if $contrast-ratio-a > $contrast-ratio-aim {
+		@return $text-color-a;
+	}
+
+	// Switch the base colour if the first attempt did not pass contrast checks.
+	$base-color-b: if($base-color-a == 'black', 'white', 'black');
+	$text-color-b: oColorsMix($base-color-b, $background, $opacity);
+	$contrast-ratio-b: oColorsGetContrastRatio($text-color-b, $background);
+	@if $contrast-ratio-b > $contrast-ratio-aim {
+		@return $text-color-b;
+	}
+
+	// Error if neither base colour produced a text colour of high enough contrast.
+	@if $minimum-contrast != null {
+		$best-contrast-ratio: if($contrast-ratio-a > $contrast-ratio-b, $contrast-ratio-a, $contrast-ratio-b);
+		@return _oColorsError(
+			'The text colour generated for #{inspect($background-name)} at ' +
+			'#{inspect($opacity)}% opacity has a contrast ratio of ' +
+			'"#{inspect($best-contrast-ratio)}" and does not pass the WCAG 2.1 ' +
+			'#{$minimum-contrast} required contrast ratio of at least ' +
+			'#{$contrast-ratio-aim}:1. Update the `$minimum-contrast` argument ' +
+			'if a lower contrast is acceptable.'
+		);
+	}
+
+	@return if($contrast-ratio-a > $contrast-ratio-b, $text-color-a, $text-color-b);
+}
+
+/// Work out the brightness value in % of a color
+/// From: https://gist.github.com/jlong/f06f5843104ee10006fe
+///
+/// @param {Color} $color - color value to get brightness from (either a CSS colour or o-colors palette colour name)
+@function oColorsColorBrightness($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	$red-magic-number: 241;
+	$green-magic-number: 691;
+	$blue-magic-number: 68;
+
+	$brightness-divisor: $red-magic-number + $green-magic-number + $blue-magic-number;
+
+	// Extract color components
+	$red-component: red($color);
+	$green-component: green($color);
+	$blue-component: blue($color);
+
+	// Calculate a brightness value in 3d color space between 0 and 255
+	$number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+
+	// Convert to percentage and return
+	@return 100% * ($number / 255);
+}
+
+/// Returns the luminance of `$color` as a float (between 0 and 1)
+/// 1 is pure white, 0 is pure black.
+/// From: https://css-tricks.com/snippets/sass/luminance-color-function/
+/// @param {String|Color} $color -  The colour to return a luminance for (either a CSS colour or o-colors palette colour name)
+/// @return {Number} - a number between 0 and 1
+@function oColorsColorLuminance($color) {
+	$color: if(type-of($color) == 'string', oColorsByName($color), $color);
+
+	$colors: (
+		'red': red($color),
+		'green': green($color),
+		'blue': blue($color)
+	);
+
+	@each $name, $value in $colors {
+		$adjusted: 0;
+		$value: $value / 255;
+
+		@if $value < 0.03928 {
+			$value: $value / 12.92;
+		} @else {
+			$value: ($value + 0.055) / 1.055;
+			$value: pow($value, 2.4);
+		}
+
+		$colors: map-merge($colors, ($name: $value));
+	}
+
+	@return (map-get($colors, 'red') * 0.2126) + (map-get($colors, 'green') * 0.7152) + (map-get($colors, 'blue') * 0.0722);
+}
+
+/// Calculate the contrast ratio between two colours.
+///
+/// @param {String|Color} $color-a - first colour to compare (either a CSS colour or o-colors palette colour name)
+/// @param {String|Color} $color-b - second colour to compare (either a CSS colour or o-colors palette colour name)
+/// Based on the JS in https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
+@function oColorsGetContrastRatio($color-a, $color-b) {
+	$l1: oColorsColorLuminance($color-a) + 0.05;
+	$l2: oColorsColorLuminance($color-b) + 0.05;
+
+	$ratio: $l1 / $l2;
+
+	@if $l2 > $l1 {
+		$ratio: 1 / $ratio;
+	}
+
+	$ratio: _oColorsPreciseFloor($ratio);
+
+	@return $ratio;
+}
+
+/// Get a list of palette colour details, including the colour name.
+/// @return {List} - A list of maps with palette color details e.g. `(('name': 'paper'), ('name': 'o-example/storm')`
+@function oColorsGetPaletteDetails() {
+	$public-palette-details: ();
+
+	@each $name, $color-map in $_o-colors-palette {
+		$details: (
+			'name': map-get($color-map, 'name')
+		);
+		$public-palette-details: append($public-palette-details, $details);
+	}
+
+	@return $public-palette-details;
+}
+
+/// @access private
+@function _oColorsPreciseFloor($number, $decimals: 2) {
+	$multiplier: pow(10, $decimals);
+	@return floor($number * $multiplier) / $multiplier;
+}
+
+/// Allows for errors to be tested in dev environments
+/// Code from: https://github.com/oddbird/true/issues/92
+/// @access private
+@function _oColorsError($message, $capture: $_o-colors-test-environment) {
+	@if $capture {
+		@return 'ERROR: #{$message}';
+	}
+
+	@error('#{$message}');
+}
+
+/// Get a namespace from a colour name.
+/// Returns null if there is no namespace.
+/// @example
+///    $namespace: _oColorsGetNameSpace('o-example/paper'); // o-example
+///    $namespace: _oColorsGetNameSpace('o-colors/paper'); // o-colors
+///    $namespace: _oColorsGetNameSpace('paper'); // null
+@function _oColorsGetNameSpace($color-name) {
+	$slash-index: str-index($color-name, '/');
+	@return if($slash-index, str-slice($color-name, 0, $slash-index - 1), null);
+}
+
+/// Add the default o-colors namespace if a namespace isn't given.
+/// @example
+///    $namespace: _oColorsRemoveDefaultNamespace('o-example/paper'); // o-example/paper
+///    $namespace: _oColorsRemoveDefaultNamespace('o-colors/paper'); // paper
+///    $namespace: _oColorsRemoveDefaultNamespace('paper'); // paper
+@function _oColorsRemoveDefaultNamespace($color-name) {
+	$namespace: _oColorsGetNameSpace($color-name);
+	$slash-index: str-index($color-name, '/');
+	$color-part: if($namespace, str-slice($color-name, $slash-index + 1, -1), $color-name);
+	@return if($namespace == 'o-colors', $color-part, $color-name);
+}
+
+/// Check if a colour name exists in the palette.
+@function _oColorsNameExists($color-name) {
+	@return map-has-key($_o-colors-palette, $color-name);
+}
+
+/// Converts HSB/HSV values to a hex colour
+///
+/// @access private
+///
+/// @param {Number} $hue - number between 0-360
+/// @param {Number} $saturation - number between 0-100
+/// @param {Number} $brigthness - number between 0-100
+///
+/// @return {Colour} - the hex representation of given hsb values
+@function _oColorsHsbToHex($hue, $saturation, $brightness) {
+	@if $brightness == 0 {
+		@return hsl(0, 0%, 0%);
+	}
+
+	$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
+	$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
+	@return hsl($hue, $hsl-saturation * 1%, $hsl-luminance * 1%);
+}
+
+/// Returns HSB/HSV colour values for a given colour hex.
+///
+/// Logic derived from chroma.js
+/// https://github.com/gka/chroma.js/blob/088e18f50a3b5b1d009ce68f540265cafa0cb6a1/src/io/hsv/rgb2hsv.js#L10
+/// HSL to HSB is also documented here, if you prefer math:
+/// https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+///
+/// @access private
+///
+/// @param {Color} $hex - The hex colour value to find hsb values for.
+/// @return {Map} - map of `h`, `s`, `b` colour values.
+@function _oColorsHexToHsbValues($hex) {
+	$redValue: red($hex);
+	$greenValue: green($hex);
+	$blueValue: blue($hex);
+
+	// Find smallest and largest amount of colour.
+	$min: null;
+	$max: null;
+	@each $var in ($redValue, $greenValue, $blueValue) {
+		@if $min == null or $var < $min {
+			$min: $var;
+		}
+
+		@if $max == null or $var > $max {
+			$max: $var;
+		}
+	}
+
+	// Difference between the smallest and largest amount of colour.
+	$delta: $max - $min;
+
+	$hue: hue($hex);
+	$saturation: if($max == 0, 0, $delta / $max);
+	$brightness: $max / 255;
+
+	@return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
+}
