@@ -1,0 +1,332 @@
+/// Visually hide an element while still
+/// allowing it to be read by a screenreader
+@mixin oNormaliseVisuallyHidden {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	clip-path: polygon(0 0, 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	white-space: nowrap;
+}
+
+/// Clearfix helper styles
+/// Outputs clearfix styles on the current element
+@mixin oNormaliseClearfix {
+	zoom: 1;
+
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/// Adds box sizing to current and all child elements
+@mixin oNormaliseBoxSizing {
+
+	/*autoprefixer: off*/
+	-webkit-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
+	-moz-box-sizing: border-box; // stylelint-disable-line property-no-vendor-prefix
+	box-sizing: border-box;
+
+
+	& *,
+	& *:before,
+	& *:after {
+
+		/*autoprefixer: off*/
+		-webkit-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
+		-moz-box-sizing: inherit; // stylelint-disable-line property-no-vendor-prefix
+		box-sizing: inherit;
+
+	}
+}
+
+/// Adds normalising styles to general html elements
+/// effects: <html>, <body>, <main>, and :focus state
+/// @access private
+@mixin _oNormaliseBody($font-smoothing: true, $box-sizing: true, $focus: true, $reduce-motion: true) {
+	html,
+	body {
+		margin: 0;
+		text-rendering: optimizeLegibility;
+
+		-ms-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
+		-webkit-text-size-adjust: 100%; // stylelint-disable-line property-no-vendor-prefix
+
+
+		@if $font-smoothing {
+
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+		}
+
+		@if $box-sizing {
+			@include oNormaliseBoxSizing;
+		}
+
+		@if $reduce-motion {
+			// Immediately jump any animation to the end point if the user has
+			// set their device to "prefers reduced motion".
+			// See https://github.com/mozdevs/cssremedy/issues/11
+			@media (prefers-reduced-motion: reduce) {
+				*,
+				*:before,
+				*:after {
+
+					animation-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
+					transition-duration: 0.001s !important; // stylelint-disable-line declaration-no-important
+					animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
+
+				}
+			}
+		}
+	}
+
+	// Give <main>s the proper display value in IE.
+	main {
+		display: block;
+	}
+
+	@if $focus {
+		@include _oNormaliseFocus();
+	}
+}
+
+/// Adds normalising styles for focused elements.
+/// @access private
+@mixin _oNormaliseFocus {
+	// Apply :focus styles as a fallback
+	// These styles will be applied to all browsers that don't use the polyfill, this includes browsers which support the feature natively.
+	body:not(.js-focus-visible),
+	html:not(.js-focus-visible) {
+		// Standardise focus styles.
+		:focus {
+			outline: 2px solid $_o-normalise-focus-color;
+		}
+
+		input:focus,
+		textarea:focus,
+		select:focus {
+			box-shadow: 0 0 0 1px $_o-normalise-focus-color;
+		}
+	}
+
+	// When the focus-visible polyfill is applied `.js-focus-visible` is added to the html dom node
+	// (the body node in v4 of the 3rd party polyfill)
+
+	// stylelint-disable-next-line selector-no-qualifying-type
+	body.js-focus-visible, // stylelint-disable-next-line selector-no-qualifying-type
+	html.js-focus-visible {
+		// Standardise focus styles.
+		// stylelint-disable-next-line selector-no-qualifying-type
+		.focus-visible {
+			outline: 2px solid $_o-normalise-focus-color;
+		}
+		// stylelint-disable-next-line selector-no-qualifying-type
+		input.focus-visible, // stylelint-disable-next-line selector-no-qualifying-type
+		textarea.focus-visible,
+		select.focus-visible {
+			box-shadow: 0 0 0 1px $_o-normalise-focus-color;
+		}
+		// Disable browser default focus style.
+		// stylelint-disable-next-line selector-no-qualifying-type
+		:focus:not(.focus-visible) {
+			outline: 0;
+		}
+	}
+
+
+	// These styles will be ignored by browsers which do not recognise the :focus-visible selector (as per the third bullet point in https://www.w3.org/TR/selectors-3/#Conformance)
+	// If a browser supports :focus-visible we unset the :focus styles that were applied above
+	// (within the html:not(.js-focus-visible) block).
+	:focus-visible,
+	body:not(.js-focus-visible) :focus,
+	html:not(.js-focus-visible) :focus {
+		outline: unset;
+	}
+
+	:focus-visible,
+	body:not(.js-focus-visible) input:focus,
+	html:not(.js-focus-visible) input:focus,
+	body:not(.js-focus-visible) textarea:focus,
+	html:not(.js-focus-visible) textarea:focus,
+	body:not(.js-focus-visible) select:focus,
+	html:not(.js-focus-visible) select:focus {
+		box-shadow: unset;
+	}
+
+	// Styles given :focus-visible support. Extra selectors needed to match
+	// previous `:focus` selector specificity.
+	body:not(.js-focus-visible) :focus-visible,
+	html:not(.js-focus-visible) :focus-visible,
+	:focus-visible {
+		outline: 2px solid $_o-normalise-focus-color;
+	}
+
+	body:not(.js-focus-visible) input:focus-visible,
+	html:not(.js-focus-visible) input:focus-visible,
+	body:not(.js-focus-visible) textarea:focus-visible,
+	html:not(.js-focus-visible) textarea:focus-visible,
+	body:not(.js-focus-visible) select:focus-visible,
+	html:not(.js-focus-visible) select:focus-visible,
+	input:focus-visible,
+	textarea:focus-visible,
+	select:focus-visible {
+		box-shadow: 0 0 0 1px $_o-normalise-focus-color;
+	}
+
+	// Prevent IE from putting focus styles on the body or html. These selectors
+	// serve as a blacklist for "things we've found can have focus but we don't want"
+	html:focus,
+	body:focus,
+	[readonly]:focus {
+		outline: none;
+	}
+
+}
+
+/// Adds normalising styles to link elements
+/// @access private
+@mixin _oNormaliseLinks {
+
+	// Remove the grey background on active links in IE 10.
+	a {
+		background-color: transparent;
+	}
+
+	// Remove the outline on focused links when they are
+	// also active or hovered in all browsers (opinionated).
+	a:active,
+	a:hover {
+		outline-width: 0;
+	}
+
+}
+
+/// Adds normalising styles to text related elements
+/// @access private
+@mixin _oNormaliseText {
+
+	// 1. Remove the bottom border in Firefox 39-.
+	// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+	// stylelint-disable-next-line selector-no-qualifying-type
+	abbr[title] {
+		border-bottom: 0; // [1]
+		text-decoration: underline; // [2]
+		// stylelint-disable-next-line declaration-block-no-duplicate-properties
+		text-decoration: underline dotted; // [2]
+	}
+
+	// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+	b,
+	strong {
+		font-weight: inherit;
+	}
+
+	// Add the correct font weight in Chrome, Edge, and Safari.
+	b,
+	strong {
+		font-weight: bolder;
+	}
+
+	// Add the correct font style in Android 4.3-.
+	dfn {
+		font-style: italic;
+	}
+
+	// Prevent `sub` and `sup` elements from affecting the line height in
+	// all browsers.
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sub {
+		bottom: -0.25em;
+	}
+
+	sup {
+		top: -0.5em;
+	}
+}
+
+/// Adds normalising styles to the image element
+/// @access private
+@mixin _oNormaliseImages {
+	// Remove the border on images inside links in IE 10-.
+	img {
+		border-style: none;
+	}
+}
+
+/// Adds normalising styles to form elements
+/// @access private
+@mixin _oNormaliseForms {
+	// Restore the font weight unset by the previous rule.
+	optgroup {
+		font-weight: bold;
+	}
+
+	// Show the overflow in IE.
+	// 1. Show the overflow in Edge.
+	// 2. Show the overflow in Edge, Firefox, and IE.
+	button,
+	input,   // [1]
+	select { // [2]
+		overflow: visible;
+	}
+
+	// Remove the margin in Safari.
+	// 1. Remove the margin in Firefox and Safari.
+	button,
+	input,
+	select,
+	textarea { // [1]
+		margin: 0;
+	}
+
+	// Remove the inheritance of text transform in Edge, Firefox, and IE.
+	// 1. Remove the inheritance of text transform in Firefox.
+	button,
+	select { // [1]
+		text-transform: none;
+	}
+
+	// Change the cursor in all browsers (opinionated).
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
+		cursor: pointer;
+	}
+
+	// Restore the default cursor to disabled elements unset by the previous rule.
+	[disabled] {
+		cursor: default;
+	}
+
+	// Remove the inner border and padding in Firefox.
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+
+	// Remove the default vertical scrollbar in IE.
+	textarea {
+		overflow: auto;
+	}
+}

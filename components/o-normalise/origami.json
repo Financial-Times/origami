@@ -1,0 +1,36 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-normalise/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"brands": ["master", "internal", "whitelabel"],
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": [
+			"o-colors@^6.0.3",
+			"o-buttons@^7.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		},
+		{
+			"title": "Focus Styles",
+			"name": "focus-styles",
+			"template": "demos/src/focus.mustache",
+			"hidden": true,
+			"description": "Focus styles on various elements"
+		}
+	]
+}
