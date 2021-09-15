@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-layout",
-	"version": "0.0.0",
+	"version": "5.0.4",
 	"description": "Provides page layouts and typography as a starting point to create internal tools or products.",
 	"keywords": [
 		"layout",

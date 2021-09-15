@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-autoinit",
-	"version": "0.0.0",
+	"version": "3.0.0",
 	"description": "Provides a standard way of firing the 'o.DOMContentLoaded' events if/when the equivalent browser-native events fire, to auto initialise other components that are in use.",
 	"keywords": [
 		"initialize",

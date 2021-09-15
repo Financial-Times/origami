@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-tracking",
-	"version": "0.0.0",
+	"version": "4.1.2",
 	"description": "Provides tracking for a product. Tracking requests are sent to the Spoor API.",
 	"keywords": [
 		"tracking",

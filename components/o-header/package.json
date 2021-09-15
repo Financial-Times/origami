@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-header",
-	"version": "0.0.0",
+	"version": "9.0.1",
 	"description": "Responsive Financial Times page header with primary and secondary navigation, a drop down mega menu, and a collapsible drawer",
 	"keywords": [
 		"header",

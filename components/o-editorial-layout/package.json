@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-editorial-layout",
-	"version": "0.0.0",
+	"version": "2.0.1",
 	"description": "Layout for editorial content. Including margins for editorial typography.",
 	"keywords": [],
 	"homepage": "https://registry.origami.ft.com/components/o-editorial-layout",

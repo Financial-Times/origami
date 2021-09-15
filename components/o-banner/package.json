@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-banner",
-	"version": "0.0.0",
+	"version": "4.0.0",
 	"description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
 	"keywords": [
 		"banner",

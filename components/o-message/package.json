@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-message",
-	"version": "0.0.0",
+	"version": "5.0.0",
 	"description": "Provides message elements for alerting, informing or making calls to action.",
 	"keywords": [
 		"message",

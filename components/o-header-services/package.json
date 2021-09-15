@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-header-services",
-	"version": "0.0.0",
+	"version": "5.0.1",
 	"description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
 	"keywords": [
 		"header",
