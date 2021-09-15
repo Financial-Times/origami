@@ -1,0 +1,19 @@
+@include describe('oAudio mixins') {
+	@include describe('oAudio') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					.test-mixin {
+						@include oAudio();
+					}
+				}
+
+				@include expect($selector: false) {
+					.test-mixin .o-audio {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

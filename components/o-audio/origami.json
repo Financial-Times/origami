@@ -1,0 +1,25 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-audio/issues",
+	"supportContact": {
+		"slack": "financialtimes/content-innovation",
+		"email": "content-innovation-team.customer-products@ft.com"
+	},
+	"supportStatus": "experimental",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": ""
+	},
+	"demos": [
+		{
+			"title": "Native player",
+			"name": "native",
+			"template": "demos/src/native.mustache",
+			"description": "Uses the native player provided by the browser."
+		}
+	]
+}
