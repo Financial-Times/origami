@@ -1,0 +1,36 @@
+@import '../../main';
+@include oMessage();
+
+body {
+	background: oColorsByUsecase('page', 'background');
+}
+
+.o-message {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.list-of-demo-buttons {
+	display: inline-block;
+}
+
+.demo-button {
+	@include oButtonsContent(('type': 'secondary'));
+	margin: 10px;
+}
+
+.demo-inner,
+.demo-inner-message {
+	margin: auto;
+	max-width: 400px;
+}
+
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	@include oMessageAddState('pikachu', (
+		'foreground-color': 'white',
+		'background-color': 'slate',
+		'highlight-color': 'lemon',
+		'button-type': 'primary',
+		'icon': 'user',
+	), $types: ('notice', 'alert'));
+}

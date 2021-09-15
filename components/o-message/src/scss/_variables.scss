@@ -1,0 +1,50 @@
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default message classes
+///
+/// @type Boolean
+$o-message-is-silent: true !default;
+
+//Icons
+$_o-message-alert-icon-size: (40/16) * 1rem;
+$_o-message-alert-icon-inbuilt-space: $_o-message-alert-icon-size / 4;
+$_o-message-close-icon-size: (26/16) * 1rem;
+$_o-message-close-icon-inbuilt-space: $_o-message-close-icon-size / 4;
+
+//Spacing
+$_o-message-default-content-spacing:  oSpacingByName('s4');
+$_o-message-default-block-spacing:  oSpacingByName('s4');
+$_o-message-default-inline-spacing:  oSpacingByName('s6');
+
+
+// Spacing for close button area.
+// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
+// This is what the size of the close icon would be without the whitespace.
+$_o-message-true-close-icon-size: $_o-message-close-icon-size / 2;
+$_o-message-close-inline-spacing:  calc(#{$_o-message-true-close-icon-size} + #{oSpacingByName('s4') * 2});
+
+/// List of states that can be applied to alert type messages
+///
+/// @type List
+$o-message-states: ('error', 'inform', 'inform-inverse', 'neutral', 'success', 'warning', 'warning-light', 'feedback');
+
+/// List of message types
+///
+/// @type List
+$o-message-types: ('alert', 'notice', 'action');
+
+/// A list of states to the types of message they
+/// may apply to.
+///
+/// @access private
+/// @type Map
+$_o-message-states-to-types: (
+	'feedback': ('notice'),
+	'inform': ('action', 'notice'),
+	'inform-inverse': ('action'),
+	'success': ('alert'),
+	'neutral': ('alert'),
+	'error': ('alert'),
+	'alert': ('success', 'neutral', 'error'),
+	'warning': ('notice'),
+	'warning-light': ('notice')
+);
