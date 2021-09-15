@@ -1,0 +1,45 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands" : [
+		"master"
+	],
+	"support": "https://github.com/Financial-Times/o-comments/issues",
+	"supportContact": {
+		"slack": "financialtimes/content-innovation",
+		"email": "content-innovation-team.customer-products@ft.com"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"Map",
+			"fetch",
+			"Array.from",
+			"Element.prototype.remove"
+		]
+	},
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"data": "demos/src/data/data.json",
+		"documentClasses": "",
+		"dependencies": [
+			"o-forms@^9.0.0",
+			"o-overlay@^4.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Comments Stream",
+			"name": "comments-stream",
+			"template": "demos/src/stream.mustache",
+			"sass": "demos/src/stream.scss",
+			"description": "Comments stream on an article page"
+		},
+		{
+			"title": "Comments Count",
+			"name": "comments-count",
+			"template": "demos/src/count.mustache",
+			"description": "Comments count on an article or stream page"
+		}
+	]
+}
