@@ -1,0 +1,121 @@
+component:
+  - components/**/*
+
+action:
+  - actions/**/*
+
+library:
+  - libraries/**/*
+
+hook:
+  - hooks/**/*
+
+script:
+  - scripts/**/*
+
+tool:
+  - tools/**/*
+
+template:
+  - templates/**/*
+
+percy:
+  - actions/percy/**/*
+o-autocomplete:
+  - components/o-autocomplete/**/*
+o-banner:
+  - components/o-banner/**/*
+o-buttons:
+  - components/o-buttons/**/*
+o-colors:
+  - components/o-colors/**/*
+o-comments:
+  - components/o-comments/**/*
+o-cookie-message:
+  - components/o-cookie-message/**/*
+o-date:
+  - components/o-date/**/*
+o-editorial-layout:
+  - components/o-editorial-layout/**/*
+o-editorial-typography:
+  - components/o-editorial-typography/**/*
+o-expander:
+  - components/o-expander/**/*
+o-fonts:
+  - components/o-fonts/**/*
+o-footer:
+  - components/o-footer/**/*
+o-footer-services:
+  - components/o-footer-services/**/*
+o-forms:
+  - components/o-forms/**/*
+o-ft-affiliate-ribbon:
+  - components/o-ft-affiliate-ribbon/**/*
+o-grid:
+  - components/o-grid/**/*
+o-header:
+  - components/o-header/**/*
+o-header-services:
+  - components/o-header-services/**/*
+o-icons:
+  - components/o-icons/**/*
+o-labels:
+  - components/o-labels/**/*
+o-layout:
+  - components/o-layout/**/*
+o-lazy-load:
+  - components/o-lazy-load/**/*
+o-loading:
+  - components/o-loading/**/*
+o-message:
+  - components/o-message/**/*
+o-normalise:
+  - components/o-normalise/**/*
+o-overlay:
+  - components/o-overlay/**/*
+o-quote:
+  - components/o-quote/**/*
+o-share:
+  - components/o-share/**/*
+o-spacing:
+  - components/o-spacing/**/*
+o-stepped-progress:
+  - components/o-stepped-progress/**/*
+o-subs-card:
+  - components/o-subs-card/**/*
+o-syntax-highlight:
+  - components/o-syntax-highlight/**/*
+o-table:
+  - components/o-table/**/*
+o-tabs:
+  - components/o-tabs/**/*
+o-teaser:
+  - components/o-teaser/**/*
+o-teaser-collection:
+  - components/o-teaser-collection/**/*
+o-toggle:
+  - components/o-toggle/**/*
+o-tooltip:
+  - components/o-tooltip/**/*
+o-topper:
+  - components/o-topper/**/*
+o-tracking:
+  - components/o-tracking/**/*
+o-typography:
+  - components/o-typography/**/*
+o-video:
+  - components/o-video/**/*
+o-viewport:
+  - components/o-viewport/**/*
+o-visual-effects:
+  - components/o-visual-effects/**/*
+o-autoinit:
+  - libraries/o-autoinit/**/*
+o-brand:
+  - libraries/o-brand/**/*
+o-errors:
+  - libraries/o-errors/**/*
+o-utils:
+  - libraries/o-utils/**/*
+origami-build-tools:
+  - tools/origami-build-tools/**/*
