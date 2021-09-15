@@ -1,0 +1,35 @@
+@mixin _oTopperArticleGrid() {
+	@include oGridContainer();
+	display: flex;
+	flex-direction: column;
+
+	@include oGridRespondTo(L) {
+		display: grid;
+		grid-template-columns: 40px 40px minmax(500px, 700px) minmax(20px, 1fr) 300px;
+
+		grid-template-areas: "lhr . image . rhr-top"
+			"lhr . content . rhr-top"
+			"lhr . content . rhr-middle"
+			"lhr . content . rhr-bottom"
+			". . tools . rhr-bottom"
+			". . onward . onward-rhr"
+			". . second-onward . onward-rhr"
+			". . comments . comments-rhr"
+			". . comments-toggle-button . ."
+			". . infinite-scroll . .";
+	}
+
+	@include oGridRespondTo(XL) {
+		grid-template-columns: 40px 80px minmax(600px, 700px) minmax(20px, 1fr) 300px;
+	}
+}
+
+@mixin _oTopperArticleGridCentered() {
+	@include oGridRespondTo(L) {
+		grid-template-columns: 40px 1fr minmax(500px, 700px) 1fr 40px;
+	}
+
+	@include oGridRespondTo(XL) {
+		grid-template-columns: 1fr 40px minmax(500px, 700px) 40px 1fr;
+	}
+}

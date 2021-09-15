@@ -1,0 +1,75 @@
+// sass-lint:disable mixins-before-declarations
+
+@mixin _oTopperThemeSplitText {
+	.o-topper__read-next {
+		display: none;
+	}
+
+	&.o-topper--split-text-center {
+		@include oGridRespondTo(S) {
+			@include _oTopperAlignText(center);
+		}
+	}
+
+	@include oGridRespondTo($until: M) {
+		padding: 0;
+		.o-topper__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 20px 10px;
+		}
+
+		.o-topper__visual {
+			min-height: 350px;
+		}
+	}
+
+	@include oGridRespondTo(M) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+
+		.o-topper__content {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+			width: 50%;
+			box-sizing: border-box;
+			align-self: center;
+			padding-right: 20px;
+		}
+
+		.o-topper__visual {
+			grid-row: 1;
+		}
+
+		.o-topper__picture {
+			width: 50%;
+			float: right;
+			height: 100%;
+			position: relative;
+		}
+
+		.o-topper__image {
+			@include oGridRespondTo($until: M) {
+				max-height: 480px;
+			}
+		}
+	}
+
+	@supports (object-fit: cover) {
+		.o-topper__image {
+			position: absolute;
+		}
+
+		.o-topper__visual {
+			@include oGridRespondTo(M) {
+				height: 480px;
+			}
+			@include oGridRespondTo(L) {
+				height: 600px;
+			}
+		}
+	}
+
+}

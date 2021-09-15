@@ -1,0 +1,81 @@
+@mixin _oTopperAnchorLink {
+	@include oTypographySans(0);
+	display: inline-block;
+	width: 110px;
+	padding: 5px 0 0 10px;
+	margin-top: oSpacingByName('s8');
+	border-top: 1px solid oColorsByUsecase('link', 'text');
+	border-left: 1px solid oColorsByUsecase('link', 'text');
+	border-bottom-width: 0;
+	white-space: nowrap;
+	overflow: visible;
+
+	@include oGridRespondTo(S) {
+		width: 140px;
+	}
+
+	&:after {
+		@include oIconsContent('arrow-down', oColorsByUsecase('link', 'text'), $size: 20);
+		content: '';
+		display: block;
+		position: relative;
+		top: 4px;
+		left: -4px;
+		margin-top: -2px;
+	}
+}
+
+@mixin _oTopperThemePackage {
+	margin-bottom: oSpacingByIncrement(10);
+
+	%_o-topper__tag,
+	.o-topper__headline {
+		@include oTypographySans(6);
+		font-weight: 400;
+	}
+
+	.o-topper__headline {
+		&:after {
+			border-bottom-width: 1px;
+		}
+	}
+}
+
+@mixin _oTopperThemePackageExtra {
+	.o-topper__package-sequence-id,
+	&.o-topper--package .o-topper__headline {
+		color: oColorsByName('lemon');
+	}
+
+	.o-topper__anchor-link {
+		color: oColorsByName('lemon');
+		border-color: oColorsByName('lemon');
+
+		&:after {
+			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+		}
+
+		&:hover {
+			color: darken(oColorsByName('lemon'), 20%);
+		}
+	}
+}
+
+@mixin _oTopperThemePackageSpecialReport {
+	.o-topper__tag {
+		opacity: 0.6;
+	}
+
+	.o-topper__anchor-link {
+		border-color: oColorsByName('white');
+		color: oColorsByName('white');
+
+		&:after {
+			@include oIconsContent('arrow-down', oColorsByName('lemon'), $size: null, $include-base-styles: false);
+		}
+
+		&:hover {
+			color: darken(oColorsByName('white'), 20%);
+		}
+	}
+}

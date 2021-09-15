@@ -1,0 +1,47 @@
+// sass-lint:disable mixins-before-declarations
+
+@mixin _oTopperThemeNewsPackage {
+	@include oGridRespondTo($until: M) {
+		padding: 0;
+	}
+
+	.o-topper__content {
+		padding: oGridGutter();
+	}
+
+	.o-topper__tags,
+	.o-topper__read-next {
+		display: none;
+	}
+
+	.o-topper__headline {
+		@include oTypographyDisplay($scale: (default: 6, S: 4, M: 6, L: 8));
+	}
+
+	.o-topper__picture {
+		height: auto;
+	}
+
+	@include oGridRespondTo(M) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 20px 1fr 20px;
+
+		.o-topper__content {
+			grid-column: 1 / span 2;
+			grid-row: 2;
+			width: 50%;
+			box-sizing: border-box;
+			padding: 0 20px 0 0;
+		}
+
+		.o-topper__visual {
+			grid-row: 2 / span 1;
+			grid-column: 2 / span 2;
+			height: auto;
+			width: auto;
+			margin: 0;
+			position: static;
+		}
+	}
+}

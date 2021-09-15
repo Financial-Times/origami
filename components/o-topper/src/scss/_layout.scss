@@ -1,0 +1,60 @@
+@mixin _oTopperBase {
+	//Basic topper uses the same grid columns as an article, so things can line up.
+	@include _oTopperArticleGrid();
+	margin-bottom: oSpacingByIncrement(5);
+
+	@include oGridRespondTo(L) {
+		grid-template-rows: 20px min-content 60px min-content 20px;
+	}
+}
+
+@mixin _oTopperCentered {
+	@include _oTopperArticleGridCentered();
+
+	.o-topper__read-next {
+		display: none;
+	}
+}
+
+@mixin _oTopperBasic {
+	@include oGridRespondTo($until: L) {
+		margin-top: oSpacingByName('s2');
+	}
+}
+
+//Default theme;
+
+@mixin _oTopperContent {
+	grid-row: 2 / span 4;
+	grid-column: 3;
+	position: relative;
+	z-index: 1;
+}
+
+@mixin _oTopperBackground {
+	grid-row: 1 / span 5;
+	grid-column: 1 / span 6;
+	width: 100vw;
+	margin-left: -50vw;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	position: relative;
+}
+
+@mixin _oTopperVisual {
+	margin: 0;
+}
+
+@mixin _oTopperReadNext {
+	display: none;
+
+	@include oGridRespondTo(L) {
+		display: block;
+	}
+
+	position: relative;
+	grid-row: 2 / span 4;
+	grid-column: 5 / span 1;
+	z-index: 1;
+}

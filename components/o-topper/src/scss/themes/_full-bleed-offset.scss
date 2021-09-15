@@ -1,0 +1,91 @@
+// sass-lint:disable mixins-before-declarations
+
+@mixin _oTopperThemeFullBleedOffset {
+	display: flex;
+	flex-direction: column;
+
+	@include oGridRespondTo($until: L) {
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.o-topper__read-next {
+		display: none;
+	}
+
+	.o-topper__content {
+		padding: 20px 10px;
+		order: 2;
+
+		@include oGridRespondTo(M) {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	&.o-topper--color-paper .o-topper__content {
+		padding-bottom: 0;
+	}
+
+	@include oGridRespondTo(M) {
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: 20px min-content 60px min-content;
+
+		.o-topper__content {
+			grid-column: 1;
+			grid-row: 3 / span 2;
+		}
+
+		.o-topper__visual {
+			grid-column: 1;
+			grid-row: 1 / span 3;
+		}
+	}
+
+	//Add extra 20px columns to get the space outside the content well
+	@include oGridRespondTo(L) {
+		grid-template-columns: 40px 0px 20px minmax(500px, 700px) 20px minmax(0, auto) 300px;
+
+		// .o-topper__content {
+		&.o-topper--centered {
+			grid-template-columns: 40px 1fr 0 minmax(500px, 700px) 40px 1fr 40px;
+		}
+
+		.o-topper__content {
+			grid-column: 4 / span 2;
+		}
+
+		.o-topper__background {
+			grid-column: 1 / span 7;
+			grid-row: 4 / span 2;
+		}
+
+		.o-topper__visual {
+			grid-column: 1 / span 7;
+		}
+	}
+
+	@include oGridRespondTo(XL) {
+		grid-template-columns: 40px 40px 20px minmax(500px, 700px) 40px minmax(0, auto) 300px;
+	}
+
+	@supports (object-fit: cover) {
+		.o-topper__visual {
+			height: auto;
+			max-height: 480px;
+
+			@include oGridRespondTo(L) {
+				height: 600px;
+				max-height: 600px;
+			}
+		}
+	}
+
+	.o-topper__image-credit {
+		@include oGridRespondTo($from: M, $until: XL) {
+			bottom: auto;
+			top: 0;
+		}
+	}
+}

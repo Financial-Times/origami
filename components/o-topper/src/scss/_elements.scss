@@ -1,0 +1,100 @@
+@mixin _oTopperStandfirst {
+	@include oEditorialTypographyStandfirst();
+	opacity: 0.8;
+
+	> p {
+		margin: 0;
+	}
+}
+
+@mixin _oTopperSummary {
+	@include oTypographySans(1);
+	> ul {
+		padding: 0 oSpacingByIncrement(5);
+	}
+
+	> ul > li {
+		margin: oSpacingByName('s2') 0;
+	}
+}
+
+
+@mixin _oTopperSummaryBody {
+	h2 {
+		@include oTypographySans(0, $weight: 'semibold');
+		margin: 5px 0 0;
+	}
+
+	ul {
+		@include oTypographyList('unordered');
+		margin: 0px;
+
+		li:first-child {
+			margin-top: 0px;
+		}
+		li {
+			@include oTypographySans(1);
+			margin-top: oSpacingByName('s2');
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin _oTopperImageCredit {
+	@include oTypographySans(-2);
+	color: oColorsByName('white');
+	position: absolute;
+	right: 12px;
+	bottom: 2px;
+	text-shadow: 1px 1px 1px oColorsByName('slate');
+}
+
+//IE9 support
+@mixin _oTopperImage {
+	display: block;
+	position: relative;
+	width: 100%;
+
+	@supports (object-fit: cover) {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+@include _oTopperDefineOnce(tag) {
+	%_o-topper__tag {
+		@include oEditorialTypographyTag($type: 'topic');
+		color: unset;
+
+		@at-root a#{&} {
+			color: unset;
+			&:hover {
+				color: unset;
+			}
+		}
+	}
+}
+
+@mixin _oTopperBrand {
+	@extend %_o-topper__tag;
+	margin-right: 4px;
+}
+
+@mixin _oTopperColumnist {
+	margin-top: oSpacingByName('s4');
+	text-transform: uppercase;
+}
+
+@mixin _oTopperColumnistName {
+	@extend %_o-topper__tag;
+	vertical-align: middle;
+}
+
+@mixin _oTopperTags {
+	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
+	padding-bottom: 5px;
+}
+
+@mixin _oTopperTopic {
+	@extend %_o-topper__tag;
+}
