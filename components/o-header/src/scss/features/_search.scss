@@ -1,0 +1,71 @@
+@mixin _oHeaderSearch() {
+	.o-header__search {
+		padding: $_o-header-padding-y 0;
+		text-align: center;
+		background: _oHeaderGet('search-background');
+
+		&[aria-hidden="false"] {
+			display: block;
+		}
+	}
+
+	[data-o-header-search] {
+		display: none;
+	}
+
+	.o-header__search-form {
+		display: flex;
+		align-items: center;
+		max-width: 640px;
+		margin: 0 auto;
+	}
+
+	.o-header__search-term {
+		@include oTypographySans($scale: -1);
+		box-sizing: border-box;
+		height: 32px; // match overridden o-buttons height
+		padding: 0 8px;
+		vertical-align: middle;
+		// normalize
+		appearance: none;
+		background: white;
+		border-style: solid;
+		border-color: transparent;
+		box-shadow: none;
+		border-radius: 0;
+		// fill!
+		min-width: 50%;
+		flex-grow: 1;
+
+		&:focus {
+			//also, overriden by o-normalise
+			outline: none;
+			border-color: _oHeaderGet('search-border');
+		}
+	}
+
+	.o-header__search-submit {
+		@include oButtonsContent((
+			'type': 'primary',
+			'theme': $_o-header-buttons-theme
+		));
+		height: 32px; // override o-buttons height
+		margin-left: $_o-header-padding-x;
+	}
+
+	.o-header__search-close {
+		@include oIconsContent('cross', _oHeaderGet('search-close'), $size: $_o-header-icon-size-large);
+		border: 0;
+		margin-left: $_o-header-padding-x;
+		vertical-align: middle;
+		// Match the search button's hover/focus state.
+		&:hover,
+		&:focus {
+			opacity: 0.75;
+		}
+
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+	}
+}

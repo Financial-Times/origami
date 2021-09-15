@@ -1,0 +1,27 @@
+@mixin _oHeaderSimple() {
+	.o-header--simple {
+		// fix heights
+		.o-header__top-wrapper {
+			height: $o-header-sticky-height;
+		}
+
+		.o-header__top-link {
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
+
+		.o-header__top-logo {
+			margin-top: 0;
+			margin-bottom: 0;
+
+			@include oGridRespondTo('L') {
+				@include _oHeaderLogoSize('M');
+			}
+		}
+
+		.o-header__top-takeover .o-header__nav-link {
+			padding: 0;
+			line-height: $o-header-sticky-height;
+		}
+	}
+}

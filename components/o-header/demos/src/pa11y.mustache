@@ -1,0 +1,216 @@
+<header class="o-header" data-o-component="o-header" data-o-header--no-js>
+
+	{{#anon}}
+	<div class="o-header__row o-header__anon">
+		<ul class="o-header__anon-list">
+			<li class="o-header__anon-item">
+				<a class="o-header__anon-link" href="#">Subscribe</a>
+			</li>
+			<li class="o-header__anon-item">
+				<a class="o-header__anon-link" href="#">Sign In</a>
+			</li>
+		</ul>
+	</div>
+	{{/anon}}
+
+	{{#top}}
+	<div class="o-header__row o-header__top">
+		<div class="o-header__container">
+			<div class="o-header__top-wrapper">
+				<div class="o-header__top-column o-header__top-column--left">
+					{{#drawer}}
+					<a href="#o-header-drawer" class="o-header__top-link o-header__top-link--menu" aria-controls="o-header-drawer" title="Open side navigation menu">
+						<span class="o-header__top-link-label">Open side navigation menu</span>
+					</a>
+					{{/drawer}}
+					<a href="#o-header-search" class="o-header__top-link o-header__top-link--search" aria-controls="o-header-search-js" title="Open search bar">
+						<span class="o-header__top-link-label">Open search bar</span>
+					</a>
+				</div>
+				<div class="o-header__top-column o-header__top-column--center">
+					<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
+						<span class="o-header__visually-hidden">Financial Times</span>
+					</a>
+				</div>
+				<div class="o-header__top-column o-header__top-column--right">
+					{{#hasMyFT}}
+					<a class="o-header__top-link o-header__top-link--myft" href="/myft" aria-label="My F T">
+						<span class="o-header__visually-hidden">myFT</span>
+					</a>
+					{{/hasMyFT}}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/top}}
+
+	{{#search}}
+	<!-- To support both core and enhanced, duplicating the search row is necessary to avoid it flashing in enhanced -->
+	<!-- Pick only one of the two <div> if you don't need to support both core and enhanced -->
+	<div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
+		<div class="o-header__container">
+			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__search-term" id="o-header-search-term" name="q" type="text" placeholder="Search the FT">
+				<button class="o-header__search-submit" type="submit">
+					Search
+				</button>
+			</form>
+		</div>
+	</div>
+	<div id="o-header-search-js" class="o-header__row o-header__search" role="search" data-o-header-search>
+		<div class="o-header__container">
+			<form class="o-header__search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-search-term-js">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__search-term" id="o-header-search-term-js" name="q" type="text" placeholder="Search the FT">
+				<button class="o-header__search-submit" type="submit">
+					Search
+				</button>
+				<button class="o-header__search-close o--if-js" type="button" aria-controls="o-header-search-js" title="Close search bar">
+					<span class="o-header__visually-hidden">Close search bar</span>
+				</button>
+			</form>
+		</div>
+	</div>
+	{{/search}}
+
+	{{#nav}}
+	<nav id="o-header-nav-mobile" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation" aria-label="Main navigation">
+		<ul class="o-header__nav-list">
+			{{#mobile}}
+			<li class="o-header__nav-item">
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+			</li>
+			{{/mobile}}
+		</ul>
+	</nav>
+
+	<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation" aria-label="Main navigation">
+		<div class="o-header__container">
+			<ul class="o-header__nav-list o-header__nav-list--left">
+				{{#desktop}}
+				<li class="o-header__nav-item">
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}" {{#hasMega}}aria-controls="o-header-mega-{{index}}"{{/hasMega}}>{{name}}</a>
+				</li>
+				{{/desktop}}
+			</ul>
+			<ul class="o-header__nav-list o-header__nav-list--right">
+				{{#isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://markets.ft.com/data/portfolio/dashboard">Portfolio</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://myaccount.ft.com/details/core/view">My Account</a>
+					</li>
+				{{/isSignedIn}}
+				{{^isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-button" href="/products">Subscribe</a>
+					</li>
+				{{/isSignedIn}}
+			</ul>
+		</div>
+	</nav>
+	{{/nav}}
+
+</header>
+
+{{#drawer}}
+<div class="o-header__drawer" id="o-header-drawer" role="navigation" aria-label="Drawer menu" data-o-header-drawer data-o-header-drawer--no-js>
+	<div class="o-header__drawer-inner">
+
+		<div class="o-header__drawer-tools">
+			<a class="o-header__drawer-tools-logo" href="/">
+				<span class="o-header__visually-hidden">Financial Times</span>
+			</a>
+			<button type="button" class="o-header__drawer-tools-close" aria-controls="o-header-drawer" title="Close drawer menu">
+				<span class="o-header__visually-hidden">Close drawer menu</span>
+			</button>
+			{{#editions}}
+			<p class="o-header__drawer-current-edition">{{editions.current.name}} Edition</p>
+			{{/editions}}
+		</div>
+
+		<div class="o-header__drawer-search">
+			<form class="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+				<label class="o-header__visually-hidden" for="o-header-drawer-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
+				<input class="o-header__drawer-search-term" id="o-header-drawer-search-term" name="q" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search the FT">
+				<button class="o-header__drawer-search-submit" type="submit">
+					<span class="o-header__visually-hidden">Search</span>
+				</button>
+			</form>
+		</div>
+
+		{{#editions}}
+		<nav class="o-header__drawer-menu" aria-label="Edition switcher">
+			<ul class="o-header__drawer-menu-list">
+				{{#editions.others}}
+				<li class="o-header__drawer-menu-item"></li>
+					<a class="o-header__drawer-menu-link" href="/?edition={{id}}">Switch to {{name}} Edition</a>
+				</li>
+				{{/editions.others}}
+			</ul>
+		</nav>
+		{{/editions}}
+
+		<nav class="o-header__drawer-menu o-header__drawer-menu--primary">
+			<ul class="o-header__drawer-menu-list">
+				{{#nav}}
+						{{#heading}}
+						<li class="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{{name}}</li>
+						{{/heading}}
+						{{#items}}
+						<li class="o-header__drawer-menu-item {{#divide}}o-header__drawer-menu-item--divide{{/divide}}">
+							{{#hasChildren}}
+								<div class="o-header__drawer-menu-toggle-wrapper">
+									<a class="o-header__drawer-menu-link o-header__drawer-menu-link--parent o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+									<button class="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" aria-controls="o-header-drawer-child-{{index}}">
+										Show more {{name}} links
+									</button>
+								</div>
+								<ul class="o-header__drawer-menu-list o-header__drawer-menu-list--child" id="o-header-drawer-child-{{index}}">
+									{{#children}}
+									<li class="o-header__drawer-menu-item">
+										<a class="o-header__drawer-menu-link o-header__drawer-menu-link--child o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+									</li>
+									{{/children}}
+								</ul>
+							{{/hasChildren}}
+							{{^hasChildren}}
+								<a class="o-header__drawer-menu-link {{#variation}}o-header__drawer-menu-link--{{variation}}{{/variation}} o-header__drawer-menu-link--{{#selected}}selected{{/selected}}{{^selected}}unselected{{/selected}}" href="{{href}}" {{#selected}}aria-label="{{name}}, current page" aria-current="page"{{/selected}}>{{name}}</a>
+							{{/hasChildren}}
+						</li>
+						{{/items}}
+				{{/nav}}
+			</ul>
+		</nav>
+
+		<nav class="o-header__drawer-menu o-header__drawer-menu--user">
+			<ul class="o-header__drawer-menu-list">
+				{{^user.isSignedIn}}
+						<li class="o-header__drawer-menu-item">
+							<a class="o-header__drawer-menu-link" href="/products?segID=400863&amp;segmentID=190b4443-dc03-bd53-e79b-b4b6fbd04e64">Subscribe</a>
+						</li>
+						<li class="o-header__drawer-menu-item">
+							<a class="o-header__drawer-menu-link" href="/login">Sign In</a>
+						</li>
+				{{/user.isSignedIn}}
+				{{#user.isSignedIn}}
+						<li class="o-header__drawer-menu-item">
+							<a class="o-header__drawer-menu-link" href="https://myaccount.ft.com/details/core/view">
+								{{user.name}}
+							</a>
+						</li>
+						<li class="o-header__drawer-menu-item">
+							<a class="o-header__drawer-menu-link" href="/logout">Sign Out</a>
+						</li>
+				{{/user.isSignedIn}}
+			</ul>
+		</nav>
+
+	</div>
+</div>
+{{/drawer}}

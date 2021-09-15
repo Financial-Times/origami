@@ -1,0 +1,108 @@
+@mixin _oHeaderMegaMenu() {
+	@keyframes o-header-mega {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.o-header__mega {
+		@include oTypographySans(0);
+		@include oVisualEffectsShadowContent('low');
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: oGridGutter('L');
+		right: oGridGutter('L');
+		z-index: $_o-header-mega-z-index;
+		box-sizing: border-box;
+		padding: $_o-header-mega-padding-y 0;
+		border-top: 1px solid _oHeaderGet('header-border');
+		background-color: _oHeaderGet('mega-menu-background');
+
+		&[aria-expanded="true"],
+		// core experience fallback
+		[data-o-header--no-js] :hover > & {
+			display: block;
+		}
+	}
+
+	.o-header__mega--animation {
+		animation: o-header-mega 0.5s ease-out;
+	}
+
+	.o-header__mega-wrapper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		// no margins for table cells... also so we avoid using :last-child for old IE
+		border-spacing: $_o-header-mega-padding-x 0;
+		margin-left: $_o-header-mega-padding-x * -1;
+	}
+
+	.o-header__mega-column {
+		display: table-cell;
+		padding-left: $_o-header-mega-padding-x;
+		border-left: 1px solid _oHeaderGet('header-border');
+
+		&:first-child {
+			border-left: 0;
+			padding-left: 0;
+		}
+	}
+
+	.o-header__mega-column--articles {
+
+		.o-header__mega-item {
+			&:before {
+				@include oIconsContent('arrow-right', oColorsByName('claret'), $size: $_o-header-icon-size-small);
+				vertical-align: text-top;
+				content: '';
+			}
+		}
+
+		.o-header__mega-link {
+			white-space: none;
+		}
+	}
+
+	.o-header__mega-column--subsections {
+		width: 30%;
+
+		.o-header__mega-list {
+			columns: 2;
+		}
+
+		.o-header__mega-item {
+			&:first-child {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.o-header__mega-heading {
+		margin: 0 0 $_o-header-padding-y;
+		font-size: inherit;
+		text-transform: uppercase;
+	}
+
+	.o-header__mega-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.o-header__mega-item {
+		line-height: 1.5;
+	}
+
+	.o-header__mega-link {
+		@include _oHeaderLink();
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

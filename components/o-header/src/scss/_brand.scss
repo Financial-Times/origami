@@ -1,0 +1,87 @@
+/// Helper `o-brand` wrapper.
+/// @access private
+@function _oHeaderGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-header',  $variables: $variables, $from: $from);
+}
+
+/// Helper `o-brand` wrapper.
+/// @access private
+@function _oHeaderSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-header', $variant: $variant);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-header', 'master', (
+		'variables': (
+			header-text: oColorsByName('black-80'),
+			header-border: oColorsByName('black-20'),
+			header-background: oColorsByName('paper'),
+			header-icon: oColorsByName('black-80'),
+			link-hover-text: oColorsByName('black-80'),
+			link-highlight-text: oColorsByName('teal-40'),
+
+			search-border: oColorsByName('teal-40'),
+			search-background: oColorsByName('black-20'),
+			search-close: oColorsByName('black-80'),
+
+			mega-menu-background: oColorsByName('white-60'),
+
+			subnav-background: oColorsByName('white-60'),
+			subnav-border: oColorsByName('black-20'),
+			subnav-link: oColorsByName('black-80'),
+			subnav-button-text: oColorsByName('black-80'),
+			subnav-button-background: oColorsByName('black-10'),
+			subnav-button-hover-background: oColorsByName('black-20'),
+
+			drawer-background: oColorsByName('paper'),
+			drawer-border: oColorsByName('black-20'),
+			drawer-tools-background: transparent,
+			drawer-tools-text: oColorsByName('black-80'),
+			drawer-tools-close: oColorsByName('black-80'),
+			drawer-editions-link: oColorsByName('teal-40'),
+			drawer-editions-link-highlight: oColorsByName('black-70'),
+			drawer-search-term-background: oColorsByName('white'),
+			drawer-search-term-border: oColorsByName('black-20'),
+			drawer-search-term-highlight-border: oColorsByName('teal-40'),
+			drawer-search-submit-background: oColorsByName('teal-40'),
+			drawer-search-submit-border: transparent,
+			drawer-menu-text: oColorsByName('black-80'),
+			drawer-menu-border: oColorsByName('black-10'),
+			drawer-menu-user-background: oColorsByName('black-10'),
+			drawer-menu-user-border: oColorsByName('black-20'),
+			drawer-menu-list-background: oColorsByName('white-60'),
+			drawer-menu-link-text: inherit,
+			drawer-menu-link-background: oColorsByName('white-60'),
+			drawer-menu-link-hover-text: oColorsByName('teal-40'),
+			drawer-menu-selected-link-text: oColorsByName('white'),
+			drawer-menu-selected-link-background: oColorsByName('teal-40'),
+			drawer-menu-selected-link-hover-text: oColorsByName('white-60'),
+			drawer-menu-item-background: oColorsByName('black-10'),
+			drawer-selected-toggle-text: oColorsByName('white'),
+			drawer-selected-toggle-background: oColorsByName('white'),
+			drawer-unselected-toggle-text: oColorsByName('teal-40'),
+			drawer-unselected-toggle-background: oColorsByName('black-10'),
+			'transparent': (
+				header-text: oColorsByName('white'),
+				header-border: rgba(oColorsByName('white'), 0.4),
+				header-background: transparent,
+				header-icon: oColorsByName('white'),
+				link-hover-text: oColorsByName('white'),
+				link-highlight-text: oColorsByName('white'),
+			)
+		),
+		'supports-variants': (
+			'transparent',
+			'subnav',
+			'search',
+			'nav',
+			'anon',
+			'drawer',
+			'megamenu',
+			'sticky',
+			'simple',
+			'subbrand',
+			'top'
+		)
+	));
+}

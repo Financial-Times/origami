@@ -1,0 +1,25 @@
+@mixin _oHeaderSticky() {
+	.o-header--sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: $_o-header-sticky-z-index;
+		transform: translateY(-100%);
+		transition: transform 0.35s $o-visual-effects-timing-slide;
+		will-change: transform;
+
+		// because the transition is slightly bouncy it will reveal some of the background
+		border-top: 30px solid transparent;
+		margin-top: -30px;
+
+		@media print {
+			display: none;
+		}
+	}
+
+	.o-header--sticky-active {
+		@include oVisualEffectsShadowContent('mid');
+		transform: translateY(0);
+	}
+}

@@ -1,0 +1,150 @@
+@mixin _oHeaderTop() {
+	.o-header__top-wrapper {
+		display: table;
+		width: 100%;
+	}
+
+	.o-header__top-column {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.o-header__top-column--left,
+	.o-header__top-column--right {
+		// to keep the logo horizontally centered relative to the page these columns must be equal...
+		// ... can be removed from layout by fixing table layout and setting width to zero.
+		width: 12.5%;
+		white-space: nowrap;
+	}
+
+	.o-header__top-column--left {
+		text-align: left;
+	}
+
+	.o-header__top-column--right {
+		text-align: right;
+	}
+
+	.o-header__top-column--center {
+		text-align: center;
+	}
+
+	.o-header__top-takeover {
+		display: none;
+
+		@include oGridRespondTo('L') {
+			display: block;
+
+			& ~ * {
+				display: none !important; //stylelint-disable-line declaration-no-important
+			}
+		}
+	}
+
+	.o-header__top-link {
+		@include _oHeaderLink;
+		display: inline-block;
+		margin-left: 10px;
+		text-transform: uppercase;
+		font-size: 10px;
+		text-align: center;
+		height: 40px;
+		margin-top: 4px;
+		margin-bottom: 4px;
+
+		@include oGridRespondTo('L') {
+			margin-left: 20px;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		@include oGridRespondTo('M') {
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+
+		&:before {
+			@include oIconsContentBaseStyles();
+			content: ' ';
+			width: #{$_o-header-icon-size-large}px;
+			height: #{$_o-header-icon-size-large}px;
+		}
+
+		// first child for old IE
+		&:first-child {
+			margin-left: -10px; // -10px to remove the padding that the icon image has around it when used at a size of 40px.
+		}
+	}
+
+	.o-header__top-link--menu {
+		&:before {
+			// container size (24) is only included for the fallback image.
+			// IE8 has a static stylesheet generated for the L breakpoint.
+			@include oIconsContent('hamburger', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+		}
+	}
+
+	.o-header__top-link--search {
+		&:before {
+			@include oIconsContent('search', _oHeaderGet('header-icon'), $size: null, $include-base-styles: false);
+		}
+
+		// when used in tandem with the menu toggle, hide this on smaller screen sizes
+		.o-header__top-link--menu + & {
+			@include oGridRespondTo($until: 'L') {
+				display: none;
+			}
+		}
+	}
+
+	.o-header__top-link--myft {
+		&:before {
+			@include _oHeaderBrandImage('brand-myft', _oHeaderGet('header-icon'), 52);
+			// this is not a very square icon
+			width: 35px;
+			// Remove the negative margin added for new icons which have additional padding
+			margin-top: 0;
+
+			@include oGridRespondTo('M') {
+				width: 44px;
+			}
+
+			@include oGridRespondTo('L') {
+				width: 52px;
+			}
+		}
+	}
+
+	.o-header__top-link-label {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	.o-header__top-logo {
+		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 500);
+		@include _oHeaderLogoSize('XS');
+
+		display: block;
+		border: 0;
+		margin: 16px auto;
+		background-size: 100% 100%; // Edge SVG background clipped when scaled https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4705340/
+		background-position: 50%;
+		background-repeat: no-repeat;
+
+		@include oGridRespondTo('S') {
+			@include _oHeaderLogoSize('S');
+		}
+
+		@include oGridRespondTo('M') {
+			@include _oHeaderLogoSize('M');
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+
+		@include oGridRespondTo('L') {
+			@include _oHeaderLogoSize('L');
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+	}
+
+}

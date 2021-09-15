@@ -1,0 +1,96 @@
+<header class="o-header" data-o-component="o-header" data-o-header--no-js>
+	{{#nav}}
+	<nav id="o-header-nav-mobile" class="o-header__row o-header__nav o-header__nav--mobile" role="navigation" aria-label="Main navigation">
+		<ul class="o-header__nav-list">
+			{{#mobile}}
+			<li class="o-header__nav-item">
+				<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}">{{name}}</a>
+			</li>
+			{{/mobile}}
+		</ul>
+	</nav>
+
+	<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation" aria-label="Main navigation">
+		<div class="o-header__container">
+			<ul class="o-header__nav-list o-header__nav-list--left">
+				{{#desktop}}
+				<li class="o-header__nav-item">
+					<a class="o-header__nav-link o-header__nav-link--primary" href="{{href}}"  id="o-header-link-{{index}}">{{name}}</a>
+				</li>
+				{{/desktop}}
+			</ul>
+			<ul class="o-header__nav-list o-header__nav-list--right">
+				{{#isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://markets.ft.com/data/portfolio/dashboard">Portfolio</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="https://myaccount.ft.com/details/core/view">My Account</a>
+					</li>
+				{{/isSignedIn}}
+				{{^isSignedIn}}
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--utility" href="/login">Sign In</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-button" href="/products">Subscribe</a>
+					</li>
+				{{/isSignedIn}}
+			</ul>
+		</div>
+	</nav>
+	{{/nav}}
+
+	{{#subnav}}
+	<div class="o-header__subnav" role="navigation" aria-label="Sub navigation" data-o-header-subnav>
+		<div class="o-header__container">
+			<div class="o-header__subnav-wrap-outside">
+				<div class="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
+					<div class="o-header__subnav-content">
+						<ol class="o-header__subnav-list o-header__subnav-list--breadcrumb" aria-label="Breadcrumb">
+							{{#currentNav.ancestors}}
+							<li class="o-header__subnav-item">
+								<a class="o-header__subnav-link" href="{{href}}">
+									{{name}}
+								</a>
+							</li>
+							{{/currentNav.ancestors}}
+							{{#currentNav}}
+							<li class="o-header__subnav-item">
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
+									{{name}}
+								</a>
+							</li>
+							{{/currentNav}}
+						</ol>
+
+						<ul class="o-header__subnav-list o-header__subnav-list--children" aria-label="Subsections">
+							{{#currentNav.children}}
+							<li class="o-header__subnav-item">
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
+									{{name}}
+								</a>
+							</li>
+							{{/currentNav.children}}
+						</ul>
+
+						{{#currentNav.childrenRight.length}}
+						<ul class="o-header__subnav-list o-header__subnav-list--children o-header__subnav-list--right" aria-label="Actions">
+							{{#currentNav.childrenRight}}
+							<li class="o-header__subnav-item">
+								<a class="o-header__subnav-link" href="{{href}}" {{#selected}}aria-current="page" aria-label="{{name}}, current page"{{/selected}}>
+									{{name}}
+								</a>
+							</li>
+							{{/currentNav.childrenRight}}
+						</ul>
+						{{/currentNav.childrenRight.length}}
+					</div>
+				</div>
+				<button class="o-header__subnav-button o-header__subnav-button--left" aria-hidden="true" disabled></button>
+				<button class="o-header__subnav-button o-header__subnav-button--right" aria-hidden="true" disabled></button>
+			</div>
+		</div>
+	</div>
+	{{/subnav}}
+</header>

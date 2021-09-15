@@ -1,0 +1,96 @@
+@mixin _oHeaderNav() {
+	.o-header__nav {
+		@include oTypographySans($scale: -1, $line-height: 20px);
+	}
+
+	.o-header__nav--hide-s {
+		display: none;
+
+		@include oGridRespondTo('S') {
+			display: block;
+		}
+	}
+
+	.o-header__nav--mobile {
+		white-space: nowrap;
+
+		@include oGridRespondTo('L') {
+			display: none;
+		}
+	}
+
+	.o-header__nav--desktop {
+		display: none;
+
+		@include oGridRespondTo('L') {
+			display: block;
+		}
+	}
+
+	.o-header__nav-list {
+		display: table;
+		list-style-type: none;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.o-header__nav-list--left {
+		float: left;
+	}
+
+	.o-header__nav-list--right {
+		float: right;
+	}
+
+	.o-header__nav-item {
+		display: table-cell;
+		vertical-align: middle;
+		padding-left: $_o-header-padding-x - 2;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		.o-header__nav--mobile & {
+			padding-left: $_o-header-padding-x * 2;
+
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+	}
+
+	.o-header__nav-item--hide-s {
+		display: none;
+
+		@include oGridRespondTo('S') {
+			display: table-cell;
+		}
+	}
+
+	.o-header__nav-item--expanded {
+		@include oGridRespondTo($until: 'M') {
+			display: none;
+		}
+	}
+
+	.o-header__nav-link {
+		@include _oHeaderLink();
+		@include _oHeaderFancyLink();
+	}
+
+	.o-header__nav-link--primary {
+		font-weight: 600;
+		text-transform: uppercase;
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
+	}
+
+	.o-header__nav-button {
+		@include oButtonsContent((
+			'type': 'primary',
+			'theme': $_o-header-buttons-theme
+		));
+	}
+}

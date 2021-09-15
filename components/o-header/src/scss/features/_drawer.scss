@@ -1,0 +1,372 @@
+@mixin _oHeaderDrawer() {
+	// added to the document element, see n-ui/layout
+	.o-header__drawer {
+		@include oTypographySans();
+		background-color: _oHeaderGet('drawer-background');
+		box-sizing: content-box;
+
+		&[data-o-header-drawer--js] {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: $_o-header-drawer-z-index;
+			width: 100%;
+			border-right: 1px solid _oHeaderGet('drawer-border');
+			// use a 2D transform because 3D are unsupported by IE9
+			transform: translateX(-100%);
+			transform: translate3d(-100%, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+
+			// this is literally the spec example for will-change
+			will-change: transform;
+
+			@include oGridRespondTo('M') {
+				width: $_o-header-drawer-width;
+			}
+
+			&[aria-hidden] {
+				@include oVisualEffectsShadowContent('low');
+
+				// because the transition is slightly bouncy it will reveal some of the background
+				border-left: 30px solid transparent;
+				margin-left: -30px;
+			}
+
+			&[aria-hidden="false"] {
+				// use a 2D transform because 3D are unsupported by IE9
+				transform: translateX(0);
+				transform: translate3d(0, 0, 0); // stylelint-disable-line declaration-block-no-duplicate-properties
+			}
+		}
+	}
+
+	// Supports different transitions for opening and closing
+	.o-header__drawer--opening,
+	.o-header__drawer--closing {
+		transition: transform 0.5s cubic-bezier(1, 0, 0.5, 1.2);
+	}
+
+	.o-header__drawer-inner {
+		[data-o-header-drawer--js] & {
+			height: 100%;
+			overflow-y: auto;
+			// intertial scrolling for iOS Safari
+			-webkit-overflow-scrolling: touch;
+			// working draft
+			scroll-behavior: smooth;
+
+			scrollbar-color: oColorsByName('black-30') transparent;
+
+			// (╯°□°）╯︵ ┻━┻
+			&::-webkit-scrollbar {
+				width: 12px;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: oColorsByName('black-30');
+				// you can't set the dimensions so use a border as a margin...
+				background-clip: content-box;
+				border: 4px solid transparent;
+			}
+		}
+	}
+
+	//
+	// Tools
+	//
+	.o-header__drawer-tools {
+		overflow: hidden;
+		padding: ($_o-header-drawer-padding-y * 1.5) 0 $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		background-color: _oHeaderGet('drawer-tools-background');
+		color: _oHeaderGet('drawer-tools-text');
+	}
+
+	.o-header__drawer-tools-logo {
+		@include _oHeaderBrandImage('brand-ft-masthead', _oHeaderGet('header-icon'), 210);
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 210px;
+		height: 18px;
+		border-bottom: 0;
+	}
+
+	.o-header__drawer-tools-close {
+		// dividing by 1px removes the unit
+		@include oIconsContent('cross', _oHeaderGet('drawer-tools-close'), $size: $_o-header-icon-size-large);
+		box-sizing: border-box;
+		float: right;
+		border: 0;
+		opacity: 0.75;
+		cursor: pointer;
+		margin-top: -10px;
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+	}
+
+	//
+	// Editions
+	//
+	.o-header__drawer-current-edition {
+		@include oTypographySans($scale: -1);
+		color: oColorsByName('black-60');
+		margin: 0.5em 0;
+	}
+
+	// @deprecated - Remove `o-header__drawer-editions` in the next major
+	.o-header__drawer-editions {
+		padding: 0 $_o-header-drawer-padding-x;
+	}
+
+	// @deprecated - Remove `o-header__drawer-editions-link` in the next major
+	.o-header__drawer-editions-link {
+		color: _oHeaderGet('drawer-editions-link');
+		display: inline-block;
+		padding: $_o-header-drawer-padding-y/2 0 8px;
+		margin-left: 0.5em;
+		border-bottom: 0;
+		font-size: 18px;
+		text-decoration: underline;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&[aria-current] {
+			color: _oHeaderGet('drawer-editions-link-highlight');
+			font-weight: 600;
+			text-decoration: none;
+			pointer-events: none;
+		}
+	}
+
+	//
+	// Search
+	//
+	.o-header__drawer-search {
+		border-top: 2px solid oColorsByName('black-10');
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+
+		@include oGridRespondTo('L') {
+			display: none;
+		}
+	}
+
+	.o-header__drawer-search-form {
+		display: flex;
+	}
+
+	.o-header__drawer-search-term,
+	.o-header__drawer-search-submit {
+		box-sizing: border-box;
+		height: 32px;
+		padding: 8px ($_o-header-drawer-padding-x / 2);
+		border: 1px solid;
+		// prevent zoom on focus
+		font-size: 100%;
+	}
+
+	.o-header__drawer-search-term {
+		background-color: _oHeaderGet('drawer-search-term-background');
+		border-color: _oHeaderGet('drawer-search-term-border');
+		flex-grow: 1;
+		// normalize
+		appearance: none;
+		background: white;
+		border-style: solid;
+		box-shadow: none;
+		border-radius: 0;
+		// margin copied from o-forms since introducing a new dependency would
+		// be a breaking change, this colour could go in o-colors as a usecase
+		border: 1px solid oColorsByName('black-50');
+
+		&:focus { //currently overriden by o-normalise
+			border-color: _oHeaderGet('drawer-search-term-highlight-border');
+		}
+	}
+
+	.o-header__drawer-search-submit {
+		background-color: _oHeaderGet('drawer-search-submit-background');
+		border-color: _oHeaderGet('drawer-search-submit-border');
+
+		&:after {
+			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
+			content: '';
+			margin-top: -($_o-header-drawer-padding-y / 2);
+		}
+	}
+
+	//
+	// Lists
+	//
+	.o-header__drawer-menu {
+		color: _oHeaderGet('drawer-menu-text');
+		border-color: _oHeaderGet('drawer-menu-border');
+	}
+
+	.o-header__drawer-menu--user {
+		background-color: _oHeaderGet('drawer-menu-user-background');
+		padding-bottom: $_o-header-drawer-padding-y;
+		border-top: 1px solid _oHeaderGet('drawer-menu-user-border');
+	}
+
+	.o-header__drawer-menu-list {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	.o-header__drawer-menu-list--child {
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+
+		[data-o-header-drawer--js] & {
+			// hide from the off to avoid any transition on page load
+			max-height: 0;
+			// take the contents away from tab order
+			visibility: hidden;
+			transition: max-height 0.25s ease-out;
+
+			&[aria-hidden="false"] {
+				background-color: _oHeaderGet('drawer-menu-list-background');
+				// magic number... you can't transition between 0 and unknown
+				// but as long as this is larger than the content it will do
+				max-height: 600px;
+				visibility: visible;
+				// a border would create some flickery layout
+				box-shadow: inset 0 -1px 0 _oHeaderGet('drawer-menu-border'), inset 0 1px 0 _oHeaderGet('drawer-menu-border');
+			}
+		}
+	}
+
+	.o-header__drawer-menu-item {
+		margin-top: 1px;
+	}
+
+	.o-header__drawer-menu-item--divide {
+		border-top: 2px solid _oHeaderGet('drawer-menu-border');
+	}
+
+	.o-header__drawer-menu-item--heading {
+		background-color: _oHeaderGet('drawer-menu-item-background');
+		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
+		font-weight: 600;
+	}
+
+	//
+	// Toggles
+	//
+	.o-header__drawer-menu-toggle-wrapper {
+		position: relative;
+	}
+
+	.o-header__drawer-menu-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 42px;
+		// normalize the button
+		padding: 0;
+		text-align: left;
+		border: 0;
+		cursor: pointer;
+		// visually hide text...
+		font-size: 0;
+
+		&:before {
+			content: ' ';
+			margin-left: 9px; // magic number to vertically align icon in box
+		}
+
+		&[aria-expanded="true"] {
+			&:before {
+				// don't download another icon...
+				transform: rotate(180deg);
+			}
+		}
+
+		&:hover {
+			// hide focus outline on hover
+			outline: 0;
+		}
+
+		[data-o-header-drawer--no-js] & {
+			display: none;
+		}
+	}
+
+	.o-header__drawer-menu-toggle--selected {
+		background: rgba(_oHeaderGet('drawer-selected-toggle-background'), 0.25);
+
+		&:before {
+			@include oIconsContent('arrow-down', _oHeaderGet('drawer-selected-toggle-text'), $size: $_o-header-icon-size);
+		}
+	}
+
+	.o-header__drawer-menu-toggle--unselected {
+		background: rgba(_oHeaderGet('drawer-unselected-toggle-background'), 0.85);
+
+		&:before {
+			@include oIconsContent('arrow-down', _oHeaderGet('drawer-unselected-toggle-text'), $size: $_o-header-icon-size);
+		}
+	}
+
+	//
+	// Links
+	//
+	.o-header__drawer-menu-link {
+		color: _oHeaderGet('drawer-menu-link-text');
+		display: block;
+		padding: $_o-header-drawer-padding-y $_o-header-drawer-padding-x;
+		border-bottom: 0;
+		font-size: 18px;
+		text-decoration: none;
+
+		&:hover {
+			color: _oHeaderGet('drawer-menu-link-hover-text');
+		}
+
+		[aria-expanded="true"] + & {
+			background-color: _oHeaderGet('drawer-menu-link-background');
+		}
+	}
+
+	.o-header__drawer-menu-link--selected {
+		color: _oHeaderGet('drawer-menu-selected-link-text');
+		background-color: _oHeaderGet('drawer-menu-selected-link-background');
+
+		&:hover,
+		&:focus {
+			color: _oHeaderGet('drawer-menu-selected-link-hover-text');
+			//also overriden by o-normalise
+			outline-color: _oHeaderGet('drawer-menu-text');
+		}
+
+		[aria-expanded="true"] + & {
+			// specificity
+			background-color: _oHeaderGet('drawer-menu-selected-link-background');
+		}
+	}
+
+	.o-header__drawer-menu-link--child {
+		padding-left: 40px;
+	}
+
+	.o-header__drawer-menu-link--secondary {
+		font-weight: 600;
+	}
+
+	.o-header__drawer-menu-link-detail {
+		display: block;
+		margin-top: 0.25em;
+		font-size: 14px;
+	}
+}
