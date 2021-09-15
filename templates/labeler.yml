@@ -1,0 +1,25 @@
+component:
+  - components/**/*
+
+action:
+  - actions/**/*
+
+library:
+  - libraries/**/*
+
+hook:
+  - hook/**/*
+
+script:
+  - scripts/**/*
+
+tool:
+  - tools/**/*
+
+template:
+  - template/**/*
+
+{{#workspaces}}
+{{&name}}:
+  - {{&path}}/**/*
+{{/workspaces}}

@@ -1,0 +1,45 @@
+{{=<% %>=}}
+name: Percy <%& workspace %>
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "<%& workspace %>/package.json"
+     - "<%& workspace %>/package-lock.json"
+     - "<%& workspace %>/origami.json"
+     - "<%& workspace %>/main.js"
+     - "<%& workspace %>/main.scss"
+     - "<%& workspace %>/demos/**"
+     - "<%& workspace %>/src/**"
+  push:
+    branches: main
+    paths:
+     - "<%& workspace %>/package.json"
+     - "<%& workspace %>/package-lock.json"
+     - "<%& workspace %>/origami.json"
+     - "<%& workspace %>/main.js"
+     - "<%& workspace %>/main.scss"
+     - "<%& workspace %>/demos/**"
+     - "<%& workspace %>/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+        registry-url: 'https://origami-npm-registry-prototype.herokuapp.com'
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_<% percyTokenName %> }}
+        WORKSPACE: <%& workspace %>
