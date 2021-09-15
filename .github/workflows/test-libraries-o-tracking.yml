@@ -1,6 +1,6 @@
-name: test components/o-tracking
+name: test libraries/o-tracking
 concurrency:
-  group: ${{ github.head_ref }}-components/o-tracking
+  group: ${{ github.head_ref }}-libraries/o-tracking
   cancel-in-progress: true
 
 on:
@@ -18,5 +18,5 @@ jobs:
         node-version: 16.x
         cache: 'npm'
     - run: npm ci
-    - run: npx npm exec -w components/o-tracking -- origami-build-tools verify
-    - run: npx npm exec -w components/o-tracking -- origami-build-tools test
+    - run: npx npm exec -w libraries/o-tracking -- origami-build-tools verify
+    - run: npx npm exec -w libraries/o-tracking -- origami-build-tools test

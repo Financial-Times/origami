@@ -99,8 +99,6 @@ o-tooltip:
   - components/o-tooltip/**/*
 o-topper:
   - components/o-topper/**/*
-o-tracking:
-  - components/o-tracking/**/*
 o-typography:
   - components/o-typography/**/*
 o-video:
@@ -115,6 +113,8 @@ o-brand:
   - libraries/o-brand/**/*
 o-errors:
   - libraries/o-errors/**/*
+o-tracking:
+  - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
 origami-build-tools:
