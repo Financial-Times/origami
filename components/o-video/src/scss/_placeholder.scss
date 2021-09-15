@@ -1,0 +1,84 @@
+/// @access private
+/// Outpus styling for video placeholder
+@mixin _oVideoPlaceholder {
+	.o-video__placeholder,
+	.o-video__placeholder-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.o-video__placeholder {
+		background: oColorsByName('slate');
+		color: oColorsByName('white');
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		// sass-lint:enable no-vendor-prefixes
+	}
+
+	.o-video__placeholder-image {
+		will-change: opacity;
+		transition: opacity 0.25s;
+		object-fit: cover;
+
+		// saves messing with z-indexes!
+		:hover > & {
+			opacity: 0.35;
+		}
+	}
+
+	.o-video__play-button {
+		position: absolute;
+		bottom: 0;
+		// always align left, even when `text-align:center` is inherited
+		left: 0;
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	.o-video__play-button-icon {
+		@include oIconsContent('play', oColorsByName('white'), $size: null);
+		color: oColorsByName('white');
+		background-color: oColorsByName('black');
+		:hover > &,
+		:focus > & {
+			background-color: oColorsByName('claret');
+		}
+	}
+
+	.o-video__play-cta {
+		display: flex;
+		bottom: 0;
+		left: 0;
+
+		&--without-hint {
+			.o-video__play-button-icon {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		&--with-hint {
+			bottom: 10px;
+			left: 10px;
+			.o-video__play-button-icon {
+				@include oTypographySans(-1, $weight: 'semibold');
+				padding: 10px 16px 10px 36px;
+				background-position: left;
+			}
+		}
+	}
+	.o-video--large {
+		.o-video__play-cta--without-hint {
+			.o-video__play-button-icon {
+				width: 60px;
+				height: 60px;
+			}
+		}
+	}
+}

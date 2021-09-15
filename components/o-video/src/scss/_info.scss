@@ -1,0 +1,93 @@
+/// @access private
+/// Outputs styling for small variation of video information
+@mixin _oVideoInfoSmall {
+	.o-video__info-description {
+		display: none;
+	}
+	.o-video__info-title {
+		@include oTypographySans(-2, $weight: 'semibold');
+		margin: 6px 0;
+	}
+}
+
+/// @access private
+/// Outputs styling for medium variation of video information
+@mixin _oVideoInfoMedium {
+	.o-video__info-brand {
+		display: inline-block;
+	}
+
+	.o-video__info-title {
+		margin: 6px 0;
+	}
+}
+
+/// @access private
+/// Outputs styling for large variation of video information
+@mixin _oVideoInfoLarge {
+	.o-video__info-title,
+	.o-video__info-description {
+		margin: 10px 0;
+	}
+
+	.o-video__info-title {
+		@include oTypographySans(4, $line-height: 30px, $weight: semibold);
+	}
+
+	.o-video__info-description {
+		@include oTypographySans(1, $line-height: 20px);
+		display: block;
+	}
+
+}
+
+/// @access private
+/// Outputs base styling for video information
+@mixin _oVideoInfo($sizes) {
+	.o-video__info {
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		width: 100%;
+		min-height: 50%;
+		padding: 0 10px 20px;
+		background: linear-gradient(rgba(0, 0, 0, 0.75), transparent);
+		color: oColorsByName('white');
+	}
+
+	.o-video__info-brand {
+		@include oTypographyLink;
+		line-height: 15px;
+		display: inline-block;
+		padding: 2px 10px 3px;
+		text-transform: capitalize;
+		background-color: oColorsByName('claret');
+		color: oColorsByName('white');
+		&:empty {
+			display: none !important; // stylelint-disable-line declaration-no-important
+		}
+	}
+
+	.o-video__info-title {
+		@include oTypographySans(-1, $line-height: 18px, $weight: 'semibold');
+	}
+
+	@if index($sizes, 'small') {
+		.o-video--small {
+			@include _oVideoInfoSmall();
+		}
+	}
+
+	@if index($sizes, 'medium') {
+		.o-video--medium {
+			@include _oVideoInfoMedium();
+		}
+	}
+
+	@if index($sizes, 'large') {
+		.o-video--large {
+			@include _oVideoInfoLarge();
+		}
+	}
+}
