@@ -1,0 +1,40 @@
+{
+	"name": "@financial-times/o-date",
+	"version": "0.0.0",
+	"type": "module",
+	"browser": "main.js",
+	"description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
+	"keywords": [
+		"datetime",
+		"time",
+		"timestamp"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-date",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-date"
+	},
+	"license": "MIT",
+	"engines": {
+		"npm": "^7"
+	},
+	"devDependencies": {
+		"eslint": "^7.28.0",
+		"eslint-config-origami-component": "^2.1.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^8.0.0",
+		"remark-preset-lint-origami-component": "^2.0.0",
+		"stylelint": "^13.13.1",
+		"stylelint-config-origami-component": "^1.0.4"
+	},
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+	},
+	"dependencies": {
+		"@financial-times/ft-date-format": "^2.0.0"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
+}
