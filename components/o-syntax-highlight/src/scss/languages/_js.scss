@@ -1,0 +1,27 @@
+@mixin _oSyntaxHighlightJS () {
+	.o-syntax-highlight--js,
+	.o-syntax-highlight--javascript {
+		.token {
+			&.regex,
+			&.boolean {
+				color: $_o-syntax-highlight-black-jade-30;
+			}
+
+			&.operator,
+			&.class-name {
+				color: $_o-syntax-highlight-oxford-crimson-50;
+			}
+
+			&.keyword,
+			&.function {
+				color: $_o-syntax-highlight-oxford;
+				.function-variable { color: $_o-syntax-highlight-oxford-crimson-50; }
+			}
+
+			&.number,
+			&.template-string .interpolation-punctuation {
+				color: $_o-syntax-highlight-crimson-jade-80;
+			}
+		}
+	}
+}

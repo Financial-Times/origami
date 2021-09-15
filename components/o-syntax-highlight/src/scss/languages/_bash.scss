@@ -1,0 +1,9 @@
+@mixin _oSyntaxHighlightBash {
+	.o-syntax-highlight--bash {
+		.token {
+			&.function { color: $_o-syntax-highlight-oxford-lemon-80; }
+			&.operator { color: $_o-syntax-highlight-crimson-jade-80;}
+			&.variable { color: $_o-syntax-highlight-oxford; }
+		}
+	}
+}

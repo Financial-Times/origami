@@ -1,0 +1,34 @@
+@mixin _oSyntaxHighlightSCSS {
+	.o-syntax-highlight--scss,
+	.o-syntax-highlight--sass {
+		.token {
+			&.boolean,
+			&.null {
+				color: $_o-syntax-highlight-black-jade-30;
+			}
+
+			&.function { color: $_o-syntax-highlight-oxford-lemon-80; }
+			&.keyword { color: $_o-syntax-highlight-crimson-jade-80; }
+
+			&.important,
+			&.parent.important,
+			&.operator {
+				color: $_o-syntax-highlight-black-crimson-25;
+			}
+
+			&.placeholder { color: $_o-syntax-highlight-black-lemon-55; }
+
+			&.property { color: $_o-syntax-highlight-grey-70; }
+
+			&.selector,
+			&.url {
+				color: $_o-syntax-highlight-oxford;
+			}
+
+			&.variable,
+			&.statement.keyword {
+				color: $_o-syntax-highlight-oxford-crimson-50;
+			}
+		}
+	}
+}

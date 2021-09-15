@@ -1,0 +1,85 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": [
+		"master",
+		"internal"
+	],
+	"support": "https://github.com/Financial-Times/o-syntax-highlight/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"ci": {
+		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-syntax-highlight"
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js"
+	},
+	"demos": [
+		{
+			"title": "HTML",
+			"name": "html",
+			"template": "demos/src/html.mustache",
+			"description": "Syntax highlight theme for HTML"
+		},
+		{
+			"title": "JavaScript",
+			"name": "js",
+			"template": "demos/src/js.mustache",
+			"description": "Syntax highlight theme for JavaScript"
+		},
+		{
+			"title": "CSS",
+			"name": "css",
+			"template": "demos/src/css.mustache",
+			"description": "Syntax highlight theme for CSS"
+		},
+		{
+			"title": "Inline Code",
+			"name": "inline-syntax",
+			"template": "demos/src/inline-syntax.mustache",
+			"description": "Syntax highlight theme for inline <code> tags"
+		},
+		{
+			"title": "JSON",
+			"name": "json",
+			"template": "demos/src/json.mustache",
+			"description": "Syntax highlight theme for JSON"
+		},
+		{
+			"title": "YAML",
+			"name": "yaml",
+			"template": "demos/src/yaml.mustache",
+			"description": "Syntax highlight theme for YAML"
+		},
+		{
+			"title": "SCSS",
+			"name": "scss",
+			"template": "demos/src/scss.mustache",
+			"description": "Syntax highlight theme for SCSS"
+		},
+		{
+			"title": "Diff",
+			"name": "diff",
+			"template": "demos/src/diff.mustache",
+			"description": "Syntax highlight theme for diff"
+		},
+		{
+			"title": "Bash",
+			"name": "bash",
+			"template": "demos/src/bash.mustache",
+			"description": "Syntax highlight theme for bash"
+		},
+		{
+			"title": "imperative",
+			"name": "imperative",
+			"template": "demos/src/imperative.mustache",
+			"js": "demos/src/imperative.js",
+			"description": "Syntax highlight theme for imperative",
+			"hidden": true
+		}
+	]
+}

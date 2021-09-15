@@ -1,0 +1,42 @@
+{
+	"name": "@financial-times/o-syntax-highlight",
+	"version": "0.0.0",
+	"description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
+	"keywords": [
+		"syntax",
+		"highlight"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-syntax-highlight"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
+	},
+	"devDependencies": {
+		"eslint": "^7.24.0",
+		"eslint-config-origami-component": "^2.1.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^7.0.1",
+		"remark-preset-lint-origami-component": "^2.0.0",
+		"stylelint": "^13.12.0",
+		"stylelint-config-origami-component": "^1.0.4"
+	},
+	"dependencies": {
+		"prismjs": "^1.14.0"
+	},
+	"peerDependencies": {
+		"@financial-times/o-colors": "^6.0.0"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
+}

@@ -1,0 +1,9 @@
+@mixin _oSyntaxHighlightHTML {
+	.o-syntax-highlight--html {
+		.token {
+			&.attr-name { color: $_o-syntax-highlight-oxford; }
+			&.attr-value { color: $_o-syntax-highlight-oxford-jade-60; }
+			&.tag { color: $_o-syntax-highlight-crimson-jade-80; }
+		}
+	}
+}

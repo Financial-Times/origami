@@ -1,0 +1,12 @@
+@mixin _oSyntaxHighlightDiff {
+	.o-syntax-highlight--diff {
+		.token.deleted {
+			color: oColorsMix('black', 'crimson', 75);
+			background-color: oColorsMix('crimson', 'white', 30);
+		}
+		.token.inserted {
+			color: oColorsMix('black', 'jade', 75);
+			background-color: oColorsMix('jade', 'white', 30);
+		}
+	}
+}
