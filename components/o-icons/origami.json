@@ -1,0 +1,34 @@
+{
+    "origamiType": "component",
+    "origamiVersion": "2.0",
+    "support": "https://github.com/Financial-Times/o-icons/issues",
+    "supportContact": {
+        "email": "origami.support@ft.com",
+        "slack": "financialtimes/origami-support"
+    },
+    "brands": [
+        "master",
+        "internal",
+        "whitelabel"
+    ],
+    "supportStatus": "active",
+    "demos": [
+        {
+            "title": "Icons",
+            "name": "icons",
+            "template": "demos/src/icons.mustache",
+            "sass": "demos/src/demo.scss",
+            "data": "demos/src/data.json",
+            "description": "o-icons provides helper Sass and some basic html classes for the fticons image set. This demo shows all icons available via o-icons. Build Service users may use the Image Service to fetch an icon svg from the fticons imageset directly. See the README for more details."
+        },
+        {
+            "title": "Custom Icons",
+            "name": "custom-icons",
+            "template": "demos/src/custom-icons.mustache",
+            "sass": "demos/src/demo.scss",
+            "data": "demos/src/data.json",
+            "description": "This demo shows icons customised using o-icons helper Sass. Instead of using o-icons, Build Service users should use the Image Service to fetch a customised icon svg from the fticons imageset. See the README for more details.",
+            "display_html": false
+        }
+    ]
+}

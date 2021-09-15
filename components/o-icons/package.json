@@ -1,0 +1,38 @@
+{
+	"name": "@financial-times/o-icons",
+	"version": "0.0.0",
+	"description": "Helper SCSS tool for using the FT's icons. For a full list of available icons please see the fticons image set",
+	"keywords": [
+		"icons",
+		"images"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-icons",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-icons"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+	},
+	"devDependencies": {
+		"eslint": "^7.28.0",
+		"eslint-config-origami-component": "^2.1.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^8.0.0",
+		"remark-preset-lint-origami-component": "^2.0.0",
+		"stylelint": "^13.13.1",
+		"stylelint-config-origami-component": "^1.0.4"
+	},
+	"peerDependencies": {
+		"@financial-times/fticons": "^1.23.1"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
+}

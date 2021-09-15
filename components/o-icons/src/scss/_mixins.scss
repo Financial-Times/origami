@@ -1,0 +1,71 @@
+/// Output styles for an SVG icon.
+/// Styles the icon as a background image, setting a width and height on the element as requested.
+/// A fallback background for Windows High Contrast mode is also output.
+///
+/// @access public
+/// @param {String} $icon-name - This should be a reference to an icon included in o-icons eg arrow-down
+/// @param {String} $color - This should be a hex colour value. Used to color the icon. We suggest using an o-colors function.
+/// @param {Number|Null} $size [128] - The width and height of the icon (units optional, defaults to px). Set to `null` to set no width or height.
+/// @param {Bool} $include-base-styles [true] - If true, will output style rules for the container. If false will only output the background-image property
+/// @param {Bool} $high-contrast-fallback [true] - To output Microsoft High Contrast fallback for accessibility reasons or not.
+/// @param {Number} $iconset-version [1] - At present only 1 version of the icon set is available.
+@mixin oIconsContent($icon-name, $color: null, $size: 128, $include-base-styles: true, $high-contrast-fallback: true, $iconset-version: 1) {
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid Bizops system code (\e]8;;https://biz-ops.in.ft.com/list/Systems\e\\https://biz-ops.in.ft.com/list/Systems\e]8;;\e\\).';
+	}
+
+	// If the size of the icons has been given without a unit, default to px.
+	@if (type-of($size) == 'number' and unitless($size)) {
+		$size: $size + 0px;
+	}
+
+	// Define base image service path.
+	$scheme: "fticon-v#{$iconset-version}";
+	$service-url: "https://www.ft.com/__origami/service/image/v2/images/raw/#{$scheme}:#{$icon-name}";
+
+	// Include base styles shared by all icons.
+	@if ($include-base-styles == true) {
+		@include oIconsContentBaseStyles;
+	}
+
+	// Set the icon dimentions.
+	width: $size;
+	height: $size;
+
+	// Include the icon via the image service.
+	// Build an image service url for the requested icon.
+	$query: "?source=#{$system-code}";
+	@if $color != null {
+		$color: str-slice(ie-hex-str($color), 4);
+		$query: $query + "&tint=%23#{$color},%23#{$color}";
+	}
+	background-image: url($service-url + $query + "&format=svg");
+
+	// Include a fallback for Window's high contrast mode.
+	// This mode removes background images unless specifcally included
+	// for high contrast mode.
+	// sass-lint:disable no-vendor-prefixes
+	@if $high-contrast-fallback {
+		@media screen and (-ms-high-contrast: active) {
+			background-image: url($service-url + "?source=#{$system-code}&tint=%23ffffff,%23ffffff&format=svg");
+		}
+
+		@media screen and (-ms-high-contrast: black-on-white) {
+			background-image: url($service-url + "?source=#{$system-code}&tint=%23000000,%23000000&format=svg");
+		}
+	}
+	// sass-lint:enable no-vendor-prefixes
+}
+
+/// Base styles for all icons
+/// @access public
+@mixin oIconsContentBaseStyles() {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50%;
+	background-color: transparent;
+	vertical-align: baseline;
+}

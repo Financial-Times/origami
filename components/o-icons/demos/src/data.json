@@ -1,0 +1,202 @@
+{
+	"icons": [
+		{
+			"name": "arrow-down"
+		},
+		{
+			"name": "arrow-left"
+		},
+		{
+			"name": "arrow-right"
+		},
+		{
+			"name": "arrow-up"
+		},
+		{
+			"name": "arrows-left-right"
+		},
+		{
+			"name": "arrows-up-down"
+		},
+		{
+			"name": "audio"
+		},
+		{
+			"name": "book"
+		},
+		{
+			"name": "bookmark-outline"
+		},
+		{
+			"name": "bookmark"
+		},
+		{
+			"name": "circle"
+		},
+		{
+			"name": "corporate"
+		},
+		{
+			"name": "cross"
+		},
+		{
+			"name": "data"
+		},
+		{
+			"name": "dollar"
+		},
+		{
+			"name": "download"
+		},
+		{
+			"name": "edit"
+		},
+		{
+			"name": "first"
+		},
+		{
+			"name": "gift"
+		},
+		{
+			"name": "grid"
+		},
+		{
+			"name": "hamburger"
+		},
+		{
+			"name": "info"
+		},
+		{
+			"name": "ipad"
+		},
+		{
+			"name": "label-outline"
+		},
+		{
+			"name": "label"
+		},
+		{
+			"name": "last"
+		},
+		{
+			"name": "link"
+		},
+		{
+			"name": "list"
+		},
+		{
+			"name": "lock"
+		},
+		{
+			"name": "mail"
+		},
+		{
+			"name": "minus"
+		},
+		{
+			"name": "more"
+		},
+		{
+			"name": "mute-notifications"
+		},
+		{
+			"name": "mute"
+		},
+		{
+			"name": "newspaper"
+		},
+		{
+			"name": "notifications"
+		},
+		{
+			"name": "outside-page"
+		},
+		{
+			"name": "pause"
+		},
+		{
+			"name": "phone"
+		},
+		{
+			"name": "pin"
+		},
+		{
+			"name": "play"
+		},
+		{
+			"name": "plus"
+		},
+		{
+			"name": "podcast"
+		},
+		{
+			"name": "print"
+		},
+		{
+			"name": "refresh"
+		},
+		{
+			"name": "restore"
+		},
+		{
+			"name": "scroll-to"
+		},
+		{
+			"name": "search"
+		},
+		{
+			"name": "series"
+		},
+		{
+			"name": "settings"
+		},
+		{
+			"name": "share"
+		},
+		{
+			"name": "skip-backward-30"
+		},
+		{
+			"name": "skip-forward-30"
+		},
+		{
+			"name": "speech-left"
+		},
+		{
+			"name": "speech-right"
+		},
+		{
+			"name": "speech"
+		},
+		{
+			"name": "stop"
+		},
+		{
+			"name": "tick"
+		},
+		{
+			"name": "trash"
+		},
+		{
+			"name": "upload"
+		},
+		{
+			"name": "user"
+		},
+		{
+			"name": "users"
+		},
+		{
+			"name": "video"
+		},
+		{
+			"name": "warning-alt"
+		},
+		{
+			"name": "warning"
+		},
+		{
+			"name": "written-text"
+		}
+	]
+}
