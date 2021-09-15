@@ -1,0 +1,26 @@
+/// Horizontal borders
+/// @access private
+@mixin _oTableHorizontalBorders {
+	.o-table--horizontal-borders {
+		border-bottom: 1px solid _oTableGet('table-border-color');
+		border-top: 1px solid _oTableGet('table-border-color');
+
+		th:not([scope=row]) {
+			border-top: 1px solid _oTableGet('table-border-color');
+		}
+	}
+}
+
+/// Vertical borders
+/// @access private
+@mixin _oTableVerticalBorders {
+	.o-table--vertical-borders {
+		border-left: 1px solid _oTableGet('table-border-color');
+		border-right: 1px solid _oTableGet('table-border-color');
+
+		th[scope=row] { // stylelint-disable-line selector-no-qualifying-type
+			border-left: 1px solid _oTableGet('table-border-color');
+		}
+		// sass-lint:enable no-qualifying-elements
+	}
+}

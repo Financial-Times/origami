@@ -1,0 +1,57 @@
+/// Styles for a 'ScrollTable'
+/// @access private
+@mixin _oTableResponsiveScroll {
+	.o-table--responsive-scroll {
+
+		.o-table__duplicate-row {
+			display: none;
+		}
+
+		@include oGridRespondTo($until: S) {
+			// Remove standard border.
+			&.o-table--horizontal-lines .o-table__duplicate-row:not(:first-child) {
+				border: 0;
+			}
+
+			// Add responsive border.
+			&.o-table--horizontal-lines .o-table__duplicate-row:not(:last-child) {
+				td {
+					border-bottom: 1px solid _oTableGet('table-border-color');
+				}
+			}
+
+			tr:not(.o-table__duplicate-row) {
+				display: none;
+			}
+
+			.o-table__duplicate-row {
+				display: table-row;
+			}
+
+			th {
+				position: sticky;
+				left: 0;
+				background-color: _oTableGet('table-background');
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					border-right: 2px solid _oTableGet('table-data-color');
+				}
+			}
+
+			// Whilst scrollable, remove all hidden cells.
+			td[aria-hidden="true"] { // stylelint-disable-line selector-no-qualifying-type
+				display: none;
+			}
+			// sass-lint:enable no-qualifying-elements
+
+			.o-table__cell--numeric {
+				text-align: left;
+			}
+		}
+	}
+}

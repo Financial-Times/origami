@@ -1,0 +1,22 @@
+/// Add horizontal lines to a table
+/// @access private
+@mixin _oTableHorizontalLines {
+	.o-table--horizontal-lines {
+		tr:not(:first-child) {
+			border-top: 1px solid _oTableGet('table-border-color');
+		}
+	}
+}
+
+
+/// Add verticle lines to a table
+/// @access private
+@mixin _oTableVerticalLines {
+	.o-table--vertical-lines {
+		th:not(:last-child):not(:first-child),
+		td:not(:last-child):not(:first-child) {
+			border-left: 1px solid _oTableGet('table-border-color');
+			border-right: 1px solid _oTableGet('table-border-color');
+		}
+	}
+}

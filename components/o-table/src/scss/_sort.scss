@@ -1,0 +1,61 @@
+/// Tables styles to support sort buttons.
+/// @access private
+@mixin _oTableSort {
+	$_o-table-sort-icon-size: 1.25rem;
+
+	.o-table:not([data-o-table-sortable="false"]) thead th:not([data-o-table-heading-disable-sort]) {
+		padding-right: $_o-table-sort-icon-size;
+		min-width: 60px;
+	}
+
+	// Sort button.
+	.o-table__sort {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+		-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+		background: none;
+		color: inherit;
+		border: 0;
+		font: inherit;
+		cursor: pointer;
+		user-select: none;
+		text-align: left;
+		min-width: 60px;
+		margin: 0;
+		margin-right: -$_o-table-sort-icon-size;
+		padding: 0;
+		padding-right: $_o-table-sort-icon-size;
+		&:after {
+			@include oIconsContent('arrows-up-down', $size: $_o-table-sort-icon-size);
+			content: '';
+			vertical-align: middle;
+			margin: -($_o-table-sort-icon-size/2) 0;
+			margin-right: -$_o-table-sort-icon-size;
+		}
+	}
+
+	// Show descending icon in sort button with DSC sort applied,
+	// or on hover if no sort has been applied and a descending sort
+	// is the preferred sort.
+	// stylelint-disable-next-line selector-no-qualifying-type
+	[data-o-table-preferred-sort-order='descending'] th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	[data-o-table-preferred-sort-order='descending'] th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	[aria-sort='descending'] .o-table__sort {
+		&:after {
+			@include oIconsContent('arrow-down', $size: $_o-table-sort-icon-size);
+			vertical-align: middle;
+		}
+	}
+
+	// Show ascending icon in sort button with ascending sort applied or on hover with no sort.
+	// stylelint-disable-next-line selector-no-qualifying-type
+	th[aria-sort='none'] .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	th:not([aria-sort]) .o-table__sort:hover, // stylelint-disable-line selector-no-qualifying-type
+	[aria-sort='ascending'] .o-table__sort {
+		&:after {
+			@include oIconsContent('arrow-up', $size: 1.25rem);
+			vertical-align: middle;
+		}
+	}
+}
