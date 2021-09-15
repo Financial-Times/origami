@@ -1,0 +1,45 @@
+/// @access private
+/// @param {Boolean} $bleed [whether or not to make the header a bleed header. Defaults to false.]
+/// @outputs base styles for full header
+@mixin _oHeaderServicesBase($bleed: false) {
+	//Surface layouts for o-grid JavaScript helper https://github.com/Financial-Times/o-grid#getcurrentlayout
+	@include oGrid((
+		'surface': ('current-layout'),
+	));
+
+	.o-header-services {
+		@include oTypographySans($scale: 0);
+		background-color: _oHeaderServicesGet('top-background');
+		border-bottom: 1px solid _oHeaderServicesGet('nav-border');
+		-webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+
+		a {
+			text-decoration: none;
+		}
+
+		ol,
+		ul {
+			list-style-type: none;
+		}
+	}
+
+	.o-header-services__visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
+	@if $bleed {
+		.o-header-services.o-header-services--bleed {
+			.o-header-services__top,
+			.o-header-services__primary-nav-list,
+			.o-header-services__secondary-nav-content {
+				@include oGridContainer($bleed: $bleed);
+				max-width: 100%;
+				padding: 0 oSpacingByIncrement(5);
+			}
+
+			.o-header-services__primary-nav-list {
+				padding: 0;
+			}
+		}
+	}
+}

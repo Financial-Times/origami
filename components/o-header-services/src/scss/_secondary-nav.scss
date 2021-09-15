@@ -1,0 +1,156 @@
+/// @access private
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
+/// @outputs styling for sub nav
+@mixin _oHeaderServicesSecondaryNav($draw-breakpoint) {
+	.o-header-services__secondary-nav {
+		position: relative;
+		background-color: _oHeaderServicesGet('nav-background');
+		border-top: 1px solid _oHeaderServicesGet('nav-border');
+		overflow: hidden;
+		max-height: #{(36/16)}rem; // To hide the scroll bar.
+		// Remove border between the top and the secondary nav if their background is different.
+		@if (_oHeaderServicesGet('nav-background') != _oHeaderServicesGet('top-background')) {
+			@include oGridRespondTo($until: $draw-breakpoint) {
+				border-top: 0;
+			}
+		}
+	}
+
+	.o-header-services__secondary-nav-content {
+		@include oGridContainer;
+		display: flex;
+		white-space: nowrap;
+		overflow-x: auto;
+		padding: 0 oSpacingByIncrement(5);
+		padding-bottom: 1rem; // To hide the scroll bar.
+	}
+
+	.o-header-services__secondary-nav-list {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			position: relative;
+
+			a {
+				color: _oHeaderServicesGet('nav-text');
+				position: relative;
+				display: inline-block;
+				padding: oSpacingByName('s2') 0;
+				margin: 0;
+
+				&:hover, // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current] { // stylelint-disable-line selector-no-qualifying-type
+					color: _oHeaderServicesGet('text-hover-color');
+				}
+
+				&:hover:before, // stylelint-disable-line selector-no-qualifying-type
+				&[aria-current]:before { // stylelint-disable-line selector-no-qualifying-type
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: oSpacingByName('s1');
+					background-color: _oHeaderServicesGet('nav-underline-color');
+				}
+			}
+		}
+	}
+
+
+	.o-header-services__secondary-nav-list--ancestors li {
+		padding-left: oSpacingByName('s2');
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:first-child:before {
+			content: none;
+		}
+
+		&:before {
+			@include oIconsContent('arrow-right', _oHeaderServicesGet('arrow-icon-color'),  oSpacingByName('s4'));
+			content: '';
+			position: relative;
+			top: 0.2em;
+		}
+
+		a {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			text-transform: uppercase;
+		}
+	}
+
+	.o-header-services__secondary-nav-list--children li {
+		padding-left: oSpacingByName('s4');
+
+		&:first-child {
+			margin-left: oSpacingByName('s3');
+		}
+
+		&:last-child {
+			padding-right: oSpacingByName('s3');
+		}
+
+		&:first-child:before {
+			content: '';
+			position: absolute;
+			top: 15%;
+			left: 0;
+			height: 70%;
+			border-left: 1px solid _oHeaderServicesGet('nav-border');
+		}
+	}
+
+	.o-header-services__scroll-button {
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary'
+		));
+		border: 1px solid _oHeaderServicesGet('nav-border');
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		transition: opacity 0.5s $o-visual-effects-timing-fade;
+
+		&[disabled] {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	.o-header-services:not([data-o-header-services-js]) .o-header-services__scroll-button {
+		display: none;
+	}
+
+	.o-header-services__scroll-button--left {
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary',
+			'icon': 'arrow-left',
+			'icon-only': true,
+		), $include-base-styles: false);
+		border-color: _oHeaderServicesGet('nav-border');
+		border-width: 0 1px 0 0;
+		min-width: $_o-header-services-button-icon-size;
+		left: 0;
+	}
+
+	.o-header-services__scroll-button--right {
+		@include oButtonsContent((
+			'theme': $_o-header-services-button-theme,
+			'type': 'primary',
+			'icon': 'arrow-right',
+			'icon-only': true,
+		), $include-base-styles: false);
+		border-color: _oHeaderServicesGet('nav-border');
+		border-width: 0 0 0 1px;
+		min-width: $_o-header-services-button-icon-size;
+		right: 0;
+	}
+}

@@ -1,0 +1,12 @@
+$o-header-services-is-silent: true !default;
+
+$_o-header-services-padding: oGridGutter();
+
+$_o-header-services-top-bar-short: oSpacingByIncrement(11);
+
+$_o-header-services-top-icon-size: oSpacingByIncrement(10);
+$_o-header-services-button-icon-size: oSpacingByIncrement(6);
+
+$_o-header-services-button-theme: (
+	'color': _oHeaderServicesGet('nav-hover-background')
+);

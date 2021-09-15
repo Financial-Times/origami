@@ -1,0 +1,112 @@
+/// @access private
+/// @param {String} $logo [ft-logo depending on brand (pink or white)]
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
+/// @outputs styling for title section of header
+@mixin _oHeaderServicesTop($logo, $draw-breakpoint) {
+	.o-header-services__top {
+		@include oGridContainer;
+		background-color: _oHeaderServicesGet('top-background');
+		color: _oHeaderServicesGet('top-text');
+		display: flex;
+		overflow: hidden;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.o-header-services__title {
+		display: flex;
+		align-items: center;
+	}
+
+	@if $logo {
+		.o-header-services__logo {
+			background-image: url(_oHeaderServicesLogo($logo));
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 0;
+			height: $_o-header-services-top-bar-short;
+			width: $_o-header-services-top-bar-short;
+
+			@include oGridRespondTo(M) {
+				height: $_o-header-services-top-icon-size;
+				width: $_o-header-services-top-icon-size;
+			}
+
+			@include oGridRespondTo($draw-breakpoint) {
+				margin: oSpacingByName('s2');
+			}
+
+			@include oGridRespondTo(M) {
+				margin-left: 0;
+			}
+		}
+
+		.o-header-services__title {
+			padding-left: 10px;
+		}
+	}
+
+	.o-header-services__hamburger {
+		height: $_o-header-services-top-bar-short;
+		width: $_o-header-services-top-bar-short;
+		@include oGridRespondTo($draw-breakpoint) {
+			display: none;
+		}
+	}
+
+	.o-header-services__hamburger-icon {
+		@include oIconsContent(
+			$icon-name: 'hamburger',
+			$color: _oHeaderServicesGet('top-text'),
+			$size: $_o-header-services-top-icon-size
+		);
+		height: $_o-header-services-top-bar-short;
+		width: $_o-header-services-top-bar-short;
+		transition: transform 0.2s ease;
+	}
+
+	.o-header-services__product-name {
+		@include oTypographySans($scale: (default: 2, M: 4), $weight: 'semibold');
+		text-overflow: ellipsis;
+	}
+
+	.o-header-services__product-tagline {
+		@include oTypographySans($scale: 3);
+		margin-left: $_o-header-services-padding;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: none;
+		@include oGridRespondTo(L) {
+			display: inline-block;
+		}
+	}
+
+	.o-header-services__related-content {
+		display: none;
+
+		@include oGridRespondTo($from: $draw-breakpoint) {
+			display: flex;
+			margin: 0 0 0 auto;
+			padding: oSpacingByName('s3')/2 $_o-header-services-padding;
+		}
+
+		li {
+			background-color: _oHeaderServicesGet('top-background');
+
+			a {
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				color: _oHeaderServicesGet('top-text');
+				display: inline-block;
+				padding: $_o-header-services-padding oSpacingByName('s3');
+				margin: 0;
+
+				&:hover {
+					text-decoration: underline;
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}

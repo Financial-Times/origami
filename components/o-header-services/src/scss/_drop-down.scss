@@ -1,0 +1,117 @@
+/// @access private
+/// @outputs styling for primary navigation drop down menus
+@mixin _oHeaderServicesDropDown() {
+	// Drop down button.
+	.o-header-services__drop-down-button {
+		background-color: transparent;
+		border: 0;
+		border-left: 1px dotted _oHeaderServicesGet('nav-border');
+		height: 100%;
+		vertical-align: top;
+		padding: 0 0.25rem;
+
+		&:after {
+			@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-color'), 1.5rem);
+			content: '';
+			transition: transform 0.2s ease;
+		}
+
+		&:hover {
+			background-color: _oHeaderServicesGet('button-hover-color');
+
+			&:after {
+				@if _oHeaderServicesGet('arrow-icon-hover-color') {
+					@include oIconsContent('arrow-down', _oHeaderServicesGet('arrow-icon-hover-color'), 1.5rem);
+				}
+			}
+		}
+	}
+
+	// Current drop down button.
+	.o-header-services__primary-nav li[data-o-header-services-level] a[aria-current='true'] + .o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+		background-color: _oHeaderServicesGet('nav-hover-background');
+		&:hover {
+			background-color: _oHeaderServicesGet('button-hover-color');
+		}
+	}
+
+	// Drop down list.
+	.o-header-services__primary-nav ul[data-o-header-services-level="2"] { // stylelint-disable-line selector-no-qualifying-type
+		@include oTypographySans(-1);
+		background: _oHeaderServicesGet('nav-background');
+		border: 1px solid _oHeaderServicesGet('nav-border');
+		left: -1px;
+		box-sizing: border-box;
+		padding-left: 0;
+		position: absolute;
+		// So the dropdown appears above other elements.
+		// But does not obscure its button as it animates down.
+		z-index: 1;
+		clip-path: inset(10.5% 0 0 0);
+		opacity: 0;
+		transform: translateY(-10%);
+		transition: clip-path 0.1s linear, opacity 0.1s linear, transform 0.1s ease-in;
+
+		// The dropdown list is inviisble when closed.
+		// This is so it doesn't block interaction with other elements.
+		height: 0;
+		@supports (pointer-events: none) {
+			height: auto;
+			pointer-events: none;
+		}
+
+		&.o-header-services__list--right { // stylelint-disable-line selector-no-qualifying-type
+			right: -1px;
+			left: auto;
+		}
+	}
+
+	// Completely hide visually hidden elements until the dropdown is open.
+	.o-header-services__primary-nav ul[data-o-header-services-level="2"][aria-hidden=true] { // stylelint-disable-line selector-no-qualifying-type
+		display: none;
+	}
+
+	// Drop down list (opened state).
+	// stylelint-disable-next-line selector-no-qualifying-type
+	.o-header-services:not([data-o-header-services-js]) .o-header-services__primary-nav li[data-o-header-services-level]:hover,
+	.o-header-services__primary-nav li[aria-expanded=true] { // stylelint-disable-line selector-no-qualifying-type
+		// Reveal the dropdown.
+		ul[data-o-header-services-level] { // stylelint-disable-line selector-no-qualifying-type
+			height: auto;
+			@supports (pointer-events: none) { // stylelint-disable-line selector-no-qualifying-type
+				pointer-events: all;
+			}
+			transform: translateY(0);
+			opacity: 1;
+			clip-path: inset(0 0 0 0);
+		}
+
+		// Reveal visually hidden elements within the dropdown to screen readers.
+		// stylelint-disable-next-line selector-no-qualifying-type
+		ul[data-o-header-services-level] {
+			display: block;
+		}  // stylelint-disable-line selector-no-qualifying-type
+
+		// Hide the bottom border which will clash with the top
+		// border of the dropdown list.
+		.o-header-services__drop-down-button { // stylelint-disable-line selector-no-qualifying-type
+			border-bottom-color: transparent;
+		}
+		// Update the dropdown icon to show the drawer is open.
+		.o-header-services__drop-down-button:after { // stylelint-disable-line selector-no-qualifying-type
+			transform: rotate(-180deg);
+		}
+	}
+
+	// Used to disable transitions between drawer states on viewport
+	// resize. They should only happen on direct user interaction.
+	.o-header-services--disable-transition {
+		.o-header-services__drop-down-button:after {
+			transition: none;
+		}
+		// Drop down list.
+		ul[data-o-header-services-level="2"] {
+			transition: none; // stylelint-disable-line selector-no-qualifying-type
+		}
+	}
+}

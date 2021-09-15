@@ -1,0 +1,72 @@
+/// @access private
+/// @outputs styling for primary nav
+/// @param {String} $draw-breakpoint At what breakpoint to show the draw hamburger.
+/// @param {Boolean} $drop-down - Whether to include styles to support the dropdown nav.
+@mixin _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down) {
+
+	@include _oHeaderServicesDrawer($drawer-breakpoint, $drop-down);
+	.o-header-services__primary-nav {
+		position: relative;
+		background-color: _oHeaderServicesGet('nav-background');
+		@if (_oHeaderServicesGet('nav-background') == _oHeaderServicesGet('top-background')) {
+			border-top: 1px solid _oHeaderServicesGet('nav-border');
+		}
+	}
+
+	.o-header-services__primary-nav-list {
+		@include oGridContainer();
+		background-color: _oHeaderServicesGet('nav-background');
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+
+		// Remove the padding from the grid container.
+		// Unless the nav items have custom padding which is smaller than the grid container's grid gap.
+		@include oGridRespondTo(S) {
+			padding: 0 if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), calc(#{map-get($o-grid-gutters, 'M')} - #{_oHeaderServicesGet('primary-nav-item-horizontal-padding')}), 0);
+		}
+
+		> li {
+			position: relative;
+		}
+
+		> li a {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			position: relative;
+			color: _oHeaderServicesGet('nav-text');
+			display: inline-block;
+			margin: 0;
+			padding: $_o-header-services-padding if(_oHeaderServicesGet('primary-nav-item-horizontal-padding'), _oHeaderServicesGet('primary-nav-item-horizontal-padding'), oSpacingByIncrement(5));
+			text-transform: uppercase;
+			box-sizing: border-box;
+			&:focus {
+				outline-offset: -2px;
+			}
+
+			&:hover {
+				color: _oHeaderServicesGet('text-hover-color');
+			}
+
+			&:hover, // stylelint-disable-line selector-no-qualifying-type
+			&[aria-current] { // stylelint-disable-line selector-no-qualifying-type
+				background-color: _oHeaderServicesGet('nav-hover-background');
+			}
+		}
+
+		> li:not(:last-child) {
+			border-right: 1px solid _oHeaderServicesGet('nav-border');
+		}
+
+		[data-o-header-services-level="2"] {
+			max-width: 50vw;
+			overflow: hidden;
+			white-space: nowrap;
+			> li a {
+				display: block;
+				text-overflow: ellipsis;
+				max-width: 100%;
+				overflow: hidden;
+			}
+		}
+	}
+}

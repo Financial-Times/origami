@@ -1,0 +1,84 @@
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-buttons/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-visual-effects/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/base';
+@import 'src/scss/variables';
+@import 'src/scss/drawer';
+@import 'src/scss/drop-down';
+@import 'src/scss/functions';
+@import 'src/scss/top';
+@import 'src/scss/theme';
+@import 'src/scss/primary-nav';
+@import 'src/scss/secondary-nav';
+
+/// Outputs all features and styles available to o-header-services
+/// @param {Map} $opts ['types':('primary-nav', 'secondary-nav', 'b2b', 'b2c'), 'features': ('bleed', 'drop-down'), 'drawer-breakpoint': 'M', 'logo': default to ft-logo depending on brand (pink or white)]
+/// @access public
+/// @example scss This example outputs styles for a header with an origami logo, and a primary navigation with dropdowns.
+///		@include oHeaderServices($opts: (
+///			'types': ('primary-nav'),
+///			'features': ('drop-down'),
+///			'logo': 'origami'
+///		))
+/// @example scss This example changes the breakpoint at which the primary navigation is hidden behind a drawer.
+///		@include oHeaderServices($opts: (
+///			'types': ('primary-nav'),
+///			'features': ('drop-down'),
+///			'logo': 'origami',
+///			'drawer-breakpoint': 'L'
+///		))
+@mixin oHeaderServices($opts: (
+	'types': ('primary-nav', 'secondary-nav', 'b2b', 'b2c'),
+	'features': ('bleed', 'drop-down'),
+	'logo': _oHeaderServicesGet('logo'),
+	'drawer-breakpoint': 'M'
+)) {
+	$types: map-get($opts, 'types');
+	$features: map-get($opts, 'features');
+	$logo: map-get($opts, 'logo');
+	$drawer-breakpoint: if(map-get($opts, 'drawer-breakpoint'), map-get($opts, 'drawer-breakpoint'), 'M');
+
+	$bleed: index($features, 'bleed');
+	$drop-down: index($features, 'drop-down');
+
+	/// Base styles for a header
+	@include _oHeaderServicesBase($bleed);
+
+	/// Required because there would be no header without the title
+	/// if other features aren't added.
+	@include _oHeaderServicesTop($logo, $drawer-breakpoint);
+
+	@if index($types, 'primary-nav') {
+		@include _oHeaderServicesPrimaryNav($drawer-breakpoint, $drop-down);
+	}
+
+	@if index($types, 'secondary-nav') {
+		@include _oHeaderServicesSecondaryNav($drawer-breakpoint);
+	}
+
+	@if index($types, 'b2b') and _oHeaderSupports('b2b') {
+		@include _oHeaderServicesTheme($theme: 'b2b');
+	}
+
+	@if index($types, 'b2c') and _oHeaderSupports('b2b') {
+		@include _oHeaderServicesTheme($theme: 'b2c');
+	}
+
+	@if $drop-down {
+		@include _oHeaderServicesDropDown();
+	}
+}
+
+@if $o-header-services-is-silent == false {
+	@include oHeaderServices();
+
+	// Set to silent again to avoid being output twice
+	$o-header-services-is-silent: true !global;
+}
