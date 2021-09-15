@@ -1,0 +1,61 @@
+@import "@financial-times/o-brand/main";
+
+@import "src/scss/variables";
+@import "src/scss/functions";
+@import "src/scss/mixins";
+
+/// Output all default font-face declarations for the current brand.
+///
+/// @example Include all fonts for the current brand (master, internal, whitelabel).
+///     @include oFonts();
+///
+/// @example Include a limited set of recommended fonts for the current brand (master, internal, whitelabel).
+///     @include oFonts($opts: ('recommended': true));
+///
+/// @example Include a limited set of recommended fonts for the current brand, plus an extra FinancierDisplayWeb font.
+/// 	@include oFonts($opts: (
+/// 		'recommended': true,
+/// 		'financier-display': (
+/// 			(weight: regular, style: normal)
+/// 		)
+/// 	));
+///
+/// @example Include only regular and semibold MetricWeb font faces.
+///     @include oFonts($opts: ('metric': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular and bold FinancierDisplayWeb font faces.
+///     @include oFonts($opts: ('financier-display': (
+///     	(weight: regular, style: normal),
+///     	(weight: semibold, style: normal),
+///     )));
+///
+/// @example Include only regular font faces for MetricWeb and FinancierDisplayWeb.
+///     @include oFonts($opts: (
+///     	'metric': ((weight: regular, style: normal)),
+///     	'financier-display': ((weight: regular, style: normal))
+///     ));
+///
+/// @example Include only black weighted font faces for MetricWeb, FinancierDisplayWeb, and FinancierTextWeb.
+///     @include oFonts($opts: (
+///     	'metric': ((weight: 'black', style: normal)),
+///     	'financier-display': ((weight: 'black', style: normal)),
+///     	'financier-text': ((weight: 'black', style: normal))
+///     ));
+/// @param {Map} $opts - the font faces to include, see the README or examples for more details.
+@mixin oFonts($opts: $_o-fonts-default) {
+	$variants: _oFontsOptionsToVariants($opts);
+
+	@each $variant in $variants {
+		$family: map-get($variant, 'family');
+		$weight: map-get($variant, 'weight');
+		$style: map-get($variant, 'style');
+		@include _oFontsInclude($family, $weight, $style);
+	}
+}
+
+@if ($o-fonts-is-silent == false) {
+	@include oFonts();
+}

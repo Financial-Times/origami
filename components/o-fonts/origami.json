@@ -1,0 +1,46 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"support": "https://github.com/Financial-Times/o-fonts/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"demosDefaults": {
+		"template": "demos/src/family.mustache",
+		"sass": "demos/src/demo.scss"
+	},
+	"demos": [
+		{
+			"title": "Metric",
+			"name": "metricweb",
+			"data": {
+				"font": "metricweb"
+			},
+			"brands": [
+				"master",
+				"internal"
+			],
+			"description": "Metric is used for general text, utility text, eg categories, tags and navigation",
+			"display_html": false
+		},
+		{
+			"title": "Financier Display",
+			"name": "financierdisplayweb",
+			"data": {
+				"font": "financierdisplayweb"
+			},
+			"brands": [
+				"master"
+			],
+			"description": "Financier Display is used for headlines and editorial content at large sizes.",
+			"display_html": false
+		}
+	]
+}

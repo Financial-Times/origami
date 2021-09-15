@@ -1,0 +1,47 @@
+@import "../../main";
+
+@include oFonts();
+
+.demo-container {
+	margin: 0 20px;
+}
+
+.demo-row {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.demo-col {
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+.demo-col:first-child {
+	float: right;
+	text-align: right;
+	width: 500px;
+}
+
+.demo-example {
+	margin: 0 0 30px;
+}
+
+.demo-family-financierdisplayweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);
+}
+
+.demo-family-metricweb .demo-example {
+	font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+}
+
+.demo-size-small {
+	padding-top: 15px;
+	font-size: 36px;
+	line-height: 44px;
+}
+
+.demo-size-medium {
+	font-size: 80px;
+	line-height: 110px;
+}
