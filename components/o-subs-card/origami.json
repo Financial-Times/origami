@@ -1,0 +1,41 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands" : [
+		"master"
+	],
+	"support": "https://github.com/Financial-Times/o-subs-card/issues",
+	"supportContact": {
+		"email": "conversion.tech@ft.com",
+		"slack": "financialtimes/next-conversion-dev"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"js": "demos/src/demo.js",
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-grid@^6.0.0",
+			"o-colors@^6.0.0",
+			"o-normalise@^3.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Subs cards using different theme colours",
+			"js": "demos/src/demo.js"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}

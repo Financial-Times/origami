@@ -1,0 +1,50 @@
+@import "@financial-times/o-buttons/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-expander/main";
+@import "@financial-times/o-spacing/main";
+
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/themes";
+
+
+$o-subs-card-is-silent: true !default;
+
+/// Outputs all available features and styles for o-subs-card.
+///
+/// @param {Map} $opts [('themes': ('b2b', 'discount'))] - o-subs-card options including themes to output styles for. Defaults to all theme.
+/// @example scss - All themes
+///   @include oSubsCard();
+/// @example scss - Base theme only
+///   @include oSubsCard($opts: ('themes': ('b2b'));
+/// @access public
+@mixin oSubsCard($opts: (
+	'themes': ('b2b', 'discount'),
+)) {
+	$themes: map-get($opts, 'themes');
+	$b2b-theme-enabled: index($themes, 'b2b');
+	$discount-theme-enabled: index($themes, 'discount');
+
+	.o-subs-card {
+		@include oSubsCardBase;
+	}
+
+	@if $b2b-theme-enabled {
+		.o-subs-card--b2b {
+			@include oSubsCardB2B;
+		}
+	}
+	@if $discount-theme-enabled {
+		.o-subs-card--discount {
+			@include oSubsCardDiscount;
+		}
+	}
+}
+
+@if ($o-subs-card-is-silent == false) {
+	@include oSubsCard();
+	// Set to silent again to avoid being output twice
+	$o-subs-card-is-silent: true !global;
+}

@@ -1,0 +1,221 @@
+@mixin oSubsCardBase {
+	@include oTypographySans(0);
+
+	text-align: center;
+
+	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
+	@include oGridRespondTo(L) {
+		// 12px = the combined 6px padding either side.
+		flex: 0 1 calc(25% - 12px);
+		min-width: 0;
+	}
+
+	.o-subs-card__top {
+		color: oColorsByName('black');
+		background-color: oColorsByName('white');
+		box-shadow: 0 5px 5px oColorsByName('black-5');
+		padding-bottom: 0;
+		padding-right: $o-subs-card-horizontal-padding;
+		padding-left: $o-subs-card-horizontal-padding;
+	}
+
+	.o-subs-card__copy-title {
+		@include oTypographySans($scale: 3, $weight: 'semibold');
+
+		margin-bottom: oSpacingByIncrement(5);
+
+		&:first-child {
+			padding-top: oSpacingByName('s8');
+		}
+
+		//Handle the height change when there is an offer in place
+		&:nth-child(2) {
+			margin-bottom: oSpacingByName('s2');
+		}
+	}
+
+	.o-subs-card__copy-pitch {
+		@include oTypographySans(0);
+
+		display: inline-block;
+		text-align: center;
+		padding-bottom: oSpacingByName('s3');
+	}
+
+	.o-subs-card__charge {
+		padding-bottom: oSpacingByName('s4');
+	}
+
+	.o-subs-card__charge__value {
+		padding-bottom: oSpacingByName('s2');
+	}
+
+	.o-subs-card__select-button {
+		@include oButtonsContent($opts: (
+			'type': 'primary',
+			'size': 'big',
+		));
+		margin-bottom: oSpacingByName('s1');
+		width: 100%;
+	}
+
+	.o-subs-card__expander {
+		color: oColorsByName('black');
+		background-color: oColorsByName('white');
+		box-shadow: 0 5px 5px oColorsByName('black-5');
+
+		&--collapsed {
+			display: none;
+		}
+	}
+
+	.o-subs-card__copy-details {
+		border-top: 1px solid rgba(0, 0, 0, 0.25);
+		text-align: left;
+
+		.core & {
+			display: block;
+		}
+	}
+
+	.o-subs-card__copy-benefits {
+		margin: 0;
+		padding: oSpacingByName('s3');
+		padding-left: $o-subs-card-horizontal-padding;
+		padding-right: $o-subs-card-horizontal-padding;
+		list-style: none;
+
+		li {
+			padding-bottom: oSpacingByName('s3');
+		}
+	}
+
+	.o-subs-card__read-more {
+		@include oTypographySans($scale: -1, $weight: 'semibold');
+
+		background-color: oColorsByName('wheat');
+		border-width: 0;
+		color: oColorsByName('teal-50');
+		cursor: pointer;
+		display: block;
+		padding-bottom: oSpacingByName('s2');
+		padding-top: oSpacingByName('s2');
+		width: 100%;
+
+		@include oGridRespondTo(L) {
+			display: none;
+		}
+
+		//doesn't use oExpanderToggle mixin, because that mixin has a fixed font-size/icon size
+		&:after {
+			@include oIconsContent('arrow-down', oColorsByName('teal-50'), $size: 16);
+			content: '';
+			position: relative;
+			vertical-align: middle;
+		}
+
+		&[aria-expanded='true']:after {
+			transform: rotate(180deg);
+		}
+
+		.core & {
+			display: none;
+		}
+	}
+
+	.o-subs-card__swg {
+		background: white;
+		padding: 0 16px 16px;
+		box-shadow: 0 5px 5px oColorsByName('black-5');
+	}
+
+	.o-subs-card__separator {
+		position: relative;
+		text-align: center;
+		margin: 0 0 8px;
+
+		&:after,
+		&:before {
+			background: getColor('black');
+			content: '';
+			display: block;
+			height: 1px;
+			opacity: 0.25;
+			position: absolute;
+			top: 50%;
+			width: calc(50% - 20px); // 20px to get around the "OR"
+		}
+
+		&:after {
+			right: 0;
+		}
+		&:before {
+			left: 0;
+		}
+	}
+
+	.o-subs-card__swg-currency {
+		margin-top: 0;
+		padding: 0;
+		text-align: left;
+
+		&--note {
+			color: getColor('teal');
+			font-weight: 600;
+			margin: 10px 0 0;
+
+			+ .barrier__package-card__swg-currency {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.swg-button {
+		margin: 5px 0;
+		width: 100%;
+	}
+}
+
+@mixin oSubsCardContainer {
+	border-spacing: $o-subs-card-horizontal-margin; //ie 9
+	display: table-cell; // ie 9
+	display: flex;	// stylelint-disable-line declaration-block-no-duplicate-properties
+	flex-direction: column;
+	flex: auto;
+	margin: 0 20px;
+	padding: 10px 0;
+
+	@include oGridRespondTo(M) {
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		.o-subs-card {
+			flex: 1 0 calc(50% - 12px);
+		}
+	}
+
+	@include oGridRespondTo(L) {
+		flex-direction: row;
+
+		.o-subs-card {
+			flex: 1;
+		}
+	}
+
+	.o-subs-card {
+		// no collapsing margins in display flex
+		margin: oSpacingByName('s3') $o-subs-card-horizontal-margin / 2;
+	}
+
+	.o-subs-card,
+	.o-subs-card__top {
+		display: table-cell; //ie 9
+		display: flex; // stylelint-disable-line declaration-block-no-duplicate-properties
+		flex-direction: column;
+	}
+
+	.o-subs-card__charge {
+		justify-self: flex-end;
+		margin-top: auto;
+	}
+}
