@@ -1,0 +1,72 @@
+@import '../../main';
+
+@include oVisualEffects();
+
+$card-size: 160px;
+
+.demo-canvas {
+	position: relative;
+	overflow: hidden;
+	padding: 20px;
+	border: 3px solid lightgray;
+}
+
+.demo-toggle {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.shadows-demo div,
+.demo-card {
+	display: inline-block;
+	display: inline-flex; // stylelint-disable-line declaration-block-no-duplicate-properties
+	background: white;
+	width: $card-size;
+	height: $card-size;
+	margin: 20px;
+	text-align: center; //fallback for no flex support
+	justify-content: center;
+	align-items: center;
+}
+
+// transitions
+.demo-transitions--slide {
+	background: slateblue;
+	transition: all 0.5s $o-visual-effects-timing-slide;
+
+	.demo-off & {
+		transform: translateY(0);
+	}
+
+	.demo-on & {
+		transform: translateY(100%);
+	}
+}
+
+.demo-transitions--expand {
+	overflow: hidden;
+	background: darkseagreen;
+	transition: all 0.5s $o-visual-effects-timing-expand;
+
+	.demo-off & {
+		max-height: $card-size;
+	}
+
+	.demo-on & {
+		max-height: 0;
+	}
+}
+
+.demo-transitions--fade {
+	background: tomato;
+	transition: all 0.5s $o-visual-effects-timing-fade;
+
+	.demo-off & {
+		opacity: 1;
+	}
+
+	.demo-on & {
+		opacity: 0;
+	}
+}
