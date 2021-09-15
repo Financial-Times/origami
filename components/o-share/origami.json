@@ -1,0 +1,81 @@
+{
+	"brands" : [
+		"master",
+		"internal"
+	],
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-share/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"document.queryselector",
+			"Element.prototype.closest"
+		],
+		"optional": [
+			"getComputedStyle",
+			"canvas",
+			"CustomEvent"
+		]
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0"
+		],
+		"documentClasses": "demo"
+	},
+	"demos": [
+		{
+			"title": "Horizontal",
+			"name": "horizontal",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data.json",
+			"description": "horizontal"
+		},
+		{
+			"title": "Small",
+			"name": "small",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-small.json",
+			"description": "small icons"
+		},
+		{
+			"title": "Inverse",
+			"name": "inverse",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-inverse.json",
+			"documentClasses": "demo demo--inverse",
+			"description": "inverse share icons"
+		},
+		{
+			"title": "Vertical",
+			"name": "vertical",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-vertical.json",
+			"description": "vertical"
+		},
+		{
+			"title": "Custom Share",
+			"name": "custom-share",
+			"template": "demos/src/main.mustache",
+			"data": "demos/src/data-custom.json",
+			"description": "A custom share action may also be used alongside a form or with custom JavaScript behaviour attached, as shown with the last icon in this demo. Labels may be added to describe a custom share button."
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"documentClasses": "",
+			"data": "demos/src/data.json",
+			"hidden": true,
+			"description": "Highlight accessibility issues"
+		}
+	]
+}

@@ -1,0 +1,51 @@
+/// Silent mode
+/// @type Bool
+$o-share-is-silent: true !default;
+
+/// Default icon size
+/// @type Number
+$o-share-icon-size: 40px !default;
+
+/// Small variant icon size
+/// @type Number
+$o-share-icon-small-size: 28px !default;
+
+/// Border size
+/// @type Number
+$o-share-border-size: 1px !default;
+
+/// Border style
+/// @type Number
+$o-share-border-style: solid !default;
+
+/// Option to change the base of the image service url
+///
+/// @type String
+$o-share-image-service-base-url: "https://www.ft.com/__origami/service/image" !default;
+
+/// Option to change the version of the image service url
+///
+/// @type String
+$o-share-image-service-version: "v2" !default;
+
+$o-share-social-icons-version: "2" !default;
+$o-share-ft-icons-version: "1" !default;
+
+// Icon names that will use fticons instead of ftsocial
+/// @type Map
+$o-share-ft-icons-names: (corporate, mail, link, share);
+
+/// List of accepted social network icons, and the version
+/// @type Map
+$_o-share-icons: (twitter, facebook, linkedin, link, share, mail, pinterest, whatsapp, corporate);
+
+/// A map of icons to their colour.
+/// @type Map
+/// @access private
+$_o-share-colors: (
+	twitter: #1da1f2,
+	facebook: #3b579d,
+	linkedin: #0077b5,
+	pinterest: #bd081c,
+	whatsapp: #25d366
+);

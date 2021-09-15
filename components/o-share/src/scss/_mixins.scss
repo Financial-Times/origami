@@ -1,0 +1,149 @@
+/// Output styles for a theme such as the inverse variant
+/// @param {String|Null} $name (null) - The theme to output styles for.
+/// @param {List} $icons [()] - A list of icons to support.
+/// @access private
+@mixin _oShareTheme($name: null, $icons: ()) {
+	$border-color: _oShareGet('border-color', $name);
+	$color: _oShareGet('color', $name);
+	$color-encoded: str-slice(ie-hex-str($color), 4);
+
+	.o-share__icon {
+		color: $color;
+		border-color: $border-color;
+	}
+
+	// Output themed icons.
+	@each $icon-name in $icons {
+		$is-ft-icon: index($o-share-ft-icons-names, $icon-name);
+		// Get the Image Service url for the icon.
+		// The Image Service url scheme varies depending on whether
+		// the icon is a ftsocial image or an fticon image.
+		$scheme: if($is-ft-icon, "fticon-v#{$o-share-ft-icons-version}", "ftsocial-v#{$o-share-social-icons-version}");
+		$query: "?source=#{$system-code}";
+		$service-url: "#{$o-share-image-service-base-url}/#{$o-share-image-service-version}/images/raw/#{$scheme}:#{$icon-name}";
+
+		.o-share__icon--#{$icon-name}:before {
+			background-image: url($service-url + $query + "&format=svg&tint=#{$color-encoded}");
+		}
+
+		.o-share__icon--#{$icon-name}:hover,
+		.o-share__icon--#{$icon-name}:focus {
+			// The border and background colour of icons varies depending on
+			// whether the icon is a social icon with brand colour, i.e.
+			// Twitter blue, or an fticon.
+			$usecase: if($is-ft-icon, 'o-share/ft-icon', 'o-share/#{$icon-name}-icon');
+			border-color: oColorsByUsecase($usecase, 'border');
+			background-color: oColorsByUsecase($usecase, 'background');
+			color: oColorsByUsecase($usecase, 'text');
+			&:before {
+				$color-usecase-encoded: str-slice(ie-hex-str(oColorsByUsecase($usecase, 'text')), 4);
+				background-image: url($service-url + $query + "&format=svg&tint=#{$color-usecase-encoded}");
+			}
+		}
+
+		// Windows high contrast mode removes background images,
+		// unless they are specifically added for high contrast mode.
+		// sass-lint:disable no-vendor-prefixes
+		.o-share__icon--#{$icon-name} {
+			@media screen and (-ms-high-contrast: active) {
+				background-color: oColorsByName('black');
+				color: oColorsByName('white');
+				&:before {
+					background-image: url($service-url + $query + "&format=svg&tint=%23ffffff");
+				}
+			}
+			@media screen and (-ms-high-contrast: black-on-white) {
+				background-color: oColorsByName('white');
+				color: oColorsByName('black');
+				&:before {
+					background-image: url($service-url + $query + "&format=svg&tint=%23000000");
+				}
+			}
+		}
+		// sass-lint:enable no-vendor-prefixes
+	}
+}
+
+/// Output styles to set the size and margins of o-share actions.
+/// @param {String} $size-name [null] - One of 'default' or 'small'.
+/// @param {Boolean} $vertical [false] - Whether to output styles to support the vertical variant
+/// @access private
+@mixin _oShareSize($size-name: null, $vertical: false) {
+	// for the current variant get the width and margin
+	$size: _oShareGet('size', $from: $size-name);
+	$margin: _oShareGet('margin', $from: $size-name);
+	// fticons SVG icons align to a 40x40 pixel grid, with 10px padding
+	// built in on each side. Used to match the icon's inherent margin on the text.
+	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
+	$default-icon-whitespace: 10/40;
+	$icon-whitespace: $default-icon-whitespace * $size;
+
+	.o-share__text {
+		margin-right: $icon-whitespace;
+	}
+
+	.o-share__icon:before {
+		width: $size - ($o-share-border-size * 2);
+		height: $size - ($o-share-border-size * 2);
+		background-size: $size $size;
+	}
+
+	// If there is not a margin use a negative margin
+	// to make icons borders overlap.
+	@if not $margin {
+		.o-share__icon {
+			margin: 0 #{-$o-share-border-size} 0 0;
+		}
+
+		.o-share__action:last-child .o-share__icon {
+			margin: 0;
+		}
+	}
+	// If there a margin for the current variant set a margin on the action
+	// and remove and negative margin from the icon icon, which was added
+	// so borders overlap.
+	@if $margin {
+		// Add margin to actions.
+		.o-share__action {
+			margin: 0 #{$margin} 0 0;
+		}
+
+		// Remove negative margin used so borders overlap.
+		.o-share__icon {
+			margin: 0;
+		}
+
+		// Increase click area of actions.
+		.o-share__icon:after {
+			width: calc(100% + #{$margin});
+			height: calc(100% + #{$margin});
+			top: -#{$margin / 2};
+			left: -#{$margin / 2};
+		}
+	}
+
+	// For vertical share icons switch the margins around.
+	@if $vertical {
+		// Margin between actions goes below.
+		@if $margin {
+			&.o-share--vertical .o-share__action {
+				margin: 0 0 #{$margin};
+			}
+		}
+		@if not $margin {
+			// Negative margins to make icon borders overlap goes below.
+			&.o-share--vertical .o-share__icon {
+				margin: 0 0 -#{$o-share-border-size};
+			}
+		}
+		// Margins between the icon and the text need setting.
+		&.o-share--vertical .o-share__action--labelled .o-share__text {
+			margin: oSpacingByName('s1');
+			margin-top: calc(-#{$icon-whitespace} + #{oSpacingByName('s1')});
+		}
+		// When vertical, the width of the actions must not increase.
+		&.o-share--vertical .o-share__action {
+			max-width: $size;
+		}
+	}
+}

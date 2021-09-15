@@ -1,0 +1,12 @@
+@import '../../main';
+@include oShare();
+
+.demo {
+	background-color: oColorsByUsecase('page', 'background');
+	margin: 1rem;
+	padding: 1rem;
+}
+
+.demo--inverse {
+	background-color: oColorsByName('slate');
+}
