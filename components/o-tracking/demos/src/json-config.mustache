@@ -1,0 +1,24 @@
+<!-- Page level configuration must be included prior to loading the module code -->
+<script type="application/json" data-o-tracking-config>
+	{
+		"server": "https://test.spoor-api.ft.com/px.gif",
+		"context": {
+			"product": "origami"
+		}
+	}
+</script>
+
+<p>This page is being tracked automatically.  See the source for more details.</p>
+
+<button onclick="document.body.dispatchEvent(new CustomEvent('oTracking.page', { detail: { url: document.URL }, bubbles: true}));">Click to send a page event</button>
+<button onclick="document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: { category: 'element', action: 'click', form: 'submit' }, bubbles: true}));">Click to track a non-page event</button>
+
+<script>
+// Send a custom event
+function initLocalScript() {
+	oTracking.page({ detail: { url: document.URL }, bubbles: true});
+}
+</script>
+
+<!-- Include this to ensure that tracking works even when the page does not load o-tracking's JavaScript -->
+<div class='o-tracking o--if-no-js'><div style='background-image: url(...)'></div></div>

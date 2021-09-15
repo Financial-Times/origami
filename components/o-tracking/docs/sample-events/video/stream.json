@@ -1,0 +1,33 @@
+{
+	"system": {
+		"environment": "p",
+		"is_live": true,
+		"version": "1.1.8",
+		"source": "o-tracking"
+	},
+	"context": {
+		"id": "<hidden>",
+		"root_id": "<hidden>",
+		"product": "ft.com",
+		"context": {
+			"type": "stream",
+			"instanceID": "7-75ba36ac-3a81-11e4-8ee4-00144feabdc0",
+			"timeMS": "203316",
+			"isInView": "true",
+			"streamIndex": "1",
+			"locationIndex": "1",
+			"videoID": "4775476999001",
+			"isFromAdNotVideo": "false"
+		}
+	},
+	"user": {
+		"ft_session": "<hidden>"
+	},
+	"device": {
+		"spoor_session": "cilns1wzq00003k6q1g7362qh",
+		"spoor_session_is_new": false,
+		"spoor_id": "<hidden>"
+	},
+	"category": "video",
+	"action": "stream"
+}

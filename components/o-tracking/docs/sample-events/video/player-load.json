@@ -1,0 +1,34 @@
+{
+	"system": {
+		"environment": "p",
+		"is_live": true,
+		"version": "1.1.8",
+		"source": "o-tracking"
+	},
+	"context": {
+		"id": "<hidden>",
+		"root_id": "<hidden>",
+		"product": "ft.com",
+		"context": {
+			"type": "player_load",
+			"instanceID": "8-84dec41c-885c-11df-aade-00144feabdc0",
+			"timeMS": "7523",
+			"isInView": "false",
+			"wasLoadRequested": "true",
+			"willAutoplay": "false",
+			"playerPlatform": "flash",
+			"loadedTop": "2940",
+			"loadedLeft": "-486"
+		}
+	},
+	"user": {
+		"ft_session": "<hidden>"
+	},
+	"device": {
+		"spoor_session": "cilns1wzq00003k6q1g7362qh",
+		"spoor_session_is_new": false,
+		"spoor_id": "<hidden>"
+	},
+	"category": "video",
+	"action": "player_load"
+}

@@ -1,0 +1,35 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-tracking/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"CustomEvent",
+			"IntersectionObserver",
+			"IntersectionObserverEntry",
+			"WeakSet",
+			"Object.entries",
+			"Object.values",
+			"Array.isArray"
+		],
+		"optional": [
+			"Promise",
+			"navigator.sendBeacon"
+		]
+	},
+	"demos": [
+		{
+			"title": "Json Config",
+			"name": "json-config",
+			"description": "Sample configuration for a product.",
+			"template": "demos/src/json-config.mustache",
+			"js": "demos/src/demo.js",
+			"sass": "demos/src/demo.scss"
+		}
+	]
+}

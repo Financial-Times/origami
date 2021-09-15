@@ -1,0 +1,26 @@
+{
+	"system": {
+		"environment": "p",
+		"is_live": true,
+		"version": "1.1.8",
+		"source": "o-tracking"
+	},
+	"context": {
+		"id": "<hidden>",
+		"root_id": "<hidden>",
+		"product": "ft.com",
+		"context": {
+			"maxscroll": "25"
+		}
+	},
+	"user": {
+		"ft_session": "<hidden>"
+	},
+	"device": {
+		"spoor_session": "cilns1wzq00003k6q1g7362qh",
+		"spoor_session_is_new": false,
+		"spoor_id": "<hidden>"
+	},
+	"category": "page",
+	"action": "scroll"
+}
