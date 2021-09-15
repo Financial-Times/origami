@@ -1,0 +1,36 @@
+{
+	"name": "@financial-times/o-utils",
+	"main": "main.js",
+	"type": "module",
+	"version": "0.0.0",
+	"description": "Provides JS helper functions, such as throttling and debouncing",
+	"keywords": [
+		"debounce",
+		"throttle"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-utils",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-utils"
+	},
+	"license": "MIT",
+	"engines": {
+		"npm": "^7"
+	},
+	"devDependencies": {
+		"eslint": "^7.8.1",
+		"eslint-config-origami-component": "^2.1.0",
+		"mocha": "^8.3.2",
+		"proclaim": "^3.6.0",
+		"remark": "^13.0.0",
+		"remark-lint": "^8.0.0",
+		"remark-preset-lint-origami-component": "^2.0.0",
+		"sinon": "^10.0.0"
+	},
+	"scripts": {
+		"test": "mocha test"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
+}
