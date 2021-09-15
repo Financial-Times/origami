@@ -1,0 +1,170 @@
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-normalise/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/use-cases/general';
+@import 'src/scss/use-cases/wrapper';
+
+/// Output o-typography features.
+///
+/// @example Output all o-typography css classes.
+/// 	@include oTypography();
+///
+/// @example Output a granular selection of o-typography css classes. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for a full list of options.
+///     @include oTypography((
+///     	'body': true,
+///     	'headings': (1, 2, 3),
+///     	'lists': ('unordered'),
+///     ));
+///
+/// @param {Map} $opts [('headings': (1, 2, 3, 4, 5, 6), 'wrapper': true, 'body': true, 'links': true, 'lists': ('ordered', 'unordered'), 'caption': true, 'footer': true, 'utilities': true)] - The features of o-typography to output classes for. See the [README](https://registry.origami.ft.com/components/o-typography/readme) for more details.
+@mixin oTypography($opts: (
+	'headings': (1, 2, 3, 4, 5, 6),
+	'wrapper': true,
+	'body': true,
+	'links': true,
+	'lists': ('ordered', 'unordered'),
+	'caption': true,
+	'footer': true,
+	'utilities': true,
+)) {
+	$wrapper-enabled: map-get($opts, 'wrapper');
+	$body-enabled: map-get($opts, 'body');
+	$links-enabled: map-get($opts, 'links');
+	$caption-enabled: map-get($opts, 'caption');
+	$footer-enabled: map-get($opts, 'footer');
+	$utilities-enabled: map-get($opts, 'utilities');
+	$headings: map-get($opts, 'headings');
+	$headings: if($headings, $headings, ());
+	@if($headings and type-of($headings) != 'list' and type-of($headings) != 'number') {
+		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5, 6)`.');
+	}
+	$lists: map-get($opts, 'lists');
+	$lists: if($lists, $lists, ());
+	@if($lists and type-of($lists) != 'list') {
+		@error ('The "lists" option must be a list of list types to include e.g. `(\'ordered\', \'unordered\')`.');
+	}
+
+	// Load fonts within the primary mixin in-case silent mode is on.
+	@if $o-typography-load-fonts == true {
+		@include oFonts();
+		// Set to false so fonts are not output twice by o-typography.
+		$o-typography-load-fonts: false !global;
+	}
+
+	// Headings
+	@each $level in $headings {
+		.o-typography-heading-level-#{$level} {
+			@include oTypographyHeading($level);
+		}
+	}
+
+	// Body, Italic, Superscript, Subscript.
+	@if $utilities-enabled {
+		.o-typography-bold {
+			@include oTypographySans (
+				$weight: 'semibold',
+				$include-font-family: false
+			);
+		}
+
+		.o-typography-italic {
+			font-style: italic;
+		}
+
+		.o-typography-sup {
+			@include oTypographySuper;
+		}
+
+		.o-typography-sub {
+			@include oTypographySub;
+		}
+	}
+
+	// Body
+	@if $body-enabled {
+		.o-typography-body {
+			@include oTypographyBody;
+		}
+	}
+
+	// Links
+	@if $links-enabled {
+		.o-typography-link {
+			@include oTypographyLink;
+		}
+
+		.o-typography-link--external {
+			@include oTypographyLink(
+				$external: true,
+				$include-base-styles: false
+			);
+		}
+	}
+
+	// Lists
+	@if length($lists) >= 1 {
+		.o-typography-list {
+			// Output base styles shared by all list types.
+			@include oTypographyList();
+		}
+	}
+
+	@if index($lists, 'ordered') {
+		.o-typography-list--ordered {
+			// Output list styles unique to an ordered list.
+			@include oTypographyList($type: 'ordered', $include-base-styles: false);
+		}
+	}
+
+	@if index($lists, 'unordered') {
+		.o-typography-list--unordered {
+			// Output list styles unique to an unordered list.
+			@include oTypographyList($type: 'unordered', $include-base-styles: false);
+		}
+	}
+
+	// Caption
+	@if $caption-enabled {
+		.o-typography-caption {
+			@include oTypographyCaption;
+		}
+	}
+
+	// Footer
+	@if $footer-enabled {
+		.o-typography-footer {
+			@include oTypographyFooter;
+		}
+	}
+
+	// Wrapper
+	@if $wrapper-enabled {
+		.o-typography-wrapper > p,
+		.o-typography-wrapper {
+			@include _oTypographyWrapper;
+		}
+	}
+}
+
+// So the build service can output all typography styles.
+@if $o-typography-is-silent == false {
+	// Load fonts outside the primary mixin as they may be
+	// required by other mixins. But set to false so fonts
+	// are not output twice by o-typography.
+	@if $o-typography-load-fonts == true {
+		@include oFonts();
+		$o-typography-load-fonts: false !global;
+	}
+
+	@include oTypography();
+	// Don't output twice
+	$o-typography-is-silent: true !global;
+}

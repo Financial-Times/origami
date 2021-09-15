@@ -1,0 +1,85 @@
+/// When silent mode is active, css classes will not be output
+/// @type Bool
+$o-typography-is-silent: true !default;
+
+/// Use relative units (rem) or not (px) when outputting typographic styles.
+/// When `true`, the user will be able to modify their font size using browser
+/// settings.
+///
+/// For legacy reasons, this defaults to `false` (outputs px units).
+/// Components and projects may need to be updated to support relative units.
+/// @type Bool
+$o-typography-relative-units: false !default;
+
+/// When true, webfonts will be downloaded
+/// @type Bool
+$o-typography-load-fonts: true !default;
+
+/// The error message to throw if o-typography is used to apply a font face
+/// which has not been included by the project. By default no error is thrown.
+/// @type String|Null
+$o-typography-error-for-missing-fonts: null !default;
+
+/// When true, progressive font fallbacks are output.
+/// @type Bool
+$o-typography-progressive-font-loading: true !default;
+
+/// Unitless size representing the baseline grid
+/// @type Number
+$o-typography-baseline-unit: 4;
+
+/// Prefix for the class used when loading fonts
+/// @access private
+/// @type String
+$_o-typography-loading-prefix: 'o-typography--loading' !default;
+
+/// The "types" of fonts o-typography supports.
+/// @access private
+$_o-typography-types: ('sans', 'serif', 'display');
+
+/// Font scale of font-sizes and line-heights.
+/// Currently the default scale `$_o-typography-font-scale` is used for all
+/// fonts and brands, but branded products may choose to define their own scale
+/// on a per font basis.
+/// @access private
+/// @see oTypographyDefineFontScale
+/// @type Map
+$_o-typography-font-scale-by-font: () !default;
+
+/// Configuration for fallback fonts when loading fonts progressively.
+/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb
+/// fonts.
+/// @type Map
+$_o-typography-progressive-font-fallbacks: (
+	(
+		label: 'sans',
+		family: 'MetricWeb',
+		fallback: sans-serif,
+		fallback-scale: 0.87
+	),
+	(
+		label: 'sans-bold',
+		family: 'MetricWeb',
+		weight: ('bold', 'semibold'),
+		fallback: sans-serif,
+		fallback-scale: 0.83
+	),
+	(
+		label: 'display',
+		family: 'FinancierDisplayWeb',
+		fallback: serif,
+		fallback-scale: 0.9
+	),
+	(
+		label: 'display-bold',
+		family: 'FinancierDisplayWeb',
+		weight: bold,
+		fallback: serif,
+		fallback-scale: 0.9
+	)
+);
+
+/// Which warnings have been output already.
+/// @type Map
+/// @access private
+$_o-typography-warnings: () !default;

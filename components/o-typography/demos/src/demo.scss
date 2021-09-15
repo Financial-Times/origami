@@ -1,0 +1,63 @@
+@import '../../main';
+
+@include oTypography();
+
+html {
+	background-color: oColorsByUsecase('page', 'background');
+	overflow-y: scroll;
+}
+
+.demo {
+	// prevent images and media from expanding its container
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	figure {
+		margin: 0 0 28px;
+	}
+}
+
+.type-scale {
+	white-space: nowrap;
+	overflow: hidden;
+
+	.type-scale__label {
+		@include oTypographySans(1);
+		color: oColorsByName('black-60');
+		display: inline-block;
+		min-width: 1ch;
+		padding: 0 1em;
+	}
+
+	.type-scale__example {
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	@each $scale, $values in $_o-typography-font-scale {
+		.type-scale__example-#{$scale} {
+			@include oTypographyDisplay($scale);
+		}
+	}
+}
+
+.line-width-demo {
+	display: flex;
+
+	.line-width-demo__selection {
+		min-width: 100px;
+		margin: 20px;
+	}
+
+	.line-width-demo__scale {
+		max-width: oTypographyMaxLineWidth();
+	}
+
+	@each $scale, $values in $_o-typography-font-scale {
+		.line-width-demo__scale--#{$scale} {
+			@include oTypographySans($scale);
+		}
+	}
+}

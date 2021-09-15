@@ -1,0 +1,330 @@
+/// Output styles for page headings.
+/// @example Output heading level 1 styles.
+///     h1 {
+///     	@include oTypographyHeading($level: 1);
+///     }
+/// @example Output heading level 5 styles.
+///     h5 {
+///     	@include oTypographyHeading($level: 5);
+///     }
+/// @param {Number} $level - The heading level 1-5.
+@mixin oTypographyHeading($level) {
+	$headings: (
+		'heading-level-one',
+		'heading-level-two',
+		'heading-level-three',
+		'heading-level-four',
+		'heading-level-five',
+		'heading-level-six',
+	);
+
+	@if(type-of($level) != 'number' or $level < 1 or $level > 6) {
+		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
+	}
+
+	$from: nth($headings, $level);
+
+	// Get heading styles from brand config (see _brand.scss)
+	// If weight is not given default to regular, to override browser defaults.
+	$weight: _oTypographyGet('weight', $from);
+	$weight: if($weight, $weight, 'regular');
+	@include oTypographySans(
+		$scale: (
+			default: _oTypographyGet('scale', $from),
+			S: _oTypographyGet('scale-s', $from),
+			M: _oTypographyGet('scale-m', $from),
+			L: _oTypographyGet('scale-l', $from),
+			XL: _oTypographyGet('scale-xl', $from)
+		),
+		$weight: $weight
+	);
+	color: oColorsByUsecase('body', 'text', $fallback: null);
+	margin: 0 0 oSpacingByName('s4');
+}
+
+
+/// Body text styles
+@mixin oTypographyBody {
+	@include oTypographySans(1);
+	margin: 0 0 oSpacingByName('s6');
+	color: oColorsByUsecase('body', 'text', $fallback: null);
+}
+
+/// Subscript text
+@mixin oTypographySub {
+	// make subscript smaller and sans-serif
+	// 12px given 18px copy
+	@include oTypographySans();
+	font-size: 0.666em;
+	// override o-normalise default
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	// prevent sub increasing line-height
+	display: inline-block;
+	margin-bottom: -1em;
+}
+
+/// Superscript text
+@mixin oTypographySuper {
+	// make superscript smaller and sans-serif
+	// 12px given 18px copy
+	@include oTypographySans();
+	font-size: 0.666em;
+	// override o-normalise default
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	// prevent super increasing line-height
+	display: inline-block;
+	margin-top: -1em;
+}
+
+/// Output link styles.
+///
+/// @example Output the styles for a standard link.
+///     .my-link {
+///     	@include oTypographyLink();
+///     }
+///
+/// @example Output the styles for an external link.
+///     .my-external-link {
+///     	@include oTypographyLink($external: true);
+///     }
+///
+/// @example Output the styles for an external link, without repeating styles shared by standard links.
+///     .my-link--external {
+///     	@include oTypographyLink($external: true, $include-base-styles: false);
+///     }
+///
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the master brand, white otherwise).
+///     .my-claret-link {
+///     	@include oTypographyLink($theme: (
+///     		'base': 'claret',
+///     		'hover': 'claret-30',
+///     	));
+///     }
+///
+/// @example Output a custom, lemon coloured link to go on a slate background.
+///     .my-inverse-link {
+///     	@include oTypographyLink($theme: (
+///     		'base': 'lemon',
+///     		'hover': 'lemon-30',
+///     		'context': 'slate',
+///     	));
+///     }
+///
+/// @param {Boolean} $external [false] - If the style is for external links, set to true to output an external link icon.
+/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the master brand, white otherwise).
+/// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme or external link.
+@mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
+	// Default link colours.
+	// These may be `null` if the usecase is not set, i.e. for the whitelabel brand.
+	$base-color: oColorsByUsecase(link, text, $fallback: null);
+	$hover-color: oColorsByUsecase(link-hover, text, $fallback: null);
+	$context-color: oColorsByUsecase(page, background);
+	$underline-size: 0.25ex; // 2px for 18px MetricWeb
+
+	// If a custom theme is given check it is a map with the required keys.
+	// And update the link colours.
+	$required-theme-keys: ('base', 'hover');
+	@if($theme and type-of($theme) != 'map') {
+		@error 'The link $theme argument must `null` or a map. ' +
+			'Found: "#{inspect($theme)}"';
+	}
+	@if(type-of($theme) == 'map') {
+		// Get custom base colour.
+		$theme-base: map-get($theme, 'base');
+		$base-color: if(type-of($theme-base) == 'string', oColorsByName($theme-base), $theme-base);
+		// Get custom hover colour.
+		$theme-hover: map-get($theme, 'hover');
+		$hover-color: if(type-of($theme-hover) == 'string', oColorsByName($theme-hover), $theme-hover);
+		// Get optional context colour.
+		$theme-context: map-get($theme, 'context');
+		@if $theme-context {
+			$context-color: if(type-of($theme-context) == 'string', oColorsByName($theme-context), $theme-context);
+		}
+		// Validate colours given.
+		@if(type-of($base-color) != 'color') {
+			@error 'A custom link theme must have a `base` property with a colour or palette colour name e.g. `claret`. But found #{$theme-base}.';
+		}
+		@if(type-of($hover-color) != 'color') {
+			@error 'A custom link theme must have a `hover` property with a color or palette colour name e.g. `claret`. But found #{$theme-hover}.';
+		}
+		@if($theme-context and type-of($context-color) != 'color') {
+			@error 'A custom link theme may optionally have a `context` property with a color or palette colour name, to indicate the colour of the page behind the link, e.g. `null` or `paper`. But found #{$theme-context}.';
+		}
+	}
+
+	// Output external link styles.
+	// Fallback to a black icon if no link colour is given.
+	@if($external) {
+		$icon-color: if($base-color, $base-color, oColorsByName('black'));
+		$icon-size: 1em;
+		$icon-inbuilt-padding-size: #{$icon-size / 4};
+		$icon-padding-calc: "#{$icon-size} + #{0.5ch}";
+		@include oIconsContent('outside-page', $icon-color, $size: null, $include-base-styles: false);
+		background-repeat: no-repeat;
+		// Add padding for icon background.
+		// To position the icon closer to the copy, minus the right/left padding
+		// built into the icon svg (10px for a 40px icon)
+		// https://github.com/Financial-Times/fticons/blob/v1.20.5/contributing.md#design
+		padding-right: calc(#{$icon-padding-calc} - #{$icon-inbuilt-padding-size} - #{$icon-inbuilt-padding-size});
+		background-position-x: calc(100% + 0.5ch);
+		// Mimic baseline alignment.
+		@supports (background-size: contain) {
+			background-position-y: calc(100% + #{$underline-size} - 1px);
+		}
+		@supports (text-decoration-thickness: $underline-size) {
+			background-position-y: calc(100% + #{$icon-inbuilt-padding-size} - #{$underline-size} - 1px);
+		}
+		background-origin: border-box;
+		// IE11 does not size and position the svg icon background correctly
+		// using `background-size: contain`. Use @supports to exclude IE11,
+		// as IE11 does not support @supports
+		background-size: calc(#{$icon-padding-calc}) calc(#{$icon-padding-calc}); // IE11 fallback
+		@supports (background-size: contain) {
+			background-size: contain;
+		}
+		&[target="_blank"]:after {
+			@include oNormaliseVisuallyHidden();
+			content: '(opens a new window)';
+		}
+	}
+
+	// Output base styles shared by all links.
+	@if($include-base-styles) {
+		text-decoration: none;
+		cursor: pointer;
+		border-bottom: $underline-size solid;
+
+		@supports (text-decoration-thickness: $underline-size) {
+			border-bottom: 0;
+			text-decoration-thickness: $underline-size; //sass-lint:disable-line no-misspelled-properties
+			text-decoration-line: underline;
+		}
+	}
+
+	// Output base styles shared by all links, or
+	// required for a custom link theme.
+	@if($include-base-styles or $theme) {
+		color: $base-color;
+		$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 20), null);
+		border-bottom-color: $decoration-color;
+		text-decoration-color: $decoration-color;
+	}
+
+	&:hover {
+		@if($include-base-styles or $theme) {
+			color: $hover-color;
+			$decoration-color: if($base-color, oColorsMix($base-color, $context-color, $percentage: 40), null);
+			border-bottom-color: $decoration-color;
+			text-decoration-color: $decoration-color;
+		}
+	}
+
+	// o-normalise provides extra focus styles for links
+	&:focus {
+		@if($include-base-styles) {
+			$decoration-color: transparent;
+			border-bottom-color: $decoration-color;
+			text-decoration-color: $decoration-color;
+		}
+		@if($include-base-styles or $theme) {
+			color: $hover-color;
+		}
+	}
+}
+
+/// Output styles for lists.
+/// Styles child `li` elements. Apply to a
+/// containing list element such as `ul` or `ol`.
+/// Does not output font styles, these are
+/// inherited (@see oTypographyBody).
+///
+/// @example Output the styles for an unordered list.
+///     .my-unordered-list {
+///     	@include oTypographyList('unordered');
+///     }
+///
+/// @example Output the styles for an ordered and unordered list, sharing base list styles.
+///     .my-list {
+///     	@include oTypographyList();
+///     }
+///
+///     .my-list--ordered {
+///     	@include oTypographyList('ordered', $include-base-styles: false);
+///     }
+///
+///     .my-list--unordered {
+///     	@include oTypographyList('unordered', $include-base-styles: false);
+///     }
+///
+/// @param {String|Null} $type [null] - "ordered", "unordered", or null for just the base styles shared by all lists
+/// @param {Boolean} $include-base-styles [true] - set to false to exclude base styles which are shared by all list types
+@mixin oTypographyList($type: null, $include-base-styles: true) {
+	// Undo browser defaults.
+	@if($include-base-styles) {
+		margin: 0 0 oSpacingByName('s6');
+		padding: 0;
+		list-style: none;
+	}
+	// Reset number counter for new ordered list.
+	@if($type == 'ordered') {
+		counter-reset: item;
+	}
+	> li {
+		@if($include-base-styles) {
+			position: relative;
+			// Undo browser default.
+			margin: 0;
+			// Allow space for 2-3 numbers for both ordered and unordered lists,
+			// so content aligns between both list types.
+			padding-left: calc(2ch + #{oSpacingByName('s1')});
+		}
+		&:before {
+			@if($include-base-styles) {
+				@include oTypographySans();
+				display: inline-block;
+				position: absolute;
+				left: 0;
+				transform-origin: center left;
+			}
+
+			@if($type == 'unordered') {
+				content: '\2022'; // dot character
+				color: inherit;
+				// 28px marker given a parent font-size of 18px
+				transform: scale(#{(28 / 18)});
+				// magic number to center marker
+				margin-top: #{(28 / 18) * -0.16ch};
+			}
+
+			@if($type == 'ordered') {
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+				content: counter(item);
+				counter-increment: item;
+				font-feature-settings: "tnum";
+				// 16px marker given a parent font-size of 18px
+				transform: scale(#{(16 / 18)});
+				// magic number to make marker flush to the left
+				margin-left: #{(16 / 18) * -0.16ch};
+			}
+		}
+	}
+}
+
+/// Style for <footer> tags
+@mixin oTypographyFooter {
+	@include oTypographySans($scale: 1, $line-height: 24px);
+	color: oColorsByUsecase('body', 'text', $fallback: null);
+}
+
+/// Styles for photo or video credit/caption
+@mixin oTypographyCaption {
+	@include oTypographySans($scale: -1);
+	margin-top: oSpacingByName('s2');
+	margin-bottom: 0;
+	color: oColorsByUsecase('body', 'text', $fallback: null);
+}
+

@@ -1,0 +1,81 @@
+/// Typography wrapper
+@mixin _oTypographyWrapper() {
+
+	// Lists inherit font family and size from the wrapper.
+	@include oTypographyBody();
+
+	> h1 {
+		@include oTypographyHeading($level: 1);
+	}
+
+	> h2 {
+		@include oTypographyHeading($level: 2);
+	}
+
+	> h3 {
+		@include oTypographyHeading($level: 3);
+	}
+
+	> h4 {
+		@include oTypographyHeading($level: 4);
+	}
+
+	> h5 {
+		@include oTypographyHeading($level: 5);
+	}
+
+	> h6 {
+		@include oTypographyHeading($level: 6);
+	}
+
+	> a {
+		@include oTypographyLink();
+	}
+
+	> p {
+		@include oTypographyBody();
+	}
+
+	> ol,
+	> ul {
+		// Output base styles shared by all list types.
+		@include oTypographyList();
+	}
+
+	> ol {
+		// Output list styles unique to an ordered list.
+		@include oTypographyList($type: 'ordered', $include-base-styles: false);
+	}
+
+	> ul {
+		// Output list styles unique to an unordered list.
+		@include oTypographyList($type: 'unordered', $include-base-styles: false);
+	}
+
+	> footer {
+		@include oTypographyFooter();
+	}
+
+	> strong {
+		@include oTypographySans(
+			$weight: 'semibold',
+			$include-font-family: false
+		);
+	}
+
+	> em {
+		font-style: italic;
+	}
+
+	> sup {
+		@include oTypographySuper();
+	}
+
+	> sub {
+		@include oTypographySub();
+	}
+
+	> figcaption {
+		@include oTypographyCaption();
+	}
+}
