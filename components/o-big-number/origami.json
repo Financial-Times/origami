@@ -1,0 +1,24 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-big-number/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"supportStatus": "maintained",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Big Number",
+			"name": "simple",
+			"template": "demos/src/simple.mustache"
+		}
+	]
+}
