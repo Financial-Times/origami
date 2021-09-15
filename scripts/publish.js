@@ -15,7 +15,7 @@ for (let key in outputs) {
 	await $`npm publish -w ${workspace}`
 	let pkgjson = await readPackage({cwd: `${workspace}`})
 	let {statusCode, body} = await request(
-		"https://origami-repo-data-monorepo.herokuapp.com/v1/queue",
+		"https://origami-repo-data.ft.com/v1/queue",
 		{
 			maxRedirections: 100,
 			headers: {
