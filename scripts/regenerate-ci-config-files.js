@@ -37,6 +37,12 @@ async function hasScript(workspace, name) {
 
 await del([".github/workflows/percy-*.yml", ".github/workflows/test-*.yml"])
 
+let dotReleasePleaseManifest = {}
+let releasePleaseConfig = {
+	"bootstrap-sha": "1b975669fa23f7344f7d0b2e62ae477357139312",
+	packages: {},
+}
+
 for (let workspace of workspacePaths) {
 	let view = {
 		lint: "",
@@ -75,4 +81,19 @@ for (let workspace of workspacePaths) {
 			percyFile
 		)
 	}
+
+	if (workspace.match(/^(components|libraries)\//)) {
+		let pkg = await readPackage({cwd: workspace})
+		dotReleasePleaseManifest[workspace] = pkg.version
+		releasePleaseConfig.packages[workspace] = {}
+	}
 }
+
+await writeFile(
+	".release-please-manifest.json",
+	JSON.stringify(dotReleasePleaseManifest, null, 2) + "\n"
+)
+await writeFile(
+	"release-please-config.json",
+	JSON.stringify(releasePleaseConfig, null, "\t") + "\n"
+)

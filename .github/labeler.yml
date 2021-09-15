@@ -21,6 +21,8 @@ template:
 
 percy:
   - actions/percy/**/*
+o-audio:
+  - components/o-audio/**/*
 o-autocomplete:
   - components/o-autocomplete/**/*
 o-banner:

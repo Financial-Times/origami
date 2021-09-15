@@ -1,10 +1,10 @@
 {
-	"bootstrap-sha": "fd786c42affbe1a13b891e0b143b225b55f43035",
+	"bootstrap-sha": "1b975669fa23f7344f7d0b2e62ae477357139312",
 	"packages": {
+		"components/o-audio": {},
 		"components/o-autocomplete": {},
-		"libraries/o-autoinit": {},
 		"components/o-banner": {},
-		"libraries/o-brand": {},
+		"components/o-big-number": {},
 		"components/o-buttons": {},
 		"components/o-colors": {},
 		"components/o-comments": {},
@@ -12,7 +12,6 @@
 		"components/o-date": {},
 		"components/o-editorial-layout": {},
 		"components/o-editorial-typography": {},
-		"libraries/o-errors": {},
 		"components/o-expander": {},
 		"components/o-fonts": {},
 		"components/o-footer": {},
@@ -28,6 +27,7 @@
 		"components/o-lazy-load": {},
 		"components/o-loading": {},
 		"components/o-message": {},
+		"components/o-meter": {},
 		"components/o-normalise": {},
 		"components/o-overlay": {},
 		"components/o-quote": {},
@@ -43,11 +43,14 @@
 		"components/o-toggle": {},
 		"components/o-tooltip": {},
 		"components/o-topper": {},
-		"components/o-tracking": {},
 		"components/o-typography": {},
-		"libraries/o-utils": {},
 		"components/o-video": {},
 		"components/o-viewport": {},
-		"components/o-visual-effects": {}
+		"components/o-visual-effects": {},
+		"libraries/o-autoinit": {},
+		"libraries/o-brand": {},
+		"libraries/o-errors": {},
+		"libraries/o-tracking": {},
+		"libraries/o-utils": {}
 	}
 }
