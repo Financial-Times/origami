@@ -1,0 +1,86 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLoadingGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-loading', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLoadingSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-loading', $variant: $variant);
+}
+
+/// Helper for `whitelabel` variable customisation
+/// @brand whitelabel
+/// @param {Map} $variables - Brand variables to customise
+/// @access public
+/// @example scss
+///		@include oLoadingCustomize((
+///			'light': (
+///				default-color: hotpink
+///			),
+///			'dark': (
+///				default-color: black
+///			)
+///		))
+@mixin oLoadingCustomize($variables) {
+	$keys: map-keys($variables);
+	@each $key in $keys {
+		@if($key != 'dark' and $key != 'light') {
+			@error 'Only light and dark o-loading variants may be customised. Found "#{$key}".';
+		}
+	}
+
+	@include oBrandCustomize('o-loading', $variables);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-loading', 'master', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('black-80')
+			)
+		),
+		'supports-variants': (
+			'light',
+			'dark'
+		)
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-loading', 'internal', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('slate')
+			)
+		),
+		'supports-variants': (
+			'light',
+			'dark'
+		)
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-loading', 'whitelabel', (
+		'variables': (
+			'light': (
+				default-color: oColorsByName('white')
+			),
+			'dark': (
+				default-color: oColorsByName('black')
+			)
+		),
+		'supports-variants': (
+			'light',
+			'dark'
+		)
+	));
+}

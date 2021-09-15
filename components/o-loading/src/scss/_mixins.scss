@@ -1,0 +1,91 @@
+////
+/// @group o-loading
+/// @link http://registry.origami.ft.com/components/o-loading
+////
+
+/// @access private
+/// Outputs the keyframe animation definition
+@mixin _oLoadingAnimationKeyframes {
+	@at-root {
+		@if not $_o-loading-animation-keyframes {
+			@keyframes o-loading-spinner {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			$_o-loading-animation-keyframes: true !global;
+		}
+	}
+}
+
+/// @access private
+/// Output base styles for a loading spinner
+@mixin _oLoadingBase() {
+	display: inline-block;
+	border-radius: 50%;
+	animation: o-loading-spinner 1s infinite linear;
+}
+/// Styles for a color variation for a loading indicator.
+///
+/// @param {String} $theme
+/// @access private
+@mixin _oLoadingColor($theme) {
+	$color: _oLoadingGet('default-color', $from: $theme);
+	@if(not $color) {
+		@error 'No color found for o-loading theme "#{$theme}".';
+	}
+
+	border-style: solid;
+	border-color: rgba($color, 0.25);
+	border-top-color: $color;
+}
+
+/// Size variation for a loading indicator
+///
+/// @param {String|Number} $name
+/// @access private
+@mixin _oLoadingSize($name) {
+	@if type-of($name) == 'string' {
+		$name: map-get($_o-loading-sizes, $name);
+
+		@if not $name {
+			@warn "Size: '#{$name}' not found for o-loading";
+		}
+	}
+
+	width: map-get($name, 'size');
+	height: map-get($name, 'size');
+	border-width: map-get($name, 'border');
+}
+
+/// @param {Map} $opts ['theme': ('light', 'dark'), 'size': ('mini', 'small', 'medium', 'large')
+/// @access public
+// Outputs loading styles for a custom class
+@mixin oLoadingContent($opts: (
+	'theme': null,
+	'size': null
+)) {
+	$theme: map-get($opts, 'theme');
+	$size: map-get($opts, 'size');
+
+	@at-root {
+		@include _oLoadingAnimationKeyframes();
+	}
+
+	// HACK: creates a new selector to output the rules _after_ keyframes
+	& {
+		@include _oLoadingBase();
+	}
+
+	@if $theme {
+		@include _oLoadingColor($theme);
+	}
+
+	@if $size {
+		@include _oLoadingSize($size);
+	}
+}

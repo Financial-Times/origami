@@ -1,0 +1,44 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"support": "https://github.com/Financial-Times/o-loading/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"template": "demos/src/loading-spinner.mustache"
+	},
+	"demos": [
+		{
+			"name": "light-loading-spinner",
+			"title": "Standard Light loading spinner",
+			"description": "The basic spinner is available in a light theme in four sizes.",
+			"data": {
+				"theme": "light"
+			}
+		},
+		{
+			"name": "dark-loading-spinner",
+			"title": "Standard Darkloading spinner",
+			"description": "The basic spinner is available in a dark theme in four sizes.",
+			"data": {
+				"theme": "dark"
+			}
+		},
+		{
+			"name": "accessible",
+			"title": "Accessible markup demonstration",
+			"template": "demos/src/accessible.mustache",
+			"js": "demos/src/accessible.js",
+			"description": "To see this working, open this demo in a new window."
+		}
+	]
+}

@@ -1,0 +1,42 @@
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-colors/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+
+
+/// @param {Map} $opts ['themes': ('light', 'dark'), 'sizes': ('mini', 'small', 'medium', 'large')
+/// @access public
+// Outputs all loading styles
+@mixin oLoading($opts: (
+	'themes': ('light', 'dark'),
+	'sizes': ('mini', 'small', 'medium', 'large')
+)) {
+	$themes: map-get($opts, 'themes');
+	$sizes: map-get($opts, 'sizes');
+
+	@include _oLoadingAnimationKeyframes();
+
+	.o-loading {
+		@include _oLoadingBase();
+	}
+
+	@each $theme in $themes {
+		.o-loading--#{$theme} {
+			@include _oLoadingColor($theme);
+		}
+	}
+
+	@each $size in $sizes {
+		.o-loading--#{$size} {
+			@include _oLoadingSize(map-get($_o-loading-sizes, $size));
+		}
+	}
+}
+
+@if $o-loading-is-silent == false {
+	@include oLoading();
+
+	$o-loading-is-silent: true !global;
+}

@@ -1,0 +1,42 @@
+{
+	"name": "@financial-times/o-loading",
+	"version": "0.0.0",
+	"description": "A visual loading indicator, available in two colours and four sizes",
+	"keywords": [
+		"loading",
+		"spinner",
+		"wait",
+		"loader"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-loading",
+	"bugs": {
+		"url": "https://registry.origami.ft.com/components/o-loading"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+	},
+	"devDependencies": {
+		"eslint": "^7.25.0",
+		"eslint-config-origami-component": "^2.1.1",
+		"remark": "^13.0.0",
+		"remark-lint": "^8.0.0",
+		"remark-preset-lint-origami-component": "^2.0.0",
+		"stylelint": "^13.13.0",
+		"stylelint-config-origami-component": "^1.0.4"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.0.2",
+		"@financial-times/o-colors": "^6.0.1",
+		"sass-mq": "^5.0.1"
+	},
+	"engines": {
+		"npm": "^7"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
+}
