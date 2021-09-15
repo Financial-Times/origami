@@ -1,0 +1,66 @@
+@import '../../main';
+@include oLazyLoad();
+
+// Warning message to display if a demo should be viewed in a new window
+.demo-popout-message {
+	margin: 50px 0;
+	text-align: center;
+	font-size: 24px;
+
+	&:before,
+	&:after {
+		padding: 0 1em;
+		font-size: 75%;
+	}
+	&:before {
+		content: '◀';
+	}
+	&:after {
+		content: '▶';
+	}
+}
+
+.demo-container {
+	margin: 0 auto;
+	padding: 10px;
+	max-width: 480px;
+}
+
+// A really unsubtle loading animation ✨
+@keyframes fancyLoad {
+	0% {
+		opacity: 0;
+		transform: scale(1.5) translateY(-25%);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.demo-fancy-load {
+	animation: fancyLoad 500ms;
+}
+
+.demo-scrollable {
+	border: 2px solid #dddddd;
+	overflow: auto;
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+.demo-target {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 50px;
+	background: salmon;
+
+	&.loaded {
+		background: rebeccapurple;
+	}
+}
+
+.o-lazy-load-placeholder {
+	background-color: #dddddd;
+}

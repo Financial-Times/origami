@@ -1,0 +1,84 @@
+@include describe('oLazyLoad') {
+	@include it('outputs styles for image elements with a transition') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoad();
+			}
+
+			@include contains() {
+				.o-lazy-load--transition {
+					opacity: 0;
+				}
+
+				.o-lazy-load--transition[data-o-lazy-load] {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	@include it('outputs styles for placeholder elements') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoad();
+			}
+
+			@include contains() {
+				.o-lazy-load-placeholder {
+					position: relative;
+				}
+
+				.o-lazy-load-placeholder .o-lazy-load {
+					position: absolute;
+				}
+
+				.o-lazy-load-placeholder--16x9:after {
+					padding-bottom: 56.25%;
+				}
+
+				.o-lazy-load-placeholder--16x10:after {
+					padding-bottom: 62.5%;
+				}
+
+				.o-lazy-load-placeholder--3x2:after {
+					padding-bottom: 66.6666666667%;
+				}
+
+				.o-lazy-load-placeholder--4x3:after {
+					padding-bottom: 75%;
+				}
+
+				.o-lazy-load-placeholder--1x1:after {
+					padding-bottom: 100%;
+				}
+			}
+		}
+	}
+	@include it('outputs custom placeholder ratios') {
+		@include assert() {
+			@include output() {
+				@include oLazyLoad($opts: (
+					'placeholder': true,
+					'placeholder-ratios': ((32, 9), (4, 3))
+				));
+			}
+
+			@include contains() {
+				.o-lazy-load-placeholder {
+					position: relative;
+				}
+
+				.o-lazy-load-placeholder .o-lazy-load {
+					position: absolute;
+				}
+
+				.o-lazy-load-placeholder--32x9:after {
+					padding-bottom: 28.125%;
+				}
+
+				.o-lazy-load-placeholder--4x3:after {
+					padding-bottom: 75%;
+				}
+			}
+		}
+	}
+}
