@@ -1,0 +1,22 @@
+{
+	"steps": [
+		{
+			"label": "Details",
+			"url": "#details",
+			"isComplete": true
+		},
+		{
+			"label": "Delivery",
+			"url": "#delivery",
+			"isComplete": true
+		},
+		{
+			"label": "Customise",
+			"url": "#customise",
+			"isError": true
+		},
+		{
+			"label": "Payment"
+		}
+	]
+}

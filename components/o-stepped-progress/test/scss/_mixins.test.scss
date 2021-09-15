@@ -1,0 +1,18 @@
+
+@include describe('oSteppedProgress mixins') {
+	@include describe('oSteppedProgress') {
+		@include it('does something') {
+			@include assert() {
+				@include output($selector: false) {
+					@include oSteppedProgress();
+				}
+
+				@include expect($selector: false) {
+					.o-stepped-progress {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+
+@if ($o-stepped-progress-is-silent == false) {
+	@include oSteppedProgress();
+
+	// Set to silent again to avoid being output twice
+	$o-stepped-progress-is-silent: true !global;
+}
