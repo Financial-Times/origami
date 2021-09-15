@@ -1,0 +1,72 @@
+// Only output placeholders if the current brand is the master brand.
+// This allows components which support multiple brands to use o-editorial-layout.
+@if $_o-editorial-layout-placeholders-output == false and oBrandGetCurrentBrand() == 'master' {
+	// Only output placeholders once.
+	$_o-editorial-layout-placeholders-output: true !global;
+
+	// lists
+	// - match body
+	%_o-editorial-layout-list {
+		@extend %_o-editorial-layout-body;
+		@include oEditorialTypographyList();
+	}
+	// h1
+	// - small margin below by default
+	%_o-editorial-layout-heading-1 {
+		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
+	}
+	// h2
+	// - large margin above by default
+	// - small margin below by default
+	%_o-editorial-layout-heading-2 {
+		margin-bottom: oSpacingByName('s1');
+		margin-top: oSpacingByName('s8');
+	}
+	// h3
+
+	// - small margin below by default
+	%_o-editorial-layout-heading-3 {
+		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
+	}
+	// h4
+	// - medium margin below by default
+	%_o-editorial-layout-heading-4 {
+		margin-bottom: oSpacingByName('s3');
+		margin-top: 0;
+	}
+	// h5
+	// - small margin below by default
+	%_o-editorial-layout-heading-5 {
+		margin-bottom: oSpacingByName('s1');
+		margin-top: 0;
+	}
+	// body
+	// - medium margin below by default
+	%_o-editorial-layout-body {
+		margin-bottom: oSpacingByName('s6');
+		margin-top: 0;
+	}
+
+	// all headings
+	// - increase margin between certain elements
+	// - increase margin by a smaller amount for body copy elements
+	%_o-editorial-layout-heading-1,
+	%_o-editorial-layout-heading-2,
+	%_o-editorial-layout-heading-3,
+	%_o-editorial-layout-heading-4,
+	%_o-editorial-layout-heading-5 {
+		& + %_o-editorial-layout-body {
+			margin-top: oSpacingByName('s1');
+		}
+
+		& + figure,
+		& + ul,
+		& + ol,
+		& + aside,
+		& + div {
+			margin-top: oSpacingByIncrement(4);
+		}
+	}
+}

@@ -1,0 +1,175 @@
+@import '@financial-times/o-editorial-typography/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-quote/main';
+@import '@financial-times/o-brand/main';
+
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/placeholders';
+
+/// Output All oEditorialLayout Features
+@mixin oEditorialLayout($opts: (
+	'headings': (1, 2, 3, 4, 5),
+	'body': true,
+	'wrapper': true,
+)) {
+	$headings: map-get($opts, 'headings');
+	$headings: if($headings, $headings, ());
+	$body: map-get($opts, 'body');
+	$wrapper: map-get($opts, 'wrapper');
+
+	@if($headings and type-of($headings) != 'list') {
+		@error ('The "headings" option must be a list of heading levels to include e.g. `(1, 2, 3, 4, 5)`.');
+	}
+
+	// Load fonts within the primary mixin in-case silent mode is on.
+	// Don't load fonts if o-typography has output them already since
+	// `$o-editorial-layout-load-fonts` was set.
+	@if $o-editorial-layout-load-fonts == true and $o-typography-load-fonts == true {
+		@include oFonts();
+		// Set to false so fonts are not output twice by o-editorial-typography.
+		$o-editorial-layout-load-fonts: false !global;
+	}
+
+	@if index($headings, 1) {
+		.o-editorial-layout-heading-1 {
+			@include oEditorialLayoutHeading(1);
+		}
+	}
+
+	@if index($headings, 2) {
+		.o-editorial-layout-heading-2 {
+			@include oEditorialLayoutHeading(2);
+		}
+	}
+
+	@if index($headings, 3) {
+		.o-editorial-layout-heading-3 {
+			@include oEditorialLayoutHeading(3);
+		}
+	}
+
+	@if index($headings, 4) {
+		.o-editorial-layout-heading-4 {
+			@include oEditorialLayoutHeading(4);
+		}
+	}
+
+	@if index($headings, 5) {
+		.o-editorial-layout-heading-5 {
+			@include oEditorialLayoutHeading(5);
+		}
+	}
+
+	@if $body {
+		.o-editorial-layout-body {
+			@include oEditorialLayoutBody();
+		}
+	}
+
+	@if $wrapper {
+		.o-editorial-layout-wrapper {
+			> h1 {
+				@include oEditorialLayoutHeading(1);
+			}
+
+			> h2 {
+				@include oEditorialLayoutHeading(2);
+			}
+
+			> h3 {
+				@include oEditorialLayoutHeading(3);
+			}
+
+			> h4 {
+				@include oEditorialLayoutHeading(4);
+			}
+
+			> h5 {
+				@include oEditorialLayoutHeading(5);
+			}
+
+			> blockquote,
+			> ol,
+			> ul,
+			> p {
+				@include oEditorialLayoutBody();
+			}
+
+			> ol,
+			> ul {
+				@extend %_o-editorial-layout-list;
+			}
+
+			> ol {
+				@include oEditorialTypographyList('ordered', $include-base-styles: false);
+			}
+
+			> ul {
+				@include oEditorialTypographyList('unordered', $include-base-styles: false);
+			}
+
+			> footer {
+				@include oTypographyFooter;
+			}
+
+			> figure > figcaption,
+			> figcaption {
+				@include oEditorialTypographyCaption();
+			}
+
+			> blockquote {
+				@include oQuoteEditorial();
+				margin-bottom: oSpacingByIncrement(7);
+				max-width: oTypographyMaxLineWidth(75);
+
+				cite,
+				footer {
+					@include oQuoteEditorialCite();
+				}
+
+				footer > cite {
+					@include oQuoteEditorialCiteAuthor();
+				}
+			}
+		}
+
+		.o-editorial-layout-wrapper > p a,
+		.o-editorial-layout-wrapper > a {
+			@include oTypographyLink;
+		}
+
+		.o-editorial-layout-wrapper > p strong,
+		.o-editorial-layout-wrapper > strong {
+			@include oTypographySerif(
+				$weight: 'bold',
+				$include-font-family: false
+			);
+		}
+
+		.o-editorial-layout-wrapper > p em,
+		.o-editorial-layout-wrapper > em,
+		.o-editorial-layout-wrapper > p i,
+		.o-editorial-layout-wrapper > i {
+			font-style: italic;
+		}
+
+		.o-editorial-layout-wrapper > p sup {
+			@include oTypographySuper();
+		}
+
+
+		.o-editorial-layout-wrapper > p sub {
+			@include oTypographySub();
+		}
+	}
+}
+
+@if ($o-editorial-layout-is-silent == false) {
+	@include oEditorialLayout();
+
+	// Set to silent again to avoid being output twice
+	$o-editorial-layout-is-silent: true !global;
+}

@@ -1,0 +1,36 @@
+
+
+/// Heading typography and margin.
+/// A placeholder is used, which may effect the source order of your CSS.
+/// @param {number} $level - The heading level 1-5.
+@mixin oEditorialLayoutHeading($level) {
+	@if type-of($level) != 'number' or $level < 1 or $level > 5 {
+		@error 'Heading levels must be a number between 1 and 5.';
+	}
+	// Do not include typography styles within the placeholder, as `@extend`
+	// interleaves selectors unnecessarily for the progressive font fallback.
+	// This may cause large selectors.
+	@include oEditorialTypographyHeading($level, $opts: (
+		'margin-reset': false
+	));
+	@extend %_o-editorial-layout-heading-#{$level};
+}
+
+/// Body typography and margin.
+@mixin oEditorialLayoutBody() {
+	// Do not include typography styles within the placeholder, as `@extend`
+	// interleaves selectors unnecessarily for the progressive font fallback.
+	// This may cause large selectors.
+	@include oEditorialTypographyBody($opts: (
+		'margin-reset': false
+	));
+	@extend %_o-editorial-layout-body;
+}
+
+/// Apply body typography layout, such as margin in relation to other elements,
+/// without including typographic styles such as font size and family. Useful
+/// when inheriting typographic styles from a parent element.
+/// @see oEditorialLayoutBody - Use `oEditorialLayoutBody` to also include typographic styles.
+@mixin oEditorialLayoutBodyWithoutTypography() {
+	@extend %_o-editorial-layout-body;
+}

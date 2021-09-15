@@ -1,0 +1,48 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-editorial-layout/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
+	"brands": [
+		"master"
+	],
+	"supportStatus": "active",
+	"browserFeatures": {
+		"required": [
+			"Array.from"
+		]
+	},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "o-grid-container o-colors-page-background",
+		"dependencies": [
+			"o-grid@^6.0.0",
+			"o-normalise@^3.0.0",
+			"o-colors@^6.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Content Body Margins",
+			"name": "content-body-margins",
+			"template": "demos/src/demo.mustache",
+			"description": "This demo shows editorial typography and margins."
+		},
+		{
+			"title": "Wrapper",
+			"name": "wrapper",
+			"template": "demos/src/wrapper.mustache",
+			"description": "Wrapper for editorial styles. Styles all child typographic elements."
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
+}
