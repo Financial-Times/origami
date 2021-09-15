@@ -1,0 +1,17 @@
+{
+	"states": [
+		null,
+		"content-commercial",
+		"content-premium",
+		"lifecycle-beta",
+		"support-active",
+		"support-dead",
+		"support-deprecated",
+		"support-experimental",
+		"support-maintained",
+		"tier-bronze",
+		"tier-gold",
+		"tier-platinum",
+		"tier-silver"
+	]
+}

@@ -1,0 +1,72 @@
+
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default label classes
+///
+/// @type Boolean
+/// @access public
+$o-labels-is-silent: true !default;
+
+/// Standard label sizes
+/// A list used to loop over all standard label sizes.
+/// These do not apply to other label types such as
+// indicator labels.
+/// For actual values: (@see _brand.scss).
+///
+/// @type List
+/// @access private
+$_o-labels-standard-sizes: (
+	'big',
+	'small'
+);
+
+/// Standard label states
+/// A list used to loop over all standard label states.
+/// These do not apply to other label types such as
+// indicator labels.
+/// For actual values: (@see _brand.scss).
+///
+/// @type List
+/// @access private
+$_o-labels-standard-states: (
+	'content-commercial',
+	'content-premium',
+
+	'lifecycle-beta',
+
+	'support-active',
+	'support-dead',
+	'support-deprecated',
+	'support-experimental',
+	'support-maintained',
+
+	'tier-bronze',
+	'tier-gold',
+	'tier-platinum',
+	'tier-silver',
+
+	'oxford',
+	'teal',
+	'lemon',
+	'slate',
+	'jade',
+	'crimson',
+	'mandarin'
+);
+
+/// Indicator label states
+/// A list used to loop over all indicator label states.
+///
+/// @type List
+/// @access private
+$_o-labels-indicator-status: (
+	'live',
+	'closed',
+	'new',
+	'updated'
+);
+
+/// Whether or not the animation keyframes for the live indicator
+/// label has already been output.
+/// @type Boolean
+/// @access private
+$_o-labels-indicator-live-pulse-output: false !default;
