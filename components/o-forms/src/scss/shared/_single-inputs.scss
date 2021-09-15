@@ -1,0 +1,78 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output base styles for select, textarea and text input
+@mixin _oFormsInputBase($disabled) {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: _oFormsGet('default-background');
+	border: $_o-forms-border;
+	box-sizing: border-box;
+	min-height: $_o-forms-spacing-ten;
+	padding: $_o-forms-spacing-two;
+	width: 100%;
+
+	@if $disabled {
+		@include _oFormsInputDisabled();
+	}
+}
+
+/// @access private
+/// @output Shared disabled state styles for inputs.
+@mixin _oFormsInputDisabled {
+	&:disabled {
+		cursor: default;
+		color: _oFormsGet('disabled-text');
+		background-color: _oFormsGet('disabled-base');
+		border-color: _oFormsGet('disabled-base');
+		// Ensure Safari uses the correct text colour
+		// for disabled inputs.
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-text-fill-color: currentColor;
+		// sass-lint:enable no-vendor-prefixes
+		// iOS Safari has a default opacity of 0.4
+		opacity: 1;
+	}
+}
+
+/// @access private
+/// @output Shared small styles for select and text input.
+@mixin _oFormsInputSmall($element) {
+	&.o-forms-input--small {
+		#{$element} {
+			@include oTypographySans(
+				$scale: -1,
+				$line-height: 1.65,
+				$include-font-family: false
+			);
+			min-height: $_o-forms-spacing-seven;
+			padding: 0 $_o-forms-spacing-two;
+		}
+	}
+}
+
+/// @access private
+/// @output Shared suffix styles for select and text input.
+@mixin _oFormsInputSuffix($element) {
+	&.o-forms-input--suffix {
+		display: flex;
+		flex-wrap: wrap;
+
+		#{$element} {
+			flex: 1;
+			// Allow form inputs with a suffix to shrink fully,
+			// regardless of the input `size` attribute.
+			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#htmlattrdefsize
+			min-width: 0;
+			margin-right: $_o-forms-spacing-two;
+			// Remove suffix margin if there is no element
+			// to suffix the input with.
+			&:only-child {
+				margin-right: 0;
+			}
+		}
+
+		.o-forms-input__error {
+			width: 100%;
+		}
+	}
+}

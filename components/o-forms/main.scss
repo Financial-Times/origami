@@ -1,0 +1,140 @@
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-loading/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
+
+@import 'src/scss/main';
+
+/// @access public
+/// @param {Map} $opts [('elements': ('checkbox', 'date', 'password', 'pseudo-radio-link', 'radio-round', 'radio-box', 'select', 'textarea', 'text', 'toggle'), 'features': ('disabled', 'inline', 'inverse', 'error-summary', 'right', 'small', 'state', 'suffix'))] The o-form features to include styles for (see the README for a full list).
+/// @example
+///		@include oForms($opts: (
+///			'elements': ('text', 'checkbox'),
+///			'features': ('inline')
+///		));
+/// @output Styles for form elements.
+@mixin oForms($opts: (
+	'elements': (
+		'checkbox',
+		'date',
+		'file',
+		'password',
+		'pseudo-radio-link',
+		'radio-round',
+		'radio-box',
+		'select',
+		'textarea',
+		'text',
+		'toggle'
+	),
+	'features': (
+		'disabled',
+		'inline',
+		'inverse',
+		'error-summary',
+		'right',
+		'small',
+		'state',
+		'suffix'
+	)
+)) {
+	$elements: map-get($opts, 'elements');
+	$features: map-get($opts, 'features');
+
+	$disabled: index($features, 'disabled');
+	$inline: index($features, 'inline');
+	$inverse: index($features, 'inverse');
+	$error-summary: index($features, 'error-summary');
+	$right: index($features, 'right');
+	$small: index($features, 'small');
+	$state: index($features, 'state');
+	$suffix: index($features, 'suffix');
+	$radio-round: index($elements, 'radio-round');
+	$radio-box: index($elements, 'radio-box');
+	$file: index($elements, 'file');
+
+	@include _oFormsBase();
+
+	@if index($elements, 'pseudo-radio-link') {
+		@include _oFormsPseudoRadioLink();
+	}
+
+	@if index($elements, 'checkbox') {
+		@include _oFormsCheckbox(
+			$disabled,
+			$right
+		);
+	}
+
+	@if index($elements, 'date') {
+		@include _oFormsDate(
+			$disabled
+		);
+	}
+
+	@if $file {
+		@include _oFormsFileInput();
+	}
+
+	@if $radio-round {
+		@include _oFormsRadioRound(
+			$disabled
+		);
+	}
+
+	@if $radio-box {
+		@include _oFormsRadioBox(
+			$disabled
+		);
+	}
+
+	@if index($elements, 'select') {
+		@include _oFormsSelect(
+			$disabled,
+			$small,
+			$suffix
+		);
+	}
+
+	@if index($elements, 'textarea') {
+		@include _oFormsTextArea($disabled);
+	}
+
+	@if index($elements, 'text') or index($elements, 'password') {
+		@include _oFormsTextInput(
+			$disabled,
+			$small,
+			$suffix,
+			$include-password-selector: index($elements, 'password')
+		);
+	}
+
+	@if index($elements, 'toggle') {
+		@include _oFormsToggle($disabled);
+	}
+
+	@if $inline {
+		@include _oFormsInline();
+	}
+
+	@if $error-summary {
+		@include _oFormsErrorSummary();
+	}
+
+	@if $inverse {
+		@include _oFormsInverse($error-summary, $radio-box, $file);
+	}
+
+	@if $state {
+		@include _oFormsState();
+	}
+}
+
+@if $o-forms-is-silent == false {
+	@include oForms();
+
+	$o-forms-is-silent: true !global;
+}

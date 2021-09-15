@@ -1,0 +1,94 @@
+/// @access private
+/// @param {Boolean} $error-summary Whether to output inverse error summary styling
+/// @param {Boolean} $radio Whether to output inverse radio input styling
+/// @param {Boolean} $file Whether to output inverse file input styling
+/// @output styles for inverse toggle based on a checkbox input
+@mixin _oFormsInverse($error-summary: null, $radio: null, $file: null) {
+	.o-forms-field--inverse {
+		color: _oFormsGet('toggle-inverse');
+
+		.o-forms-title {
+			.o-forms-title__main:after,
+			.o-forms-title__prompt {
+				color: rgba(_oFormsGet('toggle-inverse'), 0.7);
+			}
+		}
+
+		.o-forms-input__label:before {
+			background-color: _oFormsGet('toggle-inverse');
+		}
+
+		.o-forms-input__label:after {
+			border-color: _oFormsGet('toggle-inverse');
+		}
+
+		input[type=checkbox]:checked { // stylelint-disable-line selector-no-qualifying-type
+			+ .o-forms-input__label:before {// stylelint-disable-line selector-no-qualifying-type
+				background-color: _oFormsGet('toggle-inverse-selected');
+			}
+
+			+ .o-forms-input__label:after {// stylelint-disable-line selector-no-qualifying-type
+				border-color: _oFormsGet('toggle-inverse-selected');
+			}
+		}
+
+		.o-forms-input--invalid {
+			*:invalid:not(:disabled) {
+				color: _oFormsGet('invalid-base-color-inverse');
+				border-color: _oFormsGet('invalid-base-border-inverse');
+
+				+ .o-forms-input__label:before,
+				+ .o-forms-input__label:after {
+					border-color: _oFormsGet('invalid-base-border-inverse');
+				}
+			}
+
+			.o-forms-input__error {
+				color: _oFormsGet('invalid-base-inverse');
+			}
+		}
+
+		@if $radio {
+			.o-forms-input--radio-box {
+				&.o-forms-input--invalid .o-forms-input--radio-box__container {
+					border-color: _oFormsGet('invalid-base-border-inverse');
+				}
+			}
+			.o-forms-input--radio-box__container {
+				background-color: oColorsByName('white');
+			}
+		}
+
+		@if $file {
+			.o-forms-input--file ::file-selector-button {
+				@include oButtonsContent($opts: (
+					'type': 'primary',
+					'theme': 'inverse'
+				), $include-base-styles: false);
+			}
+		}
+	}
+
+	@if $error-summary {
+		.o-forms__error-summary--inverse {
+			background-color: _oFormsGet('error-summary-background-inverse');
+			border-color: _oFormsGet('error-summary-border-inverse');
+			border-width: 1px;
+			border-style: solid;
+
+			.o-forms__error-summary__heading {
+				color: oColorsByName('white');
+			}
+
+			.o-forms__error-summary__list {
+				color: oColorsByName('white');
+
+				a {
+					color: oColorsByName('white');
+					border-bottom: 1px solid _oFormsGet('invalid-base-inverse');
+				}
+			}
+		}
+	}
+
+}

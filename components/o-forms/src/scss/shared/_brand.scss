@@ -1,0 +1,84 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-forms', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oFormsSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-forms', $variant: $variant);
+}
+
+$_o-forms-shared-brand-config: (
+	default-text: oColorsByName('black-80'),
+	default-prompt-text: oColorsByName('black-60'),
+	default-border: oColorsByName('black-50'),
+	default-background: oColorsByName('white'),
+	radio-background: transparent,
+	disabled-text: oColorsByName('black-60'),
+	disabled-base: oColorsByName('black-10'),
+	controls-checked-base: oColorsByName('white'),
+	toggle: oColorsByName('black'),
+	toggle-knob: oColorsMix('black', 'white', 10),
+	toggle-knob-selected: oColorsByName('white'),
+	toggle-disabled: oColorsByName('black-20'),
+	toggle-knob-disabled: oColorsByName('black-40'),
+	toggle-inverse: oColorsByName('white'),
+);
+
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	$_o-forms-shared-brand-config: map-merge($_o-forms-shared-brand-config, (
+		toggle-selected: oColorsByName('teal'),
+		controls-base: oColorsByName('teal'),
+		controls-negative-checked-background: oColorsByName('teal-30'),
+		toggle-inverse-selected: oColorsByName('teal-100'),
+		invalid-base: oColorsByName('crimson'),
+		invalid-base-inverse: oColorsByName('white'),
+		invalid-base-color-inverse: oColorsByName('black'),
+		valid-base: oColorsMix('jade', 'black', 80),
+		toggle-inverse-knob: oColorsByName('slate'),
+	)) !global;
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-forms', 'master', (
+		'variables': map-merge($_o-forms-shared-brand-config, (
+			invalid-base-border-inverse: oColorsByName('claret-100'),
+			error-summary-background-inverse: rgba(oColorsByName('claret-100'), 0.11),
+			error-summary-border-inverse: oColorsByName('claret-100'),
+		)),
+		'supports-variants': ()
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-forms', 'internal', (
+		'variables': map-merge($_o-forms-shared-brand-config, (
+			invalid-base-border-inverse: oColorsByName('crimson'),
+			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
+			error-summary-border-inverse: oColorsByName('crimson'),
+			radio-background:  oColorsByName('white')
+		)),
+		'supports-variants': ()
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-forms', 'whitelabel', (
+		'variables': map-merge($_o-forms-shared-brand-config, (
+			controls-base: oColorsByName('black'),
+			controls-negative-checked-background: oColorsByName('black'),
+			toggle-inverse-selected: oColorsByName('white'),
+			toggle-inverse-knob: oColorsByName('black'),
+			invalid-base: oColorsByName('crimson'),
+			invalid-base-inverse: oColorsByName('white'),
+			invalid-base-color-inverse: oColorsByName('black'),
+			invalid-base-border-inverse: oColorsByName('crimson'),
+			valid-base: oColorsMix('jade', 'black', 80),
+			error-summary-background-inverse: rgba(oColorsByName('crimson'), 0.11),
+			error-summary-border-inverse: oColorsByName('crimson'),
+		)),
+		'supports-variants': ()
+	));
+}

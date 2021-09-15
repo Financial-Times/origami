@@ -1,0 +1,51 @@
+/// @access private
+/// @param {Boolean} $disabled Whether to output disabled state styling
+/// @output Styling for box-styled radio inputs
+@mixin _oFormsRadioRound(
+	$disabled: null
+) {
+	.o-forms-input--radio-round {
+		.o-forms-input__label {
+			padding: $_o-forms-spacing-half 0 $_o-forms-spacing-half $_o-forms-spacing-controls;
+			display: inline-block;
+
+			&:before,
+			&:after {
+				@include _oFormsControlsPseudoElements;
+				border-radius: 50%;
+				transition: opacity 0.1s ease-in;
+				background-color: _oFormsGet('radio-background');
+			}
+
+			&:before {
+				border: $_o-forms-border;
+			}
+
+			&:after {
+				background-color: _oFormsGet('controls-base');
+				border-radius: 50%;
+				height: $_o-forms-spacing-three;
+				width: $_o-forms-spacing-three;
+				margin: $_o-forms-spacing-three / 2;
+				opacity: 0;
+				@media screen and (-ms-high-contrast: active) {
+					background-color: windowText;
+				}
+			}
+		}
+
+		input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
+			@include _oFormsControlsBase($disabled);
+
+			&:checked + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				border-color: _oFormsGet('controls-base');
+			}
+
+			&:focus + .o-forms-input__label:before { // stylelint-disable-line selector-no-qualifying-type
+				border-color: oColorsByUsecase('focus', 'outline', $fallback: null);
+				box-shadow: 0 0 0 $_o-forms-spacing-half oColorsByUsecase('focus', 'outline', $fallback: null);
+				outline: none;
+			}
+		}
+	}
+}

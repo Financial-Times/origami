@@ -1,0 +1,142 @@
+/// Transforms a custom theme map into brand variables. See `_brand.scss`.
+/// @access private
+/// @param {map|null} $theme - A custom theme map.
+/// @return {map} Brand variables.
+@function _oFormsThemeToBrandVariants($theme) {
+	@if not $theme {
+		@return null;
+	}
+
+	// Get given base and border colour.
+	$base: map-get($theme, 'controls-base');
+	$base: if(type-of($base) == 'string', oColorsByName($base), $base);
+	$border: map-get($theme, 'controls-border');
+	$border: if(type-of($border) == 'string', oColorsByName($border), $border);
+
+	// Get given checked base colour.
+	$checked-base: map-get($theme, 'controls-checked-base');
+	$checked-base: if(type-of($checked-base) == 'string', oColorsByName($checked-base), $checked-base);
+
+	// Get given negative checked colour.
+	$negative-background: map-get($theme, 'controls-negative-checked-background');
+	$negative-background: if(type-of($negative-background) == 'string', oColorsByName($negative-background), $negative-background);
+
+	// Error if no base colour.
+	@if not $base {
+		@error "The custom theme for box-styled controls is missing a 'controls-base' key.";
+	}
+
+	// Return brand options which the theme is a allowed to customise.
+	@return (
+		'controls-base': $base,
+		'controls-checked-base': $checked-base,
+		'controls-negative-checked-background': if($negative-background, $negative-background, $base),
+		'default-border': $border
+	);
+}
+
+/// @access private
+/// Outputs base styling for custom icons
+@mixin _oFormsCustomIconBase {
+	.o-forms-input__label {
+		min-width: unset;
+	}
+
+	// stylelint-disable-next-line selector-no-qualifying-type
+	a.o-forms-input__link.o-forms-input__link--current,
+	input[type=radio]:checked + .o-forms-input__label { // stylelint-disable-line selector-no-qualifying-type
+		&:after {
+			display: block;
+		}
+	}
+}
+
+/// @access public
+/// @param {String} $icon Name of the icon to request from the image set
+/// @param {String} $input Type of input to set icons on ('anchor' or radio)
+/// @param {Map|null} $theme Custom theme map
+@mixin _oFormsCustomIcon($icon, $input, $theme: null) {
+	$theme: _oFormsThemeToBrandVariants($theme);
+	$element: '';
+
+	@if $input == 'radio' {
+		$element: 'label .o-forms-input__label.o-forms-input__label__#{$icon}-icon';
+	} @else {
+		$element: 'a.o-forms-input__link--#{$icon}-icon';
+	}
+
+	#{$element} {
+		padding-left: $_o-forms-spacing-six;
+		padding-right: $_o-forms-spacing-two;
+		text-align: left;
+
+		&:after,
+		&:before {
+			content: '';
+			background-repeat: no-repeat;
+			background-position-y: 0.175em;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:before {
+			@include oIconsContent(
+				$icon-name: $icon,
+				$color: _oFormsGet('controls-base', $from: $theme),
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
+			);
+		}
+
+		&:after {
+			@include oIconsContent(
+				$icon-name: $icon,
+				$color: _oFormsGet('controls-checked-base', $from: $theme),
+				$size: $_o-forms-spacing-six,
+				$include-base-styles: false
+			);
+			display: none;
+		}
+	}
+}
+
+
+/// @access public
+/// @param {String} $input Type of input to customise, one of 'anchor' or 'radio'
+/// @param {List} $icons A list of icons to render
+/// @param {Map|null} $theme Custom theme map
+@mixin oFormsAddCustom(
+	$input: null,
+	$class: null,
+	$icons: null,
+	$theme: null
+) {
+
+	@if not $input {
+		@error('Please specify whether you would like to customise radio inputs or anchors');
+	}
+
+	@if not $class {
+		@error('Please specify a name for the custom modifier (e.g. o-forms-input--{custom-modifier}).');
+	}
+
+	$theme: _oFormsThemeToBrandVariants($theme);
+
+	.o-forms-input--#{$class} {
+		@if $input == 'pseudo-radio-link' {
+			@include _oFormsPseudoRadioLinkStyles($theme);
+		} @else if $input == 'radio' {
+			@include _oFormsRadioBoxInputStyles($theme);
+		} @else {
+			@error('#{$input} inputs do not accept customisation. If you need to customise this type of input, please contact the Origami team.');
+		};
+	}
+
+	@if $icons {
+		@include _oFormsCustomIconBase();
+		@each $icon in $icons {
+			@include _oFormsCustomIcon($icon, $input, $theme);
+		}
+	}
+}

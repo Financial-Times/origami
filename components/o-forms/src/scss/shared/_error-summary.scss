@@ -1,0 +1,35 @@
+/// @access private
+/// @output styles for error summary
+@mixin _oFormsErrorSummary() {
+	.o-forms__error-summary {
+		@include oTypographySans($scale: 0);
+		background-color: oColorsMix(_oFormsGet('invalid-base'), $percentage: 10);
+		margin-bottom: $_o-forms-spacing-four;
+		padding: $_o-forms-spacing-three;
+
+		.o-forms__error-summary__heading {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+			margin: 0 0 $_o-forms-spacing-one;
+		}
+
+		.o-forms__error-summary__list {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+
+			a {
+				color: oColorsMix('black', _oFormsGet('invalid-base'), $percentage: 12.5);
+				display: inline-block;
+				font-weight: 400;
+				margin-top: $_o-forms-spacing-one;
+				text-decoration: none;
+				border-bottom: 1px solid _oFormsGet('invalid-base');
+			}
+
+			.o-forms__error-summary__item-overview {
+				@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			}
+		}
+	}
+}

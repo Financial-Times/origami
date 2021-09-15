@@ -1,0 +1,48 @@
+@import "./../../main";
+
+body {
+	background: oColorsByUsecase(page, background);
+}
+
+.demo {
+	margin: 12px;
+	max-width: 500px;
+}
+
+.demo-inverse {
+	margin-top: 16px;
+	background-color: if(
+		index(('master', 'internal'), oBrandGetCurrentBrand()) != null,
+		oColorsByName('slate'),
+		oColorsByName('black')
+	);
+	padding: 10px;
+
+	.o-forms {
+		margin: 0;
+	}
+}
+
+$custom-theme: (
+	controls-base: 'crimson',
+	controls-checked-base: 'white',
+	controls-border: 'crimson'
+);
+
+$icon-list: ('grid', 'list');
+
+@include oFormsAddCustom(
+	$input: 'pseudo-radio-link',
+	$class: 'demo-pseudo-radio-link',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);
+
+@include oFormsAddCustom(
+	$input: 'radio',
+	$class: 'demo-radio',
+	$icons: $icon-list,
+	$theme: $custom-theme
+);
+
+@include oForms();

@@ -1,0 +1,204 @@
+{
+	"variants": [
+		{
+			"optional": true,
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "radio-round-group-title",
+					"info": "radio-round-group-info"
+				}
+			},
+			"title": {
+				"main": "Default round-style radio buttons",
+				"prompt": "Optional prompt/description text"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Default 1",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "default",
+					"value": "Default 2"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "inline-radio-round-group-title"
+				},
+				"modifiers": ["inline"]
+			},
+			"title": {
+				"main": "Inline round-style radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "inline-radio",
+					"value": "Inlined 1",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "inline-radio",
+					"value": "Inlined 2"
+				},
+				{
+					"type": "radio",
+					"name": "inline-radio",
+					"value": "Inlined 3"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "disabed-radio-round-group-title"
+				}
+			},
+			"title": {
+				"main": "Disabled radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "disabled",
+					"value": "Disabled 1",
+					"checked": true,
+					"disabled": true
+				},
+				{
+					"type": "radio",
+					"name": "disabled",
+					"value": "Disabled 2",
+					"disabled": true
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "error-radio-round-group-title"
+				},
+				"error": "Please select an option",
+				"modifiers": [ "invalid" ]
+			},
+			"title": {
+				"main": "Error round-style radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "error",
+					"value": "Error 1"
+				},
+				{
+					"type": "radio",
+					"name": "error",
+					"value": "Error 2"
+				}
+			]
+		},
+		{
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "inline-radio-round-group-title"
+				},
+				"modifiers": [
+					"inline"
+				]
+			},
+			"title": {
+				"main": "Inline round-style radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "inline",
+					"value": "Inlined 1",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "inline",
+					"value": "Inlined 2"
+				},
+				{
+					"type": "radio",
+					"name": "inline",
+					"value": "Inlined 3"
+				}
+			]
+		},
+		{
+			"inline-field": true,
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "inline-field-radio-round-group-title"
+				},
+				"modifiers": [
+					"inline"
+				]
+			},
+			"title": {
+				"main": "Inline field and radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "inline-field",
+					"value": "Inlined 1",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "inline-field",
+					"value": "Inlined 2"
+				}
+			]
+		},
+		{
+			"inline-field": true,
+			"field": {
+				"type": "radio-round",
+				"aria": {
+					"label": "inline-field-stacked-radio-round-group-title",
+					"info": "inline-field-stacked-radio-round-group-info"
+				}
+			},
+			"title": {
+				"main": "Inline field",
+				"prompt": "And stacked radio buttons"
+			},
+			"inputs": [
+				{
+					"type": "radio",
+					"name": "inline-stacked",
+					"value": "Inlined 1",
+					"checked": true
+				},
+				{
+					"type": "radio",
+					"name": "inline-stacked",
+					"value": "Inlined 2"
+				},
+				{
+					"type": "radio",
+					"name": "inline-stacked",
+					"value": "Inlined 3"
+				}
+			]
+		}
+	]
+}

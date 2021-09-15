@@ -1,0 +1,42 @@
+{
+	"variants": [
+		{
+			"optional": true,
+			"title": {
+				"main": "Optional file input",
+				"prompt": "Optional prompt file"
+			},
+			"input": {
+				"type": "file"
+			}
+		},
+		{
+			"title": {
+				"main": "File input with a valid entry"
+			},
+			"input": {
+				"type": "file",
+				"modifiers": [ "valid" ]
+			}
+		},
+		{
+			"title": {
+				"main": "File input with an invalid entry"
+			},
+			"input": {
+				"type": "file",
+				"modifiers": [ "invalid" ],
+				"error": "Please select a file"
+			}
+		},
+		{
+			"inline-field": true,
+			"title": {
+				"main": "Inline file input"
+			},
+			"input": {
+				"type": "file"
+			}
+		}
+	]
+}
