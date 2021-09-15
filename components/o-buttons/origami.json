@@ -1,0 +1,145 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands" : [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"support": "https://github.com/Financial-Times/o-buttons/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0"
+		]
+	},
+	"demos": [
+		{
+			"name": "primary",
+			"title": "Primary button",
+			"template": "/demos/src/primary.mustache",
+			"description": "Primary button."
+		},
+		{
+			"name": "primary-anchors",
+			"title": "Primary anchors",
+			"template": "/demos/src/primary-anchors.mustache",
+			"description": "Primary buttons that are actually anchors.",
+			"hidden": true
+		},
+		{
+			"name": "secondary",
+			"title": "Secondary/default button",
+			"template": "/demos/src/secondary.mustache",
+			"description": "The secondary button is the default and usually most used button."
+		},
+		{
+			"name": "secondary-anchors",
+			"title": "Secondary anchors",
+			"template": "/demos/src/secondary-anchors.mustache",
+			"description": "Secondary buttons that are actually anchors.",
+			"hidden": true
+		},
+		{
+			"name": "primary-inverse",
+			"title": "Primary button (inverse)",
+			"template": "/demos/src/primary-inverse.mustache",
+			"bodyClasses": "demo-inverse",
+			"description": "Primary button for use on an alternate, dark background."
+		},
+		{
+			"name": "inverse",
+			"title": "Secondary/default button (inverse)",
+			"template": "/demos/src/inverse.mustache",
+			"bodyClasses": "demo-inverse",
+			"description": "Secondary/default button for use on an alternate, dark background."
+		},
+		{
+			"name": "primary-mono",
+			"title": "Primary button (mono)",
+			"brands": [
+				"master",
+				"internal"
+			],
+			"template": "/demos/src/primary-mono.mustache",
+			"description": "Primary \"monochrome\" theme."
+		},
+		{
+			"name": "mono",
+			"title": "Secondary/default button (mono)",
+			"brands": [
+				"master",
+				"internal"
+			],
+			"template": "/demos/src/mono.mustache",
+			"description": "Secondary/default \"monochrome\" theme."
+		},
+		{
+			"name": "B2C",
+			"title": "B2C theme",
+			"brands": [
+				"master"
+			],
+			"template": "/demos/src/b2c.mustache",
+			"description": "B2C themed buttons should be used in Customer facing non-editorial products eg Help or About Us."
+		},
+		{
+			"name": "pagination",
+			"title": "Pagination layout",
+			"template": "/demos/src/pagination.mustache",
+			"description": "This demo shows a pagination layout with anchor tags and the default theme. The number of pages to show and button theme may be chosen by the project."
+		},
+		{
+			"name": "pagination-size",
+			"title": "Pagination layout size",
+			"template": "/demos/src/pagination-size.mustache",
+			"description": "Pagination layouts may also use big buttons."
+		},
+		{
+			"name": "grouped",
+			"title": "Grouped layout",
+			"template": "/demos/src/grouped.mustache",
+			"description": "For button layouts where there is a choice of related options. This layout can be combined with themes."
+		},
+		{
+			"name": "icons",
+			"title": "Icon buttons",
+			"template": "/demos/src/icons.mustache",
+			"data": "demos/src/icons.json",
+			"description": "oButtons includes styles for some common icon buttons and the ability to add more using Sass mixins."
+		},
+		{
+			"title": "Custom",
+			"name": "custom",
+			"template": "/demos/src/custom.mustache",
+			"brands": ["master"],
+			"hidden": true,
+			"bodyClasses": "custom-button-theme-demo",
+			"description": "Custom theme test"
+		},
+		{
+			"title": "Custom Icon Button",
+			"name": "custom icon button",
+			"template": "/demos/src/custom-icon-button.mustache",
+			"brands" : ["master"],
+			"hidden": true,
+			"description": "Visual tests for the icon buttons mixins"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "/demos/src/pa11y.mustache",
+			"data": {
+				"themes": ["","mono","inverse","b2c"]
+			},
+			"hidden": true,
+			"description": "Pa11y test for accesibility"
+		}
+	]
+}

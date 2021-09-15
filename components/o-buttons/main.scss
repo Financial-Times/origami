@@ -1,0 +1,177 @@
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-normalise/main';
+
+@import './src/scss/brand';
+@import './src/scss/variables';
+@import './src/scss/functions';
+@import './src/scss/mixins';
+
+/// Output o-buttons classes.
+///
+/// @example All default o-buttons styles.
+///     @include oButtons();
+///
+/// @example Primary and secondary button classes, plus the big button modifier class.
+///    @include oButtons($opts: (
+///        'types': ('primary', 'secondary'),
+///        'sizes': ('big')
+///    ));
+///
+/// @example Primary and secondary button classes, plus an inverse theme modifier class, and classes for arrow left and arrow right icon buttons.
+///    @include oButtons($opts: (
+///        'types': ('primary', 'secondary'),
+///        'themes': ('inverse'),
+///        'icons': ('arrow-left', 'arrow-right')
+///    ));
+///
+/// @example Secondary button classes, plus classes to support button groups and pagination.
+///    @include oButtons($opts: (
+///        'types': ('secondary'),
+///        'pagination': true,
+///        'groups': true
+///    ));
+///
+/// @param {List} $opts
+@mixin oButtons($opts: (
+	'sizes': $_o-buttons-sizes,
+	'types': $_o-buttons-types,
+	'themes': $_o-buttons-themes,
+	'icons': $_o-buttons-icons,
+	'pagination': true,
+	'groups': true
+)) {
+	$types: map-get($opts, 'types');
+	$types: if($types, $types, ());
+	$sizes: map-get($opts, 'sizes');
+	$sizes: if($sizes, $sizes, ());
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+	$icons: map-get($opts, 'icons');
+	$icons: if($icons, $icons, ());
+	$pagination-enabled: map-get($opts, 'pagination');
+	$groups-enabled: map-get($opts, 'groups');
+
+	// Base button class.
+	.o-buttons {
+		@include _oButtonsBaseContent();
+	}
+
+	// Helper class to hide disabled buttons.
+	.o-buttons--hide-disabled[disabled] {
+		visibility: hidden;
+	}
+
+	// Sizes.
+	@each $size in $sizes {
+		@if index($_o-buttons-sizes, $size) {
+			.o-buttons--#{$size} {
+				@include _oButtonsSizeContent($size);
+			}
+		}
+	}
+
+	// Icons.
+	@if (length($icons) > 0) {
+		.o-buttons-icon {
+			@include _oButtonsIconBaseContent();
+		}
+
+		@each $size in $sizes {
+			@if index($_o-buttons-sizes, $size) {
+				.o-buttons--#{$size}.o-buttons-icon {
+					// IE11 renders the background image at a very small size if you do not
+					// double-up the background size here, declaring a width _and_ height.
+					// See https://thatemil.com/blog/2015/03/15/sizing-svg-background-images-in-internet-explorer/
+					background-size: _oButtonsGet('background-size', $size) _oButtonsGet('background-size', $size);
+					padding-left: _oButtonsGet('icon-padding', $size);
+				}
+			}
+		}
+
+		// Higher specificity than `.o-buttons--#{$size}.o-buttons-icon`.
+		.o-buttons-icon.o-buttons-icon--icon-only {
+			@include _oButtonsIconOnlyContent();
+		}
+
+		.o-buttons-icon__label {
+			@include oNormaliseVisuallyHidden();
+		}
+	}
+
+	// Type & theme modifiers.
+	@each $type in $types {
+		@if _oButtonsSupports($type) {
+			@include _oButtonsAdd($type: $type, $icons: $icons);
+		}
+		@each $theme in $themes {
+			@if _oButtonsSupports('#{$type}-#{$theme}') {
+				@include _oButtonsAdd($type, $theme, $icons);
+			}
+		}
+	}
+
+	// Pagination wrapper.
+	@if $pagination-enabled {
+		.o-buttons-pagination {
+			display: flex;
+
+			> .o-buttons {
+				padding-left: 5px;
+				padding-right: 5px;
+				min-width: 24px;
+			}
+
+			> .o-buttons[disabled] {
+				visibility: hidden;
+			}
+
+			> .o-buttons--big {
+				padding-left: 9px;
+				padding-right: 9px;
+				min-width: 36px;
+			}
+
+			> .o-buttons-pagination__ellipsis {
+				@include oTypographySans($scale: 1);
+				display: inline-block;
+				text-align: center;
+				min-width: 24px;
+			}
+
+			> .o-buttons-pagination__ellipsis--big {
+				@include oTypographySans($scale: 3);
+				min-width: 36px;
+			}
+
+			// Any child element preceded by another sibling element.
+			> * + * {
+				margin: 0 0 0 oSpacingByName('s1');
+			}
+		}
+	}
+
+	// Group wrapper.
+	@if $groups-enabled {
+		.o-buttons-group {
+			display: flex;
+			flex-wrap: wrap;
+			> .o-buttons {
+				position: relative;
+
+				+ .o-buttons {
+					margin-left: -1px;
+				}
+			}
+		}
+	}
+}
+
+@if ($o-buttons-is-silent == false) {
+	@include oButtons();
+
+	// Set module to silent again
+	$o-buttons-is-silent: true !global;
+}

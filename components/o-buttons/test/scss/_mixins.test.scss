@@ -1,0 +1,394 @@
+// sass-lint:disable no-vendor-prefixes,no-duplicate-properties
+@include describe('oButtons') {
+	@include it('outputs big modifier by default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			@include contains($selector: false) {
+				.o-buttons--big {
+					min-height: 40px;
+				}
+			}
+		}
+	}
+
+	@include it('outputs types by default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			// primary is a type of button
+			@include contains($selector: false) {
+				.o-buttons--primary {
+					background-color: #0d7680;
+				}
+			}
+		}
+	}
+
+	@include it('outputs themes by default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			// inverse is an example of a theme
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--inverse {
+					background-color: #ffffff;
+				}
+			}
+		}
+	}
+
+	@include it('outputs icons by default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			// arrow-left is an example of an icon
+			@include contains($selector: false) {
+				.o-buttons--secondary.o-buttons-icon--arrow-left {
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+				}
+			}
+		}
+	}
+
+	@include it('outputs pagination styles default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			@include contains($selector: false) {
+				.o-buttons-pagination > .o-buttons {
+					padding-left: 5px;
+				}
+			}
+		}
+	}
+
+	@include it('outputs group styles default') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons();
+			}
+
+			@include contains($selector: false) {
+				.o-buttons-group {
+					display: flex;
+				}
+			}
+		}
+	}
+
+	@include it('outputs only base styles when an empty options map is given') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtons($opts: ());
+			}
+
+			@include expect($selector: false) {
+				.o-buttons {
+					font-family: MetricWeb, sans-serif;
+					font-weight: 600;
+					font-family: MetricWeb, sans-serif; // stylelint-disable-line declaration-block-no-duplicate-properties
+					font-size: 14px;
+					line-height: 16px;
+					line-height: 14px; // stylelint-disable-line declaration-block-no-duplicate-properties
+					background-size: 21px 21px;
+					min-height: 28px;
+					min-width: 60px;
+					padding: 6px 8px;
+					display: inline-block;
+					box-sizing: border-box;
+					vertical-align: middle;
+					margin: 0;
+					border-style: solid;
+					text-align: center;
+					text-decoration: none;
+					cursor: pointer;
+					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+					user-select: none;
+					background-clip: border-box;
+					border-width: 1px;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					border-radius: 0;
+				}
+
+				.o-typography--loading-sans .o-buttons {
+					font-size: 12.18px;
+					font-family: sans-serif;
+				}
+
+				.o-buttons[disabled] {
+					pointer-events: none;
+					opacity: 0.4;
+					cursor: default;
+				}
+
+				.o-buttons--hide-disabled[disabled] {
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}
+
+@include describe('oButtonsContent') {
+	@include it('outputs a button of type, theme, size, and with an icon') {
+		@include assert() {
+			@include output() {
+				@include oButtonsContent(
+					$opts: (
+						'type': 'primary',
+						'theme': 'mono',
+						'size': 'big',
+						'icon': 'arrow-left'
+					)
+				);
+			}
+
+			@include expect() {
+				& {
+					font-family: MetricWeb, sans-serif;
+					font-weight: 600;
+					font-family: MetricWeb, sans-serif; // stylelint-disable-line declaration-block-no-duplicate-properties
+					font-size: 16px;
+					line-height: 20px;
+					line-height: 16px; // stylelint-disable-line declaration-block-no-duplicate-properties
+					background-size: 40px 40px;
+					min-height: 40px;
+					min-width: 80px;
+					padding: 11px 20px;
+					display: inline-block;
+					box-sizing: border-box;
+					vertical-align: middle;
+					margin: 0;
+					border-style: solid;
+					text-align: center;
+					text-decoration: none;
+					cursor: pointer;
+					transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+					user-select: none;
+					background-clip: border-box;
+					border-width: 1px;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
+					-moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					-webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+					border-radius: 0;
+					background-color: #262a33;
+					color: white;
+					border-color: transparent;
+					background-repeat: no-repeat;
+					background-position: 3px;
+					padding-left: 40px;
+					background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+				}
+
+				.o-typography--loading-sans & {
+					font-size: 13.92px;
+					font-family: sans-serif;
+				}
+
+				&[disabled] {
+					pointer-events: none;
+					opacity: 0.4;
+					cursor: default;
+				}
+
+				&:hover {
+					background-color: #515257;
+					color: white;
+					border-color: transparent;
+					text-decoration: none;
+				}
+
+				&:focus {
+					background-color: #515257;
+					color: white;
+					border-color: transparent;
+				}
+
+				&[aria-selected=true],
+				&[aria-current],
+				&[aria-pressed=true],
+				&:active {
+					background-color: #727071;
+					color: white;
+					border-color: transparent;
+				}
+
+				@media screen and (-ms-high-contrast: active) {
+					& {
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+					}
+				}
+
+				@media screen and (-ms-high-contrast: black-on-white) {
+					& {
+						background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+					}
+				}
+			}
+		}
+	}
+	@include it('outputs only a type with base styles disabled') {
+		@include assert() {
+			@include output() {
+				@include oButtonsContent(
+					$opts: (
+						'type': 'primary'
+					),
+					$include-base-styles: false,
+					$include-base-icon-styles: false
+				);
+			}
+
+			// expect nothing is output
+			@include expect() {
+				& {
+					background-color: #0d7680;
+					color: white;
+					border-color: transparent;
+				}
+
+				&:hover {
+					background-color: #095259;
+					color: white;
+					border-color: transparent;
+					text-decoration: none;
+				}
+
+				&:focus {
+					background-color: #095259;
+					color: white;
+					border-color: transparent;
+				}
+
+				&[aria-selected=true],
+				&[aria-current],
+				&[aria-pressed=true],
+				&:active {
+					background-color: #052f33;
+					color: white;
+					border-color: transparent;
+				}
+			}
+		}
+	}
+	@include it('outputs only a size with base styles disabled') {
+		@include assert() {
+			@include output() {
+				@include oButtonsContent(
+					$opts: (
+						'size': 'big'
+					),
+					$include-base-styles: false,
+					$include-base-icon-styles: false
+				);
+			}
+
+			// expect nothing is output
+			@include expect() {
+				font-family: MetricWeb, sans-serif;
+				font-size: 16px;
+				line-height: 20px;
+				line-height: 16px; // stylelint-disable-line declaration-block-no-duplicate-properties
+				background-size: 40px 40px;
+				min-height: 40px;
+				min-width: 80px;
+				padding: 11px 20px;
+
+				.o-typography--loading-sans & {
+					font-size: 13.92px;
+					font-family: sans-serif;
+				}
+			}
+		}
+	}
+}
+
+@include describe('oButtonsAddTheme') {
+	@include it('outputs a theme for given colour names') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtonsAddTheme(
+					$name: 'test-named-theme-colors',
+					$opts: (
+						'color': 'teal-90',
+						'context': 'slate'
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			}
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-named-theme-colors {
+					background-color: #17d4e6;
+					color: #262a33;
+					border-color: transparent;
+				}
+			}
+		}
+	}
+
+	@include it('outputs a theme for a colour mix') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtonsAddTheme(
+					$name: 'test-mixed-theme-colors',
+					$opts: (
+						'color': oColorsMix('black', 'jade', $percentage: 43),
+						'context': oColorsMix('jade', $percentage: 20)
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			}
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-mixed-theme-colors {
+					background-color: #00572c;
+					color: #ccdfc7;
+					border-color: transparent;
+				}
+			}
+		}
+	}
+
+	@include it('outputs a theme for given colour hexes which are in the colour palette') {
+		@include assert() {
+			@include output($selector: false) {
+				@include oButtonsAddTheme(
+					$name: 'test-hex-theme-colors',
+					$opts: (
+						'color': oColorsByName('teal-90'),
+						'context': oColorsByName('slate')
+					),
+					$types: ('primary', 'secondary'),
+					$icons: null
+				);
+			}
+
+			@include contains($selector: false) {
+				.o-buttons--primary.o-buttons--test-hex-theme-colors {
+					background-color: #17d4e6;
+					color: #262a33;
+					border-color: transparent;
+				}
+			}
+		}
+	}
+}
+// sass-lint:enable no-vendor-prefixes,no-duplicate-properties

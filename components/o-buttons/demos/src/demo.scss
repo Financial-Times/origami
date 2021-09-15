@@ -1,0 +1,89 @@
+@import "../../main";
+
+html {
+	background-color: oColorsByUsecase('page', 'background');
+}
+
+body {
+	font-family: MetricWeb, serif;
+	margin: 1em;
+}
+
+h2 {
+	font-weight: 400;
+}
+
+p {
+	max-width: 900px;
+	font-size: 18px;
+}
+
+.theme-box {
+	display: inline-block;
+	padding: 10px;
+	margin-left: -10px;
+	margin-right: 10px;
+
+}
+
+.custom-button-theme-demo body {
+	margin: 0;
+}
+
+.demo-inverse {
+	$background-color-name: _oButtonsGet('context', $from: 'inverse');
+	background-color: oColorsByName($background-color-name);
+	padding: 1em;
+}
+
+// Include o-buttons.
+@include oButtons($opts: (
+	'sizes': (
+		'big'
+	),
+	'types': (
+		'primary',
+		'secondary',
+	),
+	'themes': (
+		'inverse',
+		'mono',
+		'b2c'
+	),
+	'icons': join($_o-buttons-icons, ('book')), // Also include the book icon, which is not in the defaut set.
+	'pagination': true,
+	'groups': true
+));
+
+@if oBrandGetCurrentBrand() == 'master' {
+	// Custom theme.
+	@include oButtonsAddTheme (
+		$name: 'custom-lemon',
+		$opts: (
+			'color': 'lemon',
+			'context': 'slate'
+		),
+		$types: ('primary', 'secondary')
+	);
+
+	// Custom theme with icons.
+	@include oButtonsAddTheme(
+		$name: 'custom-claret',
+		$opts: (
+			'color': 'claret-80',
+			'context': 'paper'
+		),
+		$types: ('primary', 'secondary'),
+		$icons: ('book')
+	);
+
+	// Demo containers for the custom buttons
+	.demo__custom-theme {
+		padding: 1em;
+	}
+
+	.demo__custom-theme--lemon,
+	.demo__custom-theme--slate {
+		background-color: oColorsByName('slate');
+	}
+}

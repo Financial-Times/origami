@@ -1,0 +1,103 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oButtonsGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-buttons', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oButtonsSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-buttons', $variant: $variant);
+}
+
+$_o-buttons-shared-brand-config: (
+	'scale': -1,
+	'background-size': 21px, // Magic number to reduce poor antialiasing on icons at small sizes
+	'min-height': 28px,
+	'min-width': 60px,
+	// Sorry for the magic numbers, we need to use vertical padding here because
+	// there is no other way to correctly align button text vertically when the button
+	// element is an anchor. Once we drop IE11 support, we can remove this and use
+	// a display of `inline-flex`.
+	//
+	// The vertical padding magic number is calculated like this:
+	// ((min-height - line-height) / 2) - border-width
+	'padding': 6px 8px,
+	'icon-padding': 24px,
+	'big': (
+		'scale': 0,
+		'background-size': 40px,
+		'min-height': 40px,
+		'min-width': 80px,
+		'padding': 11px 20px, // See comment above regarding padding magic numbers
+		'icon-padding': 40px
+	),
+);
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-buttons', 'master', (
+		'variables': map-merge($_o-buttons-shared-brand-config, (
+			'color': 'teal',
+			'inverse': (
+				'color': 'white',
+				'context': 'slate'
+			),
+			'mono': (
+				'color': 'slate'
+			),
+			'b2c': (
+				'color': 'org-b2c-dark'
+			)
+		)),
+		'supports-variants': (
+			'primary',
+			'secondary',
+			'primary-b2c',
+			'primary-inverse',
+			'primary-mono',
+			'secondary-inverse',
+			'secondary-mono',
+		))
+	);
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-buttons', 'internal', (
+		'variables': map-merge($_o-buttons-shared-brand-config, (
+			'color': 'teal',
+			'inverse': (
+				'color': 'white',
+				'context': 'slate'
+			),
+			'mono': (
+				'color': 'slate'
+			)
+		)),
+		'supports-variants': (
+			'primary',
+			'primary-inverse',
+			'primary-mono',
+			'secondary',
+			'secondary-inverse',
+			'secondary-mono'
+		))
+	);
+}
+
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-buttons', 'whitelabel', (
+		'variables': map-merge($_o-buttons-shared-brand-config, (
+			'color': 'black',
+			'inverse': (
+				'color': 'white',
+				'context': 'black'
+			),
+		)),
+		'supports-variants': (
+			'primary',
+			'secondary',
+			'primary-inverse',
+			'secondary-inverse'
+		)
+	));
+}

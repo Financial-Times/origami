@@ -1,0 +1,65 @@
+{
+	"icons": [
+		{
+			"name": "arrow-left",
+			"text": "Go back"
+		},
+		{
+			"name": "arrow-right",
+			"text": "Go forward"
+		},
+		{
+			"name": "upload",
+			"text": "Upload"
+		},
+		{
+			"name": "download",
+			"text": "Download"
+		},
+		{
+			"name": "warning",
+			"text": "Danger"
+		},
+		{
+			"name": "arrow-down",
+			"text": "Show"
+		},
+		{
+			"name": "arrow-up",
+			"text": "Hide"
+		},
+		{
+			"name": "tick",
+			"text": "Tick"
+		},
+		{
+			"name": "plus",
+			"text": "Plus"
+		},
+		{
+			"name": "grid",
+			"text": "Grid"
+		},
+		{
+			"name": "list",
+			"text": "List"
+		},
+		{
+			"name": "edit",
+			"text": "Edit"
+		},
+		{
+			"name": "search",
+			"text": "Search"
+		}
+	],
+	"themes": [
+		{"name": ""},
+		{"name": "mono"},
+		{"name": "inverse"}
+	],
+	"sizes": [
+		{"name": "small"},
+		{"name": "big"}
+	]
+}

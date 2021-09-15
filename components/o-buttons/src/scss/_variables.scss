@@ -1,0 +1,41 @@
+/// Silent mode: on (true) or off (false)
+/// Set to false to output default button classes
+///
+/// @type Boolean
+$o-buttons-is-silent: true !default;
+
+/// Button sizes, with their attached properties
+///
+/// @type List
+$_o-buttons-sizes: ('big') !default;
+
+/// A list of all available button themes. @see _brand.scss to see which brands
+/// support which themes.
+/// @type List
+/// @access private
+$_o-buttons-themes: (
+	inverse,
+	mono,
+	b2c
+) !default;
+
+/// A list of all available button types.
+/// @type List
+/// @access private
+$_o-buttons-types: (
+	primary,
+	secondary,
+) !default;
+
+/// List of icons to generate classes for icon buttons.
+/// Build service users will only be able to use these icons, but there is
+/// a mixin for people using this via Sass, meaning any icon in 'fticons' is
+/// available to those users.
+/// Icon names as used in fticons
+///
+/// Update README.md with icon options when updating this list.
+///
+/// @type List
+$_o-buttons-icons: "arrow-left", "arrow-right", "upload", "tick", "plus", "warning", "arrow-down", "arrow-up", "grid", "list", "edit", "download", "search", "refresh", "cross" !default;
+
+$_o-buttons-generated-themes: ();
