@@ -1,0 +1,33 @@
+{
+  "name": "@financial-times/o-brand",
+  "version": "0.0.0",
+  "description": "Tools to \"brand\" other Origami components.",
+  "keywords": [],
+  "homepage": "https://registry.origami.ft.com/components/o-brand",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/o-brand/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/o-brand.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-origami-component": "^2.1.1",
+    "remark": "^13.0.0",
+    "remark-lint": "^8.0.0",
+    "remark-preset-lint-origami-component": "^2.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-origami-component": "^1.0.4"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
+}
