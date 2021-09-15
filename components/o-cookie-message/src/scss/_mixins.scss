@@ -1,0 +1,202 @@
+// Base cookie message styles
+@mixin _oCookieMessageBase() {
+	$link-theme: (
+		'base': 'teal',
+		'hover': 'teal',
+		'context': 'white'
+	);
+
+	.o-cookie-message {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		margin: 0;
+
+		@include oGridRespondTo(S) {
+			width: oGridColspan(7);
+			margin: $_o-cookie-message-spacing / 2;
+		}
+
+		@include oGridRespondTo(M) {
+			width: oGridColspan(6);
+		}
+
+		@include oGridRespondTo(L) {
+			width: oGridColspan(5);
+		}
+
+		@include oGridRespondTo(XL) {
+			width: map-get($o-grid-layouts, XL) / 2.5; // width is 40% grid
+			left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+		}
+	}
+
+	.o-cookie-message--active {
+		display: block;
+	}
+
+	.o-cookie-message--closed {
+		display: none;
+	}
+
+	.o-cookie-message__outer {
+		@include oVisualEffectsShadowContent('high');
+		background: oColorsByName('white');
+		color: oColorsByName('black');
+	}
+
+	.o-cookie-message__inner {
+		@include oVisualEffectsShadowContent('high');
+		@include oTypographySans($scale: 0);
+		// sass-lint:disable no-vendor-prefixes
+		-webkit-font-smoothing: antialiased;
+		// sass-lint:enable no-vendor-prefixes
+		position: relative;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 auto;
+		box-sizing: border-box;
+		background: white;
+		display: block;
+		padding: $_o-cookie-message-spacing;
+		padding-top: oSpacingByIncrement(7);
+		max-width: none;
+	}
+
+	.o-cookie-message__content {
+		padding: 0;
+
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		// Styling h1 elements within cookie message content
+		// is redundant but may be relied upon by users who
+		// have chosen to use custom markup.
+		// @breaking - remove `.o-cookie-message__content h1` styles
+		h1 {
+			@include oTypographySans($scale: 0);
+		}
+	}
+
+	.o-cookie-message__heading {
+		padding-right: $_o-cookie-message-spacing;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 60px;
+			margin-top: oSpacingByName('s2');
+			margin-bottom: oSpacingByName('s3');
+			border-bottom: oSpacingByIncrement(1) solid;
+			border-color: oColorsByName('teal');
+		}
+	}
+
+	// default headings used to include a h1,
+	// so style for backward compatibility for users with custom cookie message markup
+	.o-cookie-message__heading,
+	.o-cookie-message__heading h1,
+	.o-cookie-message__heading h2 {
+		@include oTypographySans(
+			$scale: ('default': 2, 'M': 3),
+			$weight: 'semibold'
+		);
+		margin: 0;
+	}
+
+
+	.o-cookie-message__actions {
+		@include oTypographySans($scale: 2);
+		display: flex;
+		align-items: center;
+		margin-top: oSpacingByName('s6');
+		flex-direction: row-reverse;
+		justify-content: space-between;
+
+		@include oGridRespondTo($until: M) {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			margin-top: 0;
+			.o-cookie-message__action {
+				align-self: stretch;
+
+				.o-cookie-message__button {
+					width: 100%;
+					margin-top: oSpacingByName('s6');
+				}
+			}
+		}
+	}
+
+	.o-cookie-message__action--secondary {
+		@include oGridRespondTo($until: M) {
+			margin-top: $_o-cookie-message-spacing / 4;
+		}
+	}
+
+	.o-cookie-message__action {
+		padding: 0;
+	}
+
+	.o-cookie-message__button {
+		@include oButtonsContent((
+			'size': 'big',
+			'type': 'primary'
+		));
+		white-space: nowrap;
+	}
+
+	.o-cookie-message__link--external,
+	.o-cookie-message__link {
+		@include oTypographySans($scale: 0);
+		@include oTypographyLink($theme: $link-theme);
+		white-space: nowrap;
+	}
+
+	.o-cookie-message__link--external {
+		@include oTypographyLink(
+			$external: true,
+			$theme: $link-theme,
+			$include-base-styles: false
+		);
+	}
+}
+
+// Alternative cookie message styles (for whitelabel/specialist titles)
+@mixin _oCookieMessageAlternative() {
+	$link-theme: (
+		'base': 'black',
+		'hover': 'black',
+		'context': 'white'
+	);
+
+	.o-cookie-message.o-cookie-message--alternative {
+		.o-cookie-message__button {
+			@include oButtonsContent((
+				'type': 'primary',
+				'theme':  ('color': oColorsMix('jade', 'black', 89), 'context': 'white')
+			), $include-base-styles: false);
+		}
+
+		.o-cookie-message__heading:after {
+			border-color: oColorsByName('jade');
+		}
+
+		.o-cookie-message__link--external,
+		.o-cookie-message__link {
+			@include oTypographyLink($theme: $link-theme);
+		}
+
+		.o-cookie-message__link--external {
+			@include oTypographyLink(
+				$external: true,
+				$theme: $link-theme,
+				$include-base-styles: false
+			);
+		}
+	}
+}
