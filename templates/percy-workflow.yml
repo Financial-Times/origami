@@ -34,7 +34,6 @@ jobs:
       with:
         cache: 'npm'
         node-version: 16
-        registry-url: 'https://origami-npm-registry-prototype.herokuapp.com'
     - run: npm ci
     - uses: ./actions/percy/
       with:
