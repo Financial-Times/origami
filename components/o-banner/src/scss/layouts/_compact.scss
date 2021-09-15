@@ -1,0 +1,132 @@
+@mixin _oBannerCompactBase {
+	width: 100%;
+	margin: 0;
+
+	@include oGridRespondTo(S) {
+		width: oGridColspan(7);
+		margin: $_o-banner-spacing / 2;
+	}
+
+	@include oGridRespondTo(M) {
+		width: oGridColspan(6);
+	}
+
+	@include oGridRespondTo(L) {
+		width: oGridColspan(5);
+	}
+
+	@include oGridRespondTo(XL) {
+		width: map-get($o-grid-layouts, XL) / 2.5; // width is 40% grid
+		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
+	}
+}
+
+@mixin _oBannerCompactOuter {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+@mixin _oBannerCompactInner {
+	@include oVisualEffectsShadowContent('high');
+	@include oTypographySans($scale: 0);
+	background: _oBannerGet('background-color');
+	display: block;
+	padding: $_o-banner-spacing;
+	padding-top: oSpacingByIncrement(7);
+	max-width: none;
+}
+
+@mixin _oBannerCompactContent {
+	padding: 0;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	ul li {
+		@include oTypographySans($scale: 0);
+	}
+	@include oGridRespondTo($until: M) {
+		&,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		ul li {
+			@include oTypographySans($scale: 0);
+		}
+	}
+}
+
+@mixin _oBannerCompactHeading {
+	@include oTypographySans($scale: 3);
+	padding-right: $_o-banner-spacing;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 3, $weight: 'semibold');
+	}
+	@include oGridRespondTo($until: M) {
+		&,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@include oTypographySans($scale: 2);
+		}
+	}
+	&:after {
+		margin-top: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s3');
+		width: 60px;
+		border-bottom-width: oSpacingByIncrement(1);
+	}
+}
+
+@mixin _oBannerCompactActions {
+	@include _oBannerSmallActions;
+}
+
+@mixin _oBannerCompactAction {
+	@include _oBannerSmallAction;
+}
+
+@mixin _oBannerCompactActionSecondary {
+	@include _oBannerSmallActionSecondary;
+}
+
+@mixin _oBannerCompact() {
+	@include _oBannerCompactBase;
+
+	.o-banner__outer {
+		@include _oBannerCompactOuter;
+	}
+	.o-banner__inner {
+		@include _oBannerCompactInner;
+	}
+	.o-banner__content {
+		@include _oBannerCompactContent;
+	}
+	.o-banner__heading {
+		@include _oBannerCompactHeading;
+	}
+	.o-banner__actions {
+		@include _oBannerCompactActions;
+	}
+	.o-banner__action {
+		@include _oBannerCompactAction;
+	}
+	.o-banner__action--secondary {
+		@include _oBannerCompactActionSecondary;
+	}
+}

@@ -1,0 +1,40 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oBannerGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-banner', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oBannerSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-banner', $variant: $variant);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-banner', 'master', (
+		'variables': (
+			'background-color': oColorsByName('white'),
+			'text-color': oColorsByName('black'),
+			'heading-rule-color': oColorsByName('teal'),
+			'button-background-color': oColorsByName('teal'),
+			'marketing': (
+				'background-color': oColorsByName('white'),
+				'text-color': oColorsByName('black'),
+				'heading-rule-color': oColorsByName('teal-80'),
+				'link-text-color': oColorsByName('black'),
+				'button-background-color': oColorsByName('black')
+			),
+			'product': (
+				'background-color': oColorsByName('teal'),
+				'text-color': oColorsByName('white'),
+				'heading-rule-color': oColorsByName('white'),
+				'link-text-color': oColorsByName('white'),
+				'button-background-color': oColorsByName('white')
+			)
+		),
+		'supports-variants': (
+			'marketing',
+			'product'
+		))
+	);
+}

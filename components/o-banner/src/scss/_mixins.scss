@@ -1,0 +1,241 @@
+@mixin _oBannerGetThemeMixin($theme, $include-layout-styles) {
+	@if not index($_o-banner-themes, $theme) {
+		@error "There is no theme '#{$theme}' available in o-banner, please use one of the following: #{$_o-banner-themes}.";
+	}
+
+	@if $theme == 'marketing' {
+		.o-banner--marketing {
+			@include _oBannerTheme('marketing', $include-layout-styles);
+		}
+	}
+
+	@if $theme == 'product' {
+		.o-banner--product {
+			@include _oBannerTheme('product', $include-layout-styles);
+		}
+	}
+}
+
+@mixin _oBannerGetLayoutMixin($layout) {
+	@if not index($_o-banner-layouts, $layout) {
+		@error "There is no layout '#{$layout}' available in o-banner, please use one of the following: #{$_o-banner-layouts}.";
+	}
+
+	@if $layout == 'small' {
+		.o-banner--small {
+			@include _oBannerSmall();
+		}
+	}
+
+	@if $layout == 'compact' {
+		.o-banner--compact {
+			@include _oBannerCompact();
+		}
+	}
+}
+
+@mixin _oBannerBase {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+}
+
+@mixin _oBannerClosed {
+	display: none;
+}
+
+@mixin _oBannerOuter {
+	@include oVisualEffectsShadowContent('high');
+	background: _oBannerGet('background-color');
+	color: _oBannerGet('text-color');
+}
+
+@mixin _oBannerInner {
+	@include oTypographySans($scale: 2);
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: map-get($o-grid-layouts, XL);
+	margin: 0 auto;
+	padding: $_o-banner-spacing 0;
+	box-sizing: border-box;
+
+	@include oGridRespondTo($until: S) {
+		@include oTypographySans($scale: 0);
+		display: block;
+		padding: $_o-banner-spacing;
+		padding-top: oSpacingByIncrement(7);
+	}
+}
+
+@mixin _oBannerContent {
+	// flex grow so banner content takes the full width
+	// when there are no banner actions, e.g. if the user
+	// only wants a banner to be dismissed with a close button,
+	// or they want a custom call to action within banner
+	// content
+	flex-grow: 1;
+	padding: 0 $_o-banner-spacing;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include oTypographySans($scale: 3, $weight: 'semibold');
+		margin-top: 0;
+		margin-bottom: oSpacingByName('s1');
+	}
+	p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	b,
+	strong {
+		@include oTypographySans($weight: 'semibold', $include-font-family: false);
+	}
+	> ul {
+		@include oTypographyList('unordered');
+		margin-top: oSpacingByName('s3');
+		margin-bottom: 0;
+
+		li {
+			@include oTypographySans($scale: 2, $line-height: oSpacingByIncrement(7));
+		}
+		li:before {
+			color: inherit;
+		}
+	}
+	a {
+		@include oTypographyLink();
+	}
+
+	@include oGridRespondTo($until: S) {
+		padding: 0;
+	}
+}
+
+@mixin _oBannerContentLong {
+	@include oGridRespondTo($until: M) {
+		display: none;
+	}
+}
+
+@mixin _oBannerContentShort {
+	@include oGridRespondTo($from: M) {
+		display: none;
+	}
+}
+
+@mixin _oBannerHeading {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 0;
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 100px;
+		margin-top: oSpacingByName('s2');
+		margin-bottom: oSpacingByName('s4');
+
+		// Color is set separately for easier overriding later
+		border-bottom: oSpacingByIncrement(2) solid;
+		border-color: _oBannerGet('heading-rule-color');
+	}
+}
+
+@mixin _oBannerActions {
+	@include oTypographySans($scale: 2);
+	display: flex;
+	align-items: center;
+
+	@include oGridRespondTo($until: S) {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: oSpacingByName('s6');
+	}
+}
+
+@mixin _oBannerAction {
+	padding-right: $_o-banner-spacing;
+
+	@include oGridRespondTo($until: S) {
+		padding-right: 0;
+	}
+}
+
+@mixin _oBannerActionSecondary {
+	@include oGridRespondTo($until: S) {
+		margin-top: $_o-banner-spacing / 4;
+	}
+}
+
+@mixin _oBannerButton {
+	@include oButtonsContent((
+		'size': 'big',
+		'type': 'primary',
+		'theme': (
+			'color': _oBannerGet('button-background-color'),
+			'context': _oBannerGet('background-color')
+		)
+	));
+	white-space: nowrap;
+}
+
+@mixin _oBannerLink {
+	@include oTypographyLink();
+	@include oTypographySans($scale: 0);
+	white-space: nowrap;
+}
+
+@mixin _oBannerCloseButton {
+	@include oIconsContent('cross', _oBannerGet('text-color'), $size: $_o-banner-close-button-size);
+	// start: undo button styles
+	appearance: none;
+	color: inherit;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	// end: undo button styles
+	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
+	display: block;
+	position: absolute;
+	right: $close-button-position;
+	top: $close-button-position;
+}
+
+/// Add a theme modifier for banners.
+///
+/// @param {String} $theme-name - The banner theme to output styles for. See README for available themes, or specify a custom one if providing $opts.
+/// @param {Map} $opts [null] - A brand configuration which can be used to create a custom banner theme. See README for more examples.
+/// @output The output includes the `.o-banner--THEME` modifier class definition, which includes all overrides.
+/// @example scss - Existing banner theme
+///   @include oBannerAddTheme('marketing');
+/// @example scss - Custom banner theme
+///   @include oBannerAddTheme('bubblegum', (
+///       background-color: oColorsMix('candy', 'white', 75),
+///       text-color: oColorsByName('oxford-90')
+///   ));
+/// @access public
+@mixin oBannerAddTheme($theme-name, $opts: null) {
+
+	// If we have a custom config, we use that instead of one of the
+	// preconfigured themes
+	$variant: if($opts, $opts, $theme-name);
+
+	.o-banner--#{$theme-name} {
+		@include _oBannerTheme($variant);
+	}
+}

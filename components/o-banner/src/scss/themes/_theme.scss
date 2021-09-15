@@ -1,0 +1,98 @@
+@mixin _oBannerTheme($theme, $include-layout-styles: true) {
+
+	// Get and default the colour-based theme properties. Link, button, and rule
+	// colors default to text color, because we know this at least should be set
+	// to have a high enough contrast against the background
+	$text-color: _oBannerGet('text-color', $from: $theme);
+	$background-color: _oBannerGet('background-color', $from: $theme);
+	$link-text-color: _oBannerGet('link-text-color', $from: $theme);
+	$link-text-color: if($link-text-color, $link-text-color, $text-color);
+	$button-background-color: _oBannerGet('button-background-color', $from: $theme);
+	$button-background-color: if($button-background-color, $button-background-color, $text-color);
+	$button-background-color: _oBannerGet('button-background-color', $from: $theme);
+	$button-background-color: if($button-background-color, $button-background-color, $text-color);
+	$button-type: _oBannerGet('button-type', $from: $theme);
+	$button-type: if($button-type, $button-type, 'primary');
+	$heading-rule-color: _oBannerGet('heading-rule-color', $from: $theme);
+	$heading-rule-color: if($heading-rule-color, $heading-rule-color, $text-color);
+
+	// Get and default background image theme properties
+	$background-image: _oBannerGet('background-image', $from: $theme);
+
+	// Background position defaults to bottom-right, because this is where all
+	// existing customisations keep their image. It's also the most sensible in
+	// terms of not obstructing content.
+	$background-position: _oBannerGet('background-position', $from: $theme);
+	$background-position: if($background-position, $background-position, bottom right);
+
+	// Background repeat defaults to no-repeat, because this matches all of
+	// the existing customisations and will not accidentally obstruct content.
+	$background-repeat: _oBannerGet('background-repeat', $from: $theme);
+	$background-repeat: if($background-repeat, $background-repeat, no-repeat);
+
+	.o-banner__outer {
+		@if ($background-image) {
+			background-image: url($background-image);
+			background-position: $background-position;
+			background-repeat: $background-repeat;
+		}
+		background-color: $background-color;
+		color: $text-color;
+	}
+	.o-banner__content {
+		a {
+			@include oTypographyLink($theme: (
+				'base': $link-text-color,
+				'hover': $link-text-color,
+				'context': $background-color
+			));
+		}
+	}
+	.o-banner__heading {
+		&:after {
+			border-color: $heading-rule-color;
+		}
+	}
+	.o-banner__button {
+		@include oButtonsContent((
+			'size': 'big',
+			'type': $button-type,
+			'theme': (
+				'color': $button-background-color,
+				'context': $background-color
+			)
+		));
+	}
+	.o-banner__link {
+		@include oTypographyLink($theme: (
+			'base': $link-text-color,
+			'hover': $link-text-color,
+			'context': $background-color
+		));
+	}
+	.o-banner__close {
+		@include oIconsContent('cross', $text-color, $size: $_o-banner-close-button-size);
+	}
+
+	// When combined with the "small" and "compact" themes
+	@if $include-layout-styles {
+		&.o-banner--small,
+		&.o-banner--compact {
+			.o-banner__outer {
+				@if ($background-image) {
+					background-image: none;
+				}
+				background-color: transparent;
+				color: $text-color;
+			}
+			.o-banner__inner {
+				@if ($background-image) {
+					background-image: url($background-image);
+					background-position: $background-position;
+					background-repeat: $background-repeat;
+				}
+				background-color: $background-color;
+			}
+		}
+	}
+}
