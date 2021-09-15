@@ -25,6 +25,8 @@ o-autocomplete:
   - components/o-autocomplete/**/*
 o-banner:
   - components/o-banner/**/*
+o-big-number:
+  - components/o-big-number/**/*
 o-buttons:
   - components/o-buttons/**/*
 o-colors:
@@ -69,6 +71,8 @@ o-loading:
   - components/o-loading/**/*
 o-message:
   - components/o-message/**/*
+o-meter:
+  - components/o-meter/**/*
 o-normalise:
   - components/o-normalise/**/*
 o-overlay:

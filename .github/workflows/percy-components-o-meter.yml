@@ -1,0 +1,43 @@
+name: Percy components/o-meter
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "components/o-meter/package.json"
+     - "components/o-meter/package-lock.json"
+     - "components/o-meter/origami.json"
+     - "components/o-meter/main.js"
+     - "components/o-meter/main.scss"
+     - "components/o-meter/demos/**"
+     - "components/o-meter/src/**"
+  push:
+    branches: main
+    paths:
+     - "components/o-meter/package.json"
+     - "components/o-meter/package-lock.json"
+     - "components/o-meter/origami.json"
+     - "components/o-meter/main.js"
+     - "components/o-meter/main.scss"
+     - "components/o-meter/demos/**"
+     - "components/o-meter/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_METER }}
+        WORKSPACE: components/o-meter
