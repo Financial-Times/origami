@@ -1,0 +1,49 @@
+@import '../../main';
+
+@include oTooltip();
+
+body {
+	@include oTypographySans();
+}
+
+.demo-tooltip-container {
+	height: 200px;
+	display: inline-block;
+	margin: 20px;
+}
+
+[data-o-component="o-tooltip"] {
+	display: none;
+}
+
+.demo-scrollable-container {
+	height: 9000px;
+
+	.demo-tooltip-container {
+		padding-top: 500px;
+	}
+	.o-buttons--big {
+		height: 100px;
+	}
+}
+
+.demo-relative-position {
+	position: relative;
+	margin-left: 50px;
+	margin-top: 50px;
+}
+
+.pad {
+	height: 500px;
+}
+
+.fixed-button {
+	position: fixed;
+	top: 0;
+}
+
+
+@include oTooltipAddTheme('demo-custom-theme', (
+	'background-color': oColorsByName('black'),
+	'foreground-color': oColorsByName('white')
+));

@@ -1,0 +1,88 @@
+/// Output styles for a custom o-tooltip theme.
+/// @param {string} $name - The name of the custom theme. This is used to create a new CSS class name so should be descriptive and include the project name.
+/// @param {map} $opts - A map of theme options including "background-color" (color), "foreground-color" (color), and optionally "close-foreground-color" (color).
+/// @example Output a custom tooltip theme named "my-product-modifier" with a slate background, and white foreground. Outputs a class 'o-tooltip--my-product-modifier'
+/// 	// Outputs CSS class "o-tooltip--my-product-modifier"
+/// 	@include oTooltipAddTheme('my-product-modifier', (
+/// 		'background-color': oColorsByName('slate'),
+/// 		'foreground-color': oColorsByName('white'),
+/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 	));
+/// @access public
+@mixin oTooltipAddTheme($name, $opts) {
+	@if type-of($name) != 'string' {
+		@error 'Expected a custom tooltip name as a string.';
+	}
+
+	@if type-of($opts) != 'map' {
+		@error 'Expected a map of tooltip theme options.';
+	}
+
+	@if type-of(map-get($opts, 'background-color')) != 'color' {
+		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
+			'a "color" `background-colour` option. Found type ' +
+			'"#{type-of(map-get($opts, 'background-color'))}".';
+	}
+
+	@if type-of(map-get($opts, 'foreground-color')) != 'color' {
+		@error 'Could not add custom tooltip theme "#{$name}". Expected a ' +
+			'a "color" `foreground-colour` option. Found type ' +
+			'"#{type-of(map-get($opts, 'foreground-color'))}".';
+	}
+
+	.o-tooltip.o-tooltip--#{$name} {
+		@include _oTooltipThemeContent($opts);
+	}
+}
+
+/// Output styles required to theme the tooltip.
+/// @example Output styles for the default theme.
+/// 	@include _oTooltipThemeContent();
+/// @example Output styles for an o-brand variant (example only, at the time of writing o-tooltip only has one, default variant).
+/// 	@include _oTooltipThemeContent('inverse');
+/// @example Output styles for a custom variant
+/// 	@include _oTooltipThemeContent((
+/// 		'background-color': oColorsByName('slate'),
+/// 		'foreground-color': oColorsByName('white'),
+/// 		'close-foreground-color': oColorsByName('white') // optional
+/// 	));
+/// @see {oTooltipAddTheme}
+/// @access public
+@mixin _oTooltipThemeContent($theme: null) {
+	// Default theme values.
+	$close-foreground-color: if(
+		_oTooltipGet('close-foreground-color', $theme),
+		_oTooltipGet('close-foreground-color', $theme),
+		_oTooltipGet('foreground-color', $theme)
+	);
+
+	// Output theme CSS.
+	background: _oTooltipGet('background-color', $theme);
+
+	&.o-tooltip--arrow-left:after {
+		border-right-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-right:after {
+		border-left-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-above:after {
+		border-bottom-color: _oTooltipGet('background-color', $theme);
+	}
+	&.o-tooltip--arrow-below:after {
+		border-top-color: _oTooltipGet('background-color', $theme);
+	}
+
+	.o-tooltip-content {
+		color: _oTooltipGet('foreground-color', $theme);
+	}
+
+	.o-tooltip-close {
+		@include oIconsContent(
+			'cross',
+			$close-foreground-color,
+			$size: 20px,
+			$include-base-styles: false
+		);
+	}
+}
+

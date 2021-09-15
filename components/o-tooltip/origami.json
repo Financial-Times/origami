@@ -1,0 +1,114 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-tooltip/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": [
+			"o-fonts@^5",
+			"o-colors@^6",
+			"o-buttons@^7",
+			"o-normalise@^3"
+		]
+	},
+	"demos": [
+		{
+			"title": "Demo",
+			"name": "demo",
+			"template": "demos/src/demo.mustache",
+			"description": "Basic demo"
+		},
+		{
+			"title": "Hover",
+			"name": "hover",
+			"template": "demos/src/hover.mustache",
+			"description": "Display on hover demo"
+		},
+		{
+			"title": "Focus",
+			"name": "focus",
+			"template": "demos/src/focus.mustache",
+			"description": "Display on focus demo"
+		},
+		{
+			"title": "Click",
+			"name": "click",
+			"template": "demos/src/click.mustache",
+			"description": "Display on click demo"
+		},
+		{
+			"title": "Toggle",
+			"name": "toggle",
+			"template": "demos/src/toggle.mustache",
+			"description": "Toggle on click demo"
+		},
+		{
+			"title": "Timeout",
+			"name": "timeout",
+			"template": "demos/src/timeout.mustache",
+			"description": "Show/Hide Tooltip after timeout demo"
+		},
+		{
+			"title": "No Markup",
+			"name": "no-markup",
+			"template": "demos/src/no-markup.mustache",
+			"js": "demos/src/no-markup.js",
+			"description": "Tooltip declared in js, with no markup"
+		},
+		{
+			"title": "Responsive Positioning",
+			"name": "responsive-positioning",
+			"template": "demos/src/responsive-positioning.mustache",
+			"description": "Responsive positioning"
+		},
+		{
+			"title": "Custom Tooltip Theme",
+			"name": "custom",
+			"template": "demos/src/custom.mustache",
+			"display_html": false,
+			"description": "A custom theme added using the tooltip Sass API."
+		},
+		{
+			"title": "Append to body",
+			"name": "append-to-body",
+			"template": "demos/src/no-markup.mustache",
+			"js": "demos/src/append-to-body.js",
+			"description": "Append tooltip to body rather than the target's parent.",
+			"hidden": true
+		},
+		{
+			"title": "Scroll Test",
+			"name": "scroll-test",
+			"template": "demos/src/scroll-test.mustache",
+			"hidden": true,
+			"description": "Demo testcase for scrolling bug"
+		},
+		{
+			"title": "Relative Position Test",
+			"name": "relative-position-test",
+			"template": "demos/src/relative-position-test.mustache",
+			"hidden": true,
+			"description": "relative parent position testcase"
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"hidden": true,
+			"description": "Accessibility test will be run against this demo"
+		}
+	]
+}
