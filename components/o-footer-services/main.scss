@@ -1,0 +1,109 @@
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-grid/main';
+@import '@financial-times/o-typography/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/mixins';
+@import 'src/scss/variables';
+
+/// Outputs all features and styles available for o-footer-services.
+/// @param {map} $opts [('logo': 'ftlogo-v1:origami', 'icons': ('slack', 'github'), 'brand-strip': true)] - A map of optional footer features to output, including the footer logo, list of social icon links, and "a Nikkei company" brand strip.
+/// @param {bool} $include-base-styles [true] - Whether to output fundamental o-footer-services styles required by the optional features.
+/// @access public
+@mixin oFooterServices($opts: (
+	'logo': false,
+	'icons': ('slack', 'github'),
+	'brand-strip': true,
+	'themes': ('dark')
+), $include-base-styles: true) {
+	$logo: map-get($opts, 'logo');
+	$icons: map-get($opts, 'icons');
+	$themes: map-get($opts, 'themes');
+	$include-brand-strip: map-get($opts, 'brand-strip');
+
+	// Error if the global $system-code variable is not set.
+	// This is required for image service requests.
+	@if(global-variable-exists('system-code') == false or type-of($system-code) != 'string') {
+		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
+	}
+
+	// Output fundamental o-footer-services styles required by all users.
+	@if($include-base-styles) {
+		.o-footer-services {
+			@include _oFooterServicesBase();
+			// include default theme with base styles
+			@include _oFooterServicesTheme($theme-name: null, $icons: $icons, $brand-strip: $include-brand-strip);
+		}
+	}
+
+	// Include structural styles for the brand strip,
+	// background and logo colours are applied by the theme.
+	@if($include-brand-strip) {
+		.o-footer-services__container--brand {
+			&:before {
+				content: initial;
+			}
+		}
+
+		.o-footer-services__brand-logo {
+			height: 1.25em;
+			padding: oSpacingByName('s2');
+			background-repeat: no-repeat;
+			background-position: right;
+		}
+	}
+
+	// Output classes for a logo in the footer.
+	@if($logo) {
+		.o-footer-services__logo {
+			@include _oFooterServicesLogo($logo);
+		}
+	}
+
+	// Output classes for footer icons.
+	@if($icons) {
+		.o-footer-services__icon-link {
+			@include oTypographySans($weight: 'semibold', $include-font-family: false);
+			@include oTypographyLink();
+			// Remove link underline.
+			border-bottom: 0;
+			@supports (text-decoration-thickness: 0.25ex) {
+				text-decoration-line: none;
+			}
+
+			position: relative;
+			display: inline-block;
+			min-width: max-content;
+			margin: 0 1em 1.5em 0;
+			padding-left: $_o-footer-services-icon-size - 5;
+
+			&:before {
+				display: inline-block;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: 50%;
+				position: absolute;
+				content: '';
+				height: $_o-footer-services-icon-size;
+				width: $_o-footer-services-icon-size;
+				vertical-align: middle;
+				top: -5px;
+				left: -5px;
+			}
+		}
+	}
+
+	@if(index($themes, 'dark') and _oFooterServicesSupports('dark')) {
+		.o-footer-services--dark {
+			@include _oFooterServicesTheme($theme-name: 'dark', $icons: $icons, $brand-strip: $include-brand-strip);
+		}
+	}
+}
+
+@if $o-footer-services-is-silent == false {
+	@include oFooterServices();
+	// Set to silent again to avoid being output twice
+	$o-footer-services-is-silent: true !global;
+}

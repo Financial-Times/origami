@@ -1,0 +1,16 @@
+@import '../../main';
+
+.demo {
+	margin-top: 40px;
+}
+
+body {
+	background: white;
+}
+
+@include oFooterServices($opts: (
+	'logo': 'ftlogo-v1:origami',
+	'icons': ('slack', 'github'),
+	'brand-strip': true,
+	'themes': ('dark')
+));

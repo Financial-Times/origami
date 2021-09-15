@@ -1,0 +1,84 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
+	"support": "https://github.com/Financial-Times/o-footer-services/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "active",
+	"browserFeatures": {},
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"documentClasses": "",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Footer Legal",
+			"name": "footer-legal",
+			"template": "demos/src/footer-legal.mustache",
+			"description": "The most minimal version of the footer. Should not be treated as optional."
+		},
+		{
+			"title": "Footer Links",
+			"name": "footer-links",
+			"template": "demos/src/footer-links.mustache",
+			"description": "Minimal footer with links"
+		},
+		{
+			"title": "Footer Content Only",
+			"name": "footer-content-only",
+			"template": "demos/src/footer-content-only.mustache",
+			"description": "Minimal footer without content"
+		},
+		{
+			"title": "Footer No Content",
+			"name": "footer-no-content",
+			"template": "demos/src/footer-no-content.mustache",
+			"description": "Minimal footer without content"
+		},
+		{
+			"title": "Footer Logo",
+			"name": "footer-logo",
+			"template": "demos/src/footer-logo.mustache",
+			"description": "Minimal footer with logo"
+		},
+		{
+			"title": "Footer Logo & Content",
+			"name": "footer-logo-content",
+			"template": "demos/src/footer-logo-content.mustache",
+			"description": "Minimal footer without content"
+		},
+		{
+			"title": "Brand Strip",
+			"name": "brand-strip",
+			"template": "demos/src/brand-strip.mustache",
+			"description": "A brand strip may optionally be included."
+		},
+		{
+			"title": "Footer",
+			"name": "footer",
+			"template": "demos/src/footer.mustache",
+			"description": "The full services footer"
+		},
+		{
+			"title": "Dark Theme",
+			"name": "dark-footer",
+			"template": "demos/src/footer.mustache",
+			"data": {
+				"theme": "dark"
+			},
+			"brands": ["master"],
+			"description": "A dark theme, shown on the full services footer."
+		}
+	]
+}

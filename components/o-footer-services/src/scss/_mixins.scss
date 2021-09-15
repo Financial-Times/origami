@@ -1,0 +1,202 @@
+@mixin _oFooterServicesBase() {
+	@include oTypographySans(0);
+
+	.o-footer-services__container {
+		width: 100%;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			border-top-width: 1px;
+			border-top-style: solid;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	.o-footer-services__wrapper {
+		max-width: 1220px;
+		margin: 0 auto;
+		padding: 0.5em 1em;
+
+		&--top {
+			padding: 1.5em 1em 0;
+
+			p {
+				display: inline-block;
+			}
+		}
+
+		&--legal {
+			@include oTypographySans($scale: -1, $line-height: 20px);
+			overflow: hidden;
+
+			p {
+				margin: 0.5em 0;
+				float: left;
+			}
+
+			span {
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.o-footer-services__links a,
+	.o-footer-services__content a {
+		@include oTypographyLink();
+	}
+
+	.o-footer-services__links {
+		float: left;
+		margin: 0.5em 0;
+
+		a {
+			margin-right: 0.5em;
+		}
+	}
+
+	.o-footer-services__content {
+		margin: 0 0 1.5em;
+	}
+}
+
+@mixin _oFooterServicesLogo($logo) {
+	// Ensure logo is valid.
+	// Allows dash, underscore, and alphanumeric characters which are url safe.
+	// Also allows a colon, which is url encoded.
+	$valid-characters: ('-', '_', ':', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+	$url-encoded-logo: '';
+	@for $character-index from 1 through str-length($logo) {
+		$character: str-slice($logo, $character-index, $character-index);
+		@if not index($valid-characters, $character) {
+			@error 'The logo "#{$logo}" can only contain lowercase alphanumeric characters plus dash, underscore, or colon e.g. "ftlogo-v1:origami".';
+		}
+		// Url encode any colon character.
+		$url-encoded-logo: $url-encoded-logo + if($character == ':', '%3A', $character);
+	}
+
+	@include oTypographySans(1, $weight: 'semibold');
+	min-width: max-content;
+	min-height: 1em; //holds the logo in place if there is no text
+	margin: 0 1.5em 1.5em 0;
+
+	position: relative;
+	padding-left: calc(#{$_o-footer-services-logo-size} + 0.5em);
+
+	&:before {
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
+		vertical-align: baseline;
+		background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/#{$url-encoded-logo}?source=#{$system-code}');
+		content: '';
+		width: $_o-footer-services-logo-size;
+		height: $_o-footer-services-logo-size;
+		position: absolute;
+		top: -50%;
+		left: 0;
+	}
+}
+
+@mixin _oFooterServicesTheme($theme-name, $icons, $brand-strip) {
+	color: _oFooterServicesGet('text-color', $from: $theme-name);
+	background: _oFooterServicesGet('background-color', $from: $theme-name);
+
+	.o-footer-services__container:before {
+		border-color: _oFooterServicesGet('border-color', $from: $theme-name);
+	}
+
+	.o-footer-services__wrapper--legal {
+		color: _oFooterServicesGet('legal-text-color', $from: $theme-name);
+	}
+
+	.o-footer-services__links a {
+		@include oTypographyLink($theme: (
+			'base': _oFooterServicesGet('legal-text-color', $from: $theme-name),
+			'hover': _oFooterServicesGet('legal-text-color', $from: $theme-name),
+			'context': _oFooterServicesGet('background-color', $from: $theme-name)
+		), $include-base-styles: false);
+	}
+
+	.o-footer-services__content {
+		a {
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('link-color', $from: $theme-name),
+				'hover': _oFooterServicesGet('link-hover-color', $from: $theme-name),
+				'context': _oFooterServicesGet('background-color', $from: $theme-name)
+			), $include-base-styles: false);
+		}
+
+		.o-footer-services__content--external {
+			@include oTypographyLink(
+				$theme: (
+					'base': _oFooterServicesGet('link-color', $from: $theme-name),
+					'hover': _oFooterServicesGet('link-color', $from: $theme-name),
+					'context': _oFooterServicesGet('background-color', $from: $theme-name)
+				),
+				$external: true,
+				$include-base-styles: false
+			);
+		}
+	}
+
+	@if $brand-strip {
+		.o-footer-services__container--brand {
+			$brand-background: _oFooterServicesGet('brand-background-color', $theme-name);
+			$default-background: _oFooterServicesGet('background-color', $theme-name);
+			background: if($brand-background, $brand-background, $default-background);
+		}
+
+		.o-footer-services__brand-logo {
+			$logo-color: _oFooterServicesGet('brand-foreground-color', $theme-name);
+			@include _oFooterServicesBrandImage('brand-nikkei-tagline', 200, $logo-color);
+		}
+	}
+
+
+	// Output a footer class for each requested icon.
+	@if $icons {
+		.o-footer-services__icon-link {
+			@include oTypographyLink($theme: (
+				'base': _oFooterServicesGet('text-color', $from: $theme-name),
+				'hover': _oFooterServicesGet('link-hover-color', $from: $theme-name),
+				'context': _oFooterServicesGet('background-color', $from: $theme-name)
+			), $include-base-styles: false);
+		}
+
+		@each $icon in $icons {
+			// Allowed social images: https://registry.origami.ft.com/components/social-images
+			$allowed-social-images: (facebook, github, linkedin, pinterest, slack, tumblr, twitter, whatsapp, youtube);
+			// Error if one of the requested icons are not an Origami social share image.
+			@if(index($allowed-social-images, unquote($icon)) == null) {
+				@error '"#{$icon}" is not an Origami supported social image, please contact that Origami team if you would like support for this icon to be added. Available icons are currently: #{$allowed-social-images}';
+			}
+			// Output icon class e.g. `.o-footer-services__icon-link--slack`
+			.o-footer-services__icon-link--#{$icon}:before {
+				$text-color-encoded: str-slice(ie-hex-str(_oFooterServicesGet('text-color', $from: $theme-name)), 4);
+				background-image: url('https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2%3A#{$icon}?source=#{$system-code}&tint=#{$text-color-encoded}&format=svg');
+			}
+		}
+	}
+}
+
+/// Construct a logo image URL
+///
+/// @param {String} $logo-name
+/// @param {Number} $fallback-width
+/// @param {String|Null} $color [null]
+@mixin _oFooterServicesBrandImage($logo-name, $fallback-width, $color: null) {
+	$url-encoded-color: if($color, '%23#{str-slice(ie-hex-str($color), 4)}', null);
+	$base-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo:';
+	$url:
+		$base-url +
+		$logo-name +
+		'?source=#{$system-code}' +
+		if($url-encoded-color, '&tint=#{$url-encoded-color}', '')
+		+ '&format=svg';
+	background-image: url($url);
+}
