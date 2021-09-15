@@ -1,0 +1,13 @@
+# .prettierrc.toml
+
+
+# [[file:notebook/config/editor/formatters.org::*.prettierrc.toml][.prettierrc.toml:1]]
+printWidth = 80
+trailingComma = "es5"
+semi = false
+singleQuote = false
+useTabs = true
+bracketSpacing = false
+jsxBracketSameLine = true
+arrowParens = "avoid"
+# .prettierrc.toml:1 ends here
