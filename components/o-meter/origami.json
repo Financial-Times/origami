@@ -1,0 +1,111 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-meter/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"supportStatus": "maintained",
+	"brands": [
+		"internal"
+	],
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"dependencies": [
+			"o-fonts@^5.0.0",
+			"o-normalise@^3.0.0",
+			"o-typography@^7.0.0"
+		],
+		"documentClasses": "o-typography-wrapper"
+	},
+	"demos": [
+		{
+			"title": "Simple Meter",
+			"name": "demo1",
+			"template": "demos/src/demo.1.mustache",
+			"data": {
+				"meterValue": 33
+			},
+			"description": "This demo shows a meter with a value of 33. Do not forget to add an aria-label attribute to describe your meter.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Simple Meter With Different Values Where Higher Is Better",
+			"name": "higher-is-better",
+			"template": "demos/src/higher-is-better.mustache",
+			"description": "This demo shows four o-meter components with different values, where higher is better. HTML meter elements have min and max attributes, with a low and high range within. The optimum attribute indicates where along the min-max range is considered preferable.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Simple Meter With Different Values Where Lower Is Better",
+			"name": "lower-is-better",
+			"template": "demos/src/lower-is-better.mustache",
+			"description": "This demo shows four o-meter components with different values, where lower is better. HTML meter elements have min and max attributes, with a low and high range within. The optimum attribute indicates where along the min-max range is considered preferable.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Meter With Optional Value Box",
+			"name": "demo2",
+			"template": "demos/src/demo.2.mustache",
+			"data": {
+				"meterValue": 2.5,
+				"percentValue": 25
+			},
+			"description": "This demo show a meter with a value of 2.5 with an optional value box. Note that meter value and percentage can be different. Do not forget to add an aria-label attribute to describe your meter.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Meter With Customised Colours",
+			"name": "demo3",
+			"template": "demos/src/demo.3.mustache",
+			"data": {
+				"meterValue": 80
+			},
+			"description": "This demo shows a meter with a value of 25 that was colour-customised. Do not forget to add an aria-label attribute to describe your meter.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Meter With Customised Dimensions",
+			"name": "demo4",
+			"template": "demos/src/demo.4.mustache",
+			"data": {
+				"meterValue": 25
+			},
+			"description": "This demo shows a basic meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Meter With Value Box And Customised Dimensions",
+			"name": "demo5",
+			"template": "demos/src/demo.5.mustache",
+			"data": {
+				"meterValue": 25,
+				"percentValue": 25
+			},
+			"description": "This demo shows a meter with a value of 25 with customised width and length. Do not forget to add an aria-label attribute to describe your meter.",
+			"brands": [
+				"internal"
+			]
+		},
+		{
+			"title": "Pa11y",
+			"name": "pa11y",
+			"template": "demos/src/pa11y.mustache",
+			"description": "Accessibility test will be run against this demo",
+			"hidden": true
+		}
+	]
+}
