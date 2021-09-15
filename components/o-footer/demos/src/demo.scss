@@ -1,0 +1,7 @@
+@import '../../main';
+
+@include oFooter();
+
+body {
+	background: oColorsByUsecase('page', 'background');
+}

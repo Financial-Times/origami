@@ -1,0 +1,244 @@
+{
+	"theme": "theme-light",
+	"matrix": [
+		{
+			"title": "xxxxxxx",
+			"items": [
+				{
+					"text": "xxxx",
+					"href": "//www.ft.com/help"
+				},
+				{
+					"text": "xxxxx xx",
+					"href": "//www.ft.com/aboutus"
+				}
+			],
+			"index": 0,
+			"layout": 1,
+			"columns": [
+				[
+					{
+						"text": "xxxx",
+						"href": "//www.ft.com/help"
+					},
+					{
+						"text": "xxxxx xx",
+						"href": "//www.ft.com/aboutus"
+					}
+				]
+			],
+			"collapsible": true
+		},
+		{
+			"title": "xxxxx x xxxxxxx",
+			"items": [
+				{
+					"text": "xxxxx x xxxxxxxxxx",
+					"href": "//www.ft.com/servicestools/help/terms"
+				},
+				{
+					"text": "xxxxxxx",
+					"href": "//www.ft.com/servicestools/help/privacy"
+				},
+				{
+					"text": "xxxxxxx",
+					"href": "//www.ft.com/cookiepolicy"
+				},
+				{
+					"text": "xxxxxxxxx",
+					"href": "//www.ft.com/servicestools/help/copyright"
+				}
+			],
+			"index": 1,
+			"layout": 1,
+			"columns": [
+				[
+					{
+						"text": "xxxxx x xxxxxxxxxx",
+						"href": "//www.ft.com/servicestools/help/terms"
+					},
+					{
+						"text": "xxxxxxx",
+						"href": "//www.ft.com/servicestools/help/privacy"
+					},
+					{
+						"text": "xxxxxxx",
+						"href": "//www.ft.com/cookiepolicy"
+					},
+					{
+						"text": "xxxxxxxxx",
+						"href": "//www.ft.com/servicestools/help/copyright"
+					}
+				]
+			],
+			"collapsible": true
+		},
+		{
+			"title": "xxxxxxxx",
+			"items": [
+				{
+					"text": "xxxxxxxxxx xxxxxxxxxxxxx",
+					"href": "//sub.ft.com/spa_5"
+				},
+				{
+					"text": "xxxxx xxxxxxxxxxxxx",
+					"href": "//enterprise.ft.com/en-gb/services/group-subscriptions/"
+				},
+				{
+					"text": "xxxxxxxxxxxx",
+					"href": "//enterprise.ft.com/en-gb/services/republishing/"
+				},
+				{
+					"text": "xxxxxxxxx x xxxxxxx",
+					"href": "//www.businessesforsale.com/ft2/notices"
+				},
+				{
+					"text": "xxxxxxxx xxxxxxxx",
+					"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
+				}
+			],
+			"index": 2,
+			"layout": 1,
+			"columns": [
+				[
+					{
+						"text": "xxxxxxxxxx xxxxxxxxxxxxx",
+						"href": "//sub.ft.com/spa_5"
+					},
+					{
+						"text": "xxxxx xxxxxxxxxxxxx",
+						"href": "//enterprise.ft.com/en-gb/services/group-subscriptions/"
+					},
+					{
+						"text": "xxxxxxxxxxxx",
+						"href": "//enterprise.ft.com/en-gb/services/republishing/"
+					},
+					{
+						"text": "xxxxxxxxx x xxxxxxx",
+						"href": "//www.businessesforsale.com/ft2/notices"
+					},
+					{
+						"text": "xxxxxxxx xxxxxxxx",
+						"href": "//commerce.uk.reuters.com/purchase/mostPopular.do?rpc&#x3D;471"
+					}
+				]
+			],
+			"collapsible": true
+		},
+		{
+			"title": "xxxxx",
+			"items": [
+				{
+					"text": "xxxxxxxxx",
+					"href": "//markets.ft.com/data/portfolio/dashboard"
+				},
+				{
+					"text": "xxxxxxx xxxxx",
+					"href": "//ftepaper.ft.com"
+				},
+				{
+					"text": "xxxxxx xxx",
+					"href": "//markets.ft.com/data/alerts/"
+				},
+				{
+					"text": "xxxxxxx",
+					"href": "//lexicon.ft.com/"
+				},
+				{
+					"text": "xxx xxxxxxxx",
+					"href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016"
+				},
+				{
+					"text": "xxxxxxxx xxxxxxxx",
+					"href": "//markets.ft.com/Research/Economic-Calendar"
+				},
+				{
+					"text": "xxxxxxxxxxx",
+					"href": "//nbe.ft.com/nbe/profile.cfm"
+				},
+				{
+					"text": "xxxxxxxx xxxxxxxxx",
+					"href": "//markets.ft.com/research/Markets/Currencies?segid&#x3D;70113"
+				},
+				{
+					"text": "xxxxxx",
+					"href": "//www.ft.com/ebooks",
+					"aria-label": "E-books"
+				}
+			],
+			"index": 3,
+			"layout": 1,
+			"columns": [
+				[
+					{
+						"text": "xxxxxxxxx",
+						"href": "//markets.ft.com/data/portfolio/dashboard"
+					},
+					{
+						"text": "xxxxxxx xxxxx",
+						"href": "//ftepaper.ft.com"
+					},
+					{
+						"text": "xxxxxx xxx",
+						"href": "//markets.ft.com/data/alerts/"
+					},
+					{
+						"text": "xxxxxxx",
+						"href": "//lexicon.ft.com/"
+					},
+					{
+						"text": "xxx xxxxxxxx",
+						"href": "//rankings.ft.com/businessschoolrankings/global-mba-ranking-2016"
+					}
+				]
+			],
+			"collapsible": true
+		},
+        {
+            "title": "xxxxxxx",
+            "items": [
+                {
+                    "text": "xxxxxxxxx",
+                    "href": "//markets.ft.com/data/portfolio/dashboard"
+                },
+                {
+                    "text": "xxxxxxx xxxxx",
+                    "href": "//ftepaper.ft.com"
+                },
+                {
+                    "text": "xxxxxx xxx",
+                    "href": "//markets.ft.com/data/alerts/"
+                },
+                {
+                    "text": "xxxxxxx",
+                    "href": "//lexicon.ft.com/"
+                }
+            ],
+            "index": 4,
+            "layout": 1,
+            "columns": [
+                [
+                    {
+                        "text": "xxxxxxxxx",
+                        "href": "//markets.ft.com/data/portfolio/dashboard"
+                    },
+                    {
+                        "text": "xxxxxxx xxxxx",
+                        "href": "//ftepaper.ft.com"
+                    },
+                    {
+                        "text": "xxxxxx xxx",
+                        "href": "//markets.ft.com/data/alerts/"
+                    },
+                    {
+                        "text": "xxxxxxx",
+                        "href": "//lexicon.ft.com/"
+                    }
+                ]
+            ],
+            "collapsible": true
+        }
+
+	],
+	"copyrightYear": 2021
+}
