@@ -1,6 +1,6 @@
 {
 	"name": "@financial-times/o-audio",
-	"version": "0.0.0",
+	"version": "2.0.0",
 	"description": "Financial Times audio player",
 	"keywords": [
 		"audio"
@@ -18,15 +18,6 @@
 	},
 	"dependencies": {
 		"ftdomdelegate": "^4.0.6"
-	},
-	"devDependencies": {
-		"eslint": "^7.24.0",
-		"eslint-config-origami-component": "^2.1.1",
-		"remark": "^13.0.0",
-		"remark-lint": "^7.0.1",
-		"remark-preset-lint-origami-component": "^2.0.0",
-		"stylelint": "^13.12.0",
-		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"peerDependencies": {
 		"@financial-times/o-utils": "^2.0.0"
