@@ -1,0 +1,91 @@
+{
+	"origamiType": "component",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/o-layout/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/origami-support"
+	},
+	"brands": [
+		"master",
+		"internal"
+	],
+	"supportStatus": "active",
+	"demosDefaults": {
+		"sass": "demos/src/demo.scss",
+		"js": "demos/src/demo.js",
+		"documentClasses": "",
+		"dependencies": [
+			"o-table@^9.0.0",
+			"o-syntax-highlight@^4.0.0",
+			"o-tabs@^6.0.0",
+			"o-header-services@^5.0.0",
+			"o-footer-services@^4.0.0",
+			"o-buttons@^7.0.0",
+			"o-forms@^9.0.0",
+			"o-normalise@^3.0.0"
+		]
+	},
+	"demos": [
+		{
+			"title": "Documentation Layout",
+			"name": "documentation-layout",
+			"data": {
+				"tagline": "Documentation Layout"
+			},
+			"template": "demos/src/documentation-layout.mustache",
+			"description": "Ideal for documentation."
+		},
+		{
+			"title": "Landing Layout",
+			"name": "landing-layout",
+			"data": {
+				"tagline": "Landing Layout"
+			},
+			"brands": ["internal"],
+			"template": "demos/src/landing-layout.mustache",
+			"description": "Ideal for a homepage. This demo shows the land layout's hero area paired with optional overview elements."
+		},
+		{
+			"title": "Landing Layout With Article List",
+			"name": "landing-layout-listing",
+			"data": {
+				"tagline": "Landing Layout With Article List"
+			},
+			"brands": ["internal"],
+			"template": "demos/src/landing-layout-listing.mustache",
+			"description": "Ideal for a subsection or category page, the landing layout may have a muted hero area. This demo shows the muted hero area paired with an article list but any content, including the overview elements, may be used below the hero area."
+		},
+		{
+			"title": "Query Layout",
+			"name": "query-layout",
+			"data": {
+				"tagline": "Query Layout"
+			},
+			"brands": ["internal"],
+			"template": "demos/src/query-layout.mustache",
+			"description": "Ideal for a search or filter page."
+		},
+		{
+			"title": "Base Layout",
+			"name": "base-layout",
+			"data": {
+				"tagline": "Base Layout"
+			},
+			"template": "demos/src/base-layout.mustache",
+			"hidden": true,
+			"description": ""
+		},
+		{
+			"title": "Bleed Layout",
+			"name": "bleed-layout",
+			"data": {
+				"tagline": "Bleed Layout",
+				"bleed": true
+			},
+			"template": "demos/src/bleed-layout.mustache",
+			"hidden": true,
+			"description": ""
+		}
+	]
+}

@@ -1,0 +1,35 @@
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLayoutGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-layout', $variables: $variables, $from: $from);
+}
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oLayoutSupports($variant) {
+	@return oBrandSupportsVariant($component: 'o-layout', $variant: $variant);
+}
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-layout', 'master', (
+		'variables': (),
+		'supports-variants': (
+			'default',
+			'bleed',
+			'documentation',
+		)
+	));
+}
+
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-layout', 'internal', (
+		'variables': (),
+		'supports-variants': (
+			'default',
+			'bleed',
+			'documentation',
+			'landing',
+			'query'
+		)
+	));
+}

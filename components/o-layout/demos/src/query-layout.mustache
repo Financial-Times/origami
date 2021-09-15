@@ -1,0 +1,125 @@
+<div class="o-layout o-layout--query" data-o-component="o-layout">
+    {{> shared/header}}
+
+    <div class="o-layout__heading o-layout-typography">
+		<h1 id="searchable-things">Searchable Things</h1>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur ipsa illum veniam doloremque ut laborum voluptates saepe dignissimos cupiditate eos.</p>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.</p>
+    </div>
+
+    <div class="o-layout__query-sidebar o-layout-typography">
+		<form action="/components" method="get" class="registry__form registry__container__sticky" data-o-component="o-filter-form" data-o-filter-form-browser-history="true">
+
+			<div class="o-forms-field" role="group" aria-labelledby="filter-type-title" aria-describedby="filter-type-info">
+				<span class="o-forms-title">
+					<span class="o-forms-title__main" id="filter-type-title">Types</span>
+					<span class="o-forms-title__prompt" id="filter-type-info">Filter results by type</span>
+				</span>
+				<span class="o-forms-input o-forms-input--checkbox">
+
+					<label>
+						<input type="checkbox" name="module" value="true" aria-label="Modules" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Modules</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="imageset" value="true" aria-label="Imagesets" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Imagesets</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="service" value="true" aria-label="Services" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Services</span>
+					</label>
+
+				</span>
+			</div>
+
+			<div class="o-forms-field" role="group" aria-labelledby="filter-status-title" aria-describedby="filter-status-info">
+				<span class="o-forms-title">
+					<span class="o-forms-title__main" id="filter-status-title">Status</span>
+					<span class="o-forms-title__prompt" id="filter-status-info">Filter results by status</span>
+				</span>
+				<span class="o-forms-input o-forms-input--checkbox">
+
+					<label>
+						<input type="checkbox" name="active" value="true" aria-label="Active" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Active</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="maintained" value="true" aria-label="Maintained" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Maintained</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="experimental" value="true" aria-label="Experimental" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Experimental</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="deprecated" value="true" aria-label="Deprecated" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Deprecated</span>
+					</label>
+
+					<label>
+						<input type="checkbox" name="dead" value="true" aria-label="Dead" checked />
+						<span class="o-forms-input__label" aria-hidden="true">Dead</span>
+					</label>
+
+				</span>
+			</div>
+		</form>
+    </div>
+
+	<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+		<h2 id="results">Results</h2>
+		<ul>
+			<li>
+				<p>Result 1</p>
+			</li>
+			<li>
+				<p>Result 2</p>
+			</li>
+			<li>
+				<p>Result 3</p>
+			</li>
+			<li>
+				<p>Result 4</p>
+			</li>
+			<li>
+				<p>Result 5</p>
+			</li>
+			<li>
+				<p>Result 6</p>
+			</li>
+			<li>
+				<p>Result 7</p>
+			</li>
+			<li>
+				<p>Result 8</p>
+			</li>
+			<li>
+				<p>Result 9</p>
+			</li>
+			<li>
+				<p>Result 10</p>
+			</li>
+			<li>
+				<p>Result 11</p>
+			</li>
+			<li>
+				<p>Result 12</p>
+			</li>
+		</ul>
+	</div>
+
+    <div class="o-layout__aside-sidebar o-layout-typography" data-o-component="o-syntax-highlight">
+		<!-- optional sticky container to hold sidebar content -->
+		<div class="o-layout-sticky-sidebar-container">
+			<p>Aside Sidebar: Lorem ipsum, dolor sit amet consectetur adipisicing <code class='o-syntax-highlight--html'>o-layout</code> elit. Pariatur beatae, tempora deleniti inventore impedit minus corrupti omnis esse assumenda perspiciatis?</p>
+		</div>
+    </div>
+
+	{{> shared/footer}}
+</div>

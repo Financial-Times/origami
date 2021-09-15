@@ -1,0 +1,220 @@
+
+/// Header Area
+/// Outputs grid header area
+/// @access private
+@mixin _oLayoutAreaHeader() {
+	.o-layout__header {
+		grid-area: header;
+	}
+}
+
+/// Sidebar Area
+/// Outputs grid sidebar area
+/// @access private
+@mixin _oLayoutAreaSidebar() {
+	.o-layout__sidebar {
+		@include oGridRespondTo($until: M) {
+			margin-top: $_o-layout-gutter;
+		}
+
+		grid-area: sidebar;
+	}
+}
+
+/// Outputs hero area
+/// @param {String} $hero-image - An image for the "hero" area background.
+/// @access private
+@mixin _oLayoutAreaHero($hero-image: '') {
+	.o-layout__hero {
+		position: relative;
+		grid-area: hero;
+		padding: $_o-layout-gutter * 2 $_o-layout-gutter;
+		text-align: center;
+		min-height: 30vh;
+		margin: 0 0 oSpacingByName('s4');
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		align-content: center;
+		justify-items: center;
+		justify-content: center;
+		// The background image is inherited by the pseudo element.
+		// This is to make it easier for a build service users to modify the background image.
+		@if type-of($hero-image) == 'string' and str-length($hero-image) > 0 {
+			background-image: url($hero-image);
+		}
+		background-size: 0 0;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100vw;
+			top: 0;
+			bottom: 0;
+			left: 50%;
+			margin-left: -50vw;
+			background-color: oColorsByName('slate-white-5');
+			background-size: cover;
+			background-image: inherit;
+			z-index: -1;
+		}
+		> *:not(.o-layout__unstyled-element):last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.o-layout__hero:not(.o-layout__hero--muted) h1:not(.o-layout__unstyled-element) {
+		@include oTypographyDisplay($scale: 6);
+	}
+
+	.o-layout__hero.o-layout__hero--muted {
+		align-items: start;
+		align-content: start;
+		text-align: left;
+		background-image: none;
+		min-height: auto;
+		@include oGridRespondTo($from: M) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+/// Columns for overview items, such as cards.
+/// Outputs overview area
+/// @access private
+@mixin _oLayoutAreaOverview() {
+	.o-layout__overview {
+		/*! autoprefixer: ignore next */
+		// o-layout does not cater for older `-ms-` versions of the grid spec.
+		display: grid;
+		/*! autoprefixer: ignore next */
+		grid-template-columns: repeat(var(--_o-layout-overview-columns, auto-fit), minmax(250px, 1fr));
+		/*! autoprefixer: ignore next */
+		grid-gap: $_o-layout-gutter * 3;
+		/*! autoprefixer: ignore next */
+		grid-row-gap: $_o-layout-gutter;
+	}
+
+	.o-layout__overview--consistent-columns {
+		--_o-layout-overview-columns: auto-fill;
+	}
+
+	.o-layout__overview--actions {
+		grid-gap: $_o-layout-gutter;
+		margin-bottom: oSpacingByIncrement(7); // Aligns with <p> margin set by oTypographyBody
+
+		.o-layout-item {
+			/*! autoprefixer: ignore next */
+			// o-layout does not cater for older `-ms-` versions of the grid spec.
+			display: grid;
+			/*! autoprefixer: ignore next */
+			grid-template-rows: 1fr min-content;
+			background-color: oColorsByName('slate-white-5');
+			padding: $_o-layout-gutter;
+		}
+
+		.o-layout-item__footer :last-child,
+		.o-layout-item__content:last-child :last-child {
+			margin-bottom: 0;
+		}
+
+		.o-layout-item__footer {
+			grid-row: 2 / 3;
+		}
+	}
+}
+
+/// Listing of article items
+/// @access private
+@mixin _oLayoutAreaListing() {
+	.o-layout__listing {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.o-layout__listing__item {
+		@include oTypographySans($scale: 1, $line-height: 1.4);
+		color: oColorsByUsecase('body', 'text', $fallback: null);
+		margin: 0 0 oSpacingByName('s6');
+		max-width: 60ch;
+	}
+
+	.o-layout__listing a {
+		@include oTypographyLink();
+	}
+
+	.o-layout__listing__item__title {
+		@include oTypographyHeading($level: 2);
+		margin: 0 0 oSpacingByName('s2') 0;
+	}
+
+	.o-layout__listing__item__description {
+		margin: 0 0 oSpacingByName('s1') 0;
+	}
+
+	.o-layout__listing__item__meta {
+		@include oTypographySans($scale: 0, $line-height: 1.4);
+		margin: 0;
+	}
+}
+
+/// Main Area
+/// Outputs grid main content area
+/// @access private
+@mixin _oLayoutAreaMain() {
+	.o-layout__main {
+		grid-area: main;
+		margin-top: $_o-layout-gutter;
+
+		> table {
+			box-sizing: border-box;
+			max-width: 100%;
+		}
+
+		img {
+			max-width: 100%;
+			display: inline-block;
+		}
+	}
+}
+
+/// Footer Area
+/// Outputs grid footer area
+/// @access private
+@mixin _oLayoutAreaFooter() {
+	.o-layout__footer {
+		grid-area: footer;
+	}
+}
+
+/// Heading Area
+/// Outputs a heading area, for page titles etc.
+/// Not to be confused with the header area, for navigation.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaHeading() {
+	.o-layout__heading {
+		grid-area: heading;
+	}
+}
+
+/// Query Sidebar
+/// Outputs a sidebar used for search and filter inputs.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaQuerySidebar() {
+	.o-layout__query-sidebar {
+		grid-area: query-sidebar;
+	}
+}
+
+/// Aside Sidebar
+/// Outputs a sidebar used for additional or secondary information.
+/// Used within the query layout at time of writing.
+/// @access private
+@mixin _oLayoutAreaAsideSidebar() {
+	.o-layout__aside-sidebar {
+		grid-area: aside-sidebar;
+	}
+}

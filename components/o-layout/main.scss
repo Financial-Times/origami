@@ -1,0 +1,100 @@
+@import '@financial-times/o-brand/main';
+@import '@financial-times/o-spacing/main';
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o-quote/main';
+
+@import 'src/scss/brand';
+@import 'src/scss/variables';
+@import 'src/scss/functions';
+@import 'src/scss/mixins';
+@import 'src/scss/grid';
+@import 'src/scss/grid-areas';
+
+/// @param {Map} $opts - A map of configuration, with "layouts" ('documentation', 'landing', 'query', 'bleed'), "features" ('linked-headings', 'typography'), and  "hero-image" (an image for the background of the "hero" area).
+@mixin oLayout($opts: (
+	'layouts': ('documentation', 'landing', 'query', 'bleed'),
+	'features': ('sidebar-nav', 'sticky-sidebar-container', 'linked-headings', 'typography'),
+	'hero-image': '',
+)) {
+	$layouts: map-get($opts, $key: 'layouts');
+	$features: map-get($opts, $key: 'features');
+	$linked-headings: index($features, 'linked-headings');
+	$typography: index($features, 'typography');
+	$nav: index($features, 'sidebar-nav');
+	$sticky-sidebar-container: index($features, 'sticky-sidebar-container');
+	$bleed-layout: index($layouts, 'bleed') and _oLayoutSupports('bleed');
+	$docs-layout: index($layouts, 'documentation') and _oLayoutSupports('documentation');
+	$landing-layout: index($layouts, 'landing') and _oLayoutSupports('landing');
+	$query-layout: index($layouts, 'query') and _oLayoutSupports('query');
+	$hero-image: map-get($opts, $key: 'hero-image');
+
+	// Base styles.
+	@include _oLayoutBase();
+
+	// 	Typography.
+	@if ($typography) {
+		@include oFonts();
+		@include _oLayoutTypography;
+	}
+	@if ($linked-headings) {
+		@include _oLayoutLinkedHeading();
+	}
+
+	// Shared layout areas.
+	@include _oLayoutAreaHeader();
+	@include _oLayoutAreaMain();
+	@include _oLayoutAreaFooter();
+
+	// Always include the sidebar nav for the docs layout.
+	@if($docs-layout or $nav) {
+		@include _oLayoutNavigation($query-layout);
+	}
+
+	// 	Layouts.
+	@if($bleed-layout) {
+		@include _oLayoutBleed();
+	}
+
+	@if($docs-layout) {
+		@include _oLayoutDocsGrid();
+		// Documentation page areas.
+		@include _oLayoutAreaSidebar();
+	}
+
+	@if($landing-layout) {
+		@include _oLayoutLandingGrid();
+		// Landing page areas.
+		@include _oLayoutAreaHero($hero-image);
+		@include _oLayoutAreaOverview();
+		@include _oLayoutAreaListing();
+	}
+
+	@if($query-layout) {
+		@include _oLayoutQueryGrid();
+		// Query page areas.
+		@include _oLayoutAreaHeading();
+		@include _oLayoutAreaQuerySidebar();
+		@include _oLayoutAreaAsideSidebar();
+	}
+
+	@if($sticky-sidebar-container) {
+		// @breaking - Remove `.sticky-sidebar-container` class
+		// as it is not specification compliant, class names
+		// must be prefixed with the component name.
+		.sticky-sidebar-container,
+		.o-layout-sticky-sidebar-container {
+			position: sticky;
+			top: oSpacingByName('s3');
+		}
+	}
+}
+
+@if $o-layout-is-silent == false {
+	@include oLayout();
+	// Set to silent again to avoid being output twice
+	$o-layout-is-silent: true !global;
+}
