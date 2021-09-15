@@ -19,7 +19,6 @@ jobs:
         with:
           cache: 'npm'
           node-version: 16
-          registry-url: 'https://origami-npm-registry-prototype.herokuapp.com'
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}
