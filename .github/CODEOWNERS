@@ -1,7 +1,9 @@
-# The Origami Core team is the default owner of all Origami-supported repositories.
-# This file adds the owner as a reviewer for all pull requests made to this repository.
-# It references owners by source order - the last matching pattern takes the most precedence.
-
-# If you would like to be added as an owner, please get in touch with the Origami team at origami.support@ft.com or #origami-support on Slack
-
+# The Origami Team watch over the whole component system
 * @Financial-Times/origami-core
+
+# Storytelling components
+components/o-comments/ @Financial-Times/content-innovation
+components/o-video/ @Financial-Times/content-innovation
+
+# Acquisition components
+components/o-subs-card @Financial-Times/acquisition
