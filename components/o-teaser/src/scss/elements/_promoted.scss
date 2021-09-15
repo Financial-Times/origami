@@ -1,0 +1,20 @@
+@mixin _oTeaserPartnerContent {
+	color: oColorsByName('black');
+
+	.o-teaser__meta {
+		@include oTypographySans($scale: -1, $weight: 'semibold');
+		color: $_o-teaser-muted;
+		margin-bottom: oSpacingByName('s2');
+	}
+
+	.o-teaser__promoted-prefix {
+		@include oTypographySans($scale: 0, $include-font-family: false);
+		text-transform: uppercase;
+		color: oColorsByName('matisse');
+		display: block;
+	}
+
+	.o-teaser__promoted-by {
+		text-transform: uppercase;
+	}
+}

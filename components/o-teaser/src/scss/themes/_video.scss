@@ -1,0 +1,81 @@
+@mixin _oTeaserVideo {
+	.o-teaser__heading:before {
+		@include oIconsContent('play', oColorsByName('white'), $size: null);
+		content: '';
+		width: 0.7em;
+		height: 0.7em;
+		min-width: 12px;
+		min-height: 12px;
+		margin-right: 0.15em;
+		background-color: oColorsByName('slate');
+
+	}
+
+	// hide the title prefix icon if there is an image...
+	&.o-teaser--has-image .o-teaser__heading:before {
+		content: none;
+	}
+
+	// ...except for when the image is hidden on small teasers on narrow viewports
+	&.o-teaser--has-image.o-teaser--small .o-teaser__heading:before {
+		@include oGridRespondTo($until: 'M') {
+			content: '';
+		}
+	}
+
+	// Add play icon overlay for image
+	.o-teaser__image-placeholder {
+		position: relative;
+
+		&:after {
+			@include oIconsContent('play', oColorsByName('white'), $size: null);
+			pointer-events: none;
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			width: 15%;
+			padding-top: 15%;
+			min-width: 20px;
+			min-height: 20px;
+			background-color: oColorsByName('slate');
+		}
+	}
+
+	.o-teaser__image-container a:focus {
+		display: block;
+		border: 0;
+	}
+}
+
+@mixin _oTeaserBigVideo {
+	// This variation assumes no --has-image variation as it
+	// is too specific and quirky to try and override!
+	// It is designed to work with --large, --hero and --top-story variations.
+
+	// hide the title prefix icon
+	.o-teaser__heading:before {
+		content: none;
+	}
+
+	.o-teaser__image-container {
+		// use padding instead of margins so we don't have to worry about
+		// the --stretch (flexbox) variant containing margins and doubling up.
+		padding: 0 0 oSpacingByName('s3');
+	}
+
+	&.o-teaser--large .o-teaser__image-container,
+	&.o-teaser--hero .o-teaser__image-container {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	&.o-teaser--large .o-teaser__image-container {
+		padding-top: oSpacingByName('s3');
+	}
+
+	&.o-teaser--hero .o-teaser__image-container {
+		padding-top: oSpacingByName('s1');
+	}
+}

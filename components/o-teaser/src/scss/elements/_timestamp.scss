@@ -1,0 +1,53 @@
+/// Timestamp base styles
+@mixin _oTeaserTimestamp {
+	@include oLabelsTimestampContent();
+	display: block;
+	// Moves timestamp to the bottom when stretched modifier is used
+	margin-top: auto;
+	// and ensures there is always some gap above
+	padding-top: oSpacingByName('s4');
+}
+
+/// Timestamp variant styles adding coloured prefixes.
+/// Includes keyframe declaration so must be used outside of
+/// a selector
+@mixin _oTeaserTimestampVariants {
+	// Output o-labels indicators.
+	.o-teaser__timestamp {
+		@include oLabelsIndicatorContent($opts: ('block': true));
+	}
+
+	.o-teaser__timestamp--new {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'new'));
+	}
+
+	.o-teaser__timestamp--updated {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'updated'));
+	}
+
+	// @deprecated - o-teaser__timestamp--inprogress has been replaced by o-teaser__timestamp--live
+	// https://github.com/Financial-Times/o-teaser/issues/173
+	.o-teaser__timestamp--inprogress,
+	.o-teaser__timestamp--live {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'live'));
+	}
+
+	.o-teaser__timestamp--closed {
+		@include oLabelsIndicatorContent($opts: ('block': true, 'modifier': 'closed'));
+	}
+
+	.o-teaser__timestamp-prefix {
+		@include oLabelsIndicatorContent($opts: ('element': 'status'));
+	}
+
+	.o-teaser__timestamp-date {
+		@include oLabelsIndicatorContent($opts: ('element': 'timestamp'));
+	}
+
+	// Output modifiers for custom, teaser specific indicator styles.
+	// @deprecated - remove the `comingsoon` modifier in the next major.
+	// https://github.com/Financial-Times/o-teaser/issues/173
+	.o-teaser__timestamp--comingsoon {
+		color: $_o-teaser-deprecated-coming-soon-color;
+	}
+}

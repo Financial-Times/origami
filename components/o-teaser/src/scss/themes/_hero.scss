@@ -1,0 +1,246 @@
+/// Base styles for a hero layout teaser
+@mixin _oTeaserHero {
+	display: flex;
+	flex-flow: column nowrap;
+
+	.o-teaser__content {
+		background: oColorsByUsecase('o-teaser/hero', 'background');
+		border: 0;
+		word-break: break-word;
+	}
+
+	.o-teaser__meta:after {
+		content: '';
+		display: block;
+		width: 60px;
+		border-bottom: oSpacingByIncrement(1) solid oColorsByName('claret');
+		margin-top: oSpacingByName('s1');
+		margin-bottom: oSpacingByName('s2');
+	}
+}
+
+/// Base styles for themed hero teasers
+@mixin _oTeaserHeroThemeBase {
+	@include _oTeaserInverse;
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+/// Hero opinion theme - blue background white based text
+@mixin _oTeaserHeroOpinion {
+	$opinion-color: oColorsByUsecase('o-teaser/hero-opinion', 'text');
+	$opinion-background: oColorsByUsecase('o-teaser/hero-opinion', 'background');
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
+	.o-teaser__heading a:visited,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus,
+	.o-teaser__standfirst a:visited,
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oColorsMix($opinion-color, $opinion-background, $percentage: 73);
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp,
+	.o-teaser__timestamp-prefix:before {
+		color: oColorsMix($opinion-color, $opinion-background, $percentage: 80);
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		background-color: oColorsMix(oColorsByName('white'), $opinion-background, 80);
+	}
+
+	.o-teaser__content,
+	.o-teaser__image-container:after {
+		background: $opinion-background;
+	}
+
+	.o-teaser__content:after {
+		@include oGridRespondTo(S, L) {
+			background: $opinion-background;
+		}
+	}
+}
+
+/// Hero image theme styles - full size image with text overlay
+@mixin _oTeaserHeroImage {
+	@include oGridRespondTo($until: M) {
+		@include _oTeaserHeroCentre;
+		@include _oTeaserHeroCentreImage;
+	}
+
+	@include oGridRespondTo(M) {
+		position: relative;
+
+		.o-teaser__image-container {
+			position: relative;
+			margin-top: 0;
+			padding-left: 0;
+			z-index: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		.o-teaser__content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			min-height: 30%;
+			background-color: transparent;
+			background-image: linear-gradient(to bottom, rgba(oColorsByName('black'), 0.75), transparent);
+			pointer-events: none;
+		}
+
+		.o-teaser__heading,
+		.o-teaser__heading a,
+		.o-teaser__heading a:visited,
+		.o-teaser__meta,
+		.o-teaser__standfirst,
+		.o-teaser__standfirst a,
+		.o-teaser__standfirst a:visited,
+		.o-teaser__timestamp {
+			color: oColorsByName('white');
+			pointer-events: auto;
+		}
+
+		.o-teaser__meta:after {
+			border-bottom-color: oColorsByName('white');
+		}
+	}
+}
+
+@mixin _oTeaserHeroMidSlice {
+	@include oGridRespondTo(M, $until: L) {
+		.o-teaser__image-container {
+			padding: 0 30%;
+		}
+	}
+}
+
+/// Hero teaser image container - for standard hero teasers
+@mixin _oTeaserHeroImageContainer {
+	.o-teaser__image-container {
+		order: -1;
+		width: 100%;
+		padding-left: 30%;
+
+		&:after {
+			background: oColorsByUsecase('o-teaser/hero', 'background');
+			display: block;
+			top: 50%;
+			border: 0;
+		}
+	}
+
+	.o-teaser__image {
+		max-width: 100%;
+	}
+}
+
+/// Centred hero teaser styles for centering content
+@mixin _oTeaserHeroCentre {
+	.o-teaser__content {
+		text-align: center;
+	}
+
+	.o-teaser__heading {
+		@include oTypographyDisplay($scale: 4);
+	}
+
+	.o-teaser__meta:after {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/// Centred hero teaser styles to centre image
+@mixin _oTeaserHeroCentreImage {
+	.o-teaser__image-container {
+		padding: 0 15%;
+	}
+}
+
+/// Hero standalone theme styles
+@mixin _oTeaserHeroStandalone {
+	.o-teaser__heading {
+		@include oTypographySans(4, $include-font-family: false);
+	}
+
+	.o-teaser__image-container {
+		padding-left: 20%;
+
+		&:after {
+			top: 25%;
+			height: 75%;
+		}
+	}
+}
+
+// Hero Package theme — extra
+@mixin _oTeaserHeroExtra {
+	$hero-extra-color: oColorsByUsecase('o-teaser/theme-hero-extra', 'text');
+	$hero-extra-background: oColorsByUsecase('o-teaser/theme-hero-extra', 'background');
+	// highlight colours
+	$hero-extra-highlight-border: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'border');
+	$hero-extra-highlight-color: oColorsByUsecase('o-teaser/theme-hero-extra-highlight', 'text');
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus {
+		color: $hero-extra-highlight-color;
+	}
+
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oColorsMix(oColorsByName('white'), $hero-extra-highlight-color, 73);
+	}
+
+	.o-teaser__meta {
+		color: $hero-extra-highlight-color;
+
+		&:after {
+			border-color: $hero-extra-highlight-border;
+		}
+	}
+
+	.o-teaser__heading,
+	.o-teaser__standfirst {
+		color: oColorsByName('white');
+		a:visited {
+			color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 50);
+		}
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: oColorsMix($hero-extra-color, $hero-extra-background, $percentage: 80);
+	}
+
+	.o-teaser__image-container:after,
+	.o-teaser__content {
+		background: $hero-extra-background;
+	}
+
+	.o-teaser__content:after {
+		@include oGridRespondTo(S, L) {
+			background: $hero-extra-background;
+		}
+	}
+}

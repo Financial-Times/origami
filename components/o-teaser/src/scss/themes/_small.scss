@@ -1,0 +1,55 @@
+/// Small teaser styles
+@mixin _oTeaserSmall {
+	display: flex;
+	padding-bottom: oSpacingByName('s3');
+	border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+
+	.o-teaser__content {
+		// IE needs a unit to apply flex-basis correctly 😐
+		flex: 1 0 0%;
+		order: 2;
+	}
+
+	.o-teaser__image-container {
+		width: 30%;
+		// because flex items are allowed to shrink implicitly
+		flex-shrink: 0;
+		padding-right: oGridGutter(M);
+
+		@include oGridRespondTo($until: M) { // Mobile screens only
+			display: none;
+		}
+	}
+}
+
+/// Small teaser styles for a stacked image
+/// image will appear 100% width at the top of the teaser
+@mixin _oTeaserSmallStacked {
+	flex-direction: column;
+
+	.o-teaser__content {
+		flex-basis: auto; // must override original .o-teaser__content flex-basis
+	}
+
+	@include oGridRespondTo(M) {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.o-teaser__image-container {
+		margin-bottom: oSpacingByName('s3');
+		width: 100%;
+		// <https://connect.microsoft.com/IE/feedbackdetail/view/891815>
+		min-height: 1px;
+		padding-top: 0;
+		padding-right: 0;
+	}
+}
+
+@mixin _oTeaserSmallImagePositionRight {
+	&.o-teaser--has-image .o-teaser__image-container {
+		order: 2;
+		padding-left: oGridGutter(M);
+		padding-right: inherit;
+	}
+}

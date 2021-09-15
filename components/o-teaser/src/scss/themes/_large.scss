@@ -1,0 +1,188 @@
+/// Styles for large teasers.
+/// Also form the basis of styles for hero teasers
+@mixin _oTeaserLarge {
+	@include oNormaliseClearfix;
+
+	.o-teaser__content {
+		padding: oGridGutter(M);
+		border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+	}
+
+	.o-teaser__heading {
+		@include oTypographyDisplay($scale: 3);
+	}
+
+	.o-teaser__standfirst {
+		@include oTypographySans(
+			$scale: (default: (1, 24px), L: (2, 24px)),
+			$include-font-family: false
+		);
+		margin-top: oSpacingByName('s6');
+	}
+}
+
+/// Adjusts large teasers to work with images.
+/// Appears in portrait at default-medium, landscape
+/// in medium-large, and portrait from large up
+@mixin _oTeaserLargeWithImage {
+	.o-teaser__content {
+		@include oGridRespondTo($until: S) {
+			border-bottom: 0;
+		}
+
+		@include oGridRespondTo(S, L) {
+			position: relative;
+			float: left;
+			border-right: 0;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 1px;
+				right: -25%;
+				height: 100%;
+				width: 25%;
+				display: block;
+				border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+				border-left: 0;
+			}
+		}
+
+		@include oGridRespondTo(S, M) {
+			width: 60%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 70%;
+		}
+
+		@include oGridRespondTo(L) {
+			border-bottom: 0;
+		}
+	}
+}
+
+/// Image container styles for large image
+/// at various breakpoints
+@mixin _oTeaserImageContainer {
+	.o-teaser__image {
+		position: relative;
+		z-index: 1;
+
+		@include oGridRespondTo(M, L) {
+			max-width: 220px;
+		}
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-top: -1px;
+		padding-left: 25%;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 50%;
+			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+		}
+
+		@include oGridRespondTo(S, L) {
+			float: right;
+			margin-top: 0;
+			padding-left: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		@include oGridRespondTo(S, M) {
+			width: 40%;
+		}
+
+		@include oGridRespondTo(M, L) {
+			width: 30%;
+		}
+	}
+}
+
+/// Forces a large teaser to always appear in the portrait
+/// style, regardless of breakpoint
+@mixin _oTeaserLargeImagePortrait {
+	.o-teaser__content {
+		border-bottom: 0;
+	}
+
+	.o-teaser__image {
+		position: relative;
+		z-index: 1;
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: none;
+		width: 100%;
+		margin-top: -1px;
+		padding-left: 25%;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 50%;
+			border-left: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-bottom: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+		}
+	}
+}
+
+/// Forces a large teaser to always appear in the landscape
+/// style, regardless of breakpoint
+@mixin _oTeaserLargeImageLandscape {
+	.o-teaser__content {
+		position: relative;
+		float: left;
+		width: 60%;
+		border-right: 0;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 1px;
+			right: -25%;
+			height: 100%;
+			width: 25%;
+			display: block;
+			border: 1px solid oColorsByUsecase('o-teaser/base', 'border');
+			border-left: 0;
+		}
+	}
+
+	.o-teaser__image {
+		position: relative;
+		max-width: 220px;
+		z-index: 1;
+	}
+
+	.o-teaser__image-container {
+		position: relative;
+		float: right;
+		width: 40%;
+		margin-top: 0;
+		padding-left: 0;
+
+		&:after {
+			display: none;
+		}
+	}
+}

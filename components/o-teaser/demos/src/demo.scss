@@ -1,0 +1,46 @@
+@import '../../main';
+
+@include oTeaser();
+@include oFonts();
+
+body {
+	background-color: oColorsByName('paper');
+}
+
+.demo-container {
+	@include oGridColspan((default: 12, M: 6, XL: 4));
+	width: 100%;
+	padding: 20px;
+
+	&--large {
+		@include oGridColspan((default: 12, L: 4));
+
+		&.demo-container--top-story {
+			@include oGridColspan((default: 12, L: 12));
+		}
+	}
+
+	&--inverse {
+		background-color: oColorsByName('black');
+	}
+
+	&--stretched {
+		display: flex;
+	}
+
+	&--big-story {
+		margin: 20px 0;
+		padding: 0 40px;
+		background-color: oColorsByName('wheat');
+	}
+}
+
+.image-placeholder {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+
+.demo-image {
+	background-color: oColorsByName('white');
+}

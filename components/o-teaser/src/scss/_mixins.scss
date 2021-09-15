@@ -1,0 +1,286 @@
+/// Includes the correct mixin for elements
+/// based on the group name passed
+///
+/// @param {String} $group
+@mixin _oTeaserGetElementsMixin($group) {
+	@if $group == 'default' {
+		@include _oTeaserElementsDefault;
+	} @else if $group == 'images' {
+		@include _oTeaserElementsImages;
+	} @else if $group == 'timestamp' {
+		@include _oTeaserElementsTimestamp;
+	} @else if $group == 'promoted' {
+		@include _oTeaserElementsPromoted;
+	} @else if $group == 'related-items' {
+		@include _oTeaserElementsRelatedItems;
+	} @else if $group == 'syndication' {
+		@include _oTeaserSyndicationIndicator;
+	}
+}
+
+/// Includes the correct mixin for themes
+/// based on the theme name passed
+///
+/// @param {String} $theme
+@mixin _oTeaserGetThemeMixin($theme) {
+	@if $theme == 'small' {
+		@include _oTeaserThemeSmall;
+	} @else if $theme == 'large' {
+		@include _oTeaserThemeLarge;
+	} @else if $theme == 'standard' {
+		@include _oTeaserThemeStandard;
+	} @else if $theme == 'hero' {
+		@include _oTeaserThemeHero;
+	} @else if $theme == 'top-stories' {
+		@include _oTeaserThemeTopStories;
+	} @else if $theme == 'video' {
+		@include _oTeaserThemeVideo;
+	} @else if $theme == 'audio' {
+		@include _oTeaserThemeAudio;
+	} @else if $theme == 'package' {
+		@include _oTeaserThemePackage;
+	} @else if $theme == 'live' {
+		@include _oTeaserThemeLive;
+	}
+}
+
+@mixin _oTeaserElementsDefault {
+	.o-teaser__meta {
+		@include _oTeaserMeta;
+	}
+
+	.o-teaser__tag-prefix {
+		@include _oTeaserTagPrefix;
+	}
+
+	.o-teaser__tag {
+		@include _oTeaserTag;
+	}
+
+	.o-teaser__tag-suffix {
+		@include _oTeaserTagSuffix;
+	}
+
+	.o-teaser__heading {
+		@include oTeaserHeading;
+	}
+
+	.o-teaser__standfirst {
+		@include _oTeaserStandfirst;
+	}
+}
+
+@mixin _oTeaserElementsImages {
+	.o-teaser__image-placeholder {
+		@include _oTeaserImagePlaceholder;
+	}
+
+	.o-teaser__image {
+		@include _oTeaserImage;
+	}
+
+	@include _oTeaserHeadshot;
+}
+
+@mixin _oTeaserElementsTimestamp {
+	.o-teaser__timestamp {
+		@include _oTeaserTimestamp;
+	}
+
+	@include _oTeaserTimestampVariants;
+}
+
+@mixin _oTeaserElementsPromoted {
+	.o-teaser--promoted-content,
+	.o-teaser--paid-post {
+		@include _oTeaserPartnerContent;
+	}
+
+	.o-teaser--promoted-content {
+		.o-teaser__heading a {
+			@include oTypographyLink(
+				$external: true,
+				$include-base-styles: false,
+				$theme: (
+					'base': $_o-teaser-base-color,
+					'hover': $_o-teaser-focus-hover
+				)
+			);
+		}
+	}
+}
+
+@mixin _oTeaserElementsRelatedItems {
+	.o-teaser__related {
+		@include _oTeaserRelated;
+	}
+
+	.o-teaser__related-item {
+		@include _oTeaserRelatedItem;
+	}
+}
+
+@mixin _oTeaserThemeStandard {
+	.o-teaser--opinion {
+		@include _oTeaserOpinion;
+
+		&.o-teaser--opinion-background {
+			@include _oTeaserOpinionBackground;
+		}
+	}
+
+	.o-teaser--inverse {
+		@include _oTeaserInverse;
+	}
+}
+
+@mixin _oTeaserThemeSmall {
+	.o-teaser--small {
+		@include _oTeaserSmall;
+
+		&.o-teaser--stacked {
+			@include _oTeaserSmallStacked;
+		}
+
+		&.o-teaser--image-position-right {
+			@include _oTeaserSmallImagePositionRight;
+		}
+	}
+}
+
+@mixin _oTeaserThemeLarge {
+	.o-teaser--large,
+	.o-teaser--large-portrait,
+	.o-teaser--large-landscape {
+		@include _oTeaserLarge;
+	}
+
+	.o-teaser--large-portrait {
+		@include _oTeaserLargeImagePortrait;
+	}
+
+	.o-teaser--large-landscape {
+		@include _oTeaserLargeImageLandscape;
+	}
+
+	.o-teaser--large.o-teaser--has-image {
+		@include _oTeaserImageContainer;
+		@include _oTeaserLargeWithImage;
+	}
+}
+
+@mixin _oTeaserThemeHero {
+	.o-teaser--hero {
+		@include _oTeaserLarge;
+		@include _oTeaserHero;
+
+		// Additional o-teaser class selector is used to fight o-normalise
+		// specificity, which is unfortunately high to support a :focus-visible
+		// polyfill
+		&.o-teaser *:focus-visible,
+		&.o-teaser *:focus {
+			outline-color: currentColor;
+		}
+
+		&.o-teaser--has-image {
+			@include _oTeaserImageContainer;
+			@include _oTeaserHeroImageContainer;
+
+			&.o-teaser--hero-image {
+				@include _oTeaserHeroImage;
+			}
+		}
+
+		&.o-teaser--standalone {
+			@include _oTeaserHeroStandalone;
+		}
+	}
+
+	.o-teaser--centre {
+		@include _oTeaserHeroCentre;
+
+		&.o-teaser--has-image {
+			@include _oTeaserHeroCentreImage;
+		}
+	}
+
+	.o-teaser--stretched {
+		@include _oTeaserStretched;
+	}
+
+	.o-teaser--hero {
+		&.o-teaser--highlight,
+		&.o-teaser--opinion {
+			@include _oTeaserHeroThemeBase;
+		}
+
+		&.o-teaser--opinion {
+			@include _oTeaserHeroOpinion;
+		}
+
+		&.o-teaser--highlight {
+			@include _oTeaserHighlight;
+		}
+
+		&.o-teaser--extra-article {
+			@include _oTeaserHeroExtra;
+		}
+	}
+
+	.o-teaser--midslice.o-teaser--has-image {
+		@include _oTeaserHeroMidSlice;
+	}
+}
+
+@mixin _oTeaserThemeTopStories {
+	.o-teaser--top-story {
+		@include _oTeaserLarge;
+		@include _oTeaserTopStoryBase;
+
+		&.o-teaser--landscape,
+		&.o-teaser--standalone {
+			@include _oTeaserTopStoryStandalone;
+		}
+
+		&.o-teaser--landscape,
+		&.o-teaser--big-story {
+			@include _oTeaserTopStoryLandscape;
+		}
+
+		&.o-teaser--big-story {
+			@include _oTeaserTopStoryBigStory;
+		}
+	}
+}
+
+@mixin _oTeaserThemeAudio {
+	.o-teaser--audio {
+		@include _oTeaserAudio;
+	}
+}
+
+@mixin _oTeaserThemeVideo {
+	.o-teaser--video {
+		@include _oTeaserVideo;
+	}
+
+	.o-teaser--has-video {
+		@include _oTeaserBigVideo;
+	}
+}
+
+@mixin _oTeaserThemePackage {
+	.o-teaser--basic-package,
+	.o-teaser--special-report-package,
+	.o-teaser--extra-package {
+		@include _oTeaserPackage;
+	}
+
+	.o-teaser--special-report-package {
+		@include _oTeaserSpecialReportPackage;
+	}
+
+	.o-teaser--extra-package {
+		@include _oTeaserExtraPackage;
+	}
+}

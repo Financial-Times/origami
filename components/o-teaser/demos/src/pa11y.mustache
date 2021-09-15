@@ -1,0 +1,833 @@
+<div class="demo-container">
+
+	<div class="o-teaser o-teaser--small" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp">
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--stacked o-teaser--has-image o-teaser--live" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp o-teaser__timestamp--live">
+					<span class="o-teaser__timestamp-prefix">Live</span>
+				</div>
+			{{/article-timestamp}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp">
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--stacked" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp">
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--opinion o-teaser--has-headshot" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp o-teaser__timestamp--live">
+					<span class="o-teaser__timestamp-prefix">Live</span>
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+
+			{{#article-headshot}}
+				<img src="{{article-headshot}}" alt="example article headshot image" class="o-teaser__headshot">
+			{{/article-headshot}}
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--large-portrait o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--large-landscape o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--large o-teaser--has-image o-teaser--opinion" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--highlight" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--highlight" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--opinion" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--opinion" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--centre" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--hero-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--hero-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+		</div>
+
+		<div class="o-teaser__image-container demo-image">
+			<div class="o-teaser__image-placeholder image-placeholder">
+			</div>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--opinion o-teaser--stretched" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--paid-post" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			{{#article-promoted-by}}
+				<span class="o-teaser__promoted-prefix">{{article-promoted-prefix}}</span>
+				BY <span class="o-teaser__promoted-by">{{article-promoted-by}}</span>
+			{{/article-promoted-by}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp o-teaser__timestamp--live">
+					<span class="o-teaser__timestamp-prefix">Live</span>
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--small o-teaser--promoted-content" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			{{#article-tag}}
+				<div class="o-teaser__meta">
+					<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+				</div>
+			{{/article-tag}}
+
+			{{#article-promoted-by}}
+				<span class="o-teaser__promoted-prefix">{{article-promoted-prefix}}</span>
+				BY <span class="o-teaser__promoted-by">{{article-promoted-by}}</span>
+			{{/article-promoted-by}}
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<div class="o-teaser__timestamp o-teaser__timestamp--live">
+					<span class="o-teaser__timestamp-prefix">Live</span>
+					<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+				</div>
+			{{/article-timestamp}}
+
+			{{#article-headshot}}
+				<img src="{{article-headshot}}" alt="example article headshot image" class="o-teaser__headshot">
+			{{/article-headshot}}
+		</div>
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--hero o-teaser--extra-article o-teaser--has-image o-teaser--centre" data-o-component="o-teaser">
+		{{#article-image-url}}
+		<div class="o-teaser__image-container">
+			<div class="o-teaser__image-placeholder image-placeholder">
+				<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+			</div>
+		</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--extra-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--extra-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				{{#article-package-list}}
+					<li class="package-teaser__list-item"><a href="#">{{article-title}}</a></li>
+				{{/article-package-list}}
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--basic-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--basic-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				{{#article-package-list}}
+					<li class="package-teaser__list-item"><a href="#">{{article-title}}</a></li>
+				{{/article-package-list}}
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--special-report-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="o-teaser o-teaser--special-report-package" data-o-component="o-teaser">
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<span>{{article-tag-prefix}}</span>
+			</div>
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			<ul class="package-teaser__list">
+				{{#article-package-list}}
+					<li class="package-teaser__list-item"><a href="#">{{article-title}}</a></li>
+				{{/article-package-list}}
+				<li class="package-teaser__list-item package-teaser__landing-link">
+					<a href="#">Visit Series</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+<div class="demo-container demo-container--top-story demo-container--large">
+
+	<div class="o-teaser o-teaser--hero o-teaser--has-image o-teaser--standalone" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp-date" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+	</div>
+
+	<div class="o-teaser o-teaser--top-story o-teaser--standalone o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		{{#article-related-links.length}}
+			<ul class="o-teaser__related">
+				{{#article-related-links}}
+					<li class="o-teaser__related-item"><a href="#">{{article-link}}</a></li>
+				{{/article-related-links}}
+			</ul>
+		{{/article-related-links.length}}
+	</div>
+
+	<div class="o-teaser o-teaser--top-story o-teaser--landscape o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		{{#article-related-links.length}}
+			<ul class="o-teaser__related">
+				{{#article-related-links}}
+					<li class="o-teaser__related-item"><a href="#">{{article-link}}</a></li>
+				{{/article-related-links}}
+			</ul>
+		{{/article-related-links.length}}
+	</div>
+</div>
+
+<div class="demo-container demo-container--large demo-container--top-story demo-container--big-story">
+	<div class="o-teaser o-teaser--top-story o-teaser--big-story o-teaser--has-image" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+
+		{{#article-image-url}}
+			<div class="o-teaser__image-container">
+				<div class="o-teaser__image-placeholder image-placeholder">
+					<img src="{{article-image-url}}" class="o-teaser__image" alt="demo image"/>
+				</div>
+			</div>
+		{{/article-image-url}}
+
+		{{#article-related-links.length}}
+			<ul class="o-teaser__related">
+				{{#article-related-links}}
+					<li class="o-teaser__related-item"><a href="#">{{article-link}}</a></li>
+				{{/article-related-links}}
+			</ul>
+		{{/article-related-links.length}}
+	</div>
+</div>
+
+<div class="demo-container demo-container--inverse">
+	<div class="o-teaser o-teaser--large o-teaser--inverse" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+	</div>
+</div>
+
+<div class="demo-container demo-container--inverse">
+	<div class="o-teaser o-teaser--large o-teaser--inverse" data-o-component="o-teaser">
+		<div class="o-teaser__content">
+			<div class="o-teaser__meta">
+				<a href="#" class="o-teaser__tag">{{article-tag}}</a>
+			</div>
+
+			<h2 class="o-teaser__heading"><a href="#">{{article-heading}}</a></h2>
+
+			{{#article-standfirst}}
+				<p class="o-teaser__standfirst"><a href="#">{{article-standfirst}}</a></p>
+			{{/article-standfirst}}
+
+			{{#article-timestamp}}
+				<time data-o-component="o-date" class="o-teaser__timestamp" datetime="{{article-timestamp}}">{{article-timestamp}}</time>
+			{{/article-timestamp}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+/// Default image styles
+@mixin _oTeaserImage {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+
+/// Image placeholder styles to create a 16:9 space
+/// for when an image is being lazy-loaded
+@mixin _oTeaserImagePlaceholder {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+	z-index: 1;
+
+	.o-teaser__image {
+		float: left;
+	}
+}
+
+/// Headshot styles and modification of content to accommodate
+/// the headshot. Should be used outside of a selector
+@mixin _oTeaserHeadshot {
+	.o-teaser--has-headshot .o-teaser__content {
+		padding-right: 95px;
+		min-height: 60px;
+	}
+
+	.o-teaser__headshot {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		height: 75px;
+		width: 75px;
+	}
+}

@@ -1,0 +1,41 @@
+
+@mixin _oTeaserSyndicationIndicator {
+	.o-teaser__syndication-indicator {
+		position: relative;
+		top: oSpacingByName('s1');
+		border-radius: 50%;
+
+		span {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+			padding: 0;
+			border: 0;
+			height: 1px;
+			width: 1px;
+			overflow: hidden;
+		}
+	}
+
+	.syndi.o-teaser__syndication-indicator {
+		@include oIconsContent('minus', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('black-40');
+	}
+
+	.o-teaser__syndication-indicator--yes,
+	.syndi.o-teaser__syndication-indicator--yes {
+		@include oIconsContent('tick', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('jade');
+	}
+
+	.o-teaser__syndication-indicator--no,
+	.syndi.o-teaser__syndication-indicator--no {
+		@include oIconsContent('minus', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('crimson');
+	}
+
+	.o-teaser__syndication-indicator--verify,
+	.syndi.o-teaser__syndication-indicator--verify {
+		@include oIconsContent('tick', oColorsByName('white'), $size: 20);
+		background-color: oColorsByName('mandarin');
+	}
+}

@@ -1,0 +1,83 @@
+/// Base Top story styles for all variants
+@mixin _oTeaserTopStoryBase {
+	.o-teaser__content {
+		padding: 0 0 32px;
+		border: 0;
+	}
+
+	.o-teaser__heading {
+		@include oTypographyDisplay($scale: (default: (5, 1), L: (7)));
+	}
+
+	.o-teaser__standfirst {
+		@include oTypographySans(2, $include-font-family: false);
+	}
+}
+
+/// Standalone top story theme styles
+@mixin _oTeaserTopStoryStandalone {
+	.o-teaser__image-container {
+		margin-bottom: oSpacingByName('s3');
+	}
+}
+
+/// Landscape top story theme styles
+@mixin _oTeaserTopStoryLandscape {
+	@include oNormaliseClearfix;
+	background: oColorsByUsecase('o-teaser/hero', 'background');
+	padding: 12px;
+
+	@include oGridRespondTo(M) {
+		padding: 20px 0 0 20px;
+
+		.o-teaser__content {
+			float: left;
+			width: 50%;
+			padding-right: 20px;
+		}
+
+		.o-teaser__image-container,
+		.o-teaser__related {
+			float: right;
+			width: 50%;
+		}
+
+		.o-teaser__related {
+			padding-right: 20px;
+		}
+	}
+}
+
+/// Big Story top story theme styles
+@mixin _oTeaserTopStoryBigStory {
+	margin-bottom: 0;
+	padding: 0;
+	border-bottom: 0;
+
+	.o-teaser__image-placeholder {
+		padding-bottom: 100%;
+	}
+
+	.o-teaser__content {
+		padding: 60px 0 12px;
+	}
+
+	@include oGridRespondTo(M) {
+		.o-teaser__content {
+			float: left;
+			width: 50%;
+			padding: 60px 20px 12px 0;
+		}
+
+		.o-teaser__image-container {
+			width: 50%;
+			float: right;
+		}
+	}
+
+	@include oGridRespondTo(L) {
+		.o-teaser__image-container {
+			margin-bottom: 0;
+		}
+	}
+}

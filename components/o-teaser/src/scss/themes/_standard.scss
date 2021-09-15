@@ -1,0 +1,121 @@
+/// Inverse theme styles - base all text content on white
+@mixin _oTeaserInverse {
+	$inverse-color: oColorsByUsecase('o-teaser/inverse', 'text');
+	$inverse-background: oColorsByUsecase('o-teaser/inverse', 'background');
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
+	.o-teaser__heading a:visited,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus,
+	.o-teaser__standfirst a:visited,
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oColorsMix($inverse-color, $inverse-background, $percentage: 60);
+	}
+
+	.o-teaser__meta,
+	.o-teaser__tag-suffix,
+	.o-teaser__heading {
+		color: oColorsByName('white');
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: oColorsMix($inverse-color, $inverse-background, $percentage: 60);
+	}
+
+	&.o-teaser--hero .o-teaser__meta:after {
+		border-bottom-color: oColorsByName('white');
+	}
+}
+
+/// Make a teaser fill the full height of its container
+/// (if the container is flex) and stretch the content to
+/// move timestamp to teaser footer
+@mixin _oTeaserStretched {
+	display: flex;
+	flex-grow: 1;
+
+	.o-teaser__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		flex-basis: auto;
+	}
+}
+
+/// General opinion theme teaser - turns tag content blue
+@mixin _oTeaserOpinion {
+	.o-teaser__meta {
+		color: oColorsByUsecase('o-teaser/opinion-tag', 'text');
+	}
+}
+
+/// Opinion background theme - colours background blue and adjust text
+@mixin _oTeaserOpinionBackground {
+	$theme-opinion-color: oColorsByUsecase('o-teaser/theme-opinion', 'text');
+	$theme-opinion-background: oColorsByUsecase('o-teaser/theme-opinion', 'background');
+	.o-teaser__standfirst,
+	.o-teaser__timestamp {
+		color: oColorsMix($theme-opinion-color, $theme-opinion-background, $percentage: 60);
+	}
+
+	&.o-teaser--large {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			color: $theme-opinion-color;
+			background: $theme-opinion-background;
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				color: $theme-opinion-color;
+				background: $theme-opinion-background;
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+/// Highlight theme - colours background claret and adjust text colours
+@mixin _oTeaserHighlight {
+	$theme-highlight-color: oColorsByUsecase('o-teaser/hero-highlight', 'text');
+	$theme-highlight-background: oColorsByUsecase('o-teaser/hero-highlight', 'background');
+	.o-teaser__heading a:hover,
+	.o-teaser__heading a:focus,
+	.o-teaser__heading a:visited,
+	.o-teaser__standfirst a:hover,
+	.o-teaser__standfirst a:focus,
+	.o-teaser__standfirst a:visited,
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 73);
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp,
+	.o-teaser__timestamp-prefix:before {
+		color: oColorsMix($theme-highlight-color, $theme-highlight-background, $percentage: 80);
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		background-color: oColorsMix(oColorsByName('white'), $theme-highlight-background, 80);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			color: $theme-highlight-color;
+			background: $theme-highlight-background;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				color: $theme-highlight-color;
+				background: $theme-highlight-background;
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+@import "@financial-times/o-spacing/main";
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-grid/main";
+@import "@financial-times/o-icons/main";
+@import "@financial-times/o-typography/main";
+@import "@financial-times/o-labels/main";
+@import "@financial-times/o-normalise/main";
+
+@import "src/scss/color-use-cases";
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/deprecated";
+
+@import "src/scss/elements/default";
+@import "src/scss/elements/images";
+@import "src/scss/elements/promoted";
+@import "src/scss/elements/related-items";
+@import "src/scss/elements/timestamp";
+@import "src/scss/elements/syndication";
+@import "src/scss/themes/small";
+@import "src/scss/themes/large";
+@import "src/scss/themes/audio";
+@import "src/scss/themes/video";
+@import "src/scss/themes/standard";
+@import "src/scss/themes/hero";
+@import "src/scss/themes/top-stories";
+@import "src/scss/themes/package";
+@import "src/scss/themes/live";
+
+/// Output all styles for teasers.
+///
+/// @param {Map} $opts [all] - A map of teaser options. Includes an 'elements' key, to list which teaser elements will be used; and a 'themes' key, to list whilst themes will be used to modify the included teaser elements.
+@mixin oTeaser($opts: (
+	'elements': $_o-teaser-elements,
+	'themes': $_o-teaser-themes
+)) {
+	$elements: map-get($opts, 'elements');
+	$elements: if($elements, $elements, ());
+
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+
+	.o-teaser {
+		@include _oTeaserBase;
+	}
+
+	@each $group in $elements {
+		@if index($_o-teaser-elements, $group) != null {
+			@include _oTeaserGetElementsMixin($group);
+		} @else {
+			@error "There is no theme '#{$group}' available in o-teaser, please use one of the following: #{$_o-teaser-elements}.";
+		}
+	}
+
+	@each $theme in $themes {
+		@if index($_o-teaser-themes, $theme) != null {
+			@include _oTeaserGetThemeMixin($theme);
+		} @else {
+			@error "There is no theme '#{$theme}' available in o-teaser, please use one of the following: #{$_o-teaser-themes}.";
+		}
+	}
+}
+
+@if ($o-teaser-is-silent == false) {
+	@include oTeaser();
+
+	// Set to silent again to avoid being output twice
+	$o-teaser-is-silent: true !global;
+}
