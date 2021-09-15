@@ -26,6 +26,10 @@ void (async function () {
 
 			const demosConfig = componentConfig.demos || []
 
+			if (demosConfig.length === 0) {
+				process.exit(0)
+			}
+
 			if (componentConfig.brands) {
 				for (const brand of componentConfig.brands) {
 					await generateDemosFor(brand, demosConfig)
