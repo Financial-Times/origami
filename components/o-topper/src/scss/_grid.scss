@@ -1,3 +1,7 @@
+/// Output styles to match the layout of a `Financial-Times/next-article` article.
+/// @link https://github.com/Financial-Times/next-article/blob/3a0ac82c9066c82efad2b71be10bca578d881489/client/components/grid/_helpers.scss#L13 Matching`next-article`.
+/// @link https://github.com/Financial-Times/ft-app/blob/ba8c4d756cc342ae3c8b347216b02bf6ddd335db/lib/css/article/main.scss#L115 Used in `ft-app` even though this is a private mixin now.
+/// @access private
 @mixin _oTopperArticleGrid() {
 	@include oGridContainer();
 	display: flex;
@@ -7,6 +11,9 @@
 		display: grid;
 		grid-template-columns: 40px 40px minmax(500px, 700px) minmax(20px, 1fr) 300px;
 
+		// lhr: left-hand rail
+		// rhr: right-hand rail
+		// onward: "onward journey", at the end of an article
 		grid-template-areas: "lhr . image . rhr-top"
 			"lhr . content . rhr-top"
 			"lhr . content . rhr-middle"
@@ -24,6 +31,11 @@
 	}
 }
 
+/// Override the default article layout to center the content column.
+/// This copies styles from `Financial-Times/next-article`.
+/// @link https://github.com/Financial-Times/next-article/blob/3a0ac82c9066c82efad2b71be10bca578d881489/client/components/grid/_helpers.scss#L29 Matching`next-article` styles.
+/// @see _oTopperArticleGrid
+/// @access private
 @mixin _oTopperArticleGridCentered() {
 	@include oGridRespondTo(L) {
 		grid-template-columns: 40px 1fr minmax(500px, 700px) 1fr 40px;
@@ -31,5 +43,22 @@
 
 	@include oGridRespondTo(XL) {
 		grid-template-columns: 1fr 40px minmax(500px, 700px) 40px 1fr;
+	}
+}
+
+/// Override the default article layout to remove columns from the left of
+/// article content. This places content to the left of the page.
+/// These styles appear to be ft-app specific.
+/// @link https://github.com/Financial-Times/o-topper/pull/5 Right rail styles were added for app purposes.
+/// @link https://github.com/Financial-Times/ft-app/blob/ba8c4d756cc342ae3c8b347216b02bf6ddd335db/lib/css/article/main.scss#L116 Used in `ft-app` even though this is a private mixin now.
+/// @see _oTopperArticleGrid
+/// @access private
+@mixin _oTopperGridRightRail() {
+	@include oGridRespondTo(L) {
+		grid-template-columns: 0 0 minmax(500px, 700px) minmax(20px, 1fr) 300px;
+	}
+
+	@include oGridRespondTo(XL) {
+		grid-template-columns: 0 0 minmax(500px, 700px) minmax(20px, 1fr) 300px;
 	}
 }

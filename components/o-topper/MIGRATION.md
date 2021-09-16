@@ -1,34 +1,5 @@
 # Migration guide
 
-## Migrating from v4 to v5
-
-The velvet topper (previously used to indicate life and arts) has been removed.
-
-- Confirm the `.o-topper--color-velvet` class is not used - [it appears the velvet topper style is no longer used by projects](https://github.com/Financial-Times/o-topper/pull/94) - consult Origami and the design team to remove its use if it is.
-- If your project uses the `oTopper` Sass mixin with an options argument and `colors` key, remove `velvet` as a value.
-
-```diff
-@include oTopper($opts: (
-	'themes': (
-        //...
-	),
-	'elements': (
-        //...
-	),
-	'colors': (
-        //...
-		'sky',
--		'velvet'
-	)
-));
-```
-
-## Migrating from v3 to v4
-
-Support for Bower and version 2 of the Origami Build Service have been removed.
-
-Follow [the migration guide on the Origami website](https://origami.ft.com/docs/tutorials/bower-to-npm/).
-
 ## Migrating from v2 to v3
 
 The `oTopper` mixin now outputs all o-topper styles by default. Pass a blank options `$opts` map to only output base topper styles.

@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperStandfirst {
 	@include oEditorialTypographyStandfirst();
 	opacity: 0.8;
@@ -7,6 +8,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperSummary {
 	@include oTypographySans(1);
 	> ul {
@@ -18,7 +20,7 @@
 	}
 }
 
-
+/// @access private
 @mixin _oTopperSummaryBody {
 	h2 {
 		@include oTypographySans(0, $weight: 'semibold');
@@ -36,10 +38,12 @@
 			@include oTypographySans(1);
 			margin-top: oSpacingByName('s2');
 			margin-bottom: 0;
+			font-weight: 600;
 		}
 	}
 }
 
+/// @access private
 @mixin _oTopperImageCredit {
 	@include oTypographySans(-2);
 	color: oColorsByName('white');
@@ -50,6 +54,7 @@
 }
 
 //IE9 support
+/// @access private
 @mixin _oTopperImage {
 	display: block;
 	position: relative;
@@ -61,40 +66,61 @@
 	}
 }
 
-@include _oTopperDefineOnce(tag) {
-	%_o-topper__tag {
-		@include oEditorialTypographyTag($type: 'topic');
-		color: unset;
-
-		@at-root a#{&} {
-			color: unset;
-			&:hover {
-				color: unset;
-			}
-		}
-	}
-}
-
+/// @access private
 @mixin _oTopperBrand {
 	@extend %_o-topper__tag;
 	margin-right: 4px;
 }
 
+/// @access private
+@mixin _oTopperOpinionGenre {
+	@extend %_o-topper__tag;
+	font-weight: normal;
+	color: oColorsByName('oxford');
+}
+
+/// @access private
+@mixin _oTopperHeadshot {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: $_o-topper-headshot-width;
+	overflow: hidden;
+
+	@include oGridRespondTo(M) {
+		width: $_o-topper-headshot-width-M;
+	}
+
+	@include oGridRespondTo(L) {
+		bottom: -20px;
+	}
+}
+
+/// @access private
+@mixin _oTopperHeadshotImage {
+	max-width: 100%;
+	display: block;
+}
+
+/// @access private
 @mixin _oTopperColumnist {
 	margin-top: oSpacingByName('s4');
 	text-transform: uppercase;
 }
 
+/// @access private
 @mixin _oTopperColumnistName {
 	@extend %_o-topper__tag;
 	vertical-align: middle;
 }
 
+/// @access private
 @mixin _oTopperTags {
 	@include oTypographySans(0, $line-height: 28px, $include-font-family: false);
 	padding-bottom: 5px;
 }
 
+/// @access private
 @mixin _oTopperTopic {
 	@extend %_o-topper__tag;
 }
