@@ -1,11 +1,12 @@
-@import '@financial-times/o-spacing/main';
-@import '@financial-times/o-colors/main';
-@import '@financial-times/o-editorial-typography/main';
-@import '@financial-times/o-typography/main';
-@import '@financial-times/o-grid/main';
-@import '@financial-times/o-icons/main';
+@import 'o-spacing/main';
+@import 'o-colors/main';
+@import 'o-editorial-typography/main';
+@import 'o-typography/main';
+@import 'o-grid/main';
+@import 'o-icons/main';
 
 @import 'src/scss/variables';
+@import 'src/scss/placeholders';
 @import 'src/scss/mixins';
 @import 'src/scss/grid';
 @import 'src/scss/elements';
@@ -17,9 +18,10 @@
 @import 'src/scss/themes/full-bleed-image';
 @import 'src/scss/themes/package';
 @import 'src/scss/themes/news-package';
-@import 'src/scss/themes/right-rail';
-@import 'src/scss/themes/centered';
 
+/// Outputs all features and styles available.
+/// @param {list} $opts [('themes', 'elements', 'colors')] - Topper features to output. Defaults to all topper features.
+/// @access public
 @mixin oTopper($opts: (
 	'themes': $_o-topper-themes,
 	'elements': $_o-topper-elements,
@@ -53,3 +55,5 @@
 	@include oTopper();
 	$o-topper-is-silent: true !global;
 }
+
+$_o-topper-first-import: false;

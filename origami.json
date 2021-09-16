@@ -1,6 +1,9 @@
 {
-	"origamiType": "component",
-	"origamiVersion": "2.0",
+	"description": "Article header styling",
+	"origamiType": "module",
+	"origamiVersion": 1,
+	"keywords": "topper, header",
+	"origamiCategory": "components",
 	"support": "https://github.com/Financial-Times/o-topper/issues",
 	"brands": [
 		"master"
@@ -17,9 +20,9 @@
 	"demosDefaults": {
 		"sass": "demos/src/demo.scss",
 		"dependencies": [
-			"o-fonts@^5.0.0",
-			"o-typography@^7.0.0",
-			"o-normalise@^3.0.0"
+			"o-fonts@^4.0.0",
+			"o-typography@^6.0.0",
+			"o-normalise@^2.0.0"
 		]
 	},
 	"demos": [
@@ -49,9 +52,10 @@
 		},
 		{
 			"name": "Full Bleed Image Center",
-			"title": "Center-Aligned Full-Bleed Image Topper",
+			"title": "Left-Aligned Full-Bleed Image Topper",
 			"template": "/demos/src/full-bleed-image-center.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API"
+			"description": "This theme is deprecated, it does not appear to be a theme that editorial can choose",
+			"hidden": true
 		},
 		{
 			"name": "Full Bleed Offset",
@@ -84,12 +88,6 @@
 			"description": "Theme for Packages that editorial can choose, which comes through the API."
 		},
 		{
-			"name": "Package Special Report",
-			"title": "Special Report Package Landing Page Topper",
-			"template": "/demos/src/package-special-report.mustache",
-			"description": "Used for Special Reports, such as FT Wealth"
-		},
-		{
 			"name": "News Package",
 			"title": "News Series Landing Page Topper",
 			"template": "/demos/src/news-package.mustache",
@@ -119,13 +117,6 @@
 			"title": "Podcast Article Topper",
 			"template": "/demos/src/podcast.mustache",
 			"description": "This is used for podcast articles",
-			"hidden": true
-		},
-		{
-			"name": "Live Blog Package",
-			"title": "Live Blog Package",
-			"template": "/demos/src/live-blog-package.mustache",
-			"description": "Topper used in live blog packages",
 			"hidden": true
 		}
 	]
