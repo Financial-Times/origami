@@ -5,16 +5,16 @@
 /// @param {String} $weight [regular] - The font weight.
 /// @param {String} $style [normal] - The font style.
 /// @return {Bool}
-/// @see oFontsDefineCustomFont To register a custom font's avalible variants.
+/// @see oFontsDefineCustomFont To register a custom font's available variants.
 @function oFontsVariantExists($family, $weight, $style) {
 	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
 	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
-	$font-properties: map-get($_o-fonts-families, $family);
+	$details: _oFontsGetFamilyDetails($family);
 	// Font is not registered.
-	@if type-of($font-properties) != 'map' {
+	@if type-of($details) != 'map' {
 		@return false;
 	}
-	$font-variants: map-get($font-properties, variants);
+	$font-variants: map-get($details, variants);
 
 	@each $variant in $font-variants {
 		// Check if this weight and style variant exists for this family
@@ -24,6 +24,66 @@
 		}
 	}
 	@return false;
+}
+
+/// Fetch details for a given font family including the variants the family
+/// supports. Alternate names for the same family are accounted for, for example
+/// the variable font family `FinancierDisplayWebVF` will return the same details
+/// as the non-variable family `FinancierDisplayWeb`.
+///
+/// @param {String} $family - a family name such as `MetricWeb`, `FinancierDisplayWeb`
+/// @return {Map|Null} - a map of details for a matching family, including supported `variants`, see $_o-fonts-families
+@function _oFontsGetFamilyDetails($family) {
+	$font: oFontsGetFontFamilyWithoutFallbacks($family);
+	@each $family-details in map-values($_o-fonts-families) {
+		$keys: map-get($family-details, 'keys');
+		@if index($keys, $font) != null {
+			@return $family-details;
+		}
+	}
+	@return null;
+}
+
+/// Get the variable font variation settings a given family supports.
+///
+/// @param {String} $family - a family name such as `FinancierDisplayWeb`
+/// @return {Map|Null} - a map of supported variable font variation settings, see $_o-fonts-families
+@function _oFontsGetVariationSettings($family) {
+	$details: _oFontsGetFamilyDetails($family);
+	@if type-of($details) != 'map' {
+		@return null;
+	}
+	$variation-settings: map-get($details, 'variation-settings');
+	@if type-of($variation-settings) != 'map' {
+		@return null;
+	}
+	@return $variation-settings;
+}
+
+/// Check if a family supports variable font weights.
+///
+/// @param {String} $family - a family name such as `FinancierDisplayWeb`
+/// @return {Boolean} - whether the family supports a variable weight
+@function _oFontsSupportsVariableWeight($family) {
+	$variation-settings: _oFontsGetVariationSettings($family);
+	@return if(
+		$variation-settings,
+		map-has-key($variation-settings, 'wght'),
+		false
+	);
+}
+
+/// Check if a family supports italics with a variable font.
+///
+/// @param {String} $family - a family name such as `FinancierDisplayWeb`
+/// @return {Boolean} - whether the family supports italics with a variable font
+@function _oFontsSupportsVariableItalic($family) {
+	$variation-settings: _oFontsGetVariationSettings($family);
+	@return if(
+		$variation-settings,
+		map-has-key($variation-settings, 'ital'),
+		false
+	);
 }
 
 /// Check if a font variant has been included
@@ -39,8 +99,14 @@
 	$weight: if($weight, $weight, 'regular'); // Handles a falsy `$weight` value.
 	$style: if($style, $style, 'normal'); // Handles a falsy `$style` value.
 	$variant-key: _oFontsVariantKey($family, $weight, $style);
+	$variants-included: map-get($_o-fonts-families-included, $family);
 
-	@return map-has-key($_o-fonts-families-included, $variant-key);
+	@return index($variants-included, $variant-key) != null;
+}
+
+/// Check if any font from the family has been included
+@function _oFontsFamilyIncluded($family) {
+	@return map-has-key($_o-fonts-families-included, $family);
 }
 
 /// Get a font-family stack with the appropriate fallbacks
@@ -51,12 +117,12 @@
 /// @param {String} family
 /// @return {String} - font-stack
 @function oFontsGetFontFamilyWithFallbacks($family) {
-	@if not map-has-key($_o-fonts-families, $family) {
+	$family-details: _oFontsGetFamilyDetails($family);
+	@if not $family-details {
 		@error 'Font "#{inspect($family)}" not found. "$family" must be one of #{map-keys($_o-fonts-families)}.';
 	}
 
-	$properties: map-get($_o-fonts-families, $family);
-	@return unquote(map-get($properties, font-family));
+	@return unquote(map-get($family-details, 'font-family'));
 }
 
 /// Removes a fonts fallbacks.
@@ -111,8 +177,8 @@
 ///
 /// @access private
 /// @param {String} $family - one of $_o-fonts-families
-/// @param {String} $weight [regular] - The font weight.
-/// @param {String} $style [normal] - The font style.
+/// @param {String} $weight - The font weight.
+/// @param {String} $style - The font style.
 /// @return {String} - the key
 @function _oFontsVariantKey($family, $weight, $style) {
 	@return "#{$family}-#{$weight}-#{$style}";

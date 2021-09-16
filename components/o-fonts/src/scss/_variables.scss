@@ -115,11 +115,17 @@ $_o-fonts-recommended: (
 $_o-fonts-families: (
 	MetricWeb: (
 		font-family: 'MetricWeb, sans-serif',
+		keys: ('MetricWeb'),
 		variants: $_o-fonts-all-metric-variants
 	),
 	FinancierDisplayWeb: (
-		font-family: 'FinancierDisplayWeb, serif',
-		variants: $_o-fonts-all-financier-display-variants
+		font-family: 'FinancierDisplayWebVF, FinancierDisplayWeb, serif',
+		keys: ('FinancierDisplayWebVF', 'FinancierDisplayWeb'),
+		variants: $_o-fonts-all-financier-display-variants,
+		variation-settings: (
+			'wght': ('max': 800, 'min': 300),
+			'ital': true
+		),
 	),
 	FinancierTextWeb: (
 		font-family: 'FinancierTextWeb, serif',
