@@ -6,6 +6,15 @@
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
 	},
+	"browserFeatures": {
+		"required": [
+			"Array.from",
+			"Array.prototype.includes",
+			"IntersectionObserver",
+			"Object.assign",
+			"Object.keys"
+		]
+	},
 	"brands": [
 		"master",
 		"internal"
