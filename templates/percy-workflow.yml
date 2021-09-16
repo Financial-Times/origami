@@ -1,5 +1,5 @@
 {{=<% %>=}}
-name: Percy <%& workspace %>
+name: percy <%& workspace %>
 concurrency:
   group: ${{ github.head_ref }}-<%& workspace %>
   cancel-in-progress: true
