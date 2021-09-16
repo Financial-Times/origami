@@ -1,15 +1,11 @@
-// sass-lint:disable mixins-before-declarations
-
+/// Output styles for the full bleed image topper theme.
+/// This is characterised by topper content overlaying a large, full-screen
+/// image on desktop.
+/// @access private
 @mixin _oTopperThemeFullBleedImage {
 
 	.o-topper__read-next {
 		display: none;
-	}
-
-	&.o-topper--full-bleed-image-center {
-		@include oGridRespondTo(S) {
-			@include _oTopperAlignText(center);
-		}
 	}
 
 	@include oGridRespondTo($until: M) {

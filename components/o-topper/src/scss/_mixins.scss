@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperThemeElements($themes) {
 	@if index($themes, 'opinion') {
 		.o-topper__opinion-genre {
@@ -18,6 +19,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperThemes($themes) {
 	@include _oTopperThemeElements($themes);
 
@@ -62,12 +64,8 @@
 
 	@if index($themes, 'full-bleed-offset') {
 		.o-topper--full-bleed-offset {
-			@include _oTopperThemeFullBleedOffset;
-			@if index($themes, 'right-rail') {
-				&.o-topper--right-rail {
-					@include _oTopperFullBleedGridRightRail;
-				}
-			}
+			$right-rail: index($themes, 'right-rail');
+			@include _oTopperThemeFullBleedOffset($right-rail);
 		}
 	}
 
@@ -78,6 +76,8 @@
 		}
 	}
 
+	// @deprecated full-bleed-image-center is deprecated
+	// https://github.com/Financial-Times/o-topper/issues/75
 	@if index($themes, 'full-bleed-image-center') or index($themes, 'full-bleed-image-left') {
 		.o-topper--full-bleed-image-center,
 		.o-topper--full-bleed-image-left {
@@ -85,12 +85,33 @@
 		}
 	}
 
+	@if index($themes, 'full-bleed-image-center') {
+		.o-topper--full-bleed-image-center {
+			@include oGridRespondTo(S) {
+				@include _oTopperAlignText(center);
+			}
+		}
+	}
+
+	// The package theme is used for toppers of an article package/series,
+	// not as a topper for a single article. It can be used in conjunction with
+	// other package modifier classes for different kinds of article packages.
 	@if index($themes, 'package') {
 		.o-topper--package {
 			@include _oTopperThemePackage;
 		}
 	}
 
+	// Used in conjunction with the `o-topper--package` modifier,
+	// `o-topper--package-extra` modifies the package/article series topper so
+	// editorial can differentiate series.
+	//
+	// `o-topper--package-extra-wide` is deprecated. Authors can no longer
+	// select `extra-wide` as an option for new packages in the Spark CMS.
+	// @link https://github.com/Financial-Times/next-es-interface/blob/10ef5314b6e0156f6f0052ebd5c47a6eb4eb8688/server/models/article/design.js#L7 Related ft.com implementation code.
+	// @link https://github.com/Financial-Times/n-map-content-to-topper/blob/e482969abd03aa98924650c4252fe47bfbe50b93/src/lib/get-topper-settings.js#L101 Related ft.com implementation code.
+	// @link https://www.ft.com/europopulists An example package-extra usecase.
+	// @deprecated package-extra-wide is deprecated, use package-extra instead.
 	@if index($themes, 'package-extra') or index($themes, 'package-extra-wide') {
 		.o-topper--package-extra,
 		.o-topper--package-extra-wide {
@@ -98,6 +119,11 @@
 		}
 	}
 
+	// Used in conjunction with the `o-topper--package` modifier,
+	// `o-topper--package-special-report` modifies the package/article series
+	// topper so editorial can differentiate a special report series.
+	//
+	// @link https://www.ft.com/reports/corporate-change-and-technology An example package-special-report usecase.
 	@if index($themes, 'package-special-report') {
 		.o-topper--package-special-report {
 			@include _oTopperThemePackageSpecialReport;
@@ -117,6 +143,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperElements($elements) {
 	@if index($elements, 'content') {
 		.o-topper__content {
@@ -217,6 +244,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperColors($colors) {
 	@each $color in $colors {
 		.o-topper--color-#{$color} {
@@ -226,6 +254,7 @@
 }
 
 // uses topper background colour to set background and pick contrasting text color
+/// @access private
 @mixin _oTopperColor($color-name) {
 	$background: oColorsByName($color-name);
 	$foreground: oColorsGetTextColor($background, $opacity: 100);
@@ -313,6 +342,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperAlignText($position) {
 	$mleft: ('left': 0, 'center': auto, 'right': auto);
 	$mright: ('left': auto, 'center': auto, 'right': 0);
@@ -332,14 +362,5 @@
 
 	.o-topper__tags {
 		justify-content: map-get($value, #{$position});
-	}
-}
-
-@mixin _oTopperDefineOnce($label) {
-	@if not map-has-key($_o-topper-defined, $label) {
-		@content;
-		$_o-topper-defined: map-merge($_o-topper-defined, (
-			$label: true
-		)) !global;
 	}
 }

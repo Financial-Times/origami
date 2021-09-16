@@ -1,13 +1,18 @@
-# o-topper
+# o-topper [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 This component is used for styling the topper sections of an article.
 
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-- [Migration Guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-topper`.
 
 ## Markup
 
@@ -104,7 +109,6 @@ To include o-topper styles granularly specify which elements, themes, and colour
 		'full-bleed-image-left',
 		'package',
 		'package-extra',
-		'package-extra-wide',
 		'package-special-report',
 		'news-package',
 		'right-rail',
@@ -141,6 +145,8 @@ To include o-topper styles granularly specify which elements, themes, and colour
 	)
 ));
 ```
+
+There is also a theme `package-extra-wide` which is deprecated, use `package-extra` instead.
 
 ## JavaScript
 

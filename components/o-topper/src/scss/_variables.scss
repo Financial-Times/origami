@@ -1,3 +1,8 @@
+// TODO This is a temporary variable, until we can use the new sass `@use` feature
+// that will not have the problem of re-outputting placeholders on every import
+/// @access private
+$_o-topper-first-import: true !default;
+
 /// @prop {Boolean}
 /// @access public
 $o-topper-is-silent: true !default;
@@ -28,7 +33,7 @@ $_o-topper-themes: (
 	'full-bleed-offset',
 	'split-text-left',
 	'split-text-center',
-	'full-bleed-image-center',
+	'full-bleed-image-center', // @deprecated https://github.com/Financial-Times/o-topper/issues/75
 	'full-bleed-image-left',
 	'package',
 	'package-extra',
