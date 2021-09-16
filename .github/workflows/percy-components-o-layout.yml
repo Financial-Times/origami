@@ -1,0 +1,47 @@
+name: percy components/o-layout
+concurrency:
+  group: ${{ github.head_ref }}-components/o-layout
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "components/o-layout/package.json"
+     - "components/o-layout/package-lock.json"
+     - "components/o-layout/origami.json"
+     - "components/o-layout/main.js"
+     - "components/o-layout/main.scss"
+     - "components/o-layout/demos/**"
+     - "components/o-layout/src/**"
+  push:
+    branches: main
+    paths:
+     - "components/o-layout/package.json"
+     - "components/o-layout/package-lock.json"
+     - "components/o-layout/origami.json"
+     - "components/o-layout/main.js"
+     - "components/o-layout/main.scss"
+     - "components/o-layout/demos/**"
+     - "components/o-layout/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_LAYOUT }}
+        WORKSPACE: components/o-layout
