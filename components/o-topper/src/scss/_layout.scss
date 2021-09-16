@@ -1,3 +1,4 @@
+/// @access private
 @mixin _oTopperBase {
 	//Basic topper uses the same grid columns as an article, so things can line up.
 	@include _oTopperArticleGrid();
@@ -8,6 +9,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperCentered {
 	@include _oTopperArticleGridCentered();
 
@@ -16,6 +18,7 @@
 	}
 }
 
+/// @access private
 @mixin _oTopperBasic {
 	@include oGridRespondTo($until: L) {
 		margin-top: oSpacingByName('s2');
@@ -24,6 +27,7 @@
 
 //Default theme;
 
+/// @access private
 @mixin _oTopperContent {
 	grid-row: 2 / span 4;
 	grid-column: 3;
@@ -31,6 +35,7 @@
 	z-index: 1;
 }
 
+/// @access private
 @mixin _oTopperBackground {
 	grid-row: 1 / span 5;
 	grid-column: 1 / span 6;
@@ -42,10 +47,12 @@
 	position: relative;
 }
 
+/// @access private
 @mixin _oTopperVisual {
 	margin: 0;
 }
 
+/// @access private
 @mixin _oTopperReadNext {
 	display: none;
 
