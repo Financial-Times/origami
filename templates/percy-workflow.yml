@@ -1,5 +1,9 @@
 {{=<% %>=}}
 name: Percy <%& workspace %>
+concurrency:
+  group: ${{ github.head_ref }}-<%& workspace %>
+  cancel-in-progress: true
+
 on:
   pull_request:
     types:
