@@ -8,6 +8,8 @@
     "sass": "dart-sass/sass"
   },
   "scripts": {
+    "test": "echo 'skipped'",
+    "verify": "echo 'skipped'",
     "postinstall": "node ./postinstall.js"
   }
 }

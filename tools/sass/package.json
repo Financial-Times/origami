@@ -6,6 +6,8 @@
     "repository": "Financial-times/sass",
     "bin": "sass.bat",
     "scripts": {
+        "test": "echo 'skipped'",
+        "verify": "echo 'skipped'",
         "postinstall": "node ./postinstall.js",
         "update": "node ./update.js"
     },
