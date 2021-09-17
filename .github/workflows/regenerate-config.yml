@@ -25,7 +25,7 @@ jobs:
       run: |
         git config --local user.email "origamiserviceuser@ft.com"
         git config --local user.name "fox"
-        git commit -m "Regenerate config" -a
+        git commit -m "chore: regenerate config" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
