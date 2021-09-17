@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+        force-depth: 0
     - name: Use Node.js
       uses: actions/setup-node@v2
       with:
@@ -18,3 +21,13 @@ jobs:
     - run: npm ci
     - run: npm run regenerate
     - run: ./scripts/check-for-changes.bash
+    - name: Commit files
+      run: |
+        git config --local user.email "origamiserviceuser@ft.com"
+        git config --local user.name "fox"
+        git commit -m "Regenerate config" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
+        branch: ${{ github.ref }}
