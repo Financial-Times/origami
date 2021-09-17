@@ -1,0 +1,35 @@
+name: check if monorepo config needs regenerated (npm run regenerate)
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run regenerate
+    - name: Commit files
+      id: commit
+      run: |
+        git config --local user.email "origamiserviceuser@ft.com"
+        git config --local user.name "fox"
+        git add .
+        (git commit -m "chore: regenerate config" && echo "::set-output name=SHOULD_PUSH::true") || echo "clean as a whistle"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
+        branch: ${{ github.head_ref }}
+      if: ${{ steps.commit.outputs.SHOULD_PUSH }}
