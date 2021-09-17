@@ -21,13 +21,15 @@ jobs:
     - run: npm ci
     - run: npm run regenerate
     - name: Commit files
+      id: commit
       run: |
         git config --local user.email "origamiserviceuser@ft.com"
         git config --local user.name "fox"
         git add .
-        git commit -m "chore: regenerate config" || echo "clean as a whistle"
+        git commit -m "chore: regenerate config" || echo "::set-output name=SKIP_PUSH::true"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
         branch: ${{ github.head_ref }}
+      if: ${{ steps.commit.outputs.SKIP_PUSH }}
