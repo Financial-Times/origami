@@ -1,0 +1,47 @@
+name: percy components/o-footer-services
+concurrency:
+  group: ${{ github.head_ref }}-components/o-footer-services
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "components/o-footer-services/package.json"
+     - "components/o-footer-services/package-lock.json"
+     - "components/o-footer-services/origami.json"
+     - "components/o-footer-services/main.js"
+     - "components/o-footer-services/main.scss"
+     - "components/o-footer-services/demos/**"
+     - "components/o-footer-services/src/**"
+  push:
+    branches: main
+    paths:
+     - "components/o-footer-services/package.json"
+     - "components/o-footer-services/package-lock.json"
+     - "components/o-footer-services/origami.json"
+     - "components/o-footer-services/main.js"
+     - "components/o-footer-services/main.scss"
+     - "components/o-footer-services/demos/**"
+     - "components/o-footer-services/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FOOTER_SERVICES }}
+        WORKSPACE: components/o-footer-services
