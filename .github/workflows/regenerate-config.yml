@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-        force-depth: 0
     - name: Use Node.js
       uses: actions/setup-node@v2
       with:
@@ -30,4 +27,4 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.ORIGAMI_FOX_ACCESS_TOKEN }}
-        branch: ${{ github.ref }}
+        branch: ${{ github.base_ref }}
