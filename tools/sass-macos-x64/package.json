@@ -7,9 +7,6 @@
   "bin": {
     "sass": "dart-sass/sass"
   },
-  "os": [
-    "darwin"
-  ],
   "scripts": {
     "postinstall": "node ./postinstall.js"
   }
