@@ -20,7 +20,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run regenerate
-    - run: ./scripts/check-for-changes.bash
     - name: Commit files
       run: |
         git config --local user.email "origamiserviceuser@ft.com"
