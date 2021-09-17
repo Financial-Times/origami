@@ -1,12 +1,12 @@
 /**
  * Do not edit directly
- * Generated on Tue, 14 Sep 2021 10:48:02 GMT
+ * Generated on Fri, 17 Sep 2021 16:00:50 GMT
  */
 
 :root {
-  --color-foreground-logo: var(--color-velvet);
+  --color-foreground-logo: var(--color-slate);
   --color-background-logo: var(--color-white);
-  --color-background-page: var(--color-velvet);
+  --color-background-page: var(--color-slate);
   --color-button-primary-focus-foreground: var(--color-white);
   --color-button-primary-focus-background: var(--color-teal-30);
   --color-button-primary-active-foreground: var(--color-white);
