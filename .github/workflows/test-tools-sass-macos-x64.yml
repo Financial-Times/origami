@@ -19,4 +19,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx npm exec -w tools/sass-macos-x64 -- origami-build-tools verify
-    - run: npx npm exec -w tools/sass-macos-x64 -- origami-build-tools test
+    - run: npx npm run -w tools/sass-macos-x64 test
