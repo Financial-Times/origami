@@ -1,39 +1,40 @@
 {
-	"name": "@financial-times/o-colors",
-	"type": "module",
-	"version": "6.1.0",
-	"description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
-	"keywords": [
-		"o-colours",
-		"colours",
-		"themes",
-		"schemes",
-		"pink",
-		"salmon",
-		"slate",
-		"tone",
-		"mix",
-		"background",
-		"palette"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-colors",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-colors"
-	},
-	"license": "MIT",
-	"engines": {
-		"npm": "^7"
-	},
-	"peerDependencies": {
-		"@financial-times/o-brand": "^4.0.1",
-		"mathsass": "^0.10.1"
-	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-colors",
+  "type": "module",
+  "version": "6.1.0",
+  "description": "The default colour palette for all FT products. The palette supports colour contrast checking, colour mixing and toneing.",
+  "keywords": [
+    "o-colours",
+    "colours",
+    "themes",
+    "schemes",
+    "pink",
+    "salmon",
+    "slate",
+    "tone",
+    "mix",
+    "background",
+    "palette"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-colors",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-colors,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "npm": "^7"
+  },
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.0.1",
+    "mathsass": "^0.10.1"
+  },
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

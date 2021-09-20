@@ -1,43 +1,44 @@
 {
-	"name": "@financial-times/o-forms",
-	"version": "9.0.1",
-	"description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
-	"keywords": [
-		"form",
-		"input",
-		"field",
-		"fieldset",
-		"submit",
-		"file",
-		"upload"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-forms",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-forms"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"peerDependencies": {
-		"@financial-times/o-brand": "^4.0.2",
-		"@financial-times/o-buttons": "^7.0.0",
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-loading": "^5.0.0",
-		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-forms",
+  "version": "9.0.1",
+  "description": "This component provides responsive styling for form fields and inputs. It provides validation and error handling for forms, as well.",
+  "keywords": [
+    "form",
+    "input",
+    "field",
+    "fieldset",
+    "submit",
+    "file",
+    "upload"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-forms",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-forms,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-buttons": "^7.0.0",
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-loading": "^5.0.0",
+    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

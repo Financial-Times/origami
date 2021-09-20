@@ -1,48 +1,49 @@
 {
-	"name": "@financial-times/o-typography",
-	"version": "7.0.2",
-	"description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
-	"keywords": [
-		"font",
-		"link",
-		"links",
-		"heading",
-		"headings",
-		"text",
-		"copy",
-		"scale",
-		"caption",
-		"footer",
-		"list",
-		"lists"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-typography",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-typography"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
-	},
-	"dependencies": {
-		"fontfaceobserver": "^2.0.9"
-	},
-	"peerDependencies": {
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-fonts": "^5.0.0",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-spacing": "^3.0.0"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-typography",
+  "version": "7.0.2",
+  "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
+  "keywords": [
+    "font",
+    "link",
+    "links",
+    "heading",
+    "headings",
+    "text",
+    "copy",
+    "scale",
+    "caption",
+    "footer",
+    "list",
+    "lists"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-typography",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-typography,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+  },
+  "dependencies": {
+    "fontfaceobserver": "^2.0.9"
+  },
+  "peerDependencies": {
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-fonts": "^5.0.0",
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-spacing": "^3.0.0"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

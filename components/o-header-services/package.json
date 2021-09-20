@@ -1,40 +1,41 @@
 {
-	"name": "@financial-times/o-header-services",
-	"version": "5.0.1",
-	"description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
-	"keywords": [
-		"header",
-		"page",
-		"top"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-header-services",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-header-services"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
-	},
-	"peerDependencies": {
-		"@financial-times/o-brand": "^4.0.2",
-		"@financial-times/o-buttons": "^7.0.0",
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1",
-		"@financial-times/o-utils": "^2.0.0",
-		"@financial-times/o-visual-effects": "^4.0.0"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-header-services",
+  "version": "5.0.1",
+  "description": "Responsive page header for sites with minimal or customised branding, including internal products, customer facing tools, and specialist titles.",
+  "keywords": [
+    "header",
+    "page",
+    "top"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-header-services",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-header-services,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+  },
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-buttons": "^7.0.0",
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-utils": "^2.0.0",
+    "@financial-times/o-visual-effects": "^4.0.0"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }
