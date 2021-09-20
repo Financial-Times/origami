@@ -900,6 +900,30 @@ const data: TNavMenu = {
             label: 'Newsletters',
             url: '/newsletters',
             submenu: null
+          },
+          {
+            url: '/tour/community',
+            submenu: {
+              label: null,
+              items: [
+                {
+                  label: 'FT Live',
+                  url: 'http://live.ft.com/',
+                  submenu: null
+                },
+                {
+                  label: 'FT Forums',
+                  url: 'https://forums.ft.com/',
+                  submenu: null
+                },
+                {
+                  label: 'Board Director Programme',
+                  url: 'https://bdp.ft.com/',
+                  submenu: null
+                }
+              ]
+            },
+            label: 'FT Community'
           }
         ]
       }
