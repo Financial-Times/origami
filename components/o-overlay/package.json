@@ -1,45 +1,46 @@
 {
-	"name": "@financial-times/o-overlay",
-	"version": "4.0.0",
-	"description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
-	"keywords": [
-		"overlay",
-		"modal",
-		"interstitial",
-		"messaging",
-		"popover",
-		"notification",
-		"hover"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-overlay",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-overlay"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"dependencies": {
-		"ftdomdelegate": "^4.0.0"
-	},
-	"peerDependencies": {
-		"@financial-times/o-brand": "^4.0.2",
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1",
-		"@financial-times/o-viewport": "^5.0.0",
-		"@financial-times/o-visual-effects": "^4.0.1"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-overlay",
+  "version": "4.0.0",
+  "description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
+  "keywords": [
+    "overlay",
+    "modal",
+    "interstitial",
+    "messaging",
+    "popover",
+    "notification",
+    "hover"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-overlay",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-overlay,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "dependencies": {
+    "ftdomdelegate": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-viewport": "^5.0.0",
+    "@financial-times/o-visual-effects": "^4.0.1"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

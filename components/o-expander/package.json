@@ -1,35 +1,36 @@
 {
-	"name": "@financial-times/o-expander",
-	"version": "6.0.0",
-	"description": "Content-aware helper for expanding and collapsing content or lists.",
-	"keywords": [
-		"expand",
-		"content",
-		"more",
-		"less",
-		"summary",
-		"details"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-expander",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-expander"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"peerDependencies": {
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-viewport": "^5.0.0"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-expander",
+  "version": "6.0.0",
+  "description": "Content-aware helper for expanding and collapsing content or lists.",
+  "keywords": [
+    "expand",
+    "content",
+    "more",
+    "less",
+    "summary",
+    "details"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-expander",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-expander,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "peerDependencies": {
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-viewport": "^5.0.0"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

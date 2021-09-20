@@ -1,31 +1,32 @@
 {
-	"name": "@financial-times/o-date",
-	"version": "5.0.1",
-	"type": "module",
-	"browser": "main.js",
-	"description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
-	"keywords": [
-		"datetime",
-		"time",
-		"timestamp"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-date",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-date"
-	},
-	"license": "MIT",
-	"engines": {
-		"npm": "^7"
-	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"dependencies": {
-		"@financial-times/ft-date-format": "^2.0.0"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-date",
+  "version": "5.0.1",
+  "type": "module",
+  "browser": "main.js",
+  "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
+  "keywords": [
+    "datetime",
+    "time",
+    "timestamp"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-date",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-date,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "npm": "^7"
+  },
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "dependencies": {
+    "@financial-times/ft-date-format": "^2.0.0"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }
