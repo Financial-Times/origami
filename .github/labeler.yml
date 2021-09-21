@@ -125,3 +125,15 @@ o-utils:
   - libraries/o-utils/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+sass:
+  - tools/sass/**/*
+sass:
+  - tools/sass-linux-ia32/**/*
+sass:
+  - tools/sass-linux-x64/**/*
+sass:
+  - tools/sass-macos-x64/**/*
+sass:
+  - tools/sass-windows-ia32/**/*
+sass:
+  - tools/sass-windows-x64/**/*

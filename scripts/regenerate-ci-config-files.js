@@ -14,9 +14,16 @@ let workspacePaths = await workspaces.paths()
 
 let labelerFile = Mustache.render(labelerTemplate, {
 	workspaces: workspacePaths.map(path => {
+		let name = basename(path)
+		if (name.startsWith("sass-")) {
+			return {
+				name: "sass",
+				path
+			}
+		}
 		return {
-			name: basename(path),
-			path,
+			name,
+			path
 		}
 	}),
 })
