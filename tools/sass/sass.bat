@@ -1,2 +1,3 @@
+
 #!/bin/sh
-exec "/home/chee/projects/origami/origami/tools/sass-linux-x64/dart-sass/src/dart" "/home/chee/projects/origami/origami/tools/sass-linux-x64/dart-sass/src/sass.snapshot" "$@"
+exec "/home/runner/work/origami/origami/tools/sass-linux-x64/dart-sass/src/dart" "/home/runner/work/origami/origami/tools/sass-linux-x64/dart-sass/src/sass.snapshot" "$@"
