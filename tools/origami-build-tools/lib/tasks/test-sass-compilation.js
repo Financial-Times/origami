@@ -5,7 +5,7 @@ const Listr = require('listr');
 const ListrRenderer = require('../helpers/listr-renderer');
 const isCI = require('is-ci');
 const { camelCase } = require('lodash');
-const ftSass = require('@financial-times/sass');
+const ftSass = require('../helpers/sass');
 const { readFile } = require('fs/promises');
 const execa = require('execa');
 
