@@ -125,3 +125,5 @@ o-utils:
   - libraries/o-utils/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+sass:
+  - tools/sass/**/*
