@@ -16,7 +16,6 @@
 		"@babel/core": "^7.13.16",
 		"@babel/preset-env": "^7.13.15",
 		"@financial-times/karma-proclaim": "^1.1.2",
-		"@financial-times/sass": "^1.32.4",
 		"aliases": "^1.0.0",
 		"autoprefixer": "^10.2.5",
 		"boxen": "^5.0.1",
