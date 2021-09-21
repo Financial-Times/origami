@@ -9,6 +9,6 @@
   },
   "scripts": {
     "test": "echo 'skipped'",
-    "verify": "echo 'skipped'"
+    "lint": "echo 'skipped'"
   }
 }

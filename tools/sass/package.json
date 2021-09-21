@@ -7,7 +7,7 @@
     "bin": "sass.bat",
     "scripts": {
         "test": "echo 'skipped'",
-        "verify": "echo 'skipped'",
+        "lint": "echo 'skipped'",
         "postinstall": "node ./postinstall.js",
         "update": "node ./update.js"
     },
