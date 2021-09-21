@@ -7,12 +7,6 @@
   "bin": {
     "sass": "dart-sass/sass.bat"
   },
-  "os": [
-    "win32"
-  ],
-  "cpu": [
-    "x64"
-  ],
   "scripts": {
     "postinstall": "node ./postinstall.js"
   }
