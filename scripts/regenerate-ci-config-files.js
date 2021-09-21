@@ -13,18 +13,12 @@ let labelerTemplate = await readFile("templates/labeler.yml", "utf-8")
 let workspacePaths = await workspaces.paths()
 
 let labelerFile = Mustache.render(labelerTemplate, {
-	workspaces: workspacePaths
-		.map(path => {
-			let name = basename(path)
-			if (name.startsWith("sass-")) {
-				return null
-			}
-			return {
-				name,
-				path,
-			}
-		})
-		.filter(Boolean),
+	workspaces: workspacePaths.map(path => {
+		return {
+			name: basename(path),
+			path,
+		}
+	}),
 })
 
 await writeFile(`.github/labeler.yml`, labelerFile)
