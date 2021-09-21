@@ -1,12 +1,16 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"support": "https://github.com/Financial-Times/o-normalise/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-normalise,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
 	},
-	"brands": ["master", "internal", "whitelabel"],
+	"brands": [
+		"master",
+		"internal",
+		"whitelabel"
+	],
 	"supportStatus": "active",
 	"browserFeatures": {},
 	"demosDefaults": {

@@ -1,10 +1,10 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/o-banner/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-banner,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -16,8 +16,8 @@
 		"js": "demos/src/demo.js",
 		"documentClasses": "",
 		"dependencies": [
-		"o-fonts@^5",
-		"o-normalise@^3"
+			"o-fonts@^5",
+			"o-normalise@^3"
 		]
 	},
 	"demos": [

@@ -1,12 +1,12 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master",
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-labels/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-labels,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -99,7 +99,11 @@
 			"name": "indicators-inverse",
 			"title": "Inverse Indicators",
 			"description": "",
-			"data": {"modifiers": ["inverse"]},
+			"data": {
+				"modifiers": [
+					"inverse"
+				]
+			},
 			"documentClasses": "demo-inverse",
 			"brands": [
 				"master"
@@ -128,7 +132,11 @@
 			"name": "timestamp-inverse",
 			"title": "Inverse Timestamp",
 			"description": "",
-			"data": {"modifiers": ["inverse"]},
+			"data": {
+				"modifiers": [
+					"inverse"
+				]
+			},
 			"documentClasses": "demo-inverse",
 			"brands": [
 				"master"
@@ -139,14 +147,18 @@
 			"title": "Standard Label With Custom Markup",
 			"name": "custom",
 			"template": "demos/src/custom.mustache",
-			"data": {"standard": true},
+			"data": {
+				"standard": true
+			},
 			"hidden": true
 		},
 		{
 			"title": "Indicator Label With Custom Markup",
 			"name": "custom-indicator",
 			"template": "demos/src/custom.mustache",
-			"data": {"indicator": true},
+			"data": {
+				"indicator": true
+			},
 			"brands": [
 				"master"
 			],

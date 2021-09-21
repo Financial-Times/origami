@@ -2,10 +2,10 @@
 	"origamiVersion": "2.0",
 	"origamiType": "component",
 	"supportStatus": "active",
-	"brands" : [
+	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/o-video/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-video,components",
 	"supportContact": {
 		"slack": "financialtimes/content-innovation",
 		"email": "content-innovation-team.customer-products@ft.com"

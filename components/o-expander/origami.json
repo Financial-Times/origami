@@ -14,7 +14,7 @@
 		"whitelabel"
 	],
 	"supportStatus": "active",
-	"support": "https://github.com/Financial-Times/o-expander/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-expander,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"

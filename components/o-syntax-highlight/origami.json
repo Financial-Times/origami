@@ -5,7 +5,7 @@
 		"master",
 		"internal"
 	],
-	"support": "https://github.com/Financial-Times/o-syntax-highlight/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-syntax-highlight,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"

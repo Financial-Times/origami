@@ -4,7 +4,7 @@
 	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/o-teaser/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-teaser,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -613,7 +613,10 @@
 			"template": "demos/src/demo.mustache",
 			"hidden": false,
 			"data": {
-				"article-modifier": ["promoted-content", "stacked"],
+				"article-modifier": [
+					"promoted-content",
+					"stacked"
+				],
 				"article-promoted-prefix": "Promoted content",
 				"article-promoted-by": "Cass Business School",
 				"article-image-url": "https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?width=180&source=o-teaser-demo",

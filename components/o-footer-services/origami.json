@@ -6,7 +6,7 @@
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-footer-services/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-footer-services,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -77,7 +77,9 @@
 			"data": {
 				"theme": "dark"
 			},
-			"brands": ["master"],
+			"brands": [
+				"master"
+			],
 			"description": "A dark theme, shown on the full services footer."
 		}
 	]

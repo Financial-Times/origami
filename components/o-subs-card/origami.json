@@ -1,10 +1,10 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/o-subs-card/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-subs-card,components",
 	"supportContact": {
 		"email": "conversion.tech@ft.com",
 		"slack": "financialtimes/next-conversion-dev"

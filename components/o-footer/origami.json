@@ -4,7 +4,7 @@
 	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/o-footer/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-footer,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
