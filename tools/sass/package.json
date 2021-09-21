@@ -11,6 +11,13 @@
         "test": "echo skipped testing",
         "lint": "echo skipped linting"
     },
+    "dependencies": {
+        "sass-linux-ia32": "file:sass-linux-ia32",
+        "sass-linux-x64": "file:sass-linux-x64",
+        "sass-macos-x64": "file:sass-macos-x64",
+        "sass-windows-ia32": "file:sass-windows-ia32",
+        "sass-windows-x64": "file:sass-windows-x64"
+    },
     "devDependencies": {
         "axios": "^0.21.0",
         "decompress": "^4.2.0"
