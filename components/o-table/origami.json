@@ -1,12 +1,12 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master",
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-table/issues",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-table,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -61,7 +61,9 @@
 		{
 			"title": "Row headings",
 			"name": "row-headings",
-			"brands": ["internal"],
+			"brands": [
+				"internal"
+			],
 			"documentClasses": "o-table-demo-constrain",
 			"template": "demos/src/row-headings.mustache",
 			"description": ""

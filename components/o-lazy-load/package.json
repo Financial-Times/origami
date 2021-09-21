@@ -1,23 +1,28 @@
 {
-	"name": "@financial-times/o-lazy-load",
-	"description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
-	"browser": "main.js",
-	"type": "module",
-	"engines": {
-		"npm": "^7"
-	},
-	"keywords": [
-		"lazy",
-		"loading",
-		"images"
-	],
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	},
-	"version": "3.0.0"
+  "name": "@financial-times/o-lazy-load",
+  "description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
+  "browser": "main.js",
+  "type": "module",
+  "engines": {
+    "npm": "^7"
+  },
+  "keywords": [
+    "lazy",
+    "loading",
+    "images"
+  ],
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  },
+  "version": "3.0.0",
+  "homepage": "https://registry.origami.ft.com/components/o-lazy-load",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
+    "email": "origami.support@ft.com"
+  }
 }

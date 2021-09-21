@@ -1,37 +1,38 @@
 {
-	"name": "@financial-times/o-quote",
-	"version": "5.0.1",
-	"description": "Styling for blockquotes, pull-quotes and any other types of quote",
-	"keywords": [
-		"quotes",
-		"pull quote",
-		"blockquote",
-		"text",
-		"typography",
-		"highlight"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-quote",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-quote"
-	},
-	"license": "MIT",
-	"type": "module",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"peerDependencies": {
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-editorial-typography": "^2.0.1",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-quote",
+  "version": "5.0.1",
+  "description": "Styling for blockquotes, pull-quotes and any other types of quote",
+  "keywords": [
+    "quotes",
+    "pull quote",
+    "blockquote",
+    "text",
+    "typography",
+    "highlight"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-quote",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-quote,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "peerDependencies": {
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-editorial-typography": "^2.0.1",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

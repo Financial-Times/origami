@@ -1,12 +1,12 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master",
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-buttons/issues",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-buttons,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -118,7 +118,9 @@
 			"title": "Custom",
 			"name": "custom",
 			"template": "/demos/src/custom.mustache",
-			"brands": ["master"],
+			"brands": [
+				"master"
+			],
 			"hidden": true,
 			"bodyClasses": "custom-button-theme-demo",
 			"description": "Custom theme test"
@@ -127,7 +129,9 @@
 			"title": "Custom Icon Button",
 			"name": "custom icon button",
 			"template": "/demos/src/custom-icon-button.mustache",
-			"brands" : ["master"],
+			"brands": [
+				"master"
+			],
 			"hidden": true,
 			"description": "Visual tests for the icon buttons mixins"
 		},
@@ -136,7 +140,12 @@
 			"name": "pa11y",
 			"template": "/demos/src/pa11y.mustache",
 			"data": {
-				"themes": ["","mono","inverse","b2c"]
+				"themes": [
+					"",
+					"mono",
+					"inverse",
+					"b2c"
+				]
 			},
 			"hidden": true,
 			"description": "Pa11y test for accesibility"

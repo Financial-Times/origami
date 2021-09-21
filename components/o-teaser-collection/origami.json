@@ -1,7 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"support": "https://github.com/Financial-Times/o-teaser-collection/issues",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-teaser-collection,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -41,7 +41,9 @@
 			"title": "Responsive Heading (full-width on desktop)",
 			"name": "full-heading",
 			"data": {
-				"headings": ["full-width"],
+				"headings": [
+					"full-width"
+				],
 				"link": true
 			},
 			"description": "The heading border is reduced in size responsively. This can be changed with modifier classes. See the readme for more options.",
@@ -51,7 +53,9 @@
 			"title": "Inverse Heading",
 			"name": "inverse",
 			"data": {
-				"headings": ["inverse"],
+				"headings": [
+					"inverse"
+				],
 				"link": true
 			},
 			"documentClasses": "demo-inverse",
@@ -62,7 +66,9 @@
 			"title": "Collection: horizontal",
 			"name": "horizontal",
 			"data": {
-				"collections": ["horizontal"]
+				"collections": [
+					"horizontal"
+				]
 			},
 			"description": "Teasers in horizontal rather than standard column layout",
 			"template": "demos/src/demo.mustache"
@@ -71,7 +77,9 @@
 			"title": "Collection: special",
 			"name": "special",
 			"data": {
-				"collections": ["special"]
+				"collections": [
+					"special"
+				]
 			},
 			"description": "",
 			"template": "demos/src/demo.mustache"
@@ -80,7 +88,10 @@
 			"title": "Collection: numbered and special",
 			"name": "numbered",
 			"data": {
-				"collections": ["numbered", "special"],
+				"collections": [
+					"numbered",
+					"special"
+				],
 				"numbered": true
 			},
 			"description": "",
@@ -90,7 +101,9 @@
 			"title": "Collection: mid slice",
 			"name": "mid-slice",
 			"data": {
-				"collections": ["mid-slice"]
+				"collections": [
+					"mid-slice"
+				]
 			},
 			"description": "",
 			"template": "demos/src/demo.mustache"

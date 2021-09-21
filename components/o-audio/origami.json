@@ -1,7 +1,7 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"support": "https://github.com/Financial-Times/o-audio/issues",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-audio,components",
 	"supportContact": {
 		"slack": "financialtimes/content-innovation",
 		"email": "content-innovation-team.customer-products@ft.com"

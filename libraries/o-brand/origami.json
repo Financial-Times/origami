@@ -1,10 +1,10 @@
 {
-    "origamiType": "library",
-    "origamiVersion": "2.0",
-    "support": "https://github.com/Financial-Times/o-brand/issues",
-    "supportStatus": "active",
-    "supportContact": {
-        "email": "origami.support@ft.com",
-        "slack": "financialtimes/ft-origami"
-    }
+	"origamiType": "library",
+	"origamiVersion": "2.0",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-brand,components",
+	"supportStatus": "active",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	}
 }

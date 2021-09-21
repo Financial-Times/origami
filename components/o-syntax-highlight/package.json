@@ -1,33 +1,34 @@
 {
-	"name": "@financial-times/o-syntax-highlight",
-	"version": "4.0.0",
-	"description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
-	"keywords": [
-		"syntax",
-		"highlight"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-syntax-highlight"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
-	},
-	"dependencies": {
-		"prismjs": "^1.14.0"
-	},
-	"peerDependencies": {
-		"@financial-times/o-colors": "^6.0.0"
-	},
-	"engines": {
-		"npm": "^7"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-syntax-highlight",
+  "version": "4.0.0",
+  "description": "A syntax highlighter for Origami-supported documentation that wraps PrismJs",
+  "keywords": [
+    "syntax",
+    "highlight"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-syntax-highlight,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
+  },
+  "dependencies": {
+    "prismjs": "^1.14.0"
+  },
+  "peerDependencies": {
+    "@financial-times/o-colors": "^6.0.0"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

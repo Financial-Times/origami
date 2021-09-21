@@ -1,27 +1,28 @@
 {
-	"name": "@financial-times/o-utils",
-	"main": "main.js",
-	"type": "module",
-	"version": "2.0.0",
-	"description": "Provides JS helper functions, such as throttling and debouncing",
-	"keywords": [
-		"debounce",
-		"throttle"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-utils",
-	"bugs": {
-		"url": "https://registry.origami.ft.com/components/o-utils"
-	},
-	"license": "MIT",
-	"engines": {
-		"npm": "^7"
-	},
-	"scripts": {
-		"lint": "echo Skipping lint: not configured",
-		"test": "mocha test"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-utils",
+  "main": "main.js",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Provides JS helper functions, such as throttling and debouncing",
+  "keywords": [
+    "debounce",
+    "throttle"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-utils",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-utils,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "npm": "^7"
+  },
+  "scripts": {
+    "lint": "echo Skipping lint: not configured",
+    "test": "mocha test"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }
