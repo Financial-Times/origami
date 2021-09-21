@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-overlay",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Configurable custom overlay box that can be used to show overlay windows. The overlays can also be switched to display differently on small screens",
   "keywords": [
     "overlay",

@@ -2,7 +2,7 @@
   "name": "@financial-times/o-utils",
   "main": "main.js",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Provides JS helper functions, such as throttling and debouncing",
   "keywords": [
     "debounce",

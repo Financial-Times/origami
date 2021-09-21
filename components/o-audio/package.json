@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-audio",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Financial Times audio player",
   "keywords": [
     "audio"
