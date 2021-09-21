@@ -6,7 +6,7 @@
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-message/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-message,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -31,7 +31,12 @@
 			"data": {
 				"type": "alert",
 				"state": "success",
-				"highlight": [{"copy": "Hooray!", "color": false}],
+				"highlight": [
+					{
+						"copy": "Hooray!",
+						"color": false
+					}
+				],
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"actions": {
 					"button": true,
@@ -47,7 +52,12 @@
 				"inner": true,
 				"type": "alert",
 				"state": "success",
-				"highlight": [{"copy": "Hooray!", "color": false}],
+				"highlight": [
+					{
+						"copy": "Hooray!",
+						"color": false
+					}
+				],
 				"content": "The quick brown fox jumped over the lazy dogs!",
 				"additionalContent": "Did you know that that sentence uses all of the letters in the alphabet at least once?",
 				"actions": {
@@ -78,7 +88,12 @@
 				"inner": true,
 				"type": "alert",
 				"state": "neutral",
-				"highlight": [{"copy": "Meh.", "color": false}],
+				"highlight": [
+					{
+						"copy": "Meh.",
+						"color": false
+					}
+				],
 				"detail": "The quick brown fox did not jump over the lazy dogs.",
 				"actions": {
 					"button": true,
@@ -108,7 +123,12 @@
 				"inner": true,
 				"type": "alert",
 				"state": "error",
-				"highlight": [{"copy": "Oops.", "color": false}],
+				"highlight": [
+					{
+						"copy": "Oops.",
+						"color": false
+					}
+				],
 				"content": "The quick brown fox did <span class='o-message__content-highlight'>not</span> jump over the lazy dogs.",
 				"additionalContent": "But that sentence still uses all of the letters in the alphabet at least once!",
 				"actions": {
@@ -245,7 +265,7 @@
 			"title": "Action: Inform Inverse",
 			"name": "action-inform-inverse",
 			"description": "Action message, displaying a call to action",
-			"data":  {
+			"data": {
 				"type": "action",
 				"state": "inform-inverse",
 				"centralised": true,

@@ -1,12 +1,12 @@
 {
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master",
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-forms/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-forms,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -38,7 +38,10 @@
 			"template": "/demos/src/inverse-form.mustache",
 			"description": "Inverse form",
 			"sass": "demos/src/inverse.scss",
-			"brands": ["master", "internal"]
+			"brands": [
+				"master",
+				"internal"
+			]
 		},
 		{
 			"name": "inverse-form-whitelabel",
@@ -46,7 +49,9 @@
 			"template": "/demos/src/inverse-form-whitelabel.mustache",
 			"description": "Inverse form",
 			"sass": "demos/src/inverse.scss",
-			"brands": ["whitelabel"]
+			"brands": [
+				"whitelabel"
+			]
 		},
 		{
 			"name": "pseudo-radio-links",

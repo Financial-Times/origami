@@ -2,12 +2,12 @@
 	"origamiType": "component",
 	"type": "module",
 	"origamiVersion": "2.0",
-	"brands" : [
+	"brands": [
 		"master",
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-colors/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-colors,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
@@ -63,7 +63,7 @@
 				"o-syntax-highlight@^4.0.0",
 				"o-autoinit@^3.0.0"
 			],
-			"brands":	[
+			"brands": [
 				"master"
 			]
 		},
@@ -174,7 +174,7 @@
 				"o-autoinit@^3.0.0"
 			],
 			"description": "",
-			"brands":	[
+			"brands": [
 				"internal"
 			]
 		},

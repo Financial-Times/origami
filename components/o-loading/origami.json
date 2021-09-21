@@ -6,7 +6,7 @@
 		"internal",
 		"whitelabel"
 	],
-	"support": "https://github.com/Financial-Times/o-loading/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-loading,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"

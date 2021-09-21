@@ -1,11 +1,11 @@
 {
-	"brands" : [
+	"brands": [
 		"master",
 		"internal"
 	],
 	"origamiType": "component",
 	"origamiVersion": "2.0",
-	"support": "https://github.com/Financial-Times/o-share/issues",
+	"support": "https://github.com/Financial-Times/issues/new?labels=o-share,components",
 	"supportContact": {
 		"email": "origami.support@ft.com",
 		"slack": "financialtimes/origami-support"
