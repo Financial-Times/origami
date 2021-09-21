@@ -8,6 +8,8 @@
     "sass": "dart-sass/sass"
   },
   "scripts": {
-    "postinstall": "node ./postinstall.js"
+    "postinstall": "node ./postinstall.js",
+    "test": "echo skipped testing",
+    "lint": "echo skipped linting"
   }
 }
