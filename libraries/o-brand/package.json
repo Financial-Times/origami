@@ -5,7 +5,8 @@
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-brand",
   "bugs": {
-    "url": "https://github.com/Financial-Times/o-brand/issues"
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-brand,components",
+    "email": "origami.support@ft.com"
   },
   "repository": {
     "type": "git",

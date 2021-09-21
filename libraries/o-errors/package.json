@@ -1,25 +1,30 @@
 {
-	"description": "A decoupled events-based mechanism for components to report errors and an API for products to report client-side errors.",
-	"keywords": [
-		"error",
-		"errors"
-	],
-	"name": "@financial-times/o-errors",
-	"type": "module",
-	"engines": {
-		"npm": "^7"
-	},
-	"browser": "main.js",
-	"dependencies": {
-		"raven-js": "^3.27.2"
-	},
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	},
-	"version": "5.1.0"
+  "description": "A decoupled events-based mechanism for components to report errors and an API for products to report client-side errors.",
+  "keywords": [
+    "error",
+    "errors"
+  ],
+  "name": "@financial-times/o-errors",
+  "type": "module",
+  "engines": {
+    "npm": "^7"
+  },
+  "browser": "main.js",
+  "dependencies": {
+    "raven-js": "^3.27.2"
+  },
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  },
+  "version": "5.1.0",
+  "homepage": "https://registry.origami.ft.com/components/o-errors",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/issues/new?labels=o-errors,components",
+    "email": "origami.support@ft.com"
+  }
 }
