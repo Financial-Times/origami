@@ -9,7 +9,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-video",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-video,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-video,components",
     "email": "content-innovation-team.customer-products@ft.com"
   },
   "license": "MIT",

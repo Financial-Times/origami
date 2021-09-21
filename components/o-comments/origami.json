@@ -4,7 +4,7 @@
 	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/issues/new?labels=o-comments,components",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-comments,components",
 	"supportContact": {
 		"slack": "financialtimes/content-innovation",
 		"email": "content-innovation-team.customer-products@ft.com"

@@ -4,7 +4,7 @@
 	"brands": [
 		"master"
 	],
-	"support": "https://github.com/Financial-Times/issues/new?labels=o-subs-card,components",
+	"support": "https://github.com/Financial-Times/origami/issues/new?labels=o-subs-card,components",
 	"supportContact": {
 		"email": "conversion.tech@ft.com",
 		"slack": "financialtimes/next-conversion-dev"

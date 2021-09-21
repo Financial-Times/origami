@@ -22,7 +22,7 @@
   "version": "3.0.0",
   "homepage": "https://registry.origami.ft.com/components/o-lazy-load",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-lazy-load,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
     "email": "origami.support@ft.com"
   }
 }
