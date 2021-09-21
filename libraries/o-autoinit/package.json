@@ -12,7 +12,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-autoinit",
   "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-autoinit,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-autoinit,libraries",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",
