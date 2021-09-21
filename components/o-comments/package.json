@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-comments",
-  "version": "8.1.1",
+  "version": "8.1.2",
   "description": "A component, integrated with FT authentication and user data services, to add a comment stream or comment count to content.",
   "keywords": [
     "comments",

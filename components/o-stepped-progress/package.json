@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-stepped-progress",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Track progress through a multi-step process, such as a form",
   "keywords": [
     "indicator",
