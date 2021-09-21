@@ -1,0 +1,16 @@
+{
+    "name": "@financial-times/sass",
+    "version": "1.0.0-dev",
+    "description": "Native Sass binaries for your platform",
+    "license": "MIT",
+    "repository": "Financial-times/sass",
+    "bin": "sass.bat",
+    "scripts": {
+        "postinstall": "node ./postinstall.js",
+        "update": "node ./update.js"
+    },
+    "devDependencies": {
+        "axios": "^0.21.0",
+        "decompress": "^4.2.0"
+    }
+}

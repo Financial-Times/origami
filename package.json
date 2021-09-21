@@ -31,7 +31,8 @@
 		"actions/*",
 		"components/*",
 		"libraries/*",
-		"tools/*"
+		"tools/*",
+		"tools/sass/sass-*"
 	],
 	"devDependencies": {
 		"@testing-library/dom": "^8.0.0",
