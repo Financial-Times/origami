@@ -10,7 +10,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-teaser",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-teaser,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-teaser,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",

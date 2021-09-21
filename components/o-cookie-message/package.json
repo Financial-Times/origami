@@ -13,7 +13,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-cookie-message",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-cookie-message,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-cookie-message,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",

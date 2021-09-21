@@ -8,7 +8,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-syntax-highlight",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-syntax-highlight,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-syntax-highlight,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",

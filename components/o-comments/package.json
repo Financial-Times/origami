@@ -9,7 +9,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-comments",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-comments,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-comments,components",
     "email": "content-innovation-team.customer-products@ft.com"
   },
   "license": "MIT",

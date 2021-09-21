@@ -8,7 +8,7 @@
   ],
   "homepage": "https://registry.origami.ft.com/components/o-topper",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-topper,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-topper,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",

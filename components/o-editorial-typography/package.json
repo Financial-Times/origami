@@ -5,7 +5,7 @@
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-editorial-typography",
   "bugs": {
-    "url": "https://github.com/Financial-Times/issues/new?labels=o-editorial-typography,components",
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-editorial-typography,components",
     "email": "origami.support@ft.com"
   },
   "license": "MIT",
