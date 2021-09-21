@@ -4,7 +4,6 @@
     "description": "Native Sass binaries for your platform",
     "license": "MIT",
     "repository": "Financial-times/sass",
-    "bin": "sass.bat",
     "scripts": {
         "postinstall": "node ./postinstall.js",
         "update": "node ./update.js",
