@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-fonts/**"
   push:
     branches: main
+    paths:
+      - "components/o-fonts/**"
 
 jobs:
   percy:

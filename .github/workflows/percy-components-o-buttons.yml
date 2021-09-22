@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-buttons/**"
   push:
     branches: main
+    paths:
+      - "components/o-buttons/**"
 
 jobs:
   percy:

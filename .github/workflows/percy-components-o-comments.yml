@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-comments/**"
   push:
     branches: main
+    paths:
+      - "components/o-comments/**"
 
 jobs:
   percy:

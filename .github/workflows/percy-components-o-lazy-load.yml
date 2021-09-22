@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-lazy-load/**"
   push:
     branches: main
+    paths:
+      - "components/o-lazy-load/**"
 
 jobs:
   percy:

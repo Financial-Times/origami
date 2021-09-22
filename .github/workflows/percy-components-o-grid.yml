@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-grid/**"
   push:
     branches: main
+    paths:
+      - "components/o-grid/**"
 
 jobs:
   percy:
