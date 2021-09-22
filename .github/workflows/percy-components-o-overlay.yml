@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-overlay/**"
   push:
     branches: main
+    paths:
+      - "components/o-overlay/**"
 
 jobs:
   percy:

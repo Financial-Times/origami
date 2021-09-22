@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-visual-effects/**"
   push:
     branches: main
+    paths:
+      - "components/o-visual-effects/**"
 
 jobs:
   percy:

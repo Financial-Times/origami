@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-table/**"
   push:
     branches: main
+    paths:
+      - "components/o-table/**"
 
 jobs:
   percy:

@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-message/**"
   push:
     branches: main
+    paths:
+      - "components/o-message/**"
 
 jobs:
   percy:

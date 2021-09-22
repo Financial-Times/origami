@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-labels/**"
   push:
     branches: main
+    paths:
+      - "components/o-labels/**"
 
 jobs:
   percy:

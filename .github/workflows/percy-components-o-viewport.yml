@@ -9,8 +9,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "components/o-viewport/**"
   push:
     branches: main
+    paths:
+      - "components/o-viewport/**"
 
 jobs:
   percy:
