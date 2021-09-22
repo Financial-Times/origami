@@ -6,6 +6,7 @@
 		"moduleResolution": "node"
 	},
 	"include": [
+		"actions/**/*",
 		"scripts/**/*"
 	]
 }
