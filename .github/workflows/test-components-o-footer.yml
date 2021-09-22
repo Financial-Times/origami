@@ -1,7 +1,7 @@
 name: test components/o-footer
 concurrency:
   group: ${{ github.head_ref }}-components/o-footer
-  cancel-in-progress: true
+#  cancel-in-progress: true
 
 on:
   pull_request:

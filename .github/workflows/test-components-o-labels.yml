@@ -1,7 +1,7 @@
 name: test components/o-labels
 concurrency:
   group: ${{ github.head_ref }}-components/o-labels
-  cancel-in-progress: true
+#  cancel-in-progress: true
 
 on:
   pull_request:

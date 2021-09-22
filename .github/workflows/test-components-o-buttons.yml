@@ -1,7 +1,7 @@
 name: test components/o-buttons
 concurrency:
   group: ${{ github.head_ref }}-components/o-buttons
-  cancel-in-progress: true
+#  cancel-in-progress: true
 
 on:
   pull_request:
