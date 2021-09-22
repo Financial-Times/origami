@@ -1,0 +1,25 @@
+{
+  "name": "@financial-times/n-notification",
+  "engines": {
+    "npm": "^7"
+  },
+  "type": "module",
+  "description": "Component for showing notifications to users",
+  "keywords": [
+    "notification"
+  ],
+  "browser": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/origami.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=n-notification,components"
+  },
+  "homepage": "https://github.com/Financial-Times/origami/components/n-notification",
+  "version": "7.0.3",
+  "peerDependencies": {
+    "@financial-times/o-colors": "^6.1.1",
+    "@financial-times/o-typography": "^7.0.3"
+  }
+}

@@ -1,0 +1,47 @@
+name: percy components/n-notification
+concurrency:
+  group: ${{ github.head_ref }}-components/n-notification
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+     - "components/n-notification/package.json"
+     - "components/n-notification/package-lock.json"
+     - "components/n-notification/origami.json"
+     - "components/n-notification/main.js"
+     - "components/n-notification/main.scss"
+     - "components/n-notification/demos/**"
+     - "components/n-notification/src/**"
+  push:
+    branches: main
+    paths:
+     - "components/n-notification/package.json"
+     - "components/n-notification/package-lock.json"
+     - "components/n-notification/origami.json"
+     - "components/n-notification/main.js"
+     - "components/n-notification/main.scss"
+     - "components/n-notification/demos/**"
+     - "components/n-notification/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'npm'
+        node-version: 16
+    - run: npm ci
+    - uses: ./actions/percy/
+      with:
+        # To comment as the Origami Fox mascot GitHub user
+        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_N_NOTIFICATION }}
+        WORKSPACE: components/n-notification

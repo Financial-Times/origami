@@ -1,0 +1,12 @@
+/.idea/
+/.sass-cache
+/bower_components/
+/build/
+/demo/main.js
+/demos/local/
+/node_modules/
+
+/npm-debug.log
+
+.editorconfig
+package-lock.json

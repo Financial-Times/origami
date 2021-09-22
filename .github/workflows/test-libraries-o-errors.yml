@@ -1,7 +1,7 @@
 name: test libraries/o-errors
 concurrency:
   group: ${{ github.head_ref }}-libraries/o-errors
-  cancel-in-progress: true
+#  cancel-in-progress: true
 
 on:
   pull_request:

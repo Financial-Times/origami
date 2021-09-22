@@ -1,7 +1,7 @@
 name: test tools/origami-build-tools
 concurrency:
   group: ${{ github.head_ref }}-tools/origami-build-tools
-  cancel-in-progress: true
+#  cancel-in-progress: true
 
 on:
   pull_request:

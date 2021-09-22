@@ -1,0 +1,121 @@
+@import "@financial-times/o-colors/main";
+@import "@financial-times/o-typography/main";
+
+$n-notification-is-silent: true !default;
+
+@mixin nNotification {	
+	@keyframes load-notice {
+		0% {
+			max-height: 0;
+		}
+		100% {
+			max-height: 200px;
+		}
+	}
+
+	.n-notification {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+	}
+
+	.n-notification__item {
+		position: relative;
+		background-color: rgba(oColorsByName('paper'), 0.95);
+		border-bottom: 3px solid oColorsByName('black-80');
+		color: oColorsByName('black-80');
+		box-sizing: border-box;
+		margin: 0;
+		padding: 14px 0;
+		overflow: hidden;
+		animation: load-notice 200ms forwards;
+	}
+
+	.n-notification__content-wrapper {
+		margin: 0 auto;
+		width: 100%;
+		position: relative;
+		text-align: center;
+		padding: 0 30px;
+		box-sizing: border-box;
+	}
+
+	.n-notification__title {
+		@include oTypographySans($scale: 2, $weight: "semibold");
+		display: inline-block;
+		padding-right: 10px;
+		margin: 0;
+	}
+
+	.n-notification__content {
+		@include oTypographySans($scale: 2);
+		display: inline-block;
+		margin: 0;
+
+		b,
+		strong {
+			@include oTypographySans($scale: 2, $weight: "semibold");
+		}
+
+		a {
+			color: oColorsByName('black-80');
+			border-bottom-color: oColorsByName('black-80');
+		}
+	}
+
+	.n-notification--error {
+		background-color: oColorsMix('crimson', $percentage: 10);
+		color: oColorsMix('black', 'crimson', $percentage: 12.5);
+		.n-notification__content a {
+			color: oColorsByName('white');
+		}
+		.n-notification__close {
+			@include oIconsContent('cross', oColorsMix('black', 'crimson', $percentage: 12.5), 40, $include-base-styles: false);
+		}
+	}
+
+	.n-notification--success {
+		background-color: oColorsMix('jade', $percentage: 20);
+		color: oColorsMix('black', 'jade', $percentage: 43);
+		.n-notification__content a {
+			color: oColorsMix('black', 'jade', $percentage: 43);
+		}
+		.n-notification__close {
+			@include oIconsContent('cross', oColorsMix('black', 'jade', $percentage: 43), 40, $include-base-styles: false);
+			position: absolute;
+			right: 0;
+			top: 0;
+			border: 0;
+			cursor: pointer;
+			background-size: 20px;
+			background-position: 50%;
+			margin-top: 5px;
+			width: 40px;
+			height: 40px;
+			text-indent: -999em;
+		}
+	}
+	
+	.n-notification__close {
+		@include oIconsContent('cross', oColorsByName('black-80'), 40);
+		position: absolute;
+		right: 0;
+		top: 0;
+		border: 0;
+		cursor: pointer;
+		background-size: 20px;
+		background-position: 50%;
+		margin-top: 5px;
+		width: 40px;
+		height: 40px;
+		text-indent: -999em;
+	}
+}
+
+@if $n-notification-is-silent == false {
+	@include nNotification();
+
+	$n-notification-is-silent: true !global;
+}
