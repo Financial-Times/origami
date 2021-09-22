@@ -1,6 +1,4 @@
 name: percy components/o-forms
-concurrency:
-  group: ${{ github.head_ref }}-components/o-forms
 
 on:
   pull_request:

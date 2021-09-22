@@ -1,6 +1,4 @@
 name: percy components/o-loading
-concurrency:
-  group: ${{ github.head_ref }}-components/o-loading
 
 on:
   pull_request:

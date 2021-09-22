@@ -1,6 +1,4 @@
 name: percy components/o-ft-affiliate-ribbon
-concurrency:
-  group: ${{ github.head_ref }}-components/o-ft-affiliate-ribbon
 
 on:
   pull_request:

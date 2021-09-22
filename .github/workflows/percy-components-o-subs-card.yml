@@ -1,6 +1,4 @@
 name: percy components/o-subs-card
-concurrency:
-  group: ${{ github.head_ref }}-components/o-subs-card
 
 on:
   pull_request:

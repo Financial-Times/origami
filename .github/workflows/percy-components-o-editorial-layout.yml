@@ -1,6 +1,4 @@
 name: percy components/o-editorial-layout
-concurrency:
-  group: ${{ github.head_ref }}-components/o-editorial-layout
 
 on:
   pull_request:

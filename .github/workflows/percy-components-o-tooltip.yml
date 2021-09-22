@@ -1,6 +1,4 @@
 name: percy components/o-tooltip
-concurrency:
-  group: ${{ github.head_ref }}-components/o-tooltip
 
 on:
   pull_request:

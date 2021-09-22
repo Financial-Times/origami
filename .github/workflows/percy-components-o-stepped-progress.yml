@@ -1,6 +1,4 @@
 name: percy components/o-stepped-progress
-concurrency:
-  group: ${{ github.head_ref }}-components/o-stepped-progress
 
 on:
   pull_request:

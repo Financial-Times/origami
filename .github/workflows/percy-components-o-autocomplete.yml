@@ -1,6 +1,4 @@
 name: percy components/o-autocomplete
-concurrency:
-  group: ${{ github.head_ref }}-components/o-autocomplete
 
 on:
   pull_request:

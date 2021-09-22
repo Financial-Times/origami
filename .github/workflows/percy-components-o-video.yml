@@ -1,6 +1,4 @@
 name: percy components/o-video
-concurrency:
-  group: ${{ github.head_ref }}-components/o-video
 
 on:
   pull_request:

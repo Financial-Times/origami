@@ -1,6 +1,4 @@
 name: percy components/o-share
-concurrency:
-  group: ${{ github.head_ref }}-components/o-share
 
 on:
   pull_request:

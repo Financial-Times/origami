@@ -1,6 +1,4 @@
 name: percy components/o-spacing
-concurrency:
-  group: ${{ github.head_ref }}-components/o-spacing
 
 on:
   pull_request:

@@ -1,6 +1,4 @@
 name: percy components/o-teaser
-concurrency:
-  group: ${{ github.head_ref }}-components/o-teaser
 
 on:
   pull_request:

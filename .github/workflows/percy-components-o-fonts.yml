@@ -1,6 +1,4 @@
 name: percy components/o-fonts
-concurrency:
-  group: ${{ github.head_ref }}-components/o-fonts
 
 on:
   pull_request:

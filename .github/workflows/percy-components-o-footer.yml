@@ -1,6 +1,4 @@
 name: percy components/o-footer
-concurrency:
-  group: ${{ github.head_ref }}-components/o-footer
 
 on:
   pull_request:

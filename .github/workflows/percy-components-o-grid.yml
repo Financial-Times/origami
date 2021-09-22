@@ -1,6 +1,4 @@
 name: percy components/o-grid
-concurrency:
-  group: ${{ github.head_ref }}-components/o-grid
 
 on:
   pull_request:

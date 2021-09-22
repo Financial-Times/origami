@@ -1,6 +1,4 @@
 name: percy components/o-labels
-concurrency:
-  group: ${{ github.head_ref }}-components/o-labels
 
 on:
   pull_request:

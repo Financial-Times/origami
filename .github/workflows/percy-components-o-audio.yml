@@ -1,6 +1,4 @@
 name: percy components/o-audio
-concurrency:
-  group: ${{ github.head_ref }}-components/o-audio
 
 on:
   pull_request:

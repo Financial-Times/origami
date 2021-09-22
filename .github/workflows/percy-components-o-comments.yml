@@ -1,6 +1,4 @@
 name: percy components/o-comments
-concurrency:
-  group: ${{ github.head_ref }}-components/o-comments
 
 on:
   pull_request:

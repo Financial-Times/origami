@@ -1,6 +1,4 @@
 name: percy components/o-icons
-concurrency:
-  group: ${{ github.head_ref }}-components/o-icons
 
 on:
   pull_request:

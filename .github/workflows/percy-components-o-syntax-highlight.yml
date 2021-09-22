@@ -1,6 +1,4 @@
 name: percy components/o-syntax-highlight
-concurrency:
-  group: ${{ github.head_ref }}-components/o-syntax-highlight
 
 on:
   pull_request:

@@ -1,6 +1,4 @@
 name: percy components/o-date
-concurrency:
-  group: ${{ github.head_ref }}-components/o-date
 
 on:
   pull_request:

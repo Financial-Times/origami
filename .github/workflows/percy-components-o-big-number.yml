@@ -1,6 +1,4 @@
 name: percy components/o-big-number
-concurrency:
-  group: ${{ github.head_ref }}-components/o-big-number
 
 on:
   pull_request:

@@ -1,6 +1,4 @@
 name: percy components/o-topper
-concurrency:
-  group: ${{ github.head_ref }}-components/o-topper
 
 on:
   pull_request:

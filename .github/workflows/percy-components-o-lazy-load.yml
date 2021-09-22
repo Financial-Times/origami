@@ -1,6 +1,4 @@
 name: percy components/o-lazy-load
-concurrency:
-  group: ${{ github.head_ref }}-components/o-lazy-load
 
 on:
   pull_request:

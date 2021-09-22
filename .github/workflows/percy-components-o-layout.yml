@@ -1,6 +1,4 @@
 name: percy components/o-layout
-concurrency:
-  group: ${{ github.head_ref }}-components/o-layout
 
 on:
   pull_request:

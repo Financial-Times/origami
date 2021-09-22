@@ -1,6 +1,4 @@
 name: percy components/o-expander
-concurrency:
-  group: ${{ github.head_ref }}-components/o-expander
 
 on:
   pull_request:

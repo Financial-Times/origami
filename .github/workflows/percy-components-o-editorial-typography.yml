@@ -1,6 +1,4 @@
 name: percy components/o-editorial-typography
-concurrency:
-  group: ${{ github.head_ref }}-components/o-editorial-typography
 
 on:
   pull_request:

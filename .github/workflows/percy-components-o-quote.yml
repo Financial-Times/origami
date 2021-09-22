@@ -1,6 +1,4 @@
 name: percy components/o-quote
-concurrency:
-  group: ${{ github.head_ref }}-components/o-quote
 
 on:
   pull_request:

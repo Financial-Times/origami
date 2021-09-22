@@ -1,6 +1,4 @@
 name: percy components/o-visual-effects
-concurrency:
-  group: ${{ github.head_ref }}-components/o-visual-effects
 
 on:
   pull_request:
