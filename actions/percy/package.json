@@ -2,6 +2,7 @@
   "name": "origami-percy-action",
   "version": "1.0.0-dev",
   "main": "src/index.js",
+  "type": "module",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4",
