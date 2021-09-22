@@ -22,65 +22,6 @@
 	},
 	"demos": [
 		{
-			"title": "Banner",
-			"name": "banner",
-			"template": "demos/src/banner.mustache",
-			"description": "Basic banner"
-		},
-		{
-			"title": "Small",
-			"name": "small",
-			"template": "demos/src/small.mustache",
-			"description": "Small banner theme"
-		},
-		{
-			"title": "Compact",
-			"name": "compact",
-			"template": "demos/src/compact.mustache",
-			"description": "Compact banner theme"
-		},
-		{
-			"title": "Marketing",
-			"name": "marketing",
-			"template": "demos/src/marketing.mustache",
-			"description": "Marketing banner theme"
-		},
-		{
-			"title": "Product",
-			"name": "product",
-			"template": "demos/src/product.mustache",
-			"description": "Product banner theme"
-		},
-		{
-			"title": "Custom Theme",
-			"name": "custom-theme",
-			"template": "demos/src/custom.mustache",
-			"display_html": false,
-			"description": "This demo shows a custom banner theme created using o-banner Sass. It's used to show customisation is possible, not that this style is recommended. Currently Build Service users are not able to create a custom theme. See the README for more details."
-		},
-		{
-			"title": "Custom Call To Action Layout",
-			"name": "custom-actions",
-			"template": "demos/src/disabled-actions.mustache",
-			"display_html": false,
-			"description": "Although not recommended for design consistency, banner actions may be disabled entirely to further customise the layout of a banner within the banner content. See the README for more details."
-		},
-		{
-			"title": "All",
-			"name": "all",
-			"template": "demos/src/all.mustache",
-			"hidden": true,
-			"description": "All of the possible banner combinations",
-			"js": "demos/src/imperative.js"
-		},
-		{
-			"title": "Form",
-			"name": "form",
-			"template": "demos/src/form.mustache",
-			"hidden": true,
-			"description": "Testing that a form and submit button can be used"
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

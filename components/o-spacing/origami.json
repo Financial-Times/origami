@@ -23,18 +23,5 @@
 		]
 	},
 	"demos": [
-		{
-			"title": "Named Spaces",
-			"name": "named-spaces",
-			"template": "demos/src/named-spaces.mustache",
-			"description": "This demo visuallies the size of named spaces. It shows a square for each named space, which has a width and height equal to the space size. See the readme for more information on space sizes."
-		},
-		{
-			"title": "Utility Classes",
-			"name": "vertical-margin-utilities",
-			"documentClasses": "demo-utilities",
-			"template": "demos/src/vertical-margin-utilities.mustache",
-			"description": ""
-		}
 	]
 }

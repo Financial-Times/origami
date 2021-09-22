@@ -21,12 +21,6 @@
 	},
 	"demos": [
 		{
-			"title": "Demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
-			"description": "Simple ribbon example"
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

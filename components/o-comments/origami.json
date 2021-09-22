@@ -28,18 +28,5 @@
 		]
 	},
 	"demos": [
-		{
-			"title": "Comments Stream",
-			"name": "comments-stream",
-			"template": "demos/src/stream.mustache",
-			"sass": "demos/src/stream.scss",
-			"description": "Comments stream on an article page"
-		},
-		{
-			"title": "Comments Count",
-			"name": "comments-count",
-			"template": "demos/src/count.mustache",
-			"description": "Comments count on an article or stream page"
-		}
 	]
 }

@@ -27,43 +27,5 @@
 		]
 	},
 	"demos": [
-		{
-			"title": "Native",
-			"name": "native",
-			"description": "Native",
-			"template": "demos/src/video.mustache"
-		},
-		{
-			"title": "Captions",
-			"name": "captions",
-			"description": "With closed captions",
-			"template": "demos/src/captions.mustache"
-		},
-		{
-			"title": "Placeholder",
-			"name": "placeholder",
-			"description": "Placeholder",
-			"template": "demos/src/placeholder.mustache"
-		},
-		{
-			"title": "Placeholder With Hint",
-			"name": "placeholder with hint",
-			"description": "Placeholder with custom icon hint",
-			"template": "demos/src/placeholder-icon-hint.mustache"
-		},
-		{
-			"title": "Playlist",
-			"name": "playlist",
-			"description": "Wrap a player with a playlist",
-			"template": "demos/src/playlist.mustache",
-			"js": "demos/src/playlist.js"
-		},
-		{
-			"title": "Size Variations",
-			"name": "size variations",
-			"description": "Display the video at preset sizes",
-			"template": "demos/src/sizes.mustache",
-			"js": "demos/src/sizes.js"
-		}
 	]
 }

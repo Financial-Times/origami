@@ -31,64 +31,7 @@
 		"js": "demos/src/main.js"
 	},
 	"demos": [
-		{
-			"name": "title-section",
-			"title": "Header with title section",
-			"description": "If your site has no navigation you can use this top bar on its own."
-		},
-		{
-			"name": "primary-navigation",
-			"title": "Header with primary navigation",
-			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths.",
-			"data": {
-				"primary-navigation": true
-			}
-		},
-		{
-			"name": "drop-down-navigation",
-			"title": "Header with primary navigation and drop down menus",
-			"description": "Navigation for an overview of a product's pages. These nav items collapse into a drawer at narrow screen widths, and can be presented as dropdown menus",
-			"data": {
-				"primary-navigation": true,
-				"drop-down": true,
-				"sub-navigation": true
-			}
-		},
-		{
-			"name": "secondary-navigation",
-			"title": "Header with a primary and a secondary navigation",
-			"description": "For sites with more than a few sections, a secondary navigation is also available",
-			"data": {
-				"primary-navigation": true,
-				"sub-navigation": true
-			}
-		},
-		{
-			"name": "theme-b2c",
-			"title": "Product theme: B2C",
-			"description": "B2C theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
-			"data": {
-				"modifier": "b2c",
-				"primary-navigation": true,
-				"sub-navigation": true
-			},
-			"brands": [
-				"master"
-			]
-		},
-		{
-			"name": "theme-b2b",
-			"title": "Product theme: B2B",
-			"description": "B2B theme for this header component. If you're creating a product that isn't within B2B or B2C please contact Origami.",
-			"data": {
-				"modifier": "b2b",
-				"primary-navigation": true,
-				"sub-navigation": true
-			},
-			"brands": [
-				"master"
-			]
-		},
+
 		{
 			"title": "Pa11y",
 			"name": "pa11y",

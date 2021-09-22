@@ -26,18 +26,6 @@
 	},
 	"demos": [
 		{
-			"title": "Content Body Margins",
-			"name": "content-body-margins",
-			"template": "demos/src/demo.mustache",
-			"description": "This demo shows editorial typography and margins."
-		},
-		{
-			"title": "Wrapper",
-			"name": "wrapper",
-			"template": "demos/src/wrapper.mustache",
-			"description": "Wrapper for editorial styles. Styles all child typographic elements."
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",

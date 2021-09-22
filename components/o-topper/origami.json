@@ -24,109 +24,11 @@
 	},
 	"demos": [
 		{
-			"name": "Basic",
-			"title": "Basic Article Topper",
-			"template": "/demos/src/basic.mustache",
-			"description": "This is the default topper that all articles get"
-		},
-		{
-			"name": "Opinion",
-			"title": "Opinion Article Topper",
-			"template": "/demos/src/opinion.mustache",
-			"description": "This is used for articles with Opinion genre"
-		},
-		{
-			"name": "Branded",
-			"title": "Branded Article Topper",
-			"template": "/demos/src/branded.mustache",
-			"description": "This is used for articles with a brandConcept"
-		},
-		{
-			"name": "Full Bleed Image Left",
-			"title": "Left-Aligned Full-Bleed Image Topper",
-			"template": "/demos/src/full-bleed-image-left.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API"
-		},
-		{
-			"name": "Full Bleed Image Center",
-			"title": "Center-Aligned Full-Bleed Image Topper",
-			"template": "/demos/src/full-bleed-image-center.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API"
-		},
-		{
-			"name": "Full Bleed Offset",
-			"title": "Offset Full-Bleed Image Topper",
-			"template": "/demos/src/full-bleed-offset.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API"
-		},
-		{
-			"name": "Split Text Left",
-			"title": "Left-Aligned Split Text Topper",
-			"template": "/demos/src/split-text-left.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
-		},
-		{
-			"name": "Split Text Center",
-			"title": "Center-Aligned Split Text Topper",
-			"template": "/demos/src/split-text-center.mustache",
-			"description": "This is a theme that editorial can choose, which comes through the API. It also has a selection of background colours that can be chosen"
-		},
-		{
-			"name": "Package",
-			"title": "Package (Series) Landing Page Topper",
-			"template": "/demos/src/package.mustache",
-			"description": "Default theme for a Package/Series landing page, which has `type: package` in the API."
-		},
-		{
-			"name": "Package Extra",
-			"title": "Featured Package Landing Page Topper",
-			"template": "/demos/src/package-extra.mustache",
-			"description": "Theme for Packages that editorial can choose, which comes through the API."
-		},
-		{
-			"name": "Package Special Report",
-			"title": "Special Report Package Landing Page Topper",
-			"template": "/demos/src/package-special-report.mustache",
-			"description": "Used for Special Reports, such as FT Wealth"
-		},
-		{
-			"name": "News Package",
-			"title": "News Series Landing Page Topper",
-			"template": "/demos/src/news-package.mustache",
-			"description": "Used for the lead article in a Series, or a live event."
-		},
-		{
-			"name": "Right hand rail",
-			"title": "Right hand rail Topper",
-			"template": "/demos/src/right-rail.mustache",
-			"description": "Used where you only want content and a right-hand rail, no left-hand one"
-		},
-		{
-			"name": "Centered",
-			"title": "Centered Topper",
-			"template": "/demos/src/centered.mustache",
-			"description": "Used where you want a centered layout"
-		},
-		{
 			"name": "pa11y",
 			"title": "pa11y demo stub",
 			"template": "demos/src/pa11y.mustache",
 			"hidden": true,
 			"description": "Accessibility test will be run against this demo"
-		},
-		{
-			"name": "Podcast",
-			"title": "Podcast Article Topper",
-			"template": "/demos/src/podcast.mustache",
-			"description": "This is used for podcast articles",
-			"hidden": true
-		},
-		{
-			"name": "Live Blog Package",
-			"title": "Live Blog Package",
-			"template": "/demos/src/live-blog-package.mustache",
-			"description": "Topper used in live blog packages",
-			"hidden": true
 		}
 	]
 }

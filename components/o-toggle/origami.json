@@ -23,30 +23,5 @@
 		]
 	},
 	"demos": [
-		{
-			"title": "Toggle display on/off.",
-			"name": "display-toggle",
-			"template": "demos/src/demo.mustache",
-			"data": {
-				"type": "display"
-			},
-			"description": "This toggle target has a class \"o-toggle-display\" which hides it until clicking the toggle updates its aria attributes and adds the \"o-toggle--active\" class."
-		},
-		{
-			"title": "Toggle visibility.",
-			"name": "visibility-toggle",
-			"template": "demos/src/demo.mustache",
-			"data": {
-				"type": "visibility"
-			},
-			"description": "This toggle target has a class \"o-toggle-visibility\" which visually hides it, whilst still occupying space, until clicking the toggle updates its aria attributes and adds the \"o-toggle--active\" class."
-		},
-		{
-			"hidden": true,
-			"title": "Anchor toggle",
-			"name": "anchor",
-			"template": "demos/src/anchor.mustache",
-			"description": "Demonstrate toggle use on anchors"
-		}
 	]
 }

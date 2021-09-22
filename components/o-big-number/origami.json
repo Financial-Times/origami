@@ -15,10 +15,5 @@
 		]
 	},
 	"demos": [
-		{
-			"title": "Big Number",
-			"name": "simple",
-			"template": "demos/src/simple.mustache"
-		}
 	]
 }

@@ -14,12 +14,5 @@
 		"documentClasses": "",
 		"dependencies": ""
 	},
-	"demos": [
-		{
-			"title": "Native player",
-			"name": "native",
-			"template": "demos/src/native.mustache",
-			"description": "Uses the native player provided by the browser."
-		}
-	]
+	"demos": []
 }

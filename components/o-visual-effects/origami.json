@@ -12,21 +12,5 @@
 		"js": "demos/src/demo.js"
 	},
 	"demos": [
-		{
-			"title": "Shadows",
-			"name": "shadows",
-			"documentClasses": "shadows-demo",
-			"template": "demos/src/shadows.mustache",
-			"hidden": false,
-			"description": ""
-		},
-		{
-			"title": "Transitions",
-			"name": "transitions",
-			"documentClasses": "transitions-demo",
-			"template": "demos/src/transitions.mustache",
-			"hidden": false,
-			"description": ""
-		}
 	]
 }

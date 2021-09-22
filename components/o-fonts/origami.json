@@ -17,30 +17,5 @@
 		"sass": "demos/src/demo.scss"
 	},
 	"demos": [
-		{
-			"title": "Metric",
-			"name": "metricweb",
-			"data": {
-				"font": "metricweb"
-			},
-			"brands": [
-				"master",
-				"internal"
-			],
-			"description": "Metric is used for general text, utility text, eg categories, tags and navigation",
-			"display_html": false
-		},
-		{
-			"title": "Financier Display",
-			"name": "financierdisplayweb",
-			"data": {
-				"font": "financierdisplayweb"
-			},
-			"brands": [
-				"master"
-			],
-			"description": "Financier Display is used for headlines and editorial content at large sizes.",
-			"display_html": false
-		}
 	]
 }

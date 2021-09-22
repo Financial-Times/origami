@@ -24,13 +24,6 @@
 	},
 	"demos": [
 		{
-			"title": "Demo",
-			"name": "demo",
-			"template": "demos/src/demo.mustache",
-			"description": "Subs cards using different theme colours",
-			"js": "demos/src/demo.js"
-		},
-		{
 			"title": "Pa11y",
 			"name": "pa11y",
 			"template": "demos/src/pa11y.mustache",
