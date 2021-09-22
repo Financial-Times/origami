@@ -1,10 +1,11 @@
 {
   "name": "n-notification",
+  "type": "module",
   "description": "Component for showing notifications to users",
   "keywords": [
     "notification"
   ],
-  "main": "main.js",
+  "browser": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Financial-Times/origami.git"
