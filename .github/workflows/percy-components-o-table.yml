@@ -1,7 +1,6 @@
 name: percy components/o-table
 concurrency:
   group: ${{ github.head_ref }}-components/o-table
-  cancel-in-progress: true
 
 on:
   pull_request:

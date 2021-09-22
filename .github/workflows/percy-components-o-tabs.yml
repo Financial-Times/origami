@@ -1,7 +1,6 @@
 name: percy components/o-tabs
 concurrency:
   group: ${{ github.head_ref }}-components/o-tabs
-  cancel-in-progress: true
 
 on:
   pull_request:

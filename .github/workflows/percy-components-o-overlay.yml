@@ -1,7 +1,6 @@
 name: percy components/o-overlay
 concurrency:
   group: ${{ github.head_ref }}-components/o-overlay
-  cancel-in-progress: true
 
 on:
   pull_request:

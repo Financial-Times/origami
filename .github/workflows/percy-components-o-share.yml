@@ -1,7 +1,6 @@
 name: percy components/o-share
 concurrency:
   group: ${{ github.head_ref }}-components/o-share
-  cancel-in-progress: true
 
 on:
   pull_request:

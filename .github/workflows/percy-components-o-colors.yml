@@ -1,7 +1,6 @@
 name: percy components/o-colors
 concurrency:
   group: ${{ github.head_ref }}-components/o-colors
-  cancel-in-progress: true
 
 on:
   pull_request:

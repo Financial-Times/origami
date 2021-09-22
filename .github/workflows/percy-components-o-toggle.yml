@@ -1,7 +1,6 @@
 name: percy components/o-toggle
 concurrency:
   group: ${{ github.head_ref }}-components/o-toggle
-  cancel-in-progress: true
 
 on:
   pull_request:

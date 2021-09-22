@@ -1,7 +1,6 @@
 name: percy components/o-syntax-highlight
 concurrency:
   group: ${{ github.head_ref }}-components/o-syntax-highlight
-  cancel-in-progress: true
 
 on:
   pull_request:

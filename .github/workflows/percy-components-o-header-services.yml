@@ -1,7 +1,6 @@
 name: percy components/o-header-services
 concurrency:
   group: ${{ github.head_ref }}-components/o-header-services
-  cancel-in-progress: true
 
 on:
   pull_request:

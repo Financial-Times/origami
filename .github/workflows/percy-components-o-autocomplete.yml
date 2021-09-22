@@ -1,7 +1,6 @@
 name: percy components/o-autocomplete
 concurrency:
   group: ${{ github.head_ref }}-components/o-autocomplete
-  cancel-in-progress: true
 
 on:
   pull_request:
