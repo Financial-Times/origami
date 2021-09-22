@@ -1,5 +1,5 @@
 const core = require("@actions/core")
-const exec = require("@actions/exec")
+const $ = require("zx").$
 const io = require("@actions/io")
 const fs = require("fs")
 const {context} = require("@actions/github")
@@ -8,10 +8,25 @@ const workspace = "./" + process.env.WORKSPACE
 
 const isPullRequest = context.payload.pull_request
 
+async function shouldPercyRun() {
+	const isDefaultBranch = context.ref.endsWith("/main")
+	if (isDefaultBranch) {
+		return true;
+	} else if (isPullRequest) {
+		let baseRef = context.payload.pull_request.base.ref;
+		let headRef = context.payload.pull_request.head.ref;
+		let m = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
+		console.log(m);
+		return false;
+	} else {
+		return false;
+	}
+}
+
 void (async function () {
 	try {
-		const isDefaultBranch = context.ref.endsWith("/main")
-		if (isDefaultBranch || isPullRequest) {
+		const percyNeedsToRun = await shouldPercyRun();
+		if (percyNeedsToRun) {
 			if (isPullRequest) {
 				core.exportVariable(
 					"PERCY_PULL_REQUEST",
@@ -53,9 +68,7 @@ async function generateDemosFor(brand, demosConfig) {
 	)
 	const demoNames = brandSupportedDemos.map(d => d.name).join(",")
 
-	await exec.exec(
-		`"${npxPath}" npm exec -w ${workspace} obt demo --brand=${brand} --demo-filter="${demoNames}"`
-	)
+	await $`"${npxPath}" npm exec -w ${workspace} obt demo --brand=${brand} --demo-filter="${demoNames}"`
 	if (fs.existsSync(`${workspace}/demos/local`)) {
 		await io.mkdirP(outputDir)
 		await io.mv(`${workspace}/demos/local`, outputDir)
@@ -65,5 +78,5 @@ async function generateDemosFor(brand, demosConfig) {
 async function generatePercySnapshots() {
 	let npxPath = await io.which("npx", true)
 	let outputDir = `${workspace}/demos/percy/`
-	await exec.exec(`"${npxPath}" percy snapshot ${outputDir}`)
+	await $`"${npxPath}" percy snapshot ${outputDir}`
 }
