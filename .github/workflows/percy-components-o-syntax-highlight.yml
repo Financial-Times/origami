@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-syntax-highlight/**"
   push:
     branches: main
-    paths:
-      - "components/o-syntax-highlight/**"
 
 jobs:
   percy:

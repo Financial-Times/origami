@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-footer-services/**"
   push:
     branches: main
-    paths:
-      - "components/o-footer-services/**"
 
 jobs:
   percy:

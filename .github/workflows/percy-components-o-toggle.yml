@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-toggle/**"
   push:
     branches: main
-    paths:
-      - "components/o-toggle/**"
 
 jobs:
   percy:

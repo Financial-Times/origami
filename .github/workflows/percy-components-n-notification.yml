@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/n-notification/**"
   push:
     branches: main
-    paths:
-      - "components/n-notification/**"
 
 jobs:
   percy:
