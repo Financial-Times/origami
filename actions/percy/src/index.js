@@ -16,7 +16,10 @@ async function shouldPercyRun() {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
 		let m = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
-		console.log(m);
+		console.log({m});
+		console.log(typeof m);
+		console.log(Array.isArray(m));
+
 		return false;
 	} else {
 		return false;
