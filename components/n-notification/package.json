@@ -17,7 +17,7 @@
     "url": "https://github.com/Financial-Times/origami/issues/new?labels=n-notification,components"
   },
   "homepage": "https://github.com/Financial-Times/origami/components/n-notification",
-  "version": "7.0.3",
+  "version": "8.0.0",
   "peerDependencies": {
     "@financial-times/o-colors": "^6.1.1",
     "@financial-times/o-typography": "^7.0.3"
