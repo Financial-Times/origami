@@ -11,17 +11,23 @@ const isPullRequest = context.payload.pull_request
 async function shouldPercyRun() {
 	const isDefaultBranch = context.ref.endsWith("/main")
 	if (isDefaultBranch) {
+		core.info('This is a commit on the default branch, we need to run Percy to update the baseline images.')
 		return true;
 	} else if (isPullRequest) {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
-		let m = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
-		console.log({m});
-		console.log(typeof m);
-		console.log(Array.isArray(m));
-
+		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
+		let messages = commits.stdout.split('\n');
+		for (const message of messages) {
+			if (message.startsWith('fix:') || message.startsWith('fix!:') || message.startsWith('feat:') || message.startsWith('feat!:')) {
+				core.info('A commit in the pull-request is a `fix` or `feat` commit - which means some user facing changes have been made. This means we need to run Percy on the pull-request.')
+				return true;
+			}
+		}
+		core.info('No commits in the pull-request are a `fix` or `feat` - which means no user facing changes have been made. This means we do not need to run Percy.')
 		return false;
 	} else {
+		core.info('We are not running Percy because this is not a pull-request or a commit on the default branch.')
 		return false;
 	}
 }
