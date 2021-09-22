@@ -9,39 +9,22 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-     - "components/o-fonts/package.json"
-     - "components/o-fonts/package-lock.json"
-     - "components/o-fonts/origami.json"
-     - "components/o-fonts/main.js"
-     - "components/o-fonts/main.scss"
-     - "components/o-fonts/demos/**"
-     - "components/o-fonts/src/**"
   push:
     branches: main
-    paths:
-     - "components/o-fonts/package.json"
-     - "components/o-fonts/package-lock.json"
-     - "components/o-fonts/origami.json"
-     - "components/o-fonts/main.js"
-     - "components/o-fonts/main.scss"
-     - "components/o-fonts/demos/**"
-     - "components/o-fonts/src/**"
 
 jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - uses: actions/setup-node@v2
       with:
         cache: 'npm'
         node-version: 16
     - run: npm ci
-    - uses: ./actions/percy/
-      with:
-        # To comment as the Origami Fox mascot GitHub user
-        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+    - run: node ./actions/percy/src/index.js
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FONTS }}
         WORKSPACE: components/o-fonts
