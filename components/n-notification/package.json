@@ -1,0 +1,17 @@
+{
+  "name": "n-notification",
+  "description": "Component for showing notifications to users",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/n-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Financial-Times/n-notification/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/n-notification",
+  "devDependencies": {
+    "origami-build-tools": "8.2.8",
+    "origami-ci-tools": "1.1.1"
+  }
+}

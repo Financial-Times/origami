@@ -1,0 +1,9 @@
+$n-notification-is-silent: false;
+@import "../../main";
+
+body {
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	grid-gap: 1rem;
+}
