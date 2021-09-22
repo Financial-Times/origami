@@ -10,8 +10,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - "<%& workspace %>/**"
   push:
     branches: main
+    paths:
+      - "<%& workspace %>/**"
 
 jobs:
   percy:
