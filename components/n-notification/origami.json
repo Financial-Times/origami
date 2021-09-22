@@ -1,19 +1,14 @@
 {
-	"description": "Next FT - onsite notification bar",
-	"keywords": ["notification"],
 	"brands": ["master"],
-	"origamiType": "module",
-	"origamiVersion": 1,
+	"origamiType": "component",
+	"origamiVersion": "2.0.1",
 	"origamiCategory": "components",
-	"support": "https://github.com/Financial-Times/n-notification/issues",
+	"support": "https://github.com/Financial-Times/origami/issues",
 	"supportContact": {
 		"email": "next.team@ft.com",
 		"slack": "financial-times/next-dev-support"
 	},
 	"supportStatus": "experimental",
-	"ci": {
-		"circle": "https://circleci.com/api/v1/project/Financial-Times/n-notification"
-	},
 	"demosDefaults": {
 		"dependencies": [
 			"o-fonts@^4.0.0",

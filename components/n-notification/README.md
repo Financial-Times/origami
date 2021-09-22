@@ -1,4 +1,4 @@
-# n-notification [![Circle CI](https://circleci.com/gh/Financial-Times/n-notification/tree/master.svg?style=svg)](https://circleci.com/gh/Financial-Times/n-notification/tree/master)
+# n-notification
 Component for showing onsite notification bars to users. Concurrent notifications are stacked, most recent at the top.
 
 # Usage
