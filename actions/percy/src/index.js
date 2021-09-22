@@ -4,6 +4,8 @@ import io from "@actions/io"
 import fs from "fs"
 import {context} from "@actions/github"
 
+$.verbose = false
+
 const workspace = "./" + process.env.WORKSPACE
 
 const isPullRequest = context.payload.pull_request
