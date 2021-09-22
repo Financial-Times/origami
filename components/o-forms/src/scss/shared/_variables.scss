@@ -1,6 +1,6 @@
 $o-forms-is-silent: true !default;
 
-$_o-forms-border: 1px solid _oFormsGet('default-border');
+$_o-forms-border: 4px solid _oFormsGet('default-border');
 
 $_o-forms-spacing-half: oSpacingByIncrement(1) / 2; //2px
 $_o-forms-spacing-one: oSpacingByIncrement(1); // 4px
