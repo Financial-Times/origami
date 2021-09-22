@@ -9,7 +9,7 @@ $_o-colors-default-palette-colors: join((
 @if oBrandGetCurrentBrand() == master {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
-		('black', #000000),
+		('black', #141414),
 		('white', #ffffff),
 		('ft-pink', #fcd0b1),
 		('brand-ft-pink', #fcd0b1, ('deprecated': 'Replace "brand-ft-pink" with "ft-pink". This is so we can align our naming with our designers, including the Brand team.')),
