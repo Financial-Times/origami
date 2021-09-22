@@ -113,7 +113,7 @@
 	$theme: null
 ) {
 
-	@if not $input {
+	@if $input != "anchor" or $input != "radio" {
 		@error('Please specify whether you would like to customise radio inputs or anchors');
 	}
 
