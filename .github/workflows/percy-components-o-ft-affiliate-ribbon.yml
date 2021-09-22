@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-ft-affiliate-ribbon/**"
   push:
     branches: main
-    paths:
-      - "components/o-ft-affiliate-ribbon/**"
 
 jobs:
   percy:

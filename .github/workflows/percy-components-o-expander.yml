@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-expander/**"
   push:
     branches: main
-    paths:
-      - "components/o-expander/**"
 
 jobs:
   percy:

@@ -9,12 +9,8 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-      - "components/o-autocomplete/**"
   push:
     branches: main
-    paths:
-      - "components/o-autocomplete/**"
 
 jobs:
   percy:
