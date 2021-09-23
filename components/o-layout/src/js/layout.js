@@ -189,6 +189,12 @@ class Layout {
 				: domRect.top;
 		}
 
+		const mainSection = document.querySelector('.o-layout__main ');
+		let headingFontSize = '16px';
+		if (mainSection) {
+			headingFontSize = window.getComputedStyle(mainSection).fontSize;
+		}
+
 		const observer = new IntersectionObserver(
 			entries => {
 				let headingIndexToHighlight = this.highlightedHeadingIndex;
@@ -233,7 +239,7 @@ class Layout {
 				this.highlightedHeadingIndex = headingIndexToHighlight;
 			}, {
 				rootMargin: `-${
-					window.getComputedStyle(document.querySelector('h2')).fontSize
+					headingFontSize
 				} 0px 0px 0px`,
 				threshold: 0.1,
 			}
