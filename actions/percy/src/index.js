@@ -4,8 +4,6 @@ import io from "@actions/io"
 import fs from "fs"
 import {context} from "@actions/github"
 
-$.verbose = false
-
 const workspace = "./" + process.env.WORKSPACE
 
 const isPullRequest = context.payload.pull_request
@@ -18,8 +16,10 @@ async function shouldPercyRun() {
 	} else if (isPullRequest) {
 		let baseRef = context.payload.pull_request.base.ref;
 		let headRef = context.payload.pull_request.head.ref;
+		$.verbose = false
 		let commits = await $`git log --pretty=format:%s origin/${baseRef}...origin/${headRef} --`;
 		let filesChanged = await $`git log --name-only --pretty=format: origin/${baseRef}...origin/${headRef} --`;
+		$.verbose = true
 		let files = filesChanged.stdout.split('\n');
 		let noFilesChangedInWorkspace = files.every(file => {
 			return file.startsWith(`${process.env.WORKSPACE}/`) == false
