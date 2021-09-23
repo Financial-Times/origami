@@ -1,13 +1,17 @@
 # o-topper
 
 This component is used for styling the topper sections of an article.
-
+- [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-- [Migration Guide](#migration)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-topper`.
 
 ## Markup
 

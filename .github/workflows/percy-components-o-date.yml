@@ -1,6 +1,6 @@
 name: percy components/o-date
 concurrency:
-  group: ${{ github.head_ref }}-components/o-date
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-date
   cancel-in-progress: true
 
 on:

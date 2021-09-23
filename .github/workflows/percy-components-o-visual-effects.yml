@@ -1,6 +1,6 @@
 name: percy components/o-visual-effects
 concurrency:
-  group: ${{ github.head_ref }}-components/o-visual-effects
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-visual-effects
   cancel-in-progress: true
 
 on:

@@ -540,7 +540,7 @@ document.addEventListener('oTable.sorting', (event) => {
 ## Troubleshooting
 
 Known issues:
-* IE11 and below need the [polyfill service](https://polyfill.io/)
+- IE11 and below need the [polyfill service](https://polyfill.io/)
 
 ## Migration
 

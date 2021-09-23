@@ -1,8 +1,8 @@
 {{=<% %>=}}
 name: test <%& workspace %>
 concurrency:
-  group: ${{ github.head_ref }}-<%& workspace %>
-#  cancel-in-progress: true
+  group: ${{ github.head_ref }}-${{ github.workflow}}-<%& workspace %>
+ cancel-in-progress: true
 
 on:
   pull_request:

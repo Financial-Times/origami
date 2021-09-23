@@ -113,7 +113,7 @@ Call on any instances to stop processing date updates and release the item refer
 
 ## Server-side
 
-See the npm package [@financial-times/ft-date-format](https://github.com/Financial-Times/ft-date-format) for server-side date formatting. *Note: It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time.*
+See the npm package [@financial-times/ft-date-format](https://github.com/Financial-Times/ft-date-format) for server-side date formatting. _Note: It's not recommended to output the 'time ago' server side as it will not be cacheable and will not update in the browser if the user leaves the page open for a prolonged period of time._
 
 ## Migration
 
@@ -125,13 +125,11 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.9 | - |
 ╳ deprecated | 1 | 1.2 | - |
 
----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-date/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 

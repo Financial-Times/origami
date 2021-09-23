@@ -1,14 +1,11 @@
-# o-big-number [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-big-number
 
 Typographical styles to highlight and describe a big number. Positioning of the big number, for example to the left in a style of a pull-quote, is left to the user. This is so o-big-number may be used in different contexts without writing extra CSS to remove existing positioning.
-
-----
 
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
-- [Migration guide](#migration)
-- [Contact](#contact)
+- [Migration](#migration)
 - [Licence](#licence)
 
 ## Usage
@@ -54,3 +51,7 @@ State | Major Version | Last Minor Release | Migration guide |
 ✨ active | 3 | N/A | [migrate to v3](MIGRATION.md#migrating-from-v2-to-v3) |
 ⚠ maintained | 2 | 2.0 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.1 | N/A |
+
+## Licence
+
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).

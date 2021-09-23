@@ -1,6 +1,6 @@
 name: percy components/o-normalise
 concurrency:
-  group: ${{ github.head_ref }}-components/o-normalise
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-normalise
   cancel-in-progress: true
 
 on:

@@ -251,9 +251,9 @@ See [o-exapnder JSDocs](https://registry.origami.ft.com/components/o-expander/js
 
 o-expander fires the following events, which always fire before any repainting/layout occurs
 
-* `oExpander.init` - fires when the expander has initialised
-* `oExpander.expand` - fires when the expander expands
-* `oExpander.collapse` - fires when the expander collapses
+- `oExpander.init` - fires when the expander has initialised
+- `oExpander.expand` - fires when the expander expands
+- `oExpander.collapse` - fires when the expander collapses
 
 ## Migration
 
@@ -270,7 +270,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-expander/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 

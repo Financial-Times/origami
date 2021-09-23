@@ -1,6 +1,6 @@
 name: percy components/o-icons
 concurrency:
-  group: ${{ github.head_ref }}-components/o-icons
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-icons
   cancel-in-progress: true
 
 on:

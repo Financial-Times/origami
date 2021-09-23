@@ -1,6 +1,6 @@
 name: percy components/o-forms
 concurrency:
-  group: ${{ github.head_ref }}-components/o-forms
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-forms
   cancel-in-progress: true
 
 on:
