@@ -10,6 +10,8 @@ An Origami component for autocomplete inputs. This is built on top of the excell
 - [Sass](#sass)
 - [JavaScript](#javascript)
     - [dynamic suggestions function](#dynamic-suggestions-function)
+    - [mapOptionToSuggestedValue](#mapoptiontosuggestedvalue)
+    - [onConfirm](#onconfirm)    
 - [Keyboard Support](#keyboard-support)
     - [When focus is within the text input](#when-focus-is-within-the-text-input)
     - [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
