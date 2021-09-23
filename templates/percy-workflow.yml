@@ -25,7 +25,7 @@ jobs:
         cache: 'npm'
         node-version: 16
     - run: npm ci
-    - run: node ./actions/percy/src/index.js
+    - run: node ./scripts/percy.js
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_<% percyTokenName %> }}
         WORKSPACE: <%& workspace %>

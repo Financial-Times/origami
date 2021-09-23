@@ -1,9 +1,6 @@
 components:
   - components/**/*
 
-actions:
-  - actions/**/*
-
 libraries:
   - libraries/**/*
 
