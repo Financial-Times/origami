@@ -193,7 +193,7 @@ Indicator labels also support an inverse theme for use on dark backgrounds. To u
 </span>
 ```
 
-## Timestamp Markup
+### Timestamp Markup
 
 To include a timestamp label use the following markup. Note the timestamp label also supports an optional inverse variant for dark background with the `o-labels-timestamp--inverse` class:
 
