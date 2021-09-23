@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-meter/package.json"
+      - "components/o-meter/package-lock.json"
+      - "components/o-meter/origami.json"
+      - "components/o-meter/main.js"
+      - "components/o-meter/main.scss"
+      - "components/o-meter/demos/**"
+      - "components/o-meter/src/**"
 
 jobs:
   percy:

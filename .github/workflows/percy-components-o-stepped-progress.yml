@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-stepped-progress/package.json"
+      - "components/o-stepped-progress/package-lock.json"
+      - "components/o-stepped-progress/origami.json"
+      - "components/o-stepped-progress/main.js"
+      - "components/o-stepped-progress/main.scss"
+      - "components/o-stepped-progress/demos/**"
+      - "components/o-stepped-progress/src/**"
 
 jobs:
   percy:

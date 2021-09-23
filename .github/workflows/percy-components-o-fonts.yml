@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-fonts/package.json"
+      - "components/o-fonts/package-lock.json"
+      - "components/o-fonts/origami.json"
+      - "components/o-fonts/main.js"
+      - "components/o-fonts/main.scss"
+      - "components/o-fonts/demos/**"
+      - "components/o-fonts/src/**"
 
 jobs:
   percy:

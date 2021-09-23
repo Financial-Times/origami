@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-video/package.json"
+      - "components/o-video/package-lock.json"
+      - "components/o-video/origami.json"
+      - "components/o-video/main.js"
+      - "components/o-video/main.scss"
+      - "components/o-video/demos/**"
+      - "components/o-video/src/**"
 
 jobs:
   percy:

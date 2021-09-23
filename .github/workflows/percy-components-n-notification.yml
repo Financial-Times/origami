@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/n-notification/package.json"
+      - "components/n-notification/package-lock.json"
+      - "components/n-notification/origami.json"
+      - "components/n-notification/main.js"
+      - "components/n-notification/main.scss"
+      - "components/n-notification/demos/**"
+      - "components/n-notification/src/**"
 
 jobs:
   percy:

@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-grid/package.json"
+      - "components/o-grid/package-lock.json"
+      - "components/o-grid/origami.json"
+      - "components/o-grid/main.js"
+      - "components/o-grid/main.scss"
+      - "components/o-grid/demos/**"
+      - "components/o-grid/src/**"
 
 jobs:
   percy:

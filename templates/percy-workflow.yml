@@ -12,6 +12,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "<%& workspace %>/package.json"
+      - "<%& workspace %>/package-lock.json"
+      - "<%& workspace %>/origami.json"
+      - "<%& workspace %>/main.js"
+      - "<%& workspace %>/main.scss"
+      - "<%& workspace %>/demos/**"
+      - "<%& workspace %>/src/**"
 
 jobs:
   percy:

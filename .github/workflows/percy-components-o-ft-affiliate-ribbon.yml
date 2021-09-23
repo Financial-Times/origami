@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-ft-affiliate-ribbon/package.json"
+      - "components/o-ft-affiliate-ribbon/package-lock.json"
+      - "components/o-ft-affiliate-ribbon/origami.json"
+      - "components/o-ft-affiliate-ribbon/main.js"
+      - "components/o-ft-affiliate-ribbon/main.scss"
+      - "components/o-ft-affiliate-ribbon/demos/**"
+      - "components/o-ft-affiliate-ribbon/src/**"
 
 jobs:
   percy:
