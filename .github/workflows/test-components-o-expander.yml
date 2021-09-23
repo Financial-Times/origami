@@ -1,6 +1,6 @@
 name: test components/o-expander
 concurrency:
-  group: ${{ github.head_ref }}-components/o-expander
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-expander
 #  cancel-in-progress: true
 
 on:

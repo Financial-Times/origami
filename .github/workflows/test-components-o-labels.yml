@@ -1,6 +1,6 @@
 name: test components/o-labels
 concurrency:
-  group: ${{ github.head_ref }}-components/o-labels
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-labels
 #  cancel-in-progress: true
 
 on:

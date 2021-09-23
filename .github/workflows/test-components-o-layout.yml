@@ -1,6 +1,6 @@
 name: test components/o-layout
 concurrency:
-  group: ${{ github.head_ref }}-components/o-layout
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-layout
 #  cancel-in-progress: true
 
 on:

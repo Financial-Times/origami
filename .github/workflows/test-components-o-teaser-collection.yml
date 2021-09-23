@@ -1,6 +1,6 @@
 name: test components/o-teaser-collection
 concurrency:
-  group: ${{ github.head_ref }}-components/o-teaser-collection
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-teaser-collection
 #  cancel-in-progress: true
 
 on:

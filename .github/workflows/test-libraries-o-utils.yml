@@ -1,6 +1,6 @@
 name: test libraries/o-utils
 concurrency:
-  group: ${{ github.head_ref }}-libraries/o-utils
+  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/o-utils
 #  cancel-in-progress: true
 
 on:

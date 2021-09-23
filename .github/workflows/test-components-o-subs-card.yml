@@ -1,6 +1,6 @@
 name: test components/o-subs-card
 concurrency:
-  group: ${{ github.head_ref }}-components/o-subs-card
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-subs-card
 #  cancel-in-progress: true
 
 on:

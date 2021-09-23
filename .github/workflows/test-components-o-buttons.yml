@@ -1,6 +1,6 @@
 name: test components/o-buttons
 concurrency:
-  group: ${{ github.head_ref }}-components/o-buttons
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-buttons
 #  cancel-in-progress: true
 
 on:

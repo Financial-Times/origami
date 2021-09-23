@@ -1,6 +1,6 @@
 name: test components/o-grid
 concurrency:
-  group: ${{ github.head_ref }}-components/o-grid
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-grid
 #  cancel-in-progress: true
 
 on:

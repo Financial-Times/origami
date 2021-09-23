@@ -1,6 +1,6 @@
 name: percy components/o-header
 concurrency:
-  group: ${{ github.head_ref }}-components/o-header
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-header
   cancel-in-progress: true
 
 on:

@@ -1,6 +1,6 @@
 name: test components/o-stepped-progress
 concurrency:
-  group: ${{ github.head_ref }}-components/o-stepped-progress
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-stepped-progress
 #  cancel-in-progress: true
 
 on:

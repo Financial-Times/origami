@@ -1,6 +1,6 @@
 name: test components/o-quote
 concurrency:
-  group: ${{ github.head_ref }}-components/o-quote
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-quote
 #  cancel-in-progress: true
 
 on:

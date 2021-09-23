@@ -1,6 +1,6 @@
 name: test components/o-spacing
 concurrency:
-  group: ${{ github.head_ref }}-components/o-spacing
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-spacing
 #  cancel-in-progress: true
 
 on:

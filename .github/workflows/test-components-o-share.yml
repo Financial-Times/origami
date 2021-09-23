@@ -1,6 +1,6 @@
 name: test components/o-share
 concurrency:
-  group: ${{ github.head_ref }}-components/o-share
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-share
 #  cancel-in-progress: true
 
 on:

@@ -1,6 +1,6 @@
 name: test components/o-footer-services
 concurrency:
-  group: ${{ github.head_ref }}-components/o-footer-services
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-footer-services
 #  cancel-in-progress: true
 
 on:
