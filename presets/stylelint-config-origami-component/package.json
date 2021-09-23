@@ -1,0 +1,30 @@
+{
+  "name": "stylelint-config-origami-component",
+  "version": "1.0.4",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "lint": "echo skipping lint",
+    "test": "mocha ./test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/stylelint-config-origami-component.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/stylelint-config-origami-component/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/stylelint-config-origami-component#readme",
+  "dependencies": {
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.1"
+  },
+  "devDependencies": {
+    "execa": "^5.0.0",
+    "mocha": "^8.0.1",
+    "proclaim": "^3.6.0",
+    "stylelint": "^13.8.0"
+  }
+}

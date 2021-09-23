@@ -1,0 +1,8 @@
+printWidth = 80
+trailingComma = "es5"
+semi = false
+singleQuote = false
+useTabs = true
+bracketSpacing = false
+jsxBracketSameLine = true
+arrowParens = "avoid"

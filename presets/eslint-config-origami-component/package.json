@@ -1,0 +1,19 @@
+{
+  "name": "eslint-config-origami-component",
+  "version": "2.1.1",
+  "description": "",
+  "main": "config.js",
+  "author": "Jake Champion",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^8.0.1",
+    "proclaim": "^3.4.2"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "scripts": {
+    "test": "echo skipping test",
+    "lint": "echo skipping lint"
+  }
+}

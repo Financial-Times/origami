@@ -1,0 +1,27 @@
+.foo {
+	content: 'foo';
+
+	.bar {
+		content: 'bar';
+
+		// Waldo
+		&--baz {
+			content: 'baz';
+		}
+	}
+}
+
+.foo {
+	content: 'foo';
+	.bar {
+		content: 'bar';
+		// Waldo
+		&--baz {
+			content: 'baz';
+		}
+	}
+}
+
+.foo { content: 'foo'; }
+.bar { content: 'bar'; }
+.baz { content: 'baz'; }

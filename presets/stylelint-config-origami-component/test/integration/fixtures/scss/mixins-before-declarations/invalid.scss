@@ -1,0 +1,10 @@
+@mixin baz {
+	content: '';
+}
+
+// mixin must come first, as the mixin could introduce
+// new properties and override .foo properties by mistake
+.foo {
+	content: 'baz';
+	@include baz;
+}

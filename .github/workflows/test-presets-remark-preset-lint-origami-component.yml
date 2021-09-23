@@ -1,0 +1,22 @@
+name: test presets/remark-preset-lint-origami-component
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow}}-presets/remark-preset-lint-origami-component
+ cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npx npm run -w presets/remark-preset-lint-origami-component lint
+    - run: npx npm run -w presets/remark-preset-lint-origami-component test

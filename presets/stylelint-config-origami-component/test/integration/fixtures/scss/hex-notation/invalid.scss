@@ -1,0 +1,10 @@
+// uppercase hex notation is not allowed
+$foo-color: #FFFFFF;
+
+.bar {
+	background: linear-gradient(top, #33FFFF, #DDDDDD);
+}
+
+.baz {
+	color: #FFFFFF;
+}

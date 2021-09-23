@@ -1,0 +1,12 @@
+.foo {
+	.bar {
+		.baz {
+			.biz {
+				&:hover {
+					// Too much nesting!
+					content: '';
+				}
+			}
+		}
+	}
+}

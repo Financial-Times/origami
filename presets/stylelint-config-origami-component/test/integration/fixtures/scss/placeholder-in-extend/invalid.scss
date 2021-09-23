@@ -1,0 +1,11 @@
+.bar {
+	content: 'bar';
+}
+
+.foo {
+	@extend .bar;
+}
+
+.foo {
+	@extend .baz%qux;
+}

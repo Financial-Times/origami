@@ -30,6 +30,7 @@
 	"workspaces": [
 		"components/*",
 		"libraries/*",
+		"presets/*",
 		"tools/*"
 	],
 	"devDependencies": {
