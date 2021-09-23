@@ -1,9 +1,6 @@
 components:
   - components/**/*
 
-actions:
-  - actions/**/*
-
 libraries:
   - libraries/**/*
 
@@ -19,8 +16,6 @@ tools:
 templates:
   - templates/**/*
 
-percy:
-  - actions/percy/**/*
 n-notification:
   - components/n-notification/**/*
 o-audio:
