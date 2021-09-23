@@ -31,6 +31,7 @@
 		"actions/*",
 		"components/*",
 		"libraries/*",
+		"presets/*",
 		"tools/*"
 	],
 	"devDependencies": {

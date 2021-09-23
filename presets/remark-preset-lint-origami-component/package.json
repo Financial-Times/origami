@@ -1,9 +1,10 @@
 {
 	"name": "remark-preset-lint-origami-component",
-	"version": "1.2.4",
+	"version": "2.0.0",
 	"description": "remark lint preset for Origami component README.md",
 	"main": "index.js",
 	"scripts": {
+		"lint": "echo skipping lint",
 		"test": "for invalid in test/invalid/*; do cd $invalid; if remark -f README.md 1>/dev/null 2>/dev/null; then echo \"expected $invalid to fail\"; exit 22; fi; cd ../../../; done && for valid in test/valid/*; do cd $valid; remark -f README.md 1>/dev/null; cd ../../..; done"
 	},
 	"author": "chee <chee@snoot.club>",
