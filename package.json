@@ -28,7 +28,6 @@
 		"npm": "7.21.0"
 	},
 	"workspaces": [
-		"actions/*",
 		"components/*",
 		"libraries/*",
 		"presets/*",
@@ -54,6 +53,10 @@
 		"stylelint-config-origami-component": "^1.0.4"
 	},
 	"dependencies": {
+		"@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0",
+    "@actions/io": "^1.0.2",
 		"@percy/cli": "^1.0.0-beta.67",
 		"del": "^6.0.0",
 		"fast-glob": "^3.2.7",

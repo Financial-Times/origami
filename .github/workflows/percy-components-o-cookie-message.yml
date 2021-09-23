@@ -9,39 +9,22 @@ on:
       - opened
       - reopened
       - synchronize
-    paths:
-     - "components/o-cookie-message/package.json"
-     - "components/o-cookie-message/package-lock.json"
-     - "components/o-cookie-message/origami.json"
-     - "components/o-cookie-message/main.js"
-     - "components/o-cookie-message/main.scss"
-     - "components/o-cookie-message/demos/**"
-     - "components/o-cookie-message/src/**"
   push:
     branches: main
-    paths:
-     - "components/o-cookie-message/package.json"
-     - "components/o-cookie-message/package-lock.json"
-     - "components/o-cookie-message/origami.json"
-     - "components/o-cookie-message/main.js"
-     - "components/o-cookie-message/main.scss"
-     - "components/o-cookie-message/demos/**"
-     - "components/o-cookie-message/src/**"
 
 jobs:
   percy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - uses: actions/setup-node@v2
       with:
         cache: 'npm'
         node-version: 16
     - run: npm ci
-    - uses: ./actions/percy/
-      with:
-        # To comment as the Origami Fox mascot GitHub user
-        github-token: ${{secrets.ORIGAMI_FOX_ACCESS_TOKEN}}
+    - run: node ./scripts/percy.js
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_COOKIE_MESSAGE }}
         WORKSPACE: components/o-cookie-message
