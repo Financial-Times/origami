@@ -179,14 +179,11 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.5  | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 ╳ deprecated | 1 | 1.9 | - |
 
-----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-teaser/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
-
-----
+***
 
 ## Licence
 
