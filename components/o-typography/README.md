@@ -523,13 +523,11 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 1 | 1.16 | - |
 
 
----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-typography/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 
