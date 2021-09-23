@@ -1,7 +1,7 @@
 name: test components/o-editorial-layout
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-editorial-layout
-#  cancel-in-progress: true
+ cancel-in-progress: true
 
 on:
   pull_request:
