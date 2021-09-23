@@ -2,12 +2,10 @@
 @mixin oBigNumberTitle {
 	@include oTypographySans($scale: 8, $weight: 'semibold');
 	margin: 0 0 oSpacingByName('s1');
-	color: royalblue;
 }
 
 /// Styles for the copy under the big number.
 @mixin oBigNumberContent {
 	@include oTypographySans($scale: 1, $line-height: 22px);
 	max-width: oTypographyMaxLineWidth();
-	color: royalblue;
 }
