@@ -1,6 +1,6 @@
 name: percy components/o-meter
 concurrency:
-  group: ${{ github.head_ref }}-components/o-meter
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-meter
   cancel-in-progress: true
 
 on:

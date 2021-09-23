@@ -1,6 +1,6 @@
 name: percy components/o-editorial-layout
 concurrency:
-  group: ${{ github.head_ref }}-components/o-editorial-layout
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-editorial-layout
   cancel-in-progress: true
 
 on:

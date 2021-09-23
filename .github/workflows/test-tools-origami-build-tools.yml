@@ -1,6 +1,6 @@
 name: test tools/origami-build-tools
 concurrency:
-  group: ${{ github.head_ref }}-tools/origami-build-tools
+  group: ${{ github.head_ref }}-${{ github.workflow}}-tools/origami-build-tools
 #  cancel-in-progress: true
 
 on:

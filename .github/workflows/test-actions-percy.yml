@@ -1,6 +1,6 @@
 name: test actions/percy
 concurrency:
-  group: ${{ github.head_ref }}-actions/percy
+  group: ${{ github.head_ref }}-${{ github.workflow}}-actions/percy
 #  cancel-in-progress: true
 
 on:

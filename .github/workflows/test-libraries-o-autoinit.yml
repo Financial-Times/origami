@@ -1,6 +1,6 @@
 name: test libraries/o-autoinit
 concurrency:
-  group: ${{ github.head_ref }}-libraries/o-autoinit
+  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/o-autoinit
 #  cancel-in-progress: true
 
 on:

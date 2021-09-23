@@ -1,6 +1,6 @@
 name: percy components/o-message
 concurrency:
-  group: ${{ github.head_ref }}-components/o-message
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-message
   cancel-in-progress: true
 
 on:

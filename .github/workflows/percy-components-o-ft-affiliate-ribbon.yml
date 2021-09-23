@@ -1,6 +1,6 @@
 name: percy components/o-ft-affiliate-ribbon
 concurrency:
-  group: ${{ github.head_ref }}-components/o-ft-affiliate-ribbon
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-ft-affiliate-ribbon
   cancel-in-progress: true
 
 on:

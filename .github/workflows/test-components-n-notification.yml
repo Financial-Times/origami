@@ -1,6 +1,6 @@
 name: test components/n-notification
 concurrency:
-  group: ${{ github.head_ref }}-components/n-notification
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/n-notification
 #  cancel-in-progress: true
 
 on:

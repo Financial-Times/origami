@@ -1,6 +1,6 @@
 name: percy components/o-editorial-typography
 concurrency:
-  group: ${{ github.head_ref }}-components/o-editorial-typography
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-editorial-typography
   cancel-in-progress: true
 
 on:

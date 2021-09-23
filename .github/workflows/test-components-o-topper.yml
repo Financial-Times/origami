@@ -1,6 +1,6 @@
 name: test components/o-topper
 concurrency:
-  group: ${{ github.head_ref }}-components/o-topper
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-topper
 #  cancel-in-progress: true
 
 on:

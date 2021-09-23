@@ -1,6 +1,6 @@
 name: test libraries/o-tracking
 concurrency:
-  group: ${{ github.head_ref }}-libraries/o-tracking
+  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/o-tracking
 #  cancel-in-progress: true
 
 on:

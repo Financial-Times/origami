@@ -1,6 +1,6 @@
 name: percy components/o-big-number
 concurrency:
-  group: ${{ github.head_ref }}-components/o-big-number
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-big-number
   cancel-in-progress: true
 
 on:

@@ -1,6 +1,6 @@
 name: test components/o-audio
 concurrency:
-  group: ${{ github.head_ref }}-components/o-audio
+  group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-audio
 #  cancel-in-progress: true
 
 on:
