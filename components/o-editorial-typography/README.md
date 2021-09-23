@@ -5,12 +5,13 @@ _Typography styles for editorial content._
 - [Usage](#usage)
 - [Markup](#markup)
 - [Sass](#sass)
+- [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
 
 [o-typography](https://registry.origami.ft.com/components/o-typography) provides fundamental typographic tooling and styles for user interfaces. o-editorial-typography builds on that with typography for editorial content including headlines, tags, and bylines. It makes no assumption about where the editorial typography will be used -- it could be a page, another component, or email for example -- so no default margins are provided. To apply typography and layout editorial typography within an article see [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout).
 
-### Usage
+## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-editorial-typography`.
 
@@ -120,7 +121,7 @@ Style captions using `o-editorial-typography-caption`.
 </figure>
 ```
 
-### Sass
+## Sass
 
 Include all o-editorial-typography styles by including the `oEditorialTypography` mixin.
 
@@ -203,7 +204,7 @@ $o-editorial-typography-load-fonts: false;
 @include oEditorialTypography();
 ```
 
-## Migration guide
+## Migration
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
