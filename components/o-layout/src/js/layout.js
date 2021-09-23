@@ -277,7 +277,9 @@ class Layout {
 		this.setupClickHandlersForNavigationSidebar();
 		this.setupClickHandlersForHeadings();
 		this.highlightNavigationFromLocation();
-		this.setupIntersectionObserversForHeadings();
+		if (typeof self.IntersectionObserver === 'function') {
+			this.setupIntersectionObserversForHeadings();
+		}
 	}
 
 	/**
