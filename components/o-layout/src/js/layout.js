@@ -264,7 +264,8 @@ class Layout {
 			threshold: 1, // Trigger only when whole element was visible
 		});
 
-		observerbottom.observe(this.layoutEl.querySelector('.o-layout__footer') || this.layoutEl.querySelector('.o-layout__main').lastElementChild);
+		const lastElementOnPage = this.layoutEl.querySelector('.o-layout__footer') || this.layoutEl.querySelector('.o-layout__main').lastElementChild;
+		observerbottom.observe(lastElementOnPage);
 	}
 
 	/**
