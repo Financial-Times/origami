@@ -22,7 +22,7 @@ The _tab_ elements must contain a link whose `href` attribute points to the ID o
 
 The _tabpanel_ elements must have a `o-tabs__tabpanel` class added to them.
 
-This is an example of an HTML structure that __o-tabs__ will accept:
+This is an example of an HTML structure that **o-tabs** will accept:
 
 ```html
 <ul data-o-component="o-tabs" class="o-tabs" role="tablist">
@@ -70,21 +70,21 @@ A product may choose to hide the tabs like this:
 
 ARIA attributes will be set on elements as follows:
 
-__On init__, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
+**On init**, `aria-controls` is added to each tab element, with value being the ID of the associated tabpanel.
 
-__On init and selected tab change__ these attributes are set and updated as appropriate:
+**On init and selected tab change** these attributes are set and updated as appropriate:
 
 - `aria-selected` is set on the tab elements
 - `aria-hidden` and `aria-expanded` are set on the tabpanels
 
-These state attributes are used by the __o-tabs__ CSS.
+These state attributes are used by the **o-tabs** CSS.
 
 
 ## JavaScript
 
 ### Declarative
 
-A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-tabs__ object for each element with a `data-o-component="o-tabs"` attribute:
+A `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a **o-tabs** object for each element with a `data-o-component="o-tabs"` attribute:
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
@@ -121,9 +121,9 @@ const myTabs = new Tabs(document.getElementById('myTabsRootElement'), {
 The following events will be dispatched on the Tabs' root DOM element:
 
 - `oTabs.ready`: The Tabs object has initialised. Event detail:
-	- `tabs`: The __o-tabs__ object.
+	- `tabs`: The **o-tabs** object.
 - `oTabs.tabSelect`: A tab has been selected. Event detail:
-	- `tabs`: The __o-tabs__ object.
+	- `tabs`: The **o-tabs** object.
 	- `selected`: The index of the selected tab.
 	- `lastSelected`: The index of the last selected tab.
 
@@ -140,19 +140,19 @@ The following API methods are provided:
 
 ## Sass
 
-__o-tabs__ comes with either _base styling_, which should be used as a base for you to add your own styling. Or _full styling_ called __buttontabs__; based on the buttons from [o-buttons](https://github.com/Financial-Times/o-buttons)).
+**o-tabs** comes with either _base styling_, which should be used as a base for you to add your own styling. Or _full styling_ called **buttontabs**; based on the buttons from [o-buttons](https://github.com/Financial-Times/o-buttons)).
 
-To apply the __buttontabs__ styling, add a `o-tabs--buttontabs` class to the root element:
+To apply the **buttontabs** styling, add a `o-tabs--buttontabs` class to the root element:
 
 ```html
 <ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
 ```
 
-The __buttontabs__ style comes in two sizes that conform to the `o-buttons` sizes: medium and big. Medium is the default size and big can be applied by adding the class `o-tabs--big`.
+The **buttontabs** style comes in two sizes that conform to the `o-buttons` sizes: medium and big. Medium is the default size and big can be applied by adding the class `o-tabs--big`.
 
 ### Options
 
-* __Align right__: Add `o-tabs--alignright` to the root element.
+- **Align right**: Add `o-tabs--alignright` to the root element.
 
 ### Mixin: `oTabs`
 

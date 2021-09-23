@@ -1,9 +1,6 @@
-# o-footer [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-footer
 
-Master brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data.
-
-_See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
-
+Master brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. 
 
 - [Usage](#usage)
 - [Markup](#markup)
@@ -16,6 +13,8 @@ _See [o-footer-services](https://registry.origami.ft.com/components/o-footer-ser
 ## Usage
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-footer`.
+
+_See [o-footer-services](https://registry.origami.ft.com/components/o-footer-services) for an alternate footer style for tools and specialist titles. _
 
 ## Markup
 
@@ -214,14 +213,11 @@ State | Major Version | Last Minor Release | Migration guide |
 ╳ deprecated | 2 | 2.0 | - |
 ╳ deprecated | 1 | 1.16 | - |
 
-
----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-footer/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 

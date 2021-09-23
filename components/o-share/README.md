@@ -13,8 +13,8 @@ Social media buttons.
 
 ## Overview
 
-* Provides the ability to share a URL provided by the product
-* Uses a standard set of social media icons.
+- Provides the ability to share a URL provided by the product
+- Uses a standard set of social media icons.
 
 ## Usage
 
@@ -37,21 +37,21 @@ The following markup is the simplest but requires JavaScript to work and does no
 </div>
 ```
 
-* `links`: List of lower case social networks to be added separated by a space.
-* `url` (optional): The URL to be shared. Defaults to the current url.
-* `title` (optional): The title of the content to be shared
-* `titleExtra` (optional): Any additional text relating to the title, e.g. site _section_.
-* `summary` (optional): Summary text to be shared.
-* `relatedTwitterAccounts` (optional): Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
-* `locationOfShareComponent` (optional): A unique identifier for the share component which is used to track shares when multiple components exist on the page.
+- `links`: List of lower case social networks to be added separated by a space.
+- `url` (optional): The URL to be shared. Defaults to the current url.
+- `title` (optional): The title of the content to be shared
+- `titleExtra` (optional): Any additional text relating to the title, e.g. site _section_.
+- `summary` (optional): Summary text to be shared.
+- `relatedTwitterAccounts` (optional): Comma-separated list of Twitter accounts to encourage the user to follow. See [Twitter intents](https://dev.twitter.com/docs/intents) for more info.
+- `locationOfShareComponent` (optional): A unique identifier for the share component which is used to track shares when multiple components exist on the page.
 
 The different social networks are (in the order suggested by the design team):
 
-* Twitter
-* Facebook (note: Facebook doesn't accept meta data attributes in the same way as the other sharing services, instead the [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler) uses internal heuristics to make a best guess about the title, description, and preview image for your content. You can provide specifics for these attributes to facebook by using [Open Graph meta tags](https://developers.facebook.com/docs/sharing/webmasters#markup))
-* Linkedin
-* Whatsapp (note: this link does nothing if Whatsapp is not installed)
-* Pinterest
+- Twitter
+- Facebook (note: Facebook doesn't accept meta data attributes in the same way as the other sharing services, instead the [Facebook Crawler](https://developers.facebook.com/docs/sharing/webmasters/crawler) uses internal heuristics to make a best guess about the title, description, and preview image for your content. You can provide specifics for these attributes to facebook by using [Open Graph meta tags](https://developers.facebook.com/docs/sharing/webmasters#markup))
+- Linkedin
+- Whatsapp (note: this link does nothing if Whatsapp is not installed)
+- Pinterest
 
 ### Small
 
@@ -240,8 +240,6 @@ The event provides the following properties:
 - `detail.action` - The kind of share i.e. "social".
 - `detail.url` - The social share url opened.
 
----
-
 ## Migration guide
 
 State | Major Version | Last Minor Release | Migration guide |
@@ -259,7 +257,7 @@ State | Major Version | Last Minor Release | Migration guide |
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-share/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 

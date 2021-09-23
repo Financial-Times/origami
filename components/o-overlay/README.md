@@ -117,8 +117,8 @@ oOverlay.init(oOverlayElement);
 
 You may also construct a new overlay without existing `o-overlay` elements. The constructor accepts two arguments:
 
-* id: Unique identifier string for the overlay within the page
-* options: JSON object that configures the overlay
+- id: Unique identifier string for the overlay within the page
+- options: JSON object that configures the overlay
 
 ```js
 var myOverlay = new Overlay('myOverlay', {
@@ -160,15 +160,15 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 #### Static methods
 
-* `getOverlays()`: Returns an array of all overlays on the page
-* `init([el])`: Instantiates Overlays for all `o-overlay-trigger` elements within `el` (or `document.body` if not specified)
-* `destroy()`: Destroys all Overlay objects and unbinds event handlers from trigger elements.
+- `getOverlays()`: Returns an array of all overlays on the page
+- `init([el])`: Instantiates Overlays for all `o-overlay-trigger` elements within `el` (or `document.body` if not specified)
+- `destroy()`: Destroys all Overlay objects and unbinds event handlers from trigger elements.
 
 #### Object methods
 
-* `open`: Display the overlay.  Content is loaded every time the overlay is opened.
-* `close`: Close (hide) the overlay.
-* `realign`: Realign the overlay. Useful when overlay content changes whilst the overlay is open.
+- `open`: Display the overlay.  Content is loaded every time the overlay is opened.
+- `close`: Close (hide) the overlay.
+- `realign`: Realign the overlay. Useful when overlay content changes whilst the overlay is open.
 
 ## Events
 
@@ -179,10 +179,10 @@ _o-overlays will throw an error if the options aren't set correctly._
 
 ## Troubleshooting
 
-* IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
-* IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
-* Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
-* In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
+- IE11-IE8 require the [polyfill service](polyfill.webservices.ft.com).
+- IE8 throws an error when closing the Overlay starting on the second time. It works like expected in spite of the error.
+- Safari and Chrome mobile [don't support](http://caniuse.com/#feat=autofocus) the autofocus attribute. In Chrome mobile, you can use the `.focus()` function on an element when `oOverlay.ready` is dispatched to simulate the behaviour.
+- In Safari mobile on iOS8, autofocus is [buggy](http://stackoverflow.com/questions/26146252/in-ios8-using-focus-will-show-virtual-keyboard-and-scroll-page-after-touch) and is triggered after the overlay has loaded and a _touchdown_ event is dispatched after that. That means that if you click anywhere on the page after the page loads, the keyboard will come up which will most likely produce unexpected behaviours. We recommend not using autofocus in iOS 8. These unexpected behaviours only occur the first time an overlay is rendered, after that, autofocus won't be activated.
 
 ## Migration Guide
 
@@ -193,13 +193,11 @@ _o-overlays will throw an error if the options aren't set correctly._
 | ⚠ maintained | 2 | 2.7 | [migrate to v2](MIGRATION.md#migrating-from-v1-to-v2) |
 | ╳ deprecated | 1 | 1.17.0 | N/A |
 
----
-
 ## Contact
 
 If you have any questions or comments about this component, or need help using it, please either [raise an issue](https://github.com/Financial-Times/o-overlay/issues), visit [#origami-support](https://financialtimes.slack.com/messages/origami-support/) or email [Origami Support](mailto:origami-support@ft.com).
 
----
+***
 
 ## Licence
 
