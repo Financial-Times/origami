@@ -93,7 +93,7 @@ Where `opts` is an optional object with properties
 - `playsinline` `[Boolean]` Whether to play the [video inline](https://webkit.org/blog/6784/new-video-policies-for-ios/) on iOS smallscreen (defaults to fullscreen)
 - `classes` `[Array]` Classes to add to the video (and placeholder) element
 - `advertising` `[Boolean]` whether or not to show ads on the video
-- `showCaptions` `[Boolean]` whether or not to add captions to the video. Defaults to *true*.
+- `showCaptions` `[Boolean]` whether or not to add captions to the video. Defaults to `true`.
 - `data` `[Object]` JSON object representing a [response from next-media-api](https://next-media-api.ft.com/v1/eebe9cb5-8d4c-3bd7-8dd9-50e869e2f526). If used, the component will not make a call to the API and use this data instead.
 - `systemcode` `[String]` a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems) for the project using `o-video`.
 
