@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-tooltip/package.json"
+      - "components/o-tooltip/package-lock.json"
+      - "components/o-tooltip/origami.json"
+      - "components/o-tooltip/main.js"
+      - "components/o-tooltip/main.scss"
+      - "components/o-tooltip/demos/**"
+      - "components/o-tooltip/src/**"
 
 jobs:
   percy:

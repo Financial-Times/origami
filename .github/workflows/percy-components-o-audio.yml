@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-audio/package.json"
+      - "components/o-audio/package-lock.json"
+      - "components/o-audio/origami.json"
+      - "components/o-audio/main.js"
+      - "components/o-audio/main.scss"
+      - "components/o-audio/demos/**"
+      - "components/o-audio/src/**"
 
 jobs:
   percy:

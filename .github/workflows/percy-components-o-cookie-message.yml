@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-cookie-message/package.json"
+      - "components/o-cookie-message/package-lock.json"
+      - "components/o-cookie-message/origami.json"
+      - "components/o-cookie-message/main.js"
+      - "components/o-cookie-message/main.scss"
+      - "components/o-cookie-message/demos/**"
+      - "components/o-cookie-message/src/**"
 
 jobs:
   percy:

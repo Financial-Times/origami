@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-autocomplete/package.json"
+      - "components/o-autocomplete/package-lock.json"
+      - "components/o-autocomplete/origami.json"
+      - "components/o-autocomplete/main.js"
+      - "components/o-autocomplete/main.scss"
+      - "components/o-autocomplete/demos/**"
+      - "components/o-autocomplete/src/**"
 
 jobs:
   percy:

@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-syntax-highlight/package.json"
+      - "components/o-syntax-highlight/package-lock.json"
+      - "components/o-syntax-highlight/origami.json"
+      - "components/o-syntax-highlight/main.js"
+      - "components/o-syntax-highlight/main.scss"
+      - "components/o-syntax-highlight/demos/**"
+      - "components/o-syntax-highlight/src/**"
 
 jobs:
   percy:

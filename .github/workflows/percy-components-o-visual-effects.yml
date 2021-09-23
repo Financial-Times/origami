@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-visual-effects/package.json"
+      - "components/o-visual-effects/package-lock.json"
+      - "components/o-visual-effects/origami.json"
+      - "components/o-visual-effects/main.js"
+      - "components/o-visual-effects/main.scss"
+      - "components/o-visual-effects/demos/**"
+      - "components/o-visual-effects/src/**"
 
 jobs:
   percy:

@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-editorial-typography/package.json"
+      - "components/o-editorial-typography/package-lock.json"
+      - "components/o-editorial-typography/origami.json"
+      - "components/o-editorial-typography/main.js"
+      - "components/o-editorial-typography/main.scss"
+      - "components/o-editorial-typography/demos/**"
+      - "components/o-editorial-typography/src/**"
 
 jobs:
   percy:

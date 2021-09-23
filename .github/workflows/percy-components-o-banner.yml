@@ -11,6 +11,14 @@ on:
       - synchronize
   push:
     branches: main
+    paths:
+      - "components/o-banner/package.json"
+      - "components/o-banner/package-lock.json"
+      - "components/o-banner/origami.json"
+      - "components/o-banner/main.js"
+      - "components/o-banner/main.scss"
+      - "components/o-banner/demos/**"
+      - "components/o-banner/src/**"
 
 jobs:
   percy:
