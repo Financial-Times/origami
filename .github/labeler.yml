@@ -125,5 +125,11 @@ o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+eslint-config-origami-component:
+  - presets/eslint-config-origami-component/**/*
+remark-preset-lint-origami-component:
+  - presets/remark-preset-lint-origami-component/**/*
+stylelint-config-origami-component:
+  - presets/stylelint-config-origami-component/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
