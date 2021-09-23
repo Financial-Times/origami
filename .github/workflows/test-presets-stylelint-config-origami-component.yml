@@ -1,7 +1,7 @@
 name: test presets/stylelint-config-origami-component
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow}}-presets/stylelint-config-origami-component
- cancel-in-progress: true
+  cancel-in-progress: true
 
 on:
   pull_request:

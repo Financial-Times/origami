@@ -1,7 +1,7 @@
 name: test presets/remark-preset-lint-origami-component
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow}}-presets/remark-preset-lint-origami-component
- cancel-in-progress: true
+  cancel-in-progress: true
 
 on:
   pull_request:
