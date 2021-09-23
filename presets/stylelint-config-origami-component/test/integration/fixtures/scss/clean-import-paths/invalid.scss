@@ -1,0 +1,6 @@
+// leading underscore
+@import 'imports/_foo';
+// filename extension
+@import 'imports/foo.scss';
+// leading underscore, filename extension
+@import 'imports/_foo.scss';
