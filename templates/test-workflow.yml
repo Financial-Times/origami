@@ -1,7 +1,7 @@
 {{=<% %>=}}
 name: test <%& workspace %>
 concurrency:
-  group: ${{ github.head_ref }}-<%& workspace %>
+  group: ${{ github.head_ref }}-${{ github.workflow}}-<%& workspace %>
 #  cancel-in-progress: true
 
 on:
