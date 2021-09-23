@@ -1,7 +1,7 @@
 name: test components/o-fonts
 concurrency:
   group: ${{ github.head_ref }}-${{ github.workflow}}-components/o-fonts
-#  cancel-in-progress: true
+ cancel-in-progress: true
 
 on:
   pull_request:
