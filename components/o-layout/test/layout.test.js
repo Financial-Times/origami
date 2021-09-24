@@ -121,7 +121,7 @@ describe('Layout', () => {
 				// assert the current location has been updated on init
 				proclaim.equal(navLink.getAttribute('aria-current'), 'false');
 				done();
-			}, 100);
+			}, 500);
 		});
 
 		it('constructs linkable headings by default', () => {
