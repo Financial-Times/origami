@@ -141,10 +141,10 @@ class Layout {
 	 * @returns {void}
 	 */
 	setupClickHandlersForHeadings() {
-		this.navHeadings.forEach((anchor, index) => {
-			anchor.addEventListener('click', () => {
+		this.navHeadings.forEach((headingAnchor, index) => {
+			headingAnchor.addEventListener('click', () => {
 				for (const sidebarAnchor of this.navAnchors) {
-					if (sidebarAnchor.hash === '#' + anchor.id) {
+					if (sidebarAnchor.hash === '#' + headingAnchor.id) {
 						sidebarAnchor.setAttribute('aria-current', 'location');
 						this.highlightedHeadingIndex = index;
 					} else {
