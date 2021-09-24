@@ -43,6 +43,8 @@ class Layout {
 		if ((isDocsLayout || isQueryLayout) && !this.options.constructNav) {
 			const navigation = this.layoutEl.querySelector(`.o-layout__navigation`);
 			if (navigation) {
+				/** @type {Array<HTMLAnchorElement>} */
+				this.navAnchors = Array.from(navigation.querySelectorAll('a'));
 				this.highlightNavItems();
 			}
 		}
