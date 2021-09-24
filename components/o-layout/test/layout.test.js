@@ -113,15 +113,23 @@ describe('Layout', () => {
 			// the second nav link in the current location in our markup,
 			// although it's not actually when the page loads
 			const navLink = document.getElementById('second-nav-link');
-			proclaim.equal(navLink.getAttribute('aria-current'), 'location');
+			try {
+				proclaim.equal(navLink.getAttribute('aria-current'), 'location');
+			} catch (error) {
+				done(error);
+			}
 			// init layout, with `constructNav: false` as we created our own
 			new Layout(documentationLayoutElement, { constructNav: false });
 			// allow for request animation frame
 			setTimeout(() => {
 				// assert the current location has been updated on init
-				proclaim.equal(navLink.getAttribute('aria-current'), 'false');
-				done();
-			}, 500);
+				try {
+					proclaim.equal(navLink.getAttribute('aria-current'), 'false');
+					done();
+				} catch (error) {
+					done(error);
+				}
+			}, 1000);
 		});
 
 		it('constructs linkable headings by default', () => {
