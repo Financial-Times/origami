@@ -1,5 +1,19 @@
 # Changelog
 
+### [5.0.6](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.0.5...o-layout-v5.0.6) (2021-09-24)
+
+
+### Bug Fixes
+
+* add custom navigation to this.navAnchors in order to stop errors being thrown ([f49e9ea](https://www.github.com/Financial-Times/origami/commit/f49e9ea9cdb95fbe24d3cddef9d8e3481bf2b5e3))
+* fallback to 16px if an o-layout__main is not on the page ([e737352](https://www.github.com/Financial-Times/origami/commit/e737352a73aefa9dcbc3cf7240b48a8bc5a1ecfd))
+* only setup scrolling based heading highlighting if intersectionobserver exists ([8c5f869](https://www.github.com/Financial-Times/origami/commit/8c5f86971eb80564284ecaf41ae2fb4f8b27c69c))
+
+
+### Performance Improvements
+
+* improve performance and logic around how to highlight headings in the sidebar ([b995ae0](https://www.github.com/Financial-Times/origami/commit/b995ae0600c72fb052666ca051082a8d36ad700d))
+
 ### [5.0.5](https://www.github.com/Financial-Times/origami/compare/o-layout-v5.0.4...o-layout-v5.0.5) (2021-09-21)
 
 
