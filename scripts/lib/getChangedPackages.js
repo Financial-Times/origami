@@ -1,10 +1,6 @@
 import {$} from "zx"
 import {promises as fs} from "fs"
 import splitonce from "splitonce"
-import { URL } from 'url';
-import path from "path"
-
-const __dirname = new URL('.', import.meta.url).pathname;
 
 let patch = 'patch'
 let minor = 'minor'
@@ -70,7 +66,7 @@ export function filterUserFacing(changedPackages) {
 async function getPublishablePackages() {
     let releasePleaseFile
     try {
-        releasePleaseFile = await fs.readFile(path.join(__dirname, '../../release-please-config.json'), "utf-8")
+        releasePleaseFile = await fs.readFile('../../release-please-config.json', "utf-8")
     } catch (error) {
         throw new Error('cannot read release-please-config.json')
     }
