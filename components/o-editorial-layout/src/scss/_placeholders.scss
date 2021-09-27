@@ -18,20 +18,15 @@
 	}
 	// h2
 	// - large margin above by default
-	// - small margin below by default
+	// - medium margin below by default
 	%_o-editorial-layout-heading-2 {
-		margin-bottom: oSpacingByName('s1');
+		margin-bottom: oSpacingByName('s2');
 		margin-top: oSpacingByName('s8');
 	}
-	// h3
 
-	// - small margin below by default
-	%_o-editorial-layout-heading-3 {
-		margin-bottom: oSpacingByName('s1');
-		margin-top: 0;
-	}
-	// h4
+	// h3 & h4
 	// - medium margin below by default
+	%_o-editorial-layout-heading-3,
 	%_o-editorial-layout-heading-4 {
 		margin-bottom: oSpacingByName('s3');
 		margin-top: 0;
