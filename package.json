@@ -54,9 +54,9 @@
 	},
 	"dependencies": {
 		"@actions/core": "^1.2.6",
-    "@actions/exec": "^1.0.4",
-    "@actions/github": "^4.0.0",
-    "@actions/io": "^1.0.2",
+		"@actions/exec": "^1.0.4",
+		"@actions/github": "^4.0.0",
+		"@actions/io": "^1.0.2",
 		"@percy/cli": "^1.0.0-beta.67",
 		"del": "^6.0.0",
 		"fast-glob": "^3.2.7",
@@ -65,6 +65,7 @@
 		"mustache": "^4.2.0",
 		"read-pkg": "^7.0.0",
 		"remark-cli": "^10.0.0",
+		"splitonce": "^0.1.2",
 		"toposort": "^2.0.2",
 		"undici": "^4.5.1",
 		"zx": "^4.1.1"
