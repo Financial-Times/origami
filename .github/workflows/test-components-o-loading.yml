@@ -19,4 +19,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npx npm exec -w components/o-loading -- origami-build-tools verify
-    - run: npx npm exec -w components/o-loading -- origami-build-tools test
+    - run: npx npm x -w components/o-loading -- origami-build-tools test || npx npm x -w components/o-loading -- origami-build-tools test

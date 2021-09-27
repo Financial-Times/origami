@@ -65,7 +65,7 @@ for (let workspace of workspacePaths) {
 	if (await hasScript(workspace, "test")) {
 		view.test = `npx npm run -w ${workspace} test`
 	} else {
-		view.test = `npx npm exec -w ${workspace} -- origami-build-tools test`
+		view.test = `npx npm x -w ${workspace} -- origami-build-tools test || npx npm x -w ${workspace} -- origami-build-tools test`
 	}
 
 	let workspaceFilename = workspace.replaceAll("/", "-")
