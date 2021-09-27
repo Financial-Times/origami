@@ -24,7 +24,7 @@
 	},
 	"demos": [
 		{
-			"title": "Headline",
+			"title": "Headline Large",
 			"name": "headline",
 			"template": "demos/src/headline.mustache"
 		},
