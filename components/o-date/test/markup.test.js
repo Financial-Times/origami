@@ -80,8 +80,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '11 minutes ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '11 minutes ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -99,8 +99,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '11 minutes ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '11 minutes ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -157,8 +157,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, 'today');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), 'today');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -176,8 +176,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '11 minutes ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '11 minutes ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -195,8 +195,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '11 minutes ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '11 minutes ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -238,8 +238,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '5 hours ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '5 hours ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -257,8 +257,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '5 hours ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '5 hours ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -319,8 +319,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, 'today');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), 'today');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
@@ -338,8 +338,8 @@ describe('o-date DOM', () => {
 				proclaim.equal(mockDateElement.innerHTML, '5 hours ago');
 			});
 
-			it('adds an aria-label attribute containing the same date', () => {
-				proclaim.equal(mockDateElement.getAttribute('aria-label'), '5 hours ago');
+			it('does not add an aria-label attribute containing the same date', () => {
+				proclaim.equal(mockDateElement.getAttribute('aria-label'), null);
 			});
 
 			it('adds a title attribute containing the full date', () => {
