@@ -1,11 +1,11 @@
 import core from "@actions/core"
-import {packagesWhichChanged} from "./lib/packagesWhichChanged"
+import {getChangedPackages} from "./lib/getChangedPackages"
 import {context} from "@actions/github"
 
 try {
     let baseRef = getBaseRef()
     let headRef = getHeadRef()
-    const packagesToPublish = await packagesWhichChanged(baseRef, headRef)
+    const packagesToPublish = await getChangedPackages(baseRef, headRef)
     if (packagesToPublish.size) {
         core.notice('A commit is a `fix` or `feat` commit, a release will be made.')
         console.log({packagesToPublish})
