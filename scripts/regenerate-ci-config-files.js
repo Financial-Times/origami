@@ -91,7 +91,7 @@ for (let workspace of workspacePaths) {
 
 await writeFile(
 	".release-please-manifest.json",
-	JSON.stringify(dotReleasePleaseManifest, null, 2) + "\n"
+	JSON.stringify(dotReleasePleaseManifest)
 )
 await writeFile(
 	"release-please-config.json",
