@@ -15,13 +15,14 @@ let major = 'major'
  * 
  * @param {string} baseRef The commit sha to use as the base
  * @param {string} headRef The commit sha to use as the head
- * @returns {Promise<Map<string, string|null>>} A promise which resolves to a map of package names to version bump type or null if no version bump required E.G. 'components/o-quote' => 'major'
+ * @returns {Promise<Object<string, string|null>>} A promise which resolves to a map of package names to version bump type or null if no version bump required E.G. 'components/o-quote' => 'major'
  */
 export async function getChangedPackages(baseRef, headRef) {
     const publishablePackages = await getPublishablePackages()
     // Map of package names to version bump type
     // E.G. 'components/o-quote' => 'major'
-    const changedPackages = new Map
+    /** @type {Object<string, string|null>} */
+    const changedPackages = {}
     let commitHashesAndMessages = await commitHashesAndMessagesBetween(baseRef, headRef)
     for (const commitHashAndMessage of commitHashesAndMessages) {
         const [hash, message] = splitonce(commitHashAndMessage, ' ')
@@ -30,19 +31,19 @@ export async function getChangedPackages(baseRef, headRef) {
         for (const pkg of publishablePackages) {
             for (const file of filesChanged) {
                 if (file.startsWith(pkg)) {
-                    if (changedPackages.has(pkg)) {
-                        const currentVersion = changedPackages.get(pkg)
+                    if (changedPackages.hasOwnProperty(pkg)) {
+                        const currentVersion = changedPackages[pkg]
                         // If the version is a patch, we can skip all the rest as nothing is lower than a patch
                         if (version === patch) {
                             continue
                         } else if (version === minor && currentVersion === patch) {
-                            changedPackages.set(pkg, version)
+                            changedPackages[pkg] = version
                             // If the version is major, we can assign it immediately as nothing is higher than a major
                         } else if (version === major) {
-                            changedPackages.set(pkg, version)
+                            changedPackages[pkg] = version
                         }
                     } else {
-                        changedPackages.set(pkg, version)
+                        changedPackages[pkg] = version
                     }
                 }
             }
@@ -54,13 +55,13 @@ export async function getChangedPackages(baseRef, headRef) {
 /**
  * Filter a map of changed packages for the ones which have user facing changes
  * 
- * @param {Map} changedPackages Map of package names to version bump type -- This can be retrieved with the `getChangedPackages` function
+ * @param {Object<string, string>} changedPackages Map of package names to version bump type -- This can be retrieved with the `getChangedPackages` function
  */
 export function filterUserFacing(changedPackages) {
-    const userFacingChangedPackages = new Map
-    for (const [name, bump] of changedPackages) {
+    const userFacingChangedPackages = {}
+    for (const [name, bump] of Object.entries(changedPackages)) {
         if (bump != null) {
-            userFacingChangedPackages.set(name, bump)
+            userFacingChangedPackages[name] = bump
         }
     }
     return userFacingChangedPackages
