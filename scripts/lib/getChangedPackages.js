@@ -6,7 +6,7 @@ let patch = Symbol('patch')
 let minor = Symbol('minor')
 let major = Symbol('major')
 
-export async function packagesWhichChanged(baseRef, headRef) {
+export async function getChangedPackages(baseRef, headRef) {
     $.verbose = false
     const publishablePackages = await getPublishablePackages()
     // Map of package names to version bump type
