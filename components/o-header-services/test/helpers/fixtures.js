@@ -27,30 +27,30 @@ const withPrimaryNav = `
 				<a aria-current="page" href="">Fruit</a><!--
 				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
 				<ul data-o-header-services-level="2" aria-hidden="true">
-                    <li>
-                        <a href="#">Fruit</a>
-                    </li>
-                    <li>
-                        <a href="#">Apples & Pears</a>
-                    </li>
-                    <li>
-                        <a href="#">Citrus</a>
-                    </li>
-                    <li>
-                        <a href="#">Stone fruit</a>
-                    </li>
-                    <li>
-                        <a href="#">Tropical / Exotic</a>
-                    </li>
-                    <li>
-                        <a href="#">Berries</a>
-                    </li>
-                    <li>
-                        <a href="#">Melons</a>
-                    </li>
-                    <li>
-                        <a href="#">Tomatoes & Avocados</a>
-                    </li>
+					<li>
+						<a href="#">Fruit</a>
+					</li>
+					<li>
+						<a href="#">Apples & Pears</a>
+					</li>
+					<li>
+						<a href="#">Citrus</a>
+					</li>
+					<li>
+						<a href="#">Stone fruit</a>
+					</li>
+					<li>
+						<a href="#">Tropical / Exotic</a>
+					</li>
+					<li>
+						<a href="#">Berries</a>
+					</li>
+					<li>
+						<a href="#">Melons</a>
+					</li>
+					<li>
+						<a href="#">Tomatoes & Avocados</a>
+					</li>
 					<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
 				</ul>
 			</li>
@@ -58,27 +58,27 @@ const withPrimaryNav = `
 				<a href="">Vegetables</a><!--
 				--><button class="o-header-services__drop-down-button" type="button" name="button" aria-label="Toggle dropdown menu"></button>
 				<ul data-o-header-services-level="2" aria-hidden="true">
-                    <li>
-                        <a href="#">Vegetables</a>
-                    </li>
-                    <li>
-                        <a href="#">Leafy green</a>
-                    </li>
-                    <li>
-                        <a href="#">Cruciferous</a>
-                    </li>
-                    <li>
-                        <a href="#">Marrow</a>
-                    </li>
-                    <li>
-                        <a href="#">Root</a>
-                    </li>
-                    <li>
-                        <a href="#">Edible plant stem</a>
-                    </li>
-                    <li>
-                        <a href="#">Allium</a>
-                    </li>
+					<li>
+						<a href="#">Vegetables</a>
+					</li>
+					<li>
+						<a href="#">Leafy green</a>
+					</li>
+					<li>
+						<a href="#">Cruciferous</a>
+					</li>
+					<li>
+						<a href="#">Marrow</a>
+					</li>
+					<li>
+						<a href="#">Root</a>
+					</li>
+					<li>
+						<a href="#">Edible plant stem</a>
+					</li>
+					<li>
+						<a href="#">Allium</a>
+					</li>
 					<button class="o-header-services__visually-hidden" type="button" name="button">Close dropdown menu</button>
 				</ul>
 			</li>

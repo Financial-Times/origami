@@ -50,21 +50,21 @@ So lists may be used in different contexts they inherit font properties such as 
 
 ```html
 <div class="o-editorial-typography-body">
-    <ul class="o-editorial-typography-list o-editorial-typography-list--unordered">
-        <li>Lorem ipsum&nbsp;adipiscing elit.</li>
-        <li>Sed feugiat turpis at massa tristique.</li>
-        <li>Curabitu r accumsan elit luctus.</li>
-    </ul>
+	<ul class="o-editorial-typography-list o-editorial-typography-list--unordered">
+		<li>Lorem ipsum&nbsp;adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ul>
 </div>
 ```
 
 ```html
 <div class="o-editorial-typography-body">
-    <ol class="o-editorial-typography-list o-editorial-typography-list--ordered">
-        <li>Lorem ipsum&nbsp;adipiscing elit.</li>
-        <li>Sed feugiat turpis at massa tristique.</li>
-        <li>Curabitu r accumsan elit luctus.</li>
-    </ol>
+	<ol class="o-editorial-typography-list o-editorial-typography-list--ordered">
+		<li>Lorem ipsum&nbsp;adipiscing elit.</li>
+		<li>Sed feugiat turpis at massa tristique.</li>
+		<li>Curabitu r accumsan elit luctus.</li>
+	</ol>
 </div>
 ```
 
@@ -102,9 +102,9 @@ A story byline may be styled using `o-editorial-typography-byline`. It's often u
 
 ```html
 <div class="o-editorial-typography-byline">
-    <a class="o-editorial-typography-author" href="#">Joe Doe</a>
-    in London
-    <time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm" aria-label="October 11 2019">October 11 2019</time>
+	<a class="o-editorial-typography-author" href="#">Joe Doe</a>
+	in London
+	<time class="o-editorial-typography-timestamp" datetime="2019-10-11T20:51:54Z" title="October 11 2019 9:51 pm" aria-label="October 11 2019">October 11 2019</time>
 </div>
 ```
 
@@ -114,10 +114,10 @@ Style captions using `o-editorial-typography-caption`.
 
 ```html
 <figure>
-    <img alt="" src="#">
-    <figcaption class="o-editorial-typography-caption">
-        ©Lorem John Doe
-    </figcaption>
+	<img alt="" src="#">
+	<figcaption class="o-editorial-typography-caption">
+		©Lorem John Doe
+	</figcaption>
 </figure>
 ```
 
@@ -174,14 +174,14 @@ We recommend including styles with `oEditorialTypography` and using default mark
 For example to output a heading:
 ```scss
 .my-h2 {
-    @include oEditorialTypographyHeading(2);
+	@include oEditorialTypographyHeading(2);
 }
 ```
 
 Or a topic tag:
 ```scss
 .my-topic-tag {
-    @include oEditorialTypographyTag('topic');
+	@include oEditorialTypographyTag('topic');
 }
 ```
 

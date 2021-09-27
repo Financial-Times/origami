@@ -21,11 +21,11 @@ For example:
 
 ```js
 {
-    category: 'video',
-    action: 'play',
-    ... any other key-values ...
-    id: '512346789',
-    pos: '10'
+	category: 'video',
+	action: 'play',
+	... any other key-values ...
+	id: '512346789',
+	pos: '10'
 }
 ```
 
@@ -57,7 +57,7 @@ For example:
 		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",		// FT User GUID
 	},
 	"time": {
-		 "offset": 234											// Lag between event being created and sent (milliseconds) e.g. if offline.
+		"offset": 234											// Lag between event being created and sent (milliseconds) e.g. if offline.
 	},
 	"context": {
 		"id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",			// Unique ID for this event.
@@ -69,7 +69,7 @@ For example:
 		"content": {
 			"uuid": "...",										// Content uuid [4]
 			"asset_type": "...", 								// Asset Type [7]
-		},														// [5] 
+		},														// [5]
 		"url": "...",											// [5]
 		"referrer": "...",										// See also [5]
 		funnel: {
@@ -77,7 +77,7 @@ For example:
 			funnel_steps: 3,   									// Total number of steps in this funnel - fixed number
 			step_name: "",     									// Name for this step
 			step_number: 1     									// Number for this step
-        }
+		}
 		...
 		"anything": "goes here",
 		"could": [ "be", "an", "array" ],

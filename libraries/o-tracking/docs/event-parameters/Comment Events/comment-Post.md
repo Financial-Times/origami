@@ -147,4 +147,3 @@ The number of characters in the comment
 Flag's for whether the user selected to "follow" the posted comment
 1. followed: `1`
 2. not followed:  `0`
-

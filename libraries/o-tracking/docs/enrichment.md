@@ -20,34 +20,34 @@
 		"layout": "S",										// require('o-grid').getCurrentLayout
 		"orientation": "portrait",							// require('o-viewport').getOrientation
 		"geo": {												// [8]
-            "country": "MA",
-            "area_code": "0",
-            "longitude": "-5.000",
-            "latitude": "32.000",
-            "country_name": "Morocco",
-            "continent": "AF"
-        },
+			"country": "MA",
+			"area_code": "0",
+			"longitude": "-5.000",
+			"latitude": "32.000",
+			"country_name": "Morocco",
+			"continent": "AF"
+		},
 	},
 	"user": {
 		"ft_session": "asdf324dfag1ds%asdf1A-1sadsadf",		// FT Session token
 		"ft_guid": "0f7464b4-3f4d-11e4-984b-00144feabdc0",	// FT User GUID
 		"isStaff": true,
 		"ab": {
-            "test_name": "variant"								// [9]
-        },
-        "flags": []												// Flags/Toggles the user has set [10]
+			"test_name": "variant"								// [9]
+		},
+		"flags": []												// Flags/Toggles the user has set [10]
 	},
 	"time": {
-		 "offset": 234,										// Lag between event being created and sent (milliseconds) e.g. if offline.
-		 "utc": "2015-06-19T12:06:35.000Z",                     // Time of event after offset applied.
-		 "date": "2015-06-19",
-		 "year": 2015,
-		 "month": 6,
-		 "day": 19,
-		 "hour": 12,
-		 "minute": 6,
-		 "weekday": "Friday",
-		 "week": 25
+		"offset": 234,										// Lag between event being created and sent (milliseconds) e.g. if offline.
+		"utc": "2015-06-19T12:06:35.000Z",                     // Time of event after offset applied.
+		"date": "2015-06-19",
+		"year": 2015,
+		"month": 6,
+		"day": 19,
+		"hour": 12,
+		"minute": 6,
+		"weekday": "Friday",
+		"week": 25
 	},
 	"context": {
 		"id": "0f7464b4-3f4d-11e4-984b-00144feabdc0",			// Unique ID for this event.
@@ -56,33 +56,33 @@
 		"product": "ft.com",									// Readable name for this product - controlled list.
 		"uuid": "",											// Content uuid [4]
 		"url": {												// [5]
-            "protocol": "http:",
-            "slashes": true,
-            "auth": null,
-            "host": "www.ft.com",
-            "port": null,
-            "hostname": "www.ft.com",
-            "hash": null,
-            "search": "?query=string",
-            "query": { "query": "string" },
-            "pathname": "/path",
-            "path": "/path?query=string",
-            "href": "http://www.ft.com/path?query=string"
+			"protocol": "http:",
+			"slashes": true,
+			"auth": null,
+			"host": "www.ft.com",
+			"port": null,
+			"hostname": "www.ft.com",
+			"hash": null,
+			"search": "?query=string",
+			"query": { "query": "string" },
+			"pathname": "/path",
+			"path": "/path?query=string",
+			"href": "http://www.ft.com/path?query=string"
 		},
 		"referrer": {										// See also [5]
-            "protocol": "https:",
-            "slashes": true,
-            "auth": null,
-            "host": "www.google.co.uk",
-            "port": null,
-            "hostname": "www.google.co.uk",
-            "hash": null,
-            "search": "",
-            "query": {},
-            "pathname": "/search",
-            "path": "/search",
-            "href": "https://www.google.co.uk/search"
-        }
+			"protocol": "https:",
+			"slashes": true,
+			"auth": null,
+			"host": "www.google.co.uk",
+			"port": null,
+			"hostname": "www.google.co.uk",
+			"hash": null,
+			"search": "",
+			"query": {},
+			"pathname": "/search",
+			"path": "/search",
+			"href": "https://www.google.co.uk/search"
+		}
 	}
 }
 ```

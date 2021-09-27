@@ -89,7 +89,7 @@ We recommend including styles with `oEditorialLayout` and using default markup t
 For example to output a heading:
 ```scss
 .my-h2-with-margin {
-    @include oEditorialLayoutHeading(2);
+	@include oEditorialLayoutHeading(2);
 }
 ```
 

@@ -3,7 +3,7 @@
 
 $n-notification-is-silent: true !default;
 
-@mixin nNotification {	
+@mixin nNotification {
 	@keyframes load-notice {
 		0% {
 			max-height: 0;
@@ -97,7 +97,7 @@ $n-notification-is-silent: true !default;
 			text-indent: -999em;
 		}
 	}
-	
+
 	.n-notification__close {
 		@include oIconsContent('cross', oColorsByName('black-80'), 40);
 		position: absolute;

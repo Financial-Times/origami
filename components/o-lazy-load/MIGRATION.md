@@ -31,9 +31,9 @@ Use the options `$opts` map to include lazy load features granularly, including 
 
 ```scss
 @include oLazyLoad($opts: (
-    'placeholder': true, // e.g. .o-lazy-load-placeholder
-    'placeholder-ratios': ((16, 9), (1, 1)), // e.g. .o-lazy-load-placeholder--16x9
-    'transition': true
+	'placeholder': true, // e.g. .o-lazy-load-placeholder
+	'placeholder-ratios': ((16, 9), (1, 1)), // e.g. .o-lazy-load-placeholder--16x9
+	'transition': true
 ));
 ```
 

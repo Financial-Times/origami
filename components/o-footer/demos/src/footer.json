@@ -194,50 +194,50 @@
 			],
 			"collapsible": true
 		},
-        {
-            "title": "xxxxxxx",
-            "items": [
-                {
-                    "text": "xxxxxxxxx",
-                    "href": "//markets.ft.com/data/portfolio/dashboard"
-                },
-                {
-                    "text": "xxxxxxx xxxxx",
-                    "href": "//ftepaper.ft.com"
-                },
-                {
-                    "text": "xxxxxx xxx",
-                    "href": "//markets.ft.com/data/alerts/"
-                },
-                {
-                    "text": "xxxxxxx",
-                    "href": "//lexicon.ft.com/"
-                }
-            ],
-            "index": 4,
-            "layout": 1,
-            "columns": [
-                [
-                    {
-                        "text": "xxxxxxxxx",
-                        "href": "//markets.ft.com/data/portfolio/dashboard"
-                    },
-                    {
-                        "text": "xxxxxxx xxxxx",
-                        "href": "//ftepaper.ft.com"
-                    },
-                    {
-                        "text": "xxxxxx xxx",
-                        "href": "//markets.ft.com/data/alerts/"
-                    },
-                    {
-                        "text": "xxxxxxx",
-                        "href": "//lexicon.ft.com/"
-                    }
-                ]
-            ],
-            "collapsible": true
-        }
+		{
+			"title": "xxxxxxx",
+			"items": [
+				{
+					"text": "xxxxxxxxx",
+					"href": "//markets.ft.com/data/portfolio/dashboard"
+				},
+				{
+					"text": "xxxxxxx xxxxx",
+					"href": "//ftepaper.ft.com"
+				},
+				{
+					"text": "xxxxxx xxx",
+					"href": "//markets.ft.com/data/alerts/"
+				},
+				{
+					"text": "xxxxxxx",
+					"href": "//lexicon.ft.com/"
+				}
+			],
+			"index": 4,
+			"layout": 1,
+			"columns": [
+				[
+					{
+						"text": "xxxxxxxxx",
+						"href": "//markets.ft.com/data/portfolio/dashboard"
+					},
+					{
+						"text": "xxxxxxx xxxxx",
+						"href": "//ftepaper.ft.com"
+					},
+					{
+						"text": "xxxxxx xxx",
+						"href": "//markets.ft.com/data/alerts/"
+					},
+					{
+						"text": "xxxxxxx",
+						"href": "//lexicon.ft.com/"
+					}
+				]
+			],
+			"collapsible": true
+		}
 
 	],
 	"copyrightYear": 2021

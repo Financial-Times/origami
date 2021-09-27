@@ -85,5 +85,3 @@ const view = {
 };
 
 export { view };
-
-

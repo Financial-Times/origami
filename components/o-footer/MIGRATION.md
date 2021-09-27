@@ -92,16 +92,16 @@ To remove the default margin set the `margin` option to false (alternatively set
 ```
 
 The following Sass mixins have been removed and must not be used. Instead use the `oFooter` mixin with related options:
-    - `oFooterBrandImage`
-    - `oFooterMatrix`
-    - `oFooterThemeDark`
-    - `oFooterThemeLight`
+	- `oFooterBrandImage`
+	- `oFooterMatrix`
+	- `oFooterThemeDark`
+	- `oFooterThemeLight`
 
 The following Sass variables have been removed without a direct replacement. Please contact the Origami team if your project relies on these:
-    - `$o-footer-image-base-url`
-    - `$o-footer-image-service-version`
-    - `$o-footer-matrix`
-    - `$o-footer-spacing-unit`
+	- `$o-footer-image-base-url`
+	- `$o-footer-image-service-version`
+	- `$o-footer-matrix`
+	- `$o-footer-spacing-unit`
 
 All custom o-footer [colours and colour usecases](https://github.com/Financial-Times/o-footer/blob/v6.1.4/src/scss/_colors.scss) have also been removed. Please contact Origami if your project requires these colours.
 
@@ -123,9 +123,9 @@ Note that o-footer v4 relies on o-grid v4.
 
 ```diff
  <nav class="o-footer__row o-footer__nav">
- 	<div class="o-footer__col o-footer__col--full-width">
- 		…
+	<div class="o-footer__col o-footer__col--full-width">
+		…
 + 		<div class="o-footer__divider"></div>
- 	</div>
+	</div>
  </nav>
 ```

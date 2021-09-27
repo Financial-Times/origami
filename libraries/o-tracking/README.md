@@ -3,9 +3,9 @@
 Include in your product to send tracking requests to the [Spoor API](https://spoor-docs.herokuapp.com/).
 
 - [Usage](#usage)
-  - [Tracking without JavaScript](#tracking-without-javascript)
-  - [Tracking with JavaScript](#tracking-with-javascript)
-  - [How to track extra click data using `data-trackable` attributes](#how-to-track-extra-click-data-using-data-trackable-attributes)
+	- [Tracking without JavaScript](#tracking-without-javascript)
+	- [Tracking with JavaScript](#tracking-with-javascript)
+	- [How to track extra click data using `data-trackable` attributes](#how-to-track-extra-click-data-using-data-trackable-attributes)
 - [How to view the data](#how-to-view-the-data)
 - [Example implementations](#example-implementations)
 - [Migration Guide](#migration-guide)
@@ -36,23 +36,23 @@ _Recommendation:_ Using a different `system.source` value from the one used in o
 
 ```json
 {
-  "category": "page",
-  "action": "view",
-  "system": {
-    "source": "o-tracking-fallback",
-  },
-  "context": {
-    "product": "ft.com",
-    "content": {
-      "asset_type": "page"
-    }
-  }
+	"category": "page",
+	"action": "view",
+	"system": {
+		"source": "o-tracking-fallback",
+	},
+	"context": {
+		"product": "ft.com",
+		"content": {
+			"asset_type": "page"
+		}
+	}
 }
 ```
 Here is the corresponding tracking pixel setup:
 ```html
 <div class="o-tracking o--if-no-js" data-o-component="o-tracking">
-    <div style="background: url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
+		<div style="background: url('https://spoor-api.ft.com/px.gif?data=%7B%22category%22:%22page%22,%20%22action%22:%22view%22,%20%22system%22:%7B%22apiKey%22:%22qUb9maKfKbtpRsdp0p2J7uWxRPGJEP%22,%22source%22:%22o-tracking%22,%22version%22:%221.0.0%22%7D,%22context%22:%7B%22product%22:%22ft.com%22,%22content%22:%7B%22asset_type%22:%22page%22%7D%7D%7D');"></div>
 </div>
 ```
 
@@ -68,8 +68,8 @@ To activate the mode, set `test` to `true` during the intialisation of `o-tracki
 import oTracking from '@financial-times/o-tracking';
 
 const config = {
-    test: true, // Mark the events as test events and turn on extra debug logging.
-    ...
+		test: true, // Mark the events as test events and turn on extra debug logging.
+		...
 };
 oTracking.init(config);
 ```
@@ -84,10 +84,10 @@ To manually instantiate `o-tracking`, import the component and call the `init` m
 import oTracking from '@financial-times/o-tracking';
 
 const config = {
-    context: {
-        // This value is used as a way to identify the high-level product, for example: ft.com, FT app, biz-ops etc.
-        product: 'o-tracking-example',
-    }
+		context: {
+				// This value is used as a way to identify the high-level product, for example: ft.com, FT app, biz-ops etc.
+				product: 'o-tracking-example',
+		}
 };
 oTracking.init(config);
 ```
@@ -99,34 +99,34 @@ Page events automatically track the url and the referrer.
 Please refer to the [event document](docs/event.md) for information about all the possible properties which can be set.
 ```js
 const pageConfig = {
-  content: {
-      /*
-        Asset type is meant to describe the main purpose of the page
-        The value can be one of these:
-        - `story` - A story or article
-        - `blog` - A blog post
-        - `front` - A home page or front page
-        - `ad` - An advert.
-        - `image` - An image
-        - `interactive` - An interactive graphic
-        - `report` - A special report
-        - `search` - A search results page
-        - `section` - A section or listing page
-        - `topic` -  A topic landing page
-        - `video` - A video page
-        - `login` - Any login/sign-in page
-        - `stream` - A stream page
-        - `funnel` - Any funnel page
-        - `epaper` - all epaper pages
-        - `rankings` - A rankings page for schools and courses (i.e. on rankings.ft.com). Not the section's hub page
-        - `markets` - Any market, bond, commoditity, stock, currency 'tearsheet' (usually has "/tearsheet/" in URL)
-        - `myft` - All MyFT pages
-        - `account` - All account pages
-        - `membership` - All membership pages
-        - `page` - anything else, not above.
-    */
-    asset_type: "story"
-  }
+	content: {
+			/*
+				Asset type is meant to describe the main purpose of the page
+				The value can be one of these:
+				- `story` - A story or article
+				- `blog` - A blog post
+				- `front` - A home page or front page
+				- `ad` - An advert.
+				- `image` - An image
+				- `interactive` - An interactive graphic
+				- `report` - A special report
+				- `search` - A search results page
+				- `section` - A section or listing page
+				- `topic` -  A topic landing page
+				- `video` - A video page
+				- `login` - Any login/sign-in page
+				- `stream` - A stream page
+				- `funnel` - Any funnel page
+				- `epaper` - all epaper pages
+				- `rankings` - A rankings page for schools and courses (i.e. on rankings.ft.com). Not the section's hub page
+				- `markets` - Any market, bond, commoditity, stock, currency 'tearsheet' (usually has "/tearsheet/" in URL)
+				- `myft` - All MyFT pages
+				- `account` - All account pages
+				- `membership` - All membership pages
+				- `page` - anything else, not above.
+		*/
+		asset_type: "story"
+	}
 };
 oTracking.page(pageConfig);
 ```
@@ -167,16 +167,16 @@ Please refer to the [event document](docs/event.md) for information about all th
 
 ```js
 const opts = {
-    category: 'audio', // default: 'component'
-    selector: '.o-teaser__audio', // default: '[data-o-tracking-view]'
-    getContextData: (el) => {  // default: null
-        return {
-            componentContentId: el.getAttribute('data-id'),
-            type: 'audio',
-            subtype: 'podcast',
-            component: 'teaser'
-        };
-    }
+		category: 'audio', // default: 'component'
+		selector: '.o-teaser__audio', // default: '[data-o-tracking-view]'
+		getContextData: (el) => {  // default: null
+				return {
+						componentContentId: el.getAttribute('data-id'),
+						type: 'audio',
+						subtype: 'podcast',
+						component: 'teaser'
+				};
+		}
 };
 
 oTracking.view.init(opts);
@@ -187,8 +187,8 @@ oTracking.view.init(opts);
 To track a custom event call the `oTracking.event` method. For example to track that a video is played:
 ```js
 const eventConfig = {
-    "category": "video", // optional
-    "action": "play", // optional
+		"category": "video", // optional
+		"action": "play", // optional
 };
 oTracking.event(eventConfig);
 ```
@@ -196,11 +196,11 @@ oTracking.event(eventConfig);
 The `event` method also accepts an optional callback which is run after the event has been processed.
 ```js
 const eventConfig = {
-    "category": "video", // optional
-    "action": "play", // optional
+		"category": "video", // optional
+		"action": "play", // optional
 };
 oTracking.event(eventConfig, () => {
-  console.log('The custom video event has been processed!');
+	console.log('The custom video event has been processed!');
 });
 ```
 

@@ -36,4 +36,3 @@ These are the documented parameters for a comment:follow event.
 - Value: `follow`
 - o-tracking automatic: no
 - spoor pipeline automatic: no
-

@@ -15,21 +15,21 @@ Each event has the following additional properties:
 
 ```js
 detail: {
-  category: 'audio',
-  action: ev.type,
-  audioSubtype: '[podcast|amy]',
-  // current time / length (percentage)
-  progress: 88,
-   // audio length in seconds
-  duration: 14,
-  // The content id of the audio being played
-  contentId: '{uuid}',
-  // The content id of the article in which the audio is embedded
-  rootContentId: '{uuid}',
-  // A string to identify which player is being used.
-  playerType: 'ft-audio-player',
-  // The the value of root ID when audio playback started.
-  root_id: '{event_root_id}'
+	category: 'audio',
+	action: ev.type,
+	audioSubtype: '[podcast|amy]',
+	// current time / length (percentage)
+	progress: 88,
+	// audio length in seconds
+	duration: 14,
+	// The content id of the audio being played
+	contentId: '{uuid}',
+	// The content id of the article in which the audio is embedded
+	rootContentId: '{uuid}',
+	// A string to identify which player is being used.
+	playerType: 'ft-audio-player',
+	// The the value of root ID when audio playback started.
+	root_id: '{event_root_id}'
 }
 ```
 
@@ -48,5 +48,3 @@ Each audio event is inserted into the `Audio` table in redshift, which in turn p
 | spoor-stream-processor  | Maps fields in the event to columns in the audio table  | Data Platform | [mappings.json](https://github.com/Financial-Times/data-spoor-stream-processor/blob/master/config/mappings.json)
 | Audio table  | Stores the audio event  | Data Platform | - |
 | Bigquery/chartio  | Reporting on audio consumption  | Business Intelligence | [Audio dashboard](https://chartio.com/financialtimes/dashboard/356574/link_sharing/4847c824f70e33da577105929b98a7f6f6d0a887ce4bb697a99517febcf19fcb/) |
-
-

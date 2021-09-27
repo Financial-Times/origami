@@ -35,4 +35,3 @@ export function errorNextSend() {
 // for the vast majority of tests we want to use a mock transport
 // so we setup the mock globally here
 mockTransport();
-

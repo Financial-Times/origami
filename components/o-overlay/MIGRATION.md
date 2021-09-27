@@ -18,29 +18,29 @@ _Note: When replacing `o-layers` events (`oLayers.close`, `oLayers.new`) make su
 
 - The `oOverlay` mixin now includes all styles required for overlays and outputs CSS selectors as well as properties and values. See the [Sass documentation](README.md#sass) for information on the new parameters
 - The following mixins have been removed, their styles can now be included using the `oOverlay` mixin parameters:
-  - `oOverlayCompactClose`
-  - `oOverlayCompactContent`
-  - `oOverlayCompactHeading`
-  - `oOverlayCompactTitle`
-  - `oOverlayContent`
-  - `oOverlayFullscreen`
-  - `oOverlayHeading`
-  - `oOverlayHeadingShaded`
-  - `oOverlayHeadingShadedClose`
-  - `oOverlayIncludeAll`
-  - `oOverlayShadow`
-  - `oOverlayTitle`
+	- `oOverlayCompactClose`
+	- `oOverlayCompactContent`
+	- `oOverlayCompactHeading`
+	- `oOverlayCompactTitle`
+	- `oOverlayContent`
+	- `oOverlayFullscreen`
+	- `oOverlayHeading`
+	- `oOverlayHeadingShaded`
+	- `oOverlayHeadingShadedClose`
+	- `oOverlayIncludeAll`
+	- `oOverlayShadow`
+	- `oOverlayTitle`
 - Rename:
-  - `oOverlayClose` to `oOverlayContentClose`
+	- `oOverlayClose` to `oOverlayContentClose`
 
 ### Color use-cases
 
 - All of the deprecated o-colors use-cases have been removed:
-  - `o-overlay`
-  - `o-overlay-close`
-  - `o-overlay-close-shaded`
-  - `o-overlay-heading`
-  - `o-overlay-heading-shaded`
+	- `o-overlay`
+	- `o-overlay-close`
+	- `o-overlay-close-shaded`
+	- `o-overlay-heading`
+	- `o-overlay-heading-shaded`
 
 ### JavaScript API
 

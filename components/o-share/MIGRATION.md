@@ -125,9 +125,9 @@ href="#">
 -o-share__action--twitter
 ">
 	<a class="o-share__icon o-share__icon--twitter" href="#">
-    	<span class="o-share__text">
-        	Share on Twitter
-    	</span>
+			<span class="o-share__text">
+					Share on Twitter
+			</span>
 	</a>
 </li>
 ```
@@ -150,14 +150,14 @@ href="#"><i>Icon</i></a>
 
 o-share v4 introduces a few breaking changes that you may need to update in your product:
 
-  - V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
-  - the link share option has been removed
+	- V4 introduces the new major version of `o-colors`. Updating to this new version will mean updating any other components that you have which are using `o-colors`
+	- the link share option has been removed
 
 ## Migrating from v2 to v3
 
 o-share v3 introduces a few breaking changes that you may need to update in your product:
 
 
-  - button size has increased from 36px to 40px which might effect the surrounding elements of your design
-  - the Reddit share option has been removed
-  - the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`
+	- button size has increased from 36px to 40px which might effect the surrounding elements of your design
+	- the Reddit share option has been removed
+	- the URL share option has been renamed from `o-share__action--url` to `o-share__action--link`

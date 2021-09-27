@@ -246,7 +246,7 @@ If `oTypographyListOrdered` or `oTypographyListUnordered` have been used indepen
 
 ```diff
 .my-list {
-    @include oTypographyList();
+	@include oTypographyList();
 }
 
 .my-list--ordered {

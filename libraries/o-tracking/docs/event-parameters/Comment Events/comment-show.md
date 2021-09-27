@@ -42,5 +42,3 @@ identifies the specific button used. Possible values:
 2. Button/link at bottom of the article: `article bottom`
 3. "Show more comments" button: `show more comments`
 4. Comment Alert Button: `comment alert`
-
-

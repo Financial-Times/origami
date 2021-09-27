@@ -26,9 +26,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  context: {
-    product: 'ft.com'
-  }
+	context: {
+		product: 'ft.com'
+	}
 });
 ```
 
@@ -46,9 +46,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  system: {
-    source: 'o-tracking'
-  }
+	system: {
+		source: 'o-tracking'
+	}
 });
 ```
 
@@ -66,9 +66,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  system: {
-    version: '1.0.0'
-  }
+	system: {
+		version: '1.0.0'
+	}
 });
 ```
 
@@ -87,7 +87,7 @@ For most reliability, it should be sent with each page. e.g.
 
 ```js
 oTracking.page({
-  url: "http://www.example.com"
+	url: "http://www.example.com"
 });
 ```
 
@@ -129,9 +129,9 @@ If using o-tracking, it's usually sent with each page. e.g.
 
 ```js
 oTracking.page({
-  content: {
-    asset_type: "story"
-  }
+	content: {
+		asset_type: "story"
+	}
 });
 ```
 
@@ -149,7 +149,7 @@ The referrer of the current page. o-tracking will pick this up automatically for
 
 ```js
 oTracking.page({
-  referrer: "http://www.example.com"
+	referrer: "http://www.example.com"
 });
 ```
 
@@ -169,9 +169,9 @@ If using o-tracking set on the page e.g.
 
 ```js
 oTracking.page({
-  content: {
-    counted: true
-  }
+	content: {
+		counted: true
+	}
 });
 ```
 
@@ -189,9 +189,9 @@ Set on a page e.g.
 
 ```js
 oTracking.page({
-  content: {
-    barrier: "Premium"
-  }
+	content: {
+		barrier: "Premium"
+	}
 });
 ```
 
@@ -209,9 +209,9 @@ Set on a page e.g.
 
 ```js
 oTracking.page({
-  content: {
-    hurdle: "h1"
-  }
+	content: {
+		hurdle: "h1"
+	}
 });
 ```
 
@@ -227,9 +227,9 @@ The primary section of the page. Normally we calculate this from the content's U
 
 ```js
 oTracking.page({
-  content: {
-    sitemap: "World"
-  }
+	content: {
+		sitemap: "World"
+	}
 });
 ```
 
@@ -246,9 +246,9 @@ The title of the page. Normally we calculate this from the content's UUID. If th
 
 ```js
 oTracking.page({
-  content: {
-    title: "An article about something"
-  }
+	content: {
+		title: "An article about something"
+	}
 });
 ```
 
@@ -266,9 +266,9 @@ This is the IP address of the device. We will attempt to pick this up automatica
 
 ```js
 oTracking.init({
-  device: {
-    ip: '10.0.0.1'
-  }
+	device: {
+		ip: '10.0.0.1'
+	}
 });
 ```
 
@@ -284,9 +284,9 @@ Boolean flag to signify if the device is currently offline. This is normally set
 
 ```js
 oTracking.init({
-  device: {
-    is_offline: true
-  }
+	device: {
+		is_offline: true
+	}
 });
 ```
 
@@ -302,9 +302,9 @@ The user agent of the device. This is normally resolved using headers, but if th
 
 ```js
 oTracking.init({
-  device: {
-    user_agent: navigator.userAgent
-  }
+	device: {
+		user_agent: navigator.userAgent
+	}
 });
 ```
 
@@ -324,9 +324,9 @@ The user's current session from membership's session API. If using o-tracking, t
 
 ```js
 oTracking.init({
-  user: {
-    ft_session: ""
-  }
+	user: {
+		ft_session: ""
+	}
 });
 ```
 
@@ -342,9 +342,9 @@ The user's current secure session from membership's session API. If using o-trac
 
 ```js
 oTracking.init({
-  user: {
-    ft_session_s: ""
-  }
+	user: {
+		ft_session_s: ""
+	}
 });
 ```
 
@@ -360,9 +360,9 @@ If unable to use the `user.ft_session` value above, and can only send the user's
 
 ```js
 oTracking.init({
-  user: {
-    ft_guid: ""
-  }
+	user: {
+		ft_guid: ""
+	}
 });
 ```
 
@@ -380,9 +380,9 @@ The segment ID parameter. We will try to pick this up automatically from the URL
 
 ```js
 oTracking.page({
-  marketing: {
-    segmentid: "level1/level2/level3/level4/level5/level6"
-  }
+	marketing: {
+		segmentid: "level1/level2/level3/level4/level5/level6"
+	}
 });
 ```
 
@@ -398,9 +398,9 @@ The ftcamp parameter. We will try to pick this up automatically from the URL que
 
 ```js
 oTracking.page({
-  marketing: {
-    ftcamp: "level1/level2/level3/level4/level5/level6"
-  }
+	marketing: {
+		ftcamp: "level1/level2/level3/level4/level5/level6"
+	}
 });
 ```
 
@@ -416,9 +416,9 @@ The segID parameter. We will try to pick this up automatically from the URL quer
 
 ```js
 oTracking.page({
-  marketing: {
-    segid: "level1/level2/level3/level4/level5/level6"
-  }
+	marketing: {
+		segid: "level1/level2/level3/level4/level5/level6"
+	}
 });
 ```
 
@@ -436,9 +436,9 @@ The name of the funnel. e.g. "Premium sign-up"
 
 ```js
 oTracking.page({
-  funnel: {
-    funnel_name: "Premium sign-up"
-  }
+	funnel: {
+		funnel_name: "Premium sign-up"
+	}
 });
 ```
 
@@ -454,9 +454,9 @@ The total number of steps in the funnel. e.g. 3
 
 ```js
 oTracking.page({
-  funnel: {
-    funnel_steps: 3
-  }
+	funnel: {
+		funnel_steps: 3
+	}
 });
 ```
 
@@ -472,9 +472,9 @@ The name of the current step in the funnel. e.g. "start" or "billing details"
 
 ```js
 oTracking.page({
-  funnel: {
-    step_name: "start"
-  }
+	funnel: {
+		step_name: "start"
+	}
 });
 ```
 
@@ -490,9 +490,9 @@ The 1-based-index of the current step in the funnel. e.g. 1 or 2 or 3. This is c
 
 ```js
 oTracking.page({
-  funnel: {
-    step_number: 3
-  }
+	funnel: {
+		step_number: 3
+	}
 });
 ```
 
@@ -540,9 +540,9 @@ If using o-tracking, this is usually set at init e.g.
 
 ```js
 oTracking.init({
-  system: {
-    environment: "prod"
-  }
+	system: {
+		environment: "prod"
+	}
 });
 ```
 
@@ -585,9 +585,3 @@ event_id
 - spoor pipeline automatic: no
 
 event_root_id
-
-
-
-
-
-

@@ -4,49 +4,49 @@
 ---
 my_string: &my_string
 my_embed: &my_embed
- 	nested: true
+	nested: true
 otherProperty: *my_string
 acceptMerge:
-  <<: *my_embed
+	<<: *my_embed
 some_string: |
- 	my string
- 	over two lines
+	my string
+	over two lines
 version: 2
 jobs:
-  test:
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - checkout
-      - run: npm config set prefix "$HOME/.local"
-      - run: npm i -g origami-build-tools@^7
-      - run: $HOME/.local/bin/obt install
-      - run: $HOME/.local/bin/obt demo --demo-filter pa11y --suppress-errors
-      - run: $HOME/.local/bin/obt verify
-      - run: $HOME/.local/bin/obt test
-      - run: git clean -fxd
-      - run: npx occ 0.0.0
-      - run: $HOME/.local/bin/obt install --ignore-bower
-      - run: $HOME/.local/bin/obt test --ignore-bower
-  publish_to_npm:
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - run: npx occ ${CIRCLE_TAG##v}
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
-      - run: npm publish --access public 
+	test:
+		docker:
+			- image: circleci/node:10-browsers
+		steps:
+			- checkout
+			- run: npm config set prefix "$HOME/.local"
+			- run: npm i -g origami-build-tools@^7
+			- run: $HOME/.local/bin/obt install
+			- run: $HOME/.local/bin/obt demo --demo-filter pa11y --suppress-errors
+			- run: $HOME/.local/bin/obt verify
+			- run: $HOME/.local/bin/obt test
+			- run: git clean -fxd
+			- run: npx occ 0.0.0
+			- run: $HOME/.local/bin/obt install --ignore-bower
+			- run: $HOME/.local/bin/obt test --ignore-bower
+	publish_to_npm:
+		docker:
+			- image: circleci/node:10
+		steps:
+			- checkout
+			- run: npx occ ${CIRCLE_TAG##v}
+			- run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > $HOME/.npmrc
+			- run: npm publish --access public
 workflows:
-  version: 2
-  test:
-    jobs:
-      - test
-      - publish_to_npm:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+	version: 2
+	test:
+		jobs:
+			- test
+			- publish_to_npm:
+					filters:
+						tags:
+							only: /^v.*/
+						branches:
+							ignore: /.*/
 </code>
 	</pre>
 <div>

@@ -46,7 +46,7 @@ detail: {
 	action: ev.type,
 	advertising: video.opts.advertising,
 	category: 'video',
- 	contentId: video.opts.id,
+	contentId: video.opts.id,
 	progress: video.getProgress(),
 	duration: video.getDuration()
 }
@@ -57,11 +57,11 @@ video was actually watched, e.g.
 
 ```js
 detail: {
-    category: 'video',
-    action: 'watched',
-    advertising: true,
-    contentId: 5290303519001
-    amount: 83.47, // amount of the video actually watched, in seconds
-    amountPercentage: 71.96 // as percentage of the total length of the video, could be > 100
+	category: 'video',
+	action: 'watched',
+	advertising: true,
+	contentId: 5290303519001
+	amount: 83.47, // amount of the video actually watched, in seconds
+	amountPercentage: 71.96 // as percentage of the total length of the video, could be > 100
 }
 ```

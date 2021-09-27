@@ -19,7 +19,7 @@ To get only the standard theme:
 
 ```
 @include oCookieMessage($opts: (
-  $themes: ('standard')
+	$themes: ('standard')
 ));
 ```
 
@@ -27,7 +27,7 @@ To get only the alternative theme:
 
 ```
 @include oCookieMessage($opts: (
-  $themes: ('alternative')
+	$themes: ('alternative')
 ));
 ```
 

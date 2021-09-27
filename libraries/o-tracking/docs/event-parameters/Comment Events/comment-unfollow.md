@@ -36,4 +36,3 @@ These are the documented parameters for a comment:unfollow event.
 - Value: `unfollow`
 - o-tracking automatic: no
 - spoor pipeline automatic: no
-

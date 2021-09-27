@@ -177,28 +177,28 @@ which the most important is `exception`:
 
 ```
 {
-  ...
-  "exception": {
-    "values": [
-      {
-        "type": "TypeError",
-        "value": "_nUi is undefined",
-        "stacktrace": {
-          "frames": [
-            {
-              "filename": "http://local.ft.com:5005/__dev/assets/public/main.js",
-              "lineno": 1,
-              "colno": 11,
-              "function": "?",
-              "in_app": true
-            },
-            ...
-          ]
-        }
-      }
-    ]
-  },
-  ...
+	...
+	"exception": {
+		"values": [
+			{
+				"type": "TypeError",
+				"value": "_nUi is undefined",
+				"stacktrace": {
+					"frames": [
+						{
+							"filename": "http://local.ft.com:5005/__dev/assets/public/main.js",
+							"lineno": 1,
+							"colno": 11,
+							"function": "?",
+							"in_app": true
+						},
+						...
+					]
+				}
+			}
+		]
+	},
+	...
 }
 ```
 
@@ -332,7 +332,7 @@ error aggregator, along with the additional context data.
 
 ```JS
 function renderAll(components) {
-  components.forEach(render);
+	components.forEach(render);
 }
 
 var components = [ componentA, componentB ];
@@ -397,8 +397,8 @@ A component can fire an `oErrors.log` event on its owned DOM to send an error re
 
 ```JS
 {
-   error: e,  // the Error object that's been caught
-   info:  i   // an object with further useful debug info
+	error: e,  // the Error object that's been caught
+	info:  i   // an object with further useful debug info
 }
 ```
 

@@ -1,12 +1,12 @@
 {
-  "name": "o-meter",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+	"name": "o-meter",
+	"scripts": {},
+	"env": {},
+	"formation": {},
+	"addons": [],
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+	]
 }

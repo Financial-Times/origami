@@ -155,31 +155,31 @@ Indicator labels have one of three statuses:
 Use the following markup for a live label:
 ```html
 <span class="o-labels-indicator o-labels-indicator--live">
-    <span class="o-labels-indicator__status">
+	<span class="o-labels-indicator__status">
 		live
-    </span>
+	</span>
 </span>
 ```
 
 Use the modifier class `o-labels-indicator--closed` for a closed label:
 ```html
 <span class="o-labels-indicator o-labels-indicator--closed">
-    <span class="o-labels-indicator__status">
+	<span class="o-labels-indicator__status">
 		closed
-    </span>
+	</span>
 </span>
 ```
 
 For an updated or new label use the associated modifier class, e.g. `o-labels-indicator--updated`, and add a child element `o-labels-indicator__timestamp` to show the new/updated time. We recommend using [o-date](https://registry.origami.ft.com/components/o-date) to format the timestamp element.
 ```html
 <span class="o-labels-indicator o-labels-indicator--new">
-    <span class="o-labels-indicator__status">
-        new
-    </span>
-    <time class="o-labels-indicator__timestamp">
-        <!-- demo `time` element only (the datetime is not 1 hour ago) -->
-        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
-    </time>
+	<span class="o-labels-indicator__status">
+		new
+	</span>
+	<time class="o-labels-indicator__timestamp">
+		<!-- demo `time` element only (the datetime is not 1 hour ago) -->
+		<time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	</time>
 </span>
 ```
 
@@ -187,9 +187,9 @@ Indicator labels also support an inverse theme for use on dark backgrounds. To u
 ```diff
 -<span class="o-labels-indicator o-labels-indicator--live">
 +<span class="o-labels-indicator o-labels-indicator--live o-labels-indicator--inverse">
-    <span class="o-labels-indicator__status">
+	<span class="o-labels-indicator__status">
 		live
-    </span>
+	</span>
 </span>
 ```
 
@@ -199,8 +199,8 @@ To include a timestamp label use the following markup. Note the timestamp label 
 
 ```html
 <time class="o-labels-timestamp o-labels-timestamp--inverse">
-    <!-- demo `time` element only -->
-    <time datetime="2016-02-29T12:35:48Z" title="February 29 2016 12:35 pm" aria-label="February 29 2016">February 29 2016</time>
+	<!-- demo `time` element only -->
+	<time datetime="2016-02-29T12:35:48Z" title="February 29 2016 12:35 pm" aria-label="February 29 2016">February 29 2016</time>
 </time>
 ```
 

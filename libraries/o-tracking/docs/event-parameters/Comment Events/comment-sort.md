@@ -41,5 +41,3 @@ identifies the subcategories of the comment:sort action type. Possible values:
 1. Sorting by Newest: `Newest`
 2. Sorting by Oldest: `Oldest`
 3. Sorting by Most Recommended: `Most Recommended`
-
-

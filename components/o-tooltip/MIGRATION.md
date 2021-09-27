@@ -14,15 +14,15 @@ Tooltip typography is now included by default, and no longer inherits typography
 
 - The `oTooltip` mixin now includes all styles required for tooltips. See the [Sass documentation](README.md#sass) for information on the new parameters
 - The following mixins have been removed:
-  - `oTooltipContent`
-  - `oTooltipUpArrow`
-  - `oTooltipDownArrow`
-  - `oTooltipLeftArrow`
-  - `oTooltipRightArrow`
-  - `oTooltipClose`
+	- `oTooltipContent`
+	- `oTooltipUpArrow`
+	- `oTooltipDownArrow`
+	- `oTooltipLeftArrow`
+	- `oTooltipRightArrow`
+	- `oTooltipClose`
 - The following global variables have been removed:
-  - `$o-tooltip-animation-distance`
-  - `$o-tooltip-animation-duration`
+	- `$o-tooltip-animation-distance`
+	- `$o-tooltip-animation-duration`
 
 ### ES Modules
 

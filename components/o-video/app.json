@@ -1,12 +1,12 @@
 {
-  "name": "o-video",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+	"name": "o-video",
+	"scripts": {},
+	"env": {},
+	"formation": {},
+	"addons": [],
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+	]
 }

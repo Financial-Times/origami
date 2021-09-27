@@ -5,16 +5,16 @@ A 12 column responsive, flexbox-based grid system for laying out documents, temp
 -   [Usage](#usage)
 -   [Quick Start](#quick-start)
 -   [Grid dimensions](#grid-dimensions)
-    -   [General settings](#general-settings)
-    -   [Layout sizes](#layout-sizes)
+	-   [General settings](#general-settings)
+	-   [Layout sizes](#layout-sizes)
 -   [Markup](#markup)
-    -   [Utility classes](#utility-classes)
-    -   [Responsive columns](#responsive-columns)
-    -   [Examples](#examples)
+	-   [Utility classes](#utility-classes)
+	-   [Responsive columns](#responsive-columns)
+	-   [Examples](#examples)
 -   [Sass](#sass)
-    -   [Options](#options)
+	-   [Options](#options)
 -   [Advanced usage](#advanced-usage)
-    -   [Utilities](#utilities)
+	-   [Utilities](#utilities)
 -   [JavaScript Helpers](#javascript-helpers)
 -   [Grid Bookmarklet](#grid-bookmarklet)
 -   [Migration](#migration)
@@ -58,8 +58,8 @@ console.log(currentGutter);
 -   Minimum width: 240px
 -   Maximum width: 1220px
 -   Gutter widths (space between columns):
-    -   10px on small screens
-    -   20px on larger screens
+	-   10px on small screens
+	-   20px on larger screens
 -   Number of columns: 12
 
 ### Layout sizes
@@ -76,11 +76,11 @@ console.log(currentGutter);
 
 ```html
 <div class="o-grid-container">
-    <div class="o-grid-row">
-        <!-- two divs, spanning a total of 12 columns -->
-        <div data-o-grid-colspan="8">A div, 8 columns wide</div>
-        <div data-o-grid-colspan="4">Another div, 4 columns wide</div>
-    </div>
+	<div class="o-grid-row">
+		<!-- two divs, spanning a total of 12 columns -->
+		<div data-o-grid-colspan="8">A div, 8 columns wide</div>
+		<div data-o-grid-colspan="4">Another div, 4 columns wide</div>
+	</div>
 </div>
 ```
 
@@ -90,14 +90,14 @@ Set a number of columns per layout:
 
 ```html
 <div class="o-grid-container">
-    <div class="o-grid-row">
-        <div data-o-grid-colspan="6 L8" class="first-column">
-            Half by default, then 8 columns wide on Large layout and up
-        </div>
-        <div data-o-grid-colspan="6 L4" class="second-column">
-            Half by default, then 4 columns wide on Large layout and up
-        </div>
-    </div>
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="6 L8" class="first-column">
+			Half by default, then 8 columns wide on Large layout and up
+		</div>
+		<div data-o-grid-colspan="6 L4" class="second-column">
+			Half by default, then 4 columns wide on Large layout and up
+		</div>
+	</div>
 </div>
 ```
 
@@ -338,8 +338,8 @@ To remove gutters from in between columns in a row, use the `o-grid-row--compact
 
 ```html
 <div class="o-grid-row o-grid-row--compact">
-    <div data-o-grid-colspan="6">Look 'ma, no gutters</div>
-    <div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
+	<div data-o-grid-colspan="6">Look 'ma, no gutters</div>
+	<div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
 </div>
 ```
 
@@ -365,10 +365,10 @@ To remove gutters from the left and right sides of the grid container, use the `
 
 ```html
 <div class="o-grid-container o-grid-container--bleed">
-    <div class="o-grid-row o-grid-row--compact">
-        <div data-o-grid-colspan="6">Look 'ma, no gutters</div>
-        <div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
-    </div>
+	<div class="o-grid-row o-grid-row--compact">
+		<div data-o-grid-colspan="6">Look 'ma, no gutters</div>
+		<div data-o-grid-colspan="6">Look 'pa, no gutters here either</div>
+	</div>
 </div>
 ```
 
@@ -604,18 +604,18 @@ The container size can snap between fixed-widths as the viewport gets larger:
 ```html
 <!-- Make the whole document snappy -->
 <body class="o-grid-snappy">
-    <div class="o-grid-container">
-        <div class="o-grid-row">
-            …
-        </div>
-    </div>
+	<div class="o-grid-container">
+		<div class="o-grid-row">
+			…
+		</div>
+	</div>
 </body>
 
 <!-- Make a container snappy -->
 <div class="o-grid-container o-grid-container--snappy">
-    <div class="o-grid-row">
-        …
-    </div>
+	<div class="o-grid-row">
+		…
+	</div>
 </div>
 ```
 
@@ -685,9 +685,9 @@ CSS must be included so JavaScript can retrieve layout information. If using [Sa
 ## Grid Bookmarklet
 
 1.  Create a new Bookmark with this URL:
-    ```js
-    javascript:(function(){var s=document.createElement("script");s.src="https://rawgit.com/Financial-Times/o-grid/master/bookmarklet/bookmarklet.js";document.head.appendChild(s);}());
-    ```
+	```js
+	javascript:(function(){var s=document.createElement("script");s.src="https://rawgit.com/Financial-Times/o-grid/master/bookmarklet/bookmarklet.js";document.head.appendChild(s);}());
+	```
 
 2.  Load a website
 3.  Click the bookmarklet (the overlay should appear)

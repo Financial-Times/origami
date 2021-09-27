@@ -4,18 +4,18 @@ An Origami component for autocomplete inputs. This is built on top of the excell
 
 - [Usage](#usage)
 - [Markup](#markup)
-    - [For a static set of suggestions](#for-a-static-set-of-suggestions)
-    - [For a dynamic set of suggestions](#for-a-dynamic-set-of-suggestions)
-    - [Use with o-forms](#use-with-o-forms)
+	- [For a static set of suggestions](#for-a-static-set-of-suggestions)
+	- [For a dynamic set of suggestions](#for-a-dynamic-set-of-suggestions)
+	- [Use with o-forms](#use-with-o-forms)
 - [Sass](#sass)
 - [JavaScript](#javascript)
-    - [dynamic suggestions function](#dynamic-suggestions-function)
-    - [mapOptionToSuggestedValue](#mapoptiontosuggestedvalue)
-    - [onConfirm](#onconfirm)    
+	- [dynamic suggestions function](#dynamic-suggestions-function)
+	- [mapOptionToSuggestedValue](#mapoptiontosuggestedvalue)
+	- [onConfirm](#onconfirm)
 - [Keyboard Support](#keyboard-support)
-    - [When focus is within the text input](#when-focus-is-within-the-text-input)
-    - [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
-    - [When focus is within the clear button](#when-focus-is-within-the-clear-button)
+	- [When focus is within the text input](#when-focus-is-within-the-text-input)
+	- [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
+	- [When focus is within the clear button](#when-focus-is-within-the-clear-button)
 - [Migration](#migration)
 - [Contact](#contact)
 - [Licence](#licence)
@@ -33,11 +33,11 @@ To provide a static set of suggestions, we recommend using a `select` element. o
 ```html
 <label for="my-autocomplete">Select your country</label>
 <div data-o-component="o-autocomplete" class="o-autocomplete">
-    <select id="my-autocomplete">
-        <option value="fr">France</option>
-        <option value="de">Germany</option>
-        <option value="gb">United Kingdom</option>
-    </select>
+	<select id="my-autocomplete">
+		<option value="fr">France</option>
+		<option value="de">Germany</option>
+		<option value="gb">United Kingdom</option>
+	</select>
 </div>
 ```
 
@@ -48,7 +48,7 @@ To provide a dynamic set of suggestions, you will need to provide a javascript f
 The input element requires an `id` attribute, this is used within the component to implement the accessibility features.
 ```html
 <div data-o-component="o-autocomplete" class="o-autocomplete">
-    <input id="my-autocomplete" type="text" >
+	<input id="my-autocomplete" type="text" >
 </div>
 ```
 
@@ -59,17 +59,17 @@ To have styling for labels, you will need to use [o-forms](https://registry.orig
 Below is an example of how to combine o-forms and o-autocomplete components together:
 ```html
 <label class="o-forms-field" >
-    <span class="o-forms-title">
-        <span class="o-forms-title__main">Select your country</span>
-    </span>
-    <span class="o-forms-input o-forms-input--select">
-        <div data-o-component="o-autocomplete" class="o-autocomplete">
-            <select id="my-autocomplete">
-                <option value=""></option>
-                <option>Afghanistan</option>
-            </select>
-        </div>
-    </span>
+	<span class="o-forms-title">
+		<span class="o-forms-title__main">Select your country</span>
+	</span>
+	<span class="o-forms-input o-forms-input--select">
+		<div data-o-component="o-autocomplete" class="o-autocomplete">
+			<select id="my-autocomplete">
+				<option value=""></option>
+				<option>Afghanistan</option>
+			</select>
+		</div>
+	</span>
 </label>
 ```
 ## Sass
@@ -126,7 +126,7 @@ async function customSuggestions(query, populateOptions) {
 
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
-    source: customSuggestions
+	source: customSuggestions
 });
 ```
 
@@ -178,8 +178,8 @@ function mapOptionToSuggestedValue(option) {
 
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
-    mapOptionToSuggestedValue,
-    source: customSuggestions,
+	mapOptionToSuggestedValue,
+	source: customSuggestions,
 });
 ```
 
@@ -218,14 +218,14 @@ function mapOptionToSuggestedValue(option) {
  * @param {{"suggestionText": string}} option - The option the user selected
 */
 function onConfirm(option) {
-    console.log('You selected option: ', option);
+	console.log('You selected option: ', option);
 }
 
 const oAutocompleteElement = document.getElementById('#my-o-autocomplete-element');
 new oAutocomplete(oAutocompleteElement, {
-    onConfirm
-    mapOptionToSuggestedValue,
-    source: customSuggestions,
+	onConfirm
+	mapOptionToSuggestedValue,
+	source: customSuggestions,
 });
 ```
 

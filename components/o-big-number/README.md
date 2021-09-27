@@ -36,11 +36,11 @@ We recommend you use `oBigNumber` and default `o-big-number` classes, however if
 
 ```scss
 .my-big-number-title {
-    @include oBigNumberTitle();
+	@include oBigNumberTitle();
 }
 
 .my-big-number-content {
-    @include oBigNumberContent();
+	@include oBigNumberContent();
 }
 ```
 

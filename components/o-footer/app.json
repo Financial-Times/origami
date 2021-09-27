@@ -1,12 +1,12 @@
 {
-  "name": "o-footer",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+	"name": "o-footer",
+	"scripts": {},
+	"env": {},
+	"formation": {},
+	"addons": [],
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+	]
 }

@@ -11,7 +11,7 @@
 		.o-forms-field--inline {
 			flex-direction: row;
 			justify-content: space-between;
-		
+
 			.o-forms-title {
 				flex: 0 1 50%;
 				margin-right: $_o-forms-spacing-three;
@@ -20,12 +20,12 @@
 				&.o-forms-title--shrink {
 					flex-basis: auto;
 				}
-				
+
 				&.o-forms-title--vertical-center {
 					align-self: center;
 				}
 			}
-		
+
 			.o-forms-input {
 				display: flex;
 				flex-direction: column;
@@ -34,9 +34,9 @@
 				margin: 0;
 			}
 		}
-		
+
 		/* inline inputs
-			[title] 
+			[title]
 			[input] [input]
 			or (combined with field inline)
 			[title] [input] [input]
@@ -44,7 +44,7 @@
 		.o-forms-input.o-forms-input--inline {
 			display: flex;
 			flex-flow: row wrap;
-				
+
 			label {
 				margin: 0 $_o-forms-spacing-four $_o-forms-spacing-three 0;
 				max-width: 75%;

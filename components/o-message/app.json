@@ -1,12 +1,12 @@
 {
-  "name": "o-message",
-  "scripts": {},
-  "env": {},
-  "formation": {},
-  "addons": [],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
+	"name": "o-message",
+	"scripts": {},
+	"env": {},
+	"formation": {},
+	"addons": [],
+	"buildpacks": [
+		{
+			"url": "heroku/nodejs"
+		}
+	]
 }

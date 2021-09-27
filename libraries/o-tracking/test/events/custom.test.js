@@ -96,14 +96,14 @@ describe('event', function () {
 Please remove the circular references in the data.
 Here are the paths in the data which are circular:
 [
-    ".context.context.circular"
+	".context.context.circular"
 ]`;
 
 		const errorMessageOnIOS10 = `o-tracking does not support circular references in the analytics data.
 Please remove the circular references in the data.
 Here are the paths in the data which are circular:
 [
-    "[0].item.context.context.circular"
+	"[0].item.context.context.circular"
 ]`;
 		try {
 			trackEvent(

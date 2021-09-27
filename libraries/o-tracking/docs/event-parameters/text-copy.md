@@ -20,7 +20,7 @@ The category of the event. A noun. For text:copy, this should be "text".
 
 ```js
 oTracking.event({
-  category: 'text'
+	category: 'text'
 });
 ```
 
@@ -36,7 +36,7 @@ The action of the event. A verb. For text:copy, this should be "copy".
 
 ```js
 oTracking.event({
-  category: 'copy'
+	category: 'copy'
 });
 ```
 
@@ -55,9 +55,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  context: {
-    product: 'ft.com'
-  }
+	context: {
+		product: 'ft.com'
+	}
 });
 ```
 
@@ -75,9 +75,9 @@ If using o-tracking, this is usually set at the time of the event. e.g.
 
 ```js
 oTracking.event({
-  context: {
-    characters: 56
-  }
+	context: {
+		characters: 56
+	}
 });
 ```
 
@@ -95,9 +95,9 @@ If using o-tracking, this is usually set at the time of the event. e.g.
 
 ```js
 oTracking.event({
-  context: {
-    words: 56
-  }
+	context: {
+		words: 56
+	}
 });
 ```
 
@@ -115,9 +115,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  system: {
-    source: 'o-tracking'
-  }
+	system: {
+		source: 'o-tracking'
+	}
 });
 ```
 
@@ -135,9 +135,9 @@ If using o-tracking, this is usually set at init. e.g.
 
 ```js
 oTracking.init({
-  system: {
-    version: '1.0.0'
-  }
+	system: {
+		version: '1.0.0'
+	}
 });
 ```
 
@@ -155,9 +155,9 @@ The user's current session from membership's session API. If using o-tracking, t
 
 ```js
 oTracking.init({
-  user: {
-    ft_session: ""
-  }
+	user: {
+		ft_session: ""
+	}
 });
 ```
 
@@ -173,9 +173,9 @@ The user's current secure session from membership's session API. If using o-trac
 
 ```js
 oTracking.init({
-  user: {
-    ft_session_s: ""
-  }
+	user: {
+		ft_session_s: ""
+	}
 });
 ```
 
@@ -191,9 +191,9 @@ If unable to use the `user.ft_session` value above, and can only send the user's
 
 ```js
 oTracking.init({
-  user: {
-    ft_guid: ""
-  }
+	user: {
+		ft_guid: ""
+	}
 });
 ```
 
@@ -213,9 +213,9 @@ If using o-tracking, this is usually set at init e.g.
 
 ```js
 oTracking.init({
-  system: {
-    environment: "prod"
-  }
+	system: {
+		environment: "prod"
+	}
 });
 ```
 
@@ -258,9 +258,3 @@ event_id
 - spoor pipeline automatic: no
 
 event_root_id
-
-
-
-
-
-

@@ -41,5 +41,3 @@ identifies the subcategories of the comment:settings action type. Possible value
 1. Opening the comment-settings overlay: `open overlay`
 2. Saving comment-settings actions: `save`
 3. Cancel comment-settings action: `cancel`
-
-
