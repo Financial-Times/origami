@@ -1,11 +1,11 @@
 import core from "@actions/core"
-import {getChangedPackages} from "./lib/getChangedPackages"
+import {getChangedPackages, filterUserFacing} from "./lib/getChangedPackages.js"
 import {context} from "@actions/github"
 
 try {
     let baseRef = getBaseRef()
     let headRef = getHeadRef()
-    const packagesToPublish = await getChangedPackages(baseRef, headRef)
+    const packagesToPublish = filterUserFacing(await getChangedPackages(baseRef, headRef))
     if (packagesToPublish.size) {
         core.notice('A commit is a `fix` or `feat` commit, a release will be made.')
         console.log({packagesToPublish})
