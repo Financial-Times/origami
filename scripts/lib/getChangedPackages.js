@@ -92,7 +92,7 @@ async function getPublishablePackages() {
  */
 async function commitHashesAndMessagesBetween(baseRef = 'main', headRef = 'HEAD') {
     $.verbose = false
-    let commitHashesAndMessages = (await $`git log --pretty="format:%H %s" ${baseRef}...${headRef} --`).stdout.split('\n')
+    let commitHashesAndMessages = (await $`git log --pretty="format:%H %s" ${headRef} --not ${baseRef} --`).stdout.split('\n')
     $.verbose = true
     return commitHashesAndMessages
 }
