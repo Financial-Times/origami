@@ -154,29 +154,29 @@ class ODate {
 		const format = printer.getAttribute('data-o-date-format') ||
 			this.el.getAttribute('data-o-date-format');
 
-		let dateString;
-		let labelString;
+		let formattedDate;
+		let screenReaderFormattedDate;
 
 		if (format === 'today-or-yesterday-or-nothing') {
-			dateString = ftDateFormat.asTodayOrYesterdayOrNothing(date);
+			formattedDate = ftDateFormat.asTodayOrYesterdayOrNothing(date);
 		} else if (format === 'date-only') {
-			dateString = ftDateFormat.format(date, 'date');
+			formattedDate = ftDateFormat.format(date, 'date');
 		} else if (format === 'time-ago-limit-4-hours') {
-			dateString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-limit-24-hours') {
-			dateString = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
+			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-abbreviated') {
-			dateString = ftDateFormat.timeAgo(date, { abbreviated: true });
-			labelString = ftDateFormat.timeAgo(date);
+			formattedDate = ftDateFormat.timeAgo(date, { abbreviated: true });
+			screenReaderFormattedDate = ftDateFormat.timeAgo(date);
 		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
-			dateString = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4 * ftDateFormat.inSeconds.hour });
-			labelString = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+			formattedDate = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4 * ftDateFormat.inSeconds.hour });
+			screenReaderFormattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-no-seconds') {
-			dateString = ftDateFormat.timeAgoNoSeconds(date);
+			formattedDate = ftDateFormat.timeAgoNoSeconds(date);
 		} else if (format !== null) {
-			dateString = ftDateFormat.format(date, format);
+			formattedDate = ftDateFormat.format(date, format);
 		} else {
-			dateString = ftDateFormat.ftTime(date);
+			formattedDate = ftDateFormat.ftTime(date);
 		}
 
 		// To avoid triggering a parent live region unnecessarily
@@ -186,13 +186,13 @@ class ODate {
 			printer.firstChild.nodeType === 3;
 
 		if (hasSingleTextNode) {
-			printer.firstChild.nodeValue = dateString;
+			printer.firstChild.nodeValue = formattedDate;
 		} else {
-			printer.innerHTML = dateString;
+			printer.innerHTML = formattedDate;
 		}
 
-		if (dateString) {
-			printer.setAttribute('aria-label', labelString || dateString);
+		if (formattedDate && screenReaderFormattedDate) {
+			printer.setAttribute('aria-label', screenReaderFormattedDate);
 		} else {
 			printer.removeAttribute('aria-label');
 		}
