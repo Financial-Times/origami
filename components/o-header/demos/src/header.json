@@ -9,62 +9,76 @@
             {
                 "name": "xxxx",
                 "url": "#",
-                "selected": true
+                "selected": true,
+                "index": 0
             },
             {
                 "name": "xxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 1
             },
             {
                 "name": "xxxxxxx xxxx",
-                "url": "#"
+                "url": "#",
+                "index": 2
             }
         ],
         "desktop": [
             {
                 "name": "xxxx",
                 "url": "#",
-                "selected": true
+                "selected": true,
+                "index": 0
             },
             {
                 "name": "xxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 1
             },
             {
                 "name": "xx",
-                "url": "#"
+                "url": "#",
+                "index": 2
             },
             {
                 "name": "xxxxxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 3
             },
             {
                 "name": "xxxx",
-                "url": "#"
+                "url": "#",
+                "index": 4
             },
             {
                 "name": "xxxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 5
             },
             {
                 "name": "xxxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 6
             },
             {
                 "name": "xxxx x xxxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 7
             },
             {
                 "name": "xxxx x xxxx",
-                "url": "#"
+                "url": "#",
+                "index": 8
             },
             {
                 "name": "xxxxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 9
             },
             {
                 "name": "xxx xx xxxxx xx",
-                "url": "#"
+                "url": "#",
+                "index": 10
             }
         ],
         "isSignedIn": true
