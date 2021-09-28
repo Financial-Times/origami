@@ -1,5 +1,12 @@
 # Changelog
 
+### [9.0.3](https://www.github.com/Financial-Times/origami/compare/o-header-v9.0.2...o-header-v9.0.3) (2021-09-28)
+
+
+### Bug Fixes
+
+* correct markup in o-header demos ([5f1d671](https://www.github.com/Financial-Times/origami/commit/5f1d671fd052016572775fab02b0253385ed4231))
+
 ### [9.0.2](https://www.github.com/Financial-Times/origami/compare/o-header-v9.0.1...o-header-v9.0.2) (2021-09-21)
 
 
