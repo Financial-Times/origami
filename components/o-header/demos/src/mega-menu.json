@@ -9,15 +9,18 @@
             {
                 "name": "xxxx",
                 "url": "#",
-                "selected": true
+                "selected": true,
+                "index": 0
             },
             {
                 "name": "xxxxxx",
-                "url": "#"
+                "url": "#",
+                "index": 1
             },
             {
                 "name": "xxxxxxx xxxx",
-                "url": "#"
+                "url": "#",
+                "index": 2
             }
         ],
         "desktop": [
