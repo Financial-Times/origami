@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export interface ButtonProps {
 	label: string;
 	type: 'primary' | 'secondary';
