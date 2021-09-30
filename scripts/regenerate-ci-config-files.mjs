@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import * as workspaces from "./lib/workspaces.js"
+import * as workspaces from "./lib/workspaces.mjs"
 import {readPackage} from "read-pkg"
 import {readFile, writeFile} from "fs/promises"
 import Mustache from "mustache"
