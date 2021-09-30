@@ -1,21 +1,24 @@
 'use strict';
 
 module.exports = {
-	"parserOptions": {
-		"ecmaVersion": 7,
-		"sourceType": "module"
+	parserOptions: {
+		ecmaVersion: 7,
+		sourceType: "module",
+		ecmaFeatures: {
+			jsx: true,
+		},
 	},
-	"env": {
-		"es6": true,
-		"browser": true,
-		"node": true
+	env: {
+		es6: true,
+		browser: true,
+		node: true,
 	},
-	"plugins": ["import"],
-	"rules": {
+	plugins: ["import"],
+	rules: {
 		"import/extensions": ["warn", "ignorePackages"],
 		"no-unused-vars": "error",
 		"no-undef": "error",
-		"eqeqeq": "error",
+		eqeqeq: "error",
 		"guard-for-in": "error",
 		"no-extend-native": "error",
 		"wrap-iife": "error",
@@ -23,8 +26,8 @@ module.exports = {
 		"no-caller": "error",
 		"no-multi-str": "off",
 		"dot-notation": "off",
-		"semi": ["error", "always"],
-		"strict": ["error", "global"],
+		semi: ["error", "always"],
+		strict: ["error", "global"],
 		"valid-jsdoc": "warn",
 		"no-irregular-whitespace": "warn",
 		"no-multi-spaces": "error",
@@ -34,7 +37,7 @@ module.exports = {
 		"no-var": "error",
 		"prefer-const": "warn",
 		"no-const-assign": "error",
-		"indent": ["error", "tab", {"SwitchCase": 1}],
+		indent: ["error", "tab", {SwitchCase: 1}],
 		"no-trailing-spaces": "error",
 		"no-await-in-loop": "error",
 		"no-compare-neg-zero": "error",
@@ -115,14 +118,14 @@ module.exports = {
 		"prefer-promise-reject-errors": "error",
 		"require-await": "error",
 		"vars-on-top": "error",
-		"curly": "error",
-		"radix": "error",
-		"yoda": "error"
+		curly: "error",
+		radix: "error",
+		yoda: "error",
 	},
-	"globals": {
-		"require": false,
-		"module": false,
-		"exports": false,
-		"requireText": false
-	}
-};
+	globals: {
+		require: false,
+		module: false,
+		exports: false,
+		requireText: false,
+	},
+}
