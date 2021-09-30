@@ -1,0 +1,8 @@
+$system-code: origami;
+@import "@financial-times/o-buttons/main";
+@include oButtons();
+@import "@financial-times/o-colors/main";
+@include oColors();
+body {
+	background: var(--o-colors-page-background);
+}
