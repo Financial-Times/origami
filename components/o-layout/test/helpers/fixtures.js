@@ -6,6 +6,30 @@ const docs = `
 
 	<div class="o-layout__main">
 		<h1 id="this-is-a-h1">This is a heading level 1</h2>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h2 id="this-is-a-h2">This is a heading level 2</h2>
 		<p>This is some content.</p>
 		<p>This is more content</p>
