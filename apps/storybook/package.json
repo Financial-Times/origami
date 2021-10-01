@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook -p 6969 -c ./config",
-    "build-storybook": "build-storybook -c ./config"
+    "build-storybook": "build-storybook --modern -c ./config"
   },
   "dependencies": {
     "@storybook/addon-actions": "^6.3.9",
