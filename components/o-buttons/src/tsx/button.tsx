@@ -51,7 +51,7 @@ export function Button({
 
 	return (
 		<button className={classNames.join(' ')}>
-			{iconOnly ? (
+			{icon && iconOnly ? (
 				<span className="o-buttons-icon__label">{label}</span>
 			) : (
 				label
