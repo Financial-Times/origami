@@ -1,0 +1,18 @@
+---
+layout: o-layout-docs
+---
+
+<h1 id="{{page.title | slugify}}">{{page.title}}</h1>
+
+<p>
+	Posted on <time datetime="{{ page.date | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ page.date | date: '%d %B %Y' }}</time>
+	by {{page.author}}.
+	{% if page.tags != empty %}
+		<br/>Tagged with
+		{% for tag in page.tags %}
+			<span>{{tag}}</span>{% unless forloop.last == true %}, {% else %}.{% endunless %}
+		{% endfor %}
+	{% endif %}
+</p>
+
+{{content}}

@@ -1,0 +1,68 @@
+---
+title: Origami
+description: Origami is a group of services, components, and tools used to help design & build digital products for FT brands.
+permalink: /
+layout: o-layout-landing
+
+# Navigation config
+nav_display: true
+nav_label: Home
+nav_order: 1
+---
+
+<div class="o-layout__hero o-layout-typography o-website__hero--home">
+	{% include hero-image.svg %}
+	<div class="o-website__hero--text">
+		<h1>{{page.title}}</h1>
+		<p>
+			Origami is a group of services, components, and tools used to help design & build digital products for FT brands.
+		</p>
+	</div>
+</div>
+
+<div class="o-layout__main o-layout-typography">
+
+	<div class="o-layout__overview">
+
+		<div class="o-layout-item">
+			<h2>About</h2>
+			<p>
+				Origami is a collaborative project by and for the FT which includes services, components, and tools used to help design & build digital products for FT brands.
+			</p>
+			<p><a href="/docs/principles/vision-and-mission/">Origami Project Mission & Vision Statements</a></p>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Designers</h2>
+			<p>
+				You can browse live demos and documentation for Origami components in <a href="https://registry.origami.ft.com/components">the component registry</a>.
+			</p>
+			<p>
+				The Customer Products design team own complimentary tooling/documentation for Newsroom products.
+			</p>
+			<p>
+				This includes further <a href="https://www.notion.so/prd-newsroom/Design-System-35c1fc00fc9d404c8a31a374e2b8c8e4">design system documentation</a> and a <a href="https://www.figma.com/files/938480807921629744/team/938730024138282825/Design-Systems?fuid=840167457508775739">figma library</a>.
+			</p>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Developers</h2>
+			<p>To jump straight in and include Origami components in your project, see our <a href="/docs/tutorials/">tutorials page</a>.</p>
+			<p>If you would like to learn about Origami components in more detail see our <a href="/docs/components/">component documentation</a>.</p>
+			<p>For an overview of all the tools and services we offer see our <a href="/docs/">documentation page</a>.</p>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Contact</h2>
+			<p>
+				If you have questions or feedback about Origami:
+			</p>
+			<ul>
+				<li>There is a community Slack channel named <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}" class="o-typography-link--external" target="_blank">#{{site.data.contact.slack}}</a></li>
+				<li>There is a <a href="mailto:{{site.data.contact.email}}" class="o-typography-link--external">mailing list</a> for contacting the Origami Core Team </li>
+			</ul>
+		</div>
+
+	</div>
+
+</div>
