@@ -8,3 +8,5 @@ build/
 .remarkrc.cjs
 .stylelintrc.cjs
 test
+stories/
+src/tsx/
