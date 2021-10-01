@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Include Components Using a Package Manager (npm)</title>
+	<meta name="description" content="A step-by-step tutorial which teaches you how to use Origami components via a package manager, compiling them on your local machine." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/tutorials/manual-build/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/tutorials/">
+						
+							Tutorials
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="include-components-using-a-package-manager-npm">Include Components Using a Package Manager (npm)</h1>
+
+<p>Installing Origami components with a package manager (manual build) gives you more granular control over their styling and their behaviour within your project. It requires more set up though, compared to <a href="/docs/tutorials/build-service/">using the Origami Build Service</a>, so we’re providing an in-depth walkthrough for building a page for an article about fruit.</p>
+
+<p>This tutorial assumes that:</p>
+<ul>
+  <li>You have not implemented a build step</li>
+  <li>You are using a UNIX-like OS with a bash shell</li>
+  <li>You are familiar with JavaScript, and <abbr title="Sassy Cascading Style Sheets"><a href="https://sass-lang.com/" class="o-typography-link--external">SCSS</a></abbr></li>
+  <li>You have a basic understanding of <abbr title="Node Package Manager"><a href="https://www.npmjs.com/" class="o-typography-link--external">npm</a></abbr>)</li>
+</ul>
+
+<h2 id="setting-up-your-sandbox">Setting up your sandbox</h2>
+<p>We will need a folder structure for our page. So let’s begin by creating a new directory to work in.</p>
+
+<pre><code class="o-syntax-highlight--bash">mkdir o-fruit-demo &amp;&amp; cd o-fruit-demo</code></pre>
+
+<p>Eventually, we’ll have a folder structure that separates our <abbr title="Hypertext Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, JavaScript, dependencies and assets. Let’s start by adding an <code class="language-plaintext highlighter-rouge">index.html</code> to the root of our new project with some boilerplate <abbr title="Hypertext Markup Language">HTML</abbr>:</p>
+
+<pre><code class="o-syntax-highlight--html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;My First Origami Project&lt;/title&gt;
+
+		&lt;link rel="stylesheet" href="/main.css"&gt;
+		&lt;script async src="/main.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<aside class="no-padding">
+<p>Our folder structure so far:</p>
+<pre><code class="o-syntax-highlight--bash">o-fruit-demo
+└── index.html</code>
+</pre></aside>
+
+<p>The <code class="language-plaintext highlighter-rouge">link</code> and the <code class="language-plaintext highlighter-rouge">script</code> tags are pointing at our public assets, which will be available once we have performed a build step and compiled our source code. That source code will be written in plain Javascript and in <abbr title="Sassy Cascading Style Sheets">SCSS</abbr>, and each of those will be in their individual folders in our project:</p>
+
+<pre><code class="o-syntax-highlight--bash">mkdir src &amp;&amp; touch src/main.js src/main.scss</code></pre>
+
+<p>Now we’re ready to start adding components to our page.</p>
+
+<h2 id="component-html">Component <abbr title="Hypertext Markup Language">HTML</abbr></h2>
+
+<aside class="no-padding">
+<p>Our folder structure so far:</p>
+<pre><code class="o-syntax-highlight--bash">o-fruit-demo
+├── index.html
+└── src/
+    └── main.js
+    └── main.scss</code>
+</pre>
+</aside>
+
+<p>With the exception of JavaScript-only components, all of Origami’s components rely on markup. This markup, combined with the styling and the functionality, is what determines how a component will look and behave on a page. So before we can style anything, we’ll need to add some component markup to our page.</p>
+
+<p><a href="https://registry.origami.ft.com/components/o-grid" class="o-typography-link--external">o-grid</a> will determine how our content sits on our page. To begin, let’s add the following to the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> in our <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+
+<pre><code class="o-syntax-highlight--html">&lt;div class="o-grid-container"&gt;
+	&lt;div class="o-grid-row o-typography-wrapper" data-o-grid-colspan="center 8"&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+<p>We want to share some fruit facts, so let’s add some content to that inner <code class="language-plaintext highlighter-rouge">div</code>:</p>
+<pre style="white-space: pre-line"><code class="o-syntax-highlight--html">&lt;h1&gt;Funky Fruit Facts&lt;/h1&gt;
+&lt;h2&gt;Durian&lt;/h2&gt;
+&lt;p&gt;Due to its overpowering smell, durian has been banned on many types of public transport across Thailand, Japan and Hong Kong. In Singapore, the fruit is banned across all types of public transportation and even taxis have signs to let you know they refuse to carry passengers transporting the smelly fruit.&lt;/p&gt;
+&lt;h2&gt;Dragonfruit&lt;/h2&gt;
+&lt;p&gt;The cactus flower that produces dragon fruit survives only a single night. It blooms in the evening, ready for pollination by bats and moths, and wilts the very next day. The very brief pollination period, however, is sufficient for the plant to bear fruits.&lt;/p&gt;
+&lt;h2&gt;Naseberry, aka Sapodilla&lt;/h2&gt;
+&lt;p&gt;The sapodilla tree supplies the building blocks for a number of products utilized by humans.  Long ago, the Mayas and Aztecs would boil its ‘chicle’ sap, mold it into thick blocks and cut them into small pieces to chew. They were making the first chewing gum!&lt;/p&gt;</code></pre>
+
+<p>Finally, we want to showcase the popularity of each fruit in a sortable table. To do that, we’re going to use the <code class="language-plaintext highlighter-rouge">o-table</code> component.</p>
+
+<p>This is a good time to highlight how the manual build process provides more flexibility, because we don’t need to include all the table variations provided by Origami - we can include the minimum features we need.</p>
+
+<p>Let’s head over to <a href="https://registry.origami.ft.com/components/o-table#demo-row-stripes">the striped variation of o-table in the registry</a>, and copy that <abbr title="Hypertext Markup Language">HTML</abbr> in under our content.</p>
+
+<aside>If you'd like to double check your work, we've put our <code>index.html</code> up <a href="https://codepen.io/ft-origami/pen/EprYzR" class="o-typography-link--external">on CodePen</a>.</aside>
+
+<h2 id="origami-registry--npm">Origami Registry &amp; npm</h2>
+
+<p>Now that we have set up the scaffolding for our page, we need to install those components so we can access their respective styles and functionalities.</p>
+
+<p>All Origami components are available for installation via npm. They live in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>, and are published to the <a href="https://npmjs.com/" class="o-typography-link--external">public npm registry</a>.</p>
+
+<aside class="no-padding">
+<p>Our folder structure so far:</p>
+<pre><code class="o-syntax-highlight--bash">o-fruit-demo
+├── index.html
+└── src/
+    └── main.js
+    └── main.scss</code>
+</pre>
+</aside>
+
+<p>Next, we need to install our components as direct dependencies, because they are crucial to our page. We will opt to install them through the command line, and save them to a <code class="language-plaintext highlighter-rouge">package.json</code> file. For the scope of this tutorial, all that needs to be in that file right now is:</p>
+
+<pre><code class="o-syntax-highlight--json">{
+	"name": "o-fruit-demo"
+}</code>
+</pre>
+
+<p>Now we need to install our components, and we can save them all to our file by running:</p>
+
+<pre><code class="o-syntax-highlight--bash">npm install --save @financial-times/o-grid @financial-times/o-typography @financial-times/o-colors @financial-times/o-table</code></pre>
+
+<p>And your <code class="language-plaintext highlighter-rouge">package.json</code> should now look something like this:</p>
+
+<pre><code class="o-syntax-highlight--json">{
+  "name": "o-fruit-demo",
+  "dependencies": {
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-typography": "^7.0.2",
+    "@financial-times/o-colors": "^6.0.8",
+    "@financial-times/o-table": "^9.0.2"
+  }
+}</code>
+</pre>
+
+<h2 id="the-build-step">The Build Step</h2>
+
+<aside class="no-padding">
+<p>Our folder structure so far:</p>
+<pre><code class="o-syntax-highlight--bash">o-fruit-demo
+├── package.json
+├── node_modules/
+├── index.html
+└── src/
+    └── main.js
+    └── main.scss</code>
+</pre>
+</aside>
+
+<p>So that we can see our progress as we build the page, now is the time to implement our build step.
+What we need is something to bundle the JavaScript we write, and compile Sass to CSS for the browser. But build steps may vary per application or team, so setting up build tools is out of scope for this tutorial. So we can focus on how to use Origami components we are going to use the <a href="https://github.com/Financial-Times/origami-workshop" class="o-typography-link--external">Origami Workshop tool</a>.</p>
+
+<p>As long as you have Node.js installed, you can run:</p>
+
+<pre><code class="o-syntax-highlight--bash">npx @financial-times/origami-workshop</code></pre>
+
+<p>This command will compile your code to a <code class="language-plaintext highlighter-rouge">public</code> directory every time you make a change, and serve it locally for you to preview in a browser e.g. at <code class="language-plaintext highlighter-rouge">htpp://localhost:3000</code>. You can leave that running in the background, and refresh your browser to see the styling changes we’ll be making in the next step.</p>
+
+<h2 id="component-styling">Component Styling</h2>
+
+<aside class="no-padding">
+<p>Our folder structure so far:</p>
+<pre><code class="o-syntax-highlight--bash">o-fruit-demo
+├── package.json
+├── node_modules/
+├── index.html
+├── public/
+│   ├── main.css
+│   └── main.js
+│   └── index.html
+└── src/
+    └── main.js
+    └── main.scss</code>
+</pre>
+</aside>
+
+<p>Now we can begin styling our components. For this, all of our work is going to happen in our <code class="language-plaintext highlighter-rouge">src/main.scss</code> file.</p>
+
+<h3 id="output-all-component-styles">Output All Component Styles</h3>
+
+<p>So we can monitor what projects component assets are being used, some components require a global Sass <code class="language-plaintext highlighter-rouge">$system-code</code> variable is set. This should be the project’s <a href="https://biz-ops.in.ft.com" class="o-typography-link--external">biz-ops system code</a>, but we can set it to <code class="language-plaintext highlighter-rouge">test</code> for now in <code class="language-plaintext highlighter-rouge">src/main.scss</code>:</p>
+<pre><code class="o-syntax-highlight--scss">$system-code: 'test';</code></pre>
+
+<p>To include the components Sass use <code class="language-plaintext highlighter-rouge">@import</code>. For example this makes all <code class="language-plaintext highlighter-rouge">o-grid</code> Sass mixins, functions, and variables available:</p>
+<pre><code class="o-syntax-highlight--scss">$system-code: 'test';
+@import '@financial-times/o-grid/main';</code></pre>
+
+<p>By default Origami components do not output any CSS when you import them. This is so your project can granularly include only the CSS it needs from each component. To output a components CSS use its mixins, which are documented in the component <a href="https://registry.origami.ft.com/components/o-grid/readme#sass">README</a> and <a href="https://registry.origami.ft.com/components/o-grid/sassdoc">Sassdoc</a>. Most components include a primary mixin which matches the component name. These include all CSS by default and accept a map of options to include CSS for specific features. For the <code class="language-plaintext highlighter-rouge">o-grid</code> component this is a mixin named <code class="language-plaintext highlighter-rouge">oGrid</code>:</p>
+
+<pre><code class="o-syntax-highlight--scss">@import '@financial-times/o-grid/main';
+// output all o-grid css
+@include oGrid();</code></pre>
+
+<aside>
+Some Origami components have a <a href="/docs/components/silent-mode/">silent mode</a> variable which, when set to false, outputs all of the CSS for a component. This method of including CSS is deprecated. We recommend using the component's mixins instead.
+
+<pre><code class="o-syntax-highlight--scss">// deprecated: output all o-grid css using the silent mode variable
+$o-grid-is-silent: false;
+@import '@financial-times/o-grid/main';</code></pre>
+</aside>
+
+<p>If we open our page in a browser window (visit <code class="language-plaintext highlighter-rouge">http://localhost:3000</code> after running the origami-workshop command discussed above), we’ll see that our content is now centred on the page. This is because of the classes that we added to our outside <code class="language-plaintext highlighter-rouge">div</code> at the very beginning.</p>
+
+<p>We added an <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a> class to our inner div at the beginning of the tutorial, as well. It will apply styling just as the grid did, so the next—unguided—step, is for you to implement <code class="language-plaintext highlighter-rouge">o-typography</code> in the same way we implemented <code class="language-plaintext highlighter-rouge">o-grid</code> above.</p>
+
+<p>Look at your page in the browser when you’re done - your headings and paragraphs should have received font families and styling of their own.</p>
+
+<h3 id="output-component-styles-granularly">Output Component Styles Granularly</h3>
+
+<p>We’re going to get a little more specific with <a href="https://registry.origami.ft.com/components/o-table">o-table</a> since we’re after a particular variation.</p>
+
+<p>We only want the base styling of a table, and some stripes to tell each row apart, so pass an options map to the <code class="language-plaintext highlighter-rouge">oTable</code> mixin:</p>
+
+<pre><code class="o-syntax-highlight--scss">@import '@financial-times/o-table/main';
+@include oTable($opts: ('stripes'));</code></pre>
+
+<p>Other options are <a href="https://registry.origami.ft.com/components/o-table/readme#sass">documented in the README</a>.</p>
+
+<h3 id="use-component-sass-functions">Use Component Sass Functions</h3>
+
+<p>We’ll be using <a href="https://registry.origami.ft.com/components/o-colors">o-colors</a>, which has a wide variety of colours in its palette. Since we don’t need all of the colours in the palette for this page, we will not include the primary mixin <code class="language-plaintext highlighter-rouge">oColors</code>. Instead we will use some Sass functions <code class="language-plaintext highlighter-rouge">o-colors</code> provides.</p>
+
+<p>o-colors defines <a href="https://registry.origami.ft.com/components/o-colors/readme/#palette-colours">colours by name</a>, e.g. “crimson”, and <a href="https://registry.origami.ft.com/components/o-colors/readme/#palette-colours">colours by usecase</a> e.g. “page background”. We can use the Sass functions <code class="language-plaintext highlighter-rouge">oColorsByName</code> and <code class="language-plaintext highlighter-rouge">oColorsByUsecase</code> to get a colours hex value from our palette.</p>
+
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--scss">@import '@financial-times/o-colors/main';
+
+body {
+	background-color: oColorsByUsecase('page', 'background');
+}</code></pre>
+
+<p>As soon as your build has completed, visit your page again in the browser. You should have the pink that is characteristic of the FT as a background colour.</p>
+
+<aside>If you'd like to double check your work, we've put our <code>main.scss</code> up <a href="https://codepen.io/ft-origami/pen/VBgwwJ" class="o-typography-link--external">on CodePen</a>.</aside>
+
+<h3 id="selecting-a-brand">Selecting A Brand</h3>
+
+<p>By default Origami components are tailored for public facing, ft.com products – these are known as “master brand” products. But Origami components offer tailored support for other contexts with component <a href="/docs/components/branding/">branding</a>.</p>
+
+<p>To choose a brand other than the default “master” brand, set the <code class="language-plaintext highlighter-rouge">$o-brand</code> <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> variable at the start of your root <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> file, before importing any components.</p>
+
+<p>To see this in action we can set our brand to “internal”:</p>
+<pre><code class="o-syntax-highlight--scss">$o-brand: "internal"; // Set brand before anything else.
+@import '@financial-times/o-colors/main';
+//...</code></pre>
+
+<p>As the colour palette for the “internal” brand does not include “paper” (FT pink), the background we set with <code class="language-plaintext highlighter-rouge">o-colors</code> and the stripes of <code class="language-plaintext highlighter-rouge">o-table</code> have changed. The typography of our project has also changed.</p>
+
+<p>Now we will undo that by deleting <code class="language-plaintext highlighter-rouge">$o-brand: "internal";</code>, making our project default to the “master” brand again.</p>
+
+<p>For a list of supported brands and their purpose see <a href="/docs/components/branding/">component brands</a>.</p>
+
+<h2 id="component-functionality">Component Functionality</h2>
+
+<p>The final step in our tutorial involves adding JavaScript to our components, and we’ll be doing all of that work in <code class="language-plaintext highlighter-rouge">src/main.js</code>.</p>
+
+<p>Not all Origami components use JavaScript. For example, of the components we have installed today, only <code class="language-plaintext highlighter-rouge">o-table</code> requires it.</p>
+
+<p>Origami components listen for a custom event named <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code> in order to initialise. We’ll need to add that to our project so that the <code class="language-plaintext highlighter-rouge">o-table</code> JavaScript can kick in.</p>
+
+<aside>There are multiple ways to <a href="/docs/components/initialising">initialise a component's JavaScript</a> when you are using Origami with the manual build process</aside>
+
+<p>We’ll need to add this to our file:</p>
+
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--js">import '@financial-times/o-table';
+
+// Wait until the page has loaded
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	// Dispatch a custom event that will tell all required modules to initialise
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});</code>
+</pre>
+
+<p>Now you can sort fruit alphabetically by name or characteristic, or numerically by popularity.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>We’ve given you an overview of how to build components manually. There is more information about each component, its variations, its individual behaviour and configuration in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>. Here we’ve covered the fundamentals, but there are a few more aspects to the development of a product with Origami components that are important for compatibility and consistency, and we encourage you to read more about them:</p>
+
+<ul>
+  <li>Origami components have been developed to provide a ‘core’ experience for older browsers, and an ‘enhanced’ experience for newer ones, and we check for this using a <a href="/docs/components/compatibility/#cuts-the-mustard">‘cuts the mustard’</a> test, which can determine which experience to serve to which browser.</li>
+  <li>Another service we provide is the <a href="https://polyfill.io" class="o-typography-link--external">Polyfill Service</a>, which makes newer APIs available to older browsers, allowing us to write code to modern standards.</li>
+  <li>Learn more about Origami supported <a href="/docs/components/branding/">‘brands’</a>, which can change the appearance of components and provide unique features for different projects.</li>
+  <li><a href="/docs/components/versioning">Component versioning</a> is also important when building and maintaining products that use Origami components.</li>
+</ul>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_tutorials/manual-build.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

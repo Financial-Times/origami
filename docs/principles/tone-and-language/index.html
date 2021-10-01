@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Tone & language</title>
+	<meta name="description" content="Origami has a 'Plain English' language guide, which helps us to communicate effectively with our users." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/principles/tone-and-language/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/principles/">
+						
+							Principles
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+					<li>
+						<a href="/docs/principles/accessibility/"
+							
+								
+							
+						>
+							
+								Accessibility
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/principles/design/"
+							
+								
+							
+						>
+							
+								Design
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/principles/tone-and-language/"
+							
+								aria-current="page"
+							
+						>
+							
+								Tone & Language
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/principles/vision-and-mission/"
+							
+								
+							
+						>
+							
+								Vision and Mission Statements
+							
+						</a>
+					</li>
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="tone--language">Tone &amp; language</h1>
+
+<p>Origami is designed to serve users from a number of different backgrounds, working with a variety of different projects.
+As all people come with different experiences and types of understanding, we try to consider all of our communication very carefully.</p>
+
+<p>To strike a balance between a professional and friendly tone, while being clear and helpful, our writing follows a few essential writing styles and uses of language.</p>
+
+<h2 id="general-styles">General Styles</h2>
+
+<h5 id="be-conversational">Be conversational</h5>
+<ul>
+  <li>Use contractions: “we’re” over “we are”</li>
+  <li>Starting sentences with conjunctions like “but” or “so” is allowed.</li>
+</ul>
+
+<p>As we’ve said, we aim to be conversational. We speak with contractions and begin our sentences with conjunctions, so we would like to translate that to our writing, as well—if it sounds like something we’d say out loud, we’re likely on the right track.</p>
+
+<h5 id="prefer-we-to-i">Prefer “we” to “I”</h5>
+<ul>
+  <li><strong>do</strong>: “We would recommend you do …”</li>
+  <li><strong>don’t</strong>: “I would recommend you do …”</li>
+</ul>
+
+<p>The work we do is as a team, and we rely on each other, and the input from our users, to be able to maintain and deliver our work. It is language that can extend to include the reader, and discourages the use of the passive voice.</p>
+
+<h5 id="use-the-active-voice">Use the active voice</h5>
+<ul>
+  <li><strong>do</strong>: “We would recommend you do …”</li>
+  <li><strong>don’t</strong>: “It is recommended you do …”</li>
+</ul>
+
+<p>The active voice provides clarity, context and responsibility. If we are passive in our writing, we become vague and we distance ourselves from what we are trying to convey. This isn’t helpful to our users, who rely on and trust our ability to take responsibility for the work we do.</p>
+
+<h5 id="prefer-shorter-sentences">Prefer shorter sentences</h5>
+
+<p>Shorter sentences are easier for readers to take in.
+If we find we’ve ended up with too many commas or a long running sentence, odds are we can break it down into more readable chunks.</p>
+
+<h5 id="omit-fluff-and-filler-words">Omit fluff and filler words</h5>
+
+<p>By that, we mean qualifiers. Qualifiers are words like “pretty”, “mostly”, “probably”, “usually”. They can make the information in our writing ambiguous. They can also communicate an opinion about something. Though we want to be conversational, we don’t want to start documenting unhelpful statements.</p>
+
+<h5 id="write-for-skim-readers">Write for skim readers</h5>
+<ul>
+  <li>code variables go in <code class="language-plaintext highlighter-rouge">back-ticks</code></li>
+  <li>use tables</li>
+  <li>use asides</li>
+  <li>use lists</li>
+  <li>highlight copy where appropriate</li>
+  <li>use informative, short, headings.</li>
+</ul>
+
+<p>By providing any of the above, we’ll allow skim readers to quickly scan our documentation to find relevant information. It also helps us break different topics down into digestible sections.</p>
+
+<h5 id="avoid-metaphors-or-colloquialisms">Avoid metaphors or colloquialisms</h5>
+<ul>
+  <li><strong>do</strong>: “This site has everything you need to know”</li>
+  <li><strong>don’t</strong>: “This site is a one stop shop for Origami”</li>
+</ul>
+
+<p>We work with many different nationalities and levels of command of the English language. We need to keep in mind that there is phrasing that non-native English speakers may not be familiar with.</p>
+
+<h2 id="origami-specific-styles">Origami-specific styles</h2>
+
+<p>In addition to general writing styles, grammar and spelling, there are a few customised styles that we use specifically for Origami.</p>
+
+<h5 id="always-capitalise-origami-when-referring-to-the-product">Always capitalise Origami when referring to the product</h5>
+
+<p>At the <abbr title="Financial Times">FT</abbr>, most people are familiar with the Origami team. But outside of the company, origami is something entirely different, and it is important that we make that distinction.</p>
+
+<h5 id="dont-capitalise-component-names">Don’t capitalise component names</h5>
+
+<ul>
+  <li><strong>do</strong>: o-table, o-message</li>
+  <li><strong>don’t</strong>: O-table, O-Table, o-Table</li>
+</ul>
+
+<p>Our components are named in lower case and are available to use from package managers in the same way.
+We reserve capitalisation for component code, when we need to write syntax and need to conform to syntax convention.</p>
+
+<ul>
+  <li><strong>do</strong>: the Polyfill Service, the Build Service</li>
+  <li><strong>don’t</strong>: the polyfill service, the build service</li>
+</ul>
+
+<p>Similarly to capitalising “Origami”, we capitalise the services we maintain because they are distinguished products that have user-facing interfaces of their own.</p>
+
+<h5 id="use-british-english-for-documentation">Use British English for documentation</h5>
+<ul>
+  <li><strong>British</strong>: colour, organise</li>
+  <li><strong>American</strong>: color, organize</li>
+</ul>
+
+<p>The Origami team is based in London, UK. We speak British English and we work for a British newspaper, so we like to keep our documentation aligned with both of these things.
+Having said that, we use American English in our code and component/service names, because we aim to be consistent with the way most programming languages are written.</p>
+
+<h2 id="language">Language</h2>
+
+<p>Now that we have covered sentence structures, we also need to approach word choices. We are part of a company that strives to be diverse and inclusive, and we aim to do the same in all aspects of our work, including our documentation.</p>
+
+<h5 id="avoid-trivialisation">Avoid trivialisation</h5>
+
+<ul>
+  <li><strong>do</strong>: “Run the following command …”</li>
+  <li><strong>don’t</strong>: “Simply run the following command …”</li>
+</ul>
+
+<p>Words like “obviously”, “simply”, “basically”, “just”, “clearly”, “all you need to do” are the types of language we try to avoid.
+Our documentation aims to explain our products to a number of people we don’t know, so we shouldn’t assume that something that is clear to us will be clear to whoever is reading. They are also filler words that lengthen a sentence without improving its content.</p>
+
+<h5 id="avoid-generalisation">Avoid generalisation</h5>
+
+<ul>
+  <li><strong>don’t</strong>: “Everyone knows …”</li>
+</ul>
+
+<p>We don’t set benchmarks for what people know.
+We are here to help everyone use the components and services we put effort and care into. We want to make our work accessible to all, regardless of what their knowledge scope is.</p>
+
+<h5 id="avoid-ableisms">Avoid ableisms</h5>
+
+<ul>
+  <li><strong>do</strong>: “It would be a wild thought…”</li>
+  <li><strong>don’t</strong>: “It would be crazy to think…”</li>
+</ul>
+
+<p>Ableism is a form of discrimination against people with physical, mental or developmental disabilities.
+In language, it presents itself as wording like “lame”, “crazy”, “blind”, “dumb”, among some others. This wording can be insulting to those that do have a disability, and it is entirely possible to use different vocabulary to convey our point.</p>
+
+<h3 id="bringing-it-together">Bringing it together</h3>
+
+<p>These guides are here to help us along when we have doubts about what we’re  writing, but as long as we’re writing with other people in mind, we’ll be on the right path.
+If you have any questions, please get in touch with us via <a href="https://financialtimes.slack.com/messages/origami-support" class="o-typography-link--external">Slack</a> or <a href="origami.support@ft.com">Email</a>.</p>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_principles/tone-and-language.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

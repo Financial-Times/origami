@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Newsletter, December 2020</title>
+	<meta name="description" content="false" />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2020/12/29/newsletter/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-newsletter-december-2020">Origami Newsletter, December 2020</h1>
+
+<p>
+	Posted on <time datetime="2020-12-29T00:00:00Z">29 December 2020</time>
+	by chee.
+	
+		<br/>Tagged with
+		
+			<span>Newsletter</span>.
+		
+	
+</p>
+
+<h2 id="top-things">Top things</h2>
+
+<p>Some of the bigger Origami news from the last month:</p>
+
+<h3 id="mission-and-vision-statements">Mission and Vision Statements</h3>
+
+<p>Looking back over the 7 years of the team and project, we wrote a new mission statement for Origami.</p>
+
+<p>We’ve posted them on the website here: https://origami.ft.com/docs/principles/vision-and-mission/</p>
+
+<h4 id="mission">Mission</h4>
+
+<blockquote>
+  <p>Unifying and documenting the style and experience across the digital products of every FT brand, leveraging the web platform to provide an implementation of the brand guidelines.</p>
+</blockquote>
+
+<p>We want to ensure our mission statement expresses that Origami is for every person and every product in the whole FT Group.</p>
+
+<h4 id="vision">Vision</h4>
+
+<blockquote>
+  <p>Every designer and developer in the FT knows how to use Origami, feels they have the agency to contribute to Origami and that they are an owner of Origami.</p>
+
+  <p>Origami is the gold standard of design systems and every FT designer and developer’s favourite way to create digital products.</p>
+</blockquote>
+
+<p>In Terry Pratchett’s Hogfather, Death says “HUMANS NEED FANTASY IN ORDER TO BE HUMAN. TO BE THE PLACE WHERE THE FALLING ANGEL MEETS THE RISING APE”. At the Strata Data Conference in 2019, Cait O’Riordan said it’s important to find your North Star.</p>
+
+<p>A vision statement is like that. It’s where we want to be, it helps guide our choices so that one day it might be where we are.</p>
+
+<p>Right now our focus is on making Origami feel like a project owned by everyone, something everyone wants to use.</p>
+
+<p>We’re still some ways off, but we’re looking forward.</p>
+
+<h3 id="an-end-of-year-clean-up">An end-of-year clean up</h3>
+
+<p>This month we closed around 700 issues on Origami projects on GitHub. It’s the first time we’ve had fewer than 300 things on our team todo list. We’ll continue to reduce that number, making it easier to plan our time.</p>
+
+<p>🧹</p>
+
+<p>We have also archived the project <code class="language-plaintext highlighter-rouge">o-gallery</code>, which was no longer in use and had not received updates in some time. We hope to replace it with a new <a href="https://github.com/Financial-Times/origami/issues/23">carousel component</a> in the coming year.</p>
+
+<h3 id="a-plan-for-the-year-ahead">A plan for the year ahead</h3>
+
+<p>Work continues on the proposal to modernise Origami by dropping support for <a href="https://bower.io/">bower</a> and shipping our components only via <a href="https://www.npmjs.com/">npm</a>.</p>
+
+<p>Our current roadmap has us deprecating our bower components at the end of Q2, and putting them in maintenance mode for a year.</p>
+
+<h2 id="special-thanks">Special thanks</h2>
+
+<p>Thank-you everyone for helping each other make it through this year.</p>
+
+<p><a href="https://www.youtube.com/watch?v=FmuswTEGF-U">Happy new year.</a></p>
+
+<h2 id="broader-update">Broader update</h2>
+
+<p>A digest of other things that have happened this month:</p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/Financial-Times/polyfill-service">Financial-Times/polyfill-service</a></p>
+
+    <ul>
+      <li>
+        <p>RangeError: Malformed unicode_language_subtag on Intl polyfill</p>
+      </li>
+      <li>
+        <p>Add Intl.Locale and other Intl.* Polyfills</p>
+      </li>
+      <li>
+        <p>[Bug] Chrome/49 - Cannot redefine property: hasInstance</p>
+      </li>
+      <li>
+        <p>[feature] missing String.replaceAll polyfill</p>
+      </li>
+      <li>
+        <p>[Bug] Chrome/49 - Cannot redefine property: isConcatSpreadable</p>
+      </li>
+      <li>
+        <p>Feature Request: list popular polyfills</p>
+      </li>
+      <li>
+        <p>Enable The ‘unicorn/no-reduce’ rule</p>
+      </li>
+      <li>
+        <p>enable unicorn/no-reduce</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/polyfill-library">Financial-Times/polyfill-library</a></p>
+
+    <ul>
+      <li>
+        <p>Update smoothscroll detect logic</p>
+      </li>
+      <li>
+        <p>Allow getters and setters to be set to undefined and not throw an error</p>
+      </li>
+      <li>
+        <p>fix test polyfill timeout</p>
+      </li>
+      <li>
+        <p>compress test server responses and add test matrix with partial retries</p>
+      </li>
+      <li>
+        <p>fix linter errors</p>
+      </li>
+      <li>
+        <p>TypedArray polyfills are included for every browser target</p>
+      </li>
+      <li>
+        <p>Update targeting for TypedArray polyfills</p>
+      </li>
+      <li>
+        <p>Update yaku version to v1.0.0</p>
+      </li>
+      <li>
+        <p>Feature Request: Navigator.permissions API polyfill?</p>
+      </li>
+      <li>
+        <p>make sure errors contain useful messages</p>
+      </li>
+      <li>
+        <p>Add ability to generate sourcemaps</p>
+      </li>
+      <li>
+        <p>rel=preload support?</p>
+      </li>
+      <li>
+        <p>Feature Request - Add Dialog polyfill</p>
+      </li>
+      <li>
+        <p>[feature-request] lazy loading support</p>
+      </li>
+      <li>
+        <p>[feature-request] Proxy polyfill</p>
+      </li>
+      <li>
+        <p>[Feature Request] Given a browser matrix, output the suite of polyfills per browser for every version that satisfies the matrix</p>
+      </li>
+      <li>
+        <p>add “es2015” to the aliases of String.fromCodePoint</p>
+      </li>
+      <li>
+        <p>update polyfill configs for edge 79 + a few corrections</p>
+      </li>
+      <li>
+        <p>fix Symbol.prototype.description</p>
+      </li>
+      <li>
+        <p>Fetch polyfill is no longer spec compliant</p>
+      </li>
+      <li>
+        <p>Reflect fixes</p>
+      </li>
+      <li>
+        <p>Array fixes</p>
+      </li>
+      <li>
+        <p>isolate test runs with and without polyfill combinations</p>
+      </li>
+      <li>
+        <p>fix URL polyfill by no longer overwriting it in the Blob polyfill</p>
+      </li>
+      <li>
+        <p>fix StringIndexOf</p>
+      </li>
+      <li>
+        <p>Object fixes</p>
+      </li>
+      <li>
+        <p>WeakMap fixes</p>
+      </li>
+      <li>
+        <p>fix unterminated polyfills.</p>
+      </li>
+      <li>
+        <p>Serve DOMRect polyfill to Edge versions &lt; 79</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-image-service">Financial-Times/origami-image-service</a></p>
+
+    <ul>
+      <li>
+        <p>Update troubleshooting section for SVGs to mention it applies to all SVG requests</p>
+      </li>
+      <li>
+        <p>Custom schemes (not including ftcms) should use cloudinary upload instead of fetch</p>
+      </li>
+      <li>
+        <p>Consider using quality:auto</p>
+      </li>
+      <li>
+        <p>Use the explicit API to clear the cache</p>
+      </li>
+      <li>
+        <p>Missing source attribute in prefilled form without image url</p>
+      </li>
+      <li>
+        <p>only delete formData.source if we set it</p>
+      </li>
+      <li>
+        <p>Make the purging endpoint also purge from cloudinary</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/polyfill-library-node">Financial-Times/polyfill-library-node</a></p>
+
+    <ul>
+      <li>
+        <p>Add missing Origami GH Actions and labels</p>
+      </li>
+      <li>
+        <p>Add codeowners, issue template and publishing step</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-build-service">Financial-Times/origami-build-service</a></p>
+
+    <ul>
+      <li>
+        <p>Error if no brand query parameter</p>
+      </li>
+      <li>
+        <p>Backport conflicts work to Build Service v2</p>
+      </li>
+      <li>
+        <p>Feature: add support for spec v2 origami components</p>
+      </li>
+      <li>
+        <p>Issue: ESM module support</p>
+      </li>
+      <li>
+        <p>Error if no source query parameter</p>
+      </li>
+      <li>
+        <p>Disable adding Babel polyfills by default</p>
+      </li>
+      <li>
+        <p>Add v3/files endpoint</p>
+      </li>
+      <li>
+        <p>Do not crash the app if the NPM cache fails to prime.</p>
+      </li>
+      <li>
+        <p>Error page for conflicts is hard to read</p>
+      </li>
+      <li>
+        <p>Wrap error messages in <code class="language-plaintext highlighter-rouge">pre</code> instead of <code class="language-plaintext highlighter-rouge">p</code></p>
+      </li>
+      <li>
+        <p>Add middleware to ensure all requested Origami modules are built using the same Origami Specification version</p>
+      </li>
+      <li>
+        <p>Update website to use o-layout and add v3 endpoints for bundling</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-imageset-data">Financial-Times/origami-imageset-data</a></p>
+
+    <ul>
+      <li>Migrate from CircleCI to GitHub Workflows</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-labels">Financial-Times/origami-labels</a></p>
+
+    <ul>
+      <li>
+        <p>turn off github-label-sync action’s deletion of unknown labels</p>
+      </li>
+      <li>
+        <p>Allow arbitrary labels to be added</p>
+      </li>
+      <li>
+        <p>proposal: add an accessibility label</p>
+      </li>
+      <li>
+        <p>add an accessibility label</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-website">Financial-Times/origami-website</a></p>
+
+    <ul>
+      <li>
+        <p>Add the mission and vision statements to the front page</p>
+      </li>
+      <li>
+        <p>Add mission and vision statements to the homepage</p>
+      </li>
+      <li>
+        <p>Add Origami type</p>
+      </li>
+      <li>
+        <p>Avoid “we”/”let’s” in tutorials?</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-build-tools">Financial-Times/origami-build-tools</a></p>
+
+    <ul>
+      <li>
+        <p>Bump remark-preset-lint-origami-component version</p>
+      </li>
+      <li>
+        <p>Tidy up test output</p>
+      </li>
+      <li>
+        <p>Automatically run verify before test</p>
+      </li>
+      <li>
+        <p>Require component lint configuration</p>
+      </li>
+      <li>
+        <p>Only lint files if the component itself contains linting config for those file types</p>
+      </li>
+      <li>
+        <p>pass through the ignore bower flag when building the pa11y demo</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/remark-preset-lint-origami-component">Financial-Times/remark-preset-lint-origami-component</a></p>
+
+    <ul>
+      <li>
+        <p>Remove whitespace from action name</p>
+      </li>
+      <li>
+        <p>Correct package.json version.</p>
+      </li>
+      <li>
+        <p>Add publish to npm workflow</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/polyfill-useragent-normaliser">Financial-Times/polyfill-useragent-normaliser</a></p>
+
+    <ul>
+      <li>
+        <p>move to github actions</p>
+      </li>
+      <li>
+        <p>Move the circleci jobs into github workflows</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-registry-ui">Financial-Times/origami-registry-ui</a></p>
+
+    <ul>
+      <li>
+        <p>Update to npm 7</p>
+      </li>
+      <li>
+        <p>fails to deploy to staging due to a dart-sass shell bug</p>
+      </li>
+      <li>
+        <p>Improve Origami service discoverability</p>
+      </li>
+      <li>
+        <p>Replace origamiType checkboxes with radio buttons</p>
+      </li>
+      <li>
+        <p>Show radio buttons for origamiType instead of checkboxes</p>
+      </li>
+      <li>
+        <p>Work out how we display whether a version of a component builds or not</p>
+      </li>
+      <li>
+        <p>Investigate unreliable demo iframe resizing</p>
+      </li>
+      <li>
+        <p>include services in the default search filter</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-fonts">Financial-Times/o-fonts</a></p>
+
+    <ul>
+      <li>
+        <p>Map the <code class="language-plaintext highlighter-rouge">light</code> font weight to <code class="language-plaintext highlighter-rouge">300</code></p>
+      </li>
+      <li>
+        <p>Map a “light” font weight to <code class="language-plaintext highlighter-rouge">300 instead of </code>200`</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-brand-images">Financial-Times/origami-brand-images</a></p>
+
+    <ul>
+      <li>
+        <p>Can we deprecate this?</p>
+      </li>
+      <li>
+        <p>Deprecate the image set as it is not being used anymore</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-gallery">Financial-Times/o-gallery</a></p>
+
+    <ul>
+      <li>
+        <p>Is not silent mode by default (scss)</p>
+      </li>
+      <li>
+        <p>Component redesign</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/js-features-analyser">Financial-Times/js-features-analyser</a></p>
+
+    <ul>
+      <li>
+        <p>How to use with browserlist and a polyfill library</p>
+      </li>
+      <li>
+        <p>Data source of global-static-instance.json</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-buttons">Financial-Times/o-buttons</a></p>
+
+    <ul>
+      <li>Right align button icons</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-editorial-layout">Financial-Times/o-editorial-layout</a></p>
+
+    <ul>
+      <li>
+        <p>style nested <code class="language-plaintext highlighter-rouge">strong</code>, <code class="language-plaintext highlighter-rouge">em</code>, <code class="language-plaintext highlighter-rouge">sup</code>, <code class="language-plaintext highlighter-rouge">sub</code> tags within <code class="language-plaintext highlighter-rouge">p</code> tags.</p>
+      </li>
+      <li>
+        <p>Improve adoption of <code class="language-plaintext highlighter-rouge">o-editorial-layout</code>.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-teaser-collection">Financial-Times/o-teaser-collection</a></p>
+
+    <ul>
+      <li>o-teaser-collection</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-navigation-data">Financial-Times/origami-navigation-data</a></p>
+
+    <ul>
+      <li>
+        <p>ACC-764 Revert “Revert “ACC-764 add Contact Us to footer””</p>
+      </li>
+      <li>
+        <p>Revert “ACC-764 add Contact Us to footer”</p>
+      </li>
+      <li>
+        <p>ACC-764 add Contact Us to footer</p>
+      </li>
+      <li>
+        <p>Add Work &amp; Careers in place of Graphics</p>
+      </li>
+      <li>
+        <p>remove graphics link from top level navigation</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-ads-embed">Financial-Times/o-ads-embed</a></p>
+
+    <ul>
+      <li>
+        <p>Remove unnecessary heavy ads monitoring</p>
+      </li>
+      <li>
+        <p>Attempt to monitor heavy ad interventions by Chrome</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-specialist-title-logos">Financial-Times/origami-specialist-title-logos</a></p>
+
+    <ul>
+      <li>
+        <p>Deprecate <code class="language-plaintext highlighter-rouge">brand-live-ft-logo</code></p>
+      </li>
+      <li>
+        <p>Deprecate brand-live-ft-logo</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-image-set-tools">Financial-Times/origami-image-set-tools</a></p>
+
+    <ul>
+      <li>test on node 10, 12 and 14</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-topper">Financial-Times/o-topper</a></p>
+
+    <ul>
+      <li>
+        <p>Stop changing background wheat to <code class="language-plaintext highlighter-rouge">oColorsMix($color: 'wheat', $percentage: 40)</code></p>
+      </li>
+      <li>
+        <p>Currently fails pa11y tests</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/github-label-sync">Financial-Times/github-label-sync</a></p>
+
+    <ul>
+      <li>
+        <p>Add an option to run for all repositories in a user or organisation</p>
+      </li>
+      <li>
+        <p>Merging labels doesn’t seem to work</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-video">Financial-Times/o-video</a></p>
+
+    <ul>
+      <li>
+        <p>oVideo to support slot level override of config (mix and match global + data attribute config)</p>
+      </li>
+      <li>
+        <p>We should track buffering events</p>
+      </li>
+      <li>
+        <p>Track <code class="language-plaintext highlighter-rouge">waiting</code> event</p>
+      </li>
+      <li>
+        <p>iOS doesn’t like firing progress events</p>
+      </li>
+      <li>
+        <p>Move o-video advertising code to o-ads</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-icons">Financial-Times/o-icons</a></p>
+
+    <ul>
+      <li>Add o-icon-small-icon classes</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-forms">Financial-Times/o-forms</a></p>
+
+    <ul>
+      <li>
+        <p>Add better error styles for whitelabel brand in inverse mode</p>
+      </li>
+      <li>
+        <p>Add support for inverse form fields and error messaging</p>
+      </li>
+      <li>
+        <p>Add inverse form support for radios, checkboxes and error states and summaries</p>
+      </li>
+      <li>
+        <p>Improve radio box input given long labels</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-overlay">Financial-Times/o-overlay</a></p>
+
+    <ul>
+      <li>
+        <p>Expose the overlay instance on the <code class="language-plaintext highlighter-rouge">oOverlay.ready</code> event</p>
+      </li>
+      <li>
+        <p>Expose overlay on the ready event detail</p>
+      </li>
+      <li>
+        <p>Remove any characters that aren’t valid when generating a heading id.</p>
+      </li>
+      <li>
+        <p>Remove non-ascii alphanumericals when generating heading id</p>
+      </li>
+      <li>
+        <p>Jumping around on iPad</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-tracking">Financial-Times/o-tracking</a></p>
+
+    <ul>
+      <li>Question - use of data-trackable with <a> where target is blank</a></li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-share">Financial-Times/o-share</a></p>
+
+    <ul>
+      <li>
+        <p>Possible to include sticky behaviour</p>
+      </li>
+      <li>
+        <p>fix the demos so they compile for the internal brand</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-tooltip">Financial-Times/o-tooltip</a></p>
+
+    <ul>
+      <li>Add an option to hide when leaving hover</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami">Financial-Times/origami</a></p>
+
+    <ul>
+      <li>
+        <p>Enforce accessibility best practices by making some parameters mandatory</p>
+      </li>
+      <li>
+        <p>Expose current release number to the component’s own code</p>
+      </li>
+      <li>
+        <p>A Carousel component</p>
+      </li>
+      <li>
+        <p>Provide a way to express that a component is safe to be used with any brand.</p>
+      </li>
+      <li>
+        <p>Review how we manage and deploy component specifc assets</p>
+      </li>
+      <li>
+        <p>Make our whitelabel components easier to theme for build service users</p>
+      </li>
+      <li>
+        <p>Autocomplete</p>
+      </li>
+      <li>
+        <p>New Component: Tag Input</p>
+      </li>
+      <li>
+        <p>feedback component</p>
+      </li>
+      <li>
+        <p>A slider component</p>
+      </li>
+      <li>
+        <p>Opting elements into dark mode via a parent selector</p>
+      </li>
+      <li>
+        <p>Proposal: perform a review of the Origami spec</p>
+      </li>
+      <li>
+        <p>Proposal: npm-only origami components</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-repo-data">Financial-Times/origami-repo-data</a></p>
+
+    <ul>
+      <li>
+        <p>Support NPM(only) Components</p>
+      </li>
+      <li>
+        <p>Add an <code class="language-plaintext highlighter-rouge">origamiVersion</code> filter to the repos endpoint.</p>
+      </li>
+      <li>
+        <p>Add origami version to version entity</p>
+      </li>
+      <li>
+        <p>Update test expectations for a peer dependency</p>
+      </li>
+      <li>
+        <p>Add <code class="language-plaintext highlighter-rouge">isPeer</code> to the Dependency Entity.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-toggle">Financial-Times/o-toggle</a></p>
+
+    <ul>
+      <li>Provide the ability to switch the button text at the same time as the display</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-message">Financial-Times/o-message</a></p>
+
+    <ul>
+      <li>Correct access annotation</li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/o-meter">Financial-Times/o-meter</a></p>
+
+    <ul>
+      <li>
+        <p>Add pa11y demo to tested demos</p>
+      </li>
+      <li>
+        <p>Fix pa11y demo</p>
+      </li>
+      <li>
+        <p>Add back the pa11y demo</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><a href="https://github.com/Financial-Times/origami-ci-tools">Financial-Times/origami-ci-tools</a></p>
+
+    <ul>
+      <li>
+        <p>Run pa11y against all supported brands</p>
+      </li>
+      <li>
+        <p>Stop building the pa11y demo separately as obt test builds the pa11y demo now</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Make getDataAttributes ignore data attributes which are not in the component’s namespace</p>
+  </li>
+</ul>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2020-12-29-newsletter.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Compatibility</title>
+	<meta name="description" content="Documentation about how Origami ensures compatibility across different browsers and devices, and how you can write code in a way that supports this." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/components/compatibility/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/components/">
+						
+							Components
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+					<li>
+						<a href="/docs/components/getting-started/"
+							
+								
+							
+						>
+							
+								Getting Started
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/components/customisation/"
+							
+								
+							
+						>
+							
+								Customisation
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/components/code/"
+							
+								
+							
+						>
+							
+								Code
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/components/versioning/"
+							
+								
+							
+						>
+							
+								Versioning
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/components/compatibility/"
+							
+								aria-current="page"
+							
+						>
+							
+								Compatibility
+							
+						</a>
+					</li>
+				
+					<li>
+						<a href="/docs/components/contributing/"
+							
+								
+							
+						>
+							
+								Contributing
+							
+						</a>
+					</li>
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="compatibility">Compatibility</h1>
+
+<h2 id="core--enhanced-experiences">Core &amp; enhanced experiences</h2>
+
+<p><code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">enhanced</code> are definitions we have for ‘experiences’ that we serve to a browser. The experience we serve depends on the presence of some features within the browser.</p>
+
+<p>Generally, older browsers that don’t support newer JavaScript features will get a <code class="language-plaintext highlighter-rouge">core</code> experience, and modern browsers will get the <code class="language-plaintext highlighter-rouge">enhanced</code> experience.</p>
+
+<p>To determine whether or not a browser supports those features, we use a ‘cuts the mustard’ test.</p>
+
+<h3 id="cuts-the-mustard">Cuts the mustard</h3>
+
+<aside>This expression comes from the <abbr title="British Broadcasting Corporation">BBC</abbr>'s <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard" class="o-typography-link--external">post about <abbr title="Cuts The Mustard">CTM</abbr></a></aside>
+
+<h4 id="defining-a-ctm-test">Defining a <abbr title="Cuts The Mustard">CTM</abbr> test</h4>
+
+<p>This test checks browsers for some features that are only implemented by modern browsers. We recommend the following test:</p>
+
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--javascript">var script = document.createElement('script');
+var supportsDeferredScripts = "defer" in script &amp;&amp; "async" in script;
+window.cutsTheMustard = (typeof document.documentElement.dataset === 'object' &amp;&amp; ('visibilityState' in document) &amp;&amp; supportsDeferredScripts);</code></pre>
+
+<h4 id="toggling-styling">Toggling styling</h4>
+
+<p>The styling we choose to display rely on class names. Keeping with the experiences, we will be using <code class="language-plaintext highlighter-rouge">core</code> and <code class="language-plaintext highlighter-rouge">enhanced</code>. Origami components contain fallback styling for the browsers that fail the test. We need to toggle the class names based on the result of the test, and to avoid flashes of content we’ll always assume that the experience we will be served is core, until proven otherwise.</p>
+
+<p>Your <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> will need the <code class="language-plaintext highlighter-rouge">core</code> class:</p>
+<pre><code class="o-syntax-highlight--html">&lt;html class="core"&gt;</code></pre>
+
+<p>And we’ll want to add a script to replace that class with <code class="language-plaintext highlighter-rouge">enhanced</code> if the browser <em>does</em> pass the test:</p>
+
+<pre><code class="o-syntax-highlight--javascript">if (window.cutsTheMustard) {
+	document.documentElement.classList.replace('core', 'enhanced');
+}</code></pre>
+
+<p>Finally, we need to add instructions for our styling to handle the html class:</p>
+<pre><code class="o-syntax-highlight--css">.core .o--if-js,
+.enhanced .o--if-no-js {
+	display: none !important;
+}</code></pre>
+
+<h4 id="loading-javascript-asynchronously">Loading JavaScript asynchronously</h4>
+
+<p>If our browser passes the test and there is JavaScript that should only be served for the <code class="language-plaintext highlighter-rouge">enhanced</code> experience, we can load the JavaScript dynamically.</p>
+
+<p>If there is JavaScript to execute regardless of the experience served to the browser, we should add a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> element to load that JavaScript.</p>
+
+<pre><code class="o-syntax-highlight--javascript">&lt;script&gt;
+	(function(src) {
+		if (window.cutsTheMustard) {
+			script.async = script.defer = true;
+			script.src = src;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(script, s);
+		}
+	}('https://example.com/main.js));
+&lt;/script&gt;</code></pre>
+
+<aside>We've put the full implementation of our <abbr title="Cuts The Mustard">CTM</abbr> test <a href="https://codepen.io/ft-origami/pen/rZjzbw" class="o-typography-link--external">on Codepen</a></aside>
+
+<h2 id="browser-support">Browser support</h2>
+
+<p>Origami follow the <a href="https://docs.google.com/document/d/1z6kecy_o9qHYIznTmqQ-IJqre72jhfd0nVa4JMsS7Q4/" class="o-typography-link--external"><abbr title="Financial Times">FT</abbr> Browser Support Policy document</a> available to <abbr title="Financial Times">FT</abbr> staff.</p>
+
+<h2 id="polyfill-service">Polyfill service</h2>
+
+<p>In the physical world, ‘Polyfilla’ is a type of plaster that is used to fill in small holes in walls. In web development, polyfills are snippets of code that implement a feature on browsers that do not natively support that feature. It means that we can write modern JavaScript without having to invest a large amount of time in making it work in older browsers.</p>
+
+<p>What can be time consuming, is identifying the polyfills we need, so for that, we use and maintain the <a href="http://polyfill.io" class="o-typography-link--external">Polyfill Service</a> which hosts all of its own documentation.</p>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_components/compatibility.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

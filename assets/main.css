@@ -1,0 +1,32 @@
+html, body { margin: 0; height: 100%; }
+
+abbr { text-decoration: none; border-bottom: 1px dotted black; }
+
+.no-wrap { white-space: nowrap; }
+
+aside.no-padding { padding-left: 0; grid-row: span 7; }
+aside.no-padding p { padding-left: 1em; }
+aside.no-padding pre { margin: 0; }
+
+iframe { border: none; margin-bottom: 1em; width: 100%; }
+
+img { display: inline-block; max-width: 100%; }
+
+table.o-manifest__table { width: auto; }
+
+.o-layout__hero:before { background-image: url("./images/home-page-hero.jpg"); }
+
+svg { display: none; }
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 490px) { .o-website__hero--home { padding: 0; }
+  .o-website__hero--home.o-layout__hero:before { content: none; }
+  .o-website__hero--home svg { position: absolute; display: block; width: 100vw; height: 100%; }
+  .o-website__hero--text { position: absolute; pointer-events: none; } }
+.o-header-services__logo { background-image: url(https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?format=svg&source=origami&width=55); }
+
+strong { font-weight: 600; }
+
+.chart { width: 100%; margin-bottom: 1em; }
+
+.chart-grid { display: flex; flex-wrap: wrap; }
+.chart-grid .chart { width: 50%; }

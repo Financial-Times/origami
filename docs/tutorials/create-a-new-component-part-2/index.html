@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Create A New Origami Component - Part 2 Base Styles</title>
+	<meta name="description" content="A step-by-step tutorial which teaches you how to build and deploy a new Origami component." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/tutorials/create-a-new-component-part-2/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/tutorials/">
+						
+							Tutorials
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="create-a-new-origami-component---part-2-base-styles">Create A New Origami Component - Part 2 Base Styles</h1>
+
+<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<ol>
+  <li><a href="/docs/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
+  <li>Base Styles</li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-4/">Demos</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-6/">Testing</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-7/">Documentation</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+</ol>
+
+<p>In part two we will build on our work in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a> by learning how to add styles to our new component.</p>
+
+<h2 id="sass">Sass</h2>
+
+<p>Origami component styles are written in <a href="https://sass-lang.com/">Sass</a>. According to the <a href="https://sass-lang.com/documentation">Sass Documentation</a>:</p>
+<blockquote>
+  <p>Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects.</p>
+</blockquote>
+
+<p>We won’t cover Sass in depth in this tutorial but will briefly describe the Sass syntax we use. If you’re not familiar with Sass we recommend referencing the <a href="https://sass-lang.com/documentation">Sass documentation</a>.</p>
+
+<p>Components have an entry Sass file <code class="language-plaintext highlighter-rouge">main.scss</code>, which may <a href="/spec/v1/components/sass/#sass-includes">import Sass from the <code class="language-plaintext highlighter-rouge">src/scss</code> directory</a>.</p>
+
+<p>Within <code class="language-plaintext highlighter-rouge">main.scss</code> you will see something like this:</p>
+<pre><code class="o-syntax-highlight--scss">// main.scss
+
+@import 'src/scss/variables';
+
+/// Output all oExample features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oExample($opts: (
+///			// your opts here
+///		))
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
+		display: block;
+	}
+}
+
+@if ($o-example-is-silent == false) {
+	@include oExample();
+
+	// Set to silent again to avoid being output twice
+	$o-example-is-silent: true !global;
+}
+</code></pre>
+
+<p>Let’s break this down a little.</p>
+
+<h2 id="imports">Imports</h2>
+
+<p>The first line imports Sass from <code class="language-plaintext highlighter-rouge">src/scss/_variables.scss</code>. Note the underscore and extension is not needed in the <code class="language-plaintext highlighter-rouge">@import</code> statement. All Origami Sass files except <code class="language-plaintext highlighter-rouge">main.scss</code> should start with an underscore to indicate they are <a href="https://sass-lang.com/documentation/at-rules/import#partials">Sass partials</a> for import and should not be compiled on their own.</p>
+<pre><code class="o-syntax-highlight--scss">// main.scss
+
+@import 'src/scss/variables';</code></pre>
+
+<h2 id="primary-mixin">Primary Mixin</h2>
+
+<p>Next within <code class="language-plaintext highlighter-rouge">main.scss</code> you should see a <a href="https://sass-lang.com/documentation/at-rules/mixin">Sass mixin</a> with the same name as the component, in this case <code class="language-plaintext highlighter-rouge">oExample</code>. There are <a href="https://sass-lang.com/documentation/syntax/comments">Sass comments</a> which describe the mixin using the <a href="http://sassdoc.com/">SassDoc format</a>. We use SassDoc comments to document Sass in the registry for users of Origami components to reference, and will discuss this in more detail later.</p>
+
+<pre><code class="o-syntax-highlight--scss">// main.scss
+
+/// Output all oExample features
+/// @param {Map} $opts [()] - A map of options to configure the output
+/// @access public
+/// @example scss
+///		@include oExample($opts: (
+///			// your opts here
+///		))
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
+		display: block;
+	}
+}
+</code></pre>
+
+<p>We call the mixin which shares the component name (<code class="language-plaintext highlighter-rouge">oExample</code>) the <a href="/spec/v1/components/sass/#primary-mixin">“primary mixin”</a>. When called with no arguments the primary mixin includes all styles for the component. It will also accept an <code class="language-plaintext highlighter-rouge">$opts</code> argument so users may selectively specify which features of a component to include. For example a user of <a href="https://registry.origami.ft.com/components/o-forms">o-forms</a> could pass an <code class="language-plaintext highlighter-rouge">$opts</code> argument to the <a href="https://registry.origami.ft.com/components/o-forms/sassdoc?brand=master#mixin-oforms"><code class="language-plaintext highlighter-rouge">oForms</code> mixin</a> to only output styles for text inputs, if their project does not need other form input types. This helps keep the CSS bundle of the project small.</p>
+
+<h2 id="naming-conventions">Naming Conventions</h2>
+
+<p>The most important naming convention is prefixing CSS selectors and Sass with the component name. Doing so makes sure a component only applies styles to itself, does not unexpectedly style other parts of a project, and does not clash with Sass from other components.</p>
+
+<p>Other naming conventions to keep in mind include:</p>
+<ul>
+  <li>Origami CSS follows the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM naming convention</a>.</li>
+  <li>Sass variables are hyphen separated and lowercase.</li>
+  <li>Sass mixins and functions are camel-case.</li>
+  <li>An underscore is used to indicate a <a href="/spec/v1/components/sass/#private-sass">private Sass interface</a> which may change at any time and must not be used outside the component.</li>
+</ul>
+
+<p>See the <a href="/spec/v1/components/sass/#naming-conventions">Sass naming convention part of the specification</a> for full details and more examples.</p>
+
+<h2 id="basic-styles">Basic Styles</h2>
+
+<p>Let’s style our component by adding a border and padding to the <code class="language-plaintext highlighter-rouge">.o-example</code> CSS class.</p>
+
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
+-		display: block;
++		border: 1px solid red;
++		padding: 1rem;
++		margin: 0.25rem;
+	}
+}
+</code></pre>
+
+<p>As the demo uses the primary mixin already, refreshing your demo page will show the new styles (provided the <code class="language-plaintext highlighter-rouge">obt dev</code> command is still running from <a href="/docs/tutorials/create-a-new-component-part-1">part one</a>).</p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-2-basic-styles.png" />
+	<figcaption>
+        Our "o-example" "hello world" component demo with a red border, some margin, and some padding.
+	</figcaption>
+</figure>
+
+<h2 id="use-other-component-sass">Use Other Component Sass</h2>
+
+<p>The styles we’ve added so far use arbitrary colours and spacing (padding/margin) sizes. To improve consistency across projects we can build our component using existing Origami components. To demonstrate lets introduce some existing Origami components to our demo.</p>
+
+<p>First we will update our border colour using <a href="https://registry.origami.ft.com/components/o-colors">o-colors</a>, then we will update our margin/padding to use <a href="https://registry.origami.ft.com/components/o-spacing">o-spacing</a>, we’ll style the text content of our component using <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a>, and finally we will add a button using <a href="https://registry.origami.ft.com/components/o-buttons">o-buttons</a>.</p>
+
+<h3 id="install-component-dependencies">Install Component Dependencies</h3>
+
+<p>The first step is to install each component we want to use via <a href="https://npmjs.com/">npm</a>:</p>
+<pre><code class="o-syntax-highlight--bash">npm install --save '@financial-times/o-colors@^5.0.0' '@financial-times/o-spacing@^2.0.0' '@financial-times/o-typography@^6.0.0' '@financial-times/o-buttons@^6.0.0'</code></pre>
+
+<p>You should now have a <code class="language-plaintext highlighter-rouge">node_modules</code> directory with all the components we just installed. We can now make their Sass available for us to use with <code class="language-plaintext highlighter-rouge">@import</code> statements at the top of <code class="language-plaintext highlighter-rouge">main.scss</code>.</p>
+
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
++@import '@financial-times/o-colors/main';
++@import '@financial-times/o-spacing/main';
++@import '@financial-times/o-typography/main';
++@import '@financial-times/o-buttons/main';
+@import 'src/scss/variables';
+</code></pre>
+
+<p>All <a href="/spec/v1/components/sass/#sass-includes"><code class="language-plaintext highlighter-rouge">@import</code> statements in Origami components</a> should be in <code class="language-plaintext highlighter-rouge">main.scss</code>, before any other Sass.</p>
+
+<p>As Origami component Sass does not output CSS by default these imports do nothing except allow us to use Sass mixins, functions, and variables from these components. How to use a component’s Sass is documented in the component readme (see the <a href="https://registry.origami.ft.com/components/o-colors/readme">o-colors readme</a> as an example) and its SassDoc may also be referenced in the component registry (see the <a href="https://registry.origami.ft.com/components/o-colors/sassdoc">o-colors SassDoc</a> as an example).</p>
+
+<h3 id="o-colors">o-colors</h3>
+
+<p>So lets change our red border to the standard slate colour from <code class="language-plaintext highlighter-rouge">o-colors</code> using the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#default-palette-colours">oColorsByName</a> Sass function.</p>
+
+<p>As well as include a colour by name, we can also get a colour for a <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#usecases">specific usecase</a> such as a page background. To demonstrate, set the background colour of our component using the <code class="language-plaintext highlighter-rouge">box</code> colour usecase (the <code class="language-plaintext highlighter-rouge">box</code> colour is used to highlight an area of content such as an aside).</p>
+
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
+-		border: 1px solid red;
++		border: 1px solid oColorsByName('slate');
++		background: oColorsByUsecase('box', 'background');
+		padding: 1rem;
+		margin: 0.25rem;
+	}
+}
+</code></pre>
+
+<h3 id="o-spacing">o-spacing</h3>
+
+<p>Then we can use one of the recommended space values from <code class="language-plaintext highlighter-rouge">o-spacing</code> using its <a href="https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=master#named-space">oSpacingByName</a> Sass function.</p>
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
+		border: 1px solid oColorsByName('slate');
+-		padding: 1rem;
++		padding: oSpacingByName('s4');
+-		margin: 0.25rem;
++		margin: oSpacingByName('s1');
+	}
+}
+</code></pre>
+
+<h3 id="o-typography">o-typography</h3>
+
+<p>The next thing we wanted to do was style our component text using <code class="language-plaintext highlighter-rouge">o-typography</code>. We can do that a number of ways depending on how we want our typography to look. For now let’s use the <a href="https://registry.origami.ft.com/components/o-typography@6.4.1/readme?brand=master#otypographybody"><code class="language-plaintext highlighter-rouge">oTypographyBody</code></a> mixin. Unlike a function which returns a value, a Sass mixin sets a number of CSS properties; in this case the font family, font size, etc.</p>
+
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+@mixin oExample ($opts: ()) {
+	// content of primary mixin
+	.o-example {
++		@include oTypographyBody();
+		border: 1px solid oColorsByName('slate');
+		padding: oSpacingByName('s4');
+		margin: oSpacingByName('s1');
+	}
+}
+</code></pre>
+
+<p>Run <code class="language-plaintext highlighter-rouge">obt dev</code>, if not already, and preview the component demo as in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a>. You should see the styles have been updated</p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-3-basic-styles.png" />
+	<figcaption>
+        Our "o-example" "hello world" component now has a slate border, uses Financial Times fonts, standardised space sizes for margin and padding, and has a background colour.
+	</figcaption>
+</figure>
+
+<h3 id="o-buttons">o-buttons</h3>
+
+<p>In this tutorial we’re aiming to build a component that includes a button which will count the number of times it was clicked, so next we will add a button to our component.</p>
+
+<p>If we were adding buttons to a project we might include the primary Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttons"><code class="language-plaintext highlighter-rouge">oButtons</code></a> to output CSS for the buttons we want to use. However the primary mixin will output button classes like <code class="language-plaintext highlighter-rouge">.o-buttons</code> and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as <code class="language-plaintext highlighter-rouge">.o-example__button</code>.</p>
+
+<p>Fortunately, <code class="language-plaintext highlighter-rouge">o-buttons</code> allows us to output a button with a custom class name using the Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttonscontent"><code class="language-plaintext highlighter-rouge">oButtonsContent</code></a>. There are a number of options we could pass to <code class="language-plaintext highlighter-rouge">oButtonsContent</code> for different types of buttons. We’ll choose a “primary” button type for this tutorial. In <code class="language-plaintext highlighter-rouge">main.scss</code> define a new CSS class <code class="language-plaintext highlighter-rouge">.o-example__button</code> and include the button CSS with <code class="language-plaintext highlighter-rouge">oButtonsContent</code>:</p>
+
+<pre><code class="o-syntax-highlight--scss">// main.scss
+.o-example {
+	// [previously discussed css here]
+}
+
+.o-example__button {
+	@include oButtonsContent($opts: ('type': 'primary'));
+}</code></pre>
+
+<p>We need to update our demo markup  <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> with the new button markup, similar to how we added text to the demo in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a>:</p>
+
+<pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
+
+&lt;div class="o-example" data-o-component="o-example"&gt;
+	Hello world, I am a component named o-example!
++	&lt;button class="o-example__button"&gt;count&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+<p><em>Note: the double underscore in <code class="language-plaintext highlighter-rouge">.o-example__button</code> is part of the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM naming convention</a> mentioned earlier.</em></p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-4-basic-styles.png" />
+	<figcaption>
+        Our "o-example" component now has a button.
+	</figcaption>
+</figure>
+
+<h2 id="part-three-themes-and-branding">Part Three: Themes And Branding</h2>
+
+<p>To style our components we covered many topics in this part of the tutorial. We learnt:</p>
+<ul>
+  <li>Origami component CSS is written with <a href="https://sass-lang.com/documentation">Sass</a>.</li>
+  <li>Component Sass includes <a href="http://sassdoc.com/">SassDoc</a> comments for Sass documentation.</li>
+  <li>Conventional Origami Sass patterns such as the <a href="/spec/v1/components/sass/#primary-mixin">“primary mixin”</a>.</li>
+  <li>How to install Origami component dependencies from the <a href="https://npmjs.com">public npm registry</a>.</li>
+  <li>And finally how to include and use Sass from <code class="language-plaintext highlighter-rouge">o-colors</code>, <code class="language-plaintext highlighter-rouge">o-spacing</code>, <code class="language-plaintext highlighter-rouge">o-typography</code>, and <code class="language-plaintext highlighter-rouge">o-buttons</code>.</li>
+</ul>
+
+<p>Now we know how to add styles, in part three we will build on that knowledge to provide new visual variations of our component. We will add an alternative <code class="language-plaintext highlighter-rouge">inverse</code> theme that will modify the appearance of <code class="language-plaintext highlighter-rouge">o-example</code> to look better on a dark background. We will also “brand” our component to change its appearance depending on whether it is used within a reader facing ft.com project, internal project, or elsewhere. <a href="/docs/tutorials/create-a-new-component-part-3">Continue to part three</a>.</p>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_tutorials/new-component/create-a-new-component-part-2.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>
