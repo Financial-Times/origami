@@ -5,49 +5,66 @@ import './button.scss';
 
 export default {
 	title: 'Button',
-	component: Button
+	component: Button,
+	decorators: [withDesign],
+	args: {
+		iconOnly: false
+	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=29%3A1131'
+		}
+	}
 };
 
-const Template = args => <Button {...args} />;
+const Story = args => {
+	// this overrides what was set in ./button.scss
+	let slate = ':root {--background: var(--o-colors-slate)}';
+	return [
+		<style>{args.theme == 'inverse' ? slate : ''}</style>,
+		<Button {...args} />
+	];
+}
 
-export const Primary = Template.bind({});
+export const Primary = Story.bind({});
 Primary.args = { 
 	label: 'Press button',
 	type: 'primary'
 };
 
-export const Secondary = Template.bind({});
+export const Secondary = Story.bind({});
 Secondary.args = {
 	label: 'Press button',
 	type: 'secondary',
 };
 
-export const Big = Template.bind({});
+export const Big = Story.bind({});
 Big.args = {
 	size: 'big',
 	label: 'Press button',
 };
 
-export const Inverse = Template.bind({});
+export const Inverse = Story.bind({});
 Inverse.args = {
 	label: 'Press button',
 	theme: 'inverse'
 }
 
-export const Mono = Template.bind({});
+export const Mono = Story.bind({});
 Mono.args = {
 	label: 'Press button',
 	theme: 'mono'
 }
 
-export const Icon = Template.bind({});
+export const Icon = Story.bind({});
 Icon.args = {
 	label: 'Upload',
 	icon: 'upload'
 }
 
 
-export const IconOnly = Template.bind({});
+export const IconOnly = Story.bind({});
 IconOnly.args = {
 	label: 'Next',
 	icon: 'arrow-right',
