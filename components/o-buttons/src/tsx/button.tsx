@@ -25,7 +25,7 @@ export interface ButtonProps {
 
 export function Button({
 	label,
-	type = 'primary',
+	type = 'secondary',
 	size = '',
 	theme,
 	icon,
