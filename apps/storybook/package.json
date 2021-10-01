@@ -19,7 +19,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "sass-loader": "^10.2.0",
-    "style-loader": "^2.0.0"
+    "style-loader": "^2.0.0",
+    "webpack": "^4.46.0"
   },
   "author": "chee <chee@snoot.club>",
   "license": "MIT"
