@@ -1,0 +1,65 @@
+---
+title: Origami Newsletter, July 2019
+companion_post_url: https://origami.ft.com/blog/2019/07/31/newsletter/
+---
+
+<!-- TL;DR -->
+{% capture text %}
+    This issue talks about the summit, bundle sizes and how we saved $2000{% endcapture %}
+{% include email/tldr.html content=text %}
+
+
+<!-- Top 3 things -->
+{% include email/h2.html content="Top three things" %}
+
+{% capture text %}These are some of the bigger things we've done over the last month.{% endcapture %}
+{% include email/markdown.html content=text %}
+
+<!-- Thing 1 -->
+{% include email/h3.html content="We had a Summit, and we have a roadmap" %}
+{% capture text %}
+The team met up for the Origami Summit at [Tootsie's house](https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-07-31-newsletter/tootsie.jpg?source=origami), and discussed all the things we'd like to do this quarter. Rowan's made an [updated roadmap](https://docs.google.com/spreadsheets/d/1Xvp9rnCzHdqbH8FWNoaxFvAhr5Dr9lA1o6VMOc3euEU/edit?disco=AAAADX0eev8) with what we're going to work on, who's taking the lead and when we expect to get it done.{% endcapture %}
+{% include email/markdown.html content=text %}
+
+<!-- Thing 2 -->
+{% include email/h3.html content="Bundle size in Origami Repo Data" %}
+{% capture text %}
+Lee [added](https://github.com/Financial-Times/origami-repo-data/pull/118) each component's bundle size to the Origami Repo Data. Soon we'll start surfacing this information on component pull requests. Another way for us to always be improving the performance of websites that use Origami.{% endcapture %}
+{% include email/markdown.html content=text %}
+
+<!-- Thing 3 -->
+{% include email/h3.html content="Origami Navigation Data is $2000 cheaper a year" %}
+{% capture text %}
+Jake wrote a tool called [Static Site Fastly Deployer](https://github.com/Financial-Times/static-site-fastly-deployer). It lets you host a static site entirely on Fastly's infrastructure, with no back-end. It's based on a [similar tool](https://github.com/katef/vcl-static-site-generator) by Fastly's own Kate Flavel. It's already in to use! It's replaced the expensive S3 buckets from which we used to fetch the navigation data, [saving us $170 a month](https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-07-31-newsletter/s3-costs.png?source=origami)!{% endcapture %}
+{% include email/markdown.html content=text %}
+
+
+<!-- Special thanks -->
+{% include email/h2.html content="Special thanks" %}
+
+{% capture text %}
+Our special thanks this month goes to the engineers on Comments team!
+
+They've been thorough and thoughtful about the use of the spec, working closely with us and considering how the component fits into the wider Origami ecosystem.
+
+So, thanks Glynn Phillips, Keran Braich and Tunca Bergmen!{% endcapture %}
+{% include email/markdown.html content=text %}
+
+
+<!-- Broader update -->
+{% include email/h2.html content="Broader update" %}
+
+{% capture text %}A digest list of other things that have happened over the last month:{% endcapture %}
+{% include email/markdown.html content=text %}
+
+{% capture text %}
+
+- We released [a tool](https://github.com/Financial-Times/polyfill-service-url-builder) for building a polyfill.io url from [static analysis of your javascript](https://github.com/Financial-Times/js-features-analyser)
+- 6 new faces were added to the [headshots](https://registry.origami.ft.com/components/headshot-images)
+- [o-spacing](https://registry.origami.ft.com/components/o-spacing) was [pulled out of o-typography](https://github.com/Financial-Times/o-typography/pull/199) and dependents were updated to use it
+- Origami Component Converter, the tool we use to ready components for publish to npm, finally got some tests and documentation!
+- MINOR: [Origami build tools](https://github.com/Financial-Times/origami-build-tools/) now tests in dart-sass as well as node sass!
+- PATCH: [Github label sync](https://github.com/Financial-Times/github-label-sync) supports mixed-case labels now
+- MINOR: The color contrast warnings were [removed](https://github.com/Financial-Times/o-colors/releases/tag/v4.9.0) from [o-colors](https://registry.origami.ft.com/components/o-colors) when in silent mode
+{% endcapture %}
+{% include email/markdown-list.html content=text %}

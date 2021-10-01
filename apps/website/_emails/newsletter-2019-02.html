@@ -1,0 +1,93 @@
+---
+title: Origami Newsletter, Feburary 2019
+companion_post_url: https://origami.ft.com/blog/2019/02/28/newsletter/
+---
+
+
+<!-- TL;DR -->
+{% capture text %}
+	This issue features Origami components on npm; the release of o-layout v3, which includes two new layouts to help build internal tools and products; and the release of o-header-services v3, which includes new features, customisation, and a lot of code improvements.
+{% endcapture %}
+{% include email/tldr.html content=text %}
+
+
+<!-- Top 3 things -->
+{% include email/h2.html content="Top three things" %}
+
+{% capture text %}These are some of the bigger things we've worked on or released over the last month.{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+<!-- Thing 1 -->
+{% include email/h3.html content="Origami Components On NPM" %}
+{% capture text %}
+    Origami components are now available on the npmjs registry as well as the bower registry. This will help teams who have difficulty using bower in their projects. <a href="https://origami.ft.com/docs/tutorials/bower-to-npm" target="_blank">Our guide</a> shows how to move a project from bower to npmjs. Outside Origami, it looks like the apps team are going to be the first to migrate a project. Good work!
+
+    If you have any queries/questions, the Origami team are ready to help.
+{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+<!-- Thing 2 -->
+{% include email/h3.html content="New major version: o-layout" %}
+{% capture text %}
+    o-layout provides page layouts and typography as a starting point to create internal tools or products. In addition to the documentation layout we already had, v3 introduces a “query” layout for search and filter pages; and a “landing” layout for homepages or category pages. You can view <a href="https://registry.origami.ft.com/components/o-layout" target="_blank">demos for o-layout</a> in the Origami registry.
+{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+<!-- Thing 3 -->
+{% include email/h3.html content="New major version: o-header-services" %}
+{% capture text %}
+    o-header-services is a component currently used by many of our tools, both internal and customer facing, to aid navigation. The new major release follows the beta we announced last issue. It reduces code complexity (both internally and from an Origami user's perspective); introduces optional dropdowns for larger navigation structures; and it is now customisable so our specialist titles may choose to make the most of o-header-services. Big thanks to Tom Dew, Carina Huse, Alex Wilson, and the rest of the team at BlueTel for their time and feedback. <a href="https://registry.origami.ft.com/components/o-header-services" target="_blank">Demos and a migration guide</a> are available via the Origami Registry.
+{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+
+<!-- Special thanks -->
+{% include email/h2.html content="Special thanks" %}
+
+{% capture text %}
+    Special thanks to the Enhanced Experience team who have bought <a href="https://registry.origami.ft.com/components/o-table" target="_blank">o-table</a> to ft.com and the app. Editorial are now able to add tables to stories which are sortable, expandable, and responsive. In no particular order, thanks again to: Emily Quinn, Peter Clarke, Terry Roberts, Gabor Ottlik, Ludovic Robin, Umberto Babini, Luke Kavanagh, and to the apps team for their support. 👏
+{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+
+<!-- Broader update -->
+{% include email/h2.html content="Broader update" %}
+
+{% capture text %}A digest list of other things that have happened over the last month:{% endcapture %}
+{% include email/paragraph.html content=text %}
+
+{% capture text %}
+  - MINOR: To publish them to NPM, we released a minor of **all** components supported by Origami (well done Chee Rabbits and Jake Champion 🙌). Plus some widely used components which other teams maintain such as o-subs-card, o-audio, o-ads (shout out to the ads team for their support).
+  - MAJOR: [o-date v3.0.0](https://registry.origami.ft.com/components/o-date@3.0.0) was released, which removes the ability to use o-date server side. We created the npm package "@financial-times/ft-date-format" as a drop-in replacement [migration guide](https://github.com/Financial-Times/o-date#migrating-from-v2-to-v3).
+  - MAJOR: [o-teaser v3.2.1](https://registry.origami.ft.com/components/o-teaser@3.2.1) was released, which upgrades to to the latest version of o-labels ([migration guide](https://registry.origami.ft.com/components/o-teaser@3.2.1/readme#upgrade-from-v2xx-to-v3xx)). The v3 release was quickly followed by other releases which add a speaker icon to audio teasers, and a style improvement for teasers with no tag (thanks to Dawn Budge and Liam Keaton for this).
+  - MAJOR: [o-forms v6.0.0](https://registry.origami.ft.com/components/o-forms@6.0.0) was released, which upgrades to to the latest version of o-loading ([migration guide](https://registry.origami.ft.com/components/o-forms@6.0.0/readme#upgrade-from-v5xx-to-v6xx)).
+  - MINOR: [o-table v7.2.1](https://registry.origami.ft.com/components/o-table@7.2.1) was released, improving sort and expander performance, and adding a new utility class to apply margin below tables.
+  - MINOR: [o-typography v5.10.1](https://registry.origami.ft.com/components/o-typography@5.10.0) was released, adding whitelabel brand customisation for specialist titles and fixing the icon colour of custom external links. It also addresses deprecation warnings from dart-sass.
+  - MINOR: [o-autoinit v1.5.0](https://registry.origami.ft.com/components/o-autoinit@1.5.0) was released, removing support for IE8 and below (which will reduce our JS bundle sizes).
+  - MINOR: [o-colors  v4.8.4](https://registry.origami.ft.com/components/o-colors@4.8.4) was released, removing some of our more overbearing Sass warnings 🎉.
+  - MINOR: [o-tooltip  v3.4.0](https://registry.origami.ft.com/components/o-tooltip@3.4.0) was released, which removes the use of deprecated colour usecases and adds support for internal and whitelabel brands.
+  - MINOR: [o-overlay v2.6.2](https://registry.origami.ft.com/components/o-overlay@2.6.2) adds support for the whitelabel brand.
+  - MINOR: [o-layers v2.1.0](https://registry.origami.ft.com/components/o-layers@2.1.0) removes o-dom as a dependency to use built-in browser functions instead and reduce bundle sizes.
+  - MINOR: [o-tabs v4.3.1](https://registry.origami.ft.com/components/o-tabs@4.3.1) also removes o-dom as a dependency.
+  - MINOR: [o-techdocs v7.0.10](https://registry.origami.ft.com/components/o-techdocs@7.0.10) deprecates o-techdocs. We recommend [o-layout](https://registry.origami.ft.com/components/o-layout) instead.
+  - MINOR: [o-hoverable v3.2.1](https://registry.origami.ft.com/components/o-hoverable@3.2.1) deprecates o-hoverable. We recommend the [hover media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover) instead.
+  - MINOR: [o-hierarchical-nav v5.1.1](https://registry.origami.ft.com/components/o-hierarchical-nav@5.1.1) deprecates o-hierarchical-nav. We recommend [o-header-services](https://registry.origami.ft.com/components/o-header-services) instead.
+  - MINOR: [o-labels v4.2.2](https://registry.origami.ft.com/components/o-labels@4.2.2) adds a content mixin so labels may be output where o-label CSS classes cannot be used, e.g. within other components.
+  - MINOR: [o-banner v2.2.23](https://registry.origami.ft.com/components/o-banner@2.2.23) removes deprecated uses of "oButtonsCustomTheme".
+  - MINOR: [o-teaser-collection v2.3.1](https://registry.origami.ft.com/components/o-teaser-collection@2.3.1) addresses dart-sass deprecation warnings.
+  - MINOR: [o-message v3.1.1](https://registry.origami.ft.com/components/o-message@3.1.1) addresses dart-sass deprecation warnings.
+  - MINOR: [o-header v7.8.3](https://registry.origami.ft.com/components/o-header@7.8.3) addresses o-color deprecation warnings.
+  - MINOR: [o-video v5.1.1](https://registry.origami.ft.com/components/o-video@5.1.1) fixes an issue which prevented o-videos building with dart-sass, and also adds named exports in addition to the default export.
+  - MINOR: [o-buttons v5.16.2](https://registry.origami.ft.com/components/o-buttons@5.16.2) fixes a bug which prevented o-buttons building with dart-sass.
+  - MINOR: [o-grid v4.5.1](https://registry.origami.ft.com/components/o-grid@4.5.1) enables named exports as well as the default object [(see issue)](https://github.com/Financial-Times/o-grid/issues/177). Thanks Chee Rabbits!
+  - MINOR: [node-health-check v1.7.0](https://registry.origami.ft.com/components/node-health-check@1.7.0), new options to check an API that requires authentication (credit to Kiya Gurmesa for this one), plus documentation improvements (nice one, James Loveridge & Charlie Briggs)
+  - MINOR: [polyfill-library v3.30.1](https://github.com/Financial-Times/polyfill-library/releases) now minifies feature detection JS and a fix to support online IDEs such as [repl.it](https://repl.it/) (credit to Kate Beard, who is currently bootcamping with Origami). Plus [multiple other minor releases](https://github.com/Financial-Times/polyfill-library/releases) this month have updated and added new polyfills (Jake Chamion 💪). Including, but not limited to:
+    - Array.prototype.flat
+    - Array.prototype.flatMap
+    - Object.isExtensible
+    - Object.isFrozen
+    - Object.isSealed
+    - Object.preventExtensions
+    - Object.seal
+{% endcapture %}
+{% include email/markdown-list.html content=text %}

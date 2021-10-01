@@ -1,0 +1,5 @@
+<iframe
+    title="The '{{ include.demo }}' {{ include.component }} demo for the {{ include.brand }} brand."
+	src="https://www.ft.com/__origami/service/build/v2/demos/{{ include.component }}@latest/{{ include.demo }}?brand={{ include.brand }}"
+    style="min-height: {% if include.height %}{{include.height}}{% else %}auto{% endif %};"
+></iframe>

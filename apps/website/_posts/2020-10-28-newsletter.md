@@ -1,0 +1,81 @@
+---
+title: Origami Newsletter, October 2020
+description: This issue features new introduction to Origami sessions, an o-tracking major, and a proposal to drop Bower support.
+author: Lee Moody
+tags:
+  - Newsletter
+---
+
+<abbr title="Too long; didn't read">
+	<strong>
+	TL;DR:
+	</strong>
+</abbr> {{page.description}}
+
+## Top Things
+
+Some of the bigger Origami news from the last month:
+
+### Introduction To Origami Sessions
+
+It's been a while and we've had a few requests, so we've arranged new Introduction To Origami sessions for November ✨
+
+We're doing things a little differently this time. There are two sessions. The first presentation is useful for anyone who works in Product and Technology – we cover things at a high level rather than diving into too many technical details, including:
+1. The Origami Team (History)
+2. Origami Components
+3. Origami Services
+4. Origami Collaboration
+
+The second session is a workshop which looks at components in more detail. We’ll briefly cover how components are built and move on to learn how to include them in projects. Including a practical element where you’ll have the opportunity to put together an FT page with Origami components.
+1. Languages & Tools (History)
+2. Structure
+3. Delivery
+4. Practical Workshop
+
+We'll be running the sessions Tuesday, 3rd November from 10:00am (London time). If you would like to be added to the invite please let us know in the [#origami-support](https://financialtimes.slack.com/messages/origami-support) Slack channel or with an email to origami.support@ft.com. 😊
+
+### o-tracking Major Release
+
+You may know from our previous issues that the Origami team had taken on stewardship of `o-tracking` (there is a [technology proposal to find new owners](https://github.com/Financial-Times/technology-proposals/issues/51)). Well, we've just released a new major version (v3) with some big improvements:
+-  Using cookies as a storage mechanism for queuing events has been removed to improve site performance. The browser would send the tracking cookie (which ranged in size from 500 bytes to 2.5kb) with every request on a page, for example to fetch each image, slowing down each request and making page loading slower. At the cookie's largest size, and with over 100 requests made to render a site like ft.com, that adds up to a significant data saving 🎉
+- The Beacon API is used by default by all browsers which support it, helping ensure we don't miss data. We tested this on article pages and have seen a 50% increase in the amount of tracking events received by the the data platform.
+- <abbr title="Application programming interface">API</abbr> changes have been made to improve usability and future maintainability, i.e. by reducing the public <abbr title="Application programming interface">API</abbr> and number of configuration options.
+- Documentation has been updated with more detail and examples.
+
+See the [o-tracking migration guide](https://github.com/Financial-Times/o-tracking/blob/master/MIGRATION.md#migrating-from-v2-to-v3) for more details.
+
+### New Proposal To Drop Bower Support
+
+We have a new proposal this month to drop the [Bower package manager](https://bower.io/) from Origami components, for both developing and using components, in favour of the [npm](https://www.npmjs.com/) package manager.
+
+Why now? Bower allows us to maintain a flat dependency tree for front-end Origami components. What that means is Bower ensures we are only ever including one version of a component. That is important as multiple versions of the same component, say two versions of a button, could conflict with each other causing unpredictable visuals or errors; it would also mean forcing a users web browser to download and render multiple versions, slowing down our websites. But npm version 7, released this month, supports the automatic install of peer dependencies. It will finally allow us to maintain a flat Origami dependency tree without interfering with back-end dependencies which don't have the same requirement.
+
+By switching we will align with the broader tech ecosystem. It will be easier to setup new projects since developer tools tend to support npm dependencies without extra work; there will be less Bower specific tooling for us to maintain; and most importantly there will be a reduced learning curve for working on Origami components, and a reduced learning curve for setting up new FT projects with Origami components.
+
+There is a lot more detail in [the proposal](https://github.com/Financial-Times/origami/pull/86). Please read and let us know what you think. 😊
+
+## Special Thanks
+
+The special thanks this week goes to no one! At least, no one at the Financial Times. Origami projects are open source and this month we've had some [excellent external contributions](https://github.com/Financial-Times/polyfill-library/pulse) to the [Polyfill Service](https://origami.ft.com/docs/services/#polyfill-io). So thanks, open source contributors 😁
+
+## Broader Update
+
+A digest of other things that have happened this month:
+
+- [Origami Proposals](https://github.com/Financial-Times/origami): as discussed, there is a new proposal this month to [drop Bower Support](https://github.com/Financial-Times/origami/pull/86); and the proposal to add an `imageset.json` specification for [image sets](https://registry.origami.ft.com/components?imageset=true&active=true&maintained=true) was accepted.
+- [Origami Website](https://github.com/Financial-Times/origami-website) adds a specification for the `imagesset.json` manifest file; adds a link to Origami proposals in the footer; and other documentation improvements.
+- [Origami Image Service](https://github.com/Financial-Times/origami-image-service) improves documentation to explain that requested png images will be returned as jpg if they have no alpha channel to reduce file size.
+- [Origami Registry](https://github.com/Financial-Times/origami-registry-ui) includes a number of small improvements and bug fixes. Notably the registry no longer errors when there is no README to display, instead there is a message which suggests contacting the maintainers.
+- MAJOR: [o-tracking](https://github.com/Financial-Times/o-tracking) v3 makes a number of improvements as discussed above.
+- PATCH: [polyfill-service-url-builder](https://github.com/Financial-Times/polyfill-service-url-builder) fixes an error when the polyfill is missing a browsers list, thanks Github user Tudmotu for this fix! An external contributor.
+- PATCH: [origami-labels](https://github.com/Financial-Times/origami-labels) renames the `pending` label to `next`, if we add this to your issue it means we are planning to discuss it in our next planning session.
+- PATCH: [origami-component-manifest-linter](https://github.com/Financial-Times/origami-component-manifest-linter) no longer crashes when the demo data file is not valid json; also adds more integration tests and documentation.
+- PATCH: [o-labels](https://github.com/Financial-Times/o-labels) updates the indicator label size to be smaller given larger than default font sizes.
+- PATCH: [o-header-services](https://github.com/Financial-Times/o-header-services) fixes a drop down documentation typo (thanks Nick Colley)!
+- PATCH: [o-forms](https://github.com/Financial-Times/o-forms) updates the readme to improve guidance and make it harder to copy inaccessible markup; backports an error message position fix to the previous major version, for users who haven't been able to upgrade yet.
+- PATCH: [node-health-check](https://github.com/Financial-Times/node-health-check) fixes a disk-usage bug.
+- MINOR: [polyfill-library](https://github.com/Financial-Times/polyfill-library) includes [great contributions from outside the FT this month](https://github.com/Financial-Times/polyfill-library/pulse). Highlights include much faster builds in CI and when working on the library locally; more `Intl` polyfill updates; an updated smooth scroll polyfill; a new `String.prototype.replaceAll` polyfill; and a new `DOMTokenList.prototype.replace` polyfill.
+- MINOR: [origami-image-set-tools](https://github.com/Financial-Times/origami-image-set-tools) allows imagesets to have a deprecated property on image objects.
+- MINOR: [o-editorial-typography](https://github.com/Financial-Times/o-editorial-typography) makes the margin reset optional for body and heading styles.
+- MINOR: [o-editorial-layout](https://github.com/Financial-Times/o-editorial-layout) includes fonts by default; corrects some margins; adds a new mixin `oEditorialLayoutBodyWithoutTypography` to layout body copy in relation to headers and other article content without outputting typographic styles such as font size, family, etc.
+- MINOR: [o-colors](https://github.com/Financial-Times/o-colors) adds the `brand-ft-pink` colour. For almost every digital usecase `pink` should be used. However `brand-ft-pink` may be useful in limited situations such as adding a fallback colour as the FT logo loads.

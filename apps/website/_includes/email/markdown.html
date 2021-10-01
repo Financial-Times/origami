@@ -1,0 +1,13 @@
+
+{% capture html %}{{include.content | markdownify}}{% endcapture %}
+
+{% assign html = html | replace: '<p>', '<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">' %}
+{% assign html = html | replace: '<ul>', '<ul style="padding-left: 30px;">' %}
+{% assign html = html | replace: '<ol>', '<ol style="padding-left: 30px;">' %}
+
+{% assign html = html | replace: '<li>', '<li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>' %}
+{% assign html = html | replace: '</li>', '</span></li>' %}
+
+{% assign html = html | replace: '<a href="', '<a target="_blank" href="' %}
+
+{{html}}

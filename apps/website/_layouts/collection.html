@@ -1,0 +1,33 @@
+---
+layout: o-layout-docs
+---
+
+{{content}}
+
+{% if page.collection_id %}
+
+	{% assign collection_info = null %}
+	{% for col in site.collections %}
+		{% if col.label == page.collection_id %}{% assign collection_info = col %}{% endif %}
+	{% endfor %}
+
+	{% assign documents = site[page.collection_id] | sort: 'nav_order', 'last' %}
+
+	{% for item in documents %}
+		{% if item.collection_listing_display != false %}
+
+			<h2 id="{{item.title | slugify}}">{{item.title}}</h2>
+
+			{% if collection_info.output == true %}
+				<p>
+					{{item.description}}
+					<a href="{{item.url}}">{% if item.cta %}{{item.cta}}{% else %}Read more{% endif %}</a>
+				</p>
+			{% else %}
+				{{item.content}}
+			{% endif %}
+
+		{% endif %}
+	{% endfor %}
+
+{% endif %}
