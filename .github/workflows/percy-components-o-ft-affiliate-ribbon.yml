@@ -32,7 +32,7 @@ jobs:
         cache: 'npm'
         node-version: 16
     - run: npm ci
-    - run: node ./scripts/percy.mjs
+    - run: node ./scripts/percy.js
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FT_AFFILIATE_RIBBON }}
         WORKSPACE: components/o-ft-affiliate-ribbon

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {$} from "zx"
-import * as workspaces from "./lib/workspaces.mjs"
+import * as workspaces from "./lib/workspaces.js"
 import {readPackage} from "read-pkg"
 
 let testFilter = process.env.ORIGAMI_TEST_FILTER

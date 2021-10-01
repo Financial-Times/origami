@@ -2,7 +2,7 @@ import core from "@actions/core"
 import {
 	getChangedPackages,
 	filterUserFacing,
-} from "./lib/get-changed-packages.mjs"
+} from "./lib/get-changed-packages.js"
 import {context} from "@actions/github"
 
 try {
