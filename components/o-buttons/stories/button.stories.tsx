@@ -1,7 +1,7 @@
-import React from 'react';
+import {withDesign} from 'storybook-addon-designs';
 
 import {Button} from '../src/tsx/button';
-import "./button.scss";
+import './button.scss';
 
 export default {
 	title: 'Button',
@@ -13,12 +13,12 @@ const Template = args => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = { 
 	label: 'Press button',
-	type: "primary"
+	type: 'primary'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-	label: "Press button",
+	label: 'Press button',
 	type: 'secondary',
 };
 
@@ -30,26 +30,26 @@ Big.args = {
 
 export const Inverse = Template.bind({});
 Inverse.args = {
-	label: "Press button",
-	theme: "inverse"
+	label: 'Press button',
+	theme: 'inverse'
 }
 
 export const Mono = Template.bind({});
 Mono.args = {
-	label: "Press button",
-	theme: "mono"
+	label: 'Press button',
+	theme: 'mono'
 }
 
 export const Icon = Template.bind({});
 Icon.args = {
-	label: "Upload",
-	icon: "upload"
+	label: 'Upload',
+	icon: 'upload'
 }
 
 
 export const IconOnly = Template.bind({});
 IconOnly.args = {
-	label: "Next",
-	icon: "arrow-right",
+	label: 'Next',
+	icon: 'arrow-right',
 	iconOnly: true
 }
