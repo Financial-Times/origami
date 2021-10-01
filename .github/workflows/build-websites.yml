@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
+    - name: use node javascript
       uses: actions/setup-node@v2
       with:
         node-version: 16.x
         cache: 'npm'
     - uses: ruby/setup-ruby@v1
       with:
+        ruby-version: 2.7.4
         bundler-cache: true
     - run: npm ci
     - run: bash ./scripts/build-website.bash
