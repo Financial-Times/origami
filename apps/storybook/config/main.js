@@ -12,9 +12,11 @@ module.exports = {
 			name: "@storybook/preset-scss",
 			options: {
 				sassLoaderOptions: {
-					includePaths: "../../node_modules"
-				}
-			}
+					sassOptions: {
+						includePaths: ["../../node_modules"],
+					},
+				},
+			},
 		},
 	],
 	typescript: {
