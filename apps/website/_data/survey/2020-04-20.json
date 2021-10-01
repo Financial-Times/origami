@@ -1,0 +1,290 @@
+[
+	{
+		"familiarity": 2,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We use third-party libraries and components",
+			"We build it directly into our application"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Enterprise Services and Security",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": true,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase",
+			"Other: we beg origami to consider it for their roadmap 🙏, rally others who may benefit from it too"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "FT Core",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"Other: Didn't hit such case. Even if I did, would use some simple custom elements. Instead of including other third party libs"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 2,
+		"area": "Operations and Reliability",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": true,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own Origami components"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": true,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own Origami components",
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 1,
+		"area": "CRM",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 2,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 1,
+		"area": "Enterprise Services and Security",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Operations and Reliability",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase",
+			"Other: we copy/paste it from another repo that's done something similar"
+		]
+	},
+	{
+		"familiarity": 1,
+		"area": "FT Core",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"Other: Sorry, I'm just not familiar with Origami components"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We never need anything other than Origami components"
+		]
+	},
+	{
+		"familiarity": 5,
+		"area": "Operations and Reliability",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": true,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 2,
+		"area": "Enterprise Services and Security",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components"
+		]
+	},
+	{
+		"familiarity": 2,
+		"area": "FT Group Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We didn't have the need to use any other components for now"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Product",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 2,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"Other: I'm new :D Never had to touch an Origami component yet!"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Enterprise Services and Security",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 5,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": true,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We use third-party libraries and components",
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 3,
+		"area": "Customer Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": false,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": true,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build and use our own reusable non-Origami components, which are used across multiple applications",
+			"We build it directly into our application codebase",
+			"Other: talked to Origami developers who then worked with us improving existing components to meet our requirements"
+		]
+	},
+	{
+		"familiarity": 4,
+		"area": "Internal Products",
+		"knowsThatAnyEngineerCanBuildAnOrigamiComponent": true,
+		"hasBuiltAnOrigamiComponent": false,
+		"hasContributedToAnOrigamiComponent": false,
+		"whatDoTheyUseInsteadOfOrigami": [
+			"We build it directly into our application codebase"
+		]
+	}
+]

@@ -1,0 +1,83 @@
+---
+title: Origami Documentation
+description: Documentation on how to use Origami's components and services to help your team deliver products for the FT.
+permalink: /docs/
+layout: o-layout-landing
+
+# Redirect from legacy URLs
+redirect_from:
+  - /docs/developer-guide/
+---
+
+
+<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
+
+	<h1>{{page.title}}</h1>
+	<p>
+		Documentation on how to use Origami's components and services to help your team deliver products for the FT.
+	</p>
+
+</div>
+
+<div class="o-layout__main o-layout-typography">
+
+	<div class="o-layout__overview">
+
+		<div class="o-layout-item">
+			<h2>Principles</h2>
+			<p>
+				These are the <a href="/docs/principles/">principles that the Origami team follows</a>
+				when developing components and services:
+			</p>
+			{% assign documents = site.principles | sort: 'nav_order', 'last' %}
+			<ul>
+				{% for item in documents %}
+					<li><a href="{{item.url}}">{{item.title}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Components</h2>
+			<p>
+				Read documentation on <a href="/docs/components/">using our collection of front end components</a>:
+			</p>
+			{% assign documents = site.components | sort: 'nav_order', 'last' %}
+			<ul>
+				{% for item in documents %}
+					<li><a href="{{item.url}}">{{item.title}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Services</h2>
+			<p>
+				We provide <a href="/docs/services/">several services</a> for use by people at the FT:
+			</p>
+			{% assign documents = site.services | sort: 'nav_order', 'last' %}
+			<ul>
+				{% for item in documents %}
+					<li><a href="/docs/services/#{{item.title | slugify}}">{{item.title}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="o-layout-item">
+			<h2>Tutorials</h2>
+			<p>
+				Follow <a href="/docs/tutorials/">our tutorials</a> for a more hands-on introduction to Origami.
+			</p>
+			{% assign documents = site.tutorials | sort: 'nav_order', 'last' %}
+			<ul>
+				{% for item in documents %}
+					{% if item.collection_listing_display != false %}
+					<li><a href="{{item.url}}">{{item.title}}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+
+	</div>
+
+</div>

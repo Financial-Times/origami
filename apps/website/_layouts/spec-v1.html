@@ -1,0 +1,64 @@
+---
+layout: default
+o_layout_type: docs
+header: true
+---
+
+<div class="o-layout__header">
+	{% include header.html %}
+
+	<div
+		class="o-message o-message--notice o-message--inner o-message--warning-light"
+		data-o-component="o-message"
+		data-o-message-close="false"
+		>
+		<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight">
+					The Origami specification is deprecated.
+				</span>
+				Origami projects may diverge from the specification, however, any new divergence will be released as a major version.
+			</p>
+			<p class="o-message__content-additional">
+				Read our <a href="/TODO">blogpost on why the Origami specificaiton</a> has been deprecated for more information.
+			</p>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	{{content}}
+
+	{% if page.collection_id %}
+
+		{% assign collection_info = null %}
+		{% for col in site.collections %}
+			{% if col.label == page.collection_id %}{% assign collection_info = col %}{% endif %}
+		{% endfor %}
+
+		{% assign documents = site[page.collection_id] | sort: 'nav_order', 'last' %}
+
+		{% for item in documents %}
+			{% if item.collection_listing_display != false %}
+
+				<h2 id="{{item.title | slugify}}">{{item.title}}</h2>
+
+				{% if collection_info.output == true %}
+					<p>
+						{{item.description}}
+						<a href="{{item.url}}">{% if item.cta %}{{item.cta}}{% else %}Read more{% endif %}</a>
+					</p>
+				{% else %}
+					{{item.content}}
+				{% endif %}
+
+			{% endif %}
+		{% endfor %}
+
+	{% endif %}
+</div>

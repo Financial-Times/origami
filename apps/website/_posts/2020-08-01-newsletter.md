@@ -1,0 +1,78 @@
+---
+title: Origami Newsletter, July 2020
+description: This issue features a tutorial to create a new Origami component, automated "readme" documentation review, and new "indicator" labels.
+author: Lee Moody
+tags:
+  - Newsletter
+---
+
+<abbr title="Too long; didn't read">
+	<strong>
+	TL;DR:
+	</strong>
+</abbr> {{page.description}}
+
+## Top Things
+
+These are some of the bigger things we've done over the last month.
+
+### Create A New Origami Component
+
+This month we released a new tutorial, [Create A New Origami Component](/docs/tutorials/create-a-new-component-part-1/). The tutorial starts from an empty folder and concludes by publishing a new component to the [Origami registry](https://registry.origami.ft.com/components).
+
+Our aim was to encourage more contributions from outside the core Origami team by pulling together documentation from various sources into a complete step-by-step guide. We hope the tutorial will be useful for teams who want to create new Origami components, such as when the former Comments team built [o-comments](https://registry.origami.ft.com/components/o-comments@7.6.5); and for new or guest members of the Origami team, such as when Olga Averjanova created the [o-meter](https://registry.origami.ft.com/components/o-meter@2.0.4?brand=internal) component during their bootcamp with us.
+
+The tutorial is comprehensive and covers topics which may not be relevant to all components. In the future we would like to reduce the length of the tutorial by splitting out topics into separate tutorials.
+
+If you are interested in creating a component please take a look. We are available in the [#origami-support](https://app.slack.com/client/T025C95MN/C02FU5ARJ) Slack channel to help if you get stuck, and as always welcome feedback or suggestions on all things Origami in the [#origami-chat](https://app.slack.com/client/T025C95MN/CSW6B2VAN) Slack channel 😀
+
+### Automated Readme Review
+
+Another change we've made to help Origami contributors and Origami users is to verify README documentation of a component. The latest version of [Origami Build Tools](https://github.com/Financial-Times/origami-build-tools) checks for:
+- A title which matches the component name.
+- A short description of the component.
+- A table of contents with matching heading levels.
+- A licence.
+
+Any issues are also flagged directly within Github.
+
+<img alt="A Github code diff with annotations warning of an incorrect table of contents in a component readme." src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2020-08-01-newsletter/github-annotations.png?source=origami&quality=high" />
+
+### Indicator Labels
+
+Working with the Content Innovation team we added new indicator labels such as the "live" and "new" story labels to the `o-labels` component. Previously the labels were implemented separately in multiple projects such as for teasers and the live blogs page. Maintaining two implementations may cause future design inconsistency or require duplicate effort to fix bugs. Now all projects can include `o-labels` instead of reinventing the indicator labels.
+
+<img alt="Live, new, updated, and closed indicator labels. The live label has an outline as it pulses." src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2020-08-01-newsletter/indocator-labels-1.png?source=origami&quality=high" />
+
+<img alt="The indicator labels in white for use on a dark background" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2020-08-01-newsletter/indocator-labels-2.png?source=origami&quality=high" />
+
+## Special Thanks
+
+This weeks special thanks goes to Chris Brown from the Data Strategy & Governance team. We have taken on stewardship and maintenance of `o-tracking` this quarter and Chris has been very helpful, answering many of our Spoor and `o-tracking` questions and pointing us to other useful contacts.
+
+If you have `o-tracking` feedback or feature requests now would be a great time to [raise an o-tracking issue on Github](https://github.com/Financial-Times/o-tracking/issues).
+
+Thanks again Chris!
+
+## Broader Update
+
+A digest of other things that have happened since our last update:
+
+- NEW: [remark-preset-lint-origami-component](https://github.com/Financial-Times/remark-preset-lint-origami-component): A tool used by Origami Build Tools to verify component readme.
+- MINOR: [origami-build-tools](https://github.com/Financial-Times/origami-build-tools) has a fix to allow for custom `.eslintrc.js` configuration; does not load JavaScript in demos for core experience browsers; and now lints the readme as discussed previously.
+- MINOR: [create-origami-component](https://github.com/Financial-Times/create-origami-component) has been updated with fixes and improvements to support the creation of new Origami components (see the tutorial discussed previously). 
+- MINOR: [Polyfill Service](https://github.com/Financial-Times/polyfill-service) now includes a security policy.
+- MINOR: [polyfill-library](https://github.com/Financial-Times/polyfill-library) improves the message when no polyfills are required to be served to the requesting browser, fixes a `Promise.prototype.finally` support for Chrome 63, fixes a `Map` bug (thanks to external contributions from Github users joshsalverda and rmja).
+- MINOR: [o-date](https://github.com/Financial-Times/o-date) can now output multiple formats within one `time` element.
+- MINOR: [origami-version](https://github.com/Financial-Times/origami-version) a Github action used to publish Origami projects, which now accounts for prereleases correctly when releasing a new major.
+- MINOR: [o-footer-services](https://github.com/Financial-Times/o-footer-services) now has a dark theme similar to the o-footer component.
+- MINOR: [o-labels](https://github.com/Financial-Times/o-labels) adds new "indicator" labels as discussed previously.
+- PATCH: [o-video](https://github.com/Financial-Times/o-video) no longer uses a `h4` heading for its title as depending on where the video is on the page the heading level may be inappropriate, an issue [highlighted in our DAC audit](https://financialtimes.atlassian.net/browse/DAC-64).
+- PATCH: [origami-website](https://github.com/Financial-Times/origami-website) breadcrumbs are now used on the component specification pages. There is also a new tutorial on authoring a component as discussed previously.
+- PATCH: [o-buttons](https://github.com/Financial-Times/o-buttons) adds disabled button state guidelines to the readme.
+- PATCH: [o-header-services](https://github.com/Financial-Times/o-header-services) updates Sass documentation.
+- PATCH: [o-teaser](https://github.com/Financial-Times/o-teaser) use new o-labels indicators and timestamps.
+- PATCH: [o-quote](https://github.com/Financial-Times/o-quote) update `o-quote--editorial` to inherit typography styles.
+- PATCH: [origami-labels](https://github.com/Financial-Times/origami-labels) updates the Origami `release:patch` Github label colour to something happier.
+- PATCH: [o-table](https://github.com/Financial-Times/o-table) sortable headings may now be sorted ascending or descending on initial sort, and the sort order is included in the title attribute.
+- PATCH: [Origami Build Service](https://github.com/Financial-Times/origami-build-service) remove origami-build-tools v5 as a dependency to reduce maintenance costs.

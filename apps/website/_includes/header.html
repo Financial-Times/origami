@@ -1,0 +1,169 @@
+
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" {% if page.url == '/blog/' %}aria-current="page"{% endif %}>
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	{% if page.collection_id and site[page.collection_id] %}
+		{% assign nav_items = site[page.collection_id] | where:'nav_display',true | sort: 'nav_order', 'last' %}
+	{% elsif page.collection and site[page.collection] %}
+		{% assign nav_items = site[page.collection] | where:'nav_display',true | sort: 'nav_order', 'last' %}
+	{% endif %}
+
+	{% if page.url contains '/docs/' or nav_items.size > 0 %}
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			{% if page.url contains '/docs/' %}
+				<li>
+					<a href="/docs/" {% if page.url == '/docs/' %}aria-current="page"{% endif %}>
+						Docs
+					</a>
+				</li>
+			{% endif %}
+
+			{% if page.collection_id %}
+				<!-- Collection index page-->
+				<li>
+					<a href="{{ page.url }}" aria-current="page">
+						{% if page.nav_label %}
+							{{ page.nav_label }}
+						{% else %}
+							{{ page.title }}
+						{% endif %}
+					</a>
+				</li>
+			{% elsif page.collection %}
+				<!-- Collection item page -->
+				<li>
+					{% assign collection = site.pages | where: 'collection_id', page.collection | first %}
+					<a href="{{ collection.url }}">
+						{% if collection.nav_label %}
+							{{ collection.nav_label }}
+						{% else %}
+							{{ collection.title }}
+						{% endif %}
+					</a>
+				</li>
+			{% endif %}
+
+			{% if page.url contains '/spec/v1/components/' %}
+				<li>
+					<a href="/spec/v1/components/" {% if page.url == '/spec/v1/components/' %}aria-current="page"{% endif %}>
+						Components
+					</a>
+				</li>
+			{% endif %}
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			{% if page.url == '/docs/' %}
+
+				<li>
+					<a href="/docs/principles/" {% if page.url contains '/docs/principles/' %}aria-current="page"{% endif %}>
+						Principles
+					</a>
+				</li>
+				<li>
+					<a href="/docs/components/" {% if page.url contains '/docs/components/' %}aria-current="page"{% endif %}>
+						Components
+					</a>
+				</li>
+				<li>
+					<a href="/docs/services/" {% if page.url contains '/docs/services/' %}aria-current="page"{% endif %}>
+						Services
+					</a>
+				</li>
+				<li>
+					<a href="/docs/manifests/" {% if page.url contains '/docs/manifests/' %}aria-current="page"{% endif %}>
+						Manifests
+					</a>
+				</li>
+				<li>
+					<a href="/docs/tutorials/" {% if page.url contains '/docs/tutorials/' %}aria-current="page"{% endif %}>
+						Tutorials
+					</a>
+				</li>
+
+			{% elsif page.url contains '/spec/v1/components/' %}
+
+				<li>
+					<a href="/spec/v1/components/markup/" {% if page.url contains '/spec/v1/components/markup/' %}aria-current="page"{% endif %}>
+						Markup
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/javascript/" {% if page.url contains '/spec/v1/components/javascript/' %}aria-current="page"{% endif %}>
+						JavaScript
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/sass/" {% if page.url contains '/spec/v1/components/sass/' %}aria-current="page"{% endif %}>
+						Sass
+					</a>
+				</li>
+
+			{% else %}
+
+				{% for nav_item in nav_items %}
+					<li>
+						<a href="{{ nav_item.url }}"
+							{% if nav_item.url == '/' %}
+								{% if page.url == nav_item.url %}aria-current="page"{% endif %}
+							{% else %}
+								{% if page.url contains nav_item.url %}aria-current="page"{% endif %}
+							{% endif %}
+						>
+							{% if nav_item.nav_label %}
+								{{ nav_item.nav_label }}
+							{% else %}
+								{{ nav_item.title }}
+							{% endif %}
+						</a>
+					</li>
+				{% endfor %}
+
+			{% endif %}
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	{% endif %}
+</header>
+
+
