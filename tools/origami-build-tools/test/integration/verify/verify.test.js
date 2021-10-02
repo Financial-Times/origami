@@ -26,7 +26,7 @@ describe('obt verify', function () {
 			.then(() => process.chdir(process.cwd()));
 	});
 
-	describe('npmignore', function () {
+	describe.only('npmignore', function () {
 		describe('component with no-npmignore', function () {
 			beforeEach(function () {
 				// Change the current working directory to the folder which contains the project we are testing against.
@@ -76,15 +76,18 @@ describe('obt verify', function () {
 					});
 			});
 
-			it('should not error', function () {
+			it('should error', function () {
 				return execa(obt, ['verify']).then(() => {
 					throw new Error('obt verify should error.');
 				}, output => {
 					// obt verify exited with a non-zero exit code, which is what we expected.
-					proclaim.include(output.stdout, 'main.js');
-					proclaim.include(output.stdout, 'main.scss');
-					proclaim.include(output.stdout, 'demos');
-					proclaim.include(output.stdout, 'src');
+					proclaim.match(output.stdout, /\bmain.js\b/);
+					proclaim.match(output.stdout, /\bmain.scss\b/);
+					proclaim.match(output.stdout, /\bdemos\b/);
+					proclaim.match(output.stdout, /\bsrc\b/);
+					proclaim.match(output.stdout, /\bsrc\/\b/);
+					proclaim.match(output.stdout, /\bsrc\/js\b/);
+					proclaim.match(output.stdout, /\bsrc\/scss\b/);
 				});
 			});
 		});

@@ -20,7 +20,7 @@ async function dotNpmignore(config) {
 
 		let lineNumber = 0;
 		for await (const line of reader) {
-			const match = line.trim().match(/(main\.scss|main\.js|src\/?|demos\/?$|demos\/(?!local))/);
+			const match = line.trim().match(/(main\.scss|main\.js|src(\/js|\/scss|\/?$)|demos\/?$|demos\/(?!local))/);
 			if (match) {
 				const filename = match[1];
 				result.push({

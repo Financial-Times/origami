@@ -1,4 +1,7 @@
 demos/
-src
 main.js
 main.scss
+src
+src/
+src/js
+src/scss
