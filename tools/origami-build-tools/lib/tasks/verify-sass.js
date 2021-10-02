@@ -56,8 +56,8 @@ async function sassLint(config) {
 		}
 
 		const message = parsedResults.map(result =>
-			`.${result.file}:${result.line}:${result.column} ${result.severity} - ${result.message}\n`;
-		).join('') ;
+			`.${result.file}:${result.line}:${result.column} ${result.severity} - ${result.message}\n`
+		).join('');
 
 		if (lintError) {
 			throw new Error('Failed linting: \n\n' + message);
