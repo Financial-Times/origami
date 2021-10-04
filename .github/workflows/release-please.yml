@@ -23,7 +23,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
       - run: npm ci
         if: ${{ steps.release.outputs.releases_created }}
-      - run: node ./scripts/publish.mjs '${{toJSON(steps.release.outputs)}}'
+      - run: node ./scripts/publish.js '${{toJSON(steps.release.outputs)}}'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           REPO_DATA_KEY: ${{secrets.REPO_DATA_KEY}}
