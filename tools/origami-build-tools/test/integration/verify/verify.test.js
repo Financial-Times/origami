@@ -26,7 +26,7 @@ describe('obt verify', function () {
 			.then(() => process.chdir(process.cwd()));
 	});
 
-	describe.only('npmignore', function () {
+	describe('npmignore', function () {
 		describe('component with no-npmignore', function () {
 			beforeEach(function () {
 				// Change the current working directory to the folder which contains the project we are testing against.
