@@ -20,14 +20,18 @@
 	// - large margin above by default
 	// - medium margin below by default
 	%_o-editorial-layout-heading-2 {
-		margin-bottom: oSpacingByName('s3');
+		// Break typical spacing rules with a bottom margin of 14px, which does
+		// not align to the 14px baseline grid, as requested by the design team.
+		margin-bottom: if($o-spacing-relative-units, ((14/16) * 1rem), 14px);
 		margin-top: oSpacingByName('s8');
 	}
 	// h3 & h4
 	// - medium margin below by default
 	%_o-editorial-layout-heading-3,
 	%_o-editorial-layout-heading-4 {
-		margin-bottom: oSpacingByName('s3');
+		// Break typical spacing rules with a bottom margin of 14px, which does
+		// not align to the 14px baseline grid, as requested by the design team.
+		margin-bottom: if($o-spacing-relative-units, ((14/16) * 1rem), 14px);
 		margin-top: 0;
 	}
 	// h5
