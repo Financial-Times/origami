@@ -21,7 +21,7 @@
 	// - medium margin below by default
 	%_o-editorial-layout-heading-2 {
 		// Break typical spacing rules with a bottom margin of 14px, which does
-		// not align to the 14px baseline grid, as requested by the design team.
+		// not align to the 4px baseline grid, as requested by the design team.
 		margin-bottom: oSpacingGetBaselineValue() * 3.5;
 		margin-top: oSpacingByName('s8');
 	}
@@ -30,7 +30,7 @@
 	%_o-editorial-layout-heading-3,
 	%_o-editorial-layout-heading-4 {
 		// Break typical spacing rules with a bottom margin of 14px, which does
-		// not align to the 14px baseline grid, as requested by the design team.
+		// not align to the 4px baseline grid, as requested by the design team.
 		margin-bottom: oSpacingGetBaselineValue() * 3.5;
 		margin-top: 0;
 	}
