@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Financial-Times/stylelint-config-origami-component#readme",
   "dependencies": {
+    "strip-final-newline": "^2.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.17.1"
   },
