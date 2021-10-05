@@ -3,26 +3,24 @@
  * Component class names.
  *
  * @access private
- * @type {Object}
  */
-const classNames = {
+export const classNames = {
 	complete: 'o-stepped-progress__step--complete',
 	current: 'o-stepped-progress__step--current',
 	error: 'o-stepped-progress__step--error',
 	label: 'o-stepped-progress__label',
-	status: 'o-stepped-progress__status'
+	status: 'o-stepped-progress__status',
 };
 
 /**
  * Component status texts mapped from states.
  *
  * @access private
- * @type {Object}
  */
-const statusTexts = {
+export const statusTexts = {
 	complete: '(completed)',
 	current: '(current step)',
-	error: '(error)'
+	error: '(error)',
 };
 
 /**
