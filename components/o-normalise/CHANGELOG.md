@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.3](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.0.2...o-normalise-v3.0.3) (2021-10-06)
+
+
+### Bug Fixes
+
+* update visually-hidden width and height to 2px ([c060e82](https://www.github.com/Financial-Times/origami/commit/c060e82dd2f04c8a12865eed26a391e290e571ea))
+
 ### [3.0.2](https://www.github.com/Financial-Times/origami/compare/o-normalise-v3.0.1...o-normalise-v3.0.2) (2021-09-21)
 
 
