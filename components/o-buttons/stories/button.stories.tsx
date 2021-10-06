@@ -18,19 +18,7 @@ export default {
 	}
 };
 
-function Story(args) {
-	let elements = [<Button {...args} />];
-	if (args.theme == 'inverse') {
-		elements.push(
-			<style>
-				.sb-show-main {'{'}
-				background: var(--o-colors-slate)!important;
-				{'}'}
-			</style>
-		);
-	}
-	return elements;
-}
+const Story = args => <Button {...args} />;
 
 export const Primary = Story.bind({});
 Primary.args = {
@@ -54,6 +42,11 @@ export const Inverse = Story.bind({});
 Inverse.args = {
 	label: 'Press button',
 	theme: 'inverse',
+};
+Inverse.parameters = {
+	backgrounds: {
+		default: 'slate',
+	},
 };
 
 export const Mono = Story.bind({});
