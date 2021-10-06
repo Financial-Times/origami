@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.1.0...o-editorial-layout-v2.1.1) (2021-10-06)
+
+
+### Bug Fixes
+
+* Revert "Update o-editorial-typography h4 for a "features xhead" heading ([#324](https://www.github.com/Financial-Times/origami/issues/324))" ([c62f555](https://www.github.com/Financial-Times/origami/commit/c62f555a018d6189bb73cb9d6de1691b2392ba79))
+
 ## [2.1.0](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.0.3...o-editorial-layout-v2.1.0) (2021-10-05)
 
 

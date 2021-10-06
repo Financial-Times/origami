@@ -104,7 +104,7 @@
 	}
 
 	@if($level == 4) {
-		@include oTypographyDisplay($scale: 4, $weight: 'bold');
+		@include oTypographySans($scale: 3, $weight: 'regular');
 	}
 
 	@if($level == 5) {
