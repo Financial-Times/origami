@@ -1,11 +1,2 @@
-$system-code: origami;
 @import "@financial-times/o-stepped-progress/main";
 @include oSteppedProgress();
-@import "@financial-times/o-colors/main";
-@include oColors();
-:root {
-	--background: var(--o-colors-page-background);
-}
-body {
-	background: var(--background);
-}

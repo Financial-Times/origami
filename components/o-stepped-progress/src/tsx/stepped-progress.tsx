@@ -28,14 +28,16 @@ export function SteppedProgress({steps}: SteppedProgressProps) {
 						</span>
 					);
 
+					let stepClasses = `o-stepped-progress__step ${classNames[state]}`;
+
 					return (
 						<li key={label + index}>
 							{url ? (
-								<a href={url} className={classNames[state]}>
+								<a href={url} className={stepClasses}>
 									{labelElement}
 								</a>
 							) : (
-								<span className={classNames[state]}>{labelElement}</span>
+								<span className={stepClasses}>{labelElement}</span>
 							)}
 						</li>
 					);

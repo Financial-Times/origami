@@ -1,8 +1,8 @@
 import {withDesign} from 'storybook-addon-designs';
 import {useEffect} from 'react';
 import {SteppedProgress} from '../src/tsx/stepped-progress';
-import javascript from '@financial-times/o-stepped-progress';
 import './stepped-progress.scss';
+import javascript from '@financial-times/o-stepped-progress';
 
 export default {
 	title: 'Stepped Progress',
@@ -29,7 +29,7 @@ Example.args = {
 	steps: [
 		{label: 'Wake up', state: 'complete'},
 		{label: 'Eat a egg', state: 'complete'},
-		{label: 'Leave the house', current: true},
+		{label: 'Leave the house', state: 'current'},
 		{label: 'Defeat everyone'},
 	],
 };
@@ -43,7 +43,7 @@ ErrorStep.args = {
 			state: 'complete',
 			url: 'https://en.wikipedia.org/wiki/Egg_as_food',
 		},
-		{label: 'Leave the house', state: 'error', current: true},
+		{label: 'Leave the house', state: 'error'},
 		{label: 'Defeat everyone'},
 	],
 };
