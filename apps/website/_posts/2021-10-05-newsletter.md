@@ -1,6 +1,6 @@
 ---
 title: Origami Newsletter, September 2021
-description: undefined
+description: We made a monorepo, and gained a delivery manager
 author: chee
 tags:
 - Newsletter
@@ -17,7 +17,7 @@ TL;DR:
 Some of the bigger Origami news from the last month:
 
 
-### the Origami Component System
+### The Origami Component System
 
 The biggest thing we've done this month is move all of our components into a single repository.
 
@@ -46,16 +46,23 @@ This change won't affect you yet, but the work we're going to build on top of th
 The sites that depend on Origami have a bright future of performing better and being more accessible.
 
 
+
+
 ### Origami has a new team member
 
-Since we last spoke, the team has grown! We're very happy to welcome aboard Kamran Muniree who is now serving as Origami's delivery manager. He's already made a big difference, and the team are very excited about the future.
+
+Since we last spoke, the team has grown!
+
+We're very happy to welcome aboard Kamran Muniree who is now serving as Origami's delivery manager. He's already made a big difference, and the team are very excited about the future.
 
 We're also still hiring for an engineering role, so make sure you apply if you've ever wanted to work on Origami. There has never been a better time to be part of the team.
 
 
+
+
 ### Origami Office Hours
 
-Every week on a Friday at 2p.m. (London time) the team are available On-Line at a meeting called [Origami Office Hours](https://calendar.google.com/event?action=TEMPLATE&tmeid=MWVzZDgzMmhtcXZhYTVvNmlyZXZyNm5tNjdfMjAyMTEwMDhUMTMwMDAwWiBjaGVlLnJhYmJpdHNAZnQuY29t&tmsrc=chee.rabbits%40ft.com&scp=ALL).
+This isn't new, but every week on a Friday at 2p.m. (London time) the team are available On-Line at a meeting called [Origami Office Hours](https://calendar.google.com/event?action=TEMPLATE&tmeid=MWVzZDgzMmhtcXZhYTVvNmlyZXZyNm5tNjdfMjAyMTEwMDhUMTMwMDAwWiBjaGVlLnJhYmJpdHNAZnQuY29t&tmsrc=chee.rabbits%40ft.com&scp=ALL).
 
 If you ever have any questions that you'd prefer talking through in person, you can pop by there and we'll be available.
 
@@ -66,26 +73,17 @@ Thanks to Kamran Muniree it is now available in the P&T calendar.
 
 leaf rogers 🍃 for helping out Jake in an emergency when an unexpected large video found its way into the image service and ate all the memory and it crashed
 
+
 ## Broader update
 
 A digest of other things that have happened this month:
 
-- [The Origami Component System](https://github.com/Financial-Times/origami)
-  - Update o-editorial-typography h4 for a "features xhead" heading (opened by: notlee, closed by: notlee, updated at 2021-10-05T09:49:09Z)
-  - Add initital storybook config for o-buttons (opened by: chee, closed by: chee, updated at 2021-10-04T14:09:13Z)
-  - Add Origami website to monorepo (opened by: chee, closed by: chee, updated at 2021-10-02T20:16:42Z)
-  - Add script which logs out what releases will be made for which packages (opened by: JakeChampion, closed by: JakeChampion, updated at 2021-09-27T13:20:03Z)
-  - Use IntersectionObserver instead of scroll event with throttling to improve performance of o-layout (opened by: JakeChampion, closed by: JakeChampion, updated at 2021-09-24T18:06:05Z)
-  - Add wheat-100 to o-colors master brand palette (opened by: notlee, closed by: notlee, updated at 2021-09-24T16:09:57Z)
-  - bring n-notification into the monorepo (opened by: chee, closed by: chee, updated at 2021-09-22T16:03:20Z)
-  - bring sass exes inside obt (opened by: chee, closed by: chee, updated at 2021-09-21T16:49:19Z)
-  - Update the `package.json` and `origami.json` urls to point at the monorepo (opened by: chee, closed by: chee, updated at 2021-09-21T09:33:00Z)
-  - Add homepage, bugs and support email to the package.json (opened by: chee, closed by: chee, updated at 2021-09-21T09:33:01Z)
-- [Financial-Times/o-editorial-layout](https://github.com/Financial-Times/o-editorial-layout)
-   - Backport: Update header spacing and h4 "features xhead" style (opened by: notlee, closed by: notlee, updated at 2021-10-05T11:57:50Z)
-   - v1 Backport: Increase the bottom margin of h2 and h3 editorial headings. (opened by: notlee, closed by: notlee, updated at 2021-09-09T10:31:23Z)
-   - Increase the bottom margin of h2 and h3 editorial headings. (opened by: notlee, closed by: notlee, updated at 2021-09-09T10:01:49Z)
-- [Financial-Times/o-editorial-typography](https://github.com/Financial-Times/o-editorial-typography)
-   - Backport: Update o-editorial-typography h4 for a "features xhead" heading (opened by: notlee, closed by: notlee, updated at 2021-10-05T11:29:39Z)
-- [Financial-Times/origami-image-service](https://github.com/Financial-Times/origami-image-service)
-
+- Added a [storybook config for o-buttons](https://origami.ft.com/storybook/?path=/story/button--inverse&args=label:Edit;size:big;type:primary;icon:edit)
+- Added Origami website to monorepo
+- Added script which logs out what releases will be made for which packages
+- Replaced scroll event with `IntersectionObserver` to improve performance of o-layout
+- Add wheat-100 to o-colors master brand palette
+- Brought n-notification into the monorepo
+- Updated the `package.json` and `origami.json` urls to point at the monorepo
+- Added homepage, bugs and support email to the package.json of every component
+- Increased the bottom margin of h2 and h3 editorial headings
