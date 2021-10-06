@@ -16,6 +16,11 @@ module.exports = {
 					sassOptions: {
 						includePaths: ["../../node_modules"],
 					},
+					additionalData: `
+						$system-code: origami;
+						@import "@financial-times/o-colors/main";
+						@include oColors();
+					`,
 				},
 			},
 		},
