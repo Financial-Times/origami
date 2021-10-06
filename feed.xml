@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2021-10-06T17:24:15+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, September 2021</title><link href="https://origami.ft.com/blog/2021/10/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, September 2021" /><published>2021-10-05T00:00:00+01:00</published><updated>2021-10-05T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/10/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/10/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2021-10-06T17:28:11+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, September 2021</title><link href="https://origami.ft.com/blog/2021/10/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, September 2021" /><published>2021-10-05T00:00:00+01:00</published><updated>2021-10-05T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/10/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/10/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
-&lt;/abbr&gt; undefined&lt;/p&gt;
+&lt;/abbr&gt; We made a monorepo, and gained a delivery manager&lt;/p&gt;
 
 &lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
 
@@ -60,7 +60,6 @@ TL;DR:
 
 &lt;p&gt;A digest of other things that have happened this month:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami&quot;&gt;The Origami Component System&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Added a &lt;a href=&quot;https://origami.ft.com/storybook/?path=/story/button--inverse&amp;amp;args=label:Edit;size:big;type:primary;icon:edit&quot;&gt;storybook config for o-buttons&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Added Origami website to monorepo&lt;/li&gt;
@@ -71,7 +70,7 @@ TL;DR:
   &lt;li&gt;Updated the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;origami.json&lt;/code&gt; urls to point at the monorepo&lt;/li&gt;
   &lt;li&gt;Added homepage, bugs and support email to the package.json of every component&lt;/li&gt;
   &lt;li&gt;Increased the bottom margin of h2 and h3 editorial headings&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">TL;DR: undefined</summary></entry><entry><title type="html">Origami Newsletter, July 2021</title><link href="https://origami.ft.com/blog/2021/08/09/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, July 2021" /><published>2021-08-09T00:00:00+01:00</published><updated>2021-08-09T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/08/09/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/08/09/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">TL;DR: We made a monorepo, and gained a delivery manager</summary></entry><entry><title type="html">Origami Newsletter, July 2021</title><link href="https://origami.ft.com/blog/2021/08/09/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, July 2021" /><published>2021-08-09T00:00:00+01:00</published><updated>2021-08-09T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/08/09/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/08/09/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 	&lt;strong&gt;
 	TL;DR:
 	&lt;/strong&gt;
