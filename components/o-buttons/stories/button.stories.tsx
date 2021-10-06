@@ -18,19 +18,24 @@ export default {
 	}
 };
 
-const Story = args => {
-	// this overrides what was set in ./button.scss
-	let slate = ':root {--background: var(--o-colors-slate)}';
-	return [
-		<style>{args.theme == 'inverse' ? slate : ''}</style>,
-		<Button {...args} />
-	];
+function Story(args) {
+	let elements = [<Button {...args} />];
+	if (args.theme == 'inverse') {
+		elements.push(
+			<style>
+				.sb-show-main {'{'}
+				background: var(--o-colors-slate)!important;
+				{'}'}
+			</style>
+		);
+	}
+	return elements;
 }
 
 export const Primary = Story.bind({});
-Primary.args = { 
+Primary.args = {
 	label: 'Press button',
-	type: 'primary'
+	type: 'primary',
 };
 
 export const Secondary = Story.bind({});
@@ -48,8 +53,8 @@ Big.args = {
 export const Inverse = Story.bind({});
 Inverse.args = {
 	label: 'Press button',
-	theme: 'inverse'
-}
+	theme: 'inverse',
+};
 
 export const Mono = Story.bind({});
 Mono.args = {
