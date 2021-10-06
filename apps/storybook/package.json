@@ -8,6 +8,7 @@
     "build-storybook": "build-storybook --modern -c ./config"
   },
   "dependencies": {
+    "@storybook/addon-a11y": "^6.3.9",
     "@storybook/addon-actions": "^6.3.9",
     "@storybook/addon-essentials": "^6.3.9",
     "@storybook/addon-links": "^6.3.9",
