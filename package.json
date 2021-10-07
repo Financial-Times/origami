@@ -36,7 +36,6 @@
     "npm": "7"
   },
   "workspaces": [
-    "apps/storybook",
     "components/*",
     "libraries/*",
     "presets/*",
