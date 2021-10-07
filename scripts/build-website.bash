@@ -2,5 +2,5 @@
 rm -r origami.ft.com/
 cd apps/website/ && npm run build
 cd ../storybook/
-npm ci
+npm install
 npm run build-storybook
