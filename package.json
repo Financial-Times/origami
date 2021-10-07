@@ -10,7 +10,7 @@
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
-    "start": "cd apps/storybook && node --optimize_for_size --max_old_space_size=460 node_modules/.bin/start-storybook -c config"
+    "start": "cd apps/storybook && node --optimize_for_size --max_old_space_size=460 node_modules/.bin/start-storybook -c config -p $PORT"
   },
   "repository": {
     "type": "git",
