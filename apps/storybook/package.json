@@ -8,17 +8,17 @@
     "build-storybook": "build-storybook --modern -c ./config"
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^6.3.9",
-    "@storybook/addon-actions": "^6.3.9",
-    "@storybook/addon-essentials": "^6.3.9",
-    "@storybook/addon-links": "^6.3.9",
+    "@storybook/addon-a11y": "^6.3.10",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.3.9",
+    "@storybook/react": "^6.3.10",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.7",
     "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
-    "storybook-addon-designs": "^6.1.0",
+    "storybook-addon-designs": "^6.2.0",
     "style-loader": "^2.0.0",
     "webpack": "^4.46.0"
   },
