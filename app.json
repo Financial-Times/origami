@@ -8,6 +8,5 @@
     {
       "url": "heroku/nodejs"
     }
-  ],
-  "dyno": "standard-2x"
+  ]
 }
