@@ -30,6 +30,10 @@
     "node": "16.8.0",
     "npm": "7.23.0"
   },
+  "engines": {
+    "node": "16",
+    "npm": "7"
+  },
   "workspaces": [
     "components/*",
     "libraries/*",
