@@ -1,18 +1,12 @@
 {
-  "name": "origami-website-preview",
+  "name": "origami-storybook-preview",
   "scripts": {},
   "env": {},
   "formation": {},
   "addons": [],
   "buildpacks": [
     {
-      "url": "heroku/ruby"
-    },
-    {
       "url": "heroku/nodejs"
-    },
-    {
-      "url": "heroku-community/static"
     }
   ]
 }
