@@ -10,7 +10,7 @@
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
-    "start": "npm run -w apps/storybook storybook -- --ci --modern"
+    "start": "npm run -w apps/storybook build-storybook && npx serve apps/storybook/storybook-static"
   },
   "repository": {
     "type": "git",
