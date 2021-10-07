@@ -11,7 +11,7 @@
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
     "build": "./scripts/build-website.bash",
-    "start": "serve origami.ft.com"
+    "start": "npx serve origami.ft.com"
   },
   "repository": {
     "type": "git",
