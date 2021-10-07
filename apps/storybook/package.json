@@ -20,6 +20,7 @@
     "@storybook/react-docgen-typescript-plugin": "^1.0.2-canary.253f8c1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.7",
+    "react-docgen-typescript-loader": "^3.7.2",
     "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
     "storybook-addon-designs": "^6.2.0",
