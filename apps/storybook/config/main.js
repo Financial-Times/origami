@@ -1,4 +1,7 @@
 module.exports = {
+	core: {
+		builder: "webpack5",
+	},
 	stories: [
 		"../stories/**/*.stories.mdx",
 		"../stories/**/*.stories.@(js|jsx|ts|tsx)",
@@ -38,17 +41,5 @@ module.exports = {
 		reactDocgenTypescriptOptions: {
 			shouldExtractLiteralValuesFromEnum: true,
 		},
-	},
-	webpackFinal: async config => {
-		// more configuration options
-		config.module.rules.push({
-			test: /\.(js|jsx|ts|tsx)$/,
-			loader: require.resolve("babel-loader"),
-			options: {
-				presets: ["@babel/preset-env", "@babel/preset-react"],
-				plugins: ["@babel/plugin-proposal-nullish-coalescing-operator"],
-			},
-		})
-		return config
 	},
 }
