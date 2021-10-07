@@ -3,4 +3,6 @@ if [ -e .git/hooks ]; then
 	cp hooks/* .git/hooks
 fi
 
-cd tools/origami-build-tools && npm ci
+if [ -z "$SKIP_NPM_CI_IN_OBT" ]; then
+	cd tools/origami-build-tools && npm ci
+fi
