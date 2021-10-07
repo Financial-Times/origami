@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -r origami.ft.com/
-cd apps/website/ && bundler && make build
+cd apps/website/ &&  make build
 mv _site ../../origami.ft.com
 cd ../storybook/
 npm ci
