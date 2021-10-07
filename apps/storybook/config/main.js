@@ -39,4 +39,16 @@ module.exports = {
 			shouldExtractLiteralValuesFromEnum: true,
 		},
 	},
+	webpackFinal: async config => {
+		// more configuration options
+		config.module.rules.push({
+			test: /\.(js|jsx)$/,
+			loader: require.resolve("babel-loader"),
+			options: {
+				presets: ["@babel/preset-env", "@babel/preset-react"],
+				plugins: ["@babel/plugin-proposal-nullish-coalescing-operator"],
+			},
+		})
+		return config
+	},
 }
