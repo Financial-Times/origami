@@ -43,6 +43,8 @@ module.exports = {
 		},
 	},
 	webpackFinal: async config => {
+		// i've had to add all this because for some reason storybook doesn't
+		// understand jsx on heroku unless i do ???
 		config.module.rules.push({
 			test: /\.tsx?$/,
 			exclude: /node_modules/,
