@@ -52,7 +52,12 @@ module.exports = {
 					options: {
 						presets: [
 							require("@babel/preset-typescript").default,
-							require("@babel/preset-react").default,
+							[
+								require("@babel/preset-react").default,
+								{
+									runtime: "automatic",
+								},
+							],
 							require("@babel/preset-env").default,
 						],
 					},
