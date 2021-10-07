@@ -9,7 +9,8 @@
     "test": "node ./scripts/test.js",
     "install": "cp hooks/* .git/hooks && cd tools/origami-build-tools && npm ci",
     "storybook": "cd apps/storybook && npm run storybook",
-    "build-storybook": "cd apps/storybook && npm run build-storybook"
+    "build-storybook": "cd apps/storybook && npm run build-storybook",
+    "build": "./scripts/build-website.bash"
   },
   "repository": {
     "type": "git",
