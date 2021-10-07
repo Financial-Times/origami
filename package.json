@@ -10,8 +10,8 @@
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
-    "build": "npm run -w apps/storybook build-storybook",
-    "start": "npx serve apps/storybook/storybook-static"
+    "build": "./scripts/build-website.bash",
+    "start": "npx serve origami.ft.com"
   },
   "repository": {
     "type": "git",
