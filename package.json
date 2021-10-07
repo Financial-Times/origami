@@ -7,7 +7,7 @@
   "scripts": {
     "regenerate": "node ./scripts/regenerate-ci-config-files.js",
     "test": "node ./scripts/test.js",
-    "install": "cp hooks/* .git/hooks && cd tools/origami-build-tools && npm ci",
+    "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
     "build": "./scripts/build-website.bash"
