@@ -4,7 +4,7 @@
   "description": "origami's storybook",
   "main": "index.js",
   "scripts": {
-    "storybook": "start-storybook -p 6969 -c ./config",
+    "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
     "build-storybook": "build-storybook --modern -c ./config"
   },
   "dependencies": {
