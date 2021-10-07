@@ -10,8 +10,9 @@
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
-    "build": "./scripts/build-website.bash",
-    "start": "npx serve origami.ft.com"
+    "build": "./scripts/build-website.bash # this is for heroku, not people",
+    "start": "npx serve origami.ft.com # this is for heroku, not people",
+    "watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/storybook && npm run watch-storybook' 'npx serve origami.ft.com'"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "@testing-library/dom": "^8.0.0",
     "@testing-library/user-event": "^13.1.9",
     "chai": "^4.3.4",
+    "concurrently": "^6.3.0",
     "decompress": "^4.2.1",
     "eslint": "^7.24.0",
     "eslint-config-origami-component": "^2.1.1",
@@ -60,6 +62,7 @@
     "remark": "^13.0.0",
     "remark-lint": "^7.0.1",
     "remark-preset-lint-origami-component": "^2.0.0",
+    "serve": "^12.0.1",
     "sinon": "^10.0.0",
     "storybook-addon-designs": "^6.1.0",
     "stylelint": "^13.12.0",
