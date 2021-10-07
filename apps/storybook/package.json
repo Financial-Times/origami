@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
-    "build-storybook": "build-storybook --modern -c ./config"
+    "build-storybook": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
+    "watch-storybook": "npm run build-storybook -- -w"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.3.10",

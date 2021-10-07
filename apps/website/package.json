@@ -13,7 +13,9 @@
   },
   "scripts": {
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "build": "bundle exec jekyll build -d ../../origami.ft.com",
+    "watch": "bundle exec jekyll build --watch --drafts --incremental -d ../../origami.ft.com"
   },
   "snyk": true
 }
