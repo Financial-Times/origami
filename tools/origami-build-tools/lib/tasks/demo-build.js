@@ -13,59 +13,62 @@ const denodeify = require('util').promisify;
 const readFile = denodeify(fs.readFile);
 const outputFile = denodeify(fs.outputFile);
 
+function getDest(buildConfig, filename = '') {
+	const destPrefix =
+		buildConfig.dest || path.join(buildConfig.cwd, 'demos', 'local');
+	return path.join(destPrefix, filename);
+}
+
 function buildDemoSass(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.sass);
-	const dest = path.join(buildConfig.cwd, '/demos/local/');
+	const dest = getDest(buildConfig);
 
-	return files.fileExists(src)
-		.then(exists => {
-			if (!exists) {
-				const e = new Error('Sass file not found: ' + src);
-				e.stack = '';
-				throw e;
-			}
+	return files.fileExists(src).then(exists => {
+		if (!exists) {
+			const e = new Error('Sass file not found: ' + src);
+			e.stack = '';
+			throw e;
+		}
 
-			const sassConfig = {
-				sass: src,
-				// For the Sass files to load correctly, they need to be in one of these two directories.
-				// Sass doesn't look in subdirectories and we can't use wildcards
-				sassIncludePaths: ['demos/src', 'demos/src/scss'],
-				sourcemaps: true,
-				buildCss: path.basename(buildConfig.demo.sass).replace('.scss', '.css'),
-				buildFolder: dest,
-				cwd: buildConfig.cwd,
-				brand: buildConfig.brand
-			};
+		const sassConfig = {
+			sass: src,
+			// For the Sass files to load correctly, they need to be in one of these two directories.
+			// Sass doesn't look in subdirectories and we can't use wildcards
+			sassIncludePaths: ['demos/src', 'demos/src/scss'],
+			sourcemaps: true,
+			buildCss: path.basename(buildConfig.demo.sass).replace('.scss', '.css'),
+			buildFolder: dest,
+			cwd: buildConfig.cwd,
+			brand: buildConfig.brand,
+		};
 
-			return buildSass(sassConfig);
-		});
+		return buildSass(sassConfig);
+	});
 }
 
 function buildDemoJs(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.js);
-	const destFolder = path.join(buildConfig.cwd, '/demos/local/');
-	const dest = path.basename(buildConfig.demo.js);
-	return files.fileExists(src)
-		.then(exists => {
-			if (!exists) {
-				const e = new Error('JavaScript file not found: ' + src);
-				e.stack = '';
-				throw e;
-			}
+	const dest = getDest(buildConfig, path.basename(buildConfig.demo.js));
+	return files.fileExists(src).then(exists => {
+		if (!exists) {
+			const e = new Error('JavaScript file not found: ' + src);
+			e.stack = '';
+			throw e;
+		}
 
-			const jsConfig = {
-				js: src,
-				buildFolder: destFolder,
-				buildJs: dest
-			};
+		const jsConfig = {
+			js: src,
+			buildFolder: path.dirname(dest),
+			buildJs: path.basename(dest),
+		};
 
-			return buildJs(jsConfig);
-		});
+		return buildJs(jsConfig);
+	});
 }
 
 function loadLocalDemoData(dataPath) {
-	return readFile(dataPath, 'utf-8')
-		.then(file => {
+	return readFile(dataPath, 'utf-8').then(
+		file => {
 			try {
 				const fileData = JSON.parse(file);
 				if (typeof fileData === 'object') {
@@ -78,11 +81,13 @@ function loadLocalDemoData(dataPath) {
 				e.stack = '';
 				throw e;
 			}
-		}, () => {
+		},
+		() => {
 			const e = new Error(`Demo data not found: ${dataPath}`);
 			e.stack = '';
 			throw e;
-		});
+		}
+	);
 }
 
 function loadDemoData(buildConfig) {
@@ -99,8 +104,7 @@ function loadDemoData(buildConfig) {
 function buildDemoHtml(buildConfig) {
 	const src = path.join(buildConfig.cwd, '/' + buildConfig.demo.template);
 	const partialsDir = path.dirname(src);
-	const dest = path.join('demos', 'local');
-	const destName = buildConfig.demo.name + '.html';
+	const dest = getDest(buildConfig, buildConfig.demo.name + '.html');
 	let data;
 	let partials;
 	const configuredPartials = {};
@@ -120,34 +124,35 @@ function buildDemoHtml(buildConfig) {
 			return Promise.all([
 				files.getComponentName(buildConfig.cwd),
 				readFile(src, {
-					encoding: 'utf8'
-				})
+					encoding: 'utf8',
+				}),
 			]);
 		})
-		.then(([
-			moduleName,
-			oDemoTpl
-		]) => {
+		.then(([moduleName, oDemoTpl]) => {
 			const dependencies = buildConfig.demo.dependencies;
 			const sassPath = buildConfig.demo.sass;
 			const jsPath = buildConfig.demo.js;
 			const brand = buildConfig.brand;
 			data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
-			data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
+			data.oDemoDocumentClasses =
+				buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
-			data.oDemoComponentStylePath = sassPath ?
-				path.basename(sassPath).replace('.scss', '.css') :
-				'';
+			data.oDemoComponentStylePath = sassPath
+				? path.basename(sassPath).replace('.scss', '.css')
+				: '';
 
 			data.oDemoComponentScriptPath = jsPath ? path.basename(jsPath) : '';
 
-			data.oDemoDependenciesStylePath = dependencies ?
-				`https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${brand ? `&brand=${brand}` : ''}` :
-				'';
+			data.oDemoDependenciesStylePath = dependencies
+				? `https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=${dependencies.toString()}${
+						brand ? `&brand=${brand}` : ''
+				  }`
+				: '';
 
-			data.oDemoDependenciesScriptPath = dependencies ?
-				'https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=' + dependencies.toString() :
-				'';
+			data.oDemoDependenciesScriptPath = dependencies
+				? 'https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=' +
+				  dependencies.toString()
+				: '';
 
 			configuredPartials.oDemoTpl = String(oDemoTpl);
 
@@ -159,11 +164,18 @@ function buildDemoHtml(buildConfig) {
 		})
 		.then(p => {
 			partials = p;
-			return readFile(path.join(__dirname, '/../../templates/page.mustache'), 'utf-8');
+			return readFile(
+				path.join(__dirname, '/../../templates/page.mustache'),
+				'utf-8'
+			);
 		})
 		.then(template => {
-			const result = mustache.render(template, data, Object.assign(configuredPartials, partials));
-			return outputFile(path.join(buildConfig.cwd, dest, destName), result, 'utf-8');
+			const result = mustache.render(
+				template,
+				data,
+				Object.assign(configuredPartials, partials)
+			);
+			return outputFile(path.join(dest), result, 'utf-8');
 		});
 }
 
@@ -171,22 +183,27 @@ function loadPartials(partialsDir) {
 	const partials = {};
 
 	// Get a list of all mustache files in a directory
-	return files.getMustacheFilesList(partialsDir)
+	return files
+		.getMustacheFilesList(partialsDir)
 		.then(filePaths => {
-			return Promise.all(filePaths.map(filePath => {
-				// Calculate the partial name, which is what is used
-				// to refer to it in a template. We remove the base directory,
-				// replace any preceeding slashes, and remove the extension.
-				const partialName = filePath.replace(partialsDir, '').replace(/^\//, '').replace(/\.mustache$/i, '');
+			return Promise.all(
+				filePaths.map(filePath => {
+					// Calculate the partial name, which is what is used
+					// to refer to it in a template. We remove the base directory,
+					// replace any preceeding slashes, and remove the extension.
+					const partialName = filePath
+						.replace(partialsDir, '')
+						.replace(/^\//, '')
+						.replace(/\.mustache$/i, '');
 
-				// Add the name/content pair to the partials map
-				return readFile(filePath, {
-					encoding: 'utf8'
-				})
-					.then(file => {
+					// Add the name/content pair to the partials map
+					return readFile(filePath, {
+						encoding: 'utf8',
+					}).then(file => {
 						partials[partialName] = file;
 					});
-			}));
+				})
+			);
 		})
 		.then(() => {
 			return partials;
@@ -214,13 +231,17 @@ module.exports = async function (cfg) {
 	const demoBuildConfig = [];
 
 	if (demos.length === 0) {
-		const e = new Error('No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component\'s origami.json manifest file.');
+		const e = new Error(
+			"No demos exist in the origami.json file. Reference https://origami.ft.com/docs/manifests/origami-json/ to configure demos in the component's origami.json manifest file."
+		);
 		e.stack = '';
 		throw e;
 	}
 
 	if (!hasUniqueNames(demos)) {
-		const e = new Error('Demos with the same name were found. Give them unique names and try again.');
+		const e = new Error(
+			'Demos with the same name were found. Give them unique names and try again.'
+		);
 		e.stack = '';
 		throw e;
 	}
@@ -233,15 +254,20 @@ module.exports = async function (cfg) {
 	}
 
 	for (const demoConfig of demos) {
-		if (!demoFilters || demoFilters && demoFilters.includes(demoConfig.name)) {
-			demoBuildConfig.push(mergeDeep(
-				{
-					documentClasses: '',
-					description: ''
-				},
-				demoDefaultConfiguration,
-				demoConfig
-			));
+		if (
+			!demoFilters ||
+			(demoFilters && demoFilters.includes(demoConfig.name))
+		) {
+			demoBuildConfig.push(
+				mergeDeep(
+					{
+						documentClasses: '',
+						description: '',
+					},
+					demoDefaultConfiguration,
+					demoConfig
+				)
+			);
 		}
 	}
 
@@ -255,19 +281,20 @@ module.exports = async function (cfg) {
 		const buildConfig = {
 			demo: demoBuild || {},
 			brand: config.brand,
-			cwd: cwd
+			dest: config.dest,
+			cwd: cwd,
 		};
 		// Add demo html config.
 		htmlBuildsConfig.push(buildConfig);
-		const newSassBuild = !sassBuildsConfig.find(existingConfig =>
-			existingConfig.demo.sass === buildConfig.demo.sass
+		const newSassBuild = !sassBuildsConfig.find(
+			existingConfig => existingConfig.demo.sass === buildConfig.demo.sass
 		);
 		if (demoBuild.sass && newSassBuild) {
 			sassBuildsConfig.push(buildConfig);
 		}
 
-		const newJsBuild = !jsBuildsConfig.find(existingConfig =>
-			existingConfig.demo.js === buildConfig.demo.js
+		const newJsBuild = !jsBuildsConfig.find(
+			existingConfig => existingConfig.demo.js === buildConfig.demo.js
 		);
 		if (demoBuild.js && newJsBuild) {
 			jsBuildsConfig.push(buildConfig);
@@ -278,6 +305,6 @@ module.exports = async function (cfg) {
 	return Promise.all([
 		...htmlBuildsConfig.map(c => buildDemoHtml(c)),
 		...sassBuildsConfig.map(c => buildDemoSass(c)),
-		...jsBuildsConfig.map(c => buildDemoJs(c))
+		...jsBuildsConfig.map(c => buildDemoJs(c)),
 	]);
 };

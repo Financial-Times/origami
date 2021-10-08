@@ -41,6 +41,7 @@ const help = `
 			--demo-filter=<demo-name>  Build a specific demo. E.G. --demo-filter=pa11y to build only the pa11y.html demo.
 			--test-filter=<test-type>  Run a specifc test type. E.G. --test-filter=pa11y to run only the pa11y tests.
 			--debug                    Keep the test runner open to enable debugging in any browser.
+			--dest=<path>              The destination for demos to be built
 
 		Full documentation
 			http://git.io/bBjMNw
