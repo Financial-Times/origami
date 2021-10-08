@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Create A New Origami Component - Part 4 Demos</title>
+	<meta name="description" content="A step-by-step tutorial which teaches you how to build and deploy a new Origami component." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/tutorials/create-a-new-component-part-4/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/tutorials/">
+						
+							Tutorials
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="create-a-new-origami-component---part-4-demos">Create A New Origami Component - Part 4 Demos</h1>
+
+<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<ol>
+  <li><a href="/docs/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-3/">Themes &amp; Brands</a></li>
+  <li>Demos</li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-6/">Testing</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-7/">Documentation</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+</ol>
+
+<p>In part four we will create new demos to showcase the themes we created in <a href="/docs/tutorials/create-a-new-component-part-3">part three</a>. We will also revisit demo boilerplate, including the purpose of the <code class="language-plaintext highlighter-rouge">pa11y</code> demo you may have already noticed.</p>
+
+<h2 id="add-more-demos">Add More Demos</h2>
+
+<p>In <a href="/docs/tutorials/create-a-new-component-part-3">part three</a> we added an <code class="language-plaintext highlighter-rouge">inverse</code> theme for each brand and a <code class="language-plaintext highlighter-rouge">b2c</code> theme for the master brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the <a href="https://registry.origami.ft.com/components/">Origami component registry</a>.</p>
+
+<p>To add new demos we will update <code class="language-plaintext highlighter-rouge">origami.json</code>. This file contains lots of information about our components, including its name, description, demos, and more — see the <a href="/spec/v1/manifest/">Origami Manifest specification</a> for full details.</p>
+
+<p>We’ll add a new object to the <a href="/spec/v1/manifest/#demos">demos array</a> which will represent our new demo. Demos must have at least the following properties:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title</code>: A descriptive title for the <a href="https://registry.origami.ft.com/components">component registry</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">name</code>: The outputted html file name.</li>
+  <li><code class="language-plaintext highlighter-rouge">template</code>: The path to the demo mustache template.</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code>: A descriptive for the <a href="https://registry.origami.ft.com/components">component registry</a>.</li>
+</ul>
+
+<p>We could create a new mustache template for our new theme demo, but as our theme demo uses almost the same markup as our current demo we will reuse our current template <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code>. To do that, we will pass the theme name to the template using the demo <code class="language-plaintext highlighter-rouge">data</code> property as shown below:</p>
+
+<pre><code class="o-syntax-highlight--diff">// origami.json
+
+"demos": [
+	{
+-		"title": "A Useful Demo",
++		"title": "Basic Example",
+		"name": "demo",
+		"template": "demos/src/demo.mustache",
+-		"description": "Description of the demo"
++		"description": "This demo shows a basic o-example component."
+	},
++	{
++		"title": "Inverse Example",
++		"name": "demo-inverse",
++		"template": "demos/src/demo.mustache",
++		"data": { "theme": "inverse" },
++		"description": "This demo shows an o-example component with the inverse theme."
++	},
+	{
+		"title": "Pa11y",
+		"name": "pa11y",
+		"template": "demos/src/pa11y.mustache",
+		"description": "Accessibility test will be run against this demo",
+		"hidden": true
+	}
+]
+</code></pre>
+
+<p>Now the <code class="language-plaintext highlighter-rouge">obt dev</code> command will build our new demo and create <code class="language-plaintext highlighter-rouge">demo-inverse.html</code>. To actually show the inverse theme we need to update the template <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> to use the data <code class="language-plaintext highlighter-rouge">{ "theme": "inverse" }</code> we have passed to it. In the code snippet below, we output the theme modifier class if a theme variable is found (see the <a href="https://mustache.github.io/mustache.5.html">mustache documentation</a>)</p>
+
+<pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
+
+-&lt;div class="o-example" data-o-component="o-example"&gt;
++&lt;div class="o-example &#123;&#123;#theme}}o-example--&#123;&#123;theme}}&#123;&#123;/theme}}" data-o-component="o-example"&gt;
+    Hello world, I am a component named o-example!
+    &lt;button class="o-example__button"&gt;count&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-11-demo.png" />
+	<figcaption>
+        A list of demos and demo assets, served from `localhost` using the `obt dev` command. There is now `demo-inverse.html`.
+	</figcaption>
+</figure>
+
+<p>We also need to create a demo for the <code class="language-plaintext highlighter-rouge">b2c</code> theme. However the <code class="language-plaintext highlighter-rouge">b2c</code> theme we created only supports the <code class="language-plaintext highlighter-rouge">master</code> brand. It should not be displayed in the <a href="https://registry.origami.ft.com/components">Origami registry</a> for the <code class="language-plaintext highlighter-rouge">internal</code> or <code class="language-plaintext highlighter-rouge">whitelabel</code> brands. To avoid that, we will set the <a href="/spec/v1/manifest/#demos"><code class="language-plaintext highlighter-rouge">brands</code> demo property</a>.</p>
+
+<pre><code class="o-syntax-highlight--diff">// origami.json
+
+"demos": [
+	{
+		"title": "Basic Example",
+		"name": "demo",
+		"template": "demos/src/demo.mustache",
+		"description": "This demo shows a basic o-example component."
+	},
+	{
+		"title": "Inverse Example",
+		"name": "demo-inverse",
+		"template": "demos/src/demo.mustache",
+		"data": { "theme": "inverse" },
+		"description": "This demo shows an o-example component with the inverse theme."
+	},
++	{
++		"title": "B2C Example",
++		"name": "demo-b2c",
++		"template": "demos/src/demo.mustache",
++		"data": { "theme": "b2c" },
++		"brands": ["master"],
++		"description": "This demo shows an o-example component with the b2c theme."
++	},
+	{
+		"title": "Pa11y",
+		"name": "pa11y",
+		"template": "demos/src/pa11y.mustache",
+		"description": "Accessibility test will be run against this demo",
+		"hidden": true
+	}
+]
+</code></pre>
+
+<h2 id="pa11y-demo">Pa11y Demo</h2>
+
+<p>You may have noticed another demo named <code class="language-plaintext highlighter-rouge">pa11y</code> has already been configured. The <code class="language-plaintext highlighter-rouge">pa11y</code> demo is used by Origami Build Tools to run <a href="https://pa11y.org/">Pa11y</a>. Pa11y is a command-line tool which we run against the pa11y demo to find some common accessibility issues. When building components its important to add any variations to the pa11y demo to test for accessibility issues, such as low contrast or incorrect markup. The pa11y demo is for testing purposes only and is hidden from users in the <a href="https://registry.origami.ft.com/components">Origami Registry</a>.</p>
+
+<h2 id="other-demo-options">Other Demo Options</h2>
+
+<p>There are other demo options we haven’t covered so far. For example as well as the <code class="language-plaintext highlighter-rouge">demos</code> array <code class="language-plaintext highlighter-rouge">origami.json</code> may include <a href="/spec/v1/manifest/#demosdefaults"><code class="language-plaintext highlighter-rouge">demosDefaults</code></a>, which describe options to be applied to all demos. Among other settings we can specify the demo Mustache template, Sass, and JavaScript file. To learn more see the <a href="/spec/v1/manifest/">Origami Manifest specification</a> which has a full list of all demo options.</p>
+
+<aside>
+Demos may include their own Sass and JavaScript which are not part of the component itself.
+</aside>
+
+<h2 id="part-five-javascript">Part Five: JavaScript</h2>
+
+<p>In part four we learnt:</p>
+
+<ul>
+  <li>How to add or update demos to a component.</li>
+  <li>What the <code class="language-plaintext highlighter-rouge">pa11y</code> demo is used for.</li>
+  <li>How to use <code class="language-plaintext highlighter-rouge">origami.json</code> properties to make it easier to configure multiple demos.</li>
+</ul>
+
+<p>Although our component is starting to look good it has a button which doesn’t do anything. So next we’ll learn how to add interactivity to our component with JavaScript. <a href="/docs/tutorials/create-a-new-component-part-5">Continue to part five</a>.</p>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_tutorials/new-component/create-a-new-component-part-4.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

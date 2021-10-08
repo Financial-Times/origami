@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Newsletter, November 2020</title>
+	<meta name="description" content="This issue features Engine Room, Origami v2, and on-site messaging bugs." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2020/12/01/newsletter/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-newsletter-november-2020">Origami Newsletter, November 2020</h1>
+
+<p>
+	Posted on <time datetime="2020-12-01T00:00:00Z">01 December 2020</time>
+	by Lee Moody.
+	
+		<br/>Tagged with
+		
+			<span>Newsletter</span>.
+		
+	
+</p>
+
+<p><abbr title="Too long; didn't read">
+	<strong>
+	TL;DR:
+	</strong>
+</abbr> This issue features Engine Room, Origami v2, and on-site messaging bugs.</p>
+
+<h2 id="top-things">Top Things</h2>
+
+<p>Some of the bigger Origami news from the last month:</p>
+
+<h3 id="engine-room">Engine Room</h3>
+
+<p>This month Origami team member Lee (oh hey, that’s me!) gave a talk “<a href="https://drive.google.com/file/d/1eiVw1-zhMSRy8S-5--xQJeBcYg_j17A6/view">Origami: Past, Present, &amp; Future</a>” at <a href="https://sites.google.com/ft.com/engine-room-live/">Engine Room</a>, the FT’s engineering-focused, internal conference.</p>
+
+<p>The talk covers a little history including why Origami exists, how Origami has adapted to new needs over the last 7 years, and gives a little peek at what’s to come. There are plenty of new opportunities for us to share and build on each others good work. The talk touches on a few technical subjects but is suitable for anyone within product and technology. If you missed it a <a href="https://drive.google.com/file/d/1eiVw1-zhMSRy8S-5--xQJeBcYg_j17A6/view">recording is available here</a>.</p>
+
+<p>More Engine Room recordings are available in <a href="https://drive.google.com/drive/folders/1c84vnejFTdDeIK5RGS9BdMOQYEiOGRCl">Google drive</a>. There are many excellent talks to explore for those who couldn’t make it.</p>
+
+<h3 id="origami-v2">Origami V2</h3>
+
+<p>Work continues on our <a href="https://github.com/Financial-Times/origami/pull/86">proposal to drop Bower support in favour of NPM</a>. By switching we will align with the broader tech ecosystem and help speed up development at the FT.</p>
+
+<p>This month we’ve tested out the proposed approach and… it works 🎉 We have also created a <a href="https://github.com/Financial-Times/origami-website/pull/273">draft Origami v2 specification</a> with the changes required to drop Bower support.</p>
+
+<p>This proposal affects all projects which depend on Origami components. If you have any questions, thoughts, or feedback we’d love to hear in the <a href="https://app.slack.com/client/T025C95MN/CSW6B2VAN">#origami-chat</a> Slack channel or as a comment on <a href="https://github.com/Financial-Times/origami/pull/86">the proposal</a>.</p>
+
+<p>We know this is one many of our engineers are excited about. Thanks to everyone who has given us feedback so far, it’s much appreciated. 👏</p>
+
+<h3 id="on-site-messaging">On-Site Messaging</h3>
+
+<p>Working with the design team we released a minor update to <a href="https://registry.origami.ft.com/components/o-message@4.2.3">o-message</a> this month, which fixes some visual bugs including improvements to spacing around message content. We’re careful not to release breaking changes within minor releases but unfortunately messaging on some projects broke as they were heavily customising <code class="language-plaintext highlighter-rouge">o-message</code> in an unsupported way, with CSS overrides.</p>
+
+<p>In response we offered to <a href="https://github.com/Financial-Times/next-article/pull/4055">help update how projects use o-message</a> to fix the problem. In addition, Xuan and the <a href="https://app.slack.com/client/T025C95MN/C01481FKWA2">#design-ops</a> team are auditing our on-site messaging currently so we can update <code class="language-plaintext highlighter-rouge">o-message</code> and other Origami components to meet our current needs consistently, without the use of overrides.</p>
+
+<p>Overriding component styles with CSS can be problematic for a few reasons. It introduces design inconsistency, code complexity, and fragility (overrides are liable to break without warning when components are updated, as happened in this case). Instead it’s better to:</p>
+<ul>
+  <li>Work with the design team to decide whether a component really needs a unique modification (see the <a href="https://app.slack.com/client/T025C95MN/C01481FKWA2">#design-ops</a> Slack channel).</li>
+  <li>Update the component to include the new style.</li>
+  <li>Add new Sass options so the component can be customised.</li>
+  <li>Or, if you’re after quite different features or a whole new look, build from scratch.</li>
+</ul>
+
+<p>The Origami team are here to help you decide which option is right for your project and make component updates if needed. We’re also happy to help you review a projects use of components, to remove duplication and overrides — let us know how we can help in <a href="https://app.slack.com/client/T025C95MN/C02FU5ARJ">#origami-support</a> 😊</p>
+
+<h2 id="special-thanks">Special Thanks</h2>
+
+<p>This month we’ve made more direct contributions to Customer Products projects than usual. Our special thanks goes to those who helped review and release our work quickly so we could move on to other tasks. That includes Nick Colley and Simon Plenderleith, thanks both! 🙏</p>
+
+<h2 id="broader-update">Broader Update</h2>
+
+<p>A digest of other things that have happened this month:</p>
+
+<ul>
+  <li><a href="https://github.com/Financial-Times/origami">Origami Proposals</a>: This month there is a <a href="https://github.com/Financial-Times/origami/pull/93">new proposal to rename the Origami team</a>. There is also an update on the <a href="https://github.com/Financial-Times/origami/pull/92">variable font proposal</a> — since we can only commission a resized MetricWeb variable font the work required for the proposal is greater, but as a bonus we may be able to reduce the complexity and increase the reliability of our font loading strategy. Let us know what you think!</li>
+  <li><a href="https://github.com/Financial-Times/origami-website">Origami Specification</a>: we’ve updated the Origami specification to relax some rules. Components without Sass may support brands without including <code class="language-plaintext highlighter-rouge">o-brand</code> as a dependency; Sass lint rules may be customised with a Style Lint configuration <code class="language-plaintext highlighter-rouge">.stylelintrc.js</code>; we’ve also been working on the v2 draft specification as discussed previously.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-buttons">o-buttons</a> adds refresh and cross icon buttons to the default set for Build Service Users; improves spacing between icon and button text; updates pagination buttons with an improved look and new recommendations for the number of pages to show (thanks to Marina Ilieva for the design work here!) If your project uses pagination we recommend reviewing it and adding to your backlog if there’s an opportunity to use the latest o-buttons version to make improvements.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-comments">o-comments</a> logs a warning if required constructor options are not given; improves the styles for the reported state (credit to Glynn Phillips).</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-header">o-header</a> makes the height of the sticky nav public with a Sass variable; improves the search close button’s readability (thanks Nick Colley!)</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-icons">o-icons</a> adds a new <code class="language-plaintext highlighter-rouge">scroll-to</code> icon.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-labels">o-labels</a> updates live indicator label animation.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-layout">o-layout</a> adds a <code class="language-plaintext highlighter-rouge">listing</code> element for use with the landing layout, this is useful to list posts on a blog for example.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-message">o-message</a>: as discussed above, corrects the padding/margin of messages; adds a <code class="language-plaintext highlighter-rouge">feedback</code> state for the <code class="language-plaintext highlighter-rouge">notice</code> o-message.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-share">o-share</a> adds support for the internal brand.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/o-spacing">o-spacing</a> adds <code class="language-plaintext highlighter-rouge">$o-spacing-names</code> variable.</li>
+  <li>MINOR: <a href="https://github.com/Financial-Times/polyfill-library">polyfill-library</a> adds new features and improvements thanks to open source contributions. Adds a <code class="language-plaintext highlighter-rouge">Intl.Locale</code> polyfill (thanks <code class="language-plaintext highlighter-rouge">longlho</code>); adds <code class="language-plaintext highlighter-rouge">TextEncoder</code> and <code class="language-plaintext highlighter-rouge">TextDecoder</code> polyfills (thanks <code class="language-plaintext highlighter-rouge">lpd-au</code>); adds a <code class="language-plaintext highlighter-rouge">DOMTokenList.prototype.forEach</code> polyfill (thanks <code class="language-plaintext highlighter-rouge">romainmenke</code>); rewrites the <code class="language-plaintext highlighter-rouge">Symbol.prototype.description</code> polyfill to make it work with different <code class="language-plaintext highlighter-rouge">Symbol</code> implementations (thanks <code class="language-plaintext highlighter-rouge">mhassan1</code>); improves the error message for feature detection tests (thanks <code class="language-plaintext highlighter-rouge">romainmenke</code>).</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/create-origami-component">create-origami-component</a> update <code class="language-plaintext highlighter-rouge">getDataAttributes</code> to only return namespaced data attributes.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/fticons">fticons</a> remove the 0x0x1024x1024 viewport requirement from contributing guide, this is no longer required to support raster graphic scaling via the Image Service.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-cookie-message">o-cookie-message</a> attempts to improve accessibility by implementing the <code class="language-plaintext highlighter-rouge">dialogue</code> role; deprecates the <code class="language-plaintext highlighter-rouge">standard</code> theme option (these styles are output by default).</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-gallery">o-gallery</a> updates the <a href="https://origami.ft.com/spec/v1/manifest/#supportstatus">support status</a> of <code class="language-plaintext highlighter-rouge">o-gallery</code> to “dead”, due to its age and low (or no) use. Please let us know if your project relies on <code class="language-plaintext highlighter-rouge">o-gallery</code> still. Note there is a <a href="https://github.com/Financial-Times/origami/issues/23">proposal for a similar carousel component</a>.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-grid">o-grid</a> updates the bookmarklet (used to overlay the grid on a website for testing) to use the latest version of o-grid.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-normalise">o-normalise</a> fixes <code class="language-plaintext highlighter-rouge">:focus-visible</code> focus styles (previously broken in Chrome/Edge 68).</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-teaser">o-teaser</a> registers brand support, to remove the brand support message in the Origami Registry; removes the opinion background from featured “hero image” teasers for desktop-sized viewports.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-toggle">o-toggle</a> specifies brand support to remove branding warning from the Origami Registry.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/o-visual-effects">o-visual-effects</a> corrects custom mixin documentation (another thanks for the contribution, Nick Colley!)</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/origami-build-tools">origami-build-tools</a> pa11y runs automated accessibility checks against all brands; fixed an issue that prevented demo JS from initialising reliably.</li>
+  <li>PATCH: <a href="https://github.com/Financial-Times/stylelint-config-origami-component">stylelint-config-origami-component</a>, adds tests to confirm our linting expectations.</li>
+</ul>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2020-12-01-newsletter.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

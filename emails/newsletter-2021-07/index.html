@@ -1,0 +1,526 @@
+<!-- FT Product and Technology template -->
+<!-- Template created by CRM team -->
+
+<!-- XHTML 1.0 Transitional doctype. Best for email: https://www.campaignmonitor.com/blog/email-marketing/2010/11/correct-doctype-to-use-in-html-email/-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<head>
+
+	<title>Origami Newsletter, July 2021</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<!-- Fix DPI scaling in Outlook 2007-2013 -->
+	<!--[if gte mso 9]>
+		<xml>
+		<o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+		<o:PixelsPerInch>96</o:PixelsPerInch>
+		</o:OfficeDocumentSettings>
+		</xml>
+	<![endif]-->
+
+	<!-- Client specific style fixes -->
+	<style type="text/css">
+		a {
+			text-decoration: underline!important;
+			font-weight: bold!important;
+			color: #990F3D!important;
+		}
+
+		div {
+			box-sizing: border-box;
+		}
+		/* wrap code examples in email */
+		pre {
+			white-space: pre-wrap;
+		}
+		/* iPhone and iPad: overrides the Minimum Font Size */
+		body,
+		table,
+		td,
+		a {
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%;
+		}
+		/* iPhone and iPad: Remove Blue Links on Apple Devices */
+		.appleLink a {
+			color:#222222 !important; text-decoration:none !important;
+		}
+		/* iPhone and iPad: text changed to links by phones */
+		@media only screen {
+			a[href^="tel"],
+			a[href^="sms"] {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+		/* Outlook: removes extra spacing from table */
+		table,
+		td {
+			mso-table-lspace: 0pt;
+			mso-table-rspace: 0pt;
+		}
+		/* Explorer: ensures images do not stretch when viewed online */
+		img {
+			-ms-interpolation-mode: bicubic;
+		}
+
+		.two-column {
+			width: 50%;
+		}
+
+	</style>
+
+	<!-- Responsive styles -->
+	<style type="text/css">
+
+		@media screen and (max-width: 640px) {
+			.mobile-hide {
+				display:none!important;
+				width:0px!important;
+				height: 0px!important;
+				overflow:hidden!important;
+				line-height: 0px!important;
+				font-size:0px!important;
+			}
+
+			.show {
+				display:block!important;
+				max-height: none !important;
+				max-width:none !important;
+				line-height: 1.5 !important;
+				width:100%!important;
+				height:auto!important;
+			}
+			.responsive-table {
+				width: 100%!important;
+				min-height: auto!important;
+			}
+			.mobile-overlap {
+				height: 20px!important;
+			}
+			/*
+			Padding classes:
+			All padding classes should begin with: 'p-'
+			followed by where is will apply: 'trbl-'
+			followed by the amound of padding in px: '30'
+			example: 'p-trbl-30'
+			*/
+			/* 0 padding */
+			.p-trbl-0 {
+				padding-top: 0!important;
+				padding-right: 0!important;
+				padding-bottom: 0!important;
+				padding-left: 0!important;
+			}
+			.p-t-0 {
+				padding-top: 0!important;
+			}
+			.p-l-0 {
+				padding-left: 0!important;
+			}
+			/* 20px padding */
+			.p-tb-20 {
+				padding-top: 20px!important;
+				padding-bottom: 20px!important;
+			}
+			.p-rl-20 {
+				padding-right: 20px!important;
+				padding-left: 20px!important;
+			}
+			.p-trbl-20 {
+				padding: 20px 20px 20px 20px!important;
+			}
+			.p-t-20 {
+				padding-top: 20px!important;
+			}
+			.p-b-20 {
+				padding-bottom: 20px!important;
+			}
+			/* 40px padding */
+			.p-tb-40 {
+				padding-top: 40px!important;
+				padding-bottom: 40px!important;
+			}
+			.p-rl-40 {
+				padding-right: 40px!important;
+				padding-left: 40px!important;
+			}
+			.p-trbl-40 {
+				padding: 40px 40px 40px 40px!important;
+			}
+
+			.p-t-40 {
+				padding-top: 40px!important;
+			}
+			.p-b-40 {
+				padding-bottom: 40px!important;
+			}
+		}
+	</style>
+
+	<!-- include webfonts -->
+	<style type="text/css">
+		@font-face {
+			src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.0/FinancierDisplayWeb-Regular.woff?#iefix") format("woff");
+			font-family: FinancierDisplayWeb;
+			font-weight: 400;
+			font-style: normal
+		}
+		@font-face {
+			src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.0/MetricWeb-Regular.woff?#iefix") format("woff");
+			font-family: MetricWebRegular;
+			font-weight: 400;
+			font-style: normal
+		}
+		@font-face {
+			src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.0/MetricWeb-Semibold.woff?#iefix") format("woff");
+			font-family: MetricWebSemibold;
+			font-weight: 600;
+			font-style: normal
+		}
+	</style>
+
+	<!-- Webfont styles - should be inline with Origami o-typography -->
+	<style type="text/css">
+		@media screen and (-webkit-min-device-pixel-ratio: 0) {
+			/* Headline 1 */
+			.headline-1 {
+				font-family: MetricWebSemibold, Arial, sans-serif;
+				font-size: 72px;
+			}
+			/* Headline 2 */
+			.headline-2 {
+				font-family: MetricWebSemibold, Arial, sans-serif;
+				font-size: 32px;
+			}
+			/* Headline 3 */
+			.headline-3 {
+				font-family: MetricWebSemibold, Arial, sans-serif;
+				font-size: 28px;
+			}
+			/* Headline 4 */
+			.headline-4 {
+				font-family: MetricWebRegular, Arial, sans-serif;
+				font-size: 24px;
+			}
+			/* Headline 5 */
+			.headline-5 {
+				font-family: MetricWebRegular, Arial, sans-serif;
+				font-size: 20px;
+			}
+			/* p text */
+			.p-text {
+				font-family: MetricWebRegular, Arial, sans-serif;
+				font-size: 16px;
+			}
+			/* p text bold */
+			.p-text-bold {
+				font-family: MetricWebSemibold, Arial, sans-serif;
+				font-size: 16px;
+			}
+		}
+	</style>
+
+	<!--'table display' method classed-->
+	<style type="text/css">
+		.td {
+			display: block;
+		}
+		.table {
+			display: table;
+				width: 100%;
+		}
+		@media screen and (min-width: 640px) {
+		.td {
+			display: table-cell;
+			}
+		}
+		[owa] .td {
+			display: table-cell;
+		}
+	</style>
+
+	<!-- Font fallback for clients that do no support webfonts -->
+	<!--[if mso]>
+		<style type="text/css">
+		.text-sans-serif {
+		font-family: Arial, sans-serif !important;
+		}
+		.text-serif {
+		font-family: Georgia, sans-serif !important;
+		}
+		</style>
+	<![endif]-->
+
+	<!-- List fix for Outlook 07-13 -->
+	<!--[if gte mso 9]>
+		<style>
+			li {
+					text-indent: -1em; /* Normalise space between bullets and text */
+			}
+		</style>
+	<![endif]-->
+
+	<!-- Elsewhere list styling for outlook -->
+	<!--[if gte mso 9]>
+	<style>
+		.elsewhere ul li {
+			color: #F2DFCE;
+			border-bottom: none;
+			Margin: 20px 0;
+		}
+		.elsewhere ul li.last {
+			Margin: 20px 0 0 0;
+		}
+	</style>
+	<![endif]-->
+
+</head>
+<body style="margin: 0 !important; padding: 0 !important;" class="body">
+	<!-- Hidden preheader text -->
+	<div style="display: none; font-size: 1px; color: #FFF1E0; line-height: 1px; font-family: sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+
+		<!-- Pre-header text -->
+		
+		<!-- End Pre-header text -->
+
+	</div>
+	<!-- FT logo area -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#262A33">
+		<tr>
+			<td align="center" valign="top">
+				<!--[if (gte mso 9)|(IE)]><table border="0" cellspacing="0" cellpadding="0" width="640" align="center" role="presentation"><tr><td><![endif]-->
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:640px;" role="presentation">
+					<tr>
+						<td align="left" valign="top" class="responsive-table p-trbl-20" style="padding: 40px 0 40px 0;">
+							<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/email-newsletter-header-v1.png?source=origami-newsletter&width=140&dpr=2" width="140" style="display: block; max-width: 100%;" alt="Origami"/>
+						</td>
+						<td align="right" valign="top" class="mobile-hide" style="padding: 40px 0; font-family:Arial, Helvetica, sans-serif; font-size:9px; line-height:12px; color:#ffffff; text-align:right;">
+							
+								To view online <a href="https://origami.ft.com/blog/2021/08/09/newsletter/" target="_blank" style="color:#ffffff !important; text-decoration:underline;">click here</a>.
+							
+						</td>
+					</tr>
+				</table>
+				<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+			</td>
+		</tr>
+	</table>
+
+	<!-- Content area -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" background="https://www.ft.com/__origami/service/image/v2/images/raw/https://email-platform-ftcom-meme.s3.amazonaws.com/images/5b20f4533b1f04001b0a900b.jpeg?source=ft-email-manual" align="center" style="background-position: top; background-repeat:repeat-x;" bgcolor="#F4F4F5">
+		<tr>
+			<td class="p-b-20" align="center" valign="top">
+				<!--[if (gte mso 9)|(IE)]><table border="0" cellspacing="0" cellpadding="0" width="640" align="center"><tr><td><![endif]-->
+
+					<!-- Top section and TL;DR -->
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:640px;" role="presentation" bgcolor="#ffffff">
+						<tr>
+						<td class="p-trbl-20" style="padding: 40px;">
+							<div class="email-body" style="max-width:560px;">
+
+							<!-- Main heading -->
+							<h1 style="font-size: 24px; line-height: 30px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-3">Origami Newsletter, July 2021</span></h1>
+							<table width="40" height="1" style="height:5px !important;"><tr style="height:5px !important;"><td style="background-color: #000000; width: 40px;"></td></tr></table>
+
+							<!-- TL;DR -->
+
+
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;; "><span class="text-sans-serif p-text"><strong><abbr title="too long; didn't read" style="text-decoration: none; border-bottom: dotted 1px #000;">TL;DR</abbr>:</strong> 
+New introduction to Origami sessions and special thanks.
+</span></p>
+
+
+<!-- Top things -->
+<h2 style="font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-3">Top Things</span></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">Here’s a belated July update for you – it’s the holiday season! ☀️</p>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">We’re reaching the end of our <a target="_blank" href="https://origami.ft.com/blog/2021/01/18/deprecating-bower-and-origami-via-npm/">move from Bower to npm</a>, a significant piece of work. Our focus now is on loose ends, bug fixes, and <a target="_blank" href="https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/">supporting teams across the organisation through the migration guide</a>. But we’re also working on proposals for our next big project(s) – focused on reducing technical complexity, increasing cross-group collaboration, and supporting new product development (super exciting, watch this space).</p>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">If you have any feedback or questions about the Bower to npm migration please let us know in our <a target="_blank" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel or with an email to origami.support@ft.com.</p>
+
+
+
+
+
+<!-- Thing 1 -->
+<h3 style="font-size: 24px; line-height: 30px; font-weight: normal; margin: 0 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-4">New Introduction To Origami Sessions</span></h3>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">We’ve scheduled new Introduction To Origami Sessions ✨</p>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">The first session is useful for anyone who works in Product and Technology – we cover things at a high level rather than diving into too many technical details. Come along if you’d like to learn more about Origami projects, their goal, the team, and how to get involved.</p>
+
+<ul style="padding-left: 30px;">
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Origami History</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Origami Components</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Origami Services</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Origami Collaboration</span></li>
+</ul>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">A second session explores components in more depth and includes technical details. It will be of particular interest to engineers and designers, although anyone is welcome:</p>
+
+<ul style="padding-left: 30px;">
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Documentation</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Languages &amp; Tools</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Structure</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Versioning</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Origami Build Service / Manual Build</span></li>
+</ul>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">If you’d like to hang back at the end to put some of what we learn into practice there will be an opportunity to run through a practical tutorial with some of the team on hand to answer any questions (optional)</p>
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">We’ll be running the sessions Tuesday, 17th August from 10:30am (London time). Ask for an invite in the <a target="_blank" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a> Slack channel or with an email to origami.support@ft.com. 🙌</p>
+
+
+
+<!-- Special thanks -->
+<h2 style="font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-3">Special Thanks</span></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">Our special thanks this week goes to the Operations &amp; Reliability team! The team have been working through the <a target="_blank" href="https://origami.ft.com/blog/2021/07/01/origami-on-npm-and-how-to-migrate/">Bower to NPM / Build Service v3 migration</a> and have been very helpful by asking questions, raising any issues, and giving feedback along the way. Thanks for helping us improve the migration experience for other teams 🎉</p>
+
+
+
+
+<!-- Broader update -->
+<h2 style="font-size: 28px; line-height: 32px; font-weight: normal; margin: 40px 0 15px 0; font-weight: bold;"><span class="text-sans-serif headline-3">Broader Update</span></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;">A digest of other things that have happened this month:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul style="padding-left: 30px;">
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>DEPRECATED: <a target="_blank" href="https://github.com/Financial-Times/o-layers">o-layers</a> was not widely used and therefore did not meet its aim of managing the z-index between components and projects. There is no direct replacement for <code class="language-plaintext highlighter-rouge">o-layers</code>. Instead fire component specific events to indicate that a new “layer” such as an overlay has been opened.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>DEPRECATED: <a target="_blank" href="https://github.com/Financial-Times/origami-navigation-data">origami-navigation-data</a> has been merged with <a target="_blank" href="https://github.com/Financial-Times/origami-navigation-service">origami-navigation-service</a> to reduce the complexity of our technical estate and speed up the release of changes to ft.com’s navigation.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>DEPRECATED: <a target="_blank" href="https://github.com/Financial-Times/scrumple">scrumple</a> was helpful when we needed to build bower components, but those days are now behind us. We recommend trying <a target="_blank" href="https://esbuild.github.io/">esbuild</a> instead.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MAJOR: <a target="_blank" href="https://github.com/Financial-Times/o-footer">o-footer</a> introduces a new layout to support new Community &amp; Events links (thanks for your work on this Ahmad Youssef and Max Bladen-Clark).</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR: <a target="_blank" href="https://github.com/Financial-Times/o-autocomplete">o-autocomplete</a> has had a number of features enabled to support suggestions with more complex data structures and provide a callback function to action a users selection (thanks for the feedback and review Oliver Turner).</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR: <a target="_blank" href="https://github.com/Financial-Times/o-table">o-table</a> based on feedback we’ve improved the demos and documentation for filterable tables; and we’ve added support for sorting tables with multiple header rows (thanks for raising and helping build a fix Emma Lewis).</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR: <a target="_blank" href="https://github.com/Financial-Times/origami-build-service">origami-build-service</a> has received a number of bug fixes and improvements since the release of v3 last month, including an improved <a target="_blank" href="https://www.ft.com/__origami/service/build/url-updater">“url updater” migration guide</a>.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>MINOR: <a target="_blank" href="https://github.com/Financial-Times/polyfill-library">polyfill-library</a> received a number of updates (thanks to our open source contributors!)
+    <ul style="padding-left: 30px;">
+      <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Fixed a bug where iOS 12 and above would be detected as iOS 11 and we would over-polyfill the browser.</span></li>
+      <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Updated <code class="language-plaintext highlighter-rouge">URL.prototype.toJSON</code> to now serve to Safari &lt;12 and Edge &lt;18.17134</span></li>
+      <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Added <code class="language-plaintext highlighter-rouge">MediaQueryList.prototype.addEventListener</code> and <code class="language-plaintext highlighter-rouge">MediaQueryList.prototype.removeEventListener</code>.</span></li>
+      <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>Added <code class="language-plaintext highlighter-rouge">Intl.DateTimeFormat.~timeZone.all</code> and <code class="language-plaintext highlighter-rouge">Intl.DateTimeFormat.~timeZone.golden</code>. The two polyfills can be used to load time-zone data into the <code class="language-plaintext highlighter-rouge">Intl</code> polyfills - more information can be found at <a target="_blank" href="https://formatjs.io/">formatjs.io</a>.</span></li>
+    </ul>
+  </span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>PATCH: <a target="_blank" href="https://github.com/Financial-Times/js-features-analyser">js-features-analyser</a> fixes a bug where analysing code with destructing assignment would error (thanks to our open source contributors!)</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>PATCH: <a target="_blank" href="https://github.com/Financial-Times/o-colors">o-colors</a>, <a target="_blank" href="https://github.com/Financial-Times/o-forms">o-forms</a>, and <a target="_blank" href="https://github.com/Financial-Times/o-fonts">o-fonts</a> have updated migration guides based on feedback.</span></li>
+  <li style="line-height: 23px; font-size: 14px; font-family: arial, sans-serif;"><span>PATCH: <a target="_blank" href="https://github.com/Financial-Times/o-tracking">o-tracking</a> makes a number of small improvements but notably fixes a bug where click events were lost moving from one page which uses v2 of <code class="language-plaintext highlighter-rouge">o-tracking</code> and the next page which uses v3.</span></li>
+</ul>
+
+
+
+
+							</div>
+						</td>
+						</tr>
+					</table>
+
+					<!-- SPACER -->
+					<table width="100%" role="presentation" border="0" cellspacing="0" cellpadding="0"><tr><!--Horizontal spacer that you can control and will show up in outlook / update the height and line-height. They need to be the same.--><td class="mobile-overlap" align="left" valign="top" width="100%" height="40" style="border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; mso-line-height-rule: exactly; line-height: 40px;"><!--[if gte mso 15]>&nbsp;<![endif]--></td></tr></table>
+					<!-- End Top section and TL;DR -->
+
+				<!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+			</td>
+		</tr>
+	</table>
+
+	<!-- Footer -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#262A33">
+		<tr>
+			<td align="center" valign="top">
+				<div class="p-trbl-20 footer" style="width: 100%; max-width: 640px; margin: 0 auto; text-align: left; padding: 30px 0;">
+
+						<p style="margin: 0 0 20px 0; line-height: 23px; font-size: 14px; font-family: arial, sans-serif; color: #ffffff;">
+							<span class="text-sans-serif p-text">
+								As always, please don't hesitate to contact us if you have questions or feedback for the Origami team.
+								You can <a style="color: #ffffff !important;" href="https://financialtimes.slack.com/messages/origami-support" target="_blank">find us on Slack in #origami-support</a>
+								or <a style="color: #ffffff !important;" href="mailto:origami.support@ft.com">reply to this email</a>.
+							</span>
+						</p>
+
+						<p style="margin: 0; line-height: 23px; font-size: 14px; font-family: arial, sans-serif; color: #ffffff; font-weight: bold;"><span class="text-sans-serif p-text">Thanks for reading!</span></p>
+						<p style="margin: 0; line-height: 23px; font-size: 14px; font-family: arial, sans-serif; color: #ffffff;"><span class="text-sans-serif p-text">The Origami Team</span></p>
+
+				</div>
+			</td>
+		</tr>
+	</table>
+
+</body>

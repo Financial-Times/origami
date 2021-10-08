@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Major Cascade 2019</title>
+	<meta name="description" content="We are working on a major release of low level components like o-typography. In this post we'll discuss what improvements are being made and how they further our aims to help bring design consistency and reduce the time teams spend repeating work." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2019/10/31/major-cascade/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="major-cascade-2019">Major Cascade 2019</h1>
+
+<p>
+	Posted on <time datetime="2019-10-31T00:00:00Z">31 October 2019</time>
+	by Lee Moody.
+	
+</p>
+
+<p>The Origami team maintain around 52 front end components. A component is a shared piece of user-interface which, along with other components, is used to build a webpage.</p>
+
+<p>We are working on a major release of low level components including <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a>, <a href="https://registry.origami.ft.com/components/o-buttons">o-buttons</a>, and <a href="https://registry.origami.ft.com/components/o-colors">o-colors</a> which will require a major release of dependent components which use them, and components which use those components, and so on. This is a process we call a major cascade.</p>
+
+<p>In this blog post we’ll discuss what a major cascade looks like; what high-level improvements have been made; and how they further our aims to help bring design consistency and reduce the time teams spend repeating work.</p>
+
+<h2 id="the-major-cascade">The Major Cascade</h2>
+
+<p>Some components are low level — fundamental building blocks used to build many other components and end products. <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a> is an example of a low level component.</p>
+
+<p>Other components are high level — complex components which are used in end products and rarely used to build other components. <a href="https://registry.origami.ft.com/components/o-table">o-table</a> is an example of a high level component.</p>
+
+<p>As low level components are used to build other components there are more projects between them and the end product. To make major changes to a low level component means upgrading each project in-between step by step.</p>
+
+<figure>
+	<img alt="" src="/assets/images/2019-10-31-major-cascade/all-graph.svg" />
+	<figcaption>
+        An example graph of product dependencies. Low level components o-colors and o-typography branch out; they are included in final products directly and indirectly via other components including o-table. In reality the graph is much more complex because many projects comprise "ft.com".
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="/assets/images/2019-10-31-major-cascade/typography-graph.svg" />
+	<figcaption>
+        Dependencies on o-typography, a low level dependency, are a large portion of the overall graph. Components in-between including o-buttons and o-table must be upgraded before the end products can be upgraded.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="/assets/images/2019-10-31-major-cascade/table-graph.svg" />
+	<figcaption>
+        Dependencies on o-table, a high level dependency, are a small portion of the overall graph. If a major version of o-table is released the end products may be updated immediately.
+	</figcaption>
+</figure>
+
+<h2 id="typography">Typography</h2>
+
+<p>As a low level component <a href="https://registry.origami.ft.com/components/o-typography">o-typography</a> is used by every group in Product &amp; Tech in some way. It includes fundamental typographical styles including fonts, font scales, and tools to customise them for more unique projects. But it also includes more specific styles to present Financial Times articles. This creates a huge dependency graph and makes releasing major changes tricky — it requires coordination between many groups and impacts over 167 projects across the Financial Times Group.</p>
+
+<p>If we want to make major changes to our article typography across “master brand” projects such as those which power ft.com, amp pages, interactive graphic pages, the app, and our content management systems, that should not impact other teams — like Operations and Reliability, Internal Products, Specialist Titles (or this blog).</p>
+
+<p>So we’re splitting specific styles used by ft.com and other “master brand” products from o-typography into two new components:</p>
+
+<ul>
+  <li><strong>o-typography (updated)</strong>: Fundamental typographic tooling and user interface styles.</li>
+  <li><strong>o-editorial-typography (new)</strong>: Editorial styles including headlines, tags, and bylines.</li>
+  <li><strong>o-editorial-layout (new)</strong>: Styles to layout editorial typography within an article.</li>
+</ul>
+
+<p>Splitting o-typography into smaller, simpler, higher level components means:</p>
+
+<ul>
+  <li>Faster iteration of editorial styles.</li>
+  <li>Faster websites (through smaller CSS bundle sizes).</li>
+  <li>Smaller migration paths when major changes are made, impacting fewer teams.</li>
+  <li>A reduced learning curve for developers and designers.</li>
+</ul>
+
+<p>Along with the Product Design team we also audited existing users of editorial styles. Where we discovered design divergence between projects we merged an updated version back into o-editorial-typography to improve design consistency and quality when moving between Financial Times experiences.</p>
+
+<figure>
+	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/blockquote-1.png?source=origami" />
+	<figcaption>
+        Unique blockquote-like style one.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/blockquote-2.png?source=origami" />
+	<figcaption>
+        Unique blockquote-like style two.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/blockquote-3.png?source=origami" />
+	<figcaption>
+        Unique blockquote-like style three.
+	</figcaption>
+</figure>
+
+<p>This process of design rationalisation fed into Origami components and our new <a href="https://medium.com/ft-product-technology/ft-design-basics-1-why-we-finally-built-a-ui-kit-850e98b127bf">Sketch UI Kit</a>, to help the design team prototype new experiences more efficiently without recreating existing elements.</p>
+
+<p>With editorial styles moved, we also made a host of other changes to simplify o-typography for developers. See more details in the <a href="https://github.com/Financial-Times/o-typography/issues/203">o-typography v6 proposal</a>.</p>
+
+<h2 id="buttons">Buttons</h2>
+
+<p><a href="https://registry.origami.ft.com/components/o-buttons">o-buttons</a> is another low level component, with broad use across Financial Times Groups. We’re making changes to simplify the developer interface, encourage style reuse for faster websites, and make custom buttons created by projects consistent with default buttons.</p>
+
+<figure>
+	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/buttons-before.png?source=origami" />
+	<figcaption>
+        o-buttons currently. In the right column "primary" buttons of different themes. In the left column "secondary" buttons. The rows show the different states of each button, for example when hovered, focused with the keyboard, or pressed. Each button has its own quirks, especially the final two rows.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-10-31-major-cascade/buttons-after.png?source=origami" />
+	<figcaption>
+        o-buttons after. There is consistency between "primary" and "secondary" buttons, improved accessibility checks, and better contrast between each button state.
+	</figcaption>
+</figure>
+
+<p>We worked with the design team to generate custom buttons in the same way as default Origami buttons. This simplifies maintenance, improves design consistency, and was added to the <a href="https://medium.com/ft-product-technology/ft-design-basics-1-why-we-finally-built-a-ui-kit-850e98b127bf">Sketch UI Kit</a> to support future design work.</p>
+
+<p>The colours for each state are automatically chosen based on design rules and <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1</a> recommendations for colour contrast, to maintain our <a href="https://www.ft.com/accessibility">commitments to accessibility</a> and <abbr title="Digital Accessibility Centre">DAC</abbr> accreditation.</p>
+
+<p>We also simplified the developer interface for new button themes, which may be created by specifying a single colour. Developers can find out more about upcoming changes in the <a href="https://github.com/Financial-Times/o-buttons/blob/d5d4e15e060aa897e3c870f717840ce1b48b4828/MIGRATION.md">pre-release migration guide</a>.</p>
+
+<h2 id="colours">Colours</h2>
+
+<p><a href="https://registry.origami.ft.com/components/o-colors">o-colors</a> (yep, we use <a href="/docs/principles/tone-and-language/#use-british-english-for-documentation">British English for documentation and American English in our code</a>), one of our lowest level components, also has some updates.</p>
+
+<p>These are mostly developer focused updates but also remove technical debt from our introduction of <a href="/docs/components/branding/">component brands</a> (master, internal, and whitelabel); reduce the CSS bundle size for some users (for faster websites); and make changes to reduce the chance that visual errors make it to production. See more details in the <a href="https://github.com/Financial-Times/o-colors/issues/198">o-colors v5 proposal</a>.</p>
+
+<h2 id="dependants">Dependants</h2>
+
+<p>Because of the major cascade, we’ve taken the opportunity to implement more recent Origami proposals across all our components. These include <a href="https://github.com/Financial-Times/origami/issues/14">consistent ways to customise components</a>, so Origami can better support products with a unique look; <a href="https://github.com/Financial-Times/origami/issues/4">removing CSS class name modification</a>, to encourage style reuse and faster sites; <a href="https://github.com/Financial-Times/origami/issues/6">primary Sass mixins</a>, so developers can work with Origami more efficiently; and <a href="https://github.com/Financial-Times/origami-build-tools/issues/609">moving from CommonJS JavaScript modules to browser native ECMAScript modules</a>, to support modern methods and tools of bundling up and delivering our websites and apps to customers.</p>
+
+<h2 id="release">Release</h2>
+
+<p>We will start to release betas for these changes next week, with an announcement and full releases following soon after. We’ve discussed our plans with groups across the Financial Times and are planning a time to support Customer Products directly with their more complex upgrade path. If you have any questions, concerns, or feedback please reach out to the team — we’re here to help. 😊</p>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2019-10-31-major-cascade.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>
