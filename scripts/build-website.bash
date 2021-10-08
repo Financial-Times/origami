@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-rm -r origami.ft.com || true
+rm -r this-does-not-exist
 cd apps/website/
 bundle
-npm run build
+npm run build -- --incremental
 cd ../storybook/
 npm install
 npm run build-storybook
