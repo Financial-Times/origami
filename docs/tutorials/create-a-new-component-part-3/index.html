@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Create A New Origami Component - Part 3 Themes & Brands</title>
+	<meta name="description" content="A step-by-step tutorial which teaches you how to build and deploy a new Origami component." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/docs/tutorials/create-a-new-component-part-3/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+				<li>
+					<a href="/docs/" >
+						Docs
+					</a>
+				</li>
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/docs/tutorials/">
+						
+							Tutorials
+						
+					</a>
+				</li>
+			
+
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="create-a-new-origami-component---part-3-themes--brands">Create A New Origami Component - Part 3 Themes &amp; Brands</h1>
+
+<p>The “Create A New Origami Component” tutorial is split into eight parts and is intended to be followed sequentially from start to finish:</p>
+<ol>
+  <li><a href="/docs/tutorials/create-a-new-component-part-1/">Intro &amp; Boilerplate</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-2/">Base Styles</a></li>
+  <li>Themes &amp; Brands</li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-4/">Demos</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-5/">JavaScript</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-6/">Testing</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-7/">Documentation</a></li>
+  <li><a href="/docs/tutorials/create-a-new-component-part-8/">Component Lifecycle</a></li>
+</ol>
+
+<p>In part three we will build on our work in <a href="/docs/tutorials/create-a-new-component-part-2">part two</a> by learning how to modify the style of our new component for different contexts.</p>
+
+<h2 id="component-brands">Component Brands</h2>
+
+<p>Origami components are used by products across the Financial Times Group, and some groups require a distinct appearance from others; internal tools have a distinct style from ft.com products for example. To cater for these broad usecases, the appearance of Origami components may be changed within a project by choosing a “brand”:</p>
+<ul>
+  <li>master: FT branding for public ft.com sites and affiliates.</li>
+  <li>internal: Style suitable for internal products, tools, and documentation.</li>
+  <li>whitelabel: Base, structural styles only to build on and customise.</li>
+</ul>
+
+<p>A project chooses a brand globally, meaning all components included in a project must use the same brand. See <a href="/docs/components/branding/">component brand documentation</a> for examples on how a project may use brands. For reference, when it comes to building branding components, there is also a <a href="/spec/v1/components/sass/#brands">section on component brands in the specification</a>.</p>
+
+<h3 id="supported-brands">Supported Brands</h3>
+
+<p>Origami components may support one or more brand. The brands a component supports are defined along with other component details in <a href="/spec/v1/manifest/#brands"><code class="language-plaintext highlighter-rouge">origami.json</code></a>, by the <code class="language-plaintext highlighter-rouge">brands</code> property. If <code class="language-plaintext highlighter-rouge">brands</code> is not set the component is “unbranded” and implicitly only supports the “master” brand.</p>
+
+<p>When prompted by <code class="language-plaintext highlighter-rouge">obt init</code> in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a> we select all brands, so the <code class="language-plaintext highlighter-rouge">origami.json</code> file of our component should include an array of each brand <code class="language-plaintext highlighter-rouge">"brands": ["master","internal","whitelabel"],</code>. If not, update your <code class="language-plaintext highlighter-rouge">origami.json</code> now.</p>
+
+<h3 id="switching-brands-in-development">Switching Brands In Development</h3>
+
+<p>When developing a branded Origami component pass the <code class="language-plaintext highlighter-rouge">--brand</code> flag to the <code class="language-plaintext highlighter-rouge">obt dev</code> command to switch brand.</p>
+
+<p>For example to build the <code class="language-plaintext highlighter-rouge">internal</code> version of our component run the command <code class="language-plaintext highlighter-rouge">obt dev --brand internal</code>. You should see in our demo the background colour has changed from a wheat colour to a light slate colour. That’s because wheat is not part of the <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=internal#demo-primary-palette">internal brand colour palette</a>. As we used a colour usecase <code class="language-plaintext highlighter-rouge">oColorsByUsecase('box', 'background')</code> in <a href="/docs/tutorials/create-a-new-component-part-2">part two</a>, rather than specify a specific colour, it was updated automatically for the internal brand.</p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-5-sass.png" />
+	<figcaption>
+        Our example component for the internal brand no longer has a wheat background, because the background was set using a colour usecase.
+	</figcaption>
+</figure>
+
+<p>Do the same for the whitelabel brand by running <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code>. You should see a Sass error <code class="language-plaintext highlighter-rouge">Error: 'The color "slate" does not exist.</code>. This error is because we set a border colour by name <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code> in <a href="/docs/tutorials/create-a-new-component-part-2">part two</a>, but slate is not in the limited <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>.</p>
+
+<p>To fix this error we need to set the border colour of our component differently depending on which brand is being used.</p>
+
+<h3 id="configuring-brand-variables">Configuring Brand Variables</h3>
+
+<p>To style our component according to the current brand we need to use <a href="https://registry.origami.ft.com/components/o-brand@/readme">o-brand</a>, which <code class="language-plaintext highlighter-rouge">obt init</code> has already added as a dependency.</p>
+
+<p>We will use <code class="language-plaintext highlighter-rouge">o-brand</code> to define a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> in <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code>, which is where all our brand configuration will go.</p>
+
+<p>You should see in <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code> two Sass functions which we will discuss later, for now add the following Sass at the bottom of the file.</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate')
+		),
+		'supports-variants': ()
+	));
+}</code></pre>
+
+<p>Lets break down what this is doing.</p>
+
+<p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGetCurrentBrand</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">master</code> brand:</p>
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+@if oBrandGetCurrentBrand() == 'master' {
+	//...
+}</code></pre>
+
+<p>Second, we call the mixin <code class="language-plaintext highlighter-rouge">oBrandDefine</code>, which will let us set component configuration for a given brand. In this case we are configuring our <code class="language-plaintext highlighter-rouge">o-example</code> component for the <code class="language-plaintext highlighter-rouge">master</code> brand.</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+        // brand configuration for the master brand here..
+    ));
+}</code></pre>
+
+<p>Third, we pass configuration to <code class="language-plaintext highlighter-rouge">oBrandDefine</code> for the brand. We set a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> within a <code class="language-plaintext highlighter-rouge">variables</code> map, to the value of the slate colour <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code>. We also set a property <code class="language-plaintext highlighter-rouge">supports-variants</code>, which we will discuss more shortly.</p>
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate')
+		),
+		'supports-variants': ()
+	));
+}</code></pre>
+
+<p>Now repeat this block for the <code class="language-plaintext highlighter-rouge">internal</code> and <code class="language-plaintext highlighter-rouge">whitelabel</code> brand, but change <code class="language-plaintext highlighter-rouge">border-color</code> to <code class="language-plaintext highlighter-rouge">oColorsByName('black')</code> for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand (as <code class="language-plaintext highlighter-rouge">slate</code> is not part of the <a href="https://registry.origami.ft.com/components/o-colors@5.2.5/?brand=whitelabel#demo-primary-palette">whitelabel colour palette</a>):</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+// Add master brand configuration.
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate')
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add internal brand configuration.
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-example', 'internal', (
+		'variables': (
+			'border-color': oColorsByName('slate')
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add whitelabel brand configuration.
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-example', 'whitelabel', (
+		'variables': (
+			'border-color': oColorsByName('black')
+		),
+		'supports-variants': ()
+	));
+}</code></pre>
+
+<p>Now we have defined <code class="language-plaintext highlighter-rouge">border-color</code> for each brand, with a different colour set for the whitelabel brand, we can use <code class="language-plaintext highlighter-rouge">border-color</code> within our Sass. Return your focus to the Sass function <code class="language-plaintext highlighter-rouge">_oExampleGet</code> at the top of <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code>:</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+/// Helper for `o-brand` function.
+/// @access private
+@function _oExampleGet($variables, $from: null) {
+	@return oBrandGet($component: 'o-example', $variables: $variables, $from: $from);
+}</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">_oExampleGet</code> function is a component specific function which wraps a <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGet</code>. <code class="language-plaintext highlighter-rouge">oBrandGet</code> is used to retrieve a brand variable depending on the current brand. Wrapping this in <code class="language-plaintext highlighter-rouge">_oExampleGet</code> is useful to avoid passing the <code class="language-plaintext highlighter-rouge">$component</code> argument repeatedly.</p>
+
+<p>Update <code class="language-plaintext highlighter-rouge">main.scss</code> to set our border color with <code class="language-plaintext highlighter-rouge">_oExampleGet('border-color')</code>:</p>
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+.o-example {
+		@include oTypographyBody();
+-		border: 1px solid oColorsByName('slate');
++		border: 1px solid _oExampleGet('border-color');
+		background: oColorsByUsecase('box', 'background');
+		padding: oSpacingByName('s4');
+		margin: oSpacingByName('s1');
+	}</code></pre>
+
+<p>Now when we run <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code> we get a different error! The error is <code class="language-plaintext highlighter-rouge">Could not find a colour for the "box" "background" usecase.</code>. That’s because the whitelabel brand does not support the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#usecases">box colour usecase</a> we used to set a background. Unlike the master and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable <code class="language-plaintext highlighter-rouge">background-color</code> so we can support the whitelabel brand as well:</p>
+
+<pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
+
+// Add master brand configuration.
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
++			'background-color': oColorsByName('wheat')
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add internal brand configuration.
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-example', 'internal', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
++			'background-color': oColorsByName('slate-white-5')
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add whitelabel brand configuration.
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-example', 'whitelabel', (
+		'variables': (
+			'border-color': oColorsByName('black'),
++			'background-color': oColorsByName('white')
+		),
+		'supports-variants': ()
+	));
+}</code></pre>
+
+<p>And update <code class="language-plaintext highlighter-rouge">main.scss</code> again:</p>
+<pre><code class="o-syntax-highlight--diff">// main.scss
+
+.o-example {
+		@include oTypographyBody();
+		border: 1px solid _oExampleGet('border-color');
+-		background: oColorsByUsecase('box', 'background');
++		background: _oExampleGet('background-color');
+		padding: oSpacingByName('s4');
+		margin: oSpacingByName('s1');
+	}</code></pre>
+
+<p>Now our component supports all three brands, with a unique appearance for each.</p>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-6-sass.png" />
+	<figcaption>
+        The whitelabel brand version of our component is not very opinionated. It's black and white and uses a system font.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-7-sass.png" />
+	<figcaption>
+        The internal brand version of our component uses Financial Times fonts, and has a subtle background.
+	</figcaption>
+</figure>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-8-sass.png" />
+	<figcaption>
+        The master brand version of our component uses Financial Times fonts and a wheat background.
+	</figcaption>
+</figure>
+
+<p>There is more documentation about <a href="https://registry.origami.ft.com/components/o-brand/readme#obrandget"><code class="language-plaintext highlighter-rouge">oBrandGet</code> in the <code class="language-plaintext highlighter-rouge">o-brand</code> readme</a>.</p>
+
+<p>You may have noticed we haven’t returned to the <code class="language-plaintext highlighter-rouge">supports-variants</code> configuration yet or the <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> function. We’ll discuss those next as part of the themes section. If you would like to find out more about <code class="language-plaintext highlighter-rouge">o-brand</code> features, see the <a href="https://registry.origami.ft.com/components/o-brand/readme"><code class="language-plaintext highlighter-rouge">o-brand</code> readme</a>.</p>
+
+<h2 id="component-themes">Component Themes</h2>
+
+<p>A component may also support themes within a brand, to allow for variations of the component. Further, some components include a Sass interface for users of the component to generate a custom theme.</p>
+
+<p>Unlike brands, which are set at a global level, a project could include many themes of a component at the same time. For example the <a href="https://registry.origami.ft.com/components/o-message@4.1.3">o-message</a> component has success, error, and inform themes for notices.</p>
+
+<p>Now let’s add themes to our <code class="language-plaintext highlighter-rouge">o-example</code> component. For reference there is a <a href="/spec/v1/components/sass/#themes">theme section in the component specification</a>.</p>
+
+<p>Our example component will have two themes: an <code class="language-plaintext highlighter-rouge">inverse</code> theme that should be used when our component is on a dark background; and a <code class="language-plaintext highlighter-rouge">b2c</code> (business to consumer) theme just for the master brand. We will also make our component flexible and allow a user to generate a custom theme.</p>
+
+<h3 id="theme-mixin">Theme Mixin</h3>
+
+<p>We will add a new mixin called <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code>, following the <a href="/spec/v1/components/sass/#themes">theme convention in the specification</a>, to a new file <code class="language-plaintext highlighter-rouge">src/scss/_mixins.scss</code>. Don’t forget to import your new <code class="language-plaintext highlighter-rouge">src/scss/_mixins.scss</code> in <code class="language-plaintext highlighter-rouge">main.scss</code>, in the same way <code class="language-plaintext highlighter-rouge">src/scss/_variables_.scss</code> is imported.</p>
+
+<p>Our <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> mixin will accept a theme name and output a CSS class <code class="language-plaintext highlighter-rouge">o-example--[theme-name]</code> which can be added to our component markup to change the theme. The double dash in the theme name is part of the <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM modifier naming convention</a>.</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
+
+@mixin oExampleAddTheme($name) {
+	.o-example--#{name} {
+		// update border-color and background
+		// for the given theme
+	}
+}</code></pre>
+
+<p>Our mixin <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> uses the <code class="language-plaintext highlighter-rouge">$name</code> argument to create a new CSS class <code class="language-plaintext highlighter-rouge">.o-example--#{name}</code> (<a href="https://sass-lang.com/documentation/style-rules#interpolation">see Sass interpolation</a>). Using them <code class="language-plaintext highlighter-rouge">$name</code> variable it is possible to output different CSS conditionally with a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. However this would be quite verbose Sass, especially as we need to support multiple themes which might differ in style per brand. Instead we can configure themes per brand where we called <code class="language-plaintext highlighter-rouge">oBrandDefine</code> earlier.</p>
+
+<h3 id="variant-variables">Variant Variables</h3>
+
+<p>A variant of a component is any visual modification. For example if we were to add a class <code class="language-plaintext highlighter-rouge">o-example--big</code> which increased the font size of our component, that would be a variant of <code class="language-plaintext highlighter-rouge">o-example</code>. In the same way a theme like <code class="language-plaintext highlighter-rouge">o-example--inverse</code> is also a variant.</p>
+
+<p>To define variables for a variant within a brand add a map to the <code class="language-plaintext highlighter-rouge">variables</code> configuration of <code class="language-plaintext highlighter-rouge">oBrandDefine</code>, where the key is the variant name.</p>
+
+<pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
+
+// Add master brand configuration.
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('wheat'),
++			'inverse': (
++				'text-color': oColorsByName('white'),
++				'background-color': oColorsByName('slate')
++			),
++			'b2c': (
++				'background-color': oColorsByName('org-b2c-light')
++			)
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add internal brand configuration.
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-example', 'internal', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('slate-white-5'),
++			'inverse': (
++				'text-color': oColorsByName('white'),
++				'background-color': oColorsByName('slate')
++			)
+		),
+		'supports-variants': ()
+	));
+}
+
+// Add whitelabel brand configuration.
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-example', 'whitelabel', (
+		'variables': (
+			'border-color': oColorsByName('black'),
+			'background-color': oColorsByName('white'),
++			'inverse': (
++				'text-color': oColorsByName('white'),
++				'background-color': oColorsByName('black')
++			)
+		),
+		'supports-variants': ()
+	));
+}</code></pre>
+
+<p>Notice that the background colour we set for the inverse variant is different for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand than the other brands. And the <code class="language-plaintext highlighter-rouge">master</code> brand is the only one with <code class="language-plaintext highlighter-rouge">b2c</code> variables, as the <code class="language-plaintext highlighter-rouge">b2c</code> variant is specific to the master brand.</p>
+
+<p>We can now use the <code class="language-plaintext highlighter-rouge">$from</code> argument of our function <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to fetch a brand variable from one of our variants. For example <code class="language-plaintext highlighter-rouge">_oExampleGet('background-color', $from: 'b2c')</code> will return the <code class="language-plaintext highlighter-rouge">org-b2c-light</code> colour when the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand, or <code class="language-plaintext highlighter-rouge">null</code> otherwise.</p>
+
+<h3 id="variant-support">Variant Support</h3>
+
+<p>To allow us to check if the theme name given to our <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> mixin is supported by the current brand, add the theme name to the <code class="language-plaintext highlighter-rouge">supports-variants</code> list of <code class="language-plaintext highlighter-rouge">oBrandDefine</code> configuration. Our final configuration looks like this:</p>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
+
+// Add master brand configuration.
+@if oBrandGetCurrentBrand() == 'master' {
+	@include oBrandDefine('o-example', 'master', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('wheat')
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('slate')
+			),
+			'b2c': (
+				'background-color': oColorsByName('org-b2c-light')
+			)
+		),
+		'supports-variants': (
+			'inverse',
+			'b2c'
+		)
+	));
+}
+
+// Add internal brand configuration.
+@if oBrandGetCurrentBrand() == 'internal' {
+	@include oBrandDefine('o-example', 'internal', (
+		'variables': (
+			'border-color': oColorsByName('slate'),
+			'background-color': oColorsByName('slate-white-5'),
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('slate')
+			)
+		),
+		'supports-variants': ('inverse')
+	));
+}
+
+// Add whitelabel brand configuration.
+@if oBrandGetCurrentBrand() == 'whitelabel' {
+	@include oBrandDefine('o-example', 'whitelabel', (
+		'variables': (
+			'border-color': oColorsByName('black'),
+			'background-color': oColorsByName('white'),
+			'inverse': (
+				'text-color': oColorsByName('white'),
+				'background-color': oColorsByName('black')
+			)
+		),
+		'supports-variants': ('inverse')
+	));
+}</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> function we briefly mentioned earlier will return <code class="language-plaintext highlighter-rouge">true</code> if a given variant name is supported by the current brand, based on the <code class="language-plaintext highlighter-rouge">supports-variants</code> configuration we just set. For example only the <code class="language-plaintext highlighter-rouge">master</code> brand has the <code class="language-plaintext highlighter-rouge">b2c</code> theme listed under <code class="language-plaintext highlighter-rouge">supports-variants</code> so <code class="language-plaintext highlighter-rouge">_oExampleSupports('b2c')</code> will only return true when the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand.</p>
+
+<h3 id="output-theme-css">Output Theme CSS</h3>
+
+<p>We can now complete our theme mixin:</p>
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> with <a href="https://sass-lang.com/documentation/at-rules/error">the Sass <code class="language-plaintext highlighter-rouge">@error</code> at-rule</a> to throw an error if the theme name given is not supported by the current brand.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to get theme values.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">oButtonsContent</code> to update the button styles if there is a matching <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=master#themes">o-buttons theme</a>.</li>
+</ul>
+
+<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
+
+@mixin oExampleAddTheme($name) {
+	// Error if an unsupported theme name is given.
+	@if not _oExampleSupports($name) {
+		@error 'The name "#{$name}" is not a supported "#{oBrandGetCurrentBrand()}" brand theme';
+	}
+
+	// Output theme css.
+	.o-example--#{$name} {
+		background: _oExampleGet('background-color', $from: $theme);
+		color: _oExampleGet('text-color', $from: $theme);
+		// Theme the o-example button using o-buttons.
+		// Only output button styles to change the theme,
+		// don't repeat styles shared by all buttons.
+		$matching-button-theme: $name == 'inverse' or $name == 'b2c';
+		@if $matching-button-theme {
+			.o-example__button {
+				@include oButtonsContent($opts: (
+					'type': 'primary',
+					'theme': $name
+				), $include-base-styles: false);
+			}
+		}
+	}
+}</code></pre>
+
+<p>Now output the themes in the primary mixin <code class="language-plaintext highlighter-rouge">oExample</code>. We use the Sass <a href="https://sass-lang.com/documentation/at-rules/control/each"><code class="language-plaintext highlighter-rouge">@each</code> at-rule</a> to loop over each theme and call <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> if <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> returns <code class="language-plaintext highlighter-rouge">true</code>:</p>
+
+<pre><code class="o-syntax-highlight--scss">// main.scss
+
+@mixin oExample ($opts: ()) {
+	.o-example {
+		// ... base styles as previously discussed
+	}
+
+	.o-example__button {
+		// ... button styles as previously discussed
+	}
+
+	// call the `oExampleAddTheme` mixin to output css
+	// for each theme if the current brand supports it
+	@each $name in ('inverse', 'b2c') {
+		@if _oExampleSupports($name) {
+			@include oExampleAddTheme($name);
+		}
+	}
+}</code></pre>
+
+<p>Currently users of the <code class="language-plaintext highlighter-rouge">oExample</code> mixin are forced to output all themes. This will increase the size of users CSS bundle unnecessarily if they are not using them all. We can improve <code class="language-plaintext highlighter-rouge">oExample</code> by adding the list of themes to the <code class="language-plaintext highlighter-rouge">$opts</code> parameter. Using the <code class="language-plaintext highlighter-rouge">$opts</code> parameter means we can output all themes by default but also allow users to choose what themes to output.</p>
+
+<pre><code class="o-syntax-highlight--scss">// main.scss
+
+@mixin oExample ($opts: (
+	'themes': ('inverse', 'b2c')
+)) {
+	// Get the themes to output from the `$opts` argument.
+	// If the user has passed an `$opts` map without a
+	// `themes` key, default to an empty list.
+	$themes: map-get($opts, 'themes');
+	$themes: if($themes, $themes, ());
+
+	.o-example {
+		@include oTypographyBody();
+		border: 1px solid _oExampleGet('border-color');
+		background: _oExampleGet('background-color');
+		padding: oSpacingByName('s4');
+		margin: oSpacingByName('s1');
+	}
+
+	.o-example__button {
+		@include oButtonsContent($opts: ('type': 'primary'));
+	}
+
+	// Call the `oExampleAddTheme` mixin to output css
+	// for each theme if the current brand supports it.
+	@each $name in $themes {
+		@if _oExampleSupports($name) {
+			@include oExampleAddTheme($name);
+		}
+	}
+}</code></pre>
+
+<h3 id="custom-theme">Custom Theme</h3>
+
+<p>We can make our <code class="language-plaintext highlighter-rouge">o-example</code> component more flexible by allowing users to create their own theme. To achieve that we will add an optional <code class="language-plaintext highlighter-rouge">$opts</code> argument to <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code>. The <code class="language-plaintext highlighter-rouge">$opts</code> argument will accept a map of variables (like those we defined in <code class="language-plaintext highlighter-rouge">src/scss/_brand.scss</code>), and pass them to <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to create a custom theme. We’ll add support for one new option, <code class="language-plaintext highlighter-rouge">button-color</code>, which we will forward to the <code class="language-plaintext highlighter-rouge">oButtonsContent</code> mixin, so custom <code class="language-plaintext highlighter-rouge">o-example</code> themes can change the colour of the button also.</p>
+<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
+
+@mixin oExampleAddTheme($name, $opts: null) {
+	// Error if an unsupported theme name is given without
+	// `$opts` options. If `$opts` are given we are adding
+	// a new custom theme.
+	@if not $opts and not _oExampleSupports($name) {
+		@error 'The name "#{$name}" is not a supported "#{oBrandGetCurrentBrand()}" brand theme';
+	}
+
+	// If options are given use them to create a custom theme,
+	// otherwise use the predefined variables.
+	$theme: if($opts, $opts, $name);
+
+	// Output theme css.
+	.o-example--#{$name} {
+		background: _oExampleGet('background-color', $from: $theme);
+		color: _oExampleGet('text-color', $from: $theme);
+		// Theme the o-example button using o-buttons.
+		// Only output button styles to change the theme,
+		// don't repeat styles shared by all buttons.
+		$matching-button-theme: $name == 'inverse' or $name == 'b2c';
+		// Theme the button with the `button-color` option if the theme
+		// name does not match inverse or b2c, existing o-buttons theme.
+		// https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=master#themes
+		$custom-button-color: _oExampleGet('button-color', $from: $theme);
+		@if $matching-button-theme or $custom-button-color {
+			.o-example__button {
+				@include oButtonsContent($opts: (
+					'type': 'primary',
+					'theme': if($matching-button-theme, $name, ('color': $custom-button-color))
+				), $include-base-styles: false);
+			}
+		}
+	}
+}</code></pre>
+
+<p>From a users point of view, this is how a custom theme will be created using our <code class="language-plaintext highlighter-rouge">oExampleAddTheme</code> mixin:</p>
+<pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
+
+// Create a custom theme `.o-example--my-custom-theme`
+@include oExampleAddTheme('my-custom-theme', (
+	'background-color': oColorsByName('white'),
+	'text-color': oColorsByName('crimson'),
+	'button-color': oColorsByName('white')
+));</code></pre>
+
+<h3 id="theme-markup">Theme Markup</h3>
+
+<p>Update your demo markup <code class="language-plaintext highlighter-rouge">demos/src/demo.mustache</code> with a theme class to preview what we have done. For example to see the inverse theme update the component class to <code class="language-plaintext highlighter-rouge">o-example o-example--inverse</code>:</p>
+
+<pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
+
+-&lt;div class="o-example" data-o-component="o-example"&gt;
++&lt;div class="o-example o-example--inverse" data-o-component="o-example"&gt;
+	Hello world, I am a component named o-example!
+	&lt;button class="o-example__button"&gt;count&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-9-sass.png" />
+	<figcaption>
+        A master brand view of our "o-example" component with the `o-example--inverse` theme class applied.
+	</figcaption>
+</figure>
+
+<p>To see the b2c theme, update the component class to <code class="language-plaintext highlighter-rouge">o-example o-example--b2c</code>:</p>
+
+<pre><code class="o-syntax-highlight--diff">&lt;!-- demos/src/demo.mustache --&gt;
+
+-&lt;div class="o-example" data-o-component="o-example"&gt;
++&lt;div class="o-example o-example--b2c" data-o-component="o-example"&gt;
+	Hello world, I am a component named o-example!
+	&lt;button class="o-example__button"&gt;count&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+<figure>
+	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-10-sass.png" />
+	<figcaption>
+        A master brand view of our "o-example" component with the `o-example--b2c` theme class applied.
+	</figcaption>
+</figure>
+
+<h2 id="part-four-demos">Part Four: Demos</h2>
+
+<p>In total we’ve created 7 visual variants of our component across 3 brands and 2 themes, and created a Sass <abbr title="application programming interface">api</abbr> for users of the component to create custom themes. Many components don’t need to support so many variants but building a complex example has allowed us to explore all aspects of branding and themes.</p>
+
+<p>In summary, in part three we learnt:</p>
+<ul>
+  <li>Origami components may offer a distinct appearance for different brands: master, internal, or whitelabel.</li>
+  <li>How to use <code class="language-plaintext highlighter-rouge">o-brand</code> to set and retrieve brand variables in Sass.</li>
+  <li>How to switch brands locally using the <code class="language-plaintext highlighter-rouge">obt dev</code> <code class="language-plaintext highlighter-rouge">--brand</code> flag.</li>
+  <li>Origami components may be themed within a brand.</li>
+  <li>Some components allow custom themes to be created by the user.</li>
+</ul>
+
+<p>Now our component has multiple variants in the way of themes, we need multiple demos to present them to potential users in the <a href="https://registry.origami.ft.com/components">Origami registry</a>. In the next part we will add multiple demos and also look at other demo options in more detail. <a href="/docs/tutorials/create-a-new-component-part-4">Continue to part four</a>.</p>
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_tutorials/new-component/create-a-new-component-part-3.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

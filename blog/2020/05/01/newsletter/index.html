@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Newsletter, April 2020</title>
+	<meta name="description" content="This issue features the Origami Component Survey, Automating Visual Testing of Origami Components and moving from CircleCI to GitHub Actions" />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2020/05/01/newsletter/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-newsletter-april-2020">Origami Newsletter, April 2020</h1>
+
+<p>
+	Posted on <time datetime="2020-05-01T00:00:00Z">01 May 2020</time>
+	by Jake Champion.
+	
+		<br/>Tagged with
+		
+			<span>Newsletter</span>.
+		
+	
+</p>
+
+<p><abbr title="Too long; didn't read">
+	<strong>
+	TL;DR:
+	</strong>
+</abbr> This issue features the Origami Component Survey, Automating Visual Testing of Origami Components and moving from CircleCI to GitHub Actions</p>
+
+<h2 id="top-things">Top Things</h2>
+
+<p>These are some of the bigger things we’ve done over the last month.</p>
+
+<h3 id="origami-components-survey">Origami Components Survey</h3>
+
+<p>This quarter we are aiming to find out what our users know about Origami, how much of Origami they use and how we can improve our products for all of our users.</p>
+
+<p>Our first survey has already gone out, it was to find out how we can help teams build their own Origami Components. You can read more about the survey results <a href="/blog/2020/04/20/origami-survey-results/">on our blog</a>.</p>
+
+<h3 id="automated-visual-regression-testing">Automated Visual Regression Testing</h3>
+
+<p>When reviewing changes made to an Origami Component, we have to view the component in multiple browsers, at mulitple resolutions and mulitple different configurations for the component. This is to check if any visual bugs have been introduced accidentally as part of the change. It is a rather taxing and manual piece of work.</p>
+
+<p>We’ve automated all of that manual work now. Now when a change is made to an Origami Component, if the change has caused any of the visual aspects of the component to be different we are made aware of those changes and can quickly review and approve the work.</p>
+
+<p>This work has already proved to be useful by immediately finding a visual regression for a change in o-teaser, which we were able to fix before it went live on any website.</p>
+
+<p><img width="980" alt="Screenshot which shows the visual regression tooling working on the o-teaser component" src="https://user-images.githubusercontent.com/1569131/80602987-bc8df900-8a27-11ea-84b2-1329c45a3d3b.png" /></p>
+
+<h3 id="moved-from-circleci-to-github-actions">Moved from CircleCI to GitHub Actions</h3>
+
+<p>We’ve moved all of our automated tooling which was on CircleCI to GitHub Actions. This should shorten the size of the CircleCI queue for every FT project, making everyone’s feedback loop shorter.</p>
+
+<p>Moving to GitHub Actions has helped us manage all our repositories by making it simple to automate types of work such as releasing changes and adding tickets to our project board.</p>
+
+<p>As part of this work we’ve also made a <a href="https://github.com/Financial-Times/change-api-action/">GitHub Action for the Operations &amp; Reliability Change API</a>.</p>
+
+<h2 id="special-thanks">Special Thanks</h2>
+
+<p>This months special thanks goes to all the people who filled in our first survey. You all are helping to improve Origami, thank you.</p>
+
+<h2 id="broader-update">Broader Update</h2>
+
+<p>A digest of other things that have happened since our last update:</p>
+
+<p>o-share got a new design built for a small variation which will be used on live blogs <img src="https://user-images.githubusercontent.com/10405691/78160045-4f447380-743b-11ea-88c7-62660222f125.png" alt="the new o-share small variation" /></p>
+
+<p>o-share also got improved accessbility and analytics support thanks to Glynn Phillips in Customer Products.</p>
+
+<p>o-quote now has an editorial style thanks to Josh from the Content Innovation team.
+<img src="https://user-images.githubusercontent.com/10405691/78697295-82ce4480-78f8-11ea-99af-278ea5eae152.png" alt="the new o-quote editorial design" /></p>
+
+<p>o-editorial-layout uses the new editorial quote style from o-quote <img src="https://user-images.githubusercontent.com/10405691/80201001-5ebe7300-861b-11ea-98c1-8c4448db4f25.png" alt="new editorial quote style in o-editorial-layout" /></p>
+
+<p>o-teaser uses a new design which updated the spacing thanks to Eray and Mark from the Apps team.</p>
+
+<p>polyfill-library fixed a bug for <code class="language-plaintext highlighter-rouge">Map</code> support in Internet Explorer</p>
+
+<p>polyfill-library also added <code class="language-plaintext highlighter-rouge">Object.fromEntries</code> support in Internet Explorer</p>
+
+<p>polyfill-library fixed a bug in <code class="language-plaintext highlighter-rouge">HTMLCanvasElement.prototype.toBlob</code> for Edge</p>
+
+<p>polyfill-library added <code class="language-plaintext highlighter-rouge">URLSearchParams.sort</code> and <code class="language-plaintext highlighter-rouge">CSS.Supports</code> support for all browsers</p>
+
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2020-05-01-newsletter.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

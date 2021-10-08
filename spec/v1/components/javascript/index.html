@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>JavaScript Specification</title>
+	<meta name="description" content="An overview of how the Origami team writes JavaScript." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/spec/v1/components/javascript/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/spec/v1/">
+						
+							Spec
+						
+					</a>
+				</li>
+			
+
+			
+				<li>
+					<a href="/spec/v1/components/" >
+						Components
+					</a>
+				</li>
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				<li>
+					<a href="/spec/v1/components/markup/" >
+						Markup
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/javascript/" aria-current="page">
+						JavaScript
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/sass/" >
+						Sass
+					</a>
+				</li>
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__header">
+	
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/spec/v1/">
+						
+							Spec
+						
+					</a>
+				</li>
+			
+
+			
+				<li>
+					<a href="/spec/v1/components/" >
+						Components
+					</a>
+				</li>
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				<li>
+					<a href="/spec/v1/components/markup/" >
+						Markup
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/javascript/" aria-current="page">
+						JavaScript
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/sass/" >
+						Sass
+					</a>
+				</li>
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+
+	<div
+		class="o-message o-message--notice o-message--inner o-message--warning-light"
+		data-o-component="o-message"
+		data-o-message-close="false"
+		>
+		<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight">
+					The Origami specification is deprecated.
+				</span>
+				Origami projects may diverge from the specification, however, any new divergence will be released as a major version.
+			</p>
+			<p class="o-message__content-additional">
+				Read our <a href="/TODO">blogpost on why the Origami specificaiton</a> has been deprecated for more information.
+			</p>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="javascript-specification">JavaScript Specification</h1>
+
+<h2 id="syntax-convention">Syntax Convention</h2>
+
+<p>JavaScript <strong>must</strong> be linted with <a href="http://www.eslint.org/" class="o-typography-link--external">ESLint</a>.</p>
+
+<p>Developers <strong>should</strong> stick to the <a href="https://github.com/Financial-Times/origami-build-tools/blob/master/config/.eslintrc.js" class="o-typography-link--external">Origami eslintrc config</a>, since this represents a common standard across FT teams. Custom linting <strong>may</strong> be defined at the component level with a <code class="language-plaintext highlighter-rouge">.eslintrc</code> file, or at the file level with a <code class="language-plaintext highlighter-rouge">/*eslint ... */</code> comment.</p>
+
+<p>In addition, Object properties <strong>must not</strong> be named after reserved words in the JavaScript language.</p>
+
+<h2 id="definition">Definition</h2>
+
+<p>An Origami component <strong>must</strong> be a JavaScript class which <strong>should</strong> be named for the component, with the <code class="language-plaintext highlighter-rouge">o-</code> prefix dropped.</p>
+
+<p>i.e. a component named <code class="language-plaintext highlighter-rouge">o-dear</code> <strong>should</strong> be defined in a class named <code class="language-plaintext highlighter-rouge">Dear</code>.</p>
+
+<h2 id="encapsulation">Encapsulation</h2>
+
+<ul>
+  <li>Components <strong>should not</strong> add to the global scope.</li>
+  <li>Components <strong>should not</strong> assume the existence of globals except those defined as part of ECMAScript 5 and the DOM features listed in the <code class="language-plaintext highlighter-rouge">browserFeatures.required</code> section of <code class="language-plaintext highlighter-rouge">origami.json</code>.</li>
+  <li>Components <strong>must not</strong> modify the DOM outside of <a href="/spec/v1/components/markup/#owned-dom">owned DOM</a> areas, except:
+    <ul>
+      <li>To add <a href="/v1/sass/#feature-flags">CSS feature flags</a> to the <code class="language-plaintext highlighter-rouge">documentElement</code>.</li>
+      <li>Where passed a DOM element explicitly by the host application using the component.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="initialisation">Initialisation</h2>
+
+<p>Origami components <strong>must</strong> do as little as possible as the page parses. Instead they <strong>should</strong> provide a static <code class="language-plaintext highlighter-rouge">init</code> method which constructs instances of the component. The <code class="language-plaintext highlighter-rouge">init</code> method <strong>should</strong> run when the <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code> or <code class="language-plaintext highlighter-rouge">o.load</code> events are fired.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">init</code> method <strong>must</strong> be callable with no arguments. It <strong>may</strong> accept arguments, but if it does, all arguments <strong>must</strong> be optional (see <a href="https://github.com/Financial-Times/ft-origami/pull/228" class="o-typography-link--external">issue 228</a>).</p>
+
+<p>If the <code class="language-plaintext highlighter-rouge">init</code> method (or the components constructor) takes an element argument to identifying its owned DOM, it <strong>must</strong> accept the following types:</p>
+
+<ul>
+  <li>An <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" class="o-typography-link--external"><code class="language-plaintext highlighter-rouge">HTMLElement</code></a> object</li>
+  <li>A string containing a valid <code class="language-plaintext highlighter-rouge">querySelector</code> expression, e.g. <code class="language-plaintext highlighter-rouge">.main-content &gt; [data-o-component~='o-share']</code></li>
+  <li>Nothing (or any falsey value), which <strong>should</strong> be interpreted as <code class="language-plaintext highlighter-rouge">document.body</code></li>
+</ul>
+
+<p>If the given element does not have the components <a href="#data-attributes-on-owned-dom">data attribute</a> <code class="language-plaintext highlighter-rouge">data-o-component</code>, the <code class="language-plaintext highlighter-rouge">init</code> function <strong>may</strong> traverse the subtree looking for elements which do. The <code class="language-plaintext highlighter-rouge">init</code> function <strong>may</strong> create multiple instances and return them in an array. Where passed to a constructor, however, the component <strong>must</strong> only create one instance and return it. If no <a href="#initialisation">owned DOM</a> is found, the component <strong>must not</strong> throw an error.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>If a component’s JavaScript requires configuration, the following methods of passing that configuration <strong>must</strong> be supported.</p>
+
+<h3 id="data-attributes-on-owned-dom">Data attributes on owned DOM</h3>
+
+<p>The component <strong>must</strong> be configurable using data attributes on the component’s root HTML element. Data attributes <strong>must</strong> be named <code class="language-plaintext highlighter-rouge">data-{componentname}-{key}</code>, e.g. <code class="language-plaintext highlighter-rouge">data-o-share-id</code>.</p>
+
+<p>Developers <strong>should</strong> avoid the temptation to name data attributes based on the same naming conventions as BEM in CSS.  Data attributes are not subject to the same semantics as classes so BEM is not a great fit.</p>
+
+<h3 id="global-declarative-configuration-block">Global declarative configuration block</h3>
+
+<p>Where it is possible for multiple instances of a component to exist on a page and for the same configuration to apply to all of them, or where a component has no markup (e.g. <code class="language-plaintext highlighter-rouge">o-tracking</code> or <code class="language-plaintext highlighter-rouge">o-errors</code>), the component <strong>must</strong> support declarative configuration via JSON data placed within a <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> block with a <code class="language-plaintext highlighter-rouge">type='application/json'</code> and a data attribute in the component’s namespace with the key ‘config’ and no value, ie. <code class="language-plaintext highlighter-rouge">data-{componentname}-config</code>. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script data-o-errors-config type='application/json'&gt;
+    {
+        "sentryEndpoint": "https://....",
+        "application": {
+            "version": "1.2.3",
+            "name": "Foo Application"
+        }
+    }
+&lt;/script&gt;
+</code></pre></div></div>
+
+<p>Components <strong>must</strong> parse any such configuration using <code class="language-plaintext highlighter-rouge">JSON.parse</code> and only in response to an event (such as <code class="language-plaintext highlighter-rouge">o.DOMContentLoaded</code>) or function call.  Components <strong>must not</strong> expect more than one global declarative configuration block in their namespace to be present on the page.</p>
+
+<p>Any configuration option expecting a <code class="language-plaintext highlighter-rouge">function</code> <strong>must</strong> not be defined in a declarative configuration block and <strong>must</strong> be optional, providing default behaviour where the imperative configuration using <code class="language-plaintext highlighter-rouge">init()</code> is absent.  If a configuration key is present in the declarative configuration block that expects a <code class="language-plaintext highlighter-rouge">function</code>, an <code class="language-plaintext highlighter-rouge">Error</code> <strong>should</strong> be thrown to warn the developer of the invalid configuration.</p>
+
+<p>Global declarative configuration is not useful in situations where a developer chooses to call a component’s static <code class="language-plaintext highlighter-rouge">init</code> method directly, since the configuration could be given as an argument. Component’s <strong>should</strong> support that, and consider throwing an error if declarative configuration exists when <code class="language-plaintext highlighter-rouge">init</code> is called.</p>
+
+<h2 id="destruction">Destruction</h2>
+
+<p>Components <strong>should</strong> provide a static <code class="language-plaintext highlighter-rouge">destroy</code> method that reverts the component to a pre-<code class="language-plaintext highlighter-rouge">init</code> state. This is not necessary for large components like <code class="language-plaintext highlighter-rouge">o-header</code> where it doesn’t make sense for it to be reverted. Traces which can not be garbage collected <strong>should not</strong> remain after the <code class="language-plaintext highlighter-rouge">destroy</code> method is called.</p>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<p>Components <strong>should</strong> use <a href="http://registry.origami.ft.com/components/o-errors" class="o-typography-link--external">o-errors</a> to report runtime JavaScript errors and exceptions, as well as log notices and other significant events, using the <code class="language-plaintext highlighter-rouge">oErrors.log</code> custom event.</p>
+
+<p>Where components do not explicitly convert exceptions into <code class="language-plaintext highlighter-rouge">o-errors</code> events, any unhandled exceptions will still be caught and reported if <code class="language-plaintext highlighter-rouge">o-errors</code> has been initalised on the page. However, the report will lack critical information about the DOM elements to which the error relates.</p>
+
+<h2 id="feature-stability-and-polyfills">Feature Stability And Polyfills</h2>
+
+<p>Components <strong>must not</strong> use JavaScript features that are not yet part of a finalised standard, or which are proprietary, even if polyfills for them are available. JavaScript in components <strong>may</strong> use ES6 syntax, which product developers are expected to transpile to be ES5 if required.</p>
+
+<p>If you want to use a modern browser feature, you <strong>must</strong>:</p>
+<ul>
+  <li>Declare it as a requirement in your Origami manifest <code class="language-plaintext highlighter-rouge">origami.json</code>; or</li>
+  <li>Declare it as optional, test for it, and if not present, skip that functionality; or</li>
+  <li>Include code (either your own or a dependency that provides the feature, without adding it outside of your <a href="#encapsulation">component’s scope</a>).</li>
+</ul>
+
+<aside>We recommend product developers use the <a href="http://polyfill.io/" class="o-typography-link--external">Polyfill Service</a> to support required features in older browsers.</aside>
+
+<h2 id="integrating-with-a-component">Integrating With A Component</h2>
+
+<p>Components may wish to communicate (or make communication possible) with other components of the same type, other components of different types, or non-component code in the host page. This should be accomplished with API methods (when invoking known dependencies) and DOM events (in all other cases).</p>
+
+<h3 id="api">API</h3>
+
+<p>Components <strong>may</strong> expose an external API via an ESModule <code class="language-plaintext highlighter-rouge">export</code>. Components <strong>must not</strong> rely on the existence of any APIs other than those that are explicitly required dependencies.</p>
+
+<h3 id="events">Events</h3>
+
+<p>Components <strong>may</strong> emit events to allow loose coupling with other components and the host page. In doing so, the component <strong>must</strong>:</p>
+
+<ul>
+  <li>Use only browser-native DOM events with bubbling enabled.</li>
+  <li>Where the component wishes to attach custom data to events, use the <a href="https://developer.mozilla.org/en/docs/Web/API/CustomEvent" class="o-typography-link--external">CustomEvent</a> API, and pass an object in the <code class="language-plaintext highlighter-rouge">details</code> property.</li>
+  <li>Trigger events only on elements within the component’s owned DOM, or otherwise only on the body element.</li>
+  <li>Namespace event names with the name of the component in camel-case, separated from the event name with a dot, e.g. <code class="language-plaintext highlighter-rouge">oComponentName.eventName</code></li>
+  <li>Name the event using the present tense, e.g. <code class="language-plaintext highlighter-rouge">dialogClose</code>, not <code class="language-plaintext highlighter-rouge">dialogClosed</code>, and using camel-case.</li>
+</ul>
+
+<p>A valid example of a component emitting a DOM event is shown below:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">oExampleComponent.exampleEvent</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">detail</span><span class="p">:</span> <span class="p">{...},</span>
+    <span class="na">bubbles</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}));</span>
+</code></pre></div></div>
+
+<p>Components <strong>may</strong> bind to events emitted by themselves, other components, the host page or the browser. In doing so, the component:</p>
+
+<ul>
+  <li><strong>Must not</strong> stop the propagation chain except for events created by itself.</li>
+  <li><strong>Should</strong> bind only to the body element and use <a href="https://github.com/Financial-Times/ftdomdelegate" class="o-typography-link--external">event delegation</a> to ensure that handlers do not need to be bound every time elements are created. If not bound to the body element, handlers <strong>must</strong> be bound to elements within the components’s owned DOM.</li>
+</ul>
+
+<p>Components <strong>should</strong> handle events during the <a href="http://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing" class="o-typography-link--external">bubbling phase</a>, not the capturing phase (unless the event has no bubbling phase)</p>
+
+<p>If a module wishes to bind to the <code class="language-plaintext highlighter-rouge">DOMContentLoaded</code> or <code class="language-plaintext highlighter-rouge">load</code> browser events, it <strong>must</strong> prefix the event name with <code class="language-plaintext highlighter-rouge">o.</code>, and <strong>must</strong> expose the function that it binds to the event via its external API, eg:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">o.DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="nx">init</span><span class="p">);</span>
+<span class="k">export</span> <span class="nx">init</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="foreign-events">Foreign events</h3>
+
+<p>Components <strong>may</strong> emit events defined by other components, using the other component’s namespace, but <strong>must</strong> only do so if:</p>
+
+<ul>
+  <li>The foreign component is not a direct dependency; and</li>
+  <li>There are no callbacks in the event <code class="language-plaintext highlighter-rouge">details</code> payload; and</li>
+  <li>The foreign component has invited public use of the event in its documentation and has provided a comprehensive spec for the <code class="language-plaintext highlighter-rouge">details</code> payload.</li>
+</ul>
+
+<p>For the most part, use of this technique creates too much ‘magic’ behaviour that would not be expected by a product developer and <strong>should not</strong> be used. Except in some cases e.g. analytics, where the approach may be a reasonable compromise to enable loose coupling.</p>
+
+<h2 id="data-storage">Data Storage</h2>
+
+<p>Components that store data on the client via user-agent APIs <strong>must</strong> encapsulate all the logic required to get and set that data and must remain compatible with the format of data that they store, unless the major version number of the component changes. In that case the component <strong>must not</strong> invalidate any existing data, and <strong>should</strong> provide advice in docs on migrating user data from previous versions.</p>
+
+<h2 id="viewport-events">Viewport Events</h2>
+
+<p>For viewport events that may fire several times in quick succession (<code class="language-plaintext highlighter-rouge">scroll</code>, <code class="language-plaintext highlighter-rouge">resize</code> and <code class="language-plaintext highlighter-rouge">orientationchange</code>) it’s good practice to throttle listeners to these. <a href="https://registry.origami.ft.com/components/o-viewport">o-viewport</a> provides pre-throttled abstractions of these events and <strong>should</strong> be used by components that need to listen for changes to the viewport.</p>
+
+<h2 id="managing-layers-z-axis">Managing Layers (z-axis)</h2>
+
+<p>A component e.g. <code class="language-plaintext highlighter-rouge">o-overlay</code>, may need to display some or all of its owned DOM outside of the normal content flow so that it obscures content outside its owned DOM. The component <strong>must</strong> bind to and fire <code class="language-plaintext highlighter-rouge">o-layers</code> events on its closest parent with the class <code class="language-plaintext highlighter-rouge">o-layers__context</code>, or <code class="language-plaintext highlighter-rouge">body</code> if no such element exists. The component <strong>must</strong> use the custom events defined in <code class="language-plaintext highlighter-rouge">o-layers</code> to:</p>
+
+<ul>
+  <li>Broadcast changes in its own state.</li>
+  <li>Listen for events fired in its <code class="language-plaintext highlighter-rouge">o-layers__context</code> by other components that make use of the z-axis.</li>
+</ul>
+
+<p>Any component <strong>may</strong> use the <code class="language-plaintext highlighter-rouge">o-layers__context</code> class to define a new region of the DOM that can handle new layers independently of other regions of the DOM (e.g. two graphs handling their own tooltips independently, a date-picker appearing within a modal dialog). To learn more <a href="https://github.com/Financial-Times/o-layers/" class="o-typography-link--external">see o-layers</a>.</p>
+
+
+	
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_specification-v1/javascript.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

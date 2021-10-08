@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Newsletter, September 2021</title>
+	<meta name="description" content="We made a monorepo, and gained a delivery manager" />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2021/10/05/newsletter/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-newsletter-september-2021">Origami Newsletter, September 2021</h1>
+
+<p>
+	Posted on <time datetime="2021-10-05T00:00:00Z">05 October 2021</time>
+	by chee.
+	
+		<br/>Tagged with
+		
+			<span>Newsletter</span>.
+		
+	
+</p>
+
+<p><abbr title="Too long; didn't read">
+<strong>
+TL;DR:
+</strong>
+</abbr> We made a monorepo, and gained a delivery manager</p>
+
+<h2 id="top-things">Top things</h2>
+
+<p>Some of the bigger Origami news from the last month:</p>
+
+<h3 id="the-origami-component-system">The Origami Component System</h3>
+
+<p>The biggest thing we’ve done this month is move all of our components into a single repository.</p>
+
+<p>Each component used to live in a separate code base, and that meant a lot of extra work when we want to make changes that affected more than one component. This work doesn’t change a lot by itself beyond how we work on components, but it is the foundation from which we’ll build a better component system.</p>
+
+<h4 id="how-does-this-affect-me">How does this affect me?</h4>
+
+<p>How this change affects you depends on how you interact with Origami</p>
+
+<h5 id="origami-contributors">Origami contributors</h5>
+
+<p>If you want to open an issue or a pull request on an Origami component, you should do it in the <a href="https://github.com/Financial-Times/origami">Origami Component System repository</a>. The testing in CI is so fast now, any change runs the test on every single component and for most changes it finishes in about 2 minutes. Everything else should be about the same.</p>
+
+<p>Documentation is a little light at the moment, but if you run into any trouble you can always talk to us in #origami-support or #origami-chat on Slack.</p>
+
+<h5 id="origami-consumers">Origami consumers</h5>
+
+<p>This work itself doesn’t affect end-users of Origami, but later changes it unlocks (design tokens, better documentation, sass modules) will make your life better, I promise.</p>
+
+<h5 id="designers">Designers</h5>
+
+<p>This change won’t affect you yet, but the work we’re going to build on top of this will give you better insight into how a change to one component affects the others. And it’s the first step to Origami being the reference implementation of the design system.</p>
+
+<h5 id="everyone-else">Everyone else</h5>
+
+<p>The sites that depend on Origami have a bright future of performing better and being more accessible.</p>
+
+<h3 id="origami-has-a-new-team-member">Origami has a new team member</h3>
+
+<p>Since we last spoke, the team has grown!</p>
+
+<p>We’re very happy to welcome aboard Kamran Muniree who is now serving as Origami’s delivery manager. He’s already made a big difference, and the team are very excited about the future.</p>
+
+<p>We’re also still hiring for an engineering role, so make sure you apply if you’ve ever wanted to work on Origami. There has never been a better time to be part of the team.</p>
+
+<h3 id="origami-office-hours">Origami Office Hours</h3>
+
+<p>This isn’t new, but every week on a Friday at 2p.m. (London time) the team are available On-Line at a meeting called <a href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MWVzZDgzMmhtcXZhYTVvNmlyZXZyNm5tNjdfMjAyMTEwMDhUMTMwMDAwWiBjaGVlLnJhYmJpdHNAZnQuY29t&amp;tmsrc=chee.rabbits%40ft.com&amp;scp=ALL">Origami Office Hours</a>.</p>
+
+<p>If you ever have any questions that you’d prefer talking through in person, you can pop by there and we’ll be available.</p>
+
+<p>Thanks to Kamran Muniree it is now available in the P&amp;T calendar.</p>
+
+<h2 id="special-thanks">Special thanks</h2>
+
+<p>leaf rogers 🍃 for helping out Jake in an emergency when an unexpected large video found its way into the image service and ate all the memory and it crashed</p>
+
+<h2 id="broader-update">Broader update</h2>
+
+<p>A digest of other things that have happened this month:</p>
+
+<ul>
+  <li>Added a <a href="https://origami.ft.com/storybook/?path=/story/button--inverse&amp;args=label:Edit;size:big;type:primary;icon:edit">storybook config for o-buttons</a></li>
+  <li>Added Origami website to monorepo</li>
+  <li>Added script which logs out what releases will be made for which packages</li>
+  <li>Replaced scroll event with <code class="language-plaintext highlighter-rouge">IntersectionObserver</code> to improve performance of o-layout</li>
+  <li>Add wheat-100 to o-colors master brand palette</li>
+  <li>Brought n-notification into the monorepo</li>
+  <li>Updated the <code class="language-plaintext highlighter-rouge">package.json</code> and <code class="language-plaintext highlighter-rouge">origami.json</code> urls to point at the monorepo</li>
+  <li>Added homepage, bugs and support email to the package.json of every component</li>
+  <li>Increased the bottom margin of h2 and h3 editorial headings</li>
+</ul>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2021-10-05-newsletter.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

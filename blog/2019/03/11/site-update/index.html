@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Site Update</title>
+	<meta name="description" content="We re-launched the Origami website and Origami component registry." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2019/03/11/site-update/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-site-update">Origami Site Update</h1>
+
+<p>
+	Posted on <time datetime="2019-03-11T00:00:00Z">11 March 2019</time>
+	by Lee Moody.
+	
+</p>
+
+<p><strong>TL;DR:</strong> We re-launched the <a href="/">Origami website</a> and <a href="https://registry.origami.ft.com/components">Origami component registry</a> with a unified design; overhauled documentation; refined specifications; and a new site structure to bring it all together.</p>
+
+<h2 id="motivation--goals">Motivation &amp; Goals</h2>
+
+<p>Our main site <a href="/">origami.ft.com</a> introduces the Origami team, components, and services. It hosts our documentation, which helps people use Origami in their projects; our specifications, which helps teams contribute to Origami; and links out to our <a href="https://registry.origami.ft.com/components">component registry</a>, which hosts documentation and demos specific to each Origami compatible component, service, and imageset available.</p>
+
+<p>Our component registry and main site were presented as separate sites, which made moving between the documentation and a specific component or service a clunky experience. This has been especially the case recently, as our component registry has adopted new FT styles whilst our main site has not been updated.</p>
+
+<p>In addition, the content of our sites has grown organically over time as new tools, approaches, and components have come and gone. This meant some outdated content was left in place, the structure of the site became less clear, and the UI was added to as needed and not always considered as a whole.</p>
+
+<p>With this in mind, our aims were to:</p>
+<ul>
+  <li>Bring the Origami website and component registry together with a unified design.</li>
+  <li>Update the site structure, to help all people find the information they need.</li>
+  <li>Overhaul our documentation, with our principles and latest best practises in mind.</li>
+  <li>Refine our specifications, by reducing verboseness and removing less relevant requirements.</li>
+</ul>
+
+<h2 id="homepage">Homepage</h2>
+
+<p>On our homepage we’ve removed detail and instead focus on pointing people in the right direction. We’ve also increased the prominence of our contact details. As a services team we want to encourage any questions, feedback, and collaboration.</p>
+
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/home-before.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami homepage before. There's a lot of text.</figcaption>
+</figure>
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/home-after.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami homepage after. There's less text and more clear calls to action, such as to contact the team.</figcaption>
+</figure>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>We’ve rewritten our documentation to cover our latest recommendations. As part of the rewrite we have introduced new sections like “<a href="/docs/principles/tone-and-language/">tone and language</a>” – a great reference whilst writing documentation. Some sections have been removed, often where the documentation can be found elsewhere (e.g. we shouldn’t repeat <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> recommendations).</p>
+
+<p>Perhaps the most striking change is how we have restructured and presented the documentation under “principles”, “components”, “services”, and “tutorials”. Each section is now explicitly highlighted with a heading and content list.</p>
+
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/docs-before.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami documentation before. Content types are not seperated very clearly, although the body of the page explains where to find what documentation.</figcaption>
+</figure>
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/docs-after.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami documentation after. We use headings and lists to make the page more easy to scan.</figcaption>
+</figure>
+
+<h2 id="specifications">Specifications</h2>
+
+<p>As with our documentation, the Origami specifcation has also been reviewed and simplified where possible.</p>
+
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/specs-before.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami specification before. The navigation bar is larger than present, e.g. "Third party components" has been removed.</figcaption>
+</figure>
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/specs-after.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami specification after. The navigation bar more clearly points to our three specifications: component, service, and origami.json specification.</figcaption>
+</figure>
+
+<h2 id="registry">Registry</h2>
+
+<p>Our component registry is now in line with our main site and other internal tools from the FT.</p>
+
+<p>The right hand sidebar is where we have made the most content changes. We found in qualitative user research many people don’t make use of all the sidebar content whilst some ignore it entirely. So we decided to leave detailed usage instructions to our improved documentation site and use the sidebar for key component-wide details and helpful links.</p>
+
+<p>We maintained the link to GitHub as that is often used. The component version is also useful to copy and paste, so we kept that under “install component”. New sections in the right hand sidebar include an issue/contact section, again to encourage our users to give feedback or ask for help. We also moved the brand switcher into the sidebar along with the version selector. These options exist in the right hand sidebar across component demos, READMEs, SassDocs and JSDocs. Hopefully this will minimize context switching and will make choosing a different brand, version or visiting GitHub more intuitive.</p>
+
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/registry-before.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami registry before. The style does not match our main site or other internal products from the FT, and there is a lot of detail which detracts from the main content of the page.</figcaption>
+</figure>
+<figure>
+    <img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https://origami.ft.com/assets/images/2019-03-11-site-update/registry-after.png?source=origami&amp;width=1240" />
+    <figcaption>The Origami registry after. The design matches our main site and other internal FT products, secondary content is less verbose, and our contact details are more discoverable.</figcaption>
+</figure>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>We’re excited to have released updated documentation and specifications, especially alongisde the improved site structure and unified design. We hope the changes we’ve made make it easier to work with Origami, and easier to reach out to the team. If you have any feedback please let the team know. 😃</p>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2019-03-11-site-update.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>

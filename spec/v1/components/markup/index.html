@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Markup Specification</title>
+	<meta name="description" content="An overview of how the Origami team writes markup." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/spec/v1/components/markup/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/spec/v1/">
+						
+							Spec
+						
+					</a>
+				</li>
+			
+
+			
+				<li>
+					<a href="/spec/v1/components/" >
+						Components
+					</a>
+				</li>
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				<li>
+					<a href="/spec/v1/components/markup/" aria-current="page">
+						Markup
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/javascript/" >
+						JavaScript
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/sass/" >
+						Sass
+					</a>
+				</li>
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__header">
+	
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+	<nav class="o-header-services__secondary-nav" aria-label="secondary" data-o-header-services-nav="">
+		<div class="o-header-services__secondary-nav-content" data-o-header-services-nav-list="">
+			<ol class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--ancestors" aria-label="Ancestor sections">
+			
+
+			
+				<!-- Collection item page -->
+				<li>
+					
+					<a href="/spec/v1/">
+						
+							Spec
+						
+					</a>
+				</li>
+			
+
+			
+				<li>
+					<a href="/spec/v1/components/" >
+						Components
+					</a>
+				</li>
+			
+			</ol>
+
+			<ul class="o-header-services__secondary-nav-list o-header-services__secondary-nav-list--children" aria-label="Child sections">
+			
+
+				<li>
+					<a href="/spec/v1/components/markup/" aria-current="page">
+						Markup
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/javascript/" >
+						JavaScript
+					</a>
+				</li>
+				<li>
+					<a href="/spec/v1/components/sass/" >
+						Sass
+					</a>
+				</li>
+
+			
+			</ul>
+		</div>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--left" title="scroll left" aria-hidden="true" disabled></button>
+		<button class="o-header-services__scroll-button o-header-services__scroll-button--right" title="scroll right" aria-hidden="true" disabled></button>
+	</nav>
+	
+</header>
+
+
+
+
+	<div
+		class="o-message o-message--notice o-message--inner o-message--warning-light"
+		data-o-component="o-message"
+		data-o-message-close="false"
+		>
+		<div class="o-message__container">
+		<div class="o-message__content">
+			<p class="o-message__content-main">
+				<span class="o-message__content-highlight">
+					The Origami specification is deprecated.
+				</span>
+				Origami projects may diverge from the specification, however, any new divergence will be released as a major version.
+			</p>
+			<p class="o-message__content-additional">
+				Read our <a href="/TODO">blogpost on why the Origami specificaiton</a> has been deprecated for more information.
+			</p>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="markup-specification">Markup Specification</h1>
+
+<p>The markup <strong>must</strong> be <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax" class="o-typography-link--external">valid HTML5</a>, except that a DOCTYPE, and opening <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags should be assumed (i.e. the markup should be a document body fragment which becomes a valid HTML5 document when enclosed in <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> tags).</p>
+
+<p>Markup <strong>must</strong> also conform to the following XML rules:</p>
+<ul>
+  <li><strong>Must</strong> have a single root element.</li>
+  <li>All elements that are opened <strong>must</strong> be closed (including <a href="https://github.com/Financial-Times/ft-origami/issues/66" class="o-typography-link--external">inline SVG</a>).</li>
+  <li>Closing tags <strong>must</strong> be in order.</li>
+  <li><strong>Must</strong> not have valueless attributes.</li>
+</ul>
+
+<h2 id="elements">Elements</h2>
+
+<p>Semantic markup <strong>must</strong> be used where native elements exist to describe the content:</p>
+<ul>
+  <li>Good: <code class="language-plaintext highlighter-rouge">&lt;address&gt;</code></li>
+  <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;div class="address"&gt;</code></li>
+</ul>
+
+<p>The following elements <strong>must not</strong> be used:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;script&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;style&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;base&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;link&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;iframe&gt;</code> (except iframes <strong>may</strong> be added to the DOM by JavaScript)</li>
+</ul>
+
+<p>Elements and attributes which are deprecated in the HTML5 spec <strong>should not</strong> be used:</p>
+<ul>
+  <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;applet&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;frameset&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;font&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;link rev=""&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;td align="right"&gt;</code></li>
+</ul>
+
+<p>Elements that are normally singletons on a page <strong>must not</strong> be used in components:</p>
+<ul>
+  <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;meta name="viewport" content="..." /&gt;</code>.</li>
+  <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;meta charset="utf-8"&gt;</code>.</li>
+  <li>Bad: <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>.</li>
+</ul>
+
+<h2 id="attributes">Attributes</h2>
+
+<p>The following attributes <strong>must not</strong> be present on any element:</p>
+<ul>
+  <li>target</li>
+  <li>Event handler attributes, e.g. <code class="language-plaintext highlighter-rouge">onclick</code>, <code class="language-plaintext highlighter-rouge">onchange</code></li>
+</ul>
+
+<p>HREFs in markup <strong>must not</strong> use the <code class="language-plaintext highlighter-rouge">javascript:</code> protocol.</p>
+
+<p>Attributes that are normally singletons on a page <strong>must not</strong> be used in components. This includes attributes defined by specs external to the main HTML5 spec, such as Microdata and WAI-ARIA:</p>
+<ul>
+  <li>Bad: the ARIA <code class="language-plaintext highlighter-rouge">role="main"</code> attribute.</li>
+  <li>Bad: the <code class="language-plaintext highlighter-rouge">id</code> attribute (except as below).</li>
+</ul>
+
+<p>The ID attribute <strong>must not</strong> be used, except where:</p>
+<ul>
+  <li>It identifies a form element that needs to be targeted by a <code class="language-plaintext highlighter-rouge">for</code> attribute <em>or</em> is an unavoidable requirement of a third party library e.g. google ads.</li>
+  <li>The value is namespaced with the name of the component, e.g. <code class="language-plaintext highlighter-rouge">o-signin-username</code>.</li>
+  <li>The component only has singleton use cases (i.e. it is pointless to include it in a product page more than once).</li>
+</ul>
+
+<p>Component authors are encouraged to provide assistive accessibility information in their component’s markup where appropriate. See <a href="https://www.w3.org/TR/2019/NOTE-wai-aria-practices-1.1-20190207/" class="o-typography-link--external">WAI-ARIA Authoring Practices</a>; keep in mind no ARIA is better than bad ARIA.</p>
+
+<h2 id="conditional-comments">Conditional Comments</h2>
+
+<p>Conditional comments <strong>must not</strong> be used within components. To target styles for a specifc browser or feature set, see <a href="/spec/v1/components/sass/#feature-flags">feature flags in the Sass spec</a>.</p>
+
+<h2 id="owned-dom">Owned DOM</h2>
+
+<p>“Owned DOM” is the DOM a component <strong>may</strong> act on with JavaScript or style with CSS.</p>
+
+<p>A component <strong>may</strong> act on a DOM element using JavaScript if it, or any ancestor, has a data attribute containing the component’s name <code class="language-plaintext highlighter-rouge">data-o-componentname</code>. It <strong>must not</strong> act on other DOM, <a href="/spec/v1/components/javascript/#encapsulation">with two exceptions</a>.</p>
+
+<p>A component <strong>may</strong> style a DOM element with CSS if it, or any ancestor, has a class which starts with the name of the component <code class="language-plaintext highlighter-rouge">o-componentname</code>. It <strong>must not</strong> style other DOM.</p>
+
+<p>As an example, the <code class="language-plaintext highlighter-rouge">o-date</code> component is permitted to style and apply JavaScript behaviour to the following element:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z"&gt;June 15, 2000&lt;/time&gt;
+</code></pre></div></div>
+
+<h2 id="markup-structure">Markup Structure</h2>
+
+<p>Component styles and behaviour <strong>may</strong> assume that any HTML markup follows the hierarchical structure specified in their documentation and demos. However, components <strong>should not</strong> make assumptions about the order of HTML elements, and <strong>should</strong>, as far as possible, cope with additional HTML elements not specified.</p>
+
+<h2 id="no-script">No Script</h2>
+
+<p>Markup <strong>may</strong> contain elements that do not work without accompanying JavaScript. To support a <a href="/docs/components/compatibility/#core--enhanced-experiences">core and enhanced experience</a> these elements <strong>must</strong> have a <code class="language-plaintext highlighter-rouge">o--if-js</code> class. They <strong>should</strong> be accompanied by an element with a class of <code class="language-plaintext highlighter-rouge">o--if-no-js</code> to offer feature fallback to users where the product developer opts not to run the JavaScript, or the user agent does not support it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="o--if-js"&gt;Submit a new comment: ... &lt;/div&gt;
+&lt;div class="o--if-no-js"&gt;To comment on this article, you need to upgrade your web browser.  &lt;a href="..."&gt;Learn how to upgrade&lt;/a&gt;.&lt;/div&gt;
+</code></pre></div></div>
+
+<p>If the <code class="language-plaintext highlighter-rouge">o--if-no-js</code> element contains an image for the <a href="/docs/components/compatibility/#core--enhanced-experiences">core experience</a> only, a <code class="language-plaintext highlighter-rouge">&lt;noscript&gt;</code> tag <strong>should</strong> be used <a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="o-typography-link--external">to avoid unnecessary HTTP requests</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="o--if-no-js"&gt;
+    &lt;noscript&gt;
+        &lt;img src="https://spoor-api.ft.com/px.gif?xxxxxx"/&gt;
+    &lt;/noscript&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<h2 id="templates">Templates</h2>
+
+<p>Origami components <strong>should not</strong> provide templates directly, outside of HTML within component demos and the readme. But where they do, templates <strong>must</strong> be in <a href="https://mustache.github.io/" class="o-typography-link--external">Mustache format</a>. This is because product developers may choose to use any technology stack to built their application, and it’s important that they not be forced to choose a particular one in order to use Origami components.</p>
+
+<h3 id="reference-formats">Reference formats</h3>
+
+<p>Mustache templates <strong>may</strong> include references to other assets, whether they are data placeholders, other templates, or other components (all of which need to be resolved server-side), or static assets like images that might need to be resolved on the client. In many cases these references will need to be transformed by product developers in order to make templates useful, while other product developers may simply use templates as a guide to the markup they must write into their own code. Either way, templates <strong>must</strong> refer to external assets in a consistent way.</p>
+
+<h3 id="partials">Partials</h3>
+
+<p>Partials included from the same repository <strong>must</strong> be referenced using a relative path, prefixed with a <code class="language-plaintext highlighter-rouge">&gt;</code> and enclosed in double braces:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{&gt; ../partials/innerbox.mustache }}
+</code></pre></div></div>
+
+<h3 id="other-origami-components">Other Origami Components</h3>
+
+<p>Other Origami components must be referenced using the name of the component, enclosed in triple braces:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{{ o-sign-in }}}
+</code></pre></div></div>
+
+<h3 id="static-assets">Static Assets</h3>
+
+<p>Static assets (such as images) included from the same repository <strong>must</strong> be referenced using a relative path:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src="../images/logo.png" alt="" /&gt;
+</code></pre></div></div>
+
+<h3 id="links">Links</h3>
+
+<p>Links to real URLs <strong>must</strong> be <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative</a>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="//www.google.com"&gt;Google&lt;/a&gt;
+</code></pre></div></div>
+
+<h3 id="data">Data</h3>
+
+<p>Placeholders for the component’s data model <strong>must</strong> be referenced using a descriptive (lowercased and hyphened) keyword, prefixed with the name of the component and a dot:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ o-header.main-title }}
+</code></pre></div></div>
+
+<p>Double braces <strong>must</strong> be used for content that should have HTML entities escaped. Triple braces <strong>must</strong> be used for content which should be inserted without modification.</p>
+
+
+	
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_specification-v1/markup.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>
