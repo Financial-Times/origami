@@ -34,15 +34,19 @@ export function Step({label, state, url}: StepProps) {
 }
 
 export interface SteppedProgressProps {
-	// Some day hopefully we can allow only Step to be children
-	// https://github.com/microsoft/TypeScript/issues/21699
+	steps: StepProps[];
 	children: JSX.Element | JSX.Element[];
 }
 
-export function SteppedProgress({children}: SteppedProgressProps) {
+export function SteppedProgress({steps, children}: SteppedProgressProps) {
 	return (
 		<div className="o-stepped-progress" data-o-component="o-stepped-progress">
-			<ol className="o-stepped-progress__steps">{children}</ol>
+			<ol className="o-stepped-progress__steps">
+				{steps.map((step, index) => {
+					return <Step {...step} key={step.label + index} />;
+				})}
+				{children}
+			</ol>
 		</div>
 	);
 }

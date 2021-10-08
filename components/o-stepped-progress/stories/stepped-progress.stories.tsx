@@ -1,9 +1,12 @@
 import {withDesign} from 'storybook-addon-designs';
 import {useEffect} from 'react';
 import {SteppedProgress, Step} from '../src/tsx/stepped-progress';
-import './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
+<<<<<<< HEAD
 import withHtml from 'origami-storybook-addon-html';
+=======
+import './stepped-progress.scss';
+>>>>>>> 0d5c861d2 (chore: go back to providing js array interface)
 
 export default {
 	title: 'Stepped Progress',
@@ -18,34 +21,31 @@ export default {
 	},
 };
 
-export const Normal = () => {
-	useEffect(() => javascript.init(), []);
-	return (
-		<SteppedProgress>
-			<Step label="Wake up" state="complete" />
-			<Step
-				label="Eat a egg"
-				state="complete"
-				url="https://en.wikipedia.org/wiki/Egg_as_food"
-			/>
-			<Step label="Leave the house" state="current" />
-			<Step label="Defeat everyone" />
-		</SteppedProgress>
-	);
+const Story = args => {
+	useEffect(() => void javascript.init(), []);
+	return <SteppedProgress {...args} />;
 };
 
-export const Error = () => {
-	useEffect(() => javascript.init(), []);
-	return (
-		<SteppedProgress>
-			<Step label="Wake up" state="complete" />
-			<Step
-				label="Eat a egg"
-				state="complete"
-				url="https://en.wikipedia.org/wiki/Egg_as_food"
-			/>
-			<Step label="Leave the house" state="error" />
-			<Step label="Defeat everyone" />
-		</SteppedProgress>
-	);
+export const Normal = Story.bind({});
+Normal.args = {
+	steps: [
+		{label: 'Wake up', state: 'complete'},
+		{label: 'Eat a egg', state: 'complete'},
+		{label: 'Leave the house', state: 'current'},
+		{label: 'Defeat everyone'},
+	],
+};
+
+export const Error = Story.bind({});
+Error.args = {
+	steps: [
+		{label: 'Wake up', state: 'complete'},
+		{
+			label: 'Eat a egg',
+			state: 'complete',
+			url: 'https://en.wikipedia.org/wiki/Egg_as_food',
+		},
+		{label: 'Leave the house', state: 'error'},
+		{label: 'Defeat everyone'},
+	],
 };
