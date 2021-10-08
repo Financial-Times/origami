@@ -1,0 +1,1996 @@
+html {
+  background-color: #ffffff;
+}
+
+body {
+  font-family: MetricWeb, serif;
+  margin: 1em;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p {
+  max-width: 900px;
+  font-size: 18px;
+}
+
+.theme-box {
+  display: inline-block;
+  padding: 10px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
+.custom-button-theme-demo body {
+  margin: 0;
+}
+
+.demo-inverse {
+  background-color: #262a33;
+  padding: 1em;
+}
+
+.o-buttons {
+  font-family: MetricWeb, sans-serif;
+  font-weight: 600;
+  font-family: MetricWeb, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  line-height: 14px;
+  background-size: 21px 21px;
+  min-height: 28px;
+  min-width: 60px;
+  padding: 6px 8px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin: 0;
+  border-style: solid;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+  transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-clip: border-box;
+  border-width: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+.o-typography--loading-sans .o-buttons {
+  font-size: 12.18px;
+  font-family: sans-serif;
+}
+.o-buttons[disabled] {
+  pointer-events: none;
+  opacity: 0.4;
+  cursor: default;
+}
+
+.o-buttons--hide-disabled[disabled] {
+  visibility: hidden;
+}
+
+.o-buttons--big {
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  line-height: 16px;
+  background-size: 40px 40px;
+  min-height: 40px;
+  min-width: 80px;
+  padding: 11px 20px;
+}
+.o-typography--loading-sans .o-buttons--big {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-buttons-icon {
+  background-repeat: no-repeat;
+  background-position: 3px;
+  padding-left: 24px;
+}
+
+.o-buttons--big.o-buttons-icon {
+  background-size: 40px 40px;
+  padding-left: 40px;
+}
+
+.o-buttons-icon.o-buttons-icon--icon-only {
+  padding-left: 0;
+  background-position: 50%;
+  min-width: 40px;
+}
+
+.o-buttons-icon__label {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0);
+  clip-path: polygon(0 0, 0 0);
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 2px;
+  height: 2px;
+  white-space: nowrap;
+}
+
+.o-buttons--primary {
+  background-color: #0d7680;
+  color: white;
+  border-color: transparent;
+}
+.o-buttons--primary:hover {
+  background-color: #095259;
+  color: white;
+  border-color: transparent;
+  text-decoration: none;
+}
+.o-buttons--primary:focus {
+  background-color: #095259;
+  color: white;
+  border-color: transparent;
+}
+.o-buttons--primary[aria-selected=true], .o-buttons--primary[aria-current], .o-buttons--primary[aria-pressed=true], .o-buttons--primary:active {
+  background-color: #052f33;
+  color: white;
+  border-color: transparent;
+}
+
+.o-buttons--primary.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse {
+  background-color: #ffffff;
+  color: #262a33;
+  border-color: transparent;
+}
+.o-buttons--primary.o-buttons--inverse:hover {
+  background-color: #c9cacc;
+  color: #262a33;
+  border-color: transparent;
+  text-decoration: none;
+}
+.o-buttons--primary.o-buttons--inverse:focus {
+  background-color: #c9cacc;
+  color: #262a33;
+  border-color: transparent;
+}
+.o-buttons--primary.o-buttons--inverse[aria-selected=true], .o-buttons--primary.o-buttons--inverse[aria-current], .o-buttons--primary.o-buttons--inverse[aria-pressed=true], .o-buttons--primary.o-buttons--inverse:active {
+  background-color: #9d9fa3;
+  color: #262a33;
+  border-color: transparent;
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--inverse.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--inverse.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono {
+  background-color: #262a33;
+  color: white;
+  border-color: transparent;
+}
+.o-buttons--primary.o-buttons--mono:hover {
+  background-color: #51555c;
+  color: white;
+  border-color: transparent;
+  text-decoration: none;
+}
+.o-buttons--primary.o-buttons--mono:focus {
+  background-color: #51555c;
+  color: white;
+  border-color: transparent;
+}
+.o-buttons--primary.o-buttons--mono[aria-selected=true], .o-buttons--primary.o-buttons--mono[aria-current], .o-buttons--primary.o-buttons--mono[aria-pressed=true], .o-buttons--primary.o-buttons--mono:active {
+  background-color: #72757a;
+  color: white;
+  border-color: transparent;
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--primary.o-buttons--mono.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--primary.o-buttons--mono.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary {
+  background-color: transparent;
+  color: #0d7680;
+  border-color: #0d7680;
+}
+.o-buttons--secondary:hover {
+  background-color: rgba(13, 118, 128, 0.1);
+  color: #0d7680;
+  border-color: #0d7680;
+  text-decoration: none;
+}
+.o-buttons--secondary:focus {
+  background-color: rgba(13, 118, 128, 0.1);
+  color: #0d7680;
+  border-color: #0d7680;
+}
+.o-buttons--secondary[aria-selected=true], .o-buttons--secondary[aria-current], .o-buttons--secondary[aria-pressed=true], .o-buttons--secondary:active {
+  background-color: #0d7680;
+  color: white;
+  border-color: #0d7680;
+}
+
+.o-buttons--secondary.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-left[aria-selected=true], .o-buttons--secondary.o-buttons-icon--arrow-left[aria-current], .o-buttons--secondary.o-buttons-icon--arrow-left[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--arrow-left:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-left:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-right[aria-selected=true], .o-buttons--secondary.o-buttons-icon--arrow-right[aria-current], .o-buttons--secondary.o-buttons-icon--arrow-right[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--arrow-right:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-right:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--upload[aria-selected=true], .o-buttons--secondary.o-buttons-icon--upload[aria-current], .o-buttons--secondary.o-buttons-icon--upload[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--upload:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--upload:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--tick[aria-selected=true], .o-buttons--secondary.o-buttons-icon--tick[aria-current], .o-buttons--secondary.o-buttons-icon--tick[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--tick:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--tick:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--plus[aria-selected=true], .o-buttons--secondary.o-buttons-icon--plus[aria-current], .o-buttons--secondary.o-buttons-icon--plus[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--plus:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--plus:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--warning[aria-selected=true], .o-buttons--secondary.o-buttons-icon--warning[aria-current], .o-buttons--secondary.o-buttons-icon--warning[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--warning:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--warning:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-down[aria-selected=true], .o-buttons--secondary.o-buttons-icon--arrow-down[aria-current], .o-buttons--secondary.o-buttons-icon--arrow-down[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--arrow-down:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-down:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-up[aria-selected=true], .o-buttons--secondary.o-buttons-icon--arrow-up[aria-current], .o-buttons--secondary.o-buttons-icon--arrow-up[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--arrow-up:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--arrow-up:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--grid[aria-selected=true], .o-buttons--secondary.o-buttons-icon--grid[aria-current], .o-buttons--secondary.o-buttons-icon--grid[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--grid:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--grid:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--list[aria-selected=true], .o-buttons--secondary.o-buttons-icon--list[aria-current], .o-buttons--secondary.o-buttons-icon--list[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--list:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--list:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--edit[aria-selected=true], .o-buttons--secondary.o-buttons-icon--edit[aria-current], .o-buttons--secondary.o-buttons-icon--edit[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--edit:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--edit:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--download[aria-selected=true], .o-buttons--secondary.o-buttons-icon--download[aria-current], .o-buttons--secondary.o-buttons-icon--download[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--download:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--download:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--search[aria-selected=true], .o-buttons--secondary.o-buttons-icon--search[aria-current], .o-buttons--secondary.o-buttons-icon--search[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--search:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--search:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--refresh[aria-selected=true], .o-buttons--secondary.o-buttons-icon--refresh[aria-current], .o-buttons--secondary.o-buttons-icon--refresh[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--refresh:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--refresh:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--cross[aria-selected=true], .o-buttons--secondary.o-buttons-icon--cross[aria-current], .o-buttons--secondary.o-buttons-icon--cross[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--cross:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--cross:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--book[aria-selected=true], .o-buttons--secondary.o-buttons-icon--book[aria-current], .o-buttons--secondary.o-buttons-icon--book[aria-pressed=true], .o-buttons--secondary.o-buttons-icon--book:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons-icon--book:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.o-buttons--secondary.o-buttons--inverse:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-color: #ffffff;
+  text-decoration: none;
+}
+.o-buttons--secondary.o-buttons--inverse:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-color: #ffffff;
+}
+.o-buttons--secondary.o-buttons--inverse[aria-selected=true], .o-buttons--secondary.o-buttons--inverse[aria-current], .o-buttons--secondary.o-buttons--inverse[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse:active {
+  background-color: #ffffff;
+  color: black;
+  border-color: #ffffff;
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book[aria-selected=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book[aria-current], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book[aria-pressed=true], .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+}
+.o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--inverse.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono {
+  background-color: transparent;
+  color: #262a33;
+  border-color: #262a33;
+}
+.o-buttons--secondary.o-buttons--mono:hover {
+  background-color: rgba(38, 42, 51, 0.15);
+  color: #262a33;
+  border-color: #262a33;
+  text-decoration: none;
+}
+.o-buttons--secondary.o-buttons--mono:focus {
+  background-color: rgba(38, 42, 51, 0.15);
+  color: #262a33;
+  border-color: #262a33;
+}
+.o-buttons--secondary.o-buttons--mono[aria-selected=true], .o-buttons--secondary.o-buttons--mono[aria-current], .o-buttons--secondary.o-buttons--mono[aria-pressed=true], .o-buttons--secondary.o-buttons--mono:active {
+  background-color: #262a33;
+  color: white;
+  border-color: #262a33;
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--list {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--list[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--list[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--list[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--list:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--list:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--download {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--download[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--download[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--download[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--download:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--download:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--search {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--search[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--search[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--search[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--search:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--search:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--book {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23262A33,%23262A33&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--book[aria-selected=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--book[aria-current], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--book[aria-pressed=true], .o-buttons--secondary.o-buttons--mono.o-buttons-icon--book:active {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+}
+.o-buttons--secondary.o-buttons--mono.o-buttons-icon--book:after {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  content: "";
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23FFFFFF,%23FFFFFF&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-buttons--secondary.o-buttons--mono.o-buttons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-buttons-pagination {
+  display: -ms-flexbox;
+  display: flex;
+}
+.o-buttons-pagination > .o-buttons {
+  padding-left: 5px;
+  padding-right: 5px;
+  min-width: 24px;
+}
+.o-buttons-pagination > .o-buttons[disabled] {
+  visibility: hidden;
+}
+.o-buttons-pagination > .o-buttons--big {
+  padding-left: 9px;
+  padding-right: 9px;
+  min-width: 36px;
+}
+.o-buttons-pagination > .o-buttons-pagination__ellipsis {
+  font-family: MetricWeb, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+  min-width: 24px;
+}
+.o-typography--loading-sans .o-buttons-pagination > .o-buttons-pagination__ellipsis {
+  font-size: 15.66px;
+  font-family: sans-serif;
+}
+.o-buttons-pagination > .o-buttons-pagination__ellipsis--big {
+  font-family: MetricWeb, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  min-width: 36px;
+}
+.o-typography--loading-sans .o-buttons-pagination > .o-buttons-pagination__ellipsis--big {
+  font-size: 20.88px;
+  font-family: sans-serif;
+}
+.o-buttons-pagination > * + * {
+  margin: 0 0 0 4px;
+}
+
+.o-buttons-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.o-buttons-group > .o-buttons {
+  position: relative;
+}
+.o-buttons-group > .o-buttons + .o-buttons {
+  margin-left: -1px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlbW9zL3NyYy9tYWluJTIyOyUwQSUwQWh0bWwlMjAlN0IlMEElMDliYWNrZ3JvdW5kLWNvbG9yOiUyMG9Db2xvcnNCeVVzZWNhc2UoJ3BhZ2UnLCUyMCdiYWNrZ3JvdW5kJyk7JTBBJTdEJTBBJTBBYm9keSUyMCU3QiUwQSUwOWZvbnQtZmFtaWx5OiUyME1ldHJpY1dlYiwlMjBzZXJpZjslMEElMDltYXJnaW46JTIwMWVtOyUwQSU3RCUwQSUwQWgyJTIwJTdCJTBBJTA5Zm9udC13ZWlnaHQ6JTIwNDAwOyUwQSU3RCUwQSUwQXAlMjAlN0IlMEElMDltYXgtd2lkdGg6JTIwOTAwcHg7JTBBJTA5Zm9udC1zaXplOiUyMDE4cHg7JTBBJTdEJTBBJTBBLnRoZW1lLWJveCUyMCU3QiUwQSUwOWRpc3BsYXk6JTIwaW5saW5lLWJsb2NrOyUwQSUwOXBhZGRpbmc6JTIwMTBweDslMEElMDltYXJnaW4tbGVmdDolMjAtMTBweDslMEElMDltYXJnaW4tcmlnaHQ6JTIwMTBweDslMEElMEElN0QlMEElMEEuY3VzdG9tLWJ1dHRvbi10aGVtZS1kZW1vJTIwYm9keSUyMCU3QiUwQSUwOW1hcmdpbjolMjAwOyUwQSU3RCUwQSUwQS5kZW1vLWludmVyc2UlMjAlN0IlMEElMDkkYmFja2dyb3VuZC1jb2xvci1uYW1lOiUyMF9vQnV0dG9uc0dldCgnY29udGV4dCcsJTIwJGZyb206JTIwJ2ludmVyc2UnKTslMEElMDliYWNrZ3JvdW5kLWNvbG9yOiUyMG9Db2xvcnNCeU5hbWUoJGJhY2tncm91bmQtY29sb3ItbmFtZSk7JTBBJTA5cGFkZGluZzolMjAxZW07JTBBJTdEJTBBJTBBLyUyMEluY2x1ZGUlMjBvLWJ1dHRvbnMuJTBBQGluY2x1ZGUlMjBvQnV0dG9ucygkb3B0czolMjAoJTBBJTA5J3NpemVzJzolMjAoJTBBJTA5JTA5J2JpZyclMEElMDkpLCUwQSUwOSd0eXBlcyc6JTIwKCUwQSUwOSUwOSdwcmltYXJ5JywlMEElMDklMDknc2Vjb25kYXJ5JywlMEElMDkpLCUwQSUwOSd0aGVtZXMnOiUyMCglMEElMDklMDknaW52ZXJzZScsJTBBJTA5JTA5J21vbm8nLCUwQSUwOSUwOSdiMmMnJTBBJTA5KSwlMEElMDknaWNvbnMnOiUyMGpvaW4oJF9vLWJ1dHRvbnMtaWNvbnMsJTIwKCdib29rJykpLCUyMC8lMjBBbHNvJTIwaW5jbHVkZSUyMHRoZSUyMGJvb2slMjBpY29uLCUyMHdoaWNoJTIwaXMlMjBub3QlMjBpbiUyMHRoZSUyMGRlZmF1dCUyMHNldC4lMEElMDkncGFnaW5hdGlvbic6JTIwdHJ1ZSwlMEElMDknZ3JvdXBzJzolMjB0cnVlJTBBKSk7JTBBJTBBQGlmJTIwb0JyYW5kR2V0Q3VycmVudEJyYW5kKCklMjA9PSUyMCdtYXN0ZXInJTIwJTdCJTBBJTA5LyUyMEN1c3RvbSUyMHRoZW1lLiUwQSUwOUBpbmNsdWRlJTIwb0J1dHRvbnNBZGRUaGVtZSUyMCglMEElMDklMDkkbmFtZTolMjAnY3VzdG9tLWxlbW9uJywlMEElMDklMDkkb3B0czolMjAoJTBBJTA5JTA5JTA5J2NvbG9yJzolMjAnbGVtb24nLCUwQSUwOSUwOSUwOSdjb250ZXh0JzolMjAnc2xhdGUnJTBBJTA5JTA5KSwlMEElMDklMDkkdHlwZXM6JTIwKCdwcmltYXJ5JywlMjAnc2Vjb25kYXJ5JyklMEElMDkpOyUwQSUwQSUwOS8lMjBDdXN0b20lMjB0aGVtZSUyMHdpdGglMjBpY29ucy4lMEElMDlAaW5jbHVkZSUyMG9CdXR0b25zQWRkVGhlbWUoJTBBJTA5JTA5JG5hbWU6JTIwJ2N1c3RvbS1jbGFyZXQnLCUwQSUwOSUwOSRvcHRzOiUyMCglMEElMDklMDklMDknY29sb3InOiUyMCdjbGFyZXQtODAnLCUwQSUwOSUwOSUwOSdjb250ZXh0JzolMjAncGFwZXInJTBBJTA5JTA5KSwlMEElMDklMDkkdHlwZXM6JTIwKCdwcmltYXJ5JywlMjAnc2Vjb25kYXJ5JyksJTBBJTA5JTA5JGljb25zOiUyMCgnYm9vaycpJTBBJTA5KTslMEElMEElMDkvJTIwRGVtbyUyMGNvbnRhaW5lcnMlMjBmb3IlMjB0aGUlMjBjdXN0b20lMjBidXR0b25zJTBBJTA5LmRlbW9fX2N1c3RvbS10aGVtZSUyMCU3QiUwQSUwOSUwOXBhZGRpbmc6JTIwMWVtOyUwQSUwOSU3RCUwQSUwQSUwOS5kZW1vX19jdXN0b20tdGhlbWUtLWxlbW9uLCUwQSUwOS5kZW1vX19jdXN0b20tdGhlbWUtLXNsYXRlJTIwJTdCJTBBJTA5JTA5YmFja2dyb3VuZC1jb2xvcjolMjBvQ29sb3JzQnlOYW1lKCdzbGF0ZScpOyUwQSUwOSU3RCUwQSU3RCUwQSIsImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL2NvbXBvbmVudHMvby1idXR0b25zL21haW4uc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL0BmaW5hbmNpYWwtdGltZXMvby10eXBvZ3JhcGh5L3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWJ1dHRvbnMvc3JjL3Njc3MvX21peGlucy5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9ub2RlX21vZHVsZXMvQGZpbmFuY2lhbC10aW1lcy9vLW5vcm1hbGlzZS9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28taWNvbnMvc3JjL3Njc3MvX21peGlucy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0MseUJBQUE7QUNERDs7QURJQTtFQUNDLDZCQUFBO0VBQ0EsV0FBQTtBQ0REOztBRElBO0VBQ0MsZ0JBQUE7QUNERDs7QURJQTtFQUNDLGdCQUFBO0VBQ0EsZUFBQTtBQ0REOztBRElBO0VBQ0MscUJBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtBQ0REOztBREtBO0VBQ0MsU0FBQTtBQ0ZEOztBREtBO0VBRUMseUJBQUE7RUFDQSxZQUFBO0FDSEQ7O0FDeUJDO0VDa01DLGtDQUFBO0VBVUEsZ0JBQUE7RUFWQSxrQ0FBQTtFQWdEQSxlQUFBO0VBQ0EsaUJBQUE7RUNoRkQsaUJBQUE7RUFJQSwwQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGdCQUFBO0VBM0RBLHFCQUFBO0VBQ0EsOEJBQUE7RUFBQSxzQkFBQTtFQUNBLHNCQUFBO0VBQ0EsU0FBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSw0RkFBQTtFQUFBLG9GQUFBO0VBQ0EseUJBQUE7RUFBQSxzQkFBQTtFQUFBLHFCQUFBO0VBQUEsaUJBQUE7RUFDQSwyQkFBQTtFQUNBLGlCQUFBO0VBRUEsbUNBQUE7RUFDQSxrQ0FBQTtFQUNBLHFCQUFBO0VBQ0Esd0JBQUE7RUFDQSxnQkFBQTtBSDNIRDtBRXlSSTtFQXNDRixrQkFBQTtFQW5DSSx1QkFBQTtBRnhSTjtBRzRIQztFQUNDLG9CQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7QUgxSEY7O0FDVEM7RUFDQyxrQkFBQTtBRFlGOztBQ05HO0VDc0xELGtDQUFBO0VBZ0RBLGVBQUE7RUFDQSxpQkFBQTtFQ2hGRCxpQkFBQTtFQUlBLDBCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUg3SUQ7QUVpUUk7RUFzQ0Ysa0JBQUE7RUFuQ0ksdUJBQUE7QUZoUU47O0FDYkU7RUUySEQsNEJBQUE7RUFDQSx3QkFBQTtFQUNBLGtCQUFBO0FIMUdEOztBQ2JJO0VBSUMsMEJBQUE7RUFDQSxrQkFBQTtBRGFMOztBQ1BFO0VFaUhELGVBQUE7RUFDQSx3QkFBQTtFQUNBLGVBQUE7QUh0R0Q7O0FDVEU7RUcvRkQsa0JBQUE7RUFDQSxtQkFBQTtFQUNBLG9DQUFBO0VBQUEsNEJBQUE7RUFDQSxZQUFBO0VBQ0EsU0FBQTtFQUNBLGdCQUFBO0VBQ0EsVUFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsbUJBQUE7QUo0R0Q7O0FHZ0NDO0VBa0ZBLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0FIOUdEO0FHZ0hDO0VBQ0MseUJBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7RUFDQSxxQkFBQTtBSDlHRjtBR2lIQztFQUNDLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0FIL0dGO0FHb0hDO0VBSUMseUJBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7QUhySEY7O0FHZUU7RUVsSEQscUtBQUE7QUx1R0Q7QUc4S0M7RUFuS0M7SUVsSEQscUtBQUE7RUwyR0M7QUFDRjtBRzRLQztFQXRLQztJRWxIRCxxS0FBQTtFTGdIQztBQUNGOztBR0NFO0VFbEhELHNLQUFBO0FMcUhEO0FHZ0tDO0VBbktDO0lFbEhELHNLQUFBO0VMeUhDO0FBQ0Y7QUc4SkM7RUF0S0M7SUVsSEQsc0tBQUE7RUw4SEM7QUFDRjs7QUdiRTtFRWxIRCxpS0FBQTtBTG1JRDtBR2tKQztFQW5LQztJRWxIRCxpS0FBQTtFTHVJQztBQUNGO0FHZ0pDO0VBdEtDO0lFbEhELGlLQUFBO0VMNElDO0FBQ0Y7O0FHM0JFO0VFbEhELCtKQUFBO0FMaUpEO0FHb0lDO0VBbktDO0lFbEhELCtKQUFBO0VMcUpDO0FBQ0Y7QUdrSUM7RUF0S0M7SUVsSEQsK0pBQUE7RUwwSkM7QUFDRjs7QUd6Q0U7RUVsSEQsK0pBQUE7QUwrSkQ7QUdzSEM7RUFuS0M7SUVsSEQsK0pBQUE7RUxtS0M7QUFDRjtBR29IQztFQXRLQztJRWxIRCwrSkFBQTtFTHdLQztBQUNGOztBR3ZERTtFRWxIRCxrS0FBQTtBTDZLRDtBR3dHQztFQW5LQztJRWxIRCxrS0FBQTtFTGlMQztBQUNGO0FHc0dDO0VBdEtDO0lFbEhELGtLQUFBO0VMc0xDO0FBQ0Y7O0FHckVFO0VFbEhELHFLQUFBO0FMMkxEO0FHMEZDO0VBbktDO0lFbEhELHFLQUFBO0VMK0xDO0FBQ0Y7QUd3RkM7RUF0S0M7SUVsSEQscUtBQUE7RUxvTUM7QUFDRjs7QUduRkU7RUVsSEQsbUtBQUE7QUx5TUQ7QUc0RUM7RUFuS0M7SUVsSEQsbUtBQUE7RUw2TUM7QUFDRjtBRzBFQztFQXRLQztJRWxIRCxtS0FBQTtFTGtOQztBQUNGOztBR2pHRTtFRWxIRCwrSkFBQTtBTHVORDtBRzhEQztFQW5LQztJRWxIRCwrSkFBQTtFTDJOQztBQUNGO0FHNERDO0VBdEtDO0lFbEhELCtKQUFBO0VMZ09DO0FBQ0Y7O0FHL0dFO0VFbEhELCtKQUFBO0FMcU9EO0FHZ0RDO0VBbktDO0lFbEhELCtKQUFBO0VMeU9DO0FBQ0Y7QUc4Q0M7RUF0S0M7SUVsSEQsK0pBQUE7RUw4T0M7QUFDRjs7QUc3SEU7RUVsSEQsK0pBQUE7QUxtUEQ7QUdrQ0M7RUFuS0M7SUVsSEQsK0pBQUE7RUx1UEM7QUFDRjtBR2dDQztFQXRLQztJRWxIRCwrSkFBQTtFTDRQQztBQUNGOztBRzNJRTtFRWxIRCxtS0FBQTtBTGlRRDtBR29CQztFQW5LQztJRWxIRCxtS0FBQTtFTHFRQztBQUNGO0FHa0JDO0VBdEtDO0lFbEhELG1LQUFBO0VMMFFDO0FBQ0Y7O0FHekpFO0VFbEhELGlLQUFBO0FMK1FEO0FHTUM7RUFuS0M7SUVsSEQsaUtBQUE7RUxtUkM7QUFDRjtBR0lDO0VBdEtDO0lFbEhELGlLQUFBO0VMd1JDO0FBQ0Y7O0FHdktFO0VFbEhELGtLQUFBO0FMNlJEO0FHUkM7RUFuS0M7SUVsSEQsa0tBQUE7RUxpU0M7QUFDRjtBR1ZDO0VBdEtDO0lFbEhELGtLQUFBO0VMc1NDO0FBQ0Y7O0FHckxFO0VFbEhELGdLQUFBO0FMMlNEO0FHdEJDO0VBbktDO0lFbEhELGdLQUFBO0VMK1NDO0FBQ0Y7QUd4QkM7RUF0S0M7SUVsSEQsZ0tBQUE7RUxvVEM7QUFDRjs7QUduTUU7RUVsSEQsK0pBQUE7QUx5VEQ7QUdwQ0M7RUFuS0M7SUVsSEQsK0pBQUE7RUw2VEM7QUFDRjtBR3RDQztFQXRLQztJRWxIRCwrSkFBQTtFTGtVQztBQUNGOztBR3ROQztFQWtGQSx5QkFBQTtFQUNBLGNBQUE7RUFDQSx5QkFBQTtBSHdJRDtBR3RJQztFQUNDLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLHlCQUFBO0VBQ0EscUJBQUE7QUh3SUY7QUdySUM7RUFDQyx5QkFBQTtFQUNBLGNBQUE7RUFDQSx5QkFBQTtBSHVJRjtBR2xJQztFQUlDLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLHlCQUFBO0FIaUlGOztBR3ZPRTtFRWxIRCxxS0FBQTtBTDZWRDtBR3hFQztFQW5LQztJRWxIRCxxS0FBQTtFTGlXQztBQUNGO0FHMUVDO0VBdEtDO0lFbEhELHFLQUFBO0VMc1dDO0FBQ0Y7O0FHclBFO0VFbEhELHNLQUFBO0FMMldEO0FHdEZDO0VBbktDO0lFbEhELHNLQUFBO0VMK1dDO0FBQ0Y7QUd4RkM7RUF0S0M7SUVsSEQsc0tBQUE7RUxvWEM7QUFDRjs7QUduUUU7RUVsSEQsaUtBQUE7QUx5WEQ7QUdwR0M7RUFuS0M7SUVsSEQsaUtBQUE7RUw2WEM7QUFDRjtBR3RHQztFQXRLQztJRWxIRCxpS0FBQTtFTGtZQztBQUNGOztBR2pSRTtFRWxIRCwrSkFBQTtBTHVZRDtBR2xIQztFQW5LQztJRWxIRCwrSkFBQTtFTDJZQztBQUNGO0FHcEhDO0VBdEtDO0lFbEhELCtKQUFBO0VMZ1pDO0FBQ0Y7O0FHL1JFO0VFbEhELCtKQUFBO0FMcVpEO0FHaElDO0VBbktDO0lFbEhELCtKQUFBO0VMeVpDO0FBQ0Y7QUdsSUM7RUF0S0M7SUVsSEQsK0pBQUE7RUw4WkM7QUFDRjs7QUc3U0U7RUVsSEQsa0tBQUE7QUxtYUQ7QUc5SUM7RUFuS0M7SUVsSEQsa0tBQUE7RUx1YUM7QUFDRjtBR2hKQztFQXRLQztJRWxIRCxrS0FBQTtFTDRhQztBQUNGOztBRzNURTtFRWxIRCxxS0FBQTtBTGliRDtBRzVKQztFQW5LQztJRWxIRCxxS0FBQTtFTHFiQztBQUNGO0FHOUpDO0VBdEtDO0lFbEhELHFLQUFBO0VMMGJDO0FBQ0Y7O0FHelVFO0VFbEhELG1LQUFBO0FMK2JEO0FHMUtDO0VBbktDO0lFbEhELG1LQUFBO0VMbWNDO0FBQ0Y7QUc1S0M7RUF0S0M7SUVsSEQsbUtBQUE7RUx3Y0M7QUFDRjs7QUd2VkU7RUVsSEQsK0pBQUE7QUw2Y0Q7QUd4TEM7RUFuS0M7SUVsSEQsK0pBQUE7RUxpZEM7QUFDRjtBRzFMQztFQXRLQztJRWxIRCwrSkFBQTtFTHNkQztBQUNGOztBR3JXRTtFRWxIRCwrSkFBQTtBTDJkRDtBR3RNQztFQW5LQztJRWxIRCwrSkFBQTtFTCtkQztBQUNGO0FHeE1DO0VBdEtDO0lFbEhELCtKQUFBO0VMb2VDO0FBQ0Y7O0FHblhFO0VFbEhELCtKQUFBO0FMeWVEO0FHcE5DO0VBbktDO0lFbEhELCtKQUFBO0VMNmVDO0FBQ0Y7QUd0TkM7RUF0S0M7SUVsSEQsK0pBQUE7RUxrZkM7QUFDRjs7QUdqWUU7RUVsSEQsbUtBQUE7QUx1ZkQ7QUdsT0M7RUFuS0M7SUVsSEQsbUtBQUE7RUwyZkM7QUFDRjtBR3BPQztFQXRLQztJRWxIRCxtS0FBQTtFTGdnQkM7QUFDRjs7QUcvWUU7RUVsSEQsaUtBQUE7QUxxZ0JEO0FHaFBDO0VBbktDO0lFbEhELGlLQUFBO0VMeWdCQztBQUNGO0FHbFBDO0VBdEtDO0lFbEhELGlLQUFBO0VMOGdCQztBQUNGOztBRzdaRTtFRWxIRCxrS0FBQTtBTG1oQkQ7QUc5UEM7RUFuS0M7SUVsSEQsa0tBQUE7RUx1aEJDO0FBQ0Y7QUdoUUM7RUF0S0M7SUVsSEQsa0tBQUE7RUw0aEJDO0FBQ0Y7O0FHM2FFO0VFbEhELGdLQUFBO0FMaWlCRDtBRzVRQztFQW5LQztJRWxIRCxnS0FBQTtFTHFpQkM7QUFDRjtBRzlRQztFQXRLQztJRWxIRCxnS0FBQTtFTDBpQkM7QUFDRjs7QUd6YkU7RUVsSEQsK0pBQUE7QUwraUJEO0FHMVJDO0VBbktDO0lFbEhELCtKQUFBO0VMbWpCQztBQUNGO0FHNVJDO0VBdEtDO0lFbEhELCtKQUFBO0VMd2pCQztBQUNGOztBRzVjQztFQWtGQSx5QkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtBSDhYRDtBRzVYQztFQUNDLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0VBQ0EscUJBQUE7QUg4WEY7QUczWEM7RUFDQyx5QkFBQTtFQUNBLFlBQUE7RUFDQSx5QkFBQTtBSDZYRjtBR3hYQztFQUlDLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0FIdVhGOztBRzdkRTtFRWxIRCxxS0FBQTtBTG1sQkQ7QUc5VEM7RUFuS0M7SUVsSEQscUtBQUE7RUx1bEJDO0FBQ0Y7QUdoVUM7RUF0S0M7SUVsSEQscUtBQUE7RUw0bEJDO0FBQ0Y7O0FHM2VFO0VFbEhELHNLQUFBO0FMaW1CRDtBRzVVQztFQW5LQztJRWxIRCxzS0FBQTtFTHFtQkM7QUFDRjtBRzlVQztFQXRLQztJRWxIRCxzS0FBQTtFTDBtQkM7QUFDRjs7QUd6ZkU7RUVsSEQsaUtBQUE7QUwrbUJEO0FHMVZDO0VBbktDO0lFbEhELGlLQUFBO0VMbW5CQztBQUNGO0FHNVZDO0VBdEtDO0lFbEhELGlLQUFBO0VMd25CQztBQUNGOztBR3ZnQkU7RUVsSEQsK0pBQUE7QUw2bkJEO0FHeFdDO0VBbktDO0lFbEhELCtKQUFBO0VMaW9CQztBQUNGO0FHMVdDO0VBdEtDO0lFbEhELCtKQUFBO0VMc29CQztBQUNGOztBR3JoQkU7RUVsSEQsK0pBQUE7QUwyb0JEO0FHdFhDO0VBbktDO0lFbEhELCtKQUFBO0VMK29CQztBQUNGO0FHeFhDO0VBdEtDO0lFbEhELCtKQUFBO0VMb3BCQztBQUNGOztBR25pQkU7RUVsSEQsa0tBQUE7QUx5cEJEO0FHcFlDO0VBbktDO0lFbEhELGtLQUFBO0VMNnBCQztBQUNGO0FHdFlDO0VBdEtDO0lFbEhELGtLQUFBO0VMa3FCQztBQUNGOztBR2pqQkU7RUVsSEQscUtBQUE7QUx1cUJEO0FHbFpDO0VBbktDO0lFbEhELHFLQUFBO0VMMnFCQztBQUNGO0FHcFpDO0VBdEtDO0lFbEhELHFLQUFBO0VMZ3JCQztBQUNGOztBRy9qQkU7RUVsSEQsbUtBQUE7QUxxckJEO0FHaGFDO0VBbktDO0lFbEhELG1LQUFBO0VMeXJCQztBQUNGO0FHbGFDO0VBdEtDO0lFbEhELG1LQUFBO0VMOHJCQztBQUNGOztBRzdrQkU7RUVsSEQsK0pBQUE7QUxtc0JEO0FHOWFDO0VBbktDO0lFbEhELCtKQUFBO0VMdXNCQztBQUNGO0FHaGJDO0VBdEtDO0lFbEhELCtKQUFBO0VMNHNCQztBQUNGOztBRzNsQkU7RUVsSEQsK0pBQUE7QUxpdEJEO0FHNWJDO0VBbktDO0lFbEhELCtKQUFBO0VMcXRCQztBQUNGO0FHOWJDO0VBdEtDO0lFbEhELCtKQUFBO0VMMHRCQztBQUNGOztBR3ptQkU7RUVsSEQsK0pBQUE7QUwrdEJEO0FHMWNDO0VBbktDO0lFbEhELCtKQUFBO0VMbXVCQztBQUNGO0FHNWNDO0VBdEtDO0lFbEhELCtKQUFBO0VMd3VCQztBQUNGOztBR3ZuQkU7RUVsSEQsbUtBQUE7QUw2dUJEO0FHeGRDO0VBbktDO0lFbEhELG1LQUFBO0VMaXZCQztBQUNGO0FHMWRDO0VBdEtDO0lFbEhELG1LQUFBO0VMc3ZCQztBQUNGOztBR3JvQkU7RUVsSEQsaUtBQUE7QUwydkJEO0FHdGVDO0VBbktDO0lFbEhELGlLQUFBO0VMK3ZCQztBQUNGO0FHeGVDO0VBdEtDO0lFbEhELGlLQUFBO0VMb3dCQztBQUNGOztBR25wQkU7RUVsSEQsa0tBQUE7QUx5d0JEO0FHcGZDO0VBbktDO0lFbEhELGtLQUFBO0VMNndCQztBQUNGO0FHdGZDO0VBdEtDO0lFbEhELGtLQUFBO0VMa3hCQztBQUNGOztBR2pxQkU7RUVsSEQsZ0tBQUE7QUx1eEJEO0FHbGdCQztFQW5LQztJRWxIRCxnS0FBQTtFTDJ4QkM7QUFDRjtBR3BnQkM7RUF0S0M7SUVsSEQsZ0tBQUE7RUxneUJDO0FBQ0Y7O0FHL3FCRTtFRWxIRCwrSkFBQTtBTHF5QkQ7QUdoaEJDO0VBbktDO0lFbEhELCtKQUFBO0VMeXlCQztBQUNGO0FHbGhCQztFQXRLQztJRWxIRCwrSkFBQTtFTDh5QkM7QUFDRjs7QUdsc0JDO0VBa0ZBLDZCQUFBO0VBQ0EsY0FBQTtFQUNBLHFCQUFBO0FIb25CRDtBR2xuQkM7RUFDQyx5Q0FBQTtFQUNBLGNBQUE7RUFDQSxxQkFBQTtFQUNBLHFCQUFBO0FIb25CRjtBR2puQkM7RUFDQyx5Q0FBQTtFQUNBLGNBQUE7RUFDQSxxQkFBQTtBSG1uQkY7QUc5bUJDO0VBSUMseUJBQUE7RUFDQSxZQUFBO0VBQ0EscUJBQUE7QUg2bUJGOztBR250QkU7RUVsSEQscUtBQUE7QUx5MEJEO0FHcmtCRTtFRXBRRCxxS0FBQTtBTDQwQkQ7QUdoa0JFO0VFNVFELHFLQUFBO0VGOFFFLFdBQUE7QUhra0JIO0FHM2pCQztFQW5LQztJRWxIRCxxS0FBQTtFTG8xQkM7QUFDRjtBRzdqQkM7RUF0S0M7SUVsSEQscUtBQUE7RUx5MUJDO0FBQ0Y7O0FHeHVCRTtFRWxIRCxzS0FBQTtBTDgxQkQ7QUcxbEJFO0VFcFFELHNLQUFBO0FMaTJCRDtBR3JsQkU7RUU1UUQsc0tBQUE7RUY4UUUsV0FBQTtBSHVsQkg7QUdobEJDO0VBbktDO0lFbEhELHNLQUFBO0VMeTJCQztBQUNGO0FHbGxCQztFQXRLQztJRWxIRCxzS0FBQTtFTDgyQkM7QUFDRjs7QUc3dkJFO0VFbEhELGlLQUFBO0FMbTNCRDtBRy9tQkU7RUVwUUQsaUtBQUE7QUxzM0JEO0FHMW1CRTtFRTVRRCxpS0FBQTtFRjhRRSxXQUFBO0FING1CSDtBR3JtQkM7RUFuS0M7SUVsSEQsaUtBQUE7RUw4M0JDO0FBQ0Y7QUd2bUJDO0VBdEtDO0lFbEhELGlLQUFBO0VMbTRCQztBQUNGOztBR2x4QkU7RUVsSEQsK0pBQUE7QUx3NEJEO0FHcG9CRTtFRXBRRCwrSkFBQTtBTDI0QkQ7QUcvbkJFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUhpb0JIO0FHMW5CQztFQW5LQztJRWxIRCwrSkFBQTtFTG01QkM7QUFDRjtBRzVuQkM7RUF0S0M7SUVsSEQsK0pBQUE7RUx3NUJDO0FBQ0Y7O0FHdnlCRTtFRWxIRCwrSkFBQTtBTDY1QkQ7QUd6cEJFO0VFcFFELCtKQUFBO0FMZzZCRDtBR3BwQkU7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSHNwQkg7QUcvb0JDO0VBbktDO0lFbEhELCtKQUFBO0VMdzZCQztBQUNGO0FHanBCQztFQXRLQztJRWxIRCwrSkFBQTtFTDY2QkM7QUFDRjs7QUc1ekJFO0VFbEhELGtLQUFBO0FMazdCRDtBRzlxQkU7RUVwUUQsa0tBQUE7QUxxN0JEO0FHenFCRTtFRTVRRCxrS0FBQTtFRjhRRSxXQUFBO0FIMnFCSDtBR3BxQkM7RUFuS0M7SUVsSEQsa0tBQUE7RUw2N0JDO0FBQ0Y7QUd0cUJDO0VBdEtDO0lFbEhELGtLQUFBO0VMazhCQztBQUNGOztBR2oxQkU7RUVsSEQscUtBQUE7QUx1OEJEO0FHbnNCRTtFRXBRRCxxS0FBQTtBTDA4QkQ7QUc5ckJFO0VFNVFELHFLQUFBO0VGOFFFLFdBQUE7QUhnc0JIO0FHenJCQztFQW5LQztJRWxIRCxxS0FBQTtFTGs5QkM7QUFDRjtBRzNyQkM7RUF0S0M7SUVsSEQscUtBQUE7RUx1OUJDO0FBQ0Y7O0FHdDJCRTtFRWxIRCxtS0FBQTtBTDQ5QkQ7QUd4dEJFO0VFcFFELG1LQUFBO0FMKzlCRDtBR250QkU7RUU1UUQsbUtBQUE7RUY4UUUsV0FBQTtBSHF0Qkg7QUc5c0JDO0VBbktDO0lFbEhELG1LQUFBO0VMdStCQztBQUNGO0FHaHRCQztFQXRLQztJRWxIRCxtS0FBQTtFTDQrQkM7QUFDRjs7QUczM0JFO0VFbEhELCtKQUFBO0FMaS9CRDtBRzd1QkU7RUVwUUQsK0pBQUE7QUxvL0JEO0FHeHVCRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIMHVCSDtBR251QkM7RUFuS0M7SUVsSEQsK0pBQUE7RUw0L0JDO0FBQ0Y7QUdydUJDO0VBdEtDO0lFbEhELCtKQUFBO0VMaWdDQztBQUNGOztBR2g1QkU7RUVsSEQsK0pBQUE7QUxzZ0NEO0FHbHdCRTtFRXBRRCwrSkFBQTtBTHlnQ0Q7QUc3dkJFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUgrdkJIO0FHeHZCQztFQW5LQztJRWxIRCwrSkFBQTtFTGloQ0M7QUFDRjtBRzF2QkM7RUF0S0M7SUVsSEQsK0pBQUE7RUxzaENDO0FBQ0Y7O0FHcjZCRTtFRWxIRCwrSkFBQTtBTDJoQ0Q7QUd2eEJFO0VFcFFELCtKQUFBO0FMOGhDRDtBR2x4QkU7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSG94Qkg7QUc3d0JDO0VBbktDO0lFbEhELCtKQUFBO0VMc2lDQztBQUNGO0FHL3dCQztFQXRLQztJRWxIRCwrSkFBQTtFTDJpQ0M7QUFDRjs7QUcxN0JFO0VFbEhELG1LQUFBO0FMZ2pDRDtBRzV5QkU7RUVwUUQsbUtBQUE7QUxtakNEO0FHdnlCRTtFRTVRRCxtS0FBQTtFRjhRRSxXQUFBO0FIeXlCSDtBR2x5QkM7RUFuS0M7SUVsSEQsbUtBQUE7RUwyakNDO0FBQ0Y7QUdweUJDO0VBdEtDO0lFbEhELG1LQUFBO0VMZ2tDQztBQUNGOztBRy84QkU7RUVsSEQsaUtBQUE7QUxxa0NEO0FHajBCRTtFRXBRRCxpS0FBQTtBTHdrQ0Q7QUc1ekJFO0VFNVFELGlLQUFBO0VGOFFFLFdBQUE7QUg4ekJIO0FHdnpCQztFQW5LQztJRWxIRCxpS0FBQTtFTGdsQ0M7QUFDRjtBR3p6QkM7RUF0S0M7SUVsSEQsaUtBQUE7RUxxbENDO0FBQ0Y7O0FHcCtCRTtFRWxIRCxrS0FBQTtBTDBsQ0Q7QUd0MUJFO0VFcFFELGtLQUFBO0FMNmxDRDtBR2oxQkU7RUU1UUQsa0tBQUE7RUY4UUUsV0FBQTtBSG0xQkg7QUc1MEJDO0VBbktDO0lFbEhELGtLQUFBO0VMcW1DQztBQUNGO0FHOTBCQztFQXRLQztJRWxIRCxrS0FBQTtFTDBtQ0M7QUFDRjs7QUd6L0JFO0VFbEhELGdLQUFBO0FMK21DRDtBRzMyQkU7RUVwUUQsZ0tBQUE7QUxrbkNEO0FHdDJCRTtFRTVRRCxnS0FBQTtFRjhRRSxXQUFBO0FIdzJCSDtBR2oyQkM7RUFuS0M7SUVsSEQsZ0tBQUE7RUwwbkNDO0FBQ0Y7QUduMkJDO0VBdEtDO0lFbEhELGdLQUFBO0VMK25DQztBQUNGOztBRzlnQ0U7RUVsSEQsK0pBQUE7QUxvb0NEO0FHaDRCRTtFRXBRRCwrSkFBQTtBTHVvQ0Q7QUczM0JFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUg2M0JIO0FHdDNCQztFQW5LQztJRWxIRCwrSkFBQTtFTCtvQ0M7QUFDRjtBR3gzQkM7RUF0S0M7SUVsSEQsK0pBQUE7RUxvcENDO0FBQ0Y7O0FHeGlDQztFQWtGQSw2QkFBQTtFQUNBLGNBQUE7RUFDQSxxQkFBQTtBSDA5QkQ7QUd4OUJDO0VBQ0MsMkNBQUE7RUFDQSxZQUFBO0VBQ0EscUJBQUE7RUFDQSxxQkFBQTtBSDA5QkY7QUd2OUJDO0VBQ0MsMkNBQUE7RUFDQSxZQUFBO0VBQ0EscUJBQUE7QUh5OUJGO0FHcDlCQztFQUlDLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLHFCQUFBO0FIbTlCRjs7QUd6akNFO0VFbEhELHFLQUFBO0FMK3FDRDtBRzM2QkU7RUVwUUQscUtBQUE7QUxrckNEO0FHdDZCRTtFRTVRRCxxS0FBQTtFRjhRRSxXQUFBO0FIdzZCSDtBR2o2QkM7RUFuS0M7SUVsSEQscUtBQUE7RUwwckNDO0FBQ0Y7QUduNkJDO0VBdEtDO0lFbEhELHFLQUFBO0VMK3JDQztBQUNGOztBRzlrQ0U7RUVsSEQsc0tBQUE7QUxvc0NEO0FHaDhCRTtFRXBRRCxzS0FBQTtBTHVzQ0Q7QUczN0JFO0VFNVFELHNLQUFBO0VGOFFFLFdBQUE7QUg2N0JIO0FHdDdCQztFQW5LQztJRWxIRCxzS0FBQTtFTCtzQ0M7QUFDRjtBR3g3QkM7RUF0S0M7SUVsSEQsc0tBQUE7RUxvdENDO0FBQ0Y7O0FHbm1DRTtFRWxIRCxpS0FBQTtBTHl0Q0Q7QUdyOUJFO0VFcFFELGlLQUFBO0FMNHRDRDtBR2g5QkU7RUU1UUQsaUtBQUE7RUY4UUUsV0FBQTtBSGs5Qkg7QUczOEJDO0VBbktDO0lFbEhELGlLQUFBO0VMb3VDQztBQUNGO0FHNzhCQztFQXRLQztJRWxIRCxpS0FBQTtFTHl1Q0M7QUFDRjs7QUd4bkNFO0VFbEhELCtKQUFBO0FMOHVDRDtBRzErQkU7RUVwUUQsK0pBQUE7QUxpdkNEO0FHcitCRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIdStCSDtBR2grQkM7RUFuS0M7SUVsSEQsK0pBQUE7RUx5dkNDO0FBQ0Y7QUdsK0JDO0VBdEtDO0lFbEhELCtKQUFBO0VMOHZDQztBQUNGOztBRzdvQ0U7RUVsSEQsK0pBQUE7QUxtd0NEO0FHLy9CRTtFRXBRRCwrSkFBQTtBTHN3Q0Q7QUcxL0JFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUg0L0JIO0FHci9CQztFQW5LQztJRWxIRCwrSkFBQTtFTDh3Q0M7QUFDRjtBR3YvQkM7RUF0S0M7SUVsSEQsK0pBQUE7RUxteENDO0FBQ0Y7O0FHbHFDRTtFRWxIRCxrS0FBQTtBTHd4Q0Q7QUdwaENFO0VFcFFELGtLQUFBO0FMMnhDRDtBRy9nQ0U7RUU1UUQsa0tBQUE7RUY4UUUsV0FBQTtBSGloQ0g7QUcxZ0NDO0VBbktDO0lFbEhELGtLQUFBO0VMbXlDQztBQUNGO0FHNWdDQztFQXRLQztJRWxIRCxrS0FBQTtFTHd5Q0M7QUFDRjs7QUd2ckNFO0VFbEhELHFLQUFBO0FMNnlDRDtBR3ppQ0U7RUVwUUQscUtBQUE7QUxnekNEO0FHcGlDRTtFRTVRRCxxS0FBQTtFRjhRRSxXQUFBO0FIc2lDSDtBRy9oQ0M7RUFuS0M7SUVsSEQscUtBQUE7RUx3ekNDO0FBQ0Y7QUdqaUNDO0VBdEtDO0lFbEhELHFLQUFBO0VMNnpDQztBQUNGOztBRzVzQ0U7RUVsSEQsbUtBQUE7QUxrMENEO0FHOWpDRTtFRXBRRCxtS0FBQTtBTHEwQ0Q7QUd6akNFO0VFNVFELG1LQUFBO0VGOFFFLFdBQUE7QUgyakNIO0FHcGpDQztFQW5LQztJRWxIRCxtS0FBQTtFTDYwQ0M7QUFDRjtBR3RqQ0M7RUF0S0M7SUVsSEQsbUtBQUE7RUxrMUNDO0FBQ0Y7O0FHanVDRTtFRWxIRCwrSkFBQTtBTHUxQ0Q7QUdubENFO0VFcFFELCtKQUFBO0FMMDFDRDtBRzlrQ0U7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSGdsQ0g7QUd6a0NDO0VBbktDO0lFbEhELCtKQUFBO0VMazJDQztBQUNGO0FHM2tDQztFQXRLQztJRWxIRCwrSkFBQTtFTHUyQ0M7QUFDRjs7QUd0dkNFO0VFbEhELCtKQUFBO0FMNDJDRDtBR3htQ0U7RUVwUUQsK0pBQUE7QUwrMkNEO0FHbm1DRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIcW1DSDtBRzlsQ0M7RUFuS0M7SUVsSEQsK0pBQUE7RUx1M0NDO0FBQ0Y7QUdobUNDO0VBdEtDO0lFbEhELCtKQUFBO0VMNDNDQztBQUNGOztBRzN3Q0U7RUVsSEQsK0pBQUE7QUxpNENEO0FHN25DRTtFRXBRRCwrSkFBQTtBTG80Q0Q7QUd4bkNFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUgwbkNIO0FHbm5DQztFQW5LQztJRWxIRCwrSkFBQTtFTDQ0Q0M7QUFDRjtBR3JuQ0M7RUF0S0M7SUVsSEQsK0pBQUE7RUxpNUNDO0FBQ0Y7O0FHaHlDRTtFRWxIRCxtS0FBQTtBTHM1Q0Q7QUdscENFO0VFcFFELG1LQUFBO0FMeTVDRDtBRzdvQ0U7RUU1UUQsbUtBQUE7RUY4UUUsV0FBQTtBSCtvQ0g7QUd4b0NDO0VBbktDO0lFbEhELG1LQUFBO0VMaTZDQztBQUNGO0FHMW9DQztFQXRLQztJRWxIRCxtS0FBQTtFTHM2Q0M7QUFDRjs7QUdyekNFO0VFbEhELGlLQUFBO0FMMjZDRDtBR3ZxQ0U7RUVwUUQsaUtBQUE7QUw4NkNEO0FHbHFDRTtFRTVRRCxpS0FBQTtFRjhRRSxXQUFBO0FIb3FDSDtBRzdwQ0M7RUFuS0M7SUVsSEQsaUtBQUE7RUxzN0NDO0FBQ0Y7QUcvcENDO0VBdEtDO0lFbEhELGlLQUFBO0VMMjdDQztBQUNGOztBRzEwQ0U7RUVsSEQsa0tBQUE7QUxnOENEO0FHNXJDRTtFRXBRRCxrS0FBQTtBTG04Q0Q7QUd2ckNFO0VFNVFELGtLQUFBO0VGOFFFLFdBQUE7QUh5ckNIO0FHbHJDQztFQW5LQztJRWxIRCxrS0FBQTtFTDI4Q0M7QUFDRjtBR3ByQ0M7RUF0S0M7SUVsSEQsa0tBQUE7RUxnOUNDO0FBQ0Y7O0FHLzFDRTtFRWxIRCxnS0FBQTtBTHE5Q0Q7QUdqdENFO0VFcFFELGdLQUFBO0FMdzlDRDtBRzVzQ0U7RUU1UUQsZ0tBQUE7RUY4UUUsV0FBQTtBSDhzQ0g7QUd2c0NDO0VBbktDO0lFbEhELGdLQUFBO0VMZytDQztBQUNGO0FHenNDQztFQXRLQztJRWxIRCxnS0FBQTtFTHErQ0M7QUFDRjs7QUdwM0NFO0VFbEhELCtKQUFBO0FMMCtDRDtBR3R1Q0U7RUVwUUQsK0pBQUE7QUw2K0NEO0FHanVDRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIbXVDSDtBRzV0Q0M7RUFuS0M7SUVsSEQsK0pBQUE7RUxxL0NDO0FBQ0Y7QUc5dENDO0VBdEtDO0lFbEhELCtKQUFBO0VMMC9DQztBQUNGOztBRzk0Q0M7RUFrRkEsNkJBQUE7RUFDQSxjQUFBO0VBQ0EscUJBQUE7QUhnMENEO0FHOXpDQztFQUNDLHdDQUFBO0VBQ0EsY0FBQTtFQUNBLHFCQUFBO0VBQ0EscUJBQUE7QUhnMENGO0FHN3pDQztFQUNDLHdDQUFBO0VBQ0EsY0FBQTtFQUNBLHFCQUFBO0FIK3pDRjtBRzF6Q0M7RUFJQyx5QkFBQTtFQUNBLFlBQUE7RUFDQSxxQkFBQTtBSHl6Q0Y7O0FHLzVDRTtFRWxIRCxxS0FBQTtBTHFoREQ7QUdqeENFO0VFcFFELHFLQUFBO0FMd2hERDtBRzV3Q0U7RUU1UUQscUtBQUE7RUY4UUUsV0FBQTtBSDh3Q0g7QUd2d0NDO0VBbktDO0lFbEhELHFLQUFBO0VMZ2lEQztBQUNGO0FHendDQztFQXRLQztJRWxIRCxxS0FBQTtFTHFpREM7QUFDRjs7QUdwN0NFO0VFbEhELHNLQUFBO0FMMGlERDtBR3R5Q0U7RUVwUUQsc0tBQUE7QUw2aUREO0FHanlDRTtFRTVRRCxzS0FBQTtFRjhRRSxXQUFBO0FIbXlDSDtBRzV4Q0M7RUFuS0M7SUVsSEQsc0tBQUE7RUxxakRDO0FBQ0Y7QUc5eENDO0VBdEtDO0lFbEhELHNLQUFBO0VMMGpEQztBQUNGOztBR3o4Q0U7RUVsSEQsaUtBQUE7QUwrakREO0FHM3pDRTtFRXBRRCxpS0FBQTtBTGtrREQ7QUd0ekNFO0VFNVFELGlLQUFBO0VGOFFFLFdBQUE7QUh3ekNIO0FHanpDQztFQW5LQztJRWxIRCxpS0FBQTtFTDBrREM7QUFDRjtBR256Q0M7RUF0S0M7SUVsSEQsaUtBQUE7RUwra0RDO0FBQ0Y7O0FHOTlDRTtFRWxIRCwrSkFBQTtBTG9sREQ7QUdoMUNFO0VFcFFELCtKQUFBO0FMdWxERDtBRzMwQ0U7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSDYwQ0g7QUd0MENDO0VBbktDO0lFbEhELCtKQUFBO0VMK2xEQztBQUNGO0FHeDBDQztFQXRLQztJRWxIRCwrSkFBQTtFTG9tREM7QUFDRjs7QUduL0NFO0VFbEhELCtKQUFBO0FMeW1ERDtBR3IyQ0U7RUVwUUQsK0pBQUE7QUw0bUREO0FHaDJDRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIazJDSDtBRzMxQ0M7RUFuS0M7SUVsSEQsK0pBQUE7RUxvbkRDO0FBQ0Y7QUc3MUNDO0VBdEtDO0lFbEhELCtKQUFBO0VMeW5EQztBQUNGOztBR3hnREU7RUVsSEQsa0tBQUE7QUw4bkREO0FHMTNDRTtFRXBRRCxrS0FBQTtBTGlvREQ7QUdyM0NFO0VFNVFELGtLQUFBO0VGOFFFLFdBQUE7QUh1M0NIO0FHaDNDQztFQW5LQztJRWxIRCxrS0FBQTtFTHlvREM7QUFDRjtBR2wzQ0M7RUF0S0M7SUVsSEQsa0tBQUE7RUw4b0RDO0FBQ0Y7O0FHN2hERTtFRWxIRCxxS0FBQTtBTG1wREQ7QUcvNENFO0VFcFFELHFLQUFBO0FMc3BERDtBRzE0Q0U7RUU1UUQscUtBQUE7RUY4UUUsV0FBQTtBSDQ0Q0g7QUdyNENDO0VBbktDO0lFbEhELHFLQUFBO0VMOHBEQztBQUNGO0FHdjRDQztFQXRLQztJRWxIRCxxS0FBQTtFTG1xREM7QUFDRjs7QUdsakRFO0VFbEhELG1LQUFBO0FMd3FERDtBR3A2Q0U7RUVwUUQsbUtBQUE7QUwycUREO0FHLzVDRTtFRTVRRCxtS0FBQTtFRjhRRSxXQUFBO0FIaTZDSDtBRzE1Q0M7RUFuS0M7SUVsSEQsbUtBQUE7RUxtckRDO0FBQ0Y7QUc1NUNDO0VBdEtDO0lFbEhELG1LQUFBO0VMd3JEQztBQUNGOztBR3ZrREU7RUVsSEQsK0pBQUE7QUw2ckREO0FHejdDRTtFRXBRRCwrSkFBQTtBTGdzREQ7QUdwN0NFO0VFNVFELCtKQUFBO0VGOFFFLFdBQUE7QUhzN0NIO0FHLzZDQztFQW5LQztJRWxIRCwrSkFBQTtFTHdzREM7QUFDRjtBR2o3Q0M7RUF0S0M7SUVsSEQsK0pBQUE7RUw2c0RDO0FBQ0Y7O0FHNWxERTtFRWxIRCwrSkFBQTtBTGt0REQ7QUc5OENFO0VFcFFELCtKQUFBO0FMcXRERDtBR3o4Q0U7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSDI4Q0g7QUdwOENDO0VBbktDO0lFbEhELCtKQUFBO0VMNnREQztBQUNGO0FHdDhDQztFQXRLQztJRWxIRCwrSkFBQTtFTGt1REM7QUFDRjs7QUdqbkRFO0VFbEhELCtKQUFBO0FMdXVERDtBR24rQ0U7RUVwUUQsK0pBQUE7QUwwdUREO0FHOTlDRTtFRTVRRCwrSkFBQTtFRjhRRSxXQUFBO0FIZytDSDtBR3o5Q0M7RUFuS0M7SUVsSEQsK0pBQUE7RUxrdkRDO0FBQ0Y7QUczOUNDO0VBdEtDO0lFbEhELCtKQUFBO0VMdXZEQztBQUNGOztBR3RvREU7RUVsSEQsbUtBQUE7QUw0dkREO0FHeC9DRTtFRXBRRCxtS0FBQTtBTCt2REQ7QUduL0NFO0VFNVFELG1LQUFBO0VGOFFFLFdBQUE7QUhxL0NIO0FHOStDQztFQW5LQztJRWxIRCxtS0FBQTtFTHV3REM7QUFDRjtBR2gvQ0M7RUF0S0M7SUVsSEQsbUtBQUE7RUw0d0RDO0FBQ0Y7O0FHM3BERTtFRWxIRCxpS0FBQTtBTGl4REQ7QUc3Z0RFO0VFcFFELGlLQUFBO0FMb3hERDtBR3hnREU7RUU1UUQsaUtBQUE7RUY4UUUsV0FBQTtBSDBnREg7QUduZ0RDO0VBbktDO0lFbEhELGlLQUFBO0VMNHhEQztBQUNGO0FHcmdEQztFQXRLQztJRWxIRCxpS0FBQTtFTGl5REM7QUFDRjs7QUdockRFO0VFbEhELGtLQUFBO0FMc3lERDtBR2xpREU7RUVwUUQsa0tBQUE7QUx5eUREO0FHN2hERTtFRTVRRCxrS0FBQTtFRjhRRSxXQUFBO0FIK2hESDtBR3hoREM7RUFuS0M7SUVsSEQsa0tBQUE7RUxpekRDO0FBQ0Y7QUcxaERDO0VBdEtDO0lFbEhELGtLQUFBO0VMc3pEQztBQUNGOztBR3JzREU7RUVsSEQsZ0tBQUE7QUwyekREO0FHdmpERTtFRXBRRCxnS0FBQTtBTDh6REQ7QUdsakRFO0VFNVFELGdLQUFBO0VGOFFFLFdBQUE7QUhvakRIO0FHN2lEQztFQW5LQztJRWxIRCxnS0FBQTtFTHMwREM7QUFDRjtBRy9pREM7RUF0S0M7SUVsSEQsZ0tBQUE7RUwyMERDO0FBQ0Y7O0FHMXRERTtFRWxIRCwrSkFBQTtBTGcxREQ7QUc1a0RFO0VFcFFELCtKQUFBO0FMbTFERDtBR3ZrREU7RUU1UUQsK0pBQUE7RUY4UUUsV0FBQTtBSHlrREg7QUdsa0RDO0VBbktDO0lFbEhELCtKQUFBO0VMMjFEQztBQUNGO0FHcGtEQztFQXRLQztJRWxIRCwrSkFBQTtFTGcyREM7QUFDRjs7QUN2eERFO0VBQ0Msb0JBQUE7RUFBQSxhQUFBO0FEMHhESDtBQ3h4REc7RUFDQyxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtBRDB4REo7QUN2eERHO0VBQ0Msa0JBQUE7QUR5eERKO0FDdHhERztFQUNDLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FEd3hESjtBQ3J4REc7RUNtSEQsa0NBQUE7RUFnREEsZUFBQTtFQUNBLGlCQUFBO0VEbEtFLHFCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0FEeXhESjtBRTlrREk7RUFzQ0Ysa0JBQUE7RUFuQ0ksdUJBQUE7QUYra0ROO0FDMXhERztFQzRHRCxrQ0FBQTtFQWdEQSxlQUFBO0VBQ0EsaUJBQUE7RUQzSkUsZUFBQTtBRDh4REo7QUV4bERJO0VBc0NGLGtCQUFBO0VBbkNJLHVCQUFBO0FGeWxETjtBQzl4REc7RUFDQyxpQkFBQTtBRGd5REo7O0FDenhERTtFQUNDLG9CQUFBO0VBQUEsYUFBQTtFQUNBLG1CQUFBO0VBQUEsZUFBQTtBRDR4REg7QUMzeERHO0VBQ0Msa0JBQUE7QUQ2eERKO0FDM3hESTtFQUNDLGlCQUFBO0FENnhETCIsImZpbGUiOiJkZW1vLmNzcyJ9 */

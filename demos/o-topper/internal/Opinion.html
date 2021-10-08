@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-topper: Opinion demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-typography@^7.0.0,o-normalise@^3.0.0" defer></script>
+
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-typography@^7.0.0,o-normalise@^3.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="o-topper o-topper--branded o-topper--has-headshot o-topper--opinion o-topper--color-sky">
+		<div class="o-topper__content">
+			<div class="o-topper__tags">
+				<span class="o-topper__opinion-genre">
+					Opinion
+				</span>
+				<a href="https://www.ft.com/topics/themes/US_Treasury_Bonds" class="o-topper__topic">
+					US Treasury Bonds
+				</a>
+			</div>
+
+			<h1 class="o-topper__headline">
+				<span class="article-classifier__gap">Watch the bond market, not equities</span>
+			</h1>
+
+			<div class="o-topper__standfirst">Governments and leveraged borrowers would suffer if interest rates rise quickly</div>
+
+			<div class="o-topper__columnist">
+				<a class="o-topper__columnist-name" href="https://www.ft.com/gillian-tett">Gillian Tett</a>
+			</div>
+
+			<div class="o-topper__headshot">
+				<img class="o-topper__headshot-image" src="https://www.ft.com/__origami/service/image/v2/images/raw/fthead-v1:gillian-tett?source=origami-build-tools&amp;fit=scale-down&amp;width=150&amp;compression=best&amp;quality=highest&amp;dpr=2" role="presentation">
+			</div>
+		</div>
+
+		<div class="o-topper__background"></div>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

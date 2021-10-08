@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-video: size variations demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=fetch,Array.prototype.find,Array.prototype.includes,Object.assign,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="sizes.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div class="demo-video-container demo-video-container--large">
+		<div class="o-video o-video--large"
+			data-o-component="o-video"
+			data-o-video-systemcode="origami-build-tools"
+			data-o-video-id="21d77b6c-1901-4d1d-9c3b-84dfe9904fd2"
+			data-o-video-placeholder="true"
+			data-o-video-placeholder-info="['title','description','brand']"></div>
+	</div>
+
+	<div class="demo-video-container demo-video-container--medium">
+		<div class="o-video o-video--medium"
+			data-o-component="o-video"
+			data-o-video-systemcode="origami-build-tools"
+			data-o-video-id="21d77b6c-1901-4d1d-9c3b-84dfe9904fd2"
+			data-o-video-placeholder="true"
+			data-o-video-placeholder-info="['title','description','brand']"></div>
+	</div>
+
+	<div class="demo-video-container demo-video-container--small">
+		<div class="o-video o-video--small"
+			data-o-component="o-video"
+			data-o-video-systemcode="origami-build-tools"
+			data-o-video-id="21d77b6c-1901-4d1d-9c3b-84dfe9904fd2"
+			data-o-video-placeholder="true"
+			data-o-video-placeholder-info="['title','description','brand']"></div>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

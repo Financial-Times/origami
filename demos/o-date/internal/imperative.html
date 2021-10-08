@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-date: imperative demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+
+		<script src="imperative.js" defer></script>
+
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<time data-o-component="o-date" class="o-date"></time><br>
+	<time data-o-component="o-date" class="o-date"></time><br>
+	<time data-o-component="o-date" data-o-date-format="today-or-yesterday-or-nothing" class="o-date"></time><br>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

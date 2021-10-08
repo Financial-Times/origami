@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-colors: internal-contrast-checker demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0,o-autoinit@^3.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-overlay@^4.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0" defer></script>
+
+		<script src="contrast-checker.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0,o-autoinit@^3.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-overlay@^4.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="contrast-checker.css" />
+</head>
+<body>
+	<form class="color-selectors" id="color-selectors">
+		<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs" role="tablist">
+			<li role="tab" aria-selected="true"><a href="#foreground">Foreground Colour</a></li>
+			<li role="tab"><a href="#background">Background Colour</a></li>
+		</ul>
+
+		<fieldset id="foreground" class="swatches swatches--foreground o-tabs__tabpanel">
+			<span class="o-forms-title__main">Palette</span>
+				<label title="black">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-black)" value="black" checked>
+				</label>
+				<label title="white">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-white)" value="white" >
+				</label>
+				<label title="oxford">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-oxford)" value="oxford" >
+				</label>
+				<label title="teal">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-teal)" value="teal" >
+				</label>
+			<br>
+				<label title="slate">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-slate)" value="slate" >
+				</label>
+				<label title="slate-white-5">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-slate-white-5)" value="slate-white-5" >
+				</label>
+				<label title="slate-white-15">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-slate-white-15)" value="slate-white-15" >
+				</label>
+				<label title="lemon">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-lemon)" value="lemon" >
+				</label>
+			<br>
+				<label title="jade">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-jade)" value="jade" >
+				</label>
+				<label title="mandarin">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-mandarin)" value="mandarin" >
+				</label>
+				<label title="crimson">
+					<input type=radio name="foreground" style="background-color: var(--o-colors-crimson)" value="crimson" >
+				</label>
+
+			<span class="o-forms-title__main">Tones</span>
+					<label title="oxford-30">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-30)" value="oxford-30">
+					</label>
+					<label title="oxford-40">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-40)" value="oxford-40">
+					</label>
+					<label title="oxford-50">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-50)" value="oxford-50">
+					</label>
+					<label title="oxford-60">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-60)" value="oxford-60">
+					</label>
+					<label title="oxford-70">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-70)" value="oxford-70">
+					</label>
+					<label title="oxford-80">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-80)" value="oxford-80">
+					</label>
+					<label title="oxford-90">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-90)" value="oxford-90">
+					</label>
+					<label title="oxford-100">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-oxford-100)" value="oxford-100">
+					</label>
+				<br>
+					<label title="teal-20">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-20)" value="teal-20">
+					</label>
+					<label title="teal-30">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-30)" value="teal-30">
+					</label>
+					<label title="teal-40">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-40)" value="teal-40">
+					</label>
+					<label title="teal-50">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-50)" value="teal-50">
+					</label>
+					<label title="teal-60">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-60)" value="teal-60">
+					</label>
+					<label title="teal-70">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-70)" value="teal-70">
+					</label>
+					<label title="teal-80">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-80)" value="teal-80">
+					</label>
+					<label title="teal-90">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-90)" value="teal-90">
+					</label>
+					<label title="teal-100">
+						<input type=radio name="foreground" style="background-color: var(--o-colors-teal-100)" value="teal-100">
+					</label>
+				<br>
+			<span class="o-forms-title__main">Mixes</span>
+			<label title="Add mixed colour">
+				<input type="radio"
+					class="o-overlay-trigger"
+					data-o-overlay-src="#mixer-overlay"
+					data-o-overlay-id="mixer-overlay"
+					data-o-overlay-customclose="true"
+					aria-pressed="false"
+					aria-haspopup="true">
+			</label>
+		</fieldset>
+
+		<fieldset id="background" class="swatches swatches--background o-tabs__tabpanel">
+			<span class="o-forms-title__main">Palette</span>
+				<label title="black">
+					<input type=radio name="background" style="background-color: var(--o-colors-black)" value="black" >
+				</label>
+				<label title="white">
+					<input type=radio name="background" style="background-color: var(--o-colors-white)" value="white" checked>
+				</label>
+				<label title="oxford">
+					<input type=radio name="background" style="background-color: var(--o-colors-oxford)" value="oxford" >
+				</label>
+				<label title="teal">
+					<input type=radio name="background" style="background-color: var(--o-colors-teal)" value="teal" >
+				</label>
+			<br>
+				<label title="slate">
+					<input type=radio name="background" style="background-color: var(--o-colors-slate)" value="slate" >
+				</label>
+				<label title="slate-white-5">
+					<input type=radio name="background" style="background-color: var(--o-colors-slate-white-5)" value="slate-white-5" >
+				</label>
+				<label title="slate-white-15">
+					<input type=radio name="background" style="background-color: var(--o-colors-slate-white-15)" value="slate-white-15" >
+				</label>
+				<label title="lemon">
+					<input type=radio name="background" style="background-color: var(--o-colors-lemon)" value="lemon" >
+				</label>
+			<br>
+				<label title="jade">
+					<input type=radio name="background" style="background-color: var(--o-colors-jade)" value="jade" >
+				</label>
+				<label title="mandarin">
+					<input type=radio name="background" style="background-color: var(--o-colors-mandarin)" value="mandarin" >
+				</label>
+				<label title="crimson">
+					<input type=radio name="background" style="background-color: var(--o-colors-crimson)" value="crimson" >
+				</label>
+
+			<span class="o-forms-title__main">Tones</span>
+					<label title="oxford-30">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-30)" value="oxford-30">
+					</label>
+					<label title="oxford-40">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-40)" value="oxford-40">
+					</label>
+					<label title="oxford-50">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-50)" value="oxford-50">
+					</label>
+					<label title="oxford-60">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-60)" value="oxford-60">
+					</label>
+					<label title="oxford-70">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-70)" value="oxford-70">
+					</label>
+					<label title="oxford-80">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-80)" value="oxford-80">
+					</label>
+					<label title="oxford-90">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-90)" value="oxford-90">
+					</label>
+					<label title="oxford-100">
+						<input type=radio name="background" style="background-color: var(--o-colors-oxford-100)" value="oxford-100">
+					</label>
+				<br>
+					<label title="teal-20">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-20)" value="teal-20">
+					</label>
+					<label title="teal-30">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-30)" value="teal-30">
+					</label>
+					<label title="teal-40">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-40)" value="teal-40">
+					</label>
+					<label title="teal-50">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-50)" value="teal-50">
+					</label>
+					<label title="teal-60">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-60)" value="teal-60">
+					</label>
+					<label title="teal-70">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-70)" value="teal-70">
+					</label>
+					<label title="teal-80">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-80)" value="teal-80">
+					</label>
+					<label title="teal-90">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-90)" value="teal-90">
+					</label>
+					<label title="teal-100">
+						<input type=radio name="background" style="background-color: var(--o-colors-teal-100)" value="teal-100">
+					</label>
+				<br>
+			<span class="o-forms-title__main">Mixes</span>
+			<label title="Add mixed colour">
+				<input type="radio" class="trigger-input" aria-pressed="false" aria-haspopup="true">
+			</label>
+		</fieldset>
+
+		<script type="text/template" id="mixer-overlay">
+			<button class="o-overlay__close"></button>
+			<fieldset form="color-selectors" id="overlay-fieldset">
+				<span class="o-forms-title__main">Mixer</span>
+					<label title="black">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-black)" value="black" checked>
+					</label>
+					<label title="white">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-white)" value="white" >
+					</label>
+					<label title="oxford">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-oxford)" value="oxford" >
+					</label>
+					<label title="teal">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-teal)" value="teal" >
+					</label>
+				<br>
+					<label title="slate">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-slate)" value="slate" >
+					</label>
+					<label title="slate-white-5">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-slate-white-5)" value="slate-white-5" >
+					</label>
+					<label title="slate-white-15">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-slate-white-15)" value="slate-white-15" >
+					</label>
+					<label title="lemon">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-lemon)" value="lemon" >
+					</label>
+				<br>
+					<label title="jade">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-jade)" value="jade" >
+					</label>
+					<label title="mandarin">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-mandarin)" value="mandarin" >
+					</label>
+					<label title="crimson">
+						<input type=radio form="color-selectors" name="mixer" style="background-color: var(--o-colors-crimson)" value="crimson" >
+					</label>
+
+				<span class="o-forms-title__main">Base</span>
+					<label title="black">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-black)" value="black" >
+					</label>
+					<label title="white">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-white)" value="white" checked>
+					</label>
+					<label title="oxford">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-oxford)" value="oxford" >
+					</label>
+					<label title="teal">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-teal)" value="teal" >
+					</label>
+				<br>
+					<label title="slate">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-slate)" value="slate" >
+					</label>
+					<label title="slate-white-5">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-slate-white-5)" value="slate-white-5" >
+					</label>
+					<label title="slate-white-15">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-slate-white-15)" value="slate-white-15" >
+					</label>
+					<label title="lemon">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-lemon)" value="lemon" >
+					</label>
+				<br>
+					<label title="jade">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-jade)" value="jade" >
+					</label>
+					<label title="mandarin">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-mandarin)" value="mandarin" >
+					</label>
+					<label title="crimson">
+						<input type=radio form="color-selectors" name="base" style="background-color: var(--o-colors-crimson)" value="crimson" >
+					</label>
+
+				<span class="o-forms-title__main">Range</span>
+				<label title="0%">
+					<input type=radio form="color-selectors" name="range" value="" checked>
+				</label>
+				<label title="10%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="20%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="30%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="40%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="50%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="60%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="70%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="80%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="90%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<label title="100%">
+					<input type=radio form="color-selectors" name="range" value="">
+				</label>
+				<button class="o-buttons o-buttons--secondary o-buttons--mono o-overlay__close" id="add-mix">Add</button>
+			</fieldset>
+		</script>
+	</form>
+
+	<div class="contrast-info" data-o-component="o-syntax-highlight">
+		<div class="contrast-combination">
+			<span class="o-forms-title__main">Combination</span>
+			<span class="combination"></span>
+		</div>
+		<div class="contrast-details">
+			<span class="o-forms-title__main">Contrast Details</span>
+			<span class="contrast-ratio"></span>
+			<span class="wcag-rating rating-result"></span>
+			<p class="rating-message rating-result"></p>
+		</div>
+	</div>
+
+	<div class="contrast-showcase">
+		<h3>This is an example of text at 18px</h3>
+		<p>Everything else is 14px</p>
+		<p>This contrast checker is constrained to the colours that exist within the <a href="https://registry.origami.ft.com/components/o-colors#primary-palette">o-colors color palette</a>. It also provides the option to include 'mixed' colours, which allow the original palette colours to be mixed with each other at different percentages.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec ultrices arcu. Donec faucibus euismod condimentum. Donec pharetra diam nunc, accumsan tempus est pellentesque nec. Vivamus eget fermentum lacus. Integer quis luctus leo, sed placerat mi.</p>
+	</div>
+
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

@@ -1,0 +1,752 @@
+@charset "UTF-8";
+.o-editorial-layout-wrapper > blockquote {
+  display: block;
+  margin: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 16px;
+}
+.o-editorial-layout-wrapper > blockquote p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.o-editorial-layout-wrapper > blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.o-editorial-layout-wrapper > blockquote {
+  position: relative;
+  border-left: 4px solid #1a1817;
+  color: #000000;
+}
+.o-editorial-layout-wrapper > blockquote a {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 0.25ex solid;
+  color: #0d7680;
+  border-bottom-color: #cfd8d1;
+  -webkit-text-decoration-color: #cfd8d1;
+  text-decoration-color: #cfd8d1;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-editorial-layout-wrapper > blockquote a {
+    border-bottom: 0;
+    text-decoration-thickness: 0.25ex;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+  }
+}
+.o-editorial-layout-wrapper > blockquote a:hover {
+  color: #08474d;
+  border-bottom-color: #9ec0bd;
+  -webkit-text-decoration-color: #9ec0bd;
+  text-decoration-color: #9ec0bd;
+}
+.o-editorial-layout-wrapper > blockquote a:focus {
+  border-bottom-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+  color: #08474d;
+}
+
+.o-editorial-layout-wrapper > blockquote cite,
+.o-editorial-layout-wrapper > blockquote footer {
+  font-family: MetricWeb, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > blockquote cite, .o-editorial-layout-wrapper > blockquote .o-typography--loading-sans cite,
+.o-typography--loading-sans .o-editorial-layout-wrapper > blockquote footer,
+.o-editorial-layout-wrapper > blockquote .o-typography--loading-sans footer {
+  font-size: 15.66px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > blockquote cite a,
+.o-editorial-layout-wrapper > blockquote footer a {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 0.25ex solid;
+  color: #0d7680;
+  border-bottom-color: #cfd8d1;
+  -webkit-text-decoration-color: #cfd8d1;
+  text-decoration-color: #cfd8d1;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-editorial-layout-wrapper > blockquote cite a,
+.o-editorial-layout-wrapper > blockquote footer a {
+    border-bottom: 0;
+    text-decoration-thickness: 0.25ex;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+  }
+}
+.o-editorial-layout-wrapper > blockquote cite a:hover,
+.o-editorial-layout-wrapper > blockquote footer a:hover {
+  color: #08474d;
+  border-bottom-color: #9ec0bd;
+  -webkit-text-decoration-color: #9ec0bd;
+  text-decoration-color: #9ec0bd;
+}
+.o-editorial-layout-wrapper > blockquote cite a:focus,
+.o-editorial-layout-wrapper > blockquote footer a:focus {
+  border-bottom-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+  color: #08474d;
+}
+
+.o-editorial-layout-wrapper > blockquote footer > cite {
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.o-typography--loading-sans-bold .o-editorial-layout-wrapper > blockquote footer > cite, .o-editorial-layout-wrapper > blockquote .o-typography--loading-sans-bold footer > cite {
+  font-size: 13.28px;
+  font-family: sans-serif;
+}
+
+.o-editorial-layout-wrapper > blockquote:before {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  vertical-align: baseline;
+  width: 36px;
+  height: 36px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&tint=%231A1817,%231A1817&format=svg");
+  content: "";
+  position: relative;
+  left: -7.2px;
+  margin-top: -7.2px;
+  margin-bottom: calc(16px - 14.4px);
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-editorial-layout-wrapper > blockquote:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-editorial-layout-wrapper > blockquote:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+.o-editorial-layout-wrapper > blockquote p {
+  font-family: Georgia, serif;
+}
+
+.o-editorial-layout-wrapper > ol,
+.o-editorial-layout-wrapper > ul {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.o-editorial-layout-wrapper > ol > li,
+.o-editorial-layout-wrapper > ul > li {
+  position: relative;
+  margin: 0;
+  padding-left: calc(2ch + 4px);
+}
+.o-editorial-layout-wrapper > ol > li:before,
+.o-editorial-layout-wrapper > ul > li:before {
+  font-family: MetricWeb, sans-serif;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.o-editorial-layout-wrapper > h1, .o-editorial-layout-heading-1 {
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.o-editorial-layout-wrapper > h2, .o-editorial-layout-heading-2 {
+  margin-bottom: 14px;
+  margin-top: 32px;
+}
+
+.o-editorial-layout-wrapper > h3, .o-editorial-layout-heading-3,
+.o-editorial-layout-wrapper > h4,
+.o-editorial-layout-heading-4 {
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+.o-editorial-layout-wrapper > h5, .o-editorial-layout-heading-5 {
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.o-editorial-layout-wrapper > blockquote,
+.o-editorial-layout-wrapper > ol,
+.o-editorial-layout-wrapper > ul,
+.o-editorial-layout-wrapper > p, .o-editorial-layout-body {
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.o-editorial-layout-wrapper > h1 + blockquote,
+.o-editorial-layout-wrapper > h1 + ol,
+.o-editorial-layout-wrapper > h1 + ul,
+.o-editorial-layout-wrapper > h1 + p, .o-editorial-layout-wrapper > h1 + .o-editorial-layout-body, .o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + blockquote,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + p, .o-editorial-layout-heading-1 + .o-editorial-layout-body, .o-editorial-layout-wrapper > h1 + ol,
+.o-editorial-layout-wrapper > h1 + ul, .o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-1 + ul,
+.o-editorial-layout-wrapper > h2 + blockquote,
+.o-editorial-layout-wrapper > h2 + ol,
+.o-editorial-layout-wrapper > h2 + ul,
+.o-editorial-layout-wrapper > h2 + p,
+.o-editorial-layout-wrapper > h2 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + blockquote,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + p,
+.o-editorial-layout-heading-2 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > h2 + ol,
+.o-editorial-layout-wrapper > h2 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-2 + ul,
+.o-editorial-layout-wrapper > h3 + blockquote,
+.o-editorial-layout-wrapper > h3 + ol,
+.o-editorial-layout-wrapper > h3 + ul,
+.o-editorial-layout-wrapper > h3 + p,
+.o-editorial-layout-wrapper > h3 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + blockquote,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + p,
+.o-editorial-layout-heading-3 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > h3 + ol,
+.o-editorial-layout-wrapper > h3 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-3 + ul,
+.o-editorial-layout-wrapper > h4 + blockquote,
+.o-editorial-layout-wrapper > h4 + ol,
+.o-editorial-layout-wrapper > h4 + ul,
+.o-editorial-layout-wrapper > h4 + p,
+.o-editorial-layout-wrapper > h4 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + blockquote,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + p,
+.o-editorial-layout-heading-4 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > h4 + ol,
+.o-editorial-layout-wrapper > h4 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-4 + ul,
+.o-editorial-layout-wrapper > h5 + blockquote,
+.o-editorial-layout-wrapper > h5 + ol,
+.o-editorial-layout-wrapper > h5 + ul,
+.o-editorial-layout-wrapper > h5 + p,
+.o-editorial-layout-wrapper > h5 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + blockquote,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + p,
+.o-editorial-layout-heading-5 + .o-editorial-layout-body,
+.o-editorial-layout-wrapper > h5 + ol,
+.o-editorial-layout-wrapper > h5 + ul,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + ol,
+.o-editorial-layout-wrapper > .o-editorial-layout-heading-5 + ul {
+  margin-top: 4px;
+}
+.o-editorial-layout-wrapper > h1 + figure, .o-editorial-layout-heading-1 + figure, .o-editorial-layout-wrapper > h1 + ul, .o-editorial-layout-heading-1 + ul, .o-editorial-layout-wrapper > h1 + ol, .o-editorial-layout-heading-1 + ol, .o-editorial-layout-wrapper > h1 + aside, .o-editorial-layout-heading-1 + aside, .o-editorial-layout-wrapper > h1 + div, .o-editorial-layout-heading-1 + div,
+.o-editorial-layout-wrapper > h2 + figure,
+.o-editorial-layout-heading-2 + figure,
+.o-editorial-layout-wrapper > h2 + ul,
+.o-editorial-layout-heading-2 + ul,
+.o-editorial-layout-wrapper > h2 + ol,
+.o-editorial-layout-heading-2 + ol,
+.o-editorial-layout-wrapper > h2 + aside,
+.o-editorial-layout-heading-2 + aside,
+.o-editorial-layout-wrapper > h2 + div,
+.o-editorial-layout-heading-2 + div,
+.o-editorial-layout-wrapper > h3 + figure,
+.o-editorial-layout-heading-3 + figure,
+.o-editorial-layout-wrapper > h3 + ul,
+.o-editorial-layout-heading-3 + ul,
+.o-editorial-layout-wrapper > h3 + ol,
+.o-editorial-layout-heading-3 + ol,
+.o-editorial-layout-wrapper > h3 + aside,
+.o-editorial-layout-heading-3 + aside,
+.o-editorial-layout-wrapper > h3 + div,
+.o-editorial-layout-heading-3 + div,
+.o-editorial-layout-wrapper > h4 + figure,
+.o-editorial-layout-heading-4 + figure,
+.o-editorial-layout-wrapper > h4 + ul,
+.o-editorial-layout-heading-4 + ul,
+.o-editorial-layout-wrapper > h4 + ol,
+.o-editorial-layout-heading-4 + ol,
+.o-editorial-layout-wrapper > h4 + aside,
+.o-editorial-layout-heading-4 + aside,
+.o-editorial-layout-wrapper > h4 + div,
+.o-editorial-layout-heading-4 + div,
+.o-editorial-layout-wrapper > h5 + figure,
+.o-editorial-layout-heading-5 + figure,
+.o-editorial-layout-wrapper > h5 + ul,
+.o-editorial-layout-heading-5 + ul,
+.o-editorial-layout-wrapper > h5 + ol,
+.o-editorial-layout-heading-5 + ol,
+.o-editorial-layout-wrapper > h5 + aside,
+.o-editorial-layout-heading-5 + aside,
+.o-editorial-layout-wrapper > h5 + div,
+.o-editorial-layout-heading-5 + div {
+  margin-top: 16px;
+}
+
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Light.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Light.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-LightItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-LightItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Regular.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Regular.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-RegularItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-RegularItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-MediumItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-MediumItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Medium.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Medium.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Semibold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Semibold.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-SemiboldItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-SemiboldItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Bold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Bold.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Black.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Black.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+.o-editorial-layout-heading-1 {
+  color: #33302e;
+  font-family: FinancierDisplayWeb, serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+@media (min-width: 30.625em) {
+  .o-editorial-layout-heading-1 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-editorial-layout-heading-1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+.o-typography--loading-display .o-editorial-layout-heading-1 {
+  font-size: 25.2px;
+  font-family: serif;
+}
+@media (min-width: 30.625em) {
+  .o-typography--loading-display .o-editorial-layout-heading-1 {
+    font-size: 28.8px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-typography--loading-display .o-editorial-layout-heading-1 {
+    font-size: 36px;
+  }
+}
+
+.o-editorial-layout-heading-2 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.o-typography--loading-sans-bold .o-editorial-layout-heading-2 {
+  font-size: 23.24px;
+  font-family: sans-serif;
+}
+
+.o-editorial-layout-heading-3 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-layout-heading-3 {
+  font-size: 24.36px;
+  font-family: sans-serif;
+}
+
+.o-editorial-layout-heading-4 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-layout-heading-4 {
+  font-size: 20.88px;
+  font-family: sans-serif;
+}
+
+.o-editorial-layout-heading-5 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.o-typography--loading-sans .o-editorial-layout-heading-5 {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-editorial-layout-body {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #33302e;
+}
+@media (min-width: 76.25em) {
+  .o-editorial-layout-body {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+
+.o-editorial-layout-wrapper > h1 {
+  color: #33302e;
+  font-family: FinancierDisplayWeb, serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+@media (min-width: 30.625em) {
+  .o-editorial-layout-wrapper > h1 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-editorial-layout-wrapper > h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+.o-typography--loading-display .o-editorial-layout-wrapper > h1 {
+  font-size: 25.2px;
+  font-family: serif;
+}
+@media (min-width: 30.625em) {
+  .o-typography--loading-display .o-editorial-layout-wrapper > h1 {
+    font-size: 28.8px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-typography--loading-display .o-editorial-layout-wrapper > h1 {
+    font-size: 36px;
+  }
+}
+.o-editorial-layout-wrapper > h2 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.o-typography--loading-sans-bold .o-editorial-layout-wrapper > h2 {
+  font-size: 23.24px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > h3 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > h3 {
+  font-size: 24.36px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > h4 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > h4 {
+  font-size: 20.88px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > h5 {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > h5 {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > blockquote,
+.o-editorial-layout-wrapper > ol,
+.o-editorial-layout-wrapper > ul,
+.o-editorial-layout-wrapper > p {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #33302e;
+}
+@media (min-width: 76.25em) {
+  .o-editorial-layout-wrapper > blockquote,
+.o-editorial-layout-wrapper > ol,
+.o-editorial-layout-wrapper > ul,
+.o-editorial-layout-wrapper > p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+.o-editorial-layout-wrapper > ol {
+  counter-reset: item;
+}
+.o-editorial-layout-wrapper > ol > li:before {
+  font-weight: 600;
+  content: counter(item);
+  counter-increment: item;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  -webkit-transform: scale(0.8888888889);
+  transform: scale(0.8888888889);
+  margin-left: -0.1422222222ch;
+}
+.o-editorial-layout-wrapper > ul > li:before {
+  content: "•";
+  color: inherit;
+  -webkit-transform: scale(1.5555555556);
+  transform: scale(1.5555555556);
+  margin-top: -0.2488888889ch;
+}
+.o-editorial-layout-wrapper > footer {
+  font-family: MetricWeb, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #33302e;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > footer {
+  font-size: 15.66px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > figure > figcaption,
+.o-editorial-layout-wrapper > figcaption {
+  font-family: MetricWeb, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #33302e;
+}
+.o-typography--loading-sans .o-editorial-layout-wrapper > figure > figcaption,
+.o-typography--loading-sans .o-editorial-layout-wrapper > figcaption {
+  font-size: 12.18px;
+  font-family: sans-serif;
+}
+.o-editorial-layout-wrapper > blockquote {
+  margin-bottom: 28px;
+  max-width: 56.25ch;
+}
+.o-editorial-layout-wrapper > p a,
+.o-editorial-layout-wrapper > a {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 0.25ex solid;
+  color: #0d7680;
+  border-bottom-color: #cfd8d1;
+  -webkit-text-decoration-color: #cfd8d1;
+  text-decoration-color: #cfd8d1;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-editorial-layout-wrapper > p a,
+.o-editorial-layout-wrapper > a {
+    border-bottom: 0;
+    text-decoration-thickness: 0.25ex;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+  }
+}
+.o-editorial-layout-wrapper > p a:hover,
+.o-editorial-layout-wrapper > a:hover {
+  color: #08474d;
+  border-bottom-color: #9ec0bd;
+  -webkit-text-decoration-color: #9ec0bd;
+  text-decoration-color: #9ec0bd;
+}
+.o-editorial-layout-wrapper > p a:focus,
+.o-editorial-layout-wrapper > a:focus {
+  border-bottom-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+  color: #08474d;
+}
+
+.o-editorial-layout-wrapper > p strong,
+.o-editorial-layout-wrapper > strong {
+  font-weight: 700;
+}
+
+.o-editorial-layout-wrapper > p em,
+.o-editorial-layout-wrapper > em,
+.o-editorial-layout-wrapper > p i,
+.o-editorial-layout-wrapper > i {
+  font-style: italic;
+}
+
+.o-editorial-layout-wrapper > p sup {
+  font-family: MetricWeb, sans-serif;
+  font-size: 0.666em;
+  position: static;
+  vertical-align: super;
+  line-height: 0;
+  display: inline-block;
+  margin-top: -1em;
+}
+
+.o-editorial-layout-wrapper > p sub {
+  font-family: MetricWeb, sans-serif;
+  font-size: 0.666em;
+  position: static;
+  vertical-align: sub;
+  line-height: 0;
+  display: inline-block;
+  margin-bottom: -1em;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tcXVvdGUvc3JjL3Njc3MvX3BsYWNlaG9sZGVycy5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9ub2RlX21vZHVsZXMvQGZpbmFuY2lhbC10aW1lcy9vLXR5cG9ncmFwaHkvc3JjL3Njc3MvdXNlLWNhc2VzL19nZW5lcmFsLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tdHlwb2dyYXBoeS9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28taWNvbnMvc3JjL3Njc3MvX21peGlucy5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9jb21wb25lbnRzL28tZWRpdG9yaWFsLWxheW91dC9zcmMvc2Nzcy9fcGxhY2Vob2xkZXJzLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tZWRpdG9yaWFsLXR5cG9ncmFwaHkvc3JjL3Njc3MvX21peGlucy5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9ub2RlX21vZHVsZXMvQGZpbmFuY2lhbC10aW1lcy9vLWZvbnRzL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL0BmaW5hbmNpYWwtdGltZXMvby1mb250cy9tYWluLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL2NvbXBvbmVudHMvby1lZGl0b3JpYWwtbGF5b3V0L21haW4uc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL3Nhc3MtbXEvX21xLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDRWY7RUFDQyxjQUFBO0VBQ0EsU0FBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBREFGO0FDRUU7RUFDQyxhQUFBO0VBQ0EsbUJBQUE7QURBSDtBQ0NHO0VBQ0MsZ0JBQUE7QURDSjs7QUNPQztFQUNDLGtCQUFBO0VBQ0EsOEJBQUE7RUFDQSxjQUFBO0FESkY7QUNNRTtFQzBLQSxxQkFBQTtFQUNBLGVBQUE7RUFDQSwyQkFBQTtFQVlBLGNBeEZZO0VBMEZaLDRCQURtQjtFQUVuQixzQ0FGbUI7RUFFbkIsOEJBRm1CO0FGdkxyQjtBRTRLRTtFRDlLQTtJQytLQyxnQkFBQTtJQUNBLGlDQTdFZTtJQThFZix1Q0FBQTtJQUFBLCtCQUFBO0VGektEO0FBQ0Y7QUVxTEM7RUFFRSxjQS9GWTtFQWlHWiw0QkFEbUI7RUFFbkIsc0NBRm1CO0VBRW5CLDhCQUZtQjtBRm5MdEI7QUUwTEM7RUFHRSxnQ0FEbUI7RUFFbkIsMENBRm1CO0VBRW5CLGtDQUZtQjtFQUtuQixjQTlHWTtBRjlFZjs7QUNkQzs7RUU0TkMsa0NBQUE7RUFnREEsZUFBQTtFQUNBLGlCQUFBO0VBdkNBLGdCQUFBO0VBSUEsa0JBQUE7QUhuTkY7QUdpU0k7OztFQXNDRixrQkFBQTtFQW5DSSx1QkFBQTtBSDlSTjtBQ3RCRTs7RUM4SkEscUJBQUE7RUFDQSxlQUFBO0VBQ0EsMkJBQUE7RUFZQSxjQXhGWTtFQTBGWiw0QkFEbUI7RUFFbkIsc0NBRm1CO0VBRW5CLDhCQUZtQjtBRjlJckI7QUVtSUU7RURsS0E7O0lDbUtDLGdCQUFBO0lBQ0EsaUNBN0VlO0lBOEVmLHVDQUFBO0lBQUEsK0JB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 */

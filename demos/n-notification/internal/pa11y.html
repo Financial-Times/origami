@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>n-notification: pa11y demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^4.0.0,o-buttons@^6.0.0,o-normalise@^2.0.0" defer></script>
+
+		<script src="main.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^4.0.0,o-buttons@^6.0.0,o-normalise@^2.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div class="n-notification">
+	  <div>
+	    <div class="n-notification__item" data-trackable="notification-undefined">
+	      <div class="n-notification__content-wrapper">
+	        <h3 class="n-notification__title">Explicit dismissal</h3>
+	        <span class="n-notification__content" role="alert">
+	          Notification generated via nNotification.show keep, duration 0
+	          requires explicit dismissal
+	        </span>
+	      </div>
+	      <button class="n-notification__close" data-trackable="close">
+	        Close
+	      </button>
+	    </div>
+	  </div>
+	  <div>
+	    <div
+	      class="n-notification__item n-notification--success"
+	      data-trackable="notification-success"
+	    >
+	      <div class="n-notification__content-wrapper">
+	        <h3 class="n-notification__title">Success</h3>
+	        <span class="n-notification__content" role="alert"
+	          >This Notification is styled as a success, duration set at 3s</span
+	        >
+	      </div>
+	      <button class="n-notification__close" data-trackable="close">
+	        Close
+	      </button>
+	    </div>
+	  </div>
+	  <div>
+	    <div
+	      class="n-notification__item n-notification--error"
+	      data-trackable="notification-error"
+	    >
+	      <div class="n-notification__content-wrapper">
+	        <h3 class="n-notification__title">Error</h3>
+	        <span class="n-notification__content" role="alert"
+	          >This Notification is styled as an error, duration set at 4s</span
+	        >
+	      </div>
+	      <button class="n-notification__close" data-trackable="close">
+	        Close
+	      </button>
+	    </div>
+	  </div>
+	  <div>
+	    <div class="n-notification__item" data-trackable="notification-undefined">
+	      <div class="n-notification__content-wrapper">
+	        <h3 class="n-notification__title">Title</h3>
+	        <span class="n-notification__content" role="alert"
+	          >Notification generated via nNotification.show method duration set at
+	          5s (timeout default)</span
+	        >
+	      </div>
+	      <button class="n-notification__close" data-trackable="close">
+	        Close
+	      </button>
+	    </div>
+	  </div>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+@charset "UTF-8";
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Light.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Light.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-LightItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-LightItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Regular.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Regular.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-RegularItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-RegularItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-MediumItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-MediumItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Medium.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Medium.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Semibold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Semibold.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-SemiboldItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-SemiboldItalic.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Bold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Bold.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Black.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/FinancierDisplayWeb-Black.woff") format("woff");
+  font-family: "FinancierDisplayWeb";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+.o-editorial-typography-body {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #33302e;
+  margin: 0;
+}
+@media (min-width: 76.25em) {
+  .o-editorial-typography-body {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+
+.o-editorial-typography-list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.o-editorial-typography-list > li {
+  position: relative;
+  margin: 0;
+  padding-left: calc(2ch + 4px);
+}
+.o-editorial-typography-list > li:before {
+  font-family: MetricWeb, sans-serif;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.o-editorial-typography-list--ordered {
+  counter-reset: item;
+}
+.o-editorial-typography-list--ordered > li:before {
+  font-weight: 600;
+  content: counter(item);
+  counter-increment: item;
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
+  -webkit-transform: scale(0.8888888889);
+  transform: scale(0.8888888889);
+  margin-left: -0.1422222222ch;
+}
+
+.o-editorial-typography-list--unordered > li:before {
+  content: "•";
+  color: inherit;
+  -webkit-transform: scale(1.5555555556);
+  transform: scale(1.5555555556);
+  margin-top: -0.2488888889ch;
+}
+
+.o-editorial-typography-caption {
+  font-family: MetricWeb, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #33302e;
+}
+.o-typography--loading-sans .o-editorial-typography-caption {
+  font-size: 12.18px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-headline {
+  font-family: FinancierDisplayWeb, serif;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+.o-editorial-typography-headline:after {
+  content: "";
+  display: block;
+  border-bottom: calc(0.34ex + 1px) solid;
+  width: calc(7ch - 10px);
+  max-width: 100%;
+  padding-top: 0.416em;
+}
+@media (min-width: 30.625em) {
+  .o-editorial-typography-headline {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-editorial-typography-headline {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+.o-typography--loading-display-bold .o-editorial-typography-headline {
+  font-size: 28.8px;
+  font-family: serif;
+}
+@media (min-width: 30.625em) {
+  .o-typography--loading-display-bold .o-editorial-typography-headline {
+    font-size: 36px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-typography--loading-display-bold .o-editorial-typography-headline {
+    font-size: 43.2px;
+  }
+}
+
+.o-editorial-typography-heading-level-1 {
+  margin: 0;
+  color: #33302e;
+  font-family: FinancierDisplayWeb, serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+@media (min-width: 30.625em) {
+  .o-editorial-typography-heading-level-1 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-editorial-typography-heading-level-1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+.o-typography--loading-display .o-editorial-typography-heading-level-1 {
+  font-size: 25.2px;
+  font-family: serif;
+}
+@media (min-width: 30.625em) {
+  .o-typography--loading-display .o-editorial-typography-heading-level-1 {
+    font-size: 28.8px;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-typography--loading-display .o-editorial-typography-heading-level-1 {
+    font-size: 36px;
+  }
+}
+
+.o-editorial-typography-heading-level-2 {
+  margin: 0;
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.o-typography--loading-sans-bold .o-editorial-typography-heading-level-2 {
+  font-size: 23.24px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-heading-level-3 {
+  margin: 0;
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-typography-heading-level-3 {
+  font-size: 24.36px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-heading-level-4 {
+  margin: 0;
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.o-typography--loading-sans .o-editorial-typography-heading-level-4 {
+  font-size: 20.88px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-heading-level-5 {
+  margin: 0;
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.o-typography--loading-sans .o-editorial-typography-heading-level-5 {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-standfirst {
+  font-family: MetricWeb, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  color: #33302e;
+}
+.o-typography--loading-sans .o-editorial-typography-standfirst {
+  font-size: 17.4px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-author {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-weight: 600;
+}
+a.o-editorial-typography-author {
+  text-decoration: none;
+  border-bottom: 0;
+}
+a.o-editorial-typography-author:hover {
+  color: #990f3d;
+}
+
+.o-editorial-typography-topic {
+  color: #33302e;
+  font-family: MetricWeb, sans-serif;
+  font-weight: 600;
+}
+a.o-editorial-typography-topic {
+  color: #990f3d;
+  text-decoration: none;
+  border-bottom: 0;
+}
+a.o-editorial-typography-topic:hover {
+  color: #4d081f;
+}
+
+.o-editorial-typography-byline {
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+.o-typography--loading-sans .o-editorial-typography-byline {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-editorial-typography-timestamp {
+  text-transform: uppercase;
+  color: #66605c;
+}
+
+body {
+  background: #fff1e5;
+  margin: 8px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tZm9udHMvc3JjL3Njc3MvX21peGlucy5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9ub2RlX21vZHVsZXMvQGZpbmFuY2lhbC10aW1lcy9vLWZvbnRzL21haW4uc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWVkaXRvcmlhbC10eXBvZ3JhcGh5L21haW4uc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL0BmaW5hbmNpYWwtdGltZXMvby10eXBvZ3JhcGh5L3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWVkaXRvcmlhbC10eXBvZ3JhcGh5L3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL3Nhc3MtbXEvX21xLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tdHlwb2dyYXBoeS9zcmMvc2Nzcy91c2UtY2FzZXMvX2dlbmVyYWwuc2NzcyIsImRlbW9zL3NyYy9tYWluJzslMEElMEFAaW5jbHVkZSUyMG9FZGl0b3JpYWxUeXBvZ3JhcGh5KCk7JTBBJTBBYm9keSUyMCU3QiUwQSUwOWJhY2tncm91bmQ6JTIwb0NvbG9yc0J5VXNlY2FzZSgncGFnZScsJTIwJ2JhY2tncm91bmQnKTslMEElMDltYXJnaW46JTIwb1NwYWNpbmdCeU5hbWUoJ3MyJyk7JTBB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 */

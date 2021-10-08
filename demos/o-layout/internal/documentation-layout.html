@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-layout: documentation-layout demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Array.from,Array.prototype.includes,IntersectionObserver,Object.assign,Object.keys,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-table@^9.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0,o-header-services@^5.0.0,o-footer-services@^4.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-table@^9.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0,o-header-services@^5.0.0,o-footer-services@^4.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-normalise@^3.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout">
+		<div class="o-layout__header">
+			<!-- start o-header-services markup: included as a separate dependency, see https://registry.origami.ft.com/components/o-header-services -->
+			<header class='o-header-services ' data-o-component='o-header-services'>
+				<div class="o-header-services__top">
+						<div class='o-header-services__logo'></div>
+
+						<div class="o-header-services__title">
+							<span class="o-header-services__product-name"><a href="/">Layout Demos</a></span>
+							<span class="o-header-services__product-tagline">Documentation Layout</span>
+						</div>
+				</div>
+			</header>
+			<!-- end o-header-services markup -->
+		</div>
+
+		<div class="o-layout__sidebar"></div>
+
+		<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+			<h1 id="an-example-documentation-layout">Documentation Layout</h1>
+			<h2 id="sidebar-navigation">Sidebar Navigation</h2>
+			<p><code class='o-syntax-highlight--html'>o-layout</code> can generate a sidebar navigation, find out more in the <a href="https://registry.origami.ft.com/components/o-layout/readme">readme</a>.</p>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sunt rerum quod repudiandae repellat fugit laboriosam eveniet harum in natus!</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit? Fugiat, sed doloribus. Neque blanditiis aliquam, ab perspiciatis mollitia nesciunt fugit vitae soluta ducimus eos, aspernatur praesentium iure, aliquid modi.</p>
+			<h2 id="asides">Asides</h2>
+			<p>Asides are also styled and positioned witin the documentation layout.</p>
+			<h3 id="sub-section-1">Sub Section 1</h3>
+			<aside>
+				<h3>Hello, I am an aside.</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, numquam.</p>
+			</aside>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel amet minus quibusdam officia, consequuntur perspiciatis laudantium illum, expedita nostrum corrupti accusantium eligendi doloremque quisquam eos commodi temporibus tempora obcaecati. Inventore omnis blanditiis quia mollitia aperiam quibusdam dignissimos unde molestias ipsam.</p>
+			<figure>
+				<img alt="" src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2Fa60ae24b-b87f-439c-bf1b-6e54946b4cf2.img?source=origami" />
+				<figcaption class="o-typography-caption">
+					An example figure with caption.
+				</figcaption>
+			</figure>
+			<h3 id="sub-section-2">Sub Section 2</h3>
+			<ul>
+				<li>List item 1</li>
+				<li>List item 2</li>
+				<li>List item 3</li>
+				<li>List item 4</li>
+			</ul>
+			<ol>
+				<li>Ordered list item 1</li>
+				<li>Ordered list item 2</li>
+				<li>Ordered list item 3</li>
+				<li>Ordered list item 4</li>
+			</ol>
+			<h2 id="tables">Tables</h2>
+			<p>The <code>table</code> element spans both columns automatically, but we recommend you use a responsive <a href="https://registry.origami.ft.com/components/o-table">o-table</a> and apply the <code>o-layout__main__full-span</code> class.</p>
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam rem libero inventore ab nisi pariatur!</p>
+			<blockquote>
+				<p>Blockquote... lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ea suscipit iusto perspiciatis harum, qui maxime necessitatibus facilis, quo natus rem accusamus autem! Magnam pariatur, perferendis molestiae et tenetur repudiandae.</p>
+				<footer>by Origami Team</footer>
+			</blockquote>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam doloribus eum maiores dolor ipsam expedita aut rerum animi soluta veritatis eaque quia quisquam, ratione tenetur facere iste cum quos? Repudiandae?</p>
+
+			<div class="o-layout__main__full-span">
+				<div class="o-table-container">
+					<div class="o-table-overlay-wrapper">
+						<div class="o-table-scroll-wrapper">
+							<table class="o-table o-table--horizontal-lines o-table--responsive-overflow" data-o-component="o-table" data-o-table-responsive="overflow">
+								<thead>
+									<tr>
+										<th scope="col" role="columnheader">Fruit</th>
+										<th scope="col" role="columnheader">Genus</th>
+										<th scope="col" role="columnheader">Characteristic</th>
+										<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&#xA0;(GBP)</th>
+										<th scope="col" role="columnheader" data-o-table-data-type="numeric" class="o-table__cell--numeric">Cost&#xA0;(EUR)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dragonfruit</td>
+										<td>Stenocereus</td>
+										<td>Juicy</td>
+										<td class="o-table__cell--numeric">3</td>
+										<td class="o-table__cell--numeric">2.72</td>
+									</tr>
+									<tr>
+										<td>Durian</td>
+										<td>Durio</td>
+										<td>Smelly</td>
+										<td class="o-table__cell--numeric">1.75</td>
+										<td class="o-table__cell--numeric">1.33</td>
+									</tr>
+									<tr>
+										<td>Naseberry</td>
+										<td>Manilkara</td>
+										<td>Chewy</td>
+										<td class="o-table__cell--numeric">2</td>
+										<td class="o-table__cell--numeric">1.85</td>
+									</tr>
+									<tr>
+										<td>Strawberry</td>
+										<td>Fragaria</td>
+										<td>Sweet</td>
+										<td class="o-table__cell--numeric">1.5</td>
+										<td class="o-table__cell--numeric">1.69</td>
+									</tr>
+									<tr>
+										<td>Apple</td>
+										<td>Malus</td>
+										<td>Crunchy</td>
+										<td class="o-table__cell--numeric">0.5</td>
+										<td class="o-table__cell--numeric">0.56</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="o-layout__footer">
+			<!-- start o-footer-services markup: included as a separate dependancy, see https://registry.origami.ft.com/components/o-footer-services -->
+			<footer class="o-footer-services">
+				<div class="o-footer-services__container">
+					<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+						<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="http://github.com/financial-times/o-footer-services">View project on GitHub</a>
+						<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://slack.com/messages/[id]/">#slack-channel</a>
+						<p class="o-footer-services__content">Help or advice can be found here <a href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a class="o-footer-services__content--external" href='/somewhere'>like this one</a>.</p>
+					</div>
+				</div>
+				<div class="o-footer-services__container">
+					<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+						<div class="o-footer-services__links">
+							<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+							<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+							<a href="http://help.ft.com/help/legal-privacy/privacy/" class="o-footer-services__bulletted-link">Privacy</a>
+							<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+						</div>
+						<p><span>&copy; THE FINANCIAL TIMES LTD 2020.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+					</div>
+				</div>
+			</footer>
+			<!-- end o-footer-services markup -->
+		</div>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

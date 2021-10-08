@@ -1,0 +1,114 @@
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff2") format("woff2"), url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff") format("woff");
+  font-family: "MetricWeb";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+.demo-container {
+  margin: 0 20px;
+}
+
+.demo-row {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.demo-col {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.demo-col:first-child {
+  float: right;
+  text-align: right;
+  width: 500px;
+}
+
+.demo-example {
+  margin: 0 0 30px;
+}
+
+.demo-family-financierdisplayweb .demo-example {
+  font-family: FinancierDisplayWeb, serif;
+}
+
+.demo-family-metricweb .demo-example {
+  font-family: MetricWeb, sans-serif;
+}
+
+.demo-size-small {
+  padding-top: 15px;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.demo-size-medium {
+  font-size: 80px;
+  line-height: 110px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWZvbnRzL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWZvbnRzL21haW4uc2NzcyIsImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJkZW1vcy9zcmMvbWFpbiUyMjslMEElMEFAaW5jbHVkZSUyMG9Gb250cygpOyUwQSUwQS5kZW1vLWNvbnRhaW5lciUyMCU3QiUwQSUwOW1hcmdpbjolMjAwJTIwMjBweDslMEElN0QlMEElMEEuZGVtby1yb3clMjAlN0IlMEElMDljbGVhcjolMjBib3RoOyUwQSUwOW92ZXJmbG93OiUyMGhpZGRlbjslMEElMDltYXJnaW4tYm90dG9tOiUyMDIwcHg7JTBBJTdEJTBBJTBBLmRlbW8tY29sJTIwJTdCJTBBJTA5b3ZlcmZsb3c6JTIwaGlkZGVuOyUwQSUwOXdvcmQtd3JhcDolMjBicmVhay13b3JkOyUwQSU3RCUwQSUwQS5kZW1vLWNvbDpmaXJzdC1jaGlsZCUyMCU3QiUwQSUwOWZsb2F0OiUyMHJpZ2h0OyUwQSUwOXRleHQtYWxpZ246JTIwcmlnaHQ7JTBBJTA5d2lkdGg6JTIwNTAwcHg7JTBBJTdEJTBBJTBBLmRlbW8tZXhhbXBsZSUyMCU3QiUwQSUwOW1hcmdpbjolMjAwJTIwMCUyMDMwcHg7JTBBJTdEJTBBJTBBLmRlbW8tZmFtaWx5LWZpbmFuY2llcmRpc3BsYXl3ZWIlMjAuZGVtby1leGFtcGxlJTIwJTdCJTBBJTA5Zm9udC1mYW1pbHk6JTIwb0ZvbnRzR2V0Rm9udEZhbWlseVdpdGhGYWxsYmFja3MoRmluYW5jaWVyRGlzcGxheVdlYik7JTBBJTdEJTBBJTBBLmRlbW8tZmFtaWx5LW1ldHJpY3dlYiUyMC5kZW1vLWV4YW1wbGUlMjAlN0IlMEElMDlmb250LWZhbWlseTolMjBvRm9udHNHZXRGb250RmFtaWx5V2l0aEZhbGxiYWNrcyhNZXRyaWNXZWIpOyUwQSU3RCUwQSUwQS5kZW1vLXNpemUtc21hbGwlMjAlN0IlMEElMDlwYWRkaW5nLXRvcDolMjAxNXB4OyUwQSUwOWZvbnQtc2l6ZTolMjAzNnB4OyUwQSUwOWxpbmUtaGVpZ2h0OiUyMDQ0cHg7JTBBJTdEJTBBJTBBLmRlbW8tc2l6ZS1tZWRpdW0lMjAlN0IlMEElMDlmb250LXNpemU6JTIwODBweDslMEElMDlsaW5lLWhlaWdodDolMjAxMTBweDslMEElN0QlMEEiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBa0pFO0VBQ0MsNk9BQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFakpIO0FGNElFO0VBQ0MsK09BQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFMUlIO0FGcUlFO0VBQ0MsMlBBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFbklIO0FGOEhFO0VBQ0MsbVBBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFNUhIO0FGdUhFO0VBQ0MsK1BBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFckhIO0FGZ0hFO0VBQ0MsaVBBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFOUdIO0FGeUdFO0VBQ0MscVBBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFdkdIO0FGa0dFO0VBQ0MsNk9BQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFaEdIO0FGMkZFO0VBQ0MseVBBQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFekZIO0FGb0ZFO0VBQ0MsK09BQUE7RUFDQSx3QkNqR1E7RURrR1IsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGtCQUFBO0FFbEZIO0FDakVBO0VBQ0MsY0FBQTtBRG1FRDs7QUNoRUE7RUFDQyxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSxtQkFBQTtBRG1FRDs7QUNoRUE7RUFDQyxnQkFBQTtFQUNBLHFCQUFBO0FEbUVEOztBQ2hFQTtFQUNDLFlBQUE7RUFDQSxpQkFBQTtFQUNBLFlBQUE7QURtRUQ7O0FDaEVBO0VBQ0MsZ0JBQUE7QURtRUQ7O0FDaEVBO0VBQ0MsdUNBQUE7QURtRUQ7O0FDaEVBO0VBQ0Msa0NBQUE7QURtRUQ7O0FDaEVBO0VBQ0MsaUJBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7QURtRUQ7O0FDaEVBO0VBQ0MsZUFBQTtFQUNBLGtCQUFBO0FEbUVEIiwiZmlsZSI6ImRlbW8uY3NzIn0= */

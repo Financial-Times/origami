@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-labels: indicators-sizes demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0" defer></script>
+
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<span class="demo-scale-m1 o-labels-indicator o-labels-indicator--live">
+	    <span class="o-labels-indicator__status">
+	        live
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-m1 o-labels-indicator o-labels-indicator--closed">
+	    <span class="o-labels-indicator__status">
+	        closed
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-m1 o-labels-indicator o-labels-indicator--new">
+	    <span class="o-labels-indicator__status">
+	        new
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-m1 o-labels-indicator o-labels-indicator--updated">
+	    <span class="o-labels-indicator__status">
+	        updated
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<hr>
+
+	<span class="demo-scale-0 o-labels-indicator o-labels-indicator--live">
+	    <span class="o-labels-indicator__status">
+	        live
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-0 o-labels-indicator o-labels-indicator--closed">
+	    <span class="o-labels-indicator__status">
+	        closed
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-0 o-labels-indicator o-labels-indicator--new">
+	    <span class="o-labels-indicator__status">
+	        new
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-0 o-labels-indicator o-labels-indicator--updated">
+	    <span class="o-labels-indicator__status">
+	        updated
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<hr>
+
+	<span class="demo-scale-1 o-labels-indicator o-labels-indicator--live">
+	    <span class="o-labels-indicator__status">
+	        live
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-1 o-labels-indicator o-labels-indicator--closed">
+	    <span class="o-labels-indicator__status">
+	        closed
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-1 o-labels-indicator o-labels-indicator--new">
+	    <span class="o-labels-indicator__status">
+	        new
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-1 o-labels-indicator o-labels-indicator--updated">
+	    <span class="o-labels-indicator__status">
+	        updated
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<hr>
+
+	<span class="demo-scale-2 o-labels-indicator o-labels-indicator--live">
+	    <span class="o-labels-indicator__status">
+	        live
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-2 o-labels-indicator o-labels-indicator--closed">
+	    <span class="o-labels-indicator__status">
+	        closed
+	    </span>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-2 o-labels-indicator o-labels-indicator--new">
+	    <span class="o-labels-indicator__status">
+	        new
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+
+	<br>
+
+	<span class="demo-scale-2 o-labels-indicator o-labels-indicator--updated">
+	    <span class="o-labels-indicator__status">
+	        updated
+	    </span>
+	    <time class="o-labels-indicator__timestamp">
+	        <!-- demo time element only (the datetime is not 1 hour ago): use o-date for dynamic datetime formatting -->
+	        <time datetime="2020-07-09T12:52:33+0000" title="July 9 2020 1:52 pm" aria-label="1 hours ago">1 hour ago</time>
+	    </time>
+	</span>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+.o-cookie-message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+@media (min-width: 30.625em) {
+  .o-cookie-message {
+    width: 58.3333333333%;
+    margin: 20px;
+  }
+}
+@media (min-width: 46.25em) {
+  .o-cookie-message {
+    width: 50%;
+  }
+}
+@media (min-width: 61.25em) {
+  .o-cookie-message {
+    width: 41.6666666667%;
+  }
+}
+@media (min-width: 76.25em) {
+  .o-cookie-message {
+    width: 488px;
+    left: calc((100vw - 1220px) / 2);
+  }
+}
+
+.o-cookie-message--active {
+  display: block;
+}
+
+.o-cookie-message--closed {
+  display: none;
+}
+
+.o-cookie-message__outer {
+  -webkit-box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+  box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+  background: #ffffff;
+  color: #000000;
+}
+
+.o-cookie-message__inner {
+  -webkit-box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+  box-shadow: 0 1px 4px rgba(77, 72, 69, 0.15), 0 8px 14px rgba(77, 72, 69, 0.2);
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: white;
+  display: block;
+  padding: 40px;
+  padding-top: 28px;
+  max-width: none;
+}
+.o-typography--loading-sans .o-cookie-message__inner {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-cookie-message__content {
+  padding: 0;
+}
+.o-cookie-message__content p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.o-cookie-message__content h1 {
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+.o-typography--loading-sans .o-cookie-message__content h1 {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+
+.o-cookie-message__heading {
+  padding-right: 40px;
+}
+.o-cookie-message__heading:after {
+  content: "";
+  display: block;
+  width: 60px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  border-bottom: 4px solid;
+  border-color: #0d7680;
+}
+
+.o-cookie-message__heading,
+.o-cookie-message__heading h1,
+.o-cookie-message__heading h2 {
+  font-family: MetricWeb, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+@media (min-width: 46.25em) {
+  .o-cookie-message__heading,
+.o-cookie-message__heading h1,
+.o-cookie-message__heading h2 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.o-typography--loading-sans-bold .o-cookie-message__heading,
+.o-typography--loading-sans-bold .o-cookie-message__heading h1,
+.o-typography--loading-sans-bold .o-cookie-message__heading h2 {
+  font-size: 16.6px;
+  font-family: sans-serif;
+}
+@media (min-width: 46.25em) {
+  .o-typography--loading-sans-bold .o-cookie-message__heading,
+.o-typography--loading-sans-bold .o-cookie-message__heading h1,
+.o-typography--loading-sans-bold .o-cookie-message__heading h2 {
+    font-size: 19.92px;
+  }
+}
+
+.o-cookie-message__actions {
+  font-family: MetricWeb, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 24px;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.o-typography--loading-sans .o-cookie-message__actions {
+  font-size: 17.4px;
+  font-family: sans-serif;
+}
+@media (max-width: 46.24em) {
+  .o-cookie-message__actions {
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    margin-top: 0;
+  }
+  .o-cookie-message__actions .o-cookie-message__action {
+    -ms-flex-item-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-self: stretch;
+  }
+  .o-cookie-message__actions .o-cookie-message__action .o-cookie-message__button {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 46.24em) {
+  .o-cookie-message__action--secondary {
+    margin-top: 10px;
+  }
+}
+
+.o-cookie-message__action {
+  padding: 0;
+}
+
+.o-cookie-message__button {
+  font-family: MetricWeb, sans-serif;
+  font-weight: 600;
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  line-height: 16px;
+  background-size: 40px 40px;
+  min-height: 40px;
+  min-width: 80px;
+  padding: 11px 20px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin: 0;
+  border-style: solid;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+  transition: 0.3s background-color, 0.15s color ease-out, 0.15s border-color ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-clip: border-box;
+  border-width: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  background-color: #0d7680;
+  color: white;
+  border-color: transparent;
+  white-space: nowrap;
+}
+.o-typography--loading-sans .o-cookie-message__button {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+.o-cookie-message__button[disabled] {
+  pointer-events: none;
+  opacity: 0.4;
+  cursor: default;
+}
+.o-cookie-message__button:hover {
+  background-color: #095259;
+  color: white;
+  border-color: transparent;
+  text-decoration: none;
+}
+.o-cookie-message__button:focus {
+  background-color: #095259;
+  color: white;
+  border-color: transparent;
+}
+.o-cookie-message__button[aria-selected=true], .o-cookie-message__button[aria-current], .o-cookie-message__button[aria-pressed=true], .o-cookie-message__button:active {
+  background-color: #052f33;
+  color: white;
+  border-color: transparent;
+}
+
+.o-cookie-message__link--external,
+.o-cookie-message__link {
+  font-family: MetricWeb, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 0.25ex solid;
+  color: #0d7680;
+  border-bottom-color: #cfe4e6;
+  -webkit-text-decoration-color: #cfe4e6;
+  text-decoration-color: #cfe4e6;
+  white-space: nowrap;
+}
+.o-typography--loading-sans .o-cookie-message__link--external,
+.o-typography--loading-sans .o-cookie-message__link {
+  font-size: 13.92px;
+  font-family: sans-serif;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-cookie-message__link--external,
+.o-cookie-message__link {
+    border-bottom: 0;
+    text-decoration-thickness: 0.25ex;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+  }
+}
+.o-cookie-message__link--external:hover,
+.o-cookie-message__link:hover {
+  color: #0d7680;
+  border-bottom-color: #9ec8cc;
+  -webkit-text-decoration-color: #9ec8cc;
+  text-decoration-color: #9ec8cc;
+}
+.o-cookie-message__link--external:focus,
+.o-cookie-message__link:focus {
+  border-bottom-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+  color: #0d7680;
+}
+
+.o-cookie-message__link--external {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%230D7680,%230D7680&format=svg");
+  background-repeat: no-repeat;
+  padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
+  background-position-x: calc(100% + 0.5ch);
+  background-origin: border-box;
+  background-size: calc(1em + 0.5ch) calc(1em + 0.5ch);
+  color: #0d7680;
+  border-bottom-color: #cfe4e6;
+  -webkit-text-decoration-color: #cfe4e6;
+  text-decoration-color: #cfe4e6;
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-cookie-message__link--external {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-cookie-message__link--external {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+@supports (background-size: contain) {
+  .o-cookie-message__link--external {
+    background-position-y: calc(100% + 0.25ex - 1px);
+  }
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-cookie-message__link--external {
+    background-position-y: calc(100% + 0.25em - 0.25ex - 1px);
+  }
+}
+@supports (background-size: contain) {
+  .o-cookie-message__link--external {
+    background-size: contain;
+  }
+}
+.o-cookie-message__link--external[target=_blank]:after {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0);
+  clip-path: polygon(0 0, 0 0);
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 2px;
+  height: 2px;
+  white-space: nowrap;
+  content: "(opens a new window)";
+}
+.o-cookie-message__link--external:hover {
+  color: #0d7680;
+  border-bottom-color: #9ec8cc;
+  -webkit-text-decoration-color: #9ec8cc;
+  text-decoration-color: #9ec8cc;
+}
+.o-cookie-message__link--external:focus {
+  color: #0d7680;
+}
+
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__button {
+  background-color: #008845;
+  color: white;
+  border-color: transparent;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__button:hover {
+  background-color: #006634;
+  color: white;
+  border-color: transparent;
+  text-decoration: none;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__button:focus {
+  background-color: #006634;
+  color: white;
+  border-color: transparent;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__button[aria-selected=true], .o-cookie-message.o-cookie-message--alternative .o-cookie-message__button[aria-current], .o-cookie-message.o-cookie-message--alternative .o-cookie-message__button[aria-pressed=true], .o-cookie-message.o-cookie-message--alternative .o-cookie-message__button:active {
+  background-color: #004423;
+  color: white;
+  border-color: transparent;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__heading:after {
+  border-color: #00994d;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external,
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 0.25ex solid;
+  color: #000000;
+  border-bottom-color: #cccccc;
+  -webkit-text-decoration-color: #cccccc;
+  text-decoration-color: #cccccc;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external,
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link {
+    border-bottom: 0;
+    text-decoration-thickness: 0.25ex;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+  }
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external:hover,
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link:hover {
+  color: #000000;
+  border-bottom-color: #999999;
+  -webkit-text-decoration-color: #999999;
+  text-decoration-color: #999999;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external:focus,
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link:focus {
+  border-bottom-color: transparent;
+  -webkit-text-decoration-color: transparent;
+  text-decoration-color: transparent;
+  color: #000000;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  background-repeat: no-repeat;
+  padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
+  background-position-x: calc(100% + 0.5ch);
+  background-origin: border-box;
+  background-size: calc(1em + 0.5ch) calc(1em + 0.5ch);
+  color: #000000;
+  border-bottom-color: #cccccc;
+  -webkit-text-decoration-color: #cccccc;
+  text-decoration-color: #cccccc;
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+@supports (background-size: contain) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+    background-position-y: calc(100% + 0.25ex - 1px);
+  }
+}
+@supports (text-decoration-thickness: 0.25ex) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+    background-position-y: calc(100% + 0.25em - 0.25ex - 1px);
+  }
+}
+@supports (background-size: contain) {
+  .o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external {
+    background-size: contain;
+  }
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external[target=_blank]:after {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0);
+  clip-path: polygon(0 0, 0 0);
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 2px;
+  height: 2px;
+  white-space: nowrap;
+  content: "(opens a new window)";
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external:hover {
+  color: #000000;
+  border-bottom-color: #999999;
+  -webkit-text-decoration-color: #999999;
+  text-decoration-color: #999999;
+}
+.o-cookie-message.o-cookie-message--alternative .o-cookie-message__link--external:focus {
+  color: #000000;
+}
+
+body {
+  font-family: MetricWeb;
+  min-height: 350px;
+  background-color: #fff1e5;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWNvb2tpZS1tZXNzYWdlL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9zYXNzLW1xL19tcS5zY3NzIiwiZmlsZTovLy9ob21lL3J1bm5lci93b3JrL29yaWdhbWkvb3JpZ2FtaS9ub2RlX21vZHVsZXMvQGZpbmFuY2lhbC10aW1lcy9vLXZpc3VhbC1lZmZlY3RzL3NyYy9zY3NzL19zaGFkb3dzLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tdHlwb2dyYXBoeS9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL2NvbXBvbmVudHMvby1jb29raWUtbWVzc2FnZS9zcmMvc2Nzcy9fdmFyaWFibGVzLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tYnV0dG9ucy9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tdHlwb2dyYXBoeS9zcmMvc2Nzcy91c2UtY2FzZXMvX2dlbmVyYWwuc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvbm9kZV9tb2R1bGVzL0BmaW5hbmNpYWwtdGltZXMvby1pY29ucy9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tbm9ybWFsaXNlL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImRlbW9zL3NyYy9tYWluJzslMEFAaW5jbHVkZSUyMG9Db29raWVNZXNzYWdlKCk7JTBBJTBBYm9keSUyMCU3QiUwQSUwOWZvbnQtZmFtaWx5OiUyME1ldHJpY1dlYjslMEElMDltaW4taGVpZ2h0OiUyMDM1MHB4OyUwQSUwOWJhY2tncm91bmQtY29sb3I6JTIwb0NvbG9yc0J5VXNlY2FzZSgncGFnZScsJTIwJ2JhY2tncm91bmQnKTslMEElN0QlMEEiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUUM7RUFDQyxlQUFBO0VBQ0EsU0FBQTtFQUNBLE9BQUE7RUFDQSxjQUFBO0VBQ0EsV0FBQTtFQUNBLFNBQUE7QUNQRjtBQzBPUTtFRnpPUDtJQVNFLHFCQUFBO0lBQ0EsWUFBQTtFQ05EO0FBQ0Y7QUNvT1E7RUZ6T1A7SUFjRSxVQUFBO0VDTEQ7QUFDRjtBQytOUTtFRnpPUDtJQWtCRSxxQkFBQTtFQ0pEO0FBQ0Y7QUMwTlE7RUZ6T1A7SUFzQkUsWUFBQTtJQUNBLGdDQUFBO0VDSEQ7QUFDRjs7QURNQztFQUNDLGNBQUE7QUNIRjs7QURNQztFQUNDLGFBQUE7QUNIRjs7QURNQztFR3pCQyxzRkFBQTtFQUFBLDhFQUFBO0VIMkJBLG1CQUFBO0VBQ0EsY0FBQTtBQ0hGOztBRE1DO0VHL0JDLHNGQUFBO0VBQUEsOEVBQUE7RUN5T0Esa0NBQUE7RUFnREEsZUFBQTtFQUNBLGlCQUFBO0VKdlBBLG1DQUFBO0VBRUEsa0JBQUE7RUFDQSxzQkFBQTtFQUFBLG1CQUFBO0VBQ0Esc0JBQUE7RUFBQSw4QkFBQTtFQUNBLGNBQUE7RUFDQSw4QkFBQTtFQUFBLHNCQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0VBQ0EsYUs1RDBCO0VMNkQxQixpQkFBQTtFQUNBLGVBQUE7QUNIRjtBRzBSSTtFQXNDRixrQkFBQTtFQW5DSSx1QkFBQTtBSHpSTjs7QURFQztFQUNDLFVBQUE7QUNDRjtBRENFO0VBQ0MsYUFB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 */

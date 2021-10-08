@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-syntax-highlight: inline-syntax demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+
+		<script src="demo.js" defer></script>
+
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="demo" data-o-component='o-syntax-highlight'>
+		<p>This is some text, and it is here to illustrate that if you use a <code>&lt;code></code> tag,
+			it will get treatment regardless of what language is inside it.
+			But only if it is an inline <code>&lt;code></code> tag</p>
+		<p>This is some text, and it is here to illustrate that if you use a <var>&lt;var></var> tag,
+			it will get treatment regardless of what language is inside it.
+			But only if it is an inline <var>&lt;var></var> tag</p>
+			<pre>
+				<code class="o-syntax-highlight--html">
+	&lt;html>
+		&lt;head>
+			&lt;!-- links and scripts -->
+		&lt;/head>
+		&lt;body>
+			&lt;div class="some-class" data-attribute="value">
+				&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consectetur est in urna iaculis tempus.&lt;/p>
+				&lt;p>Nam faucibus feugiat lectus, &lt;a href="#">sit amet blandit&lt;/a> purus bibendum et.&lt;/p>
+				&lt;button type="button" name="button">Button.&lt;/button>
+				&lt;span>Comment&lt;/span>
+
+			&lt;/div>
+		&lt;/body>
+	&lt;/html></code>
+			</pre>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

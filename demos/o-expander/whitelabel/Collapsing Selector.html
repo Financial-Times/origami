@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-expander: Collapsing Selector demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.classList,Array.from,CustomEvent,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-normalise@^3.0.0" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div data-o-component="o-expander" class="o-expander items" data-o-expander-shrink-to="2" data-o-expander-item-selector="p" data-o-expander-expanded-toggle-text="less">
+		<div class="o-expander__content">
+			<p>
+				In this demo we see an expander which hides based on the `p` selector, which we have configured using data attributes.
+			</p>
+			<p>
+				Here is a second paragraph.
+			</p>
+			<p>
+				And finally we see a third paragraph.
+			</p>
+		</div>
+		<a href="#" class="o-expander__toggle">read more</a>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-colors: master-color-mixer demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0,o-autoinit@^3.0.0,o-forms@^9.0.0,o-overlay@^4.0.0,o-syntax-highlight@^4.0.0" defer></script>
+
+		<script src="color-mixer.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-normalise@^3.0.0,o-autoinit@^3.0.0,o-forms@^9.0.0,o-overlay@^4.0.0,o-syntax-highlight@^4.0.0&brand=internal" />
+
+		<link rel="stylesheet" href="color-mixer.css" />
+</head>
+<body>
+	<form class="color-selectors">
+		<label class="o-forms-field">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main">Colour</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--select">
+				<select id="mixer">
+						<option value="black" selected>black</option>
+						<option value="white" >white</option>
+						<option value="ft-pink" >ft-pink</option>
+						<option value="ft-grey" >ft-grey</option>
+						<option value=claret >claret</option>
+						<option value=teal >teal</option>
+						<option value=oxford >oxford</option>
+						<option value=slate >slate</option>
+						<option value=paper >paper</option>
+						<option value=mandarin >mandarin</option>
+						<option value=light-blue >light-blue</option>
+						<option value=crimson >crimson</option>
+						<option value=graphics-dark-blue >graphics-dark-blue</option>
+						<option value=wheat >wheat</option>
+						<option value=candy >candy</option>
+						<option value=wasabi >wasabi</option>
+						<option value=jade >jade</option>
+						<option value=velvet >velvet</option>
+						<option value=lemon >lemon</option>
+						<option value=sky >sky</option>
+				</select>
+			</span>
+		</label>
+
+		<label class="o-forms-field">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main">Background</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--select">
+				<select id="base">
+						<option value="black" >black</option>
+						<option value="white" >white</option>
+						<option value="ft-pink" >ft-pink</option>
+						<option value="ft-grey" >ft-grey</option>
+						<option value=claret >claret</option>
+						<option value=teal >teal</option>
+						<option value=oxford >oxford</option>
+						<option value=slate >slate</option>
+						<option value=paper selected>paper</option>
+						<option value=mandarin >mandarin</option>
+						<option value=light-blue >light-blue</option>
+						<option value=crimson >crimson</option>
+						<option value=graphics-dark-blue >graphics-dark-blue</option>
+						<option value=wheat >wheat</option>
+						<option value=candy >candy</option>
+						<option value=wasabi >wasabi</option>
+						<option value=jade >jade</option>
+						<option value=velvet >velvet</option>
+						<option value=lemon >lemon</option>
+						<option value=sky >sky</option>
+				</select>
+			</span>
+		</label>
+	</form>
+
+	<form class="mix-range">
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">0%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">10%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">20%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">30%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">40%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">50%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">60%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">70%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">80%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">90%</span>
+		</label>
+		<label>
+			<input type="radio" name="range">
+			<span class="o-forms-input__label">100%</span>
+		</label>
+	</form>
+
+	<div class="details" data-o-component="o-syntax-highlight">
+		<label aria-describedby="hex-value" class="o-forms-title__main">Hex Value</label>
+		<span class="o-forms-title__prompt">This value is a result of the Sass function below. Feel free to use this value in Sketch files, etc, but please pass on the function to the developer to use in production.</span>
+		<output><pre><code id="hex-value" class='o-syntax-highlight--scss'></code></pre></output>
+
+		<label class="o-forms-title__main">Sass function</label>
+		<span class="o-forms-title__prompt">Returns the hex value above</span>
+		<output><pre><code id='code-snippet' class='o-syntax-highlight--scss'></code></pre></output>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

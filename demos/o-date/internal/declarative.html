@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-date: declarative demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+
+		<script src="declarative.js" defer></script>
+
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<time data-o-component="o-date" class="o-date" datetime="2000-06-14T23:00:00.000Z">June 15, 2000</time> (dates far in the past are formatted as exact dates)
+	<br>
+	<time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated"></time> (a recent date using the o-date-format with time-ago-abbreviated)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="today-or-yesterday-or-nothing"></time> (Using the o-date-format option)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-limit-4-hours"></time> (Using the o-date-format with time-ago-limit-4-hours)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-limit-24-hours"></time> (Using the o-date-format with time-ago-limit-24-hours)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="h:mm a" datetime="1912-04-15T05:18Z"></time> (Using the o-date-format with custom format string)
+	<br>
+	<time data-o-component="o-date" class="o-date" data-o-date-format="date-only" datetime="1912-04-15T05:18Z">
+		<!-- render date-only here, set on the parent "time" element -->
+		<span data-o-date-printer>
+		</span>
+		<!-- render an abbreviated, relative time ago here -->
+		<span data-o-date-printer data-o-date-format="time-ago-abbreviated">
+		</span>
+		<!-- render a custom format here, the absolute time -->
+		<span data-o-date-printer data-o-date-format="h:mm">
+		</span>
+	</time> (Using multiple o-date-format elements)
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

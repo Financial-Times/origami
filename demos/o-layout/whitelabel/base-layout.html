@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-layout: base-layout demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=Array.from,Array.prototype.includes,IntersectionObserver,Object.assign,Object.keys,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-table@^9.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0,o-header-services@^5.0.0,o-footer-services@^4.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-table@^9.0.0,o-syntax-highlight@^4.0.0,o-tabs@^6.0.0,o-header-services@^5.0.0,o-footer-services@^4.0.0,o-buttons@^7.0.0,o-forms@^9.0.0,o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="o-layout" data-o-component="o-layout">
+		<div class="o-layout__header">
+			<!-- start o-header-services markup: included as a separate dependency, see https://registry.origami.ft.com/components/o-header-services -->
+			<header class='o-header-services ' data-o-component='o-header-services'>
+				<div class="o-header-services__top">
+						<div class='o-header-services__logo'></div>
+
+						<div class="o-header-services__title">
+							<span class="o-header-services__product-name"><a href="/">Layout Demos</a></span>
+							<span class="o-header-services__product-tagline">Base Layout</span>
+						</div>
+				</div>
+			</header>
+			<!-- end o-header-services markup -->
+		</div>
+
+		<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	        <h1>Lorem, ipsum.</h1>
+	        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quam iure quas velit animi sunt aliquid quos esse ea, dolor eaque non repellendus commodi id inventore quae, dicta ducimus? Similique.</p>
+	        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, sapiente.</p>
+	        <p>Long code example with overflow:</p>
+			<pre><code>https://www.example.org?example=loremipsumdolorsitametconsecteturadipisicingelitmolestiaenisidoloresiustosimiliqueveniamnesciuntliberovoluptatumvoluptatemerrorquiloremipsumdolorsitametconsecteturadipisicingelitmolestiaenisidoloresiustosimiliqueveniamnesciuntliberovoluptatumvoluptatemerrorqui</code></pre>
+		</div>
+
+		<div class="o-layout__footer">
+			<!-- start o-footer-services markup: included as a separate dependancy, see https://registry.origami.ft.com/components/o-footer-services -->
+			<footer class="o-footer-services">
+				<div class="o-footer-services__container">
+					<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+						<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="http://github.com/financial-times/o-footer-services">View project on GitHub</a>
+						<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://slack.com/messages/[id]/">#slack-channel</a>
+						<p class="o-footer-services__content">Help or advice can be found here <a href="mailto:an.email@someplace.com">an.email@someplace.com</a> and there are other places, <a class="o-footer-services__content--external" href='/somewhere'>like this one</a>.</p>
+					</div>
+				</div>
+				<div class="o-footer-services__container">
+					<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+						<div class="o-footer-services__links">
+							<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+							<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+							<a href="http://help.ft.com/help/legal-privacy/privacy/" class="o-footer-services__bulletted-link">Privacy</a>
+							<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+						</div>
+						<p><span>&copy; THE FINANCIAL TIMES LTD 2020.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+					</div>
+				</div>
+			</footer>
+			<!-- end o-footer-services markup -->
+		</div>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

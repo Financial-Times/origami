@@ -1,0 +1,720 @@
+.o-share {
+  display: inline-block;
+}
+.o-share .o-share__icon {
+  color: #000000;
+  border-color: #807973;
+}
+.o-share .o-share__icon--twitter:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--twitter:hover,
+.o-share .o-share__icon--twitter:focus {
+  border-color: #1da1f2;
+  background-color: #1da1f2;
+  color: #ffffff;
+}
+.o-share .o-share__icon--twitter:hover:before,
+.o-share .o-share__icon--twitter:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--twitter {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--twitter:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--twitter {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--twitter:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--facebook:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--facebook:hover,
+.o-share .o-share__icon--facebook:focus {
+  border-color: #3b579d;
+  background-color: #3b579d;
+  color: #ffffff;
+}
+.o-share .o-share__icon--facebook:hover:before,
+.o-share .o-share__icon--facebook:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--facebook {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--facebook:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--facebook {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--facebook:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--linkedin:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--linkedin:hover,
+.o-share .o-share__icon--linkedin:focus {
+  border-color: #0077b5;
+  background-color: #0077b5;
+  color: #ffffff;
+}
+.o-share .o-share__icon--linkedin:hover:before,
+.o-share .o-share__icon--linkedin:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--linkedin {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--linkedin:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--linkedin {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--linkedin:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--link:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--link:hover,
+.o-share .o-share__icon--link:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share .o-share__icon--link:hover:before,
+.o-share .o-share__icon--link:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--link {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--link:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--link {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--link:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--share:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--share:hover,
+.o-share .o-share__icon--share:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share .o-share__icon--share:hover:before,
+.o-share .o-share__icon--share:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--share {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--share:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--share {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--share:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--mail:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--mail:hover,
+.o-share .o-share__icon--mail:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share .o-share__icon--mail:hover:before,
+.o-share .o-share__icon--mail:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--mail {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--mail:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--mail {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--mail:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--pinterest:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--pinterest:hover,
+.o-share .o-share__icon--pinterest:focus {
+  border-color: #bd081c;
+  background-color: #bd081c;
+  color: #ffffff;
+}
+.o-share .o-share__icon--pinterest:hover:before,
+.o-share .o-share__icon--pinterest:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--pinterest {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--pinterest:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--pinterest {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--pinterest:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--whatsapp:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--whatsapp:hover,
+.o-share .o-share__icon--whatsapp:focus {
+  border-color: #25d366;
+  background-color: #25d366;
+  color: #ffffff;
+}
+.o-share .o-share__icon--whatsapp:hover:before,
+.o-share .o-share__icon--whatsapp:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--whatsapp {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--whatsapp:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--whatsapp {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--whatsapp:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__icon--corporate:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=000000");
+}
+.o-share .o-share__icon--corporate:hover,
+.o-share .o-share__icon--corporate:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share .o-share__icon--corporate:hover:before,
+.o-share .o-share__icon--corporate:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share .o-share__icon--corporate {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share .o-share__icon--corporate:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share .o-share__icon--corporate {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share .o-share__icon--corporate:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share .o-share__text {
+  margin-right: 10px;
+}
+.o-share .o-share__icon:before {
+  width: 38px;
+  height: 38px;
+  background-size: 40px 40px;
+}
+.o-share .o-share__icon {
+  margin: 0 -1px 0 0;
+}
+.o-share .o-share__action:last-child .o-share__icon {
+  margin: 0;
+}
+.o-share.o-share--vertical .o-share__icon {
+  margin: 0 0 -1px;
+}
+.o-share.o-share--vertical .o-share__action--labelled .o-share__text {
+  margin: 4px;
+  margin-top: calc(-10px + 4px);
+}
+.o-share.o-share--vertical .o-share__action {
+  max-width: 40px;
+}
+.o-share ul {
+  margin: 0;
+  padding: 0;
+}
+
+.o-share__action {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  list-style-type: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.o-share__icon {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px solid #807973;
+  color: #000000;
+  text-decoration: none;
+}
+.o-share__icon:hover, .o-share__icon:focus {
+  z-index: 1;
+}
+.o-share__icon:before {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.o-share__icon:after {
+  position: absolute;
+  display: block;
+  content: "";
+}
+
+.o-share__text {
+  font-family: MetricWeb, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+.o-typography--loading-sans .o-share__text {
+  font-size: 12.18px;
+  font-family: sans-serif;
+}
+
+.o-share__action:not(.o-share__action--labelled) .o-share__text {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0);
+  clip-path: polygon(0 0, 0 0);
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 2px;
+  height: 2px;
+  white-space: nowrap;
+}
+
+.o-share--small .o-share__text {
+  margin-right: 7px;
+}
+.o-share--small .o-share__icon:before {
+  width: 26px;
+  height: 26px;
+  background-size: 28px 28px;
+}
+.o-share--small .o-share__action {
+  margin: 0 12px 0 0;
+}
+.o-share--small .o-share__icon {
+  margin: 0;
+}
+.o-share--small .o-share__icon:after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  top: -6px;
+  left: -6px;
+}
+.o-share--small.o-share--vertical .o-share__action {
+  margin: 0 0 12px;
+}
+.o-share--small.o-share--vertical .o-share__action--labelled .o-share__text {
+  margin: 4px;
+  margin-top: calc(-7px + 4px);
+}
+.o-share--small.o-share--vertical .o-share__action {
+  max-width: 28px;
+}
+
+.o-share--inverse .o-share__icon {
+  color: #ffffff;
+  border-color: #939599;
+}
+.o-share--inverse .o-share__icon--twitter:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--twitter:hover,
+.o-share--inverse .o-share__icon--twitter:focus {
+  border-color: #1da1f2;
+  background-color: #1da1f2;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--twitter:hover:before,
+.o-share--inverse .o-share__icon--twitter:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--twitter {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--twitter:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--twitter {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--twitter:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:twitter?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--facebook:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--facebook:hover,
+.o-share--inverse .o-share__icon--facebook:focus {
+  border-color: #3b579d;
+  background-color: #3b579d;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--facebook:hover:before,
+.o-share--inverse .o-share__icon--facebook:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--facebook {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--facebook:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--facebook {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--facebook:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:facebook?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--linkedin:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--linkedin:hover,
+.o-share--inverse .o-share__icon--linkedin:focus {
+  border-color: #0077b5;
+  background-color: #0077b5;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--linkedin:hover:before,
+.o-share--inverse .o-share__icon--linkedin:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--linkedin {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--linkedin:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--linkedin {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--linkedin:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:linkedin?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--link:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--link:hover,
+.o-share--inverse .o-share__icon--link:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--link:hover:before,
+.o-share--inverse .o-share__icon--link:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--link {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--link:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--link {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--link:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--share:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--share:hover,
+.o-share--inverse .o-share__icon--share:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--share:hover:before,
+.o-share--inverse .o-share__icon--share:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--share {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--share:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--share {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--share:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--mail:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--mail:hover,
+.o-share--inverse .o-share__icon--mail:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--mail:hover:before,
+.o-share--inverse .o-share__icon--mail:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--mail {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--mail:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--mail {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--mail:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--pinterest:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--pinterest:hover,
+.o-share--inverse .o-share__icon--pinterest:focus {
+  border-color: #bd081c;
+  background-color: #bd081c;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--pinterest:hover:before,
+.o-share--inverse .o-share__icon--pinterest:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--pinterest {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--pinterest:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--pinterest {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--pinterest:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:pinterest?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--whatsapp:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--whatsapp:hover,
+.o-share--inverse .o-share__icon--whatsapp:focus {
+  border-color: #25d366;
+  background-color: #25d366;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--whatsapp:hover:before,
+.o-share--inverse .o-share__icon--whatsapp:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--whatsapp {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--whatsapp:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--whatsapp {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--whatsapp:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/ftsocial-v2:whatsapp?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+.o-share--inverse .o-share__icon--corporate:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+.o-share--inverse .o-share__icon--corporate:hover,
+.o-share--inverse .o-share__icon--corporate:focus {
+  border-color: #0a5e66;
+  background-color: #0a5e66;
+  color: #ffffff;
+}
+.o-share--inverse .o-share__icon--corporate:hover:before,
+.o-share--inverse .o-share__icon--corporate:focus:before {
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=FFFFFF");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-share--inverse .o-share__icon--corporate {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .o-share--inverse .o-share__icon--corporate:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=%23ffffff");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-share--inverse .o-share__icon--corporate {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .o-share--inverse .o-share__icon--corporate:before {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg&tint=%23000000");
+  }
+}
+
+.o-share--vertical .o-share__action {
+  float: none;
+}
+.o-share--vertical .o-share__icon {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.o-share--vertical .o-share__text {
+  font-size: 12px;
+  line-height: 16px;
+  word-wrap: anywhere;
+  overflow-wrap: anywhere;
+}
+.o-typography--loading-sans .o-share--vertical .o-share__text {
+  font-size: 10.44px;
+}
+
+.demo {
+  background-color: #fff1e5;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.demo--inverse {
+  background-color: #262a33;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLXNoYXJlL21haW4uc2NzcyIsImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL2NvbXBvbmVudHMvby1zaGFyZS9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tdHlwb2dyYXBoeS9zcmMvc2Nzcy9fbWl4aW5zLnNjc3MiLCJmaWxlOi8vL2hvbWUvcnVubmVyL3dvcmsvb3JpZ2FtaS9vcmlnYW1pL25vZGVfbW9kdWxlcy9AZmluYW5jaWFsLXRpbWVzL28tbm9ybWFsaXNlL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImRlbW9zL3NyYy9tYWluJzslMEFAaW5jbHVkZSUyMG9TaGFyZSgpOyUwQSUwQS5kZW1vJTIwJTdCJTBBJTA5YmFja2dyb3VuZC1jb2xvcjolMjBvQ29sb3JzQnlVc2VjYXNlKCdwYWdlJywlMjAnYmFja2dyb3VuZCcpOyUwQSUwOW1hcmdpbjolMjAxcmVtOyUwQSUwOXBhZGRpbmc6JTIwMXJlbTslMEElN0QlMEElMEEuZGVtby0taW52ZXJzZSUyMCU3QiUwQSUwOWJhY2tncm91bmQtY29sb3I6JTIwb0NvbG9yc0J5TmFtZSgnc2xhdGUnKTslMEElN0QlMEEiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBOENDO0VBS0MscUJBQUE7QUNqREY7QUNPQztFQUNDLGNBSk87RUFLUCxxQkFOYztBRENoQjtBQ2tCRTtFQUNDLHVKQUFBO0FEaEJIO0FDbUJFOztFQU1DLHFCQUFBO0VBQ0EseUJBQUE7RUFDQSxjQUFBO0FEckJIO0FDc0JHOztFQUVDLHVKQUFBO0FEcEJKO0FDNEJHO0VBREQ7SUFFRSx5QkFBQTtJQUNBLGNBQUE7RUR6QkY7RUMwQkU7SUFDQywwSkFB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 */

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-message: imperative demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5,o-normalise@^3" defer></script>
+
+		<script src="imperative.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5,o-normalise@^3&brand=master" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<h6>Alert messages</h6>
+	<div class="list-of-demo-buttons">
+		<button class="demo-button" id="alert-success">Success Alert</button>
+		<button class="demo-button" id="alert-neutral">Neutral Alert</button>
+		<button class="demo-button" id="alert-error">Error Alert</button>
+
+		<button class="demo-button" id="inner-alert-success">Success Alert (Inner)</button>
+		<button class="demo-button" id="inner-alert-neutral">Information Alert (Inner)</button>
+		<button class="demo-button" id="inner-alert-error">Error Alert (Inner)</button>
+	</div>
+
+	<h6>Notice messages</h6>
+	<div class="list-of-demo-buttons">
+		<button class="demo-button" id="notice-inform">Inform Notice</button>
+		<button class="demo-button" id="notice-warning">Warning Notice</button>
+		<button class="demo-button" id="notice-warning-light">Light Warning Notice</button>
+
+
+		<button class="demo-button" id="inner-notice-inform">Inform Notice (Inner)</button>
+		<button class="demo-button" id="inner-notice-warning">Warning Notice (Inner)</button>
+		<button class="demo-button" id="inner-notice-warning-light">Light Warning Notice (Inner)</button>
+	</div>
+
+	<h6>Action messages</h6>
+	<div class="list-of-demo-buttons">
+		<button class="demo-button" id="action-inform-inverse">Inform-Inverse Action</button>
+	</div>
+
+	<div class="demo-inner"></div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

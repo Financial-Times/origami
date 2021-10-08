@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="demo">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-forms: radio-box demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=DOMTokenList,Element.prototype.closest,Array.prototype.includes,Array.from,Object.assign,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-buttons@^7.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-buttons@^7.0.0,o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+
+
+
+	
+
+		<div class="o-forms-field
+			
+			
+			 o-forms-field--optional
+			"
+			role="group"
+				aria-labelledby="radio-box-group-title"
+				aria-describedby="radio-box-group-info"
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="radio-box-group-title">Box style radio buttons</span>
+					<span class="o-forms-title__prompt"  id=radio-box-group-info >Optional prompt text</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="default"
+							value="Daily"
+							
+							
+							
+							checked
+							
+							
+							>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="default"
+							value="Weekly"
+							
+							
+							
+							
+							
+							
+							>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			
+			
+			
+			"
+			role="group"
+				aria-labelledby="negative-radio-box-group-title"
+				aria-describedby="negative-radio-box-group-info"
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="negative-radio-box-group-title">Negative highlight</span>
+					<span class="o-forms-title__prompt"  id=negative-radio-box-group-info >Requires a modifier on the label</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--inline">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="negative"
+							value="Yes"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Yes
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="negative"
+							value="No"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										 o-forms-input__label--negative
+										"
+									>
+										No
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			
+			
+			
+			"
+			role="group"
+				aria-labelledby="multiple-radio-box-group-title"
+				
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="multiple-radio-box-group-title">Multiple box-styled radio buttons</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="multiple"
+							value="Daily"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="multiple"
+							value="Weekly"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="multiple"
+							value="Monthly"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Monthly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			
+			
+			
+			"
+			role="group"
+				aria-labelledby="disabed-radio-box-group-title"
+				
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="disabed-radio-box-group-title">Disabled box-styled radio buttons</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="disabled"
+							value="Daily"
+							
+							
+							
+							checked
+							
+							disabled
+							>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="disabled"
+							value="Monthly"
+							
+							
+							
+							
+							
+							disabled
+							>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Monthly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			
+			
+			
+			"
+			role="group"
+				aria-labelledby="error-radio-box-group-title"
+				
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="error-radio-box-group-title">Error box-style radio buttons</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--invalid">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="error"
+							value="Yes"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Yes
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="error"
+							value="No"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										No
+							</span>
+
+					</label>
+
+				</div>
+
+				<span class="o-forms-input__error">Please select an option</span>
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			 o-forms-field--inline
+			
+			
+			"
+			role="group"
+				aria-labelledby="inline-radio-box-group-title"
+				
+			>
+
+			<span class="o-forms-title o-forms-title--vertical-center">
+				<span class="o-forms-title__main" id="inline-radio-box-group-title">V-centered inline radio box</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--inline">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="inline"
+							value="Daily"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="inline"
+							value="Weekly"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			 o-forms-field--inline
+			
+			
+			"
+			role="group"
+				aria-labelledby="saving-state-group-title-long"
+				aria-describedby="saving-state-group-info-long"
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="saving-state-group-title-long">Inline box-style radio buttons with very long title. Inline box-style radio buttons with very long title</span>
+					<span class="o-forms-title__prompt"  id=saving-state-group-info-long >With a stacked saving state</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--saving">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="saving"
+							value="Daily"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="saving"
+							value="Weekly"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+					<span class="o-forms-input__state ">
+					</span>
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			 o-forms-field--inline
+			
+			
+			"
+			role="group"
+				aria-labelledby="saved-state-group-title"
+				
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="saved-state-group-title">Inline saved state</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--saved o-forms-input--inline">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="saved"
+							value="Daily"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="saved"
+							value="Weekly"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+					<span class="o-forms-input__state ">
+					</span>
+			</span>
+
+		</div>
+
+	
+
+
+
+
+	
+
+		<div class="o-forms-field
+			 o-forms-field--inline
+			
+			
+			"
+			role="group"
+				aria-labelledby="saving-state-group-title"
+				aria-describedby="saving-state-group-info"
+			>
+
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="saving-state-group-title">Inline saving state</span>
+					<span class="o-forms-title__prompt"  id=saving-state-group-info >Icon only—also available for saved state</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box o-forms-input--saving o-forms-input--inline">
+
+				<div class="o-forms-input--radio-box__container">
+
+					<label >
+						<input
+							type="radio"
+							name="icon"
+							value="Daily"
+							
+							
+							
+							checked
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Daily
+							</span>
+
+					</label>
+					<label >
+						<input
+							type="radio"
+							name="icon"
+							value="Weekly"
+							
+							
+							
+							
+							
+							
+							required>
+
+							<span class="o-forms-input__label
+										
+										"
+									>
+										Weekly
+							</span>
+
+					</label>
+
+				</div>
+
+				
+
+					<span class="o-forms-input__state o-forms-input__state--icon-only">
+					</span>
+			</span>
+
+		</div>
+
+	
+
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

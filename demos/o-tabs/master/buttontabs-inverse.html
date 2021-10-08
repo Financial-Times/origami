@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="demo-inverse">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-tabs: buttontabs-inverse demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=queryselector,addeventlistener,classlist,String.prototype.trim,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5,o-normalise@^3" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5,o-normalise@^3&brand=master" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="container-inverse">
+
+	<ul data-o-component="o-tabs" class="o-tabs o-tabs--buttontabs o-tabs--secondary o-tabs--inverse" role="tablist">
+		<li role="tab"><a href="#tabContent1">Tab 1</a></li>
+		<li role="tab"><a href="#tabContent2">Tab 2</a></li>
+		<li role="tab" aria-selected="true"><a href="#tabContent3">Tab 3</a></li>
+	</ul>
+	<div id="tabContent1" class="o-tabs__tabpanel">
+		<h3>Tab content 1</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
+	</div>
+	<div id="tabContent2" class="o-tabs__tabpanel">
+		<h3>Tab content 2</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
+	</div>
+	<div id="tabContent3" class="o-tabs__tabpanel">
+		<h3>Tab content 3</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum.</p>
+	</div>
+
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

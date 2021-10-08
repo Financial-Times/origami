@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-stepped-progress: error-step demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-icons@^7.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="demo.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-icons@^7.0.0,o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+
+	<div class="o-stepped-progress" data-o-component="o-stepped-progress">
+		<ol class="o-stepped-progress__steps">
+			<li>
+				<a href="#details" class="o-stepped-progress__step o-stepped-progress__step--complete">
+					<span class="o-stepped-progress__label">
+						Details <span class="o-stepped-progress__status">(completed)</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#delivery" class="o-stepped-progress__step o-stepped-progress__step--complete">
+					<span class="o-stepped-progress__label">
+						Delivery <span class="o-stepped-progress__status">(completed)</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#customise" class="o-stepped-progress__step o-stepped-progress__step--error">
+					<span class="o-stepped-progress__label">
+						Customise <span class="o-stepped-progress__status">(error)</span>
+					</span>
+				</a>
+			</li>
+			<li>
+				<span class="o-stepped-progress__step">
+					<span class="o-stepped-progress__label">
+						Payment
+					</span>
+				</span>
+			</li>
+		</ol>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

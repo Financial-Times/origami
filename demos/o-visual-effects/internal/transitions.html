@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="transitions-demo">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-visual-effects: transitions demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+
+		<script src="demo.js" defer></script>
+
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div class="demo-canvas demo-off">
+		<div class="demo-card demo-transitions demo-transitions--slide">
+			<div class="demo-card-label">Slide</div>
+		</div>
+		<div class="demo-card demo-transitions demo-transitions--expand">
+			<div class="demo-card-label">Expand</div>
+		</div>
+		<div class="demo-card demo-transitions demo-transitions--fade">
+			<div class="demo-card-label">Fade</div>
+		</div>
+		<button class="demo-toggle" type="button">Run demo</button>
+	</div>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

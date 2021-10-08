@@ -1,0 +1,1153 @@
+.o-icons-icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  vertical-align: baseline;
+}
+
+.o-icons-icon--arrow-down {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrow-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--arrow-left {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrow-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--arrow-right {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrow-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--arrow-up {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrow-up {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrow-up?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--arrows-left-right {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-left-right?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrows-left-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-left-right?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrows-left-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-left-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--arrows-up-down {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--arrows-up-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--arrows-up-down {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:arrows-up-down?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--audio {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:audio?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--audio {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:audio?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--audio {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:audio?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--book {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--book {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:book?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--bookmark-outline {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark-outline?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--bookmark-outline {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark-outline?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--bookmark-outline {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark-outline?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--bookmark {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--bookmark {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--bookmark {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:bookmark?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--circle {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:circle?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--circle {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:circle?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--circle {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:circle?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--corporate {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--corporate {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--corporate {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:corporate?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--cross {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--cross {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:cross?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--data {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:data?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--data {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:data?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--data {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:data?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--dollar {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:dollar?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--dollar {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:dollar?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--dollar {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:dollar?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--download {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--download {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:download?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--edit {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--edit {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:edit?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--first {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:first?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--first {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:first?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--first {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:first?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--gift {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:gift?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--gift {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:gift?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--gift {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:gift?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--grid {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--grid {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:grid?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--hamburger {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:hamburger?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--hamburger {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:hamburger?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--hamburger {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:hamburger?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--info {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:info?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--info {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:info?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--info {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:info?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--ipad {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:ipad?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--ipad {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:ipad?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--ipad {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:ipad?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--label-outline {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label-outline?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--label-outline {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label-outline?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--label-outline {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label-outline?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--label {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--label {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--label {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:label?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--last {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:last?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--last {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:last?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--last {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:last?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--link {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--link {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--link {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:link?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--list {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--list {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:list?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--lock {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--lock {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--lock {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--mail {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--mail {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--mail {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mail?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--minus {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:minus?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--minus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:minus?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--minus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:minus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--more {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:more?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--more {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:more?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--more {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:more?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--mute-notifications {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute-notifications?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--mute-notifications {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute-notifications?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--mute-notifications {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute-notifications?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--mute {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--mute {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--mute {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:mute?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--newspaper {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:newspaper?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--newspaper {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:newspaper?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--newspaper {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:newspaper?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--notifications {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:notifications?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--notifications {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:notifications?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--notifications {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:notifications?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--outside-page {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--outside-page {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--outside-page {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--pause {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pause?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--pause {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pause?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--pause {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pause?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--phone {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:phone?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--phone {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:phone?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--phone {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:phone?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--pin {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pin?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--pin {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pin?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--pin {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:pin?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--play {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:play?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--play {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:play?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--play {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:play?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--plus {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--plus {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:plus?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--podcast {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:podcast?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--podcast {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:podcast?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--podcast {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:podcast?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--print {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:print?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--print {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:print?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--print {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:print?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--refresh {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--refresh {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:refresh?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--restore {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:restore?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--restore {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:restore?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--restore {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:restore?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--scroll-to {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:scroll-to?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--scroll-to {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:scroll-to?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--scroll-to {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:scroll-to?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--search {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--search {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:search?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--series {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:series?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--series {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:series?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--series {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:series?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--settings {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:settings?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--settings {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:settings?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--settings {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:settings?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--share {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--share {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--share {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:share?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--skip-backward-30 {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-backward-30?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--skip-backward-30 {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-backward-30?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--skip-backward-30 {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-backward-30?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--skip-forward-30 {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-forward-30?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--skip-forward-30 {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-forward-30?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--skip-forward-30 {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:skip-forward-30?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--speech-left {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--speech-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--speech-left {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-left?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--speech-right {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-right?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--speech-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-right?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--speech-right {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech-right?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--speech {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--speech {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--speech {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:speech?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--stop {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:stop?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--stop {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:stop?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--stop {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:stop?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--tick {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--tick {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:tick?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--trash {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:trash?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--trash {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:trash?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--trash {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:trash?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--upload {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--upload {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:upload?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--user {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:user?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--user {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:user?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--user {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:user?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--users {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:users?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--users {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:users?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--users {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:users?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--video {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:video?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--video {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:video?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--video {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:video?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--warning-alt {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning-alt?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--warning-alt {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning-alt?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--warning-alt {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning-alt?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--warning {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--warning {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:warning?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.o-icons-icon--written-text {
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:written-text?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .o-icons-icon--written-text {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:written-text?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .o-icons-icon--written-text {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:written-text?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+}
+
+.demo-examples {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.demo-example {
+  margin: 0 0 3rem;
+  text-align: center;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.demo-label {
+  display: block;
+}
+
+.demo-icon-custom {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  vertical-align: baseline;
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .demo-icon-custom {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .demo-icon-custom {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.demo-icon-custom-color {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  vertical-align: baseline;
+  width: 128px;
+  height: 128px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%230000FF,%230000FF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .demo-icon-custom-color {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .demo-icon-custom-color {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+
+.demo-icon-custom-color-resized {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  background-color: transparent;
+  vertical-align: baseline;
+  width: 40px;
+  height: 40px;
+  background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%230000FF,%230000FF&format=svg");
+}
+@media screen and (-ms-high-contrast: active) {
+  .demo-icon-custom-color-resized {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23ffffff,%23ffffff&format=svg");
+  }
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+  .demo-icon-custom-color-resized {
+    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:lock?source=origami-build-tools&tint=%23000000,%23000000&format=svg");
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWljb25zL21haW4uc2NzcyIsImZpbGU6Ly8vaG9tZS9ydW5uZXIvd29yay9vcmlnYW1pL29yaWdhbWkvY29tcG9uZW50cy9vLWljb25zL3NyYy9zY3NzL19taXhpbnMuc2NzcyIsImRlbW9zL3NyYy9kZW1vLnNjc3MiLCJkZW1vcy9zcmMvbWFpbiUyMjslMEElMEFAaW5jbHVkZSUyMG9JY29ucygpOyUwQSUwQWJvZHklMjAlN0IlMEElMDlmb250LWZhbWlseTolMjBBcmlhbCwlMjBIZWx2ZXRpY2EsJTIwc2Fucy1zZXJpZjslMEElMDlwYWRkaW5nOiUyMDFyZW07JTBBJTdEJTBBJTBBLmRlbW8tZXhhbXBsZXMlMjAlN0IlMEElMDltYXJnaW46JTIwMDslMEElMDlwYWRkaW5nOiUyMDA7JTBBJTA5bGlzdC1zdHlsZS10eXBlOiUyMG5vbmU7JTBBJTdEJTBBJTBBLmRlbW8tZXhhbXBsZSUyMCU3QiUwQSUwOW1hcmdpbjolMjAwJTIwMCUyMDNyZW07JTBBJTA5dGV4dC1hbGlnbjolMjBjZW50ZXI7JTBBJTA5dmVydGljYWwtYWxpZ246JTIwYm90dG9tOyUwQSUwOWRpc3BsYXk6JTIwaW5saW5lLWJsb2NrOyUwQSU3RCUwQSUwQS5kZW1vLWxhYmVsJTIwJTdCJTBBJTA5ZGlzcGxheTolMjBibG9jazslMEElN0QlMEElMEEuZGVtby1pY29uLWN1c3RvbSUyMCU3QiUwQSUwOUBpbmNsdWRlJTIwb0ljb25zQ29udGVudCgnbG9jaycpOyUwQSU3RCUwQSUwQS5kZW1vLWljb24tY3VzdG9tLWNvbG9yJTIwJTdCJTBBJTA5QGluY2x1ZGUlMjBvSWNvbnNDb250ZW50KCdsb2NrJywlMjAkY29sb3I6JTIwJTIzMDAwMGZmKTslMEElN0QlMEElMEEuZGVtby1pY29uLWN1c3RvbS1jb2xvci1yZXNpemVkJTIwJTdCJTBBJTA5QGluY2x1ZGUlMjBvSWNvbnNDb250ZW50KCdsb2NrJywlMjAlMjMwMDAwZmYsJTIwNDApOyUwQSU3RCUwQSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFjQztFQ2tEQSxxQkFBQTtFQUNBLDRCQUFBO0VBQ0Esd0JBQUE7RUFDQSx3QkFBQTtFQUNBLDZCQUFBO0VBQ0Esd0JBQUE7QUM5REQ7O0FGWUU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiw0SUFBQTtBQzlCRDtBRHFDRTtFRC9CQTtJQ2dDQyxxS0FBQTtFQ2xDRDtBQUNGO0FEb0NFO0VEbkNBO0lDb0NDLHFLQUFBO0VDakNEO0FBQ0Y7O0FGSkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiw0SUFBQTtBQ2REO0FEcUJFO0VEL0JBO0lDZ0NDLHFLQUFBO0VDbEJEO0FBQ0Y7QURvQkU7RURuQ0E7SUNvQ0MscUtBQUE7RUNqQkQ7QUFDRjs7QUZwQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiw2SUFBQTtBQ0VEO0FES0U7RUQvQkE7SUNnQ0Msc0tBQUE7RUNGRDtBQUNGO0FESUU7RURuQ0E7SUNvQ0Msc0tBQUE7RUNERDtBQUNGOztBRnBDRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLDBJQUFBO0FDa0JEO0FEWEU7RUQvQkE7SUNnQ0MsbUtBQUE7RUNjRDtBQUNGO0FEWkU7RURuQ0E7SUNvQ0MsbUtBQUE7RUNlRDtBQUNGOztBRnBERTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLG1KQUFBO0FDa0NEO0FEM0JFO0VEL0JBO0lDZ0NDLDRLQUFBO0VDOEJEO0FBQ0Y7QUQ1QkU7RURuQ0E7SUNvQ0MsNEtBQUE7RUMrQkQ7QUFDRjs7QUZwRUU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixnSkFBQTtBQ2tERDtBRDNDRTtFRC9CQTtJQ2dDQyx5S0FBQTtFQzhDRDtBQUNGO0FENUNFO0VEbkNBO0lDb0NDLHlLQUFBO0VDK0NEO0FBQ0Y7O0FGcEZFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrRUQ7QUQzREU7RUQvQkE7SUNnQ0MsZ0tBQUE7RUM4REQ7QUFDRjtBRDVERTtFRG5DQTtJQ29DQyxnS0FBQTtFQytERDtBQUNGOztBRnBHRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa0ZEO0FEM0VFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOEVEO0FBQ0Y7QUQ1RUU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrRUQ7QUFDRjs7QUZwSEU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixrSkFBQTtBQ2tHRDtBRDNGRTtFRC9CQTtJQ2dDQywyS0FBQTtFQzhGRDtBQUNGO0FENUZFO0VEbkNBO0lDb0NDLDJLQUFBO0VDK0ZEO0FBQ0Y7O0FGcElFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsMElBQUE7QUNrSEQ7QUQzR0U7RUQvQkE7SUNnQ0MsbUtBQUE7RUM4R0Q7QUFDRjtBRDVHRTtFRG5DQTtJQ29DQyxtS0FBQTtFQytHRDtBQUNGOztBRnBKRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHdJQUFBO0FDa0lEO0FEM0hFO0VEL0JBO0lDZ0NDLGlLQUFBO0VDOEhEO0FBQ0Y7QUQ1SEU7RURuQ0E7SUNvQ0MsaUtBQUE7RUMrSEQ7QUFDRjs7QUZwS0U7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiwySUFBQTtBQ2tKRDtBRDNJRTtFRC9CQTtJQ2dDQyxvS0FBQTtFQzhJRDtBQUNGO0FENUlFO0VEbkNBO0lDb0NDLG9LQUFBO0VDK0lEO0FBQ0Y7O0FGcExFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrS0Q7QUQzSkU7RUQvQkE7SUNnQ0MsZ0tBQUE7RUM4SkQ7QUFDRjtBRDVKRTtFRG5DQTtJQ29DQyxnS0FBQTtFQytKRDtBQUNGOztBRnBNRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa0xEO0FEM0tFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOEtEO0FBQ0Y7QUQ1S0U7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrS0Q7QUFDRjs7QUZwTkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix3SUFBQTtBQ2tNRDtBRDNMRTtFRC9CQTtJQ2dDQyxpS0FBQTtFQzhMRDtBQUNGO0FENUxFO0VEbkNBO0lDb0NDLGlLQUFBO0VDK0xEO0FBQ0Y7O0FGcE9FO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsMElBQUE7QUNrTkQ7QUQzTUU7RUQvQkE7SUNnQ0MsbUtBQUE7RUM4TUQ7QUFDRjtBRDVNRTtFRG5DQTtJQ29DQyxtS0FBQTtFQytNRDtBQUNGOztBRnBQRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa09EO0FEM05FO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOE5EO0FBQ0Y7QUQ1TkU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrTkQ7QUFDRjs7QUZwUUU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix1SUFBQTtBQ2tQRDtBRDNPRTtFRC9CQTtJQ2dDQyxnS0FBQTtFQzhPRDtBQUNGO0FENU9FO0VEbkNBO0lDb0NDLGdLQUFBO0VDK09EO0FBQ0Y7O0FGcFJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsc0lBQUE7QUNrUUQ7QUQzUEU7RUQvQkE7SUNnQ0MsK0pBQUE7RUM4UEQ7QUFDRjtBRDVQRTtFRG5DQTtJQ29DQywrSkFBQTtFQytQRDtBQUNGOztBRnBTRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa1JEO0FEM1FFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOFFEO0FBQ0Y7QUQ1UUU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrUUQ7QUFDRjs7QUZwVEU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiwySUFBQTtBQ2tTRDtBRDNSRTtFRC9CQTtJQ2dDQyxvS0FBQTtFQzhSRDtBQUNGO0FENVJFO0VEbkNBO0lDb0NDLG9LQUFBO0VDK1JEO0FBQ0Y7O0FGcFVFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsc0lBQUE7QUNrVEQ7QUQzU0U7RUQvQkE7SUNnQ0MsK0pBQUE7RUM4U0Q7QUFDRjtBRDVTRTtFRG5DQTtJQ29DQywrSkFBQTtFQytTRDtBQUNGOztBRnBWRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa1VEO0FEM1RFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOFREO0FBQ0Y7QUQ1VEU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrVEQ7QUFDRjs7QUZwV0U7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiwrSUFBQTtBQ2tWRDtBRDNVRTtFRC9CQTtJQ2dDQyx3S0FBQTtFQzhVRDtBQUNGO0FENVVFO0VEbkNBO0lDb0NDLHdLQUFBO0VDK1VEO0FBQ0Y7O0FGcFhFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrV0Q7QUQzVkU7RUQvQkE7SUNnQ0MsZ0tBQUE7RUM4VkQ7QUFDRjtBRDVWRTtFRG5DQTtJQ29DQyxnS0FBQTtFQytWRDtBQUNGOztBRnBZRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa1hEO0FEM1dFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOFdEO0FBQ0Y7QUQ1V0U7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrV0Q7QUFDRjs7QUZwWkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixzSUFBQTtBQ2tZRDtBRDNYRTtFRC9CQTtJQ2dDQywrSkFBQTtFQzhYRDtBQUNGO0FENVhFO0VEbkNBO0lDb0NDLCtKQUFBO0VDK1hEO0FBQ0Y7O0FGcGFFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsc0lBQUE7QUNrWkQ7QUQzWUU7RUQvQkE7SUNnQ0MsK0pBQUE7RUM4WUQ7QUFDRjtBRDVZRTtFRG5DQTtJQ29DQywrSkFBQTtFQytZRDtBQUNGOztBRnBiRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa2FEO0FEM1pFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOFpEO0FBQ0Y7QUQ1WkU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrWkQ7QUFDRjs7QUZwY0U7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixzSUFBQTtBQ2tiRDtBRDNhRTtFRC9CQTtJQ2dDQywrSkFBQTtFQzhhRDtBQUNGO0FENWFFO0VEbkNBO0lDb0NDLCtKQUFBO0VDK2FEO0FBQ0Y7O0FGcGRFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrY0Q7QUQzYkU7RUQvQkE7SUNnQ0MsZ0tBQUE7RUM4YkQ7QUFDRjtBRDViRTtFRG5DQTtJQ29DQyxnS0FBQTtFQytiRDtBQUNGOztBRnBlRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa2REO0FEM2NFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOGNEO0FBQ0Y7QUQ1Y0U7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrY0Q7QUFDRjs7QUZwZkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixvSkFBQTtBQ2tlRDtBRDNkRTtFRC9CQTtJQ2dDQyw2S0FBQTtFQzhkRDtBQUNGO0FENWRFO0VEbkNBO0lDb0NDLDZLQUFBO0VDK2REO0FBQ0Y7O0FGcGdCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDa2ZEO0FEM2VFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOGVEO0FBQ0Y7QUQ1ZUU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrZUQ7QUFDRjs7QUZwaEJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsMklBQUE7QUNrZ0JEO0FEM2ZFO0VEL0JBO0lDZ0NDLG9LQUFBO0VDOGZEO0FBQ0Y7QUQ1ZkU7RURuQ0E7SUNvQ0Msb0tBQUE7RUMrZkQ7QUFDRjs7QUZwaUJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsK0lBQUE7QUNraEJEO0FEM2dCRTtFRC9CQTtJQ2dDQyx3S0FBQTtFQzhnQkQ7QUFDRjtBRDVnQkU7RURuQ0E7SUNvQ0Msd0tBQUE7RUMrZ0JEO0FBQ0Y7O0FGcGpCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLDhJQUFBO0FDa2lCRDtBRDNoQkU7RUQvQkE7SUNnQ0MsdUtBQUE7RUM4aEJEO0FBQ0Y7QUQ1aEJFO0VEbkNBO0lDb0NDLHVLQUFBO0VDK2hCRDtBQUNGOztBRnBrQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix1SUFBQTtBQ2tqQkQ7QUQzaUJFO0VEL0JBO0lDZ0NDLGdLQUFBO0VDOGlCRDtBQUNGO0FENWlCRTtFRG5DQTtJQ29DQyxnS0FBQTtFQytpQkQ7QUFDRjs7QUZwbEJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNra0JEO0FEM2pCRTtFRC9CQTtJQ2dDQyxnS0FBQTtFQzhqQkQ7QUFDRjtBRDVqQkU7RURuQ0E7SUNvQ0MsZ0tBQUE7RUMrakJEO0FBQ0Y7O0FGcG1CRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHFJQUFBO0FDa2xCRDtBRDNrQkU7RUQvQkE7SUNnQ0MsOEpBQUE7RUM4a0JEO0FBQ0Y7QUQ1a0JFO0VEbkNBO0lDb0NDLDhKQUFBO0VDK2tCRDtBQUNGOztBRnBuQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixzSUFBQTtBQ2ttQkQ7QUQzbEJFO0VEL0JBO0lDZ0NDLCtKQUFBO0VDOGxCRDtBQUNGO0FENWxCRTtFRG5DQTtJQ29DQywrSkFBQTtFQytsQkQ7QUFDRjs7QUZwb0JFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsc0lBQUE7QUNrbkJEO0FEM21CRTtFRC9CQTtJQ2dDQywrSkFBQTtFQzhtQkQ7QUFDRjtBRDVtQkU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrbUJEO0FBQ0Y7O0FGcHBCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHlJQUFBO0FDa29CRDtBRDNuQkU7RUQvQkE7SUNnQ0Msa0tBQUE7RUM4bkJEO0FBQ0Y7QUQ1bkJFO0VEbkNBO0lDb0NDLGtLQUFBO0VDK25CRDtBQUNGOztBRnBxQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix1SUFBQTtBQ2twQkQ7QUQzb0JFO0VEL0JBO0lDZ0NDLGdLQUFBO0VDOG9CRDtBQUNGO0FENW9CRTtFRG5DQTtJQ29DQyxnS0FBQTtFQytvQkQ7QUFDRjs7QUZwckJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIseUlBQUE7QUNrcUJEO0FEM3BCRTtFRC9CQTtJQ2dDQyxrS0FBQTtFQzhwQkQ7QUFDRjtBRDVwQkU7RURuQ0E7SUNvQ0Msa0tBQUE7RUMrcEJEO0FBQ0Y7O0FGcHNCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHlJQUFBO0FDa3JCRDtBRDNxQkU7RUQvQkE7SUNnQ0Msa0tBQUE7RUM4cUJEO0FBQ0Y7QUQ1cUJFO0VEbkNBO0lDb0NDLGtLQUFBO0VDK3FCRDtBQUNGOztBRnB0QkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiwySUFBQTtBQ2tzQkQ7QUQzckJFO0VEL0JBO0lDZ0NDLG9LQUFBO0VDOHJCRDtBQUNGO0FENXJCRTtFRG5DQTtJQ29DQyxvS0FBQTtFQytyQkQ7QUFDRjs7QUZwdUJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsd0lBQUE7QUNrdEJEO0FEM3NCRTtFRC9CQTtJQ2dDQyxpS0FBQTtFQzhzQkQ7QUFDRjtBRDVzQkU7RURuQ0E7SUNvQ0MsaUtBQUE7RUMrc0JEO0FBQ0Y7O0FGcHZCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHdJQUFBO0FDa3VCRDtBRDN0QkU7RUQvQkE7SUNnQ0MsaUtBQUE7RUM4dEJEO0FBQ0Y7QUQ1dEJFO0VEbkNBO0lDb0NDLGlLQUFBO0VDK3RCRDtBQUNGOztBRnB3QkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUiwwSUFBQTtBQ2t2QkQ7QUQzdUJFO0VEL0JBO0lDZ0NDLG1LQUFBO0VDOHVCRDtBQUNGO0FENXVCRTtFRG5DQTtJQ29DQyxtS0FBQTtFQyt1QkQ7QUFDRjs7QUZweEJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrd0JEO0FEM3ZCRTtFRC9CQTtJQ2dDQyxnS0FBQTtFQzh2QkQ7QUFDRjtBRDV2QkU7RURuQ0E7SUNvQ0MsZ0tBQUE7RUMrdkJEO0FBQ0Y7O0FGcHlCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLGtKQUFBO0FDa3hCRDtBRDN3QkU7RUQvQkE7SUNnQ0MsMktBQUE7RUM4d0JEO0FBQ0Y7QUQ1d0JFO0VEbkNBO0lDb0NDLDJLQUFBO0VDK3dCRDtBQUNGOztBRnB6QkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUixpSkFBQTtBQ2t5QkQ7QUQzeEJFO0VEL0JBO0lDZ0NDLDBLQUFBO0VDOHhCRDtBQUNGO0FENXhCRTtFRG5DQTtJQ29DQywwS0FBQTtFQyt4QkQ7QUFDRjs7QUZwMEJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsNklBQUE7QUNrekJEO0FEM3lCRTtFRC9CQTtJQ2dDQyxzS0FBQTtFQzh5QkQ7QUFDRjtBRDV5QkU7RURuQ0E7SUNvQ0Msc0tBQUE7RUMreUJEO0FBQ0Y7O0FGcDFCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLDhJQUFBO0FDazBCRDtBRDN6QkU7RUQvQkE7SUNnQ0MsdUtBQUE7RUM4ekJEO0FBQ0Y7QUQ1ekJFO0VEbkNBO0lDb0NDLHVLQUFBO0VDK3pCRDtBQUNGOztBRnAyQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix3SUFBQTtBQ2sxQkQ7QUQzMEJFO0VEL0JBO0lDZ0NDLGlLQUFBO0VDODBCRDtBQUNGO0FENTBCRTtFRG5DQTtJQ29DQyxpS0FBQTtFQyswQkQ7QUFDRjs7QUZwM0JFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsc0lBQUE7QUNrMkJEO0FEMzFCRTtFRC9CQTtJQ2dDQywrSkFBQTtFQzgxQkQ7QUFDRjtBRDUxQkU7RURuQ0E7SUNvQ0MsK0pBQUE7RUMrMUJEO0FBQ0Y7O0FGcDRCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDazNCRDtBRDMyQkU7RUQvQkE7SUNnQ0MsK0pBQUE7RUM4MkJEO0FBQ0Y7QUQ1MkJFO0VEbkNBO0lDb0NDLCtKQUFBO0VDKzJCRDtBQUNGOztBRnA1QkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix1SUFBQTtBQ2s0QkQ7QUQzM0JFO0VEL0JBO0lDZ0NDLGdLQUFBO0VDODNCRDtBQUNGO0FENTNCRTtFRG5DQTtJQ29DQyxnS0FBQTtFQyszQkQ7QUFDRjs7QUZwNkJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsd0lBQUE7QUNrNUJEO0FEMzRCRTtFRC9CQTtJQ2dDQyxpS0FBQTtFQzg0QkQ7QUFDRjtBRDU0QkU7RURuQ0E7SUNvQ0MsaUtBQUE7RUMrNEJEO0FBQ0Y7O0FGcDdCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDazZCRDtBRDM1QkU7RUQvQkE7SUNnQ0MsK0pBQUE7RUM4NUJEO0FBQ0Y7QUQ1NUJFO0VEbkNBO0lDb0NDLCtKQUFBO0VDKzVCRDtBQUNGOztBRnA4QkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix1SUFBQTtBQ2s3QkQ7QUQzNkJFO0VEL0JBO0lDZ0NDLGdLQUFBO0VDODZCRDtBQUNGO0FENTZCRTtFRG5DQTtJQ29DQyxnS0FBQTtFQys2QkQ7QUFDRjs7QUZwOUJFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsdUlBQUE7QUNrOEJEO0FEMzdCRTtFRC9CQTtJQ2dDQyxnS0FBQTtFQzg3QkQ7QUFDRjtBRDU3QkU7RURuQ0E7SUNvQ0MsZ0tBQUE7RUMrN0JEO0FBQ0Y7O0FGcCtCRTtFQ2NELFlBYlE7RUFjUixhQWRRO0VBdUJSLDZJQUFBO0FDazlCRDtBRDM4QkU7RUQvQkE7SUNnQ0Msc0tBQUE7RUM4OEJEO0FBQ0Y7QUQ1OEJFO0VEbkNBO0lDb0NDLHNLQUFBO0VDKzhCRDtBQUNGOztBRnAvQkU7RUNjRCxZQWJRO0VBY1IsYUFkUTtFQXVCUix5SUFBQTtBQ2srQkQ7QUQzOUJFO0VEL0JBO0lDZ0NDLGtLQUFBO0VDODlCRDtBQUNGO0FENTlCRTtFRG5DQTtJQ29DQyxrS0FBQTtFQys5QkQ7QUFDRjs7QUZwZ0NFO0VDY0QsWUFiUTtFQWNSLGFBZFE7RUF1QlIsOElBQUE7QUNrL0JEO0FEMytCRTtFRC9CQTtJQ2dDQyx1S0FBQTtFQzgrQkQ7QUFDRjtBRDUrQkU7RURuQ0E7SUNvQ0MsdUtBQUE7RUMrK0JEO0FBQ0Y7O0FDbmlDQTtFQUNDLHlDQUFBO0VBQ0EsYUFBQTtBRHNpQ0Q7O0FDbmlDQTtFQUNDLFNBQUE7RUFDQSxVQUFBO0VBQ0EscUJBQUE7QURzaUNEOztBQ25pQ0E7RUFDQyxnQkFBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxxQkFBQTtBRHNpQ0Q7O0FDbmlDQTtFQUNDLGNBQUE7QURzaUNEOztBQ25pQ0E7RUZzQ0MscUJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0VBQ0Esd0JBQUE7RUFDQSw2QkFBQTtFQUNBLHdCQUFBO0VBcENBLFlBYlE7RUFjUixhQWRRO0VBdUJSLHNJQUFBO0FDOGhDRDtBRHZoQ0U7RUV4QkY7SUZ5QkcsK0pBQUE7RUMwaENEO0FBQ0Y7QUR4aENFO0VFNUJGO0lGNkJHLCtKQUFBO0VDMmhDRDtBQUNGOztBQ3JqQ0E7RUZrQ0MscUJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0VBQ0Esd0JBQUE7RUFDQSw2QkFBQTtFQUNBLHdCQUFBO0VBcENBLFlBYlE7RUFjUixhQWRRO0VBdUJSLCtKQUFBO0FDb2pDRDtBRDdpQ0U7RUVwQkY7SUZxQkcsK0pBQUE7RUNnakNEO0FBQ0Y7QUQ5aUNFO0VFeEJGO0lGeUJHLCtKQUFBO0VDaWpDRDtBQUNGOztBQ3ZrQ0E7RUY4QkMscUJBQUE7RUFDQSw0QkFBQTtFQUNBLHdCQUFBO0VBQ0Esd0JBQUE7RUFDQSw2QkFBQTtFQUNBLHdCQUFBO0VBcENBLFdBYlE7RUFjUixZQWRRO0VBdUJSLCtKQUFBO0FDMGtDRDtBRG5rQ0U7RUVoQkY7SUZpQkcsK0pBQUE7RUNza0NEO0FBQ0Y7QURwa0NFO0VFcEJGO0lGcUJHLCtKQUFBO0VDdWtDRDtBQUNGIiwiZmlsZSI6ImRlbW8uY3NzIn0= */

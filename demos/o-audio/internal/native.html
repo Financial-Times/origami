@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-audio: native demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent&flags=gated&unknown=polyfill"></script>
+
+
+		<script src="demo.js" defer></script>
+
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<div>
+		<audio
+			controls
+			data-o-component="o-audio"
+			data-root-content-id="abc-123">
+			<source
+				src="https://media.acast.com/ftnewsbriefing/wednesday-november14/media.mp3"
+				type="audio/mpeg" />
+		</audio>
+		<p>oTracking events will be shown in the JS console</p>
+	</div>	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>

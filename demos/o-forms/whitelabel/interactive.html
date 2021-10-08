@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="demo">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>o-forms: interactive demo</title>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=DOMTokenList,Element.prototype.closest,Array.prototype.includes,Array.from,Object.assign,CustomEvent&flags=gated&unknown=polyfill"></script>
+
+		<script src="https://www.ft.com/__origami/service/build/v3/bundles/js?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-buttons@^7.0.0,o-normalise@^3.0.0" defer></script>
+
+		<script src="interactive.js" defer></script>
+
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?system_code=origami-registry-ui&components=o-fonts@^5.0.0,o-buttons@^7.0.0,o-normalise@^3.0.0&brand=whitelabel" />
+
+		<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+	<form action="" data-o-component="o-forms">
+
+		<div class="o-forms-field o-forms-field--optional" role="group" aria-labelledby="date-group-title">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main" id="date-group-title">Date input</span>
+				<span class="o-forms-title__prompt">Optional prompt text</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--date">
+				<label>
+					<input class="o-forms-input__day-part" id="date" type="text" name="date" value="" pattern="0[1-9]|[12]\d|3[01]" aria-label="Day (DD)" required>
+					<span class="o-forms-input__label" aria-hidden="true">DD</span>
+				</label>
+				<label>
+					<input class="o-forms-input__month-part" type="text" name="date" value="" pattern="0?[1-9]|1[012]" aria-label="Month (MM)" required>
+					<span class="o-forms-input__label" aria-hidden="true">MM</span>
+				</label>
+				<label>
+					<input class="o-forms-input__year-part" type="text" name="date" value="" pattern="[0-9]{4}" aria-label="Year (YYYY)" required>
+					<span class="o-forms-input__label" aria-hidden="true">YYYY</span>
+				</label>
+				<span class="o-forms-input__error">Please fill out this field with the required format (DD/MM/YYYY)</span>
+			</span>
+		</div>
+
+		<div class="o-forms-field" role="group" aria-labelledby="date-group-title">
+			<span class="o-forms-title" aria-hidden="true">
+				<span class="o-forms-title__main" id="date-group-title">Radio box input</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--radio-box">
+				<div class="o-forms-input--radio-box__container">
+					<label>
+						<input id="radio" type="radio" name="box">
+						<span class="o-forms-input__label" aria-hidden="true">Yes</span>
+					</label>
+					<label>
+						<input type="radio" name="box" checked>
+						<span class="o-forms-input__label o-forms-input__label--negative" aria-hidden="true">No</span>
+					</label>
+				</div>
+			</span>
+		</div>
+
+		<label class="o-forms-field">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main">Required text input</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--text">
+				<input id="required" type="text" name="text" value="" required>
+				<span class="o-forms-input__error">Please fill out this field</span>
+			</span>
+		</label>
+
+		<label class="o-forms-field o-forms-field--optional">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main">Optional text input</span>
+				<span class="o-forms-title__prompt">Optional prompt text</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--text">
+				<input type="text" name="optional" value="">
+			</span>
+		</label>
+
+		<!-- with no id the error summary can not link to this -->
+		<label class="o-forms-field">
+			<span class="o-forms-title">
+				<span class="o-forms-title__main">Text input with missing id attribute to link to</span>
+				<span class="o-forms-title__prompt">prompt text</span>
+			</span>
+
+			<span class="o-forms-input o-forms-input--text">
+				<input type="text" name="required-no-id" value="" required>
+			</span>
+		</label>
+
+		<!-- with no o-forms-title this is not able to show in the error summary -->
+		<div class="o-forms-field">
+			<span class="o-forms-input o-forms-input--checkbox">
+				<label>
+					<input id="my-single-checkbox" type="checkbox" name="my-single-checkbox" required/>
+					<span class="o-forms-input__label">I accept these terms.</span>
+				</label>
+			</span>
+		</div>
+
+	  	<input id="hidden-demo" name="hidden-demo" type="hidden" value="123">
+
+		<button class="o-buttons o-buttons--secondary" type="submit">Let's get started</button>
+
+	</form>
+	<script src="https://registry.origami.ft.com/embedapi?autoload=resize"></script>
+</body>
+</html>
