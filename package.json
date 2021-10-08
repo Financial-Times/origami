@@ -5,14 +5,12 @@
   "version": "1.0.0",
   "description": "the reference implementation of the FT's design system",
   "scripts": {
-    "regenerate": "node ./scripts/regenerate-ci-config-files.js",
-    "test": "node ./scripts/test.js",
-    "install": "./scripts/install.bash",
-    "storybook": "cd apps/storybook && npm run storybook",
-    "build-storybook": "cd apps/storybook && npm run build-storybook",
     "build": "./scripts/build-website.bash # this is for heroku, not people",
     "start": "npx serve origami.ft.com # this is for heroku, not people",
-    "watch": "concurrently 'cd apps/website && npm run watch' 'cd apps/storybook && npm run watch-storybook' 'npx serve origami.ft.com'"
+    "install": "./scripts/install.bash # install the git hooks and run npm ci in obt (obt has a shrinkwrap)",
+    "regenerate": "node ./scripts/regenerate-ci-config-files.js # this is needed when components are added, moved, removed, or when their npm scripts change",
+    "storybook": "cd apps/storybook && npm run storybook # convenience method to run storybook alone",
+    "test": "node ./scripts/test.js # run the tests for every workspace"
   },
   "repository": {
     "type": "git",
@@ -64,7 +62,6 @@
     "remark": "^13.0.0",
     "remark-lint": "^7.0.1",
     "remark-preset-lint-origami-component": "^2.0.0",
-    "serve": "^12.0.1",
     "sinon": "^10.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-origami-component": "^1.0.4"
@@ -83,8 +80,10 @@
     "react-syntax-highlighter": "^15.4.4",
     "read-pkg": "^7.0.0",
     "remark-cli": "^10.0.0",
+    "serve": "^12.0.1",
     "splitonce": "^0.1.2",
     "toposort": "^2.0.2",
+    "typescript": "^4.4.3",
     "undici": "^4.5.1",
     "zx": "^4.1.1"
   }
