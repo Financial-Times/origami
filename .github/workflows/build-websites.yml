@@ -1,4 +1,7 @@
 name: build the websites
+concurrency:
+  group: build-the-website
+  cancel-in-progress: true
 on:
   pull_request:
     branches: [ main ]
