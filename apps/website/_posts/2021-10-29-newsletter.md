@@ -1,7 +1,7 @@
 ---
 title: Origami Newsletter, October 2021
-description:
-author: 
+description: test
+author: chee
 tags:
 - Newsletter
 ---
