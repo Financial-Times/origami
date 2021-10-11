@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# this script is used by the build-website workflow and heroku review apps
+
 set -e
 cd apps/website/
 bundle
