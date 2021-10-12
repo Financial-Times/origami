@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2021-10-12T11:19:07+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, October 2021</title><link href="https://origami.ft.com/blog/2021/10/10/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, October 2021" /><published>2021-10-10T00:00:00+01:00</published><updated>2021-10-10T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/10/10/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/10/10/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
-&lt;strong&gt;
-TL;DR:
-&lt;/strong&gt;
-&lt;/abbr&gt; test&lt;/p&gt;
-
-&lt;h2 id=&quot;top-things&quot;&gt;Top things&lt;/h2&gt;
-
-&lt;p&gt;Some of the bigger Origami news from the last month:&lt;/p&gt;
-
-&lt;h3 id=&quot;one&quot;&gt;One&lt;/h3&gt;
-
-&lt;h3 id=&quot;two&quot;&gt;Two&lt;/h3&gt;
-
-&lt;h3 id=&quot;three&quot;&gt;Three&lt;/h3&gt;
-
-&lt;h2 id=&quot;special-thanks&quot;&gt;Special thanks&lt;/h2&gt;
-
-&lt;h2 id=&quot;broader-update&quot;&gt;Broader update&lt;/h2&gt;
-
-&lt;p&gt;A digest of other things that have happened this month:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mo &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/346&quot;&gt;improved o-normalise&lt;/a&gt; for users of voice control software like Dragon. Thanks, Mo!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">TL;DR: test</summary></entry><entry><title type="html">Origami Newsletter, September 2021</title><link href="https://origami.ft.com/blog/2021/10/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, September 2021" /><published>2021-10-05T00:00:00+01:00</published><updated>2021-10-05T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/10/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/10/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://origami.ft.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://origami.ft.com/" rel="alternate" type="text/html" /><updated>2021-10-12T17:47:00+01:00</updated><id>https://origami.ft.com/feed.xml</id><title type="html">Origami Newsletter</title><subtitle>Origami is a group of services, components, and tools used to help design &amp; build digital products for FT brands.</subtitle><entry><title type="html">Origami Newsletter, September 2021</title><link href="https://origami.ft.com/blog/2021/10/05/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, September 2021" /><published>2021-10-05T00:00:00+01:00</published><updated>2021-10-05T00:00:00+01:00</updated><id>https://origami.ft.com/blog/2021/10/05/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2021/10/05/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
 &lt;strong&gt;
 TL;DR:
 &lt;/strong&gt;
@@ -1818,4 +1794,80 @@ TL;DR:
   &lt;li&gt;
     &lt;p&gt;Make getDataAttributes ignore data attributes which are not in the component’s namespace&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">Top things</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>chee</name></author><category term="Newsletter" /><summary type="html">Top things</summary></entry><entry><title type="html">Origami Newsletter, November 2020</title><link href="https://origami.ft.com/blog/2020/12/01/newsletter/" rel="alternate" type="text/html" title="Origami Newsletter, November 2020" /><published>2020-12-01T00:00:00+00:00</published><updated>2020-12-01T00:00:00+00:00</updated><id>https://origami.ft.com/blog/2020/12/01/newsletter</id><content type="html" xml:base="https://origami.ft.com/blog/2020/12/01/newsletter/">&lt;p&gt;&lt;abbr title=&quot;Too long; didn't read&quot;&gt;
+	&lt;strong&gt;
+	TL;DR:
+	&lt;/strong&gt;
+&lt;/abbr&gt; This issue features Engine Room, Origami v2, and on-site messaging bugs.&lt;/p&gt;
+
+&lt;h2 id=&quot;top-things&quot;&gt;Top Things&lt;/h2&gt;
+
+&lt;p&gt;Some of the bigger Origami news from the last month:&lt;/p&gt;
+
+&lt;h3 id=&quot;engine-room&quot;&gt;Engine Room&lt;/h3&gt;
+
+&lt;p&gt;This month Origami team member Lee (oh hey, that’s me!) gave a talk “&lt;a href=&quot;https://drive.google.com/file/d/1eiVw1-zhMSRy8S-5--xQJeBcYg_j17A6/view&quot;&gt;Origami: Past, Present, &amp;amp; Future&lt;/a&gt;” at &lt;a href=&quot;https://sites.google.com/ft.com/engine-room-live/&quot;&gt;Engine Room&lt;/a&gt;, the FT’s engineering-focused, internal conference.&lt;/p&gt;
+
+&lt;p&gt;The talk covers a little history including why Origami exists, how Origami has adapted to new needs over the last 7 years, and gives a little peek at what’s to come. There are plenty of new opportunities for us to share and build on each others good work. The talk touches on a few technical subjects but is suitable for anyone within product and technology. If you missed it a &lt;a href=&quot;https://drive.google.com/file/d/1eiVw1-zhMSRy8S-5--xQJeBcYg_j17A6/view&quot;&gt;recording is available here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More Engine Room recordings are available in &lt;a href=&quot;https://drive.google.com/drive/folders/1c84vnejFTdDeIK5RGS9BdMOQYEiOGRCl&quot;&gt;Google drive&lt;/a&gt;. There are many excellent talks to explore for those who couldn’t make it.&lt;/p&gt;
+
+&lt;h3 id=&quot;origami-v2&quot;&gt;Origami V2&lt;/h3&gt;
+
+&lt;p&gt;Work continues on our &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/86&quot;&gt;proposal to drop Bower support in favour of NPM&lt;/a&gt;. By switching we will align with the broader tech ecosystem and help speed up development at the FT.&lt;/p&gt;
+
+&lt;p&gt;This month we’ve tested out the proposed approach and… it works 🎉 We have also created a &lt;a href=&quot;https://github.com/Financial-Times/origami-website/pull/273&quot;&gt;draft Origami v2 specification&lt;/a&gt; with the changes required to drop Bower support.&lt;/p&gt;
+
+&lt;p&gt;This proposal affects all projects which depend on Origami components. If you have any questions, thoughts, or feedback we’d love to hear in the &lt;a href=&quot;https://app.slack.com/client/T025C95MN/CSW6B2VAN&quot;&gt;#origami-chat&lt;/a&gt; Slack channel or as a comment on &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/86&quot;&gt;the proposal&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We know this is one many of our engineers are excited about. Thanks to everyone who has given us feedback so far, it’s much appreciated. 👏&lt;/p&gt;
+
+&lt;h3 id=&quot;on-site-messaging&quot;&gt;On-Site Messaging&lt;/h3&gt;
+
+&lt;p&gt;Working with the design team we released a minor update to &lt;a href=&quot;https://registry.origami.ft.com/components/o-message@4.2.3&quot;&gt;o-message&lt;/a&gt; this month, which fixes some visual bugs including improvements to spacing around message content. We’re careful not to release breaking changes within minor releases but unfortunately messaging on some projects broke as they were heavily customising &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-message&lt;/code&gt; in an unsupported way, with CSS overrides.&lt;/p&gt;
+
+&lt;p&gt;In response we offered to &lt;a href=&quot;https://github.com/Financial-Times/next-article/pull/4055&quot;&gt;help update how projects use o-message&lt;/a&gt; to fix the problem. In addition, Xuan and the &lt;a href=&quot;https://app.slack.com/client/T025C95MN/C01481FKWA2&quot;&gt;#design-ops&lt;/a&gt; team are auditing our on-site messaging currently so we can update &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-message&lt;/code&gt; and other Origami components to meet our current needs consistently, without the use of overrides.&lt;/p&gt;
+
+&lt;p&gt;Overriding component styles with CSS can be problematic for a few reasons. It introduces design inconsistency, code complexity, and fragility (overrides are liable to break without warning when components are updated, as happened in this case). Instead it’s better to:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Work with the design team to decide whether a component really needs a unique modification (see the &lt;a href=&quot;https://app.slack.com/client/T025C95MN/C01481FKWA2&quot;&gt;#design-ops&lt;/a&gt; Slack channel).&lt;/li&gt;
+  &lt;li&gt;Update the component to include the new style.&lt;/li&gt;
+  &lt;li&gt;Add new Sass options so the component can be customised.&lt;/li&gt;
+  &lt;li&gt;Or, if you’re after quite different features or a whole new look, build from scratch.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Origami team are here to help you decide which option is right for your project and make component updates if needed. We’re also happy to help you review a projects use of components, to remove duplication and overrides — let us know how we can help in &lt;a href=&quot;https://app.slack.com/client/T025C95MN/C02FU5ARJ&quot;&gt;#origami-support&lt;/a&gt; 😊&lt;/p&gt;
+
+&lt;h2 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h2&gt;
+
+&lt;p&gt;This month we’ve made more direct contributions to Customer Products projects than usual. Our special thanks goes to those who helped review and release our work quickly so we could move on to other tasks. That includes Nick Colley and Simon Plenderleith, thanks both! 🙏&lt;/p&gt;
+
+&lt;h2 id=&quot;broader-update&quot;&gt;Broader Update&lt;/h2&gt;
+
+&lt;p&gt;A digest of other things that have happened this month:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami&quot;&gt;Origami Proposals&lt;/a&gt;: This month there is a &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/93&quot;&gt;new proposal to rename the Origami team&lt;/a&gt;. There is also an update on the &lt;a href=&quot;https://github.com/Financial-Times/origami/pull/92&quot;&gt;variable font proposal&lt;/a&gt; — since we can only commission a resized MetricWeb variable font the work required for the proposal is greater, but as a bonus we may be able to reduce the complexity and increase the reliability of our font loading strategy. Let us know what you think!&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Financial-Times/origami-website&quot;&gt;Origami Specification&lt;/a&gt;: we’ve updated the Origami specification to relax some rules. Components without Sass may support brands without including &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-brand&lt;/code&gt; as a dependency; Sass lint rules may be customised with a Style Lint configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.stylelintrc.js&lt;/code&gt;; we’ve also been working on the v2 draft specification as discussed previously.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-buttons&quot;&gt;o-buttons&lt;/a&gt; adds refresh and cross icon buttons to the default set for Build Service Users; improves spacing between icon and button text; updates pagination buttons with an improved look and new recommendations for the number of pages to show (thanks to Marina Ilieva for the design work here!) If your project uses pagination we recommend reviewing it and adding to your backlog if there’s an opportunity to use the latest o-buttons version to make improvements.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-comments&quot;&gt;o-comments&lt;/a&gt; logs a warning if required constructor options are not given; improves the styles for the reported state (credit to Glynn Phillips).&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-header&quot;&gt;o-header&lt;/a&gt; makes the height of the sticky nav public with a Sass variable; improves the search close button’s readability (thanks Nick Colley!)&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-icons&quot;&gt;o-icons&lt;/a&gt; adds a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scroll-to&lt;/code&gt; icon.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-labels&quot;&gt;o-labels&lt;/a&gt; updates live indicator label animation.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-layout&quot;&gt;o-layout&lt;/a&gt; adds a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;listing&lt;/code&gt; element for use with the landing layout, this is useful to list posts on a blog for example.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-message&quot;&gt;o-message&lt;/a&gt;: as discussed above, corrects the padding/margin of messages; adds a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feedback&lt;/code&gt; state for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notice&lt;/code&gt; o-message.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-share&quot;&gt;o-share&lt;/a&gt; adds support for the internal brand.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/o-spacing&quot;&gt;o-spacing&lt;/a&gt; adds &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$o-spacing-names&lt;/code&gt; variable.&lt;/li&gt;
+  &lt;li&gt;MINOR: &lt;a href=&quot;https://github.com/Financial-Times/polyfill-library&quot;&gt;polyfill-library&lt;/a&gt; adds new features and improvements thanks to open source contributions. Adds a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Intl.Locale&lt;/code&gt; polyfill (thanks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;longlho&lt;/code&gt;); adds &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextEncoder&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextDecoder&lt;/code&gt; polyfills (thanks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lpd-au&lt;/code&gt;); adds a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DOMTokenList.prototype.forEach&lt;/code&gt; polyfill (thanks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;romainmenke&lt;/code&gt;); rewrites the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symbol.prototype.description&lt;/code&gt; polyfill to make it work with different &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symbol&lt;/code&gt; implementations (thanks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mhassan1&lt;/code&gt;); improves the error message for feature detection tests (thanks &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;romainmenke&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/create-origami-component&quot;&gt;create-origami-component&lt;/a&gt; update &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getDataAttributes&lt;/code&gt; to only return namespaced data attributes.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/fticons&quot;&gt;fticons&lt;/a&gt; remove the 0x0x1024x1024 viewport requirement from contributing guide, this is no longer required to support raster graphic scaling via the Image Service.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-cookie-message&quot;&gt;o-cookie-message&lt;/a&gt; attempts to improve accessibility by implementing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dialogue&lt;/code&gt; role; deprecates the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;standard&lt;/code&gt; theme option (these styles are output by default).&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-gallery&quot;&gt;o-gallery&lt;/a&gt; updates the &lt;a href=&quot;https://origami.ft.com/spec/v1/manifest/#supportstatus&quot;&gt;support status&lt;/a&gt; of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-gallery&lt;/code&gt; to “dead”, due to its age and low (or no) use. Please let us know if your project relies on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;o-gallery&lt;/code&gt; still. Note there is a &lt;a href=&quot;https://github.com/Financial-Times/origami/issues/23&quot;&gt;proposal for a similar carousel component&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-grid&quot;&gt;o-grid&lt;/a&gt; updates the bookmarklet (used to overlay the grid on a website for testing) to use the latest version of o-grid.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-normalise&quot;&gt;o-normalise&lt;/a&gt; fixes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:focus-visible&lt;/code&gt; focus styles (previously broken in Chrome/Edge 68).&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-teaser&quot;&gt;o-teaser&lt;/a&gt; registers brand support, to remove the brand support message in the Origami Registry; removes the opinion background from featured “hero image” teasers for desktop-sized viewports.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-toggle&quot;&gt;o-toggle&lt;/a&gt; specifies brand support to remove branding warning from the Origami Registry.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/o-visual-effects&quot;&gt;o-visual-effects&lt;/a&gt; corrects custom mixin documentation (another thanks for the contribution, Nick Colley!)&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/origami-build-tools&quot;&gt;origami-build-tools&lt;/a&gt; pa11y runs automated accessibility checks against all brands; fixed an issue that prevented demo JS from initialising reliably.&lt;/li&gt;
+  &lt;li&gt;PATCH: &lt;a href=&quot;https://github.com/Financial-Times/stylelint-config-origami-component&quot;&gt;stylelint-config-origami-component&lt;/a&gt;, adds tests to confirm our linting expectations.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Lee Moody</name></author><category term="Newsletter" /><summary type="html">TL;DR: This issue features Engine Room, Origami v2, and on-site messaging bugs.</summary></entry></feed>
