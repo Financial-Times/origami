@@ -1,0 +1,5 @@
+node_modules
+demo/public
+.DS_STORE
+.env
+# dist - let's commit dist for now to diff output changes in each commit

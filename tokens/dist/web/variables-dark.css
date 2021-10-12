@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly
+ * Generated on Thu, 30 Sep 2021 09:25:46 GMT
+ */
+
+:root {
+  --color-button-primary-background: var(--color-white);
+  --color-button-primary-hover-background: var(--color-teal-30);
+  --color-button-primary-hover-text: var(--color-white);
+  --color-button-primary-active-background: var(--color-teal-20);
+  --color-button-primary-text: var(--color-slate);
+  --color-button-primary-focus-background: var(--color-teal-30);
+  --color-button-primary-focus-text: var(--color-white);
+  --color-background-page: var(--color-slate);
+  --color-background-logo: var(--color-white);
+  --color-text-logo: var(--color-slate);
+  --color-button-primary-active-text: var(--color-white);
+}

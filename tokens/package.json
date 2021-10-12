@@ -1,0 +1,24 @@
+{
+  "name": "@financial-times/origami-design-tokens-style-dictionary-experiment",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^2.1.0",
+    "fs-extra": "^9.1.0",
+    "lodash": "^4.17.21",
+    "sharp": "^0.27.2",
+    "style-dictionary": "^3.0.1",
+    "svg2vectordrawable": "2.6.26",
+    "tinycolor2": "^1.4.2"
+  },
+  "dependencies": {
+    "chroma-js": "^2.1.2"
+  }
+}
