@@ -7,26 +7,26 @@ extension Color {
   public static var buttonPrimaryBackground: Color {
     return Color.init("buttonPrimaryBackground", bundle: bundle)
   }
-  public static var buttonPrimaryForeground: Color {
-    return Color.init("buttonPrimaryForeground", bundle: bundle)
+  public static var buttonPrimaryText: Color {
+    return Color.init("buttonPrimaryText", bundle: bundle)
   }
   public static var buttonPrimaryHoverBackground: Color {
     return Color.init("buttonPrimaryHoverBackground", bundle: bundle)
   }
-  public static var buttonPrimaryHoverForeground: Color {
-    return Color.init("buttonPrimaryHoverForeground", bundle: bundle)
+  public static var buttonPrimaryHoverText: Color {
+    return Color.init("buttonPrimaryHoverText", bundle: bundle)
   }
   public static var buttonPrimaryActiveBackground: Color {
     return Color.init("buttonPrimaryActiveBackground", bundle: bundle)
   }
-  public static var buttonPrimaryActiveForeground: Color {
-    return Color.init("buttonPrimaryActiveForeground", bundle: bundle)
+  public static var buttonPrimaryActiveText: Color {
+    return Color.init("buttonPrimaryActiveText", bundle: bundle)
   }
   public static var buttonPrimaryFocusBackground: Color {
     return Color.init("buttonPrimaryFocusBackground", bundle: bundle)
   }
-  public static var buttonPrimaryFocusForeground: Color {
-    return Color.init("buttonPrimaryFocusForeground", bundle: bundle)
+  public static var buttonPrimaryFocusText: Color {
+    return Color.init("buttonPrimaryFocusText", bundle: bundle)
   }
   public static var paper: Color {
     return Color.init("paper", bundle: bundle)
@@ -169,22 +169,13 @@ extension Color {
   public static var teal100: Color {
     return Color.init("teal100", bundle: bundle)
   }
-  public static var fontBase: Color {
-    return Color.init("fontBase", bundle: bundle)
-  }
-  public static var fontSecondary: Color {
-    return Color.init("fontSecondary", bundle: bundle)
-  }
-  public static var fontTertiary: Color {
-    return Color.init("fontTertiary", bundle: bundle)
-  }
   public static var backgroundPage: Color {
     return Color.init("backgroundPage", bundle: bundle)
   }
   public static var backgroundLogo: Color {
     return Color.init("backgroundLogo", bundle: bundle)
   }
-  public static var foregroundLogo: Color {
-    return Color.init("foregroundLogo", bundle: bundle)
+  public static var textLogo: Color {
+    return Color.init("textLogo", bundle: bundle)
   }
 }

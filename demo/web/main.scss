@@ -1,4 +1,4 @@
-@import "../../dist/web/variables";
+@import "../../dist/core/web/variables";
 
 
 body {
@@ -12,5 +12,5 @@ button {
 
 
 @media (prefers-color-scheme: dark) {
-    @import "../../dist/web/variables-dark";
+    @import "../../dist/core/web/variables-dark";
 }

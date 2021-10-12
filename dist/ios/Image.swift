@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension Image {
-  public static var logo: Image {
-    return Image.init("logo", bundle: bundle)
+  public static var ftLogoSquare: Image {
+    return Image.init("ftLogoSquare", bundle: bundle)
   }
 };

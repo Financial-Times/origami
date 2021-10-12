@@ -1,21 +1,44 @@
 /**
  * Do not edit directly
- * Generated on Tue, 14 Sep 2021 10:48:02 GMT
+ * Generated on Mon, 27 Sep 2021 16:18:03 GMT
  */
 
 :root {
-  --size-font-large: 2rem; /* the large size of the font */
-  --size-font-medium: 1rem; /* the medium size of the font */
-  --size-font-small: 0.75rem; /* the small size of the font */
-  --color-teal-100: #198cff;
-  --color-teal-90: #167ee6;
-  --color-teal-80: #1470cc;
-  --color-teal-70: #1162b3;
-  --color-teal-60: #0f5499;
-  --color-teal-50: #0c4680;
-  --color-teal-40: #0a3866;
-  --color-teal-30: #072a4d;
-  --color-teal-20: #051c33;
+  --line-height-font-negative-1: 16px;
+  --line-height-font-negative-2: 16px;
+  --line-height-font-10: 84px;
+  --line-height-font-9: 72px;
+  --line-height-font-8: 56px;
+  --line-height-font-7: 48px;
+  --line-height-font-6: 40px;
+  --line-height-font-5: 32px;
+  --line-height-font-4: 32px;
+  --line-height-font-3: 28px;
+  --line-height-font-2: 24px;
+  --line-height-font-1: 20px;
+  --line-height-font-0: 20px;
+  --size-font-negative-1: 14rem;
+  --size-font-negative-2: 12rem;
+  --size-font-10: 84rem;
+  --size-font-9: 72rem;
+  --size-font-8: 56rem;
+  --size-font-7: 48rem;
+  --size-font-6: 40rem;
+  --size-font-5: 32rem;
+  --size-font-4: 28rem;
+  --size-font-3: 24rem;
+  --size-font-2: 20rem;
+  --size-font-1: 18rem;
+  --size-font-0: 16rem;
+  --color-teal-100: #1aebff;
+  --color-teal-90: #17d4e6;
+  --color-teal-80: #15bccc;
+  --color-teal-70: #12a5b3;
+  --color-teal-60: #108d99;
+  --color-teal-50: #0d7680;
+  --color-teal-40: #0a5e66;
+  --color-teal-30: #08474d;
+  --color-teal-20: #052f33;
   --color-oxford-100: #198cff;
   --color-oxford-90: #167ee6;
   --color-oxford-80: #1470cc;
@@ -24,14 +47,14 @@
   --color-oxford-50: #0c4680;
   --color-oxford-40: #0a3866;
   --color-oxford-30: #072a4d;
-  --color-claret-100: #198cff;
-  --color-claret-90: #167ee6;
-  --color-claret-80: #1470cc;
-  --color-claret-70: #1162b3;
-  --color-claret-60: #0f5499;
-  --color-claret-50: #0c4680;
-  --color-claret-40: #0a3866;
-  --color-claret-30: #072a4d;
+  --color-claret-100: #ff1966;
+  --color-claret-90: #e6165b;
+  --color-claret-80: #cc1451;
+  --color-claret-70: #b31147;
+  --color-claret-60: #990f3d;
+  --color-claret-50: #800c33;
+  --color-claret-40: #660a29;
+  --color-claret-30: #4d071e;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-ft-grey: #333333;
@@ -52,21 +75,17 @@
   --color-wheat: #000000;
   --color-teal: #0d7680;
   --color-oxford: #0f5499;
-  --color-claret: #000000;
+  --color-claret: #990f3d;
   --color-paper: #fff1e5;
-  --size-font-base: var(--size-font-medium); /* the base size of the font */
-  --color-foreground-logo: var(--color-ft-grey);
+  --color-text-logo: var(--color-ft-grey);
   --color-background-logo: var(--color-ft-pink);
   --color-background-page: var(--color-white);
-  --color-font-tertiary: var(--color-black);
-  --color-font-secondary: var(--color-black);
-  --color-font-base: var(--color-black);
-  --color-button-primary-focus-foreground: var(--color-white);
+  --color-button-primary-focus-text: var(--color-white);
   --color-button-primary-focus-background: var(--color-teal-30);
-  --color-button-primary-active-foreground: var(--color-white);
+  --color-button-primary-active-text: var(--color-white);
   --color-button-primary-active-background: var(--color-teal-20);
-  --color-button-primary-hover-foreground: var(--color-white);
+  --color-button-primary-hover-text: var(--color-white);
   --color-button-primary-hover-background: var(--color-teal-30);
-  --color-button-primary-foreground: var(--color-white);
+  --color-button-primary-text: var(--color-white);
   --color-button-primary-background: var(--color-teal);
 }

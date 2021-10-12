@@ -2,12 +2,21 @@
 
 <!--
   Do not edit directly
-  Generated on Fri, 17 Sep 2021 16:00:49 GMT
+  Generated on Thu, 30 Sep 2021 09:25:44 GMT
 -->
 <resources>
-  <dimen name="size_font_small">12.00sp</dimen><!-- the small size of the font -->
-  <dimen name="size_font_medium">16.00sp</dimen><!-- the medium size of the font -->
-  <dimen name="size_font_large">32.00sp</dimen><!-- the large size of the font -->
-  <dimen name="size_font_base">16.00sp</dimen><!-- the base size of the font -->
+  <dimen name="size_font_0">256.00sp</dimen>
+  <dimen name="size_font_1">288.00sp</dimen>
+  <dimen name="size_font_2">320.00sp</dimen>
+  <dimen name="size_font_3">384.00sp</dimen>
+  <dimen name="size_font_4">448.00sp</dimen>
+  <dimen name="size_font_5">512.00sp</dimen>
+  <dimen name="size_font_6">640.00sp</dimen>
+  <dimen name="size_font_7">768.00sp</dimen>
+  <dimen name="size_font_8">896.00sp</dimen>
+  <dimen name="size_font_9">1152.00sp</dimen>
+  <dimen name="size_font_10">1344.00sp</dimen>
+  <dimen name="size_font_negative_2">192.00sp</dimen>
+  <dimen name="size_font_negative_1">224.00sp</dimen>
   
 </resources>

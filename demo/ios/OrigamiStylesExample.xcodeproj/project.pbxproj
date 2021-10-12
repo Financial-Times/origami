@@ -49,10 +49,17 @@
 		BB2EF61A26F5104700688906 /* OrigamiStylesExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrigamiStylesExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2EF61E26F5104700688906 /* OrigamiStylesExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrigamiStylesExampleUITests.swift; sourceTree = "<group>"; };
 		BB2EF62026F5104700688906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBC2071426F917F400F4DC21 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../../../../dist/ios/Image.swift; sourceTree = "<group>"; };
-		BBC2071526F917F400F4DC21 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Size.swift; path = ../../../../dist/ios/Size.swift; sourceTree = "<group>"; };
-		BBC2071626F917F400F4DC21 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../../../dist/ios/Color.swift; sourceTree = "<group>"; };
-		BBC2071726F917F400F4DC21 /* StyleDictionary.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = StyleDictionary.xcassets; path = ../../../../dist/ios/StyleDictionary.xcassets; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		BBC2071426F917F400F4DC21 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../../../../dist/core/ios/Image.swift; sourceTree = "<group>"; };
+		BBC2071526F917F400F4DC21 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Size.swift; path = ../../../../dist/core/ios/Size.swift; sourceTree = "<group>"; };
+		BBC2071626F917F400F4DC21 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../../../dist/core/ios/Color.swift; sourceTree = "<group>"; };
+		BBC2071726F917F400F4DC21 /* StyleDictionary.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = StyleDictionary.xcassets; path = ../../../../dist/core/ios/StyleDictionary.xcassets; sourceTree = "<group>"; };
+=======
+		BBC2071426F917F400F4DC21 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../../dist/core/ios/Image.swift; sourceTree = "<group>"; };
+		BBC2071526F917F400F4DC21 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Size.swift; path = ../../dist/core/ios/Size.swift; sourceTree = "<group>"; };
+		BBC2071626F917F400F4DC21 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../dist/core/ios/Color.swift; sourceTree = "<group>"; };
+		BBC2071726F917F400F4DC21 /* StyleDictionary.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = StyleDictionary.xcassets; path = ../../dist/core/ios/StyleDictionary.xcassets; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

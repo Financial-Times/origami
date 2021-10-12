@@ -1,6 +1,5 @@
 
 const fs = require('fs-extra');
-const { contents, darkAppearance, idiom, hcAppearance } = require('./consts');
 
 /**
  * This action will iterate over all the colors in the Style Dictionary
@@ -12,7 +11,12 @@ module.exports = {
     do: (dictionary, platform) => {
         const assetPath = `${platform.buildPath}/StyleDictionary.xcassets`;
         fs.ensureDirSync(assetPath)
-        fs.writeFileSync(`${assetPath}/Contents.json`, JSON.stringify(contents, null, 2));
+        fs.writeFileSync(`${assetPath}/Contents.json`, JSON.stringify({
+            "info": {
+                "author": "xcode",
+                "version": 1
+            }
+        }, null, 2));
 
         dictionary.allProperties
             .filter(token => token.attributes.category === `color`)
@@ -25,10 +29,16 @@ module.exports = {
                 // to modify it rather than writing over it.
                 const colorset = fs.existsSync(`${colorsetPath}/Contents.json`) ?
                     fs.readJsonSync(`${colorsetPath}/Contents.json`) :
-                    { ...contents, colors: [] }
+                    {
+                        info: {
+                            "author": "xcode",
+                            "version": 1
+                        },
+                        colors: []
+                    }
 
                 const color = {
-                    idiom,
+                    idiom: 'universal',
                     color: {
                         'color-space': `srgb`,
                         components: token.value
@@ -36,15 +46,27 @@ module.exports = {
                 };
 
                 if (platform.mode === `dark`) {
-                    color.appearances = [darkAppearance];
+                    color.appearances = [{
+                        appearance: "luminosity",
+                        value: "dark"
+                    }];
                 }
 
                 if (platform.mode === `hc`) {
-                    color.appearances = [hcAppearance];
+                    color.appearances = [{
+                        appearance: "contrast",
+                        value: "high"
+                    }];
                 }
 
                 if (platform.mode === `hcDark`) {
-                    color.appearances = [darkAppearance, hcAppearance];
+                    color.appearances = [{
+                        appearance: "luminosity",
+                        value: "dark"
+                    }, {
+                        appearance: "contrast",
+                        value: "high"
+                    }];
                 }
 
                 colorset.colors.push(color);
