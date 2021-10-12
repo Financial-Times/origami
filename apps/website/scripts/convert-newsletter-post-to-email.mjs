@@ -10,7 +10,7 @@ import YAML from 'js-yaml';
 
 if (process.argv.length != 3) {
 	console.log(
-		`Usage: ${process.argv[0]} ${process.argv[1]} _posts/filename.md > _emails/filename.md`
+		`Usage: node ${process.argv[1]} _posts/filename.md > _emails/filename.md`
 	);
 	process.exit(5);
 }
