@@ -65,9 +65,11 @@ export function Header({
 				{related ? (
 					<ul className="o-header-services__related-content">
 						{related.map(link => {
-							;<li key={link.label}>
-								<a href={link.url}>{link.label}</a>
-							</li>
+							return (
+								<li key={link.label}>
+									<a href={link.url}>{link.label}</a>
+								</li>
+							)
 						})}
 					</ul>
 				) : (
@@ -154,7 +156,7 @@ export function Header({
 									aProps["aria-current"] = "page"
 								}
 								return (
-									<li>
+									<li key={item.label}>
 										<a {...aProps}>{item.label}</a>
 									</li>
 								)

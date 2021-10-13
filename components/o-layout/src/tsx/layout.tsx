@@ -69,7 +69,6 @@ export interface DocumentationLayoutProps {
 	children: JSX.Element | JSX.Element[]
 	footer: JSX.Element | JSX.Element[]
 }
-
 export function DocumentationLayout({
 	header,
 	sidebar,
@@ -84,7 +83,7 @@ export function DocumentationLayout({
 	}
 	return (
 		<div
-			className={"o-layout o-layout--documentation"}
+			className="o-layout o-layout--docs"
 			data-o-component="o-layout"
 			{...data}>
 			<header className="o-layout__header">{header}</header>
