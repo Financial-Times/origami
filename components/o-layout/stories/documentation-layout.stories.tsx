@@ -3,7 +3,7 @@ import {useEffect} from "react"
 import {DocumentationLayout} from "../src/tsx/layout"
 import javascript from "@financial-times/o-layout"
 import "./layout.scss"
-import {Header} from "@financial-times/o-header-services/stories/header.stories"
+import {WithNavigation as Header} from "@financial-times/o-header-services/stories/header.stories"
 import {
 	storyArgs,
 	withNavigationArgs,
