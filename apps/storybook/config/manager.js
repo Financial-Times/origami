@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {addons} from "@storybook/addons"
 import {create} from "@storybook/theming"
 import "./theme.css"
@@ -41,3 +42,5 @@ addons.setConfig({
 		inputBorderRadius: 10,
 	}),
 })
+=======
+>>>>>>> ac6399ea6 (chore: im going on holiday so i am just commiting all at once sorry)

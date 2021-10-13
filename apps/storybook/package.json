@@ -32,7 +32,7 @@
     "sass-loader": "^10.2.0",
     "storybook-addon-designs": "^6.2.0",
     "style-loader": "^2.0.0",
-    "webpack": "^5.58.0"
+    "webpack": "^5.58.2"
   },
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
