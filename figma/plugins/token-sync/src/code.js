@@ -1,5 +1,6 @@
 import { hexToFigmaRGB } from '@figma-plugin/helpers';
 import tokens from './tokens/tokens.json';
+import darkTokens from './tokens/tokens-dark.json';
 
 
 // This plugin will open a window to prompt the user to enter a number, and
@@ -20,9 +21,7 @@ figma.ui.onmessage = async msg => {
     figma.closePlugin();
   }
   if (msg.type === 'auto-layout') {
-    console.log({ selection: figma.currentPage.selection});
     figma.currentPage.selection.forEach(layer => {
-      console.log({ layer, space: msg.space});
       layer.layoutMode = "HORIZONTAL";
       layer.primaryAxisAlignItems = "SPACE_BETWEEN";
       layer.itemSpacing = parseInt(msg.space, 10);
@@ -33,7 +32,9 @@ figma.ui.onmessage = async msg => {
     return;
   }
 
-  for (const [name, meta] of Object.entries(tokens)) {
+  const selectedTokens = msg.mode === 'dark' ? darkTokens : tokens;
+
+  for (const [name, meta] of Object.entries(selectedTokens)) {
     if (meta.attributes.category !== 'color') {
       continue;
     }
@@ -47,12 +48,12 @@ figma.ui.onmessage = async msg => {
     figma.root.setPluginData(name, style.id);
   }
 
-  for (const [name, meta] of Object.entries(tokens)) {
+  for (const [name, meta] of Object.entries(selectedTokens)) {
     if (meta.attributes.category !== 'size' || meta.attributes.type !== 'font') {
       continue;
     }
 
-    const lineHeightToken = Object.values(tokens).find(t =>
+    const lineHeightToken = Object.values(selectedTokens).find(t =>
       t.attributes.category === 'size' &&
       t.attributes.type === 'line-height' &&
       t.attributes.item === meta.attributes.item &&
@@ -89,7 +90,7 @@ figma.ui.onmessage = async msg => {
   spacingFrame.name = 'spacing';
   figma.root.setPluginData(spacingFrameName, spacingFrame.id);
 
-  for (const [name, meta] of Object.entries(tokens)) {
+  for (const [name, meta] of Object.entries(selectedTokens)) {
     if (meta.attributes.category !== 'size' || meta.attributes.type !== 'space') {
       continue;
     }
@@ -113,12 +114,4 @@ figma.ui.onmessage = async msg => {
 
   width = x - 16;
   spacingFrame.resize(width, height);
-
-  figma.currentPage.selection = nodes;
-  figma.viewport.scrollAndZoomIntoView(nodes);
-
-
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
-  // figma.closePlugin();
 };
