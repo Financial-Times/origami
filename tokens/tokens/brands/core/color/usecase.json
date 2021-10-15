@@ -1,0 +1,43 @@
+{
+    "color": {
+        "background": {
+            "page": { "value": "{color.paper.value}" },
+            "logo": { "value": "{color.ft-pink.value}" },
+            "box": { "value": "{color.wheat._.value}" }
+        },
+        "outline": {
+            "focus": { "value": "{color.black.50.value}" }
+        },
+        "text": {
+            "logo": { "value": "{color.ft-grey.value}" },
+            "link": {
+                "_": { "value": "{color.teal._.value}" },
+                "hover": { "value": "{color.teal.30.value}" }
+            },
+            "link-title": {
+                "_": { "value": "{color.black.80.value}" },
+                "hover": { "value": "{color.black.70.value}" }
+            },
+            "tag-link": {
+                "_": { "value": "{color.claret._.value}" },
+                "hover": { "value": "{color.claret.30.value}" }
+            },
+            "opinion-tag-link": {
+                "_": { "value": "{color.oxford._.value}" },
+                "hover": { "value": "{color.oxford.30.value}" }
+            },
+            "title": {
+                "value": "{color.black._.value}"
+            },
+            "body": {
+                "value": "{color.black.80.value}"
+            },
+            "muted": {
+                "value": "{color.black.20.value}"
+            },
+            "opinion": {
+                "value": "{color.black.20.value}"
+            }
+        }
+    }
+}

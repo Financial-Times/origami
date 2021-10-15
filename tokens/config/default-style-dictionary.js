@@ -1,6 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 
 const buildPath = 'dist/'
+const figmaPath = `${buildPath}/figma/`
 const webPath = `${buildPath}/web/`
 const iosPath = `${buildPath}/ios/`
 const androidPath = `${buildPath}/android/styledictionary/src/main/res/`;
@@ -16,13 +17,15 @@ const styleDictionary = StyleDictionary.extend({
     },
     // custom transforms
     transform: {
-        'attribute/cti': require('../transforms/attributeCTI'),
         'colorRGB': require('../transforms/colorRGB'),
+        'attribute/cti': require('../transforms/attributeCTI'),
+        'origamiFigmaColorName': require('../transforms/origamiFigmaColorName'),
     },
     // custom formats
     format: {
         swiftColor: require('../formats/swiftColor'),
         swiftImage: require('../formats/swiftImage'),
+        origamiFigma: require('../formats/origamiFigma'),
     },
 });
 
@@ -31,10 +34,18 @@ const styleDictionary = StyleDictionary.extend({
 module.exports = (brand) => {
     return styleDictionary.extend({
         source: [
-            `tokens/brands/${brand}/**/!(*.dark).js`
+            `tokens/brands/${brand}/**/!(*.dark).json`
         ],
 
         platforms: {
+            origamiFigmaPlugin: {
+                transforms: ['attribute/cti', 'name/cti/kebab', 'color/css', 'origamiFigmaColorName'],
+                buildPath: figmaPath,
+                files: [{
+                    destination: `tokens.json`,
+                    format: 'origamiFigma'
+                }]
+            },
             css: {
                 transformGroup: `css`,
                 buildPath: webPath,

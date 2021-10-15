@@ -37,6 +37,7 @@
     "npm": "7.23.0"
   },
   "workspaces": [
+    "figma/plugins/*",
     "components/*",
     "libraries/*",
     "presets/*",

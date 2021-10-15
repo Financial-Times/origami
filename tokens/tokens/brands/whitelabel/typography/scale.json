@@ -1,0 +1,40 @@
+{
+	"size": {
+		"font": {
+			"metric": {
+				"minus-2": { "value": "12" },
+				"minus-1": { "value": "14" },
+				"0": { "value": "16" },
+				"1": { "value": "18" },
+				"2": { "value": "20" },
+				"3": { "value": "24" },
+				"4": { "value": "28" },
+				"5": { "value": "32" },
+				"6": { "value": "40" },
+				"7": { "value": "48" },
+				"8": { "value": "56" },
+				"9": { "value": "72" },
+				"10": { "value": "84" }
+			}
+		},
+		"line-height": {
+			"metric": {
+				// 1.2 * size: potentially a breaking change to make it
+				// actually 1.2 rather than a px value
+				"minus-2": { "value": "14.399" },
+				"minus-1": { "value": "16.8" },
+				"0": { "value": "19.2" },
+				"1": { "value": "21.599" },
+				"2": { "value": "24" },
+				"3": { "value": "28.799" },
+				"4": { "value": "33.6" },
+				"5": { "value": "38.4" },
+				"6": { "value": "48" },
+				"7": { "value": "57.599" },
+				"8": { "value": "67.2" },
+				"9": { "value": "86.399" },
+				"10": { "value": "100.8" }
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly
+  Generated on Fri, 15 Oct 2021 13:53:33 GMT
+-->
+<resources>
+  <dimen name="size_space_s1">64.00dp</dimen>
+  <dimen name="size_space_s2">128.00dp</dimen>
+  <dimen name="size_space_s3">192.00dp</dimen>
+  <dimen name="size_space_s4">256.00dp</dimen>
+  <dimen name="size_space_s6">384.00dp</dimen>
+  <dimen name="size_space_s8">512.00dp</dimen>
+  <dimen name="size_space_m12">768.00dp</dimen>
+  <dimen name="size_space_m16">1024.00dp</dimen>
+  <dimen name="size_space_l18">1152.00dp</dimen>
+  <dimen name="size_space_l24">1536.00dp</dimen>
+  <dimen name="size_line_height_metric_0">320.00dp</dimen>
+  <dimen name="size_line_height_metric_1">320.00dp</dimen>
+  <dimen name="size_line_height_metric_2">384.00dp</dimen>
+  <dimen name="size_line_height_metric_3">448.00dp</dimen>
+  <dimen name="size_line_height_metric_4">512.00dp</dimen>
+  <dimen name="size_line_height_metric_5">512.00dp</dimen>
+  <dimen name="size_line_height_metric_6">640.00dp</dimen>
+  <dimen name="size_line_height_metric_7">768.00dp</dimen>
+  <dimen name="size_line_height_metric_8">896.00dp</dimen>
+  <dimen name="size_line_height_metric_9">1152.00dp</dimen>
+  <dimen name="size_line_height_metric_10">1344.00dp</dimen>
+  <dimen name="size_line_height_metric_minus_2">256.00dp</dimen>
+  <dimen name="size_line_height_metric_minus_1">256.00dp</dimen>
+  
+</resources>

@@ -2,21 +2,21 @@
 
 <!--
   Do not edit directly
-  Generated on Thu, 30 Sep 2021 09:25:44 GMT
+  Generated on Fri, 15 Oct 2021 13:53:33 GMT
 -->
 <resources>
-  <dimen name="size_font_0">256.00sp</dimen>
-  <dimen name="size_font_1">288.00sp</dimen>
-  <dimen name="size_font_2">320.00sp</dimen>
-  <dimen name="size_font_3">384.00sp</dimen>
-  <dimen name="size_font_4">448.00sp</dimen>
-  <dimen name="size_font_5">512.00sp</dimen>
-  <dimen name="size_font_6">640.00sp</dimen>
-  <dimen name="size_font_7">768.00sp</dimen>
-  <dimen name="size_font_8">896.00sp</dimen>
-  <dimen name="size_font_9">1152.00sp</dimen>
-  <dimen name="size_font_10">1344.00sp</dimen>
-  <dimen name="size_font_negative_2">192.00sp</dimen>
-  <dimen name="size_font_negative_1">224.00sp</dimen>
+  <dimen name="size_font_metric_0">256.00sp</dimen>
+  <dimen name="size_font_metric_1">288.00sp</dimen>
+  <dimen name="size_font_metric_2">320.00sp</dimen>
+  <dimen name="size_font_metric_3">384.00sp</dimen>
+  <dimen name="size_font_metric_4">448.00sp</dimen>
+  <dimen name="size_font_metric_5">512.00sp</dimen>
+  <dimen name="size_font_metric_6">640.00sp</dimen>
+  <dimen name="size_font_metric_7">768.00sp</dimen>
+  <dimen name="size_font_metric_8">896.00sp</dimen>
+  <dimen name="size_font_metric_9">1152.00sp</dimen>
+  <dimen name="size_font_metric_10">1344.00sp</dimen>
+  <dimen name="size_font_metric_minus_2">192.00sp</dimen>
+  <dimen name="size_font_metric_minus_1">224.00sp</dimen>
   
 </resources>

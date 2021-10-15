@@ -2,22 +2,54 @@
 
 <!--
   Do not edit directly
-  Generated on Thu, 30 Sep 2021 09:25:44 GMT
+  Generated on Fri, 15 Oct 2021 13:53:33 GMT
 -->
 <resources>
-  <color name="color_button_primary_background">@color/color_teal</color>
-  <color name="color_button_primary_text">@color/color_white</color>
-  <color name="color_button_primary_hover_background">@color/color_teal_30</color>
-  <color name="color_button_primary_hover_text">@color/color_white</color>
-  <color name="color_button_primary_active_background">@color/color_teal_20</color>
-  <color name="color_button_primary_active_text">@color/color_white</color>
-  <color name="color_button_primary_focus_background">@color/color_teal_30</color>
-  <color name="color_button_primary_focus_text">@color/color_white</color>
+  <color name="color_ft_pink">#fffcd0b1</color>
+  <color name="color_ft_grey">#ff333333</color>
+  <color name="color_white">#ffffffff</color>
+  <color name="color_black_5">#fff2e5da</color>
+  <color name="color_black_10">#ffe6d9ce</color>
+  <color name="color_black_20">#ffccc1b7</color>
+  <color name="color_black_30">#ffb3a9a0</color>
+  <color name="color_black_40">#ff999189</color>
+  <color name="color_black_50">#ff807973</color>
+  <color name="color_black_60">#ff66605c</color>
+  <color name="color_black_70">#ff4d4845</color>
+  <color name="color_black_80">#ff33302e</color>
+  <color name="color_black_90">#ff1a1817</color>
+  <color name="color_black">#ff000000</color>
   <color name="color_paper">#fffff1e5</color>
+  <color name="color_claret_30">#ff4d081f</color>
+  <color name="color_claret_40">#ff660a29</color>
+  <color name="color_claret_50">#ff800d33</color>
+  <color name="color_claret_60">#ff990f3d</color>
+  <color name="color_claret_70">#ffb31247</color>
+  <color name="color_claret_80">#ffcc1451</color>
+  <color name="color_claret_90">#ffe6175c</color>
+  <color name="color_claret_100">#ffff1966</color>
   <color name="color_claret">#ff990f3d</color>
+  <color name="color_oxford_30">#ff082a4d</color>
+  <color name="color_oxford_40">#ff0a3866</color>
+  <color name="color_oxford_50">#ff0d4680</color>
+  <color name="color_oxford_60">#ff0f5499</color>
+  <color name="color_oxford_70">#ff1262b3</color>
+  <color name="color_oxford_80">#ff1470cc</color>
+  <color name="color_oxford_90">#ff177ee6</color>
+  <color name="color_oxford_100">#ff198cff</color>
   <color name="color_oxford">#ff0f5499</color>
+  <color name="color_teal_20">#ff052f33</color>
+  <color name="color_teal_30">#ff08474d</color>
+  <color name="color_teal_40">#ff0a5e66</color>
+  <color name="color_teal_50">#ff0d7680</color>
+  <color name="color_teal_60">#ff108d99</color>
+  <color name="color_teal_70">#ff12a5b3</color>
+  <color name="color_teal_80">#ff15bccc</color>
+  <color name="color_teal_90">#ff17d4e6</color>
+  <color name="color_teal_100">#ff1aebff</color>
   <color name="color_teal">#ff0d7680</color>
-  <color name="color_wheat">#ff000000</color>
+  <color name="color_wheat_100">#ffffebd9</color>
+  <color name="color_wheat">#fff2dfce</color>
   <color name="color_sky">#ffcce6ff</color>
   <color name="color_slate">#ff262a33</color>
   <color name="color_velvet">#ff593380</color>
@@ -31,37 +63,22 @@
   <color name="color_org_b2c_dark">#ff3a70af</color>
   <color name="color_org_b2c_light">#ff99c6fb</color>
   <color name="color_matisse">#ff355778</color>
-  <color name="color_ft_pink">#fffcd0b1</color>
-  <color name="color_ft_grey">#ff333333</color>
-  <color name="color_white">#ffffffff</color>
-  <color name="color_black">#ff000000</color>
-  <color name="color_claret_30">#ff4d071e</color>
-  <color name="color_claret_40">#ff660a29</color>
-  <color name="color_claret_50">#ff800c33</color>
-  <color name="color_claret_60">#ff990f3d</color>
-  <color name="color_claret_70">#ffb31147</color>
-  <color name="color_claret_80">#ffcc1451</color>
-  <color name="color_claret_90">#ffe6165b</color>
-  <color name="color_claret_100">#ffff1966</color>
-  <color name="color_oxford_30">#ff072a4d</color>
-  <color name="color_oxford_40">#ff0a3866</color>
-  <color name="color_oxford_50">#ff0c4680</color>
-  <color name="color_oxford_60">#ff0f5499</color>
-  <color name="color_oxford_70">#ff1162b3</color>
-  <color name="color_oxford_80">#ff1470cc</color>
-  <color name="color_oxford_90">#ff167ee6</color>
-  <color name="color_oxford_100">#ff198cff</color>
-  <color name="color_teal_20">#ff052f33</color>
-  <color name="color_teal_30">#ff08474d</color>
-  <color name="color_teal_40">#ff0a5e66</color>
-  <color name="color_teal_50">#ff0d7680</color>
-  <color name="color_teal_60">#ff108d99</color>
-  <color name="color_teal_70">#ff12a5b3</color>
-  <color name="color_teal_80">#ff15bccc</color>
-  <color name="color_teal_90">#ff17d4e6</color>
-  <color name="color_teal_100">#ff1aebff</color>
   <color name="color_background_page">@color/color_paper</color>
   <color name="color_background_logo">@color/color_ft_pink</color>
+  <color name="color_background_box">@color/color_wheat</color>
+  <color name="color_outline_focus">@color/color_black_50</color>
   <color name="color_text_logo">@color/color_ft_grey</color>
+  <color name="color_text_link">@color/color_teal</color>
+  <color name="color_text_link_hover">@color/color_teal_30</color>
+  <color name="color_text_link_title">@color/color_black_80</color>
+  <color name="color_text_link_title_hover">@color/color_black_70</color>
+  <color name="color_text_tag_link">@color/color_claret</color>
+  <color name="color_text_tag_link_hover">@color/color_claret_30</color>
+  <color name="color_text_opinion_tag_link">@color/color_oxford</color>
+  <color name="color_text_opinion_tag_link_hover">@color/color_oxford_30</color>
+  <color name="color_text_title">@color/color_black</color>
+  <color name="color_text_body">@color/color_black_80</color>
+  <color name="color_text_muted">@color/color_black_20</color>
+  <color name="color_text_opinion">@color/color_black_20</color>
   
 </resources>
