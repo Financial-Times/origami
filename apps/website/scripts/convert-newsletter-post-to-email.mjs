@@ -122,7 +122,6 @@ visit(
 	function (node, parents) {
 		if (machine.state == 'begin') {
 			if (node.type == 'root') {
-				machine;
 				return 'SKIP';
 			} else if (node.type == 'yaml') {
 				const frontmatter = YAML.load(node.value);
