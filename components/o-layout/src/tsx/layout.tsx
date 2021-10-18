@@ -90,7 +90,7 @@ export function DocumentationLayout({
 			{sidebar === false ? (
 				""
 			) : (
-				<div className="o-layout__sidebar o-layout-typography">
+				<div className="o-layout__sidebar">
 					{sidebar === true ? "" : sidebar}
 				</div>
 			)}
