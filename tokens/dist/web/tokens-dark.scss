@@ -1,0 +1,21 @@
+
+/**
+ * Do not edit directly
+ * Generated on Tue, 19 Oct 2021 14:47:48 GMT
+ */
+
+$color-background-page: #262a33 !default;
+$color-background-logo: #ffffff !default;
+$color-text-logo: #262a33 !default;
+
+$_tokens: (
+  'color': (
+    'background': (
+      'page': $color-background-page,
+      'logo': $color-background-logo
+    ),
+    'text': (
+      'logo': $color-text-logo
+    )
+  )
+);

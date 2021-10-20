@@ -1,0 +1,273 @@
+
+/**
+ * Do not edit directly
+ * Generated on Tue, 19 Oct 2021 14:47:47 GMT
+ */
+
+$color-ft-pink: #fcd0b1 !default;
+$color-ft-grey: #333333 !default;
+$color-white: #ffffff !default;
+$color-black-5: #f2e5da !default;
+$color-black-10: #e6d9ce !default;
+$color-black-20: #ccc1b7 !default;
+$color-black-30: #b3a9a0 !default;
+$color-black-40: #999189 !default;
+$color-black-50: #807973 !default;
+$color-black-60: #66605c !default;
+$color-black-70: #4d4845 !default;
+$color-black-80: #33302e !default;
+$color-black-90: #1a1817 !default;
+$color-black: #000000 !default;
+$color-paper: #fff1e5 !default;
+$color-claret-30: #4d081f !default;
+$color-claret-40: #660a29 !default;
+$color-claret-50: #800d33 !default;
+$color-claret-60: #990f3d !default;
+$color-claret-70: #b31247 !default;
+$color-claret-80: #cc1451 !default;
+$color-claret-90: #e6175c !default;
+$color-claret-100: #ff1966 !default;
+$color-claret: #990f3d !default;
+$color-oxford-30: #082a4d !default;
+$color-oxford-40: #0a3866 !default;
+$color-oxford-50: #0d4680 !default;
+$color-oxford-60: #0f5499 !default;
+$color-oxford-70: #1262b3 !default;
+$color-oxford-80: #1470cc !default;
+$color-oxford-90: #177ee6 !default;
+$color-oxford-100: #198cff !default;
+$color-oxford: #0f5499 !default;
+$color-teal-20: #052f33 !default;
+$color-teal-30: #08474d !default;
+$color-teal-40: #0a5e66 !default;
+$color-teal-50: #0d7680 !default;
+$color-teal-60: #108d99 !default;
+$color-teal-70: #12a5b3 !default;
+$color-teal-80: #15bccc !default;
+$color-teal-90: #17d4e6 !default;
+$color-teal-100: #1aebff !default;
+$color-teal: #0d7680 !default;
+$color-wheat-100: #ffebd9 !default;
+$color-wheat: #f2dfce !default;
+$color-sky: #cce6ff !default;
+$color-slate: #262a33 !default;
+$color-velvet: #593380 !default;
+$color-mandarin: #ff8833 !default;
+$color-lemon: #ffec1a !default;
+$color-candy: #ff7faa !default;
+$color-wasabi: #96cc28 !default;
+$color-jade: #00994d !default;
+$color-crimson: #cc0000 !default;
+$color-org-b2c: #4e96eb !default;
+$color-org-b2c-dark: #3a70af !default;
+$color-org-b2c-light: #99c6fb !default;
+$color-matisse: #355778 !default;
+$color-background-page: #fff1e5 !default;
+$color-background-logo: #fcd0b1 !default;
+$color-background-box: #f2dfce !default;
+$color-outline-focus: #807973 !default;
+$color-text-logo: #333333 !default;
+$color-text-link: #0d7680 !default;
+$color-text-link-hover: #08474d !default;
+$color-text-link-title: #33302e !default;
+$color-text-link-title-hover: #4d4845 !default;
+$color-text-tag-link: #990f3d !default;
+$color-text-tag-link-hover: #4d081f !default;
+$color-text-opinion-tag-link: #0f5499 !default;
+$color-text-opinion-tag-link-hover: #082a4d !default;
+$color-text-title: #000000 !default;
+$color-text-body: #33302e !default;
+$color-text-muted: #ccc1b7 !default;
+$color-text-opinion: #ccc1b7 !default;
+$image-ft-logo-square: assets/svg/brand-ft-logo-square-coloured.svg !default;
+$size-space-s1: 4rem !default;
+$size-space-s2: 8rem !default;
+$size-space-s3: 12rem !default;
+$size-space-s4: 16rem !default;
+$size-space-s6: 24rem !default;
+$size-space-s8: 32rem !default;
+$size-space-m12: 48rem !default;
+$size-space-m16: 64rem !default;
+$size-space-l18: 72rem !default;
+$size-space-l24: 96rem !default;
+$size-font-metric-0: 16rem !default;
+$size-font-metric-1: 18rem !default;
+$size-font-metric-2: 20rem !default;
+$size-font-metric-3: 24rem !default;
+$size-font-metric-4: 28rem !default;
+$size-font-metric-5: 32rem !default;
+$size-font-metric-6: 40rem !default;
+$size-font-metric-7: 48rem !default;
+$size-font-metric-8: 56rem !default;
+$size-font-metric-9: 72rem !default;
+$size-font-metric-10: 84rem !default;
+$size-font-metric-minus-2: 12rem !default;
+$size-font-metric-minus-1: 14rem !default;
+$size-line-height-metric-0: 20rem !default;
+$size-line-height-metric-1: 20rem !default;
+$size-line-height-metric-2: 24rem !default;
+$size-line-height-metric-3: 28rem !default;
+$size-line-height-metric-4: 32rem !default;
+$size-line-height-metric-5: 32rem !default;
+$size-line-height-metric-6: 40rem !default;
+$size-line-height-metric-7: 48rem !default;
+$size-line-height-metric-8: 56rem !default;
+$size-line-height-metric-9: 72rem !default;
+$size-line-height-metric-10: 84rem !default;
+$size-line-height-metric-minus-2: 16rem !default;
+$size-line-height-metric-minus-1: 16rem !default;
+
+$_tokens: (
+  'color': (
+    'ft-pink': $color-ft-pink,
+    'ft-grey': $color-ft-grey,
+    'white': $color-white,
+    'black': (
+      '5': $color-black-5,
+      '10': $color-black-10,
+      '20': $color-black-20,
+      '30': $color-black-30,
+      '40': $color-black-40,
+      '50': $color-black-50,
+      '60': $color-black-60,
+      '70': $color-black-70,
+      '80': $color-black-80,
+      '90': $color-black-90,
+      '_': $color-black
+    ),
+    'paper': $color-paper,
+    'claret': (
+      '30': $color-claret-30,
+      '40': $color-claret-40,
+      '50': $color-claret-50,
+      '60': $color-claret-60,
+      '70': $color-claret-70,
+      '80': $color-claret-80,
+      '90': $color-claret-90,
+      '100': $color-claret-100,
+      '_': $color-claret
+    ),
+    'oxford': (
+      '30': $color-oxford-30,
+      '40': $color-oxford-40,
+      '50': $color-oxford-50,
+      '60': $color-oxford-60,
+      '70': $color-oxford-70,
+      '80': $color-oxford-80,
+      '90': $color-oxford-90,
+      '100': $color-oxford-100,
+      '_': $color-oxford
+    ),
+    'teal': (
+      '20': $color-teal-20,
+      '30': $color-teal-30,
+      '40': $color-teal-40,
+      '50': $color-teal-50,
+      '60': $color-teal-60,
+      '70': $color-teal-70,
+      '80': $color-teal-80,
+      '90': $color-teal-90,
+      '100': $color-teal-100,
+      '_': $color-teal
+    ),
+    'wheat': (
+      '100': $color-wheat-100,
+      '_': $color-wheat
+    ),
+    'sky': $color-sky,
+    'slate': $color-slate,
+    'velvet': $color-velvet,
+    'mandarin': $color-mandarin,
+    'lemon': $color-lemon,
+    'candy': $color-candy,
+    'wasabi': $color-wasabi,
+    'jade': $color-jade,
+    'crimson': $color-crimson,
+    'org-b2c': $color-org-b2c,
+    'org-b2c-dark': $color-org-b2c-dark,
+    'org-b2c-light': $color-org-b2c-light,
+    'matisse': $color-matisse,
+    'background': (
+      'page': $color-background-page,
+      'logo': $color-background-logo,
+      'box': $color-background-box
+    ),
+    'outline': (
+      'focus': $color-outline-focus
+    ),
+    'text': (
+      'logo': $color-text-logo,
+      'link': (
+        '_': $color-text-link,
+        'hover': $color-text-link-hover
+      ),
+      'link-title': (
+        '_': $color-text-link-title,
+        'hover': $color-text-link-title-hover
+      ),
+      'tag-link': (
+        '_': $color-text-tag-link,
+        'hover': $color-text-tag-link-hover
+      ),
+      'opinion-tag-link': (
+        '_': $color-text-opinion-tag-link,
+        'hover': $color-text-opinion-tag-link-hover
+      ),
+      'title': $color-text-title,
+      'body': $color-text-body,
+      'muted': $color-text-muted,
+      'opinion': $color-text-opinion
+    )
+  ),
+  'image': (
+    'ft-logo-square': $image-ft-logo-square
+  ),
+  'size': (
+    'space': (
+      's1': $size-space-s1,
+      's2': $size-space-s2,
+      's3': $size-space-s3,
+      's4': $size-space-s4,
+      's6': $size-space-s6,
+      's8': $size-space-s8,
+      'm12': $size-space-m12,
+      'm16': $size-space-m16,
+      'l18': $size-space-l18,
+      'l24': $size-space-l24
+    ),
+    'font': (
+      'metric': (
+        '0': $size-font-metric-0,
+        '1': $size-font-metric-1,
+        '2': $size-font-metric-2,
+        '3': $size-font-metric-3,
+        '4': $size-font-metric-4,
+        '5': $size-font-metric-5,
+        '6': $size-font-metric-6,
+        '7': $size-font-metric-7,
+        '8': $size-font-metric-8,
+        '9': $size-font-metric-9,
+        '10': $size-font-metric-10,
+        'minus-2': $size-font-metric-minus-2,
+        'minus-1': $size-font-metric-minus-1
+      )
+    ),
+    'line-height': (
+      'metric': (
+        '0': $size-line-height-metric-0,
+        '1': $size-line-height-metric-1,
+        '2': $size-line-height-metric-2,
+        '3': $size-line-height-metric-3,
+        '4': $size-line-height-metric-4,
+        '5': $size-line-height-metric-5,
+        '6': $size-line-height-metric-6,
+        '7': $size-line-height-metric-7,
+        '8': $size-line-height-metric-8,
+        '9': $size-line-height-metric-9,
+        '10': $size-line-height-metric-10,
+        'minus-2': $size-line-height-metric-minus-2,
+        'minus-1': $size-line-height-metric-minus-1
+      )
+    )
+  )
+);

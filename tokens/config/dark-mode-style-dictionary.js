@@ -63,6 +63,34 @@ module.exports = (brand) => {
                 mode
             },
 
+            js: {
+                transformGroup: `web`,
+                buildPath: webPath,
+                files: [{
+                    destination: `tokens-${mode}.json`,
+                    // only putting in the tokens from files with '.mode' (e.g. `.dark`) in the filepath
+                    filter: (token) => token.filePath.indexOf(`.${mode}`) > -1,
+                    format: `json/flat`
+                }]
+            },
+
+            sass: {
+                transformGroup: `scss`,
+                buildPath: webPath,
+                files: [
+                    {
+                        destination: `tokens-${mode}.scss`,
+                        format: `scss/map-deep`,
+                        mapName: `_tokens`,
+                        options: {
+                            outputReferences: true
+                        },
+                        // only putting in the tokens from files with '.mode' (e.g. `.dark`) in the filepath
+                        filter: (token) => token.filePath.indexOf(`.${mode}`) > -1,
+                    }
+                ]
+            },
+
             ios: {
                 buildPath: iosPath,
                 transforms: [`attribute/cti`, `name/ti/camel`, `colorRGB`, `size/swift/remToCGFloat`],

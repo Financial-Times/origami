@@ -60,6 +60,23 @@ module.exports = (brand) => {
                 }]
             },
 
+            // `outputReferences` not currently an option for scss/map-deep
+            // https://github.com/amzn/style-dictionary/issues/712
+            sass: {
+                transformGroup: `scss`,
+                buildPath: webPath,
+                files: [
+                    {
+                        destination: `tokens.scss`,
+                        format: `scss/map-deep`,
+                        mapName: `_tokens`,
+                        options: {
+                            outputReferences: true
+                        }
+                    }
+                ]
+            },
+
             js: {
                 transformGroup: `web`,
                 buildPath: webPath,
