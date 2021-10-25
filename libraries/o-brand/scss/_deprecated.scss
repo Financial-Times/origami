@@ -7,9 +7,9 @@
 @function oBrandGetCurrentBrand() {
 	$brand: if($o-brand, $o-brand, $_o-brand-default);
 
-    @if $brand == 'core' {
-        @return 'master';
-    }
+	@if $brand == 'core' {
+		@return 'master';
+	}
 
 	@return $brand;
 }
