@@ -7,7 +7,7 @@ body {
 	margin: 1rem;
 }
 
-@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('core') or oBrandIs('internal') {
 	.demo-inverse {
 		color: oColorsByName('white');
 		background: oColorsByName('slate');

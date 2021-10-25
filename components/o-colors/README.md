@@ -27,7 +27,7 @@ A limited number of colour [usecases](#usecases) are available as CSS classes, i
 ```html
 <body class="o-colors-page-background">
 	<!-- default background colour set -->
-	<!-- e.g. for the master brand `background: #fff1e5;` -->
+	<!-- e.g. for the core brand `background: #fff1e5;` -->
 </body>
 ```
 
@@ -83,29 +83,29 @@ o-colors defines a colour palette (a set of named colours) which may be [preview
 
 Color Name | Brand Support |
 ---|---
-black | master, internal, whitelabel
-white | master, internal, whitelabel
-oxford | master, internal
-teal | master, internal
-slate | master, internal,
-lemon | master, internal,
-jade | master, internal
-mandarin | master, internal
-crimson | master, internal
-paper | master
-claret | master
-wheat | master
-sky | master
-velvet | master
-candy | master
-wasabi | master
-light-blue | master
-graphics-dark-blue | master
-ft-pink (previously brand-ft-pink) | master
-ft-grey | master
-org-b2c | master
-org-b2c-dark | master
-org-b2c-light | master
+black | core, internal, whitelabel
+white | core, internal, whitelabel
+oxford | core, internal
+teal | core, internal
+slate | core, internal,
+lemon | core, internal,
+jade | core, internal
+mandarin | core, internal
+crimson | core, internal
+paper | core
+claret | core
+wheat | core
+sky | core
+velvet | core
+candy | core
+wasabi | core
+light-blue | core
+graphics-dark-blue | core
+ft-pink (previously brand-ft-pink) | core
+ft-grey | core
+org-b2c | core
+org-b2c-dark | core
+org-b2c-light | core
 
 There are additional colours in the palette by default including tones and mixes. [See the registry demos](https://registry.origami.ft.com/components/o-colors) for a full list.
 
@@ -168,7 +168,7 @@ Removing a colour is considered a breaking change and requires a major release. 
 );
 ```
 
-See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=master#o-colors-mixin-ocolorssetusecase) for more details and examples.
+See [o-colors SassDoc](https://registry.origami.ft.com/components/o-colors/sassdoc?brand=core#o-colors-mixin-ocolorssetusecase) for more details and examples.
 
 ### Usecases
 
@@ -176,33 +176,33 @@ A [colour palette](#palette-colours) helps products use the same set of colours,
 
 Usecase | Property | Brand Support |
 ---|---|---
-page |                  background | master, internal, whitelabel
-focus |                 outline | master, internal
-box |                   background | master, internal
-link |                  text | master, internal
-link-hover |            text | master, internal
-link-title |            text | master, internal
-link-title-hover |      text | master, internal
-title |                 text | master, internal
-body |                  text | master, internal
-muted |                 text | master, internal
-tag-link |              text | master
-tag-link-hover |        text | master
-opinion-tag-link |      text | master
-opinion-tag-link-hover |text | master
-opinion |               background | master
-hero |                  background | master
-hero-opinion |          background | master
-hero-highlight |        background | master
+page |                  background | core, internal, whitelabel
+focus |                 outline | core, internal
+box |                   background | core, internal
+link |                  text | core, internal
+link-hover |            text | core, internal
+link-title |            text | core, internal
+link-title-hover |      text | core, internal
+title |                 text | core, internal
+body |                  text | core, internal
+muted |                 text | core, internal
+tag-link |              text | core
+tag-link-hover |        text | core
+opinion-tag-link |      text | core
+opinion-tag-link-hover |text | core
+opinion |               background | core
+hero |                  background | core
+hero-opinion |          background | core
+hero-highlight |        background | core
 **Section colors** |
-section-life-arts |     all | master
-section-life-arts-alt | all | master
-section-magazine |      all | master
-section-magazine-alt |  all | master
-section-house-home |    all | master
-section-house-home-alt |all | master
-section-money |         all | master
-section-money-alt |     all | master
+section-life-arts |     all | core
+section-life-arts-alt | all | core
+section-magazine |      all | core
+section-magazine-alt |  all | core
+section-house-home |    all | core
+section-house-home-alt |all | core
+section-money |         all | core
+section-money-alt |     all | core
 
 #### Default Usecases
 

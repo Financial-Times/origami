@@ -97,7 +97,7 @@
 ///     	@include oTypographyLink($external: true, $include-base-styles: false);
 ///     }
 ///
-/// @example Output a custom, claret coloured link to go on the default background colour (paper for the master brand, white otherwise).
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the core brand, white otherwise).
 ///     .my-claret-link {
 ///     	@include oTypographyLink($theme: (
 ///     		'base': 'claret',
@@ -115,7 +115,7 @@
 ///     }
 ///
 /// @param {Boolean} $external [false] - If the style is for external links, set to true to output an external link icon.
-/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the master brand, white otherwise).
+/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
 /// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme or external link.
 @mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
 	// Default link colours.

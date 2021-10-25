@@ -1,5 +1,5 @@
-// Master brand usecases.
-@if oBrandGetCurrentBrand() == master {
+// Core brand usecases.
+@if oBrandIs('core') {
 	$_o-colors-default-usecases: (
 		('focus', ('outline': 'black-50')),
 		('page', ('background': 'paper')),
@@ -73,7 +73,7 @@
 }
 
 // Internal brand usecases.
-@if oBrandGetCurrentBrand() == internal {
+@if oBrandIs('internal') {
 	$_o-colors-default-usecases: (
 		('focus', ('outline': 'oxford-80')),
 		('page', ('background': 'white')),
@@ -89,7 +89,7 @@
 }
 
 // Whitelabel brand usecases.
-@if oBrandGetCurrentBrand() == whitelabel {
+@if oBrandIs('whitelabel') {
 	$_o-colors-default-usecases: (
 		('page', ('background': 'white')),
 	);

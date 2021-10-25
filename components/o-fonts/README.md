@@ -20,7 +20,7 @@ Check out [how to include Origami components in your project](https://origami.ft
 
 Origami components use a limited set of recommended font faces which vary per brand. We recommend [Sass users](#sass) include only these recommended fonts and carefully consider performance implications before including another font. However a wider selection of fonts [are included by default](#fonts-included-by-default) so they are available to Build Service users. [Sass users](#sass) may choose to include only recommended fonts, or any of the [available fonts](#all-available-fonts).
 
-### Master Brand Recommended Fonts
+### Core Brand Recommended Fonts
 
 | Weight   | FinancierDisplayWeb | MetricWeb |
 |----------|:-------------------:|:---------:|
@@ -60,7 +60,7 @@ A selection wider than [recommended fonts](#recommended-fonts) are included by d
 
 | Brand       | Fonts included by default ([all weights and styles available](#all-available-fonts)) |
 |-------------|--------------------------------------------------------------------------------------|
-| master      | FinancierDisplayWeb, MetricWeb                                                       |
+| core      | FinancierDisplayWeb, MetricWeb                                                       |
 | internal    | MetricWeb                                                                            |
 | whitelabel  | _(none)_                                                                             |
 

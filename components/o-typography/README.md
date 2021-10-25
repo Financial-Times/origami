@@ -158,14 +158,14 @@ To include typography styles granularly pass an options argument with the featur
 
 | Feature          | Description                                                                                                                                                                                                                               | Brand support                |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| headings         | Heading classes. E.g. `o-typography-heading-level-1`, `o-typography-heading-level-2`, etc.                                                                                                                                                | master, internal, whitelabel |
-| wrapper          | A class `o-typography-wrapper` which styles children elements based on semantics including headings, paragraphs, lists, links, and more e.g. `<h1>`, `<p>`, `<li>`, `<a>`, `<figcaption>`                                                 | master, internal, whitelabel |
-| body             | A class for standard body copy, such as paragraphs.                                                                                                                                                                                       | master, internal, whitelabel |
-| links            | A class for anchor tags, including a septate class to indicate external links.                                                                                                                                                            | master, internal, whitelabel |
-| lists            | Classes to style lists, ordered or unordered.                                                                                                                                                                                             | master, internal, whitelabel |
-| caption          | A class to style captions.                                                                                                                                                                                                                | master, internal, whitelabel |
-| footer           | A class to style footers.                                                                                                                                                                                                                 | master, internal, whitelabel |
-| utilities        | A collection of classes to modify typography including weight, style, superscript, and subscript.                                                                                                                                         | master, internal, whitelabel |
+| headings         | Heading classes. E.g. `o-typography-heading-level-1`, `o-typography-heading-level-2`, etc.                                                                                                                                                | core, internal, whitelabel |
+| wrapper          | A class `o-typography-wrapper` which styles children elements based on semantics including headings, paragraphs, lists, links, and more e.g. `<h1>`, `<p>`, `<li>`, `<a>`, `<figcaption>`                                                 | core, internal, whitelabel |
+| body             | A class for standard body copy, such as paragraphs.                                                                                                                                                                                       | core, internal, whitelabel |
+| links            | A class for anchor tags, including a septate class to indicate external links.                                                                                                                                                            | core, internal, whitelabel |
+| lists            | Classes to style lists, ordered or unordered.                                                                                                                                                                                             | core, internal, whitelabel |
+| caption          | A class to style captions.                                                                                                                                                                                                                | core, internal, whitelabel |
+| footer           | A class to style footers.                                                                                                                                                                                                                 | core, internal, whitelabel |
+| utilities        | A collection of classes to modify typography including weight, style, superscript, and subscript.                                                                                                                                         | core, internal, whitelabel |
 
 [See the demos](http://registry.origami.ft.com/components/o-typography) for a full list of the CSS classes provided by these features.
 
@@ -257,7 +257,7 @@ To create a custom link style set the `$theme` argument. Where `$theme` is a map
 
 - **base**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for the link
 - **hover**: an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour for link on hover
-- **context** (optional): an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour to indicate the background colour behind the link (defaults to paper for the master brand, white otherwise)
+- **context** (optional): an [o-colors](https://registry.origami.ft.com/components/o-colors) palette colour name or colour to indicate the background colour behind the link (defaults to paper for the core brand, white otherwise)
 
 ```scss
 .my-custom-link {

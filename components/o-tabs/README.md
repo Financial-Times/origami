@@ -181,7 +181,7 @@ This table outlines all of the possible sizes you can request in the [`oTabs` mi
 
 | Size | Notes               | Brand support                |
 |------|---------------------|------------------------------|
-| big  | Included by default | master, internal, whitelabel |
+| big  | Included by default | core, internal, whitelabel |
 
 ### Types
 
@@ -189,8 +189,8 @@ This table outlines the button types you can request in the [`oTabs` mixin](#mix
 
 | Type      | Notes                                    | Brand support                |
 |-----------|------------------------------------------|------------------------------|
-| secondary | Included by default                      | master, internal, whitelabel |
-| primary   | Included by default                      | master, internal, whitelabel |
+| secondary | Included by default                      | core, internal, whitelabel |
+| primary   | Included by default                      | core, internal, whitelabel |
 
 ### Themes
 
@@ -198,9 +198,9 @@ This table outlines some of the possible button themes you can request in the [`
 
 | Theme     | Notes                                    | Brand support                |
 |-----------|------------------------------------------|------------------------------|
-| inverse   | Included by default                      | master, internal             |
-| mono      | Not included by default                  | master, internal             |
-| b2c       | Not included by default                  | master                       |
+| inverse   | Included by default                      | core, internal             |
+| mono      | Not included by default                  | core, internal             |
+| b2c       | Not included by default                  | core                       |
 
 ## Migration Guide
 

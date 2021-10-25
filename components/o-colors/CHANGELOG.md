@@ -5,7 +5,7 @@
 
 ### Features
 
-* add wheat-100 to o-colors master brand palette ([ffb5781](https://www.github.com/Financial-Times/origami/commit/ffb57819342a4c9ec9daec4004a09689d5227454))
+* add wheat-100 to o-colors core brand palette ([ffb5781](https://www.github.com/Financial-Times/origami/commit/ffb57819342a4c9ec9daec4004a09689d5227454))
 
 ### [6.1.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.1.0...o-colors-v6.1.1) (2021-09-21)
 

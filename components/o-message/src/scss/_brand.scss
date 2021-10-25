@@ -25,8 +25,8 @@ $_o-message-shared-brand-variables: (
 	)
 );
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-message', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-message', 'core', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
 				'foreground-color': oColorsByUsecase('body', 'text'),
@@ -57,7 +57,7 @@ $_o-message-shared-brand-variables: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-message', 'internal', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'feedback': (
@@ -105,7 +105,7 @@ $_o-message-shared-brand-variables: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-message', 'whitelabel', (
 		'variables': map-merge($_o-message-shared-brand-variables, (
 			'neutral': (

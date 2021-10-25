@@ -1,4 +1,4 @@
-@include describe('master brand palette') {
+@include describe('core brand palette') {
 	@include test('has colours') {
 		@include assert-equal(oColorsByName('black'), (#000000));
 		@include assert-equal(oColorsByName('white'), (#ffffff));
