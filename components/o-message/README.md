@@ -41,7 +41,7 @@ However, not every message accepts every state, or every layout, and not every m
 ---|:---|:---|:---
 **action message** | `inform`, `inform-inverse` | default | internal, whitelabel
 **alert message** | `success`, `neutral`, `error` | default, inner | all
-**notice message** | `inform`, `feedback`, `warning`, `warning-light` | default, inner | master: `inform` or `feedback` state only <br> internal: all states <br> whitelabel: `inform` state only
+**notice message** | `inform`, `feedback`, `warning`, `warning-light` | default, inner | core: `inform` or `feedback` state only <br> internal: all states <br> whitelabel: `inform` state only
 
 
 ## Markup

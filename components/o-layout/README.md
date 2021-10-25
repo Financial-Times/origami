@@ -26,7 +26,7 @@ Whole page layouts including typography.
 
 `o-layout` provides page layouts and typography as a starting point for new pages. Layouts provided vary per brand and include:
 
-layout | description | master brand | internal brand | whitelabel brand |
+layout | description | core brand | internal brand | whitelabel brand |
 --- | --- | :---: | :---: | :---:
 default | An empty layout with contained content well. | ✓ | ✓ | |
 bleed | An empty layout with full-width "bleed" content. | ✓ | ✓ | |

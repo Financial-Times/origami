@@ -5,8 +5,8 @@ $_o-colors-default-palette-colors: join((
 	('transparent', transparent),
 ), $_o-colors-default-palette-colors);
 
-// Master brand palette.
-@if oBrandGetCurrentBrand() == master {
+// Core brand palette.
+@if oBrandIs('core') {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
 		('black', #000000),
@@ -46,7 +46,7 @@ $_o-colors-default-palette-colors: join((
 }
 
 // Internal brand palette.
-@if oBrandGetCurrentBrand() == internal {
+@if oBrandIs('internal') {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
 		('black', #000000),
@@ -68,7 +68,7 @@ $_o-colors-default-palette-colors: join((
 }
 
 // Whitelabel brand palette.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	$_o-colors-default-palette-colors: join((
 		// primary palette
 		('black', #000000),
@@ -80,7 +80,7 @@ $_o-colors-default-palette-colors: join((
 }
 
 // Default palette tones.
-@if oBrandGetCurrentBrand() == master {
+@if oBrandIs('core') {
 	$_o-colors-default-palette-tones: map-merge((
 		'claret': (30, 40, 50, 60, 70, 80, 90, 100),
 		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
@@ -89,32 +89,32 @@ $_o-colors-default-palette-colors: join((
 	), $_o-colors-default-palette-tones);
 }
 
-@if oBrandGetCurrentBrand() == internal {
+@if oBrandIs('internal') {
 	$_o-colors-default-palette-tones: map-merge((
 		'oxford': (30, 40, 50, 60, 70, 80, 90, 100),
 		'teal': (20, 30, 40, 50, 60, 70, 80, 90, 100),
 	), $_o-colors-default-palette-tones);
 }
 
-@if oBrandGetCurrentBrand() == whitelabel {
+@if oBrandIs('whitelabel') {
 	$_o-colors-default-palette-tones: map-merge((), $_o-colors-default-palette-tones);
 }
 
 // Default palette mixes.
-@if oBrandGetCurrentBrand() == master {
+@if oBrandIs('core') {
 	$_o-colors-default-palette-mixes: (
 		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90),
 		'white': (10, 20, 40, 60, 80)
 	);
 }
 
-@if oBrandGetCurrentBrand() == internal {
+@if oBrandIs('internal') {
 	$_o-colors-default-palette-mixes: (
 		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
 	);
 }
 
-@if oBrandGetCurrentBrand() == whitelabel {
+@if oBrandIs('whitelabel') {
 	$_o-colors-default-palette-mixes: (
 		'black': (5, 10, 20, 30, 40, 50, 60, 70, 80, 90)
 	);

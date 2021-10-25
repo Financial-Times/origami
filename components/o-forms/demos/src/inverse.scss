@@ -1,9 +1,8 @@
 @import "./demo";
 
 body {
-	// slate is in the master and internal brand palette
 	background: if(
-		index(('master', 'internal'), oBrandGetCurrentBrand()) != null,
+		oBrandIs('core') or oBrandIs('internal'),
 		oColorsByName('slate'),
 		oColorsByName('black')
 	);

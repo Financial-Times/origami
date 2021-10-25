@@ -55,7 +55,7 @@ p {
 	'groups': true
 ));
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	// Custom theme.
 	@include oButtonsAddTheme (
 		$name: 'custom-lemon',

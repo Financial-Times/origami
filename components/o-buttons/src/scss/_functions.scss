@@ -193,20 +193,20 @@
 
 	} @else {
 		// When lightening buttons with a mix use white. Except for the
-		// master brand where a slate button should be mixed with paper.
+		// core brand where a slate button should be mixed with paper.
 		$light-mix: if(
-			oBrandGetCurrentBrand() == 'master' and
+			oBrandIs('core') and
 			$default-background == oColorsByName('slate'),
 			oColorsByName('paper'),
 			'white'
 		);
 
 		// When darkening buttons with a mix use black. Except for the
-		// master and internal brands, where buttons on slate should be mixed
+		// core and internal brands, where buttons on slate should be mixed
 		// with slate.
 		$dark-mix: if(
-			(oBrandGetCurrentBrand() == 'master' or
-			oBrandGetCurrentBrand() == 'internal') and
+			(oBrandIs('core') or
+			oBrandIs('internal')) and
 			$context-color == oColorsByName('slate'),
 			oColorsByName('slate'),
 			'black'

@@ -22,7 +22,7 @@
 	$deprecated: map-get($meta, 'deprecated');
 	$already-warned: index($_o-colors-deprecation-warnings-output, $color-name) != null;
 	@if $deprecated and not $already-warned {
-		$deprecation-message: 'The color "#{$color-name}" is deprecated for the "#{oBrandGetCurrentBrand()}" palette, and will be removed in the next major.';
+		$deprecation-message: 'The color "#{$color-name}" is deprecated for your brand\'s palette, and will be removed in the next major.';
 		// Append any custom deprecation message.
 		$deprecation-message: if(type-of($deprecated) != 'string', $deprecation-message, $deprecation-message + ' ' + $deprecated);
 		// Output warning.

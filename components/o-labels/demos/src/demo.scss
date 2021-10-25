@@ -10,7 +10,7 @@ html {
 	background: oColorsByUsecase('page', 'background');
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	.demo-inverse {
 		background: oColorsByName('slate');
 	}

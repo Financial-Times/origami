@@ -7,8 +7,8 @@
 	@return oBrandGet($component: 'o-overlay', $variables: $variables, $from: $from);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-overlay', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-overlay', 'core', (
 		'variables': (
 			default-background: oColorsByName('white'),
 			default-border: oColorsByName('black-20'),
@@ -28,7 +28,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-overlay', 'internal', (
 		'variables': (
 			default-background: oColorsByName('white'),
@@ -49,7 +49,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-overlay', 'whitelabel', (
 		'variables': (
 			default-background: oColorsByName('white'),

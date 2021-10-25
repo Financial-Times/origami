@@ -25,7 +25,7 @@ body {
 	max-width: 400px;
 }
 
-@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('core') or oBrandIs('internal') {
 	@include oMessageAddState('pikachu', (
 		'foreground-color': 'white',
 		'background-color': 'slate',

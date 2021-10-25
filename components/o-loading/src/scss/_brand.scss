@@ -34,8 +34,8 @@
 	@include oBrandCustomize('o-loading', $variables);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-loading', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-loading', 'core', (
 		'variables': (
 			'light': (
 				default-color: oColorsByName('white')
@@ -51,7 +51,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-loading', 'internal', (
 		'variables': (
 			'light': (
@@ -68,7 +68,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-loading', 'whitelabel', (
 		'variables': (
 			'light': (

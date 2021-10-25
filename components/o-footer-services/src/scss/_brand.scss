@@ -39,8 +39,8 @@ $_o-footer-services-shared-brand-config: (
 	brand-background-color: oColorsByName('black'),
 );
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-footer-services', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-footer-services', 'core', (
 		'variables': map-merge($_o-footer-services-shared-brand-config, (
 			brand-background-color: oColorsByName('black-20'),
 			'dark': (
@@ -59,7 +59,7 @@ $_o-footer-services-shared-brand-config: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-footer-services', 'internal', (
 		'variables': map-merge($_o-footer-services-shared-brand-config, (
 			'background-color': oColorsByName('slate-white-5'),
@@ -70,7 +70,7 @@ $_o-footer-services-shared-brand-config: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-footer-services', 'whitelabel', (
 		'variables': $_o-footer-services-shared-brand-config,
 		'supports-variants': ()

@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-table', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-table', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-table', 'core', (
 		'variables': (
 			table-background: oColorsByName('paper'),
 			table-alternate-background: oColorsByName('wheat'),
@@ -29,7 +29,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-table', 'internal', (
 		'variables': (
 			table-background: oColorsByName('white'),
@@ -49,7 +49,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-table', 'whitelabel', (
 		'variables': (),
 		'supports-variants': (
