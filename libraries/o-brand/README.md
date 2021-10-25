@@ -17,9 +17,11 @@ A brand represents an environment which requires components to offer a distinct 
 
 Brands include:
 
--  master: FT branding for public ft.com sites and affiliates.
+-  core: FT branding for public ft.com sites and affiliates.
 -  internal: Style suitable for internal products, tools, and documentation.
 -  whitelabel: Base, structural styles only.
+
+_Note: [The "master" brand has been deprecated](https://github.com/Financial-Times/origami/issues/243), use the "core" brand instead._
 
 ### Variant
 
@@ -37,46 +39,38 @@ Mixins within `o-brand` help configure components to support brands. There is no
 
 The following mixins and functions help brand a component.
 
--  [oBrandGetCurrentBrand](#obrandgetcurrentbrand) - Set a default brand if necessary
+-  [oBrandIs](#obrandis) - Check if a brand is currently being used.
 -  [oBrandDefine](#obranddefine) - Define brand configuration (variables & supported variants).
 -  [oBrandGet](#obrandget) - Retrieve brand variables.
 -  [oBrandSupportsVariant](#obrandsupportsvariant) - Check if the brand supports a variant.
 -  [oBrandCustomize](#obrandcustomize) - Update brand variables for a unique project.
 
-### oBrandGetCurrentBrand
+### oBrandIs
 
-This function will return the brand defined at a product level.
-
-If `$o-brand` has been defined by a project `oBrandGetCurrentBrand` will return that value.
+This function will check if the current brand in use is the given brand.
 
 ```scss
 $o-brand: internal; // Defined in the product using branded Origami components.
 
-$chosen-brand: oBrandGetCurrentBrand(); // internal
-```
-
-If it has not yet been defined, it will provide a default brand (master).
-```scss
-//$o-brand is undefined
-
-$chosen-brand: oBrandGetCurrentBrand(); // master
+$chosen-brand: oBrandIs('internal'); // true
+$chosen-brand: oBrandIs('core'); // false
 ```
 
 ### oBrandDefine
 
 Components are individually responsible for defining the configuration for each brand they support. In order to add configuration for a new brand, use the mixin `oBrandDefine`.
 
-Where `$component` is the component's name; `$brand` is one of "master", "internal", or "whitelabel"; and `$config` is a map which comprises of variables and supported variants:
+Where `$component` is the component's name; `$brand` is one of "core", "internal", or "whitelabel"; and `$config` is a map which comprises of variables and supported variants:
 -  [`variables`](#brand-variables)
 -  [`supported variants`](#supported-variants)
 
 ```scss
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	@include oBrandDefine($component, $brand, $config);
 }
 ```
 
-_Note: `oBrandDefine` should be used in conjunction with `oBrandGetCurrentBrand`, to define only the requested brand._
+_Note: `oBrandDefine` should be used in conjunction with `oBrandIs`, to define only the requested brand._
 
 #### Brand Variables
 
@@ -119,11 +113,11 @@ Variant support can then be checked using [oBrandSupportsVariant](#obrandsupport
 
 #### A Complete `oBrandDefine` Example
 
-The below example defines a `master` brand for the component `o-example`. We define four variables including `example-background`, but we provide a different `example-background` value for the `inverse` and `b2b` variants. Using the `supports-variants` list we explicitly state the `master` brand supports both of these variants.
+The below example defines a `core` brand for the component `o-example`. We define four variables including `example-background`, but we provide a different `example-background` value for the `inverse` and `b2b` variants. Using the `supports-variants` list we explicitly state the `core` brand supports both of these variants.
 
 ```scss
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			example-background: 'paper',
 			example-border-width: 1px,
@@ -224,7 +218,7 @@ Example Component (o-example):
 }
 
 // Define the whitelabel brand for the component.
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-example', 'whitelabel', (
 		'variables': (
 			example-background: white,

@@ -5,6 +5,10 @@
 /// @param {string} $brand
 /// @param {map} $config
 @mixin oBrandDefine($component, $brand, $config) {
+	// @deprecated, map the deprecated "master" brand name to the core brand.
+	@if $brand == 'master' {
+		$brand: 'core';
+	}
 	// Validate brand name.
 	$validated-brand-name: _oBrandValidateName('Brand', $brand, 'Cannot define brand "#{$brand}" for component "#{$component}"');
 	// Validate component name.
@@ -22,13 +26,13 @@
 /// @param {map} $variables
 @mixin oBrandCustomize($component, $variables) {
 	@if $o-brand-debug {
-		@debug 'Customising the "#{oBrandGetCurrentBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-line at-rule-blacklist
+		@debug 'Customising the "#{_oBrandGetCurrentValidBrand()}" brand version of the "#{$component}" component.'; // stylelint-disable-line at-rule-blacklist
 	}
 	// Validate component.
 	$validated-component-name: _oBrandValidateName('Component', $component, 'Cannot customise component "#{$component}"');
-	$existing-brand-config: _oBrandGetConfig($component, oBrandGetCurrentBrand());
+	$existing-brand-config: _oBrandGetConfig($component, _oBrandGetCurrentValidBrand());
 	@if type-of($existing-brand-config) != 'map' {
-		@error 'Could not customise brand "#{oBrandGetCurrentBrand()}" of the "#{$component}" component. Make sure that component supports the "#{oBrandGetCurrentBrand()}" brand.';
+		@error 'Could not customise brand "#{_oBrandGetCurrentValidBrand()}" of the "#{$component}" component. Make sure that component supports the "#{_oBrandGetCurrentValidBrand()}" brand.';
 	}
 	// Variables.
 	@if type-of($variables) != 'map' {
@@ -38,5 +42,5 @@
 		@error 'Could not customise "#{$component}". oBrandCustomize expects a map of brand variables to customise variants. It is not possible to add or remove support for variants.';
 	}
 	// Update config.
-	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: (oBrandGetCurrentBrand(): ('variables': $variables)))) !global;
+	$_o-brands: _oBrandRecursiveMapMerge($_o-brands, ($component: (_oBrandGetCurrentValidBrand(): ('variables': $variables)))) !global;
 }
