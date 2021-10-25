@@ -7,8 +7,8 @@ $o-brand: null !default;
 // @link https://github.com/Financial-Times/origami/issues/243
 // @deprecated - Remove this in a future major release.
 @if $o-brand == 'master' {
-    @warn 'The "master" brand is deprecated, it has been renamed to "core". Please set the "$o-brand" Sass variable to "core" instead. See https://github.com/Financial-Times/origami/issues/243';
-    $o-brand: 'core';
+	@warn 'The "master" brand is deprecated, it has been renamed to "core". Please set the "$o-brand" Sass variable to "core" instead. See https://github.com/Financial-Times/origami/issues/243';
+	$o-brand: 'core';
 }
 
 /// Output extra `debug` notices. For example to see when component brands
