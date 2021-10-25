@@ -1,19 +1,44 @@
-@include test-module('oBrandGetCurrentBrand') {
-	@include test('Throws error if a brand that is not master, internal or whitelabel is defined.') {
+@include test-module('oBrandIs') {
+	@include test('Returns true when the given brand is the brand set by the user') {
 		// Set fake brand.
 		$original-brand: $o-brand;
-		$o-brand: 'non-existent-brand' !global;
-		$error: 'o-brand error: The brand "non-existent-brand" is not supported by o-brand. Please use one of master, internal, whitelabel.';
-		$non-brand: oBrandGetCurrentBrand();
-		@include assert-equal($non-brand, $error);
+		$o-brand: 'internal' !global;
+		@include assert-true(oBrandIs('internal'));
 		// Restore brand after test.
 		$o-brand: $original-brand !global;
 	}
+	@include test('Returns false when the given brand is not the current brand set by the user') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: 'core' !global;
+		@include assert-false(oBrandIs('whitelabel'));
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
+	}
+	@include test('Returns true for the default brand when a brand is not set') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: null !global;
+		@include assert-true(oBrandIs('core'));
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
+	}
+}
 
+@include test-module('oBrandGetCurrentBrand') {
 	@include test('Defaults to master if no brand is defined.') {
 		// Set fake brand.
 		$original-brand: $o-brand;
 		$o-brand: null !global;
+		$o-brand: oBrandGetCurrentBrand();
+		@include assert-equal($o-brand, master);
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
+	}
+	@include test('Returns "master" (deprecated) if the "core" brand is set.') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: core !global;
 		$o-brand: oBrandGetCurrentBrand();
 		@include assert-equal($o-brand, master);
 		// Restore brand after test.
@@ -57,5 +82,28 @@
 	@include test('Returns true if a brand does support the variant') {
 		$support: oBrandSupportsVariant($component: 'o-example', $variant: 'b2b');
 		@include assert-equal($support, true);
+	}
+}
+
+@include test-module('_oBrandGetCurrentValidBrand') {
+	@include test('Throws error if a brand that is not core, internal or whitelabel is defined.') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: 'non-existent-brand' !global;
+		$error: 'o-brand error: The brand "non-existent-brand" is not supported by o-brand. Please use one of core, internal, whitelabel.';
+		$non-brand: _oBrandGetCurrentValidBrand();
+		@include assert-equal($non-brand, $error);
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
+	}
+
+	@include test('Defaults to core if no brand is defined.') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: null !global;
+		$o-brand: _oBrandGetCurrentValidBrand();
+		@include assert-equal($o-brand, core);
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
 	}
 }
