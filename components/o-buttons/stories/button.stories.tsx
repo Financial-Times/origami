@@ -1,21 +1,33 @@
 import {withDesign} from 'storybook-addon-designs';
-
 import {Button} from '../src/tsx/button';
 import './button.scss';
+import README from '../README.md';
+import MIGRATION from '../MIGRATION.md';
+import CHANGELOG from '../CHANGELOG.md';
+import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Button',
 	component: Button,
-	decorators: [withDesign],
+	decorators: [withDesign, withHtml],
 	args: {
-		iconOnly: false
+		iconOnly: false,
 	},
 	parameters: {
 		design: {
 			type: 'figma',
-			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=29%3A1131'
-		}
-	}
+			url: 'https://www.figma.com/file/MyHQ1qdwYyek5IBdhEEaND/FT-UI-Library?node-id=29%3A1131',
+		},
+		guidelines: {
+			notion: '448d914df4fd4bb68fdf5bc5e85c4b46',
+		},
+		html: {},
+		notes: {
+			README,
+			'Migration Guide': MIGRATION,
+			'Change Log': CHANGELOG,
+		},
+	},
 };
 
 const Story = args => <Button {...args} />;
@@ -52,19 +64,18 @@ Inverse.parameters = {
 export const Mono = Story.bind({});
 Mono.args = {
 	label: 'Press button',
-	theme: 'mono'
-}
+	theme: 'mono',
+};
 
 export const Icon = Story.bind({});
 Icon.args = {
 	label: 'Upload',
-	icon: 'upload'
-}
-
+	icon: 'upload',
+};
 
 export const IconOnly = Story.bind({});
 IconOnly.args = {
 	label: 'Next',
 	icon: 'arrow-right',
-	iconOnly: true
-}
+	iconOnly: true,
+};
