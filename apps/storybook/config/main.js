@@ -35,6 +35,7 @@ module.exports = {
 		"storybook-addon-designs",
 		"@storybook/addon-notes/register",
 		"origami-storybook-addon-html/register",
+		"origami-storybook-addon-guidelines/register",
 	],
 	typescript: {
 		check: false,
@@ -69,7 +70,6 @@ module.exports = {
 				require.resolve("react-docgen-typescript-loader"),
 			],
 		})
-
 		config.resolve.extensions.push(".ts", ".tsx")
 		return config
 	},
