@@ -40,7 +40,8 @@
     "components/*",
     "libraries/*",
     "presets/*",
-    "tools/*"
+    "tools/*",
+    "apps/storybook/addons/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -74,11 +75,13 @@
     "@actions/github": "^4.0.0",
     "@actions/io": "^1.0.2",
     "@percy/cli": "^1.0.0-beta.67",
+    "@storybook/addon-docs": "^6.3.12",
     "del": "^6.0.0",
     "fast-glob": "^3.2.7",
     "globby": "^12.0.2",
     "karma": "^6.3.4",
     "mustache": "^4.2.0",
+    "react-syntax-highlighter": "^15.4.4",
     "read-pkg": "^7.0.0",
     "remark-cli": "^10.0.0",
     "splitonce": "^0.1.2",

@@ -33,6 +33,8 @@ module.exports = {
 			},
 		},
 		"storybook-addon-designs",
+		"@storybook/addon-notes/register",
+		"origami-storybook-addon-html/register",
 	],
 	typescript: {
 		check: false,
