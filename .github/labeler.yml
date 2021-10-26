@@ -128,3 +128,7 @@ stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+guidelines:
+  - apps/storybook/addons/guidelines/**/*
+html:
+  - apps/storybook/addons/html/**/*
