@@ -70,7 +70,7 @@ try {
 				await generateDemosFor(brand, demosConfig)
 			}
 		} else {
-			await generateDemosFor("master", demosConfig)
+			await generateDemosFor("core", demosConfig)
 		}
 
 		await generatePercySnapshots()
