@@ -221,12 +221,12 @@ Alternatively include base styles with only selected optional features. E.g. to 
 
 | Feature             | Description                                             | Brand support                |
 | ------------------- | ------------------------------------------------------- | ---------------------------- |
-| responsive-overflow | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| responsive-flat     | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| responsive-scroll   | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| lines               | Styles for horizontal and vertical lines, plus borders. | master, internal, whitelabel |
-| compact             | A table with smaller typography and padding.            | master, internal, whitelabel |
-| stripes             | Alternating row stripe styles.                          | master, internal             |
+| responsive-overflow | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| responsive-flat     | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| responsive-scroll   | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| lines               | Styles for horizontal and vertical lines, plus borders. | core, internal, whitelabel |
+| compact             | A table with smaller typography and padding.            | core, internal, whitelabel |
+| stripes             | Alternating row stripe styles.                          | core, internal             |
 | row-headings        | Row heading styles.                                     | internal                     |
 
 ## JavaScript
