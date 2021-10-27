@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -78,7 +78,7 @@
 				"theme": "dark"
 			},
 			"brands": [
-				"master"
+				"core"
 			],
 			"description": "A dark theme, shown on the full services footer."
 		}

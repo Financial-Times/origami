@@ -7,7 +7,7 @@
 		"slack": "financialtimes/origami-support"
 	},
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -34,7 +34,7 @@
 			"documentClasses": "o-editorial-typography-body",
 			"description": "A blockquote style for editorial contexts such as articles. A block quote is a passage of text from another source, or a passage of text that’s been spoken by a person. Used to attribute another source of information, or to quote the spoken words of a person.",
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
@@ -49,7 +49,7 @@
 			},
 			"description": "An alternative blockquote. We recommend the editorial style for editorial contexts such as within articles.",
 			"brands": [
-				"master",
+				"core",
 				"internal",
 				"whitelabel"
 			]
@@ -67,7 +67,7 @@
 			"description": "A skeleton blockquote style.",
 			"hidden": true,
 			"brands": [
-				"master",
+				"core",
 				"internal",
 				"whitelabel"
 			]

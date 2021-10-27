@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -24,7 +24,7 @@
 				"font": "metricweb"
 			},
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			],
 			"description": "Metric is used for general text, utility text, eg categories, tags and navigation",
@@ -37,7 +37,7 @@
 				"font": "financierdisplayweb"
 			},
 			"brands": [
-				"master"
+				"core"
 			],
 			"description": "Financier Display is used for headlines and editorial content at large sizes.",
 			"display_html": false

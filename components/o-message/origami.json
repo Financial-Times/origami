@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -239,7 +239,7 @@
 				}
 			},
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			]
 		},
@@ -257,7 +257,7 @@
 				}
 			},
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			]
 		},
@@ -308,7 +308,7 @@
 			},
 			"display_html": false,
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			]
 		},
@@ -341,7 +341,7 @@
 			},
 			"display_html": false,
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			]
 		},

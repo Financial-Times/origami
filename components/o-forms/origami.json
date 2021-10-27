@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -39,7 +39,7 @@
 			"description": "Inverse form",
 			"sass": "demos/src/inverse.scss",
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			]
 		},
