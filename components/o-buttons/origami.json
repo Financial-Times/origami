@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -64,7 +64,7 @@
 			"name": "primary-mono",
 			"title": "Primary button (mono)",
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			],
 			"template": "/demos/src/primary-mono.mustache",
@@ -74,7 +74,7 @@
 			"name": "mono",
 			"title": "Secondary/default button (mono)",
 			"brands": [
-				"master",
+				"core",
 				"internal"
 			],
 			"template": "/demos/src/mono.mustache",
@@ -84,7 +84,7 @@
 			"name": "B2C",
 			"title": "B2C theme",
 			"brands": [
-				"master"
+				"core"
 			],
 			"template": "/demos/src/b2c.mustache",
 			"description": "B2C themed buttons should be used in Customer facing non-editorial products eg Help or About Us."
@@ -119,7 +119,7 @@
 			"name": "custom",
 			"template": "/demos/src/custom.mustache",
 			"brands": [
-				"master"
+				"core"
 			],
 			"hidden": true,
 			"bodyClasses": "custom-button-theme-demo",
@@ -130,7 +130,7 @@
 			"name": "custom icon button",
 			"template": "/demos/src/custom-icon-button.mustache",
 			"brands": [
-				"master"
+				"core"
 			],
 			"hidden": true,
 			"description": "Visual tests for the icon buttons mixins"

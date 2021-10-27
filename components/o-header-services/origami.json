@@ -2,7 +2,7 @@
 	"origamiType": "component",
 	"origamiVersion": "2.0",
 	"brands": [
-		"master",
+		"core",
 		"internal",
 		"whitelabel"
 	],
@@ -73,7 +73,7 @@
 				"sub-navigation": true
 			},
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
@@ -86,7 +86,7 @@
 				"sub-navigation": true
 			},
 			"brands": [
-				"master"
+				"core"
 			]
 		},
 		{
