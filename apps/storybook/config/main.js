@@ -24,7 +24,7 @@ module.exports.addons = [
 					return (
 						`
 							$system-code: origami;
-							$o-brand: ${process.env.ORIGAMI_STORYBOOK_BRAND || "master"};
+							$o-brand: ${process.env.ORIGAMI_STORYBOOK_BRAND || "core"};
 							@import "@financial-times/o-colors/main";
 							@include oColors();
 						` + content
