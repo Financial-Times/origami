@@ -92,12 +92,6 @@ module.exports = function (cfg) {
 					title: 'Tests starting...',
 					task: async (context, task) => {
 						let brands = await files.getModuleBrands();
-						brands = brands.length > 0 ? brands : [
-							'master',
-							'internal',
-							'whitelabel'
-						];
-
 						for (const brand of brands) {
 							task.title = `Testing compilation for the ${brand} brand.`;
 							await compilationTest(config.cwd, {
