@@ -40,7 +40,7 @@ describe('base karma config', () => {
 			const actualScssConfig = actualConfig.scssPreprocessor.options.data;
 			proclaim.equal(
 				actualScssConfig,
-				`$system-code: "origami-build-tools";$o-brand: master;${mockScss}@if mixin-exists('${mockPrimaryMixinName}') {@include ${mockPrimaryMixinName}();};`
+				`$system-code: "origami-build-tools";$o-brand: core;${mockScss}@if mixin-exists('${mockPrimaryMixinName}') {@include ${mockPrimaryMixinName}();};`
 			);
 		});
 	});

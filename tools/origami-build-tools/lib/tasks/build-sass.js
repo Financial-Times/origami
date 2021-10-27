@@ -16,7 +16,7 @@ const log = require('../helpers/log');
  *
  * @param {String} sassFile - The file to return Sass from.
  * @param {Object} config - Configuration to augment Sass.
- * @param {String|Undefined} config.brand [undefined] - The brand the Sass is for .e.g. "master", "internal", or "whitelabel".
+ * @param {String|Undefined} config.brand [undefined] - The brand the Sass is for .e.g. "core", "internal", or "whitelabel".
  * @param {String} config.sassPrefix [''] - Sass to prefix the Sass from file with.
  * @return {Promise<String>} - The sass from the file, with extra Sass variables and prefixes according to configuration.
  */
@@ -43,7 +43,7 @@ function getSassData(sassFile, config = {
  * @param {String} [config.buildFolder] ['/build'] - The destination for build assets. Either a directory or "disabled", to never write build css to file.
  * @param {String} [config.buildCss] ['main.css'] - The destination filename.
  * @param {Boolean} [config.sourcemaps] [true] - Whether to include inline sourcemaps.
- * @param {String|Undefined} [config.brand] [undefined] - The brand the Sass build is for .e.g. "master", "internal", or "whitelabel".
+ * @param {String|Undefined} [config.brand] [undefined] - The brand the Sass build is for .e.g.  "core", "internal", or "whitelabel".
  * @param {String|Undefined} [config.sassPrefix] [undefined] - Sass to prefix the Sass from file with.
  * @param {String} [config.outputStyle] ['expanded'] - The Sass output style. One of `compressed` (removes as many extra characters as possible) or `expanded` (writes each selector and declaration on its own line).
  * @param {String[]} [config.sassIncludePaths] - Extra Sass paths to includes.
