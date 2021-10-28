@@ -10,11 +10,6 @@
 		@error 'A global "$system-code" Sass variable must be set to a valid [Bizops system code](https://biz-ops.in.ft.com/list/Systems).';
 	}
 
-	$url: '';
-	@if ($o-ft-affiliate-ribbon-use-local-assets) {
-		$url: '/src/img/service-from-ft.svg';
-	} @else {
-		$url: "https://www.ft.com/__origami/service/build/v2/files/o-ft-affiliate-ribbon/src/img/service-from-ft.svg";
-	}
+	$url: "https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aservice-from-ft?source=#{$system-code}";
 	background-image: url($url + "?source=#{$system-code}&format=svg");
 }
