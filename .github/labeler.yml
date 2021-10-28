@@ -132,3 +132,7 @@ guidelines:
   - apps/storybook/addons/guidelines/**/*
 html:
   - apps/storybook/addons/html/**/*
+storybook:
+  - apps/storybook/**/*
+website:
+  - apps/website/**/*
