@@ -2,7 +2,6 @@ import {withDesign} from 'storybook-addon-designs';
 import {useEffect} from 'react';
 import {SteppedProgress} from '../src/tsx/stepped-progress';
 import './stepped-progress.scss';
-import scss from './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
 import README from '../README.md';
 import MIGRATION from '../MIGRATION.md';
