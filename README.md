@@ -7,7 +7,7 @@ up the Origami Component System.
 
 ## Proposals
 
-If you'd like to make a proposal for a new component or anything else, go ahead and [open an issue](https://github.com/Financial-Times/origami/issues/new)
+If you'd like to make a proposal for a new component or anything else, go ahead and [open an issue](https://github.com/Financial-Times/origami/issues/new).
 
 ## Projects in this repository
 
@@ -20,7 +20,7 @@ The [Origami website](./apps/website), served at <https://origami.ft.com>.
 
 ### apps/storybook
 
-[Origami's storybook](./apps/storybook), served at <https://origami.ft.com/storybook>.
+[Origami's storybook](./apps/storybook), served at <https://origami.ft.com/storybook/>.
 
 ### components and libraries
 
@@ -67,7 +67,26 @@ git lfs install
 
 ### Quick start
 
-```shell
-git clone git@snoot.club:Financial-Times/origami
-cd origami
-```
+1. First, clone the repo
+
+   ```shell
+   git clone git@snoot.club:Financial-Times/origami.git
+   cd origami
+   ```
+
+2. Then npm install. This will install all the components into the root `node_modules`, allows all the components to [find one another](https://nodejs.org/api/modules.html#loading-from-node_modules-folders).
+
+   ```shell
+   npm install
+   ```
+
+3. Run the storybook. This will server storybook on localhost:6969, and open your web browser :)
+
+   ```shell
+   npm run storybook
+   ```
+
+### Tips
+
+- If you need to install a dependency for a component you can run `npm install -w components/o-name dep@2`
+-
