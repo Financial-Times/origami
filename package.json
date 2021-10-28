@@ -41,7 +41,8 @@
     "libraries/*",
     "presets/*",
     "tools/*",
-    "apps/storybook/addons/*"
+    "apps/storybook/addons/*",
+    "apps/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -65,7 +66,6 @@
     "remark-preset-lint-origami-component": "^2.0.0",
     "serve": "^12.0.1",
     "sinon": "^10.0.0",
-    "storybook-addon-designs": "^6.1.0",
     "stylelint": "^13.12.0",
     "stylelint-config-origami-component": "^1.0.4"
   },
@@ -75,7 +75,6 @@
     "@actions/github": "^4.0.0",
     "@actions/io": "^1.0.2",
     "@percy/cli": "^1.0.0-beta.67",
-    "@storybook/addon-docs": "^6.3.12",
     "del": "^6.0.0",
     "fast-glob": "^3.2.7",
     "globby": "^12.0.2",
