@@ -2,11 +2,8 @@ import {withDesign} from 'storybook-addon-designs';
 import {useEffect} from 'react';
 import {SteppedProgress, Step} from '../src/tsx/stepped-progress';
 import javascript from '@financial-times/o-stepped-progress';
-<<<<<<< HEAD
 import withHtml from 'origami-storybook-addon-html';
-=======
 import './stepped-progress.scss';
->>>>>>> 0d5c861d2 (chore: go back to providing js array interface)
 
 export default {
 	title: 'Stepped Progress',
