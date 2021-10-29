@@ -131,7 +131,10 @@ function buildDemoHtml(buildConfig) {
 			const dependencies = buildConfig.demo.dependencies;
 			const sassPath = buildConfig.demo.sass;
 			const jsPath = buildConfig.demo.js;
-			const brand = buildConfig.brand;
+			// core will replace master brand, this is temporary whilst origami build service is updated to support both.
+			// we're updating the o-brand component and build tools first as origami build service uses branded components
+			// for integration tests.
+			const brand = buildConfig.brand === 'core' ? 'master' : buildConfig.brand;
 			data.oDemoTitle = moduleName + ': ' + buildConfig.demo.name + ' demo';
 			data.oDemoDocumentClasses = buildConfig.demo.documentClasses || buildConfig.demo.bodyClasses;
 
