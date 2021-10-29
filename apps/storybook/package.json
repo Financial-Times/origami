@@ -2,7 +2,6 @@
   "name": "origami-storybook",
   "version": "1.0.0",
   "description": "origami's storybook",
-  "main": "config/main.js",
   "scripts": {
     "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
     "build-storybook": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
