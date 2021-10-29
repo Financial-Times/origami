@@ -33,3 +33,5 @@ Icon?
 .apdisk
 .nyc_output
 .eslintcache
+.clj-kondo/
+.lsp/
