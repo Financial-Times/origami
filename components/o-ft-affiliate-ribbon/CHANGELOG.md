@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.0.2](https://www.github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.0.1...o-ft-affiliate-ribbon-v5.0.2) (2021-10-29)
+
+
+### Bug Fixes
+
+* load the service-from-ft logo from the image-service ([4a1407c](https://www.github.com/Financial-Times/origami/commit/4a1407c93af42ca91482e67628f2e5aa41809b7f))
+
 ### [5.0.1](https://www.github.com/Financial-Times/origami/compare/o-ft-affiliate-ribbon-v5.0.0...o-ft-affiliate-ribbon-v5.0.1) (2021-09-21)
 
 
