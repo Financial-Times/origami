@@ -16,7 +16,10 @@ addons.register("origami/guidelines", () => {
 			let {notion: notionPageId} = useParameter("guidelines", {notion: null})
 			let [page, setPage] = useState(null)
 			useEffect(() => {
-				if (!notionPageId) return
+				if (!notionPageId) {
+					setPage(null)
+					return
+				}
 				// TODO? make our own endpoint with notion-client
 				fetch(`https://notion-api.splitbee.io/v1/page/${notionPageId}`)
 					.then(r => r.json())
