@@ -3,9 +3,6 @@ import {useEffect} from 'react';
 import {SteppedProgress} from '../src/tsx/stepped-progress';
 import './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
-import README from '../README.md';
-import MIGRATION from '../MIGRATION.md';
-import CHANGELOG from '../CHANGELOG.md';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
@@ -16,11 +13,6 @@ export default {
 		design: {
 			type: 'figma',
 			url: 'https://www.figma.com/file/xxJEMk0fnzEhoDFaKtM5fz/Stepped-progress-bar-component?node-id=6%3A3537',
-		},
-		notes: {
-			README,
-			'Migration Guide': MIGRATION,
-			'Change Log': CHANGELOG,
 		},
 	},
 	args: {
