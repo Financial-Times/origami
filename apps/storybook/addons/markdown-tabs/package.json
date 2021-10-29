@@ -10,6 +10,7 @@
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
   "dependencies": {
+    "github-slugger": "^1.4.0",
     "marksy": "^8.0.0",
     "react-syntax-highlighter": "^15.4.4"
   }
