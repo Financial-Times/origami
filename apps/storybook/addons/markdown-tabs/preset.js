@@ -1,7 +1,7 @@
 module.exports.managerEntries = function managerEntries(entry = []) {
 	return [
 		...entry,
-		require.resolve("origami-storybook-preset-component-md/register"),
+		require.resolve("origami-storybook-addon-markdown-tabs/register"),
 	]
 }
 
