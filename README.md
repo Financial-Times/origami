@@ -89,4 +89,4 @@ git lfs install
 ### Tips
 
 - If you need to install a dependency for a component you can run `npm install -w components/o-name dep@2`
--
+- To run obt for a specific component try `npm exec -w components/o-name obt dev` 
