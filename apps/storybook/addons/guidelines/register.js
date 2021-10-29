@@ -3,14 +3,8 @@ import {addons, types} from "@storybook/addons"
 import {useParameter} from "@storybook/api"
 import {NotionRenderer} from "react-notion"
 import "react-notion/dist/styles.css"
-import {
-	DocumentWrapper,
-	Link,
-	TabWrapper,
-	TabsState,
-	DocsWrapper,
-	DocsContent,
-} from "@storybook/components"
+import {DocsWrapper, DocsContent} from "@storybook/components"
+
 addons.register("origami/guidelines", () => {
 	addons.add("origami/guidelines/tab", {
 		title: "Guidelines",
