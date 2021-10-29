@@ -6,6 +6,8 @@ import isCI from 'is-ci'
 import dedentTabs from "dedent-tabs"
 import {globby as glob} from "globby"
 import pa11y from 'pa11y'
+import colors from 'colors';
+const { bold } = colors;
 const dedent = dedentTabs.default
 
 const cwd = process.cwd()
@@ -34,11 +36,11 @@ for (const page of builtDemoPages) {
 }
 
 if (errors.length) {
-	console.error(errors.join(EOL))
+	console.error(errors.join(EOL + EOL))
+	process.exit(1)
 }
 
 async function runPa11y (page) {
-
 	// Run the Pa11y tests
 	const results = await pa11y(page, {
 		ignore: pa11yRulesToIgnore,
@@ -64,7 +66,7 @@ async function runPa11y (page) {
 				console.log(`::error file=${page},line=1,col=1::${message}`)
 			})
 		}
-		return dedent`Accessibility errors were found in ${page}
+		return dedent`${bold(`Accessibility errors were found in ${page}`)}
 				${errors.join('\n')}
 				Failed Pa11y tests`
 	}

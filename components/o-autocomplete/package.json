@@ -22,7 +22,7 @@
   "scripts": {
     "build": "obt demo",
     "test": "obt t && npm run build && npm run a11y",
-    "a11y": "node ../../scripts/a11y.js"
+    "a11y": "a11y"
   },
   "engines": {
     "npm": ">=7"
