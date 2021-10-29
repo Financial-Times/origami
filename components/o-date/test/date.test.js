@@ -425,19 +425,19 @@ describe('o-date', () => {
 			}
 		});
 
-		it('returns abbreviations if the abbreviated option is provided', () => {
+		it('returns no abbreviation if the abbreviated option is provided (abbreviation is deprecated)', () => {
 			const abbreviations = {
-				'2s ago': 2 * inSeconds.second,
-				'1m ago': inSeconds.minute,
-				'2m ago': 90 * inSeconds.second,
-				'1h ago': inSeconds.hour,
-				'2h ago': 90 * inSeconds.minute,
-				'1d ago': 22 * inSeconds.hour,
-				'2d ago': 36 * inSeconds.hour,
-				'1mth ago': 25 * inSeconds.day,
-				'2mth ago': 45 * inSeconds.day,
-				'1y ago': 345 * inSeconds.day,
-				'2y ago': 547 * inSeconds.day
+				'2 seconds ago': 2 * inSeconds.second,
+				'1 minute ago': inSeconds.minute,
+				'2 minute ago': 90 * inSeconds.second,
+				'1 hour ago': inSeconds.hour,
+				'2 hour ago': 90 * inSeconds.minute,
+				'1 day ago': 22 * inSeconds.hour,
+				'2 day ago': 36 * inSeconds.hour,
+				'1 month ago': 25 * inSeconds.day,
+				'2 month ago': 45 * inSeconds.day,
+				'1 year ago': 345 * inSeconds.day,
+				'2 year ago': 547 * inSeconds.day
 			};
 
 			Object.keys(abbreviations).forEach(function (abbreviation) {
