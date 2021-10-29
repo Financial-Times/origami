@@ -3,14 +3,8 @@ import {addons, types} from "@storybook/addons"
 import {useParameter} from "@storybook/api"
 import {NotionRenderer} from "react-notion"
 import "react-notion/dist/styles.css"
-import {
-	DocumentWrapper,
-	Link,
-	TabWrapper,
-	TabsState,
-	DocsWrapper,
-	DocsContent,
-} from "@storybook/components"
+import {DocsWrapper, DocsContent} from "@storybook/components"
+
 addons.register("origami/guidelines", () => {
 	addons.add("origami/guidelines/tab", {
 		title: "Guidelines",
@@ -22,7 +16,10 @@ addons.register("origami/guidelines", () => {
 			let {notion: notionPageId} = useParameter("guidelines", {notion: null})
 			let [page, setPage] = useState(null)
 			useEffect(() => {
-				if (!notionPageId) return
+				if (!notionPageId) {
+					setPage(null)
+					return
+				}
 				// TODO? make our own endpoint with notion-client
 				fetch(`https://notion-api.splitbee.io/v1/page/${notionPageId}`)
 					.then(r => r.json())

@@ -1,6 +1,6 @@
-name: test apps/storybook
+name: test apps/storybook/addons/markdown-tabs
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow}}-apps/storybook
+  group: ${{ github.head_ref }}-${{ github.workflow}}-apps/storybook/addons/markdown-tabs
   cancel-in-progress: true
 
 on:
@@ -18,5 +18,5 @@ jobs:
         node-version: 16.x
         cache: 'npm'
     - run: npm ci
-    - run: npx npm run -w apps/storybook lint
-    - run: npx npm run -w apps/storybook test
+    - run: npx npm run -w apps/storybook/addons/markdown-tabs lint
+    - run: npx npm run -w apps/storybook/addons/markdown-tabs test

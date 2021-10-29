@@ -1,9 +1,6 @@
 import {withDesign} from 'storybook-addon-designs';
 import {Button} from '../src/tsx/button';
 import './button.scss';
-import README from '../README.md';
-import MIGRATION from '../MIGRATION.md';
-import CHANGELOG from '../CHANGELOG.md';
 import withHtml from 'origami-storybook-addon-html';
 
 export default {
@@ -22,11 +19,6 @@ export default {
 			notion: '448d914df4fd4bb68fdf5bc5e85c4b46',
 		},
 		html: {},
-		notes: {
-			README,
-			'Migration Guide': MIGRATION,
-			'Change Log': CHANGELOG,
-		},
 	},
 };
 

@@ -3,6 +3,11 @@ import {create} from "@storybook/theming"
 import "./theme.css"
 
 addons.setConfig({
+	previewTabs: {
+		"origami/guidelines/tab": {
+			index: Infinity,
+		},
+	},
 	theme: create({
 		base: "light",
 		brandTitle: "Origami",

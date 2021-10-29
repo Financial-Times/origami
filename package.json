@@ -47,6 +47,8 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-docs": "^6.4.0-beta.22",
+    "@storybook/addon-essentials": "^6.4.0-beta.22",
     "@testing-library/dom": "^8.0.0",
     "@testing-library/user-event": "^13.1.9",
     "chai": "^4.3.4",
