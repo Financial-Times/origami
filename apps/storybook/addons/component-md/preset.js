@@ -10,5 +10,9 @@ module.exports.managerWebpack = function managerWebpack(baseConfig) {
 		test: /\.md$/,
 		type: "asset/source",
 	})
+	baseConfig.module.rules.push({
+		test: /\.s[ca]ss$/,
+		use: ["style-loader", "css-loader", "sass-loader"],
+	})
 	return baseConfig
 }
