@@ -1,5 +1,5 @@
 {
-  "name": "origami-storybook-preset-component-md",
+  "name": "origami-storybook-addon-markdown-tabs",
   "version": "1.0.0",
   "description": "Origami storybook addon for showing tabs for Origami component markdown files",
   "main": "preset.js",
