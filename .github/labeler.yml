@@ -132,6 +132,8 @@ guidelines:
   - apps/storybook/addons/guidelines/**/*
 html:
   - apps/storybook/addons/html/**/*
+markdown-tabs:
+  - apps/storybook/addons/markdown-tabs/**/*
 storybook:
   - apps/storybook/**/*
 website:
