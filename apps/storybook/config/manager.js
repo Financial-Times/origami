@@ -5,7 +5,6 @@ import "./theme.css"
 addons.setConfig({
 	previewTabs: {
 		"origami/guidelines/tab": {
-			hidden: false,
 			index: Infinity,
 		},
 	},
