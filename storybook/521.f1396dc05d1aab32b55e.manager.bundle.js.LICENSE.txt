@@ -20,6 +20,8 @@ object-assign
  * Released under the MIT License.
  */
 
+/*! https://mths.be/he v1.2.0 by @mathias | MIT license */
+
 /**
 	   * @license
 	   * Copyright Google Inc. All Rights Reserved.

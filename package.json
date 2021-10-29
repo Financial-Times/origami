@@ -15,7 +15,9 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "build": "bundle exec jekyll build -d ../../origami.ft.com",
-    "watch": "bundle exec jekyll build --watch --drafts --incremental -d ../../origami.ft.com"
+    "watch": "bundle exec jekyll build --watch --drafts --incremental -d ../../origami.ft.com",
+    "test": "exit 0",
+    "lint": "exit 0"
   },
   "snyk": true
 }
