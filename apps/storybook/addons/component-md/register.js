@@ -26,8 +26,8 @@ const compile = marksy({
 	},
 })
 
-function make({api, title, filename}) {
-	let tabName = filename.replace(".md", "").toLowerCase()
+function makeMarkdownTab({api, title, filename}) {
+	let tabName = filename.toLowerCase()
 	addons.add(`origami/component-md/${tabName}`, {
 		title,
 		type: types.TAB,
@@ -49,16 +49,14 @@ function make({api, title, filename}) {
 					setContent(loading)
 					return
 				}
-				let string = require(`../../../../components/${nameMatch[1]}/${filename}`)
-				setContent(string)
+				let string = require(`../../../../components/${nameMatch[1]}/${filename}.md`)
+				setContent(compile(string).tree)
 			}, [active, path])
 			if (!active || !path) return null
 			return (
 				<DocsWrapper>
 					<DocsContent>
-						<main className="readme o-typography-wrapper">
-							{compile(content).tree}
-						</main>
+						<main className="readme o-typography-wrapper">{content}</main>
 					</DocsContent>
 				</DocsWrapper>
 			)
@@ -67,7 +65,7 @@ function make({api, title, filename}) {
 }
 
 addons.register("origami/component-md", api => {
-	make({api, title: "README", filename: "README.md"})
-	make({api, title: "Migration guide", filename: "MIGRATION.md"})
-	make({api, title: "Changelog", filename: "CHANGELOG.md"})
+	makeMarkdownTab({api, title: "README", filename: "README"})
+	makeMarkdownTab({api, title: "Migration guide", filename: "MIGRATION"})
+	makeMarkdownTab({api, title: "Changelog", filename: "CHANGELOG"})
 })
