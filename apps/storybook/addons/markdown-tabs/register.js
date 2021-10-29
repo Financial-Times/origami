@@ -81,10 +81,18 @@ function makeMarkdownTab({api, title, filename}) {
 					setContent(loading)
 					return
 				}
-				let string = require(`../../../../components/${nameMatch[1]}/${filename}.md`)
-				setContent(compile(string).tree)
+				let [, component] = nameMatch
+				let tree = loading
+				try {
+					tree = require(`../../../../components/${component}/${filename}.md`)
+				} catch (error) {
+					setContent(`could not load ${filename}.md for ${component}`)
+				}
+				setContent(compile(tree).tree)
 			}, [active, path])
+
 			if (!active || !path) return null
+
 			return (
 				<DocsWrapper>
 					<DocsContent>
