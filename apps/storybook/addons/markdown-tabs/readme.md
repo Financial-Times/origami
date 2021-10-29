@@ -1,4 +1,4 @@
-# origami-storybook-addon-component-md
+# origami-storybook-addon-markdown-tabs
 
 This addon is responsible for the _README_, _Migration Guide_ and _Changelog
 tabs_.
