@@ -15,19 +15,19 @@ const cwd = process.cwd()
 const builtDemoPages = await glob(path.join(cwd, '/demos/local/*.html'), {onlyFiles: true})
 
 const pa11yRulesToIgnore = []
-// // ignoring the href="#" error
-// pa11yRulesToIgnore.push('WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID')
-// // pa11y demos are for pa11y only and may include multiple versions
-// // of a landmark component like o-footer
-// pa11yRulesToIgnore.push('landmark-one-main')
-// pa11yRulesToIgnore.push('landmark-no-duplicate-contentinfo')
-// pa11yRulesToIgnore.push('landmark-unique')
-// // disable https://dequeuniversity.com/rules/axe/3.5/region?application=axeAPI
-// pa11yRulesToIgnore.push('region')
-// // disable https://dequeuniversity.com/rules/axe/3.5/bypass?application=axeAPI
-// pa11yRulesToIgnore.push('bypass')
-// // pa11y demos are for pa11y only and do not have a heading
-// pa11yRulesToIgnore.push('page-has-heading-one')
+// ignoring the href="#" error
+pa11yRulesToIgnore.push('WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID')
+// pa11y demos are for pa11y only and may include multiple versions
+// of a landmark component like o-footer
+pa11yRulesToIgnore.push('landmark-one-main')
+pa11yRulesToIgnore.push('landmark-no-duplicate-contentinfo')
+pa11yRulesToIgnore.push('landmark-unique')
+// disable https://dequeuniversity.com/rules/axe/3.5/region?application=axeAPI
+pa11yRulesToIgnore.push('region')
+// disable https://dequeuniversity.com/rules/axe/3.5/bypass?application=axeAPI
+pa11yRulesToIgnore.push('bypass')
+// pa11y demos are for pa11y only and do not have a heading
+pa11yRulesToIgnore.push('page-has-heading-one')
 
 const errors = [];
 for (const page of builtDemoPages) {
