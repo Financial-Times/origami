@@ -3,8 +3,9 @@ import {addons, types} from "@storybook/addons"
 import {DocsWrapper, DocsContent} from "@storybook/components"
 import marksy from "marksy"
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter"
-import "./style.css"
+import "./style.scss"
 import syntaxStyle from "./syntax-style.js"
+
 const compile = marksy({
 	createElement,
 	elements: {
