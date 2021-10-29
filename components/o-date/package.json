@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-date",
-  "version": "5.0.2",
+  "version": "5.1.0",
   "type": "module",
   "browser": "main.js",
   "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://www.github.com/Financial-Times/origami/compare/o-date-v5.0.2...o-date-v5.1.0) (2021-10-29)
+
+
+### Features
+
+* o-date, deprecate abbreviated time options. ([43cbe14](https://www.github.com/Financial-Times/origami/commit/43cbe14b164d48dc7f0b9e43fdade80b4d472549))
+
 ### [5.0.2](https://www.github.com/Financial-Times/origami/compare/o-date-v5.0.1...o-date-v5.0.2) (2021-09-21)
 
 
