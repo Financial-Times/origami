@@ -5,7 +5,9 @@
   "scripts": {
     "storybook": "start-storybook -p ${PORT:-6969} -c ./config",
     "build-storybook": "build-storybook --modern -c ./config -o ../../origami.ft.com/storybook",
-    "watch-storybook": "npm run build-storybook -- -w"
+    "watch-storybook": "npm run build-storybook -- -w",
+    "test": "exit 0",
+    "lint": "exit 0"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.4.0-beta.21",
