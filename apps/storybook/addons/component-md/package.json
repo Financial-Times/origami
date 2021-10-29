@@ -1,13 +1,20 @@
 {
-  "name": "origami-storybook-addon-component-md",
+  "name": "origami-storybook-preset-component-md",
   "version": "1.0.0",
-  "description": "Origami storybook addon for showing tabs for readme, migration and change log",
-  "main": "index.js",
+  "description": "Origami storybook addon for showing tabs for Origami component markdown files",
+  "main": "preset.js",
   "scripts": {
     "test": "echo test",
     "lint": "echo lint"
   },
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "marksy": "^8.0.0",
+    "micromark": "^3.0.7",
+    "micromark-extension-gfm": "^2.0.0",
+    "react-syntax-highlighter": "^15.4.4",
+    "remark-gfm": "^3.0.0",
+    "remark-html": "^15.0.0"
+  }
 }

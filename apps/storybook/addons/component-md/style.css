@@ -1,0 +1,656 @@
+.o-colors-page-background {
+	background: #fff;
+}
+.o-colors-box-background {
+	background: #f4f4f5;
+}
+.o-colors-body-text {
+	color: #262a33;
+}
+.o-colors-muted-text {
+	color: #ccc;
+}
+:root {
+	--o-colors-page-background: #fff;
+	--o-colors-box-background: #f4f4f5;
+	--o-colors-body-text: #262a33;
+	--o-colors-muted-text: #ccc;
+	--o-colors-link-text: #0d7680;
+	--o-colors-link-hover-text: #08474d;
+	--o-colors-black: #000;
+	--o-colors-white: #fff;
+	--o-colors-oxford: #0f5499;
+	--o-colors-teal: #0d7680;
+	--o-colors-lemon: #ffec1a;
+	--o-colors-slate: #262a33;
+	--o-colors-slate-white-15: #dedfe0;
+	--o-colors-slate-white-5: #f4f4f5;
+	--o-colors-jade: #00994d;
+	--o-colors-crimson: #c00;
+	--o-colors-mandarin: #f83;
+	--o-colors-transparent: transparent;
+	--o-colors-black-5: #f2f2f2;
+	--o-colors-black-10: #e6e6e6;
+	--o-colors-black-20: #ccc;
+	--o-colors-black-30: #b3b3b3;
+	--o-colors-black-40: #999;
+	--o-colors-black-50: gray;
+	--o-colors-black-60: #666;
+	--o-colors-black-70: #4d4d4d;
+	--o-colors-black-80: #333;
+	--o-colors-black-90: #1a1a1a;
+	--o-colors-oxford-30: #082a4d;
+	--o-colors-oxford-40: #0a3866;
+	--o-colors-oxford-50: #0d4680;
+	--o-colors-oxford-60: #0f5499;
+	--o-colors-oxford-70: #1262b3;
+	--o-colors-oxford-80: #1470cc;
+	--o-colors-oxford-90: #177ee6;
+	--o-colors-oxford-100: #198cff;
+	--o-colors-teal-20: #052f33;
+	--o-colors-teal-30: #08474d;
+	--o-colors-teal-40: #0a5e66;
+	--o-colors-teal-50: #0d7680;
+	--o-colors-teal-60: #108d99;
+	--o-colors-teal-70: #12a5b3;
+	--o-colors-teal-80: #15bccc;
+	--o-colors-teal-90: #17d4e6;
+	--o-colors-teal-100: #1aebff;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Thin.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Light.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-LightItalic.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Regular.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-RegularItalic.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Medium.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Semibold.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Bold.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-BoldItalic.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	src: url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff2")
+			format("woff2"),
+		url("https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.7.0/MetricWeb-Black.woff")
+			format("woff");
+	font-family: "MetricWeb";
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+.o-typography-heading-level-1 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-heading-level-1 {
+	font-size: 26.56px;
+	font-family: sans-serif;
+}
+.o-typography-heading-level-2 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 400;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans .o-typography-heading-level-2 {
+	font-size: 27.84px;
+	font-family: sans-serif;
+}
+.o-typography-heading-level-3 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 28px;
+	line-height: 32px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-heading-level-3 {
+	font-size: 23.24px;
+	font-family: sans-serif;
+}
+.o-typography-heading-level-4 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 28px;
+	line-height: 32px;
+	font-weight: 400;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans .o-typography-heading-level-4 {
+	font-size: 24.36px;
+	font-family: sans-serif;
+}
+.o-typography-heading-level-5 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-heading-level-5 {
+	font-size: 19.92px;
+	font-family: sans-serif;
+}
+.o-typography-heading-level-6 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-heading-level-6 {
+	font-size: 16.6px;
+	font-family: sans-serif;
+}
+.o-typography-bold {
+	font-weight: 600;
+}
+.o-typography-italic {
+	font-style: italic;
+}
+.o-typography-sup {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	display: inline-block;
+	margin-top: -1em;
+}
+.o-typography-sub {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	display: inline-block;
+	margin-bottom: -1em;
+}
+.o-typography-body {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px;
+	line-height: 20px;
+	margin: 0 0 24px;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-body {
+	font-size: 15.66px;
+	font-family: sans-serif;
+}
+.o-typography-link {
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 0.25ex solid;
+	color: #0d7680;
+	border-bottom-color: #cfe4e6;
+	-webkit-text-decoration-color: #cfe4e6;
+	text-decoration-color: #cfe4e6;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+	.o-typography-link {
+		border-bottom: 0;
+		text-decoration-thickness: 0.25ex;
+		-webkit-text-decoration-line: underline;
+		text-decoration-line: underline;
+	}
+}
+.o-typography-link:hover {
+	color: #08474d;
+	border-bottom-color: #9ec8cc;
+	-webkit-text-decoration-color: #9ec8cc;
+	text-decoration-color: #9ec8cc;
+}
+.o-typography-link:focus {
+	border-bottom-color: transparent;
+	-webkit-text-decoration-color: transparent;
+	text-decoration-color: transparent;
+	color: #08474d;
+}
+.o-typography-link--external {
+	background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami&tint=%230D7680,%230D7680&format=svg");
+	background-repeat: no-repeat;
+	padding-right: calc(1em + 0.5ch - 0.25em - 0.25em);
+	background-position-x: calc(100% + 0.5ch);
+	background-origin: border-box;
+	background-size: calc(1em + 0.5ch) calc(1em + 0.5ch);
+}
+@media screen and (-ms-high-contrast: active) {
+	.o-typography-link--external {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami&tint=%23ffffff,%23ffffff&format=svg");
+	}
+}
+@media screen and (-ms-high-contrast: black-on-white) {
+	.o-typography-link--external {
+		background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami&tint=%23000000,%23000000&format=svg");
+	}
+}
+@supports (background-size: contain) {
+	.o-typography-link--external {
+		background-position-y: calc(100% + 0.25ex - 1px);
+	}
+}
+@supports (text-decoration-thickness: 0.25ex) {
+	.o-typography-link--external {
+		background-position-y: calc(100% + 0.25em - 0.25ex - 1px);
+	}
+}
+@supports (background-size: contain) {
+	.o-typography-link--external {
+		background-size: contain;
+	}
+}
+.o-typography-link--external[target="_blank"]:after {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	-webkit-clip-path: polygon(0 0, 0 0);
+	clip-path: polygon(0 0, 0 0);
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 2px;
+	height: 2px;
+	white-space: nowrap;
+	content: "(opens a new window)";
+}
+.o-typography-list {
+	margin: 0 0 24px;
+	padding: 0;
+	list-style: none;
+}
+.o-typography-list > li {
+	position: relative;
+	margin: 0;
+	padding-left: calc(2ch + 4px);
+}
+.o-typography-list > li:before {
+	font-family: MetricWeb, sans-serif;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	transform-origin: center left;
+}
+.o-typography-list--ordered {
+	counter-reset: item;
+}
+.o-typography-list--ordered > li:before {
+	font-weight: 600;
+	content: counter(item);
+	counter-increment: item;
+	font-feature-settings: "tnum";
+	transform: scale(0.8888888889);
+	margin-left: -0.1422222222ch;
+}
+.o-typography-list--unordered > li:before {
+	content: "•";
+	color: inherit;
+	transform: scale(1.5555555556);
+	margin-top: -0.2488888889ch;
+}
+.o-typography-caption {
+	font-family: MetricWeb, sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-caption {
+	font-size: 12.18px;
+	font-family: sans-serif;
+}
+.o-typography-footer {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-footer {
+	font-size: 15.66px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p,
+.o-typography-wrapper {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px;
+	line-height: 20px;
+	margin: 0 0 24px;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-wrapper > p,
+.o-typography--loading-sans .o-typography-wrapper {
+	font-size: 15.66px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h1,
+.o-typography-wrapper > h1 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-wrapper > p > h1,
+.o-typography--loading-sans-bold .o-typography-wrapper > h1 {
+	font-size: 26.56px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h2,
+.o-typography-wrapper > h2 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 400;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans .o-typography-wrapper > p > h2,
+.o-typography--loading-sans .o-typography-wrapper > h2 {
+	font-size: 27.84px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h3,
+.o-typography-wrapper > h3 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 28px;
+	line-height: 32px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-wrapper > p > h3,
+.o-typography--loading-sans-bold .o-typography-wrapper > h3 {
+	font-size: 23.24px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h4,
+.o-typography-wrapper > h4 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 28px;
+	line-height: 32px;
+	font-weight: 400;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans .o-typography-wrapper > p > h4,
+.o-typography--loading-sans .o-typography-wrapper > h4 {
+	font-size: 24.36px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h5,
+.o-typography-wrapper > h5 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 24px;
+	line-height: 28px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-wrapper > p > h5,
+.o-typography--loading-sans-bold .o-typography-wrapper > h5 {
+	font-size: 19.92px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > h6,
+.o-typography-wrapper > h6 {
+	font-family: MetricWeb, sans-serif;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 600;
+	color: #262a33;
+	margin: 0 0 16px;
+}
+.o-typography--loading-sans-bold .o-typography-wrapper > p > h6,
+.o-typography--loading-sans-bold .o-typography-wrapper > h6 {
+	font-size: 16.6px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > a,
+.o-typography-wrapper > a {
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 0.25ex solid;
+	color: #0d7680;
+	border-bottom-color: #cfe4e6;
+	-webkit-text-decoration-color: #cfe4e6;
+	text-decoration-color: #cfe4e6;
+}
+@supports (text-decoration-thickness: 0.25ex) {
+	.o-typography-wrapper > p > a,
+	.o-typography-wrapper > a {
+		border-bottom: 0;
+		text-decoration-thickness: 0.25ex;
+		-webkit-text-decoration-line: underline;
+		text-decoration-line: underline;
+	}
+}
+.o-typography-wrapper > p > a:hover,
+.o-typography-wrapper > a:hover {
+	color: #08474d;
+	border-bottom-color: #9ec8cc;
+	-webkit-text-decoration-color: #9ec8cc;
+	text-decoration-color: #9ec8cc;
+}
+.o-typography-wrapper > p > a:focus,
+.o-typography-wrapper > a:focus {
+	border-bottom-color: transparent;
+	-webkit-text-decoration-color: transparent;
+	text-decoration-color: transparent;
+	color: #08474d;
+}
+.o-typography-wrapper > p > p,
+.o-typography-wrapper > p {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px;
+	line-height: 20px;
+	margin: 0 0 24px;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-wrapper > p > p,
+.o-typography--loading-sans .o-typography-wrapper > p {
+	font-size: 15.66px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > ol,
+.o-typography-wrapper > p > ul,
+.o-typography-wrapper > ol,
+.o-typography-wrapper > ul {
+	margin: 0 0 24px;
+	padding: 0;
+	list-style: none;
+}
+.o-typography-wrapper > p > ol > li,
+.o-typography-wrapper > p > ul > li,
+.o-typography-wrapper > ol > li,
+.o-typography-wrapper > ul > li {
+	position: relative;
+	margin: 0;
+	padding-left: calc(2ch + 4px);
+}
+.o-typography-wrapper > p > ol > li:before,
+.o-typography-wrapper > p > ul > li:before,
+.o-typography-wrapper > ol > li:before,
+.o-typography-wrapper > ul > li:before {
+	font-family: MetricWeb, sans-serif;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	transform-origin: center left;
+}
+.o-typography-wrapper > p > ol,
+.o-typography-wrapper > ol {
+	counter-reset: item;
+}
+.o-typography-wrapper > p > ol > li:before,
+.o-typography-wrapper > ol > li:before {
+	font-weight: 600;
+	content: counter(item);
+	counter-increment: item;
+	font-feature-settings: "tnum";
+	transform: scale(0.8888888889);
+	margin-left: -0.1422222222ch;
+}
+.o-typography-wrapper > p > ul > li:before,
+.o-typography-wrapper > ul > li:before {
+	content: "•";
+	color: inherit;
+	transform: scale(1.5555555556);
+	margin-top: -0.2488888889ch;
+}
+.o-typography-wrapper > p > footer,
+.o-typography-wrapper > footer {
+	font-family: MetricWeb, sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-wrapper > p > footer,
+.o-typography--loading-sans .o-typography-wrapper > footer {
+	font-size: 15.66px;
+	font-family: sans-serif;
+}
+.o-typography-wrapper > p > strong,
+.o-typography-wrapper > strong {
+	font-weight: 600;
+}
+.o-typography-wrapper > p > em,
+.o-typography-wrapper > em {
+	font-style: italic;
+}
+.o-typography-wrapper > p > sup,
+.o-typography-wrapper > sup {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: super;
+	line-height: 0;
+	display: inline-block;
+	margin-top: -1em;
+}
+.o-typography-wrapper > p > sub,
+.o-typography-wrapper > sub {
+	font-family: MetricWeb, sans-serif;
+	font-size: 0.666em;
+	position: static;
+	vertical-align: sub;
+	line-height: 0;
+	display: inline-block;
+	margin-bottom: -1em;
+}
+.o-typography-wrapper > p > figcaption,
+.o-typography-wrapper > figcaption {
+	font-family: MetricWeb, sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	color: #262a33;
+}
+.o-typography--loading-sans .o-typography-wrapper > p > figcaption,
+.o-typography--loading-sans .o-typography-wrapper > figcaption {
+	font-size: 12.18px;
+	font-family: sans-serif;
+}
+
+.readme code,
+.readme var {
+	background: var(--o-colors-slate-white-5);
+}
+
+.readme pre code {
+	white-space: pre-wrap;
+}
+
+.readme :not(pre) > code,
+:not(pre) > var {
+	padding: 0.2em 0.3em;
+	font-size: 1rem;
+}
