@@ -120,6 +120,8 @@ o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+sass-mq:
+  - libraries/sass-mq/**/*
 eslint-config-origami-component:
   - presets/eslint-config-origami-component/**/*
 remark-preset-lint-origami-component:
