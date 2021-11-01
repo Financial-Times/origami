@@ -4,15 +4,6 @@
             <h2 class="o-typography-heading-level-2">Table Caption</h2>
         </caption>
     {{/showCaption}}
-    {{#showFooter}}
-        <tfoot>
-            <tr>
-                <td colspan=5 class="o-table-footnote">
-                    Source: The Origami team's love of fruit.
-                </td>
-            </tr>
-        </tfoot>
-    {{/showFooter}}
     <thead>
         <tr>
             <th scope="col" role="columnheader">Fruit</th>
@@ -59,4 +50,13 @@
             <td class="o-table__cell--numeric">0.56</td>
         </tr>
     </tbody>
+    {{#showFooter}}
+        <tfoot>
+            <tr>
+                <td colspan=5 class="o-table-footnote">
+                    Source: The Origami team's love of fruit.
+                </td>
+            </tr>
+        </tfoot>
+    {{/showFooter}}
 </table>
