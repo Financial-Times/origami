@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	mixColors(mixer.value, base.value);
 
 	//set visible hex value and sass function to default values of mixColors
-	console.log(form['range']);
 	form['range'][5].checked = true;
 	const defaultHex = getComputedStyle(document.documentElement).getPropertyValue(`--o-colors-${mixer.value}-50`);
 	fillCodeSnippets(defaultHex, mixer.value, base.value, 50);
