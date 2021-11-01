@@ -1,0 +1,18 @@
+{
+  "name": "validate-component-demo-html",
+  "version": "1.0.0",
+  "description": "Verify component demo html.",
+  "type": "module",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+		"lint": "echo skipping lint",
+		"test": "echo skipping tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "html-validate": "^6.1.0"
+  }
+}
