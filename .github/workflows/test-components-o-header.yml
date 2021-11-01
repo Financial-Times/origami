@@ -17,6 +17,7 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
+    - run: npm i -g npm@7
     - run: npm ci
     - run: npx npm exec -w components/o-header -- origami-build-tools verify
     - run: npx npm x -w components/o-header -- origami-build-tools test || npx npm x -w components/o-header -- origami-build-tools test
