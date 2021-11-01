@@ -79,6 +79,12 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 
 ```html
 <table class="o-table" data-o-component="o-table">
+	<thead>
+		...
+	</thead>
+	<tbody>
+		...
+	</tbody>
 	<tfoot>
 		<tr>
 			<td colspan="2" class="o-table-footnote">
@@ -86,13 +92,6 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 			</td>
 		</tr>
 	</tfoot>
-	<thead>
-		...
-	</thead>
-	<tbody>
-		...
-	</tbody>
-	...
 </table>
 ```
 
