@@ -121,10 +121,16 @@
 ///     oBrandIs($brand: 'internal'); // false
 ///
 /// @access public
+/// @throw Errors if an invalid brand has been set by the user.
 /// @param {string} $brand
 /// @return {boolean}
 ///
 @function oBrandIs($brand) {
 	$current-brand: if($o-brand, $o-brand, $_o-brand-default);
+
+	@if not index($_o-brand-available-brands, $current-brand) {
+		@return _oBrandError('The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+	}
+
 	@return $brand == $current-brand;
 }
