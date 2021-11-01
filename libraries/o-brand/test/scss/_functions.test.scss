@@ -23,6 +23,16 @@
 		// Restore brand after test.
 		$o-brand: $original-brand !global;
 	}
+	@include test('Throws error if a brand that is not master, core, internal, or whitelabel is set') {
+		// Set fake brand.
+		$original-brand: $o-brand;
+		$o-brand: 'non-existent-brand' !global;
+		$expected-error: 'o-brand error: The brand "non-existent-brand" is not supported by o-brand. Please use one of core, internal, whitelabel.';
+		$result: oBrandIs('core');
+		@include assert-equal($result, $expected-error);
+		// Restore brand after test.
+		$o-brand: $original-brand !global;
+	}
 }
 
 @include test-module('oBrandGetCurrentBrand') {
