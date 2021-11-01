@@ -11,7 +11,7 @@ An Origami component for autocomplete inputs. This is built on top of the excell
 - [JavaScript](#javascript)
     - [dynamic suggestions function](#dynamic-suggestions-function)
     - [mapOptionToSuggestedValue](#mapoptiontosuggestedvalue)
-    - [onConfirm](#onconfirm)    
+    - [onConfirm](#onconfirm)
 - [Keyboard Support](#keyboard-support)
     - [When focus is within the text input](#when-focus-is-within-the-text-input)
     - [When focus is within the suggestions menu](#when-focus-is-within-the-suggestions-menu)
@@ -32,13 +32,13 @@ To provide a static set of suggestions, we recommend using a `select` element. o
 
 ```html
 <label for="my-autocomplete">Select your country</label>
-<div data-o-component="o-autocomplete" class="o-autocomplete">
+<span data-o-component="o-autocomplete" class="o-autocomplete">
     <select id="my-autocomplete">
         <option value="fr">France</option>
         <option value="de">Germany</option>
         <option value="gb">United Kingdom</option>
     </select>
-</div>
+</span>
 ```
 
 ### For a dynamic set of suggestions
@@ -47,9 +47,9 @@ To provide a dynamic set of suggestions, you will need to provide a javascript f
 
 The input element requires an `id` attribute, this is used within the component to implement the accessibility features.
 ```html
-<div data-o-component="o-autocomplete" class="o-autocomplete">
+<span data-o-component="o-autocomplete" class="o-autocomplete">
     <input id="my-autocomplete" type="text" >
-</div>
+</span>
 ```
 
 ### Use with o-forms
@@ -63,12 +63,12 @@ Below is an example of how to combine o-forms and o-autocomplete components toge
         <span class="o-forms-title__main">Select your country</span>
     </span>
     <span class="o-forms-input o-forms-input--select">
-        <div data-o-component="o-autocomplete" class="o-autocomplete">
+        <span data-o-component="o-autocomplete" class="o-autocomplete">
             <select id="my-autocomplete">
                 <option value=""></option>
                 <option>Afghanistan</option>
             </select>
-        </div>
+        </span>
     </span>
 </label>
 ```
