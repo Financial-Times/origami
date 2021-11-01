@@ -11,8 +11,6 @@ body {
 	color: var(--color);
 	background-color: var(--background);
 
-	display: grid;
-	grid-template-columns: repeat(2, 0.75fr) 1fr;
 	font-family: MetricWeb, sans-serif;
 	max-width: 800px;
 	margin: 0 auto;
@@ -26,6 +24,11 @@ body {
 			padding-bottom: 20px;
 		}
 	}
+}
+
+.color-mix-form {
+	display: grid;
+	grid-template-columns: repeat(2, 0.75fr) 1fr;
 }
 
 .details {
@@ -65,8 +68,14 @@ input[type=radio] { // stylelint-disable-line selector-no-qualifying-type
 	margin-left: 8px;
 }
 
+.mix-range-container {
+	appearance: none;
+	border: 0;
+	padding: 0;
+	justify-self: center;
+}
+
 .mix-range {
 	display: flex;
 	flex-direction: column-reverse;
-	justify-self: center;
 }
