@@ -52,6 +52,7 @@
 		"libraries/o-brand": {},
 		"libraries/o-errors": {},
 		"libraries/o-tracking": {},
-		"libraries/o-utils": {}
+		"libraries/o-utils": {},
+		"libraries/sass-mq": {}
 	}
 }
