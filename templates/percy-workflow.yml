@@ -32,6 +32,7 @@ jobs:
       with:
         cache: 'npm'
         node-version: 16
+    - run: npm i -g npm@7
     - run: npm ci
     - run: node ./scripts/percy.js
       env:
