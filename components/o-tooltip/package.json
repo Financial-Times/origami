@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tooltip",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
   "keywords": [
     "tooltip",

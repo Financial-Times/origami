@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.1.0](https://www.github.com/Financial-Times/origami/compare/o-brand-v4.0.3...o-brand-v4.1.0) (2021-11-02)
+
+
+### Features
+
+* Deprecate "master" brand in the "o-brand" component. ([305e184](https://www.github.com/Financial-Times/origami/commit/305e184669df4e0c33f2cae546ec1599abcfbd49))
+
+
+### Bug Fixes
+
+* make `oBrandIs` error as `oBrandGetCurrentBrand` ([dece7a9](https://www.github.com/Financial-Times/origami/commit/dece7a9391c12478fb9e114821812f8d950ddaba))
+* o-brand linting ([61d88e2](https://www.github.com/Financial-Times/origami/commit/61d88e2f577f91b2e34e0cf107d58a4d4bca5524))
+
 ### [4.0.3](https://www.github.com/Financial-Times/origami/compare/o-brand-v4.0.2...o-brand-v4.0.3) (2021-09-21)
 
 

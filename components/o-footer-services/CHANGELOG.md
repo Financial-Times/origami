@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.0.4](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.0.3...o-footer-services-v4.0.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
+
 ### [4.0.3](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.0.2...o-footer-services-v4.0.3) (2021-09-21)
 
 

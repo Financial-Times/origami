@@ -1,5 +1,13 @@
 # Changelog
 
+### [9.0.4](https://www.github.com/Financial-Times/origami/compare/o-table-v9.0.3...o-table-v9.0.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* correct o-table markup examples ([1c2b643](https://www.github.com/Financial-Times/origami/commit/1c2b6434288ddf6b70c5833277b28811597f060a))
+* Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
+
 ### [9.0.3](https://www.github.com/Financial-Times/origami/compare/o-table-v9.0.2...o-table-v9.0.3) (2021-09-21)
 
 
