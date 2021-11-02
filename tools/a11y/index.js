@@ -70,6 +70,4 @@ async function runPa11y (page) {
 				${errors.join('\n')}
 				Failed Pa11y tests`
 	}
-
-	return results
 }
