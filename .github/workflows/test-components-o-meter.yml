@@ -19,6 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w components&#x2F;o-meter lint --if-present
-    - run: npm run -w components&#x2F;o-meter build --if-present
-    - run: npm run -w components&#x2F;o-meter test --if-present
+    - run: npm run -w components/o-meter lint --if-present
+    - run: npm run -w components/o-meter build --if-present
+    - run: npm run -w components/o-meter test --if-present

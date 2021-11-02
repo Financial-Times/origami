@@ -19,6 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w components&#x2F;o-expander lint --if-present
-    - run: npm run -w components&#x2F;o-expander build --if-present
-    - run: npm run -w components&#x2F;o-expander test --if-present
+    - run: npm run -w components/o-expander lint --if-present
+    - run: npm run -w components/o-expander build --if-present
+    - run: npm run -w components/o-expander test --if-present

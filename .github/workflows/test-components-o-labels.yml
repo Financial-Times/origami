@@ -19,6 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w components&#x2F;o-labels lint --if-present
-    - run: npm run -w components&#x2F;o-labels build --if-present
-    - run: npm run -w components&#x2F;o-labels test --if-present
+    - run: npm run -w components/o-labels lint --if-present
+    - run: npm run -w components/o-labels build --if-present
+    - run: npm run -w components/o-labels test --if-present

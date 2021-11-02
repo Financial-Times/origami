@@ -19,6 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w tools&#x2F;a11y lint --if-present
-    - run: npm run -w tools&#x2F;a11y build --if-present
-    - run: npm run -w tools&#x2F;a11y test --if-present
+    - run: npm run -w tools/a11y lint --if-present
+    - run: npm run -w tools/a11y build --if-present
+    - run: npm run -w tools/a11y test --if-present

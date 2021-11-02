@@ -20,6 +20,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w <% workspace %> lint --if-present
-    - run: npm run -w <% workspace %> build --if-present
-    - run: npm run -w <% workspace %> test --if-present
+    - run: npm run -w <%& workspace %> lint --if-present
+    - run: npm run -w <%& workspace %> build --if-present
+    - run: npm run -w <%& workspace %> test --if-present
