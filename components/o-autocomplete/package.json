@@ -20,9 +20,10 @@
   "type": "module",
   "browser": "main.js",
   "scripts": {
-    "build": "obt demo",
-    "test": "obt t && npm run build && npm run a11y",
-    "a11y": "a11y"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "a11y": "a11y",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "engines": {
     "npm": ">=7"
