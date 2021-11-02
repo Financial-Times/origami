@@ -21,5 +21,10 @@
   "peerDependencies": {
     "@financial-times/o-colors": "^6.1.1",
     "@financial-times/o-typography": "^7.0.3"
+  },
+  "scripts": {
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   }
 }
