@@ -18,12 +18,14 @@ Our commit messages use a simplified form of [conventional commits](https://www.
 
 ### Commit type prefixes
 
-| **type**  | meaning                                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| feat      | a feature has been added. this translates to a minor release.                                                                                        |
-| fix       | a bug has been patched. this translates to a patch release.                                                                                          |
-| docs      | a change to documentation. these commits do not cause a release, but the messages appear in the "Documentation" section of the next release's notes. |
-| backstage | any changes that aren't user-facing. no release is caused, and these messages will not appear in release notes.                                      |
+The `type` can be any of `feat`, `fix`, `docs` or `backstage`. The prefix is used to calculate the semver release type for the PR that contains the commit, and what section of the release notes to place the commit message in.
+
+| **type**  | when to use                         | release level | release note section |
+| --------- | ----------------------------------- | ------------- | -------------------- |
+| feat      | a feature has been added            | `minor`       | **Features**         |
+| fix       | a bug has been patched              | `patch`       | **Bug fixes**        |
+| docs      | a change to documentation           | none          | **Documentation**    |
+| backstage | any changes that aren't user-facing | none          | none                 |
 
 Indicate a breaking change by placing an `!` between the type name and the colon, e.g.:
 
