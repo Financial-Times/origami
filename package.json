@@ -6,7 +6,6 @@
   "description": "the reference implementation of the FT's design system",
   "scripts": {
     "regenerate": "node ./scripts/regenerate-ci-config-files.js",
-    "test": "node ./scripts/test.js",
     "install": "./scripts/install.bash",
     "storybook": "cd apps/storybook && npm run storybook",
     "build-storybook": "cd apps/storybook && npm run build-storybook",
