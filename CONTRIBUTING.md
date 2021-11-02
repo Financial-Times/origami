@@ -18,7 +18,9 @@ Our commit messages use a simplified form of [conventional commits](https://www.
 
 ### Commit type prefixes
 
-The `type` can be any of `feat`, `fix`, `docs` or `backstage`. The prefix is used to calculate the semver release type for the PR that contains the commit, and what section of the release notes to place the commit message in.
+The `type` can be any of `feat`, `fix`, `docs` or `backstage`.
+
+The prefix is used to calculate the semver release level, and the section of the release notes to place the commit message in.
 
 | **type**  | when to use                         | release level | release note section |
 | --------- | ----------------------------------- | ------------- | -------------------- |
