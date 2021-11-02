@@ -14,10 +14,6 @@
   "license": "MIT",
   "type": "module",
   "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
-  },
   "peerDependencies": {
     "@financial-times/n-map-content-to-topper": "^1.4.0",
     "@financial-times/o-colors": "^6.0.1",

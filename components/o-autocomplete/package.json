@@ -19,11 +19,6 @@
   "license": "MIT",
   "type": "module",
   "browser": "main.js",
-  "scripts": {
-    "build": "obt demo",
-    "test": "obt t && npm run build && npm run a11y",
-    "a11y": "a11y"
-  },
   "engines": {
     "npm": ">=7"
   },

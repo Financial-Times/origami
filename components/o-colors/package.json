@@ -29,10 +29,6 @@
     "@financial-times/o-brand": "^4.0.1",
     "mathsass": "^0.10.1"
   },
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@11\" demo"
-  },
   "volta": {
     "node": "14.16.1",
     "npm": "7.11.1"
