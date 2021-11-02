@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Origami storybook addon for showing tabs for Origami component markdown files",
   "main": "preset.js",
-  "scripts": {
-    "test": "echo test",
-    "lint": "echo lint"
-  },
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
   "dependencies": {
