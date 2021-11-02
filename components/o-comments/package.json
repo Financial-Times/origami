@@ -18,7 +18,7 @@
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
+    "test": "bash ../../scripts/component/test.bash || bash ../../scripts/component/test.bash",
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
