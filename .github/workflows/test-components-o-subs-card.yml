@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm exec -w components/o-subs-card -- origami-build-tools verify
-    - run: (npx npm x -w components/o-subs-card -- origami-build-tools test || npx npm x -w components/o-subs-card -- origami-build-tools test) && npx npm x -w components/o-subs-card -- a11y
+    - run: npm run -w components&#x2F;o-subs-card lint --if-present
+    - run: npm run -w components&#x2F;o-subs-card build --if-present
+    - run: npm run -w components&#x2F;o-subs-card test --if-present

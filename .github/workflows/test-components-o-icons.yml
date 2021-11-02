@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm exec -w components/o-icons -- origami-build-tools verify
-    - run: (npx npm x -w components/o-icons -- origami-build-tools test || npx npm x -w components/o-icons -- origami-build-tools test) && npx npm x -w components/o-icons -- a11y
+    - run: npm run -w components&#x2F;o-icons lint --if-present
+    - run: npm run -w components&#x2F;o-icons build --if-present
+    - run: npm run -w components&#x2F;o-icons test --if-present

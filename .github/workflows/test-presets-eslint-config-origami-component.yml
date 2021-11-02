@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm run -w presets/eslint-config-origami-component lint
-    - run: npx npm run -w presets/eslint-config-origami-component test
+    - run: npm run -w presets&#x2F;eslint-config-origami-component lint --if-present
+    - run: npm run -w presets&#x2F;eslint-config-origami-component build --if-present
+    - run: npm run -w presets&#x2F;eslint-config-origami-component test --if-present

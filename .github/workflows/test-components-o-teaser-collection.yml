@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm exec -w components/o-teaser-collection -- origami-build-tools verify
-    - run: (npx npm x -w components/o-teaser-collection -- origami-build-tools test || npx npm x -w components/o-teaser-collection -- origami-build-tools test) && npx npm x -w components/o-teaser-collection -- a11y
+    - run: npm run -w components&#x2F;o-teaser-collection lint --if-present
+    - run: npm run -w components&#x2F;o-teaser-collection build --if-present
+    - run: npm run -w components&#x2F;o-teaser-collection test --if-present

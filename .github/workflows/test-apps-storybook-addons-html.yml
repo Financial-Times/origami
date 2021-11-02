@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm run -w apps/storybook/addons/html lint
-    - run: npx npm run -w apps/storybook/addons/html test
+    - run: npm run -w apps&#x2F;storybook&#x2F;addons&#x2F;html lint --if-present
+    - run: npm run -w apps&#x2F;storybook&#x2F;addons&#x2F;html build --if-present
+    - run: npm run -w apps&#x2F;storybook&#x2F;addons&#x2F;html test --if-present

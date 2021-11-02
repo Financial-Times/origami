@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm exec -w components/o-cookie-message -- origami-build-tools verify
-    - run: (npx npm x -w components/o-cookie-message -- origami-build-tools test || npx npm x -w components/o-cookie-message -- origami-build-tools test) && npx npm x -w components/o-cookie-message -- a11y
+    - run: npm run -w components&#x2F;o-cookie-message lint --if-present
+    - run: npm run -w components&#x2F;o-cookie-message build --if-present
+    - run: npm run -w components&#x2F;o-cookie-message test --if-present
