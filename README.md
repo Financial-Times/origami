@@ -39,7 +39,7 @@ Scripts for maintenance of the repository itself
 
 Tools used to build and test Origami components
 
-## How to work on Origami
+## Running Origami locally
 
 ### Requirements
 
@@ -80,7 +80,7 @@ git lfs install
    npm install
    ```
 
-3. Run the storybook. This will server storybook on localhost:6969, and open your web browser :)
+3. Run the storybook. This will server storybook on <http://localhost:6969>, and open your web browser :)
 
    ```shell
    npm run storybook
@@ -89,4 +89,8 @@ git lfs install
 ### Tips
 
 - If you need to install a dependency for a component you can run `npm install -w components/o-name dep@2`
-- To run obt for a specific component try `npm exec -w components/o-name obt dev` 
+- To run `obt` for a specific component try `npm exec -w components/o-name obt dev`
+
+## Contributing
+
+If you want to contribute, check out [CONTRIBUTING.md](./CONTRIBUTING.md).
