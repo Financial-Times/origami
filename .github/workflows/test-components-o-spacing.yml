@@ -19,6 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npm run -w components&#x2F;o-spacing lint --if-present
-    - run: npm run -w components&#x2F;o-spacing build --if-present
-    - run: npm run -w components&#x2F;o-spacing test --if-present
+    - run: npm run -w components/o-spacing lint --if-present
+    - run: npm run -w components/o-spacing build --if-present
+    - run: npm run -w components/o-spacing test --if-present
