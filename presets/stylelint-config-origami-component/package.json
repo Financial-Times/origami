@@ -4,7 +4,6 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "lint": "echo skipping lint",
     "test": "mocha ./test/**/*.test.js"
   },
   "repository": {

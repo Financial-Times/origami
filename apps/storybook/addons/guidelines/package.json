@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Origami storybook addon for showing a tab with design guidelines in it",
   "main": "index.js",
-  "scripts": {
-    "test": "echo test",
-    "lint": "echo lint"
-  },
   "author": "chee <chee@snoot.club>",
   "license": "MIT",
   "dependencies": {

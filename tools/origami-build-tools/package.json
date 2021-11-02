@@ -88,8 +88,6 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"lint": "echo skipping lint",
-		"test": "echo skipping tests",
 		"test:unit": "make test-unit",
 		"test:integration": "make test-integration"
 	},
