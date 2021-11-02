@@ -19,5 +19,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g npm@7
     - run: npm ci
-    - run: npx npm run -w libraries/o-utils lint
-    - run: npx npm run -w libraries/o-utils test
+    - run: npm run -w libraries&#x2F;o-utils lint --if-present
+    - run: npm run -w libraries&#x2F;o-utils build --if-present
+    - run: npm run -w libraries&#x2F;o-utils test --if-present
