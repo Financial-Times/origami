@@ -75,7 +75,7 @@
 	// fticons SVG icons align to a 40x40 pixel grid, with 10px padding
 	// built in on each side. Used to match the icon's inherent margin on the text.
 	// https://github.com/Financial-Times/fticons/blob/master/contributing.md#design
-	$default-icon-whitespace: 10/40;
+	$default-icon-whitespace: div(10, 40);
 	$icon-whitespace: $default-icon-whitespace * $size;
 
 	.o-share__text {
@@ -117,8 +117,8 @@
 		.o-share__icon:after {
 			width: calc(100% + #{$margin});
 			height: calc(100% + #{$margin});
-			top: -#{$margin / 2};
-			left: -#{$margin / 2};
+			top: -#{div($margin, 2)};
+			left: -#{div($margin, 2)};
 		}
 	}
 

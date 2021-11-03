@@ -283,10 +283,10 @@
 	$blue-component: blue($color);
 
 	// Calculate a brightness value in 3d color space between 0 and 255
-	$number: sqrt((($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number)) / $brightness-divisor);
+	$number: sqrt(div(($red-component * $red-component * $red-magic-number) + ($green-component * $green-component * $green-magic-number) + ($blue-component * $blue-component * $blue-magic-number), $brightness-divisor));
 
 	// Convert to percentage and return
-	@return 100% * ($number / 255);
+	@return 100% * div($number, 255);
 }
 
 /// Returns the luminance of `$color` as a float (between 0 and 1)
@@ -305,12 +305,12 @@
 
 	@each $name, $value in $colors {
 		$adjusted: 0;
-		$value: $value / 255;
+		$value: div($value, 255);
 
 		@if $value < 0.03928 {
-			$value: $value / 12.92;
+			$value: div($value, 12.92);
 		} @else {
-			$value: ($value + 0.055) / 1.055;
+			$value: div($value + 0.055, 1.055);
 			$value: pow($value, 2.4);
 		}
 
@@ -329,10 +329,10 @@
 	$l1: oColorsColorLuminance($color-a) + 0.05;
 	$l2: oColorsColorLuminance($color-b) + 0.05;
 
-	$ratio: $l1 / $l2;
+	$ratio: div($l1, $l2);
 
 	@if $l2 > $l1 {
-		$ratio: 1 / $ratio;
+		$ratio: div(1, $ratio);
 	}
 
 	$ratio: _oColorsPreciseFloor($ratio);
@@ -358,7 +358,7 @@
 /// @access private
 @function _oColorsPreciseFloor($number, $decimals: 2) {
 	$multiplier: pow(10, $decimals);
-	@return floor($number * $multiplier) / $multiplier;
+	@return div(floor($number * $multiplier), $multiplier);
 }
 
 /// Allows for errors to be tested in dev environments
@@ -414,8 +414,8 @@
 		@return hsl(0, 0%, 0%);
 	}
 
-	$hsl-luminance: ($brightness/2) * (2 - ($saturation/100));
-	$hsl-saturation: ($brightness * $saturation) / if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2);
+	$hsl-luminance: (div($brightness, 2)) * (2 - (div($saturation, 100)));
+	$hsl-saturation: div($brightness * $saturation, if($hsl-luminance < 50, $hsl-luminance * 2, 200 - $hsl-luminance * 2));
 	@return hsl($hue, $hsl-saturation * 1%, $hsl-luminance * 1%);
 }
 
@@ -452,8 +452,8 @@
 	$delta: $max - $min;
 
 	$hue: hue($hex);
-	$saturation: if($max == 0, 0, $delta / $max);
-	$brightness: $max / 255;
+	$saturation: if($max == 0, 0, div($delta, $max));
+	$brightness: div($max, 255);
 
 	@return ('h': $hue, 's': $saturation * 100, 'b': $brightness * 100);
 }

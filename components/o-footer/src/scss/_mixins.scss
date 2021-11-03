@@ -115,7 +115,7 @@
 				content: ' ';
 				position: absolute;
 				right: 0;
-				top: ($line-size - $_o-footer-icon-size) / 2;
+				top: div(($line-size - $_o-footer-icon-size), 2);
 
 				@each $theme in $themes {
 					.o-footer--theme-#{$theme} & {

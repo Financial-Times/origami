@@ -110,6 +110,8 @@ o-viewport:
   - components/o-viewport/**/*
 o-visual-effects:
   - components/o-visual-effects/**/*
+math:
+  - libraries/math/**/*
 o-autoinit:
   - libraries/o-autoinit/**/*
 o-brand:

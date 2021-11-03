@@ -11,6 +11,9 @@
     "loading",
     "images"
   ],
+  "peerDependencies": {
+    "@financial-times/math": "^1.0.0"
+  },
   "scripts": {
     "start": "npx serve ./demos/local",
     "build": "bash ../../scripts/component/build.bash",

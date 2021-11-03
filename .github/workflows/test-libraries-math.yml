@@ -1,6 +1,6 @@
-name: test libraries/sass-mq
+name: test libraries/math
 concurrency:
-  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/sass-mq
+  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/math
   cancel-in-progress: true
 
 on:
@@ -20,6 +20,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - run: npm ci
-    - run: npm run -w libraries/sass-mq lint --if-present
-    - run: npm run -w libraries/sass-mq build --if-present
-    - run: npm run -w libraries/sass-mq test --if-present
+    - run: npm run -w libraries/math lint --if-present
+    - run: npm run -w libraries/math build --if-present
+    - run: npm run -w libraries/math test --if-present

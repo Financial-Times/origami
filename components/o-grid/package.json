@@ -24,7 +24,8 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "sass-mq": "^5.0.1"
+    "@financial-times/math": "^1.0.0",
+    "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
     "npm": "^7"

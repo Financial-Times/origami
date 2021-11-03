@@ -1,7 +1,7 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
                   // See https://github.com/sass-mq/sass-mq/pull/10
 
-@import "./div";
+@import "@financial-times/math";
 
 /// Base font size on the `<body>` element
 ///

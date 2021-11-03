@@ -30,7 +30,7 @@
 			@include oIconsContent('arrows-up-down', $size: $_o-table-sort-icon-size);
 			content: '';
 			vertical-align: middle;
-			margin: -($_o-table-sort-icon-size/2) 0;
+			margin: -(div($_o-table-sort-icon-size, 2)) 0;
 			margin-right: -$_o-table-sort-icon-size;
 		}
 	}

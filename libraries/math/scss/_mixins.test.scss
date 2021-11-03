@@ -1,0 +1,149 @@
+@include test-module('oBrandDefine') {
+	@include test('Adds new brand variables to a global map') {
+		// Reset defined brands for test.
+		$original-brands: $_o-brands;
+		$_o-brands: () !global;
+		// Run test.
+		$component1-brandcore: (
+			'variables': (
+				example: blue
+			),
+			'supports-variants': (
+				'test',
+				'example'
+			)
+		);
+		$component1-brandinternal: (
+			'variables': (
+			),
+			'supports-variants': (
+				'example'
+			)
+		);
+		$component2-brandcore: (
+			'variables': (
+				other: red
+			),
+			'supports-variants': (
+				'thing'
+			)
+		);
+		$component2-brandinternal: (
+			'variables': (
+				other: white
+			),
+			'supports-variants': (
+			)
+		);
+		@include oBrandDefine('o-component1', 'core', $component1-brandcore);
+		@include oBrandDefine('o-component1', 'internal', $component1-brandinternal);
+		@include oBrandDefine('o-component2', 'core', $component2-brandcore);
+		@include oBrandDefine('o-component2', 'internal', $component2-brandinternal);
+		@include assert-equal(map-get($_o-brands, "o-component1"), (
+			'core': $component1-brandcore,
+			'internal': $component1-brandinternal
+		));
+		@include assert-equal(map-get($_o-brands, "o-component2"), (
+			'core': $component2-brandcore,
+			'internal': $component2-brandinternal
+		));
+		// Restore brands to pre-test state
+		$_o-brands: $original-brands !global;
+	}
+
+	@include test('Adds the deprecated "master" brand as the "core" brand') {
+		// Reset defined brands for test.
+		$original-brands: $_o-brands;
+		$_o-brands: () !global;
+		// Run test.
+		$component1-brandcore: (
+			'variables': (
+				example: blue
+			),
+			'supports-variants': (
+				'test',
+				'example'
+			)
+		);
+		$component1-brandinternal: (
+			'variables': (
+			),
+			'supports-variants': (
+				'example'
+			)
+		);
+		$component2-brandcore: (
+			'variables': (
+				other: red
+			),
+			'supports-variants': (
+				'thing'
+			)
+		);
+		$component2-brandinternal: (
+			'variables': (
+				other: white
+			),
+			'supports-variants': (
+			)
+		);
+		@include oBrandDefine('o-component1', 'master', $component1-brandcore);
+		@include oBrandDefine('o-component1', 'internal', $component1-brandinternal);
+		@include oBrandDefine('o-component2', 'master', $component2-brandcore);
+		@include oBrandDefine('o-component2', 'internal', $component2-brandinternal);
+		@include assert-equal(map-get($_o-brands, "o-component1"), (
+			'core': $component1-brandcore,
+			'internal': $component1-brandinternal
+		));
+		@include assert-equal(map-get($_o-brands, "o-component2"), (
+			'core': $component2-brandcore,
+			'internal': $component2-brandinternal
+		));
+		// Restore brands to pre-test state
+		$_o-brands: $original-brands !global;
+	}
+}
+
+@include test-module('oBrandCustomize') {
+	@include test('Modifies the whitelabel brand.') {
+		$origami-set-brand: $o-brand;
+		$o-brand: 'whitelabel' !global;
+		@include oBrandCustomize('o-example', (
+			'example-background': hotpink
+		));
+		$brand-config: map-get($_o-brands, "o-example");
+		$whitelabel-brand-config: map-get($brand-config, "whitelabel");
+		@include assert-equal($whitelabel-brand-config, (
+			'variables': (
+				example-background: hotpink, // example-background is now hotpink
+				example-header-background: black,
+			),
+			'supports-variants': (
+				'compact'
+			)
+		));
+		// Restore brand before test.
+		$o-brand: $origami-set-brand !global;
+	}
+
+	@include test('Modifies a non-whitelabel brand.') {
+		$origami-set-brand: $o-brand;
+		$o-brand: 'core' !global;
+		@include oBrandCustomize('o-example', (
+			'example-background': hotpink
+		));
+		$brand-config: map-get($_o-brands, "o-example");
+		$core-brand-config: map-get($brand-config, "core");
+		@include assert-equal($core-brand-config, (
+			'variables': (
+				example-background: hotpink // example-background is now hotpink
+			),
+			'supports-variants': (
+				'stripe',
+				'compact'
+			)
+		));
+		// Restore brand before test.
+		$o-brand: $origami-set-brand !global;
+	}
+}

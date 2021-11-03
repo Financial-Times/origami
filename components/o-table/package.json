@@ -28,6 +28,7 @@
     "ftdomdelegate": "^4.0.6"
   },
   "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
     "@financial-times/o-brand": "^4.0.2",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1",

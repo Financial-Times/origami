@@ -54,6 +54,9 @@
     "sassDir": "./_mq.scss",
     "exports": false
   },
+  "peerDependencies": {
+    "@financial-times/math": "^1.0.0"
+  },
   "devDependencies": {
     "eyeglass": "^3.0.3",
     "node-sass": "^6.0.0",
