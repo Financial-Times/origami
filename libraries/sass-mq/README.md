@@ -2,6 +2,12 @@
 	<img width="500" height="500" src="https://avatars3.githubusercontent.com/u/9341289?v=3&s=500" alt="Awesome">
 </div>
 
+# Hello
+
+This is an internal fork of [sass-mq](https://github.com/sass-mq/sass-mq/) which makes use of `@financial-times/math` to remove some sass warnings which happen due to sass-mw using the `/` operator which is deprecated.
+
+When sass-mq version 6 is out, we can stop using our internal fork and move to that 👍
+
 # Media Queries with superpowers [![Build Status](https://api.travis-ci.org/sass-mq/sass-mq.svg?branch=master)](https://travis-ci.org/sass-mq/sass-mq)
 
 `mq()` is a [Sass](http://sass-lang.com/ "Sass - Syntactically Awesome
