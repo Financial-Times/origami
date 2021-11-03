@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import sassTrue from 'sass-true'
 import sass from 'sass'
 import {globbySync as glob} from "globby"
