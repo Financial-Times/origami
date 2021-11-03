@@ -51,11 +51,11 @@ A concise description of the purpose of the project.
 </table>
 
 Defines the type of Origami project that the manifest belongs to:
+
 - `"component"` (previously `module`): A front-end component
-- `"imageset"`: A set of images that have an alias on the Origami Image Service
 - `"service"`: An HTTP service
-- `"cli"`: 	A command line tool
-- `"library"`: 	A library that is not a front-end component
+- `"cli"`: A command line tool
+- `"library"`: A library that is not a front-end component
 - `"website"`: Origami websites that aren't intended to be services
 - `"config"`: Projects that are configuration for other projects
 - `"example"`: Example and boilerplate projects
