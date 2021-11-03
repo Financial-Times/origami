@@ -42,22 +42,22 @@ Set the `data-o-date-format` attribute to customise how the `time` element is pr
 - `time-ago-no-seconds`: always display a relative time but if the relative time is under a minute display "Less than a minute ago" (e.g. `Less than a minute ago`, `10 minutes ago`, `an hour ago`, `4 hours ago`).
 - `time-ago-limit-4-hours`: always display a relative time but hide the `time` element if the `datetime` is older than 4 hours (e.g. `4 seconds ago`, `10 minutes ago`, `4 hours ago`).
 - `time-ago-limit-24-hours`: always display a relative time but hide the `time` element if the `datetime` is older than 24 hours (e.g. `4 seconds ago`, `10 minutes ago`, `10 hours ago`).
-- `time-ago-abbreviated`: always display a relative time with units abbreviated (e.g. `4s ago`, `10m ago`, `1h ago`).
-- `time-ago-abbreviated-limit-4-hours`: hide the `time` element when the `datetime` is older than 4 hours, otherwise render the same as `time-ago-abbreviated`.
 - `today-or-yesterday-or-nothing`: display `today` if the `datetime` is today, `yesterday` if it was yesterday, or hide the `time` element if the `datetime` is older than yesterday.
 - [custom format](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html): it is recommended to use a standard FT format but a [custom format](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) may be used e.g. `h:mm a`.
+
+Note: There used to be `time-ago-abbreviated` and `time-ago-abbreviated-limit-4-hours` options which are now both deprecated. These options still work but no longer show an abbreviated date. They will be removed in a future major version.
 
 ### Copy Options
 
 By default `o-date` will replace the contents of the `time` element with the formatted date. To include extra content alongside the formatted date add an element with the `data-o-date-printer` attribute. `o-date` will output the formatted date within the `data-o-date-printer` element and will not change other child elements.
 
-For example to include "updated at" copy within the `time` element followed by an abbreviated relative time:
+For example to include "updated at" copy within the `time` element followed by a relative time:
 
 ```html
-<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-abbreviated">
+<time data-o-component="o-date" class="o-date" datetime="2020-07-18T19:01:05.033Z" data-o-date-format="time-ago-limit-4-hours">
 	<!-- some arbitrary content -->
 	<span>updated at</span>
-	<!-- show the abbreviated time ago here in the printed element -->
+	<!-- show the time ago here in the printed element -->
 	<!-- fallback to the date if o-date JavaScript fails  -->
 	<span data-o-date-printer>
 		20 July 2020
@@ -72,8 +72,8 @@ Render a date multiple times within the same `o-date` component by including mul
 	<!-- render the date in the "date-only" format here -->
 	<!-- (as set on the parent "time" element) -->
 	<span data-o-date-printer></span>
-	<!-- render the date in the "time-ago-abbreviated" format here -->
-	<span data-o-date-printer data-o-date-format="time-ago-abbreviated"></span>
+	<!-- render the date in the "time-ago-limit-4-hours" format here -->
+	<span data-o-date-printer data-o-date-format="time-ago-limit-4-hours"></span>
 	<!-- render the date in the custom format "h:mm" here -->
 	<span data-o-date-printer data-o-date-format="h:mm"></span>
 </time>

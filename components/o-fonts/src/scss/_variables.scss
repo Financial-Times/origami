@@ -60,14 +60,14 @@ $_o-fonts-all-financier-text-variants: (
 /// @access private
 $_o-fonts-default: ();
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	$_o-fonts-default: (
 		'metric': $_o-fonts-all-metric-variants,
 		'financier-display': $_o-fonts-all-financier-display-variants
 	) !global;
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	$_o-fonts-default: (
 		'metric': $_o-fonts-all-metric-variants,
 		'financier-display': ()
@@ -83,7 +83,7 @@ $_o-fonts-recommended: (
 	'financier-text': ()
 );
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	$_o-fonts-recommended: (
 		'metric': (
 			(weight: regular, style: normal),
@@ -97,7 +97,7 @@ $_o-fonts-recommended: (
 	);
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	$_o-fonts-recommended: (
 		'metric': (
 			(weight: regular, style: normal),

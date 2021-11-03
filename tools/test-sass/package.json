@@ -1,0 +1,15 @@
+{
+  "name": "test-sass",
+  "version": "1.0.0",
+  "description": "Run sass-true tests for an Origami component",
+  "bin": "index.js",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^12.0.2",
+    "mocha": "^9.1.3",
+    "sass": "^1.43.4",
+    "sass-true": "^6.0.1"
+  },
+  "type": "module"
+}

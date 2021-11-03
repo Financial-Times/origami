@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-buttons",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "FT buttons styles. Provides customisation options with the FT colour palette.",
   "keywords": [
     "pagination"
@@ -14,7 +14,9 @@
   "type": "module",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.0.2",

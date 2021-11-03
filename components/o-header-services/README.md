@@ -78,7 +78,7 @@ For an example and markup, see the [secondary navigation in the Origami Registry
 
 ### Themes
 
-`o-header-services` offers theming for B2B or B2C products for FT.com products who use the master brand. They are designed to affect the title section and the primary navigation.
+`o-header-services` offers theming for B2B or B2C products for FT.com products who use the core brand. They are designed to affect the title section and the primary navigation.
 
 To add a theme to the header, add the appropriate class to the header element. For example, for B2B that would be:
 

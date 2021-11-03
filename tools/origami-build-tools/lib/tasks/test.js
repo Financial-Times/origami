@@ -1,10 +1,8 @@
 'use strict';
 
 module.exports = function (cfg) {
-	const pa11y = require('./pa11y');
 	const karma = require('./karma');
 	const compilationTests = require('./test-sass-compilation');
-	const testSass = require('./test-sass');
 
 
 	cfg = cfg || {};
@@ -17,8 +15,6 @@ module.exports = function (cfg) {
 	return new Listr(
 		[
 			compilationTests(config),
-			testSass(config),
-			pa11y(config),
 			karma(config)
 		], {
 			renderer: ListrRenderer,

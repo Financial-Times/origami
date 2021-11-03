@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.2](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v3.0.1...o-stepped-progress-v3.0.2) (2021-11-02)
+
+
+### Bug Fixes
+
+* Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
+
 ### [3.0.1](https://www.github.com/Financial-Times/origami/compare/o-stepped-progress-v3.0.0...o-stepped-progress-v3.0.1) (2021-09-21)
 
 

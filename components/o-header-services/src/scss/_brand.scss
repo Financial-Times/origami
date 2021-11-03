@@ -23,8 +23,8 @@
 	@include oBrandCustomize('o-header-services', $variables);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-header-services', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-header-services', 'core', (
 		'variables': (
 			logo: 'ftlogo-v1:brand-ft-logo-square-coloured',
 			top-text: oColorsByName('white'),
@@ -58,7 +58,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-header-services', 'internal', (
 		'variables': (
 			logo: 'ftlogo-v1:brand-ft-logo-squared-bw',
@@ -76,7 +76,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-header-services', 'whitelabel', (
 		'variables': (
 			logo: null,

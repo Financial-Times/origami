@@ -90,9 +90,9 @@ This table outlines all of the possible variants you can request in the [`oOverl
 
 | Size          | Notes               | Brand support                |
 |---------------|---------------------|------------------------------|
-| compact       | Included by default | master, internal, whitelabel |
-| full-screen   | Included by default | master, internal, whitelabel |
-| header-shaded | Included by default | master, internal, whitelabel |
+| compact       | Included by default | core, internal, whitelabel |
+| full-screen   | Included by default | core, internal, whitelabel |
+| header-shaded | Included by default | core, internal, whitelabel |
 
 ## JavaScript
 

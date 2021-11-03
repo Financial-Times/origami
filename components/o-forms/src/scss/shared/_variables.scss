@@ -2,7 +2,7 @@ $o-forms-is-silent: true !default;
 
 $_o-forms-border: 1px solid _oFormsGet('default-border');
 
-$_o-forms-spacing-half: oSpacingByIncrement(1) / 2; //2px
+$_o-forms-spacing-half: div(oSpacingByIncrement(1), 2); //2px
 $_o-forms-spacing-one: oSpacingByIncrement(1); // 4px
 $_o-forms-spacing-two: oSpacingByIncrement(2); // 8px
 $_o-forms-spacing-three: oSpacingByIncrement(3); // 12px

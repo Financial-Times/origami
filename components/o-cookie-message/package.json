@@ -21,12 +21,15 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "dependencies": {
     "superstore-sync": "^2.1.1"
   },
   "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-spacing": "^3.0.0",
     "@financial-times/o-typography": "^7.0.1",

@@ -20,7 +20,7 @@
 /// @return {Number} - A px value representing our spacing baseline (or rem value if relative units have been enabled).
 @function oSpacingGetBaselineValue() {
 	@if($o-spacing-relative-units) {
-		@return ($_o-spacing-baseline / 16) * 1rem;
+		@return div($_o-spacing-baseline, 16) * 1rem;
 	}
 	@return $_o-spacing-baseline * 1px;
 }

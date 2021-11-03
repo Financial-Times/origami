@@ -62,7 +62,7 @@ Pass an options `$opts` map to include only the o-quote styles you need. For exa
 	'cite': true // output .o-quote__cite styles, to support citations
 ));
 ```
-_The "editorial" option is only available to master brand users._
+_The "editorial" option is only available to core brand users._
 
 You may also use o-quote mixins with custom HTML markup. For example if your markup used `my-blockquote` as a classname. We do not recommend this approach unless you are unable to update your markup, as it may lead to unnecessary CSS output and more difficult migrations.
 ```html
@@ -93,7 +93,7 @@ You may also use o-quote mixins with custom HTML markup. For example if your mar
 }
 ```
 
-The `oQuoteEditorial` mixins shown here are only available to master brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
+The `oQuoteEditorial` mixins shown here are only available to core brand users. For a full list of o-quote mixins see [o-quote SassDoc in the registry](https://registry.origami.ft.com/components/o-quote/sassdoc).
 
 
 ## Migration Guide

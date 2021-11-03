@@ -10,8 +10,8 @@
 }
 
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-autocomplete', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-autocomplete', 'core', (
 		'variables': (
 			search-close: oColorsByName('black-80'),
 		),

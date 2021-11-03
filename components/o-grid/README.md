@@ -23,7 +23,7 @@ A 12 column responsive, flexbox-based grid system for laying out documents, temp
 
 This component is a collection of Sass styles to build a 12 column grid system, with a few JavaScript helpers.
 
-[![Grid system](https://raw.githubusercontent.com/Financial-Times/o-grid/master/img/grid-system.png)](https://raw.githubusercontent.com/Financial-Times/o-grid/master/img/grid-system.png)
+[![Grid system](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)](https://raw.githubusercontent.com/Financial-Times/origami/main/components/o-grid/img/grid-system.png)
 
 ## Usage
 

@@ -78,6 +78,12 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 
 ```html
 <table class="o-table" data-o-component="o-table">
+	<thead>
+		...
+	</thead>
+	<tbody>
+		...
+	</tbody>
 	<tfoot>
 		<tr>
 			<td colspan=2 class="o-table-footnote">
@@ -85,13 +91,6 @@ The table's footer `tfoot` element may use the helper class `o-table-footnote` t
 			</td>
 		</tr>
 	</tfoot>
-	<thead>
-		...
-	</thead>
-	<tbody>
-		...
-	</tbody>
-	...
 </table>
 ```
 
@@ -222,12 +221,12 @@ Alternatively include base styles with only selected optional features. E.g. to 
 
 | Feature             | Description                                             | Brand support                |
 |---------------------|---------------------------------------------------------|------------------------------|
-| responsive-overflow | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| responsive-flat     | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| responsive-scroll   | See [responsive options](#responsive-options).          | master, internal, whitelabel |
-| lines               | Styles for horizontal and vertical lines, plus borders. | master, internal, whitelabel |
-| compact             | A table with smaller typography and padding.            | master, internal, whitelabel |
-| stripes             | Alternating row stripe styles.                          | master, internal             |
+| responsive-overflow | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| responsive-flat     | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| responsive-scroll   | See [responsive options](#responsive-options).          | core, internal, whitelabel |
+| lines               | Styles for horizontal and vertical lines, plus borders. | core, internal, whitelabel |
+| compact             | A table with smaller typography and padding.            | core, internal, whitelabel |
+| stripes             | Alternating row stripe styles.                          | core, internal             |
 | row-headings        | Row heading styles.                                     | internal                     |
 
 ## JavaScript

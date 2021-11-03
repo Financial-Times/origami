@@ -110,6 +110,8 @@ o-viewport:
   - components/o-viewport/**/*
 o-visual-effects:
   - components/o-visual-effects/**/*
+math:
+  - libraries/math/**/*
 o-autoinit:
   - libraries/o-autoinit/**/*
 o-brand:
@@ -120,11 +122,29 @@ o-tracking:
   - libraries/o-tracking/**/*
 o-utils:
   - libraries/o-utils/**/*
+sass-mq:
+  - libraries/sass-mq/**/*
 eslint-config-origami-component:
   - presets/eslint-config-origami-component/**/*
 remark-preset-lint-origami-component:
   - presets/remark-preset-lint-origami-component/**/*
 stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
+a11y:
+  - tools/a11y/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+test-sass:
+  - tools/test-sass/**/*
+validate-component-demo-html:
+  - tools/validate-component-demo-html/**/*
+guidelines:
+  - apps/storybook/addons/guidelines/**/*
+html:
+  - apps/storybook/addons/html/**/*
+markdown-tabs:
+  - apps/storybook/addons/markdown-tabs/**/*
+storybook:
+  - apps/storybook/**/*
+website:
+  - apps/website/**/*

@@ -6,6 +6,8 @@ Whole page layouts including typography.
 
 - [Overview](#overview)
 - [Usage](#usage)
+- [Typography](#typography)
+- [Messages](#messages)
 - [Default and Bleed Layout](#default-and-bleed-layout)
 - [Documentation Layout](#documentation-layout)
 - [Landing Layout](#landing-layout)
@@ -24,7 +26,7 @@ Whole page layouts including typography.
 
 `o-layout` provides page layouts and typography as a starting point for new pages. Layouts provided vary per brand and include:
 
-layout | description | master brand | internal brand | whitelabel brand |
+layout | description | core brand | internal brand | whitelabel brand |
 --- | --- | :---: | :---: | :---:
 default | An empty layout with contained content well. | ✓ | ✓ | |
 bleed | An empty layout with full-width "bleed" content. | ✓ | ✓ | |
@@ -36,7 +38,54 @@ query | A search/query page layout. | | ✓ | |
 
 Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-layout`.
 
-Typography is styled automatically using the `o-layout-typography` class. This will style headings, paragraphs, lists, anchor tags, etc. To opt-out of typography styling for specific elements apply the `.o-layout__unstyled-element`.
+## Typography
+
+When writing large amounts of copy, such as in documentation, typographic elements may be styled using the `o-layout-typography` class on a containing element.
+
+```html
+<div class="o-layout-typography">
+	<h1>Page title</h1>
+	<p>Some body copy.</p>
+	<ul>
+		<li>item a</li>
+		<li>item b</li>
+	</ul>
+</div>
+```
+
+This will style child headings, paragraphs, lists, anchor, and more tags but will also affect the style of child components. The `.o-layout__unstyled-element` class may be used to opt-out of typography styling on a specific element. However we recommend only using `o-layout-typography` on elements with copy.
+
+```html
+<div class="o-layout-typography">
+	<h1>Page title</h1>
+	<p>Some body copy.</p>
+	<ul>
+		<li>item a</li>
+		<li>item b</li>
+	</ul>
+</div>
+
+<!-- No `.o-layout-typography` container -->
+<div class="o-example-component">
+	<p>A complex component.</p>
+	<a href="#">example</a>
+</div>
+
+<div class="o-layout-typography">
+	<p>Body copy continues.</p>
+</div>
+```
+
+To style typographic elements individually see the [o-typography component](https://registry.origami.ft.com/components/o-typography?brand=internal).
+
+```html
+<h1 class="o-typography-heading-level-1">Page title</h1>
+<p class="o-typography-body">Some body copy.</p>
+```
+
+## Messages
+
+All layouts include a header and footer area. These can be thought of as "top" and "bottom" areas that may include multiple components. For example the header area may include a heading component such as [o-header-services](https://registry.origami.ft.com/components/o-header-services?brand=internal) and a full bleed alert such as from [o-message](https://registry.origami.ft.com/components/o-message/?brand=internal).
 
 ## Default And Bleed Layout
 
@@ -60,7 +109,7 @@ The default layout has a single content area "Main Content"
 ```html
 <div class="o-layout" data-o-component="o-layout">
 	<div class="o-layout__header">
-		<!-- Your header & navigation here. -->
+		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__main o-layout-typography">
 		<!-- Your page content here. -->
@@ -102,7 +151,7 @@ The documentation layout is intended for text-heavy pages, such as technical doc
 ```html
 <div class="o-layout o-layout--docs" data-o-component="o-layout">
 	<div class="o-layout__header">
-		<!-- Your header & navigation here. -->
+		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__sidebar o-layout-typography">
 		<!-- Your sidebar here (optional). -->
@@ -222,7 +271,7 @@ The landing layout is ideal for a homepage or other key category / directory pag
 ```html
 <div class="o-layout o-layout--landing" data-o-component="o-layout">
 	<div class="o-layout__header">
-		<!-- Your header & navigation here. -->
+		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__hero o-layout-typography">
 		<!-- Your hero content here (optional). -->
@@ -241,7 +290,7 @@ When the landing page is a sub-page of the site, the hero area may create a visu
 ```diff
  <div class="o-layout o-layout--landing" data-o-component="o-layout">
 	 <div class="o-layout__header">
-		 <!-- Your header & navigation here. -->
+		 <!-- Your header, navigation, and full-bleed alert messages here. -->
 	 </div>
 +	 <div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 -	 <div class="o-layout__hero o-layout-typography">
@@ -392,7 +441,7 @@ To list articles within the hero layout remove the `o-layout-typography` class f
 ```html
  <div class="o-layout o-layout--landing" data-o-component="o-layout">
 	<div class="o-layout__header">
-		<!-- Your header & navigation here. -->
+		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__hero o-layout__hero--muted o-layout-typography">
 		<!-- Your hero content here.  -->
@@ -429,7 +478,7 @@ The query layout is intended for search, filter, and result pages. It provides f
 ```html
 <div class="o-layout o-layout--query" data-o-component="o-layout">
 	<div class="o-layout__header">
-		<!-- Your header & navigation here. -->
+		<!-- Your header, navigation, and full-bleed alert messages here. -->
 	</div>
 	<div class="o-layout__heading o-layout-typography">
 		<!-- Your title / heading content here. -->

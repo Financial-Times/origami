@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-tooltip', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-tooltip', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-tooltip', 'core', (
 		'variables': (
 			'background-color': oColorsByName('white'),
 			'foreground-color': null, // inherit by default
@@ -21,7 +21,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-tooltip', 'internal', (
 		'variables': (
 			'background-color': oColorsByName('white'),
@@ -32,7 +32,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-tooltip', 'whitelabel', (
 		'variables': (
 			'background-color': oColorsByName('white'),

@@ -1,0 +1,10 @@
+a[href="https://origami.ft.com"]::before
+{
+	content: "";
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	display: inline-block;
+	background: url(https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1:origami?format=svg&source=origami&width=55);
+	vertical-align: text-bottom;
+}

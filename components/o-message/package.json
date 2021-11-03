@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-message",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Provides message elements for alerting, informing or making calls to action.",
   "keywords": [
     "message",
@@ -19,9 +19,12 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
     "@financial-times/o-brand": "^4.0.2",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1",

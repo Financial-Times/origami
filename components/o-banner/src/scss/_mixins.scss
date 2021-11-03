@@ -176,7 +176,7 @@
 
 @mixin _oBannerActionSecondary {
 	@include oGridRespondTo($until: S) {
-		margin-top: $_o-banner-spacing / 4;
+		margin-top: div($_o-banner-spacing, 4);
 	}
 }
 
@@ -209,7 +209,7 @@
 	cursor: pointer;
 	outline: inherit;
 	// end: undo button styles
-	$close-button-position: round(($_o-banner-spacing - $_o-banner-close-button-size) / 2);
+	$close-button-position: round(div(($_o-banner-spacing - $_o-banner-close-button-size), 2));
 	display: block;
 	position: absolute;
 	right: $close-button-position;

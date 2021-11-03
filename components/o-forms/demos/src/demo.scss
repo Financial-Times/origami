@@ -12,7 +12,7 @@ body {
 .demo-inverse {
 	margin-top: 16px;
 	background-color: if(
-		index(('master', 'internal'), oBrandGetCurrentBrand()) != null,
+		oBrandIs('core') or oBrandIs('internal'),
 		oColorsByName('slate'),
 		oColorsByName('black')
 	);

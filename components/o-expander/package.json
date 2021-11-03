@@ -3,6 +3,7 @@
   "version": "6.0.1",
   "description": "Content-aware helper for expanding and collapsing content or lists.",
   "keywords": [
+    "accordion",
     "expand",
     "content",
     "more",
@@ -20,7 +21,9 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
     "@financial-times/o-icons": "^7.0.0",

@@ -84,7 +84,7 @@
 	}
 
 	@if ($o-typography-relative-units and unit($value) == 'px') {
-		@return (($value / 1px) / 16) * 1rem;
+		@return div(div($value, 1px), 16) * 1rem;
 	}
 	@return $value;
 }
@@ -95,7 +95,7 @@
 /// @param {Number} $value
 @function _oTypographyAddUnit($value) {
 	@if ($o-typography-relative-units) {
-		@return ($value / 16) * 1rem;
+		@return div($value, 16) * 1rem;
 	}
 	@return $value * 1px;
 }

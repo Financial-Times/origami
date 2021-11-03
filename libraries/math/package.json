@@ -1,0 +1,37 @@
+{
+  "name": "@financial-times/math",
+  "version": "1.0.0",
+  "description": "A temporary helper library to avoid newer dart-sass versions printing warnings when compiling Origami.",
+  "keywords": [],
+  "homepage": "https://registry.origami.ft.com/components/math",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=math,libraries",
+    "email": "origami.support@ft.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/origami.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "peerDependencies": {
+    "mathsass": "0.10.1"
+  },
+  "scripts": {
+    "test": "mocha test/index.test.js"
+  },
+  "engines": {
+    "npm": "^7"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "node-sass": "^6.0.1",
+    "sass": "^1.43.4",
+    "sass-true": "^5.0.0"
+  }
+}

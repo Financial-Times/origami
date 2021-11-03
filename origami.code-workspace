@@ -1,0 +1,188 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "apps/storybook"
+		},
+		{
+			"path": "apps/website"
+		},
+		{
+			"path": "apps/storybook/addons/guidelines"
+		},
+		{
+			"path": "apps/storybook/addons/html"
+		},
+		{
+			"path": "components/n-notification"
+		},
+		{
+			"path": "components/o-audio"
+		},
+		{
+			"path": "components/o-autocomplete"
+		},
+		{
+			"path": "components/o-banner"
+		},
+		{
+			"path": "components/o-big-number"
+		},
+		{
+			"path": "components/o-buttons"
+		},
+		{
+			"path": "components/o-colors"
+		},
+		{
+			"path": "components/o-comments"
+		},
+		{
+			"path": "components/o-cookie-message"
+		},
+		{
+			"path": "components/o-date"
+		},
+		{
+			"path": "components/o-editorial-layout"
+		},
+		{
+			"path": "components/o-editorial-typography"
+		},
+		{
+			"path": "components/o-expander"
+		},
+		{
+			"path": "components/o-fonts"
+		},
+		{
+			"path": "components/o-footer"
+		},
+		{
+			"path": "components/o-footer-services"
+		},
+		{
+			"path": "components/o-forms"
+		},
+		{
+			"path": "components/o-ft-affiliate-ribbon"
+		},
+		{
+			"path": "components/o-grid"
+		},
+		{
+			"path": "components/o-header"
+		},
+		{
+			"path": "components/o-header-services"
+		},
+		{
+			"path": "components/o-icons"
+		},
+		{
+			"path": "components/o-labels"
+		},
+		{
+			"path": "components/o-layout"
+		},
+		{
+			"path": "components/o-lazy-load"
+		},
+		{
+			"path": "components/o-loading"
+		},
+		{
+			"path": "components/o-message"
+		},
+		{
+			"path": "components/o-meter"
+		},
+		{
+			"path": "components/o-normalise"
+		},
+		{
+			"path": "components/o-overlay"
+		},
+		{
+			"path": "components/o-quote"
+		},
+		{
+			"path": "components/o-share"
+		},
+		{
+			"path": "components/o-spacing"
+		},
+		{
+			"path": "components/o-stepped-progress"
+		},
+		{
+			"path": "components/o-subs-card"
+		},
+		{
+			"path": "components/o-syntax-highlight"
+		},
+		{
+			"path": "components/o-table"
+		},
+		{
+			"path": "components/o-tabs"
+		},
+		{
+			"path": "components/o-teaser"
+		},
+		{
+			"path": "components/o-teaser-collection"
+		},
+		{
+			"path": "components/o-toggle"
+		},
+		{
+			"path": "components/o-tooltip"
+		},
+		{
+			"path": "components/o-topper"
+		},
+		{
+			"path": "components/o-typography"
+		},
+		{
+			"path": "components/o-video"
+		},
+		{
+			"path": "components/o-viewport"
+		},
+		{
+			"path": "components/o-visual-effects"
+		},
+		{
+			"path": "libraries/o-autoinit"
+		},
+		{
+			"path": "libraries/o-brand"
+		},
+		{
+			"path": "libraries/o-errors"
+		},
+		{
+			"path": "libraries/o-tracking"
+		},
+		{
+			"path": "libraries/o-utils"
+		},
+		{
+			"path": "tools/origami-build-tools"
+		},
+		{
+			"path": "presets/eslint-config-origami-component"
+		},
+		{
+			"path": "presets/remark-preset-lint-origami-component"
+		},
+		{
+			"path": "presets/stylelint-config-origami-component"
+		}
+	],
+	"settings": {}
+}

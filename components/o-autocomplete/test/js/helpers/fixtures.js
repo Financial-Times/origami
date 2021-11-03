@@ -26,12 +26,12 @@ function htmlSelectCode () {
 			<span class="o-forms-title__main">Select your country</span>
 		</span>
 		<span class="o-forms-input o-forms-input--select o-forms-input--text">
-			<div data-o-component="o-autocomplete" class="o-autocomplete">
+			<span data-o-component="o-autocomplete" class="o-autocomplete">
 				<select id="my-autocomplete" name="country" required>
 					<option value=""></option>
 					<option>Afghanistan</option>
 				</select>
-			</div>
+			</span>
 		</span>
 	</label>
 	</div>
@@ -46,12 +46,12 @@ function invalidHtmlSelectCode () {
 			<span class="o-forms-title__main">Select your country</span>
 		</span>
 		<span class="o-forms-input o-forms-input--select o-forms-input--text">
-			<div data-o-component="o-autocomplete" class="o-autocomplete">
+			<span data-o-component="o-autocomplete" class="o-autocomplete">
 				<select name="country" required>
 					<option value=""></option>
 					<option>Afghanistan</option>
 				</select>
-			</div>
+			</span>
 		</span>
 	</label>
 	</div>
@@ -66,9 +66,9 @@ function htmlInputCode () {
 			<span class="o-forms-title__main">Select your team</span>
 		</span>
 		<span class="o-forms-input o-forms-input--select o-forms-input--text">
-			<div data-o-component="o-autocomplete" class="o-autocomplete">
+			<span data-o-component="o-autocomplete" class="o-autocomplete">
 				<input id="my-autocomplete" type="text" name="country" placeholder="Please enter a country" required>
-			</div>
+			</span>
 		</span>
 	</label>
 	</div>
@@ -83,9 +83,9 @@ function invalidHtmlInputCode () {
 			<span class="o-forms-title__main">Select your team</span>
 		</span>
 		<span class="o-forms-input o-forms-input--select o-forms-input--text">
-			<div data-o-component="o-autocomplete" class="o-autocomplete">
+			<span data-o-component="o-autocomplete" class="o-autocomplete">
 				<input type="text" name="country" required>
-			</div>
+			</span>
 		</span>
 	</label>
 	</div>

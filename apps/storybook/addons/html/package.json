@@ -1,0 +1,8 @@
+{
+  "name": "origami-storybook-addon-html",
+  "version": "1.0.0",
+  "description": "storybook addon for showing a panel with html",
+  "main": "index.js",
+  "author": "chee <chee@snoot.club>",
+  "license": "MIT"
+}

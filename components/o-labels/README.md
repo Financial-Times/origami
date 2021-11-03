@@ -23,7 +23,7 @@ There are three types of label:
 
 ### Standard Label
 
-The standard label is used for content classification or to emphasise a value. For example to highlight commercial or premium content for the master brand, or to highlight a service tier in internal products. Custom labels may be created.
+The standard label is used for content classification or to emphasise a value. For example to highlight commercial or premium content for the core brand, or to highlight a service tier in internal products. Custom labels may be created.
 
 #### Standard Label Sizes
 
@@ -31,8 +31,8 @@ This table outlines the possible standard label sizes.
 
 | Size  | Description                                 | Brand support                |
 |-------|---------------------------------------------|------------------------------|
-| big   | Label with increased font size and padding. | master, internal, whitelabel |
-| small | Label with decreased font size and padding. | master, internal, whitelabel |
+| big   | Label with increased font size and padding. | core, internal, whitelabel |
+| small | Label with decreased font size and padding. | core, internal, whitelabel |
 
 #### Standard Label States
 
@@ -40,9 +40,9 @@ This table outlines the possible standard label states. Custom states may also b
 
 | State                | Description                                                   | Brand support |
 |----------------------|---------------------------------------------------------------|---------------|
-| content-commercial   | Used to identify paid posts or promoted content.              | master        |
-| content-premium      | Used to identify premium content.                             | master        |
-| lifecycle-beta       | Used to identify a feature that's in beta.                    | master        |
+| content-commercial   | Used to identify paid posts or promoted content.              | core        |
+| content-premium      | Used to identify premium content.                             | core        |
+| lifecycle-beta       | Used to identify a feature that's in beta.                    | core        |
 | support-active       | Used to indicate that a component is actively maintained.     | internal      |
 | support-maintained   | Used to indicate that a component is maintained.              | internal      |
 | support-experimental | Used to indicate that a component is an experimental feature. | internal      |
@@ -62,7 +62,7 @@ This table outlines the possible standard label states. Custom states may also b
 
 ### Indicator Label
 
-The indicator label is used to show story status with new, updated, and live variants. The indicator label only supports the master brand but [internal brand support is under consideration](https://github.com/Financial-Times/o-labels/issues/58).
+The indicator label is used to show story status with new, updated, and live variants. The indicator label only supports the core brand but [internal brand support is under consideration](https://github.com/Financial-Times/o-labels/issues/58).
 
 #### Indicator Label Status
 
@@ -70,14 +70,14 @@ This table outlines the possible indicator label statuses:
 
 | Indicator            | Description                                                   | Brand support |
 |----------------------|---------------------------------------------------------------|---------------|
-| live                 | Indicate a story is live.                                     | master        |
-| closed               | Indicate a live story is no longer live.                      | master        |
-| new                  | Indicate a story is new.                                      | master        |
-| updated              | Indicate a story has been updated.                            | master        |
+| live                 | Indicate a story is live.                                     | core        |
+| closed               | Indicate a live story is no longer live.                      | core        |
+| new                  | Indicate a story is new.                                      | core        |
+| updated              | Indicate a story has been updated.                            | core        |
 
 ### Timestamp Label
 
-The timestamp label is used to show article status in place of an indicator label when the article is not new, updated, or live. The timestamp label only supports the master brand.
+The timestamp label is used to show article status in place of an indicator label when the article is not new, updated, or live. The timestamp label only supports the core brand.
 
 ## Markup
 
@@ -100,7 +100,7 @@ There are several size modifier classes which can be used to change the general 
 
 Labels can also have one of several states. The available states depend on which brand you are using (there are no states for whitelabel branded components):
 
-The following master brand states are used to categorise content, mostly on FT.com:
+The following core brand states are used to categorise content, mostly on FT.com:
 
 ```html
 <span class="o-labels o-labels--content-commercial">Paid Post</span> (used for paid post and promoted content)
@@ -257,7 +257,7 @@ Or pass an options map `$opts` argument to output just the label styles you need
 
 ### Custom Standard Label State
 
-Use `oLabelsAddState` mixin to add a custom label state for the standard label. See the [`oLabelsAddState` SassDoc](https://registry.origami.ft.com/components/o-labels/sassdoc?brand=master#mixin-olabelsaddstate) for more details.
+Use `oLabelsAddState` mixin to add a custom label state for the standard label. See the [`oLabelsAddState` SassDoc](https://registry.origami.ft.com/components/o-labels/sassdoc?brand=core#mixin-olabelsaddstate) for more details.
 
 ```scss
 // outputs a class .o-labels--citrus-fruit

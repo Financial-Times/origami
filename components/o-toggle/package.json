@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-toggle",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Utility that provides toggle (show/hide) behaviour to a <button> or <a> tag and a target.",
   "keywords": [
     "toggle",
@@ -17,7 +17,9 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "engines": {
     "npm": "^7"

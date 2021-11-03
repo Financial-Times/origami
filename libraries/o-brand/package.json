@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-brand",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "description": "Tools to \"brand\" other Origami components.",
   "keywords": [],
   "homepage": "https://registry.origami.ft.com/components/o-brand",
@@ -15,6 +15,9 @@
   "license": "MIT",
   "author": "",
   "type": "module",
+  "scripts": {
+    "test": "test-sass"
+  },
   "engines": {
     "npm": "^7"
   },

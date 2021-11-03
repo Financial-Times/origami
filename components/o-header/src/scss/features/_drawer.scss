@@ -127,7 +127,7 @@
 	.o-header__drawer-editions-link {
 		color: _oHeaderGet('drawer-editions-link');
 		display: inline-block;
-		padding: $_o-header-drawer-padding-y/2 0 8px;
+		padding: div($_o-header-drawer-padding-y, 2) 0 8px;
 		margin-left: 0.5em;
 		border-bottom: 0;
 		font-size: 18px;
@@ -165,7 +165,7 @@
 	.o-header__drawer-search-submit {
 		box-sizing: border-box;
 		height: 32px;
-		padding: 8px ($_o-header-drawer-padding-x / 2);
+		padding: 8px (div($_o-header-drawer-padding-x, 2));
 		border: 1px solid;
 		// prevent zoom on focus
 		font-size: 100%;
@@ -197,7 +197,7 @@
 		&:after {
 			@include oIconsContent('search', oColorsByName('white'), $size: $_o-header-icon-size);
 			content: '';
-			margin-top: -($_o-header-drawer-padding-y / 2);
+			margin-top: -(div($_o-header-drawer-padding-y, 2));
 		}
 	}
 
@@ -256,7 +256,7 @@
 
 	.o-header__drawer-menu-item--heading {
 		background-color: _oHeaderGet('drawer-menu-item-background');
-		padding: ($_o-header-drawer-padding-x / 2) $_o-header-drawer-padding-x;
+		padding: (div($_o-header-drawer-padding-x, 2)) $_o-header-drawer-padding-x;
 		font-weight: 600;
 	}
 

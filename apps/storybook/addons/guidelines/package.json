@@ -1,0 +1,12 @@
+{
+  "name": "origami-storybook-addon-guidelines",
+  "version": "1.0.0",
+  "description": "Origami storybook addon for showing a tab with design guidelines in it",
+  "main": "index.js",
+  "author": "chee <chee@snoot.club>",
+  "license": "MIT",
+  "dependencies": {
+    "notion-client": "^4.10.0",
+    "react-notion-x": "^4.11.0"
+  }
+}

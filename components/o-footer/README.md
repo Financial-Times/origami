@@ -1,6 +1,6 @@
 # o-footer
 
-Master brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. 
+Core brand FT page footer component. See the [Origami Navigation Service](https://www.ft.com/__origami/service/navigation) to populate `o-footer` markup with real navigation data. 
 
 - [Usage](#usage)
 - [Markup](#markup)

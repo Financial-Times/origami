@@ -97,7 +97,7 @@
 ///     	@include oTypographyLink($external: true, $include-base-styles: false);
 ///     }
 ///
-/// @example Output a custom, claret coloured link to go on the default background colour (paper for the master brand, white otherwise).
+/// @example Output a custom, claret coloured link to go on the default background colour (paper for the core brand, white otherwise).
 ///     .my-claret-link {
 ///     	@include oTypographyLink($theme: (
 ///     		'base': 'claret',
@@ -115,7 +115,7 @@
 ///     }
 ///
 /// @param {Boolean} $external [false] - If the style is for external links, set to true to output an external link icon.
-/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the master brand, white otherwise).
+/// @param {Map|Null} $theme [null] - A custom theme to change the look of a link, with colours for properties `base` (the main link colour), `hover` (the links over colour), and optional `context` key. Context is the colour the link will be placed on, it defaults to the page background (paper for the core brand, white otherwise).
 /// @param {Boolean} $include-base-styles [true] - If set to false standard link styles will not be output, only additional styles required by a custom theme or external link.
 @mixin oTypographyLink($external: false, $theme: null, $include-base-styles: true) {
 	// Default link colours.
@@ -161,7 +161,7 @@
 	@if($external) {
 		$icon-color: if($base-color, $base-color, oColorsByName('black'));
 		$icon-size: 1em;
-		$icon-inbuilt-padding-size: #{$icon-size / 4};
+		$icon-inbuilt-padding-size: #{div($icon-size, 4)};
 		$icon-padding-calc: "#{$icon-size} + #{0.5ch}";
 		@include oIconsContent('outside-page', $icon-color, $size: null, $include-base-styles: false);
 		background-repeat: no-repeat;
@@ -295,9 +295,9 @@
 				content: '\2022'; // dot character
 				color: inherit;
 				// 28px marker given a parent font-size of 18px
-				transform: scale(#{(28 / 18)});
+				transform: scale(#{div(28, 18)});
 				// magic number to center marker
-				margin-top: #{(28 / 18) * -0.16ch};
+				margin-top: #{div(28, 18) * -0.16ch};
 			}
 
 			@if($type == 'ordered') {
@@ -306,9 +306,9 @@
 				counter-increment: item;
 				font-feature-settings: "tnum";
 				// 16px marker given a parent font-size of 18px
-				transform: scale(#{(16 / 18)});
+				transform: scale(#{div(16, 18)});
 				// magic number to make marker flush to the left
-				margin-left: #{(16 / 18) * -0.16ch};
+				margin-left: #{div(16, 18) * -0.16ch};
 			}
 		}
 	}

@@ -1,14 +1,13 @@
 {
   "name": "@financial-times/o-subs-card",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "A card for showing different subscription packages offered by the Financial Times",
   "keywords": [
     "card",
     "subscription",
     "subs",
     "pack",
-    "packages",
-    "masterbrand"
+    "packages"
   ],
   "homepage": "https://registry.origami.ft.com/components/o-subs-card",
   "bugs": {
@@ -20,9 +19,12 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-expander": "^6.0.0",

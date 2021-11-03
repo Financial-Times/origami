@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-header', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-header', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-header', 'core', (
 		'variables': (
 			header-text: oColorsByName('black-80'),
 			header-border: oColorsByName('black-20'),

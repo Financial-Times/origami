@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tabs",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Tabs component for dividing content into meaningful sections.",
   "keywords": [
     "tabs",
@@ -16,7 +16,9 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.0.2",

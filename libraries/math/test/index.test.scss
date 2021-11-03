@@ -1,0 +1,93 @@
+@import 'true';
+@import '../index';
+
+@include test-module('math') {
+	@include test('exports a div function') {
+		@include assert-true(function-exists('div'));
+	}
+	@include test('exports a sqrt function') {
+		@include assert-true(function-exists('sqrt'));
+	}
+	@include test('exports a pow function') {
+		@include assert-true(function-exists('pow'));
+	}
+    @include test('exports a acos function') {
+		@include assert-true(function-exists('acos'));
+	}
+    @include test('exports a asin function') {
+		@include assert-true(function-exists('asin'));
+	}
+    @include test('exports a atan function') {
+		@include assert-true(function-exists('atan'));
+	}
+    @include test('exports a atan2 function') {
+		@include assert-true(function-exists('atan2'));
+	}
+    @include test('exports a cos function') {
+		@include assert-true(function-exists('cos'));
+	}
+    @include test('exports a cot function') {
+		@include assert-true(function-exists('cot'));
+	}
+    @include test('exports a csc function') {
+		@include assert-true(function-exists('csc'));
+	}
+    @include test('exports a exp function') {
+		@include assert-true(function-exists('exp'));
+	}
+    @include test('exports a fact function') {
+		@include assert-true(function-exists('fact'));
+	}
+    @include test('exports a frexp function') {
+		@include assert-true(function-exists('frexp'));
+	}
+    @include test('exports a ldexp function') {
+		@include assert-true(function-exists('ldexp'));
+	}
+    @include test('exports a log function') {
+		@include assert-true(function-exists('log'));
+	}
+    @include test('exports a pow function') {
+		@include assert-true(function-exists('pow'));
+	}
+    @include test('exports a sec function') {
+		@include assert-true(function-exists('sec'));
+	}
+    @include test('exports a sin function') {
+		@include assert-true(function-exists('sin'));
+	}
+    @include test('exports a sqrt function') {
+		@include assert-true(function-exists('sqrt'));
+	}
+    @include test('exports a tan function') {
+		@include assert-true(function-exists('tan'));
+	} 
+    @include test('exports a deg-to-rad function') {
+		@include assert-true(function-exists('deg-to-rad'));
+	} 
+    @include test('exports a rad-to-deg function') {
+		@include assert-true(function-exists('rad-to-deg'));
+	} 
+    @include test('exports a strip-unit function') {
+		@include assert-true(function-exists('strip-unit'));
+	} 
+    @include test('exports a unitless-rad function') {
+		@include assert-true(function-exists('unitless-rad'));
+	} 
+	@include test('exports E') {
+		@include assert-true(global-variable-exists("E"));
+        @include assert-equal($E, 2.718281828459045);
+	}
+	@include test('exports PI') {
+        @include assert-true(global-variable-exists("PI"));
+        @include assert-equal($PI, 3.141592653589793);
+	}
+	@include test('exports LN2') {
+        @include assert-true(global-variable-exists("LN2"));
+        @include assert-equal($LN2, 0.6931471805599453);
+	}
+	@include test('exports SQRT2') {
+        @include assert-true(global-variable-exists("SQRT2"));
+        @include assert-equal($SQRT2, 1.4142135623730951);
+	}
+}

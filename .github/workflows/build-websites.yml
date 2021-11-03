@@ -3,8 +3,6 @@ concurrency:
   group: build-the-website
   cancel-in-progress: true
 on:
-  pull_request:
-    branches: [ main ]
   push:
     branches: [ main ]
 
@@ -24,6 +22,7 @@ jobs:
       with:
         ruby-version: 2.7.4
         bundler-cache: true
+    - run: npm i -g npm@7
     - run: npm ci
     - run: bash ./scripts/build-website.bash
     - name: deploy 🚀

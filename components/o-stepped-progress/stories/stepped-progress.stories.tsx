@@ -3,11 +3,12 @@ import {useEffect} from 'react';
 import {SteppedProgress} from '../src/tsx/stepped-progress';
 import './stepped-progress.scss';
 import javascript from '@financial-times/o-stepped-progress';
+import withHtml from 'origami-storybook-addon-html';
 
 export default {
 	title: 'Stepped Progress',
 	component: SteppedProgress,
-	decorators: [withDesign],
+	decorators: [withDesign, withHtml],
 	parameters: {
 		design: {
 			type: 'figma',
@@ -20,7 +21,7 @@ export default {
 };
 
 const Story = args => {
-	useEffect(() => javascript.init(), []);
+	useEffect(() => void javascript.init(), []);
 	return <SteppedProgress {...args} />;
 };
 
