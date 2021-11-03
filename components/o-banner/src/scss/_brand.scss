@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-banner', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-banner', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-banner', 'core', (
 		'variables': (
 			'background-color': oColorsByName('white'),
 			'text-color': oColorsByName('black'),

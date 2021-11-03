@@ -155,7 +155,6 @@ class ODate {
 			this.el.getAttribute('data-o-date-format');
 
 		let formattedDate;
-		let screenReaderFormattedDate;
 
 		if (format === 'today-or-yesterday-or-nothing') {
 			formattedDate = ftDateFormat.asTodayOrYesterdayOrNothing(date);
@@ -166,11 +165,11 @@ class ODate {
 		} else if (format === 'time-ago-limit-24-hours') {
 			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-abbreviated') {
-			formattedDate = ftDateFormat.timeAgo(date, { abbreviated: true });
-			screenReaderFormattedDate = ftDateFormat.timeAgo(date);
+			console.warn('The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.');
+			formattedDate = ftDateFormat.timeAgo(date);
 		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
-			formattedDate = ftDateFormat.timeAgo(date, { abbreviated: true, limit: 4 * ftDateFormat.inSeconds.hour });
-			screenReaderFormattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
+			console.warn('The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.');
+			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-no-seconds') {
 			formattedDate = ftDateFormat.timeAgoNoSeconds(date);
 		} else if (format !== null) {
@@ -189,12 +188,6 @@ class ODate {
 			printer.firstChild.nodeValue = formattedDate;
 		} else {
 			printer.innerHTML = formattedDate;
-		}
-
-		if (formattedDate && screenReaderFormattedDate) {
-			printer.setAttribute('aria-label', screenReaderFormattedDate);
-		} else {
-			printer.removeAttribute('aria-label');
 		}
 	}
 

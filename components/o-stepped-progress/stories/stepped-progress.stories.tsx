@@ -16,6 +16,9 @@ export default {
 			url: 'https://www.figma.com/file/xxJEMk0fnzEhoDFaKtM5fz/Stepped-progress-bar-component?node-id=6%3A3537',
 		},
 	},
+	args: {
+		steps: [{label: 'default', state: 'complete', current: false}],
+	},
 };
 
 const Story = args => {

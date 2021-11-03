@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-quote', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-quote', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-quote', 'core', (
 		'variables': (),
 		'supports-variants': (
 			'editorial',
@@ -20,7 +20,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-quote', 'internal', (
 		'variables': (),
 		'supports-variants': (
@@ -29,7 +29,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	@include oBrandDefine('o-quote', 'whitelabel', (
 		'variables': (),
 		'supports-variants': (

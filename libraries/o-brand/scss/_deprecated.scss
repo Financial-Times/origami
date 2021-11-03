@@ -1,0 +1,15 @@
+/// Get current brand in use.
+/// This function was deprecated when the "master" brand was renamed "core".
+/// It will continue to return "master" if "core" is the set brand for backward compatibility.
+/// @deprecated - Use `oBrandIs($brand)` to check if a given brand is the current brand.
+/// @access public
+///
+@function oBrandGetCurrentBrand() {
+	$brand: if($o-brand, $o-brand, $_o-brand-default);
+
+	@if $brand == 'core' {
+		@return 'master';
+	}
+
+	@return $brand;
+}

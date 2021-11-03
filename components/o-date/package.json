@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-date",
-  "version": "5.0.2",
+  "version": "5.1.0",
   "type": "module",
   "browser": "main.js",
   "description": "JavaScript utilities for formatting and updating dates in the FT style. Also useful for formatting dates relative to the current time.",
@@ -20,7 +20,9 @@
   },
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "dependencies": {
     "@financial-times/ft-date-format": "^2.0.0"

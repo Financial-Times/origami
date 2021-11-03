@@ -7,6 +7,6 @@ body {
 }
 
 #demo-target { // stylelint-disable-line selector-max-id
-	font-family: if(oBrandGetCurrentBrand() == 'whitelabel', Arial, MetricWeb);
+	font-family: if(oBrandIs('whitelabel'), Arial, MetricWeb);
 	margin: var(--o-spacing-s4, 1rem) 0;
 }

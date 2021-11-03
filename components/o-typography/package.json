@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-typography",
-  "version": "7.0.3",
+  "version": "7.0.4",
   "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
   "keywords": [
     "font",
@@ -26,7 +26,9 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@11\" install && npm_config_yes=true npx \"origami-build-tools@prerelease\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "dependencies": {
     "fontfaceobserver": "^2.0.9"

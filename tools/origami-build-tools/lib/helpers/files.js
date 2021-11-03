@@ -102,7 +102,7 @@ function getModuleBrands(cwd) {
 			if (hasBrandsDefined) {
 				return origamiJson.brands;
 			}
-			return ['master', 'internal', 'whitelabel'];
+			return ['core', 'internal', 'whitelabel'];
 		});
 }
 

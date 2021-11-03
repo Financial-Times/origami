@@ -105,12 +105,12 @@ $_o-typography-font-scale: (
 	(weight: bold, style: italic)
 ));
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
 	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
 
-	@include oBrandDefine('o-typography', 'master', (
+	@include oBrandDefine('o-typography', 'core', (
 		'variables': (
 			'author-color': oColorsByUsecase('body', 'text'),
 			'author-hover-color': oColorsByName('claret'),
@@ -143,7 +143,7 @@ $_o-typography-font-scale: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
 	$_o-typography-display: if($_o-typography-display != '', $_o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
@@ -177,7 +177,7 @@ $_o-typography-font-scale: (
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	// Register Arial font with `o-fonts`.
 	@include oFontsDefineCustomFont('Arial, sans', (
 		(weight: regular, style: normal),

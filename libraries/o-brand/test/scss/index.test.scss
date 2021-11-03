@@ -1,9 +1,17 @@
 @import 'true';
 
+// Test the "master" brand is swapped for the "core" brand on import.
+$_o-brand-test-environment: true;
+$o-brand: 'master';
 @import '../../main';
 
-$_o-brand-test-environment: true;
-// Define brands before running tests.
+@include test-module('On import') {
+	@include test('Swaps the deprecated "master" brand for "core"') {
+		@include assert-true(oBrandIs('core'));
+	}
+}
+
+// Define brands before running other tests.
 @import 'fixtures';
 @import 'mixins.test';
 @import 'functions.test';

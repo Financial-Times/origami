@@ -10,11 +10,11 @@
 	@return oBrandSupportsVariant($component: 'o-footer', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandIs('core') {
 	$_o-footer-dark-link-text-color: oColorsMix('white', 'slate', 60);
 	$_o-footer-light-link-text-color: oColorsByName('black-60');
 
-	@include oBrandDefine('o-footer', 'master', (
+	@include oBrandDefine('o-footer', 'core', (
 		'variables': (
 			'title': oColorsByName('white'),
 			'dark': (

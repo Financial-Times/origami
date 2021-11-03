@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-stepped-progress",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Track progress through a multi-step process, such as a form",
   "keywords": [
     "indicator",
@@ -18,7 +18,9 @@
   "browser": "main.js",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
     "@financial-times/o-colors": "^6.0.1",

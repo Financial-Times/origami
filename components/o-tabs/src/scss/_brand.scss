@@ -17,8 +17,8 @@
 $_o-tabs-default-button-tabs: ();
 
 
-// Define masterbrand
-@if oBrandGetCurrentBrand() == 'master' {
+// Define core brand
+@if oBrandIs('core') {
 	$_o-tabs-default-button-tabs: (
 		('type': 'primary'),
 		('type': 'secondary'),
@@ -27,7 +27,7 @@ $_o-tabs-default-button-tabs: ();
 }
 
 // Define internal brand
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	$_o-tabs-default-button-tabs: (
 		('type': 'primary'),
 		('type': 'secondary'),
@@ -36,7 +36,7 @@ $_o-tabs-default-button-tabs: ();
 }
 
 // Define whitelabel brand
-@if oBrandGetCurrentBrand() == 'whitelabel' {
+@if oBrandIs('whitelabel') {
 	$_o-tabs-default-button-tabs: (
 		('type': 'primary'),
 		('type': 'secondary')

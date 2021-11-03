@@ -1,7 +1,7 @@
 $o-brand: 'internal';
 
 // Define an example component
-@include oBrandDefine('o-example', 'master', (
+@include oBrandDefine('o-example', 'core', (
 	'variables': (
 		example-background: pink
 	),
@@ -48,7 +48,7 @@ $o-brand: 'internal';
 ));
 
 // Define a second example component
-@include oBrandDefine('o-example-two', 'master', (
+@include oBrandDefine('o-example-two', 'core', (
 	'variables': (
 		example-two-size: 2em,
 		'large': (

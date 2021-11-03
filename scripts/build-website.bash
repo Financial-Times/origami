@@ -2,6 +2,6 @@
 set -e
 cd apps/website/
 bundle
-npm run build -- --incremental
+bundle exec jekyll build -d ../../origami.ft.com --incremental
 cd ../storybook/
 npm run build-storybook

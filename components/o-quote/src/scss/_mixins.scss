@@ -15,7 +15,7 @@
 }
 
 /// Editorial quote styles
-/// @brand master
+/// @brand core
 @mixin oQuoteEditorial {
 	@extend %_o-quote;
 	@extend %_o-quote-blockquote;
@@ -23,19 +23,19 @@
 }
 
 /// Editorial quote cite styles
-/// @brand master
+/// @brand core
 @mixin oQuoteEditorialCite {
 	@extend %_o-quote-blockquote-cite;
 }
 
 /// Editorial quote source styles
-/// @brand master
+/// @brand core
 @mixin oQuoteEditorialCiteSource {
 	display: block;
 }
 
 /// Editorial quote author styles
-/// @brand master
+/// @brand core
 @mixin oQuoteEditorialCiteAuthor {
 	@extend %_o-quote-blockquote-author;
 }

@@ -39,7 +39,7 @@
 	// If from default component variables or a pre-defined variant.
 	@if type-of($from) == 'string' or type-of($from) == 'null' {
 		// A brand must be configured before o-brand can be used.
-		$brand: oBrandGetCurrentBrand();
+		$brand: _oBrandGetCurrentValidBrand();
 		$brand-config: _oBrandGetConfig($component, $brand);
 		$brand-variables: map-get($brand-config, 'variables');
 		@if type-of($from) == 'null' {
@@ -100,7 +100,7 @@
 	);
 
 	// Check support for a pre-defined variant.
-	$brand: oBrandGetCurrentBrand();
+	$brand: _oBrandGetCurrentValidBrand();
 	$brand-config: _oBrandGetConfig($component, $brand);
 	$supports-variants: map-get($brand-config, 'supports-variants');
 
@@ -114,18 +114,23 @@
 	@return false;
 }
 
-/// Get current brand.
-/// Errors for cases where a non-existent brand is provided
-/// If no brand is set, defaults to 'master'
+/// Check if a brand is the one in use.
+///
+/// @example scss - When the current brand is set to "core"
+///     oBrandIs($brand: 'core'); // true
+///     oBrandIs($brand: 'internal'); // false
 ///
 /// @access public
+/// @throw Errors if an invalid brand has been set by the user.
+/// @param {string} $brand
+/// @return {boolean}
 ///
-@function oBrandGetCurrentBrand() {
-	$brand: if($o-brand, $o-brand, $_o-brand-default);
+@function oBrandIs($brand) {
+	$current-brand: if($o-brand, $o-brand, $_o-brand-default);
 
-	@if not index($_o-brand-available-brands, $brand) {
-		@return _oBrandError('The brand "#{$brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+	@if not index($_o-brand-available-brands, $current-brand) {
+		@return _oBrandError('The brand "#{$current-brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
 	}
 
-	@return $brand;
+	@return $brand == $current-brand;
 }

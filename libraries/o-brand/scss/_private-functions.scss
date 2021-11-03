@@ -167,3 +167,18 @@
 
 	@error('#{$message}');
 }
+
+/// Get current brand.
+/// Errors for cases where a non-existent brand is set by the user.
+///
+/// @access private
+///
+@function _oBrandGetCurrentValidBrand() {
+	$brand: if($o-brand, $o-brand, $_o-brand-default);
+
+	@if not index($_o-brand-available-brands, $brand) {
+		@return _oBrandError('The brand "#{$brand}" is not supported by o-brand. Please use one of #{$_o-brand-available-brands}.');
+	}
+
+	@return $brand;
+}

@@ -126,8 +126,12 @@ remark-preset-lint-origami-component:
   - presets/remark-preset-lint-origami-component/**/*
 stylelint-config-origami-component:
   - presets/stylelint-config-origami-component/**/*
+a11y:
+  - tools/a11y/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+validate-component-demo-html:
+  - tools/validate-component-demo-html/**/*
 guidelines:
   - apps/storybook/addons/guidelines/**/*
 html:

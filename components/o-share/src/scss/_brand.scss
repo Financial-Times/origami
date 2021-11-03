@@ -11,9 +11,9 @@
 	@return oBrandSupportsVariant($component: 'o-share', $variant: $variant);
 }
 
-// Define masterbrand
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-share', 'master', (
+// Define core brand
+@if oBrandIs('core') {
+	@include oBrandDefine('o-share', 'core', (
 		'variables': (
 			'size': $o-share-icon-size,
 			'border-color': oColorsByUsecase('o-share/default-icon', 'border'),
@@ -31,7 +31,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-share', 'internal', (
 		'variables': (
 			'size': $o-share-icon-size,

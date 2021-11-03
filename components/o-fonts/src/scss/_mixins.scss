@@ -48,10 +48,10 @@
 /// This mixin is useful if a project calls the `oFonts` mixin is in a different
 /// entry point.
 ///
-/// @example Include all fonts for the current brand (master, internal, whitelabel).
+/// @example Include all fonts for the current brand (core, internal, whitelabel).
 ///     @include oFontsVariantsIncluded();
 ///
-/// @example Include a limited set of recommended fonts for the current brand (master, internal, whitelabel).
+/// @example Include a limited set of recommended fonts for the current brand (core, internal, whitelabel).
 ///     @include oFontsVariantsIncluded($opts: ('recommended': true));
 ///
 /// @example Include a limited set of recommended fonts for the current brand, plus an extra FinancierDisplayWeb font.

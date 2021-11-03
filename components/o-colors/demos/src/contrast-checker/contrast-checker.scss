@@ -14,7 +14,7 @@
 	}
 }
 
-@if oBrandGetCurrentBrand() != whitelabel {
+@if not oBrandIs(whitelabel) {
 
 	:root {
 		--background: white;

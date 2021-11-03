@@ -2,8 +2,6 @@
 <br>
 <time data-o-component="o-date" class="o-date"></time> (more recent dates are formatted as relative times)
 <br>
-<time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-abbreviated"></time> (a recent date using the o-date-format with time-ago-abbreviated)
-<br>
 <time data-o-component="o-date" class="o-date" data-o-date-format="today-or-yesterday-or-nothing"></time> (Using the o-date-format option)
 <br>
 <time data-o-component="o-date" class="o-date" data-o-date-format="time-ago-limit-4-hours"></time> (Using the o-date-format with time-ago-limit-4-hours)
@@ -16,8 +14,8 @@
 	<!-- render date-only here, set on the parent "time" element -->
 	<span data-o-date-printer>
 	</span>
-	<!-- render an abbreviated, relative time ago here -->
-	<span data-o-date-printer data-o-date-format="time-ago-abbreviated">
+	<!-- render a relative time ago here -->
+	<span data-o-date-printer data-o-date-format="time-ago-limit-4-hours">
 	</span>
 	<!-- render a custom format here, the absolute time -->
 	<span data-o-date-printer data-o-date-format="h:mm">

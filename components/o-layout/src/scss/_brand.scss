@@ -10,8 +10,8 @@
 	@return oBrandSupportsVariant($component: 'o-layout', $variant: $variant);
 }
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-layout', 'master', (
+@if oBrandIs('core') {
+	@include oBrandDefine('o-layout', 'core', (
 		'variables': (),
 		'supports-variants': (
 			'default',
@@ -21,7 +21,7 @@
 	));
 }
 
-@if oBrandGetCurrentBrand() == 'internal' {
+@if oBrandIs('internal') {
 	@include oBrandDefine('o-layout', 'internal', (
 		'variables': (),
 		'supports-variants': (

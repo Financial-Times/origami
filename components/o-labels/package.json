@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-labels",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Labels for content classification or to emphasise a value. Provides customisation options with the FT colour palette.",
   "keywords": [
     "label",
@@ -15,7 +15,9 @@
   "type": "module",
   "scripts": {
     "start": "npx serve ./demos/local",
-    "build": "npm_config_yes=true npx \"origami-build-tools@^11\" install && npm_config_yes=true npx \"origami-build-tools@^11\" demo"
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
     "@financial-times/o-brand": "^4.0.2",

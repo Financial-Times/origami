@@ -20,8 +20,8 @@ There are two types of buttons, primary buttons and secondary buttons.
 
 | Type      | Selector              | Brand Support                |
 |-----------|-----------------------|------------------------------|
-| primary   | .o-buttons--primary      | master, internal, whitelabel |
-| secondary | .o-buttons--secondary | master, internal, whitelabel |
+| primary   | .o-buttons--primary      | core, internal, whitelabel |
+| secondary | .o-buttons--secondary | core, internal, whitelabel |
 
 
 ```html
@@ -37,9 +37,9 @@ A theme may be applied to a button to change its appearance. o-buttons provides 
 
 | Theme    | Selector             | Works With Types     | Brand Support    |
 |----------|----------------------|----------------------|------------------|
-| inverse  | .o-buttons--inverse  | primary, secondary   | master, internal |
-| mono     | .o-buttons--mono     | primary, secondary   | master, internal |
-| b2c      | .o-buttons--b2c      | primary              | master           |
+| inverse  | .o-buttons--inverse  | primary, secondary   | core, internal |
+| mono     | .o-buttons--mono     | primary, secondary   | core, internal |
+| b2c      | .o-buttons--b2c      | primary              | core           |
 
 ```html
 <button class="o-buttons o-buttons--primary o-buttons--inverse">Submit</button>
@@ -206,7 +206,7 @@ To create a new button theme call `oButtonsAddTheme` with the colour of your the
 - name: The name of your theme. This is used for the modifer class output `o-buttons--{name}`.
 - opts: A map of options for your theme. Keys include `color` and `context`.
 	- color: The main colour of your button. Any o-colors palette colour name.
-	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the master brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
+	- context (optional): The background colour your button is placed on. Defaults to the page colour (paper for the core brand, white otherwise). This is used to confirm accessibility and in some cases changes the colour of the button.
 - types: A list of button types your theme is used with.
 - icons: A list of icons your theme is used with. Any [fticons](https://registry.origami.ft.com/components/fticons/) icon name.
 
