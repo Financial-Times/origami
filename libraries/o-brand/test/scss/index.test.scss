@@ -1,5 +1,5 @@
 @import 'true';
-
+$system-code: "test";
 // Test the "master" brand is swapped for the "core" brand on import.
 $_o-brand-test-environment: true;
 $o-brand: 'master';
