@@ -3,7 +3,6 @@
 module.exports = function (cfg) {
 	const karma = require('./karma');
 	const compilationTests = require('./test-sass-compilation');
-	const testSass = require('./test-sass');
 
 
 	cfg = cfg || {};
@@ -16,7 +15,6 @@ module.exports = function (cfg) {
 	return new Listr(
 		[
 			compilationTests(config),
-			testSass(config),
 			karma(config)
 		], {
 			renderer: ListrRenderer,
