@@ -1,0 +1,77 @@
+$o-brand: 'internal';
+
+// Define an example component
+@include oBrandDefine('o-example', 'core', (
+	'variables': (
+		example-background: pink
+	),
+	'supports-variants': (
+		'stripe',
+		'compact'
+	)
+));
+
+@include oBrandDefine('o-example', 'internal', (
+	'variables': (
+		example-background: white,
+		example-header-background: grey,
+		example-border-width: 1px,
+		example-border-style: solid,
+		example-border-color: grey,
+		'inverse': (
+			example-background: grey,
+			example-header-background: black,
+			example-border-color: black,
+		),
+		'b2b': (
+			example-background: red
+		),
+		'inverse-b2b': (
+			example-background: darkred
+		)
+	),
+	'supports-variants': (
+		'compact',
+		'inverse',
+		'b2b'
+	)
+));
+
+@include oBrandDefine('o-example', 'whitelabel', (
+	'variables': (
+		example-background: white,
+		example-header-background: black,
+	),
+	'supports-variants': (
+		'compact'
+	)
+));
+
+// Define a second example component
+@include oBrandDefine('o-example-two', 'core', (
+	'variables': (
+		example-two-size: 2em,
+		'large': (
+			example-two-size: 3em,
+		),
+		'small': (
+			example-two-size: 1em,
+		)
+	),
+	'supports-variants': (
+		'small',
+		'large'
+	)
+));
+
+@include oBrandDefine('o-example-two', 'internal', (
+	'variables': (
+		example-two-size: 2em,
+		'small': (
+			example-two-size: 1em,
+		)
+	),
+	'supports-variants': (
+		'small'
+	)
+));

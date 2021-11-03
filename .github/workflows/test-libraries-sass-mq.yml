@@ -1,0 +1,25 @@
+name: test libraries/sass-mq
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow}}-libraries/sass-mq
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w libraries/sass-mq lint --if-present
+    - run: npm run -w libraries/sass-mq build --if-present
+    - run: npm run -w libraries/sass-mq test --if-present

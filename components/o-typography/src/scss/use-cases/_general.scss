@@ -161,7 +161,7 @@
 	@if($external) {
 		$icon-color: if($base-color, $base-color, oColorsByName('black'));
 		$icon-size: 1em;
-		$icon-inbuilt-padding-size: #{$icon-size / 4};
+		$icon-inbuilt-padding-size: #{div($icon-size, 4)};
 		$icon-padding-calc: "#{$icon-size} + #{0.5ch}";
 		@include oIconsContent('outside-page', $icon-color, $size: null, $include-base-styles: false);
 		background-repeat: no-repeat;
@@ -295,9 +295,9 @@
 				content: '\2022'; // dot character
 				color: inherit;
 				// 28px marker given a parent font-size of 18px
-				transform: scale(#{(28 / 18)});
+				transform: scale(#{div(28, 18)});
 				// magic number to center marker
-				margin-top: #{(28 / 18) * -0.16ch};
+				margin-top: #{div(28, 18) * -0.16ch};
 			}
 
 			@if($type == 'ordered') {
@@ -306,9 +306,9 @@
 				counter-increment: item;
 				font-feature-settings: "tnum";
 				// 16px marker given a parent font-size of 18px
-				transform: scale(#{(16 / 18)});
+				transform: scale(#{div(16, 18)});
 				// magic number to make marker flush to the left
-				margin-left: #{(16 / 18) * -0.16ch};
+				margin-left: #{div(16, 18) * -0.16ch};
 			}
 		}
 	}
