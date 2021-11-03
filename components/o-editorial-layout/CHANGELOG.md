@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.2](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.1.1...o-editorial-layout-v2.1.2) (2021-11-02)
+
+
+### Bug Fixes
+
+* Update `o-brand` in components, replace "master" with "core" ([322617e](https://www.github.com/Financial-Times/origami/commit/322617ea80f30a6825d9c36872e05574b871ea82))
+
 ### [2.1.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.1.0...o-editorial-layout-v2.1.1) (2021-10-06)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-spacing",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Maintain consistent spaces across components and projects in accordance to our baseline grid and design guidelines.",
   "keywords": [
     "whitespace",

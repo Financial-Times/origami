@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "storybook addon for showing a panel with html",
   "main": "index.js",
-  "scripts": {
-    "test": "echo test",
-    "lint": "echo lint"
-  },
   "author": "chee <chee@snoot.club>",
   "license": "MIT"
 }

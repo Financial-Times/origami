@@ -5,10 +5,6 @@
   "main": "index.js",
   "bin": "index.js",
   "type": "module",
-  "scripts": {
-    "lint": "exit 0",
-    "test": "exit 0"
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",
