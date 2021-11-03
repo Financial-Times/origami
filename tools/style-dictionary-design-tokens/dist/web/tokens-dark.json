@@ -1,5 +1,7 @@
 {
   "color-background-page": "#262a33",
   "color-background-logo": "#ffffff",
-  "color-text-logo": "#262a33"
+  "color-text-logo": "#262a33",
+  "color-text-title": "#ffffff",
+  "color-text-body": "#ffffff"
 }

@@ -1,12 +1,14 @@
 
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 18:27:01 GMT
+ * Generated on Wed, 03 Nov 2021 22:29:20 GMT
  */
 
 $color-background-page: #262a33 !default;
 $color-background-logo: #ffffff !default;
 $color-text-logo: #262a33 !default;
+$color-text-title: #ffffff !default;
+$color-text-body: #ffffff !default;
 
 $_tokens: (
   'color': (
@@ -15,7 +17,9 @@ $_tokens: (
       'logo': $color-background-logo
     ),
     'text': (
-      'logo': $color-text-logo
+      'logo': $color-text-logo,
+      'title': $color-text-title,
+      'body': $color-text-body
     )
   )
 );

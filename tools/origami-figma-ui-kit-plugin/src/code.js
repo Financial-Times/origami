@@ -22,9 +22,9 @@ figma.ui.onmessage = async msg => {
   }
   if (msg.type === 'auto-layout') {
     figma.currentPage.selection.forEach(layer => {
+      layer.itemSpacing = parseInt(msg.space, 10);
       layer.layoutMode = "HORIZONTAL";
       layer.primaryAxisAlignItems = "SPACE_BETWEEN";
-      layer.itemSpacing = parseInt(msg.space, 10);
     });
   }
 

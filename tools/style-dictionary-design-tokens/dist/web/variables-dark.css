@@ -1,9 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Wed, 03 Nov 2021 18:27:01 GMT
+ * Generated on Wed, 03 Nov 2021 22:29:20 GMT
  */
 
 :root {
+  --color-text-body: var(--color-white);
+  --color-text-title: var(--color-white);
   --color-text-logo: var(--color-slate);
   --color-background-logo: var(--color-white);
   --color-background-page: var(--color-slate);

@@ -47,9 +47,10 @@ class App extends React.Component<{}, { spacingSize: string, mode: string }> {
       <form>
         <label htmlFor="auto-layout">Apply An Auto Layout To Selection With Spacing</label>
         <select name="auto-layout" value={this.state.spacingSize} onChange={this.handleSpacingChange}>
+          <option value="">--please choose a size--</option>
           {sizeToken.map(token => <option key={`size-option-${token.name}`} value={token.value}>{token.name}</option>)}
         </select>
-        <button type="submit" onClick={this.onCreateAutoLayout}>Apply Auto Layout</button>
+        <button type="button" onClick={this.onCreateAutoLayout}>Apply Auto Layout</button>
       </form>
 
       <hr />
@@ -60,12 +61,12 @@ class App extends React.Component<{}, { spacingSize: string, mode: string }> {
           <option key='mode-normal' value=''>normal</option>
           <option key='mode-dark' value='dark'>dark</option>
         </select>
-        <button onClick={this.onSyncTokens}>Sync Tokens</button>
+        <button type="button" onClick={this.onSyncTokens}>Sync Tokens</button>
       </form>
 
       <hr />
 
-      <button onClick={this.onCancel}>Close Plugin</button>
+      <button type="button" onClick={this.onCancel}>Close Plugin</button>
     </div>
   }
 }

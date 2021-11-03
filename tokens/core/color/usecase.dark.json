@@ -5,7 +5,13 @@
             "logo": { "value": "{color.white.value}" }
         },
         "text": {
-            "logo": { "value": "{color.slate.value}" }
+            "logo": { "value": "{color.slate.value}" },
+            "title": {
+                "value": "{color.white.value}"
+            },
+            "body": {
+                "value": "{color.white.value}"
+            }
         }
     }
 }

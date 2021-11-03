@@ -2,11 +2,13 @@
 
 <!--
   Do not edit directly
-  Generated on Wed, 03 Nov 2021 18:27:01 GMT
+  Generated on Wed, 03 Nov 2021 22:29:20 GMT
 -->
 <resources>
   <color name="color_background_page">#ff262a33</color>
   <color name="color_background_logo">#ffffffff</color>
   <color name="color_text_logo">#ff262a33</color>
+  <color name="color_text_title">#ffffffff</color>
+  <color name="color_text_body">#ffffffff</color>
   
 </resources>
