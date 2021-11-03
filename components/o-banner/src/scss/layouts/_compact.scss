@@ -4,7 +4,7 @@
 
 	@include oGridRespondTo(S) {
 		width: oGridColspan(7);
-		margin: $_o-banner-spacing / 2;
+		margin: div($_o-banner-spacing, 2);
 	}
 
 	@include oGridRespondTo(M) {
@@ -16,7 +16,7 @@
 	}
 
 	@include oGridRespondTo(XL) {
-		width: map-get($o-grid-layouts, XL) / 2.5; // width is 40% grid
+		width: div(map-get($o-grid-layouts, XL), 2.5); // width is 40% grid
 		left: calc((100vw - #{map-get($o-grid-layouts, XL)}) / 2); // ((viewport - grid width) / 2)
 	}
 }

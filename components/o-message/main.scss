@@ -1,3 +1,4 @@
+@import '@financial-times/math';
 @import '@financial-times/o-spacing/main';
 @import '@financial-times/o-brand/main';
 @import '@financial-times/o-buttons/main';
@@ -151,7 +152,7 @@
 	@if $alert {
 		// Icon svgs are drawn to a 40px grid with 10px whitespace either side.
 		// This is what the size of the close alert would be without the whitespace.
-		$true-alert-icon-size: $_o-message-alert-icon-size / 2;
+		$true-alert-icon-size: div($_o-message-alert-icon-size, 2);
 		$alert-icon-left-padding: oSpacingByName('s4');
 		$alert-icon-right-padding: oSpacingByName('s2');
 

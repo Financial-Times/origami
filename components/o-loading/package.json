@@ -24,7 +24,7 @@
   "peerDependencies": {
     "@financial-times/o-brand": "^4.0.2",
     "@financial-times/o-colors": "^6.0.1",
-    "sass-mq": "^5.0.1"
+    "@financial-times/sass-mq": "^5.0.2"
   },
   "engines": {
     "npm": "^7"

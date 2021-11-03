@@ -26,7 +26,7 @@
 				border-radius: 50%;
 				height: $_o-forms-spacing-three;
 				width: $_o-forms-spacing-three;
-				margin: $_o-forms-spacing-three / 2;
+				margin: div($_o-forms-spacing-three, 2);
 				opacity: 0;
 				@media screen and (-ms-high-contrast: active) {
 					background-color: windowText;

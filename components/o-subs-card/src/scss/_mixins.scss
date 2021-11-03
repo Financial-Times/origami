@@ -204,7 +204,7 @@
 
 	.o-subs-card {
 		// no collapsing margins in display flex
-		margin: oSpacingByName('s3') $o-subs-card-horizontal-margin / 2;
+		margin: oSpacingByName('s3') div($o-subs-card-horizontal-margin, 2);
 	}
 
 	.o-subs-card,

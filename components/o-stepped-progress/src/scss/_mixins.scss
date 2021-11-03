@@ -55,7 +55,7 @@
 		width: 100%;
 		height: _oSteppedProgressGet('bar-weight');
 		position: absolute;
-		top: (_oSteppedProgressGet('step-size') / 2) - (_oSteppedProgressGet('bar-weight') / 2);
+		top: (div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2));
 		background-color: _oSteppedProgressGet('default-color');
 
 		// IE hacks:
@@ -161,7 +161,7 @@
 			width: 100vw;
 			height: _oSteppedProgressGet('bar-weight');
 			position: absolute;
-			top: (_oSteppedProgressGet('step-size') / 2) - (_oSteppedProgressGet('bar-weight') / 2);
+			top: (div(_oSteppedProgressGet('step-size'), 2)) - (div(_oSteppedProgressGet('bar-weight'), 2));
 			right: 50%;
 			z-index: -5;
 			background-color: _oSteppedProgressGet('interacted-color');
@@ -261,14 +261,14 @@
 		// Progress bars
 		&::before {
 			height: _oSteppedProgressGet('bar-weight', $variant);
-			top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
+			top: (div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2));
 		}
 		.o-stepped-progress__step--complete,
 		.o-stepped-progress__step--current,
 		.o-stepped-progress__step--error {
 			&::after {
 				height: _oSteppedProgressGet('bar-weight', $variant);
-				top: (_oSteppedProgressGet('step-size', $variant) / 2) - (_oSteppedProgressGet('bar-weight', $variant) / 2);
+				top: (div(_oSteppedProgressGet('step-size', $variant), 2)) - (div(_oSteppedProgressGet('bar-weight', $variant), 2));
 			}
 		}
 

@@ -89,7 +89,7 @@
 		@include oGridRespondTo($from: $draw-breakpoint) {
 			display: flex;
 			margin: 0 0 0 auto;
-			padding: oSpacingByName('s3')/2 $_o-header-services-padding;
+			padding: div(oSpacingByName('s3'), 2) $_o-header-services-padding;
 		}
 
 		li {

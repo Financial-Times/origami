@@ -5,10 +5,10 @@
 $o-message-is-silent: true !default;
 
 //Icons
-$_o-message-alert-icon-size: (40/16) * 1rem;
-$_o-message-alert-icon-inbuilt-space: $_o-message-alert-icon-size / 4;
-$_o-message-close-icon-size: (26/16) * 1rem;
-$_o-message-close-icon-inbuilt-space: $_o-message-close-icon-size / 4;
+$_o-message-alert-icon-size: div(40, 16) * 1rem;
+$_o-message-alert-icon-inbuilt-space: $_o-message-alert-icon-size * 0.25;
+$_o-message-close-icon-size: div(26, 16) * 1rem;
+$_o-message-close-icon-inbuilt-space: $_o-message-close-icon-size * 0.25;
 
 //Spacing
 $_o-message-default-content-spacing:  oSpacingByName('s4');
@@ -19,7 +19,7 @@ $_o-message-default-inline-spacing:  oSpacingByName('s6');
 // Spacing for close button area.
 // Icon svgs are drawn to a 40px grid with 10px whitespace either side.
 // This is what the size of the close icon would be without the whitespace.
-$_o-message-true-close-icon-size: $_o-message-close-icon-size / 2;
+$_o-message-true-close-icon-size: div($_o-message-close-icon-size, 2);
 $_o-message-close-inline-spacing:  calc(#{$_o-message-true-close-icon-size} + #{oSpacingByName('s4') * 2});
 
 /// List of states that can be applied to alert type messages

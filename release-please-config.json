@@ -48,6 +48,7 @@
 		"components/o-video": {},
 		"components/o-viewport": {},
 		"components/o-visual-effects": {},
+		"libraries/math": {},
 		"libraries/o-autoinit": {},
 		"libraries/o-brand": {},
 		"libraries/o-errors": {},

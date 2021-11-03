@@ -93,10 +93,10 @@
 
 	@include describe('function: oGridColspan') {
 		@include it('should return the number (%) of the width of the element in a 12 column grid (default)') {
-			@include assert-equal(oGridColspan(1/2), (50%));
-			@include assert-equal(oGridColspan(1/4), (25%));
-			@include assert-equal(round(oGridColspan(1/3)), round((33.33333%)));
-			@include assert-equal(round(oGridColspan(2/3)), round((66.66667%)));
+			@include assert-equal(oGridColspan(div(1, 2)), (50%));
+			@include assert-equal(oGridColspan(div(1, 4)), (25%));
+			@include assert-equal(round(oGridColspan(div(1, 3))), round((33.33333%)));
+			@include assert-equal(round(oGridColspan(div(2, 3))), round((66.66667%)));
 			@include assert-equal(round(oGridColspan(1)), round((8.33333%)));
 			@include assert-equal(round(oGridColspan(2)), round((16.66667%)));
 			@include assert-equal(oGridColspan(3), (25%));
