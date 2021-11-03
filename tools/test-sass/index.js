@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
-import {$} from "zx"
+import {$} from 'zx'
+import {globbySync as glob} from 'globby'
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import {globbySync as glob} from "globby"
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const sassTestFiles = glob('./test/**/index.test.scss', {onlyFiles: true})
+
 if (sassTestFiles.length) {
   try {
-    await $`mocha ../../tools/test-sass/sass-test-suite.js`
+    await $`mocha ${__dirname}/sass-test-suite.js`
   } catch {
     process.exitCode = 1;
   }
