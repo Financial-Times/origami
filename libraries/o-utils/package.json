@@ -18,7 +18,6 @@
     "npm": "^7"
   },
   "scripts": {
-    "lint": "echo Skipping lint: not configured",
     "test": "mocha test"
   },
   "volta": {

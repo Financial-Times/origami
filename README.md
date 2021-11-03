@@ -90,6 +90,8 @@ git lfs install
 
 - If you need to install a dependency for a component you can run `npm install -w components/o-name dep@2`
 - To run `obt` for a specific component try `npm exec -w components/o-name obt dev`
+- If you're working on the storybook configuration and it starts acting weird and not working, try running it without the cache:
+  `npm run storybook -- --no-manager-cache`
 
 ## Contributing
 
