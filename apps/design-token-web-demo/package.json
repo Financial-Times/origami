@@ -1,0 +1,24 @@
+{
+  "name": "design-token-web-demo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir -p ./public && cp index.html ./public/ && sass ./main.scss --load-path='../../node_modules' | postcss --use postcss-custom-properties --output ./public/main.css --map",
+    "dev": "npm run build && serve ./public & nodemon --watch index.html --watch main.scss -x 'npm run build'"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-custom-properties": "^11.0.0",
+    "sass": "^1.37.5",
+    "serve": "^12.0.0"
+  },
+  "dependencies": {
+    "@financial-times/style-dictionary-design-tokens": "0.0.0"
+  }
+}

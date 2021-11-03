@@ -41,7 +41,9 @@
     "components/*",
     "libraries/*",
     "presets/*",
-    "tools/*"
+    "tools/*",
+    "tokens",
+    "apps/style-dictionary-design-tokens"
   ],
   "devDependencies": {
     "@babel/core": "^7.15.5",

@@ -1,0 +1,141 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 03 Nov 2021 18:19:59 GMT
+ */
+:root {
+  --size-line-height-metric-minus-1: 16rem;
+  --size-line-height-metric-minus-2: 16rem;
+  --size-line-height-metric-10: 84rem;
+  --size-line-height-metric-9: 72rem;
+  --size-line-height-metric-8: 56rem;
+  --size-line-height-metric-7: 48rem;
+  --size-line-height-metric-6: 40rem;
+  --size-line-height-metric-5: 32rem;
+  --size-line-height-metric-4: 32rem;
+  --size-line-height-metric-3: 28rem;
+  --size-line-height-metric-2: 24rem;
+  --size-line-height-metric-1: 20rem;
+  --size-line-height-metric-0: 20rem;
+  --size-font-metric-minus-1: 14rem;
+  --size-font-metric-minus-2: 12rem;
+  --size-font-metric-10: 84rem;
+  --size-font-metric-9: 72rem;
+  --size-font-metric-8: 56rem;
+  --size-font-metric-7: 48rem;
+  --size-font-metric-6: 40rem;
+  --size-font-metric-5: 32rem;
+  --size-font-metric-4: 28rem;
+  --size-font-metric-3: 24rem;
+  --size-font-metric-2: 20rem;
+  --size-font-metric-1: 18rem;
+  --size-font-metric-0: 16rem;
+  --size-space-l24: 96rem;
+  --size-space-l18: 72rem;
+  --size-space-m16: 64rem;
+  --size-space-m12: 48rem;
+  --size-space-s8: 32rem;
+  --size-space-s6: 24rem;
+  --size-space-s4: 16rem;
+  --size-space-s3: 12rem;
+  --size-space-s2: 8rem;
+  --size-space-s1: 4rem;
+  --color-matisse: #355778;
+  --color-org-b2c-light: #99c6fb;
+  --color-org-b2c-dark: #3a70af;
+  --color-org-b2c: #4e96eb;
+  --color-crimson: #cc0000;
+  --color-jade: #00994d;
+  --color-wasabi: #96cc28;
+  --color-candy: #ff7faa;
+  --color-lemon: #ffec1a;
+  --color-mandarin: #ff8833;
+  --color-velvet: #593380;
+  --color-slate: #262a33;
+  --color-sky: #cce6ff;
+  --color-wheat: #f2dfce;
+  --color-wheat-100: #ffebd9;
+  --color-teal: #0d7680;
+  --color-teal-100: #1aebff;
+  --color-teal-90: #17d4e6;
+  --color-teal-80: #15bccc;
+  --color-teal-70: #12a5b3;
+  --color-teal-60: #108d99;
+  --color-teal-50: #0d7680;
+  --color-teal-40: #0a5e66;
+  --color-teal-30: #08474d;
+  --color-teal-20: #052f33;
+  --color-oxford: #0f5499;
+  --color-oxford-100: #198cff;
+  --color-oxford-90: #177ee6;
+  --color-oxford-80: #1470cc;
+  --color-oxford-70: #1262b3;
+  --color-oxford-60: #0f5499;
+  --color-oxford-50: #0d4680;
+  --color-oxford-40: #0a3866;
+  --color-oxford-30: #082a4d;
+  --color-claret: #990f3d;
+  --color-claret-100: #ff1966;
+  --color-claret-90: #e6175c;
+  --color-claret-80: #cc1451;
+  --color-claret-70: #b31247;
+  --color-claret-60: #990f3d;
+  --color-claret-50: #800d33;
+  --color-claret-40: #660a29;
+  --color-claret-30: #4d081f;
+  --color-paper: #fff1e5;
+  --color-black: #000000;
+  --color-black-90: #1a1817;
+  --color-black-80: #33302e;
+  --color-black-70: #4d4845;
+  --color-black-60: #66605c;
+  --color-black-50: #807973;
+  --color-black-40: #999189;
+  --color-black-30: #b3a9a0;
+  --color-black-20: #ccc1b7;
+  --color-black-10: #e6d9ce;
+  --color-black-5: #f2e5da;
+  --color-white: #ffffff;
+  --color-ft-grey: #333333;
+  --color-ft-pink: #fcd0b1;
+  --color-text-opinion: var(--color-black-20);
+  --color-text-muted: var(--color-black-20);
+  --color-text-body: var(--color-black-80);
+  --color-text-title: var(--color-black);
+  --color-text-opinion-tag-link-hover: var(--color-oxford-30);
+  --color-text-opinion-tag-link: var(--color-oxford);
+  --color-text-tag-link-hover: var(--color-claret-30);
+  --color-text-tag-link: var(--color-claret);
+  --color-text-link-title-hover: var(--color-black-70);
+  --color-text-link-title: var(--color-black-80);
+  --color-text-link-hover: var(--color-teal-30);
+  --color-text-link: var(--color-teal);
+  --color-text-logo: var(--color-ft-grey);
+  --color-outline-focus: var(--color-black-50);
+  --color-background-box: var(--color-wheat);
+  --color-background-logo: var(--color-ft-pink);
+  --color-background-page: var(--color-paper);
+}
+
+body {
+  background-color: #fff1e5;
+  background-color: var(--color-background-page);
+}
+
+button {
+  color: var(--color-button-primary-foreground);
+  background: var(--color-button-primary-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  /**
+   * Do not edit directly
+   * Generated on Wed, 03 Nov 2021 18:19:59 GMT
+   */
+  :root {
+    --color-text-logo: var(--color-slate);
+    --color-background-logo: var(--color-white);
+    --color-background-page: var(--color-slate);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
