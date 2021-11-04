@@ -134,6 +134,8 @@ a11y:
   - tools/a11y/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+sass-compilation:
+  - tools/sass-compilation/**/*
 test-javascript:
   - tools/test-javascript/**/*
 test-sass:
