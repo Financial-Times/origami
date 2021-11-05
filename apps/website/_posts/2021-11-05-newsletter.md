@@ -71,7 +71,7 @@ We've made use of the Storybook plugin system to add a custom HTML tab, similar 
 Storybook could also help us implement new components and keep in sync with the design team. We created a "design" tab to see a component's Figma design right alongside its actual working implementation.
 <img alt="" src="/assets/images/2021-11-05-newsletter/story-design.png" />
 
-In addition we've been hard at working bringing over our existing documentation alongside demos, such as component readme, migration guides, and changelog.
+In addition we've been hard at work bringing over our existing documentation alongside demos, such as component readme, migration guides, and changelog.
 <img alt="" src="/assets/images/2021-11-05-newsletter/story-migration.png" />
 
 We're also exited to make use of the existing plugin ecosystem. Checkout the accessibility tab which will check for issues such as colour contrast.
