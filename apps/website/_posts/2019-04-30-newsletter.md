@@ -18,7 +18,7 @@ We maintain a group of [image sets](https://registry.origami.ft.com/components?s
 
 ### Table Filtering
 
-[Last edition](/blog/2019/03/29/newsletter/) we announced an o-table beta with a new filter feature, this is now released as part of o-table@^7.3.0. See the [demo in the registry](https://registry.origami.ft.com/components/o-table@7.3.0#demo-filter) and documentation in the [README](https://registry.origami.ft.com/components/o-table@7.3.0/readme?brand=master#filtering).
+[Last edition](/blog/2019/03/29/newsletter/) we announced an o-table beta with a new filter feature, this is now released as part of o-table@^7.3.0. See the [demo in the registry](https://registry.origami.ft.com/components/o-table@7.3.0#demo-filter) and documentation in the [README](https://registry.origami.ft.com/components/o-table@7.3.0/readme?brand=core#filtering).
 
 ### New Polyfills
 

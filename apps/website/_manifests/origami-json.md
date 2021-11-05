@@ -97,7 +97,7 @@ The version of the [Origami specification](/spec/) the project follows. Note tha
 	</tr>
 </table>
 
-For components which support [brands](/docs/components/customisation/), an array of one or more brands: "master", "internal, "whitelabel".
+For components which support [brands](/docs/components/customisation/), an array of one or more brands: "core", "internal, "whitelabel".
 If the brands property does not exist, this means the component is unbranded and supports all the brands.
 
 ### keywords
@@ -332,7 +332,7 @@ Each object in the list accepts the following properties:
 - `sass`: type `String`. Describes the path to the demo-specific Sass file to compile.
 - `js`: type `String`. Describes the path to the demo-specific JS file to build.
 - `data`: type `Object` or `String`. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.
-- `brands`: type `Array`. For components which support [brands](/docs/components/branding/), this describes one or more brands which the demo applies to ("master", "internal, "whitelabel")
+- `brands`: type `Array`. For components which support [brands](/docs/components/branding/), this describes one or more brands which the demo applies to ("core", "internal, "whitelabel")
 - `documentClasses`: type `String`. Names CSS classes to set on the component-specific `html` tag
 - `dependencies`: type `Array`. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a>
 - `hidden`: type `Boolean`. Whether the demo should be hidden in the Registry
@@ -351,7 +351,7 @@ Each object in the list accepts the following properties:
 			"template": "demos/src/striped-table.mustache",
 			"sass": "demos/src/striped-table.scss",
 			"documentClasses": "demo-striped-table-container",
-			"brands": ["master", "internal"]
+			"brands": ["core", "internal"]
 		},
 		{
 			"name": "pa11y",
