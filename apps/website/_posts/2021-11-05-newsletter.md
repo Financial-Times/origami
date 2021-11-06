@@ -58,8 +58,6 @@ We're rolling out documentation changes next week. Keep a look out for that!
 
 ### Storybook
 
-Origami and Storybook sitting in a tree. K. I. S. S. I. N. G. Fist comes love, then comes...
-
 We've working on an [Origami Story](https://origami.ft.com/storybook/). We see it as an eventual replacement to our very custom [Origami component registry](https://registry.origami.ft.com/components?active=true&maintained=true). Why? Because we can maintain less code and take advantage of the substantial Storybook ecosystem. Let me tell you some of the reasons why that's super exciting.
 
 Our current component demos are static. Take the [o-button demos](https://registry.origami.ft.com/components/o-buttons@7.0.1) as an example. What you see is what you get. You can't experiment by changing the type of button, the icon, or button text. However in the [o-buttons Storybook](https://origami.ft.com/storybook/?path=/story/button--big) you can try updating a demo with your own content right in the browser under the "controls" tab.
@@ -68,7 +66,7 @@ Our current component demos are static. Take the [o-button demos](https://regist
 We've made use of the Storybook plugin system to add a custom HTML tab, similar to the existing registry, where Origami users can copy HTML from when building web products. Unlike our existing component registry this html changes when you toggle demo controls. This should make it much easier to experiment with a component, find the feature/variants you're looking for, then copy the HTML to implement it in your project.
 <img alt="" src="/assets/images/2021-11-05-newsletter/story-html.png" />
 
-Storybook could also help us implement new components and keep in sync with the design team. We created a "design" tab to see a component's Figma design right alongside its actual working implementation.
+Storybook could also help us implement new components and keep in sync with the design team. We added a "design" tab to see a component's Figma design right alongside its actual working implementation.
 <img alt="" src="/assets/images/2021-11-05-newsletter/story-design.png" />
 
 In addition we've been hard at work bringing over our existing documentation alongside demos, such as component readme, migration guides, and changelog.
