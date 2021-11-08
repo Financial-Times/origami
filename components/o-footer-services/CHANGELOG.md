@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.0.4...o-footer-services-v4.1.0) (2021-11-08)
+
+
+### Features
+
+* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+
 ### [4.0.4](https://www.github.com/Financial-Times/origami/compare/o-footer-services-v4.0.3...o-footer-services-v4.0.4) (2021-11-02)
 
 

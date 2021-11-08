@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-footer-services",
-  "version": "4.0.4",
+  "version": "4.1.0",
   "description": "This is a legally approved footer component for internal products, tooling and customer products",
   "keywords": [
     "footer, note, legal, copyright, logo, contact"
