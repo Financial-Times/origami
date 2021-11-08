@@ -7,7 +7,6 @@ const verifyDotNpmignoreFile = require("./verify-dot-npmignore");
 const verifyPackageJsonFile = require("./verify-package-json");
 const verifyJavaScript = require("./verify-javascript");
 const verifySass = require("./verify-sass");
-const verifyReadme = require("./verify-readme");
 const process = require("process");
 
 module.exports = function(cfg) {
@@ -19,7 +18,6 @@ module.exports = function(cfg) {
 			verifyDotNpmignoreFile(config),
 			verifyOrigamiJsonFile(config),
 			verifyPackageJsonFile(config),
-			verifyReadme(config),
 			verifyJavaScript(config),
 			verifySass(config),
 		],
