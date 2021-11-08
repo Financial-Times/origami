@@ -19,7 +19,8 @@ let postFileName = process.argv[2];
 
 let match = postFileName.match(/(\d{4})-(\d{2})-(\d{2})-newsletter.md$/);
 
-let postUrl = `https://origami.ft.com/blog/${match[1]}/${match[2]}/${match[3]}/newsletter/`;
+let postHost = `https://origami.ft.com`;
+let postUrl = `${postHost}/blog/${match[1]}/${match[2]}/${match[3]}/newsletter/`;
 
 const reader = createReadStream(postFileName, 'utf-8');
 
@@ -63,7 +64,7 @@ class FieldMachine {
 		return `---
 title: ${this.title}
 companion_post_url: ${this.postUrl}
---- 
+---
 
 <!-- TL;DR -->
 {% capture text %}
@@ -155,7 +156,7 @@ visit(
 			}
 		} else if (machine.state == 'thing-1') {
 			if (node.type == 'heading' && node.depth == 3) {
-				machine.things[0].content = machine.spit();
+				machine.things[0].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.things[1] = {
 					title: toString(node),
 				};
@@ -165,7 +166,7 @@ visit(
 			}
 		} else if (machine.state == 'thing-2') {
 			if (node.type == 'heading' && node.depth == 3) {
-				machine.things[1].content = machine.spit();
+				machine.things[1].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.things[2] = {
 					title: toString(node),
 				};
@@ -175,14 +176,14 @@ visit(
 			}
 		} else if (machine.state == 'thing-3') {
 			if (node.type == 'heading' && node.depth == 2) {
-				machine.things[2].content = machine.spit();
+				machine.things[2].content = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.state = 'thanks';
 			} else if (parents.length == 1) {
 				machine.swallow(node);
 			}
 		} else if (machine.state == 'thanks') {
 			if (node.type == 'heading' && node.depth == 2) {
-				machine.thanks = machine.spit();
+				machine.thanks = machine.spit().replace(/(?<=src=["'])\/assets/g, `${postHost}/assets`);
 				machine.state = 'changelog';
 			} else if (parents.length == 1) {
 				machine.swallow(node);
