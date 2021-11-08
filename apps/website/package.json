@@ -9,7 +9,13 @@
   },
   "devDependencies": {
     "@octokit/rest": "^18.5.3",
-    "pa11y-ci": "^2.4.1"
+    "mdast-util-from-markdown": "^1.0.4",
+    "mdast-util-frontmatter": "^1.0.0",
+    "mdast-util-to-markdown": "^1.2.3",
+    "mdast-util-to-string": "^3.1.0",
+    "micromark-extension-frontmatter": "^1.0.0",
+    "pa11y-ci": "^2.4.1",
+    "unist-util-visit-parents": "^5.1.0"
   },
   "scripts": {
     "snyk-protect": "snyk protect",
