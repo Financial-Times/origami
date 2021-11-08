@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-layout",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "Provides page layouts and typography as a starting point to create internal tools or products.",
   "keywords": [
     "layout",
@@ -23,7 +23,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-fonts": "^5.0.0",
     "@financial-times/o-grid": "^6.0.0",

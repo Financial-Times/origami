@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-header",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "description": "Responsive Financial Times page header with primary and secondary navigation, a drop down mega menu, and a collapsible drawer",
   "keywords": [
     "header",
@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "@financial-times/math": "^1.0.0",
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-grid": "^6.0.0",

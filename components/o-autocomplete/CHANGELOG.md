@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.1](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.4.0...o-autocomplete-v1.4.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* pin components to latest o-brand, or greater ([3a6ccea](https://www.github.com/Financial-Times/origami/commit/3a6ccea1e838e4a2003322ca1f855d0b87b26b60))
+
 ## [1.4.0](https://www.github.com/Financial-Times/origami/compare/o-autocomplete-v1.3.2...o-autocomplete-v1.4.0) (2021-11-08)
 
 

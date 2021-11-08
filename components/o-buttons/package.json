@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-buttons",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "FT buttons styles. Provides customisation options with the FT colour palette.",
   "keywords": [
     "pagination"
@@ -19,7 +19,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-colors": "^6.0.1",
     "@financial-times/o-icons": "^7.0.0",
     "@financial-times/o-normalise": "^3.0.0",
