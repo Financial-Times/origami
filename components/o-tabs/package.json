@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tabs",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "Tabs component for dividing content into meaningful sections.",
   "keywords": [
     "tabs",
