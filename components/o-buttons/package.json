@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-buttons",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "FT buttons styles. Provides customisation options with the FT colour palette.",
   "keywords": [
     "pagination"
