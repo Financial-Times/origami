@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.0.3...o-forms-v9.1.0) (2021-11-08)
+
+
+### Features
+
+* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+
 ### [9.0.3](https://www.github.com/Financial-Times/origami/compare/o-forms-v9.0.2...o-forms-v9.0.3) (2021-11-02)
 
 

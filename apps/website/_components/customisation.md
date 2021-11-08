@@ -44,12 +44,12 @@ Most Origami components are branded to provide a distinct appearance within diff
 ### Supported brands
 
 Origami maintained brands include:
-- master: FT branding for public ft.com sites and affiliates.
+- core: FT branding for public ft.com sites and affiliates.
 - internal: Style suitable for tools, documentation, and internal products.
 - whitelabel: Base, structural styles only to build on and customise.
 
-Taking `o-table` as an example, the "master" brand version offers a "row stripes" feature, which uses "master" brand colours such as "paper" and "wheat":
-{% include demo.html component="o-table" demo="row-stripes" brand="master" height="242px" %}
+Taking `o-table` as an example, the "core" brand version offers a "row stripes" feature, which uses "core" brand colours such as "paper" and "wheat":
+{% include demo.html component="o-table" demo="row-stripes" brand="core" height="242px" %}
 
 The "internal" brand version also supports "row stripes" but uses a different colour palette:
 {% include demo.html component="o-table" demo="row-stripes" brand="internal" height="242px" %}
@@ -57,9 +57,11 @@ The "internal" brand version also supports "row stripes" but uses a different co
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
 {% include demo.html component="o-table" demo="basic" brand="whitelabel" height="256px" %}
 
+_Note: The "core" brand used to be known as the "master" brand. You may find references to "master" instead of "core" in older projects._
+
 ### Choose A Brand
 
-The "master" brand is the default brand, but your project may use any of the provided Origami brands. The brand is configured once and affects all components used by your project.
+The "core" brand is the default brand, but your project may use any of the provided Origami brands. The brand is configured once and affects all components used by your project.
 
 To select a brand within your project, see the tutorial for your method of including Origami components:
 
@@ -68,7 +70,7 @@ To select a brand within your project, see the tutorial for your method of inclu
 
 ### Customise A Brand
 
-If your project has access to a component's Sass API (see the [package manager (npm) tutorial](/docs/tutorials/manual-build/#selecting-a-brand)) it is possible to customise your chosen brand. For example, at the time of writing, the [`oTypographySetFont`](https://registry.origami.ft.com/components/o-typography@6.4.5/sassdoc?brand=master#mixin-otypographysetfont) mixin can be used to customise component fonts. This customises the font used by all components included in your project.
+If your project has access to a component's Sass API (see the [package manager (npm) tutorial](/docs/tutorials/manual-build/#selecting-a-brand)) it is possible to customise your chosen brand. For example, at the time of writing, the [`oTypographySetFont`](https://registry.origami.ft.com/components/o-typography@6.4.5/sassdoc?brand=core#mixin-otypographysetfont) mixin can be used to customise component fonts. This customises the font used by all components included in your project.
 
 <aside>
 Not all components support brand customisation but the Origami team are happy for support to be added as needed. Ask the core Origami team about new features in the <a href="https://financialtimes.slack.com/messages/{{site.data.contact.slack}}">#{{site.data.contact.slack}}</a> Slack channel.
@@ -104,13 +106,13 @@ $o-brand: 'whitelabel';
 
 This is great to create a distinct brand, where a customisation should affect all instances of a component across a project.
 
-If your project is based on the master or internal brand, however, it is more likely that you want to create new variants of a component to use alongside existing ones. For example to output an additional banner style to support a new marketing campaign.
+If your project is based on the core or internal brand, however, it is more likely that you want to create new variants of a component to use alongside existing ones. For example to output an additional banner style to support a new marketing campaign.
 
 ## Variants
 
 If your project has access to a component's Sass (see the [manual build tutorial](/docs/tutorials/manual-build/#selecting-a-brand)) your project may use Sass mixins to customise components by outputting a new variant of that component. A component variant is an instance of a component with modified appearance or functionality.
 
-For instance, at the time of writing, the `o-banner` component has an [`oBannerAddTheme` mixin](https://registry.origami.ft.com/components/o-banner@3.4.2/sassdoc?brand=master#mixin-obanneraddtheme) which provides options for creating a banner variant with customised colour and background image:
+For instance, at the time of writing, the `o-banner` component has an [`oBannerAddTheme` mixin](https://registry.origami.ft.com/components/o-banner@3.4.2/sassdoc?brand=core#mixin-obanneraddtheme) which provides options for creating a banner variant with customised colour and background image:
 
 <pre><code class="o-syntax-highlight--scss">@include oBannerAddTheme('my-pikachu-variant', (
     background-image: url('https://example.org/pikachu.png'),

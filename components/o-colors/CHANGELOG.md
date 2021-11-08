@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.2.1...o-colors-v6.3.0) (2021-11-08)
+
+
+### Features
+
+* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+
 ### [6.2.1](https://www.github.com/Financial-Times/origami/compare/o-colors-v6.2.0...o-colors-v6.2.1) (2021-11-02)
 
 

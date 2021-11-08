@@ -96,7 +96,7 @@ For compatibility with existing Origami projects, `o-spacing` outputs `px` value
 	}
 ```
 
-_If using `o-typography` set [$o-typography-relative-units](https://registry.origami.ft.com/components/o-typography@5.11.3/sassdoc?brand=master#variable-o-typography-relative-units) also._
+_If using `o-typography` set [$o-typography-relative-units](https://registry.origami.ft.com/components/o-typography@5.11.3/sassdoc?brand=core#variable-o-typography-relative-units) also._
 
 ### Named Space
 

@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-normalise",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Provides base styles and resets for stylesheets. Includes standardised utilities, such as visually hiding components or adding a consistent focus state.",
   "keywords": [
     "normalise",

@@ -21,7 +21,7 @@ The "Create A New Origami Component" tutorial is split into eight parts and is i
 
 Usually the Origami team will own an Origami component which is used by multiple teams or groups, but anybody can create and share an Origami component.
 
-In this tutorial we'll build an Origami component. Our example component will display a "hello world" message and include a button which will count the number of times it was clicked. Visually the component will include multiple variations to suit reader facing (master brand) and internal (internal brand) projects. We'll also discuss how to document and publish an Origami component so it is visible in the [Origami Registry](https://registry.origami.ft.com/components).
+In this tutorial we'll build an Origami component. Our example component will display a "hello world" message and include a button which will count the number of times it was clicked. Visually the component will include multiple variations to suit reader facing (core brand) and internal (internal brand) projects. We'll also discuss how to document and publish an Origami component so it is visible in the [Origami Registry](https://registry.origami.ft.com/components).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ For this tutorial we will select the most common `components` category.
 
 ### Supported Brands
 
-Component brands facilitate [component customisation](/spec/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `master` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `master`, `internal`, and `whitelabel` brand when prompted by `obt init`.
+Component brands facilitate [component customisation](/spec/v1/components/sass/#customisation). Brands change the appearance of component elements globally, e.g. change the appearance of all “primary” buttons, including where they are used by other components. Brands include `core` (think, ft.com pink), `internal` for internal tools and products, and `whitelabel` for a striped-back un-opinionated style. Origami components may support one or more brands. We'll discuss brands more later, for now select the `core`, `internal`, and `whitelabel` brand when prompted by `obt init`.
 
 ### Support Status
 

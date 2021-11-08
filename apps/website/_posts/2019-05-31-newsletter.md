@@ -20,7 +20,7 @@ This month we released a new version of `o-forms@^7.0.0` with some major improve
 - We've included a new markdown document about form accessibility.
 - We've included a new interactive error summary alongside built-in form validation.
 
-You can find [o-forms demos](https://registry.origami.ft.com/components/o-forms@7.0.3) and the [migration guide](https://registry.origami.ft.com/components/o-forms@7.0.3/readme?brand=master#migration) in the registry.
+You can find [o-forms demos](https://registry.origami.ft.com/components/o-forms@7.0.3) and the [migration guide](https://registry.origami.ft.com/components/o-forms@7.0.3/readme?brand=core#migration) in the registry.
 
 ### o-spacing
 

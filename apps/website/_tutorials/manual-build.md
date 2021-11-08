@@ -232,9 +232,9 @@ As soon as your build has completed, visit your page again in the browser. You s
 
 ### Selecting A Brand
 
-By default Origami components are tailored for public facing, ft.com products -- these are known as "master brand" products. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
+By default Origami components are tailored for public facing, ft.com products -- these are known as "core brand" products. But Origami components offer tailored support for other contexts with component [branding](/docs/components/branding/).
 
-To choose a brand other than the default "master" brand, set the `$o-brand` <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> variable at the start of your root <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> file, before importing any components.
+To choose a brand other than the default "core" brand, set the `$o-brand` <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> variable at the start of your root <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> file, before importing any components.
 
 To see this in action we can set our brand to "internal":
 <pre><code class="o-syntax-highlight--scss">$o-brand: "internal"; // Set brand before anything else.
@@ -243,7 +243,7 @@ To see this in action we can set our brand to "internal":
 
 As the colour palette for the "internal" brand does not include "paper" (FT pink), the background we set with `o-colors` and the stripes of `o-table` have changed. The typography of our project has also changed.
 
-Now we will undo that by deleting `$o-brand: "internal";`, making our project default to the "master" brand again.
+Now we will undo that by deleting `$o-brand: "internal";`, making our project default to the "core" brand again.
 
 For a list of supported brands and their purpose see [component brands](/docs/components/branding/).
 
