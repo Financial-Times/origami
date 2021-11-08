@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.1.1](https://www.github.com/Financial-Times/origami/compare/o-message-v5.1.0...o-message-v5.1.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* pin components to latest o-brand, or greater ([3a6ccea](https://www.github.com/Financial-Times/origami/commit/3a6ccea1e838e4a2003322ca1f855d0b87b26b60))
+
 ## [5.1.0](https://www.github.com/Financial-Times/origami/compare/o-message-v5.0.2...o-message-v5.1.0) (2021-11-08)
 
 

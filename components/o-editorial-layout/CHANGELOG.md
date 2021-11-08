@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.2.0...o-editorial-layout-v2.2.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* pin components to latest o-brand, or greater ([3a6ccea](https://www.github.com/Financial-Times/origami/commit/3a6ccea1e838e4a2003322ca1f855d0b87b26b60))
+
 ## [2.2.0](https://www.github.com/Financial-Times/origami/compare/o-editorial-layout-v2.1.2...o-editorial-layout-v2.2.0) (2021-11-08)
 
 
