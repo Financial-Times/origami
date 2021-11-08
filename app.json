@@ -6,6 +6,9 @@
   "addons": [],
   "buildpacks": [
     {
+      "url": "raxod502/heroku-buildpack-git-lfs"
+    },
+    {
       "url": "heroku/ruby"
     },
     {
