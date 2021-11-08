@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-tabs",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "Tabs component for dividing content into meaningful sections.",
   "keywords": [
     "tabs",
@@ -21,7 +21,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-buttons": "^7.0.0",
     "@financial-times/o-colors": "^6.0.1"
   },
