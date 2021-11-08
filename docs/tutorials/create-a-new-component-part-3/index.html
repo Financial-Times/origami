@@ -184,7 +184,7 @@
 
 <p>Origami components are used by products across the Financial Times Group, and some groups require a distinct appearance from others; internal tools have a distinct style from ft.com products for example. To cater for these broad usecases, the appearance of Origami components may be changed within a project by choosing a “brand”:</p>
 <ul>
-  <li>master: FT branding for public ft.com sites and affiliates.</li>
+  <li>core: FT branding for public ft.com sites and affiliates.</li>
   <li>internal: Style suitable for internal products, tools, and documentation.</li>
   <li>whitelabel: Base, structural styles only to build on and customise.</li>
 </ul>
@@ -193,9 +193,9 @@
 
 <h3 id="supported-brands">Supported Brands</h3>
 
-<p>Origami components may support one or more brand. The brands a component supports are defined along with other component details in <a href="/spec/v1/manifest/#brands"><code class="language-plaintext highlighter-rouge">origami.json</code></a>, by the <code class="language-plaintext highlighter-rouge">brands</code> property. If <code class="language-plaintext highlighter-rouge">brands</code> is not set the component is “unbranded” and implicitly only supports the “master” brand.</p>
+<p>Origami components may support one or more brand. The brands a component supports are defined along with other component details in <a href="/spec/v1/manifest/#brands"><code class="language-plaintext highlighter-rouge">origami.json</code></a>, by the <code class="language-plaintext highlighter-rouge">brands</code> property. If <code class="language-plaintext highlighter-rouge">brands</code> is not set the component is “unbranded” and implicitly only supports the “core” brand.</p>
 
-<p>When prompted by <code class="language-plaintext highlighter-rouge">obt init</code> in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a> we select all brands, so the <code class="language-plaintext highlighter-rouge">origami.json</code> file of our component should include an array of each brand <code class="language-plaintext highlighter-rouge">"brands": ["master","internal","whitelabel"],</code>. If not, update your <code class="language-plaintext highlighter-rouge">origami.json</code> now.</p>
+<p>When prompted by <code class="language-plaintext highlighter-rouge">obt init</code> in <a href="/docs/tutorials/create-a-new-component-part-1">part one</a> we select all brands, so the <code class="language-plaintext highlighter-rouge">origami.json</code> file of our component should include an array of each brand <code class="language-plaintext highlighter-rouge">"brands": ["core","internal","whitelabel"],</code>. If not, update your <code class="language-plaintext highlighter-rouge">origami.json</code> now.</p>
 
 <h3 id="switching-brands-in-development">Switching Brands In Development</h3>
 
@@ -224,8 +224,8 @@
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
 		),
@@ -235,28 +235,28 @@
 
 <p>Lets break down what this is doing.</p>
 
-<p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGetCurrentBrand</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">master</code> brand:</p>
+<p>First, we check if the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand using the <code class="language-plaintext highlighter-rouge">o-brand</code> function <code class="language-plaintext highlighter-rouge">oBrandGetCurrentBrand</code> and a <a href="https://sass-lang.com/documentation/at-rules/control/if">Sass if statement</a>. We do this to ensure the Sass within the <code class="language-plaintext highlighter-rouge">if</code> statement is only evaluated when the brand is the <code class="language-plaintext highlighter-rouge">core</code> brand:</p>
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'master' {
+@if oBrandGetCurrentBrand() == 'core' {
 	//...
 }</code></pre>
 
-<p>Second, we call the mixin <code class="language-plaintext highlighter-rouge">oBrandDefine</code>, which will let us set component configuration for a given brand. In this case we are configuring our <code class="language-plaintext highlighter-rouge">o-example</code> component for the <code class="language-plaintext highlighter-rouge">master</code> brand.</p>
+<p>Second, we call the mixin <code class="language-plaintext highlighter-rouge">oBrandDefine</code>, which will let us set component configuration for a given brand. In this case we are configuring our <code class="language-plaintext highlighter-rouge">o-example</code> component for the <code class="language-plaintext highlighter-rouge">core</code> brand.</p>
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
-        // brand configuration for the master brand here..
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
+        // brand configuration for the core brand here..
     ));
 }</code></pre>
 
 <p>Third, we pass configuration to <code class="language-plaintext highlighter-rouge">oBrandDefine</code> for the brand. We set a brand variable <code class="language-plaintext highlighter-rouge">border-color</code> within a <code class="language-plaintext highlighter-rouge">variables</code> map, to the value of the slate colour <code class="language-plaintext highlighter-rouge">oColorsByName('slate')</code>. We also set a property <code class="language-plaintext highlighter-rouge">supports-variants</code>, which we will discuss more shortly.</p>
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
 		),
@@ -268,9 +268,9 @@
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-// Add master brand configuration.
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+// Add core brand configuration.
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate')
 		),
@@ -322,13 +322,13 @@
 		margin: oSpacingByName('s1');
 	}</code></pre>
 
-<p>Now when we run <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code> we get a different error! The error is <code class="language-plaintext highlighter-rouge">Could not find a colour for the "box" "background" usecase.</code>. That’s because the whitelabel brand does not support the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#usecases">box colour usecase</a> we used to set a background. Unlike the master and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable <code class="language-plaintext highlighter-rouge">background-color</code> so we can support the whitelabel brand as well:</p>
+<p>Now when we run <code class="language-plaintext highlighter-rouge">obt dev --brand whitelabel</code> we get a different error! The error is <code class="language-plaintext highlighter-rouge">Could not find a colour for the "box" "background" usecase.</code>. That’s because the whitelabel brand does not support the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases">box colour usecase</a> we used to set a background. Unlike the core and internal brand, the whitelabel brand is not opinionated and provides a limited set of colour usescases. Instead of using the usecase lets add a new brand variable <code class="language-plaintext highlighter-rouge">background-color</code> so we can support the whitelabel brand as well:</p>
 
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
-// Add master brand configuration.
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+// Add core brand configuration.
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
 +			'background-color': oColorsByName('wheat')
@@ -390,7 +390,7 @@
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-8-sass.png" />
 	<figcaption>
-        The master brand version of our component uses Financial Times fonts and a wheat background.
+        The core brand version of our component uses Financial Times fonts and a wheat background.
 	</figcaption>
 </figure>
 
@@ -406,7 +406,7 @@
 
 <p>Now let’s add themes to our <code class="language-plaintext highlighter-rouge">o-example</code> component. For reference there is a <a href="/spec/v1/components/sass/#themes">theme section in the component specification</a>.</p>
 
-<p>Our example component will have two themes: an <code class="language-plaintext highlighter-rouge">inverse</code> theme that should be used when our component is on a dark background; and a <code class="language-plaintext highlighter-rouge">b2c</code> (business to consumer) theme just for the master brand. We will also make our component flexible and allow a user to generate a custom theme.</p>
+<p>Our example component will have two themes: an <code class="language-plaintext highlighter-rouge">inverse</code> theme that should be used when our component is on a dark background; and a <code class="language-plaintext highlighter-rouge">b2c</code> (business to consumer) theme just for the core brand. We will also make our component flexible and allow a user to generate a custom theme.</p>
 
 <h3 id="theme-mixin">Theme Mixin</h3>
 
@@ -433,9 +433,9 @@
 
 <pre><code class="o-syntax-highlight--diff">// src/scss/_brand.scss
 
-// Add master brand configuration.
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+// Add core brand configuration.
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
 			'background-color': oColorsByName('wheat'),
@@ -481,9 +481,9 @@
 	));
 }</code></pre>
 
-<p>Notice that the background colour we set for the inverse variant is different for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand than the other brands. And the <code class="language-plaintext highlighter-rouge">master</code> brand is the only one with <code class="language-plaintext highlighter-rouge">b2c</code> variables, as the <code class="language-plaintext highlighter-rouge">b2c</code> variant is specific to the master brand.</p>
+<p>Notice that the background colour we set for the inverse variant is different for the <code class="language-plaintext highlighter-rouge">whitelabel</code> brand than the other brands. And the <code class="language-plaintext highlighter-rouge">core</code> brand is the only one with <code class="language-plaintext highlighter-rouge">b2c</code> variables, as the <code class="language-plaintext highlighter-rouge">b2c</code> variant is specific to the core brand.</p>
 
-<p>We can now use the <code class="language-plaintext highlighter-rouge">$from</code> argument of our function <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to fetch a brand variable from one of our variants. For example <code class="language-plaintext highlighter-rouge">_oExampleGet('background-color', $from: 'b2c')</code> will return the <code class="language-plaintext highlighter-rouge">org-b2c-light</code> colour when the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand, or <code class="language-plaintext highlighter-rouge">null</code> otherwise.</p>
+<p>We can now use the <code class="language-plaintext highlighter-rouge">$from</code> argument of our function <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to fetch a brand variable from one of our variants. For example <code class="language-plaintext highlighter-rouge">_oExampleGet('background-color', $from: 'b2c')</code> will return the <code class="language-plaintext highlighter-rouge">org-b2c-light</code> colour when the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand, or <code class="language-plaintext highlighter-rouge">null</code> otherwise.</p>
 
 <h3 id="variant-support">Variant Support</h3>
 
@@ -491,9 +491,9 @@
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_brand.scss
 
-// Add master brand configuration.
-@if oBrandGetCurrentBrand() == 'master' {
-	@include oBrandDefine('o-example', 'master', (
+// Add core brand configuration.
+@if oBrandGetCurrentBrand() == 'core' {
+	@include oBrandDefine('o-example', 'core', (
 		'variables': (
 			'border-color': oColorsByName('slate'),
 			'background-color': oColorsByName('wheat')
@@ -542,7 +542,7 @@
 	));
 }</code></pre>
 
-<p>The <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> function we briefly mentioned earlier will return <code class="language-plaintext highlighter-rouge">true</code> if a given variant name is supported by the current brand, based on the <code class="language-plaintext highlighter-rouge">supports-variants</code> configuration we just set. For example only the <code class="language-plaintext highlighter-rouge">master</code> brand has the <code class="language-plaintext highlighter-rouge">b2c</code> theme listed under <code class="language-plaintext highlighter-rouge">supports-variants</code> so <code class="language-plaintext highlighter-rouge">_oExampleSupports('b2c')</code> will only return true when the current brand is the <code class="language-plaintext highlighter-rouge">master</code> brand.</p>
+<p>The <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> function we briefly mentioned earlier will return <code class="language-plaintext highlighter-rouge">true</code> if a given variant name is supported by the current brand, based on the <code class="language-plaintext highlighter-rouge">supports-variants</code> configuration we just set. For example only the <code class="language-plaintext highlighter-rouge">core</code> brand has the <code class="language-plaintext highlighter-rouge">b2c</code> theme listed under <code class="language-plaintext highlighter-rouge">supports-variants</code> so <code class="language-plaintext highlighter-rouge">_oExampleSupports('b2c')</code> will only return true when the current brand is the <code class="language-plaintext highlighter-rouge">core</code> brand.</p>
 
 <h3 id="output-theme-css">Output Theme CSS</h3>
 
@@ -550,7 +550,7 @@
 <ul>
   <li>Use <code class="language-plaintext highlighter-rouge">_oExampleSupports</code> with <a href="https://sass-lang.com/documentation/at-rules/error">the Sass <code class="language-plaintext highlighter-rouge">@error</code> at-rule</a> to throw an error if the theme name given is not supported by the current brand.</li>
   <li>Use <code class="language-plaintext highlighter-rouge">_oExampleGet</code> to get theme values.</li>
-  <li>Use <code class="language-plaintext highlighter-rouge">oButtonsContent</code> to update the button styles if there is a matching <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=master#themes">o-buttons theme</a>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">oButtonsContent</code> to update the button styles if there is a matching <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=core#themes">o-buttons theme</a>.</li>
 </ul>
 
 <pre><code class="o-syntax-highlight--scss">// src/scss/_mixins.scss
@@ -663,7 +663,7 @@
 		$matching-button-theme: $name == 'inverse' or $name == 'b2c';
 		// Theme the button with the `button-color` option if the theme
 		// name does not match inverse or b2c, existing o-buttons theme.
-		// https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=master#themes
+		// https://registry.origami.ft.com/components/o-buttons@6.0.14/readme?brand=core#themes
 		$custom-button-color: _oExampleGet('button-color', $from: $theme);
 		@if $matching-button-theme or $custom-button-color {
 			.o-example__button {
@@ -701,7 +701,7 @@
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-9-sass.png" />
 	<figcaption>
-        A master brand view of our "o-example" component with the `o-example--inverse` theme class applied.
+        A core brand view of our "o-example" component with the `o-example--inverse` theme class applied.
 	</figcaption>
 </figure>
 
@@ -717,7 +717,7 @@
 <figure>
 	<img alt="" src="/assets/images/tutorial-new-component/hello-world-demo-10-sass.png" />
 	<figcaption>
-        A master brand view of our "o-example" component with the `o-example--b2c` theme class applied.
+        A core brand view of our "o-example" component with the `o-example--b2c` theme class applied.
 	</figcaption>
 </figure>
 
@@ -727,7 +727,7 @@
 
 <p>In summary, in part three we learnt:</p>
 <ul>
-  <li>Origami components may offer a distinct appearance for different brands: master, internal, or whitelabel.</li>
+  <li>Origami components may offer a distinct appearance for different brands: core, internal, or whitelabel.</li>
   <li>How to use <code class="language-plaintext highlighter-rouge">o-brand</code> to set and retrieve brand variables in Sass.</li>
   <li>How to switch brands locally using the <code class="language-plaintext highlighter-rouge">obt dev</code> <code class="language-plaintext highlighter-rouge">--brand</code> flag.</li>
   <li>Origami components may be themed within a brand.</li>

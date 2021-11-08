@@ -266,7 +266,7 @@ The <a href="https://origami.ft.com/blog/2021/06/01/newsletter/#the-origami-spec
 	</tr>
 </table>
 
-<p>For components which support <a href="/docs/components/customisation/">brands</a>, an array of one or more brands: “master”, “internal, “whitelabel”.
+<p>For components which support <a href="/docs/components/customisation/">brands</a>, an array of one or more brands: “core”, “internal, “whitelabel”.
 If the brands property does not exist, this means the component is unbranded and supports all the brands.</p>
 
 <h3 id="keywords">keywords</h3>
@@ -516,7 +516,7 @@ Each object in the list accepts the following properties:</p>
   <li><code class="language-plaintext highlighter-rouge">sass</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the demo-specific Sass file to compile.</li>
   <li><code class="language-plaintext highlighter-rouge">js</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Describes the path to the demo-specific JS file to build.</li>
   <li><code class="language-plaintext highlighter-rouge">data</code>: type <code class="language-plaintext highlighter-rouge">Object</code> or <code class="language-plaintext highlighter-rouge">String</code>. Describes data to populate to the component-specific mustache template with. If this is a string it must be a path to a JSON file containing the data, relative to the root of the repo.</li>
-  <li><code class="language-plaintext highlighter-rouge">brands</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. For components which support <a href="/docs/components/branding/">brands</a>, this describes one or more brands which the demo applies to (“master”, “internal, “whitelabel”)</li>
+  <li><code class="language-plaintext highlighter-rouge">brands</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. For components which support <a href="/docs/components/branding/">brands</a>, this describes one or more brands which the demo applies to (“core”, “internal, “whitelabel”)</li>
   <li><code class="language-plaintext highlighter-rouge">documentClasses</code>: type <code class="language-plaintext highlighter-rouge">String</code>. Names CSS classes to set on the component-specific <code class="language-plaintext highlighter-rouge">html</code> tag</li>
   <li><code class="language-plaintext highlighter-rouge">dependencies</code>: type <code class="language-plaintext highlighter-rouge">Array</code>. Is a list of other components that are only needed a this specific demo, which will be loaded via the <a href="https://www.ft.com/__origami/service/build" class="o-typography-link--external">Build Service</a></li>
   <li><code class="language-plaintext highlighter-rouge">hidden</code>: type <code class="language-plaintext highlighter-rouge">Boolean</code>. Whether the demo should be hidden in the Registry</li>
@@ -536,7 +536,7 @@ Each object in the list accepts the following properties:</p>
 			"template": "demos/src/striped-table.mustache",
 			"sass": "demos/src/striped-table.scss",
 			"documentClasses": "demo-striped-table-container",
-			"brands": ["master", "internal"]
+			"brands": ["core", "internal"]
 		},
 		{
 			"name": "pa11y",

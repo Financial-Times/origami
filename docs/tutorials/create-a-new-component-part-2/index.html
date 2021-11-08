@@ -248,7 +248,7 @@
 }
 </code></pre>
 
-<p>We call the mixin which shares the component name (<code class="language-plaintext highlighter-rouge">oExample</code>) the <a href="/spec/v1/components/sass/#primary-mixin">“primary mixin”</a>. When called with no arguments the primary mixin includes all styles for the component. It will also accept an <code class="language-plaintext highlighter-rouge">$opts</code> argument so users may selectively specify which features of a component to include. For example a user of <a href="https://registry.origami.ft.com/components/o-forms">o-forms</a> could pass an <code class="language-plaintext highlighter-rouge">$opts</code> argument to the <a href="https://registry.origami.ft.com/components/o-forms/sassdoc?brand=master#mixin-oforms"><code class="language-plaintext highlighter-rouge">oForms</code> mixin</a> to only output styles for text inputs, if their project does not need other form input types. This helps keep the CSS bundle of the project small.</p>
+<p>We call the mixin which shares the component name (<code class="language-plaintext highlighter-rouge">oExample</code>) the <a href="/spec/v1/components/sass/#primary-mixin">“primary mixin”</a>. When called with no arguments the primary mixin includes all styles for the component. It will also accept an <code class="language-plaintext highlighter-rouge">$opts</code> argument so users may selectively specify which features of a component to include. For example a user of <a href="https://registry.origami.ft.com/components/o-forms">o-forms</a> could pass an <code class="language-plaintext highlighter-rouge">$opts</code> argument to the <a href="https://registry.origami.ft.com/components/o-forms/sassdoc?brand=core#mixin-oforms"><code class="language-plaintext highlighter-rouge">oForms</code> mixin</a> to only output styles for text inputs, if their project does not need other form input types. This helps keep the CSS bundle of the project small.</p>
 
 <h2 id="naming-conventions">Naming Conventions</h2>
 
@@ -318,9 +318,9 @@
 
 <h3 id="o-colors">o-colors</h3>
 
-<p>So lets change our red border to the standard slate colour from <code class="language-plaintext highlighter-rouge">o-colors</code> using the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#default-palette-colours">oColorsByName</a> Sass function.</p>
+<p>So lets change our red border to the standard slate colour from <code class="language-plaintext highlighter-rouge">o-colors</code> using the <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#default-palette-colours">oColorsByName</a> Sass function.</p>
 
-<p>As well as include a colour by name, we can also get a colour for a <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=master#usecases">specific usecase</a> such as a page background. To demonstrate, set the background colour of our component using the <code class="language-plaintext highlighter-rouge">box</code> colour usecase (the <code class="language-plaintext highlighter-rouge">box</code> colour is used to highlight an area of content such as an aside).</p>
+<p>As well as include a colour by name, we can also get a colour for a <a href="https://registry.origami.ft.com/components/o-colors@5.2.4/readme?brand=core#usecases">specific usecase</a> such as a page background. To demonstrate, set the background colour of our component using the <code class="language-plaintext highlighter-rouge">box</code> colour usecase (the <code class="language-plaintext highlighter-rouge">box</code> colour is used to highlight an area of content such as an aside).</p>
 
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
@@ -338,7 +338,7 @@
 
 <h3 id="o-spacing">o-spacing</h3>
 
-<p>Then we can use one of the recommended space values from <code class="language-plaintext highlighter-rouge">o-spacing</code> using its <a href="https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=master#named-space">oSpacingByName</a> Sass function.</p>
+<p>Then we can use one of the recommended space values from <code class="language-plaintext highlighter-rouge">o-spacing</code> using its <a href="https://registry.origami.ft.com/components/o-spacing@2.0.4/readme?brand=core#named-space">oSpacingByName</a> Sass function.</p>
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
 @mixin oExample ($opts: ()) {
@@ -355,7 +355,7 @@
 
 <h3 id="o-typography">o-typography</h3>
 
-<p>The next thing we wanted to do was style our component text using <code class="language-plaintext highlighter-rouge">o-typography</code>. We can do that a number of ways depending on how we want our typography to look. For now let’s use the <a href="https://registry.origami.ft.com/components/o-typography@6.4.1/readme?brand=master#otypographybody"><code class="language-plaintext highlighter-rouge">oTypographyBody</code></a> mixin. Unlike a function which returns a value, a Sass mixin sets a number of CSS properties; in this case the font family, font size, etc.</p>
+<p>The next thing we wanted to do was style our component text using <code class="language-plaintext highlighter-rouge">o-typography</code>. We can do that a number of ways depending on how we want our typography to look. For now let’s use the <a href="https://registry.origami.ft.com/components/o-typography@6.4.1/readme?brand=core#otypographybody"><code class="language-plaintext highlighter-rouge">oTypographyBody</code></a> mixin. Unlike a function which returns a value, a Sass mixin sets a number of CSS properties; in this case the font family, font size, etc.</p>
 
 <pre><code class="o-syntax-highlight--diff">// main.scss
 
@@ -383,9 +383,9 @@
 
 <p>In this tutorial we’re aiming to build a component that includes a button which will count the number of times it was clicked, so next we will add a button to our component.</p>
 
-<p>If we were adding buttons to a project we might include the primary Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttons"><code class="language-plaintext highlighter-rouge">oButtons</code></a> to output CSS for the buttons we want to use. However the primary mixin will output button classes like <code class="language-plaintext highlighter-rouge">.o-buttons</code> and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as <code class="language-plaintext highlighter-rouge">.o-example__button</code>.</p>
+<p>If we were adding buttons to a project we might include the primary Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttons"><code class="language-plaintext highlighter-rouge">oButtons</code></a> to output CSS for the buttons we want to use. However the primary mixin will output button classes like <code class="language-plaintext highlighter-rouge">.o-buttons</code> and we learnt in a previous section that Origami components must prefix their CSS selectors with the component name. What we want is a class that starts with our component name such as <code class="language-plaintext highlighter-rouge">.o-example__button</code>.</p>
 
-<p>Fortunately, <code class="language-plaintext highlighter-rouge">o-buttons</code> allows us to output a button with a custom class name using the Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=master#mixin-obuttonscontent"><code class="language-plaintext highlighter-rouge">oButtonsContent</code></a>. There are a number of options we could pass to <code class="language-plaintext highlighter-rouge">oButtonsContent</code> for different types of buttons. We’ll choose a “primary” button type for this tutorial. In <code class="language-plaintext highlighter-rouge">main.scss</code> define a new CSS class <code class="language-plaintext highlighter-rouge">.o-example__button</code> and include the button CSS with <code class="language-plaintext highlighter-rouge">oButtonsContent</code>:</p>
+<p>Fortunately, <code class="language-plaintext highlighter-rouge">o-buttons</code> allows us to output a button with a custom class name using the Sass mixin <a href="https://registry.origami.ft.com/components/o-buttons@6.0.14/sassdoc?brand=core#mixin-obuttonscontent"><code class="language-plaintext highlighter-rouge">oButtonsContent</code></a>. There are a number of options we could pass to <code class="language-plaintext highlighter-rouge">oButtonsContent</code> for different types of buttons. We’ll choose a “primary” button type for this tutorial. In <code class="language-plaintext highlighter-rouge">main.scss</code> define a new CSS class <code class="language-plaintext highlighter-rouge">.o-example__button</code> and include the button CSS with <code class="language-plaintext highlighter-rouge">oButtonsContent</code>:</p>
 
 <pre><code class="o-syntax-highlight--scss">// main.scss
 .o-example {

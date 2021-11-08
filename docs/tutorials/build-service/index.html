@@ -239,7 +239,7 @@
 
 <p>The Origami Build Service will perform a number of build steps to compile and bundle up the <abbr title="Sassy Cascading Style Sheets">SCSS</abbr> that most Origami component styles are written in. Since it is all bundled for us to pick and choose from, let’s begin by styling our grid. This means we’ll have to add a <code class="language-plaintext highlighter-rouge">link</code> tag to our <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> tag.</p>
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0&amp;brand=master&amp;system_code=$$$-no-bizops-system-code-$$$"/&gt;</code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0&amp;brand=core&amp;system_code=$$$-no-bizops-system-code-$$$"/&gt;</code></pre>
 
 <p>The <code class="language-plaintext highlighter-rouge">href</code> attribute references the Origami Build Service endpoint that serves a <abbr title="Cascading Style Sheets">CSS</abbr> bundle. The most important parts of this url are the <code class="language-plaintext highlighter-rouge">components</code>, <code class="language-plaintext highlighter-rouge">brand</code>, and <code class="language-plaintext highlighter-rouge">system_code</code> query parameters.</p>
 
@@ -258,14 +258,14 @@
 
 <p>So in order to add the styling for all of our other components, we need to add a few components (and versions!) to the query parameter of our original url:</p>
 
-<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&amp;brand=master&amp;system_code=$$$-no-bizops-system-code-$$$"/&gt;</code></pre>
+<pre class="o-layout__main__full-span"><code class="o-syntax-highlight--html">&lt;link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&amp;brand=core&amp;system_code=$$$-no-bizops-system-code-$$$"/&gt;</code></pre>
 <aside><a href="https://codepen.io/ft-origami/pen/LBJErq" rel="noreferrer noopener" target="_blank" class="o-typography-link o-typography-link--external">Show me the CodePen (opens a new tab)</a></aside>
 
 <p>And now, when we look at our page, we should have a styled table, different typography and a type of grid in place.</p>
 
 <h3 id="selecting-a-brand">Selecting A Brand</h3>
 
-<p>Public facing, ft.com product are known as “master brand” products, by setting the brand query parameter to “master” we are requesting that style of component. But Origami components offer tailored support for other contexts with component <a href="/docs/components/branding/">branding</a>.</p>
+<p>Public facing, ft.com product are known as “core brand” products, by setting the brand query parameter to “core” we are requesting that style of component. But Origami components offer tailored support for other contexts with component <a href="/docs/components/branding/">branding</a>.</p>
 
 <p>For example we could set the brand to <code class="language-plaintext highlighter-rouge">internal</code>.</p>
 
@@ -274,7 +274,7 @@
 
 <p>As the colour palette for the “internal” brand does not include “paper” (FT pink), the background we set with <code class="language-plaintext highlighter-rouge">o-colors</code> classes has changed, as have the stripes of <code class="language-plaintext highlighter-rouge">o-table</code>. Our typography set with <code class="language-plaintext highlighter-rouge">o-typography</code> classes has also changed.</p>
 
-<p>Now undo that by setting <code class="language-plaintext highlighter-rouge">&amp;brand=master</code> again.</p>
+<p>Now undo that by setting <code class="language-plaintext highlighter-rouge">&amp;brand=core</code> again.</p>
 
 <p>For a list of supported brands and their purpose see the <a href="/docs/components/customisation/">component customisation page</a>.</p>
 

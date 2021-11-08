@@ -182,7 +182,7 @@
 
 <h2 id="add-more-demos">Add More Demos</h2>
 
-<p>In <a href="/docs/tutorials/create-a-new-component-part-3">part three</a> we added an <code class="language-plaintext highlighter-rouge">inverse</code> theme for each brand and a <code class="language-plaintext highlighter-rouge">b2c</code> theme for the master brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the <a href="https://registry.origami.ft.com/components/">Origami component registry</a>.</p>
+<p>In <a href="/docs/tutorials/create-a-new-component-part-3">part three</a> we added an <code class="language-plaintext highlighter-rouge">inverse</code> theme for each brand and a <code class="language-plaintext highlighter-rouge">b2c</code> theme for the core brand but no demos for these. That means there is no visual preview for potential users of our component, and no ability to copy the html for these themes from the <a href="https://registry.origami.ft.com/components/">Origami component registry</a>.</p>
 
 <p>To add new demos we will update <code class="language-plaintext highlighter-rouge">origami.json</code>. This file contains lots of information about our components, including its name, description, demos, and more — see the <a href="/spec/v1/manifest/">Origami Manifest specification</a> for full details.</p>
 
@@ -242,7 +242,7 @@
 	</figcaption>
 </figure>
 
-<p>We also need to create a demo for the <code class="language-plaintext highlighter-rouge">b2c</code> theme. However the <code class="language-plaintext highlighter-rouge">b2c</code> theme we created only supports the <code class="language-plaintext highlighter-rouge">master</code> brand. It should not be displayed in the <a href="https://registry.origami.ft.com/components">Origami registry</a> for the <code class="language-plaintext highlighter-rouge">internal</code> or <code class="language-plaintext highlighter-rouge">whitelabel</code> brands. To avoid that, we will set the <a href="/spec/v1/manifest/#demos"><code class="language-plaintext highlighter-rouge">brands</code> demo property</a>.</p>
+<p>We also need to create a demo for the <code class="language-plaintext highlighter-rouge">b2c</code> theme. However the <code class="language-plaintext highlighter-rouge">b2c</code> theme we created only supports the <code class="language-plaintext highlighter-rouge">core</code> brand. It should not be displayed in the <a href="https://registry.origami.ft.com/components">Origami registry</a> for the <code class="language-plaintext highlighter-rouge">internal</code> or <code class="language-plaintext highlighter-rouge">whitelabel</code> brands. To avoid that, we will set the <a href="/spec/v1/manifest/#demos"><code class="language-plaintext highlighter-rouge">brands</code> demo property</a>.</p>
 
 <pre><code class="o-syntax-highlight--diff">// origami.json
 
@@ -265,7 +265,7 @@
 +		"name": "demo-b2c",
 +		"template": "demos/src/demo.mustache",
 +		"data": { "theme": "b2c" },
-+		"brands": ["master"],
++		"brands": ["core"],
 +		"description": "This demo shows an o-example component with the b2c theme."
 +	},
 	{
