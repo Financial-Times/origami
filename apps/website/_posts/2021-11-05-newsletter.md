@@ -1,6 +1,6 @@
 ---
 title: Origami Newsletter, October 2021
-description: test
+description: Origami image sets have moved and improved; the "master" brand is now the "core" brand; we're creating Storybook demos for Origami components.
 author: lee & chee
 tags:
 - Newsletter
