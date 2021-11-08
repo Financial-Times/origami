@@ -21,7 +21,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2"
+    "@financial-times/o-brand": "^4.1.0"
   },
   "engines": {
     "npm": "^7"
