@@ -17,7 +17,7 @@
     "lint": "bash ../../scripts/component/lint.bash"
   },
   "peerDependencies": {
-    "@financial-times/o-brand": "^4.0.2",
+    "@financial-times/o-brand": "^4.1.0",
     "@financial-times/o-editorial-typography": "^2.0.1",
     "@financial-times/o-quote": "^5.0.1",
     "@financial-times/o-spacing": "^3.0.0",
