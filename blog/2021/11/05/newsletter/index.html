@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold" data-o-component="o-typography">
+<head>
+
+	<!-- Page meta-information -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Origami Newsletter, October 2021</title>
+	<meta name="description" content="Origami image sets have moved and improved; the "master" brand is now the "core" brand; we're creating Storybook demos for Origami components." />
+
+	<!-- Cuts the mustard test -->
+	<script>
+		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+		if (cutsTheMustard) {
+			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+		}
+	</script>
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&format=svg" sizes="any">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=16&height=16&format=png" sizes="16x16">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=32&height=32&format=png" sizes="32x32">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=96&height=96&format=png" sizes="96x96">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=128&height=128&format=png" sizes="128x128">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=196&height=196&format=png" sizes="196x196">
+	<link rel="alternate icon" type="image/png" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Aorigami?source=origami-docs&width=310&height=310&format=png" sizes="310x310">
+
+	<!-- Site links -->
+	<link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+	<link rel="canonical" href="https://origami.ft.com/blog/2021/11/05/newsletter/" />
+
+	<!-- Feed -->
+	<link type="application/atom+xml" rel="alternate" href="https://origami.ft.com/feed.xml" title="Origami Newsletter" />
+
+	<!-- Progressive Font Loading -->
+	<!-- https://github.com/Financial-Times/o-typography/tree/v6.1.3#setup-progressive-loading -->
+	<script>
+		var rootElement = document.querySelector('html')
+		if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+			var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
+			for (var i = 0; i < fontLabels.length; i++) {
+				rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
+			}
+		}
+	</script>
+
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		/* Hide any enhanced experience content when in core mode, and vice versa. */
+		.core .o--if-js,
+		.enhanced .o--if-no-js {
+			display: none !important;
+		}
+	</style>
+	<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0&brand=internal" />
+	<link rel="stylesheet" href="/assets/main.css" />
+
+	<!-- JS -->
+	<script>
+		(function(src) {
+			if (cutsTheMustard) {
+				var o = document.createElement('script');
+				o.async = o.defer = true;
+				o.src = src;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(o, s);
+			}
+		}('https://www.ft.com/__origami/service/build/v2/bundles/js?modules=o-normalise@^2.0.0,o-typography@^6.0.0,o-layout@^4.3.0,o-header-services@^4.0.8,o-footer-services@^3.0.0,o-syntax-highlight@^3.0.5,o-message@^4.0.0,o-table@^8.0.0'));
+	</script>
+</head>
+<body>
+	<div class="o-layout o-layout--docs" data-o-component="o-layout" data-o-layout-nav-heading-selector="h1, h2">
+		
+		<div class="o-layout__header">
+			
+<header class="o-header-services" data-o-component="o-header-services">
+	<div class="o-header-services__top">
+			<div class="o-header-services__hamburger">
+				<a class="o-header-services__hamburger-icon" href="#" role="button">
+					<span class="o-header-services__visually-hidden">Open primary navigation</span>
+				</a>
+			</div>
+		<a href="/" class="o-header-services__logo"><span class="o-header-services__visually-hidden">To homepage</span></a>
+		<div class="o-header-services__title">
+			<a class="o-header-services__product-name" href="/">Origami</a>
+			<span class="o-header-services__product-tagline">Frontend Components &amp; Services</span>
+		</div>
+	</div>
+
+	<nav class="o-header-services__primary-nav" aria-label="primary">
+		<ul class="o-header-services__primary-nav-list">
+			<li>
+				<a href="/" >
+					Home
+				</a>
+			</li>
+			<li>
+				<a href="/docs/" >
+					Docs
+				</a>
+			</li>
+			<li>
+				<a href="https://registry.origami.ft.com/components"> Registry</a>
+			</li>
+			<li>
+				<a href="/blog/" >
+					Blog
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+
+
+	
+
+	
+</header>
+
+
+
+		</div>
+		
+
+		<div class="o-layout__sidebar"></div>
+
+<div class="o-layout__main o-layout-typography" data-o-component="o-syntax-highlight">
+	<h1 id="origami-newsletter-october-2021">Origami Newsletter, October 2021</h1>
+
+<p>
+	Posted on <time datetime="2021-11-05T00:00:00Z">05 November 2021</time>
+	by lee & chee.
+	
+		<br/>Tagged with
+		
+			<span>Newsletter</span>.
+		
+	
+</p>
+
+<p><abbr title="Too long; didn't read">
+<strong>
+TL;DR:
+</strong>
+</abbr> Origami image sets have moved and improved; the “master” brand is now the “core” brand; we’re creating Storybook demos for Origami components.</p>
+
+<h2 id="top-things">Top things</h2>
+
+<p>Some of the bigger Origami news from the last month:</p>
+
+<h3 id="image-sets-have-moved-home">Image sets have moved home</h3>
+
+<p>Origami image sets have moved. You used to be able to find image sets maintained by the Origami team under the <a href="https://registry.origami.ft.com/components">Origami registry</a>. Now image sets are listed directly within <a href="https://www.ft.com/__origami/service/image/v2/docs/image-sets">Origami Image Service</a> documentation. No more jumping between the Origami registry and the Origami Image Service URL Builder!</p>
+
+<p>Behind the scenes we’ve moved the images from multiple separate git repositories and S3 buckets into the Origami Image Service repository itself, using <a href="https://git-lfs.github.com/">Git Large File Storage (LFS)</a>. This is a more simple architecture that allows us to publish new images and logos more quickly. Finally, author headshots were moved from being owned by Origami to being Editorial owned a couple years ago. However, many projects were still using the Origami Image Service to request (stale) author headshots. So we have now updated the Origami Image Service to no longer return an old headshot but to instead fetch an up-to-date image from our Content API.</p>
+
+<p>What’s the <a href="https://www.ft.com/__origami/service/image/v2/">Origami Image Service</a>? It’s a service used to optimise, resize, and transform images. It works with FT images from an Origami image set, our Content APIs, or any image url. The quickest way to get started is to experiment with the <a href="https://www.ft.com/__origami/service/image/v2/docs/url-builder">URL builder</a>.</p>
+
+<h3 id="the-master-brand-is-now-the-core-brand">The “master” brand is now the “core” brand</h3>
+
+<p>Origami components currently support 3 brands:</p>
+
+<ul>
+  <li>master: FT branding for public ft.com sites and affiliates.</li>
+  <li>internal: Style suitable for tools, documentation, and internal products.</li>
+  <li>whitelabel: Base, structural styles only to add support for new brands.</li>
+</ul>
+
+<p>To <a href="https://docs.google.com/document/d/1v6z7_NkLFeYAFotTYB8C1OguO5iMHHLpAOv_yG5EKHI/edit#heading=h.tzfu5ukd61s">address offensive and objectionable technology terms</a> we opened a <a href="https://github.com/Financial-Times/origami/issues/243">proposal to rename the master brand</a>, our brand team agreed we should rename the brand and decided with other stakeholders to rename the “master” brand to the “core” brand.</p>
+
+<p>We’re in the process of rolling out the rename. The “master” brand will become the “core” brand. This change will be reflected across Origami components, services, and documentation.</p>
+
+<h4 id="how-does-the-brand-rename-affect-your-project">How Does The Brand Rename Affect Your Project?</h4>
+
+<p><strong>It doesn’t!</strong> For now Origami components and services will continue to recognise the “master” brand.</p>
+
+<p>However, if your project is using the latest version of Origami components we suggest setting the “core” brand in your Sass.</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">-$o-brand: 'master';
+</span><span class="gi">+$o-brand: 'core';
+</span></code></pre></div></div>
+
+<p>And if your project uses v3 of the Origami Build Service, we recommend setting “core” instead of “master” as your brand query parameter.</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">-https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-layout@^5.0.6&amp;brand=master
+</span><span class="gi">+https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-layout@^5.0.6&amp;brand=core
+</span></code></pre></div></div>
+
+<p>We’re rolling out documentation changes this week. Keep a look out for that!</p>
+
+<h3 id="storybook">Storybook</h3>
+
+<p>We’re working on an <a href="https://origami.ft.com/storybook/">Origami Storybook</a>. We see it as an eventual replacement to our very custom <a href="https://registry.origami.ft.com/components?active=true&amp;maintained=true">Origami component registry</a>. Why? Because we can maintain less code and take advantage of the substantial Storybook ecosystem. Let me tell you some of the reasons why that’s super exciting.</p>
+
+<p>Our current component demos are static. Take <a href="https://registry.origami.ft.com/components/o-buttons@7.0.1">o-buttons demos</a> as an example. What you see is what you get. You can’t experiment by changing the type of button, the icon, or button text. However in the <a href="https://origami.ft.com/storybook/?path=/story/button--big">o-buttons story</a> you can try updating a demo with your own content right in the browser under the “controls” tab.
+<img alt="" src="/assets/images/2021-11-05-newsletter/story-controls.png" /></p>
+
+<p>We’ve made use of the Storybook plugin system to add a custom HTML tab, similar to the existing registry, where Origami users can copy HTML from when building web products. Unlike our existing component registry this HTML changes when you toggle demo controls. This should make it much easier to experiment with a component, find the feature/variants you’re looking for, then copy the HTML to implement it in your project.
+<img alt="" src="/assets/images/2021-11-05-newsletter/story-html.png" /></p>
+
+<p>Storybook could also help us implement new components and keep in sync with the design team. We added a “design” tab to see a component’s Figma design right alongside its actual working implementation.
+<img alt="" src="/assets/images/2021-11-05-newsletter/story-design.png" /></p>
+
+<p>In addition we’ve been hard at work bringing over our existing documentation alongside demos, such as component readme, migration guides, and changelog.
+<img alt="" src="/assets/images/2021-11-05-newsletter/story-migration.png" /></p>
+
+<p>We’re also excited to make use of the existing plugin ecosystem. Check out the accessibility tab which will look for issues such as colour contrast.
+<img alt="" src="/assets/images/2021-11-05-newsletter/story-accessibility.png" /></p>
+
+<p>Our next steps are to add more components and missing features such as Codedocs. We’ll also be looking for user feedback. We’d love to know what you think. 🙂</p>
+
+<h2 id="special-thanks">Special thanks</h2>
+
+<p>Special thanks this week goes to Mo Shawwa! Mo contributed to Origami to <a href="https://github.com/Financial-Times/origami/pull/346">fix a low level accessibility issue in o-normalise</a> that could prevent readers with Voice activation software from filling out forms. Thanks for that! 💛</p>
+
+<h2 id="broader-update">Broader update</h2>
+
+<p>A digest of other things that have happened this month:</p>
+
+<ul>
+  <li>o-normalise: Mo <a href="https://github.com/Financial-Times/origami/pull/346">improved o-normalise</a> for users of voice control software like Dragon. Thanks, Mo!</li>
+  <li>o-date: We <a href="https://github.com/Financial-Times/origami/issues/203">improved consistency and accessibility</a> by deprecating options for abbreviated date formats e.g. “1d ago” over “1 day ago”. This format was <a href="https://github.com/Financial-Times/origami/issues/203">only used on myft topic cards</a>, which we opened a PR to change.</li>
+  <li>o-editorial-layout: The spacing between some article headings has been increased.</li>
+  <li>o-no: lots of other small things, we didn’t update this very thoroughly through the month.</li>
+  <li>Design token investigation continues steadily. We have a proof of concept to distribute design decisions (brand assets, colour palette, typographic scale, spacing, etc) across web, native platforms, and design tooling. We need to gather more feedback from designers and engineers and investigate possible workflows for the design team to make updates. To learn more see the <a href="https://drive.google.com/file/d/12NykJZZy8VgvB4lEbwacjqXsZowI7QhM/view">tech all hands recording</a> (36 minutes in).</li>
+</ul>
+
+
+</div>
+
+
+		
+		<div class="o-layout__footer">
+			<footer class="o-footer-services">
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--top">
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami">View project on GitHub</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--github" href="https://github.com/Financial-Times/origami/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc">View proposals to Origami</a>
+			<a class="o-footer-services__icon-link o-footer-services__icon-link--slack" href="https://financialtimes.slack.com/messages/origami-support">#origami-support</a>
+			<p class="o-footer-services__content">Get in touch at <a href="mailto:origami.support@ft.com">origami.support@ft.com</a> for help or advice. Feel free to
+				<a class="o-footer-services__content--external"   href='https://github.com/Financial-Times/origami/edit/main/_posts/2021-11-05-newsletter.md'>suggest an edit to this page</a>.</p>
+		</div>
+	</div>
+	<div class="o-footer-services__container">
+		<div class="o-footer-services__wrapper o-footer-services__wrapper--legal">
+			<div class="o-footer-services__links">
+			<a href="http://help.ft.com/help/legal-privacy/cookies/">Cookies</a>
+			<a href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/">Copyright</a>
+			<a href="http://help.ft.com/help/legal-privacy/privacy/">Privacy</a>
+			<a href="http://help.ft.com/help/legal-privacy/terms-conditions">Terms & Conditions</a>
+		</div>
+		<p><span>&copy; THE FINANCIAL TIMES LTD 2021.</span> FT and 'Financial Times' are trademarks of The Financial Times Ltd.</p>
+	</div>
+</footer>
+
+		</div>
+		
+	</div>
+
+	
+
+</body>
+</html>
