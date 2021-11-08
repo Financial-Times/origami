@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.1.1...o-editorial-typography-v2.2.0) (2021-11-08)
+
+
+### Features
+
+* Rename master brand in component origami.json ([f642faf](https://www.github.com/Financial-Times/origami/commit/f642faf0574d84ea8185b56e6090c8015def27e6))
+
 ### [2.1.1](https://www.github.com/Financial-Times/origami/compare/o-editorial-typography-v2.1.0...o-editorial-typography-v2.1.1) (2021-10-06)
 
 

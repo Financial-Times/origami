@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/o-cookie-message",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "description": "The cookie message and behaviour approved by the FT's legal team. All FT websites must have a cookie message. Using o-cookie-message will ensure your site is compliant according to EU regulatory law.",
   "keywords": [
     "cookie",
