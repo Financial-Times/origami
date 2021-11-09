@@ -88,9 +88,13 @@ git lfs install
 
 ### Tips
 
-- If you need to install a new dependency for a component, install it to that component's workspace by running (from the root) `npm --workspace components/<component-name-here> install <new-dependency>`
-- To run `obt` for a specific component try `npm exec -w components/o-name obt dev`
-- If you're working on the storybook configuration and it starts acting weird and not working, try running it without the cache:
+- If you need to install a new dependency for a component, install it to that
+  component's workspace by running `npm --workspace
+  components/<component-name-here> install <new-dependency>` from the root
+- To run `obt` for a specific component try `npm exec -w components/o-name obt
+  dev` from the root
+- If you're working on the storybook configuration and it starts acting weird
+  and not working, try running it without the cache:
   `npm run storybook -- --no-manager-cache`
 
 ## Contributing
