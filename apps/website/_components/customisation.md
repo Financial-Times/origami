@@ -49,13 +49,13 @@ Origami maintained brands include:
 - whitelabel: Base, structural styles only to build on and customise.
 
 Taking `o-table` as an example, the "core" brand version offers a "row stripes" feature, which uses "core" brand colours such as "paper" and "wheat":
-{% include demo.html component="o-table" demo="row-stripes" brand="core" height="242px" %}
+{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="core" height="242px" %}
 
 The "internal" brand version also supports "row stripes" but uses a different colour palette:
-{% include demo.html component="o-table" demo="row-stripes" brand="internal" height="242px" %}
+{% include demo.html component="o-table" version="^9.1.1" demo="row-stripes" brand="internal" height="242px" %}
 
 The "whitelabel" brand does not support "row stripes" and therefore outputs no styles to support that feature:
-{% include demo.html component="o-table" demo="basic" brand="whitelabel" height="256px" %}
+{% include demo.html component="o-table" version="^9.1.1" demo="basic" brand="whitelabel" height="256px" %}
 
 _Note: The "core" brand used to be known as the "master" brand. You may find references to "master" instead of "core" in older projects._
 
