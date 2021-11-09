@@ -7,6 +7,7 @@ import Tooltip from '../main.js';
 import Viewport from '@financial-times/o-viewport';
 
 describe("Tooltip", () => {
+
 	let sandbox;
 
 	beforeEach(() => {
@@ -468,9 +469,8 @@ describe("Tooltip", () => {
 
 
 		it('sets up a close handler for touch on the tooltip-close button when opts.showOnClick is set to true', () => {
-			getOptionsStub.restore();
 			const tooltipEl = document.getElementById('tooltip-demo-3');
-			const testTooltip = new Tooltip(tooltipEl);
+			const testTooltip = new Tooltip(tooltipEl, { showOnClick: true });
 			testTooltip.render();
 
 			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
@@ -488,9 +488,8 @@ describe("Tooltip", () => {
 		});
 
 		it('sets up a close handler for a click on the tooltip-close button when opts.toggleOnClick is set to true', () => {
-			getOptionsStub.restore();
 			const tooltipEl = document.getElementById('tooltip-demo-3');
-			const testTooltip = new Tooltip(tooltipEl);
+			const testTooltip = new Tooltip(tooltipEl, { showOnClick: true });
 			testTooltip.render();
 			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
 
