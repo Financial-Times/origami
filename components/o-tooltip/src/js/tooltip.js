@@ -164,12 +164,14 @@ class Tooltip {
 			this.tooltipEl.style.zIndex = this.opts.zIndex;
 		}
 
-		// Build and append the close button
-		const button = document.createElement('button');
-		button.className = 'o-tooltip-close';
-		button.setAttribute('aria-label', 'Close tooltip');
-		button.setAttribute('title', 'Close tooltip');
-		this.tooltipEl.appendChild(button);
+		if (this.opts.showOnClick || this.opts.toggleOnClick) {
+			// Build and append the close button
+			const button = document.createElement('button');
+			button.className = 'o-tooltip-close';
+			button.setAttribute('aria-label', 'Close tooltip');
+			button.setAttribute('title', 'Close tooltip');
+			this.tooltipEl.appendChild(button);
+		}
 	}
 
 	/**

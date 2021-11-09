@@ -83,6 +83,17 @@ function declarativeCode () {
 			<div class='tooltip-target' id="demo-tooltip-target-6" style='position:fixed'>
 					Thing to point the tooltip at.
 			</div>
+
+			<div id="tooltip-demo-7"
+				data-o-component="o-tooltip"
+				data-o-tooltip-target="demo-tooltip-target-7"
+				data-o-tooltip-toggle-on-click="true">
+					Tooltip content
+			</div>
+			
+			<div class='tooltip-target' id="demo-tooltip-target-7">
+					Thing to point the tooltip at.
+			</div>			
 	
 			<div class='tooltip-target' id="demo-tooltip-target-below">
 					Thing to point the tooltip at.

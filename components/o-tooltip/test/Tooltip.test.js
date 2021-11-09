@@ -9,7 +9,6 @@ import Tooltip from '../main.js';
 import Viewport from '@financial-times/o-viewport';
 
 describe("Tooltip", () => {
-
 	let sandbox;
 
 	beforeEach(() => {
@@ -291,12 +290,40 @@ describe("Tooltip", () => {
 			proclaim.strictEqual(tooltipEl.style.zIndex, fakeZ);
 		});
 
-		it("adds a close button with an aria label, role and title", () => {
-			Tooltip.init('#tooltip-demo');
+		it("adds a close button with an aria label, role and title when opts.showOnClick is set to true", () => {
+			const tooltip = new Tooltip(document.getElementById('tooltip-demo-3'));
+			tooltip.show();
+			tooltipEl = document.getElementById('tooltip-demo-3');
 			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
 			proclaim.isDefined(buttonEl);
 			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
 			proclaim.isTrue(buttonEl.hasAttribute('title'));
+		});
+
+		it("adds a close button with an aria label, role and title when opts.toggleOnClick is set to true", () => {
+			const tooltip = new Tooltip(document.getElementById('tooltip-demo-7'));
+			tooltip.show();
+			tooltipEl = document.getElementById('tooltip-demo-7');
+			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
+			proclaim.isDefined(buttonEl);
+			proclaim.isTrue(buttonEl.hasAttribute('aria-label'));
+			proclaim.isTrue(buttonEl.hasAttribute('title'));
+		});
+
+		it("does not add a close button when opts.showOnHover is set to true", () => {
+			const tooltip = new Tooltip(document.getElementById('tooltip-demo-4'));
+			tooltip.show();
+			tooltipEl = document.getElementById('tooltip-demo-4');
+			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
+			proclaim.isNull(buttonEl);
+		});
+
+		it("does not add a close button when opts.showOnFocus is set to true", () => {
+			const tooltip = new Tooltip(document.getElementById('tooltip-demo-6'));
+			tooltip.show();
+			tooltipEl = document.getElementById('tooltip-demo-6');
+			const buttonEl = tooltipEl.querySelector('.o-tooltip-close');
+			proclaim.isNull(buttonEl);
 		});
 
 		it("Inserts adjacent to target element when target has no next sibling", () => {
@@ -442,9 +469,10 @@ describe("Tooltip", () => {
 		});
 
 
-		it('sets up a close handler for touch on the tooltip-close button', () => {
-			const tooltipEl = document.getElementById('tooltip-demo');
-			const testTooltip = new Tooltip(tooltipEl, { target: 'demo-tooltip-target' });
+		it('sets up a close handler for touch on the tooltip-close button when opts.showOnClick is set to true', () => {
+			getOptionsStub.restore();
+			const tooltipEl = document.getElementById('tooltip-demo-3');
+			const testTooltip = new Tooltip(tooltipEl);
 			testTooltip.render();
 
 			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
@@ -461,9 +489,10 @@ describe("Tooltip", () => {
 			//proclaim.isTrue(closeStub.called);
 		});
 
-		it('sets up a close handler for a click on the tooltip-close button', () => {
-			const tooltipEl = document.getElementById('tooltip-demo');
-			const testTooltip = new Tooltip(tooltipEl, { target: 'demo-tooltip-target' });
+		it('sets up a close handler for a click on the tooltip-close button when opts.toggleOnClick is set to true', () => {
+			getOptionsStub.restore();
+			const tooltipEl = document.getElementById('tooltip-demo-3');
+			const testTooltip = new Tooltip(tooltipEl);
 			testTooltip.render();
 			const tooltipCloseEl = tooltipEl.querySelector('.o-tooltip-close');
 
