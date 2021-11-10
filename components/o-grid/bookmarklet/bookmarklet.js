@@ -126,11 +126,11 @@
 			gridToolsHtml += "	<div class=\"gdt-button\"><a href=\"#null\" id=\"gdt-close\">Close</a></div>";
 			gridToolsHtml += "</div>";
 
-			$("head").append("<link rel='stylesheet' href='https://rawgit.com/Financial-Times/o-grid/master/bookmarklet/bookmarklet.css' />");
+			$("head").append("<link rel='stylesheet' href='https://unpkg.com/@financial-times/o-grid@^6.0.0/bookmarklet/bookmarklet.css' />");
 
 			// A version of the grid might already be loaded, so we load it only if needed
 			if ($('.o-grid-row').length === 0) {
-				$("head").append("<link rel='stylesheet' href='http://build.origami.ft.com/v2/bundles/css?modules=o-grid@^5.0.0' />");
+				$("head").append("<link rel='stylesheet' href='https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0&brand=master&system_code=origami' />");
 			}
 
 			$("body").prepend(gridHtml).prepend(gridToolsHtml);
