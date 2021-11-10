@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.0.2](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.0.1...o-grid-v6.0.2) (2021-11-10)
+
+
+### Bug Fixes
+
+* o-grid bookmarklet ([0e18f2d](https://www.github.com/Financial-Times/origami/commit/0e18f2d92ae9c5945d29c6cdf00eaf0e9cdf5f40))
+
 ### [6.0.1](https://www.github.com/Financial-Times/origami/compare/o-grid-v6.0.0...o-grid-v6.0.1) (2021-09-21)
 
 
