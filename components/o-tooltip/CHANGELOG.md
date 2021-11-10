@@ -1,5 +1,12 @@
 # Changelog
 
+### [5.1.1](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.1.0...o-tooltip-v5.1.1) (2021-11-10)
+
+
+### Bug Fixes
+
+* only have tooltip close button for showOnClick and toggleOnClick ([0b5cc4c](https://www.github.com/Financial-Times/origami/commit/0b5cc4c7764671d742a43d925e943acd5e6f8803))
+
 ## [5.1.0](https://www.github.com/Financial-Times/origami/compare/o-tooltip-v5.0.3...o-tooltip-v5.1.0) (2021-11-08)
 
 
