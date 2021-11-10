@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import HeaderServices from '../../src/js/header.js';
 import * as fixtures from '../helpers/fixtures.js';

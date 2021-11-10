@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import * as fixtures from './helpers/fixtures.js';
 import CookieMessage from './../src/js/cookie-message.js';
@@ -30,13 +31,13 @@ describe('Cookie Message', () => {
 			it('with standard theme', () => {
 				fixtures.generateHTML('standard');
 				cookieMessage = CookieMessage.init();
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML), flatten(fixtures.html.imperativeCookieMessage));
+				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeCookieMessage));
 			});
 
 			it('with alternative theme', () => {
 				fixtures.generateHTML('standard');
 				cookieMessage = CookieMessage.init(null, { theme: 'alternative' });
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML), flatten(fixtures.html.imperativeAltCookieMessage));
+				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeAltCookieMessage));
 			});
 		});
 	});
@@ -83,19 +84,23 @@ describe('Cookie Message', () => {
 				fixtures.reset();
 			});
 
-			it('emits `oCookieMessage.view` if consent cookies are not already set', () => {
+			it('emits `oCookieMessage.view` if consent cookies are not already set', (done) => {
 				let isVisible = false;
-				document.body.addEventListener('oCookieMessage.view', () => {
+				document.body.addEventListener('oCookieMessage.view', function view () {
 					isVisible = true;
+					document.body.removeEventListener('oCookieMessage.view', view);
+					done();
 				});
 				CookieMessage.init();
 				proclaim.isTrue(isVisible, 'Expected the `oCookieMessage.view` event to be emitted but it was not.');
 			});
 
-			it('emits `oCookieMessage.act` when consent is given', () => {
+			it('emits `oCookieMessage.act` when consent is given', (done) => {
 				let consentGiven = false;
-				document.body.addEventListener('oCookieMessage.act', () => {
+				document.body.addEventListener('oCookieMessage.act', function act (){
 					consentGiven = true;
+					document.body.removeEventListener('oCookieMessage.act', act);
+					done();
 				});
 				cookieMessage = CookieMessage.init();
 				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
@@ -103,10 +108,12 @@ describe('Cookie Message', () => {
 				proclaim.isTrue(consentGiven, 'Expected `oCookieMessage.act` event to be emitted but it was not.');
 			});
 
-			it('emits `oCookieMessage.close` when consent is given', () => {
+			it('emits `oCookieMessage.close` when consent is given', (done) => {
 				let consentGiven = false;
-				document.body.addEventListener('oCookieMessage.close', () => {
+				document.body.addEventListener('oCookieMessage.close', function close() {
 					consentGiven = true;
+					document.body.removeEventListener('oCookieMessage.close', close);
+					done();
 				});
 				cookieMessage = CookieMessage.init();
 				const button = cookieMessage.cookieMessageElement.querySelector('.o-cookie-message__button');
@@ -144,8 +151,7 @@ describe('Cookie Message', () => {
 			it('The pageshow event is not responded to unless swiping back', () => {
 				cookieMessage = CookieMessage.init();
 				firePageTransitionEvent('pageshow');
-
-				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML), flatten(fixtures.html.imperativeCookieMessage));
+				proclaim.deepEqual(flatten(cookieMessage.cookieMessageElement.outerHTML).replaceAll(window.location.toString(), 'http://example.com'), flatten(fixtures.html.imperativeCookieMessage));
 			});
 
 			it('emits `oCookieMessage.close` when swiping back with consent granted', () => {

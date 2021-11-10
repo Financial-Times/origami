@@ -1,6 +1,8 @@
 /* eslint-env mocha */
-/* global proclaim sinon google */
+/* global google */
 
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import Ads from './../src/js/ads.js';
 
 describe('Ads', () => {

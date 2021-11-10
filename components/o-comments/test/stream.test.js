@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 import Stream from '../src/js/stream.js';
 
 import renderComments from './methods/stream/render-comments.js';
