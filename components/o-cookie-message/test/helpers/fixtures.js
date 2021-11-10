@@ -51,11 +51,11 @@ export const html = {
 
 				<div class="o-cookie-message__actions">
 					<div class="o-cookie-message__action">
-						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
+						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://cookies.localhost/preferences/cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/cookies?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
@@ -81,11 +81,11 @@ export const html = {
 
 				<div class="o-cookie-message__actions">
 					<div class="o-cookie-message__action">
-						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
+						<a href="https://consent.localhost/__consent/consent-record-cookie?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__button">Accept &amp; continue</a>
 					</div>
 
 			<div class="o-cookie-message__action o-cookie-message__action--secondary">
-				<a href="https://cookies.localhost/preferences/cookies?redirect=http://localhost:9876/context.html&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
+				<a href="https://cookies.localhost/preferences/cookies?redirect=http://example.com&amp;cookieDomain=.localhost" class="o-cookie-message__link">Manage cookies</a>
 			</div>
 
 				</div>
