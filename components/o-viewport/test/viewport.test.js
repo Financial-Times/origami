@@ -1,5 +1,6 @@
 /* eslint-env mocha */
-/* global proclaim */
+
+import proclaim from 'proclaim';
 
 import oViewport from './../main.js';
 import utils from './../src/utils.js';

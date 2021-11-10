@@ -1,5 +1,7 @@
 /* eslint-env mocha */
-/* global proclaim sinon */
+
+import proclaim from 'proclaim';
+import sinon from 'sinon/pkg/sinon-esm.js';
 
 import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
 import Typography from './../main.js';

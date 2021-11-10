@@ -1,0 +1,24 @@
+{
+  "name": "test-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "bin": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@web/dev-server-esbuild": "^0.2.16",
+    "@web/test-runner": "^0.13.21",
+    "camelcase": "^6.2.0",
+    "del": "^6.0.0",
+    "execa": "^5.1.1",
+    "globby": "^12.0.2",
+    "parse-json": "^6.0.0",
+    "sass-bin": "^1.42.3",
+    "yargs-parser": "^20.2.9",
+    "zx": "^4.2.0"
+  }
+}

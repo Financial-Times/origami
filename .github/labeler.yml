@@ -134,6 +134,8 @@ a11y:
   - tools/a11y/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+test-javascript:
+  - tools/test-javascript/**/*
 test-sass:
   - tools/test-sass/**/*
 validate-component-demo-html:

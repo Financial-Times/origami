@@ -1,10 +1,11 @@
 /* eslint-env mocha */
-/* global sinon, proclaim */
 
+import { assert } from '@open-wc/testing';
+import sinon from 'sinon/pkg/sinon-esm.js';
 import Layout from '../src/js/layout.js';
 import { docs, docsWithSubHeading, query } from './helpers/fixtures.js';
 
-sinon.assert.expose(proclaim, {
+sinon.assert.expose(assert, {
 	includeFail: false,
 	prefix: ''
 });
@@ -27,13 +28,13 @@ describe('Layout', () => {
 
 		it('stores `documentationLayoutElement` in a `layoutEl` property', () => {
 			const layout = new Layout(documentationLayoutElement);
-			proclaim.strictEqual(layout.layoutEl, documentationLayoutElement);
+			assert.strictEqual(layout.layoutEl, documentationLayoutElement);
 		});
 
 		it('has default options and stores them in an `options` property', () => {
 			const layout = new Layout(documentationLayoutElement);
-			proclaim.isObject(layout.options);
-			proclaim.deepEqual(layout.options, {
+			assert.isObject(layout.options);
+			assert.deepEqual(layout.options, {
 				constructNav: true,
 				navHeadingSelector: 'h1, h2, h3',
 				linkHeadings: true,
@@ -43,7 +44,7 @@ describe('Layout', () => {
 
 		it('constructs the documentation layout navigation by default', () => {
 			const layout = new Layout(documentationLayoutElement);
-			proclaim.strictEqual(layout.navHeadings.length, 2, `Expected to find two navigation headings but found ${layout.navHeadings.length}.`);
+			assert.strictEqual(layout.navHeadings.length, 2, `Expected to find two navigation headings but found ${layout.navHeadings.length}.`);
 		});
 
 		it('constructs a nested navigation when a h3 (or lower) follows a h2', (done) => {
@@ -53,17 +54,21 @@ describe('Layout', () => {
 				navHeadingSelector: 'h1, h2, h3, h4, h5, h6'
 			});
 			setTimeout(() => {
-				proclaim.strictEqual(
-					documentationLayoutElement.querySelector('.o-layout__sidebar').innerHTML.replace(/[\n\t]/g, ''),
-					'<nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2" aria-current="false">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1" aria-current="false">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b" aria-current="false">Sub heading 1b</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-2" aria-current="false">Sub heading 2</a></li></ol></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-second-h2" aria-current="false">This is a second heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-a" aria-current="false">Sub heading a</a></li></ol></li></ol></nav>'
-				);
-				done();
-			}, 100);
+				try {
+					assert.dom.equal(
+						documentationLayoutElement.querySelector('.o-layout__sidebar'),
+						`<div class="o-layout__sidebar"><nav class="o-layout__navigation"><ol class="o-layout__unstyled-element"><li class="o-layout__unstyled-element o-layout__navigation-title"><a class="o-layout__unstyled-element" href="#this-is-a-h1" aria-current="location">This is a heading level 1</a></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-h2" aria-current="false">This is a heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-1" aria-current="false">Sub heading 1</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-1b" aria-current="false">Sub heading 1b</a></li><li><a class="o-layout__unstyled-element" href="#sub-heading-2" aria-current="false">Sub heading 2</a></li></ol></li><li class="o-layout__unstyled-element "><a class="o-layout__unstyled-element" href="#this-is-a-second-h2" aria-current="false">This is a second heading level 2</a><ol><li><a class="o-layout__unstyled-element" href="#sub-heading-a" aria-current="false">Sub heading a</a></li></ol></li></ol></nav></div>`
+					);
+					done();
+				} catch (error) {
+					done(error);
+				}
+			}, 200);
 		});
 
 		it('does not construct the navigation by default for the query layout', () => {
 			new Layout(queryLayoutElement);
-			proclaim.strictEqual(queryLayoutElement.querySelector('.o-layout__query-sidebar').innerHTML, '', 'Expected to find no navigation HTML within the query layout sidebar.');
+			assert.dom.equal(queryLayoutElement.querySelector('.o-layout__query-sidebar'), `<div class="o-layout-typography o-layout__query-sidebar"></div>`, 'Expected to find no navigation HTML within the query layout sidebar.');
 		});
 
 		it('constructs the navigation for the query layout when "constructNav" is explicit', (done) => {
@@ -71,7 +76,7 @@ describe('Layout', () => {
 				constructNav: true
 			});
 			setTimeout(() => {
-				proclaim.ok(queryLayoutElement.querySelector('.o-layout__query-sidebar').innerHTML, 'Expected to find navigation HTML within the query layout sidebar.');
+				assert.ok(queryLayoutElement.querySelector('.o-layout__query-sidebar').innerHTML, 'Expected to find navigation HTML within the query layout sidebar.');
 				done();
 			}, 100);
 		});
@@ -80,7 +85,7 @@ describe('Layout', () => {
 			new Layout(documentationLayoutElement, { navHeadingSelector: 'h1' });
 			// allow for request animation frame
 			setTimeout(() => {
-				proclaim.ok(document.querySelector('.o-layout__navigation'), 'Expected to find a navigation element.');
+				assert.ok(document.querySelector('.o-layout__navigation'), 'Expected to find a navigation element.');
 				done();
 			}, 100);
 		});
@@ -89,7 +94,7 @@ describe('Layout', () => {
 			new Layout(documentationLayoutElement, { constructNav: false });
 			// allow for request animation frame
 			setTimeout(() => {
-				proclaim.notOk(document.querySelector('.o-layout__navigation'), null, 'Did not expect to find a navigation element.');
+				assert.notOk(document.querySelector('.o-layout__navigation'), null, 'Did not expect to find a navigation element.');
 				done();
 			}, 100);
 		});
@@ -114,7 +119,7 @@ describe('Layout', () => {
 			// although it's not actually when the page loads
 			const navLink = document.getElementById('second-nav-link');
 			try {
-				proclaim.equal(navLink.getAttribute('aria-current'), 'location');
+				assert.equal(navLink.getAttribute('aria-current'), 'location');
 			} catch (error) {
 				done(error);
 			}
@@ -124,7 +129,7 @@ describe('Layout', () => {
 			setTimeout(() => {
 				// assert the current location has been updated on init
 				try {
-					proclaim.equal(navLink.getAttribute('aria-current'), 'false');
+					assert.equal(navLink.getAttribute('aria-current'), 'false');
 					done();
 				} catch (error) {
 					done(error);
@@ -134,29 +139,29 @@ describe('Layout', () => {
 
 		it('constructs linkable headings by default', () => {
 			const layout = new Layout(documentationLayoutElement);
-			proclaim.strictEqual(layout.linkedHeadings.length, 2, 'Expected to find two linked heading.');
+			assert.strictEqual(layout.linkedHeadings.length, 2, 'Expected to find two linked heading.');
 		});
 
 		it('does not construct linkable headings when "linkHeadings" is set to false', () => {
 			const layout = new Layout(documentationLayoutElement, { linkHeadings: false });
-			proclaim.strictEqual(layout.linkedHeadings.length, 0, 'Expected to find no linked headings.');
+			assert.strictEqual(layout.linkedHeadings.length, 0, 'Expected to find no linked headings.');
 		});
 
 		it('constructs linkable headings with a custom selector set by the "linkedHeadingSelector" option', () => {
 			const layout = new Layout(documentationLayoutElement, { linkedHeadingSelector: 'h1' });
-			proclaim.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find one "h1" linked heading.');
+			assert.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find one "h1" linked heading.');
 		});
 
 		it('constructs the navigation independently of linked headings', () => {
 			const layout = new Layout(documentationLayoutElement, { navHeadingSelector: 'h1', linkedHeadingSelector: 'h2' });
-			proclaim.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find only one "h2" linked heading.');
-			proclaim.strictEqual(layout.navHeadings.length, 1, 'Expected to find only one "h1" nav heading.');
+			assert.strictEqual(layout.linkedHeadings.length, 1, 'Expected to find only one "h2" linked heading.');
+			assert.strictEqual(layout.navHeadings.length, 1, 'Expected to find only one "h1" nav heading.');
 		});
 
 		it('extracts options from the DOM', () => {
 			const getDataAttributesSpie = sinon.stub(Layout, 'getDataAttributes');
 			new Layout(documentationLayoutElement);
-			proclaim.calledOnce(getDataAttributesSpie);
+			assert.calledOnce(getDataAttributesSpie);
 			Layout.getDataAttributes.restore();
 		});
 	});
@@ -170,8 +175,8 @@ describe('Layout', () => {
 			// allow for request animation frame
 			setTimeout(() => {
 				const navItems = document.body.querySelectorAll('a');
-				proclaim.strictEqual(navItems[0].hash, `#${headingOneId}`);
-				proclaim.strictEqual(navItems[1].hash, `#${headingTwoId}`);
+				assert.strictEqual(navItems[0].hash, `#${headingOneId}`);
+				assert.strictEqual(navItems[1].hash, `#${headingTwoId}`);
 				done();
 			}, 100);
 		});
@@ -193,37 +198,37 @@ describe('Layout', () => {
 		});
 
 		it('returns an object', () => {
-			proclaim.isObject(returnValue);
+			assert.isObject(returnValue);
 		});
 
 		it('extracts values from data attributes and returns them as object keys', () => {
-			proclaim.strictEqual(returnValue.key, 'value');
+			assert.strictEqual(returnValue.key, 'value');
 		});
 
 		it('converts the keys to camel-case', () => {
-			proclaim.isUndefined(returnValue['another-key']);
-			proclaim.strictEqual(returnValue.anotherKey, 'value');
+			assert.isUndefined(returnValue['another-key']);
+			assert.strictEqual(returnValue.anotherKey, 'value');
 		});
 
 		it('ignores the `data-o-component` attribute', () => {
-			proclaim.isUndefined(returnValue.oComponent);
+			assert.isUndefined(returnValue.oComponent);
 		});
 
 		it('strips "o-layout" from the key', () => {
-			proclaim.isUndefined(returnValue.oLayoutFoo);
-			proclaim.strictEqual(returnValue.foo, 'bar');
+			assert.isUndefined(returnValue.oLayoutFoo);
+			assert.strictEqual(returnValue.foo, 'bar');
 		});
 
 		it('parses the key as JSON if it\'s valid', () => {
-			proclaim.isObject(returnValue.json);
-			proclaim.deepEqual(returnValue.json, {
+			assert.isObject(returnValue.json);
+			assert.deepEqual(returnValue.json, {
 				foo: 'bar'
 			});
 		});
 
 		it('parses the key as JSON even if single quotes are used', () => {
-			proclaim.isObject(returnValue.jsonSingle);
-			proclaim.deepEqual(returnValue.jsonSingle, {
+			assert.isObject(returnValue.jsonSingle);
+			assert.deepEqual(returnValue.jsonSingle, {
 				foo: 'bar'
 			});
 		});
