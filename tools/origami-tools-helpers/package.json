@@ -1,0 +1,14 @@
+{
+	"name": "origami-tools-helpers",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"bin": "index.js",
+	"type": "module",
+	"keywords": [],
+	"author": "Helper functions for Origami tools",
+	"license": "MIT",
+	"dependencies": {
+	  "deglob": "^4.0.1"
+	}
+  }
