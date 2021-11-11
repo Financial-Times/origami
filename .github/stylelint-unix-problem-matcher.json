@@ -11,7 +11,7 @@
                     "regexp": "^(\\d+):(\\d+)\\s+(✖)\\s+(.*)\\s\\s+(.*)$",
                     "line": 1,
                     "column": 2,
-                    "severity": "error",
+                    "severity": 3,
                     "message": 4,
                     "code": 5,
                     "loop": true
