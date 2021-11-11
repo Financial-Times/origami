@@ -4,13 +4,17 @@
             "owner": "stylelint-unix",
             "pattern": [
                 {
-                    "regexp": "^(.+):(\\d+):(\\d+):\\s(.+)\\s\\((.+)\\)\\s\\[(.+)\\]$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 6,
+                    "regexp": "^([^\\s].*)$",
+                    "file": 1
+                },
+                {
+                    "regexp": "^(\\d+):(\\d+)\\s+(✖)\\s+(.*)\\s\\s+(.*)$",
+                    "line": 1,
+                    "column": 2,
+                    "severity": "error",
                     "message": 4,
-                    "code": 5
+                    "code": 5,
+                    "loop": true
                 }
             ]
         }
