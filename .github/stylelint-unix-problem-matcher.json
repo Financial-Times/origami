@@ -1,0 +1,18 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "stylelint-unix",
+            "pattern": [
+                {
+                    "regexp": "^(.+):(\\d+):(\\d+):\\s(.+)\\s\\((.+)\\)\\s\\[.+\\]$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 5,
+                    "message": 6,
+                    "code": 4
+                }
+            ]
+        }
+    ]
+}
