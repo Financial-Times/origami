@@ -12,3 +12,6 @@ if test -f "$workspace/.eslintrc.cjs"; then
     fi
     npx eslint ${args[*]} "$workspace/**/*.js"
 fi
+if test -f "$workspace/.stylelintrc.cjs" && compgen -G "$workspace/**/*.scss"; then
+    npx stylelint "$workspace/**/*.scss" --config="$workspace/.stylelintrc.cjs"
+fi
