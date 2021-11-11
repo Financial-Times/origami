@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-npx remark-cli -fq README.md
+npx remark-cli -q README.md
 origami-build-tools verify
