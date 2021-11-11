@@ -101,21 +101,13 @@ The markup has been rearranged, and some classes have been removed.
 			</div>
 -			<div class="o-subs-card__copy-pitch">Access to FT.com on your desktop, mobile and tablet</div>
 				<div class="o-subs-card__expander">
-<<<<<<< HEAD
 -		 		<div class='o-subs-card__read-more'>Read more</div>
-=======
--		 		<div class='o-subs-card__read-more'></div>
->>>>>>> de60d1048d796fe4bd53ccb4c8a7b39dccaece06
 					<div class="o-subs-card__copy-details">
 						<ul class="o-subs-card__copy-benefits">
 							<li>...</li>
 						</ul>
 					</div>
-<<<<<<< HEAD
 +					<div class='o-subs-card__read-more'>Read more</div>
-=======
-+					<button class='o-subs-card__read-more'></button>
->>>>>>> de60d1048d796fe4bd53ccb4c8a7b39dccaece06
 				</div>
 		</div>
 + </div>
