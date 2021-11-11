@@ -1,20 +1,16 @@
 {
     "problemMatcher": [
         {
-            "owner": "stylelint-unix",
+            "owner": "stylelint-compact",
             "pattern": [
                 {
-                    "regexp": "^([^\\s].*)$",
-                    "file": 1
-                },
-                {
-                    "regexp": "^(\\d+):(\\d+)\\s+(✖)\\s+(.*)\\s\\s+(.*)$",
-                    "line": 1,
-                    "column": 2,
-                    "severity": 3,
-                    "message": 4,
-                    "code": 5,
-                    "loop": true
+                    "regexp": "^(.+): line (\\d+), col (\\d+), (error|warning|info) - (.+) \\((.+)\\)",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5,
+                    "code": 6
                 }
             ]
         }
