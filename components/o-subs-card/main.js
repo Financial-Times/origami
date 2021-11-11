@@ -7,4 +7,4 @@ const constructAll = function() {
 
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
-export { SubsCard } from './src/js/subsCard';
+export {SubsCard} from './src/js/subsCard.js';

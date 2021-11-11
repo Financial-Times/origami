@@ -65,8 +65,6 @@ describe("SubsCard", () => {
 		it('will all have matching top height', () => {
 			const matchHeightsSpy = sinon.spy(SubsCard, 'matchHeights');
 
-			console.log(matchHeightsSpy);
-
 			SubsCard.init();
 
 			proclaim.equal(matchHeightsSpy.called, true);

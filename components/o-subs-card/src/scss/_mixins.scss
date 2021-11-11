@@ -3,6 +3,10 @@
 
 	text-align: center;
 
+	.o-subs-card-visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
+
 	// https://github.com/philipwalton/flexbugs#flexbug-17 (for suport in ie 9/10)
 	@include oGridRespondTo(L) {
 		// 12px = the combined 6px padding either side.

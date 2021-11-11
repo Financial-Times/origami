@@ -21,10 +21,11 @@ class SubsCard {
 
 	setExpanders() {
 		const expander = this.rootEl.querySelector('.o-subs-card__expander');
+		const titleElem = this.rootEl.querySelector('.o-subs-card__copy-title');
 		const opts = {
 			shrinkTo: 'hidden',
-			expandedToggleText: 'Read less',
-			collapsedToggleText: 'Read more',
+			collapsedToggleText: titleElem ? `Read more <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>` : 'Read more',
+			expandedToggleText: titleElem ? `Read less <span class="o-subs-card-visually-hidden">about ${titleElem.textContent}</span>` : 'Read less',
 			toggleState: 'all',
 			selectors: {
 				toggle: '.o-subs-card__read-more',
