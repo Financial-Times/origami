@@ -1,5 +1,12 @@
 # Changelog
 
+### [6.1.1](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.1.0...o-subs-card-v6.1.1) (2021-11-11)
+
+
+### Bug Fixes
+
+* add o-subs-card normalize trans dependency ([2e42179](https://www.github.com/Financial-Times/origami/commit/2e421799cfbb96cfb31a8aa4cfb478f8123f0ecf))
+
 ## [6.1.0](https://www.github.com/Financial-Times/origami/compare/o-subs-card-v6.0.2...o-subs-card-v6.1.0) (2021-11-08)
 
 
