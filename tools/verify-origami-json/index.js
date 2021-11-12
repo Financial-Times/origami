@@ -91,7 +91,7 @@ function origamiJson() {
 		});
 }
 
-console.log('verify-origami-json: Verifying your origami.json\n');
+console.log('verify-origami-json: Verifying your origami.json');
 let errors = await origamiJson()
 
 if(errors.length > 0) {

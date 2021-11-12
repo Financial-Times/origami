@@ -11,7 +11,6 @@ sinon.assert.expose(proclaim, {
 
 describe('Verify task', function() {
 	let Listr;
-	let verifyOrigamiJsonFile;
 	let verify;
 	let listrInstance;
 
@@ -21,8 +20,6 @@ describe('Verify task', function() {
 		};
 		Listr = sinon.stub();
 		Listr.returns(listrInstance);
-		verifyOrigamiJsonFile = sinon.stub();
-		verifyOrigamiJsonFile.returns(verifyOrigamiJsonFile);
 
 		mockery.enable({
 			useCleanCache: true,
@@ -31,8 +28,6 @@ describe('Verify task', function() {
 		});
 
 		mockery.registerMock('listr', Listr);
-
-		mockery.registerMock('./verify-origami-json', verifyOrigamiJsonFile);
 
 		mockery.registerAllowable('../../../lib/tasks/verify');
 
@@ -58,7 +53,6 @@ describe('Verify task', function() {
 			proclaim.calledOnce(Listr);
 			proclaim.calledWithNew(Listr);
 			proclaim.isArray(Listr.firstCall.args[0]);
-			proclaim.include(Listr.firstCall.args[0], verifyOrigamiJsonFile);
 		});
 	});
 });

@@ -2,7 +2,8 @@
 set -e
 npx remark-cli -q README.md
 origami-build-tools verify
-verify-origami-json 
+verify-origami-json
+verify-package-json
 if test -f ".eslintrc.cjs"; then
     args=(-c ".eslintrc.cjs" --no-error-on-unmatched-pattern)
     if test -f ".eslintignore"; then
