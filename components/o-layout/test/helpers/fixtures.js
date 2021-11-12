@@ -48,14 +48,32 @@ const docsWithSubHeading = `
 
 	<div class="o-layout__main">
 		<h1 id="this-is-a-h1">This is a heading level 1</h2>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h2 id="this-is-a-h2">This is a heading level 2</h2>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h3 id="sub-heading-1">Sub heading 1</h3>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h5 id="sub-heading-1b">Sub heading 1b</h5>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h3 id="sub-heading-2">Sub heading 2</h3>
 		<p>This is some content.</p>
 		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h2 id="this-is-a-second-h2">This is a second heading level 2</h2>
+		<p>This is some content.</p>
+		<p>This is more content</p>
+		<p>This is even more content</p>
 		<h3 id="sub-heading-a">Sub heading a</h3>
+		<p>This is some content.</p>
+		<p>This is more content</p>
 		<p>This is even more content</p>
 	</div>
 
