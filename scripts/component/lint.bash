@@ -14,7 +14,7 @@ if test -f ".eslintrc.cjs"; then
 fi
 
 if test -f ".stylelintrc.cjs"; then
-	npx stylelint --allow-empty-input --config=".stylelintrc.cjs" "**/*.scss"
+	 npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss"
 fi
 
 # we need to cd back to root and run remark-cli from there
