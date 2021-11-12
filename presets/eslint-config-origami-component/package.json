@@ -10,6 +10,7 @@
     "proclaim": "^3.4.2"
   },
   "dependencies": {
+    "@lwc/eslint-plugin-lwc": "^1.1.1",
     "eslint-plugin-import": "^2.22.0"
   }
 }

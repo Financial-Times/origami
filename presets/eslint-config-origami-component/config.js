@@ -2,18 +2,17 @@
 
 module.exports = {
 	parserOptions: {
-		ecmaVersion: 7,
 		sourceType: "module",
 		ecmaFeatures: {
 			jsx: true,
 		},
 	},
 	env: {
-		es6: true,
+		es2021: true,
 		browser: true,
 		node: true,
 	},
-	plugins: ["import"],
+	plugins: ["import", "@lwc/eslint-plugin-lwc"],
 	rules: {
 		"import/extensions": ["warn", "ignorePackages"],
 		"no-unused-vars": "error",
@@ -121,6 +120,7 @@ module.exports = {
 		curly: "error",
 		radix: "error",
 		yoda: "error",
+		"@lwc/lwc/no-async-await": "error",
 	},
 	globals: {
 		require: false,
@@ -128,4 +128,12 @@ module.exports = {
 		exports: false,
 		requireText: false,
 	},
+   "overrides": [
+      {
+        "files": ["test/**/*.js"],
+        "rules": {
+          "@lwc/lwc/no-async-await": "off"
+        }
+      }
+    ]
 }
