@@ -17,7 +17,7 @@ fi
 
 echo "::add-matcher::.github/stylelint-compact-problem-matcher.json"
 if test -f ".stylelintrc.cjs"; then
-	 npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss"
+	npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss"
 fi
 
 # we need to cd back to root and run remark-cli from there

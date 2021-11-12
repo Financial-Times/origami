@@ -9,10 +9,10 @@ function readmeHasName(tree, file) {
 		return
 	}
 
-	let packageJsonPath = join("package.json")
+	let packageJsonPath = join(file.path, "..", "package.json")
 
 	if (!existsSync(packageJsonPath)) {
-		file.message(`${process.cwd()}/package.json not found.`)
+		file.message(`${packageJsonPath} not found.`)
 		return
 	}
 
