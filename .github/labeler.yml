@@ -134,6 +134,8 @@ a11y:
   - tools/a11y/**/*
 origami-build-tools:
   - tools/origami-build-tools/**/*
+origami-json-lint:
+  - tools/origami-json-lint/**/*
 origami-tools-helpers:
   - tools/origami-tools-helpers/**/*
 sass-compilation:
