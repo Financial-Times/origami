@@ -1,11 +1,13 @@
-'use strict';
+#!/usr/bin/env node
 
-const process = require('process');
-const { readFile } = require('fs/promises');
-const { fileExists} = require('../helpers/files');
-const path = require('path');
-const isCI = require('is-ci');
-const semver = require('semver');
+import process from 'process'
+import isCI from 'is-ci'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
+import { fileExists } from 'origami-tools-helpers'
+import semver from 'semver'
+import { EOL } from 'node:os'
+const cwd = process.argv[2] || process.cwd()
 
 /**
  * Checks whether description conforms to the origami package.json description specification.
@@ -102,9 +104,9 @@ function validName(name) {
 	return true;
 }
 
-async function packageJson(config) {
+async function packageJson() {
 	const result = [];
-	const packageJsonPath = path.join(config.cwd, '/package.json');
+	const packageJsonPath = path.join(cwd, '/package.json');
 	const exists = await fileExists(packageJsonPath);
 	if (exists) {
 		const file = await readFile(packageJsonPath, 'utf8');
@@ -126,34 +128,29 @@ async function packageJson(config) {
 			result.push('The engines property is required. It must have the npm property set to a SemVer range which disallows versions lower than 7.0.0.');
 		}
 
-		const invalidExplanation = await validJavaScriptEntryPoint(packageJson, config.cwd);
+		const invalidExplanation = await validJavaScriptEntryPoint(packageJson, cwd);
 		if (invalidExplanation) {
 			result.push(invalidExplanation);
 		}
 	} else {
 		result.push(`No package.json file found. To make this an origami component, create a package.json file following the format defined at: https://origami.ft.com/docs/components/code/#package-management`);
 	}
-
-	if (result.length > 0) {
-		const message = 'Failed linting:\n\n' + result.join('\n') + '\n\nThe package.json file does not conform to the specification at https://origami.ft.com/docs/components/code/#package-management';
-		if (isCI) {
-			const newLine = "%0A";
-			console.log(`::error file=package.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);
-		}
-		const e = new Error(message);
-		e.stack = '';
-		throw e;
-	} else {
-		return result;
-	}
+	return result;
 }
 
-module.exports = cfg => {
-	const config = cfg || {};
-	config.cwd = config.cwd || process.cwd();
+console.log('verify-package-json: Verifying your package.json');
+let errors = await packageJson()
 
-	return {
-		title: 'Verifying your package.json',
-		task: () => packageJson(config)
-	};
-};
+if(errors.length > 0) {
+	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe package.json file does not conform to the expected format https://origami.ft.com/docs/manifests/origami-json/';
+	if (isCI) {
+		const newLine = "%0A";
+		console.log(`::error file=${cwd}/package.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);
+	} else {
+		console.error(errors.join(EOL + EOL))
+	}
+	process.exit(1);
+}
+
+console.log('verify-package-json: No errors found.');
+
