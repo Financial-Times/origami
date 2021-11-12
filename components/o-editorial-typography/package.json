@@ -1,32 +1,32 @@
 {
-  "name": "@financial-times/o-editorial-typography",
-  "version": "2.2.0",
-  "description": "Typography styles for editorial content.",
-  "keywords": [],
-  "homepage": "https://registry.origami.ft.com/components/o-editorial-typography",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-editorial-typography,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-colors": "^6.0.1",
-    "@financial-times/o-fonts": "^5.0.0",
-    "@financial-times/o-spacing": "^3.0.0",
-    "@financial-times/o-typography": "^7.0.1"
-  },
-  "engines": {
-    "npm": "^7"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  }
+	"name": "@financial-times/o-editorial-typography",
+	"version": "2.2.0",
+	"description": "Typography styles for editorial content.",
+	"keywords": [],
+	"homepage": "https://registry.origami.ft.com/components/o-editorial-typography",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-editorial-typography,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-colors": "^6.0.1",
+		"@financial-times/o-fonts": "^5.0.0",
+		"@financial-times/o-spacing": "^3.0.0",
+		"@financial-times/o-typography": "^7.0.1"
+	},
+	"engines": {
+		"npm": "^7 || ^8"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
 }

@@ -1,46 +1,46 @@
 {
-  "name": "@financial-times/o-tooltip",
-  "version": "5.1.1",
-  "description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
-  "keywords": [
-    "tooltip",
-    "tool",
-    "tip",
-    "annotate",
-    "highlight",
-    "hover"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-tooltip",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-tooltip,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
-  },
-  "dependencies": {
-    "ftdomdelegate": "^4.0.6"
-  },
-  "peerDependencies": {
-    "@financial-times/o-grid": "^6.0.0",
-    "@financial-times/o-icons": "^7.0.1",
-    "@financial-times/o-normalise": "^3.0.0",
-    "@financial-times/o-overlay": "^4.0.0",
-    "@financial-times/o-typography": "^7.0.1",
-    "@financial-times/o-viewport": "^5.0.0",
-    "@financial-times/o-visual-effects": "^4.0.1"
-  },
-  "engines": {
-    "npm": "^7"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  }
+	"name": "@financial-times/o-tooltip",
+	"version": "5.1.1",
+	"description": "Provides a viewport-aware tooltip for annotating or or highlighting other aspects of a product's UI",
+	"keywords": [
+		"tooltip",
+		"tool",
+		"tip",
+		"annotate",
+		"highlight",
+		"hover"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-tooltip",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-tooltip,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash"
+	},
+	"dependencies": {
+		"ftdomdelegate": "^4.0.6"
+	},
+	"peerDependencies": {
+		"@financial-times/o-grid": "^6.0.0",
+		"@financial-times/o-icons": "^7.0.1",
+		"@financial-times/o-normalise": "^3.0.0",
+		"@financial-times/o-overlay": "^4.0.0",
+		"@financial-times/o-typography": "^7.0.1",
+		"@financial-times/o-viewport": "^5.0.0",
+		"@financial-times/o-visual-effects": "^4.0.1"
+	},
+	"engines": {
+		"npm": "^7 || ^8"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
 }

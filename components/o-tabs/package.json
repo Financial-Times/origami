@@ -1,35 +1,35 @@
 {
-  "name": "@financial-times/o-tabs",
-  "version": "6.1.1",
-  "description": "Tabs component for dividing content into meaningful sections.",
-  "keywords": [
-    "tabs",
-    "ui"
-  ],
-  "homepage": "https://registry.origami.ft.com/components/o-tabs",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-tabs,components",
-    "email": "origami.support@ft.com"
-  },
-  "license": "MIT",
-  "type": "module",
-  "browser": "main.js",
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
-  },
-  "peerDependencies": {
-    "@financial-times/o-brand": "^4.1.0",
-    "@financial-times/o-buttons": "^7.0.0",
-    "@financial-times/o-colors": "^6.0.1"
-  },
-  "engines": {
-    "npm": "^7"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  }
+	"name": "@financial-times/o-tabs",
+	"version": "6.1.1",
+	"description": "Tabs component for dividing content into meaningful sections.",
+	"keywords": [
+		"tabs",
+		"ui"
+	],
+	"homepage": "https://registry.origami.ft.com/components/o-tabs",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-tabs,components",
+		"email": "origami.support@ft.com"
+	},
+	"license": "MIT",
+	"type": "module",
+	"browser": "main.js",
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash"
+	},
+	"peerDependencies": {
+		"@financial-times/o-brand": "^4.1.0",
+		"@financial-times/o-buttons": "^7.0.0",
+		"@financial-times/o-colors": "^6.0.1"
+	},
+	"engines": {
+		"npm": "^7 || ^8"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	}
 }

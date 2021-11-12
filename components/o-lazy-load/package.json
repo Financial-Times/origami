@@ -1,33 +1,33 @@
 {
-  "name": "@financial-times/o-lazy-load",
-  "description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
-  "browser": "main.js",
-  "type": "module",
-  "engines": {
-    "npm": "^7"
-  },
-  "keywords": [
-    "lazy",
-    "loading",
-    "images"
-  ],
-  "peerDependencies": {
-    "@financial-times/math": "^1.0.0"
-  },
-  "scripts": {
-    "start": "npx serve ./demos/local",
-    "build": "bash ../../scripts/component/build.bash",
-    "test": "bash ../../scripts/component/test.bash",
-    "lint": "bash ../../scripts/component/lint.bash"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "npm": "7.11.1"
-  },
-  "version": "3.0.1",
-  "homepage": "https://registry.origami.ft.com/components/o-lazy-load",
-  "bugs": {
-    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
-    "email": "origami.support@ft.com"
-  }
+	"name": "@financial-times/o-lazy-load",
+	"description": "Provides lazy loading functionality for images, pictures, iframes, and more. It is powered by the Intersection Observer API to detect when the visibility of elements changes.",
+	"browser": "main.js",
+	"type": "module",
+	"engines": {
+		"npm": "^7 || ^8"
+	},
+	"keywords": [
+		"lazy",
+		"loading",
+		"images"
+	],
+	"peerDependencies": {
+		"@financial-times/math": "^1.0.0"
+	},
+	"scripts": {
+		"start": "npx serve ./demos/local",
+		"build": "bash ../../scripts/component/build.bash",
+		"test": "bash ../../scripts/component/test.bash",
+		"lint": "bash ../../scripts/component/lint.bash"
+	},
+	"volta": {
+		"node": "14.16.1",
+		"npm": "7.11.1"
+	},
+	"version": "3.0.1",
+	"homepage": "https://registry.origami.ft.com/components/o-lazy-load",
+	"bugs": {
+		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-lazy-load,components",
+		"email": "origami.support@ft.com"
+	}
 }
