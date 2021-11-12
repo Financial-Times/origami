@@ -2,9 +2,7 @@
 
 const Listr = require("listr");
 const ListrRenderer = require("../helpers/listr-renderer");
-const verifyOrigamiJsonFile = require("./verify-origami-json");
 const verifyDotNpmignoreFile = require("./verify-dot-npmignore");
-const verifyPackageJsonFile = require("./verify-package-json");
 const process = require("process");
 
 module.exports = function(cfg) {
@@ -14,8 +12,6 @@ module.exports = function(cfg) {
 	return new Listr(
 		[
 			verifyDotNpmignoreFile(config),
-			verifyOrigamiJsonFile(config),
-			verifyPackageJsonFile(config),
 		],
 		{
 			renderer: ListrRenderer,

@@ -1,0 +1,14 @@
+{
+  "name": "verify-origami-json",
+  "version": "1.0.0",
+  "description": "Verifies that the origami.json file is valid",
+  "main": "index.js",
+  "bin": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "is-ci": "^3.0.1"
+  }
+}

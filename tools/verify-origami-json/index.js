@@ -1,10 +1,11 @@
-'use strict';
+#!/usr/bin/env node
 
-const process = require('process');
-const { readFile } = require('fs/promises');
-const { fileExists} = require('../helpers/files');
-const path = require('path');
-const isCI = require('is-ci');
+import process from 'process'
+import isCI from 'is-ci'
+import { EOL } from 'node:os'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
+import { fileExists } from 'origami-tools-helpers'
 
 // https://origami.ft.com/docs/manifests/origami-json/#origamitype
 // "component": A front-end component that follows the component specification
@@ -17,6 +18,9 @@ const isCI = require('is-ci');
 // "example": Example and boilerplate projects
 // "meta": Repository-only projects that relate to how Origami works
 // null: An Origami project that does not fit any of the named categories
+
+const cwd = process.argv[2] || process.cwd()
+const origamiJsonPath = path.join(cwd, '/origami.json')
 function isValidOrigamiType(origamiType) {
 	switch (origamiType) {
 		case "component":
@@ -36,10 +40,8 @@ function isValidOrigamiType(origamiType) {
 	}
 }
 
-function origamiJson(config) {
+function origamiJson() {
 	const result = [];
-
-	const origamiJsonPath = path.join(config.cwd, '/origami.json');
 	return fileExists(origamiJsonPath)
 		.then(exists => {
 			if (exists) {
@@ -80,40 +82,27 @@ function origamiJson(config) {
 								result.push('All demos require a title property which is non-empty and of type "string".');
 							}
 						}
-
-						if (result.length > 0) {
-							const message = 'Failed linting:\n\n' + result.join('\n') + '\n\nThe origami.json file does not conform to the expected format https://origami.ft.com/docs/manifests/origami-json/';
-							if (isCI) {
-								const newLine = "%0A";
-								console.log(`::error file=origami.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);
-							}
-							const e = new Error(message);
-							e.stack = '';
-							throw e;
-						} else {
-							return result;
-						}
+						return result
 					});
+			} else {
+				result.push(`No origami.json file found. To make this an Origami component, create a file at ${path.join(cwd, '/origami.json')} following the format defined at: https://origami.ft.com/docs/manifests/origami-json/`)
+				return result
 			}
 		});
 }
 
-module.exports = cfg => {
-	const config = cfg || {};
-	config.cwd = config.cwd || process.cwd();
+console.log('verify-origami-json: Verifying your origami.json');
+let errors = await origamiJson()
 
-	return {
-		title: 'Verifying your origami.json',
-		task: () => origamiJson(config),
-		skip: function () {
-			const origamiJsonPath = path.join(config.cwd, '/origami.json');
+if(errors.length > 0) {
+	const message = 'Failed linting:\n\n' + errors.join('\n') + '\n\nThe origami.json file does not conform to the expected format https://origami.ft.com/docs/manifests/origami-json/';
+	if (isCI) {
+		const newLine = "%0A";
+		console.log(`::error file=${cwd}/origami.json,line=1,col=1::${message.replace(/\n/g, newLine)}`);
+	} else {
+		console.error(errors.join(EOL + EOL))
+	}
+	process.exit(1);
+}
 
-			return fileExists(origamiJsonPath)
-				.then(exists => {
-					if (!exists) {
-						return `No origami.json file found. To make this an Origami component, create a file at ${path.join(config.cwd, '/origami.json')} following the format defined at: https://origami.ft.com/docs/manifests/origami-json/`;
-					}
-				});
-		}
-	};
-};
+console.log('verify-origami-json: No errors found.');
