@@ -49,7 +49,7 @@ describe('Layout', () => {
 		});
 
 		it('constructs a nested navigation when a h3 (or lower) follows a h2', async () => {
-			await setViewport({ width: 1080, height: 1280 });
+			await setViewport({ width: 1080, height: 100 });
 			document.body.innerHTML = docsWithSubHeading;
 			documentationLayoutElement = document.querySelector('.o-layout--docs');
 			new Layout(documentationLayoutElement, {
