@@ -237,14 +237,17 @@ module.exports = async function (cfg) {
 
 	for (const demoConfig of demos) {
 		if (!demoFilters || demoFilters && demoFilters.includes(demoConfig.name)) {
-			demoBuildConfig.push(mergeDeep(
-				{
-					documentClasses: '',
-					description: ''
-				},
-				demoDefaultConfiguration,
-				demoConfig
-			));
+			const demoSupportsAllBrands = !demoConfig.brands || demoConfig.brands.length === 0;
+			if (demoSupportsAllBrands || demoConfig.brands.includes(config.brand)) {
+				demoBuildConfig.push(mergeDeep(
+					{
+						documentClasses: '',
+						description: ''
+					},
+					demoDefaultConfiguration,
+					demoConfig
+				));
+			}
 		}
 	}
 

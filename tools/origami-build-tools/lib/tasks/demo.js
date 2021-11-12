@@ -5,6 +5,7 @@ const ListrRenderer = require('../helpers/listr-renderer');
 const path = require('path');
 const {readFile} = require('fs/promises');
 const buildDemo = require('./demo-build');
+const { getModuleBrands } = require('../helpers/files');
 
 module.exports = function (cfg) {
 	cfg = cfg || {};
@@ -13,8 +14,18 @@ module.exports = function (cfg) {
 
 	return new Listr([{
 		title: 'Compiling Demos',
-		task: () => {
-			return buildDemo(config);
+		task: async () => {
+			if (config.brand) {
+				return buildDemo(config);
+			} else {
+				const brands = await getModuleBrands(config.cwd)
+				const demos = []
+				for (const brand of brands) {
+					const brandedConfig = Object.assign({brand}, config);
+					demos.push(buildDemo(brandedConfig));
+				}
+				return Promise.all(demos);
+			}
 		},
 		skip: async () => {
 			const configPath = path.join(config.cwd, 'origami.json');
