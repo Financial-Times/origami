@@ -13,7 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: volta-cli/action@v1
-    - uses: xt0rted/stylelint-problem-matcher@v1
     - uses: actions/cache@v2
       with:
         path: ~/.npm

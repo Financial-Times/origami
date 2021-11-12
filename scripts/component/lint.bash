@@ -13,6 +13,7 @@ if test -f ".eslintrc.cjs"; then
 	npx eslint ${args[*]} "**/*.js"
 fi
 
+echo "::add-matcher::.github/stylelint-compact-problem-matcher.json"
 if test -f ".stylelintrc.cjs"; then
 	 npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss"
 fi
