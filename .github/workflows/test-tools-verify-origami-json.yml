@@ -1,0 +1,25 @@
+name: test tools/verify-origami-json
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow}}-tools/verify-origami-json
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+    - run: npm run -w tools/verify-origami-json lint --if-present
+    - run: npm run -w tools/verify-origami-json build --if-present
+    - run: npm run -w tools/verify-origami-json test --if-present
