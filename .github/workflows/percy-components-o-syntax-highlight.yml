@@ -1,0 +1,42 @@
+name: percy components/o-syntax-highlight
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-syntax-highlight
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/o-syntax-highlight/package.json"
+      - "components/o-syntax-highlight/package-lock.json"
+      - "components/o-syntax-highlight/origami.json"
+      - "components/o-syntax-highlight/main.js"
+      - "components/o-syntax-highlight/main.scss"
+      - "components/o-syntax-highlight/demos/**"
+      - "components/o-syntax-highlight/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm i -g npm@7
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SYNTAX_HIGHLIGHT }}
+        WORKSPACE: components/o-syntax-highlight

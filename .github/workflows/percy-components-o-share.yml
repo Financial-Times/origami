@@ -1,0 +1,42 @@
+name: percy components/o-share
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-share
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/o-share/package.json"
+      - "components/o-share/package-lock.json"
+      - "components/o-share/origami.json"
+      - "components/o-share/main.js"
+      - "components/o-share/main.scss"
+      - "components/o-share/demos/**"
+      - "components/o-share/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm i -g npm@7
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_SHARE }}
+        WORKSPACE: components/o-share

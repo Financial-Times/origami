@@ -1,0 +1,42 @@
+name: percy components/o-viewport
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-viewport
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/o-viewport/package.json"
+      - "components/o-viewport/package-lock.json"
+      - "components/o-viewport/origami.json"
+      - "components/o-viewport/main.js"
+      - "components/o-viewport/main.scss"
+      - "components/o-viewport/demos/**"
+      - "components/o-viewport/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm i -g npm@7
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_VIEWPORT }}
+        WORKSPACE: components/o-viewport

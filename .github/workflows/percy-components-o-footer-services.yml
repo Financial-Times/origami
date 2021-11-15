@@ -1,0 +1,42 @@
+name: percy components/o-footer-services
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-footer-services
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/o-footer-services/package.json"
+      - "components/o-footer-services/package-lock.json"
+      - "components/o-footer-services/origami.json"
+      - "components/o-footer-services/main.js"
+      - "components/o-footer-services/main.scss"
+      - "components/o-footer-services/demos/**"
+      - "components/o-footer-services/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm i -g npm@7
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_FOOTER_SERVICES }}
+        WORKSPACE: components/o-footer-services

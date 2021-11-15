@@ -1,0 +1,42 @@
+name: percy components/o-icons
+concurrency:
+  group: ${{ github.head_ref }}-${{ github.workflow }}-components/o-icons
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches: main
+    paths:
+      - "components/o-icons/package.json"
+      - "components/o-icons/package-lock.json"
+      - "components/o-icons/origami.json"
+      - "components/o-icons/main.js"
+      - "components/o-icons/main.scss"
+      - "components/o-icons/demos/**"
+      - "components/o-icons/src/**"
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: volta-cli/action@v1
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm i -g npm@7
+    - run: npm ci
+    - run: node ./scripts/percy.js
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS_O_ICONS }}
+        WORKSPACE: components/o-icons
