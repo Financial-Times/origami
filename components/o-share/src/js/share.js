@@ -57,13 +57,14 @@ function Share(rootEl, config) {
 	/**
 	 * Helper function to dispatch namespaced events, namespace defaults to oShare
 	 *
-	 * @param event
-	 * @param data
-	 * @param namespace
+	 * @param {string} eventName - event to dispatch
+	 * @param {object} data - the payload
+	 * @param {string} namespace - the namespace for the event
+	 * @returns {void}
 	 * @private
 	 */
-	function dispatchCustomEvent(event, data = {}, namespace = 'oShare') {
-		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + event, {
+	function dispatchCustomEvent(eventName, data = {}, namespace = 'oShare') {
+		oShare.rootEl.dispatchEvent(new CustomEvent(namespace + '.' + eventName, {
 			detail: data,
 			bubbles: true
 		}));
@@ -127,7 +128,7 @@ function Share(rootEl, config) {
 	 *
 	 * @private
 	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	 * @returns {string}
+	 * @returns {string} - the generated url
 	 */
 	function generateSocialUrl(socialNetwork) {
 		let templateUrl = socialUrls[socialNetwork];
@@ -144,7 +145,7 @@ function Share(rootEl, config) {
 	 *
 	 * @private
 	 * @param {string} socialNetwork - Name of the social network that we support (e.g. twitter, facebook, linkedin, pinterest)
-	 * @returns {string}
+	 * @returns {string} - A lovely URL
 	 */
 	function generateDesriptiveLinkText (socialNetwork) {
 		let templateLinkText = descriptiveLinkText[socialNetwork];
@@ -155,7 +156,7 @@ function Share(rootEl, config) {
 	/**
 	 * Renders the list of social networks in {@link config.links}
 	 *
-	 * @returns {undefined}
+	 * @returns {void}
 	 * @private
 	 */
 	function render() {
@@ -261,7 +262,7 @@ Share.prototype.destroy = function () {
  * Initialises all o-share components inside the element passed as the first parameter
  *
  * @param {(HTMLElement|string)} rootEl [el=document.body] - Element where to search for o-share components. You can pass an HTMLElement or a selector string
- * @returns {Array} - An array of Share instances
+ * @returns {Share|Share[]} - A Share or an array of Shares
  */
 Share.init = function (rootEl = document.body) {
 	if (!(rootEl instanceof HTMLElement)) {
