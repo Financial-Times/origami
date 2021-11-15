@@ -114,7 +114,7 @@ class Forms {
 	 * Validates every element in the form and creates input objects for the error
 	summary
 	 *
-	 * @returns {Array<import("./error-summary.js").ErrorSummaryElement>}
+	 * @returns {Array<import("./error-summary.js").ErrorSummaryElement>} - list of elements for the error summary
 	 */
 	validateFormInputs() {
 		return this.formInputs.map(oFormInput => {
@@ -193,10 +193,9 @@ class Forms {
 	/**
 	 * Initialise form component.
 	 *
-	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a form in, or a CSS selector for the root element
-	 * @param {object} [options={}] - An options object for configuring the banners
-	 * @param rootEl
-	 * @param opts
+	 * @param {(HTMLElement | string)} rootEl - The root element to intialise a form in, or a CSS selector for the root element
+	 * @param {object} [opts={}] - An options object for configuring the banners
+	 * @returns {Forms | Forms[]} - The newly instantiated Form or Forms
 	 */
 	static init(rootEl, opts) {
 		if (!rootEl) {

@@ -4,7 +4,7 @@ class State {
 	 *
 	 * @param {RadioNodeList} [inputs] - A NodeList of radio input elements
 	 * @param {boolean | object} opts - an object of options
-	 * @param {string} options.iconOnly [null] - when true display an icon only, hiding the status label
+	 * @param {string} opts.iconOnly [null] - when true display an icon only, hiding the status label
 	 */
 	constructor(inputs, opts) {
 		const radioInputs = inputs instanceof RadioNodeList;
@@ -63,7 +63,7 @@ class State {
 	/**
 	 * Saving state
 	 *
-	 * @param label
+	 * @param {string} label - the copy when saving
 	 * @access private
 	 */
 	_saving(label) {
@@ -83,7 +83,7 @@ class State {
 	/**
 	 * Saved state
 	 *
-	 * @param label
+	 * @param {string} label - the copy when saved
 	 * @access private
 	 */
 	_saved(label) {

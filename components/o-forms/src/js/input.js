@@ -2,8 +2,7 @@ class Input {
 	/**
 	 * Class constructor.
 	 *
-	 * @param {HTMLElement} [inputElement] - An input element in the DOM
-	 * @param element
+	 * @param {HTMLElement} [element] - An input element in the DOM
 	 */
 	constructor(element) {
 		this.input = element;
@@ -22,17 +21,18 @@ class Input {
 	 * Event Handler
 	 *
 	 * @param {object} event - The event emitted by element/window interactions
-	 * @param e
 	 */
-	handleEvent(e) {
-		if (e.type === 'blur' || e.type === 'input') {
-			this.validate(e.target);
+	handleEvent(event) {
+		if (event.type === 'blur' || event.type === 'input') {
+			this.validate(event.target);
 		}
 	}
 
 	/**
 	 * Input validation
 	 * Conditions for input validation
+	 *
+	 * @returns {boolean} - is the input valid?
 	 */
 	validate() {
 		if (!this.parent) {
