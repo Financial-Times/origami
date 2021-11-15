@@ -22,9 +22,9 @@ class Banner {
 	/**
 	 * Class constructor.
 	 *
-	 * @param {HTMLElement} [bannerElement] - The banner element in the DOM
+	 * @param {HTMLElement=} [bannerElement] - The banner element in the DOM
 	 * @param {object} [options={}] - An options object for configuring the banner
-	 * @property {HTMLElement} bannerElement
+	 * @property {HTMLElement} bannerElement - The banner element we were given
 	 */
 	constructor (bannerElement, options) {
 		this.bannerElement = bannerElement;
