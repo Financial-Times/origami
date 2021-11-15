@@ -1,16 +1,15 @@
-# o-subs-card [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-subs-card
 
 This component is used for showing information about various FT subscription packages.
 
-- [o-subs-card ![MIT licensed](#licence)](#o-subs-card-)
-	- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-		- [Themes](#themes)
-	- [JavaScript](#javascript)
-	- [Migration guide](#migration-guide)
-	- [Contact](#contact)
-	- [Licence](#licence)
+- [Usage](#usage)
+- [Markup](#markup)
+- [Sass](#sass)
+  - [Themes](#themes)
+- [JavaScript](#javascript)
+- [Migration guide](#migration-guide)
+- [Contact](#contact)
+- [Licence](#licence)
 
 ## Usage
 
