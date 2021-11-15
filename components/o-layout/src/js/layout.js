@@ -54,7 +54,8 @@ class Layout {
 	/**
 	 * Get the heading content.
 	 *
-	 * @param {Element} heading
+	 * @param {Element} heading - the target heading
+	 * @returns {string} - text of heading or heading's .o-layout__linked-heading__content child
 	 * @access private
 	 */
 	static _getContentFromHeading(heading) {
@@ -296,6 +297,7 @@ class Layout {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
 	 * @param {HTMLElement} layoutElement - The layout element in the DOM
+	 * @returns {Object.<string, any>} - Options for configuring the layout
 	 */
 	static getDataAttributes (layoutElement) {
 		if (!(layoutElement instanceof HTMLElement)) {
