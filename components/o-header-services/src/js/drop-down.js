@@ -5,7 +5,7 @@ class DropDown {
 	 * Class constructor
 	 *
 	 * @param {HTMLElement} headerEl - The component element in the DOM
-	 * @param {Drawer|null} drawer [null] - The drawer that this drop down belongs to if any.
+	 * @param {import("./drawer")|null} drawer - The drawer that this drop down belongs to if any.
 	 */
 	constructor(headerEl, drawer = null) {
 		this.primaryNav = headerEl.querySelector('.o-header-services__primary-nav');
