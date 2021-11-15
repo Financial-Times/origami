@@ -20,8 +20,7 @@ class SyntaxHighlight {
 	/**
 	 * Class constructor.
 	 *
-	 * @param {HTMLElement | string} [messageElement] - The message element in the DOM
-	 * @param syntaxEl
+	 * @param {HTMLElement | string} [syntaxEl] - The element to highlight in the DOM
 	 * @param {object} [options={}] - An options object for configuring the message
 	 * @param {string} options.language - The language to tokenise the code for
 	 */
@@ -30,7 +29,7 @@ class SyntaxHighlight {
 		this.opts = Object.assign({
 			language: '',
 			syntaxString: ''
-	 	}, options);
+		}, options);
 
 		if (typeof this.syntaxElement === 'string') {
 			this._setLanguage();
@@ -54,8 +53,7 @@ class SyntaxHighlight {
 	/**
 	 * Get language from HTML element
 	 *
-	 * @param {HTMLElement} - The element with a language-relevant class name
-	 * @param element
+	 * @param {HTMLElement} element - The element with a language-relevant class name
 	 * @returns {string | null} - The language name e.g. `js` or null if not defined.
 	 */
 	_getLanguage(element) {
@@ -102,8 +100,7 @@ class SyntaxHighlight {
 	/**
 	 * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
 	 *
-	 * @param {HTMLElement} - The html element that holds the syntax to highlight
-	 * @param element
+	 * @param {HTMLElement} element - The html element that holds the syntax to highlight
 	 */
 	_tokeniseBlock (element) {
 		const language = this._getLanguage(element);
@@ -127,23 +124,22 @@ class SyntaxHighlight {
 	 *
 	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
 	 * @param {object} [options={}] - An options object for configuring the syntax highlighting
-	 * @param rootEl
-	 * @param opts
+	 * @returns {SyntaxHighlight | SyntaxHighlight[]} - The SyntaxHighlight instance or instances
 	 */
-	static init (rootEl, opts) {
-		if (!rootEl) {
-			rootEl = document.body;
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
 		}
 
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
 
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-syntax-highlight]')) {
-			return new SyntaxHighlight(rootEl, opts);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-syntax-highlight]')) {
+			return new SyntaxHighlight(rootElement, options);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-syntax-highlight"]'), rootEl => new SyntaxHighlight(rootEl, opts));
+		return Array.from(rootElement.querySelectorAll('[data-o-component="o-syntax-highlight"]'), rootEl => new SyntaxHighlight(rootEl, options));
 	}
 }
 
