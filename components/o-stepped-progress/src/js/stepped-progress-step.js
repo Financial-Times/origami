@@ -44,7 +44,7 @@ class SteppedProgressStep {
 	 *
 	 * @access public
 	 * @param {HTMLElement} stepElement - The step element in the DOM
-	 * @param {SteppedProgress} parent - The parent stepped progress instance
+	 * @param {import("./stepped-progress")} parent - The parent stepped progress instance
 	 */
 	constructor (stepElement, parent) {
 		this.stepElement = stepElement;
