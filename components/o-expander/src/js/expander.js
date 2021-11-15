@@ -41,6 +41,7 @@ class Expander extends ExpanderUtility {
 	 *
 	 * @param {HTMLElement} oExpanderElement - The expander element in the DOM.
 	 * @param {Object} opts [{}] - An options object for configuring the expander @see ExpanderUtility.
+	 * @returns {ExpanderUtility} - A custom expander
 	 */
 	static createCustom(oExpanderElement, opts) {
 		return new ExpanderUtility(oExpanderElement, opts);
@@ -48,7 +49,7 @@ class Expander extends ExpanderUtility {
 
 	/**
 	 * Initialise the component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to initialise the component in, or a CSS selector for the root element
+	 * @param {(HTMLElement|String)} rootEl - The root element to initialise the component in, or a CSS selector for the root element
 	 * @param {Object} opts [{}] - An options object for configuring the component
 	 * @returns {(Expander|Array<Expander>)} - Expander instance(s)
 	 */
