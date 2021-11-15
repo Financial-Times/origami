@@ -63,6 +63,7 @@ class SyntaxHighlight {
 		const highlightClassName = highlightClassNames ? highlightClassNames[0]: null;
 
 		if (!highlightClassName) {
+			// eslint-disable-next-line no-console
 			console.warn(
 				`In order to highlight a codeblock, the '<code>' ` +
 				`requires a specific class to define a language. E.g. ` +
