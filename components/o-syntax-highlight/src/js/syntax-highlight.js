@@ -83,7 +83,7 @@ class SyntaxHighlight {
 	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
 	 */
 	_checkLanguage () {
-		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
+		if (this.opts.language && !Object.prototype.hasOwnProperty.call(prism.languages, this.opts.language)) {
 			throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
 		}
 	}
