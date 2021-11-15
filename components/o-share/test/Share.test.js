@@ -147,7 +147,7 @@ function newWindowSpy() {
 			self.calledWith = arguments;
 
 			return {
-				focus: function() {}
+				focus: Function.protoype
 			};
 		}
 	};
