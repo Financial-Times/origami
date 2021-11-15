@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = {
+	settings: {
+		jsdoc: {
+			mode: "typescript"
+		}
+	},
 	parserOptions: {
 		sourceType: "module",
 		ecmaFeatures: {
