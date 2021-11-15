@@ -158,6 +158,7 @@ class ExpanderUtility {
 	 * Recalculate and apply the styles to expand or collapse the expander
 	 * according to its current state.
 	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` or `oExpander.collapse` events.
+	 * @returns {void}
 	 */
 	apply(isSilent) {
 		if (!this._isActive()) {
@@ -181,6 +182,7 @@ class ExpanderUtility {
 
 	/**
 	 * Toggle the expander so expands or, if it's already expanded, collapses.
+	 * @returns {void}
 	 */
 	toggle() {
 		if (this.isCollapsed()) {
@@ -193,6 +195,7 @@ class ExpanderUtility {
 	/**
 	 * Expand the expander.
 	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` event.
+	 * @returns {void}
 	 */
 	expand(isSilent) {
 		this._setExpandedState('expand', isSilent);
@@ -201,14 +204,15 @@ class ExpanderUtility {
 	/**
 	 * Collapse the expander.
 	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` event.
+	 * @returns {void}
 	 */
 	collapse(isSilent) {
 		this._setExpandedState('collapse', isSilent);
 	}
 
 	/**
-	 * Return true if the expander is currently collapse.
-	 * @returns {Boolean}
+	 * Return true if the expander is currently collapsed.
+	 * @returns {Boolean} - is the expander collapsed
 	 */
 	isCollapsed() {
 		// If the expander has been run we store the current state.
@@ -226,6 +230,7 @@ class ExpanderUtility {
 
 	/**
 	 * Remove the expander from the page.
+	 * @returns {void}
 	 */
 	destroy() {
 		if (this.options.shrinkTo === 'height') {
@@ -267,7 +272,7 @@ class ExpanderUtility {
 	/**
 	 * Return whether the expander has something to hide / show.
 	 * i.e. if expanding/collapsing would do anything.
-	 * @returns {Boolean}
+	 * @returns {Boolean} - does the expander have something to hide?
 	 * @access private
 	 */
 	_isActive() {
@@ -299,6 +304,7 @@ class ExpanderUtility {
 	 * Expand or collapse the expander.
 	 * @param {Boolean} state "expand" or "collapse".
 	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` or `oExpander.expand` events.
+	 * @returns {void}
 	 * @access private
 	 */
 	_setExpandedState(state, isSilent) {
@@ -341,6 +347,7 @@ class ExpanderUtility {
 	/**
 	 * Fire a bubbling o-expander event with the correct namespace.
 	 * @param {string} name The event name. E.g. "example" will fire an "oExpander.example" event.
+	 * @returns {void}
 	 * @access private
 	 */
 	_dispatchEvent(name) {
