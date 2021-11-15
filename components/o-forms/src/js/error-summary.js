@@ -1,7 +1,17 @@
+/**
+* @typedef {Object} ErrorSummaryElement
+* @property {HTMLInputElement} element - the associated element
+* @property {string} id - the input element's id
+* @property {boolean} valid - was the user's value valid?
+* @property {string=} error - the error message for this element
+* @property {HTMLElement=} field - a containing o-forms-field element
+* @property {HTMLLabelElement} label - an associated label element
+*/
+
 class ErrorSummary {
 	/**
 	* Class constructor.
-	* @param {Array} [elements] - An array of objects, where each object describes an invalid input element
+	* @param {Array<ErrorSummaryElement>} [elements] - An array of objects, where each object describes an invalid input element
 	* @example
 	* const example = [
 	*	{
@@ -32,6 +42,7 @@ class ErrorSummary {
 
 	/**
 	 * Generate Node to hold list of invalid inputs
+	 * @returns {HTMLDivElement} - a div full of error messages
 	 */
 	createSummary() {
 		const invalidInputs = this.elements.filter(e => !e.valid);
@@ -51,6 +62,8 @@ class ErrorSummary {
 
 	/**
 	 * Generate list of anchors
+	 * @param {Array<ErrorSummaryElement>} inputs - element descriptors
+	 * @returns {HTMLUListElement} - the list
 	 */
 	static createList(inputs) {
 		const list = document.createElement('ul');
@@ -68,6 +81,7 @@ class ErrorSummary {
 			}
 			// invalid input but with no label to create an error summary
 			if (input.valid === false && !input.label) {
+				// eslint-disable-next-line no-console
 				console.warn(`Could not add an invalid input to the error summary. ` +
 				`Check the input has a parent \`o-forms-field\` element with correct title markup. ` +
 				`Or disable the error summary feature for this form with \`data-o-forms-error-summary="false"\`.`, input.element);
@@ -98,6 +112,7 @@ class ErrorSummary {
 			return item;
 		}
 		// If no id exist return an error summary item without a link.
+		// eslint-disable-next-line no-console
 		console.warn(`Could not link to an invalid input from the error summary. ` +
 			`Add a unique id attribute to the input element.`, input.element);
 
@@ -124,7 +139,7 @@ class ErrorSummary {
 	/**
 	 * @access private
 	 * @param {Node} input - The input element which has an error
-	 * @return {Node}
+	 * @return {string} - the html text for an error summary item
 	 */
 	static _getItemContent(input) {
 		return '<span class="o-forms__error-summary__item-overview">' +
