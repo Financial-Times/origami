@@ -61,5 +61,8 @@
     "eyeglass": "^3.0.3",
     "node-sass": "^6.0.0",
     "sassdoc": "^2.7.0"
+  },
+  "engines": {
+    "npm": "^7 || ^8"
   }
 }

@@ -1,39 +1,39 @@
 {
-	"name": "@financial-times/o-topper",
-	"version": "5.1.0",
-	"description": "Article header styling",
-	"keywords": [
-		"topper",
-		"header"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-topper",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-topper,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
-		"lint": "bash ../../scripts/component/lint.bash"
-	},
-	"peerDependencies": {
-		"@financial-times/n-map-content-to-topper": "^1.4.0",
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-editorial-typography": "^2.0.1",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-icons": "^7.0.1",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1"
-	},
-	"engines": {
-		"npm": "^7 || ^8"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-topper",
+  "version": "5.1.0",
+  "description": "Article header styling",
+  "keywords": [
+    "topper",
+    "header"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-topper",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-topper,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
+  },
+  "peerDependencies": {
+    "@financial-times/n-map-content-to-topper": "^1.4.0",
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-editorial-typography": "^2.0.1",
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-icons": "^7.0.1",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1"
+  },
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

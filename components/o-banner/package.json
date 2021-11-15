@@ -1,41 +1,41 @@
 {
-	"name": "@financial-times/o-banner",
-	"version": "4.1.0",
-	"description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
-	"keywords": [
-		"banner",
-		"message",
-		"messaging"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-banner",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-banner,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
-		"lint": "bash ../../scripts/component/lint.bash"
-	},
-	"peerDependencies": {
-		"@financial-times/math": "^1.0.0",
-		"@financial-times/o-buttons": "^7.0.0",
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-grid": "^6.0.0",
-		"@financial-times/o-icons": "^7.0.1",
-		"@financial-times/o-spacing": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1",
-		"@financial-times/o-visual-effects": "^4.0.1"
-	},
-	"engines": {
-		"npm": "^7 || ^8"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-banner",
+  "version": "4.1.0",
+  "description": "Provides styling for product messaging which could include feature promotion, education, feedback, and legal information.",
+  "keywords": [
+    "banner",
+    "message",
+    "messaging"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-banner",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-banner,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
+  },
+  "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
+    "@financial-times/o-buttons": "^7.0.0",
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-grid": "^6.0.0",
+    "@financial-times/o-icons": "^7.0.1",
+    "@financial-times/o-spacing": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-visual-effects": "^4.0.1"
+  },
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

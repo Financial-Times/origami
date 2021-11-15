@@ -1,39 +1,39 @@
 {
-	"name": "@financial-times/o-video",
-	"version": "7.1.0",
-	"description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
-	"keywords": [
-		"videos",
-		"play",
-		"watch"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-video",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-video,components",
-		"email": "content-innovation-team.customer-products@ft.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
-		"lint": "bash ../../scripts/component/lint.bash"
-	},
-	"peerDependencies": {
-		"@financial-times/o-colors": "^6.0.1",
-		"@financial-times/o-icons": "^7.0.0",
-		"@financial-times/o-loading": "^5.0.0",
-		"@financial-times/o-normalise": "^3.0.0",
-		"@financial-times/o-typography": "^7.0.1",
-		"@financial-times/o-viewport": "^5.0.0"
-	},
-	"engines": {
-		"npm": "^7 || ^8"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-video",
+  "version": "7.1.0",
+  "description": "Creates a video player and attaches analytics. Also supports pre roll ads.",
+  "keywords": [
+    "videos",
+    "play",
+    "watch"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-video",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-video,components",
+    "email": "content-innovation-team.customer-products@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
+  },
+  "peerDependencies": {
+    "@financial-times/o-colors": "^6.0.1",
+    "@financial-times/o-icons": "^7.0.0",
+    "@financial-times/o-loading": "^5.0.0",
+    "@financial-times/o-normalise": "^3.0.0",
+    "@financial-times/o-typography": "^7.0.1",
+    "@financial-times/o-viewport": "^5.0.0"
+  },
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }

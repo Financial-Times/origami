@@ -1,37 +1,37 @@
 {
-	"name": "@financial-times/o-grid",
-	"version": "6.0.2",
-	"description": "A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.",
-	"keywords": [
-		"page",
-		"grid",
-		"layout",
-		"columns",
-		"rows"
-	],
-	"homepage": "https://registry.origami.ft.com/components/o-grid",
-	"bugs": {
-		"url": "https://github.com/Financial-Times/origami/issues/new?labels=o-grid,components",
-		"email": "origami.support@ft.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"browser": "main.js",
-	"scripts": {
-		"start": "npx serve ./demos/local",
-		"build": "bash ../../scripts/component/build.bash",
-		"test": "bash ../../scripts/component/test.bash",
-		"lint": "bash ../../scripts/component/lint.bash"
-	},
-	"peerDependencies": {
-		"@financial-times/math": "^1.0.0",
-		"@financial-times/sass-mq": "^5.0.2"
-	},
-	"engines": {
-		"npm": "^7 || ^8"
-	},
-	"volta": {
-		"node": "14.16.1",
-		"npm": "7.11.1"
-	}
+  "name": "@financial-times/o-grid",
+  "version": "6.0.2",
+  "description": "A 12 column responsive, flexbox-based grid system for laying out documents, templates and components.",
+  "keywords": [
+    "page",
+    "grid",
+    "layout",
+    "columns",
+    "rows"
+  ],
+  "homepage": "https://registry.origami.ft.com/components/o-grid",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/origami/issues/new?labels=o-grid,components",
+    "email": "origami.support@ft.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "browser": "main.js",
+  "scripts": {
+    "start": "npx serve ./demos/local",
+    "build": "bash ../../scripts/component/build.bash",
+    "test": "bash ../../scripts/component/test.bash",
+    "lint": "bash ../../scripts/component/lint.bash"
+  },
+  "peerDependencies": {
+    "@financial-times/math": "^1.0.0",
+    "@financial-times/sass-mq": "^5.0.2"
+  },
+  "engines": {
+    "npm": "^7 || ^8"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.1"
+  }
 }
