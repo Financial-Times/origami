@@ -1,4 +1,3 @@
-
 import SteppedProgressStep from './stepped-progress-step.js';
 
 /**
@@ -191,21 +190,20 @@ class SteppedProgress {
 	 *
 	 * @access public
 	 * @param {(HTMLElement | string)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param rootEl
 	 * @param {object} [options={}] - An options object for configuring the component
 	 * @returns {(SteppedProgress|Array<SteppedProgress>)} Returns a stepped progress instance, or an array of instances.
 	 */
-	static init(rootEl, options) {
-		if (!rootEl) {
-			rootEl = document.body;
+	static init(rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.body;
 		}
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-stepped-progress]')) {
-			return new SteppedProgress(rootEl, options);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-stepped-progress]')) {
+			return new SteppedProgress(rootElement, options);
 		}
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-stepped-progress"]'), rootEl => new SteppedProgress(rootEl, options));
+		return Array.from(rootElement.querySelectorAll('[data-o-component="o-stepped-progress"]'), rootEl => new SteppedProgress(rootEl, options));
 	}
 }
 
