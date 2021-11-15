@@ -1,0 +1,38 @@
+Info 0    [19:11:40.156] Starting TS Server
+Info 1    [19:11:40.156] Version: 4.4.4
+Info 2    [19:11:40.156] Arguments: /home/chee/.cache/volta/tools/image/node/14.16.1/bin/node /home/chee/.emacs.d/.cache/lsp/npm/typescript/bin/tsserver --logFile /home/chee/origami/components/o-overlay/.log/tsserver.log --logVerbosity info --cancellationPipeName /tmp/7010ceda2ed6f6f210baadee95eff3c9/tscancellation*
+Info 3    [19:11:40.156] Platform: linux NodeVersion: 14 CaseSensitive: true
+Info 4    [19:11:40.156] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [19:11:40.179] Format host information updated
+Info 6    [19:11:40.181] Search path: /home/chee/origami/components/o-overlay/src/js
+Info 7    [19:11:40.182] For info: /home/chee/origami/components/o-overlay/src/js/overlay.js :: No config files found.
+Info 8    [19:11:40.186] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 9    [19:11:43.689] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 3503.171016037464ms
+Info 10   [19:11:43.690] Project '/dev/null/inferredProject1*' (Inferred)
+Info 11   [19:11:43.690] 	Files (266)
+
+Info 12   [19:11:43.690] -----------------------------------------------
+Info 13   [19:11:43.731] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 14   [19:11:44.361] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 630.1828479766846ms
+Info 15   [19:11:44.361] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 16   [19:11:44.361] 	Files (269)
+
+Info 17   [19:11:44.361] -----------------------------------------------
+Info 18   [19:11:45.454] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/README.md 0:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 19   [19:11:45.455] Elapsed:: 0.40361303091049194ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/README.md 0:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 20   [19:11:45.455] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/index.json 1:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 21   [19:11:45.455] Elapsed:: 0.41192400455474854ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/index.json 1:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 22   [19:11:45.455] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/package.json 2:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 23   [19:11:45.455] Elapsed:: 0.1254349946975708ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/package.json 2:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 24   [19:11:45.455] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/types-registry 3:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 25   [19:11:45.456] Elapsed:: 0.03198802471160889ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/types-registry 3:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 26   [19:11:45.456] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/types-registry 4:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 27   [19:11:45.456] Elapsed:: 0.019695043563842773ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry/types-registry 4:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 28   [19:11:45.456] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 5:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 29   [19:11:45.456] Elapsed:: 0.06195002794265747ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 5:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 30   [19:11:45.456] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 6:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 31   [19:11:45.456] Elapsed:: 0.05615299940109253ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 6:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 32   [19:17:30.051] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 0:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 33   [19:17:30.058] Elapsed:: 0.1699250340461731ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 0:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 34   [19:17:30.058] DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 1:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 35   [19:17:30.058] Elapsed:: 0.09812700748443604ms DirectoryWatcher:: Triggered with /home/chee/.cache/typescript/4.4/node_modules/types-registry 1:: WatchInfo: /home/chee/.cache/typescript/4.4/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
