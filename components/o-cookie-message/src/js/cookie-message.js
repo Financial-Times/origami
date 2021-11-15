@@ -55,7 +55,7 @@ class CookieMessage {
 			manageCookiesPath = 'preferences/cookies';
 		}
 
-		if (typeof this.options.manageCookiesPath === "string") {
+		if (typeof this.options.manageCookiesPath === 'string') {
 			manageCookiesPath = this.options.manageCookiesPath;
 		}
 
@@ -64,7 +64,7 @@ class CookieMessage {
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: `https://cookies.${domain}/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
-			consentCookieName: 'FTCookieConsentGDPR'
+			consentCookieName: 'FTCookieConsentGDPR',
 		};
 	}
 
