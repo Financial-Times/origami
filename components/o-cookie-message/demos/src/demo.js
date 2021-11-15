@@ -25,13 +25,16 @@ function hideCookieMessage() {
 }
 
 document.body.addEventListener('oCookieMessage.view', () => {
+	// eslint-disable-next-line no-console
 	console.log('THE 🍪 MESSAGE HAS BEEN VIEWED');
 });
 
 document.body.addEventListener('oCookieMessage.act', () => {
+	// eslint-disable-next-line no-console
 	console.log('THE 🍪 MESSAGE HAS BEEN ACTED UPON');
 });
 
 document.body.addEventListener('oCookieMessage.close', () => {
+	// eslint-disable-next-line no-console
 	console.log('THE 🍪 MESSAGE HAS BEEN CLOSED');
 });
