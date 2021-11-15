@@ -18,12 +18,12 @@ class ExpanderUtility {
 	 * @param {string} opts.selectors.toggle - A selector for the expanders toggles e.g. `.my-expander__toggle`.
 	 * @param {string} opts.selectors.content - A selector for the expanders content, which will collapse or expand e.g. `.my-expander__content`.
 	 * @param {string} opts.selectors.item - A selector for the items within the expander content e.g. `li` (required only when `shrinkTo` is set to a number).
-	 * @param {Object} opts.classnames - The classnames to apply to the expander for different states.
-	 * @param {String} opts.classnames.initialized - The class to apply to the top level of the expander when initialised by JS e.g. `.my-expander--initialized`.
-	 * @param {String} opts.classnames.inactive - The class to apply to the top level of the expander when it can not expand or collapse e.g. `.my-expander--inactive`.
-	 * @param {String} opts.classnames.expanded - The class to apply to the expander content when it is expanded e.g. `.my-expander--expanded`.
-	 * @param {String} opts.classnames.collapsed - The class to apply to the expander content when it is collapsed JS e.g. `.my-expander--collapsed`.
-	 * @param {String} opts.classnames.collapsibleItem - The class to apply to any item (see the `selectors.item` option) which will be hidden when collapsed e.g. `.my-expander__collapsible-item` (required only when `shrinkTo` is set to a number).
+	 * @param {object} opts.classnames - The classnames to apply to the expander for different states.
+	 * @param {string} opts.classnames.initialized - The class to apply to the top level of the expander when initialised by JS e.g. `.my-expander--initialized`.
+	 * @param {string} opts.classnames.inactive - The class to apply to the top level of the expander when it can not expand or collapse e.g. `.my-expander--inactive`.
+	 * @param {string} opts.classnames.expanded - The class to apply to the expander content when it is expanded e.g. `.my-expander--expanded`.
+	 * @param {string} opts.classnames.collapsed - The class to apply to the expander content when it is collapsed JS e.g. `.my-expander--collapsed`.
+	 * @param {string} opts.classnames.collapsibleItem - The class to apply to any item (see the `selectors.item` option) which will be hidden when collapsed e.g. `.my-expander__collapsible-item` (required only when `shrinkTo` is set to a number).
 	 */
 	constructor(oExpanderElement, opts) {
 		// Error if the expander element is not an element.
