@@ -103,6 +103,7 @@ class CookieMessage {
 	/**
 	 * Enables cookie setting behaviour from the FT consent service
 	 * https://github.com/Financial-Times/next-consent-proxy/tree/master/src
+	 * @returns {void}
 	 */
 	updateConsent() {
 		const button = document.querySelector(
@@ -123,6 +124,7 @@ class CookieMessage {
 
 	/**
 	 * Checks whether cookie is set
+	 * @returns {boolean} - should the cookie message be shown
 	 */
 	shouldShowCookieMessage() {
 		return !document.cookie.includes(`${this.cookieInfo.consentCookieName}`);
@@ -130,6 +132,7 @@ class CookieMessage {
 
 	/**
 	 * Displays cookie message banner, based on existing cookies.
+	 * @returns {void}
 	 */
 	showCookieMessage() {
 		this.cookieMessageElement.classList.add(
@@ -149,6 +152,7 @@ class CookieMessage {
 
 	/**
 	 * Removes cookie message banner.
+	 * @returns {void}
 	 */
 	removeCookieMessage() {
 		this.dispatchEvent('oCookieMessage.close');
@@ -170,6 +174,7 @@ class CookieMessage {
 	 * Get the data attributes from the cookieMessageElement. If the cookie message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 * @param {HTMLElement} cookieMessageElement - The cookie message element in the DOM
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getOptionsFromDom(cookieMessageElement) {
 		if (!(cookieMessageElement instanceof HTMLElement)) {
@@ -203,6 +208,7 @@ class CookieMessage {
 	 * Initialise cookie message components.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise cookie messages in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the cookie messages
+	 * @returns {CookieMessage | CookieMessage[]} - The newly instantiated CookieMessage (or CookieMessages, if rootElement was not a banner)
 	 */
 	static init(rootElement, options) {
 		if (!rootElement) {

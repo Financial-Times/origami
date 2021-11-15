@@ -126,8 +126,9 @@ describe('Cookie Message', () => {
 			let hasClosed;
 
 			/**
-			 * @param {"pageshow"|"pagehide"} type
-			 * @param {PageTransitionEventInit} [props]
+			 * @param {"pageshow"|"pagehide"} type - event type
+			 * @param {PageTransitionEventInit} [props] - event options
+			 * @returns {void}
 			 */
 			function firePageTransitionEvent(type, props) {
 				const evt = new PageTransitionEvent(type, props);
