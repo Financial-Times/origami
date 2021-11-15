@@ -1,30 +1,31 @@
 /**
-* @typedef {Object} ErrorSummaryElement
-* @property {HTMLInputElement} element - the associated element
-* @property {string} id - the input element's id
-* @property {boolean} valid - was the user's value valid?
-* @property {string=} error - the error message for this element
-* @property {HTMLElement=} field - a containing o-forms-field element
-* @property {HTMLLabelElement} label - an associated label element
-*/
+ * @typedef {object} ErrorSummaryElement
+ * @property {HTMLInputElement} element - the associated element
+ * @property {string} id - the input element's id
+ * @property {boolean} valid - was the user's value valid?
+ * @property {string=} error - the error message for this element
+ * @property {HTMLElement=} field - a containing o-forms-field element
+ * @property {HTMLLabelElement} label - an associated label element
+ */
 
 class ErrorSummary {
 	/**
-	* Class constructor.
-	* @param {Array<ErrorSummaryElement>} [elements] - An array of objects, where each object describes an invalid input element
-	* @example
-	* const example = [
-	*	{
-	*		id: 'text-input',
-	*		valid: false,
-	*		error: 'Please fill out this field'
-	*		label: 'Input Label',
-	*		element: <Element>
-	*	}
-	*	...
-	*	]
-	*	new ErrorSummary(example)
-	*/
+	 * Class constructor.
+	 *
+	 * @param {Array<ErrorSummaryElement>} [elements] - An array of objects, where each object describes an invalid input element
+	 * @example
+	 * const example = [
+	 *	{
+	 *		id: 'text-input',
+	 *		valid: false,
+	 *		error: 'Please fill out this field'
+	 *		label: 'Input Label',
+	 *		element: <Element>
+	 *	}
+	 *	...
+	 *	]
+	 *	new ErrorSummary(example)
+	 */
 	constructor(elements) {
 		this.elements = elements;
 		const hasAnInverseField = elements.some(elem => {
@@ -42,6 +43,7 @@ class ErrorSummary {
 
 	/**
 	 * Generate Node to hold list of invalid inputs
+	 *
 	 * @returns {HTMLDivElement} - a div full of error messages
 	 */
 	createSummary() {
@@ -62,6 +64,7 @@ class ErrorSummary {
 
 	/**
 	 * Generate list of anchors
+	 *
 	 * @param {Array<ErrorSummaryElement>} inputs - element descriptors
 	 * @returns {HTMLUListElement} - the list
 	 */
@@ -98,8 +101,9 @@ class ErrorSummary {
 
 	/**
 	 * Generate an item for the error summary
-	 * @param {Object} [input] - The input object to construct an error summary item for
-	 * @return {Element} - li
+	 *
+	 * @param {object} [input] - The input object to construct an error summary item for
+	 * @returns {Element} - li
 	 */
 	static createItem(input) {
 		const item = document.createElement('li');
@@ -122,8 +126,9 @@ class ErrorSummary {
 
 	/**
 	 * Generate anchor element to point at invalid input
-	 * @param {Object} [input] - The input object to construct an anchor for
-	 * @return {Element} - a
+	 *
+	 * @param {object} [input] - The input object to construct an anchor for
+	 * @returns {Element} - a
 	 */
 	static createAnchor(input) {
 		const anchor = document.createElement('a');
@@ -139,7 +144,7 @@ class ErrorSummary {
 	/**
 	 * @access private
 	 * @param {Node} input - The input element which has an error
-	 * @return {string} - the html text for an error summary item
+	 * @returns {string} - the html text for an error summary item
 	 */
 	static _getItemContent(input) {
 		return '<span class="o-forms__error-summary__item-overview">' +

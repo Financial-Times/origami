@@ -3,6 +3,7 @@ import * as oUtils from '@financial-times/o-utils';
 class Scroll {
 	/**
 	 * Class constructor
+	 *
 	 * @param {HTMLElement} [headerEl] - The component element in the DOM
 	 */
 	constructor (headerEl) {
@@ -27,7 +28,8 @@ class Scroll {
 
 	/**
 	 * Scroll functionality rendering
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	render () {
 		this.showCurrentSelection();
@@ -36,7 +38,8 @@ class Scroll {
 
 	/**
 	 * Hide/show scroll buttons
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	toggleScrollButtons () {
 		this._getWidths();
@@ -52,8 +55,9 @@ class Scroll {
 
 	/**
 	 * Scrolling functionality
-	 * @param {Object} event - A scroll event
-	 * @return {void}
+	 *
+	 * @param {object} event - A scroll event
+	 * @returns {void}
 	 */
 	scroll(event) {
 		const target = event.currentTarget;
@@ -82,7 +86,8 @@ class Scroll {
 
 	/**
 	 * Scroll secondary nav to 'current selection'
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	showCurrentSelection () {
 		this._getWidths();

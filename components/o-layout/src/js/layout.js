@@ -3,8 +3,9 @@ import LinkedHeading from './linked-heading.js';
 class Layout {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [layoutEl] - The layout element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring aspects of the layout
+	 * @param {object} [options={}] - An options object for configuring aspects of the layout
 	 */
 	constructor(layoutEl, options) {
 		this.layoutEl = layoutEl;
@@ -52,6 +53,7 @@ class Layout {
 
 	/**
 	 * Get the heading content.
+	 *
 	 * @param {Element} heading
 	 * @access private
 	 */
@@ -119,6 +121,7 @@ class Layout {
 
 	/**
 	 * Add aria-current to the navigation link that was clicked
+	 *
 	 * @private
 	 * @returns {void}
 	 */
@@ -139,6 +142,7 @@ class Layout {
 
 	/**
 	 * Add aria-current to the correspoding link in the navigation for the header that was clicked
+	 *
 	 * @private
 	 * @returns {void}
 	 */
@@ -159,6 +163,7 @@ class Layout {
 
 	/**
 	 * Add aria-current to the correspoding link in the navigation for the hash in the url if one exists
+	 *
 	 * @private
 	 * @returns {void}
 	 */
@@ -181,6 +186,7 @@ class Layout {
 	/**
 	 * Add aria-current to the correspoding link in the navigation for the header that we think
 	 * should be highlighted based on scroll position
+	 *
 	 * @private
 	 * @returns {void}
 	 */
@@ -273,6 +279,7 @@ class Layout {
 	/**
 	 * Enables navigation item highlighting based on scroll position.
 	 * Relies on heading ids and anchor href being the same.
+	 *
 	 * @returns {void}
 	 */
 	highlightNavItems() {
@@ -287,6 +294,7 @@ class Layout {
 	/**
 	 * Get the data attributes from the layoutEl. If the layout is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} layoutElement - The layout element in the DOM
 	 */
 	static getDataAttributes (layoutElement) {
@@ -318,8 +326,9 @@ class Layout {
 
 	/**
 	 * Initialise layout component.
-	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the layout in, or a CSS selector for the root element
-	 * @param {Object} [opts={}] - An options object for configuring layout behaviour.
+	 *
+	 * @param {(HTMLElement | string)} rootEl - The root element to intialise the layout in, or a CSS selector for the root element
+	 * @param {object} [opts={}] - An options object for configuring layout behaviour.
 	 * @returns {Layout | Layout[]} Returns either a single Layout instance or an array of Layout instances
 	 */
 	static init (rootEl, opts) {

@@ -109,16 +109,17 @@ const focusTrap = function (event) {
 class Overlay {
 	/**
 	 * Construct an overlay.
-	 * @constructor
+	 *
+	 * @class
 	 * @param {HTMLElement} id - String. A unique identifier for the overlay within the page. (Required)
-	 * @param {Object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
-	 * @param {String} opts.heading.title - Your overlay's title
-	 * @param {Boolean} opts.heading.visuallyhidetitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
-	 * @param {Boolean} opts.heading.shaded - Whether to shade the background of the header. Default: to false
-	 * @param {Boolean} opts.modal - Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
-	 * @param {Boolean} opts.compact - If true, the .o-overlay--compact class will be added to the overlay that reduces heading font-size and paddings in the content.
-	 * @param {String} opts.src - Either a url from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
-	 * @param {String} opts.html - String or HTMLElement. Raw HTML (cannot be set declaratively)
+	 * @param {object} opts - An options object for configuring the Overlay. This object MUST have either `src` or `html` set. (Required)
+	 * @param {string} opts.heading.title - Your overlay's title
+	 * @param {boolean} opts.heading.visuallyhidetitle - If you want to provide a different title style, this option will prevent the title span from being added to the overlay. (In this case the title is only used for aria labelling) Default: false.
+	 * @param {boolean} opts.heading.shaded - Whether to shade the background of the header. Default: to false
+	 * @param {boolean} opts.modal - Whether the overlay should have modal behaviour or not. Setting this as true will add a translucent shadow between the page and the overlay
+	 * @param {boolean} opts.compact - If true, the .o-overlay--compact class will be added to the overlay that reduces heading font-size and paddings in the content.
+	 * @param {string} opts.src - Either a url from which HTML to populate the overlay can be loaded, or a querySelector string identifying an element from which the textContent should be extracted.
+	 * @param {string} opts.html - String or HTMLElement. Raw HTML (cannot be set declaratively)
 	 * @param {String} opts.trigger - querySelector expression or HTMLElement. When there's a trigger set, a click event handler will be added to it that will open or close the overlay accordingly. (cannot be set declaratively)
 	 * @param {String} opts.zindex - Value of the CSS z-index property of the overlay. Default set via CSS: '10'
 	 * @param {Boolean} opts.preventclosing - Prevents closure of overlay via standard x button or escape key. For use when you are directing the user to somewhere else. Only valid with modal set to true.

@@ -57,7 +57,7 @@ describe('Layout', () => {
 			});
 			await waitUntil(
 				() => {
-					let link = documentationLayoutElement.querySelector('[href="#this-is-a-h1"]');
+					const link = documentationLayoutElement.querySelector('[href="#this-is-a-h1"]');
 					if (link) {
 						return link.getAttribute('aria-current') === 'location';
 					}

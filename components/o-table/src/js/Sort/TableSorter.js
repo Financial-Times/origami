@@ -4,7 +4,7 @@ import CellFormatter from "./CellFormatter.js";
  * Construct Intl.Collator if supported.
  *
  * @access private
- * @returns {Intl.Collator | Undefined}
+ * @returns {Intl.Collator | undefined}
  */
 function getIntlCollator() {
 	if (typeof Intl !== 'undefined' && {}.hasOwnProperty.call(Intl, 'Collator')) {
@@ -16,10 +16,10 @@ function getIntlCollator() {
  * An ascending [compare function]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters}.
  *
  * @access private
- * @param {String|Number} a
- * @param {String|Number} b
+ * @param {string | number} a
+ * @param {string | number} b
  * @param {Intl.Collator} intlCollator
- * @returns {Number}
+ * @returns {number}
  */
 function ascendingSort(a, b, intlCollator) {
 	if ((typeof a === 'string' || a instanceof String) && (typeof b === 'string' || b instanceof String)) {
@@ -37,10 +37,11 @@ function ascendingSort(a, b, intlCollator) {
  * A descending [compare function]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters}.
  *
  * @access private
- * @param {String|Number} a
- * @param {String|Number} b
+ * @param {string | number} a
+ * @param {string | number} b
+ * @param {...any} args
  * @param {Intl.Collator} intlCollator
- * @returns {Number}
+ * @returns {number}
  */
 function descendingSort(...args) {
 	return 0 - ascendingSort.apply(this, args);
@@ -60,9 +61,9 @@ class TableSorter {
 	 *
 	 * @access public
 	 * @param {BaseTable} table - The table instance to sort.
-	 * @param {Number} columnIndex - The index of the table column to sort.
-	 * @param {String} sortOrder - How to sort the column, "ascending" or "descending"
-	 * @param {Number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
+	 * @param {number} columnIndex - The index of the table column to sort.
+	 * @param {string} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
 	 * @returns {undefined}
 	 */
 	sortRowsByColumn(table, columnIndex, sortOrder, batch) {
@@ -112,7 +113,7 @@ class TableSorter {
 	/**
 	 * Set a custom cell formatter for a given data type.
 	 *
-	 * @param {String} type - The data type to apply the filter function to.
+	 * @param {string} type - The data type to apply the filter function to.
 	 * @param {formatFunction} formatFunction - Callback to format a table cell to a sort value.
 	 * @see {@link CellFormatter~setFormatter} for `formatFunction` details.
 	 * @access public

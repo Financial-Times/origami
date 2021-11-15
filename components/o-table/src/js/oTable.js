@@ -11,16 +11,18 @@ class OTable {
 
 	/**
 	 * Table options.
-	 * @typedef {Object} OTable~opts - Table options.
+	 *
+	 * @typedef {object} OTable~opts - Table options.
 	 * @property {Bool} sortable [true] - Disable the table's sort feature.
-	 * @property {Undefined | Bool} expanded [Undefined] - Allow the "OverflowTable" to hide results behind a "show more" button. The table is expanded by default when "true", contracted when "false", or not expandable if not set.
-	 * @property {Number} minimumRowCount [20] - When the `expanded` option is set, the number of rows to show when the table is not expanded.
+	 * @property {undefined | Bool} expanded [Undefined] - Allow the "OverflowTable" to hide results behind a "show more" button. The table is expanded by default when "true", contracted when "false", or not expandable if not set.
+	 * @property {number} minimumRowCount [20] - When the `expanded` option is set, the number of rows to show when the table is not expanded.
 	 */
 
 	/**
 	 * Constructs an o-table component.
 	 *
 	 * @param {HTMLElement} - An o-table element.
+	 * @param rootEl
 	 * @param {...OTable~opts} opts - A table options object.
 	 * @returns {FlatTable | ScrollTable | OverflowTable | BasicTable} - A table instance.
 	 */
@@ -92,8 +94,7 @@ class OTable {
 	 *		return 0;
 	 *	});
 	 *	OTable.init();
-	 *
-	 * @param {String} type - The data type to apply the filter function to.
+	 * @param {string} type - The data type to apply the filter function to.
 	 * @param {formatFunction} formatFunction
 	 * @access public
 	 */

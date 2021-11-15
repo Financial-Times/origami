@@ -1,5 +1,6 @@
 /**
  * Extracts the contents of img alt text.
+ *
  * @example String argument for example purposes only, to represent a HTMLElement.
  * 	extractAltFromImages('<img alt="text">'); // text
  * @param {HTMLElement} cell The DOM node to operate on, possibly a <td>
@@ -20,6 +21,7 @@ function extractAltFromImages(cell){
 /**
  * Returns the text represantation of an HTML node.
  * If a node contains no `dateTime` attribute, content, `aria-label` or `title` attributes of <a>, <span>, or <i> child nodes are used.
+ *
  * @example String argument for example purposes only, to represent a HTMLElement.
  * 	extractText('<i class="o-icons-icon o-icons-icon--mail"><a href="mailto:example@ft.com" title="Email Example at example@ft.com"></a>'); //Email Example at example@ft.com
  * 	extractText('<span class="o-icons-icon o-icons-icon--tick">Correct</span>'); //Correct
@@ -35,7 +37,7 @@ function extractText(cell){
 	if (time && time.dateTime) {
 		const date = new Date(time.dateTime);
 		if (!isNaN(date.getTime())){
-			return date.getTime() + '';
+			return String(date.getTime());
 		}
 	}
 	let text = cell.textContent.trim();
@@ -54,14 +56,15 @@ function extractText(cell){
 /**
  * Returns the text with abbreviations expanded.
  * Supports million 'm', billion 'bn' (1,000 million), and trillion 'tn' (1,000 billion).
+ *
  * @example
  *  expandAbbreviations('1m') //1000000
  *  expandAbbreviations('1.2bn') //2200000000
  *  expandAbbreviations('1tn') //1000000000000
  *  expandAbbreviations('5m-10m') //5000000-10000000
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {String} Text with any supported abbreviations expanded
+ * @returns {string} Text with any supported abbreviations expanded
  */
 function expandAbbreviations(text) {
 	text = text.replace(/([\d,.]+)([a-zA-Z]+)/g, (match, digit, abbreviation) => {
@@ -77,13 +80,14 @@ function expandAbbreviations(text) {
 
 /**
  * Returns the text with digit group separators removed.
+ *
  * @example
  *  removeDigitGroupSeparator('1,000') //1000
  *  removeDigitGroupSeparator('40') //40
  *  removeDigitGroupSeparator('4,000,000') //4000000
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {String} Text with digit group separators (commas) removed.
+ * @returns {string} Text with digit group separators (commas) removed.
  */
 function removeDigitGroupSeparators(text) {
 	return text.replace(/,/g, '');
@@ -93,6 +97,7 @@ function removeDigitGroupSeparators(text) {
  * Returns the text with non-number characters removed (e.g. currency symbols).
  * Does not effect range characters e.g. "–" will be maintained.
  * If no digits were found to remove, returns the text unchanged.
+ *
  * @example
  *  extractDigitsIfFound('Rmb100') //100
  *  extractDigitsIfFound('CFA Fr830') //830
@@ -101,9 +106,9 @@ function removeDigitGroupSeparators(text) {
  *  extractDigitsIfFound('1534956593-1534956620') //1534956593–1534956620
  *  extractDigitsIfFound('Some text') //Some text
  *  extractDigitsIfFound('Some text 123') //123
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {String} Text with digits characters only.
+ * @returns {string} Text with digits characters only.
  */
 function extractDigitsIfFound(text) {
 	const digitsAndRange = text.replace(/([^\d.,\-\–]+)/g, '');
@@ -115,14 +120,15 @@ function extractDigitsIfFound(text) {
 
 /**
  * Returns a number from a range
+ *
  * @example
  *  removeRange('1534956593–1534956620') //1534956593
  *  removeRange('123–345') //123
  *  removeRange('123') //123
  *  removeRange('No numbers') //No numbers
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {Number}
+ * @returns {number}
  */
 function extractNumberFromRange(text) {
 	const number = parseFloat(text);
@@ -133,6 +139,7 @@ function extractNumberFromRange(text) {
  * Parses FT style date and time and formats as a number for sorting.
  * FT date or date and time returns a UNIX epoch (UTC).
  * FT time returns a positive float for pm, negative for am.
+ *
  * @example
  *  ftDateTimeToNumber('August 17') //UNIX epoch, assumes current year
  *  ftDateTimeToNumber('September 12 2012') //UNIX epoch
@@ -144,9 +151,9 @@ function extractNumberFromRange(text) {
  *  ftDateTimeToNumber('1.40pm') //13.4
  *  ftDateTimeToNumber('3pm') //15
  *  ftDateTimeToNumber('Not a known date') //Note a known date
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {Number} Number representation of date and/or time for sorting.
+ * @returns {number} Number representation of date and/or time for sorting.
  */
 function ftDateTimeToNumber(text) {
 	const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -195,12 +202,13 @@ function ftDateTimeToNumber(text) {
 
 /**
  * Removes and number of asterisk's which are at the end of the line.
+ *
  * @example
  *  removeRefereneAsterisk('Durian*') //Durian
  *  removeRefereneAsterisk('1,439,165.43**') //1,439,165.43
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {String} Text without source/reference asterisk.
+ * @returns {string} Text without source/reference asterisk.
  */
 function removeRefereneAsterisk(text) {
 	return text.replace(/\*+$/, '');
@@ -208,13 +216,14 @@ function removeRefereneAsterisk(text) {
 
 /**
  * Removes indicators of an empty cell.
+ *
  * @example
  *  removeEmptyCellIndicators('n/a'); //
  *  removeEmptyCellIndicators('-'); //
  *  removeEmptyCellIndicators('Cell-content'); //Cell-content
- * @param {String} text The string to operate on
+ * @param {string} text The string to operate on
  * @access private
- * @returns {String} An empty string or the original text.
+ * @returns {string} An empty string or the original text.
  */
 function removeEmptyCellIndicators(text) {
 	// Remove n/a
@@ -225,9 +234,10 @@ function removeEmptyCellIndicators(text) {
 
 /**
  * Group of filters to extract text from a cell.
+ *
  * @param {HTMLElement} cell The node to extract sortable text from.
  * @access private
- * @returns {String} The node content to sort on.
+ * @returns {string} The node content to sort on.
  */
 function extractNodeContent(cell) {
 	const steps = [extractAltFromImages, extractText, removeRefereneAsterisk, removeEmptyCellIndicators];
@@ -238,9 +248,10 @@ function extractNodeContent(cell) {
 
 /**
  * Group of filters to extract a number for sorting.
- * @param {String} text The string to operate on
+ *
+ * @param {string} text The string to operate on
  * @access private
- * @returns {Number|String} A number if one could a extracted, string otherwise.
+ * @returns {number | string} A number if one could a extracted, string otherwise.
  */
 function extractNumber(text) {
 	const steps = [removeDigitGroupSeparators, expandAbbreviations, extractDigitsIfFound, extractNumberFromRange];
@@ -250,6 +261,7 @@ function extractNumber(text) {
 
 /**
  * Methods to format table cells for sorting.
+ *
  * @access public
  */
 class CellFormatter {
@@ -272,11 +284,11 @@ class CellFormatter {
 	 *
 	 * @callback formatFunction
 	 * @param {HTMLElement} cell
-	 * @return {String|Object}
+	 * @returns {string | object}
 	 */
 
 	/**
-	 * @param {String} type The data type of the cell to apply the filter function to.
+	 * @param {string} type The data type of the cell to apply the filter function to.
 	 * @param {formatFunction} formatFunction The function to take the cell and return a sortable value (string/number).
 	 * @example
 	 *  mySortFormatter.setFormatter('emoji-time', (cell) => {
@@ -297,10 +309,10 @@ class CellFormatter {
 
 	/**
 	 * @param {HTMLElement} cell
-	 * @param {String} type The data type of the cell, e.g. date, number, currency. Custom types are supported.
+	 * @param {string} type The data type of the cell, e.g. date, number, currency. Custom types are supported.
 	 * @see {@link setFormatter} to support add support for a custom type.
 	 * @access public
-	 * @return {String|Number} A representation of cell which can be used for sorting.
+	 * @returns {string | number} A representation of cell which can be used for sorting.
 	 */
 	formatCell({ cell, type = 'text' }) {
 		type = type || 'text';

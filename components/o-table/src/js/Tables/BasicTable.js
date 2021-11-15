@@ -8,7 +8,7 @@ class BasicTable extends BaseTable {
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
 	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
+	 * @param {object} opts [{}]
 	 * @param {Bool} opts.sortable [true]
 	 * @returns {BasicTable}
 	 */

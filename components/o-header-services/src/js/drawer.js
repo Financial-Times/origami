@@ -3,6 +3,7 @@ import * as oUtils from '@financial-times/o-utils';
 class Drawer {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [headerEl] - The component element in the DOM
 	 */
 	constructor(headerEl) {
@@ -67,8 +68,9 @@ class Drawer {
 
 	/**
 	 * Event Handler
-	 * @param {Object} event - The event emitted by element/window interactions
-	 * @return {void}
+	 *
+	 * @param {object} event - The event emitted by element/window interactions
+	 * @returns {void}
 	 */
 	handleEvent(event) {
 		if (event.type === 'resize') {
@@ -98,7 +100,8 @@ class Drawer {
 
 	/**
 	 * Drawer rendering
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	render () {
 		if (this.enabled) {
@@ -131,7 +134,8 @@ class Drawer {
 
 	/**
 	 * Drawer hide/show functionality
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	toggleDrawer () {
 		this.nav.classList.toggle(this.class.open);

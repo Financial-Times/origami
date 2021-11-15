@@ -3,6 +3,7 @@ import * as oUtils from '@financial-times/o-utils';
 class DropDown {
 	/**
 	 * Class constructor
+	 *
 	 * @param {HTMLElement} headerEl - The component element in the DOM
 	 * @param {Drawer|null} drawer [null] - The drawer that this drop down belongs to if any.
 	 */
@@ -41,8 +42,9 @@ class DropDown {
 
 	/**
 	 * Event Handler
-	 * @param {Object} event - The event emitted by element/window interactions
-	 * @return {void}
+	 *
+	 * @param {object} event - The event emitted by element/window interactions
+	 * @returns {void}
 	 */
 	handleEvent(event) {
 		if (event.key === 'Escape') {
@@ -93,7 +95,8 @@ class DropDown {
 	/**
 	 * Checks if primary nav is in a drawer
 	 * This boolean will change the drop down behaviour.
-	 * @return {boolean} - whether the drawer is enabled or not
+	 *
+	 * @returns {boolean} - whether the drawer is enabled or not
 	 */
 	isDrawer() {
 		return this.drawer && this.drawer.enabled;
@@ -103,7 +106,8 @@ class DropDown {
 	 * Returns nav items to their original collapsed state,
 	 * items which contain links with the attribute `aria-current`
 	 * set to true remain expanded.
-	 * @return {void}
+	 *
+	 * @returns {void}
 	 */
 	reset() {
 		// Disable transitions immediately. These should only happen on user
@@ -126,8 +130,9 @@ class DropDown {
 
 	/**
 	 * Checks whether nav menu is expanded
+	 *
 	 * @param {HTMLElement} item - the nav menu
-	 * @return {boolean} - whether the nav menu is expanded
+	 * @returns {boolean} - whether the nav menu is expanded
 	 */
 	static isExpanded(item) {
 		return item.getAttribute('aria-expanded') === 'true';
@@ -135,8 +140,9 @@ class DropDown {
 
 	/**
 	 * Expands closed nav menu
+	 *
 	 * @param {HTMLElement} item - the nav menu
-	 * @return {void}
+	 * @returns {void}
 	 */
 	static expand(item) {
 		const childList = item.querySelector('ul');
@@ -151,8 +157,9 @@ class DropDown {
 
 	/**
 	 * Changes nav menu position relative to the window
+	 *
 	 * @param {HTMLElement} item - the nav menu
-	 * @return {void}
+	 * @returns {void}
 	 */
 	static position(item) {
 		if (item.getBoundingClientRect().right > window.innerWidth) {
@@ -162,8 +169,9 @@ class DropDown {
 
 	/**
 	 * Collapses open nav menu
+	 *
 	 * @param {HTMLElement} item - the nav menu
-	 * @return {void}
+	 * @returns {void}
 	 */
 	static collapse(item) {
 		const childList = item.querySelector('ul');
@@ -173,8 +181,9 @@ class DropDown {
 
 	/**
 	 * Collapses all open nav menus
+	 *
 	 * @param {Array<HTMLElement>} items - the menu items to collapse
-	 * @return {void}
+	 * @returns {void}
 	 */
 	static collapseAll(items) {
 		items.forEach(DropDown.collapse);
@@ -182,8 +191,9 @@ class DropDown {
 
 	/**
 	 * Expands all open nav menus
+	 *
 	 * @param {Array<HTMLElement>} items - the menu items to expand
-	 * @return {void}
+	 * @returns {void}
 	 */
 	static expandAll(items) {
 		items.forEach(DropDown.expand);
@@ -192,8 +202,9 @@ class DropDown {
 	/**
 	 * Returns items which contain an anchor
 	 * with the attribute `aria-current` set to true or "page".
+	 *
 	 * @param {Array<HTMLElement>} items - the menu items to check
-	 * @return {HTMLElement} - The current menu item
+	 * @returns {HTMLElement} - The current menu item
 	 */
 	static getCurrent(items) {
 		return items.filter(item => {

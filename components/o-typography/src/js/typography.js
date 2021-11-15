@@ -4,8 +4,9 @@ class Typography {
 
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [typographyEl] - The root element to apply typography classes.
-	 * @param {Object} [opts={loadOnInit: true, rejectOnFontLoadFailure: false, fontLoadedCookieName: 'o-typography-fonts-loaded'}] - An options object for configuring o-typography.
+	 * @param {object} [opts={loadOnInit: true, rejectOnFontLoadFailure: false, fontLoadedCookieName: 'o-typography-fonts-loaded'}] - An options object for configuring o-typography.
 	 */
 	constructor (typographyEl, opts) {
 		this.typographyEl = typographyEl;
@@ -53,6 +54,7 @@ class Typography {
 	 * Get the data attributes from the typographyEl. If typography is being set up
 	 * declaratively, this method is used to extract the data attributes from
 	 * the DOM.
+	 *
 	 * @param {HTMLElement} typographyEl - The typography element in the DOM (Required)
 	 */
 	static getOptions(typographyEl) {
@@ -75,8 +77,9 @@ class Typography {
 
 	/**
 	 * Check the options passed in are valid, otherwise set defaults
-	 * @param {Object} opts - An Object with configuration options for typography
-	 * @return {Object} opts
+	 *
+	 * @param {object} opts - An Object with configuration options for typography
+	 * @returns {object} opts
 	 */
 	static checkOptions(opts) {
 
@@ -138,8 +141,11 @@ class Typography {
 
 	/**
 	 * Initialise o-typography.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise o-typography on, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring o-typography
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise o-typography on, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring o-typography
+	 * @param rootEl
+	 * @param opts
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {

@@ -8,7 +8,7 @@ class Stream {
 	 * Class constructor.
 	 *
 	 * @param {HTMLElement} [streamEl] - The component element in the DOM
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (streamEl, opts = {}) {
 		this.streamEl = streamEl || document;
@@ -149,8 +149,8 @@ class Stream {
 	/**
 	 * Emits events that have a valid o-comment event name.
 	 *
-	 * @param {String} name - The event name
-	 * @param {Object} data - The event payload
+	 * @param {string} name - The event name
+	 * @param {object} data - The event payload
 	 * @returns {void}
 	 */
 	publishEvent ({name, data = {}}) {

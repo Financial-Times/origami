@@ -1,10 +1,11 @@
 class State {
 	/**
-	* Class constructor.
-	* @param {RadioNodeList} [inputs] - A NodeList of radio input elements
-	 * @param {Boolean|Object} opts - an object of options
-	 * @param {String} options.iconOnly [null] - when true display an icon only, hiding the status label
-	*/
+	 * Class constructor.
+	 *
+	 * @param {RadioNodeList} [inputs] - A NodeList of radio input elements
+	 * @param {boolean | object} opts - an object of options
+	 * @param {string} options.iconOnly [null] - when true display an icon only, hiding the status label
+	 */
 	constructor(inputs, opts) {
 		const radioInputs = inputs instanceof RadioNodeList;
 		if (radioInputs) {
@@ -26,9 +27,10 @@ class State {
 	}
 
 	/**
-	* Create state element
-	* @access private
-	*/
+	 * Create state element
+	 *
+	 * @access private
+	 */
 	_generateStateEl() {
 		this.stateEl = document.createElement('span');
 		const classNames = this.opts.iconOnly ? ['o-forms-input__state', 'o-forms-input__state--icon-only'] : ['o-forms-input__state'];
@@ -37,10 +39,11 @@ class State {
 	}
 
 	/**
-	* State setter
-	* @param {String} state type of state to display
-	* @param {String} label customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
-	*/
+	 * State setter
+	 *
+	 * @param {string} state type of state to display
+	 * @param {string} label customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
+	 */
 	set(state, label) {
 		if (!this.stateEl) {
 			this._generateStateEl();
@@ -58,9 +61,11 @@ class State {
 	}
 
 	/**
-	* Saving state
-	* @access private
-	*/
+	 * Saving state
+	 *
+	 * @param label
+	 * @access private
+	 */
 	_saving(label) {
 		// Remove other state classes.
 		this.parent.classList.remove(this.className.saved);
@@ -76,9 +81,11 @@ class State {
 	}
 
 	/**
-	* Saved state
-	* @access private
-	*/
+	 * Saved state
+	 *
+	 * @param label
+	 * @access private
+	 */
 	_saved(label) {
 		// Remove other state classes.
 		this.parent.classList.remove(this.className.saving);
@@ -94,9 +101,10 @@ class State {
 	}
 
 	/**
-	* Remove state
-	* @access private
-	*/
+	 * Remove state
+	 *
+	 * @access private
+	 */
 	_remove() {
 		this.parent.classList.remove(this.className.saving);
 		this.parent.classList.remove(this.className.saved);
@@ -105,9 +113,10 @@ class State {
 	}
 
 	/**
-	* Verify input parent
-	* @access private
-	*/
+	 * Verify input parent
+	 *
+	 * @access private
+	 */
 	_verify() {
 		if (!this.parent.classList.contains('o-forms-input--radio-box')) {
 			throw new Error('State can only be set on radio inputs with a box style (o-forms-input--radio-box).');
