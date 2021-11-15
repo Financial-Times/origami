@@ -3,14 +3,13 @@ import {data} from './data.js';
 
 /**
  * @typedef {object} CustomOption
- * @property {string} Continent_Code
- * @property {string} Continent_Name
- * @property {string} Country_Name
- * @property {number} Country_Number
- * @property {string} Three_Letter_Country_Code
- * @property {string} Two_Letter_Country_Code
+ * @property {string} Continent_Code - 2 letter continent code
+ * @property {string} Continent_Name - name of continent
+ * @property {string} Country_Name - name of country
+ * @property {number} Country_Number - id of country
+ * @property {string} Three_Letter_Country_Code - three letter country code
+ * @property {string} Two_Letter_Country_Code - two letter country code
  */
-
 
 /**
  * @param {CustomOption|undefined} option - The option to transform into a suggestion string

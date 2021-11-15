@@ -8,9 +8,17 @@
 import accessibleAutocomplete from '@financial-times/accessible-autocomplete';
 
 /**
+ * @typedef CharacterHighlight - The character and whether it should be highlighted
+ * @type {Array}
+ * @property {string} 0 - the character in the suggestion
+ * @property {boolean} 1 - should it be highlighted?
+ */
+
+
+/**
  * @param {string} suggestion - Text which is going to be suggested to the user
  * @param {string} query - Text which was typed into the autocomplete by the user
- * @returns {[string, boolean][]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+ * @returns {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
  */
 function highlightSuggestion(suggestion, query) {
 	const result = suggestion.split('');
@@ -355,7 +363,7 @@ class Autocomplete {
 	suggestionTemplate (suggestedValue) {
 		// o-autocomplete has a UI design to highlight characters in the suggestions.
 		/**
-		 * @type {[string, boolean][]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
+		 * @type {CharacterHighlight[]} An array of arrays which contain two items, the first is the character in the suggestion, the second is a boolean which indicates whether the character should be highlighted.
 		 */
 		const characters = highlightSuggestion(suggestedValue, this.autocompleteEl.querySelector('input').value);
 
