@@ -267,7 +267,7 @@ class Banner {
 	 * Initialise banner components.
 	 * @param {(HTMLElement|String)} rootElement - The root element to intialise banners in, or a CSS selector for the root element
 	 * @param {Object} [options={}] - An options object for configuring the banners
-	 * @returns {Banner | Banner[]} - The newly initiated Banner (or Banners, if rootElement was not a banner)
+	 * @returns {Banner | Banner[]} - The newly instantiated Banner (or Banners, if rootElement was not a banner)
 	 */
 	static init (rootElement, options) {
 		if (!rootElement) {
