@@ -8,7 +8,7 @@ verify-origami-json
 verify-package-json
 
 if test -f ".eslintrc.cjs"; then
-	args=(-c ".eslintrc.cjs" --no-error-on-unmatched-pattern)
+	args=(-c ".eslintrc.cjs" --no-error-on-unmatched-pattern --fix)
 	if test -f ".eslintignore"; then
 		args+=(--ignore-path ".eslintignore")
 	fi
@@ -17,7 +17,7 @@ fi
 
 echo "::add-matcher::.github/stylelint-compact-problem-matcher.json"
 if test -f ".stylelintrc.cjs"; then
-	npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss"
+	npx stylelint --config=".stylelintrc.cjs" --allow-empty-input "**/*.scss" --fix
 fi
 
 # we need to cd back to root and run remark-cli from there
