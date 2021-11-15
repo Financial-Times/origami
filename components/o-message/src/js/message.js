@@ -14,14 +14,14 @@ import construct from './construct-element.js';
  * @property {string} content.additionalInfo [null] - More copy with additional information – only applies to a message with an `inner` layout.
  * @property {Object} [actions] - Links to display on the message.
  * @property {Object} [actions.primary] - Show a link in the style of a primary button within the message.
- * @property {String} actions.primary.text - The copy for the link.
- * @property {String} actions.primary.url - The url for the link.
- * @property {Boolean} actions.primary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+ * @property {string} actions.primary.text - The copy for the link.
+ * @property {string} actions.primary.url - The url for the link.
+ * @property {boolean} actions.primary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
  * @property {Object} [actions.secondary] - Show a link with less emphasis that the primary action.
- * @property {String} actions.secondary.text - The copy for the link.
- * @property {String} actions.secondary.url - The url for the link.
- * @property {Boolean} actions.secondary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
- * @property {Boolean} close [true] -  Whether or not to display a close button.
+ * @property {string} actions.secondary.text - The copy for the link.
+ * @property {string} actions.secondary.url - The url for the link.
+ * @property {boolean} actions.secondary.openInNewWindow [false] - Opens in a new tab/window when set to `true`.
+ * @property {boolean} close [true] -  Whether or not to display a close button.
  */
 
 class Message {
@@ -34,16 +34,16 @@ class Message {
 	 * @example To construct all elements on the page with the `data-o-component="o-message"` attribute.
 	 *      Message.init();
 	 * @example To construct a specifc o-message on the page.
-	 * 		const myMessageElement = document.querySelector('.my-message');
+	 *			const myMessageElement = document.querySelector('.my-message');
 	 *      const myMessage = new Message(myMessageElement, {});
 	 * @example To construct a message which does not already exist on the page.
 	 *      const errorAlert = new Message(null, {
-	 *      	type: 'alert',
-	 *      	state: 'error',
-	 *      	content: {
-	 *      		highlight: 'Something has gone wrong.',
-	 *      		detail: 'The quick brown fox did not jump over the lazy dogs.'
-	 *      	}
+	 *			type: 'alert',
+	 *			state: 'error',
+	 *			content: {
+	 *				highlight: 'Something has gone wrong.',
+	 *				detail: 'The quick brown fox did not jump over the lazy dogs.'
+	 *			}
 	 *      });
 	 */
 	constructor(messageElement, options) {
@@ -173,26 +173,23 @@ class Message {
 	 * Initialise message component.
 	 *
 	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
-	 * @param rootEl
-	 * @param opts
-	 * @typedef {object} MessageOptions - An options object for configuring the messages
-	 * @returns {Message|Message[]} The newly constructed message components
-	 * @property
+	 * @param {MessageOptions} opts - Options for customizing the message
+	 * @returns {Message|Message[]} The newly constructed message component or components
 	 */
-	static init (rootEl, opts) {
-		if (!rootEl) {
-			rootEl = document.body;
+	static init (rootElement, opts) {
+		if (!rootElement) {
+			rootElement = document.body;
 		}
 
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
 
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-message]')) {
-			return new Message(rootEl, opts);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-message]')) {
+			return new Message(rootElement, opts);
 		}
 
-		return Array.from(rootEl.querySelectorAll('[data-o-component="o-message"]'), rootEl => new Message(rootEl, opts));
+		return Array.from(rootElement.querySelectorAll('[data-o-component="o-message"]'), rootEl => new Message(rootEl, opts));
 	}
 }
 

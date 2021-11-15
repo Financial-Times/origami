@@ -2,7 +2,7 @@ export default {
 	/**
 	 * Build a full message element. Used when there is no message element in the DOM.
 	 *
-	 * @param {MessageOptions} opts - An options object for configuring the message.
+	 * @param {import("./message").MessageOptions} opts - An options object for configuring the message.
 	 * @returns {HTMLElement} Returns the new message element
 	 */
 	message: (opts) => {
