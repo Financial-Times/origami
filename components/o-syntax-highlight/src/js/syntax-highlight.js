@@ -1,4 +1,4 @@
-import throwError from './helpers';
+import throwError from './helpers.js';
 
 import 'prismjs/components/prism-core.js';
 // // Adds to Prism global object which we remove https://github.com/PrismJS/prism/blob/v1.15.0/prism.js#L6
