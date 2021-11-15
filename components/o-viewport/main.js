@@ -140,6 +140,7 @@ function listenToScroll() {
 
 /**
  * Start listening for an event(s).
+ *
  * @param {string} eventType - The event to start listening for. One of `resize`, `scroll`, `orientation`, `visibility` or `all`.
  * @example
  * 		// Start listening for all events.
@@ -170,6 +171,7 @@ function listenTo(eventType) {
 
 /**
  * Stop listening for an event(s).
+ *
  * @param {string} eventType - The event to stop listening for. One of `resize`, `scroll`, `orientation`, `visibility` or `all`.
  * @example
  * 		// Start listening for all events.

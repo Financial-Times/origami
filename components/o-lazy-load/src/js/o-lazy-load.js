@@ -58,8 +58,9 @@ function callback (entries, observer) {
 class LazyLoad {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [rootEl] - The component element in the DOM
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
 	constructor (rootEl, opts) {
 		this.rootEl = rootEl;
@@ -91,6 +92,7 @@ class LazyLoad {
 	/**
 	 * Get the data attributes from the ${name.titleCase}Element. If the message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} rootEl - The component element in the DOM
 	 */
 	static getDataAttributes (rootEl) {
@@ -120,8 +122,9 @@ class LazyLoad {
 
 	/**
 	 * Initialise component.
-	 * @param {(HTMLElement|String)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [opts={}] - An options object for configuring the component
+	 *
+	 * @param {(HTMLElement | string)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [opts={}] - An options object for configuring the component
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {

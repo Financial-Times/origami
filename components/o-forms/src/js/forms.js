@@ -4,10 +4,11 @@ import ErrorSummary from './error-summary.js';
 
 class Forms {
 	/**
-	* Class constructor.
-	* @param {HTMLElement} [formElement] - The form element in the DOM
-	* @param {Object} [options={}] - An options object for configuring the form
-	*/
+	 * Class constructor.
+	 *
+	 * @param {HTMLElement} [formElement] - The form element in the DOM
+	 * @param {object} [options={}] - An options object for configuring the form
+	 */
 	constructor(formElement, options) {
 		if (formElement.nodeName !== 'FORM') {
 			throw new Error(`[data-o-component="o-forms"] must be set on a form element. It is currently set on a '${formElement.nodeName.toLowerCase()}'.`);
@@ -38,7 +39,9 @@ class Forms {
 	/**
 	 * Get the data attributes from the formElement. If the form is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} formElement - The message element in the DOM
+	 * @returns {object.<string, any>} - The options
 	 */
 	static getDataAttributes(formElement) {
 		if (!(formElement instanceof HTMLElement)) {
@@ -68,18 +71,20 @@ class Forms {
 
 	/**
 	 * Event Handler
-	 * @param {Object} event - The event emitted by element/window interactions
+	 *
+	 * @param {object} event - The event emitted by element/window interactions
+	 * @returns {void}
 	 */
-	handleEvent(e) {
+	handleEvent(event) {
 		const RETURN_KEY = 13;
-		if (e.type === 'click' || e.type === 'keydown' && e.key === RETURN_KEY) {
+		if (event.type === 'click' || event.type === 'keydown' && event.key === RETURN_KEY) {
 			if (this.form.checkValidity() === false) {
 				this.validateFormInputs();
 			}
 		}
 
-		if (e.type === 'submit') {
-			e.preventDefault();
+		if (event.type === 'submit') {
+			event.preventDefault();
 			const checkedElements = this.validateFormInputs();
 
 			if (checkedElements.some(input => input.valid === false)) {
@@ -100,14 +105,17 @@ class Forms {
 				return;
 			}
 
-			e.target.submit();
+			event.target.submit();
 		}
 	}
 
 	/**
-	* Form validation
-	* Validates every element in the form and creates input objects for the error summary
-	*/
+	 * Form validation
+	 * Validates every element in the form and creates input objects for the error
+	summary
+	 *
+	 * @returns {Array<import("./error-summary.js").ErrorSummaryElement>}
+	 */
 	validateFormInputs() {
 		return this.formInputs.map(oFormInput => {
 			const valid = oFormInput.validate();
@@ -125,25 +133,26 @@ class Forms {
 				error: !valid ? error : null,
 				label,
 				field,
-				element: oFormInput.input
+				element: input
 			};
 		});
 	}
 
 	/**
-	* Input state
-	* @param {String} [name] - name of the input fields to add state to
-	* @param {String} [state] - type of state to apply — one of 'saving', 'saved', 'none'
-	* @param {boolean|object} [options] - an object of options display an icon only when true, hiding the status label
-	*/
+	 * Input state
+	 *
+	 * @param {string} [name] - name of the input fields to add state to
+	 * @param {string} [state] - type of state to apply — one of 'saving', 'saved', 'none'
+	 * @param {boolean|object} [options] - an object of options display an icon only when true, hiding the status label
+	 */
 
 	/**
 	 *
-	 * @param {String} state - name of the input fields to add state to
-	 * @param {String} name - type of state to apply — one of 'saving', 'saved', 'none'
-	 * @param {Object} options - an object of options
-	 * @param {String} options.iconLabel [null] - customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
-	 * @param {Boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
+	 * @param {string} state - name of the input fields to add state to
+	 * @param {string} name - type of state to apply — one of 'saving', 'saved', 'none'
+	 * @param {object} options - an object of options
+	 * @param {string} options.iconLabel [null] - customise the label of the state, e.g. the saved state defaults to "Saving" but could be "Sent"
+	 * @param {boolean} options.iconOnly [false] - when true display an icon only, hiding the status label
 	 */
 	setState(state, name, options = { iconLabel: null, iconOnly: false }) {
 		if (typeof options !== 'object' || options === null || Array.isArray(options)) {
@@ -163,8 +172,8 @@ class Forms {
 	}
 
 	/**
-	* Destroy form instance
-	*/
+	 * Destroy form instance
+	 */
 	destroy() {
 		if (!this.opts.useBrowserValidation) {
 			this.form.removeEventListener('submit', this);
@@ -183,8 +192,11 @@ class Forms {
 
 	/**
 	 * Initialise form component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a form in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the banners
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a form in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the banners
+	 * @param rootEl
+	 * @param opts
 	 */
 	static init(rootEl, opts) {
 		if (!rootEl) {

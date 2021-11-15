@@ -29,6 +29,7 @@ function highlightSuggestion(suggestion, query) {
 
 /**
  * Create DOM for the loading container.
+ *
  * @returns {HTMLDivElement} The loading container.
  */
 function createLoadingContainer() {
@@ -42,7 +43,8 @@ function createLoadingContainer() {
 
 /**
  * Show the loading panel
- * @param {AutoComplete} instance The autocomplete instance whose loading panel should be shown
+ *
+ * @param {Autocomplete} instance The autocomplete instance whose loading panel should be shown
  * @returns {void}
  */
 function showLoadingPane(instance) {
@@ -55,7 +57,8 @@ function showLoadingPane(instance) {
 
 /**
  * Hide the loading panel
- * @param {AutoComplete} instance The autocomplete instance whose loading panel should be hidden
+ *
+ * @param {Autocomplete} instance The autocomplete instance whose loading panel should be hidden
  * @returns {void}
  */
 function hideLoadingPane(instance) {
@@ -71,8 +74,9 @@ function hideLoadingPane(instance) {
 /**
  * Create the DOM tree which corresponds to
  * <button class="o-autocomplete__clear" type="button" aria-controls=${autocompleteEl.id} title="Clear input">
- * 	<span class="o-autocomplete__visually-hidden">Clear input</span>
+ *		<span class="o-autocomplete__visually-hidden">Clear input</span>
  * </button>
+ *
  * @param {string} id The id of the autocomplete input to associate the clear button with
  * @returns {HTMLButtonElement} The clear button DOM tree
  */
@@ -87,7 +91,8 @@ function createClearButton(id) {
 
 /**
  * Attach the clear button and corresponding event listeners to the o-autocomplete instance
- * @param {AutoComplete} instance The autocomplete instance to setup the clear button for
+ *
+ * @param {Autocomplete} instance The autocomplete instance to setup the clear button for
  * @returns {void}
  */
 function initClearButton(instance) {
@@ -144,22 +149,22 @@ function initClearButton(instance) {
  * @param {string} query - Text which was typed into the autocomplete by the user
  * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
  * @returns {void}
-*/
+ */
 
 /**
  * @callback MapOptionToSuggestedValue
  * @param {*} option - The option to transform into a suggestion string
  * @returns {string} The string to display as the suggestions for this option
-*/
+ */
 
 /**
  * @callback onConfirm
  * @param {*} option - The option the user selected
  * @returns {void}
-*/
+ */
 
 /**
- * @typedef {Object} AutocompleteOptions
+ * @typedef {object} AutocompleteOptions
  * @property {Source} [source] - The function which retrieves the suggestions to display
  * @property {MapOptionToSuggestedValue} [mapOptionToSuggestedValue] - Function which transforms a suggestion before rendering
  * @property {onConfirm} [onConfirm] - Function which is called when the user selects an option
@@ -168,6 +173,7 @@ function initClearButton(instance) {
 class Autocomplete {
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} [autocompleteEl] - The component element in the DOM
 	 * @param {AutocompleteOptions} [options={}] - An options object for configuring the component
 	 */
@@ -214,7 +220,7 @@ class Autocomplete {
 			 * @param {string} query - Text which was typed into the autocomplete by the user
 			 * @param {PopulateOptions} populateOptions - Function to call when ready to update the suggestions dropdown
 			 * @returns {void}
-			*/
+			 */
 			this.options.source = (query, populateOptions) => {
 				showLoadingPane(this);
 				/**
@@ -256,6 +262,7 @@ class Autocomplete {
 				templates: {
 					/**
 					 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
+					 *
 					 * @param {*} option The suggestion to apply the template with.
 					 * @returns {string} HTML string to represent a single suggestion.
 					 */
@@ -279,6 +286,7 @@ class Autocomplete {
 					},
 					/**
 					 * Used when a suggestion is selected, the return value of this will be used as the value for the input element.
+					 *
 					 * @param {*} option The suggestion which was selected.
 					 * @returns {string} String to represent the suggestion.
 					 */
@@ -340,6 +348,7 @@ class Autocomplete {
 
 	/**
 	 * Used when rendering suggestions, the return value of this will be used as the innerHTML for a single suggestion.
+	 *
 	 * @param {string} suggestedValue The suggestion to apply the template with.
 	 * @returns {string} HTML string to be represent a single suggestion.
 	 */
@@ -367,8 +376,9 @@ class Autocomplete {
 	/**
 	 * Get the data attributes from the AutocompleteElement. If the element is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} autocompleteEl - The component element in the DOM
-	 * @returns {Object} An options object which can be used for configuring the component
+	 * @returns {object} An options object which can be used for configuring the component
 	 */
 	static getDataAttributes (autocompleteEl) {
 		if (!(autocompleteEl instanceof HTMLElement)) {
@@ -385,8 +395,9 @@ class Autocomplete {
 	}
 	/**
 	 * Initialise o-autocomplete component/s.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the component
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise the component in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the component
 	 * @returns {Autocomplete|Autocomplete[]} The newly constructed Autocomplete components
 	 */
 	static init (rootElement, options) {

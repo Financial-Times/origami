@@ -7,7 +7,7 @@ class ScrollTable extends BaseTable {
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
 	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
+	 * @param {object} opts [{}]
 	 * @param {Bool} opts.sortable [true]
 	 * @returns {ScrollTable}
 	 */
@@ -27,8 +27,8 @@ class ScrollTable extends BaseTable {
 	 * Filter the table.
 	 *
 	 * @access public
-	 * @param {Number} headerIndex - The index of the table column to filter.
-	 * @param {String|Function} filter - How to filter the column (either a string to match or a callback function).
+	 * @param {number} headerIndex - The index of the table column to filter.
+	 * @param {string | Function} filter - How to filter the column (either a string to match or a callback function).
 	 * @returns {undefined}
 	 */
 	filter(headerIndex, filter) {

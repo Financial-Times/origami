@@ -19,9 +19,11 @@ delete window.Prism; // Remove Prism global https://github.com/PrismJS/prism/blo
 class SyntaxHighlight {
 	/**
 	 * Class constructor.
-	 * @param {HTMLElement|String} [messageElement] - The message element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the message
-	 * @param {String} options.language - The language to tokenise the code for
+	 *
+	 * @param {HTMLElement | string} [messageElement] - The message element in the DOM
+	 * @param syntaxEl
+	 * @param {object} [options={}] - An options object for configuring the message
+	 * @param {string} options.language - The language to tokenise the code for
 	 */
 	constructor (syntaxEl, options) {
 		this.syntaxElement = syntaxEl;
@@ -38,8 +40,8 @@ class SyntaxHighlight {
 	}
 
 	/**
-	* Set language for syntax highlighting
-	*/
+	 * Set language for syntax highlighting
+	 */
 	_setLanguage () {
 		if (this.opts.language) {
 			this.opts.syntaxString = this.syntaxElement;
@@ -50,10 +52,12 @@ class SyntaxHighlight {
 	}
 
 	/**
-	* Get language from HTML element
-	* @param {HTMLElement} - The element with a language-relevant class name
-	* @return {String | Null} - The language name e.g. `js` or null if not defined.
-	*/
+	 * Get language from HTML element
+	 *
+	 * @param {HTMLElement} - The element with a language-relevant class name
+	 * @param element
+	 * @returns {string | null} - The language name e.g. `js` or null if not defined.
+	 */
 	_getLanguage(element) {
 		const highlightClassNames = [...element.classList].filter(c => c.includes('o-syntax-highlight--'));
 		const highlightClassName = highlightClassNames ? highlightClassNames[0]: null;
@@ -75,8 +79,8 @@ class SyntaxHighlight {
 	}
 
 	/**
-	* Check if language is present for tokenising, add if not load it here (e.g.scss, json);
-	*/
+	 * Check if language is present for tokenising, add if not load it here (e.g.scss, json);
+	 */
 	_checkLanguage () {
 		if (this.opts.language && !prism.languages.hasOwnProperty(this.opts.language)) {
 			throwError(`The language ${this.opts.language} is not supported. Please contact Origami if you would like to have it added.`);
@@ -84,8 +88,8 @@ class SyntaxHighlight {
 	}
 
 	/**
- * Fetch and tokenise every <code> tag's content under the syntaxEl
- */
+	 * Fetch and tokenise every <code> tag's content under the syntaxEl
+	 */
 	_tokeniseCodeBlocks () {
 		const codeBlocks = Array.from(this.syntaxElement.querySelectorAll('PRE'))
 			.filter(pre => pre.firstElementChild && pre.firstElementChild.tagName === 'CODE')
@@ -95,9 +99,11 @@ class SyntaxHighlight {
 	}
 
 	/**
- * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
- * @param {HTMLElement} - The html element that holds the syntax to highlight
- */
+	 * Prepares syntax for highlighting based on the language provided in the element classname (class="syntax-html")
+	 *
+	 * @param {HTMLElement} - The html element that holds the syntax to highlight
+	 * @param element
+	 */
 	_tokeniseBlock (element) {
 		const language = this._getLanguage(element);
 		if (language) {
@@ -108,6 +114,7 @@ class SyntaxHighlight {
 
 	/**
 	 * Tokenise string for highlighting
+	 *
 	 @returns {HTMLElement} tokenised code in the form of HTML elements
 	 */
 	tokenise () {
@@ -116,9 +123,11 @@ class SyntaxHighlight {
 
 	/**
 	 * Initialise syntax highlighting.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the syntax highlighting
 	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the syntax highlighting
+	 * @param rootEl
+	 * @param opts
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {

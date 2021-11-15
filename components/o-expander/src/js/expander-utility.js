@@ -7,16 +7,17 @@ class ExpanderUtility {
 
 	/**
 	 * Class constructor.
+	 *
 	 * @param {HTMLElement} oExpanderElement - The component element in the DOM
-	 * @param {Object} opts - An options object for configuring the component.
-	 * @param {String|Number} opts.shrinkTo ['height'] - The expander collapse method, "height", "hidden", or a number of items.
-	 * @param {String|Number} opts.toggleState ['all'] - How to update the expander toggles: "all" to update text and aria-expanded attributes, "aria" to update only aria-expanded attributes, "none" to avoid updating toggles on click.
-	 * @param {String} opts.expandedToggleText ['fewer'] - Toggle text when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
-	 * @param {String} opts.collapsedToggleText ['more'] - Toggle text when the expander is collapsed. Defaults to "more" or "show" when `shrinkTo` is "hidden".
-	 * @param {Object} opts.selectors - The selectors for expander elements.
-	 * @param {String} opts.selectors.toggle - A selector for the expanders toggles e.g. `.my-expander__toggle`.
-	 * @param {String} opts.selectors.content - A selector for the expanders content, which will collapse or expand e.g. `.my-expander__content`.
-	 * @param {String} opts.selectors.item - A selector for the items within the expander content e.g. `li` (required only when `shrinkTo` is set to a number).
+	 * @param {object} opts - An options object for configuring the component.
+	 * @param {string | number} opts.shrinkTo ['height'] - The expander collapse method, "height", "hidden", or a number of items.
+	 * @param {string | number} opts.toggleState ['all'] - How to update the expander toggles: "all" to update text and aria-expanded attributes, "aria" to update only aria-expanded attributes, "none" to avoid updating toggles on click.
+	 * @param {string} opts.expandedToggleText ['fewer'] - Toggle text when the expander is collapsed. Defaults to "fewer", or "less" when `shrinkTo` is "height", or "hidden" when `shrinkTo` is "hidden".
+	 * @param {string} opts.collapsedToggleText ['more'] - Toggle text when the expander is collapsed. Defaults to "more" or "show" when `shrinkTo` is "hidden".
+	 * @param {object} opts.selectors - The selectors for expander elements.
+	 * @param {string} opts.selectors.toggle - A selector for the expanders toggles e.g. `.my-expander__toggle`.
+	 * @param {string} opts.selectors.content - A selector for the expanders content, which will collapse or expand e.g. `.my-expander__content`.
+	 * @param {string} opts.selectors.item - A selector for the items within the expander content e.g. `li` (required only when `shrinkTo` is set to a number).
 	 * @param {Object} opts.classnames - The classnames to apply to the expander for different states.
 	 * @param {String} opts.classnames.initialized - The class to apply to the top level of the expander when initialised by JS e.g. `.my-expander--initialized`.
 	 * @param {String} opts.classnames.inactive - The class to apply to the top level of the expander when it can not expand or collapse e.g. `.my-expander--inactive`.
@@ -157,7 +158,8 @@ class ExpanderUtility {
 	/**
 	 * Recalculate and apply the styles to expand or collapse the expander
 	 * according to its current state.
-	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` or `oExpander.collapse` events.
+	 *
+	 * @param {boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` or `oExpander.collapse` events.
 	 * @returns {void}
 	 */
 	apply(isSilent) {
@@ -182,6 +184,7 @@ class ExpanderUtility {
 
 	/**
 	 * Toggle the expander so expands or, if it's already expanded, collapses.
+	 *
 	 * @returns {void}
 	 */
 	toggle() {
@@ -194,7 +197,8 @@ class ExpanderUtility {
 
 	/**
 	 * Expand the expander.
-	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` event.
+	 *
+	 * @param {boolean} isSilent [false] Set to true to avoid firing the `oExpander.expand` event.
 	 * @returns {void}
 	 */
 	expand(isSilent) {
@@ -203,7 +207,8 @@ class ExpanderUtility {
 
 	/**
 	 * Collapse the expander.
-	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` event.
+	 *
+	 * @param {boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` event.
 	 * @returns {void}
 	 */
 	collapse(isSilent) {
@@ -212,7 +217,8 @@ class ExpanderUtility {
 
 	/**
 	 * Return true if the expander is currently collapsed.
-	 * @returns {Boolean} - is the expander collapsed
+	 *
+	 * @returns {boolean} - is the expander collapsed
 	 */
 	isCollapsed() {
 		// If the expander has been run we store the current state.
@@ -230,6 +236,7 @@ class ExpanderUtility {
 
 	/**
 	 * Remove the expander from the page.
+	 *
 	 * @returns {void}
 	 */
 	destroy() {
@@ -272,7 +279,8 @@ class ExpanderUtility {
 	/**
 	 * Return whether the expander has something to hide / show.
 	 * i.e. if expanding/collapsing would do anything.
-	 * @returns {Boolean} - does the expander have something to hide?
+	 *
+	 * @returns {boolean} - does the expander have something to hide?
 	 * @access private
 	 */
 	_isActive() {
@@ -302,8 +310,9 @@ class ExpanderUtility {
 
 	/**
 	 * Expand or collapse the expander.
-	 * @param {Boolean} state "expand" or "collapse".
-	 * @param {Boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` or `oExpander.expand` events.
+	 *
+	 * @param {boolean} state "expand" or "collapse".
+	 * @param {boolean} isSilent [false] Set to true to avoid firing the `oExpander.collapse` or `oExpander.expand` events.
 	 * @returns {void}
 	 * @access private
 	 */
@@ -346,6 +355,7 @@ class ExpanderUtility {
 
 	/**
 	 * Fire a bubbling o-expander event with the correct namespace.
+	 *
 	 * @param {string} name The event name. E.g. "example" will fire an "oExpander.example" event.
 	 * @returns {void}
 	 * @access private

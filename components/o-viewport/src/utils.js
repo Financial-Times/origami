@@ -22,35 +22,39 @@ function broadcast(eventType, data, target) {
 }
 
 /**
-* Get the viewport height.
-* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar height.
-* @return {number}
-*/
+ * Get the viewport height.
+ *
+ * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar height.
+ * @returns {number}
+ */
 function getHeight(ignoreScrollbars) {
 	return ignoreScrollbars ? document.documentElement.clientHeight : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
 /**
-* Get the viewport width.
-* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width
-* @return {number}
-*/
+ * Get the viewport width.
+ *
+ * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width
+ * @returns {number}
+ */
 function getWidth(ignoreScrollbars) {
 	return ignoreScrollbars ? document.documentElement.clientWidth : Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 }
 
 /**
  * Viewport size.
- * @typedef {Object} Size
+ *
+ * @typedef {object} Size
  * @property {number} height
  * @property {number} width
  */
 
 /**
-* Get the viewport width and height.
-* @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width/height.
-* @return {Size}
-*/
+ * Get the viewport width and height.
+ *
+ * @param {boolean} ignoreScrollbars [false] - set to true to discount scrollbar width/height.
+ * @returns {Size}
+ */
 function getSize(ignoreScrollbars) {
 	return {
 		height: getHeight(ignoreScrollbars),
@@ -60,7 +64,8 @@ function getSize(ignoreScrollbars) {
 
 /**
  * Scroll position.
- * @typedef {Object} ScrollPosition
+ *
+ * @typedef {object} ScrollPosition
  * @property {number} height - `document.body.scrollHeight`
  * @property {number} width - `document.body.scrollWidth`
  * @property {number} left - `window.pageXOffset || window.scrollX`
@@ -68,7 +73,7 @@ function getSize(ignoreScrollbars) {
  */
 
 /**
- * @return {ScrollPosition}
+ * @returns {ScrollPosition}
  */
 function getScrollPosition() {
 	return {
@@ -80,7 +85,7 @@ function getScrollPosition() {
 }
 
 /**
- * @return {string} - 'portrait' or 'landscape'
+ * @returns {string} - 'portrait' or 'landscape'
  */
 function getOrientation() {
 	const orientation = window.screen.orientation;
@@ -96,7 +101,7 @@ function getOrientation() {
 }
 
 /**
- * @return {boolean} - true if the viewport is visible
+ * @returns {boolean} - true if the viewport is visible
  */
 function getVisibility() {
 	return document.hidden;

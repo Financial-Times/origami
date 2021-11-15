@@ -2,15 +2,16 @@ import construct from './construct-element.js';
 
 /**
  * An object of options to configure a message instance.
- * @typedef {Object} MessageOptions
- * @property {String} type - The o-message type e.g. 'action', 'alert' and 'notice'.
- * @property {String} state - The o-message state e.g. `success`, `neutral`, `error`, `inform-inverse`.
- * @property {Boolean} autoOpen [true] - Whether to show the message automatically.
- * @property {String} parentElement [null] - The element to append the message to. If none is declared it will leave any existing message elements in place or append to the body when creating a new message element.
- * @property {Object} content - Configuration for the message copy.
- * @property {String} content.detail - Copy for of the message e.g "Thing saved to the place you requested.".
- * @property {String} content.highlight [null] - Highlighted copy to prepend the main message copy "Success!".
- * @property {String} content.additionalInfo [null] - More copy with additional information – only applies to a message with an `inner` layout.
+ *
+ * @typedef {object} MessageOptions
+ * @property {string} type - The o-message type e.g. 'action', 'alert' and 'notice'.
+ * @property {string} state - The o-message state e.g. `success`, `neutral`, `error`, `inform-inverse`.
+ * @property {boolean} autoOpen [true] - Whether to show the message automatically.
+ * @property {string} parentElement [null] - The element to append the message to. If none is declared it will leave any existing message elements in place or append to the body when creating a new message element.
+ * @property {object} content - Configuration for the message copy.
+ * @property {string} content.detail - Copy for of the message e.g "Thing saved to the place you requested.".
+ * @property {string} content.highlight [null] - Highlighted copy to prepend the main message copy "Success!".
+ * @property {string} content.additionalInfo [null] - More copy with additional information – only applies to a message with an `inner` layout.
  * @property {Object} [actions] - Links to display on the message.
  * @property {Object} [actions.primary] - Show a link in the style of a primary button within the message.
  * @property {String} actions.primary.text - The copy for the link.
@@ -30,23 +31,20 @@ class Message {
 	 * @access public
 	 * @param {HTMLElement} messageElement [undefined] - The `o-message` element (optional).
 	 * @param {MessageOptions} options - An options object for configuring the message.
-	 *
 	 * @example To construct all elements on the page with the `data-o-component="o-message"` attribute.
- 	 *      Message.init();
-	 *
+	 *      Message.init();
 	 * @example To construct a specifc o-message on the page.
 	 * 		const myMessageElement = document.querySelector('.my-message');
- 	 *      const myMessage = new Message(myMessageElement, {});
-	 *
+	 *      const myMessage = new Message(myMessageElement, {});
 	 * @example To construct a message which does not already exist on the page.
- 	 *      const errorAlert = new Message(null, {
- 	 *      	type: 'alert',
- 	 *      	state: 'error',
- 	 *      	content: {
- 	 *      		highlight: 'Something has gone wrong.',
- 	 *      		detail: 'The quick brown fox did not jump over the lazy dogs.'
- 	 *      	}
- 	 *      });
+	 *      const errorAlert = new Message(null, {
+	 *      	type: 'alert',
+	 *      	state: 'error',
+	 *      	content: {
+	 *      		highlight: 'Something has gone wrong.',
+	 *      		detail: 'The quick brown fox did not jump over the lazy dogs.'
+	 *      	}
+	 *      });
 	 */
 	constructor(messageElement, options) {
 		this.messageElement = messageElement;
@@ -93,6 +91,7 @@ class Message {
 
 	/**
 	 * Render the message.
+	 *
 	 * @returns {void}
 	 */
 	render () {
@@ -119,6 +118,7 @@ class Message {
 
 	/**
 	 * Open the message.
+	 *
 	 * @returns {void}
 	 */
 	open () {
@@ -128,6 +128,7 @@ class Message {
 
 	/**
 	 * Close the message.
+	 *
 	 * @returns {void}
 	 */
 	close () {
@@ -138,8 +139,9 @@ class Message {
 	/**
 	 * Get the data attributes from the messageElement. If the message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} messageElement - The message element in the DOM
-	 * @returns {Object} - An object of options defined via data attributes on the message element
+	 * @returns {object} - An object of options defined via data attributes on the message element
 	 */
 	static getDataAttributes (messageElement) {
 		if (!(messageElement instanceof HTMLElement)) {
@@ -169,9 +171,13 @@ class Message {
 
 	/**
 	 * Initialise message component.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
-	 * @typedef {Object} MessageOptions - An options object for configuring the messages
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise a message in, or a CSS selector for the root element
+	 * @param rootEl
+	 * @param opts
+	 * @typedef {object} MessageOptions - An options object for configuring the messages
 	 * @returns {Message|Message[]} The newly constructed message components
+	 * @property
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {

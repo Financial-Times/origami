@@ -2,20 +2,20 @@ import Autocomplete from '../../../main.js';
 import {data} from './data.js';
 
 /**
- * @typedef {Object} CustomOption
- * @property {String} Continent_Code
- * @property {String} Continent_Name
- * @property {String} Country_Name
- * @property {Number} Country_Number
- * @property {String} Three_Letter_Country_Code
- * @property {String} Two_Letter_Country_Code
+ * @typedef {object} CustomOption
+ * @property {string} Continent_Code
+ * @property {string} Continent_Name
+ * @property {string} Country_Name
+ * @property {number} Country_Number
+ * @property {string} Three_Letter_Country_Code
+ * @property {string} Two_Letter_Country_Code
  */
 
 
 /**
  * @param {CustomOption|undefined} option - The option to transform into a suggestion string
  * @returns {string} The string to display in the suggestions dropdown for this option
-*/
+ */
 function mapOptionToSuggestedValue(option) {
 	if (option) {
 		return option.Country_Name;

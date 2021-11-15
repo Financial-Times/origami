@@ -8,7 +8,7 @@ class FlatTable extends BaseTable {
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
 	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
+	 * @param {object} opts [{}]
 	 * @param {Bool} opts.sortable [true]
 	 * @returns {FlatTable}
 	 */
@@ -57,6 +57,7 @@ class FlatTable extends BaseTable {
 	 * Duplicate table headers for each data item.
 	 * I.e. Each row is shown as a single item with its own headings.
 	 *
+	 * @param rows
 	 * @access private
 	 */
 	_createFlatTableStructure(rows = this.tableRows) {
