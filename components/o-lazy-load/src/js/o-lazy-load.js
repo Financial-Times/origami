@@ -94,6 +94,7 @@ class LazyLoad {
 	 * declaratively, this method is used to extract the data attributes from the DOM.
 	 *
 	 * @param {HTMLElement} rootEl - The component element in the DOM
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getDataAttributes (rootEl) {
 		if (!(rootEl instanceof HTMLElement)) {
@@ -124,7 +125,9 @@ class LazyLoad {
 	 * Initialise component.
 	 *
 	 * @param {(HTMLElement | string)} rootEl - The root element to intialise the component in, or a CSS selector for the root element
-	 * @param {object} [opts={}] - An options object for configuring the component
+	 * @param {object} [opts={}] - An options object for configuring the
+	 * component
+	 * @returns {LazyLoad | LazyLoad[]} - The freshly made LazyLoad or LazyLoads
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
