@@ -149,8 +149,9 @@ class Stream {
 	/**
 	 * Emits events that have a valid o-comment event name.
 	 *
-	 * @param {string} name - The event name
-	 * @param {object} data - The event payload
+	 * @param {object} args - The args object
+	 * @param {string} args.name - The event name
+	 * @param {object} args.data - The event payload
 	 * @returns {void}
 	 */
 	publishEvent ({name, data = {}}) {
