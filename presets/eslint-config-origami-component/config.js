@@ -12,8 +12,10 @@ module.exports = {
 		browser: true,
 		node: true,
 	},
-	plugins: ["import", "@lwc/eslint-plugin-lwc"],
+	plugins: ["import", "@lwc/eslint-plugin-lwc", "jsdoc"],
+	extends: ["plugin:jsdoc/recommended"],
 	rules: {
+		"jsdoc/require-jsdoc": "off",
 		"import/extensions": ["warn", "ignorePackages"],
 		"no-unused-vars": "error",
 		"no-undef": "error",
@@ -27,7 +29,6 @@ module.exports = {
 		"dot-notation": "off",
 		semi: ["error", "always"],
 		strict: ["error", "global"],
-		"valid-jsdoc": "warn",
 		"no-irregular-whitespace": "warn",
 		"no-multi-spaces": "error",
 		"one-var": ["error", "never"],
@@ -128,12 +129,12 @@ module.exports = {
 		exports: false,
 		requireText: false,
 	},
-   "overrides": [
-      {
-        "files": ["test/**/*.js"],
-        "rules": {
-          "@lwc/lwc/no-async-await": "off"
-        }
-      }
-    ]
+	"overrides": [
+		{
+		  "files": ["test/**/*.js"],
+		  "rules": {
+			 "@lwc/lwc/no-async-await": "off"
+		  }
+		}
+	 ]
 }
