@@ -57,7 +57,7 @@ new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), 
 	source: customSuggestions,
 	mapOptionToSuggestedValue,
 	onConfirm: function (option) {
-		// eslint-disable no-console
+		// eslint-disable-next-line no-console
 		console.log('You chose option', option);
 	}
 });
