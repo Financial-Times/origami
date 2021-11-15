@@ -3,8 +3,8 @@
 import proclaim from 'proclaim';
 import sinon from 'sinon/pkg/sinon-esm.js';
 
-import SyntaxHighlight from '../src/js/syntax-highlight';
-import fixtures from './helpers/fixtures';
+import SyntaxHighlight from '../src/js/syntax-highlight.js';
+import fixtures from './helpers/fixtures.js';
 
 const flatten = string => string.replace(/\s/g, '');
 
