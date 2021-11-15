@@ -165,9 +165,11 @@ class ODate {
 		} else if (format === 'time-ago-limit-24-hours') {
 			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-abbreviated') {
+			// eslint-disable-next-line no-console
 			console.warn('The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.');
 			formattedDate = ftDateFormat.timeAgo(date);
 		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
+			// eslint-disable-next-line no-console
 			console.warn('The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.');
 			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-no-seconds') {
