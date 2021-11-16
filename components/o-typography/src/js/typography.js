@@ -56,6 +56,7 @@ class Typography {
 	 * the DOM.
 	 *
 	 * @param {HTMLElement} typographyEl - The typography element in the DOM (Required)
+	 * @returns {Object.<string, any>} An option dictionary
 	 */
 	static getOptions(typographyEl) {
 		const dataset = Object(typographyEl.dataset);
@@ -144,18 +145,17 @@ class Typography {
 	 *
 	 * @param {(HTMLElement | string)} rootElement - The root element to intialise o-typography on, or a CSS selector for the root element
 	 * @param {object} [options={}] - An options object for configuring o-typography
-	 * @param rootEl
-	 * @param opts
+	 * @returns {Typography} The Typography instance
 	 */
-	static init (rootEl, opts) {
-		if (!rootEl) {
-			rootEl = document.documentElement;
+	static init (rootElement, options) {
+		if (!rootElement) {
+			rootElement = document.documentElement;
 		}
-		if (!(rootEl instanceof HTMLElement)) {
-			rootEl = document.querySelector(rootEl);
+		if (!(rootElement instanceof HTMLElement)) {
+			rootElement = document.querySelector(rootElement);
 		}
-		if (rootEl instanceof HTMLElement && rootEl.matches('[data-o-component=o-typography]')) {
-			return new Typography(rootEl, opts);
+		if (rootElement instanceof HTMLElement && rootElement.matches('[data-o-component=o-typography]')) {
+			return new Typography(rootElement, options);
 		}
 	}
 }
