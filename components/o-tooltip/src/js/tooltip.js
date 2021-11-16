@@ -409,6 +409,7 @@ class Tooltip {
 
 		// Warn all positions were tried and the tooltip is sill out of bounds.
 		if (count >= 5) {
+			// eslint-disable-next-line no-console
 			console.warn("There is not enough space in the client window to draw the tooltip.");
 		}
 	}
@@ -512,6 +513,7 @@ class Tooltip {
 	}
 
 	calculateTooltipRect(position) {
+		// eslint-disable-next-line no-console
 		console.warn('`calculateTooltipRect` is deprecated.');
 		return this._calculateTooltipRectangle(position, 'middle');
 	}
