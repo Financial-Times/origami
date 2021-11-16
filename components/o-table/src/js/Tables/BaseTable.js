@@ -6,7 +6,7 @@ import Delegate from 'ftdomdelegate';
  * @access private
  * @param {Element} tbody - The table body to append the row batch to.
  * @param {Array} rowBatch - An array of rows to append to the table body.
- * @returns {undefined}
+ * @returns {void}
  */
 function append(tbody, rowBatch) {
 	if (tbody.append) {
@@ -22,7 +22,7 @@ function append(tbody, rowBatch) {
  * @access private
  * @param {Element} tbody - The table body to prepend the row batch to.
  * @param {Array} rowBatch - An array of rows to prepend to the table body.
- * @returns {undefined}
+ * @returns {void}
  */
 function prepend(tbody, rowBatch) {
 	if (tbody.prepend) {
@@ -41,10 +41,10 @@ class BaseTable {
 	 *
 	 * @access public
 	 * @param {HTMLElement} rootEl - The `o-table` element.
-	 * @param {TableSorter} sorter
-	 * @param {Object} opts [{}]
-	 * @param {Bool} opts.sortable [true]
-	 * @returns {BaseTable}
+	 * @param {import("../Sort/TableSorter")} sorter a TableSorter instance
+	 * @param {object} opts [{}]
+	 * @param {boolean} opts.sortable [true]
+	 * @returns {BaseTable} the new base table
 	 */
 	constructor(rootEl, sorter, opts = {}) {
 		this._listeners = [];
@@ -69,16 +69,16 @@ class BaseTable {
 		this._updateTableHeightListenerSet = false;
 
 		/**
-		 * @property {Object|Null} _currentSort - The current sort applied.
-		 * @property {Number} _currentSort.columnIndex - The index of the currently sorted column.
-		 * @property {String} _currentSort.sortOrder - The type of sort, "ascending" or "descending"
+		 * @property {object | null} _currentSort - The current sort applied.
+		 * @property {number} _currentSort.columnIndex - The index of the currently sorted column.
+		 * @property {string} _currentSort.sortOrder - The type of sort, "ascending" or "descending"
 		 */
 		this._currentSort = null;
 
 		/**
-		 * @property {Object|Null} _currentFilter - The filter currently applied.
-		 * @property {Number} _currentFilter.columnIndex - The index of the column which is filtered.
-		 * @property {String|Function} _currentFilter.filter - The filter applied.
+		 * @property {object | null} _currentFilter - The filter currently applied.
+		 * @property {number} _currentFilter.columnIndex - The index of the column which is filtered.
+		 * @property {string | Function} _currentFilter.filter - The filter applied.
 		 */
 		this._currentFilter = null;
 
@@ -89,6 +89,7 @@ class BaseTable {
 	/**
 	 * Apply and add event listeners to any filter controls for this table.
 	 * E.g. form inputs with the data attribute `[data-o-table-filter-id="tableId"]`
+	 *
 	 * @access private
 	 */
 	_setupFilters() {
@@ -103,12 +104,14 @@ class BaseTable {
 		}
 		// Do not setup filter if markup is missing.
 		if (!this.filterContainer) {
+			// eslint-disable-next-line no-console
 			console.warn(`Could not setup the filter for the table "${tableId}" as markup is missing. A filterable table must be within a div with class "o-table-container".`);
 			return;
 		}
 		// Warn if a misconfigured filter was found.
 		const filterColumn = parseInt(filter.getAttribute('data-o-table-filter-column'), 10);
 		if (isNaN(filterColumn)) {
+			// eslint-disable-next-line no-console
 			console.warn(`Could not setup the filter for the table "${tableId}" as no column index was given to filter on. Add a \`data-o-table-filter-column="{columnIndex}"\` attribute to the filter.`, filter);
 			return;
 		}
@@ -137,7 +140,7 @@ class BaseTable {
 	 * Update the o-table instance with rows added or removed dynamically from
 	 * the table. Applies any existing sort and filter to new rows.
 	 *
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	updateRows() {
 		const rows = this._getLatestRowNodes();
@@ -160,7 +163,7 @@ class BaseTable {
 	/**
 	 * Get all the table body's current row nodes.
 	 *
-	 * @returns {Array<Node>}
+	 * @returns {Array<Node>} all the trs
 	 * @access private
 	 */
 	_getLatestRowNodes() {
@@ -177,7 +180,7 @@ class BaseTable {
 	 * and does not look for new rows added to the dom. See `updateRows`.
 	 *
 	 * @see updateRows
-	 * @returns {undefined}
+	 * @returns {void}
 	 */
 	renderRowUpdates() {
 		this._updateRowAriaHidden();
@@ -194,6 +197,7 @@ class BaseTable {
 	 */
 	_updateTableHeight() {
 		if (!this.filterContainer) {
+			// eslint-disable-next-line no-console
 			console.warn(`The table has missing markup. A responsive or filterable table must be within a div with class "o-table-container".`, this.rootEl);
 			return;
 		}
@@ -235,7 +239,8 @@ class BaseTable {
 
 	/**
 	 * Get the table height, accounting for "hidden" rows.
-	 * @return {Number|Null}
+	 *
+	 * @returns {number} the height in pixels
 	 */
 	_getTableHeight() {
 		const tableHeight = this.rootEl.getBoundingClientRect().height;
@@ -247,9 +252,9 @@ class BaseTable {
 	}
 
 	/**
-	* Update the "aria-hidden" attribute of all hidden table rows.
-	* Rows may be hidden for a number of reasons, including being filtered.
-	*/
+	 * Update the "aria-hidden" attribute of all hidden table rows.
+	 * Rows may be hidden for a number of reasons, including being filtered.
+	 */
 	_updateRowAriaHidden() {
 		if (this._updateRowAriaHiddenScheduled) {
 			window.cancelAnimationFrame(this._updateRowAriaHiddenScheduled);
@@ -282,10 +287,10 @@ class BaseTable {
 	}
 
 	/**
-	* Updates the order of table rows in the DOM. This is required upon sort,
-	* but also on filter as hidden rows must be at the bottom of the table.
-	* Otherwise the stripped pattern of the stripped table is not maintained.
-	*/
+	 * Updates the order of table rows in the DOM. This is required upon sort,
+	 * but also on filter as hidden rows must be at the bottom of the table.
+	 * Otherwise the stripped pattern of the stripped table is not maintained.
+	 */
 	_updateRowOrder() {
 		if (this._updateRowOrderScheduled) {
 			window.cancelAnimationFrame(this._updateRowOrderScheduled);
@@ -313,8 +318,8 @@ class BaseTable {
 	 * Filter the table and render the result.
 	 *
 	 * @access public
-	 * @param {Number} headerIndex - The index of the table column to filter.
-	 * @param {String|Function} filter - How to filter the column (either a string to match or a callback function).
+	 * @param {number} headerIndex - The index of the table column to filter.
+	 * @param {string | Function} filter - How to filter the column (either a string to match or a callback function).
 	 * @returns {undefined}
 	 */
 	filter(headerIndex, filter) {
@@ -327,8 +332,8 @@ class BaseTable {
 	 * This does not render the result to the DOM.
 	 *
 	 * @access private
-	 * @param {Number} columnIndex - The index of the table column to filter.
-	 * @param {String|Function} filter - How to filter the column (either a string to match or a callback function).
+	 * @param {number} columnIndex - The index of the table column to filter.
+	 * @param {string | Function} filter - How to filter the column (either a string to match or a callback function).
 	 * @returns {undefined}
 	 */
 	_filterRowsByColumn(columnIndex, filter) {
@@ -359,8 +364,8 @@ class BaseTable {
 	 *
 	 * @access private
 	 * @param {Element} cell - The table cell to test the filter function against.
-	 * @param {String|Function} filter - The filter, either a string or callback function.
-	 * @returns {Boolean}
+	 * @param {string | Function} filter - The filter, either a string or callback function.
+	 * @returns {boolean} does the fliter match?
 	 */
 	static _filterMatch(cell, filter) {
 		// If the filter is a string create a filter function which:
@@ -382,7 +387,8 @@ class BaseTable {
 
 	/**
 	 * Which rows are hidden, e.g. by a filter.
-	 * @returns {Array[Node]}
+	 *
+	 * @returns {Array<Node>} the rows that should be hidden
 	 */
 	get _rowsToHide() {
 		return this._filteredTableRows;
@@ -392,9 +398,9 @@ class BaseTable {
 	 * Gets a table header for a given column index.
 	 *
 	 * @access public
-	 * @param {Number} columnIndex - The index of the table column to get the header for.
+	 * @param {number} columnIndex - The index of the table column to get the header for.
 	 * @throws When no header is not found.
-	 * @returns {HTMLElement}
+	 * @returns {HTMLElement} the table header
 	 */
 	getTableHeader(columnIndex) {
 		const th = this.tableHeaders[columnIndex];
@@ -408,8 +414,8 @@ class BaseTable {
 	 * Sort the table.
 	 *
 	 * @access public
-	 * @param {Number} columnIndex - The index of the table column to sort.
-	 * @param {Number} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {number} columnIndex - The index of the table column to sort.
+	 * @param {number} sortOrder - How to sort the column, "ascending" or "descending"
 	 * @returns {undefined}
 	 */
 	sortRowsByColumn(columnIndex, sortOrder) {
@@ -430,6 +436,7 @@ class BaseTable {
 
 	/**
 	 * Add sort buttons to the DOM within the table header.
+	 *
 	 * @returns {undefined}
 	 */
 	addSortButtons() {
@@ -457,6 +464,7 @@ class BaseTable {
 				}
 				// Otherwise return text content.
 				if (node.nodeType === Node.ELEMENT_NODE) {
+					// eslint-disable-next-line no-console
 					console.warn(`o-table has removed the element "${node.nodeName}" from the table heading to add a sort button on the column. Please remove this element from your table heading, disable sort on this column, or contact the Origami team for help.`, th);
 				}
 				return html + node.textContent;
@@ -493,9 +501,9 @@ class BaseTable {
 	 * Indicate that the table has been sorted after intercepting the sorting event.
 	 *
 	 * @access public
-	 * @param {Object} sortDetails - Details of the current sort state.
-	 * @param {Number|Null} sortDetails.columnIndex - The index of the currently sorted column.
-	 * @param {String|Null} sortDetails.sortOrder - The type of sort, "ascending" or "descending"
+	 * @param {object} sortDetails - Details of the current sort state.
+	 * @param {number | null} sortDetails.columnIndex - The index of the currently sorted column.
+	 * @param {string | null} sortDetails.sortOrder - The type of sort, "ascending" or "descending"
 	 */
 	sorted({ columnIndex, sortOrder }) {
 		if (isNaN(columnIndex)) {
@@ -526,6 +534,7 @@ class BaseTable {
 	/**
 	 * Gets the instance ready for deletion.
 	 * Removes event listeners that were added during instatiation of the component.
+	 *
 	 * @access public
 	 * @returns {undefined}
 	 */
@@ -551,6 +560,7 @@ class BaseTable {
 
 	/**
 	 * Indicate that the table has been constructed successfully.
+	 *
 	 * @returns {undefined}
 	 */
 	_ready() {
@@ -560,8 +570,9 @@ class BaseTable {
 	/**
 	 * Column sort orders are toggled. For a given column heading, return
 	 * the next sort order which should be applied.
+	 *
 	 * @param {Element} th - The heading for the column to be sorted.
-	 * @returns {String} - What the next sort order for the heading should be, 'ascending' or 'descending'.
+	 * @returns {string} - What the next sort order for the heading should be, 'ascending' or 'descending'.
 	 */
 	_getNextSortOrder(th) {
 		// Get the current table sort. Use the `aria-sort` attribute
@@ -580,6 +591,7 @@ class BaseTable {
 
 	/**
 	 * Handles a sort button click event. Toggles column sort.
+	 *
 	 * @param {MouseEvent} event - The click event.
 	 * @returns {undefined}
 	 */
@@ -596,9 +608,10 @@ class BaseTable {
 	/**
 	 * Helper function to dispatch namespaced events.
 	 *
-	 * @param {String} event - The event name within `oTable` e.g. "sorted".
-	 * @param {Object} data={} - Event data. `instance` is added automatically.
-	 * @param {Object} opts={} - [Event options]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event/Event#Values} (o-table events bubble by default).
+	 * @param {string} event - The event name within `oTable` e.g. "sorted".
+	 * @param {object} data - Event data. `instance` is added automatically.
+	 * @param {object} opts - [Event options]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event/Event#Values} (o-table events bubble by default).
+	 * @returns {boolean} false is cancelable and canceled, otherwise true
 	 */
 	_dispatchEvent(event, data = {}, opts = {}) {
 		Object.assign(data , {

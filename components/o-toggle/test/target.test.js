@@ -5,10 +5,9 @@ import sinon from 'sinon/pkg/sinon-esm.js';
 
 import OToggle from './../main.js';
 
-describe("Target", () => {
-
-	describe("init behaviour", () => {
-		it("assigns the target el to the toggle target el", () => {
+describe('Target', () => {
+	describe('init behaviour', () => {
+		it('assigns the target el to the toggle target el', () => {
 			const fakeToggle = {targetEl: 'testEl'};
 			const target = new OToggle.Target(fakeToggle);
 
@@ -16,8 +15,8 @@ describe("Target", () => {
 		});
 	});
 
-	describe("addToggle", () => {
-		it("adds the toggle passed in to the toggles array", () => {
+	describe('addToggle', () => {
+		it('adds the toggle passed in to the toggles array', () => {
 			const fakeToggle = {targetEl: 'testEl'};
 			const target = new OToggle.Target(fakeToggle);
 
@@ -29,8 +28,8 @@ describe("Target", () => {
 		});
 	});
 
-	describe("removeToggle", () => {
-		it("removes the toggle passed in from its toggles array if its there", () => {
+	describe('removeToggle', () => {
+		it('removes the toggle passed in from its toggles array if its there', () => {
 			const fakeToggle = {targetEl: 'testEl'};
 			const target = new OToggle.Target(fakeToggle);
 			sinon.stub(target, 'open');
@@ -41,7 +40,7 @@ describe("Target", () => {
 			proclaim.doesNotInclude(target.toggles, fakeToggle);
 		});
 
-		it("calls open on the target if the toggle was the last one that had control of the target", () => {
+		it('calls open on the target if the toggle was the last one that had control of the target', () => {
 			const fakeToggle = {targetEl: 'testEl'};
 			const target = new OToggle.Target(fakeToggle);
 			const openStub = sinon.stub(target, 'open');
@@ -53,7 +52,7 @@ describe("Target", () => {
 			proclaim.isTrue(openStub.calledOnce);
 		});
 
-		it("does not call open on the target if there are other toggles that have control of the target too", () => {
+		it('does not call open on the target if there are other toggles that have control of the target too', () => {
 			const fakeToggle = {targetEl: 'testEl'};
 			const otherFakeToggle = {targetEl: 'testEl'};
 			const target = new OToggle.Target(fakeToggle);
@@ -68,36 +67,36 @@ describe("Target", () => {
 		});
 	});
 
-	describe("open", () => {
-		it("sets aria-hidden to false on the target el", () => {
-			const targetEl = document.createElement("div");
+	describe('open', () => {
+		it('sets aria-hidden to false on the target el', () => {
+			const targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			const target = new OToggle.Target(fakeToggle);
 
-			proclaim.isFalse(target.targetEl.hasAttribute("aria-hidden"));
+			proclaim.isFalse(target.targetEl.hasAttribute('aria-hidden'));
 
 			target.open();
 
-			proclaim.isTrue(target.targetEl.hasAttribute("aria-hidden"));
-			proclaim.equal(target.targetEl.getAttribute("aria-hidden"), "false");
+			proclaim.isTrue(target.targetEl.hasAttribute('aria-hidden'));
+			proclaim.equal(target.targetEl.getAttribute('aria-hidden'), 'false');
 		});
 
-		it("adds o-toggle--active to the target el", () => {
-			const targetEl = document.createElement("div");
+		it('adds o-toggle--active to the target el', () => {
+			const targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			const target = new OToggle.Target(fakeToggle);
 
-			proclaim.isFalse(target.targetEl.classList.contains("o-toggle--active"));
+			proclaim.isFalse(target.targetEl.classList.contains('o-toggle--active'));
 
 			target.open();
 
-			proclaim.isTrue(target.targetEl.classList.contains("o-toggle--active"));
+			proclaim.isTrue(target.targetEl.classList.contains('o-toggle--active'));
 		});
 
-		it("sets all of the toggles that control this target to be open", () => {
-			const targetEl = document.createElement("div");
-			const fakeToggle = {targetEl: targetEl, open: ()=>{}};
-			const fakeToggle2 = {targetEl: targetEl, open: ()=>{}};
+		it('sets all of the toggles that control this target to be open', () => {
+			const targetEl = document.createElement('div');
+			const fakeToggle = {targetEl: targetEl, open: Function.prototype};
+			const fakeToggle2 = {targetEl: targetEl, open: Function.prototype};
 			const toggleOpenSpy = sinon.spy(fakeToggle, 'open');
 			const toggleOpenSpy2 = sinon.spy(fakeToggle2, 'open');
 			const target = new OToggle.Target(fakeToggle);
@@ -110,39 +109,47 @@ describe("Target", () => {
 		});
 	});
 
-	describe("close", () => {
-		it("sets aria-hidden to true on the target el", () => {
-			const targetEl = document.createElement("div");
+	describe('close', () => {
+		it('sets aria-hidden to true on the target el', () => {
+			const targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			const target = new OToggle.Target(fakeToggle);
 			target.open();
 
-			proclaim.isTrue(target.targetEl.hasAttribute("aria-hidden"));
-			proclaim.equal(target.targetEl.getAttribute("aria-hidden"), "false");
+			proclaim.isTrue(target.targetEl.hasAttribute('aria-hidden'));
+			proclaim.equal(target.targetEl.getAttribute('aria-hidden'), 'false');
 
 			target.close();
 
-			proclaim.isTrue(target.targetEl.hasAttribute("aria-hidden"));
-			proclaim.equal(target.targetEl.getAttribute("aria-hidden"), "true");
+			proclaim.isTrue(target.targetEl.hasAttribute('aria-hidden'));
+			proclaim.equal(target.targetEl.getAttribute('aria-hidden'), 'true');
 		});
 
-		it("removes o-toggle--active from the target el", () => {
-			const targetEl = document.createElement("div");
+		it('removes o-toggle--active from the target el', () => {
+			const targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			const target = new OToggle.Target(fakeToggle);
 			target.open();
 
-			proclaim.isTrue(target.targetEl.classList.contains("o-toggle--active"));
+			proclaim.isTrue(target.targetEl.classList.contains('o-toggle--active'));
 
 			target.close();
 
-			proclaim.isFalse(target.targetEl.classList.contains("o-toggle--active"));
+			proclaim.isFalse(target.targetEl.classList.contains('o-toggle--active'));
 		});
 
-		it("sets all of the toggles that control this target to be closed", () => {
-			const targetEl = document.createElement("div");
-			const fakeToggle = {targetEl: targetEl, open: ()=>{}, close: ()=>{}};
-			const fakeToggle2 = {targetEl: targetEl, open: ()=>{}, close: ()=>{}};
+		it('sets all of the toggles that control this target to be closed', () => {
+			const targetEl = document.createElement('div');
+			const fakeToggle = {
+				targetEl: targetEl,
+				open: Function.prototype,
+				close: Function.prototype,
+			};
+			const fakeToggle2 = {
+				targetEl: targetEl,
+				open: Function.prototype,
+				close: Function.prototype,
+			};
 			const toggleOpenSpy = sinon.spy(fakeToggle, 'close');
 			const toggleOpenSpy2 = sinon.spy(fakeToggle2, 'close');
 
@@ -156,17 +163,16 @@ describe("Target", () => {
 		});
 	});
 
-	describe("toggle", () => {
-
+	describe('toggle', () => {
 		let target;
 
 		beforeEach(() => {
-			const targetEl = document.createElement("div");
+			const targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			target = new OToggle.Target(fakeToggle);
 		});
 
-		it("calls close if isOpen returns true", ()=>{
+		it('calls close if isOpen returns true', () => {
 			const isOpenSpy = sinon.stub(target, 'isOpen').returns(true);
 			const openSpy = sinon.spy(target, 'open');
 			const closeSpy = sinon.spy(target, 'close');
@@ -178,7 +184,7 @@ describe("Target", () => {
 			proclaim.isFalse(openSpy.called);
 		});
 
-		it("calls open if isOpen returns false", () => {
+		it('calls open if isOpen returns false', () => {
 			const isOpenSpy = sinon.stub(target, 'isOpen').returns(false);
 			const openSpy = sinon.spy(target, 'open');
 			const closeSpy = sinon.spy(target, 'close');
@@ -191,17 +197,17 @@ describe("Target", () => {
 		});
 	});
 
-	describe("isOpen", () => {
+	describe('isOpen', () => {
 		let target;
 		let targetEl;
 
 		beforeEach(() => {
-			targetEl = document.createElement("div");
+			targetEl = document.createElement('div');
 			const fakeToggle = {targetEl: targetEl};
 			target = new OToggle.Target(fakeToggle);
 		});
 
-		it("returns true if the target el classList contains o-toggle--active, false otherwise", () => {
+		it('returns true if the target el classList contains o-toggle--active, false otherwise', () => {
 			proclaim.isFalse(target.isOpen());
 			target.targetEl.classList.add('o-toggle--active');
 			proclaim.isTrue(target.isOpen());
@@ -209,5 +215,4 @@ describe("Target", () => {
 			proclaim.isFalse(target.isOpen());
 		});
 	});
-
 });

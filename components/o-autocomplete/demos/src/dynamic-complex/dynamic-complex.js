@@ -2,20 +2,19 @@ import Autocomplete from '../../../main.js';
 import {data} from './data.js';
 
 /**
- * @typedef {Object} CustomOption
- * @property {String} Continent_Code
- * @property {String} Continent_Name
- * @property {String} Country_Name
- * @property {Number} Country_Number
- * @property {String} Three_Letter_Country_Code
- * @property {String} Two_Letter_Country_Code
+ * @typedef {object} CustomOption
+ * @property {string} Continent_Code - 2 letter continent code
+ * @property {string} Continent_Name - name of continent
+ * @property {string} Country_Name - name of country
+ * @property {number} Country_Number - id of country
+ * @property {string} Three_Letter_Country_Code - three letter country code
+ * @property {string} Two_Letter_Country_Code - two letter country code
  */
-
 
 /**
  * @param {CustomOption|undefined} option - The option to transform into a suggestion string
  * @returns {string} The string to display in the suggestions dropdown for this option
-*/
+ */
 function mapOptionToSuggestedValue(option) {
 	if (option) {
 		return option.Country_Name;
@@ -57,7 +56,7 @@ new Autocomplete(document.querySelector('[data-o-component="o-autocomplete"]'), 
 	source: customSuggestions,
 	mapOptionToSuggestedValue,
 	onConfirm: function (option) {
-		// eslint-disable no-console
+		// eslint-disable-next-line no-console
 		console.log('You chose option', option);
 	}
 });

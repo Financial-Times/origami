@@ -12,13 +12,13 @@ class CookieMessage {
 			acceptUrl: `https://consent.${domain}/__consent/consent-record-cookie?cookieDomain=.${domain}`,
 			acceptUrlFallback: `https://consent.${domain}/__consent/consent-record-cookie?redirect=${redirect}&cookieDomain=.${domain}`,
 			manageCookiesUrl: `https://cookies.${domain}/preferences/${manageCookiesPath}?redirect=${redirect}&cookieDomain=.${domain}`,
-			consentCookieName: 'FTCookieConsentGDPR'
+			consentCookieName: 'FTCookieConsentGDPR',
 		};
 	}
 
 	constructor(cookieMessageElement, options) {
 		if (cookieMessageElement === null || cookieMessageElement === undefined) {
-			cookieMessageElement = document.createElement("div");
+			cookieMessageElement = document.createElement('div');
 			document.body.append(cookieMessageElement);
 		}
 
@@ -28,10 +28,7 @@ class CookieMessage {
 		options = options || CookieMessage.getOptionsFromDom(cookieMessageElement);
 
 		// Set cookie message options
-		this.options = Object.assign(
-			{},
-			options
-		);
+		this.options = Object.assign({}, options);
 
 		this.options.theme = this.options.theme ? 'alternative' : null;
 
@@ -44,8 +41,11 @@ class CookieMessage {
 			this.removeCookieMessage();
 		}
 
-		window.addEventListener("pageshow", (event) => {
-			if (event.persisted === true && this.shouldShowCookieMessage() === false) {
+		window.addEventListener('pageshow', event => {
+			if (
+				event.persisted === true &&
+				this.shouldShowCookieMessage() === false
+			) {
 				return this.removeCookieMessage();
 			}
 		});
@@ -85,9 +85,9 @@ class CookieMessage {
 
 		const child = this.cookieMessageElement.firstElementChild;
 		const html = this.cookieMessageElement.innerHTML;
-		if (child && child.classList.contains("o-cookie-message__outer")) {
+		if (child && child.classList.contains('o-cookie-message__outer')) {
 			// full custom html, leave it alone
-		} else if (html.trim() === "") {
+		} else if (html.trim() === '') {
 			// empty, provide default content
 			this.cookieMessageElement.innerHTML = wrapContent(defaultContent);
 			// with default content ids we can setup a labeled dialog role
@@ -103,11 +103,11 @@ class CookieMessage {
 	/**
 	 * Enables cookie setting behaviour from the FT consent service
 	 * https://github.com/Financial-Times/next-consent-proxy/tree/master/src
+	 *
+	 * @returns {void}
 	 */
 	updateConsent() {
-		const button = document.querySelector(
-			`.o-cookie-message__button`
-		);
+		const button = document.querySelector(`.o-cookie-message__button`);
 		if (button) {
 			button.addEventListener('click', e => {
 				e.preventDefault();
@@ -115,7 +115,7 @@ class CookieMessage {
 				this.removeCookieMessage();
 				return fetch(this.cookieInfo.acceptUrl, {
 					method: 'get',
-					credentials: 'include'
+					credentials: 'include',
 				});
 			});
 		}
@@ -123,6 +123,8 @@ class CookieMessage {
 
 	/**
 	 * Checks whether cookie is set
+	 *
+	 * @returns {boolean} - should the cookie message be shown
 	 */
 	shouldShowCookieMessage() {
 		return !document.cookie.includes(`${this.cookieInfo.consentCookieName}`);
@@ -130,6 +132,8 @@ class CookieMessage {
 
 	/**
 	 * Displays cookie message banner, based on existing cookies.
+	 *
+	 * @returns {void}
 	 */
 	showCookieMessage() {
 		this.cookieMessageElement.classList.add(
@@ -149,27 +153,32 @@ class CookieMessage {
 
 	/**
 	 * Removes cookie message banner.
+	 *
+	 * @returns {void}
 	 */
 	removeCookieMessage() {
 		this.dispatchEvent('oCookieMessage.close');
 
 		try {
-			this.cookieMessageElement.parentNode.removeChild(this.cookieMessageElement);
-		}
-		catch (err) {
+			this.cookieMessageElement.parentNode.removeChild(
+				this.cookieMessageElement
+			);
+		} catch (err) {
 			// cookieMessageElement or its parentNode has already been removed
 		}
 	}
 
 	dispatchEvent(eventName) {
-		const e = new CustomEvent(eventName, { bubbles: true });
+		const e = new CustomEvent(eventName, {bubbles: true});
 		this.cookieMessageElement.dispatchEvent(e);
 	}
 
 	/**
 	 * Get the data attributes from the cookieMessageElement. If the cookie message is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} cookieMessageElement - The cookie message element in the DOM
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getOptionsFromDom(cookieMessageElement) {
 		if (!(cookieMessageElement instanceof HTMLElement)) {
@@ -201,8 +210,10 @@ class CookieMessage {
 
 	/**
 	 * Initialise cookie message components.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise cookie messages in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the cookie messages
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise cookie messages in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the cookie messages
+	 * @returns {CookieMessage | CookieMessage[]} - The newly instantiated CookieMessage (or CookieMessages, if rootElement was not a banner)
 	 */
 	static init(rootElement, options) {
 		if (!rootElement) {

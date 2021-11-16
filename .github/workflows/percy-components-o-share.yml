@@ -34,7 +34,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: npm i -g npm@7
     - run: npm ci
     - run: node ./scripts/percy.js
       env:

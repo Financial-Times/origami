@@ -114,7 +114,7 @@ describe('Playlist', () => {
 
 			instance.goto(1);
 
-			proclaim.isTrue(instance.cache.hasOwnProperty('abc'));
+			proclaim.isTrue(Object.prototype.hasOwnProperty.call(instance.cache, 'abc'));
 		});
 
 		it('retrieves next video from cache when available', () => {

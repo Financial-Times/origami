@@ -35,7 +35,7 @@ describe("oToggle", () => {
 
 		beforeEach(() => {
 			// declarative callback
-			window.myCallback = () => { };
+			window.myCallback = Function.prototype;
 			fixtures.declarativeMarkup('myCallback');
 		});
 

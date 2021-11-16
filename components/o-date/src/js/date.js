@@ -10,7 +10,8 @@ function ftDateFormatWarning(methodName) {
 
 /**
  * Initialise the o-date component.
- * @param {HTMLElement|String} rootElement - The root element or CSS selector to initialise
+ *
+ * @param {HTMLElement | string} rootElement - The root element or CSS selector to initialise
  */
 class ODate {
 
@@ -66,6 +67,7 @@ class ODate {
 
 	/**
 	 * Re-render the formatted date within the `time` element.
+	 *
 	 * @returns {undefined}
 	 */
 	update() {
@@ -110,6 +112,7 @@ class ODate {
 	/**
 	 * Remove o-date from the `time` element i.e. remove event
 	 * listeners and drop references to the element.
+	 *
 	 * @returns {undefined}
 	 */
 	destroy() {
@@ -119,7 +122,8 @@ class ODate {
 
 	/**
 	 * Initialise the o-date component.
-	 * @param {HTMLElement|String} el - The root element or CSS selector to initialise
+	 *
+	 * @param {HTMLElement | string} el - The root element or CSS selector to initialise
 	 * @returns {Array<ODate> | ODate} - An o-date instance or array of o-date instances.
 	 */
 	static init (el) {
@@ -144,6 +148,7 @@ class ODate {
 
 	/**
 	 * Render the date to the "printer" element in the requested format.
+	 *
 	 * @param {HTMLElement} printer - The element to render the date in
 	 * @param {Date} date - The date to format
 	 * @returns {undefined}
@@ -165,9 +170,11 @@ class ODate {
 		} else if (format === 'time-ago-limit-24-hours') {
 			formattedDate = ftDateFormat.timeAgo(date, { limit: 24 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-abbreviated') {
+			// eslint-disable-next-line no-console
 			console.warn('The o-date format "time-ago-abbreviated" is deprecated and the time is no longer abbreviated. Consider using "time-ago-limit-4-hours" instead.');
 			formattedDate = ftDateFormat.timeAgo(date);
 		} else if (format === 'time-ago-abbreviated-limit-4-hours') {
+			// eslint-disable-next-line no-console
 			console.warn('The o-date format "time-ago-abbreviated-limit-4-hours" is deprecated and the time is no longer abbreviated. Use "time-ago-limit-4-hours" instead.');
 			formattedDate = ftDateFormat.timeAgo(date, { limit: 4 * ftDateFormat.inSeconds.hour });
 		} else if (format === 'time-ago-no-seconds') {
@@ -193,7 +200,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static toDate() {
 		ftDateFormatWarning('toDate');
@@ -202,7 +209,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static format() {
 		ftDateFormatWarning('format');
@@ -211,7 +218,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static getSecondsBetween() {
 		ftDateFormatWarning('getSecondsBetween');
@@ -220,7 +227,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static ftTime() {
 		ftDateFormatWarning('ftTime');
@@ -229,7 +236,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isNearFuture() {
 		ftDateFormatWarning('isNearFuture');
@@ -238,7 +245,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isFarFuture() {
 		ftDateFormatWarning('isFarFuture');
@@ -247,7 +254,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isToday() {
 		ftDateFormatWarning('isToday');
@@ -256,7 +263,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static isYesterday() {
 		ftDateFormatWarning('isYesterday');
@@ -265,7 +272,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static timeAgo() {
 		ftDateFormatWarning('timeAgo');
@@ -274,7 +281,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static asTodayOrYesterdayOrNothing() {
 		ftDateFormatWarning('asTodayOrYesterdayOrNothing');
@@ -283,7 +290,7 @@ class ODate {
 
 	/**
 	 * @deprecated Use [ft-date-format]{@link https://github.com/Financial-Times/ft-date-format} instead.
-	 * @return {String} - A formatted date or empty string.
+	 * @returns {string} - A formatted date or empty string.
 	 */
 	static timeAgoNoSeconds() {
 		ftDateFormatWarning('timeAgoNoSeconds');
