@@ -87,6 +87,7 @@ class Tooltip {
 	 * the DOM.
 	 *
 	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
+	 * @returns {Object.<string, any>} a dictionary of options
 	 */
 	static getOptions(tooltipEl) {
 		const dataset = tooltipEl.dataset;
@@ -114,6 +115,7 @@ class Tooltip {
 	 * @throws o-tooltip error: opts.target is not set
 	 * @throws o-tooltip error: opts.tooltipPosition is not one of "above", "below"
 	 * "left" or "right"
+	 * @returns {object} opts
 	 */
 	static checkOptions(opts) {
 
@@ -228,7 +230,7 @@ class Tooltip {
 	/**
 	 * Close the tooltip after set time
 	 *
-	 * @param seconds
+	 * @param {number} seconds  how long to wait until closing
 	 */
 	closeAfter(seconds) {
 		this.closeTimeout = setTimeout(() => {
@@ -240,7 +242,7 @@ class Tooltip {
 	/**
 	 * Show the tooltip after set time
 	 *
-	 * @param seconds
+	 * @param {number} seconds how long to wait until showing
 	 */
 	showAfter(seconds) {
 		this.showTimeout = setTimeout(() => {
@@ -269,11 +271,12 @@ class Tooltip {
 	/**
 	 * Close the tooltip. (Visually hide it and remove event listeners)
 	 *
-	 * @param event
-	 * @param target
-	 * @param fireCloseEvent
+	 * @param {any} _event ignored
+	 * @param {any} _target ignored
+	 * @param {boolean} fireCloseEvent should we fire the oTooltip.close event?
+	 * @returns {boolean} false
 	 */
-	close(event, target, fireCloseEvent = true) {
+	close(_event, _target, fireCloseEvent = true) {
 
 		if (fireCloseEvent) {
 			this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.close'));
@@ -333,9 +336,10 @@ class Tooltip {
 
 	/**
 	 * Calculates the best place to position the tooltip based on space around the
-	 * target and a preference set by the user.
+	 * target and a preference set by the app developer.
 	 *
 	 * @throws {Error} if Tooltip can't be drawn in the client window
+	 * @returns {void} this function is recursive!
 	 */
 	drawTooltip() {
 		// render the tooltip so we know how big it is
@@ -424,7 +428,7 @@ class Tooltip {
 	}
 
 	/**
-	 * @param position
+	 * @param {"above"|"below"} position above or below? where should the tooltip go?
 	 * @returns {boolean} If the set position is out of bounds.
 	 */
 	_evaulateTooltip(position) {
@@ -451,8 +455,8 @@ class Tooltip {
 	}
 
 	/**
-	 * @param position
-	 * @param alignment
+	 * @param {"above"|"below"} position where the tooltip should go (above or below)
+	 * @param {"left"|"right"|"middle"|"top"|"bottom"} alignment how the tooltip should be aligned
 	 * @returns {object} sets this.tooltipRect to `left`, `right`, `top` and `bottom`
 	 * representing the bounding box of the tooltip (including the arrow)
 	 */
@@ -551,9 +555,10 @@ class Tooltip {
 	}
 
 	/**
-	 * Checkes is a hypothetical tooltip is in bounds on all sides.
+	 * Checks if a hypothetical tooltip is in bounds on all sides.
 	 *
 	 * @param {object} tooltipRect - An object which represents a hypothetical tooltip position.
+	 * @returns {boolean} is the tooltip in bounds?
 	 */
 	_tooltipIsOutOfBounds(tooltipRect) {
 		const topOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.top, 'y', this.opts);
