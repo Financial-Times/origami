@@ -323,7 +323,7 @@ class Tooltip {
 	/**
 	 * Respond to resize events. Redraw the tooltip in case the target has moved.
 	 *
-	 * @todo: There are many optimisations to make here- we're redrawing even if
+	 * @todo There are many optimisations to make here- we're redrawing even if
 	 * the target hasn't moved.
 	 */
 	resizeListener() {
@@ -414,14 +414,14 @@ class Tooltip {
 	}
 
 	/**
-	 * @returns: the offset width of the tooltip element
+	 * @returns {number} the offset width of the tooltip element
 	 */
 	width() {
 		return this.tooltipEl.offsetWidth;
 	}
 
 	/**
-	 * @returns {Integer}: the offset height of the tooltip element
+	 * @returns {number} the offset height of the tooltip element
 	 */
 	height() {
 		return this.tooltipEl.offsetHeight;
