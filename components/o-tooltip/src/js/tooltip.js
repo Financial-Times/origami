@@ -10,10 +10,11 @@ class Tooltip {
 
 	/**
 	 * Represents a tooltip.
-	 * @constructor
+	 *
+	 * @class
 	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
-	 * @param {Object} opts - An options object for configuring the tooltip (Optional)
-	*/
+	 * @param {object} opts - An options object for configuring the tooltip (Optional)
+	 */
 	constructor(tooltipEl, opts) {
 		if (!Tooltip._tooltips) {
 			Tooltip._tooltips = new Map();
@@ -84,8 +85,10 @@ class Tooltip {
 	 * Get the data attributes from the tooltipEl. If the tooltip is being set up
 	 * declaratively, this method is used to extract the data attributes from
 	 * the DOM.
+	 *
 	 * @param {HTMLElement} tooltipEl - The tooltip element in the DOM (Required)
-	*/
+	 * @returns {Object.<string, any>} a dictionary of options
+	 */
 	static getOptions(tooltipEl) {
 		const dataset = tooltipEl.dataset;
 		return Object.keys(dataset).reduce((col, key) => { // Phantom doesn't like Object.entries :sob:
@@ -107,11 +110,13 @@ class Tooltip {
 	/**
 	 * Check the options passed in are valid, and that the required option
 	 * (target) is present
-	 * @param {Object} opts - An Object with configuration options for the tooltip
+	 *
+	 * @param {object} opts - An Object with configuration options for the tooltip
 	 * @throws o-tooltip error: opts.target is not set
 	 * @throws o-tooltip error: opts.tooltipPosition is not one of "above", "below"
 	 * "left" or "right"
-	*/
+	 * @returns {object} opts
+	 */
 	static checkOptions(opts) {
 
 		if (!opts.target) {
@@ -140,7 +145,7 @@ class Tooltip {
 
 	/**
 	 * Render the tooltip. Adds markup and attributes to this.tooltipEl in the DOM
-	*/
+	 */
 	render() {
 		// Make sure the tooltip is attached to the DOM
 		if (this.opts.appendToBody) {
@@ -178,7 +183,7 @@ class Tooltip {
 	 * Show the tooltip. Adds event handlers for clicks, touches, keypresses and
 	 * viewport resizes. Uses FTDomDelegate to implement the event delegate
 	 * pattern. Calls DrawTooltip.
-	*/
+	 */
 	show() {
 		// Delegate pattern
 		this.delegates.doc.root(document.body);
@@ -224,7 +229,8 @@ class Tooltip {
 
 	/**
 	 * Close the tooltip after set time
-	 * @param seconds
+	 *
+	 * @param {number} seconds  how long to wait until closing
 	 */
 	closeAfter(seconds) {
 		this.closeTimeout = setTimeout(() => {
@@ -235,7 +241,8 @@ class Tooltip {
 
 	/**
 	 * Show the tooltip after set time
-	 * @param seconds
+	 *
+	 * @param {number} seconds how long to wait until showing
 	 */
 	showAfter(seconds) {
 		this.showTimeout = setTimeout(() => {
@@ -245,7 +252,7 @@ class Tooltip {
 
 	/**
 	 * Destroy the tooltip.
-	*/
+	 */
 	destroy() {
 		if (this.visible === true) {
 			this.close();
@@ -263,8 +270,13 @@ class Tooltip {
 
 	/**
 	 * Close the tooltip. (Visually hide it and remove event listeners)
-	*/
-	close(event, target, fireCloseEvent = true) {
+	 *
+	 * @param {any} _event ignored
+	 * @param {any} _target ignored
+	 * @param {boolean} fireCloseEvent should we fire the oTooltip.close event?
+	 * @returns {boolean} false
+	 */
+	close(_event, _target, fireCloseEvent = true) {
 
 		if (fireCloseEvent) {
 			this.tooltipEl.dispatchEvent(new CustomEvent('oTooltip.close'));
@@ -298,7 +310,7 @@ class Tooltip {
 
 	/**
 	 * @param {Event} ev - calls close on the tooltip if the key is Esc
-	*/
+	 */
 	closeOnKeyUp(ev) {
 
 		/* keyCode 27 is the escape key */
@@ -310,9 +322,10 @@ class Tooltip {
 
 	/**
 	 * Respond to resize events. Redraw the tooltip in case the target has moved.
-	 * @todo: There are many optimisations to make here- we're redrawing even if
+	 *
+	 * @todo There are many optimisations to make here- we're redrawing even if
 	 * the target hasn't moved.
-	*/
+	 */
 	resizeListener() {
 		if (this.visible) {
 			window.requestAnimationFrame(() => {
@@ -323,9 +336,11 @@ class Tooltip {
 
 	/**
 	 * Calculates the best place to position the tooltip based on space around the
-	 * target and a preference set by the user.
+	 * target and a preference set by the app developer.
+	 *
 	 * @throws {Error} if Tooltip can't be drawn in the client window
-	*/
+	 * @returns {void} this function is recursive!
+	 */
 	drawTooltip() {
 		// render the tooltip so we know how big it is
 		this.tooltipEl.style.display = 'block';
@@ -394,27 +409,29 @@ class Tooltip {
 
 		// Warn all positions were tried and the tooltip is sill out of bounds.
 		if (count >= 5) {
+			// eslint-disable-next-line no-console
 			console.warn("There is not enough space in the client window to draw the tooltip.");
 		}
 	}
 
 	/**
-	 * @returns: the offset width of the tooltip element
-	*/
+	 * @returns {number} the offset width of the tooltip element
+	 */
 	width() {
 		return this.tooltipEl.offsetWidth;
 	}
 
 	/**
-	 * @returns {Integer}: the offset height of the tooltip element
-	*/
+	 * @returns {number} the offset height of the tooltip element
+	 */
 	height() {
 		return this.tooltipEl.offsetHeight;
 	}
 
 	/**
-	 * @returns {Boolean} If the set position is out of bounds.
-	*/
+	 * @param {"above"|"below"} position above or below? where should the tooltip go?
+	 * @returns {boolean} If the set position is out of bounds.
+	 */
 	_evaulateTooltip(position) {
 		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
 		const alignments = axis === 'y' ? ['middle', 'right', 'left'] : ['middle', 'top', 'bottom'];
@@ -439,9 +456,11 @@ class Tooltip {
 	}
 
 	/**
-	 * @returns {Object} sets this.tooltipRect to `left`, `right`, `top` and `bottom`
+	 * @param {"above"|"below"} position where the tooltip should go (above or below)
+	 * @param {"left"|"right"|"middle"|"top"|"bottom"} alignment how the tooltip should be aligned
+	 * @returns {object} sets this.tooltipRect to `left`, `right`, `top` and `bottom`
 	 * representing the bounding box of the tooltip (including the arrow)
-	*/
+	 */
 	_calculateTooltipRectangle(position, alignment) {
 		const rect = {};
 		const axis = position === 'above' || position === 'below' ? 'y' : 'x';
@@ -494,6 +513,7 @@ class Tooltip {
 	}
 
 	calculateTooltipRect(position) {
+		// eslint-disable-next-line no-console
 		console.warn('`calculateTooltipRect` is deprecated.');
 		return this._calculateTooltipRectangle(position, 'middle');
 	}
@@ -537,9 +557,11 @@ class Tooltip {
 	}
 
 	/**
-	 * Checkes is a hypothetical tooltip is in bounds on all sides.
-	 * @param {Object} tooltipRect - An object which represents a hypothetical tooltip position.
-	*/
+	 * Checks if a hypothetical tooltip is in bounds on all sides.
+	 *
+	 * @param {object} tooltipRect - An object which represents a hypothetical tooltip position.
+	 * @returns {boolean} is the tooltip in bounds?
+	 */
 	_tooltipIsOutOfBounds(tooltipRect) {
 		const topOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.top, 'y', this.opts);
 		const bottomOutofBounds = Tooltip._pointIsOutOfBounds(tooltipRect.bottom, 'y', this.opts);

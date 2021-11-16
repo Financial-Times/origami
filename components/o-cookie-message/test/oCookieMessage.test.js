@@ -126,8 +126,18 @@ describe('Cookie Message', () => {
 			let hasClosed;
 
 			/**
-			 * @param {"pageshow"|"pagehide"} type
-			 * @param {PageTransitionEventInit} [props]
+			 * @typedef PageTransitionEventInit
+			 * @type {object}
+			 * @property {boolean} bubbles - can it bubble?
+			 * @property {boolean} cancelable - can it be canceled?
+			 * @property {boolean} composed - was it composed?
+			 * @property {boolean} persisted - is the document loading from a cache?
+			 */
+
+			/**
+			 * @param {"pageshow"|"pagehide"} type - event type
+			 * @param {PageTransitionEventInit} [props] - event options
+			 * @returns {void}
 			 */
 			function firePageTransitionEvent(type, props) {
 				const evt = new PageTransitionEvent(type, props);

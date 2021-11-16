@@ -1,4 +1,4 @@
-import SyntaxHighlight from './src/js/syntax-highlight';
+import SyntaxHighlight from './src/js/syntax-highlight.js';
 
 const constructAll = function() {
 	SyntaxHighlight.init();

@@ -20,7 +20,7 @@ describe('Ads', () => {
 			videoEl,
 			opts: {},
 			targeting: {},
-			addCaptions: function() {}
+			addCaptions: Function.prototype
 		};
 		ads = new Ads(video);
 	});
@@ -76,7 +76,7 @@ describe('Ads', () => {
 
 			ads.video.videoEl = {
 				played: 0,
-				addEventListener: () => {}
+				addEventListener: Function.prototype
 			};
 
 			ads.adsManagerLoadedHandler(adsManagerLoadedEvent);

@@ -4,7 +4,7 @@ import CellFormatter from "./CellFormatter.js";
  * Construct Intl.Collator if supported.
  *
  * @access private
- * @returns {Intl.Collator | Undefined}
+ * @returns {Intl.Collator | undefined} The Intl.Collator object enables language-sensitive string comparison.
  */
 function getIntlCollator() {
 	if (typeof Intl !== 'undefined' && {}.hasOwnProperty.call(Intl, 'Collator')) {
@@ -16,10 +16,10 @@ function getIntlCollator() {
  * An ascending [compare function]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters}.
  *
  * @access private
- * @param {String|Number} a
- * @param {String|Number} b
- * @param {Intl.Collator} intlCollator
- * @returns {Number}
+ * @param {string | number} a column a
+ * @param {string | number} b column b
+ * @param {Intl.Collator} intlCollator The Intl.Collator object enables language-sensitive string comparison.
+ * @returns {number} comp
  */
 function ascendingSort(a, b, intlCollator) {
 	if ((typeof a === 'string' || a instanceof String) && (typeof b === 'string' || b instanceof String)) {
@@ -37,13 +37,13 @@ function ascendingSort(a, b, intlCollator) {
  * A descending [compare function]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters}.
  *
  * @access private
- * @param {String|Number} a
- * @param {String|Number} b
- * @param {Intl.Collator} intlCollator
- * @returns {Number}
+ * @param {string | number} a column a
+ * @param {string | number} b column b
+ * @param {Intl.Collator} intlCollator The Intl.Collator object enables language-sensitive string comparison.
+ * @returns {number} comp
  */
-function descendingSort(...args) {
-	return 0 - ascendingSort.apply(this, args);
+function descendingSort(a, b, intlCollator) {
+	return 0 - ascendingSort.apply(this, [a, b, intlCollator]);
 }
 
 /**
@@ -59,16 +59,17 @@ class TableSorter {
 	 * Sort the given table.
 	 *
 	 * @access public
-	 * @param {BaseTable} table - The table instance to sort.
-	 * @param {Number} columnIndex - The index of the table column to sort.
-	 * @param {String} sortOrder - How to sort the column, "ascending" or "descending"
-	 * @param {Number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
-	 * @returns {undefined}
+	 * @param {import("../Tables/BaseTable")} table - The table instance to sort.
+	 * @param {number} columnIndex - The index of the table column to sort.
+	 * @param {string} sortOrder - How to sort the column, "ascending" or "descending"
+	 * @param {number} batch [100] - Deprecated. No longer used. How many rows to render at once when sorting.
+	 * @returns {void}
 	 */
 	sortRowsByColumn(table, columnIndex, sortOrder, batch) {
 		const tableHeaderElement = table.getTableHeader(columnIndex);
 
 		if (batch) {
+			// eslint-disable-next-line no-console
 			console.warn('o-table: The "batch" argument is deprecated and no longer used.');
 		}
 
@@ -112,7 +113,7 @@ class TableSorter {
 	/**
 	 * Set a custom cell formatter for a given data type.
 	 *
-	 * @param {String} type - The data type to apply the filter function to.
+	 * @param {string} type - The data type to apply the filter function to.
 	 * @param {formatFunction} formatFunction - Callback to format a table cell to a sort value.
 	 * @see {@link CellFormatter~setFormatter} for `formatFunction` details.
 	 * @access public

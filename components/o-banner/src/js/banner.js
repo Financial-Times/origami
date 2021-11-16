@@ -21,9 +21,10 @@ class Banner {
 
 	/**
 	 * Class constructor.
-	 * @param {HTMLElement} [bannerElement] - The banner element in the DOM
-	 * @param {Object} [options={}] - An options object for configuring the banner
-	 * @property {HTMLElement} bannerElement
+	 *
+	 * @param {HTMLElement=} [bannerElement] - The banner element in the DOM
+	 * @param {object} [options={}] - An options object for configuring the banner
+	 * @property {HTMLElement} bannerElement - The banner element we were given
 	 */
 	constructor (bannerElement, options) {
 		this.bannerElement = bannerElement;
@@ -93,6 +94,8 @@ class Banner {
 
 	/**
 	 * Render the banner.
+	 *
+	 * @returns {void}
 	 */
 	render () {
 		if (!(this.bannerElement instanceof HTMLElement)) {
@@ -124,6 +127,8 @@ class Banner {
 
 	/**
 	 * Open the banner.
+	 *
+	 * @returns {void}
 	 */
 	open () {
 		this.bannerElement.classList.remove(classNames.closed);
@@ -132,6 +137,8 @@ class Banner {
 
 	/**
 	 * Close the banner.
+	 *
+	 * @returns {void}
 	 */
 	close () {
 		this.bannerElement.classList.add(classNames.closed);
@@ -140,6 +147,7 @@ class Banner {
 
 	/**
 	 * Build a full banner element. This is used when no banner or a partial banner exists in the DOM.
+	 *
 	 * @param {HTMLElement} [bannerElement] - The banner element to build around
 	 * @returns {HTMLElement} Returns the new banner element
 	 */
@@ -211,6 +219,7 @@ class Banner {
 
 	/**
 	 * Build a close button element.
+	 *
 	 * @returns {HTMLElement} Returns the new close button element
 	 */
 	buildCloseButtonElement () {
@@ -231,7 +240,9 @@ class Banner {
 	/**
 	 * Get the data attributes from the bannerElement. If the banner is being set up
 	 * declaratively, this method is used to extract the data attributes from the DOM.
+	 *
 	 * @param {HTMLElement} bannerElement - The banner element in the DOM
+	 * @returns {Object.<string, any>} - The options
 	 */
 	static getOptionsFromDom (bannerElement) {
 		if (!(bannerElement instanceof HTMLElement)) {
@@ -261,8 +272,10 @@ class Banner {
 
 	/**
 	 * Initialise banner components.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise banners in, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring the banners
+	 *
+	 * @param {(HTMLElement | string)} rootElement - The root element to intialise banners in, or a CSS selector for the root element
+	 * @param {object} [options={}] - An options object for configuring the banners
+	 * @returns {Banner | Banner[]} - The newly instantiated Banner (or Banners, if rootElement was not a banner)
 	 */
 	static init (rootElement, options) {
 		if (!rootElement) {
