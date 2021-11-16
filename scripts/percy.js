@@ -87,7 +87,7 @@ async function generateDemosFor(brand, demosConfig) {
 	)
 	const demoNames = brandSupportedDemos.map(d => d.name).join(",")
 
-	await $`"${npxPath}" npm exec -w ${workspace} obt demo --brand=${brand} --demo-filter="${demoNames}"`
+	await $`"${npxPath}" npm exec -w ${workspace} obt demo -- --brand=${brand} --demo-filter="${demoNames}"`
 	if (fs.existsSync(`${workspace}/demos/local`)) {
 		await io.mkdirP(outputDir)
 		await io.mv(`${workspace}/demos/local`, outputDir)
