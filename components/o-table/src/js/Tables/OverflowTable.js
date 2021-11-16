@@ -69,7 +69,7 @@ class OverflowTable extends BaseTable {
 	 * Check if the table supports the expand/contract feature.
 	 *
 	 * @access public
-	 * @returns {Bool}
+	 * @returns {boolean} can the table expand and contract?
 	 */
 	canExpand() {
 		return typeof this._opts.expanded === 'boolean' && this._minimumRowCount < this.tableRows.length - this._filteredTableRows.length;
@@ -481,7 +481,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * Which rows are hidden, either by a filter or by the expander.
 	 *
-	 * @returns {Array[Node]}
+	 * @returns {Node[]} the hidden trs
 	 */
 	get _rowsToHide() {
 		return [...this._filteredTableRows, ...this._rowsHiddenByExpander];
@@ -490,7 +490,7 @@ class OverflowTable extends BaseTable {
 	/**
 	 * The rows which will be hidden if the table is collapsed.
 	 *
-	 * @returns {Array[Node]}
+	 * @returns {Node[]} the rows that will disappear when collapsing
 	 */
 	get _rowsHiddenByExpander() {
 		const visibleRowCount = Math.min(this.tableRows.length, this._minimumRowCount);

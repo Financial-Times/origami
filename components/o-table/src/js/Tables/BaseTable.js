@@ -388,7 +388,7 @@ class BaseTable {
 	/**
 	 * Which rows are hidden, e.g. by a filter.
 	 *
-	 * @returns {Array[Node]}
+	 * @returns {Array<Node>} the rows that should be hidden
 	 */
 	get _rowsToHide() {
 		return this._filteredTableRows;
