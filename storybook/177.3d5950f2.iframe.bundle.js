@@ -1,1 +1,0 @@
-(self.webpackChunkorigami_storybook=self.webpackChunkorigami_storybook||[]).push([[177],{"?6eb0":()=>{}}]);
