@@ -12,6 +12,7 @@ function broadcast(eventType, data, target) {
 	target = target || document.body;
 
 	if (debug) {
+		// eslint-disable-next-line no-console
 		console.log('o-viewport', eventType, data);
 	}
 
